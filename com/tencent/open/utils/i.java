@@ -11,12 +11,14 @@ import java.util.concurrent.Executor;
 import java.util.concurrent.LinkedBlockingQueue;
 import java.util.concurrent.ThreadPoolExecutor;
 import java.util.concurrent.TimeUnit;
-/* loaded from: classes24.dex */
+/* loaded from: classes6.dex */
 public final class i {
     private static Handler c;
     private static HandlerThread d;
     private static Object b = new Object();
-    public static final Executor a = c();
+
+    /* renamed from: a  reason: collision with root package name */
+    public static final Executor f4618a = c();
 
     private static Executor c() {
         Executor threadPoolExecutor;
@@ -58,18 +60,20 @@ public final class i {
         return new a();
     }
 
-    /* loaded from: classes24.dex */
+    /* loaded from: classes6.dex */
     private static class a implements Executor {
-        final Queue<Runnable> a;
+
+        /* renamed from: a  reason: collision with root package name */
+        final Queue<Runnable> f4619a;
         Runnable b;
 
         private a() {
-            this.a = new LinkedList();
+            this.f4619a = new LinkedList();
         }
 
         @Override // java.util.concurrent.Executor
         public synchronized void execute(final Runnable runnable) {
-            this.a.offer(new Runnable() { // from class: com.tencent.open.utils.i.a.1
+            this.f4619a.offer(new Runnable() { // from class: com.tencent.open.utils.i.a.1
                 @Override // java.lang.Runnable
                 public void run() {
                     try {
@@ -85,10 +89,10 @@ public final class i {
         }
 
         protected synchronized void a() {
-            Runnable poll = this.a.poll();
+            Runnable poll = this.f4619a.poll();
             this.b = poll;
             if (poll != null) {
-                i.a.execute(this.b);
+                i.f4618a.execute(this.b);
             }
         }
     }

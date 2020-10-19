@@ -3,7 +3,7 @@ package com.baidu.ar.libloader;
 import android.content.Context;
 import com.baidu.ar.ARType;
 import com.baidu.ar.libloader.a;
-/* loaded from: classes10.dex */
+/* loaded from: classes14.dex */
 public final class b {
     private static volatile a ss;
     private static Object sLock = new Object();
@@ -17,11 +17,11 @@ public final class b {
         fg().a(context, bVar);
     }
 
-    public static void a(ARType aRType, String str, String str2, a.InterfaceC0084a interfaceC0084a) {
+    public static void a(ARType aRType, String str, String str2, a.InterfaceC0085a interfaceC0085a) {
         if (su) {
             return;
         }
-        fg().a(aRType, str, str2, interfaceC0084a);
+        fg().a(aRType, str, str2, interfaceC0085a);
     }
 
     public static void a(a aVar) {

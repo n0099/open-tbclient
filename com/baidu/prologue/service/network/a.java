@@ -12,7 +12,7 @@ import java.util.concurrent.LinkedBlockingQueue;
 import java.util.concurrent.ThreadFactory;
 import java.util.concurrent.ThreadPoolExecutor;
 import java.util.concurrent.TimeUnit;
-/* loaded from: classes10.dex */
+/* loaded from: classes19.dex */
 public final class a {
     private static final Executor THREAD_POOL_EXECUTOR;
     private static final boolean DEBUG = com.baidu.prologue.a.a.a.GLOBAL_DEBUG;
@@ -39,17 +39,17 @@ public final class a {
 
     /* JADX INFO: Access modifiers changed from: private */
     /* renamed from: com.baidu.prologue.service.network.a$a  reason: collision with other inner class name */
-    /* loaded from: classes10.dex */
-    public static class C0282a {
+    /* loaded from: classes19.dex */
+    public static class C0297a {
         String name;
         Runnable runnable;
 
-        private C0282a() {
+        private C0297a() {
         }
     }
 
-    /* loaded from: classes10.dex */
-    private static class b extends AsyncTask<C0282a, Object, Object> {
+    /* loaded from: classes19.dex */
+    private static class b extends AsyncTask<C0297a, Object, Object> {
         private b() {
         }
 
@@ -57,13 +57,13 @@ public final class a {
         /* JADX INFO: Access modifiers changed from: protected */
         @Override // android.os.AsyncTask
         /* renamed from: a */
-        public Object doInBackground(C0282a... c0282aArr) {
+        public Object doInBackground(C0297a... c0297aArr) {
             String str;
             Process.setThreadPriority(10);
             try {
-                if (c0282aArr[0] != null && c0282aArr[0].runnable != null) {
-                    if (!TextUtils.isEmpty(c0282aArr[0].name)) {
-                        str = c0282aArr[0].name;
+                if (c0297aArr[0] != null && c0297aArr[0].runnable != null) {
+                    if (!TextUtils.isEmpty(c0297aArr[0].name)) {
+                        str = c0297aArr[0].name;
                     } else {
                         str = "noname";
                     }
@@ -71,7 +71,7 @@ public final class a {
                     if (a.DEBUG) {
                         Log.d("AsyncTaskAssistant", "start to run task " + str);
                     }
-                    c0282aArr[0].runnable.run();
+                    c0297aArr[0].runnable.run();
                     return null;
                 }
                 return null;
@@ -83,9 +83,9 @@ public final class a {
     }
 
     public static void execute(Runnable runnable, String str) {
-        C0282a c0282a = new C0282a();
-        c0282a.runnable = runnable;
-        c0282a.name = str;
-        new b().execute(c0282a);
+        C0297a c0297a = new C0297a();
+        c0297a.runnable = runnable;
+        c0297a.name = str;
+        new b().execute(c0297a);
     }
 }

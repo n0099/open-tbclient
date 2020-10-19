@@ -11,8 +11,8 @@ import com.baidu.live.sdk.a;
 import com.baidu.live.tbadk.core.view.HeadImageView;
 /* loaded from: classes4.dex */
 public class AlaLiveMultiBeautyFilterItemView extends LinearLayout {
-    private HeadImageView fFb;
-    private TextView fFc;
+    private HeadImageView fRk;
+    private TextView fRl;
 
     public AlaLiveMultiBeautyFilterItemView(Context context) {
         super(context);
@@ -21,28 +21,28 @@ public class AlaLiveMultiBeautyFilterItemView extends LinearLayout {
 
     private void init(Context context) {
         View inflate = LayoutInflater.from(context).inflate(a.h.ala_live_beauty_filter_item_view, (ViewGroup) this, true);
-        this.fFb = (HeadImageView) inflate.findViewById(a.g.item_icon);
-        this.fFb.setIsRound(true);
-        this.fFb.setAutoChangeStyle(false);
-        this.fFb.setScaleType(ImageView.ScaleType.CENTER_CROP);
-        this.fFc = (TextView) inflate.findViewById(a.g.item_text);
+        this.fRk = (HeadImageView) inflate.findViewById(a.g.item_icon);
+        this.fRk.setIsRound(true);
+        this.fRk.setAutoChangeStyle(false);
+        this.fRk.setScaleType(ImageView.ScaleType.CENTER_CROP);
+        this.fRl = (TextView) inflate.findViewById(a.g.item_text);
     }
 
     public void setUnselectedBackground() {
-        this.fFb.setBackgroundColor(getResources().getColor(a.d.sdk_black_alpha0));
-        this.fFc.setTextColor(getResources().getColor(a.d.sdk_cp_cont_d));
+        this.fRk.setBackgroundColor(getResources().getColor(a.d.sdk_black_alpha0));
+        this.fRl.setTextColor(getResources().getColor(a.d.sdk_cp_cont_d));
     }
 
     public void setSelectedBackground() {
-        this.fFc.setTextColor(getResources().getColor(a.d.sdk_cp_other_b));
-        this.fFb.setBackgroundDrawable(getResources().getDrawable(a.f.ala_live_effect_item_selected));
+        this.fRl.setTextColor(getResources().getColor(a.d.sdk_cp_other_b));
+        this.fRk.setBackgroundDrawable(getResources().getDrawable(a.f.ala_live_effect_item_selected));
     }
 
     public void setItemIcon(int i) {
-        this.fFb.setImageDrawable(getResources().getDrawable(i));
+        this.fRk.setImageDrawable(getResources().getDrawable(i));
     }
 
     public void setItemText(String str) {
-        this.fFc.setText(str);
+        this.fRl.setText(str);
     }
 }

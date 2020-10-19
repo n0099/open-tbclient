@@ -13,7 +13,7 @@ import java.io.IOException;
 import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.UUID;
-/* loaded from: classes3.dex */
+/* loaded from: classes7.dex */
 public class c extends Thread {
     private static volatile c f;
     private volatile String b;
@@ -24,7 +24,9 @@ public class c extends Thread {
     private final e i;
     private o h = null;
     private IXAdLogger j = XAdSDKFoundationFacade.getInstance().getAdLogger();
-    o.a a = new d(this);
+
+    /* renamed from: a  reason: collision with root package name */
+    o.a f2332a = new d(this);
 
     public static c a(Context context, e eVar, String str, Handler handler) {
         if (f == null) {
@@ -95,18 +97,18 @@ public class c extends Thread {
         double d;
         try {
             try {
-                this.h = new o(this.g, new URL(this.b), this.i, this.a);
+                this.h = new o(this.g, new URL(this.b), this.i, this.f2332a);
             } catch (MalformedURLException e) {
-                this.h = new o(this.g, this.b, this.i, this.a);
+                this.h = new o(this.g, this.b, this.i, this.f2332a);
             }
             if (g.c != null) {
-                d = g.c.a;
+                d = g.c.f2330a;
             } else if (g.b == null) {
                 d = 0.0d;
-            } else if (g.b.a > 0.0d) {
-                d = g.b.a;
+            } else if (g.b.f2330a > 0.0d) {
+                d = g.b.f2330a;
             } else {
-                d = g.b.a;
+                d = g.b.f2330a;
             }
             this.j.d("XAdApkDownloadThread", "isNewApkAvailable: local apk version is: " + d + ", remote apk version: " + this.i.b());
             if (d > 0.0d) {

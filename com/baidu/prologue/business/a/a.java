@@ -17,27 +17,27 @@ import com.baidu.prologue.b.c;
 import com.baidu.prologue.business.c.e;
 import com.baidu.prologue.business.data.SplashStyleRecorder;
 import java.io.File;
-/* loaded from: classes10.dex */
+/* loaded from: classes19.dex */
 public class a {
-    private static final boolean DEBUG = com.baidu.prologue.a.b.a.bMm.get().VD();
-    private RelativeLayout bMY;
-    private ImageView bMZ;
-    private com.baidu.prologue.b.a bNa;
-    private FrameLayout bNb;
-    private String bNc;
-    private InterfaceC0278a bNd;
-    private boolean bNe = false;
-    private boolean bNf = false;
-    private View bNg;
-    private b bNh;
-    private boolean bNi;
+    private static final boolean DEBUG = com.baidu.prologue.a.b.a.bSV.get().XA();
+    private RelativeLayout bTH;
+    private ImageView bTI;
+    private com.baidu.prologue.b.a bTJ;
+    private FrameLayout bTK;
+    private String bTL;
+    private InterfaceC0293a bTM;
+    private boolean bTN = false;
+    private boolean bTO = false;
+    private View bTP;
+    private b bTQ;
+    private boolean bTR;
     private Activity mActivity;
     private View mRootView;
 
     /* renamed from: com.baidu.prologue.business.a.a$a  reason: collision with other inner class name */
-    /* loaded from: classes10.dex */
-    public interface InterfaceC0278a {
-        void iw(String str);
+    /* loaded from: classes19.dex */
+    public interface InterfaceC0293a {
+        void iY(String str);
     }
 
     public a(Activity activity) {
@@ -46,96 +46,96 @@ public class a {
         initPlayer();
     }
 
-    public void a(File file, String str, b bVar, String str2, InterfaceC0278a interfaceC0278a, final a.InterfaceC0276a interfaceC0276a, boolean z) {
+    public void a(File file, String str, b bVar, String str2, InterfaceC0293a interfaceC0293a, final a.InterfaceC0291a interfaceC0291a, boolean z) {
         if (file == null || !file.exists() || !file.isFile()) {
-            this.bNe = false;
-            interfaceC0276a.gj(4);
+            this.bTN = false;
+            interfaceC0291a.gD(4);
             return;
         }
         if (DEBUG) {
             Log.d("SplashVideoDecoration", "begin setupPlayer!");
         }
-        this.bNa.a(bVar);
-        this.bNa.a(new a.InterfaceC0276a() { // from class: com.baidu.prologue.business.a.a.1
-            @Override // com.baidu.prologue.b.a.InterfaceC0276a
-            public void gj(int i) {
+        this.bTJ.a(bVar);
+        this.bTJ.a(new a.InterfaceC0291a() { // from class: com.baidu.prologue.business.a.a.1
+            @Override // com.baidu.prologue.b.a.InterfaceC0291a
+            public void gD(int i) {
                 if (a.DEBUG) {
                     throw new IllegalStateException("MediaPlayer set video file Error!");
                 }
-                interfaceC0276a.gj(i);
+                interfaceC0291a.gD(i);
             }
         });
-        this.bNa.a(c.b(file, str));
-        this.bNh = bVar;
-        this.bNd = interfaceC0278a;
-        this.bNi = z;
-        this.bNc = str2;
+        this.bTJ.a(c.b(file, str));
+        this.bTQ = bVar;
+        this.bTM = interfaceC0293a;
+        this.bTR = z;
+        this.bTL = str2;
         if (TextUtils.equals(str2, "1")) {
-            D("1", false);
-        } else if (TextUtils.equals(this.bNc, "0")) {
-            D("0", false);
+            G("1", false);
+        } else if (TextUtils.equals(this.bTL, "0")) {
+            G("0", false);
         } else {
-            D("-1", false);
+            G("-1", false);
         }
-        this.bNf = false;
-        this.bNe = true;
+        this.bTO = false;
+        this.bTN = true;
     }
 
     public void prepare() {
-        if (this.bNe) {
-            if (this.bNf) {
-                this.bNh.onPrepared();
-            } else if (this.bNa != null) {
-                this.bNa.prepareAsync();
+        if (this.bTN) {
+            if (this.bTO) {
+                this.bTQ.onPrepared();
+            } else if (this.bTJ != null) {
+                this.bTJ.prepareAsync();
             }
         }
     }
 
     public void pause() {
-        if (this.bNa != null) {
-            this.bNa.pause();
+        if (this.bTJ != null) {
+            this.bTJ.pause();
         }
     }
 
     public void play() {
-        if (this.bNa != null) {
-            this.bNa.start();
+        if (this.bTJ != null) {
+            this.bTJ.start();
         }
     }
 
-    public boolean Wm() {
-        return this.bNa != null && this.bNa.Wm();
+    public boolean Yj() {
+        return this.bTJ != null && this.bTJ.Yj();
     }
 
-    public View Wn() {
-        return this.bNg;
+    public View Yk() {
+        return this.bTP;
     }
 
     @SuppressLint({"InflateParams"})
     private void initView() {
         this.mRootView = LayoutInflater.from(this.mActivity).inflate(b.c.splash_ad_video_decoration, (ViewGroup) null);
-        this.bNg = this.mRootView.findViewById(b.C0277b.video_splash_clickable);
-        this.bNb = (FrameLayout) this.mRootView.findViewById(b.C0277b.video_splash_view_fl);
-        this.bMY = (RelativeLayout) this.mRootView.findViewById(b.C0277b.video_splash_voice_click);
-        e.a(this.bMY, SplashStyleRecorder.SplashElements.VOICE, this.bNi);
-        this.bMZ = (ImageView) this.mRootView.findViewById(b.C0277b.iv_video_splash_voice);
-        this.bMY.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.prologue.business.a.a.2
+        this.bTP = this.mRootView.findViewById(b.C0292b.video_splash_clickable);
+        this.bTK = (FrameLayout) this.mRootView.findViewById(b.C0292b.video_splash_view_fl);
+        this.bTH = (RelativeLayout) this.mRootView.findViewById(b.C0292b.video_splash_voice_click);
+        e.a(this.bTH, SplashStyleRecorder.SplashElements.VOICE, this.bTR);
+        this.bTI = (ImageView) this.mRootView.findViewById(b.C0292b.iv_video_splash_voice);
+        this.bTH.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.prologue.business.a.a.2
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                a.this.D(TextUtils.equals(a.this.bNc, "0") ? "1" : "0", true);
+                a.this.G(TextUtils.equals(a.this.bTL, "0") ? "1" : "0", true);
             }
         });
     }
 
     private void initPlayer() {
-        this.bNa = new com.baidu.prologue.b.a(this.mActivity);
-        this.bNa.x(this.bNb);
+        this.bTJ = new com.baidu.prologue.b.a(this.mActivity);
+        this.bTJ.z(this.bTK);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void D(String str, boolean z) {
-        if (this.bMY != null && this.bMZ != null && this.bNa != null) {
-            this.bNc = str;
+    public void G(String str, boolean z) {
+        if (this.bTH != null && this.bTI != null && this.bTJ != null) {
+            this.bTL = str;
             char c = 65535;
             switch (str.hashCode()) {
                 case 48:
@@ -159,24 +159,24 @@ public class a {
             }
             switch (c) {
                 case 0:
-                    this.bMY.setVisibility(8);
-                    this.bNa.setMute(true);
+                    this.bTH.setVisibility(8);
+                    this.bTJ.setMute(true);
                     return;
                 case 1:
-                    this.bMY.setVisibility(0);
-                    this.bMZ.setImageResource(b.a.splash_video_mute);
-                    this.bNa.setMute(true);
-                    if (this.bNd != null && z) {
-                        this.bNd.iw("0");
+                    this.bTH.setVisibility(0);
+                    this.bTI.setImageResource(b.a.splash_video_mute);
+                    this.bTJ.setMute(true);
+                    if (this.bTM != null && z) {
+                        this.bTM.iY("0");
                         return;
                     }
                     return;
                 case 2:
-                    this.bMY.setVisibility(0);
-                    this.bMZ.setImageResource(b.a.splash_video_unmute);
-                    this.bNa.setMute(false);
-                    if (this.bNd != null && z) {
-                        this.bNd.iw("1");
+                    this.bTH.setVisibility(0);
+                    this.bTI.setImageResource(b.a.splash_video_unmute);
+                    this.bTJ.setMute(false);
+                    if (this.bTM != null && z) {
+                        this.bTM.iY("1");
                         return;
                     }
                     return;
@@ -191,9 +191,9 @@ public class a {
     }
 
     public void release() {
-        if (this.bNa != null) {
-            this.bNa.release();
-            this.bNa = null;
+        if (this.bTJ != null) {
+            this.bTJ.release();
+            this.bTJ = null;
         }
     }
 }

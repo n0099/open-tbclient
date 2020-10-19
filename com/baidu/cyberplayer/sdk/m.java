@@ -5,11 +5,12 @@ import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.io.OutputStream;
 import java.util.zip.GZIPOutputStream;
-/* loaded from: classes10.dex */
+/* loaded from: classes12.dex */
 public class m {
 
-    /* loaded from: classes10.dex */
-    private static class a extends GZIPOutputStream {
+    /* JADX INFO: Access modifiers changed from: private */
+    /* loaded from: classes12.dex */
+    public static class a extends GZIPOutputStream {
         public a(OutputStream outputStream) throws IOException {
             super(outputStream);
         }

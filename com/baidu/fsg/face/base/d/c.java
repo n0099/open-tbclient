@@ -1,5 +1,5 @@
 package com.baidu.fsg.face.base.d;
-/* loaded from: classes16.dex */
+/* loaded from: classes17.dex */
 public interface c {
     void a(k kVar);
 

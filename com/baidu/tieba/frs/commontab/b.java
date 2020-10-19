@@ -34,61 +34,61 @@ import java.util.Iterator;
 import java.util.List;
 import tbclient.FrsTabInfo;
 import tbclient.ItemInfo;
-/* loaded from: classes21.dex */
+/* loaded from: classes22.dex */
 public class b {
-    private BdTypeRecyclerView WM;
-    private PbListView fHm;
-    private i hIT;
+    private BdTypeRecyclerView Xc;
+    private PbListView fTv;
+    private i hXO;
     private boolean hasMore;
-    private FrsCommonTabFragment iiG;
-    private a ija;
-    private d ijb;
-    private RelativeLayout ijc;
-    private com.baidu.tieba.frs.entelechy.tabView.frsTabFollowPost.a ijd;
-    private al ije;
-    private ItemInfo ijf;
-    private View.OnClickListener ijg = new View.OnClickListener() { // from class: com.baidu.tieba.frs.commontab.b.1
+    private FrsCommonTabFragment ixD;
+    private a ixX;
+    private d ixY;
+    private RelativeLayout ixZ;
+    private com.baidu.tieba.frs.entelechy.tabView.frsTabFollowPost.a iya;
+    private al iyb;
+    private ItemInfo iyc;
+    private View.OnClickListener iyd = new View.OnClickListener() { // from class: com.baidu.tieba.frs.commontab.b.1
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
-            b.this.gbl.onScrollToBottom();
+            b.this.gnC.onScrollToBottom();
         }
     };
-    private BdListView.e gbl = new BdListView.e() { // from class: com.baidu.tieba.frs.commontab.b.2
+    private BdListView.e gnC = new BdListView.e() { // from class: com.baidu.tieba.frs.commontab.b.2
         @Override // com.baidu.adp.widget.ListView.BdListView.e
         public void onScrollToBottom() {
-            if (b.this.WM != null) {
-                b.this.WM.stopScroll();
+            if (b.this.Xc != null) {
+                b.this.Xc.stopScroll();
             }
-            if (b.this.fHm != null && b.this.iiG != null) {
+            if (b.this.fTv != null && b.this.ixD != null) {
                 if (j.isNetWorkAvailable()) {
-                    b.this.WM.setNextPage(b.this.fHm);
-                    b.this.fHm.showEmptyView(TbadkCoreApplication.getInst().getMainTabBottomBarHeight());
-                    b.this.fHm.setOnClickListener(null);
+                    b.this.Xc.setNextPage(b.this.fTv);
+                    b.this.fTv.showEmptyView(TbadkCoreApplication.getInst().getMainTabBottomBarHeight());
+                    b.this.fTv.setOnClickListener(null);
                     if (b.this.hasMore) {
-                        b.this.fHm.showLoading();
-                        b.this.fHm.setOnClickListener(null);
-                        b.this.iiG.cdG();
+                        b.this.fTv.showLoading();
+                        b.this.fTv.setOnClickListener(null);
+                        b.this.ixD.chc();
                         return;
                     }
-                    b.this.fHm.setText(b.this.iiG.getResources().getString(R.string.list_has_no_more));
-                    b.this.fHm.endLoadData();
-                    b.this.fHm.setOnClickListener(null);
+                    b.this.fTv.setText(b.this.ixD.getResources().getString(R.string.list_has_no_more));
+                    b.this.fTv.endLoadData();
+                    b.this.fTv.setOnClickListener(null);
                     return;
                 }
-                b.this.WM.setNextPage(null);
+                b.this.Xc.setNextPage(null);
             }
         }
     };
-    private RecyclerView.OnScrollListener hjC = new RecyclerView.OnScrollListener() { // from class: com.baidu.tieba.frs.commontab.b.3
-        private boolean hIY;
+    private RecyclerView.OnScrollListener hyx = new RecyclerView.OnScrollListener() { // from class: com.baidu.tieba.frs.commontab.b.3
+        private boolean hXT;
 
         @Override // android.support.v7.widget.RecyclerView.OnScrollListener
         public void onScrollStateChanged(RecyclerView recyclerView, int i) {
             if (i == 0) {
-                if (b.this.hIT != null) {
-                    b.this.hIT.a(b.this.WM.getFirstVisiblePosition(), b.this.WM.getLastVisiblePosition(), this.hIY, true);
+                if (b.this.hXO != null) {
+                    b.this.hXO.a(b.this.Xc.getFirstVisiblePosition(), b.this.Xc.getLastVisiblePosition(), this.hXT, true);
                 }
-                s.cfn().ns(true);
+                s.ciJ().nX(true);
             }
         }
 
@@ -96,28 +96,28 @@ public class b {
         public void onScrolled(RecyclerView recyclerView, int i, int i2) {
             super.onScrolled(recyclerView, i, i2);
             if (i2 > 0) {
-                this.hIY = false;
+                this.hXT = false;
             } else {
-                this.hIY = true;
+                this.hXT = true;
             }
         }
     };
 
     public b(FrsCommonTabFragment frsCommonTabFragment, View view, FrsViewData frsViewData) {
         if (frsCommonTabFragment != null && view != null) {
-            this.iiG = frsCommonTabFragment;
-            this.WM = (BdTypeRecyclerView) view.findViewById(R.id.frs_common_tab_recycler_view);
-            this.WM.setLayoutManager(new LinearLayoutManager(this.iiG.getContext()));
-            this.WM.setFadingEdgeLength(0);
-            this.WM.setOverScrollMode(2);
-            this.WM.setOnSrollToBottomListener(this.gbl);
-            this.WM.addOnScrollListener(this.hjC);
-            this.WM.setRecyclerListener(new RecyclerView.RecyclerListener() { // from class: com.baidu.tieba.frs.commontab.b.4
+            this.ixD = frsCommonTabFragment;
+            this.Xc = (BdTypeRecyclerView) view.findViewById(R.id.frs_common_tab_recycler_view);
+            this.Xc.setLayoutManager(new LinearLayoutManager(this.ixD.getContext()));
+            this.Xc.setFadingEdgeLength(0);
+            this.Xc.setOverScrollMode(2);
+            this.Xc.setOnSrollToBottomListener(this.gnC);
+            this.Xc.addOnScrollListener(this.hyx);
+            this.Xc.setRecyclerListener(new RecyclerView.RecyclerListener() { // from class: com.baidu.tieba.frs.commontab.b.4
                 @Override // android.support.v7.widget.RecyclerView.RecyclerListener
                 public void onViewRecycled(RecyclerView.ViewHolder viewHolder) {
                     View view2 = viewHolder.itemView;
-                    if (b.this.hIT != null) {
-                        b.this.hIT.cN(view2);
+                    if (b.this.hXO != null) {
+                        b.this.hXO.cR(view2);
                     }
                     if (view2 != null) {
                         PlayVoiceBnt playVoiceBnt = (PlayVoiceBnt) view2.findViewById(R.id.abstract_voice);
@@ -134,63 +134,63 @@ public class b {
                     }
                 }
             });
-            this.fHm = new PbListView(this.iiG.getPageContext().getPageActivity());
-            this.fHm.getView();
-            this.fHm.setContainerBackgroundColorResId(R.color.cp_bg_line_e);
-            this.fHm.setHeight(l.getDimens(this.iiG.getActivity(), R.dimen.tbds182));
-            this.fHm.setLineGone();
-            this.fHm.setTextSize(R.dimen.tbfontsize33);
-            this.fHm.setTextColor(ap.getColor(R.color.cp_cont_j));
-            this.fHm.setNoMoreTextColorId(R.color.cp_cont_e);
-            this.fHm.blq();
-            this.ija = new a(this.iiG, this.WM, frsViewData);
-            ki(false);
-            if (this.hIT == null) {
-                this.hIT = new i(this.iiG.getPageContext(), this.WM);
+            this.fTv = new PbListView(this.ixD.getPageContext().getPageActivity());
+            this.fTv.getView();
+            this.fTv.setContainerBackgroundColorResId(R.color.cp_bg_line_e);
+            this.fTv.setHeight(l.getDimens(this.ixD.getActivity(), R.dimen.tbds182));
+            this.fTv.setLineGone();
+            this.fTv.setTextSize(R.dimen.tbfontsize33);
+            this.fTv.setTextColor(ap.getColor(R.color.cp_cont_j));
+            this.fTv.setNoMoreTextColorId(R.color.cp_cont_e);
+            this.fTv.boa();
+            this.ixX = new a(this.ixD, this.Xc, frsViewData);
+            kG(false);
+            if (this.hXO == null) {
+                this.hXO = new i(this.ixD.getPageContext(), this.Xc);
             }
-            this.hIT.Gi(1);
-            this.hIT.setUniqueId(this.iiG.getUniqueId());
-            if (csw()) {
-                this.ijc = new RelativeLayout(this.iiG.getContext());
-                this.ijc.setLayoutParams(new ViewGroup.LayoutParams(-1, -2));
-                this.ijd = new com.baidu.tieba.frs.entelechy.tabView.frsTabFollowPost.a(this.iiG, this.ijc);
-                this.WM.addHeaderView(this.ijc, 0);
-                this.ijd.setData(csx());
+            this.hXO.GO(1);
+            this.hXO.setUniqueId(this.ixD.getUniqueId());
+            if (cvT()) {
+                this.ixZ = new RelativeLayout(this.ixD.getContext());
+                this.ixZ.setLayoutParams(new ViewGroup.LayoutParams(-1, -2));
+                this.iya = new com.baidu.tieba.frs.entelechy.tabView.frsTabFollowPost.a(this.ixD, this.ixZ);
+                this.Xc.addHeaderView(this.ixZ, 0);
+                this.iya.setData(cvU());
             }
-            if (this.iiG.tabType == 16) {
-                this.ije = new al(this.iiG);
-                this.WM.addHeaderView(this.ije.getView(), 0);
-                this.ije.setData(this.ijf);
+            if (this.ixD.tabType == 16) {
+                this.iyb = new al(this.ixD);
+                this.Xc.addHeaderView(this.iyb.getView(), 0);
+                this.iyb.setData(this.iyc);
             }
         }
     }
 
-    private boolean csw() {
-        return this.iiG != null && (this.iiG.isGeneralTab == 1 || this.iiG.tabType == 16);
+    private boolean cvT() {
+        return this.ixD != null && (this.ixD.isGeneralTab == 1 || this.ixD.tabType == 16);
     }
 
-    public void ki(boolean z) {
-        if (this.iiG != null) {
+    public void kG(boolean z) {
+        if (this.ixD != null) {
             v vVar = new v();
-            vVar.tabId = this.iiG.tabId;
-            vVar.fnv = z;
+            vVar.tabId = this.ixD.tabId;
+            vVar.fzJ = z;
             MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921449, vVar));
         }
     }
 
     public void onChangeSkinType(int i) {
-        if (this.ija != null) {
-            this.ija.notifyDataSetChanged();
+        if (this.ixX != null) {
+            this.ixX.notifyDataSetChanged();
         }
-        if (this.fHm != null) {
-            this.fHm.setTextColor(ap.getColor(R.color.cp_cont_j));
-            this.fHm.changeSkin(i);
+        if (this.fTv != null) {
+            this.fTv.setTextColor(ap.getColor(R.color.cp_cont_j));
+            this.fTv.changeSkin(i);
         }
-        if (this.ijd != null) {
-            this.ijd.onChangeSkinType();
+        if (this.iya != null) {
+            this.iya.onChangeSkinType();
         }
-        if (this.ije != null) {
-            this.ije.onChangeSkinType();
+        if (this.iyb != null) {
+            this.iyb.onChangeSkinType();
         }
     }
 
@@ -203,51 +203,51 @@ public class b {
                 dVar.threadList.add(sVar);
                 dVar.hasMore = false;
             }
-            this.ijb = dVar;
-            this.fHm.showEmptyView(TbadkCoreApplication.getInst().getMainTabBottomBarHeight());
-            this.WM.setNextPage(this.fHm);
+            this.ixY = dVar;
+            this.fTv.showEmptyView(TbadkCoreApplication.getInst().getMainTabBottomBarHeight());
+            this.Xc.setNextPage(this.fTv);
             if (this.hasMore) {
                 if (y.getCount(dVar.threadList) > 3) {
-                    this.fHm.setOnClickListener(null);
-                    this.fHm.showEndLoadData();
+                    this.fTv.setOnClickListener(null);
+                    this.fTv.showEndLoadData();
                 } else {
-                    this.fHm.showEndLoadData();
-                    this.fHm.setOnClickListener(this.ijg);
-                    this.fHm.setText(this.iiG.getResources().getString(R.string.list_click_load_more));
+                    this.fTv.showEndLoadData();
+                    this.fTv.setOnClickListener(this.iyd);
+                    this.fTv.setText(this.ixD.getResources().getString(R.string.list_click_load_more));
                 }
             } else {
-                this.fHm.setText(this.iiG.getResources().getString(R.string.list_has_no_more));
-                this.fHm.setOnClickListener(null);
-                this.fHm.endLoadData();
+                this.fTv.setText(this.ixD.getResources().getString(R.string.list_has_no_more));
+                this.fTv.setOnClickListener(null);
+                this.fTv.endLoadData();
             }
-            this.ija.setData(dVar.threadList);
-            this.ija.notifyDataSetChanged();
-            if (this.hIT != null) {
-                this.hIT.a(this.WM.getFirstVisiblePosition(), this.WM.getLastVisiblePosition(), false, true);
+            this.ixX.setData(dVar.threadList);
+            this.ixX.notifyDataSetChanged();
+            if (this.hXO != null) {
+                this.hXO.a(this.Xc.getFirstVisiblePosition(), this.Xc.getLastVisiblePosition(), false, true);
             }
-            if (csw() && this.ijd != null) {
-                this.ijd.iX(this.iiG.getSortType());
-                this.ijd.setFid(this.iiG.forumId);
+            if (cvT() && this.iya != null) {
+                this.iya.ju(this.ixD.getSortType());
+                this.iya.setFid(this.ixD.forumId);
             }
-            this.ijf = dVar.itemInfo;
-            if (this.iiG.getFragmentActivity() instanceof ao) {
-                ((ao) this.iiG.getFragmentActivity()).a(this.ijf);
+            this.iyc = dVar.itemInfo;
+            if (this.ixD.getFragmentActivity() instanceof ao) {
+                ((ao) this.ixD.getFragmentActivity()).a(this.iyc);
             }
-            if (this.iiG.tabType == 16 && this.ije != null) {
-                this.ije.setData(this.ijf);
+            if (this.ixD.tabType == 16 && this.iyb != null) {
+                this.iyb.setData(this.iyc);
             }
         }
     }
 
-    private List<FrsTabInfo> csx() {
+    private List<FrsTabInfo> cvU() {
         ArrayList arrayList = new ArrayList();
         FrsTabInfo.Builder builder = new FrsTabInfo.Builder();
         builder.tab_id = 2;
-        builder.tab_type = Integer.valueOf(this.iiG.tabType);
+        builder.tab_type = Integer.valueOf(this.ixD.tabType);
         FrsTabInfo build = builder.build(true);
         FrsTabInfo.Builder builder2 = new FrsTabInfo.Builder();
         builder2.tab_id = 3;
-        builder2.tab_type = Integer.valueOf(this.iiG.tabType);
+        builder2.tab_type = Integer.valueOf(this.ixD.tabType);
         FrsTabInfo build2 = builder2.build(true);
         arrayList.add(build);
         arrayList.add(build2);
@@ -255,49 +255,49 @@ public class b {
     }
 
     public void setSelection(int i) {
-        if (this.WM != null) {
-            this.WM.setSelection(i);
+        if (this.Xc != null) {
+            this.Xc.setSelection(i);
         }
     }
 
     public void onDestroy() {
-        if (this.hIT != null) {
-            this.hIT.destroy();
+        if (this.hXO != null) {
+            this.hXO.destroy();
         }
-        if (this.ija != null) {
-            this.ija.onDestory();
+        if (this.ixX != null) {
+            this.ixX.onDestory();
         }
     }
 
     public void resume() {
-        if (this.hIT != null) {
-            this.hIT.cQK();
+        if (this.hXO != null) {
+            this.hXO.cUu();
         }
     }
 
     public void pause() {
-        if (this.hIT != null) {
-            this.hIT.cQJ();
+        if (this.hXO != null) {
+            this.hXO.cUt();
         }
     }
 
-    public void oS(boolean z) {
-        if (this.WM != null) {
-            this.WM.setVisibility(z ? 0 : 8);
+    public void px(boolean z) {
+        if (this.Xc != null) {
+            this.Xc.setVisibility(z ? 0 : 8);
         }
     }
 
-    public void crS() {
+    public void cvq() {
         v vVar = new v();
-        vVar.tabId = this.iiG.tabId;
-        vVar.fnv = false;
+        vVar.tabId = this.ixD.tabId;
+        vVar.fzJ = false;
         MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921449, vVar));
     }
 
-    public void IW(String str) {
+    public void JJ(String str) {
         bw bwVar;
-        if (!StringUtils.isNull(str) && this.ijb != null && !y.isEmpty(this.ijb.threadList)) {
-            Iterator<q> it = this.ijb.threadList.iterator();
+        if (!StringUtils.isNull(str) && this.ixY != null && !y.isEmpty(this.ixY.threadList)) {
+            Iterator<q> it = this.ixY.threadList.iterator();
             while (true) {
                 if (!it.hasNext()) {
                     bwVar = null;
@@ -310,39 +310,39 @@ public class b {
                 }
             }
             if (bwVar != null) {
-                this.ijb.threadList.remove(bwVar);
-                if (y.isEmpty(this.ijb.threadList)) {
-                    this.ijb.threadList.add(new com.baidu.tieba.frs.s());
+                this.ixY.threadList.remove(bwVar);
+                if (y.isEmpty(this.ixY.threadList)) {
+                    this.ixY.threadList.add(new com.baidu.tieba.frs.s());
                 }
-                this.ija.setData(this.ijb.threadList);
-                this.ija.notifyDataSetChanged();
+                this.ixX.setData(this.ixY.threadList);
+                this.ixX.notifyDataSetChanged();
             }
         }
     }
 
-    public void coM() {
-        this.WM.scrollToPosition(0);
+    public void csk() {
+        this.Xc.scrollToPosition(0);
     }
 
     public void refreshView() {
-        this.ija.notifyDataSetChanged();
+        this.ixX.notifyDataSetChanged();
     }
 
-    public void oR(boolean z) {
-        if (this.ija != null) {
-            this.ija.oR(z);
+    public void pw(boolean z) {
+        if (this.ixX != null) {
+            this.ixX.pw(z);
         }
     }
 
-    public BdTypeRecyclerView csy() {
-        return this.WM;
+    public BdTypeRecyclerView cvV() {
+        return this.Xc;
     }
 
-    public i cqi() {
-        return this.hIT;
+    public i ctG() {
+        return this.hXO;
     }
 
     public void setOnScrollListener(RecyclerView.OnScrollListener onScrollListener) {
-        this.WM.setOnScrollListener(onScrollListener);
+        this.Xc.setOnScrollListener(onScrollListener);
     }
 }

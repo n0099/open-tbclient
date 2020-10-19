@@ -19,16 +19,16 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.concurrent.Executor;
 import java.util.concurrent.Executors;
-/* loaded from: classes3.dex */
+/* loaded from: classes10.dex */
 public class SwanAppDbControl {
-    private static volatile SwanAppDbControl cqp;
-    private static a cqq;
-    private static Executor cqr;
+    private static volatile SwanAppDbControl cCD;
+    private static a cCE;
+    private static Executor cCF;
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    public static final int cqs = PMSConstants.PayProtected.NO_PAY_PROTECTED.type;
+    public static final int cCG = PMSConstants.PayProtected.NO_PAY_PROTECTED.type;
     private static final int DB_VERSION = 20;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes10.dex */
     public enum SwanAppTable {
         _id,
         app_id,
@@ -67,20 +67,20 @@ public class SwanAppDbControl {
         public static final String TABLE_NAME = "ai_apps_aps_data";
     }
 
-    public static SwanAppDbControl bX(Context context) {
-        if (cqp == null) {
+    public static SwanAppDbControl cd(Context context) {
+        if (cCD == null) {
             synchronized (SwanAppDbControl.class) {
-                if (cqp == null) {
-                    cqr = Executors.newSingleThreadExecutor(Executors.defaultThreadFactory());
-                    cqq = new a(context.getApplicationContext(), "ai_apps.db", DB_VERSION);
-                    cqp = new SwanAppDbControl();
+                if (cCD == null) {
+                    cCF = Executors.newSingleThreadExecutor(Executors.defaultThreadFactory());
+                    cCE = new a(context.getApplicationContext(), "ai_apps.db", DB_VERSION);
+                    cCD = new SwanAppDbControl();
                 }
             }
         }
-        return cqp;
+        return cCD;
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes10.dex */
     public static final class a extends SQLiteOpenHelper {
         public a(Context context, String str, int i) {
             super(context, str, (SQLiteDatabase.CursorFactory) null, i);
@@ -88,12 +88,12 @@ public class SwanAppDbControl {
 
         @Override // android.database.sqlite.SQLiteOpenHelper
         public void onCreate(SQLiteDatabase sQLiteDatabase) {
-            b(sQLiteDatabase);
-            SwanAppConfTokenTable.v(sQLiteDatabase);
-            c.w(sQLiteDatabase);
-            com.baidu.swan.apps.database.a.c.y(sQLiteDatabase);
-            com.baidu.swan.apps.database.subscribe.a.x(sQLiteDatabase);
-            d.x(sQLiteDatabase);
+            c(sQLiteDatabase);
+            SwanAppConfTokenTable.w(sQLiteDatabase);
+            c.x(sQLiteDatabase);
+            com.baidu.swan.apps.database.a.c.z(sQLiteDatabase);
+            com.baidu.swan.apps.database.subscribe.a.y(sQLiteDatabase);
+            d.y(sQLiteDatabase);
         }
 
         @Override // android.database.sqlite.SQLiteOpenHelper
@@ -104,62 +104,62 @@ public class SwanAppDbControl {
             while (i < i2) {
                 switch (i) {
                     case 1:
-                        c(sQLiteDatabase);
+                        d(sQLiteDatabase);
                         break;
                     case 2:
-                        d(sQLiteDatabase);
-                        SwanAppConfTokenTable.v(sQLiteDatabase);
+                        e(sQLiteDatabase);
+                        SwanAppConfTokenTable.w(sQLiteDatabase);
                         break;
                     case 3:
-                        e(sQLiteDatabase);
-                        break;
-                    case 4:
                         f(sQLiteDatabase);
                         break;
-                    case 5:
+                    case 4:
                         g(sQLiteDatabase);
                         break;
-                    case 6:
+                    case 5:
                         h(sQLiteDatabase);
                         break;
-                    case 7:
+                    case 6:
                         i(sQLiteDatabase);
                         break;
-                    case 8:
+                    case 7:
                         j(sQLiteDatabase);
                         break;
-                    case 9:
+                    case 8:
                         k(sQLiteDatabase);
                         break;
-                    case 10:
+                    case 9:
                         l(sQLiteDatabase);
                         break;
-                    case 11:
+                    case 10:
                         m(sQLiteDatabase);
                         break;
-                    case 12:
+                    case 11:
                         n(sQLiteDatabase);
                         break;
-                    case 13:
+                    case 12:
                         o(sQLiteDatabase);
                         break;
-                    case 14:
+                    case 13:
                         p(sQLiteDatabase);
                         break;
-                    case 15:
+                    case 14:
                         q(sQLiteDatabase);
                         break;
-                    case 16:
+                    case 15:
                         r(sQLiteDatabase);
                         break;
-                    case 17:
+                    case 16:
                         s(sQLiteDatabase);
                         break;
+                    case 17:
+                        t(sQLiteDatabase);
+                        break;
                     case 18:
-                        d.x(sQLiteDatabase);
+                        d.y(sQLiteDatabase);
                         break;
                     case 19:
-                        t(sQLiteDatabase);
+                        u(sQLiteDatabase);
                         break;
                     case 20:
                         break;
@@ -174,15 +174,15 @@ public class SwanAppDbControl {
             }
         }
 
-        private void b(SQLiteDatabase sQLiteDatabase) {
+        private void c(SQLiteDatabase sQLiteDatabase) {
             try {
-                sQLiteDatabase.execSQL(SwanAppDbControl.alv());
+                sQLiteDatabase.execSQL(SwanAppDbControl.aog());
             } catch (Exception e) {
                 e.getStackTrace();
             }
         }
 
-        private void c(SQLiteDatabase sQLiteDatabase) {
+        private void d(SQLiteDatabase sQLiteDatabase) {
             try {
                 sQLiteDatabase.execSQL("ALTER TABLE ai_apps_aps_data ADD " + SwanAppTable.app_key + " TEXT;");
                 sQLiteDatabase.execSQL("ALTER TABLE ai_apps_aps_data ADD " + SwanAppTable.type + " INTEGER default 0;");
@@ -191,7 +191,7 @@ public class SwanAppDbControl {
             }
         }
 
-        private void d(SQLiteDatabase sQLiteDatabase) {
+        private void e(SQLiteDatabase sQLiteDatabase) {
             try {
                 sQLiteDatabase.execSQL("ALTER TABLE ai_apps_aps_data ADD " + SwanAppTable.icon_url + " TEXT;");
             } catch (SQLException e) {
@@ -199,7 +199,7 @@ public class SwanAppDbControl {
             }
         }
 
-        private void e(SQLiteDatabase sQLiteDatabase) {
+        private void f(SQLiteDatabase sQLiteDatabase) {
             try {
                 sQLiteDatabase.execSQL("ALTER TABLE ai_apps_aps_data ADD " + SwanAppTable.app_open_url + " TEXT;");
                 sQLiteDatabase.execSQL("ALTER TABLE ai_apps_aps_data ADD " + SwanAppTable.app_download_url + " TEXT;");
@@ -209,7 +209,7 @@ public class SwanAppDbControl {
             }
         }
 
-        private void f(SQLiteDatabase sQLiteDatabase) {
+        private void g(SQLiteDatabase sQLiteDatabase) {
             try {
                 sQLiteDatabase.execSQL("ALTER TABLE ai_apps_aps_data ADD " + SwanAppTable.app_zip_size + " LONG;");
             } catch (SQLException e) {
@@ -217,7 +217,7 @@ public class SwanAppDbControl {
             }
         }
 
-        private void g(SQLiteDatabase sQLiteDatabase) {
+        private void h(SQLiteDatabase sQLiteDatabase) {
             try {
                 sQLiteDatabase.execSQL("ALTER TABLE ai_apps_aps_data ADD " + SwanAppTable.pending_aps_errcode + " INTEGER;");
             } catch (SQLException e) {
@@ -225,10 +225,10 @@ public class SwanAppDbControl {
             }
         }
 
-        private void h(SQLiteDatabase sQLiteDatabase) {
+        private void i(SQLiteDatabase sQLiteDatabase) {
         }
 
-        private void i(SQLiteDatabase sQLiteDatabase) {
+        private void j(SQLiteDatabase sQLiteDatabase) {
             try {
                 sQLiteDatabase.execSQL("ALTER TABLE ai_apps_aps_data ADD " + SwanAppTable.version_code + " TEXT;");
             } catch (SQLException e) {
@@ -236,7 +236,7 @@ public class SwanAppDbControl {
             }
         }
 
-        private void j(SQLiteDatabase sQLiteDatabase) {
+        private void k(SQLiteDatabase sQLiteDatabase) {
             try {
                 sQLiteDatabase.execSQL("ALTER TABLE ai_apps_aps_data ADD " + SwanAppTable.app_category + " INTEGER default 0;");
                 sQLiteDatabase.execSQL("ALTER TABLE ai_apps_aps_data ADD " + SwanAppTable.orientation + " INTEGER default 0;");
@@ -245,7 +245,7 @@ public class SwanAppDbControl {
             }
         }
 
-        private void k(SQLiteDatabase sQLiteDatabase) {
+        private void l(SQLiteDatabase sQLiteDatabase) {
             try {
                 sQLiteDatabase.execSQL("ALTER TABLE ai_apps_aps_data ADD " + SwanAppTable.max_age + " LONG default 0;");
                 sQLiteDatabase.execSQL("ALTER TABLE ai_apps_aps_data ADD " + SwanAppTable.create_time + " LONG default 0;");
@@ -256,7 +256,7 @@ public class SwanAppDbControl {
             }
         }
 
-        private void l(SQLiteDatabase sQLiteDatabase) {
+        private void m(SQLiteDatabase sQLiteDatabase) {
             try {
                 sQLiteDatabase.execSQL("ALTER TABLE ai_apps_aps_data ADD " + SwanAppTable.bear_info + " TEXT;");
                 sQLiteDatabase.execSQL("ALTER TABLE ai_apps_aps_data ADD " + SwanAppTable.force_fetch_meta_info + " INTEGER default 0;");
@@ -267,26 +267,26 @@ public class SwanAppDbControl {
             }
         }
 
-        private void m(SQLiteDatabase sQLiteDatabase) {
-            c.w(sQLiteDatabase);
-        }
-
         private void n(SQLiteDatabase sQLiteDatabase) {
-            com.baidu.swan.apps.database.a.c.y(sQLiteDatabase);
-            com.baidu.swan.apps.database.a.c.z(sQLiteDatabase);
-            u(sQLiteDatabase);
+            c.x(sQLiteDatabase);
         }
 
         private void o(SQLiteDatabase sQLiteDatabase) {
+            com.baidu.swan.apps.database.a.c.z(sQLiteDatabase);
+            com.baidu.swan.apps.database.a.c.A(sQLiteDatabase);
+            v(sQLiteDatabase);
         }
 
         private void p(SQLiteDatabase sQLiteDatabase) {
-            sQLiteDatabase.execSQL("DROP TRIGGER IF EXISTS delete_old_swan_history");
         }
 
         private void q(SQLiteDatabase sQLiteDatabase) {
+            sQLiteDatabase.execSQL("DROP TRIGGER IF EXISTS delete_old_swan_history");
+        }
+
+        private void r(SQLiteDatabase sQLiteDatabase) {
             try {
-                sQLiteDatabase.execSQL("ALTER TABLE ai_apps_aps_data ADD " + SwanAppTable.pay_protected + " INTEGER default " + SwanAppDbControl.cqs + ContentProviderProxy.PROVIDER_AUTHOR_SEPARATOR);
+                sQLiteDatabase.execSQL("ALTER TABLE ai_apps_aps_data ADD " + SwanAppTable.pay_protected + " INTEGER default " + SwanAppDbControl.cCG + ContentProviderProxy.PROVIDER_AUTHOR_SEPARATOR);
             } catch (SQLException e) {
                 if (SwanAppDbControl.DEBUG) {
                     Log.e("SwanAppDbControl", Log.getStackTraceString(e));
@@ -294,7 +294,7 @@ public class SwanAppDbControl {
             }
         }
 
-        private void r(SQLiteDatabase sQLiteDatabase) {
+        private void s(SQLiteDatabase sQLiteDatabase) {
             try {
                 sQLiteDatabase.execSQL("ALTER TABLE ai_apps_favorites ADD sort_index INTEGER;");
                 sQLiteDatabase.execSQL("ALTER TABLE ai_apps_favorites ADD app_name TEXT;");
@@ -308,11 +308,11 @@ public class SwanAppDbControl {
             }
         }
 
-        private void s(@NonNull SQLiteDatabase sQLiteDatabase) {
-            com.baidu.swan.apps.database.subscribe.a.x(sQLiteDatabase);
+        private void t(@NonNull SQLiteDatabase sQLiteDatabase) {
+            com.baidu.swan.apps.database.subscribe.a.y(sQLiteDatabase);
         }
 
-        private void t(SQLiteDatabase sQLiteDatabase) {
+        private void u(SQLiteDatabase sQLiteDatabase) {
             try {
                 sQLiteDatabase.execSQL("ALTER TABLE ai_apps_aps_data ADD " + SwanAppTable.quick_app_key + " TEXT;");
             } catch (SQLException e) {
@@ -323,20 +323,20 @@ public class SwanAppDbControl {
         }
 
         /* JADX DEBUG: Another duplicated slice has different insns count: {[IF]}, finally: {[IF, INVOKE, MOVE_EXCEPTION, INVOKE, INVOKE, MOVE_EXCEPTION] complete} */
-        private void u(SQLiteDatabase sQLiteDatabase) {
+        private void v(SQLiteDatabase sQLiteDatabase) {
             boolean z = false;
             long currentTimeMillis = System.currentTimeMillis();
-            List<ContentValues> aau = com.baidu.swan.apps.t.a.apP().aau();
+            List<ContentValues> adg = com.baidu.swan.apps.t.a.asB().adg();
             long currentTimeMillis2 = System.currentTimeMillis();
             if (SwanAppDbControl.DEBUG) {
-                Log.d("SwanAppDbControl", "read old history cost" + (currentTimeMillis2 - currentTimeMillis) + "  count:" + (aau == null ? 0 : aau.size()));
+                Log.d("SwanAppDbControl", "read old history cost" + (currentTimeMillis2 - currentTimeMillis) + "  count:" + (adg == null ? 0 : adg.size()));
             }
-            if (aau != null) {
+            if (adg != null) {
                 try {
-                    if (aau.size() != 0) {
+                    if (adg.size() != 0) {
                         try {
                             sQLiteDatabase.beginTransaction();
-                            Iterator<ContentValues> it = aau.iterator();
+                            Iterator<ContentValues> it = adg.iterator();
                             while (true) {
                                 if (!it.hasNext()) {
                                     z = true;
@@ -385,16 +385,16 @@ public class SwanAppDbControl {
         }
     }
 
-    public SQLiteOpenHelper alu() {
-        return cqq;
+    public SQLiteOpenHelper aof() {
+        return cCE;
     }
 
-    public com.baidu.swan.apps.database.a mp(String str) {
+    public com.baidu.swan.apps.database.a nb(String str) {
         com.baidu.swan.apps.database.a aVar = new com.baidu.swan.apps.database.a();
         if (!TextUtils.isEmpty(str)) {
             Cursor cursor = null;
             try {
-                cursor = mq(str);
+                cursor = nc(str);
                 if (cursor != null && cursor.moveToFirst()) {
                     a(cursor, aVar);
                 }
@@ -459,36 +459,36 @@ public class SwanAppDbControl {
                 aVar.resumeDate = cursor.getString(columnIndex7);
                 aVar.icon = cursor.getString(columnIndex8);
                 aVar.iconUrl = cursor.getString(columnIndex9);
-                aVar.cqt = cursor.getString(columnIndex10);
-                aVar.cqu = cursor.getString(columnIndex11);
+                aVar.cCH = cursor.getString(columnIndex10);
+                aVar.cCI = cursor.getString(columnIndex11);
                 aVar.name = cursor.getString(columnIndex12);
                 aVar.serviceCategory = cursor.getString(columnIndex13);
                 aVar.subjectInfo = cursor.getString(columnIndex14);
                 aVar.bearInfo = cursor.getString(columnIndex15);
                 aVar.sign = cursor.getString(columnIndex16);
                 aVar.type = cursor.getInt(columnIndex17);
-                aVar.cqv = cursor.getInt(columnIndex18);
+                aVar.cCJ = cursor.getInt(columnIndex18);
                 aVar.version = cursor.getString(columnIndex19);
-                aVar.cqw = cursor.getString(columnIndex20);
-                aVar.cqx = cursor.getString(columnIndex21);
-                aVar.cqy = cursor.getString(columnIndex22);
-                aVar.cqz = cursor.getLong(columnIndex23);
-                aVar.cqA = cursor.getInt(columnIndex24);
-                aVar.cqB = cursor.getString(columnIndex25);
+                aVar.cCK = cursor.getString(columnIndex20);
+                aVar.cCL = cursor.getString(columnIndex21);
+                aVar.cCM = cursor.getString(columnIndex22);
+                aVar.cCN = cursor.getLong(columnIndex23);
+                aVar.cCO = cursor.getInt(columnIndex24);
+                aVar.cCP = cursor.getString(columnIndex25);
                 aVar.category = cursor.getInt(columnIndex26);
                 aVar.orientation = cursor.getInt(columnIndex27);
                 aVar.maxAge = cursor.getLong(columnIndex29);
                 aVar.createTime = cursor.getLong(columnIndex30);
-                aVar.cqC = cursor.getInt(columnIndex28) != 0;
+                aVar.cCQ = cursor.getInt(columnIndex28) != 0;
                 aVar.payProtected = cursor.getInt(columnIndex31);
                 aVar.quickAppKey = cursor.getString(columnIndex32);
             }
         }
     }
 
-    private Cursor mq(String str) {
+    private Cursor nc(String str) {
         try {
-            return cqq.getReadableDatabase().rawQuery("select * from ai_apps_aps_data where " + SwanAppTable.app_id.name() + " = ? ", new String[]{str});
+            return cCE.getReadableDatabase().rawQuery("select * from ai_apps_aps_data where " + SwanAppTable.app_id.name() + " = ? ", new String[]{str});
         } catch (SQLException e) {
             if (!DEBUG) {
                 return null;
@@ -498,57 +498,57 @@ public class SwanAppDbControl {
         }
     }
 
-    public static String alv() {
+    public static String aog() {
         return "CREATE TABLE ai_apps_aps_data (" + SwanAppTable._id + " INTEGER PRIMARY KEY AUTOINCREMENT," + SwanAppTable.app_id + " TEXT UNIQUE," + SwanAppTable.app_key + " TEXT," + SwanAppTable.version + " TEXT," + SwanAppTable.description + " TEXT," + SwanAppTable.error_code + " INTEGER," + SwanAppTable.error_detail + " TEXT," + SwanAppTable.error_msg + " TEXT," + SwanAppTable.resume_date + " TEXT," + SwanAppTable.icon + " TEXT," + SwanAppTable.icon_url + " TEXT," + SwanAppTable.max_swan_version + " TEXT," + SwanAppTable.min_swan_version + " TEXT," + SwanAppTable.name + " TEXT," + SwanAppTable.service_category + " TEXT," + SwanAppTable.subject_info + " TEXT," + SwanAppTable.bear_info + " TEXT," + SwanAppTable.sign + " TEXT," + SwanAppTable.type + " INTEGER," + SwanAppTable.is_have_zip + " INTEGER," + SwanAppTable.app_open_url + " TEXT," + SwanAppTable.app_download_url + " TEXT," + SwanAppTable.target_swan_version + " TEXT," + SwanAppTable.app_zip_size + " LONG," + SwanAppTable.pending_aps_errcode + " INTEGER," + SwanAppTable.version_code + " TEXT," + SwanAppTable.app_category + " INTEGER," + SwanAppTable.orientation + " INTEGER," + SwanAppTable.max_age + " LONG," + SwanAppTable.create_time + " LONG," + SwanAppTable.force_fetch_meta_info + " INTEGER," + SwanAppTable.pay_protected + " INTEGER," + SwanAppTable.quick_app_key + " TEXT);";
     }
 
     public Cursor a(@Nullable String[] strArr, @Nullable String str, @Nullable String[] strArr2, @Nullable String str2) {
-        return cqq.getWritableDatabase().query("ai_apps_favorites", strArr, str, strArr2, null, null, str2);
+        return cCE.getWritableDatabase().query("ai_apps_favorites", strArr, str, strArr2, null, null, str2);
     }
 
     public Cursor b(@Nullable String[] strArr, @Nullable String str, @Nullable String[] strArr2, @Nullable String str2) {
-        return cqq.getWritableDatabase().query("ai_apps_aps_data INNER JOIN ai_apps_favorites ON ai_apps_favorites.app_id = ai_apps_aps_data." + SwanAppTable.app_id, strArr, str, strArr2, null, null, str2);
+        return cCE.getWritableDatabase().query("ai_apps_aps_data INNER JOIN ai_apps_favorites ON ai_apps_favorites.app_id = ai_apps_aps_data." + SwanAppTable.app_id, strArr, str, strArr2, null, null, str2);
     }
 
     public long b(@Nullable ContentValues contentValues) {
-        return cqq.getWritableDatabase().insertWithOnConflict("ai_apps_favorites", null, contentValues, 5);
+        return cCE.getWritableDatabase().insertWithOnConflict("ai_apps_favorites", null, contentValues, 5);
     }
 
     public int b(@Nullable String str, @Nullable String[] strArr) {
-        return cqq.getWritableDatabase().delete("ai_apps_favorites", str, strArr);
+        return cCE.getWritableDatabase().delete("ai_apps_favorites", str, strArr);
     }
 
     public int a(@Nullable ContentValues contentValues, @Nullable String str, @Nullable String[] strArr) {
-        return cqq.getWritableDatabase().update("ai_apps_favorites", contentValues, str, strArr);
+        return cCE.getWritableDatabase().update("ai_apps_favorites", contentValues, str, strArr);
     }
 
     public Cursor c(@Nullable String[] strArr, @Nullable String str, @Nullable String[] strArr2, @Nullable String str2) {
-        return cqq.getWritableDatabase().query("ai_apps_history", strArr, str, strArr2, null, null, str2);
+        return cCE.getWritableDatabase().query("ai_apps_history", strArr, str, strArr2, null, null, str2);
     }
 
     public Cursor d(@Nullable String[] strArr, @Nullable String str, @Nullable String[] strArr2, @Nullable String str2) {
-        return cqq.getWritableDatabase().query("ai_apps_aps_data INNER JOIN ai_apps_history ON ai_apps_history.app_id = ai_apps_aps_data." + SwanAppTable.app_id, strArr, str, strArr2, null, null, str2);
+        return cCE.getWritableDatabase().query("ai_apps_aps_data INNER JOIN ai_apps_history ON ai_apps_history.app_id = ai_apps_aps_data." + SwanAppTable.app_id, strArr, str, strArr2, null, null, str2);
     }
 
     public long c(@Nullable ContentValues contentValues) {
-        return cqq.getWritableDatabase().insertWithOnConflict("ai_apps_history", null, contentValues, 5);
+        return cCE.getWritableDatabase().insertWithOnConflict("ai_apps_history", null, contentValues, 5);
     }
 
     public int c(@Nullable String str, @Nullable String[] strArr) {
-        return cqq.getWritableDatabase().delete("ai_apps_history", str, strArr);
+        return cCE.getWritableDatabase().delete("ai_apps_history", str, strArr);
     }
 
     public int b(@Nullable ContentValues contentValues, @Nullable String str, @Nullable String[] strArr) {
-        return cqq.getWritableDatabase().update("ai_apps_history", contentValues, str, strArr);
+        return cCE.getWritableDatabase().update("ai_apps_history", contentValues, str, strArr);
     }
 
-    public SQLiteDatabase alw() {
-        return cqq.getWritableDatabase();
+    public SQLiteDatabase aoh() {
+        return cCE.getWritableDatabase();
     }
 
     public void release() {
-        cqp = null;
-        cqq = null;
-        cqr = null;
+        cCD = null;
+        cCE = null;
+        cCF = null;
     }
 }

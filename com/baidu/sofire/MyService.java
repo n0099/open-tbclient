@@ -11,14 +11,16 @@ import com.baidu.sofire.ac.Callback;
 import com.baidu.sofire.core.ApkInfo;
 import com.baidu.sofire.i.w;
 import com.xiaomi.mipush.sdk.Constants;
-/* loaded from: classes12.dex */
+/* loaded from: classes15.dex */
 public class MyService extends Service {
     private static long b = 0;
-    private volatile int a = 0;
+
+    /* renamed from: a  reason: collision with root package name */
+    private volatile int f3587a = 0;
 
     static /* synthetic */ int a(MyService myService) {
-        int i = myService.a;
-        myService.a = i + 1;
+        int i = myService.f3587a;
+        myService.f3587a = i + 1;
         return i;
     }
 
@@ -79,11 +81,11 @@ public class MyService extends Service {
                                 MyService.this.a();
                             }
                         } else {
-                            com.baidu.sofire.core.f a = com.baidu.sofire.core.f.a();
-                            if (a == null) {
+                            com.baidu.sofire.core.f a2 = com.baidu.sofire.core.f.a();
+                            if (a2 == null) {
                                 MyService.this.a();
                             } else {
-                                ApkInfo d = a.d(stringExtra);
+                                ApkInfo d = a2.d(stringExtra);
                                 new StringBuilder("i=").append(d);
                                 b.a();
                                 if (d == null) {
@@ -107,9 +109,9 @@ public class MyService extends Service {
     /* JADX INFO: Access modifiers changed from: private */
     public void a() {
         try {
-            this.a--;
-            if (this.a <= 0) {
-                this.a = 0;
+            this.f3587a--;
+            if (this.f3587a <= 0) {
+                this.f3587a = 0;
                 b.a();
                 stopSelf();
             }

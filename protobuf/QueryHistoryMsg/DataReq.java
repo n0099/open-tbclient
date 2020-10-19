@@ -2,7 +2,7 @@ package protobuf.QueryHistoryMsg;
 
 import com.squareup.wire.Message;
 import com.squareup.wire.ProtoField;
-/* loaded from: classes25.dex */
+/* loaded from: classes26.dex */
 public final class DataReq extends Message {
     @ProtoField(tag = 1, type = Message.Datatype.INT32)
     public final Integer forumId;
@@ -76,7 +76,7 @@ public final class DataReq extends Message {
         this.smallHeight = builder.smallHeight;
     }
 
-    /* loaded from: classes25.dex */
+    /* loaded from: classes26.dex */
     public static final class Builder extends Message.Builder<DataReq> {
         public Integer forumId;
         public Integer height;

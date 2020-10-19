@@ -17,7 +17,7 @@ import android.widget.LinearLayout;
 import android.widget.RadioButton;
 import android.widget.TextView;
 @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
-/* loaded from: classes10.dex */
+/* loaded from: classes5.dex */
 public class ListMenuItemView extends LinearLayout implements MenuView.ItemView {
     private static final String TAG = "ListMenuItemView";
     private Drawable mBackground;

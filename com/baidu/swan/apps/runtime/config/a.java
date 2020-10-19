@@ -7,22 +7,22 @@ import com.baidu.swan.apps.r.d;
 import java.io.File;
 import java.util.Map;
 import java.util.TreeMap;
-/* loaded from: classes3.dex */
+/* loaded from: classes10.dex */
 public final class a {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    private Map<String, c> cSQ = null;
+    private Map<String, c> deY = null;
 
     public c a(String str, String str2, @NonNull c cVar) {
         if (TextUtils.isEmpty(str) || TextUtils.isEmpty(str2)) {
             return cVar;
         }
-        if (this.cSQ == null) {
-            this.cSQ = new TreeMap();
+        if (this.deY == null) {
+            this.deY = new TreeMap();
         }
-        c cVar2 = this.cSQ.get(str2);
+        c cVar2 = this.deY.get(str2);
         if (cVar2 == null) {
             c c = c(str, str2, cVar);
-            this.cSQ.put(str2, c);
+            this.deY.put(str2, c);
             return c;
         }
         return cVar2;
@@ -31,18 +31,18 @@ public final class a {
     public c b(String str, @NonNull String str2, @NonNull c cVar) {
         if (!TextUtils.isEmpty(str) && !TextUtils.isEmpty(str2)) {
             c c = c(str, str2, cVar);
-            this.cSQ.put(str2, c);
+            this.deY.put(str2, c);
             return c;
         }
         return cVar;
     }
 
     private c c(String str, String str2, @NonNull c cVar) {
-        String cf = cf(str, str2);
-        return TextUtils.isEmpty(cf) ? cVar : c.a(cf, cVar);
+        String ck = ck(str, str2);
+        return TextUtils.isEmpty(ck) ? cVar : c.a(ck, cVar);
     }
 
-    public static String cf(String str, String str2) {
+    public static String ck(String str, String str2) {
         String str3;
         if (str.endsWith(File.separator)) {
             str3 = str + str2 + ".json";
@@ -56,6 +56,6 @@ public final class a {
         if (!file.exists()) {
             return null;
         }
-        return d.v(file);
+        return d.y(file);
     }
 }

@@ -2,6 +2,6 @@ package com.baidu.sapi2.callback;
 
 import com.baidu.sapi2.NoProguard;
 import com.baidu.sapi2.result.SetPortraitResult;
-/* loaded from: classes17.dex */
+/* loaded from: classes10.dex */
 public abstract class SetPortraitCallback implements NoProguard, LoginStatusAware<SetPortraitResult> {
 }

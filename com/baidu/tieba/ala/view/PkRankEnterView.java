@@ -22,21 +22,21 @@ import org.json.JSONObject;
 /* loaded from: classes4.dex */
 public class PkRankEnterView extends RelativeLayout {
     Context context;
-    private PkRankView fXi;
-    int hgc;
-    ImageView hgd;
-    ImageView hge;
-    HeadImageView hgf;
-    TextView hgg;
-    TextView hgh;
-    TextView hgi;
-    Button hgj;
-    RelativeLayout hgk;
-    com.baidu.tieba.ala.d hgl;
-    p hgm;
-    com.baidu.tieba.ala.g.a hgn;
-    com.baidu.tieba.ala.g.k hgo;
-    i hgp;
+    private PkRankView gjB;
+    int huX;
+    ImageView huY;
+    ImageView huZ;
+    HeadImageView hva;
+    TextView hvb;
+    TextView hvc;
+    TextView hvd;
+    Button hve;
+    RelativeLayout hvf;
+    com.baidu.tieba.ala.d hvg;
+    p hvh;
+    com.baidu.tieba.ala.g.a hvi;
+    com.baidu.tieba.ala.g.k hvj;
+    i hvk;
     private View mView;
     int status;
 
@@ -46,138 +46,138 @@ public class PkRankEnterView extends RelativeLayout {
 
     public PkRankEnterView(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.hgm = new p();
-        this.hgn = new com.baidu.tieba.ala.g.a();
-        this.hgo = new com.baidu.tieba.ala.g.k();
+        this.hvh = new p();
+        this.hvi = new com.baidu.tieba.ala.g.a();
+        this.hvj = new com.baidu.tieba.ala.g.k();
         this.context = context;
         initView();
     }
 
     private void initView() {
         this.mView = LayoutInflater.from(getContext()).inflate(a.h.sdk_rank_enter_layout, (ViewGroup) this, true);
-        this.hgk = (RelativeLayout) this.mView.findViewById(a.g.enter_container);
-        this.hgf = (HeadImageView) this.mView.findViewById(a.g.enter_head);
-        this.hgf.setDefaultResource(a.f.sdk_pic_mycenter_avatar_def);
-        this.hgf.setDefaultErrorResource(a.f.sdk_pic_mycenter_avatar_def);
-        this.hgf.setIsRound(true);
-        this.hgf.setAutoChangeStyle(false);
-        this.hgd = (ImageView) this.mView.findViewById(a.g.enter_bg);
-        this.hge = (ImageView) this.mView.findViewById(a.g.enter_image);
-        this.hgg = (TextView) this.mView.findViewById(a.g.invite_id);
-        this.hgh = (TextView) this.mView.findViewById(a.g.invite_tip);
-        this.hgj = (Button) this.mView.findViewById(a.g.bottom_button);
-        this.hgi = (TextView) this.mView.findViewById(a.g.matching_tip);
-        this.hgn.a(new a.InterfaceC0599a() { // from class: com.baidu.tieba.ala.view.PkRankEnterView.1
-            @Override // com.baidu.tieba.ala.g.a.InterfaceC0599a
-            public void ep(long j) {
-                PkRankEnterView.this.hgm.bZU();
-                PkRankEnterView.this.ccT();
-                if (!PkRankEnterView.this.fXi.getGetPkInfoModel().isLoop()) {
-                    PkRankEnterView.this.fXi.getGetPkInfoModel().a(PkRankEnterView.this.fXi.aFP.aEz.userId, j, PkRankEnterView.this.fXi.aFP.mLiveInfo.room_id, PkRankEnterView.this.fXi.aFP.mLiveInfo.live_id, PkRankEnterView.this.fXi.isHost ? 1 : 0);
+        this.hvf = (RelativeLayout) this.mView.findViewById(a.g.enter_container);
+        this.hva = (HeadImageView) this.mView.findViewById(a.g.enter_head);
+        this.hva.setDefaultResource(a.f.sdk_pic_mycenter_avatar_def);
+        this.hva.setDefaultErrorResource(a.f.sdk_pic_mycenter_avatar_def);
+        this.hva.setIsRound(true);
+        this.hva.setAutoChangeStyle(false);
+        this.huY = (ImageView) this.mView.findViewById(a.g.enter_bg);
+        this.huZ = (ImageView) this.mView.findViewById(a.g.enter_image);
+        this.hvb = (TextView) this.mView.findViewById(a.g.invite_id);
+        this.hvc = (TextView) this.mView.findViewById(a.g.invite_tip);
+        this.hve = (Button) this.mView.findViewById(a.g.bottom_button);
+        this.hvd = (TextView) this.mView.findViewById(a.g.matching_tip);
+        this.hvi.a(new a.InterfaceC0616a() { // from class: com.baidu.tieba.ala.view.PkRankEnterView.1
+            @Override // com.baidu.tieba.ala.g.a.InterfaceC0616a
+            public void eG(long j) {
+                PkRankEnterView.this.hvh.cds();
+                PkRankEnterView.this.cgp();
+                if (!PkRankEnterView.this.gjB.getGetPkInfoModel().isLoop()) {
+                    PkRankEnterView.this.gjB.getGetPkInfoModel().a(PkRankEnterView.this.gjB.aIT.aHD.userId, j, PkRankEnterView.this.gjB.aIT.mLiveInfo.room_id, PkRankEnterView.this.gjB.aIT.mLiveInfo.live_id, PkRankEnterView.this.gjB.isHost ? 1 : 0);
                 }
             }
 
-            @Override // com.baidu.tieba.ala.g.a.InterfaceC0599a
-            public void aY(int i, String str) {
+            @Override // com.baidu.tieba.ala.g.a.InterfaceC0616a
+            public void bi(int i, String str) {
             }
         });
-        this.hgo.a(new k.a() { // from class: com.baidu.tieba.ala.view.PkRankEnterView.2
+        this.hvj.a(new k.a() { // from class: com.baidu.tieba.ala.view.PkRankEnterView.2
             @Override // com.baidu.tieba.ala.g.k.a
-            public void bZP() {
-                PkRankEnterView.this.hgm.bZU();
-                PkRankEnterView.this.ccO();
-                PkRankEnterView.this.vz(1);
+            public void cdn() {
+                PkRankEnterView.this.hvh.cds();
+                PkRankEnterView.this.cgk();
+                PkRankEnterView.this.wf(1);
             }
 
             @Override // com.baidu.tieba.ala.g.k.a
-            public void aZ(int i, String str) {
+            public void bj(int i, String str) {
             }
         });
-        this.hgm.a(new p.a() { // from class: com.baidu.tieba.ala.view.PkRankEnterView.3
+        this.hvh.a(new p.a() { // from class: com.baidu.tieba.ala.view.PkRankEnterView.3
             @Override // com.baidu.tieba.ala.g.p.a
-            public void et(long j) {
+            public void eK(long j) {
                 AlaStatsItem alaStatsItem = new AlaStatsItem();
                 alaStatsItem.addValue("source", "match_success");
                 alaStatsItem.addValue("pkId", Long.valueOf(j));
                 AlaStatManager.getInstance().debug("pk_competition_start_pk", alaStatsItem);
-                if (!PkRankEnterView.this.fXi.getGetPkInfoModel().isLoop()) {
-                    PkRankEnterView.this.fXi.getGetPkInfoModel().a(PkRankEnterView.this.fXi.aFP.aEz.userId, j, PkRankEnterView.this.fXi.aFP.mLiveInfo.room_id, PkRankEnterView.this.fXi.aFP.mLiveInfo.live_id, PkRankEnterView.this.fXi.isHost ? 1 : 0);
+                if (!PkRankEnterView.this.gjB.getGetPkInfoModel().isLoop()) {
+                    PkRankEnterView.this.gjB.getGetPkInfoModel().a(PkRankEnterView.this.gjB.aIT.aHD.userId, j, PkRankEnterView.this.gjB.aIT.mLiveInfo.room_id, PkRankEnterView.this.gjB.aIT.mLiveInfo.live_id, PkRankEnterView.this.gjB.isHost ? 1 : 0);
                 }
-                PkRankEnterView.this.ccO();
+                PkRankEnterView.this.cgk();
             }
 
             @Override // com.baidu.tieba.ala.g.p.a
-            public void bZV() {
-                PkRankEnterView.this.vz(3);
-                PkRankEnterView.this.ccO();
+            public void cdt() {
+                PkRankEnterView.this.wf(3);
+                PkRankEnterView.this.cgk();
             }
 
             @Override // com.baidu.tieba.ala.g.p.a
             public void ai(ArrayList<String> arrayList) {
-                PkRankEnterView.this.vz(2);
+                PkRankEnterView.this.wf(2);
                 PkRankEnterView.this.ak(arrayList);
             }
 
             @Override // com.baidu.tieba.ala.g.p.a
-            public void aX(int i, String str) {
+            public void bh(int i, String str) {
             }
         });
     }
 
-    public void vz(int i) {
+    public void wf(int i) {
         this.status = i;
-        if (this.fXi.vB(i)) {
-            if (!this.fXi.isHost) {
-                this.fXi.cdx();
+        if (this.gjB.wh(i)) {
+            if (!this.gjB.isHost) {
+                this.gjB.cgT();
                 setVisibility(8);
                 return;
             }
-            this.fXi.cdx();
-            ccU();
+            this.gjB.cgT();
+            cgq();
             switch (i) {
                 case 0:
-                    ccP();
+                    cgl();
                     break;
                 case 1:
-                    ccQ();
+                    cgm();
                     break;
                 case 2:
-                    ccR();
+                    cgn();
                     break;
                 case 3:
-                    ccS();
+                    cgo();
                     break;
             }
-            this.hgc = i;
+            this.huX = i;
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void ak(ArrayList<String> arrayList) {
-        if (this.hgp == null || !this.hgp.ccN()) {
-            this.hgp = new i(arrayList, this.hgf, this.hgk);
-            this.hgp.tk();
+        if (this.hvk == null || !this.hvk.cgj()) {
+            this.hvk = new i(arrayList, this.hva, this.hvf);
+            this.hvk.tk();
         }
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public void ccO() {
-        if (this.hgp != null) {
-            this.hgp.bZU();
+    public void cgk() {
+        if (this.hvk != null) {
+            this.hvk.cds();
         }
     }
 
-    private void ccP() {
-        vA(10);
-        this.hge.setVisibility(0);
-        this.hge.setImageResource(a.f.pk_rank_enter_view_again);
-        this.hgd.setImageResource(a.f.pk_rank_enter_view_black_bg);
-        this.hgj.setVisibility(0);
-        this.hgj.setText(a.i.sdk_pk_rank_restart);
-        this.hgj.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.ala.view.PkRankEnterView.4
+    private void cgl() {
+        wg(10);
+        this.huZ.setVisibility(0);
+        this.huZ.setImageResource(a.f.pk_rank_enter_view_again);
+        this.huY.setImageResource(a.f.pk_rank_enter_view_black_bg);
+        this.hve.setVisibility(0);
+        this.hve.setText(a.i.sdk_pk_rank_restart);
+        this.hve.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.ala.view.PkRankEnterView.4
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                PkRankEnterView.this.hgm.es(PkRankEnterView.this.fXi.aFP.aEz.userId);
+                PkRankEnterView.this.hvh.eJ(PkRankEnterView.this.gjB.aIT.aHD.userId);
                 AlaStatsItem alaStatsItem = new AlaStatsItem();
                 alaStatsItem.addValue("source", "pk_pendant_rematch_btn_click");
                 AlaStatManager.getInstance().debug("pk_competition_start_match", alaStatsItem);
@@ -186,19 +186,19 @@ public class PkRankEnterView extends RelativeLayout {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void ccQ() {
-        this.fXi.hhZ = 1;
+    public void cgm() {
+        this.gjB.hwV = 1;
         this.status = 1;
-        this.hgc = 1;
-        this.hge.setVisibility(0);
-        this.hge.setImageResource(a.f.pk_rank_enter_view_main);
-        this.hgd.setImageResource(a.f.pk_rank_enter_view_bg);
-        this.hgj.setVisibility(0);
-        this.hgj.setText(a.i.sdk_pk_rank_start);
-        this.hgj.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.ala.view.PkRankEnterView.5
+        this.huX = 1;
+        this.huZ.setVisibility(0);
+        this.huZ.setImageResource(a.f.pk_rank_enter_view_main);
+        this.huY.setImageResource(a.f.pk_rank_enter_view_bg);
+        this.hve.setVisibility(0);
+        this.hve.setText(a.i.sdk_pk_rank_start);
+        this.hve.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.ala.view.PkRankEnterView.5
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                PkRankEnterView.this.hgm.es(PkRankEnterView.this.fXi.aFP.aEz.userId);
+                PkRankEnterView.this.hvh.eJ(PkRankEnterView.this.gjB.aIT.aHD.userId);
                 AlaStatsItem alaStatsItem = new AlaStatsItem();
                 alaStatsItem.addValue("source", "pk_pendant_quick_start_btn_click");
                 AlaStatManager.getInstance().debug("pk_competition_start_match", alaStatsItem);
@@ -206,30 +206,30 @@ public class PkRankEnterView extends RelativeLayout {
         });
     }
 
-    private void ccR() {
-        this.hgf.setVisibility(0);
-        this.hgd.setImageResource(a.f.pk_rank_enter_view_black_bg);
-        this.hgi.setVisibility(0);
-        this.hgj.setVisibility(0);
-        this.hgj.setText(a.i.sdk_pk_rank_matching_cancel);
-        this.hgj.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.ala.view.PkRankEnterView.6
+    private void cgn() {
+        this.hva.setVisibility(0);
+        this.huY.setImageResource(a.f.pk_rank_enter_view_black_bg);
+        this.hvd.setVisibility(0);
+        this.hve.setVisibility(0);
+        this.hve.setText(a.i.sdk_pk_rank_matching_cancel);
+        this.hve.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.ala.view.PkRankEnterView.6
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                PkRankEnterView.this.hgo.er(PkRankEnterView.this.fXi.aFP.aEz.userId);
+                PkRankEnterView.this.hvj.eI(PkRankEnterView.this.gjB.aIT.aHD.userId);
             }
         });
     }
 
-    private void ccS() {
-        vA(10);
-        this.hge.setVisibility(0);
-        this.hge.setImageResource(a.f.pk_rank_enter_view_fail);
-        this.hgd.setImageResource(a.f.pk_rank_enter_view_black_bg);
-        this.hgj.setVisibility(0);
-        this.hgj.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.ala.view.PkRankEnterView.7
+    private void cgo() {
+        wg(10);
+        this.huZ.setVisibility(0);
+        this.huZ.setImageResource(a.f.pk_rank_enter_view_fail);
+        this.huY.setImageResource(a.f.pk_rank_enter_view_black_bg);
+        this.hve.setVisibility(0);
+        this.hve.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.ala.view.PkRankEnterView.7
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                PkRankEnterView.this.hgm.es(PkRankEnterView.this.fXi.aFP.aEz.userId);
+                PkRankEnterView.this.hvh.eJ(PkRankEnterView.this.gjB.aIT.aHD.userId);
                 AlaStatsItem alaStatsItem = new AlaStatsItem();
                 alaStatsItem.addValue("source", "pk_pendant_match_filed_btn_click");
                 AlaStatManager.getInstance().debug("pk_competition_start_match", alaStatsItem);
@@ -237,102 +237,102 @@ public class PkRankEnterView extends RelativeLayout {
         });
     }
 
-    private void dE(JSONObject jSONObject) {
-        this.hgd.setImageResource(a.f.pk_rank_enter_view_black_bg);
-        vA(10);
+    private void dJ(JSONObject jSONObject) {
+        this.huY.setImageResource(a.f.pk_rank_enter_view_black_bg);
+        wg(10);
         final JSONObject optJSONObject = jSONObject.optJSONObject("rival_anchor");
         String optString = optJSONObject.optString("bd_portrait");
-        this.hgf.setVisibility(0);
-        this.hgf.startLoad(optString, 25, false, false);
-        this.hgg.setVisibility(0);
-        this.hgg.setText(optJSONObject.optString("nick_name"));
-        this.hgh.setVisibility(0);
-        this.hgj.setVisibility(0);
-        this.hgj.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.ala.view.PkRankEnterView.8
+        this.hva.setVisibility(0);
+        this.hva.startLoad(optString, 25, false, false);
+        this.hvb.setVisibility(0);
+        this.hvb.setText(optJSONObject.optString("nick_name"));
+        this.hvc.setVisibility(0);
+        this.hve.setVisibility(0);
+        this.hve.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.ala.view.PkRankEnterView.8
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                PkRankEnterView.this.hgn.v(PkRankEnterView.this.fXi.aFP.aEz.userId, optJSONObject.optLong("user_id"));
+                PkRankEnterView.this.hvi.v(PkRankEnterView.this.gjB.aIT.aHD.userId, optJSONObject.optLong("user_id"));
             }
         });
     }
 
-    private void vA(int i) {
-        if ((this.hgl == null || !this.hgl.isRunning()) && i > 0) {
-            this.hgl = new com.baidu.tieba.ala.d(i * 1000, 1000L);
-            this.hgl.a(new d.a() { // from class: com.baidu.tieba.ala.view.PkRankEnterView.9
+    private void wg(int i) {
+        if ((this.hvg == null || !this.hvg.isRunning()) && i > 0) {
+            this.hvg = new com.baidu.tieba.ala.d(i * 1000, 1000L);
+            this.hvg.a(new d.a() { // from class: com.baidu.tieba.ala.view.PkRankEnterView.9
                 @Override // com.baidu.tieba.ala.d.a
                 public void onTick(long j) {
                     long round = Math.round(j / 1000.0d) % 60;
                     if (PkRankEnterView.this.status == 0 || PkRankEnterView.this.status == 3) {
-                        PkRankEnterView.this.hgj.setText(PkRankEnterView.this.context.getString(a.i.sdk_pk_rank_restart_time, String.valueOf(round)));
+                        PkRankEnterView.this.hve.setText(PkRankEnterView.this.context.getString(a.i.sdk_pk_rank_restart_time, String.valueOf(round)));
                     } else if (PkRankEnterView.this.status == 4) {
-                        PkRankEnterView.this.hgj.setText(PkRankEnterView.this.context.getString(a.i.sdk_pk_rank_accept_time, String.valueOf(round)));
+                        PkRankEnterView.this.hve.setText(PkRankEnterView.this.context.getString(a.i.sdk_pk_rank_accept_time, String.valueOf(round)));
                     }
                 }
 
                 @Override // com.baidu.tieba.ala.d.a
                 public void onFinish() {
-                    PkRankEnterView.this.hgl.cancelTimer();
-                    PkRankEnterView.this.ccU();
-                    PkRankEnterView.this.ccQ();
+                    PkRankEnterView.this.hvg.cancelTimer();
+                    PkRankEnterView.this.cgq();
+                    PkRankEnterView.this.cgm();
                 }
             });
-            this.hgl.startTimer();
+            this.hvg.startTimer();
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void ccT() {
-        if (this.hgl != null) {
-            this.hgl.cancelTimer();
-            this.hgl = null;
+    public void cgp() {
+        if (this.hvg != null) {
+            this.hvg.cancelTimer();
+            this.hvg = null;
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void ccU() {
+    public void cgq() {
         setVisibility(0);
-        if (this.hgc != this.status) {
-            ccT();
+        if (this.huX != this.status) {
+            cgp();
         }
-        this.hgf.setVisibility(8);
-        this.hgi.setVisibility(8);
-        this.hge.setVisibility(8);
-        this.hgg.setVisibility(8);
-        this.hgh.setVisibility(8);
-        this.hgj.setVisibility(8);
+        this.hva.setVisibility(8);
+        this.hvd.setVisibility(8);
+        this.huZ.setVisibility(8);
+        this.hvb.setVisibility(8);
+        this.hvc.setVisibility(8);
+        this.hve.setVisibility(8);
     }
 
     public void onDestroy() {
-        if (this.hgm != null) {
-            this.hgm.bZT();
+        if (this.hvh != null) {
+            this.hvh.cdr();
         }
-        if (this.hgn != null) {
-            this.hgn.bZF();
+        if (this.hvi != null) {
+            this.hvi.cdd();
         }
-        if (this.hgo != null) {
-            this.hgo.bZO();
+        if (this.hvj != null) {
+            this.hvj.cdm();
         }
-        if (this.fXi.getGetPkInfoModel() != null) {
-            this.fXi.getGetPkInfoModel().bZR();
+        if (this.gjB.getGetPkInfoModel() != null) {
+            this.gjB.getGetPkInfoModel().cdp();
         }
-        ccT();
+        cgp();
     }
 
     public void setPkRankView(PkRankView pkRankView) {
-        this.fXi = pkRankView;
+        this.gjB = pkRankView;
     }
 
-    public void c(JSONObject jSONObject, int i) {
-        if (this.fXi.vB(i) && i == 4) {
-            this.hgm.bZU();
-            ccO();
-            ccT();
-            this.fXi.cdx();
-            ccU();
-            this.hgc = i;
+    public void d(JSONObject jSONObject, int i) {
+        if (this.gjB.wh(i) && i == 4) {
+            this.hvh.cds();
+            cgk();
+            cgp();
+            this.gjB.cgT();
+            cgq();
+            this.huX = i;
             this.status = i;
-            dE(jSONObject);
+            dJ(jSONObject);
         }
     }
 }

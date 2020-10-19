@@ -13,14 +13,16 @@ import android.widget.TextView;
 import com.kascend.chushou.a;
 /* loaded from: classes6.dex */
 public class SubscribeButton extends LinearLayout {
-    public static float a;
+
+    /* renamed from: a  reason: collision with root package name */
+    public static float f4256a;
     private boolean b;
     private TextView c;
     private LinearLayout d;
     private LinearLayout e;
     private Context h;
-    private AnimatorSet ogy;
-    private AnimatorSet ojN;
+    private AnimatorSet ovR;
+    private AnimatorSet ozg;
 
     public SubscribeButton(Context context) {
         this(context, null, 0);
@@ -41,19 +43,19 @@ public class SubscribeButton extends LinearLayout {
         this.d = (LinearLayout) findViewById(a.f.ll_subscribe_root);
         this.e = (LinearLayout) findViewById(a.f.ll_content);
         this.c = (TextView) findViewById(a.f.tv_subscribe_content);
-        a = this.h.getResources().getDisplayMetrics().density;
-        if (a >= 2.0f) {
+        f4256a = this.h.getResources().getDisplayMetrics().density;
+        if (f4256a >= 2.0f) {
             int dimensionPixelOffset = getResources().getDimensionPixelOffset(a.d.subscribe_btn_height);
-            this.ojN = new AnimatorSet();
+            this.ozg = new AnimatorSet();
             ObjectAnimator ofPropertyValuesHolder = ObjectAnimator.ofPropertyValuesHolder(this.e, PropertyValuesHolder.ofFloat("alpha", 1.0f, 0.0f));
             ofPropertyValuesHolder.setDuration(20L);
             ObjectAnimator ofPropertyValuesHolder2 = ObjectAnimator.ofPropertyValuesHolder(this.e, PropertyValuesHolder.ofFloat("translationY", 0.0f, dimensionPixelOffset));
             ofPropertyValuesHolder2.setDuration(10L);
-            this.ojN.play(ofPropertyValuesHolder2).after(ofPropertyValuesHolder);
-            this.ogy = new AnimatorSet();
+            this.ozg.play(ofPropertyValuesHolder2).after(ofPropertyValuesHolder);
+            this.ovR = new AnimatorSet();
             ObjectAnimator ofPropertyValuesHolder3 = ObjectAnimator.ofPropertyValuesHolder(this.e, PropertyValuesHolder.ofFloat("translationY", dimensionPixelOffset, 0.0f));
             ofPropertyValuesHolder3.setDuration(250L);
-            this.ogy.play(ofPropertyValuesHolder3);
+            this.ovR.play(ofPropertyValuesHolder3);
         }
     }
 }

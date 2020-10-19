@@ -38,7 +38,10 @@ import java.util.List;
 import javax.crypto.Cipher;
 import javax.crypto.spec.IvParameterSpec;
 import javax.crypto.spec.SecretKeySpec;
-/* loaded from: classes9.dex */
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+/* loaded from: classes5.dex */
 public final class Utility {
     private static final String ALGORITHM_NAME = "AES";
     private static final String API_KEY = "BD_IM_API_KEY";
@@ -49,7 +52,7 @@ public final class Utility {
     private static int mDisableRestapi = 0;
     private static char[] hexDigits = {'0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'a', 'b', 'c', 'd', 'e', 'f'};
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes5.dex */
     public interface DeleteItem {
         void deleteItem(Context context, Long l);
     }
@@ -348,7 +351,7 @@ public final class Utility {
     public static void startIMService(Context context) {
         LogUtils.i(TAG, "--- Start IM Service ---");
         try {
-            a.al(context).e(context, new Intent(context, a.class));
+            a.ao(context).e(context, new Intent(context, a.class));
         } catch (Exception e) {
             LogUtils.e(TAG, "Exception ", e);
         }
@@ -381,7 +384,7 @@ public final class Utility {
         creatMethodIntent.putExtra("contacter", j2);
         creatMethodIntent.putExtra("category", j);
         try {
-            a.al(context).e(context, creatMethodIntent);
+            a.ao(context).e(context, creatMethodIntent);
         } catch (Exception e) {
             LogUtils.e(TAG, "Exception ", e);
             new IMTrack.CrashBuilder(context).exception(Log.getStackTraceString(e)).build();
@@ -463,7 +466,7 @@ public final class Utility {
             creatMethodIntent.putExtra(Constants.EXTRA_LISTENER_ID, str);
         }
         try {
-            a.al(context).e(context, creatMethodIntent);
+            a.ao(context).e(context, creatMethodIntent);
         } catch (Exception e) {
             ListenerManager.getInstance().removeListener(str);
             LogUtils.e(TAG, "Exception ", e);
@@ -582,7 +585,7 @@ public final class Utility {
 
     public static String byte2Hex(byte[] bArr) {
         if (bArr == null) {
-            return null;
+            return Constants.ERROR_MSG_MD5_NULL;
         }
         StringBuilder sb = new StringBuilder();
         for (byte b : bArr) {
@@ -591,7 +594,7 @@ public final class Utility {
             sb.append(c);
             sb.append(c2);
         }
-        return sb.toString();
+        return !TextUtils.isEmpty(sb.toString()) ? sb.toString() : Constants.ERROR_MSG_MD5_EMPTY;
     }
 
     public static void sendConnectionStateBroadCast(Context context, int i) {
@@ -873,5 +876,113 @@ public final class Utility {
 
     public static boolean isStudioHostSendMsg(Context context) {
         return readBooleanData(context, Constants.KEY_STUDIO_IS_HOST_SEND_MSG, false);
+    }
+
+    public static boolean availableNotificationPaType(int i) {
+        return 32 <= i && 56 >= i;
+    }
+
+    public static boolean isMediaUri(String str) {
+        return !TextUtils.isEmpty(str) && str.startsWith("content://");
+    }
+
+    public static void setReliableMaxMsg(Context context, JSONObject jSONObject) {
+        if (jSONObject != null) {
+            try {
+                if (jSONObject.length() > 0) {
+                    Long valueOf = Long.valueOf(jSONObject.optLong(Constants.RELIABLE_CASTID));
+                    if (valueOf.longValue() > 0) {
+                        JSONArray reliableMaxMsg = getReliableMaxMsg(context);
+                        LogUtils.d(TAG, "sp reliableMaxMsg，get origin from sp msg：" + reliableMaxMsg);
+                        int msgInfoIndex = getMsgInfoIndex(reliableMaxMsg, Constants.RELIABLE_CASTID, valueOf.longValue());
+                        if (msgInfoIndex >= 0) {
+                            JSONObject optJSONObject = reliableMaxMsg.optJSONObject(msgInfoIndex);
+                            if (optJSONObject != null && jSONObject.optLong(Constants.RELIABLE_MSGID) > optJSONObject.optLong(Constants.RELIABLE_MSGID)) {
+                                reliableMaxMsg.put(msgInfoIndex, jSONObject);
+                            }
+                        } else {
+                            reliableMaxMsg.put(jSONObject);
+                        }
+                        LogUtils.d(TAG, "sp reliableMaxMsg， write to sp msg：" + reliableMaxMsg);
+                        writeReliableMaxMsg(context, reliableMaxMsg);
+                    }
+                }
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }
+    }
+
+    public static Long getReliableMaxMsgId(Context context, long j) {
+        long j2 = 0L;
+        try {
+            JSONArray reliableMaxMsg = getReliableMaxMsg(context);
+            int msgInfoIndex = getMsgInfoIndex(reliableMaxMsg, Constants.RELIABLE_CASTID, j);
+            if (msgInfoIndex >= 0) {
+                JSONObject optJSONObject = reliableMaxMsg.optJSONObject(msgInfoIndex);
+                j2 = Long.valueOf(optJSONObject != null ? optJSONObject.optLong(Constants.RELIABLE_MSGID) : 0L);
+            }
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+        LogUtils.d(TAG, "sp reliableMaxMsg， getReliableMaxMsgId:" + j2);
+        return j2;
+    }
+
+    public static void clearExpiredMsg(Context context) {
+        try {
+            JSONArray reliableMaxMsg = getReliableMaxMsg(context);
+            if (reliableMaxMsg == null || reliableMaxMsg.length() <= 0) {
+                LogUtils.d(TAG, "sp reliableMaxMsg，sp 清理后，回写回的msg：NULL");
+                return;
+            }
+            int length = reliableMaxMsg.length();
+            JSONArray jSONArray = new JSONArray();
+            for (int i = 0; i <= length; i++) {
+                JSONObject optJSONObject = reliableMaxMsg.optJSONObject(i);
+                if (optJSONObject != null && System.currentTimeMillis() - optJSONObject.optLong(Constants.RELIABLE_UPDATTIME) < Constants.EXPIRED_TIME.longValue()) {
+                    jSONArray.put(optJSONObject);
+                }
+            }
+            LogUtils.d(TAG, "sp reliableMaxMsg，sp 清理后，回写回的msg：" + jSONArray);
+            writeReliableMaxMsg(context, jSONArray);
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public static JSONArray getReliableMaxMsg(Context context) throws JSONException {
+        String string = context.getSharedPreferences(Constants.PREF_RELIABLE_MSG_DATA, 0).getString(Constants.RELIABLE_MAX_MSGINFO_KEY, "");
+        return TextUtils.isEmpty(string) ? new JSONArray() : new JSONArray(string);
+    }
+
+    private static void writeReliableMaxMsg(Context context, JSONArray jSONArray) {
+        if (jSONArray != null && jSONArray.length() > 0) {
+            context.getSharedPreferences(Constants.PREF_RELIABLE_MSG_DATA, 0).edit().putString(Constants.RELIABLE_MAX_MSGINFO_KEY, jSONArray.toString()).apply();
+        }
+    }
+
+    private static int getMsgInfoIndex(JSONArray jSONArray, String str, long j) {
+        int i;
+        if (jSONArray != null) {
+            try {
+                if (jSONArray.length() > 0) {
+                    int length = jSONArray.length();
+                    i = 0;
+                    while (i < length) {
+                        JSONObject optJSONObject = jSONArray.optJSONObject(i);
+                        if (optJSONObject != null && optJSONObject.optLong(str) == j) {
+                            break;
+                        }
+                        i++;
+                    }
+                }
+            } catch (Exception e) {
+                e.printStackTrace();
+                return -1;
+            }
+        }
+        i = -1;
+        return i;
     }
 }

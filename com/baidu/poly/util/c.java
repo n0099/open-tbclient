@@ -9,7 +9,7 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
-/* loaded from: classes9.dex */
+/* loaded from: classes6.dex */
 public class c {
     public static String a(InputStream inputStream) {
         if (inputStream == null) {
@@ -27,7 +27,7 @@ public class c {
         }
     }
 
-    public static String n(File file) {
+    public static String r(File file) {
         FileInputStream fileInputStream;
         String str = null;
         if (file != null) {

@@ -15,9 +15,9 @@ import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tbadk.core.util.at;
 import com.baidu.tbadk.core.voice.VoiceManager;
 import com.baidu.tieba.R;
-/* loaded from: classes23.dex */
+/* loaded from: classes24.dex */
 public class PersonPolymericActivity extends BaseFragmentActivity implements VoiceManager.c {
-    private PersonPolymericFragment ltf;
+    private PersonPolymericFragment lIs;
     private boolean mIsFromSchema = false;
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -25,9 +25,9 @@ public class PersonPolymericActivity extends BaseFragmentActivity implements Voi
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
         setContentView(R.layout.person_new_fragment_view);
-        this.ltf = new PersonPolymericFragment();
-        getSupportFragmentManager().beginTransaction().add(R.id.fragment_container, this.ltf).commit();
-        if (getIntent() != null && getIntent().getParcelableExtra(IntentConfig.KEY_URI) != null && !com.baidu.adp.base.a.lf().bq("MainTabActivity")) {
+        this.lIs = new PersonPolymericFragment();
+        getSupportFragmentManager().beginTransaction().add(R.id.fragment_container, this.lIs).commit();
+        if (getIntent() != null && getIntent().getParcelableExtra(IntentConfig.KEY_URI) != null && !com.baidu.adp.base.a.lg().bq("MainTabActivity")) {
             this.mIsFromSchema = true;
         }
         if (this.mIsFromSchema) {
@@ -44,8 +44,8 @@ public class PersonPolymericActivity extends BaseFragmentActivity implements Voi
 
     @Override // com.baidu.tbadk.core.BaseFragmentActivity
     protected void onChangeSkinType(int i) {
-        if (this.ltf != null) {
-            this.ltf.onChangeSkinType(i);
+        if (this.lIs != null) {
+            this.lIs.onChangeSkinType(i);
         }
     }
 
@@ -58,15 +58,15 @@ public class PersonPolymericActivity extends BaseFragmentActivity implements Voi
     @Override // com.baidu.tbadk.core.BaseFragmentActivity, android.support.v4.app.FragmentActivity, android.app.Activity
     public void onActivityResult(int i, int i2, Intent intent) {
         super.onActivityResult(i, i2, intent);
-        if (this.ltf != null) {
-            this.ltf.onActivityResult(i, i2, intent);
+        if (this.lIs != null) {
+            this.lIs.onActivityResult(i, i2, intent);
         }
     }
 
     @Override // com.baidu.tbadk.core.voice.VoiceManager.c
     public VoiceManager getVoiceManager() {
-        if (this.ltf != null) {
-            return this.ltf.getVoiceManager();
+        if (this.lIs != null) {
+            return this.lIs.getVoiceManager();
         }
         return null;
     }

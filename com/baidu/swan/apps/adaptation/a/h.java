@@ -1,11 +1,11 @@
 package com.baidu.swan.apps.adaptation.a;
 
 import android.content.Context;
-/* loaded from: classes3.dex */
+/* loaded from: classes10.dex */
 public interface h {
-    boolean M(Context context, String str);
+    boolean P(Context context, String str);
 
-    boolean N(Context context, String str);
+    boolean Q(Context context, String str);
 
-    boolean O(Context context, String str);
+    boolean R(Context context, String str);
 }

@@ -1,7 +1,7 @@
 package com.baidubce.services.bos.model;
 
 import com.baidubce.model.AbstractBceResponse;
-/* loaded from: classes24.dex */
+/* loaded from: classes25.dex */
 public class BosResponse extends AbstractBceResponse {
     public BosResponse() {
         this.metadata = new BosResponseMetadata();

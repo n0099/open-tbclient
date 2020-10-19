@@ -4,26 +4,30 @@ import android.os.Bundle;
 import com.baidu.live.adp.lib.stats.BdStatsConstant;
 import java.util.HashMap;
 import java.util.Map;
-/* loaded from: classes9.dex */
+/* loaded from: classes12.dex */
 public class gh extends gj {
-    private a a;
+
+    /* renamed from: a  reason: collision with root package name */
+    private a f4922a;
 
     /* renamed from: a  reason: collision with other field name */
-    private final Map<String, String> f390a;
+    private final Map<String, String> f391a;
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes12.dex */
     public static class a {
-        public static final a a = new a("get");
+
+        /* renamed from: a  reason: collision with root package name */
+        public static final a f4923a = new a("get");
         public static final a b = new a("set");
         public static final a c = new a("result");
         public static final a d = new a(BdStatsConstant.StatsType.ERROR);
         public static final a e = new a("command");
 
         /* renamed from: a  reason: collision with other field name */
-        private String f391a;
+        private String f392a;
 
         private a(String str) {
-            this.f391a = str;
+            this.f392a = str;
         }
 
         public static a a(String str) {
@@ -31,8 +35,8 @@ public class gh extends gj {
                 return null;
             }
             String lowerCase = str.toLowerCase();
-            if (a.toString().equals(lowerCase)) {
-                return a;
+            if (f4923a.toString().equals(lowerCase)) {
+                return f4923a;
             }
             if (b.toString().equals(lowerCase)) {
                 return b;
@@ -50,36 +54,36 @@ public class gh extends gj {
         }
 
         public String toString() {
-            return this.f391a;
+            return this.f392a;
         }
     }
 
     public gh() {
-        this.a = a.a;
-        this.f390a = new HashMap();
+        this.f4922a = a.f4923a;
+        this.f391a = new HashMap();
     }
 
     public gh(Bundle bundle) {
         super(bundle);
-        this.a = a.a;
-        this.f390a = new HashMap();
+        this.f4922a = a.f4923a;
+        this.f391a = new HashMap();
         if (bundle.containsKey("ext_iq_type")) {
-            this.a = a.a(bundle.getString("ext_iq_type"));
+            this.f4922a = a.a(bundle.getString("ext_iq_type"));
         }
     }
 
     @Override // com.xiaomi.push.gj
     public Bundle a() {
         Bundle a2 = super.a();
-        if (this.a != null) {
-            a2.putString("ext_iq_type", this.a.toString());
+        if (this.f4922a != null) {
+            a2.putString("ext_iq_type", this.f4922a.toString());
         }
         return a2;
     }
 
     @Override // com.xiaomi.push.gj
     public a a() {
-        return this.a;
+        return this.f4922a;
     }
 
     @Override // com.xiaomi.push.gj
@@ -98,11 +102,11 @@ public class gh extends gj {
         if (k() != null) {
             sb.append("chid=\"").append(gu.a(k())).append("\" ");
         }
-        for (Map.Entry<String, String> entry : this.f390a.entrySet()) {
+        for (Map.Entry<String, String> entry : this.f391a.entrySet()) {
             sb.append(gu.a(entry.getKey())).append("=\"");
             sb.append(gu.a(entry.getValue())).append("\" ");
         }
-        if (this.a == null) {
+        if (this.f4922a == null) {
             sb.append("type=\"get\">");
         } else {
             sb.append("type=\"").append(a()).append("\">");
@@ -114,7 +118,7 @@ public class gh extends gj {
         sb.append(o());
         gn a2 = a();
         if (a2 != null) {
-            sb.append(a2.m318a());
+            sb.append(a2.m319a());
         }
         sb.append("</iq>");
         return sb.toString();
@@ -122,14 +126,14 @@ public class gh extends gj {
 
     public void a(a aVar) {
         if (aVar == null) {
-            this.a = a.a;
+            this.f4922a = a.f4923a;
         } else {
-            this.a = aVar;
+            this.f4922a = aVar;
         }
     }
 
     public synchronized void a(Map<String, String> map) {
-        this.f390a.putAll(map);
+        this.f391a.putAll(map);
     }
 
     @Override // com.xiaomi.push.gj

@@ -11,9 +11,9 @@ import com.baidu.live.tbadk.widget.TbImageView;
 import com.facebook.drawee.view.SimpleDraweeView;
 /* loaded from: classes4.dex */
 public class AlaEmoticonView extends FrameLayout {
-    private SimpleDraweeView bqU;
-    private TbImageView bqV;
-    private a bqW;
+    private SimpleDraweeView buI;
+    private TbImageView buJ;
+    private a buK;
 
     /* loaded from: classes4.dex */
     public interface a {
@@ -34,18 +34,18 @@ public class AlaEmoticonView extends FrameLayout {
 
     private void init(Context context) {
         View inflate = LayoutInflater.from(context).inflate(a.h.ala_emoticon_view, (ViewGroup) this, true);
-        this.bqU = (SimpleDraweeView) inflate.findViewById(a.g.emoticon_iv);
-        this.bqV = (TbImageView) inflate.findViewById(a.g.emoticon_result_iv);
+        this.buI = (SimpleDraweeView) inflate.findViewById(a.g.emoticon_iv);
+        this.buJ = (TbImageView) inflate.findViewById(a.g.emoticon_result_iv);
     }
 
     public void stopLoad() {
-        if (this.bqU != null && this.bqU.getController() != null && this.bqU.getController().dUa() != null && this.bqU.getController().dUa().isRunning()) {
-            this.bqU.getController().dUa().stop();
+        if (this.buI != null && this.buI.getController() != null && this.buI.getController().dXL() != null && this.buI.getController().dXL().isRunning()) {
+            this.buI.getController().dXL().stop();
         }
     }
 
     public void setEmoticonListener(a aVar) {
-        this.bqW = aVar;
+        this.buK = aVar;
     }
 
     @Override // android.view.ViewGroup, android.view.View

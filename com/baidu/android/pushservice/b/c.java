@@ -7,9 +7,11 @@ import com.baidu.ar.constants.HttpConstants;
 import java.util.ArrayList;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes7.dex */
+/* loaded from: classes10.dex */
 public class c {
-    private String a;
+
+    /* renamed from: a  reason: collision with root package name */
+    private String f1016a;
     private String b;
     private int c;
     private ArrayList<e> d;
@@ -19,9 +21,11 @@ public class c {
     private a h;
     private int i = 0;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes10.dex */
     public class a {
-        public int a;
+
+        /* renamed from: a  reason: collision with root package name */
+        public int f1017a;
         public int b;
 
         public a() {
@@ -29,7 +33,7 @@ public class c {
     }
 
     public c(Context context, String str) {
-        this.a = str;
+        this.f1016a = str;
         a(context, str);
     }
 
@@ -131,7 +135,7 @@ public class c {
 
     public void a(int i, int i2) {
         this.h = new a();
-        this.h.a = i;
+        this.h.f1017a = i;
         this.h.b = i2;
     }
 
@@ -188,6 +192,6 @@ public class c {
     }
 
     public String toString() {
-        return this.a;
+        return this.f1016a;
     }
 }

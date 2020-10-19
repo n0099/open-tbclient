@@ -1,5 +1,5 @@
 package com.baidu.android.imsdk.request;
-/* loaded from: classes9.dex */
+/* loaded from: classes5.dex */
 public class HeartbeatMessage extends Message {
     public HeartbeatMessage() {
         setHeartbeat(true);

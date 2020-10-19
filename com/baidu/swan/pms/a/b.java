@@ -5,22 +5,22 @@ import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
 import okio.BufferedSource;
-/* loaded from: classes24.dex */
+/* loaded from: classes15.dex */
 public abstract class b<T> implements c<T> {
     @Override // com.baidu.swan.pms.a.c
+    public void T(T t) {
+    }
+
+    @Override // com.baidu.swan.pms.a.c
+    public void S(T t) {
+    }
+
+    @Override // com.baidu.swan.pms.a.c
+    public void R(T t) {
+    }
+
+    @Override // com.baidu.swan.pms.a.c
     public void Q(T t) {
-    }
-
-    @Override // com.baidu.swan.pms.a.c
-    public void P(T t) {
-    }
-
-    @Override // com.baidu.swan.pms.a.c
-    public void O(T t) {
-    }
-
-    @Override // com.baidu.swan.pms.a.c
-    public void N(T t) {
     }
 
     @Override // com.baidu.swan.pms.a.c
@@ -28,7 +28,7 @@ public abstract class b<T> implements c<T> {
     }
 
     @Override // com.baidu.swan.pms.a.c
-    public void af(T t) {
+    public void ai(T t) {
     }
 
     @Override // com.baidu.swan.pms.a.c
@@ -37,7 +37,7 @@ public abstract class b<T> implements c<T> {
     }
 
     @Override // com.baidu.swan.pms.a.c
-    public Map<String, Object> aUb() {
+    public Map<String, Object> aWK() {
         HashMap hashMap = new HashMap();
         hashMap.put("queue_priority", Integer.valueOf(getPriority()));
         return hashMap;

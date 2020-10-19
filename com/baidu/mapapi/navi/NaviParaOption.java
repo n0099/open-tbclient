@@ -1,9 +1,11 @@
 package com.baidu.mapapi.navi;
 
 import com.baidu.mapapi.model.LatLng;
-/* loaded from: classes3.dex */
+/* loaded from: classes7.dex */
 public class NaviParaOption {
-    LatLng a;
+
+    /* renamed from: a  reason: collision with root package name */
+    LatLng f2093a;
     String b;
     LatLng c;
     String d;
@@ -31,7 +33,7 @@ public class NaviParaOption {
     }
 
     public LatLng getStartPoint() {
-        return this.a;
+        return this.f2093a;
     }
 
     public NaviParaOption startName(String str) {
@@ -40,7 +42,7 @@ public class NaviParaOption {
     }
 
     public NaviParaOption startPoint(LatLng latLng) {
-        this.a = latLng;
+        this.f2093a = latLng;
         return this;
     }
 }

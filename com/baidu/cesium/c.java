@@ -18,9 +18,9 @@ import java.util.HashSet;
 import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes18.dex */
+/* loaded from: classes6.dex */
 public class c {
-    private com.baidu.cesium.c.d.d amq;
+    private com.baidu.cesium.c.d.d amI;
     private List<b> g;
 
     public c() {
@@ -40,7 +40,7 @@ public class c {
     }
 
     private void a() {
-        this.amq = new com.baidu.cesium.c.d.e(d.a(), d.b());
+        this.amI = new com.baidu.cesium.c.d.e(d.a(), d.b());
     }
 
     private boolean a(String[] strArr, String[] strArr2) {
@@ -78,9 +78,9 @@ public class c {
             return this.g;
         }
         a(context);
-        List<b> a = a(context, new Intent("com.baidu.intent.action.GALAXY"), true);
-        this.g = a;
-        return a;
+        List<b> a2 = a(context, new Intent("com.baidu.intent.action.GALAXY"), true);
+        this.g = a2;
+        return a2;
     }
 
     List<b> a(Context context, Intent intent, boolean z) {
@@ -95,11 +95,11 @@ public class c {
                         if (bundle != null) {
                             String string = bundle.getString("galaxy_data");
                             if (!TextUtils.isEmpty(string)) {
-                                byte[] a = com.baidu.cesium.d.a.a(string.getBytes("utf-8"));
-                                JSONObject jSONObject = new JSONObject(new String(a));
+                                byte[] a2 = com.baidu.cesium.d.a.a(string.getBytes("utf-8"));
+                                JSONObject jSONObject = new JSONObject(new String(a2));
                                 b bVar = new b();
                                 bVar.b = jSONObject.getInt("priority");
-                                bVar.acB = resolveInfo.activityInfo.applicationInfo;
+                                bVar.acR = resolveInfo.activityInfo.applicationInfo;
                                 if (context.getPackageName().equals(resolveInfo.activityInfo.applicationInfo.packageName)) {
                                     bVar.d = true;
                                 }
@@ -113,8 +113,8 @@ public class c {
                                             strArr[i] = jSONArray.getString(i);
                                         }
                                         if (a(strArr, a(packageInfo.signatures))) {
-                                            byte[] a2 = a(com.baidu.cesium.d.a.a(string2.getBytes()), this.amq);
-                                            if (a2 != null && Arrays.equals(a2, com.baidu.cesium.d.c.a(a))) {
+                                            byte[] a3 = a(com.baidu.cesium.d.a.a(string2.getBytes()), this.amI);
+                                            if (a3 != null && Arrays.equals(a3, com.baidu.cesium.d.c.a(a2))) {
                                                 bVar.c = true;
                                             }
                                         }
@@ -153,14 +153,14 @@ public class c {
     }
 
     boolean a(Context context) {
-        List<b> a = a(context, new Intent("com.baidu.intent.action.GALAXY").setPackage(context.getPackageName()), true);
-        if (a == null || a.size() == 0) {
+        List<b> a2 = a(context, new Intent("com.baidu.intent.action.GALAXY").setPackage(context.getPackageName()), true);
+        if (a2 == null || a2.size() == 0) {
             for (int i = 0; i < 3; i++) {
                 Log.w("CuidBuddyInfoManager", "galaxy lib host missing meta-data,make sure you know the right way to integrate galaxy");
             }
             return false;
         }
-        b bVar = a.get(0);
+        b bVar = a2.get(0);
         boolean z = bVar.c;
         if (!bVar.c) {
             for (int i2 = 0; i2 < 3; i2++) {

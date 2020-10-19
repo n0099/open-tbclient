@@ -4,7 +4,7 @@ import com.baidu.sapi2.utils.e;
 import javax.crypto.Cipher;
 import javax.crypto.spec.IvParameterSpec;
 import javax.crypto.spec.SecretKeySpec;
-/* loaded from: classes12.dex */
+/* loaded from: classes15.dex */
 public final class a {
     public static byte[] a(byte[] bArr, byte[] bArr2) {
         try {
@@ -16,10 +16,10 @@ public final class a {
             }
             cipher.init(1, secretKeySpec, new IvParameterSpec(bArr3));
             byte[] doFinal = cipher.doFinal(bArr2);
-            byte[] a = b.a(bArr2);
-            byte[] bArr4 = new byte[doFinal.length + a.length];
+            byte[] a2 = b.a(bArr2);
+            byte[] bArr4 = new byte[doFinal.length + a2.length];
             System.arraycopy(doFinal, 0, bArr4, 0, doFinal.length);
-            System.arraycopy(a, 0, bArr4, doFinal.length, a.length);
+            System.arraycopy(a2, 0, bArr4, doFinal.length, a2.length);
             return bArr4;
         } catch (Throwable th) {
             return null;

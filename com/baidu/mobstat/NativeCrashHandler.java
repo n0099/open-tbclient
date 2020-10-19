@@ -2,9 +2,11 @@ package com.baidu.mobstat;
 
 import android.content.Context;
 import java.io.File;
-/* loaded from: classes15.dex */
+/* loaded from: classes17.dex */
 public final class NativeCrashHandler {
-    private static boolean a;
+
+    /* renamed from: a  reason: collision with root package name */
+    private static boolean f2508a;
     private static Context b;
 
     private static native void nativeException();
@@ -16,10 +18,10 @@ public final class NativeCrashHandler {
     private static native void nativeUnint();
 
     static {
-        a = false;
+        f2508a = false;
         try {
             System.loadLibrary("crash_analysis");
-            a = true;
+            f2508a = true;
         } catch (Throwable th) {
         }
     }
@@ -28,7 +30,7 @@ public final class NativeCrashHandler {
     }
 
     public static void doNativeCrash() {
-        if (a) {
+        if (f2508a) {
             try {
                 nativeException();
             } catch (Throwable th) {
@@ -39,7 +41,7 @@ public final class NativeCrashHandler {
     public static void init(Context context) {
         if (context != null) {
             b = context;
-            if (a) {
+            if (f2508a) {
                 File cacheDir = context.getCacheDir();
                 if (cacheDir.exists() && cacheDir.isDirectory()) {
                     try {
@@ -52,7 +54,7 @@ public final class NativeCrashHandler {
     }
 
     public static void uninit() {
-        if (a) {
+        if (f2508a) {
             try {
                 nativeUnint();
             } catch (Throwable th) {
@@ -61,7 +63,7 @@ public final class NativeCrashHandler {
     }
 
     public static void process(String str) {
-        if (str != null && str.length() != 0 && a) {
+        if (str != null && str.length() != 0 && f2508a) {
             File file = new File(str);
             if (file.exists() && file.isFile()) {
                 try {

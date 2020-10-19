@@ -15,37 +15,37 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes4.dex */
 public class c {
-    private BubbleLayout aSF;
-    private PopupWindow aSG;
-    private AdapterView.OnItemClickListener aSH;
-    private ListView aSI;
-    private b aSJ;
+    private BubbleLayout aVQ;
+    private PopupWindow aVR;
+    private AdapterView.OnItemClickListener aVS;
+    private ListView aVT;
+    private b aVU;
     private TbPageContext mPageContext;
     private int mType;
 
     public c(TbPageContext<AlaGiftTabActivity> tbPageContext, int i, AdapterView.OnItemClickListener onItemClickListener) {
         this.mPageContext = tbPageContext;
         this.mType = i;
-        this.aSH = onItemClickListener;
+        this.aVS = onItemClickListener;
     }
 
     public void a(View view, List<i> list, boolean z, PopupWindow.OnDismissListener onDismissListener) {
         Resources resources = this.mPageContext.getPageActivity().getResources();
-        if (this.aSF == null) {
-            this.aSF = (BubbleLayout) View.inflate(this.mPageContext.getPageActivity(), a.h.ala_gift_num_list, null);
-            this.aSI = (ListView) this.aSF.findViewById(a.g.gift_num_list);
-            this.aSI.setOnItemClickListener(this.aSH);
-            H(list);
-            this.aSG = new PopupWindow((View) this.aSF, resources.getDimensionPixelSize(a.e.sdk_ds200), (int) ((this.aSJ.getCount() * (resources.getDimensionPixelSize(a.e.sdk_ds64) + resources.getDimensionPixelOffset(a.e.sdk_ds1))) + this.aSF.getArrowHeight() + 1.0f), true);
-            this.aSG.setTouchable(true);
-            this.aSG.setBackgroundDrawable(resources.getDrawable(a.f.sdk_transparent_bg));
-            this.aSG.setOnDismissListener(onDismissListener);
+        if (this.aVQ == null) {
+            this.aVQ = (BubbleLayout) View.inflate(this.mPageContext.getPageActivity(), a.h.ala_gift_num_list, null);
+            this.aVT = (ListView) this.aVQ.findViewById(a.g.gift_num_list);
+            this.aVT.setOnItemClickListener(this.aVS);
+            J(list);
+            this.aVR = new PopupWindow((View) this.aVQ, resources.getDimensionPixelSize(a.e.sdk_ds200), (int) ((this.aVU.getCount() * (resources.getDimensionPixelSize(a.e.sdk_ds64) + resources.getDimensionPixelOffset(a.e.sdk_ds1))) + this.aVQ.getArrowHeight() + 1.0f), true);
+            this.aVR.setTouchable(true);
+            this.aVR.setBackgroundDrawable(resources.getDrawable(a.f.sdk_transparent_bg));
+            this.aVR.setOnDismissListener(onDismissListener);
         }
-        this.aSF.r(resources.getDimensionPixelSize(a.e.sdk_ds40));
-        ShowUtil.showPopupWindowAsDropDown(this.aSG, view, 0, -this.mPageContext.getPageActivity().getResources().getDimensionPixelSize(a.e.sdk_ds12));
+        this.aVQ.t(resources.getDimensionPixelSize(a.e.sdk_ds40));
+        ShowUtil.showPopupWindowAsDropDown(this.aVR, view, 0, -this.mPageContext.getPageActivity().getResources().getDimensionPixelSize(a.e.sdk_ds12));
     }
 
-    public void H(List<i> list) {
+    public void J(List<i> list) {
         ArrayList arrayList = new ArrayList();
         if (list != null && list.size() > 0) {
             for (i iVar : list) {
@@ -57,17 +57,17 @@ public class c {
             }
             list.removeAll(arrayList);
         }
-        this.aSJ = new b(this.mPageContext.getPageActivity(), this.mType);
-        this.aSJ.G(list);
-        this.aSI.setAdapter((ListAdapter) this.aSJ);
+        this.aVU = new b(this.mPageContext.getPageActivity(), this.mType);
+        this.aVU.I(list);
+        this.aVT.setAdapter((ListAdapter) this.aVU);
     }
 
     public void dismiss() {
-        if (this.aSG != null && this.aSG.isShowing()) {
+        if (this.aVR != null && this.aVR.isShowing()) {
             if (this.mPageContext == null) {
-                ShowUtil.dismissPopupWindow(this.aSG);
+                ShowUtil.dismissPopupWindow(this.aVR);
             } else {
-                ShowUtil.dismissPopupWindow(this.aSG, this.mPageContext.getPageActivity());
+                ShowUtil.dismissPopupWindow(this.aVR, this.mPageContext.getPageActivity());
             }
         }
     }

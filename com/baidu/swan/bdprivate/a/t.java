@@ -7,7 +7,7 @@ import android.util.Log;
 import com.baidu.swan.apps.setting.oauth.OAuthException;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes8.dex */
 public class t extends com.baidu.swan.apps.setting.oauth.a.g {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
     private boolean mIsLogin;
@@ -16,38 +16,38 @@ public class t extends com.baidu.swan.apps.setting.oauth.a.g {
     public t(Activity activity, String str, String str2, boolean z, boolean z2) {
         super(activity, str, str2, z);
         this.mIsLogin = z2;
-        aCI();
+        aFr();
     }
 
     @Override // com.baidu.swan.apps.setting.oauth.b
-    protected boolean aCf() {
+    protected boolean aEO() {
         a(new a());
         return true;
     }
 
     @Override // com.baidu.swan.apps.setting.oauth.a.g
-    public JSONObject aCE() {
-        JSONObject aCE = super.aCE();
+    public JSONObject aFn() {
+        JSONObject aFn = super.aFn();
         if (!TextUtils.isEmpty(this.mStoken)) {
             try {
-                aCE.put("stoken", this.mStoken);
+                aFn.put("stoken", this.mStoken);
             } catch (JSONException e) {
                 if (DEBUG) {
                     e.printStackTrace();
                 }
             }
         }
-        return aCE;
+        return aFn;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes3.dex */
+    /* loaded from: classes8.dex */
     public class a extends com.baidu.swan.apps.setting.oauth.d {
         private a() {
         }
 
         @Override // com.baidu.swan.apps.setting.oauth.d
-        protected boolean aCl() throws Exception {
+        protected boolean aEU() throws Exception {
             if (!t.this.mIsLogin) {
                 t.this.mStoken = null;
                 if (t.DEBUG) {
@@ -60,7 +60,7 @@ public class t extends com.baidu.swan.apps.setting.oauth.a.g {
                 /* JADX DEBUG: Method merged with bridge method */
                 @Override // com.baidu.swan.apps.ap.e.b
                 /* renamed from: B */
-                public void J(Bundle bundle) {
+                public void M(Bundle bundle) {
                     if (bundle == null) {
                         a.this.w(new OAuthException("null stoken", 10001));
                         return;
@@ -68,7 +68,7 @@ public class t extends com.baidu.swan.apps.setting.oauth.a.g {
                     String string = bundle.getString("dev", "");
                     if (!TextUtils.isEmpty(string)) {
                         t.this.mStoken = string;
-                        a.this.aCn();
+                        a.this.aEW();
                         return;
                     }
                     a.this.w(new OAuthException("empty stoken", 10001));

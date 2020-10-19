@@ -7,12 +7,12 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 /* loaded from: classes4.dex */
 public class aj {
-    public int aJb;
-    public ArrayList<ai> aJc;
+    public int aMg;
+    public ArrayList<ai> aMh;
 
     public void parserJson(JSONObject jSONObject) {
-        this.aJb = jSONObject.optInt("received");
-        this.aJc = new ArrayList<>();
+        this.aMg = jSONObject.optInt("received");
+        this.aMh = new ArrayList<>();
         JSONArray optJSONArray = jSONObject.optJSONArray("task_list");
         if (optJSONArray != null) {
             for (int i = 0; i < optJSONArray.length(); i++) {
@@ -20,17 +20,17 @@ public class aj {
                 if (optJSONObject != null) {
                     ai aiVar = new ai();
                     aiVar.parseJson(optJSONObject);
-                    this.aJc.add(aiVar);
+                    this.aMh.add(aiVar);
                 }
             }
         }
     }
 
-    public boolean Df() {
-        if (!ListUtils.isEmpty(this.aJc)) {
-            Iterator<ai> it = this.aJc.iterator();
+    public boolean Ec() {
+        if (!ListUtils.isEmpty(this.aMh)) {
+            Iterator<ai> it = this.aMh.iterator();
             while (it.hasNext()) {
-                if (it.next().De()) {
+                if (it.next().Eb()) {
                     return true;
                 }
             }
@@ -38,12 +38,12 @@ public class aj {
         return false;
     }
 
-    public ai Dg() {
-        if (!ListUtils.isEmpty(this.aJc)) {
-            Iterator<ai> it = this.aJc.iterator();
+    public ai Ed() {
+        if (!ListUtils.isEmpty(this.aMh)) {
+            Iterator<ai> it = this.aMh.iterator();
             while (it.hasNext()) {
                 ai next = it.next();
-                if (next.Dc()) {
+                if (next.DZ()) {
                     return next;
                 }
             }

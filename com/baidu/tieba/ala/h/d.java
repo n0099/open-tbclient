@@ -14,18 +14,18 @@ import java.util.List;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes4.dex */
 public class d {
-    private DownloadData aNK;
+    private DownloadData aQV;
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public void x(String str, String str2, final String str3, final String str4) {
-        this.aNK = new DownloadData();
-        this.aNK.setId("pk_rank_start");
-        this.aNK.setName("pk_rank_start");
-        this.aNK.setUrl(str);
-        this.aNK.setCheck(str2);
-        this.aNK.setType(21);
-        this.aNK.setPath(str3);
-        this.aNK.setCallback(new FileDownloadCallBack() { // from class: com.baidu.tieba.ala.h.d.1
+    public void y(String str, String str2, final String str3, final String str4) {
+        this.aQV = new DownloadData();
+        this.aQV.setId("pk_rank_start");
+        this.aQV.setName("pk_rank_start");
+        this.aQV.setUrl(str);
+        this.aQV.setCheck(str2);
+        this.aQV.setType(21);
+        this.aQV.setPath(str3);
+        this.aQV.setCallback(new FileDownloadCallBack() { // from class: com.baidu.tieba.ala.h.d.1
             @Override // com.baidu.live.tbadk.download.FileDownloadCallBack
             public void onFileUpdateProgress(DownloadData downloadData) {
             }
@@ -42,25 +42,25 @@ public class d {
 
             @Override // com.baidu.live.tbadk.download.FileDownloadCallBack
             public void onFileDownloadSucceed(DownloadData downloadData) {
-                d.this.y(downloadData.getUrl(), downloadData.getCheck(), str3, str4);
+                d.this.z(downloadData.getUrl(), downloadData.getCheck(), str3, str4);
             }
 
             @Override // com.baidu.live.tbadk.download.FileDownloadCallBack
             public void onFileDownloadFailed(DownloadData downloadData, int i, String str5) {
             }
         });
-        FileSerialDownLoader.getInstance().startDownLoadWithoutMax(this.aNK);
+        FileSerialDownLoader.getInstance().startDownLoadWithoutMax(this.aQV);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     public void release() {
-        if (this.aNK != null) {
-            this.aNK.setCallback(null);
+        if (this.aQV != null) {
+            this.aQV.setCallback(null);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void y(final String str, final String str2, final String str3, final String str4) {
+    public void z(final String str, final String str2, final String str3, final String str4) {
         if (!TextUtils.isEmpty(str3) && !TextUtils.isEmpty(str4)) {
             new BdAsyncTask<Void, Void, List<bo>>() { // from class: com.baidu.tieba.ala.h.d.2
                 /* JADX DEBUG: Method merged with bridge method */
@@ -68,22 +68,22 @@ public class d {
                 @Override // com.baidu.live.adp.lib.asynctask.BdAsyncTask
                 /* renamed from: c */
                 public List<bo> doInBackground(Void... voidArr) {
-                    List<bo> z = d.this.z(str, str2, str3, str4);
-                    if (z == null || z.isEmpty()) {
-                        d.this.gc(str3);
-                        d.this.gc(str4);
+                    List<bo> A = d.this.A(str, str2, str3, str4);
+                    if (A == null || A.isEmpty()) {
+                        d.this.gq(str3);
+                        d.this.gq(str4);
                     }
-                    return z;
+                    return A;
                 }
 
                 /* JADX DEBUG: Method merged with bridge method */
                 /* JADX INFO: Access modifiers changed from: protected */
                 @Override // com.baidu.live.adp.lib.asynctask.BdAsyncTask
-                /* renamed from: y */
+                /* renamed from: A */
                 public void onPostExecute(List<bo> list) {
                     super.onPostExecute(list);
                     if (list != null && !list.isEmpty()) {
-                        c.cca().cl(list);
+                        c.cfw().co(list);
                     }
                 }
             }.execute(new Void[0]);
@@ -99,7 +99,7 @@ public class d {
         	at jadx.core.dex.visitors.blocks.BlockProcessor.visit(BlockProcessor.java:39)
         */
     /* JADX INFO: Access modifiers changed from: private */
-    public java.util.List<com.baidu.live.data.bo> z(java.lang.String r8, java.lang.String r9, java.lang.String r10, java.lang.String r11) {
+    public java.util.List<com.baidu.live.data.bo> A(java.lang.String r8, java.lang.String r9, java.lang.String r10, java.lang.String r11) {
         /*
             r7 = this;
             r1 = 0
@@ -128,7 +128,7 @@ public class d {
             com.baidu.live.data.bo r5 = new com.baidu.live.data.bo     // Catch: java.lang.Throwable -> L51
             r5.<init>()     // Catch: java.lang.Throwable -> L51
             r5.downloadUrl = r8     // Catch: java.lang.Throwable -> L51
-            r5.aLJ = r9     // Catch: java.lang.Throwable -> L51
+            r5.aOO = r9     // Catch: java.lang.Throwable -> L51
             java.lang.String r6 = r4.getAbsolutePath()     // Catch: java.lang.Throwable -> L51
             r5.videoPath = r6     // Catch: java.lang.Throwable -> L51
             java.lang.String r4 = com.baidu.live.f.a.getFileMd5(r4)     // Catch: java.lang.Throwable -> L51
@@ -206,7 +206,7 @@ public class d {
             r2 = r1
             goto L52
         */
-        throw new UnsupportedOperationException("Method not decompiled: com.baidu.tieba.ala.h.d.z(java.lang.String, java.lang.String, java.lang.String, java.lang.String):java.util.List");
+        throw new UnsupportedOperationException("Method not decompiled: com.baidu.tieba.ala.h.d.A(java.lang.String, java.lang.String, java.lang.String, java.lang.String):java.util.List");
     }
 
     /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [219=5, 220=5, 221=5, 223=5, 224=5] */
@@ -321,7 +321,7 @@ public class d {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void gc(String str) {
+    public void gq(String str) {
         if (!TextUtils.isEmpty(str)) {
             com.baidu.live.f.a.cleanDir(new File(str));
         }

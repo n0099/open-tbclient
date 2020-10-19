@@ -8,9 +8,11 @@ import java.util.ArrayList;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes7.dex */
 public class c implements IXAdResponseInfo {
-    private int a;
+
+    /* renamed from: a  reason: collision with root package name */
+    private int f2453a;
     private Boolean b;
     private String c;
     private int d;
@@ -29,7 +31,7 @@ public class c implements IXAdResponseInfo {
     private long q = System.currentTimeMillis();
 
     public c(String str) {
-        this.a = 0;
+        this.f2453a = 0;
         this.b = false;
         this.i = -1;
         this.j = -1;
@@ -50,7 +52,7 @@ public class c implements IXAdResponseInfo {
         } catch (Exception e2) {
             this.p = new ArrayList<>();
         }
-        this.a = jSONObject.optInt("n", 0);
+        this.f2453a = jSONObject.optInt("n", 0);
         this.d = jSONObject.optInt("x", 0);
         this.e = jSONObject.optInt("y", 0);
         this.b = Boolean.valueOf(jSONObject.optInt("m", 0) == 1);
@@ -79,12 +81,12 @@ public class c implements IXAdResponseInfo {
 
     @Override // com.baidu.mobads.interfaces.IXAdResponseInfo
     public int getAdsNum() {
-        return this.a;
+        return this.f2453a;
     }
 
     @Override // com.baidu.mobads.interfaces.IXAdResponseInfo
     public void setAdsNum(int i) {
-        this.a = i;
+        this.f2453a = i;
     }
 
     @Override // com.baidu.mobads.interfaces.IXAdResponseInfo
@@ -212,9 +214,9 @@ public class c implements IXAdResponseInfo {
         if (!TextUtils.isEmpty(this.n)) {
             return this.n;
         }
-        String a = com.baidu.mobads.e.a.a(this.m);
-        if (a != null) {
-            this.n = a;
+        String a2 = com.baidu.mobads.e.a.a(this.m);
+        if (a2 != null) {
+            this.n = a2;
         } else {
             this.n = "";
         }

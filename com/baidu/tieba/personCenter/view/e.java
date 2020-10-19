@@ -10,48 +10,48 @@ import com.baidu.tbadk.core.util.ap;
 import com.baidu.tbadk.core.util.aq;
 import com.baidu.tieba.R;
 import com.baidu.tieba.personCenter.c.n;
-/* loaded from: classes21.dex */
+/* loaded from: classes22.dex */
 public class e extends com.baidu.tieba.card.b<n> {
-    private com.baidu.tbadk.core.flow.a.d<com.baidu.tieba.personCenter.c.a> eiV;
-    private LinearLayout lpn;
-    private AutoBannerView lpo;
+    private com.baidu.tbadk.core.flow.a.d<com.baidu.tieba.personCenter.c.a> evd;
+    private LinearLayout lEA;
+    private AutoBannerView lEB;
     private int mSkinType;
 
     public e(TbPageContext<?> tbPageContext) {
         super(tbPageContext);
         this.mSkinType = 3;
-        this.eiV = new com.baidu.tbadk.core.flow.a.d<com.baidu.tieba.personCenter.c.a>() { // from class: com.baidu.tieba.personCenter.view.e.1
+        this.evd = new com.baidu.tbadk.core.flow.a.d<com.baidu.tieba.personCenter.c.a>() { // from class: com.baidu.tieba.personCenter.view.e.1
             @Override // com.baidu.tbadk.core.flow.a.d
             public void e(int i, String str) {
-                if (e.this.lpo != null && str != null) {
-                    if (e.this.lpo.checkIndex(i)) {
-                        TiebaStatic.log(new aq("c13247").ai("obj_locate", i).dF("obj_param1", str));
+                if (e.this.lEB != null && str != null) {
+                    if (e.this.lEB.checkIndex(i)) {
+                        TiebaStatic.log(new aq("c13247").aj("obj_locate", i).dK("obj_param1", str));
                     }
-                    e.this.lpo.bmJ();
-                    e.this.lpo.dl(str);
+                    e.this.lEB.bpt();
+                    e.this.lEB.dl(str);
                 }
             }
 
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.tbadk.core.flow.a.d
             public void a(int i, com.baidu.tieba.personCenter.c.a aVar) {
-                if (e.this.lpo != null && aVar != null && aVar.bdv() != null && e.this.lpo.checkIndex(i)) {
-                    TiebaStatic.log(new aq("c13246").dF("uid", TbadkCoreApplication.getCurrentAccount()).ai("obj_locate", i).dF("obj_param1", aVar.bdv()));
+                if (e.this.lEB != null && aVar != null && aVar.bge() != null && e.this.lEB.checkIndex(i)) {
+                    TiebaStatic.log(new aq("c13246").dK("uid", TbadkCoreApplication.getCurrentAccount()).aj("obj_locate", i).dK("obj_param1", aVar.bge()));
                 }
             }
         };
         View view = getView();
-        this.lpn = (LinearLayout) view.findViewById(R.id.viewpager);
-        this.lpo = (AutoBannerView) view.findViewById(R.id.person_center_auto_banner_view);
-        this.lpo.setMarqueenTime(IMConnection.RETRY_DELAY_TIMES);
-        this.lpo.getCoverFlowView().setCallback(this.eiV);
+        this.lEA = (LinearLayout) view.findViewById(R.id.viewpager);
+        this.lEB = (AutoBannerView) view.findViewById(R.id.person_center_auto_banner_view);
+        this.lEB.setMarqueenTime(IMConnection.RETRY_DELAY_TIMES);
+        this.lEB.getCoverFlowView().setCallback(this.evd);
     }
 
     @Override // com.baidu.tieba.card.b
     public void onChangeSkinType(TbPageContext<?> tbPageContext, int i) {
         if (this.mSkinType != i) {
-            if (this.lpo != null) {
-                this.lpo.onChangeSkinType(i);
+            if (this.lEB != null) {
+                this.lEB.onChangeSkinType(i);
             }
             ap.setBackgroundColor(getView(), R.color.cp_bg_line_e);
             this.mSkinType = i;
@@ -67,8 +67,8 @@ public class e extends com.baidu.tieba.card.b<n> {
     @Override // com.baidu.tieba.card.b
     public void a(n nVar) {
         onChangeSkinType(this.mTbPageContext, TbadkCoreApplication.getInst().getSkinType());
-        if (this.lpn != null && nVar != null && nVar.lnR != null && this.lpo != null && nVar.lnR.size() != 0) {
-            this.lpo.r(nVar.lnR);
+        if (this.lEA != null && nVar != null && nVar.lDi != null && this.lEB != null && nVar.lDi.size() != 0) {
+            this.lEB.r(nVar.lDi);
         }
     }
 
@@ -78,8 +78,8 @@ public class e extends com.baidu.tieba.card.b<n> {
 
     @Override // com.baidu.tieba.card.b
     public void onDestroy() {
-        if (this.lpo != null) {
-            this.lpo.bmJ();
+        if (this.lEB != null) {
+            this.lEB.bpt();
         }
     }
 }

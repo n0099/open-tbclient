@@ -13,15 +13,15 @@ import com.baidu.swan.apps.res.widget.b.d;
 import com.baidu.swan.bdprivate.b;
 import okhttp3.Response;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes8.dex */
 public class a extends ActivityDelegation {
 
     /* renamed from: com.baidu.swan.bdprivate.d.a$a  reason: collision with other inner class name */
-    /* loaded from: classes3.dex */
-    public interface InterfaceC0461a {
-        void aHd();
+    /* loaded from: classes8.dex */
+    public interface InterfaceC0478a {
+        void aJM();
 
-        void cA(String str, String str2);
+        void cF(String str, String str2);
     }
 
     @Override // com.baidu.searchbox.process.ipc.delegate.activity.ActivityDelegation
@@ -31,7 +31,7 @@ public class a extends ActivityDelegation {
                 @Override // com.baidu.swan.apps.a.a
                 public void onResult(int i) {
                     if (i == 0) {
-                        a.this.aHE();
+                        a.this.aKn();
                         return;
                     }
                     a.this.mResult.putString(TiebaInitialize.LogFields.ERROR_MESSAGE, "login failed");
@@ -40,24 +40,24 @@ public class a extends ActivityDelegation {
             });
             return false;
         }
-        aHE();
+        aKn();
         return false;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void aHE() {
-        com.baidu.swan.bdprivate.a.a.a(getAgent(), new InterfaceC0461a() { // from class: com.baidu.swan.bdprivate.d.a.2
-            @Override // com.baidu.swan.bdprivate.d.a.InterfaceC0461a
-            public void cA(String str, String str2) {
+    public void aKn() {
+        com.baidu.swan.bdprivate.a.a.a(getAgent(), new InterfaceC0478a() { // from class: com.baidu.swan.bdprivate.d.a.2
+            @Override // com.baidu.swan.bdprivate.d.a.InterfaceC0478a
+            public void cF(String str, String str2) {
                 if (TextUtils.isEmpty(str) || TextUtils.isEmpty(str2)) {
                     a.this.mResult.putString(TiebaInitialize.LogFields.ERROR_MESSAGE, "invoiceId == null or invoiceType == null");
                     a.this.finish();
                 }
-                a.this.cz(str, str2);
+                a.this.cE(str, str2);
             }
 
-            @Override // com.baidu.swan.bdprivate.d.a.InterfaceC0461a
-            public void aHd() {
+            @Override // com.baidu.swan.bdprivate.d.a.InterfaceC0478a
+            public void aJM() {
                 a.this.mResult.putString(TiebaInitialize.LogFields.ERROR_MESSAGE, "choose invoiceId failed");
                 a.this.finish();
             }
@@ -65,11 +65,11 @@ public class a extends ActivityDelegation {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void cz(String str, String str2) {
+    public void cE(String str, String str2) {
         if (!SwanAppNetworkUtils.isNetworkConnected(getAgent())) {
             d.k(getAgent(), b.g.invoice_network_none);
         } else {
-            com.baidu.swan.a.c.a.dF(AppRuntime.getAppContext()).getRequest().url(com.baidu.swan.apps.i.c.processCommonParams(aHF())).addUrlParam(InvoiceBuildResult.KEY_INVOICE_ID, str).addUrlParam("invoice_type", str2).cookieManager(com.baidu.swan.apps.t.a.apT().abd()).build().executeAsync(new ResponseCallback<JSONObject>() { // from class: com.baidu.swan.bdprivate.d.a.3
+            com.baidu.swan.a.c.a.dL(AppRuntime.getAppContext()).getRequest().url(com.baidu.swan.apps.i.c.processCommonParams(aKo())).addUrlParam(InvoiceBuildResult.KEY_INVOICE_ID, str).addUrlParam("invoice_type", str2).cookieManager(com.baidu.swan.apps.t.a.asF().adP()).build().executeAsync(new ResponseCallback<JSONObject>() { // from class: com.baidu.swan.bdprivate.d.a.3
                 /* JADX DEBUG: Method merged with bridge method */
                 @Override // com.baidu.searchbox.http.callback.ResponseCallback
                 /* renamed from: a */
@@ -82,7 +82,7 @@ public class a extends ActivityDelegation {
 
                 /* JADX DEBUG: Method merged with bridge method */
                 @Override // com.baidu.searchbox.http.callback.ResponseCallback
-                /* renamed from: a */
+                /* renamed from: b */
                 public void onSuccess(JSONObject jSONObject, int i) {
                     if (jSONObject == null) {
                         a.this.mResult.putString(TiebaInitialize.LogFields.ERROR_MESSAGE, "exchange plaintext from server, but no response");
@@ -108,7 +108,7 @@ public class a extends ActivityDelegation {
         }
     }
 
-    private static String aHF() {
+    private static String aKo() {
         return String.format("%s/ma/invoice/detail", "https://mbd.baidu.com");
     }
 }

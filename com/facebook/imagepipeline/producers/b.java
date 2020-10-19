@@ -3,22 +3,22 @@ package com.facebook.imagepipeline.producers;
 import javax.annotation.Nullable;
 import javax.annotation.concurrent.ThreadSafe;
 @ThreadSafe
-/* loaded from: classes25.dex */
+/* loaded from: classes18.dex */
 public abstract class b<T> implements k<T> {
-    private boolean nIb = false;
+    private boolean nXs = false;
 
     protected abstract void D(Throwable th);
 
-    protected abstract void dYg();
+    protected abstract void ebR();
 
     protected abstract void g(T t, int i);
 
-    public static boolean MQ(int i) {
+    public static boolean Nw(int i) {
         return (i & 1) == 1;
     }
 
-    public static boolean MR(int i) {
-        return !MQ(i);
+    public static boolean Nx(int i) {
+        return !Nw(i);
     }
 
     public static int dM(int i, int i2) {
@@ -33,14 +33,14 @@ public abstract class b<T> implements k<T> {
         return (i & i2) != 0;
     }
 
-    public static int yo(boolean z) {
+    public static int yV(boolean z) {
         return z ? 1 : 0;
     }
 
     @Override // com.facebook.imagepipeline.producers.k
     public synchronized void h(@Nullable T t, int i) {
-        if (!this.nIb) {
-            this.nIb = MQ(i);
+        if (!this.nXs) {
+            this.nXs = Nw(i);
             try {
                 g(t, i);
             } catch (Exception e) {
@@ -51,8 +51,8 @@ public abstract class b<T> implements k<T> {
 
     @Override // com.facebook.imagepipeline.producers.k
     public synchronized void E(Throwable th) {
-        if (!this.nIb) {
-            this.nIb = true;
+        if (!this.nXs) {
+            this.nXs = true;
             try {
                 D(th);
             } catch (Exception e) {
@@ -62,11 +62,11 @@ public abstract class b<T> implements k<T> {
     }
 
     @Override // com.facebook.imagepipeline.producers.k
-    public synchronized void dSB() {
-        if (!this.nIb) {
-            this.nIb = true;
+    public synchronized void dWm() {
+        if (!this.nXs) {
+            this.nXs = true;
             try {
-                dYg();
+                ebR();
             } catch (Exception e) {
                 C(e);
             }
@@ -74,17 +74,17 @@ public abstract class b<T> implements k<T> {
     }
 
     @Override // com.facebook.imagepipeline.producers.k
-    public synchronized void aD(float f) {
-        if (!this.nIb) {
+    public synchronized void aJ(float f) {
+        if (!this.nXs) {
             try {
-                aS(f);
+                aY(f);
             } catch (Exception e) {
                 C(e);
             }
         }
     }
 
-    protected void aS(float f) {
+    protected void aY(float f) {
     }
 
     protected void C(Exception exc) {

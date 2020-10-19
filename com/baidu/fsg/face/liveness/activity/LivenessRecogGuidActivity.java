@@ -23,10 +23,12 @@ import com.baidu.fsg.face.liveness.d;
 import com.baidu.fsg.face.liveness.result.LivenessRecogResult;
 import com.baidu.fsg.face.liveness.utils.enums.LivenessRecogType;
 import com.baidu.sapi2.biometrics.liveness.R;
-/* loaded from: classes16.dex */
+/* loaded from: classes17.dex */
 public class LivenessRecogGuidActivity extends LivenessBaseActivity {
     public static final String EXTRA_PARAM_SWITCH_RECORD_VIDEO = "extra_switch_record_video";
-    private Button a;
+
+    /* renamed from: a  reason: collision with root package name */
+    private Button f1660a;
     private ImageView b;
     private TextView c;
     private ImageView d;
@@ -58,8 +60,8 @@ public class LivenessRecogGuidActivity extends LivenessBaseActivity {
     }
 
     private void a() {
-        this.a = (Button) findViewById(R.id.btn_start_photo);
-        this.a.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.fsg.face.liveness.activity.LivenessRecogGuidActivity.1
+        this.f1660a = (Button) findViewById(R.id.btn_start_photo);
+        this.f1660a.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.fsg.face.liveness.activity.LivenessRecogGuidActivity.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
                 RimStatisticsUtil.onEventWithValue(d.c, LivenessRecogGuidActivity.this.livenessRecogDTO != null ? LivenessRecogGuidActivity.this.livenessRecogDTO.getSpno() : "");

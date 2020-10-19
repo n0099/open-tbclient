@@ -15,15 +15,17 @@ import com.tencent.open.utils.e;
 import com.tencent.tauth.IUiListener;
 import java.io.File;
 import java.util.Iterator;
-/* loaded from: classes24.dex */
+/* loaded from: classes6.dex */
 public class c {
-    private AuthAgent a;
+
+    /* renamed from: a  reason: collision with root package name */
+    private AuthAgent f4547a;
     private QQToken b;
 
     private c(String str, Context context) {
         f.c("openSDK_LOG.QQAuth", "new QQAuth() --start");
         this.b = new QQToken(str);
-        this.a = new AuthAgent(this.b);
+        this.f4547a = new AuthAgent(this.b);
         com.tencent.connect.a.a.c(context, this.b);
         f.c("openSDK_LOG.QQAuth", "new QQAuth() --end");
     }
@@ -78,10 +80,10 @@ public class c {
                 }
             }
             if (str3 != null) {
-                String a = com.tencent.open.utils.a.a(new File(str3));
-                if (!TextUtils.isEmpty(a)) {
-                    f.a("openSDK_LOG.QQAuth", "-->login channelId: " + a);
-                    return a(activity, str, iUiListener, a, a, "");
+                String a2 = com.tencent.open.utils.a.a(new File(str3));
+                if (!TextUtils.isEmpty(a2)) {
+                    f.a("openSDK_LOG.QQAuth", "-->login channelId: " + a2);
+                    return a(activity, str, iUiListener, a2, a2, "");
                 }
             }
         } catch (Throwable th) {
@@ -90,7 +92,7 @@ public class c {
         }
         f.b("openSDK_LOG.QQAuth", "-->login channelId is null ");
         BaseApi.isOEM = false;
-        return this.a.doLogin(activity, str, iUiListener, false, fragment);
+        return this.f4547a.doLogin(activity, str, iUiListener, false, fragment);
     }
 
     @Deprecated
@@ -109,20 +111,20 @@ public class c {
         BaseApi.installChannel = str3;
         BaseApi.registerChannel = str2;
         BaseApi.businessId = str4;
-        return this.a.doLogin(activity, str, iUiListener);
+        return this.f4547a.doLogin(activity, str, iUiListener);
     }
 
     public int b(Activity activity, String str, IUiListener iUiListener) {
         f.c("openSDK_LOG.QQAuth", "reAuth()");
-        return this.a.doLogin(activity, str, iUiListener, true, null);
+        return this.f4547a.doLogin(activity, str, iUiListener, true, null);
     }
 
     public void a() {
-        this.a.a((IUiListener) null);
+        this.f4547a.a((IUiListener) null);
     }
 
     public void a(IUiListener iUiListener) {
-        this.a.b(iUiListener);
+        this.f4547a.b(iUiListener);
     }
 
     public QQToken b() {

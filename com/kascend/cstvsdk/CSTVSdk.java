@@ -34,24 +34,24 @@ public final class CSTVSdk {
     }
 
     public final void init(SdkConfig sdkConfig) {
-        q.m(sdkConfig, "config");
+        q.n(sdkConfig, "config");
         if (!getInitialized()) {
             synchronized (this) {
-                com.kascend.cstvsdk.utils.a.omF.a(sdkConfig);
+                com.kascend.cstvsdk.utils.a.oBY.a(sdkConfig);
                 inited = true;
-                l lVar = l.oBM;
+                l lVar = l.oRb;
             }
         }
     }
 
     public final void openLogin(String str, String str2) {
-        q.m(str, "openUid");
-        q.m(str2, "accessToken");
+        q.n(str, "openUid");
+        q.n(str2, "accessToken");
         LoginManager.Instance().openLogin(str, b.encrypt(str2), null, null);
     }
 
     public final void onLoginStatusChanged(int i) {
-        tv.chushou.basis.d.b.epR().d(TAG, "onLoginStatusChanged: " + i);
+        tv.chushou.basis.d.b.etC().d(TAG, "onLoginStatusChanged: " + i);
         if (i == 2) {
             LoginManager.Instance().openLogout(null);
         } else if (i == 1) {
@@ -72,16 +72,16 @@ public final class CSTVSdk {
         @Override // com.kascend.cstvsdk.interfaces.SimpleCallback
         public void onSuccess() {
             Application application;
-            if (com.kascend.cstvsdk.utils.a.omF.b() && CSTVSdk.INSTANCE.getInitialized()) {
-                Activity ecu = com.kascend.chushou.d.b.ecu();
-                if (ecu != null) {
-                    application = ecu;
+            if (com.kascend.cstvsdk.utils.a.oBY.b() && CSTVSdk.INSTANCE.getInitialized()) {
+                Activity egf = com.kascend.chushou.d.b.egf();
+                if (egf != null) {
+                    application = egf;
                 } else {
-                    Application epQ = tv.chushou.basis.d.b.epQ();
-                    q.l((Object) epQ, "Router.application()");
-                    application = epQ;
+                    Application etB = tv.chushou.basis.d.b.etB();
+                    q.m(etB, "Router.application()");
+                    application = etB;
                 }
-                com.kascend.cstvsdk.utils.a.omF.b(application);
+                com.kascend.cstvsdk.utils.a.oBY.b(application);
             }
         }
 
@@ -98,7 +98,7 @@ public final class CSTVSdk {
             }
             String str4 = str2;
             if (!(str4 == null || str4.length() == 0)) {
-                com.kascend.cstvsdk.utils.a.omF.a(context, str, str2);
+                com.kascend.cstvsdk.utils.a.oBY.a(context, str, str2);
             }
         }
     }
@@ -109,7 +109,7 @@ public final class CSTVSdk {
 
     public final void startH5(Context context, String str, String str2) {
         if (context == null) {
-            context = tv.chushou.basis.d.b.epQ();
+            context = tv.chushou.basis.d.b.etB();
         }
         com.kascend.chushou.d.a.a(context, str, str2);
     }

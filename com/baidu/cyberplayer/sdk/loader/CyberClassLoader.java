@@ -16,13 +16,15 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 @Keep
-/* loaded from: classes10.dex */
+/* loaded from: classes12.dex */
 public class CyberClassLoader extends BaseDexClassLoader {
-    static Class a = null;
+
+    /* renamed from: a  reason: collision with root package name */
+    static Class f1397a = null;
     static Class b = null;
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes10.dex */
+    /* loaded from: classes12.dex */
     public static final class a {
         /* JADX INFO: Access modifiers changed from: private */
         public static void b(ClassLoader classLoader, File file) throws Throwable {
@@ -31,7 +33,7 @@ public class CyberClassLoader extends BaseDexClassLoader {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes10.dex */
+    /* loaded from: classes12.dex */
     public static final class b {
         /* JADX INFO: Access modifiers changed from: private */
         public static void b(ClassLoader classLoader, File file) throws Throwable {
@@ -48,7 +50,7 @@ public class CyberClassLoader extends BaseDexClassLoader {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes10.dex */
+    /* loaded from: classes12.dex */
     public static final class c {
         /* JADX INFO: Access modifiers changed from: private */
         public static void b(ClassLoader classLoader, File file) throws Throwable {
@@ -64,7 +66,7 @@ public class CyberClassLoader extends BaseDexClassLoader {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes10.dex */
+    /* loaded from: classes12.dex */
     public static final class d {
         /* JADX INFO: Access modifiers changed from: private */
         public static void b(ClassLoader classLoader, File file) throws Throwable {
@@ -104,9 +106,9 @@ public class CyberClassLoader extends BaseDexClassLoader {
     }
 
     private static void a() throws Exception {
-        if (a == null || b == null) {
-            a = Class.forName("dalvik.system.DexPathList");
-            Class<?>[] declaredClasses = a.getDeclaredClasses();
+        if (f1397a == null || b == null) {
+            f1397a = Class.forName("dalvik.system.DexPathList");
+            Class<?>[] declaredClasses = f1397a.getDeclaredClasses();
             int length = declaredClasses.length;
             int i = 0;
             while (true) {
@@ -176,9 +178,9 @@ public class CyberClassLoader extends BaseDexClassLoader {
             Object newInstance2 = Array.newInstance(b, 1);
             Array.set(newInstance2, 0, newInstance);
             Object a2 = a(BaseDexClassLoader.class, this, "pathList");
-            a(a, a2, "dexElements", newInstance2);
+            a(f1397a, a2, "dexElements", newInstance2);
             if (Build.VERSION.SDK_INT >= 19) {
-                a(a, a2, "dexElementsSuppressedExceptions", (Object) null);
+                a(f1397a, a2, "dexElementsSuppressedExceptions", (Object) null);
             }
         } catch (Exception e) {
             e.printStackTrace();

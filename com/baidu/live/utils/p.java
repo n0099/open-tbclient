@@ -4,9 +4,9 @@ import android.text.TextUtils;
 import com.baidu.live.tbadk.core.TbadkCoreApplication;
 /* loaded from: classes4.dex */
 public class p {
-    private static String btM = "";
+    private static String bxz = "";
 
-    public static String Fz() {
+    public static String Gv() {
         if (TbadkCoreApplication.getInst().isMobileBaidu()) {
             return "ala_subapp_shoubai_android_consume";
         }
@@ -19,11 +19,14 @@ public class p {
         if (TbadkCoreApplication.getInst().isTieba()) {
             return "ala_tieba_android_consume";
         }
+        if (TbadkCoreApplication.getInst().isYinbo()) {
+            return "ala_subapp_yinbo_android_consume";
+        }
         return "";
     }
 
-    public static String PR() {
-        if (TextUtils.isEmpty(btM)) {
+    public static String QW() {
+        if (TextUtils.isEmpty(bxz)) {
             if (TbadkCoreApplication.getInst().isMobileBaidu()) {
                 return "ala_subapp_shoubai_android_consume";
             }
@@ -36,16 +39,19 @@ public class p {
             if (TbadkCoreApplication.getInst().isTieba()) {
                 return "ala_tieba_android_consume";
             }
+            if (TbadkCoreApplication.getInst().isYinbo()) {
+                return "ala_subapp_yinbo_android_consume";
+            }
             return "";
         }
-        return btM;
+        return bxz;
     }
 
-    public static void hF(String str) {
-        btM = str;
+    public static void hW(String str) {
+        bxz = str;
     }
 
-    public static String PS() {
-        return btM;
+    public static String QX() {
+        return bxz;
     }
 }

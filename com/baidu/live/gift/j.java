@@ -5,13 +5,13 @@ import java.util.HashMap;
 import java.util.Map;
 /* loaded from: classes4.dex */
 public class j extends HttpMessage {
-    public long aPX;
-    public long aPY;
-    public String aPZ;
-    public String aQa;
-    public long aQb;
-    public String aQc;
-    public Map<Long, Long> aQd;
+    public long aTi;
+    public long aTj;
+    public String aTk;
+    public String aTl;
+    public long aTm;
+    public String aTn;
+    public Map<Long, Long> aTo;
     public String giftId;
     public String giftName;
     public String liveId;
@@ -21,6 +21,6 @@ public class j extends HttpMessage {
 
     public j() {
         super(1021015);
-        this.aQd = new HashMap();
+        this.aTo = new HashMap();
     }
 }

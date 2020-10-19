@@ -1,9 +1,9 @@
 package com.baidu.swan.apps.process.a.b.d;
 
 import android.text.TextUtils;
-/* loaded from: classes3.dex */
+/* loaded from: classes10.dex */
 public class a {
-    public static boolean qa(String str) {
+    public static boolean qM(String str) {
         if (TextUtils.isEmpty(str)) {
             return true;
         }

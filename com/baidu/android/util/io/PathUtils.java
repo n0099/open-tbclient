@@ -8,7 +8,7 @@ import android.preference.PreferenceManager;
 import android.text.TextUtils;
 import com.baidu.searchbox.common.runtime.AppRuntime;
 import java.io.File;
-/* loaded from: classes16.dex */
+/* loaded from: classes12.dex */
 public final class PathUtils {
     private static final boolean DEBUG = false;
     private static final String DIRCTORY_APP = "xxx";

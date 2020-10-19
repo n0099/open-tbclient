@@ -4,34 +4,34 @@ import android.content.Context;
 import android.media.MediaFormat;
 import android.util.Log;
 import com.baidu.rtc.camera.a.d;
-/* loaded from: classes15.dex */
+/* loaded from: classes11.dex */
 public class a {
     private static final String TAG = a.class.getSimpleName();
-    private com.baidu.rtc.camera.filter.a.a bPk;
+    private com.baidu.rtc.camera.filter.a.a bYG;
     private Context mContext;
-    private c bPj = null;
-    private volatile boolean bPl = false;
+    private c bYF = null;
+    private volatile boolean bYH = false;
 
     public a(Context context, com.baidu.rtc.camera.filter.a.a aVar) {
         this.mContext = context;
-        this.bPk = aVar;
-        Xn();
+        this.bYG = aVar;
+        ZF();
     }
 
-    public void Xm() {
-        Xn();
+    public void ZE() {
+        ZF();
     }
 
-    private void Xn() {
-        this.bPl = false;
-        if (this.bPj != null) {
-            this.bPj.release();
-            this.bPj = new c(this.mContext);
+    private void ZF() {
+        this.bYH = false;
+        if (this.bYF != null) {
+            this.bYF.release();
+            this.bYF = new c(this.mContext);
         }
-        if (this.bPj == null) {
-            this.bPj = new c(this.mContext);
+        if (this.bYF == null) {
+            this.bYF = new c(this.mContext);
         }
-        this.bPj.a(this.bPk.getEGLContext(), new d.a() { // from class: com.baidu.rtc.camera.a.a.1
+        this.bYF.a(this.bYG.getEGLContext(), new d.a() { // from class: com.baidu.rtc.camera.a.a.1
             @Override // com.baidu.rtc.camera.a.d.a
             public void onFormatChanged(MediaFormat mediaFormat) {
             }
@@ -42,34 +42,34 @@ public class a {
 
             @Override // com.baidu.rtc.camera.a.d.a
             public void onCodecData(byte[] bArr, int i, int i2, int i3, long j) {
-                if (b.Xo().bPo != null) {
-                    b.Xo().bPo.a(bArr, i, i2, i3 == 2 ? 1 : 0, j);
+                if (b.ZG().bYK != null) {
+                    b.ZG().bYK.a(bArr, i, i2, i3 == 2 ? 1 : 0, j);
                 }
             }
 
             @Override // com.baidu.rtc.camera.a.d.a
             public void onCodecError(int i) {
                 Log.e(a.TAG, "setupTextureEncoder onCodecError -- " + i);
-                a.this.bPl = true;
-                if (b.Xo().bPo != null) {
-                    b.Xo().bPo.onError(i);
+                a.this.bYH = true;
+                if (b.ZG().bYK != null) {
+                    b.ZG().bYK.onError(i);
                 }
             }
         });
     }
 
-    public void f(int i, long j) {
-        if (this.bPl) {
-            Xn();
+    public void g(int i, long j) {
+        if (this.bYH) {
+            ZF();
         }
-        if (this.bPj != null) {
-            this.bPj.g(i, j);
+        if (this.bYF != null) {
+            this.bYF.h(i, j);
         }
     }
 
     public void release() {
-        if (this.bPj != null) {
-            this.bPj.release();
+        if (this.bYF != null) {
+            this.bYF.release();
         }
     }
 }

@@ -26,17 +26,17 @@ public final class f {
         String str2 = str;
         if (str2 == null || str2.length() == 0) {
             String string = tv.chushou.widget.a.c.getString(i);
-            q.l((Object) string, "Res.getString(id)");
+            q.m(string, "Res.getString(id)");
             return string;
         } else if (str == null) {
-            q.ekp();
+            q.eob();
             return str;
         } else {
             return str;
         }
     }
 
-    public static final Activity gI(Context context) {
+    public static final Activity gP(Context context) {
         if (context == null) {
             return null;
         }
@@ -44,7 +44,7 @@ public final class f {
             return (Activity) context;
         }
         if (context instanceof ContextWrapper) {
-            return gI(((ContextWrapper) context).getBaseContext());
+            return gP(((ContextWrapper) context).getBaseContext());
         }
         return null;
     }

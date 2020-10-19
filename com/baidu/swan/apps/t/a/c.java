@@ -1,9 +1,9 @@
 package com.baidu.swan.apps.t.a;
 
 import com.baidu.searchbox.http.cookie.CookieManager;
-/* loaded from: classes3.dex */
+/* loaded from: classes10.dex */
 public class c implements com.baidu.swan.config.a {
-    private static int cxv = -1;
+    private static int cJA = -1;
 
     @Override // com.baidu.swan.config.a
     public boolean isDebug() {
@@ -11,7 +11,7 @@ public class c implements com.baidu.swan.config.a {
     }
 
     @Override // com.baidu.swan.config.a
-    public CookieManager aqL() {
-        return com.baidu.swan.apps.t.a.apT().abd();
+    public CookieManager atx() {
+        return com.baidu.swan.apps.t.a.asF().adP();
     }
 }

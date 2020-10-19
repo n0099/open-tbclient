@@ -23,15 +23,17 @@ import java.net.URLEncoder;
 import java.util.HashMap;
 import java.util.Map;
 import javax.net.ssl.HttpsURLConnection;
-/* loaded from: classes3.dex */
+/* loaded from: classes7.dex */
 public class g {
-    private Context a;
+
+    /* renamed from: a  reason: collision with root package name */
+    private Context f1836a;
     private String b = null;
     private HashMap<String, String> c = null;
     private String d = null;
 
     public g(Context context) {
-        this.a = context;
+        this.f1836a = context;
     }
 
     private String a(Context context) {
@@ -81,7 +83,7 @@ public class g {
             }
             return "wifi";
         } catch (Exception e) {
-            if (a.a) {
+            if (a.f1831a) {
                 e.printStackTrace();
             }
             return null;
@@ -155,7 +157,7 @@ public class g {
                                         bufferedReader2 = bufferedReader;
                                         i = responseCode;
                                         try {
-                                            if (a.a) {
+                                            if (a.f1831a) {
                                                 e.printStackTrace();
                                                 a.a("httpsPost parse failed;" + e.getMessage());
                                             }
@@ -210,7 +212,7 @@ public class g {
                                         i = responseCode;
                                         outputStream3 = outputStream2;
                                         try {
-                                            if (a.a) {
+                                            if (a.f1831a) {
                                                 e.printStackTrace();
                                             }
                                             this.d = ErrorMessage.a(-11, "httpsPost failed,MalformedURLException:" + e.getMessage());
@@ -219,7 +221,7 @@ public class g {
                                                     outputStream3.close();
                                                     z = false;
                                                 } catch (IOException e4) {
-                                                    if (a.a) {
+                                                    if (a.f1831a) {
                                                         e4.printStackTrace();
                                                     }
                                                     z = false;
@@ -244,7 +246,7 @@ public class g {
                                     } catch (IOException e5) {
                                         e = e5;
                                         i = responseCode;
-                                        if (a.a) {
+                                        if (a.f1831a) {
                                             e.printStackTrace();
                                         }
                                         this.d = ErrorMessage.a(-11, "httpsPost failed,IOException:" + e.getMessage());
@@ -253,7 +255,7 @@ public class g {
                                                 outputStream2.close();
                                                 z = false;
                                             } catch (IOException e6) {
-                                                if (a.a) {
+                                                if (a.f1831a) {
                                                     e6.printStackTrace();
                                                 }
                                                 z = false;
@@ -271,7 +273,7 @@ public class g {
                                     } catch (Exception e7) {
                                         e = e7;
                                         i = responseCode;
-                                        if (a.a) {
+                                        if (a.f1831a) {
                                             e.printStackTrace();
                                         }
                                         this.d = ErrorMessage.a(-11, "httpsPost failed,Exception:" + e.getMessage());
@@ -280,7 +282,7 @@ public class g {
                                                 outputStream2.close();
                                                 z = false;
                                             } catch (IOException e8) {
-                                                if (a.a) {
+                                                if (a.f1831a) {
                                                     e8.printStackTrace();
                                                 }
                                                 z = false;
@@ -321,7 +323,7 @@ public class g {
                             try {
                                 outputStream2.close();
                             } catch (IOException e11) {
-                                if (a.a) {
+                                if (a.f1831a) {
                                     e11.printStackTrace();
                                 }
                             }
@@ -351,7 +353,7 @@ public class g {
                     try {
                         outputStream.close();
                     } catch (IOException e18) {
-                        if (a.a) {
+                        if (a.f1831a) {
                             e18.printStackTrace();
                         }
                     }
@@ -410,14 +412,14 @@ public class g {
         try {
             URL url = new URL(this.b);
             a.a("https URL: " + this.b);
-            String a = a(this.a);
-            if (a == null || a.equals("")) {
+            String a2 = a(this.f1836a);
+            if (a2 == null || a2.equals("")) {
                 a.c("Current network is not available.");
                 this.d = ErrorMessage.a(-10, "Current network is not available.");
                 return null;
             }
-            a.a("checkNetwork = " + a);
-            HttpsURLConnection httpsURLConnection = a.equals("cmwap") ? (HttpsURLConnection) url.openConnection(new Proxy(Proxy.Type.HTTP, new InetSocketAddress("10.0.0.172", 80))) : a.equals("ctwap") ? (HttpsURLConnection) url.openConnection(new Proxy(Proxy.Type.HTTP, new InetSocketAddress("10.0.0.200", 80))) : (HttpsURLConnection) url.openConnection();
+            a.a("checkNetwork = " + a2);
+            HttpsURLConnection httpsURLConnection = a2.equals("cmwap") ? (HttpsURLConnection) url.openConnection(new Proxy(Proxy.Type.HTTP, new InetSocketAddress("10.0.0.172", 80))) : a2.equals("ctwap") ? (HttpsURLConnection) url.openConnection(new Proxy(Proxy.Type.HTTP, new InetSocketAddress("10.0.0.200", 80))) : (HttpsURLConnection) url.openConnection();
             httpsURLConnection.setHostnameVerifier(new h(this));
             httpsURLConnection.setDoInput(true);
             httpsURLConnection.setDoOutput(true);
@@ -426,14 +428,14 @@ public class g {
             httpsURLConnection.setReadTimeout(IMConstants.ERROR_BASE);
             return httpsURLConnection;
         } catch (MalformedURLException e) {
-            if (a.a) {
+            if (a.f1831a) {
                 e.printStackTrace();
                 a.a(e.getMessage());
             }
             this.d = ErrorMessage.a(-11, "Auth server could not be parsed as a URL.");
             return null;
         } catch (Exception e2) {
-            if (a.a) {
+            if (a.f1831a) {
                 e2.printStackTrace();
                 a.a(e2.getMessage());
             }
@@ -469,7 +471,7 @@ public class g {
         boolean z;
         a.a("checkNetwork start");
         try {
-            ConnectivityManager connectivityManager = (ConnectivityManager) this.a.getSystemService("connectivity");
+            ConnectivityManager connectivityManager = (ConnectivityManager) this.f1836a.getSystemService("connectivity");
             if (connectivityManager == null) {
                 z = false;
             } else if (Build.VERSION.SDK_INT >= 29) {
@@ -486,7 +488,7 @@ public class g {
             }
             return z;
         } catch (Exception e) {
-            if (a.a) {
+            if (a.f1831a) {
                 e.printStackTrace();
             }
             return false;

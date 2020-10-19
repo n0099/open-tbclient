@@ -2,27 +2,27 @@ package kotlin.b;
 
 import com.baidu.android.common.others.IStringUtil;
 @kotlin.h
-/* loaded from: classes5.dex */
+/* loaded from: classes10.dex */
 final class e {
-    private final float oCR;
-    private final float oCS;
+    private final float oSg;
+    private final float oSh;
 
     public boolean isEmpty() {
-        return this.oCR > this.oCS;
+        return this.oSg > this.oSh;
     }
 
     public boolean equals(Object obj) {
-        return (obj instanceof e) && ((isEmpty() && ((e) obj).isEmpty()) || (this.oCR == ((e) obj).oCR && this.oCS == ((e) obj).oCS));
+        return (obj instanceof e) && ((isEmpty() && ((e) obj).isEmpty()) || (this.oSg == ((e) obj).oSg && this.oSh == ((e) obj).oSh));
     }
 
     public int hashCode() {
         if (isEmpty()) {
             return -1;
         }
-        return (Float.valueOf(this.oCR).hashCode() * 31) + Float.valueOf(this.oCS).hashCode();
+        return (Float.valueOf(this.oSg).hashCode() * 31) + Float.valueOf(this.oSh).hashCode();
     }
 
     public String toString() {
-        return this.oCR + IStringUtil.TOP_PATH + this.oCS;
+        return this.oSg + IStringUtil.TOP_PATH + this.oSh;
     }
 }

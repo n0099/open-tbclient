@@ -7,7 +7,7 @@ import android.widget.CheckBox;
 import com.baidu.adp.lib.util.l;
 import com.baidu.tbadk.core.util.ap;
 import com.baidu.tieba.R;
-/* loaded from: classes25.dex */
+/* loaded from: classes26.dex */
 public class AdCloseReasonCheckBox extends CheckBox {
     public AdCloseReasonCheckBox(Context context) {
         super(context);

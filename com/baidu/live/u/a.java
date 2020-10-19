@@ -4,9 +4,9 @@ import android.view.ViewGroup;
 import com.baidu.live.data.u;
 /* loaded from: classes4.dex */
 public interface a {
-    void FB();
+    void Gx();
 
-    void dD(int i);
+    void dI(int i);
 
     boolean q(u uVar);
 

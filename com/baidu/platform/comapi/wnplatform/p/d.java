@@ -3,9 +3,11 @@ package com.baidu.platform.comapi.wnplatform.p;
 import android.content.Context;
 import android.os.Handler;
 import java.io.BufferedReader;
-/* loaded from: classes3.dex */
+/* loaded from: classes7.dex */
 public class d {
-    private static String a = d.class.getSimpleName();
+
+    /* renamed from: a  reason: collision with root package name */
+    private static String f3142a = d.class.getSimpleName();
     private static String b = null;
     private static Handler c = new Handler();
     private static int d = 0;

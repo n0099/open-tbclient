@@ -7,30 +7,30 @@ import java.util.Iterator;
 import java.util.List;
 /* loaded from: classes.dex */
 public class b {
-    private AntiData eCu;
+    private AntiData eOB;
     private String forumId;
-    private ay hYD;
-    private final ArrayList<bw> hYF;
-    private boolean hYG;
-    private boolean hYH;
+    private ay inE;
+    private final ArrayList<bw> inG;
+    private boolean inH;
+    private boolean inI;
 
     private b() {
-        this.hYG = false;
-        this.hYF = new ArrayList<>();
+        this.inH = false;
+        this.inG = new ArrayList<>();
     }
 
-    public static b cog() {
-        return a.hYI;
+    public static b crE() {
+        return a.inJ;
     }
 
-    public boolean coa() {
-        return this.hYG;
+    public boolean cry() {
+        return this.inH;
     }
 
-    public void T(boolean z, boolean z2) {
-        this.hYG = z;
-        if (this.hYD != null) {
-            this.hYD.d(this.hYG, z2, 1);
+    public void S(boolean z, boolean z2) {
+        this.inH = z;
+        if (this.inE != null) {
+            this.inE.d(this.inH, z2, 1);
         }
     }
 
@@ -38,66 +38,66 @@ public class b {
         if (bwVar == null) {
             return false;
         }
-        if (this.hYF.size() > 29) {
-            if (this.hYD != null) {
-                this.hYD.xv(1);
+        if (this.inG.size() > 29) {
+            if (this.inE != null) {
+                this.inE.yb(1);
                 return false;
             }
             return false;
         }
-        this.hYF.add(bwVar);
-        if (this.hYD != null) {
-            this.hYD.ci(this.hYF.size(), 1);
+        this.inG.add(bwVar);
+        if (this.inE != null) {
+            this.inE.ci(this.inG.size(), 1);
         }
         return true;
     }
 
-    public List<bw> cod() {
-        return this.hYF;
+    public List<bw> crB() {
+        return this.inG;
     }
 
     public void ak(bw bwVar) {
-        this.hYF.remove(bwVar);
-        if (this.hYD != null) {
-            this.hYD.ci(this.hYF.size(), 1);
+        this.inG.remove(bwVar);
+        if (this.inE != null) {
+            this.inE.ci(this.inG.size(), 1);
         }
     }
 
     public void clearData() {
-        Iterator<bw> it = this.hYF.iterator();
+        Iterator<bw> it = this.inG.iterator();
         while (it.hasNext()) {
             bw next = it.next();
             if (next != null) {
-                next.hY(false);
+                next.iu(false);
             }
         }
-        this.hYF.clear();
-        if (this.hYD != null) {
-            this.hYD.ci(0, 1);
+        this.inG.clear();
+        if (this.inE != null) {
+            this.inE.ci(0, 1);
         }
     }
 
     public void reset() {
-        T(false, false);
+        S(false, false);
         clearData();
     }
 
     public void a(ay ayVar) {
-        this.hYD = ayVar;
+        this.inE = ayVar;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes.dex */
     public static class a {
-        private static b hYI = new b();
+        private static b inJ = new b();
     }
 
-    public AntiData coh() {
-        return this.eCu;
+    public AntiData crF() {
+        return this.eOB;
     }
 
     public void b(AntiData antiData) {
-        this.eCu = antiData;
+        this.eOB = antiData;
     }
 
     public String getForumId() {
@@ -108,13 +108,13 @@ public class b {
         this.forumId = str;
     }
 
-    public void oi(boolean z) {
-        this.hYH = z;
+    public void oN(boolean z) {
+        this.inI = z;
     }
 
-    public void cI(List<String> list) {
-        if (!com.baidu.tbadk.core.util.y.isEmpty(list) && !com.baidu.tbadk.core.util.y.isEmpty(this.hYF)) {
-            Iterator<bw> it = this.hYF.iterator();
+    public void cL(List<String> list) {
+        if (!com.baidu.tbadk.core.util.y.isEmpty(list) && !com.baidu.tbadk.core.util.y.isEmpty(this.inG)) {
+            Iterator<bw> it = this.inG.iterator();
             while (it.hasNext()) {
                 bw next = it.next();
                 int i = 0;
@@ -130,13 +130,13 @@ public class b {
                     }
                 }
             }
-            if (this.hYD != null) {
-                this.hYD.ci(this.hYF.size(), 1);
+            if (this.inE != null) {
+                this.inE.ci(this.inG.size(), 1);
             }
         }
     }
 
-    public boolean coi() {
-        return this.hYH;
+    public boolean crG() {
+        return this.inI;
     }
 }

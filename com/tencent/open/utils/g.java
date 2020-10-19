@@ -4,18 +4,20 @@ import android.content.Context;
 import android.content.SharedPreferences;
 import java.lang.ref.WeakReference;
 import java.net.URL;
-/* loaded from: classes24.dex */
+/* loaded from: classes6.dex */
 public class g {
-    private static g a = null;
+
+    /* renamed from: a  reason: collision with root package name */
+    private static g f4617a = null;
     private volatile WeakReference<SharedPreferences> b = null;
 
     public static synchronized g a() {
         g gVar;
         synchronized (g.class) {
-            if (a == null) {
-                a = new g();
+            if (f4617a == null) {
+                f4617a = new g();
             }
-            gVar = a;
+            gVar = f4617a;
         }
         return gVar;
     }

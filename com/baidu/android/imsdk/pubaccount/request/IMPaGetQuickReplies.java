@@ -14,7 +14,7 @@ import com.baidu.android.imsdk.utils.Utility;
 import java.security.NoSuchAlgorithmException;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes9.dex */
+/* loaded from: classes5.dex */
 public class IMPaGetQuickReplies extends PaBaseHttpRequest {
     private String mKey;
     private long mPaid;

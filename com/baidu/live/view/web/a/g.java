@@ -3,81 +3,72 @@ package com.baidu.live.view.web.a;
 import android.text.TextUtils;
 import android.util.Log;
 import com.baidu.live.adp.framework.MessageManager;
-import com.baidu.live.adp.framework.message.CustomResponsedMessage;
-import com.baidu.live.tbadk.BaseActivity;
+import com.baidu.live.adp.framework.message.CustomMessage;
+import com.baidu.live.tbadk.core.TbadkCoreApplication;
 import com.baidu.live.tbadk.core.atomdata.BuyTBeanActivityConfig;
-import com.baidu.live.tbadk.core.data.PayChannelData;
+import com.baidu.live.tbadk.core.frameworkdata.CmdConfigCustom;
 import com.baidu.live.tbadk.extraparams.ExtraParamsManager;
 import com.baidu.live.tbadk.extraparams.ResultCallback;
-import com.baidu.live.tbadk.pay.channel.interfaces.IChannelPayController;
 import com.baidu.live.tbadk.scheme.SchemeCallback;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes4.dex */
 public class g extends com.baidu.live.view.web.a {
-    private BaseActivity baseActivity;
-    private SchemeCallback byG;
-    private IChannelPayController byO;
+    private SchemeCallback bFj;
 
     public g(SchemeCallback schemeCallback) {
-        this.byG = schemeCallback;
+        this.bFj = schemeCallback;
     }
 
     @Override // com.baidu.live.view.web.a
     public String getName() {
-        return "payChannelBridge";
-    }
-
-    public void b(BaseActivity baseActivity) {
-        Log.d(IChannelPayController.TAG, "PayChannelBridgeJsInterface setBaseActivity:" + baseActivity);
-        this.baseActivity = baseActivity;
+        return "payBridge";
     }
 
     @Override // com.baidu.live.view.web.a
-    public void hP(String str) {
-        CustomResponsedMessage runTask;
-        Log.d(IChannelPayController.TAG, "@@ PersonalCenterBridgeJsInterface params = " + str);
+    public void iq(String str) {
+        Log.d("JsInterface", "@@ JsInterface-impl PersonalCenterBridgeJsInterface params = " + str);
         try {
             JSONObject jSONObject = new JSONObject(str);
             final String optString = jSONObject.optString(BuyTBeanActivityConfig.CALLBACK);
-            if (jSONObject.optInt("is_translucent") == 1) {
-            }
-            PayChannelData payChannelData = new PayChannelData(this.baseActivity, jSONObject.optString("channel"), jSONObject.optString("icon_id"), jSONObject.optString("price"), jSONObject.optString("from"), jSONObject.optString("live_id"), 14);
-            payChannelData.setShowToast(false);
-            if (this.byO == null && (runTask = MessageManager.getInstance().runTask(2913197, IChannelPayController.class, payChannelData)) != null && runTask.getData() != null) {
-                this.byO = (IChannelPayController) runTask.getData();
-            }
-            if (this.byO != null) {
-                this.byO.pay(payChannelData);
-            }
-            if (this.byG != null) {
+            boolean z = jSONObject.optInt("is_translucent") == 1;
+            String optString2 = jSONObject.optString("from");
+            if (this.bFj != null) {
                 ExtraParamsManager.addEnterBuyTBeanCallback(new ResultCallback() { // from class: com.baidu.live.view.web.a.g.1
                     @Override // com.baidu.live.tbadk.extraparams.ResultCallback
                     public void onCallback(JSONObject jSONObject2) {
                         try {
                             int optInt = jSONObject2.optInt("status", 0);
-                            String optString2 = jSONObject2.optString("message");
-                            String optString3 = jSONObject2.optString("productId");
-                            String optString4 = jSONObject2.optString("total");
-                            String optString5 = jSONObject2.optString("transitionId");
+                            String optString3 = jSONObject2.optString("message");
+                            String optString4 = jSONObject2.optString("productId");
+                            String optString5 = jSONObject2.optString("total");
+                            String optString6 = jSONObject2.optString("transitionId");
                             JSONObject jSONObject3 = new JSONObject();
-                            if (!TextUtils.isEmpty(optString3)) {
-                                jSONObject3.put("productId", optString3);
-                            }
                             if (!TextUtils.isEmpty(optString4)) {
-                                jSONObject3.put("total", optString4);
+                                jSONObject3.put("productId", optString4);
                             }
                             if (!TextUtils.isEmpty(optString5)) {
-                                jSONObject3.put("transitionId", optString5);
+                                jSONObject3.put("total", optString5);
                             }
-                            g.this.byG.doJsCallback(optInt, optString2, jSONObject3, optString);
-                            Log.d(IChannelPayController.TAG, "@@ doJsCallback status = " + optInt + ", message:" + optString2 + ", data:" + jSONObject3.toString());
+                            if (!TextUtils.isEmpty(optString6)) {
+                                jSONObject3.put("transitionId", optString6);
+                            }
+                            g.this.bFj.doJsCallback(optInt, optString3, jSONObject3, optString);
                         } catch (Exception e) {
                             e.printStackTrace();
                         }
                     }
                 });
             }
+            BuyTBeanActivityConfig buyTBeanActivityConfig = new BuyTBeanActivityConfig(TbadkCoreApplication.getInst(), 0L, true);
+            if (!TextUtils.isEmpty(optString)) {
+                buyTBeanActivityConfig.setCallback(optString);
+            }
+            if (!TextUtils.isEmpty(optString2)) {
+                buyTBeanActivityConfig.setFrom(optString2);
+            }
+            buyTBeanActivityConfig.setIsTranslucent(z);
+            MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, buyTBeanActivityConfig));
         } catch (JSONException e) {
             e.printStackTrace();
         }

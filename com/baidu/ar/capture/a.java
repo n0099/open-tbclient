@@ -4,16 +4,16 @@ import android.os.Handler;
 import android.os.HandlerThread;
 import android.os.Looper;
 import android.os.Message;
-/* loaded from: classes10.dex */
+/* loaded from: classes14.dex */
 class a {
     private HandlerThread kJ;
-    private HandlerC0080a kK;
+    private HandlerC0081a kK;
     private String mTag;
 
     /* renamed from: com.baidu.ar.capture.a$a  reason: collision with other inner class name */
-    /* loaded from: classes10.dex */
-    private static final class HandlerC0080a extends Handler {
-        public HandlerC0080a(Looper looper) {
+    /* loaded from: classes14.dex */
+    private static final class HandlerC0081a extends Handler {
+        public HandlerC0081a(Looper looper) {
             super(looper);
         }
 
@@ -50,7 +50,7 @@ class a {
     public void start() {
         this.kJ = new HandlerThread(this.mTag);
         this.kJ.start();
-        this.kK = new HandlerC0080a(this.kJ.getLooper());
+        this.kK = new HandlerC0081a(this.kJ.getLooper());
     }
 
     public void stop() {

@@ -2,19 +2,21 @@ package com.baidu.mobads.utils;
 
 import android.util.Log;
 import com.baidu.mobads.interfaces.utils.IXAdLogger;
-/* loaded from: classes3.dex */
+/* loaded from: classes7.dex */
 public class m implements IXAdLogger {
-    private static volatile m a = null;
+
+    /* renamed from: a  reason: collision with root package name */
+    private static volatile m f2443a = null;
 
     public static m a() {
-        if (a == null) {
+        if (f2443a == null) {
             synchronized (m.class) {
-                if (a == null) {
-                    a = new m();
+                if (f2443a == null) {
+                    f2443a = new m();
                 }
             }
         }
-        return a;
+        return f2443a;
     }
 
     @Override // com.baidu.mobads.interfaces.utils.IXAdLogger

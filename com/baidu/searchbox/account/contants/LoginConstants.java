@@ -1,5 +1,5 @@
 package com.baidu.searchbox.account.contants;
-/* loaded from: classes23.dex */
+/* loaded from: classes15.dex */
 public class LoginConstants {
     public static final int BOX_CHINA_MOBILE_OAUTH = 9;
     public static final int BOX_FACE_LOGIN = 8;

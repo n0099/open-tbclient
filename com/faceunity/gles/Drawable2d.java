@@ -1,7 +1,7 @@
 package com.faceunity.gles;
 
 import java.nio.FloatBuffer;
-/* loaded from: classes22.dex */
+/* loaded from: classes23.dex */
 public class Drawable2d {
     private int mCoordsPerVertex;
     private FloatBuffer mTexCoordArray;
@@ -9,7 +9,7 @@ public class Drawable2d {
     private FloatBuffer mVertexArray;
     private int mVertexCount;
     private int mVertexStride;
-    private Prefab nLc;
+    private Prefab oat;
     private static final float[] TRIANGLE_COORDS = {0.0f, 0.57735026f, -0.5f, -0.28867513f, 0.5f, -0.28867513f};
     private static final float[] TRIANGLE_TEX_COORDS = {0.5f, 0.0f, 0.0f, 1.0f, 1.0f, 1.0f};
     private static final FloatBuffer TRIANGLE_BUF = d.createFloatBuffer(TRIANGLE_COORDS);
@@ -23,7 +23,7 @@ public class Drawable2d {
     private static final FloatBuffer FULL_RECTANGLE_BUF = d.createFloatBuffer(FULL_RECTANGLE_COORDS);
     private static final FloatBuffer FULL_RECTANGLE_TEX_BUF = d.createFloatBuffer(FULL_RECTANGLE_TEX_COORDS);
 
-    /* loaded from: classes22.dex */
+    /* loaded from: classes23.dex */
     public enum Prefab {
         TRIANGLE,
         RECTANGLE,
@@ -57,7 +57,7 @@ public class Drawable2d {
                 throw new RuntimeException("Unknown shape " + prefab);
         }
         this.mTexCoordStride = 8;
-        this.nLc = prefab;
+        this.oat = prefab;
     }
 
     public FloatBuffer getVertexArray() {
@@ -85,6 +85,6 @@ public class Drawable2d {
     }
 
     public String toString() {
-        return this.nLc != null ? "[Drawable2d: " + this.nLc + "]" : "[Drawable2d: ...]";
+        return this.oat != null ? "[Drawable2d: " + this.oat + "]" : "[Drawable2d: ...]";
     }
 }

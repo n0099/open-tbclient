@@ -2,7 +2,7 @@ package com.baidu.searchbox.network.callback;
 
 import com.baidu.searchbox.network.core.Response;
 import com.baidu.searchbox.network.statistics.NetworkStatRecord;
-/* loaded from: classes14.dex */
+/* loaded from: classes15.dex */
 public interface NetworkStatResponseCallback<T> {
     void onFail(Exception exc);
 

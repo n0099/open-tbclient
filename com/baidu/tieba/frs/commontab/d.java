@@ -14,15 +14,15 @@ import tbclient.ItemInfo;
 import tbclient.SportScheduleInfo;
 import tbclient.ThreadInfo;
 import tbclient.User;
-/* loaded from: classes21.dex */
+/* loaded from: classes22.dex */
 public class d implements j {
     public boolean hasMore;
-    public int ijp;
-    public String ijq;
-    public String ijr;
-    public boolean ijs;
-    public SportScheduleInfo ijt;
     public ItemInfo itemInfo;
+    public int iym;
+    public String iyn;
+    public String iyo;
+    public boolean iyp;
+    public SportScheduleInfo iyq;
     public HashMap<String, MetaData> userMap = new HashMap<>();
     public ArrayList<q> threadList = new ArrayList<>();
     public int sortType = 1;
@@ -47,22 +47,22 @@ public class d implements j {
                     if (threadInfo != null) {
                         bw bwVar = new bw();
                         bwVar.setUserMap(this.userMap);
-                        bwVar.egR = true;
+                        bwVar.esX = true;
                         bwVar.a(threadInfo);
-                        bwVar.bgw();
-                        bwVar.bfa();
+                        bwVar.bjf();
+                        bwVar.bhJ();
                         this.threadList.add(bwVar);
                     }
                 }
             }
-            com.baidu.tbadk.a.a.a.aK(this.threadList);
-            this.ijp = dataRes.new_thread_num.intValue();
+            com.baidu.tbadk.a.a.a.aN(this.threadList);
+            this.iym = dataRes.new_thread_num.intValue();
             if (dataRes.sport_head_info != null) {
-                this.ijq = dataRes.sport_head_info.head_url;
-                this.ijr = dataRes.sport_head_info.jump_url;
-                this.ijs = dataRes.sport_head_info.is_ad.intValue() == 1;
+                this.iyn = dataRes.sport_head_info.head_url;
+                this.iyo = dataRes.sport_head_info.jump_url;
+                this.iyp = dataRes.sport_head_info.is_ad.intValue() == 1;
             }
-            this.ijt = dataRes.sport_schedule_info;
+            this.iyq = dataRes.sport_schedule_info;
             this.sortType = dataRes.sort_type.intValue();
             this.itemInfo = dataRes.item_info;
         }

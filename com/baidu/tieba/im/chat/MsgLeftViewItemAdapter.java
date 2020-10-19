@@ -15,14 +15,14 @@ public class MsgLeftViewItemAdapter extends e<MsgleftView> {
         this.mNeedShowName = true;
     }
 
-    public void qp(boolean z) {
+    public void qV(boolean z) {
         this.mNeedShowName = z;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.widget.ListView.a
-    /* renamed from: bP */
+    /* renamed from: bR */
     public e.a<MsgleftView> c(ViewGroup viewGroup) {
         MsgleftView msgleftView = new MsgleftView(this.mPageContext);
         return new a(msgleftView.getConvertView(), msgleftView);
@@ -33,17 +33,17 @@ public class MsgLeftViewItemAdapter extends e<MsgleftView> {
     @Override // com.baidu.tieba.im.chat.e, com.baidu.adp.widget.ListView.a
     public View a(int i, View view, ViewGroup viewGroup, ChatMessage chatMessage, e.a<MsgleftView> aVar) {
         super.a(i, view, viewGroup, chatMessage, (e.a) aVar);
-        MsgleftView cFA = aVar.cFA();
-        cFA.Bl(this.jov);
-        cFA.qp(this.mNeedShowName);
+        MsgleftView cJj = aVar.cJj();
+        cJj.BR(this.jDs);
+        cJj.qV(this.mNeedShowName);
         chatMessage.getCacheData().setIs_left(1);
-        cFA.a(this.jom);
-        cFA.setOnItemViewLongClickListener(this.jon);
-        cFA.setPosition(i);
-        cFA.fm(this.fAb);
-        cFA.fl(chatMessage.getCacheData().getLastMsgTime());
-        cFA.a(viewGroup, chatMessage);
-        cFA.b(viewGroup, chatMessage);
+        cJj.a(this.jDj);
+        cJj.setOnItemViewLongClickListener(this.jDk);
+        cJj.setPosition(i);
+        cJj.fE(this.fMk);
+        cJj.fD(chatMessage.getCacheData().getLastMsgTime());
+        cJj.a(viewGroup, chatMessage);
+        cJj.b(viewGroup, chatMessage);
         this.mPageContext.getLayoutMode().setNightMode(false);
         this.mPageContext.getLayoutMode().onModeChanged(view);
         return view;

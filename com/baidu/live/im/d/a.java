@@ -8,16 +8,16 @@ public interface a {
 
     /* renamed from: com.baidu.live.im.d.a$a  reason: collision with other inner class name */
     /* loaded from: classes4.dex */
-    public interface InterfaceC0178a {
+    public interface InterfaceC0186a {
         void C(String str, int i);
 
-        void KK();
+        void LP();
     }
 
     @NonNull
     View getView();
 
-    void setCallback(InterfaceC0178a interfaceC0178a);
+    void setCallback(InterfaceC0186a interfaceC0186a);
 
     void setData(List<String> list);
 }

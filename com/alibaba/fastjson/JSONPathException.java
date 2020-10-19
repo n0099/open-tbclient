@@ -1,5 +1,5 @@
 package com.alibaba.fastjson;
-/* loaded from: classes10.dex */
+/* loaded from: classes5.dex */
 public class JSONPathException extends JSONException {
     public JSONPathException(String str) {
         super(str);

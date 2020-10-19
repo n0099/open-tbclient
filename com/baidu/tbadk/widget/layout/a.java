@@ -9,28 +9,28 @@ import com.baidu.tieba.R;
 import java.util.List;
 /* loaded from: classes.dex */
 public class a extends f {
-    private static final int fep = l.getDimens(TbadkCoreApplication.getInst(), R.dimen.tbds10);
-    private int feq;
-    ConstrainImageLayout.a fer;
+    private static final int fqC = l.getDimens(TbadkCoreApplication.getInst(), R.dimen.tbds10);
+    private int fqD;
+    ConstrainImageLayout.a fqE;
 
     public a(int i) {
         super(i);
-        this.feq = 0;
-        this.fer = new ConstrainImageLayout.a() { // from class: com.baidu.tbadk.widget.layout.a.1
+        this.fqD = 0;
+        this.fqE = new ConstrainImageLayout.a() { // from class: com.baidu.tbadk.widget.layout.a.1
             @Override // com.baidu.tbadk.widget.layout.ConstrainImageLayout.a
             public void a(TbImageView tbImageView, int i2) {
-                tbImageView.setRadius(a.fep);
-                tbImageView.bxw();
+                tbImageView.setRadius(a.fqC);
+                tbImageView.bAg();
                 tbImageView.setDrawCorner(true);
-                tbImageView.re(15);
+                tbImageView.rC(15);
             }
         };
     }
 
     @Override // com.baidu.tbadk.widget.layout.f, com.baidu.tbadk.widget.layout.c
     public int a(ConstrainImageLayout constrainImageLayout, List<MediaData> list, int i, int i2) {
-        this.feq = list.size() < this.ffG ? list.size() : this.ffG;
-        constrainImageLayout.setTbImageViewConfiguration(this.fer);
+        this.fqD = list.size() < this.frV ? list.size() : this.frV;
+        constrainImageLayout.setTbImageViewConfiguration(this.fqE);
         return super.a(constrainImageLayout, list, i, i2);
     }
 }

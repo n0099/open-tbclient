@@ -5,6 +5,7 @@ import android.media.AudioManager;
 import android.os.Build;
 import com.baidu.live.adp.lib.util.BdLog;
 import java.util.Arrays;
+import org.webrtc.MediaStreamTrack;
 /* loaded from: classes12.dex */
 public class StreamConfig {
     public static final int AUDIO_IO_CXX = 2;
@@ -18,7 +19,7 @@ public class StreamConfig {
     private static int AUDIO_IO_MODE = -1;
     public static int OUTPUT_FRAMES_PER_BUFFER = 256;
     public static int OUTPUT_SAMPLE_RATE = 44100;
-    private static final String[] BLACKLISTED_OPEN_SL_ES_MODELS = {"vivo X9", "Redmi Note 8 Pro", "vivo X21"};
+    private static final String[] BLACKLISTED_OPEN_SL_ES_MODELS = {"vivo X9", "Redmi Note 8 Pro", "vivo X21", "PCDM10"};
     private static final String[] WHITELISTED_OPEN_SL_ES_MODELS = {"MI 5s Plus", "MI 8", "MIX 2", "MI 6", "DUB-AL20", "V1821A", "VKY-AL00", "PACM00", "PBEM00", "OPPO R11", "OPPO R11s", "OPPO R11 Plus", "OPPO R9sk", "OPPO R9tm", "OPPO R9m", "vivo X21i A", "vivo X20A", "V1809A"};
 
     /* loaded from: classes12.dex */
@@ -50,7 +51,7 @@ public class StreamConfig {
                 } else {
                     logDeviceInfo();
                     try {
-                        AudioManager audioManager = (AudioManager) context.getSystemService("audio");
+                        AudioManager audioManager = (AudioManager) context.getSystemService(MediaStreamTrack.AUDIO_TRACK_KIND);
                         if (Build.VERSION.SDK_INT >= 17 && audioManager != null) {
                             String property = audioManager.getProperty("android.media.property.OUTPUT_SAMPLE_RATE");
                             if (property != null) {

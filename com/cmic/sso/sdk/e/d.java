@@ -3,7 +3,7 @@ package com.cmic.sso.sdk.e;
 import android.text.TextUtils;
 import java.io.UnsupportedEncodingException;
 import java.security.MessageDigest;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class d {
     public static String a(String str) {
         if (TextUtils.isEmpty(str)) {

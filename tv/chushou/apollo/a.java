@@ -3,66 +3,66 @@ package tv.chushou.apollo;
 public class a {
     public int borderColor;
     public boolean isFullScreen;
-    public int oUB;
-    public int oUC;
-    public boolean oUD;
-    public int oUE;
+    public int pjU;
+    public int pjV;
+    public boolean pjW;
+    public int pjX;
     public int strokeWidth;
 
-    public a(C1000a c1000a) {
-        this.oUB = 20;
-        this.oUC = 20;
-        this.oUD = true;
+    public a(C1018a c1018a) {
+        this.pjU = 20;
+        this.pjV = 20;
+        this.pjW = true;
         this.strokeWidth = 2;
-        this.oUE = 800;
+        this.pjX = 800;
         this.isFullScreen = false;
         this.borderColor = -16711936;
-        this.oUB = c1000a.oUB;
-        this.oUC = c1000a.oUC;
-        this.oUD = c1000a.oUD;
-        this.strokeWidth = c1000a.strokeWidth;
-        this.oUE = c1000a.oUE;
-        this.isFullScreen = c1000a.isFullScreen;
-        this.borderColor = c1000a.borderColor;
+        this.pjU = c1018a.pjU;
+        this.pjV = c1018a.pjV;
+        this.pjW = c1018a.pjW;
+        this.strokeWidth = c1018a.strokeWidth;
+        this.pjX = c1018a.pjX;
+        this.isFullScreen = c1018a.isFullScreen;
+        this.borderColor = c1018a.borderColor;
     }
 
     /* renamed from: tv.chushou.apollo.a$a  reason: collision with other inner class name */
     /* loaded from: classes6.dex */
-    public static class C1000a {
+    public static class C1018a {
         public int borderColor;
         public boolean isFullScreen;
-        public int oUB;
-        public int oUC;
-        public boolean oUD;
-        public int oUE;
+        public int pjU;
+        public int pjV;
+        public boolean pjW;
+        public int pjX;
         public int strokeWidth;
 
-        public C1000a zo(boolean z) {
-            this.oUD = z;
+        public C1018a zV(boolean z) {
+            this.pjW = z;
             return this;
         }
 
-        public C1000a OX(int i) {
+        public C1018a PD(int i) {
             this.strokeWidth = i;
             return this;
         }
 
-        public C1000a OY(int i) {
-            this.oUE = i;
+        public C1018a PE(int i) {
+            this.pjX = i;
             return this;
         }
 
-        public C1000a zp(boolean z) {
+        public C1018a zW(boolean z) {
             this.isFullScreen = z;
             return this;
         }
 
-        public C1000a OZ(int i) {
+        public C1018a PF(int i) {
             this.borderColor = i;
             return this;
         }
 
-        public a epB() {
+        public a etm() {
             return new a(this);
         }
     }

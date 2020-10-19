@@ -8,7 +8,7 @@ import java.lang.reflect.Field;
 import java.util.ArrayList;
 import java.util.Iterator;
 @TargetApi(19)
-/* loaded from: classes5.dex */
+/* loaded from: classes12.dex */
 class DisplayListenerProxy {
     private static final String TAG = "DisplayListenerProxy";
     private ArrayList<DisplayManager.DisplayListener> listenersBeforeWebView;
@@ -58,7 +58,7 @@ class DisplayListenerProxy {
     }
 
     private static ArrayList<DisplayManager.DisplayListener> yoinkDisplayListeners(DisplayManager displayManager) {
-        if (Build.VERSION.SDK_INT >= 28) {
+        if (Build.VERSION.SDK_INT >= 27) {
             return new ArrayList<>();
         }
         try {

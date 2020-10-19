@@ -7,7 +7,7 @@ import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes7.dex */
 public class AdSettings {
     private static String c;
     private static String d;
@@ -16,7 +16,9 @@ public class AdSettings {
     private static String g;
     private static String h;
     private static String i;
-    private static HashSet<String> a = new HashSet<>();
+
+    /* renamed from: a  reason: collision with root package name */
+    private static HashSet<String> f2288a = new HashSet<>();
     private static JSONArray b = new JSONArray();
     private static String j = b.HTTP_PROTOCOL_TYPE.a() + "";
     private static HashSet<String> k = new HashSet<>();
@@ -36,7 +38,7 @@ public class AdSettings {
     }
 
     @Deprecated
-    /* loaded from: classes3.dex */
+    /* loaded from: classes7.dex */
     public enum b {
         UNKNOWN_PROTOCOL_TYPE(0),
         HTTP_PROTOCOL_TYPE(1),
@@ -54,7 +56,7 @@ public class AdSettings {
     }
 
     @Deprecated
-    /* loaded from: classes3.dex */
+    /* loaded from: classes7.dex */
     public enum d {
         MALE(0),
         FEMALE(1);
@@ -71,7 +73,7 @@ public class AdSettings {
     }
 
     @Deprecated
-    /* loaded from: classes3.dex */
+    /* loaded from: classes7.dex */
     public enum a {
         PRIMARY(0),
         JUNIOR(1),
@@ -93,7 +95,7 @@ public class AdSettings {
     }
 
     @Deprecated
-    /* loaded from: classes3.dex */
+    /* loaded from: classes7.dex */
     public enum c {
         F0T1k(0),
         F1kT2k(1),
@@ -122,7 +124,7 @@ public class AdSettings {
 
     public static JSONObject getAttr() {
         JSONObject jSONObject = new JSONObject();
-        Iterator<String> it = a.iterator();
+        Iterator<String> it = f2288a.iterator();
         b = new JSONArray();
         while (it.hasNext()) {
             b.put(it.next());
@@ -138,13 +140,13 @@ public class AdSettings {
     @Deprecated
     public static void setKey(String[] strArr) {
         for (String str : strArr) {
-            a.add(str);
+            f2288a.add(str);
         }
     }
 
     @Deprecated
     public static void setKey(List<String> list) {
-        a.addAll(list);
+        f2288a.addAll(list);
     }
 
     @Deprecated

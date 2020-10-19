@@ -16,57 +16,57 @@ import com.baidu.tbadk.core.data.bw;
 import com.baidu.tbadk.core.util.ay;
 import com.baidu.tieba.card.aa;
 import com.baidu.tieba.card.s;
-/* loaded from: classes21.dex */
+/* loaded from: classes22.dex */
 public class i extends com.baidu.adp.widget.ListView.a<bv, am<bw>> {
-    private aa<bw> afn;
-    private v alj;
-    public BdUniqueId eSq;
+    private aa<bw> afE;
+    private v alC;
+    public BdUniqueId fey;
     private TbPageContext<?> mPageContext;
     private String mTabName;
 
     public i(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId, BdUniqueId bdUniqueId2, String str) {
         super(tbPageContext.getPageActivity(), bdUniqueId);
-        this.afn = new aa<bw>() { // from class: com.baidu.tieba.homepage.tabfeed.a.i.1
+        this.afE = new aa<bw>() { // from class: com.baidu.tieba.homepage.tabfeed.a.i.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.tieba.card.aa
             /* renamed from: b */
             public void a(View view, bw bwVar) {
-                s.cfn().kO(true);
+                s.ciJ().lm(true);
                 com.baidu.tieba.homepage.tabfeed.b.a(view, bwVar, i.this.mTabName);
             }
         };
         this.mPageContext = tbPageContext;
-        this.eSq = bdUniqueId2;
+        this.fey = bdUniqueId2;
         this.mTabName = str;
     }
 
     public void a(v vVar) {
-        this.alj = vVar;
+        this.alC = vVar;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.widget.ListView.a
-    /* renamed from: aR */
+    /* renamed from: aT */
     public am c(ViewGroup viewGroup) {
         ak.a aVar = new ak.a(this.mPageContext.getPageActivity(), false);
         aVar.a((com.baidu.card.i) new com.baidu.card.k(this.mPageContext.getPageActivity()));
-        ak a = aVar.a(false, viewGroup, this.alj);
-        a.setSourceForPb(2);
-        am amVar = new am(a);
-        amVar.setPageId(this.eSq);
+        ak a2 = aVar.a(false, viewGroup, this.alC);
+        a2.setSourceForPb(2);
+        am amVar = new am(a2);
+        amVar.setPageId(this.fey);
         a(new ab() { // from class: com.baidu.tieba.homepage.tabfeed.a.i.2
             @Override // com.baidu.adp.widget.ListView.ab
             public void a(View view, com.baidu.adp.widget.ListView.q qVar, BdUniqueId bdUniqueId, ViewGroup viewGroup2, int i, long j) {
                 if ((qVar instanceof bv) && (view.getTag() instanceof am)) {
                     am amVar2 = (am) view.getTag();
-                    bw bwVar = ((bv) qVar).dXg;
+                    bw bwVar = ((bv) qVar).eji;
                     bwVar.objType = 1;
-                    if (i.this.afn != null) {
-                        i.this.afn.a(amVar2.getView(), bwVar);
+                    if (i.this.afE != null) {
+                        i.this.afE.a(amVar2.getView(), bwVar);
                     }
                     ay.a((AbsThreadDataSupport) bwVar, view.getContext(), 2, false);
-                    amVar2.tW().b(new a.C0096a(1));
+                    amVar2.tW().b(new a.C0097a(1));
                 }
             }
         });
@@ -77,14 +77,14 @@ public class i extends com.baidu.adp.widget.ListView.a<bv, am<bw>> {
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.widget.ListView.a
     public View a(int i, View view, ViewGroup viewGroup, bv bvVar, am<bw> amVar) {
-        if (bvVar == null || amVar == null || amVar.getView() == null || bvVar.dXg == null) {
+        if (bvVar == null || amVar == null || amVar.getView() == null || bvVar.eji == null) {
             return null;
         }
-        bvVar.dXg.ebp = getPositionByType(i) + 1;
+        bvVar.eji.ens = getPositionByType(i) + 1;
         amVar.tW().setPosition(i);
-        amVar.b((am<bw>) bvVar.dXg);
+        amVar.b((am<bw>) bvVar.eji);
         amVar.tW().onChangeSkinType(this.mPageContext, TbadkCoreApplication.getInst().getSkinType());
-        amVar.tW().a(this.afn);
+        amVar.tW().a(this.afE);
         com.baidu.tieba.homepage.tabfeed.b.a(bvVar, this.mTabName);
         return amVar.getView();
     }

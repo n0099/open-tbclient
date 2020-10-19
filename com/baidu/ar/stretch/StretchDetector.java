@@ -11,7 +11,7 @@ import com.baidu.ar.bus.CallBack;
 import com.baidu.ar.c.c;
 import com.baidu.ar.mdl.ARMdlInterfaceJNI;
 import com.baidu.ar.statistic.StatisticApi;
-/* loaded from: classes10.dex */
+/* loaded from: classes14.dex */
 public class StretchDetector extends com.baidu.ar.b.a.a {
     private static final String TAG = StretchDetector.class.getSimpleName();
     private int oE = -1;

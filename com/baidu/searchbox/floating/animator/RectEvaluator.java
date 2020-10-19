@@ -4,18 +4,18 @@ import android.animation.TypeEvaluator;
 import kotlin.h;
 import kotlin.jvm.internal.q;
 @h
-/* loaded from: classes5.dex */
+/* loaded from: classes11.dex */
 public final class RectEvaluator implements TypeEvaluator<ViewRect> {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // android.animation.TypeEvaluator
     public ViewRect evaluate(float f, ViewRect viewRect, ViewRect viewRect2) {
-        q.m(viewRect, "start");
-        q.m(viewRect2, "end");
+        q.n(viewRect, "start");
+        q.n(viewRect2, "end");
         return new ViewRect((int) (viewRect.getX() + ((viewRect2.getX() - viewRect.getX()) * f)), (int) (viewRect.getY() + ((viewRect2.getY() - viewRect.getY()) * f)), (int) (viewRect.getW() + ((viewRect2.getW() - viewRect.getW()) * f)), (int) (viewRect.getH() + ((viewRect2.getH() - viewRect.getH()) * f)));
     }
 
     @h
-    /* loaded from: classes5.dex */
+    /* loaded from: classes11.dex */
     public static final class ViewRect {
         private final int h;
         private final int w;

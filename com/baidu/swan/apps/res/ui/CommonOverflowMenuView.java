@@ -19,9 +19,9 @@ import java.util.HashMap;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
-/* loaded from: classes3.dex */
+/* loaded from: classes10.dex */
 public class CommonOverflowMenuView extends LinearLayout implements a.b {
-    private SwanAppScrollView cNd;
+    private SwanAppScrollView cZg;
     private HashMap<com.baidu.swan.apps.res.widget.a.b, ImageView> mBdMenuItemIconMap;
     private List<TextView> mBdMenuItemTexList;
     private SparseArray<View> mChildView;
@@ -66,7 +66,7 @@ public class CommonOverflowMenuView extends LinearLayout implements a.b {
     private void init(Context context) {
         this.mContentView = LayoutInflater.from(context).inflate(a.g.aiapps_menu_scroll_view, (ViewGroup) this, true);
         this.mLinearContent = (LinearLayout) this.mContentView.findViewById(a.f.menu_linear);
-        this.cNd = (SwanAppScrollView) this.mContentView.findViewById(a.f.menu_scrollview);
+        this.cZg = (SwanAppScrollView) this.mContentView.findViewById(a.f.menu_scrollview);
         setFocusable(true);
         setFocusableInTouchMode(true);
         updateUI();
@@ -100,17 +100,17 @@ public class CommonOverflowMenuView extends LinearLayout implements a.b {
                 int i2 = i;
                 if (it.hasNext()) {
                     final com.baidu.swan.apps.res.widget.a.b next = it.next();
-                    View a = a(context, next);
+                    View a2 = a(context, next);
                     if (next.isEnabled()) {
-                        a.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.swan.apps.res.ui.CommonOverflowMenuView.1
+                        a2.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.swan.apps.res.ui.CommonOverflowMenuView.1
                             @Override // android.view.View.OnClickListener
                             public void onClick(View view) {
                                 CommonOverflowMenuView.this.a(next);
                             }
                         });
                     }
-                    this.mLinearContent.addView(a);
-                    this.mChildView.append(next.getItemId(), a);
+                    this.mLinearContent.addView(a2);
+                    this.mChildView.append(next.getItemId(), a2);
                     if (i2 < list.size() - 1) {
                         ImageView imageView = new ImageView(context);
                         this.mDividerList.add(imageView);
@@ -156,18 +156,18 @@ public class CommonOverflowMenuView extends LinearLayout implements a.b {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void a(com.baidu.swan.apps.res.widget.a.b bVar) {
-        b.a aAf = bVar.aAf();
-        if (aAf != null) {
-            aAf.b(bVar);
+        b.a aCO = bVar.aCO();
+        if (aCO != null) {
+            aCO.b(bVar);
         }
     }
 
     public void setMaxHeightRes(int i) {
-        this.cNd.setMaxHeight(getContext().getResources().getDimensionPixelSize(i));
+        this.cZg.setMaxHeight(getContext().getResources().getDimensionPixelSize(i));
     }
 
     public void setMaxHeightPixel(int i) {
-        this.cNd.setMaxHeight(i);
+        this.cZg.setMaxHeight(i);
     }
 
     public LinearLayout getLinearContent() {
@@ -185,7 +185,7 @@ public class CommonOverflowMenuView extends LinearLayout implements a.b {
     @Override // android.view.ViewGroup, android.view.View
     protected void onAttachedToWindow() {
         super.onAttachedToWindow();
-        com.baidu.swan.apps.t.a.apQ().a(this.mNightModeRegister, new com.baidu.swan.apps.aj.a() { // from class: com.baidu.swan.apps.res.ui.CommonOverflowMenuView.2
+        com.baidu.swan.apps.t.a.asC().a(this.mNightModeRegister, new com.baidu.swan.apps.aj.a() { // from class: com.baidu.swan.apps.res.ui.CommonOverflowMenuView.2
         });
         updateUI();
     }
@@ -207,6 +207,6 @@ public class CommonOverflowMenuView extends LinearLayout implements a.b {
     @Override // android.view.ViewGroup, android.view.View
     protected void onDetachedFromWindow() {
         super.onDetachedFromWindow();
-        com.baidu.swan.apps.t.a.apQ().unsubscribeNightModeChangedEvent(this.mNightModeRegister);
+        com.baidu.swan.apps.t.a.asC().unsubscribeNightModeChangedEvent(this.mNightModeRegister);
     }
 }

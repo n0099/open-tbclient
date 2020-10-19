@@ -25,13 +25,15 @@ import okio.BufferedSink;
 import okio.GzipSink;
 import okio.Okio;
 import org.apache.http.protocol.HTTP;
-/* loaded from: classes7.dex */
+/* loaded from: classes10.dex */
 public class b {
     private static b b;
-    private OkHttpClient a = a();
+
+    /* renamed from: a  reason: collision with root package name */
+    private OkHttpClient f1136a = a();
     private Context c;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes10.dex */
     public class a implements Interceptor {
         public a() {
         }
@@ -98,9 +100,9 @@ public class b {
     public String[] a(byte[] bArr) {
         try {
             a.c a2 = a.c.a(bArr);
-            if (this.a.pingIntervalMillis() != a2.i()) {
-                this.a.newBuilder().pingInterval(a2.i(), TimeUnit.MILLISECONDS);
-                this.a = this.a.newBuilder().pingInterval(a2.i(), TimeUnit.MILLISECONDS).build();
+            if (this.f1136a.pingIntervalMillis() != a2.i()) {
+                this.f1136a.newBuilder().pingInterval(a2.i(), TimeUnit.MILLISECONDS);
+                this.f1136a = this.f1136a.newBuilder().pingInterval(a2.i(), TimeUnit.MILLISECONDS).build();
             }
             return new String[]{String.valueOf(a2.d()), a2.f()};
         } catch (InvalidProtocolBufferException e) {
@@ -109,21 +111,21 @@ public class b {
     }
 
     private byte[] b(byte[] bArr, String str) {
-        a.C0064a.C0065a.C0066a e = a.C0064a.C0065a.e();
+        a.C0065a.C0066a.C0067a e = a.C0065a.C0066a.e();
         if (TextUtils.isEmpty(str)) {
             str = "";
         }
-        a.C0064a.C0065a build = e.a(str).build();
+        a.C0065a.C0066a build = e.a(str).build();
         long currentTimeMillis = System.currentTimeMillis();
-        return a.C0064a.o().a(1L).a(IMPushUploadConstants.Service.BAIDU_APP).a(build).b(currentTimeMillis).b(com.baidu.android.pushservice.h.a.a(this.c, IMPushUploadConstants.Service.BAIDU_APP, currentTimeMillis)).a(ByteString.copyFrom(bArr)).build().toByteArray();
+        return a.C0065a.o().a(1L).a(IMPushUploadConstants.Service.BAIDU_APP).a(build).b(currentTimeMillis).b(com.baidu.android.pushservice.h.a.a(this.c, IMPushUploadConstants.Service.BAIDU_APP, currentTimeMillis)).a(ByteString.copyFrom(bArr)).build().toByteArray();
     }
 
     public void a(Map<String, String> map, byte[] bArr, String str, final c cVar) {
         Request a2 = a(bArr, str, "" + ((int) ((Math.random() * 100000.0d) + 1000.0d)));
-        if (this.a == null) {
-            this.a = a();
+        if (this.f1136a == null) {
+            this.f1136a = a();
         }
-        this.a.newCall(a2).enqueue(new Callback() { // from class: com.baidu.android.pushservice.h.b.1
+        this.f1136a.newCall(a2).enqueue(new Callback() { // from class: com.baidu.android.pushservice.h.b.1
             @Override // okhttp3.Callback
             public void onFailure(Call call, IOException iOException) {
                 String str2 = "Request error :" + iOException.toString();

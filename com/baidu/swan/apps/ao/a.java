@@ -4,24 +4,24 @@ import com.baidu.swan.apps.ap.i;
 import com.baidu.swan.apps.b;
 import com.baidu.swan.games.i.k;
 import com.baidu.swan.games.utils.so.e;
-/* loaded from: classes3.dex */
+/* loaded from: classes10.dex */
 public class a {
     private static final boolean DEBUG = b.DEBUG;
-    private static int dcI = 0;
+    private static int doR = 0;
 
-    public static void at(int i, int i2) {
-        com.baidu.swan.apps.extcore.cores.a.amV().am(i, i2);
-        i.aFr();
+    public static void as(int i, int i2) {
+        com.baidu.swan.apps.extcore.cores.a.apH().al(i, i2);
+        i.aIa();
         if (i == 0) {
-            dcI = 2;
+            doR = 2;
         } else if (i2 > i) {
-            dcI = 1;
-            k.aOi();
-            e.a.aQT();
+            doR = 1;
+            k.aQR();
+            e.a.aTC();
         }
     }
 
-    public static int aEV() {
-        return dcI;
+    public static int aHE() {
+        return doR;
     }
 }

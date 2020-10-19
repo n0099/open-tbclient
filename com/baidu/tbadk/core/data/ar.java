@@ -6,10 +6,10 @@ import org.json.JSONArray;
 public class ar {
     public String abTag;
     public int cardType;
-    private long ebk;
-    public int ebn;
-    public JSONArray ebo;
-    public int ebp;
+    private long enn;
+    public int enq;
+    public JSONArray enr;
+    public int ens;
     public String extra;
     private String fid;
     private String nid;
@@ -19,8 +19,8 @@ public class ar {
     private String type;
     public String weight;
     public SparseArray<String> feedBackReasonMap = null;
-    public SparseArray<String> ebl = null;
-    public SparseArray<String> ebm = null;
+    public SparseArray<String> eno = null;
+    public SparseArray<String> enp = null;
 
     public String getTid() {
         return this.tid;
@@ -58,28 +58,28 @@ public class ar {
         this.feedBackReasonMap = sparseArray;
     }
 
-    public void ne(int i) {
-        this.ebn = i;
+    public void nB(int i) {
+        this.enq = i;
     }
 
-    public int bdV() {
-        return this.ebn;
+    public int bgE() {
+        return this.enq;
     }
 
     public void P(JSONArray jSONArray) {
-        this.ebo = jSONArray;
+        this.enr = jSONArray;
     }
 
-    public JSONArray bdW() {
-        return this.ebo;
+    public JSONArray bgF() {
+        return this.enr;
     }
 
-    public long bdX() {
-        return this.ebk;
+    public long bgG() {
+        return this.enn;
     }
 
-    public void cy(long j) {
-        this.ebk = j;
+    public void cG(long j) {
+        this.enn = j;
     }
 
     public String getNid() {

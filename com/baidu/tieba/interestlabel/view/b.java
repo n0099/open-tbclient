@@ -13,122 +13,122 @@ import com.baidu.tieba.R;
 import com.baidu.tieba.interestlabel.activity.LabelRecommendActivity;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes22.dex */
+/* loaded from: classes23.dex */
 public class b {
-    private BdListView VG;
-    private NoNetworkView fHl;
-    private LabelRecommendActivity jUc;
-    private View jUd;
-    private TextView jUe;
-    private TextView jUf;
-    private com.baidu.tieba.interestlabel.a.a jUg;
-    private a jUh;
+    private BdListView VX;
+    private NoNetworkView fTu;
+    private LabelRecommendActivity kjc;
+    private View kjd;
+    private TextView kje;
+    private TextView kjf;
+    private com.baidu.tieba.interestlabel.a.a kjg;
+    private a kjh;
     private View.OnClickListener mOnClickListener;
     private ViewGroup mRootView;
     private List<com.baidu.tieba.interestlabel.b.a> mDataList = new ArrayList();
-    private List<Integer> jUi = new ArrayList();
-    private View.OnClickListener jUj = new View.OnClickListener() { // from class: com.baidu.tieba.interestlabel.view.b.1
+    private List<Integer> kji = new ArrayList();
+    private View.OnClickListener kjj = new View.OnClickListener() { // from class: com.baidu.tieba.interestlabel.view.b.1
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             if (view.getTag() instanceof com.baidu.tieba.interestlabel.b.a) {
                 Integer valueOf = Integer.valueOf(((com.baidu.tieba.interestlabel.b.a) view.getTag()).labelId);
-                if (b.this.jUi.contains(valueOf)) {
-                    b.this.jUi.remove(valueOf);
+                if (b.this.kji.contains(valueOf)) {
+                    b.this.kji.remove(valueOf);
                 } else {
-                    b.this.jUi.add(valueOf);
+                    b.this.kji.add(valueOf);
                 }
-                b.this.cPb();
+                b.this.cSJ();
             }
         }
     };
 
     public b(LabelRecommendActivity labelRecommendActivity) {
         if (labelRecommendActivity != null) {
-            this.jUc = labelRecommendActivity;
+            this.kjc = labelRecommendActivity;
             initView();
         }
     }
 
     private void initView() {
-        this.jUc.setContentView(R.layout.activity_label_recommend);
-        this.mRootView = (ViewGroup) this.jUc.findViewById(R.id.view_root);
-        this.jUd = this.jUc.findViewById(R.id.statebar_view);
-        this.jUe = (TextView) this.jUc.findViewById(R.id.skip);
-        this.fHl = (NoNetworkView) this.jUc.findViewById(R.id.view_no_network);
-        this.jUf = (TextView) this.jUc.findViewById(R.id.sub_label);
+        this.kjc.setContentView(R.layout.activity_label_recommend);
+        this.mRootView = (ViewGroup) this.kjc.findViewById(R.id.view_root);
+        this.kjd = this.kjc.findViewById(R.id.statebar_view);
+        this.kje = (TextView) this.kjc.findViewById(R.id.skip);
+        this.fTu = (NoNetworkView) this.kjc.findViewById(R.id.view_no_network);
+        this.kjf = (TextView) this.kjc.findViewById(R.id.sub_label);
         if (UtilHelper.canUseStyleImmersiveSticky()) {
-            this.jUd.getLayoutParams().height = UtilHelper.getStatusBarHeight();
+            this.kjd.getLayoutParams().height = UtilHelper.getStatusBarHeight();
         }
         cQ(0, 0);
-        this.VG = (BdListView) this.jUc.findViewById(R.id.listview);
-        this.jUg = new com.baidu.tieba.interestlabel.a.a(this.jUc.getPageContext().getPageActivity());
-        this.jUg.setOnClickListener(this.jUj);
-        this.jUh = new a(this.jUc.getPageContext().getPageActivity());
-        this.VG.addHeaderView(this.jUh.cOX());
-        this.VG.setAdapter((ListAdapter) this.jUg);
+        this.VX = (BdListView) this.kjc.findViewById(R.id.listview);
+        this.kjg = new com.baidu.tieba.interestlabel.a.a(this.kjc.getPageContext().getPageActivity());
+        this.kjg.setOnClickListener(this.kjj);
+        this.kjh = new a(this.kjc.getPageContext().getPageActivity());
+        this.VX.addHeaderView(this.kjh.cSF());
+        this.VX.setAdapter((ListAdapter) this.kjg);
         onChangeSkinType();
     }
 
     private void onChangeSkinType() {
-        ap.setViewTextColor(this.jUe, R.color.cp_cont_d);
-        ap.setViewTextColor(this.jUf, R.drawable.color_sub_lable_selector);
-        ap.setBackgroundResource(this.jUf, R.drawable.bule_bg_commen_label_button);
-        this.fHl.onChangeSkinType(this.jUc.getPageContext(), TbadkCoreApplication.getInst().getSkinType());
+        ap.setViewTextColor(this.kje, R.color.cp_cont_d);
+        ap.setViewTextColor(this.kjf, R.drawable.color_sub_lable_selector);
+        ap.setBackgroundResource(this.kjf, R.drawable.bule_bg_commen_label_button);
+        this.fTu.onChangeSkinType(this.kjc.getPageContext(), TbadkCoreApplication.getInst().getSkinType());
     }
 
     private void cQ(int i, int i2) {
-        this.jUf.setEnabled(i > 0);
-        this.jUf.setText(this.jUc.getString(R.string.start_tieba, new Object[]{Integer.valueOf(i), Integer.valueOf(i2)}));
-        this.jUf.setOnClickListener(i > 0 ? this.mOnClickListener : null);
+        this.kjf.setEnabled(i > 0);
+        this.kjf.setText(this.kjc.getString(R.string.start_tieba, new Object[]{Integer.valueOf(i), Integer.valueOf(i2)}));
+        this.kjf.setOnClickListener(i > 0 ? this.mOnClickListener : null);
     }
 
     public void setOnClickListener(View.OnClickListener onClickListener) {
         this.mOnClickListener = onClickListener;
-        this.jUe.setOnClickListener(onClickListener);
+        this.kje.setOnClickListener(onClickListener);
     }
 
     public View getRootView() {
         return this.mRootView;
     }
 
-    public View cOZ() {
-        return this.jUe;
+    public View cSH() {
+        return this.kje;
     }
 
-    public View cPa() {
-        return this.jUf;
+    public View cSI() {
+        return this.kjf;
     }
 
     public void setData(com.baidu.tieba.interestlabel.b.b bVar) {
-        if (bVar != null && bVar.cOQ() != null && bVar.cOR() != null) {
-            for (com.baidu.tieba.interestlabel.b.a aVar : bVar.cOR()) {
+        if (bVar != null && bVar.cSy() != null && bVar.cSz() != null) {
+            for (com.baidu.tieba.interestlabel.b.a aVar : bVar.cSz()) {
                 if (aVar != null) {
                     aVar.isFollow = false;
                 }
             }
             this.mDataList.clear();
-            this.mDataList.addAll(bVar.cOR());
-            this.jUh.setData(bVar.cOQ());
-            this.jUg.setData(this.mDataList);
-            this.VG.setVisibility(0);
+            this.mDataList.addAll(bVar.cSz());
+            this.kjh.setData(bVar.cSy());
+            this.kjg.setData(this.mDataList);
+            this.VX.setVisibility(0);
             cQ(0, this.mDataList.size());
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void cPb() {
+    public void cSJ() {
         for (com.baidu.tieba.interestlabel.b.a aVar : this.mDataList) {
             if (aVar != null) {
-                aVar.isFollow = this.jUi.contains(Integer.valueOf(aVar.labelId));
+                aVar.isFollow = this.kji.contains(Integer.valueOf(aVar.labelId));
             }
         }
-        this.jUg.setData(this.mDataList);
-        cQ(this.jUi.size(), this.mDataList.size());
+        this.kjg.setData(this.mDataList);
+        cQ(this.kji.size(), this.mDataList.size());
     }
 
-    public List<Integer> cPc() {
-        ArrayList arrayList = new ArrayList(this.jUi);
-        arrayList.add(0, Integer.valueOf(this.jUh.cOY()));
+    public List<Integer> cSK() {
+        ArrayList arrayList = new ArrayList(this.kji);
+        arrayList.add(0, Integer.valueOf(this.kjh.cSG()));
         return arrayList;
     }
 }

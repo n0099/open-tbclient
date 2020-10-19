@@ -1,10 +1,11 @@
 package org.apache.commons.codec.binary4util;
 
+import com.baidu.appsearch.update.patchupdate.GDiffPatcher;
 import java.io.FilterInputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import org.apache.commons.codec.binary4util.BaseNCodec;
-/* loaded from: classes9.dex */
+/* loaded from: classes18.dex */
 public class BaseNCodecInputStream extends FilterInputStream {
     private final BaseNCodec baseNCodec;
     private final BaseNCodec.Context context;
@@ -42,7 +43,7 @@ public class BaseNCodecInputStream extends FilterInputStream {
         }
         if (read > 0) {
             byte b = this.singleByte[0];
-            return b < 0 ? b + 256 : b;
+            return b < 0 ? b + GDiffPatcher.EOF : b;
         }
         return -1;
     }

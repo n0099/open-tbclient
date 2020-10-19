@@ -2,7 +2,7 @@ package com.sina.weibo.sdk.statistic;
 
 import android.content.Context;
 import android.content.SharedPreferences;
-/* loaded from: classes24.dex */
+/* loaded from: classes12.dex */
 class PageLog {
     private static String FILE_SESSION = "session";
     private static long MIN_ENDTIME = 1000;

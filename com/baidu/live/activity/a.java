@@ -10,13 +10,13 @@ import com.baidu.live.adp.framework.message.CustomResponsedMessage;
 import com.baidu.live.im.n;
 /* loaded from: classes4.dex */
 public class a {
-    private static Application.ActivityLifecycleCallbacks azq;
+    private static Application.ActivityLifecycleCallbacks azZ;
 
     public static void d(Application application) {
-        if (azq == null) {
-            azq = new C0165a();
+        if (azZ == null) {
+            azZ = new C0169a();
         }
-        application.registerActivityLifecycleCallbacks(azq);
+        application.registerActivityLifecycleCallbacks(azZ);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -37,17 +37,17 @@ public class a {
     /* JADX INFO: Access modifiers changed from: private */
     /* renamed from: com.baidu.live.activity.a$a  reason: collision with other inner class name */
     /* loaded from: classes4.dex */
-    public static class C0165a implements Application.ActivityLifecycleCallbacks {
-        private n azr;
-        private CustomMessageListener azs;
+    public static class C0169a implements Application.ActivityLifecycleCallbacks {
+        private n aAa;
+        private CustomMessageListener aAb;
 
-        private C0165a() {
-            this.azs = new CustomMessageListener(2913191) { // from class: com.baidu.live.activity.a.a.1
+        private C0169a() {
+            this.aAb = new CustomMessageListener(2913191) { // from class: com.baidu.live.activity.a.a.1
                 /* JADX DEBUG: Method merged with bridge method */
                 @Override // com.baidu.live.adp.framework.listener.MessageListener
                 public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-                    if (C0165a.this.azr != null) {
-                        C0165a.this.azr.JW();
+                    if (C0169a.this.aAa != null) {
+                        C0169a.this.aAa.Lc();
                     }
                 }
             };
@@ -60,11 +60,11 @@ public class a {
         @Override // android.app.Application.ActivityLifecycleCallbacks
         public void onActivityStarted(Activity activity) {
             if (a.p(activity)) {
-                if (this.azr == null) {
-                    this.azr = new n();
+                if (this.aAa == null) {
+                    this.aAa = new n();
                 }
-                this.azr.init(String.valueOf(activity.hashCode()));
-                MessageManager.getInstance().registerListener(this.azs);
+                this.aAa.init(String.valueOf(activity.hashCode()));
+                MessageManager.getInstance().registerListener(this.aAb);
             }
         }
 
@@ -87,10 +87,10 @@ public class a {
         @Override // android.app.Application.ActivityLifecycleCallbacks
         public void onActivityDestroyed(Activity activity) {
             if (a.p(activity)) {
-                if (this.azr != null) {
-                    this.azr.he(String.valueOf(activity.hashCode()));
+                if (this.aAa != null) {
+                    this.aAa.hv(String.valueOf(activity.hashCode()));
                 }
-                MessageManager.getInstance().unRegisterListener(this.azs);
+                MessageManager.getInstance().unRegisterListener(this.aAb);
             }
         }
     }

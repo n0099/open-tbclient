@@ -4,7 +4,7 @@ import android.os.SystemClock;
 import com.baidu.ar.face.algo.FaceJniClient;
 import com.baidu.ar.statistic.StatisticApi;
 import java.nio.ByteBuffer;
-/* loaded from: classes10.dex */
+/* loaded from: classes14.dex */
 class f extends a {
     private static final String TAG = f.class.getSimpleName();
     protected long oc;

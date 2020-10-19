@@ -29,7 +29,7 @@ import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes7.dex */
 public class MapController {
     public static final String ANDROID_SDK_LAYER_TAG = "android_sdk";
     public static final String CITY_AREA_TAG = "cityarea";
@@ -71,7 +71,9 @@ public class MapController {
     public static boolean mLocIconOnScreen = true;
     private static List<AppBaseMap> S = new ArrayList();
     private boolean l = true;
-    int a = 0;
+
+    /* renamed from: a  reason: collision with root package name */
+    int f2872a = 0;
     private int m = 1;
     private int n = 1;
     private boolean o = false;
@@ -112,57 +114,63 @@ public class MapController {
     private int u = SysOSUtil.getInstance().getScreenWidth();
     private int v = SysOSUtil.getInstance().getScreenHeight();
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes7.dex */
     public enum HeatMapType {
         CITY(0),
         SCENERY(1),
         CEMETERY(2);
         
-        private final int a;
+
+        /* renamed from: a  reason: collision with root package name */
+        private final int f2873a;
 
         HeatMapType(int i) {
-            this.a = i;
+            this.f2873a = i;
         }
 
         public int getId() {
-            return this.a;
+            return this.f2873a;
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes7.dex */
     public enum MapControlMode {
         DEFAULT(1),
         INDOOR(2),
         STREET(3),
         STREET_WAITING(4);
         
-        private final int a;
+
+        /* renamed from: a  reason: collision with root package name */
+        private final int f2874a;
 
         MapControlMode(int i) {
-            this.a = i;
+            this.f2874a = i;
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes7.dex */
     public interface MapFirstFrameCallback {
         void onFirstFrameDrawing(MapController mapController);
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes7.dex */
     public enum MapLayerType {
         DEFAULT(1),
         SATELLITE(2),
         INDOOR(3),
         STREET(5);
         
-        private final int a;
+
+        /* renamed from: a  reason: collision with root package name */
+        private final int f2875a;
 
         MapLayerType(int i) {
-            this.a = i;
+            this.f2875a = i;
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes7.dex */
     public enum MapSceneMode {
         DEFAULT(0),
         POI(1),
@@ -170,18 +178,20 @@ public class MapController {
         INTERNAL(3),
         INDOOR(7);
         
-        private final int a;
+
+        /* renamed from: a  reason: collision with root package name */
+        private final int f2876a;
 
         MapSceneMode(int i) {
-            this.a = i;
+            this.f2876a = i;
         }
 
         public int getMode() {
-            return this.a;
+            return this.f2876a;
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes7.dex */
     public enum MapStyleMode {
         DEFAULT(1),
         SEARCH_POI(2),
@@ -193,18 +203,20 @@ public class MapController {
         INTERNAL_SPECIAL(8),
         FOOT_PRINT(9);
         
-        private final int a;
+
+        /* renamed from: a  reason: collision with root package name */
+        private final int f2877a;
 
         MapStyleMode(int i) {
-            this.a = i;
+            this.f2877a = i;
         }
 
         public int getMode() {
-            return this.a;
+            return this.f2877a;
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes7.dex */
     public enum RecommendPoiScene {
         BASE(0),
         INTERNATIONAL(1);
@@ -216,23 +228,25 @@ public class MapController {
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes7.dex */
     public enum RecycleMemoryLevel {
         NORMAL(0),
         FULL(1);
         
-        private final int a;
+
+        /* renamed from: a  reason: collision with root package name */
+        private final int f2879a;
 
         RecycleMemoryLevel(int i) {
-            this.a = i;
+            this.f2879a = i;
         }
 
         public int getLevel() {
-            return this.a;
+            return this.f2879a;
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes7.dex */
     class a extends com.baidu.platform.comapi.util.i {
         a() {
             super(Looper.getMainLooper());
@@ -1267,7 +1281,7 @@ public class MapController {
 
     public boolean cleanCache(MapLayerType mapLayerType) {
         AppBaseMap appBaseMap = this.r;
-        return appBaseMap != null && appBaseMap.CleanCache(mapLayerType.a);
+        return appBaseMap != null && appBaseMap.CleanCache(mapLayerType.f2875a);
     }
 
     public void clearUniversalLayer() {
@@ -1325,7 +1339,7 @@ public class MapController {
         if (appBaseMap == null) {
             return 0;
         }
-        return appBaseMap.GetCacheSize(mapLayerType.a);
+        return appBaseMap.GetCacheSize(mapLayerType.f2875a);
     }
 
     public CaptureMapListener getCaptureMapListener() {
@@ -2218,7 +2232,7 @@ public class MapController {
     public int setMapControlMode(MapControlMode mapControlMode) {
         if (a()) {
             this.W = mapControlMode;
-            return this.r.SetMapControlMode(mapControlMode.a);
+            return this.r.SetMapControlMode(mapControlMode.f2874a);
         }
         return -1;
     }
@@ -2464,10 +2478,10 @@ public class MapController {
         }
         if (i == 1) {
             this.g.onLongLinkConnect();
-        } else if (i == 2 && this.a != i) {
+        } else if (i == 2 && this.f2872a != i) {
             this.g.onLongLinkDisConnect();
         }
-        this.a = i;
+        this.f2872a = i;
     }
 
     public void setOverlayMapCallBack(ac acVar) {

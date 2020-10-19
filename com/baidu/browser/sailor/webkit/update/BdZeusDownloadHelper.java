@@ -11,22 +11,24 @@ import com.baidu.webkit.internal.blink.EngineManager;
 import com.baidu.webkit.sdk.Log;
 import com.baidu.webkit.sdk.WebKitFactory;
 import java.io.File;
-/* loaded from: classes8.dex */
+/* loaded from: classes11.dex */
 public final class BdZeusDownloadHelper {
     protected static String d;
     protected static String e;
     protected long b;
     protected long c;
     private Context h;
-    public static final String a = BdZeusDownloadHelper.class.getSimpleName();
-    private static BdZeusDownloadHelper aff = null;
+
+    /* renamed from: a  reason: collision with root package name */
+    public static final String f1289a = BdZeusDownloadHelper.class.getSimpleName();
+    private static BdZeusDownloadHelper afw = null;
     protected static String f = "com.baidu.android.appswitchsdk:web";
     private String i = "";
     private String k = "";
     private int j = a.c;
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes8.dex */
+    /* loaded from: classes11.dex */
     public class ZeusDownloadTaskListener implements BdSailorClient.IDownloadTaskListener {
         private ZeusDownloadTaskListener() {
         }
@@ -56,7 +58,7 @@ public final class BdZeusDownloadHelper {
         @Override // com.baidu.browser.sailor.BdSailorClient.IDownloadTaskListener
         @Keep
         public void onDownloadStart(String str, long j, String str2) {
-            BdZeusDownloadHelper.this.j = a.a;
+            BdZeusDownloadHelper.this.j = a.f1290a;
         }
 
         @Override // com.baidu.browser.sailor.BdSailorClient.IDownloadTaskListener
@@ -85,8 +87,8 @@ public final class BdZeusDownloadHelper {
                 BdZeusDownloadHelper.this.a(BdZeusDownloadHelper.this.i, BdZeusDownloadHelper.this.k);
             } else {
                 Log.i(EngineManager.LOG_TAG, " begine check md5");
-                String a = com.baidu.browser.sailor.util.b.a(BdZeusDownloadHelper.e);
-                if (a == null || !a.equalsIgnoreCase(BdZeusDownloadHelper.this.k)) {
+                String a2 = com.baidu.browser.sailor.util.b.a(BdZeusDownloadHelper.e);
+                if (a2 == null || !a2.equalsIgnoreCase(BdZeusDownloadHelper.this.k)) {
                     Log.i(EngineManager.LOG_TAG, " check md5 failed ");
                     return;
                 }
@@ -104,22 +106,24 @@ public final class BdZeusDownloadHelper {
         public void onDownloading(String str, long j, long j2) {
             BdZeusDownloadHelper.this.b += j;
             BdZeusDownloadHelper.this.c = j2;
-            BdZeusDownloadHelper.this.j = a.a;
+            BdZeusDownloadHelper.this.j = a.f1290a;
         }
     }
 
     /* JADX WARN: $VALUES field not found */
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes8.dex */
+    /* loaded from: classes11.dex */
     public static final class a {
-        public static final int a = 1;
+
+        /* renamed from: a  reason: collision with root package name */
+        public static final int f1290a = 1;
         public static final int b = 2;
         public static final int c = 3;
         public static final int d = 4;
         public static final int e = 5;
         public static final int f = 6;
         public static final int g = 7;
-        private static final /* synthetic */ int[] h = {a, b, c, d, e, f, g};
+        private static final /* synthetic */ int[] h = {f1290a, b, c, d, e, f, g};
     }
 
     private BdZeusDownloadHelper(Context context) {
@@ -131,14 +135,14 @@ public final class BdZeusDownloadHelper {
     }
 
     public static BdZeusDownloadHelper T(Context context) {
-        if (aff == null) {
+        if (afw == null) {
             synchronized (BdZeusDownloadHelper.class) {
-                if (aff == null) {
-                    aff = new BdZeusDownloadHelper(context);
+                if (afw == null) {
+                    afw = new BdZeusDownloadHelper(context);
                 }
             }
         }
-        return aff;
+        return afw;
     }
 
     public static void a() {

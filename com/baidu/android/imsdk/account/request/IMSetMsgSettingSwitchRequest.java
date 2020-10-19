@@ -18,7 +18,7 @@ import java.util.HashMap;
 import java.util.Map;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes9.dex */
+/* loaded from: classes5.dex */
 public class IMSetMsgSettingSwitchRequest extends BaseHttpRequest {
     private static final String TAG = "IMSetMsgSettingSwitchRequest";
     private ISetMsgSettingSwitchListener mListener;
@@ -99,14 +99,14 @@ public class IMSetMsgSettingSwitchRequest extends BaseHttpRequest {
         switch (Utility.readIntData(this.mContext, Constants.KEY_ENV, 0)) {
             case 0:
                 if (!Utility.isPeakTime()) {
-                    str = Constants.URL_HTTP_ONLINE;
+                    str = "https://pim.baidu.com/";
                     break;
                 } else {
-                    str = Constants.URL_HTTP_ONLINE.replace(SapiUtils.COOKIE_HTTPS_URL_PREFIX, "http://");
+                    str = "https://pim.baidu.com/".replace(SapiUtils.COOKIE_HTTPS_URL_PREFIX, "http://");
                     break;
                 }
             case 1:
-                str = Constants.URL_HTTP_RD;
+                str = "http://cp01-ocean-749.epc.baidu.com:8080/";
                 break;
             case 2:
                 str = "http://10.232.27.22:8090/";

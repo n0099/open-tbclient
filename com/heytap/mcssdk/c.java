@@ -4,7 +4,7 @@ import android.content.Context;
 import com.heytap.mcssdk.callback.PushCallback;
 import java.util.List;
 import org.json.JSONObject;
-/* loaded from: classes12.dex */
+/* loaded from: classes15.dex */
 interface c {
     @Deprecated
     void clearNotificationType(JSONObject jSONObject);

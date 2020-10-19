@@ -2,7 +2,7 @@ package pl.droidsonroids.gif;
 
 import android.content.Context;
 import android.support.annotation.NonNull;
-/* loaded from: classes5.dex */
+/* loaded from: classes9.dex */
 public class LibraryLoader {
     static final String BASE_LIBRARY_NAME = "pl_droidsonroids_gif";
     static final String SURFACE_LIBRARY_NAME = "pl_droidsonroids_gif_surface";

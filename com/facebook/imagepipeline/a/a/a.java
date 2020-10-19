@@ -3,9 +3,9 @@ package com.facebook.imagepipeline.a.a;
 import android.content.Context;
 import com.facebook.imagepipeline.d.h;
 import okhttp3.OkHttpClient;
-/* loaded from: classes7.dex */
+/* loaded from: classes19.dex */
 public class a {
     public static h.a a(Context context, OkHttpClient okHttpClient) {
-        return h.gB(context).a(new b(okHttpClient));
+        return h.gI(context).a(new b(okHttpClient));
     }
 }

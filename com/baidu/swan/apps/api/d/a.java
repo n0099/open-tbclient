@@ -6,19 +6,19 @@ import android.util.Log;
 import android.util.Pair;
 import com.baidu.searchbox.unitedscheme.CallbackHandler;
 import com.baidu.swan.apps.adaptation.b.e;
-/* loaded from: classes3.dex */
+/* loaded from: classes10.dex */
 public class a {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    private static final String[] cap = {"swan", "swanAPI", "utils"};
+    private static final String[] cmF = {"swan", "swanAPI", "utils"};
 
     @NonNull
     public static Pair<Boolean, com.baidu.swan.apps.api.c.a> a(com.baidu.swan.apps.api.a.a aVar, String str) {
         com.baidu.swan.apps.api.c.b bVar = new com.baidu.swan.apps.api.c.b();
-        boolean a = a(str, aVar.acs().acq());
-        if (a) {
+        boolean a2 = a(str, aVar.afe().afc());
+        if (a2) {
             bVar.status = 402;
         }
-        return new Pair<>(Boolean.valueOf(a), bVar);
+        return new Pair<>(Boolean.valueOf(a2), bVar);
     }
 
     public static boolean a(String str, CallbackHandler callbackHandler) {
@@ -32,14 +32,14 @@ public class a {
                 throw new RuntimeException("whitelistName is empty");
             }
         } else {
-            String abC = ((e) callbackHandler).abC();
-            if ("ai_apps_widget".equals(abC)) {
-                z = kE(str);
-            } else if ("ai_apps_ad_landing".equals(abC)) {
-                if (!com.baidu.swan.apps.ag.a.b.ra(str)) {
+            String aeo = ((e) callbackHandler).aeo();
+            if ("ai_apps_widget".equals(aeo)) {
+                z = lq(str);
+            } else if ("ai_apps_ad_landing".equals(aeo)) {
+                if (!com.baidu.swan.apps.ag.a.b.rM(str)) {
                     z = true;
                 }
-            } else if (!"swan_app_alliance_login_widget".equals(abC) && !"swan_app_alliance_choose_address_widget".equals(abC) && DEBUG) {
+            } else if (!"swan_app_alliance_login_widget".equals(aeo) && !"swan_app_alliance_choose_address_widget".equals(aeo) && DEBUG) {
                 Log.d("SwanApiSafe", "intercept: false, source frame is not aiapps widget frame");
             }
             if (DEBUG) {
@@ -49,19 +49,19 @@ public class a {
         return z;
     }
 
-    private static boolean kE(@NonNull String str) {
+    private static boolean lq(@NonNull String str) {
         String[] strArr;
         int indexOf = str.indexOf("/");
         if (indexOf < 0) {
             return true;
         }
         if (!str.startsWith("swan")) {
-            return !com.baidu.swan.apps.ag.a.b.qY(str);
+            return !com.baidu.swan.apps.ag.a.b.rK(str);
         }
         String substring = str.substring(indexOf + 1);
-        int length = cap.length;
+        int length = cmF.length;
         for (int i = 0; i < length; i++) {
-            if (com.baidu.swan.apps.ag.a.b.qY(strArr[i] + "/" + substring)) {
+            if (com.baidu.swan.apps.ag.a.b.rK(strArr[i] + "/" + substring)) {
                 return false;
             }
         }

@@ -36,7 +36,7 @@ public class SwitchManager {
     public b removeSwitchData(String str) {
         c remove = this.mSwitchs.remove(str);
         if (remove != null) {
-            return remove.me();
+            return remove.mf();
         }
         return null;
     }
@@ -69,8 +69,8 @@ public class SwitchManager {
             for (c cVar : this.mSwitchs.values()) {
                 if (cVar != null) {
                     cVar.ai(0);
-                    edit.putInt(cVar.getName() + c.KJ, 0);
-                    edit.putInt(cVar.getName() + c.KK, cVar.getDefaultType());
+                    edit.putInt(cVar.getName() + c.KZ, 0);
+                    edit.putInt(cVar.getName() + c.La, cVar.getDefaultType());
                 }
             }
             edit.commit();

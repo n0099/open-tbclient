@@ -20,9 +20,11 @@ import tv.chushou.zues.utils.h;
 import tv.chushou.zues.widget.fresco.FrescoThumbnailView;
 /* loaded from: classes6.dex */
 public class RecommendView extends LinearLayout {
-    protected Context a;
+
+    /* renamed from: a  reason: collision with root package name */
+    protected Context f4250a;
     private ArrayList<ListItem> b;
-    private a ojB;
+    private a oyU;
 
     /* loaded from: classes6.dex */
     public interface a {
@@ -40,18 +42,18 @@ public class RecommendView extends LinearLayout {
     }
 
     private void a(Context context) {
-        this.a = context;
+        this.f4250a = context;
         setOrientation(0);
     }
 
     public void a(String str, a aVar) {
-        this.ojB = aVar;
+        this.oyU = aVar;
         a(str);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void a() {
-        if (this.a != null) {
+        if (this.f4250a != null) {
             removeAllViews();
             int size = this.b.size();
             if (size == 0) {
@@ -61,8 +63,8 @@ public class RecommendView extends LinearLayout {
             int min = Math.min(size, 3);
             for (int i = 0; i < min; i++) {
                 ListItem listItem = this.b.get(i);
-                View inflate = LayoutInflater.from(this.a).inflate(a.h.recommendview_item, (ViewGroup) null, false);
-                ((FrescoThumbnailView) inflate.findViewById(a.f.iv_thumb)).bX(listItem.mCover, a.e.def_recmd);
+                View inflate = LayoutInflater.from(this.f4250a).inflate(a.h.recommendview_item, (ViewGroup) null, false);
+                ((FrescoThumbnailView) inflate.findViewById(a.f.iv_thumb)).bY(listItem.mCover, a.e.def_recmd);
                 inflate.setTag(listItem);
                 inflate.setClickable(true);
                 inflate.setOnClickListener(new View.OnClickListener() { // from class: com.kascend.chushou.widget.RecommendView.1
@@ -73,9 +75,9 @@ public class RecommendView extends LinearLayout {
                             ListItem listItem2 = (ListItem) tag;
                             if (listItem2.mType != null && listItem2.mType.equals("1")) {
                                 o oVar = new o();
-                                oVar.nRx = listItem2;
+                                oVar.ogP = listItem2;
                                 oVar.b = "recommend";
-                                oVar.c = RecommendView.this.a;
+                                oVar.c = RecommendView.this.f4250a;
                                 oVar.g = listItem2.mLiveType;
                                 tv.chushou.zues.a.a.post(oVar);
                             }
@@ -89,8 +91,8 @@ public class RecommendView extends LinearLayout {
     }
 
     private void a(String str) {
-        if (tv.chushou.zues.utils.a.eqo()) {
-            c.ect().b(new b() { // from class: com.kascend.chushou.widget.RecommendView.2
+        if (tv.chushou.zues.utils.a.etZ()) {
+            c.ege().b(new b() { // from class: com.kascend.chushou.widget.RecommendView.2
                 @Override // com.kascend.chushou.c.b
                 public void a() {
                 }
@@ -123,8 +125,8 @@ public class RecommendView extends LinearLayout {
                                     }
                                 }
                                 String optString = optJSONObject.optString("background");
-                                if (!h.isEmpty(optString) && RecommendView.this.ojB != null) {
-                                    RecommendView.this.ojB.a(optString);
+                                if (!h.isEmpty(optString) && RecommendView.this.oyU != null) {
+                                    RecommendView.this.oyU.a(optString);
                                 }
                                 if (!h.isEmpty(arrayList)) {
                                     RecommendView.this.b = arrayList;
@@ -162,7 +164,7 @@ public class RecommendView extends LinearLayout {
             this.b.clear();
             this.b = null;
         }
-        this.ojB = null;
-        this.a = null;
+        this.oyU = null;
+        this.f4250a = null;
     }
 }

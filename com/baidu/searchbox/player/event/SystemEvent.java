@@ -1,7 +1,7 @@
 package com.baidu.searchbox.player.event;
 
 import android.support.annotation.NonNull;
-/* loaded from: classes8.dex */
+/* loaded from: classes15.dex */
 public class SystemEvent extends VideoEvent {
     public static final String ACTION_BATTERY_CHANGED = "system_event_battery_changed";
     public static final String ACTION_BLUETOOTH_HEADSET = "system_event_bluetooth_headset";

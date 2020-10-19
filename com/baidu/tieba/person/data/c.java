@@ -2,17 +2,17 @@ package com.baidu.tieba.person.data;
 
 import com.baidu.adp.BdUniqueId;
 import com.baidu.adp.widget.ListView.q;
-/* loaded from: classes21.dex */
+/* loaded from: classes22.dex */
 public class c implements q {
-    public static final BdUniqueId lmC = BdUniqueId.gen();
-    private int lmD = 0;
+    public static final BdUniqueId lBU = BdUniqueId.gen();
+    private int lBV = 0;
 
-    public int djW() {
-        return this.lmD;
+    public int dnG() {
+        return this.lBV;
     }
 
     @Override // com.baidu.adp.widget.ListView.q
     public BdUniqueId getType() {
-        return lmC;
+        return lBU;
     }
 }

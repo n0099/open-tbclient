@@ -18,16 +18,18 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import com.baidu.sapi2.biometrics.liveness.R;
-/* loaded from: classes16.dex */
+/* loaded from: classes17.dex */
 public class LivenessVideoUploadView extends FrameLayout {
-    private ImageView a;
+
+    /* renamed from: a  reason: collision with root package name */
+    private ImageView f1749a;
     private LivenessCircleProgressView b;
     private TextView c;
     private LinearLayout d;
     private LinearLayout e;
     private a f;
 
-    /* loaded from: classes16.dex */
+    /* loaded from: classes17.dex */
     public interface a {
         void a();
 
@@ -50,7 +52,7 @@ public class LivenessVideoUploadView extends FrameLayout {
         View inflate = LayoutInflater.from(getContext()).inflate(R.layout.layout_liveness_video_upload_view, (ViewGroup) this, true);
         this.b = (LivenessCircleProgressView) inflate.findViewById(R.id.uploading_file_view);
         this.c = (TextView) inflate.findViewById(R.id.uploading_tv);
-        this.a = (ImageView) inflate.findViewById(R.id.img_canvas_view);
+        this.f1749a = (ImageView) inflate.findViewById(R.id.img_canvas_view);
         this.d = (LinearLayout) inflate.findViewById(R.id.cancle_upload);
         this.e = (LinearLayout) inflate.findViewById(R.id.confirm_upload);
         this.d.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.fsg.face.liveness.view.LivenessVideoUploadView.1

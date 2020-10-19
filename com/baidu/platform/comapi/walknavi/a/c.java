@@ -10,18 +10,22 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import com.baidu.tieba.R;
 import java.util.ArrayList;
-/* loaded from: classes3.dex */
+/* loaded from: classes7.dex */
 public class c extends BaseAdapter {
-    private boolean a;
+
+    /* renamed from: a  reason: collision with root package name */
+    private boolean f2951a;
     public ArrayList<String> c;
     public LayoutInflater d;
     public boolean e;
     public String f;
     protected Activity g = (Activity) com.baidu.platform.comapi.walknavi.b.a().g();
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes7.dex */
     public static class a {
-        public View a;
+
+        /* renamed from: a  reason: collision with root package name */
+        public View f2952a;
         public ImageView b;
         public TextView c;
         public String d;
@@ -29,7 +33,7 @@ public class c extends BaseAdapter {
     }
 
     public void a(boolean z) {
-        this.a = z;
+        this.f2951a = z;
     }
 
     public c(ArrayList<String> arrayList) {
@@ -74,21 +78,21 @@ public class c extends BaseAdapter {
     @TargetApi(16)
     public void a(int i, View view, a aVar) {
         if (getCount() == 1) {
-            aVar.a.setBackground(com.baidu.platform.comapi.wnplatform.p.a.a.a(this.g, (int) R.drawable.aiapps_emptyview_btn_bg));
+            aVar.f2952a.setBackground(com.baidu.platform.comapi.wnplatform.p.a.a.a(this.g, (int) R.drawable.aiapps_emptyview_btn_bg));
         } else if (i == 0) {
-            if (this.e && this.a) {
-                aVar.a.setBackground(com.baidu.platform.comapi.wnplatform.p.a.a.a(this.g, (int) R.drawable.aiapps_emptyview_btn_bg_pressed));
+            if (this.e && this.f2951a) {
+                aVar.f2952a.setBackground(com.baidu.platform.comapi.wnplatform.p.a.a.a(this.g, (int) R.drawable.aiapps_emptyview_btn_bg_pressed));
             } else {
-                aVar.a.setBackground(com.baidu.platform.comapi.wnplatform.p.a.a.a(this.g, (int) R.drawable.aiapps_enter_fullscreen));
+                aVar.f2952a.setBackground(com.baidu.platform.comapi.wnplatform.p.a.a.a(this.g, (int) R.drawable.aiapps_enter_fullscreen));
             }
         } else if (i == getCount() - 1) {
-            if (this.e && this.a) {
-                aVar.a.setBackground(com.baidu.platform.comapi.wnplatform.p.a.a.a(this.g, (int) R.drawable.aiapps_emptyview_btn_bg_pressed));
+            if (this.e && this.f2951a) {
+                aVar.f2952a.setBackground(com.baidu.platform.comapi.wnplatform.p.a.a.a(this.g, (int) R.drawable.aiapps_emptyview_btn_bg_pressed));
             } else {
-                aVar.a.setBackground(com.baidu.platform.comapi.wnplatform.p.a.a.a(this.g, (int) R.drawable.aiapps_emptyview_btn_bg_default));
+                aVar.f2952a.setBackground(com.baidu.platform.comapi.wnplatform.p.a.a.a(this.g, (int) R.drawable.aiapps_emptyview_btn_bg_default));
             }
         } else {
-            aVar.a.setBackground(com.baidu.platform.comapi.wnplatform.p.a.a.a(this.g, (int) R.drawable.aiapps_emptyview_btn_bg_pressed));
+            aVar.f2952a.setBackground(com.baidu.platform.comapi.wnplatform.p.a.a.a(this.g, (int) R.drawable.aiapps_emptyview_btn_bg_pressed));
         }
     }
 

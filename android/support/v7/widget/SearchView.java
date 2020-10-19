@@ -46,7 +46,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import java.lang.reflect.Method;
 import java.util.WeakHashMap;
-/* loaded from: classes10.dex */
+/* loaded from: classes5.dex */
 public class SearchView extends LinearLayoutCompat implements CollapsibleActionView {
     static final boolean DBG = false;
     static final AutoCompleteTextViewReflector HIDDEN_METHOD_INVOKER = new AutoCompleteTextViewReflector();
@@ -103,19 +103,19 @@ public class SearchView extends LinearLayoutCompat implements CollapsibleActionV
     private boolean mVoiceButtonEnabled;
     private final Intent mVoiceWebSearchIntent;
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes5.dex */
     public interface OnCloseListener {
         boolean onClose();
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes5.dex */
     public interface OnQueryTextListener {
         boolean onQueryTextChange(String str);
 
         boolean onQueryTextSubmit(String str);
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes5.dex */
     public interface OnSuggestionListener {
         boolean onSuggestionClick(int i);
 
@@ -827,7 +827,7 @@ public class SearchView extends LinearLayoutCompat implements CollapsibleActionV
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes10.dex */
+    /* loaded from: classes5.dex */
     public static class SavedState extends AbsSavedState {
         public static final Parcelable.Creator<SavedState> CREATOR = new Parcelable.ClassLoaderCreator<SavedState>() { // from class: android.support.v7.widget.SearchView.SavedState.1
             /* JADX DEBUG: Method merged with bridge method */
@@ -1079,7 +1079,7 @@ public class SearchView extends LinearLayoutCompat implements CollapsibleActionV
         return context.getResources().getConfiguration().orientation == 2;
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes5.dex */
     private static class UpdatableTouchDelegate extends TouchDelegate {
         private final Rect mActualBounds;
         private boolean mDelegateTargeted;
@@ -1150,7 +1150,7 @@ public class SearchView extends LinearLayoutCompat implements CollapsibleActionV
     }
 
     @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
-    /* loaded from: classes10.dex */
+    /* loaded from: classes5.dex */
     public static class SearchAutoComplete extends AppCompatAutoCompleteTextView {
         private boolean mHasPendingShowSoftInputRequest;
         final Runnable mRunShowSoftInputIfNecessary;
@@ -1301,7 +1301,7 @@ public class SearchView extends LinearLayoutCompat implements CollapsibleActionV
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes10.dex */
+    /* loaded from: classes5.dex */
     public static class AutoCompleteTextViewReflector {
         private Method doAfterTextChanged;
         private Method doBeforeTextChanged;

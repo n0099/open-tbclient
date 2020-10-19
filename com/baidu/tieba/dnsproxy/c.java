@@ -31,9 +31,9 @@ public class c extends BdAsyncTask<Collection<String>, HashMap<String, List<DnsP
         String sb;
         String str;
         StringBuilder sb2;
-        l<String> a = BdCacheService.lY().a("dnsproxy", BdCacheService.CacheStorage.SQLite_CACHE_All_IN_ONE_TABLE, BdCacheService.CacheEvictPolicy.LRU_ON_INSERT, 2);
+        l<String> a2 = BdCacheService.lZ().a("dnsproxy", BdCacheService.CacheStorage.SQLite_CACHE_All_IN_ONE_TABLE, BdCacheService.CacheEvictPolicy.LRU_ON_INSERT, 2);
         if (this.useCache) {
-            String str2 = a.get("dnsproxycachedata");
+            String str2 = a2.get("dnsproxycachedata");
             if (str2 != null) {
                 DnsProxyResponseData dnsProxyResponseData = (DnsProxyResponseData) DnsProxyResponseData.objectWithJsonStr(str2, DnsProxyResponseData.class);
                 if (dnsProxyResponseData == null || dnsProxyResponseData.getErrno() != 0) {
@@ -59,7 +59,7 @@ public class c extends BdAsyncTask<Collection<String>, HashMap<String, List<DnsP
             e.printStackTrace();
         }
         if (collectionArr != null && collectionArr.length == 1 && (collection = collectionArr[0]) != null) {
-            String cgO = new a().cgO();
+            String ckk = new a().ckk();
             StringBuilder sb3 = new StringBuilder();
             for (String str3 : collection) {
                 if (sb3.length() > 0) {
@@ -67,12 +67,12 @@ public class c extends BdAsyncTask<Collection<String>, HashMap<String, List<DnsP
                 }
                 sb3.append(str3);
             }
-            String str4 = "http://" + cgO + "/domains/resolve?domains=" + ((Object) sb3) + "&t=" + System.currentTimeMillis();
+            String str4 = "http://" + ckk + "/domains/resolve?domains=" + ((Object) sb3) + "&t=" + System.currentTimeMillis();
             com.baidu.adp.lib.network.http.e eVar = new com.baidu.adp.lib.network.http.e();
             com.baidu.adp.lib.network.http.c cVar = new com.baidu.adp.lib.network.http.c(eVar);
-            eVar.mw().setUrl(str4);
+            eVar.mx().setUrl(str4);
             cVar.d(-1, -1, -1);
-            byte[] bArr = eVar.mx().retBytes;
+            byte[] bArr = eVar.my().retBytes;
             StringBuilder sb4 = null;
             if (bArr != null) {
                 try {
@@ -117,9 +117,9 @@ public class c extends BdAsyncTask<Collection<String>, HashMap<String, List<DnsP
                             }
                         }
                     }
-                    b.cgQ().g(hashSet);
+                    b.ckm().g(hashSet);
                     publishProgress(hashMap3);
-                    a.setForever("dnsproxycachedata", str);
+                    a2.setForever("dnsproxycachedata", str);
                     sb2 = sb5;
                 } else if (dnsProxyResponseData2 == null) {
                     sb = "parser response error return null";
@@ -129,13 +129,13 @@ public class c extends BdAsyncTask<Collection<String>, HashMap<String, List<DnsP
                     sb2 = null;
                 }
                 sb4 = sb2;
-            } else if (eVar.mz() != null) {
-                sb = eVar.mz().exception;
+            } else if (eVar.mA() != null) {
+                sb = eVar.mA().exception;
             } else {
                 StringBuilder sb7 = new StringBuilder();
-                List<com.baidu.adp.lib.network.http.d> my = eVar.my();
-                if (my != null) {
-                    for (com.baidu.adp.lib.network.http.d dVar : my) {
+                List<com.baidu.adp.lib.network.http.d> mz = eVar.mz();
+                if (mz != null) {
+                    for (com.baidu.adp.lib.network.http.d dVar : mz) {
                         if (dVar != null && !TextUtils.isEmpty(dVar.exception)) {
                             if (sb7.length() > 0) {
                                 sb7.append(Constants.ACCEPT_TIME_SEPARATOR_SP);

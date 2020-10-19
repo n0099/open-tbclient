@@ -8,14 +8,16 @@ import com.sdk.base.framework.bean.DataInfo;
 import com.sdk.base.framework.c.f;
 import java.util.TreeMap;
 import org.json.JSONObject;
-/* loaded from: classes5.dex */
+/* loaded from: classes16.dex */
 public class a {
-    private static final String a;
+
+    /* renamed from: a  reason: collision with root package name */
+    private static final String f4511a;
     private static Boolean b;
 
     static {
         new TreeMap();
-        a = a.class.getSimpleName();
+        f4511a = a.class.getSimpleName();
         b = Boolean.valueOf(f.b);
     }
 
@@ -26,7 +28,7 @@ public class a {
             return com.sdk.base.framework.f.j.a.b(jSONObject.optString("data"), a2.substring(0, 16), a2.substring(16));
         } catch (Throwable th) {
             com.sdk.base.framework.f.g.a.a(th.toString());
-            c.b(a, "SDK解密异常：" + th.toString(), b);
+            c.b(f4511a, "SDK解密异常：" + th.toString(), b);
             return null;
         }
     }
@@ -53,7 +55,7 @@ public class a {
         try {
             return new JSONObject(str).optLong("exp") < System.currentTimeMillis();
         } catch (Exception e) {
-            c.c(a, "out data error" + e, b);
+            c.c(f4511a, "out data error" + e, b);
             return true;
         }
     }

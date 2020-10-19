@@ -2,11 +2,11 @@ package com.baidu.swan.apps.inlinewidget.a.a;
 
 import android.support.annotation.NonNull;
 import com.baidu.webkit.sdk.plugin.ZeusPlugin;
-/* loaded from: classes3.dex */
+/* loaded from: classes10.dex */
 public class b extends com.baidu.swan.apps.inlinewidget.a<com.baidu.swan.apps.inlinewidget.a.c> {
     @Override // com.baidu.swan.apps.inlinewidget.a
     @NonNull
-    public String aot() {
+    public String arf() {
         return "releasekeyboard";
     }
 

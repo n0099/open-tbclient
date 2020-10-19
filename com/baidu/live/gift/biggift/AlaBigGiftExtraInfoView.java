@@ -12,9 +12,9 @@ import com.baidu.live.sdk.a;
 import com.baidu.live.tbadk.core.view.HeadImageView;
 /* loaded from: classes4.dex */
 public class AlaBigGiftExtraInfoView extends LinearLayout {
-    private HeadImageView aBc;
-    private TextView aQT;
-    private TextView aQU;
+    private HeadImageView aEh;
+    private TextView aUe;
+    private TextView aUf;
 
     public AlaBigGiftExtraInfoView(Context context, @Nullable AttributeSet attributeSet) {
         super(context, attributeSet);
@@ -23,31 +23,31 @@ public class AlaBigGiftExtraInfoView extends LinearLayout {
 
     public void setData(com.baidu.live.gift.a.c cVar) {
         if (cVar.portrait != null) {
-            this.aBc.startLoad(cVar.portrait, 12, false);
+            this.aEh.startLoad(cVar.portrait, 12, false);
         }
         if (!TextUtils.isEmpty(cVar.userName)) {
-            this.aQT.setText(cVar.userName);
+            this.aUe.setText(cVar.userName);
         }
-        if (cVar.aVd != null) {
-            this.aQU.setText(getResources().getString(a.i.gift_name_prefix) + cVar.aVd.Ei());
+        if (cVar.aYo != null) {
+            this.aUf.setText(getResources().getString(a.i.gift_name_prefix) + cVar.aYo.Fe());
         }
     }
 
     private void init() {
         setBackgroundColor(0);
         setOrientation(1);
-        FH();
+        GD();
     }
 
-    private void FH() {
+    private void GD() {
         setBackgroundColor(0);
         setOrientation(1);
         LayoutInflater.from(getContext()).inflate(a.h.popup_extra_info_layout, (ViewGroup) this, true);
-        this.aBc = (HeadImageView) findViewById(a.g.iv_avatar);
-        this.aQT = (TextView) findViewById(a.g.tv_sender);
-        this.aQU = (TextView) findViewById(a.g.tv_tip);
-        this.aBc.setIsRound(true);
-        this.aBc.setAutoChangeStyle(false);
-        this.aBc.setDefaultBgResource(a.f.sdk_default_avatar);
+        this.aEh = (HeadImageView) findViewById(a.g.iv_avatar);
+        this.aUe = (TextView) findViewById(a.g.tv_sender);
+        this.aUf = (TextView) findViewById(a.g.tv_tip);
+        this.aEh.setIsRound(true);
+        this.aEh.setAutoChangeStyle(false);
+        this.aEh.setDefaultBgResource(a.f.sdk_default_avatar);
     }
 }

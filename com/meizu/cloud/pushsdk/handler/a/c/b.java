@@ -10,7 +10,7 @@ import com.meizu.cloud.pushsdk.handler.MzPushMessage;
 import com.meizu.cloud.pushsdk.notification.MPushMessage;
 import com.meizu.cloud.pushsdk.util.MinSdkChecker;
 import java.util.Map;
-/* loaded from: classes3.dex */
+/* loaded from: classes7.dex */
 public class b extends com.meizu.cloud.pushsdk.handler.a.a<MessageV3> {
     public b(Context context, com.meizu.cloud.pushsdk.handler.a aVar) {
         super(context, aVar);
@@ -76,11 +76,11 @@ public class b extends com.meizu.cloud.pushsdk.handler.a.a<MessageV3> {
     @Override // com.meizu.cloud.pushsdk.handler.a.a
     public void a(MessageV3 messageV3, com.meizu.cloud.pushsdk.notification.c cVar) {
         com.meizu.cloud.pushsdk.util.b.a(c(), messageV3.getPackageName(), 0);
-        Intent a = a(c(), messageV3);
-        if (a != null) {
-            a.addFlags(268435456);
+        Intent a2 = a(c(), messageV3);
+        if (a2 != null) {
+            a2.addFlags(268435456);
             try {
-                c().startActivity(a);
+                c().startActivity(a2);
             } catch (Exception e) {
                 com.meizu.cloud.a.a.e("AbstractMessageHandler", "Click message StartActivity error " + e.getMessage());
             }
@@ -92,13 +92,13 @@ public class b extends com.meizu.cloud.pushsdk.handler.a.a<MessageV3> {
             b(messageV3);
             return;
         }
-        com.meizu.cloud.pushsdk.notification.model.a a2 = com.meizu.cloud.pushsdk.notification.model.a.a(messageV3);
-        if (a2 != null) {
-            com.meizu.cloud.a.a.e("AbstractMessageHandler", "delete notifyId " + a2.a() + " notifyKey " + a2.b());
-            if (TextUtils.isEmpty(a2.b())) {
-                com.meizu.cloud.pushsdk.platform.a.b.a(c()).a(messageV3.getUploadDataPackageName(), a2.a());
+        com.meizu.cloud.pushsdk.notification.model.a a3 = com.meizu.cloud.pushsdk.notification.model.a.a(messageV3);
+        if (a3 != null) {
+            com.meizu.cloud.a.a.e("AbstractMessageHandler", "delete notifyId " + a3.a() + " notifyKey " + a3.b());
+            if (TextUtils.isEmpty(a3.b())) {
+                com.meizu.cloud.pushsdk.platform.a.b.a(c()).a(messageV3.getUploadDataPackageName(), a3.a());
             } else {
-                com.meizu.cloud.pushsdk.platform.a.b.a(c()).a(messageV3.getUploadDataPackageName(), a2.b());
+                com.meizu.cloud.pushsdk.platform.a.b.a(c()).a(messageV3.getUploadDataPackageName(), a3.b());
             }
         }
     }

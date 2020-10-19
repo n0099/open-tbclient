@@ -1,15 +1,15 @@
 package com.baidu.q.a.a;
 
 import android.content.Context;
-/* loaded from: classes25.dex */
+/* loaded from: classes5.dex */
 public abstract class d implements c {
     protected Context mCtx;
     protected int mStatusCode = -200;
-    protected boolean nrJ;
-    protected boolean nrg;
-    protected String nri;
-    protected String nrj;
-    protected String nrk;
+    protected boolean nGA;
+    protected String nGC;
+    protected String nGD;
+    protected String nGE;
+    protected boolean nHd;
 
     public d(Context context) {
         if (context != null) {
@@ -18,28 +18,28 @@ public abstract class d implements c {
     }
 
     @Override // com.baidu.q.a.a.c
-    public boolean dQS() {
-        return this.nrg;
+    public boolean dUD() {
+        return this.nGA;
     }
 
     @Override // com.baidu.q.a.a.c
     public boolean isSupport() {
-        return this.nrJ;
+        return this.nHd;
     }
 
     @Override // com.baidu.q.a.a.c
     public String getOAID() {
-        return this.nri;
+        return this.nGC;
     }
 
     @Override // com.baidu.q.a.a.c
     public String getAAID() {
-        return this.nrj;
+        return this.nGD;
     }
 
     @Override // com.baidu.q.a.a.c
     public String getVAID() {
-        return this.nrk;
+        return this.nGE;
     }
 
     @Override // com.baidu.q.a.a.c
@@ -48,32 +48,32 @@ public abstract class d implements c {
     }
 
     @Override // com.baidu.q.a.a.c
-    public void xV(boolean z) {
-        this.nrg = z;
+    public void yC(boolean z) {
+        this.nGA = z;
     }
 
     @Override // com.baidu.q.a.a.c
-    public void xW(boolean z) {
-        this.nrJ = z;
+    public void yD(boolean z) {
+        this.nHd = z;
     }
 
     @Override // com.baidu.q.a.a.c
-    public void UC(String str) {
-        this.nri = str;
+    public void Vq(String str) {
+        this.nGC = str;
     }
 
     @Override // com.baidu.q.a.a.c
-    public void UD(String str) {
-        this.nrj = str;
+    public void Vr(String str) {
+        this.nGD = str;
     }
 
     @Override // com.baidu.q.a.a.c
-    public void UE(String str) {
-        this.nrk = str;
+    public void Vs(String str) {
+        this.nGE = str;
     }
 
     @Override // com.baidu.q.a.a.c
-    public void Ln(int i) {
+    public void LT(int i) {
         this.mStatusCode = i;
     }
 }

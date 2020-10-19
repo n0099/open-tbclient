@@ -2,9 +2,11 @@ package com.vivo.push.sdk;
 
 import com.vivo.push.util.p;
 import java.lang.reflect.Method;
-/* loaded from: classes12.dex */
+/* loaded from: classes15.dex */
 final class b implements Runnable {
-    final /* synthetic */ Method a;
+
+    /* renamed from: a  reason: collision with root package name */
+    final /* synthetic */ Method f4695a;
     final /* synthetic */ Object b;
     final /* synthetic */ Object[] c;
     final /* synthetic */ a d;
@@ -12,7 +14,7 @@ final class b implements Runnable {
     /* JADX INFO: Access modifiers changed from: package-private */
     public b(a aVar, Method method, Object obj, Object[] objArr) {
         this.d = aVar;
-        this.a = method;
+        this.f4695a = method;
         this.b = obj;
         this.c = objArr;
     }
@@ -20,7 +22,7 @@ final class b implements Runnable {
     @Override // java.lang.Runnable
     public final void run() {
         try {
-            this.a.invoke(this.b, this.c);
+            this.f4695a.invoke(this.b, this.c);
         } catch (Exception e) {
             p.b("CommandWorker", "reflect e: ", e);
         }

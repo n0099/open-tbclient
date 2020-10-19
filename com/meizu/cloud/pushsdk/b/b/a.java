@@ -1,9 +1,11 @@
 package com.meizu.cloud.pushsdk.b.b;
 
 import com.meizu.cloud.pushsdk.b.c.k;
-/* loaded from: classes3.dex */
+/* loaded from: classes7.dex */
 public class a extends Exception {
-    private String a;
+
+    /* renamed from: a  reason: collision with root package name */
+    private String f4319a;
     private int b;
     private String c;
     private k d;
@@ -39,10 +41,10 @@ public class a extends Exception {
     }
 
     public void b(String str) {
-        this.a = str;
+        this.f4319a = str;
     }
 
     public String c() {
-        return this.a;
+        return this.f4319a;
     }
 }

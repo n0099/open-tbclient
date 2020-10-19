@@ -2,19 +2,21 @@ package com.vivo.push.b;
 
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes12.dex */
+/* loaded from: classes15.dex */
 public final class v extends u {
-    private ArrayList<String> a;
+
+    /* renamed from: a  reason: collision with root package name */
+    private ArrayList<String> f4651a;
     private ArrayList<String> b;
 
     public v(int i) {
         super(i);
-        this.a = null;
+        this.f4651a = null;
         this.b = null;
     }
 
     public final ArrayList<String> d() {
-        return this.a;
+        return this.f4651a;
     }
 
     public final List<String> e() {
@@ -25,7 +27,7 @@ public final class v extends u {
     @Override // com.vivo.push.b.u, com.vivo.push.y
     public final void c(com.vivo.push.a aVar) {
         super.c(aVar);
-        aVar.a("content", this.a);
+        aVar.a("content", this.f4651a);
         aVar.a("error_msg", this.b);
     }
 
@@ -33,7 +35,7 @@ public final class v extends u {
     @Override // com.vivo.push.b.u, com.vivo.push.y
     public final void d(com.vivo.push.a aVar) {
         super.d(aVar);
-        this.a = aVar.b("content");
+        this.f4651a = aVar.b("content");
         this.b = aVar.b("error_msg");
     }
 

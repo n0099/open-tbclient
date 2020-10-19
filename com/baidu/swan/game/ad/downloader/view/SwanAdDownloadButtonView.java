@@ -9,14 +9,14 @@ import android.graphics.Shader;
 import android.text.TextUtils;
 import android.view.View;
 import com.baidu.swan.game.ad.c;
-/* loaded from: classes10.dex */
+/* loaded from: classes14.dex */
 public class SwanAdDownloadButtonView extends View {
-    private Paint dmq;
-    private int dmr;
-    private boolean dms;
-    private boolean dmt;
-    private int dmu;
-    private State dmv;
+    private int dyA;
+    private State dyB;
+    private Paint dyw;
+    private int dyx;
+    private boolean dyy;
+    private boolean dyz;
     private int mBgColor;
     private int mProgress;
     private float mRadius;
@@ -26,7 +26,7 @@ public class SwanAdDownloadButtonView extends View {
     private float mTextSize;
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes10.dex */
+    /* loaded from: classes14.dex */
     public enum State {
         PREPARE,
         DOWNLOADING,
@@ -35,30 +35,30 @@ public class SwanAdDownloadButtonView extends View {
 
     public SwanAdDownloadButtonView(Context context) {
         super(context);
-        this.dmq = new Paint();
+        this.dyw = new Paint();
         this.mTextPaint = new Paint();
         this.mTextColor = -1;
-        this.dmu = 100;
-        this.dmv = State.PREPARE;
+        this.dyA = 100;
+        this.dyB = State.PREPARE;
         this.mRadius = -1.0f;
-        this.dmq.setAntiAlias(true);
+        this.dyw.setAntiAlias(true);
         this.mTextPaint.setAntiAlias(true);
-        this.mTextSize = getResources().getDimensionPixelOffset(c.C0476c.swanapp_ad_dimens_14dp);
+        this.mTextSize = getResources().getDimensionPixelOffset(c.C0493c.swanapp_ad_dimens_14dp);
         this.mBgColor = context.getResources().getColor(c.b.swanapp_ad_download_button_default_bg_color);
-        this.dmr = context.getResources().getColor(c.b.swanapp_ad_download_button_default_fg_color);
+        this.dyx = context.getResources().getColor(c.b.swanapp_ad_download_button_default_fg_color);
     }
 
-    public SwanAdDownloadButtonView gp(boolean z) {
-        this.dmt = z;
+    public SwanAdDownloadButtonView gL(boolean z) {
+        this.dyz = z;
         return this;
     }
 
-    public SwanAdDownloadButtonView gq(boolean z) {
-        this.dms = z;
+    public SwanAdDownloadButtonView gM(boolean z) {
+        this.dyy = z;
         return this;
     }
 
-    public SwanAdDownloadButtonView kT(int i) {
+    public SwanAdDownloadButtonView lq(int i) {
         this.mBgColor = i;
         return this;
     }
@@ -71,16 +71,16 @@ public class SwanAdDownloadButtonView extends View {
         if (i < 0) {
             i = 0;
         }
-        if (i > this.dmu) {
-            i = this.dmu;
+        if (i > this.dyA) {
+            i = this.dyA;
         }
         this.mProgress = i;
         if (this.mProgress == 0) {
-            this.dmv = State.PREPARE;
-        } else if (this.mProgress == this.dmu) {
-            this.dmv = State.FINISH;
+            this.dyB = State.PREPARE;
+        } else if (this.mProgress == this.dyA) {
+            this.dyB = State.FINISH;
         } else {
-            this.dmv = State.DOWNLOADING;
+            this.dyB = State.DOWNLOADING;
         }
     }
 
@@ -89,19 +89,19 @@ public class SwanAdDownloadButtonView extends View {
     }
 
     public int getMax() {
-        return this.dmu;
+        return this.dyA;
     }
 
     public void setMax(int i) {
-        this.dmu = i;
+        this.dyA = i;
     }
 
-    public SwanAdDownloadButtonView kU(int i) {
+    public SwanAdDownloadButtonView lr(int i) {
         this.mTextColor = i;
         return this;
     }
 
-    public SwanAdDownloadButtonView O(float f) {
+    public SwanAdDownloadButtonView Q(float f) {
         this.mTextSize = f;
         return this;
     }
@@ -110,7 +110,7 @@ public class SwanAdDownloadButtonView extends View {
     public void draw(Canvas canvas) {
         super.draw(canvas);
         if (getWidth() != 0 && getHeight() != 0 && !TextUtils.isEmpty(this.mText)) {
-            if (!this.dmt) {
+            if (!this.dyz) {
                 A(canvas);
             } else {
                 B(canvas);
@@ -121,14 +121,14 @@ public class SwanAdDownloadButtonView extends View {
     private void A(Canvas canvas) {
         float f = 0.0f;
         RectF rectF = new RectF(0, 0, getWidth() + 0, getHeight() + 0);
-        this.dmq.setColor(this.mBgColor);
-        this.dmq.setStyle(Paint.Style.FILL);
+        this.dyw.setColor(this.mBgColor);
+        this.dyw.setStyle(Paint.Style.FILL);
         if (this.mRadius > 0.0f) {
             f = this.mRadius;
-        } else if (this.dms) {
+        } else if (this.dyy) {
             f = rectF.height() / 2.0f;
         }
-        canvas.drawRoundRect(rectF, f, f, this.dmq);
+        canvas.drawRoundRect(rectF, f, f, this.dyw);
         this.mTextPaint.setColor(this.mTextColor);
         this.mTextPaint.setTextSize(this.mTextSize);
         Paint.FontMetrics fontMetrics = this.mTextPaint.getFontMetrics();
@@ -144,40 +144,40 @@ public class SwanAdDownloadButtonView extends View {
 
     private void a(Canvas canvas, RectF rectF) {
         float f = 0.0f;
-        this.dmq.setColor(this.mBgColor);
-        this.dmq.setStyle(Paint.Style.FILL);
+        this.dyw.setColor(this.mBgColor);
+        this.dyw.setStyle(Paint.Style.FILL);
         if (this.mRadius > 0.0f) {
             f = this.mRadius;
-        } else if (this.dms) {
+        } else if (this.dyy) {
             f = rectF.height() / 2.0f;
         }
-        canvas.drawRoundRect(rectF, f, f, this.dmq);
+        canvas.drawRoundRect(rectF, f, f, this.dyw);
     }
 
     private void b(Canvas canvas, RectF rectF) {
         float f = 0.0f;
-        switch (this.dmv) {
+        switch (this.dyB) {
             case DOWNLOADING:
                 Paint paint = new Paint();
                 paint.setStyle(Paint.Style.FILL);
-                float f2 = this.mProgress / this.dmu;
-                paint.setShader(new LinearGradient(0.0f, 0.0f, rectF.width(), 0.0f, new int[]{this.dmr, 0}, new float[]{f2, f2 + 1.0E-4f}, Shader.TileMode.CLAMP));
+                float f2 = this.mProgress / this.dyA;
+                paint.setShader(new LinearGradient(0.0f, 0.0f, rectF.width(), 0.0f, new int[]{this.dyx, 0}, new float[]{f2, f2 + 1.0E-4f}, Shader.TileMode.CLAMP));
                 if (this.mRadius > 0.0f) {
                     f = this.mRadius;
-                } else if (this.dms) {
+                } else if (this.dyy) {
                     f = rectF.height() / 2.0f;
                 }
                 canvas.drawRoundRect(rectF, f, f, paint);
                 return;
             case FINISH:
-                this.dmq.setColor(this.dmr);
-                this.dmq.setStyle(Paint.Style.FILL);
+                this.dyw.setColor(this.dyx);
+                this.dyw.setStyle(Paint.Style.FILL);
                 if (this.mRadius > 0.0f) {
                     f = this.mRadius;
-                } else if (this.dms) {
+                } else if (this.dyy) {
                     f = rectF.height() / 2.0f;
                 }
-                canvas.drawRoundRect(rectF, f, f, this.dmq);
+                canvas.drawRoundRect(rectF, f, f, this.dyw);
                 return;
             default:
                 return;

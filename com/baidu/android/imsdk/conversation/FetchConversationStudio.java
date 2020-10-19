@@ -5,11 +5,12 @@ import com.baidu.android.imsdk.chatmessage.ChatMsgManagerImpl;
 import com.baidu.android.imsdk.chatmessage.IFetchMsgByIdListener;
 import com.baidu.android.imsdk.chatmessage.messages.ChatMsg;
 import com.baidu.android.imsdk.utils.LogUtils;
+import com.baidu.android.imsdk.utils.Utility;
 import com.baidu.imsdk.a;
 import java.util.ArrayList;
 import java.util.concurrent.atomic.AtomicBoolean;
 import java.util.concurrent.atomic.AtomicInteger;
-/* loaded from: classes9.dex */
+/* loaded from: classes5.dex */
 public class FetchConversationStudio {
     private static final int FETCH_INTERVAL_TIME = 1000;
     private static final int FIRST_RETRY = 0;
@@ -111,10 +112,11 @@ public class FetchConversationStudio {
     }
 
     public void fetchCastMsgByMsgId(boolean z) {
-        long maxReliableMsgId = ChatMsgManagerImpl.getInstance(this.mContext).getMaxReliableMsgId(this.mCastId);
-        if (maxReliableMsgId > 0) {
-            mLocalCursorMsgId = maxReliableMsgId;
+        long longValue = Utility.getReliableMaxMsgId(this.mContext, this.mCastId).longValue();
+        LogUtils.d(TAG, "sp reliableMaxMsg:" + longValue);
+        if (longValue > 0) {
+            mLocalCursorMsgId = longValue;
         }
-        fetchCastMsg(this.mCastId, mLocalCursorMsgId, z ? Long.MAX_VALUE : this.mMaxMsgId);
+        fetchCastMsg(this.mCastId, longValue, z ? Long.MAX_VALUE : this.mMaxMsgId);
     }
 }

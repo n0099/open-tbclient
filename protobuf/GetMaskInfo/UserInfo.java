@@ -2,7 +2,7 @@ package protobuf.GetMaskInfo;
 
 import com.squareup.wire.Message;
 import com.squareup.wire.ProtoField;
-/* loaded from: classes21.dex */
+/* loaded from: classes22.dex */
 public final class UserInfo extends Message {
     public static final String DEFAULT_NAME = "";
     public static final String DEFAULT_NAMESHOW = "";
@@ -49,7 +49,7 @@ public final class UserInfo extends Message {
         this.nameShow = builder.nameShow;
     }
 
-    /* loaded from: classes21.dex */
+    /* loaded from: classes22.dex */
     public static final class Builder extends Message.Builder<UserInfo> {
         public String name;
         public String nameShow;

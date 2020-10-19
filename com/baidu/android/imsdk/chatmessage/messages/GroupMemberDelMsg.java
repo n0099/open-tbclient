@@ -8,7 +8,7 @@ import java.util.ArrayList;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes9.dex */
+/* loaded from: classes5.dex */
 public class GroupMemberDelMsg extends NotifyMsg implements Parcelable, NoProGuard {
     public static final Parcelable.Creator<GroupMemberDelMsg> CREATOR = new Parcelable.Creator<GroupMemberDelMsg>() { // from class: com.baidu.android.imsdk.chatmessage.messages.GroupMemberDelMsg.1
         /* JADX DEBUG: Method merged with bridge method */

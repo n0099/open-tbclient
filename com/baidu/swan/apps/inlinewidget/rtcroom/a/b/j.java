@@ -2,11 +2,11 @@ package com.baidu.swan.apps.inlinewidget.rtcroom.a.b;
 
 import android.support.annotation.NonNull;
 import com.baidu.webkit.sdk.plugin.ZeusPlugin;
-/* loaded from: classes3.dex */
+/* loaded from: classes10.dex */
 public class j extends com.baidu.swan.apps.inlinewidget.a<com.baidu.swan.apps.inlinewidget.rtcroom.c.b> {
     @Override // com.baidu.swan.apps.inlinewidget.a
     @NonNull
-    public String aot() {
+    public String arf() {
         return "exitRoom";
     }
 
@@ -14,6 +14,6 @@ public class j extends com.baidu.swan.apps.inlinewidget.a<com.baidu.swan.apps.in
     @Override // com.baidu.swan.apps.inlinewidget.a
     public void a(@NonNull ZeusPlugin.Command command, @NonNull com.baidu.swan.apps.inlinewidget.rtcroom.c.b bVar) {
         a(bVar, command.what, null, true);
-        bVar.JA();
+        bVar.KG();
     }
 }

@@ -1,7 +1,7 @@
 package com.baidu.tieba.imMessageCenter.mention;
 
 import org.json.JSONObject;
-/* loaded from: classes21.dex */
+/* loaded from: classes22.dex */
 public class c extends j implements com.baidu.tbadk.mvc.b.f {
     @Override // com.baidu.tbadk.mvc.b.d
     public String getCacheKey() {
@@ -9,12 +9,12 @@ public class c extends j implements com.baidu.tbadk.mvc.b.f {
     }
 
     @Override // com.baidu.tbadk.mvc.b.f
-    public String buv() {
+    public String bxf() {
         return null;
     }
 
     @Override // com.baidu.tbadk.mvc.b.f
-    public boolean CM(String str) {
+    public boolean Dy(String str) {
         try {
             initByJson(new JSONObject(str));
             return true;

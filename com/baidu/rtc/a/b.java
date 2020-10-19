@@ -9,29 +9,29 @@ import com.baidu.rtc.RtcConfig;
 import com.baidu.rtc.ndk.AlaNDKPlayerAdapter;
 import com.baidu.rtc.ndk.AlaNDKRecorderAdapter;
 import com.baidu.rtc.player.RtcVideoPlayController;
-/* loaded from: classes15.dex */
+/* loaded from: classes11.dex */
 public class b {
     private static final String TAG = b.class.getSimpleName();
-    private AlaNDKRecorderAdapter bQV;
-    private AlaNDKPlayerAdapter bQW;
-    private com.baidu.rtc.camera.engine.c.a bQX;
-    private RtcVideoPlayController bQY;
-    private TextureView bQZ;
-    private TextureView.SurfaceTextureListener bRa = new TextureView.SurfaceTextureListener() { // from class: com.baidu.rtc.a.b.1
+    private AlaNDKRecorderAdapter car;
+    private AlaNDKPlayerAdapter cas;
+    private com.baidu.rtc.camera.engine.c.a cat;
+    private RtcVideoPlayController cau;
+    private TextureView cav;
+    private TextureView.SurfaceTextureListener caw = new TextureView.SurfaceTextureListener() { // from class: com.baidu.rtc.a.b.1
         @Override // android.view.TextureView.SurfaceTextureListener
         public void onSurfaceTextureAvailable(SurfaceTexture surfaceTexture, int i, int i2) {
-            b.this.bQX.c(surfaceTexture);
-            b.this.bQX.U(i, i2);
+            b.this.cat.c(surfaceTexture);
+            b.this.cat.U(i, i2);
         }
 
         @Override // android.view.TextureView.SurfaceTextureListener
         public void onSurfaceTextureSizeChanged(SurfaceTexture surfaceTexture, int i, int i2) {
-            b.this.bQX.U(i, i2);
+            b.this.cat.U(i, i2);
         }
 
         @Override // android.view.TextureView.SurfaceTextureListener
         public boolean onSurfaceTextureDestroyed(SurfaceTexture surfaceTexture) {
-            b.this.bQX.Xs();
+            b.this.cat.ZK();
             return true;
         }
 
@@ -39,12 +39,12 @@ public class b {
         public void onSurfaceTextureUpdated(SurfaceTexture surfaceTexture) {
         }
     };
-    private com.baidu.rtc.camera.b.a bRb = new com.baidu.rtc.camera.b.a() { // from class: com.baidu.rtc.a.b.2
+    private com.baidu.rtc.camera.b.a cax = new com.baidu.rtc.camera.b.a() { // from class: com.baidu.rtc.a.b.2
         @Override // com.baidu.rtc.camera.b.a
         public void a(byte[] bArr, int i, int i2, int i3, long j) {
-            if (b.this.bQV != null) {
+            if (b.this.car != null) {
                 Log.d(b.TAG, "sendH364data length:" + i2);
-                b.this.bQV.sendH264DataNative(bArr, i2, "", j);
+                b.this.car.sendH264DataNative(bArr, i2, "", j);
             }
         }
 
@@ -56,41 +56,41 @@ public class b {
 
     public b(Context context, RtcConfig rtcConfig, AlaNDKRecorderAdapter alaNDKRecorderAdapter, AlaNDKPlayerAdapter alaNDKPlayerAdapter) {
         this.mContext = context;
-        this.bQV = alaNDKRecorderAdapter;
-        this.bQW = alaNDKPlayerAdapter;
-        this.bQX = new com.baidu.rtc.camera.engine.c.a(context, !rtcConfig.isCameraFront(), this.bRb);
-        this.bQZ = new TextureView(context);
-        this.bQZ.setSurfaceTextureListener(this.bRa);
-        this.bQY = new RtcVideoPlayController(context, this.bQW, rtcConfig);
+        this.car = alaNDKRecorderAdapter;
+        this.cas = alaNDKPlayerAdapter;
+        this.cat = new com.baidu.rtc.camera.engine.c.a(context, !rtcConfig.isCameraFront(), this.cax);
+        this.cav = new TextureView(context);
+        this.cav.setSurfaceTextureListener(this.caw);
+        this.cau = new RtcVideoPlayController(context, this.cas, rtcConfig);
     }
 
     public View getRecorderView() {
-        return this.bQZ;
+        return this.cav;
     }
 
     public void a(RtcConfig rtcConfig) {
-        this.bQX.startRecording();
-        this.bQY.c(rtcConfig);
+        this.cat.startRecording();
+        this.cau.c(rtcConfig);
     }
 
     public void stopRecording() {
-        this.bQX.stopRecording();
-        this.bQY.stopPlay();
+        this.cat.stopRecording();
+        this.cau.stopPlay();
     }
 
-    public RtcVideoPlayController.RtcVideoPlayer XS() {
-        return this.bQY.gs(1) == null ? this.bQY.XT() : this.bQY.gs(1);
+    public RtcVideoPlayController.RtcVideoPlayer aaj() {
+        return this.cau.gP(1) == null ? this.cau.aaF() : this.cau.gP(1);
     }
 
     public void switchCamera() {
-        this.bQX.switchCamera();
+        this.cat.switchCamera();
     }
 
     public void b(RtcConfig rtcConfig) {
-        this.bQY.c(rtcConfig);
+        this.cau.c(rtcConfig);
     }
 
     public void resetPreview() {
-        this.bQX.Xt();
+        this.cat.ZL();
     }
 }

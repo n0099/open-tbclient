@@ -43,7 +43,7 @@ public class LogManager {
         if (TbadkCoreApplication.getInst().isHaokan()) {
             return new HaokanCommonLogger();
         }
-        if (TbadkCoreApplication.getInst().isQuanmin()) {
+        if (TbadkCoreApplication.getInst().isQuanmin() || TbadkCoreApplication.getInst().isYinbo()) {
             return new QuanminCommonLogger();
         }
         return new DefaultCommonLogger();
@@ -53,7 +53,7 @@ public class LogManager {
         if (TbadkCoreApplication.getInst().isHaokan()) {
             return new HaokanLiveCloseLogger();
         }
-        if (TbadkCoreApplication.getInst().isQuanmin()) {
+        if (TbadkCoreApplication.getInst().isQuanmin() || TbadkCoreApplication.getInst().isYinbo()) {
             return new QuanminLiveCloseLogger();
         }
         return new DefaultLiveCloseLogger();
@@ -63,7 +63,7 @@ public class LogManager {
         if (TbadkCoreApplication.getInst().isHaokan()) {
             return new HaokanYuanPackageLogger();
         }
-        if (TbadkCoreApplication.getInst().isQuanmin()) {
+        if (TbadkCoreApplication.getInst().isQuanmin() || TbadkCoreApplication.getInst().isYinbo()) {
             return new QuanminYuanPackageLogger();
         }
         return new DefaultYuanPackageLogger();
@@ -73,7 +73,7 @@ public class LogManager {
         if (TbadkCoreApplication.getInst().isHaokan()) {
             return new HaokanGuardClubLogger();
         }
-        if (TbadkCoreApplication.getInst().isQuanmin()) {
+        if (TbadkCoreApplication.getInst().isQuanmin() || TbadkCoreApplication.getInst().isYinbo()) {
             return new QuanminGuardClubLogger();
         }
         return new DefaultGuardClubLogger();
@@ -83,7 +83,7 @@ public class LogManager {
         if (TbadkCoreApplication.getInst().isHaokan()) {
             return new HaokanGiftLogger();
         }
-        if (TbadkCoreApplication.getInst().isQuanmin()) {
+        if (TbadkCoreApplication.getInst().isQuanmin() || TbadkCoreApplication.getInst().isYinbo()) {
             return new QuanminGiftLogger();
         }
         return new DefaultGiftLogger();
@@ -97,7 +97,7 @@ public class LogManager {
         if (TbadkCoreApplication.getInst().isHaokan()) {
             return new HaokanLiveIMLogger();
         }
-        if (TbadkCoreApplication.getInst().isQuanmin()) {
+        if (TbadkCoreApplication.getInst().isQuanmin() || TbadkCoreApplication.getInst().isYinbo()) {
             return new QuanminLiveIMLogger();
         }
         return new DefaultLiveIMLogger();
@@ -107,7 +107,7 @@ public class LogManager {
         if (TbadkCoreApplication.getInst().isHaokan()) {
             return new HaokanLiveGoodsLogger();
         }
-        if (TbadkCoreApplication.getInst().isQuanmin()) {
+        if (TbadkCoreApplication.getInst().isQuanmin() || TbadkCoreApplication.getInst().isYinbo()) {
             return new QuanminLiveGoodsLogger();
         }
         return new DefaultLiveGoodsLogger();
@@ -117,7 +117,7 @@ public class LogManager {
         if (TbadkCoreApplication.getInst().isHaokan()) {
             return new HaokanLiveRecordLogger();
         }
-        if (TbadkCoreApplication.getInst().isQuanmin()) {
+        if (TbadkCoreApplication.getInst().isQuanmin() || TbadkCoreApplication.getInst().isYinbo()) {
             return new QuanminLiveRecordLogger();
         }
         return new DefaultLiveRecordLogger();
@@ -131,7 +131,7 @@ public class LogManager {
         if (TbadkCoreApplication.getInst().isHaokan()) {
             return new HaokanFirstChargeLogger();
         }
-        if (TbadkCoreApplication.getInst().isQuanmin()) {
+        if (TbadkCoreApplication.getInst().isQuanmin() || TbadkCoreApplication.getInst().isYinbo()) {
             return new QuanminFirstChargeLogger();
         }
         return new DefaultFirstChargeLogger();

@@ -6,7 +6,7 @@ import kotlin.jvm.a.a;
 import kotlin.jvm.internal.Lambda;
 import kotlin.jvm.internal.q;
 @h
-/* loaded from: classes5.dex */
+/* loaded from: classes11.dex */
 final class TouchHelper$mTouchSlop$2 extends Lambda implements a<Integer> {
     final /* synthetic */ TouchHelper this$0;
 
@@ -25,11 +25,11 @@ final class TouchHelper$mTouchSlop$2 extends Lambda implements a<Integer> {
     }
 
     /* JADX DEBUG: Return type fixed from 'int' to match base method */
-    /* JADX WARN: Type inference failed for: r0v3, types: [int, java.lang.Integer] */
+    /* JADX WARN: Type inference failed for: r0v3, types: [java.lang.Integer, int] */
     @Override // kotlin.jvm.a.a
     public final Integer invoke() {
         ViewConfiguration viewConfiguration = ViewConfiguration.get(this.this$0.getContext());
-        q.l((Object) viewConfiguration, "ViewConfiguration.get(context)");
+        q.m(viewConfiguration, "ViewConfiguration.get(context)");
         return viewConfiguration.getScaledTouchSlop();
     }
 }

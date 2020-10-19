@@ -5,14 +5,14 @@ import android.content.Intent;
 import android.os.IBinder;
 import android.support.annotation.CallSuper;
 import android.support.annotation.Nullable;
-/* loaded from: classes14.dex */
+/* loaded from: classes8.dex */
 public class LifecycleService extends Service implements j {
     private final u mDispatcher = new u(this);
 
     @Override // android.app.Service
     @CallSuper
     public void onCreate() {
-        this.mDispatcher.hI();
+        this.mDispatcher.hJ();
         super.onCreate();
     }
 
@@ -20,14 +20,14 @@ public class LifecycleService extends Service implements j {
     @CallSuper
     @Nullable
     public IBinder onBind(Intent intent) {
-        this.mDispatcher.hJ();
+        this.mDispatcher.hK();
         return null;
     }
 
     @Override // android.app.Service
     @CallSuper
     public void onStart(Intent intent, int i) {
-        this.mDispatcher.hK();
+        this.mDispatcher.hL();
         super.onStart(intent, i);
     }
 
@@ -40,7 +40,7 @@ public class LifecycleService extends Service implements j {
     @Override // android.app.Service
     @CallSuper
     public void onDestroy() {
-        this.mDispatcher.hL();
+        this.mDispatcher.hM();
         super.onDestroy();
     }
 

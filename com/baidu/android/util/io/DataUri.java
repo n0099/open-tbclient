@@ -5,7 +5,7 @@ import com.baidu.adp.plugin.proxy.ContentProviderProxy;
 import java.io.UnsupportedEncodingException;
 import java.net.URLDecoder;
 import org.apache.commons.codec.binary4util.Base64;
-/* loaded from: classes16.dex */
+/* loaded from: classes12.dex */
 public class DataUri {
     private static final boolean DEBUG = false;
     private static final String TAG = "DataUri";

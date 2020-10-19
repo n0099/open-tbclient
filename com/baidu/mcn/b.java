@@ -7,45 +7,44 @@ import java.util.HashSet;
 import java.util.Set;
 /* loaded from: classes.dex */
 public class b {
-    private static String bDv = com.baidu.tbadk.core.sharedPref.b.getSharedPrefKeyWithAccount("advert_hide_list");
-    private Set<String> bDw;
+    private static String bJX = com.baidu.tbadk.core.sharedPref.b.getSharedPrefKeyWithAccount("advert_hide_list");
+    private Set<String> bJY;
     private SharedPreferences mPreference;
 
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes.dex */
     public static class a {
-        public static b bDx = new b();
+        public static b bJZ = new b();
     }
 
-    public static b TD() {
-        return a.bDx;
+    public static b Vw() {
+        return a.bJZ;
     }
 
     private b() {
         this.mPreference = TbadkCoreApplication.getInst().getSharedPreferences("mcn_advert_hide_list", 0);
     }
 
-    public void ie(String str) {
+    public void iF(String str) {
         if (!StringUtils.isNull(str)) {
-            this.bDw = this.mPreference.getStringSet(bDv, null);
-            if (this.bDw == null) {
-                this.bDw = new HashSet();
+            this.bJY = this.mPreference.getStringSet(bJX, null);
+            if (this.bJY == null) {
+                this.bJY = new HashSet();
             }
-            this.bDw.add(str);
-            this.mPreference.edit().putStringSet(bDv, this.bDw).commit();
+            this.bJY.add(str);
+            this.mPreference.edit().putStringSet(bJX, this.bJY).commit();
         }
     }
 
-    /* renamed from: if  reason: not valid java name */
-    public boolean m29if(String str) {
+    public boolean iG(String str) {
         if (StringUtils.isNull(str)) {
             return false;
         }
-        if (this.bDw == null) {
-            this.bDw = this.mPreference.getStringSet(bDv, null);
+        if (this.bJY == null) {
+            this.bJY = this.mPreference.getStringSet(bJX, null);
         }
-        if (this.bDw != null) {
-            return this.bDw.contains(str);
+        if (this.bJY != null) {
+            return this.bJY.contains(str);
         }
         return false;
     }

@@ -9,9 +9,9 @@ import android.opengl.GLES20;
 import android.opengl.Matrix;
 import android.text.TextUtils;
 import android.util.Log;
+import com.baidu.ala.dumixar.ARNetKey2BeautyType;
 import com.baidu.ala.dumixar.ARProcessor;
 import com.baidu.ala.dumixar.BeautyDataManager;
-import com.baidu.ala.dumixar.DuArConfig;
 import com.baidu.ala.dumixar.gles.FullFrameRect;
 import com.baidu.ala.dumixar.gles.Texture2dProgram;
 import com.baidu.ala.dumixar.gles.TextureHelper;
@@ -48,7 +48,6 @@ import org.json.JSONObject;
 /* loaded from: classes12.dex */
 public class DuArCameraOperator implements IFaceUnityOperator, ICameraOperator {
     private static final int AR_OUTPUT_FPS = 15;
-    public static final boolean DEBUG = false;
     private static final String EFFECT_NONE = "none";
     private static String FILTER_DEFAULT = null;
     private static final int MAX_DROP_FIRST_FRAMES = 5;
@@ -149,6 +148,14 @@ public class DuArCameraOperator implements IFaceUnityOperator, ICameraOperator {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void d(String str) {
+        if (isDebug()) {
+            Log.e(TAG, str + " " + Thread.currentThread());
+        }
+    }
+
+    /* JADX INFO: Access modifiers changed from: private */
+    public boolean isDebug() {
+        return b.isDebug();
     }
 
     public void setSticker(Sticker sticker) {
@@ -313,11 +320,9 @@ public class DuArCameraOperator implements IFaceUnityOperator, ICameraOperator {
     private void initARConfig() {
         if (!isSetupConfig) {
             isSetupConfig = true;
-            DuArConfig instance = DuArConfig.instance();
-            b.a(this.mActivityReference.get().getApplicationContext(), instance.appId, instance.apiKey, instance.secretKey, new c(instance.getDuArSourcePath()));
-            if (b.TP() != null) {
-                b.TP();
-                FILTER_DEFAULT = c.TU();
+            if (b.VI() != null) {
+                b.VI();
+                FILTER_DEFAULT = c.VN();
             }
         }
     }
@@ -349,6 +354,11 @@ public class DuArCameraOperator implements IFaceUnityOperator, ICameraOperator {
                     }
                 });
                 this.mARProcessor.setOutputFPS(15);
+                if (this.mConfig != null) {
+                    this.mARProcessor.setLandscape(this.mConfig.isLandscape());
+                } else {
+                    this.mARProcessor.setLandscape(isLandscape());
+                }
                 this.mARProcessor.setCallback(new ARProcessor.CallbackAdapter() { // from class: com.baidu.ala.recorder.video.camera.DuArCameraOperator.4
                     @Override // com.baidu.ala.dumixar.ARProcessor.CallbackAdapter, com.baidu.ar.DuMixCallback
                     public void onSetup(boolean z, DuMixInput duMixInput, DuMixOutput duMixOutput) {
@@ -359,7 +369,11 @@ public class DuArCameraOperator implements IFaceUnityOperator, ICameraOperator {
                             DuArCameraOperator.this.setBeautyJsonPath(DuArCameraOperator.this.mFaceFilePath);
                         }
                         if (DuArCameraOperator.this.mARProcessor != null) {
-                            DuArCameraOperator.this.mARProcessor.setQulaityParm(b.TQ());
+                            com.baidu.minivideo.arface.bean.b VJ = b.VJ();
+                            if (DuArCameraOperator.this.isDebug() && VJ != null) {
+                                Log.d("ArUpdate", "onSetup setQulaityParm ------------ ");
+                            }
+                            DuArCameraOperator.this.mARProcessor.setQulaityParm(VJ);
                         }
                     }
                 });
@@ -625,6 +639,13 @@ public class DuArCameraOperator implements IFaceUnityOperator, ICameraOperator {
         }
         d(new StringBuilder().append("------DuAr setBeautyParams: ").append(concurrentHashMap).toString() != null ? concurrentHashMap.toString() : null);
         this.mBeautyParams.putAll(concurrentHashMap);
+    }
+
+    public void onBeautyParamsChanged(String str, Object obj) {
+        if (this.mARProcessor != null && this.hasProcessFirstFrame) {
+            this.mARProcessor.setBeautyValue(ARNetKey2BeautyType.getBeautyType(str), BeautyDataManager.getInstance().convertValue(obj));
+        }
+        this.mBeautyParams.put(str, obj);
     }
 
     public void onBeautyParamsChanged(float f, HashMap<String, Object> hashMap) {

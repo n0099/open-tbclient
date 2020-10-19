@@ -1,8 +1,8 @@
 package com.baidu.tieba.sdk.b;
 
-import android.content.Context;
-import android.content.Intent;
+import android.app.Activity;
+import com.baidu.live.tbadk.data.ShareEntity;
 /* loaded from: classes4.dex */
 public interface e {
-    void g(Context context, Intent intent);
+    void a(Activity activity, ShareEntity shareEntity);
 }

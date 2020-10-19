@@ -11,9 +11,11 @@ import javax.crypto.BadPaddingException;
 import javax.crypto.Cipher;
 import javax.crypto.IllegalBlockSizeException;
 import javax.crypto.NoSuchPaddingException;
-/* loaded from: classes14.dex */
+/* loaded from: classes6.dex */
 public class b {
-    private static String a = "RSA/ECB/PKCS1Padding";
+
+    /* renamed from: a  reason: collision with root package name */
+    private static String f971a = "RSA/ECB/PKCS1Padding";
 
     public static String a(String str, RSAPublicKey rSAPublicKey) {
         try {
@@ -33,7 +35,7 @@ public class b {
             throw new Exception("加密公钥为空, 请设置");
         }
         try {
-            Cipher cipher = Cipher.getInstance(a);
+            Cipher cipher = Cipher.getInstance(f971a);
             cipher.init(1, rSAPublicKey);
             return cipher.doFinal(bArr);
         } catch (InvalidKeyException e) {

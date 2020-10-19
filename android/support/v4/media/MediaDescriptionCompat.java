@@ -11,7 +11,7 @@ import android.support.annotation.RestrictTo;
 import android.support.v4.media.MediaDescriptionCompatApi21;
 import android.support.v4.media.MediaDescriptionCompatApi23;
 import android.text.TextUtils;
-/* loaded from: classes3.dex */
+/* loaded from: classes5.dex */
 public final class MediaDescriptionCompat implements Parcelable {
     public static final long BT_FOLDER_TYPE_ALBUMS = 2;
     public static final long BT_FOLDER_TYPE_ARTISTS = 3;
@@ -213,7 +213,7 @@ public final class MediaDescriptionCompat implements Parcelable {
         return build2;
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes5.dex */
     public static final class Builder {
         private CharSequence mDescription;
         private Bundle mExtras;

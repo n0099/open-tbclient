@@ -3,56 +3,56 @@ package com.baidu.swan.apps.ap.d;
 import com.baidu.swan.apps.ap.ak;
 import java.util.ArrayDeque;
 import java.util.Queue;
-/* loaded from: classes3.dex */
+/* loaded from: classes10.dex */
 public class c implements b {
-    private final Queue<a> deu = new ArrayDeque();
-    private a dev;
+    private final Queue<a> dqA = new ArrayDeque();
+    private a dqB;
 
     public void b(a aVar) {
         if (aVar != null) {
-            synchronized (this.deu) {
-                this.deu.offer(aVar.a(this));
+            synchronized (this.dqA) {
+                this.dqA.offer(aVar.a(this));
             }
         }
-        aGr();
+        aJa();
     }
 
     @Override // com.baidu.swan.apps.ap.d.b
     public void a(a aVar) {
-        synchronized (this.deu) {
-            if (aVar == this.dev) {
+        synchronized (this.dqA) {
+            if (aVar == this.dqB) {
                 runNextTask();
             }
         }
     }
 
-    private void aGr() {
-        synchronized (this.deu) {
-            if (this.dev == null) {
+    private void aJa() {
+        synchronized (this.dqA) {
+            if (this.dqB == null) {
                 runNextTask();
             }
         }
     }
 
     private void runNextTask() {
-        synchronized (this.deu) {
-            this.dev = null;
-            if (!this.deu.isEmpty()) {
-                this.dev = this.deu.poll();
-                if (this.dev == null) {
+        synchronized (this.dqA) {
+            this.dqB = null;
+            if (!this.dqA.isEmpty()) {
+                this.dqB = this.dqA.poll();
+                if (this.dqB == null) {
                     runNextTask();
                 } else {
-                    ak.m(this.dev);
+                    ak.m(this.dqB);
                 }
             }
         }
     }
 
     public synchronized void clear() {
-        if (this.dev != null) {
-            this.dev.finish();
-            this.dev = null;
+        if (this.dqB != null) {
+            this.dqB.finish();
+            this.dqB = null;
         }
-        this.deu.clear();
+        this.dqA.clear();
     }
 }

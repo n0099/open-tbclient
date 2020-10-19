@@ -15,73 +15,73 @@ import com.baidu.live.tbadk.widget.TbImageView;
 import com.baidu.live.tieba.view.bubbleview.BubbleLayout;
 /* loaded from: classes4.dex */
 public class l extends g {
-    private TextView gwA;
-    private boolean gwB;
-    private View.OnClickListener gwC;
-    private View.OnClickListener gwD;
-    private TbImageView gwv;
-    private TextView gww;
-    private TbImageView gwx;
-    private TextView gwy;
-    private BubbleLayout gwz;
+    private TbImageView gKO;
+    private TextView gKP;
+    private TbImageView gKQ;
+    private TextView gKR;
+    private BubbleLayout gKS;
+    private TextView gKT;
+    private boolean gKU;
+    private View.OnClickListener gKV;
+    private View.OnClickListener gKW;
 
     public l(Context context, n nVar) {
         super(context, nVar);
-        this.gwB = false;
-        this.gwC = new View.OnClickListener() { // from class: com.baidu.tieba.ala.liveroom.challenge.panel.l.1
+        this.gKU = false;
+        this.gKV = new View.OnClickListener() { // from class: com.baidu.tieba.ala.liveroom.challenge.panel.l.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                if (l.this.gwB && l.this.gwz.getVisibility() == 0) {
-                    l.this.gwz.setVisibility(8);
-                    l.this.gwB = false;
+                if (l.this.gKU && l.this.gKS.getVisibility() == 0) {
+                    l.this.gKS.setVisibility(8);
+                    l.this.gKU = false;
                 }
-                if (l.this.gvA != null) {
-                    l.this.gvA.Cn();
-                    l.this.gvA.bRw();
+                if (l.this.gJV != null) {
+                    l.this.gJV.Dk();
+                    l.this.gJV.bUQ();
                 }
             }
         };
-        this.gwD = new View.OnClickListener() { // from class: com.baidu.tieba.ala.liveroom.challenge.panel.l.2
+        this.gKW = new View.OnClickListener() { // from class: com.baidu.tieba.ala.liveroom.challenge.panel.l.2
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                if (l.this.gvA != null) {
-                    l.this.gvA.bRx();
+                if (l.this.gJV != null) {
+                    l.this.gJV.bUR();
                 }
             }
         };
-        this.gwv = (TbImageView) this.mRootView.findViewById(a.g.ala_challenge_index_challenge_entry);
-        this.gww = (TextView) this.mRootView.findViewById(a.g.ala_challenge_index_challenge_title);
-        this.gwv.setDefaultResource(a.f.icon_live_vs_enter);
-        this.gwv.setDefaultBgResource(0);
-        this.gwv.setScaleType(ImageView.ScaleType.CENTER_INSIDE);
-        this.gwv.setOnClickListener(this.gwC);
-        this.gww.setOnClickListener(this.gwC);
-        this.gwx = (TbImageView) this.mRootView.findViewById(a.g.ala_challenge_index_pk_entry);
-        this.gwy = (TextView) this.mRootView.findViewById(a.g.ala_challenge_index_pk_title);
-        this.gwx.setDefaultResource(a.f.icon_live_pk_enter);
-        this.gwx.setDefaultBgResource(0);
-        this.gwx.setScaleType(ImageView.ScaleType.CENTER_INSIDE);
-        this.gwx.setOnClickListener(this.gwD);
-        this.gwy.setOnClickListener(this.gwD);
-        if (!StringUtils.isNull(com.baidu.live.x.a.NN().bhy.aHI)) {
-            this.gwx.startLoad(com.baidu.live.x.a.NN().bhy.aHI, 10, false);
+        this.gKO = (TbImageView) this.mRootView.findViewById(a.g.ala_challenge_index_challenge_entry);
+        this.gKP = (TextView) this.mRootView.findViewById(a.g.ala_challenge_index_challenge_title);
+        this.gKO.setDefaultResource(a.f.icon_live_vs_enter);
+        this.gKO.setDefaultBgResource(0);
+        this.gKO.setScaleType(ImageView.ScaleType.CENTER_INSIDE);
+        this.gKO.setOnClickListener(this.gKV);
+        this.gKP.setOnClickListener(this.gKV);
+        this.gKQ = (TbImageView) this.mRootView.findViewById(a.g.ala_challenge_index_pk_entry);
+        this.gKR = (TextView) this.mRootView.findViewById(a.g.ala_challenge_index_pk_title);
+        this.gKQ.setDefaultResource(a.f.icon_live_pk_enter);
+        this.gKQ.setDefaultBgResource(0);
+        this.gKQ.setScaleType(ImageView.ScaleType.CENTER_INSIDE);
+        this.gKQ.setOnClickListener(this.gKW);
+        this.gKR.setOnClickListener(this.gKW);
+        if (!StringUtils.isNull(com.baidu.live.x.a.OS().blo.aKM)) {
+            this.gKQ.startLoad(com.baidu.live.x.a.OS().blo.aKM, 10, false);
         }
-        if (!StringUtils.isNull(com.baidu.live.x.a.NN().bhy.aHJ)) {
-            this.gwv.startLoad(com.baidu.live.x.a.NN().bhy.aHJ, 10, false);
+        if (!StringUtils.isNull(com.baidu.live.x.a.OS().blo.aKN)) {
+            this.gKO.startLoad(com.baidu.live.x.a.OS().blo.aKN, 10, false);
         }
-        this.gwz = (BubbleLayout) this.mRootView.findViewById(a.g.ala_challenger_entry_tips_layout);
-        this.gwA = (TextView) this.mRootView.findViewById(a.g.ala_challenger_entry_tip_txt);
+        this.gKS = (BubbleLayout) this.mRootView.findViewById(a.g.ala_challenger_entry_tips_layout);
+        this.gKT = (TextView) this.mRootView.findViewById(a.g.ala_challenger_entry_tip_txt);
         if (!SharedPrefHelper.getInstance().getBoolean(SharedPrefConfig.SHOW_CHALLENGE_ENTRY_TIP, false)) {
-            this.gwz.setVisibility(0);
-            this.gwB = true;
+            this.gKS.setVisibility(0);
+            this.gKU = true;
             SharedPrefHelper.getInstance().putBoolean(SharedPrefConfig.SHOW_CHALLENGE_ENTRY_TIP, true);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tieba.ala.liveroom.challenge.panel.g
-    public void MZ() {
-        super.MZ();
+    public void Oe() {
+        super.Oe();
     }
 
     @Override // com.baidu.tieba.ala.liveroom.challenge.panel.g
@@ -91,21 +91,21 @@ public class l extends g {
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tieba.ala.liveroom.challenge.panel.g
-    public int bRi() {
+    public int bUC() {
         return this.mContext.getResources().getDimensionPixelSize(a.e.sdk_ds440) + this.mContext.getResources().getDimensionPixelSize(a.e.sdk_ds88);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public void dK(int i) {
-        if (!this.gwB) {
+    public void dP(int i) {
+        if (!this.gKU) {
             if (i > 0) {
-                ((FrameLayout.LayoutParams) this.gwz.getLayoutParams()).width = this.mContext.getResources().getDimensionPixelSize(a.e.sdk_ds348);
-                this.gwz.u(this.mContext.getResources().getDimensionPixelSize(a.e.sdk_ds162));
-                this.gwz.setVisibility(0);
-                this.gwA.setText(this.mContext.getString(a.i.ala_challenge_count_bubble_tip, Integer.valueOf(i)));
+                ((FrameLayout.LayoutParams) this.gKS.getLayoutParams()).width = this.mContext.getResources().getDimensionPixelSize(a.e.sdk_ds348);
+                this.gKS.A(this.mContext.getResources().getDimensionPixelSize(a.e.sdk_ds162));
+                this.gKS.setVisibility(0);
+                this.gKT.setText(this.mContext.getString(a.i.ala_challenge_count_bubble_tip, Integer.valueOf(i)));
                 return;
             }
-            this.gwz.setVisibility(8);
+            this.gKS.setVisibility(8);
         }
     }
 

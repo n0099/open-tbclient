@@ -1,19 +1,19 @@
 package com.baidu.tieba.ad.statis;
 
 import com.baidu.live.tbadk.pay.PayHelper;
-/* loaded from: classes20.dex */
+/* loaded from: classes21.dex */
 public class a implements com.baidu.tieba.r.a {
     private a() {
     }
 
     /* renamed from: com.baidu.tieba.ad.statis.a$a  reason: collision with other inner class name */
-    /* loaded from: classes20.dex */
-    private static class C0565a {
-        private static a fsz = new a();
+    /* loaded from: classes21.dex */
+    private static class C0582a {
+        private static a fEK = new a();
     }
 
-    public static a bCE() {
-        return C0565a.fsz;
+    public static a bFq() {
+        return C0582a.fEK;
     }
 
     @Override // com.baidu.tieba.r.a
@@ -27,7 +27,7 @@ public class a implements com.baidu.tieba.r.a {
     }
 
     @Override // com.baidu.tieba.r.a
-    public void dQ(String str, String str2) {
+    public void dW(String str, String str2) {
         CustomALSHttpMessage init = new CustomALSHttpMessage().init(PayHelper.STATUS_SUCC, "every_log");
         init.addParam("f1", "cardshow");
         init.addParam("f2", str2);
@@ -36,7 +36,7 @@ public class a implements com.baidu.tieba.r.a {
     }
 
     @Override // com.baidu.tieba.r.a
-    public void dR(String str, String str2) {
+    public void dX(String str, String str2) {
         CustomALSHttpMessage init = new CustomALSHttpMessage().init(PayHelper.STATUS_SUCC, "every_log");
         init.addParam("f1", "cardclick");
         init.addParam("f2", str2);
@@ -45,7 +45,7 @@ public class a implements com.baidu.tieba.r.a {
     }
 
     @Override // com.baidu.tieba.r.a
-    public void dS(String str, String str2) {
+    public void dY(String str, String str2) {
         CustomALSHttpMessage init = new CustomALSHttpMessage().init(PayHelper.STATUS_SUCC, "every_log");
         init.addParam("f1", "fullvideoshow");
         init.addParam("f2", str2);
@@ -65,7 +65,7 @@ public class a implements com.baidu.tieba.r.a {
     }
 
     @Override // com.baidu.tieba.r.a
-    public void af(String str, String str2, String str3) {
+    public void ag(String str, String str2, String str3) {
         CustomALSHttpMessage init = new CustomALSHttpMessage().init(PayHelper.STATUS_SUCC, "every_log");
         init.addParam("f1", "alert_click");
         init.addParam("f2", str);

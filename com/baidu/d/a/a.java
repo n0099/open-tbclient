@@ -9,23 +9,23 @@ import com.baidu.searchbox.config.AppConfig;
 import java.io.BufferedReader;
 import java.io.InputStream;
 import java.io.InputStreamReader;
-/* loaded from: classes11.dex */
+/* loaded from: classes9.dex */
 public class a {
     private static boolean DEBUG = AppConfig.isDebug();
-    private static a amz;
-    private String amA;
-    private SharedPreferences amB;
+    private static a ani;
+    private String anj;
+    private SharedPreferences ank;
     private String mChannel;
 
-    public static a uB() {
-        if (amz == null) {
+    public static a uK() {
+        if (ani == null) {
             synchronized (a.class) {
-                if (amz == null) {
-                    amz = new a();
+                if (ani == null) {
+                    ani = new a();
                 }
             }
         }
-        return amz;
+        return ani;
     }
 
     private a() {
@@ -33,44 +33,44 @@ public class a {
     }
 
     private void init() {
-        this.amB = AppRuntime.getAppContext().getSharedPreferences("com.baidu.common.pubparam", 0);
-        uD();
-        uE();
+        this.ank = AppRuntime.getAppContext().getSharedPreferences("com.baidu.common.pubparam", 0);
+        uM();
+        uN();
     }
 
     public String getChannel() {
         return this.mChannel;
     }
 
-    public String uC() {
-        return this.amA;
+    public String uL() {
+        return this.anj;
     }
 
-    private void uD() {
-        this.amA = uH();
-        if (TextUtils.isEmpty(this.amA)) {
-            this.amA = uI();
+    private void uM() {
+        this.anj = uQ();
+        if (TextUtils.isEmpty(this.anj)) {
+            this.anj = uR();
         }
     }
 
-    private void uE() {
-        this.mChannel = uF();
-        if (TextUtils.isEmpty(this.mChannel) && !TextUtils.isEmpty(this.amA)) {
-            this.mChannel = this.amA;
-            uG();
+    private void uN() {
+        this.mChannel = uO();
+        if (TextUtils.isEmpty(this.mChannel) && !TextUtils.isEmpty(this.anj)) {
+            this.mChannel = this.anj;
+            uP();
         }
     }
 
-    private String uF() {
-        return this.amB.getString("channel", null);
+    private String uO() {
+        return this.ank.getString("channel", null);
     }
 
-    private void uG() {
-        this.amB.edit().putString("channel", this.mChannel).apply();
+    private void uP() {
+        this.ank.edit().putString("channel", this.mChannel).apply();
     }
 
     /* JADX DEBUG: Another duplicated slice has different insns count: {[]}, finally: {[CONST_STR, CONST_STR, INVOKE, IF, SGET, MOVE_EXCEPTION, INVOKE, INVOKE, CONST_STR, CONST_STR, INVOKE, IF, SGET, MOVE_EXCEPTION] complete} */
-    private String uH() {
+    private String uQ() {
         String str = null;
         InputStream openRawResource = AppRuntime.getAppContext().getResources().openRawResource(f.a.tnconfig);
         BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(openRawResource));
@@ -108,7 +108,7 @@ public class a {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    private String uI() {
+    private String uR() {
         BufferedReader bufferedReader;
         InputStream inputStream;
         String str;

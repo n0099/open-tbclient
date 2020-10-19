@@ -1,5 +1,5 @@
 package io.reactivex.c;
-/* loaded from: classes25.dex */
+/* loaded from: classes17.dex */
 public interface i {
-    void ha(long j) throws Exception;
+    void hs(long j) throws Exception;
 }

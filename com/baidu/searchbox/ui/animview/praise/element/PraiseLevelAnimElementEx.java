@@ -5,7 +5,7 @@ import com.airbnb.lottie.g;
 import com.baidu.searchbox.ui.animview.base.BaseAnimatedElement;
 import com.baidu.searchbox.ui.animview.base.IResourcePackage;
 import com.baidu.searchbox.ui.animview.base.IResourceProvider;
-/* loaded from: classes11.dex */
+/* loaded from: classes9.dex */
 public class PraiseLevelAnimElementEx extends PraiseLevelAnimElement {
     private static final boolean DEBUG = false;
 

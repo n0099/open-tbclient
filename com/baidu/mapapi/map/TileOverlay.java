@@ -8,18 +8,20 @@ import java.util.HashSet;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 import java.util.concurrent.RejectedExecutionException;
-/* loaded from: classes3.dex */
+/* loaded from: classes7.dex */
 public final class TileOverlay {
     private static final String b = TileOverlay.class.getSimpleName();
     private static int f = 0;
-    BaiduMap a;
+
+    /* renamed from: a  reason: collision with root package name */
+    BaiduMap f2048a;
     private TileProvider g;
     private HashMap<String, Tile> d = new HashMap<>();
     private HashSet<String> e = new HashSet<>();
     private ExecutorService c = Executors.newFixedThreadPool(1);
 
     public TileOverlay(BaiduMap baiduMap, TileProvider tileProvider) {
-        this.a = baiduMap;
+        this.f2048a = baiduMap;
         this.g = tileProvider;
     }
 
@@ -50,13 +52,13 @@ public final class TileOverlay {
     /* JADX INFO: Access modifiers changed from: package-private */
     public Tile a(int i, int i2, int i3) {
         String str = i + PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS + i2 + PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS + i3;
-        Tile a = a(str);
-        if (a != null) {
-            return a;
+        Tile a2 = a(str);
+        if (a2 != null) {
+            return a2;
         }
-        if (this.a != null && f == 0) {
-            MapStatus mapStatus = this.a.getMapStatus();
-            f = (((mapStatus.a.j.bottom - mapStatus.a.j.top) / 256) + 2) * (((mapStatus.a.j.right - mapStatus.a.j.left) / 256) + 2);
+        if (this.f2048a != null && f == 0) {
+            MapStatus mapStatus = this.f2048a.getMapStatus();
+            f = (((mapStatus.f2020a.j.bottom - mapStatus.f2020a.j.top) / 256) + 2) * (((mapStatus.f2020a.j.right - mapStatus.f2020a.j.left) / 256) + 2);
         }
         if (this.d.size() > f) {
             a();
@@ -86,16 +88,16 @@ public final class TileOverlay {
     }
 
     public boolean clearTileCache() {
-        if (this.a == null) {
+        if (this.f2048a == null) {
             return false;
         }
-        return this.a.b();
+        return this.f2048a.b();
     }
 
     public void removeTileOverlay() {
-        if (this.a == null) {
+        if (this.f2048a == null) {
             return;
         }
-        this.a.a(this);
+        this.f2048a.a(this);
     }
 }

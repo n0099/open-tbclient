@@ -3,15 +3,17 @@ package com.baidu.pass.biometrics.face.liveness.activity;
 import android.view.View;
 import com.baidu.pass.biometrics.base.debug.Log;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes8.dex */
+/* loaded from: classes18.dex */
 public class p implements View.OnClickListener {
-    final /* synthetic */ com.baidu.pass.biometrics.face.liveness.view.a a;
+
+    /* renamed from: a  reason: collision with root package name */
+    final /* synthetic */ com.baidu.pass.biometrics.face.liveness.view.a f2743a;
     final /* synthetic */ LivenessRecogActivity b;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public p(LivenessRecogActivity livenessRecogActivity, com.baidu.pass.biometrics.face.liveness.view.a aVar) {
         this.b = livenessRecogActivity;
-        this.a = aVar;
+        this.f2743a = aVar;
     }
 
     @Override // android.view.View.OnClickListener
@@ -29,6 +31,6 @@ public class p implements View.OnClickListener {
         this.b.Q.h = false;
         this.b.Q.i = false;
         this.b.P.v = System.currentTimeMillis();
-        this.a.dismiss();
+        this.f2743a.dismiss();
     }
 }

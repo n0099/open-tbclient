@@ -5,11 +5,11 @@ import com.baidu.searchbox.unitedscheme.CallbackHandler;
 import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
 import com.baidu.swan.apps.scheme.actions.aa;
 import com.baidu.swan.apps.scheme.j;
-/* loaded from: classes3.dex */
+/* loaded from: classes10.dex */
 public class b extends aa {
-    private a cFh;
-    private e cFi;
-    private d cFj;
+    private a cRl;
+    private e cRm;
+    private d cRn;
 
     public b(j jVar) {
         super(jVar, "/swanAPI/vrvideo");
@@ -23,7 +23,7 @@ public class b extends aa {
 
     @Override // com.baidu.swan.apps.scheme.actions.aa
     public boolean d(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, String str, com.baidu.swan.apps.runtime.e eVar) {
-        boolean a;
+        boolean a2;
         com.baidu.swan.apps.console.c.d("VrVideoPlayerAction", "handleSubAction subAction : " + str + "params : ", b(unitedSchemeEntity, "params"));
         char c = 65535;
         switch (str.hashCode()) {
@@ -48,27 +48,27 @@ public class b extends aa {
         }
         switch (c) {
             case 0:
-                if (this.cFh == null) {
-                    this.cFh = new a("/swanAPI/vrvideo/open");
+                if (this.cRl == null) {
+                    this.cRl = new a("/swanAPI/vrvideo/open");
                 }
-                a = this.cFh.a(context, unitedSchemeEntity, callbackHandler, eVar);
+                a2 = this.cRl.a(context, unitedSchemeEntity, callbackHandler, eVar);
                 break;
             case 1:
-                if (this.cFi == null) {
-                    this.cFi = new e("/swanAPI/vrvideo/update");
+                if (this.cRm == null) {
+                    this.cRm = new e("/swanAPI/vrvideo/update");
                 }
-                a = this.cFi.a(context, unitedSchemeEntity, callbackHandler, eVar);
+                a2 = this.cRm.a(context, unitedSchemeEntity, callbackHandler, eVar);
                 break;
             case 2:
-                if (this.cFj == null) {
-                    this.cFj = new d("/swanAPI/vrvideo/remove");
+                if (this.cRn == null) {
+                    this.cRn = new d("/swanAPI/vrvideo/remove");
                 }
-                a = this.cFj.a(context, unitedSchemeEntity, callbackHandler, eVar);
+                a2 = this.cRn.a(context, unitedSchemeEntity, callbackHandler, eVar);
                 break;
             default:
-                a = false;
+                a2 = false;
                 break;
         }
-        return a || super.d(context, unitedSchemeEntity, callbackHandler, str, eVar);
+        return a2 || super.d(context, unitedSchemeEntity, callbackHandler, str, eVar);
     }
 }

@@ -1,5 +1,5 @@
 package kotlin.b;
 @kotlin.h
-/* loaded from: classes5.dex */
+/* loaded from: classes10.dex */
 class n extends m {
 }

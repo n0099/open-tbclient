@@ -13,11 +13,13 @@ import com.baidu.mapapi.bikenavi.controllers.UnsupportedBikeNaviException;
 import com.baidu.mapapi.map.MapView;
 import com.baidu.platform.comapi.wnplatform.model.datastruct.WLocData;
 import com.baidu.platform.comapi.wnplatform.walkmap.WNaviBaiduMap;
-/* loaded from: classes3.dex */
+/* loaded from: classes7.dex */
 public class a {
     private static IBTTSPlayer b;
     private static com.baidu.platform.comapi.wnplatform.n.c d = new d();
-    FrameLayout a;
+
+    /* renamed from: a  reason: collision with root package name */
+    FrameLayout f1972a;
     private MapView c = null;
 
     public void a(Activity activity, IBEngineInitListener iBEngineInitListener) {
@@ -55,12 +57,12 @@ public class a {
 
     public View a(Activity activity) {
         FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(-1, -1);
-        this.a = new FrameLayout(activity);
-        this.a.setLayoutParams(layoutParams);
+        this.f1972a = new FrameLayout(activity);
+        this.f1972a.setLayoutParams(layoutParams);
         View b2 = BNavigatorWrapper.getWNavigator().b(activity);
-        this.a.addView(this.c);
-        this.a.addView(b2);
-        return this.a;
+        this.f1972a.addView(this.c);
+        this.f1972a.addView(b2);
+        return this.f1972a;
     }
 
     public void b() {
@@ -84,18 +86,18 @@ public class a {
             this.c.onDestroy();
         }
         this.c = null;
-        if (this.a != null && this.a.getParent() != null) {
-            ((ViewGroup) this.a.getParent()).removeAllViews();
+        if (this.f1972a != null && this.f1972a.getParent() != null) {
+            ((ViewGroup) this.f1972a.getParent()).removeAllViews();
         }
-        this.a = null;
+        this.f1972a = null;
     }
 
     private void b(com.baidu.platform.comapi.walknavi.e.a aVar, IBRoutePlanListener iBRoutePlanListener) {
         if (aVar != null) {
-            int a = aVar.a("vehicle", 0);
-            if (a == 0) {
+            int a2 = aVar.a("vehicle", 0);
+            if (a2 == 0) {
                 BNavigatorWrapper.getWNavigator().a(1, 1);
-            } else if (a == 1) {
+            } else if (a2 == 1) {
                 BNavigatorWrapper.getWNavigator().a(2, 1);
             }
             if (aVar.b("end_x") != null) {

@@ -31,7 +31,8 @@ import com.baidu.searchbox.player.ubc.IPlayerStatisticsDispatcher;
 import com.baidu.searchbox.player.ubc.SimpleVideoStatisticsDispatcher;
 import com.baidu.searchbox.player.utils.BdVideoLog;
 import java.util.HashMap;
-/* loaded from: classes8.dex */
+import org.webrtc.MediaStreamTrack;
+/* loaded from: classes15.dex */
 public abstract class BDVideoPlayer implements IBVideoPlayer, IKernelPlayer {
     private static final String TAG = "BDVideoPlayer";
     private static boolean sGlobalMute = false;
@@ -696,7 +697,7 @@ public abstract class BDVideoPlayer implements IBVideoPlayer, IKernelPlayer {
     public void requestAudioFocus() {
         if (!this.mHasAudioFocus) {
             if (this.mAudioManager == null) {
-                this.mAudioManager = (AudioManager) getAppContext().getSystemService("audio");
+                this.mAudioManager = (AudioManager) getAppContext().getSystemService(MediaStreamTrack.AUDIO_TRACK_KIND);
             }
             if (this.mAudioManager != null) {
                 if (this.mAudioFocusListener == null) {
@@ -814,7 +815,7 @@ public abstract class BDVideoPlayer implements IBVideoPlayer, IKernelPlayer {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes8.dex */
+    /* loaded from: classes15.dex */
     public class AudioFocusChangedListener implements AudioManager.OnAudioFocusChangeListener {
         private AudioFocusChangedListener() {
         }

@@ -4,7 +4,7 @@ import com.baidu.live.adp.widget.VerticalTranslateLayout;
 import com.baidu.swan.apps.ap.ah;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes10.dex */
 public class g implements com.baidu.swan.apps.model.a {
     public int left = Integer.MIN_VALUE;
     public int top = Integer.MIN_VALUE;
@@ -14,10 +14,10 @@ public class g implements com.baidu.swan.apps.model.a {
     @Override // com.baidu.swan.apps.model.a
     public void parseFromJson(JSONObject jSONObject) throws JSONException {
         if (jSONObject != null && jSONObject.has("left") && jSONObject.has(VerticalTranslateLayout.TOP)) {
-            this.left = ah.H(jSONObject.optInt("left"));
-            this.top = ah.H(jSONObject.optInt(VerticalTranslateLayout.TOP));
-            this.width = jSONObject.has("width") ? Math.abs(ah.H(jSONObject.optInt("width"))) : -1;
-            this.height = jSONObject.has("height") ? Math.abs(ah.H(jSONObject.optInt("height"))) : -1;
+            this.left = ah.J(jSONObject.optInt("left"));
+            this.top = ah.J(jSONObject.optInt(VerticalTranslateLayout.TOP));
+            this.width = jSONObject.has("width") ? Math.abs(ah.J(jSONObject.optInt("width"))) : -1;
+            this.height = jSONObject.has("height") ? Math.abs(ah.J(jSONObject.optInt("height"))) : -1;
         }
     }
 

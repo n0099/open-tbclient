@@ -1,12 +1,14 @@
 package com.xiaomi.push;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes9.dex */
+/* loaded from: classes12.dex */
 public class da implements cy {
-    final /* synthetic */ cz a;
+
+    /* renamed from: a  reason: collision with root package name */
+    final /* synthetic */ cz f4849a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public da(cz czVar) {
-        this.a = czVar;
+        this.f4849a = czVar;
     }
 
     @Override // com.xiaomi.push.cy

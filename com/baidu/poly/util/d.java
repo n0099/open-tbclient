@@ -1,32 +1,32 @@
 package com.baidu.poly.util;
 
 import android.util.Log;
-/* loaded from: classes9.dex */
+/* loaded from: classes6.dex */
 public class d {
-    private static String bIK = null;
-    private static String bIL = null;
-    private static int bIM = 0;
-    public static boolean bIN = true;
+    private static String bPt = null;
+    private static String bPu = null;
+    private static int bPv = 0;
+    public static boolean bPw = true;
 
     private static void a(StackTraceElement[] stackTraceElementArr) {
-        bIK = stackTraceElementArr[1].getFileName();
-        bIL = stackTraceElementArr[1].getMethodName();
-        bIM = stackTraceElementArr[1].getLineNumber();
+        bPt = stackTraceElementArr[1].getFileName();
+        bPu = stackTraceElementArr[1].getMethodName();
+        bPv = stackTraceElementArr[1].getLineNumber();
     }
 
-    private static String dR(String str) {
-        return Thread.currentThread().getName() + "[" + bIK + ":" + bIL + ":" + bIM + "]" + str;
+    private static String dW(String str) {
+        return Thread.currentThread().getName() + "[" + bPt + ":" + bPu + ":" + bPv + "]" + str;
     }
 
     public static void info(String str) {
-        if (!bIN) {
+        if (!bPw) {
             return;
         }
         Log.i("CashierSdk", str);
     }
 
     public static void a(Object... objArr) {
-        if (bIN) {
+        if (bPw) {
             a(new Throwable().getStackTrace());
             Log.e("CashierSdk", l(objArr));
         }
@@ -42,11 +42,11 @@ public class d {
                 sb.append(obj.toString());
             }
         }
-        return dR(sb.toString());
+        return dW(sb.toString());
     }
 
     public static void a(String str, Throwable th) {
-        if (bIN) {
+        if (bPw) {
             a(new Throwable().getStackTrace());
             Log.e("CashierSdk", l(str), th);
         }

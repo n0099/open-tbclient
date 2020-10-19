@@ -4,7 +4,7 @@ import android.content.Context;
 import android.content.Intent;
 import com.baidu.sofire.ac.Callback;
 import java.util.HashMap;
-/* loaded from: classes12.dex */
+/* loaded from: classes15.dex */
 public final class a {
     public static void a(Context context, Intent intent) {
         int i = 0;
@@ -27,10 +27,10 @@ public final class a {
                     b.a();
                     break;
                 }
-                com.baidu.sofire.core.f a = com.baidu.sofire.core.f.a();
-                if (a == null) {
+                com.baidu.sofire.core.f a2 = com.baidu.sofire.core.f.a();
+                if (a2 == null) {
                     b.a();
-                } else if (a.d("com.baidu.sofire.x24") != null) {
+                } else if (a2.d("com.baidu.sofire.x24") != null) {
                     break;
                 }
             }

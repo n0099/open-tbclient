@@ -2,7 +2,7 @@ package com.baidu.swan.pms.utils;
 
 import android.support.annotation.Nullable;
 import java.io.Closeable;
-/* loaded from: classes24.dex */
+/* loaded from: classes15.dex */
 public class c {
     public static void closeSafely(@Nullable Closeable closeable) {
         if (closeable != null) {

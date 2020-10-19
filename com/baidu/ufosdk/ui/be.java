@@ -2,19 +2,21 @@ package com.baidu.ufosdk.ui;
 
 import android.view.KeyEvent;
 import android.widget.TextView;
-/* loaded from: classes21.dex */
+/* loaded from: classes22.dex */
 final class be implements TextView.OnEditorActionListener {
-    final /* synthetic */ FeedbackInputActivity a;
+
+    /* renamed from: a  reason: collision with root package name */
+    final /* synthetic */ FeedbackInputActivity f3772a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public be(FeedbackInputActivity feedbackInputActivity) {
-        this.a = feedbackInputActivity;
+        this.f3772a = feedbackInputActivity;
     }
 
     @Override // android.widget.TextView.OnEditorActionListener
     public final boolean onEditorAction(TextView textView, int i, KeyEvent keyEvent) {
         if (i == 4) {
-            FeedbackInputActivity.a(this.a);
+            FeedbackInputActivity.a(this.f3772a);
             return false;
         }
         return false;

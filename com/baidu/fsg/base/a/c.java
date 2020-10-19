@@ -1,9 +1,11 @@
 package com.baidu.fsg.base.a;
 
 import android.annotation.SuppressLint;
-/* loaded from: classes15.dex */
+/* loaded from: classes16.dex */
 public class c {
-    private final long a;
+
+    /* renamed from: a  reason: collision with root package name */
+    private final long f1445a;
     private long b;
     private long c;
     private long d;
@@ -11,7 +13,7 @@ public class c {
     private int e = 1;
 
     public c(long j) {
-        this.a = j;
+        this.f1445a = j;
     }
 
     public int a() {
@@ -39,7 +41,7 @@ public class c {
     }
 
     public long d() {
-        return this.a;
+        return this.f1445a;
     }
 
     public long e() {
@@ -52,7 +54,7 @@ public class c {
 
     public String toString() {
         StringBuilder sb = new StringBuilder();
-        sb.append("DownloadItem=(id: " + this.a);
+        sb.append("DownloadItem=(id: " + this.f1445a);
         sb.append(", current bytes: " + this.b);
         sb.append(", total bytes: " + this.c);
         sb.append(", speed: " + this.d);

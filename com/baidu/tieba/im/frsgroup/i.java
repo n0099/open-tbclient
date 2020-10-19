@@ -10,21 +10,21 @@ import com.baidu.tbadk.core.view.NoDataViewFactory;
 import com.baidu.tbadk.core.view.commonBtn.TBSpecificationBtn;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
-/* loaded from: classes22.dex */
+/* loaded from: classes23.dex */
 public class i extends af.a {
-    public TBSpecificationBtn ajy;
-    private int etH;
-    public TbImageView jyh;
+    public TBSpecificationBtn ajQ;
+    private int eFR;
+    public TbImageView jNe;
     public TextView mDescView;
     public TextView mTitleView;
 
     public i(View view, View.OnClickListener onClickListener) {
         super(view);
-        this.jyh = (TbImageView) view.findViewById(R.id.net_refresh_image);
+        this.jNe = (TbImageView) view.findViewById(R.id.net_refresh_image);
         this.mDescView = (TextView) view.findViewById(R.id.net_refresh_desc);
         this.mTitleView = (TextView) view.findViewById(R.id.net_refresh_title);
-        this.ajy = (TBSpecificationBtn) view.findViewById(R.id.net_refresh_button);
-        this.ajy.setOnClickListener(onClickListener);
+        this.ajQ = (TBSpecificationBtn) view.findViewById(R.id.net_refresh_button);
+        this.ajQ.setOnClickListener(onClickListener);
     }
 
     public void a(NoDataViewFactory.ImgType imgType, String str, String str2, String str3) {
@@ -32,34 +32,34 @@ public class i extends af.a {
         ap.setViewTextColor(this.mTitleView, R.color.cp_cont_j, 1);
         this.mDescView.setText(str);
         this.mTitleView.setText(str2);
-        this.ajy.setText(str3);
+        this.ajQ.setText(str3);
         setLayoutMargin(0);
-        BJ(com.baidu.adp.lib.util.l.getDimens(TbadkCoreApplication.getInst().getContext(), R.dimen.ds30));
+        Cp(com.baidu.adp.lib.util.l.getDimens(TbadkCoreApplication.getInst().getContext(), R.dimen.ds30));
         if (imgType == NoDataViewFactory.ImgType.WEBVIEW) {
-            this.jyh.setImageBitmap(ap.getBitmap565Quality(R.drawable.new_pic_emotion_08));
+            this.jNe.setImageBitmap(ap.getBitmap565Quality(R.drawable.new_pic_emotion_08));
         } else if (imgType == NoDataViewFactory.ImgType.NODATA) {
-            this.jyh.setImageBitmap(ap.getBitmap565Quality(R.drawable.new_pic_emotion_05));
+            this.jNe.setImageBitmap(ap.getBitmap565Quality(R.drawable.new_pic_emotion_05));
         } else {
             d(imgType);
-            this.jyh.setImageBitmap(ap.getBitmap565Quality(this.etH));
+            this.jNe.setImageBitmap(ap.getBitmap565Quality(this.eFR));
         }
     }
 
     public void setLayoutMargin(int i) {
-        ViewGroup.LayoutParams layoutParams = this.jyh.getLayoutParams();
+        ViewGroup.LayoutParams layoutParams = this.jNe.getLayoutParams();
         if (layoutParams instanceof ViewGroup.MarginLayoutParams) {
             ViewGroup.MarginLayoutParams marginLayoutParams = (ViewGroup.MarginLayoutParams) layoutParams;
             marginLayoutParams.topMargin = i;
-            this.jyh.setLayoutParams(marginLayoutParams);
+            this.jNe.setLayoutParams(marginLayoutParams);
         }
     }
 
-    public void BJ(int i) {
-        ViewGroup.LayoutParams layoutParams = this.ajy.getLayoutParams();
+    public void Cp(int i) {
+        ViewGroup.LayoutParams layoutParams = this.ajQ.getLayoutParams();
         if (layoutParams instanceof ViewGroup.MarginLayoutParams) {
             ViewGroup.MarginLayoutParams marginLayoutParams = (ViewGroup.MarginLayoutParams) layoutParams;
             marginLayoutParams.bottomMargin = i;
-            this.ajy.setLayoutParams(marginLayoutParams);
+            this.ajQ.setLayoutParams(marginLayoutParams);
         }
     }
 
@@ -67,25 +67,25 @@ public class i extends af.a {
         if (imgType != null) {
             switch (imgType) {
                 case CREATE:
-                    this.etH = R.drawable.new_pic_emotion_03;
+                    this.eFR = R.drawable.new_pic_emotion_03;
                     return;
                 case NODATA:
-                    this.etH = R.drawable.new_pic_emotion_05;
+                    this.eFR = R.drawable.new_pic_emotion_05;
                     return;
                 case FINDBAR:
-                    this.etH = R.drawable.new_pic_emotion_01;
+                    this.eFR = R.drawable.new_pic_emotion_01;
                     return;
                 case EMOTION:
-                    this.etH = R.drawable.new_pic_emotion_02;
+                    this.eFR = R.drawable.new_pic_emotion_02;
                     return;
                 case GIFT:
-                    this.etH = R.drawable.new_pic_emotion_07;
+                    this.eFR = R.drawable.new_pic_emotion_07;
                     return;
                 case SINGALL:
-                    this.etH = R.drawable.new_pic_emotion_06;
+                    this.eFR = R.drawable.new_pic_emotion_06;
                     return;
                 case WEBVIEW:
-                    this.etH = R.drawable.new_pic_emotion_08;
+                    this.eFR = R.drawable.new_pic_emotion_08;
                     return;
                 default:
                     return;

@@ -4,23 +4,23 @@ import android.content.Context;
 import android.text.TextUtils;
 import com.baidu.ar.pose.PoseAR;
 import java.util.HashMap;
-/* loaded from: classes9.dex */
+/* loaded from: classes12.dex */
 public class em {
     public static void a(Context context, String str, int i, String str2) {
         ai.a(context).a(new en(context, str, i, str2));
     }
 
     private static void a(Context context, HashMap<String, String> hashMap) {
-        eu m268a = eq.a(context).m268a();
-        if (m268a != null) {
-            m268a.a(context, hashMap);
+        eu m269a = eq.a(context).m269a();
+        if (m269a != null) {
+            m269a.a(context, hashMap);
         }
     }
 
     private static void b(Context context, HashMap<String, String> hashMap) {
-        eu m268a = eq.a(context).m268a();
-        if (m268a != null) {
-            m268a.c(context, hashMap);
+        eu m269a = eq.a(context).m269a();
+        if (m269a != null) {
+            m269a.c(context, hashMap);
         }
     }
 
@@ -53,9 +53,9 @@ public class em {
     }
 
     private static void c(Context context, HashMap<String, String> hashMap) {
-        eu m268a = eq.a(context).m268a();
-        if (m268a != null) {
-            m268a.b(context, hashMap);
+        eu m269a = eq.a(context).m269a();
+        if (m269a != null) {
+            m269a.b(context, hashMap);
         }
     }
 }

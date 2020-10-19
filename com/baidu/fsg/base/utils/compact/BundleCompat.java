@@ -4,7 +4,7 @@ import android.os.Build;
 import android.os.Bundle;
 import android.os.IBinder;
 import com.baidu.fsg.base.utils.reflect.MethodUtils;
-/* loaded from: classes15.dex */
+/* loaded from: classes16.dex */
 public class BundleCompat {
     public static IBinder getBinder(Bundle bundle, String str) {
         if (Build.VERSION.SDK_INT >= 18) {

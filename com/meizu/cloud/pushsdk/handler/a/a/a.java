@@ -10,7 +10,7 @@ import com.meizu.cloud.pushsdk.handler.a.b.g;
 import com.meizu.cloud.pushsdk.notification.c;
 import com.meizu.cloud.pushsdk.util.d;
 import java.io.File;
-/* loaded from: classes3.dex */
+/* loaded from: classes7.dex */
 public class a extends com.meizu.cloud.pushsdk.handler.a.a<g> {
     public a(Context context, com.meizu.cloud.pushsdk.handler.a aVar) {
         super(context, aVar);
@@ -50,15 +50,15 @@ public class a extends com.meizu.cloud.pushsdk.handler.a.a<g> {
         } else if (gVar.b() && !com.meizu.cloud.pushsdk.util.a.b(c())) {
             message = "current network not allowed upload log file";
         }
-        com.meizu.cloud.pushsdk.b.a.c<String> a = com.meizu.cloud.pushsdk.platform.a.b.a(c()).a(gVar.d().b().a(), gVar.d().b().d(), message, file);
-        if (a == null || !a.b()) {
-            com.meizu.cloud.a.a.i("AbstractMessageHandler", "upload error code " + a.c() + a.a());
+        com.meizu.cloud.pushsdk.b.a.c<String> a2 = com.meizu.cloud.pushsdk.platform.a.b.a(c()).a(gVar.d().b().a(), gVar.d().b().d(), message, file);
+        if (a2 == null || !a2.b()) {
+            com.meizu.cloud.a.a.i("AbstractMessageHandler", "upload error code " + a2.c() + a2.a());
             return;
         }
         if (file != null) {
             file.delete();
         }
-        com.meizu.cloud.a.a.e("AbstractMessageHandler", "upload success " + a.a());
+        com.meizu.cloud.a.a.e("AbstractMessageHandler", "upload success " + a2.a());
     }
 
     @Override // com.meizu.cloud.pushsdk.handler.c
@@ -67,9 +67,9 @@ public class a extends com.meizu.cloud.pushsdk.handler.a.a<g> {
         com.meizu.cloud.a.a.i("AbstractMessageHandler", "start LogUploadMessageHandler match");
         String stringExtra = intent.getStringExtra(PushConstants.MZ_PUSH_CONTROL_MESSAGE);
         if (!TextUtils.isEmpty(stringExtra)) {
-            com.meizu.cloud.pushsdk.handler.a.b.b a = com.meizu.cloud.pushsdk.handler.a.b.b.a(stringExtra);
-            if (a.a() != null) {
-                i = a.a().a();
+            com.meizu.cloud.pushsdk.handler.a.b.b a2 = com.meizu.cloud.pushsdk.handler.a.b.b.a(stringExtra);
+            if (a2.a() != null) {
+                i = a2.a().a();
                 return PushConstants.MZ_PUSH_ON_MESSAGE_ACTION.equals(intent.getAction()) && "2".equals(String.valueOf(i));
             }
         }

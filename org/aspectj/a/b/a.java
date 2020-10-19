@@ -1,29 +1,29 @@
 package org.aspectj.a.b;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 abstract class a extends d implements org.aspectj.lang.reflect.a {
-    String[] oJW;
-    Class[] oJX;
+    String[] oZk;
+    Class[] oZl;
     Class[] parameterTypes;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public a(int i, String str, Class cls, Class[] clsArr, String[] strArr, Class[] clsArr2) {
         super(i, str, cls);
         this.parameterTypes = clsArr;
-        this.oJW = strArr;
-        this.oJX = clsArr2;
+        this.oZk = strArr;
+        this.oZl = clsArr2;
     }
 
-    public Class[] emT() {
+    public Class[] eqG() {
         if (this.parameterTypes == null) {
-            this.parameterTypes = OP(3);
+            this.parameterTypes = Pv(3);
         }
         return this.parameterTypes;
     }
 
-    public Class[] emU() {
-        if (this.oJX == null) {
-            this.oJX = OP(5);
+    public Class[] eqH() {
+        if (this.oZl == null) {
+            this.oZl = Pv(5);
         }
-        return this.oJX;
+        return this.oZl;
     }
 }

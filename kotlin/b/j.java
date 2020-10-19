@@ -3,18 +3,18 @@ package kotlin.b;
 import java.util.NoSuchElementException;
 import kotlin.collections.ae;
 @kotlin.h
-/* loaded from: classes5.dex */
+/* loaded from: classes10.dex */
 public final class j extends ae {
     private boolean hasNext;
-    private final long oDa;
-    private final long oDc;
-    private long oDd;
+    private final long oSp;
+    private final long oSr;
+    private long oSs;
 
     public j(long j, long j2, long j3) {
         boolean z = true;
-        this.oDa = j3;
-        this.oDc = j2;
-        if (this.oDa > 0) {
+        this.oSp = j3;
+        this.oSr = j2;
+        if (this.oSp > 0) {
             if (j > j2) {
                 z = false;
             }
@@ -22,7 +22,7 @@ public final class j extends ae {
             z = false;
         }
         this.hasNext = z;
-        this.oDd = this.hasNext ? j : this.oDc;
+        this.oSs = this.hasNext ? j : this.oSr;
     }
 
     @Override // java.util.Iterator
@@ -32,14 +32,14 @@ public final class j extends ae {
 
     @Override // kotlin.collections.ae
     public long nextLong() {
-        long j = this.oDd;
-        if (j == this.oDc) {
+        long j = this.oSs;
+        if (j == this.oSr) {
             if (!this.hasNext) {
                 throw new NoSuchElementException();
             }
             this.hasNext = false;
         } else {
-            this.oDd += this.oDa;
+            this.oSs += this.oSp;
         }
         return j;
     }

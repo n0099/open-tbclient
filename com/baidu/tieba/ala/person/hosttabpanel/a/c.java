@@ -8,7 +8,7 @@ import com.baidu.live.tbadk.TbPageContext;
 import com.baidu.tieba.ala.person.hosttabpanel.d.c;
 /* loaded from: classes4.dex */
 public class c extends AbsDelegateAdapter<com.baidu.tieba.ala.person.hosttabpanel.b.b, c.a> {
-    private com.baidu.tieba.ala.person.hosttabpanel.d.c gTB;
+    private com.baidu.tieba.ala.person.hosttabpanel.d.c hiz;
     private TbPageContext mPageContext;
 
     public c(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId) {
@@ -21,22 +21,22 @@ public class c extends AbsDelegateAdapter<com.baidu.tieba.ala.person.hosttabpane
     @Override // com.baidu.live.adp.widget.listview.AbsDelegateAdapter
     /* renamed from: a */
     public View onFillViewHolder(int i, View view, ViewGroup viewGroup, com.baidu.tieba.ala.person.hosttabpanel.b.b bVar, c.a aVar) {
-        aVar.gTB.onBindDataToView(bVar);
+        aVar.hiz.onBindDataToView(bVar);
         return aVar.getView();
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.live.adp.widget.listview.AbsDelegateAdapter
-    /* renamed from: aH */
+    /* renamed from: aJ */
     public c.a onCreateViewHolder(ViewGroup viewGroup) {
-        this.gTB = new com.baidu.tieba.ala.person.hosttabpanel.d.c(this.mPageContext);
-        return new c.a(this.gTB);
+        this.hiz = new com.baidu.tieba.ala.person.hosttabpanel.d.c(this.mPageContext);
+        return new c.a(this.hiz);
     }
 
     public void onDestroy() {
-        if (this.gTB != null) {
-            this.gTB.onDestroy();
+        if (this.hiz != null) {
+            this.hiz.onDestroy();
         }
     }
 }

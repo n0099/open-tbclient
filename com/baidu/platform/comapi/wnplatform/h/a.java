@@ -13,7 +13,7 @@ import com.baidu.mapapi.map.MarkerOptions;
 import com.baidu.mapapi.model.LatLng;
 import com.baidu.mapapi.walknavi.model.RouteGuideKind;
 import com.baidu.platform.comapi.basestruct.GeoPoint;
-/* loaded from: classes3.dex */
+/* loaded from: classes7.dex */
 public class a extends ItemizedOverlay {
     private View b;
     private ImageView c;
@@ -22,13 +22,15 @@ public class a extends ItemizedOverlay {
 
     /* JADX INFO: Access modifiers changed from: private */
     /* renamed from: com.baidu.platform.comapi.wnplatform.h.a$a  reason: collision with other inner class name */
-    /* loaded from: classes3.dex */
-    public static class C0254a {
-        static final a a = new a();
+    /* loaded from: classes7.dex */
+    public static class C0269a {
+
+        /* renamed from: a  reason: collision with root package name */
+        static final a f3113a = new a();
     }
 
     public static a b() {
-        return C0254a.a;
+        return C0269a.f3113a;
     }
 
     private a() {
@@ -43,9 +45,9 @@ public class a extends ItemizedOverlay {
             bundle.putDouble("x", iArr[i]);
             bundle.putDouble("y", iArr2[i]);
             if (iArr3[i] < RouteGuideKind.values().length) {
-                int[] a = com.baidu.platform.comapi.walknavi.g.b.c.a(RouteGuideKind.values()[iArr3[i]]);
-                bundle.putInt("upResId", a[0]);
-                bundle.putInt("downResId", a[1]);
+                int[] a2 = com.baidu.platform.comapi.walknavi.g.b.c.a(RouteGuideKind.values()[iArr3[i]]);
+                bundle.putInt("upResId", a2[0]);
+                bundle.putInt("downResId", a2[1]);
                 a(context, bundle);
             }
         }
@@ -59,9 +61,9 @@ public class a extends ItemizedOverlay {
         new GeoPoint(d2, d);
         LatLng latLng = new LatLng(d2, d);
         MarkerOptions markerOptions = new MarkerOptions();
-        BitmapDescriptor a = a(context, i, i2);
-        if (a != null) {
-            markerOptions.icon(a);
+        BitmapDescriptor a2 = a(context, i, i2);
+        if (a2 != null) {
+            markerOptions.icon(a2);
             markerOptions.position(latLng);
             addItem(markerOptions);
         }

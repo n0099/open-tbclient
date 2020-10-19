@@ -7,11 +7,11 @@ import java.util.Iterator;
 import java.util.Map;
 import java.util.Set;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes24.dex */
+/* loaded from: classes6.dex */
 public abstract class e<K, V> {
-    e<K, V>.b dKI;
-    e<K, V>.c dKJ;
-    e<K, V>.C0517e dKK;
+    e<K, V>.b dWJ;
+    e<K, V>.c dWK;
+    e<K, V>.C0534e dWL;
 
     protected abstract void colClear();
 
@@ -31,7 +31,7 @@ public abstract class e<K, V> {
 
     protected abstract V colSetValue(int i, V v);
 
-    /* loaded from: classes24.dex */
+    /* loaded from: classes6.dex */
     final class a<T> implements Iterator<T> {
         boolean mCanRemove = false;
         int mIndex;
@@ -68,7 +68,7 @@ public abstract class e<K, V> {
         }
     }
 
-    /* loaded from: classes24.dex */
+    /* loaded from: classes6.dex */
     final class d implements Iterator<Map.Entry<K, V>>, Map.Entry<K, V> {
         int mEnd;
         boolean mEntryValid = false;
@@ -157,7 +157,7 @@ public abstract class e<K, V> {
         }
     }
 
-    /* loaded from: classes24.dex */
+    /* loaded from: classes6.dex */
     final class b implements Set<Map.Entry<K, V>> {
         b() {
         }
@@ -268,7 +268,7 @@ public abstract class e<K, V> {
         }
     }
 
-    /* loaded from: classes24.dex */
+    /* loaded from: classes6.dex */
     final class c implements Set<K> {
         c() {
         }
@@ -360,9 +360,9 @@ public abstract class e<K, V> {
     }
 
     /* renamed from: com.baidu.swan.support.v4.b.e$e  reason: collision with other inner class name */
-    /* loaded from: classes24.dex */
-    final class C0517e implements Collection<V> {
-        C0517e() {
+    /* loaded from: classes6.dex */
+    final class C0534e implements Collection<V> {
+        C0534e() {
         }
 
         @Override // java.util.Collection
@@ -547,23 +547,23 @@ public abstract class e<K, V> {
     }
 
     public Set<Map.Entry<K, V>> getEntrySet() {
-        if (this.dKI == null) {
-            this.dKI = new b();
+        if (this.dWJ == null) {
+            this.dWJ = new b();
         }
-        return this.dKI;
+        return this.dWJ;
     }
 
     public Set<K> getKeySet() {
-        if (this.dKJ == null) {
-            this.dKJ = new c();
+        if (this.dWK == null) {
+            this.dWK = new c();
         }
-        return this.dKJ;
+        return this.dWK;
     }
 
     public Collection<V> getValues() {
-        if (this.dKK == null) {
-            this.dKK = new C0517e();
+        if (this.dWL == null) {
+            this.dWL = new C0534e();
         }
-        return this.dKK;
+        return this.dWL;
     }
 }

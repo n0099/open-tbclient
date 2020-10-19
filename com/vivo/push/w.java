@@ -4,9 +4,11 @@ import android.os.Handler;
 import android.os.HandlerThread;
 import android.os.Looper;
 import android.os.Message;
-/* loaded from: classes12.dex */
+/* loaded from: classes15.dex */
 public final class w {
-    private static final Handler a = new Handler(Looper.getMainLooper());
+
+    /* renamed from: a  reason: collision with root package name */
+    private static final Handler f4715a = new Handler(Looper.getMainLooper());
     private static final HandlerThread b;
     private static final Handler c;
 
@@ -40,6 +42,6 @@ public final class w {
     }
 
     public static void b(Runnable runnable) {
-        a.post(runnable);
+        f4715a.post(runnable);
     }
 }

@@ -1,4 +1,4 @@
 package com.baidu.prologue.service.network;
-/* loaded from: classes10.dex */
+/* loaded from: classes19.dex */
 public interface m extends j<String> {
 }

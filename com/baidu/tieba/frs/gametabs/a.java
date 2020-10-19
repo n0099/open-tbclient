@@ -15,24 +15,24 @@ import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tbadk.core.util.aq;
 import com.baidu.tieba.R;
 import org.json.JSONObject;
-/* loaded from: classes21.dex */
+/* loaded from: classes22.dex */
 public class a extends n {
-    private String eYo;
-    private l eke;
+    private l ewm;
+    private String fkA;
 
     public a(l lVar, String str) {
         super(lVar);
-        this.eke = lVar;
-        this.eYo = str;
+        this.ewm = lVar;
+        this.fkA = str;
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.core.hybrid.n
-    public String bch() {
+    public String beP() {
         return "TBHY_COMMON_DOWNLOAD_GAME";
     }
 
-    @o(biQ = false, value = "downloadGame")
+    @o(blz = false, value = "downloadGame")
     private void downloadGame(JSONObject jSONObject) {
         if (jSONObject != null) {
             String optString = jSONObject.optString("packageName");
@@ -44,22 +44,22 @@ public class a extends n {
                     return;
                 }
                 if (StringUtils.isNull(optString2)) {
-                    Je(optString);
+                    JR(optString);
                 } else {
-                    com.baidu.tieba.recapp.download.e.dra().a(optString, optString2, optString, 0, com.baidu.tieba.recapp.download.e.PQ(optString).intValue(), null, true, false, true, optString3, null, null);
+                    com.baidu.tieba.recapp.download.e.duL().a(optString, optString2, optString, 0, com.baidu.tieba.recapp.download.e.QF(optString).intValue(), null, true, false, true, optString3, null, null);
                 }
-                TiebaStatic.log(new aq("c12775").dF("fid", StringUtils.isNull(this.eYo) ? "" : this.eYo));
+                TiebaStatic.log(new aq("c12775").dK("fid", StringUtils.isNull(this.fkA) ? "" : this.fkA));
             }
         }
     }
 
-    private void Je(String str) {
+    private void JR(String str) {
         Intent intent = new Intent("android.intent.action.VIEW", Uri.parse("market://details?id=" + str));
         try {
-            if (!(this.eke.getContext() instanceof Activity)) {
+            if (!(this.ewm.getContext() instanceof Activity)) {
                 intent.addFlags(268435456);
             }
-            this.eke.getContext().startActivity(intent);
+            this.ewm.getContext().startActivity(intent);
         } catch (ActivityNotFoundException e) {
             BdLog.e(e.getMessage());
         }

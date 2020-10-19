@@ -7,71 +7,71 @@ import java.util.LinkedList;
 import java.util.Set;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes10.dex */
 public abstract class b<ResultDataT> {
     public static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    public final h<ResultDataT> cXa = new h<>();
-    private final Set<com.baidu.swan.apps.ap.e.b<h<ResultDataT>>> csm = new HashSet();
-    private final LinkedList<d> cXb = new LinkedList<>();
-    private boolean cXc = false;
-    private boolean cXd = false;
+    public final h<ResultDataT> djk = new h<>();
+    private final Set<com.baidu.swan.apps.ap.e.b<h<ResultDataT>>> cEx = new HashSet();
+    private final LinkedList<d> djl = new LinkedList<>();
+    private boolean djm = false;
+    private boolean djn = false;
 
-    protected abstract void aCk();
+    protected abstract void aET();
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public abstract ResultDataT bE(JSONObject jSONObject) throws JSONException;
+    public abstract ResultDataT bL(JSONObject jSONObject) throws JSONException;
 
-    private void aCd() {
+    private void aEM() {
         new d() { // from class: com.baidu.swan.apps.setting.oauth.b.1
             @Override // com.baidu.swan.apps.setting.oauth.d
-            protected boolean aCl() throws Exception {
-                if (b.this.aCf()) {
+            protected boolean aEU() throws Exception {
+                if (b.this.aEO()) {
                     return true;
                 }
                 c.c("initialPrepare failed", true);
                 throw new OAuthException(10001);
             }
-        }.a(this).aCm();
-        this.cXc = true;
+        }.a(this).aEV();
+        this.djm = true;
     }
 
-    private void aCe() {
+    private void aEN() {
         new d() { // from class: com.baidu.swan.apps.setting.oauth.b.2
             @Override // com.baidu.swan.apps.setting.oauth.d
-            protected boolean aCl() throws Exception {
-                if (b.this.aCg()) {
+            protected boolean aEU() throws Exception {
+                if (b.this.aEP()) {
                     return true;
                 }
                 c.c("finalPrepare failed", true);
                 throw new OAuthException(10001);
             }
-        }.a(this).aCm();
-        this.cXd = true;
+        }.a(this).aEV();
+        this.djn = true;
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public boolean aCf() {
+    public boolean aEO() {
         return true;
     }
 
-    protected boolean aCg() {
+    protected boolean aEP() {
         return true;
     }
 
     public b<ResultDataT> A(com.baidu.swan.apps.ap.e.b<h<ResultDataT>> bVar) {
-        if (this.cXa.cXR.isCallbackAvailable()) {
-            this.csm.add(bVar);
+        if (this.djk.dkb.isCallbackAvailable()) {
+            this.cEx.add(bVar);
         }
         return this;
     }
 
-    private void aCh() {
-        for (final com.baidu.swan.apps.ap.e.b<h<ResultDataT>> bVar : this.csm) {
+    private void aEQ() {
+        for (final com.baidu.swan.apps.ap.e.b<h<ResultDataT>> bVar : this.cEx) {
             c.h(new Runnable() { // from class: com.baidu.swan.apps.setting.oauth.b.3
                 @Override // java.lang.Runnable
                 public void run() {
                     if (bVar != null) {
-                        bVar.J(b.this.cXa);
+                        bVar.M(b.this.djk);
                     }
                 }
             });
@@ -79,27 +79,27 @@ public abstract class b<ResultDataT> {
     }
 
     @NonNull
-    public b aCi() {
-        if (TaskState.INIT == aCj()) {
+    public b aER() {
+        if (TaskState.INIT == aES()) {
             a(TaskState.CALLING);
             prepare();
         }
         return this;
     }
 
-    public TaskState aCj() {
-        return this.cXa.cXR;
+    public TaskState aES() {
+        return this.djk.dkb;
     }
 
     public void rE() {
-        this.cXa.cXR = TaskState.INIT;
-        this.cXc = false;
-        this.cXd = false;
+        this.djk.dkb = TaskState.INIT;
+        this.djm = false;
+        this.djn = false;
     }
 
     public b a(@NonNull d dVar) {
         dVar.a(this);
-        this.cXb.offer(dVar);
+        this.djl.offer(dVar);
         return this;
     }
 
@@ -113,32 +113,32 @@ public abstract class b<ResultDataT> {
     }
 
     private void prepare() {
-        if (!TaskState.CALLING.equals(aCj())) {
+        if (!TaskState.CALLING.equals(aES())) {
             if (DEBUG) {
                 c.c("IllegalState on prepare", false);
             }
-        } else if (!this.cXc) {
-            aCd();
-        } else if (!this.cXb.isEmpty()) {
-            this.cXb.poll().aCm();
-        } else if (!this.cXd) {
-            aCe();
+        } else if (!this.djm) {
+            aEM();
+        } else if (!this.djl.isEmpty()) {
+            this.djl.poll().aEV();
+        } else if (!this.djn) {
+            aEN();
         } else {
             exec();
         }
     }
 
     private synchronized void exec() {
-        aCk();
+        aET();
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public void W(ResultDataT resultdatat) {
-        this.cXa.mData = resultdatat;
+    public void Z(ResultDataT resultdatat) {
+        this.djk.mData = resultdatat;
     }
 
     private void a(TaskState taskState) {
-        this.cXa.cXR = taskState;
+        this.djk.dkb = taskState;
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -149,16 +149,16 @@ public abstract class b<ResultDataT> {
     /* JADX INFO: Access modifiers changed from: protected */
     public void v(@Nullable Exception exc) {
         if (exc instanceof OAuthException) {
-            this.cXa.cXS = (OAuthException) exc;
+            this.djk.dkc = (OAuthException) exc;
         } else if (exc != null) {
-            this.cXa.cXS = new OAuthException(exc, 10001);
+            this.djk.dkc = new OAuthException(exc, 10001);
         }
-        if (!this.cXa.isOk() && DEBUG && exc != null) {
+        if (!this.djk.isOk() && DEBUG && exc != null) {
             exc.printStackTrace();
         }
         a(TaskState.FINISHED);
         c.c(toString(), false);
-        aCh();
-        this.csm.clear();
+        aEQ();
+        this.cEx.clear();
     }
 }

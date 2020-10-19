@@ -6,20 +6,22 @@ import android.os.IBinder;
 import android.os.IInterface;
 import android.os.Parcel;
 import android.os.RemoteException;
-/* loaded from: classes10.dex */
+/* loaded from: classes12.dex */
 public interface a extends IInterface {
 
     /* renamed from: com.baidu.cyberplayer.sdk.remote.a$a  reason: collision with other inner class name */
-    /* loaded from: classes10.dex */
-    public static abstract class AbstractBinderC0107a extends Binder implements a {
+    /* loaded from: classes12.dex */
+    public static abstract class AbstractBinderC0111a extends Binder implements a {
 
         /* renamed from: com.baidu.cyberplayer.sdk.remote.a$a$a  reason: collision with other inner class name */
-        /* loaded from: classes10.dex */
-        private static class C0108a implements a {
-            private IBinder a;
+        /* loaded from: classes12.dex */
+        private static class C0112a implements a {
 
-            C0108a(IBinder iBinder) {
-                this.a = iBinder;
+            /* renamed from: a  reason: collision with root package name */
+            private IBinder f1405a;
+
+            C0112a(IBinder iBinder) {
+                this.f1405a = iBinder;
             }
 
             @Override // com.baidu.cyberplayer.sdk.remote.a
@@ -28,7 +30,7 @@ public interface a extends IInterface {
                 Parcel obtain2 = Parcel.obtain();
                 try {
                     obtain.writeInterfaceToken("com.baidu.cyberplayer.sdk.remote.IRemoteExtractor");
-                    this.a.transact(3, obtain, obtain2, 0);
+                    this.f1405a.transact(3, obtain, obtain2, 0);
                     obtain2.readException();
                     return obtain2.readInt() != 0 ? (Bundle) Bundle.CREATOR.createFromParcel(obtain2) : null;
                 } finally {
@@ -46,7 +48,7 @@ public interface a extends IInterface {
                     obtain.writeInt(i);
                     obtain.writeString(str);
                     obtain.writeLong(j);
-                    this.a.transact(2, obtain, obtain2, 0);
+                    this.f1405a.transact(2, obtain, obtain2, 0);
                     obtain2.readException();
                 } finally {
                     obtain2.recycle();
@@ -66,7 +68,7 @@ public interface a extends IInterface {
                     } else {
                         obtain.writeInt(0);
                     }
-                    this.a.transact(1, obtain, obtain2, 0);
+                    this.f1405a.transact(1, obtain, obtain2, 0);
                     obtain2.readException();
                 } finally {
                     obtain2.recycle();
@@ -76,7 +78,7 @@ public interface a extends IInterface {
 
             @Override // android.os.IInterface
             public IBinder asBinder() {
-                return this.a;
+                return this.f1405a;
             }
 
             @Override // com.baidu.cyberplayer.sdk.remote.a
@@ -85,7 +87,7 @@ public interface a extends IInterface {
                 Parcel obtain2 = Parcel.obtain();
                 try {
                     obtain.writeInterfaceToken("com.baidu.cyberplayer.sdk.remote.IRemoteExtractor");
-                    this.a.transact(4, obtain, obtain2, 0);
+                    this.f1405a.transact(4, obtain, obtain2, 0);
                     obtain2.readException();
                 } finally {
                     obtain2.recycle();
@@ -94,7 +96,7 @@ public interface a extends IInterface {
             }
         }
 
-        public AbstractBinderC0107a() {
+        public AbstractBinderC0111a() {
             attachInterface(this, "com.baidu.cyberplayer.sdk.remote.IRemoteExtractor");
         }
 
@@ -103,7 +105,7 @@ public interface a extends IInterface {
                 return null;
             }
             IInterface queryLocalInterface = iBinder.queryLocalInterface("com.baidu.cyberplayer.sdk.remote.IRemoteExtractor");
-            return (queryLocalInterface == null || !(queryLocalInterface instanceof a)) ? new C0108a(iBinder) : (a) queryLocalInterface;
+            return (queryLocalInterface == null || !(queryLocalInterface instanceof a)) ? new C0112a(iBinder) : (a) queryLocalInterface;
         }
 
         @Override // android.os.IInterface
@@ -126,11 +128,11 @@ public interface a extends IInterface {
                     return true;
                 case 3:
                     parcel.enforceInterface("com.baidu.cyberplayer.sdk.remote.IRemoteExtractor");
-                    Bundle a = a();
+                    Bundle a2 = a();
                     parcel2.writeNoException();
-                    if (a != null) {
+                    if (a2 != null) {
                         parcel2.writeInt(1);
-                        a.writeToParcel(parcel2, 1);
+                        a2.writeToParcel(parcel2, 1);
                     } else {
                         parcel2.writeInt(0);
                     }

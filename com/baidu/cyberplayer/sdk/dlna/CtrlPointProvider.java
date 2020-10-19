@@ -2,11 +2,11 @@ package com.baidu.cyberplayer.sdk.dlna;
 
 import com.baidu.cyberplayer.sdk.Keep;
 @Keep
-/* loaded from: classes10.dex */
+/* loaded from: classes12.dex */
 public abstract class CtrlPointProvider {
 
     @Keep
-    /* loaded from: classes10.dex */
+    /* loaded from: classes12.dex */
     public interface CtrlPointListener {
         void onComplete();
 

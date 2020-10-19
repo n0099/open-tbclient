@@ -5,9 +5,11 @@ import javax.crypto.Cipher;
 import javax.crypto.NoSuchPaddingException;
 import javax.crypto.spec.IvParameterSpec;
 import javax.crypto.spec.SecretKeySpec;
-/* loaded from: classes6.dex */
+/* loaded from: classes11.dex */
 public class AES {
-    private static final String a = "UTF-8";
+
+    /* renamed from: a  reason: collision with root package name */
+    private static final String f2708a = "UTF-8";
     private static final String b = "AES/CBC/NoPadding";
     private static final String c = "AES";
     private String d;

@@ -23,6 +23,7 @@ import org.json.JSONObject;
 import tbclient.BaijiahaoInfo;
 import tbclient.GodInfo;
 import tbclient.Icon;
+import tbclient.LiveRoomInfo;
 import tbclient.TshowInfo;
 import tbclient.User;
 /* loaded from: classes.dex */
@@ -43,6 +44,7 @@ public class MetaData extends OrmObject implements com.baidu.tbadk.core.view.use
     private int is_manager;
     private int is_myfans;
     private int is_myfriend;
+    private LiveRoomInfo liveRoomInfo;
     private m pendantData;
     public int rankInfluence;
     public String rankNum;
@@ -235,6 +237,10 @@ public class MetaData extends OrmObject implements com.baidu.tbadk.core.view.use
 
     public AlaInfoData getAlaInfo() {
         return this.alaInfo;
+    }
+
+    public LiveRoomInfo getLiveRoomInfo() {
+        return this.liveRoomInfo;
     }
 
     public String getPortraitH() {
@@ -476,6 +482,7 @@ public class MetaData extends OrmObject implements com.baidu.tbadk.core.view.use
                 this.alaInfo.live_status = this.alaUserData.live_status;
                 this.alaInfo.live_id = this.alaUserData.live_id;
             }
+            this.liveRoomInfo = user.live_room_info;
             this.sealPrefix = user.seal_prefix;
             if (user.spring_virtual_user != null && user.spring_virtual_user.is_virtual.intValue() == 1 && !StringUtils.isNull(user.spring_virtual_user.url)) {
                 this.virtualUserUrl = user.spring_virtual_user.url;

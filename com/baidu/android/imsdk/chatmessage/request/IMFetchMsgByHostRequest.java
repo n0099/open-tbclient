@@ -3,6 +3,7 @@ package com.baidu.android.imsdk.chatmessage.request;
 import android.content.Context;
 import android.util.Log;
 import com.baidu.android.imsdk.IMListener;
+import com.baidu.android.imsdk.chatmessage.IFetchMsgByIdExtendListener;
 import com.baidu.android.imsdk.chatmessage.IFetchMsgByIdListener;
 import com.baidu.android.imsdk.chatmessage.messages.ChatMsg;
 import com.baidu.android.imsdk.internal.Constants;
@@ -28,7 +29,7 @@ import java.util.Map;
 import org.apache.http.cookie.SM;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes9.dex */
+/* loaded from: classes5.dex */
 public class IMFetchMsgByHostRequest extends BaseHttpRequest {
     private static final String TAG = "IMFetchMsgByHostRequest";
     private long mBeginid;
@@ -67,11 +68,13 @@ public class IMFetchMsgByHostRequest extends BaseHttpRequest {
         Type type = new Type();
         type.t = 0L;
         int i4 = 0;
+        boolean z = false;
         try {
             JSONObject jSONObject = new JSONObject(str3);
             i3 = jSONObject.getInt("err_code");
             str2 = jSONObject.optString("err_msg", "");
             str4 = jSONObject.optString("request_id", "0");
+            z = jSONObject.optBoolean("has_more", false);
             if (i3 == 0 && jSONObject.has("messages")) {
                 JSONArray jSONArray = jSONObject.getJSONArray("messages");
                 i4 = jSONArray.length();
@@ -102,7 +105,10 @@ public class IMFetchMsgByHostRequest extends BaseHttpRequest {
             });
         }
         IMListener removeListener = ListenerManager.getInstance().removeListener(this.mKey);
-        if (removeListener instanceof IFetchMsgByIdListener) {
+        if (removeListener instanceof IFetchMsgByIdExtendListener) {
+            ((IFetchMsgByIdExtendListener) removeListener).onFetchMsgByIdResult(i3, str2, "0", this.mCategory, this.mContacter, this.mBeginid, this.mEndid, this.mCount, i2, ((Long) type.t).longValue(), arrayList, z);
+            LogUtils.d(TAG, "onSuccess, IFetchMsgByIdExtendListener.onFetchMsgByIdResult");
+        } else if (removeListener instanceof IFetchMsgByIdListener) {
             ((IFetchMsgByIdListener) removeListener).onFetchMsgByIdResult(i3, str2, "0", this.mCategory, this.mContacter, this.mBeginid, this.mEndid, this.mCount, i2, ((Long) type.t).longValue(), arrayList);
         }
     }
@@ -111,17 +117,20 @@ public class IMFetchMsgByHostRequest extends BaseHttpRequest {
     public void onFailure(int i, byte[] bArr, Throwable th) {
         LogUtils.d(TAG, "onFailure errorCode: " + transErrorCode(i, bArr, th).first);
         IMListener removeListener = ListenerManager.getInstance().removeListener(this.mKey);
-        if (removeListener instanceof IFetchMsgByIdListener) {
+        if (removeListener instanceof IFetchMsgByIdExtendListener) {
+            ((IFetchMsgByIdExtendListener) removeListener).onFetchMsgByIdResult(i, "", "0", this.mCategory, this.mContacter, this.mBeginid, this.mEndid, this.mCount, 0, 0L, null, false);
+            LogUtils.d(TAG, "onFailure, IFetchMsgByIdExtendListener.onFetchMsgByIdResult");
+        } else if (removeListener instanceof IFetchMsgByIdListener) {
             ((IFetchMsgByIdListener) removeListener).onFetchMsgByIdResult(i, "", "0", this.mCategory, this.mContacter, this.mBeginid, this.mEndid, this.mCount, 0, 0L, null);
         }
     }
 
     @Override // com.baidu.android.imsdk.utils.BaseHttpRequest, com.baidu.android.imsdk.utils.HttpHelper.Request
     public String getHost() {
-        String str = Constants.URL_HTTP_ONLINE;
+        String str = "https://pim.baidu.com/";
         switch (Utility.readIntData(this.mContext, Constants.KEY_ENV, 0)) {
             case 0:
-                str = Constants.URL_HTTP_ONLINE;
+                str = "https://pim.baidu.com/";
                 break;
             case 1:
             case 2:

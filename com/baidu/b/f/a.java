@@ -1,14 +1,16 @@
 package com.baidu.b.f;
 
 import java.io.ByteArrayOutputStream;
-/* loaded from: classes3.dex */
+/* loaded from: classes7.dex */
 public class a {
-    private String a;
+
+    /* renamed from: a  reason: collision with root package name */
+    private String f1268a;
     private boolean b;
     private boolean c;
 
     public a(String str, boolean z, boolean z2) {
-        this.a = str;
+        this.f1268a = str;
         this.b = z;
         this.c = z2;
     }
@@ -44,7 +46,7 @@ public class a {
                     i2--;
                 }
             }
-            int a = a(i2);
+            int a2 = a(i2);
             iArr[0] = (byte) ((sArr[0] >> 3) & 31);
             iArr[1] = (byte) (((sArr[0] & 7) << 2) | ((sArr[1] >> 6) & 3));
             iArr[2] = (byte) ((sArr[1] >> 1) & 31);
@@ -53,15 +55,15 @@ public class a {
             iArr[5] = (byte) ((sArr[3] >> 2) & 31);
             iArr[6] = (byte) (((sArr[3] & 3) << 3) | ((sArr[4] >> 5) & 7));
             iArr[7] = (byte) (sArr[4] & 31);
-            for (int i4 = 0; i4 < iArr.length - a; i4++) {
-                char charAt = this.a.charAt(iArr[i4]);
+            for (int i4 = 0; i4 < iArr.length - a2; i4++) {
+                char charAt = this.f1268a.charAt(iArr[i4]);
                 if (this.c) {
                     charAt = Character.toLowerCase(charAt);
                 }
                 byteArrayOutputStream.write(charAt);
             }
             if (this.b) {
-                for (int length = iArr.length - a; length < iArr.length; length++) {
+                for (int length = iArr.length - a2; length < iArr.length; length++) {
                     byteArrayOutputStream.write(61);
                 }
             }

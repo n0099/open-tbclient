@@ -19,7 +19,7 @@ import java.util.Iterator;
 import java.util.List;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes7.dex */
+/* loaded from: classes10.dex */
 public class PublicMsg implements Parcelable {
     public static final Parcelable.Creator<PublicMsg> CREATOR = new Parcelable.Creator<PublicMsg>() { // from class: com.baidu.android.pushservice.message.PublicMsg.2
         /* JADX DEBUG: Method merged with bridge method */
@@ -127,9 +127,9 @@ public class PublicMsg implements Parcelable {
     }
 
     private void sendResult(final Context context, String str, int i) {
-        final String a = com.baidu.android.pushservice.j.a(context).a();
+        final String a2 = com.baidu.android.pushservice.j.a(context).a();
         final String b = com.baidu.android.pushservice.j.a(context).b();
-        if (TextUtils.isEmpty(a) || TextUtils.isEmpty(b)) {
+        if (TextUtils.isEmpty(a2) || TextUtils.isEmpty(b)) {
             com.baidu.android.pushservice.f.a.b(TAG, "Fail Send Public msg result. Token invalid!", context.getApplicationContext());
             return;
         }
@@ -152,7 +152,7 @@ public class PublicMsg implements Parcelable {
                     hashMap.put("method", "linkhit");
                     hashMap.put("channel_token", b);
                     hashMap.put("data", jSONObject2);
-                    if (com.baidu.android.pushservice.e.b.a(context, com.baidu.android.pushservice.h.e() + a, "POST", hashMap).b() == 200) {
+                    if (com.baidu.android.pushservice.e.b.a(context, com.baidu.android.pushservice.h.e() + a2, "POST", hashMap).b() == 200) {
                         com.baidu.android.pushservice.f.a.c(PublicMsg.TAG, "<<< public msg send result return OK!", context.getApplicationContext());
                     }
                 } catch (Exception e2) {

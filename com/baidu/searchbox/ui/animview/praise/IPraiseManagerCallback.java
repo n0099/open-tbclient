@@ -1,5 +1,5 @@
 package com.baidu.searchbox.ui.animview.praise;
-/* loaded from: classes11.dex */
+/* loaded from: classes9.dex */
 public interface IPraiseManagerCallback {
     int getAnchorHeight();
 
@@ -13,7 +13,7 @@ public interface IPraiseManagerCallback {
 
     String getPraiseSource();
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes9.dex */
     public static class DefaultStub implements IPraiseManagerCallback {
         @Override // com.baidu.searchbox.ui.animview.praise.IPraiseManagerCallback
         public int getAnchorLeft() {

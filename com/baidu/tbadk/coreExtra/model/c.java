@@ -17,7 +17,7 @@ import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class c {
-    public void dd(JSONObject jSONObject) {
+    public void dk(JSONObject jSONObject) {
         JSONArray jSONArray;
         JSONObject optJSONObject;
         String str;
@@ -56,11 +56,11 @@ public class c {
                     if (StringUtils.isNull(loadString)) {
                         inst.saveString("launch_config_md5", str);
                         inst.saveString("launch_config_remote_url", str2);
-                        BC(str2);
+                        Co(str2);
                     } else if (!TextUtils.equals(loadString, str)) {
                         inst.saveString("launch_config_md5", str);
                         inst.saveString("launch_config_remote_url", str2);
-                        BC(str2);
+                        Co(str2);
                     }
                 }
             }
@@ -68,7 +68,7 @@ public class c {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void bpS() {
+    public void bsC() {
         String loadString = TbadkSettings.getInst().loadString("launch_config_remote_url", null);
         if (!StringUtils.isNull(loadString)) {
             TbadkSettings.getInst().saveString("launch_config_local_url", loadString);
@@ -79,10 +79,10 @@ public class c {
         return TbadkSettings.getInst().loadString("launch_config_local_url", "");
     }
 
-    public void BC(String str) {
+    public void Co(String str) {
         String localUrl = getLocalUrl();
         if (!TextUtils.equals(localUrl, str) || !isFileExist(localUrl)) {
-            dI(str, localUrl);
+            dN(str, localUrl);
         }
     }
 
@@ -91,7 +91,7 @@ public class c {
         return GetFile != null && GetFile.exists() && GetFile.isFile();
     }
 
-    private void dI(String str, String str2) {
+    private void dN(String str, String str2) {
         if (j.isWifiNet()) {
             new a(str, av.getNameMd5FromUrl(str), str2).execute(new String[0]);
         }
@@ -100,7 +100,7 @@ public class c {
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes.dex */
     public static class a extends BdAsyncTask<String, Integer, Boolean> {
-        private aa bGb = null;
+        private aa bML = null;
         private final String mFile;
         private final String mLocalUrl;
         private final String mRemoteUrl;
@@ -117,8 +117,8 @@ public class c {
         public Boolean doInBackground(String... strArr) {
             Boolean bool = false;
             try {
-                this.bGb = new aa(this.mRemoteUrl);
-                bool = Boolean.valueOf(this.bGb.a(this.mFile + ".tmp", new Handler(Looper.getMainLooper()), 900002));
+                this.bML = new aa(this.mRemoteUrl);
+                bool = Boolean.valueOf(this.bML.a(this.mFile + ".tmp", new Handler(Looper.getMainLooper()), 900002));
                 if (bool != null && bool.booleanValue()) {
                     if (!StringUtils.isNull(n.renameTo(null, this.mFile + ".tmp", null, this.mFile)) && !TextUtils.isEmpty(this.mRemoteUrl) && !this.mRemoteUrl.equals(this.mLocalUrl)) {
                         n.DelFile(av.getNameMd5FromUrl(this.mLocalUrl));
@@ -137,7 +137,7 @@ public class c {
         public void onPostExecute(Boolean bool) {
             super.onPostExecute((a) bool);
             if (bool != null && bool.booleanValue()) {
-                new c().bpS();
+                new c().bsC();
             }
         }
     }

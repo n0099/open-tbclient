@@ -21,9 +21,11 @@ import com.baidu.wallet.core.SDKBaseActivity;
 import com.baidu.wallet.core.utils.LogUtil;
 import com.baidu.wallet.paysdk.ui.base.DxmPayBaseActivity;
 import java.util.regex.Pattern;
-/* loaded from: classes15.dex */
+/* loaded from: classes16.dex */
 public class BankCardResultActivity extends DxmPayBaseActivity implements View.OnClickListener {
-    private static final String a = BankCardResultActivity.class.getSimpleName();
+
+    /* renamed from: a  reason: collision with root package name */
+    private static final String f3911a = BankCardResultActivity.class.getSimpleName();
     private static Pattern i = Pattern.compile("\\d{1,20}");
     private TextView b;
     private View c;
@@ -105,7 +107,7 @@ public class BankCardResultActivity extends DxmPayBaseActivity implements View.O
 
     public void onModuleEvent(EventBus.Event event) {
         if (!"BankCardResult".equals(event.mEventKey)) {
-            LogUtil.e(a, "invalid bankcad result key", (Throwable) null);
+            LogUtil.e(f3911a, "invalid bankcad result key", (Throwable) null);
             finish();
             overridePendingTransition(0, 0);
         }
@@ -191,7 +193,7 @@ public class BankCardResultActivity extends DxmPayBaseActivity implements View.O
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes15.dex */
+    /* loaded from: classes16.dex */
     public class a implements InputFilter {
         a() {
         }
@@ -204,15 +206,15 @@ public class BankCardResultActivity extends DxmPayBaseActivity implements View.O
             if (i2 - i > 20) {
                 i2 = i + 20;
             }
-            int a = a();
+            int a2 = a();
             int i5 = (i2 - i) - (i4 - i3);
-            if (a + i5 > 20) {
+            if (a2 + i5 > 20) {
                 if (spanned.length() == 0) {
                     return null;
                 }
                 return "";
             }
-            if (a + i5 > 10) {
+            if (a2 + i5 > 10) {
                 BankCardResultActivity.this.b.setEnabled(true);
                 BankCardResultActivity.this.b.setTextColor(-1);
             } else {

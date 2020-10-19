@@ -1,22 +1,22 @@
 package master.flame.danmaku.danmaku.model;
 /* loaded from: classes6.dex */
 public class i extends d {
-    private float oGi;
-    private float oGj;
-    private int oGk;
+    private float oVx;
+    private float oVy;
+    private int oVz;
     private float x = 0.0f;
     protected float y = -1.0f;
-    private float[] oGh = null;
+    private float[] oVw = null;
 
     public i(g gVar) {
-        this.oFO = gVar;
+        this.oVd = gVar;
     }
 
     @Override // master.flame.danmaku.danmaku.model.d
     public void a(m mVar, float f, float f2) {
-        if (this.oFn != null) {
-            long elO = this.oFn.oGd - elO();
-            if (elO > 0 && elO < this.oFO.value) {
+        if (this.oUC != null) {
+            long epB = this.oUC.oVs - epB();
+            if (epB > 0 && epB < this.oVd.value) {
                 if (!isShown()) {
                     this.x = b(mVar);
                     this.y = f2;
@@ -32,50 +32,50 @@ public class i extends d {
     }
 
     protected float b(m mVar) {
-        if (this.oGk == mVar.getWidth() && this.oGj == this.oFM) {
-            return this.oGi;
+        if (this.oVz == mVar.getWidth() && this.oVy == this.oVb) {
+            return this.oVx;
         }
-        float width = (mVar.getWidth() - this.oFM) / 2.0f;
-        this.oGk = mVar.getWidth();
-        this.oGj = this.oFM;
-        this.oGi = width;
+        float width = (mVar.getWidth() - this.oVb) / 2.0f;
+        this.oVz = mVar.getWidth();
+        this.oVy = this.oVb;
+        this.oVx = width;
         return width;
     }
 
     @Override // master.flame.danmaku.danmaku.model.d
     public float[] a(m mVar, long j) {
-        if (!elC()) {
+        if (!epp()) {
             return null;
         }
         float b = b(mVar);
-        if (this.oGh == null) {
-            this.oGh = new float[4];
+        if (this.oVw == null) {
+            this.oVw = new float[4];
         }
-        this.oGh[0] = b;
-        this.oGh[1] = this.y;
-        this.oGh[2] = b + this.oFM;
-        this.oGh[3] = this.y + this.oFN;
-        return this.oGh;
+        this.oVw[0] = b;
+        this.oVw[1] = this.y;
+        this.oVw[2] = b + this.oVb;
+        this.oVw[3] = this.y + this.oVc;
+        return this.oVw;
     }
 
     @Override // master.flame.danmaku.danmaku.model.d
-    public float elJ() {
+    public float epw() {
         return this.x;
     }
 
     @Override // master.flame.danmaku.danmaku.model.d
-    public float elK() {
+    public float epx() {
         return this.y;
     }
 
     @Override // master.flame.danmaku.danmaku.model.d
-    public float elL() {
-        return this.x + this.oFM;
+    public float epy() {
+        return this.x + this.oVb;
     }
 
     @Override // master.flame.danmaku.danmaku.model.d
-    public float elM() {
-        return this.y + this.oFN;
+    public float epz() {
+        return this.y + this.oVc;
     }
 
     @Override // master.flame.danmaku.danmaku.model.d

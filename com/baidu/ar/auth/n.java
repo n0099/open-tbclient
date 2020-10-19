@@ -7,7 +7,7 @@ import com.xiaomi.mipush.sdk.Constants;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
-/* loaded from: classes10.dex */
+/* loaded from: classes14.dex */
 class n implements m {
     private final List<String> jN = new ArrayList();
     private long jO;
@@ -29,11 +29,11 @@ class n implements m {
         boolean z;
         String aQ = com.baidu.ar.g.l.aQ(context.getPackageName());
         if (this.jO > 0) {
-            long[] a = o.a(10, 50L);
-            if (a[0] == 1) {
-                z = a[1] <= this.jO;
+            long[] a2 = o.a(10, 50L);
+            if (a2[0] == 1) {
+                z = a2[1] <= this.jO;
             } else {
-                com.baidu.ar.g.b.b("ARAuth", "time err. " + a[1]);
+                com.baidu.ar.g.b.b("ARAuth", "time err. " + a2[1]);
                 z = true;
             }
         } else {
@@ -58,12 +58,12 @@ class n implements m {
     @Override // com.baidu.ar.auth.m
     public void doAuth(Context context, final k kVar) {
         final String[] strArr = new String[1];
-        final boolean a = a(context, strArr);
+        final boolean a2 = a(context, strArr);
         r.a(new Runnable() { // from class: com.baidu.ar.auth.n.1
             @Override // java.lang.Runnable
             public void run() {
                 if (kVar != null) {
-                    if (a) {
+                    if (a2) {
                         kVar.onSuccess();
                     } else {
                         kVar.onError(strArr[0], 0);

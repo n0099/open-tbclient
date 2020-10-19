@@ -3,7 +3,7 @@ package com.baidu.ar.imu;
 import android.content.Context;
 import android.hardware.SensorManager;
 import java.util.HashMap;
-/* loaded from: classes10.dex */
+/* loaded from: classes14.dex */
 public class IMUController implements c {
     private static final String TAG = IMUController.class.getSimpleName();
     private SensorManager rq;

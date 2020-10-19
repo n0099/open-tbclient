@@ -4,16 +4,18 @@ import android.graphics.BitmapFactory;
 import android.os.Handler;
 import java.util.HashMap;
 import java.util.List;
-/* loaded from: classes21.dex */
+/* loaded from: classes22.dex */
 final class x implements Runnable {
-    final /* synthetic */ String a;
+
+    /* renamed from: a  reason: collision with root package name */
+    final /* synthetic */ String f3893a;
     final /* synthetic */ int b;
     final /* synthetic */ FeedbackEditActivity c;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public x(FeedbackEditActivity feedbackEditActivity, String str, int i) {
         this.c = feedbackEditActivity;
-        this.a = str;
+        this.f3893a = str;
         this.b = i;
     }
 
@@ -27,8 +29,8 @@ final class x implements Runnable {
         List list;
         List list2;
         List list3;
-        com.baidu.ufosdk.f.c.c(" --*^o^*-- return : " + this.a);
-        b = FeedbackEditActivity.b(BitmapFactory.decodeFile(this.a));
+        com.baidu.ufosdk.f.c.c(" --*^o^*-- return : " + this.f3893a);
+        b = FeedbackEditActivity.b(BitmapFactory.decodeFile(this.f3893a));
         if (b == null || b.length == 0) {
             return;
         }
@@ -45,7 +47,7 @@ final class x implements Runnable {
             com.baidu.ufosdk.f.c.a("arrayList error in readBitmapFromFile!", e);
         }
         hashMap = this.c.r;
-        hashMap.put(new StringBuilder().append(this.b).toString(), this.a);
+        hashMap.put(new StringBuilder().append(this.b).toString(), this.f3893a);
         StringBuilder sb = new StringBuilder("*^o^*-- picPathMap.size : ");
         hashMap2 = this.c.r;
         com.baidu.ufosdk.f.c.c(sb.append(hashMap2.size()).toString());

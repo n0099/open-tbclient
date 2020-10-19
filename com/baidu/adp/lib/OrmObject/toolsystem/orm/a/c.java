@@ -16,14 +16,14 @@ public class c implements h {
 
     @Override // com.baidu.adp.lib.OrmObject.toolsystem.orm.a.h
     public Object a(com.baidu.adp.lib.OrmObject.toolsystem.orm.d.c cVar) {
-        Type[] lP = cVar.lP();
+        Type[] lQ = cVar.lQ();
         Set<String> keySet = this.bundle.keySet();
         JSONObject jSONObject = new JSONObject();
         for (String str : keySet) {
             Object obj = this.bundle.get(str);
-            if (lP != null && lP.length >= 2) {
+            if (lQ != null && lQ.length >= 2) {
                 try {
-                    jSONObject.put(str, com.baidu.adp.lib.OrmObject.toolsystem.orm.d.f.v(obj).a(new com.baidu.adp.lib.OrmObject.toolsystem.orm.d.c(lP[1])));
+                    jSONObject.put(str, com.baidu.adp.lib.OrmObject.toolsystem.orm.d.f.v(obj).a(new com.baidu.adp.lib.OrmObject.toolsystem.orm.d.c(lQ[1])));
                 } catch (JSONException e) {
                     e.printStackTrace();
                 }
@@ -55,15 +55,15 @@ public class c implements h {
 
     @Override // com.baidu.adp.lib.OrmObject.toolsystem.orm.a.h
     public Object e(com.baidu.adp.lib.OrmObject.toolsystem.orm.d.c cVar) {
-        Object a = a(cVar);
-        if (a != null) {
-            if (a instanceof JSONObject) {
-                return a.toString();
+        Object a2 = a(cVar);
+        if (a2 != null) {
+            if (a2 instanceof JSONObject) {
+                return a2.toString();
             }
-            if (a instanceof JSONArray) {
-                return a.toString();
+            if (a2 instanceof JSONArray) {
+                return a2.toString();
             }
-            return a;
+            return a2;
         }
         return null;
     }

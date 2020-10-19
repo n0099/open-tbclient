@@ -1,9 +1,11 @@
 package com.vivo.push.model;
 
 import android.text.TextUtils;
-/* loaded from: classes12.dex */
+/* loaded from: classes15.dex */
 public final class b {
-    private String a;
+
+    /* renamed from: a  reason: collision with root package name */
+    private String f4685a;
     private String d;
     private long b = -1;
     private int c = -1;
@@ -14,11 +16,11 @@ public final class b {
         if (TextUtils.isEmpty(str)) {
             throw new IllegalAccessError("PushPackageInfo need a non-null pkgName.");
         }
-        this.a = str;
+        this.f4685a = str;
     }
 
     public final String a() {
-        return this.a;
+        return this.f4685a;
     }
 
     public final long b() {
@@ -54,6 +56,6 @@ public final class b {
     }
 
     public final String toString() {
-        return "PushPackageInfo{mPackageName=" + this.a + ", mPushVersion=" + this.b + ", mPackageVersion=" + this.c + ", mInBlackList=" + this.e + ", mPushEnable=" + this.f + "}";
+        return "PushPackageInfo{mPackageName=" + this.f4685a + ", mPushVersion=" + this.b + ", mPackageVersion=" + this.c + ", mInBlackList=" + this.e + ", mPushEnable=" + this.f + "}";
     }
 }

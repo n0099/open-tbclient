@@ -20,13 +20,15 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
-/* loaded from: classes12.dex */
+/* loaded from: classes15.dex */
 public class b {
-    private static Context a;
+
+    /* renamed from: a  reason: collision with root package name */
+    private static Context f3663a;
     private static Map<Integer, a> b = new HashMap();
     private static Map<Integer, List<String>> c = new HashMap();
     private static List<String> d = new ArrayList();
-    private static a e = new a.AbstractBinderC0320a() { // from class: com.baidu.sofire.mutiprocess.b.1
+    private static a e = new a.AbstractBinderC0337a() { // from class: com.baidu.sofire.mutiprocess.b.1
         @Override // com.baidu.sofire.mutiprocess.a
         public final Bundle a(Bundle bundle) throws RemoteException {
             return b.f(bundle);
@@ -221,10 +223,10 @@ public class b {
             bundle.setClassLoader(b.class.getClassLoader());
             int i = bundle.getInt("bundle_key_pid");
             BinderHolder binderHolder = (BinderHolder) bundle.getParcelable("bundle_key_binder_holder");
-            if (i <= 0 || binderHolder == null || binderHolder.a == null) {
+            if (i <= 0 || binderHolder == null || binderHolder.f3661a == null) {
                 return a(-101);
             }
-            b.put(Integer.valueOf(i), a.AbstractBinderC0320a.a(binderHolder.a));
+            b.put(Integer.valueOf(i), a.AbstractBinderC0337a.a(binderHolder.f3661a));
             if (d.size() <= 0) {
                 return a(0);
             }
@@ -308,7 +310,7 @@ public class b {
         if (context != null) {
             try {
                 if (e.c(context, "ampf") && Build.VERSION.SDK_INT >= 11) {
-                    a = context.getApplicationContext();
+                    f3663a = context.getApplicationContext();
                     ContentResolver contentResolver = context.getApplicationContext().getContentResolver();
                     Bundle bundle = new Bundle();
                     bundle.putInt("bundle_key_pid", Process.myPid());
@@ -328,24 +330,24 @@ public class b {
         } catch (Throwable th) {
             e.a();
         }
-        if (a == null) {
+        if (f3663a == null) {
             return a(-204);
         } else if (bundle == null) {
             return a(-201);
         } else {
             if (Build.VERSION.SDK_INT >= 11) {
-                return a.getApplicationContext().getContentResolver().call(b(), "sub_process_call_main_plugin", (String) null, bundle);
+                return f3663a.getApplicationContext().getContentResolver().call(b(), "sub_process_call_main_plugin", (String) null, bundle);
             }
             return a(-200);
         }
     }
 
     private static Uri b() {
-        if (a == null) {
+        if (f3663a == null) {
             return null;
         }
         StringBuilder sb = new StringBuilder("content://");
-        sb.append(a.getPackageName()).append(".sofire.ac.provider");
+        sb.append(f3663a.getPackageName()).append(".sofire.ac.provider");
         return Uri.parse(sb.toString());
     }
 
@@ -407,14 +409,14 @@ public class b {
     private static Bundle g(Bundle bundle) {
         Bundle a2;
         try {
-            if (a == null) {
+            if (f3663a == null) {
                 a2 = a((int) OneKeyLoginResult.ONE_KEY_LOGIN_CODE_IN_GUIDE_PROCESS);
             } else {
                 String string = bundle.getString("bundle_key_plugin_package_name");
                 if (TextUtils.isEmpty(string)) {
                     a2 = a(-101);
                 } else {
-                    c a3 = c.a(a);
+                    c a3 = c.a(f3663a);
                     if (a3 == null) {
                         a2 = a((int) OneKeyLoginResult.ONE_KEY_LOGIN_CODE_GET_JS_CODE_FAIL);
                     } else if (a3.b(string)) {
@@ -434,7 +436,7 @@ public class b {
     private static Bundle h(Bundle bundle) {
         Bundle a2;
         try {
-            if (a == null) {
+            if (f3663a == null) {
                 a2 = a((int) OneKeyLoginResult.ONE_KEY_LOGIN_CODE_IN_GUIDE_PROCESS);
             } else {
                 String string = bundle.getString("bundle_key_plugin_package_name");

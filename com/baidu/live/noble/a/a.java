@@ -20,7 +20,7 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes4.dex */
 public class a extends BaseAdapter {
-    private String bhk;
+    private String bla;
     private boolean mIsHost;
     private List<com.baidu.live.noble.data.a> mList = new ArrayList();
     private String mLiveId;
@@ -29,7 +29,7 @@ public class a extends BaseAdapter {
     public a(TbPageContext tbPageContext, String str, String str2, boolean z) {
         this.mTbPageContext = tbPageContext;
         this.mLiveId = str;
-        this.bhk = str2;
+        this.bla = str2;
         this.mIsHost = z;
     }
 
@@ -64,31 +64,31 @@ public class a extends BaseAdapter {
 
     @Override // android.widget.Adapter
     public View getView(int i, View view, ViewGroup viewGroup) {
-        C0181a c0181a;
+        C0189a c0189a;
         if (view == null || view.getTag() == null) {
             view = LayoutInflater.from(this.mTbPageContext.getPageActivity()).inflate(a.h.ala_noble_item_layout, (ViewGroup) null);
-            c0181a = new C0181a();
-            c0181a.bil = (HeadImageView) view.findViewById(a.g.avatar_noble);
-            c0181a.bim = (TextView) view.findViewById(a.g.tv_noble_name);
-            c0181a.bip = (ImageView) view.findViewById(a.g.avatar_noble_wrapper_box);
-            c0181a.bin = (TbImageView) view.findViewById(a.g.mark_noble);
-            c0181a.bin.setDefaultBgResource(a.f.ala_noble_ulist_default_mark_bg);
-            a(c0181a.bil);
-            view.setTag(c0181a);
+            c0189a = new C0189a();
+            c0189a.blZ = (HeadImageView) view.findViewById(a.g.avatar_noble);
+            c0189a.bma = (TextView) view.findViewById(a.g.tv_noble_name);
+            c0189a.bmc = (ImageView) view.findViewById(a.g.avatar_noble_wrapper_box);
+            c0189a.bmb = (TbImageView) view.findViewById(a.g.mark_noble);
+            c0189a.bmb.setDefaultBgResource(a.f.ala_noble_ulist_default_mark_bg);
+            a(c0189a.blZ);
+            view.setTag(c0189a);
         } else {
-            c0181a = (C0181a) view.getTag();
+            c0189a = (C0189a) view.getTag();
         }
         final com.baidu.live.noble.data.a aVar = (this.mList == null || this.mList.size() <= i) ? null : this.mList.get(i);
         if (aVar != null) {
-            c0181a.bim.setText(aVar.biC);
-            c0181a.bin.startLoad(aVar.icon_url, 10, false);
-            c0181a.bil.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.live.noble.a.a.1
+            c0189a.bma.setText(aVar.bmp);
+            c0189a.bmb.startLoad(aVar.icon_url, 10, false);
+            c0189a.blZ.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.live.noble.a.a.1
                 @Override // android.view.View.OnClickListener
                 public void onClick(View view2) {
                     a.this.a(aVar);
                 }
             });
-            a(aVar, c0181a.bil, c0181a.bip);
+            a(aVar, c0189a.blZ, c0189a.bmc);
         }
         return view;
     }
@@ -103,21 +103,21 @@ public class a extends BaseAdapter {
 
     private void a(com.baidu.live.noble.data.a aVar, HeadImageView headImageView, ImageView imageView) {
         if (aVar != null && headImageView != null && imageView != null) {
-            headImageView.startLoad(aVar.biB, 10, false);
+            headImageView.startLoad(aVar.bmo, 10, false);
             int dimens = BdUtilHelper.getDimens(this.mTbPageContext.getPageActivity(), a.e.sdk_ds8);
-            if (aVar.biD == 7) {
+            if (aVar.bmq == 7) {
                 imageView.setVisibility(0);
                 imageView.setImageResource(a.f.sdk_pic_noble_avatar_box_king);
                 headImageView.setPadding(dimens, dimens, dimens, dimens);
-            } else if (aVar.biD == 6) {
+            } else if (aVar.bmq == 6) {
                 imageView.setVisibility(0);
                 imageView.setImageResource(a.f.sdk_pic_noble_avatar_box_duke);
                 headImageView.setPadding(dimens, dimens, dimens, dimens);
-            } else if (aVar.biD == 5) {
+            } else if (aVar.bmq == 5) {
                 imageView.setVisibility(0);
                 imageView.setImageResource(a.f.sdk_pic_noble_avatar_box_marquis);
                 headImageView.setPadding(dimens, dimens, dimens, dimens);
-            } else if (aVar.biD == 4) {
+            } else if (aVar.bmq == 4) {
                 imageView.setVisibility(0);
                 imageView.setImageResource(a.f.sdk_pic_noble_avatar_box_earl);
                 headImageView.setPadding(dimens, dimens, dimens, dimens);
@@ -131,19 +131,19 @@ public class a extends BaseAdapter {
     /* JADX INFO: Access modifiers changed from: private */
     public void a(com.baidu.live.noble.data.a aVar) {
         if (aVar != null) {
-            MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new AlaPersonCardActivityConfig(this.mTbPageContext.getPageActivity(), aVar.user_id + "", aVar.biC, aVar.biB, 0, 0, null, null, 0L, 0L, 0L, 0, null, this.mLiveId, this.bhk != null && this.bhk.equals(TbadkCoreApplication.getCurrentAccount()), this.bhk, null, aVar.biC, "")));
+            MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new AlaPersonCardActivityConfig(this.mTbPageContext.getPageActivity(), aVar.user_id + "", aVar.bmp, aVar.bmo, 0, 0, null, null, 0L, 0L, 0L, 0, null, this.mLiveId, this.bla != null && this.bla.equals(TbadkCoreApplication.getCurrentAccount()), this.bla, null, aVar.bmp, "")));
         }
     }
 
     /* renamed from: com.baidu.live.noble.a.a$a  reason: collision with other inner class name */
     /* loaded from: classes4.dex */
-    private class C0181a {
-        public HeadImageView bil;
-        public TextView bim;
-        public TbImageView bin;
-        public ImageView bip;
+    private class C0189a {
+        public HeadImageView blZ;
+        public TextView bma;
+        public TbImageView bmb;
+        public ImageView bmc;
 
-        private C0181a() {
+        private C0189a() {
         }
     }
 }

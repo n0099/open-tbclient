@@ -10,33 +10,33 @@ import android.view.animation.LinearInterpolator;
 import com.baidu.mobstat.Config;
 import java.io.IOException;
 import java.lang.ref.WeakReference;
-/* loaded from: classes6.dex */
+/* loaded from: classes10.dex */
 class q {
-    private static SparseArrayCompat<WeakReference<Interpolator>> GD;
+    private static SparseArrayCompat<WeakReference<Interpolator>> GX;
     private static final Interpolator LINEAR_INTERPOLATOR = new LinearInterpolator();
 
     q() {
     }
 
-    private static SparseArrayCompat<WeakReference<Interpolator>> kQ() {
-        if (GD == null) {
-            GD = new SparseArrayCompat<>();
+    private static SparseArrayCompat<WeakReference<Interpolator>> kR() {
+        if (GX == null) {
+            GX = new SparseArrayCompat<>();
         }
-        return GD;
+        return GX;
     }
 
     @Nullable
     private static WeakReference<Interpolator> V(int i) {
         WeakReference<Interpolator> weakReference;
         synchronized (q.class) {
-            weakReference = kQ().get(i);
+            weakReference = kR().get(i);
         }
         return weakReference;
     }
 
     private static void a(int i, WeakReference<Interpolator> weakReference) {
         synchronized (q.class) {
-            GD.put(i, weakReference);
+            GX.put(i, weakReference);
         }
     }
 
@@ -232,8 +232,8 @@ class q {
             interpolator = LINEAR_INTERPOLATOR;
         }
         com.airbnb.lottie.e.a<T> aVar = new com.airbnb.lottie.e.a<>(eVar, t2, t3, interpolator, f2, null);
-        aVar.Hd = pointF6;
-        aVar.He = pointF7;
+        aVar.Ht = pointF6;
+        aVar.Hu = pointF7;
         return aVar;
     }
 

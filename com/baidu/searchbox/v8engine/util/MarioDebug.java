@@ -1,5 +1,5 @@
 package com.baidu.searchbox.v8engine.util;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public class MarioDebug {
     public static final boolean DEBUG_ALTERNATIVE_PATH = false;
     public static final boolean DEBUG_PERFORMANCE = false;

@@ -4,26 +4,26 @@ import android.content.Context;
 /* loaded from: classes.dex */
 public class m {
     private Context context;
-    public n eMS;
-    public int eNF;
-    public int eNG;
-    public int eNH;
-    public boolean eNI;
-    public boolean eNJ;
-    public int eNL;
-    public int eNM;
-    public int[] eNO;
-    public boolean eNP;
+    public n eYZ;
+    public int eZM;
+    public int eZN;
+    public int eZO;
+    public boolean eZP;
+    public boolean eZQ;
+    public int eZS;
+    public int eZT;
+    public int[] eZV;
+    public boolean eZW;
     public int id;
     public String name;
-    public boolean eNK = true;
-    public boolean eNN = false;
-    private boolean eNQ = true;
+    public boolean eZR = true;
+    public boolean eZU = false;
+    private boolean eZX = true;
 
     public m(String str, int i, int i2) {
         this.name = str;
         this.id = i;
-        this.eNL = i2;
+        this.eZS = i2;
     }
 
     public m(Context context, String str, int i) {
@@ -36,7 +36,7 @@ public class m {
         this.name = str;
         this.id = i;
         this.context = context;
-        this.eNL = i2;
+        this.eZS = i2;
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -48,14 +48,14 @@ public class m {
         return true;
     }
 
-    public void jk(boolean z) {
+    public void jI(boolean z) {
     }
 
-    public void jl(boolean z) {
-        this.eNQ = z;
+    public void jJ(boolean z) {
+        this.eZX = z;
     }
 
-    public boolean bsL() {
-        return this.eNQ;
+    public boolean bvv() {
+        return this.eZX;
     }
 }

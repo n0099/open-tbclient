@@ -3,16 +3,16 @@ package com.baidu.live.gift.a;
 import org.json.JSONObject;
 /* loaded from: classes4.dex */
 public class a {
-    public String aUV;
-    public String aUW;
-    public String aUX;
-    public String aUY;
+    public String aYg;
+    public String aYh;
+    public String aYi;
+    public String aYj;
 
     public a(String str, String str2, String str3, String str4) {
-        this.aUV = str;
-        this.aUW = str2;
-        this.aUX = str3;
-        this.aUY = str4;
+        this.aYg = str;
+        this.aYh = str2;
+        this.aYi = str3;
+        this.aYj = str4;
     }
 
     public static a F(JSONObject jSONObject) {

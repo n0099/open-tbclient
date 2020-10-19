@@ -27,12 +27,14 @@ import java.util.concurrent.TimeUnit;
 import java.util.concurrent.TimeoutException;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes15.dex */
+/* loaded from: classes17.dex */
 public class an {
     private static volatile String c;
     private static volatile int d = 0;
     private final Handler b = new Handler(Looper.getMainLooper());
-    private final b a = new b();
+
+    /* renamed from: a  reason: collision with root package name */
+    private final b f2537a = new b();
 
     public static void a() {
         d = 0;
@@ -181,8 +183,8 @@ public class an {
 
     public Bitmap b(Activity activity) {
         List list;
-        this.a.a(activity);
-        FutureTask futureTask = new FutureTask(this.a);
+        this.f2537a.a(activity);
+        FutureTask futureTask = new FutureTask(this.f2537a);
         this.b.post(futureTask);
         List emptyList = Collections.emptyList();
         if (futureTask != null) {
@@ -202,20 +204,22 @@ public class an {
         if (emptyList.size() == 0) {
             return null;
         }
-        return ((c) emptyList.get(0)).c.a;
+        return ((c) emptyList.get(0)).c.f2538a;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes15.dex */
+    /* loaded from: classes17.dex */
     public static class b implements Callable<List<c>> {
-        private Activity a;
+
+        /* renamed from: a  reason: collision with root package name */
+        private Activity f2539a;
         private final int e = 160;
         private final DisplayMetrics c = new DisplayMetrics();
         private final List<c> b = new ArrayList();
         private final a d = new a();
 
         public void a(Activity activity) {
-            this.a = activity;
+            this.f2539a = activity;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -224,7 +228,7 @@ public class an {
         public List<c> call() throws Exception {
             this.b.clear();
             HashSet<Activity> hashSet = new HashSet(1);
-            hashSet.add(this.a);
+            hashSet.add(this.f2539a);
             for (Activity activity : hashSet) {
                 String canonicalName = activity.getClass().getCanonicalName();
                 View b = bj.b(activity);
@@ -241,11 +245,11 @@ public class an {
         }
 
         private void b() {
-            ai.a(this.a, false);
+            ai.a(this.f2539a, false);
         }
 
         private void c() {
-            ai.a(this.a, true);
+            ai.a(this.f2539a, true);
         }
 
         /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [359=5] */
@@ -334,38 +338,42 @@ public class an {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes15.dex */
+    /* loaded from: classes17.dex */
     public static class a {
         private final Paint b = new Paint(2);
-        private Bitmap a = null;
+
+        /* renamed from: a  reason: collision with root package name */
+        private Bitmap f2538a = null;
 
         public synchronized void a(int i, int i2, int i3, Bitmap bitmap) {
-            if (this.a == null || this.a.getWidth() != i || this.a.getHeight() != i2) {
+            if (this.f2538a == null || this.f2538a.getWidth() != i || this.f2538a.getHeight() != i2) {
                 try {
-                    this.a = Bitmap.createBitmap(i, i2, Bitmap.Config.RGB_565);
+                    this.f2538a = Bitmap.createBitmap(i, i2, Bitmap.Config.RGB_565);
                 } catch (OutOfMemoryError e) {
-                    this.a = null;
+                    this.f2538a = null;
                 }
-                if (this.a != null) {
-                    this.a.setDensity(i3);
+                if (this.f2538a != null) {
+                    this.f2538a.setDensity(i3);
                 }
             }
-            if (this.a != null) {
-                new Canvas(this.a).drawBitmap(bitmap, 0.0f, 0.0f, this.b);
+            if (this.f2538a != null) {
+                new Canvas(this.f2538a).drawBitmap(bitmap, 0.0f, 0.0f, this.b);
             }
         }
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes15.dex */
+    /* loaded from: classes17.dex */
     public static class c {
-        public final String a;
+
+        /* renamed from: a  reason: collision with root package name */
+        public final String f2540a;
         public final View b;
         public a c = null;
         public float d = 1.0f;
 
         public c(String str, View view) {
-            this.a = str;
+            this.f2540a = str;
             this.b = view;
         }
     }

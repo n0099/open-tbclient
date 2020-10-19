@@ -17,11 +17,11 @@ import java.util.Map;
 import java.util.TreeMap;
 /* loaded from: classes16.dex */
 public class c {
-    private static MediaCodecInfo[] bEg;
+    private static MediaCodecInfo[] bKI;
     private static Map<String, Integer> d = new TreeMap(String.CASE_INSENSITIVE_ORDER);
     private static Map<String, MediaCodecInfo> f = new HashMap();
     public int b = 0;
-    public MediaCodecInfo bEf;
+    public MediaCodecInfo bKH;
     public String c;
 
     static {
@@ -102,34 +102,34 @@ public class c {
             }
         }
         c cVar = new c();
-        cVar.bEf = mediaCodecInfo;
+        cVar.bKH = mediaCodecInfo;
         cVar.b = i;
         cVar.c = str;
         return cVar;
     }
 
     public static synchronized String a(String str) {
-        String a;
+        String a2;
         synchronized (c.class) {
-            a = a(str, -1, -1, 0.0d);
+            a2 = a(str, -1, -1, 0.0d);
         }
-        return a;
+        return a2;
     }
 
     private static String a(String str, int i, int i2, double d2) {
         a();
-        MediaCodecInfo ih = ih(str);
-        if (ih != null) {
+        MediaCodecInfo iI = iI(str);
+        if (iI != null) {
             boolean z = true;
             if (Build.VERSION.SDK_INT >= 21 && i > 0 && i2 > 0) {
-                MediaCodecInfo.CodecCapabilities capabilitiesForType = ih.getCapabilitiesForType(str);
+                MediaCodecInfo.CodecCapabilities capabilitiesForType = iI.getCapabilitiesForType(str);
                 z = d2 > 0.0d ? capabilitiesForType.getVideoCapabilities().areSizeAndRateSupported(i, i2, d2) : capabilitiesForType.getVideoCapabilities().isSizeSupported(i, i2);
             }
             if (z) {
-                CyberLog.d("CyberMediaCodecInfo", "mineType:" + str + " decoder:" + ih.getName());
-                return ih.getName();
+                CyberLog.d("CyberMediaCodecInfo", "mineType:" + str + " decoder:" + iI.getName());
+                return iI.getName();
             }
-            CyberLog.d("CyberMediaCodecInfo", "decoder not support [" + ih.getName() + Constants.ACCEPT_TIME_SEPARATOR_SP + i + Constants.ACCEPT_TIME_SEPARATOR_SP + i2 + Constants.ACCEPT_TIME_SEPARATOR_SP + d2 + "]");
+            CyberLog.d("CyberMediaCodecInfo", "decoder not support [" + iI.getName() + Constants.ACCEPT_TIME_SEPARATOR_SP + i + Constants.ACCEPT_TIME_SEPARATOR_SP + i2 + Constants.ACCEPT_TIME_SEPARATOR_SP + d2 + "]");
         }
         return null;
     }
@@ -137,40 +137,40 @@ public class c {
     public static synchronized void a() {
         synchronized (c.class) {
             try {
-                if (bEg == null && Build.VERSION.SDK_INT >= 16) {
+                if (bKI == null && Build.VERSION.SDK_INT >= 16) {
                     if (Build.VERSION.SDK_INT < 21) {
                         ArrayList arrayList = new ArrayList();
                         int codecCount = MediaCodecList.getCodecCount();
                         for (int i = 0; i < codecCount; i++) {
                             arrayList.add(MediaCodecList.getCodecInfoAt(i));
                         }
-                        bEg = (MediaCodecInfo[]) arrayList.toArray(new MediaCodecInfo[arrayList.size()]);
+                        bKI = (MediaCodecInfo[]) arrayList.toArray(new MediaCodecInfo[arrayList.size()]);
                     } else {
-                        bEg = new MediaCodecList(0).getCodecInfos();
+                        bKI = new MediaCodecList(0).getCodecInfos();
                     }
-                    ih(f.b);
-                    ih("video/hevc");
+                    iI(f.b);
+                    iI("video/hevc");
                 }
             } catch (Exception e) {
             }
         }
     }
 
-    private static MediaCodecInfo ih(String str) {
+    private static MediaCodecInfo iI(String str) {
         c cVar;
         String[] supportedTypes;
-        c a;
+        c a2;
         MediaCodecInfo mediaCodecInfo = f.get(str);
         if (mediaCodecInfo != null) {
             return mediaCodecInfo;
         }
         ArrayList arrayList = new ArrayList();
-        for (int i = 0; i < bEg.length; i++) {
-            MediaCodecInfo mediaCodecInfo2 = bEg[i];
+        for (int i = 0; i < bKI.length; i++) {
+            MediaCodecInfo mediaCodecInfo2 = bKI[i];
             if (!mediaCodecInfo2.isEncoder() && (supportedTypes = mediaCodecInfo2.getSupportedTypes()) != null) {
                 for (String str2 : supportedTypes) {
-                    if (!TextUtils.isEmpty(str2) && str2.equalsIgnoreCase(str) && (a = a(mediaCodecInfo2, str)) != null) {
-                        arrayList.add(a);
+                    if (!TextUtils.isEmpty(str2) && str2.equalsIgnoreCase(str) && (a2 = a(mediaCodecInfo2, str)) != null) {
+                        arrayList.add(a2);
                     }
                 }
             }
@@ -193,7 +193,7 @@ public class c {
         if (cVar.b < 600) {
             return null;
         }
-        f.put(str, cVar.bEf);
-        return cVar.bEf;
+        f.put(str, cVar.bKH);
+        return cVar.bKH;
     }
 }

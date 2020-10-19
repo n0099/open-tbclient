@@ -1,13 +1,15 @@
 package com.baidu.b.f;
-/* loaded from: classes3.dex */
+/* loaded from: classes7.dex */
 public class b {
-    private long a;
+
+    /* renamed from: a  reason: collision with root package name */
+    private long f1269a;
 
     public b() {
         this(0L);
     }
 
     public b(long j) {
-        this.a = j;
+        this.f1269a = j;
     }
 }

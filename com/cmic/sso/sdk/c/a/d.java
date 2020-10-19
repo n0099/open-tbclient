@@ -5,9 +5,9 @@ import android.os.Build;
 import com.cmic.sso.sdk.e.o;
 import com.cmic.sso.sdk.e.t;
 import java.util.concurrent.atomic.AtomicBoolean;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class d implements b {
-    private b nsI;
+    private b nIc;
 
     @Override // com.cmic.sso.sdk.c.a.b
     public void a(final com.cmic.sso.sdk.c.c.c cVar, final com.cmic.sso.sdk.c.d.c cVar2, final com.cmic.sso.sdk.a aVar) {
@@ -15,9 +15,9 @@ public class d implements b {
             b(cVar, cVar2, aVar);
             return;
         }
-        t gu = t.gu(null);
+        t gC = t.gC(null);
         if (Build.VERSION.SDK_INT >= 21) {
-            gu.a(new t.a() { // from class: com.cmic.sso.sdk.c.a.d.1
+            gC.a(new t.a() { // from class: com.cmic.sso.sdk.c.a.d.1
                 private AtomicBoolean e = new AtomicBoolean(false);
 
                 @Override // com.cmic.sso.sdk.e.t.a
@@ -34,18 +34,18 @@ public class d implements b {
                     }
                 }
             });
-        } else if (gu.a(cVar.a())) {
+        } else if (gC.a(cVar.a())) {
             com.cmic.sso.sdk.e.c.b("WifiChangeInterceptor", "切换网络成功");
             b(cVar, cVar2, aVar);
         } else {
             com.cmic.sso.sdk.e.c.a("WifiChangeInterceptor", "切换网络失败or无数据网络");
-            cVar2.a(com.cmic.sso.sdk.c.d.a.Lr(102508));
+            cVar2.a(com.cmic.sso.sdk.c.d.a.LX(102508));
         }
     }
 
     public void b(com.cmic.sso.sdk.c.c.c cVar, final com.cmic.sso.sdk.c.d.c cVar2, com.cmic.sso.sdk.a aVar) {
-        if (this.nsI != null) {
-            this.nsI.a(cVar, new com.cmic.sso.sdk.c.d.c() { // from class: com.cmic.sso.sdk.c.a.d.2
+        if (this.nIc != null) {
+            this.nIc.a(cVar, new com.cmic.sso.sdk.c.d.c() { // from class: com.cmic.sso.sdk.c.a.d.2
                 @Override // com.cmic.sso.sdk.c.d.c
                 public void a(com.cmic.sso.sdk.c.d.b bVar) {
                     cVar2.a(bVar);
@@ -60,6 +60,6 @@ public class d implements b {
     }
 
     public void a(b bVar) {
-        this.nsI = bVar;
+        this.nIc = bVar;
     }
 }

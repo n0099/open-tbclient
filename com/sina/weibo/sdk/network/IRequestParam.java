@@ -5,10 +5,10 @@ import android.os.Bundle;
 import java.io.File;
 import java.util.ArrayList;
 import java.util.Map;
-/* loaded from: classes24.dex */
+/* loaded from: classes12.dex */
 public interface IRequestParam {
 
-    /* loaded from: classes24.dex */
+    /* loaded from: classes12.dex */
     public enum RequestType {
         POST,
         GET,
@@ -16,7 +16,7 @@ public interface IRequestParam {
         PATCH
     }
 
-    /* loaded from: classes24.dex */
+    /* loaded from: classes12.dex */
     public static class ValuePart<T> {
         public String mimeType;
         public T value;

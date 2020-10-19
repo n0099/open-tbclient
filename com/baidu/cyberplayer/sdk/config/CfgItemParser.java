@@ -6,11 +6,11 @@ import com.baidu.adp.plugin.proxy.ContentProviderProxy;
 import com.baidu.cyberplayer.sdk.Keep;
 import com.baidu.fsg.base.widget.textfilter.EditTextPasteFilterUtils;
 import java.util.ArrayList;
-/* loaded from: classes10.dex */
+/* loaded from: classes12.dex */
 public class CfgItemParser {
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes10.dex */
+    /* loaded from: classes12.dex */
     public enum a {
         FAILED,
         AND_NEED_CHECK_NEXT,
@@ -18,12 +18,14 @@ public class CfgItemParser {
         SUCCESS
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes12.dex */
     private static class b {
         public int e;
         public boolean c = false;
         public boolean d = false;
-        public String[] a = null;
+
+        /* renamed from: a  reason: collision with root package name */
+        public String[] f1374a = null;
         public boolean b = true;
 
         /* JADX INFO: Access modifiers changed from: private */
@@ -38,17 +40,17 @@ public class CfgItemParser {
                 this.c = true;
                 this.d = false;
             } else if (!str.contains(str2)) {
-                this.a = a(str, str3);
+                this.f1374a = a(str, str3);
             } else {
                 if (str2.endsWith("|")) {
                     str2 = EditTextPasteFilterUtils.EDITTEXT_PASTE_INTERCEPTOR_SEPERATOR;
                 }
                 String[] split = str.split(str2);
                 if (split.length == 2) {
-                    this.a = a(split[0], str3);
+                    this.f1374a = a(split[0], str3);
                     this.b = c(split[1]);
                 } else if (split.length == 1) {
-                    this.a = a(split[0], str3);
+                    this.f1374a = a(split[0], str3);
                 }
             }
         }
@@ -83,16 +85,16 @@ public class CfgItemParser {
             if (this.c) {
                 return true;
             }
-            if (!TextUtils.isEmpty(str) && this.a != null) {
-                int length = this.a.length;
+            if (!TextUtils.isEmpty(str) && this.f1374a != null) {
+                int length = this.f1374a.length;
                 for (int i = 0; i < length; i++) {
-                    if (str.equals(this.a[i])) {
+                    if (str.equals(this.f1374a[i])) {
                         return true;
                     }
-                    if (this.e == 0 && a(str, this.a[i], "\\.", "*")) {
+                    if (this.e == 0 && a(str, this.f1374a[i], "\\.", "*")) {
                         return true;
                     }
-                    if (this.e == 1 && str.contains("." + this.a[i])) {
+                    if (this.e == 1 && str.contains("." + this.f1374a[i])) {
                         return true;
                     }
                 }
@@ -123,8 +125,8 @@ public class CfgItemParser {
             if (this.d) {
                 return a.FAILED;
             }
-            boolean a = a(str);
-            return this.b ? a ? a.AND_NEED_CHECK_NEXT : a.FAILED : a ? a.SUCCESS : a.OR_NEED_CHECK_NEXT;
+            boolean a2 = a(str);
+            return this.b ? a2 ? a.AND_NEED_CHECK_NEXT : a.FAILED : a2 ? a.SUCCESS : a.OR_NEED_CHECK_NEXT;
         }
     }
 

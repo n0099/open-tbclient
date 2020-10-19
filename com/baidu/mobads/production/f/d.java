@@ -4,20 +4,22 @@ import android.app.Activity;
 import android.content.Context;
 import com.baidu.mobads.interfaces.IXAdConstants4PDK;
 import java.util.HashMap;
-/* loaded from: classes3.dex */
+/* loaded from: classes7.dex */
 public class d extends com.baidu.mobads.vo.d {
-    private Boolean a;
+
+    /* renamed from: a  reason: collision with root package name */
+    private Boolean f2406a;
 
     public d(Context context, Activity activity, IXAdConstants4PDK.SlotType slotType, Boolean bool) {
         super(context, activity, slotType);
-        this.a = bool;
+        this.f2406a = bool;
         if (c().booleanValue()) {
             this.b = this.i.replaceURLWithSupportProtocol("http://mobads.baidu.com/ads/index.htm");
         }
     }
 
     public Boolean c() {
-        return this.a;
+        return this.f2406a;
     }
 
     @Override // com.baidu.mobads.vo.d

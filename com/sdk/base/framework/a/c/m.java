@@ -2,9 +2,11 @@ package com.sdk.base.framework.a.c;
 
 import java.util.Iterator;
 import java.util.NoSuchElementException;
-/* loaded from: classes5.dex */
+/* loaded from: classes16.dex */
 final class m implements Iterator<E> {
-    private a<E> a;
+
+    /* renamed from: a  reason: collision with root package name */
+    private a<E> f4472a;
     private a<E> b;
     private E c;
     private /* synthetic */ l d;
@@ -16,9 +18,9 @@ final class m implements Iterator<E> {
         this.d = lVar;
         lVar.a();
         try {
-            this.a = lVar.a.a;
-            if (this.a != null) {
-                this.c = this.a.b();
+            this.f4472a = lVar.f4471a.f4462a;
+            if (this.f4472a != null) {
+                this.c = this.f4472a.b();
             }
         } finally {
             lVar.b();
@@ -35,9 +37,9 @@ final class m implements Iterator<E> {
     private a<E> a(a<E> aVar) {
         a aVar2;
         while (true) {
-            a aVar3 = aVar2.a;
+            a aVar3 = aVar2.f4462a;
             if (aVar3 == aVar2) {
-                return this.d.a.a;
+                return this.d.f4471a.f4462a;
             }
             if (aVar3 == null || aVar3.b() != null) {
                 return aVar3;
@@ -48,7 +50,7 @@ final class m implements Iterator<E> {
 
     @Override // java.util.Iterator
     public final boolean hasNext() {
-        return this.a != null;
+        return this.f4472a != null;
     }
 
     /* JADX DEBUG: Multi-variable search result rejected for r0v11, resolved type: E */
@@ -59,13 +61,13 @@ final class m implements Iterator<E> {
     public final E next() {
         this.d.a();
         try {
-            if (this.a == null) {
+            if (this.f4472a == null) {
                 throw new NoSuchElementException();
             }
             E e = this.c;
-            this.b = this.a;
-            this.a = a(this.a);
-            this.c = this.a == null ? 0 : this.a.b();
+            this.b = this.f4472a;
+            this.f4472a = a(this.f4472a);
+            this.c = this.f4472a == null ? 0 : this.f4472a.b();
             return e;
         } finally {
             this.d.b();
@@ -87,8 +89,8 @@ final class m implements Iterator<E> {
         try {
             a aVar = this.b;
             this.b = null;
-            a aVar2 = this.d.a;
-            a aVar3 = aVar2.a;
+            a aVar2 = this.d.f4471a;
+            a aVar3 = aVar2.f4462a;
             while (true) {
                 if (aVar3 == null) {
                     break;
@@ -96,7 +98,7 @@ final class m implements Iterator<E> {
                     break;
                 } else {
                     aVar2 = aVar3;
-                    aVar3 = aVar3.a;
+                    aVar3 = aVar3.f4462a;
                 }
             }
         } finally {

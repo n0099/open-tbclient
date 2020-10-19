@@ -14,17 +14,21 @@ import com.baidu.android.pushservice.h.a.b;
 import com.baidu.android.pushservice.i.l;
 import com.baidu.android.pushservice.i.m;
 @TargetApi(21)
-/* loaded from: classes7.dex */
+/* loaded from: classes10.dex */
 public class PushJobService extends JobService {
-    private Handler a;
 
-    /* loaded from: classes7.dex */
+    /* renamed from: a  reason: collision with root package name */
+    private Handler f1160a;
+
+    /* loaded from: classes10.dex */
     private static class a extends Handler {
-        private final JobService a;
+
+        /* renamed from: a  reason: collision with root package name */
+        private final JobService f1161a;
 
         a(JobService jobService) {
             super(jobService.getMainLooper());
-            this.a = jobService;
+            this.f1161a = jobService;
         }
 
         @Override // android.os.Handler
@@ -32,12 +36,12 @@ public class PushJobService extends JobService {
             if (message.what == 1) {
                 JobParameters jobParameters = (JobParameters) message.obj;
                 try {
-                    this.a.jobFinished(jobParameters, true);
+                    this.f1161a.jobFinished(jobParameters, true);
                     if (jobParameters.getJobId() == 1) {
-                        com.baidu.android.pushservice.job.a.a(this.a, false);
+                        com.baidu.android.pushservice.job.a.a(this.f1161a, false);
                     }
                 } catch (Throwable th) {
-                    new b.c(this.a.getApplicationContext()).a(Log.getStackTraceString(th)).a();
+                    new b.c(this.f1161a.getApplicationContext()).a(Log.getStackTraceString(th)).a();
                 }
             }
         }
@@ -65,10 +69,10 @@ public class PushJobService extends JobService {
             } catch (Exception e) {
             }
         }
-        if (this.a == null) {
-            this.a = new a(this);
+        if (this.f1160a == null) {
+            this.f1160a = new a(this);
         }
-        this.a.sendMessageDelayed(Message.obtain(this.a, 1, jobParameters), 2000L);
+        this.f1160a.sendMessageDelayed(Message.obtain(this.f1160a, 1, jobParameters), 2000L);
         return true;
     }
 

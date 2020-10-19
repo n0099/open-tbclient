@@ -11,10 +11,12 @@ import android.widget.Toast;
 import com.baidu.ala.recorder.video.drawer.EncoderTextureDrawer;
 import com.baidu.platform.comapi.wnplatform.p.h;
 import java.util.List;
-/* loaded from: classes3.dex */
+/* loaded from: classes7.dex */
 public class ArCameraView extends SurfaceView implements SurfaceHolder.Callback {
     public static final int WALK_AR_PERMISSION = 3001;
-    SurfaceHolder a;
+
+    /* renamed from: a  reason: collision with root package name */
+    SurfaceHolder f3089a;
     Camera b;
     private Context c;
 
@@ -31,9 +33,9 @@ public class ArCameraView extends SurfaceView implements SurfaceHolder.Callback 
     private void a(Context context) {
         try {
             this.c = context;
-            this.a = getHolder();
-            this.a.addCallback(this);
-            this.a.setType(3);
+            this.f3089a = getHolder();
+            this.f3089a.addCallback(this);
+            this.f3089a.setType(3);
         } catch (Exception e) {
             e.printStackTrace();
             Toast.makeText(com.baidu.platform.comapi.wnplatform.p.b.a.a(), "相机出现错误", 0).show();

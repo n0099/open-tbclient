@@ -29,7 +29,7 @@ import com.baidu.android.imsdk.utils.HttpHelper;
 import com.baidu.android.imsdk.utils.LogUtils;
 import java.util.ArrayList;
 import java.util.Iterator;
-/* loaded from: classes9.dex */
+/* loaded from: classes5.dex */
 public class GroupManagerImpl {
     private static final String TAG = GroupManagerImpl.class.getSimpleName();
     private static Context mContext;
@@ -386,10 +386,11 @@ public class GroupManagerImpl {
     }
 
     public void getGroupsInfo(int i, ArrayList<String> arrayList, BIMValueCallBack<ArrayList<GroupInfo>> bIMValueCallBack) {
-        if ((arrayList == null || arrayList.size() == 0) && bIMValueCallBack != null) {
-            bIMValueCallBack.onResult(1005, Constants.ERROR_MSG_PARAMETER_ERROR, null);
-        }
-        if (AccountManager.isLogin(mContext)) {
+        if (arrayList == null || arrayList.size() == 0) {
+            if (bIMValueCallBack != null) {
+                bIMValueCallBack.onResult(1005, Constants.ERROR_MSG_PARAMETER_ERROR, null);
+            }
+        } else if (AccountManager.isLogin(mContext)) {
             if (i == 1) {
                 IMQueryGroupRequest iMQueryGroupRequest = new IMQueryGroupRequest(mContext, ListenerManager.getInstance().addListener(bIMValueCallBack), AccountManager.getAppid(mContext), arrayList, false, null);
                 HttpHelper.executor(mContext, iMQueryGroupRequest, iMQueryGroupRequest);

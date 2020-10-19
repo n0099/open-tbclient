@@ -17,13 +17,13 @@ import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
 import tbclient.T;
-/* loaded from: classes21.dex */
+/* loaded from: classes22.dex */
 public class QueryMatchEmotionModel extends BdBaseModel {
-    private static LinkedHashMap<String, List<EmotionImageData>> kXC = new LinkedHashMap<>();
-    private final HttpMessageListener eRK;
-    private a kXB;
+    private static LinkedHashMap<String, List<EmotionImageData>> lmP = new LinkedHashMap<>();
+    private final HttpMessageListener fdS;
+    private a lmO;
 
-    /* loaded from: classes21.dex */
+    /* loaded from: classes22.dex */
     public interface a {
         void n(String str, List<EmotionImageData> list);
 
@@ -32,25 +32,25 @@ public class QueryMatchEmotionModel extends BdBaseModel {
 
     public QueryMatchEmotionModel(e<T> eVar) {
         super(eVar);
-        this.eRK = new HttpMessageListener(1003369) { // from class: com.baidu.tieba.pb.pb.main.emotion.model.QueryMatchEmotionModel.1
+        this.fdS = new HttpMessageListener(1003369) { // from class: com.baidu.tieba.pb.pb.main.emotion.model.QueryMatchEmotionModel.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.adp.framework.listener.MessageListener
             public void onMessage(HttpResponsedMessage httpResponsedMessage) {
-                if (httpResponsedMessage != null && httpResponsedMessage.getCmd() == 1003369 && (httpResponsedMessage instanceof QueryMatchEmotionResponseMessage) && QueryMatchEmotionModel.this.kXB != null) {
+                if (httpResponsedMessage != null && httpResponsedMessage.getCmd() == 1003369 && (httpResponsedMessage instanceof QueryMatchEmotionResponseMessage) && QueryMatchEmotionModel.this.lmO != null) {
                     QueryMatchEmotionResponseMessage queryMatchEmotionResponseMessage = (QueryMatchEmotionResponseMessage) httpResponsedMessage;
                     if (queryMatchEmotionResponseMessage.getData() == null) {
-                        QueryMatchEmotionModel.this.kXB.onFail(queryMatchEmotionResponseMessage.getError(), queryMatchEmotionResponseMessage.getErrorString());
+                        QueryMatchEmotionModel.this.lmO.onFail(queryMatchEmotionResponseMessage.getError(), queryMatchEmotionResponseMessage.getErrorString());
                     } else if (httpResponsedMessage.getOrginalMessage() != null && (httpResponsedMessage.getOrginalMessage().getExtra() instanceof String)) {
                         String str = (String) httpResponsedMessage.getOrginalMessage().getExtra();
-                        QueryMatchEmotionModel.this.kXB.n(str, queryMatchEmotionResponseMessage.getData());
+                        QueryMatchEmotionModel.this.lmO.n(str, queryMatchEmotionResponseMessage.getData());
                         QueryMatchEmotionModel.this.o(str, queryMatchEmotionResponseMessage.getData());
                     }
                 }
             }
         };
         registerTask();
-        this.eRK.setSelfListener(true);
-        registerListener(this.eRK);
+        this.fdS.setSelfListener(true);
+        registerListener(this.fdS);
     }
 
     private void registerTask() {
@@ -60,10 +60,10 @@ public class QueryMatchEmotionModel extends BdBaseModel {
     }
 
     public void a(String str, a aVar) {
-        this.kXB = aVar;
-        if (this.kXB != null) {
-            if (!y.isEmpty(Ot(str))) {
-                this.kXB.n(str, kXC.get(str));
+        this.lmO = aVar;
+        if (this.lmO != null) {
+            if (!y.isEmpty(Pi(str))) {
+                this.lmO.n(str, lmP.get(str));
                 return;
             }
             HttpMessage httpMessage = new HttpMessage(1003369);
@@ -76,28 +76,28 @@ public class QueryMatchEmotionModel extends BdBaseModel {
     /* JADX INFO: Access modifiers changed from: private */
     public void o(String str, List<EmotionImageData> list) {
         if (!TextUtils.isEmpty(str) && !y.isEmpty(list)) {
-            if (kXC == null) {
-                kXC = new LinkedHashMap<>();
+            if (lmP == null) {
+                lmP = new LinkedHashMap<>();
             }
-            if (!kXC.containsKey(str)) {
-                if (kXC.size() > 10) {
-                    Map.Entry<String, List<EmotionImageData>> next = kXC.entrySet().iterator().next();
+            if (!lmP.containsKey(str)) {
+                if (lmP.size() > 10) {
+                    Map.Entry<String, List<EmotionImageData>> next = lmP.entrySet().iterator().next();
                     if (next != null) {
-                        kXC.remove(next.getKey());
+                        lmP.remove(next.getKey());
                     } else {
-                        kXC.clear();
+                        lmP.clear();
                     }
                 }
-                kXC.put(str, list);
+                lmP.put(str, list);
             }
         }
     }
 
-    private List<EmotionImageData> Ot(String str) {
-        if (kXC == null || !kXC.containsKey(str)) {
+    private List<EmotionImageData> Pi(String str) {
+        if (lmP == null || !lmP.containsKey(str)) {
             return null;
         }
-        return kXC.get(str);
+        return lmP.get(str);
     }
 
     @Override // com.baidu.adp.base.BdBaseModel
@@ -107,7 +107,7 @@ public class QueryMatchEmotionModel extends BdBaseModel {
 
     @Override // com.baidu.adp.base.BdBaseModel
     public boolean cancelLoadData() {
-        MessageManager.getInstance().unRegisterListener(this.eRK);
+        MessageManager.getInstance().unRegisterListener(this.fdS);
         MessageManager.getInstance().unRegisterTask(1003369);
         return true;
     }

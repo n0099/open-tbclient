@@ -4,7 +4,7 @@ import com.baidu.live.tbadk.message.http.JsonHttpResponsedMessage;
 import org.json.JSONObject;
 /* loaded from: classes4.dex */
 public class AlaChallengeRewardResponseMessage extends JsonHttpResponsedMessage {
-    public AlaChallengeRewardData gwS;
+    public AlaChallengeRewardData gLl;
 
     public AlaChallengeRewardResponseMessage() {
         super(1021104);
@@ -14,10 +14,10 @@ public class AlaChallengeRewardResponseMessage extends JsonHttpResponsedMessage 
     public void decodeLogicInBackGround(int i, JSONObject jSONObject) throws Exception {
         super.decodeLogicInBackGround(i, jSONObject);
         if (getStatusCode() == 200 && jSONObject != null) {
-            this.gwS = new AlaChallengeRewardData();
-            this.gwS.errno = getError();
-            this.gwS.errMsg = getErrorString();
-            this.gwS.parseJson(jSONObject);
+            this.gLl = new AlaChallengeRewardData();
+            this.gLl.errno = getError();
+            this.gLl.errMsg = getErrorString();
+            this.gLl.parseJson(jSONObject);
         }
     }
 }

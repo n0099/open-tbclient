@@ -6,26 +6,26 @@ import kotlin.h;
 import kotlin.jvm.a.m;
 import kotlin.jvm.internal.q;
 @h
-/* loaded from: classes5.dex */
+/* loaded from: classes10.dex */
 public final class a implements d {
-    private final d oCc;
-    private final d.b oCd;
+    private final d oRr;
+    private final d.b oRs;
 
     public a(d dVar, d.b bVar) {
-        q.m(dVar, "left");
-        q.m(bVar, "element");
-        this.oCc = dVar;
-        this.oCd = bVar;
+        q.n(dVar, "left");
+        q.n(bVar, "element");
+        this.oRr = dVar;
+        this.oRs = bVar;
     }
 
     @Override // kotlin.coroutines.experimental.d
     public <E extends d.b> E a(d.c<E> cVar) {
-        q.m(cVar, "key");
+        q.n(cVar, "key");
         a aVar = this;
         while (true) {
-            E e = (E) aVar.oCd.a(cVar);
+            E e = (E) aVar.oRs.a(cVar);
             if (e == null) {
-                d dVar = aVar.oCc;
+                d dVar = aVar.oRr;
                 if (dVar instanceof a) {
                     aVar = (a) dVar;
                 } else {
@@ -39,34 +39,34 @@ public final class a implements d {
 
     @Override // kotlin.coroutines.experimental.d
     public <R> R fold(R r, m<? super R, ? super d.b, ? extends R> mVar) {
-        q.m(mVar, "operation");
-        return mVar.invoke((Object) this.oCc.fold(r, mVar), this.oCd);
+        q.n(mVar, "operation");
+        return mVar.invoke((Object) this.oRr.fold(r, mVar), this.oRs);
     }
 
     @Override // kotlin.coroutines.experimental.d
     public d b(d.c<?> cVar) {
-        q.m(cVar, "key");
-        if (this.oCd.a(cVar) != null) {
-            return this.oCc;
+        q.n(cVar, "key");
+        if (this.oRs.a(cVar) != null) {
+            return this.oRr;
         }
-        d b = this.oCc.b(cVar);
-        return b == this.oCc ? this : b == e.oCg ? this.oCd : new a(b, this.oCd);
+        d b = this.oRr.b(cVar);
+        return b == this.oRr ? this : b == e.oRv ? this.oRs : new a(b, this.oRs);
     }
 
     private final int size() {
-        if (this.oCc instanceof a) {
-            return ((a) this.oCc).size() + 1;
+        if (this.oRr instanceof a) {
+            return ((a) this.oRr).size() + 1;
         }
         return 2;
     }
 
     private final boolean a(d.b bVar) {
-        return q.l(a((d.c<d.b>) bVar.eki()), bVar);
+        return q.l(a((d.c<d.b>) bVar.enU()), bVar);
     }
 
     private final boolean a(a aVar) {
-        while (a(aVar.oCd)) {
-            d dVar = aVar.oCc;
+        while (a(aVar.oRs)) {
+            d dVar = aVar.oRr;
             if (dVar instanceof a) {
                 aVar = (a) dVar;
             } else if (dVar == null) {
@@ -83,7 +83,7 @@ public final class a implements d {
     }
 
     public int hashCode() {
-        return this.oCc.hashCode() + this.oCd.hashCode();
+        return this.oRr.hashCode() + this.oRs.hashCode();
     }
 
     public String toString() {

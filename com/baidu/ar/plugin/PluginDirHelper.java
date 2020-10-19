@@ -6,7 +6,7 @@ import com.baidu.searchbox.ugc.model.UgcConstant;
 import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public class PluginDirHelper {
     private static File sBaseDir = null;
 

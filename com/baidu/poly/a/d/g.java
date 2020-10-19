@@ -5,22 +5,22 @@ import android.graphics.Bitmap;
 import android.os.Handler;
 import android.widget.ImageView;
 import java.io.IOException;
-/* loaded from: classes9.dex */
+/* loaded from: classes6.dex */
 public class g implements Runnable {
-    private ImageView bHh;
-    private Handler bHi;
-    private int bHj;
-    private int bHk;
+    private ImageView bNQ;
+    private Handler bNR;
+    private int bNS;
+    private int bNT;
     private Context context;
     private String url;
 
     public g(Context context, Handler handler, String str, ImageView imageView, int i, int i2) {
         this.context = context.getApplicationContext();
-        this.bHi = handler;
+        this.bNR = handler;
         this.url = str;
-        this.bHh = imageView;
-        this.bHj = i;
-        this.bHk = i2;
+        this.bNQ = imageView;
+        this.bNS = i;
+        this.bNT = i2;
     }
 
     /* JADX WARN: Removed duplicated region for block: B:9:0x002a  */
@@ -31,7 +31,7 @@ public class g implements Runnable {
         Bitmap bitmap;
         Bitmap bitmap2 = null;
         try {
-            bitmap2 = a.aN(this.context).k(str, i, i2);
+            bitmap2 = a.aR(this.context).k(str, i, i2);
             try {
             } catch (IOException e) {
                 e = e;
@@ -45,22 +45,22 @@ public class g implements Runnable {
             e = e2;
         }
         if (bitmap2 != null) {
-            a.UH().e(str, bitmap2);
+            a.WE().e(str, bitmap2);
             return bitmap2;
         }
-        a.aN(this.context).d(str);
-        bitmap = a.aN(this.context).k(str, i, i2);
+        a.aR(this.context).d(str);
+        bitmap = a.aR(this.context).k(str, i, i2);
         if (bitmap == null) {
-            bitmap = d.in(str);
+            bitmap = d.iP(str);
         }
         return bitmap;
     }
 
     @Override // java.lang.Runnable
     public void run() {
-        Bitmap j = j(this.url, this.bHj, this.bHk);
-        if (this.bHi != null) {
-            this.bHi.obtainMessage(1, new f(this.bHh, this.url, j)).sendToTarget();
+        Bitmap j = j(this.url, this.bNS, this.bNT);
+        if (this.bNR != null) {
+            this.bNR.obtainMessage(1, new f(this.bNQ, this.url, j)).sendToTarget();
         }
     }
 }

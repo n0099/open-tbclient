@@ -3,18 +3,18 @@ package com.baidu.prologue.c;
 import android.content.Context;
 import android.text.TextUtils;
 import java.util.HashMap;
-/* loaded from: classes10.dex */
+/* loaded from: classes19.dex */
 public class h extends e {
     private static HashMap<String, String> redirectSchemes = new HashMap<>();
     private static HashMap<String, e> mDynamicDispatchers = new HashMap<>();
 
-    public static h WH() {
-        return a.bOk;
+    public static h YE() {
+        return a.bUT;
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes19.dex */
     private static class a {
-        private static final h bOk = new h();
+        private static final h bUT = new h();
     }
 
     private h() {

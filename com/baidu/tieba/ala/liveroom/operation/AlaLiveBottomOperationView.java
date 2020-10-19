@@ -41,56 +41,55 @@ import java.util.HashSet;
 import java.util.Set;
 /* loaded from: classes4.dex */
 public class AlaLiveBottomOperationView extends FrameLayout {
-    private View.OnClickListener aBS;
-    private int aVt;
-    public CustomMessageListener aYi;
-    private boolean bgd;
-    private int bge;
-    private BdPageContext bgf;
-    private int bgg;
-    public CustomMessageListener bgl;
-    public FrameLayout gHf;
-    public FrameLayout gKA;
-    public TextView gKB;
-    public FrameLayout gKC;
-    public LinearLayout gKD;
-    public TextView gKE;
-    public View gKF;
-    public TextView gKG;
-    public View gKH;
-    public ImageView gKI;
-    public ImageView gKJ;
-    public FrameLayout gKK;
-    public FrameLayout gKL;
-    public ImageView gKM;
-    public ImageView gKN;
-    public FrameLayout gKO;
-    public TbImageView gKP;
-    private ViewGroup gKQ;
-    public View gKR;
-    public ImageView gKS;
-    public TurnTableLuckyCountDownView gKT;
-    public ImageView gKU;
-    public ImageView gKV;
-    private boolean gKW;
-    private a gKX;
-    private int gKY;
-    private Set<Long> gKZ;
-    private b gKp;
-    public RelativeLayout gKq;
-    public ImageView gKr;
-    public FrameLayout gKs;
-    public TbImageView gKt;
-    public FrameLayout gKu;
-    public ImageView gKv;
-    public FrameLayout gKw;
-    public ImageView gKx;
-    public FrameLayout gKy;
-    public ImageView gKz;
-    private View gLa;
-    private View gLb;
-    private boolean gLc;
-    private boolean gLd;
+    private View.OnClickListener aEX;
+    private int aYE;
+    public CustomMessageListener bbC;
+    private boolean bjT;
+    private int bjU;
+    private BdPageContext bjV;
+    private int bjW;
+    public CustomMessageListener bkb;
+    public FrameLayout gVF;
+    private b gYQ;
+    public RelativeLayout gYR;
+    public ImageView gYS;
+    public FrameLayout gYT;
+    public TbImageView gYU;
+    public FrameLayout gYV;
+    public ImageView gYW;
+    public FrameLayout gYX;
+    public ImageView gYY;
+    public FrameLayout gYZ;
+    private View gZA;
+    private View gZB;
+    private boolean gZC;
+    private boolean gZD;
+    public ImageView gZa;
+    public FrameLayout gZb;
+    public TextView gZc;
+    public FrameLayout gZd;
+    public LinearLayout gZe;
+    public TextView gZf;
+    public View gZg;
+    public TextView gZh;
+    public ImageView gZi;
+    public ImageView gZj;
+    public FrameLayout gZk;
+    public FrameLayout gZl;
+    public ImageView gZm;
+    public ImageView gZn;
+    public FrameLayout gZo;
+    public TbImageView gZp;
+    private ViewGroup gZq;
+    public View gZr;
+    public ImageView gZs;
+    public TurnTableLuckyCountDownView gZt;
+    public ImageView gZu;
+    public ImageView gZv;
+    private boolean gZw;
+    private a gZx;
+    private int gZy;
+    private Set<Long> gZz;
     private Handler handler;
     private Context mContext;
     private BdAlertDialog mDialog;
@@ -100,195 +99,193 @@ public class AlaLiveBottomOperationView extends FrameLayout {
     /* JADX INFO: Access modifiers changed from: protected */
     public AlaLiveBottomOperationView(BdPageContext bdPageContext) {
         super(bdPageContext.getPageActivity());
-        this.gKW = false;
+        this.gZw = false;
         this.handler = new Handler();
-        this.gKY = -1;
-        this.gKZ = new HashSet();
-        this.bgg = 0;
-        this.gLc = false;
-        this.gLd = false;
-        this.aBS = new View.OnClickListener() { // from class: com.baidu.tieba.ala.liveroom.operation.AlaLiveBottomOperationView.1
+        this.gZy = -1;
+        this.gZz = new HashSet();
+        this.bjW = 0;
+        this.gZC = false;
+        this.gZD = false;
+        this.aEX = new View.OnClickListener() { // from class: com.baidu.tieba.ala.liveroom.operation.AlaLiveBottomOperationView.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                if (AlaLiveBottomOperationView.this.gKp != null) {
-                    if (view == AlaLiveBottomOperationView.this.gKw) {
-                        AlaLiveBottomOperationView.this.gKp.n(view, 3);
+                if (AlaLiveBottomOperationView.this.gYQ != null) {
+                    if (view == AlaLiveBottomOperationView.this.gYX) {
+                        AlaLiveBottomOperationView.this.gYQ.o(view, 3);
                         UbcStatisticManager.getInstance().logEvent(new UbcStatisticItem(UbcStatisticLiveKey.KEY_ID_1396, "click", "liveroom", "share_clk").setContentExt(null, MapController.POPUP_LAYER_TAG, null));
-                    } else if (view == AlaLiveBottomOperationView.this.gKq) {
-                        AlaLiveBottomOperationView.this.gLa = view;
-                        if (com.baidu.live.x.a.NN().bhy.aIG == 1 && !LoginManager.getInstance(AlaLiveBottomOperationView.this.mContext).isIMLogined()) {
+                    } else if (view == AlaLiveBottomOperationView.this.gYR) {
+                        AlaLiveBottomOperationView.this.gZA = view;
+                        if (com.baidu.live.x.a.OS().blo.aLK == 1 && !LoginManager.getInstance(AlaLiveBottomOperationView.this.mContext).isIMLogined()) {
                             BdUtilHelper.showToast(AlaLiveBottomOperationView.this.getContext(), AlaLiveBottomOperationView.this.getContext().getResources().getString(a.i.ala_forbidden_words_im_link_disconnect));
-                        } else if (com.baidu.live.x.a.NN().bhy.aIF == 1) {
-                            if (!AlaLiveBottomOperationView.this.bgd) {
-                                AlaLiveBottomOperationView.this.bU(view);
+                        } else if (com.baidu.live.x.a.OS().blo.aLJ == 1) {
+                            if (!AlaLiveBottomOperationView.this.bjT) {
+                                AlaLiveBottomOperationView.this.bY(view);
                                 return;
                             }
                             MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2913192));
-                            AlaLiveBottomOperationView.this.bgg = 1;
+                            AlaLiveBottomOperationView.this.bjW = 1;
                         } else {
-                            AlaLiveBottomOperationView.this.bU(view);
+                            AlaLiveBottomOperationView.this.bY(view);
                         }
-                    } else if (view == AlaLiveBottomOperationView.this.gKs) {
+                    } else if (view == AlaLiveBottomOperationView.this.gYT) {
                         if (!TbadkCoreApplication.isLogin()) {
                             ViewHelper.skipToLoginActivity(AlaLiveBottomOperationView.this.mContext);
                             return;
                         }
-                        if (TbadkCoreApplication.getInst().isHaokan() || TbadkCoreApplication.getInst().isQuanmin()) {
+                        if (TbadkCoreApplication.getInst().isHaokan() || TbadkCoreApplication.getInst().isQuanmin() || TbadkCoreApplication.getInst().isYinbo()) {
                             AlaStaticItem alaStaticItem = new AlaStaticItem(SdkStaticKeys.CLICK_GIFT);
                             alaStaticItem.addParams("feed_id", HKStaticManager.FEED_ID);
                             AlaStaticsManager.getInst().onStatic(alaStaticItem);
                         }
-                        AlaLiveBottomOperationView.this.gKp.n(view, 2);
+                        AlaLiveBottomOperationView.this.gYQ.o(view, 2);
                         UbcStatisticManager.getInstance().logEvent(new UbcStatisticItem(UbcStatisticLiveKey.KEY_ID_1396, "click", "liveroom", "gift_panel").setContentExt(null, MapController.POPUP_LAYER_TAG, null));
-                    } else if (view == AlaLiveBottomOperationView.this.gKu) {
-                        AlaLiveBottomOperationView.this.gKp.n(view, 13);
+                    } else if (view == AlaLiveBottomOperationView.this.gYV) {
+                        AlaLiveBottomOperationView.this.gYQ.o(view, 13);
                         UbcStatisticManager.getInstance().logEvent(new UbcStatisticItem(UbcStatisticLiveKey.KEY_ID_1396, "click", "liveroom", "quick_gift").setContentExt(null, MapController.POPUP_LAYER_TAG, null));
-                    } else if (view == AlaLiveBottomOperationView.this.gKA) {
-                        AlaLiveBottomOperationView.this.gKW = AlaLiveBottomOperationView.this.gKW ? false : true;
-                        if (AlaLiveBottomOperationView.this.gKW) {
-                            AlaLiveBottomOperationView.this.gKz.setImageResource(a.f.ala_live_room_clear_off_btn);
-                            AlaLiveBottomOperationView.this.gKp.n(view, 5);
+                    } else if (view == AlaLiveBottomOperationView.this.gZb) {
+                        AlaLiveBottomOperationView.this.gZw = AlaLiveBottomOperationView.this.gZw ? false : true;
+                        if (AlaLiveBottomOperationView.this.gZw) {
+                            AlaLiveBottomOperationView.this.gZa.setImageResource(a.f.ala_live_room_clear_off_btn);
+                            AlaLiveBottomOperationView.this.gYQ.o(view, 5);
                             return;
                         }
-                        AlaLiveBottomOperationView.this.gKz.setImageResource(a.f.ala_live_room_clear_on_btn);
-                        AlaLiveBottomOperationView.this.gKp.n(view, 6);
-                    } else if (view == AlaLiveBottomOperationView.this.gKC) {
-                        AlaLiveBottomOperationView.this.gKp.n(view, 7);
-                    } else if (view == AlaLiveBottomOperationView.this.gKy) {
-                        AlaLiveBottomOperationView.this.gKp.n(view, 4);
-                    } else if (view == AlaLiveBottomOperationView.this.gKI) {
-                        AlaLiveBottomOperationView.this.gLb = view;
-                        if (com.baidu.live.x.a.NN().bhy.aIF == 1) {
-                            if (!AlaLiveBottomOperationView.this.bgd) {
-                                AlaLiveBottomOperationView.this.gKp.n(view, 11);
+                        AlaLiveBottomOperationView.this.gZa.setImageResource(a.f.ala_live_room_clear_on_btn);
+                        AlaLiveBottomOperationView.this.gYQ.o(view, 6);
+                    } else if (view == AlaLiveBottomOperationView.this.gZd) {
+                        AlaLiveBottomOperationView.this.gYQ.o(view, 7);
+                    } else if (view == AlaLiveBottomOperationView.this.gYZ) {
+                        AlaLiveBottomOperationView.this.gYQ.o(view, 4);
+                    } else if (view == AlaLiveBottomOperationView.this.gZi) {
+                        AlaLiveBottomOperationView.this.gZB = view;
+                        if (com.baidu.live.x.a.OS().blo.aLJ == 1) {
+                            if (!AlaLiveBottomOperationView.this.bjT) {
+                                AlaLiveBottomOperationView.this.gYQ.o(view, 11);
                                 return;
                             }
                             MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2913192));
-                            AlaLiveBottomOperationView.this.bgg = 2;
+                            AlaLiveBottomOperationView.this.bjW = 2;
                             return;
                         }
-                        AlaLiveBottomOperationView.this.gKp.n(view, 11);
-                    } else if (view == AlaLiveBottomOperationView.this.gKK) {
-                        AlaLiveBottomOperationView.this.gKp.n(view, 12);
-                    } else if (view == AlaLiveBottomOperationView.this.gHf) {
-                        AlaLiveBottomOperationView.this.gKp.n(view, 8);
-                    } else if (view == AlaLiveBottomOperationView.this.gKL) {
-                        AlaLiveBottomOperationView.this.gKp.n(view, 16);
-                    } else if (view == AlaLiveBottomOperationView.this.gKO) {
-                        AlaLiveBottomOperationView.this.gKp.n(view, 20);
-                    } else if (view == AlaLiveBottomOperationView.this.gKR) {
-                        AlaLiveBottomOperationView.this.gKp.n(view, 17);
+                        AlaLiveBottomOperationView.this.gYQ.o(view, 11);
+                    } else if (view == AlaLiveBottomOperationView.this.gZk) {
+                        AlaLiveBottomOperationView.this.gYQ.o(view, 12);
+                    } else if (view == AlaLiveBottomOperationView.this.gVF) {
+                        AlaLiveBottomOperationView.this.gYQ.o(view, 8);
+                    } else if (view == AlaLiveBottomOperationView.this.gZl) {
+                        AlaLiveBottomOperationView.this.gYQ.o(view, 16);
+                    } else if (view == AlaLiveBottomOperationView.this.gZo) {
+                        AlaLiveBottomOperationView.this.gYQ.o(view, 20);
+                    } else if (view == AlaLiveBottomOperationView.this.gZr) {
+                        AlaLiveBottomOperationView.this.gYQ.o(view, 17);
                         UbcStatisticManager.getInstance().logEvent(new UbcStatisticItem(UbcStatisticLiveKey.KEY_ID_1396, "click", "liveroom", "turntable").setContentExt(null, MapController.POPUP_LAYER_TAG, null));
-                    } else if (view == AlaLiveBottomOperationView.this.gKU) {
-                        AlaLiveBottomOperationView.this.gKp.n(view, 18);
-                    } else if (view == AlaLiveBottomOperationView.this.gKV) {
-                        AlaLiveBottomOperationView.this.gKp.n(view, 19);
+                    } else if (view == AlaLiveBottomOperationView.this.gZu) {
+                        AlaLiveBottomOperationView.this.gYQ.o(view, 18);
+                    } else if (view == AlaLiveBottomOperationView.this.gZv) {
+                        AlaLiveBottomOperationView.this.gYQ.o(view, 19);
                     }
                 }
             }
         };
-        this.bgl = new CustomMessageListener(2913193) { // from class: com.baidu.tieba.ala.liveroom.operation.AlaLiveBottomOperationView.5
+        this.bkb = new CustomMessageListener(2913193) { // from class: com.baidu.tieba.ala.liveroom.operation.AlaLiveBottomOperationView.5
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.live.adp.framework.listener.MessageListener
             public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
                 if (customResponsedMessage != null) {
-                    if (AlaLiveBottomOperationView.this.bgg == 1 || AlaLiveBottomOperationView.this.bgg == 2) {
+                    if (AlaLiveBottomOperationView.this.bjW == 1 || AlaLiveBottomOperationView.this.bjW == 2) {
                         if (customResponsedMessage.getData() instanceof ImForbiddenStateData) {
                             ImForbiddenStateData imForbiddenStateData = (ImForbiddenStateData) customResponsedMessage.getData();
                             if (imForbiddenStateData.errno != 0) {
                                 BdUtilHelper.showToast(AlaLiveBottomOperationView.this.getContext(), AlaLiveBottomOperationView.this.getContext().getResources().getString(a.i.ala_im_ban_no_net_tips));
                                 return;
                             } else if (imForbiddenStateData.banState == 0) {
-                                if (AlaLiveBottomOperationView.this.bgg == 1) {
-                                    AlaLiveBottomOperationView.this.bU(AlaLiveBottomOperationView.this.gLa);
-                                } else if (AlaLiveBottomOperationView.this.bgg == 2) {
-                                    AlaLiveBottomOperationView.this.gKp.n(AlaLiveBottomOperationView.this.gLb, 11);
+                                if (AlaLiveBottomOperationView.this.bjW == 1) {
+                                    AlaLiveBottomOperationView.this.bY(AlaLiveBottomOperationView.this.gZA);
+                                } else if (AlaLiveBottomOperationView.this.bjW == 2) {
+                                    AlaLiveBottomOperationView.this.gYQ.o(AlaLiveBottomOperationView.this.gZB, 11);
                                 }
                             } else {
                                 AlaLiveBottomOperationView.this.a(imForbiddenStateData);
                             }
                         }
-                        AlaLiveBottomOperationView.this.bgg = 0;
+                        AlaLiveBottomOperationView.this.bjW = 0;
                     }
                 }
             }
         };
-        this.bgf = bdPageContext;
+        this.bjV = bdPageContext;
         this.mContext = bdPageContext.getPageActivity();
         initView();
     }
 
-    public void Og() {
-        this.gLc = false;
-        this.gLd = false;
+    public void Pl() {
+        this.gZC = false;
+        this.gZD = false;
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public void lR(boolean z) {
-        if (this.gKp != null && z) {
-            this.gKp.n(this.gKs, 2);
+    public void mt(boolean z) {
+        if (this.gYQ != null && z) {
+            this.gYQ.o(this.gYT, 2);
         }
     }
 
     public void setGiftBtnVisible(boolean z) {
-        this.gKs.setVisibility(z ? 0 : 8);
-        if (z && !this.gLc) {
-            this.gLc = true;
+        this.gYT.setVisibility(z ? 0 : 8);
+        if (z && !this.gZC) {
+            this.gZC = true;
             UbcStatisticManager.getInstance().logEvent(new UbcStatisticItem(UbcStatisticLiveKey.KEY_ID_1394, "display", "liveroom", "gifticon_show").setContentExt(null, MapController.POPUP_LAYER_TAG, null));
         }
     }
 
     public void setQuickImInputVisible(boolean z) {
-        this.gKI.setVisibility(z ? 0 : 8);
-        this.gKH.setVisibility(z ? 0 : 8);
+        this.gZi.setVisibility(z ? 0 : 8);
     }
 
     private void initView() {
         this.rootView = View.inflate(this.mContext, a.h.ala_liveroom_vertical_bottom_operation, this);
-        this.gKq = (RelativeLayout) this.rootView.findViewById(a.g.ala_live_room_guest_message_layout);
-        this.gKr = (ImageView) this.rootView.findViewById(a.g.ala_live_room_gift_btn);
-        this.gKs = (FrameLayout) this.rootView.findViewById(a.g.ala_live_room_gift_layout);
-        this.gKt = (TbImageView) this.rootView.findViewById(a.g.ala_live_room_quick_gift_btn);
-        this.gKt.setDefaultResource(a.f.icon_quick_gift_def);
-        this.gKu = (FrameLayout) this.rootView.findViewById(a.g.ala_live_room_quick_gift_layout);
-        this.gKv = (ImageView) this.rootView.findViewById(a.g.ala_live_room_share_btn);
-        this.gKw = (FrameLayout) this.rootView.findViewById(a.g.ala_live_room_share_btn_layout);
-        this.gKz = (ImageView) this.rootView.findViewById(a.g.ala_live_room_clear_screen_btn);
-        this.gKA = (FrameLayout) this.rootView.findViewById(a.g.ala_live_room_clear_screen_btn_layout);
-        this.gKB = (TextView) this.rootView.findViewById(a.g.ala_live_room_level_switch_btn);
-        this.gKC = (FrameLayout) this.rootView.findViewById(a.g.ala_live_room_level_switch_btn_layout);
-        this.gKD = (LinearLayout) this.rootView.findViewById(a.g.ala_live_room_host_detail_layout);
-        this.gKE = (TextView) this.rootView.findViewById(a.g.ala_live_room_host_id_tv);
-        this.gKF = this.rootView.findViewById(a.g.ala_live_room_host_info_divider);
-        this.gKG = (TextView) this.rootView.findViewById(a.g.ala_live_room_host_audience_count_tv);
-        this.gKx = (ImageView) this.rootView.findViewById(a.g.ala_live_room_full_screen_btn);
-        this.gKy = (FrameLayout) this.rootView.findViewById(a.g.ala_live_room_full_screen_btn_layout);
-        this.gKH = this.rootView.findViewById(a.g.divider);
-        this.gKI = (ImageView) this.rootView.findViewById(a.g.iv_quick_im_input);
-        this.gKJ = (ImageView) this.rootView.findViewById(a.g.ala_live_room_zan_btn);
-        this.gKK = (FrameLayout) this.rootView.findViewById(a.g.ala_live_room_zan_layout);
-        this.gHf = (FrameLayout) View.inflate(this.mContext, a.h.ala_live_room_top_pure_layout_hk, null);
-        this.gKQ = (ViewGroup) this.rootView.findViewById(a.g.host_goods_layout_parent);
-        this.gKQ.setVisibility(8);
-        this.gKL = (FrameLayout) this.rootView.findViewById(a.g.firstRecharge_layout);
-        this.gKM = (ImageView) this.rootView.findViewById(a.g.firstRecharge_lamp1);
-        this.gKN = (ImageView) this.rootView.findViewById(a.g.firstRecharge_lamp2);
-        this.gKO = (FrameLayout) this.rootView.findViewById(a.g.superCustomer_layout);
-        this.gKP = (TbImageView) this.rootView.findViewById(a.g.superCustomer_imageView);
-        this.gKP.setDefaultBgResource(a.f.sdk_shape_transparent);
-        this.gKR = this.rootView.findViewById(a.g.turntable);
-        this.gKS = (ImageView) this.rootView.findViewById(a.g.turntable_icon);
-        this.gKT = (TurnTableLuckyCountDownView) this.rootView.findViewById(a.g.turntable_countdown);
-        this.gKU = (ImageView) this.rootView.findViewById(a.g.landscape_barrage_imageView);
-        this.gKV = (ImageView) this.rootView.findViewById(a.g.landscape_minimize_imageView);
-        EP();
+        this.gYR = (RelativeLayout) this.rootView.findViewById(a.g.ala_live_room_guest_message_layout);
+        this.gYS = (ImageView) this.rootView.findViewById(a.g.ala_live_room_gift_btn);
+        this.gYT = (FrameLayout) this.rootView.findViewById(a.g.ala_live_room_gift_layout);
+        this.gYU = (TbImageView) this.rootView.findViewById(a.g.ala_live_room_quick_gift_btn);
+        this.gYU.setDefaultResource(a.f.icon_quick_gift_def);
+        this.gYV = (FrameLayout) this.rootView.findViewById(a.g.ala_live_room_quick_gift_layout);
+        this.gYW = (ImageView) this.rootView.findViewById(a.g.ala_live_room_share_btn);
+        this.gYX = (FrameLayout) this.rootView.findViewById(a.g.ala_live_room_share_btn_layout);
+        this.gZa = (ImageView) this.rootView.findViewById(a.g.ala_live_room_clear_screen_btn);
+        this.gZb = (FrameLayout) this.rootView.findViewById(a.g.ala_live_room_clear_screen_btn_layout);
+        this.gZc = (TextView) this.rootView.findViewById(a.g.ala_live_room_level_switch_btn);
+        this.gZd = (FrameLayout) this.rootView.findViewById(a.g.ala_live_room_level_switch_btn_layout);
+        this.gZe = (LinearLayout) this.rootView.findViewById(a.g.ala_live_room_host_detail_layout);
+        this.gZf = (TextView) this.rootView.findViewById(a.g.ala_live_room_host_id_tv);
+        this.gZg = this.rootView.findViewById(a.g.ala_live_room_host_info_divider);
+        this.gZh = (TextView) this.rootView.findViewById(a.g.ala_live_room_host_audience_count_tv);
+        this.gYY = (ImageView) this.rootView.findViewById(a.g.ala_live_room_full_screen_btn);
+        this.gYZ = (FrameLayout) this.rootView.findViewById(a.g.ala_live_room_full_screen_btn_layout);
+        this.gZi = (ImageView) this.rootView.findViewById(a.g.iv_quick_im_input);
+        this.gZj = (ImageView) this.rootView.findViewById(a.g.ala_live_room_zan_btn);
+        this.gZk = (FrameLayout) this.rootView.findViewById(a.g.ala_live_room_zan_layout);
+        this.gVF = (FrameLayout) View.inflate(this.mContext, a.h.ala_live_room_top_pure_layout_hk, null);
+        this.gZq = (ViewGroup) this.rootView.findViewById(a.g.host_goods_layout_parent);
+        this.gZq.setVisibility(8);
+        this.gZl = (FrameLayout) this.rootView.findViewById(a.g.firstRecharge_layout);
+        this.gZm = (ImageView) this.rootView.findViewById(a.g.firstRecharge_lamp1);
+        this.gZn = (ImageView) this.rootView.findViewById(a.g.firstRecharge_lamp2);
+        this.gZo = (FrameLayout) this.rootView.findViewById(a.g.superCustomer_layout);
+        this.gZp = (TbImageView) this.rootView.findViewById(a.g.superCustomer_imageView);
+        this.gZp.setDefaultBgResource(a.f.sdk_shape_transparent);
+        this.gZr = this.rootView.findViewById(a.g.turntable);
+        this.gZs = (ImageView) this.rootView.findViewById(a.g.turntable_icon);
+        this.gZt = (TurnTableLuckyCountDownView) this.rootView.findViewById(a.g.turntable_countdown);
+        this.gZu = (ImageView) this.rootView.findViewById(a.g.landscape_barrage_imageView);
+        this.gZv = (ImageView) this.rootView.findViewById(a.g.landscape_minimize_imageView);
+        FL();
     }
 
     public void setMsgLayoutWidth(boolean z) {
         int i = z ? 2 : 1;
-        if (this.gKY != i) {
-            this.gKY = i;
-            RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) this.gKq.getLayoutParams();
+        if (this.gZy != i) {
+            this.gZy = i;
+            RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) this.gYR.getLayoutParams();
             if (z) {
                 layoutParams.width = this.mContext.getResources().getDimensionPixelSize(a.e.sdk_ds400);
                 layoutParams.addRule(0, 0);
@@ -296,26 +293,26 @@ public class AlaLiveBottomOperationView extends FrameLayout {
                 layoutParams.width = -1;
                 layoutParams.addRule(0, a.g.optLayout);
             }
-            this.gKq.setLayoutParams(layoutParams);
+            this.gYR.setLayoutParams(layoutParams);
         }
     }
 
-    private void EP() {
-        this.gKs.setOnClickListener(this.aBS);
-        this.gKu.setOnClickListener(this.aBS);
-        this.gKw.setOnClickListener(this.aBS);
-        this.gKK.setOnClickListener(this.aBS);
-        this.gKA.setOnClickListener(this.aBS);
-        this.gKC.setOnClickListener(this.aBS);
-        this.gKq.setOnClickListener(this.aBS);
-        this.gKy.setOnClickListener(this.aBS);
-        this.gKI.setOnClickListener(this.aBS);
-        this.gHf.setOnClickListener(this.aBS);
-        this.gKL.setOnClickListener(this.aBS);
-        this.gKO.setOnClickListener(this.aBS);
-        this.gKR.setOnClickListener(this.aBS);
-        this.gKU.setOnClickListener(this.aBS);
-        this.gKV.setOnClickListener(this.aBS);
+    private void FL() {
+        this.gYT.setOnClickListener(this.aEX);
+        this.gYV.setOnClickListener(this.aEX);
+        this.gYX.setOnClickListener(this.aEX);
+        this.gZk.setOnClickListener(this.aEX);
+        this.gZb.setOnClickListener(this.aEX);
+        this.gZd.setOnClickListener(this.aEX);
+        this.gYR.setOnClickListener(this.aEX);
+        this.gYZ.setOnClickListener(this.aEX);
+        this.gZi.setOnClickListener(this.aEX);
+        this.gVF.setOnClickListener(this.aEX);
+        this.gZl.setOnClickListener(this.aEX);
+        this.gZo.setOnClickListener(this.aEX);
+        this.gZr.setOnClickListener(this.aEX);
+        this.gZu.setOnClickListener(this.aEX);
+        this.gZv.setOnClickListener(this.aEX);
     }
 
     @Override // android.view.View
@@ -323,86 +320,86 @@ public class AlaLiveBottomOperationView extends FrameLayout {
         return this;
     }
 
-    public void bT(View view) {
-        if (this.gKQ != null) {
-            this.gKQ.setVisibility(0);
-            this.gKQ.addView(view);
+    public void bX(View view) {
+        if (this.gZq != null) {
+            this.gZq.setVisibility(0);
+            this.gZq.addView(view);
         }
     }
 
     public void setOnLiveViewOperationBtnClickListener(b bVar) {
-        this.gKp = bVar;
+        this.gYQ = bVar;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void bU(View view) {
+    public void bY(View view) {
         if (TbadkCoreApplication.getInst().isHaokan() || TbadkCoreApplication.getInst().isQuanmin()) {
             AlaStaticItem alaStaticItem = new AlaStaticItem(SdkStaticKeys.CLICK_CHATINPUT);
             alaStaticItem.addParams("feed_id", HKStaticManager.FEED_ID);
             AlaStaticsManager.getInst().onStatic(alaStaticItem);
         }
-        this.gKp.n(view, 1);
+        this.gYQ.o(view, 1);
     }
 
     public ImageView getLandscapeBarrageImageView() {
-        return this.gKU;
+        return this.gZu;
     }
 
     public void onDestory() {
         this.handler.removeCallbacksAndMessages(null);
-        MessageManager.getInstance().unRegisterListener(this.bgl);
-        MessageManager.getInstance().unRegisterListener(this.aYi);
+        MessageManager.getInstance().unRegisterListener(this.bkb);
+        MessageManager.getInstance().unRegisterListener(this.bbC);
     }
 
     public void a(boolean z, AlaLiveInfoData alaLiveInfoData, String str) {
         boolean z2;
         if ((TbadkCoreApplication.sAlaLiveSwitchData == null || (!TbadkCoreApplication.sAlaLiveSwitchData.isFirstChargeUnabled() && !TbadkCoreApplication.sAlaLiveSwitchData.isQuickGiftUnabled() && !TbadkCoreApplication.sAlaLiveSwitchData.isEntrySuperCustomerUnabled())) && !TbadkCoreApplication.getInst().isMobileBaidu()) {
-            if (!com.baidu.live.x.a.NN().NQ()) {
+            if (!com.baidu.live.x.a.OS().OV()) {
                 z = false;
             }
-            af afVar = com.baidu.tieba.ala.liveroom.w.b.bYg().bhH;
+            af afVar = com.baidu.tieba.ala.liveroom.w.b.cbG().blx;
             if (afVar != null) {
-                z2 = (afVar.aFT == 1 || TextUtils.isEmpty(afVar.iconUrl)) ? false : true;
+                z2 = (afVar.aIX == 1 || TextUtils.isEmpty(afVar.iconUrl)) ? false : true;
             } else {
                 z2 = false;
             }
             if (z2) {
-                this.gKu.setAlpha(0.0f);
-                this.gKL.setVisibility(8);
-                this.gKO.setVisibility(0);
+                this.gYV.setAlpha(0.0f);
+                this.gZl.setVisibility(8);
+                this.gZo.setVisibility(0);
                 if (afVar != null && !TextUtils.isEmpty(afVar.iconUrl)) {
                     BdLog.d("iconUrl:" + afVar.iconUrl);
-                    this.gKP.startLoad(afVar.iconUrl, 10, false);
+                    this.gZp.startLoad(afVar.iconUrl, 10, false);
                 }
             } else if (z) {
-                this.gKu.setAlpha(0.0f);
-                this.gKO.setVisibility(8);
-                this.gKL.setVisibility(0);
-                bXI();
+                this.gYV.setAlpha(0.0f);
+                this.gZo.setVisibility(8);
+                this.gZl.setVisibility(0);
+                cbd();
                 if (alaLiveInfoData != null) {
                     long j = alaLiveInfoData.live_id;
-                    if (!this.gKZ.contains(Long.valueOf(j))) {
+                    if (!this.gZz.contains(Long.valueOf(j))) {
                         LogManager.getFirstChargeLogger().doDisplayLiveFirstChargeQuickLog(j + "", alaLiveInfoData.room_id + "", alaLiveInfoData.feed_id, str);
-                        this.gKZ.add(Long.valueOf(j));
+                        this.gZz.add(Long.valueOf(j));
                     }
                 }
             } else {
                 this.handler.removeCallbacksAndMessages(null);
-                this.gKu.setAlpha(1.0f);
-                if (!this.gLd) {
-                    this.gLd = true;
+                this.gYV.setAlpha(1.0f);
+                if (!this.gZD) {
+                    this.gZD = true;
                     UbcStatisticManager.getInstance().logEvent(new UbcStatisticItem(UbcStatisticLiveKey.KEY_ID_1394, "display", "liveroom", "quickgift_show").setContentExt(null, MapController.POPUP_LAYER_TAG, null));
                 }
-                this.gKL.setVisibility(8);
-                this.gKO.setVisibility(8);
+                this.gZl.setVisibility(8);
+                this.gZo.setVisibility(8);
             }
         }
     }
 
     public void b(boolean z, int i, int i2, String str) {
-        this.bgd = z;
-        this.bge = i;
-        this.aVt = i2;
+        this.bjT = z;
+        this.bjU = i;
+        this.aYE = i2;
         this.mUserName = str;
     }
 
@@ -410,12 +407,12 @@ public class AlaLiveBottomOperationView extends FrameLayout {
     public void a(ImForbiddenStateData imForbiddenStateData) {
         String format;
         if (imForbiddenStateData.globalBan == 1) {
-            if (imForbiddenStateData.foreverInfo != null && imForbiddenStateData.foreverInfo.bfk == 1) {
+            if (imForbiddenStateData.foreverInfo != null && imForbiddenStateData.foreverInfo.biW == 1) {
                 format = getContext().getResources().getString(a.i.ala_forbidden_words_ueg_block);
             } else {
-                format = String.format(getContext().getResources().getString(a.i.ala_forbidden_words_ueg_forever), imForbiddenStateData.foreverInfo.bfl);
+                format = String.format(getContext().getResources().getString(a.i.ala_forbidden_words_ueg_forever), imForbiddenStateData.foreverInfo.biX);
             }
-            this.mDialog = new BdAlertDialog(this.bgf.getPageActivity());
+            this.mDialog = new BdAlertDialog(this.bjV.getPageActivity());
             this.mDialog.setMessage(format);
             this.mDialog.setPositiveButton(getContext().getResources().getString(a.i.ala_forbidden_words_btn_ok), new BdAlertDialog.OnClickListener() { // from class: com.baidu.tieba.ala.liveroom.operation.AlaLiveBottomOperationView.2
                 @Override // com.baidu.live.tbadk.core.dialog.BdAlertDialog.OnClickListener
@@ -441,7 +438,7 @@ public class AlaLiveBottomOperationView extends FrameLayout {
                 this.mDialog.setPositiveButtonTextColor(ViewCompat.MEASURED_STATE_MASK);
                 this.mDialog.setNagetiveButtonTextColor(ViewCompat.MEASURED_STATE_MASK);
             }
-            this.mDialog.create(this.bgf);
+            this.mDialog.create(this.bjV);
             this.mDialog.setCanceledOnTouchOutside(false);
             this.mDialog.show();
         } else if (imForbiddenStateData.anchorBan == 1) {
@@ -452,7 +449,7 @@ public class AlaLiveBottomOperationView extends FrameLayout {
     }
 
     public void registerListeners() {
-        this.aYi = new CustomMessageListener(2913097) { // from class: com.baidu.tieba.ala.liveroom.operation.AlaLiveBottomOperationView.4
+        this.bbC = new CustomMessageListener(2913097) { // from class: com.baidu.tieba.ala.liveroom.operation.AlaLiveBottomOperationView.4
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.live.adp.framework.listener.MessageListener
             public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
@@ -461,17 +458,17 @@ public class AlaLiveBottomOperationView extends FrameLayout {
                 }
             }
         };
-        this.aYi.setTag(this.bgf.getUniqueId());
-        MessageManager.getInstance().registerListener(this.aYi);
-        this.bgl.setTag(this.bgf.getUniqueId());
-        MessageManager.getInstance().registerListener(this.bgl);
+        this.bbC.setTag(this.bjV.getUniqueId());
+        MessageManager.getInstance().registerListener(this.bbC);
+        this.bkb.setTag(this.bjV.getUniqueId());
+        MessageManager.getInstance().registerListener(this.bkb);
     }
 
-    private void bXI() {
-        if (this.gKX == null) {
-            this.gKX = new a();
+    private void cbd() {
+        if (this.gZx == null) {
+            this.gZx = new a();
         }
-        this.handler.postDelayed(this.gKX, 1000L);
+        this.handler.postDelayed(this.gZx, 1000L);
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -482,14 +479,14 @@ public class AlaLiveBottomOperationView extends FrameLayout {
 
         @Override // java.lang.Runnable
         public void run() {
-            if (AlaLiveBottomOperationView.this.gKM.getVisibility() == 0) {
-                AlaLiveBottomOperationView.this.gKM.setVisibility(8);
-                AlaLiveBottomOperationView.this.gKN.setVisibility(0);
+            if (AlaLiveBottomOperationView.this.gZm.getVisibility() == 0) {
+                AlaLiveBottomOperationView.this.gZm.setVisibility(8);
+                AlaLiveBottomOperationView.this.gZn.setVisibility(0);
             } else {
-                AlaLiveBottomOperationView.this.gKM.setVisibility(0);
-                AlaLiveBottomOperationView.this.gKN.setVisibility(8);
+                AlaLiveBottomOperationView.this.gZm.setVisibility(0);
+                AlaLiveBottomOperationView.this.gZn.setVisibility(8);
             }
-            AlaLiveBottomOperationView.this.handler.postDelayed(AlaLiveBottomOperationView.this.gKX, 1000L);
+            AlaLiveBottomOperationView.this.handler.postDelayed(AlaLiveBottomOperationView.this.gZx, 1000L);
         }
     }
 }

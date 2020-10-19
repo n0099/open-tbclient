@@ -12,9 +12,11 @@ import android.view.animation.ScaleAnimation;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
 import com.baidu.sapi2.biometrics.liveness.R;
-/* loaded from: classes16.dex */
+/* loaded from: classes17.dex */
 public class UploadingFileView extends FrameLayout {
-    private UploadCircleView a;
+
+    /* renamed from: a  reason: collision with root package name */
+    private UploadCircleView f1777a;
     private ImageView b;
     private ImageView c;
     public DynamicWaveView dynamicWaveView;
@@ -31,26 +33,26 @@ public class UploadingFileView extends FrameLayout {
         super(context, attributeSet, i);
         View inflate = LayoutInflater.from(context).inflate(R.layout.layout_sapi_liveness_uploading_file_view, (ViewGroup) this, true);
         this.dynamicWaveView = (DynamicWaveView) findViewById(R.id.dynamic_wave);
-        this.a = (UploadCircleView) inflate.findViewById(R.id.my_circle);
+        this.f1777a = (UploadCircleView) inflate.findViewById(R.id.my_circle);
         this.b = (ImageView) inflate.findViewById(R.id.circle);
         this.c = (ImageView) inflate.findViewById(R.id.tick);
     }
 
     public void setProgress(int i) {
         if (i < 100) {
-            this.a.setProgress(i);
+            this.f1777a.setProgress(i);
             if (i == 0) {
                 this.dynamicWaveView.setVisibility(0);
                 return;
             }
             return;
         }
-        this.a.setProgress(100);
+        this.f1777a.setProgress(100);
         this.dynamicWaveView.stopAnim();
     }
 
     public void showUpSucView() {
-        this.a.setVisibility(8);
+        this.f1777a.setVisibility(8);
         this.dynamicWaveView.setVisibility(8);
         this.b.setVisibility(0);
         a();
@@ -84,7 +86,7 @@ public class UploadingFileView extends FrameLayout {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes16.dex */
+    /* loaded from: classes17.dex */
     public class a implements Interpolator {
         private float b = 0.5f;
 

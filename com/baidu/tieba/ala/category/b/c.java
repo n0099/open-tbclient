@@ -9,15 +9,15 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 /* loaded from: classes4.dex */
 public class c implements IAdapterData {
-    public static final BdUniqueId fSF = BdUniqueId.gen();
+    public static final BdUniqueId geY = BdUniqueId.gen();
     private String desc;
-    private List<IAdapterData> fSG;
+    private List<IAdapterData> geZ;
     private String icon;
     private String id;
     private String level;
     private String name;
 
-    public void dl(JSONObject jSONObject) {
+    public void ds(JSONObject jSONObject) {
         this.id = jSONObject.optString("id");
         this.name = jSONObject.optString("name");
         this.level = jSONObject.optString("level");
@@ -25,13 +25,13 @@ public class c implements IAdapterData {
         this.desc = jSONObject.optString("desc");
         JSONArray optJSONArray = jSONObject.optJSONArray("sub_list");
         if (optJSONArray != null) {
-            this.fSG = new ArrayList();
+            this.geZ = new ArrayList();
             int length = optJSONArray.length();
             for (int i = 0; i < length; i++) {
                 JSONObject optJSONObject = optJSONArray.optJSONObject(i);
                 c cVar = new c();
-                cVar.dl(optJSONObject);
-                this.fSG.add(cVar);
+                cVar.ds(optJSONObject);
+                this.geZ.add(cVar);
             }
         }
     }
@@ -44,12 +44,12 @@ public class c implements IAdapterData {
         return this.name;
     }
 
-    public List<IAdapterData> bJh() {
-        return this.fSG;
+    public List<IAdapterData> bLR() {
+        return this.geZ;
     }
 
     @Override // com.baidu.live.adp.widget.listview.IAdapterData
     public BdUniqueId getType() {
-        return fSF;
+        return geY;
     }
 }

@@ -5,11 +5,11 @@ import android.support.annotation.NonNull;
 import java.io.File;
 import java.util.Map;
 import java.util.Set;
-/* loaded from: classes24.dex */
+/* loaded from: classes15.dex */
 public interface b extends SharedPreferences, SharedPreferences.Editor {
-    boolean aDN();
+    boolean aGw();
 
-    Set<String> aDO();
+    Set<String> aGx();
 
     @Override // android.content.SharedPreferences
     @Deprecated

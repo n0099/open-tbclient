@@ -21,20 +21,20 @@ import com.baidu.tbadk.data.i;
 import com.baidu.tieba.R;
 import com.baidu.tieba.d;
 import java.util.List;
-/* loaded from: classes21.dex */
+/* loaded from: classes22.dex */
 public class b extends RecyclerView.Adapter<a> {
-    private d fsF;
+    private d fEQ;
     private View.OnClickListener mClickListener = new View.OnClickListener() { // from class: com.baidu.tieba.b.b.1
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             i iVar = (i) view.getTag();
             if (iVar != null) {
-                if (!iVar.eLN) {
-                    b.this.fsF.Dy(iVar.eLO);
-                    MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921507, iVar.eLO));
+                if (!iVar.eXU) {
+                    b.this.fEQ.Ej(iVar.eXV);
+                    MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921507, iVar.eXV));
                     return;
                 }
-                TiebaStatic.log(new aq("c13995").dF("fid", iVar.forumId).ai("obj_source", b.this.mType));
+                TiebaStatic.log(new aq("c13995").dK("fid", iVar.forumId).aj("obj_source", b.this.mType));
                 MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921505, iVar));
                 MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921503));
             }
@@ -44,21 +44,21 @@ public class b extends RecyclerView.Adapter<a> {
     private int mType;
 
     public b(d dVar) {
-        this.fsF = dVar;
+        this.fEQ = dVar;
     }
 
     public void setType(int i) {
         this.mType = i;
     }
 
-    public void aO(List<i> list) {
+    public void aR(List<i> list) {
         this.mDataList = list;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // android.support.v7.widget.RecyclerView.Adapter
     @NonNull
-    /* renamed from: m */
+    /* renamed from: o */
     public a onCreateViewHolder(@NonNull ViewGroup viewGroup, int i) {
         return new a(LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.cell_select_forum_layout, viewGroup, false));
     }
@@ -69,23 +69,23 @@ public class b extends RecyclerView.Adapter<a> {
     public void onBindViewHolder(@NonNull a aVar, int i) {
         i iVar = (i) y.getItem(this.mDataList, i);
         if (iVar != null) {
-            aVar.fsH.setPlaceHolder(2);
-            aVar.fsH.setShowOval(true);
-            aVar.fsH.setShowOuterBorder(true);
-            aVar.fsH.setShowInnerBorder(false);
-            aVar.fsH.setStrokeColorResId(R.color.cp_border_a);
-            aVar.fsH.setStrokeWith(l.getDimens(TbadkCoreApplication.getInst(), R.dimen.tbds1));
-            aVar.fsH.startLoad(iVar.baJ, 10, false);
-            aVar.fsI.setText(iVar.forumName);
-            ap.setViewTextColor(aVar.fsI, R.color.cp_cont_b);
+            aVar.fES.setPlaceHolder(2);
+            aVar.fES.setShowOval(true);
+            aVar.fES.setShowOuterBorder(true);
+            aVar.fES.setShowInnerBorder(false);
+            aVar.fES.setStrokeColorResId(R.color.cp_border_a);
+            aVar.fES.setStrokeWith(l.getDimens(TbadkCoreApplication.getInst(), R.dimen.tbds1));
+            aVar.fES.startLoad(iVar.bed, 10, false);
+            aVar.fET.setText(iVar.forumName);
+            ap.setViewTextColor(aVar.fET, R.color.cp_cont_b);
             if (iVar.level <= 0) {
-                aVar.fsJ.setVisibility(8);
+                aVar.fEU.setVisibility(8);
             } else {
-                aVar.fsJ.setVisibility(0);
-                ap.setImageResource(aVar.fsJ, BitmapHelper.getGradeResourceIdInEnterForum(iVar.level));
+                aVar.fEU.setVisibility(0);
+                ap.setImageResource(aVar.fEU, BitmapHelper.getGradeResourceIdInEnterForum(iVar.level));
             }
-            aVar.fsK.setVisibility(iVar.eLM ? 0 : 8);
-            ap.setViewTextColor(aVar.fsK, R.color.cp_link_tip_a);
+            aVar.fEV.setVisibility(iVar.eXT ? 0 : 8);
+            ap.setViewTextColor(aVar.fEV, R.color.cp_link_tip_a);
             aVar.itemView.setTag(iVar);
             ap.setBackgroundResource(aVar.itemView, R.drawable.forum_selected_view_bg);
             aVar.itemView.setOnClickListener(this.mClickListener);
@@ -98,19 +98,19 @@ public class b extends RecyclerView.Adapter<a> {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes21.dex */
+    /* loaded from: classes22.dex */
     public class a extends RecyclerView.ViewHolder {
-        BarImageView fsH;
-        TextView fsI;
-        ImageView fsJ;
-        TextView fsK;
+        BarImageView fES;
+        TextView fET;
+        ImageView fEU;
+        TextView fEV;
 
         public a(View view) {
             super(view);
-            this.fsH = (BarImageView) view.findViewById(R.id.cell_select_forum_img);
-            this.fsI = (TextView) view.findViewById(R.id.cell_select_forum_name);
-            this.fsJ = (ImageView) view.findViewById(R.id.cell_select_forum_level);
-            this.fsK = (TextView) view.findViewById(R.id.cell_select_forum_lately);
+            this.fES = (BarImageView) view.findViewById(R.id.cell_select_forum_img);
+            this.fET = (TextView) view.findViewById(R.id.cell_select_forum_name);
+            this.fEU = (ImageView) view.findViewById(R.id.cell_select_forum_level);
+            this.fEV = (TextView) view.findViewById(R.id.cell_select_forum_lately);
         }
     }
 }

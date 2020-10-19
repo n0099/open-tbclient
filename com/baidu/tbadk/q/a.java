@@ -16,7 +16,7 @@ public class a extends com.baidu.adp.framework.b.c {
             return null;
         }
         if (httpResponsedMessage.getError() == 2260104) {
-            o.bwC();
+            o.bzm();
             return httpResponsedMessage;
         }
         return httpResponsedMessage;

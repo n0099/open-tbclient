@@ -7,24 +7,24 @@ import com.baidu.tbadk.TbPageContext;
 import com.baidu.tieba.R;
 /* loaded from: classes4.dex */
 public class f extends com.baidu.tieba.card.b<com.baidu.tieba.ala.frsgamelive.b.c> {
-    private TbPageContext gbX;
-    private d gbY;
+    private TbPageContext goo;
+    private d gop;
 
     public f(TbPageContext<?> tbPageContext) {
         super(tbPageContext);
-        this.gbX = tbPageContext;
+        this.goo = tbPageContext;
         initView();
     }
 
     private void initView() {
-        this.gbY = new d(this.gbX);
-        ((ViewGroup) getView()).addView(this.gbY.getView());
+        this.gop = new d(this.goo);
+        ((ViewGroup) getView()).addView(this.gop.getView());
     }
 
     @Override // com.baidu.tieba.card.b
     public void onChangeSkinType(TbPageContext<?> tbPageContext, int i) {
-        if (this.gbY != null) {
-            this.gbY.onChangeSkinType(tbPageContext, i);
+        if (this.gop != null) {
+            this.gop.onChangeSkinType(tbPageContext, i);
         }
     }
 
@@ -36,8 +36,8 @@ public class f extends com.baidu.tieba.card.b<com.baidu.tieba.ala.frsgamelive.b.
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.tieba.card.b
     public void a(com.baidu.tieba.ala.frsgamelive.b.c cVar) {
-        if (cVar != null && cVar.dXg != null && this.gbY != null) {
-            this.gbY.a(cVar.dXg);
+        if (cVar != null && cVar.eji != null && this.gop != null) {
+            this.gop.a(cVar.eji);
         }
     }
 
@@ -46,18 +46,18 @@ public class f extends com.baidu.tieba.card.b<com.baidu.tieba.ala.frsgamelive.b.
     }
 
     public void c(com.baidu.tieba.ala.f fVar) {
-        if (this.gbY != null) {
-            this.gbY.d(fVar);
+        if (this.gop != null) {
+            this.gop.d(fVar);
         }
     }
 
     /* loaded from: classes4.dex */
     public static class a extends af.a {
-        public f gbZ;
+        public f goq;
 
         public a(f fVar) {
             super(fVar.getView());
-            this.gbZ = fVar;
+            this.goq = fVar;
         }
     }
 }

@@ -1,5 +1,5 @@
 package com.xiaomi.push;
-/* loaded from: classes9.dex */
+/* loaded from: classes12.dex */
 public enum ht {
     INT(1),
     LONG(2),
@@ -8,10 +8,10 @@ public enum ht {
     
 
     /* renamed from: a  reason: collision with other field name */
-    private final int f464a;
+    private final int f465a;
 
     ht(int i) {
-        this.f464a = i;
+        this.f465a = i;
     }
 
     public static ht a(int i) {

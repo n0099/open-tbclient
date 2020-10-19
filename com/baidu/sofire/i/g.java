@@ -6,14 +6,16 @@ import android.os.Message;
 import com.baidu.sofire.rp.receiver.Receiver;
 import java.util.concurrent.locks.Lock;
 import java.util.concurrent.locks.ReentrantLock;
-/* loaded from: classes12.dex */
+/* loaded from: classes15.dex */
 public final class g {
     private static Lock b = new ReentrantLock();
     private static g c = null;
-    public com.baidu.sofire.h.a a;
+
+    /* renamed from: a  reason: collision with root package name */
+    public com.baidu.sofire.h.a f3629a;
 
     private g(Context context) {
-        this.a = new com.baidu.sofire.h.a(context);
+        this.f3629a = new com.baidu.sofire.h.a(context);
     }
 
     public static g a(Context context) {
@@ -32,7 +34,7 @@ public final class g {
     }
 
     public final void a() {
-        com.baidu.sofire.h.a aVar = this.a;
+        com.baidu.sofire.h.a aVar = this.f3629a;
         if (!"tvshield".equals("sofire")) {
             if (aVar.c == null) {
                 aVar.c = new Receiver();
@@ -47,7 +49,7 @@ public final class g {
     }
 
     public final void b() {
-        com.baidu.sofire.h.a aVar = this.a;
+        com.baidu.sofire.h.a aVar = this.f3629a;
         Message message = new Message();
         message.what = 7;
         aVar.a(message);
@@ -56,6 +58,6 @@ public final class g {
     public final void c() {
         Message message = new Message();
         message.what = 2;
-        this.a.a(message);
+        this.f3629a.a(message);
     }
 }

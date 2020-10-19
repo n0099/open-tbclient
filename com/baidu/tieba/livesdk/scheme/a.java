@@ -6,10 +6,10 @@ import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.browser.WebViewBroadcastReceiver;
 import com.baidu.tbadk.core.util.be;
-import com.baidu.tieba.sdk.b.g;
+import com.baidu.tieba.sdk.b.f;
 import com.baidu.webkit.internal.ETAG;
 /* loaded from: classes4.dex */
-public class a implements g {
+public class a implements f {
     public void openScheme(String str) {
         if (!StringUtils.isNull(str)) {
             StringBuilder sb = new StringBuilder();
@@ -22,15 +22,15 @@ public class a implements g {
             sb.append(WebViewBroadcastReceiver.INTENT_LOCALE_RECEV_CLOSE);
             sb.append("=1");
             sb.append("&page_from=live");
-            Activity currentActivity = com.baidu.adp.base.a.lf().currentActivity();
+            Activity currentActivity = com.baidu.adp.base.a.lg().currentActivity();
             if (currentActivity != null) {
-                be.bkp().a((TbPageContext) i.I(currentActivity), new String[]{sb.toString()}, true);
+                be.bmY().a((TbPageContext) i.I(currentActivity), new String[]{sb.toString()}, true);
             }
         }
     }
 
-    @Override // com.baidu.tieba.sdk.b.g
-    public void Mq(String str) {
+    @Override // com.baidu.tieba.sdk.b.f
+    public void Nf(String str) {
         openScheme(str);
     }
 }

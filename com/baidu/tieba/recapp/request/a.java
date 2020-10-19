@@ -9,7 +9,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 import org.apache.http.cookie.SM;
-/* loaded from: classes25.dex */
+/* loaded from: classes26.dex */
 public class a {
     private String url;
 
@@ -23,30 +23,30 @@ public class a {
             /* JADX INFO: Access modifiers changed from: protected */
             @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
             public Void doInBackground(String... strArr) {
-                HashMap cPH = a.this.cPH();
+                HashMap cTr = a.this.cTr();
                 HashMap b = a.this.b(str, i, i2, i3, str2, str3);
                 e eVar = new e();
-                eVar.mw().setUrl(a.this.url);
-                eVar.mw().setMethod(HttpMessageTask.HTTP_METHOD.POST);
-                if (cPH != null && !cPH.isEmpty()) {
-                    eVar.mw().t(a.this.cPH());
+                eVar.mx().setUrl(a.this.url);
+                eVar.mx().setMethod(HttpMessageTask.HTTP_METHOD.POST);
+                if (cTr != null && !cTr.isEmpty()) {
+                    eVar.mx().t(a.this.cTr());
                 }
                 if (b != null && !b.isEmpty()) {
                     ArrayList arrayList = new ArrayList();
                     for (Map.Entry<String, Object> entry : b.entrySet()) {
                         arrayList.add(entry);
                     }
-                    eVar.mw().n(arrayList);
+                    eVar.mx().n(arrayList);
                 }
                 new c(eVar).f(1, 0, 0);
-                eVar.mx();
+                eVar.my();
                 return null;
             }
         }.execute(new String[0]);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public HashMap<String, String> cPH() {
+    public HashMap<String, String> cTr() {
         String cookie = CookieManager.getInstance().getCookie("tieba.baidu.com");
         HashMap<String, String> hashMap = new HashMap<>();
         hashMap.put(SM.COOKIE, cookie);

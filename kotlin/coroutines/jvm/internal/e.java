@@ -3,9 +3,9 @@ package kotlin.coroutines.jvm.internal;
 import kotlin.h;
 import kotlin.jvm.internal.q;
 @h
-/* loaded from: classes5.dex */
+/* loaded from: classes10.dex */
 public final class e {
     public static final void c(kotlin.coroutines.a<?> aVar) {
-        q.m(aVar, "frame");
+        q.n(aVar, "frame");
     }
 }

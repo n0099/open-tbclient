@@ -1,19 +1,19 @@
 package rx.internal.util.a;
-/* loaded from: classes7.dex */
+/* loaded from: classes16.dex */
 abstract class p<E> extends n<E> {
-    private volatile long oTa;
+    private volatile long pit;
 
     public p(int i) {
         super(i);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public final long eoM() {
-        return this.oTa;
+    public final long esx() {
+        return this.pit;
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public final void hu(long j) {
-        this.oTa = j;
+    public final void hM(long j) {
+        this.pit = j;
     }
 }

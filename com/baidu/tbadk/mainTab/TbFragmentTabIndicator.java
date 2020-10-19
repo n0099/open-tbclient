@@ -11,38 +11,38 @@ import com.baidu.tieba.R;
 import tbclient.ThemeColorInfo;
 /* loaded from: classes.dex */
 public abstract class TbFragmentTabIndicator extends FrameLayout {
-    protected float eSH;
-    protected float eSI;
-    protected int eSJ;
-    protected int eSK;
+    protected float feP;
+    protected float feQ;
+    protected int feR;
+    protected int feS;
     protected boolean mIsContentSelectBold;
     protected ThemeColorInfo mThemeColorInfo;
 
     public TbFragmentTabIndicator(Context context) {
         super(context);
         this.mIsContentSelectBold = false;
-        this.eSH = 0.0f;
-        this.eSI = 0.0f;
-        this.eSJ = 0;
-        this.eSK = 0;
+        this.feP = 0.0f;
+        this.feQ = 0.0f;
+        this.feR = 0;
+        this.feS = 0;
     }
 
     public TbFragmentTabIndicator(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
         this.mIsContentSelectBold = false;
-        this.eSH = 0.0f;
-        this.eSI = 0.0f;
-        this.eSJ = 0;
-        this.eSK = 0;
+        this.feP = 0.0f;
+        this.feQ = 0.0f;
+        this.feR = 0;
+        this.feS = 0;
     }
 
     public TbFragmentTabIndicator(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
         this.mIsContentSelectBold = false;
-        this.eSH = 0.0f;
-        this.eSI = 0.0f;
-        this.eSJ = 0;
-        this.eSK = 0;
+        this.feP = 0.0f;
+        this.feQ = 0.0f;
+        this.feR = 0;
+        this.feS = 0;
     }
 
     public void onChangeSkin(int i) {
@@ -67,7 +67,7 @@ public abstract class TbFragmentTabIndicator extends FrameLayout {
     public void b(String str, a aVar) {
     }
 
-    public a CL(String str) {
+    public a Dx(String str) {
         return null;
     }
 
@@ -104,7 +104,7 @@ public abstract class TbFragmentTabIndicator extends FrameLayout {
     public void setTextColorResId(int i) {
     }
 
-    public void bug() {
+    public void bwQ() {
     }
 
     public void setAnimationResId(int i) {
@@ -115,19 +115,19 @@ public abstract class TbFragmentTabIndicator extends FrameLayout {
     }
 
     public void setContentSelectTextSize(float f) {
-        this.eSH = f;
+        this.feP = f;
     }
 
     public void setContentDefaultTextSize(float f) {
-        this.eSI = f;
+        this.feQ = f;
     }
 
     public void setContentSelectTextColor(int i) {
-        this.eSJ = i;
+        this.feR = i;
     }
 
     public void setContentDefaultTextColor(int i) {
-        this.eSK = i;
+        this.feS = i;
     }
 
     public void setThemeColorInfo(ThemeColorInfo themeColorInfo) {
@@ -137,7 +137,7 @@ public abstract class TbFragmentTabIndicator extends FrameLayout {
     /* loaded from: classes.dex */
     public static class a {
         public int bgDayRes;
-        public TbFragmentTabIndicator eSL;
+        public TbFragmentTabIndicator feT;
         public int offsetX;
         public View view;
         public boolean isRight = true;

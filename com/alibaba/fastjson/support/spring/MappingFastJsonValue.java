@@ -7,7 +7,7 @@ import com.alibaba.fastjson.serializer.SerializerFeature;
 import java.io.IOException;
 import java.lang.reflect.Type;
 @Deprecated
-/* loaded from: classes10.dex */
+/* loaded from: classes5.dex */
 public class MappingFastJsonValue implements JSONSerializable {
     private static final int BrowserSecureMask = SerializerFeature.BrowserSecure.mask;
     private static final String SECURITY_PREFIX = "/**/";

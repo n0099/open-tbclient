@@ -15,7 +15,7 @@ import java.util.List;
 import java.util.concurrent.atomic.AtomicBoolean;
 import org.json.JSONArray;
 @NotProguard
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public class ArBridge {
     private static final boolean DEBUG = false;
     private static final int INVALID_MESSAGE_ID = -1;
@@ -43,12 +43,12 @@ public class ArBridge {
     private com.baidu.mario.a.b mGameRecorder = new com.baidu.mario.a.b(V8Engine.getAppContext());
 
     @NotProguard
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public interface FirstFrameListener {
         void onFirstFrameFinished();
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public enum TouchOrientation {
         SCREEN_ORIENTATION_PORTRAIT,
         SCREEN_ORIENTATION_LANDSCAPE,
@@ -57,14 +57,14 @@ public class ArBridge {
         SCREEN_ORIENTATION_NOT_DEFINED
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public interface a {
         void g(Bitmap bitmap);
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public interface b {
-        void e(String str, int i, String str2);
+        void g(String str, int i, String str2);
     }
 
     public static native boolean libraryHasLoaded();
@@ -207,7 +207,7 @@ public class ArBridge {
 
     public void notifyFrameUpdated() {
         if (this.mGameRecorder != null) {
-            this.mGameRecorder.fO(getScreenTextureId());
+            this.mGameRecorder.gh(getScreenTextureId());
         }
     }
 
@@ -254,7 +254,7 @@ public class ArBridge {
     public void updateVideoFrame(String str, int i, String str2) {
         Log.i(TAG, "updateVideoFrame:" + i + "     ;avideoPath:" + str2);
         if (this.mVideoCallback != null) {
-            this.mVideoCallback.e(str, i, str2);
+            this.mVideoCallback.g(str, i, str2);
         }
     }
 

@@ -3,7 +3,7 @@ package kotlin.text;
 import kotlin.jvm.internal.Lambda;
 import kotlin.text.j;
 @kotlin.h
-/* loaded from: classes5.dex */
+/* loaded from: classes10.dex */
 final class MatcherMatchResult$groups$1$iterator$1 extends Lambda implements kotlin.jvm.a.b<Integer, f> {
     final /* synthetic */ j.a this$0;
 
@@ -22,6 +22,6 @@ final class MatcherMatchResult$groups$1$iterator$1 extends Lambda implements kot
     }
 
     public final f invoke(int i) {
-        return this.this$0.OE(i);
+        return this.this$0.Pk(i);
     }
 }

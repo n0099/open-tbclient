@@ -3,33 +3,33 @@ package com.baidu.tieba.pb.pb.main.emotion.a;
 import com.baidu.tieba.face.data.EmotionImageData;
 import com.baidu.tieba.face.data.SingleBarEmotionRecommendData;
 import java.util.List;
-/* loaded from: classes21.dex */
+/* loaded from: classes22.dex */
 public class a {
-    private List<EmotionImageData> hMh;
-    private List<String> kXw;
-    private SingleBarEmotionRecommendData kXx;
+    private List<EmotionImageData> ibc;
+    private List<String> lmJ;
+    private SingleBarEmotionRecommendData lmK;
 
-    public SingleBarEmotionRecommendData dfC() {
-        return this.kXx;
+    public SingleBarEmotionRecommendData djl() {
+        return this.lmK;
     }
 
     public void a(SingleBarEmotionRecommendData singleBarEmotionRecommendData) {
-        this.kXx = singleBarEmotionRecommendData;
+        this.lmK = singleBarEmotionRecommendData;
     }
 
-    public List<EmotionImageData> ckU() {
-        return this.hMh;
+    public List<EmotionImageData> cos() {
+        return this.ibc;
     }
 
-    public void cv(List<EmotionImageData> list) {
-        this.hMh = list;
+    public void cy(List<EmotionImageData> list) {
+        this.ibc = list;
     }
 
-    public List<String> dfD() {
-        return this.kXw;
+    public List<String> djm() {
+        return this.lmJ;
     }
 
-    public void eM(List<String> list) {
-        this.kXw = list;
+    public void eP(List<String> list) {
+        this.lmJ = list;
     }
 }

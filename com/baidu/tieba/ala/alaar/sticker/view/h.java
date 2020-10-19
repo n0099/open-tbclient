@@ -10,12 +10,12 @@ import com.baidu.tieba.ala.alaar.sticker.model.FuFaceItem;
 import com.baidu.tieba.ala.alaar.sticker.model.PicStickerItem;
 /* loaded from: classes4.dex */
 public class h extends i {
-    private TbImageView fDY;
+    private TbImageView fQh;
 
     public h(View view) {
         this.mRootView = view;
-        this.fDY = (TbImageView) this.mRootView.findViewById(a.g.sticker_img);
-        this.fEe = (MaskStrokeView) this.mRootView.findViewById(a.g.sticker_bg);
+        this.fQh = (TbImageView) this.mRootView.findViewById(a.g.sticker_img);
+        this.fQn = (MaskStrokeView) this.mRootView.findViewById(a.g.sticker_bg);
     }
 
     @Override // com.baidu.tieba.ala.alaar.sticker.view.i
@@ -30,7 +30,7 @@ public class h extends i {
                     super.onLoaded((AnonymousClass1) bdImage, str, i);
                     if (bdImage != null && bdImage.getRawBitmap() != null && str != null && str.equals(((PicStickerItem) fuFaceItem).url)) {
                         ((PicStickerItem) fuFaceItem).bitmap = bdImage.getRawBitmap();
-                        h.this.fDY.setImageBitmap(bdImage.getRawBitmap());
+                        h.this.fQh.setImageBitmap(bdImage.getRawBitmap());
                     }
                 }
             }, null);

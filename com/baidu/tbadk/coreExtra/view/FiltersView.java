@@ -7,23 +7,23 @@ import android.widget.HorizontalScrollView;
 import android.widget.LinearLayout;
 /* loaded from: classes.dex */
 public class FiltersView extends HorizontalScrollView {
-    private int eHQ;
-    private int eHR;
-    private Runnable eHS;
-    private View eHT;
-    private View eHU;
-    private String eHV;
+    private int eTX;
+    private int eTY;
+    private Runnable eTZ;
+    private View eUa;
+    private View eUb;
+    private String eUc;
     private Context mContext;
 
     public FiltersView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.eHQ = 0;
-        this.eHR = 0;
-        this.eHS = new Runnable() { // from class: com.baidu.tbadk.coreExtra.view.FiltersView.1
+        this.eTX = 0;
+        this.eTY = 0;
+        this.eTZ = new Runnable() { // from class: com.baidu.tbadk.coreExtra.view.FiltersView.1
             @Override // java.lang.Runnable
             public void run() {
                 int i;
-                if (FiltersView.this.eHT != null) {
+                if (FiltersView.this.eUa != null) {
                     int childCount = ((LinearLayout) FiltersView.this.getChildAt(0)).getChildCount();
                     int i2 = 0;
                     while (true) {
@@ -32,14 +32,14 @@ public class FiltersView extends HorizontalScrollView {
                             break;
                         }
                         View childAt = ((LinearLayout) FiltersView.this.getChildAt(0)).getChildAt(i2);
-                        if (childAt != FiltersView.this.eHT) {
+                        if (childAt != FiltersView.this.eUa) {
                             i2++;
                         } else {
                             i = childAt.getRight();
                             break;
                         }
                     }
-                    FiltersView.this.eHT = null;
+                    FiltersView.this.eUa = null;
                     int width = i - FiltersView.this.getWidth();
                     if (width > 0) {
                         FiltersView.this.scrollBy(width, 0);
@@ -48,20 +48,20 @@ public class FiltersView extends HorizontalScrollView {
             }
         };
         this.mContext = null;
-        this.eHT = null;
-        this.eHU = null;
-        this.eHV = "normal";
+        this.eUa = null;
+        this.eUb = null;
+        this.eUc = "normal";
     }
 
     @Override // android.widget.HorizontalScrollView, android.widget.FrameLayout, android.view.View
     protected void onMeasure(int i, int i2) {
         super.onMeasure(i, i2);
-        if (this.eHT != null) {
-            post(this.eHS);
+        if (this.eUa != null) {
+            post(this.eTZ);
         }
     }
 
     public String getSelectedFilter() {
-        return this.eHU != null ? (String) ((View) this.eHU.getTag()).getTag() : "normal";
+        return this.eUb != null ? (String) ((View) this.eUb.getTag()).getTag() : "normal";
     }
 }

@@ -14,38 +14,38 @@ import com.baidu.tieba.view.SortSwitchButton;
 import java.util.ArrayList;
 import java.util.List;
 import tbclient.PbPage.PbSortType;
-/* loaded from: classes21.dex */
+/* loaded from: classes22.dex */
 public class b {
-    private int aZD;
-    private int aZE;
-    private View.OnClickListener etM;
-    private SortSwitchButton.a kIV;
-    private SortSwitchButton kSH;
-    private n kST;
-    private TextView lho;
-    private TextView lhp;
+    private int bcX;
+    private int bcY;
+    private View.OnClickListener eFW;
+    private SortSwitchButton.a kYg;
+    private SortSwitchButton lhU;
+    private n lig;
+    private TextView lwF;
+    private TextView lwG;
     private View mRootView;
-    private int kSR = 0;
-    private int lhq = 0;
-    private SortSwitchButton.a kNd = new SortSwitchButton.a() { // from class: com.baidu.tieba.pb.videopb.videoView.b.1
+    private int lie = 0;
+    private int lwH = 0;
+    private SortSwitchButton.a lcp = new SortSwitchButton.a() { // from class: com.baidu.tieba.pb.videopb.videoView.b.1
         @Override // com.baidu.tieba.view.SortSwitchButton.a
-        public boolean yk(int i) {
-            if (b.this.kIV != null) {
-                return b.this.kIV.yk(i);
+        public boolean yQ(int i) {
+            if (b.this.kYg != null) {
+                return b.this.kYg.yQ(i);
             }
             return true;
         }
     };
-    private View.OnClickListener kSW = new View.OnClickListener() { // from class: com.baidu.tieba.pb.videopb.videoView.b.2
+    private View.OnClickListener lij = new View.OnClickListener() { // from class: com.baidu.tieba.pb.videopb.videoView.b.2
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
-            if (b.this.etM != null) {
-                b.this.etM.onClick(view);
+            if (b.this.eFW != null) {
+                b.this.eFW.onClick(view);
             }
             if (j.isNetWorkAvailable()) {
                 if (view == null || !(view.getTag() instanceof Boolean) || ((Boolean) view.getTag()).booleanValue()) {
-                    if (view != b.this.lho) {
-                        if (view == b.this.lhp) {
+                    if (view != b.this.lwF) {
+                        if (view == b.this.lwG) {
                             b.this.setSelection(1);
                             return;
                         }
@@ -56,45 +56,45 @@ public class b {
             }
         }
     };
-    private View.OnClickListener kSX = new View.OnClickListener() { // from class: com.baidu.tieba.pb.videopb.videoView.b.3
+    private View.OnClickListener lik = new View.OnClickListener() { // from class: com.baidu.tieba.pb.videopb.videoView.b.3
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
-            if (b.this.etM != null) {
-                b.this.etM.onClick(view);
+            if (b.this.eFW != null) {
+                b.this.eFW.onClick(view);
             }
         }
     };
 
     public void setSelection(int i) {
-        this.lhq = i;
+        this.lwH = i;
         if (i == 0) {
-            this.lho.setTypeface(Typeface.defaultFromStyle(1));
-            this.lhp.setTypeface(Typeface.defaultFromStyle(0));
-            this.lho.setTextColor(this.aZD);
-            this.lhp.setTextColor(this.aZE);
+            this.lwF.setTypeface(Typeface.defaultFromStyle(1));
+            this.lwG.setTypeface(Typeface.defaultFromStyle(0));
+            this.lwF.setTextColor(this.bcX);
+            this.lwG.setTextColor(this.bcY);
         } else if (i == 1) {
-            this.lho.setTypeface(Typeface.defaultFromStyle(0));
-            this.lhp.setTypeface(Typeface.defaultFromStyle(1));
-            this.lho.setTextColor(this.aZE);
-            this.lhp.setTextColor(this.aZD);
+            this.lwF.setTypeface(Typeface.defaultFromStyle(0));
+            this.lwG.setTypeface(Typeface.defaultFromStyle(1));
+            this.lwF.setTextColor(this.bcY);
+            this.lwG.setTextColor(this.bcX);
         }
     }
 
     public b(View view) {
         if (view != null) {
             this.mRootView = view;
-            this.lho = (TextView) this.mRootView.findViewById(R.id.all_reply);
-            this.lho.setOnClickListener(this.kSW);
-            this.lhp = (TextView) this.mRootView.findViewById(R.id.owner_reply);
-            this.lhp.setOnClickListener(this.kSW);
-            this.kSH = (SortSwitchButton) this.mRootView.findViewById(R.id.video_pb_sort_switch_btn);
-            this.kSH.setOnSwitchChangeListener(this.kNd);
-            this.kSH.iX(2);
+            this.lwF = (TextView) this.mRootView.findViewById(R.id.all_reply);
+            this.lwF.setOnClickListener(this.lij);
+            this.lwG = (TextView) this.mRootView.findViewById(R.id.owner_reply);
+            this.lwG.setOnClickListener(this.lij);
+            this.lhU = (SortSwitchButton) this.mRootView.findViewById(R.id.video_pb_sort_switch_btn);
+            this.lhU.setOnSwitchChangeListener(this.lcp);
+            this.lhU.ju(2);
             onChangeSkinType(TbadkCoreApplication.getInst().getSkinType());
         }
     }
 
-    public void ty(boolean z) {
+    public void uf(boolean z) {
         if (z) {
             setSelection(1);
         } else {
@@ -104,40 +104,40 @@ public class b {
 
     public void onChangeSkinType(int i) {
         ap.setBackgroundColor(this.mRootView, R.color.cp_bg_line_e);
-        this.aZD = ap.getColor(R.color.cp_cont_b);
-        this.aZE = ap.getColor(R.color.cp_cont_j);
-        setSelection(this.lhq);
-        this.kSH.onChangeSkinType();
+        this.bcX = ap.getColor(R.color.cp_cont_b);
+        this.bcY = ap.getColor(R.color.cp_cont_j);
+        setSelection(this.lwH);
+        this.lhU.onChangeSkinType();
     }
 
     public void a(n nVar) {
-        this.kST = nVar;
+        this.lig = nVar;
         if (nVar != null) {
-            if (nVar.Vf == n.kGC) {
-                this.lho.setClickable(true);
-                this.lho.setText(TbadkCoreApplication.getInst().getString(R.string.all_reply));
-                this.lhp.setVisibility(0);
-                ty(nVar.kGH);
+            if (nVar.Vv == n.kVN) {
+                this.lwF.setClickable(true);
+                this.lwF.setText(TbadkCoreApplication.getInst().getString(R.string.all_reply));
+                this.lwG.setVisibility(0);
+                uf(nVar.kVS);
             }
             if (nVar.isDynamic) {
-                this.lhp.setVisibility(8);
-                this.kSH.setVisibility(8);
+                this.lwG.setVisibility(8);
+                this.lhU.setVisibility(8);
             } else {
-                this.lhp.setVisibility(0);
-                if (nVar.kGI != null) {
-                    this.kSH.setVisibility(0);
+                this.lwG.setVisibility(0);
+                if (nVar.kVT != null) {
+                    this.lhU.setVisibility(0);
                     int i = 0;
                     while (true) {
-                        if (i >= nVar.kGI.size()) {
+                        if (i >= nVar.kVT.size()) {
                             i = 0;
                             break;
-                        } else if (nVar.kGI.get(i) != null && nVar.sortType == nVar.kGI.get(i).sort_type.intValue()) {
+                        } else if (nVar.kVT.get(i) != null && nVar.sortType == nVar.kVT.get(i).sort_type.intValue()) {
                             break;
                         } else {
                             i++;
                         }
                     }
-                    p(nVar.kGI, i);
+                    p(nVar.kVT, i);
                 }
             }
             onChangeSkinType(TbadkCoreApplication.getInst().getSkinType());
@@ -146,25 +146,25 @@ public class b {
 
     public void p(List<PbSortType> list, int i) {
         if (y.isEmpty(list)) {
-            this.kSH.setVisibility(8);
+            this.lhU.setVisibility(8);
             return;
         }
         ArrayList arrayList = new ArrayList();
         for (PbSortType pbSortType : list) {
             p pVar = new p();
-            pVar.It(pbSortType.sort_type.intValue());
-            pVar.Ro(pbSortType.sort_name);
+            pVar.IZ(pbSortType.sort_type.intValue());
+            pVar.Sc(pbSortType.sort_name);
             arrayList.add(pVar);
         }
-        this.kSH.setVisibility(0);
-        this.kSH.setData(arrayList, i);
+        this.lhU.setVisibility(0);
+        this.lhU.setData(arrayList, i);
     }
 
     public void setOnSwitchChangeListener(SortSwitchButton.a aVar) {
-        this.kIV = aVar;
+        this.kYg = aVar;
     }
 
     public void X(View.OnClickListener onClickListener) {
-        this.etM = onClickListener;
+        this.eFW = onClickListener;
     }
 }

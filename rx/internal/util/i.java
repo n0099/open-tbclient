@@ -6,37 +6,37 @@ import java.util.Collection;
 import java.util.LinkedList;
 import java.util.List;
 import rx.k;
-/* loaded from: classes7.dex */
+/* loaded from: classes16.dex */
 public final class i implements k {
-    private volatile boolean oNL;
-    private List<k> oSQ;
+    private volatile boolean pdb;
+    private List<k> pii;
 
     public i() {
     }
 
     public i(k... kVarArr) {
-        this.oSQ = new LinkedList(Arrays.asList(kVarArr));
+        this.pii = new LinkedList(Arrays.asList(kVarArr));
     }
 
     public i(k kVar) {
-        this.oSQ = new LinkedList();
-        this.oSQ.add(kVar);
+        this.pii = new LinkedList();
+        this.pii.add(kVar);
     }
 
     @Override // rx.k
     public boolean isUnsubscribed() {
-        return this.oNL;
+        return this.pdb;
     }
 
     public void add(k kVar) {
         if (!kVar.isUnsubscribed()) {
-            if (!this.oNL) {
+            if (!this.pdb) {
                 synchronized (this) {
-                    if (!this.oNL) {
-                        List list = this.oSQ;
+                    if (!this.pdb) {
+                        List list = this.pii;
                         if (list == null) {
                             list = new LinkedList();
-                            this.oSQ = list;
+                            this.pii = list;
                         }
                         list.add(kVar);
                         return;
@@ -48,10 +48,10 @@ public final class i implements k {
     }
 
     public void a(k kVar) {
-        if (!this.oNL) {
+        if (!this.pdb) {
             synchronized (this) {
-                List<k> list = this.oSQ;
-                if (!this.oNL && list != null) {
+                List<k> list = this.pii;
+                if (!this.pdb && list != null) {
                     boolean remove = list.remove(kVar);
                     if (remove) {
                         kVar.unsubscribe();
@@ -63,12 +63,12 @@ public final class i implements k {
 
     @Override // rx.k
     public void unsubscribe() {
-        if (!this.oNL) {
+        if (!this.pdb) {
             synchronized (this) {
-                if (!this.oNL) {
-                    this.oNL = true;
-                    List<k> list = this.oSQ;
-                    this.oSQ = null;
+                if (!this.pdb) {
+                    this.pdb = true;
+                    List<k> list = this.pii;
+                    this.pii = null;
                     v(list);
                 }
             }
@@ -87,7 +87,7 @@ public final class i implements k {
                     arrayList = arrayList2;
                 }
             }
-            rx.exceptions.a.gl(arrayList);
+            rx.exceptions.a.go(arrayList);
         }
     }
 }

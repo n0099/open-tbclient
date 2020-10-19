@@ -15,9 +15,11 @@ import java.util.Iterator;
 import java.util.Map;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes10.dex */
+/* loaded from: classes12.dex */
 public class k extends PlayerProvider implements MediaPlayer.OnBufferingUpdateListener, MediaPlayer.OnCompletionListener, MediaPlayer.OnErrorListener, MediaPlayer.OnInfoListener, MediaPlayer.OnPreparedListener, MediaPlayer.OnSeekCompleteListener, MediaPlayer.OnVideoSizeChangedListener {
-    private com.baidu.cyberplayer.sdk.statistics.h a;
+
+    /* renamed from: a  reason: collision with root package name */
+    private com.baidu.cyberplayer.sdk.statistics.h f1395a;
     private CyberPlayerManager.OnPreparedListener c;
     private CyberPlayerManager.OnCompletionListener d;
     private CyberPlayerManager.OnBufferingUpdateListener e;
@@ -49,7 +51,7 @@ public class k extends PlayerProvider implements MediaPlayer.OnBufferingUpdateLi
         this.b.setOnVideoSizeChangedListener(this);
         this.b.setOnErrorListener(this);
         this.b.setOnInfoListener(this);
-        this.a = new com.baidu.cyberplayer.sdk.statistics.h();
+        this.f1395a = new com.baidu.cyberplayer.sdk.statistics.h();
         c();
     }
 
@@ -67,15 +69,15 @@ public class k extends PlayerProvider implements MediaPlayer.OnBufferingUpdateLi
     }
 
     private void e() {
-        if (this.a == null || this.a.b()) {
+        if (this.f1395a == null || this.f1395a.b()) {
             return;
         }
         if (this.s) {
-            this.a.a(this);
-            this.a.b(this);
-            this.a.c(this);
+            this.f1395a.a(this);
+            this.f1395a.b(this);
+            this.f1395a.c(this);
         }
-        this.a.c();
+        this.f1395a.c();
     }
 
     public String a() {
@@ -215,10 +217,10 @@ public class k extends PlayerProvider implements MediaPlayer.OnBufferingUpdateLi
         CyberLog.i("MediaPlayerImpl", "onError");
         this.v = -1;
         this.w = -1;
-        this.a.a(DpStatConstants.SESSION_TYPE_ERROR, "error_code", DpStatConstants.MEDIA_ERROR_MEDIA_PLAYER);
-        this.a.a(DpStatConstants.SESSION_TYPE_ERROR, DpStatConstants.KEY_SUB_CODE, i2);
-        this.a.a(DpStatConstants.SESSION_TYPE_ERROR, "time", System.currentTimeMillis());
-        this.a.a(DpStatConstants.SESSION_TYPE_ERROR, "detail", i);
+        this.f1395a.a(DpStatConstants.SESSION_TYPE_ERROR, "error_code", DpStatConstants.MEDIA_ERROR_MEDIA_PLAYER);
+        this.f1395a.a(DpStatConstants.SESSION_TYPE_ERROR, DpStatConstants.KEY_SUB_CODE, i2);
+        this.f1395a.a(DpStatConstants.SESSION_TYPE_ERROR, "time", System.currentTimeMillis());
+        this.f1395a.a(DpStatConstants.SESSION_TYPE_ERROR, "detail", i);
         return this.h != null && this.h.onError(i, i2, null);
     }
 
@@ -227,7 +229,7 @@ public class k extends PlayerProvider implements MediaPlayer.OnBufferingUpdateLi
         CyberLog.i("MediaPlayerImpl", "onInfo");
         if (i == 3) {
             i = CyberPlayerManager.MEDIA_INFO_FIRST_DISP_INTERVAL;
-            this.a.a(DpStatConstants.SESSION_TYPE_FIRST_SCREEN, DpStatConstants.KEY_FIRST_DISPLAY, (System.currentTimeMillis() - this.m) + this.l);
+            this.f1395a.a(DpStatConstants.SESSION_TYPE_FIRST_SCREEN, DpStatConstants.KEY_FIRST_DISPLAY, (System.currentTimeMillis() - this.m) + this.l);
         }
         return this.i != null && this.i.onInfo(i, i2, null);
     }
@@ -243,7 +245,7 @@ public class k extends PlayerProvider implements MediaPlayer.OnBufferingUpdateLi
             this.c.onPrepared();
         }
         this.l = Math.round((float) (System.currentTimeMillis() - this.k));
-        this.a.a(DpStatConstants.SESSION_TYPE_FIRST_SCREEN, DpStatConstants.KEY_PREPARED, this.l);
+        this.f1395a.a(DpStatConstants.SESSION_TYPE_FIRST_SCREEN, DpStatConstants.KEY_PREPARED, this.l);
         if (this.u > 0) {
             seekTo(this.u);
         }
@@ -343,8 +345,8 @@ public class k extends PlayerProvider implements MediaPlayer.OnBufferingUpdateLi
                 CyberLog.e("MediaPlayerImpl", "reset IllegalStateException error");
             }
         }
-        if (this.a != null) {
-            this.a.c();
+        if (this.f1395a != null) {
+            this.f1395a.c();
         }
     }
 
@@ -373,7 +375,7 @@ public class k extends PlayerProvider implements MediaPlayer.OnBufferingUpdateLi
                     Iterator<String> keys = jSONObject.keys();
                     while (keys.hasNext()) {
                         String next = keys.next();
-                        this.a.a(DpStatConstants.SESSION_TYPE_STAGE_INFO, next, jSONObject.getString(next));
+                        this.f1395a.a(DpStatConstants.SESSION_TYPE_STAGE_INFO, next, jSONObject.getString(next));
                     }
                     return;
                 } catch (JSONException e) {
@@ -383,7 +385,7 @@ public class k extends PlayerProvider implements MediaPlayer.OnBufferingUpdateLi
             case 1002:
                 int round = Math.round((float) (j - this.m)) + this.l;
                 CyberLog.i("MediaPlayerImpl", "sendCommand COMMAND_ON_FIRST_FRAME_DRAWED firstFrameCostTime:" + round);
-                this.a.a(DpStatConstants.SESSION_TYPE_FIRST_SCREEN, DpStatConstants.KEY_FIRST_DISPLAY, round);
+                this.f1395a.a(DpStatConstants.SESSION_TYPE_FIRST_SCREEN, DpStatConstants.KEY_FIRST_DISPLAY, round);
                 if (this.i != null) {
                     this.i.onInfo(CyberPlayerManager.MEDIA_INFO_FIRST_DISP_INTERVAL, round, null);
                     return;
@@ -398,7 +400,7 @@ public class k extends PlayerProvider implements MediaPlayer.OnBufferingUpdateLi
                     Iterator<String> keys2 = jSONObject2.keys();
                     while (keys2.hasNext()) {
                         String next2 = keys2.next();
-                        this.a.a(DpStatConstants.SESSION_TYPE_PLAY_COMMON, next2, jSONObject2.getString(next2));
+                        this.f1395a.a(DpStatConstants.SESSION_TYPE_PLAY_COMMON, next2, jSONObject2.getString(next2));
                     }
                     return;
                 } catch (JSONException e2) {

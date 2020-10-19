@@ -1,15 +1,17 @@
 package com.baidu.mobads;
-/* loaded from: classes3.dex */
+/* loaded from: classes7.dex */
 final class l implements Runnable {
-    final /* synthetic */ Runnable a;
+
+    /* renamed from: a  reason: collision with root package name */
+    final /* synthetic */ Runnable f2363a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public l(Runnable runnable) {
-        this.a = runnable;
+        this.f2363a = runnable;
     }
 
     @Override // java.lang.Runnable
     public void run() {
-        this.a.run();
+        this.f2363a.run();
     }
 }

@@ -5,10 +5,10 @@ import io.reactivex.internal.util.ExceptionHelper;
 import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
-/* loaded from: classes25.dex */
+/* loaded from: classes17.dex */
 public final class e implements io.reactivex.disposables.b, a {
     volatile boolean disposed;
-    List<io.reactivex.disposables.b> owh;
+    List<io.reactivex.disposables.b> oLw;
 
     @Override // io.reactivex.disposables.b
     public void dispose() {
@@ -16,9 +16,9 @@ public final class e implements io.reactivex.disposables.b, a {
             synchronized (this) {
                 if (!this.disposed) {
                     this.disposed = true;
-                    List<io.reactivex.disposables.b> list = this.owh;
-                    this.owh = null;
-                    ge(list);
+                    List<io.reactivex.disposables.b> list = this.oLw;
+                    this.oLw = null;
+                    gh(list);
                 }
             }
         }
@@ -31,14 +31,14 @@ public final class e implements io.reactivex.disposables.b, a {
 
     @Override // io.reactivex.internal.disposables.a
     public boolean a(io.reactivex.disposables.b bVar) {
-        io.reactivex.internal.functions.a.k(bVar, "d is null");
+        io.reactivex.internal.functions.a.l(bVar, "d is null");
         if (!this.disposed) {
             synchronized (this) {
                 if (!this.disposed) {
-                    List list = this.owh;
+                    List list = this.oLw;
                     if (list == null) {
                         list = new LinkedList();
-                        this.owh = list;
+                        this.oLw = list;
                     }
                     list.add(bVar);
                     return true;
@@ -61,11 +61,11 @@ public final class e implements io.reactivex.disposables.b, a {
     @Override // io.reactivex.internal.disposables.a
     public boolean c(io.reactivex.disposables.b bVar) {
         boolean z = false;
-        io.reactivex.internal.functions.a.k(bVar, "Disposable item is null");
+        io.reactivex.internal.functions.a.l(bVar, "Disposable item is null");
         if (!this.disposed) {
             synchronized (this) {
                 if (!this.disposed) {
-                    List<io.reactivex.disposables.b> list = this.owh;
+                    List<io.reactivex.disposables.b> list = this.oLw;
                     if (list != null && list.remove(bVar)) {
                         z = true;
                     }
@@ -75,7 +75,7 @@ public final class e implements io.reactivex.disposables.b, a {
         return z;
     }
 
-    void ge(List<io.reactivex.disposables.b> list) {
+    void gh(List<io.reactivex.disposables.b> list) {
         if (list != null) {
             ArrayList arrayList = null;
             for (io.reactivex.disposables.b bVar : list) {

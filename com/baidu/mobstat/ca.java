@@ -13,9 +13,11 @@ import java.util.Collection;
 import java.util.List;
 import java.util.concurrent.BlockingQueue;
 import java.util.concurrent.LinkedBlockingQueue;
-/* loaded from: classes15.dex */
+/* loaded from: classes17.dex */
 public class ca implements by {
-    public static final List<cd> a;
+
+    /* renamed from: a  reason: collision with root package name */
+    public static final List<cd> f2596a;
     public static int b;
     public static boolean c;
     static final /* synthetic */ boolean h;
@@ -38,11 +40,11 @@ public class ca implements by {
 
     static {
         h = !ca.class.desiredAssertionStatus();
-        a = new ArrayList(4);
+        f2596a = new ArrayList(4);
         b = 16384;
         c = false;
-        a.add(new cf());
-        a.add(new ce());
+        f2596a.add(new cf());
+        f2596a.add(new ce());
     }
 
     public ca(cb cbVar, cd cdVar) {

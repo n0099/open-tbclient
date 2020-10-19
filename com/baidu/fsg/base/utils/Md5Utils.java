@@ -16,9 +16,11 @@ import java.util.Collections;
 import java.util.Iterator;
 import org.apache.commons.base.CharEncoding;
 import org.json.JSONObject;
-/* loaded from: classes15.dex */
+/* loaded from: classes16.dex */
 public final class Md5Utils {
-    private static char[] a = {'0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'a', 'b', 'c', 'd', 'e', 'f'};
+
+    /* renamed from: a  reason: collision with root package name */
+    private static char[] f1515a = {'0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'a', 'b', 'c', 'd', 'e', 'f'};
 
     private Md5Utils() {
     }
@@ -140,8 +142,8 @@ public final class Md5Utils {
             if (i > 0 && ch != null) {
                 stringBuffer.append(ch.charValue());
             }
-            stringBuffer.append(a[i2]);
-            stringBuffer.append(a[i3]);
+            stringBuffer.append(f1515a[i2]);
+            stringBuffer.append(f1515a[i3]);
         }
         return stringBuffer.toString();
     }

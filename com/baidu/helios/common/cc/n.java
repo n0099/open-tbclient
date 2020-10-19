@@ -1,10 +1,10 @@
 package com.baidu.helios.common.cc;
 
 import java.lang.reflect.Method;
-/* loaded from: classes6.dex */
+/* loaded from: classes11.dex */
 class n {
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes11.dex */
     public static class a extends Exception {
         public a(String str) {
             super(str);

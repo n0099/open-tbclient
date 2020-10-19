@@ -12,24 +12,24 @@ import java.io.FileDescriptor;
 import java.io.PrintWriter;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes24.dex */
+/* loaded from: classes6.dex */
 public class i {
-    private final j<?> dJI;
+    private final j<?> dVJ;
 
     public static final i a(j<?> jVar) {
         return new i(jVar);
     }
 
     private i(j<?> jVar) {
-        this.dJI = jVar;
+        this.dVJ = jVar;
     }
 
-    public k aVH() {
-        return this.dJI.aVJ();
+    public k aYq() {
+        return this.dVJ.aYs();
     }
 
     public int getActiveFragmentsCount() {
-        ArrayList<Fragment> arrayList = this.dJI.dJH.dJZ;
+        ArrayList<Fragment> arrayList = this.dVJ.dVI.dWa;
         if (arrayList == null) {
             return 0;
         }
@@ -37,129 +37,129 @@ public class i {
     }
 
     public List<Fragment> getActiveFragments(List<Fragment> list) {
-        if (this.dJI.dJH.dJZ == null) {
+        if (this.dVJ.dVI.dWa == null) {
             return null;
         }
         if (list == null) {
             list = new ArrayList<>(getActiveFragmentsCount());
         }
-        list.addAll(this.dJI.dJH.dJZ);
+        list.addAll(this.dVJ.dVI.dWa);
         return list;
     }
 
     public void h(Fragment fragment) {
-        this.dJI.dJH.a(this.dJI, this.dJI, fragment);
+        this.dVJ.dVI.a(this.dVJ, this.dVJ, fragment);
     }
 
     public View onCreateView(View view, String str, Context context, AttributeSet attributeSet) {
-        return this.dJI.dJH.onCreateView(view, str, context, attributeSet);
+        return this.dVJ.dVI.onCreateView(view, str, context, attributeSet);
     }
 
     public void noteStateNotSaved() {
-        this.dJI.dJH.noteStateNotSaved();
+        this.dVJ.dVI.noteStateNotSaved();
     }
 
     public Parcelable saveAllState() {
-        return this.dJI.dJH.saveAllState();
+        return this.dVJ.dVI.saveAllState();
     }
 
     public void restoreAllState(Parcelable parcelable, List<Fragment> list) {
-        this.dJI.dJH.restoreAllState(parcelable, list);
+        this.dVJ.dVI.restoreAllState(parcelable, list);
     }
 
     public List<Fragment> retainNonConfig() {
-        return this.dJI.dJH.aVL();
+        return this.dVJ.dVI.aYu();
     }
 
     public void dispatchCreate() {
-        this.dJI.dJH.dispatchCreate();
+        this.dVJ.dVI.dispatchCreate();
     }
 
     public void dispatchActivityCreated() {
-        this.dJI.dJH.dispatchActivityCreated();
+        this.dVJ.dVI.dispatchActivityCreated();
     }
 
     public void dispatchStart() {
-        this.dJI.dJH.dispatchStart();
+        this.dVJ.dVI.dispatchStart();
     }
 
     public void dispatchResume() {
-        this.dJI.dJH.dispatchResume();
+        this.dVJ.dVI.dispatchResume();
     }
 
     public void dispatchPause() {
-        this.dJI.dJH.dispatchPause();
+        this.dVJ.dVI.dispatchPause();
     }
 
     public void dispatchStop() {
-        this.dJI.dJH.dispatchStop();
+        this.dVJ.dVI.dispatchStop();
     }
 
     public void dispatchReallyStop() {
-        this.dJI.dJH.dispatchReallyStop();
+        this.dVJ.dVI.dispatchReallyStop();
     }
 
     public void dispatchDestroy() {
-        this.dJI.dJH.dispatchDestroy();
+        this.dVJ.dVI.dispatchDestroy();
     }
 
     public void dispatchConfigurationChanged(Configuration configuration) {
-        this.dJI.dJH.dispatchConfigurationChanged(configuration);
+        this.dVJ.dVI.dispatchConfigurationChanged(configuration);
     }
 
     public void dispatchLowMemory() {
-        this.dJI.dJH.dispatchLowMemory();
+        this.dVJ.dVI.dispatchLowMemory();
     }
 
     public boolean dispatchCreateOptionsMenu(Menu menu, MenuInflater menuInflater) {
-        return this.dJI.dJH.dispatchCreateOptionsMenu(menu, menuInflater);
+        return this.dVJ.dVI.dispatchCreateOptionsMenu(menu, menuInflater);
     }
 
     public boolean dispatchPrepareOptionsMenu(Menu menu) {
-        return this.dJI.dJH.dispatchPrepareOptionsMenu(menu);
+        return this.dVJ.dVI.dispatchPrepareOptionsMenu(menu);
     }
 
     public boolean dispatchOptionsItemSelected(MenuItem menuItem) {
-        return this.dJI.dJH.dispatchOptionsItemSelected(menuItem);
+        return this.dVJ.dVI.dispatchOptionsItemSelected(menuItem);
     }
 
     public boolean dispatchContextItemSelected(MenuItem menuItem) {
-        return this.dJI.dJH.dispatchContextItemSelected(menuItem);
+        return this.dVJ.dVI.dispatchContextItemSelected(menuItem);
     }
 
     public void dispatchOptionsMenuClosed(Menu menu) {
-        this.dJI.dJH.dispatchOptionsMenuClosed(menu);
+        this.dVJ.dVI.dispatchOptionsMenuClosed(menu);
     }
 
     public boolean execPendingActions() {
-        return this.dJI.dJH.execPendingActions();
+        return this.dVJ.dVI.execPendingActions();
     }
 
     public void doLoaderStart() {
-        this.dJI.doLoaderStart();
+        this.dVJ.doLoaderStart();
     }
 
     public void doLoaderStop(boolean z) {
-        this.dJI.doLoaderStop(z);
+        this.dVJ.doLoaderStop(z);
     }
 
     public void doLoaderDestroy() {
-        this.dJI.doLoaderDestroy();
+        this.dVJ.doLoaderDestroy();
     }
 
     public void reportLoaderStart() {
-        this.dJI.reportLoaderStart();
+        this.dVJ.reportLoaderStart();
     }
 
-    public com.baidu.swan.support.v4.b.f<String, o> aVI() {
-        return this.dJI.aVI();
+    public com.baidu.swan.support.v4.b.f<String, o> aYr() {
+        return this.dVJ.aYr();
     }
 
     public void a(com.baidu.swan.support.v4.b.f<String, o> fVar) {
-        this.dJI.a(fVar);
+        this.dVJ.a(fVar);
     }
 
     public void dumpLoaders(String str, FileDescriptor fileDescriptor, PrintWriter printWriter, String[] strArr) {
-        this.dJI.dumpLoaders(str, fileDescriptor, printWriter, strArr);
+        this.dVJ.dumpLoaders(str, fileDescriptor, printWriter, strArr);
     }
 }

@@ -19,22 +19,22 @@ import java.util.List;
 /* loaded from: classes.dex */
 public class CoverFlowAdapter<T extends com.baidu.tbadk.core.flow.a.a> extends PagerAdapter {
     private Context context;
-    private View.OnClickListener eiH;
-    private a eiK;
-    private ArrayList<TbImageView> eiG = new ArrayList<>();
+    private View.OnClickListener euP;
+    private a euS;
+    private ArrayList<TbImageView> euO = new ArrayList<>();
     private ArrayList<T> dataList = new ArrayList<>();
-    private ArrayList<TbImageView> eiI = new ArrayList<>();
-    private ArrayList<RelativeLayout> eiJ = new ArrayList<>();
+    private ArrayList<TbImageView> euQ = new ArrayList<>();
+    private ArrayList<RelativeLayout> euR = new ArrayList<>();
 
     public CoverFlowAdapter(Context context) {
         this.context = context;
     }
 
     public void setOnClickListener(View.OnClickListener onClickListener) {
-        this.eiH = onClickListener;
+        this.euP = onClickListener;
     }
 
-    public T nS(int i) {
+    public T op(int i) {
         if (this.dataList == null || this.dataList.isEmpty() || i < 0 || i >= this.dataList.size()) {
             return null;
         }
@@ -45,24 +45,24 @@ public class CoverFlowAdapter<T extends com.baidu.tbadk.core.flow.a.a> extends P
         TbImageView tbImageView;
         TbImageView tbImageView2;
         if (list != null && !list.isEmpty()) {
-            this.eiK = aVar;
+            this.euS = aVar;
             this.dataList.clear();
             this.dataList.addAll(list);
             I(this.dataList);
-            int size = this.eiG.size();
+            int size = this.euO.size();
             int size2 = this.dataList.size();
             for (int i = 0; i < size2; i++) {
                 if (i >= size) {
                     TbImageView V = aVar.V(this.context);
-                    this.eiG.add(V);
+                    this.euO.add(V);
                     tbImageView = aVar.V(this.context);
-                    this.eiI.add(tbImageView);
-                    this.eiJ.add(new RelativeLayout(this.context));
+                    this.euQ.add(tbImageView);
+                    this.euR.add(new RelativeLayout(this.context));
                     tbImageView2 = V;
                 } else {
-                    tbImageView = this.eiI.get(i);
-                    this.eiJ.get(i);
-                    tbImageView2 = this.eiG.get(i);
+                    tbImageView = this.euQ.get(i);
+                    this.euR.get(i);
+                    tbImageView2 = this.euO.get(i);
                 }
                 if (this.dataList.get(i) != null && tbImageView2 != null) {
                     if (this.dataList.get(i) instanceof h) {
@@ -70,25 +70,25 @@ public class CoverFlowAdapter<T extends com.baidu.tbadk.core.flow.a.a> extends P
                     } else {
                         tbImageView2.startLoad(this.dataList.get(i).getPicUrl(), 10, false);
                     }
-                    tbImageView2.setOnClickListener(this.eiH);
-                    if ((this.dataList.get(i) instanceof y) && !((y) this.dataList.get(i)).bdJ()) {
+                    tbImageView2.setOnClickListener(this.euP);
+                    if ((this.dataList.get(i) instanceof y) && !((y) this.dataList.get(i)).bgs()) {
                         y yVar = (y) this.dataList.get(i);
-                        s.b(yVar.bdG(), tbImageView, yVar.bdH(), l.getDimens(this.context, R.dimen.ds24));
+                        s.b(yVar.bgp(), tbImageView, yVar.bgq(), l.getDimens(this.context, R.dimen.ds24));
                     }
                 }
             }
             int count = com.baidu.tbadk.core.util.y.getCount(this.dataList);
-            int count2 = com.baidu.tbadk.core.util.y.getCount(this.eiG);
+            int count2 = com.baidu.tbadk.core.util.y.getCount(this.euO);
             if (count2 > count) {
-                com.baidu.tbadk.core.util.y.removeSubList(this.eiG, count, count2);
+                com.baidu.tbadk.core.util.y.removeSubList(this.euO, count, count2);
             }
-            int count3 = com.baidu.tbadk.core.util.y.getCount(this.eiI);
+            int count3 = com.baidu.tbadk.core.util.y.getCount(this.euQ);
             if (count3 > count) {
-                com.baidu.tbadk.core.util.y.removeSubList(this.eiI, count, count3);
+                com.baidu.tbadk.core.util.y.removeSubList(this.euQ, count, count3);
             }
-            int count4 = com.baidu.tbadk.core.util.y.getCount(this.eiJ);
+            int count4 = com.baidu.tbadk.core.util.y.getCount(this.euR);
             if (count4 > count) {
-                com.baidu.tbadk.core.util.y.removeSubList(this.eiJ, count, count4);
+                com.baidu.tbadk.core.util.y.removeSubList(this.euR, count, count4);
             }
             notifyDataSetChanged();
         }
@@ -104,31 +104,31 @@ public class CoverFlowAdapter<T extends com.baidu.tbadk.core.flow.a.a> extends P
 
     @Override // android.support.v4.view.PagerAdapter
     public int getCount() {
-        if (this.eiG != null && this.eiG.size() > 0) {
-            return this.eiG.size();
+        if (this.euO != null && this.euO.size() > 0) {
+            return this.euO.size();
         }
         return 0;
     }
 
     @Override // android.support.v4.view.PagerAdapter
     public Object instantiateItem(ViewGroup viewGroup, int i) {
-        if (this.eiG == null) {
+        if (this.euO == null) {
             return super.instantiateItem(viewGroup, i);
         }
-        TbImageView tbImageView = (TbImageView) com.baidu.tbadk.core.util.y.getItem(this.eiG, i);
+        TbImageView tbImageView = (TbImageView) com.baidu.tbadk.core.util.y.getItem(this.euO, i);
         if (tbImageView == null) {
             return super.instantiateItem(viewGroup, i);
         }
-        if ((com.baidu.tbadk.core.util.y.getItem(this.dataList, i) instanceof y) && !((y) com.baidu.tbadk.core.util.y.getItem(this.dataList, i)).bdJ()) {
-            RelativeLayout relativeLayout = (RelativeLayout) com.baidu.tbadk.core.util.y.getItem(this.eiJ, i);
-            TbImageView tbImageView2 = (TbImageView) com.baidu.tbadk.core.util.y.getItem(this.eiI, i);
+        if ((com.baidu.tbadk.core.util.y.getItem(this.dataList, i) instanceof y) && !((y) com.baidu.tbadk.core.util.y.getItem(this.dataList, i)).bgs()) {
+            RelativeLayout relativeLayout = (RelativeLayout) com.baidu.tbadk.core.util.y.getItem(this.euR, i);
+            TbImageView tbImageView2 = (TbImageView) com.baidu.tbadk.core.util.y.getItem(this.euQ, i);
             relativeLayout.removeView(tbImageView2);
             if (tbImageView.getParent() != null) {
                 ((ViewGroup) tbImageView.getParent()).removeView(tbImageView);
             }
             relativeLayout.addView(tbImageView, new RelativeLayout.LayoutParams(-1, -1));
             RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(-2, -2);
-            if (this.eiK.biw() == null) {
+            if (this.euS.blf() == null) {
                 layoutParams.addRule(12);
                 layoutParams.addRule(9);
             } else {
@@ -170,8 +170,8 @@ public class CoverFlowAdapter<T extends com.baidu.tbadk.core.flow.a.a> extends P
     }
 
     public void onChangeSkinType() {
-        if (this.eiG != null && this.eiG.size() > 0) {
-            Iterator<TbImageView> it = this.eiG.iterator();
+        if (this.euO != null && this.euO.size() > 0) {
+            Iterator<TbImageView> it = this.euO.iterator();
             while (it.hasNext()) {
                 it.next().refresh();
             }

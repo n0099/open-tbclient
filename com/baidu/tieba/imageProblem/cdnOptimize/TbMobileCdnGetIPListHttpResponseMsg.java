@@ -11,8 +11,8 @@ public class TbMobileCdnGetIPListHttpResponseMsg extends JsonHttpResponsedMessag
 
     /* loaded from: classes13.dex */
     public static class TBCdnMobileListData {
-        public String jSD = null;
-        public String jSE = null;
+        public String khC = null;
+        public String khD = null;
         public ArrayList<String> mobileIpList = new ArrayList<>();
     }
 
@@ -39,8 +39,8 @@ public class TbMobileCdnGetIPListHttpResponseMsg extends JsonHttpResponsedMessag
                             }
                         }
                     }
-                    this.mobileCdnData.jSD = optJSONObject.optString("testimg_url");
-                    this.mobileCdnData.jSE = optJSONObject.optString("testimg_md5");
+                    this.mobileCdnData.khC = optJSONObject.optString("testimg_url");
+                    this.mobileCdnData.khD = optJSONObject.optString("testimg_md5");
                 }
             } catch (Exception e) {
                 BdLog.e(e);

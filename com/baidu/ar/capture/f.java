@@ -9,7 +9,7 @@ import com.baidu.ar.databasic.AlgoHandleController;
 import com.baidu.ar.databasic.ReserveHandleData;
 import java.nio.ByteBuffer;
 import java.util.ArrayList;
-/* loaded from: classes10.dex */
+/* loaded from: classes14.dex */
 class f {
     public static long a(AlgoHandleController algoHandleController, Bitmap[] bitmapArr, int i) {
         if (bitmapArr == null || bitmapArr.length == 0) {
@@ -61,11 +61,11 @@ class f {
             byte[] decode = Base64.decode(strArr[i2], 0);
             bitmapArr[i2] = BitmapFactory.decodeByteArray(decode, 0, decode.length);
         }
-        long a = a(algoHandleController, bitmapArr, i);
+        long a2 = a(algoHandleController, bitmapArr, i);
         for (Bitmap bitmap : bitmapArr) {
             bitmap.recycle();
         }
-        return a;
+        return a2;
     }
 
     private static byte[] b(Bitmap bitmap) {

@@ -11,10 +11,10 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-/* loaded from: classes17.dex */
+/* loaded from: classes16.dex */
 public class t {
     public static com.tb.airbnb.lottie.d g(JsonReader jsonReader) throws IOException {
-        float la = com.tb.airbnb.lottie.d.f.la();
+        float lb = com.tb.airbnb.lottie.d.f.lb();
         float f = 0.0f;
         float f2 = 0.0f;
         float f3 = 0.0f;
@@ -146,7 +146,7 @@ public class t {
                 f = f6;
             } else {
                 jsonReader.endObject();
-                dVar.a(new Rect(0, 0, (int) (i4 * la), (int) (i3 * la)), f6, f5, f4, arrayList, longSparseArray, hashMap, hashMap2, sparseArrayCompat, hashMap3);
+                dVar.a(new Rect(0, 0, (int) (i4 * lb), (int) (i3 * lb)), f6, f5, f4, arrayList, longSparseArray, hashMap, hashMap2, sparseArrayCompat, hashMap3);
                 return dVar;
             }
         }
@@ -157,7 +157,7 @@ public class t {
         jsonReader.beginArray();
         while (jsonReader.hasNext()) {
             Layer q = s.q(jsonReader, dVar);
-            if (q.ehW() == Layer.LayerType.Image) {
+            if (q.elH() == Layer.LayerType.Image) {
                 i++;
             }
             list.add(q);

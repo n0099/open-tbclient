@@ -1,26 +1,26 @@
 package bolts;
-/* loaded from: classes16.dex */
+/* loaded from: classes19.dex */
 public class h<TResult> {
-    private final g<TResult> AB = new g<>();
+    private final g<TResult> AW = new g<>();
 
-    public g<TResult> ip() {
-        return this.AB;
+    public g<TResult> iq() {
+        return this.AW;
     }
 
-    public boolean in() {
-        return this.AB.in();
+    public boolean ip() {
+        return this.AW.ip();
     }
 
     public boolean m(TResult tresult) {
-        return this.AB.m(tresult);
+        return this.AW.m(tresult);
     }
 
     public boolean g(Exception exc) {
-        return this.AB.g(exc);
+        return this.AW.g(exc);
     }
 
-    public void iq() {
-        if (!in()) {
+    public void ir() {
+        if (!ip()) {
             throw new IllegalStateException("Cannot cancel a completed task.");
         }
     }

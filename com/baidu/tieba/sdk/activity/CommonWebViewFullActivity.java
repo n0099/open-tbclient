@@ -11,30 +11,30 @@ import com.baidu.live.view.web.f;
 import java.util.HashMap;
 /* loaded from: classes4.dex */
 public class CommonWebViewFullActivity extends BaseActivity<CommonWebViewFullActivity> implements f {
-    private boolean lVH = false;
-    private d lVI;
+    private boolean mlo = false;
+    private d mlp;
 
     /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.live.tbadk.BaseActivity, com.baidu.live.adp.base.BdBaseActivity, android.app.Activity
+    @Override // com.baidu.live.tbadk.BaseActivity, com.baidu.live.adp.base.BdBaseActivity, android.support.v4.app.FragmentActivity, android.support.v4.app.SupportActivity, android.app.Activity
     public void onCreate(Bundle bundle) {
         k(getIntent());
-        if (this.lVH) {
+        if (this.mlo) {
             setIsAddSwipeBackLayout(false);
         }
         super.onCreate(bundle);
         if (!isFinishing()) {
-            this.lVI = new d(this, this, getIntent());
+            this.mlp = new d(this, this, getIntent());
         }
     }
 
     private void k(Intent intent) {
-        HashMap hS;
+        HashMap it;
         if (intent != null) {
             String stringExtra = intent.getStringExtra("tag_url");
-            if (!TextUtils.isEmpty(stringExtra) && (hS = e.hS(stringExtra)) != null && hS.size() > 0) {
+            if (!TextUtils.isEmpty(stringExtra) && (it = e.it(stringExtra)) != null && it.size() > 0) {
                 try {
-                    if (hS.containsKey("swiper")) {
-                        this.lVH = Integer.valueOf((String) hS.get("swiper")).intValue() == 0;
+                    if (it.containsKey("swiper")) {
+                        this.mlo = Integer.valueOf((String) it.get("swiper")).intValue() == 0;
                     }
                 } catch (Exception e) {
                 }
@@ -44,37 +44,37 @@ public class CommonWebViewFullActivity extends BaseActivity<CommonWebViewFullAct
 
     @Override // com.baidu.live.tbadk.BaseActivity, android.app.Activity, android.view.KeyEvent.Callback
     public boolean onKeyDown(int i, KeyEvent keyEvent) {
-        if (this.lVI == null || !this.lVI.onKeyDown(i, keyEvent)) {
+        if (this.mlp == null || !this.mlp.onKeyDown(i, keyEvent)) {
             return super.onKeyDown(i, keyEvent);
         }
         return true;
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.live.tbadk.BaseActivity, com.baidu.live.adp.base.BdBaseActivity, android.app.Activity
+    @Override // com.baidu.live.tbadk.BaseActivity, com.baidu.live.adp.base.BdBaseActivity, android.support.v4.app.FragmentActivity, android.app.Activity
     public void onDestroy() {
         super.onDestroy();
-        if (this.lVI != null) {
-            this.lVI.onDestroy();
+        if (this.mlp != null) {
+            this.mlp.onDestroy();
         }
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.live.tbadk.BaseActivity, android.app.Activity
+    @Override // com.baidu.live.tbadk.BaseActivity, android.support.v4.app.FragmentActivity, android.app.Activity
     public void onActivityResult(int i, int i2, Intent intent) {
         super.onActivityResult(i, i2, intent);
-        if (this.lVI != null) {
-            this.lVI.onActivityResult(i, i2, intent);
+        if (this.mlp != null) {
+            this.mlp.onActivityResult(i, i2, intent);
         }
     }
 
-    private void GE(int i) {
+    private void Hk(int i) {
         getActivity().setResult(i, new Intent());
         getActivity().finish();
     }
 
     @Override // com.baidu.live.view.web.f
-    public void eL(int i) {
-        GE(i);
+    public void eU(int i) {
+        Hk(i);
     }
 }

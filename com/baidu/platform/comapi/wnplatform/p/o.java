@@ -1,10 +1,12 @@
 package com.baidu.platform.comapi.wnplatform.p;
 
 import android.content.SharedPreferences;
-/* loaded from: classes3.dex */
+/* loaded from: classes7.dex */
 public class o extends com.baidu.platform.comapi.walknavi.a {
     private SharedPreferences.Editor b = null;
-    private SharedPreferences a = com.baidu.platform.comapi.wnplatform.p.b.a.a().getSharedPreferences("walknavi_preference", 0);
+
+    /* renamed from: a  reason: collision with root package name */
+    private SharedPreferences f3152a = com.baidu.platform.comapi.wnplatform.p.b.a.a().getSharedPreferences("walknavi_preference", 0);
 
     @Override // com.baidu.platform.comapi.walknavi.a
     public void release() {
@@ -16,21 +18,21 @@ public class o extends com.baidu.platform.comapi.walknavi.a {
     }
 
     public String a(String str, String str2) {
-        return this.a.getString(str, str2);
+        return this.f3152a.getString(str, str2);
     }
 
     public boolean a(String str, boolean z) {
-        return this.a.getBoolean(str, z);
+        return this.f3152a.getBoolean(str, z);
     }
 
     public boolean b(String str, boolean z) {
-        this.b = this.a.edit();
+        this.b = this.f3152a.edit();
         this.b.putBoolean(str, z);
         return this.b.commit();
     }
 
     public boolean b(String str, String str2) {
-        this.b = this.a.edit();
+        this.b = this.f3152a.edit();
         this.b.putString(str, str2);
         return this.b.commit();
     }

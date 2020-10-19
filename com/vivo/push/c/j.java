@@ -3,9 +3,11 @@ package com.vivo.push.c;
 import android.content.Context;
 import com.vivo.push.sdk.PushMessageCallback;
 import java.util.List;
-/* loaded from: classes12.dex */
+/* loaded from: classes15.dex */
 final class j implements Runnable {
-    final /* synthetic */ int a;
+
+    /* renamed from: a  reason: collision with root package name */
+    final /* synthetic */ int f4662a;
     final /* synthetic */ List b;
     final /* synthetic */ List c;
     final /* synthetic */ String d;
@@ -14,7 +16,7 @@ final class j implements Runnable {
     /* JADX INFO: Access modifiers changed from: package-private */
     public j(h hVar, int i, List list, List list2, String str) {
         this.e = hVar;
-        this.a = i;
+        this.f4662a = i;
         this.b = list;
         this.c = list2;
         this.d = str;
@@ -24,7 +26,7 @@ final class j implements Runnable {
     public final void run() {
         Context context;
         PushMessageCallback pushMessageCallback = this.e.b;
-        context = this.e.a;
-        pushMessageCallback.onDelAlias(context, this.a, this.b, this.c, this.d);
+        context = this.e.f4714a;
+        pushMessageCallback.onDelAlias(context, this.f4662a, this.b, this.c, this.d);
     }
 }

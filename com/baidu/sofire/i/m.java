@@ -3,15 +3,17 @@ package com.baidu.sofire.i;
 import android.os.Handler;
 import android.os.HandlerThread;
 import android.os.Looper;
-/* loaded from: classes12.dex */
+/* loaded from: classes15.dex */
 public final class m {
     private static final m c = new m();
-    private HandlerThread a = new HandlerThread("rp_th", 10);
+
+    /* renamed from: a  reason: collision with root package name */
+    private HandlerThread f3635a = new HandlerThread("rp_th", 10);
     private Handler b;
 
     private m() {
-        this.a.start();
-        this.b = new Handler(this.a.getLooper());
+        this.f3635a.start();
+        this.b = new Handler(this.f3635a.getLooper());
     }
 
     public static Looper a() {

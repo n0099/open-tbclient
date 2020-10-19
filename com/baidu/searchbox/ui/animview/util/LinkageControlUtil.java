@@ -6,14 +6,14 @@ import com.baidu.searchbox.ui.CoolPraiseView;
 import com.baidu.searchbox.ui.animview.praise.ioc.ComboPraiseRuntime;
 import java.lang.ref.WeakReference;
 import rx.functions.b;
-/* loaded from: classes11.dex */
+/* loaded from: classes9.dex */
 public class LinkageControlUtil {
     public static final boolean DEBUG = DebugUtil.isApkInDebug();
     private static final String TAG = "LinkageControlUtil";
     private static WeakReference<Object> sBindObj;
     private static WeakReference<ILinkageOpr> sLinkageOpr;
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes9.dex */
     public interface ILinkageOpr {
         void disableLinkageScroll();
 

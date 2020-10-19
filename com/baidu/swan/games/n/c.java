@@ -5,21 +5,21 @@ import com.baidu.live.tbadk.ubc.UbcStatConstant;
 import com.baidu.minivideo.plugin.capture.db.AuthoritySharedPreferences;
 import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeConstants;
 import com.baidu.swan.games.binding.model.JSTypeMismatchException;
-/* loaded from: classes3.dex */
+/* loaded from: classes10.dex */
 public class c {
-    public String dwA;
-    public int dwz;
-    public String dww = "";
+    public int dIA;
+    public String dIB;
+    public String dIx = "";
     public int maxLength = ActivityChooserView.ActivityChooserViewAdapter.MAX_ACTIVITY_COUNT_UNLIMITED;
-    public boolean dwx = false;
-    public boolean dwy = false;
+    public boolean dIy = false;
+    public boolean dIz = false;
 
     public boolean h(com.baidu.swan.games.binding.model.c cVar) throws JSTypeMismatchException {
         try {
-            this.dww = cVar.optString("defaultValue");
+            this.dIx = cVar.optString("defaultValue");
             this.maxLength = cVar.optInt("maxLength");
-            this.dwx = cVar.optBoolean("multiple");
-            this.dwy = cVar.optBoolean("confirmHold");
+            this.dIy = cVar.optBoolean("multiple");
+            this.dIz = cVar.optBoolean("confirmHold");
             String optString = cVar.optString("confirmType");
             char c = 65535;
             switch (optString.hashCode()) {
@@ -56,28 +56,28 @@ public class c {
             }
             switch (c) {
                 case 0:
-                    this.dwz = 6;
-                    this.dwA = AuthoritySharedPreferences.KEY_CONFIG_PRIVILEGE_DONE;
+                    this.dIA = 6;
+                    this.dIB = AuthoritySharedPreferences.KEY_CONFIG_PRIVILEGE_DONE;
                     return true;
                 case 1:
-                    this.dwz = 5;
-                    this.dwA = UnitedSchemeConstants.UNITED_SCHEME_NEXT;
+                    this.dIA = 5;
+                    this.dIB = UnitedSchemeConstants.UNITED_SCHEME_NEXT;
                     return true;
                 case 2:
-                    this.dwz = 3;
-                    this.dwA = "search";
+                    this.dIA = 3;
+                    this.dIB = "search";
                     return true;
                 case 3:
-                    this.dwz = 2;
-                    this.dwA = "go";
+                    this.dIA = 2;
+                    this.dIB = "go";
                     return true;
                 case 4:
-                    this.dwz = 4;
-                    this.dwA = UbcStatConstant.ContentType.UBC_TYPE_IM_SEND;
+                    this.dIA = 4;
+                    this.dIB = UbcStatConstant.ContentType.UBC_TYPE_IM_SEND;
                     return true;
                 default:
-                    this.dwz = 6;
-                    this.dwA = AuthoritySharedPreferences.KEY_CONFIG_PRIVILEGE_DONE;
+                    this.dIA = 6;
+                    this.dIB = AuthoritySharedPreferences.KEY_CONFIG_PRIVILEGE_DONE;
                     return true;
             }
         } catch (Exception e) {

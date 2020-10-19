@@ -1,7 +1,9 @@
 package com.xiaomi.push.service;
-/* loaded from: classes9.dex */
+/* loaded from: classes12.dex */
 public abstract class at {
-    public static String a = "1";
+
+    /* renamed from: a  reason: collision with root package name */
+    public static String f5066a = "1";
     public static String b = "2";
     public static String c = "3";
     public static String d = "com.xiaomi.push.OPEN_CHANNEL";

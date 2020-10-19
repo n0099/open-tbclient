@@ -2,21 +2,21 @@ package com.baidu.swan.games.f;
 
 import android.support.annotation.NonNull;
 import com.baidu.searchbox.v8engine.thread.V8ThreadDelegatePolicy;
-/* loaded from: classes3.dex */
+/* loaded from: classes10.dex */
 public final class g {
     public static a a(h hVar, com.baidu.swan.games.f.d.b bVar, V8ThreadDelegatePolicy v8ThreadDelegatePolicy) {
         a b = b(hVar, bVar, v8ThreadDelegatePolicy);
         b.a(new com.baidu.swan.games.f.a.b(b));
         b.a(new com.baidu.swan.games.f.a.c(b));
-        b.aNJ();
+        b.aQs();
         return b;
     }
 
     private static a b(h hVar, com.baidu.swan.games.f.d.b bVar, V8ThreadDelegatePolicy v8ThreadDelegatePolicy) {
-        i a = a(hVar);
-        a a2 = a.a(hVar.getID(), bVar, v8ThreadDelegatePolicy);
-        a2.setUserAgent(a.getUserAgent());
-        return a2;
+        i a2 = a(hVar);
+        a a3 = a2.a(hVar.getID(), bVar, v8ThreadDelegatePolicy);
+        a3.setUserAgent(a2.getUserAgent());
+        return a3;
     }
 
     @NonNull

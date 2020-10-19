@@ -2,57 +2,57 @@ package com.baidu.ubs.analytics.d;
 
 import android.text.TextUtils;
 import android.util.Log;
-/* loaded from: classes7.dex */
+/* loaded from: classes10.dex */
 public final class j {
-    private static int nra = 1000;
-    private static boolean nrb = true;
+    private static int nGu = 1000;
+    private static boolean nGv = true;
 
     public static void c(boolean z) {
-        nrb = z;
+        nGv = z;
     }
 
     public static void I(String str) {
-        if (nrb) {
+        if (nGv) {
             a(5, "BaiDuAbSDK", str, null);
         }
     }
 
     public static void b(Throwable th) {
-        if (nrb) {
+        if (nGv) {
             a(4, "BaiDuAbSDK", "", th);
         }
     }
 
     public static void G(String str) {
-        if (nrb) {
+        if (nGv) {
             a(2, "BaiDuAbSDK", str, null);
         }
     }
 
     public static void a(Throwable th) {
-        if (nrb) {
+        if (nGv) {
             a(2, "BaiDuAbSDK", "", th);
         }
     }
 
     private static void a(int i, String str, String str2, Throwable th) {
         if (!TextUtils.isEmpty(str2)) {
-            if (str2.length() >= nra) {
+            if (str2.length() >= nGu) {
                 switch (i) {
                     case 1:
-                        Log.v(str, str2.substring(0, nra));
+                        Log.v(str, str2.substring(0, nGu));
                         break;
                     case 2:
-                        Log.d(str, str2.substring(0, nra));
+                        Log.d(str, str2.substring(0, nGu));
                         break;
                     case 3:
-                        Log.i(str, str2.substring(0, nra));
+                        Log.i(str, str2.substring(0, nGu));
                         break;
                     case 4:
-                        Log.w(str, str2.substring(0, nra));
+                        Log.w(str, str2.substring(0, nGu));
                         break;
                     case 5:
-                        Log.e(str, str2.substring(0, nra));
+                        Log.e(str, str2.substring(0, nGu));
                         break;
                 }
             } else {

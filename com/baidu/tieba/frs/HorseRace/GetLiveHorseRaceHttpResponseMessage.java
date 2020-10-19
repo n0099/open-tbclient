@@ -4,7 +4,7 @@ import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.message.http.TbHttpResponsedMessage;
 import com.squareup.wire.Wire;
 import tbclient.GetHorseRaceLampList.GetHorseRaceLampListResIdl;
-/* loaded from: classes21.dex */
+/* loaded from: classes22.dex */
 public class GetLiveHorseRaceHttpResponseMessage extends TbHttpResponsedMessage {
     private a mData;
 

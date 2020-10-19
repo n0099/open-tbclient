@@ -18,7 +18,7 @@ import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.util.ArrayList;
-/* loaded from: classes24.dex */
+/* loaded from: classes6.dex */
 public class a {
     public static final void a(Context context, final String str, final c cVar) {
         f.b("openSDK_LOG.AsynScaleCompressImage", "scaleCompressImage");
@@ -46,22 +46,22 @@ public class a {
             new Thread(new Runnable() { // from class: com.tencent.connect.share.a.2
                 @Override // java.lang.Runnable
                 public void run() {
-                    String a;
-                    Bitmap a2 = a.a(str, 140);
-                    if (a2 != null) {
+                    String a2;
+                    Bitmap a3 = a.a(str, 140);
+                    if (a3 != null) {
                         String str2 = Environment.getExternalStorageDirectory() + "/tmp/";
                         String str3 = "share2qq_temp" + j.f(str) + ".jpg";
                         if (!a.b(str, 140, 140)) {
                             f.b("openSDK_LOG.AsynScaleCompressImage", "not out of bound,not compress!");
-                            a = str;
+                            a2 = str;
                         } else {
                             f.b("openSDK_LOG.AsynScaleCompressImage", "out of bound,compress!");
-                            a = a.a(a2, str2, str3);
+                            a2 = a.a(a3, str2, str3);
                         }
-                        f.b("openSDK_LOG.AsynScaleCompressImage", "-->destFilePath: " + a);
-                        if (a != null) {
+                        f.b("openSDK_LOG.AsynScaleCompressImage", "-->destFilePath: " + a2);
+                        if (a2 != null) {
                             Message obtainMessage = handler.obtainMessage(101);
-                            obtainMessage.obj = a;
+                            obtainMessage.obj = a2;
                             handler.sendMessage(obtainMessage);
                             return;
                         }
@@ -96,20 +96,20 @@ public class a {
         new Thread(new Runnable() { // from class: com.tencent.connect.share.a.4
             @Override // java.lang.Runnable
             public void run() {
-                Bitmap a;
+                Bitmap a2;
                 int i = 0;
                 while (true) {
                     int i2 = i;
                     if (i2 < arrayList.size()) {
                         String str = (String) arrayList.get(i2);
-                        if (!j.g(str) && j.h(str) && (a = a.a(str, 10000)) != null) {
+                        if (!j.g(str) && j.h(str) && (a2 = a.a(str, 10000)) != null) {
                             String str2 = Environment.getExternalStorageDirectory() + "/tmp/";
                             String str3 = "share2qzone_temp" + j.f(str) + ".jpg";
                             if (!a.b(str, 640, 10000)) {
                                 f.b("openSDK_LOG.AsynScaleCompressImage", "not out of bound,not compress!");
                             } else {
                                 f.b("openSDK_LOG.AsynScaleCompressImage", "out of bound, compress!");
-                                str = a.a(a, str2, str3);
+                                str = a.a(a2, str2, str3);
                             }
                             if (str != null) {
                                 arrayList.set(i2, str);

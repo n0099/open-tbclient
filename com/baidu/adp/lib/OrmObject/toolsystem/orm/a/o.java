@@ -7,27 +7,27 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class o implements h {
-    private Set<?> JO;
+    private Set<?> Ke;
 
     public o(Set<?> set) {
-        this.JO = set;
+        this.Ke = set;
     }
 
     @Override // com.baidu.adp.lib.OrmObject.toolsystem.orm.a.h
     public Object a(com.baidu.adp.lib.OrmObject.toolsystem.orm.d.c cVar) {
-        Type[] lP = cVar.lP();
+        Type[] lQ = cVar.lQ();
         JSONArray jSONArray = new JSONArray();
-        for (Object obj : this.JO) {
+        for (Object obj : this.Ke) {
             if (obj != null) {
-                if (lP != null && lP.length >= 1) {
-                    Object a = com.baidu.adp.lib.OrmObject.toolsystem.orm.d.f.v(obj).a(new com.baidu.adp.lib.OrmObject.toolsystem.orm.d.c(lP[0]));
-                    if (a != null) {
-                        jSONArray.put(a);
-                    }
-                } else {
-                    Object a2 = com.baidu.adp.lib.OrmObject.toolsystem.orm.d.f.v(obj).a(new com.baidu.adp.lib.OrmObject.toolsystem.orm.d.c(cVar.getFieldClass()));
+                if (lQ != null && lQ.length >= 1) {
+                    Object a2 = com.baidu.adp.lib.OrmObject.toolsystem.orm.d.f.v(obj).a(new com.baidu.adp.lib.OrmObject.toolsystem.orm.d.c(lQ[0]));
                     if (a2 != null) {
                         jSONArray.put(a2);
+                    }
+                } else {
+                    Object a3 = com.baidu.adp.lib.OrmObject.toolsystem.orm.d.f.v(obj).a(new com.baidu.adp.lib.OrmObject.toolsystem.orm.d.c(cVar.getFieldClass()));
+                    if (a3 != null) {
+                        jSONArray.put(a3);
                     }
                 }
             }
@@ -37,19 +37,19 @@ public class o implements h {
 
     @Override // com.baidu.adp.lib.OrmObject.toolsystem.orm.a.h
     public Object b(com.baidu.adp.lib.OrmObject.toolsystem.orm.d.c cVar) {
-        Type[] lP = cVar.lP();
+        Type[] lQ = cVar.lQ();
         ArrayList arrayList = new ArrayList();
-        for (Object obj : this.JO) {
+        for (Object obj : this.Ke) {
             if (obj != null) {
-                if (lP != null && lP.length >= 1) {
-                    Object a = com.baidu.adp.lib.OrmObject.toolsystem.orm.d.f.v(obj).a(new com.baidu.adp.lib.OrmObject.toolsystem.orm.d.c(lP[0]));
-                    if (a != null) {
-                        arrayList.add(a.toString());
-                    }
-                } else {
-                    Object a2 = com.baidu.adp.lib.OrmObject.toolsystem.orm.d.f.v(obj).a(new com.baidu.adp.lib.OrmObject.toolsystem.orm.d.c(cVar.getFieldClass()));
+                if (lQ != null && lQ.length >= 1) {
+                    Object a2 = com.baidu.adp.lib.OrmObject.toolsystem.orm.d.f.v(obj).a(new com.baidu.adp.lib.OrmObject.toolsystem.orm.d.c(lQ[0]));
                     if (a2 != null) {
                         arrayList.add(a2.toString());
+                    }
+                } else {
+                    Object a3 = com.baidu.adp.lib.OrmObject.toolsystem.orm.d.f.v(obj).a(new com.baidu.adp.lib.OrmObject.toolsystem.orm.d.c(cVar.getFieldClass()));
+                    if (a3 != null) {
+                        arrayList.add(a3.toString());
                     }
                 }
             }
@@ -64,26 +64,26 @@ public class o implements h {
 
     @Override // com.baidu.adp.lib.OrmObject.toolsystem.orm.a.h
     public Object d(com.baidu.adp.lib.OrmObject.toolsystem.orm.d.c cVar) {
-        return this.JO;
+        return this.Ke;
     }
 
     @Override // com.baidu.adp.lib.OrmObject.toolsystem.orm.a.h
     public Object e(com.baidu.adp.lib.OrmObject.toolsystem.orm.d.c cVar) {
-        Object a = a(cVar);
-        if (a != null) {
-            if (a instanceof JSONObject) {
-                return a.toString();
+        Object a2 = a(cVar);
+        if (a2 != null) {
+            if (a2 instanceof JSONObject) {
+                return a2.toString();
             }
-            if (a instanceof JSONArray) {
-                return a.toString();
+            if (a2 instanceof JSONArray) {
+                return a2.toString();
             }
-            return a;
+            return a2;
         }
         return null;
     }
 
     @Override // com.baidu.adp.lib.OrmObject.toolsystem.orm.a.h
     public Object f(com.baidu.adp.lib.OrmObject.toolsystem.orm.d.c cVar) {
-        return this.JO;
+        return this.Ke;
     }
 }

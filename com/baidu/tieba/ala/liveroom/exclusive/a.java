@@ -12,45 +12,45 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes4.dex */
 public class a extends BaseAdapter {
-    private InterfaceC0625a gBu;
-    private boolean gBv;
+    private InterfaceC0643a gPN;
+    private boolean gPO;
     private Context mContext;
-    public List<ac> gBt = new ArrayList();
-    private int fDd = -1;
+    public List<ac> gPM = new ArrayList();
+    private int fPm = -1;
 
     /* renamed from: com.baidu.tieba.ala.liveroom.exclusive.a$a  reason: collision with other inner class name */
     /* loaded from: classes4.dex */
-    public interface InterfaceC0625a {
+    public interface InterfaceC0643a {
         void a(View view, int i, ac acVar);
     }
 
     public a(Context context, boolean z) {
         this.mContext = context;
-        this.gBv = z;
+        this.gPO = z;
     }
 
-    public void uq(int i) {
-        this.fDd = i;
+    public void uV(int i) {
+        this.fPm = i;
         notifyDataSetChanged();
     }
 
-    public void a(InterfaceC0625a interfaceC0625a) {
-        this.gBu = interfaceC0625a;
+    public void a(InterfaceC0643a interfaceC0643a) {
+        this.gPN = interfaceC0643a;
     }
 
     @Override // android.widget.Adapter
     public int getCount() {
-        if (this.gBt == null) {
+        if (this.gPM == null) {
             return 0;
         }
-        return this.gBt.size();
+        return this.gPM.size();
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // android.widget.Adapter
-    /* renamed from: ur */
+    /* renamed from: uW */
     public ac getItem(int i) {
-        return (ac) ListUtils.getItem(this.gBt, i);
+        return (ac) ListUtils.getItem(this.gPM, i);
     }
 
     @Override // android.widget.Adapter
@@ -60,8 +60,8 @@ public class a extends BaseAdapter {
 
     public void setDatas(List<ac> list) {
         if (!ListUtils.isEmpty(list)) {
-            this.gBt.clear();
-            this.gBt.addAll(list);
+            this.gPM.clear();
+            this.gPM.addAll(list);
             notifyDataSetChanged();
         }
     }
@@ -71,7 +71,7 @@ public class a extends BaseAdapter {
         g gVar;
         View inflate;
         if (view == null) {
-            if (this.gBv) {
+            if (this.gPO) {
                 inflate = LayoutInflater.from(this.mContext).inflate(a.h.ala_exclusive_scene_item, (ViewGroup) null);
             } else {
                 inflate = LayoutInflater.from(this.mContext).inflate(a.h.ala_exclusive_scene_land_item, (ViewGroup) null);
@@ -82,19 +82,19 @@ public class a extends BaseAdapter {
         } else {
             gVar = (g) view.getTag();
         }
-        final ac acVar = this.gBt.get(i);
-        if (this.fDd == i) {
-            gVar.a(acVar, true, this.gBv);
+        final ac acVar = this.gPM.get(i);
+        if (this.fPm == i) {
+            gVar.a(acVar, true, this.gPO);
         } else {
-            gVar.a(acVar, false, this.gBv);
+            gVar.a(acVar, false, this.gPO);
         }
         view.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.ala.liveroom.exclusive.a.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view2) {
-                a.this.fDd = i;
+                a.this.fPm = i;
                 a.this.notifyDataSetChanged();
-                if (a.this.gBu != null) {
-                    a.this.gBu.a(view2, i, acVar);
+                if (a.this.gPN != null) {
+                    a.this.gPN.a(view2, i, acVar);
                 }
             }
         });

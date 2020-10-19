@@ -1,13 +1,15 @@
 package com.xiaomi.push;
-/* loaded from: classes9.dex */
+/* loaded from: classes12.dex */
 public final class jn {
-    public final String a;
+
+    /* renamed from: a  reason: collision with root package name */
+    public final String f5007a;
 
     public jn() {
         this("");
     }
 
     public jn(String str) {
-        this.a = str;
+        this.f5007a = str;
     }
 }

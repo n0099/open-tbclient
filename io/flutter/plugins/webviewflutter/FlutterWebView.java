@@ -11,10 +11,12 @@ import io.flutter.plugin.common.BinaryMessenger;
 import io.flutter.plugin.common.MethodCall;
 import io.flutter.plugin.common.MethodChannel;
 import io.flutter.plugin.platform.PlatformView;
+import io.flutter.plugins.webviewflutter.InputAwareWebView;
 import java.util.Collections;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-/* loaded from: classes5.dex */
+/* loaded from: classes12.dex */
 public class FlutterWebView implements MethodChannel.MethodCallHandler, PlatformView {
     private static final String JS_CHANNEL_NAMES_FIELD = "javascriptChannelNames";
     private final FlutterWebViewClient flutterWebViewClient;
@@ -29,6 +31,14 @@ public class FlutterWebView implements MethodChannel.MethodCallHandler, Platform
         DisplayManager displayManager = (DisplayManager) context.getSystemService("display");
         displayListenerProxy.onPreWebViewInitialization(displayManager);
         this.webView = new InputAwareWebView(context, view);
+        this.webView.setOnScrollChangedCallback(new InputAwareWebView.OnScrollChangedCallback() { // from class: io.flutter.plugins.webviewflutter.FlutterWebView.1
+            @Override // io.flutter.plugins.webviewflutter.InputAwareWebView.OnScrollChangedCallback
+            public void onScroll(int i2, int i3, int i4, int i5) {
+                HashMap hashMap = new HashMap();
+                hashMap.put("offsetY", String.valueOf(FlutterWebView.this.webView.getScrollY()));
+                FlutterWebView.this.methodChannel.invokeMethod("onPageOffsetY", hashMap);
+            }
+        });
         displayListenerProxy.onPostWebViewInitialization(displayManager);
         this.platformThreadHandler = new Handler(context.getMainLooper());
         this.webView.getSettings().setDomStorageEnabled(true);
@@ -293,7 +303,7 @@ public class FlutterWebView implements MethodChannel.MethodCallHandler, Platform
         if (str == null) {
             throw new UnsupportedOperationException("JavaScript string cannot be null");
         }
-        this.webView.evaluateJavascript(str, new ValueCallback<String>() { // from class: io.flutter.plugins.webviewflutter.FlutterWebView.1
+        this.webView.evaluateJavascript(str, new ValueCallback<String>() { // from class: io.flutter.plugins.webviewflutter.FlutterWebView.2
             /* JADX DEBUG: Method merged with bridge method */
             @Override // android.webkit.ValueCallback
             public void onReceiveValue(String str2) {

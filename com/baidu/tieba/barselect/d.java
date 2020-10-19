@@ -6,10 +6,10 @@ import com.baidu.tbadk.TbPageContext;
 import com.baidu.tieba.barselect.data.f;
 import com.baidu.tieba.barselect.view.VoteCandidateCard;
 import java.util.List;
-/* loaded from: classes20.dex */
+/* loaded from: classes21.dex */
 public class d extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
-    private List<com.baidu.tieba.barselect.data.d> hjX;
-    private int hjY = -1;
+    private List<com.baidu.tieba.barselect.data.d> hyS;
+    private int hyT = -1;
     private TbPageContext mPageContext;
     private f mVoteData;
 
@@ -20,15 +20,15 @@ public class d extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
     public void a(f fVar) {
         this.mVoteData = fVar;
         if (fVar != null) {
-            this.hjX = fVar.ceg();
+            this.hyS = fVar.chC();
         }
-        this.hjY = -1;
+        this.hyT = -1;
         notifyDataSetChanged();
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // android.support.v7.widget.RecyclerView.Adapter
-    /* renamed from: r */
+    /* renamed from: t */
     public e onCreateViewHolder(ViewGroup viewGroup, int i) {
         VoteCandidateCard voteCandidateCard = new VoteCandidateCard(this.mPageContext.getPageActivity());
         voteCandidateCard.setVoteAdaPter(this);
@@ -44,25 +44,25 @@ public class d extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
 
     @Override // android.support.v7.widget.RecyclerView.Adapter
     public int getItemCount() {
-        if (this.hjX != null) {
-            return this.hjX.size();
+        if (this.hyS != null) {
+            return this.hyS.size();
         }
         return 0;
     }
 
     @Override // android.support.v7.widget.RecyclerView.Adapter
     public int getItemViewType(int i) {
-        if (this.hjX == null || this.hjX.size() <= i || this.hjX.get(i).getRank() != 1 || i != 0) {
+        if (this.hyS == null || this.hyS.size() <= i || this.hyS.get(i).getRank() != 1 || i != 0) {
             return 0;
         }
-        return com.baidu.tieba.barselect.a.a.hnd;
+        return com.baidu.tieba.barselect.a.a.hBX;
     }
 
-    public int cdR() {
-        return this.hjY;
+    public int chn() {
+        return this.hyT;
     }
 
-    public void vC(int i) {
-        this.hjY = i;
+    public void wi(int i) {
+        this.hyT = i;
     }
 }

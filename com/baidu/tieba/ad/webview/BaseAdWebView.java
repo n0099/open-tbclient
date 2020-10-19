@@ -22,18 +22,18 @@ import com.baidu.tieba.ad.download.DownloadCacheKey;
 import com.baidu.tieba.ad.download.d;
 import java.lang.reflect.Method;
 import java.util.Map;
-/* loaded from: classes20.dex */
+/* loaded from: classes21.dex */
 public abstract class BaseAdWebView extends WebView {
     private static final String TAG = BaseAdWebView.class.getSimpleName();
-    protected DownloadCacheKey frG;
-    protected BaseAdWebView fsA;
-    protected String fsB;
-    protected boolean fsC;
-    private b fsD;
+    protected DownloadCacheKey fDR;
+    protected BaseAdWebView fEL;
+    protected String fEM;
+    protected boolean fEN;
+    private b fEO;
     protected Context mContext;
     protected ValueCallback<Uri> mUploadMessage;
 
-    /* loaded from: classes20.dex */
+    /* loaded from: classes21.dex */
     public interface b {
         void onScrollChanged(int i, int i2, int i3, int i4);
     }
@@ -44,37 +44,37 @@ public abstract class BaseAdWebView extends WebView {
 
     public BaseAdWebView(Context context) {
         super(context);
-        this.fsC = true;
-        this.fsA = this;
+        this.fEN = true;
+        this.fEL = this;
         this.mContext = context;
         init();
     }
 
     public BaseAdWebView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.fsC = true;
-        this.fsA = this;
+        this.fEN = true;
+        this.fEL = this;
         this.mContext = context;
         init();
     }
 
     public BaseAdWebView(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.fsC = true;
-        this.fsA = this;
+        this.fEN = true;
+        this.fEL = this;
         this.mContext = context;
         init();
     }
 
     private void init() {
         try {
-            this.fsA.removeJavascriptInterface("searchBoxJavaBridge_");
-            this.fsA.removeJavascriptInterface("accessibility");
-            this.fsA.removeJavascriptInterface("accessibilityTraversal");
+            this.fEL.removeJavascriptInterface("searchBoxJavaBridge_");
+            this.fEL.removeJavascriptInterface("accessibility");
+            this.fEL.removeJavascriptInterface("accessibilityTraversal");
         } catch (Exception e) {
             e.printStackTrace();
         }
-        eB(this.mContext);
+        eI(this.mContext);
         setScrollbarFadingEnabled(true);
         setVerticalScrollBarEnabled(true);
         setHorizontalScrollBarEnabled(false);
@@ -113,8 +113,8 @@ public abstract class BaseAdWebView extends WebView {
         setDownloadListener(new DownloadListener() { // from class: com.baidu.tieba.ad.webview.BaseAdWebView.2
             @Override // android.webkit.DownloadListener
             public void onDownloadStart(String str, String str2, String str3, String str4, long j) {
-                if (BaseAdWebView.this.fsA != null) {
-                    BaseAdWebView.this.b(str, str3, str4, j);
+                if (BaseAdWebView.this.fEL != null) {
+                    BaseAdWebView.this.e(str, str3, str4, j);
                 }
             }
         });
@@ -129,7 +129,7 @@ public abstract class BaseAdWebView extends WebView {
 
     @Override // android.webkit.WebView
     public void loadUrl(String str) {
-        if (!this.fsC) {
+        if (!this.fEN) {
             getSettings().setBlockNetworkImage(true);
         }
         super.loadUrl(str);
@@ -137,7 +137,7 @@ public abstract class BaseAdWebView extends WebView {
 
     @Override // android.webkit.WebView
     public void loadUrl(String str, Map<String, String> map) {
-        if (!this.fsC) {
+        if (!this.fEN) {
             getSettings().setBlockNetworkImage(true);
         }
         super.loadUrl(str, map);
@@ -145,7 +145,7 @@ public abstract class BaseAdWebView extends WebView {
 
     @Override // android.webkit.WebView
     public void loadData(String str, String str2, String str3) {
-        if (!this.fsC) {
+        if (!this.fEN) {
             getSettings().setBlockNetworkImage(true);
         }
         super.loadData(str, str2, str3);
@@ -153,14 +153,14 @@ public abstract class BaseAdWebView extends WebView {
 
     @Override // android.webkit.WebView
     public void loadDataWithBaseURL(String str, String str2, String str3, String str4, String str5) {
-        if (!this.fsC) {
+        if (!this.fEN) {
             getSettings().setBlockNetworkImage(true);
         }
         super.loadDataWithBaseURL(str, str2, str3, str4, str5);
     }
 
     public void h(@NonNull DownloadCacheKey downloadCacheKey) {
-        this.frG = downloadCacheKey;
+        this.fDR = downloadCacheKey;
     }
 
     public void setLightTouchEnabled() {
@@ -169,14 +169,14 @@ public abstract class BaseAdWebView extends WebView {
     }
 
     public void setWebViewScrollListener(b bVar) {
-        this.fsD = bVar;
+        this.fEO = bVar;
     }
 
     @Override // android.webkit.WebView, android.view.View
     protected void onScrollChanged(int i, int i2, int i3, int i4) {
         super.onScrollChanged(i, i2, i3, i4);
-        if (this.fsD != null) {
-            this.fsD.onScrollChanged(i, i2, i3, i4);
+        if (this.fEO != null) {
+            this.fEO.onScrollChanged(i, i2, i3, i4);
         }
     }
 
@@ -194,7 +194,7 @@ public abstract class BaseAdWebView extends WebView {
         }
     }
 
-    private void eB(Context context) {
+    private void eI(Context context) {
         if (Build.VERSION.SDK_INT == 17 && context != null) {
             try {
                 AccessibilityManager accessibilityManager = (AccessibilityManager) context.getSystemService("accessibility");
@@ -212,30 +212,30 @@ public abstract class BaseAdWebView extends WebView {
     }
 
     public void setDownloadPicOnLoad(boolean z) {
-        this.fsC = z;
+        this.fEN = z;
     }
 
-    /* loaded from: classes20.dex */
+    /* loaded from: classes21.dex */
     public static class a extends WebViewClient {
-        private BaseAdWebView fsA;
+        private BaseAdWebView fEL;
         private Activity mActivity;
 
         public a(BaseAdWebView baseAdWebView, Activity activity) {
-            this.fsA = baseAdWebView;
+            this.fEL = baseAdWebView;
             this.mActivity = activity;
         }
 
         @Override // android.webkit.WebViewClient
         public void onPageStarted(WebView webView, String str, Bitmap bitmap) {
-            this.fsA.fsB = str;
+            this.fEL.fEM = str;
             super.onPageStarted(webView, str, bitmap);
         }
 
         @Override // android.webkit.WebViewClient
         public void onPageFinished(WebView webView, String str) {
-            this.fsA.setLightTouchEnabled();
-            if (!this.fsA.fsC) {
-                this.fsA.getSettings().setBlockNetworkImage(false);
+            this.fEL.setLightTouchEnabled();
+            if (!this.fEL.fEN) {
+                this.fEL.getSettings().setBlockNetworkImage(false);
             }
             super.onPageFinished(webView, str);
         }
@@ -264,26 +264,26 @@ public abstract class BaseAdWebView extends WebView {
         }
     }
 
-    protected void b(String str, String str2, String str3, long j) {
+    protected void e(String str, String str2, String str3, long j) {
         String str4;
-        if (!TextUtils.isEmpty(str) && this.frG != null) {
-            this.frG.mDownloadUrl = str;
-            String ag = com.baidu.tieba.ad.webview.a.ag(str, str2, str3);
-            boolean z = com.baidu.tieba.ad.webview.a.dT(com.baidu.tieba.ad.webview.a.sQ(ag), str3) == 3;
-            if (TextUtils.isEmpty(ag)) {
+        if (!TextUtils.isEmpty(str) && this.fDR != null) {
+            this.fDR.mDownloadUrl = str;
+            String ah = com.baidu.tieba.ad.webview.a.ah(str, str2, str3);
+            boolean z = com.baidu.tieba.ad.webview.a.dZ(com.baidu.tieba.ad.webview.a.tC(ah), str3) == 3;
+            if (TextUtils.isEmpty(ah)) {
                 String[] split = str.split("/");
                 str4 = split.length > 1 ? split[split.length - 1] : str;
                 if (str4 != null && str4.length() > 50) {
                     str4 = str4.substring(0, 50);
                 }
             } else {
-                str4 = ag;
+                str4 = ah;
             }
-            this.frG.mPackageName = str4;
-            AdDownloadData d = d.bCs().d(this.frG);
+            this.fDR.mPackageName = str4;
+            AdDownloadData d = d.bFe().d(this.fDR);
             d.setupPkgName(str4);
             d.setupDownloadUrl(str);
-            a(this.frG, z);
+            a(this.fDR, z);
         }
     }
 }

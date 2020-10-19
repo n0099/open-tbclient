@@ -6,14 +6,16 @@ import android.widget.EditText;
 import android.widget.Toast;
 import com.baidu.android.imsdk.internal.IMConnection;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes21.dex */
+/* loaded from: classes22.dex */
 public final class n implements TextWatcher {
-    final /* synthetic */ FeedbackEditActivity a;
+
+    /* renamed from: a  reason: collision with root package name */
+    final /* synthetic */ FeedbackEditActivity f3883a;
     private long b = 0;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public n(FeedbackEditActivity feedbackEditActivity) {
-        this.a = feedbackEditActivity;
+        this.f3883a = feedbackEditActivity;
     }
 
     @Override // android.text.TextWatcher
@@ -27,33 +29,33 @@ public final class n implements TextWatcher {
         String str;
         EditText editText6;
         EditText editText7;
-        z = this.a.x;
+        z = this.f3883a.x;
         if (!z) {
-            com.baidu.ufosdk.f.d dVar = new com.baidu.ufosdk.f.d(this.a);
+            com.baidu.ufosdk.f.d dVar = new com.baidu.ufosdk.f.d(this.f3883a);
             dVar.b(dVar.b() + 1);
-            this.a.x = true;
+            this.f3883a.x = true;
         }
         try {
-            editText = this.a.n;
+            editText = this.f3883a.n;
             if (editText != null) {
-                editText4 = this.a.n;
+                editText4 = this.f3883a.n;
                 if (editText4.getText().toString().length() > 30) {
                     if (System.currentTimeMillis() - this.b > IMConnection.RETRY_DELAY_TIMES) {
-                        Toast.makeText(this.a, com.baidu.ufosdk.f.s.a("32"), 0).show();
+                        Toast.makeText(this.f3883a, com.baidu.ufosdk.f.s.a("32"), 0).show();
                         this.b = System.currentTimeMillis();
                     }
-                    editText5 = this.a.n;
-                    str = this.a.R;
+                    editText5 = this.f3883a.n;
+                    str = this.f3883a.R;
                     editText5.setText(str);
-                    editText6 = this.a.m;
-                    editText7 = this.a.n;
+                    editText6 = this.f3883a.m;
+                    editText7 = this.f3883a.n;
                     FeedbackEditActivity.b(editText6, editText7.getText().length());
                 }
             }
-            editText2 = this.a.n;
+            editText2 = this.f3883a.n;
             if (editText2 != null) {
-                FeedbackEditActivity feedbackEditActivity = this.a;
-                editText3 = this.a.n;
+                FeedbackEditActivity feedbackEditActivity = this.f3883a;
+                editText3 = this.f3883a.n;
                 feedbackEditActivity.R = editText3.getText().toString().trim();
             }
         } catch (Exception e) {

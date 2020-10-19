@@ -20,7 +20,7 @@ import com.baidu.mobads.utils.e;
 import com.xiaomi.mipush.sdk.Constants;
 import java.util.HashMap;
 import java.util.List;
-/* loaded from: classes3.dex */
+/* loaded from: classes7.dex */
 public abstract class d implements IXAdRequestInfo {
     protected Context d;
     protected Activity e;
@@ -31,7 +31,9 @@ public abstract class d implements IXAdRequestInfo {
     private int p;
     private int r;
     protected String c = "TODO";
-    private String a = "android";
+
+    /* renamed from: a  reason: collision with root package name */
+    private String f2454a = "android";
     private String j = "";
     private int m = XAdSDKFoundationFacade.getInstance().getAdConstants().getAdCreativeTypeImage();
     private String n = "LP,DL";
@@ -188,11 +190,11 @@ public abstract class d implements IXAdRequestInfo {
     }
 
     public String f() {
-        return this.a;
+        return this.f2454a;
     }
 
     public void a(String str) {
-        this.a = str;
+        this.f2454a = str;
     }
 
     @Override // com.baidu.mobads.interfaces.IXAdRequestInfo

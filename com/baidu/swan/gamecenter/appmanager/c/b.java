@@ -1,24 +1,24 @@
 package com.baidu.swan.gamecenter.appmanager.c;
 
 import android.text.TextUtils;
-/* loaded from: classes14.dex */
+/* loaded from: classes6.dex */
 public class b {
-    private String dpH;
+    private String dBL;
     private String mResult;
     private int mStatus;
 
     public b(String str, int i, String str2) {
-        this.dpH = str;
+        this.dBL = str;
         this.mResult = str2;
         this.mStatus = i;
     }
 
-    public boolean aLn() {
-        return TextUtils.equals(this.dpH, "onSuccess");
+    public boolean aNW() {
+        return TextUtils.equals(this.dBL, "onSuccess");
     }
 
-    public String aLo() {
-        return this.dpH;
+    public String aNX() {
+        return this.dBL;
     }
 
     public String getResult() {

@@ -5,7 +5,7 @@ import com.squareup.wire.Wire;
 import java.util.ArrayList;
 import tbclient.ElectionInfo.ElectionInfoResIdl;
 import tbclient.ElectionList;
-/* loaded from: classes20.dex */
+/* loaded from: classes21.dex */
 public class VoteElectionSocketResMessage extends SocketResponsedMessage {
     private f mVoteData;
 

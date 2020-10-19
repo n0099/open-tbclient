@@ -1,22 +1,24 @@
 package com.xiaomi.push;
 
 import com.xiaomi.channel.commonutils.logger.LoggerInterface;
-/* loaded from: classes9.dex */
+/* loaded from: classes12.dex */
 public class dl implements LoggerInterface {
-    private LoggerInterface a;
+
+    /* renamed from: a  reason: collision with root package name */
+    private LoggerInterface f4861a;
     private LoggerInterface b;
 
     public dl(LoggerInterface loggerInterface, LoggerInterface loggerInterface2) {
-        this.a = null;
+        this.f4861a = null;
         this.b = null;
-        this.a = loggerInterface;
+        this.f4861a = loggerInterface;
         this.b = loggerInterface2;
     }
 
     @Override // com.xiaomi.channel.commonutils.logger.LoggerInterface
     public void log(String str) {
-        if (this.a != null) {
-            this.a.log(str);
+        if (this.f4861a != null) {
+            this.f4861a.log(str);
         }
         if (this.b != null) {
             this.b.log(str);
@@ -25,8 +27,8 @@ public class dl implements LoggerInterface {
 
     @Override // com.xiaomi.channel.commonutils.logger.LoggerInterface
     public void log(String str, Throwable th) {
-        if (this.a != null) {
-            this.a.log(str, th);
+        if (this.f4861a != null) {
+            this.f4861a.log(str, th);
         }
         if (this.b != null) {
             this.b.log(str, th);

@@ -1,7 +1,7 @@
 package com.baidu.swan.apps.process.messaging.service;
-/* loaded from: classes3.dex */
+/* loaded from: classes10.dex */
 public interface a {
-    void amg();
+    void aoR();
 
     void c(String str, c cVar);
 }

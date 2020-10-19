@@ -5,25 +5,25 @@ import java.util.Collection;
 import java.util.HashSet;
 import java.util.Set;
 import rx.k;
-/* loaded from: classes7.dex */
+/* loaded from: classes16.dex */
 public final class b implements k {
-    private volatile boolean oNL;
-    private Set<k> oUu;
+    private volatile boolean pdb;
+    private Set<k> pjN;
 
     @Override // rx.k
     public boolean isUnsubscribed() {
-        return this.oNL;
+        return this.pdb;
     }
 
     public void add(k kVar) {
         if (!kVar.isUnsubscribed()) {
-            if (!this.oNL) {
+            if (!this.pdb) {
                 synchronized (this) {
-                    if (!this.oNL) {
-                        if (this.oUu == null) {
-                            this.oUu = new HashSet(4);
+                    if (!this.pdb) {
+                        if (this.pjN == null) {
+                            this.pjN = new HashSet(4);
                         }
-                        this.oUu.add(kVar);
+                        this.pjN.add(kVar);
                         return;
                     }
                 }
@@ -33,10 +33,10 @@ public final class b implements k {
     }
 
     public void a(k kVar) {
-        if (!this.oNL) {
+        if (!this.pdb) {
             synchronized (this) {
-                if (!this.oNL && this.oUu != null) {
-                    boolean remove = this.oUu.remove(kVar);
+                if (!this.pdb && this.pjN != null) {
+                    boolean remove = this.pjN.remove(kVar);
                     if (remove) {
                         kVar.unsubscribe();
                     }
@@ -47,12 +47,12 @@ public final class b implements k {
 
     @Override // rx.k
     public void unsubscribe() {
-        if (!this.oNL) {
+        if (!this.pdb) {
             synchronized (this) {
-                if (!this.oNL) {
-                    this.oNL = true;
-                    Set<k> set = this.oUu;
-                    this.oUu = null;
+                if (!this.pdb) {
+                    this.pdb = true;
+                    Set<k> set = this.pjN;
+                    this.pjN = null;
                     v(set);
                 }
             }
@@ -71,7 +71,7 @@ public final class b implements k {
                     arrayList = arrayList2;
                 }
             }
-            rx.exceptions.a.gl(arrayList);
+            rx.exceptions.a.go(arrayList);
         }
     }
 }

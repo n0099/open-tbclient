@@ -1,19 +1,19 @@
 package rx;
-/* loaded from: classes7.dex */
+/* loaded from: classes16.dex */
 public final class Notification<T> {
-    private static final Notification<Void> oNu = new Notification<>(Kind.OnCompleted, null, null);
-    private final Kind oNs;
-    private final Throwable oNt;
+    private static final Notification<Void> pcK = new Notification<>(Kind.OnCompleted, null, null);
+    private final Kind pcI;
+    private final Throwable pcJ;
     private final T value;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes16.dex */
     public enum Kind {
         OnNext,
         OnError,
         OnCompleted
     }
 
-    public static <T> Notification<T> bV(T t) {
+    public static <T> Notification<T> bY(T t) {
         return new Notification<>(Kind.OnNext, t, null);
     }
 
@@ -21,18 +21,18 @@ public final class Notification<T> {
         return new Notification<>(Kind.OnError, null, th);
     }
 
-    public static <T> Notification<T> enJ() {
-        return (Notification<T>) oNu;
+    public static <T> Notification<T> erv() {
+        return (Notification<T>) pcK;
     }
 
     private Notification(Kind kind, T t, Throwable th) {
         this.value = t;
-        this.oNt = th;
-        this.oNs = kind;
+        this.pcJ = th;
+        this.pcI = kind;
     }
 
-    public Throwable enK() {
-        return this.oNt;
+    public Throwable erw() {
+        return this.pcJ;
     }
 
     public T getValue() {
@@ -40,48 +40,48 @@ public final class Notification<T> {
     }
 
     public boolean hasValue() {
-        return enO() && this.value != null;
+        return erA() && this.value != null;
     }
 
-    public boolean enL() {
-        return eiX() && this.oNt != null;
+    public boolean erx() {
+        return emI() && this.pcJ != null;
     }
 
-    public Kind enM() {
-        return this.oNs;
+    public Kind ery() {
+        return this.pcI;
     }
 
-    public boolean eiX() {
-        return enM() == Kind.OnError;
+    public boolean emI() {
+        return ery() == Kind.OnError;
     }
 
-    public boolean enN() {
-        return enM() == Kind.OnCompleted;
+    public boolean erz() {
+        return ery() == Kind.OnCompleted;
     }
 
-    public boolean enO() {
-        return enM() == Kind.OnNext;
+    public boolean erA() {
+        return ery() == Kind.OnNext;
     }
 
     public String toString() {
-        StringBuilder append = new StringBuilder(64).append('[').append(super.toString()).append(' ').append(enM());
+        StringBuilder append = new StringBuilder(64).append('[').append(super.toString()).append(' ').append(ery());
         if (hasValue()) {
             append.append(' ').append(getValue());
         }
-        if (enL()) {
-            append.append(' ').append(enK().getMessage());
+        if (erx()) {
+            append.append(' ').append(erw().getMessage());
         }
         append.append(']');
         return append.toString();
     }
 
     public int hashCode() {
-        int hashCode = enM().hashCode();
+        int hashCode = ery().hashCode();
         if (hasValue()) {
             hashCode = (hashCode * 31) + getValue().hashCode();
         }
-        if (enL()) {
-            return (hashCode * 31) + enK().hashCode();
+        if (erx()) {
+            return (hashCode * 31) + erw().hashCode();
         }
         return hashCode;
     }
@@ -96,7 +96,7 @@ public final class Notification<T> {
         }
         if (obj.getClass() == getClass()) {
             Notification notification = (Notification) obj;
-            if (notification.enM() != enM() || ((this.value != notification.value && (this.value == null || !this.value.equals(notification.value))) || (this.oNt != notification.oNt && (this.oNt == null || !this.oNt.equals(notification.oNt))))) {
+            if (notification.ery() != ery() || ((this.value != notification.value && (this.value == null || !this.value.equals(notification.value))) || (this.pcJ != notification.pcJ && (this.pcJ == null || !this.pcJ.equals(notification.pcJ))))) {
                 z = false;
             }
             return z;

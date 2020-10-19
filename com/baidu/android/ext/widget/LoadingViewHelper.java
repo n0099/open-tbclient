@@ -9,7 +9,7 @@ import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import com.baidu.searchbox.ui.BdShimmerView;
 import java.util.WeakHashMap;
-/* loaded from: classes7.dex */
+/* loaded from: classes10.dex */
 public final class LoadingViewHelper {
     private static final WeakHashMap<ViewGroup, LoadingViewHolder> CACHE_VIEWS = new WeakHashMap<>();
     private static final boolean DEBUG = false;

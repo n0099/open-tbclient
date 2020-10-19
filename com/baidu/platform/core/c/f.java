@@ -7,22 +7,22 @@ import com.baidu.mapapi.search.poi.PoiDetailSearchOption;
 import com.baidu.mapapi.search.poi.PoiIndoorOption;
 import com.baidu.mapapi.search.poi.PoiNearbySearchOption;
 import com.baidu.platform.base.SearchType;
-/* loaded from: classes3.dex */
+/* loaded from: classes7.dex */
 public class f extends com.baidu.platform.base.a implements a {
     private OnGetPoiSearchResultListener b = null;
 
     @Override // com.baidu.platform.core.c.a
     public void a() {
-        this.a.lock();
+        this.f2810a.lock();
         this.b = null;
-        this.a.unlock();
+        this.f2810a.unlock();
     }
 
     @Override // com.baidu.platform.core.c.a
     public void a(OnGetPoiSearchResultListener onGetPoiSearchResultListener) {
-        this.a.lock();
+        this.f2810a.lock();
         this.b = onGetPoiSearchResultListener;
-        this.a.unlock();
+        this.f2810a.unlock();
     }
 
     @Override // com.baidu.platform.core.c.a

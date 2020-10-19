@@ -1,23 +1,25 @@
 package com.xiaomi.push;
 
 import java.util.Map;
-/* loaded from: classes9.dex */
+/* loaded from: classes12.dex */
 public class ft implements Cloneable {
-    public static String a = "wcc-ml-test10.bj";
-    public static final String b = ae.a;
+
+    /* renamed from: a  reason: collision with root package name */
+    public static String f4913a = "wcc-ml-test10.bj";
+    public static final String b = ae.f4787a;
     public static String c = null;
 
     /* renamed from: a  reason: collision with other field name */
-    private int f373a;
+    private int f374a;
 
     /* renamed from: a  reason: collision with other field name */
-    private fw f374a;
+    private fw f375a;
 
     /* renamed from: a  reason: collision with other field name */
-    private boolean f375a = fs.f358a;
+    private boolean f376a = fs.f359a;
 
     /* renamed from: b  reason: collision with other field name */
-    private boolean f376b = true;
+    private boolean f377b = true;
     private String d;
     private String e;
     private String f;
@@ -27,7 +29,7 @@ public class ft implements Cloneable {
     }
 
     public static final String a() {
-        return c != null ? c : ab.m125a() ? "sandbox.xmpush.xiaomi.com" : ab.b() ? b : "app.chat.xiaomi.net";
+        return c != null ? c : ab.m126a() ? "sandbox.xmpush.xiaomi.com" : ab.b() ? b : "app.chat.xiaomi.net";
     }
 
     public static final void a(String str) {
@@ -35,27 +37,27 @@ public class ft implements Cloneable {
     }
 
     private void a(Map<String, Integer> map, int i, String str, fw fwVar) {
-        this.f373a = i;
+        this.f374a = i;
         this.d = str;
-        this.f374a = fwVar;
+        this.f375a = fwVar;
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public int mo301a() {
-        return this.f373a;
+    public int mo302a() {
+        return this.f374a;
     }
 
     public void a(boolean z) {
-        this.f375a = z;
+        this.f376a = z;
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public boolean m302a() {
-        return this.f375a;
+    public boolean m303a() {
+        return this.f376a;
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public byte[] m303a() {
+    public byte[] m304a() {
         return null;
     }
 

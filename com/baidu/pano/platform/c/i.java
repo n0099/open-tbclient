@@ -1,7 +1,9 @@
 package com.baidu.pano.platform.c;
-/* loaded from: classes3.dex */
+/* loaded from: classes7.dex */
 public class i {
-    public static String a = "https://sv.map.baidu.com/scape/?qt=idata";
+
+    /* renamed from: a  reason: collision with root package name */
+    public static String f2674a = "https://sv.map.baidu.com/scape/?qt=idata";
     public static String b = "https://sv.map.baidu.com/?qt=guide";
     public static String c = "https://sv.map.baidu.com/?qt=sdata";
     public static String d = "https://sv.map.baidu.com/?qt=qsdata";

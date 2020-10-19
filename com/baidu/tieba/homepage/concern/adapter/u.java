@@ -9,21 +9,21 @@ import com.baidu.adp.widget.ListView.af;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.ap;
 import com.baidu.tieba.R;
-/* loaded from: classes21.dex */
+/* loaded from: classes22.dex */
 public class u extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.homepage.concern.a.c, a> {
-    private static int iPs;
-    private static int iPt;
+    private static int jem;
+    private static int jen;
 
     public u(Context context) {
-        super(context, com.baidu.tieba.homepage.concern.a.c.iPE);
-        iPs = com.baidu.adp.lib.util.l.getDimens(context, R.dimen.tbds102);
-        iPt = com.baidu.adp.lib.util.l.getDimens(context, R.dimen.tbds166);
+        super(context, com.baidu.tieba.homepage.concern.a.c.jey);
+        jem = com.baidu.adp.lib.util.l.getDimens(context, R.dimen.tbds102);
+        jen = com.baidu.adp.lib.util.l.getDimens(context, R.dimen.tbds166);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.widget.ListView.a
-    /* renamed from: bA */
+    /* renamed from: bC */
     public a c(ViewGroup viewGroup) {
         View inflate = View.inflate(viewGroup.getContext(), R.layout.concern_tip_layout, null);
         ap.setBackgroundColor(inflate, R.color.cp_bg_line_e);
@@ -39,37 +39,37 @@ public class u extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.homepage.
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.widget.ListView.a
     public View a(int i, View view, ViewGroup viewGroup, com.baidu.tieba.homepage.concern.a.c cVar, a aVar) {
-        aVar.iPu.setText(cVar.tipString);
-        LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) aVar.iPu.getLayoutParams();
-        if (cVar.iPH) {
-            layoutParams.height = iPt;
-            aVar.ily.setVisibility(0);
-        } else if (cVar.iPI) {
-            layoutParams.height = iPs;
+        aVar.jeo.setText(cVar.tipString);
+        LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) aVar.jeo.getLayoutParams();
+        if (cVar.jeB) {
+            layoutParams.height = jen;
+            aVar.bBe.setVisibility(0);
+        } else if (cVar.jeC) {
+            layoutParams.height = jem;
         }
-        aVar.iPu.setLayoutParams(layoutParams);
+        aVar.jeo.setLayoutParams(layoutParams);
         aVar.onChangeSkinType(TbadkCoreApplication.getInst().getSkinType());
         return aVar.getView();
     }
 
-    /* loaded from: classes21.dex */
+    /* loaded from: classes22.dex */
     public static class a extends af.a {
-        private int aiX;
-        public TextView iPu;
-        public View ily;
+        private int ajp;
+        public View bBe;
+        public TextView jeo;
 
         public a(View view) {
             super(view);
-            this.aiX = 3;
-            this.iPu = (TextView) view.findViewById(R.id.concern_tip_txt);
-            this.ily = view.findViewById(R.id.concern_tip_top_line);
+            this.ajp = 3;
+            this.jeo = (TextView) view.findViewById(R.id.concern_tip_txt);
+            this.bBe = view.findViewById(R.id.concern_tip_top_line);
         }
 
         protected void onChangeSkinType(int i) {
-            if (this.aiX != i) {
+            if (this.ajp != i) {
                 ap.setBackgroundColor(getView(), R.color.cp_bg_line_e);
-                ap.setViewTextColor(this.iPu, R.color.cp_cont_d);
-                ap.setBackgroundResource(this.ily, R.color.cp_bg_line_e);
+                ap.setViewTextColor(this.jeo, R.color.cp_cont_d);
+                ap.setBackgroundResource(this.bBe, R.color.cp_bg_line_e);
             }
         }
     }

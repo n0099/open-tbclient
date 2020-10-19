@@ -15,22 +15,22 @@ import java.util.HashMap;
 import java.util.Iterator;
 /* loaded from: classes.dex */
 public class a {
-    private static volatile a SO = null;
-    private HashMap<String, ArrayList<Message<?>>> SM = null;
+    private static volatile a Tf = null;
+    private HashMap<String, ArrayList<Message<?>>> Te = null;
 
     public static a pJ() {
-        if (SO == null) {
+        if (Tf == null) {
             synchronized (a.class) {
-                if (SO == null) {
-                    SO = new a();
+                if (Tf == null) {
+                    Tf = new a();
                 }
             }
         }
-        return SO;
+        return Tf;
     }
 
     public void init() {
-        this.SM = new HashMap<>();
+        this.Te = new HashMap<>();
         pL();
         pK();
     }
@@ -44,13 +44,13 @@ public class a {
                 ArrayList arrayList;
                 if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2000997 && (data = customResponsedMessage.getData()) != null && (data instanceof PluginLoadedMessage.a)) {
                     PluginLoadedMessage.a aVar = (PluginLoadedMessage.a) data;
-                    if (aVar.SL == 0 && a.this.SM.size() > 0 && (arrayList = (ArrayList) a.this.SM.get(aVar.SK)) != null && arrayList.size() > 0) {
+                    if (aVar.Td == 0 && a.this.Te.size() > 0 && (arrayList = (ArrayList) a.this.Te.get(aVar.Tc)) != null && arrayList.size() > 0) {
                         Iterator it = arrayList.iterator();
                         while (it.hasNext()) {
                             MessageManager.getInstance().sendMessage((Message) it.next());
                         }
                     }
-                    a.this.SM.remove(aVar.SK);
+                    a.this.Te.remove(aVar.Tc);
                 }
             }
         });
@@ -83,10 +83,10 @@ public class a {
     /* JADX INFO: Access modifiers changed from: private */
     public void a(String str, Message<?> message) {
         if (!TextUtils.isEmpty(str) && message != null) {
-            ArrayList<Message<?>> arrayList = this.SM.get(str);
+            ArrayList<Message<?>> arrayList = this.Te.get(str);
             if (arrayList == null) {
                 arrayList = new ArrayList<>();
-                this.SM.put(str, arrayList);
+                this.Te.put(str, arrayList);
             }
             arrayList.add(message);
         }

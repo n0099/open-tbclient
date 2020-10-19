@@ -21,7 +21,7 @@ import java.nio.ByteBuffer;
 import java.nio.CharBuffer;
 import java.util.zip.GZIPInputStream;
 import java.util.zip.GZIPOutputStream;
-/* loaded from: classes15.dex */
+/* loaded from: classes16.dex */
 public class Base64 {
     public static final int DECODE = 0;
     public static final int DONT_GUNZIP = 4;
@@ -31,7 +31,9 @@ public class Base64 {
     public static final int NO_OPTIONS = 0;
     public static final int ORDERED = 32;
     public static final int URL_SAFE = 16;
-    static final /* synthetic */ boolean a;
+
+    /* renamed from: a  reason: collision with root package name */
+    static final /* synthetic */ boolean f1532a;
     private static final int b = 76;
     private static final byte c = 61;
     private static final byte d = 10;
@@ -46,7 +48,7 @@ public class Base64 {
     private static final byte[] m;
 
     static {
-        a = !Base64.class.desiredAssertionStatus();
+        f1532a = !Base64.class.desiredAssertionStatus();
         h = new byte[]{65, 66, 67, 68, 69, 70, 71, 72, 73, 74, 75, 76, 77, 78, 79, 80, 81, 82, 83, 84, 85, 86, 87, 88, 89, 90, 97, 98, 99, 100, Constants.SHORT_PING_CMD_TYPE, 102, 103, 104, 105, 106, 107, 108, 109, 110, 111, 112, 113, 114, 115, 116, 117, 118, 119, 120, 121, 122, 48, 49, 50, 51, 52, 53, 54, 55, 56, 57, 43, 47};
         i = new byte[]{-9, -9, -9, -9, -9, -9, -9, -9, -9, f, f, -9, -9, f, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, f, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, 62, -9, -9, -9, 63, 52, 53, 54, 55, 56, 57, 58, 59, 60, c, -9, -9, -9, -1, -9, -9, -9, 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, d, Constants.GZIP_CAST_TYPE, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, -9, -9, -9, -9, -9, -9, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46, 47, 48, 49, 50, 51, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9};
         j = new byte[]{65, 66, 67, 68, 69, 70, 71, 72, 73, 74, 75, 76, 77, 78, 79, 80, 81, 82, 83, 84, 85, 86, 87, 88, 89, 90, 97, 98, 99, 100, Constants.SHORT_PING_CMD_TYPE, 102, 103, 104, 105, 106, 107, 108, 109, 110, 111, 112, 113, 114, 115, 116, 117, 118, 119, 120, 121, 122, 48, 49, 50, 51, 52, 53, 54, 55, 56, 57, 45, 95};
@@ -249,11 +251,11 @@ public class Base64 {
         try {
             str = encodeBytes(bArr, 0, bArr.length, 0);
         } catch (IOException e2) {
-            if (!a) {
+            if (!f1532a) {
                 throw new AssertionError(e2.getMessage());
             }
         }
-        if (a || str != null) {
+        if (f1532a || str != null) {
             return str;
         }
         throw new AssertionError();
@@ -268,11 +270,11 @@ public class Base64 {
         try {
             str = encodeBytes(bArr, i2, i3, 0);
         } catch (IOException e2) {
-            if (!a) {
+            if (!f1532a) {
                 throw new AssertionError(e2.getMessage());
             }
         }
-        if (a || str != null) {
+        if (f1532a || str != null) {
             return str;
         }
         throw new AssertionError();
@@ -291,7 +293,7 @@ public class Base64 {
         try {
             return encodeBytesToBytes(bArr, 0, bArr.length, 0);
         } catch (IOException e2) {
-            if (a) {
+            if (f1532a) {
                 return null;
             }
             throw new AssertionError("IOExceptions only come from GZipping, which is turned off: " + e2.getMessage());
@@ -936,9 +938,11 @@ public class Base64 {
         }
     }
 
-    /* loaded from: classes15.dex */
+    /* loaded from: classes16.dex */
     public static class InputStream extends FilterInputStream {
-        private final boolean a;
+
+        /* renamed from: a  reason: collision with root package name */
+        private final boolean f1534a;
         private final byte[] b;
         private final int c;
         private final boolean d;
@@ -956,8 +960,8 @@ public class Base64 {
             super(inputStream);
             this.e = i;
             this.d = (i & 8) > 0;
-            this.a = (i & 1) > 0;
-            this.c = this.a ? 4 : 3;
+            this.f1534a = (i & 1) > 0;
+            this.c = this.f1534a ? 4 : 3;
             this.b = new byte[this.c];
             this.g = -1;
             this.i = 0;
@@ -968,7 +972,7 @@ public class Base64 {
         public int read() throws IOException {
             int read;
             if (this.g < 0) {
-                if (this.a) {
+                if (this.f1534a) {
                     byte[] bArr = new byte[3];
                     int i = 0;
                     int i2 = 0;
@@ -1017,7 +1021,7 @@ public class Base64 {
                 if (this.g >= this.h) {
                     return -1;
                 }
-                if (this.a && this.d && this.i >= 76) {
+                if (this.f1534a && this.d && this.i >= 76) {
                     this.i = 0;
                     return 10;
                 }
@@ -1052,9 +1056,11 @@ public class Base64 {
         }
     }
 
-    /* loaded from: classes15.dex */
+    /* loaded from: classes16.dex */
     public static class OutputStream extends FilterOutputStream {
-        private final boolean a;
+
+        /* renamed from: a  reason: collision with root package name */
+        private final boolean f1535a;
         private final int b;
         private final boolean c;
         private final byte[] d;
@@ -1072,8 +1078,8 @@ public class Base64 {
         public OutputStream(java.io.OutputStream outputStream, int i) {
             super(outputStream);
             this.c = (i & 8) != 0;
-            this.a = (i & 1) != 0;
-            this.b = this.a ? 3 : 4;
+            this.f1535a = (i & 1) != 0;
+            this.b = this.f1535a ? 3 : 4;
             this.h = new byte[this.b];
             this.g = 0;
             this.i = 0;
@@ -1087,7 +1093,7 @@ public class Base64 {
         public void write(int i) throws IOException {
             if (this.j) {
                 this.out.write(i);
-            } else if (this.a) {
+            } else if (this.f1535a) {
                 byte[] bArr = this.h;
                 int i2 = this.g;
                 this.g = i2 + 1;
@@ -1128,7 +1134,7 @@ public class Base64 {
 
         public void flushBase64() throws IOException {
             if (this.g > 0) {
-                if (this.a) {
+                if (this.f1535a) {
                     this.out.write(Base64.b(this.d, this.h, this.g, this.e));
                     this.g = 0;
                     return;

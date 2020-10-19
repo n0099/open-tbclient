@@ -10,17 +10,19 @@ import javax.net.ssl.HttpsURLConnection;
 import org.apache.http.client.methods.HttpDelete;
 import org.apache.http.client.methods.HttpHead;
 import org.apache.http.client.methods.HttpPut;
-/* loaded from: classes3.dex */
+/* loaded from: classes7.dex */
 public class e implements a {
-    com.meizu.cloud.pushsdk.b.h.a a = new com.meizu.cloud.pushsdk.b.h.a(null);
+
+    /* renamed from: a  reason: collision with root package name */
+    com.meizu.cloud.pushsdk.b.h.a f4324a = new com.meizu.cloud.pushsdk.b.h.a(null);
 
     private static l a(final HttpURLConnection httpURLConnection) throws IOException {
         if (httpURLConnection.getDoInput()) {
-            final com.meizu.cloud.pushsdk.b.g.d a = com.meizu.cloud.pushsdk.b.g.g.a(com.meizu.cloud.pushsdk.b.g.g.a(a(httpURLConnection.getResponseCode()) ? httpURLConnection.getInputStream() : httpURLConnection.getErrorStream()));
+            final com.meizu.cloud.pushsdk.b.g.d a2 = com.meizu.cloud.pushsdk.b.g.g.a(com.meizu.cloud.pushsdk.b.g.g.a(a(httpURLConnection.getResponseCode()) ? httpURLConnection.getInputStream() : httpURLConnection.getErrorStream()));
             return new l() { // from class: com.meizu.cloud.pushsdk.b.c.e.1
                 @Override // com.meizu.cloud.pushsdk.b.c.l
                 public com.meizu.cloud.pushsdk.b.g.d a() {
-                    return a;
+                    return a2;
                 }
             };
         }
@@ -65,15 +67,15 @@ public class e implements a {
         if (MinSdkChecker.isSupportNotificationChannel()) {
             TrafficStats.setThreadStatsTag("HttpURLConnectionCall".hashCode());
         }
-        HttpURLConnection a = a(url);
-        a.setConnectTimeout(60000);
-        a.setReadTimeout(60000);
-        a.setUseCaches(false);
-        a.setDoInput(true);
+        HttpURLConnection a2 = a(url);
+        a2.setConnectTimeout(60000);
+        a2.setReadTimeout(60000);
+        a2.setUseCaches(false);
+        a2.setDoInput(true);
         if (iVar.f() && fVar.startsWith("https://api-push.meizu.com")) {
-            ((HttpsURLConnection) a).setSSLSocketFactory(this.a);
+            ((HttpsURLConnection) a2).setSSLSocketFactory(this.f4324a);
         }
-        return a;
+        return a2;
     }
 
     private static void b(HttpURLConnection httpURLConnection, i iVar) throws IOException {
@@ -81,9 +83,9 @@ public class e implements a {
         if (e != null) {
             httpURLConnection.setDoOutput(true);
             httpURLConnection.addRequestProperty("Content-Type", e.a().toString());
-            com.meizu.cloud.pushsdk.b.g.c a = com.meizu.cloud.pushsdk.b.g.g.a(com.meizu.cloud.pushsdk.b.g.g.a(httpURLConnection.getOutputStream()));
-            e.a(a);
-            a.close();
+            com.meizu.cloud.pushsdk.b.g.c a2 = com.meizu.cloud.pushsdk.b.g.g.a(com.meizu.cloud.pushsdk.b.g.g.a(httpURLConnection.getOutputStream()));
+            e.a(a2);
+            a2.close();
         }
     }
 
@@ -91,9 +93,9 @@ public class e implements a {
     public k a(i iVar) throws IOException {
         HttpURLConnection b = b(iVar);
         for (String str : iVar.d().b()) {
-            String a = iVar.a(str);
-            com.meizu.cloud.pushsdk.b.a.a.b("current header name " + str + " value " + a);
-            b.addRequestProperty(str, a);
+            String a2 = iVar.a(str);
+            com.meizu.cloud.pushsdk.b.a.a.b("current header name " + str + " value " + a2);
+            b.addRequestProperty(str, a2);
         }
         a(b, iVar);
         int responseCode = b.getResponseCode();

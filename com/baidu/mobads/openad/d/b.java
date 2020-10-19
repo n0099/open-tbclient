@@ -2,21 +2,23 @@ package com.baidu.mobads.openad.d;
 
 import com.baidu.mobads.utils.m;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes3.dex */
+/* loaded from: classes7.dex */
 public class b implements Runnable {
-    final /* synthetic */ a a;
+
+    /* renamed from: a  reason: collision with root package name */
+    final /* synthetic */ a f2384a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public b(a aVar) {
-        this.a = aVar;
+        this.f2384a = aVar;
     }
 
     @Override // java.lang.Runnable
     public void run() {
         try {
-            if (this.a.f != null && this.a.d.getAndSet(false)) {
-                this.a.f.disconnect();
-                this.a.f = null;
+            if (this.f2384a.f != null && this.f2384a.d.getAndSet(false)) {
+                this.f2384a.f.disconnect();
+                this.f2384a.f = null;
             }
         } catch (Exception e) {
             m.a().e(e);

@@ -1,7 +1,7 @@
 package com.baidu.tieba.frs;
-/* loaded from: classes20.dex */
+/* loaded from: classes21.dex */
 public interface as {
-    void bIh();
+    void bKT();
 
-    void coM();
+    void csk();
 }

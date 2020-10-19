@@ -2,7 +2,7 @@ package rx.internal.operators;
 
 import java.util.concurrent.atomic.AtomicInteger;
 import rx.d;
-/* loaded from: classes7.dex */
+/* loaded from: classes16.dex */
 public final class OnSubscribeAutoConnect<T> extends AtomicInteger implements d.a<T> {
     final rx.functions.b<? super rx.k> connection;
     final int numberOfSubscribers;

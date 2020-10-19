@@ -16,15 +16,15 @@ import com.baidu.tbadk.core.util.aq;
 import com.baidu.tbadk.core.util.be;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
-/* loaded from: classes21.dex */
+/* loaded from: classes22.dex */
 public class CardFrsGameSpecialTopicItemView extends LinearLayout {
-    private RelativeLayout hpV;
-    private TbImageView hpW;
-    private TextView hpX;
-    private TextView hpY;
-    private TextView hpZ;
-    private View hpv;
-    private View hpw;
+    private RelativeLayout hEP;
+    private TbImageView hEQ;
+    private TextView hER;
+    private TextView hES;
+    private TextView hET;
+    private View hEp;
+    private View hEq;
     private String mForumId;
     public int mSkinType;
 
@@ -48,18 +48,18 @@ public class CardFrsGameSpecialTopicItemView extends LinearLayout {
 
     private void init(Context context) {
         LayoutInflater.from(context).inflate(R.layout.card_frs_game_special_topic_view_item, (ViewGroup) this, true);
-        this.hpV = (RelativeLayout) findViewById(R.id.card_frs_game_special_topic_layout);
-        this.hpW = (TbImageView) findViewById(R.id.card_frs_game_special_topic_img);
-        this.hpX = (TextView) findViewById(R.id.card_frs_game_special_topic_title);
-        this.hpY = (TextView) findViewById(R.id.card_frs_game_special_topic_dsc);
-        this.hpZ = (TextView) findViewById(R.id.card_frs_game_special_topic_update_time);
-        this.hpv = findViewById(R.id.divider_line_1);
-        this.hpw = findViewById(R.id.divider_line_2);
+        this.hEP = (RelativeLayout) findViewById(R.id.card_frs_game_special_topic_layout);
+        this.hEQ = (TbImageView) findViewById(R.id.card_frs_game_special_topic_img);
+        this.hER = (TextView) findViewById(R.id.card_frs_game_special_topic_title);
+        this.hES = (TextView) findViewById(R.id.card_frs_game_special_topic_dsc);
+        this.hET = (TextView) findViewById(R.id.card_frs_game_special_topic_update_time);
+        this.hEp = findViewById(R.id.divider_line_1);
+        this.hEq = findViewById(R.id.divider_line_2);
         int dimensionPixelSize = context.getResources().getDimensionPixelSize(R.dimen.tbds170) * 2;
-        LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.hpV.getLayoutParams();
+        LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.hEP.getLayoutParams();
         layoutParams.width = (dimensionPixelSize * 21) / 9;
         layoutParams.height = dimensionPixelSize;
-        this.hpV.setLayoutParams(layoutParams);
+        this.hEP.setLayoutParams(layoutParams);
         setOrientation(1);
         setFocusable(true);
         setClickable(true);
@@ -68,8 +68,8 @@ public class CardFrsGameSpecialTopicItemView extends LinearLayout {
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
                 if (view.getTag() instanceof String) {
-                    TiebaStatic.log(new aq("c13047").ai("obj_locate", 5).dF("fid", CardFrsGameSpecialTopicItemView.this.mForumId));
-                    be.bkp().a((TbPageContext) com.baidu.adp.base.i.I(CardFrsGameSpecialTopicItemView.this.getContext()), new String[]{(String) view.getTag()}, true);
+                    TiebaStatic.log(new aq("c13047").aj("obj_locate", 5).dK("fid", CardFrsGameSpecialTopicItemView.this.mForumId));
+                    be.bmY().a((TbPageContext) com.baidu.adp.base.i.I(CardFrsGameSpecialTopicItemView.this.getContext()), new String[]{(String) view.getTag()}, true);
                 }
             }
         });
@@ -80,29 +80,29 @@ public class CardFrsGameSpecialTopicItemView extends LinearLayout {
     }
 
     public TbImageView getSpecialTopicPicView() {
-        return this.hpW;
+        return this.hEQ;
     }
 
     public TextView getSpecialTopicNameView() {
-        return this.hpX;
+        return this.hER;
     }
 
     public TextView getSpecialTopicUpdateTimeView() {
-        return this.hpZ;
+        return this.hET;
     }
 
     public TextView getSpecialTopicDscView() {
-        return this.hpY;
+        return this.hES;
     }
 
     public void onChangeSkinType(int i) {
         if (i != this.mSkinType) {
             this.mSkinType = i;
-            ap.setBackgroundResource(this.hpv, R.color.cp_bg_line_e);
-            ap.setBackgroundResource(this.hpw, R.color.cp_bg_line_e);
-            ap.setViewTextColor(this.hpX, R.color.cp_cont_a, 1);
-            ap.setViewTextColor(this.hpY, R.color.cp_cont_a, 1);
-            ap.setViewTextColor(this.hpZ, R.color.cp_cont_a, 1);
+            ap.setBackgroundResource(this.hEp, R.color.cp_bg_line_e);
+            ap.setBackgroundResource(this.hEq, R.color.cp_bg_line_e);
+            ap.setViewTextColor(this.hER, R.color.cp_cont_a, 1);
+            ap.setViewTextColor(this.hES, R.color.cp_cont_a, 1);
+            ap.setViewTextColor(this.hET, R.color.cp_cont_a, 1);
         }
     }
 }

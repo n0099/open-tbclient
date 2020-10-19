@@ -6,7 +6,7 @@ import android.view.ViewGroup;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tieba.R;
-/* loaded from: classes21.dex */
+/* loaded from: classes22.dex */
 public class ae extends o<com.baidu.tieba.pb.data.j, af> {
     private View.OnClickListener mOnClickListener;
     private BdUniqueId mPageId;
@@ -19,7 +19,7 @@ public class ae extends o<com.baidu.tieba.pb.data.j, af> {
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.widget.ListView.a
-    /* renamed from: ch */
+    /* renamed from: cj */
     public af c(ViewGroup viewGroup) {
         return new af(LayoutInflater.from(this.mContext).inflate(R.layout.new_pb_list_more, viewGroup, false), this.mPageId);
     }
@@ -29,7 +29,7 @@ public class ae extends o<com.baidu.tieba.pb.data.j, af> {
     @Override // com.baidu.tieba.pb.pb.main.o, com.baidu.adp.widget.ListView.a
     public View a(int i, View view, ViewGroup viewGroup, com.baidu.tieba.pb.data.j jVar, af afVar) {
         super.a(i, view, viewGroup, (ViewGroup) jVar, (com.baidu.tieba.pb.data.j) afVar);
-        afVar.ao(jVar.showText, com.baidu.adp.lib.util.l.getDimens(TbadkCoreApplication.getInst(), R.dimen.tbds104));
+        afVar.ap(jVar.showText, com.baidu.adp.lib.util.l.getDimens(TbadkCoreApplication.getInst(), R.dimen.tbds104));
         afVar.setOnClickListener(this.mOnClickListener);
         afVar.onChangeSkinType();
         return view;

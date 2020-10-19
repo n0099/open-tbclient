@@ -10,19 +10,19 @@ public class am {
     private String forumGameLabel;
     private String forumId;
     private String forumName;
-    private String gWC;
-    private List<FrsTabInfo> hZf;
-    private final List<com.baidu.tbadk.mainTab.b> hZg = new LinkedList();
+    private String hlz;
+    private List<FrsTabInfo> iog;
+    private final List<com.baidu.tbadk.mainTab.b> ioh = new LinkedList();
     private Context mContext;
 
     public am(Context context, List<FrsTabInfo> list) {
-        this.hZf = list;
+        this.iog = list;
         this.mContext = context;
     }
 
-    public boolean xW(int i) {
-        if (i < 100 && !com.baidu.tbadk.core.util.y.isEmpty(this.hZf)) {
-            for (FrsTabInfo frsTabInfo : this.hZf) {
+    public boolean yC(int i) {
+        if (i < 100 && !com.baidu.tbadk.core.util.y.isEmpty(this.iog)) {
+            for (FrsTabInfo frsTabInfo : this.iog) {
                 if (frsTabInfo.tab_id.intValue() == i) {
                     return true;
                 }
@@ -32,27 +32,27 @@ public class am {
         return false;
     }
 
-    public List<FrsTabInfo> bsg() {
-        return this.hZf;
+    public List<FrsTabInfo> buQ() {
+        return this.iog;
     }
 
     public void b(com.baidu.tbadk.mainTab.b bVar) {
         if (bVar != null && bVar.getFragmentTabStructure() != null) {
-            for (com.baidu.tbadk.mainTab.b bVar2 : this.hZg) {
+            for (com.baidu.tbadk.mainTab.b bVar2 : this.ioh) {
                 if (bVar2 != null && bVar2.getFragmentTabStructure() != null && bVar2.getFragmentTabStructure().type == bVar.getFragmentTabStructure().type) {
                     return;
                 }
             }
-            this.hZg.add(bVar);
+            this.ioh.add(bVar);
         }
     }
 
-    public void crp() {
+    public void cuN() {
         boolean z;
         LinkedList linkedList = new LinkedList();
         LinkedList linkedList2 = new LinkedList();
-        for (FrsTabInfo frsTabInfo : this.hZf) {
-            Iterator<com.baidu.tbadk.mainTab.b> it = this.hZg.iterator();
+        for (FrsTabInfo frsTabInfo : this.iog) {
+            Iterator<com.baidu.tbadk.mainTab.b> it = this.ioh.iterator();
             while (true) {
                 if (!it.hasNext()) {
                     z = false;
@@ -70,11 +70,11 @@ public class am {
             }
         }
         if (!com.baidu.tbadk.core.util.y.isEmpty(linkedList2)) {
-            this.hZf.removeAll(linkedList2);
+            this.iog.removeAll(linkedList2);
         }
-        this.hZg.clear();
+        this.ioh.clear();
         if (!com.baidu.tbadk.core.util.y.isEmpty(linkedList)) {
-            this.hZg.addAll(linkedList);
+            this.ioh.addAll(linkedList);
         }
     }
 
@@ -82,8 +82,8 @@ public class am {
         return this.mContext;
     }
 
-    public List<com.baidu.tbadk.mainTab.b> coK() {
-        return this.hZg;
+    public List<com.baidu.tbadk.mainTab.b> csi() {
+        return this.ioh;
     }
 
     public void setForumName(String str) {
@@ -110,11 +110,11 @@ public class am {
         return this.forumGameLabel;
     }
 
-    public void Hc(String str) {
-        this.gWC = str;
+    public void HQ(String str) {
+        this.hlz = str;
     }
 
-    public String crq() {
-        return this.gWC;
+    public String cuO() {
+        return this.hlz;
     }
 }

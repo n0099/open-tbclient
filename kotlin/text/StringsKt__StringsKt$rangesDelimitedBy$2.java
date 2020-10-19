@@ -3,7 +3,7 @@ package kotlin.text;
 import kotlin.Pair;
 import kotlin.jvm.internal.Lambda;
 @kotlin.h
-/* loaded from: classes5.dex */
+/* loaded from: classes10.dex */
 final class StringsKt__StringsKt$rangesDelimitedBy$2 extends Lambda implements kotlin.jvm.a.m<CharSequence, Integer, Pair<? extends Integer, ? extends Integer>> {
     final /* synthetic */ char[] $delimiters;
     final /* synthetic */ boolean $ignoreCase;
@@ -23,11 +23,11 @@ final class StringsKt__StringsKt$rangesDelimitedBy$2 extends Lambda implements k
     }
 
     public final Pair<Integer, Integer> invoke(CharSequence charSequence, int i) {
-        kotlin.jvm.internal.q.m(charSequence, "receiver$0");
-        int a = l.a(charSequence, this.$delimiters, i, this.$ignoreCase);
-        if (a < 0) {
+        kotlin.jvm.internal.q.n(charSequence, "receiver$0");
+        int a2 = l.a(charSequence, this.$delimiters, i, this.$ignoreCase);
+        if (a2 < 0) {
             return null;
         }
-        return kotlin.j.k(Integer.valueOf(a), 1);
+        return kotlin.j.k(Integer.valueOf(a2), 1);
     }
 }

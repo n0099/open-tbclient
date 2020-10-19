@@ -27,7 +27,7 @@ import java.text.DecimalFormat;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
-/* loaded from: classes17.dex */
+/* loaded from: classes11.dex */
 public class SpringConfiguratorView extends FrameLayout {
     private static final DecimalFormat DECIMAL_FORMAT = new DecimalFormat("#.#");
     private static final float MAX_FRICTION = 50.0f;
@@ -180,7 +180,7 @@ public class SpringConfiguratorView extends FrameLayout {
         }
     }
 
-    /* loaded from: classes17.dex */
+    /* loaded from: classes11.dex */
     private class SpringSelectedListener implements AdapterView.OnItemSelectedListener {
         private SpringSelectedListener() {
         }
@@ -196,7 +196,7 @@ public class SpringConfiguratorView extends FrameLayout {
         }
     }
 
-    /* loaded from: classes17.dex */
+    /* loaded from: classes11.dex */
     private class SeekbarListener implements SeekBar.OnSeekBarChangeListener {
         private SeekbarListener() {
         }
@@ -233,7 +233,7 @@ public class SpringConfiguratorView extends FrameLayout {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes17.dex */
+    /* loaded from: classes11.dex */
     public class OnNubTouchListener implements View.OnTouchListener {
         private OnNubTouchListener() {
         }
@@ -253,7 +253,7 @@ public class SpringConfiguratorView extends FrameLayout {
         this.mRevealerSpring.setEndValue(this.mRevealerSpring.getEndValue() == 1.0d ? 0.0d : 1.0d);
     }
 
-    /* loaded from: classes17.dex */
+    /* loaded from: classes11.dex */
     private class RevealerSpringListener implements SpringListener {
         private RevealerSpringListener() {
         }
@@ -278,7 +278,7 @@ public class SpringConfiguratorView extends FrameLayout {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes17.dex */
+    /* loaded from: classes11.dex */
     public class SpinnerAdapter extends BaseAdapter {
         private final Context mContext;
         private final List<String> mStrings = new ArrayList();

@@ -2,9 +2,11 @@ package com.vivo.push.b;
 
 import com.baidu.mapapi.UIMsg;
 import com.baidu.sapi2.SapiContext;
-/* loaded from: classes12.dex */
+/* loaded from: classes15.dex */
 public final class b extends c {
-    private String a;
+
+    /* renamed from: a  reason: collision with root package name */
+    private String f4637a;
     private String b;
     private String c;
     private String d;
@@ -24,7 +26,7 @@ public final class b extends c {
     @Override // com.vivo.push.b.c, com.vivo.push.y
     public final void c(com.vivo.push.a aVar) {
         super.c(aVar);
-        aVar.a("sdk_clients", this.a);
+        aVar.a("sdk_clients", this.f4637a);
         aVar.a(SapiContext.KEY_SDK_VERSION, 293L);
         aVar.a("BaseAppCommand.EXTRA_APPID", this.c);
         aVar.a("BaseAppCommand.EXTRA_APPKEY", this.b);
@@ -34,7 +36,7 @@ public final class b extends c {
     @Override // com.vivo.push.b.c, com.vivo.push.y
     public final void d(com.vivo.push.a aVar) {
         super.d(aVar);
-        this.a = aVar.a("sdk_clients");
+        this.f4637a = aVar.a("sdk_clients");
         this.c = aVar.a("BaseAppCommand.EXTRA_APPID");
         this.b = aVar.a("BaseAppCommand.EXTRA_APPKEY");
         this.d = aVar.a("PUSH_REGID");

@@ -40,7 +40,7 @@ import android.widget.OverScroller;
 import android.widget.ScrollView;
 import com.baidu.android.imsdk.upload.action.pb.IMPushPb;
 import java.util.ArrayList;
-/* loaded from: classes25.dex */
+/* loaded from: classes10.dex */
 public class NestedScrollView extends FrameLayout implements NestedScrollingChild2, NestedScrollingParent, ScrollingView {
     static final int ANIMATED_SCROLL_GAP = 250;
     private static final int INVALID_POINTER = -1;
@@ -75,7 +75,7 @@ public class NestedScrollView extends FrameLayout implements NestedScrollingChil
     private static final AccessibilityDelegate ACCESSIBILITY_DELEGATE = new AccessibilityDelegate();
     private static final int[] SCROLLVIEW_STYLEABLE = {16843130};
 
-    /* loaded from: classes25.dex */
+    /* loaded from: classes10.dex */
     public interface OnScrollChangeListener {
         void onScrollChange(NestedScrollView nestedScrollView, int i, int i2, int i3, int i4);
     }
@@ -1304,7 +1304,7 @@ public class NestedScrollView extends FrameLayout implements NestedScrollingChil
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes25.dex */
+    /* loaded from: classes10.dex */
     public static class SavedState extends View.BaseSavedState {
         public static final Parcelable.Creator<SavedState> CREATOR = new Parcelable.Creator<SavedState>() { // from class: android.support.v4.widget.NestedScrollView.SavedState.1
             /* JADX DEBUG: Method merged with bridge method */
@@ -1343,7 +1343,7 @@ public class NestedScrollView extends FrameLayout implements NestedScrollingChil
         }
     }
 
-    /* loaded from: classes25.dex */
+    /* loaded from: classes10.dex */
     static class AccessibilityDelegate extends AccessibilityDelegateCompat {
         AccessibilityDelegate() {
         }

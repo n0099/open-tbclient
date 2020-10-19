@@ -3,66 +3,66 @@ package com.facebook.imagepipeline.producers;
 import android.net.Uri;
 import java.util.Map;
 import javax.annotation.Nullable;
-/* loaded from: classes25.dex */
+/* loaded from: classes18.dex */
 public class t {
-    private final ak nIF;
-    private long nIG = 0;
-    private int nIH;
+    private final k<com.facebook.imagepipeline.g.e> nXP;
+    private final ak nXW;
+    private long nXX = 0;
+    private int nXY;
     @Nullable
-    private com.facebook.imagepipeline.common.a nII;
-    private final k<com.facebook.imagepipeline.g.e> nIy;
+    private com.facebook.imagepipeline.common.a nXZ;
 
     public t(k<com.facebook.imagepipeline.g.e> kVar, ak akVar) {
-        this.nIy = kVar;
-        this.nIF = akVar;
+        this.nXP = kVar;
+        this.nXW = akVar;
     }
 
-    public k<com.facebook.imagepipeline.g.e> dZH() {
-        return this.nIy;
+    public k<com.facebook.imagepipeline.g.e> eds() {
+        return this.nXP;
     }
 
-    public ak dZI() {
-        return this.nIF;
+    public ak edt() {
+        return this.nXW;
     }
 
     public String getId() {
-        return this.nIF.getId();
+        return this.nXW.getId();
     }
 
-    public am dZw() {
-        return this.nIF.dZw();
+    public am edh() {
+        return this.nXW.edh();
     }
 
     public Uri getUri() {
-        return this.nIF.dZv().ean();
+        return this.nXW.edg().edY();
     }
 
-    public long dZJ() {
-        return this.nIG;
+    public long edu() {
+        return this.nXX;
     }
 
-    public void gL(long j) {
-        this.nIG = j;
+    public void hd(long j) {
+        this.nXX = j;
     }
 
-    public int dZK() {
-        return this.nIH;
+    public int edv() {
+        return this.nXY;
     }
 
-    public void MS(int i) {
-        this.nIH = i;
+    public void Ny(int i) {
+        this.nXY = i;
     }
 
     @Nullable
-    public com.facebook.imagepipeline.common.a dZL() {
-        return this.nII;
+    public com.facebook.imagepipeline.common.a edw() {
+        return this.nXZ;
     }
 
     public void c(com.facebook.imagepipeline.common.a aVar) {
-        this.nII = aVar;
+        this.nXZ = aVar;
     }
 
-    public Map<String, String> dZM() {
-        return this.nIF.dZv().dZM();
+    public Map<String, String> edx() {
+        return this.nXW.edg().edx();
     }
 }

@@ -5,7 +5,7 @@ import com.baidu.live.tbadk.core.frameworkdata.CmdConfigSocket;
 import com.baidu.tbadk.util.u;
 import tbclient.Unlike.DataReq;
 import tbclient.Unlike.UnlikeReqIdl;
-/* loaded from: classes22.dex */
+/* loaded from: classes23.dex */
 public class UnlikeRequest extends NetMessage {
     private long threadId;
     private int type;

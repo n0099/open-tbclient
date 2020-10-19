@@ -1,9 +1,11 @@
 package com.baidu.fsg.base.widget.textfilter;
 
 import android.text.TextUtils;
-/* loaded from: classes15.dex */
+/* loaded from: classes16.dex */
 public class PhoneNumberEditTextPasteFilter implements IEditTextPasteFilter {
-    private static final String a = PhoneNumberEditTextPasteFilter.class.getSimpleName();
+
+    /* renamed from: a  reason: collision with root package name */
+    private static final String f1562a = PhoneNumberEditTextPasteFilter.class.getSimpleName();
     private static final String b = "86";
 
     @Override // com.baidu.fsg.base.widget.textfilter.IEditTextPasteFilter

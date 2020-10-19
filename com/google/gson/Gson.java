@@ -34,7 +34,7 @@ import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.atomic.AtomicLong;
 import java.util.concurrent.atomic.AtomicLongArray;
-/* loaded from: classes23.dex */
+/* loaded from: classes17.dex */
 public final class Gson {
     static final boolean DEFAULT_COMPLEX_MAP_KEYS = false;
     static final boolean DEFAULT_ESCAPE_HTML = true;
@@ -68,7 +68,7 @@ public final class Gson {
     private final Map<a<?>, TypeAdapter<?>> typeTokenCache;
 
     public Gson() {
-        this(Excluder.nMW, FieldNamingPolicy.IDENTITY, Collections.emptyMap(), false, false, false, true, false, false, false, LongSerializationPolicy.DEFAULT, null, 2, 2, Collections.emptyList(), Collections.emptyList(), Collections.emptyList());
+        this(Excluder.ocn, FieldNamingPolicy.IDENTITY, Collections.emptyMap(), false, false, false, true, false, false, false, LongSerializationPolicy.DEFAULT, null, 2, 2, Collections.emptyList(), Collections.emptyList(), Collections.emptyList());
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -93,49 +93,49 @@ public final class Gson {
         this.builderFactories = list;
         this.builderHierarchyFactories = list2;
         ArrayList arrayList = new ArrayList();
-        arrayList.add(TypeAdapters.nPz);
-        arrayList.add(ObjectTypeAdapter.nNO);
+        arrayList.add(TypeAdapters.oeR);
+        arrayList.add(ObjectTypeAdapter.odg);
         arrayList.add(excluder);
         arrayList.addAll(list3);
-        arrayList.add(TypeAdapters.nPe);
-        arrayList.add(TypeAdapters.nON);
-        arrayList.add(TypeAdapters.nOH);
-        arrayList.add(TypeAdapters.nOJ);
-        arrayList.add(TypeAdapters.nOL);
+        arrayList.add(TypeAdapters.oew);
+        arrayList.add(TypeAdapters.oef);
+        arrayList.add(TypeAdapters.odZ);
+        arrayList.add(TypeAdapters.oeb);
+        arrayList.add(TypeAdapters.oed);
         TypeAdapter<Number> longAdapter = longAdapter(longSerializationPolicy);
         arrayList.add(TypeAdapters.a(Long.TYPE, Long.class, longAdapter));
         arrayList.add(TypeAdapters.a(Double.TYPE, Double.class, doubleAdapter(z7)));
         arrayList.add(TypeAdapters.a(Float.TYPE, Float.class, floatAdapter(z7)));
-        arrayList.add(TypeAdapters.nOY);
-        arrayList.add(TypeAdapters.nOP);
-        arrayList.add(TypeAdapters.nOR);
+        arrayList.add(TypeAdapters.oeq);
+        arrayList.add(TypeAdapters.oeh);
+        arrayList.add(TypeAdapters.oej);
         arrayList.add(TypeAdapters.a(AtomicLong.class, atomicLongAdapter(longAdapter)));
         arrayList.add(TypeAdapters.a(AtomicLongArray.class, atomicLongArrayAdapter(longAdapter)));
-        arrayList.add(TypeAdapters.nOT);
-        arrayList.add(TypeAdapters.nPa);
-        arrayList.add(TypeAdapters.nPg);
-        arrayList.add(TypeAdapters.nPi);
-        arrayList.add(TypeAdapters.a(BigDecimal.class, TypeAdapters.nPc));
-        arrayList.add(TypeAdapters.a(BigInteger.class, TypeAdapters.nPd));
-        arrayList.add(TypeAdapters.nPk);
-        arrayList.add(TypeAdapters.nPm);
-        arrayList.add(TypeAdapters.nPq);
-        arrayList.add(TypeAdapters.nPs);
-        arrayList.add(TypeAdapters.nPx);
-        arrayList.add(TypeAdapters.nPo);
-        arrayList.add(TypeAdapters.nOE);
-        arrayList.add(DateTypeAdapter.nNO);
-        arrayList.add(TypeAdapters.nPv);
-        arrayList.add(TimeTypeAdapter.nNO);
-        arrayList.add(SqlDateTypeAdapter.nNO);
-        arrayList.add(TypeAdapters.nPt);
-        arrayList.add(ArrayTypeAdapter.nNO);
-        arrayList.add(TypeAdapters.nOC);
+        arrayList.add(TypeAdapters.oel);
+        arrayList.add(TypeAdapters.oes);
+        arrayList.add(TypeAdapters.oey);
+        arrayList.add(TypeAdapters.oeA);
+        arrayList.add(TypeAdapters.a(BigDecimal.class, TypeAdapters.oeu));
+        arrayList.add(TypeAdapters.a(BigInteger.class, TypeAdapters.oev));
+        arrayList.add(TypeAdapters.oeC);
+        arrayList.add(TypeAdapters.oeE);
+        arrayList.add(TypeAdapters.oeI);
+        arrayList.add(TypeAdapters.oeK);
+        arrayList.add(TypeAdapters.oeP);
+        arrayList.add(TypeAdapters.oeG);
+        arrayList.add(TypeAdapters.odW);
+        arrayList.add(DateTypeAdapter.odg);
+        arrayList.add(TypeAdapters.oeN);
+        arrayList.add(TimeTypeAdapter.odg);
+        arrayList.add(SqlDateTypeAdapter.odg);
+        arrayList.add(TypeAdapters.oeL);
+        arrayList.add(ArrayTypeAdapter.odg);
+        arrayList.add(TypeAdapters.odU);
         arrayList.add(new CollectionTypeAdapterFactory(this.constructorConstructor));
         arrayList.add(new MapTypeAdapterFactory(this.constructorConstructor, z2));
         this.jsonAdapterFactory = new JsonAdapterAnnotationTypeAdapterFactory(this.constructorConstructor);
         arrayList.add(this.jsonAdapterFactory);
-        arrayList.add(TypeAdapters.nPA);
+        arrayList.add(TypeAdapters.oeS);
         arrayList.add(new ReflectiveTypeAdapterFactory(this.constructorConstructor, fieldNamingStrategy, excluder, this.jsonAdapterFactory));
         this.factories = Collections.unmodifiableList(arrayList);
     }
@@ -161,14 +161,14 @@ public final class Gson {
     }
 
     private TypeAdapter<Number> doubleAdapter(boolean z) {
-        return z ? TypeAdapters.nOW : new TypeAdapter<Number>() { // from class: com.google.gson.Gson.1
+        return z ? TypeAdapters.oeo : new TypeAdapter<Number>() { // from class: com.google.gson.Gson.1
             /* JADX DEBUG: Method merged with bridge method */
             /* JADX DEBUG: Return type fixed from 'java.lang.Double' to match base method */
             @Override // com.google.gson.TypeAdapter
             /* renamed from: read */
             public Number read2(com.google.gson.stream.a aVar) throws IOException {
-                if (aVar.ebw() == JsonToken.NULL) {
-                    aVar.ebB();
+                if (aVar.efh() == JsonToken.NULL) {
+                    aVar.efm();
                     return null;
                 }
                 return Double.valueOf(aVar.nextDouble());
@@ -178,7 +178,7 @@ public final class Gson {
             @Override // com.google.gson.TypeAdapter
             public void write(com.google.gson.stream.b bVar, Number number) throws IOException {
                 if (number == null) {
-                    bVar.ebL();
+                    bVar.efw();
                     return;
                 }
                 Gson.checkValidFloatingPoint(number.doubleValue());
@@ -188,14 +188,14 @@ public final class Gson {
     }
 
     private TypeAdapter<Number> floatAdapter(boolean z) {
-        return z ? TypeAdapters.nOV : new TypeAdapter<Number>() { // from class: com.google.gson.Gson.2
+        return z ? TypeAdapters.oen : new TypeAdapter<Number>() { // from class: com.google.gson.Gson.2
             /* JADX DEBUG: Method merged with bridge method */
             /* JADX DEBUG: Return type fixed from 'java.lang.Float' to match base method */
             @Override // com.google.gson.TypeAdapter
             /* renamed from: read */
             public Number read2(com.google.gson.stream.a aVar) throws IOException {
-                if (aVar.ebw() == JsonToken.NULL) {
-                    aVar.ebB();
+                if (aVar.efh() == JsonToken.NULL) {
+                    aVar.efm();
                     return null;
                 }
                 return Float.valueOf((float) aVar.nextDouble());
@@ -205,7 +205,7 @@ public final class Gson {
             @Override // com.google.gson.TypeAdapter
             public void write(com.google.gson.stream.b bVar, Number number) throws IOException {
                 if (number == null) {
-                    bVar.ebL();
+                    bVar.efw();
                     return;
                 }
                 Gson.checkValidFloatingPoint(number.floatValue());
@@ -221,13 +221,13 @@ public final class Gson {
     }
 
     private static TypeAdapter<Number> longAdapter(LongSerializationPolicy longSerializationPolicy) {
-        return longSerializationPolicy == LongSerializationPolicy.DEFAULT ? TypeAdapters.nOU : new TypeAdapter<Number>() { // from class: com.google.gson.Gson.3
+        return longSerializationPolicy == LongSerializationPolicy.DEFAULT ? TypeAdapters.oem : new TypeAdapter<Number>() { // from class: com.google.gson.Gson.3
             /* JADX DEBUG: Method merged with bridge method */
             /* JADX WARN: Can't rename method to resolve collision */
             @Override // com.google.gson.TypeAdapter
             public Number read(com.google.gson.stream.a aVar) throws IOException {
-                if (aVar.ebw() == JsonToken.NULL) {
-                    aVar.ebB();
+                if (aVar.efh() == JsonToken.NULL) {
+                    aVar.efm();
                     return null;
                 }
                 return Long.valueOf(aVar.nextLong());
@@ -237,9 +237,9 @@ public final class Gson {
             @Override // com.google.gson.TypeAdapter
             public void write(com.google.gson.stream.b bVar, Number number) throws IOException {
                 if (number == null) {
-                    bVar.ebL();
+                    bVar.efw();
                 } else {
-                    bVar.Vv(number.toString());
+                    bVar.Wj(number.toString());
                 }
             }
         };
@@ -266,19 +266,19 @@ public final class Gson {
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.google.gson.TypeAdapter
             public void write(com.google.gson.stream.b bVar, AtomicLongArray atomicLongArray) throws IOException {
-                bVar.ebH();
+                bVar.efs();
                 int length = atomicLongArray.length();
                 for (int i = 0; i < length; i++) {
                     TypeAdapter.this.write(bVar, Long.valueOf(atomicLongArray.get(i)));
                 }
-                bVar.ebI();
+                bVar.eft();
             }
 
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.google.gson.TypeAdapter
             public AtomicLongArray read(com.google.gson.stream.a aVar) throws IOException {
                 ArrayList arrayList = new ArrayList();
-                aVar.ebu();
+                aVar.eff();
                 while (aVar.hasNext()) {
                     arrayList.add(Long.valueOf(((Number) TypeAdapter.this.read(aVar)).longValue()));
                 }
@@ -367,7 +367,7 @@ public final class Gson {
     public JsonElement toJsonTree(Object obj, Type type) {
         com.google.gson.internal.bind.b bVar = new com.google.gson.internal.bind.b();
         toJson(obj, type, bVar);
-        return bVar.ebF();
+        return bVar.efq();
     }
 
     public String toJson(Object obj) {
@@ -398,12 +398,12 @@ public final class Gson {
 
     public void toJson(Object obj, Type type, com.google.gson.stream.b bVar) throws JsonIOException {
         TypeAdapter adapter = getAdapter(a.k(type));
-        boolean ebQ = bVar.ebQ();
-        bVar.yz(true);
-        boolean ebY = bVar.ebY();
-        bVar.yB(this.htmlSafe);
-        boolean ebZ = bVar.ebZ();
-        bVar.yC(this.serializeNulls);
+        boolean efB = bVar.efB();
+        bVar.zg(true);
+        boolean efJ = bVar.efJ();
+        bVar.zi(this.htmlSafe);
+        boolean efK = bVar.efK();
+        bVar.zj(this.serializeNulls);
         try {
             try {
                 try {
@@ -415,9 +415,9 @@ public final class Gson {
                 throw new AssertionError("AssertionError (GSON 2.8.5): " + e2.getMessage(), e2);
             }
         } finally {
-            bVar.yz(ebQ);
-            bVar.yB(ebY);
-            bVar.yC(ebZ);
+            bVar.zg(efB);
+            bVar.zi(efJ);
+            bVar.zj(efK);
         }
     }
 
@@ -441,25 +441,25 @@ public final class Gson {
         }
         com.google.gson.stream.b bVar = new com.google.gson.stream.b(writer);
         if (this.prettyPrinting) {
-            bVar.Vy("  ");
+            bVar.Wm("  ");
         }
-        bVar.yC(this.serializeNulls);
+        bVar.zj(this.serializeNulls);
         return bVar;
     }
 
     public com.google.gson.stream.a newJsonReader(Reader reader) {
         com.google.gson.stream.a aVar = new com.google.gson.stream.a(reader);
-        aVar.yz(this.lenient);
+        aVar.zg(this.lenient);
         return aVar;
     }
 
     public void toJson(JsonElement jsonElement, com.google.gson.stream.b bVar) throws JsonIOException {
-        boolean ebQ = bVar.ebQ();
-        bVar.yz(true);
-        boolean ebY = bVar.ebY();
-        bVar.yB(this.htmlSafe);
-        boolean ebZ = bVar.ebZ();
-        bVar.yC(this.serializeNulls);
+        boolean efB = bVar.efB();
+        bVar.zg(true);
+        boolean efJ = bVar.efJ();
+        bVar.zi(this.htmlSafe);
+        boolean efK = bVar.efK();
+        bVar.zj(this.serializeNulls);
         try {
             try {
                 h.a(jsonElement, bVar);
@@ -469,9 +469,9 @@ public final class Gson {
                 throw new AssertionError("AssertionError (GSON 2.8.5): " + e2.getMessage(), e2);
             }
         } finally {
-            bVar.yz(ebQ);
-            bVar.yB(ebY);
-            bVar.yC(ebZ);
+            bVar.zg(efB);
+            bVar.zi(efJ);
+            bVar.zj(efK);
         }
     }
 
@@ -503,7 +503,7 @@ public final class Gson {
     private static void assertFullConsumption(Object obj, com.google.gson.stream.a aVar) {
         if (obj != null) {
             try {
-                if (aVar.ebw() != JsonToken.END_DOCUMENT) {
+                if (aVar.efh() != JsonToken.END_DOCUMENT) {
                     throw new JsonIOException("JSON document was not fully consumed.");
                 }
             } catch (MalformedJsonException e) {
@@ -516,15 +516,15 @@ public final class Gson {
 
     public <T> T fromJson(com.google.gson.stream.a aVar, Type type) throws JsonIOException, JsonSyntaxException {
         boolean z = true;
-        boolean ebQ = aVar.ebQ();
-        aVar.yz(true);
+        boolean efB = aVar.efB();
+        aVar.zg(true);
         try {
             try {
                 try {
-                    aVar.ebw();
+                    aVar.efh();
                     z = false;
                     T read = getAdapter(a.k(type)).read(aVar);
-                    aVar.yz(ebQ);
+                    aVar.zg(efB);
                     return read;
                 } catch (IOException e) {
                     throw new JsonSyntaxException(e);
@@ -535,13 +535,13 @@ public final class Gson {
                 if (!z) {
                     throw new JsonSyntaxException(e3);
                 }
-                aVar.yz(ebQ);
+                aVar.zg(efB);
                 return null;
             } catch (AssertionError e4) {
                 throw new AssertionError("AssertionError (GSON 2.8.5): " + e4.getMessage(), e4);
             }
         } catch (Throwable th) {
-            aVar.yz(ebQ);
+            aVar.zg(efB);
             throw th;
         }
     }
@@ -558,7 +558,7 @@ public final class Gson {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes23.dex */
+    /* loaded from: classes17.dex */
     public static class FutureTypeAdapter<T> extends TypeAdapter<T> {
         private TypeAdapter<T> delegate;
 

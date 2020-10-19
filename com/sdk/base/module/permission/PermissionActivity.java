@@ -3,12 +3,14 @@ package com.sdk.base.module.permission;
 import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.os.Bundle;
-/* loaded from: classes5.dex */
+/* loaded from: classes16.dex */
 public class PermissionActivity extends Activity {
-    private static a a;
+
+    /* renamed from: a  reason: collision with root package name */
+    private static a f4513a;
 
     public static void a(a aVar) {
-        a = aVar;
+        f4513a = aVar;
     }
 
     @Override // android.app.Activity
@@ -18,17 +20,17 @@ public class PermissionActivity extends Activity {
         String[] stringArrayExtra = getIntent().getStringArrayExtra("KEY_INPUT_PERMISSIONS");
         if (stringArrayExtra == null) {
             finish();
-        } else if (a != null) {
+        } else if (f4513a != null) {
             requestPermissions(stringArrayExtra, 1);
         }
     }
 
     @Override // android.app.Activity
     public void onRequestPermissionsResult(int i, String[] strArr, int[] iArr) {
-        if (a != null) {
-            a.a(strArr, iArr);
+        if (f4513a != null) {
+            f4513a.a(strArr, iArr);
         }
-        a = null;
+        f4513a = null;
         finish();
     }
 }

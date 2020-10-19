@@ -5,7 +5,7 @@ import com.tencent.connect.auth.AuthAgent;
 import com.tencent.open.a.f;
 import com.tencent.open.utils.e;
 import java.io.File;
-/* loaded from: classes24.dex */
+/* loaded from: classes6.dex */
 public class JniInterface {
     public static boolean isJniOk = false;
 
@@ -20,10 +20,10 @@ public class JniInterface {
     public static void loadSo() {
         if (!isJniOk) {
             try {
-                Context a = e.a();
-                if (a != null) {
-                    if (new File(a.getFilesDir().toString() + "/" + AuthAgent.SECURE_LIB_NAME).exists()) {
-                        System.load(a.getFilesDir().toString() + "/" + AuthAgent.SECURE_LIB_NAME);
+                Context a2 = e.a();
+                if (a2 != null) {
+                    if (new File(a2.getFilesDir().toString() + "/" + AuthAgent.SECURE_LIB_NAME).exists()) {
+                        System.load(a2.getFilesDir().toString() + "/" + AuthAgent.SECURE_LIB_NAME);
                         isJniOk = true;
                         f.c("openSDK_LOG.JniInterface", "-->load lib success:" + AuthAgent.SECURE_LIB_NAME);
                     } else {

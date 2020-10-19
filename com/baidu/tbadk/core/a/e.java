@@ -6,27 +6,27 @@ import com.baidu.tbadk.data.PersonPrivateData;
 import java.util.HashMap;
 /* loaded from: classes.dex */
 public class e {
-    public static HashMap<String, Integer> dWZ = new HashMap<>();
+    public static HashMap<String, Integer> ejb = new HashMap<>();
 
-    public static int mW(int i) {
+    public static int nt(int i) {
         String str = TbadkCoreApplication.getCurrentAccount() + UgcConstant.AT_RULE_TAG + i;
-        if (dWZ.containsKey(str)) {
-            return dWZ.get(str).intValue();
+        if (ejb.containsKey(str)) {
+            return ejb.get(str).intValue();
         }
-        dWZ.put(str, 1);
+        ejb.put(str, 1);
         return 1;
     }
 
-    public static void aM(int i, int i2) {
-        dWZ.put(TbadkCoreApplication.getCurrentAccount() + UgcConstant.AT_RULE_TAG + i, Integer.valueOf(i2));
+    public static void aL(int i, int i2) {
+        ejb.put(TbadkCoreApplication.getCurrentAccount() + UgcConstant.AT_RULE_TAG + i, Integer.valueOf(i2));
     }
 
     public static void a(PersonPrivateData personPrivateData) {
         if (personPrivateData != null) {
             String str = TbadkCoreApplication.getCurrentAccount() + UgcConstant.AT_RULE_TAG + 2;
-            int brP = personPrivateData.brP();
-            if (!dWZ.containsKey(str)) {
-                dWZ.put(str, Integer.valueOf(brP));
+            int buz = personPrivateData.buz();
+            if (!ejb.containsKey(str)) {
+                ejb.put(str, Integer.valueOf(buz));
             }
         }
     }

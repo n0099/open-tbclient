@@ -1,5 +1,5 @@
 package com.xiaomi.push;
-/* loaded from: classes9.dex */
+/* loaded from: classes12.dex */
 public abstract class js {
     public int a() {
         return 0;
@@ -11,10 +11,10 @@ public abstract class js {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public abstract void m495a(byte[] bArr, int i, int i2);
+    public abstract void m496a(byte[] bArr, int i, int i2);
 
     /* renamed from: a  reason: collision with other method in class */
-    public byte[] m496a() {
+    public byte[] m497a() {
         return null;
     }
 
@@ -25,11 +25,11 @@ public abstract class js {
     public int b(byte[] bArr, int i, int i2) {
         int i3 = 0;
         while (i3 < i2) {
-            int a = a(bArr, i + i3, i2 - i3);
-            if (a <= 0) {
+            int a2 = a(bArr, i + i3, i2 - i3);
+            if (a2 <= 0) {
                 throw new jt("Cannot read. Remote side has closed. Tried to read " + i2 + " bytes, but only got " + i3 + " bytes.");
             }
-            i3 += a;
+            i3 += a2;
         }
         return i3;
     }

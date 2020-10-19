@@ -5,9 +5,11 @@ import android.os.Environment;
 import android.text.TextUtils;
 import com.baidu.vi.VIContext;
 import java.io.File;
-/* loaded from: classes3.dex */
+/* loaded from: classes7.dex */
 public class b {
-    private String a;
+
+    /* renamed from: a  reason: collision with root package name */
+    private String f2942a;
     private String b;
     private String c;
     private String d;
@@ -16,14 +18,14 @@ public class b {
     private String g;
 
     public String a() {
-        if (TextUtils.isEmpty(this.a)) {
+        if (TextUtils.isEmpty(this.f2942a)) {
             a(VIContext.getContext());
         }
-        return this.a;
+        return this.f2942a;
     }
 
     public void a(Context context) {
-        this.a = context.getFilesDir().getAbsolutePath();
+        this.f2942a = context.getFilesDir().getAbsolutePath();
         this.d = context.getCacheDir().getAbsolutePath();
         this.e = this.d;
         this.b = Environment.getExternalStorageDirectory().getPath();

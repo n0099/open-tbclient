@@ -25,9 +25,9 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes24.dex */
+/* loaded from: classes15.dex */
 public class b extends a {
-    private com.baidu.swan.pms.database.a.c dHc = new com.baidu.swan.pms.database.a.c();
+    private com.baidu.swan.pms.database.a.c dTd = new com.baidu.swan.pms.database.a.c();
 
     @Override // com.baidu.swan.pms.database.a
     public <T extends e> boolean c(T t) {
@@ -42,7 +42,7 @@ public class b extends a {
     @Override // com.baidu.swan.pms.database.a
     public <T extends e> boolean b(Class<T> cls, String str) {
         try {
-            if (AppRuntime.getAppContext().getContentResolver().delete(this.dHc.s(cls), "bundle_id =? ", new String[]{str}) > 0) {
+            if (AppRuntime.getAppContext().getContentResolver().delete(this.dTd.s(cls), "bundle_id =? ", new String[]{str}) > 0) {
                 return true;
             }
         } catch (Exception e) {
@@ -56,7 +56,7 @@ public class b extends a {
     @Override // com.baidu.swan.pms.database.a
     public boolean s(PMSAppInfo pMSAppInfo) {
         try {
-            if (AppRuntime.getAppContext().getContentResolver().update(this.dHc.s(pMSAppInfo.getClass()), this.dHc.r(pMSAppInfo.getClass()).ag(pMSAppInfo), "app_id =? ", new String[]{pMSAppInfo.appId}) > 0) {
+            if (AppRuntime.getAppContext().getContentResolver().update(this.dTd.s(pMSAppInfo.getClass()), this.dTd.r(pMSAppInfo.getClass()).aj(pMSAppInfo), "app_id =? ", new String[]{pMSAppInfo.appId}) > 0) {
                 return true;
             }
         } catch (Exception e) {
@@ -68,12 +68,12 @@ public class b extends a {
     }
 
     @Override // com.baidu.swan.pms.database.a
-    public boolean ab(String str, int i) {
+    public boolean ac(String str, int i) {
         if (TextUtils.isEmpty(str)) {
             return false;
         }
         try {
-            Uri s = this.dHc.s(PMSAppInfo.class);
+            Uri s = this.dTd.s(PMSAppInfo.class);
             ContentValues contentValues = new ContentValues();
             contentValues.put("pending_err_code", Integer.valueOf(i));
             return AppRuntime.getAppContext().getContentResolver().update(s, contentValues, "app_id =? ", new String[]{str}) > 0;
@@ -87,9 +87,9 @@ public class b extends a {
     }
 
     @Override // com.baidu.swan.pms.database.a
-    public boolean wU(String str) {
+    public boolean xG(String str) {
         try {
-            if (AppRuntime.getAppContext().getContentResolver().delete(this.dHc.s(PMSAppInfo.class), "app_id =? ", new String[]{str}) > 0) {
+            if (AppRuntime.getAppContext().getContentResolver().delete(this.dTd.s(PMSAppInfo.class), "app_id =? ", new String[]{str}) > 0) {
                 return true;
             }
         } catch (Exception e) {
@@ -103,8 +103,8 @@ public class b extends a {
     @Override // com.baidu.swan.pms.database.a
     public boolean r(PMSAppInfo pMSAppInfo) {
         try {
-            com.baidu.swan.pms.database.a.b r = this.dHc.r(pMSAppInfo.getClass());
-            Uri insert = AppRuntime.getAppContext().getContentResolver().insert(this.dHc.s(pMSAppInfo.getClass()), r.ag(pMSAppInfo));
+            com.baidu.swan.pms.database.a.b r = this.dTd.r(pMSAppInfo.getClass());
+            Uri insert = AppRuntime.getAppContext().getContentResolver().insert(this.dTd.s(pMSAppInfo.getClass()), r.aj(pMSAppInfo));
             if (insert != null) {
                 if (ContentUris.parseId(insert) > 0) {
                     return true;
@@ -119,13 +119,13 @@ public class b extends a {
     }
 
     @Override // com.baidu.swan.pms.database.a
-    public Map<String, f> aUg() {
+    public Map<String, f> aWP() {
         HashMap hashMap = new HashMap();
-        List<f> a = a(f.class, "state =? ", new String[]{"10"}, "version_code ASC");
-        if (a != null && a.size() > 0) {
-            for (f fVar : a) {
+        List<f> a2 = a(f.class, "state =? ", new String[]{"10"}, "version_code ASC");
+        if (a2 != null && a2.size() > 0) {
+            for (f fVar : a2) {
                 if (fVar != null) {
-                    hashMap.put(fVar.dHr, fVar);
+                    hashMap.put(fVar.dTs, fVar);
                 }
             }
         }
@@ -133,12 +133,12 @@ public class b extends a {
     }
 
     @Override // com.baidu.swan.pms.database.a
-    public PMSAppInfo wT(String str) {
-        return wX(str);
+    public PMSAppInfo xF(String str) {
+        return xJ(str);
     }
 
     @Override // com.baidu.swan.pms.database.a
-    public Map<String, PMSAppInfo> aUh() {
+    public Map<String, PMSAppInfo> aWQ() {
         HashMap hashMap = new HashMap();
         List<PMSAppInfo> b = b(PMSAppInfo.class, null, null, null);
         if (b != null && b.size() > 0) {
@@ -154,15 +154,15 @@ public class b extends a {
     /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [254=4] */
     /* JADX WARN: Not initialized variable reg: 1, insn: 0x0057: MOVE  (r8 I:??[OBJECT, ARRAY]) = (r1 I:??[OBJECT, ARRAY]), block:B:23:0x0057 */
     @Override // com.baidu.swan.pms.database.a
-    public boolean W(String str, String str2, String str3) {
+    public boolean X(String str, String str2, String str3) {
         Cursor cursor;
         Closeable closeable;
         com.baidu.swan.pms.database.a.b r;
         Closeable closeable2 = null;
         try {
             try {
-                Uri s = this.dHc.s(g.class);
-                r = this.dHc.r(g.class);
+                Uri s = this.dTd.s(g.class);
+                r = this.dTd.r(g.class);
                 cursor = AppRuntime.getAppContext().getContentResolver().query(s, null, "app_id=? AND version_code=? AND sub_pkg_name=?", new String[]{str, str2, str3}, null);
             } catch (Throwable th) {
                 th = th;
@@ -205,14 +205,14 @@ public class b extends a {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public List<g> ac(@NonNull String str, int i) {
+    public List<g> ad(@NonNull String str, int i) {
         Cursor cursor;
         List<g> list;
         Cursor cursor2 = null;
         try {
             String str2 = i >= 0 ? "app_id=? and version_code=?" : "app_id=? and version_code>?";
-            Uri s = this.dHc.s(g.class);
-            com.baidu.swan.pms.database.a.b r = this.dHc.r(g.class);
+            Uri s = this.dTd.s(g.class);
+            com.baidu.swan.pms.database.a.b r = this.dTd.r(g.class);
             cursor = AppRuntime.getAppContext().getContentResolver().query(s, null, str2, new String[]{str, String.valueOf(i)}, null);
             if (cursor == null || r == null) {
                 list = null;
@@ -252,12 +252,12 @@ public class b extends a {
     /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [312=4] */
     @Override // com.baidu.swan.pms.database.a
     @WorkerThread
-    public int wV(@NonNull String str) {
+    public int xH(@NonNull String str) {
         Cursor cursor;
         int i;
         Cursor cursor2 = null;
         try {
-            cursor = AppRuntime.getAppContext().getContentResolver().query(this.dHc.s(g.class), new String[]{"version_code"}, "app_id=?", new String[]{str}, "version_code DESC limit 1");
+            cursor = AppRuntime.getAppContext().getContentResolver().query(this.dTd.s(g.class), new String[]{"version_code"}, "app_id=?", new String[]{str}, "version_code DESC limit 1");
             if (cursor != null) {
                 try {
                     try {
@@ -295,10 +295,10 @@ public class b extends a {
     }
 
     @Override // com.baidu.swan.pms.database.a
-    public void de(String str, String str2) {
+    public void dj(String str, String str2) {
         if (!TextUtils.isEmpty(str) && !TextUtils.isEmpty(str2)) {
             try {
-                AppRuntime.getAppContext().getContentResolver().delete(this.dHc.s(g.class), "app_id=? AND version_code=?", new String[]{str, str2});
+                AppRuntime.getAppContext().getContentResolver().delete(this.dTd.s(g.class), "app_id=? AND version_code=?", new String[]{str, str2});
             } catch (Exception e) {
                 if (d.DEBUG) {
                     e.printStackTrace();
@@ -308,10 +308,10 @@ public class b extends a {
     }
 
     @Override // com.baidu.swan.pms.database.a
-    public void wW(String str) {
+    public void xI(String str) {
         if (!TextUtils.isEmpty(str)) {
             try {
-                AppRuntime.getAppContext().getContentResolver().delete(this.dHc.s(g.class), "app_id=?", new String[]{str});
+                AppRuntime.getAppContext().getContentResolver().delete(this.dTd.s(g.class), "app_id=?", new String[]{str});
             } catch (Exception e) {
                 if (d.DEBUG) {
                     e.printStackTrace();
@@ -329,25 +329,25 @@ public class b extends a {
     public boolean a(f fVar, List<g> list, com.baidu.swan.pms.model.d dVar, com.baidu.swan.pms.model.b bVar, PMSAppInfo pMSAppInfo) {
         ArrayList<ContentProviderOperation> arrayList = new ArrayList<>();
         if (fVar != null) {
-            arrayList.add(ContentProviderOperation.newInsert(this.dHc.s(f.class)).withValues(this.dHc.r(f.class).ag(fVar)).build());
+            arrayList.add(ContentProviderOperation.newInsert(this.dTd.s(f.class)).withValues(this.dTd.r(f.class).aj(fVar)).build());
         }
         if (list != null && !list.isEmpty()) {
-            com.baidu.swan.pms.database.a.b r = this.dHc.r(g.class);
+            com.baidu.swan.pms.database.a.b r = this.dTd.r(g.class);
             for (g gVar : list) {
-                arrayList.add(ContentProviderOperation.newInsert(this.dHc.s(g.class)).withValues(r.ag(gVar)).build());
+                arrayList.add(ContentProviderOperation.newInsert(this.dTd.s(g.class)).withValues(r.aj(gVar)).build());
             }
         }
         if (dVar != null) {
-            arrayList.add(ContentProviderOperation.newInsert(this.dHc.s(com.baidu.swan.pms.model.d.class)).withValues(this.dHc.r(com.baidu.swan.pms.model.d.class).ag(dVar)).build());
+            arrayList.add(ContentProviderOperation.newInsert(this.dTd.s(com.baidu.swan.pms.model.d.class)).withValues(this.dTd.r(com.baidu.swan.pms.model.d.class).aj(dVar)).build());
         }
         if (bVar != null) {
-            arrayList.add(ContentProviderOperation.newInsert(this.dHc.s(com.baidu.swan.pms.model.b.class)).withValues(this.dHc.r(com.baidu.swan.pms.model.b.class).ag(bVar)).build());
+            arrayList.add(ContentProviderOperation.newInsert(this.dTd.s(com.baidu.swan.pms.model.b.class)).withValues(this.dTd.r(com.baidu.swan.pms.model.b.class).aj(bVar)).build());
         }
         if (pMSAppInfo != null) {
-            arrayList.add(ContentProviderOperation.newInsert(this.dHc.s(PMSAppInfo.class)).withValues(this.dHc.r(PMSAppInfo.class).ag(pMSAppInfo)).build());
+            arrayList.add(ContentProviderOperation.newInsert(this.dTd.s(PMSAppInfo.class)).withValues(this.dTd.r(PMSAppInfo.class).aj(pMSAppInfo)).build());
         }
         try {
-            ContentProviderResult[] applyBatch = AppRuntime.getAppContext().getContentResolver().applyBatch(com.baidu.swan.pms.database.provider.b.djF, arrayList);
+            ContentProviderResult[] applyBatch = AppRuntime.getAppContext().getContentResolver().applyBatch(com.baidu.swan.pms.database.provider.b.dvL, arrayList);
             if (applyBatch == null) {
                 return false;
             }
@@ -367,8 +367,8 @@ public class b extends a {
 
     private <T extends e> boolean d(T t) {
         try {
-            com.baidu.swan.pms.database.a.b r = this.dHc.r(t.getClass());
-            Uri insert = AppRuntime.getAppContext().getContentResolver().insert(this.dHc.s(t.getClass()), r.ag(t));
+            com.baidu.swan.pms.database.a.b r = this.dTd.r(t.getClass());
+            Uri insert = AppRuntime.getAppContext().getContentResolver().insert(this.dTd.s(t.getClass()), r.aj(t));
             if (insert != null) {
                 if (ContentUris.parseId(insert) > 0) {
                     return true;
@@ -388,8 +388,8 @@ public class b extends a {
         com.baidu.swan.pms.database.a.b<T> r;
         Cursor cursor2 = null;
         try {
-            r = this.dHc.r(cls);
-            cursor = AppRuntime.getAppContext().getContentResolver().query(this.dHc.s(cls), null, "bundle_id =? ", new String[]{str}, "version_code DESC");
+            r = this.dTd.r(cls);
+            cursor = AppRuntime.getAppContext().getContentResolver().query(this.dTd.s(cls), null, "bundle_id =? ", new String[]{str}, "version_code DESC");
         } catch (Exception e) {
             e = e;
             cursor = null;
@@ -426,13 +426,13 @@ public class b extends a {
     /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [540=4] */
     @Override // com.baidu.swan.pms.database.a
     @Nullable
-    public i wS(String str) {
+    public i xE(String str) {
         Cursor cursor;
         com.baidu.swan.pms.database.a.b r;
         Cursor cursor2 = null;
         try {
-            r = this.dHc.r(i.class);
-            cursor = AppRuntime.getAppContext().getContentResolver().query(this.dHc.s(i.class), null, "lib_name =? ", new String[]{str}, "version_code DESC");
+            r = this.dTd.r(i.class);
+            cursor = AppRuntime.getAppContext().getContentResolver().query(this.dTd.s(i.class), null, "lib_name =? ", new String[]{str}, "version_code DESC");
         } catch (Exception e) {
             e = e;
             cursor = null;
@@ -467,13 +467,13 @@ public class b extends a {
     }
 
     /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [601=4] */
-    private PMSAppInfo wX(String str) {
+    private PMSAppInfo xJ(String str) {
         Cursor cursor;
         com.baidu.swan.pms.database.a.b r;
         Cursor cursor2 = null;
         try {
-            r = this.dHc.r(PMSAppInfo.class);
-            cursor = AppRuntime.getAppContext().getContentResolver().query(this.dHc.s(PMSAppInfo.class), null, "app_id =? ", new String[]{str}, "version_code DESC");
+            r = this.dTd.r(PMSAppInfo.class);
+            cursor = AppRuntime.getAppContext().getContentResolver().query(this.dTd.s(PMSAppInfo.class), null, "app_id =? ", new String[]{str}, "version_code DESC");
         } catch (Exception e) {
             e = e;
             cursor = null;
@@ -516,8 +516,8 @@ public class b extends a {
         Closeable closeable2 = null;
         try {
             try {
-                r = this.dHc.r(cls);
-                cursor = AppRuntime.getAppContext().getContentResolver().query(this.dHc.s(cls), null, str, strArr, str2);
+                r = this.dTd.r(cls);
+                cursor = AppRuntime.getAppContext().getContentResolver().query(this.dTd.s(cls), null, str, strArr, str2);
             } catch (Throwable th) {
                 th = th;
                 closeable2 = closeable;
@@ -559,8 +559,8 @@ public class b extends a {
         Closeable closeable2 = null;
         try {
             try {
-                r = this.dHc.r(cls);
-                cursor = AppRuntime.getAppContext().getContentResolver().query(this.dHc.s(cls), null, str, strArr, str2);
+                r = this.dTd.r(cls);
+                cursor = AppRuntime.getAppContext().getContentResolver().query(this.dTd.s(cls), null, str, strArr, str2);
             } catch (Throwable th) {
                 th = th;
                 closeable2 = closeable;
@@ -596,7 +596,7 @@ public class b extends a {
     @Override // com.baidu.swan.pms.database.a
     public boolean f(h hVar) {
         try {
-            if (AppRuntime.getAppContext().getContentResolver().delete(this.dHc.s(hVar.getClass()), "bundle_id = ?  and version_name =? ", new String[]{hVar.dHr, hVar.versionName}) > 0) {
+            if (AppRuntime.getAppContext().getContentResolver().delete(this.dTd.s(hVar.getClass()), "bundle_id = ?  and version_name =? ", new String[]{hVar.dTs, hVar.versionName}) > 0) {
                 return true;
             }
         } catch (Exception e) {
@@ -610,7 +610,7 @@ public class b extends a {
     @Override // com.baidu.swan.pms.database.a
     public boolean g(h hVar) {
         try {
-            if (AppRuntime.getAppContext().getContentResolver().update(this.dHc.s(hVar.getClass()), this.dHc.r(hVar.getClass()).ag(hVar), "bundle_id = ?  and version_name =? ", new String[]{hVar.dHr, hVar.versionName}) > 0) {
+            if (AppRuntime.getAppContext().getContentResolver().update(this.dTd.s(hVar.getClass()), this.dTd.r(hVar.getClass()).aj(hVar), "bundle_id = ?  and version_name =? ", new String[]{hVar.dTs, hVar.versionName}) > 0) {
                 return true;
             }
         } catch (Exception e) {
@@ -624,15 +624,15 @@ public class b extends a {
     /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [738=4] */
     /* JADX WARN: Not initialized variable reg: 1, insn: 0x004f: MOVE  (r6 I:??[OBJECT, ARRAY]) = (r1 I:??[OBJECT, ARRAY]), block:B:20:0x004f */
     @Override // com.baidu.swan.pms.database.a
-    public h df(String str, String str2) {
+    public h dk(String str, String str2) {
         Cursor cursor;
         Closeable closeable;
         com.baidu.swan.pms.database.a.b r;
         Closeable closeable2 = null;
         try {
             try {
-                r = this.dHc.r(h.class);
-                cursor = AppRuntime.getAppContext().getContentResolver().query(this.dHc.s(h.class), null, "bundle_id = ?  and version_name =? ", new String[]{str, str2}, null);
+                r = this.dTd.r(h.class);
+                cursor = AppRuntime.getAppContext().getContentResolver().query(this.dTd.s(h.class), null, "bundle_id = ?  and version_name =? ", new String[]{str, str2}, null);
             } catch (Throwable th) {
                 th = th;
                 closeable2 = closeable;

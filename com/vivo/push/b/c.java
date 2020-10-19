@@ -2,9 +2,11 @@ package com.vivo.push.b;
 
 import android.text.TextUtils;
 import com.baidu.sapi2.SapiContext;
-/* loaded from: classes12.dex */
+/* loaded from: classes15.dex */
 public class c extends com.vivo.push.y {
-    private String a;
+
+    /* renamed from: a  reason: collision with root package name */
+    private String f4638a;
     private String b;
     private long c;
     private int d;
@@ -15,7 +17,7 @@ public class c extends com.vivo.push.y {
         super(i);
         this.c = -1L;
         this.d = -1;
-        this.a = str;
+        this.f4638a = str;
         this.b = str2;
     }
 
@@ -32,17 +34,17 @@ public class c extends com.vivo.push.y {
     }
 
     public final String h() {
-        return this.a;
+        return this.f4638a;
     }
 
     public final void b(String str) {
-        this.a = str;
+        this.f4638a = str;
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.vivo.push.y
     public void c(com.vivo.push.a aVar) {
-        aVar.a("req_id", this.a);
+        aVar.a("req_id", this.f4638a);
         aVar.a("package_name", this.b);
         aVar.a(SapiContext.KEY_SDK_VERSION, 293L);
         aVar.a("PUSH_APP_STATUS", this.d);
@@ -54,7 +56,7 @@ public class c extends com.vivo.push.y {
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.vivo.push.y
     public void d(com.vivo.push.a aVar) {
-        this.a = aVar.a("req_id");
+        this.f4638a = aVar.a("req_id");
         this.b = aVar.a("package_name");
         this.c = aVar.b(SapiContext.KEY_SDK_VERSION, 0L);
         this.d = aVar.b("PUSH_APP_STATUS", 0);

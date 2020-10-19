@@ -6,7 +6,7 @@ import com.baidu.live.tbadk.core.sharedpref.SharedPrefConfig;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.squareup.wire.Wire;
 import tbclient.GetAddressList.GetAddressListResIdl;
-/* loaded from: classes20.dex */
+/* loaded from: classes21.dex */
 public class ResponseGetAddressListMessage extends SocketResponsedMessage {
     private a mAddressListData;
 
@@ -30,7 +30,7 @@ public class ResponseGetAddressListMessage extends SocketResponsedMessage {
             if (getAddressListResIdl.data != null) {
                 this.mAddressListData = new a();
                 if (this.mAddressListData.a(getAddressListResIdl.data)) {
-                    com.baidu.tbadk.core.sharedPref.b.bjf().putBoolean(SharedPrefConfig.GET_ADDRESSLIST_SWITCH + TbadkCoreApplication.getCurrentAccount(), true);
+                    com.baidu.tbadk.core.sharedPref.b.blO().putBoolean(SharedPrefConfig.GET_ADDRESSLIST_SWITCH + TbadkCoreApplication.getCurrentAccount(), true);
                 }
             }
             if (getAddressListResIdl.error != null) {

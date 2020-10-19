@@ -10,11 +10,11 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
-/* loaded from: classes22.dex */
+/* loaded from: classes23.dex */
 public class a extends BdAsyncTask<Void, Void, Boolean> {
     private final String TAG = a.class.getSimpleName();
     private AdInfo adInfo;
-    public static final String fvi = Environment.getExternalStorageDirectory() + "/tieba/.advideo";
+    public static final String fHr = Environment.getExternalStorageDirectory() + "/tieba/.advideo";
     public static final String FILE_SEP = File.separator;
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -23,13 +23,13 @@ public class a extends BdAsyncTask<Void, Void, Boolean> {
     public Boolean doInBackground(Void... voidArr) {
         FileNotFoundException e;
         boolean z;
-        String str = fvi + FILE_SEP + "advideo.temp";
+        String str = fHr + FILE_SEP + "advideo.temp";
         File file = new File(str);
         if (file.exists()) {
             file.delete();
         }
         try {
-            new File(fvi).mkdirs();
+            new File(fHr).mkdirs();
             if (!file.createNewFile()) {
                 a(false, null);
                 return false;
@@ -38,19 +38,19 @@ public class a extends BdAsyncTask<Void, Void, Boolean> {
             e2.printStackTrace();
         }
         e eVar = new e();
-        eVar.mw().setUrl(this.adInfo.adVideoUrl);
-        boolean a = new com.baidu.adp.lib.network.http.c(eVar).a(str, null, 3, 3000, -1, -1, true, true);
+        eVar.mx().setUrl(this.adInfo.adVideoUrl);
+        boolean a2 = new com.baidu.adp.lib.network.http.c(eVar).a(str, null, 3, 3000, -1, -1, true, true);
         try {
         } catch (FileNotFoundException e3) {
             e = e3;
-            z = a;
+            z = a2;
         }
         if (TextUtils.isEmpty(this.adInfo.videoMd5)) {
-            a(a, file);
-            return Boolean.valueOf(a);
+            a(a2, file);
+            return Boolean.valueOf(a2);
         }
         String md5 = s.toMd5(new FileInputStream(str));
-        z = TextUtils.isEmpty(md5) ? false : a;
+        z = TextUtils.isEmpty(md5) ? false : a2;
         try {
             if (!md5.equalsIgnoreCase(this.adInfo.videoMd5)) {
                 z = false;
@@ -71,7 +71,7 @@ public class a extends BdAsyncTask<Void, Void, Boolean> {
 
     private void a(boolean z, File file) {
         if (z && file != null) {
-            File file2 = new File(fvi + FILE_SEP + (s.toMd5(this.adInfo.adVideoUrl) + ".mp4"));
+            File file2 = new File(fHr + FILE_SEP + (s.toMd5(this.adInfo.adVideoUrl) + ".mp4"));
             if (file2.exists()) {
                 file2.delete();
             }

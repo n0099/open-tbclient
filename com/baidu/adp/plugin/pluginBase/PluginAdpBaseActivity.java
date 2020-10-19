@@ -38,7 +38,7 @@ public abstract class PluginAdpBaseActivity extends PluginBaseActivity implement
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
         this.mId = BdUniqueId.gen();
-        a.lf().pushActivity(getActivity());
+        a.lg().pushActivity(getActivity());
     }
 
     @Override // com.baidu.adp.plugin.pluginBase.PluginBaseActivity
@@ -147,8 +147,8 @@ public abstract class PluginAdpBaseActivity extends PluginBaseActivity implement
         super.onDestroy();
         MessageManager.getInstance().unRegisterListener(this.mId);
         MessageManager.getInstance().removeMessage(this.mId);
-        c.mR().d(this.mId);
-        a.lf().popActivity(getActivity());
+        c.mS().d(this.mId);
+        a.lg().popActivity(getActivity());
         this.mHandler.removeCallbacks(this.preLoadRunnable);
     }
 
@@ -156,7 +156,7 @@ public abstract class PluginAdpBaseActivity extends PluginBaseActivity implement
     @Override // com.baidu.adp.plugin.pluginBase.PluginBaseActivity
     public void onPause() {
         super.onPause();
-        c.mR().e(this.mId);
+        c.mS().e(this.mId);
         this.mHandler.removeCallbacks(this.preLoadRunnable);
     }
 

@@ -1,7 +1,7 @@
 package com.baidu.mario.a;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public interface e {
-    void aH(long j);
+    void aJ(long j);
 
     void onRecorderComplete(boolean z, String str);
 

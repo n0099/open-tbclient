@@ -1,5 +1,5 @@
 package com.baidu.tieba.homepage.framework;
-/* loaded from: classes21.dex */
+/* loaded from: classes22.dex */
 public interface e {
-    void Ah(int i);
+    void AN(int i);
 }

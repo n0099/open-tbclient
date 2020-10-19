@@ -6,7 +6,7 @@ import android.widget.FrameLayout;
 import android.widget.ImageView;
 import com.baidu.swan.apps.a;
 import com.baidu.swan.apps.res.ui.ShimmerFrameLayout;
-/* loaded from: classes3.dex */
+/* loaded from: classes10.dex */
 public class BdShimmerView extends ShimmerFrameLayout implements com.baidu.swan.apps.res.widget.loadingview.b<BdShimmerView> {
     private ImageView mShimmerContent;
     private int mType;
@@ -40,7 +40,7 @@ public class BdShimmerView extends ShimmerFrameLayout implements com.baidu.swan.
             case 0:
                 this.mShimmerContent.setImageDrawable(getResources().getDrawable(a.e.aiapps_black_shimmer_loading));
                 ShimmerFrameLayout.MaskShape maskShape = ShimmerFrameLayout.MaskShape.LINEAR;
-                if (com.baidu.swan.apps.t.a.apQ().getNightModeSwitcherState()) {
+                if (com.baidu.swan.apps.t.a.asC().getNightModeSwitcherState()) {
                     maskShape = ShimmerFrameLayout.MaskShape.WHITE_LINEAR;
                 }
                 setMaskShape(maskShape);
@@ -58,7 +58,7 @@ public class BdShimmerView extends ShimmerFrameLayout implements com.baidu.swan.
     @Override // com.baidu.swan.apps.res.ui.ShimmerFrameLayout, android.view.ViewGroup, android.view.View
     public void onAttachedToWindow() {
         super.onAttachedToWindow();
-        com.baidu.swan.apps.t.a.apQ().a(this, new com.baidu.swan.apps.aj.a() { // from class: com.baidu.swan.apps.res.ui.BdShimmerView.1
+        com.baidu.swan.apps.t.a.asC().a(this, new com.baidu.swan.apps.aj.a() { // from class: com.baidu.swan.apps.res.ui.BdShimmerView.1
         });
     }
 
@@ -66,7 +66,7 @@ public class BdShimmerView extends ShimmerFrameLayout implements com.baidu.swan.
     @Override // com.baidu.swan.apps.res.ui.ShimmerFrameLayout, android.view.ViewGroup, android.view.View
     public void onDetachedFromWindow() {
         super.onDetachedFromWindow();
-        com.baidu.swan.apps.t.a.apQ().unsubscribeNightModeChangedEvent(this);
+        com.baidu.swan.apps.t.a.asC().unsubscribeNightModeChangedEvent(this);
     }
 
     public void setPageResources() {

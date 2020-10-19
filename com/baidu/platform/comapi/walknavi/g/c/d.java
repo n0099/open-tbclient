@@ -3,13 +3,15 @@ package com.baidu.platform.comapi.walknavi.g.c;
 import android.os.Handler;
 import android.view.View;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes3.dex */
+/* loaded from: classes7.dex */
 public class d extends com.baidu.platform.comapi.wnplatform.p.n {
-    final /* synthetic */ c a;
+
+    /* renamed from: a  reason: collision with root package name */
+    final /* synthetic */ c f3028a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public d(c cVar) {
-        this.a = cVar;
+        this.f3028a = cVar;
     }
 
     @Override // com.baidu.platform.comapi.wnplatform.p.n
@@ -17,10 +19,10 @@ public class d extends com.baidu.platform.comapi.wnplatform.p.n {
         Handler handler;
         Handler handler2;
         if (com.baidu.platform.comapi.walknavi.b.a().w()) {
-            handler = this.a.n;
-            if (handler != null && this.a.i != null) {
-                handler2 = this.a.n;
-                handler2.removeCallbacks(this.a.i);
+            handler = this.f3028a.n;
+            if (handler != null && this.f3028a.i != null) {
+                handler2 = this.f3028a.n;
+                handler2.removeCallbacks(this.f3028a.i);
             }
             com.baidu.platform.comapi.walknavi.b.a().a(1, false);
         }

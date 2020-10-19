@@ -4,9 +4,11 @@ import com.baidu.ar.constants.HttpConstants;
 import com.baidu.searchbox.ugc.model.UgcConstant;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class a extends g {
-    private String a;
+
+    /* renamed from: a  reason: collision with root package name */
+    private String f4007a;
     private String b;
     private String c;
     private String d;
@@ -19,10 +21,10 @@ public class a extends g {
     private String k;
     private long l;
     private String m;
-    private JSONObject nsU;
+    private JSONObject nIo;
 
     public void a(JSONObject jSONObject) {
-        this.nsU = jSONObject;
+        this.nIo = jSONObject;
     }
 
     public void a(long j) {
@@ -50,7 +52,7 @@ public class a extends g {
     }
 
     public void f(String str) {
-        this.a = str;
+        this.f4007a = str;
     }
 
     public void g(String str) {
@@ -90,7 +92,7 @@ public class a extends g {
     public JSONObject b() {
         JSONObject jSONObject = new JSONObject();
         try {
-            jSONObject.put("version", this.a);
+            jSONObject.put("version", this.f4007a);
             jSONObject.put("msgid", this.b);
             jSONObject.put("appid", this.c);
             jSONObject.put("scrip", this.d);
@@ -101,21 +103,23 @@ public class a extends g {
             jSONObject.put(UgcConstant.SOURCE_ID, this.i);
             jSONObject.put("authenticated_appid", this.j);
             jSONObject.put("genTokenByAppid", this.k);
-            jSONObject.put("rcData", this.nsU);
+            jSONObject.put("rcData", this.nIo);
         } catch (JSONException e) {
             e.printStackTrace();
         }
         return jSONObject;
     }
 
-    public String UG(String str) {
-        return dI(this.a + this.c + str + this.d);
+    public String Vu(String str) {
+        return dN(this.f4007a + this.c + str + this.d);
     }
 
     /* renamed from: com.cmic.sso.sdk.c.b.a$a  reason: collision with other inner class name */
-    /* loaded from: classes7.dex */
-    public static class C0856a {
-        private String a;
+    /* loaded from: classes8.dex */
+    public static class C0874a {
+
+        /* renamed from: a  reason: collision with root package name */
+        private String f4008a;
         private String b;
         private String c;
         private String d;
@@ -128,7 +132,7 @@ public class a extends g {
         private String k;
 
         public void a(String str) {
-            this.a = str;
+            this.f4008a = str;
         }
 
         public void b(String str) {
@@ -174,7 +178,7 @@ public class a extends g {
         public JSONObject a() {
             JSONObject jSONObject = new JSONObject();
             try {
-                jSONObject.put("phone_id", this.a);
+                jSONObject.put("phone_id", this.f4008a);
                 jSONObject.put("os", this.b);
                 jSONObject.put("dev_model", this.c);
                 jSONObject.put("dev_brand", this.d);

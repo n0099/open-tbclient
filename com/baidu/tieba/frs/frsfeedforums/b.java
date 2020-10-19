@@ -5,25 +5,25 @@ import android.widget.TextView;
 import com.baidu.tbadk.core.view.BarImageView;
 import com.baidu.tbadk.core.view.userLike.EntelechyUserLikeButton;
 import com.baidu.tieba.R;
-/* loaded from: classes21.dex */
+/* loaded from: classes22.dex */
 public class b {
-    public int aiX = 3;
-    public View ftd;
-    public BarImageView ioj;
-    public TextView iok;
-    public TextView iol;
-    public EntelechyUserLikeButton iom;
+    public int ajp = 3;
+    public View fFo;
+    public BarImageView iDc;
+    public TextView iDd;
+    public TextView iDe;
+    public EntelechyUserLikeButton iDf;
     public View mDivider;
     public TextView mTitle;
     public int position;
 
     public b(View view) {
-        this.ftd = view;
-        this.ioj = (BarImageView) view.findViewById(R.id.frs_feed_forum_image);
+        this.fFo = view;
+        this.iDc = (BarImageView) view.findViewById(R.id.frs_feed_forum_image);
         this.mTitle = (TextView) view.findViewById(R.id.frs_feed_forum_title);
-        this.iok = (TextView) view.findViewById(R.id.frs_feed_forum_other_info);
-        this.iol = (TextView) view.findViewById(R.id.frs_feed_forum_related);
-        this.iom = (EntelechyUserLikeButton) view.findViewById(R.id.frs_feed_forum_attention);
+        this.iDd = (TextView) view.findViewById(R.id.frs_feed_forum_other_info);
+        this.iDe = (TextView) view.findViewById(R.id.frs_feed_forum_related);
+        this.iDf = (EntelechyUserLikeButton) view.findViewById(R.id.frs_feed_forum_attention);
         this.mDivider = view.findViewById(R.id.frs_feed_forum_divider);
     }
 }

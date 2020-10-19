@@ -17,9 +17,11 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 import org.json.JSONObject;
-/* loaded from: classes16.dex */
+/* loaded from: classes17.dex */
 public class a extends UploadBean {
-    private String a;
+
+    /* renamed from: a  reason: collision with root package name */
+    private String f1708a;
     private String b;
     private String c;
     private String d;
@@ -27,7 +29,7 @@ public class a extends UploadBean {
     private LivenessRecogDTO f;
 
     public void a(String str) {
-        this.a = str;
+        this.f1708a = str;
     }
 
     public void b(String str) {
@@ -89,7 +91,7 @@ public class a extends UploadBean {
         } else if (!TextUtils.isEmpty(this.c)) {
             arrayList.add(new RestNameValuePair("zid", this.c));
         }
-        if (!TextUtils.isEmpty(this.a)) {
+        if (!TextUtils.isEmpty(this.f1708a)) {
             arrayList.add(new RestNameValuePair("audioStartTime", "0"));
         }
         if (!TextUtils.isEmpty(this.e)) {

@@ -13,13 +13,15 @@ import java.lang.ref.WeakReference;
 import java.util.Map;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes15.dex */
+/* loaded from: classes17.dex */
 public class BDStatCore {
     public static final int INVOKE_ACT = 1;
     public static final int INVOKE_API = 0;
     public static final int INVOKE_CUSTOME = 3;
     public static final int INVOKE_FRAG = 2;
-    private static BDStatCore a;
+
+    /* renamed from: a  reason: collision with root package name */
+    private static BDStatCore f2460a;
     private Handler b;
     private SessionAnalysis d;
     private EventAnalysis e;
@@ -30,14 +32,14 @@ public class BDStatCore {
     private volatile boolean h = false;
 
     public static BDStatCore instance() {
-        if (a == null) {
+        if (f2460a == null) {
             synchronized (BDStatCore.class) {
-                if (a == null) {
-                    a = new BDStatCore();
+                if (f2460a == null) {
+                    f2460a = new BDStatCore();
                 }
             }
         }
-        return a;
+        return f2460a;
     }
 
     private BDStatCore() {

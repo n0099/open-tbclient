@@ -11,12 +11,14 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.util.zip.ZipEntry;
 import java.util.zip.ZipFile;
-/* loaded from: classes3.dex */
+/* loaded from: classes7.dex */
 public class a {
-    private static final boolean a;
+
+    /* renamed from: a  reason: collision with root package name */
+    private static final boolean f2205a;
 
     static {
-        a = Build.VERSION.SDK_INT >= 8;
+        f2205a = Build.VERSION.SDK_INT >= 8;
     }
 
     public static Bitmap a(String str, Context context) {
@@ -43,7 +45,7 @@ public class a {
         ZipFile zipFile2 = null;
         StringBuilder sb = new StringBuilder(context.getFilesDir().getAbsolutePath());
         try {
-            zipFile = new ZipFile(a ? context.getPackageCodePath() : "");
+            zipFile = new ZipFile(f2205a ? context.getPackageCodePath() : "");
         } catch (Exception e) {
             e = e;
         } catch (Throwable th) {

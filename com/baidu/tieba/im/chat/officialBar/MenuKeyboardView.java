@@ -7,14 +7,14 @@ import com.baidu.tbadk.editortools.EditorTools;
 import com.baidu.tbadk.editortools.RawLayout;
 import com.baidu.tbadk.editortools.n;
 import com.baidu.tieba.R;
-/* loaded from: classes25.dex */
+/* loaded from: classes26.dex */
 public class MenuKeyboardView extends LinearLayout implements n {
-    private EditorTools aaS;
-    private int aaT;
+    private EditorTools abj;
+    private int abk;
 
     public MenuKeyboardView(Context context) {
         super(context);
-        this.aaT = 0;
+        this.abk = 0;
         inflate(context, R.layout.official_bar_menu_toggle, this);
         setLayoutParams(new RawLayout.LayoutParams(context.getResources().getDimensionPixelSize(R.dimen.ds100), -2));
         setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.im.chat.officialBar.MenuKeyboardView.1
@@ -31,24 +31,24 @@ public class MenuKeyboardView extends LinearLayout implements n {
 
     @Override // com.baidu.tbadk.editortools.n
     public void setEditorTools(EditorTools editorTools) {
-        this.aaS = editorTools;
+        this.abj = editorTools;
     }
 
     @Override // com.baidu.tbadk.editortools.n
     public void b(com.baidu.tbadk.editortools.a aVar) {
-        if (this.aaS != null) {
-            this.aaS.b(aVar);
+        if (this.abj != null) {
+            this.abj.b(aVar);
         }
     }
 
     @Override // com.baidu.tbadk.editortools.n
     public void setToolId(int i) {
-        this.aaT = i;
+        this.abk = i;
     }
 
     @Override // com.baidu.tbadk.editortools.n
     public int getToolId() {
-        return this.aaT;
+        return this.abk;
     }
 
     @Override // com.baidu.tbadk.editortools.n

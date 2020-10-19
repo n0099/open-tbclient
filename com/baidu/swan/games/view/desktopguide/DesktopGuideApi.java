@@ -29,53 +29,53 @@ import com.baidu.swan.games.binding.model.c;
 import com.baidu.swan.games.view.b;
 import com.baidu.swan.menu.PopupWindow;
 import java.util.concurrent.atomic.AtomicBoolean;
-/* loaded from: classes3.dex */
+/* loaded from: classes10.dex */
 public class DesktopGuideApi implements b {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    private long bXB;
-    private long bXC;
-    private long bXD;
-    private PopupWindow bXl;
-    private com.baidu.swan.games.view.b bXr;
-    private volatile long cjK;
-    private volatile c dAn;
-    private volatile DesktopGuideType dAo;
-    private Runnable dAp;
-    private AtomicBoolean dAq = new AtomicBoolean(false);
-    private volatile long dAr;
-    private volatile long dAs;
-    protected com.baidu.swan.games.f.b dqC;
+    private PopupWindow cjA;
+    private com.baidu.swan.games.view.b cjG;
+    private long cjQ;
+    private long cjR;
+    private long cjS;
+    private volatile long cwc;
+    protected com.baidu.swan.games.f.b dCG;
+    private volatile c dMo;
+    private volatile DesktopGuideType dMp;
+    private Runnable dMq;
+    private AtomicBoolean dMr = new AtomicBoolean(false);
+    private volatile long dMs;
+    private volatile long dMt;
 
     public DesktopGuideApi(com.baidu.swan.games.f.b bVar) {
-        this.dqC = bVar;
+        this.dCG = bVar;
         updateConfig();
-        aRx();
+        aUg();
     }
 
     private void updateConfig() {
-        com.baidu.swan.apps.storage.c.b aDP = h.aDP();
-        this.bXB = aDP.getLong("swan_favorite_guide_duration", 3L);
-        this.bXC = aDP.getLong("swan_favorite_guide_intervalDays", 3L);
-        this.bXD = aDP.getLong("swan_favorite_guide_maxTimes", 3L);
+        com.baidu.swan.apps.storage.c.b aGy = h.aGy();
+        this.cjQ = aGy.getLong("swan_favorite_guide_duration", 3L);
+        this.cjR = aGy.getLong("swan_favorite_guide_intervalDays", 3L);
+        this.cjS = aGy.getLong("swan_favorite_guide_maxTimes", 3L);
     }
 
-    private void acx() {
-        if (this.bXr == null) {
-            this.bXr = com.baidu.swan.games.view.b.aQX();
-            if (this.bXr != null) {
-                this.bXr.a(new b.a() { // from class: com.baidu.swan.games.view.desktopguide.DesktopGuideApi.1
+    private void afj() {
+        if (this.cjG == null) {
+            this.cjG = com.baidu.swan.games.view.b.aTG();
+            if (this.cjG != null) {
+                this.cjG.a(new b.a() { // from class: com.baidu.swan.games.view.desktopguide.DesktopGuideApi.1
                     @Override // com.baidu.swan.games.view.b.a
-                    public void gF(int i) {
-                        if (i == 0 && DesktopGuideApi.this.bXl != null && DesktopGuideApi.this.bXl.isShowing()) {
-                            DesktopGuideApi.this.PF();
+                    public void hc(int i) {
+                        if (i == 0 && DesktopGuideApi.this.cjA != null && DesktopGuideApi.this.cjA.isShowing()) {
+                            DesktopGuideApi.this.QK();
                             DesktopGuideApi.this.a(DesktopApiStatus.USER_CANCEL);
                         }
                     }
 
                     @Override // com.baidu.swan.games.view.b.a
-                    public void acy() {
-                        if (DesktopGuideApi.this.bXl != null && DesktopGuideApi.this.bXl.isShowing()) {
-                            DesktopGuideApi.this.PF();
+                    public void afk() {
+                        if (DesktopGuideApi.this.cjA != null && DesktopGuideApi.this.cjA.isShowing()) {
+                            DesktopGuideApi.this.QK();
                             DesktopGuideApi.this.a(DesktopApiStatus.USER_CANCEL);
                         }
                     }
@@ -84,32 +84,32 @@ public class DesktopGuideApi implements b {
         }
     }
 
-    private void aRx() {
-        this.dAp = new Runnable() { // from class: com.baidu.swan.games.view.desktopguide.DesktopGuideApi.2
+    private void aUg() {
+        this.dMq = new Runnable() { // from class: com.baidu.swan.games.view.desktopguide.DesktopGuideApi.2
             @Override // java.lang.Runnable
             public void run() {
-                DesktopGuideApi.this.PF();
+                DesktopGuideApi.this.QK();
                 DesktopGuideApi.this.a(DesktopApiStatus.USER_CANCEL);
             }
         };
     }
 
-    private void wE(@NonNull String str) {
-        String string = h.aDP().getString(str, "");
+    private void xq(@NonNull String str) {
+        String string = h.aGy().getString(str, "");
         String[] split = string.split("#");
         if (split.length == 3 && TextUtils.isDigitsOnly(split[0]) && TextUtils.isDigitsOnly(split[1]) && TextUtils.isDigitsOnly(split[2])) {
-            this.dAr = Long.parseLong(split[0]);
-            this.cjK = Long.parseLong(split[1]);
-            this.dAs = Long.parseLong(split[2]);
+            this.dMs = Long.parseLong(split[0]);
+            this.cwc = Long.parseLong(split[1]);
+            this.dMt = Long.parseLong(split[2]);
         }
         if (DEBUG) {
-            Log.d("ShowAddToDesktopGuide", "duration=" + this.bXB + ", mIntervalDays=" + this.bXC + ", mMaxTimes=" + this.bXD + " ,storageValue=" + string);
+            Log.d("ShowAddToDesktopGuide", "duration=" + this.cjQ + ", mIntervalDays=" + this.cjR + ", mMaxTimes=" + this.cjS + " ,storageValue=" + string);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void a(@NonNull e eVar, long j, long j2, long j3) {
-        h.aDP().putString("desktop_guide_count_" + eVar.id, j + "#" + j2 + "#" + j3);
+        h.aGy().putString("desktop_guide_count_" + eVar.id, j + "#" + j2 + "#" + j3);
     }
 
     public void q(JsObject jsObject) {
@@ -117,39 +117,39 @@ public class DesktopGuideApi implements b {
         if (e == null) {
             e = new c();
         }
-        this.dAn = e;
-        final e aAr = e.aAr();
-        if (aAr == null) {
+        this.dMo = e;
+        final e aDa = e.aDa();
+        if (aDa == null) {
             a(DesktopApiStatus.EXEC_FAILURE);
             return;
         }
-        final SwanAppActivity aAl = aAr.aAl();
-        if (aAl == null) {
+        final SwanAppActivity aCU = aDa.aCU();
+        if (aCU == null) {
             a(DesktopApiStatus.EXEC_FAILURE);
             return;
         }
-        this.dAo = DesktopGuideType.parse(e.optString("type"));
+        this.dMp = DesktopGuideType.parse(e.optString("type"));
         String optString = e.optString("content");
-        String string = TextUtils.isEmpty(optString) ? aAl.getString(this.dAo.defaultText) : optString;
-        if (b(aAl, aAr)) {
+        String string = TextUtils.isEmpty(optString) ? aCU.getString(this.dMp.defaultText) : optString;
+        if (b(aCU, aDa)) {
             a(DesktopApiStatus.ALREADY_IN_DESKTOP);
             return;
         }
-        wE("desktop_guide_count_" + aAr.id);
+        xq("desktop_guide_count_" + aDa.id);
         long currentTimeMillis = System.currentTimeMillis();
-        if (this.dAr >= this.bXD || currentTimeMillis - this.cjK <= this.bXC * 86400000) {
+        if (this.dMs >= this.cjS || currentTimeMillis - this.cwc <= this.cjR * 86400000) {
             a(DesktopApiStatus.REACH_MAX_TIMES);
-        } else if (this.dAq.get()) {
+        } else if (this.dMr.get()) {
             a(DesktopApiStatus.REACH_MAX_TIMES);
         } else {
-            this.dAq.set(true);
-            a(aAr, this.dAr + 1, currentTimeMillis, 0L);
-            final Bitmap a = ak.a((com.baidu.swan.apps.u.c.b) aAr.YI(), "ShowAddToDesktopGuide", false);
+            this.dMr.set(true);
+            a(aDa, this.dMs + 1, currentTimeMillis, 0L);
+            final Bitmap a2 = ak.a((com.baidu.swan.apps.u.c.b) aDa.abu(), "ShowAddToDesktopGuide", false);
             final String str = string;
             ak.runOnUiThread(new Runnable() { // from class: com.baidu.swan.games.view.desktopguide.DesktopGuideApi.3
                 @Override // java.lang.Runnable
                 public void run() {
-                    DesktopGuideApi.this.a(aAl, aAr, DesktopGuideApi.this.dAo, str, a);
+                    DesktopGuideApi.this.a(aCU, aDa, DesktopGuideApi.this.dMp, str, a2);
                 }
             });
         }
@@ -158,10 +158,10 @@ public class DesktopGuideApi implements b {
     private void a(ViewGroup viewGroup, DesktopGuideType desktopGuideType) {
         ViewGroup.LayoutParams layoutParams = viewGroup.getLayoutParams();
         int i = desktopGuideType.showWidth4px;
-        int H = ah.H(7.0f);
+        int J = ah.J(7.0f);
         int displayWidth = ah.getDisplayWidth(null);
-        if (displayWidth - i < H * 2) {
-            i = displayWidth - (H * 2);
+        if (displayWidth - i < J * 2) {
+            i = displayWidth - (J * 2);
         }
         layoutParams.width = i;
         viewGroup.setLayoutParams(layoutParams);
@@ -170,9 +170,9 @@ public class DesktopGuideApi implements b {
     /* JADX INFO: Access modifiers changed from: private */
     @UiThread
     public void a(@NonNull final Activity activity, @NonNull final e eVar, @NonNull final DesktopGuideType desktopGuideType, @NonNull String str, Bitmap bitmap) {
-        acx();
-        if (this.bXr != null) {
-            this.bXr.lu(1);
+        afj();
+        if (this.cjG != null) {
+            this.cjG.lR(1);
         }
         View inflate = LayoutInflater.from(activity).inflate(a.g.aiapps_favorite_guide_normal, (ViewGroup) null, false);
         TextView textView = (TextView) inflate.findViewById(a.f.favorite_guide_content);
@@ -194,9 +194,9 @@ public class DesktopGuideApi implements b {
             imageView2.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.swan.games.view.desktopguide.DesktopGuideApi.4
                 @Override // android.view.View.OnClickListener
                 public void onClick(View view) {
-                    DesktopGuideApi.this.PF();
+                    DesktopGuideApi.this.QK();
                     DesktopGuideApi.this.a(DesktopApiStatus.USER_CANCEL);
-                    com.baidu.swan.apps.statistic.h.N(desktopGuideType.ubcType, "flow_close_close", "click");
+                    com.baidu.swan.apps.statistic.h.O(desktopGuideType.ubcType, "flow_close_close", "click");
                 }
             });
         }
@@ -205,39 +205,39 @@ public class DesktopGuideApi implements b {
         button.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.swan.games.view.desktopguide.DesktopGuideApi.5
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                DesktopGuideApi.this.PF();
+                DesktopGuideApi.this.QK();
                 DesktopGuideApi.this.a(activity, eVar);
-                com.baidu.swan.apps.statistic.h.N(desktopGuideType.ubcType, "desk_flow".equals(desktopGuideType.ubcType) ? "flow_close_add" : "flow_add", "click");
+                com.baidu.swan.apps.statistic.h.O(desktopGuideType.ubcType, "desk_flow".equals(desktopGuideType.ubcType) ? "flow_close_add" : "flow_add", "click");
             }
         });
-        this.bXl = new PopupWindow(inflate, -1, -2);
-        this.bXl.setSoftInputMode(16);
-        this.bXl.showAtLocation(activity.getWindow().getDecorView(), 81, 0, ah.H(50.0f));
-        this.bXl.a(new PopupWindow.a() { // from class: com.baidu.swan.games.view.desktopguide.DesktopGuideApi.6
+        this.cjA = new PopupWindow(inflate, -1, -2);
+        this.cjA.setSoftInputMode(16);
+        this.cjA.showAtLocation(activity.getWindow().getDecorView(), 81, 0, ah.J(50.0f));
+        this.cjA.a(new PopupWindow.a() { // from class: com.baidu.swan.games.view.desktopguide.DesktopGuideApi.6
             @Override // com.baidu.swan.menu.PopupWindow.a
             public void onDismiss() {
-                DesktopGuideApi.this.dAq.set(false);
+                DesktopGuideApi.this.dMr.set(false);
             }
         });
-        if (desktopGuideType == DesktopGuideType.BAR_AUTOHIDE && this.dAp != null) {
-            ak.l(this.dAp);
-            ak.c(this.dAp, this.bXB * 1000);
+        if (desktopGuideType == DesktopGuideType.BAR_AUTOHIDE && this.dMq != null) {
+            ak.l(this.dMq);
+            ak.c(this.dMq, this.cjQ * 1000);
         }
-        com.baidu.swan.apps.statistic.h.N(desktopGuideType.ubcType, dAx, "show");
+        com.baidu.swan.apps.statistic.h.O(desktopGuideType.ubcType, dMy, "show");
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     @AnyThread
-    public void PF() {
-        if (this.dAp != null) {
-            ak.l(this.dAp);
+    public void QK() {
+        if (this.dMq != null) {
+            ak.l(this.dMq);
         }
         ak.runOnUiThread(new Runnable() { // from class: com.baidu.swan.games.view.desktopguide.DesktopGuideApi.7
             @Override // java.lang.Runnable
             public void run() {
-                if (DesktopGuideApi.this.bXl != null) {
-                    DesktopGuideApi.this.bXl.dismiss();
-                    DesktopGuideApi.this.bXl = null;
+                if (DesktopGuideApi.this.cjA != null) {
+                    DesktopGuideApi.this.cjA.dismiss();
+                    DesktopGuideApi.this.cjA = null;
                 }
             }
         });
@@ -245,13 +245,13 @@ public class DesktopGuideApi implements b {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void a(@NonNull Context context, @NonNull final e eVar) {
-        b.a YI = eVar.YI();
-        if (YI == null) {
+        b.a abu = eVar.abu();
+        if (abu == null) {
             a(DesktopApiStatus.EXEC_FAILURE);
         } else {
-            com.baidu.swan.apps.ai.a.a(context, YI, new a.InterfaceC0330a() { // from class: com.baidu.swan.games.view.desktopguide.DesktopGuideApi.8
-                @Override // com.baidu.swan.apps.ai.a.InterfaceC0330a
-                public void jD(int i) {
+            com.baidu.swan.apps.ai.a.a(context, abu, new a.InterfaceC0347a() { // from class: com.baidu.swan.games.view.desktopguide.DesktopGuideApi.8
+                @Override // com.baidu.swan.apps.ai.a.InterfaceC0347a
+                public void ka(int i) {
                     DesktopApiStatus desktopApiStatus;
                     String str;
                     switch (i) {
@@ -262,8 +262,8 @@ public class DesktopGuideApi implements b {
                         case 0:
                         default:
                             DesktopApiStatus desktopApiStatus2 = DesktopApiStatus.ADD_FAIL;
-                            if (DesktopGuideApi.this.dAs + 1 < 3) {
-                                DesktopGuideApi.this.a(eVar, DesktopGuideApi.this.dAr, DesktopGuideApi.this.cjK, DesktopGuideApi.this.dAs + 1);
+                            if (DesktopGuideApi.this.dMt + 1 < 3) {
+                                DesktopGuideApi.this.a(eVar, DesktopGuideApi.this.dMs, DesktopGuideApi.this.cwc, DesktopGuideApi.this.dMt + 1);
                             }
                             str = "desk_fail";
                             desktopApiStatus = desktopApiStatus2;
@@ -274,25 +274,25 @@ public class DesktopGuideApi implements b {
                             break;
                     }
                     DesktopGuideApi.this.a(desktopApiStatus);
-                    com.baidu.swan.apps.statistic.h.N(DesktopGuideApi.this.dAo.ubcType, str, "click");
+                    com.baidu.swan.apps.statistic.h.O(DesktopGuideApi.this.dMp.ubcType, str, "click");
                 }
             });
         }
     }
 
     private boolean b(@NonNull Context context, @NonNull e eVar) {
-        return com.baidu.swan.apps.ai.a.o(context, eVar.getName(), eVar.id) == 1;
+        return com.baidu.swan.apps.ai.a.r(context, eVar.getName(), eVar.id) == 1;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     @AnyThread
     public void a(DesktopApiStatus desktopApiStatus) {
-        if (this.dAn != null) {
-            com.baidu.swan.games.utils.b.a(this.dAn, desktopApiStatus.success, new a(desktopApiStatus.statusCode, desktopApiStatus.statusMsg));
+        if (this.dMo != null) {
+            com.baidu.swan.games.utils.b.a(this.dMo, desktopApiStatus.success, new a(desktopApiStatus.statusCode, desktopApiStatus.statusMsg));
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes10.dex */
     public enum DesktopGuideType {
         BAR("bar", -1, 992, "desk_flow", a.h.swangame_desktop_guide_default_hint),
         BAR_AUTOHIDE("bar-autohide", -1, 865, "desk_flow_close", a.h.swangame_desktop_guide_default_hint);
@@ -323,7 +323,7 @@ public class DesktopGuideApi implements b {
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes10.dex */
     public enum DesktopApiStatus {
         ALREADY_IN_DESKTOP(true, 1, "shortcut already in the desktop."),
         ADD_SUCCESS(true, 2, "add shortcut to desktop success."),

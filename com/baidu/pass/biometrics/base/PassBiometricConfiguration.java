@@ -4,19 +4,23 @@ import android.app.Application;
 import android.text.TextUtils;
 import com.baidu.pass.biometrics.base.debug.Log;
 import com.baidu.pass.biometrics.base.utils.PassBioEnv;
-/* loaded from: classes6.dex */
+/* loaded from: classes11.dex */
 public class PassBiometricConfiguration {
     public static final String TARGET_TPL = "pp";
-    private Application a;
+
+    /* renamed from: a  reason: collision with root package name */
+    private Application f2684a;
     public final String appId;
     public final String appSignKey;
     public String passDomain;
     public boolean showPmnRationaleDialog;
     public final String tpl;
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes11.dex */
     public static class Builder {
-        private String a;
+
+        /* renamed from: a  reason: collision with root package name */
+        private String f2685a;
         private String b;
         private String c;
         private String d;
@@ -29,7 +33,7 @@ public class PassBiometricConfiguration {
         }
 
         public PassBiometricConfiguration build() {
-            if (!TextUtils.isEmpty(this.a) && !TextUtils.isEmpty(this.b) && !TextUtils.isEmpty(this.c)) {
+            if (!TextUtils.isEmpty(this.f2685a) && !TextUtils.isEmpty(this.b) && !TextUtils.isEmpty(this.c)) {
                 if (this.d == null) {
                     this.d = PassBioEnv.PASSPORT_DOMAIN;
                 }
@@ -44,7 +48,7 @@ public class PassBiometricConfiguration {
         }
 
         public Builder setProductLineInfo(String str, String str2, String str3) {
-            this.a = str;
+            this.f2685a = str;
             this.b = str2;
             this.c = str3;
             return this;
@@ -66,16 +70,16 @@ public class PassBiometricConfiguration {
     }
 
     public Application getApplication() {
-        return this.a;
+        return this.f2684a;
     }
 
     private PassBiometricConfiguration(Builder builder) {
-        this.tpl = builder.a;
+        this.tpl = builder.f2685a;
         this.appId = builder.b;
         this.appSignKey = builder.c;
         this.passDomain = builder.d;
         debug(builder.f);
         this.showPmnRationaleDialog = builder.e;
-        this.a = builder.g;
+        this.f2684a = builder.g;
     }
 }

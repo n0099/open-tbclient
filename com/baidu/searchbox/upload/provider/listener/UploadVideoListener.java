@@ -1,5 +1,5 @@
 package com.baidu.searchbox.upload.provider.listener;
-/* loaded from: classes18.dex */
+/* loaded from: classes8.dex */
 public interface UploadVideoListener {
     void uploadFail(String str);
 

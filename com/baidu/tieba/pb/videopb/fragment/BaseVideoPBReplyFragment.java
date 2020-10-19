@@ -4,13 +4,13 @@ import com.baidu.tbadk.core.BaseFragment;
 import com.baidu.tieba.pb.pb.main.PbActivity;
 import com.baidu.tieba.pb.pb.main.PbModel;
 import com.baidu.tieba.pb.videopb.VideoPbFragment;
-/* loaded from: classes21.dex */
+/* loaded from: classes22.dex */
 public abstract class BaseVideoPBReplyFragment extends BaseFragment {
-    public abstract PbModel dah();
+    public abstract PbModel ddQ();
 
-    public abstract VideoPbFragment dbL();
+    public abstract VideoPbFragment dfu();
 
-    public abstract PbActivity dbM();
+    public abstract PbActivity dfv();
 
-    public abstract a dir();
+    public abstract a dma();
 }

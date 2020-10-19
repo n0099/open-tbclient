@@ -26,7 +26,7 @@ import javax.net.ssl.SSLSession;
 import javax.net.ssl.SSLSocketFactory;
 import org.apache.http.HttpHost;
 import org.apache.http.protocol.HTTP;
-/* loaded from: classes24.dex */
+/* loaded from: classes12.dex */
 public class RequestEngine {
     /* JADX WARN: Multi-variable type inference failed */
     /* JADX WARN: Type inference failed for: r2v29, types: [java.net.HttpURLConnection] */

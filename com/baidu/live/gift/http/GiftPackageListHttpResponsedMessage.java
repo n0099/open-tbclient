@@ -11,10 +11,10 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 /* loaded from: classes4.dex */
 public class GiftPackageListHttpResponsedMessage extends JsonHttpResponsedMessage {
-    private ArrayList<g> aTr;
-    private ArrayList<i> aTs;
-    private JSONObject aWy;
-    private ArrayList<com.baidu.live.gift.i> aXT;
+    private ArrayList<g> aWC;
+    private ArrayList<i> aWD;
+    private JSONObject aZJ;
+    private ArrayList<com.baidu.live.gift.i> bbn;
     private String scene_from;
 
     public GiftPackageListHttpResponsedMessage() {
@@ -30,18 +30,18 @@ public class GiftPackageListHttpResponsedMessage extends JsonHttpResponsedMessag
     }
 
     public void H(JSONObject jSONObject) {
-        this.aWy = jSONObject.optJSONObject("data");
-        if (this.aWy != null) {
-            this.scene_from = this.aWy.optString("scene_from");
-            j(this.aWy.optJSONArray("list"));
-            k(this.aWy.optJSONArray("num_info"));
+        this.aZJ = jSONObject.optJSONObject("data");
+        if (this.aZJ != null) {
+            this.scene_from = this.aZJ.optString("scene_from");
+            j(this.aZJ.optJSONArray("list"));
+            k(this.aZJ.optJSONArray("num_info"));
         }
     }
 
     private void j(JSONArray jSONArray) {
         if (jSONArray != null && jSONArray.length() > 0) {
-            this.aXT = new ArrayList<>();
-            this.aTr = new ArrayList<>();
+            this.bbn = new ArrayList<>();
+            this.aWC = new ArrayList<>();
             for (int i = 0; i < jSONArray.length(); i++) {
                 JSONObject optJSONObject = jSONArray.optJSONObject(i);
                 int optInt = optJSONObject.optInt("category_id");
@@ -57,8 +57,8 @@ public class GiftPackageListHttpResponsedMessage extends JsonHttpResponsedMessag
                     gVar.setCategoryId(optInt);
                     gVar.setCategoryName(optString);
                     gVar.k(arrayList);
-                    gVar.bh(z);
-                    this.aTr.add(gVar);
+                    gVar.bl(z);
+                    this.aWC.add(gVar);
                 }
                 JSONArray optJSONArray2 = optJSONObject.optJSONArray("gift_list");
                 if (optJSONArray2 != null) {
@@ -71,7 +71,7 @@ public class GiftPackageListHttpResponsedMessage extends JsonHttpResponsedMessag
                             gVar2.setSceneFrom(this.scene_from);
                             gVar2.D(optJSONObject2);
                             gVar2.E(optJSONObject2.optJSONObject("long_press"));
-                            if (gVar2.aPi != null && gVar2.aPi.aPv > 0) {
+                            if (gVar2.aSt != null && gVar2.aSt.aSG > 0) {
                                 arrayList2.add(gVar2);
                             }
                         }
@@ -79,9 +79,9 @@ public class GiftPackageListHttpResponsedMessage extends JsonHttpResponsedMessag
                     com.baidu.live.gift.i iVar = new com.baidu.live.gift.i();
                     iVar.setCategoryId(optInt);
                     iVar.setCategoryName(optString);
-                    iVar.E(arrayList2);
-                    iVar.bh(z);
-                    this.aXT.add(iVar);
+                    iVar.G(arrayList2);
+                    iVar.bl(z);
+                    this.bbn.add(iVar);
                 }
             }
         }
@@ -89,13 +89,13 @@ public class GiftPackageListHttpResponsedMessage extends JsonHttpResponsedMessag
 
     private void k(JSONArray jSONArray) {
         if (jSONArray != null && jSONArray.length() > 0) {
-            this.aTs = new ArrayList<>();
+            this.aWD = new ArrayList<>();
             for (int i = 0; i < jSONArray.length(); i++) {
                 JSONObject optJSONObject = jSONArray.optJSONObject(i);
                 if (optJSONObject != null) {
                     i iVar = new i();
                     iVar.parser(optJSONObject);
-                    this.aTs.add(iVar);
+                    this.aWD.add(iVar);
                 }
             }
         }
@@ -105,19 +105,19 @@ public class GiftPackageListHttpResponsedMessage extends JsonHttpResponsedMessag
         return this.scene_from;
     }
 
-    public ArrayList<com.baidu.live.gift.i> Hy() {
-        return this.aXT;
+    public ArrayList<com.baidu.live.gift.i> Iv() {
+        return this.bbn;
     }
 
     public ArrayList<g> getCategoryList() {
-        return this.aTr;
+        return this.aWC;
     }
 
-    public ArrayList<i> Hz() {
-        return this.aTs;
+    public ArrayList<i> Iw() {
+        return this.aWD;
     }
 
-    public String HA() {
+    public String Ix() {
         return getOrginalMessage() instanceof a ? ((a) getOrginalMessage()).getLoc() : "";
     }
 }

@@ -6,9 +6,11 @@ import android.hardware.Sensor;
 import android.hardware.SensorEventListener;
 import android.hardware.SensorManager;
 import com.baidu.pass.biometrics.base.debug.Log;
-/* loaded from: classes8.dex */
+/* loaded from: classes18.dex */
 public class b {
-    public static final String a = "b";
+
+    /* renamed from: a  reason: collision with root package name */
+    public static final String f2751a = "b";
     private static long b = 1000;
     private Context c;
     private SensorManager d;
@@ -17,7 +19,7 @@ public class b {
     private long g = 0;
     private float h = 2.1474836E9f;
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes18.dex */
     public interface a {
         void a(float f);
     }
@@ -28,7 +30,7 @@ public class b {
 
     @TargetApi(3)
     public void b() {
-        Log.w(a, "unRegisterSensorListener()");
+        Log.w(f2751a, "unRegisterSensorListener()");
         SensorManager sensorManager = this.d;
         if (sensorManager == null || this.e == null) {
             return;
@@ -41,7 +43,7 @@ public class b {
         this.d = (SensorManager) this.c.getSystemService("sensor");
         SensorManager sensorManager = this.d;
         if (sensorManager == null) {
-            Log.w(a, "sensorManager|senserManager == null");
+            Log.w(f2751a, "sensorManager|senserManager == null");
             return;
         }
         this.e = sensorManager.getDefaultSensor(5);

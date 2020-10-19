@@ -3,7 +3,7 @@ package io.reactivex.internal.subscribers;
 import io.reactivex.internal.a.d;
 import io.reactivex.internal.subscriptions.SubscriptionHelper;
 import io.reactivex.j;
-/* loaded from: classes25.dex */
+/* loaded from: classes17.dex */
 public abstract class b<T, R> implements d<R>, j<T> {
     protected final org.a.c<? super R> actual;
     protected boolean done;
@@ -22,18 +22,18 @@ public abstract class b<T, R> implements d<R>, j<T> {
             if (dVar instanceof d) {
                 this.qs = (d) dVar;
             }
-            if (ejg()) {
+            if (emR()) {
                 this.actual.onSubscribe(this);
-                ejh();
+                emS();
             }
         }
     }
 
-    protected boolean ejg() {
+    protected boolean emR() {
         return true;
     }
 
-    protected void ejh() {
+    protected void emS() {
     }
 
     public void onError(Throwable th) {
@@ -60,7 +60,7 @@ public abstract class b<T, R> implements d<R>, j<T> {
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public final int Or(int i) {
+    public final int OX(int i) {
         d<T> dVar = this.qs;
         if (dVar == null || (i & 4) != 0) {
             return 0;

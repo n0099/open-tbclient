@@ -1,6 +1,6 @@
 package com.baidu.tieba.ala.data;
 /* loaded from: classes4.dex */
 public class g {
-    public String fXX;
-    public String fXY;
+    public String gkp;
+    public String gkq;
 }

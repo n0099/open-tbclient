@@ -10,7 +10,9 @@ import java.util.ArrayList;
 import javax.crypto.Cipher;
 /* loaded from: classes11.dex */
 public class d {
-    public static final byte[] a = "#PART#".getBytes();
+
+    /* renamed from: a  reason: collision with root package name */
+    public static final byte[] f3999a = "#PART#".getBytes();
 
     public static String a(String str) {
         if (TextUtils.isEmpty(str)) {
@@ -35,7 +37,7 @@ public class d {
             if (i3 == 117 || i4 == length - 1) {
                 i2++;
                 if (i2 != 1) {
-                    for (byte b : a) {
+                    for (byte b : f3999a) {
                         arrayList.add(Byte.valueOf(b));
                     }
                 }

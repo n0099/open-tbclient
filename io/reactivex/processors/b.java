@@ -3,21 +3,21 @@ package io.reactivex.processors;
 import io.reactivex.internal.util.NotificationLite;
 import org.a.c;
 import org.a.d;
-/* loaded from: classes25.dex */
+/* loaded from: classes17.dex */
 final class b<T> extends a<T> {
     volatile boolean done;
     boolean emitting;
-    final a<T> oBf;
+    final a<T> oQu;
     io.reactivex.internal.util.a<Object> queue;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public b(a<T> aVar) {
-        this.oBf = aVar;
+        this.oQu = aVar;
     }
 
     @Override // io.reactivex.g
     protected void a(c<? super T> cVar) {
-        this.oBf.subscribe(cVar);
+        this.oQu.subscribe(cVar);
     }
 
     @Override // io.reactivex.j, org.a.c
@@ -44,7 +44,7 @@ final class b<T> extends a<T> {
             dVar.cancel();
             return;
         }
-        this.oBf.onSubscribe(dVar);
+        this.oQu.onSubscribe(dVar);
         emitLoop();
     }
 
@@ -63,7 +63,7 @@ final class b<T> extends a<T> {
                         return;
                     }
                     this.emitting = true;
-                    this.oBf.onNext(t);
+                    this.oQu.onNext(t);
                     emitLoop();
                 }
             }
@@ -86,7 +86,7 @@ final class b<T> extends a<T> {
                         aVar = new io.reactivex.internal.util.a<>(4);
                         this.queue = aVar;
                     }
-                    aVar.bH(NotificationLite.error(th));
+                    aVar.bK(NotificationLite.error(th));
                     return;
                 }
                 z = false;
@@ -95,7 +95,7 @@ final class b<T> extends a<T> {
             if (z) {
                 io.reactivex.e.a.onError(th);
             } else {
-                this.oBf.onError(th);
+                this.oQu.onError(th);
             }
         }
     }
@@ -116,7 +116,7 @@ final class b<T> extends a<T> {
                         return;
                     }
                     this.emitting = true;
-                    this.oBf.onComplete();
+                    this.oQu.onComplete();
                 }
             }
         }
@@ -133,7 +133,7 @@ final class b<T> extends a<T> {
                 }
                 this.queue = null;
             }
-            aVar.b(this.oBf);
+            aVar.b(this.oQu);
         }
     }
 }

@@ -33,9 +33,11 @@ import java.io.File;
 import java.io.FileReader;
 import java.io.IOException;
 import java.util.List;
-/* loaded from: classes3.dex */
+/* loaded from: classes7.dex */
 public class VDeviceAPI {
-    private static PowerManager.WakeLock a = null;
+
+    /* renamed from: a  reason: collision with root package name */
+    private static PowerManager.WakeLock f3902a = null;
     private static BroadcastReceiver b = null;
 
     public static String getAppVersion() {
@@ -314,14 +316,14 @@ public class VDeviceAPI {
 
     public static void setScreenAlwaysOn(boolean z) {
         if (z) {
-            if (a == null) {
-                a = ((PowerManager) VIContext.getContext().getSystemService("power")).newWakeLock(10, "VDeviceAPI");
+            if (f3902a == null) {
+                f3902a = ((PowerManager) VIContext.getContext().getSystemService("power")).newWakeLock(10, "VDeviceAPI");
             }
-            a.acquire();
-        } else if (a == null || !a.isHeld()) {
+            f3902a.acquire();
+        } else if (f3902a == null || !f3902a.isHeld()) {
         } else {
-            a.release();
-            a = null;
+            f3902a.release();
+            f3902a = null;
         }
     }
 

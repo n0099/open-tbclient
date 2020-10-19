@@ -5,30 +5,30 @@ import android.graphics.Rect;
 import android.util.Log;
 import java.lang.ref.WeakReference;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes3.dex */
+/* loaded from: classes10.dex */
 public class d {
     private static final boolean DEBUG = com.baidu.swan.apps.runtime.e.DEBUG;
-    Rect bry;
-    boolean cGd;
-    private WeakReference<Bitmap> cGg;
-    boolean cGh;
+    boolean bWo;
+    Rect bvm;
+    private WeakReference<Bitmap> cSj;
+    boolean cSk;
     String id;
     long remainTime;
     String url;
-    int cGf = 0;
+    int cSi = 0;
     long startTime = System.currentTimeMillis();
-    int cGe = 0;
+    int cSh = 0;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public d(String str, String str2, long j, boolean z) {
         this.id = str;
         this.url = str2;
         this.remainTime = j;
-        this.cGh = z;
+        this.cSk = z;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public long avi() {
+    public long axT() {
         if (this.remainTime > 0) {
             this.remainTime -= System.currentTimeMillis() - this.startTime;
         }
@@ -51,22 +51,22 @@ public class d {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public void avj() {
-        this.cGe = 1;
+    public void axU() {
+        this.cSh = 1;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public void avk() {
-        this.cGe = 2;
+    public void axV() {
+        this.cSh = 2;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public boolean isChecked() {
-        return this.cGe == 2;
+        return this.cSh == 2;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public void p(Bitmap bitmap) {
-        this.cGg = new WeakReference<>(bitmap);
+        this.cSj = new WeakReference<>(bitmap);
     }
 }

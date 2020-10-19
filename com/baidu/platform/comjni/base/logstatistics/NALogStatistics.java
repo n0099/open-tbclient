@@ -1,7 +1,7 @@
 package com.baidu.platform.comjni.base.logstatistics;
 
 import com.baidu.platform.comjni.NativeComponent;
-/* loaded from: classes3.dex */
+/* loaded from: classes7.dex */
 public class NALogStatistics extends NativeComponent {
     public NALogStatistics() {
         create();

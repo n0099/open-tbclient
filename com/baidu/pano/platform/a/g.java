@@ -1,17 +1,19 @@
 package com.baidu.pano.platform.a;
 
 import java.util.concurrent.Executor;
-/* loaded from: classes3.dex */
+/* loaded from: classes7.dex */
 class g implements Executor {
-    final /* synthetic */ f a;
+
+    /* renamed from: a  reason: collision with root package name */
+    final /* synthetic */ f f2652a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public g(f fVar) {
-        this.a = fVar;
+        this.f2652a = fVar;
     }
 
     @Override // java.util.concurrent.Executor
     public void execute(Runnable runnable) {
-        this.a.a.execute(runnable);
+        this.f2652a.f2650a.execute(runnable);
     }
 }

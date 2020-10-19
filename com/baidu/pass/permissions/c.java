@@ -1,20 +1,22 @@
 package com.baidu.pass.permissions;
 
 import android.view.View;
-/* loaded from: classes6.dex */
+/* loaded from: classes9.dex */
 class c implements View.OnClickListener {
-    final /* synthetic */ PermissionsHelperActivity a;
+
+    /* renamed from: a  reason: collision with root package name */
+    final /* synthetic */ PermissionsHelperActivity f2799a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public c(PermissionsHelperActivity permissionsHelperActivity) {
-        this.a = permissionsHelperActivity;
+        this.f2799a = permissionsHelperActivity;
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
         PermissionsCallback permissionsCallback;
-        permissionsCallback = this.a.d;
+        permissionsCallback = this.f2799a.d;
         permissionsCallback.onFailure(-1);
-        this.a.finish();
+        this.f2799a.finish();
     }
 }

@@ -6,9 +6,11 @@ import java.util.concurrent.ExecutionException;
 import java.util.concurrent.Future;
 import java.util.concurrent.TimeUnit;
 import java.util.concurrent.TimeoutException;
-/* loaded from: classes3.dex */
+/* loaded from: classes7.dex */
 public class l<T> implements q.a, q.b<T>, Future<T> {
-    private com.baidu.pano.platform.a.n<?> a;
+
+    /* renamed from: a  reason: collision with root package name */
+    private com.baidu.pano.platform.a.n<?> f2644a;
     private boolean b = false;
     private T c;
     private v d;
@@ -24,8 +26,8 @@ public class l<T> implements q.a, q.b<T>, Future<T> {
     public synchronized boolean cancel(boolean z) {
         boolean z2 = false;
         synchronized (this) {
-            if (this.a != null && !isDone()) {
-                this.a.g();
+            if (this.f2644a != null && !isDone()) {
+                this.f2644a.g();
                 z2 = true;
             }
         }
@@ -72,10 +74,10 @@ public class l<T> implements q.a, q.b<T>, Future<T> {
 
     @Override // java.util.concurrent.Future
     public boolean isCancelled() {
-        if (this.a == null) {
+        if (this.f2644a == null) {
             return false;
         }
-        return this.a.h();
+        return this.f2644a.h();
     }
 
     @Override // java.util.concurrent.Future

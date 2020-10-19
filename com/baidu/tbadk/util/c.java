@@ -20,73 +20,73 @@ import org.json.JSONObject;
 import rx.schedulers.Schedulers;
 /* loaded from: classes.dex */
 public class c {
-    private static JSONObject eXC = null;
-    private static ArrayList<Long> eXD = new ArrayList<>();
-    private static final Hashtable<String, ArrayList<a<Integer, Integer>>> eXE = new Hashtable<>();
-    private static boolean eXF = true;
+    private static JSONObject fjO = null;
+    private static ArrayList<Long> fjP = new ArrayList<>();
+    private static final Hashtable<String, ArrayList<a<Integer, Integer>>> fjQ = new Hashtable<>();
+    private static boolean fjR = true;
 
-    public static void Db(final String str) {
-        rx.d.bW("").c(Schedulers.io()).c(new rx.functions.b<String>() { // from class: com.baidu.tbadk.util.c.1
+    public static void DN(final String str) {
+        rx.d.bZ("").c(Schedulers.io()).c(new rx.functions.b<String>() { // from class: com.baidu.tbadk.util.c.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // rx.functions.b
             public void call(String str2) {
-                String string = com.baidu.tbadk.core.sharedPref.b.bjf().getString("old_sniff_url", "");
+                String string = com.baidu.tbadk.core.sharedPref.b.blO().getString("old_sniff_url", "");
                 if (TextUtils.isEmpty(str) || str.equals(string)) {
-                    c.jJ(false);
+                    c.kh(false);
                     return;
                 }
                 File file = new File(BdBaseApplication.getInst().getApp().getApplicationContext().getFilesDir(), "sniff");
                 if (!file.exists()) {
                     file.mkdir();
                 }
-                if (b.bwd().f(new File(file, "sniff.json"), str) > 0) {
-                    com.baidu.tbadk.core.sharedPref.b.bjf().putString("old_sniff_url", "");
+                if (b.byN().f(new File(file, "sniff.json"), str) > 0) {
+                    com.baidu.tbadk.core.sharedPref.b.blO().putString("old_sniff_url", "");
                 }
-                c.jJ(true);
+                c.kh(true);
             }
         });
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public static void jJ(final boolean z) {
-        rx.d.bW("").c(Schedulers.io()).c(new rx.functions.b<String>() { // from class: com.baidu.tbadk.util.c.2
+    public static void kh(final boolean z) {
+        rx.d.bZ("").c(Schedulers.io()).c(new rx.functions.b<String>() { // from class: com.baidu.tbadk.util.c.2
             /* JADX DEBUG: Method merged with bridge method */
             @Override // rx.functions.b
             public void call(String str) {
-                if (c.eXC == null || z) {
-                    c.bwh();
+                if (c.fjO == null || z) {
+                    c.byR();
                 }
-                c.bwg();
+                c.byQ();
             }
         });
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public static void bwg() {
+    public static void byQ() {
         JSONArray optJSONArray;
-        JSONObject jSONObject = eXC;
+        JSONObject jSONObject = fjO;
         if (jSONObject != null && (optJSONArray = jSONObject.optJSONArray("data")) != null) {
             int length = optJSONArray.length();
-            int size = eXD.size();
+            int size = fjP.size();
             ArrayList<Long> arrayList = new ArrayList<>();
             for (int i = 0; i < length; i++) {
                 if (i < size) {
-                    arrayList.add(eXD.get(i));
+                    arrayList.add(fjP.get(i));
                 } else {
                     arrayList.add(0L);
                 }
             }
-            eXD = arrayList;
+            fjP = arrayList;
             for (int i2 = 0; i2 < length; i2++) {
                 JSONObject optJSONObject = optJSONArray.optJSONObject(i2);
                 if (optJSONObject != null) {
-                    a(i2, optJSONObject.optString("name"), optJSONObject.optInt("interval"), optJSONObject.optJSONArray("list"), eXF);
+                    a(i2, optJSONObject.optString("name"), optJSONObject.optInt("interval"), optJSONObject.optJSONArray("list"), fjR);
                 } else {
                     return;
                 }
             }
-            if (eXF) {
-                eXF = false;
+            if (fjR) {
+                fjR = false;
             }
         }
     }
@@ -95,24 +95,24 @@ public class c {
         if (i >= 0 && !TextUtils.isEmpty(str) && i2 >= 0 && jSONArray != null && jSONArray.length() != 0) {
             long time = new Date().getTime();
             String str2 = "AD_SNIFF_RESULT_KEY_" + str + PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS + "TS";
-            long j = com.baidu.tbadk.core.sharedPref.b.bjf().getLong(str2, 0L);
+            long j = com.baidu.tbadk.core.sharedPref.b.blO().getLong(str2, 0L);
             long millis = TimeUnit.MINUTES.toMillis(i2);
             boolean z2 = j == 0;
             boolean z3 = j > 0 && time - j > millis;
             if (z || z2 || z3) {
-                com.baidu.tbadk.core.sharedPref.b.bjf().putLong(str2, time);
+                com.baidu.tbadk.core.sharedPref.b.blO().putLong(str2, time);
                 b(i, jSONArray);
             }
         }
     }
 
     private static void b(int i, JSONArray jSONArray) {
-        if (i >= eXD.size()) {
+        if (i >= fjP.size()) {
             Log.e("AD_SNIFF_RESULT_KEY", "group index should NOT greater or equal group size!!!");
             return;
         }
         PackageManager packageManager = BdBaseApplication.getInst().getApp().getApplicationContext().getPackageManager();
-        ra(i);
+        ry(i);
         int i2 = 0;
         while (true) {
             int i3 = i2;
@@ -120,24 +120,24 @@ public class c {
                 String optString = jSONArray.optString(i3);
                 int i4 = i3 + 1;
                 a<Integer, Integer> aVar = new a<>(Integer.valueOf(i), Integer.valueOf(i4));
-                ArrayList<a<Integer, Integer>> arrayList = eXE.get(optString);
+                ArrayList<a<Integer, Integer>> arrayList = fjQ.get(optString);
                 if (arrayList == null) {
                     arrayList = new ArrayList<>();
                 }
                 arrayList.add(aVar);
-                eXE.put(optString, arrayList);
+                fjQ.put(optString, arrayList);
                 a(packageManager, optString, i, i4);
                 i2 = i3 + 1;
             } else {
-                rb(i);
-                com.baidu.tbadk.core.sharedPref.b.bjf().putString("AD_SNIFF_RESULT_KEY", bwj());
+                rz(i);
+                com.baidu.tbadk.core.sharedPref.b.blO().putString("AD_SNIFF_RESULT_KEY", byT());
                 return;
             }
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public static void bwh() {
+    public static void byR() {
         File file = new File(BdBaseApplication.getInst().getApp().getApplicationContext().getFilesDir(), "sniff");
         if (file.exists()) {
             File file2 = new File(file, "sniff.json");
@@ -146,7 +146,7 @@ public class c {
                 if (!TextUtils.isEmpty(readFileData)) {
                     synchronized (c.class) {
                         try {
-                            eXC = new JSONObject(readFileData);
+                            fjO = new JSONObject(readFileData);
                         } catch (JSONException e) {
                             e.printStackTrace();
                         }
@@ -159,29 +159,29 @@ public class c {
     private static void a(PackageManager packageManager, String str, int i, int i2) {
         try {
             packageManager.getApplicationInfo(str, 0);
-            bh(i, i2);
+            bg(i, i2);
         } catch (PackageManager.NameNotFoundException e) {
-            bi(i, i2);
+            bh(i, i2);
         }
     }
 
-    private static void ra(int i) {
-        bi(i, 0);
-    }
-
-    private static void rb(int i) {
+    private static void ry(int i) {
         bh(i, 0);
     }
 
-    private static void bh(int i, int i2) {
-        ArrayList<Long> arrayList = eXD;
+    private static void rz(int i) {
+        bg(i, 0);
+    }
+
+    private static void bg(int i, int i2) {
+        ArrayList<Long> arrayList = fjP;
         if (i < arrayList.size()) {
             arrayList.set(i, Long.valueOf(arrayList.get(i).longValue() | (1 << i2)));
         }
     }
 
-    private static void bi(int i, int i2) {
-        ArrayList<Long> arrayList = eXD;
+    private static void bh(int i, int i2) {
+        ArrayList<Long> arrayList = fjP;
         if (i < arrayList.size()) {
             arrayList.set(i, Long.valueOf(arrayList.get(i).longValue() & ((1 << i2) ^ (-1))));
         }
@@ -191,18 +191,18 @@ public class c {
         if (!TextUtils.isEmpty(intent.getDataString())) {
             String substring = intent.getDataString().substring(8);
             String action = intent.getAction();
-            ArrayList<a<Integer, Integer>> arrayList = eXE.get(substring);
+            ArrayList<a<Integer, Integer>> arrayList = fjQ.get(substring);
             if (arrayList != null && arrayList.size() != 0) {
                 Iterator<a<Integer, Integer>> it = arrayList.iterator();
                 while (it.hasNext()) {
                     a<Integer, Integer> next = it.next();
                     if (next != null) {
-                        int intValue = next.eXH.intValue();
-                        int intValue2 = next.eXI.intValue();
+                        int intValue = next.fjT.intValue();
+                        int intValue2 = next.fjU.intValue();
                         if ("android.intent.action.PACKAGE_ADDED".equals(action)) {
-                            bh(intValue, intValue2);
+                            bg(intValue, intValue2);
                         } else {
-                            bi(intValue, intValue2);
+                            bh(intValue, intValue2);
                         }
                     }
                 }
@@ -210,15 +210,15 @@ public class c {
         }
     }
 
-    public static String bwi() {
-        if (eXD.size() > 0) {
-            return bwj();
+    public static String byS() {
+        if (fjP.size() > 0) {
+            return byT();
         }
-        return bwk();
+        return byU();
     }
 
-    private static String bwj() {
-        ArrayList<Long> arrayList = eXD;
+    private static String byT() {
+        ArrayList<Long> arrayList = fjP;
         if (arrayList == null || arrayList.size() == 0) {
             return "";
         }
@@ -230,28 +230,28 @@ public class c {
         return TextUtils.join(Constants.ACCEPT_TIME_SEPARATOR_SP, arrayList2);
     }
 
-    private static String bwk() {
-        String string = com.baidu.tbadk.core.sharedPref.b.bjf().getString("AD_SNIFF_RESULT_KEY", "");
+    private static String byU() {
+        String string = com.baidu.tbadk.core.sharedPref.b.blO().getString("AD_SNIFF_RESULT_KEY", "");
         if (!TextUtils.isEmpty(string)) {
             ArrayList<Long> arrayList = new ArrayList<>();
             for (String str : string.split(Constants.ACCEPT_TIME_SEPARATOR_SP)) {
                 arrayList.add(Long.valueOf(str));
             }
-            eXD = arrayList;
+            fjP = arrayList;
         } else {
-            jJ(false);
+            kh(false);
         }
         return string;
     }
 
     /* loaded from: classes.dex */
     public static class a<X, Y> {
-        public final X eXH;
-        public final Y eXI;
+        public final X fjT;
+        public final Y fjU;
 
         public a(X x, Y y) {
-            this.eXH = x;
-            this.eXI = y;
+            this.fjT = x;
+            this.fjU = y;
         }
     }
 }

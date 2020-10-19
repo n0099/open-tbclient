@@ -5,13 +5,15 @@ import com.vivo.push.cache.ISubscribeAppTagManager;
 import com.vivo.push.model.SubscribeAppInfo;
 import java.util.ArrayList;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes12.dex */
+/* loaded from: classes15.dex */
 public final class g implements Runnable {
-    final /* synthetic */ LocalAliasTagsManager a;
+
+    /* renamed from: a  reason: collision with root package name */
+    final /* synthetic */ LocalAliasTagsManager f4677a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public g(LocalAliasTagsManager localAliasTagsManager) {
-        this.a = localAliasTagsManager;
+        this.f4677a = localAliasTagsManager;
     }
 
     @Override // java.lang.Runnable
@@ -21,7 +23,7 @@ public final class g implements Runnable {
         ISubscribeAppTagManager iSubscribeAppTagManager2;
         boolean z = true;
         boolean z2 = false;
-        iSubscribeAppAliasManager = this.a.mSubscribeAppAliasManager;
+        iSubscribeAppAliasManager = this.f4677a.mSubscribeAppAliasManager;
         SubscribeAppInfo retrySubscribeAppInfo = iSubscribeAppAliasManager.getRetrySubscribeAppInfo();
         if (retrySubscribeAppInfo != null) {
             try {
@@ -39,7 +41,7 @@ public final class g implements Runnable {
                 z2 = true;
             }
         }
-        iSubscribeAppTagManager = this.a.mSubscribeAppTagManager;
+        iSubscribeAppTagManager = this.f4677a.mSubscribeAppTagManager;
         ArrayList<String> retrySubscribeAppInfo2 = iSubscribeAppTagManager.getRetrySubscribeAppInfo();
         if (retrySubscribeAppInfo2 != null && retrySubscribeAppInfo2.size() > 0) {
             if (z2) {
@@ -54,7 +56,7 @@ public final class g implements Runnable {
             p.a().a(LocalAliasTagsManager.DEFAULT_LOCAL_REQUEST_ID, retrySubscribeAppInfo2);
             z2 = z;
         }
-        iSubscribeAppTagManager2 = this.a.mSubscribeAppTagManager;
+        iSubscribeAppTagManager2 = this.f4677a.mSubscribeAppTagManager;
         ArrayList<String> retryUnsubscribeAppInfo = iSubscribeAppTagManager2.getRetryUnsubscribeAppInfo();
         if (retryUnsubscribeAppInfo != null && retryUnsubscribeAppInfo.size() > 0) {
             if (!z2) {

@@ -1,60 +1,60 @@
 package com.baidu.swan.apps.performance.b;
 
 import android.util.Log;
-/* loaded from: classes3.dex */
+/* loaded from: classes10.dex */
 public class c {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    private static boolean cJr = mf("swan_get_swan_id_cache");
-    private static boolean cJs = mf("swan_update_async");
-    private static boolean cJt = com.baidu.swan.apps.t.a.apx().getSwitch("swan_update_async_merge_node", false);
-    private static boolean cJu = mf("swan_pre_app_launch");
-    private static boolean cJv = mf("swan_prevent_series_launch");
-    private static int cJw = com.baidu.swan.apps.t.a.apx().getSwitch("swan_prevent_series_launch_interval", 200);
-    private static boolean cJx = mf("swan_pre_class_loader");
-    private static boolean cJy = com.baidu.swan.apps.t.a.apx().ZR();
-    private static boolean cJz = mf("swan_release_runtime_wait_master_finish");
+    private static boolean cVu = mR("swan_get_swan_id_cache");
+    private static boolean cVv = mR("swan_update_async");
+    private static boolean cVw = com.baidu.swan.apps.t.a.asi().getSwitch("swan_update_async_merge_node", false);
+    private static boolean cVx = mR("swan_pre_app_launch");
+    private static boolean cVy = mR("swan_prevent_series_launch");
+    private static int cVz = com.baidu.swan.apps.t.a.asi().getSwitch("swan_prevent_series_launch_interval", 200);
+    private static boolean cVA = mR("swan_pre_class_loader");
+    private static boolean cVB = com.baidu.swan.apps.t.a.asi().acD();
+    private static boolean cVC = mR("swan_release_runtime_wait_master_finish");
 
-    private static boolean mf(String str) {
-        int i = com.baidu.swan.apps.t.a.apx().getSwitch(str, 0);
+    private static boolean mR(String str) {
+        int i = com.baidu.swan.apps.t.a.asi().getSwitch(str, 0);
         if (DEBUG) {
             Log.d("SwanApiCostOpt", str + " value : " + i);
         }
         return i == 1;
     }
 
-    public static boolean awS() {
-        return cJr;
+    public static boolean azD() {
+        return cVu;
     }
 
-    public static boolean awT() {
-        return cJs;
+    public static boolean azE() {
+        return cVv;
     }
 
-    public static boolean awU() {
-        return cJt;
+    public static boolean azF() {
+        return cVw;
     }
 
-    public static boolean awV() {
-        return cJu;
+    public static boolean azG() {
+        return cVx;
     }
 
-    public static boolean awW() {
-        return cJv;
+    public static boolean azH() {
+        return cVy;
     }
 
-    public static int awX() {
-        return cJw;
+    public static int azI() {
+        return cVz;
     }
 
-    public static boolean awY() {
-        return cJx;
+    public static boolean azJ() {
+        return cVA;
     }
 
-    public static boolean ZR() {
-        return cJy;
+    public static boolean acD() {
+        return cVB;
     }
 
-    public static boolean awZ() {
-        return cJz;
+    public static boolean azK() {
+        return cVC;
     }
 }

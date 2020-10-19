@@ -2,9 +2,11 @@ package com.baidu.ar.npc;
 
 import java.util.HashMap;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes3.dex */
+/* loaded from: classes7.dex */
 public class t implements Runnable {
-    final /* synthetic */ String a;
+
+    /* renamed from: a  reason: collision with root package name */
+    final /* synthetic */ String f1234a;
     final /* synthetic */ int b;
     final /* synthetic */ HashMap c;
     final /* synthetic */ int d;
@@ -14,7 +16,7 @@ public class t implements Runnable {
     /* JADX INFO: Access modifiers changed from: package-private */
     public t(ArBridge arBridge, String str, int i, HashMap hashMap, int i2, int i3) {
         this.f = arBridge;
-        this.a = str;
+        this.f1234a = str;
         this.b = i;
         this.c = hashMap;
         this.d = i2;
@@ -23,6 +25,6 @@ public class t implements Runnable {
 
     @Override // java.lang.Runnable
     public void run() {
-        this.f.nativeCreateCase(this.a, this.b, this.c, this.d, this.e);
+        this.f.nativeCreateCase(this.f1234a, this.b, this.c, this.d, this.e);
     }
 }

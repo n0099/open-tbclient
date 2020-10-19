@@ -29,7 +29,7 @@ import com.baidu.mapapi.model.CoordUtil;
 import com.baidu.platform.comapi.map.MapSurfaceView;
 import com.baidu.webkit.net.BdNetTask;
 import java.io.File;
-/* loaded from: classes3.dex */
+/* loaded from: classes7.dex */
 public final class MapView extends ViewGroup {
     private static String b;
     private int A;
@@ -55,7 +55,9 @@ public final class MapView extends ViewGroup {
     private int x;
     private int y;
     private int z;
-    private static final String a = MapView.class.getSimpleName();
+
+    /* renamed from: a  reason: collision with root package name */
+    private static final String f2023a = MapView.class.getSimpleName();
     private static int c = 0;
     private static int d = 0;
     private static final SparseIntArray q = new SparseIntArray();
@@ -202,13 +204,13 @@ public final class MapView extends ViewGroup {
             return;
         }
         if (TextUtils.isEmpty(str)) {
-            Log.e(a, "customStyleFilePath is empty or null, please check!");
+            Log.e(f2023a, "customStyleFilePath is empty or null, please check!");
         } else if (!str.endsWith(".sty")) {
-            Log.e(a, "customStyleFile format is incorrect , please check!");
+            Log.e(f2023a, "customStyleFile format is incorrect , please check!");
         } else if (new File(str).exists()) {
             this.e.getBaseMap().a(str, i);
         } else {
-            Log.e(a, "customStyleFile does not exist , please check!");
+            Log.e(f2023a, "customStyleFile does not exist , please check!");
         }
     }
 
@@ -230,9 +232,9 @@ public final class MapView extends ViewGroup {
     /* JADX INFO: Access modifiers changed from: private */
     public void b() {
         if (this.i.a()) {
-            float f = this.e.getBaseMap().B().a;
+            float f = this.e.getBaseMap().B().f2240a;
             this.i.b(f > this.e.getBaseMap().b);
-            this.i.a(f < this.e.getBaseMap().a);
+            this.i.a(f < this.e.getBaseMap().f2222a);
         }
     }
 
@@ -338,7 +340,7 @@ public final class MapView extends ViewGroup {
     }
 
     public final BaiduMap getMap() {
-        this.f.a = this;
+        this.f.f1995a = this;
         return this.f;
     }
 
@@ -518,7 +520,7 @@ public final class MapView extends ViewGroup {
                     ViewGroup.LayoutParams layoutParams = childAt.getLayoutParams();
                     if (layoutParams instanceof MapViewLayoutParams) {
                         MapViewLayoutParams mapViewLayoutParams = (MapViewLayoutParams) layoutParams;
-                        Point a2 = mapViewLayoutParams.c == MapViewLayoutParams.ELayoutMode.absoluteMode ? mapViewLayoutParams.b : this.e.getBaseMap().a(CoordUtil.ll2mc(mapViewLayoutParams.a));
+                        Point a2 = mapViewLayoutParams.c == MapViewLayoutParams.ELayoutMode.absoluteMode ? mapViewLayoutParams.b : this.e.getBaseMap().a(CoordUtil.ll2mc(mapViewLayoutParams.f2024a));
                         a(childAt);
                         int measuredWidth2 = childAt.getMeasuredWidth();
                         int measuredHeight3 = childAt.getMeasuredHeight();

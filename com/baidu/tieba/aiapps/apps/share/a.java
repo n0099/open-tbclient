@@ -6,10 +6,11 @@ import com.baidu.tbadk.coreExtra.share.ShareItem;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes24.dex */
+/* loaded from: classes25.dex */
 public class a extends ShareItem {
-    public void dh(JSONObject jSONObject) throws JSONException {
-        this.eGS = true;
+    /* renamed from: do  reason: not valid java name */
+    public void m39do(JSONObject jSONObject) throws JSONException {
+        this.eSZ = true;
         this.title = jSONObject.getString("title");
         this.linkUrl = jSONObject.getString("linkUrl");
         this.content = jSONObject.optString("content");
@@ -19,34 +20,34 @@ public class a extends ShareItem {
         this.imageUri = Uri.parse(this.imageUrl);
         JSONObject optJSONObject = jSONObject.optJSONObject("categoryInfo");
         if (optJSONObject != null) {
-            this.eGT = optJSONObject.optString("source2");
-            this.eGV = optJSONObject.optString("source3");
+            this.eTa = optJSONObject.optString("source2");
+            this.eTc = optJSONObject.optString("source3");
         }
         JSONObject optJSONObject2 = jSONObject.optJSONObject("command");
         if (optJSONObject2 != null) {
-            this.eGU = 2;
-            this.eGZ = optJSONObject2.optJSONArray("cmd_pannel");
-            this.eHa = optJSONObject2.optJSONObject("info");
-            if (this.eHa != null) {
-                this.eGX = this.eHa.optString("key");
-                this.eGY = this.eHa.optString("content");
+            this.eTb = 2;
+            this.eTg = optJSONObject2.optJSONArray("cmd_pannel");
+            this.eTh = optJSONObject2.optJSONObject("info");
+            if (this.eTh != null) {
+                this.eTe = this.eTh.optString("key");
+                this.eTf = this.eTh.optString("content");
                 return;
             }
             return;
         }
-        this.eGU = "url".equals(jSONObject.optString("type")) ? 1 : 3;
+        this.eTb = "url".equals(jSONObject.optString("type")) ? 1 : 3;
     }
 
-    public JSONArray bEr() {
-        return this.eGZ;
+    public JSONArray bHd() {
+        return this.eTg;
     }
 
-    public String bEs() {
-        return this.eGX;
+    public String bHe() {
+        return this.eTe;
     }
 
-    public String bEt() {
-        return this.eGY;
+    public String bHf() {
+        return this.eTf;
     }
 
     public String getMediaType() {

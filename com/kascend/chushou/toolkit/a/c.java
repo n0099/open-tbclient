@@ -20,7 +20,7 @@ public class c {
         HashMap hashMap = new HashMap();
         if (objArr != null && objArr.length > 0) {
             int length = objArr.length;
-            if (length % 2 != 0 && tv.chushou.basis.d.b.VD()) {
+            if (length % 2 != 0 && tv.chushou.basis.d.b.XA()) {
                 throw new IllegalArgumentException("Supplied arguments must be even");
             }
             for (int i = 0; i < length; i += 2) {
@@ -31,7 +31,7 @@ public class c {
                 }
             }
         }
-        tv.chushou.basis.d.a.b.a aVar = (tv.chushou.basis.d.a.b.a) tv.chushou.basis.d.b.epS().S(tv.chushou.basis.d.a.b.a.class);
+        tv.chushou.basis.d.a.b.a aVar = (tv.chushou.basis.d.a.b.a) tv.chushou.basis.d.b.etD().S(tv.chushou.basis.d.a.b.a.class);
         if (aVar != null) {
             aVar.a(context, str, str2, hashMap);
         }
@@ -43,7 +43,7 @@ public class c {
             String optString2 = jSONObject.optString("categoryname");
             String optString3 = jSONObject.optString("_fromPos");
             String optString4 = jSONObject.optString("_fromView");
-            String a = a(optString3);
+            String a2 = a(optString3);
             String str = "";
             char c = 65535;
             switch (optString4.hashCode()) {
@@ -171,10 +171,10 @@ public class c {
                 case 3:
                     str = "关注";
                     if (optString3 != null && optString3.equals("54")) {
-                        a = "猜你喜欢";
+                        a2 = "猜你喜欢";
                         break;
                     } else {
-                        a = "小item";
+                        a2 = "小item";
                         break;
                     }
                     break;
@@ -224,7 +224,7 @@ public class c {
                     str = "用户主页";
                     break;
             }
-            a(context, "进房间", str, "分类key", optString, "分类名称", optString2, "位置", a);
+            a(context, "进房间", str, "分类key", optString, "分类名称", optString2, "位置", a2);
         }
     }
 
@@ -302,7 +302,7 @@ public class c {
             String optString = jSONObject.optString("_listKey");
             String optString2 = jSONObject.optString("categoryname");
             String optString3 = jSONObject.optString("_fromView");
-            String a = a(jSONObject.optString("_fromPos"));
+            String a2 = a(jSONObject.optString("_fromPos"));
             String str = "";
             char c = 65535;
             switch (optString3.hashCode()) {
@@ -435,7 +435,7 @@ public class c {
                     str = "更多热门动态(话题)";
                     break;
             }
-            a(context, "进视频", str, "分类key", optString, "分类名称", optString2, "位置", a);
+            a(context, "进视频", str, "分类key", optString, "分类名称", optString2, "位置", a2);
         }
     }
 

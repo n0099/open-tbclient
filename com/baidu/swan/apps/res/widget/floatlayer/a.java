@@ -6,48 +6,48 @@ import android.support.annotation.Nullable;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.LinearLayout;
-/* loaded from: classes3.dex */
+/* loaded from: classes10.dex */
 public class a {
-    private final InterfaceC0427a cRA;
-    private final ViewGroup cRB;
-    private boolean cRC;
+    private final InterfaceC0444a ddH;
+    private final ViewGroup ddI;
+    private boolean ddJ;
     private int mMarginTop;
 
     /* renamed from: com.baidu.swan.apps.res.widget.floatlayer.a$a  reason: collision with other inner class name */
-    /* loaded from: classes3.dex */
-    public interface InterfaceC0427a {
-        a YB();
+    /* loaded from: classes10.dex */
+    public interface InterfaceC0444a {
+        a abn();
     }
 
-    public a(@NonNull InterfaceC0427a interfaceC0427a, @NonNull ViewGroup viewGroup, int i) {
-        this.cRA = interfaceC0427a;
-        this.cRB = viewGroup;
+    public a(@NonNull InterfaceC0444a interfaceC0444a, @NonNull ViewGroup viewGroup, int i) {
+        this.ddH = interfaceC0444a;
+        this.ddI = viewGroup;
         this.mMarginTop = i;
     }
 
     public void setMask(boolean z) {
-        Container aAc = aAc();
-        if (aAc != null) {
-            aAc.setClickable(z);
+        Container aCL = aCL();
+        if (aCL != null) {
+            aCL.setClickable(z);
         }
     }
 
-    public boolean aAb() {
-        return this.cRC;
+    public boolean aCK() {
+        return this.ddJ;
     }
 
     private Context getContext() {
-        return this.cRB.getContext();
+        return this.ddI.getContext();
     }
 
     @Nullable
-    private Container aAc() {
+    private Container aCL() {
         Container container;
-        synchronized (this.cRB) {
+        synchronized (this.ddI) {
             int i = 0;
             while (true) {
-                if (i < this.cRB.getChildCount()) {
-                    View childAt = this.cRB.getChildAt(i);
+                if (i < this.ddI.getChildCount()) {
+                    View childAt = this.ddI.getChildAt(i);
                     if (!(childAt instanceof Container)) {
                         i++;
                     } else {
@@ -64,17 +64,17 @@ public class a {
     }
 
     @NonNull
-    private Container aAd() {
-        Container aAc;
+    private Container aCM() {
+        Container aCL;
         int i;
         int i2;
         int i3 = 0;
-        synchronized (this.cRB) {
-            aAc = aAc();
-            if (aAc == null) {
-                aAc = new Container(getContext());
-                int height = this.cRB.getHeight() - this.mMarginTop;
-                if (this.cRB instanceof LinearLayout) {
+        synchronized (this.ddI) {
+            aCL = aCL();
+            if (aCL == null) {
+                aCL = new Container(getContext());
+                int height = this.ddI.getHeight() - this.mMarginTop;
+                if (this.ddI instanceof LinearLayout) {
                     i = -height;
                 } else {
                     i = this.mMarginTop;
@@ -83,10 +83,10 @@ public class a {
                     i = 0;
                     height = -1;
                 }
-                if (!(this.cRB instanceof LinearLayout) && this.mMarginTop == 0) {
+                if (!(this.ddI instanceof LinearLayout) && this.mMarginTop == 0) {
                     height = -1;
                 }
-                if (this.cRC) {
+                if (this.ddJ) {
                     i2 = -1;
                 } else {
                     i3 = i;
@@ -94,11 +94,11 @@ public class a {
                 }
                 LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(-1, i2);
                 layoutParams.setMargins(0, i3, 0, 0);
-                aAc.setLayoutParams(layoutParams);
-                this.cRB.addView(aAc);
+                aCL.setLayoutParams(layoutParams);
+                this.ddI.addView(aCL);
             }
         }
-        return aAc;
+        return aCL;
     }
 
     public void reset() {
@@ -106,11 +106,11 @@ public class a {
     }
 
     public void reset(boolean z) {
-        synchronized (this.cRB) {
-            Container aAc = aAc();
-            if (!z || aAc == null || aAc.getChildCount() <= 0) {
-                if (aAc != null) {
-                    this.cRB.removeView(aAc);
+        synchronized (this.ddI) {
+            Container aCL = aCL();
+            if (!z || aCL == null || aCL.getChildCount() <= 0) {
+                if (aCL != null) {
+                    this.ddI.removeView(aCL);
                 }
             }
         }
@@ -118,35 +118,35 @@ public class a {
 
     @Nullable
     public View getView() {
-        Container aAc = aAc();
-        if (aAc != null && aAc.getChildCount() > 0) {
-            return aAc.getChildAt(0);
+        Container aCL = aCL();
+        if (aCL != null && aCL.getChildCount() > 0) {
+            return aCL.getChildAt(0);
         }
         return null;
     }
 
-    public void aw(@NonNull View view) {
+    public void ax(@NonNull View view) {
         if (view != getView()) {
             reset();
-            aAd().addView(view);
+            aCM().addView(view);
         }
     }
 
     public void a(@NonNull View view, ViewGroup.LayoutParams layoutParams) {
         if (view != getView()) {
             reset();
-            aAd().addView(view, layoutParams);
+            aCM().addView(view, layoutParams);
         }
     }
 
-    public boolean aAe() {
-        Container aAc = aAc();
-        if (aAc == null) {
+    public boolean aCN() {
+        Container aCL = aCL();
+        if (aCL == null) {
             return false;
         }
-        int childCount = aAc.getChildCount();
+        int childCount = aCL.getChildCount();
         for (int i = 0; i < childCount; i++) {
-            View childAt = aAc.getChildAt(i);
+            View childAt = aCL.getChildAt(i);
             if (childAt != null && childAt.getVisibility() == 0) {
                 return true;
             }

@@ -1,9 +1,9 @@
 package com.baidu.swan.apps.media.chooser.c;
 
 import java.io.File;
-/* loaded from: classes3.dex */
+/* loaded from: classes10.dex */
 public interface b {
-    void B(File file);
+    void E(File file);
 
-    void oF(String str);
+    void pr(String str);
 }

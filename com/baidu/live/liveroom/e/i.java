@@ -3,64 +3,64 @@ package com.baidu.live.liveroom.e;
 import android.content.Context;
 /* loaded from: classes4.dex */
 public class i {
-    private static volatile i bgW = null;
-    private e bgX;
-    private e bgY;
-    private c bgZ;
-    private com.baidu.live.q.d bha;
+    private static volatile i bkM = null;
+    private e bkN;
+    private e bkO;
+    private c bkP;
+    private com.baidu.live.q.d bkQ;
 
     private i() {
     }
 
-    public static i LT() {
-        if (bgW == null) {
+    public static i MY() {
+        if (bkM == null) {
             synchronized (i.class) {
-                if (bgW == null) {
-                    bgW = new i();
+                if (bkM == null) {
+                    bkM = new i();
                 }
             }
         }
-        return bgW;
+        return bkM;
     }
 
     public void a(e eVar) {
-        this.bgX = eVar;
+        this.bkN = eVar;
     }
 
     public void b(e eVar) {
-        this.bgY = eVar;
+        this.bkO = eVar;
     }
 
-    public boolean LU() {
-        return this.bgX != null;
+    public boolean MZ() {
+        return this.bkN != null;
     }
 
-    public d av(Context context) {
-        if (this.bgX != null) {
-            return this.bgX.au(context);
+    public d ay(Context context) {
+        if (this.bkN != null) {
+            return this.bkN.ax(context);
         }
         return null;
     }
 
-    public d aw(Context context) {
-        if (this.bgY != null) {
-            return this.bgY.au(context);
+    public d az(Context context) {
+        if (this.bkO != null) {
+            return this.bkO.ax(context);
         }
         return null;
     }
 
     public void a(c cVar) {
-        this.bgZ = cVar;
+        this.bkP = cVar;
     }
 
-    public b LV() {
-        if (this.bgZ != null) {
-            return this.bgZ.LS();
+    public b Na() {
+        if (this.bkP != null) {
+            return this.bkP.MX();
         }
         return null;
     }
 
-    public com.baidu.live.q.d LW() {
-        return this.bha;
+    public com.baidu.live.q.d Nb() {
+        return this.bkQ;
     }
 }

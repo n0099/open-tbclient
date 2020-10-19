@@ -11,15 +11,15 @@ import java.util.concurrent.atomic.AtomicLongArray;
 import org.a.b;
 import org.a.c;
 import org.a.d;
-/* loaded from: classes25.dex */
+/* loaded from: classes17.dex */
 public final class ParallelFromPublisher<T> extends a<T> {
-    final int oyK;
+    final int oNZ;
     final int prefetch;
     final b<? extends T> source;
 
     @Override // io.reactivex.parallel.a
-    public int ejl() {
-        return this.oyK;
+    public int emW() {
+        return this.oNZ;
     }
 
     @Override // io.reactivex.parallel.a
@@ -29,7 +29,7 @@ public final class ParallelFromPublisher<T> extends a<T> {
         }
     }
 
-    /* loaded from: classes25.dex */
+    /* loaded from: classes17.dex */
     static final class ParallelDispatcher<T> extends AtomicInteger implements j<T> {
         private static final long serialVersionUID = -4470634016609963609L;
         volatile boolean cancelled;
@@ -95,7 +95,7 @@ public final class ParallelFromPublisher<T> extends a<T> {
         }
 
         /* JADX INFO: Access modifiers changed from: package-private */
-        /* loaded from: classes25.dex */
+        /* loaded from: classes17.dex */
         public final class a implements d {
             final int j;
             final int m;

@@ -5,9 +5,11 @@ import android.text.TextUtils;
 import dalvik.system.DexClassLoader;
 import java.io.File;
 import java.lang.reflect.Method;
-/* loaded from: classes3.dex */
+/* loaded from: classes7.dex */
 public class b {
-    private static Context a;
+
+    /* renamed from: a  reason: collision with root package name */
+    private static Context f2434a;
     private static File e;
     private static String b = null;
     private static String c = "galaxy_sdk_dex.jar";
@@ -59,15 +61,15 @@ public class b {
     }
 
     private static void c(Context context) {
-        a = context.getApplicationContext();
-        d = a.getFilesDir().getAbsolutePath();
+        f2434a = context.getApplicationContext();
+        d = f2434a.getFilesDir().getAbsolutePath();
         d(context);
         e = new File(b + c);
     }
 
     private static void d(Context context) {
         if (TextUtils.isEmpty(b)) {
-            b = a.getDir("baidu_ad_sdk", 0).getAbsolutePath() + "/";
+            b = f2434a.getDir("baidu_ad_sdk", 0).getAbsolutePath() + "/";
         }
     }
 
@@ -76,7 +78,7 @@ public class b {
             synchronized (b.class) {
                 String absolutePath = e.getAbsolutePath();
                 if (new File(absolutePath).exists()) {
-                    f = new DexClassLoader(absolutePath, d, null, a.getClass().getClassLoader());
+                    f = new DexClassLoader(absolutePath, d, null, f2434a.getClass().getClassLoader());
                 } else {
                     f = null;
                 }

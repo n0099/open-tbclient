@@ -3,13 +3,15 @@ package com.baidu.mapapi.map;
 import android.view.View;
 import com.baidu.mapapi.map.SwipeDismissTouchListener;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes3.dex */
+/* loaded from: classes7.dex */
 public class x implements SwipeDismissTouchListener.DismissCallbacks {
-    final /* synthetic */ SwipeDismissView a;
+
+    /* renamed from: a  reason: collision with root package name */
+    final /* synthetic */ SwipeDismissView f2086a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public x(SwipeDismissView swipeDismissView) {
-        this.a = swipeDismissView;
+        this.f2086a = swipeDismissView;
     }
 
     @Override // com.baidu.mapapi.map.SwipeDismissTouchListener.DismissCallbacks
@@ -19,17 +21,17 @@ public class x implements SwipeDismissTouchListener.DismissCallbacks {
 
     @Override // com.baidu.mapapi.map.SwipeDismissTouchListener.DismissCallbacks
     public void onDismiss(View view, Object obj) {
-        if (this.a.a == null) {
+        if (this.f2086a.f2043a == null) {
             return;
         }
-        this.a.a.onDismiss();
+        this.f2086a.f2043a.onDismiss();
     }
 
     @Override // com.baidu.mapapi.map.SwipeDismissTouchListener.DismissCallbacks
     public void onNotify() {
-        if (this.a.a == null) {
+        if (this.f2086a.f2043a == null) {
             return;
         }
-        this.a.a.onNotify();
+        this.f2086a.f2043a.onNotify();
     }
 }

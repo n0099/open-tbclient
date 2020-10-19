@@ -21,7 +21,9 @@ import java.io.IOException;
 import java.util.Map;
 /* loaded from: classes16.dex */
 public class Utils {
-    public static String a = "filecache-Utils";
+
+    /* renamed from: a  reason: collision with root package name */
+    public static String f2255a = "filecache-Utils";
     public static int b = 536870912;
     public static String c = ".video_cache";
     private static volatile int d = -1;
@@ -35,14 +37,14 @@ public class Utils {
             if ("mounted".equals(Environment.getExternalStorageState())) {
                 String path = Environment.getExternalStorageDirectory().getPath();
                 if (path == null || path.length() <= 0) {
-                    CyberLog.w(a, "External path is null, so SDCard no free space");
+                    CyberLog.w(f2255a, "External path is null, so SDCard no free space");
                 } else {
                     StatFs statFs = new StatFs(path);
                     j = statFs.getAvailableBlocks() * statFs.getBlockSize();
                 }
             }
         } catch (Exception e2) {
-            CyberLog.d(a, "SDCard no free space");
+            CyberLog.d(f2255a, "SDCard no free space");
         }
         return j;
     }
@@ -75,7 +77,7 @@ public class Utils {
                 file.delete();
             }
         } catch (Exception e2) {
-            CyberLog.w(a, e2.toString());
+            CyberLog.w(f2255a, e2.toString());
         }
     }
 
@@ -119,7 +121,7 @@ public class Utils {
         String a2 = a(context);
         String str = TextUtils.isEmpty(a2) ? null : a2 + File.separator + "baidu" + File.separator + "flyflow" + File.separator + "video_statistic" + File.separator + "duplayer" + File.separator + context.getPackageName();
         String str2 = context.getFilesDir().getAbsolutePath() + File.separator + ".video_statistic" + File.separator + "duplayer";
-        CyberLog.i(a, "Utils.getExternalStorageSpace():" + a());
+        CyberLog.i(f2255a, "Utils.getExternalStorageSpace():" + a());
         if (a() < 10485760 || str == null) {
             str = str2;
         }
@@ -127,7 +129,7 @@ public class Utils {
         if (!d(context)) {
             str = str + File.separator + "remote";
         }
-        CyberLog.i(a, "getVideoStatisticsPath folder:" + str);
+        CyberLog.i(f2255a, "getVideoStatisticsPath folder:" + str);
         return str;
     }
 

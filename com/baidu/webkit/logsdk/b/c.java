@@ -4,15 +4,17 @@ import android.text.TextUtils;
 import java.util.HashSet;
 import org.json.JSONArray;
 import org.json.JSONException;
-/* loaded from: classes8.dex */
+/* loaded from: classes11.dex */
 public final class c {
-    public String a;
+
+    /* renamed from: a  reason: collision with root package name */
+    public String f3957a;
     public HashSet<String> b = new HashSet<>();
     public HashSet<String> c = new HashSet<>();
 
     public c(String str) {
-        this.a = "full";
-        this.a = str;
+        this.f3957a = "full";
+        this.f3957a = str;
     }
 
     public final void a(JSONArray jSONArray) throws JSONException {

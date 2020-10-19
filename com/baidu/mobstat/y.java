@@ -5,9 +5,11 @@ import android.text.TextUtils;
 import java.text.SimpleDateFormat;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes15.dex */
+/* loaded from: classes17.dex */
 public class y {
-    private static y a;
+
+    /* renamed from: a  reason: collision with root package name */
+    private static y f2633a;
     private Context b;
     private JSONObject c = new JSONObject();
     private long d = 24;
@@ -26,14 +28,14 @@ public class y {
     private String q = "";
 
     public static y a(Context context) {
-        if (a == null) {
+        if (f2633a == null) {
             synchronized (y.class) {
-                if (a == null) {
-                    a = new y(context);
+                if (f2633a == null) {
+                    f2633a = new y(context);
                 }
             }
         }
-        return a;
+        return f2633a;
     }
 
     private y(Context context) {

@@ -5,22 +5,22 @@ import io.reactivex.t;
 import io.reactivex.u;
 import java.util.concurrent.atomic.AtomicInteger;
 import java.util.concurrent.atomic.AtomicReference;
-/* loaded from: classes25.dex */
+/* loaded from: classes17.dex */
 public final class ObservableSampleWithObservable<T> extends io.reactivex.internal.operators.observable.a<T, T> {
+    final boolean oMI;
     final t<?> other;
-    final boolean oxt;
 
     @Override // io.reactivex.q
     public void a(u<? super T> uVar) {
         io.reactivex.observers.b bVar = new io.reactivex.observers.b(uVar);
-        if (this.oxt) {
+        if (this.oMI) {
             this.source.subscribe(new SampleMainEmitLast(bVar, this.other));
         } else {
             this.source.subscribe(new SampleMainNoLast(bVar, this.other));
         }
     }
 
-    /* loaded from: classes25.dex */
+    /* loaded from: classes17.dex */
     static abstract class SampleMainObserver<T> extends AtomicReference<T> implements io.reactivex.disposables.b, u<T> {
         private static final long serialVersionUID = -3517602651313910099L;
         final u<? super T> actual;
@@ -100,36 +100,36 @@ public final class ObservableSampleWithObservable<T> extends io.reactivex.intern
         }
     }
 
-    /* loaded from: classes25.dex */
+    /* loaded from: classes17.dex */
     static final class a<T> implements u<Object> {
-        final SampleMainObserver<T> oyr;
+        final SampleMainObserver<T> oNG;
 
         a(SampleMainObserver<T> sampleMainObserver) {
-            this.oyr = sampleMainObserver;
+            this.oNG = sampleMainObserver;
         }
 
         @Override // io.reactivex.u
         public void onSubscribe(io.reactivex.disposables.b bVar) {
-            this.oyr.setOther(bVar);
+            this.oNG.setOther(bVar);
         }
 
         @Override // io.reactivex.u
         public void onNext(Object obj) {
-            this.oyr.run();
+            this.oNG.run();
         }
 
         @Override // io.reactivex.u
         public void onError(Throwable th) {
-            this.oyr.error(th);
+            this.oNG.error(th);
         }
 
         @Override // io.reactivex.u
         public void onComplete() {
-            this.oyr.complete();
+            this.oNG.complete();
         }
     }
 
-    /* loaded from: classes25.dex */
+    /* loaded from: classes17.dex */
     static final class SampleMainNoLast<T> extends SampleMainObserver<T> {
         private static final long serialVersionUID = -3029755663834015785L;
 
@@ -153,7 +153,7 @@ public final class ObservableSampleWithObservable<T> extends io.reactivex.intern
         }
     }
 
-    /* loaded from: classes25.dex */
+    /* loaded from: classes17.dex */
     static final class SampleMainEmitLast<T> extends SampleMainObserver<T> {
         private static final long serialVersionUID = -3029755663834015785L;
         volatile boolean done;

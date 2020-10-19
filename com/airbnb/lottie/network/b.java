@@ -20,53 +20,53 @@ import java.net.HttpURLConnection;
 import java.net.URL;
 import java.util.concurrent.Callable;
 import java.util.zip.ZipInputStream;
-/* loaded from: classes6.dex */
+/* loaded from: classes10.dex */
 public class b {
-    private final a Gu;
+    private final a GN;
     private final Context appContext;
     private final String url;
 
     public static m<e> v(Context context, String str) {
-        return new b(context, str).kL();
+        return new b(context, str).kM();
     }
 
     private b(Context context, String str) {
         this.appContext = context.getApplicationContext();
         this.url = str;
-        this.Gu = new a(this.appContext, str);
+        this.GN = new a(this.appContext, str);
     }
 
-    private m<e> kL() {
+    private m<e> kM() {
         return new m<>(new Callable<l<e>>() { // from class: com.airbnb.lottie.network.b.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // java.util.concurrent.Callable
-            /* renamed from: iE */
+            /* renamed from: iF */
             public l<e> call() throws Exception {
-                return b.this.kM();
+                return b.this.kN();
             }
         });
     }
 
     @WorkerThread
-    public l<e> kM() {
-        e kN = kN();
-        if (kN != null) {
-            return new l<>(kN);
+    public l<e> kN() {
+        e kO = kO();
+        if (kO != null) {
+            return new l<>(kO);
         }
         d.debug("Animation for " + this.url + " not found in cache. Fetching from network.");
-        return kO();
+        return kP();
     }
 
     @WorkerThread
     @Nullable
-    private e kN() {
+    private e kO() {
         l<e> c;
-        Pair<FileExtension, InputStream> kK = this.Gu.kK();
-        if (kK == null) {
+        Pair<FileExtension, InputStream> kL = this.GN.kL();
+        if (kL == null) {
             return null;
         }
-        FileExtension fileExtension = kK.first;
-        InputStream inputStream = kK.second;
+        FileExtension fileExtension = kL.first;
+        InputStream inputStream = kL.second;
         if (fileExtension == FileExtension.Zip) {
             c = f.a(new ZipInputStream(inputStream), this.url);
         } else {
@@ -79,18 +79,18 @@ public class b {
     }
 
     @WorkerThread
-    private l<e> kO() {
+    private l<e> kP() {
         try {
-            return kP();
+            return kQ();
         } catch (IOException e) {
             return new l<>(e);
         }
     }
 
     @WorkerThread
-    private l kP() throws IOException {
+    private l kQ() throws IOException {
         FileExtension fileExtension;
-        l<e> a;
+        l<e> a2;
         d.debug("Fetching " + this.url);
         HttpURLConnection httpURLConnection = (HttpURLConnection) new URL(this.url).openConnection();
         httpURLConnection.setRequestMethod("GET");
@@ -127,19 +127,19 @@ public class b {
                 case 0:
                     d.debug("Handling zip response.");
                     fileExtension = FileExtension.Zip;
-                    a = f.a(new ZipInputStream(new FileInputStream(this.Gu.a(httpURLConnection.getInputStream(), fileExtension))), this.url);
+                    a2 = f.a(new ZipInputStream(new FileInputStream(this.GN.a(httpURLConnection.getInputStream(), fileExtension))), this.url);
                     break;
                 default:
                     d.debug("Received json response.");
                     fileExtension = FileExtension.Json;
-                    a = f.c(new FileInputStream(new File(this.Gu.a(httpURLConnection.getInputStream(), fileExtension).getAbsolutePath())), this.url);
+                    a2 = f.c(new FileInputStream(new File(this.GN.a(httpURLConnection.getInputStream(), fileExtension).getAbsolutePath())), this.url);
                     break;
             }
-            if (a.getValue() != null) {
-                this.Gu.a(fileExtension);
+            if (a2.getValue() != null) {
+                this.GN.a(fileExtension);
             }
-            d.debug("Completed fetch from network. Success: " + (a.getValue() != null));
-            return a;
+            d.debug("Completed fetch from network. Success: " + (a2.getValue() != null));
+            return a2;
         }
     }
 }

@@ -32,15 +32,15 @@ import com.baidu.tieba.person.ProfileHttpResponseMessage;
 import com.baidu.tieba.person.ProfileSocketResponseMessage;
 import com.baidu.tieba.redpackage.NewUserRedPackageActivity;
 import com.baidu.tieba.tropicgiftbag.UserTropicGiftBagActivity;
-/* loaded from: classes21.dex */
+/* loaded from: classes22.dex */
 public class PersonInfoDelegateStatic extends com.baidu.tbadk.mainTab.b {
     private Boolean isNew = false;
     private CustomMessageListener maintabEmotionListener;
     private MessageRedDotView tipView;
 
     static {
-        bGS();
-        com.baidu.tieba.p.a.dsD();
+        bJE();
+        com.baidu.tieba.p.a.dwo();
         CustomMessageListener customMessageListener = new CustomMessageListener(CmdConfigCustom.MAINTAB_ADD_FRAGMENT) { // from class: com.baidu.tieba.personCenter.PersonInfoDelegateStatic.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.adp.framework.listener.MessageListener
@@ -59,9 +59,9 @@ public class PersonInfoDelegateStatic extends com.baidu.tbadk.mainTab.b {
         MessageManager.getInstance().registerListener(customMessageListener);
         TbadkCoreApplication.getInst().RegisterIntent(NewUserRedPackageActivityConfig.class, NewUserRedPackageActivity.class);
         TbadkCoreApplication.getInst().RegisterIntent(MissionCustomDialogActivityConfig.class, MissionCustomDialogActivity.class);
-        cWe();
+        cZN();
         TbadkCoreApplication.getInst().RegisterIntent(UserTropicGiftBagActivityConfig.class, UserTropicGiftBagActivity.class);
-        b.dkd();
+        b.dnN();
     }
 
     @Override // com.baidu.tbadk.mainTab.b
@@ -76,7 +76,7 @@ public class PersonInfoDelegateStatic extends com.baidu.tbadk.mainTab.b {
         cVar.type = 8;
         cVar.textResId = R.string.mine;
         cVar.animationResId = R.raw.lottie_tab_my;
-        cVar.showIconType = c.eSu;
+        cVar.showIconType = c.feC;
         return cVar;
     }
 
@@ -85,11 +85,11 @@ public class PersonInfoDelegateStatic extends com.baidu.tbadk.mainTab.b {
         this.mIndicator = (MaintabBottomIndicator) LayoutInflater.from(context).inflate(R.layout.maintab_bottom_indicator, (ViewGroup) null);
         this.tipView = new MessageRedDotView(context);
         TbFragmentTabIndicator.a aVar = new TbFragmentTabIndicator.a();
-        aVar.eSL = this.mIndicator;
+        aVar.feT = this.mIndicator;
         aVar.offsetX = l.dip2px(context, 10.0f);
         aVar.view = this.tipView;
         this.mIndicator.b("emotion", aVar);
-        boolean z = com.baidu.tbadk.core.sharedPref.b.bjf().getBoolean(SharedPrefConfig.KEY_FEEDBACK_PERSON_TAB_SHOW, false);
+        boolean z = com.baidu.tbadk.core.sharedPref.b.blO().getBoolean(SharedPrefConfig.KEY_FEEDBACK_PERSON_TAB_SHOW, false);
         if (this.isNew.booleanValue() || z) {
             this.tipView.refresh(0);
             this.tipView.setVisibility(0);
@@ -106,7 +106,7 @@ public class PersonInfoDelegateStatic extends com.baidu.tbadk.mainTab.b {
             @Override // com.baidu.adp.framework.listener.MessageListener
             public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
                 if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2007014 && customResponsedMessage.getData() != null && (customResponsedMessage.getData() instanceof com.baidu.tbadk.mainTab.a)) {
-                    PersonInfoDelegateStatic.this.isNew = Boolean.valueOf(((com.baidu.tbadk.mainTab.a) customResponsedMessage.getData()).eSm);
+                    PersonInfoDelegateStatic.this.isNew = Boolean.valueOf(((com.baidu.tbadk.mainTab.a) customResponsedMessage.getData()).feu);
                     if (PersonInfoDelegateStatic.this.isNew.booleanValue()) {
                         PersonInfoDelegateStatic.this.tipView.refresh(0);
                         PersonInfoDelegateStatic.this.tipView.setVisibility(0);
@@ -115,7 +115,7 @@ public class PersonInfoDelegateStatic extends com.baidu.tbadk.mainTab.b {
                     }
                     AccountData currentAccountObj = TbadkCoreApplication.getCurrentAccountObj();
                     if (!PersonInfoDelegateStatic.this.isNew.booleanValue() && TbadkCoreApplication.isLogin() && currentAccountObj.isMemberCloseAdIsOpen()) {
-                        com.baidu.tbadk.core.sharedPref.b.bjf().putBoolean(SharedPrefConfig.MEMBER_CLOSE_AD_MINE_CLICKED, true);
+                        com.baidu.tbadk.core.sharedPref.b.blO().putBoolean(SharedPrefConfig.MEMBER_CLOSE_AD_MINE_CLICKED, true);
                     }
                 }
             }
@@ -124,9 +124,9 @@ public class PersonInfoDelegateStatic extends com.baidu.tbadk.mainTab.b {
         MessageManager.getInstance().registerListener(this.maintabEmotionListener);
     }
 
-    private static void bGS() {
+    private static void bJE() {
         com.baidu.tieba.tbadkCore.a.a.a(CmdConfigSocket.CMD_PROFILE, ProfileSocketResponseMessage.class, false, false);
-        TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(1002700, com.baidu.tieba.tbadkCore.a.a.bH(Config.USER_INFO_ADDRESS, CmdConfigSocket.CMD_PROFILE));
+        TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(1002700, com.baidu.tieba.tbadkCore.a.a.bI(Config.USER_INFO_ADDRESS, CmdConfigSocket.CMD_PROFILE));
         tbHttpMessageTask.setIsNeedLogin(false);
         tbHttpMessageTask.setIsNeedTbs(false);
         tbHttpMessageTask.setIsNeedAddCommenParam(false);
@@ -141,15 +141,15 @@ public class PersonInfoDelegateStatic extends com.baidu.tbadk.mainTab.b {
         MessageManager.getInstance().unRegisterListener(this.maintabEmotionListener);
     }
 
-    private static void cWe() {
-        be.bkp().a(new be.a() { // from class: com.baidu.tieba.personCenter.PersonInfoDelegateStatic.3
+    private static void cZN() {
+        be.bmY().a(new be.a() { // from class: com.baidu.tieba.personCenter.PersonInfoDelegateStatic.3
             @Override // com.baidu.tbadk.core.util.be.a
             public int deal(TbPageContext<?> tbPageContext, String[] strArr) {
                 if (strArr == null || strArr[0] == null || tbPageContext == null || tbPageContext.getPageActivity() == null) {
                     return 3;
                 }
                 if (strArr[0].contains("openAiCustomService")) {
-                    b.dkd().dke();
+                    b.dnN().dnO();
                     return 0;
                 }
                 return 3;

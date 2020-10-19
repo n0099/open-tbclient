@@ -5,7 +5,7 @@ import android.os.Parcelable;
 import android.text.TextUtils;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes7.dex */
 public class b implements Parcelable {
     public static final Parcelable.Creator<b> CREATOR = new Parcelable.Creator<b>() { // from class: com.meizu.cloud.pushsdk.handler.a.b.b.1
         /* JADX DEBUG: Method merged with bridge method */
@@ -22,7 +22,9 @@ public class b implements Parcelable {
             return new b[i];
         }
     };
-    private String a;
+
+    /* renamed from: a  reason: collision with root package name */
+    private String f4414a;
     private a b;
     private f c;
 
@@ -30,13 +32,13 @@ public class b implements Parcelable {
     }
 
     protected b(Parcel parcel) {
-        this.a = parcel.readString();
+        this.f4414a = parcel.readString();
         this.b = (a) parcel.readParcelable(a.class.getClassLoader());
         this.c = (f) parcel.readParcelable(f.class.getClassLoader());
     }
 
     public b(String str, String str2, String str3) {
-        this.a = str;
+        this.f4414a = str;
         if (TextUtils.isEmpty(str)) {
             this.b = new a();
             this.c = new f();
@@ -95,12 +97,12 @@ public class b implements Parcelable {
     }
 
     public String toString() {
-        return "ControlMessage{controlMessage='" + this.a + "', control=" + this.b + ", statics=" + this.c + '}';
+        return "ControlMessage{controlMessage='" + this.f4414a + "', control=" + this.b + ", statics=" + this.c + '}';
     }
 
     @Override // android.os.Parcelable
     public void writeToParcel(Parcel parcel, int i) {
-        parcel.writeString(this.a);
+        parcel.writeString(this.f4414a);
         parcel.writeParcelable(this.b, i);
         parcel.writeParcelable(this.c, i);
     }

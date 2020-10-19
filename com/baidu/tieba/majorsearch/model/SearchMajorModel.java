@@ -12,16 +12,16 @@ import com.baidu.tbadk.core.util.y;
 import com.baidu.tieba.R;
 import com.baidu.tieba.majorsearch.message.SearchMajorHttpResponsedMessage;
 import java.util.List;
-/* loaded from: classes23.dex */
+/* loaded from: classes24.dex */
 public class SearchMajorModel extends BdBaseModel {
-    a kgo;
+    a kvB;
     private HttpMessageListener mHttpMessageListener;
 
-    /* loaded from: classes23.dex */
+    /* loaded from: classes24.dex */
     public interface a {
         void b(ErrorData errorData);
 
-        void bh(List<String> list);
+        void bk(List<String> list);
     }
 
     public SearchMajorModel(e eVar, a aVar) {
@@ -48,17 +48,17 @@ public class SearchMajorModel extends BdBaseModel {
                     } else {
                         searchMajorHttpResponsedMessage = (SearchMajorHttpResponsedMessage) httpResponsedMessage;
                     }
-                    if (searchMajorHttpResponsedMessage != null && searchMajorHttpResponsedMessage.getData() != null && !y.isEmpty(searchMajorHttpResponsedMessage.getData().kgn)) {
-                        SearchMajorModel.this.kgo.bh(searchMajorHttpResponsedMessage.getData().kgn);
+                    if (searchMajorHttpResponsedMessage != null && searchMajorHttpResponsedMessage.getData() != null && !y.isEmpty(searchMajorHttpResponsedMessage.getData().kvA)) {
+                        SearchMajorModel.this.kvB.bk(searchMajorHttpResponsedMessage.getData().kvA);
                     } else {
-                        SearchMajorModel.this.kgo.b(errorData);
+                        SearchMajorModel.this.kvB.b(errorData);
                     }
                 }
             }
         };
         this.mHttpMessageListener.setSelfListener(true);
         registerListener(this.mHttpMessageListener);
-        this.kgo = aVar;
+        this.kvB = aVar;
     }
 
     @Override // com.baidu.adp.base.BdBaseModel

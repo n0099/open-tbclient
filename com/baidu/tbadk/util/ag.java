@@ -8,21 +8,21 @@ import java.util.LinkedList;
 import java.util.List;
 /* loaded from: classes.dex */
 public class ag {
-    private boolean egI;
+    private boolean esO;
     private List<com.baidu.tieba.card.data.d> list = new LinkedList();
 
     public List<com.baidu.tieba.card.data.d> k(List<PbLinkData> list, List<PbGoodsData> list2) {
         if (!com.baidu.tbadk.core.util.y.isEmpty(list)) {
             for (int i = 0; i < list.size(); i++) {
                 PbLinkData pbLinkData = list.get(i);
-                if (pbLinkData.urlType == 2 && !this.egI) {
-                    this.egI = true;
+                if (pbLinkData.urlType == 2 && !this.esO) {
+                    this.esO = true;
                 }
                 this.list.add(pbLinkData);
             }
         }
         if (!com.baidu.tbadk.core.util.y.isEmpty(list2)) {
-            this.egI = true;
+            this.esO = true;
             for (int i2 = 0; i2 < list2.size(); i2++) {
                 this.list.add(list2.get(i2));
             }
@@ -38,7 +38,7 @@ public class ag {
         return this.list;
     }
 
-    public boolean bwU() {
-        return this.egI;
+    public boolean bzE() {
+        return this.esO;
     }
 }

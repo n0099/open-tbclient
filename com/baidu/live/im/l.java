@@ -1,6 +1,7 @@
 package com.baidu.live.im;
 
 import android.content.Context;
+import com.baidu.android.imrtc.BIMRtcClient;
 import com.baidu.android.imsdk.BIMManager;
 import com.baidu.android.imsdk.account.AccountManager;
 import com.baidu.android.imsdk.account.ILoginListener;
@@ -13,29 +14,29 @@ import java.util.HashMap;
 import java.util.Map;
 /* loaded from: classes4.dex */
 public class l implements ILoginListener {
-    private static volatile l bdO;
-    private boolean bdM = false;
-    private a bdN;
+    private static volatile l bhA;
+    private boolean bhy = false;
+    private a bhz;
     private boolean mIsDestroy;
     private boolean mIsLogin;
 
     /* loaded from: classes4.dex */
     public interface a {
-        void p(int i, String str);
+        void r(int i, String str);
     }
 
     private l() {
     }
 
-    public static l JS() {
-        if (bdO == null) {
+    public static l KY() {
+        if (bhA == null) {
             synchronized (l.class) {
-                if (bdO == null) {
-                    bdO = new l();
+                if (bhA == null) {
+                    bhA = new l();
                 }
             }
         }
-        return bdO;
+        return bhA;
     }
 
     public void init(Context context) {
@@ -46,17 +47,19 @@ public class l implements ILoginListener {
         BIMManager.enableDebugMode(true);
         if (TbConfig.IM_ENV_DEBUG || isDebug()) {
             BIMManager.init(context, Constants.APPID_TIEBA, 1, cuid);
+            BIMRtcClient.setRtcDebugAndLogEnable(context, true, true);
             i = 1;
         } else {
             BIMManager.init(context, Constants.APPID_TIEBA, 0, cuid);
+            BIMRtcClient.setRtcDebugAndLogEnable(context, false, false);
         }
         LogUtils.d("imlog", "BIMManager init env:" + i);
-        this.bdM = true;
+        this.bhy = true;
     }
 
     public void a(a aVar) {
         this.mIsLogin = true;
-        this.bdN = aVar;
+        this.bhz = aVar;
         String fromHost = TbConfig.getFromHost();
         String currentFromHost = TbConfig.getCurrentFromHost();
         if (TbadkCoreApplication.isLogin()) {
@@ -71,15 +74,15 @@ public class l implements ILoginListener {
         LogUtils.d("imlog", "IMSdkManager 匿名使用cuid登录 loginToIM , cuid = " + cuid + ", from = " + fromHost + ", cfrom = " + currentFromHost);
     }
 
-    public void JT() {
+    public void KZ() {
         AccountManager.disconnect(TbadkCoreApplication.getInst());
     }
 
     @Override // com.baidu.android.imsdk.account.ILoginListener
     public void onLoginResult(int i, String str) {
-        if (this.bdN != null) {
-            this.bdN.p(i, str);
-            this.bdN = null;
+        if (this.bhz != null) {
+            this.bhz.r(i, str);
+            this.bhz = null;
         }
     }
 
@@ -92,7 +95,7 @@ public class l implements ILoginListener {
 
     public void destroy() {
         this.mIsDestroy = true;
-        JT();
+        KZ();
     }
 
     public static boolean isDebug() {

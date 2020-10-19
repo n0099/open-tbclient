@@ -4,9 +4,11 @@ import com.baidu.webkit.internal.ETAG;
 import java.util.HashMap;
 import java.util.LinkedHashMap;
 import java.util.Map;
-/* loaded from: classes3.dex */
+/* loaded from: classes7.dex */
 public class e {
-    private String a;
+
+    /* renamed from: a  reason: collision with root package name */
+    private String f3108a;
     private HashMap<String, String> b = new LinkedHashMap(32);
     private HashMap<String, String> c = new LinkedHashMap(32);
     private int d = -1;
@@ -22,7 +24,7 @@ public class e {
     private boolean n = false;
     private int o;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes7.dex */
     public enum b {
         GET("get"),
         POST("post");
@@ -39,7 +41,7 @@ public class e {
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes7.dex */
     public enum a {
         PROTOBUF("pb"),
         JSON("json"),
@@ -58,8 +60,8 @@ public class e {
     }
 
     public e() {
-        this.a = "";
-        this.a = "https://newclient.map.baidu.com/client/phpui2/";
+        this.f3108a = "";
+        this.f3108a = "https://newclient.map.baidu.com/client/phpui2/";
     }
 
     public e a(String str, String str2) {
@@ -106,9 +108,9 @@ public class e {
     public String toString() {
         com.baidu.platform.comapi.wnplatform.e.a.a aVar = new com.baidu.platform.comapi.wnplatform.e.a.a();
         aVar.a();
-        int indexOf = this.a.indexOf(63);
+        int indexOf = this.f3108a.indexOf(63);
         if (indexOf != -1) {
-            String[] split = this.a.substring(indexOf + 1).split(ETAG.ITEM_SEPARATOR);
+            String[] split = this.f3108a.substring(indexOf + 1).split(ETAG.ITEM_SEPARATOR);
             if (split != null) {
                 int length = split.length;
                 for (int i = 0; i < length; i++) {
@@ -118,9 +120,9 @@ public class e {
                     }
                 }
             }
-            this.a = this.a.substring(0, indexOf);
+            this.f3108a = this.f3108a.substring(0, indexOf);
         }
-        aVar.a("domain").b(this.a);
+        aVar.a("domain").b(this.f3108a);
         if (this.m) {
             aVar.a("OFFLINE_SEARCH").a(1);
         }

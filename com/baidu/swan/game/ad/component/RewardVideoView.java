@@ -9,9 +9,9 @@ import android.widget.RelativeLayout;
 import com.baidu.swan.apps.media.b.a;
 import com.baidu.swan.apps.media.b.c;
 import com.baidu.swan.apps.runtime.e;
-/* loaded from: classes10.dex */
+/* loaded from: classes14.dex */
 public class RewardVideoView extends RelativeLayout {
-    private a bVg;
+    private a chu;
     private Context mContext;
     private boolean mIsMute;
 
@@ -30,16 +30,16 @@ public class RewardVideoView extends RelativeLayout {
     }
 
     public void bs(String str) {
-        c aIY = aIY();
-        aIY.mSrc = str;
-        this.bVg.d(aIY);
-        this.bVg.eA(false);
+        c aLH = aLH();
+        aLH.mSrc = str;
+        this.chu.d(aLH);
+        this.chu.eW(false);
     }
 
     public void mute(boolean z) {
-        if (this.bVg != null) {
+        if (this.chu != null) {
             this.mIsMute = z;
-            this.bVg.mute(z);
+            this.chu.mute(z);
         }
     }
 
@@ -48,16 +48,16 @@ public class RewardVideoView extends RelativeLayout {
     }
 
     public a getPlayer() {
-        return this.bVg;
+        return this.chu;
     }
 
     private void initPlayer() {
-        e aAr = e.aAr();
-        if (aAr != null) {
-            this.bVg = new a(aAr.aAl(), aIY());
+        e aDa = e.aDa();
+        if (aDa != null) {
+            this.chu = new a(aDa.aCU(), aLH());
             FrameLayout frameLayout = new FrameLayout(this.mContext);
             addView(frameLayout, new RelativeLayout.LayoutParams(-1, -1));
-            this.bVg.b(frameLayout);
+            this.chu.c(frameLayout);
         }
     }
 
@@ -67,15 +67,15 @@ public class RewardVideoView extends RelativeLayout {
     }
 
     @NonNull
-    private c aIY() {
+    private c aLH() {
         c cVar = new c();
-        cVar.cAp = "SwanAdPlayer";
-        cVar.ccZ = "SwanAdPlayer";
-        cVar.cAy = true;
-        cVar.cEp = this.mIsMute;
-        cVar.cEx = false;
-        cVar.cEG = false;
-        cVar.cED = false;
+        cVar.cMu = "SwanAdPlayer";
+        cVar.cpp = "SwanAdPlayer";
+        cVar.cMD = true;
+        cVar.cQt = this.mIsMute;
+        cVar.cQB = false;
+        cVar.cQK = false;
+        cVar.cQH = false;
         return cVar;
     }
 }

@@ -4,9 +4,11 @@ import java.io.IOException;
 import java.io.PrintWriter;
 import java.io.StringWriter;
 import java.net.UnknownHostException;
-/* loaded from: classes12.dex */
+/* loaded from: classes15.dex */
 public final class b {
-    public static int a = -1;
+
+    /* renamed from: a  reason: collision with root package name */
+    public static int f3593a = -1;
     private static int c = 0;
     static ThreadLocal<StringBuilder> b = new ThreadLocal<>();
 

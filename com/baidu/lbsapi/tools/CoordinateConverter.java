@@ -1,10 +1,10 @@
 package com.baidu.lbsapi.tools;
 
 import com.baidu.pano.platform.comjni.JNITool;
-/* loaded from: classes3.dex */
+/* loaded from: classes7.dex */
 public class CoordinateConverter {
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes7.dex */
     public enum COOR_TYPE {
         COOR_TYPE_WGS84,
         COOR_TYPE_GCJ02

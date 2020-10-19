@@ -10,53 +10,57 @@ import android.provider.MediaStore;
 import com.baidu.ar.statistic.StatisticConstants;
 import com.baidu.sapi2.shell.listener.IScreenShotListener;
 import com.baidu.sapi2.utils.Log;
-/* loaded from: classes25.dex */
+/* loaded from: classes5.dex */
 public class a {
     private static final String g = "screen_shot_observer";
     private static final String[] h = {StatisticConstants.SCREENSHOT, "screen_shot", "screen-shot", "screen shot", "screencapture", "screen_capture", "screen-capture", "screen capture", "screencap", "screen_cap", "screen-cap", "screen cap"};
     private static final String[] i = {"_data", "datetaken"};
-    private ContentResolver a;
+
+    /* renamed from: a  reason: collision with root package name */
+    private ContentResolver f3520a;
     private IScreenShotListener b;
     private HandlerThread c;
     private Handler d;
-    private C0301a e;
-    private C0301a f;
+    private C0318a e;
+    private C0318a f;
 
     /* renamed from: com.baidu.sapi2.shell.a.a$a  reason: collision with other inner class name */
-    /* loaded from: classes25.dex */
-    private class C0301a extends ContentObserver {
-        private final Uri a;
+    /* loaded from: classes5.dex */
+    private class C0318a extends ContentObserver {
 
-        public C0301a(Uri uri, Handler handler) {
+        /* renamed from: a  reason: collision with root package name */
+        private final Uri f3521a;
+
+        public C0318a(Uri uri, Handler handler) {
             super(handler);
-            this.a = uri;
+            this.f3521a = uri;
         }
 
         @Override // android.database.ContentObserver
         public void onChange(boolean z) {
             super.onChange(z);
-            a.this.a(this.a);
+            a.this.a(this.f3521a);
         }
     }
 
     public void b() {
-        this.a.unregisterContentObserver(this.e);
-        this.a.unregisterContentObserver(this.f);
+        this.f3520a.unregisterContentObserver(this.e);
+        this.f3520a.unregisterContentObserver(this.f);
     }
 
     public void a(ContentResolver contentResolver, IScreenShotListener iScreenShotListener) {
-        this.a = contentResolver;
+        this.f3520a = contentResolver;
         this.b = iScreenShotListener;
         this.c = new HandlerThread(g);
         this.c.start();
         this.d = new Handler(this.c.getLooper());
-        this.e = new C0301a(MediaStore.Images.Media.INTERNAL_CONTENT_URI, this.d);
-        this.f = new C0301a(MediaStore.Images.Media.EXTERNAL_CONTENT_URI, this.d);
+        this.e = new C0318a(MediaStore.Images.Media.INTERNAL_CONTENT_URI, this.d);
+        this.f = new C0318a(MediaStore.Images.Media.EXTERNAL_CONTENT_URI, this.d);
     }
 
     public void a() {
-        this.a.registerContentObserver(MediaStore.Images.Media.INTERNAL_CONTENT_URI, false, this.e);
-        this.a.registerContentObserver(MediaStore.Images.Media.EXTERNAL_CONTENT_URI, false, this.f);
+        this.f3520a.registerContentObserver(MediaStore.Images.Media.INTERNAL_CONTENT_URI, false, this.e);
+        this.f3520a.registerContentObserver(MediaStore.Images.Media.EXTERNAL_CONTENT_URI, false, this.f);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -67,7 +71,7 @@ public class a {
         Cursor cursor3;
         try {
             try {
-                cursor2 = this.a.query(uri, i, null, null, "date_added desc limit 1");
+                cursor2 = this.f3520a.query(uri, i, null, null, "date_added desc limit 1");
             } catch (Throwable th) {
                 cursor = cursor3;
                 th = th;

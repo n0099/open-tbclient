@@ -27,7 +27,7 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
-/* loaded from: classes9.dex */
+/* loaded from: classes5.dex */
 public class ShieldAndTopManager {
     private static final String TAG = "ShieldAndTopManager";
     private static volatile ShieldAndTopManager mInstance;
@@ -110,6 +110,9 @@ public class ShieldAndTopManager {
             arrayList2.add(19);
             arrayList2.add(29);
             arrayList2.add(26);
+            for (int i2 = 32; i2 <= 56; i2++) {
+                arrayList2.add(Integer.valueOf(i2));
+            }
             arrayList.addAll(PaInfoDBManager.getInstance(this.mContext).getShieldUsers(arrayList2));
         } else {
             arrayList2.add(7);

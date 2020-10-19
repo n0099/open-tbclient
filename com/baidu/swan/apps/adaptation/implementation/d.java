@@ -2,10 +2,10 @@ package com.baidu.swan.apps.adaptation.implementation;
 
 import java.io.IOException;
 import java.io.InputStream;
-/* loaded from: classes3.dex */
+/* loaded from: classes10.dex */
 public class d implements com.baidu.swan.apps.adaptation.a.n {
     @Override // com.baidu.swan.apps.adaptation.a.n
-    public InputStream j(InputStream inputStream) throws IOException {
+    public InputStream k(InputStream inputStream) throws IOException {
         return new org.brotli.dec.b(inputStream);
     }
 }

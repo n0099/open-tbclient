@@ -5,7 +5,7 @@ import com.baidu.webkit.internal.ETAG;
 import java.io.UnsupportedEncodingException;
 import java.net.URLEncoder;
 import java.util.Map;
-/* loaded from: classes12.dex */
+/* loaded from: classes7.dex */
 class o {
     public static String a(Map<String, String> map) {
         String encode;
@@ -38,13 +38,13 @@ class o {
         if (TextUtils.isEmpty(str)) {
             return str;
         }
-        String a = a(map);
-        if (TextUtils.isEmpty(a)) {
+        String a2 = a(map);
+        if (TextUtils.isEmpty(a2)) {
             return str;
         }
         if (str.contains("?")) {
-            return str.lastIndexOf("?") == str.length() + (-1) ? str + a : str + ETAG.ITEM_SEPARATOR + a;
+            return str.lastIndexOf("?") == str.length() + (-1) ? str + a2 : str + ETAG.ITEM_SEPARATOR + a2;
         }
-        return str + "?" + a;
+        return str + "?" + a2;
     }
 }

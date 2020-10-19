@@ -10,7 +10,7 @@ import java.security.cert.CertificateFactory;
 import java.util.Enumeration;
 import java.util.jar.JarEntry;
 import java.util.jar.JarFile;
-/* loaded from: classes12.dex */
+/* loaded from: classes15.dex */
 public final class d {
     /*  JADX ERROR: JadxRuntimeException in pass: BlockProcessor
         jadx.core.utils.exceptions.JadxRuntimeException: Found unreachable blocks
@@ -116,18 +116,18 @@ public final class d {
             while (entries.hasMoreElements()) {
                 JarEntry nextElement = entries.nextElement();
                 if (!nextElement.isDirectory() && !nextElement.getName().startsWith("META-INF/")) {
-                    Certificate[] a = a(jarFile, nextElement, bArr);
-                    if (a == null || a.length <= 0) {
+                    Certificate[] a2 = a(jarFile, nextElement, bArr);
+                    if (a2 == null || a2.length <= 0) {
                         jarFile.close();
                         return null;
                     } else if (certificateArr == null) {
-                        certificateArr = a;
+                        certificateArr = a2;
                     } else {
                         for (int i = 0; i < certificateArr.length; i++) {
                             int i2 = 0;
                             while (true) {
-                                if (i2 < a.length) {
-                                    if (certificateArr[i] == null || !certificateArr[i].equals(a[i2])) {
+                                if (i2 < a2.length) {
+                                    if (certificateArr[i] == null || !certificateArr[i].equals(a2[i2])) {
                                         i2++;
                                     } else {
                                         z = true;
@@ -138,7 +138,7 @@ public final class d {
                                     break;
                                 }
                             }
-                            if (!z || certificateArr.length != a.length) {
+                            if (!z || certificateArr.length != a2.length) {
                                 jarFile.close();
                                 return null;
                             }

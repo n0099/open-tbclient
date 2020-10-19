@@ -3,10 +3,12 @@ package com.baidu.mapapi.search.core;
 import android.os.Parcel;
 import android.os.Parcelable;
 import com.baidu.mapapi.model.LatLng;
-/* loaded from: classes3.dex */
+/* loaded from: classes7.dex */
 public class RouteNode implements Parcelable {
     public static final Parcelable.Creator<RouteNode> CREATOR = new j();
-    private String a;
+
+    /* renamed from: a  reason: collision with root package name */
+    private String f2105a;
     private LatLng b;
     private String c;
 
@@ -15,7 +17,7 @@ public class RouteNode implements Parcelable {
 
     /* JADX INFO: Access modifiers changed from: protected */
     public RouteNode(Parcel parcel) {
-        this.a = parcel.readString();
+        this.f2105a = parcel.readString();
         this.b = (LatLng) parcel.readValue(LatLng.class.getClassLoader());
         this.c = parcel.readString();
     }
@@ -43,7 +45,7 @@ public class RouteNode implements Parcelable {
     }
 
     public String getTitle() {
-        return this.a;
+        return this.f2105a;
     }
 
     public String getUid() {
@@ -55,7 +57,7 @@ public class RouteNode implements Parcelable {
     }
 
     public void setTitle(String str) {
-        this.a = str;
+        this.f2105a = str;
     }
 
     public void setUid(String str) {
@@ -64,7 +66,7 @@ public class RouteNode implements Parcelable {
 
     @Override // android.os.Parcelable
     public void writeToParcel(Parcel parcel, int i) {
-        parcel.writeString(this.a);
+        parcel.writeString(this.f2105a);
         parcel.writeValue(this.b);
         parcel.writeString(this.c);
     }

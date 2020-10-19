@@ -6,15 +6,17 @@ import java.io.IOException;
 import java.io.ObjectOutputStream;
 import java.io.Serializable;
 import java.util.ArrayList;
-/* loaded from: classes12.dex */
+/* loaded from: classes15.dex */
 public final class a implements Serializable {
-    public ArrayList<b> a;
+
+    /* renamed from: a  reason: collision with root package name */
+    public ArrayList<b> f3600a;
 
     public a(ActivityInfo[] activityInfoArr) {
         int length;
-        this.a = null;
+        this.f3600a = null;
         if (activityInfoArr != null && (length = activityInfoArr.length) > 0) {
-            this.a = new ArrayList<>(length);
+            this.f3600a = new ArrayList<>(length);
             for (int i = 0; i < length; i++) {
                 if (activityInfoArr[i] != null) {
                     b bVar = new b();
@@ -32,8 +34,8 @@ public final class a implements Serializable {
                     bVar.i = activityInfoArr[i].softInputMode;
                     bVar.e = activityInfoArr[i].targetActivity;
                     bVar.d = activityInfoArr[i].taskAffinity;
-                    bVar.a = activityInfoArr[i].theme;
-                    this.a.add(bVar);
+                    bVar.f3601a = activityInfoArr[i].theme;
+                    this.f3600a.add(bVar);
                 }
             }
         }
@@ -49,7 +51,7 @@ public final class a implements Serializable {
             try {
                 objectOutputStream = new ObjectOutputStream(byteArrayOutputStream);
                 try {
-                    objectOutputStream.writeObject(this.a);
+                    objectOutputStream.writeObject(this.f3600a);
                     objectOutputStream.close();
                     byteArrayOutputStream.close();
                     bArr = byteArrayOutputStream.toByteArray();

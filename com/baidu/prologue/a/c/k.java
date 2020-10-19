@@ -3,11 +3,11 @@ package com.baidu.prologue.a.c;
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.preference.PreferenceManager;
-/* loaded from: classes10.dex */
+/* loaded from: classes19.dex */
 public final class k {
     private static SharedPreferences mPreference = null;
-    private static SharedPreferences bMq = null;
-    private static String bMr = null;
+    private static SharedPreferences bSZ = null;
+    private static String bTa = null;
 
     private static SharedPreferences getPreference() {
         if (mPreference == null) {

@@ -6,9 +6,11 @@ import com.baidu.mobstat.Config;
 import com.baidu.sapi2.SapiAccount;
 import com.baidu.sapi2.SapiContext;
 import java.util.HashMap;
-/* loaded from: classes25.dex */
+/* loaded from: classes5.dex */
 public class b {
-    public static final String a = "login_";
+
+    /* renamed from: a  reason: collision with root package name */
+    public static final String f3534a = "login_";
     public static final String b = "login_pop";
     public static final String c = "modifyPWD_widge";
     public static final String d = "normal_incomplete";

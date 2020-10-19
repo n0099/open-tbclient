@@ -1,7 +1,7 @@
 package com.baidu.cesium.f;
 
 import java.io.ByteArrayOutputStream;
-/* loaded from: classes18.dex */
+/* loaded from: classes6.dex */
 public class a {
     private String c;
     private boolean d;
@@ -44,7 +44,7 @@ public class a {
                     i2--;
                 }
             }
-            int a = a(i2);
+            int a2 = a(i2);
             iArr[0] = (byte) ((sArr[0] >> 3) & 31);
             iArr[1] = (byte) (((sArr[0] & 7) << 2) | ((sArr[1] >> 6) & 3));
             iArr[2] = (byte) ((sArr[1] >> 1) & 31);
@@ -53,7 +53,7 @@ public class a {
             iArr[5] = (byte) ((sArr[3] >> 2) & 31);
             iArr[6] = (byte) (((sArr[3] & 3) << 3) | ((sArr[4] >> 5) & 7));
             iArr[7] = (byte) (sArr[4] & 31);
-            for (int i4 = 0; i4 < iArr.length - a; i4++) {
+            for (int i4 = 0; i4 < iArr.length - a2; i4++) {
                 char charAt = this.c.charAt(iArr[i4]);
                 if (this.e) {
                     charAt = Character.toLowerCase(charAt);
@@ -61,7 +61,7 @@ public class a {
                 byteArrayOutputStream.write(charAt);
             }
             if (this.d) {
-                for (int length = iArr.length - a; length < iArr.length; length++) {
+                for (int length = iArr.length - a2; length < iArr.length; length++) {
                     byteArrayOutputStream.write(61);
                 }
             }

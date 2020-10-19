@@ -5,7 +5,7 @@ import android.content.SharedPreferences;
 import java.util.HashMap;
 import java.util.Map;
 @Deprecated
-/* loaded from: classes25.dex */
+/* loaded from: classes12.dex */
 public final class SharedPreferencesUtil {
     public static final String CARD_REMIND_GUIDANCE_SHARED_PREFERENCE = "card_remind_guidance_preference";
     public static final String DISCOVERY_HOME_SHARED_PREFERENCE = "discovery_home_share_preference";

@@ -2,14 +2,14 @@ package com.baidu.tbadk.widget.timepicker.wheel.d;
 
 import com.baidu.tbadk.widget.timepicker.wheel.view.WheelView;
 import java.util.TimerTask;
-/* loaded from: classes20.dex */
+/* loaded from: classes21.dex */
 public final class a extends TimerTask {
-    private final WheelView flE;
+    private final WheelView fxS;
     private float mCurrentVelocityY = 2.1474836E9f;
     private final float mFirstVelocityY;
 
     public a(WheelView wheelView, float f) {
-        this.flE = wheelView;
+        this.fxS = wheelView;
         this.mFirstVelocityY = f;
     }
 
@@ -23,26 +23,26 @@ public final class a extends TimerTask {
             }
         }
         if (Math.abs(this.mCurrentVelocityY) >= 0.0f && Math.abs(this.mCurrentVelocityY) <= 20.0f) {
-            this.flE.cancelFuture();
-            this.flE.getHandler().sendEmptyMessage(2000);
+            this.fxS.cancelFuture();
+            this.fxS.getHandler().sendEmptyMessage(2000);
             return;
         }
         int i = (int) (this.mCurrentVelocityY / 100.0f);
-        this.flE.setTotalScrollY(this.flE.getTotalScrollY() - i);
-        if (!this.flE.isLoop()) {
-            float itemHeight = this.flE.getItemHeight();
-            float f = (-this.flE.getInitPosition()) * itemHeight;
-            float itemsCount = ((this.flE.getItemsCount() - 1) - this.flE.getInitPosition()) * itemHeight;
-            if (this.flE.getTotalScrollY() - (itemHeight * 0.25d) < f) {
-                f = this.flE.getTotalScrollY() + i;
-            } else if (this.flE.getTotalScrollY() + (itemHeight * 0.25d) > itemsCount) {
-                itemsCount = this.flE.getTotalScrollY() + i;
+        this.fxS.setTotalScrollY(this.fxS.getTotalScrollY() - i);
+        if (!this.fxS.isLoop()) {
+            float itemHeight = this.fxS.getItemHeight();
+            float f = (-this.fxS.getInitPosition()) * itemHeight;
+            float itemsCount = ((this.fxS.getItemsCount() - 1) - this.fxS.getInitPosition()) * itemHeight;
+            if (this.fxS.getTotalScrollY() - (itemHeight * 0.25d) < f) {
+                f = this.fxS.getTotalScrollY() + i;
+            } else if (this.fxS.getTotalScrollY() + (itemHeight * 0.25d) > itemsCount) {
+                itemsCount = this.fxS.getTotalScrollY() + i;
             }
-            if (this.flE.getTotalScrollY() <= f) {
+            if (this.fxS.getTotalScrollY() <= f) {
                 this.mCurrentVelocityY = 40.0f;
-                this.flE.setTotalScrollY((int) f);
-            } else if (this.flE.getTotalScrollY() >= itemsCount) {
-                this.flE.setTotalScrollY((int) itemsCount);
+                this.fxS.setTotalScrollY((int) f);
+            } else if (this.fxS.getTotalScrollY() >= itemsCount) {
+                this.fxS.setTotalScrollY((int) itemsCount);
                 this.mCurrentVelocityY = -40.0f;
             }
         }
@@ -51,6 +51,6 @@ public final class a extends TimerTask {
         } else {
             this.mCurrentVelocityY -= 20.0f;
         }
-        this.flE.getHandler().sendEmptyMessage(1000);
+        this.fxS.getHandler().sendEmptyMessage(1000);
     }
 }

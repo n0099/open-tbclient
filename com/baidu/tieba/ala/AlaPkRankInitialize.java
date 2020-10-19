@@ -8,13 +8,13 @@ import com.baidu.live.adp.framework.task.CustomMessageTask;
 /* loaded from: classes4.dex */
 public class AlaPkRankInitialize {
     static {
-        bEU();
-        bEV();
-        bEW();
-        bEX();
+        bHG();
+        bHH();
+        bHI();
+        bHJ();
     }
 
-    private static void bEU() {
+    private static void bHG() {
         CustomMessageTask customMessageTask = new CustomMessageTask(2913225, new CustomMessageTask.CustomRunnable<Context>() { // from class: com.baidu.tieba.ala.AlaPkRankInitialize.1
             @Override // com.baidu.live.adp.framework.task.CustomMessageTask.CustomRunnable
             public CustomResponsedMessage<com.baidu.live.p.a> run(CustomMessage<Context> customMessage) {
@@ -25,7 +25,7 @@ public class AlaPkRankInitialize {
         MessageManager.getInstance().registerTask(customMessageTask);
     }
 
-    private static void bEV() {
+    private static void bHH() {
         CustomMessageTask customMessageTask = new CustomMessageTask(2913226, new CustomMessageTask.CustomRunnable<Context>() { // from class: com.baidu.tieba.ala.AlaPkRankInitialize.2
             @Override // com.baidu.live.adp.framework.task.CustomMessageTask.CustomRunnable
             public CustomResponsedMessage<com.baidu.live.p.b> run(CustomMessage<Context> customMessage) {
@@ -36,18 +36,18 @@ public class AlaPkRankInitialize {
         MessageManager.getInstance().registerTask(customMessageTask);
     }
 
-    private static void bEW() {
+    private static void bHI() {
         CustomMessageTask customMessageTask = new CustomMessageTask(2913229, new CustomMessageTask.CustomRunnable<Context>() { // from class: com.baidu.tieba.ala.AlaPkRankInitialize.3
             @Override // com.baidu.live.adp.framework.task.CustomMessageTask.CustomRunnable
             public CustomResponsedMessage<com.baidu.live.p.d> run(CustomMessage<Context> customMessage) {
-                return new CustomResponsedMessage<>(2913229, com.baidu.tieba.ala.h.c.cca());
+                return new CustomResponsedMessage<>(2913229, com.baidu.tieba.ala.h.c.cfw());
             }
         });
         customMessageTask.setType(CustomMessageTask.TASK_TYPE.SYNCHRONIZED);
         MessageManager.getInstance().registerTask(customMessageTask);
     }
 
-    private static void bEX() {
+    private static void bHJ() {
         CustomMessageTask customMessageTask = new CustomMessageTask(2913230, new CustomMessageTask.CustomRunnable<Context>() { // from class: com.baidu.tieba.ala.AlaPkRankInitialize.4
             @Override // com.baidu.live.adp.framework.task.CustomMessageTask.CustomRunnable
             public CustomResponsedMessage<com.baidu.live.p.c> run(CustomMessage<Context> customMessage) {

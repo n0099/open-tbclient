@@ -2,14 +2,16 @@ package com.baidu.platform.comapi.util;
 
 import com.xiaomi.mipush.sdk.Constants;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes7.dex */
 public class JsonBuilder {
-    private StringBuilder a = new StringBuilder();
+
+    /* renamed from: a  reason: collision with root package name */
+    private StringBuilder f2937a = new StringBuilder();
     private boolean b = false;
 
     private void a() {
         if (this.b) {
-            this.a.append(Constants.ACCEPT_TIME_SEPARATOR_SP);
+            this.f2937a.append(Constants.ACCEPT_TIME_SEPARATOR_SP);
         }
     }
 
@@ -23,45 +25,45 @@ public class JsonBuilder {
 
     public JsonBuilder arrayValue() {
         a();
-        this.a.append("[");
+        this.f2937a.append("[");
         b();
         return this;
     }
 
     public JsonBuilder endArrayValue() {
-        this.a.append("]");
+        this.f2937a.append("]");
         c();
         return this;
     }
 
     public JsonBuilder endObject() {
-        this.a.append("}");
+        this.f2937a.append("}");
         c();
         return this;
     }
 
     public String getJson() {
-        return this.a.toString();
+        return this.f2937a.toString();
     }
 
     public JsonBuilder key(String str) {
         a();
-        this.a.append(JSONObject.quote(str));
-        this.a.append(":");
+        this.f2937a.append(JSONObject.quote(str));
+        this.f2937a.append(":");
         b();
         return this;
     }
 
     public JsonBuilder object() {
         a();
-        this.a.append("{");
+        this.f2937a.append("{");
         b();
         return this;
     }
 
     public JsonBuilder objectValue(String str) {
         a();
-        this.a.append(str);
+        this.f2937a.append(str);
         c();
         return this;
     }
@@ -81,7 +83,7 @@ public class JsonBuilder {
     }
 
     public void reset() {
-        this.a.setLength(0);
+        this.f2937a.setLength(0);
         this.b = false;
     }
 
@@ -91,21 +93,21 @@ public class JsonBuilder {
 
     public JsonBuilder value(double d) {
         a();
-        this.a.append(String.format("%f", Double.valueOf(d)));
+        this.f2937a.append(String.format("%f", Double.valueOf(d)));
         c();
         return this;
     }
 
     public JsonBuilder value(int i) {
         a();
-        this.a.append(i);
+        this.f2937a.append(i);
         c();
         return this;
     }
 
     public JsonBuilder value(long j) {
         a();
-        this.a.append(j);
+        this.f2937a.append(j);
         c();
         return this;
     }
@@ -137,21 +139,21 @@ public class JsonBuilder {
 
     public JsonBuilder value(String str) {
         a();
-        this.a.append(JSONObject.quote(str));
+        this.f2937a.append(JSONObject.quote(str));
         c();
         return this;
     }
 
     public JsonBuilder value(boolean z) {
         a();
-        this.a.append(z);
+        this.f2937a.append(z);
         c();
         return this;
     }
 
     public JsonBuilder valueDirect(String str) {
         a();
-        this.a.append(str);
+        this.f2937a.append(str);
         c();
         return this;
     }

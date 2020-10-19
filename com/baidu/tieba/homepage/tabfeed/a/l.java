@@ -15,37 +15,37 @@ import com.baidu.tbadk.core.data.AbsThreadDataSupport;
 import com.baidu.tbadk.core.data.bv;
 import com.baidu.tbadk.core.data.bw;
 import com.baidu.tbadk.core.util.ay;
-/* loaded from: classes21.dex */
+/* loaded from: classes22.dex */
 public class l extends com.baidu.adp.widget.ListView.a<bv, am<bw>> {
-    private v alj;
-    public BdUniqueId eSq;
+    private v alC;
+    public BdUniqueId fey;
     private TbPageContext<?> mPageContext;
     private String mTabName;
 
     public l(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId, BdUniqueId bdUniqueId2, String str) {
         super(tbPageContext.getPageActivity(), bdUniqueId);
         this.mPageContext = tbPageContext;
-        this.eSq = bdUniqueId2;
+        this.fey = bdUniqueId2;
         this.mTabName = str;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.widget.ListView.a
-    /* renamed from: aR */
+    /* renamed from: aT */
     public am<bw> c(ViewGroup viewGroup) {
         ak.a aVar = new ak.a(this.mPageContext.getPageActivity(), false);
         aVar.a((com.baidu.card.i) new aa(this.mPageContext.getPageActivity()));
-        ak a = aVar.a(false, viewGroup, this.alj);
-        a.setSourceForPb(2);
-        am<bw> amVar = new am<>(a);
-        amVar.setPageId(this.eSq);
+        ak a2 = aVar.a(false, viewGroup, this.alC);
+        a2.setSourceForPb(2);
+        am<bw> amVar = new am<>(a2);
+        amVar.setPageId(this.fey);
         a(new ab() { // from class: com.baidu.tieba.homepage.tabfeed.a.l.1
             @Override // com.baidu.adp.widget.ListView.ab
             public void a(View view, com.baidu.adp.widget.ListView.q qVar, BdUniqueId bdUniqueId, ViewGroup viewGroup2, int i, long j) {
                 if ((qVar instanceof com.baidu.tieba.card.data.l) && (view.getTag() instanceof am)) {
                     ay.a((AbsThreadDataSupport) ((com.baidu.tieba.card.data.l) qVar), view.getContext(), 2, false);
-                    ((am) view.getTag()).tW().b(new a.C0096a(1));
+                    ((am) view.getTag()).tW().b(new a.C0097a(1));
                 }
             }
         });
@@ -56,17 +56,17 @@ public class l extends com.baidu.adp.widget.ListView.a<bv, am<bw>> {
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.widget.ListView.a
     public View a(int i, View view, ViewGroup viewGroup, bv bvVar, am<bw> amVar) {
-        if (bvVar == null || amVar == null || amVar.getView() == null || bvVar.dXg == null) {
+        if (bvVar == null || amVar == null || amVar.getView() == null || bvVar.eji == null) {
             return null;
         }
-        bvVar.dXg.ebp = getPositionByType(i) + 1;
+        bvVar.eji.ens = getPositionByType(i) + 1;
         amVar.tW().setPosition(i);
-        amVar.b((am<bw>) bvVar.dXg);
+        amVar.b((am<bw>) bvVar.eji);
         amVar.tW().onChangeSkinType(this.mPageContext, TbadkCoreApplication.getInst().getSkinType());
         return amVar.getView();
     }
 
     public void a(v vVar) {
-        this.alj = vVar;
+        this.alC = vVar;
     }
 }

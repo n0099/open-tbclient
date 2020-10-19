@@ -3,7 +3,7 @@ package com.baidu.ar.content;
 import com.baidu.ar.callback.ICancellable;
 import com.baidu.ar.ihttp.IProgressCallback;
 import java.util.List;
-/* loaded from: classes10.dex */
+/* loaded from: classes14.dex */
 public interface IContentPlatform {
     ICancellable downloadCase(String str, IRequestCallback<IARCaseInfo> iRequestCallback, IProgressCallback iProgressCallback);
 

@@ -5,9 +5,11 @@ import com.sdk.base.framework.c.f;
 import com.sdk.base.module.manager.SDKManager;
 import java.io.IOException;
 import java.util.Properties;
-/* loaded from: classes5.dex */
+/* loaded from: classes16.dex */
 public class a {
-    private static final String a = a.class.getSimpleName();
+
+    /* renamed from: a  reason: collision with root package name */
+    private static final String f4498a = a.class.getSimpleName();
     private static final boolean b = f.b;
 
     public static String a(String str, String str2) {
@@ -18,7 +20,7 @@ public class a {
         try {
             properties.load(SDKManager.getContext().getAssets().open(str));
         } catch (IOException e) {
-            c.b(a, "域名读取失败！《" + str2 + "+》", Boolean.valueOf(b));
+            c.b(f4498a, "域名读取失败！《" + str2 + "+》", Boolean.valueOf(b));
         }
         return properties.getProperty(str2);
     }

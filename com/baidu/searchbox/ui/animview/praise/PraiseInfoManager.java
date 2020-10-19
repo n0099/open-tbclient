@@ -3,12 +3,12 @@ package com.baidu.searchbox.ui.animview.praise;
 import android.text.TextUtils;
 import android.util.LruCache;
 import com.baidu.live.tbadk.pagestayduration.PageStayDurationHelper;
-/* loaded from: classes11.dex */
+/* loaded from: classes9.dex */
 public class PraiseInfoManager {
     private static int LRU_MAX_COUNT = 10;
     private LruCache<String, PraiseInfo> mPraiseInfoMap;
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes9.dex */
     private static final class Holder {
         private static final PraiseInfoManager sINSTANCE = new PraiseInfoManager();
 
@@ -24,7 +24,7 @@ public class PraiseInfoManager {
         return Holder.sINSTANCE;
     }
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes9.dex */
     private static class PraiseInfo {
         public long mCounts;
         public int mOffsetY;

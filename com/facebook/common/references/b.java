@@ -3,38 +3,38 @@ package com.facebook.common.references;
 import java.lang.ref.SoftReference;
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
-/* loaded from: classes17.dex */
+/* loaded from: classes6.dex */
 public class b<T> {
-    SoftReference<T> nvt = null;
-    SoftReference<T> nvu = null;
-    SoftReference<T> nvv = null;
+    SoftReference<T> nKM = null;
+    SoftReference<T> nKN = null;
+    SoftReference<T> nKO = null;
 
     public void set(@Nonnull T t) {
-        this.nvt = new SoftReference<>(t);
-        this.nvu = new SoftReference<>(t);
-        this.nvv = new SoftReference<>(t);
+        this.nKM = new SoftReference<>(t);
+        this.nKN = new SoftReference<>(t);
+        this.nKO = new SoftReference<>(t);
     }
 
     @Nullable
     public T get() {
-        if (this.nvt == null) {
+        if (this.nKM == null) {
             return null;
         }
-        return this.nvt.get();
+        return this.nKM.get();
     }
 
     public void clear() {
-        if (this.nvt != null) {
-            this.nvt.clear();
-            this.nvt = null;
+        if (this.nKM != null) {
+            this.nKM.clear();
+            this.nKM = null;
         }
-        if (this.nvu != null) {
-            this.nvu.clear();
-            this.nvu = null;
+        if (this.nKN != null) {
+            this.nKN.clear();
+            this.nKN = null;
         }
-        if (this.nvv != null) {
-            this.nvv.clear();
-            this.nvv = null;
+        if (this.nKO != null) {
+            this.nKO.clear();
+            this.nKO = null;
         }
     }
 }

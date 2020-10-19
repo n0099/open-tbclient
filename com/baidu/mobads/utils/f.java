@@ -3,21 +3,23 @@ package com.baidu.mobads.utils;
 import android.content.Context;
 import android.content.Intent;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes3.dex */
+/* loaded from: classes7.dex */
 public class f implements Runnable {
-    final /* synthetic */ Context a;
+
+    /* renamed from: a  reason: collision with root package name */
+    final /* synthetic */ Context f2436a;
     final /* synthetic */ Intent b;
     final /* synthetic */ e c;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public f(e eVar, Context context, Intent intent) {
         this.c = eVar;
-        this.a = context;
+        this.f2436a = context;
         this.b = intent;
     }
 
     @Override // java.lang.Runnable
     public void run() {
-        this.a.startActivity(this.b);
+        this.f2436a.startActivity(this.b);
     }
 }

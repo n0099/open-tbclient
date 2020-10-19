@@ -3,13 +3,13 @@ package com.baidu.tbadk.album;
 import android.support.v7.widget.ActivityChooserView;
 import com.baidu.tbadk.img.ImageFileInfo;
 import java.util.List;
-/* loaded from: classes20.dex */
+/* loaded from: classes21.dex */
 public class a {
     public static final String ALBUM_ID_ALL = String.valueOf((int) ActivityChooserView.ActivityChooserViewAdapter.MAX_ACTIVITY_COUNT_UNLIMITED);
     public static final String ALBUM_ID_VIDEO = String.valueOf(2147483646);
     private String albumId;
     private int count;
-    private MediaFileInfo dTQ;
+    private MediaFileInfo efR;
     private List<MediaFileInfo> fileList;
     private String name;
 
@@ -41,19 +41,19 @@ public class a {
         this.count++;
     }
 
-    public ImageFileInfo bbm() {
-        if (this.dTQ instanceof ImageFileInfo) {
-            return (ImageFileInfo) this.dTQ;
+    public ImageFileInfo bdU() {
+        if (this.efR instanceof ImageFileInfo) {
+            return (ImageFileInfo) this.efR;
         }
         return null;
     }
 
     public void a(MediaFileInfo mediaFileInfo) {
-        this.dTQ = mediaFileInfo;
+        this.efR = mediaFileInfo;
     }
 
-    public MediaFileInfo bbn() {
-        return this.dTQ;
+    public MediaFileInfo bdV() {
+        return this.efR;
     }
 
     public List<MediaFileInfo> getFileList() {

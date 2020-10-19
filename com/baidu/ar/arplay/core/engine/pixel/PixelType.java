@@ -1,5 +1,5 @@
 package com.baidu.ar.arplay.core.engine.pixel;
-/* loaded from: classes10.dex */
+/* loaded from: classes14.dex */
 public enum PixelType {
     RGBA(0),
     BGRA(1),

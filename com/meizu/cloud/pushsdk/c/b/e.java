@@ -2,14 +2,16 @@ package com.meizu.cloud.pushsdk.c.b;
 
 import com.meizu.cloud.pushsdk.b.c.i;
 import java.util.LinkedList;
-/* loaded from: classes3.dex */
+/* loaded from: classes7.dex */
 public class e {
-    private final boolean a;
+
+    /* renamed from: a  reason: collision with root package name */
+    private final boolean f4391a;
     private final i b;
     private final LinkedList<Long> c;
 
     public e(boolean z, i iVar, LinkedList<Long> linkedList) {
-        this.a = z;
+        this.f4391a = z;
         this.b = iVar;
         this.c = linkedList;
     }
@@ -23,6 +25,6 @@ public class e {
     }
 
     public boolean c() {
-        return this.a;
+        return this.f4391a;
     }
 }

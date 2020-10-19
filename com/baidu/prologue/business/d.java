@@ -2,16 +2,16 @@ package com.baidu.prologue.business;
 
 import android.support.annotation.NonNull;
 import android.view.ViewGroup;
-/* loaded from: classes10.dex */
+/* loaded from: classes19.dex */
 public interface d {
-    void VU();
+    void XR();
 
     @NonNull
-    ViewGroup VV();
+    ViewGroup XS();
 
-    void VW();
+    void XT();
 
-    void VX();
+    void XU();
 
     void onAdClick();
 

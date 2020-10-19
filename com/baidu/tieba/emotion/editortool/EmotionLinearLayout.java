@@ -7,7 +7,7 @@ import android.view.View;
 import android.widget.LinearLayout;
 /* loaded from: classes13.dex */
 public class EmotionLinearLayout extends LinearLayout {
-    private View eQI;
+    private View fcQ;
     private boolean visible;
 
     public EmotionLinearLayout(Context context) {
@@ -21,8 +21,8 @@ public class EmotionLinearLayout extends LinearLayout {
     @Override // android.widget.LinearLayout, android.view.View
     protected void onMeasure(int i, int i2) {
         super.onMeasure(i, i2);
-        if (this.eQI != null) {
-            this.eQI.measure(getChildMeasureSpec(i, 0, this.eQI.getLayoutParams().width), getChildMeasureSpec(i2, 0, this.eQI.getLayoutParams().height));
+        if (this.fcQ != null) {
+            this.fcQ.measure(getChildMeasureSpec(i, 0, this.fcQ.getLayoutParams().width), getChildMeasureSpec(i2, 0, this.fcQ.getLayoutParams().height));
         }
     }
 
@@ -30,14 +30,14 @@ public class EmotionLinearLayout extends LinearLayout {
     protected void onLayout(boolean z, int i, int i2, int i3, int i4) {
         super.onLayout(z, i, i2, i3, i4);
         View childAt = getChildAt(0);
-        if (this.eQI != null && childAt != null) {
-            int measuredWidth = childAt.getMeasuredWidth() - this.eQI.getMeasuredWidth();
-            this.eQI.layout(measuredWidth, 0, this.eQI.getMeasuredWidth() + measuredWidth, this.eQI.getMeasuredHeight());
+        if (this.fcQ != null && childAt != null) {
+            int measuredWidth = childAt.getMeasuredWidth() - this.fcQ.getMeasuredWidth();
+            this.fcQ.layout(measuredWidth, 0, this.fcQ.getMeasuredWidth() + measuredWidth, this.fcQ.getMeasuredHeight());
         }
     }
 
     public void setNewView(View view) {
-        this.eQI = view;
+        this.fcQ = view;
     }
 
     @Override // android.view.ViewGroup, android.view.View
@@ -45,8 +45,8 @@ public class EmotionLinearLayout extends LinearLayout {
         super.dispatchDraw(canvas);
         if (this.visible) {
             canvas.save();
-            canvas.translate(this.eQI.getLeft(), this.eQI.getTop());
-            this.eQI.draw(canvas);
+            canvas.translate(this.fcQ.getLeft(), this.fcQ.getTop());
+            this.fcQ.draw(canvas);
             canvas.restore();
         }
     }

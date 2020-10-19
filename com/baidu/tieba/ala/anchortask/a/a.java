@@ -22,42 +22,42 @@ import org.json.JSONObject;
 public class a implements com.baidu.live.a.a {
     private u alaLiveShowData;
     private Context context;
-    private com.baidu.tieba.ala.anchortask.c.a fQS;
-    private com.baidu.tieba.ala.anchortask.b.b fQT;
-    private String fQU;
-    private int fQW;
-    private int fQX;
+    private com.baidu.tieba.ala.anchortask.c.a gdk;
+    private com.baidu.tieba.ala.anchortask.b.b gdl;
+    private String gdm;
+    private int gdo;
+    private int gdp;
     private Handler handler = new Handler();
-    private boolean fQV = false;
+    private boolean gdn = false;
     private Runnable runnable = new Runnable() { // from class: com.baidu.tieba.ala.anchortask.a.a.1
         @Override // java.lang.Runnable
         public void run() {
-            a.this.bIv();
+            a.this.bLf();
             a.this.handler.postDelayed(a.this.runnable, 60000L);
         }
     };
-    private View.OnClickListener eHN = new View.OnClickListener() { // from class: com.baidu.tieba.ala.anchortask.a.a.2
+    private View.OnClickListener eTU = new View.OnClickListener() { // from class: com.baidu.tieba.ala.anchortask.a.a.2
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
-            if (!TextUtils.isEmpty(a.this.fQU)) {
-                MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2913141, a.this.fQU));
+            if (!TextUtils.isEmpty(a.this.gdm)) {
+                MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2913141, a.this.gdm));
             }
-            a.this.bIv();
+            a.this.bLf();
             a.this.handler.removeCallbacksAndMessages(null);
             a.this.handler.postDelayed(a.this.runnable, 60000L);
         }
     };
-    private HttpMessageListener fQY = new HttpMessageListener(1021172) { // from class: com.baidu.tieba.ala.anchortask.a.a.3
+    private HttpMessageListener gdq = new HttpMessageListener(1021172) { // from class: com.baidu.tieba.ala.anchortask.a.a.3
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.live.adp.framework.listener.MessageListener
         public void onMessage(HttpResponsedMessage httpResponsedMessage) {
-            if (httpResponsedMessage != null && (httpResponsedMessage instanceof GetAnchorTaskInfoHttpResponseMessage) && a.this.fQS != null) {
-                a.this.fQT = ((GetAnchorTaskInfoHttpResponseMessage) httpResponsedMessage).fQT;
-                if (a.this.fQT != null && a.this.fQT.fRs != null) {
-                    a.this.fQU = a.this.fQT.fQU;
-                    a.this.bIw();
-                    a.this.fQS.a(a.this.fQT.fRs);
-                    if (a.this.fQT.fRs.fRg == 2) {
+            if (httpResponsedMessage != null && (httpResponsedMessage instanceof GetAnchorTaskInfoHttpResponseMessage) && a.this.gdk != null) {
+                a.this.gdl = ((GetAnchorTaskInfoHttpResponseMessage) httpResponsedMessage).gdl;
+                if (a.this.gdl != null && a.this.gdl.gdK != null) {
+                    a.this.gdm = a.this.gdl.gdm;
+                    a.this.bLg();
+                    a.this.gdk.a(a.this.gdl.gdK);
+                    if (a.this.gdl.gdK.gdy == 2) {
                         a.this.handler.removeCallbacksAndMessages(null);
                     }
                 }
@@ -68,37 +68,37 @@ public class a implements com.baidu.live.a.a {
     public a(Context context) {
         this.context = context;
         initTasks();
-        this.fQS = new com.baidu.tieba.ala.anchortask.c.a(context);
-        if (this.fQS.getView() != null) {
-            this.fQS.getView().setOnClickListener(this.eHN);
+        this.gdk = new com.baidu.tieba.ala.anchortask.c.a(context);
+        if (this.gdk.getView() != null) {
+            this.gdk.getView().setOnClickListener(this.eTU);
         }
     }
 
     @Override // com.baidu.live.a.a
     public void b(ViewGroup viewGroup, ViewGroup.LayoutParams layoutParams) {
         boolean z = true;
-        bs bsVar = com.baidu.live.x.a.NN().bmW.aLa;
+        bs bsVar = com.baidu.live.x.a.OS().bqJ.aOf;
         if (bsVar != null) {
             if (TbadkCoreApplication.getInst().isHaokan()) {
-                if (bsVar.aLN != 1) {
+                if (bsVar.aOS != 1) {
                     z = false;
                 }
-            } else if (TbadkCoreApplication.getInst().isQuanmin()) {
-                if (bsVar.aLO != 1) {
+            } else if (TbadkCoreApplication.getInst().isQuanmin() || TbadkCoreApplication.getInst().isYinbo()) {
+                if (bsVar.aOT != 1) {
                     z = false;
                 }
             } else if (TbadkCoreApplication.getInst().isTieba()) {
-                if (bsVar.aLP != 1) {
+                if (bsVar.aOU != 1) {
                     z = false;
                 }
             } else if (!TbadkCoreApplication.getInst().isMobileBaidu()) {
                 z = false;
-            } else if (bsVar.aLQ != 1) {
+            } else if (bsVar.aOV != 1) {
                 z = false;
             }
             if (z) {
-                if (this.fQS != null) {
-                    viewGroup.addView(this.fQS.getView(), layoutParams);
+                if (this.gdk != null) {
+                    viewGroup.addView(this.gdk.getView(), layoutParams);
                 }
                 this.handler.postDelayed(this.runnable, 10000L);
             }
@@ -117,15 +117,15 @@ public class a implements com.baidu.live.a.a {
         tbHttpMessageTask.setIsUseCurrentBDUSS(true);
         tbHttpMessageTask.setResponsedClass(GetAnchorTaskInfoHttpResponseMessage.class);
         MessageManager.getInstance().registerTask(tbHttpMessageTask);
-        MessageManager.getInstance().registerListener(this.fQY);
+        MessageManager.getInstance().registerListener(this.gdq);
     }
 
-    public void bIv() {
+    public void bLf() {
         if (this.alaLiveShowData != null) {
             long j = this.alaLiveShowData.mLiveInfo.live_id;
             long j2 = this.alaLiveShowData.mLiveInfo.user_id;
             com.baidu.tieba.ala.anchortask.message.a aVar = new com.baidu.tieba.ala.anchortask.message.a();
-            aVar.af(j2);
+            aVar.setAnchorId(j2);
             aVar.setLiveId(j);
             aVar.setParams();
             MessageManager.getInstance().sendMessage(aVar);
@@ -133,25 +133,25 @@ public class a implements com.baidu.live.a.a {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void bIw() {
-        if (this.fQT != null && this.fQT.fRs != null) {
-            if (!this.fQV) {
-                this.fQV = true;
-                this.fQW = this.fQT.fRs.fRe;
-                this.fQX = this.fQT.fRs.fRf;
+    public void bLg() {
+        if (this.gdl != null && this.gdl.gdK != null) {
+            if (!this.gdn) {
+                this.gdn = true;
+                this.gdo = this.gdl.gdK.gdw;
+                this.gdp = this.gdl.gdK.gdx;
             }
-            int i = this.fQT.fRs.fRg;
-            int i2 = this.fQT.fRs.fRh;
-            int i3 = this.fQT.fRs.fRi;
+            int i = this.gdl.gdK.gdy;
+            int i2 = this.gdl.gdK.gdz;
+            int i3 = this.gdl.gdK.gdA;
             String str = null;
-            if (this.fQW == 1 && i == 2) {
+            if (this.gdo == 1 && i == 2) {
                 str = this.context.getString(a.i.txt_im_identity_is_mcn);
-            } else if (this.fQW == 2 && i == 1) {
+            } else if (this.gdo == 2 && i == 1) {
                 str = String.format(this.context.getString(a.i.txt_im_identity_is_ugc), Integer.valueOf(i3)) + "%";
-            } else if (this.fQW == 1 && i == 1) {
-                if (i2 > this.fQX) {
+            } else if (this.gdo == 1 && i == 1) {
+                if (i2 > this.gdp) {
                     str = String.format(this.context.getString(a.i.txt_im_identity_advance), Integer.valueOf(i3)) + "%";
-                } else if (i2 < this.fQX) {
+                } else if (i2 < this.gdp) {
                     str = String.format(this.context.getString(a.i.txt_im_identity_reduce), Integer.valueOf(i3)) + "%";
                 }
             }
@@ -165,31 +165,31 @@ public class a implements com.baidu.live.a.a {
                     e.printStackTrace();
                 }
             }
-            this.fQW = i;
-            this.fQX = i2;
+            this.gdo = i;
+            this.gdp = i2;
         }
     }
 
     @Override // com.baidu.live.a.a
     public void setCanVisible(boolean z) {
-        if (this.fQS != null) {
-            this.fQS.setCanVisible(z);
+        if (this.gdk != null) {
+            this.gdk.setCanVisible(z);
         }
     }
 
     @Override // com.baidu.live.a.a
     public void refreshUI() {
-        if (this.fQS != null) {
-            this.fQS.refreshUI();
+        if (this.gdk != null) {
+            this.gdk.refreshUI();
         }
     }
 
     @Override // com.baidu.live.a.a
     public void onDestory() {
         this.handler.removeCallbacksAndMessages(null);
-        MessageManager.getInstance().unRegisterListener(this.fQY);
-        if (this.fQS != null) {
-            this.fQS.onDestroy();
+        MessageManager.getInstance().unRegisterListener(this.gdq);
+        if (this.gdk != null) {
+            this.gdk.onDestroy();
         }
     }
 }

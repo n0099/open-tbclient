@@ -1,75 +1,75 @@
 package com.baidu.swan.apps.storage.b;
 
 import android.support.annotation.NonNull;
-/* loaded from: classes3.dex */
+/* loaded from: classes10.dex */
 public class b implements c {
     @Override // com.baidu.swan.apps.storage.b.c
-    public String sl(String str) {
+    public String sY(String str) {
         return str;
     }
 
     @Override // com.baidu.swan.apps.storage.b.c
-    public String sm(String str) {
+    public String sZ(String str) {
         return null;
     }
 
     @Override // com.baidu.swan.apps.storage.b.c
-    public String sn(String str) {
+    public String ta(String str) {
         return null;
     }
 
     @Override // com.baidu.swan.apps.storage.b.c
-    public String so(String str) {
+    public String tb(String str) {
         return null;
     }
 
     @Override // com.baidu.swan.apps.storage.b.c
-    public String sp(String str) {
+    public String tc(String str) {
         return null;
     }
 
     @Override // com.baidu.swan.apps.storage.b.c
-    public String sq(String str) {
+    public String td(String str) {
         return null;
     }
 
     @Override // com.baidu.swan.apps.storage.b.c
-    public String aDJ() {
+    public String aGs() {
         return null;
     }
 
     @Override // com.baidu.swan.apps.storage.b.c
-    public String aDK() {
+    public String aGt() {
         return null;
     }
 
     @Override // com.baidu.swan.apps.storage.b.c
-    public String sc(String str) {
+    public String sP(String str) {
         return null;
     }
 
     @Override // com.baidu.swan.apps.storage.b.c
-    public boolean rW(String str) {
+    public boolean sJ(String str) {
         return false;
     }
 
     @Override // com.baidu.swan.apps.storage.b.c
-    public boolean rX(String str) {
+    public boolean sK(String str) {
         return false;
     }
 
     @Override // com.baidu.swan.apps.storage.b.c
-    public boolean aa(String str, boolean z) {
+    public boolean ae(String str, boolean z) {
         return false;
     }
 
     @Override // com.baidu.swan.apps.storage.b.c
     @NonNull
-    public d aDL() {
+    public d aGu() {
         return new a() { // from class: com.baidu.swan.apps.storage.b.b.1
             @Override // com.baidu.swan.apps.storage.b.a
             @NonNull
-            public String aDI() {
+            public String aGr() {
                 return "";
             }
 

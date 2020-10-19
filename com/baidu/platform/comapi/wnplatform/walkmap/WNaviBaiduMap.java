@@ -9,11 +9,13 @@ import com.baidu.mapapi.map.Overlay;
 import com.baidu.platform.comjni.map.basemap.NABaseMap;
 import com.baidu.webkit.internal.ABTestConstants;
 import com.baidu.webkit.net.BdNetTask;
-/* loaded from: classes3.dex */
+/* loaded from: classes7.dex */
 public class WNaviBaiduMap {
     private static long b;
     private static WNaviBaiduMap c;
-    private NABaseMap a = new NABaseMap();
+
+    /* renamed from: a  reason: collision with root package name */
+    private NABaseMap f3154a = new NABaseMap();
 
     public void setId(long j) {
         b = j;
@@ -118,6 +120,6 @@ public class WNaviBaiduMap {
         bundle.putInt("hasHW", 1);
         bundle.putInt("width", i);
         bundle.putInt("height", i2);
-        return this.a.getZoomToBound(b, bundle, i, i2);
+        return this.f3154a.getZoomToBound(b, bundle, i, i2);
     }
 }

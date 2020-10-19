@@ -6,12 +6,14 @@ import javax.crypto.Cipher;
 import javax.crypto.NoSuchPaddingException;
 import javax.crypto.spec.IvParameterSpec;
 import javax.crypto.spec.SecretKeySpec;
-/* loaded from: classes25.dex */
+/* loaded from: classes5.dex */
 public class AES implements NoProguard {
     private static final String d = "UTF-8";
     private static final String e = "AES/CBC/NoPadding";
     private static final String f = "AES";
-    private String a;
+
+    /* renamed from: a  reason: collision with root package name */
+    private String f3523a;
     private String b;
     private String c;
 
@@ -31,7 +33,7 @@ public class AES implements NoProguard {
         if (bArr != null && bArr.length != 0) {
             byte[] bArr2 = new byte[0];
             try {
-                IvParameterSpec ivParameterSpec = new IvParameterSpec(str.getBytes(this.a));
+                IvParameterSpec ivParameterSpec = new IvParameterSpec(str.getBytes(this.f3523a));
                 SecretKeySpec secretKeySpec = new SecretKeySpec(str2.getBytes(), this.c);
                 Cipher cipher = Cipher.getInstance(this.b);
                 cipher.init(2, secretKeySpec, ivParameterSpec);
@@ -47,7 +49,7 @@ public class AES implements NoProguard {
     public byte[] encrypt(String str, String str2, String str3) throws Exception {
         if (str != null && str.length() != 0) {
             try {
-                IvParameterSpec ivParameterSpec = new IvParameterSpec(str2.getBytes(this.a));
+                IvParameterSpec ivParameterSpec = new IvParameterSpec(str2.getBytes(this.f3523a));
                 SecretKeySpec secretKeySpec = new SecretKeySpec(str3.getBytes(), this.c);
                 Cipher cipher = Cipher.getInstance(this.b);
                 cipher.init(1, secretKeySpec, ivParameterSpec);
@@ -68,11 +70,11 @@ public class AES implements NoProguard {
     }
 
     public AES(String str, String str2, String str3) {
-        this.a = "UTF-8";
+        this.f3523a = "UTF-8";
         this.b = e;
         this.c = "AES";
         this.c = str;
         this.b = str2;
-        this.a = str3;
+        this.f3523a = str3;
     }
 }

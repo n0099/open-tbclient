@@ -3,56 +3,58 @@ package com.baidu.cyberplayer.sdk.dlna;
 import com.baidu.cyberplayer.sdk.Keep;
 import com.baidu.cyberplayer.sdk.dlna.CtrlPointProvider;
 @Keep
-/* loaded from: classes10.dex */
+/* loaded from: classes12.dex */
 public class PnPController {
-    private CtrlPointProvider a;
+
+    /* renamed from: a  reason: collision with root package name */
+    private CtrlPointProvider f1380a;
 
     public PnPController(String str, DlnaProvider dlnaProvider) {
-        this.a = null;
-        this.a = dlnaProvider.ctrlPoint(str);
+        this.f1380a = null;
+        this.f1380a = dlnaProvider.ctrlPoint(str);
     }
 
     public long getCurrentTime() {
-        return this.a.getCurrentTime();
+        return this.f1380a.getCurrentTime();
     }
 
     public long getDuration() {
-        return this.a.getDuration();
+        return this.f1380a.getDuration();
     }
 
     public int getPlaybackVolume() {
-        return this.a.getPlaybackVolume();
+        return this.f1380a.getPlaybackVolume();
     }
 
     public void pause() {
-        this.a.pause();
+        this.f1380a.pause();
     }
 
     public void play() {
-        this.a.play();
+        this.f1380a.play();
     }
 
     public void seek(long j) {
-        this.a.seek(j);
+        this.f1380a.seek(j);
     }
 
     public void setAVTransportUrl(String str) {
-        this.a.setAVTransportUrl(str);
+        this.f1380a.setAVTransportUrl(str);
     }
 
     public void setListener(CtrlPointProvider.CtrlPointListener ctrlPointListener) {
-        this.a.setListener(ctrlPointListener);
+        this.f1380a.setListener(ctrlPointListener);
     }
 
     public void setPlaybackVolume(int i) {
-        this.a.setPlaybackVolume(i);
+        this.f1380a.setPlaybackVolume(i);
     }
 
     public void shutdown() {
-        this.a.shutdown();
+        this.f1380a.shutdown();
     }
 
     public void stop() {
-        this.a.stop();
+        this.f1380a.stop();
     }
 }

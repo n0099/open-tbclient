@@ -18,11 +18,13 @@ import javax.crypto.Cipher;
 import javax.crypto.spec.IvParameterSpec;
 import javax.crypto.spec.SecretKeySpec;
 import org.json.JSONObject;
-/* loaded from: classes12.dex */
+/* loaded from: classes15.dex */
 public final class l {
-    private static final String a = new String(b.a(new byte[]{77, 122, 65, 121, 77, 84, 73, 120, 77, 68, 73, 61}));
+
+    /* renamed from: a  reason: collision with root package name */
+    private static final String f3632a = new String(b.a(new byte[]{77, 122, 65, 121, 77, 84, 73, 120, 77, 68, 73, 61}));
     private static final String b = new String(b.a(new byte[]{90, 71, 108, 106, 100, 87, 82, 112, 89, 87, 73, 61}));
-    private static final String c = a + b;
+    private static final String c = f3632a + b;
     private static c d;
     private Context e;
 
@@ -195,7 +197,7 @@ public final class l {
             return null;
         }
         c cVar = new c((byte) 0);
-        cVar.a = str2;
+        cVar.f3634a = str2;
         cVar.b = str;
         return cVar;
     }
@@ -217,7 +219,7 @@ public final class l {
             }
             if (!TextUtils.isEmpty(str)) {
                 c cVar = new c((byte) 0);
-                cVar.a = str;
+                cVar.f3634a = str;
                 cVar.b = c2;
                 return cVar;
             }
@@ -248,9 +250,11 @@ public final class l {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes12.dex */
+    /* loaded from: classes15.dex */
     public static class c {
-        public String a;
+
+        /* renamed from: a  reason: collision with root package name */
+        public String f3634a;
         public String b;
 
         private c() {
@@ -272,7 +276,7 @@ public final class l {
                     return null;
                 }
                 c cVar = new c();
-                cVar.a = string;
+                cVar.f3634a = string;
                 cVar.b = string2;
                 return cVar;
             } catch (Throwable th) {
@@ -287,7 +291,7 @@ public final class l {
                 if (TextUtils.isEmpty(str)) {
                     str = "0";
                 }
-                return this.a + "|" + new StringBuffer(str).reverse().toString();
+                return this.f3634a + "|" + new StringBuffer(str).reverse().toString();
             } catch (Throwable th) {
                 e.a();
                 return null;
@@ -295,7 +299,7 @@ public final class l {
         }
     }
 
-    /* loaded from: classes12.dex */
+    /* loaded from: classes15.dex */
     public static class a {
         public static byte[] a(String str, String str2, byte[] bArr) throws Exception {
             SecretKeySpec secretKeySpec = new SecretKeySpec(str2.getBytes(), com.baidu.sapi2.utils.e.q);
@@ -305,9 +309,11 @@ public final class l {
         }
     }
 
-    /* loaded from: classes12.dex */
+    /* loaded from: classes15.dex */
     public static class b {
-        private static final byte[] a = {65, 66, 67, 68, 69, 70, 71, 72, 73, 74, 75, 76, 77, 78, 79, 80, 81, 82, 83, 84, 85, 86, 87, 88, 89, 90, 97, 98, 99, 100, Constants.SHORT_PING_CMD_TYPE, 102, 103, 104, 105, 106, 107, 108, 109, 110, 111, 112, 113, 114, 115, 116, 117, 118, 119, 120, 121, 122, 48, 49, 50, 51, 52, 53, 54, 55, 56, 57, 43, 47};
+
+        /* renamed from: a  reason: collision with root package name */
+        private static final byte[] f3633a = {65, 66, 67, 68, 69, 70, 71, 72, 73, 74, 75, 76, 77, 78, 79, 80, 81, 82, 83, 84, 85, 86, 87, 88, 89, 90, 97, 98, 99, 100, Constants.SHORT_PING_CMD_TYPE, 102, 103, 104, 105, 106, 107, 108, 109, 110, 111, 112, 113, 114, 115, 116, 117, 118, 119, 120, 121, 122, 48, 49, 50, 51, 52, 53, 54, 55, 56, 57, 43, 47};
 
         public static byte[] a(byte[] bArr) {
             int i;
@@ -394,7 +400,7 @@ public final class l {
         }
     }
 
-    /* loaded from: classes12.dex */
+    /* loaded from: classes15.dex */
     public static class d {
         public static String a(byte[] bArr) {
             try {

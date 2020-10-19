@@ -5,17 +5,17 @@ import org.json.JSONObject;
 /* loaded from: classes4.dex */
 public class a {
     String date;
-    int dgo;
+    int dsw;
     String uid;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public a dD(JSONObject jSONObject) {
+    public a dI(JSONObject jSONObject) {
         if (jSONObject == null) {
             return null;
         }
         this.uid = jSONObject.optString("uid");
         this.date = jSONObject.optString("date");
-        this.dgo = jSONObject.optInt("times");
+        this.dsw = jSONObject.optInt("times");
         return this;
     }
 
@@ -25,7 +25,7 @@ public class a {
         try {
             jSONObject.put("uid", this.uid);
             jSONObject.put("date", this.date);
-            jSONObject.put("times", this.dgo);
+            jSONObject.put("times", this.dsw);
             return jSONObject.toString();
         } catch (JSONException e) {
             e.printStackTrace();

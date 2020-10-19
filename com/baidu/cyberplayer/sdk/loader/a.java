@@ -16,12 +16,14 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.ArrayList;
 import java.util.Map;
-/* loaded from: classes10.dex */
-public class a implements a.InterfaceC0105a {
+/* loaded from: classes12.dex */
+public class a implements a.InterfaceC0109a {
     private static ClassLoader l = null;
     private static a m = null;
     private volatile int h;
-    private long a = 0;
+
+    /* renamed from: a  reason: collision with root package name */
+    private long f1398a = 0;
     private int b = 0;
     private Context c = null;
     private String d = SDKVersion.VERSION;
@@ -95,11 +97,11 @@ public class a implements a.InterfaceC0105a {
         if (TextUtils.isEmpty(cfgValue) || !new File(cfgValue).exists()) {
             return;
         }
-        String a = com.baidu.cyberplayer.sdk.a.a.a(cfgValue, this.f);
-        if (TextUtils.isEmpty(a)) {
+        String a2 = com.baidu.cyberplayer.sdk.a.a.a(cfgValue, this.f);
+        if (TextUtils.isEmpty(a2)) {
             return;
         }
-        this.d = a;
+        this.d = a2;
     }
 
     private void c() {
@@ -202,11 +204,11 @@ public class a implements a.InterfaceC0105a {
         }
     }
 
-    @Override // com.baidu.cyberplayer.sdk.a.a.InterfaceC0105a
+    @Override // com.baidu.cyberplayer.sdk.a.a.InterfaceC0109a
     public void a(String str, long j) {
     }
 
-    @Override // com.baidu.cyberplayer.sdk.a.a.InterfaceC0105a
+    @Override // com.baidu.cyberplayer.sdk.a.a.InterfaceC0109a
     public void a(String str, long j, int i, String str2) {
         CyberLog.d("CyberCoreLoader", "srcUrl:" + str + " detail:" + str2);
         if (i != -1) {
@@ -216,18 +218,18 @@ public class a implements a.InterfaceC0105a {
         a(i, str2);
     }
 
-    @Override // com.baidu.cyberplayer.sdk.a.a.InterfaceC0105a
+    @Override // com.baidu.cyberplayer.sdk.a.a.InterfaceC0109a
     public void a(String str, long j, long j2) {
         Long valueOf = Long.valueOf(System.currentTimeMillis());
-        if (valueOf.longValue() - this.a > 500) {
+        if (valueOf.longValue() - this.f1398a > 500) {
             float f = (((float) j) / ((float) j2)) * 99.0f;
             a((int) f);
-            this.a = valueOf.longValue();
+            this.f1398a = valueOf.longValue();
             CyberLog.d("CyberCoreLoader", "onDownloading:" + ((int) f) + "%");
         }
     }
 
-    @Override // com.baidu.cyberplayer.sdk.a.a.InterfaceC0105a
+    @Override // com.baidu.cyberplayer.sdk.a.a.InterfaceC0109a
     public void a(String str, long j, ArrayList<String> arrayList) {
         this.j = arrayList;
         this.b++;

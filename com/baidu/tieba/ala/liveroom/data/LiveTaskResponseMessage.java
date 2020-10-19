@@ -7,10 +7,10 @@ import org.json.JSONObject;
 /* loaded from: classes4.dex */
 public class LiveTaskResponseMessage extends JsonHttpResponsedMessage {
     public String btnText;
-    public long gBd;
-    public int gBe;
-    public String gBf;
-    public String gBg;
+    public long gPw;
+    public int gPx;
+    public String gPy;
+    public String gPz;
     public String message;
     public String scheme;
     public String url;
@@ -27,15 +27,15 @@ public class LiveTaskResponseMessage extends JsonHttpResponsedMessage {
             if (optJSONObject != null) {
                 this.message = optJSONObject.optString("message");
                 this.btnText = optJSONObject.optString("btnText");
-                this.gBd = optJSONObject.optLong("toastDuration");
+                this.gPw = optJSONObject.optLong("toastDuration");
                 this.url = optJSONObject.optString("url");
                 this.scheme = optJSONObject.optString("schema");
             }
             JSONObject optJSONObject2 = jSONObject.optJSONObject(BdStatsConstant.StatsType.ERROR);
             if (optJSONObject2 != null) {
-                this.gBe = optJSONObject2.optInt(BaseJsonData.TAG_ERRNO);
-                this.gBf = optJSONObject2.optString(BaseJsonData.TAG_ERRMSG);
-                this.gBg = optJSONObject2.optString("usermsg");
+                this.gPx = optJSONObject2.optInt(BaseJsonData.TAG_ERRNO);
+                this.gPy = optJSONObject2.optString(BaseJsonData.TAG_ERRMSG);
+                this.gPz = optJSONObject2.optString("usermsg");
             }
         }
     }

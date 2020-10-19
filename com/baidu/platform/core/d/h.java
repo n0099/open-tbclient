@@ -24,7 +24,7 @@ import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes7.dex */
 public class h extends com.baidu.platform.base.d {
     private TransitResultNode a(int i, JSONObject jSONObject) {
         LatLng latLng = null;
@@ -328,10 +328,10 @@ public class h extends com.baidu.platform.base.d {
                                 massTransitRouteResult.setSuggestAddrInfo(b(optJSONObject));
                                 massTransitRouteResult.error = SearchResult.ERRORNO.AMBIGUOUS_ROURE_ADDR;
                             } else if (optInt == 2) {
-                                TransitResultNode a = a(optInt, optJSONObject.optJSONObject("origin"));
-                                massTransitRouteResult.setOrigin(a);
-                                TransitResultNode a2 = a(optInt, optJSONObject.optJSONObject("destination"));
-                                massTransitRouteResult.setDestination(a2);
+                                TransitResultNode a2 = a(optInt, optJSONObject.optJSONObject("origin"));
+                                massTransitRouteResult.setOrigin(a2);
+                                TransitResultNode a3 = a(optInt, optJSONObject.optJSONObject("destination"));
+                                massTransitRouteResult.setDestination(a3);
                                 massTransitRouteResult.setTotal(optJSONObject.optInt("total"));
                                 massTransitRouteResult.setTaxiInfo(b(optJSONObject.optString("taxi")));
                                 JSONArray optJSONArray = optJSONObject.optJSONArray("routes");
@@ -348,14 +348,14 @@ public class h extends com.baidu.platform.base.d {
                                         massTransitRouteLine.setArriveTime(optJSONObject2.optString("arrive_time"));
                                         massTransitRouteLine.setPrice(optJSONObject2.optDouble("price"));
                                         massTransitRouteLine.setPriceInfo(c(optJSONObject2.optJSONArray("price_detail")));
-                                        if (a != null) {
+                                        if (a2 != null) {
                                             RouteNode routeNode = new RouteNode();
-                                            routeNode.setLocation(a.getLocation());
+                                            routeNode.setLocation(a2.getLocation());
                                             massTransitRouteLine.setStarting(routeNode);
                                         }
-                                        if (a2 != null) {
+                                        if (a3 != null) {
                                             RouteNode routeNode2 = new RouteNode();
-                                            routeNode2.setLocation(a2.getLocation());
+                                            routeNode2.setLocation(a3.getLocation());
                                             massTransitRouteLine.setTerminal(routeNode2);
                                         }
                                         JSONArray optJSONArray2 = optJSONObject2.optJSONArray("steps");

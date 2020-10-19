@@ -54,7 +54,7 @@ import org.json.JSONException;
 import org.json.JSONObject;
 @SuppressLint({"SetJavaScriptEnabled"})
 @TargetApi(11)
-/* loaded from: classes21.dex */
+/* loaded from: classes22.dex */
 public class FeedbackReportActivity extends Activity {
     private View A;
     private ScrollView L;
@@ -103,7 +103,9 @@ public class FeedbackReportActivity extends Activity {
     private int R = 0;
     private String S = "举报/反馈";
     private boolean T = false;
-    protected int a = -1;
+
+    /* renamed from: a  reason: collision with root package name */
+    protected int f3739a = -1;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public static /* synthetic */ void D(FeedbackReportActivity feedbackReportActivity) {
@@ -113,13 +115,13 @@ public class FeedbackReportActivity extends Activity {
         Intent intent = new Intent("android.intent.action.GET_CONTENT");
         intent.addCategory("android.intent.category.OPENABLE");
         intent.setType("image/*");
-        if (feedbackReportActivity.a == feedbackReportActivity.x.size() - 1) {
+        if (feedbackReportActivity.f3739a == feedbackReportActivity.x.size() - 1) {
             if (feedbackReportActivity.getCurrentFocus() != null && feedbackReportActivity.getCurrentFocus().getWindowToken() != null) {
                 ((InputMethodManager) feedbackReportActivity.getSystemService("input_method")).hideSoftInputFromWindow(feedbackReportActivity.getCurrentFocus().getWindowToken(), 2);
             }
             try {
                 feedbackReportActivity.D = true;
-                feedbackReportActivity.startActivityForResult(intent, feedbackReportActivity.a);
+                feedbackReportActivity.startActivityForResult(intent, feedbackReportActivity.f3739a);
                 try {
                     feedbackReportActivity.overridePendingTransition(com.baidu.ufosdk.f.i.a(feedbackReportActivity.getApplicationContext(), "ufo_slide_in_from_bottom"), 0);
                 } catch (Exception e) {
@@ -246,11 +248,11 @@ public class FeedbackReportActivity extends Activity {
                     imageButton.setBackgroundDrawable(null);
                     imageButton.setPadding(com.baidu.ufosdk.f.i.a(getApplicationContext(), 2.0f), 0, 0, com.baidu.ufosdk.f.i.a(getApplicationContext(), 2.0f));
                     imageButton.setScaleType(ImageView.ScaleType.FIT_XY);
-                    Bitmap a = com.baidu.ufosdk.f.m.a(getApplicationContext(), "ufo_delete_little_icon.png");
-                    if (a == null) {
+                    Bitmap a2 = com.baidu.ufosdk.f.m.a(getApplicationContext(), "ufo_delete_little_icon.png");
+                    if (a2 == null) {
                         return;
                     }
-                    imageButton.setImageBitmap(a);
+                    imageButton.setImageBitmap(a2);
                     RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(com.baidu.ufosdk.f.i.a(getApplicationContext(), 19.0f), com.baidu.ufosdk.f.i.a(getApplicationContext(), 19.0f));
                     layoutParams.addRule(11);
                     layoutParams.addRule(10);
@@ -415,17 +417,17 @@ public class FeedbackReportActivity extends Activity {
             hashMap.put("nettype", "N/A");
         }
         hashMap.put("screenSize", com.baidu.ufosdk.b.f.a(context));
-        if (com.baidu.ufosdk.b.a) {
+        if (com.baidu.ufosdk.b.f3700a) {
             hashMap.put("logcat", com.baidu.ufosdk.b.b.a());
         }
         if (!TextUtils.isEmpty(com.baidu.ufosdk.b.h)) {
             hashMap.put("ip_location", com.baidu.ufosdk.b.h);
         }
-        String a = com.baidu.ufosdk.f.k.a(com.baidu.ufosdk.c.a.a(hashMap));
+        String a2 = com.baidu.ufosdk.f.k.a(com.baidu.ufosdk.c.a.a(hashMap));
         try {
-            String a2 = com.baidu.ufosdk.e.b.a("https://ufosdk.baidu.com/?m=Index&a=postmsg", TextUtils.isEmpty(str5) ? "sdk_encrypt=" + URLEncoder.encode(a, "UTF-8") : "sdk_encrypt=" + URLEncoder.encode(a, "UTF-8") + "&screenshot=" + URLEncoder.encode(str5, "UTF-8"));
-            if (!TextUtils.isEmpty(a2)) {
-                JSONObject jSONObject2 = new JSONObject(com.baidu.ufosdk.f.k.b(a2));
+            String a3 = com.baidu.ufosdk.e.b.a("https://ufosdk.baidu.com/?m=Index&a=postmsg", TextUtils.isEmpty(str5) ? "sdk_encrypt=" + URLEncoder.encode(a2, "UTF-8") : "sdk_encrypt=" + URLEncoder.encode(a2, "UTF-8") + "&screenshot=" + URLEncoder.encode(str5, "UTF-8"));
+            if (!TextUtils.isEmpty(a3)) {
+                JSONObject jSONObject2 = new JSONObject(com.baidu.ufosdk.f.k.b(a3));
                 com.baidu.ufosdk.f.c.a("response is -----------------> " + jSONObject2.toString());
                 int intValue = ((Integer) jSONObject2.get(BaseJsonData.TAG_ERRNO)).intValue();
                 if (intValue == 0) {
@@ -554,7 +556,7 @@ public class FeedbackReportActivity extends Activity {
             Toast.makeText(this, com.baidu.ufosdk.f.s.a(Constants.VIA_REPORT_TYPE_QQFAVORITES), 1).show();
             com.baidu.ufosdk.f.c.a(" --*^o^*-- tempCompressContent == null-1648");
         }
-        byte[] a = a(openInputStream);
+        byte[] a2 = a(openInputStream);
         try {
         } catch (Exception e4) {
             bArr = r1;
@@ -572,14 +574,14 @@ public class FeedbackReportActivity extends Activity {
             r1 = i3;
             bArr4 = printStream;
         }
-        if (a == null) {
+        if (a2 == null) {
             bArr4 = 1;
             Toast.makeText(this, com.baidu.ufosdk.f.s.a(Constants.VIA_REPORT_TYPE_QQFAVORITES), 1).show();
             com.baidu.ufosdk.f.c.a(" --*^o^*-- tempCompressContent == null-1655");
             bArr3 = " --*^o^*-- tempCompressContent == null-1655";
-            r1 = a;
+            r1 = a2;
         } else {
-            byte[] a2 = com.baidu.ufosdk.f.q.a(a);
+            byte[] a3 = com.baidu.ufosdk.f.q.a(a2);
             try {
             } catch (Exception e5) {
                 e = e5;
@@ -597,24 +599,24 @@ public class FeedbackReportActivity extends Activity {
                 r1 = i3;
                 bArr4 = printStream;
             }
-            if (a2 == null) {
+            if (a3 == null) {
                 bArr4 = 1;
                 Toast.makeText(this, com.baidu.ufosdk.f.s.a(Constants.VIA_REPORT_TYPE_QQFAVORITES), 1).show();
                 com.baidu.ufosdk.f.c.a(" --*^o^*-- tempCompressContent == null-1666");
-                bArr3 = a2;
+                bArr3 = a3;
                 r1 = " --*^o^*-- tempCompressContent == null-1666";
-            } else if (a2.length > 1048576) {
+            } else if (a3.length > 1048576) {
                 r1 = 1;
                 Toast.makeText(this, com.baidu.ufosdk.f.s.a(Constants.VIA_REPORT_TYPE_QQFAVORITES), 1).show();
                 com.baidu.ufosdk.f.c.a(" --*^o^*-- tempCompressContent.length > 1024 * 1024");
                 bArr3 = " --*^o^*-- tempCompressContent.length > 1024 * 1024";
-            } else if (a2.length == 0) {
+            } else if (a3.length == 0) {
                 r1 = 1;
                 Toast.makeText(this, "图片错误，请重新选择一张。", 1).show();
                 com.baidu.ufosdk.f.c.a(" --*^o^*-- tempCompressContent.length == 0");
                 bArr3 = " --*^o^*-- tempCompressContent.length == 0";
             } else {
-                bArr2 = a2;
+                bArr2 = a3;
                 if (com.baidu.ufosdk.f.i.a(this) < 35000) {
                     r1 = 1;
                     Toast.makeText(this, "内存不足，图片读取失败，请尝试清理内存稍后再试.", 1).show();
@@ -796,10 +798,10 @@ public class FeedbackReportActivity extends Activity {
         this.N.addView(this.P, layoutParams10);
         LinearLayout linearLayout2 = new LinearLayout(this);
         linearLayout2.setOrientation(0);
-        float a = com.baidu.ufosdk.f.i.a((Context) this, 3.0f);
+        float a2 = com.baidu.ufosdk.f.i.a((Context) this, 3.0f);
         GradientDrawable gradientDrawable = new GradientDrawable();
         gradientDrawable.setColor(-1);
-        gradientDrawable.setCornerRadius(a);
+        gradientDrawable.setCornerRadius(a2);
         gradientDrawable.setStroke(1, -3355444);
         linearLayout2.setBackgroundDrawable(null);
         ArrayList arrayList = new ArrayList();
@@ -893,11 +895,11 @@ public class FeedbackReportActivity extends Activity {
         } else {
             this.U = new a((ArrayList) arrayList9.get(0), this, ecVar);
         }
-        LinearLayout a2 = this.U.a();
+        LinearLayout a3 = this.U.a();
         LinearLayout b = this.U.b();
         LinearLayout.LayoutParams layoutParams11 = new LinearLayout.LayoutParams(-1, -2);
         layoutParams11.weight = 1.0f;
-        linearLayout2.addView(a2, layoutParams11);
+        linearLayout2.addView(a3, layoutParams11);
         linearLayout2.addView(b, layoutParams11);
         LinearLayout.LayoutParams layoutParams12 = new LinearLayout.LayoutParams(-1, -2);
         layoutParams12.setMargins(0, com.baidu.ufosdk.f.i.a(getApplicationContext(), 8.0f), 0, com.baidu.ufosdk.f.i.a(getApplicationContext(), 0.0f));
@@ -926,7 +928,7 @@ public class FeedbackReportActivity extends Activity {
         linearLayout3.setOrientation(0);
         GradientDrawable gradientDrawable2 = new GradientDrawable();
         gradientDrawable2.setColor(-1);
-        gradientDrawable2.setCornerRadius(a);
+        gradientDrawable2.setCornerRadius(a2);
         gradientDrawable2.setStroke(1, -3355444);
         linearLayout3.setBackgroundDrawable(gradientDrawable2);
         ArrayList arrayList10 = new ArrayList();
@@ -937,11 +939,11 @@ public class FeedbackReportActivity extends Activity {
         arrayList10.add("有声音无画面");
         arrayList10.add("有画面无声音");
         this.V = new f(arrayList10, this, new ed(this));
-        LinearLayout a3 = this.V.a();
+        LinearLayout a4 = this.V.a();
         LinearLayout b2 = this.V.b();
         LinearLayout.LayoutParams layoutParams14 = new LinearLayout.LayoutParams(-1, -2);
         layoutParams14.weight = 1.0f;
-        linearLayout3.addView(a3, layoutParams14);
+        linearLayout3.addView(a4, layoutParams14);
         linearLayout3.addView(b2, layoutParams14);
         LinearLayout.LayoutParams layoutParams15 = new LinearLayout.LayoutParams(-1, -2);
         layoutParams15.setMargins(0, com.baidu.ufosdk.f.i.a(getApplicationContext(), 7.0f), 0, com.baidu.ufosdk.f.i.a(getApplicationContext(), 0.0f));
@@ -964,10 +966,10 @@ public class FeedbackReportActivity extends Activity {
         textView2.setTextSize(com.baidu.ufosdk.b.U + 2.0f);
         textView2.setGravity(16);
         this.o.addView(textView2, new LinearLayout.LayoutParams(-1, com.baidu.ufosdk.f.i.a(getApplicationContext(), 41.0f)));
-        float a4 = com.baidu.ufosdk.f.i.a((Context) this, 3.0f);
+        float a5 = com.baidu.ufosdk.f.i.a((Context) this, 3.0f);
         GradientDrawable gradientDrawable3 = new GradientDrawable();
         gradientDrawable3.setColor(-1);
-        gradientDrawable3.setCornerRadius(a4);
+        gradientDrawable3.setCornerRadius(a5);
         gradientDrawable3.setStroke(3, -3355444);
         this.h = new EditText(this);
         this.h.setBackgroundDrawable(gradientDrawable3);
@@ -1079,7 +1081,7 @@ public class FeedbackReportActivity extends Activity {
         linearLayout6.addView(textView4, layoutParams27);
         GradientDrawable gradientDrawable5 = new GradientDrawable();
         gradientDrawable5.setColor(-1);
-        gradientDrawable5.setCornerRadius(a4);
+        gradientDrawable5.setCornerRadius(a5);
         gradientDrawable5.setStroke(3, -3355444);
         this.u = new EditText(this);
         this.u.setBackgroundDrawable(gradientDrawable3);

@@ -14,7 +14,7 @@ import com.baidu.ar.libloader.b;
 import com.xiaomi.mipush.sdk.Constants;
 import java.util.ArrayList;
 import java.util.HashMap;
-/* loaded from: classes10.dex */
+/* loaded from: classes14.dex */
 public class PoseAR extends c {
     public static final String MDL_MAGIC_FILTER_CUTOFFSLOPE = "cutoffSlope";
     public static final String MDL_MAGIC_FILTER_MIN_CUTOFFFREQ = "min_cutofffreq";
@@ -47,7 +47,7 @@ public class PoseAR extends c {
     }
 
     /* renamed from: do  reason: not valid java name */
-    private void m20do() {
+    private void m19do() {
         int i = 180;
         int i2 = 320;
         int i3 = this.R;
@@ -132,7 +132,7 @@ public class PoseAR extends c {
         super.setup(hashMap);
         fr();
         this.sZ = new PoseDetector();
-        m20do();
+        m19do();
         this.sZ.i(this.ny, this.nz);
         this.sZ.K(this.U);
         this.mg = new e() { // from class: com.baidu.ar.pose.PoseAR.1

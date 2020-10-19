@@ -5,14 +5,16 @@ import com.baidu.mobads.g.g;
 import com.baidu.mobads.interfaces.IXAdContainerFactory;
 import com.baidu.mobads.interfaces.utils.IXAdLogger;
 import com.baidu.mobads.utils.XAdSDKFoundationFacade;
-/* loaded from: classes3.dex */
+/* loaded from: classes7.dex */
 public class a {
     private static IXAdContainerFactory e;
     private Context b;
     private Class<?> c;
     private double d;
     private Boolean f;
-    public double a = 0.1d;
+
+    /* renamed from: a  reason: collision with root package name */
+    public double f2330a = 0.1d;
     private IXAdLogger g = XAdSDKFoundationFacade.getInstance().getAdLogger();
 
     public a(Class<?> cls, Context context, double d, Boolean bool) {
@@ -27,7 +29,7 @@ public class a {
         if (e == null) {
             try {
                 e = (IXAdContainerFactory) this.c.getDeclaredConstructor(Context.class).newInstance(this.b);
-                this.a = e.getRemoteVersion();
+                this.f2330a = e.getRemoteVersion();
                 e.setDebugMode(this.f);
                 e.handleShakeVersion(this.d, "8.8146");
             } catch (Throwable th) {

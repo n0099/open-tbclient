@@ -3,7 +3,7 @@ package com.sdk.mobile.c;
 import android.content.Context;
 import com.sdk.base.framework.c.f;
 import com.sdk.mobile.config.MobileConfig;
-/* loaded from: classes5.dex */
+/* loaded from: classes16.dex */
 public class a<T> extends com.sdk.base.module.b.a<T> {
     static {
         a.class.getSimpleName();

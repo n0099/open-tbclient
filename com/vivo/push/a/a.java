@@ -10,19 +10,19 @@ import com.vivo.push.util.p;
 import com.vivo.push.util.s;
 import com.vivo.push.y;
 import java.util.List;
-/* loaded from: classes12.dex */
+/* loaded from: classes15.dex */
 public final class a {
     public static void a(Context context, String str, y yVar) {
         boolean c = yVar.c();
-        b a = b.a(context, c ? "com.vivo.vms.upstageservice" : "com.vivo.vms.aidlservice");
-        boolean a2 = a.a();
+        b a2 = b.a(context, c ? "com.vivo.vms.upstageservice" : "com.vivo.vms.aidlservice");
+        boolean a3 = a2.a();
         if (TextUtils.isEmpty(yVar.a())) {
             yVar.a(context.getPackageName());
         }
-        if (a2 && !"com.vivo.pushservice".equals(context.getPackageName())) {
+        if (a3 && !"com.vivo.pushservice".equals(context.getPackageName())) {
             com.vivo.push.a aVar = new com.vivo.push.a(yVar.a(), str, new Bundle());
             yVar.a(aVar);
-            if (!a.a(aVar.b())) {
+            if (!a2.a(aVar.b())) {
                 p.b("CommandBridge", "send command error by aidl");
                 p.c(context, "send command error by aidl");
             } else {

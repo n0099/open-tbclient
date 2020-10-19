@@ -13,7 +13,7 @@ import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
-/* loaded from: classes14.dex */
+/* loaded from: classes9.dex */
 public class RequestParams {
     private static String ENCODING = "UTF-8";
     protected ConcurrentHashMap<String, FileWrapper> fileParams;
@@ -149,7 +149,7 @@ public class RequestParams {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes14.dex */
+    /* loaded from: classes9.dex */
     public static class FileWrapper {
         public String contentType;
         public String fileName;

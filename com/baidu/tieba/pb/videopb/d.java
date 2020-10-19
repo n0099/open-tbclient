@@ -5,121 +5,121 @@ import android.graphics.Rect;
 import com.baidu.tbadk.core.data.bw;
 import com.baidu.tbadk.core.util.y;
 import java.util.LinkedList;
-/* loaded from: classes21.dex */
+/* loaded from: classes22.dex */
 public class d {
-    private boolean ajR;
-    private com.baidu.tieba.pb.data.f kIK;
-    private com.baidu.tieba.pb.data.f leY;
-    private Rect lfa;
-    private boolean lfb;
-    private p<bw> leZ = new p<>();
-    private LinkedList<com.baidu.tieba.pb.data.f> lfc = new LinkedList<>();
-    private p<bw> lfd = new p<>();
-    private p<bw> lfe = new p<>();
-    private p<Boolean> lff = new p<>();
-    private p<Boolean> lfg = new p<>();
-    private p<Boolean> lfh = new p<>();
-    private p<Boolean> lfi = new p<>();
-    private p<Integer> lfj = new p<>();
+    private boolean akj;
+    private com.baidu.tieba.pb.data.f kXV;
+    private com.baidu.tieba.pb.data.f lup;
+    private Rect lur;
+    private boolean lus;
+    private p<bw> luq = new p<>();
+    private LinkedList<com.baidu.tieba.pb.data.f> lut = new LinkedList<>();
+    private p<bw> luu = new p<>();
+    private p<bw> luv = new p<>();
+    private p<Boolean> luw = new p<>();
+    private p<Boolean> lux = new p<>();
+    private p<Boolean> luy = new p<>();
+    private p<Boolean> luz = new p<>();
+    private p<Integer> luA = new p<>();
 
     public void L(com.baidu.tieba.pb.data.f fVar) {
-        this.leY = fVar;
+        this.lup = fVar;
         setData(fVar);
-        this.lfd.setValue(null);
-        this.leZ.setValue(fVar.cYR());
+        this.luu.setValue(null);
+        this.luq.setValue(fVar.dcA());
     }
 
-    public com.baidu.tieba.pb.data.f dhU() {
-        return this.leY;
+    public com.baidu.tieba.pb.data.f dlD() {
+        return this.lup;
     }
 
-    public com.baidu.tieba.pb.data.f dhV() {
-        return this.kIK;
+    public com.baidu.tieba.pb.data.f dlE() {
+        return this.kXV;
     }
 
     public void setData(com.baidu.tieba.pb.data.f fVar) {
-        this.kIK = fVar;
+        this.kXV = fVar;
         if (fVar != null) {
-            this.leZ.setValue(fVar.cYR());
-            if (!y.isEmpty(fVar.cZt())) {
-                aQ(fVar.cZt().get(0));
+            this.luq.setValue(fVar.dcA());
+            if (!y.isEmpty(fVar.ddc())) {
+                aQ(fVar.ddc().get(0));
             }
         }
     }
 
-    public p<bw> dhW() {
-        return this.leZ;
+    public p<bw> dlF() {
+        return this.luq;
     }
 
     public boolean isFromCDN() {
-        return this.ajR;
+        return this.akj;
     }
 
     public void setFromCDN(boolean z) {
-        this.ajR = z;
+        this.akj = z;
     }
 
     public void i(Rect rect) {
-        this.lfa = rect;
+        this.lur = rect;
     }
 
-    public Rect dhX() {
-        return this.lfa;
+    public Rect dlG() {
+        return this.lur;
     }
 
-    public void up(boolean z) {
-        this.lfb = z;
+    public void uW(boolean z) {
+        this.lus = z;
     }
 
-    public boolean dhY() {
-        return this.lfb;
+    public boolean dlH() {
+        return this.lus;
     }
 
-    public LinkedList<com.baidu.tieba.pb.data.f> dhZ() {
-        return this.lfc;
+    public LinkedList<com.baidu.tieba.pb.data.f> dlI() {
+        return this.lut;
     }
 
     public void aP(bw bwVar) {
-        this.lfd.setValue(bwVar);
+        this.luu.setValue(bwVar);
     }
 
     public void aQ(bw bwVar) {
-        this.lfe.setValue(bwVar);
+        this.luv.setValue(bwVar);
     }
 
-    public p<bw> dia() {
-        return this.lfd;
+    public p<bw> dlJ() {
+        return this.luu;
     }
 
-    public p<bw> dib() {
-        return this.lfe;
+    public p<bw> dlK() {
+        return this.luv;
     }
 
-    public p<Boolean> dic() {
-        return this.lff;
+    public p<Boolean> dlL() {
+        return this.luw;
     }
 
-    public void uq(boolean z) {
-        this.lff.setValue(Boolean.valueOf(z));
+    public void uX(boolean z) {
+        this.luw.setValue(Boolean.valueOf(z));
     }
 
-    public p<Boolean> did() {
-        return this.lfg;
+    public p<Boolean> dlM() {
+        return this.lux;
     }
 
-    public void ur(boolean z) {
-        this.lfg.postValue(Boolean.valueOf(z));
+    public void uY(boolean z) {
+        this.lux.postValue(Boolean.valueOf(z));
     }
 
     public void setIsLoading(boolean z) {
-        this.lfi.setValue(Boolean.valueOf(z));
+        this.luz.setValue(Boolean.valueOf(z));
     }
 
-    public p<Boolean> die() {
-        return this.lfi;
+    public p<Boolean> dlN() {
+        return this.luz;
     }
 
-    public p<Integer> dif() {
-        return this.lfj;
+    public p<Integer> dlO() {
+        return this.luA;
     }
 }

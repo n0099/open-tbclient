@@ -17,9 +17,11 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes15.dex */
+/* loaded from: classes17.dex */
 public class f {
-    static f a = new f();
+
+    /* renamed from: a  reason: collision with root package name */
+    static f f2617a = new f();
     private String b = "";
 
     f() {
@@ -162,14 +164,16 @@ public class f {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes15.dex */
+    /* loaded from: classes17.dex */
     public static class a {
-        private String a;
+
+        /* renamed from: a  reason: collision with root package name */
+        private String f2618a;
         private String b;
         private String c;
 
         public a(String str, String str2, String str3) {
-            this.a = str == null ? "" : str;
+            this.f2618a = str == null ? "" : str;
             this.b = str2 == null ? "" : str2;
             this.c = str3 == null ? "" : str3;
         }
@@ -177,7 +181,7 @@ public class f {
         public JSONObject a() {
             JSONObject jSONObject = new JSONObject();
             try {
-                jSONObject.put("n", this.a);
+                jSONObject.put("n", this.f2618a);
                 jSONObject.put("v", this.b);
                 jSONObject.put("w", this.c);
                 return jSONObject;
@@ -188,7 +192,7 @@ public class f {
         }
 
         public String b() {
-            return this.a;
+            return this.f2618a;
         }
     }
 }

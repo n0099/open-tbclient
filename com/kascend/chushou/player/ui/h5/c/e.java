@@ -3,7 +3,9 @@ package com.kascend.chushou.player.ui.h5.c;
 import com.kascend.chushou.constants.H5Positon;
 /* loaded from: classes6.dex */
 public class e extends d {
-    private String a;
+
+    /* renamed from: a  reason: collision with root package name */
+    private String f4176a;
     private int b = 1;
 
     public e() {
@@ -25,25 +27,25 @@ public class e extends d {
         return this.b;
     }
 
-    public e NR(int i) {
+    public e Ox(int i) {
         this.b = i;
         return this;
     }
 
     public String d() {
-        return this.a;
+        return this.f4176a;
     }
 
-    public e VE(String str) {
-        this.a = str;
+    public e Ws(String str) {
+        this.f4176a = str;
         return this;
     }
 
-    public H5Positon eeu() {
-        return this.oeY;
+    public H5Positon eif() {
+        return this.our;
     }
 
-    public H5Positon eev() {
-        return this.oeZ;
+    public H5Positon eig() {
+        return this.ous;
     }
 }

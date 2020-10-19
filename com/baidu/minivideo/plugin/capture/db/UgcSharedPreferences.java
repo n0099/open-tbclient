@@ -7,7 +7,7 @@ import com.baidu.minivideo.plugin.capture.Application;
 import com.baidu.minivideo.plugin.capture.download.utils.LogUtils;
 import com.baidu.minivideo.plugin.capture.utils.PreferenceUtils;
 import org.json.JSONObject;
-/* loaded from: classes18.dex */
+/* loaded from: classes17.dex */
 public class UgcSharedPreferences {
     private static final String AUDIO_ROINTS_LIST = "audio_points_list";
     private static final String CAPTURE_CONFIG = "capture_config";

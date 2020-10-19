@@ -1,5 +1,5 @@
 package org.apache.commons.base;
-/* loaded from: classes24.dex */
+/* loaded from: classes15.dex */
 public class CharEncoding {
     public static final String ISO_8859_1 = "ISO-8859-1";
     public static final String US_ASCII = "US-ASCII";

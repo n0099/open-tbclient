@@ -10,7 +10,7 @@ import java.security.spec.ECPoint;
 import java.security.spec.EllipticCurve;
 import org.conscrypt.NativeRef;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes8.dex */
+/* loaded from: classes5.dex */
 public final class OpenSSLECGroupContext {
     private final NativeRef.EC_GROUP groupCtx;
 
@@ -96,10 +96,10 @@ public final class OpenSSLECGroupContext {
             if (str != null) {
                 return getCurveByName(str);
             }
-            BigInteger a = curve.getA();
+            BigInteger a2 = curve.getA();
             BigInteger order = eCParameterSpec.getOrder();
             try {
-                long EC_GROUP_new_arbitrary = NativeCrypto.EC_GROUP_new_arbitrary(p.toByteArray(), a.toByteArray(), b.toByteArray(), affineX.toByteArray(), affineY.toByteArray(), order.toByteArray(), eCParameterSpec.getCofactor());
+                long EC_GROUP_new_arbitrary = NativeCrypto.EC_GROUP_new_arbitrary(p.toByteArray(), a2.toByteArray(), b.toByteArray(), affineX.toByteArray(), affineY.toByteArray(), order.toByteArray(), eCParameterSpec.getCofactor());
                 if (EC_GROUP_new_arbitrary == 0) {
                     throw new InvalidAlgorithmParameterException("EC_GROUP_new_arbitrary returned NULL");
                 }

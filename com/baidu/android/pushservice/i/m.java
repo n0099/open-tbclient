@@ -65,9 +65,11 @@ import java.util.Locale;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 @SuppressLint({"WorldReadableFiles"})
-/* loaded from: classes7.dex */
+/* loaded from: classes10.dex */
 public final class m {
-    public static int a = -1;
+
+    /* renamed from: a  reason: collision with root package name */
+    public static int f1155a = -1;
     private static final String[] b = {"android.permission.INTERNET", "android.permission.ACCESS_NETWORK_STATE"};
     private static int c = -1;
 
@@ -230,7 +232,7 @@ public final class m {
     public static synchronized void a(Context context, boolean z) {
         synchronized (m.class) {
             try {
-                a = z ? 1 : 0;
+                f1155a = z ? 1 : 0;
                 SharedPreferences.Editor edit = context.getSharedPreferences("com.baidu.pushservice.BIND_CACHE", 0).edit();
                 edit.putBoolean("bind_status", z);
                 edit.commit();
@@ -1064,13 +1066,13 @@ public final class m {
     public static synchronized boolean j(Context context) {
         boolean z;
         synchronized (m.class) {
-            if (a == -1) {
+            if (f1155a == -1) {
                 try {
-                    a = context.getSharedPreferences("com.baidu.pushservice.BIND_CACHE", 0).getBoolean("bind_status", false) ? 1 : 0;
+                    f1155a = context.getSharedPreferences("com.baidu.pushservice.BIND_CACHE", 0).getBoolean("bind_status", false) ? 1 : 0;
                 } catch (Exception e) {
                 }
             }
-            z = a == 1;
+            z = f1155a == 1;
         }
         return z;
     }

@@ -30,7 +30,7 @@ import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes7.dex */
 public class b {
     private static com.baidu.mapframework.open.aidl.a d;
     private static IComOpenClient e;
@@ -38,7 +38,9 @@ public class b {
     private static RouteParaOption.EBusStrategyType o;
     private static Thread v;
     private static final String c = b.class.getName();
-    public static int a = -1;
+
+    /* renamed from: a  reason: collision with root package name */
+    public static int f2156a = -1;
     private static String g = null;
     private static String h = null;
     private static String i = null;
@@ -144,34 +146,34 @@ public class b {
         t = false;
         switch (i2) {
             case 0:
-                a = 0;
+                f2156a = 0;
                 break;
             case 1:
-                a = 1;
+                f2156a = 1;
                 break;
             case 2:
-                a = 2;
+                f2156a = 2;
                 break;
             case 3:
-                a = 3;
+                f2156a = 3;
                 break;
             case 4:
-                a = 4;
+                f2156a = 4;
                 break;
             case 5:
-                a = 5;
+                f2156a = 5;
                 break;
             case 6:
-                a = 6;
+                f2156a = 6;
                 break;
             case 7:
-                a = 7;
+                f2156a = 7;
                 break;
             case 8:
-                a = 8;
+                f2156a = 8;
                 break;
             case 9:
-                a = 9;
+                f2156a = 9;
                 break;
         }
         if (i2 == 9) {

@@ -15,7 +15,7 @@ public interface d {
 
     void d(Context context, Uri uri);
 
-    void eE(int i);
+    void eN(int i);
 
     View getPlayerView();
 

@@ -3,7 +3,7 @@ package com.meizu.cloud.pushsdk.handler.a.b;
 import android.os.Parcel;
 import android.os.Parcelable;
 import com.meizu.cloud.pushsdk.handler.MessageV3;
-/* loaded from: classes3.dex */
+/* loaded from: classes7.dex */
 public class c implements Parcelable {
     public static final Parcelable.Creator<c> CREATOR = new Parcelable.Creator<c>() { // from class: com.meizu.cloud.pushsdk.handler.a.b.c.1
         /* JADX DEBUG: Method merged with bridge method */
@@ -20,24 +20,26 @@ public class c implements Parcelable {
             return new c[i];
         }
     };
-    private MessageV3 a;
+
+    /* renamed from: a  reason: collision with root package name */
+    private MessageV3 f4415a;
     private String b;
     private int c;
     private int d;
 
     protected c(Parcel parcel) {
-        this.a = (MessageV3) parcel.readParcelable(MessageV3.class.getClassLoader());
+        this.f4415a = (MessageV3) parcel.readParcelable(MessageV3.class.getClassLoader());
         this.b = parcel.readString();
         this.c = parcel.readInt();
         this.d = parcel.readInt();
     }
 
     public c(MessageV3 messageV3) {
-        this.a = messageV3;
+        this.f4415a = messageV3;
     }
 
     public MessageV3 a() {
-        return this.a;
+        return this.f4415a;
     }
 
     public void a(int i) {
@@ -66,12 +68,12 @@ public class c implements Parcelable {
     }
 
     public String toString() {
-        return "NotificationState{messageV3=" + this.a + ", notificationPkg='" + this.b + "', notificationId='" + this.c + "', state='" + this.d + "'}";
+        return "NotificationState{messageV3=" + this.f4415a + ", notificationPkg='" + this.b + "', notificationId='" + this.c + "', state='" + this.d + "'}";
     }
 
     @Override // android.os.Parcelable
     public void writeToParcel(Parcel parcel, int i) {
-        parcel.writeParcelable(this.a, i);
+        parcel.writeParcelable(this.f4415a, i);
         parcel.writeString(this.b);
         parcel.writeInt(this.c);
         parcel.writeInt(this.d);

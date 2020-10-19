@@ -20,14 +20,14 @@ import okhttp3.Headers;
 import org.apache.http.cookie.SM;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes10.dex */
 public class a extends aa {
-    public static final Set<String> bYS = com.facebook.common.internal.i.N("REFERER", "USER-AGENT");
-    protected ConcurrentHashMap<String, Long> cGB;
+    public static final Set<String> clh = com.facebook.common.internal.i.N("REFERER", "USER-AGENT");
+    protected ConcurrentHashMap<String, Long> cSE;
 
     public a(com.baidu.swan.apps.scheme.j jVar, String str) {
         super(jVar, str);
-        this.cGB = new ConcurrentHashMap<>();
+        this.cSE = new ConcurrentHashMap<>();
     }
 
     @Override // com.baidu.swan.apps.scheme.actions.aa
@@ -35,26 +35,26 @@ public class a extends aa {
         return false;
     }
 
-    public final long pe(String str) {
+    public final long pQ(String str) {
         long j;
         if (TextUtils.isEmpty(str)) {
             return 0L;
         }
         try {
-            j = this.cGB.get(str).longValue();
+            j = this.cSE.get(str).longValue();
         } catch (Exception e) {
             j = 0;
         }
         return j;
     }
 
-    public final void pf(String str) {
-        if (this.cGB != null && !TextUtils.isEmpty(str)) {
-            this.cGB.remove(str);
+    public final void pR(String str) {
+        if (this.cSE != null && !TextUtils.isEmpty(str)) {
+            this.cSE.remove(str);
         }
     }
 
-    protected static HashMap<String, String> bb(@Nullable JSONObject jSONObject) {
+    protected static HashMap<String, String> bi(@Nullable JSONObject jSONObject) {
         if (jSONObject == null || jSONObject.length() < 1) {
             return null;
         }
@@ -62,7 +62,7 @@ public class a extends aa {
         Iterator<String> keys = jSONObject.keys();
         while (keys.hasNext()) {
             String next = keys.next();
-            if (!TextUtils.isEmpty(next) && !bYS.contains(next.toUpperCase())) {
+            if (!TextUtils.isEmpty(next) && !clh.contains(next.toUpperCase())) {
                 String optString = jSONObject.optString(next);
                 if (TextUtils.isEmpty(optString)) {
                     optString = "";
@@ -75,18 +75,18 @@ public class a extends aa {
 
     /* JADX INFO: Access modifiers changed from: protected */
     public static HashMap<String, String> c(@Nullable JSONObject jSONObject, boolean z) {
-        HashMap<String, String> bb = bb(jSONObject);
+        HashMap<String, String> bi = bi(jSONObject);
         if (z) {
-            if (bb == null) {
-                bb = new HashMap<>();
+            if (bi == null) {
+                bi = new HashMap<>();
             }
-            bb.put("Referer", com.baidu.swan.apps.api.module.network.c.acK());
+            bi.put("Referer", com.baidu.swan.apps.api.module.network.c.afw());
         }
-        return bb;
+        return bi;
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public JSONObject jW(String str) {
+    public JSONObject kI(String str) {
         JSONObject jSONObject = new JSONObject();
         try {
             if (!TextUtils.isEmpty(str)) {
@@ -163,12 +163,12 @@ public class a extends aa {
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public String avz() {
-        return com.baidu.swan.apps.t.a.apT().abd().getCookie(".baidu.com");
+    public String ayk() {
+        return com.baidu.swan.apps.t.a.asF().adP().getCookie(".baidu.com");
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public JSONObject iL(int i) {
+    public JSONObject ji(int i) {
         switch (i) {
             case 0:
                 return UnitedSchemeUtility.wrapCallbackParams(0);
@@ -191,13 +191,13 @@ public class a extends aa {
     public void a(String str, Headers headers) {
         if (!TextUtils.isEmpty(str) && headers != null) {
             try {
-                JSONObject a = a(headers);
-                if (a != null) {
+                JSONObject a2 = a(headers);
+                if (a2 != null) {
                     JSONObject jSONObject = new JSONObject();
-                    jSONObject.put(WebSocketRequest.PARAM_KEY_HEADER, a);
+                    jSONObject.put(WebSocketRequest.PARAM_KEY_HEADER, a2);
                     HashMap hashMap = new HashMap();
                     hashMap.put("data", jSONObject.toString());
-                    com.baidu.swan.apps.v.f.asJ().b(new com.baidu.swan.apps.event.a.b(str, hashMap));
+                    com.baidu.swan.apps.v.f.avu().b(new com.baidu.swan.apps.event.a.b(str, hashMap));
                 }
             } catch (JSONException e) {
                 if (DEBUG) {

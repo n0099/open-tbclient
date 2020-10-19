@@ -1,59 +1,39 @@
 package com.baidu.live.videochat.d;
 
-import com.baidu.ala.helper.AlaLiveRtcConfig;
+import android.content.Context;
+import android.view.View;
 import com.baidu.ala.recorder.AlaLiveRecorder;
-import com.baidu.ala.recorder.video.AlaLiveVideoConfig;
-import com.baidu.live.adp.lib.util.BdLog;
-import com.baidu.live.data.AlaAvtsConfigInfo;
-import com.baidu.live.data.AlaAvtsData;
-import com.baidu.live.recorder.helper.LiveRecorderConfigHelper;
-import com.baidu.live.tbadk.core.TbadkCoreApplication;
+import com.baidu.live.data.u;
+import org.json.JSONObject;
 /* loaded from: classes4.dex */
-public class a {
-    public static AlaLiveRtcConfig b(AlaAvtsData alaAvtsData, AlaAvtsConfigInfo alaAvtsConfigInfo) {
-        AlaLiveRtcConfig alaLiveRtcConfig = new AlaLiveRtcConfig();
-        alaLiveRtcConfig.mUId = TbadkCoreApplication.getCurrentAccountId();
-        alaLiveRtcConfig.mRoomId = alaAvtsData.roomId;
-        alaLiveRtcConfig.mLineIndex = alaAvtsData.lineId;
-        alaLiveRtcConfig.mRtcServerHost = alaAvtsData.host;
-        alaLiveRtcConfig.mRtcServerPort = alaAvtsData.port;
-        if (alaAvtsConfigInfo != null) {
-            alaLiveRtcConfig.mHandshakeTimeout = alaAvtsConfigInfo.handshakeTimeout;
-            alaLiveRtcConfig.mHeartInterval = alaAvtsConfigInfo.heartInterval;
-            alaLiveRtcConfig.mHeartTimeout = alaAvtsConfigInfo.heartTimeout;
-            alaLiveRtcConfig.mCloseTimeout = alaAvtsConfigInfo.closeTimeout;
-            alaLiveRtcConfig.mReduceDelay = alaAvtsConfigInfo.reduceDelay;
-        }
-        return alaLiveRtcConfig;
-    }
+public interface a {
+    int Sa();
 
-    public static void a(AlaLiveRecorder alaLiveRecorder, AlaLiveRtcConfig alaLiveRtcConfig) {
-        if (alaLiveRecorder != null && alaLiveRtcConfig != null) {
-            LiveRecorderConfigHelper.Nk().Nl();
-            alaLiveRecorder.setRtcConfig(alaLiveRtcConfig);
-            LiveRecorderConfigHelper.VideoResolution f = LiveRecorderConfigHelper.Nk().f(true, true);
-            AlaLiveVideoConfig videoConfig = alaLiveRecorder.getVideoConfig();
-            if (videoConfig != null) {
-                LiveRecorderConfigHelper.Nk().a(true, videoConfig);
-            }
-            alaLiveRecorder.switchToRtcMode(f.getWidth(), f.getHeight());
-        }
-    }
+    void Sh();
 
-    public static boolean a(AlaLiveRecorder alaLiveRecorder, AlaLiveRtcConfig alaLiveRtcConfig, String str) {
-        if (alaLiveRecorder == null || alaLiveRtcConfig == null) {
-            return false;
-        }
-        LiveRecorderConfigHelper.Nk().Nl();
-        alaLiveRtcConfig.mPushUrl = str;
-        alaLiveRecorder.setRtcConfig(alaLiveRtcConfig);
-        LiveRecorderConfigHelper.Nk().a(false, alaLiveRecorder.getVideoConfig());
-        LiveRecorderConfigHelper.VideoResolution f = LiveRecorderConfigHelper.Nk().f(false, true);
-        alaLiveRecorder.getVideoConfig().setOutputWidth(f.getWidth());
-        alaLiveRecorder.getVideoConfig().setOutputHeight(f.getHeight());
-        if (!alaLiveRecorder.setDefaultRtcMode()) {
-            BdLog.e("recorder.setDefaultRtcMode failed");
-        }
-        return alaLiveRecorder.startPush(str) == 0;
-    }
+    com.baidu.live.alablmsdk.module.c Si();
+
+    JSONObject Sj();
+
+    void Y(JSONObject jSONObject);
+
+    void Z(JSONObject jSONObject);
+
+    void a(AlaLiveRecorder alaLiveRecorder);
+
+    void a(f fVar);
+
+    boolean b(com.baidu.live.alablmsdk.module.c cVar, String str);
+
+    void cP(boolean z);
+
+    View getPlayerView();
+
+    void init(Context context);
+
+    void onDestroy();
+
+    void s(u uVar);
+
+    void setMute(boolean z);
 }

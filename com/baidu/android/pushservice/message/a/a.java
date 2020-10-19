@@ -12,7 +12,7 @@ import com.baidu.android.pushservice.i.m;
 import com.baidu.android.pushservice.message.CrossPushMessage;
 import com.baidu.android.pushservice.message.k;
 import java.util.List;
-/* loaded from: classes7.dex */
+/* loaded from: classes10.dex */
 public class a extends b {
     public a(Context context) {
         super(context);
@@ -48,15 +48,15 @@ public class a extends b {
             String b = kVar.b();
             String e = kVar.e();
             byte[] g = kVar.g();
-            CrossPushMessage b2 = h.b(this.a, e, b, bArr);
-            if (this.a.getPackageName().equals(b2.mPkgName) && !TextUtils.isEmpty(b2.a)) {
-                if (!m.b(this.a, b2.a)) {
+            CrossPushMessage b2 = h.b(this.f1169a, e, b, bArr);
+            if (this.f1169a.getPackageName().equals(b2.mPkgName) && !TextUtils.isEmpty(b2.f1164a)) {
+                if (!m.b(this.f1169a, b2.f1164a)) {
                     i = 8;
-                } else if (a(this.a, b2.a)) {
-                    com.baidu.android.pushservice.a.d.a(this.a, b);
+                } else if (a(this.f1169a, b2.f1164a)) {
+                    com.baidu.android.pushservice.a.d.a(this.f1169a, b);
                     switch (r1.a()) {
                         case PUSH_CLIENT:
-                            d.a(this.a, b2, b, g, bArr);
+                            d.a(this.f1169a, b2, b, g, bArr);
                             break;
                         default:
                             i = 7;

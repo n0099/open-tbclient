@@ -2,23 +2,23 @@ package com.baidu.swan.apps.component.d;
 
 import android.support.annotation.IntRange;
 import com.baidu.swan.apps.console.c;
-/* loaded from: classes3.dex */
+/* loaded from: classes10.dex */
 public class a {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    private static int cem = 5;
-    private int[] cen;
+    private static int cqC = 5;
+    private int[] cqD;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public a(@IntRange(from = 1) int i) {
-        u(i, false);
+        w(i, false);
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public a(@IntRange(from = 1) int i, boolean z) {
-        u(i, z);
+        w(i, z);
     }
 
-    private void u(@IntRange(from = 1) int i, boolean z) {
+    private void w(@IntRange(from = 1) int i, boolean z) {
         if (i <= 0) {
             String str = "number <= 0: " + i;
             c.e("Component-DiffBitMap", str);
@@ -27,11 +27,11 @@ public class a {
             }
             i = 500;
         }
-        this.cen = new int[gR(i - 1) + 1];
-        int length = this.cen.length;
+        this.cqD = new int[ho(i - 1) + 1];
+        int length = this.cqD.length;
         if (z) {
             for (int i2 = 0; i2 < length; i2++) {
-                this.cen[i2] = -1;
+                this.cqD[i2] = -1;
             }
         }
     }
@@ -44,7 +44,7 @@ public class a {
             }
             return;
         }
-        int length = (this.cen.length << cem) - 1;
+        int length = (this.cqD.length << cqC) - 1;
         if (i > length) {
             String str = "diff > " + length + ": " + i;
             c.e("Component-DiffBitMap", str);
@@ -53,9 +53,9 @@ public class a {
             }
             return;
         }
-        int[] iArr = this.cen;
-        int gR = gR(i);
-        iArr[gR] = iArr[gR] | (1 << i);
+        int[] iArr = this.cqD;
+        int ho = ho(i);
+        iArr[ho] = iArr[ho] | (1 << i);
     }
 
     public boolean get(@IntRange(from = 0) int i) {
@@ -66,7 +66,7 @@ public class a {
             }
             return false;
         }
-        int length = (this.cen.length << cem) - 1;
+        int length = (this.cqD.length << cqC) - 1;
         if (i > length) {
             String str = "diff > " + length + ": " + i;
             c.e("Component-DiffBitMap", str);
@@ -75,10 +75,10 @@ public class a {
             }
             return false;
         }
-        return (this.cen[gR(i)] & (1 << i)) != 0;
+        return (this.cqD[ho(i)] & (1 << i)) != 0;
     }
 
-    private int gR(int i) {
-        return i >> cem;
+    private int ho(int i) {
+        return i >> cqC;
     }
 }

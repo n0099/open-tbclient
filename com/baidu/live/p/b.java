@@ -4,11 +4,11 @@ import android.view.ViewGroup;
 import com.baidu.live.data.u;
 /* loaded from: classes4.dex */
 public interface b {
-    void IT();
-
-    void a(ViewGroup viewGroup, ViewGroup.LayoutParams layoutParams, u uVar);
+    void JQ();
 
     void a(u uVar);
+
+    void b(ViewGroup viewGroup, ViewGroup.LayoutParams layoutParams, u uVar);
 
     boolean isShowing();
 

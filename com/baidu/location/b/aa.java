@@ -10,22 +10,28 @@ import java.util.HashMap;
 import java.util.Iterator;
 import java.util.concurrent.ExecutorService;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes7.dex */
 public class aa {
-    private b a;
+
+    /* renamed from: a  reason: collision with root package name */
+    private b f1864a;
     private long b = 0;
     private long c = 0;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes7.dex */
     private static class a {
-        private static aa a = new aa();
+
+        /* renamed from: a  reason: collision with root package name */
+        private static aa f1865a = new aa();
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes7.dex */
     class b extends com.baidu.location.e.f {
         private boolean d = false;
         private String e = null;
-        public boolean a = false;
+
+        /* renamed from: a  reason: collision with root package name */
+        public boolean f1866a = false;
         public long b = 0;
 
         public b() {
@@ -38,10 +44,10 @@ public class aa {
             if (b != null) {
                 b = b + "&gnsst=" + this.b;
             }
-            String a = m.a().a(b);
-            String replaceAll = !TextUtils.isEmpty(a) ? a.trim().replaceAll("\r|\n", "") : "null";
-            String a2 = m.a().a(this.e);
-            String replaceAll2 = !TextUtils.isEmpty(a2) ? a2.trim().replaceAll("\r|\n", "") : "null";
+            String a2 = m.a().a(b);
+            String replaceAll = !TextUtils.isEmpty(a2) ? a2.trim().replaceAll("\r|\n", "") : "null";
+            String a3 = m.a().a(this.e);
+            String replaceAll2 = !TextUtils.isEmpty(a3) ? a3.trim().replaceAll("\r|\n", "") : "null";
             try {
                 this.k.put("info", URLEncoder.encode(replaceAll, "utf-8"));
                 this.k.put("enl", URLEncoder.encode(replaceAll2, "utf-8"));
@@ -69,7 +75,7 @@ public class aa {
             if (z && this.j != null) {
                 try {
                     new JSONObject(this.j);
-                    this.a = true;
+                    this.f1866a = true;
                 } catch (Throwable th) {
                 }
             }
@@ -85,7 +91,7 @@ public class aa {
     }
 
     public static aa a() {
-        return a.a;
+        return a.f1865a;
     }
 
     @TargetApi(24)
@@ -100,10 +106,10 @@ public class aa {
         if (this.b == 0 || Math.abs(System.currentTimeMillis() - this.b) >= 20000) {
             return;
         }
-        if (this.a == null) {
-            this.a = new b();
+        if (this.f1864a == null) {
+            this.f1864a = new b();
         }
-        if (this.a == null || this.a.b() || (b2 = q.a().b()) == null || b2.size() <= 0) {
+        if (this.f1864a == null || this.f1864a.b() || (b2 = q.a().b()) == null || b2.size() <= 0) {
             return;
         }
         StringBuffer stringBuffer = new StringBuffer();
@@ -112,7 +118,7 @@ public class aa {
         while (true) {
             int i2 = i;
             if (!it.hasNext()) {
-                this.a.a(stringBuffer.toString(), this.c);
+                this.f1864a.a(stringBuffer.toString(), this.c);
                 return;
             }
             stringBuffer.append(it.next());

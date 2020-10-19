@@ -1,17 +1,19 @@
 package com.baidu.b.c.c;
 
 import java.math.BigInteger;
-/* loaded from: classes3.dex */
+/* loaded from: classes7.dex */
 public class b {
-    private static byte[] a;
+
+    /* renamed from: a  reason: collision with root package name */
+    private static byte[] f1262a;
     private static byte[] b;
 
     public static byte[] a() {
-        if (a != null) {
-            return a;
+        if (f1262a != null) {
+            return f1262a;
         }
-        a = new BigInteger(a.a).modPow(new BigInteger(a.b), new BigInteger(a.e)).toByteArray();
-        return a;
+        f1262a = new BigInteger(a.f1261a).modPow(new BigInteger(a.b), new BigInteger(a.e)).toByteArray();
+        return f1262a;
     }
 
     public static byte[] b() {

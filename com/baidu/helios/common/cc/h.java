@@ -1,5 +1,5 @@
 package com.baidu.helios.common.cc;
-/* loaded from: classes6.dex */
+/* loaded from: classes11.dex */
 class h {
     private final byte[] h;
     private final int[] i;
@@ -32,7 +32,7 @@ class h {
         this.i[3] = this.k - (-1640531535);
     }
 
-    private void e(byte[] bArr, int i) {
+    private void g(byte[] bArr, int i) {
         int i2 = this.i[0];
         int i3 = this.i[1];
         int i4 = this.i[2];
@@ -70,12 +70,12 @@ class h {
         if (this.m > 0) {
             int i4 = 16 - this.m;
             System.arraycopy(bArr, i, this.j, this.m, i4);
-            e(this.j, 0);
+            g(this.j, 0);
             i += i4;
         }
         int i5 = i3 - 16;
         while (i <= i5) {
-            e(bArr, i);
+            g(bArr, i);
             i += 16;
         }
         if (i < i3) {

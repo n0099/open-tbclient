@@ -16,10 +16,12 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes7.dex */
 public class n {
     private static long j = 12000;
-    public e a;
+
+    /* renamed from: a  reason: collision with root package name */
+    public e f1894a;
     private Context b;
     private WebView c;
     private LocationClient d;
@@ -32,7 +34,7 @@ public class n {
     private boolean l;
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes3.dex */
+    /* loaded from: classes7.dex */
     public class a extends Handler {
         a(Looper looper) {
             super(looper);
@@ -145,14 +147,14 @@ public class n {
                     } else {
                         n.this.f.clear();
                     }
-                    n.this.d.registerLocationListener(n.this.a);
+                    n.this.d.registerLocationListener(n.this.f1894a);
                     return;
                 case 4:
                     if (n.this.f != null) {
                         n.this.f.clear();
                         n.this.f = null;
                     }
-                    n.this.d.unRegisterLocationListener(n.this.a);
+                    n.this.d.unRegisterLocationListener(n.this.f1894a);
                     n.this.h = 0L;
                     n.this.i = null;
                     if (n.this.k != null && n.this.l) {
@@ -193,7 +195,7 @@ public class n {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes3.dex */
+    /* loaded from: classes7.dex */
     public class b {
         private String b;
         private String c;
@@ -234,13 +236,15 @@ public class n {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes3.dex */
+    /* loaded from: classes7.dex */
     public static final class c {
-        private static final n a = new n();
+
+        /* renamed from: a  reason: collision with root package name */
+        private static final n f1897a = new n();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes3.dex */
+    /* loaded from: classes7.dex */
     public class d {
         private d() {
         }
@@ -264,7 +268,7 @@ public class n {
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes7.dex */
     public class e extends BDAbstractLocationListener {
         public e() {
         }
@@ -299,7 +303,7 @@ public class n {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes3.dex */
+    /* loaded from: classes7.dex */
     public class f implements Runnable {
         private f() {
         }
@@ -314,7 +318,7 @@ public class n {
     private n() {
         this.b = null;
         this.d = null;
-        this.a = new e();
+        this.f1894a = new e();
         this.e = null;
         this.f = null;
         this.g = false;
@@ -325,7 +329,7 @@ public class n {
     }
 
     public static n a() {
-        return c.a;
+        return c.f1897a;
     }
 
     @SuppressLint({"JavascriptInterface", "AddJavascriptInterface"})

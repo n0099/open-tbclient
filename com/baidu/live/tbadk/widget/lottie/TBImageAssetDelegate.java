@@ -19,7 +19,7 @@ public class TBImageAssetDelegate implements b {
         if (StringHelper.isEmpty(this.mPath)) {
             return null;
         }
-        return BitmapFactory.decodeFile(this.mPath + gVar.iM().replace("/", "") + "/" + gVar.getFileName());
+        return BitmapFactory.decodeFile(this.mPath + gVar.iN().replace("/", "") + "/" + gVar.getFileName());
     }
 
     public void setPath(String str) {

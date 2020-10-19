@@ -3,7 +3,7 @@ package com.baidu.mobstat;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
-/* loaded from: classes15.dex */
+/* loaded from: classes17.dex */
 public enum k {
     AP_LIST(0) { // from class: com.baidu.mobstat.k.1
         @Override // com.baidu.mobstat.k
@@ -149,14 +149,14 @@ public enum k {
         a(arrayList, arrayList2, arrayList3, i, 500);
         if (arrayList3.size() != 0 && arrayList.size() == 0 && arrayList2.size() == 0) {
             i iVar = arrayList3.get(0);
-            long a = iVar.a();
+            long a2 = iVar.a();
             String b = iVar.b();
-            arrayList2.add(Long.valueOf(a));
+            arrayList2.add(Long.valueOf(a2));
             arrayList.add(b);
         }
-        int a2 = a(arrayList2);
-        if (a2 != arrayList.size()) {
-            arrayList = arrayList.subList(0, a2);
+        int a3 = a(arrayList2);
+        if (a3 != arrayList.size()) {
+            arrayList = arrayList.subList(0, a3);
         }
         return arrayList;
     }
@@ -168,20 +168,20 @@ public enum k {
         int i5 = i2;
         while (c > 0) {
             int i6 = c < i5 ? c : i5;
-            ArrayList<i> a = a(i6, i4);
-            if (i4 == 0 && a.size() != 0) {
-                arrayList2.add(a.get(0));
+            ArrayList<i> a2 = a(i6, i4);
+            if (i4 == 0 && a2.size() != 0) {
+                arrayList2.add(a2.get(0));
             }
-            Iterator<i> it = a.iterator();
+            Iterator<i> it = a2.iterator();
             while (it.hasNext()) {
                 i next = it.next();
-                long a2 = next.a();
+                long a3 = next.a();
                 String b = next.b();
                 int length = b.length();
                 if (i3 + length > i) {
                     break;
                 }
-                arrayList.add(Long.valueOf(a2));
+                arrayList.add(Long.valueOf(a3));
                 list.add(b);
                 i3 += length;
             }

@@ -13,9 +13,11 @@ import javax.crypto.SecretKeyFactory;
 import javax.crypto.spec.IvParameterSpec;
 import javax.crypto.spec.PBEKeySpec;
 import javax.crypto.spec.SecretKeySpec;
-/* loaded from: classes15.dex */
+/* loaded from: classes16.dex */
 public class Crypto {
-    private static final int a = 16;
+
+    /* renamed from: a  reason: collision with root package name */
+    private static final int f1508a = 16;
     private static final int b = 8;
     private static final int c = 128;
     private static final int d = 64;

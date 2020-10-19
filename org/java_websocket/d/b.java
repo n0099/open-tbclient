@@ -1,21 +1,21 @@
 package org.java_websocket.d;
 
 import com.xiaomi.mipush.sdk.Constants;
-/* loaded from: classes17.dex */
+/* loaded from: classes11.dex */
 public class b implements a {
-    private final String oMV;
+    private final String pcl;
 
     public b(String str) {
         if (str == null) {
             throw new IllegalArgumentException();
         }
-        this.oMV = str;
+        this.pcl = str;
     }
 
     @Override // org.java_websocket.d.a
-    public boolean Xc(String str) {
+    public boolean XQ(String str) {
         for (String str2 : str.replaceAll(" ", "").split(Constants.ACCEPT_TIME_SEPARATOR_SP)) {
-            if (this.oMV.equals(str2)) {
+            if (this.pcl.equals(str2)) {
                 return true;
             }
         }
@@ -23,18 +23,18 @@ public class b implements a {
     }
 
     @Override // org.java_websocket.d.a
-    public String enE() {
-        return this.oMV;
+    public String erq() {
+        return this.pcl;
     }
 
     @Override // org.java_websocket.d.a
-    public a enF() {
-        return new b(enE());
+    public a err() {
+        return new b(erq());
     }
 
     @Override // org.java_websocket.d.a
     public String toString() {
-        return enE();
+        return erq();
     }
 
     public boolean equals(Object obj) {
@@ -44,10 +44,10 @@ public class b implements a {
         if (obj == null || getClass() != obj.getClass()) {
             return false;
         }
-        return this.oMV.equals(((b) obj).oMV);
+        return this.pcl.equals(((b) obj).pcl);
     }
 
     public int hashCode() {
-        return this.oMV.hashCode();
+        return this.pcl.hashCode();
     }
 }

@@ -4,41 +4,41 @@ import com.baidu.adp.base.BdBaseModel;
 import com.baidu.tbadk.BaseActivity;
 import com.baidu.tieba.im.data.GroupActivityData;
 import com.baidu.tieba.im.message.RequestCreateGroupActivityMessage;
-/* loaded from: classes22.dex */
+/* loaded from: classes23.dex */
 public class CreateGroupActivityModel extends BdBaseModel<BaseActivity> {
-    private GroupActivityData jzO;
-    RequestCreateGroupActivityMessage jzP;
+    private GroupActivityData jOL;
+    RequestCreateGroupActivityMessage jOM;
     private BaseActivity mActivity;
 
     public CreateGroupActivityModel(BaseActivity baseActivity) {
         super(baseActivity.getPageContext());
-        this.jzO = new GroupActivityData();
+        this.jOL = new GroupActivityData();
         this.mActivity = baseActivity;
     }
 
-    public GroupActivityData cJm() {
-        return this.jzO;
+    public GroupActivityData cMV() {
+        return this.jOL;
     }
 
-    public void qS(boolean z) {
-        if (this.jzO != null) {
-            this.jzP = new RequestCreateGroupActivityMessage();
-            this.jzP.setCommitType(z ? 1 : 0);
+    public void ry(boolean z) {
+        if (this.jOL != null) {
+            this.jOM = new RequestCreateGroupActivityMessage();
+            this.jOM.setCommitType(z ? 1 : 0);
             if (z) {
-                this.jzP.setActivityId(this.jzO.getActivityId());
+                this.jOM.setActivityId(this.jOL.getActivityId());
             }
-            this.jzP.setgActivityArea(this.jzO.getgActivityArea());
-            this.jzP.setgActivityContent(this.jzO.getgActivityContent());
-            this.jzP.setgActivityTime(this.jzO.getgActivityTime());
-            this.jzP.setgActivityTitle(this.jzO.getgActivityTitle());
-            this.jzP.setGroupId(this.jzO.getGroupId());
-            this.mActivity.sendMessage(this.jzP);
+            this.jOM.setgActivityArea(this.jOL.getgActivityArea());
+            this.jOM.setgActivityContent(this.jOL.getgActivityContent());
+            this.jOM.setgActivityTime(this.jOL.getgActivityTime());
+            this.jOM.setgActivityTitle(this.jOL.getgActivityTitle());
+            this.jOM.setGroupId(this.jOL.getGroupId());
+            this.mActivity.sendMessage(this.jOM);
         }
     }
 
     @Override // com.baidu.adp.base.BdBaseModel
     public void cancelMessage() {
-        if (this.jzP != null) {
+        if (this.jOM != null) {
         }
     }
 

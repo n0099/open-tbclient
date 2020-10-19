@@ -5,9 +5,11 @@ import android.os.Message;
 import com.baidu.sofire.b;
 import com.baidu.sofire.i.e;
 import com.baidu.sofire.i.g;
-/* loaded from: classes12.dex */
+/* loaded from: classes15.dex */
 public class Report {
-    private static Report a;
+
+    /* renamed from: a  reason: collision with root package name */
+    private static Report f3667a;
     private Context b;
 
     private Report(Context context) {
@@ -17,10 +19,10 @@ public class Report {
     public static synchronized Report getInstance(Context context) {
         Report report;
         synchronized (Report.class) {
-            if (a == null) {
-                a = new Report(context);
+            if (f3667a == null) {
+                f3667a = new Report(context);
             }
-            report = a;
+            report = f3667a;
         }
         return report;
     }
@@ -51,7 +53,7 @@ public class Report {
             Message message = new Message();
             message.what = 11;
             message.obj = str;
-            a2.a.a(message);
+            a2.f3629a.a(message);
         } catch (Throwable th) {
             e.a();
         }
@@ -78,7 +80,7 @@ public class Report {
             g a2 = g.a(this.b);
             Message message = new Message();
             message.what = 6;
-            a2.a.a(message);
+            a2.f3629a.a(message);
         } catch (Throwable th) {
             e.a();
         }
@@ -89,7 +91,7 @@ public class Report {
             g a2 = g.a(this.b);
             Message message = new Message();
             message.what = 9;
-            a2.a.a(message);
+            a2.f3629a.a(message);
         } catch (Throwable th) {
             e.a();
         }

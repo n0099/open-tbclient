@@ -11,7 +11,7 @@ import javax.crypto.NoSuchPaddingException;
 import javax.crypto.ShortBufferException;
 import javax.crypto.spec.IvParameterSpec;
 import org.conscrypt.OpenSSLCipher;
-/* loaded from: classes8.dex */
+/* loaded from: classes5.dex */
 public class OpenSSLCipherChaCha20 extends OpenSSLCipher {
     static final /* synthetic */ boolean $assertionsDisabled;
     private static final int BLOCK_SIZE_BYTES = 64;

@@ -24,9 +24,11 @@ import org.apache.http.HttpResponse;
 import org.apache.http.StatusLine;
 import org.apache.http.conn.ConnectTimeoutException;
 import org.apache.http.impl.cookie.DateUtils;
-/* loaded from: classes3.dex */
+/* loaded from: classes7.dex */
 public class a implements com.baidu.pano.platform.a.i {
-    protected static final boolean a = w.b;
+
+    /* renamed from: a  reason: collision with root package name */
+    protected static final boolean f2635a = w.b;
     private static int d = 3000;
     private static int e = 4096;
     protected final i b;
@@ -64,7 +66,7 @@ public class a implements com.baidu.pano.platform.a.i {
                                 return new com.baidu.pano.platform.a.l(304, null, emptyMap, true, SystemClock.elapsedRealtime() - elapsedRealtime);
                             }
                             f.g.putAll(emptyMap);
-                            return new com.baidu.pano.platform.a.l(304, f.a, f.g, true, SystemClock.elapsedRealtime() - elapsedRealtime);
+                            return new com.baidu.pano.platform.a.l(304, f.f2646a, f.g, true, SystemClock.elapsedRealtime() - elapsedRealtime);
                         }
                         if (statusCode == 301 || statusCode == 302) {
                             nVar.c(emptyMap.get(Headers.LOCATION));
@@ -127,7 +129,7 @@ public class a implements com.baidu.pano.platform.a.i {
     }
 
     private void a(long j, com.baidu.pano.platform.a.n<?> nVar, byte[] bArr, StatusLine statusLine) {
-        if (a || j > d) {
+        if (f2635a || j > d) {
             Object[] objArr = new Object[5];
             objArr[0] = nVar;
             objArr[1] = Long.valueOf(j);

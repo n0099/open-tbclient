@@ -28,7 +28,7 @@ public abstract class AbsFragmentStatePagerAdapter extends PagerAdapter {
     public void startUpdate(ViewGroup viewGroup) {
     }
 
-    public final ArrayList<Fragment> bmG() {
+    public final ArrayList<Fragment> bpq() {
         return this.mFragments;
     }
 
@@ -71,6 +71,18 @@ public abstract class AbsFragmentStatePagerAdapter extends PagerAdapter {
         this.mSavedState.set(i, this.mFragmentManager.saveFragmentInstanceState(fragment));
         this.mFragments.set(i, null);
         this.mCurTransaction.remove(fragment);
+    }
+
+    public void a(boolean z, Fragment fragment) {
+        if (fragment != null) {
+            FragmentTransaction beginTransaction = this.mFragmentManager.beginTransaction();
+            if (z) {
+                beginTransaction.show(fragment);
+            } else {
+                beginTransaction.hide(fragment);
+            }
+            beginTransaction.commit();
+        }
     }
 
     @Override // android.support.v4.view.PagerAdapter

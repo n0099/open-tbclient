@@ -29,9 +29,11 @@ import java.util.List;
 import java.util.Map;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes21.dex */
+/* loaded from: classes22.dex */
 public final class ev extends Dialog implements DialogInterface.OnDismissListener, TextWatcher, View.OnClickListener, CompoundButton.OnCheckedChangeListener {
-    public View a;
+
+    /* renamed from: a  reason: collision with root package name */
+    public View f3867a;
     public EditText b;
     public Button c;
     public String d;
@@ -81,11 +83,11 @@ public final class ev extends Dialog implements DialogInterface.OnDismissListene
         inflate.findViewById(R.id.btn_dialog_close).setOnClickListener(this);
         inflate.findViewById(R.id.header_transparent).setOnClickListener(this);
         window.setContentView(inflate);
-        this.a = com.baidu.ufosdk.f.i.b(this.g, com.baidu.ufosdk.f.s.a(SoUtils.SO_EVENT_ID_NEW_SO));
+        this.f3867a = com.baidu.ufosdk.f.i.b(this.g, com.baidu.ufosdk.f.s.a(SoUtils.SO_EVENT_ID_NEW_SO));
         RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(-2, -2);
         layoutParams.addRule(13);
-        this.a.setVisibility(8);
-        ((RelativeLayout) inflate.findViewById(R.id.rl_root)).addView(this.a, layoutParams);
+        this.f3867a.setVisibility(8);
+        ((RelativeLayout) inflate.findViewById(R.id.rl_root)).addView(this.f3867a, layoutParams);
         window.setLayout(-1, -2);
         this.c = (Button) inflate.findViewById(R.id.btn_sumbit_evaluate);
         this.c.setOnClickListener(this);
@@ -188,9 +190,9 @@ public final class ev extends Dialog implements DialogInterface.OnDismissListene
         }
         hashMap.put("baiducuid", com.baidu.ufosdk.b.c);
         try {
-            String a = com.baidu.ufosdk.e.b.a("https://ufosdk.baidu.com/?m=Index&a=recordDiscontent", "sdk_encrypt=" + URLEncoder.encode(com.baidu.ufosdk.f.k.a(com.baidu.ufosdk.c.a.a(hashMap)), "UTF-8"));
-            if (!TextUtils.isEmpty(a)) {
-                JSONObject jSONObject = new JSONObject(com.baidu.ufosdk.f.k.b(a));
+            String a2 = com.baidu.ufosdk.e.b.a("https://ufosdk.baidu.com/?m=Index&a=recordDiscontent", "sdk_encrypt=" + URLEncoder.encode(com.baidu.ufosdk.f.k.a(com.baidu.ufosdk.c.a.a(hashMap)), "UTF-8"));
+            if (!TextUtils.isEmpty(a2)) {
+                JSONObject jSONObject = new JSONObject(com.baidu.ufosdk.f.k.b(a2));
                 com.baidu.ufosdk.f.c.c("submit response is -----------------> " + jSONObject.toString());
                 int optInt = jSONObject.optInt(BaseJsonData.TAG_ERRNO, 1);
                 if (optInt == 0) {
@@ -218,8 +220,8 @@ public final class ev extends Dialog implements DialogInterface.OnDismissListene
     }
 
     private void b() {
-        this.a.setVisibility(0);
-        this.a.bringToFront();
+        this.f3867a.setVisibility(0);
+        this.f3867a.bringToFront();
         this.c.setBackgroundResource(R.drawable.dialog_btn_bg_normal);
         this.c.setTextColor(872415231);
         this.c.setClickable(false);

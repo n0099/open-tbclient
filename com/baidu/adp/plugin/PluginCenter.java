@@ -328,7 +328,7 @@ public class PluginCenter {
                             sb.append(Constants.ACCEPT_TIME_SEPARATOR_SERVER);
                             sb.append(initWithBroadcast.reason);
                             sb.append(Constants.ACCEPT_TIME_SEPARATOR_SERVER);
-                            sb.append(initWithBroadcast.Rt);
+                            sb.append(initWithBroadcast.RJ);
                         }
                     }
                 }
@@ -366,7 +366,7 @@ public class PluginCenter {
                                     com.baidu.adp.plugin.b.a.pD().log("plugin_load_retry_succ");
                                 }
                             } else if (PluginPackageManager.pT().isMainProcess()) {
-                                com.baidu.adp.plugin.b.a.pD().i("plugin_loaded_failed", key, bVar.reason, bVar.Rt);
+                                com.baidu.adp.plugin.b.a.pD().i("plugin_loaded_failed", key, bVar.reason, bVar.RJ);
                             }
                         }
                     }
@@ -408,7 +408,7 @@ public class PluginCenter {
                                     sb.append(Constants.ACCEPT_TIME_SEPARATOR_SERVER);
                                     sb.append(bVar.reason);
                                     sb.append(Constants.ACCEPT_TIME_SEPARATOR_SERVER);
-                                    sb.append(bVar.Rt);
+                                    sb.append(bVar.RJ);
                                 } else {
                                     sb.append("-ret==null");
                                 }

@@ -45,7 +45,7 @@ public class TbConfig {
     public static final int POST_IMAGE_QUALITY = 85;
     public static final int POST_IMAGE_SMALL = 1500;
     public static final boolean PROMOTED_DEFAULT = true;
-    public static final String SDK_VERSION = "3.9.0";
+    public static final String SDK_VERSION = "4.0.3";
     public static final String ST_TYPE_USE = "use";
     private static String SUBAPP_NAME = null;
     private static int SUBAPP_VERSION = 0;
@@ -73,6 +73,7 @@ public class TbConfig {
     private static boolean isInitAppServerMap;
     public static ISdkInitCallback sdkInitCallback;
     public static String SERVER_ADDRESS = "https://tiebac.baidu.com/";
+    public static String SERVER_QUANMIN_ADDRESS = "https://quanmin.baidu.com/";
     public static String SERVER_HOST = TbDomainConfig.DOMAIN_HTTPS_SERVER_HOST;
     public static String LOGIN_FULL_ADDRESS = SERVER_ADDRESS + "c/s/login";
     public static String SERVER_ADDRESS_WEB_VIEW = "http://tieba.baidu.com/";
@@ -137,7 +138,7 @@ public class TbConfig {
     }
 
     public static String getVersion() {
-        if (TbadkCoreApplication.getInst().isHaokan() || TbadkCoreApplication.getInst().isQuanmin() || TbadkCoreApplication.getInst().isMobileBaidu()) {
+        if (TbadkCoreApplication.getInst().isHaokan() || TbadkCoreApplication.getInst().isQuanmin() || TbadkCoreApplication.getInst().isMobileBaidu() || TbadkCoreApplication.getInst().isYinbo()) {
             return VERSION;
         }
         if (TbadkCoreApplication.getInst().isTieba()) {

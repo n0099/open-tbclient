@@ -13,40 +13,40 @@ import com.baidu.tieba.interestlabel.model.LabelSettingModel;
 import com.baidu.tieba.interestlabel.model.a;
 import com.baidu.tieba.interestlabel.view.LabelSettingView;
 import java.util.List;
-/* loaded from: classes22.dex */
+/* loaded from: classes23.dex */
 public class LabelSettingActivity extends BaseActivity<LabelSettingActivity> implements a {
-    private LabelSettingView jTF;
-    private LabelSettingModel jTG;
+    private LabelSettingView kiF;
+    private LabelSettingModel kiG;
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
-        this.jTF = new LabelSettingView(getPageContext(), this);
-        this.jTG = new LabelSettingModel(getPageContext());
-        setContentView(this.jTF);
-        this.jTG.a(this);
-        cON();
+        this.kiF = new LabelSettingView(getPageContext(), this);
+        this.kiG = new LabelSettingModel(getPageContext());
+        setContentView(this.kiF);
+        this.kiG.a(this);
+        cSv();
     }
 
     @Override // com.baidu.tieba.interestlabel.model.a
-    public void cON() {
+    public void cSv() {
         if (!j.isNetworkAvailableForImmediately()) {
-            this.jTF.hideLoadingView();
-            this.jTF.nS(true);
+            this.kiF.hideLoadingView();
+            this.kiF.ox(true);
             return;
         }
-        this.jTF.bHn();
-        this.jTF.gR(true);
-        this.jTG.cOT();
+        this.kiF.SK();
+        this.kiF.hn(true);
+        this.kiG.cSB();
     }
 
     @Override // com.baidu.tieba.interestlabel.model.a
-    public void ea(List<Integer> list) {
+    public void ed(List<Integer> list) {
         if (!j.isNetworkAvailableForImmediately()) {
             showToast(R.string.neterror);
         } else {
-            this.jTG.eb(list);
+            this.kiG.ee(list);
         }
     }
 
@@ -54,17 +54,17 @@ public class LabelSettingActivity extends BaseActivity<LabelSettingActivity> imp
     public void a(LabelRequestEnum labelRequestEnum, b bVar, int i) {
         switch (labelRequestEnum) {
             case GET_LABEL:
-                this.jTF.hideLoadingView();
-                if (bVar == null || y.isEmpty(bVar.cOR())) {
-                    this.jTF.nS(true);
+                this.kiF.hideLoadingView();
+                if (bVar == null || y.isEmpty(bVar.cSz())) {
+                    this.kiF.ox(true);
                     return;
                 }
-                this.jTF.bHn();
-                this.jTF.setData(bVar);
+                this.kiF.SK();
+                this.kiF.setData(bVar);
                 return;
             case SUB_LABEL:
                 if (i == 0) {
-                    com.baidu.tbadk.core.sharedPref.b.bjf().putBoolean(SharedPrefConfig.SET_RECOMMEND_LABEL, true);
+                    com.baidu.tbadk.core.sharedPref.b.blO().putBoolean(SharedPrefConfig.SET_RECOMMEND_LABEL, true);
                     finish();
                     return;
                 }
@@ -78,13 +78,13 @@ public class LabelSettingActivity extends BaseActivity<LabelSettingActivity> imp
     @Override // com.baidu.tbadk.BaseActivity
     public void onChangeSkinType(int i) {
         super.onChangeSkinType(i);
-        this.jTF.onChangeSkinType();
+        this.kiF.onChangeSkinType();
     }
 
     @Override // com.baidu.tbadk.BaseActivity, android.app.Activity, android.view.KeyEvent.Callback
     public boolean onKeyDown(int i, KeyEvent keyEvent) {
-        if (i == 4 && this.jTF != null && this.jTF.cPd()) {
-            this.jTF.NY();
+        if (i == 4 && this.kiF != null && this.kiF.cSL()) {
+            this.kiF.Pd();
             return true;
         }
         return super.onKeyDown(i, keyEvent);

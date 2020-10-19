@@ -2,15 +2,15 @@ package com.baidu.tieba.signall;
 
 import com.baidu.adp.lib.util.BdLog;
 import org.json.JSONObject;
-/* loaded from: classes23.dex */
+/* loaded from: classes24.dex */
 public class k {
     public String link;
-    public String mhi;
+    public String mwL;
 
     public void parserJson(JSONObject jSONObject) {
         if (jSONObject != null) {
             try {
-                this.mhi = jSONObject.optString("banner");
+                this.mwL = jSONObject.optString("banner");
                 this.link = jSONObject.optString("link");
             } catch (Exception e) {
                 BdLog.e(e.getMessage());

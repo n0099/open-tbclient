@@ -1,11 +1,10 @@
 package com.example.image_loader_plugin;
 
 import java.util.HashMap;
-import java.util.HashSet;
 /* loaded from: classes17.dex */
 public class ResNameTransform {
     private static HashMap<String, String> platformImageNameMap = new HashMap<>();
-    private static HashSet<String> svgKey = new HashSet<>();
+    private static HashMap<String, String> svgColorMap = new HashMap<>();
 
     static {
         platformImageNameMap.put("btn_sign_vip_n", "btn_vip_all_sign");
@@ -86,7 +85,15 @@ public class ResNameTransform {
         platformImageNameMap.put("icon_pure_gerenba_ba_n", "ic_icon_pure_gerenba_ba_n_svg");
         platformImageNameMap.put("icon_pure_gerenba_concern_n", "ic_icon_pure_gerenba_concern_n_svg");
         platformImageNameMap.put("icon_pure_personalba_shop", "ic_icon_pure_personalba_shop_svg");
-        platformImageNameMap.put("pic_live_mine", "ic_pic_live_mine");
+        svgColorMap.put("icon_pure_topbar_sign44_svg", "cp_cont_b");
+        svgColorMap.put("icon_pure_topbar_scan44_svg", "cp_cont_b");
+        svgColorMap.put("icon_pure_topbar_store44_svg", "cp_cont_b");
+        svgColorMap.put("icon_pure_topbar_set44_svg", "cp_cont_b");
+        svgColorMap.put("icon_pure_wo_list_more24_svg", "cp_cont_f");
+        svgColorMap.put("icon_pure_list_arrow16_right_svg", "cp_cont_d");
+        svgColorMap.put("ic_icon_pure_video_play12_svg", "cp_cont_a");
+        svgColorMap.put("icon_pure_fold12_svg", "cp_cont_d");
+        svgColorMap.put("icon_pure_unfold12_svg", "cp_cont_d");
         platformImageNameMap.put("icon_pure_topbar_return44", "icon_pure_topbar_return44_svg");
         platformImageNameMap.put("icon_pure_topbar_return44_1", "icon_pure_topbar_return44_svg");
         platformImageNameMap.put("icon_pure_topbar_more44", "icon_pure_topbar_more44_svg");
@@ -108,14 +115,9 @@ public class ResNameTransform {
         platformImageNameMap.put("icon_mask_Crown24", "svg_icon_mask_crown24");
         platformImageNameMap.put("icon_pure_topbar_sign44", "icon_pure_topbar_sign44_svg");
         platformImageNameMap.put("icon_pure_arrow12_right", "icon_pure_arrow12_right_svg");
-        svgKey.add("ic_pic_live_mine");
     }
 
     public static String getAndroidNameFromIos(String str) {
         return platformImageNameMap.containsKey(str) ? platformImageNameMap.get(str) : str;
-    }
-
-    public static boolean isSvg(String str) {
-        return svgKey.contains(str);
     }
 }

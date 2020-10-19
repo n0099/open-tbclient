@@ -17,7 +17,7 @@ public class a {
         }
     }
 
-    public static boolean r(CharSequence charSequence) {
+    public static boolean s(CharSequence charSequence) {
         return Pattern.compile("[^一-龥]").matcher(charSequence).find();
     }
 
@@ -29,7 +29,7 @@ public class a {
                     return "";
                 }
                 while (i < i2) {
-                    if (!a.r(charSequence) || charSequence.toString().contains("·") || charSequence.toString().contains("•")) {
+                    if (!a.s(charSequence) || charSequence.toString().contains("·") || charSequence.toString().contains("•")) {
                         i++;
                     } else {
                         return "";

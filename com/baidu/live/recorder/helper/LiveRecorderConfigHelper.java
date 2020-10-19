@@ -22,28 +22,28 @@ import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes4.dex */
 public class LiveRecorderConfigHelper {
-    private static volatile LiveRecorderConfigHelper bkt;
-    private f bkq = new f();
-    private boolean bkr = false;
-    private boolean bks = false;
+    private static volatile LiveRecorderConfigHelper bog;
+    private f bod = new f();
+    private boolean boe = false;
+    private boolean bof = false;
 
     public VideoResolution f(boolean z, boolean z2) {
         if (!z2) {
-            return eP(a.NN().bhy.aGH);
+            return eY(a.OS().blo.aJL);
         }
         if (TbadkCoreApplication.getInst().isOther()) {
             if (z && z2) {
-                return eP(a.NN().bhy.aGP);
+                return eY(a.OS().blo.aJT);
             }
             if (!z && z2) {
-                return eP(a.NN().bhy.aGQ);
+                return eY(a.OS().blo.aJU);
             }
             return VideoResolution.P540;
         }
         return VideoResolution.RTC;
     }
 
-    private VideoResolution eP(int i) {
+    private VideoResolution eY(int i) {
         if (i == 1) {
             return VideoResolution.P720;
         }
@@ -59,15 +59,15 @@ public class LiveRecorderConfigHelper {
         return VideoResolution.P540;
     }
 
-    public static LiveRecorderConfigHelper Nk() {
-        if (bkt == null) {
+    public static LiveRecorderConfigHelper Op() {
+        if (bog == null) {
             synchronized (LiveRecorderConfigHelper.class) {
-                if (bkt == null) {
-                    bkt = new LiveRecorderConfigHelper();
+                if (bog == null) {
+                    bog = new LiveRecorderConfigHelper();
                 }
             }
         }
-        return bkt;
+        return bog;
     }
 
     public AlaLiveVideoConfig d(int i, int i2, boolean z) {
@@ -76,17 +76,17 @@ public class LiveRecorderConfigHelper {
             videoResolution = f(true, false);
         }
         if (videoResolution == null) {
-            videoResolution = eP(i);
+            videoResolution = eY(i);
         }
-        if (i2 == 1 && !a.NN().bhy.aGI) {
+        if (i2 == 1 && !a.OS().blo.aJM) {
             videoResolution = VideoResolution.P360;
         }
-        AlaLiveVideoConfig isLandscape = new AlaLiveVideoConfig(hr(a.NN().bhy.aGK), hr(a.NN().bhy.aGL), a.NN().bhy.increaseThreshold, a.NN().bhy.decreaseThreshold, a.NN().bhy.increaseCount, a.NN().bhy.aGI, a.NN().bhy.aGJ, videoResolution.getWidth(), videoResolution.getHeight()).setIsLandscape(z);
+        AlaLiveVideoConfig isLandscape = new AlaLiveVideoConfig(hI(a.OS().blo.aJO), hI(a.OS().blo.aJP), a.OS().blo.increaseThreshold, a.OS().blo.decreaseThreshold, a.OS().blo.increaseCount, a.OS().blo.aJM, a.OS().blo.aJN, videoResolution.getWidth(), videoResolution.getHeight()).setIsLandscape(z);
         if (i2 == 1) {
             isLandscape.setPreviewWidth(720);
             isLandscape.setPreviewHeight(PlatformPlugin.DEFAULT_SYSTEM_UI);
-            if (a.NN().bhy != null) {
-                isLandscape.setSupportFaceStyle(a.NN().bhy.aGX);
+            if (a.OS().blo != null) {
+                isLandscape.setSupportFaceStyle(a.OS().blo.aKb);
             }
             return isLandscape;
         } else if (i2 == 2) {
@@ -101,38 +101,38 @@ public class LiveRecorderConfigHelper {
     public void a(boolean z, AlaLiveVideoConfig alaLiveVideoConfig) {
         if (alaLiveVideoConfig != null) {
             if (z) {
-                alaLiveVideoConfig.getRtcBitRateConfig().resetBitRateItem(hr(a.NN().bhy.aGN));
+                alaLiveVideoConfig.getRtcBitRateConfig().resetBitRateItem(hI(a.OS().blo.aJR));
             } else {
-                alaLiveVideoConfig.getRtcBitRateConfig().resetBitRateItem(hr(a.NN().bhy.aGO));
+                alaLiveVideoConfig.getRtcBitRateConfig().resetBitRateItem(hI(a.OS().blo.aJS));
             }
         }
     }
 
-    public void Nl() {
-        if (!this.bkr) {
-            this.bkq.fS(a.NN().bhy.aGM);
-            AlaNdkAdapter.setDomainConfigEnable(this.bkq.aDN ? 1 : 0);
-            if (this.bkq.aDM.size() > 0 && this.bkq.aDL.length() > 0 && this.bkq.aDN) {
-                for (int i = 0; i < this.bkq.aDM.size(); i++) {
-                    f.a aVar = this.bkq.aDM.get(i);
+    public void Oq() {
+        if (!this.boe) {
+            this.bod.gg(a.OS().blo.aJQ);
+            AlaNdkAdapter.setDomainConfigEnable(this.bod.aGR ? 1 : 0);
+            if (this.bod.aGQ.size() > 0 && this.bod.aGP.length() > 0 && this.bod.aGR) {
+                for (int i = 0; i < this.bod.aGQ.size(); i++) {
+                    f.a aVar = this.bod.aGQ.get(i);
                     if (aVar != null && aVar.ip != null && aVar.ip.length() > 0) {
-                        AlaNdkAdapter.setDomainConfig(this.bkq.aDL, aVar.ip, aVar.aDP);
+                        AlaNdkAdapter.setDomainConfig(this.bod.aGP, aVar.ip, aVar.aGT);
                     }
                 }
             }
-            this.bkr = true;
+            this.boe = true;
         }
     }
 
-    public void Nm() {
-        if (!this.bks) {
-            AlaNdkAdapter.setHttpDnsEnable(a.NN().bhy.aGR ? 1 : 0);
-            AlaNdkAdapter.setPushOptTimestamp(a.NN().bhy.aGT ? 1 : 0);
-            this.bks = true;
+    public void Or() {
+        if (!this.bof) {
+            AlaNdkAdapter.setHttpDnsEnable(a.OS().blo.aJV ? 1 : 0);
+            AlaNdkAdapter.setPushOptTimestamp(a.OS().blo.aJX ? 1 : 0);
+            this.bof = true;
         }
     }
 
-    private List<DynamicBitRateConfig.DynamicBitRateItem> hr(String str) {
+    public static List<DynamicBitRateConfig.DynamicBitRateItem> hI(String str) {
         JSONArray jSONArray;
         int length;
         int i;

@@ -8,7 +8,7 @@ import java.io.IOException;
 import java.io.OutputStream;
 import java.net.HttpURLConnection;
 import java.net.URL;
-/* loaded from: classes9.dex */
+/* loaded from: classes6.dex */
 public class d {
     /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [8=4] */
     public static boolean a(String str, OutputStream outputStream) {
@@ -60,7 +60,7 @@ public class d {
         }
     }
 
-    public static Bitmap in(String str) {
+    public static Bitmap iP(String str) {
         BufferedInputStream bufferedInputStream;
         BufferedInputStream bufferedInputStream2 = null;
         try {

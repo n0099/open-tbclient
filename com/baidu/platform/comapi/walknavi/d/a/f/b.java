@@ -17,9 +17,11 @@ import java.util.Enumeration;
 import java.util.zip.ZipEntry;
 import java.util.zip.ZipException;
 import java.util.zip.ZipFile;
-/* loaded from: classes3.dex */
+/* loaded from: classes7.dex */
 public class b extends AsyncTask<String, Integer, String> {
-    private String a;
+
+    /* renamed from: a  reason: collision with root package name */
+    private String f2984a;
     private int b;
     private a<String> c;
     private boolean d = false;
@@ -27,9 +29,9 @@ public class b extends AsyncTask<String, Integer, String> {
     private String f;
 
     public b(String str, int i, boolean z, a<String> aVar) {
-        this.a = "";
+        this.f2984a = "";
         this.b = 0;
-        this.a = str;
+        this.f2984a = str;
         this.b = i;
         this.c = aVar;
         this.e = z;
@@ -93,20 +95,20 @@ public class b extends AsyncTask<String, Integer, String> {
             return null;
         }
         this.f = str;
-        String a = com.baidu.platform.comapi.walknavi.d.a.g.f.a(this.a, this.b);
-        if (TextUtils.isEmpty(a)) {
+        String a2 = com.baidu.platform.comapi.walknavi.d.a.g.f.a(this.f2984a, this.b);
+        if (TextUtils.isEmpty(a2)) {
             return null;
         }
-        File file = new File(a);
+        File file = new File(a2);
         if (!file.exists() || !file.isDirectory()) {
             file.mkdirs();
         }
-        String str2 = a + File.separator + (k.a(str) + ".zip");
+        String str2 = a2 + File.separator + (k.a(str) + ".zip");
         File file2 = new File(str2);
         if (file2.exists()) {
             try {
                 new ZipFile(str2);
-                if (com.baidu.platform.comapi.walknavi.d.a.b.a) {
+                if (com.baidu.platform.comapi.walknavi.d.a.b.f2965a) {
                     return c(str2);
                 }
                 if (this.c != null) {
@@ -115,14 +117,14 @@ public class b extends AsyncTask<String, Integer, String> {
                 return "false";
             } catch (Exception e) {
                 file2.delete();
-                if (!com.baidu.platform.comapi.walknavi.d.a.b.a) {
+                if (!com.baidu.platform.comapi.walknavi.d.a.b.f2965a) {
                     if (this.c != null) {
                         this.c.a(true, b(str));
                     }
                     return "true";
                 }
             }
-        } else if (!com.baidu.platform.comapi.walknavi.d.a.b.a) {
+        } else if (!com.baidu.platform.comapi.walknavi.d.a.b.f2965a) {
             if (this.c != null) {
                 this.c.a(true, b(str));
             }
@@ -260,12 +262,12 @@ public class b extends AsyncTask<String, Integer, String> {
         }
         String substring = str.substring(0, str.length() - 4);
         File file2 = new File(substring);
-        String a = k.a(str);
+        String a2 = k.a(str);
         if (this.e) {
             if (file2.exists()) {
                 com.baidu.platform.comapi.walknavi.d.a.g.f.a(file2);
             }
-        } else if (!a(a, file2)) {
+        } else if (!a(a2, file2)) {
             return substring;
         } else {
             if (file2.exists()) {
@@ -414,7 +416,7 @@ public class b extends AsyncTask<String, Integer, String> {
                     }
                 }
                 if (!this.e) {
-                    com.baidu.platform.comapi.walknavi.d.a.g.f.a(a, ".successUnzip.txt");
+                    com.baidu.platform.comapi.walknavi.d.a.g.f.a(a2, ".successUnzip.txt");
                 }
                 return substring;
             } catch (ZipException e19) {

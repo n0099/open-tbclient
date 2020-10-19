@@ -13,9 +13,11 @@ import com.meizu.cloud.pushsdk.util.MzSystemUtils;
 import java.util.HashMap;
 import java.util.Map;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes7.dex */
 public abstract class a<T> implements com.meizu.cloud.pushsdk.handler.c {
-    private com.meizu.cloud.pushsdk.handler.a a;
+
+    /* renamed from: a  reason: collision with root package name */
+    private com.meizu.cloud.pushsdk.handler.a f4411a;
     private Context b;
     private Map<Integer, String> c;
 
@@ -25,7 +27,7 @@ public abstract class a<T> implements com.meizu.cloud.pushsdk.handler.c {
             throw new IllegalArgumentException("Context must not be null.");
         }
         this.b = context.getApplicationContext();
-        this.a = aVar;
+        this.f4411a = aVar;
         this.c = new HashMap();
         this.c.put(2, "MESSAGE_TYPE_PUSH_SERVICE_V2");
         this.c.put(4, "MESSAGE_TYPE_PUSH_SERVICE_V3");
@@ -71,8 +73,8 @@ public abstract class a<T> implements com.meizu.cloud.pushsdk.handler.c {
 
     /* JADX INFO: Access modifiers changed from: protected */
     public final boolean a(MessageV3 messageV3) {
-        String a = com.meizu.cloud.pushsdk.handler.a.b.e.a(messageV3);
-        if (TextUtils.isEmpty(a)) {
+        String a2 = com.meizu.cloud.pushsdk.handler.a.b.e.a(messageV3);
+        if (TextUtils.isEmpty(a2)) {
             return false;
         }
         int i = 0;
@@ -87,9 +89,9 @@ public abstract class a<T> implements com.meizu.cloud.pushsdk.handler.c {
                     com.meizu.cloud.pushsdk.util.b.k(c(), messageV3.getPackageName(), aVar.a());
                 }
             }
-            String a2 = com.meizu.cloud.pushsdk.util.c.a(k, a);
-            com.meizu.cloud.a.a.e("AbstractMessageHandler", "decryptSign " + a2);
-            if (!TextUtils.isEmpty(a2) && com.meizu.cloud.pushsdk.handler.a.b.e.a(a2, messageV3)) {
+            String a3 = com.meizu.cloud.pushsdk.util.c.a(k, a2);
+            com.meizu.cloud.a.a.e("AbstractMessageHandler", "decryptSign " + a3);
+            if (!TextUtils.isEmpty(a3) && com.meizu.cloud.pushsdk.handler.a.b.e.a(a3, messageV3)) {
                 return true;
             }
             com.meizu.cloud.a.a.e("AbstractMessageHandler", "force update public key " + i + " time");
@@ -112,7 +114,7 @@ public abstract class a<T> implements com.meizu.cloud.pushsdk.handler.c {
     }
 
     public com.meizu.cloud.pushsdk.handler.a b() {
-        return this.a;
+        return this.f4411a;
     }
 
     public String b(String str) {
@@ -127,13 +129,13 @@ public abstract class a<T> implements com.meizu.cloud.pushsdk.handler.c {
 
     /* JADX INFO: Access modifiers changed from: protected */
     public void b(MessageV3 messageV3) {
-        com.meizu.cloud.pushsdk.notification.model.a a = com.meizu.cloud.pushsdk.notification.model.a.a(messageV3);
-        if (a != null) {
-            com.meizu.cloud.a.a.e("AbstractMessageHandler", "delete notifyKey " + a.b() + " notifyId " + a.a());
-            if (TextUtils.isEmpty(a.b())) {
-                com.meizu.cloud.pushsdk.notification.c.b.c(c(), messageV3.getUploadDataPackageName(), a.a());
+        com.meizu.cloud.pushsdk.notification.model.a a2 = com.meizu.cloud.pushsdk.notification.model.a.a(messageV3);
+        if (a2 != null) {
+            com.meizu.cloud.a.a.e("AbstractMessageHandler", "delete notifyKey " + a2.b() + " notifyId " + a2.a());
+            if (TextUtils.isEmpty(a2.b())) {
+                com.meizu.cloud.pushsdk.notification.c.b.c(c(), messageV3.getUploadDataPackageName(), a2.a());
             } else {
-                com.meizu.cloud.pushsdk.notification.c.b.a(c(), messageV3.getUploadDataPackageName(), a.b());
+                com.meizu.cloud.pushsdk.notification.c.b.a(c(), messageV3.getUploadDataPackageName(), a2.b());
             }
         }
     }

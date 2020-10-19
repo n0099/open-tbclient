@@ -7,7 +7,7 @@ import kotlin.i;
 import kotlin.jvm.a.m;
 import kotlin.jvm.internal.w;
 @h
-/* loaded from: classes5.dex */
+/* loaded from: classes10.dex */
 public final class IntrinsicsKt__IntrinsicsJvmKt$createCoroutineUnintercepted$$inlined$createCoroutineFromSuspendFunction$IntrinsicsKt__IntrinsicsJvmKt$4 extends ContinuationImpl {
     final /* synthetic */ kotlin.coroutines.a $completion;
     final /* synthetic */ kotlin.coroutines.c $context;
@@ -29,7 +29,7 @@ public final class IntrinsicsKt__IntrinsicsJvmKt$createCoroutineUnintercepted$$i
         switch (this.label) {
             case 0:
                 this.label = 1;
-                i.bL(obj);
+                i.bO(obj);
                 IntrinsicsKt__IntrinsicsJvmKt$createCoroutineUnintercepted$$inlined$createCoroutineFromSuspendFunction$IntrinsicsKt__IntrinsicsJvmKt$4 intrinsicsKt__IntrinsicsJvmKt$createCoroutineUnintercepted$$inlined$createCoroutineFromSuspendFunction$IntrinsicsKt__IntrinsicsJvmKt$4 = this;
                 m mVar = this.$this_createCoroutineUnintercepted$inlined;
                 if (mVar == null) {
@@ -38,7 +38,7 @@ public final class IntrinsicsKt__IntrinsicsJvmKt$createCoroutineUnintercepted$$i
                 return ((m) w.k(mVar, 2)).invoke(this.$receiver$inlined, intrinsicsKt__IntrinsicsJvmKt$createCoroutineUnintercepted$$inlined$createCoroutineFromSuspendFunction$IntrinsicsKt__IntrinsicsJvmKt$4);
             case 1:
                 this.label = 2;
-                i.bL(obj);
+                i.bO(obj);
                 return obj;
             default:
                 throw new IllegalStateException("This coroutine had already completed".toString());

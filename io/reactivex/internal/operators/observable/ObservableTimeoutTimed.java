@@ -8,9 +8,9 @@ import io.reactivex.v;
 import java.util.concurrent.TimeUnit;
 import java.util.concurrent.TimeoutException;
 import java.util.concurrent.atomic.AtomicReference;
-/* loaded from: classes25.dex */
+/* loaded from: classes17.dex */
 public final class ObservableTimeoutTimed<T> extends io.reactivex.internal.operators.observable.a<T, T> {
-    static final io.reactivex.disposables.b oyz = new a();
+    static final io.reactivex.disposables.b oNO = new a();
     final t<? extends T> other;
     final v scheduler;
     final long timeout;
@@ -19,13 +19,13 @@ public final class ObservableTimeoutTimed<T> extends io.reactivex.internal.opera
     @Override // io.reactivex.q
     public void a(u<? super T> uVar) {
         if (this.other == null) {
-            this.source.subscribe(new TimeoutTimedObserver(new io.reactivex.observers.b(uVar), this.timeout, this.unit, this.scheduler.eja()));
+            this.source.subscribe(new TimeoutTimedObserver(new io.reactivex.observers.b(uVar), this.timeout, this.unit, this.scheduler.emL()));
         } else {
-            this.source.subscribe(new TimeoutTimedOtherObserver(uVar, this.timeout, this.unit, this.scheduler.eja(), this.other));
+            this.source.subscribe(new TimeoutTimedOtherObserver(uVar, this.timeout, this.unit, this.scheduler.emL(), this.other));
         }
     }
 
-    /* loaded from: classes25.dex */
+    /* loaded from: classes17.dex */
     static final class TimeoutTimedOtherObserver<T> extends AtomicReference<io.reactivex.disposables.b> implements io.reactivex.disposables.b, u<T> {
         private static final long serialVersionUID = -4619702551964128179L;
         final u<? super T> actual;
@@ -74,7 +74,7 @@ public final class ObservableTimeoutTimed<T> extends io.reactivex.internal.opera
             if (bVar != null) {
                 bVar.dispose();
             }
-            if (compareAndSet(bVar, ObservableTimeoutTimed.oyz)) {
+            if (compareAndSet(bVar, ObservableTimeoutTimed.oNO)) {
                 DisposableHelper.replace(this, this.worker.c(new a(j), this.timeout, this.unit));
             }
         }
@@ -115,7 +115,7 @@ public final class ObservableTimeoutTimed<T> extends io.reactivex.internal.opera
         }
 
         /* JADX INFO: Access modifiers changed from: package-private */
-        /* loaded from: classes25.dex */
+        /* loaded from: classes17.dex */
         public final class a implements Runnable {
             private final long idx;
 
@@ -136,7 +136,7 @@ public final class ObservableTimeoutTimed<T> extends io.reactivex.internal.opera
         }
     }
 
-    /* loaded from: classes25.dex */
+    /* loaded from: classes17.dex */
     static final class TimeoutTimedObserver<T> extends AtomicReference<io.reactivex.disposables.b> implements io.reactivex.disposables.b, u<T> {
         private static final long serialVersionUID = -8387234228317808253L;
         final u<? super T> actual;
@@ -178,7 +178,7 @@ public final class ObservableTimeoutTimed<T> extends io.reactivex.internal.opera
             if (bVar != null) {
                 bVar.dispose();
             }
-            if (compareAndSet(bVar, ObservableTimeoutTimed.oyz)) {
+            if (compareAndSet(bVar, ObservableTimeoutTimed.oNO)) {
                 DisposableHelper.replace(this, this.worker.c(new a(j), this.timeout, this.unit));
             }
         }
@@ -215,7 +215,7 @@ public final class ObservableTimeoutTimed<T> extends io.reactivex.internal.opera
         }
 
         /* JADX INFO: Access modifiers changed from: package-private */
-        /* loaded from: classes25.dex */
+        /* loaded from: classes17.dex */
         public final class a implements Runnable {
             private final long idx;
 
@@ -236,7 +236,7 @@ public final class ObservableTimeoutTimed<T> extends io.reactivex.internal.opera
         }
     }
 
-    /* loaded from: classes25.dex */
+    /* loaded from: classes17.dex */
     static final class a implements io.reactivex.disposables.b {
         a() {
         }

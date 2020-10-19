@@ -13,7 +13,7 @@ import java.util.GregorianCalendar;
 import javax.xml.datatype.DatatypeConfigurationException;
 import javax.xml.datatype.DatatypeFactory;
 import javax.xml.datatype.XMLGregorianCalendar;
-/* loaded from: classes10.dex */
+/* loaded from: classes5.dex */
 public class CalendarCodec implements ObjectDeserializer, ObjectSerializer {
     public static final CalendarCodec instance = new CalendarCodec();
     private DatatypeFactory dateFactory;

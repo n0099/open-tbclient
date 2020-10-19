@@ -2,13 +2,15 @@ package com.baidu.mobads.utils;
 
 import android.net.wifi.ScanResult;
 import java.util.Comparator;
-/* loaded from: classes3.dex */
+/* loaded from: classes7.dex */
 class r implements Comparator<ScanResult> {
-    final /* synthetic */ p a;
+
+    /* renamed from: a  reason: collision with root package name */
+    final /* synthetic */ p f2446a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public r(p pVar) {
-        this.a = pVar;
+        this.f2446a = pVar;
     }
 
     /* JADX DEBUG: Method merged with bridge method */

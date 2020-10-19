@@ -7,7 +7,7 @@ import android.graphics.drawable.ColorDrawable;
 import android.graphics.drawable.StateListDrawable;
 import java.io.IOException;
 import java.io.InputStream;
-/* loaded from: classes21.dex */
+/* loaded from: classes22.dex */
 public final class m {
     /* JADX WARN: Removed duplicated region for block: B:37:0x0047 A[EXC_TOP_SPLITTER, SYNTHETIC] */
     /*
@@ -21,8 +21,8 @@ public final class m {
             try {
                 inputStream = context.getAssets().open("ufo_res/" + str);
                 try {
-                    byte[] a = i.a(inputStream);
-                    bitmap = BitmapFactory.decodeByteArray(a, 0, a.length, null);
+                    byte[] a2 = i.a(inputStream);
+                    bitmap = BitmapFactory.decodeByteArray(a2, 0, a2.length, null);
                     if (inputStream != null) {
                         try {
                             inputStream.close();
@@ -209,8 +209,8 @@ public final class m {
             try {
                 inputStream = context.getAssets().open("ufo_res/ufo_defult_me_icon.png");
                 try {
-                    byte[] a = i.a(inputStream);
-                    bitmap = BitmapFactory.decodeByteArray(a, 0, a.length, null);
+                    byte[] a2 = i.a(inputStream);
+                    bitmap = BitmapFactory.decodeByteArray(a2, 0, a2.length, null);
                     if (inputStream != null) {
                         try {
                             inputStream.close();

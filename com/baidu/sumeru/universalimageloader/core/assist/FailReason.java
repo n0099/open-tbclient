@@ -1,10 +1,10 @@
 package com.baidu.sumeru.universalimageloader.core.assist;
-/* loaded from: classes9.dex */
+/* loaded from: classes12.dex */
 public class FailReason {
     private final Throwable cause;
     private final FailType type;
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes12.dex */
     public enum FailType {
         IO_ERROR,
         DECODING_ERROR,

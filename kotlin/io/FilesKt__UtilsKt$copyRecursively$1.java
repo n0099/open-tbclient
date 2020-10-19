@@ -6,7 +6,7 @@ import kotlin.jvm.a.m;
 import kotlin.jvm.internal.Lambda;
 import kotlin.jvm.internal.q;
 @kotlin.h
-/* loaded from: classes5.dex */
+/* loaded from: classes10.dex */
 final class FilesKt__UtilsKt$copyRecursively$1 extends Lambda implements m {
     public static final FilesKt__UtilsKt$copyRecursively$1 INSTANCE = new FilesKt__UtilsKt$copyRecursively$1();
 
@@ -17,8 +17,8 @@ final class FilesKt__UtilsKt$copyRecursively$1 extends Lambda implements m {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // kotlin.jvm.a.m
     public final Void invoke(File file, IOException iOException) {
-        q.m(file, "<anonymous parameter 0>");
-        q.m(iOException, "exception");
+        q.n(file, "<anonymous parameter 0>");
+        q.n(iOException, "exception");
         throw iOException;
     }
 }

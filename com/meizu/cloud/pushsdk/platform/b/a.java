@@ -6,9 +6,11 @@ import android.text.TextUtils;
 import com.meizu.cloud.pushsdk.platform.message.BasicPushStatus;
 import com.meizu.cloud.pushsdk.util.MinSdkChecker;
 import java.util.concurrent.ScheduledExecutorService;
-/* loaded from: classes3.dex */
+/* loaded from: classes7.dex */
 public class a extends c {
-    private int[] a;
+
+    /* renamed from: a  reason: collision with root package name */
+    private int[] f4439a;
     private int b;
     private String c;
 
@@ -35,13 +37,13 @@ public class a extends c {
     }
 
     public void a(int... iArr) {
-        this.a = iArr;
+        this.f4439a = iArr;
     }
 
     @Override // com.meizu.cloud.pushsdk.platform.b.c
     protected boolean a() {
         if (this.b != 0) {
-            if (this.a == null || this.a.length <= 0 || this.b != 1) {
+            if (this.f4439a == null || this.f4439a.length <= 0 || this.b != 1) {
                 return this.b == 2 && !TextUtils.isEmpty(this.c);
             }
             return true;
@@ -72,15 +74,15 @@ public class a extends c {
 
     @Override // com.meizu.cloud.pushsdk.platform.b.c
     protected Intent[] d() {
-        if (this.a != null) {
-            Intent[] intentArr = new Intent[this.a.length];
-            for (int i = 0; i < this.a.length; i++) {
-                com.meizu.cloud.a.a.i("Strategy", "send notifyId " + this.a[i] + " to PushManagerService");
+        if (this.f4439a != null) {
+            Intent[] intentArr = new Intent[this.f4439a.length];
+            for (int i = 0; i < this.f4439a.length; i++) {
+                com.meizu.cloud.a.a.i("Strategy", "send notifyId " + this.f4439a[i] + " to PushManagerService");
                 Intent intent = new Intent();
                 intent.putExtra("strategy_package_name", this.e.getPackageName());
                 intent.putExtra("strategy_type", g());
                 intent.putExtra("strategy_child_type", this.b);
-                intent.putExtra("strategy_params", "" + this.a[i]);
+                intent.putExtra("strategy_params", "" + this.f4439a[i]);
                 intentArr[i] = intent;
             }
             return intentArr;
@@ -100,8 +102,8 @@ public class a extends c {
                 com.meizu.cloud.pushsdk.notification.c.b.a(this.e, this.h);
                 return null;
             case 1:
-                if (this.a != null) {
-                    for (int i : this.a) {
+                if (this.f4439a != null) {
+                    for (int i : this.f4439a) {
                         com.meizu.cloud.a.a.e("Strategy", "clear notifyId " + i);
                         com.meizu.cloud.pushsdk.notification.c.b.a(this.e, this.h, i);
                     }

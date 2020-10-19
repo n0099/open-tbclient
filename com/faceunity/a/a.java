@@ -7,13 +7,13 @@ import android.util.Log;
 import android.view.Surface;
 import com.baidu.ala.helper.StreamConfig;
 import java.nio.ByteBuffer;
-/* loaded from: classes22.dex */
+/* loaded from: classes23.dex */
 public class a {
-    private boolean bDp;
+    private boolean bJR;
     private MediaCodec.BufferInfo mBufferInfo = new MediaCodec.BufferInfo();
     private MediaCodec mEncoder;
     private int mTrackIndex;
-    private c nKy;
+    private c nZP;
 
     public a(c cVar) {
         MediaFormat createAudioFormat = MediaFormat.createAudioFormat("audio/mp4a-latm", StreamConfig.Audio.AUDIO_RTC_FREQUENCY_48K, 1);
@@ -28,8 +28,8 @@ public class a {
         this.mEncoder.configure(createAudioFormat, (Surface) null, (MediaCrypto) null, 1);
         this.mEncoder.start();
         this.mTrackIndex = -1;
-        this.bDp = false;
-        this.nKy = cVar;
+        this.bJR = false;
+        this.nZP = cVar;
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -64,7 +64,7 @@ public class a {
         }
     }
 
-    public void eaA() throws Exception {
+    public void eel() throws Exception {
         ByteBuffer[] outputBuffers = this.mEncoder.getOutputBuffers();
         while (true) {
             int dequeueOutputBuffer = this.mEncoder.dequeueOutputBuffer(this.mBufferInfo, 10000L);
@@ -72,24 +72,24 @@ public class a {
                 if (dequeueOutputBuffer == -3) {
                     outputBuffers = this.mEncoder.getOutputBuffers();
                 } else if (dequeueOutputBuffer == -2) {
-                    if (this.bDp) {
+                    if (this.bJR) {
                         throw new RuntimeException("format changed twice");
                     }
                     MediaFormat outputFormat = this.mEncoder.getOutputFormat();
                     Log.d("AudioEncoder", "encoder output format changed: " + outputFormat);
-                    this.mTrackIndex = this.nKy.c(outputFormat);
-                    if (!this.nKy.start()) {
-                        synchronized (this.nKy) {
-                            while (!this.nKy.isStarted()) {
+                    this.mTrackIndex = this.nZP.c(outputFormat);
+                    if (!this.nZP.start()) {
+                        synchronized (this.nZP) {
+                            while (!this.nZP.isStarted()) {
                                 try {
-                                    this.nKy.wait(100L);
+                                    this.nZP.wait(100L);
                                 } catch (InterruptedException e) {
                                     e.printStackTrace();
                                 }
                             }
                         }
                     }
-                    this.bDp = true;
+                    this.bJR = true;
                 } else if (dequeueOutputBuffer < 0) {
                     Log.w("AudioEncoder", "unexpected result from encoder.dequeueOutputBuffer: " + dequeueOutputBuffer);
                 } else {
@@ -101,12 +101,12 @@ public class a {
                         this.mBufferInfo.size = 0;
                     }
                     if (this.mBufferInfo.size != 0) {
-                        if (!this.bDp) {
+                        if (!this.bJR) {
                             throw new RuntimeException("muxer hasn't started");
                         }
                         byteBuffer.position(this.mBufferInfo.offset);
                         byteBuffer.limit(this.mBufferInfo.offset + this.mBufferInfo.size);
-                        this.nKy.c(this.mTrackIndex, byteBuffer, this.mBufferInfo);
+                        this.nZP.c(this.mTrackIndex, byteBuffer, this.mBufferInfo);
                     }
                     this.mEncoder.releaseOutputBuffer(dequeueOutputBuffer, false);
                     if ((this.mBufferInfo.flags & 4) != 0) {
@@ -126,9 +126,9 @@ public class a {
                 this.mEncoder.release();
                 this.mEncoder = null;
             }
-            if (this.nKy != null) {
-                this.nKy.stop();
-                this.nKy = null;
+            if (this.nZP != null) {
+                this.nZP.stop();
+                this.nZP = null;
             }
         } catch (Exception e) {
             e.printStackTrace();

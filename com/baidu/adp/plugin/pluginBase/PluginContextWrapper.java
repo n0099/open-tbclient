@@ -69,7 +69,7 @@ public class PluginContextWrapper extends ContextWrapper {
             }
             return plugin2.getPluginResources();
         }
-        Resources resources = g.lh().getResources();
+        Resources resources = g.li().getResources();
         return resources == null ? super.getResources() : resources;
     }
 

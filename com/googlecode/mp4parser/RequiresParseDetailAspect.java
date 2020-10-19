@@ -2,7 +2,7 @@ package com.googlecode.mp4parser;
 
 import org.aspectj.lang.NoAspectBoundException;
 import org.aspectj.lang.a;
-/* loaded from: classes4.dex */
+/* loaded from: classes11.dex */
 public class RequiresParseDetailAspect {
     private static /* synthetic */ Throwable ajc$initFailureCause;
     public static final /* synthetic */ RequiresParseDetailAspect ajc$perSingletonInstance = null;

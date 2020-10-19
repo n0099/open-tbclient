@@ -3,15 +3,17 @@ package com.xiaomi.push.service;
 import android.os.Handler;
 import android.os.Looper;
 import android.os.Message;
-/* loaded from: classes9.dex */
+/* loaded from: classes12.dex */
 class bc extends Handler {
-    final /* synthetic */ bb a;
+
+    /* renamed from: a  reason: collision with root package name */
+    final /* synthetic */ bb f5075a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public bc(bb bbVar, Looper looper) {
         super(looper);
-        this.a = bbVar;
+        this.f5075a = bbVar;
     }
 
     @Override // android.os.Handler

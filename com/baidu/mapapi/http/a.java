@@ -3,9 +3,11 @@ package com.baidu.mapapi.http;
 import com.baidu.mapapi.http.AsyncHttpClient;
 import com.baidu.mapapi.http.HttpClient;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes3.dex */
+/* loaded from: classes7.dex */
 public class a extends AsyncHttpClient.a {
-    final /* synthetic */ HttpClient.ProtoResultCallback a;
+
+    /* renamed from: a  reason: collision with root package name */
+    final /* synthetic */ HttpClient.ProtoResultCallback f1991a;
     final /* synthetic */ String b;
     final /* synthetic */ AsyncHttpClient c;
 
@@ -14,7 +16,7 @@ public class a extends AsyncHttpClient.a {
     public a(AsyncHttpClient asyncHttpClient, HttpClient.ProtoResultCallback protoResultCallback, String str) {
         super(null);
         this.c = asyncHttpClient;
-        this.a = protoResultCallback;
+        this.f1991a = protoResultCallback;
         this.b = str;
     }
 
@@ -22,8 +24,8 @@ public class a extends AsyncHttpClient.a {
     public void a() {
         int i;
         int i2;
-        HttpClient httpClient = new HttpClient("GET", this.a);
-        i = this.c.a;
+        HttpClient httpClient = new HttpClient("GET", this.f1991a);
+        i = this.c.f1989a;
         httpClient.setMaxTimeOut(i);
         i2 = this.c.b;
         httpClient.setReadTimeOut(i2);

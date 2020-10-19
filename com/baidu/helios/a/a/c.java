@@ -3,64 +3,66 @@ package com.baidu.helios.a.a;
 import android.os.Bundle;
 import java.util.concurrent.CountDownLatch;
 import java.util.concurrent.TimeUnit;
-/* loaded from: classes12.dex */
+/* loaded from: classes7.dex */
 class c<T> implements com.baidu.helios.c<T> {
-    private volatile boolean a = false;
-    private final CountDownLatch awT = new CountDownLatch(1);
-    private b<T> awU = null;
-    private a awV = null;
 
-    /* loaded from: classes12.dex */
+    /* renamed from: a  reason: collision with root package name */
+    private volatile boolean f1781a = false;
+    private final CountDownLatch axC = new CountDownLatch(1);
+    private b<T> axD = null;
+    private a axE = null;
+
+    /* loaded from: classes7.dex */
     public static class a {
-        public boolean awW;
-        public Throwable awX;
-        public Bundle awY;
+        public boolean axF;
+        public Throwable axG;
+        public Bundle axH;
         public int errorCode;
     }
 
-    /* loaded from: classes12.dex */
+    /* loaded from: classes7.dex */
     public static class b<T> {
-        public Bundle awY;
+        public Bundle axH;
         public T result;
     }
 
-    public b<T> Al() {
-        return this.awU;
+    public b<T> At() {
+        return this.axD;
     }
 
-    public a Am() {
-        return this.awV;
+    public a Au() {
+        return this.axE;
     }
 
     @Override // com.baidu.helios.c
     public void a(int i, Throwable th, Bundle bundle) {
-        this.awV = new a();
-        this.awV.errorCode = i;
-        this.awV.awX = th;
-        this.awV.awY = bundle;
-        this.a = false;
-        this.awT.countDown();
+        this.axE = new a();
+        this.axE.errorCode = i;
+        this.axE.axG = th;
+        this.axE.axH = bundle;
+        this.f1781a = false;
+        this.axC.countDown();
     }
 
     @Override // com.baidu.helios.c
     public void a(T t, Bundle bundle) {
-        this.awU = new b<>();
-        this.awU.result = t;
-        this.awU.awY = bundle;
-        this.a = true;
-        this.awT.countDown();
+        this.axD = new b<>();
+        this.axD.result = t;
+        this.axD.axH = bundle;
+        this.f1781a = true;
+        this.axC.countDown();
     }
 
     public boolean a(int i) {
         try {
-            this.awT.await(i, TimeUnit.MILLISECONDS);
-            if (this.awV == null) {
-                this.awV = new a();
-                this.awV.awW = true;
+            this.axC.await(i, TimeUnit.MILLISECONDS);
+            if (this.axE == null) {
+                this.axE = new a();
+                this.axE.axF = true;
             }
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
-        return this.a;
+        return this.f1781a;
     }
 }

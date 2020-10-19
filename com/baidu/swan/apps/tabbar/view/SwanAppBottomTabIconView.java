@@ -9,10 +9,10 @@ import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 import com.baidu.swan.apps.a;
-/* loaded from: classes3.dex */
+/* loaded from: classes10.dex */
 public class SwanAppBottomTabIconView extends RelativeLayout {
-    private TextView dbM;
-    private boolean dbN;
+    private TextView dnV;
+    private boolean dnW;
     private ImageView mIconView;
     private ImageView mRedDot;
     private TextView mTextView;
@@ -23,7 +23,7 @@ public class SwanAppBottomTabIconView extends RelativeLayout {
         this.mIconView = (ImageView) findViewById(a.f.bottom_tab_icon);
         this.mTextView = (TextView) findViewById(a.f.bottom_tab_text);
         this.mRedDot = (ImageView) findViewById(a.f.bottom_tab_red_dot);
-        this.dbM = (TextView) findViewById(a.f.bottom_tab_badge);
+        this.dnV = (TextView) findViewById(a.f.bottom_tab_badge);
     }
 
     public void setIconView(int i) {
@@ -46,16 +46,16 @@ public class SwanAppBottomTabIconView extends RelativeLayout {
         this.mTextView.setTextColor(i);
     }
 
-    public boolean aED() {
-        return this.dbN;
+    public boolean aHm() {
+        return this.dnW;
     }
 
     public void setmIsSelect(boolean z) {
-        this.dbN = z;
+        this.dnW = z;
     }
 
     public void setBadgeText(String str) {
-        this.dbM.setText(str);
+        this.dnV.setText(str);
     }
 
     public void setRedDotVisibleState(boolean z) {
@@ -68,9 +68,9 @@ public class SwanAppBottomTabIconView extends RelativeLayout {
 
     public void setBadgeVisibleState(boolean z) {
         if (z) {
-            this.dbM.setVisibility(0);
+            this.dnV.setVisibility(0);
         } else {
-            this.dbM.setVisibility(8);
+            this.dnV.setVisibility(8);
         }
     }
 }

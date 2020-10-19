@@ -6,7 +6,7 @@ import android.support.v7.view.menu.MenuBuilder;
 import android.support.v7.view.menu.MenuItemImpl;
 import android.support.v7.view.menu.SubMenuBuilder;
 @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
-/* loaded from: classes5.dex */
+/* loaded from: classes16.dex */
 public class NavigationSubMenu extends SubMenuBuilder {
     public NavigationSubMenu(Context context, NavigationMenu navigationMenu, MenuItemImpl menuItemImpl) {
         super(context, navigationMenu, menuItemImpl);

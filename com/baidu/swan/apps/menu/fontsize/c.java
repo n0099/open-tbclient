@@ -17,26 +17,26 @@ import com.baidu.swan.apps.a;
 import com.baidu.swan.apps.res.ui.SliderBar;
 import com.baidu.swan.menu.PopupWindow;
 import java.util.ArrayList;
-/* loaded from: classes3.dex */
+/* loaded from: classes10.dex */
 public class c extends PopupWindow implements View.OnClickListener {
-    private View cFu;
-    private com.baidu.swan.menu.a cFv;
-    private View cFw;
-    private FontSizeSettingMenuView cFx;
-    private a cFy;
+    private View cRA;
+    private FontSizeSettingMenuView cRB;
+    private a cRC;
+    private View cRy;
+    private com.baidu.swan.menu.a cRz;
     private Context mContext;
     private ViewGroup mRootView;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes10.dex */
     public interface a {
-        void iD(int i);
+        void ja(int i);
     }
 
     public c(Context context, View view, @Nullable com.baidu.swan.menu.a aVar) {
         super(context);
         this.mContext = context;
-        this.cFu = view;
-        this.cFv = aVar;
+        this.cRy = view;
+        this.cRz = aVar;
         setClippingEnabled(false);
         setFocusable(true);
         setOutsideTouchable(true);
@@ -48,15 +48,15 @@ public class c extends PopupWindow implements View.OnClickListener {
 
     private void initViews() {
         this.mRootView = (FrameLayout) LayoutInflater.from(this.mContext).inflate(a.g.swan_app_font_setting_layout, (ViewGroup) null);
-        this.cFw = this.mRootView.findViewById(a.f.mask);
-        this.cFx = (FontSizeSettingMenuView) this.mRootView.findViewById(a.f.font_size_setting);
-        this.cFw.setOnClickListener(this);
-        this.cFx.setClickListener(this);
-        this.cFx.setOnSliderBarChangeListener(new SliderBar.b() { // from class: com.baidu.swan.apps.menu.fontsize.c.1
+        this.cRA = this.mRootView.findViewById(a.f.mask);
+        this.cRB = (FontSizeSettingMenuView) this.mRootView.findViewById(a.f.font_size_setting);
+        this.cRA.setOnClickListener(this);
+        this.cRB.setClickListener(this);
+        this.cRB.setOnSliderBarChangeListener(new SliderBar.b() { // from class: com.baidu.swan.apps.menu.fontsize.c.1
             @Override // com.baidu.swan.apps.res.ui.SliderBar.b
             public void a(SliderBar sliderBar, int i) {
-                if (c.this.cFy != null) {
-                    c.this.cFy.iD(i);
+                if (c.this.cRC != null) {
+                    c.this.cRC.ja(i);
                 }
             }
         });
@@ -68,53 +68,53 @@ public class c extends PopupWindow implements View.OnClickListener {
     public void onClick(View view) {
         int id = view.getId();
         if (id == a.f.cancel || id == a.f.mask) {
-            eP(true);
+            fl(true);
         }
     }
 
     public void showView() {
         if (!isShowing()) {
-            auQ();
+            axB();
             Activity activity = (Activity) this.mContext;
             if (activity != null && !activity.isFinishing() && !activity.isDestroyed()) {
-                this.cFx.setMode();
-                showAtLocation(this.cFu, 81, 0, 0);
+                this.cRB.setMode();
+                showAtLocation(this.cRy, 81, 0, 0);
                 getContentView().setSystemUiVisibility(5120);
                 setFocusable(true);
                 update();
-                final View contentView = this.cFx.getContentView();
+                final View contentView = this.cRB.getContentView();
                 if (contentView.getHeight() == 0) {
                     contentView.getViewTreeObserver().addOnGlobalLayoutListener(new ViewTreeObserver.OnGlobalLayoutListener() { // from class: com.baidu.swan.apps.menu.fontsize.c.2
                         @Override // android.view.ViewTreeObserver.OnGlobalLayoutListener
                         public void onGlobalLayout() {
-                            c.this.cFx.lI(contentView.getHeight());
-                            c.this.auR();
+                            c.this.cRB.mf(contentView.getHeight());
+                            c.this.axC();
                             contentView.getViewTreeObserver().removeOnGlobalLayoutListener(this);
                         }
                     });
                 } else {
-                    auR();
+                    axC();
                 }
             }
         }
     }
 
-    public void auQ() {
-        if (this.cFv != null) {
-            this.cFv.a(this.cFx);
+    public void axB() {
+        if (this.cRz != null) {
+            this.cRz.a(this.cRB);
         }
     }
 
     public void a(a aVar) {
-        this.cFy = aVar;
+        this.cRC = aVar;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void auR() {
-        this.cFw.setAlpha(0.0f);
-        this.cFx.setTranslationY(this.cFx.getHeight());
-        ObjectAnimator a2 = com.baidu.swan.menu.c.a(this.cFw, this.cFx);
-        ObjectAnimator b = com.baidu.swan.menu.c.b(this.cFx);
+    public void axC() {
+        this.cRA.setAlpha(0.0f);
+        this.cRB.setTranslationY(this.cRB.getHeight());
+        ObjectAnimator a2 = com.baidu.swan.menu.c.a(this.cRA, this.cRB);
+        ObjectAnimator b = com.baidu.swan.menu.c.b(this.cRB);
         ArrayList arrayList = new ArrayList();
         arrayList.add(a2);
         arrayList.add(b);
@@ -123,12 +123,12 @@ public class c extends PopupWindow implements View.OnClickListener {
         animatorSet.start();
     }
 
-    public void eP(boolean z) {
+    public void fl(boolean z) {
         if (!z) {
             super.dismiss();
         } else if (isShowing()) {
-            ObjectAnimator aS = com.baidu.swan.menu.c.aS(this.cFw);
-            ObjectAnimator c = com.baidu.swan.menu.c.c(this.cFx);
+            ObjectAnimator aT = com.baidu.swan.menu.c.aT(this.cRA);
+            ObjectAnimator c = com.baidu.swan.menu.c.c(this.cRB);
             AnimatorSet animatorSet = new AnimatorSet();
             animatorSet.addListener(new AnimatorListenerAdapter() { // from class: com.baidu.swan.apps.menu.fontsize.c.3
                 @Override // android.animation.AnimatorListenerAdapter, android.animation.Animator.AnimatorListener
@@ -139,7 +139,7 @@ public class c extends PopupWindow implements View.OnClickListener {
                     }
                 }
             });
-            animatorSet.playTogether(aS, c);
+            animatorSet.playTogether(aT, c);
             animatorSet.start();
         }
     }

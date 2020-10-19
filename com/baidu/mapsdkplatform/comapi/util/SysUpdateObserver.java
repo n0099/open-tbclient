@@ -1,7 +1,7 @@
 package com.baidu.mapsdkplatform.comapi.util;
 
 import android.content.Context;
-/* loaded from: classes3.dex */
+/* loaded from: classes7.dex */
 public interface SysUpdateObserver {
     void init(String str);
 

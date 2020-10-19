@@ -6,54 +6,54 @@ import com.baidu.adp.base.d;
 import com.baidu.tbadk.b.e;
 import com.baidu.tbadk.b.f;
 import java.util.HashMap;
-/* loaded from: classes25.dex */
+/* loaded from: classes26.dex */
 public class b implements e {
-    private final HashMap<String, f> jVO;
+    private final HashMap<String, f> kle;
 
     private b() {
-        this.jVO = new HashMap<>();
+        this.kle = new HashMap<>();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     /* renamed from: com.baidu.tieba.recapp.a.b$b  reason: collision with other inner class name */
-    /* loaded from: classes25.dex */
-    public static class C0787b {
-        private static b lLv = new b();
+    /* loaded from: classes26.dex */
+    public static class C0805b {
+        private static b maM = new b();
     }
 
-    public static b dqV() {
-        return C0787b.lLv;
+    public static b duG() {
+        return C0805b.maM;
     }
 
     public void a(Object obj, String str, HashMap<String, String> hashMap, d dVar) {
         if (str != null) {
-            a PN = a.PN(str);
-            f fVar = this.jVO.get(PN.getKey());
-            if (fVar != null && PN.isValid()) {
+            a QC = a.QC(str);
+            f fVar = this.kle.get(QC.getKey());
+            if (fVar != null && QC.isValid()) {
                 if (hashMap != null && !hashMap.isEmpty()) {
-                    PN.getParams().putAll(hashMap);
+                    QC.getParams().putAll(hashMap);
                 }
-                fVar.a(obj, PN.getParams(), str, dVar);
+                fVar.a(obj, QC.getParams(), str, dVar);
             }
         }
     }
 
     public void a(String str, f fVar) {
-        this.jVO.put(str, fVar);
+        this.kle.put(str, fVar);
     }
 
     public void a(com.baidu.tbadk.b.a aVar) {
         a(aVar.key(), aVar);
     }
 
-    /* loaded from: classes25.dex */
+    /* loaded from: classes26.dex */
     public static class a {
-        private boolean eaY;
-        HashMap<String, String> elw;
+        private boolean ena;
+        HashMap<String, String> exF;
         String key;
 
         public boolean isValid() {
-            return this.eaY;
+            return this.ena;
         }
 
         public String getKey() {
@@ -61,26 +61,26 @@ public class b implements e {
         }
 
         public HashMap<String, String> getParams() {
-            return this.elw;
+            return this.exF;
         }
 
         private a(String str) {
-            this.eaY = false;
+            this.ena = false;
             Uri parse = Uri.parse(str);
-            this.eaY = TextUtils.isEmpty(parse.getScheme()) ? false : true;
-            if (this.eaY) {
+            this.ena = TextUtils.isEmpty(parse.getScheme()) ? false : true;
+            if (this.ena) {
                 this.key = parse.getAuthority() + parse.getPath();
-                this.elw = new HashMap<>();
+                this.exF = new HashMap<>();
                 for (String str2 : parse.getQueryParameterNames()) {
-                    this.elw.put(str2, parse.getQueryParameter(str2));
+                    this.exF.put(str2, parse.getQueryParameter(str2));
                 }
                 return;
             }
             this.key = "";
-            this.elw = new HashMap<>();
+            this.exF = new HashMap<>();
         }
 
-        public static a PN(String str) {
+        public static a QC(String str) {
             return new a(str);
         }
     }

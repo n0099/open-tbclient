@@ -6,8 +6,8 @@ import java.lang.reflect.Method;
 /* loaded from: classes11.dex */
 public class b {
     public static String a(Context context) {
-        e eeZ = e.eeZ();
-        return eeZ.a(context.getApplicationContext(), eeZ.omL);
+        e eiK = e.eiK();
+        return eiK.a(context.getApplicationContext(), eiK.oCe);
     }
 
     public static final boolean a() {
@@ -23,21 +23,21 @@ public class b {
         if (context == null) {
             return false;
         }
-        return e.eeZ().a(context, false);
+        return e.eiK().a(context, false);
     }
 
     public static String b(Context context) {
-        e eeZ = e.eeZ();
-        return eeZ.a(context.getApplicationContext(), eeZ.omM);
+        e eiK = e.eiK();
+        return eiK.a(context.getApplicationContext(), eiK.oCf);
     }
 
     public static String c(Context context) {
-        e eeZ = e.eeZ();
-        return eeZ.a(context.getApplicationContext(), eeZ.omO);
+        e eiK = e.eiK();
+        return eiK.a(context.getApplicationContext(), eiK.oCh);
     }
 
     public static String d(Context context) {
-        e eeZ = e.eeZ();
-        return eeZ.a(context.getApplicationContext(), eeZ.omN);
+        e eiK = e.eiK();
+        return eiK.a(context.getApplicationContext(), eiK.oCg);
     }
 }

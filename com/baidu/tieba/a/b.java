@@ -1,20 +1,20 @@
 package com.baidu.tieba.a;
 
 import java.util.HashMap;
-/* loaded from: classes20.dex */
+/* loaded from: classes21.dex */
 public class b {
-    private HashMap<Integer, Integer> fqh = new HashMap<>();
+    private HashMap<Integer, Integer> fCu = new HashMap<>();
 
-    public int sq(int i) {
-        if (this.fqh != null && this.fqh.containsKey(Integer.valueOf(i))) {
-            return this.fqh.get(Integer.valueOf(i)).intValue();
+    public int sO(int i) {
+        if (this.fCu != null && this.fCu.containsKey(Integer.valueOf(i))) {
+            return this.fCu.get(Integer.valueOf(i)).intValue();
         }
         return 0;
     }
 
-    public void by(int i, int i2) {
-        if (this.fqh != null) {
-            this.fqh.put(Integer.valueOf(i), Integer.valueOf(i2));
+    public void bx(int i, int i2) {
+        if (this.fCu != null) {
+            this.fCu.put(Integer.valueOf(i), Integer.valueOf(i2));
         }
     }
 }

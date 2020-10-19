@@ -4,7 +4,7 @@ import android.text.TextUtils;
 import android.util.SparseArray;
 import com.baidu.pass.biometrics.base.R;
 import com.baidu.pass.biometrics.base.utils.ResUtils;
-/* loaded from: classes6.dex */
+/* loaded from: classes11.dex */
 public class PassBiometricResult {
     public static final int ERROR_CODE_NETWORK_UNAVAILABLE = -201;
     public static final int ERROR_CODE_NO_LOGIN = 101;

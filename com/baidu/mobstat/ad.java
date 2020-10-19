@@ -3,14 +3,16 @@ package com.baidu.mobstat;
 import android.content.Context;
 import java.lang.Thread;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes15.dex */
+/* loaded from: classes17.dex */
 public class ad implements Thread.UncaughtExceptionHandler {
-    private static final ad a = new ad();
+
+    /* renamed from: a  reason: collision with root package name */
+    private static final ad f2518a = new ad();
     private Thread.UncaughtExceptionHandler b;
     private Context c;
 
     public static ad a() {
-        return a;
+        return f2518a;
     }
 
     private ad() {

@@ -6,30 +6,30 @@ import java.util.HashMap;
 /* loaded from: classes.dex */
 public class i extends g {
     public long allDataReadTime;
-    public long bGc;
-    public long eUE;
-    public long eUF;
-    public long eUG;
-    public long eUH;
-    public long eUI;
-    public long eUJ;
-    public long eUK;
-    public long eUL;
-    public long eUM;
-    public long eUN;
-    public long eUO;
-    public long eUP;
-    public long eUQ;
-    public boolean eUR;
-    public long eUS;
-    public long eUT;
-    public boolean eUU;
-    public long eUV;
-    public long eUW;
-    public long eUX;
-    public long eUY;
     public int errCode;
     public HashMap<String, String> extra;
+    public long fgM;
+    public long fgN;
+    public long fgO;
+    public long fgP;
+    public long fgQ;
+    public long fgR;
+    public long fgS;
+    public long fgT;
+    public long fgU;
+    public long fgV;
+    public long fgW;
+    public long fgX;
+    public long fgY;
+    public long fgZ;
+    public boolean fha;
+    public long fhb;
+    public long fhc;
+    public boolean fhd;
+    public long fhe;
+    public long fhf;
+    public long fhg;
+    public long fhh;
     public long firstByteReachTime;
     public boolean isSuccess;
     public long sequenceID;
@@ -39,85 +39,85 @@ public class i extends g {
     public i() {
         this.firstByteReachTime = 0L;
         this.allDataReadTime = 0L;
-        this.eUM = 0L;
-        this.eUO = 0L;
-        this.eUP = 0L;
-        this.eUQ = 0L;
-        this.eUS = 0L;
-        this.eUT = 0L;
-        this.eUU = false;
+        this.fgV = 0L;
+        this.fgX = 0L;
+        this.fgY = 0L;
+        this.fgZ = 0L;
+        this.fhb = 0L;
+        this.fhc = 0L;
+        this.fhd = false;
         this.extra = new HashMap<>();
     }
 
     public i(int i, boolean z, ResponsedMessage<?> responsedMessage, long j, long j2, long j3, boolean z2, long j4, long j5, long j6) {
         this.firstByteReachTime = 0L;
         this.allDataReadTime = 0L;
-        this.eUM = 0L;
-        this.eUO = 0L;
-        this.eUP = 0L;
-        this.eUQ = 0L;
-        this.eUS = 0L;
-        this.eUT = 0L;
-        this.eUU = false;
+        this.fgV = 0L;
+        this.fgX = 0L;
+        this.fgY = 0L;
+        this.fgZ = 0L;
+        this.fhb = 0L;
+        this.fhc = 0L;
+        this.fhd = false;
         this.extra = new HashMap<>();
         if (responsedMessage != null) {
             this.mSubType = i;
-            this.eUR = z;
-            if (this.eUR) {
-                this.eUQ = responsedMessage.getDownSize();
-                this.eUV = responsedMessage.getOrginalMessage().getClientLogID();
+            this.fha = z;
+            if (this.fha) {
+                this.fgZ = responsedMessage.getDownSize();
+                this.fhe = responsedMessage.getOrginalMessage().getClientLogID();
                 this.sequenceID = responsedMessage.getOrginalMessage().getSquencedId();
-                this.eUS = responsedMessage.performanceData.mHttpRetryNum;
-                this.eUT = responsedMessage.performanceData.mHttpRetryCostTime;
+                this.fhb = responsedMessage.performanceData.mHttpRetryNum;
+                this.fhc = responsedMessage.performanceData.mHttpRetryCostTime;
                 this.socketErrNo = responsedMessage.performanceData.mSocketErrNo;
                 this.socketCostTime = responsedMessage.performanceData.mSocketCostTime;
             } else {
-                this.eUP = responsedMessage.getDownSize();
+                this.fgY = responsedMessage.getDownSize();
                 this.sequenceID = responsedMessage.getOrginalMessage().getSquencedId();
             }
-            this.eUE = j;
-            this.eUF = j4;
-            this.eUG = j2;
-            this.eUN = j3;
-            this.eUL = j5;
+            this.fgM = j;
+            this.fgN = j4;
+            this.fgO = j2;
+            this.fgW = j3;
+            this.fgU = j5;
             this.isSuccess = !responsedMessage.hasError();
-            this.bGc = responsedMessage.performanceData.mQueneTime;
-            this.eUH = responsedMessage.performanceData.mNetConTime;
-            this.eUI = responsedMessage.performanceData.mNetRWTime;
+            this.fgP = responsedMessage.performanceData.mQueneTime;
+            this.fgQ = responsedMessage.performanceData.mNetConTime;
+            this.fgR = responsedMessage.performanceData.mNetRWTime;
             this.firstByteReachTime = responsedMessage.performanceData.mFirstByteReachTime;
             this.allDataReadTime = responsedMessage.performanceData.mAllDataReadTime;
-            this.eUJ = responsedMessage.performanceData.mCompressTime;
-            this.eUK = responsedMessage.performanceData.mAnalysisTime;
-            this.eUM = responsedMessage.performanceData.mTaskWaitTime;
-            this.eUM += responsedMessage.getProcessTime() - responsedMessage.getStartTime();
+            this.fgS = responsedMessage.performanceData.mCompressTime;
+            this.fgT = responsedMessage.performanceData.mAnalysisTime;
+            this.fgV = responsedMessage.performanceData.mTaskWaitTime;
+            this.fgV += responsedMessage.getProcessTime() - responsedMessage.getStartTime();
             this.errCode = responsedMessage.getError();
-            this.eUU = z2;
-            this.eUO = j6;
+            this.fhd = z2;
+            this.fgX = j6;
         }
     }
 
-    public void bvp() {
-        o oVar = (o) m.bvs().qT(this.mSubType);
+    public void bxZ() {
+        o oVar = (o) m.byc().rr(this.mSubType);
         if (oVar != null) {
             oVar.a(this);
         }
     }
 
-    public void jD(boolean z) {
-        o oVar = (o) m.bvs().qT(this.mSubType);
+    public void kb(boolean z) {
+        o oVar = (o) m.byc().rr(this.mSubType);
         if (oVar != null) {
             oVar.a(this, z);
         }
     }
 
-    public void qR(int i) {
-        o oVar = (o) m.bvs().qT(this.mSubType);
+    public void rp(int i) {
+        o oVar = (o) m.byc().rr(this.mSubType);
         if (oVar != null) {
             oVar.a(this, i);
         }
     }
 
-    public void dN(String str, String str2) {
+    public void dS(String str, String str2) {
         if (!at.isEmpty(str) && !at.isEmpty(str2)) {
             this.extra.put(str, str2);
         }

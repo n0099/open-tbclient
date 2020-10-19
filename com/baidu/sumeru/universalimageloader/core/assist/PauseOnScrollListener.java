@@ -2,7 +2,7 @@ package com.baidu.sumeru.universalimageloader.core.assist;
 
 import android.widget.AbsListView;
 import com.baidu.sumeru.universalimageloader.core.ImageLoader;
-/* loaded from: classes9.dex */
+/* loaded from: classes12.dex */
 public class PauseOnScrollListener implements AbsListView.OnScrollListener {
     private final AbsListView.OnScrollListener externalListener;
     private ImageLoader imageLoader;

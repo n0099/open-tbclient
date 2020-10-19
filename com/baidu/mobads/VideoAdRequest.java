@@ -1,20 +1,22 @@
 package com.baidu.mobads;
 
 import com.baidu.mobads.VideoAdView;
-/* loaded from: classes3.dex */
+/* loaded from: classes7.dex */
 public class VideoAdRequest {
-    private VideoAdView.VideoDuration a;
+
+    /* renamed from: a  reason: collision with root package name */
+    private VideoAdView.VideoDuration f2307a;
     private boolean b;
     private VideoAdView.VideoSize c;
 
     private VideoAdRequest(Builder builder) {
-        this.a = builder.a;
+        this.f2307a = builder.f2308a;
         this.b = builder.b;
         this.c = builder.c;
     }
 
     protected int getVideoDuration() {
-        return this.a == null ? VideoAdView.VideoDuration.DURATION_15_SECONDS.getValue() : this.a.getValue();
+        return this.f2307a == null ? VideoAdView.VideoDuration.DURATION_15_SECONDS.getValue() : this.f2307a.getValue();
     }
 
     protected boolean isShowCountdown() {
@@ -35,14 +37,16 @@ public class VideoAdRequest {
         return this.c.getHeight();
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes7.dex */
     public static class Builder {
-        private VideoAdView.VideoDuration a;
+
+        /* renamed from: a  reason: collision with root package name */
+        private VideoAdView.VideoDuration f2308a;
         private boolean b = false;
         private VideoAdView.VideoSize c;
 
         public Builder setVideoDuration(VideoAdView.VideoDuration videoDuration) {
-            this.a = videoDuration;
+            this.f2308a = videoDuration;
             return this;
         }
 

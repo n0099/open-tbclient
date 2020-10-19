@@ -31,7 +31,7 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
-/* loaded from: classes9.dex */
+/* loaded from: classes5.dex */
 public class ChatUserManagerImpl {
     private static final String TAG = ChatUserManagerImpl.class.getSimpleName();
     private static Context mContext;
@@ -304,7 +304,7 @@ public class ChatUserManagerImpl {
             bundle.putSerializable(Constants.EXTRA_UIDS, arrayList);
             creatMethodIntent.putExtras(bundle);
             try {
-                a.al(mContext).e(mContext, creatMethodIntent);
+                a.ao(mContext).e(mContext, creatMethodIntent);
             } catch (Exception e) {
                 ListenerManager.getInstance().removeListener(addListener);
                 onGetUsersStatusResult(addListener, 1003, Constants.ERROR_MSG_SERVICE_ERROR, null);
@@ -388,7 +388,7 @@ public class ChatUserManagerImpl {
             creatMethodIntent.putExtras(bundle);
             creatMethodIntent.putExtra(Constants.EXTRA_SAVE_TO_DB, i);
             try {
-                a.al(mContext).e(mContext, creatMethodIntent);
+                a.ao(mContext).e(mContext, creatMethodIntent);
             } catch (Exception e) {
                 ListenerManager.getInstance().removeListener(addListener);
                 onGetUserIpResult(mContext, i, addListener, 1003, Constants.ERROR_MSG_SERVICE_ERROR, arrayList, null);

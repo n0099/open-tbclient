@@ -12,20 +12,22 @@ import java.io.File;
 import java.util.HashMap;
 import java.util.concurrent.ExecutorService;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes7.dex */
 public class k {
     private static Object c = new Object();
     private static k d = null;
     private static final String e = com.baidu.location.e.l.j() + "/hst.db";
     private SQLiteDatabase f = null;
     private boolean g = false;
-    a a = null;
+
+    /* renamed from: a  reason: collision with root package name */
+    a f1887a = null;
     a b = null;
     private String h = null;
     private int i = -2;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes3.dex */
+    /* loaded from: classes7.dex */
     public class a extends com.baidu.location.e.f {
         private String b = null;
         private String c = null;
@@ -318,11 +320,11 @@ public class k {
                         }
                     }
                     if (z2) {
-                        if (this.a == null) {
-                            this.a = new a();
+                        if (this.f1887a == null) {
+                            this.f1887a = new a();
                         }
-                        if (this.a != null) {
-                            this.a.a(replace, a(true));
+                        if (this.f1887a != null) {
+                            this.f1887a.a(replace, a(true));
                             return;
                         }
                         return;

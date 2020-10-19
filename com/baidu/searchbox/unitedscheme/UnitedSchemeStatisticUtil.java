@@ -4,7 +4,7 @@ import android.net.Uri;
 import android.text.TextUtils;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes14.dex */
+/* loaded from: classes16.dex */
 public class UnitedSchemeStatisticUtil {
     private static final String UBC_KEY_SCHEME_INVALID = "326";
     private static final String UBC_KEY_SCHEME_INVOKE = "327";

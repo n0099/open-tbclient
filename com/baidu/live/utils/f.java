@@ -19,7 +19,7 @@ public class f {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public static String hy(String str) {
+    public static String hP(String str) {
         String substring;
         String substring2;
         int i = 0;
@@ -34,13 +34,13 @@ public class f {
         } else if (str.length() == 15) {
             str2 = str.substring(0, 6) + Constants.VIA_ACT_TYPE_NINETEEN + str.substring(6, 15);
         }
-        if (!hz(str2)) {
+        if (!hQ(str2)) {
             return "身份证号错误";
         }
         String substring3 = str2.substring(6, 10);
         substring = str2.substring(10, 12);
         substring2 = str2.substring(12, 14);
-        if (!hA(substring3 + com.xiaomi.mipush.sdk.Constants.ACCEPT_TIME_SEPARATOR_SERVER + substring + com.xiaomi.mipush.sdk.Constants.ACCEPT_TIME_SEPARATOR_SERVER + substring2)) {
+        if (!hR(substring3 + com.xiaomi.mipush.sdk.Constants.ACCEPT_TIME_SEPARATOR_SERVER + substring + com.xiaomi.mipush.sdk.Constants.ACCEPT_TIME_SEPARATOR_SERVER + substring2)) {
             return "身份证号错误";
         }
         GregorianCalendar gregorianCalendar = new GregorianCalendar();
@@ -61,7 +61,7 @@ public class f {
         if (Integer.parseInt(substring2) > 31 || Integer.parseInt(substring2) == 0) {
             return "身份证号错误";
         }
-        if (PJ().get(str2.substring(0, 2)) == null) {
+        if (QO().get(str2.substring(0, 2)) == null) {
             return "身份证号错误";
         }
         for (int i2 = 0; i2 < 17; i2++) {
@@ -71,13 +71,13 @@ public class f {
         if (str.length() == 18 && !str4.equalsIgnoreCase(str)) {
             return "身份证号错误";
         }
-        if (!hB(str)) {
+        if (!hS(str)) {
             return "未满18岁哦";
         }
         return "Success";
     }
 
-    private static Hashtable PJ() {
+    private static Hashtable QO() {
         Hashtable hashtable = new Hashtable();
         hashtable.put("11", "北京");
         hashtable.put("12", "天津");
@@ -117,15 +117,15 @@ public class f {
         return hashtable;
     }
 
-    private static boolean hz(String str) {
+    private static boolean hQ(String str) {
         return Pattern.compile("[0-9]*").matcher(str).matches();
     }
 
-    public static boolean hA(String str) {
+    public static boolean hR(String str) {
         return Pattern.compile("^((\\d{2}(([02468][048])|([13579][26]))[\\-\\/\\s]?((((0?[13578])|(1[02]))[\\-\\/\\s]?((0?[1-9])|([1-2][0-9])|(3[01])))|(((0?[469])|(11))[\\-\\/\\s]?((0?[1-9])|([1-2][0-9])|(30)))|(0?2[\\-\\/\\s]?((0?[1-9])|([1-2][0-9])))))|(\\d{2}(([02468][1235679])|([13579][01345789]))[\\-\\/\\s]?((((0?[13578])|(1[02]))[\\-\\/\\s]?((0?[1-9])|([1-2][0-9])|(3[01])))|(((0?[469])|(11))[\\-\\/\\s]?((0?[1-9])|([1-2][0-9])|(30)))|(0?2[\\-\\/\\s]?((0?[1-9])|(1[0-9])|(2[0-8]))))))(\\s(((0?[0-9])|([1-2][0-3]))\\:([0-5]?[0-9])((\\s)|(\\:([0-5]?[0-9])))))?$").matcher(str).matches();
     }
 
-    public static boolean hB(String str) {
+    public static boolean hS(String str) {
         if (TextUtils.isEmpty(str) || str.length() < 15) {
             return false;
         }

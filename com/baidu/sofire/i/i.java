@@ -13,7 +13,7 @@ import java.net.URLEncoder;
 import java.util.Date;
 import java.util.HashMap;
 import org.json.JSONObject;
-/* loaded from: classes12.dex */
+/* loaded from: classes15.dex */
 public final class i {
     public static String a(Context context, String str, String str2, boolean z, boolean z2) throws Throwable {
         return b(context, str, str2, z, z2);
@@ -31,9 +31,9 @@ public final class i {
             throw new NetworkErrorException("conn is blocked");
         }
         String valueOf = String.valueOf(new Date().getTime() / 1000);
-        String a = p.a(str4 + valueOf + str5);
-        byte[] a2 = com.baidu.sofire.core.h.a();
-        new StringBuilder().append(new String(a2));
+        String a2 = p.a(str4 + valueOf + str5);
+        byte[] a3 = com.baidu.sofire.core.h.a();
+        new StringBuilder().append(new String(a3));
         com.baidu.sofire.b.a();
         if (TextUtils.isEmpty(str2)) {
             bytes = "".getBytes();
@@ -47,21 +47,21 @@ public final class i {
             byteArrayInputStream.close();
             new StringBuilder().append(byteArray.length);
             com.baidu.sofire.b.a();
-            bytes = F.getInstance().ae(byteArray, a2);
+            bytes = F.getInstance().ae(byteArray, a3);
         }
         new StringBuilder().append(bytes.length).append(Constants.ACCEPT_TIME_SEPARATOR_SP).append(str2);
         com.baidu.sofire.b.a();
         byte[] bytes2 = p.a(h.b(context)).getBytes();
         new StringBuilder().append(bytes2 == null ? 0 : bytes2.length);
         com.baidu.sofire.b.a();
-        byte[] re = F.getInstance().re(a2, bytes2);
+        byte[] re = F.getInstance().re(a3, bytes2);
         new StringBuilder().append(re.length);
         com.baidu.sofire.b.a();
         String encodeToString = Base64.encodeToString(re, 0);
         new StringBuilder().append(encodeToString);
         com.baidu.sofire.b.a();
         StringBuilder sb = new StringBuilder();
-        sb.append(str).append("/100/").append(str4).append("/").append(valueOf).append("/").append(a);
+        sb.append(str).append("/100/").append(str4).append("/").append(valueOf).append("/").append(a2);
         if (!TextUtils.isEmpty(encodeToString)) {
             sb.append("?skey=").append(URLEncoder.encode(encodeToString, "utf-8"));
         }
@@ -109,7 +109,7 @@ public final class i {
         try {
             com.baidu.sofire.e eVar = new com.baidu.sofire.e(context);
             long currentTimeMillis = System.currentTimeMillis();
-            long j = eVar.a.getLong("pu_cl_fd", 0L);
+            long j = eVar.f3618a.getLong("pu_cl_fd", 0L);
             if (j == 0) {
                 j = System.currentTimeMillis();
                 eVar.g();

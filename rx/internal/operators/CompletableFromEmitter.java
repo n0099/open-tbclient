@@ -4,9 +4,9 @@ import java.util.concurrent.atomic.AtomicBoolean;
 import rx.b;
 import rx.internal.subscriptions.CancellableSubscription;
 import rx.internal.subscriptions.SequentialSubscription;
-/* loaded from: classes7.dex */
+/* loaded from: classes16.dex */
 public final class CompletableFromEmitter implements b.a {
-    final rx.functions.b<Object> oNX;
+    final rx.functions.b<Object> pdn;
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // rx.functions.b
@@ -15,7 +15,7 @@ public final class CompletableFromEmitter implements b.a {
         FromEmitter fromEmitter = new FromEmitter(cVar);
         cVar.onSubscribe(fromEmitter);
         try {
-            this.oNX.call(fromEmitter);
+            this.pdn.call(fromEmitter);
         } catch (Throwable th) {
             rx.exceptions.a.J(th);
             fromEmitter.onError(th);
@@ -23,7 +23,7 @@ public final class CompletableFromEmitter implements b.a {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes7.dex */
+    /* loaded from: classes16.dex */
     public static final class FromEmitter extends AtomicBoolean implements rx.k {
         private static final long serialVersionUID = 5539301318568668881L;
         final rx.c actual;

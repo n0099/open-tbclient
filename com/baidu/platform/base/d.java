@@ -1,22 +1,25 @@
 package com.baidu.platform.base;
 
+import com.baidu.android.imrtc.utils.RtcConstants;
 import com.baidu.mapapi.search.core.SearchResult;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes7.dex */
 public abstract class d {
-    protected SearchType a;
+
+    /* renamed from: a  reason: collision with root package name */
+    protected SearchType f2813a;
 
     public abstract SearchResult a(String str);
 
     public SearchType a() {
-        return this.a;
+        return this.f2813a;
     }
 
     public abstract void a(SearchResult searchResult, Object obj);
 
     public void a(SearchType searchType) {
-        this.a = searchType;
+        this.f2813a = searchType;
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -40,7 +43,7 @@ public abstract class d {
                                 searchResult.error = SearchResult.ERRORNO.PERMISSION_UNFINISHED;
                                 return true;
                             case 200:
-                            case 230:
+                            case RtcConstants.METHOD_IM_RTC_MSG /* 230 */:
                                 searchResult.error = SearchResult.ERRORNO.KEY_ERROR;
                                 return true;
                             default:

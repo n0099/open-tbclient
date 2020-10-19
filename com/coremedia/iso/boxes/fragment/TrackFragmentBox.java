@@ -3,7 +3,7 @@ package com.coremedia.iso.boxes.fragment;
 import com.coremedia.iso.boxes.Box;
 import com.googlecode.mp4parser.AbstractContainerBox;
 import com.googlecode.mp4parser.annotations.DoNotParseDetail;
-/* loaded from: classes4.dex */
+/* loaded from: classes11.dex */
 public class TrackFragmentBox extends AbstractContainerBox {
     public static final String TYPE = "traf";
 

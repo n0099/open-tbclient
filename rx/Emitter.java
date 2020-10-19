@@ -1,8 +1,8 @@
 package rx;
-/* loaded from: classes7.dex */
+/* loaded from: classes16.dex */
 public interface Emitter<T> extends e<T> {
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes16.dex */
     public enum BackpressureMode {
         NONE,
         ERROR,

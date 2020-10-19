@@ -2,7 +2,7 @@ package com.baidu.searchbox.ui.bubble;
 
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes19.dex */
+/* loaded from: classes10.dex */
 public class BubbleHistory {
     private static BubbleHistory sInstance;
     private List<String> mBubbleHistoryTxtList = new ArrayList();

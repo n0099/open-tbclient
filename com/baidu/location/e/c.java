@@ -1,7 +1,7 @@
 package com.baidu.location.e;
 
 import java.util.ArrayList;
-/* loaded from: classes3.dex */
+/* loaded from: classes7.dex */
 public class c {
     public static int a(ArrayList<ArrayList<Float>> arrayList) {
         int i = 0;

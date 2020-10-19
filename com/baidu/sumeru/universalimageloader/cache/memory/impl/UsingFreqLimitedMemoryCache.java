@@ -8,7 +8,7 @@ import java.util.Collections;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Set;
-/* loaded from: classes9.dex */
+/* loaded from: classes12.dex */
 public class UsingFreqLimitedMemoryCache extends LimitedMemoryCache<String, Bitmap> {
     private final Map<Bitmap, Integer> usingCounts;
 

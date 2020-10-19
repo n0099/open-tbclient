@@ -7,9 +7,11 @@ import android.content.Intent;
 import com.baidu.mobads.interfaces.utils.IXAdLogger;
 import com.baidu.mobads.utils.XAdSDKFoundationFacade;
 import com.baidu.mobads.utils.n;
-/* loaded from: classes3.dex */
+/* loaded from: classes7.dex */
 public class a extends BroadcastReceiver {
-    protected final IXAdLogger a = XAdSDKFoundationFacade.getInstance().getAdLogger();
+
+    /* renamed from: a  reason: collision with root package name */
+    protected final IXAdLogger f2316a = XAdSDKFoundationFacade.getInstance().getAdLogger();
     private com.baidu.mobads.command.a b;
 
     public a(com.baidu.mobads.command.a aVar) {
@@ -36,7 +38,7 @@ public class a extends BroadcastReceiver {
                         context.startActivity(launchIntentForPackage);
                         context.unregisterReceiver(this);
                     } catch (Exception e) {
-                        this.a.d("InstallReceiver", e);
+                        this.f2316a.d("InstallReceiver", e);
                     }
                 }
             }

@@ -7,7 +7,7 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.view.NoDataView;
 import com.baidu.tbadk.core.view.NoDataViewFactory;
 import com.baidu.tieba.R;
-/* loaded from: classes23.dex */
+/* loaded from: classes24.dex */
 public class c extends com.baidu.tieba.card.b<com.baidu.tieba.forumsearch.b.a> {
     private NoDataView mNoDataView;
     private int mSkinType;
@@ -15,7 +15,7 @@ public class c extends com.baidu.tieba.card.b<com.baidu.tieba.forumsearch.b.a> {
     public c(TbPageContext<?> tbPageContext) {
         super(tbPageContext);
         this.mSkinType = 3;
-        this.mNoDataView = NoDataViewFactory.a(this.mTbPageContext.getPageActivity(), getView(), NoDataViewFactory.c.a(NoDataViewFactory.ImgType.NODATA, l.getDimens(this.mTbPageContext.getPageActivity(), R.dimen.ds160)), NoDataViewFactory.d.oW(R.string.search_forum_no_result), null);
+        this.mNoDataView = NoDataViewFactory.a(this.mTbPageContext.getPageActivity(), getView(), NoDataViewFactory.c.a(NoDataViewFactory.ImgType.NODATA, l.getDimens(this.mTbPageContext.getPageActivity(), R.dimen.ds160)), NoDataViewFactory.d.pv(R.string.search_forum_no_result), null);
         this.mNoDataView.setVisibility(0);
         onChangeSkinType(this.mTbPageContext, TbadkCoreApplication.getInst().getSkinType());
     }

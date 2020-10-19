@@ -37,7 +37,7 @@ import java.util.Collections;
 import java.util.Iterator;
 import java.util.List;
 import org.json.JSONObject;
-/* loaded from: classes25.dex */
+/* loaded from: classes5.dex */
 public final class SapiAccountManager implements ISAccountManager {
     public static final String SESSION_BDUSS = "bduss";
     public static final String SESSION_DISPLAYNAME = "displayname";
@@ -55,27 +55,29 @@ public final class SapiAccountManager implements ISAccountManager {
     private static CheckUrlIsAvailableListener j;
     private static TidConvertSidCallback k;
     private static final List<String> l = new ArrayList();
-    private char a = 0;
 
-    /* loaded from: classes25.dex */
+    /* renamed from: a  reason: collision with root package name */
+    private char f3221a = 0;
+
+    /* loaded from: classes5.dex */
     public interface CheckUrlIsAvailableListener {
         void handleWebPageUrl(String str);
 
         boolean onCheckUrlIsAvailable(String str);
     }
 
-    /* loaded from: classes25.dex */
+    /* loaded from: classes5.dex */
     public static abstract class GlobalAuthorizationListener {
         public void onLogoutSuccess(SapiAccount sapiAccount) {
         }
     }
 
-    /* loaded from: classes25.dex */
+    /* loaded from: classes5.dex */
     public interface ReceiveShareListener {
         void onReceiveShare();
     }
 
-    /* loaded from: classes25.dex */
+    /* loaded from: classes5.dex */
     public interface SilentShareListener {
         void onSilentShare();
     }
@@ -268,7 +270,7 @@ public final class SapiAccountManager implements ISAccountManager {
     }
 
     public int getVersionCode() {
-        return VERSION_CODE;
+        return 249;
     }
 
     @Override // com.baidu.sapi2.service.interfaces.ISAccountManager
@@ -343,9 +345,9 @@ public final class SapiAccountManager implements ISAccountManager {
                             if (sapiConfiguration.supportFaceLogin) {
                                 new com.baidu.sapi2.outsdk.a().a(SapiAccountManager.d);
                             }
-                            com.baidu.sapi2.utils.c a = com.baidu.sapi2.utils.c.a();
+                            com.baidu.sapi2.utils.c a2 = com.baidu.sapi2.utils.c.a();
                             SapiConfiguration sapiConfiguration3 = sapiConfiguration;
-                            a.a(sapiConfiguration3.context, sapiConfiguration3.sofireAppKey, sapiConfiguration3.sofireSecKey, 1);
+                            a2.a(sapiConfiguration3.context, sapiConfiguration3.sofireAppKey, sapiConfiguration3.sofireSecKey, 1);
                             if (TextUtils.isEmpty(SapiUtils.getCookieBduss())) {
                                 SapiAccountManager.getInstance().getAccountService().webLogin(sapiConfiguration.context);
                             }
@@ -524,15 +526,15 @@ public final class SapiAccountManager implements ISAccountManager {
     public SapiAccount getSession() {
         a();
         SapiAccount currentAccount = SapiContext.getInstance().getCurrentAccount();
-        if (this.a == 0) {
+        if (this.f3221a == 0) {
             e sapiOptions = SapiContext.getInstance().getSapiOptions();
             if (sapiOptions.m().contains(getConfignation().tpl) && !sapiOptions.m) {
-                this.a = (char) 1;
+                this.f3221a = (char) 1;
             } else {
-                this.a = (char) 2;
+                this.f3221a = (char) 2;
             }
         }
-        if (currentAccount != null && this.a == 1) {
+        if (currentAccount != null && this.f3221a == 1) {
             currentAccount.uid = "";
             currentAccount.bduss = "";
         }
@@ -553,10 +555,10 @@ public final class SapiAccountManager implements ISAccountManager {
         if (TextUtils.isEmpty(curProcessName)) {
             return false;
         }
-        String a = a(context);
-        if (TextUtils.isEmpty(a)) {
+        String a2 = a(context);
+        if (TextUtils.isEmpty(a2)) {
             return false;
         }
-        return curProcessName.equals(a) || curProcessName.equals(d.processName);
+        return curProcessName.equals(a2) || curProcessName.equals(d.processName);
     }
 }

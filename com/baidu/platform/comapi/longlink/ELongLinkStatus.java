@@ -1,5 +1,5 @@
 package com.baidu.platform.comapi.longlink;
-/* loaded from: classes3.dex */
+/* loaded from: classes7.dex */
 public enum ELongLinkStatus {
     OK(0),
     SendFormatError(OK.getStatusCode() + 1),
@@ -14,11 +14,13 @@ public enum ELongLinkStatus {
     CloudStop(OK.getStatusCode() + 10),
     CloudRestart(OK.getStatusCode() + 11);
     
-    private int a;
+
+    /* renamed from: a  reason: collision with root package name */
+    private int f2861a;
     private int b;
 
     ELongLinkStatus(int i) {
-        this.a = i;
+        this.f2861a = i;
     }
 
     public int getRequestId() {
@@ -26,7 +28,7 @@ public enum ELongLinkStatus {
     }
 
     public int getStatusCode() {
-        return this.a;
+        return this.f2861a;
     }
 
     public void setRequestId(int i) {

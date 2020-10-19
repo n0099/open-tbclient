@@ -9,15 +9,15 @@ public class b {
     public int buy_staus;
     private String description;
     private String end_time;
-    private String gYR;
-    private int gYT;
-    private int gYU;
-    private int gYV;
-    private int gYW;
-    private String gYX;
-    private String gYY;
-    private String gYZ;
     private int height;
+    private String hnS;
+    private int hnU;
+    private int hnV;
+    private int hnW;
+    private int hnX;
+    private String hnY;
+    private String hnZ;
+    private String hoa;
     private String mark_name;
     private String mark_pic;
     public String nobilityName;
@@ -29,22 +29,22 @@ public class b {
     private int weight;
     private int width;
     public int propId = -1;
-    private List<d> gZa = new ArrayList();
+    private List<d> hob = new ArrayList();
 
     public void parserJson(JSONObject jSONObject) {
         this.type = jSONObject.optInt("type");
-        this.gYU = jSONObject.optInt("mark_id");
+        this.hnV = jSONObject.optInt("mark_id");
         this.mark_name = jSONObject.optString("mark_name");
         this.description = jSONObject.optString("description");
-        this.gYW = jSONObject.optInt("wear_status");
+        this.hnX = jSONObject.optInt("wear_status");
         this.mark_pic = jSONObject.optString("mark_pic");
-        this.gYV = jSONObject.optInt("mark_rank");
+        this.hnW = jSONObject.optInt("mark_rank");
         this.width = jSONObject.optInt("width");
         this.height = jSONObject.optInt("height");
         this.weight = jSONObject.optInt("weight");
-        this.gYY = jSONObject.optString("next_level_diff");
-        this.gYX = jSONObject.optString("mark_dir_level");
-        this.gYZ = jSONObject.optString("expire_text");
+        this.hnZ = jSONObject.optString("next_level_diff");
+        this.hnY = jSONObject.optString("mark_dir_level");
+        this.hoa = jSONObject.optString("expire_text");
         this.start_time = jSONObject.optString("begin_time");
         this.end_time = jSONObject.optString("end_time");
         JSONArray optJSONArray = jSONObject.optJSONArray("mark_other");
@@ -52,7 +52,7 @@ public class b {
             for (int i = 0; i < optJSONArray.length(); i++) {
                 d dVar = new d();
                 dVar.parseJson(optJSONArray.optJSONObject(i));
-                this.gZa.add(dVar);
+                this.hob.add(dVar);
             }
         }
         JSONObject optJSONObject = jSONObject.optJSONObject("props_info");
@@ -69,70 +69,70 @@ public class b {
         }
     }
 
-    public List<d> caI() {
-        if (this.gZa == null) {
-            this.gZa = new ArrayList();
+    public List<d> ceg() {
+        if (this.hob == null) {
+            this.hob = new ArrayList();
         }
-        return this.gZa;
+        return this.hob;
     }
 
-    public boolean caJ() {
-        return this.gYT == 1;
+    public boolean ceh() {
+        return this.hnU == 1;
     }
 
-    public void vl(int i) {
-        this.gYT = i;
+    public void vR(int i) {
+        this.hnU = i;
     }
 
-    public String caH() {
-        return this.gYR;
+    public String cef() {
+        return this.hnS;
     }
 
-    public void Hd(String str) {
-        this.gYR = str;
+    public void HR(String str) {
+        this.hnS = str;
     }
 
-    public int caK() {
-        return this.gYU;
+    public int cei() {
+        return this.hnV;
     }
 
-    public String caL() {
+    public String cej() {
         return this.mark_name;
     }
 
-    public String caM() {
+    public String cek() {
         return this.mark_pic;
     }
 
-    public int caN() {
-        return this.gYW;
+    public int cel() {
+        return this.hnX;
     }
 
-    public void vm(int i) {
-        this.gYW = i;
+    public void vS(int i) {
+        this.hnX = i;
     }
 
     public String getDescription() {
         return this.description;
     }
 
-    public String caO() {
-        return this.gYY;
+    public String cem() {
+        return this.hnZ;
     }
 
-    public int caP() {
-        return this.gYV;
+    public int cen() {
+        return this.hnW;
     }
 
-    public String caQ() {
-        return this.gYZ;
+    public String ceo() {
+        return this.hoa;
     }
 
-    public boolean caR() {
+    public boolean cep() {
         return this.type == 10;
     }
 
-    public boolean caS() {
+    public boolean ceq() {
         return this.type == 9;
     }
 }

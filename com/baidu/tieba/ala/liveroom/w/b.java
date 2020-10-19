@@ -3,18 +3,18 @@ package com.baidu.tieba.ala.liveroom.w;
 import com.baidu.live.data.af;
 /* loaded from: classes4.dex */
 public class b {
-    private static volatile b gMp;
-    public af bhH = new af();
+    private static volatile b hbm;
+    public af blx = new af();
 
-    public static b bYg() {
-        if (gMp == null) {
+    public static b cbG() {
+        if (hbm == null) {
             synchronized (b.class) {
-                if (gMp == null) {
-                    gMp = new b();
+                if (hbm == null) {
+                    hbm = new b();
                 }
             }
         }
-        return gMp;
+        return hbm;
     }
 
     private b() {

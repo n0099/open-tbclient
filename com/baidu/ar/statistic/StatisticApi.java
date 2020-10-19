@@ -5,7 +5,7 @@ import android.os.HandlerThread;
 import java.lang.reflect.Constructor;
 import java.util.Map;
 import org.json.JSONObject;
-/* loaded from: classes10.dex */
+/* loaded from: classes14.dex */
 public final class StatisticApi {
     private static g wg;
     private static f wh;
@@ -20,9 +20,9 @@ public final class StatisticApi {
     public static void init(Context context) {
         if (wg == null) {
             try {
-                Constructor<?> a = com.baidu.ar.g.n.a("com.baidu.ar.statistic.StatisticApiImpl", Context.class, HandlerThread.class);
-                if (a != null) {
-                    wg = (g) com.baidu.ar.g.n.a(a, context, null);
+                Constructor<?> a2 = com.baidu.ar.g.n.a("com.baidu.ar.statistic.StatisticApiImpl", Context.class, HandlerThread.class);
+                if (a2 != null) {
+                    wg = (g) com.baidu.ar.g.n.a(a2, context, null);
                 }
             } catch (Throwable th) {
                 wg = null;

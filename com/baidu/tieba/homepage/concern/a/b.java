@@ -9,20 +9,20 @@ import java.util.ArrayList;
 import java.util.List;
 import tbclient.User;
 import tbclient.Userlike.ConcernData;
-/* loaded from: classes21.dex */
+/* loaded from: classes22.dex */
 public class b extends bo {
-    public static final Integer iPD = 6;
-    private boolean ect;
-    private List<MetaData> ecu = new ArrayList();
+    public static final Integer jex = 6;
+    private boolean eoy;
+    private List<MetaData> eoz = new ArrayList();
 
     @Override // com.baidu.tbadk.core.data.bo
-    public void aQ(List<User> list) {
+    public void aT(List<User> list) {
         if (list != null) {
             int min = Math.min(list.size(), 10);
             for (int i = 0; i < min; i++) {
                 MetaData metaData = new MetaData();
                 metaData.parserProtobuf(list.get(i));
-                this.ecu.add(metaData);
+                this.eoz.add(metaData);
             }
         }
     }
@@ -31,36 +31,36 @@ public class b extends bo {
         if (concernData == null) {
             return false;
         }
-        return concernData.recom_type.equals(iPD);
+        return concernData.recom_type.equals(jex);
     }
 
     @Override // com.baidu.tbadk.core.data.bo, com.baidu.tieba.card.data.b, com.baidu.adp.widget.ListView.q
     public BdUniqueId getType() {
-        return dZT;
+        return elV;
     }
 
     @Override // com.baidu.tbadk.core.data.bo
-    public List<MetaData> beL() {
-        return this.ecu;
+    public List<MetaData> bhu() {
+        return this.eoz;
     }
 
     @Override // com.baidu.tbadk.core.data.bo, com.baidu.tbadk.core.data.AbsThreadDataSupport
-    public bw bcY() {
+    public bw bfG() {
         return null;
     }
 
     @Override // com.baidu.tbadk.core.data.bo, com.baidu.tbadk.core.data.AbsThreadDataSupport
-    public ar bda() {
+    public ar bfI() {
         return new ar();
     }
 
     @Override // com.baidu.tbadk.core.data.bo
-    public boolean beM() {
-        return this.ect;
+    public boolean bhv() {
+        return this.eoy;
     }
 
     @Override // com.baidu.tbadk.core.data.bo
-    public void hT(boolean z) {
-        this.ect = z;
+    public void ip(boolean z) {
+        this.eoy = z;
     }
 }

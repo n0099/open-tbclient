@@ -12,7 +12,7 @@ import com.baidu.live.tbadk.task.TbHttpMessageTask;
 import com.baidu.tieba.ala.liveroom.messages.AlaRoomAllowFollowedSetResponseMessage;
 /* loaded from: classes4.dex */
 public class b {
-    public final HttpMessageListener gIO = new HttpMessageListener(1021022) { // from class: com.baidu.tieba.ala.liveroom.q.b.1
+    public final HttpMessageListener gXo = new HttpMessageListener(1021022) { // from class: com.baidu.tieba.ala.liveroom.q.b.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.live.adp.framework.listener.MessageListener
         public void onMessage(HttpResponsedMessage httpResponsedMessage) {
@@ -35,11 +35,11 @@ public class b {
 
     public b(TbPageContext tbPageContext) {
         this.mPageContext = tbPageContext;
-        bWT();
-        this.mPageContext.registerListener(this.gIO);
+        cao();
+        this.mPageContext.registerListener(this.gXo);
     }
 
-    private void bWT() {
+    private void cao() {
         MessageManager messageManager = MessageManager.getInstance();
         TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(1021022, TbConfig.SERVER_ADDRESS + "ala/user/setUserStatus");
         tbHttpMessageTask.setIsNeedTbs(true);
@@ -47,7 +47,7 @@ public class b {
         messageManager.registerTask(tbHttpMessageTask);
     }
 
-    public void bWU() {
+    public void cap() {
         HttpMessage httpMessage = new HttpMessage(1021022);
         httpMessage.setTag(this.mPageContext.getUniqueId());
         MessageManager.getInstance().sendMessage(httpMessage);

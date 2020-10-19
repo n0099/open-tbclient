@@ -20,23 +20,23 @@ import java.util.List;
 import tbclient.Item;
 /* loaded from: classes.dex */
 public class ItemCardView extends RelativeLayout {
-    private TextView esA;
-    private TextView esB;
-    private int esC;
-    private TbImageView esx;
-    private RankStarView esy;
-    private TextView esz;
+    private TbImageView eEI;
+    private RankStarView eEJ;
+    private TextView eEK;
+    private TextView eEL;
+    private TextView eEM;
+    private int eEN;
     private Path mPath;
     private RectF mRect;
     private TextView mTitleView;
-    private static final int esD = com.baidu.adp.lib.util.l.getDimens(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds156);
-    private static final int esE = com.baidu.adp.lib.util.l.getDimens(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds156);
-    private static final int esF = com.baidu.adp.lib.util.l.getDimens(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds234);
-    private static final int esG = com.baidu.adp.lib.util.l.getDimens(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds156);
-    private static final int esH = com.baidu.adp.lib.util.l.getDimens(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds156);
-    private static final int esI = com.baidu.adp.lib.util.l.getDimens(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds208);
+    private static final int eEO = com.baidu.adp.lib.util.l.getDimens(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds156);
+    private static final int eEP = com.baidu.adp.lib.util.l.getDimens(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds156);
+    private static final int eEQ = com.baidu.adp.lib.util.l.getDimens(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds234);
+    private static final int eER = com.baidu.adp.lib.util.l.getDimens(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds156);
+    private static final int eES = com.baidu.adp.lib.util.l.getDimens(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds156);
+    private static final int eET = com.baidu.adp.lib.util.l.getDimens(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds208);
     private static final int RADIUS = com.baidu.adp.lib.util.l.getDimens(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds13);
-    private static final int esJ = com.baidu.adp.lib.util.l.getDimens(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds32);
+    private static final int eEU = com.baidu.adp.lib.util.l.getDimens(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds32);
 
     public ItemCardView(Context context) {
         this(context, null);
@@ -48,7 +48,7 @@ public class ItemCardView extends RelativeLayout {
 
     public ItemCardView(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.esC = R.color.cp_bg_line_g;
+        this.eEN = R.color.cp_bg_line_g;
         this.mPath = new Path();
         this.mRect = new RectF();
         initUI(context);
@@ -56,92 +56,92 @@ public class ItemCardView extends RelativeLayout {
 
     private void initUI(Context context) {
         LayoutInflater.from(context).inflate(R.layout.item_card_view_layout, (ViewGroup) this, true);
-        this.esx = (TbImageView) findViewById(R.id.item_image);
+        this.eEI = (TbImageView) findViewById(R.id.item_image);
         this.mTitleView = (TextView) findViewById(R.id.item_title);
-        this.esy = (RankStarView) findViewById(R.id.item_star);
-        this.esz = (TextView) findViewById(R.id.item_score);
-        this.esA = (TextView) findViewById(R.id.item_des);
-        this.esB = (TextView) findViewById(R.id.item_tag);
-        this.esx.setDrawCorner(true);
-        this.esx.setConrers(15);
-        this.esx.setRadius(com.baidu.adp.lib.util.l.getDimens(context, R.dimen.tbds10));
-        this.esx.setPlaceHolder(1);
-        this.esy.setStarSpacing(com.baidu.adp.lib.util.l.getDimens(context, R.dimen.tbds10));
+        this.eEJ = (RankStarView) findViewById(R.id.item_star);
+        this.eEK = (TextView) findViewById(R.id.item_score);
+        this.eEL = (TextView) findViewById(R.id.item_des);
+        this.eEM = (TextView) findViewById(R.id.item_tag);
+        this.eEI.setDrawCorner(true);
+        this.eEI.setConrers(15);
+        this.eEI.setRadius(com.baidu.adp.lib.util.l.getDimens(context, R.dimen.tbds10));
+        this.eEI.setPlaceHolder(1);
+        this.eEJ.setStarSpacing(com.baidu.adp.lib.util.l.getDimens(context, R.dimen.tbds10));
         onChangeSkinType();
     }
 
     public void setData(TbRichTextEvaluateItemInfo tbRichTextEvaluateItemInfo, int i) {
         this.mTitleView.setText(tbRichTextEvaluateItemInfo.getTitle());
-        this.esx.startLoad(tbRichTextEvaluateItemInfo.getIconUrl(), i, false);
+        this.eEI.startLoad(tbRichTextEvaluateItemInfo.getIconUrl(), i, false);
         if (tbRichTextEvaluateItemInfo.getStar() >= 0 && tbRichTextEvaluateItemInfo.getStar() <= 5) {
-            this.esy.setStarCount(tbRichTextEvaluateItemInfo.getStar());
+            this.eEJ.setStarCount(tbRichTextEvaluateItemInfo.getStar());
         } else {
-            this.esy.setStarCount(0);
+            this.eEJ.setStarCount(0);
         }
-        if (tbRichTextEvaluateItemInfo.byX() > 0.0d && tbRichTextEvaluateItemInfo.byX() <= 10.0d) {
-            this.esz.setText(tbRichTextEvaluateItemInfo.byX() + "");
+        if (tbRichTextEvaluateItemInfo.bBH() > 0.0d && tbRichTextEvaluateItemInfo.bBH() <= 10.0d) {
+            this.eEK.setText(tbRichTextEvaluateItemInfo.bBH() + "");
         } else {
-            this.esz.setText(R.string.no_evaluate_now);
+            this.eEK.setText(R.string.no_evaluate_now);
         }
-        RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) this.esx.getLayoutParams();
+        RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) this.eEI.getLayoutParams();
         if (tbRichTextEvaluateItemInfo.getIconSize() == 1.0d) {
-            layoutParams.width = esD;
-            layoutParams.height = esE;
+            layoutParams.width = eEO;
+            layoutParams.height = eEP;
         } else if (tbRichTextEvaluateItemInfo.getIconSize() == 0.67d) {
-            layoutParams.width = esF;
-            layoutParams.height = esG;
+            layoutParams.width = eEQ;
+            layoutParams.height = eER;
         } else {
-            layoutParams.width = esH;
-            layoutParams.height = esI;
+            layoutParams.width = eES;
+            layoutParams.height = eET;
         }
-        this.esx.setLayoutParams(layoutParams);
+        this.eEI.setLayoutParams(layoutParams);
         setTag(tbRichTextEvaluateItemInfo.getTags());
     }
 
     public void setData(Item item, int i) {
         this.mTitleView.setText(item.item_name);
-        this.esx.startLoad(item.icon_url, i, false);
+        this.eEI.startLoad(item.icon_url, i, false);
         if (item.star.intValue() >= 0 && item.star.intValue() <= 5) {
-            this.esy.setStarCount(item.star.intValue());
+            this.eEJ.setStarCount(item.star.intValue());
         } else {
-            this.esy.setStarCount(0);
+            this.eEJ.setStarCount(0);
         }
         if (item.score.doubleValue() > 0.0d && item.score.doubleValue() <= 10.0d) {
-            this.esz.setText(item.score + "");
+            this.eEK.setText(item.score + "");
         } else {
-            this.esz.setText(R.string.no_evaluate_now);
+            this.eEK.setText(R.string.no_evaluate_now);
         }
-        RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) this.esx.getLayoutParams();
+        RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) this.eEI.getLayoutParams();
         if (item.icon_size.doubleValue() == 1.0d) {
-            layoutParams.width = esD;
-            layoutParams.height = esE;
+            layoutParams.width = eEO;
+            layoutParams.height = eEP;
         } else if (item.icon_size.doubleValue() == 0.67d) {
-            layoutParams.width = esF;
-            layoutParams.height = esG;
+            layoutParams.width = eEQ;
+            layoutParams.height = eER;
         } else {
-            layoutParams.width = esH;
-            layoutParams.height = esI;
+            layoutParams.width = eES;
+            layoutParams.height = eET;
         }
-        this.esx.setLayoutParams(layoutParams);
+        this.eEI.setLayoutParams(layoutParams);
         setTag(item.tags);
     }
 
     private void setTag(List<String> list) {
         if (list == null || list.isEmpty()) {
-            this.esB.setVisibility(8);
+            this.eEM.setVisibility(8);
             return;
         }
-        this.esB.setVisibility(0);
+        this.eEM.setVisibility(0);
         SpannableStringBuilder spannableStringBuilder = new SpannableStringBuilder();
         for (int i = 0; i < list.size(); i++) {
             spannableStringBuilder.append((CharSequence) list.get(i));
             if (i != list.size() - 1) {
                 SpannableStringBuilder spannableStringBuilder2 = new SpannableStringBuilder(" ");
-                spannableStringBuilder2.setSpan(new com.baidu.tbadk.core.view.a.b(esJ), 0, spannableStringBuilder2.length(), 33);
+                spannableStringBuilder2.setSpan(new com.baidu.tbadk.core.view.a.b(eEU), 0, spannableStringBuilder2.length(), 33);
                 spannableStringBuilder.append((CharSequence) spannableStringBuilder2);
             }
         }
-        this.esB.setText(spannableStringBuilder, TextView.BufferType.SPANNABLE);
+        this.eEM.setText(spannableStringBuilder, TextView.BufferType.SPANNABLE);
     }
 
     @Override // android.view.View
@@ -156,14 +156,14 @@ public class ItemCardView extends RelativeLayout {
     }
 
     public void onChangeSkinType() {
-        ap.setBackgroundColor(this, this.esC);
+        ap.setBackgroundColor(this, this.eEN);
         ap.setViewTextColor(this.mTitleView, R.color.cp_cont_b, 1);
-        ap.setViewTextColor(this.esz, R.color.cp_cont_d, 1);
-        ap.setViewTextColor(this.esB, R.color.cp_cont_d, 1);
-        this.esy.bml();
+        ap.setViewTextColor(this.eEK, R.color.cp_cont_d, 1);
+        ap.setViewTextColor(this.eEM, R.color.cp_cont_d, 1);
+        this.eEJ.boV();
     }
 
     public void setBackGroundColor(int i) {
-        this.esC = i;
+        this.eEN = i;
     }
 }

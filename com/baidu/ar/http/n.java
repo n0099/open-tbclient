@@ -3,7 +3,7 @@ package com.baidu.ar.http;
 import java.io.ByteArrayInputStream;
 import java.io.InputStream;
 import java.nio.charset.Charset;
-/* loaded from: classes10.dex */
+/* loaded from: classes14.dex */
 class n implements k {
     private byte[] kN;
 

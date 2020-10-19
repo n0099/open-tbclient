@@ -2,24 +2,24 @@ package com.baidu.swan.apps.canvas.a.a;
 
 import android.graphics.Canvas;
 import org.json.JSONArray;
-/* loaded from: classes3.dex */
+/* loaded from: classes10.dex */
 public class w extends a {
-    private float cbM;
-    private float cbN;
+    private float coc;
+    private float cod;
 
     @Override // com.baidu.swan.apps.canvas.a.a.a
     public void parseJson(JSONArray jSONArray) {
         if (jSONArray.length() > 1) {
-            this.cbM = (float) jSONArray.optDouble(0);
-            this.cbN = (float) jSONArray.optDouble(1);
+            this.coc = (float) jSONArray.optDouble(0);
+            this.cod = (float) jSONArray.optDouble(1);
         }
     }
 
     @Override // com.baidu.swan.apps.canvas.a.a.a
     public void a(b bVar, Canvas canvas) {
-        if (bVar.adu() == 0) {
-            bVar.gM(canvas.save());
+        if (bVar.agf() == 0) {
+            bVar.hj(canvas.save());
         }
-        canvas.scale(this.cbM, this.cbN);
+        canvas.scale(this.coc, this.cod);
     }
 }

@@ -14,7 +14,7 @@ import io.flutter.plugin.platform.PlatformPlugin;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
-/* loaded from: classes10.dex */
+/* loaded from: classes14.dex */
 public class VOAR extends c {
     private static final String TAG = VOAR.class.getSimpleName();
     private g rR;
@@ -56,13 +56,13 @@ public class VOAR extends c {
                 return;
             case ARPMessageType.MSG_TYPE_LUA_SDK_BRIDGE /* 1901 */:
                 if (hashMap != null) {
-                    int a = com.baidu.ar.arplay.c.c.a(hashMap.get("id"), -1);
-                    if (4100 == a) {
+                    int a2 = com.baidu.ar.arplay.c.c.a(hashMap.get("id"), -1);
+                    if (4100 == a2) {
                         com.baidu.ar.vo.c.b s = s(hashMap);
                         s.yl = true;
                         this.xz.a(s);
                         return;
-                    } else if (4200 == a) {
+                    } else if (4200 == a2) {
                         this.xz.start();
                         return;
                     } else {

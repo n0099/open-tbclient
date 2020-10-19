@@ -8,7 +8,7 @@ import com.tencent.open.SocialOperation;
 import com.tencent.open.utils.HttpUtils;
 import com.tencent.open.utils.e;
 import com.tencent.tauth.IUiListener;
-/* loaded from: classes24.dex */
+/* loaded from: classes6.dex */
 public class UnionInfo extends BaseApi {
     public static final String URL_GET_UNION_ID = "https://graph.qq.com/oauth2.0/me";
 
@@ -17,8 +17,8 @@ public class UnionInfo extends BaseApi {
     }
 
     public void getUnionId(IUiListener iUiListener) {
-        Bundle a = a();
-        a.putString(SocialOperation.GAME_UNION_ID, "1");
-        HttpUtils.requestAsync(this.b, e.a(), URL_GET_UNION_ID, a, "GET", new BaseApi.TempRequestListener(iUiListener));
+        Bundle a2 = a();
+        a2.putString(SocialOperation.GAME_UNION_ID, "1");
+        HttpUtils.requestAsync(this.b, e.a(), URL_GET_UNION_ID, a2, "GET", new BaseApi.TempRequestListener(iUiListener));
     }
 }

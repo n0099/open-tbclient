@@ -11,11 +11,11 @@ import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import com.tb.airbnb.lottie.a.b.p;
 import com.tb.airbnb.lottie.j;
-/* loaded from: classes17.dex */
+/* loaded from: classes16.dex */
 public class c extends a {
     private final Rect dst;
     @Nullable
-    private com.tb.airbnb.lottie.a.b.a<ColorFilter, ColorFilter> ose;
+    private com.tb.airbnb.lottie.a.b.a<ColorFilter, ColorFilter> oHu;
     private final Paint paint;
     private final Rect src;
 
@@ -31,15 +31,15 @@ public class c extends a {
     public void b(@NonNull Canvas canvas, Matrix matrix, int i) {
         Bitmap bitmap = getBitmap();
         if (bitmap != null && !bitmap.isRecycled()) {
-            float la = com.tb.airbnb.lottie.d.f.la();
+            float lb = com.tb.airbnb.lottie.d.f.lb();
             this.paint.setAlpha(i);
-            if (this.ose != null) {
-                this.paint.setColorFilter(this.ose.getValue());
+            if (this.oHu != null) {
+                this.paint.setColorFilter(this.oHu.getValue());
             }
             canvas.save();
             canvas.concat(matrix);
             this.src.set(0, 0, bitmap.getWidth(), bitmap.getHeight());
-            this.dst.set(0, 0, (int) (bitmap.getWidth() * la), (int) (la * bitmap.getHeight()));
+            this.dst.set(0, 0, (int) (bitmap.getWidth() * lb), (int) (lb * bitmap.getHeight()));
             canvas.drawBitmap(bitmap, this.src, this.dst, this.paint);
             canvas.restore();
         }
@@ -51,23 +51,23 @@ public class c extends a {
         Bitmap bitmap = getBitmap();
         if (bitmap != null) {
             rectF.set(rectF.left, rectF.top, Math.min(rectF.right, bitmap.getWidth()), Math.min(rectF.bottom, bitmap.getHeight()));
-            this.FD.mapRect(rectF);
+            this.FV.mapRect(rectF);
         }
     }
 
     @Nullable
     private Bitmap getBitmap() {
-        return this.lottieDrawable.bf(this.otN.getRefId());
+        return this.lottieDrawable.bf(this.oJd.getRefId());
     }
 
     @Override // com.tb.airbnb.lottie.model.layer.a, com.tb.airbnb.lottie.model.f
     public <T> void a(T t, @Nullable com.tb.airbnb.lottie.e.c<T> cVar) {
         super.a((c) t, (com.tb.airbnb.lottie.e.c<c>) cVar);
-        if (t == j.Cb) {
+        if (t == j.Cs) {
             if (cVar == null) {
-                this.ose = null;
+                this.oHu = null;
             } else {
-                this.ose = new p(cVar);
+                this.oHu = new p(cVar);
             }
         }
     }

@@ -7,15 +7,17 @@ import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.CopyOnWriteArrayList;
 import java.util.concurrent.atomic.AtomicLong;
-/* loaded from: classes3.dex */
+/* loaded from: classes7.dex */
 public class c implements d {
-    private int a;
+
+    /* renamed from: a  reason: collision with root package name */
+    private int f4399a;
     private AtomicLong b = new AtomicLong(0);
     private Map<Long, byte[]> c = new ConcurrentHashMap();
     private List<Long> d = new CopyOnWriteArrayList();
 
     public c(int i) {
-        this.a = i;
+        this.f4399a = i;
     }
 
     @Override // com.meizu.cloud.pushsdk.c.d.d
@@ -34,10 +36,10 @@ public class c implements d {
     }
 
     public long b(com.meizu.cloud.pushsdk.c.a.a aVar) {
-        byte[] a = a.a(aVar.a());
+        byte[] a2 = a.a(aVar.a());
         long andIncrement = this.b.getAndIncrement();
         this.d.add(Long.valueOf(andIncrement));
-        this.c.put(Long.valueOf(andIncrement), a);
+        this.c.put(Long.valueOf(andIncrement), a2);
         return andIncrement;
     }
 
@@ -51,7 +53,7 @@ public class c implements d {
         LinkedList linkedList = new LinkedList();
         ArrayList arrayList = new ArrayList();
         int c = (int) c();
-        int i = c > this.a ? this.a : c;
+        int i = c > this.f4399a ? this.f4399a : c;
         for (int i2 = 0; i2 < i; i2++) {
             Long l = this.d.get(i2);
             if (l != null) {

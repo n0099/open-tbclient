@@ -2,21 +2,23 @@ package com.xiaomi.push;
 
 import java.io.Serializable;
 import java.util.BitSet;
-/* loaded from: classes9.dex */
+/* loaded from: classes12.dex */
 public class ie implements ix<ie, Object>, Serializable, Cloneable {
 
     /* renamed from: a  reason: collision with other field name */
-    public int f568a;
+    public int f569a;
 
     /* renamed from: a  reason: collision with other field name */
-    private BitSet f569a = new BitSet(2);
+    private BitSet f570a = new BitSet(2);
 
     /* renamed from: b  reason: collision with other field name */
-    public int f570b;
+    public int f571b;
 
     /* renamed from: a  reason: collision with other field name */
-    private static final jn f567a = new jn("XmPushActionCheckClientInfo");
-    private static final jf a = new jf("", (byte) 8, 1);
+    private static final jn f568a = new jn("XmPushActionCheckClientInfo");
+
+    /* renamed from: a  reason: collision with root package name */
+    private static final jf f4974a = new jf("", (byte) 8, 1);
     private static final jf b = new jf("", (byte) 8, 2);
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -26,12 +28,12 @@ public class ie implements ix<ie, Object>, Serializable, Cloneable {
         int a2;
         int a3;
         if (getClass().equals(ieVar.getClass())) {
-            int compareTo = Boolean.valueOf(m405a()).compareTo(Boolean.valueOf(ieVar.m405a()));
+            int compareTo = Boolean.valueOf(m406a()).compareTo(Boolean.valueOf(ieVar.m406a()));
             if (compareTo == 0) {
-                if (!m405a() || (a3 = iy.a(this.f568a, ieVar.f568a)) == 0) {
+                if (!m406a() || (a3 = iy.a(this.f569a, ieVar.f569a)) == 0) {
                     int compareTo2 = Boolean.valueOf(b()).compareTo(Boolean.valueOf(ieVar.b()));
                     if (compareTo2 == 0) {
-                        if (!b() || (a2 = iy.a(this.f570b, ieVar.f570b)) == 0) {
+                        if (!b() || (a2 = iy.a(this.f571b, ieVar.f571b)) == 0) {
                             return 0;
                         }
                         return a2;
@@ -46,7 +48,7 @@ public class ie implements ix<ie, Object>, Serializable, Cloneable {
     }
 
     public ie a(int i) {
-        this.f568a = i;
+        this.f569a = i;
         a(true);
         return this;
     }
@@ -56,12 +58,12 @@ public class ie implements ix<ie, Object>, Serializable, Cloneable {
 
     @Override // com.xiaomi.push.ix
     public void a(ji jiVar) {
-        jiVar.m489a();
+        jiVar.m490a();
         while (true) {
-            jf m485a = jiVar.m485a();
-            if (m485a.a == 0) {
+            jf m486a = jiVar.m486a();
+            if (m486a.f5000a == 0) {
                 jiVar.f();
-                if (!m405a()) {
+                if (!m406a()) {
                     throw new jj("Required field 'miscConfigVersion' was not found in serialized data! Struct: " + toString());
                 }
                 if (!b()) {
@@ -70,27 +72,27 @@ public class ie implements ix<ie, Object>, Serializable, Cloneable {
                 a();
                 return;
             }
-            switch (m485a.f778a) {
+            switch (m486a.f779a) {
                 case 1:
-                    if (m485a.a != 8) {
-                        jl.a(jiVar, m485a.a);
+                    if (m486a.f5000a != 8) {
+                        jl.a(jiVar, m486a.f5000a);
                         break;
                     } else {
-                        this.f568a = jiVar.m483a();
+                        this.f569a = jiVar.m484a();
                         a(true);
                         break;
                     }
                 case 2:
-                    if (m485a.a != 8) {
-                        jl.a(jiVar, m485a.a);
+                    if (m486a.f5000a != 8) {
+                        jl.a(jiVar, m486a.f5000a);
                         break;
                     } else {
-                        this.f570b = jiVar.m483a();
+                        this.f571b = jiVar.m484a();
                         b(true);
                         break;
                     }
                 default:
-                    jl.a(jiVar, m485a.a);
+                    jl.a(jiVar, m486a.f5000a);
                     break;
             }
             jiVar.g();
@@ -98,21 +100,21 @@ public class ie implements ix<ie, Object>, Serializable, Cloneable {
     }
 
     public void a(boolean z) {
-        this.f569a.set(0, z);
+        this.f570a.set(0, z);
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public boolean m405a() {
-        return this.f569a.get(0);
+    public boolean m406a() {
+        return this.f570a.get(0);
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public boolean m406a(ie ieVar) {
-        return ieVar != null && this.f568a == ieVar.f568a && this.f570b == ieVar.f570b;
+    public boolean m407a(ie ieVar) {
+        return ieVar != null && this.f569a == ieVar.f569a && this.f571b == ieVar.f571b;
     }
 
     public ie b(int i) {
-        this.f570b = i;
+        this.f571b = i;
         b(true);
         return this;
     }
@@ -120,28 +122,28 @@ public class ie implements ix<ie, Object>, Serializable, Cloneable {
     @Override // com.xiaomi.push.ix
     public void b(ji jiVar) {
         a();
-        jiVar.a(f567a);
-        jiVar.a(a);
-        jiVar.a(this.f568a);
+        jiVar.a(f568a);
+        jiVar.a(f4974a);
+        jiVar.a(this.f569a);
         jiVar.b();
         jiVar.a(b);
-        jiVar.a(this.f570b);
+        jiVar.a(this.f571b);
         jiVar.b();
         jiVar.c();
-        jiVar.m493a();
+        jiVar.m494a();
     }
 
     public void b(boolean z) {
-        this.f569a.set(1, z);
+        this.f570a.set(1, z);
     }
 
     public boolean b() {
-        return this.f569a.get(1);
+        return this.f570a.get(1);
     }
 
     public boolean equals(Object obj) {
         if (obj != null && (obj instanceof ie)) {
-            return m406a((ie) obj);
+            return m407a((ie) obj);
         }
         return false;
     }
@@ -151,6 +153,6 @@ public class ie implements ix<ie, Object>, Serializable, Cloneable {
     }
 
     public String toString() {
-        return "XmPushActionCheckClientInfo(miscConfigVersion:" + this.f568a + ", pluginConfigVersion:" + this.f570b + ")";
+        return "XmPushActionCheckClientInfo(miscConfigVersion:" + this.f569a + ", pluginConfigVersion:" + this.f571b + ")";
     }
 }

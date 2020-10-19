@@ -6,10 +6,10 @@ import org.json.JSONObject;
 /* loaded from: classes4.dex */
 public class a {
     public String date = "";
-    public int dgo = 0;
+    public int dsw = 0;
     public String id;
 
-    public static a dr(JSONObject jSONObject) {
+    public static a dw(JSONObject jSONObject) {
         if (jSONObject == null) {
             return null;
         }
@@ -20,7 +20,7 @@ public class a {
         a aVar = new a();
         aVar.id = optString;
         aVar.date = jSONObject.optString("date");
-        aVar.dgo = jSONObject.optInt("times");
+        aVar.dsw = jSONObject.optInt("times");
         return aVar;
     }
 
@@ -29,7 +29,7 @@ public class a {
         try {
             jSONObject.put("id", this.id);
             jSONObject.put("date", this.date);
-            jSONObject.put("times", this.dgo);
+            jSONObject.put("times", this.dsw);
             return jSONObject.toString();
         } catch (JSONException e) {
             e.printStackTrace();

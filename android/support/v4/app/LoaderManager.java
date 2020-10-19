@@ -7,10 +7,10 @@ import android.support.annotation.Nullable;
 import android.support.v4.content.Loader;
 import java.io.FileDescriptor;
 import java.io.PrintWriter;
-/* loaded from: classes4.dex */
+/* loaded from: classes7.dex */
 public abstract class LoaderManager {
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes7.dex */
     public interface LoaderCallbacks<D> {
         @NonNull
         @MainThread

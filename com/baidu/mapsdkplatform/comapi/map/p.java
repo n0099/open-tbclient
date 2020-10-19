@@ -1,9 +1,11 @@
 package com.baidu.mapsdkplatform.comapi.map;
 
 import com.baidu.platform.comapi.basestruct.GeoPoint;
-/* loaded from: classes3.dex */
+/* loaded from: classes7.dex */
 public class p {
-    public int a;
+
+    /* renamed from: a  reason: collision with root package name */
+    public int f2234a;
     public String b;
     public String c;
     public String d;

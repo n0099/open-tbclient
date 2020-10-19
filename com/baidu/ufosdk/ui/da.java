@@ -5,9 +5,11 @@ import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
-/* loaded from: classes21.dex */
+/* loaded from: classes22.dex */
 final class da {
-    public TextView a;
+
+    /* renamed from: a  reason: collision with root package name */
+    public TextView f3821a;
     public ImageView b;
     public ListView c;
     public TextView d;

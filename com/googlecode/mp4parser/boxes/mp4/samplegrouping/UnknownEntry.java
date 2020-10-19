@@ -2,7 +2,7 @@ package com.googlecode.mp4parser.boxes.mp4.samplegrouping;
 
 import com.coremedia.iso.Hex;
 import java.nio.ByteBuffer;
-/* loaded from: classes4.dex */
+/* loaded from: classes11.dex */
 public class UnknownEntry extends GroupEntry {
     private ByteBuffer content;
 

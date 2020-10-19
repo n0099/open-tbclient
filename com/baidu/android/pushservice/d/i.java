@@ -3,9 +3,11 @@ package com.baidu.android.pushservice.d;
 import android.app.PendingIntent;
 import android.content.Intent;
 import android.text.TextUtils;
-/* loaded from: classes7.dex */
+/* loaded from: classes10.dex */
 public class i {
-    public String a;
+
+    /* renamed from: a  reason: collision with root package name */
+    public String f1060a;
     public String b;
     public String c;
     public String d;
@@ -18,7 +20,7 @@ public class i {
     public boolean k;
 
     public i() {
-        this.a = "";
+        this.f1060a = "";
         this.b = "";
         this.c = "";
         this.d = "";
@@ -31,7 +33,7 @@ public class i {
     }
 
     public i(Intent intent) {
-        this.a = "";
+        this.f1060a = "";
         this.b = "";
         this.c = "";
         this.d = "";
@@ -50,7 +52,7 @@ public class i {
         }
         this.c = intent.getStringExtra("access_token");
         this.g = intent.getStringExtra("secret_key");
-        this.a = intent.getStringExtra("method");
+        this.f1060a = intent.getStringExtra("method");
         this.b = intent.getStringExtra("method_type");
         this.e = intent.getStringExtra("appid");
         this.h = intent.getBooleanExtra("bd_push_extra_is_baidu_app", false);
@@ -60,6 +62,6 @@ public class i {
     }
 
     public String toString() {
-        return "method=" + this.a + ", accessToken=" + this.c + ", packageName=" + this.d + ", appId=" + this.e + ", userId=" + this.f;
+        return "method=" + this.f1060a + ", accessToken=" + this.c + ", packageName=" + this.d + ", appId=" + this.e + ", userId=" + this.f;
     }
 }

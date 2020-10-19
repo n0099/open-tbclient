@@ -6,22 +6,22 @@ import java.io.File;
 /* loaded from: classes4.dex */
 public class c implements a {
     @Override // com.baidu.tieba.ala.b.a.a.a
-    public void i(Context context, File file) {
+    public void j(Context context, File file) {
         Object fieldValue = com.baidu.tieba.ala.b.a.b.b.getFieldValue(context.getClassLoader(), "pathList");
-        Class bIT = bIT();
-        if (bIT != null) {
+        Class bLD = bLD();
+        if (bLD != null) {
             Object[] objArr = (Object[]) com.baidu.tieba.ala.b.a.b.b.getFieldValue(fieldValue, "nativeLibraryPathElements");
-            Object a = a(bIT, file);
-            if (objArr != null && a != null) {
-                com.baidu.tieba.ala.b.a.b.b.a(fieldValue, "nativeLibraryPathElements", com.baidu.tieba.ala.b.a.b.a.a(bIT, objArr, a));
+            Object b = b(bLD, file);
+            if (objArr != null && b != null) {
+                com.baidu.tieba.ala.b.a.b.b.b(fieldValue, "nativeLibraryPathElements", com.baidu.tieba.ala.b.a.b.a.b(bLD, objArr, b));
             }
         }
     }
 
     @Override // com.baidu.tieba.ala.b.a.a.a
-    public boolean j(Context context, File file) {
+    public boolean k(Context context, File file) {
         Object fieldValue = com.baidu.tieba.ala.b.a.b.b.getFieldValue(context.getClassLoader(), "pathList");
-        if (bIT() != null) {
+        if (bLD() != null) {
             for (Object obj : (Object[]) com.baidu.tieba.ala.b.a.b.b.getFieldValue(fieldValue, "nativeLibraryPathElements")) {
                 if (obj.toString().contains(file.toString())) {
                     return true;
@@ -31,7 +31,7 @@ public class c implements a {
         return false;
     }
 
-    protected Class bIT() {
+    protected Class bLD() {
         try {
             return Class.forName("dalvik.system.DexPathList$Element");
         } catch (Exception e) {
@@ -40,7 +40,7 @@ public class c implements a {
         }
     }
 
-    protected Object a(Class cls, File file) {
-        return com.baidu.tieba.ala.b.a.b.b.a(cls, new Class[]{File.class, Boolean.TYPE, File.class, DexFile.class}, new Object[]{file, true, null, null});
+    protected Object b(Class cls, File file) {
+        return com.baidu.tieba.ala.b.a.b.b.b(cls, new Class[]{File.class, Boolean.TYPE, File.class, DexFile.class}, new Object[]{file, true, null, null});
     }
 }

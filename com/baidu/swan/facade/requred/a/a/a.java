@@ -22,15 +22,15 @@ import com.baidu.tbadk.mutiprocess.mission.MissionEvent;
 import java.io.File;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes16.dex */
 public class a implements f {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
     private static final String TAG = f.a.class.getSimpleName();
-    CallbackHandler ctP;
-    private String djK;
-    C0470a djL;
-    String djM;
-    String djN;
+    CallbackHandler cFY;
+    private String dvQ;
+    C0487a dvR;
+    String dvS;
+    String dvT;
     String mCallback;
     Context mContext;
     String mPkgName;
@@ -44,22 +44,22 @@ public class a implements f {
     @Override // com.baidu.swan.apps.adaptation.a.f
     public boolean a(@NonNull Context context, @NonNull UnitedSchemeEntity unitedSchemeEntity, @NonNull final SwanAppDownloadAction.SwanAppDownloadType swanAppDownloadType, @NonNull JSONObject jSONObject, @NonNull CallbackHandler callbackHandler) {
         this.mContext = context;
-        this.ctP = callbackHandler;
+        this.cFY = callbackHandler;
         this.mCallback = jSONObject.optString("cb");
-        this.djN = jSONObject.optString("onProgressUpdate");
+        this.dvT = jSONObject.optString("onProgressUpdate");
         this.mUrl = jSONObject.optString("url");
         this.mPkgName = jSONObject.optString("name");
-        this.djM = String.valueOf(this.mUrl.hashCode());
+        this.dvS = String.valueOf(this.mUrl.hashCode());
         if (TextUtils.isEmpty(this.mCallback) || TextUtils.isEmpty(this.mUrl)) {
             l(false, "Missing parameters");
             return false;
         }
         if (swanAppDownloadType == SwanAppDownloadAction.SwanAppDownloadType.TYPE_INSTALL_APP) {
-            aId();
+            aKM();
         }
         return com.baidu.swan.game.ad.downloader.c.a(context, jSONObject, swanAppDownloadType, new com.baidu.swan.apps.adlanding.download.a.a() { // from class: com.baidu.swan.facade.requred.a.a.a.1
             @Override // com.baidu.swan.apps.adlanding.download.a.a
-            public void dy(boolean z) {
+            public void dU(boolean z) {
                 if (a.DEBUG) {
                     Log.d("SwanAdDownloadImpl", "onShowButton:" + z);
                 }
@@ -70,7 +70,7 @@ public class a implements f {
                 if (a.DEBUG) {
                     Log.d("SwanAdDownloadImpl", "onStateChange   onStateChange:" + swanAdDownloadState + ", onProgressChange:" + i);
                 }
-                switch (AnonymousClass3.djO[swanAppDownloadType.ordinal()]) {
+                switch (AnonymousClass3.dvU[swanAppDownloadType.ordinal()]) {
                     case 1:
                         a.this.a(swanAdDownloadState, String.valueOf(i));
                         return;
@@ -78,16 +78,16 @@ public class a implements f {
                         a.this.b(swanAdDownloadState, String.valueOf(i));
                         return;
                     case 3:
-                        a.this.tR(String.valueOf(i));
+                        a.this.uD(String.valueOf(i));
                         return;
                     case 4:
-                        a.this.aIb();
+                        a.this.aKK();
                         return;
                     case 5:
                         a.this.c(swanAdDownloadState, String.valueOf(i));
                         return;
                     case 6:
-                        a.this.aIc();
+                        a.this.aKL();
                         return;
                     default:
                         return;
@@ -102,21 +102,21 @@ public class a implements f {
             }
 
             @Override // com.baidu.swan.apps.adlanding.download.a.a
-            public void jh(String str) {
+            public void jT(String str) {
                 if (a.DEBUG) {
                     Log.d("SwanAdDownloadImpl", "onPackageNameChange:" + str);
                 }
             }
 
             @Override // com.baidu.swan.apps.adlanding.download.a.a
-            public void abX() {
+            public void aeJ() {
                 if (a.DEBUG) {
                     Log.d("SwanAdDownloadImpl", "onInstall:");
                 }
             }
 
             @Override // com.baidu.swan.apps.adlanding.download.a.a
-            public String abY() {
+            public String aeK() {
                 if (a.DEBUG) {
                     Log.d("SwanAdDownloadImpl", "onAppOpen:");
                     return null;
@@ -127,33 +127,33 @@ public class a implements f {
     }
 
     /* renamed from: com.baidu.swan.facade.requred.a.a.a$3  reason: invalid class name */
-    /* loaded from: classes3.dex */
+    /* loaded from: classes16.dex */
     static /* synthetic */ class AnonymousClass3 {
-        static final /* synthetic */ int[] djO = new int[SwanAppDownloadAction.SwanAppDownloadType.values().length];
+        static final /* synthetic */ int[] dvU = new int[SwanAppDownloadAction.SwanAppDownloadType.values().length];
 
         static {
             try {
-                djO[SwanAppDownloadAction.SwanAppDownloadType.TYPE_QUERY_STATUS.ordinal()] = 1;
+                dvU[SwanAppDownloadAction.SwanAppDownloadType.TYPE_QUERY_STATUS.ordinal()] = 1;
             } catch (NoSuchFieldError e) {
             }
             try {
-                djO[SwanAppDownloadAction.SwanAppDownloadType.TYPE_START_DOWNLOAD.ordinal()] = 2;
+                dvU[SwanAppDownloadAction.SwanAppDownloadType.TYPE_START_DOWNLOAD.ordinal()] = 2;
             } catch (NoSuchFieldError e2) {
             }
             try {
-                djO[SwanAppDownloadAction.SwanAppDownloadType.TYPE_PAUSE_DOWNLOAD.ordinal()] = 3;
+                dvU[SwanAppDownloadAction.SwanAppDownloadType.TYPE_PAUSE_DOWNLOAD.ordinal()] = 3;
             } catch (NoSuchFieldError e3) {
             }
             try {
-                djO[SwanAppDownloadAction.SwanAppDownloadType.TYPE_CANCEL_DOWNLOAD.ordinal()] = 4;
+                dvU[SwanAppDownloadAction.SwanAppDownloadType.TYPE_CANCEL_DOWNLOAD.ordinal()] = 4;
             } catch (NoSuchFieldError e4) {
             }
             try {
-                djO[SwanAppDownloadAction.SwanAppDownloadType.TYPE_RESUME_DOWNLOAD.ordinal()] = 5;
+                dvU[SwanAppDownloadAction.SwanAppDownloadType.TYPE_RESUME_DOWNLOAD.ordinal()] = 5;
             } catch (NoSuchFieldError e5) {
             }
             try {
-                djO[SwanAppDownloadAction.SwanAppDownloadType.TYPE_INSTALL_APP.ordinal()] = 6;
+                dvU[SwanAppDownloadAction.SwanAppDownloadType.TYPE_INSTALL_APP.ordinal()] = 6;
             } catch (NoSuchFieldError e6) {
             }
         }
@@ -166,43 +166,43 @@ public class a implements f {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void a(@NonNull SwanAdDownloadState swanAdDownloadState, @NonNull String str) {
-        this.ctP.handleSchemeDispatchCallback(this.djN, a(swanAdDownloadState, str, this.djM));
+        this.cFY.handleSchemeDispatchCallback(this.dvT, a(swanAdDownloadState, str, this.dvS));
         if (swanAdDownloadState == SwanAdDownloadState.DOWNLOADED && "-1".equals(str)) {
-            this.ctP.handleSchemeDispatchCallback(this.mCallback, a(swanAdDownloadState, str, this.djM, SwanAdDownloadState.DELETED.value()));
+            this.cFY.handleSchemeDispatchCallback(this.mCallback, a(swanAdDownloadState, str, this.dvS, SwanAdDownloadState.DELETED.value()));
         } else if (TextUtils.equals(str, "100")) {
-            this.ctP.handleSchemeDispatchCallback(this.mCallback, a(SwanAdDownloadState.DOWNLOADED, str, this.djM));
+            this.cFY.handleSchemeDispatchCallback(this.mCallback, a(SwanAdDownloadState.DOWNLOADED, str, this.dvS));
         } else {
-            this.ctP.handleSchemeDispatchCallback(this.mCallback, a(swanAdDownloadState, str, this.djM));
+            this.cFY.handleSchemeDispatchCallback(this.mCallback, a(swanAdDownloadState, str, this.dvS));
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void b(@NonNull SwanAdDownloadState swanAdDownloadState, @NonNull String str) {
-        this.djK = this.mCallback;
-        this.ctP.handleSchemeDispatchCallback(this.djN, a(swanAdDownloadState, str, this.djM));
+        this.dvQ = this.mCallback;
+        this.cFY.handleSchemeDispatchCallback(this.dvT, a(swanAdDownloadState, str, this.dvS));
         if (swanAdDownloadState == SwanAdDownloadState.DOWNLOADED) {
-            this.ctP.handleSchemeDispatchCallback(this.mCallback, l(true, "onSuccess"));
-            this.djK = null;
+            this.cFY.handleSchemeDispatchCallback(this.mCallback, l(true, "onSuccess"));
+            this.dvQ = null;
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void tR(@NonNull String str) {
-        this.ctP.handleSchemeDispatchCallback(this.djN, a(SwanAdDownloadState.DOWNLOAD_PAUSED, str, this.djM));
-        this.ctP.handleSchemeDispatchCallback(this.mCallback, l(true, null));
-        if (this.djK != null) {
-            this.ctP.handleSchemeDispatchCallback(this.djK, l(false, MissionEvent.MESSAGE_PAUSE));
-            this.djK = null;
+    public void uD(@NonNull String str) {
+        this.cFY.handleSchemeDispatchCallback(this.dvT, a(SwanAdDownloadState.DOWNLOAD_PAUSED, str, this.dvS));
+        this.cFY.handleSchemeDispatchCallback(this.mCallback, l(true, null));
+        if (this.dvQ != null) {
+            this.cFY.handleSchemeDispatchCallback(this.dvQ, l(false, MissionEvent.MESSAGE_PAUSE));
+            this.dvQ = null;
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void aIb() {
-        this.ctP.handleSchemeDispatchCallback(this.djN, a(SwanAdDownloadState.DOWNLOAD_FAILED, "0", this.djM));
-        this.ctP.handleSchemeDispatchCallback(this.mCallback, l(true, null));
-        if (this.djK != null) {
-            this.ctP.handleSchemeDispatchCallback(this.djK, l(false, "onStopped"));
-            this.djK = null;
+    public void aKK() {
+        this.cFY.handleSchemeDispatchCallback(this.dvT, a(SwanAdDownloadState.DOWNLOAD_FAILED, "0", this.dvS));
+        this.cFY.handleSchemeDispatchCallback(this.mCallback, l(true, null));
+        if (this.dvQ != null) {
+            this.cFY.handleSchemeDispatchCallback(this.dvQ, l(false, "onStopped"));
+            this.dvQ = null;
         }
     }
 
@@ -214,20 +214,20 @@ public class a implements f {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void aIc() {
+    public void aKL() {
         if (DEBUG) {
             Log.d("SwanAdDownloadImpl", "handleInstallApp");
         }
-        String concat = new File(com.baidu.swan.game.ad.downloader.b.getDownloadDir()).getAbsolutePath().concat("/").concat(this.djM + ".apk");
+        String concat = new File(com.baidu.swan.game.ad.downloader.b.getDownloadDir()).getAbsolutePath().concat("/").concat(this.dvS + ".apk");
         if (new File(concat).exists()) {
-            aId();
-            if (!com.baidu.swan.game.ad.downloader.e.ad(concat, false)) {
-                this.ctP.handleSchemeDispatchCallback(this.mCallback, l(false, "install apk error"));
+            aKM();
+            if (!com.baidu.swan.game.ad.downloader.e.ah(concat, false)) {
+                this.cFY.handleSchemeDispatchCallback(this.mCallback, l(false, "install apk error"));
                 return;
             }
             return;
         }
-        this.ctP.handleSchemeDispatchCallback(this.mCallback, l(false, "Apk Not Found"));
+        this.cFY.handleSchemeDispatchCallback(this.mCallback, l(false, "Apk Not Found"));
     }
 
     @NonNull
@@ -266,23 +266,23 @@ public class a implements f {
         return UnitedSchemeUtility.wrapCallbackParams(jSONObject, z ? 0 : 1001, str).toString();
     }
 
-    private void aId() {
-        if (this.djL == null) {
-            this.djL = new C0470a();
+    private void aKM() {
+        if (this.dvR == null) {
+            this.dvR = new C0487a();
             IntentFilter intentFilter = new IntentFilter();
             intentFilter.addAction("android.intent.action.PACKAGE_ADDED");
             intentFilter.addDataScheme("package");
-            this.mContext.registerReceiver(this.djL, intentFilter);
+            this.mContext.registerReceiver(this.dvR, intentFilter);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     /* renamed from: com.baidu.swan.facade.requred.a.a.a$a  reason: collision with other inner class name */
-    /* loaded from: classes3.dex */
-    public class C0470a extends BroadcastReceiver {
+    /* loaded from: classes16.dex */
+    public class C0487a extends BroadcastReceiver {
         private long time;
 
-        private C0470a() {
+        private C0487a() {
             this.time = 0L;
         }
 
@@ -290,7 +290,7 @@ public class a implements f {
         public void onReceive(Context context, Intent intent) {
             if (intent != null && intent.getData() != null && "android.intent.action.PACKAGE_ADDED".equals(intent.getAction())) {
                 if (TextUtils.equals(a.this.mPkgName, intent.getData().getSchemeSpecificPart())) {
-                    a.this.ctP.handleSchemeDispatchCallback(a.this.mCallback, a.this.l(true, null));
+                    a.this.cFY.handleSchemeDispatchCallback(a.this.mCallback, a.this.l(true, null));
                     a.this.release();
                 }
             }
@@ -298,9 +298,9 @@ public class a implements f {
     }
 
     public void release() {
-        if (this.djL != null) {
-            this.mContext.unregisterReceiver(this.djL);
-            this.djL = null;
+        if (this.dvR != null) {
+            this.mContext.unregisterReceiver(this.dvR);
+            this.dvR = null;
         }
     }
 
@@ -315,7 +315,7 @@ public class a implements f {
         }
         com.baidu.swan.apps.ab.a.a("android.permission.WRITE_EXTERNAL_STORAGE", new String[]{"android.permission.WRITE_EXTERNAL_STORAGE"}, 3, context, new com.baidu.swan.apps.ab.b() { // from class: com.baidu.swan.facade.requred.a.a.a.2
             @Override // com.baidu.swan.apps.ab.b
-            public void iZ(String str) {
+            public void jL(String str) {
                 DownloadManager.Request request = new DownloadManager.Request(Uri.parse(optString));
                 request.setDestinationInExternalPublicDir("", optString.substring(optString.lastIndexOf("/") + 1));
                 if (!TextUtils.isEmpty(optString2) && !TextUtils.isEmpty(optString3)) {
@@ -336,7 +336,7 @@ public class a implements f {
             }
 
             @Override // com.baidu.swan.apps.ab.b
-            public void O(int i, String str) {
+            public void Z(int i, String str) {
                 if (a.DEBUG) {
                     Log.d(a.TAG, "onAuthorizedFailed,  errorCode: " + i + " errorMsg: " + str);
                 }

@@ -21,7 +21,7 @@ import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import org.json.JSONObject;
-/* loaded from: classes7.dex */
+/* loaded from: classes10.dex */
 public class f extends d {
     public f(Context context) {
         super(context);
@@ -46,16 +46,16 @@ public class f extends d {
                     return byteArray;
                 }
             } catch (Exception e2) {
-                new b.c(this.a).a(Log.getStackTraceString(e2)).a();
+                new b.c(this.f1178a).a(Log.getStackTraceString(e2)).a();
                 try {
                     byteArrayOutputStream.close();
                 } catch (IOException e3) {
-                    new b.c(this.a).a(Log.getStackTraceString(e3)).a();
+                    new b.c(this.f1178a).a(Log.getStackTraceString(e3)).a();
                 }
                 try {
                     eVar.a();
                 } catch (IOException e4) {
-                    new b.c(this.a).a(Log.getStackTraceString(e4)).a();
+                    new b.c(this.f1178a).a(Log.getStackTraceString(e4)).a();
                 }
                 return null;
             }
@@ -63,12 +63,12 @@ public class f extends d {
             try {
                 byteArrayOutputStream.close();
             } catch (IOException e5) {
-                new b.c(this.a).a(Log.getStackTraceString(e5)).a();
+                new b.c(this.f1178a).a(Log.getStackTraceString(e5)).a();
             }
             try {
                 eVar.a();
             } catch (IOException e6) {
-                new b.c(this.a).a(Log.getStackTraceString(e6)).a();
+                new b.c(this.f1178a).a(Log.getStackTraceString(e6)).a();
             }
         }
     }
@@ -92,7 +92,7 @@ public class f extends d {
                 if (s != h.MSG_ID_TINY_HEARTBEAT_CLIENT.b() && s != h.MSG_ID_TINY_HEARTBEAT_SERVER.b()) {
                     eVar.a((int) com.baidu.android.pushservice.a.a());
                     eVar.b(0);
-                    eVar.a(a(m.d(this.a, this.a.getPackageName()) ? "BaiduApp" : "DevApp", 16));
+                    eVar.a(a(m.d(this.f1178a, this.f1178a.getPackageName()) ? "BaiduApp" : "DevApp", 16));
                     eVar.b(-76508268);
                     eVar.b(1);
                     eVar.b(length);
@@ -101,30 +101,30 @@ public class f extends d {
                     }
                 }
                 byte[] byteArray = byteArrayOutputStream.toByteArray();
-                com.baidu.android.pushservice.e.b.a(this.a, byteArrayOutputStream);
+                com.baidu.android.pushservice.e.b.a(this.f1178a, byteArrayOutputStream);
                 try {
                     eVar.a();
                     return byteArray;
                 } catch (Exception e) {
-                    new b.c(this.a).a(Log.getStackTraceString(e)).a();
+                    new b.c(this.f1178a).a(Log.getStackTraceString(e)).a();
                     return byteArray;
                 }
             } catch (Throwable th) {
-                com.baidu.android.pushservice.e.b.a(this.a, byteArrayOutputStream);
+                com.baidu.android.pushservice.e.b.a(this.f1178a, byteArrayOutputStream);
                 try {
                     eVar.a();
                 } catch (Exception e2) {
-                    new b.c(this.a).a(Log.getStackTraceString(e2)).a();
+                    new b.c(this.f1178a).a(Log.getStackTraceString(e2)).a();
                 }
                 throw th;
             }
         } catch (Exception e3) {
-            new b.c(this.a).a(Log.getStackTraceString(e3)).a();
-            com.baidu.android.pushservice.e.b.a(this.a, byteArrayOutputStream);
+            new b.c(this.f1178a).a(Log.getStackTraceString(e3)).a();
+            com.baidu.android.pushservice.e.b.a(this.f1178a, byteArrayOutputStream);
             try {
                 eVar.a();
             } catch (Exception e4) {
-                new b.c(this.a).a(Log.getStackTraceString(e4)).a();
+                new b.c(this.f1178a).a(Log.getStackTraceString(e4)).a();
             }
             return null;
         }
@@ -132,7 +132,7 @@ public class f extends d {
 
     private String e() {
         try {
-            switch (m.i(this.a)) {
+            switch (m.i(this.f1178a)) {
                 case 1:
                     return "wifi";
                 case 2:
@@ -145,20 +145,20 @@ public class f extends d {
                     return null;
             }
         } catch (Exception e) {
-            new b.c(this.a).a(Log.getStackTraceString(e)).a();
+            new b.c(this.f1178a).a(Log.getStackTraceString(e)).a();
             return null;
         }
     }
 
     private String f() {
         try {
-            WindowManager windowManager = (WindowManager) this.a.getSystemService("window");
+            WindowManager windowManager = (WindowManager) this.f1178a.getSystemService("window");
             if (windowManager != null) {
                 Display defaultDisplay = windowManager.getDefaultDisplay();
                 return defaultDisplay.getHeight() + PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS + defaultDisplay.getWidth();
             }
         } catch (Exception e) {
-            new b.c(this.a).a(Log.getStackTraceString(e)).a();
+            new b.c(this.f1178a).a(Log.getStackTraceString(e)).a();
         }
         return null;
     }
@@ -166,7 +166,7 @@ public class f extends d {
     private String g() {
         String simOperator;
         try {
-            TelephonyManager telephonyManager = (TelephonyManager) this.a.getSystemService("phone");
+            TelephonyManager telephonyManager = (TelephonyManager) this.f1178a.getSystemService("phone");
             if (telephonyManager != null && (simOperator = telephonyManager.getSimOperator()) != null) {
                 if (simOperator.equals("46000") || simOperator.equals("46002") || simOperator.equals("46007")) {
                     return IXAdRequestInfo.MAX_CONTENT_LENGTH;
@@ -179,9 +179,9 @@ public class f extends d {
                 }
             }
         } catch (Exception e) {
-            new b.c(this.a).a(Log.getStackTraceString(e)).a();
+            new b.c(this.f1178a).a(Log.getStackTraceString(e)).a();
         } catch (NoSuchFieldError e2) {
-            new b.c(this.a).a(Log.getStackTraceString(e2)).a();
+            new b.c(this.f1178a).a(Log.getStackTraceString(e2)).a();
         }
         return null;
     }
@@ -221,18 +221,18 @@ public class f extends d {
         JSONObject jSONObject = new JSONObject();
         String str = null;
         try {
-            jSONObject.put("channel_token", com.baidu.android.pushservice.j.a(this.a).b());
-            jSONObject.put(SharedPrefConfig.CHANNEL_ID, com.baidu.android.pushservice.j.a(this.a).a());
-            if (com.baidu.android.pushservice.b.d.b(this.a)) {
-                jSONObject.put("new_channel_token", com.baidu.android.pushservice.j.a(this.a).d());
-                jSONObject.put("new_channel_id", com.baidu.android.pushservice.j.a(this.a).c());
+            jSONObject.put("channel_token", com.baidu.android.pushservice.j.a(this.f1178a).b());
+            jSONObject.put(SharedPrefConfig.CHANNEL_ID, com.baidu.android.pushservice.j.a(this.f1178a).a());
+            if (com.baidu.android.pushservice.b.d.b(this.f1178a)) {
+                jSONObject.put("new_channel_token", com.baidu.android.pushservice.j.a(this.f1178a).d());
+                jSONObject.put("new_channel_id", com.baidu.android.pushservice.j.a(this.f1178a).c());
             }
-            jSONObject.put("sa_mode", com.baidu.android.pushservice.b.d.a(this.a).b());
-            jSONObject.put("highest_version", com.baidu.android.pushservice.b.d.a(this.a).c());
+            jSONObject.put("sa_mode", com.baidu.android.pushservice.b.d.a(this.f1178a).b());
+            jSONObject.put("highest_version", com.baidu.android.pushservice.b.d.a(this.f1178a).c());
             jSONObject.put("period", 1800);
             jSONObject.put("channel_type", 3);
             jSONObject.put("tinyheart", 1);
-            if (m.o(this.a)) {
+            if (m.o(this.f1178a)) {
                 jSONObject.put("connect_version", 3);
                 String str2 = Build.MANUFACTURER;
                 if (!TextUtils.isEmpty(str2) && str2.length() <= 128) {
@@ -241,12 +241,12 @@ public class f extends d {
             } else {
                 jSONObject.put("connect_version", 2);
             }
-            jSONObject.put("app_alone_conn", com.baidu.android.pushservice.b.d.e(this.a) ? 1 : 0);
-            jSONObject.put("pkg_name", this.a.getPackageName());
-            jSONObject.put("proxy_conn", com.baidu.android.pushservice.b.d.c(this.a) ? 1 : 0);
-            jSONObject.put("noti_enable", com.baidu.android.pushservice.i.h.a(this.a));
-            if (this.a.getPackageName().equals(GlobalConstants.SEARCHBOX_PACKAGE_NAME)) {
-                jSONObject.put("pkg_version", m.a(this.a));
+            jSONObject.put("app_alone_conn", com.baidu.android.pushservice.b.d.e(this.f1178a) ? 1 : 0);
+            jSONObject.put("pkg_name", this.f1178a.getPackageName());
+            jSONObject.put("proxy_conn", com.baidu.android.pushservice.b.d.c(this.f1178a) ? 1 : 0);
+            jSONObject.put("noti_enable", com.baidu.android.pushservice.i.h.a(this.f1178a));
+            if (this.f1178a.getPackageName().equals(GlobalConstants.SEARCHBOX_PACKAGE_NAME)) {
+                jSONObject.put("pkg_version", m.a(this.f1178a));
             }
             jSONObject.put("tiny_msghead", 1);
             jSONObject.put("alarm_function", 1);
@@ -267,7 +267,7 @@ public class f extends d {
             if (!TextUtils.isEmpty(e)) {
                 jSONObject2.put("network", e);
             }
-            String cuid = DeviceId.getCUID(this.a);
+            String cuid = DeviceId.getCUID(this.f1178a);
             if (!TextUtils.isEmpty(cuid)) {
                 jSONObject2.put("cuid", cuid);
             }
@@ -276,16 +276,16 @@ public class f extends d {
             jSONObject.put("devinfolength", length);
             str = jSONObject.toString();
         } catch (Exception e2) {
-            new b.c(this.a).a(Log.getStackTraceString(e2)).a();
+            new b.c(this.f1178a).a(Log.getStackTraceString(e2)).a();
         } catch (UnsatisfiedLinkError e3) {
-            new b.c(this.a).a(Log.getStackTraceString(e3)).a();
+            new b.c(this.f1178a).a(Log.getStackTraceString(e3)).a();
         }
         if (TextUtils.isEmpty(str)) {
             return;
         }
-        byte[] a = a(h.MSG_ID_HANDSHAKE.b(), str.getBytes());
+        byte[] a2 = a(h.MSG_ID_HANDSHAKE.b(), str.getBytes());
         e eVar = new e(h.MSG_ID_HANDSHAKE.b());
-        eVar.b = a;
+        eVar.b = a2;
         eVar.c = true;
         eVar.a(false);
         a(eVar);
@@ -296,17 +296,17 @@ public class f extends d {
         if (eVar == null) {
             return;
         }
-        a aVar = new a(this.a);
-        h a = h.a(eVar.a);
-        c a2 = aVar.a(a);
-        if (a2 != null) {
-            g a3 = a2.a(eVar);
+        a aVar = new a(this.f1178a);
+        h a2 = h.a(eVar.f1179a);
+        c a3 = aVar.a(a2);
+        if (a3 != null) {
+            g a4 = a3.a(eVar);
             if (eVar.d) {
-                e eVar2 = new e(eVar.a);
-                if (a == h.MSG_ID_PUSH_MSG) {
-                    eVar2.b = a(h.MSG_ID_PUSH_MSG.b(), a(eVar.e().d(), a3));
-                } else if (a == h.MSG_ID_TINY_HEARTBEAT_SERVER || a == h.MSG_ID_HEARTBEAT_SERVER) {
-                    eVar2.b = a(eVar.a, (byte[]) null);
+                e eVar2 = new e(eVar.f1179a);
+                if (a2 == h.MSG_ID_PUSH_MSG) {
+                    eVar2.b = a(h.MSG_ID_PUSH_MSG.b(), a(eVar.e().d(), a4));
+                } else if (a2 == h.MSG_ID_TINY_HEARTBEAT_SERVER || a2 == h.MSG_ID_HEARTBEAT_SERVER) {
+                    eVar2.b = a(eVar.f1179a, (byte[]) null);
                 }
                 a(eVar2);
             }
@@ -319,9 +319,9 @@ public class f extends d {
 
     @Override // com.baidu.android.pushservice.message.d
     public void d() {
-        byte[] a = a(h.MSG_ID_TINY_HEARTBEAT_CLIENT.b(), (byte[]) null);
+        byte[] a2 = a(h.MSG_ID_TINY_HEARTBEAT_CLIENT.b(), (byte[]) null);
         e eVar = new e(h.MSG_ID_TINY_HEARTBEAT_CLIENT.b());
-        eVar.b = a;
+        eVar.b = a2;
         eVar.c = true;
         eVar.a(true);
         a(eVar);

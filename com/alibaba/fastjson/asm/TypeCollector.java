@@ -6,7 +6,7 @@ import com.xiaomi.mipush.sdk.Constants;
 import java.lang.reflect.Modifier;
 import java.util.HashMap;
 import java.util.Map;
-/* loaded from: classes10.dex */
+/* loaded from: classes5.dex */
 public class TypeCollector {
     private static final Map<String, String> primitives = new HashMap<String, String>() { // from class: com.alibaba.fastjson.asm.TypeCollector.1
         {

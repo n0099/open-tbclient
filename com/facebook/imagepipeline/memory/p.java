@@ -2,16 +2,16 @@ package com.facebook.imagepipeline.memory;
 
 import javax.annotation.concurrent.Immutable;
 @Immutable
-/* loaded from: classes25.dex */
+/* loaded from: classes18.dex */
 public class p {
-    private final com.facebook.common.memory.c nFo;
-    private final s nHA;
-    private final r nHB;
-    private final r nHC;
-    private final s nHD;
-    private final r nHE;
-    private final s nHF;
-    private final r nHz;
+    private final com.facebook.common.memory.c nUH;
+    private final r nWQ;
+    private final s nWR;
+    private final r nWS;
+    private final r nWT;
+    private final s nWU;
+    private final r nWV;
+    private final s nWW;
 
     private p(a aVar) {
         r rVar;
@@ -22,107 +22,107 @@ public class p {
         s sVar2;
         r rVar4;
         s sVar3;
-        if (aVar.nHz == null) {
-            rVar = e.dYU();
+        if (aVar.nWQ == null) {
+            rVar = e.ecF();
         } else {
-            rVar = aVar.nHz;
+            rVar = aVar.nWQ;
         }
-        this.nHz = rVar;
-        if (aVar.nHA == null) {
-            sVar = n.dYZ();
+        this.nWQ = rVar;
+        if (aVar.nWR == null) {
+            sVar = n.ecK();
         } else {
-            sVar = aVar.nHA;
+            sVar = aVar.nWR;
         }
-        this.nHA = sVar;
-        if (aVar.nHB == null) {
-            rVar2 = g.dYU();
+        this.nWR = sVar;
+        if (aVar.nWS == null) {
+            rVar2 = g.ecF();
         } else {
-            rVar2 = aVar.nHB;
+            rVar2 = aVar.nWS;
         }
-        this.nHB = rVar2;
-        if (aVar.nFo == null) {
-            cVar = com.facebook.common.memory.d.dSJ();
+        this.nWS = rVar2;
+        if (aVar.nUH == null) {
+            cVar = com.facebook.common.memory.d.dWu();
         } else {
-            cVar = aVar.nFo;
+            cVar = aVar.nUH;
         }
-        this.nFo = cVar;
-        if (aVar.nHC == null) {
-            rVar3 = h.dYU();
+        this.nUH = cVar;
+        if (aVar.nWT == null) {
+            rVar3 = h.ecF();
         } else {
-            rVar3 = aVar.nHC;
+            rVar3 = aVar.nWT;
         }
-        this.nHC = rVar3;
-        if (aVar.nHD == null) {
-            sVar2 = n.dYZ();
+        this.nWT = rVar3;
+        if (aVar.nWU == null) {
+            sVar2 = n.ecK();
         } else {
-            sVar2 = aVar.nHD;
+            sVar2 = aVar.nWU;
         }
-        this.nHD = sVar2;
-        if (aVar.nHE == null) {
-            rVar4 = f.dYU();
+        this.nWU = sVar2;
+        if (aVar.nWV == null) {
+            rVar4 = f.ecF();
         } else {
-            rVar4 = aVar.nHE;
+            rVar4 = aVar.nWV;
         }
-        this.nHE = rVar4;
-        if (aVar.nHF == null) {
-            sVar3 = n.dYZ();
+        this.nWV = rVar4;
+        if (aVar.nWW == null) {
+            sVar3 = n.ecK();
         } else {
-            sVar3 = aVar.nHF;
+            sVar3 = aVar.nWW;
         }
-        this.nHF = sVar3;
+        this.nWW = sVar3;
     }
 
-    public r dZc() {
-        return this.nHz;
+    public r ecN() {
+        return this.nWQ;
     }
 
-    public s dZd() {
-        return this.nHA;
+    public s ecO() {
+        return this.nWR;
     }
 
-    public com.facebook.common.memory.c dWX() {
-        return this.nFo;
+    public com.facebook.common.memory.c eaI() {
+        return this.nUH;
     }
 
-    public r dZe() {
-        return this.nHC;
+    public r ecP() {
+        return this.nWT;
     }
 
-    public s dZf() {
-        return this.nHD;
+    public s ecQ() {
+        return this.nWU;
     }
 
-    public r dZg() {
-        return this.nHB;
+    public r ecR() {
+        return this.nWS;
     }
 
-    public r dZh() {
-        return this.nHE;
+    public r ecS() {
+        return this.nWV;
     }
 
-    public s dZi() {
-        return this.nHF;
+    public s ecT() {
+        return this.nWW;
     }
 
-    public static a dZj() {
+    public static a ecU() {
         return new a();
     }
 
-    /* loaded from: classes25.dex */
+    /* loaded from: classes18.dex */
     public static class a {
-        private com.facebook.common.memory.c nFo;
-        private s nHA;
-        private r nHB;
-        private r nHC;
-        private s nHD;
-        private r nHE;
-        private s nHF;
-        private r nHz;
+        private com.facebook.common.memory.c nUH;
+        private r nWQ;
+        private s nWR;
+        private r nWS;
+        private r nWT;
+        private s nWU;
+        private r nWV;
+        private s nWW;
 
         private a() {
         }
 
-        public p dZk() {
+        public p ecV() {
             return new p(this);
         }
     }

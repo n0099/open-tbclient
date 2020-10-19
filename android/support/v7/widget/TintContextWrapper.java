@@ -10,7 +10,7 @@ import android.support.annotation.RestrictTo;
 import java.lang.ref.WeakReference;
 import java.util.ArrayList;
 @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
-/* loaded from: classes10.dex */
+/* loaded from: classes5.dex */
 public class TintContextWrapper extends ContextWrapper {
     private static final Object CACHE_LOCK = new Object();
     private static ArrayList<WeakReference<TintContextWrapper>> sCache;

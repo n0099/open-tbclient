@@ -1,17 +1,19 @@
 package com.xiaomi.push;
 
 import com.xiaomi.push.al;
-/* loaded from: classes9.dex */
+/* loaded from: classes12.dex */
 final class gw extends al.b {
-    final /* synthetic */ Runnable a;
+
+    /* renamed from: a  reason: collision with root package name */
+    final /* synthetic */ Runnable f4936a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public gw(Runnable runnable) {
-        this.a = runnable;
+        this.f4936a = runnable;
     }
 
     @Override // com.xiaomi.push.al.b
     public void b() {
-        this.a.run();
+        this.f4936a.run();
     }
 }

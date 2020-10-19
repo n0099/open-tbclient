@@ -1,5 +1,5 @@
 package com.baidu.ar.vo.a;
-/* loaded from: classes10.dex */
+/* loaded from: classes14.dex */
 public class b {
     private String id;
     private int xN;

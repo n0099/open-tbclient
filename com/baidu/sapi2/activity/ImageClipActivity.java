@@ -30,7 +30,7 @@ import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
-/* loaded from: classes25.dex */
+/* loaded from: classes5.dex */
 public class ImageClipActivity extends Activity {
     public static final int BUSSINESS_FROM_INVOICE_BUILD = 1;
     public static final int BUSSINESS_SET_PORTRAIT = 0;
@@ -45,7 +45,9 @@ public class ImageClipActivity extends Activity {
     private static final String l = "com.android.providers.downloads.documents";
     private static final String m = "com.android.externalstorage.documents";
     private static final String n = "content://downloads/public_downloads";
-    private int a = 0;
+
+    /* renamed from: a  reason: collision with root package name */
+    private int f3353a = 0;
     private int b = 0;
     private int c = 0;
     private int d = 0;
@@ -98,7 +100,7 @@ public class ImageClipActivity extends Activity {
     }
 
     public Bitmap operateBitmap(String str) {
-        Bitmap a = a(str);
+        Bitmap a2 = a(str);
         float f = 0.0f;
         try {
             int attributeInt = new ExifInterface(str).getAttributeInt(android.support.media.ExifInterface.TAG_ORIENTATION, 1);
@@ -113,12 +115,12 @@ public class ImageClipActivity extends Activity {
             e.printStackTrace();
         }
         Matrix matrix = new Matrix();
-        matrix.setRotate(f, a.getWidth() / 2, a.getHeight() / 2);
-        return Bitmap.createBitmap(a, 0, 0, a.getWidth(), a.getHeight(), matrix, true);
+        matrix.setRotate(f, a2.getWidth() / 2, a2.getHeight() / 2);
+        return Bitmap.createBitmap(a2, 0, 0, a2.getWidth(), a2.getHeight(), matrix, true);
     }
 
     protected void setPendingTransition(int i, int i2, int i3, int i4) {
-        this.a = i;
+        this.f3353a = i;
         this.b = i2;
         this.c = i3;
         this.d = i4;
@@ -127,8 +129,8 @@ public class ImageClipActivity extends Activity {
     /* JADX INFO: Access modifiers changed from: private */
     @TargetApi(3)
     public void a() {
-        Bitmap a = ZoomImageView.getInstance() == null ? null : ZoomImageView.getInstance().a();
-        if (a == null || a.isRecycled()) {
+        Bitmap a2 = ZoomImageView.getInstance() == null ? null : ZoomImageView.getInstance().a();
+        if (a2 == null || a2.isRecycled()) {
             return;
         }
         new AsyncTask<Bitmap, Void, byte[]>() { // from class: com.baidu.sapi2.activity.ImageClipActivity.3
@@ -173,7 +175,7 @@ public class ImageClipActivity extends Activity {
                 ImageClipActivity.this.setResult(-1, intent);
                 ImageClipActivity.this.finish();
             }
-        }.execute(a);
+        }.execute(a2);
     }
 
     private void b() {
@@ -191,7 +193,7 @@ public class ImageClipActivity extends Activity {
             clipBoxView.E = ClipBoxView.G;
             clipBoxView.F = false;
         }
-        setPendingTransition(a.C0161a.sapi_sdk_slide_right_in, a.C0161a.sapi_sdk_slide_left_out, a.C0161a.sapi_sdk_slide_left_in, a.C0161a.sapi_sdk_slide_right_out);
+        setPendingTransition(a.C0165a.sapi_sdk_slide_right_in, a.C0165a.sapi_sdk_slide_left_out, a.C0165a.sapi_sdk_slide_left_in, a.C0165a.sapi_sdk_slide_right_out);
         Button button = (Button) findViewById(a.e.sure_clip_btn);
         Button button2 = (Button) findViewById(a.e.cancel_clip_btn);
         if (Build.VERSION.SDK_INT >= 19) {
@@ -215,11 +217,11 @@ public class ImageClipActivity extends Activity {
     }
 
     private void c() {
-        if (this.a == 0 && this.b == 0) {
+        if (this.f3353a == 0 && this.b == 0) {
             return;
         }
-        overridePendingTransition(this.a, this.b);
-        this.a = 0;
+        overridePendingTransition(this.f3353a, this.b);
+        this.f3353a = 0;
         this.b = 0;
     }
 
@@ -305,11 +307,11 @@ public class ImageClipActivity extends Activity {
     }
 
     private String a(Context context, Uri uri) {
-        String a = a(uri);
-        if (TextUtils.isEmpty(a)) {
+        String a2 = a(uri);
+        if (TextUtils.isEmpty(a2)) {
             return null;
         }
-        File file = new File(Environment.getExternalStorageDirectory().getPath() + File.separator + "pass_temp_" + a);
+        File file = new File(Environment.getExternalStorageDirectory().getPath() + File.separator + "pass_temp_" + a2);
         a(context, uri, file);
         return file.getAbsolutePath();
     }

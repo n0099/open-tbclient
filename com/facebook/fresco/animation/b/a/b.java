@@ -4,51 +4,51 @@ import android.graphics.Bitmap;
 import com.facebook.fresco.animation.b.b;
 import javax.annotation.Nullable;
 import javax.annotation.concurrent.GuardedBy;
-/* loaded from: classes5.dex */
+/* loaded from: classes14.dex */
 public class b implements com.facebook.fresco.animation.b.b {
-    private int nBr = -1;
+    private int nQK = -1;
     @Nullable
-    private b.a nBs;
+    private b.a nQL;
     @GuardedBy("this")
     @Nullable
-    private com.facebook.common.references.a<Bitmap> nBt;
+    private com.facebook.common.references.a<Bitmap> nQM;
 
     @Override // com.facebook.fresco.animation.b.b
     @Nullable
-    public synchronized com.facebook.common.references.a<Bitmap> Ma(int i) {
-        return this.nBr == i ? com.facebook.common.references.a.b(this.nBt) : null;
+    public synchronized com.facebook.common.references.a<Bitmap> MG(int i) {
+        return this.nQK == i ? com.facebook.common.references.a.b(this.nQM) : null;
     }
 
     @Override // com.facebook.fresco.animation.b.b
     @Nullable
-    public synchronized com.facebook.common.references.a<Bitmap> Mb(int i) {
-        return com.facebook.common.references.a.b(this.nBt);
+    public synchronized com.facebook.common.references.a<Bitmap> MH(int i) {
+        return com.facebook.common.references.a.b(this.nQM);
     }
 
     @Override // com.facebook.fresco.animation.b.b
     public synchronized com.facebook.common.references.a<Bitmap> ae(int i, int i2, int i3) {
         com.facebook.common.references.a<Bitmap> b;
-        b = com.facebook.common.references.a.b(this.nBt);
-        dVq();
+        b = com.facebook.common.references.a.b(this.nQM);
+        dZb();
         return b;
     }
 
     @Override // com.facebook.fresco.animation.b.b
-    public synchronized boolean Mc(int i) {
+    public synchronized boolean MI(int i) {
         boolean z;
-        if (i == this.nBr) {
-            z = com.facebook.common.references.a.a(this.nBt);
+        if (i == this.nQK) {
+            z = com.facebook.common.references.a.a(this.nQM);
         }
         return z;
     }
 
     @Override // com.facebook.fresco.animation.b.b
     public synchronized void clear() {
-        dVq();
+        dZb();
     }
 
     /* JADX WARN: Code restructure failed: missing block: B:7:0x0017, code lost:
-        if (r4.get().equals(r2.nBt.get()) != false) goto L12;
+        if (r4.get().equals(r2.nQM.get()) != false) goto L12;
      */
     @Override // com.facebook.fresco.animation.b.b
     /*
@@ -56,30 +56,30 @@ public class b implements com.facebook.fresco.animation.b.b {
     */
     public synchronized void a(int i, com.facebook.common.references.a<Bitmap> aVar, int i2) {
         if (aVar != null) {
-            if (this.nBt != null) {
+            if (this.nQM != null) {
             }
         }
-        com.facebook.common.references.a.c(this.nBt);
-        if (this.nBs != null && this.nBr != -1) {
-            this.nBs.b(this, this.nBr);
+        com.facebook.common.references.a.c(this.nQM);
+        if (this.nQL != null && this.nQK != -1) {
+            this.nQL.b(this, this.nQK);
         }
-        this.nBt = com.facebook.common.references.a.b(aVar);
-        if (this.nBs != null) {
-            this.nBs.a(this, i);
+        this.nQM = com.facebook.common.references.a.b(aVar);
+        if (this.nQL != null) {
+            this.nQL.a(this, i);
         }
-        this.nBr = i;
+        this.nQK = i;
     }
 
     @Override // com.facebook.fresco.animation.b.b
     public void b(int i, com.facebook.common.references.a<Bitmap> aVar, int i2) {
     }
 
-    private synchronized void dVq() {
-        if (this.nBs != null && this.nBr != -1) {
-            this.nBs.b(this, this.nBr);
+    private synchronized void dZb() {
+        if (this.nQL != null && this.nQK != -1) {
+            this.nQL.b(this, this.nQK);
         }
-        com.facebook.common.references.a.c(this.nBt);
-        this.nBt = null;
-        this.nBr = -1;
+        com.facebook.common.references.a.c(this.nQM);
+        this.nQM = null;
+        this.nQK = -1;
     }
 }

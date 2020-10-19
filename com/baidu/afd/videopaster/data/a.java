@@ -8,36 +8,36 @@ import com.baidu.tieba.lego.card.b.b;
 import java.util.ArrayList;
 /* loaded from: classes.dex */
 public class a implements com.baidu.tieba.lego.card.b.b {
-    public String Zb;
-    public String Zc;
-    public int Ze;
-    public String Zf;
-    public String Zg;
-    public String Zh;
-    public String Zi;
-    public boolean Zj;
-    public int Zk;
-    public int Zl;
-    private b.a Zo;
+    public int ZA;
+    public int ZB;
+    private b.a ZE;
+    public String Zs;
+    public String Zt;
+    public int Zu;
+    public String Zv;
+    public String Zw;
+    public String Zx;
+    public String Zy;
+    public boolean Zz;
     public String adid;
     public String extra;
     public String picUrl;
     public String tplName;
     public String videoUrl;
-    private int Za = 3;
-    public ArrayList<String> Zm = new ArrayList<>();
-    public ArrayList<String> Zn = new ArrayList<>();
+    private int Zr = 3;
+    public ArrayList<String> ZC = new ArrayList<>();
+    public ArrayList<String> ZD = new ArrayList<>();
 
     public void ba(int i) {
-        this.Za = i;
+        this.Zr = i;
     }
 
     public boolean isEmpty() {
-        return this.Za == 2;
+        return this.Zr == 2;
     }
 
     public int rT() {
-        return this.Za;
+        return this.Zr;
     }
 
     public boolean isValid() {
@@ -51,16 +51,16 @@ public class a implements com.baidu.tieba.lego.card.b.b {
     }
 
     public String rU() {
-        return StringUtils.isNull(this.Zh) ? TbadkCoreApplication.getInst().getResources().getString(R.string.check_detail) : this.Zh;
+        return StringUtils.isNull(this.Zx) ? TbadkCoreApplication.getInst().getResources().getString(R.string.check_detail) : this.Zx;
     }
 
     @Override // com.baidu.tieba.lego.card.b.b
     public b.a getParallelCharge() {
-        if (this.Zo == null) {
-            this.Zo = new b.a();
-            this.Zo.jXb = this.Zm;
-            this.Zo.jXc = this.Zn;
+        if (this.ZE == null) {
+            this.ZE = new b.a();
+            this.ZE.kmr = this.ZC;
+            this.ZE.kms = this.ZD;
         }
-        return this.Zo;
+        return this.ZE;
     }
 }

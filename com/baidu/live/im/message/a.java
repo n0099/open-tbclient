@@ -8,8 +8,8 @@ public class a extends HttpMessage {
     private com.baidu.live.im.data.b barrageCardInfo;
     private String barrageId;
     private int barrageType;
-    private int bfm;
-    private boolean bfn;
+    private int biY;
+    private boolean biZ;
     private String content;
     private String customRoomId;
     private int groupId;
@@ -22,7 +22,7 @@ public class a extends HttpMessage {
 
     public a(String str, short s, int i, String str2) {
         super(1021013);
-        this.bfn = false;
+        this.biZ = false;
         this.content = str;
         this.msgType = s;
         this.groupId = i;
@@ -37,19 +37,19 @@ public class a extends HttpMessage {
         return this.content;
     }
 
-    public short KC() {
+    public short LH() {
         return this.msgType;
     }
 
-    public void gi(String str) {
+    public void gx(String str) {
         this.liveId = str;
     }
 
-    public void hg(String str) {
+    public void hx(String str) {
         this.roomId = str;
     }
 
-    public String KD() {
+    public String LI() {
         return this.otherParams;
     }
 
@@ -57,31 +57,31 @@ public class a extends HttpMessage {
         this.otherParams = str;
     }
 
-    public long KE() {
+    public long LJ() {
         return this.price;
     }
 
-    public void ak(long j) {
+    public void al(long j) {
         this.price = j;
     }
 
-    public int Ks() {
+    public int Lx() {
         return this.barrageType;
     }
 
-    public void eA(int i) {
+    public void eJ(int i) {
         this.barrageType = i;
     }
 
-    public String Kt() {
+    public String Ly() {
         return this.barrageId;
     }
 
-    public void hf(String str) {
+    public void hw(String str) {
         this.barrageId = str;
     }
 
-    public com.baidu.live.im.data.b Ku() {
+    public com.baidu.live.im.data.b Lz() {
         return this.barrageCardInfo;
     }
 
@@ -89,7 +89,7 @@ public class a extends HttpMessage {
         this.barrageCardInfo = bVar;
     }
 
-    public String[] Kv() {
+    public String[] LA() {
         return this.imEffect;
     }
 
@@ -97,19 +97,19 @@ public class a extends HttpMessage {
         this.imEffect = strArr;
     }
 
-    public void bU(boolean z) {
-        this.bfn = z;
+    public void bX(boolean z) {
+        this.biZ = z;
     }
 
-    public boolean KF() {
-        return this.bfn;
+    public boolean LK() {
+        return this.biZ;
     }
 
-    public boolean KG() {
-        return this.bfm == 1;
+    public boolean LL() {
+        return this.biY == 1;
     }
 
-    public String KH() {
+    public String LM() {
         return this.customRoomId;
     }
 }

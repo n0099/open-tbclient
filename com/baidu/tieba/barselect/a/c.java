@@ -2,9 +2,9 @@ package com.baidu.tieba.barselect.a;
 
 import android.graphics.BitmapFactory;
 import android.util.Log;
-/* loaded from: classes20.dex */
+/* loaded from: classes21.dex */
 public class c {
-    public static int vN(int i) {
+    public static int wt(int i) {
         if (i == 6) {
             return 90;
         }
@@ -38,16 +38,16 @@ public class c {
                     if (i5 == 217) {
                         break;
                     } else if (i5 != 218) {
-                        int a = a(bArr, i3, 2, false);
-                        if (a < 2 || i3 + a > bArr.length) {
+                        int a2 = a(bArr, i3, 2, false);
+                        if (a2 < 2 || i3 + a2 > bArr.length) {
                             Log.e("CameraExif", "Invalid length");
                             return 0;
-                        } else if (i5 == 225 && a >= 8 && a(bArr, i3 + 2, 4, false) == 1165519206 && a(bArr, i3 + 6, 2, false) == 0) {
+                        } else if (i5 == 225 && a2 >= 8 && a(bArr, i3 + 2, 4, false) == 1165519206 && a(bArr, i3 + 6, 2, false) == 0) {
                             i2 = i3 + 8;
-                            i = a - 8;
+                            i = a2 - 8;
                             break;
                         } else {
-                            i3 += a;
+                            i3 += a2;
                         }
                     } else {
                         i = 0;
@@ -62,25 +62,25 @@ public class c {
         i = 0;
         i2 = i3;
         if (i > 8) {
-            int a2 = a(bArr, i2, 4, false);
-            if (a2 != 1229531648 && a2 != 1296891946) {
+            int a3 = a(bArr, i2, 4, false);
+            if (a3 != 1229531648 && a3 != 1296891946) {
                 Log.e("CameraExif", "Invalid byte order");
                 return 0;
             }
-            boolean z = a2 == 1229531648;
-            int a3 = a(bArr, i2 + 4, 4, z) + 2;
-            if (a3 < 10 || a3 > i) {
+            boolean z = a3 == 1229531648;
+            int a4 = a(bArr, i2 + 4, 4, z) + 2;
+            if (a4 < 10 || a4 > i) {
                 Log.e("CameraExif", "Invalid offset");
                 return 0;
             }
-            int i6 = i2 + a3;
-            int i7 = i - a3;
-            int a4 = a(bArr, i6 - 2, 2, z);
+            int i6 = i2 + a4;
+            int i7 = i - a4;
+            int a5 = a(bArr, i6 - 2, 2, z);
             int i8 = i6;
             int i9 = i7;
             while (true) {
-                int i10 = a4 - 1;
-                if (a4 <= 0 || i9 < 12) {
+                int i10 = a5 - 1;
+                if (a5 <= 0 || i9 < 12) {
                     break;
                 } else if (a(bArr, i8, 2, z) == 274) {
                     switch (a(bArr, i8 + 8, 2, z)) {
@@ -101,7 +101,7 @@ public class c {
                 } else {
                     i8 += 12;
                     i9 -= 12;
-                    a4 = i10;
+                    a5 = i10;
                 }
             }
         }

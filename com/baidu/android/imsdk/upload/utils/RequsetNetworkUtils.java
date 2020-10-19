@@ -11,7 +11,7 @@ import java.net.Inet4Address;
 import java.net.InetAddress;
 import java.net.NetworkInterface;
 import java.util.Enumeration;
-/* loaded from: classes9.dex */
+/* loaded from: classes5.dex */
 public class RequsetNetworkUtils {
     private static final String TAG = "RequsetNetworkUtils";
     private static ConnectivityManager mConnManager = null;

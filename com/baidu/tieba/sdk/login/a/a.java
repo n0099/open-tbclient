@@ -15,9 +15,9 @@ public class a extends HttpResponsedRule {
     /* renamed from: e */
     public HttpResponsedMessage process(HttpResponsedMessage httpResponsedMessage) {
         if ((httpResponsedMessage == null || httpResponsedMessage.getCmd() != 1001536) && (httpResponsedMessage instanceof JsonHttpResponsedMessage)) {
-            com.baidu.tieba.sdk.login.a dtp = com.baidu.tieba.sdk.login.a.dtp();
+            com.baidu.tieba.sdk.login.a dxa = com.baidu.tieba.sdk.login.a.dxa();
             if (((JsonHttpResponsedMessage) httpResponsedMessage).getError() == 1 && !(httpResponsedMessage instanceof ALAGroupCommitHttpResponsedMessage)) {
-                dtp.cRv();
+                dxa.cVf();
                 return null;
             }
             return httpResponsedMessage;

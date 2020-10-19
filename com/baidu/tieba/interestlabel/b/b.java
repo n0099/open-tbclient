@@ -6,22 +6,22 @@ import java.util.ArrayList;
 import java.util.List;
 import tbclient.GetTagList.DataRes;
 import tbclient.GetTagList.ResponseTagInfo;
-/* loaded from: classes22.dex */
+/* loaded from: classes23.dex */
 public class b {
-    private List<a> jTH;
-    private List<Integer> jTI;
-    private List<a> jTL;
+    private List<a> kiH;
+    private List<Integer> kiI;
+    private List<a> kiL;
 
     public void a(DataRes dataRes) {
         if (dataRes != null) {
             if (!y.isEmpty(dataRes.sex_taglist)) {
-                this.jTL = new ArrayList();
-                x(this.jTL, dataRes.sex_taglist);
+                this.kiL = new ArrayList();
+                x(this.kiL, dataRes.sex_taglist);
             }
             if (!y.isEmpty(dataRes.taglist)) {
-                this.jTH = new ArrayList();
-                this.jTI = new ArrayList();
-                x(this.jTH, dataRes.taglist);
+                this.kiH = new ArrayList();
+                this.kiI = new ArrayList();
+                x(this.kiH, dataRes.taglist);
             }
         }
     }
@@ -33,23 +33,23 @@ public class b {
                     a aVar = new a();
                     aVar.a(responseTagInfo);
                     list.add(aVar);
-                    if (this.jTI != null && aVar.isFollow) {
-                        this.jTI.add(Integer.valueOf(aVar.labelId));
+                    if (this.kiI != null && aVar.isFollow) {
+                        this.kiI.add(Integer.valueOf(aVar.labelId));
                     }
                 }
             }
         }
     }
 
-    public List<a> cOQ() {
-        return this.jTL;
+    public List<a> cSy() {
+        return this.kiL;
     }
 
-    public List<a> cOR() {
-        return this.jTH;
+    public List<a> cSz() {
+        return this.kiH;
     }
 
-    public List<Integer> cOS() {
-        return this.jTI;
+    public List<Integer> cSA() {
+        return this.kiI;
     }
 }

@@ -4,7 +4,7 @@ import android.content.Context;
 import com.baidu.tbadk.core.data.PushStatusData;
 import com.baidu.tbadk.core.frameworkData.IntentAction;
 import com.baidu.tbadk.core.frameworkData.IntentConfig;
-/* loaded from: classes21.dex */
+/* loaded from: classes22.dex */
 public class PushThreadActivityConfig extends IntentConfig {
     public static final String KEY_FORUM_ID = "forum_id";
     public static final String KEY_PUSH_DATA = "push_data";

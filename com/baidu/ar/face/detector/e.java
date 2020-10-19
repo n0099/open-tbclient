@@ -9,7 +9,7 @@ import com.baidu.ar.face.algo.FaceFrame;
 import com.baidu.ar.face.algo.FaceJniClient;
 import com.baidu.ar.statistic.StatisticApi;
 import java.nio.ByteBuffer;
-/* loaded from: classes10.dex */
+/* loaded from: classes14.dex */
 class e extends a {
     private static final String TAG = e.class.getSimpleName();
     private FaceAlgoConfig nZ;

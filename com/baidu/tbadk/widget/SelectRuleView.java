@@ -10,10 +10,10 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes.dex */
 public class SelectRuleView extends LinearLayout {
-    List<String> eZI;
-    private int eZO;
-    List<String> eZP;
-    List<String> eZQ;
+    List<String> flU;
+    private int fma;
+    List<String> fmb;
+    List<String> fmc;
     private int mSkinType;
     private int mType;
 
@@ -28,7 +28,7 @@ public class SelectRuleView extends LinearLayout {
     public SelectRuleView(Context context, @Nullable AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
         this.mType = 0;
-        this.eZO = 2;
+        this.fma = 2;
         this.mSkinType = 3;
         initUI();
     }
@@ -41,9 +41,9 @@ public class SelectRuleView extends LinearLayout {
 
     public void setData(List<String> list, List<String> list2) {
         if (!y.isEmpty(list) || !y.isEmpty(list2)) {
-            bxp();
-            this.eZP = list;
-            this.eZQ = list2;
+            bzZ();
+            this.fmb = list;
+            this.fmc = list2;
             List<String> arrayList = new ArrayList<>();
             arrayList.addAll(list);
             List<String> arrayList2 = new ArrayList<>();
@@ -55,11 +55,11 @@ public class SelectRuleView extends LinearLayout {
             while (arrayList.size() < size) {
                 arrayList.add("");
             }
-            for (int i = 0; i < ((this.eZO + size) - 1) / this.eZO; i++) {
+            for (int i = 0; i < ((this.fma + size) - 1) / this.fma; i++) {
                 SelectRuleRowItem selectRuleRowItem = new SelectRuleRowItem(getContext());
                 selectRuleRowItem.setType(this.mType);
-                int i2 = this.eZO * i;
-                int i3 = (i + 1) * this.eZO;
+                int i2 = this.fma * i;
+                int i3 = (i + 1) * this.fma;
                 selectRuleRowItem.setData(d(arrayList, i2, i3), d(arrayList2, i2, i3));
                 addView(selectRuleRowItem);
             }
@@ -68,10 +68,10 @@ public class SelectRuleView extends LinearLayout {
 
     public void setData(List<String> list, List<String> list2, List<String> list3) {
         if (!y.isEmpty(list2) || !y.isEmpty(list3) || !y.isEmpty(list)) {
-            bxp();
-            this.eZP = list2;
-            this.eZQ = list3;
-            this.eZI = list;
+            bzZ();
+            this.fmb = list2;
+            this.fmc = list3;
+            this.flU = list;
             List<String> arrayList = new ArrayList<>();
             arrayList.addAll(list2);
             List<String> arrayList2 = new ArrayList<>();
@@ -91,11 +91,11 @@ public class SelectRuleView extends LinearLayout {
             while (arrayList3.size() < size) {
                 arrayList3.add("");
             }
-            for (int i = 0; i < ((this.eZO + size) - 1) / this.eZO; i++) {
+            for (int i = 0; i < ((this.fma + size) - 1) / this.fma; i++) {
                 SelectRuleRowItem selectRuleRowItem = new SelectRuleRowItem(getContext());
                 selectRuleRowItem.setType(this.mType);
-                int i2 = this.eZO * i;
-                int i3 = (i + 1) * this.eZO;
+                int i2 = this.fma * i;
+                int i3 = (i + 1) * this.fma;
                 selectRuleRowItem.setData(d(arrayList3, i2, i3), d(arrayList, i2, i3), d(arrayList2, i2, i3));
                 addView(selectRuleRowItem);
             }
@@ -103,7 +103,7 @@ public class SelectRuleView extends LinearLayout {
     }
 
     public void setColumn(int i) {
-        this.eZO = i;
+        this.fma = i;
     }
 
     public void setType(int i) {
@@ -124,16 +124,16 @@ public class SelectRuleView extends LinearLayout {
         return arrayList;
     }
 
-    private void bxp() {
+    private void bzZ() {
         removeAllViews();
     }
 
-    public void rd(int i) {
+    public void rB(int i) {
         if (this.mSkinType != i) {
             if (this.mType == 0) {
-                setData(this.eZP, this.eZQ);
+                setData(this.fmb, this.fmc);
             } else if (this.mType == 1) {
-                setData(this.eZI, this.eZP, this.eZQ);
+                setData(this.flU, this.fmb, this.fmc);
             }
         }
     }

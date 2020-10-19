@@ -4,24 +4,24 @@ import com.baidu.tbadk.core.util.y;
 import java.util.ArrayList;
 /* loaded from: classes4.dex */
 public class a {
-    private String gYR;
-    private ArrayList<b> gYS = new ArrayList<>();
+    private String hnS;
+    private ArrayList<b> hnT = new ArrayList<>();
     private int type;
 
     public void b(b bVar) {
-        this.gYS.add(bVar);
+        this.hnT.add(bVar);
     }
 
-    public b vk(int i) {
-        return (b) y.getItem(this.gYS, i);
+    public b vQ(int i) {
+        return (b) y.getItem(this.hnT, i);
     }
 
-    public String caH() {
-        return this.gYR;
+    public String cef() {
+        return this.hnS;
     }
 
-    public void Hd(String str) {
-        this.gYR = str;
+    public void HR(String str) {
+        this.hnS = str;
     }
 
     public int getType() {

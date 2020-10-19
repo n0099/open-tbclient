@@ -33,12 +33,9 @@ import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes9.dex */
+/* loaded from: classes5.dex */
 public class MessageParser {
-    public static final int LONG_ACK_TYPE = 1;
-    public static final int SHORT_ACK_TYPE = 0;
     private static final String TAG = "MessageParser";
-    public static volatile int sAckType;
 
     /* JADX WARN: Type inference failed for: r6v1, types: [T, java.lang.Long] */
     public static ChatMsg parserMessage(Context context, JSONObject jSONObject, Type<Long> type, boolean z) {
@@ -64,7 +61,7 @@ public class MessageParser {
                         LogUtils.e(TAG, "parserMessage template_type:", e);
                         i = 0;
                     }
-                    boolean z3 = (optInt2 == 80 || (optInt2 == 0 && optInt3 == 10)) && i == 0;
+                    boolean z3 = ((optInt2 == 80 && optInt3 != 11) || (optInt2 == 0 && optInt3 == 10)) && i == 0;
                     boolean z4 = i == 2 || i == 3;
                     if (z3 || z4) {
                         DuParser invokeParse = new DuParser(context, optString, optInt).invokeParse();
@@ -78,13 +75,31 @@ public class MessageParser {
                         chatMsg = ChatMsgFactory.getInstance().newChatMsg(context, optInt, i2, -1);
                         if (chatMsg != null) {
                             chatMsg.setMsgType(i2);
-                            z2 = chatMsg.setMsgContentFromServer(optString);
+                            boolean msgContentFromServer = chatMsg.setMsgContentFromServer(optString);
                             chatMsg.setTemplateType(i);
                             if (chatMsg.isDumiMessage()) {
                                 chatMsg.setChatType(100);
                                 LogUtils.d(TAG, "setchattype as dumi " + chatMsg.getMsgId());
                             }
                             chatMsg.setChatType(0);
+                            if (optInt3 == 11) {
+                                try {
+                                    JSONObject jSONObject2 = new JSONObject(jSONObject.optString("content"));
+                                    String optString2 = jSONObject2.optString("ext");
+                                    if (!TextUtils.isEmpty(optString2) && new JSONObject(optString2).optInt("sub_app_identity") == 20) {
+                                        chatMsg.setChatType(20);
+                                    }
+                                    String optString3 = jSONObject2.optString("text");
+                                    if (!TextUtils.isEmpty(optString3)) {
+                                        chatMsg.setMsgContent(optString3);
+                                    }
+                                    LogUtils.w(TAG, "parserMessage studioPa msg :" + chatMsg.toString());
+                                } catch (Exception e2) {
+                                    LogUtils.e(TAG, "IM_BUSINESS_TYPE_STUDIO_USE_PA Exception :", e2);
+                                    z2 = msgContentFromServer;
+                                }
+                            }
+                            z2 = msgContentFromServer;
                         } else {
                             return chatMsg;
                         }
@@ -144,14 +159,14 @@ public class MessageParser {
                         chatMsg.setContacter(optLong4);
                         chatMsg.setFromUser(optLong2);
                         chatMsg.setMsgType(optInt5);
-                        boolean msgContentFromServer = chatMsg.setMsgContentFromServer(optString);
+                        boolean msgContentFromServer2 = chatMsg.setMsgContentFromServer(optString);
                         if (ConversationStudioManImpl.getInstance(context).isReliable(optLong4)) {
                             ((TextMsg) chatMsg).setCastId(optLong4);
                             ((TextMsg) chatMsg).setPriority(jSONObject.optLong("prority"));
                             chatMsg.setMsgContent(jSONObject.toString());
                         }
-                        LogUtils.d("IMFetchMsgByIdMsg parse ", msgContentFromServer + "");
-                        z2 = msgContentFromServer;
+                        LogUtils.d("IMFetchMsgByIdMsg parse ", msgContentFromServer2 + "");
+                        z2 = msgContentFromServer2;
                         break;
                     } else {
                         return chatMsg;
@@ -207,9 +222,9 @@ public class MessageParser {
                 return chatMsg;
             }
             return chatMsg;
-        } catch (Exception e2) {
-            LogUtils.e(TAG, "parserMessage:", e2);
-            new IMTrack.CrashBuilder(context).exception(Log.getStackTraceString(e2)).build();
+        } catch (Exception e3) {
+            LogUtils.e(TAG, "parserMessage:", e3);
+            new IMTrack.CrashBuilder(context).exception(Log.getStackTraceString(e3)).build();
             return null;
         }
     }
@@ -258,19 +273,27 @@ public class MessageParser {
     }
 
     public static synchronized List<NewAckMessage.Tripule> handleAck(Context context, ArrayList<ChatMsg> arrayList, boolean z) {
+        List<NewAckMessage.Tripule> handleAck;
+        synchronized (MessageParser.class) {
+            handleAck = handleAck(context, arrayList, z, true);
+        }
+        return handleAck;
+    }
+
+    public static synchronized List<NewAckMessage.Tripule> handleAck(Context context, ArrayList<ChatMsg> arrayList, boolean z, boolean z2) {
         LinkedList linkedList;
-        boolean z2;
+        boolean z3;
         String str;
         String str2;
         JSONObject jSONObject;
         synchronized (MessageParser.class) {
             if (arrayList != null) {
                 if (arrayList.size() != 0) {
-                    LogUtils.d(TAG, "ack type: " + sAckType + ", ack> handleAck...number=" + arrayList.size());
+                    LogUtils.d(TAG, "ack type: " + String.valueOf(z2) + ", ack> handleAck...number=" + arrayList.size() + ", msgs:" + arrayList.toString());
                     ArrayList arrayList2 = new ArrayList();
                     ArrayList arrayList3 = new ArrayList();
                     LinkedList linkedList2 = new LinkedList();
-                    boolean z3 = false;
+                    boolean z4 = false;
                     long triggerId = Utility.getTriggerId(context);
                     String str3 = AccountManagerImpl.getInstance(context).getLoginType() == 6 ? "cuid" : "uid";
                     long uk = AccountManager.getUK(context);
@@ -357,23 +380,22 @@ public class MessageParser {
                             if (category == 4 && ConversationStudioManImpl.getInstance(context).isReliable(((TextMsg) chatMsg).getCastId())) {
                                 tripule.setMcastId(((TextMsg) chatMsg).getCastId());
                                 tripule.setStudioIsReliable(true);
-                                z2 = true;
+                                z3 = true;
                             } else {
-                                z2 = z3;
+                                z3 = z4;
                             }
                             linkedList2.add(tripule);
                         } else {
-                            z2 = z3;
+                            z3 = z4;
                         }
                         i++;
-                        z3 = z2;
+                        z4 = z3;
                     }
-                    if (sAckType == 0) {
-                        setAcKType(1);
+                    if (z2) {
+                        getAckNeedPainfos(context, z, arrayList2, arrayList3);
+                        sendNewAckToServer(context, triggerId, linkedList2, z4);
                         linkedList = linkedList2;
                     } else {
-                        getAckNeedPainfos(context, z, arrayList2, arrayList3);
-                        sendNewAckToServer(context, triggerId, linkedList2, z3);
                         linkedList = linkedList2;
                     }
                 }
@@ -381,10 +403,6 @@ public class MessageParser {
             linkedList = null;
         }
         return linkedList;
-    }
-
-    public static void setAcKType(int i) {
-        sAckType = i;
     }
 
     private static void getAckNeedPainfos(final Context context, boolean z, final ArrayList<ChatMsg> arrayList, ArrayList<Long> arrayList2) {
@@ -438,7 +456,7 @@ public class MessageParser {
                 for (List<NewAckMessage.Tripule> list2 : splitList) {
                     NewAckMessage newAckMessage = new NewAckMessage(context, IMSDK.getInstance(context).getUk(), j, z);
                     newAckMessage.addTriples(list2);
-                    if (!a.ayR) {
+                    if (!a.azA) {
                         IMConnection.getInstance(context).sendMessage(newAckMessage, false);
                     }
                 }
@@ -472,7 +490,7 @@ public class MessageParser {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes9.dex */
+    /* loaded from: classes5.dex */
     public static class DuParser {
         private int category;
         private String content;
@@ -584,6 +602,10 @@ public class MessageParser {
                                         this.msg.setChatType(27);
                                     } else if (optInt4 == 29) {
                                         this.msg.setChatType(29);
+                                    } else if (Utility.availableNotificationPaType(optInt4)) {
+                                        this.msg.setChatType(optInt4);
+                                    } else if (optInt4 == 20) {
+                                        this.msg.setChatType(20);
                                     }
                                     this.msg.setMsgType(i);
                                     if (i == 18) {

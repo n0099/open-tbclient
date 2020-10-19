@@ -2,18 +2,18 @@ package master.flame.danmaku.danmaku.model;
 /* loaded from: classes6.dex */
 public abstract class d {
     public int index;
-    public boolean ktm;
-    public long oFH;
-    public String[] oFI;
-    public float oFJ;
-    public int oFK;
-    public g oFO;
-    public n<?> oFT;
-    public boolean oFU;
-    public String oFV;
-    public boolean oFW;
-    protected f oFn;
-    public boolean oGc;
+    public boolean kIy;
+    protected f oUC;
+    public long oUW;
+    public String[] oUX;
+    public float oUY;
+    public int oUZ;
+    public g oVd;
+    public n<?> oVi;
+    public boolean oVj;
+    public String oVk;
+    public boolean oVl;
+    public boolean oVr;
     public Object obj;
     public float rotationY;
     public Object tag;
@@ -21,122 +21,122 @@ public abstract class d {
     public int textColor;
     private long time;
     public int visibility;
-    public boolean oFG = false;
+    public boolean oUV = false;
     public int underlineColor = 0;
-    public float bwX = -1.0f;
+    public float bDA = -1.0f;
     public int borderColor = 0;
     public int padding = 0;
-    public byte oFL = 0;
-    public float oFM = -1.0f;
-    public float oFN = -1.0f;
-    private int oFP = 0;
-    public int oFQ = 0;
-    public int oFR = 0;
-    public int oFS = -1;
+    public byte oVa = 0;
+    public float oVb = -1.0f;
+    public float oVc = -1.0f;
+    private int oVe = 0;
+    public int oVf = 0;
+    public int oVg = 0;
+    public int oVh = -1;
     public int userId = 0;
     protected int alpha = c.MAX;
-    public int oFX = 0;
-    public int oFY = -1;
-    public j oFZ = null;
-    public int oGa = 0;
-    public int oGb = -1;
+    public int oVm = 0;
+    public int oVn = -1;
+    public j oVo = null;
+    public int oVp = 0;
+    public int oVq = -1;
 
     public abstract void a(m mVar, float f, float f2);
 
     public abstract float[] a(m mVar, long j);
 
-    public abstract float elJ();
+    public abstract float epw();
 
-    public abstract float elK();
+    public abstract float epx();
 
-    public abstract float elL();
+    public abstract float epy();
 
-    public abstract float elM();
+    public abstract float epz();
 
     public abstract int getType();
 
     public long getDuration() {
-        return this.oFO.value;
+        return this.oVd.value;
     }
 
     public int a(m mVar) {
         return mVar.n(this);
     }
 
-    public boolean elC() {
-        return this.oFM > -1.0f && this.oFN > -1.0f && this.oFQ == this.oFZ.oGl;
+    public boolean epp() {
+        return this.oVb > -1.0f && this.oVc > -1.0f && this.oVf == this.oVo.oVA;
     }
 
     public void a(m mVar, boolean z) {
         mVar.c(this, z);
-        this.oFQ = this.oFZ.oGl;
+        this.oVf = this.oVo.oVA;
     }
 
     public boolean isPrepared() {
-        return this.oFS == this.oFZ.oGq;
+        return this.oVh == this.oVo.oVF;
     }
 
     public void b(m mVar, boolean z) {
         mVar.b(this, z);
-        this.oFS = this.oFZ.oGq;
+        this.oVh = this.oVo.oVF;
     }
 
-    public n<?> elD() {
-        return this.oFT;
+    public n<?> epq() {
+        return this.oVi;
     }
 
     public boolean isShown() {
-        return this.visibility == 1 && this.oFP == this.oFZ.oGm;
+        return this.visibility == 1 && this.oVe == this.oVo.oVB;
     }
 
-    public boolean elE() {
-        return this.oFn == null || hi(this.oFn.oGd);
+    public boolean epr() {
+        return this.oUC == null || hA(this.oUC.oVs);
     }
 
-    public boolean hi(long j) {
-        return j - elO() >= this.oFO.value;
+    public boolean hA(long j) {
+        return j - epB() >= this.oVd.value;
     }
 
-    public boolean elF() {
-        return this.oFn == null || hj(this.oFn.oGd);
+    public boolean eps() {
+        return this.oUC == null || hB(this.oUC.oVs);
     }
 
-    public boolean hj(long j) {
-        long elO = j - elO();
-        return elO <= 0 || elO >= this.oFO.value;
+    public boolean hB(long j) {
+        long epB = j - epB();
+        return epB <= 0 || epB >= this.oVd.value;
     }
 
-    public boolean elG() {
-        return this.oFn == null || this.oFn.oGd < elO();
+    public boolean ept() {
+        return this.oUC == null || this.oUC.oVs < epB();
     }
 
-    public boolean elH() {
-        if (this.oFY != this.oFZ.oGn) {
-            this.oFX = 0;
+    public boolean epu() {
+        if (this.oVn != this.oVo.oVC) {
+            this.oVm = 0;
             return false;
         }
         return true;
     }
 
-    public boolean elI() {
-        return this.oFY == this.oFZ.oGn && this.oFX != 0;
+    public boolean epv() {
+        return this.oVn == this.oVo.oVC && this.oVm != 0;
     }
 
     public void setVisibility(boolean z) {
         if (z) {
-            this.oFP = this.oFZ.oGm;
+            this.oVe = this.oVo.oVB;
             this.visibility = 1;
             return;
         }
         this.visibility = 0;
     }
 
-    public f elN() {
-        return this.oFn;
+    public f epA() {
+        return this.oUC;
     }
 
     public void c(f fVar) {
-        this.oFn = fVar;
+        this.oUC = fVar;
     }
 
     public int getAlpha() {
@@ -147,28 +147,28 @@ public abstract class d {
         this.tag = obj;
     }
 
-    public void hk(long j) {
-        this.oFH = j;
-        this.oFR = this.oFZ.oGp;
+    public void hC(long j) {
+        this.oUW = j;
+        this.oVg = this.oVo.oVE;
     }
 
     public void setTime(long j) {
         this.time = j;
-        this.oFH = 0L;
+        this.oUW = 0L;
     }
 
     public long getTime() {
         return this.time;
     }
 
-    public long elO() {
-        return (this.oFZ == null || this.oFZ.oGp != this.oFR) ? this.time : this.time + this.oFH;
+    public long epB() {
+        return (this.oVo == null || this.oVo.oVE != this.oVg) ? this.time : this.time + this.oUW;
     }
 
-    public boolean elP() {
-        if (this.oFZ == null || this.oFZ.oGp != this.oFR) {
+    public boolean epC() {
+        if (this.oVo == null || this.oVo.oVE != this.oVg) {
             return false;
         }
-        return this.oGc;
+        return this.oVr;
     }
 }

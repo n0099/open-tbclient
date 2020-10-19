@@ -1,5 +1,5 @@
 package com.baidu.android.popupwindow;
-/* loaded from: classes9.dex */
+/* loaded from: classes18.dex */
 public final class BuildConfig {
     public static final String APPLICATION_ID = "com.baidu.android.popupwindow";
     public static final String BUILD_TYPE = "release";

@@ -13,9 +13,11 @@ import android.webkit.WebView;
 import com.baidu.mobstat.bk;
 import java.lang.ref.WeakReference;
 import org.json.JSONObject;
-/* loaded from: classes15.dex */
+/* loaded from: classes17.dex */
 public class bf {
-    private static volatile int a = 0;
+
+    /* renamed from: a  reason: collision with root package name */
+    private static volatile int f2576a = 0;
     private static final bf k = new bf();
     private WeakReference<Activity> b;
     private int c;
@@ -28,8 +30,8 @@ public class bf {
     private be j = new be();
 
     static /* synthetic */ int c() {
-        int i = a + 1;
-        a = i;
+        int i = f2576a + 1;
+        f2576a = i;
         return i;
     }
 
@@ -44,7 +46,7 @@ public class bf {
     }
 
     public static void b() {
-        a = 0;
+        f2576a = 0;
     }
 
     public void a(Activity activity, boolean z, JSONObject jSONObject, boolean z2) {
@@ -82,7 +84,7 @@ public class bf {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes15.dex */
+    /* loaded from: classes17.dex */
     public static class a implements ViewTreeObserver.OnGlobalLayoutListener, Runnable {
         private final WeakReference<View> c;
         private final bk d;
@@ -95,7 +97,9 @@ public class bf {
         private boolean k;
         private Runnable l = null;
         private boolean b = true;
-        private volatile boolean a = false;
+
+        /* renamed from: a  reason: collision with root package name */
+        private volatile boolean f2577a = false;
 
         public a(Activity activity, View view, bk bkVar, Handler handler, Handler handler2, JSONObject jSONObject, boolean z, boolean z2, boolean z3) {
             this.h = new WeakReference<>(activity);
@@ -122,7 +126,7 @@ public class bf {
         @Override // java.lang.Runnable
         public void run() {
             if (this.b) {
-                if (this.c.get() == null || this.a) {
+                if (this.c.get() == null || this.f2577a) {
                     b();
                     return;
                 }
@@ -153,8 +157,8 @@ public class bf {
         }
 
         public void a() {
-            if (!this.a) {
-                this.a = true;
+            if (!this.f2577a) {
+                this.f2577a = true;
                 this.e.post(this);
             }
         }

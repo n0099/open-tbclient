@@ -5,17 +5,17 @@ import com.baidu.swan.pms.e.b;
 import com.baidu.webkit.sdk.WebKitFactory;
 import java.util.HashSet;
 import java.util.Set;
-/* loaded from: classes25.dex */
+/* loaded from: classes19.dex */
 public final class c implements com.baidu.swan.pms.e.b {
-    private static boolean dPb = false;
-    private static final Set<b.a> dPc = new HashSet();
+    private static boolean ebc = false;
+    private static final Set<b.a> ebd = new HashSet();
 
     @Override // com.baidu.swan.pms.e.b
     public void a(String str, b.a aVar) {
-        synchronized (dPc) {
-            dPc.add(aVar);
-            if (!dPb) {
-                dPb = true;
+        synchronized (ebd) {
+            ebd.add(aVar);
+            if (!ebc) {
+                ebc = true;
                 WebKitFactory.installAsync("file://" + str, new WebKitFactory.WebkitInstallListener() { // from class: com.baidu.swan.d.c.1
                     @Override // com.baidu.webkit.sdk.WebKitFactory.WebkitInstallListener
                     public void onInstallStart() {
@@ -23,10 +23,10 @@ public final class c implements com.baidu.swan.pms.e.b {
 
                     @Override // com.baidu.webkit.sdk.WebKitFactory.WebkitInstallListener
                     public void onInstallFinish(int i, String str2) {
-                        synchronized (c.dPc) {
-                            a.hq(true);
-                            c.this.hr(new b(AppRuntime.getAppContext()).aYl());
-                            boolean unused = c.dPb = false;
+                        synchronized (c.ebd) {
+                            a.hL(true);
+                            c.this.hM(new b(AppRuntime.getAppContext()).baT());
+                            boolean unused = c.ebc = false;
                         }
                     }
                 });
@@ -35,14 +35,14 @@ public final class c implements com.baidu.swan.pms.e.b {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void hr(boolean z) {
-        synchronized (dPc) {
-            for (b.a aVar : dPc) {
+    public void hM(boolean z) {
+        synchronized (ebd) {
+            for (b.a aVar : ebd) {
                 if (aVar != null) {
-                    aVar.el(z);
+                    aVar.eH(z);
                 }
             }
-            dPc.clear();
+            ebd.clear();
         }
     }
 }

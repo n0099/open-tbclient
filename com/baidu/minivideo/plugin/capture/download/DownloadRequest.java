@@ -3,7 +3,7 @@ package com.baidu.minivideo.plugin.capture.download;
 import android.text.TextUtils;
 import com.baidu.minivideo.plugin.capture.download.utils.FileUtils;
 import java.io.File;
-/* loaded from: classes18.dex */
+/* loaded from: classes17.dex */
 public class DownloadRequest {
     private CharSequence mDescription;
     private File mFolder;
@@ -39,7 +39,7 @@ public class DownloadRequest {
         return this.mDescription;
     }
 
-    /* loaded from: classes18.dex */
+    /* loaded from: classes17.dex */
     public static class Builder {
         private CharSequence mDescription;
         private File mFolder;

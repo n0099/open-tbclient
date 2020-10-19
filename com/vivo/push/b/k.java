@@ -1,7 +1,9 @@
 package com.vivo.push.b;
-/* loaded from: classes12.dex */
+/* loaded from: classes15.dex */
 public final class k extends u {
-    private String a;
+
+    /* renamed from: a  reason: collision with root package name */
+    private String f4642a;
     private String b;
     private String c;
 
@@ -10,7 +12,7 @@ public final class k extends u {
     }
 
     public final String d() {
-        return this.a;
+        return this.f4642a;
     }
 
     public final String e() {
@@ -21,7 +23,7 @@ public final class k extends u {
     @Override // com.vivo.push.b.u, com.vivo.push.y
     public final void c(com.vivo.push.a aVar) {
         super.c(aVar);
-        aVar.a("app_id", this.a);
+        aVar.a("app_id", this.f4642a);
         aVar.a("client_id", this.b);
         aVar.a("client_token", this.c);
     }
@@ -30,7 +32,7 @@ public final class k extends u {
     @Override // com.vivo.push.b.u, com.vivo.push.y
     public final void d(com.vivo.push.a aVar) {
         super.d(aVar);
-        this.a = aVar.a("app_id");
+        this.f4642a = aVar.a("app_id");
         this.b = aVar.a("client_id");
         this.c = aVar.a("client_token");
     }

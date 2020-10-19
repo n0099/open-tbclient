@@ -23,10 +23,10 @@ import java.util.LinkedList;
 public class f {
     private int bigHeight;
     private int bigWidth;
-    private int eRC;
-    private a eRY;
-    private e eRZ;
-    public boolean eSa;
+    private int fdK;
+    private a feg;
+    private e feh;
+    public boolean fei;
     private String from;
     private boolean isCancelled;
     private Object progressObject;
@@ -45,8 +45,8 @@ public class f {
         this.from = str;
     }
 
-    public void qH(int i) {
-        this.eRC = i;
+    public void rf(int i) {
+        this.fdK = i;
     }
 
     public void setServersideResize(int i, int i2, int i3, int i4) {
@@ -57,7 +57,7 @@ public class f {
     }
 
     public void a(a aVar, Object obj) {
-        this.eRY = aVar;
+        this.feg = aVar;
         this.progressObject = obj;
         if (aVar != null) {
             this.chunkSize = 10240;
@@ -90,7 +90,7 @@ public class f {
                     UploadedImageInfo uploadedPicInfo = a2.getUploadedPicInfo();
                     if (uploadedPicInfo != null && !TextUtils.isEmpty(uploadedPicInfo.toPostString())) {
                         uploadedPicInfo.isGif = imageFileInfo.isGif();
-                        uploadedPicInfo.isBJH = this.eSa;
+                        uploadedPicInfo.isBJH = this.fei;
                         imageFileInfo.setServerImageCode(uploadedPicInfo.toPostString());
                     } else {
                         errorData.setError_code(-53);
@@ -132,17 +132,17 @@ public class f {
         if (imageFileInfo == null) {
             return null;
         }
-        if (this.eRZ == null) {
-            this.eRZ = new e();
+        if (this.feh == null) {
+            this.feh = new e();
         }
-        return f(this.eRZ.c(imageFileInfo, z), z, z2);
+        return f(this.feh.c(imageFileInfo, z), z, z2);
     }
 
     public ImageUploadResult d(ImageFileInfo imageFileInfo, boolean z) {
         return a(imageFileInfo, false, z);
     }
 
-    public ImageUploadResult ar(String str, boolean z) {
+    public ImageUploadResult av(String str, boolean z) {
         return f(str, false, z);
     }
 
@@ -343,7 +343,7 @@ public class f {
                                             } else {
                                                 this.mNetwork.addPostData("isFinish", String.valueOf(0));
                                             }
-                                            if (this.eSa) {
+                                            if (this.fei) {
                                                 this.mNetwork.addPostData(ImageViewerConfig.IS_BJH, String.valueOf(1));
                                             } else {
                                                 this.mNetwork.addPostData(ImageViewerConfig.IS_BJH, String.valueOf(0));
@@ -366,11 +366,11 @@ public class f {
                                             } else {
                                                 this.mNetwork.addPostData("saveOrigin", "0");
                                             }
-                                            if (this.eRC != 0) {
-                                                this.mNetwork.addPostData("pic_water_type", String.valueOf(this.eRC));
+                                            if (this.fdK != 0) {
+                                                this.mNetwork.addPostData("pic_water_type", String.valueOf(this.fdK));
                                             }
                                             if (z2) {
-                                                int imageWaterType = k.bcG().getImageWaterType();
+                                                int imageWaterType = k.bfo().getImageWaterType();
                                                 if (imageWaterType != 0) {
                                                     this.mNetwork.addPostData("pic_water_type", String.valueOf(imageWaterType));
                                                 }
@@ -378,12 +378,12 @@ public class f {
                                                 if (!StringUtils.isNull(currentAccountName) && imageWaterType == 1) {
                                                     this.mNetwork.addPostData("user_name", currentAccountName);
                                                 }
-                                                String forumNameForWaterImage = k.bcG().getForumNameForWaterImage();
+                                                String forumNameForWaterImage = k.bfo().getForumNameForWaterImage();
                                                 if (!StringUtils.isNull(forumNameForWaterImage) && imageWaterType == 2) {
                                                     this.mNetwork.addPostData("forum_name", forumNameForWaterImage);
                                                 }
                                             }
-                                            String forumNameForWaterImage2 = k.bcG().getForumNameForWaterImage();
+                                            String forumNameForWaterImage2 = k.bfo().getForumNameForWaterImage();
                                             if (!StringUtils.isNull(forumNameForWaterImage2)) {
                                                 this.mNetwork.addPostData("small_flow_fname", forumNameForWaterImage2);
                                             }
@@ -400,8 +400,8 @@ public class f {
                                                     int i5 = i3 + 1;
                                                     long j4 = j3 + i4;
                                                     long j5 = i5 > 1 ? j4 + ((i5 - 1) * this.chunkSize) : j4;
-                                                    if (this.eRY != null) {
-                                                        this.eRY.onImageDataSentInBackground(str, this.progressObject, j5, length);
+                                                    if (this.feg != null) {
+                                                        this.feg.onImageDataSentInBackground(str, this.progressObject, j5, length);
                                                     }
                                                     i = i5;
                                                     j = j4;

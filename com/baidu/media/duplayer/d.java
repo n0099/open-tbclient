@@ -1,9 +1,11 @@
 package com.baidu.media.duplayer;
 /* loaded from: classes16.dex */
 public class d {
-    private int a;
+
+    /* renamed from: a  reason: collision with root package name */
+    private int f2258a;
     private String b;
-    private a bEh;
+    private a bKJ;
     private String c;
     private String d;
 
@@ -14,19 +16,19 @@ public class d {
     }
 
     public d(int i, String str, String str2) {
-        this.a = i;
+        this.f2258a = i;
         this.b = str;
         this.c = str2;
-        this.bEh = a.LIB_TYPE_SO;
+        this.bKJ = a.LIB_TYPE_SO;
     }
 
     public d(int i, String str, String str2, a aVar) {
         this(i, str, str2);
-        this.bEh = aVar;
+        this.bKJ = aVar;
     }
 
-    public a TH() {
-        return this.bEh;
+    public a VA() {
+        return this.bKJ;
     }
 
     public String a() {

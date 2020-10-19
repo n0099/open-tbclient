@@ -20,15 +20,15 @@ import com.baidu.tbadk.core.util.aq;
 import com.baidu.tieba.R;
 import com.baidu.tieba.barselect.a.a;
 import com.baidu.tieba.barselect.data.f;
-/* loaded from: classes20.dex */
+/* loaded from: classes21.dex */
 public class NewAnounceLayout extends CardBasicLayout {
-    private View.OnClickListener eHN;
-    private float ewP;
-    private View hmP;
-    private TextView hmQ;
-    private View hmR;
-    private TextView hmS;
-    private TextView hmT;
+    private float eIZ;
+    private View.OnClickListener eTU;
+    private View hBJ;
+    private TextView hBK;
+    private View hBL;
+    private TextView hBM;
+    private TextView hBN;
     private Context mContext;
 
     public NewAnounceLayout(Context context) {
@@ -37,13 +37,13 @@ public class NewAnounceLayout extends CardBasicLayout {
 
     public NewAnounceLayout(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.eHN = new View.OnClickListener() { // from class: com.baidu.tieba.barselect.segment.NewAnounceLayout.1
+        this.eTU = new View.OnClickListener() { // from class: com.baidu.tieba.barselect.segment.NewAnounceLayout.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                new aq("c13447").bki();
-                if (NewAnounceLayout.this.hmO != null && NewAnounceLayout.this.hmO.getTid() != 0 && !TextUtils.isEmpty(NewAnounceLayout.this.hmO.cdW()) && NewAnounceLayout.this.hmO.cdY() != 2) {
+                new aq("c13447").bmR();
+                if (NewAnounceLayout.this.hBI != null && NewAnounceLayout.this.hBI.getTid() != 0 && !TextUtils.isEmpty(NewAnounceLayout.this.hBI.chs()) && NewAnounceLayout.this.hBI.chu() != 2) {
                     PbActivityConfig pbActivityConfig = new PbActivityConfig(NewAnounceLayout.this.mContext);
-                    pbActivityConfig.createNormalCfg(NewAnounceLayout.this.hmO.getTid() + "", (String) null, (String) null, true);
+                    pbActivityConfig.createNormalCfg(NewAnounceLayout.this.hBI.getTid() + "", (String) null, (String) null, true);
                     MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_PB_ACTIVITY, pbActivityConfig));
                 }
             }
@@ -64,77 +64,77 @@ public class NewAnounceLayout extends CardBasicLayout {
     }
 
     private void ul() {
-        this.hmP = findViewById(R.id.announce_content);
-        this.hmP.setOnClickListener(this.eHN);
-        this.hmQ = (TextView) findViewById(R.id.first_line_tv);
-        this.hmR = findViewById(R.id.second_content);
-        this.hmS = (TextView) findViewById(R.id.second_line_tv);
-        this.hmT = (TextView) findViewById(R.id.announce_tail);
+        this.hBJ = findViewById(R.id.announce_content);
+        this.hBJ.setOnClickListener(this.eTU);
+        this.hBK = (TextView) findViewById(R.id.first_line_tv);
+        this.hBL = findViewById(R.id.second_content);
+        this.hBM = (TextView) findViewById(R.id.second_line_tv);
+        this.hBN = (TextView) findViewById(R.id.announce_tail);
     }
 
     @Override // com.baidu.tieba.barselect.segment.CardBasicLayout
     public void setData(int i, f fVar) {
         super.setData(i, fVar);
-        if (this.hiY == null || this.hmO == null || this.status < 0) {
+        if (this.hxT == null || this.hBI == null || this.status < 0) {
             setVisibility(8);
             return;
         }
-        this.ewP = l.getScreenSize((Activity) getContext()).widthPixels - (l.getDimens(getContext(), R.dimen.tbds70) * 2);
-        if (this.status == a.hnc) {
-            this.ewP = l.getScreenSize((Activity) getContext()).widthPixels - (l.getDimens(getContext(), R.dimen.tbds116) * 2);
+        this.eIZ = l.getScreenSize((Activity) getContext()).widthPixels - (l.getDimens(getContext(), R.dimen.tbds70) * 2);
+        if (this.status == a.hBW) {
+            this.eIZ = l.getScreenSize((Activity) getContext()).widthPixels - (l.getDimens(getContext(), R.dimen.tbds116) * 2);
         }
-        if (this.status == a.hne) {
-            this.ewP = l.getScreenSize((Activity) getContext()).widthPixels - (l.getDimens(getContext(), R.dimen.tbds96) * 2);
+        if (this.status == a.hBY) {
+            this.eIZ = l.getScreenSize((Activity) getContext()).widthPixels - (l.getDimens(getContext(), R.dimen.tbds96) * 2);
         }
-        if (this.status == a.hnd) {
-            this.ewP = l.getScreenSize((Activity) getContext()).widthPixels - (l.getDimens(getContext(), R.dimen.tbds86) * 2);
-            this.hmP.setPadding(0, 0, 0, 0);
-            this.hmQ.setPadding(0, 0, 0, 0);
-            this.hmS.setPadding(0, 0, 0, 0);
-            this.hmT.setPadding(0, 0, 0, 0);
+        if (this.status == a.hBX) {
+            this.eIZ = l.getScreenSize((Activity) getContext()).widthPixels - (l.getDimens(getContext(), R.dimen.tbds86) * 2);
+            this.hBJ.setPadding(0, 0, 0, 0);
+            this.hBK.setPadding(0, 0, 0, 0);
+            this.hBM.setPadding(0, 0, 0, 0);
+            this.hBN.setPadding(0, 0, 0, 0);
         }
-        Hu(this.hmO.cdW());
+        Ih(this.hBI.chs());
     }
 
-    private void Hu(String str) {
+    private void Ih(String str) {
         if (str == null || TextUtils.isEmpty(str)) {
-            this.hmR.setVisibility(8);
-            this.hmQ.setText(getResources().getString(R.string.empty_announce));
+            this.hBL.setVisibility(8);
+            this.hBK.setText(getResources().getString(R.string.empty_announce));
             return;
         }
-        this.hmR.setVisibility(0);
-        int lineEnd = new StaticLayout(str, this.hmQ.getPaint(), (int) this.ewP, Layout.Alignment.ALIGN_NORMAL, 1.0f, 0.0f, false).getLineEnd(0);
+        this.hBL.setVisibility(0);
+        int lineEnd = new StaticLayout(str, this.hBK.getPaint(), (int) this.eIZ, Layout.Alignment.ALIGN_NORMAL, 1.0f, 0.0f, false).getLineEnd(0);
         String substring = str.substring(0, lineEnd);
         if (lineEnd >= str.length()) {
-            this.hmR.setVisibility(8);
-            this.hmQ.setText(substring);
+            this.hBL.setVisibility(8);
+            this.hBK.setText(substring);
             return;
         }
         String substring2 = str.substring(lineEnd, str.length());
-        if (new StaticLayout(substring2, this.hmS.getPaint(), (int) this.ewP, Layout.Alignment.ALIGN_NORMAL, 1.0f, 0.0f, false).getLineEnd(0) >= substring2.length()) {
-            this.hmT.setVisibility(8);
+        if (new StaticLayout(substring2, this.hBM.getPaint(), (int) this.eIZ, Layout.Alignment.ALIGN_NORMAL, 1.0f, 0.0f, false).getLineEnd(0) >= substring2.length()) {
+            this.hBN.setVisibility(8);
         } else {
-            this.hmT.setVisibility(0);
+            this.hBN.setVisibility(0);
         }
-        this.hmR.setVisibility(0);
-        this.hmQ.setText(substring);
-        this.hmS.setText(substring2);
+        this.hBL.setVisibility(0);
+        this.hBK.setText(substring);
+        this.hBM.setText(substring2);
     }
 
-    public void tE(int i) {
-        if (this.hmO != null) {
-            if (this.status != a.hnd) {
-                ap.setBackgroundColor(this.hmP, R.color.cp_bg_line_e, i);
-            } else if (this.hmP != null) {
-                this.hmP.setBackgroundColor(0);
+    public void uc(int i) {
+        if (this.hBI != null) {
+            if (this.status != a.hBX) {
+                ap.setBackgroundColor(this.hBJ, R.color.cp_bg_line_e, i);
+            } else if (this.hBJ != null) {
+                this.hBJ.setBackgroundColor(0);
             }
-            if (TextUtils.isEmpty(this.hmO.cdW())) {
-                ap.setViewTextColor(this.hmQ, R.color.cp_cont_d, 1, i);
+            if (TextUtils.isEmpty(this.hBI.chs())) {
+                ap.setViewTextColor(this.hBK, R.color.cp_cont_d, 1, i);
             } else {
-                ap.setViewTextColor(this.hmQ, R.color.cp_cont_b, 1, i);
+                ap.setViewTextColor(this.hBK, R.color.cp_cont_b, 1, i);
             }
-            ap.setViewTextColor(this.hmS, R.color.cp_cont_b, 1, i);
-            ap.setViewTextColor(this.hmT, R.color.cp_link_tip_c, 1, i);
+            ap.setViewTextColor(this.hBM, R.color.cp_cont_b, 1, i);
+            ap.setViewTextColor(this.hBN, R.color.cp_link_tip_c, 1, i);
         }
     }
 }

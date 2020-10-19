@@ -3,14 +3,14 @@ package kotlin.collections;
 import java.util.Set;
 /* JADX INFO: Access modifiers changed from: package-private */
 @kotlin.h
-/* loaded from: classes5.dex */
+/* loaded from: classes10.dex */
 public class an extends am {
-    public static final <T> Set<T> eke() {
+    public static final <T> Set<T> enQ() {
         return EmptySet.INSTANCE;
     }
 
     public static final <T> Set<T> R(T... tArr) {
-        kotlin.jvm.internal.q.m(tArr, "elements");
-        return tArr.length > 0 ? f.Q(tArr) : al.eke();
+        kotlin.jvm.internal.q.n(tArr, "elements");
+        return tArr.length > 0 ? f.Q(tArr) : al.enQ();
     }
 }

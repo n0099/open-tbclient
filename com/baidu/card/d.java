@@ -2,19 +2,19 @@ package com.baidu.card;
 
 import android.view.View;
 import android.widget.RelativeLayout;
-/* loaded from: classes20.dex */
+/* loaded from: classes21.dex */
 public class d {
-    private RelativeLayout.LayoutParams aft;
-    private View afu;
-    protected ak afv;
+    private RelativeLayout.LayoutParams afK;
+    private View afL;
+    protected ak afM;
     private int insertIndex;
 
     public RelativeLayout.LayoutParams tD() {
-        return this.aft;
+        return this.afK;
     }
 
     public void a(RelativeLayout.LayoutParams layoutParams) {
-        this.aft = layoutParams;
+        this.afK = layoutParams;
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -22,7 +22,7 @@ public class d {
     }
 
     public void b(ak akVar) {
-        this.afv = akVar;
+        this.afM = akVar;
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -38,10 +38,10 @@ public class d {
     }
 
     public View tG() {
-        return this.afu;
+        return this.afL;
     }
 
     public void H(View view) {
-        this.afu = view;
+        this.afL = view;
     }
 }

@@ -12,9 +12,11 @@ import android.renderscript.RenderScript;
 import android.renderscript.ScriptIntrinsicBlur;
 import android.util.AttributeSet;
 import android.view.View;
-/* loaded from: classes16.dex */
+/* loaded from: classes17.dex */
 public class BlurringView extends View {
-    private int a;
+
+    /* renamed from: a  reason: collision with root package name */
+    private int f1734a;
     private int b;
     private View c;
     private int d;
@@ -59,7 +61,7 @@ public class BlurringView extends View {
                 blur();
                 canvas.save();
                 canvas.translate(this.c.getX() - getX(), this.c.getY() - getY());
-                canvas.scale(this.a, this.a);
+                canvas.scale(this.f1734a, this.f1734a);
                 canvas.drawBitmap(this.h, 0.0f, 0.0f, (Paint) null);
                 canvas.restore();
             }
@@ -75,8 +77,8 @@ public class BlurringView extends View {
         if (i <= 0) {
             throw new IllegalArgumentException("Downsample factor must be greater than 0.");
         }
-        if (this.a != i) {
-            this.a = i;
+        if (this.f1734a != i) {
+            this.f1734a = i;
             this.f = true;
         }
     }
@@ -97,8 +99,8 @@ public class BlurringView extends View {
             this.f = false;
             this.d = width;
             this.e = height;
-            int i = width / this.a;
-            int i2 = height / this.a;
+            int i = width / this.f1734a;
+            int i2 = height / this.f1734a;
             int i3 = (i - (i % 4)) + 4;
             int i4 = (i2 - (i2 % 4)) + 4;
             if (this.h == null || this.h.getWidth() != i3 || this.h.getHeight() != i4) {
@@ -112,7 +114,7 @@ public class BlurringView extends View {
                 }
             }
             this.i = new Canvas(this.g);
-            this.i.scale(1.0f / this.a, 1.0f / this.a);
+            this.i.scale(1.0f / this.f1734a, 1.0f / this.f1734a);
             this.l = Allocation.createFromBitmap(this.j, this.g, Allocation.MipmapControl.MIPMAP_NONE, 1);
             this.m = Allocation.createTyped(this.j, this.l.getType());
         }

@@ -339,12 +339,12 @@ public class PbActivityConfig extends IntentConfig {
         if (bwVar != null) {
             Intent intent = getIntent();
             intent.putExtra("thread_id", bwVar.getTid());
-            if (bwVar.bhb() != null && !StringUtils.isNull(bwVar.bhb().getId())) {
-                intent.putExtra(KEY_GOD_REPLY_ID, bwVar.bhb().getId());
+            if (bwVar.bjK() != null && !StringUtils.isNull(bwVar.bjK().getId())) {
+                intent.putExtra(KEY_GOD_REPLY_ID, bwVar.bjK().getId());
             }
-            intent.putExtra("is_good", bwVar.bfu());
-            intent.putExtra("is_top", bwVar.bft());
-            intent.putExtra("thread_time", bwVar.bfr());
+            intent.putExtra("is_good", bwVar.bid());
+            intent.putExtra("is_top", bwVar.bic());
+            intent.putExtra("thread_time", bwVar.bia());
             intent.putExtra("st_type", str2);
             intent.putExtra("squence", z);
             intent.putExtra("host_only", z2);
@@ -354,22 +354,22 @@ public class PbActivityConfig extends IntentConfig {
             intent.putExtra("is_start_for_result", "1");
             intent.putExtra("request_code", i);
             intent.putExtra("is_from_thread_config", true);
-            intent.putExtra("extra_pb_cache_key", "zan=" + (bwVar.bfj() == null ? 0L : bwVar.bfj().getNum()));
-            if (bwVar.bfy() != null && bwVar.bfy().getGodUserData().getId() != null) {
-                intent.putExtra("extra_pb_funs_count_key", bwVar.bfy().getFansNum());
-                intent.putExtra("extra_pb_is_attention_key", bwVar.bfy().getGodUserData().getIsLike());
+            intent.putExtra("extra_pb_cache_key", "zan=" + (bwVar.bhS() == null ? 0L : bwVar.bhS().getNum()));
+            if (bwVar.bih() != null && bwVar.bih().getGodUserData().getId() != null) {
+                intent.putExtra("extra_pb_funs_count_key", bwVar.bih().getFansNum());
+                intent.putExtra("extra_pb_is_attention_key", bwVar.bih().getGodUserData().getIsLike());
             }
             intent.putExtra(KEY_VIDEO_SOURCE, this.key_video_source_value);
             String valueOf = String.valueOf(bwVar.getFid());
-            String bfC = bwVar.bfC();
-            if (bwVar.egd != null) {
+            String bil = bwVar.bil();
+            if (bwVar.esj != null) {
                 setFromForumId(valueOf);
-                valueOf = bwVar.egd.id;
-                bfC = bwVar.egd.ori_fname;
+                valueOf = bwVar.esj.id;
+                bil = bwVar.esj.ori_fname;
             }
             setThreadData(bwVar);
             setForumId(String.valueOf(valueOf));
-            setForumName(bfC);
+            setForumName(bil);
             addMoreIntentExtraParam();
         }
         return this;
@@ -659,7 +659,7 @@ public class PbActivityConfig extends IntentConfig {
         if (intent != null && bwVar != null) {
             BaijiahaoData baijiahaoData = bwVar.getBaijiahaoData();
             if (baijiahaoData != null) {
-                intent.putExtra("key_is_from_dynamic", bwVar.bei());
+                intent.putExtra("key_is_from_dynamic", bwVar.bgR());
                 intent.putExtra("key_ori_ugc_nid", baijiahaoData.oriUgcNid);
                 intent.putExtra("key_ori_ugc_tid", baijiahaoData.oriUgcTid);
                 intent.putExtra("key_ori_ugc_type", baijiahaoData.oriUgcType);

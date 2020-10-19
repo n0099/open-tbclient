@@ -2,7 +2,7 @@ package com.sina.weibo.sdk.api;
 
 import android.os.Parcel;
 import android.os.Parcelable;
-/* loaded from: classes24.dex */
+/* loaded from: classes12.dex */
 public class StoryObject implements Parcelable {
     public static final Parcelable.Creator<StoryObject> CREATOR = new Parcelable.Creator<StoryObject>() { // from class: com.sina.weibo.sdk.api.StoryObject.1
         /* JADX DEBUG: Method merged with bridge method */

@@ -11,7 +11,7 @@ import java.lang.reflect.Type;
 import java.util.Locale;
 import java.util.Map;
 import java.util.TimeZone;
-/* loaded from: classes10.dex */
+/* loaded from: classes5.dex */
 public class JSONReader implements Closeable {
     private JSONStreamContext context;
     private final DefaultJSONParser parser;

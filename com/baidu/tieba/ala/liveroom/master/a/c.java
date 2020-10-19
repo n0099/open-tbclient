@@ -16,41 +16,41 @@ public class c extends a {
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tieba.ala.liveroom.master.a.a
     public void a(short s, Object obj) {
-        int i = this.bOf;
+        int i = this.bUO;
         super.a(s, obj);
         switch (s) {
             case 1:
-                this.gIa.g(obj instanceof g ? ((g) obj).gBb : null);
-                this.gtv.gAT.startRecord();
-                this.gtv.gAW.a((short) 2, null);
+                this.gWA.g(obj instanceof g ? ((g) obj).gPu : null);
+                this.gHQ.gPm.startRecord();
+                this.gHQ.gPp.a((short) 2, null);
                 return;
             case 2:
             default:
                 return;
             case 3:
                 if (i == 7 || i == 5) {
-                    this.gtv.gAW.a((short) 5, null);
+                    this.gHQ.gPp.a((short) 5, null);
                     return;
                 } else {
-                    this.gtv.gAW.a((short) 2, null);
+                    this.gHQ.gPp.a((short) 2, null);
                     return;
                 }
         }
     }
 
     @Override // com.baidu.tieba.ala.liveroom.master.a.a
-    public void bWy() {
-        if (this.gtv != null && this.gtv.gAW != null && this.bOf != 4) {
-            this.gtv.gAW.a((short) 4, this.gGG);
+    public void bZT() {
+        if (this.gHQ != null && this.gHQ.gPp != null && this.bUO != 4) {
+            this.gHQ.gPp.a((short) 4, this.gVf);
         }
     }
 
     @Override // com.baidu.tieba.ala.liveroom.master.a.a
-    public void aU(int i, String str) {
+    public void be(int i, String str) {
         if (i == 0) {
-            this.gtv.gAW.a((short) 3, null);
-        } else if (this.gIa != null) {
-            this.gIa.onError(i, str);
+            this.gHQ.gPp.a((short) 3, null);
+        } else if (this.gWA != null) {
+            this.gWA.onError(i, str);
         }
     }
 
@@ -61,21 +61,21 @@ public class c extends a {
     }
 
     @Override // com.baidu.tieba.ala.liveroom.master.a.a
-    public void bWz() {
-        super.bWz();
-        if (TbadkCoreApplication.getInst().getResumeNum() <= 0 && this.gtv != null && this.gtv.gAT != null) {
-            this.gtv.gAT.enterBackground();
+    public void bZU() {
+        super.bZU();
+        if (TbadkCoreApplication.getInst().getResumeNum() <= 0 && this.gHQ != null && this.gHQ.gPm != null) {
+            this.gHQ.gPm.enterBackground();
         }
     }
 
     @Override // com.baidu.tieba.ala.liveroom.master.a.a
-    public void bWA() {
-        super.bWA();
+    public void bZV() {
+        super.bZV();
         this.mHandler.post(new Runnable() { // from class: com.baidu.tieba.ala.liveroom.master.a.c.1
             @Override // java.lang.Runnable
             public void run() {
-                if (c.this.gtv != null && c.this.gtv.gAT != null) {
-                    c.this.gtv.gAT.enterForeground();
+                if (c.this.gHQ != null && c.this.gHQ.gPm != null) {
+                    c.this.gHQ.gPm.enterForeground();
                 }
             }
         });

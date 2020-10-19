@@ -1,5 +1,5 @@
 package com.baidu.tieba.post;
-/* loaded from: classes23.dex */
+/* loaded from: classes24.dex */
 public interface d {
-    void doB();
+    void dsm();
 }

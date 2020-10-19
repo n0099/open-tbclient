@@ -1,25 +1,25 @@
 package tv.chushou.common.player;
 /* loaded from: classes6.dex */
 public interface b {
-    void NG(int i);
+    void Om(int i);
 
-    void NH(int i);
+    void On(int i);
 
-    void ecZ();
+    void egK();
 
-    void eda();
+    void egL();
 
-    void edb();
+    void egM();
 
-    void edc();
+    void egN();
 
-    void edd();
+    void egO();
 
-    void ede();
+    void egP();
 
-    void edf();
+    void egQ();
 
-    void edg();
+    void egR();
 
     void onPlayerStart();
 }

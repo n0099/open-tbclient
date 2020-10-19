@@ -15,11 +15,11 @@ import com.baidu.live.tbadk.core.frameworkdata.CmdConfigCustom;
 import com.baidu.live.tbadk.core.view.HeadImageView;
 /* loaded from: classes4.dex */
 public class AlaBigGiftUserInfoView extends RelativeLayout {
-    public HeadImageView aQX;
-    public TextView aQY;
-    public TextView aQZ;
-    private com.baidu.live.gift.a.c aRa;
-    private RelativeLayout aRb;
+    public HeadImageView aUi;
+    public TextView aUj;
+    public TextView aUk;
+    private com.baidu.live.gift.a.c aUl;
+    private RelativeLayout aUm;
 
     public AlaBigGiftUserInfoView(Context context) {
         super(context);
@@ -38,53 +38,53 @@ public class AlaBigGiftUserInfoView extends RelativeLayout {
 
     private void init(Context context) {
         LayoutInflater.from(getContext()).inflate(a.h.popup_user_info_layout, this);
-        this.aRb = (RelativeLayout) findViewById(a.g.sender_user_info);
-        this.aQX = (HeadImageView) findViewById(a.g.sender_avatar);
-        this.aQX.setIsRound(true);
-        this.aQX.setAutoChangeStyle(false);
-        this.aQX.setDefaultBgResource(a.f.sdk_default_avatar);
-        this.aQY = (TextView) findViewById(a.g.sender_name);
-        this.aQZ = (TextView) findViewById(a.g.gift_name);
+        this.aUm = (RelativeLayout) findViewById(a.g.sender_user_info);
+        this.aUi = (HeadImageView) findViewById(a.g.sender_avatar);
+        this.aUi.setIsRound(true);
+        this.aUi.setAutoChangeStyle(false);
+        this.aUi.setDefaultBgResource(a.f.sdk_default_avatar);
+        this.aUj = (TextView) findViewById(a.g.sender_name);
+        this.aUk = (TextView) findViewById(a.g.gift_name);
         setOnClickListener(new View.OnClickListener() { // from class: com.baidu.live.gift.biggift.AlaBigGiftUserInfoView.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                AlaBigGiftUserInfoView.this.FI();
+                AlaBigGiftUserInfoView.this.GE();
             }
         });
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void FI() {
-        if (this.aRa != null) {
-            MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new AlaPersonCardActivityConfig(getContext(), String.valueOf(this.aRa.userId), this.aRa.userName, this.aRa.portrait, this.aRa.sex, this.aRa.aVf, this.aRa.location, this.aRa.description, 0L, this.aRa.fansCount, this.aRa.aVg, this.aRa.userStatus, this.aRa.liveId, this.aRa.groupId, this.aRa.aVk, this.aRa.aVl, this.aRa.appId, this.aRa.userName, "")));
+    public void GE() {
+        if (this.aUl != null) {
+            MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new AlaPersonCardActivityConfig(getContext(), String.valueOf(this.aUl.userId), this.aUl.userName, this.aUl.portrait, this.aUl.sex, this.aUl.aYq, this.aUl.location, this.aUl.description, 0L, this.aUl.fansCount, this.aUl.aYr, this.aUl.userStatus, this.aUl.liveId, this.aUl.groupId, this.aUl.aYv, this.aUl.aYw, this.aUl.appId, this.aUl.userName, "")));
         }
     }
 
     public void setData(com.baidu.live.gift.a.c cVar) {
         if (cVar != null) {
-            this.aRa = cVar;
+            this.aUl = cVar;
             if (cVar.portrait != null) {
-                this.aQX.startLoad(cVar.portrait, 12, false);
+                this.aUi.startLoad(cVar.portrait, 12, false);
             }
-            gF(cVar.userName);
-            if (cVar.aVd != null) {
-                this.aQZ.setText(cVar.aVd.Ei());
+            gT(cVar.userName);
+            if (cVar.aYo != null) {
+                this.aUk.setText(cVar.aYo.Fe());
             }
         }
     }
 
-    private void gF(String str) {
-        this.aQY.setTag(Long.valueOf(System.currentTimeMillis()));
+    private void gT(String str) {
+        this.aUj.setTag(Long.valueOf(System.currentTimeMillis()));
         if (!TextUtils.isEmpty(str)) {
-            this.aQY.setText(str);
+            this.aUj.setText(str);
         }
     }
 
     public void setSenderUserInfoMarginLeftZero() {
-        RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) this.aRb.getLayoutParams();
+        RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) this.aUm.getLayoutParams();
         if (layoutParams != null) {
             layoutParams.leftMargin = 0;
-            this.aRb.setLayoutParams(layoutParams);
+            this.aUm.setLayoutParams(layoutParams);
         }
     }
 }

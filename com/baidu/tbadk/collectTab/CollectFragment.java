@@ -9,52 +9,52 @@ import com.baidu.adp.lib.util.j;
 import com.baidu.live.adp.framework.MessageConfig;
 import com.baidu.live.tbadk.core.frameworkdata.CmdConfigCustom;
 import com.baidu.tbadk.core.BaseFragment;
-/* loaded from: classes23.dex */
+/* loaded from: classes24.dex */
 public abstract class CollectFragment extends BaseFragment {
-    protected boolean dWH = false;
-    private final CustomMessageListener dWI = new CustomMessageListener(MessageConfig.CMD_NETWORK_CHANGED) { // from class: com.baidu.tbadk.collectTab.CollectFragment.1
+    protected boolean eiJ = false;
+    private final CustomMessageListener eiK = new CustomMessageListener(MessageConfig.CMD_NETWORK_CHANGED) { // from class: com.baidu.tbadk.collectTab.CollectFragment.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             if (customResponsedMessage.getCmd() == 2000994 && (customResponsedMessage instanceof NetWorkChangedMessage)) {
-                CollectFragment.this.mT(CollectFragment.this.getType());
-                if (!CollectFragment.this.dWH) {
-                    CollectFragment.this.p(false, CollectFragment.this.getType());
+                CollectFragment.this.nq(CollectFragment.this.getType());
+                if (!CollectFragment.this.eiJ) {
+                    CollectFragment.this.q(false, CollectFragment.this.getType());
                 }
             }
         }
     };
 
-    public abstract boolean bcD();
+    public abstract boolean bfl();
 
     public abstract int getType();
 
-    public boolean bcC() {
-        return this.dWH;
+    public boolean bfk() {
+        return this.eiJ;
     }
 
     @Override // android.support.v4.app.Fragment
     public void onStart() {
         super.onStart();
-        registerListener(this.dWI);
+        registerListener(this.eiK);
     }
 
     @Override // android.support.v4.app.Fragment
     public void onStop() {
         super.onStop();
-        MessageManager.getInstance().unRegisterListener(this.dWI);
+        MessageManager.getInstance().unRegisterListener(this.eiK);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public void mT(int i) {
+    public void nq(int i) {
         Bundle bundle = new Bundle();
-        this.dWH = !bcD() && j.isNetWorkAvailable();
-        bundle.putBoolean("is_enable_edit", this.dWH);
+        this.eiJ = !bfl() && j.isNetWorkAvailable();
+        bundle.putBoolean("is_enable_edit", this.eiJ);
         bundle.putInt("fragment_type", i);
         MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(CmdConfigCustom.COLLECT_TAB_NAVI_EDIT_ENABLE, bundle));
     }
 
-    protected void p(boolean z, int i) {
+    protected void q(boolean z, int i) {
         Bundle bundle = new Bundle();
         bundle.putBoolean("is_edit_state", z);
         bundle.putInt("fragment_type", i);

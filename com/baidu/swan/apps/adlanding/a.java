@@ -11,7 +11,7 @@ import com.baidu.swan.apps.core.d.i;
 import com.baidu.swan.apps.scheme.actions.aa;
 import com.baidu.swan.apps.scheme.j;
 import com.baidu.swan.apps.v.f;
-/* loaded from: classes3.dex */
+/* loaded from: classes10.dex */
 public class a extends aa {
     public a(j jVar) {
         super(jVar, "/swanAPI/openAdWebPage");
@@ -22,23 +22,23 @@ public class a extends aa {
         if (DEBUG) {
             Log.d("AdLandingAction", "handle entity: " + unitedSchemeEntity.toString());
         }
-        String a = com.baidu.swan.apps.scheme.actions.k.a.a(unitedSchemeEntity, "params");
-        String a2 = com.baidu.swan.apps.scheme.actions.k.a.a(unitedSchemeEntity, "params", "extraData");
-        if (TextUtils.isEmpty(a)) {
+        String a2 = com.baidu.swan.apps.scheme.actions.k.a.a(unitedSchemeEntity, "params");
+        String a3 = com.baidu.swan.apps.scheme.actions.k.a.a(unitedSchemeEntity, "params", "extraData");
+        if (TextUtils.isEmpty(a2)) {
             com.baidu.swan.apps.console.c.e("AdLanding", "adLanding: url is empty");
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(201);
             return false;
-        } else if (f.asJ().YG() == null) {
+        } else if (f.avu().abs() == null) {
             com.baidu.swan.apps.console.c.i("AdLandingAction", "open page failed");
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(201);
             return false;
         } else {
-            com.baidu.swan.apps.model.b bP = com.baidu.swan.apps.model.b.bP(a, a);
-            bP.mParams = a2;
-            if (com.baidu.swan.apps.api.module.k.j.acX().isFullScreen()) {
-                a(unitedSchemeEntity, bP);
+            com.baidu.swan.apps.model.b bU = com.baidu.swan.apps.model.b.bU(a2, a2);
+            bU.mParams = a3;
+            if (com.baidu.swan.apps.api.module.k.j.afJ().isFullScreen()) {
+                a(unitedSchemeEntity, bU);
             } else {
-                b(unitedSchemeEntity, bP);
+                b(unitedSchemeEntity, bU);
             }
             com.baidu.swan.apps.console.c.i("AdLanding", "open adLanding page finish");
             UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, 0);
@@ -47,7 +47,7 @@ public class a extends aa {
     }
 
     private void a(final UnitedSchemeEntity unitedSchemeEntity, final com.baidu.swan.apps.model.b bVar) {
-        com.baidu.swan.apps.api.module.k.j.acX().acZ();
+        com.baidu.swan.apps.api.module.k.j.afJ().afL();
         ak.c(new Runnable() { // from class: com.baidu.swan.apps.adlanding.a.1
             @Override // java.lang.Runnable
             public void run() {

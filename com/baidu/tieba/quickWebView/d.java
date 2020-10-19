@@ -4,56 +4,56 @@ import java.util.HashMap;
 import java.util.List;
 /* loaded from: classes.dex */
 public class d {
-    private static d lKf;
-    private HashMap<String, com.baidu.tieba.quickWebView.data.a> lKc = new HashMap<>();
-    private com.baidu.tieba.quickWebView.data.b lKd = null;
-    private boolean lKe = false;
+    private static d lZt;
+    private HashMap<String, com.baidu.tieba.quickWebView.data.a> lZq = new HashMap<>();
+    private com.baidu.tieba.quickWebView.data.b lZr = null;
+    private boolean lZs = false;
 
-    public static d dqw() {
-        if (lKf == null) {
+    public static d duh() {
+        if (lZt == null) {
             synchronized (d.class) {
-                if (lKf == null) {
-                    lKf = new d();
+                if (lZt == null) {
+                    lZt = new d();
                 }
             }
         }
-        return lKf;
+        return lZt;
     }
 
     private d() {
     }
 
-    public com.baidu.tieba.quickWebView.data.a PG(String str) {
-        if (this.lKc == null || !this.lKe) {
+    public com.baidu.tieba.quickWebView.data.a Qv(String str) {
+        if (this.lZq == null || !this.lZs) {
             return null;
         }
-        return this.lKc.get(str);
+        return this.lZq.get(str);
     }
 
-    public List<String> PH(String str) {
-        if (this.lKd == null || this.lKd.lKj == null || !this.lKe) {
+    public List<String> Qw(String str) {
+        if (this.lZr == null || this.lZr.lZx == null || !this.lZs) {
             return null;
         }
-        return this.lKd.lKj.get(str);
+        return this.lZr.lZx.get(str);
     }
 
-    public void F(HashMap<String, com.baidu.tieba.quickWebView.data.a> hashMap) {
-        this.lKc = hashMap;
+    public void H(HashMap<String, com.baidu.tieba.quickWebView.data.a> hashMap) {
+        this.lZq = hashMap;
     }
 
-    public HashMap<String, com.baidu.tieba.quickWebView.data.a> dqx() {
-        return this.lKc;
+    public HashMap<String, com.baidu.tieba.quickWebView.data.a> dui() {
+        return this.lZq;
     }
 
     public void a(com.baidu.tieba.quickWebView.data.b bVar) {
-        this.lKd = bVar;
+        this.lZr = bVar;
     }
 
-    public boolean dqy() {
-        return this.lKe;
+    public boolean duj() {
+        return this.lZs;
     }
 
-    public void vv(boolean z) {
-        this.lKe = z;
+    public void wc(boolean z) {
+        this.lZs = z;
     }
 }

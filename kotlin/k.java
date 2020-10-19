@@ -1,8 +1,8 @@
 package kotlin;
 @h
-/* loaded from: classes5.dex */
+/* loaded from: classes10.dex */
 public final class k {
-    public static final k oBL = new k();
+    public static final k oRa = new k();
 
     private k() {
     }

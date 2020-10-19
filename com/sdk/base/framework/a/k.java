@@ -1,18 +1,20 @@
 package com.sdk.base.framework.a;
-/* loaded from: classes5.dex */
+/* loaded from: classes16.dex */
 public final class k<T> {
-    private int a;
+
+    /* renamed from: a  reason: collision with root package name */
+    private int f4478a;
     private T b;
     private final boolean c;
 
     public k(int i, T t, boolean z) {
-        this.a = i;
+        this.f4478a = i;
         this.b = t;
         this.c = z;
     }
 
     public final int a() {
-        return this.a;
+        return this.f4478a;
     }
 
     public final T b() {
@@ -20,6 +22,6 @@ public final class k<T> {
     }
 
     public final String toString() {
-        return "{code:" + this.a + ", response:" + this.b + ", resultFormCache:" + this.c + "}";
+        return "{code:" + this.f4478a + ", response:" + this.b + ", resultFormCache:" + this.c + "}";
     }
 }

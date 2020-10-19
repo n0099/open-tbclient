@@ -9,7 +9,7 @@ import android.os.Parcelable;
 import android.util.AttributeSet;
 import android.widget.TextView;
 import java.io.IOException;
-/* loaded from: classes5.dex */
+/* loaded from: classes9.dex */
 public class GifTextView extends TextView {
     private boolean mFreezesAnimation;
 

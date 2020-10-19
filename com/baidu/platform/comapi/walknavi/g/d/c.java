@@ -6,9 +6,11 @@ import android.util.Log;
 import android.widget.Toast;
 import com.meizu.cloud.pushsdk.constants.PushConstants;
 import java.util.List;
-/* loaded from: classes3.dex */
+/* loaded from: classes7.dex */
 public class c {
-    static Toast a = null;
+
+    /* renamed from: a  reason: collision with root package name */
+    static Toast f3055a = null;
 
     public static void a(Context context, String str) {
         List<ActivityManager.RunningTaskInfo> list;
@@ -20,11 +22,11 @@ public class c {
                 list = null;
             }
             if (list != null && list.get(0) != null && context.getPackageName().equals(list.get(0).baseActivity.getPackageName())) {
-                if (a != null) {
-                    a.cancel();
+                if (f3055a != null) {
+                    f3055a.cancel();
                 }
-                a = Toast.makeText(context, str, str.length() > 15 ? 1 : 0);
-                a.show();
+                f3055a = Toast.makeText(context, str, str.length() > 15 ? 1 : 0);
+                f3055a.show();
             }
         }
     }

@@ -3,7 +3,7 @@ package android.support.v7.widget.helper;
 import android.graphics.Canvas;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
-/* loaded from: classes4.dex */
+/* loaded from: classes16.dex */
 public interface ItemTouchUIUtil {
     void clearView(View view);
 

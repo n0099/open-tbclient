@@ -4,7 +4,7 @@ import io.reactivex.internal.disposables.DisposableHelper;
 import io.reactivex.u;
 import io.reactivex.v;
 import java.util.concurrent.atomic.AtomicReference;
-/* loaded from: classes25.dex */
+/* loaded from: classes17.dex */
 public final class ObservableSubscribeOn<T> extends io.reactivex.internal.operators.observable.a<T, T> {
     final v scheduler;
 
@@ -15,7 +15,7 @@ public final class ObservableSubscribeOn<T> extends io.reactivex.internal.operat
         subscribeOnObserver.setDisposable(this.scheduler.F(new a(subscribeOnObserver)));
     }
 
-    /* loaded from: classes25.dex */
+    /* loaded from: classes17.dex */
     static final class SubscribeOnObserver<T> extends AtomicReference<io.reactivex.disposables.b> implements io.reactivex.disposables.b, u<T> {
         private static final long serialVersionUID = 8094547886072529208L;
         final u<? super T> actual;
@@ -61,17 +61,17 @@ public final class ObservableSubscribeOn<T> extends io.reactivex.internal.operat
         }
     }
 
-    /* loaded from: classes25.dex */
+    /* loaded from: classes17.dex */
     final class a implements Runnable {
-        private final SubscribeOnObserver<T> oyu;
+        private final SubscribeOnObserver<T> oNJ;
 
         a(SubscribeOnObserver<T> subscribeOnObserver) {
-            this.oyu = subscribeOnObserver;
+            this.oNJ = subscribeOnObserver;
         }
 
         @Override // java.lang.Runnable
         public void run() {
-            ObservableSubscribeOn.this.source.subscribe(this.oyu);
+            ObservableSubscribeOn.this.source.subscribe(this.oNJ);
         }
     }
 }

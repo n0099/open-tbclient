@@ -5,20 +5,22 @@ import com.baidu.mobads.interfaces.IXAdProd;
 import com.baidu.mobads.interfaces.IXLinearAdSlot;
 import java.util.ArrayList;
 import java.util.HashMap;
-/* loaded from: classes3.dex */
+/* loaded from: classes7.dex */
 public class XAdSlotManager {
-    private HashMap<String, IXAdProd> a = new HashMap<>();
+
+    /* renamed from: a  reason: collision with root package name */
+    private HashMap<String, IXAdProd> f2285a = new HashMap<>();
 
     public Boolean containsAdSlot(String str) {
-        return Boolean.valueOf(this.a.containsKey(str));
+        return Boolean.valueOf(this.f2285a.containsKey(str));
     }
 
     public void addAdSlot(IXAdProd iXAdProd) {
-        this.a.put(iXAdProd.getId(), iXAdProd);
+        this.f2285a.put(iXAdProd.getId(), iXAdProd);
     }
 
     public IXAdProd retrieveAdSlotById(String str) {
-        return this.a.get(str);
+        return this.f2285a.get(str);
     }
 
     public IXLinearAdSlot retrievePrerollAdSlot() {
@@ -43,8 +45,8 @@ public class XAdSlotManager {
 
     public ArrayList<IXAdProd> retrieveAdSlotsByType(IXAdConstants4PDK.SlotType slotType) {
         ArrayList<IXAdProd> arrayList = new ArrayList<>();
-        for (String str : this.a.keySet()) {
-            IXAdProd iXAdProd = this.a.get(str);
+        for (String str : this.f2285a.keySet()) {
+            IXAdProd iXAdProd = this.f2285a.get(str);
             if (iXAdProd.getType() == slotType) {
                 arrayList.add(iXAdProd);
             }

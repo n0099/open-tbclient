@@ -3,9 +3,9 @@ package com.baidu.live.p;
 import android.view.ViewGroup;
 /* loaded from: classes4.dex */
 public interface c {
-    void FB();
+    void Gx();
 
-    void aq(long j);
+    void ar(long j);
 
     void release();
 

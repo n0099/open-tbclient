@@ -29,12 +29,12 @@ public class e extends com.kascend.chushou.view.base.a {
     private TextView m;
     private boolean n;
     private String o;
-    private Space ohP;
-    private Space ohQ;
+    private Space oxi;
+    private Space oxj;
     private String p;
     private String q;
 
-    public static e yJ(boolean z) {
+    public static e zq(boolean z) {
         Bundle bundle = new Bundle();
         bundle.putBoolean("mIsOwn", z);
         e eVar = new e();
@@ -75,8 +75,8 @@ public class e extends com.kascend.chushou.view.base.a {
         this.k = (TextView) this.e.findViewById(a.f.tv_copy);
         this.l = (TextView) this.f.findViewById(a.f.tv_copy);
         this.m = (TextView) this.g.findViewById(a.f.tv_copy);
-        this.ohP = (Space) inflate.findViewById(a.f.space_01);
-        this.ohQ = (Space) inflate.findViewById(a.f.space_02);
+        this.oxi = (Space) inflate.findViewById(a.f.space_01);
+        this.oxj = (Space) inflate.findViewById(a.f.space_02);
         c();
         return inflate;
     }
@@ -96,21 +96,21 @@ public class e extends com.kascend.chushou.view.base.a {
     private void c() {
         this.k.setOnClickListener(new tv.chushou.zues.a() { // from class: com.kascend.chushou.view.b.e.1
             @Override // tv.chushou.zues.a
-            public void dL(View view) {
+            public void dP(View view) {
                 g.c(e.this.b, e.this.b.getString(a.i.str_userinfo_copy_result, e.this.b.getString(a.i.str_userinfo_nickname)));
                 e.this.a(e.this.h.getText());
             }
         });
         this.l.setOnClickListener(new tv.chushou.zues.a() { // from class: com.kascend.chushou.view.b.e.2
             @Override // tv.chushou.zues.a
-            public void dL(View view) {
+            public void dP(View view) {
                 g.c(e.this.b, e.this.b.getString(a.i.str_userinfo_copy_result, e.this.b.getString(a.i.str_userinfo_roomid)));
                 e.this.a(e.this.i.getText());
             }
         });
         this.m.setOnClickListener(new tv.chushou.zues.a() { // from class: com.kascend.chushou.view.b.e.3
             @Override // tv.chushou.zues.a
-            public void dL(View view) {
+            public void dP(View view) {
                 g.c(e.this.b, e.this.b.getString(a.i.str_userinfo_copy_result, e.this.b.getString(a.i.str_userinfo_uid)));
                 e.this.a(e.this.j.getText());
             }
@@ -129,8 +129,8 @@ public class e extends com.kascend.chushou.view.base.a {
         String str3;
         MyUserInfo userInfo = LoginManager.Instance().getUserInfo();
         if (userInfo == null) {
-            str = h.ecy().c();
-            str2 = h.ecy().b();
+            str = h.egj().c();
+            str2 = h.egj().b();
         } else {
             str = userInfo.mNickname;
             str2 = userInfo.mUserID;
@@ -154,19 +154,19 @@ public class e extends com.kascend.chushou.view.base.a {
             this.h.setText(str);
         }
         if (tv.chushou.zues.utils.h.isEmpty(str2)) {
-            this.ohP.setVisibility(8);
+            this.oxi.setVisibility(8);
             this.f.setVisibility(8);
         } else {
-            this.ohP.setVisibility(0);
+            this.oxi.setVisibility(0);
             this.f.setVisibility(0);
             this.i.setText(str2);
         }
         if (tv.chushou.zues.utils.h.isEmpty(str3)) {
-            this.ohQ.setVisibility(8);
+            this.oxj.setVisibility(8);
             this.g.setVisibility(8);
             return;
         }
-        this.ohQ.setVisibility(0);
+        this.oxj.setVisibility(0);
         this.g.setVisibility(0);
         this.j.setText(str3);
     }

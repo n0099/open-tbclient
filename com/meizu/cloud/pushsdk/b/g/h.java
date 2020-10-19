@@ -1,9 +1,11 @@
 package com.meizu.cloud.pushsdk.b.g;
 
 import java.io.IOException;
-/* loaded from: classes3.dex */
+/* loaded from: classes7.dex */
 final class h implements c {
-    public final b a;
+
+    /* renamed from: a  reason: collision with root package name */
+    public final b f4354a;
     public final l b;
     private boolean c;
 
@@ -15,7 +17,7 @@ final class h implements c {
         if (lVar == null) {
             throw new IllegalArgumentException("sink == null");
         }
-        this.a = bVar;
+        this.f4354a = bVar;
         this.b = lVar;
     }
 
@@ -26,7 +28,7 @@ final class h implements c {
         }
         long j = 0;
         while (true) {
-            long b = mVar.b(this.a, 2048L);
+            long b = mVar.b(this.f4354a, 2048L);
             if (b == -1) {
                 return j;
             }
@@ -39,9 +41,9 @@ final class h implements c {
         if (this.c) {
             throw new IllegalStateException("closed");
         }
-        long e = this.a.e();
+        long e = this.f4354a.e();
         if (e > 0) {
-            this.b.a(this.a, e);
+            this.b.a(this.f4354a, e);
         }
         return this;
     }
@@ -51,13 +53,13 @@ final class h implements c {
         if (this.c) {
             throw new IllegalStateException("closed");
         }
-        this.a.a(bVar, j);
+        this.f4354a.a(bVar, j);
         a();
     }
 
     @Override // com.meizu.cloud.pushsdk.b.g.c
     public b b() {
-        return this.a;
+        return this.f4354a;
     }
 
     @Override // com.meizu.cloud.pushsdk.b.g.c
@@ -65,7 +67,7 @@ final class h implements c {
         if (this.c) {
             throw new IllegalStateException("closed");
         }
-        this.a.b(eVar);
+        this.f4354a.b(eVar);
         return a();
     }
 
@@ -74,7 +76,7 @@ final class h implements c {
         if (this.c) {
             throw new IllegalStateException("closed");
         }
-        this.a.b(str);
+        this.f4354a.b(str);
         return a();
     }
 
@@ -83,7 +85,7 @@ final class h implements c {
         if (this.c) {
             throw new IllegalStateException("closed");
         }
-        this.a.c(bArr);
+        this.f4354a.c(bArr);
         return a();
     }
 
@@ -92,7 +94,7 @@ final class h implements c {
         if (this.c) {
             throw new IllegalStateException("closed");
         }
-        this.a.c(bArr, i, i2);
+        this.f4354a.c(bArr, i, i2);
         return a();
     }
 
@@ -103,8 +105,8 @@ final class h implements c {
         }
         Throwable th = null;
         try {
-            if (this.a.b > 0) {
-                this.b.a(this.a, this.a.b);
+            if (this.f4354a.b > 0) {
+                this.b.a(this.f4354a, this.f4354a.b);
             }
         } catch (Throwable th2) {
             th = th2;
@@ -127,7 +129,7 @@ final class h implements c {
         if (this.c) {
             throw new IllegalStateException("closed");
         }
-        this.a.e(j);
+        this.f4354a.e(j);
         return a();
     }
 
@@ -136,8 +138,8 @@ final class h implements c {
         if (this.c) {
             throw new IllegalStateException("closed");
         }
-        if (this.a.b > 0) {
-            this.b.a(this.a, this.a.b);
+        if (this.f4354a.b > 0) {
+            this.b.a(this.f4354a, this.f4354a.b);
         }
         this.b.flush();
     }

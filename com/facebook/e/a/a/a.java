@@ -5,34 +5,34 @@ import android.graphics.Paint;
 import android.graphics.Rect;
 import android.graphics.drawable.Drawable;
 import android.text.style.ReplacementSpan;
-/* loaded from: classes17.dex */
+/* loaded from: classes6.dex */
 public class a extends ReplacementSpan {
     private Rect mBounds;
     private final Drawable mDrawable;
     private int mHeight;
     private int mWidth;
-    private final int nKw;
-    private final Paint.FontMetricsInt nKx = new Paint.FontMetricsInt();
+    private final int nZN;
+    private final Paint.FontMetricsInt nZO = new Paint.FontMetricsInt();
 
     public a(Drawable drawable, int i) {
         this.mDrawable = drawable;
-        this.nKw = i;
-        iJ();
+        this.nZN = i;
+        iK();
     }
 
     @Override // android.text.style.ReplacementSpan
     public int getSize(Paint paint, CharSequence charSequence, int i, int i2, Paint.FontMetricsInt fontMetricsInt) {
-        iJ();
+        iK();
         if (fontMetricsInt == null) {
             return this.mWidth;
         }
-        int a = a(fontMetricsInt);
-        int i3 = this.mHeight + a;
-        if (a < fontMetricsInt.ascent) {
-            fontMetricsInt.ascent = a;
+        int a2 = a(fontMetricsInt);
+        int i3 = this.mHeight + a2;
+        if (a2 < fontMetricsInt.ascent) {
+            fontMetricsInt.ascent = a2;
         }
-        if (a < fontMetricsInt.top) {
-            fontMetricsInt.top = a;
+        if (a2 < fontMetricsInt.top) {
+            fontMetricsInt.top = a2;
         }
         if (i3 > fontMetricsInt.descent) {
             fontMetricsInt.descent = i3;
@@ -45,21 +45,21 @@ public class a extends ReplacementSpan {
 
     @Override // android.text.style.ReplacementSpan
     public void draw(Canvas canvas, CharSequence charSequence, int i, int i2, float f, int i3, int i4, int i5, Paint paint) {
-        paint.getFontMetricsInt(this.nKx);
-        int a = a(this.nKx) + i4;
-        canvas.translate(f, a);
+        paint.getFontMetricsInt(this.nZO);
+        int a2 = a(this.nZO) + i4;
+        canvas.translate(f, a2);
         this.mDrawable.draw(canvas);
-        canvas.translate(-f, -a);
+        canvas.translate(-f, -a2);
     }
 
-    public void iJ() {
+    public void iK() {
         this.mBounds = this.mDrawable.getBounds();
         this.mWidth = this.mBounds.width();
         this.mHeight = this.mBounds.height();
     }
 
     private int a(Paint.FontMetricsInt fontMetricsInt) {
-        switch (this.nKw) {
+        switch (this.nZN) {
             case 0:
                 return fontMetricsInt.descent - this.mHeight;
             case 1:

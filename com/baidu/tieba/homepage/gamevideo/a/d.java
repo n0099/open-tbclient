@@ -16,18 +16,18 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.atomData.ImageViewerConfig;
 import com.baidu.tieba.card.aa;
 import com.baidu.tieba.card.data.l;
-/* loaded from: classes21.dex */
+/* loaded from: classes22.dex */
 public class d extends com.baidu.adp.widget.ListView.a<l, am<l>> {
-    private aa<l> afn;
-    private v alj;
-    private BdUniqueId eSq;
-    private int eqz;
+    private aa<l> afE;
+    private v alC;
+    private int eCL;
+    private BdUniqueId fey;
     private TbPageContext mPageContext;
 
     /* JADX INFO: Access modifiers changed from: protected */
     public d(TbPageContext tbPageContext, BdUniqueId bdUniqueId) {
         super(tbPageContext.getPageActivity(), bdUniqueId);
-        this.afn = new aa<l>() { // from class: com.baidu.tieba.homepage.gamevideo.a.d.1
+        this.afE = new aa<l>() { // from class: com.baidu.tieba.homepage.gamevideo.a.d.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.tieba.card.aa
             public void a(View view, l lVar) {
@@ -37,23 +37,23 @@ public class d extends com.baidu.adp.widget.ListView.a<l, am<l>> {
     }
 
     public void a(v vVar) {
-        this.alj = vVar;
+        this.alC = vVar;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.widget.ListView.a
-    /* renamed from: aR */
+    /* renamed from: aT */
     public am<l> c(ViewGroup viewGroup) {
         ak.a aVar = new ak.a(this.mPageContext.getPageActivity(), false);
         n nVar = new n(this.mPageContext.getPageActivity());
         nVar.setFromCDN(true);
         nVar.setForm(ImageViewerConfig.FROM_GAME_VIDEO);
         aVar.a((i) nVar);
-        ak a = aVar.a(false, viewGroup, this.alj);
-        a.setSourceForPb(18);
-        am<l> amVar = new am<>(a);
-        amVar.setPageId(this.eSq);
+        ak a2 = aVar.a(false, viewGroup, this.alC);
+        a2.setSourceForPb(18);
+        am<l> amVar = new am<>(a2);
+        amVar.setPageId(this.fey);
         a(new ab() { // from class: com.baidu.tieba.homepage.gamevideo.a.d.2
             @Override // com.baidu.adp.widget.ListView.ab
             public void a(View view, q qVar, BdUniqueId bdUniqueId, ViewGroup viewGroup2, int i, long j) {
@@ -61,11 +61,11 @@ public class d extends com.baidu.adp.widget.ListView.a<l, am<l>> {
                     am amVar2 = (am) view.getTag();
                     l lVar = (l) qVar;
                     lVar.objType = 1;
-                    if (d.this.afn != null) {
-                        d.this.afn.a(amVar2.getView(), lVar);
+                    if (d.this.afE != null) {
+                        d.this.afE.a(amVar2.getView(), lVar);
                     }
                     com.baidu.tieba.homepage.gamevideo.e.a.a(lVar, view.getContext(), 18, false, com.baidu.card.f.a((v) viewGroup2, view, i));
-                    amVar2.tW().b(new a.C0096a(1));
+                    amVar2.tW().b(new a.C0097a(1));
                 }
             }
         });
@@ -76,22 +76,22 @@ public class d extends com.baidu.adp.widget.ListView.a<l, am<l>> {
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.widget.ListView.a
     public View a(int i, View view, ViewGroup viewGroup, l lVar, am<l> amVar) {
-        if (lVar == null || amVar == null || amVar.getView() == null || lVar.dXg == null) {
+        if (lVar == null || amVar == null || amVar.getView() == null || lVar.eji == null) {
             return null;
         }
-        lVar.vX(lVar.position + 1);
+        lVar.wD(lVar.position + 1);
         amVar.tW().setPosition(i);
         amVar.b((am<l>) lVar);
         amVar.tW().onChangeSkinType(this.mPageContext, TbadkCoreApplication.getInst().getSkinType());
-        amVar.tW().a(this.afn);
+        amVar.tW().a(this.afE);
         return amVar.getView();
     }
 
     public void setPageUniqueId(BdUniqueId bdUniqueId) {
-        this.eSq = bdUniqueId;
+        this.fey = bdUniqueId;
     }
 
-    public void Ar(int i) {
-        this.eqz = i;
+    public void AX(int i) {
+        this.eCL = i;
     }
 }

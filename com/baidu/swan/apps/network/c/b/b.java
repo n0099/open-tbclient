@@ -2,9 +2,9 @@ package com.baidu.swan.apps.network.c.b;
 
 import android.support.annotation.NonNull;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes10.dex */
 public abstract class b {
-    public abstract void avN();
+    public abstract void ayy();
 
     @NonNull
     public abstract String getNodeName();

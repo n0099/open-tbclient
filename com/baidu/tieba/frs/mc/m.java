@@ -6,40 +6,40 @@ import com.baidu.tbadk.mvc.message.MvcHttpResponsedMessage;
 import com.baidu.tbadk.mvc.message.MvcNetMessage;
 import com.baidu.tieba.tbadkCore.FrsRequestData;
 import com.baidu.tieba.tbadkCore.r;
-/* loaded from: classes21.dex */
+/* loaded from: classes22.dex */
 public class m implements MessageQueue.IdleHandler {
-    private r ivQ;
-    private FrsModelController iwV;
-    private MvcHttpResponsedMessage<com.baidu.tieba.tbadkCore.m> iwW;
-    private MvcHttpMessage<FrsRequestData, com.baidu.tieba.tbadkCore.m> iwX;
-    private MvcNetMessage<FrsRequestData, com.baidu.tieba.tbadkCore.m> iwY;
+    private r iKJ;
+    private FrsModelController iLO;
+    private MvcHttpResponsedMessage<com.baidu.tieba.tbadkCore.m> iLP;
+    private MvcHttpMessage<FrsRequestData, com.baidu.tieba.tbadkCore.m> iLQ;
+    private MvcNetMessage<FrsRequestData, com.baidu.tieba.tbadkCore.m> iLR;
 
     public void g(FrsModelController frsModelController) {
-        this.iwV = frsModelController;
+        this.iLO = frsModelController;
     }
 
     public void a(MvcHttpResponsedMessage<com.baidu.tieba.tbadkCore.m> mvcHttpResponsedMessage) {
-        this.iwW = mvcHttpResponsedMessage;
+        this.iLP = mvcHttpResponsedMessage;
     }
 
     public void a(MvcHttpMessage<FrsRequestData, com.baidu.tieba.tbadkCore.m> mvcHttpMessage) {
-        this.iwX = mvcHttpMessage;
+        this.iLQ = mvcHttpMessage;
     }
 
     public void a(MvcNetMessage<FrsRequestData, com.baidu.tieba.tbadkCore.m> mvcNetMessage) {
-        this.iwY = mvcNetMessage;
+        this.iLR = mvcNetMessage;
     }
 
     public void a(r rVar) {
-        this.ivQ = rVar;
+        this.iKJ = rVar;
     }
 
     @Override // android.os.MessageQueue.IdleHandler
     public boolean queueIdle() {
-        if (this.iwV != null) {
-            this.iwV.b(this.iwW, this.iwX, this.iwY);
-            if (this.ivQ != null) {
-                this.ivQ.cpt();
+        if (this.iLO != null) {
+            this.iLO.b(this.iLP, this.iLQ, this.iLR);
+            if (this.iKJ != null) {
+                this.iKJ.csR();
             }
         }
         return false;

@@ -1,21 +1,21 @@
 package com.baidu.helios.common.b.a;
-/* loaded from: classes6.dex */
+/* loaded from: classes8.dex */
 public class a {
-    private static final char[] axr = "0123456789ABCDEF".toCharArray();
-    private static final char[] axs = "0123456789abcdef".toCharArray();
-    private static final byte[] axt = new byte[128];
+    private static final char[] aya = "0123456789ABCDEF".toCharArray();
+    private static final char[] ayb = "0123456789abcdef".toCharArray();
+    private static final byte[] ayc = new byte[128];
 
     static {
         for (int i = 0; i < 10; i++) {
-            axt[i + 48] = (byte) i;
-            axt[i + 65] = (byte) (i + 10);
-            axt[i + 97] = (byte) (i + 10);
+            ayc[i + 48] = (byte) i;
+            ayc[i + 65] = (byte) (i + 10);
+            ayc[i + 97] = (byte) (i + 10);
         }
     }
 
     public static char[] b(byte[] bArr, boolean z) {
         int i = 0;
-        char[] cArr = z ? axr : axs;
+        char[] cArr = z ? aya : ayb;
         char[] cArr2 = new char[bArr.length * 2];
         for (byte b : bArr) {
             int i2 = i + 1;

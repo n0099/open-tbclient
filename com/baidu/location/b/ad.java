@@ -7,15 +7,17 @@ import android.os.Handler;
 import android.os.Looper;
 import android.os.Message;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes3.dex */
+/* loaded from: classes7.dex */
 public class ad extends Handler {
-    final /* synthetic */ ac a;
+
+    /* renamed from: a  reason: collision with root package name */
+    final /* synthetic */ ac f1870a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public ad(ac acVar, Looper looper) {
         super(looper);
-        this.a = acVar;
+        this.f1870a = acVar;
     }
 
     @Override // android.os.Handler
@@ -57,9 +59,9 @@ public class ad extends Handler {
                 if (z) {
                 }
                 try {
-                    handler = this.a.d;
+                    handler = this.f1870a.d;
                     if (handler != null) {
-                        handler2 = this.a.d;
+                        handler2 = this.f1870a.d;
                         handler2.sendEmptyMessageDelayed(4, com.baidu.location.e.l.R);
                     }
                 } catch (Exception e2) {

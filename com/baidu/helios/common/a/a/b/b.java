@@ -7,13 +7,15 @@ import java.nio.ByteOrder;
 import java.nio.IntBuffer;
 import java.security.GeneralSecurityException;
 import java.util.Random;
-/* loaded from: classes25.dex */
+/* loaded from: classes11.dex */
 public class b {
     private static final int[] b = s(new byte[]{Constants.SHORT_PING_CMD_TYPE, 120, 112, 97, 110, 100, 32, 51, 50, 45, 98, 121, 116, Constants.SHORT_PING_CMD_TYPE, 32, 107});
-    private final int a;
+
+    /* renamed from: a  reason: collision with root package name */
+    private final int f1802a;
 
     public b(int i) {
-        this.a = i;
+        this.f1802a = i;
     }
 
     private static int a(int i, int i2) {
@@ -24,7 +26,7 @@ public class b {
         int remaining = byteBuffer2.remaining();
         int i = (remaining / 64) + 1;
         for (int i2 = 0; i2 < i; i2++) {
-            ByteBuffer b2 = b(bArr, bArr2, this.a + i2);
+            ByteBuffer b2 = b(bArr, bArr2, this.f1802a + i2);
             if (i2 == i - 1) {
                 a.a(byteBuffer, byteBuffer2, b2, remaining % 64);
             } else {
@@ -121,14 +123,14 @@ public class b {
     }
 
     ByteBuffer b(byte[] bArr, byte[] bArr2, int i) {
-        int[] a = a(s(bArr), s(bArr2), i);
-        int[] iArr = (int[]) a.clone();
+        int[] a2 = a(s(bArr), s(bArr2), i);
+        int[] iArr = (int[]) a2.clone();
         a(iArr);
-        for (int i2 = 0; i2 < a.length; i2++) {
-            a[i2] = a[i2] + iArr[i2];
+        for (int i2 = 0; i2 < a2.length; i2++) {
+            a2[i2] = a2[i2] + iArr[i2];
         }
         ByteBuffer order = ByteBuffer.allocate(64).order(ByteOrder.LITTLE_ENDIAN);
-        order.asIntBuffer().put(a, 0, 16);
+        order.asIntBuffer().put(a2, 0, 16);
         return order;
     }
 

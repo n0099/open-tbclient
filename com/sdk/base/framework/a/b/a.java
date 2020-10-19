@@ -3,7 +3,7 @@ package com.sdk.base.framework.a.b;
 import java.io.ByteArrayOutputStream;
 import java.io.InputStream;
 import java.net.HttpURLConnection;
-/* loaded from: classes5.dex */
+/* loaded from: classes16.dex */
 public final class a {
     public static byte[] a(HttpURLConnection httpURLConnection) {
         if (httpURLConnection == null) {

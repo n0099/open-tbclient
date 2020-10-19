@@ -7,37 +7,37 @@ public interface a {
 
     /* renamed from: com.baidu.live.y.a$a  reason: collision with other inner class name */
     /* loaded from: classes4.dex */
-    public interface InterfaceC0202a {
-        void I(Object obj);
+    public interface InterfaceC0217a {
+        void K(Object obj);
 
-        void Oa();
+        void Pf();
 
-        void Ob();
+        void Pg();
 
-        int Oc();
+        int Ph();
 
-        int Od();
+        int Pi();
 
-        int Oe();
+        int Pj();
 
         int getImMsgListViewHeight();
     }
 
-    void NY();
+    void Pd();
 
-    void NZ();
+    void Pe();
 
     void a(com.baidu.live.g.a aVar);
 
     void a(com.baidu.live.liveroom.b.a aVar);
 
-    void a(InterfaceC0202a interfaceC0202a);
+    void a(InterfaceC0217a interfaceC0217a);
 
-    void cp(boolean z);
+    void cs(boolean z);
 
-    void eT(int i);
+    void fc(int i);
 
-    void eU(int i);
+    void fd(int i);
 
     void onDestroy();
 

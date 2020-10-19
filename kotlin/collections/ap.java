@@ -2,9 +2,9 @@ package kotlin.collections;
 
 import java.util.Iterator;
 @kotlin.h
-/* loaded from: classes5.dex */
+/* loaded from: classes10.dex */
 public abstract class ap implements Iterator<Short> {
-    public abstract short ekg();
+    public abstract short enS();
 
     @Override // java.util.Iterator
     public void remove() {
@@ -13,8 +13,8 @@ public abstract class ap implements Iterator<Short> {
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // java.util.Iterator
-    /* renamed from: ekf */
+    /* renamed from: enR */
     public final Short next() {
-        return Short.valueOf(ekg());
+        return Short.valueOf(enS());
     }
 }

@@ -8,9 +8,11 @@ import com.baidu.mobads.utils.XAdSDKFoundationFacade;
 import java.net.URL;
 import java.util.Observable;
 import java.util.Observer;
-/* loaded from: classes3.dex */
+/* loaded from: classes7.dex */
 public class o implements Observer {
-    private Context a;
+
+    /* renamed from: a  reason: collision with root package name */
+    private Context f2342a;
     private URL b;
     private String c;
     private final e d;
@@ -18,7 +20,7 @@ public class o implements Observer {
     private SharedPreferences f;
     private SharedPreferences.OnSharedPreferenceChangeListener g;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes7.dex */
     public interface a {
         void a(e eVar);
 
@@ -44,14 +46,14 @@ public class o implements Observer {
     }
 
     private void a(Context context, a aVar) {
-        this.a = context;
+        this.f2342a = context;
         this.e = aVar;
-        this.f = this.a.getSharedPreferences("__xadsdk_downloaded__version__", 0);
+        this.f = this.f2342a.getSharedPreferences("__xadsdk_downloaded__version__", 0);
         this.f.registerOnSharedPreferenceChangeListener(this.g);
     }
 
     public void a(String str, String str2) {
-        IOAdDownloader createSimpleFileDownloader = XAdSDKFoundationFacade.getInstance().getDownloaderManager(this.a).createSimpleFileDownloader(this.c != null ? new URL(this.c) : this.b, str, str2, false);
+        IOAdDownloader createSimpleFileDownloader = XAdSDKFoundationFacade.getInstance().getDownloaderManager(this.f2342a).createSimpleFileDownloader(this.c != null ? new URL(this.c) : this.b, str, str2, false);
         createSimpleFileDownloader.addObserver(this);
         createSimpleFileDownloader.start();
         SharedPreferences.Editor edit = this.f.edit();

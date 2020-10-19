@@ -17,14 +17,14 @@ public class a {
     }
 
     public static int f(@ColorRes int i, float f) {
-        return c.l(ap.getColor(i), f);
+        return c.m(ap.getColor(i), f);
     }
 
     public static Drawable getDrawable(@DrawableRes int i) {
         return ap.getDrawable(i);
     }
 
-    public static int fq(String str) {
+    public static int fv(String str) {
         if (str == null || str.length() == 0) {
             return ActivityChooserView.ActivityChooserViewAdapter.MAX_ACTIVITY_COUNT_UNLIMITED;
         }

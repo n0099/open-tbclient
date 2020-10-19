@@ -12,10 +12,10 @@ import com.baidu.tbadk.editortools.e;
 import com.baidu.tbadk.editortools.m;
 import com.baidu.tieba.R;
 import java.util.ArrayList;
-/* loaded from: classes23.dex */
+/* loaded from: classes24.dex */
 public class b extends com.baidu.tbadk.editortools.c {
     @Override // com.baidu.tbadk.editortools.c
-    protected e ec(Context context) {
+    protected e ej(Context context) {
         EditorTools editorTools = new EditorTools(context);
         editorTools.setBarLauncherType(4);
         editorTools.setBackgroundColorId(R.color.cp_bg_line_h);
@@ -25,46 +25,46 @@ public class b extends com.baidu.tbadk.editortools.c {
     @Override // com.baidu.tbadk.editortools.c
     protected void a(e eVar) {
         if (eVar != null) {
-            EditorTools bsv = eVar.bsv();
+            EditorTools bvf = eVar.bvf();
             ArrayList arrayList = new ArrayList();
             arrayList.add(5);
-            bsv.bg(arrayList);
-            m qr = bsv.qr(5);
-            if (qr != null) {
-                qr.jk(false);
-                qr.eNF = 0;
+            bvf.bj(arrayList);
+            m qP = bvf.qP(5);
+            if (qP != null) {
+                qP.jI(false);
+                qP.eZM = 0;
             }
-            bsv.b(new c(bsv.getContext()));
-            bsv.build();
-            bsv.b(new com.baidu.tbadk.editortools.a(35, 5, false));
-            bsv.hide();
+            bvf.b(new c(bvf.getContext()));
+            bvf.build();
+            bvf.b(new com.baidu.tbadk.editortools.a(35, 5, false));
+            bvf.hide();
         }
     }
 
     @Override // com.baidu.tbadk.editortools.c
     protected void b(e eVar) {
         if (eVar instanceof a) {
-            EditorTools bsv = eVar.bsv();
+            EditorTools bvf = eVar.bvf();
             final a aVar = (a) eVar;
             com.baidu.tbadk.editortools.b bVar = new com.baidu.tbadk.editortools.b() { // from class: com.baidu.tieba.videoplay.editor.b.1
                 @Override // com.baidu.tbadk.editortools.b
                 public void a(com.baidu.tbadk.editortools.a aVar2) {
-                    if (aVar != null && aVar.bsv() != null && aVar2 != null) {
+                    if (aVar != null && aVar.bvf() != null && aVar2 != null) {
                         switch (aVar2.code) {
                             case 4:
-                                aVar.Cw((String) aVar2.data);
+                                aVar.Di((String) aVar2.data);
                                 return;
                             case 5:
                             case 6:
                             default:
                                 return;
                             case 7:
-                                aVar.bnz().showToast(R.string.over_limit_tip);
+                                aVar.bqj().showToast(R.string.over_limit_tip);
                                 return;
                             case 8:
-                                aVar.dIS();
-                                if (b.this.a(aVar.bnz(), RequestResponseCode.REQUEST_LOGIN_WRITE)) {
-                                    aVar.btz();
+                                aVar.dME();
+                                if (b.this.a(aVar.bqj(), RequestResponseCode.REQUEST_LOGIN_WRITE)) {
+                                    aVar.bwj();
                                     return;
                                 }
                                 return;
@@ -72,9 +72,9 @@ public class b extends com.baidu.tbadk.editortools.c {
                     }
                 }
             };
-            bsv.setActionListener(4, bVar);
-            bsv.setActionListener(7, bVar);
-            bsv.setActionListener(8, bVar);
+            bvf.setActionListener(4, bVar);
+            bvf.setActionListener(7, bVar);
+            bvf.setActionListener(8, bVar);
         }
     }
 

@@ -12,20 +12,20 @@ import kotlin.text.l;
 @kotlin.h
 /* loaded from: classes6.dex */
 public final class d {
-    public static final d nRJ = new d();
+    public static final d ohb = new d();
 
     private d() {
     }
 
-    public final File p(String str, File file) {
+    public final File o(String str, File file) {
         String str2;
-        q.m(file, "f");
+        q.n(file, "f");
         String str3 = str;
         if (str3 == null || str3.length() == 0) {
             return null;
         }
         if (str == null) {
-            q.ekp();
+            q.eob();
         }
         List b = l.b((CharSequence) str, new String[]{Constants.ACCEPT_TIME_SEPARATOR_SP}, false, 0, 6, (Object) null);
         if (b.size() > 1) {
@@ -51,23 +51,23 @@ public final class d {
     }
 
     public final void a(String str, String str2, tv.chushou.zues.widget.a.c cVar, int i, int i2) {
-        q.m(str2, "avatarUrl");
-        q.m(cVar, "sp");
+        q.n(str2, "avatarUrl");
+        q.n(cVar, "sp");
         int length = cVar.length();
-        ImageRequestBuilder yt = ImageRequestBuilder.ad(i.Vq(str2)).a(new com.kascend.chushou.widget.gif.a(i, i2, str)).yt(true);
-        com.facebook.drawee.view.b a = com.facebook.drawee.view.b.a(new com.facebook.drawee.generic.b(tv.chushou.widget.a.c.getResources()).LU(com.kascend.chushou.view.a.a(null)).dUU(), tv.chushou.basis.d.b.epQ());
-        com.facebook.drawee.controller.a dUh = com.facebook.drawee.a.a.c.dTu().bg(yt.eay()).dUl();
-        q.l((Object) a, "draweeHolder");
-        a.setController(dUh);
+        ImageRequestBuilder za = ImageRequestBuilder.ad(i.We(str2)).a(new com.kascend.chushou.widget.gif.a(i, i2, str)).za(true);
+        com.facebook.drawee.view.b a2 = com.facebook.drawee.view.b.a(new com.facebook.drawee.generic.b(tv.chushou.widget.a.c.getResources()).MA(com.kascend.chushou.view.a.a(null)).dYF(), tv.chushou.basis.d.b.etB());
+        com.facebook.drawee.controller.a dXS = com.facebook.drawee.a.a.c.dXf().bj(za.eej()).dXW();
+        q.m(a2, "draweeHolder");
+        a2.setController(dXS);
         cVar.append(" ");
         String str3 = str;
         int i3 = str3 == null || str3.length() == 0 ? i2 : i;
-        cVar.a(a, length, length, i3, i3, false, 2);
+        cVar.a(a2, length, length, i3, i3, false, 2);
         cVar.append(" ");
     }
 
     public final void a() {
-        tv.chushou.zues.utils.h.equ();
+        tv.chushou.zues.utils.h.euf();
         System.gc();
     }
 }

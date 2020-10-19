@@ -1,10 +1,10 @@
 package rx.b;
 
 import rx.j;
-/* loaded from: classes7.dex */
+/* loaded from: classes16.dex */
 public final class f {
-    public static <T> j<T> eoS() {
-        return b(a.eoR());
+    public static <T> j<T> esD() {
+        return b(a.esC());
     }
 
     public static <T> j<T> b(final rx.e<? super T> eVar) {

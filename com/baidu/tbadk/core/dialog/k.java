@@ -13,14 +13,14 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes.dex */
 public class k {
-    private TextView dUN;
-    private Context eii;
-    private ViewGroup eij;
-    private LinearLayout eik;
-    private View eil;
-    private TextView eim;
-    private c ein;
-    private a eio;
+    private TextView egP;
+    private Context euq;
+    private ViewGroup eur;
+    private LinearLayout eus;
+    private View eut;
+    private TextView euu;
+    private c euv;
+    private a euw;
     private List<? extends j> mItems;
     private String titleText;
 
@@ -41,27 +41,27 @@ public class k {
 
     public k(Context context) {
         if (context != null) {
-            this.eii = context;
-            this.eij = (ViewGroup) LayoutInflater.from(context).inflate(R.layout.popup_dialog_view, (ViewGroup) null);
-            this.eik = (LinearLayout) this.eij.findViewById(R.id.content_view);
-            this.dUN = (TextView) this.eij.findViewById(R.id.title);
-            this.eil = this.eij.findViewById(R.id.title_divide_line);
-            this.eil.setVisibility(8);
+            this.euq = context;
+            this.eur = (ViewGroup) LayoutInflater.from(context).inflate(R.layout.popup_dialog_view, (ViewGroup) null);
+            this.eus = (LinearLayout) this.eur.findViewById(R.id.content_view);
+            this.egP = (TextView) this.eur.findViewById(R.id.title);
+            this.eut = this.eur.findViewById(R.id.title_divide_line);
+            this.eut.setVisibility(8);
             this.mItems = new ArrayList();
-            this.eim = (TextView) this.eij.findViewById(R.id.dialog_bottom_cancel_button);
+            this.euu = (TextView) this.eur.findViewById(R.id.dialog_bottom_cancel_button);
         }
     }
 
     public Context getContext() {
-        return this.eii;
+        return this.euq;
     }
 
     public ViewGroup getView() {
-        return this.eik;
+        return this.eus;
     }
 
     public View getRootView() {
-        return this.eij;
+        return this.eur;
     }
 
     public void setTitleText(String str) {
@@ -69,24 +69,24 @@ public class k {
     }
 
     public void a(c cVar) {
-        this.ein = cVar;
+        this.euv = cVar;
     }
 
-    public c bip() {
-        return this.ein;
+    public c bkY() {
+        return this.euv;
     }
 
-    public void aX(List<? extends j> list) {
+    public void ba(List<? extends j> list) {
         if (list != null) {
             this.mItems = list;
-            this.eik.removeAllViews();
+            this.eus.removeAllViews();
             int i = 0;
             while (true) {
                 int i2 = i;
                 if (i2 < list.size()) {
                     j jVar = list.get(i2);
                     if (jVar != null) {
-                        this.eik.addView(jVar.getView());
+                        this.eus.addView(jVar.getView());
                     }
                     i = i2 + 1;
                 } else {
@@ -97,15 +97,15 @@ public class k {
     }
 
     public void a(a aVar) {
-        this.eio = aVar;
+        this.euw = aVar;
     }
 
     public void onChangeSkinType() {
-        ap.setBackgroundResource(this.dUN, R.color.cp_bg_line_k);
-        ap.setViewTextColor(this.dUN, R.color.cp_cont_c);
-        ap.setBackgroundColor(this.eil, R.color.cp_bg_line_c);
-        ap.setBackgroundResource(this.eim, R.color.cp_bg_line_k);
-        ap.setViewTextColor(this.eim, R.color.cp_cont_j);
+        ap.setBackgroundResource(this.egP, R.color.cp_bg_line_k);
+        ap.setViewTextColor(this.egP, R.color.cp_cont_c);
+        ap.setBackgroundColor(this.eut, R.color.cp_bg_line_c);
+        ap.setBackgroundResource(this.euu, R.color.cp_bg_line_k);
+        ap.setViewTextColor(this.euu, R.color.cp_cont_j);
         if (this.mItems != null) {
             for (j jVar : this.mItems) {
                 jVar.onChangeSkinType();
@@ -113,21 +113,21 @@ public class k {
         }
     }
 
-    public View biq() {
+    public View bkZ() {
         if (!StringUtils.isNull(this.titleText)) {
-            this.dUN.setText(this.titleText);
+            this.egP.setText(this.titleText);
         } else {
-            this.dUN.setVisibility(8);
+            this.egP.setVisibility(8);
         }
-        if (this.eio != null) {
-            this.eim.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tbadk.core.dialog.k.1
+        if (this.euw != null) {
+            this.euu.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tbadk.core.dialog.k.1
                 @Override // android.view.View.OnClickListener
                 public void onClick(View view) {
-                    k.this.eio.onClick();
+                    k.this.euw.onClick();
                 }
             });
         }
         onChangeSkinType();
-        return this.eij;
+        return this.eur;
     }
 }

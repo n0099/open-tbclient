@@ -5,9 +5,11 @@ import com.baidu.android.pushservice.PushSettings;
 import com.baidu.android.pushservice.b.d;
 import com.baidu.android.pushservice.c.e;
 import com.baidu.android.pushservice.i.g;
-/* loaded from: classes7.dex */
+/* loaded from: classes10.dex */
 public class c {
-    private static int a = 0;
+
+    /* renamed from: a  reason: collision with root package name */
+    private static int f1133a = 0;
 
     public static void a(final Context context) {
         if (context != null && d.g(context) && g.a(context) && PushSettings.l(context)) {
@@ -21,8 +23,8 @@ public class c {
     }
 
     static /* synthetic */ int b() {
-        int i = a;
-        a = i + 1;
+        int i = f1133a;
+        f1133a = i + 1;
         return i;
     }
 
@@ -30,7 +32,7 @@ public class c {
     public static void b(Context context, a aVar) {
         aVar.a();
         e.a(context).f();
-        a = 0;
+        f1133a = 0;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -50,12 +52,12 @@ public class c {
                     PushSettings.k(context);
                     if (i == 0) {
                         c.b(context, aVar);
-                        int unused = c.a = 0;
-                    } else if (c.a < 1) {
+                        int unused = c.f1133a = 0;
+                    } else if (c.f1133a < 1) {
                         c.b(context, false);
                         c.b();
                     } else {
-                        int unused2 = c.a = 0;
+                        int unused2 = c.f1133a = 0;
                         int m = PushSettings.m(context);
                         if (m >= 3) {
                             c.b(context, aVar);

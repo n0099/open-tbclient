@@ -3,13 +3,15 @@ package com.baidu.mapsdkplatform.comapi.commonutils.a;
 import javax.net.ssl.HostnameVerifier;
 import javax.net.ssl.HttpsURLConnection;
 import javax.net.ssl.SSLSession;
-/* loaded from: classes3.dex */
+/* loaded from: classes7.dex */
 class c implements HostnameVerifier {
-    final /* synthetic */ b a;
+
+    /* renamed from: a  reason: collision with root package name */
+    final /* synthetic */ b f2208a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public c(b bVar) {
-        this.a = bVar;
+        this.f2208a = bVar;
     }
 
     @Override // javax.net.ssl.HostnameVerifier

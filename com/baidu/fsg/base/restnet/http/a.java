@@ -19,9 +19,11 @@ import java.util.Locale;
 import java.util.Map;
 import java.util.Set;
 import java.util.TimeZone;
-/* loaded from: classes15.dex */
+/* loaded from: classes16.dex */
 public class a implements b<String, String> {
-    public static final String a = "Host";
+
+    /* renamed from: a  reason: collision with root package name */
+    public static final String f1471a = "Host";
     private static final String b = "Accept";
     private static final String c = "Accept-Charset";
     private static final String d = "Accept-Encoding";

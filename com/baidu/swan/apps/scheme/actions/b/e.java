@@ -11,10 +11,10 @@ import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes10.dex */
 public class e extends b {
-    private static final String cVd = SchemeConfig.getSchemeHead() + "://v19/swan/launch?params={\"appid\":\"";
-    private static final String cVe = SchemeConfig.getSchemeHead() + "://swangame/%s";
+    private static final String dhl = SchemeConfig.getSchemeHead() + "://v19/swan/launch?params={\"appid\":\"";
+    private static final String dhm = SchemeConfig.getSchemeHead() + "://swangame/%s";
 
     public e(j jVar) {
         super(jVar, "/swanAPI/getFavor");
@@ -23,9 +23,9 @@ public class e extends b {
     @Override // com.baidu.swan.apps.scheme.actions.b.b
     protected void b(com.baidu.swan.apps.runtime.e eVar, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, String str) {
         JSONArray jSONArray = new JSONArray();
-        List<SwanFavorItemData> anl = SwanFavorDataManager.ank().anl();
-        if (anl.size() > 0) {
-            for (SwanFavorItemData swanFavorItemData : anl) {
+        List<SwanFavorItemData> apX = SwanFavorDataManager.apW().apX();
+        if (apX.size() > 0) {
+            for (SwanFavorItemData swanFavorItemData : apX) {
                 jSONArray.put(b(swanFavorItemData));
             }
         }
@@ -48,9 +48,9 @@ public class e extends b {
             jSONObject.put("title", swanFavorItemData.getAppName());
             jSONObject.put("frameType", swanFavorItemData.getAppFrameType());
             if (swanFavorItemData.getAppFrameType() == 1) {
-                str = String.format(cVe, swanFavorItemData.getAppKey());
+                str = String.format(dhm, swanFavorItemData.getAppKey());
             } else {
-                str = cVd + swanFavorItemData.getAppKey() + "\"}";
+                str = dhl + swanFavorItemData.getAppKey() + "\"}";
             }
             jSONObject.put("scheme", str);
         } catch (JSONException e) {

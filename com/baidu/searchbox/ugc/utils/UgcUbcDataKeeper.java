@@ -2,6 +2,7 @@ package com.baidu.searchbox.ugc.utils;
 
 import android.text.TextUtils;
 import com.baidu.fsg.face.liveness.video.f;
+import org.webrtc.MediaStreamTrack;
 /* loaded from: classes5.dex */
 public class UgcUbcDataKeeper {
     private static String voteSourceFrom = "default";
@@ -55,7 +56,7 @@ public class UgcUbcDataKeeper {
         if (!TextUtils.isEmpty(str)) {
             if (str.startsWith("video")) {
                 setVideoUploadVideoMime(str);
-            } else if (str.startsWith("audio")) {
+            } else if (str.startsWith(MediaStreamTrack.AUDIO_TRACK_KIND)) {
                 setVideoUploadAudioMime(str);
             }
         }

@@ -1,9 +1,11 @@
 package com.sdk.base.framework.f.h;
 /* JADX WARN: $VALUES field not found */
 /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-/* loaded from: classes5.dex */
+/* loaded from: classes16.dex */
 public abstract class c {
-    public static final c a = new c("WIFI", 0) { // from class: com.sdk.base.framework.f.h.d
+
+    /* renamed from: a  reason: collision with root package name */
+    public static final c f4501a = new c("WIFI", 0) { // from class: com.sdk.base.framework.f.h.d
         @Override // com.sdk.base.framework.f.h.c
         public final int a() {
             return 0;
@@ -23,7 +25,7 @@ public abstract class c {
     };
 
     static {
-        c[] cVarArr = {a, b, c};
+        c[] cVarArr = {f4501a, b, c};
     }
 
     private c(String str, int i) {

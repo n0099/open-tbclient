@@ -12,73 +12,73 @@ import com.facebook.imagepipeline.producers.p;
 import com.facebook.imagepipeline.request.ImageRequest;
 import java.util.HashMap;
 import java.util.Map;
-/* loaded from: classes25.dex */
+/* loaded from: classes18.dex */
 public class m {
     private final ContentResolver mContentResolver;
-    private final boolean nFD;
-    private final boolean nFI;
-    private final boolean nFM;
-    private final l nFW;
-    private final at nFa;
-    private final af nFp;
-    private final boolean nFt;
-    private final boolean nFx;
-    private final boolean nGf;
-    aj<com.facebook.common.references.a<com.facebook.imagepipeline.g.c>> nGg;
-    aj<com.facebook.imagepipeline.g.e> nGh;
-    aj<com.facebook.imagepipeline.g.e> nGi;
-    aj<Void> nGj;
-    aj<Void> nGk;
-    private aj<com.facebook.imagepipeline.g.e> nGl;
-    aj<com.facebook.common.references.a<com.facebook.imagepipeline.g.c>> nGm;
-    aj<com.facebook.common.references.a<com.facebook.imagepipeline.g.c>> nGn;
-    aj<com.facebook.common.references.a<com.facebook.imagepipeline.g.c>> nGo;
-    aj<com.facebook.common.references.a<com.facebook.imagepipeline.g.c>> nGp;
-    aj<com.facebook.common.references.a<com.facebook.imagepipeline.g.c>> nGq;
-    aj<com.facebook.common.references.a<com.facebook.imagepipeline.g.c>> nGr;
-    aj<com.facebook.common.references.a<com.facebook.imagepipeline.g.c>> nGs;
-    Map<aj<com.facebook.common.references.a<com.facebook.imagepipeline.g.c>>, aj<com.facebook.common.references.a<com.facebook.imagepipeline.g.c>>> nGt = new HashMap();
-    Map<aj<com.facebook.common.references.a<com.facebook.imagepipeline.g.c>>, aj<Void>> nGu = new HashMap();
-    Map<aj<com.facebook.common.references.a<com.facebook.imagepipeline.g.c>>, aj<com.facebook.common.references.a<com.facebook.imagepipeline.g.c>>> nGv = new HashMap();
+    private final af nUI;
+    private final boolean nUM;
+    private final boolean nUQ;
+    private final boolean nUW;
+    private final at nUt;
+    aj<Void> nVA;
+    aj<Void> nVB;
+    private aj<com.facebook.imagepipeline.g.e> nVC;
+    aj<com.facebook.common.references.a<com.facebook.imagepipeline.g.c>> nVD;
+    aj<com.facebook.common.references.a<com.facebook.imagepipeline.g.c>> nVE;
+    aj<com.facebook.common.references.a<com.facebook.imagepipeline.g.c>> nVF;
+    aj<com.facebook.common.references.a<com.facebook.imagepipeline.g.c>> nVG;
+    aj<com.facebook.common.references.a<com.facebook.imagepipeline.g.c>> nVH;
+    aj<com.facebook.common.references.a<com.facebook.imagepipeline.g.c>> nVI;
+    aj<com.facebook.common.references.a<com.facebook.imagepipeline.g.c>> nVJ;
+    Map<aj<com.facebook.common.references.a<com.facebook.imagepipeline.g.c>>, aj<com.facebook.common.references.a<com.facebook.imagepipeline.g.c>>> nVK = new HashMap();
+    Map<aj<com.facebook.common.references.a<com.facebook.imagepipeline.g.c>>, aj<Void>> nVL = new HashMap();
+    Map<aj<com.facebook.common.references.a<com.facebook.imagepipeline.g.c>>, aj<com.facebook.common.references.a<com.facebook.imagepipeline.g.c>>> nVM = new HashMap();
+    private final boolean nVb;
+    private final boolean nVf;
+    private final l nVp;
+    private final boolean nVw;
+    aj<com.facebook.common.references.a<com.facebook.imagepipeline.g.c>> nVx;
+    aj<com.facebook.imagepipeline.g.e> nVy;
+    aj<com.facebook.imagepipeline.g.e> nVz;
 
     public m(ContentResolver contentResolver, l lVar, af afVar, boolean z, boolean z2, at atVar, boolean z3, boolean z4, boolean z5, boolean z6) {
         this.mContentResolver = contentResolver;
-        this.nFW = lVar;
-        this.nFp = afVar;
-        this.nFt = z;
-        this.nFD = z2;
-        this.nFa = atVar;
-        this.nGf = z3;
-        this.nFI = z4;
-        this.nFM = z5;
-        this.nFx = z6;
+        this.nVp = lVar;
+        this.nUI = afVar;
+        this.nUM = z;
+        this.nUW = z2;
+        this.nUt = atVar;
+        this.nVw = z3;
+        this.nVb = z4;
+        this.nVf = z5;
+        this.nUQ = z6;
     }
 
     public aj<Void> b(ImageRequest imageRequest) {
         c(imageRequest);
-        switch (imageRequest.eao()) {
+        switch (imageRequest.edZ()) {
             case 0:
-                return dXU();
+                return ebF();
             case 1:
             default:
-                throw new IllegalArgumentException("Unsupported uri scheme for encoded image fetch! Uri is: " + X(imageRequest.ean()));
+                throw new IllegalArgumentException("Unsupported uri scheme for encoded image fetch! Uri is: " + X(imageRequest.edY()));
             case 2:
             case 3:
-                return dXW();
+                return ebH();
         }
     }
 
     private static void c(ImageRequest imageRequest) {
         com.facebook.common.internal.g.checkNotNull(imageRequest);
-        com.facebook.common.internal.g.checkArgument(imageRequest.dZx().getValue() <= ImageRequest.RequestLevel.ENCODED_MEMORY_CACHE.getValue());
+        com.facebook.common.internal.g.checkArgument(imageRequest.edi().getValue() <= ImageRequest.RequestLevel.ENCODED_MEMORY_CACHE.getValue());
     }
 
     public aj<com.facebook.common.references.a<com.facebook.imagepipeline.g.c>> d(ImageRequest imageRequest) {
         aj<com.facebook.common.references.a<com.facebook.imagepipeline.g.c>> f = f(imageRequest);
-        if (imageRequest.eav() != null) {
+        if (imageRequest.eeg() != null) {
             f = v(f);
         }
-        if (this.nFI) {
+        if (this.nVb) {
             return x(f);
         }
         return f;
@@ -86,7 +86,7 @@ public class m {
 
     public aj<Void> e(ImageRequest imageRequest) {
         aj<com.facebook.common.references.a<com.facebook.imagepipeline.g.c>> f = f(imageRequest);
-        if (this.nFI) {
+        if (this.nVb) {
             f = x(f);
         }
         return w(f);
@@ -94,133 +94,133 @@ public class m {
 
     private aj<com.facebook.common.references.a<com.facebook.imagepipeline.g.c>> f(ImageRequest imageRequest) {
         com.facebook.common.internal.g.checkNotNull(imageRequest);
-        Uri ean = imageRequest.ean();
-        com.facebook.common.internal.g.checkNotNull(ean, "Uri is null.");
-        switch (imageRequest.eao()) {
+        Uri edY = imageRequest.edY();
+        com.facebook.common.internal.g.checkNotNull(edY, "Uri is null.");
+        switch (imageRequest.edZ()) {
             case 0:
-                return dXS();
+                return ebD();
             case 1:
             default:
-                throw new IllegalArgumentException("Unsupported uri scheme! Uri is: " + X(ean));
+                throw new IllegalArgumentException("Unsupported uri scheme! Uri is: " + X(edY));
             case 2:
-                return dXZ();
+                return ebK();
             case 3:
-                return dXY();
+                return ebJ();
             case 4:
-                if (com.facebook.common.d.a.UU(this.mContentResolver.getType(ean))) {
-                    return dXZ();
+                if (com.facebook.common.d.a.VI(this.mContentResolver.getType(edY))) {
+                    return ebK();
                 }
-                return dYa();
+                return ebL();
             case 5:
-                return dYd();
+                return ebO();
             case 6:
-                return dYc();
+                return ebN();
             case 7:
-                return dYe();
+                return ebP();
             case 8:
-                return dYb();
+                return ebM();
         }
     }
 
-    private synchronized aj<com.facebook.common.references.a<com.facebook.imagepipeline.g.c>> dXS() {
-        if (this.nGg == null) {
-            this.nGg = r(dXV());
+    private synchronized aj<com.facebook.common.references.a<com.facebook.imagepipeline.g.c>> ebD() {
+        if (this.nVx == null) {
+            this.nVx = r(ebG());
         }
-        return this.nGg;
+        return this.nVx;
     }
 
-    private synchronized aj<com.facebook.imagepipeline.g.e> dXT() {
-        if (this.nGi == null) {
-            this.nGi = this.nFW.a(dXV(), this.nFa);
+    private synchronized aj<com.facebook.imagepipeline.g.e> ebE() {
+        if (this.nVz == null) {
+            this.nVz = this.nVp.a(ebG(), this.nUt);
         }
-        return this.nGi;
+        return this.nVz;
     }
 
-    private synchronized aj<Void> dXU() {
-        if (this.nGk == null) {
-            this.nGk = l.m(dXT());
+    private synchronized aj<Void> ebF() {
+        if (this.nVB == null) {
+            this.nVB = l.m(ebE());
         }
-        return this.nGk;
+        return this.nVB;
     }
 
-    private synchronized aj<com.facebook.imagepipeline.g.e> dXV() {
-        if (this.nGl == null) {
-            this.nGl = l.a(s(this.nFW.b(this.nFp)));
-            this.nGl = this.nFW.a(this.nGl, this.nFt, this.nGf);
+    private synchronized aj<com.facebook.imagepipeline.g.e> ebG() {
+        if (this.nVC == null) {
+            this.nVC = l.a(s(this.nVp.b(this.nUI)));
+            this.nVC = this.nVp.a(this.nVC, this.nUM, this.nVw);
         }
-        return this.nGl;
+        return this.nVC;
     }
 
-    private synchronized aj<Void> dXW() {
-        if (this.nGj == null) {
-            this.nGj = l.m(dXX());
+    private synchronized aj<Void> ebH() {
+        if (this.nVA == null) {
+            this.nVA = l.m(ebI());
         }
-        return this.nGj;
+        return this.nVA;
     }
 
-    private synchronized aj<com.facebook.imagepipeline.g.e> dXX() {
-        if (this.nGh == null) {
-            this.nGh = this.nFW.a(s(this.nFW.dXO()), this.nFa);
+    private synchronized aj<com.facebook.imagepipeline.g.e> ebI() {
+        if (this.nVy == null) {
+            this.nVy = this.nVp.a(s(this.nVp.ebz()), this.nUt);
         }
-        return this.nGh;
+        return this.nVy;
     }
 
-    private synchronized aj<com.facebook.common.references.a<com.facebook.imagepipeline.g.c>> dXY() {
-        if (this.nGm == null) {
-            this.nGm = q(this.nFW.dXO());
+    private synchronized aj<com.facebook.common.references.a<com.facebook.imagepipeline.g.c>> ebJ() {
+        if (this.nVD == null) {
+            this.nVD = q(this.nVp.ebz());
         }
-        return this.nGm;
+        return this.nVD;
     }
 
-    private synchronized aj<com.facebook.common.references.a<com.facebook.imagepipeline.g.c>> dXZ() {
-        if (this.nGn == null) {
-            this.nGn = u(this.nFW.dXR());
+    private synchronized aj<com.facebook.common.references.a<com.facebook.imagepipeline.g.c>> ebK() {
+        if (this.nVE == null) {
+            this.nVE = u(this.nVp.ebC());
         }
-        return this.nGn;
+        return this.nVE;
     }
 
-    private synchronized aj<com.facebook.common.references.a<com.facebook.imagepipeline.g.c>> dYa() {
-        if (this.nGo == null) {
-            this.nGo = a(this.nFW.dXL(), new aw[]{this.nFW.dXM(), this.nFW.dXN()});
+    private synchronized aj<com.facebook.common.references.a<com.facebook.imagepipeline.g.c>> ebL() {
+        if (this.nVF == null) {
+            this.nVF = a(this.nVp.ebw(), new aw[]{this.nVp.ebx(), this.nVp.eby()});
         }
-        return this.nGo;
+        return this.nVF;
     }
 
-    private synchronized aj<com.facebook.common.references.a<com.facebook.imagepipeline.g.c>> dYb() {
-        if (this.nGs == null) {
-            this.nGs = q(this.nFW.dXP());
+    private synchronized aj<com.facebook.common.references.a<com.facebook.imagepipeline.g.c>> ebM() {
+        if (this.nVJ == null) {
+            this.nVJ = q(this.nVp.ebA());
         }
-        return this.nGs;
+        return this.nVJ;
     }
 
-    private synchronized aj<com.facebook.common.references.a<com.facebook.imagepipeline.g.c>> dYc() {
-        if (this.nGp == null) {
-            this.nGp = q(this.nFW.dXQ());
+    private synchronized aj<com.facebook.common.references.a<com.facebook.imagepipeline.g.c>> ebN() {
+        if (this.nVG == null) {
+            this.nVG = q(this.nVp.ebB());
         }
-        return this.nGp;
+        return this.nVG;
     }
 
-    private synchronized aj<com.facebook.common.references.a<com.facebook.imagepipeline.g.c>> dYd() {
-        if (this.nGq == null) {
-            this.nGq = q(this.nFW.dXK());
+    private synchronized aj<com.facebook.common.references.a<com.facebook.imagepipeline.g.c>> ebO() {
+        if (this.nVH == null) {
+            this.nVH = q(this.nVp.ebv());
         }
-        return this.nGq;
+        return this.nVH;
     }
 
-    private synchronized aj<com.facebook.common.references.a<com.facebook.imagepipeline.g.c>> dYe() {
-        if (this.nGr == null) {
-            aj<com.facebook.imagepipeline.g.e> dXJ = this.nFW.dXJ();
-            if (com.facebook.common.g.c.nvP && (!this.nFD || com.facebook.common.g.c.nvS == null)) {
-                dXJ = this.nFW.o(dXJ);
+    private synchronized aj<com.facebook.common.references.a<com.facebook.imagepipeline.g.c>> ebP() {
+        if (this.nVI == null) {
+            aj<com.facebook.imagepipeline.g.e> ebu = this.nVp.ebu();
+            if (com.facebook.common.g.c.nLi && (!this.nUW || com.facebook.common.g.c.nLl == null)) {
+                ebu = this.nVp.o(ebu);
             }
-            l lVar = this.nFW;
-            this.nGr = r(this.nFW.a(l.a(dXJ), true, this.nGf));
+            l lVar = this.nVp;
+            this.nVI = r(this.nVp.a(l.a(ebu), true, this.nVw));
         }
-        return this.nGr;
+        return this.nVI;
     }
 
     private aj<com.facebook.common.references.a<com.facebook.imagepipeline.g.c>> q(aj<com.facebook.imagepipeline.g.e> ajVar) {
-        return a(ajVar, new aw[]{this.nFW.dXN()});
+        return a(ajVar, new aw[]{this.nVp.eby()});
     }
 
     private aj<com.facebook.common.references.a<com.facebook.imagepipeline.g.c>> a(aj<com.facebook.imagepipeline.g.e> ajVar, aw<com.facebook.imagepipeline.g.e>[] awVarArr) {
@@ -228,64 +228,64 @@ public class m {
     }
 
     private aj<com.facebook.common.references.a<com.facebook.imagepipeline.g.c>> r(aj<com.facebook.imagepipeline.g.e> ajVar) {
-        return u(this.nFW.e(ajVar));
+        return u(this.nVp.e(ajVar));
     }
 
     private aj<com.facebook.imagepipeline.g.e> s(aj<com.facebook.imagepipeline.g.e> ajVar) {
-        if (com.facebook.common.g.c.nvP && (!this.nFD || com.facebook.common.g.c.nvS == null)) {
-            ajVar = this.nFW.o(ajVar);
+        if (com.facebook.common.g.c.nLi && (!this.nUW || com.facebook.common.g.c.nLl == null)) {
+            ajVar = this.nVp.o(ajVar);
         }
-        if (this.nFx) {
+        if (this.nUQ) {
             ajVar = t(ajVar);
         }
-        return this.nFW.i(this.nFW.j(ajVar));
+        return this.nVp.i(this.nVp.j(ajVar));
     }
 
     private aj<com.facebook.imagepipeline.g.e> t(aj<com.facebook.imagepipeline.g.e> ajVar) {
         p g;
-        if (this.nFM) {
-            g = this.nFW.g(this.nFW.h(ajVar));
+        if (this.nVf) {
+            g = this.nVp.g(this.nVp.h(ajVar));
         } else {
-            g = this.nFW.g(ajVar);
+            g = this.nVp.g(ajVar);
         }
-        return this.nFW.f(g);
+        return this.nVp.f(g);
     }
 
     private aj<com.facebook.common.references.a<com.facebook.imagepipeline.g.c>> u(aj<com.facebook.common.references.a<com.facebook.imagepipeline.g.c>> ajVar) {
-        return this.nFW.b(this.nFW.a(this.nFW.c(this.nFW.d(ajVar)), this.nFa));
+        return this.nVp.b(this.nVp.a(this.nVp.c(this.nVp.d(ajVar)), this.nUt));
     }
 
     private aj<com.facebook.imagepipeline.g.e> b(aj<com.facebook.imagepipeline.g.e> ajVar, aw<com.facebook.imagepipeline.g.e>[] awVarArr) {
-        au n = this.nFW.n(this.nFW.a(l.a(ajVar), true, this.nGf));
-        l lVar = this.nFW;
+        au n = this.nVp.n(this.nVp.a(l.a(ajVar), true, this.nVw));
+        l lVar = this.nVp;
         return l.a(b(awVarArr), n);
     }
 
     private aj<com.facebook.imagepipeline.g.e> b(aw<com.facebook.imagepipeline.g.e>[] awVarArr) {
-        return this.nFW.a(this.nFW.a(awVarArr), true, this.nGf);
+        return this.nVp.a(this.nVp.a(awVarArr), true, this.nVw);
     }
 
     private synchronized aj<com.facebook.common.references.a<com.facebook.imagepipeline.g.c>> v(aj<com.facebook.common.references.a<com.facebook.imagepipeline.g.c>> ajVar) {
-        if (!this.nGt.containsKey(ajVar)) {
-            this.nGt.put(ajVar, this.nFW.k(this.nFW.l(ajVar)));
+        if (!this.nVK.containsKey(ajVar)) {
+            this.nVK.put(ajVar, this.nVp.k(this.nVp.l(ajVar)));
         }
-        return this.nGt.get(ajVar);
+        return this.nVK.get(ajVar);
     }
 
     private synchronized aj<Void> w(aj<com.facebook.common.references.a<com.facebook.imagepipeline.g.c>> ajVar) {
-        if (!this.nGu.containsKey(ajVar)) {
-            l lVar = this.nFW;
-            this.nGu.put(ajVar, l.m(ajVar));
+        if (!this.nVL.containsKey(ajVar)) {
+            l lVar = this.nVp;
+            this.nVL.put(ajVar, l.m(ajVar));
         }
-        return this.nGu.get(ajVar);
+        return this.nVL.get(ajVar);
     }
 
     private synchronized aj<com.facebook.common.references.a<com.facebook.imagepipeline.g.c>> x(aj<com.facebook.common.references.a<com.facebook.imagepipeline.g.c>> ajVar) {
         aj<com.facebook.common.references.a<com.facebook.imagepipeline.g.c>> ajVar2;
-        ajVar2 = this.nGv.get(ajVar);
+        ajVar2 = this.nVM.get(ajVar);
         if (ajVar2 == null) {
-            ajVar2 = this.nFW.p(ajVar);
-            this.nGv.put(ajVar, ajVar2);
+            ajVar2 = this.nVp.p(ajVar);
+            this.nVM.put(ajVar, ajVar2);
         }
         return ajVar2;
     }

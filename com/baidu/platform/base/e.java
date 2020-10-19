@@ -13,11 +13,13 @@ import com.baidu.mapsdkplatform.comjni.util.AppMD5;
 import com.baidu.platform.comapi.basestruct.Point;
 import com.baidu.webkit.internal.ETAG;
 import com.xiaomi.mipush.sdk.Constants;
-/* loaded from: classes3.dex */
+/* loaded from: classes7.dex */
 public abstract class e {
     private boolean b = true;
     private boolean c = true;
-    protected com.baidu.platform.util.a a = new com.baidu.platform.util.a();
+
+    /* renamed from: a  reason: collision with root package name */
+    protected com.baidu.platform.util.a f2814a = new com.baidu.platform.util.a();
 
     private String a(SearchType searchType, String str) {
         if (TextUtils.isEmpty(str)) {
@@ -63,7 +65,7 @@ public abstract class e {
     }
 
     public String a(SearchType searchType) {
-        String a = a(com.baidu.platform.domain.d.a());
+        String a2 = a(com.baidu.platform.domain.d.a());
         String authToken = HttpClient.getAuthToken();
         if (authToken == null) {
             Log.e("SearchRequest", "toUrlString get authtoken failed");
@@ -75,17 +77,17 @@ public abstract class e {
             authToken = HttpClient.getAuthToken();
         }
         if (this.b) {
-            this.a.a("token", authToken);
+            this.f2814a.a("token", authToken);
         }
-        String a2 = this.a.a();
+        String a3 = this.f2814a.a();
         if (b(searchType)) {
-            a2 = a(searchType, a2);
+            a3 = a(searchType, a3);
         }
-        String str = a2 + HttpClient.getPhoneInfo();
+        String str = a3 + HttpClient.getPhoneInfo();
         if (this.c) {
             str = str + "&sign=" + AppMD5.getSignMD5String(str);
         }
-        return a + "?" + str;
+        return a2 + "?" + str;
     }
 
     public abstract String a(com.baidu.platform.domain.c cVar);

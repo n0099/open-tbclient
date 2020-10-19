@@ -2,10 +2,10 @@ package android.arch.lifecycle;
 
 import android.support.annotation.MainThread;
 import android.support.annotation.NonNull;
-/* loaded from: classes11.dex */
+/* loaded from: classes12.dex */
 public abstract class Lifecycle {
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes12.dex */
     public enum Event {
         ON_CREATE,
         ON_START,
@@ -24,9 +24,9 @@ public abstract class Lifecycle {
 
     @NonNull
     @MainThread
-    public abstract State hv();
+    public abstract State hw();
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes12.dex */
     public enum State {
         DESTROYED,
         INITIALIZED,

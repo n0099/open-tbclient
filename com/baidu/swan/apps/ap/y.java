@@ -17,15 +17,15 @@ import java.io.InputStreamReader;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-/* loaded from: classes3.dex */
+/* loaded from: classes10.dex */
 public class y {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
 
-    public static void cx(Context context) {
+    public static void cD(Context context) {
         if (context != null) {
             String str = Build.MANUFACTURER;
             if (TextUtils.isEmpty(str)) {
-                cA(context);
+                cG(context);
                 return;
             }
             String lowerCase = str.toLowerCase();
@@ -33,26 +33,26 @@ public class y {
                 Log.d("SwanAppPermissionHelper", "goPermissionPage : " + lowerCase);
             }
             if (TextUtils.equals(lowerCase, RomUtils.MANUFACTURER_XIAOMI)) {
-                cy(context);
+                cE(context);
             } else if (TextUtils.equals(lowerCase, RomUtils.MANUFACTURER_MEIZU)) {
-                cz(context);
+                cF(context);
             } else {
-                Map<String, ComponentName> aFB = aFB();
-                if (aFB.containsKey(lowerCase)) {
-                    a(context, aFB.get(lowerCase));
+                Map<String, ComponentName> aIk = aIk();
+                if (aIk.containsKey(lowerCase)) {
+                    a(context, aIk.get(lowerCase));
                     return;
                 }
-                Map<String, String> aFC = aFC();
-                if (aFC.containsKey(lowerCase)) {
-                    ae(context, aFC.get(lowerCase));
+                Map<String, String> aIl = aIl();
+                if (aIl.containsKey(lowerCase)) {
+                    ah(context, aIl.get(lowerCase));
                 } else {
-                    cA(context);
+                    cG(context);
                 }
             }
         }
     }
 
-    private static Map<String, ComponentName> aFB() {
+    private static Map<String, ComponentName> aIk() {
         HashMap hashMap = new HashMap();
         hashMap.put(RomUtils.MANUFACTURER_HUAWEI, new ComponentName("com.huawei.systemmanager", "com.huawei.permissionmanager.ui.MainActivity"));
         hashMap.put("letv", new ComponentName("com.letv.android.letvsafe", "com.letv.android.letvsafe.PermissionAndApps"));
@@ -61,7 +61,7 @@ public class y {
         return hashMap;
     }
 
-    private static Map<String, String> aFC() {
+    private static Map<String, String> aIl() {
         HashMap hashMap = new HashMap();
         hashMap.put(RomUtils.MANUFACTURER_OPPO, "com.coloros.safecenter");
         hashMap.put(RomUtils.MANUFACTURER_VIVO, "com.bairenkeji.icaller");
@@ -69,28 +69,28 @@ public class y {
         return hashMap;
     }
 
-    private static void cy(Context context) {
-        String aFD = aFD();
+    private static void cE(Context context) {
+        String aIm = aIm();
         if (DEBUG) {
-            Log.d("SwanAppPermissionHelper", "goPermissionPageForXiaomi rom version : " + aFD);
+            Log.d("SwanAppPermissionHelper", "goPermissionPageForXiaomi rom version : " + aIm);
         }
         Intent intent = new Intent();
-        if ("V10".equals(aFD) || "V9".equals(aFD) || "V8".equals(aFD)) {
+        if ("V10".equals(aIm) || "V9".equals(aIm) || "V8".equals(aIm)) {
             intent.setAction("miui.intent.action.APP_PERM_EDITOR");
             intent.setClassName("com.miui.securitycenter", "com.miui.permcenter.permissions.PermissionsEditorActivity");
             intent.putExtra("extra_pkgname", context.getPackageName());
             f(context, intent);
-        } else if ("V7".equals(aFD) || "V6".equals(aFD)) {
+        } else if ("V7".equals(aIm) || "V6".equals(aIm)) {
             intent.setAction("miui.intent.action.APP_PERM_EDITOR");
             intent.setClassName("com.miui.securitycenter", "com.miui.permcenter.permissions.AppPermissionsEditorActivity");
             intent.putExtra("extra_pkgname", context.getPackageName());
             f(context, intent);
         } else {
-            cA(context);
+            cG(context);
         }
     }
 
-    private static String aFD() {
+    private static String aIm() {
         Throwable th;
         BufferedReader bufferedReader;
         String str = null;
@@ -124,7 +124,7 @@ public class y {
         return str;
     }
 
-    private static void cz(Context context) {
+    private static void cF(Context context) {
         try {
             Intent intent = new Intent("com.meizu.safe.security.SHOW_APPSEC");
             intent.addCategory("android.intent.category.DEFAULT");
@@ -134,7 +134,7 @@ public class y {
             if (DEBUG) {
                 e.printStackTrace();
             }
-            cA(context);
+            cG(context);
         }
     }
 
@@ -147,19 +147,19 @@ public class y {
             if (DEBUG) {
                 e.printStackTrace();
             }
-            cA(context);
+            cG(context);
         }
     }
 
-    private static void ae(Context context, String str) {
+    private static void ah(Context context, String str) {
         PackageInfo packageInfo = getPackageInfo(context, str);
         if (packageInfo == null) {
-            cA(context);
+            cG(context);
             return;
         }
         ResolveInfo e = e(context, packageInfo);
         if (e == null) {
-            cA(context);
+            cG(context);
             return;
         }
         try {
@@ -171,7 +171,7 @@ public class y {
             if (DEBUG) {
                 e2.printStackTrace();
             }
-            cA(context);
+            cG(context);
         }
     }
 
@@ -206,7 +206,7 @@ public class y {
         return list.get(0);
     }
 
-    private static void cA(Context context) {
+    private static void cG(Context context) {
         Intent intent = new Intent("android.settings.APPLICATION_DETAILS_SETTINGS");
         intent.setData(Uri.fromParts("package", context.getPackageName(), null));
         f(context, intent);
@@ -229,7 +229,7 @@ public class y {
         }
     }
 
-    public static boolean af(Context context, String str) {
+    public static boolean ai(Context context, String str) {
         if (context == null || TextUtils.isEmpty(str)) {
             if (DEBUG) {
                 throw new IllegalArgumentException("context or permission is null");

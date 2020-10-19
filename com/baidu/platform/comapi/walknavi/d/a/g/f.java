@@ -14,16 +14,18 @@ import java.io.OutputStreamWriter;
 import java.io.UnsupportedEncodingException;
 import java.util.HashSet;
 import java.util.Iterator;
-/* loaded from: classes3.dex */
+/* loaded from: classes7.dex */
 public final class f {
-    private static String a = null;
+
+    /* renamed from: a  reason: collision with root package name */
+    private static String f2989a = null;
 
     public static void a(String str) {
-        a = str;
+        f2989a = str;
     }
 
     public static String a() {
-        return a;
+        return f2989a;
     }
 
     public static String b() {

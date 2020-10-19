@@ -17,9 +17,9 @@ public class a implements b, c, d, e, f, h {
     }
 
     private boolean fillByDataSource(com.baidu.adp.lib.OrmObject.toolsystem.orm.b.c cVar) {
-        boolean a = com.baidu.adp.lib.OrmObject.toolsystem.orm.d.e.a(cVar, this);
-        onFinishSourceToObject(a);
-        return a;
+        boolean a2 = com.baidu.adp.lib.OrmObject.toolsystem.orm.d.e.a(cVar, this);
+        onFinishSourceToObject(a2);
+        return a2;
     }
 
     private boolean fillInDataSource(com.baidu.adp.lib.OrmObject.toolsystem.orm.b.c cVar) {

@@ -2,27 +2,29 @@ package com.baidu.platform.comapi.bikenavi.widget;
 
 import android.view.View;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes3.dex */
+/* loaded from: classes7.dex */
 public class d implements View.OnClickListener {
-    final /* synthetic */ a a;
+
+    /* renamed from: a  reason: collision with root package name */
+    final /* synthetic */ a f2847a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public d(a aVar) {
-        this.a = aVar;
+        this.f2847a = aVar;
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
         CustomScrollView customScrollView;
         CustomScrollView customScrollView2;
-        customScrollView = this.a.l;
+        customScrollView = this.f2847a.l;
         if (customScrollView.getStatus() == com.baidu.platform.comapi.wnplatform.o.b.BOTTOM) {
-            this.a.c(true);
+            this.f2847a.c(true);
             return;
         }
-        customScrollView2 = this.a.l;
+        customScrollView2 = this.f2847a.l;
         if (customScrollView2.getStatus() == com.baidu.platform.comapi.wnplatform.o.b.TOP) {
-            this.a.d(true);
+            this.f2847a.d(true);
         }
     }
 }

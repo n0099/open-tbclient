@@ -17,7 +17,7 @@ import java.util.Iterator;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 import java.util.concurrent.RejectedExecutionException;
-/* loaded from: classes3.dex */
+/* loaded from: classes7.dex */
 public class HeatMap {
     public static final Gradient DEFAULT_GRADIENT;
     public static final double DEFAULT_OPACITY = 0.6d;
@@ -27,7 +27,9 @@ public class HeatMap {
     private static final int[] d;
     private static final float[] e;
     private static int r;
-    BaiduMap a;
+
+    /* renamed from: a  reason: collision with root package name */
+    BaiduMap f2009a;
     private t<WeightedLatLng> f;
     private Collection<WeightedLatLng> g;
     private int h;
@@ -41,15 +43,17 @@ public class HeatMap {
     private ExecutorService p;
     private HashSet<String> q;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes7.dex */
     public static class Builder {
-        private Collection<WeightedLatLng> a;
+
+        /* renamed from: a  reason: collision with root package name */
+        private Collection<WeightedLatLng> f2010a;
         private int b = 12;
         private Gradient c = HeatMap.DEFAULT_GRADIENT;
         private double d = 0.6d;
 
         public HeatMap build() {
-            if (this.a == null) {
+            if (this.f2010a == null) {
                 throw new IllegalStateException("BDMapSDKException: No input data: you must use either .data or .weightedData before building");
             }
             return new HeatMap(this, null);
@@ -104,7 +108,7 @@ public class HeatMap {
                 }
             }
             collection.removeAll(arrayList);
-            this.a = collection;
+            this.f2010a = collection;
             return this;
         }
     }
@@ -138,7 +142,7 @@ public class HeatMap {
         this.o = new HashMap<>();
         this.p = Executors.newFixedThreadPool(1);
         this.q = new HashSet<>();
-        this.g = builder.a;
+        this.g = builder.f2010a;
         this.h = builder.b;
         this.i = builder.c;
         this.j = builder.d;
@@ -153,7 +157,7 @@ public class HeatMap {
 
     private static double a(Collection<WeightedLatLng> collection, l lVar, int i, int i2) {
         LongSparseArray longSparseArray;
-        double d2 = lVar.a;
+        double d2 = lVar.f2074a;
         double d3 = lVar.c;
         double d4 = lVar.b;
         double d5 = lVar.d;
@@ -300,16 +304,16 @@ public class HeatMap {
         double d5 = (i * d2) - d3;
         double d6 = (d2 * (i2 + 1)) + d3;
         l lVar = new l(d5, ((i + 1) * d2) + d3, (i2 * d2) - d3, d6);
-        if (lVar.a(new l(this.k.a - d3, this.k.c + d3, this.k.b - d3, d3 + this.k.d))) {
-            Collection<WeightedLatLng> a = this.f.a(lVar);
-            if (a.isEmpty()) {
+        if (lVar.a(new l(this.k.f2074a - d3, this.k.c + d3, this.k.b - d3, d3 + this.k.d))) {
+            Collection<WeightedLatLng> a2 = this.f.a(lVar);
+            if (a2.isEmpty()) {
                 return;
             }
             double[][] dArr = (double[][]) Array.newInstance(Double.TYPE, (this.h * 2) + 256, (this.h * 2) + 256);
-            for (WeightedLatLng weightedLatLng : a) {
-                Point a2 = weightedLatLng.a();
-                int i4 = (int) ((a2.x - d5) / d4);
-                int i5 = (int) ((d6 - a2.y) / d4);
+            for (WeightedLatLng weightedLatLng : a2) {
+                Point a3 = weightedLatLng.a();
+                int i4 = (int) ((a3.x - d5) / d4);
+                int i5 = (int) ((d6 - a3.y) / d4);
                 if (i4 >= (this.h * 2) + 256) {
                     i4 = ((this.h * 2) + 256) - 1;
                 }
@@ -319,15 +323,15 @@ public class HeatMap {
                 double[] dArr2 = dArr[i4];
                 dArr2[i5] = dArr2[i5] + weightedLatLng.intensity;
             }
-            Bitmap a3 = a(a(dArr, this.m), this.l, this.n[i3 - 1]);
-            Tile a4 = a(a3);
-            a3.recycle();
-            a(i + PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS + i2 + PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS + i3, a4);
+            Bitmap a4 = a(a(dArr, this.m), this.l, this.n[i3 - 1]);
+            Tile a5 = a(a4);
+            a4.recycle();
+            a(i + PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS + i2 + PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS + i3, a5);
             if (this.o.size() > r) {
                 a();
             }
-            if (this.a != null) {
-                this.a.a();
+            if (this.f2009a != null) {
+                this.f2009a.a();
             }
         }
     }
@@ -408,9 +412,9 @@ public class HeatMap {
             return c2;
         }
         if (!a(str)) {
-            if (this.a != null && r == 0) {
-                MapStatus mapStatus = this.a.getMapStatus();
-                r = (((mapStatus.a.j.bottom - mapStatus.a.j.top) / 256) + 2) * (((mapStatus.a.j.right - mapStatus.a.j.left) / 256) + 2) * 4;
+            if (this.f2009a != null && r == 0) {
+                MapStatus mapStatus = this.f2009a.getMapStatus();
+                r = (((mapStatus.f2020a.j.bottom - mapStatus.f2020a.j.top) / 256) + 2) * (((mapStatus.f2020a.j.right - mapStatus.f2020a.j.left) / 256) + 2) * 4;
             }
             if (this.o.size() > r) {
                 a();
@@ -443,8 +447,8 @@ public class HeatMap {
     }
 
     public void removeHeatMap() {
-        if (this.a != null) {
-            this.a.a(this);
+        if (this.f2009a != null) {
+            this.f2009a.a(this);
         }
     }
 }

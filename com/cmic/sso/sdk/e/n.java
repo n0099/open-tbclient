@@ -8,7 +8,7 @@ import android.telephony.TelephonyManager;
 import android.text.TextUtils;
 import com.xiaomi.mipush.sdk.Constants;
 import java.lang.reflect.Method;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class n {
     public static int a(Context context, String str) {
         ConnectivityManager connectivityManager;
@@ -28,9 +28,9 @@ public class n {
         int type = networkInfo.getType();
         if (type == 1) {
             c.b("TelephonyUtils", "WIFI");
-            boolean a = g.a(context, "android.permission.CHANGE_NETWORK_STATE");
-            c.a("TelephonyUtils", "CHANGE_NETWORK_STATE=" + a);
-            if (a && !TextUtils.isEmpty(str) && a(context, connectivityManager)) {
+            boolean a2 = g.a(context, "android.permission.CHANGE_NETWORK_STATE");
+            c.a("TelephonyUtils", "CHANGE_NETWORK_STATE=" + a2);
+            if (a2 && !TextUtils.isEmpty(str) && a(context, connectivityManager)) {
                 c.b("TelephonyUtils", "流量数据 WIFI 同开");
                 return 3;
             }

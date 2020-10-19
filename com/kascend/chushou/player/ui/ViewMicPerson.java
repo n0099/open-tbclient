@@ -15,7 +15,9 @@ import java.util.ArrayList;
 import tv.chushou.zues.utils.h;
 /* loaded from: classes6.dex */
 public class ViewMicPerson extends RelativeLayout implements View.OnClickListener, Animation.AnimationListener {
-    private boolean a;
+
+    /* renamed from: a  reason: collision with root package name */
+    private boolean f4146a;
     private boolean b;
     private View c;
     private View d;
@@ -26,25 +28,25 @@ public class ViewMicPerson extends RelativeLayout implements View.OnClickListene
     private long j;
     private String k;
     private int l;
-    private Fragment oci;
+    private Fragment orC;
 
     public ViewMicPerson(Context context) {
         super(context);
-        this.a = false;
+        this.f4146a = false;
         this.b = false;
         this.i = false;
     }
 
     public ViewMicPerson(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.a = false;
+        this.f4146a = false;
         this.b = false;
         this.i = false;
     }
 
     public ViewMicPerson(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.a = false;
+        this.f4146a = false;
         this.b = false;
         this.i = false;
     }
@@ -62,15 +64,15 @@ public class ViewMicPerson extends RelativeLayout implements View.OnClickListene
             if (this.h != null) {
                 this.h.setText(String.format(this.f.getString(a.i.mic_play_together), Integer.valueOf(micStatus.onlineCount)));
             }
-            if (this.oci != null && this.oci.isAdded()) {
-                ((com.kascend.chushou.view.c.a) this.oci).a(arrayList);
+            if (this.orC != null && this.orC.isAdded()) {
+                ((com.kascend.chushou.view.c.a) this.orC).a(arrayList);
             }
         }
     }
 
     public void a() {
         this.b = false;
-        Animation loadAnimation = AnimationUtils.loadAnimation(this.f, a.C0879a.commonres_activity_exit_right);
+        Animation loadAnimation = AnimationUtils.loadAnimation(this.f, a.C0897a.commonres_activity_exit_right);
         loadAnimation.setAnimationListener(this);
         if (this.d != null) {
             this.d.startAnimation(loadAnimation);
@@ -107,8 +109,8 @@ public class ViewMicPerson extends RelativeLayout implements View.OnClickListene
     public void b() {
         this.f = null;
         this.b = false;
-        this.a = false;
-        this.oci = null;
+        this.f4146a = false;
+        this.orC = null;
         this.d = null;
         this.c = null;
         this.j = 0L;

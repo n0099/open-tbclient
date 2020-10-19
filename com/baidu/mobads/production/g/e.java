@@ -10,16 +10,18 @@ import com.baidu.mobads.utils.h;
 import com.baidu.mobads.utils.m;
 import dalvik.system.DexClassLoader;
 import java.util.HashMap;
-/* loaded from: classes3.dex */
+/* loaded from: classes7.dex */
 public class e extends com.baidu.mobads.vo.d {
-    h a;
+
+    /* renamed from: a  reason: collision with root package name */
+    h f2411a;
 
     public e(Context context, IXAdConstants4PDK.SlotType slotType) {
         super(context, null, slotType);
-        this.a = XAdSDKFoundationFacade.getInstance().getAdConstants();
+        this.f2411a = XAdSDKFoundationFacade.getInstance().getAdConstants();
         this.b = this.i.replaceURLWithSupportProtocol("http://mobads.baidu.com/cpro/ui/mads.php");
         g(1);
-        i(this.a.getAdCreativeTypeImage() + this.a.getAdCreativeTypeVideo() + this.a.getAdCreativeTypeRichmedia());
+        i(this.f2411a.getAdCreativeTypeImage() + this.f2411a.getAdCreativeTypeVideo() + this.f2411a.getAdCreativeTypeRichmedia());
         f(8);
         h(0);
     }
@@ -44,10 +46,10 @@ public class e extends com.baidu.mobads.vo.d {
     private boolean c() {
         if (a.r()) {
             try {
-                DexClassLoader a = com.baidu.mobads.production.a.a(this.d);
-                Class.forName("com.baidu.mobads_vr.vrplayer.VrImageView", false, a);
-                Class.forName("com.baidu.mobads_vr.vrplayer.VrImageView$OnGestureListener", false, a);
-                Class.forName("com.baidu.mobads_vr.vrplayer.VrImageView$OnBitmapLoadedListener", false, a);
+                DexClassLoader a2 = com.baidu.mobads.production.a.a(this.d);
+                Class.forName("com.baidu.mobads_vr.vrplayer.VrImageView", false, a2);
+                Class.forName("com.baidu.mobads_vr.vrplayer.VrImageView$OnGestureListener", false, a2);
+                Class.forName("com.baidu.mobads_vr.vrplayer.VrImageView$OnBitmapLoadedListener", false, a2);
                 return Build.VERSION.SDK_INT >= 16;
             } catch (Exception e) {
                 m.a().d(e);

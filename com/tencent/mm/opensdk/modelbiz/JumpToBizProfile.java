@@ -3,12 +3,12 @@ package com.tencent.mm.opensdk.modelbiz;
 import android.os.Bundle;
 import com.tencent.mm.opensdk.modelbase.BaseReq;
 import com.tencent.mm.opensdk.utils.Log;
-/* loaded from: classes8.dex */
+/* loaded from: classes11.dex */
 public class JumpToBizProfile {
     public static final int JUMP_TO_HARD_WARE_BIZ_PROFILE = 1;
     public static final int JUMP_TO_NORMAL_BIZ_PROFILE = 0;
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes11.dex */
     public static class Req extends BaseReq {
         private static final int EXT_MSG_LENGTH = 1024;
         private static final String TAG = "MicroMsg.SDK.JumpToBizProfile.Req";

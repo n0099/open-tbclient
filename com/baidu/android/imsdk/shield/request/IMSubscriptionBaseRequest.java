@@ -17,7 +17,7 @@ import java.util.Map;
 import org.apache.http.cookie.SM;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes9.dex */
+/* loaded from: classes5.dex */
 public abstract class IMSubscriptionBaseRequest extends BaseHttpRequest {
     private static final String TAG = "IMSubscriptionBaseRequest";
     protected String mKey;
@@ -61,7 +61,7 @@ public abstract class IMSubscriptionBaseRequest extends BaseHttpRequest {
     private String getHostUrl() {
         switch (Utility.readIntData(this.mContext, Constants.KEY_ENV, 0)) {
             case 0:
-                return Constants.URL_HTTP_ONLINE;
+                return "https://pim.baidu.com/";
             case 1:
             case 2:
                 return "http://cp01-ocean-749.epc.baidu.com:8111/";

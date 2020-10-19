@@ -13,10 +13,12 @@ import java.util.HashMap;
 import java.util.Locale;
 import java.util.concurrent.ExecutorService;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes7.dex */
 public abstract class l {
     public static String c = null;
-    public com.baidu.location.c.h a = null;
+
+    /* renamed from: a  reason: collision with root package name */
+    public com.baidu.location.c.h f1889a = null;
     public com.baidu.location.c.a b = null;
     private boolean e = true;
     private boolean f = true;
@@ -26,7 +28,7 @@ public abstract class l {
     private String i = null;
     private boolean j = false;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes7.dex */
     public class a extends Handler {
         public a() {
         }
@@ -50,9 +52,11 @@ public abstract class l {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes3.dex */
+    /* loaded from: classes7.dex */
     public class b extends com.baidu.location.e.f {
-        String a = null;
+
+        /* renamed from: a  reason: collision with root package name */
+        String f1891a = null;
         String b = null;
         long c = 0;
         long d = 0;
@@ -72,12 +76,12 @@ public abstract class l {
             }
             String encodeTp4 = Jni.encodeTp4(this.b);
             this.b = null;
-            if (this.a == null) {
-                this.a = ab.b();
+            if (this.f1891a == null) {
+                this.f1891a = ab.b();
             }
             this.k.put(BaseLocationBox.TYPE, encodeTp4);
-            if (this.a != null) {
-                this.k.put(MapBundleKey.OfflineMapKey.OFFLINE_UPDATE, this.a);
+            if (this.f1891a != null) {
+                this.k.put(MapBundleKey.OfflineMapKey.OFFLINE_UPDATE, this.f1891a);
             }
             this.k.put("trtm", String.format(Locale.CHINA, "%d", Long.valueOf(System.currentTimeMillis())));
         }
@@ -133,7 +137,7 @@ public abstract class l {
                         bDLocation3.setLocType(0);
                         bDLocation = bDLocation3;
                     }
-                    this.a = null;
+                    this.f1891a = null;
                     if (bDLocation.getLocType() == 0 && bDLocation.getLatitude() == Double.MIN_VALUE && bDLocation.getLongitude() == Double.MIN_VALUE) {
                         Message obtainMessage2 = l.this.d.obtainMessage(63);
                         obtainMessage2.obj = "HttpStatus error";
@@ -174,11 +178,11 @@ public abstract class l {
         if (this.b == null || !this.b.a()) {
             this.b = com.baidu.location.c.b.a().f();
         }
-        if (this.a == null || !this.a.j()) {
-            this.a = com.baidu.location.c.i.a().o();
+        if (this.f1889a == null || !this.f1889a.j()) {
+            this.f1889a = com.baidu.location.c.i.a().o();
         }
         Location g = com.baidu.location.c.f.a().j() ? com.baidu.location.c.f.a().g() : null;
-        if ((this.b == null || this.b.d() || this.b.c()) && ((this.a == null || this.a.a() == 0) && g == null)) {
+        if ((this.b == null || this.b.d() || this.b.c()) && ((this.f1889a == null || this.f1889a.a() == 0) && g == null)) {
             return null;
         }
         String b2 = b();
@@ -199,12 +203,12 @@ public abstract class l {
                 }
             }
         }
-        String str2 = ((this.a == null || this.a.a() == 0) && (l = com.baidu.location.c.i.a().l()) != null) ? l + b2 : b2;
+        String str2 = ((this.f1889a == null || this.f1889a.a() == 0) && (l = com.baidu.location.c.i.a().l()) != null) ? l + b2 : b2;
         if (this.f) {
             this.f = false;
-            return com.baidu.location.e.l.a(this.b, this.a, g, str2, 0, true);
+            return com.baidu.location.e.l.a(this.b, this.f1889a, g, str2, 0, true);
         }
-        return com.baidu.location.e.l.a(this.b, this.a, g, str2, 0);
+        return com.baidu.location.e.l.a(this.b, this.f1889a, g, str2, 0);
     }
 
     public abstract void a();

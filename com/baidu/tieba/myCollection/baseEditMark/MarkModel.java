@@ -9,87 +9,87 @@ import com.baidu.tbadk.baseEditMark.MarkData;
 import com.baidu.tbadk.baseEditMark.a;
 import com.baidu.tbadk.core.BaseFragmentActivity;
 import com.baidu.tbadk.core.util.aa;
-/* loaded from: classes23.dex */
+/* loaded from: classes24.dex */
 public class MarkModel extends BdBaseModel {
-    private boolean kth;
-    private MarkData kti;
-    private a ktj;
-    private a.InterfaceC0530a ktk;
+    private boolean kIt;
+    private MarkData kIu;
+    private a kIv;
+    private a.InterfaceC0547a kIw;
 
-    public void a(a.InterfaceC0530a interfaceC0530a) {
-        this.ktk = interfaceC0530a;
+    public void a(a.InterfaceC0547a interfaceC0547a) {
+        this.kIw = interfaceC0547a;
     }
 
     public MarkModel(BaseActivity baseActivity) {
         super(baseActivity.getPageContext());
-        this.kth = false;
-        this.kti = null;
-        this.ktj = null;
-        this.ktk = null;
-        this.kti = new MarkData();
+        this.kIt = false;
+        this.kIu = null;
+        this.kIv = null;
+        this.kIw = null;
+        this.kIu = new MarkData();
     }
 
     public MarkModel(BaseFragmentActivity baseFragmentActivity) {
         super(baseFragmentActivity.getPageContext());
-        this.kth = false;
-        this.kti = null;
-        this.ktj = null;
-        this.ktk = null;
-        this.kti = new MarkData();
+        this.kIt = false;
+        this.kIu = null;
+        this.kIv = null;
+        this.kIw = null;
+        this.kIu = new MarkData();
     }
 
-    public boolean bbu() {
-        return this.kth;
+    public boolean bec() {
+        return this.kIt;
     }
 
-    public MarkData bbx() {
-        return this.kti;
+    public MarkData bef() {
+        return this.kIu;
     }
 
     public void a(MarkData markData) {
-        this.kti = markData;
+        this.kIu = markData;
     }
 
-    public void hy(boolean z) {
-        this.kth = z;
+    public void hU(boolean z) {
+        this.kIt = z;
     }
 
-    public String bbt() {
-        if (this.kti != null) {
-            return this.kti.getPostId();
+    public String beb() {
+        if (this.kIu != null) {
+            return this.kIu.getPostId();
         }
         return null;
     }
 
-    public void bbw() {
-        if (this.ktj != null) {
-            this.ktj.cancel();
+    public void bee() {
+        if (this.kIv != null) {
+            this.kIv.cancel();
         }
-        this.ktj = new a(true);
-        this.ktj.setPriority(3);
-        this.ktj.execute(new Boolean[0]);
+        this.kIv = new a(true);
+        this.kIv.setPriority(3);
+        this.kIv.execute(new Boolean[0]);
     }
 
-    public void bbv() {
-        if (this.ktj != null) {
-            this.ktj.cancel();
+    public void bed() {
+        if (this.kIv != null) {
+            this.kIv.cancel();
         }
-        this.ktj = new a(false);
-        this.ktj.setPriority(3);
-        this.ktj.execute(new Boolean[0]);
+        this.kIv = new a(false);
+        this.kIv.setPriority(3);
+        this.kIv.execute(new Boolean[0]);
     }
 
-    /* loaded from: classes23.dex */
+    /* loaded from: classes24.dex */
     private class a extends BdAsyncTask<Boolean, Integer, Boolean> {
-        private aa bGb = null;
-        private boolean hvH;
-        private c ktd;
+        private aa bML = null;
+        private boolean hKC;
+        private c kIp;
 
         public a(boolean z) {
-            this.hvH = true;
-            this.ktd = null;
-            this.hvH = z;
-            this.ktd = new c();
+            this.hKC = true;
+            this.kIp = null;
+            this.hKC = z;
+            this.kIp = new c();
         }
 
         /* JADX INFO: Access modifiers changed from: protected */
@@ -102,20 +102,20 @@ public class MarkModel extends BdBaseModel {
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         /* renamed from: a */
         public Boolean doInBackground(Boolean... boolArr) {
-            if (this.hvH) {
-                this.bGb = new aa(TbConfig.SERVER_ADDRESS + TbConfig.MARK_ADDSTORE);
+            if (this.hKC) {
+                this.bML = new aa(TbConfig.SERVER_ADDRESS + TbConfig.MARK_ADDSTORE);
                 com.baidu.tieba.myCollection.baseEditMark.a aVar = new com.baidu.tieba.myCollection.baseEditMark.a();
-                aVar.f(MarkModel.this.kti);
-                this.bGb.addPostData("data", aVar.cS(0, 1));
+                aVar.f(MarkModel.this.kIu);
+                this.bML.addPostData("data", aVar.cS(0, 1));
             } else {
-                this.bGb = new aa(TbConfig.SERVER_ADDRESS + TbConfig.MARK_DELSTORE);
-                this.bGb.addPostData("user_id", MarkModel.this.kti.getAccount());
-                this.bGb.addPostData("tid", MarkModel.this.kti.getId());
-                this.bGb.addPostData("fid", MarkModel.this.kti.getForumId());
+                this.bML = new aa(TbConfig.SERVER_ADDRESS + TbConfig.MARK_DELSTORE);
+                this.bML.addPostData("user_id", MarkModel.this.kIu.getAccount());
+                this.bML.addPostData("tid", MarkModel.this.kIu.getId());
+                this.bML.addPostData("fid", MarkModel.this.kIu.getForumId());
             }
-            this.ktd.parserJson(this.bGb.postNetData());
-            boolean z = this.ktd.getErrorCode() == 0;
-            if (this.bGb.bjL().bkr().isRequestSuccess() && z) {
+            this.kIp.parserJson(this.bML.postNetData());
+            boolean z = this.kIp.getErrorCode() == 0;
+            if (this.bML.bmu().bnb().isRequestSuccess() && z) {
                 return true;
             }
             return false;
@@ -124,10 +124,10 @@ public class MarkModel extends BdBaseModel {
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         public void cancel() {
             super.cancel(true);
-            if (this.bGb != null) {
-                this.bGb.cancelNetConnect();
+            if (this.bML != null) {
+                this.bML.cancelNetConnect();
             }
-            MarkModel.this.ktj = null;
+            MarkModel.this.kIv = null;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -135,21 +135,21 @@ public class MarkModel extends BdBaseModel {
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         public void onPostExecute(Boolean bool) {
             try {
-                if (this.ktd != null) {
-                    com.baidu.tbadk.core.d.a.a("collection", 0L, 0, "add_collection_thread", this.ktd.getErrorCode(), this.ktd.getErrorString(), new Object[0]);
+                if (this.kIp != null) {
+                    com.baidu.tbadk.core.d.a.a("collection", 0L, 0, "add_collection_thread", this.kIp.getErrorCode(), this.kIp.getErrorString(), new Object[0]);
                 }
                 if (bool.booleanValue()) {
-                    if (MarkModel.this.ktk != null) {
-                        MarkModel.this.ktk.c(true, this.hvH, null);
+                    if (MarkModel.this.kIw != null) {
+                        MarkModel.this.kIw.c(true, this.hKC, null);
                     }
-                } else if (MarkModel.this.ktk != null) {
-                    if (this.bGb == null || this.bGb.bjL().bkr().isRequestSuccess()) {
-                        MarkModel.this.ktk.c(false, this.hvH, this.ktd.getErrorString());
+                } else if (MarkModel.this.kIw != null) {
+                    if (this.bML == null || this.bML.bmu().bnb().isRequestSuccess()) {
+                        MarkModel.this.kIw.c(false, this.hKC, this.kIp.getErrorString());
                     } else {
-                        MarkModel.this.ktk.c(false, this.hvH, this.bGb.getErrorString());
+                        MarkModel.this.kIw.c(false, this.hKC, this.bML.getErrorString());
                     }
                 }
-                MarkModel.this.ktj = null;
+                MarkModel.this.kIv = null;
             } catch (Throwable th) {
                 BdLog.e(th.toString());
             }
@@ -163,8 +163,8 @@ public class MarkModel extends BdBaseModel {
 
     @Override // com.baidu.adp.base.BdBaseModel
     public boolean cancelLoadData() {
-        if (this.ktj != null) {
-            this.ktj.cancel();
+        if (this.kIv != null) {
+            this.kIv.cancel();
             return false;
         }
         return false;

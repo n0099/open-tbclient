@@ -27,32 +27,32 @@ import java.util.regex.Pattern;
 import javax.annotation.concurrent.GuardedBy;
 @UsedByReflection
 @JNINamespace
-/* loaded from: classes15.dex */
+/* loaded from: classes17.dex */
 class CronetUrlRequestContext extends TurbonetEngine {
-    private static final Pattern nlS = Pattern.compile("^((([a-zA-Z0-9]|[a-zA-Z0-9][a-zA-Z0-9-]*[a-zA-Z0-9])\\.)*)([A-Za-z0-9]|[A-Za-z0-9][A-Za-z0-9-]*[A-Za-z0-9])$");
-    private static long nlZ = 0;
-    private String dMp;
-    private ActivityManager dcK;
-    private long nlV;
-    private Thread nlW;
-    private PowerManager nlX;
-    private boolean nlY;
-    private Executor nmb;
+    private static final Pattern nBp = Pattern.compile("^((([a-zA-Z0-9]|[a-zA-Z0-9][a-zA-Z0-9-]*[a-zA-Z0-9])\\.)*)([A-Za-z0-9]|[A-Za-z0-9][A-Za-z0-9-]*[A-Za-z0-9])$");
+    private static long nBw = 0;
+    private String dYq;
+    private ActivityManager doT;
+    private long nBs;
+    private Thread nBt;
+    private PowerManager nBu;
+    private boolean nBv;
+    private Executor nBy;
     private final Object mLock = new Object();
-    private final ConditionVariable nlT = new ConditionVariable(false);
-    private final AtomicInteger nlU = new AtomicInteger(0);
-    private final Object nma = new Object();
-    private final Object nmc = new Object();
-    private final Map<Object, HashSet<UrlRequest>> nmd = new HashMap();
-    private ProxyConfig nme = ProxyConfig.nof;
-    private TurbonetEngine.QUICConnectStatus nmf = TurbonetEngine.QUICConnectStatus.UNKNOWN;
-    private TurbonetEngine.TCPNetworkQualityStatus nmg = TurbonetEngine.TCPNetworkQualityStatus.UNKNOWN;
+    private final ConditionVariable nBq = new ConditionVariable(false);
+    private final AtomicInteger nBr = new AtomicInteger(0);
+    private final Object nBx = new Object();
+    private final Object nBz = new Object();
+    private final Map<Object, HashSet<UrlRequest>> nBA = new HashMap();
+    private ProxyConfig nBB = ProxyConfig.nDB;
+    private TurbonetEngine.QUICConnectStatus nBC = TurbonetEngine.QUICConnectStatus.UNKNOWN;
+    private TurbonetEngine.TCPNetworkQualityStatus nBD = TurbonetEngine.TCPNetworkQualityStatus.UNKNOWN;
     @GuardedBy("mDataTrafficMonitorLock")
-    private final com.baidu.turbonet.base.b<DataTrafficListener> nmh = new com.baidu.turbonet.base.b<>();
+    private final com.baidu.turbonet.base.b<DataTrafficListener> nBE = new com.baidu.turbonet.base.b<>();
     @GuardedBy("mNetworkQualityLock")
-    private final com.baidu.turbonet.base.b<NetworkQualityListener> nmi = new com.baidu.turbonet.base.b<>();
+    private final com.baidu.turbonet.base.b<NetworkQualityListener> nBF = new com.baidu.turbonet.base.b<>();
 
-    /* loaded from: classes15.dex */
+    /* loaded from: classes17.dex */
     private enum AppThreadState {
         APP_THREAD_ERROR,
         APP_THREAD_BACKGROUND,
@@ -141,7 +141,7 @@ class CronetUrlRequestContext extends TurbonetEngine {
     @NativeClassQualifiedName
     private native void nativeUploadNetLog(long j, String str);
 
-    /* loaded from: classes15.dex */
+    /* loaded from: classes17.dex */
     private static final class ResolveResult {
         String mResult = "";
         private final Object mLock = new Object();
@@ -160,47 +160,47 @@ class CronetUrlRequestContext extends TurbonetEngine {
 
     @UsedByReflection
     public CronetUrlRequestContext(final TurbonetEngine.Builder builder) {
-        this.nlV = 0L;
-        this.dMp = builder.getAppPackageName();
+        this.nBs = 0L;
+        this.dYq = builder.getAppPackageName();
         try {
-            this.nlX = (PowerManager) builder.getContext().getSystemService("power");
+            this.nBu = (PowerManager) builder.getContext().getSystemService("power");
         } catch (Exception e) {
             Log.e("ChromiumNetwork", e.getMessage());
-            this.nlX = null;
+            this.nBu = null;
         }
         try {
-            this.dcK = (ActivityManager) builder.getContext().getSystemService(PushConstants.INTENT_ACTIVITY_NAME);
+            this.doT = (ActivityManager) builder.getContext().getSystemService(PushConstants.INTENT_ACTIVITY_NAME);
         } catch (Exception e2) {
             Log.e("ChromiumNetwork", e2.getMessage());
-            this.dcK = null;
+            this.doT = null;
         }
         CronetLibraryLoader.a(builder.getContext(), builder);
-        nativeSetMinLogLevel(dOB());
+        nativeSetMinLogLevel(dSn());
         synchronized (this.mLock) {
-            this.nlV = nativeCreateRequestContextAdapter(b(builder.getContext(), builder));
-            if (this.nlV == 0) {
+            this.nBs = nativeCreateRequestContextAdapter(b(builder.getContext(), builder));
+            if (this.nBs == 0) {
                 throw new NullPointerException("Context Adapter creation failed.");
             }
-            this.nlY = builder.dPg();
+            this.nBv = builder.dSR();
         }
         CronetLibraryLoader.z(new Runnable() { // from class: com.baidu.turbonet.net.CronetUrlRequestContext.1
             @Override // java.lang.Runnable
             public void run() {
-                CronetLibraryLoader.gb(builder.getContext());
+                CronetLibraryLoader.gj(builder.getContext());
                 synchronized (CronetUrlRequestContext.this.mLock) {
-                    CronetUrlRequestContext.this.nativeInitRequestContextOnInitThread(CronetUrlRequestContext.this.nlV);
+                    CronetUrlRequestContext.this.nativeInitRequestContextOnInitThread(CronetUrlRequestContext.this.nBs);
                 }
             }
         });
     }
 
     static long b(Context context, TurbonetEngine.Builder builder) {
-        long nativeCreateRequestContextConfig = nativeCreateRequestContextConfig(builder.getUserAgent(), builder.dOX(), builder.dPd(), "", builder.dPc(), false, "", "", "", "", builder.cacheDisabled(), builder.dPf(), builder.dPe(), "", 0L, false);
-        if (builder.dPh() != null) {
-            nativeApplyBaiduConfiguration(nativeCreateRequestContextConfig, builder.dPh());
+        long nativeCreateRequestContextConfig = nativeCreateRequestContextConfig(builder.getUserAgent(), builder.dSI(), builder.dSO(), "", builder.dSN(), false, "", "", "", "", builder.cacheDisabled(), builder.dSQ(), builder.dSP(), "", 0L, false);
+        if (builder.dSS() != null) {
+            nativeApplyBaiduConfiguration(nativeCreateRequestContextConfig, builder.dSS());
         }
-        if (builder.dPi() != null) {
-            nativeApplyBaiduConfigDictionary(nativeCreateRequestContextConfig, builder.dPi());
+        if (builder.dST() != null) {
+            nativeApplyBaiduConfigDictionary(nativeCreateRequestContextConfig, builder.dST());
         }
         return nativeCreateRequestContextConfig;
     }
@@ -209,7 +209,7 @@ class CronetUrlRequestContext extends TurbonetEngine {
     public UrlRequest a(String str, UrlRequest.Callback callback, Executor executor, int i, Collection<Object> collection, boolean z, boolean z2, boolean z3) {
         CronetUrlRequest cronetUrlRequest;
         synchronized (this.mLock) {
-            dOz();
+            dSl();
             cronetUrlRequest = new CronetUrlRequest(this, str, i, callback, executor, collection, false, z, z2, z3);
         }
         return cronetUrlRequest;
@@ -224,18 +224,18 @@ class CronetUrlRequestContext extends TurbonetEngine {
     @Override // com.baidu.turbonet.net.TurbonetEngine
     public void a(String str, String str2, int i, int i2, long j, long j2, long j3, long j4) {
         synchronized (this.mLock) {
-            dOz();
-            nativeUploadNativeRequestLog(this.nlV, str, str2, i, i2, j, j2, j3, j4);
+            dSl();
+            nativeUploadNativeRequestLog(this.nBs, str, str2, i, i2, j, j2, j3, j4);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public void a(UrlRequest urlRequest) {
-        synchronized (this.nmd) {
-            HashSet<UrlRequest> hashSet = this.nmd.get(urlRequest.getTag());
+        synchronized (this.nBA) {
+            HashSet<UrlRequest> hashSet = this.nBA.get(urlRequest.getTag());
             if (hashSet == null) {
                 hashSet = new HashSet<>();
-                this.nmd.put(urlRequest.getTag(), hashSet);
+                this.nBA.put(urlRequest.getTag(), hashSet);
             }
             hashSet.add(urlRequest);
         }
@@ -243,50 +243,50 @@ class CronetUrlRequestContext extends TurbonetEngine {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public void b(UrlRequest urlRequest) {
-        synchronized (this.nmd) {
-            HashSet<UrlRequest> hashSet = this.nmd.get(urlRequest.getTag());
+        synchronized (this.nBA) {
+            HashSet<UrlRequest> hashSet = this.nBA.get(urlRequest.getTag());
             if (hashSet == null) {
                 Log.e("ChromiumNetwork", "Remove a tagged request which is not in mTaggedRequestList");
             } else {
                 hashSet.remove(urlRequest);
                 if (hashSet.isEmpty()) {
-                    this.nmd.remove(urlRequest.getTag());
+                    this.nBA.remove(urlRequest.getTag());
                 }
             }
         }
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public void dOu() {
-        this.nlU.incrementAndGet();
+    public void dSg() {
+        this.nBr.incrementAndGet();
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public void dOx() {
-        this.nlU.decrementAndGet();
+    public void dSj() {
+        this.nBr.decrementAndGet();
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public long dOy() {
+    public long dSk() {
         long j;
         synchronized (this.mLock) {
-            dOz();
-            j = this.nlV;
+            dSl();
+            j = this.nBs;
         }
         return j;
     }
 
-    private void dOz() throws IllegalStateException {
-        if (!dOA()) {
+    private void dSl() throws IllegalStateException {
+        if (!dSm()) {
             throw new IllegalStateException("Engine is shut down.");
         }
     }
 
-    private boolean dOA() {
-        return this.nlV != 0;
+    private boolean dSm() {
+        return this.nBs != 0;
     }
 
-    private int dOB() {
+    private int dSn() {
         if (Log.isLoggable("ChromiumNetwork", 2)) {
             return -2;
         }
@@ -296,11 +296,11 @@ class CronetUrlRequestContext extends TurbonetEngine {
     @CalledByNative
     private void initNetworkThread(boolean z) {
         if (z) {
-            this.nme.a(ProxyConfig.LibType.NATIVE);
+            this.nBB.a(ProxyConfig.LibType.NATIVE);
         }
         synchronized (this.mLock) {
-            this.nlW = Thread.currentThread();
-            this.nlT.open();
+            this.nBt = Thread.currentThread();
+            this.nBq.open();
         }
         Thread.currentThread().setName("TurboNet");
         Process.setThreadPriority(10);
@@ -309,13 +309,13 @@ class CronetUrlRequestContext extends TurbonetEngine {
     @CalledByNative
     private boolean isInteractive() {
         try {
-            if (this.nlX == null) {
+            if (this.nBu == null) {
                 throw new NullPointerException("Error: mPowerManager is null.");
             }
             if (Build.VERSION.SDK_INT >= 20) {
-                return this.nlX.isInteractive();
+                return this.nBu.isInteractive();
             }
-            return this.nlX.isScreenOn();
+            return this.nBu.isScreenOn();
         } catch (Exception e) {
             Log.e("ChromiumNetwork", e.getMessage());
             return false;
@@ -328,11 +328,11 @@ class CronetUrlRequestContext extends TurbonetEngine {
         } catch (Exception e) {
             Log.e("ChromiumNetwork", e.getMessage());
         }
-        if (this.dcK == null) {
+        if (this.doT == null) {
             throw new NullPointerException("Error: mActivityManager is null.");
         }
-        for (ActivityManager.RunningAppProcessInfo runningAppProcessInfo : this.dcK.getRunningAppProcesses()) {
-            if (runningAppProcessInfo.processName.equalsIgnoreCase(this.dMp)) {
+        for (ActivityManager.RunningAppProcessInfo runningAppProcessInfo : this.doT.getRunningAppProcesses()) {
+            if (runningAppProcessInfo.processName.equalsIgnoreCase(this.dYq)) {
                 return runningAppProcessInfo.importance == 100;
             }
         }
@@ -342,21 +342,21 @@ class CronetUrlRequestContext extends TurbonetEngine {
     @CalledByNative
     private int getAppState() {
         try {
-            if (this.dcK == null) {
+            if (this.doT == null) {
                 throw new NullPointerException("Error: mActivityManager is null.");
             }
-            if (this.nlX == null) {
+            if (this.nBu == null) {
                 throw new NullPointerException("Error: mPowerManager is null.");
             }
             if (Build.VERSION.SDK_INT >= 20) {
-                if (!this.nlX.isInteractive()) {
+                if (!this.nBu.isInteractive()) {
                     return AppThreadState.APP_THREAD_BACKGROUND.ordinal();
                 }
-            } else if (!this.nlX.isScreenOn()) {
+            } else if (!this.nBu.isScreenOn()) {
                 return AppThreadState.APP_THREAD_BACKGROUND.ordinal();
             }
-            for (ActivityManager.RunningAppProcessInfo runningAppProcessInfo : this.dcK.getRunningAppProcesses()) {
-                if (runningAppProcessInfo.processName.equalsIgnoreCase(this.dMp)) {
+            for (ActivityManager.RunningAppProcessInfo runningAppProcessInfo : this.doT.getRunningAppProcesses()) {
+                if (runningAppProcessInfo.processName.equalsIgnoreCase(this.dYq)) {
                     if (runningAppProcessInfo.importance == 100) {
                         return AppThreadState.APP_THREAD_FOREGROUND.ordinal();
                     }
@@ -375,8 +375,8 @@ class CronetUrlRequestContext extends TurbonetEngine {
         A(new Runnable() { // from class: com.baidu.turbonet.net.CronetUrlRequestContext.2
             @Override // java.lang.Runnable
             public void run() {
-                synchronized (CronetUrlRequestContext.this.nmc) {
-                    Iterator it = CronetUrlRequestContext.this.nmh.iterator();
+                synchronized (CronetUrlRequestContext.this.nBz) {
+                    Iterator it = CronetUrlRequestContext.this.nBE.iterator();
                     while (it.hasNext()) {
                         ((DataTrafficListener) it.next()).onDataTrafficObservation(i, i2);
                     }
@@ -387,8 +387,8 @@ class CronetUrlRequestContext extends TurbonetEngine {
 
     @CalledByNative
     private void onNetworkQualityObservation(final int i) {
-        synchronized (this.nma) {
-            Iterator<NetworkQualityListener> it = this.nmi.iterator();
+        synchronized (this.nBx) {
+            Iterator<NetworkQualityListener> it = this.nBF.iterator();
             while (it.hasNext()) {
                 final NetworkQualityListener next = it.next();
                 Runnable runnable = new Runnable() { // from class: com.baidu.turbonet.net.CronetUrlRequestContext.3
@@ -403,7 +403,7 @@ class CronetUrlRequestContext extends TurbonetEngine {
                 a(next.getExecutor(), runnable);
             }
         }
-        KM(i);
+        Ls(i);
     }
 
     @CalledByNative
@@ -411,7 +411,7 @@ class CronetUrlRequestContext extends TurbonetEngine {
         Runnable runnable = new Runnable() { // from class: com.baidu.turbonet.net.CronetUrlRequestContext.4
             @Override // java.lang.Runnable
             public void run() {
-                networkQualityListener.TJ(str);
+                networkQualityListener.Ux(str);
             }
         };
         if (networkQualityListener.getExecutor() == null) {
@@ -420,20 +420,20 @@ class CronetUrlRequestContext extends TurbonetEngine {
         a(networkQualityListener.getExecutor(), runnable);
     }
 
-    private void KM(int i) {
-        if (this.nmg != TurbonetEngine.TCPNetworkQualityStatus.WEAK && i == 7) {
-            this.nmg = TurbonetEngine.TCPNetworkQualityStatus.NORMAL;
+    private void Ls(int i) {
+        if (this.nBD != TurbonetEngine.TCPNetworkQualityStatus.WEAK && i == 7) {
+            this.nBD = TurbonetEngine.TCPNetworkQualityStatus.NORMAL;
         } else if (i == 3 || i == 6) {
-            this.nmg = TurbonetEngine.TCPNetworkQualityStatus.WEAK;
+            this.nBD = TurbonetEngine.TCPNetworkQualityStatus.WEAK;
         } else if (i == 0 || i == 4) {
-            this.nmg = TurbonetEngine.TCPNetworkQualityStatus.UNKNOWN;
+            this.nBD = TurbonetEngine.TCPNetworkQualityStatus.UNKNOWN;
         }
     }
 
     @CalledByNative
     private void updateQUICConnectStatus(int i) {
         if (i >= 0 && i <= 2) {
-            this.nmf = TurbonetEngine.QUICConnectStatus.values()[i];
+            this.nBC = TurbonetEngine.QUICConnectStatus.values()[i];
         }
     }
 
@@ -455,22 +455,22 @@ class CronetUrlRequestContext extends TurbonetEngine {
 
     void A(Runnable runnable) {
         try {
-            this.nmb.execute(runnable);
+            this.nBy.execute(runnable);
         } catch (RejectedExecutionException e) {
             Log.e("ChromiumNetwork", "Exception posting task to executor", e);
         }
     }
 
     @Override // com.baidu.turbonet.net.TurbonetEngine
-    public boolean dOC() {
-        return this.nme.dOC();
+    public boolean dSo() {
+        return this.nBB.dSo();
     }
 
     @Override // com.baidu.turbonet.net.TurbonetEngine
-    public long dOj() {
-        if (nlZ == 0) {
-            nlZ = CronetLibraryLoader.dOj();
+    public long dRV() {
+        if (nBw == 0) {
+            nBw = CronetLibraryLoader.dRV();
         }
-        return nlZ;
+        return nBw;
     }
 }

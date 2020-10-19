@@ -14,13 +14,13 @@ import com.baidu.android.imsdk.pubaccount.PaManager;
 import com.baidu.android.imsdk.upload.action.IMTrack;
 import com.baidu.android.imsdk.utils.LogUtils;
 import com.baidu.android.imsdk.utils.Utility;
-/* loaded from: classes9.dex */
+/* loaded from: classes5.dex */
 public class DBVersionManager {
     public static final String TAG = DBVersionManager.class.getCanonicalName();
     private static DBVersionManager mInstance = null;
     private Context mContext;
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes5.dex */
     interface VersionHandler {
         void onDowngrade(SQLiteDatabase sQLiteDatabase, int i, int i2);
 
@@ -41,7 +41,7 @@ public class DBVersionManager {
         return mInstance;
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes5.dex */
     public class DefaultHandler implements VersionHandler {
         public DefaultHandler() {
         }
@@ -140,6 +140,7 @@ public class DBVersionManager {
                 sQLiteDatabase.execSQL(TableDefine.SQL_CREATE_MESSAGE_INDEX);
                 sQLiteDatabase.execSQL(TableDefine.SQL_CREATE_MESSAGE_QUERY_MSGID_ISEXIST_INDEX);
                 sQLiteDatabase.execSQL(TableDefine.SQL_CREATE_MESSAGE_QUERY_MSGKEY_ISEXIST_INDEX);
+                sQLiteDatabase.execSQL(TableDefine.SQL_CREATE_STUDIO_USE_PA_MESSAGE);
                 i = 0;
             } finally {
                 if (sQLiteDatabase != null) {
@@ -165,7 +166,7 @@ public class DBVersionManager {
         return i;
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes5.dex */
     public class Version21And22Handler implements VersionHandler {
         public Version21And22Handler() {
         }
@@ -193,7 +194,7 @@ public class DBVersionManager {
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes5.dex */
     public class Version22And223Handler implements VersionHandler {
         public Version22And223Handler() {
         }
@@ -213,7 +214,7 @@ public class DBVersionManager {
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes5.dex */
     public class Version23And24Handler implements VersionHandler {
         public Version23And24Handler() {
         }
@@ -227,7 +228,7 @@ public class DBVersionManager {
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes5.dex */
     public class Version24And25Handler implements VersionHandler {
         public Version24And25Handler() {
         }
@@ -247,7 +248,7 @@ public class DBVersionManager {
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes5.dex */
     public class Version25And26Handler implements VersionHandler {
         public Version25And26Handler() {
         }
@@ -262,7 +263,7 @@ public class DBVersionManager {
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes5.dex */
     public class Version26And27Handler implements VersionHandler {
         public Version26And27Handler() {
         }
@@ -289,7 +290,7 @@ public class DBVersionManager {
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes5.dex */
     public class Version22And23Handler implements VersionHandler {
         public Version22And23Handler() {
         }
@@ -412,6 +413,10 @@ public class DBVersionManager {
             }
             if (i3 == 45 && i2 >= 46) {
                 new Version45And46Handler().onUpgrade(sQLiteDatabase, i3, i2);
+                i3 = 46;
+            }
+            if (i3 == 46 && i2 >= 47) {
+                new Version46And47Handler().onUpgrade(sQLiteDatabase, i3, i2);
             }
             Cursor cursor = null;
             try {
@@ -454,7 +459,28 @@ public class DBVersionManager {
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes5.dex */
+    public class Version46And47Handler implements VersionHandler {
+        public Version46And47Handler() {
+        }
+
+        @Override // com.baidu.android.imsdk.db.DBVersionManager.VersionHandler
+        public void onUpgrade(SQLiteDatabase sQLiteDatabase, int i, int i2) {
+            try {
+                LogUtils.d(DBVersionManager.TAG, "---Version46And47Handler---");
+                sQLiteDatabase.execSQL(TableDefine.SQL_CREATE_STUDIO_USE_PA_MESSAGE);
+            } catch (Exception e) {
+                new IMTrack.CrashBuilder(DBVersionManager.this.mContext).exception(Log.getStackTraceString(e)).build();
+                LogUtils.e(LogUtils.TAG, "onUpgrade:46->47", e);
+            }
+        }
+
+        @Override // com.baidu.android.imsdk.db.DBVersionManager.VersionHandler
+        public void onDowngrade(SQLiteDatabase sQLiteDatabase, int i, int i2) {
+        }
+    }
+
+    /* loaded from: classes5.dex */
     public class Version45And46Handler implements VersionHandler {
         public Version45And46Handler() {
         }
@@ -491,7 +517,7 @@ public class DBVersionManager {
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes5.dex */
     public class Version44And45Handler implements VersionHandler {
         public Version44And45Handler() {
         }
@@ -511,7 +537,7 @@ public class DBVersionManager {
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes5.dex */
     public class Version43And44Handler implements VersionHandler {
         public Version43And44Handler() {
         }
@@ -532,7 +558,7 @@ public class DBVersionManager {
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes5.dex */
     public class Version42And43Handler implements VersionHandler {
         public Version42And43Handler() {
         }
@@ -552,7 +578,7 @@ public class DBVersionManager {
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes5.dex */
     public class Version41And42Handler implements VersionHandler {
         public Version41And42Handler() {
         }
@@ -601,7 +627,7 @@ public class DBVersionManager {
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes5.dex */
     public class Version40And41Handler implements VersionHandler {
         public Version40And41Handler() {
         }
@@ -622,7 +648,7 @@ public class DBVersionManager {
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes5.dex */
     public class Version39And40Handler implements VersionHandler {
         public Version39And40Handler() {
         }
@@ -643,7 +669,7 @@ public class DBVersionManager {
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes5.dex */
     public class Version38And39Handler implements VersionHandler {
         public Version38And39Handler() {
         }
@@ -665,7 +691,7 @@ public class DBVersionManager {
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes5.dex */
     public class Version37And38Handler implements VersionHandler {
         public Version37And38Handler() {
         }
@@ -686,7 +712,7 @@ public class DBVersionManager {
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes5.dex */
     public class Version35And36Handler implements VersionHandler {
         public Version35And36Handler() {
         }
@@ -707,7 +733,7 @@ public class DBVersionManager {
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes5.dex */
     public class Version36And37Handler implements VersionHandler {
         public Version36And37Handler() {
         }
@@ -728,7 +754,7 @@ public class DBVersionManager {
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes5.dex */
     public class Version34And35Handler implements VersionHandler {
         public Version34And35Handler() {
         }
@@ -750,7 +776,7 @@ public class DBVersionManager {
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes5.dex */
     public class Version33And34Handler implements VersionHandler {
         public Version33And34Handler() {
         }
@@ -772,7 +798,7 @@ public class DBVersionManager {
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes5.dex */
     public class Version32And33Handler implements VersionHandler {
         public Version32And33Handler() {
         }
@@ -792,7 +818,7 @@ public class DBVersionManager {
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes5.dex */
     public class Version31And32Handler implements VersionHandler {
         public Version31And32Handler() {
         }
@@ -814,7 +840,7 @@ public class DBVersionManager {
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes5.dex */
     public class Version30And31Handler implements VersionHandler {
         public Version30And31Handler() {
         }
@@ -835,7 +861,7 @@ public class DBVersionManager {
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes5.dex */
     public class Version29And30Handler implements VersionHandler {
         public Version29And30Handler() {
         }
@@ -859,7 +885,7 @@ public class DBVersionManager {
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes5.dex */
     public class Version28And29Handler implements VersionHandler {
         public Version28And29Handler() {
         }

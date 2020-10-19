@@ -5,7 +5,7 @@ import com.baidu.swan.pms.model.PMSAppInfo;
 import com.baidu.swan.pms.node.b.f;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes24.dex */
+/* loaded from: classes15.dex */
 public interface b {
     void a(PMSAppInfo pMSAppInfo, JSONObject jSONObject, boolean z);
 
@@ -15,31 +15,31 @@ public interface b {
 
     void a(String str, String str2, String str3, int i, JSONObject jSONObject);
 
-    String aqB();
+    String atn();
 
-    String aqC();
+    String ato();
 
-    String aqD();
+    String atp();
 
-    String aqE();
+    String atq();
 
-    String aqF();
+    String atr();
 
-    String aqG();
+    String ats();
 
-    String aqH();
+    String att();
 
-    String aqI();
+    String atu();
 
-    String aqJ();
+    String atv();
 
-    String aqK();
+    String atw();
 
-    CookieManager aqL();
+    CookieManager atx();
 
-    String aqM();
+    String aty();
 
-    com.baidu.swan.pms.c.f aqN();
+    com.baidu.swan.pms.c.f atz();
 
     void b(JSONArray jSONArray, String str, String str2);
 

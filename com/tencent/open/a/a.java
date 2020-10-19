@@ -7,9 +7,11 @@ import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.io.Writer;
-/* loaded from: classes24.dex */
+/* loaded from: classes6.dex */
 public class a extends i implements Handler.Callback {
-    private b a;
+
+    /* renamed from: a  reason: collision with root package name */
+    private b f4574a;
     private FileWriter b;
     private File c;
     private char[] d;
@@ -22,7 +24,7 @@ public class a extends i implements Handler.Callback {
     private Handler k;
 
     public a(b bVar) {
-        this(c.b, true, h.a, bVar);
+        this(c.b, true, h.f4582a, bVar);
     }
 
     public a(int i, boolean z, h hVar, b bVar) {
@@ -94,9 +96,9 @@ public class a extends i implements Handler.Callback {
     }
 
     private Writer g() {
-        File a = c().a();
-        if ((a != null && !a.equals(this.c)) || (this.b == null && a != null)) {
-            this.c = a;
+        File a2 = c().a();
+        if ((a2 != null && !a2.equals(this.c)) || (this.b == null && a2 != null)) {
+            this.c = a2;
             h();
             try {
                 this.b = new FileWriter(this.c, true);
@@ -131,10 +133,10 @@ public class a extends i implements Handler.Callback {
     }
 
     public b c() {
-        return this.a;
+        return this.f4574a;
     }
 
     public void a(b bVar) {
-        this.a = bVar;
+        this.f4574a = bVar;
     }
 }

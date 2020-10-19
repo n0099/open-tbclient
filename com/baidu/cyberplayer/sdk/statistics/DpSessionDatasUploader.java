@@ -14,11 +14,13 @@ import java.io.OutputStream;
 import java.net.HttpURLConnection;
 import java.net.URL;
 import org.apache.http.protocol.HTTP;
-/* loaded from: classes10.dex */
+/* loaded from: classes12.dex */
 public final class DpSessionDatasUploader {
     @Keep
     public static final String SAILOR_MONITOR = "sailor_monitor";
-    private static DpSessionDatasUploader a;
+
+    /* renamed from: a  reason: collision with root package name */
+    private static DpSessionDatasUploader f1425a;
     private d b = new d();
     private d c = new d("live_show_session");
 
@@ -79,10 +81,10 @@ public final class DpSessionDatasUploader {
     public static synchronized DpSessionDatasUploader getInstance() {
         DpSessionDatasUploader dpSessionDatasUploader;
         synchronized (DpSessionDatasUploader.class) {
-            if (a == null) {
-                a = new DpSessionDatasUploader();
+            if (f1425a == null) {
+                f1425a = new DpSessionDatasUploader();
             }
-            dpSessionDatasUploader = a;
+            dpSessionDatasUploader = f1425a;
         }
         return dpSessionDatasUploader;
     }

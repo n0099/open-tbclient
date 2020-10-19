@@ -17,7 +17,7 @@ import io.flutter.plugin.platform.PlatformPlugin;
 import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
-/* loaded from: classes10.dex */
+/* loaded from: classes14.dex */
 public class FamilyWithChildAR extends com.baidu.ar.c implements ICapture {
     private AlgoHandleController bY;
     private LuaMsgListener bZ;
@@ -303,9 +303,9 @@ public class FamilyWithChildAR extends com.baidu.ar.c implements ICapture {
         if (this.bY == null) {
             this.bY = new AlgoHandleController();
         }
-        long a = f.a(this.bY, strArr, 23);
-        r().a(a, "ability_capture");
-        a(a);
+        long a2 = f.a(this.bY, strArr, 23);
+        r().a(a2, "ability_capture");
+        a(a2);
     }
 
     @Override // com.baidu.ar.capture.ICapture
@@ -316,9 +316,9 @@ public class FamilyWithChildAR extends com.baidu.ar.c implements ICapture {
         if (this.bY == null) {
             this.bY = new AlgoHandleController();
         }
-        long a = f.a(this.bY, bitmapArr, 23);
-        r().a(a, "ability_capture");
-        a(a);
+        long a2 = f.a(this.bY, bitmapArr, 23);
+        r().a(a2, "ability_capture");
+        a(a2);
     }
 
     @Override // com.baidu.ar.capture.ICapture

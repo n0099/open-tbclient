@@ -8,7 +8,7 @@ import com.baidu.tbadk.core.k;
 import com.baidu.tbadk.util.u;
 import tbclient.ActivityPage.ActivityPageReqIdl;
 import tbclient.ActivityPage.DataReq;
-/* loaded from: classes21.dex */
+/* loaded from: classes22.dex */
 public class TabFeedListRequestMessage extends NetMessage {
     public static final int LOAD_RN = 20;
     public static final int LOAD_TYPE_LOADMORE = 2;
@@ -32,7 +32,7 @@ public class TabFeedListRequestMessage extends NetMessage {
             builder.scr_h = Integer.valueOf(l.getEquipmentHeight(TbadkCoreApplication.getInst()));
             builder.scr_w = Integer.valueOf(l.getEquipmentWidth(TbadkCoreApplication.getInst()));
             builder.scr_dip = Integer.valueOf((int) l.getEquipmentDensity(TbadkCoreApplication.getInst()));
-            builder.q_type = Integer.valueOf(k.bcG().getViewImageQuality());
+            builder.q_type = Integer.valueOf(k.bfo().getViewImageQuality());
             if (z) {
                 u.a(builder, true);
             }

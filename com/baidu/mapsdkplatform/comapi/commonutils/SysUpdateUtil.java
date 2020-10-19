@@ -9,24 +9,26 @@ import com.baidu.mapsdkplatform.comapi.util.SyncSysInfo;
 import com.baidu.mapsdkplatform.comapi.util.SysUpdateObserver;
 import com.baidu.platform.comapi.util.e;
 import com.baidu.platform.comjni.map.commonmemcache.NACommonMemCache;
-/* loaded from: classes3.dex */
+/* loaded from: classes7.dex */
 public class SysUpdateUtil implements SysUpdateObserver {
-    private static NACommonMemCache a;
+
+    /* renamed from: a  reason: collision with root package name */
+    private static NACommonMemCache f2204a;
     private static boolean b = false;
     private static String c = "";
     private static int d = 0;
 
     public SysUpdateUtil() {
-        a = e.b();
+        f2204a = e.b();
     }
 
     @Override // com.baidu.mapsdkplatform.comapi.util.SysUpdateObserver
     public void init(String str) {
-        if (a != null) {
+        if (f2204a != null) {
             if (TextUtils.isEmpty(str)) {
                 str = SyncSysInfo.getPhoneInfoCache();
             }
-            a.a(str);
+            f2204a.a(str);
         }
     }
 
@@ -84,8 +86,8 @@ public class SysUpdateUtil implements SysUpdateObserver {
 
     @Override // com.baidu.mapsdkplatform.comapi.util.SysUpdateObserver
     public void updatePhoneInfo(String str) {
-        if (a != null) {
-            a.a(str);
+        if (f2204a != null) {
+            f2204a.a(str);
         }
     }
 }

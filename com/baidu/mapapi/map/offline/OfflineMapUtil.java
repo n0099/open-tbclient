@@ -5,7 +5,7 @@ import com.baidu.mapsdkplatform.comapi.map.m;
 import com.baidu.mapsdkplatform.comapi.map.p;
 import java.util.ArrayList;
 import java.util.Iterator;
-/* loaded from: classes3.dex */
+/* loaded from: classes7.dex */
 public class OfflineMapUtil {
     public static MKOLSearchRecord getSearchRecordFromLocalCityInfo(m mVar) {
         long j;
@@ -14,7 +14,7 @@ public class OfflineMapUtil {
             return null;
         }
         MKOLSearchRecord mKOLSearchRecord = new MKOLSearchRecord();
-        mKOLSearchRecord.cityID = mVar.a;
+        mKOLSearchRecord.cityID = mVar.f2231a;
         mKOLSearchRecord.cityName = mVar.b;
         mKOLSearchRecord.cityType = mVar.d;
         long j2 = 0;
@@ -46,7 +46,7 @@ public class OfflineMapUtil {
             return null;
         }
         MKOLUpdateElement mKOLUpdateElement = new MKOLUpdateElement();
-        mKOLUpdateElement.cityID = pVar.a;
+        mKOLUpdateElement.cityID = pVar.f2234a;
         mKOLUpdateElement.cityName = pVar.b;
         if (pVar.g != null) {
             mKOLUpdateElement.geoPt = CoordUtil.mc2ll(pVar.g);

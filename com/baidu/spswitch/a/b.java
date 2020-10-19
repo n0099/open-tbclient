@@ -1,46 +1,46 @@
 package com.baidu.spswitch.a;
 
 import android.view.View;
-/* loaded from: classes24.dex */
+/* loaded from: classes19.dex */
 public class b implements com.baidu.spswitch.a {
-    private final View bTc;
-    private boolean bTd = false;
-    private boolean bTe = false;
+    private final View cfq;
+    private boolean cfr = false;
+    private boolean cfs = false;
 
     public b(View view) {
-        this.bTc = view;
+        this.cfq = view;
     }
 
-    public int[] ab(int i, int i2) {
-        if (this.bTd) {
-            this.bTc.setVisibility(8);
+    public int[] aa(int i, int i2) {
+        if (this.cfr) {
+            this.cfq.setVisibility(8);
             i = View.MeasureSpec.makeMeasureSpec(0, 1073741824);
             i2 = View.MeasureSpec.makeMeasureSpec(0, 1073741824);
         }
         return new int[]{i, i2};
     }
 
-    public boolean gw(int i) {
+    public boolean gT(int i) {
         if (i == 0) {
-            this.bTd = false;
+            this.cfr = false;
         }
-        if (i == this.bTc.getVisibility()) {
+        if (i == this.cfq.getVisibility()) {
             return true;
         }
-        return Ys() && i == 0;
+        return abe() && i == 0;
     }
 
-    public boolean Ys() {
-        return this.bTe;
+    public boolean abe() {
+        return this.cfs;
     }
 
     @Override // com.baidu.spswitch.a
-    public void Yk() {
+    public void aaW() {
         throw new IllegalAccessError("You can't invoke handle show in handler, please instead of handling in the panel layout, maybe just need invoke super.setVisibility(View.VISIBLE)");
     }
 
     @Override // com.baidu.spswitch.a
-    public void Yl() {
-        this.bTd = true;
+    public void aaX() {
+        this.cfr = true;
     }
 }

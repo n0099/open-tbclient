@@ -7,13 +7,15 @@ import com.baidu.mapsdkplatform.comapi.map.q;
 import com.baidu.mapsdkplatform.comapi.map.r;
 import java.util.ArrayList;
 import java.util.Iterator;
-/* loaded from: classes3.dex */
+/* loaded from: classes7.dex */
 public class MKOfflineMap {
     public static final int TYPE_DOWNLOAD_UPDATE = 0;
     public static final int TYPE_NETWORK_ERROR = 2;
     public static final int TYPE_NEW_OFFLINE = 6;
     public static final int TYPE_VER_UPDATE = 4;
-    private static final String a = MKOfflineMap.class.getSimpleName();
+
+    /* renamed from: a  reason: collision with root package name */
+    private static final String f2076a = MKOfflineMap.class.getSimpleName();
     private n b;
     private MKOfflineMapListener c;
 
@@ -135,8 +137,8 @@ public class MKOfflineMap {
             Iterator<q> it = this.b.e().iterator();
             while (it.hasNext()) {
                 q next = it.next();
-                if (next.a.a == i) {
-                    if (next.a.j || next.a.l == 2 || next.a.l == 3 || next.a.l == 6) {
+                if (next.f2235a.f2234a == i) {
+                    if (next.f2235a.j || next.f2235a.l == 2 || next.f2235a.l == 3 || next.f2235a.l == 6) {
                         return this.b.b(i);
                     }
                     return false;
@@ -154,8 +156,8 @@ public class MKOfflineMap {
             Iterator<q> it = this.b.e().iterator();
             while (it.hasNext()) {
                 q next = it.next();
-                if (next.a.a == i) {
-                    if (next.a.j) {
+                if (next.f2235a.f2234a == i) {
+                    if (next.f2235a.j) {
                         return this.b.f(i);
                     }
                     return false;

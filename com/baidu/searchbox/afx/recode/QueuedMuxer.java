@@ -8,7 +8,7 @@ import java.nio.ByteOrder;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
-/* loaded from: classes9.dex */
+/* loaded from: classes17.dex */
 public class QueuedMuxer {
     private static final int BUFFER_SIZE = 65536;
     private static final String TAG = "QueuedMuxer";
@@ -19,7 +19,7 @@ public class QueuedMuxer {
     private MediaFormat mVideoFormat;
     private int mVideoTrackIndex;
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes17.dex */
     public enum SampleType {
         VIDEO
     }
@@ -90,7 +90,7 @@ public class QueuedMuxer {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes9.dex */
+    /* loaded from: classes17.dex */
     public static class SampleInfo {
         private final int mFlags;
         private final long mPresentationTimeUs;

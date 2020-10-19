@@ -2,7 +2,7 @@ package com.baidu.swan.gamecenter.b;
 
 import android.support.annotation.NonNull;
 import org.json.JSONObject;
-/* loaded from: classes14.dex */
+/* loaded from: classes6.dex */
 public class b extends com.baidu.swan.gamecenter.c.a {
     public b() {
         super("echoSync");

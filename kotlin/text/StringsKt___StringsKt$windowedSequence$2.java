@@ -2,7 +2,7 @@ package kotlin.text;
 
 import kotlin.jvm.internal.Lambda;
 @kotlin.h
-/* loaded from: classes5.dex */
+/* loaded from: classes10.dex */
 final class StringsKt___StringsKt$windowedSequence$2 extends Lambda implements kotlin.jvm.a.b<Integer, R> {
     final /* synthetic */ int $size;
     final /* synthetic */ CharSequence $this_windowedSequence;

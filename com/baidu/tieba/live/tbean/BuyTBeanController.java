@@ -115,7 +115,7 @@ public class BuyTBeanController implements View.OnClickListener, BuyTBeanModel.C
                     if (TbadkCoreApplication.getInst().isHaokan()) {
                         LogManager.getCommonLogger().doClickBuyTBeanListLog(BuyTBeanController.this.extraFromForLog, BuyTBeanController.this.mOtherParams, String.valueOf(yuanFromFen));
                     }
-                    if (TbadkCoreApplication.getInst().isQuanmin()) {
+                    if (TbadkCoreApplication.getInst().isQuanmin() || TbadkCoreApplication.getInst().isYinbo()) {
                         LogManager.getCommonLogger().doClickBuyTBeanListLog(BuyTBeanController.this.extraFromForLog, BuyTBeanController.this.mOtherParams, String.valueOf(tBeanNum));
                     }
                 }
@@ -269,7 +269,7 @@ public class BuyTBeanController implements View.OnClickListener, BuyTBeanModel.C
             String valueOf = String.valueOf(i);
             String valueOf2 = String.valueOf(i2);
             String valueOf3 = String.valueOf(i3);
-            if (!TbadkCoreApplication.getInst().isMobileBaidu() && Build.VERSION.SDK_INT >= 28 && !d.ax(this.activity)) {
+            if (!TbadkCoreApplication.getInst().isMobileBaidu() && Build.VERSION.SDK_INT >= 28 && !d.aA(this.activity)) {
                 payWalletActivityConfig = new PayWalletActivityOpaqueConfig(this.activity, 2, "0", str2, valueOf, valueOf2, true, valueOf3, false, PageDialogHelper.PayForm.NOT_SET, getReferPage(), getClickZone(), RequestResponseCode.REQUEST_DO_PAY);
                 if (!TextUtils.isEmpty(this.from)) {
                     ((PayWalletActivityOpaqueConfig) payWalletActivityConfig).setFrom(this.from);

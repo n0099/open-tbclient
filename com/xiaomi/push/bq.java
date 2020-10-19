@@ -3,18 +3,20 @@ package com.xiaomi.push;
 import android.content.Context;
 import com.xiaomi.push.ai;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes9.dex */
+/* loaded from: classes12.dex */
 public class bq extends ai.a {
-    final /* synthetic */ bp a;
+
+    /* renamed from: a  reason: collision with root package name */
+    final /* synthetic */ bp f4820a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public bq(bp bpVar) {
-        this.a = bpVar;
+        this.f4820a = bpVar;
     }
 
     @Override // com.xiaomi.push.ai.a
     /* renamed from: a */
-    public int mo166a() {
+    public int mo167a() {
         return 10052;
     }
 
@@ -24,12 +26,12 @@ public class bq extends ai.a {
         cf cfVar2;
         Context context;
         com.xiaomi.channel.commonutils.logger.b.c("exec== mUploadJob");
-        cfVar = this.a.f137a;
+        cfVar = this.f4820a.f138a;
         if (cfVar != null) {
-            cfVar2 = this.a.f137a;
-            context = this.a.f134a;
+            cfVar2 = this.f4820a.f138a;
+            context = this.f4820a.f135a;
             cfVar2.a(context);
-            this.a.b("upload_time");
+            this.f4820a.b("upload_time");
         }
     }
 }

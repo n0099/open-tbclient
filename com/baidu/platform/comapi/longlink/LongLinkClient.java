@@ -4,9 +4,11 @@ import com.baidu.platform.comapi.exception.ComInitException;
 import com.baidu.platform.comapi.exception.InvalidComException;
 import com.baidu.platform.comjni.base.longlink.NALongLink;
 import java.util.ArrayList;
-/* loaded from: classes3.dex */
+/* loaded from: classes7.dex */
 public class LongLinkClient {
-    private int a;
+
+    /* renamed from: a  reason: collision with root package name */
+    private int f2862a;
     private long b;
     private int c;
 
@@ -16,7 +18,7 @@ public class LongLinkClient {
 
     private LongLinkClient(long j, int i) {
         this.b = j;
-        this.a = i;
+        this.f2862a = i;
     }
 
     public static LongLinkClient create() throws ComInitException {
@@ -54,7 +56,7 @@ public class LongLinkClient {
         if (!isValid()) {
             throw new InvalidComException();
         }
-        return NALongLink.register(this.b, this.a, longLinkDataCallback);
+        return NALongLink.register(this.b, this.f2862a, longLinkDataCallback);
     }
 
     public int release() {
@@ -71,7 +73,7 @@ public class LongLinkClient {
             throw new InvalidComException();
         }
         this.c++;
-        eLongLinkStatus = ELongLinkStatus.values()[NALongLink.sendData(this.b, this.a, this.c, bArr)];
+        eLongLinkStatus = ELongLinkStatus.values()[NALongLink.sendData(this.b, this.f2862a, this.c, bArr)];
         eLongLinkStatus.setRequestId(this.c);
         return eLongLinkStatus;
     }
@@ -82,13 +84,13 @@ public class LongLinkClient {
             throw new InvalidComException();
         }
         this.c++;
-        eLongLinkStatus = ELongLinkStatus.values()[NALongLink.sendFileData(this.b, this.a, this.c, str, arrayList)];
+        eLongLinkStatus = ELongLinkStatus.values()[NALongLink.sendFileData(this.b, this.f2862a, this.c, str, arrayList)];
         eLongLinkStatus.setRequestId(this.c);
         return eLongLinkStatus;
     }
 
     public void setModuleId(int i) {
-        this.a = i;
+        this.f2862a = i;
     }
 
     public boolean start() throws InvalidComException {
@@ -109,6 +111,6 @@ public class LongLinkClient {
         if (!isValid()) {
             throw new InvalidComException();
         }
-        return NALongLink.unRegister(this.b, this.a, longLinkDataCallback);
+        return NALongLink.unRegister(this.b, this.f2862a, longLinkDataCallback);
     }
 }

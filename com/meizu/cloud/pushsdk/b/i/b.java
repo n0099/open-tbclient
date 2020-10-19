@@ -13,7 +13,7 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.net.URLConnection;
-/* loaded from: classes3.dex */
+/* loaded from: classes7.dex */
 public class b {
     public static int a(int i, int i2, int i3, int i4) {
         float f = 1.0f;
@@ -57,15 +57,15 @@ public class b {
             BitmapFactory.decodeByteArray(bArr, 0, bArr.length, options);
             int i3 = options.outWidth;
             int i4 = options.outHeight;
-            int a = a(i, i2, i3, i4, scaleType);
-            int a2 = a(i2, i, i4, i3, scaleType);
+            int a2 = a(i, i2, i3, i4, scaleType);
+            int a3 = a(i2, i, i4, i3, scaleType);
             options.inJustDecodeBounds = false;
-            options.inSampleSize = a(i3, i4, a, a2);
+            options.inSampleSize = a(i3, i4, a2, a3);
             Bitmap decodeByteArray = BitmapFactory.decodeByteArray(bArr, 0, bArr.length, options);
-            if (decodeByteArray == null || (decodeByteArray.getWidth() <= a && decodeByteArray.getHeight() <= a2)) {
+            if (decodeByteArray == null || (decodeByteArray.getWidth() <= a2 && decodeByteArray.getHeight() <= a3)) {
                 bitmap = decodeByteArray;
             } else {
-                bitmap = Bitmap.createScaledBitmap(decodeByteArray, a, a2, true);
+                bitmap = Bitmap.createScaledBitmap(decodeByteArray, a2, a3, true);
                 decodeByteArray.recycle();
             }
         }
@@ -80,10 +80,10 @@ public class b {
     }
 
     public static com.meizu.cloud.pushsdk.b.b.a a(com.meizu.cloud.pushsdk.b.b.a aVar, com.meizu.cloud.pushsdk.b.a.b bVar, int i) {
-        com.meizu.cloud.pushsdk.b.b.a a = bVar.a(aVar);
-        a.a(i);
-        a.a("responseFromServerError");
-        return a;
+        com.meizu.cloud.pushsdk.b.b.a a2 = bVar.a(aVar);
+        a2.a(i);
+        a2.a("responseFromServerError");
+        return a2;
     }
 
     public static com.meizu.cloud.pushsdk.b.b.a a(Exception exc) {

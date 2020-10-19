@@ -7,14 +7,14 @@ import android.util.Log;
 import android.view.MotionEvent;
 import android.webkit.WebView;
 import com.baidu.ar.arplay.core.filter.ARPFilter;
-/* loaded from: classes10.dex */
+/* loaded from: classes14.dex */
 public class a extends WebView {
-    private C0075a fM;
+    private C0076a fM;
     private boolean fN;
 
     /* renamed from: com.baidu.ar.arplay.d.a$a  reason: collision with other inner class name */
-    /* loaded from: classes10.dex */
-    public static class C0075a {
+    /* loaded from: classes14.dex */
+    public static class C0076a {
         public int dz;
         public boolean fQ;
         public String fR;
@@ -58,7 +58,7 @@ public class a extends WebView {
         });
     }
 
-    public C0075a getWebViewData() {
+    public C0076a getWebViewData() {
         return this.fM;
     }
 
@@ -71,7 +71,7 @@ public class a extends WebView {
         this.fN = z;
     }
 
-    public void setWebViewData(C0075a c0075a) {
-        this.fM = c0075a;
+    public void setWebViewData(C0076a c0076a) {
+        this.fM = c0076a;
     }
 }

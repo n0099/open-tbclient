@@ -8,9 +8,11 @@ import java.io.File;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes12.dex */
+/* loaded from: classes15.dex */
 public final class j {
-    public static final String[] a = {"java.lang.UnsatisfiedLinkError"};
+
+    /* renamed from: a  reason: collision with root package name */
+    public static final String[] f3631a = {"java.lang.UnsatisfiedLinkError"};
     public static final String[] b = {"space left"};
 
     public static String a(Context context, String str, String str2) {
@@ -18,7 +20,7 @@ public final class j {
         ApkInfo d;
         String[] split;
         try {
-            if (str.contains(a[0])) {
+            if (str.contains(f3631a[0])) {
                 c = 1;
             } else {
                 c = str.contains(b[0]) ? (char) 2 : (char) 0;

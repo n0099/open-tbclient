@@ -30,7 +30,7 @@ public class TbCdnMobileGetIpModel {
     private static Object lock = new Object();
     private static long mobileLastTachometerTime = 0;
     private BdUniqueId unique_id = BdUniqueId.gen();
-    private HttpMessageListener jSw = new HttpMessageListener(1002601) { // from class: com.baidu.tieba.imageProblem.cdnOptimize.TbCdnMobileGetIpModel.1
+    private HttpMessageListener khv = new HttpMessageListener(1002601) { // from class: com.baidu.tieba.imageProblem.cdnOptimize.TbCdnMobileGetIpModel.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(HttpResponsedMessage httpResponsedMessage) {
@@ -57,9 +57,9 @@ public class TbCdnMobileGetIpModel {
         public void handleMessage(Message message) {
             super.handleMessage(message);
             if (10001 == message.what) {
-                TbCdnMobileGetIpModel.this.cOI();
+                TbCdnMobileGetIpModel.this.cSq();
             } else if (10002 == message.what) {
-                TbCdnMobileGetIpModel.this.cOJ();
+                TbCdnMobileGetIpModel.this.cSr();
             }
         }
     };
@@ -69,18 +69,18 @@ public class TbCdnMobileGetIpModel {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void cOI() {
+    public void cSq() {
         TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(1002601, "http://httpdns.baidu.com/ips/v1");
         tbHttpMessageTask.setMethod(HttpMessageTask.HTTP_METHOD.GET);
         tbHttpMessageTask.setResponsedClass(TbMobileCdnGetIPListHttpResponseMsg.class);
         MessageManager.getInstance().registerTask(tbHttpMessageTask);
-        MessageManager.getInstance().unRegisterListener(this.jSw);
-        MessageManager.getInstance().registerListener(this.jSw);
+        MessageManager.getInstance().unRegisterListener(this.khv);
+        MessageManager.getInstance().registerListener(this.khv);
     }
 
     public void destroy() {
         MessageManager.getInstance().unRegisterTask(1002601);
-        MessageManager.getInstance().unRegisterListener(this.jSw);
+        MessageManager.getInstance().unRegisterListener(this.khv);
     }
 
     public void startGetMobileIpList() {
@@ -89,7 +89,7 @@ public class TbCdnMobileGetIpModel {
             synchronized (lock) {
                 try {
                     if (0 == mobileLastTachometerTime) {
-                        mobileLastTachometerTime = b.bjf().getLong("com.baidu.tbadk.opTimize.mobileLastGetCdnListTiem", 0L);
+                        mobileLastTachometerTime = b.blO().getLong("com.baidu.tbadk.opTimize.mobileLastGetCdnListTiem", 0L);
                     }
                     currentTimeMillis = System.currentTimeMillis();
                 } catch (Exception e) {
@@ -97,7 +97,7 @@ public class TbCdnMobileGetIpModel {
                 }
                 if (0 == mobileLastTachometerTime || currentTimeMillis - mobileLastTachometerTime >= 300000) {
                     mobileLastTachometerTime = currentTimeMillis;
-                    b.bjf().putLong("com.baidu.tbadk.opTimize.mobileLastGetCdnListTiem", currentTimeMillis);
+                    b.blO().putLong("com.baidu.tbadk.opTimize.mobileLastGetCdnListTiem", currentTimeMillis);
                     this.handler.sendEmptyMessage(10002);
                 }
             }
@@ -105,7 +105,7 @@ public class TbCdnMobileGetIpModel {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void cOJ() {
+    public void cSr() {
         HttpMessage httpMessage = new HttpMessage(1002601);
         httpMessage.addParam("domain", "hiphotos.jomodns.com");
         httpMessage.setTag(this.unique_id);
@@ -116,11 +116,11 @@ public class TbCdnMobileGetIpModel {
     /* loaded from: classes13.dex */
     public class TBCdnMobileTachometerAsyncTask extends BdAsyncTask<Object, Integer, ArrayList<String>> {
         ArrayList<TBCdnIpData> ipList;
-        TbMobileCdnGetIPListHttpResponseMsg.TBCdnMobileListData jSy;
+        TbMobileCdnGetIPListHttpResponseMsg.TBCdnMobileListData khx;
 
         public TBCdnMobileTachometerAsyncTask(TbMobileCdnGetIPListHttpResponseMsg.TBCdnMobileListData tBCdnMobileListData) {
-            this.jSy = null;
-            this.jSy = tBCdnMobileListData;
+            this.khx = null;
+            this.khx = tBCdnMobileListData;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -130,7 +130,7 @@ public class TbCdnMobileGetIpModel {
         public ArrayList<String> doInBackground(Object... objArr) {
             String str;
             String str2;
-            if (this.jSy == null || (str = this.jSy.jSD) == null || str.length() <= 0 || (str2 = this.jSy.jSE) == null || str2.length() <= 0) {
+            if (this.khx == null || (str = this.khx.khC) == null || str.length() <= 0 || (str2 = this.khx.khD) == null || str2.length() <= 0) {
                 return null;
             }
             try {
@@ -139,15 +139,15 @@ public class TbCdnMobileGetIpModel {
                     if (host.length() > 0) {
                         try {
                             long currentTimeMillis = System.currentTimeMillis();
-                            Iterator<String> it = this.jSy.mobileIpList.iterator();
+                            Iterator<String> it = this.khx.mobileIpList.iterator();
                             while (it.hasNext()) {
                                 String next = it.next();
                                 long currentTimeMillis2 = System.currentTimeMillis();
                                 e eVar = new e();
                                 f fVar = new f(eVar);
-                                eVar.mw().setUrl(str);
+                                eVar.mx().setUrl(str);
                                 fVar.m(next, host, 1);
-                                byte[] bArr = eVar.mx().retBytes;
+                                byte[] bArr = eVar.my().retBytes;
                                 long currentTimeMillis3 = System.currentTimeMillis() - currentTimeMillis2;
                                 boolean z = false;
                                 if (bArr != null && str2.equalsIgnoreCase(s.toMd5(bArr))) {

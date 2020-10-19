@@ -4,7 +4,7 @@ import android.text.TextUtils;
 import com.meizu.cloud.pushsdk.c.f.e;
 import java.io.Serializable;
 import java.util.Map;
-/* loaded from: classes3.dex */
+/* loaded from: classes7.dex */
 public class MzPushMessage implements Serializable {
     private static final String TAG = "MzPushMessage";
     private String content;

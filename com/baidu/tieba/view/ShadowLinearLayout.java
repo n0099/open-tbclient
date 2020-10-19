@@ -13,20 +13,20 @@ import com.baidu.tbadk.core.util.ap;
 import com.baidu.tieba.R;
 /* loaded from: classes.dex */
 public class ShadowLinearLayout extends LinearLayout {
-    private float bsV;
-    private float cNy;
-    private float cOg;
+    private float bwJ;
+    private float cZB;
+    private float daj;
     private int mHeight;
     private Paint mPaint;
     private Path mPath;
-    private float mQC;
     private float mRadius;
-    private float mTX;
-    private RectF mTY;
-    private RectF mTZ;
-    private RectF mUa;
-    private RectF mUb;
     private int mWidth;
+    private float ngh;
+    private RectF njA;
+    private RectF njB;
+    private float njx;
+    private RectF njy;
+    private RectF njz;
 
     public ShadowLinearLayout(Context context) {
         this(context, null);
@@ -48,9 +48,9 @@ public class ShadowLinearLayout extends LinearLayout {
         this.mPaint.setStyle(Paint.Style.FILL);
         this.mPaint.setDither(true);
         this.mRadius = l.getDimens(context, R.dimen.ds20);
-        this.mQC = l.getDimens(context, R.dimen.ds25);
-        this.cNy = this.mQC;
-        this.bsV = this.mQC;
+        this.ngh = l.getDimens(context, R.dimen.ds25);
+        this.cZB = this.ngh;
+        this.bwJ = this.ngh;
         this.mPath = new Path();
         setLayerType(1, this.mPaint);
         onChangeSkinType();
@@ -62,35 +62,35 @@ public class ShadowLinearLayout extends LinearLayout {
         this.mWidth = getMeasuredWidth();
         this.mHeight = getMeasuredHeight();
         if (this.mWidth > 0 && this.mHeight > 0) {
-            this.cOg = this.mWidth - this.mQC;
-            this.mTX = this.mHeight - this.mQC;
+            this.daj = this.mWidth - this.ngh;
+            this.njx = this.mHeight - this.ngh;
         }
     }
 
     @Override // android.view.ViewGroup, android.view.View
     protected void dispatchDraw(Canvas canvas) {
         if (this.mWidth > 0 && this.mHeight > 0) {
-            this.mPath.moveTo(this.cNy, this.bsV + this.mRadius);
-            if (this.mTY == null) {
-                this.mTY = new RectF(this.cNy, this.bsV, this.cNy + (this.mRadius * 2.0f), this.bsV + (this.mRadius * 2.0f));
+            this.mPath.moveTo(this.cZB, this.bwJ + this.mRadius);
+            if (this.njy == null) {
+                this.njy = new RectF(this.cZB, this.bwJ, this.cZB + (this.mRadius * 2.0f), this.bwJ + (this.mRadius * 2.0f));
             }
-            this.mPath.arcTo(this.mTY, 180.0f, 90.0f, false);
-            this.mPath.lineTo(this.cOg - this.mRadius, this.bsV);
-            if (this.mTZ == null) {
-                this.mTZ = new RectF(this.cOg - (this.mRadius * 2.0f), this.bsV, this.cOg, this.bsV + (this.mRadius * 2.0f));
+            this.mPath.arcTo(this.njy, 180.0f, 90.0f, false);
+            this.mPath.lineTo(this.daj - this.mRadius, this.bwJ);
+            if (this.njz == null) {
+                this.njz = new RectF(this.daj - (this.mRadius * 2.0f), this.bwJ, this.daj, this.bwJ + (this.mRadius * 2.0f));
             }
-            this.mPath.arcTo(this.mTZ, 270.0f, 90.0f, false);
-            this.mPath.lineTo(this.cOg, this.mTX - this.mRadius);
-            if (this.mUa == null) {
-                this.mUa = new RectF(this.cOg - (this.mRadius * 2.0f), this.mTX - (this.mRadius * 2.0f), this.cOg, this.mTX);
+            this.mPath.arcTo(this.njz, 270.0f, 90.0f, false);
+            this.mPath.lineTo(this.daj, this.njx - this.mRadius);
+            if (this.njA == null) {
+                this.njA = new RectF(this.daj - (this.mRadius * 2.0f), this.njx - (this.mRadius * 2.0f), this.daj, this.njx);
             }
-            this.mPath.arcTo(this.mUa, 0.0f, 90.0f, false);
-            this.mPath.lineTo(this.cNy + this.mRadius, this.mTX);
-            if (this.mUb == null) {
-                this.mUb = new RectF(this.cNy, this.mTX - (this.mRadius * 2.0f), this.cNy + (this.mRadius * 2.0f), this.mTX);
+            this.mPath.arcTo(this.njA, 0.0f, 90.0f, false);
+            this.mPath.lineTo(this.cZB + this.mRadius, this.njx);
+            if (this.njB == null) {
+                this.njB = new RectF(this.cZB, this.njx - (this.mRadius * 2.0f), this.cZB + (this.mRadius * 2.0f), this.njx);
             }
-            this.mPath.arcTo(this.mUb, 90.0f, 90.0f, false);
-            this.mPath.lineTo(this.cNy, this.bsV + this.mRadius);
+            this.mPath.arcTo(this.njB, 90.0f, 90.0f, false);
+            this.mPath.lineTo(this.cZB, this.bwJ + this.mRadius);
             canvas.drawPath(this.mPath, this.mPaint);
             super.dispatchDraw(canvas);
         }

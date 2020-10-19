@@ -5,15 +5,15 @@ import android.text.TextUtils;
 import com.baidu.swan.apps.runtime.e;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes10.dex */
 public class d {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
 
-    public static boolean aDF() {
-        String arz;
+    public static boolean aGo() {
+        String aul;
         String queryParameter;
-        e aAs = e.aAs();
-        if (aAs == null || (arz = aAs.aAv().arz()) == null || (queryParameter = Uri.parse(arz).getQueryParameter("params")) == null) {
+        e aDb = e.aDb();
+        if (aDb == null || (aul = aDb.aDe().aul()) == null || (queryParameter = Uri.parse(aul).getQueryParameter("params")) == null) {
             return false;
         }
         try {

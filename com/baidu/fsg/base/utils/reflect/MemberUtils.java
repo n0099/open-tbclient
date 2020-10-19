@@ -5,9 +5,11 @@ import java.lang.reflect.Member;
 import java.lang.reflect.Modifier;
 import java.util.HashMap;
 import java.util.Map;
-/* loaded from: classes15.dex */
+/* loaded from: classes16.dex */
 class MemberUtils {
-    private static final int a = 7;
+
+    /* renamed from: a  reason: collision with root package name */
+    private static final int f1528a = 7;
     private static final Class<?>[] b = {Byte.TYPE, Short.TYPE, Character.TYPE, Integer.TYPE, Long.TYPE, Float.TYPE, Double.TYPE};
     private static final Map<Class<?>, Class<?>> c = new HashMap();
     private static final Map<Class<?>, Class<?>> d = new HashMap();

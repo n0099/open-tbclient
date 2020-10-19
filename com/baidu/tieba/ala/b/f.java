@@ -15,16 +15,16 @@ import com.facebook.drawee.view.SimpleDraweeView;
 @TargetApi(17)
 /* loaded from: classes4.dex */
 public class f implements h {
-    private SimpleDraweeView fRS;
-    private View fRT;
-    private g fRU;
-    private Runnable fRV;
+    private SimpleDraweeView gek;
+    private View gel;
+    private g gem;
+    private Runnable gen;
     private Context mContext;
     private Dialog mDialog;
     private TextView mTitle;
-    private Runnable fRQ = null;
-    private h fRR = null;
-    private boolean fRW = false;
+    private Runnable gei = null;
+    private h gej = null;
+    private boolean gep = false;
     private String mName = "直播";
     private DialogInterface.OnDismissListener mOnDismissListener = null;
 
@@ -33,47 +33,47 @@ public class f implements h {
     }
 
     public f(Context context, @NonNull g gVar) {
-        this.fRU = null;
-        this.fRU = gVar;
-        eR(context);
+        this.gem = null;
+        this.gem = gVar;
+        eY(context);
     }
 
-    private void eR(Context context) {
+    private void eY(Context context) {
         this.mContext = context;
         this.mDialog = new Dialog(this.mContext, i.d.SoLoaderDialogStyle);
         this.mDialog.setContentView(i.b.dialog_soloader);
-        this.fRS = (SimpleDraweeView) this.mDialog.findViewById(i.a.soloader_loading_anim);
-        this.fRS.setController(com.facebook.drawee.a.a.c.dTu().UZ("https://pic.rmb.bdstatic.com/qmpic_InRooc_1563447539.webp").yf(true).dUl());
+        this.gek = (SimpleDraweeView) this.mDialog.findViewById(i.a.soloader_loading_anim);
+        this.gek.setController(com.facebook.drawee.a.a.c.dXf().VN("https://pic.rmb.bdstatic.com/qmpic_InRooc_1563447539.webp").yM(true).dXW());
         this.mTitle = (TextView) this.mDialog.findViewById(i.a.soloader_title);
-        this.fRT = this.mDialog.findViewById(i.a.soloader_hide);
+        this.gel = this.mDialog.findViewById(i.a.soloader_hide);
         this.mDialog.setOnDismissListener(new DialogInterface.OnDismissListener() { // from class: com.baidu.tieba.ala.b.f.1
             @Override // android.content.DialogInterface.OnDismissListener
             public void onDismiss(DialogInterface dialogInterface) {
-                f.this.fRU.detach();
-                if (f.this.fRR != null) {
-                    f.this.fRU.a(f.this.fRR);
+                f.this.gem.detach();
+                if (f.this.gej != null) {
+                    f.this.gem.a(f.this.gej);
                 }
-                if (!f.this.fRW && f.this.fRV != null) {
-                    f.this.fRV.run();
+                if (!f.this.gep && f.this.gen != null) {
+                    f.this.gen.run();
                 }
-                f.this.kW(f.this.fRW);
+                f.this.lu(f.this.gep);
                 if (f.this.mOnDismissListener != null) {
                     f.this.mOnDismissListener.onDismiss(dialogInterface);
                 }
             }
         });
-        this.fRT.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.ala.b.f.2
+        this.gel.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.ala.b.f.2
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
                 f.this.dismiss();
-                f.this.bIQ();
+                f.this.bLA();
             }
         });
-        bIR();
+        bLB();
     }
 
-    protected void kW(boolean z) {
-        OP();
+    protected void lu(boolean z) {
+        PU();
     }
 
     public f d(DialogInterface.OnDismissListener onDismissListener) {
@@ -81,21 +81,21 @@ public class f implements h {
         return this;
     }
 
-    protected void bIQ() {
+    protected void bLA() {
     }
 
     public f p(Runnable runnable) {
-        this.fRQ = runnable;
+        this.gei = runnable;
         return this;
     }
 
     public f q(Runnable runnable) {
-        this.fRV = runnable;
+        this.gen = runnable;
         return this;
     }
 
-    public f bIR() {
-        this.mTitle.setText(String.format("%s加载%s%%…", this.mName, Integer.valueOf((int) (this.fRU.getProgress() * 100.0f))));
+    public f bLB() {
+        this.mTitle.setText(String.format("%s加载%s%%…", this.mName, Integer.valueOf((int) (this.gem.getProgress() * 100.0f))));
         return this;
     }
 
@@ -106,7 +106,7 @@ public class f implements h {
                 return;
             }
         }
-        this.fRU.a(this);
+        this.gem.a(this);
         this.mDialog.show();
     }
 
@@ -123,25 +123,25 @@ public class f implements h {
             }
         }
         this.mDialog.dismiss();
-        OP();
+        PU();
     }
 
     private void complete() {
-        this.fRW = true;
+        this.gep = true;
         dismiss();
-        if (this.fRQ != null) {
-            this.fRQ.run();
+        if (this.gei != null) {
+            this.gei.run();
         }
-        if (this.fRR != null) {
-            this.fRR.a(this.fRU);
+        if (this.gej != null) {
+            this.gej.a(this.gem);
         }
     }
 
-    private void aLO() {
+    private void aOx() {
         dismiss();
         Toast.makeText(this.mContext, i.c.soloader_failed, 0).show();
-        if (this.fRR != null) {
-            this.fRR.b(this.fRU);
+        if (this.gej != null) {
+            this.gej.b(this.gem);
         }
     }
 
@@ -157,13 +157,13 @@ public class f implements h {
 
     @Override // com.baidu.tieba.ala.b.h
     public void b(g gVar) {
-        aLO();
+        aOx();
     }
 
-    public void OP() {
-        Animatable dUa;
-        if (this.fRS != null && this.fRS.getController() != null && (dUa = this.fRS.getController().dUa()) != null && dUa.isRunning()) {
-            dUa.stop();
+    public void PU() {
+        Animatable dXL;
+        if (this.gek != null && this.gek.getController() != null && (dXL = this.gek.getController().dXL()) != null && dXL.isRunning()) {
+            dXL.stop();
         }
     }
 }

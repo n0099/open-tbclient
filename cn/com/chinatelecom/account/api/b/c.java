@@ -24,9 +24,11 @@ import java.net.SocketTimeoutException;
 import java.net.URL;
 import java.net.UnknownHostException;
 import org.apache.http.protocol.HTTP;
-/* loaded from: classes14.dex */
+/* loaded from: classes6.dex */
 public class c {
-    private static final String a = c.class.getSimpleName();
+
+    /* renamed from: a  reason: collision with root package name */
+    private static final String f976a = c.class.getSimpleName();
 
     /* JADX DEBUG: Failed to insert an additional move for type inference into block B:105:0x0233 */
     /* JADX DEBUG: Failed to insert an additional move for type inference into block B:113:0x023f */
@@ -119,7 +121,7 @@ public class c {
                                     inputStreamReader = readTimeout;
                                     inputStream2 = inputStream;
                                     try {
-                                        CtAuth.warn(a, "doGet SocketTimeoutException : " + e.getMessage(), e);
+                                        CtAuth.warn(f976a, "doGet SocketTimeoutException : " + e.getMessage(), e);
                                         if (bufferedReader2 != null) {
                                             try {
                                                 bufferedReader2.close();
@@ -157,7 +159,7 @@ public class c {
                                 } catch (UnknownHostException e4) {
                                     e = e4;
                                     bufferedReader2 = bufferedReader;
-                                    CtAuth.warn(a, "doGet UnknownHostException : " + e.getMessage(), e);
+                                    CtAuth.warn(f976a, "doGet UnknownHostException : " + e.getMessage(), e);
                                     if (bufferedReader2 != null) {
                                         try {
                                             bufferedReader2.close();
@@ -175,7 +177,7 @@ public class c {
                                 } catch (IOException e6) {
                                     e = e6;
                                     bufferedReader2 = bufferedReader;
-                                    CtAuth.warn(a, "doGet IOException : " + e.getMessage(), e);
+                                    CtAuth.warn(f976a, "doGet IOException : " + e.getMessage(), e);
                                     if (bufferedReader2 != null) {
                                         try {
                                             bufferedReader2.close();
@@ -202,13 +204,13 @@ public class c {
                                     throw th;
                                 }
                             }
-                            eVar.a = 0;
+                            eVar.f979a = 0;
                             eVar.b = str2;
                             b a2 = cn.com.chinatelecom.account.api.c.a.a(context, httpURLConnection4, true);
                             inputStreamReader2 = readTimeout;
                             if (a2 != null) {
                                 eVar.c = a2.b;
-                                eVar.d = a2.a;
+                                eVar.d = a2.f975a;
                                 inputStreamReader2 = readTimeout;
                             }
                         } catch (SocketTimeoutException e8) {
@@ -237,7 +239,7 @@ public class c {
                         readTimeout = 0;
                     }
                 } else {
-                    CtAuth.info(a, "redirect 30002 Http response code : " + responseCode2);
+                    CtAuth.info(f976a, "redirect 30002 Http response code : " + responseCode2);
                     bufferedReader = null;
                     inputStreamReader2 = null;
                     inputStream = null;
@@ -335,7 +337,7 @@ public class c {
                                 } catch (SocketTimeoutException e) {
                                     e = e;
                                     eVar.b = i.a(-8102, "Socket超时异常-" + str3 + Constants.ACCEPT_TIME_SEPARATOR_SERVER + e.getMessage());
-                                    CtAuth.warn(a, "doPost SocketTimeoutException-" + str3 + Constants.ACCEPT_TIME_SEPARATOR_SERVER + e.getMessage(), e);
+                                    CtAuth.warn(f976a, "doPost SocketTimeoutException-" + str3 + Constants.ACCEPT_TIME_SEPARATOR_SERVER + e.getMessage(), e);
                                     if (bufferedReader2 != null) {
                                         try {
                                             bufferedReader2.close();
@@ -352,7 +354,7 @@ public class c {
                                     bufferedReader3 = bufferedReader2;
                                     inputStream3 = inputStream2;
                                     eVar.b = i.a(-8103, "域名解析异常-" + str3 + Constants.ACCEPT_TIME_SEPARATOR_SERVER + e.getMessage());
-                                    CtAuth.warn(a, "doPost UnknownHostException-" + str3 + Constants.ACCEPT_TIME_SEPARATOR_SERVER + e.getMessage(), e);
+                                    CtAuth.warn(f976a, "doPost UnknownHostException-" + str3 + Constants.ACCEPT_TIME_SEPARATOR_SERVER + e.getMessage(), e);
                                     if (bufferedReader3 != null) {
                                         try {
                                             bufferedReader3.close();
@@ -369,7 +371,7 @@ public class c {
                                     bufferedReader3 = bufferedReader2;
                                     inputStream3 = inputStream2;
                                     eVar.b = i.a(-8104, "IO异常-" + str3 + Constants.ACCEPT_TIME_SEPARATOR_SERVER + e.getMessage());
-                                    CtAuth.warn(a, "doPost IOException-" + str3 + Constants.ACCEPT_TIME_SEPARATOR_SERVER + e.getMessage(), e);
+                                    CtAuth.warn(f976a, "doPost IOException-" + str3 + Constants.ACCEPT_TIME_SEPARATOR_SERVER + e.getMessage(), e);
                                     if (bufferedReader3 != null) {
                                         try {
                                             bufferedReader3.close();
@@ -386,7 +388,7 @@ public class c {
                                     bufferedReader3 = bufferedReader2;
                                     inputStream3 = inputStream2;
                                     eVar.b = i.a(-8001, "请求网络异常-" + str3 + Constants.ACCEPT_TIME_SEPARATOR_SERVER + th.toString());
-                                    CtAuth.warn(a, "doPost Throwable-" + str3 + Constants.ACCEPT_TIME_SEPARATOR_SERVER + th.getMessage(), th);
+                                    CtAuth.warn(f976a, "doPost Throwable-" + str3 + Constants.ACCEPT_TIME_SEPARATOR_SERVER + th.getMessage(), th);
                                     if (bufferedReader3 != null) {
                                         try {
                                             bufferedReader3.close();
@@ -400,12 +402,12 @@ public class c {
                                     return eVar;
                                 }
                             }
-                            eVar.a = 0;
+                            eVar.f979a = 0;
                             eVar.b = sb.toString();
                             b a2 = cn.com.chinatelecom.account.api.c.a.a(context, httpURLConnection, z);
                             if (a2 != null) {
                                 eVar.c = a2.b;
-                                eVar.d = a2.a;
+                                eVar.d = a2.f975a;
                             }
                             bufferedReader3 = bufferedReader2;
                             inputStream3 = inputStream2;
@@ -424,7 +426,7 @@ public class c {
                         }
                     } else if (responseCode != 302) {
                         eVar.b = i.a(-8101, "响应码错误-" + str3 + "-code : " + responseCode);
-                        CtAuth.info(a, "doPost > Http response code :" + responseCode);
+                        CtAuth.info(f976a, "doPost > Http response code :" + responseCode);
                     } else if (i < 10) {
                         e a3 = a(context, httpURLConnection.getHeaderField(com.baidubce.http.Headers.LOCATION), null, ctSetting, network, z, i + 1, "redirect");
                         if (0 != 0) {
@@ -485,7 +487,7 @@ public class c {
                 ((Boolean) Class.forName("android.net.ConnectivityManager").getMethod("requestRouteToHost", Integer.TYPE, Integer.TYPE).invoke(connectivityManager, 5, Integer.valueOf(d.a(d.b(str))))).booleanValue();
             }
         } catch (Throwable th) {
-            CtAuth.warn(a, "http doPost > requestUrlToRoute error", th);
+            CtAuth.warn(f976a, "http doPost > requestUrlToRoute error", th);
         }
     }
 

@@ -17,9 +17,9 @@ import com.baidu.live.adp.framework.message.NetMessage;
 import com.baidu.live.adp.lib.util.BdUtilHelper;
 import com.baidu.live.adp.newwidget.imageview.IRefresh;
 import com.baidu.live.adp.widget.listview.IPreLoadListView;
-import com.baidu.megapp.ma.MAActivity;
+import com.baidu.searchbox.live.base.LiveBaseActivity;
 /* loaded from: classes4.dex */
-public abstract class BdBaseActivity<T> extends MAActivity implements DialogInterface.OnClickListener, Handler.Callback, View.OnClickListener, View.OnLongClickListener, AdapterView.OnItemClickListener, AdapterView.OnItemLongClickListener, BdPageContextSupport<T>, IScrollable {
+public abstract class BdBaseActivity<T> extends LiveBaseActivity implements DialogInterface.OnClickListener, Handler.Callback, View.OnClickListener, View.OnLongClickListener, AdapterView.OnItemClickListener, AdapterView.OnItemLongClickListener, BdPageContextSupport<T>, IScrollable {
     private static final int PRELOAD_DELAY = 100;
     private BdUniqueId mId = null;
     private boolean mIsScroll = false;
@@ -32,7 +32,7 @@ public abstract class BdBaseActivity<T> extends MAActivity implements DialogInte
     };
 
     /* JADX INFO: Access modifiers changed from: protected */
-    @Override // android.app.Activity
+    @Override // android.support.v4.app.FragmentActivity, android.support.v4.app.SupportActivity, android.app.Activity
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
         this.mId = BdUniqueId.gen();
@@ -73,7 +73,7 @@ public abstract class BdBaseActivity<T> extends MAActivity implements DialogInte
     }
 
     public void showToast(String str) {
-        BdUtilHelper.showToast(getApplicationContext(), str);
+        BdUtilHelper.showToast(getActivity(), str);
     }
 
     public void releaseResouce() {
@@ -140,7 +140,7 @@ public abstract class BdBaseActivity<T> extends MAActivity implements DialogInte
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    @Override // android.app.Activity
+    @Override // android.support.v4.app.FragmentActivity, android.app.Activity
     public void onDestroy() {
         super.onDestroy();
         MessageManager.getInstance().unRegisterListener(this.mId);
@@ -150,21 +150,21 @@ public abstract class BdBaseActivity<T> extends MAActivity implements DialogInte
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    @Override // android.app.Activity
+    @Override // android.support.v4.app.FragmentActivity, android.app.Activity
     public void onPause() {
         super.onPause();
         this.mHandler.removeCallbacks(this.preLoadRunnable);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    @Override // android.app.Activity
+    @Override // android.support.v4.app.FragmentActivity, android.app.Activity
     public void onResume() {
         super.onResume();
         onResumeLoadResource();
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    @Override // android.app.Activity
+    @Override // android.support.v4.app.FragmentActivity, android.app.Activity
     public void onStop() {
         super.onStop();
         IPreLoadListView onGetPreLoadListView = onGetPreLoadListView();

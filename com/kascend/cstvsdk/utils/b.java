@@ -16,7 +16,7 @@ import tv.chushou.zues.utils.g;
 @h
 /* loaded from: classes6.dex */
 public final class b {
-    public static final b omI = new b();
+    public static final b oCb = new b();
 
     private b() {
     }
@@ -24,11 +24,13 @@ public final class b {
     @h
     /* loaded from: classes6.dex */
     public static final class a implements com.kascend.chushou.c.b {
-        final /* synthetic */ Context a;
+
+        /* renamed from: a  reason: collision with root package name */
+        final /* synthetic */ Context f4295a;
         final /* synthetic */ String b;
 
         a(Context context, String str) {
-            this.a = context;
+            this.f4295a = context;
             this.b = str;
         }
 
@@ -39,14 +41,14 @@ public final class b {
         @Override // com.kascend.chushou.c.b
         public void a(String str, JSONObject jSONObject) {
             JSONObject optJSONObject;
-            q.m(str, "responseString");
+            q.n(str, "responseString");
             JSONObject optJSONObject2 = (jSONObject == null || (optJSONObject = jSONObject.optJSONObject("data")) == null) ? null : optJSONObject.optJSONObject("shareInfo");
             if (optJSONObject2 != null) {
-                ShareInfo eq = com.kascend.chushou.c.a.eq(optJSONObject2);
-                b bVar = b.omI;
-                Context context = this.a;
-                q.l((Object) eq, "shareInfo");
-                bVar.a(context, eq, this.b);
+                ShareInfo eu = com.kascend.chushou.c.a.eu(optJSONObject2);
+                b bVar = b.oCb;
+                Context context = this.f4295a;
+                q.m(eu, "shareInfo");
+                bVar.a(context, eu, this.b);
                 return;
             }
             a(-1, "");
@@ -54,45 +56,45 @@ public final class b {
 
         @Override // com.kascend.chushou.c.b
         public void a(int i, String str) {
-            g.w(f.b(str, a.i.share_failed));
+            g.x(f.b(str, a.i.share_failed));
         }
     }
 
     public final void a(Context context, String str, String str2, ShareInfo shareInfo, String str3, boolean z) {
-        q.m(context, "context");
-        c.ect().c(new a(context, str3), str, str2);
+        q.n(context, "context");
+        c.ege().c(new a(context, str3), str, str2);
     }
 
     public final void a(Context context, ShareInfo shareInfo, String str) {
-        q.m(context, "context");
-        q.m(shareInfo, "shareInfo");
+        q.n(context, "context");
+        q.n(shareInfo, "shareInfo");
         ShareParam shareParam = new ShareParam(null, null, null, null, null, 31, null);
         shareParam.setTitle(shareInfo.mTitle);
         shareParam.setContent(shareInfo.mContent);
         shareParam.setThumbnail(shareInfo.mThumbnail);
         shareParam.setUrl(shareInfo.mUrl);
         shareParam.setPic(shareInfo.mPic);
-        ThirdParty thirdParty = (ThirdParty) tv.chushou.basis.d.b.epS().S(ThirdParty.class);
+        ThirdParty thirdParty = (ThirdParty) tv.chushou.basis.d.b.etD().S(ThirdParty.class);
         if (thirdParty != null) {
-            thirdParty.share(context, shareParam, new C0915b(shareParam, str));
+            thirdParty.share(context, shareParam, new C0933b(shareParam, str));
         }
     }
 
     @h
     /* renamed from: com.kascend.cstvsdk.utils.b$b  reason: collision with other inner class name */
     /* loaded from: classes6.dex */
-    public static final class C0915b implements ShareListener {
+    public static final class C0933b implements ShareListener {
         final /* synthetic */ String b;
-        final /* synthetic */ ShareParam omJ;
+        final /* synthetic */ ShareParam oCc;
 
-        C0915b(ShareParam shareParam, String str) {
-            this.omJ = shareParam;
+        C0933b(ShareParam shareParam, String str) {
+            this.oCc = shareParam;
             this.b = str;
         }
 
         @Override // com.kascend.cstvsdk.interfaces.ShareListener
         public void onSuccess(int i) {
-            com.kascend.chushou.toolkit.a.a.a(b.omI.a(i), this.omJ.getUrl(), this.b, "1009");
+            com.kascend.chushou.toolkit.a.a.a(b.oCb.a(i), this.oCc.getUrl(), this.b, "1009");
         }
 
         @Override // com.kascend.cstvsdk.interfaces.ShareListener

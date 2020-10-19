@@ -18,100 +18,100 @@ import com.baidu.tieba.frs.mc.FrsNewAreaFragment;
 import com.baidu.tieba.tbadkCore.util.e;
 import java.util.List;
 import tbclient.FrsTabInfo;
-/* loaded from: classes21.dex */
+/* loaded from: classes22.dex */
 public class a {
-    private String eYo;
-    private BaseFragment ieI;
-    private View ilC;
-    private TextView ilD;
-    private FrsTabSortSwitchButton ilE;
-    private int ilF;
-    private FrsTabSortSwitchButton.a ilG = new FrsTabSortSwitchButton.a() { // from class: com.baidu.tieba.frs.entelechy.tabView.frsTabFollowPost.a.1
+    private String fkA;
+    private int iAA;
+    private FrsTabSortSwitchButton.a iAB = new FrsTabSortSwitchButton.a() { // from class: com.baidu.tieba.frs.entelechy.tabView.frsTabFollowPost.a.1
         @Override // com.baidu.tieba.frs.entelechy.tabView.frsTabFollowPost.view.FrsTabSortSwitchButton.a
-        public boolean yk(int i) {
-            if (com.baidu.tieba.frs.b.cog().coa() || com.baidu.tieba.frs.a.cnZ().coa()) {
+        public boolean yQ(int i) {
+            if (com.baidu.tieba.frs.b.crE().cry() || com.baidu.tieba.frs.a.crx().cry()) {
                 return false;
             }
             if (!j.isNetworkAvailableForImmediately()) {
-                a.this.ieI.showToast(R.string.neterror);
+                a.this.itF.showToast(R.string.neterror);
                 return false;
             }
-            if (a.this.ieI instanceof FrsNewAreaFragment) {
-                if (((FrsNewAreaFragment) a.this.ieI).cvy() == null || ((FrsNewAreaFragment) a.this.ieI).cvz() == null) {
+            if (a.this.itF instanceof FrsNewAreaFragment) {
+                if (((FrsNewAreaFragment) a.this.itF).cyV() == null || ((FrsNewAreaFragment) a.this.itF).cyW() == null) {
                     return false;
                 }
-            } else if (!(a.this.ieI instanceof FrsCommonTabFragment)) {
+            } else if (!(a.this.itF instanceof FrsCommonTabFragment)) {
                 return false;
             } else {
-                if (((FrsCommonTabFragment) a.this.ieI).csu() == null || ((FrsCommonTabFragment) a.this.ieI).csv() == null) {
+                if (((FrsCommonTabFragment) a.this.itF).cvR() == null || ((FrsCommonTabFragment) a.this.itF).cvS() == null) {
                     return false;
                 }
             }
-            if (a.this.ilF == i) {
+            if (a.this.iAA == i) {
                 return true;
             }
-            a.this.ilF = i;
-            if (a.this.ilF != 7) {
-                ac.bwT();
-                e.dBI();
+            a.this.iAA = i;
+            if (a.this.iAA != 7) {
+                ac.bzD();
+                e.dFu();
             } else {
-                e.dBH();
+                e.dFt();
             }
-            if (a.this.ieI instanceof FrsNewAreaFragment) {
-                ((FrsNewAreaFragment) a.this.ieI).cvy().yO(a.this.ilE.yn(a.this.ilF));
-                ((FrsNewAreaFragment) a.this.ieI).cvz().startPullRefresh();
+            if (a.this.itF instanceof FrsNewAreaFragment) {
+                ((FrsNewAreaFragment) a.this.itF).cyV().zu(a.this.iAz.yT(a.this.iAA));
+                ((FrsNewAreaFragment) a.this.itF).cyW().startPullRefresh();
             } else {
-                ((FrsCommonTabFragment) a.this.ieI).setSortType(i.zf(a.this.ilE.yn(a.this.ilF)));
-                ((FrsCommonTabFragment) a.this.ieI).csv().ki(true);
+                ((FrsCommonTabFragment) a.this.itF).setSortType(i.zL(a.this.iAz.yT(a.this.iAA)));
+                ((FrsCommonTabFragment) a.this.itF).cvS().kG(true);
             }
-            a.this.ctg();
+            a.this.cwD();
             return true;
         }
     };
+    private View iAx;
+    private TextView iAy;
+    private FrsTabSortSwitchButton iAz;
+    private BaseFragment itF;
 
     public void setFid(String str) {
-        this.eYo = str;
+        this.fkA = str;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void ctg() {
+    public void cwD() {
         aq aqVar = new aq("c11437");
-        aqVar.ai("obj_type", this.ilE.yn(this.ilF));
-        aqVar.dF("fid", this.eYo);
+        aqVar.aj("obj_type", this.iAz.yT(this.iAA));
+        aqVar.dK("fid", this.fkA);
         TiebaStatic.log(aqVar);
     }
 
     public a(BaseFragment baseFragment, RelativeLayout relativeLayout) {
-        this.ilF = -1;
+        this.iAA = -1;
         if (baseFragment != null && relativeLayout != null) {
-            this.ieI = baseFragment;
-            this.ilC = LayoutInflater.from(baseFragment.getContext()).inflate(R.layout.frs_sort_tab_layout, relativeLayout);
-            this.ilD = (TextView) this.ilC.findViewById(R.id.sort_tab_sort_name);
-            this.ilE = (FrsTabSortSwitchButton) this.ilC.findViewById(R.id.sort_tab_switch_btn);
-            this.ilE.setOnSwitchChangeListener(this.ilG);
-            this.ilF = this.ilE.getState();
+            this.itF = baseFragment;
+            this.iAx = LayoutInflater.from(baseFragment.getContext()).inflate(R.layout.frs_sort_tab_layout, relativeLayout);
+            this.iAy = (TextView) this.iAx.findViewById(R.id.sort_tab_sort_name);
+            this.iAz = (FrsTabSortSwitchButton) this.iAx.findViewById(R.id.sort_tab_switch_btn);
+            this.iAz.setOnSwitchChangeListener(this.iAB);
+            this.iAA = this.iAz.getState();
             onChangeSkinType();
         }
     }
 
     public void onChangeSkinType() {
-        if (this.ilE != null) {
-            this.ilE.onChangeSkinType();
+        if (this.iAz != null) {
+            this.iAz.onChangeSkinType();
         }
-        ap.setViewTextColor(this.ilD, R.color.cp_cont_b);
-        ap.setBackgroundColor(this.ilC, R.color.cp_bg_line_d);
+        ap.setViewTextColor(this.iAy, R.color.cp_cont_b);
+        ap.setBackgroundColor(this.iAx, R.color.cp_bg_line_d);
     }
 
     public void setData(List<FrsTabInfo> list) {
-        if (this.ilE != null) {
-            this.ilE.setData(list);
+        if (this.iAz != null) {
+            this.iAz.setData(list);
         }
     }
 
-    public void iX(int i) {
-        if (this.ilE != null) {
-            this.ilE.iX(i.zg(i));
-            this.ilF = this.ilE.getState();
+    public void ju(int i) {
+        if (this.iAz != null) {
+            this.iAz.ju(i.zM(i));
+            this.iAA = this.iAz.getState();
         }
     }
 }

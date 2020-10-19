@@ -3,7 +3,7 @@ package kotlin.reflect;
 import java.lang.annotation.Annotation;
 import java.util.List;
 @kotlin.h
-/* loaded from: classes5.dex */
+/* loaded from: classes10.dex */
 public interface a {
     List<Annotation> getAnnotations();
 }

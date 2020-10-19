@@ -19,14 +19,16 @@ import java.util.Comparator;
 import java.util.zip.GZIPOutputStream;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes15.dex */
+/* loaded from: classes17.dex */
 public class s {
-    private static String a;
+
+    /* renamed from: a  reason: collision with root package name */
+    private static String f2624a;
     private static s b;
     private Handler c;
 
     static {
-        a = Build.VERSION.SDK_INT < 9 ? "http://openrcv.baidu.com/1010/bplus.gif" : "https://openrcv.baidu.com/1010/bplus.gif";
+        f2624a = Build.VERSION.SDK_INT < 9 ? "http://openrcv.baidu.com/1010/bplus.gif" : "https://openrcv.baidu.com/1010/bplus.gif";
     }
 
     private s() {
@@ -134,7 +136,7 @@ public class s {
         }
         if (bw.c().booleanValue()) {
             try {
-                a(context, a, str);
+                a(context, f2624a, str);
                 return true;
             } catch (Exception e) {
                 bb.c().c(e);

@@ -15,9 +15,11 @@ import java.io.RandomAccessFile;
 import java.nio.channels.FileLock;
 import java.util.concurrent.locks.ReentrantLock;
 import tv.chushou.basis.http.HttpConsts;
-/* loaded from: classes10.dex */
+/* loaded from: classes12.dex */
 public class d {
-    private String a = null;
+
+    /* renamed from: a  reason: collision with root package name */
+    private String f1431a = null;
     private String b = null;
     private String c;
 
@@ -161,13 +163,13 @@ public class d {
     }
 
     public void a() {
-        if (TextUtils.isEmpty(this.a) || TextUtils.isEmpty(this.b)) {
+        if (TextUtils.isEmpty(this.f1431a) || TextUtils.isEmpty(this.b)) {
             return;
         }
         ReentrantLock reentrantLock = new ReentrantLock(true);
         reentrantLock.lock();
         try {
-            String str = this.a;
+            String str = this.f1431a;
             if (b(str)) {
                 String str2 = this.b;
                 a(str2);
@@ -192,18 +194,18 @@ public class d {
         }
         new File(b).mkdirs();
         String coreVersion = CyberPlayerManager.getCoreVersion();
-        this.a = b + File.separator + this.c + PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS + coreVersion + HttpConsts.FILE_BACKUP_SUFFIX;
+        this.f1431a = b + File.separator + this.c + PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS + coreVersion + HttpConsts.FILE_BACKUP_SUFFIX;
         this.b = b + File.separator + this.c + "_log_" + coreVersion + ".tmp";
     }
 
     public void a(byte[] bArr) {
-        if (bArr == null || TextUtils.isEmpty(this.a)) {
+        if (bArr == null || TextUtils.isEmpty(this.f1431a)) {
             return;
         }
         ReentrantLock reentrantLock = new ReentrantLock(true);
         reentrantLock.lock();
         try {
-            a(this.a, bArr, "\r\n");
+            a(this.f1431a, bArr, "\r\n");
         } catch (AssertionError e) {
             CyberLog.e("DpStatFileWriter", "write data to file fail");
         } finally {
@@ -219,8 +221,8 @@ public class d {
             FileInputStream fileInputStream = new FileInputStream(str);
             InputStreamReader inputStreamReader = new InputStreamReader(fileInputStream, "UTF-8");
             BufferedReader bufferedReader = new BufferedReader(inputStreamReader);
-            String a = DpSessionDatasUploader.getInstance().a(DpSessionDatasUploader.SAILOR_MONITOR, this.c.equals("live_show_session") ? 24 : 1);
-            if (TextUtils.isEmpty(a)) {
+            String a2 = DpSessionDatasUploader.getInstance().a(DpSessionDatasUploader.SAILOR_MONITOR, this.c.equals("live_show_session") ? 24 : 1);
+            if (TextUtils.isEmpty(a2)) {
                 z = true;
             } else {
                 z = true;
@@ -231,7 +233,7 @@ public class d {
                             break;
                         }
                         i++;
-                        if (!DpSessionDatasUploader.getInstance().a(Base64.decode(readLine, 2), a, false)) {
+                        if (!DpSessionDatasUploader.getInstance().a(Base64.decode(readLine, 2), a2, false)) {
                             try {
                                 a(str2, readLine.getBytes(), "\r\n");
                                 z = false;

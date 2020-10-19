@@ -11,77 +11,77 @@ import com.baidu.live.tbadk.widget.TbImageView;
 import com.baidu.platform.comapi.map.MapBundleKey;
 /* loaded from: classes4.dex */
 public class e {
-    private TextView euZ;
-    private TbImageView fDY;
-    public ImageView fDZ;
-    private ObjectAnimator fEa;
-    public ImageView fFe;
+    private TextView eHj;
+    private TbImageView fQh;
+    public ImageView fQi;
+    private ObjectAnimator fQj;
+    public ImageView fRn;
     public View mRootView;
 
     public e(View view) {
         this.mRootView = view;
-        this.fDY = (TbImageView) this.mRootView.findViewById(a.g.filter_img);
-        this.fDY.setDefaultBgResource(a.f.filter_beauty_item_bg);
-        this.fDY.setIsRound(true);
-        this.fDY.setAutoChangeStyle(false);
-        this.fDY.setScaleType(ImageView.ScaleType.CENTER_CROP);
-        this.fDY.setDrawBorder(false);
-        this.fDZ = (ImageView) this.mRootView.findViewById(a.g.filter_unload);
-        this.fFe = (ImageView) this.mRootView.findViewById(a.g.filter_bg);
-        this.euZ = (TextView) this.mRootView.findViewById(a.g.filter_text);
+        this.fQh = (TbImageView) this.mRootView.findViewById(a.g.filter_img);
+        this.fQh.setDefaultBgResource(a.f.filter_beauty_item_bg);
+        this.fQh.setIsRound(true);
+        this.fQh.setAutoChangeStyle(false);
+        this.fQh.setScaleType(ImageView.ScaleType.CENTER_CROP);
+        this.fQh.setDrawBorder(false);
+        this.fQi = (ImageView) this.mRootView.findViewById(a.g.filter_unload);
+        this.fRn = (ImageView) this.mRootView.findViewById(a.g.filter_bg);
+        this.eHj = (TextView) this.mRootView.findViewById(a.g.filter_text);
     }
 
     public void b(f fVar) {
         if (fVar != null) {
-            this.fDY.setVisibility(0);
-            if (this.mRootView.getContext().getString(a.i.beauty_yuantu).equals(fVar.getName()) || com.baidu.tieba.ala.alaar.sticker.a.e.ED(fVar.Be())) {
-                this.fDZ.setVisibility(4);
-                bGt();
-            } else if (!TextUtils.isEmpty(fVar.Be()) && com.baidu.tieba.ala.alaar.sticker.a.e.cG(fVar.Be())) {
-                this.fDZ.setVisibility(0);
-                bGs();
+            this.fQh.setVisibility(0);
+            if (this.mRootView.getContext().getString(a.i.beauty_yuantu).equals(fVar.getName()) || com.baidu.tieba.ala.alaar.sticker.a.e.Fo(fVar.Cb())) {
+                this.fQi.setVisibility(4);
+                bJf();
+            } else if (!TextUtils.isEmpty(fVar.Cb()) && com.baidu.tieba.ala.alaar.sticker.a.e.cG(fVar.Cb())) {
+                this.fQi.setVisibility(0);
+                bJe();
             } else {
-                this.fDZ.setVisibility(0);
-                this.fDZ.setRotation(0.0f);
-                this.fDZ.setImageResource(a.f.sticker_unload);
-                bGt();
+                this.fQi.setVisibility(0);
+                this.fQi.setRotation(0.0f);
+                this.fQi.setImageResource(a.f.sticker_unload);
+                bJf();
             }
-            this.euZ.setText(fVar.getName());
+            this.eHj.setText(fVar.getName());
             c(fVar);
         }
     }
 
     public void c(f fVar) {
         if (fVar != null) {
-            this.fDY.startLoad(fVar.Bd(), 10, false);
+            this.fQh.startLoad(fVar.Ca(), 10, false);
         }
     }
 
-    public void bGE() {
-        this.euZ.setTextColor(this.mRootView.getResources().getColor(a.d.sdk_cp_cont_i));
-        this.fFe.setVisibility(4);
+    public void bJq() {
+        this.eHj.setTextColor(this.mRootView.getResources().getColor(a.d.sdk_cp_cont_i));
+        this.fRn.setVisibility(4);
     }
 
-    public void bGF() {
-        this.euZ.setTextColor(this.mRootView.getResources().getColor(a.d.sdk_cp_other_b));
-        this.fFe.setVisibility(0);
+    public void bJr() {
+        this.eHj.setTextColor(this.mRootView.getResources().getColor(a.d.sdk_cp_other_b));
+        this.fRn.setVisibility(0);
     }
 
-    public void bGs() {
-        if (this.fEa == null) {
-            this.fEa = ObjectAnimator.ofFloat(this.fDZ, MapBundleKey.MapObjKey.OBJ_SS_ARROW_ROTATION, 0.0f, 359.0f);
-            this.fEa.setRepeatCount(-1);
-            this.fEa.setDuration(1000L);
+    public void bJe() {
+        if (this.fQj == null) {
+            this.fQj = ObjectAnimator.ofFloat(this.fQi, MapBundleKey.MapObjKey.OBJ_SS_ARROW_ROTATION, 0.0f, 359.0f);
+            this.fQj.setRepeatCount(-1);
+            this.fQj.setDuration(1000L);
         }
-        if (!this.fEa.isRunning()) {
-            this.fDZ.setImageResource(a.f.sticker_loading);
-            this.fEa.start();
+        if (!this.fQj.isRunning()) {
+            this.fQi.setImageResource(a.f.sticker_loading);
+            this.fQj.start();
         }
     }
 
-    public void bGt() {
-        if (this.fEa != null && this.fEa.isRunning()) {
-            this.fEa.cancel();
+    public void bJf() {
+        if (this.fQj != null && this.fQj.isRunning()) {
+            this.fQj.cancel();
         }
     }
 }

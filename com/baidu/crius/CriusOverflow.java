@@ -2,7 +2,7 @@ package com.baidu.crius;
 
 import com.baidu.crius.proguard.annotations.DoNotStrip;
 @DoNotStrip
-/* loaded from: classes9.dex */
+/* loaded from: classes11.dex */
 public enum CriusOverflow {
     HIDDEN(0),
     SCROLL(1);

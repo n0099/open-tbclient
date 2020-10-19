@@ -28,9 +28,11 @@ import java.util.Set;
 import java.util.Timer;
 import java.util.concurrent.atomic.AtomicBoolean;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes7.dex */
 public class q implements IXAdContainerEventListener {
-    private Context a;
+
+    /* renamed from: a  reason: collision with root package name */
+    private Context f2423a;
     private final b b;
     private int g = 0;
     private int h = 2;
@@ -58,7 +60,7 @@ public class q implements IXAdContainerEventListener {
     }
 
     public q(Context context, b bVar) {
-        this.a = context;
+        this.f2423a = context;
         this.b = bVar;
     }
 
@@ -242,7 +244,7 @@ public class q implements IXAdContainerEventListener {
         if (Looper.myLooper() == Looper.getMainLooper()) {
             this.b.a(iXAdContainer, hashMap);
         } else {
-            new Handler(this.a.getMainLooper()).post(new t(this, iXAdContainer, hashMap));
+            new Handler(this.f2423a.getMainLooper()).post(new t(this, iXAdContainer, hashMap));
         }
     }
 
@@ -251,7 +253,7 @@ public class q implements IXAdContainerEventListener {
         if (Looper.myLooper() == Looper.getMainLooper()) {
             this.b.b(iXAdContainer, hashMap);
         } else {
-            new Handler(this.a.getMainLooper()).post(new u(this, iXAdContainer, hashMap));
+            new Handler(this.f2423a.getMainLooper()).post(new u(this, iXAdContainer, hashMap));
         }
     }
 

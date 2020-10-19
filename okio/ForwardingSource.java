@@ -1,7 +1,7 @@
 package okio;
 
 import java.io.IOException;
-/* loaded from: classes16.dex */
+/* loaded from: classes11.dex */
 public abstract class ForwardingSource implements Source {
     private final Source delegate;
 

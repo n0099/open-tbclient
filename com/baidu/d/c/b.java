@@ -6,71 +6,71 @@ import com.baidu.fsg.base.statistics.j;
 import com.baidu.live.adp.lib.stats.BdStatsConstant;
 import com.baidu.live.tbadk.ubc.UbcStatConstant;
 import com.baidu.util.Base64Encoder;
-/* loaded from: classes11.dex */
+/* loaded from: classes9.dex */
 public final class b {
-    private static b amD;
-    private c amE;
-    private e amF;
-    private g amG;
-    private String amH;
-    private volatile String amI = null;
+    private static b anm;
+    private c ann;
+    private e ano;
+    private g anp;
+    private String anq;
+    private volatile String anr = null;
 
     private b() {
         init();
     }
 
-    public static b uM() {
-        if (amD == null) {
+    public static b uV() {
+        if (anm == null) {
             synchronized (b.class) {
-                if (amD == null) {
-                    amD = new b();
+                if (anm == null) {
+                    anm = new b();
                 }
             }
         }
-        return amD;
+        return anm;
     }
 
     private void init() {
-        this.amF = new e();
-        this.amE = new c();
-        this.amG = new g();
-        String deviceId = a.uL().getDeviceId();
+        this.ano = new e();
+        this.ann = new c();
+        this.anp = new g();
+        String deviceId = a.uU().getDeviceId();
         if (!TextUtils.isEmpty(deviceId)) {
-            this.amH = new String(Base64Encoder.B64Encode(deviceId.getBytes()));
+            this.anq = new String(Base64Encoder.B64Encode(deviceId.getBytes()));
         }
     }
 
     public String processUrl(String str) {
-        d uL = a.uL();
-        String uU = this.amG.uU();
-        String appName = com.baidu.d.b.a.uJ().getAppName();
-        String zid = uL.getZid();
-        String uO = uL.uO();
-        String uP = uL.uP();
-        String deviceInfo = this.amE.getDeviceInfo();
-        String str2 = this.amH;
-        String from = uL.getFrom();
-        String uQ = uL.uQ();
-        String uS = uL.uS();
+        d uU = a.uU();
+        String vd = this.anp.vd();
+        String appName = com.baidu.d.b.a.uS().getAppName();
+        String zid = uU.getZid();
+        String uX = uU.uX();
+        String uY = uU.uY();
+        String deviceInfo = this.ann.getDeviceInfo();
+        String str2 = this.anq;
+        String from = uU.getFrom();
+        String uZ = uU.uZ();
+        String vb = uU.vb();
         if (TextUtils.isEmpty(from)) {
-            from = com.baidu.d.a.a.uB().getChannel();
+            from = com.baidu.d.a.a.uK().getChannel();
         }
-        if (TextUtils.isEmpty(uQ)) {
-            uQ = com.baidu.d.a.a.uB().uC();
+        if (TextUtils.isEmpty(uZ)) {
+            uZ = com.baidu.d.a.a.uK().uL();
         }
-        String k = uL.k(this.amF.l(addParam(addParam(addParam(addParam(addParam(addParam(addParam(addParam(addParam(addParam(str, "appname", appName), UbcStatConstant.KEY_CONTENT_EXT_SID, uP), "ut", deviceInfo), j.c, uU), "bdvc", uO), "zid", zid), "uid", str2), BdStatsConstant.StatsKey.CURRENT_CHANNEL, uQ), "from", from), "scheme", uS), true), true);
-        if (TextUtils.isEmpty(this.amI)) {
-            this.amI = uL.uR();
+        String k = uU.k(this.ano.l(addParam(addParam(addParam(addParam(addParam(addParam(addParam(addParam(addParam(addParam(str, "appname", appName), UbcStatConstant.KEY_CONTENT_EXT_SID, uY), "ut", deviceInfo), j.c, vd), "bdvc", uX), "zid", zid), "uid", str2), BdStatsConstant.StatsKey.CURRENT_CHANNEL, uZ), "from", from), "scheme", vb), true), true);
+        if (TextUtils.isEmpty(this.anr)) {
+            this.anr = uU.va();
         }
-        if (!TextUtils.isEmpty(this.amI)) {
-            return addParam(k, "c3_aid", this.amI);
+        if (!TextUtils.isEmpty(this.anr)) {
+            return addParam(k, "c3_aid", this.anr);
         }
         return k;
     }
 
     private String addParam(String str, String str2, String str3) {
         if (!TextUtils.isEmpty(str3)) {
-            return UrlUtil.addParam(str, str2, h.dt(str3));
+            return UrlUtil.addParam(str, str2, h.dy(str3));
         }
         return str;
     }

@@ -22,7 +22,7 @@ import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Map;
 import java.util.Set;
-/* loaded from: classes9.dex */
+/* loaded from: classes12.dex */
 public class FlutterBoostPlugin implements FlutterPlugin {
     private static final Set<ActionAfterRegistered> sActions = new HashSet();
     private static FlutterBoostPlugin sInstance;
@@ -31,12 +31,12 @@ public class FlutterBoostPlugin implements FlutterPlugin {
     private final MethodChannel mMethodChannel;
     private final EventListener splashEventListener;
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes12.dex */
     public interface ActionAfterRegistered {
         void onChannelRegistered(FlutterBoostPlugin flutterBoostPlugin);
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes12.dex */
     public interface EventListener {
         void onEvent(String str, Map map);
     }
@@ -231,7 +231,7 @@ public class FlutterBoostPlugin implements FlutterPlugin {
         this.mMethodChannel.invokeMethod("__event__", hashMap);
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes12.dex */
     class BoostMethodHandler implements MethodChannel.MethodCallHandler {
         BoostMethodHandler() {
         }
@@ -296,11 +296,10 @@ public class FlutterBoostPlugin implements FlutterPlugin {
                     HashMap hashMap = new HashMap();
                     try {
                         IContainerRecord currentTopRecord = flutterViewContainerManager.getCurrentTopRecord();
-                        IContainerRecord lastGenerateRecord = currentTopRecord == null ? flutterViewContainerManager.getLastGenerateRecord() : currentTopRecord;
-                        if (lastGenerateRecord != null) {
-                            hashMap.put("name", lastGenerateRecord.getContainer().getContainerUrl());
-                            hashMap.put("params", lastGenerateRecord.getContainer().getContainerUrlParams());
-                            hashMap.put("uniqueId", lastGenerateRecord.uniqueId());
+                        if (currentTopRecord != null) {
+                            hashMap.put("name", currentTopRecord.getContainer().getContainerUrl());
+                            hashMap.put("params", currentTopRecord.getContainer().getContainerUrlParams());
+                            hashMap.put("uniqueId", currentTopRecord.uniqueId());
                         }
                         result.success(hashMap);
                         FlutterBoost.instance().setFlutterPostFrameCallTime(new Date().getTime());

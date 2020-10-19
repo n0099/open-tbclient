@@ -5,54 +5,54 @@ import com.baidu.swan.apps.env.c.b;
 import com.baidu.swan.pms.model.PMSAppInfo;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes10.dex */
 class a implements b.a {
-    private final String csI;
-    private JSONObject csJ = new JSONObject();
+    private final String cET;
+    private JSONObject cEU = new JSONObject();
 
     private a(String str, boolean z) {
-        this.csI = str;
+        this.cET = str;
         try {
-            this.csJ.put("pkg_id", this.csI);
+            this.cEU.put("pkg_id", this.cET);
             if (z) {
                 update();
             }
         } catch (JSONException e) {
-            if (b.csK) {
+            if (b.cEV) {
                 e.printStackTrace();
             }
         }
     }
 
-    public static a mO(String str) {
+    public static a nA(String str) {
         return new a(str, true);
     }
 
     @Override // com.baidu.swan.apps.env.c.b.a
-    public String amF() {
-        return this.csI;
+    public String apr() {
+        return this.cET;
     }
 
     @Override // com.baidu.swan.apps.env.c.b.a
     public JSONObject toJSONObject() {
-        return this.csJ;
+        return this.cEU;
     }
 
     @Override // com.baidu.swan.apps.env.c.b.a
     public boolean isValid() {
-        return !TextUtils.isEmpty(this.csI);
+        return !TextUtils.isEmpty(this.cET);
     }
 
     private void update() throws JSONException {
-        PMSAppInfo wT;
-        if (isValid() && (wT = com.baidu.swan.pms.database.a.aUf().wT(this.csI)) != null) {
-            this.csJ.put("app_name", wT.appName);
-            this.csJ.put("pkg_vername", wT.versionName);
-            this.csJ.put("pkg_vercode", wT.versionCode);
-            this.csJ.put("create_time", wT.createTime);
-            this.csJ.put("last_launch_time", wT.getLastLaunchTime());
-            this.csJ.put("launch_count", wT.aFN());
-            this.csJ.put("install_src", wT.ajx());
+        PMSAppInfo xF;
+        if (isValid() && (xF = com.baidu.swan.pms.database.a.aWO().xF(this.cET)) != null) {
+            this.cEU.put("app_name", xF.appName);
+            this.cEU.put("pkg_vername", xF.versionName);
+            this.cEU.put("pkg_vercode", xF.versionCode);
+            this.cEU.put("create_time", xF.createTime);
+            this.cEU.put("last_launch_time", xF.getLastLaunchTime());
+            this.cEU.put("launch_count", xF.aIw());
+            this.cEU.put("install_src", xF.ami());
         }
     }
 }

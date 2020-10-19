@@ -12,7 +12,8 @@ import android.provider.MediaStore;
 import android.text.TextUtils;
 import android.webkit.MimeTypeMap;
 import java.io.File;
-/* loaded from: classes24.dex */
+import org.webrtc.MediaStreamTrack;
+/* loaded from: classes12.dex */
 public class FileUtils {
     private static final String IMAGE_FILE_START = "image/";
     private static final String VIDEO_FILE_START = "video/";
@@ -37,7 +38,7 @@ public class FileUtils {
                         uri2 = MediaStore.Images.Media.EXTERNAL_CONTENT_URI;
                     } else if ("video".equals(str)) {
                         uri2 = MediaStore.Video.Media.EXTERNAL_CONTENT_URI;
-                    } else if ("audio".equals(str)) {
+                    } else if (MediaStreamTrack.AUDIO_TRACK_KIND.equals(str)) {
                         uri2 = MediaStore.Audio.Media.EXTERNAL_CONTENT_URI;
                     }
                     return getDataColumn(context, uri2, "_id=?", new String[]{split2[1]});

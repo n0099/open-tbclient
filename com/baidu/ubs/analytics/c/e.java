@@ -1,18 +1,18 @@
 package com.baidu.ubs.analytics.c;
-/* loaded from: classes7.dex */
+/* loaded from: classes10.dex */
 public final class e {
-    private static final e nqs = new e();
-    private l nqt = new l();
+    private static final e nFM = new e();
+    private l nFN = new l();
 
-    public static e dQw() {
-        return nqs;
+    public static e dUh() {
+        return nFM;
     }
 
-    public final void Un(String str) {
-        this.nqt.Un(str);
+    public final void Vb(String str) {
+        this.nFN.Vb(str);
     }
 
-    public final void Uo(String str) {
-        this.nqt.Uo(str);
+    public final void Vc(String str) {
+        this.nFN.Vc(str);
     }
 }

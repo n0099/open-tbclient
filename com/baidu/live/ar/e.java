@@ -3,10 +3,10 @@ package com.baidu.live.ar;
 import org.json.JSONObject;
 /* loaded from: classes4.dex */
 public class e {
-    private String aAC;
-    private String aAJ;
-    private String aAK;
-    private String aAL;
+    private String aDH;
+    private String aDO;
+    private String aDP;
+    private String aDQ;
     private String mFile;
     private String mId;
     private String mName;
@@ -16,20 +16,20 @@ public class e {
         if (jSONObject != null) {
             this.mId = jSONObject.optString("id");
             this.mName = jSONObject.optString("name");
-            this.aAJ = jSONObject.optString("bgurl");
+            this.aDO = jSONObject.optString("bgurl");
             this.mType = jSONObject.optString("type");
-            this.aAK = jSONObject.optString("current");
+            this.aDP = jSONObject.optString("current");
             this.mFile = jSONObject.optString("feature_file");
-            this.aAL = jSONObject.optString("feature_file_token");
-            this.aAC = jSONObject.optString("thinface_value");
+            this.aDQ = jSONObject.optString("feature_file_token");
+            this.aDH = jSONObject.optString("thinface_value");
         }
     }
 
-    public String Bd() {
-        return this.aAJ;
+    public String Ca() {
+        return this.aDO;
     }
 
-    public String Be() {
+    public String Cb() {
         return this.mFile;
     }
 
@@ -41,11 +41,11 @@ public class e {
         return this.mType;
     }
 
-    public String Bf() {
-        return this.aAK;
+    public String Cc() {
+        return this.aDP;
     }
 
-    public String Bg() {
-        return this.aAC;
+    public String Cd() {
+        return this.aDH;
     }
 }

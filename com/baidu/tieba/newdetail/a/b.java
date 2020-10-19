@@ -8,35 +8,35 @@ import com.baidu.tbadk.core.data.bw;
 import com.baidu.tbadk.core.util.y;
 import java.util.Iterator;
 import tbclient.ThreadInfo;
-/* loaded from: classes20.dex */
+/* loaded from: classes21.dex */
 public class b implements q {
-    public int aul;
+    public int auU;
     public String cover;
-    public bw dXg;
     public String desc;
-    public boolean hVb;
+    public bw eji;
+    public boolean ika;
     public int likeNum;
     public int time;
 
     public b(ThreadInfo threadInfo, boolean z) {
         c(threadInfo);
-        this.hVb = z;
+        this.ika = z;
     }
 
     @Override // com.baidu.adp.widget.ListView.q
     public BdUniqueId getType() {
-        return a.kuG;
+        return a.kJS;
     }
 
     private void c(ThreadInfo threadInfo) {
         if (threadInfo != null) {
-            this.dXg = new bw();
-            this.dXg.a(threadInfo);
+            this.eji = new bw();
+            this.eji.a(threadInfo);
             this.desc = threadInfo.title;
-            this.aul = threadInfo.reply_num.intValue();
+            this.auU = threadInfo.reply_num.intValue();
             this.likeNum = threadInfo.agree_num.intValue();
-            if (!y.isEmpty(this.dXg.bfH())) {
-                Iterator<MediaData> it = this.dXg.bfH().iterator();
+            if (!y.isEmpty(this.eji.biq())) {
+                Iterator<MediaData> it = this.eji.biq().iterator();
                 while (it.hasNext()) {
                     MediaData next = it.next();
                     if (next != null && next.getType() == 3) {

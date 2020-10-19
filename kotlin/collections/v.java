@@ -3,11 +3,11 @@ package kotlin.collections;
 import java.util.Iterator;
 /* JADX INFO: Access modifiers changed from: package-private */
 @kotlin.h
-/* loaded from: classes5.dex */
+/* loaded from: classes10.dex */
 public class v extends u {
     public static final <T> boolean a(Iterable<? extends T> iterable, kotlin.jvm.a.b<? super T, Boolean> bVar) {
-        kotlin.jvm.internal.q.m(iterable, "receiver$0");
-        kotlin.jvm.internal.q.m(bVar, "predicate");
+        kotlin.jvm.internal.q.n(iterable, "receiver$0");
+        kotlin.jvm.internal.q.n(bVar, "predicate");
         return a(iterable, bVar, false);
     }
 

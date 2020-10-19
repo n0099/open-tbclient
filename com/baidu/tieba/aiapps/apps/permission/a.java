@@ -5,43 +5,43 @@ import android.app.Activity;
 import android.content.Context;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes24.dex */
+/* loaded from: classes25.dex */
 public class a {
-    private static List<String> fwJ = null;
+    private static List<String> fIS = null;
 
     @TargetApi(23)
-    public static void eJ(Context context) {
-        if (!eK(context)) {
-            eL(context);
-            ((Activity) context).requestPermissions((String[]) fwJ.toArray(new String[fwJ.size()]), 102);
+    public static void eQ(Context context) {
+        if (!eR(context)) {
+            eS(context);
+            ((Activity) context).requestPermissions((String[]) fIS.toArray(new String[fIS.size()]), 102);
         } else if (context instanceof PermissionActivity) {
             ((Activity) context).finish();
         }
     }
 
     @TargetApi(23)
-    public static boolean eK(Context context) {
+    public static boolean eR(Context context) {
         return context.checkSelfPermission("android.permission.WRITE_EXTERNAL_STORAGE") == 0;
     }
 
     @TargetApi(23)
-    private static void eL(Context context) {
-        if (fwJ == null) {
-            fwJ = new ArrayList();
+    private static void eS(Context context) {
+        if (fIS == null) {
+            fIS = new ArrayList();
         } else {
-            fwJ.clear();
+            fIS.clear();
         }
         if (context.checkSelfPermission("android.permission.WRITE_EXTERNAL_STORAGE") != 0) {
-            fwJ.add("android.permission.WRITE_EXTERNAL_STORAGE");
-            fwJ.add("android.permission.READ_EXTERNAL_STORAGE");
+            fIS.add("android.permission.WRITE_EXTERNAL_STORAGE");
+            fIS.add("android.permission.READ_EXTERNAL_STORAGE");
         }
     }
 
     @TargetApi(23)
     public static boolean a(Context context, int i, String[] strArr, int[] iArr) {
         if (strArr.length >= 1 || iArr.length >= 1) {
-            if (!eK(context)) {
-                eJ(context);
+            if (!eR(context)) {
+                eQ(context);
                 return true;
             } else if (context instanceof PermissionActivity) {
                 ((Activity) context).finish();

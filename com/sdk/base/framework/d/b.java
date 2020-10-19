@@ -1,6 +1,6 @@
 package com.sdk.base.framework.d;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes5.dex */
+/* loaded from: classes16.dex */
 public final class b implements com.sdk.base.module.permission.b {
     /* JADX INFO: Access modifiers changed from: package-private */
     public b(a aVar) {

@@ -1,23 +1,25 @@
 package com.baidu.platform.comapi.map;
 
 import com.baidu.platform.comjni.map.basemap.AppBaseMap;
-/* loaded from: classes3.dex */
+/* loaded from: classes7.dex */
 class u implements Runnable {
-    final /* synthetic */ boolean a;
+
+    /* renamed from: a  reason: collision with root package name */
+    final /* synthetic */ boolean f2931a;
     final /* synthetic */ MapSurfaceView b;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public u(MapSurfaceView mapSurfaceView, boolean z) {
         this.b = mapSurfaceView;
-        this.a = z;
+        this.f2931a = z;
     }
 
     @Override // java.lang.Runnable
     public void run() {
         AppBaseMap baseMap;
-        if (this.b.a == null || (baseMap = this.b.a.getBaseMap()) == null) {
+        if (this.b.f2881a == null || (baseMap = this.b.f2881a.getBaseMap()) == null) {
             return;
         }
-        baseMap.ShowBaseIndoorMap(this.a);
+        baseMap.ShowBaseIndoorMap(this.f2931a);
     }
 }

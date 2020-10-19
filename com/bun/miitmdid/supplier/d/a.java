@@ -6,10 +6,12 @@ import com.bun.miitmdid.utils.SupplierListener;
 import com.meizu.flyme.openidsdk.b;
 /* loaded from: classes11.dex */
 public class a implements InnerIdSupplier {
-    private Context a;
+
+    /* renamed from: a  reason: collision with root package name */
+    private Context f3983a;
 
     public a(Context context) {
-        this.a = context;
+        this.f3983a = context;
     }
 
     @Override // com.bun.miitmdid.supplier.InnerIdSupplier
@@ -24,7 +26,7 @@ public class a implements InnerIdSupplier {
     @Override // com.bun.miitmdid.supplier.IdSupplier
     public String getAAID() {
         try {
-            return b.d(this.a);
+            return b.d(this.f3983a);
         } catch (Exception e) {
             return "";
         }
@@ -33,7 +35,7 @@ public class a implements InnerIdSupplier {
     @Override // com.bun.miitmdid.supplier.IdSupplier
     public String getOAID() {
         try {
-            return b.b(this.a);
+            return b.b(this.f3983a);
         } catch (Exception e) {
             return "";
         }
@@ -42,7 +44,7 @@ public class a implements InnerIdSupplier {
     @Override // com.bun.miitmdid.supplier.InnerIdSupplier
     public String getUDID() {
         try {
-            return b.a(this.a);
+            return b.a(this.f3983a);
         } catch (Exception e) {
             return "";
         }
@@ -51,7 +53,7 @@ public class a implements InnerIdSupplier {
     @Override // com.bun.miitmdid.supplier.IdSupplier
     public String getVAID() {
         try {
-            return b.c(this.a);
+            return b.c(this.f3983a);
         } catch (Exception e) {
             return "";
         }

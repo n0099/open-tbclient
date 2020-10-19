@@ -7,7 +7,7 @@ import java.util.Collection;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.List;
-/* loaded from: classes14.dex */
+/* loaded from: classes9.dex */
 public final class AnimatorSet extends Animator {
     private ArrayList<Animator> mPlayingSet = new ArrayList<>();
     private HashMap<Animator, Node> mNodeMap = new HashMap<>();
@@ -338,7 +338,7 @@ public final class AnimatorSet extends Animator {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.nineoldandroids.animation.Animator
     public AnimatorSet clone() {
-        AnimatorSet animatorSet = (AnimatorSet) super.m49clone();
+        AnimatorSet animatorSet = (AnimatorSet) super.m50clone();
         animatorSet.mNeedsSort = true;
         animatorSet.mTerminated = false;
         animatorSet.mStarted = false;
@@ -350,15 +350,15 @@ public final class AnimatorSet extends Animator {
         Iterator<Node> it = this.mNodes.iterator();
         while (it.hasNext()) {
             Node next = it.next();
-            Node m50clone = next.m50clone();
-            hashMap.put(next, m50clone);
-            animatorSet.mNodes.add(m50clone);
-            animatorSet.mNodeMap.put(m50clone.animation, m50clone);
-            m50clone.dependencies = null;
-            m50clone.tmpDependencies = null;
-            m50clone.nodeDependents = null;
-            m50clone.nodeDependencies = null;
-            ArrayList<Animator.AnimatorListener> listeners = m50clone.animation.getListeners();
+            Node m51clone = next.m51clone();
+            hashMap.put(next, m51clone);
+            animatorSet.mNodes.add(m51clone);
+            animatorSet.mNodeMap.put(m51clone.animation, m51clone);
+            m51clone.dependencies = null;
+            m51clone.tmpDependencies = null;
+            m51clone.nodeDependents = null;
+            m51clone.nodeDependencies = null;
+            ArrayList<Animator.AnimatorListener> listeners = m51clone.animation.getListeners();
             if (listeners != null) {
                 Iterator<Animator.AnimatorListener> it2 = listeners.iterator();
                 ArrayList arrayList = null;
@@ -394,7 +394,7 @@ public final class AnimatorSet extends Animator {
         return animatorSet;
     }
 
-    /* loaded from: classes14.dex */
+    /* loaded from: classes9.dex */
     private static class DependencyListener implements Animator.AnimatorListener {
         private AnimatorSet mAnimatorSet;
         private Node mNode;
@@ -456,7 +456,7 @@ public final class AnimatorSet extends Animator {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes14.dex */
+    /* loaded from: classes9.dex */
     public class AnimatorSetListener implements Animator.AnimatorListener {
         private AnimatorSet mAnimatorSet;
 
@@ -575,7 +575,7 @@ public final class AnimatorSet extends Animator {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes14.dex */
+    /* loaded from: classes9.dex */
     public static class Dependency {
         static final int AFTER = 1;
         static final int WITH = 0;
@@ -589,7 +589,7 @@ public final class AnimatorSet extends Animator {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes14.dex */
+    /* loaded from: classes9.dex */
     public static class Node implements Cloneable {
         public Animator animation;
         public ArrayList<Dependency> dependencies = null;
@@ -620,10 +620,10 @@ public final class AnimatorSet extends Animator {
 
         /* JADX DEBUG: Method merged with bridge method */
         /* renamed from: clone */
-        public Node m50clone() {
+        public Node m51clone() {
             try {
                 Node node = (Node) super.clone();
-                node.animation = this.animation.m49clone();
+                node.animation = this.animation.m50clone();
                 return node;
             } catch (CloneNotSupportedException e) {
                 throw new AssertionError();
@@ -631,7 +631,7 @@ public final class AnimatorSet extends Animator {
         }
     }
 
-    /* loaded from: classes14.dex */
+    /* loaded from: classes9.dex */
     public class Builder {
         private Node mCurrentNode;
 

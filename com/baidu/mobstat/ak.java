@@ -8,9 +8,11 @@ import android.view.KeyEvent;
 import android.view.MotionEvent;
 import android.view.Window;
 import com.baidu.mobstat.al;
-/* loaded from: classes15.dex */
+/* loaded from: classes17.dex */
 public class ak {
-    private static volatile boolean a = true;
+
+    /* renamed from: a  reason: collision with root package name */
+    private static volatile boolean f2527a = true;
     private a b;
     private Activity c;
     private Handler d = new Handler(Looper.getMainLooper()) { // from class: com.baidu.mobstat.ak.1
@@ -29,7 +31,7 @@ public class ak {
         }
     };
 
-    /* loaded from: classes15.dex */
+    /* loaded from: classes17.dex */
     public interface a {
         void a();
     }
@@ -42,11 +44,11 @@ public class ak {
         if (z) {
             an.a();
         }
-        a = z;
+        f2527a = z;
     }
 
     public static boolean a() {
-        return a;
+        return f2527a;
     }
 
     public void a(Activity activity) {

@@ -9,27 +9,27 @@ import com.baidu.adp.widget.ListView.af;
 import com.baidu.tieba.R;
 /* loaded from: classes.dex */
 public class a extends af.a {
-    public int aiX;
-    public BdBaseViewPager eAA;
-    public RelativeLayout eAw;
-    public TextView eAx;
-    public IndicatorView eAy;
-    public View eAz;
+    public int ajp;
+    public RelativeLayout eMD;
+    public TextView eME;
+    public IndicatorView eMF;
+    public View eMG;
+    public BdBaseViewPager eMH;
     public TextView title;
 
     public a(View view, Context context) {
         super(view);
-        this.aiX = 3;
+        this.ajp = 3;
         this.title = null;
-        this.eAx = null;
-        this.eAy = null;
-        this.eAz = null;
-        this.eAA = null;
-        this.eAw = (RelativeLayout) view.findViewById(R.id.top_area);
+        this.eME = null;
+        this.eMF = null;
+        this.eMG = null;
+        this.eMH = null;
+        this.eMD = (RelativeLayout) view.findViewById(R.id.top_area);
         this.title = (TextView) view.findViewById(R.id.theme_title);
-        this.eAx = (TextView) view.findViewById(R.id.more_textview);
-        this.eAy = (IndicatorView) view.findViewById(R.id.tab_indicator);
-        this.eAz = view.findViewById(R.id.bottom_divider_line);
-        this.eAA = (BdBaseViewPager) view.findViewById(R.id.bd_base_view_pager);
+        this.eME = (TextView) view.findViewById(R.id.more_textview);
+        this.eMF = (IndicatorView) view.findViewById(R.id.tab_indicator);
+        this.eMG = view.findViewById(R.id.bottom_divider_line);
+        this.eMH = (BdBaseViewPager) view.findViewById(R.id.bd_base_view_pager);
     }
 }

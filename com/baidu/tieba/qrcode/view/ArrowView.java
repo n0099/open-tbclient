@@ -9,10 +9,10 @@ import android.util.AttributeSet;
 import android.view.View;
 import com.baidu.adp.lib.util.l;
 import com.baidu.tieba.R;
-/* loaded from: classes22.dex */
+/* loaded from: classes23.dex */
 public class ArrowView extends View {
-    private static int ffP = 20;
-    private static int ffQ = 13;
+    private static int fse = 20;
+    private static int fsf = 13;
     private int height;
     private Paint paint;
     private Path path;
@@ -29,8 +29,8 @@ public class ArrowView extends View {
     }
 
     private void init(Context context) {
-        ffP = l.getDimens(context, R.dimen.tbds20);
-        ffQ = l.getDimens(context, R.dimen.tbds13);
+        fse = l.getDimens(context, R.dimen.tbds20);
+        fsf = l.getDimens(context, R.dimen.tbds13);
         this.paint = new Paint();
         this.paint.setColor(context.getResources().getColor(R.color.cp_bg_line_d));
         this.paint.setAntiAlias(true);
@@ -45,11 +45,11 @@ public class ArrowView extends View {
         int mode2 = View.MeasureSpec.getMode(i2);
         int size2 = View.MeasureSpec.getSize(i2);
         if (mode == Integer.MIN_VALUE && mode2 == Integer.MIN_VALUE) {
-            setMeasuredDimension(ffP, ffQ);
+            setMeasuredDimension(fse, fsf);
         } else if (mode == Integer.MIN_VALUE) {
-            setMeasuredDimension(ffP, size2);
+            setMeasuredDimension(fse, size2);
         } else if (mode2 == Integer.MIN_VALUE) {
-            setMeasuredDimension(size, ffQ);
+            setMeasuredDimension(size, fsf);
         }
     }
 

@@ -2,10 +2,10 @@ package com.baidu.swan.games.p;
 
 import com.baidu.searchbox.v8engine.V8JavascriptField;
 import com.baidu.searchbox.v8engine.event.JSEvent;
-/* loaded from: classes3.dex */
+/* loaded from: classes10.dex */
 public class b extends JSEvent {
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes10.dex */
     public static class a {
         @V8JavascriptField
         public long startupTime;
@@ -13,10 +13,10 @@ public class b extends JSEvent {
 
     public b(long j) {
         super("appAttach");
-        this.data = bZ(j);
+        this.data = ch(j);
     }
 
-    private Object bZ(long j) {
+    private Object ch(long j) {
         a aVar = new a();
         aVar.startupTime = j;
         return aVar;

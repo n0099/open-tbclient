@@ -9,9 +9,11 @@ import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import com.baidu.sapi2.biometrics.liveness.R;
-/* loaded from: classes16.dex */
+/* loaded from: classes17.dex */
 public class RimLivenessBaseDialog extends Dialog {
-    private TextView a;
+
+    /* renamed from: a  reason: collision with root package name */
+    private TextView f1775a;
     private LinearLayout b;
     private Button c;
     private Button d;
@@ -28,7 +30,7 @@ public class RimLivenessBaseDialog extends Dialog {
 
     private void a() {
         setContentView(R.layout.rim_liveness_alert_dialog_base);
-        this.a = (TextView) findViewById(R.id.dialog_title);
+        this.f1775a = (TextView) findViewById(R.id.dialog_title);
         this.b = (LinearLayout) findViewById(R.id.dialog_content);
         this.c = (Button) findViewById(R.id.positive_btn);
         this.d = (Button) findViewById(R.id.negative_btn);
@@ -37,7 +39,7 @@ public class RimLivenessBaseDialog extends Dialog {
 
     @Override // android.app.Dialog
     public void setTitle(CharSequence charSequence) {
-        this.a.setText(charSequence);
+        this.f1775a.setText(charSequence);
     }
 
     public void addContentView(int i) {

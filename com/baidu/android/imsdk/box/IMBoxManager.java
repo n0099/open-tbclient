@@ -4,6 +4,7 @@ import android.content.Context;
 import android.support.annotation.NonNull;
 import android.text.TextUtils;
 import android.util.Log;
+import android.util.SparseArray;
 import com.baidu.android.imsdk.IMManager;
 import com.baidu.android.imsdk.account.AccountManager;
 import com.baidu.android.imsdk.account.AccountManagerImpl;
@@ -23,6 +24,7 @@ import com.baidu.android.imsdk.chatmessage.IGetSmartChatSessionListener;
 import com.baidu.android.imsdk.chatmessage.IMessageReceiveListener;
 import com.baidu.android.imsdk.chatmessage.IOnRegisterNotifyListener;
 import com.baidu.android.imsdk.chatmessage.ISendMessageListener;
+import com.baidu.android.imsdk.chatmessage.ISetMessageReadListener;
 import com.baidu.android.imsdk.chatmessage.SessionClass;
 import com.baidu.android.imsdk.chatmessage.db.ChatMessageDBManager;
 import com.baidu.android.imsdk.chatmessage.messages.ChatMsg;
@@ -72,7 +74,7 @@ import java.util.Iterator;
 import java.util.List;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes9.dex */
+/* loaded from: classes5.dex */
 public final class IMBoxManager {
     private static final String TAG = IMBoxManager.class.getSimpleName();
 
@@ -597,11 +599,24 @@ public final class IMBoxManager {
         ChatMsgManager.getPaMsgByChatTypeAndPaidList(context, list, list2, j, i, iFetchNotificationDataListener);
     }
 
+    public static void getNotificationMsgDataList(Context context, SparseArray<List<Integer>> sparseArray, long j, int i, IFetchNotificationDataListener iFetchNotificationDataListener) {
+        ChatMsgManager.getNotificationMsgDataList(context, sparseArray, j, i, iFetchNotificationDataListener);
+    }
+
     public static void setMsgReadByChatTypes(final Context context, final List<Integer> list, final long j) {
         TaskManager.getInstance(context).submitForNetWork(new Runnable() { // from class: com.baidu.android.imsdk.box.IMBoxManager.10
             @Override // java.lang.Runnable
             public void run() {
                 ChatMsgManager.setMsgReadByChatTpyes(context, list, j);
+            }
+        });
+    }
+
+    public static void setMsgReadByChatTypeAndSubType(final Context context, final SparseArray<List<Integer>> sparseArray, final long j, final ISetMessageReadListener iSetMessageReadListener) {
+        TaskManager.getInstance(context).submitForNetWork(new Runnable() { // from class: com.baidu.android.imsdk.box.IMBoxManager.11
+            @Override // java.lang.Runnable
+            public void run() {
+                ChatMsgManager.setMsgReadByChatTypeAndSubType(context, sparseArray, j, iSetMessageReadListener);
             }
         });
     }
@@ -643,7 +658,7 @@ public final class IMBoxManager {
                         }
                     }
                     if (arrayList.size() > 0) {
-                        ChatUserManagerImpl.getInstance(context).updateUserIdentity(arrayList, new IGetUserIdentityListener() { // from class: com.baidu.android.imsdk.box.IMBoxManager.11
+                        ChatUserManagerImpl.getInstance(context).updateUserIdentity(arrayList, new IGetUserIdentityListener() { // from class: com.baidu.android.imsdk.box.IMBoxManager.12
                             @Override // com.baidu.android.imsdk.chatuser.IGetUserIdentityListener
                             public void onGetUserIdentityResult(int i, List<ChatUser> list) {
                                 for (ChatUser chatUser2 : list) {
@@ -665,7 +680,7 @@ public final class IMBoxManager {
                     }
                     if (arrayList3.size() > 0) {
                         LogUtils.d(TAG, "updateMsgUsersFromMsgCenter paIds :" + arrayList3.toString());
-                        PaManagerImpl.getInstance(context).getPaInfos(arrayList3, new IGetPaInfosListener() { // from class: com.baidu.android.imsdk.box.IMBoxManager.12
+                        PaManagerImpl.getInstance(context).getPaInfos(arrayList3, new IGetPaInfosListener() { // from class: com.baidu.android.imsdk.box.IMBoxManager.13
                             @Override // com.baidu.android.imsdk.pubaccount.IGetPaInfosListener
                             public void onResult(int i2, String str, ArrayList<PaInfo> arrayList4) {
                                 if (i2 == 0) {

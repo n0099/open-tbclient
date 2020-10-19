@@ -6,35 +6,35 @@ import android.text.TextUtils;
 import android.util.Log;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes10.dex */
 public class c {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    public String cTI;
-    public String cTK;
-    public boolean cTM;
-    public boolean cTN;
-    public boolean cTP;
-    public String cTT;
-    public String cpw;
-    public boolean cTQ = false;
-    public boolean cTR = true;
-    public boolean cTS = false;
-    public int cTH = ViewCompat.MEASURED_STATE_MASK;
-    public String cTJ = "#ffffff";
-    public String cTO = "default";
+    public String cBK;
+    public String dfQ;
+    public String dfS;
+    public boolean dfU;
+    public boolean dfV;
+    public boolean dfX;
+    public String dgb;
+    public boolean dfY = false;
+    public boolean dfZ = true;
+    public boolean dga = false;
+    public int dfP = ViewCompat.MEASURED_STATE_MASK;
+    public String dfR = "#ffffff";
+    public String dfW = "default";
     public int backgroundColor = -1;
-    public boolean cTL = false;
+    public boolean dfT = false;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public static c bx(JSONObject jSONObject) {
+    public static c bE(JSONObject jSONObject) {
         if (jSONObject == null) {
-            return aBt();
+            return aEc();
         }
         JSONObject optJSONObject = jSONObject.optJSONObject("window");
         if (optJSONObject == null) {
-            return aBt();
+            return aEc();
         }
-        return by(optJSONObject);
+        return bF(optJSONObject);
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -53,55 +53,55 @@ public class c {
         return cVar;
     }
 
-    private static c by(JSONObject jSONObject) {
+    private static c bF(JSONObject jSONObject) {
         c cVar = new c();
         String optString = jSONObject.optString("navigationBarBackgroundColor");
         if (TextUtils.isEmpty(optString)) {
             optString = "#000000";
         }
-        cVar.cTH = SwanAppConfigData.fq(optString);
+        cVar.dfP = SwanAppConfigData.fv(optString);
         String optString2 = jSONObject.optString("navigationBarTextStyle");
         if (TextUtils.isEmpty(optString2)) {
             optString2 = "white";
         }
-        cVar.cTJ = optString2;
-        cVar.cTI = jSONObject.optString("navigationBarTitleText");
-        cVar.cTK = jSONObject.optString("backgroundTextStyle", "black");
-        cVar.backgroundColor = SwanAppConfigData.fq(jSONObject.optString("backgroundColor"));
-        cVar.cTL = jSONObject.optBoolean("enablePullDownRefresh");
-        cVar.cpw = jSONObject.optString("onReachBottomDistance");
-        cVar.cTM = jSONObject.optBoolean("enableOpacityNavigationBar");
-        cVar.cTN = jSONObject.optBoolean("enableOpacityNavigationBarText");
-        cVar.cTO = jSONObject.optString("navigationStyle", "default");
-        cVar.cTP = jSONObject.optBoolean("navigationHomeButtonHidden");
-        cVar.cTT = jSONObject.optString("textSizeAdjust");
+        cVar.dfR = optString2;
+        cVar.dfQ = jSONObject.optString("navigationBarTitleText");
+        cVar.dfS = jSONObject.optString("backgroundTextStyle", "black");
+        cVar.backgroundColor = SwanAppConfigData.fv(jSONObject.optString("backgroundColor"));
+        cVar.dfT = jSONObject.optBoolean("enablePullDownRefresh");
+        cVar.cBK = jSONObject.optString("onReachBottomDistance");
+        cVar.dfU = jSONObject.optBoolean("enableOpacityNavigationBar");
+        cVar.dfV = jSONObject.optBoolean("enableOpacityNavigationBarText");
+        cVar.dfW = jSONObject.optString("navigationStyle", "default");
+        cVar.dfX = jSONObject.optBoolean("navigationHomeButtonHidden");
+        cVar.dgb = jSONObject.optString("textSizeAdjust");
         return cVar;
     }
 
     private static c a(JSONObject jSONObject, @NonNull c cVar) {
         c cVar2 = new c();
         String optString = jSONObject.optString("navigationBarBackgroundColor");
-        cVar2.cTH = TextUtils.isEmpty(optString) ? cVar.cTH : SwanAppConfigData.fq(optString);
-        cVar2.cTI = jSONObject.optString("navigationBarTitleText", cVar.cTI);
+        cVar2.dfP = TextUtils.isEmpty(optString) ? cVar.dfP : SwanAppConfigData.fv(optString);
+        cVar2.dfQ = jSONObject.optString("navigationBarTitleText", cVar.dfQ);
         String optString2 = jSONObject.optString("navigationBarTextStyle");
         if (TextUtils.isEmpty(optString2)) {
-            optString2 = cVar.cTJ;
+            optString2 = cVar.dfR;
         }
-        cVar2.cTJ = optString2;
-        cVar2.cTK = jSONObject.optString("backgroundTextStyle", cVar.cTK);
-        cVar2.backgroundColor = jSONObject.has("backgroundColor") ? SwanAppConfigData.fq(jSONObject.optString("backgroundColor")) : cVar.backgroundColor;
-        cVar2.cTL = jSONObject.optBoolean("enablePullDownRefresh", cVar.cTL);
-        cVar2.cpw = jSONObject.optString("onReachBottomDistance", cVar.cpw);
-        cVar2.cTM = jSONObject.optBoolean("enableOpacityNavigationBar", cVar.cTM);
-        cVar2.cTN = jSONObject.optBoolean("enableOpacityNavigationBarText", cVar.cTN);
-        cVar2.cTO = jSONObject.optString("navigationStyle", cVar.cTO);
-        cVar2.cTP = jSONObject.optBoolean("navigationHomeButtonHidden", cVar.cTP);
-        cVar2.cTQ = jSONObject.optBoolean("disableSwipeBack", false);
-        cVar2.cTR = jSONObject.optBoolean("pageFavoriteEnable", true);
+        cVar2.dfR = optString2;
+        cVar2.dfS = jSONObject.optString("backgroundTextStyle", cVar.dfS);
+        cVar2.backgroundColor = jSONObject.has("backgroundColor") ? SwanAppConfigData.fv(jSONObject.optString("backgroundColor")) : cVar.backgroundColor;
+        cVar2.dfT = jSONObject.optBoolean("enablePullDownRefresh", cVar.dfT);
+        cVar2.cBK = jSONObject.optString("onReachBottomDistance", cVar.cBK);
+        cVar2.dfU = jSONObject.optBoolean("enableOpacityNavigationBar", cVar.dfU);
+        cVar2.dfV = jSONObject.optBoolean("enableOpacityNavigationBarText", cVar.dfV);
+        cVar2.dfW = jSONObject.optString("navigationStyle", cVar.dfW);
+        cVar2.dfX = jSONObject.optBoolean("navigationHomeButtonHidden", cVar.dfX);
+        cVar2.dfY = jSONObject.optBoolean("disableSwipeBack", false);
+        cVar2.dfZ = jSONObject.optBoolean("pageFavoriteEnable", true);
         return cVar2;
     }
 
-    public static c aBt() {
+    public static c aEc() {
         if (DEBUG) {
             Log.e("WindowConfig", "WindowConfig createNullObject() " + Log.getStackTraceString(new Exception()));
         }
@@ -112,12 +112,12 @@ public class c {
         if (cVar == null) {
             return false;
         }
-        return cVar.cTM || TextUtils.equals(cVar.cTO, "custom");
+        return cVar.dfU || TextUtils.equals(cVar.dfW, "custom");
     }
 
-    public void fL(boolean z) {
-        if (z && !this.cTS) {
-            this.cTS = true;
+    public void gh(boolean z) {
+        if (z && !this.dga) {
+            this.dga = true;
         }
     }
 }

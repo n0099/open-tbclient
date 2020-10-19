@@ -5,7 +5,7 @@ import android.content.Intent;
 import android.net.Uri;
 import android.text.TextUtils;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes9.dex */
+/* loaded from: classes12.dex */
 public class ev implements et {
     private void a(Context context, String str) {
         try {
@@ -42,7 +42,7 @@ public class ev implements et {
     private void b(Context context, ep epVar) {
         String b = epVar.b();
         String d = epVar.d();
-        int a = epVar.a();
+        int a2 = epVar.a();
         if (context == null || TextUtils.isEmpty(b) || TextUtils.isEmpty(d)) {
             if (TextUtils.isEmpty(d)) {
                 em.a(context, "provider", 1008, "argument error");
@@ -54,12 +54,12 @@ public class ev implements et {
         } else {
             em.a(context, d, 1002, "B is ready");
             em.a(context, d, 1004, "A is ready");
-            String a2 = el.a(d);
+            String a3 = el.a(d);
             try {
-                if (TextUtils.isEmpty(a2)) {
+                if (TextUtils.isEmpty(a3)) {
                     em.a(context, d, 1008, "info is empty");
-                } else if (a != 1 || eq.m267a(context)) {
-                    String type = context.getContentResolver().getType(el.a(b, a2));
+                } else if (a2 != 1 || eq.m268a(context)) {
+                    String type = context.getContentResolver().getType(el.a(b, a3));
                     if (TextUtils.isEmpty(type) || !"success".equals(type)) {
                         em.a(context, d, 1008, "A is fail to help B's provider");
                     } else {

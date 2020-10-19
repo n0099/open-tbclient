@@ -4,19 +4,21 @@ import android.content.Context;
 import com.xiaomi.push.gd;
 import com.xiaomi.push.ii;
 import com.xiaomi.push.service.XMPushService;
-/* loaded from: classes9.dex */
+/* loaded from: classes12.dex */
 final class t extends XMPushService.i {
-    final /* synthetic */ ii a;
+
+    /* renamed from: a  reason: collision with root package name */
+    final /* synthetic */ ii f5118a;
 
     /* renamed from: a  reason: collision with other field name */
-    final /* synthetic */ XMPushService f930a;
+    final /* synthetic */ XMPushService f931a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public t(int i, XMPushService xMPushService, ii iiVar) {
         super(i);
-        this.f930a = xMPushService;
-        this.a = iiVar;
+        this.f931a = xMPushService;
+        this.f5118a = iiVar;
     }
 
     @Override // com.xiaomi.push.service.XMPushService.i
@@ -27,12 +29,12 @@ final class t extends XMPushService.i {
     @Override // com.xiaomi.push.service.XMPushService.i
     public void a() {
         try {
-            ii a = p.a((Context) this.f930a, this.a);
-            a.m418a().a("miui_message_unrecognized", "1");
-            w.a(this.f930a, a);
+            ii a2 = p.a((Context) this.f931a, this.f5118a);
+            a2.m419a().a("miui_message_unrecognized", "1");
+            w.a(this.f931a, a2);
         } catch (gd e) {
             com.xiaomi.channel.commonutils.logger.b.a(e);
-            this.f930a.a(10, e);
+            this.f931a.a(10, e);
         }
     }
 }

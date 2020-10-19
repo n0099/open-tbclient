@@ -4,16 +4,16 @@ import kotlin.h;
 import kotlin.jvm.internal.o;
 import kotlin.jvm.internal.q;
 @h
-/* loaded from: classes5.dex */
+/* loaded from: classes10.dex */
 public abstract class d {
-    public static final b oCH = new b(null);
-    private static final d oCF = kotlin.internal.c.oCo.ekl();
-    public static final a oCG = a.oCI;
+    public static final b oRW = new b(null);
+    private static final d oRU = kotlin.internal.c.oRD.enX();
+    public static final a oRV = a.oRX;
 
-    public abstract int OC(int i);
+    public abstract int Pi(int i);
 
     public int nextInt() {
-        return OC(32);
+        return Pi(32);
     }
 
     public int nextInt(int i) {
@@ -27,7 +27,7 @@ public abstract class d {
         int i4 = i2 - i;
         if (i4 > 0 || i4 == Integer.MIN_VALUE) {
             if (((-i4) & i4) == i4) {
-                i3 = OC(c.OD(i4));
+                i3 = Pi(c.Pj(i4));
             } else {
                 do {
                     nextInt = nextInt() >>> 1;
@@ -49,15 +49,15 @@ public abstract class d {
     }
 
     public boolean nextBoolean() {
-        return OC(1) != 0;
+        return Pi(1) != 0;
     }
 
     public double nextDouble() {
-        return c.eg(OC(26), OC(27));
+        return c.eg(Pi(26), Pi(27));
     }
 
     public float nextFloat() {
-        return OC(24) / 16777216;
+        return Pi(24) / 16777216;
     }
 
     /* JADX WARN: Removed duplicated region for block: B:13:0x0054  */
@@ -65,9 +65,9 @@ public abstract class d {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public byte[] x(byte[] bArr, int i, int i2) {
+    public byte[] z(byte[] bArr, int i, int i2) {
         boolean z;
-        q.m(bArr, com.baidu.fsg.base.statistics.b.j);
+        q.n(bArr, com.baidu.fsg.base.statistics.b.j);
         int length = bArr.length;
         if (i >= 0 && length >= i) {
             int length2 = bArr.length;
@@ -87,9 +87,9 @@ public abstract class d {
                         i += 4;
                     }
                     int i5 = i2 - i;
-                    int OC = OC(i5 * 8);
+                    int Pi = Pi(i5 * 8);
                     for (int i6 = 0; i6 < i5; i6++) {
-                        bArr[i + i6] = (byte) (OC >>> (i6 * 8));
+                        bArr[i + i6] = (byte) (Pi >>> (i6 * 8));
                     }
                     return bArr;
                 }
@@ -102,12 +102,12 @@ public abstract class d {
     }
 
     public byte[] az(byte[] bArr) {
-        q.m(bArr, com.baidu.fsg.base.statistics.b.j);
-        return x(bArr, 0, bArr.length);
+        q.n(bArr, com.baidu.fsg.base.statistics.b.j);
+        return z(bArr, 0, bArr.length);
     }
 
     @h
-    /* loaded from: classes5.dex */
+    /* loaded from: classes10.dex */
     public static final class b extends d {
         private b() {
         }
@@ -117,69 +117,69 @@ public abstract class d {
         }
 
         @Override // kotlin.random.d
-        public int OC(int i) {
-            return d.oCF.OC(i);
+        public int Pi(int i) {
+            return d.oRU.Pi(i);
         }
 
         @Override // kotlin.random.d
         public int nextInt() {
-            return d.oCF.nextInt();
+            return d.oRU.nextInt();
         }
 
         @Override // kotlin.random.d
         public int nextInt(int i) {
-            return d.oCF.nextInt(i);
+            return d.oRU.nextInt(i);
         }
 
         @Override // kotlin.random.d
         public int eh(int i, int i2) {
-            return d.oCF.eh(i, i2);
+            return d.oRU.eh(i, i2);
         }
 
         @Override // kotlin.random.d
         public long nextLong() {
-            return d.oCF.nextLong();
+            return d.oRU.nextLong();
         }
 
         @Override // kotlin.random.d
         public boolean nextBoolean() {
-            return d.oCF.nextBoolean();
+            return d.oRU.nextBoolean();
         }
 
         @Override // kotlin.random.d
         public double nextDouble() {
-            return d.oCF.nextDouble();
+            return d.oRU.nextDouble();
         }
 
         @Override // kotlin.random.d
         public float nextFloat() {
-            return d.oCF.nextFloat();
+            return d.oRU.nextFloat();
         }
 
         @Override // kotlin.random.d
         public byte[] az(byte[] bArr) {
-            q.m(bArr, com.baidu.fsg.base.statistics.b.j);
-            return d.oCF.az(bArr);
+            q.n(bArr, com.baidu.fsg.base.statistics.b.j);
+            return d.oRU.az(bArr);
         }
 
         @Override // kotlin.random.d
-        public byte[] x(byte[] bArr, int i, int i2) {
-            q.m(bArr, com.baidu.fsg.base.statistics.b.j);
-            return d.oCF.x(bArr, i, i2);
+        public byte[] z(byte[] bArr, int i, int i2) {
+            q.n(bArr, com.baidu.fsg.base.statistics.b.j);
+            return d.oRU.z(bArr, i, i2);
         }
     }
 
     @h
-    /* loaded from: classes5.dex */
+    /* loaded from: classes10.dex */
     public static final class a extends d {
-        public static final a oCI = new a();
+        public static final a oRX = new a();
 
         private a() {
         }
 
         @Override // kotlin.random.d
-        public int OC(int i) {
-            return d.oCH.OC(i);
+        public int Pi(int i) {
+            return d.oRW.Pi(i);
         }
     }
 }

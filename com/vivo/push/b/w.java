@@ -1,23 +1,25 @@
 package com.vivo.push.b;
-/* loaded from: classes12.dex */
+/* loaded from: classes15.dex */
 public final class w extends x {
-    private long a;
+
+    /* renamed from: a  reason: collision with root package name */
+    private long f4652a;
     private int b;
 
     public w() {
         super(20);
-        this.a = -1L;
+        this.f4652a = -1L;
     }
 
     public final long d() {
-        return this.a;
+        return this.f4652a;
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.vivo.push.b.x, com.vivo.push.b.u, com.vivo.push.y
     public final void c(com.vivo.push.a aVar) {
         super.c(aVar);
-        aVar.a("undo_msg_v1", this.a);
+        aVar.a("undo_msg_v1", this.f4652a);
         aVar.a("undo_msg_type_v1", this.b);
     }
 
@@ -25,13 +27,13 @@ public final class w extends x {
     @Override // com.vivo.push.b.x, com.vivo.push.b.u, com.vivo.push.y
     public final void d(com.vivo.push.a aVar) {
         super.d(aVar);
-        this.a = aVar.b("undo_msg_v1", this.a);
+        this.f4652a = aVar.b("undo_msg_v1", this.f4652a);
         this.b = aVar.b("undo_msg_type_v1", 0);
     }
 
     public final String e() {
-        if (this.a != -1) {
-            return String.valueOf(this.a);
+        if (this.f4652a != -1) {
+            return String.valueOf(this.f4652a);
         }
         return null;
     }

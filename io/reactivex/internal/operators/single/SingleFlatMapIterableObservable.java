@@ -8,7 +8,7 @@ import io.reactivex.q;
 import io.reactivex.u;
 import io.reactivex.y;
 import java.util.Iterator;
-/* loaded from: classes25.dex */
+/* loaded from: classes17.dex */
 public final class SingleFlatMapIterableObservable<T, R> extends q<R> {
     final h<? super T, ? extends Iterable<? extends R>> mapper;
     final aa<T> source;
@@ -18,7 +18,7 @@ public final class SingleFlatMapIterableObservable<T, R> extends q<R> {
         this.source.a(new FlatMapIterableObserver(uVar, this.mapper));
     }
 
-    /* loaded from: classes25.dex */
+    /* loaded from: classes17.dex */
     static final class FlatMapIterableObserver<T, R> extends BasicIntQueueDisposable<R> implements y<T> {
         private static final long serialVersionUID = -8938804753851907758L;
         final u<? super R> actual;
@@ -125,7 +125,7 @@ public final class SingleFlatMapIterableObservable<T, R> extends q<R> {
         public R poll() throws Exception {
             Iterator<? extends R> it = this.it;
             if (it != null) {
-                R r = (R) io.reactivex.internal.functions.a.k(it.next(), "The iterator returned a null value");
+                R r = (R) io.reactivex.internal.functions.a.l(it.next(), "The iterator returned a null value");
                 if (!it.hasNext()) {
                     this.it = null;
                     return r;

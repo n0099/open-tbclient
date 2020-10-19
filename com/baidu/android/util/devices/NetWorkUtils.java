@@ -11,7 +11,7 @@ import com.baidu.android.util.connect.ConnectManager;
 import com.baidu.searchbox.common.runtime.AppRuntime;
 import java.net.InetAddress;
 import java.net.UnknownHostException;
-/* loaded from: classes9.dex */
+/* loaded from: classes18.dex */
 public class NetWorkUtils {
     private static final boolean DEBUG = false;
     public static final String NETWORK_TYPE_CELL_2G = "2g";
@@ -23,7 +23,7 @@ public class NetWorkUtils {
     public static final String NETWORK_TYPE_WIFI = "wifi";
     private static final String TAG = "NetWorkUtils";
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes18.dex */
     public enum NetType {
         NONE("no"),
         WIFI("wifi"),

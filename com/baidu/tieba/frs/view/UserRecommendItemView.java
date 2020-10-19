@@ -13,12 +13,12 @@ import com.baidu.tbadk.core.view.ClickableHeaderImageView;
 import com.baidu.tbadk.core.view.userLike.CardUserLikeButton;
 import com.baidu.tbadk.core.view.userLike.CommonUserLikeButton;
 import com.baidu.tieba.R;
-/* loaded from: classes21.dex */
+/* loaded from: classes22.dex */
 public class UserRecommendItemView extends LinearLayout {
-    private TextView ajb;
-    private ClickableHeaderImageView iIi;
-    private CardUserLikeButton iIj;
-    private TextView iIk;
+    private TextView ajt;
+    private ClickableHeaderImageView iXa;
+    private CardUserLikeButton iXb;
+    private TextView iXc;
     private boolean isGod;
     private int mSkinType;
 
@@ -38,16 +38,16 @@ public class UserRecommendItemView extends LinearLayout {
 
     private void init(Context context) {
         LayoutInflater.from(context).inflate(R.layout.frs_user_recommend_item, (ViewGroup) this, true);
-        this.iIi = (ClickableHeaderImageView) findViewById(R.id.user_recommend_head);
-        this.iIi.setAutoChangeStyle(true);
-        this.iIi.setDefaultResource(17170445);
-        this.iIi.setDefaultErrorResource(R.drawable.icon_default_avatar100);
-        this.iIi.setIsRound(true);
-        this.iIi.setScaleType(ImageView.ScaleType.FIT_XY);
-        this.iIj = (CardUserLikeButton) findViewById(R.id.user_recommend_like_btn);
-        this.iIj.setGravity(17);
-        this.ajb = (TextView) findViewById(R.id.user_recommend_username);
-        this.iIk = (TextView) findViewById(R.id.user_recommend_fans_num);
+        this.iXa = (ClickableHeaderImageView) findViewById(R.id.user_recommend_head);
+        this.iXa.setAutoChangeStyle(true);
+        this.iXa.setDefaultResource(17170445);
+        this.iXa.setDefaultErrorResource(R.drawable.icon_default_avatar100);
+        this.iXa.setIsRound(true);
+        this.iXa.setScaleType(ImageView.ScaleType.FIT_XY);
+        this.iXb = (CardUserLikeButton) findViewById(R.id.user_recommend_like_btn);
+        this.iXb.setGravity(17);
+        this.ajt = (TextView) findViewById(R.id.user_recommend_username);
+        this.iXc = (TextView) findViewById(R.id.user_recommend_fans_num);
         setOrientation(1);
         setFocusable(true);
         setClickable(true);
@@ -55,7 +55,7 @@ public class UserRecommendItemView extends LinearLayout {
         setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.frs.view.UserRecommendItemView.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                UserRecommendItemView.this.iIi.onClick(UserRecommendItemView.this.iIi);
+                UserRecommendItemView.this.iXa.onClick(UserRecommendItemView.this.iXa);
             }
         });
     }
@@ -64,9 +64,9 @@ public class UserRecommendItemView extends LinearLayout {
         if (this.isGod != z) {
             this.isGod = z;
             if (z) {
-                this.ajb.setTextColor(ap.getColor(this.mSkinType, R.color.cp_cont_r));
+                this.ajt.setTextColor(ap.getColor(this.mSkinType, R.color.cp_cont_r));
             } else {
-                this.ajb.setTextColor(ap.getColor(this.mSkinType, R.color.cp_cont_b));
+                this.ajt.setTextColor(ap.getColor(this.mSkinType, R.color.cp_cont_b));
             }
         }
     }
@@ -74,31 +74,31 @@ public class UserRecommendItemView extends LinearLayout {
     public void onChangeSkinType(int i) {
         if (i != this.mSkinType) {
             this.mSkinType = i;
-            this.iIk.setTextColor(ap.getColor(i, R.color.cp_cont_d));
+            this.iXc.setTextColor(ap.getColor(i, R.color.cp_cont_d));
             if (this.isGod) {
-                this.ajb.setTextColor(ap.getColor(i, R.color.cp_cont_r));
+                this.ajt.setTextColor(ap.getColor(i, R.color.cp_cont_r));
             } else {
-                this.ajb.setTextColor(ap.getColor(i, R.color.cp_cont_b));
+                this.ajt.setTextColor(ap.getColor(i, R.color.cp_cont_b));
             }
             setBackgroundColor(ap.getColor(i, R.color.cp_bg_line_d));
-            this.iIj.onChangeSkinType(i);
-            this.iIi.setPlaceHolder(1);
+            this.iXb.onChangeSkinType(i);
+            this.iXa.setPlaceHolder(1);
         }
     }
 
     public ClickableHeaderImageView getHeaderView() {
-        return this.iIi;
+        return this.iXa;
     }
 
     public CommonUserLikeButton getLikeBtn() {
-        return this.iIj;
+        return this.iXb;
     }
 
     public TextView getUsername() {
-        return this.ajb;
+        return this.ajt;
     }
 
     public TextView getFansNum() {
-        return this.iIk;
+        return this.iXc;
     }
 }

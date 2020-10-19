@@ -11,20 +11,20 @@ import java.util.List;
 import java.util.Map;
 import java.util.Objects;
 import java.util.Set;
-/* loaded from: classes24.dex */
+/* loaded from: classes15.dex */
 public class b extends g {
-    private Set<a> dIr;
+    private Set<a> dUs;
 
     public b(List<? extends a> list, @Nullable com.baidu.swan.pms.utils.a aVar) {
         super(-1);
         if (list != null && !list.isEmpty()) {
-            this.dIr = new LinkedHashSet();
-            Map<String, PMSAppInfo> aUh = com.baidu.swan.pms.database.a.aUf().aUh();
-            Map<String, com.baidu.swan.pms.model.f> aUg = com.baidu.swan.pms.database.a.aUf().aUg();
+            this.dUs = new LinkedHashSet();
+            Map<String, PMSAppInfo> aWQ = com.baidu.swan.pms.database.a.aWO().aWQ();
+            Map<String, com.baidu.swan.pms.model.f> aWP = com.baidu.swan.pms.database.a.aWO().aWP();
             for (a aVar2 : list) {
                 if (aVar2 != null && !TextUtils.isEmpty(aVar2.getBundleId())) {
-                    a(aUh, aUg, aVar2, aVar);
-                    this.dIr.add(aVar2);
+                    a(aWQ, aWP, aVar2, aVar);
+                    this.dUs.add(aVar2);
                 }
             }
         }
@@ -33,14 +33,14 @@ public class b extends g {
     public b(Collection<String> collection, @Nullable com.baidu.swan.pms.utils.a aVar) {
         super(-1);
         if (collection != null && !collection.isEmpty()) {
-            this.dIr = new LinkedHashSet();
-            Map<String, PMSAppInfo> aUh = com.baidu.swan.pms.database.a.aUf().aUh();
-            Map<String, com.baidu.swan.pms.model.f> aUg = com.baidu.swan.pms.database.a.aUf().aUg();
+            this.dUs = new LinkedHashSet();
+            Map<String, PMSAppInfo> aWQ = com.baidu.swan.pms.database.a.aWO().aWQ();
+            Map<String, com.baidu.swan.pms.model.f> aWP = com.baidu.swan.pms.database.a.aWO().aWP();
             for (String str : collection) {
                 if (!TextUtils.isEmpty(str)) {
                     a aVar2 = new a(str);
-                    a(aUh, aUg, aVar2, aVar);
-                    this.dIr.add(aVar2);
+                    a(aWQ, aWP, aVar2, aVar);
+                    this.dUs.add(aVar2);
                 }
             }
         }
@@ -54,74 +54,74 @@ public class b extends g {
                 aVar.setCategory(pMSAppInfo.appCategory);
             }
             if (!map2.containsKey(aVar.getBundleId())) {
-                aVar.ck(0L);
-            } else if (aVar2 != null && pMSAppInfo.versionCode != 0 && !aVar2.tj(aVar.getBundleId())) {
-                aVar.ck(0L);
+                aVar.cs(0L);
+            } else if (aVar2 != null && pMSAppInfo.versionCode != 0 && !aVar2.tV(aVar.getBundleId())) {
+                aVar.cs(0L);
             } else {
                 com.baidu.swan.pms.model.f fVar = map2.get(aVar.getBundleId());
                 if (fVar != null) {
-                    aVar.ck(fVar.versionCode);
+                    aVar.cs(fVar.versionCode);
                 } else {
-                    aVar.ck(0L);
+                    aVar.cs(0L);
                 }
             }
             if (pMSAppInfo.csProtocolVersion >= PMSConstants.b.getVersion()) {
-                aVar.cl(pMSAppInfo.appSign);
+                aVar.ct(pMSAppInfo.appSign);
             } else {
-                aVar.cl(0L);
+                aVar.ct(0L);
             }
         }
     }
 
     @Nullable
-    public Set<a> aUV() {
-        return this.dIr;
+    public Set<a> aXE() {
+        return this.dUs;
     }
 
-    /* loaded from: classes24.dex */
+    /* loaded from: classes15.dex */
     public static class a {
-        private String dIs;
-        private long dIt;
-        private long dIu;
+        private String dUt;
+        private long dUu;
+        private long dUv;
         private int mCategory;
 
         public a(String str) {
             this.mCategory = -1;
-            this.dIt = 0L;
-            this.dIu = 0L;
-            this.dIs = str;
+            this.dUu = 0L;
+            this.dUv = 0L;
+            this.dUt = str;
         }
 
         public a(String str, int i) {
             this.mCategory = -1;
-            this.dIt = 0L;
-            this.dIu = 0L;
-            this.dIs = str;
+            this.dUu = 0L;
+            this.dUv = 0L;
+            this.dUt = str;
             this.mCategory = i;
         }
 
         public String getBundleId() {
-            return this.dIs;
+            return this.dUt;
         }
 
-        public long aUW() {
-            return this.dIt;
+        public long aXF() {
+            return this.dUu;
         }
 
         public int getCategory() {
             return this.mCategory;
         }
 
-        public long aUX() {
-            return this.dIu;
+        public long aXG() {
+            return this.dUv;
         }
 
-        void ck(long j) {
-            this.dIt = j;
+        void cs(long j) {
+            this.dUu = j;
         }
 
-        void cl(long j) {
-            this.dIu = j;
+        void ct(long j) {
+            this.dUv = j;
         }
 
         void setCategory(int i) {
@@ -129,7 +129,7 @@ public class b extends g {
         }
 
         public int hashCode() {
-            return Objects.hash(this.dIs, Integer.valueOf(this.mCategory));
+            return Objects.hash(this.dUt, Integer.valueOf(this.mCategory));
         }
 
         public boolean equals(Object obj) {
@@ -138,7 +138,7 @@ public class b extends g {
             }
             if (obj instanceof a) {
                 a aVar = (a) obj;
-                return TextUtils.equals(aVar.getBundleId(), this.dIs) && aVar.getCategory() == this.mCategory;
+                return TextUtils.equals(aVar.getBundleId(), this.dUt) && aVar.getCategory() == this.mCategory;
             }
             return false;
         }

@@ -5,22 +5,24 @@ import android.content.Context;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Vector;
-/* loaded from: classes8.dex */
+/* loaded from: classes11.dex */
 public final class e {
     private static final String d = e.class.getSimpleName();
     private static final int[] e = {0, 1, 2, 3};
     @SuppressLint({"StaticFieldLeak"})
     private static e f;
     private static boolean g;
-    List<Vector<BdNetTask>> a;
+
+    /* renamed from: a  reason: collision with root package name */
+    List<Vector<BdNetTask>> f3973a;
     Vector<BdNetEngine> b;
     Context c;
 
     private e() {
         int length = e.length;
-        this.a = new ArrayList(length);
+        this.f3973a = new ArrayList(length);
         for (int i = 0; i < length; i++) {
-            this.a.add(new Vector<>());
+            this.f3973a.add(new Vector<>());
         }
         this.b = new Vector<>();
     }
@@ -45,7 +47,7 @@ public final class e {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: Code restructure failed: missing block: B:20:0x003a, code lost:
-        r4.a.get(r0).add(r5);
+        r4.f3973a.get(r0).add(r5);
      */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
@@ -54,12 +56,12 @@ public final class e {
         int i2 = 0;
         synchronized (this) {
             if (bdNetTask != null) {
-                if (this.a == null) {
-                    this.a = new ArrayList(e.length);
+                if (this.f3973a == null) {
+                    this.f3973a = new ArrayList(e.length);
                 }
-                if (this.a.isEmpty()) {
+                if (this.f3973a.isEmpty()) {
                     for (int i3 = 0; i3 < e.length; i3++) {
-                        this.a.add(new Vector<>());
+                        this.f3973a.add(new Vector<>());
                     }
                 }
                 int length = e.length;
@@ -85,14 +87,14 @@ public final class e {
     */
     public final synchronized BdNetTask d() {
         BdNetTask bdNetTask;
-        int size = this.a.size();
+        int size = this.f3973a.size();
         int i = 0;
         while (true) {
             if (i >= size) {
                 bdNetTask = null;
                 break;
             }
-            Vector<BdNetTask> vector = this.a.get(i);
+            Vector<BdNetTask> vector = this.f3973a.get(i);
             if (vector.size() > 0) {
                 break;
             }

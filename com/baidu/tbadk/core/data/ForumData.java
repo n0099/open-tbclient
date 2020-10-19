@@ -24,6 +24,7 @@ import tbclient.FrsPage.SignForum;
 import tbclient.FrsPage.SignInfo;
 import tbclient.FrsPage.SignUser;
 import tbclient.FrsPage.TagInfo;
+import tbclient.FrsPage.TipInfo;
 import tbclient.FrsPage.Yule;
 import tbclient.SimpleForum;
 import tbclient.ThemeColorInfo;
@@ -63,6 +64,7 @@ public class ForumData implements com.baidu.adp.widget.ListView.q, com.baidu.tba
     private final PostPrefixData mPrefixData;
     private ArrayList<RecommendForumData> mRecommendForumData;
     private ThemeColorInfo mThemeColorInfo;
+    private List<TipInfo> mTipInfos;
     private cb news_info;
     private String riskTipNotice;
     private String riskTipPop;
@@ -125,6 +127,7 @@ public class ForumData implements com.baidu.adp.widget.ListView.q, com.baidu.tba
         this.is_private_forum = 0;
         this.isShowBawuTask = false;
         this.fShareImage = null;
+        this.mTipInfos = new ArrayList();
     }
 
     public AnchorPower getAnchorPower() {
@@ -342,6 +345,10 @@ public class ForumData implements com.baidu.adp.widget.ListView.q, com.baidu.tba
         return this.fShareImage;
     }
 
+    public List<TipInfo> getTipInfos() {
+        return this.mTipInfos;
+    }
+
     public void parserProtobuf(ForumInfo forumInfo) {
         if (forumInfo != null) {
             try {
@@ -425,6 +432,10 @@ public class ForumData implements com.baidu.adp.widget.ListView.q, com.baidu.tba
                         recommendForumData.parserProtobuf(list3.get(i3));
                         this.mRecommendForumData.add(recommendForumData);
                     }
+                }
+                List<TipInfo> list4 = forumInfo.tip_list;
+                if (!com.baidu.tbadk.core.util.y.isEmpty(list4)) {
+                    this.mTipInfos.addAll(list4);
                 }
                 MemberShowIcon memberShowIcon = forumInfo.forumvip_show_icon;
                 if (memberShowIcon != null) {

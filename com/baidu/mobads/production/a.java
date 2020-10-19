@@ -3,12 +3,14 @@ package com.baidu.mobads.production;
 import android.content.Context;
 import dalvik.system.DexClassLoader;
 import java.io.File;
-/* loaded from: classes3.dex */
+/* loaded from: classes7.dex */
 public class a {
-    private static DexClassLoader a = null;
+
+    /* renamed from: a  reason: collision with root package name */
+    private static DexClassLoader f2390a = null;
 
     public static DexClassLoader a(Context context) {
-        if (a == null) {
+        if (f2390a == null) {
             try {
                 String absolutePath = context.getFilesDir().getAbsolutePath();
                 File file = new File((context.getDir("baidu_ad_sdk", 0).getAbsolutePath() + "/") + "local_vr_imageview.jar");
@@ -18,12 +20,12 @@ public class a {
                     System.currentTimeMillis();
                     DexClassLoader dexClassLoader = new DexClassLoader(absolutePath2, absolutePath, null, classLoader);
                     System.currentTimeMillis();
-                    a = dexClassLoader;
+                    f2390a = dexClassLoader;
                 }
             } catch (Exception e) {
-                a = null;
+                f2390a = null;
             }
         }
-        return a;
+        return f2390a;
     }
 }

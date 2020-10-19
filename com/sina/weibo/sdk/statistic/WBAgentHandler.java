@@ -15,7 +15,7 @@ import java.util.Map;
 import java.util.Timer;
 import java.util.TimerTask;
 import java.util.concurrent.CopyOnWriteArrayList;
-/* loaded from: classes24.dex */
+/* loaded from: classes12.dex */
 class WBAgentHandler {
     private static int MAX_CACHE_SIZE = 5;
     private static CopyOnWriteArrayList<PageLog> mActivePages;

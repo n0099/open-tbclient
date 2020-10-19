@@ -1,24 +1,24 @@
 package com.google.gson.internal;
-/* loaded from: classes23.dex */
+/* loaded from: classes17.dex */
 public final class c {
-    private static final int nNi = ebi();
+    private static final int ocA = eeT();
 
-    private static int ebi() {
-        return Vr(System.getProperty("java.version"));
+    private static int eeT() {
+        return Wf(System.getProperty("java.version"));
     }
 
-    static int Vr(String str) {
-        int Vs = Vs(str);
-        if (Vs == -1) {
-            Vs = Vt(str);
+    static int Wf(String str) {
+        int Wg = Wg(str);
+        if (Wg == -1) {
+            Wg = Wh(str);
         }
-        if (Vs == -1) {
+        if (Wg == -1) {
             return 6;
         }
-        return Vs;
+        return Wg;
     }
 
-    private static int Vs(String str) {
+    private static int Wg(String str) {
         try {
             String[] split = str.split("[._]");
             int parseInt = Integer.parseInt(split[0]);
@@ -31,7 +31,7 @@ public final class c {
         }
     }
 
-    private static int Vt(String str) {
+    private static int Wh(String str) {
         try {
             StringBuilder sb = new StringBuilder();
             for (int i = 0; i < str.length(); i++) {
@@ -47,11 +47,11 @@ public final class c {
         }
     }
 
-    public static int ebj() {
-        return nNi;
+    public static int eeU() {
+        return ocA;
     }
 
-    public static boolean ebk() {
-        return nNi >= 9;
+    public static boolean eeV() {
+        return ocA >= 9;
     }
 }

@@ -4,18 +4,18 @@ import java.lang.reflect.Field;
 import kotlin.h;
 import kotlin.jvm.internal.q;
 @h
-/* loaded from: classes5.dex */
+/* loaded from: classes10.dex */
 public final class d {
     public static final StackTraceElement a(BaseContinuationImpl baseContinuationImpl) {
-        q.m(baseContinuationImpl, "receiver$0");
+        q.n(baseContinuationImpl, "receiver$0");
         c b = b(baseContinuationImpl);
         if (b == null) {
             return null;
         }
         ee(1, b.v());
         int c = c(baseContinuationImpl);
-        int i = c < 0 ? -1 : b.ekk()[c];
-        String d = f.oCk.d(baseContinuationImpl);
+        int i = c < 0 ? -1 : b.enW()[c];
+        String d = f.oRz.d(baseContinuationImpl);
         return new StackTraceElement(d == null ? b.c() : d + '/' + b.c(), b.m(), b.f(), i);
     }
 
@@ -26,7 +26,7 @@ public final class d {
     private static final int c(BaseContinuationImpl baseContinuationImpl) {
         try {
             Field declaredField = baseContinuationImpl.getClass().getDeclaredField("label");
-            q.l((Object) declaredField, "field");
+            q.m(declaredField, "field");
             declaredField.setAccessible(true);
             Object obj = declaredField.get(baseContinuationImpl);
             if (!(obj instanceof Integer)) {

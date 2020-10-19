@@ -4,7 +4,7 @@ import android.graphics.Bitmap;
 import android.net.http.SslError;
 import android.webkit.SslErrorHandler;
 import android.webkit.WebView;
-/* loaded from: classes24.dex */
+/* loaded from: classes12.dex */
 public interface WebViewRequestCallback {
     void closePage();
 

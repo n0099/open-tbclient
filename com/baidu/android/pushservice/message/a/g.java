@@ -5,7 +5,7 @@ import android.text.TextUtils;
 import com.baidu.android.pushservice.i.m;
 import com.baidu.android.pushservice.message.PublicMsg;
 import com.baidu.android.pushservice.message.k;
-/* loaded from: classes7.dex */
+/* loaded from: classes10.dex */
 public class g extends b {
     public g(Context context) {
         super(context);
@@ -16,16 +16,16 @@ public class g extends b {
         int i;
         String b = kVar.b();
         String e = kVar.e();
-        PublicMsg a = h.a(this.a, e, b, bArr);
-        if (a == null || TextUtils.isEmpty(a.mTitle) || TextUtils.isEmpty(a.mDescription) || TextUtils.isEmpty(a.mUrl)) {
-            m.a(">>> pMsg JSON parsing error!", this.a);
+        PublicMsg a2 = h.a(this.f1169a, e, b, bArr);
+        if (a2 == null || TextUtils.isEmpty(a2.mTitle) || TextUtils.isEmpty(a2.mDescription) || TextUtils.isEmpty(a2.mUrl)) {
+            m.a(">>> pMsg JSON parsing error!", this.f1169a);
             i = 2;
-        } else if (d.a(this.a, a) && m.d(this.a, this.a.getPackageName())) {
-            m.a(">>> Show pMsg Notification!", this.a);
-            d.a(this.a, a, e);
+        } else if (d.a(this.f1169a, a2) && m.d(this.f1169a, this.f1169a.getPackageName())) {
+            m.a(">>> Show pMsg Notification!", this.f1169a);
+            d.a(this.f1169a, a2, e);
             i = 1;
         } else {
-            m.a(">>> Don't Show pMsg Notification! --- IsBaiduApp = " + m.d(this.a, this.a.getPackageName()), this.a);
+            m.a(">>> Don't Show pMsg Notification! --- IsBaiduApp = " + m.d(this.f1169a, this.f1169a.getPackageName()), this.f1169a);
             i = 0;
         }
         com.baidu.android.pushservice.message.g gVar = new com.baidu.android.pushservice.message.g();

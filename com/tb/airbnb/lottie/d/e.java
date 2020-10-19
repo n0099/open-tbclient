@@ -6,7 +6,7 @@ import android.support.annotation.FloatRange;
 import com.tb.airbnb.lottie.a.a.j;
 import com.tb.airbnb.lottie.model.content.h;
 import java.util.List;
-/* loaded from: classes17.dex */
+/* loaded from: classes16.dex */
 public class e {
     public static PointF a(PointF pointF, PointF pointF2) {
         return new PointF(pointF.x + pointF2.x, pointF.y + pointF2.y);
@@ -14,25 +14,25 @@ public class e {
 
     public static void a(h hVar, Path path) {
         path.reset();
-        PointF km = hVar.km();
-        path.moveTo(km.x, km.y);
-        PointF pointF = new PointF(km.x, km.y);
+        PointF kn = hVar.kn();
+        path.moveTo(kn.x, kn.y);
+        PointF pointF = new PointF(kn.x, kn.y);
         int i = 0;
         while (true) {
             int i2 = i;
-            if (i2 >= hVar.kn().size()) {
+            if (i2 >= hVar.ko().size()) {
                 break;
             }
-            com.tb.airbnb.lottie.model.a aVar = hVar.kn().get(i2);
-            PointF jt = aVar.jt();
+            com.tb.airbnb.lottie.model.a aVar = hVar.ko().get(i2);
             PointF ju = aVar.ju();
             PointF jv = aVar.jv();
-            if (jt.equals(pointF) && ju.equals(jv)) {
-                path.lineTo(jv.x, jv.y);
+            PointF jw = aVar.jw();
+            if (ju.equals(pointF) && jv.equals(jw)) {
+                path.lineTo(jw.x, jw.y);
             } else {
-                path.cubicTo(jt.x, jt.y, ju.x, ju.y, jv.x, jv.y);
+                path.cubicTo(ju.x, ju.y, jv.x, jv.y, jw.x, jw.y);
             }
-            pointF.set(jv.x, jv.y);
+            pointF.set(jw.x, jw.y);
             i = i2 + 1;
         }
         if (hVar.isClosed()) {
@@ -80,7 +80,7 @@ public class e {
 
     public static void a(com.tb.airbnb.lottie.model.e eVar, int i, List<com.tb.airbnb.lottie.model.e> list, com.tb.airbnb.lottie.model.e eVar2, j jVar) {
         if (eVar.j(jVar.getName(), i)) {
-            list.add(eVar2.Wg(jVar.getName()).a(jVar));
+            list.add(eVar2.WU(jVar.getName()).a(jVar));
         }
     }
 }

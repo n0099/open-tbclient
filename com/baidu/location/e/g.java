@@ -8,13 +8,15 @@ import java.net.URL;
 import java.util.zip.GZIPInputStream;
 import javax.net.ssl.HttpsURLConnection;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes3.dex */
+/* loaded from: classes7.dex */
 public class g implements Runnable {
-    final /* synthetic */ f a;
+
+    /* renamed from: a  reason: collision with root package name */
+    final /* synthetic */ f f1950a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public g(f fVar) {
-        this.a = fVar;
+        this.f1950a = fVar;
     }
 
     /* JADX WARN: Removed duplicated region for block: B:117:0x00b9 A[EDGE_INSN: B:117:0x00b9->B:34:0x00b9 ?: BREAK  , SYNTHETIC] */
@@ -37,13 +39,13 @@ public class g implements Runnable {
         InputStream inputStream3;
         ByteArrayOutputStream byteArrayOutputStream3;
         ByteArrayOutputStream byteArrayOutputStream4 = null;
-        this.a.h = l.f;
-        this.a.a();
+        this.f1950a.h = l.f;
+        this.f1950a.a();
         HttpsURLConnection httpsURLConnection2 = null;
-        int i = this.a.i;
+        int i = this.f1950a.i;
         while (i > 0) {
             try {
-                HttpsURLConnection httpsURLConnection3 = (HttpsURLConnection) new URL(this.a.h).openConnection();
+                HttpsURLConnection httpsURLConnection3 = (HttpsURLConnection) new URL(this.f1950a.h).openConnection();
                 try {
                     httpsURLConnection3.setRequestMethod("GET");
                     httpsURLConnection3.setDoInput(true);
@@ -90,8 +92,8 @@ public class g implements Runnable {
                             }
                             inputStream.close();
                             byteArrayOutputStream3.close();
-                            this.a.j = new String(byteArrayOutputStream3.toByteArray(), "utf-8");
-                            this.a.a(true);
+                            this.f1950a.j = new String(byteArrayOutputStream3.toByteArray(), "utf-8");
+                            this.f1950a.a(true);
                             httpsURLConnection3.disconnect();
                             inputStream3 = inputStream;
                             byteArrayOutputStream2 = byteArrayOutputStream3;
@@ -101,7 +103,7 @@ public class g implements Runnable {
                             httpsURLConnection = httpsURLConnection3;
                             byteArrayOutputStream = byteArrayOutputStream3;
                             try {
-                                Log.d(a.a, "NetworkCommunicationException!");
+                                Log.d(a.f1942a, "NetworkCommunicationException!");
                                 if (httpsURLConnection != null) {
                                     httpsURLConnection.disconnect();
                                 }
@@ -225,7 +227,7 @@ public class g implements Runnable {
             return;
         }
         f.p++;
-        this.a.j = null;
-        this.a.a(false);
+        this.f1950a.j = null;
+        this.f1950a.a(false);
     }
 }

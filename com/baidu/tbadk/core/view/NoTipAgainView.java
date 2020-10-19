@@ -14,10 +14,10 @@ import com.baidu.tbadk.core.util.ap;
 import com.baidu.tieba.R;
 /* loaded from: classes.dex */
 public class NoTipAgainView extends LinearLayout implements View.OnClickListener {
-    private ImageView eht;
-    private TextView ehu;
-    private boolean ehv;
-    private a.c ehw;
+    private ImageView etA;
+    private TextView etB;
+    private boolean etC;
+    private a.c etD;
 
     public NoTipAgainView(Context context) {
         this(context, null);
@@ -29,52 +29,52 @@ public class NoTipAgainView extends LinearLayout implements View.OnClickListener
 
     public NoTipAgainView(Context context, @Nullable AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.ehv = false;
+        this.etC = false;
         init();
     }
 
     private void init() {
         inflate(getContext(), R.layout.view_no_tip_again, this);
-        this.ehu = (TextView) findViewById(R.id.no_tip_again_text);
-        this.eht = (ImageView) findViewById(R.id.checkbox);
+        this.etB = (TextView) findViewById(R.id.no_tip_again_text);
+        this.etA = (ImageView) findViewById(R.id.checkbox);
         onChangeSkinType();
-        this.eht.setOnClickListener(this);
+        this.etA.setOnClickListener(this);
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        if (view == this.eht) {
-            this.ehv = !this.ehv;
-            bhX();
-            if (this.ehw != null) {
-                this.ehw.bib();
+        if (view == this.etA) {
+            this.etC = !this.etC;
+            bkG();
+            if (this.etD != null) {
+                this.etD.bkK();
             }
         }
     }
 
     public void onChangeSkinType() {
-        bhX();
-        ap.setViewTextColor(this.ehu, R.color.cp_cont_j);
+        bkG();
+        ap.setViewTextColor(this.etB, R.color.cp_cont_j);
     }
 
-    private void bhX() {
-        Drawable a;
-        if (this.eht != null) {
-            ImageView imageView = this.eht;
-            if (this.ehv) {
-                a = SvgManager.bkl().a(R.drawable.ic_icon_mask_use_complete16_svg, null);
+    private void bkG() {
+        Drawable a2;
+        if (this.etA != null) {
+            ImageView imageView = this.etA;
+            if (this.etC) {
+                a2 = SvgManager.bmU().a(R.drawable.ic_icon_mask_use_complete16_svg, null);
             } else {
-                a = SvgManager.bkl().a(R.drawable.ic_icon_mask_use_check16_svg, null);
+                a2 = SvgManager.bmU().a(R.drawable.ic_icon_mask_use_check16_svg, null);
             }
-            imageView.setImageDrawable(a);
+            imageView.setImageDrawable(a2);
         }
     }
 
-    public boolean bhY() {
-        return this.ehv;
+    public boolean bkH() {
+        return this.etC;
     }
 
     public void setOnNoTipAgainCheckListener(a.c cVar) {
-        this.ehw = cVar;
+        this.etD = cVar;
     }
 }

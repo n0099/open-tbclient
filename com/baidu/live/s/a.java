@@ -3,8 +3,8 @@ package com.baidu.live.s;
 import android.content.Context;
 /* loaded from: classes4.dex */
 public class a {
-    public String aPZ;
-    public long bkp;
+    public String aTk;
+    public long boc;
     public Context context;
     public boolean isHost;
     public int liveType;
@@ -29,7 +29,7 @@ public class a {
         this.isHost = z;
         this.portrait = str;
         this.otherParams = str2;
-        this.aPZ = str3;
-        this.bkp = j2;
+        this.aTk = str3;
+        this.boc = j2;
     }
 }

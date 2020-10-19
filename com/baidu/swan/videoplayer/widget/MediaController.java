@@ -17,106 +17,106 @@ import com.baidu.swan.videoplayer.c;
 import java.util.Locale;
 import java.util.Timer;
 import java.util.TimerTask;
-/* loaded from: classes25.dex */
+/* loaded from: classes12.dex */
 public class MediaController extends RelativeLayout {
-    private com.baidu.swan.videoplayer.a.a dNq;
-    private ImageButton dOD;
-    private View dOE;
-    private View dOF;
-    private TextView dOG;
-    private SeekBar dOH;
-    private TextView dOI;
-    private long dOJ;
-    private Timer dOK;
-    private Timer dOL;
-    private SwanVideoView dOM;
-    boolean dON;
-    private boolean dOO;
+    private com.baidu.swan.videoplayer.a.a dZr;
+    private ImageButton eaE;
+    private View eaF;
+    private View eaG;
+    private TextView eaH;
+    private SeekBar eaI;
+    private TextView eaJ;
+    private long eaK;
+    private Timer eaL;
+    private Timer eaM;
+    private SwanVideoView eaN;
+    boolean eaO;
+    private boolean eaP;
     private Handler mMainThreadHandler;
 
     public MediaController(Context context) {
         super(context);
-        this.dOO = false;
-        aYc();
+        this.eaP = false;
+        baK();
     }
 
     public MediaController(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.dOO = false;
-        aYc();
+        this.eaP = false;
+        baK();
     }
 
-    private void aYc() {
-        View inflate = LayoutInflater.from(getContext()).inflate(c.C0523c.media_controller, this);
-        this.dOD = (ImageButton) inflate.findViewById(c.b.btn_play);
-        this.dOD.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.swan.videoplayer.widget.MediaController.1
+    private void baK() {
+        View inflate = LayoutInflater.from(getContext()).inflate(c.C0540c.media_controller, this);
+        this.eaE = (ImageButton) inflate.findViewById(c.b.btn_play);
+        this.eaE.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.swan.videoplayer.widget.MediaController.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                if (MediaController.this.dOM != null) {
-                    if (MediaController.this.dOM.isPlaying()) {
-                        MediaController.this.dOD.setBackgroundResource(c.a.btn_play);
-                        MediaController.this.dOM.pause();
+                if (MediaController.this.eaN != null) {
+                    if (MediaController.this.eaN.isPlaying()) {
+                        MediaController.this.eaE.setBackgroundResource(c.a.btn_play);
+                        MediaController.this.eaN.pause();
                         return;
                     }
                     Log.d("SimpleMediaController", "mPlayButton clicked : to resume");
-                    MediaController.this.dOD.setBackgroundResource(c.a.btn_pause);
-                    MediaController.this.dOM.start();
+                    MediaController.this.eaE.setBackgroundResource(c.a.btn_pause);
+                    MediaController.this.eaN.start();
                 }
             }
         });
-        this.dOG = (TextView) inflate.findViewById(c.b.tv_position);
-        this.dOH = (SeekBar) inflate.findViewById(c.b.seekbar);
-        this.dOI = (TextView) inflate.findViewById(c.b.tv_duration);
-        this.dOH.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() { // from class: com.baidu.swan.videoplayer.widget.MediaController.2
+        this.eaH = (TextView) inflate.findViewById(c.b.tv_position);
+        this.eaI = (SeekBar) inflate.findViewById(c.b.seekbar);
+        this.eaJ = (TextView) inflate.findViewById(c.b.tv_duration);
+        this.eaI.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() { // from class: com.baidu.swan.videoplayer.widget.MediaController.2
             @Override // android.widget.SeekBar.OnSeekBarChangeListener
             public void onProgressChanged(SeekBar seekBar, int i, boolean z) {
-                MediaController.this.mD(i);
+                MediaController.this.na(i);
             }
 
             @Override // android.widget.SeekBar.OnSeekBarChangeListener
             public void onStartTrackingTouch(SeekBar seekBar) {
-                MediaController.this.dON = true;
+                MediaController.this.eaO = true;
             }
 
             @Override // android.widget.SeekBar.OnSeekBarChangeListener
             public void onStopTrackingTouch(SeekBar seekBar) {
-                if (MediaController.this.dOM.getDuration() > 0) {
-                    MediaController.this.dOJ = seekBar.getProgress();
-                    if (MediaController.this.dOM != null) {
-                        MediaController.this.dOM.seekTo(seekBar.getProgress());
+                if (MediaController.this.eaN.getDuration() > 0) {
+                    MediaController.this.eaK = seekBar.getProgress();
+                    if (MediaController.this.eaN != null) {
+                        MediaController.this.eaN.seekTo(seekBar.getProgress());
                     }
                 }
-                MediaController.this.dON = false;
+                MediaController.this.eaO = false;
             }
         });
-        this.dOF = inflate.findViewById(c.b.btn_mute);
-        this.dOF.setBackgroundResource(this.dOM != null && this.dOM.isMute() ? c.a.mute_on : c.a.mute_off);
-        this.dOF.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.swan.videoplayer.widget.MediaController.3
+        this.eaG = inflate.findViewById(c.b.btn_mute);
+        this.eaG.setBackgroundResource(this.eaN != null && this.eaN.isMute() ? c.a.mute_on : c.a.mute_off);
+        this.eaG.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.swan.videoplayer.widget.MediaController.3
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                if (MediaController.this.dOM != null) {
-                    MediaController.this.dOM.setMuted(!MediaController.this.dOM.isMute());
+                if (MediaController.this.eaN != null) {
+                    MediaController.this.eaN.setMuted(!MediaController.this.eaN.isMute());
                 }
             }
         });
-        this.dOE = inflate.findViewById(c.b.btn_toggle_screen);
-        this.dOE.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.swan.videoplayer.widget.MediaController.4
-            private boolean dOQ;
+        this.eaF = inflate.findViewById(c.b.btn_toggle_screen);
+        this.eaF.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.swan.videoplayer.widget.MediaController.4
+            private boolean eaR;
 
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                this.dOQ = !this.dOQ;
-                if (MediaController.this.dNq != null) {
-                    MediaController.this.dNq.hk(this.dOQ);
+                this.eaR = !this.eaR;
+                if (MediaController.this.dZr != null) {
+                    MediaController.this.dZr.hG(this.eaR);
                 }
             }
         });
-        this.dOH.setEnabled(false);
-        this.dOD.setEnabled(false);
+        this.eaI.setEnabled(false);
+        this.eaE.setEnabled(false);
     }
 
-    public void hp(boolean z) {
-        this.dOE.setBackgroundResource(z ? c.a.btn_halfscreen : c.a.btn_fullscreen);
+    public void hK(boolean z) {
+        this.eaF.setBackgroundResource(z ? c.a.btn_halfscreen : c.a.btn_fullscreen);
     }
 
     public Handler getMainThreadHandler() {
@@ -126,104 +126,104 @@ public class MediaController extends RelativeLayout {
         return this.mMainThreadHandler;
     }
 
-    public void aYd() {
-        int currentPlayerState = this.dOM.getCurrentPlayerState();
-        this.dOO = false;
+    public void baL() {
+        int currentPlayerState = this.eaN.getCurrentPlayerState();
+        this.eaP = false;
         switch (currentPlayerState) {
             case -1:
             case 0:
-                aYf();
-                this.dOD.setEnabled(true);
-                this.dOD.setBackgroundResource(c.a.btn_play);
-                this.dOH.setEnabled(false);
-                mD(this.dOM == null ? 0 : this.dOM.getCurrentPosition());
-                mC(this.dOM != null ? this.dOM.getDuration() : 0);
+                baN();
+                this.eaE.setEnabled(true);
+                this.eaE.setBackgroundResource(c.a.btn_play);
+                this.eaI.setEnabled(false);
+                na(this.eaN == null ? 0 : this.eaN.getCurrentPosition());
+                mZ(this.eaN != null ? this.eaN.getDuration() : 0);
                 return;
             case 1:
-                this.dOD.setEnabled(false);
-                this.dOH.setEnabled(false);
+                this.eaE.setEnabled(false);
+                this.eaI.setEnabled(false);
                 return;
             case 2:
-                this.dOD.setEnabled(true);
-                this.dOD.setBackgroundResource(c.a.btn_play);
-                this.dOH.setEnabled(true);
-                mC(this.dOM == null ? 0 : this.dOM.getDuration());
-                this.dOH.setMax(this.dOM != null ? this.dOM.getDuration() : 0);
+                this.eaE.setEnabled(true);
+                this.eaE.setBackgroundResource(c.a.btn_play);
+                this.eaI.setEnabled(true);
+                mZ(this.eaN == null ? 0 : this.eaN.getDuration());
+                this.eaI.setMax(this.eaN != null ? this.eaN.getDuration() : 0);
                 return;
             case 3:
-                aYe();
-                this.dOH.setEnabled(true);
-                this.dOD.setEnabled(true);
-                this.dOD.setBackgroundResource(c.a.btn_pause);
+                baM();
+                this.eaI.setEnabled(true);
+                this.eaE.setEnabled(true);
+                this.eaE.setBackgroundResource(c.a.btn_pause);
                 return;
             case 4:
-                this.dOD.setEnabled(true);
-                this.dOD.setBackgroundResource(c.a.btn_play);
+                this.eaE.setEnabled(true);
+                this.eaE.setBackgroundResource(c.a.btn_play);
                 return;
             case 5:
-                aYf();
-                this.dOH.setProgress(this.dOH.getMax());
-                this.dOH.setEnabled(false);
-                this.dOD.setEnabled(true);
-                this.dOD.setBackgroundResource(c.a.btn_play);
+                baN();
+                this.eaI.setProgress(this.eaI.getMax());
+                this.eaI.setEnabled(false);
+                this.eaE.setEnabled(true);
+                this.eaE.setBackgroundResource(c.a.btn_play);
                 return;
             default:
                 return;
         }
     }
 
-    private void aYe() {
-        if (this.dOK != null) {
-            this.dOK.cancel();
-            this.dOK = null;
+    private void baM() {
+        if (this.eaL != null) {
+            this.eaL.cancel();
+            this.eaL = null;
         }
-        this.dOK = new Timer();
-        this.dOK.schedule(new TimerTask() { // from class: com.baidu.swan.videoplayer.widget.MediaController.5
+        this.eaL = new Timer();
+        this.eaL.schedule(new TimerTask() { // from class: com.baidu.swan.videoplayer.widget.MediaController.5
             @Override // java.util.TimerTask, java.lang.Runnable
             public void run() {
                 MediaController.this.getMainThreadHandler().post(new Runnable() { // from class: com.baidu.swan.videoplayer.widget.MediaController.5.1
                     @Override // java.lang.Runnable
                     public void run() {
-                        if (MediaController.this.dOM != null && MediaController.this.dOM.getVideoPlayerCallback() != null) {
-                            MediaController.this.dOM.getVideoPlayerCallback().h(MediaController.this.dOM);
+                        if (MediaController.this.eaN != null && MediaController.this.eaN.getVideoPlayerCallback() != null) {
+                            MediaController.this.eaN.getVideoPlayerCallback().h(MediaController.this.eaN);
                         }
-                        MediaController.this.aYh();
+                        MediaController.this.baP();
                     }
                 });
             }
         }, 0L, 1000L);
     }
 
-    private void aYf() {
-        if (this.dOK != null) {
-            this.dOK.cancel();
-            this.dOK = null;
+    private void baN() {
+        if (this.eaL != null) {
+            this.eaL.cancel();
+            this.eaL = null;
         }
     }
 
     public void i(SwanVideoView swanVideoView) {
-        this.dOM = swanVideoView;
+        this.eaN = swanVideoView;
     }
 
     public void setToggleScreenListener(com.baidu.swan.videoplayer.a.a aVar) {
-        this.dNq = aVar;
+        this.dZr = aVar;
     }
 
     private void show() {
-        if (this.dOM != null) {
-            setProgress((int) this.dOJ);
+        if (this.eaN != null) {
+            setProgress((int) this.eaK);
             setVisibility(0);
         }
     }
 
-    public void aYg() {
+    public void baO() {
         show();
-        if (this.dOL != null) {
-            this.dOL.cancel();
-            this.dOL = null;
+        if (this.eaM != null) {
+            this.eaM.cancel();
+            this.eaM = null;
         }
-        this.dOL = new Timer();
-        this.dOL.schedule(new TimerTask() { // from class: com.baidu.swan.videoplayer.widget.MediaController.6
+        this.eaM = new Timer();
+        this.eaM.schedule(new TimerTask() { // from class: com.baidu.swan.videoplayer.widget.MediaController.6
             @Override // java.util.TimerTask, java.lang.Runnable
             public void run() {
                 MediaController.this.getMainThreadHandler().post(new Runnable() { // from class: com.baidu.swan.videoplayer.widget.MediaController.6.1
@@ -240,20 +240,20 @@ public class MediaController extends RelativeLayout {
         setVisibility(8);
     }
 
-    private void mC(int i) {
-        if (this.dOI != null) {
-            this.dOI.setText(mE(i));
+    private void mZ(int i) {
+        if (this.eaJ != null) {
+            this.eaJ.setText(nb(i));
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void mD(int i) {
-        if (this.dOG != null) {
-            this.dOG.setText(mE(i));
+    public void na(int i) {
+        if (this.eaH != null) {
+            this.eaH.setText(nb(i));
         }
     }
 
-    public static String mE(int i) {
+    public static String nb(int i) {
         if (i < 0) {
             return "";
         }
@@ -265,46 +265,46 @@ public class MediaController extends RelativeLayout {
     }
 
     private void setMax(int i) {
-        if (!this.dOO) {
-            if (this.dOH != null) {
-                this.dOH.setMax(i);
+        if (!this.eaP) {
+            if (this.eaI != null) {
+                this.eaI.setMax(i);
             }
-            mC(i);
+            mZ(i);
             if (i > 0) {
-                this.dOO = true;
+                this.eaP = true;
             }
         }
     }
 
     public void setProgress(int i) {
-        if (this.dOH != null) {
-            this.dOH.setProgress(i);
+        if (this.eaI != null) {
+            this.eaI.setProgress(i);
         }
     }
 
     public void setMute(boolean z) {
-        if (this.dOF != null) {
-            this.dOF.setBackgroundResource(z ? c.a.mute_on : c.a.mute_off);
+        if (this.eaG != null) {
+            this.eaG.setBackgroundResource(z ? c.a.mute_on : c.a.mute_off);
         }
     }
 
-    public void aYh() {
+    public void baP() {
         int duration;
-        if (this.dOM != null && !this.dON) {
-            long currentPosition = this.dOM.getCurrentPosition();
+        if (this.eaN != null && !this.eaO) {
+            long currentPosition = this.eaN.getCurrentPosition();
             if (currentPosition > 0) {
-                this.dOJ = currentPosition;
+                this.eaK = currentPosition;
             }
-            if (getVisibility() == 0 && (duration = this.dOM.getDuration()) > 0) {
+            if (getVisibility() == 0 && (duration = this.eaN.getDuration()) > 0) {
                 setMax(duration);
                 setProgress((int) currentPosition);
             }
         }
     }
 
-    public void mF(int i) {
-        if (this.dOH != null && i != this.dOH.getSecondaryProgress()) {
-            this.dOH.setSecondaryProgress(i);
+    public void nc(int i) {
+        if (this.eaI != null && i != this.eaI.getSecondaryProgress()) {
+            this.eaI.setSecondaryProgress(i);
         }
     }
 }

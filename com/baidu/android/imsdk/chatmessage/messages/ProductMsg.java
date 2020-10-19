@@ -6,7 +6,7 @@ import com.baidu.android.imsdk.utils.LogUtils;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes9.dex */
+/* loaded from: classes5.dex */
 public class ProductMsg extends NormalMsg {
     public static final Parcelable.Creator<ProductMsg> CREATOR = new Parcelable.Creator<ProductMsg>() { // from class: com.baidu.android.imsdk.chatmessage.messages.ProductMsg.1
         /* JADX DEBUG: Method merged with bridge method */

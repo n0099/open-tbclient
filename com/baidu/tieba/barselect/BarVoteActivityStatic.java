@@ -20,29 +20,29 @@ import com.baidu.tieba.barselect.data.VoteElectionHttpResMessage;
 import com.baidu.tieba.barselect.data.VoteElectionSocketResMessage;
 import com.baidu.tieba.barselect.idCard.CameraActivity;
 import com.baidu.tieba.barselect.idCard.IdentityReviewActivity;
-/* loaded from: classes20.dex */
+/* loaded from: classes21.dex */
 public class BarVoteActivityStatic {
     static {
-        bGS();
-        cdH();
-        cdI();
-        cdL();
-        cdJ();
-        cdK();
-        cdM();
-        cdN();
+        bJE();
+        chd();
+        che();
+        chh();
+        chf();
+        chg();
+        chi();
+        chj();
     }
 
-    private static void bGS() {
+    private static void bJE() {
         com.baidu.tieba.tbadkCore.a.a.a(309642, VoteElectionSocketResMessage.class, false, false);
-        TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_BAR_ELECTION, com.baidu.tieba.tbadkCore.a.a.bH("c/f/bawu/electionInfo", 309642));
+        TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_BAR_ELECTION, com.baidu.tieba.tbadkCore.a.a.bI("c/f/bawu/electionInfo", 309642));
         tbHttpMessageTask.setIsNeedAddCommenParam(true);
         tbHttpMessageTask.setIsNeedLogin(true);
         tbHttpMessageTask.setResponsedClass(VoteElectionHttpResMessage.class);
         MessageManager.getInstance().registerTask(tbHttpMessageTask);
     }
 
-    private static void cdH() {
+    private static void chd() {
         TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_BAR_VOTE, TbConfig.SERVER_ADDRESS + "c/c/bawu/commitVote");
         tbHttpMessageTask.setResponsedClass(CommitVoteResMsg.class);
         tbHttpMessageTask.setIsNeedAddCommenParam(true);
@@ -51,7 +51,7 @@ public class BarVoteActivityStatic {
         MessageManager.getInstance().registerTask(tbHttpMessageTask);
     }
 
-    private static void cdI() {
+    private static void che() {
         CustomMessageTask customMessageTask = new CustomMessageTask(2921408, new CustomMessageTask.CustomRunnable<BarVoteActivityConfig>() { // from class: com.baidu.tieba.barselect.BarVoteActivityStatic.1
             @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
             public CustomResponsedMessage<?> run(CustomMessage<BarVoteActivityConfig> customMessage) {
@@ -65,7 +65,7 @@ public class BarVoteActivityStatic {
         MessageManager.getInstance().registerTask(customMessageTask);
     }
 
-    private static void cdJ() {
+    private static void chf() {
         CustomMessageTask customMessageTask = new CustomMessageTask(2921412, new CustomMessageTask.CustomRunnable<CameraActivityConfig>() { // from class: com.baidu.tieba.barselect.BarVoteActivityStatic.2
             @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
             public CustomResponsedMessage<?> run(CustomMessage<CameraActivityConfig> customMessage) {
@@ -79,7 +79,7 @@ public class BarVoteActivityStatic {
         MessageManager.getInstance().registerTask(customMessageTask);
     }
 
-    private static void cdK() {
+    private static void chg() {
         CustomMessageTask customMessageTask = new CustomMessageTask(2921413, new CustomMessageTask.CustomRunnable<IdentityReviewActivityConfig>() { // from class: com.baidu.tieba.barselect.BarVoteActivityStatic.3
             @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
             public CustomResponsedMessage<?> run(CustomMessage<IdentityReviewActivityConfig> customMessage) {
@@ -97,14 +97,14 @@ public class BarVoteActivityStatic {
         MessageManager.getInstance().registerTask(customMessageTask);
     }
 
-    private static void cdL() {
+    private static void chh() {
         CustomMessageTask customMessageTask = new CustomMessageTask(2921411, new CustomMessageTask.CustomRunnable() { // from class: com.baidu.tieba.barselect.BarVoteActivityStatic.4
             @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
             public CustomResponsedMessage<?> run(CustomMessage customMessage) {
                 if (customMessage != null && customMessage.getData() != null && (customMessage.getData() instanceof com.baidu.tieba.pb.d)) {
                     com.baidu.tieba.pb.d dVar = (com.baidu.tieba.pb.d) customMessage.getData();
-                    CommitVoteReqMsg commitVoteReqMsg = new CommitVoteReqMsg(dVar.cYE(), dVar.getForumId(), dVar.getThreadId(), dVar.cYD());
-                    commitVoteReqMsg.setTag(dVar.cYC());
+                    CommitVoteReqMsg commitVoteReqMsg = new CommitVoteReqMsg(dVar.dcn(), dVar.getForumId(), dVar.getThreadId(), dVar.dcm());
+                    commitVoteReqMsg.setTag(dVar.dcl());
                     MessageManager.getInstance().sendMessage(commitVoteReqMsg);
                 }
                 return null;
@@ -114,8 +114,8 @@ public class BarVoteActivityStatic {
         MessageManager.getInstance().registerTask(customMessageTask);
     }
 
-    private static void cdM() {
-        be.bkp().a(new be.a() { // from class: com.baidu.tieba.barselect.BarVoteActivityStatic.5
+    private static void chi() {
+        be.bmY().a(new be.a() { // from class: com.baidu.tieba.barselect.BarVoteActivityStatic.5
             @Override // com.baidu.tbadk.core.util.be.a
             public int deal(TbPageContext<?> tbPageContext, String[] strArr) {
                 if (tbPageContext == null || strArr == null || strArr.length == 0) {
@@ -134,8 +134,8 @@ public class BarVoteActivityStatic {
         });
     }
 
-    private static void cdN() {
-        be.bkp().a(new be.a() { // from class: com.baidu.tieba.barselect.BarVoteActivityStatic.6
+    private static void chj() {
+        be.bmY().a(new be.a() { // from class: com.baidu.tieba.barselect.BarVoteActivityStatic.6
             @Override // com.baidu.tbadk.core.util.be.a
             public int deal(TbPageContext<?> tbPageContext, String[] strArr) {
                 if (tbPageContext == null || strArr == null || strArr.length == 0) {

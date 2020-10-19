@@ -2,7 +2,7 @@ package com.nineoldandroids.view;
 
 import android.view.View;
 import com.nineoldandroids.view.animation.AnimatorProxy;
-/* loaded from: classes14.dex */
+/* loaded from: classes9.dex */
 public final class ViewHelper {
     private ViewHelper() {
     }
@@ -175,7 +175,7 @@ public final class ViewHelper {
         }
     }
 
-    /* loaded from: classes14.dex */
+    /* loaded from: classes9.dex */
     private static final class Honeycomb {
         private Honeycomb() {
         }

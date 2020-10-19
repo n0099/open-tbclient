@@ -14,7 +14,9 @@ import kotlin.jvm.internal.q;
 @h
 /* loaded from: classes6.dex */
 public final class CSTVWifiReceiver extends BroadcastReceiver {
-    public static final a a = new a(null);
+
+    /* renamed from: a  reason: collision with root package name */
+    public static final a f4293a = new a(null);
 
     @h
     /* loaded from: classes6.dex */
@@ -29,9 +31,9 @@ public final class CSTVWifiReceiver extends BroadcastReceiver {
 
     @Override // android.content.BroadcastReceiver
     public void onReceive(Context context, Intent intent) {
-        q.m(context, "context");
-        q.m(intent, "intent");
-        if (q.l((Object) "android.net.conn.CONNECTIVITY_CHANGE", (Object) intent.getAction())) {
+        q.n(context, "context");
+        q.n(intent, "intent");
+        if (q.l("android.net.conn.CONNECTIVITY_CHANGE", intent.getAction())) {
             Object systemService = context.getSystemService("connectivity");
             if (systemService == null) {
                 throw new TypeCastException("null cannot be cast to non-null type android.net.ConnectivityManager");
@@ -39,16 +41,16 @@ public final class CSTVWifiReceiver extends BroadcastReceiver {
             ConnectivityManager connectivityManager = (ConnectivityManager) systemService;
             NetworkInfo networkInfo = connectivityManager.getNetworkInfo(1);
             NetworkInfo networkInfo2 = connectivityManager.getNetworkInfo(0);
-            boolean z = b.ecq().a;
-            boolean z2 = b.ecq().b;
+            boolean z = b.egb().f4066a;
+            boolean z2 = b.egb().b;
             if (networkInfo != null) {
-                b.ecq().a = q.l(networkInfo.getState(), NetworkInfo.State.CONNECTED);
+                b.egb().f4066a = q.l(networkInfo.getState(), NetworkInfo.State.CONNECTED);
             }
             if (networkInfo2 != null) {
-                b.ecq().b = q.l(networkInfo2.getState(), NetworkInfo.State.CONNECTED);
+                b.egb().b = q.l(networkInfo2.getState(), NetworkInfo.State.CONNECTED);
             }
-            com.kascend.cstvsdk.utils.a.omF.a(b.ecq().b ? 1 : 2);
-            if (z != b.ecq().a || z2 != b.ecq().b) {
+            com.kascend.cstvsdk.utils.a.oBY.a(b.egb().b ? 1 : 2);
+            if (z != b.egb().f4066a || z2 != b.egb().b) {
                 tv.chushou.zues.a.a.post(new j(1));
             }
         }

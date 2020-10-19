@@ -9,7 +9,7 @@ import io.reactivex.internal.util.ErrorMode;
 import io.reactivex.j;
 import java.util.concurrent.atomic.AtomicInteger;
 import java.util.concurrent.atomic.AtomicLong;
-/* loaded from: classes25.dex */
+/* loaded from: classes17.dex */
 public final class FlowableConcatMapEager<T, R> extends a<T, R> {
     final ErrorMode errorMode;
     final h<? super T, ? extends org.a.b<? extends R>> mapper;
@@ -18,10 +18,10 @@ public final class FlowableConcatMapEager<T, R> extends a<T, R> {
 
     @Override // io.reactivex.g
     protected void a(org.a.c<? super R> cVar) {
-        this.owE.a((j) new ConcatMapEagerDelayErrorSubscriber(cVar, this.mapper, this.maxConcurrency, this.prefetch, this.errorMode));
+        this.oLT.a((j) new ConcatMapEagerDelayErrorSubscriber(cVar, this.mapper, this.maxConcurrency, this.prefetch, this.errorMode));
     }
 
-    /* loaded from: classes25.dex */
+    /* loaded from: classes17.dex */
     static final class ConcatMapEagerDelayErrorSubscriber<T, R> extends AtomicInteger implements io.reactivex.internal.subscribers.c<R>, j<T>, org.a.d {
         private static final long serialVersionUID = -4255299542215038287L;
         final org.a.c<? super R> actual;
@@ -58,7 +58,7 @@ public final class FlowableConcatMapEager<T, R> extends a<T, R> {
         @Override // org.a.c
         public void onNext(T t) {
             try {
-                org.a.b bVar = (org.a.b) io.reactivex.internal.functions.a.k(this.mapper.apply(t), "The mapper returned a null Publisher");
+                org.a.b bVar = (org.a.b) io.reactivex.internal.functions.a.l(this.mapper.apply(t), "The mapper returned a null Publisher");
                 InnerQueuedSubscriber<R> innerQueuedSubscriber = new InnerQueuedSubscriber<>(this, this.prefetch);
                 if (!this.cancelled) {
                     this.subscribers.offer(innerQueuedSubscriber);

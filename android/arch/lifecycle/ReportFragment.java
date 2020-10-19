@@ -7,12 +7,12 @@ import android.arch.lifecycle.Lifecycle;
 import android.os.Bundle;
 import android.support.annotation.RestrictTo;
 @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
-/* loaded from: classes12.dex */
+/* loaded from: classes19.dex */
 public class ReportFragment extends Fragment {
-    private a zD;
+    private a zU;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes12.dex */
+    /* loaded from: classes19.dex */
     public interface a {
         void onCreate();
 
@@ -55,21 +55,21 @@ public class ReportFragment extends Fragment {
     @Override // android.app.Fragment
     public void onActivityCreated(Bundle bundle) {
         super.onActivityCreated(bundle);
-        a(this.zD);
+        a(this.zU);
         a(Lifecycle.Event.ON_CREATE);
     }
 
     @Override // android.app.Fragment
     public void onStart() {
         super.onStart();
-        b(this.zD);
+        b(this.zU);
         a(Lifecycle.Event.ON_START);
     }
 
     @Override // android.app.Fragment
     public void onResume() {
         super.onResume();
-        c(this.zD);
+        c(this.zU);
         a(Lifecycle.Event.ON_RESUME);
     }
 
@@ -89,13 +89,13 @@ public class ReportFragment extends Fragment {
     public void onDestroy() {
         super.onDestroy();
         a(Lifecycle.Event.ON_DESTROY);
-        this.zD = null;
+        this.zU = null;
     }
 
     private void a(Lifecycle.Event event) {
         Activity activity = getActivity();
         if (activity instanceof l) {
-            ((l) activity).hy().b(event);
+            ((l) activity).hz().b(event);
         } else if (activity instanceof j) {
             Lifecycle lifecycle = ((j) activity).getLifecycle();
             if (lifecycle instanceof k) {
@@ -106,6 +106,6 @@ public class ReportFragment extends Fragment {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public void d(a aVar) {
-        this.zD = aVar;
+        this.zU = aVar;
     }
 }

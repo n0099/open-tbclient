@@ -7,83 +7,83 @@ import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes4.dex */
 public class ca {
-    public long aMG;
-    public int aMH;
-    public int aMI;
-    public int aMJ;
-    public int aMK;
-    public int aML;
-    public List<a> aMM;
-    public List<a> aMN;
-    public int aMO;
-    public int aMP;
-    public long aMQ;
-    public int aMR;
-    public String aMS;
-    public String[] aMT;
+    public long aPL;
+    public int aPM;
+    public int aPN;
+    public int aPO;
+    public int aPP;
+    public int aPQ;
+    public List<a> aPR;
+    public List<a> aPS;
+    public int aPT;
+    public int aPU;
+    public long aPV;
+    public int aPW;
+    public String aPX;
+    public String[] aPY;
 
     /* loaded from: classes4.dex */
     public static class a {
-        public String aMU;
-        public String aMV;
+        public String aPZ;
+        public String aQa;
     }
 
     public ca(JSONObject jSONObject) {
         int length;
-        this.aMG = jSONObject.optLong("max_packet_amount");
-        this.aMH = jSONObject.optInt("every_packet_min_amount");
-        this.aMI = jSONObject.optInt("min_packet_num");
-        this.aMJ = jSONObject.optInt("max_packet_num");
-        this.aMK = jSONObject.optInt("board_cast_amount");
-        this.aML = jSONObject.optInt("between_time");
+        this.aPL = jSONObject.optLong("max_packet_amount");
+        this.aPM = jSONObject.optInt("every_packet_min_amount");
+        this.aPN = jSONObject.optInt("min_packet_num");
+        this.aPO = jSONObject.optInt("max_packet_num");
+        this.aPP = jSONObject.optInt("board_cast_amount");
+        this.aPQ = jSONObject.optInt("between_time");
         JSONArray optJSONArray = jSONObject.optJSONArray("condition");
         JSONArray optJSONArray2 = jSONObject.optJSONArray("audio_condition");
         if (optJSONArray != null && optJSONArray.length() > 0) {
-            this.aMM = new ArrayList();
+            this.aPR = new ArrayList();
             for (int i = 0; i < optJSONArray.length(); i++) {
                 try {
                     JSONObject jSONObject2 = optJSONArray.getJSONObject(i);
                     if (jSONObject2 != null) {
                         a aVar = new a();
-                        aVar.aMU = jSONObject2.optString("condition_text");
-                        aVar.aMV = jSONObject2.optString("condition_value");
-                        this.aMM.add(aVar);
+                        aVar.aPZ = jSONObject2.optString("condition_text");
+                        aVar.aQa = jSONObject2.optString("condition_value");
+                        this.aPR.add(aVar);
                     }
                 } catch (JSONException e) {
                     e.printStackTrace();
                 }
             }
         } else {
-            this.aMM = null;
+            this.aPR = null;
         }
         if (optJSONArray2 != null && optJSONArray2.length() > 0) {
-            this.aMN = new ArrayList();
+            this.aPS = new ArrayList();
             for (int i2 = 0; i2 < optJSONArray2.length(); i2++) {
                 try {
                     JSONObject jSONObject3 = optJSONArray2.getJSONObject(i2);
                     if (jSONObject3 != null) {
                         a aVar2 = new a();
-                        aVar2.aMU = jSONObject3.optString("condition_text");
-                        aVar2.aMV = jSONObject3.optString("condition_value");
-                        this.aMN.add(aVar2);
+                        aVar2.aPZ = jSONObject3.optString("condition_text");
+                        aVar2.aQa = jSONObject3.optString("condition_value");
+                        this.aPS.add(aVar2);
                     }
                 } catch (JSONException e2) {
                     e2.printStackTrace();
                 }
             }
         } else {
-            this.aMN = null;
+            this.aPS = null;
         }
-        this.aMO = jSONObject.optInt("send_default_amount");
-        this.aMP = jSONObject.optInt("send_default_num");
-        this.aMQ = jSONObject.optLong("large_amount_threshold");
-        this.aMR = jSONObject.optInt("large_amount_packet_amount");
-        this.aMS = jSONObject.optString("send_tip_top");
+        this.aPT = jSONObject.optInt("send_default_amount");
+        this.aPU = jSONObject.optInt("send_default_num");
+        this.aPV = jSONObject.optLong("large_amount_threshold");
+        this.aPW = jSONObject.optInt("large_amount_packet_amount");
+        this.aPX = jSONObject.optString("send_tip_top");
         JSONArray optJSONArray3 = jSONObject.optJSONArray("rule_desc");
         if (optJSONArray3 != null && (length = optJSONArray3.length()) > 0) {
-            this.aMT = new String[length];
+            this.aPY = new String[length];
             for (int i3 = 0; i3 < length; i3++) {
-                this.aMT[i3] = optJSONArray3.optString(i3);
+                this.aPY[i3] = optJSONArray3.optString(i3);
             }
         }
     }

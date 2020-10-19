@@ -4,7 +4,7 @@ import android.os.IBinder;
 import android.os.IInterface;
 import android.os.Parcel;
 import android.os.RemoteException;
-/* loaded from: classes24.dex */
+/* loaded from: classes11.dex */
 public final class a extends com.google.a.a.a implements ILoadedInstanceCreator {
     a(IBinder iBinder) {
         super(iBinder, "com.google.vr.dynamite.client.ILoadedInstanceCreator");
@@ -13,11 +13,11 @@ public final class a extends com.google.a.a.a implements ILoadedInstanceCreator 
     @Override // com.google.vr.dynamite.client.ILoadedInstanceCreator
     public final INativeLibraryLoader newNativeLibraryLoader(IObjectWrapper iObjectWrapper, IObjectWrapper iObjectWrapper2) throws RemoteException {
         INativeLibraryLoader bVar;
-        Parcel a = a();
-        com.google.a.a.c.a(a, iObjectWrapper);
-        com.google.a.a.c.a(a, iObjectWrapper2);
-        Parcel a2 = a(1, a);
-        IBinder readStrongBinder = a2.readStrongBinder();
+        Parcel a2 = a();
+        com.google.a.a.c.a(a2, iObjectWrapper);
+        com.google.a.a.c.a(a2, iObjectWrapper2);
+        Parcel a3 = a(1, a2);
+        IBinder readStrongBinder = a3.readStrongBinder();
         if (readStrongBinder == null) {
             bVar = null;
         } else {
@@ -28,7 +28,7 @@ public final class a extends com.google.a.a.a implements ILoadedInstanceCreator 
                 bVar = new b(readStrongBinder);
             }
         }
-        a2.recycle();
+        a3.recycle();
         return bVar;
     }
 }

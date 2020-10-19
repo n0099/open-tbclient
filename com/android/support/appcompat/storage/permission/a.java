@@ -2,31 +2,31 @@ package com.android.support.appcompat.storage.permission;
 
 import com.android.support.appcompat.storage.b;
 import java.util.HashMap;
-/* loaded from: classes8.dex */
+/* loaded from: classes14.dex */
 public class a {
-    private static volatile a Hp;
-    private HashMap<String, b> Hq = new HashMap<>();
+    private static volatile a HF;
+    private HashMap<String, b> HG = new HashMap<>();
 
-    public static a le() {
-        if (Hp == null) {
+    public static a lf() {
+        if (HF == null) {
             synchronized (a.class) {
-                if (Hp == null) {
-                    Hp = new a();
+                if (HF == null) {
+                    HF = new a();
                 }
             }
         }
-        return Hp;
+        return HF;
     }
 
     public void bo(String str) {
-        if (this.Hq.containsKey(str)) {
-            this.Hq.remove(str);
+        if (this.HG.containsKey(str)) {
+            this.HG.remove(str);
         }
     }
 
     public b bp(String str) {
-        if (this.Hq.containsKey(str)) {
-            return this.Hq.get(str);
+        if (this.HG.containsKey(str)) {
+            return this.HG.get(str);
         }
         return null;
     }

@@ -10,7 +10,7 @@ import java.util.HashMap;
 /* loaded from: classes.dex */
 class d {
     public static String a(com.baidu.adp.lib.stats.base.a aVar, com.baidu.adp.lib.stats.c cVar) {
-        if (aVar.nH() != null && (aVar.nH().equals(BdStatsConstant.FILE_OMP) || aVar.nH().equals(BdStatsConstant.FILE_MON))) {
+        if (aVar.nI() != null && (aVar.nI().equals(BdStatsConstant.FILE_OMP) || aVar.nI().equals(BdStatsConstant.FILE_MON))) {
             return c(cVar);
         }
         return a(true, cVar);
@@ -20,34 +20,34 @@ class d {
         HashMap<String, Object> hashMap = new HashMap<>();
         a(hashMap, "_client_type", "2");
         a(hashMap, "_client_version", cVar.mAppVersion);
-        a(hashMap, "_phone_imei", cVar.Ng);
-        a(hashMap, "_client_id", cVar.Nd);
-        a(hashMap, "subapp_type", cVar.Nh);
+        a(hashMap, "_phone_imei", cVar.Nw);
+        a(hashMap, "_client_id", cVar.Nt);
+        a(hashMap, "subapp_type", cVar.Nx);
         a(hashMap, "from", cVar.mChannel);
-        a(hashMap, "net_type", cVar.Nk);
+        a(hashMap, "net_type", cVar.NA);
         a(hashMap, "cuid", cVar.mCuid);
-        a(hashMap, "model", cVar.Ni);
+        a(hashMap, "model", cVar.Ny);
         if (TextUtils.isEmpty(cVar.mUid)) {
             cVar.mUid = "0";
         }
         a(hashMap, "uid", cVar.mUid);
-        a(hashMap, "un", cVar.Nj);
+        a(hashMap, "un", cVar.Nz);
         a(hashMap, "BDUSS", cVar.mBduss);
         if (z) {
             a(hashMap, "find_bug", "2");
         } else {
             a(hashMap, "find_bug", "0");
         }
-        a(hashMap, "sz", cVar.Nm);
-        a(hashMap, "cua", cVar.Nn);
+        a(hashMap, "sz", cVar.NC);
+        a(hashMap, "cua", cVar.ND);
         a(hashMap, ETAG.KEY_BAIDU_ID, cVar.mBduss);
         a(hashMap, "cookie", cVar.mBduss);
-        a(hashMap, "oaid", cVar.No);
-        a(hashMap, "mac", cVar.Np);
+        a(hashMap, "oaid", cVar.NF);
+        a(hashMap, "mac", cVar.NG);
         a(hashMap, "android_id", cVar.mAndroidId);
-        a(hashMap, "utbrand", cVar.Nq);
-        a(hashMap, "baiduapppb_ut", cVar.Nr);
-        a(hashMap, "user_agent", cVar.Ns);
+        a(hashMap, "utbrand", cVar.NH);
+        a(hashMap, "baiduapppb_ut", cVar.NI);
+        a(hashMap, "user_agent", cVar.NJ);
         return hashMap;
     }
 
@@ -65,11 +65,11 @@ class d {
         try {
             sb.append("product");
             sb.append(ETAG.EQUAL);
-            sb.append(URLEncoder.encode(cVar.Na, "utf-8"));
+            sb.append(URLEncoder.encode(cVar.Nq, "utf-8"));
             sb.append(ETAG.ITEM_SEPARATOR);
             sb.append(BdStatsConstant.StatsKey.SUB_SYSTEM);
             sb.append(ETAG.EQUAL);
-            sb.append(URLEncoder.encode(cVar.Nb, "utf-8"));
+            sb.append(URLEncoder.encode(cVar.Nr, "utf-8"));
             sb.append(ETAG.ITEM_SEPARATOR);
             sb.append("version");
             sb.append(ETAG.EQUAL);
@@ -81,46 +81,46 @@ class d {
             sb.append(ETAG.ITEM_SEPARATOR);
             sb.append("os_version");
             sb.append(ETAG.EQUAL);
-            sb.append(URLEncoder.encode(cVar.Nl, "utf-8"));
+            sb.append(URLEncoder.encode(cVar.NB, "utf-8"));
             if (!TextUtils.isEmpty(cVar.mChannel)) {
                 sb.append(ETAG.ITEM_SEPARATOR);
                 sb.append("from");
                 sb.append(ETAG.EQUAL);
                 sb.append(URLEncoder.encode(cVar.mChannel, "utf-8"));
             }
-            if (!TextUtils.isEmpty(cVar.Nc)) {
+            if (!TextUtils.isEmpty(cVar.Ns)) {
                 sb.append(ETAG.ITEM_SEPARATOR);
                 sb.append(BdStatsConstant.StatsKey.CURRENT_CHANNEL);
                 sb.append(ETAG.EQUAL);
-                sb.append(URLEncoder.encode(cVar.Nc, "utf-8"));
+                sb.append(URLEncoder.encode(cVar.Ns, "utf-8"));
             }
             sb.append(ETAG.ITEM_SEPARATOR);
             sb.append("phone");
             sb.append(ETAG.EQUAL);
-            sb.append(URLEncoder.encode(cVar.Ni, "utf-8"));
+            sb.append(URLEncoder.encode(cVar.Ny, "utf-8"));
             if (!TextUtils.isEmpty(cVar.mUid)) {
                 sb.append(ETAG.ITEM_SEPARATOR);
                 sb.append("uid");
                 sb.append(ETAG.EQUAL);
                 sb.append(URLEncoder.encode(cVar.mUid, "utf-8"));
             }
-            if (!TextUtils.isEmpty(cVar.Nd)) {
+            if (!TextUtils.isEmpty(cVar.Nt)) {
                 sb.append(ETAG.ITEM_SEPARATOR);
                 sb.append("client_id");
                 sb.append(ETAG.EQUAL);
-                sb.append(URLEncoder.encode(cVar.Nd, "utf-8"));
+                sb.append(URLEncoder.encode(cVar.Nt, "utf-8"));
             }
-            if (!TextUtils.isEmpty(cVar.Ng)) {
+            if (!TextUtils.isEmpty(cVar.Nw)) {
                 sb.append(ETAG.ITEM_SEPARATOR);
                 sb.append("imei");
                 sb.append(ETAG.EQUAL);
-                sb.append(URLEncoder.encode(cVar.Ng, "utf-8"));
+                sb.append(URLEncoder.encode(cVar.Nw, "utf-8"));
             }
-            if (!TextUtils.isEmpty(cVar.Nj)) {
+            if (!TextUtils.isEmpty(cVar.Nz)) {
                 sb.append(ETAG.ITEM_SEPARATOR);
                 sb.append(BdStatsConstant.StatsKey.UNAME);
                 sb.append(ETAG.EQUAL);
-                sb.append(URLEncoder.encode(cVar.Nj, "utf-8"));
+                sb.append(URLEncoder.encode(cVar.Nz, "utf-8"));
             }
             if (!TextUtils.isEmpty(cVar.mCuid)) {
                 sb.append(ETAG.ITEM_SEPARATOR);
@@ -160,21 +160,21 @@ class d {
         StringBuilder sb = new StringBuilder();
         sb.append("_client_type=2");
         a(sb, "_client_version", cVar.mAppVersion, z);
-        a(sb, "_phone_imei", cVar.Ng, z);
-        a(sb, "_client_id", cVar.Nd, z);
-        a(sb, "subapp_type", cVar.Nh, z);
-        a(sb, "os_version", cVar.Nl, z);
+        a(sb, "_phone_imei", cVar.Nw, z);
+        a(sb, "_client_id", cVar.Nt, z);
+        a(sb, "subapp_type", cVar.Nx, z);
+        a(sb, "os_version", cVar.NB, z);
         a(sb, "from", cVar.mChannel, z);
-        a(sb, BdStatsConstant.StatsKey.CURRENT_CHANNEL, cVar.Nc, z);
-        a(sb, "net_type", cVar.Nk, z);
+        a(sb, BdStatsConstant.StatsKey.CURRENT_CHANNEL, cVar.Ns, z);
+        a(sb, "net_type", cVar.NA, z);
         a(sb, "cuid", cVar.mCuid, z);
-        a(sb, "model", cVar.Ni, z);
+        a(sb, "model", cVar.Ny, z);
         if (TextUtils.isEmpty(cVar.mUid)) {
             a(sb, "uid", "0", z);
         } else {
             a(sb, "uid", cVar.mUid, z);
         }
-        a(sb, "un", cVar.Nj, z);
+        a(sb, "un", cVar.Nz, z);
         return sb.toString();
     }
 }

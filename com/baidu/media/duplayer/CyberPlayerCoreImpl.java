@@ -52,7 +52,7 @@ public class CyberPlayerCoreImpl extends CyberPlayerCoreProvider {
 
     @Override // com.baidu.cyberplayer.sdk.CyberPlayerCoreProvider
     public RTCRoomProvider createRTCRoom() {
-        return com.baidu.media.ext.a.TJ();
+        return com.baidu.media.ext.a.VC();
     }
 
     @Override // com.baidu.cyberplayer.sdk.CyberPlayerCoreProvider

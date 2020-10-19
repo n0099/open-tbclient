@@ -7,11 +7,11 @@ import android.os.IInterface;
 import android.os.Parcel;
 import android.os.RemoteException;
 import com.vivo.vms.IPCCallback;
-/* loaded from: classes12.dex */
+/* loaded from: classes15.dex */
 public interface IPCInvoke extends IInterface {
     Bundle asyncCall(Bundle bundle, IPCCallback iPCCallback) throws RemoteException;
 
-    /* loaded from: classes12.dex */
+    /* loaded from: classes15.dex */
     public static abstract class Stub extends Binder implements IPCInvoke {
         private static final String DESCRIPTOR = "com.vivo.vms.IPCInvoke";
         static final int TRANSACTION_asyncCall = 1;
@@ -64,7 +64,7 @@ public interface IPCInvoke extends IInterface {
             }
         }
 
-        /* loaded from: classes12.dex */
+        /* loaded from: classes15.dex */
         private static class Proxy implements IPCInvoke {
             private IBinder mRemote;
 

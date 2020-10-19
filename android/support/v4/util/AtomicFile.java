@@ -9,7 +9,7 @@ import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import tv.chushou.basis.http.HttpConsts;
-/* loaded from: classes23.dex */
+/* loaded from: classes5.dex */
 public class AtomicFile {
     private final File mBackupName;
     private final File mBaseName;

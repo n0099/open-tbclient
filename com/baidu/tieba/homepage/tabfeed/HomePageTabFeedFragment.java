@@ -18,10 +18,10 @@ import com.baidu.tieba.R;
 import com.baidu.tieba.card.s;
 import com.baidu.tieba.frs.aq;
 import com.baidu.tieba.homepage.tabfeed.model.HomePageTabFeedNetModel;
-/* loaded from: classes21.dex */
+/* loaded from: classes22.dex */
 public class HomePageTabFeedFragment extends BaseFragment implements aq, c {
-    private HomePageTabFeedNetModel jav;
-    private com.baidu.tieba.homepage.tabfeed.view.a jaw;
+    private HomePageTabFeedNetModel jpu;
+    private com.baidu.tieba.homepage.tabfeed.view.a jpv;
     private ViewGroup rootView;
     private String tabCode;
     private String tabName;
@@ -50,13 +50,13 @@ public class HomePageTabFeedFragment extends BaseFragment implements aq, c {
         }
         if (this.rootView == null) {
             this.rootView = (ViewGroup) getLayoutInflater().inflate(getLayoutR(), (ViewGroup) null);
-            this.jaw = new com.baidu.tieba.homepage.tabfeed.view.a(this, this, this.rootView, this.tabName);
+            this.jpv = new com.baidu.tieba.homepage.tabfeed.view.a(this, this, this.rootView, this.tabName);
         }
-        if (this.jav == null) {
-            this.jav = new HomePageTabFeedNetModel(getPageContext(), this);
-            this.jav.eA(this.tabCode, this.tabName);
+        if (this.jpu == null) {
+            this.jpu = new HomePageTabFeedNetModel(getPageContext(), this);
+            this.jpu.eH(this.tabCode, this.tabName);
         }
-        this.jav.l(getUniqueId());
+        this.jpu.l(getUniqueId());
         return this.rootView;
     }
 
@@ -68,20 +68,20 @@ public class HomePageTabFeedFragment extends BaseFragment implements aq, c {
     public void onPrimary() {
         super.onPrimary();
         if (isAdded() && isPrimary()) {
-            if (this.jaw != null) {
-                this.jaw.resume();
+            if (this.jpv != null) {
+                this.jpv.resume();
             }
-            afP();
-        } else if (this.jaw != null) {
-            this.jaw.pause();
+            aiA();
+        } else if (this.jpv != null) {
+            this.jpv.pause();
         }
     }
 
-    private void afP() {
+    private void aiA() {
         if (isPrimary()) {
             com.baidu.tbadk.core.util.aq aqVar = new com.baidu.tbadk.core.util.aq("c13749");
             aqVar.u("uid", TbadkCoreApplication.getCurrentAccountId());
-            aqVar.dF("resource_id", this.tabName);
+            aqVar.dK("resource_id", this.tabName);
             TiebaStatic.log(aqVar);
         }
     }
@@ -89,18 +89,18 @@ public class HomePageTabFeedFragment extends BaseFragment implements aq, c {
     @Override // com.baidu.tbadk.core.BaseFragment, android.support.v4.app.Fragment
     public void onPause() {
         super.onPause();
-        s.cfn().ns(false);
+        s.ciJ().nX(false);
     }
 
     @Override // com.baidu.tbadk.core.BaseFragment, android.support.v4.app.Fragment
     public void onDestroy() {
         super.onDestroy();
-        s.cfn().ns(false);
-        if (this.jav != null) {
-            this.jav.destory();
+        s.ciJ().nX(false);
+        if (this.jpu != null) {
+            this.jpu.destory();
         }
-        if (this.jaw != null) {
-            this.jaw.onDestroy();
+        if (this.jpv != null) {
+            this.jpv.onDestroy();
         }
     }
 
@@ -109,8 +109,8 @@ public class HomePageTabFeedFragment extends BaseFragment implements aq, c {
         super.onLazyLoad();
         if (j.isNetWorkAvailable()) {
             showLoadingView(this.rootView);
-            if (this.jav != null) {
-                this.jav.refresh();
+            if (this.jpu != null) {
+                this.jpu.refresh();
                 return;
             }
             return;
@@ -121,8 +121,8 @@ public class HomePageTabFeedFragment extends BaseFragment implements aq, c {
     @Override // com.baidu.tbadk.core.BaseFragment
     public void onChangeSkinType(int i) {
         super.onChangeSkinType(i);
-        if (this.jaw != null) {
-            this.jaw.onChangeSkinType(i);
+        if (this.jpv != null) {
+            this.jpv.onChangeSkinType(i);
         }
     }
 
@@ -136,53 +136,53 @@ public class HomePageTabFeedFragment extends BaseFragment implements aq, c {
                 showToast(R.string.im_error_default);
             }
         }
-        if (this.jav != null && !this.jav.hasData()) {
+        if (this.jpu != null && !this.jpu.hasData()) {
             String str = null;
             if (errorData != null) {
                 str = getString(R.string.net_error_text, errorData.error_msg, Integer.valueOf(errorData.error_code));
             }
             showNetRefreshView(this.rootView, str, true);
         }
-        if (this.jaw != null) {
-            this.jaw.ki(false);
+        if (this.jpv != null) {
+            this.jpv.kG(false);
         }
     }
 
     @Override // com.baidu.tieba.homepage.tabfeed.c
     public void a(com.baidu.tieba.homepage.tabfeed.data.c cVar) {
         hideLoadingView(this.rootView);
-        if (this.jav != null && !this.jav.hasData()) {
+        if (this.jpu != null && !this.jpu.hasData()) {
             showNoDataRefreshView(this.rootView, false);
-        } else if (this.jaw != null) {
-            this.jaw.b(cVar);
+        } else if (this.jpv != null) {
+            this.jpv.b(cVar);
         }
     }
 
     @Override // com.baidu.tieba.homepage.tabfeed.c
-    public void cjN() {
-        if (this.jav != null) {
-            this.jav.bGU();
+    public void cnj() {
+        if (this.jpu != null) {
+            this.jpu.bJG();
         }
     }
 
-    public void nT(boolean z) {
-        if (this.jav != null) {
-            if (this.jaw != null && z) {
-                if (this.jav.hasData()) {
-                    this.jaw.cka();
-                    this.jaw.ki(true);
+    public void oy(boolean z) {
+        if (this.jpu != null) {
+            if (this.jpv != null && z) {
+                if (this.jpu.hasData()) {
+                    this.jpv.cnw();
+                    this.jpv.kG(true);
                 } else {
                     hideNetRefreshView(this.rootView);
                     showLoadingView(this.rootView);
                 }
             }
-            this.jav.refresh();
+            this.jpu.refresh();
         }
     }
 
     @Override // com.baidu.tbadk.core.view.f.c
     public void onListPullRefresh(boolean z) {
-        nT(false);
+        oy(false);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -191,14 +191,14 @@ public class HomePageTabFeedFragment extends BaseFragment implements aq, c {
         if (j.isNetWorkAvailable()) {
             hideNetRefreshView(this.rootView);
             showLoadingView(this.rootView);
-            nT(false);
+            oy(false);
         }
     }
 
     @Override // com.baidu.tbadk.core.BaseFragment
     public void showNetRefreshView(View view, String str, boolean z) {
-        if (this.jaw != null) {
-            this.jaw.nU(false);
+        if (this.jpv != null) {
+            this.jpv.oz(false);
         }
         super.showNetRefreshView(view, getString(R.string.refresh_view_title_text), str, null, z, getNetRefreshListener());
         setNetRefreshViewTopMargin(l.getDimens(TbadkCoreApplication.getInst(), R.dimen.ds364));
@@ -206,8 +206,8 @@ public class HomePageTabFeedFragment extends BaseFragment implements aq, c {
 
     @Override // com.baidu.tbadk.core.BaseFragment
     public void showNoDataRefreshView(View view, boolean z) {
-        if (this.jaw != null) {
-            this.jaw.nU(false);
+        if (this.jpv != null) {
+            this.jpv.oz(false);
         }
         super.showNoDataRefreshView(view, z);
         setNetRefreshViewTopMargin(l.getDimens(TbadkCoreApplication.getInst(), R.dimen.ds364));
@@ -216,21 +216,21 @@ public class HomePageTabFeedFragment extends BaseFragment implements aq, c {
     @Override // com.baidu.tbadk.core.BaseFragment
     public void hideNetRefreshView(View view) {
         super.hideNetRefreshView(view);
-        if (this.jaw != null) {
-            this.jaw.nU(true);
+        if (this.jpv != null) {
+            this.jpv.oz(true);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.core.BaseFragment
     public void showLoadingView(View view) {
-        if (this.jaw != null) {
-            this.jaw.nU(false);
+        if (this.jpv != null) {
+            this.jpv.oz(false);
         }
-        super.showLoadingView(view, false, cCr());
+        super.showLoadingView(view, false, cGa());
     }
 
-    private int cCr() {
+    private int cGa() {
         return (l.getEquipmentHeight(getContext()) - l.getDimens(getContext(), R.dimen.tbds304)) / 2;
     }
 
@@ -238,8 +238,8 @@ public class HomePageTabFeedFragment extends BaseFragment implements aq, c {
     @Override // com.baidu.tbadk.core.BaseFragment
     public void hideLoadingView(View view) {
         super.hideLoadingView(view);
-        if (this.jaw != null) {
-            this.jaw.nU(true);
+        if (this.jpv != null) {
+            this.jpv.oz(true);
         }
     }
 
@@ -262,16 +262,16 @@ public class HomePageTabFeedFragment extends BaseFragment implements aq, c {
     }
 
     @Override // com.baidu.tieba.frs.aq
-    public void Pd() {
-        nT(true);
+    public void Qi() {
+        oy(true);
     }
 
     @Override // com.baidu.tieba.frs.aq
-    public void bHp() {
+    public void bKa() {
     }
 
     @Override // com.baidu.tieba.frs.aq
-    public void bHq() {
+    public void bKb() {
     }
 
     @Override // com.baidu.tieba.frs.aq
@@ -283,9 +283,9 @@ public class HomePageTabFeedFragment extends BaseFragment implements aq, c {
     }
 
     @Override // com.baidu.tieba.frs.aq
-    public void blA() {
-        if (this.jaw != null) {
-            this.jaw.onChangeSkinType(TbadkCoreApplication.getInst().getSkinType());
+    public void bok() {
+        if (this.jpv != null) {
+            this.jpv.onChangeSkinType(TbadkCoreApplication.getInst().getSkinType());
         }
     }
 }

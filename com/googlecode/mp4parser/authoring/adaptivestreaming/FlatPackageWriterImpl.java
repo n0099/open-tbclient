@@ -21,7 +21,8 @@ import java.nio.channels.FileChannel;
 import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.logging.Logger;
-/* loaded from: classes4.dex */
+import org.webrtc.MediaStreamTrack;
+/* loaded from: classes11.dex */
 public class FlatPackageWriterImpl implements PackageWriter {
     static final /* synthetic */ boolean $assertionsDisabled;
     private static Logger LOG;
@@ -112,7 +113,7 @@ public class FlatPackageWriterImpl implements PackageWriter {
             long trackId = track2.getTrackMetaData().getTrackId();
             Iterator<Box> it2 = build3.getBoxes().iterator();
             if (track2.getMediaHeaderBox() instanceof SoundMediaHeaderBox) {
-                file = new File(this.outputDirectory, "audio");
+                file = new File(this.outputDirectory, MediaStreamTrack.AUDIO_TRACK_KIND);
             } else if (track2.getMediaHeaderBox() instanceof VideoMediaHeaderBox) {
                 file = new File(this.outputDirectory, "video");
             } else {

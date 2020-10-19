@@ -2,15 +2,15 @@ package com.facebook.common.memory;
 
 import java.io.IOException;
 import java.io.InputStream;
-/* loaded from: classes17.dex */
+/* loaded from: classes6.dex */
 public interface g {
-    i LA(int i);
+    i Mg(int i);
 
     PooledByteBuffer al(byte[] bArr);
 
     PooledByteBuffer b(InputStream inputStream, int i) throws IOException;
 
-    i dSN();
+    i dWy();
 
-    PooledByteBuffer q(InputStream inputStream) throws IOException;
+    PooledByteBuffer r(InputStream inputStream) throws IOException;
 }

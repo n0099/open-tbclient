@@ -8,15 +8,15 @@ import com.baidu.mapapi.model.LatLng;
 import com.baidu.mapsdkplatform.comapi.util.CoordTrans;
 import com.baidu.webkit.internal.ETAG;
 import com.xiaomi.mipush.sdk.Constants;
-/* loaded from: classes3.dex */
+/* loaded from: classes7.dex */
 public class BoundSearchInfo extends BaseCloudSearchInfo {
     public String bound;
 
     public BoundSearchInfo() {
         if (HttpClient.isHttpsEnable) {
-            this.a = "https://api.map.baidu.com/geosearch/v2/bound";
+            this.f1981a = "https://api.map.baidu.com/geosearch/v2/bound";
         } else {
-            this.a = "http://api.map.baidu.com/geosearch/v2/bound";
+            this.f1981a = "http://api.map.baidu.com/geosearch/v2/bound";
         }
     }
 

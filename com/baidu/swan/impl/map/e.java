@@ -1,15 +1,15 @@
 package com.baidu.swan.impl.map;
-/* loaded from: classes19.dex */
+/* loaded from: classes20.dex */
 public class e {
-    private static volatile d dCs;
+    private static volatile d dOt;
 
-    public static synchronized d aSh() {
+    public static synchronized d aUQ() {
         d dVar;
         synchronized (e.class) {
-            if (dCs == null) {
-                dCs = new d();
+            if (dOt == null) {
+                dOt = new d();
             }
-            dVar = dCs;
+            dVar = dOt;
         }
         return dVar;
     }

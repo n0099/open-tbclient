@@ -5,7 +5,7 @@ import android.content.Intent;
 import com.heytap.mcssdk.PushManager;
 import com.heytap.mcssdk.mode.CommandMessage;
 import com.heytap.mcssdk.mode.Message;
-/* loaded from: classes12.dex */
+/* loaded from: classes15.dex */
 public class DataMessageUtil {
     private static final String TYPE = "type";
 

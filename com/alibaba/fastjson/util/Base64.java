@@ -1,7 +1,7 @@
 package com.alibaba.fastjson.util;
 
 import java.util.Arrays;
-/* loaded from: classes10.dex */
+/* loaded from: classes5.dex */
 public class Base64 {
     public static final char[] CA = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/".toCharArray();
     public static final int[] IA = new int[256];

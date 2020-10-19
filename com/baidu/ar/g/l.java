@@ -3,7 +3,7 @@ package com.baidu.ar.g;
 import java.nio.charset.Charset;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
-/* loaded from: classes10.dex */
+/* loaded from: classes14.dex */
 public class l {
     private static char[] xp = {'0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'a', 'b', 'c', 'd', 'e', 'f'};
     private static MessageDigest xq;

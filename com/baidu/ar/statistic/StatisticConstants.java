@@ -1,5 +1,5 @@
 package com.baidu.ar.statistic;
-/* loaded from: classes10.dex */
+/* loaded from: classes14.dex */
 public class StatisticConstants {
     public static final String AUTH_FAILURE = "event_auth_fail";
     public static final String CLOUD_SEARCH_SUCCESS = "cloud_imgsearch_success";

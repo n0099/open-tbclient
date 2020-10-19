@@ -12,70 +12,70 @@ import com.baidu.tbadk.task.TbHttpMessageTask;
 import com.baidu.tieba.R;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes21.dex */
+/* loaded from: classes22.dex */
 public class b {
-    private k htb;
-    private List<g> hte;
-    private i jNq;
-    private g jNr;
-    private com.baidu.tieba.imMessageCenter.mention.DelReplyAtMsg.a jNs;
-    private a jNt;
-    private k.b jNu = new k.b() { // from class: com.baidu.tieba.imMessageCenter.mention.DelReplyAtMsg.b.2
+    private k hHV;
+    private List<g> hHY;
+    private i kco;
+    private g kcp;
+    private com.baidu.tieba.imMessageCenter.mention.DelReplyAtMsg.a kcq;
+    private a kcr;
+    private k.b kcs = new k.b() { // from class: com.baidu.tieba.imMessageCenter.mention.DelReplyAtMsg.b.2
         @Override // com.baidu.tbadk.core.dialog.k.b
         public void onClick() {
-            b.this.cNo();
-            if (b.this.jNt != null) {
-                b.this.jNt.cNk();
+            b.this.cQW();
+            if (b.this.kcr != null) {
+                b.this.kcr.cQS();
             }
-            b.this.bTy();
+            b.this.bWR();
         }
     };
     private e mContext;
 
-    /* loaded from: classes21.dex */
+    /* loaded from: classes22.dex */
     public interface a {
-        void cNk();
+        void cQS();
     }
 
     public b(e eVar) {
         this.mContext = eVar;
-        this.htb = new k(eVar.getPageActivity());
-        this.jNr = new g(eVar.getString(R.string.delete), this.htb);
-        this.jNr.a(this.jNu);
-        this.hte = new ArrayList();
-        this.hte.add(this.jNr);
-        this.htb.a(new k.a() { // from class: com.baidu.tieba.imMessageCenter.mention.DelReplyAtMsg.b.1
+        this.hHV = new k(eVar.getPageActivity());
+        this.kcp = new g(eVar.getString(R.string.delete), this.hHV);
+        this.kcp.a(this.kcs);
+        this.hHY = new ArrayList();
+        this.hHY.add(this.kcp);
+        this.hHV.a(new k.a() { // from class: com.baidu.tieba.imMessageCenter.mention.DelReplyAtMsg.b.1
             @Override // com.baidu.tbadk.core.dialog.k.a
             public void onClick() {
-                b.this.bTy();
+                b.this.bWR();
             }
         });
-        this.htb.aX(this.hte);
-        this.jNq = new i(eVar, this.htb);
+        this.hHV.ba(this.hHY);
+        this.kco = new i(eVar, this.hHV);
         onChangeSkinType();
         registerTask();
     }
 
-    public void bTy() {
-        if (this.jNq != null && this.jNq.isShowing()) {
-            this.jNq.dismiss();
+    public void bWR() {
+        if (this.kco != null && this.kco.isShowing()) {
+            this.kco.dismiss();
         }
     }
 
     public void onChangeSkinType() {
-        if (this.htb != null) {
-            this.htb.onChangeSkinType();
+        if (this.hHV != null) {
+            this.hHV.onChangeSkinType();
         }
     }
 
     public void show() {
-        if (this.jNq != null) {
-            this.jNq.show();
+        if (this.kco != null) {
+            this.kco.show();
         }
     }
 
     public void a(com.baidu.tieba.imMessageCenter.mention.DelReplyAtMsg.a aVar) {
-        this.jNs = aVar;
+        this.kcq = aVar;
     }
 
     private void registerTask() {
@@ -87,18 +87,18 @@ public class b {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void cNo() {
-        if (this.jNs != null) {
+    public void cQW() {
+        if (this.kcq != null) {
             HttpMessage httpMessage = new HttpMessage(CmdConfigHttp.CMD_DEL_REPLY_AT_MSG);
-            httpMessage.addParam("type", this.jNs.type);
-            httpMessage.addParam("thread_id", this.jNs.threadId);
-            httpMessage.addParam("post_id", this.jNs.postId);
-            httpMessage.addParam("ori_ugc_nid", this.jNs.nid);
+            httpMessage.addParam("type", this.kcq.type);
+            httpMessage.addParam("thread_id", this.kcq.threadId);
+            httpMessage.addParam("post_id", this.kcq.postId);
+            httpMessage.addParam("ori_ugc_nid", this.kcq.nid);
             MessageManager.getInstance().sendMessage(httpMessage);
         }
     }
 
     public void a(a aVar) {
-        this.jNt = aVar;
+        this.kcr = aVar;
     }
 }

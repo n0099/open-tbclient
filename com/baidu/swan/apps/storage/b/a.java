@@ -5,51 +5,51 @@ import android.text.TextUtils;
 import java.io.File;
 import java.util.concurrent.locks.ReadWriteLock;
 import java.util.concurrent.locks.ReentrantReadWriteLock;
-/* loaded from: classes3.dex */
+/* loaded from: classes10.dex */
 public abstract class a implements d {
-    private static final ReadWriteLock dac = new ReentrantReadWriteLock();
-    private File dad = aDH();
+    private static final ReadWriteLock dmm = new ReentrantReadWriteLock();
+    private File dmn = aGq();
     private final long MAX_SIZE = getMaxSize();
 
     @NonNull
-    public abstract String aDI();
+    public abstract String aGr();
 
     @Override // com.baidu.swan.apps.storage.b.d
-    public void bK(long j) {
-        dac.writeLock().lock();
+    public void bS(long j) {
+        dmm.writeLock().lock();
         try {
-            if (this.dad == null) {
-                this.dad = aDH();
+            if (this.dmn == null) {
+                this.dmn = aGq();
             }
-            File file = this.dad;
+            File file = this.dmn;
             if (!file.exists()) {
                 file.createNewFile();
             }
-            com.baidu.swan.c.d.saveFileCommon(String.valueOf(aDG() + j).getBytes(), file);
+            com.baidu.swan.c.d.saveFileCommon(String.valueOf(aGp() + j).getBytes(), file);
         } catch (Exception e) {
             if (com.baidu.swan.apps.b.DEBUG) {
                 e.printStackTrace();
             }
         } finally {
-            dac.writeLock().unlock();
+            dmm.writeLock().unlock();
         }
     }
 
     @Override // com.baidu.swan.apps.storage.b.d
-    public boolean bL(long j) {
-        dac.readLock().lock();
+    public boolean bT(long j) {
+        dmm.readLock().lock();
         try {
-            return aDG() + j > this.MAX_SIZE;
+            return aGp() + j > this.MAX_SIZE;
         } finally {
-            dac.readLock().unlock();
+            dmm.readLock().unlock();
         }
     }
 
-    private long aDG() {
-        if (this.dad == null) {
-            this.dad = aDH();
+    private long aGp() {
+        if (this.dmn == null) {
+            this.dmn = aGq();
         }
-        File file = this.dad;
+        File file = this.dmn;
         if (file.exists() && file.isFile()) {
             String readFileData = com.baidu.swan.c.d.readFileData(file);
             try {
@@ -68,7 +68,7 @@ public abstract class a implements d {
         return 0L;
     }
 
-    private File aDH() {
-        return new File(aDI() + File.separator + "record.pro");
+    private File aGq() {
+        return new File(aGr() + File.separator + "record.pro");
     }
 }

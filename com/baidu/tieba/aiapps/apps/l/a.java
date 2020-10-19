@@ -7,7 +7,7 @@ import com.baidu.swan.apps.ap.p;
 import com.baidu.swan.apps.env.launch.SwanLauncher;
 import com.baidu.swan.apps.process.messaging.service.e;
 import com.baidu.swan.veloce.c;
-/* loaded from: classes24.dex */
+/* loaded from: classes25.dex */
 public class a implements com.baidu.swan.veloce.a {
     @Override // com.baidu.swan.veloce.a
     public Bundle g(String str, Bundle bundle) {
@@ -38,22 +38,22 @@ public class a implements com.baidu.swan.veloce.a {
     }
 
     @Override // com.baidu.swan.veloce.a
-    public void aXt() {
-        p.aFx();
-        p.aFw();
-        p.aFy();
+    public void bab() {
+        p.aIg();
+        p.aIf();
+        p.aIh();
         try {
             new UnitedSchemeMainDispatcher();
-            SwanLauncher.ame();
-            e.ayP();
+            SwanLauncher.aoP();
+            e.aBy();
         } catch (Exception e) {
         }
     }
 
     @Override // com.baidu.swan.veloce.a
-    public void xV(String str) {
+    public void yH(String str) {
         if (!TextUtils.isEmpty(str)) {
-            com.baidu.swan.facade.b.b.tM(str);
+            com.baidu.swan.facade.b.b.uy(str);
         }
     }
 }

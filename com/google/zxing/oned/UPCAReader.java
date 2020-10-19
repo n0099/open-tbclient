@@ -9,7 +9,7 @@ import com.google.zxing.NotFoundException;
 import com.google.zxing.Result;
 import com.google.zxing.common.BitArray;
 import java.util.Map;
-/* loaded from: classes3.dex */
+/* loaded from: classes7.dex */
 public final class UPCAReader extends UPCEANReader {
     private final UPCEANReader ean13Reader = new EAN13Reader();
 

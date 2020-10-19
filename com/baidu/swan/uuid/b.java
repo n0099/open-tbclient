@@ -7,41 +7,41 @@ import com.baidu.swan.uuid.a.d;
 import com.baidu.swan.uuid.a.e;
 import com.baidu.swan.uuid.a.f;
 import com.baidu.swan.uuid.a.g;
-/* loaded from: classes24.dex */
+/* loaded from: classes5.dex */
 public class b {
-    private static b dMO;
-    private final a<String> dMP = new a<>();
-    private String dMQ;
+    private static b dYP;
+    private final a<String> dYQ = new a<>();
+    private String dYR;
 
     private b(Context context) {
-        this.dMP.a(new c(context));
-        this.dMP.a(new e(context));
-        this.dMP.a(new d(context));
-        this.dMP.a(new g(context));
-        this.dMP.a(new com.baidu.swan.uuid.a.a(context));
-        this.dMP.a(new f(context));
+        this.dYQ.a(new c(context));
+        this.dYQ.a(new e(context));
+        this.dYQ.a(new d(context));
+        this.dYQ.a(new g(context));
+        this.dYQ.a(new com.baidu.swan.uuid.a.a(context));
+        this.dYQ.a(new f(context));
     }
 
-    public static b dI(Context context) {
-        if (dMO == null) {
+    public static b dO(Context context) {
+        if (dYP == null) {
             synchronized (b.class) {
-                if (dMO == null) {
-                    dMO = new b(context);
+                if (dYP == null) {
+                    dYP = new b(context);
                 }
             }
         }
-        return dMO;
+        return dYP;
     }
 
     public String getUUID() {
-        if (TextUtils.isEmpty(this.dMQ)) {
+        if (TextUtils.isEmpty(this.dYR)) {
             synchronized (this) {
-                if (TextUtils.isEmpty(this.dMQ)) {
-                    this.dMQ = this.dMP.aXl();
-                    this.dMP.am(this.dMQ);
+                if (TextUtils.isEmpty(this.dYR)) {
+                    this.dYR = this.dYQ.aZT();
+                    this.dYQ.ap(this.dYR);
                 }
             }
         }
-        return this.dMQ;
+        return this.dYR;
     }
 }

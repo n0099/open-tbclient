@@ -26,8 +26,8 @@ public class az extends com.baidu.adp.base.a.c {
             prepareDBForV12(sQLiteDatabase);
             prepareDBForV16(sQLiteDatabase);
             prepareDBForV17(sQLiteDatabase);
-            M(sQLiteDatabase);
             N(sQLiteDatabase);
+            O(sQLiteDatabase);
         } catch (Exception e) {
             TiebaStatic.printDBExceptionLog(e, "DatabaseHelper.createTables", new Object[0]);
         }
@@ -123,11 +123,11 @@ public class az extends com.baidu.adp.base.a.c {
             prepareDBForV17(sQLiteDatabase);
         }
         if (i < 18) {
-            M(sQLiteDatabase);
+            N(sQLiteDatabase);
         }
         if (i < 21) {
             executeDDLSqlIgnoreAnyErrors(sQLiteDatabase, "DROP TABLE IF EXISTS activity_mission_info");
-            N(sQLiteDatabase);
+            O(sQLiteDatabase);
         }
     }
 
@@ -169,11 +169,11 @@ public class az extends com.baidu.adp.base.a.c {
         executeDDLSqlIgnoreAnyErrors(sQLiteDatabase, "ALTER TABLE setting ADD zan_me_switch int");
     }
 
-    protected void M(SQLiteDatabase sQLiteDatabase) {
+    protected void N(SQLiteDatabase sQLiteDatabase) {
         executeDDLSqlIgnoreAnyErrors(sQLiteDatabase, "ALTER TABLE account_data ADD name_show varchar(255)");
     }
 
-    protected void N(SQLiteDatabase sQLiteDatabase) {
+    protected void O(SQLiteDatabase sQLiteDatabase) {
         executeDDLSqlIgnoreAnyErrors(sQLiteDatabase, "CREATE TABLE if not exists activity_mission_info(id INTEGER primary key autoincrement, activityid INTEGER, missionid INTEGER, activitysource TEXT, calltype INTEGER, tasktype INTEGER, browsetimepage TEXT, browsetime INTEGER, threadnum INTEGER, forumnum INTEGER, cleartype INTEGER, cleartime INTEGER, specificcleartime INTEGER, tid INTEGER, fid INTEGER, executingMissionList TEXT, totalLimit INTEGER, completedLimitCount INTEGER, threadtext TEXT, threadimg TEXT, threadforum INTEGER, token TEXT)");
     }
 }

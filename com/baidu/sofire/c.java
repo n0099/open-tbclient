@@ -4,9 +4,11 @@ import android.content.Context;
 import java.io.File;
 import java.util.HashMap;
 import java.util.Map;
-/* loaded from: classes12.dex */
+/* loaded from: classes15.dex */
 public final class c {
-    private static Map<String, d> a = new HashMap();
+
+    /* renamed from: a  reason: collision with root package name */
+    private static Map<String, d> f3596a = new HashMap();
 
     public static void a(Context context, int i, File file, File file2) {
         if (file != null) {
@@ -17,10 +19,10 @@ public final class c {
                     }
                     new StringBuilder("f=").append(file).append(", b=").append(file2);
                     b.a();
-                    if (!a.containsKey(file.getAbsolutePath())) {
+                    if (!f3596a.containsKey(file.getAbsolutePath())) {
                         d dVar = new d(context, i, file.getAbsolutePath(), file2.getAbsolutePath());
                         dVar.startWatching();
-                        a.put(file.getAbsolutePath(), dVar);
+                        f3596a.put(file.getAbsolutePath(), dVar);
                     }
                 }
             } catch (Throwable th) {
@@ -34,10 +36,10 @@ public final class c {
             try {
                 new StringBuilder("f=").append(file.getAbsolutePath());
                 b.a();
-                d dVar = a.get(file.getAbsolutePath());
+                d dVar = f3596a.get(file.getAbsolutePath());
                 if (dVar != null) {
                     dVar.stopWatching();
-                    a.remove(file.getAbsolutePath());
+                    f3596a.remove(file.getAbsolutePath());
                     dVar.a();
                 }
             } catch (Throwable th) {

@@ -4,16 +4,18 @@ import android.content.Context;
 import android.database.Cursor;
 import android.net.Uri;
 import android.util.Log;
-/* loaded from: classes12.dex */
+/* loaded from: classes15.dex */
 public final class b {
-    private Context a;
+
+    /* renamed from: a  reason: collision with root package name */
+    private Context f3659a;
 
     public b(Context context) {
-        this.a = context;
+        this.f3659a = context;
     }
 
     public final String a() {
-        Cursor query = this.a.getContentResolver().query(Uri.parse("content://com.vivo.vms.IdProvider/IdentifierId/OAID"), null, null, null, null);
+        Cursor query = this.f3659a.getContentResolver().query(Uri.parse("content://com.vivo.vms.IdProvider/IdentifierId/OAID"), null, null, null, null);
         if (query != null) {
             r2 = query.moveToNext() ? query.getString(query.getColumnIndex("value")) : null;
             query.close();

@@ -1,7 +1,7 @@
 package com.baidu.swan.apps.media.b;
 
 import com.baidu.swan.apps.t.b.j;
-/* loaded from: classes3.dex */
+/* loaded from: classes10.dex */
 public interface b {
     void a(j jVar);
 

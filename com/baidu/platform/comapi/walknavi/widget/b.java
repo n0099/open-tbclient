@@ -3,24 +3,26 @@ package com.baidu.platform.comapi.walknavi.widget;
 import android.view.View;
 import com.baidu.platform.comapi.walknavi.widget.a;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes3.dex */
+/* loaded from: classes7.dex */
 public class b implements View.OnClickListener {
-    final /* synthetic */ a a;
+
+    /* renamed from: a  reason: collision with root package name */
+    final /* synthetic */ a f3091a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public b(a aVar) {
-        this.a = aVar;
+        this.f3091a = aVar;
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        a.InterfaceC0252a interfaceC0252a;
-        a.InterfaceC0252a interfaceC0252a2;
-        interfaceC0252a = this.a.g;
-        if (interfaceC0252a != null) {
-            interfaceC0252a2 = this.a.g;
-            interfaceC0252a2.a();
+        a.InterfaceC0267a interfaceC0267a;
+        a.InterfaceC0267a interfaceC0267a2;
+        interfaceC0267a = this.f3091a.g;
+        if (interfaceC0267a != null) {
+            interfaceC0267a2 = this.f3091a.g;
+            interfaceC0267a2.a();
         }
-        this.a.dismiss();
+        this.f3091a.dismiss();
     }
 }

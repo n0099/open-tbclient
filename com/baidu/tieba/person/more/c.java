@@ -11,11 +11,11 @@ import com.baidu.tieba.R;
 import com.baidu.tieba.card.aa;
 import com.baidu.tieba.personCenter.c.h;
 import java.util.List;
-/* loaded from: classes23.dex */
+/* loaded from: classes24.dex */
 public class c {
-    private BdTypeListView fGf;
-    private aa<h> iqg;
-    private a lnj;
+    private BdTypeListView fSo;
+    private aa<h> iEZ;
+    private a lCA;
     private NavigationBar mNavigationBar;
     private TbPageContext mPageContext;
 
@@ -23,14 +23,14 @@ public class c {
         this.mPageContext = tbPageContext;
     }
 
-    public void am(View view) {
+    public void an(View view) {
         this.mNavigationBar = (NavigationBar) view.findViewById(R.id.person_more_navigation_bar);
-        this.fGf = (BdTypeListView) view.findViewById(R.id.person_more_listview);
-        this.lnj = new a(this.mPageContext, this.fGf, this.iqg);
-        bvT();
+        this.fSo = (BdTypeListView) view.findViewById(R.id.person_more_listview);
+        this.lCA = new a(this.mPageContext, this.fSo, this.iEZ);
+        byD();
     }
 
-    private void bvT() {
+    private void byD() {
         this.mNavigationBar.setCenterTextTitle(this.mPageContext.getString(R.string.person_center_more));
         this.mNavigationBar.showBottomLine();
         this.mNavigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON, new View.OnClickListener() { // from class: com.baidu.tieba.person.more.c.1
@@ -43,16 +43,16 @@ public class c {
     }
 
     public void setData(List<q> list) {
-        this.fGf.setData(list);
+        this.fSo.setData(list);
     }
 
     public void onChangeSkinType() {
-        this.lnj.notifyDataSetChanged();
-        ap.setBackgroundColor(this.fGf, R.color.cp_bg_line_d);
+        this.lCA.notifyDataSetChanged();
+        ap.setBackgroundColor(this.fSo, R.color.cp_bg_line_d);
         this.mNavigationBar.onChangeSkinType(this.mPageContext, TbadkCoreApplication.getInst().getSkinType());
     }
 
     public void c(aa<h> aaVar) {
-        this.iqg = aaVar;
+        this.iEZ = aaVar;
     }
 }

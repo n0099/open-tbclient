@@ -8,35 +8,35 @@ import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.TbSingleton;
 import com.baidu.tbadk.core.data.ForumData;
 import com.baidu.tbadk.core.frameworkData.IntentConfig;
-/* loaded from: classes21.dex */
+/* loaded from: classes22.dex */
 public class aw {
-    private TbPageContext ehG;
-    private boolean kTc;
-    private com.baidu.tbadk.core.data.ba kTd;
+    private TbPageContext etO;
+    private boolean lip;
+    private com.baidu.tbadk.core.data.ba liq;
 
     public aw(TbPageContext tbPageContext) {
         Uri uri;
-        this.kTc = false;
-        this.ehG = tbPageContext;
-        if (this.ehG.getPageActivity() != null && this.ehG.getPageActivity().getIntent() != null && (uri = (Uri) this.ehG.getPageActivity().getIntent().getParcelableExtra(IntentConfig.KEY_URI)) != null) {
+        this.lip = false;
+        this.etO = tbPageContext;
+        if (this.etO.getPageActivity() != null && this.etO.getPageActivity().getIntent() != null && (uri = (Uri) this.etO.getPageActivity().getIntent().getParcelableExtra(IntentConfig.KEY_URI)) != null) {
             String queryParameter = uri.getQueryParameter("tid");
             uri.getQueryParameter("eqid");
-            this.kTd = new com.baidu.tbadk.core.data.ba();
-            this.kTd.tid = uri.getQueryParameter("tid");
-            this.kTd.ebM = uri.getQueryParameter("eqid");
-            if (!TextUtils.isEmpty(queryParameter) && com.baidu.adp.base.a.lf().getSize() <= 3) {
-                this.kTc = true;
+            this.liq = new com.baidu.tbadk.core.data.ba();
+            this.liq.tid = uri.getQueryParameter("tid");
+            this.liq.enQ = uri.getQueryParameter("eqid");
+            if (!TextUtils.isEmpty(queryParameter) && com.baidu.adp.base.a.lg().getSize() <= 3) {
+                this.lip = true;
             }
         }
     }
 
     public void h(PbModel pbModel) {
-        if (this.kTc && this.kTd != null && pbModel != null && pbModel.getPbData() != null && pbModel.getPbData().getForum() != null) {
+        if (this.lip && this.liq != null && pbModel != null && pbModel.getPbData() != null && pbModel.getPbData().getForum() != null) {
             ForumData forum = pbModel.getPbData().getForum();
-            this.kTd.firstDir = forum.getFirst_class();
-            this.kTd.secondDir = forum.getSecond_class();
-            TbSingleton.getInstance().setPbToHomeUpdateData(this.kTd);
-            if (com.baidu.adp.base.a.lf().bq("MainTabActivity")) {
+            this.liq.firstDir = forum.getFirst_class();
+            this.liq.secondDir = forum.getSecond_class();
+            TbSingleton.getInstance().setPbToHomeUpdateData(this.liq);
+            if (com.baidu.adp.base.a.lg().bq("MainTabActivity")) {
                 MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921455));
             } else {
                 TbSingleton.getInstance().setForceRefreshHomeRecommend(true);

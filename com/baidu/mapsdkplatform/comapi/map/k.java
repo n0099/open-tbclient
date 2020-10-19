@@ -1,5 +1,5 @@
 package com.baidu.mapsdkplatform.comapi.map;
-/* loaded from: classes3.dex */
+/* loaded from: classes7.dex */
 public class k extends x {
     public k() {
         this.c = 6;

@@ -1,5 +1,5 @@
 package com.sina.deviceidjnisdk;
-/* loaded from: classes24.dex */
+/* loaded from: classes12.dex */
 public final class BuildConfig {
     public static final String APPLICATION_ID = "com.sina.deviceidjnisdk";
     public static final String BUILD_TYPE = "release";

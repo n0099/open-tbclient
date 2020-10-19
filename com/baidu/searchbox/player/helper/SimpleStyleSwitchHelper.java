@@ -7,7 +7,7 @@ import android.view.ViewGroup;
 import com.baidu.searchbox.player.UniversalPlayer;
 import com.baidu.searchbox.player.utils.BdActivityUtils;
 import com.baidu.searchbox.player.utils.BdViewOpUtils;
-/* loaded from: classes23.dex */
+/* loaded from: classes7.dex */
 public class SimpleStyleSwitchHelper implements IPlayerStyleSwitchHelper {
     private ViewGroup mOriginPlayerContainer;
     private UniversalPlayer mPlayer;

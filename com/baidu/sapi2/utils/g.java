@@ -15,36 +15,38 @@ import android.widget.TextView;
 import com.baidu.k.a.a;
 import com.baidu.sapi2.SapiAccountManager;
 import com.baidu.sapi2.SapiWebView;
-/* loaded from: classes25.dex */
+/* loaded from: classes5.dex */
 public class g {
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes25.dex */
+    /* loaded from: classes5.dex */
     public static class a implements View.OnClickListener {
-        final /* synthetic */ WebView a;
+
+        /* renamed from: a  reason: collision with root package name */
+        final /* synthetic */ WebView f3553a;
         final /* synthetic */ View b;
 
         /* renamed from: com.baidu.sapi2.utils.g$a$a  reason: collision with other inner class name */
-        /* loaded from: classes25.dex */
-        class RunnableC0303a implements Runnable {
-            RunnableC0303a() {
+        /* loaded from: classes5.dex */
+        class RunnableC0320a implements Runnable {
+            RunnableC0320a() {
             }
 
             @Override // java.lang.Runnable
             public void run() {
                 a.this.b.setVisibility(4);
-                a.this.a.reload();
+                a.this.f3553a.reload();
             }
         }
 
         a(WebView webView, View view) {
-            this.a = webView;
+            this.f3553a = webView;
             this.b = view;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
-            this.a.post(new RunnableC0303a());
+            this.f3553a.post(new RunnableC0320a());
         }
     }
 

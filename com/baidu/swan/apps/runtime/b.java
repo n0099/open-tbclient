@@ -7,11 +7,11 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-/* loaded from: classes3.dex */
+/* loaded from: classes10.dex */
 public final class b implements com.baidu.swan.apps.ap.e.b<i.a> {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    private final Map<String, com.baidu.swan.apps.ap.e.b<i.a>> cRR = new HashMap();
-    private final List<com.baidu.swan.apps.ap.e.c<i.a, Boolean>> cRS = new ArrayList();
+    private final Map<String, com.baidu.swan.apps.ap.e.b<i.a>> ddY = new HashMap();
+    private final List<com.baidu.swan.apps.ap.e.c<i.a, Boolean>> ddZ = new ArrayList();
 
     public b a(final com.baidu.swan.apps.ap.e.b<i.a> bVar, String... strArr) {
         if (bVar != null && strArr != null && strArr.length > 0) {
@@ -19,9 +19,9 @@ public final class b implements com.baidu.swan.apps.ap.e.b<i.a> {
                 /* JADX DEBUG: Method merged with bridge method */
                 @Override // com.baidu.swan.apps.ap.e.b
                 /* renamed from: onCallback */
-                public void J(String str) {
+                public void M(String str) {
                     if (!TextUtils.isEmpty(str)) {
-                        b.this.cRR.put(str, bVar);
+                        b.this.ddY.put(str, bVar);
                     }
                 }
             }, strArr);
@@ -29,14 +29,14 @@ public final class b implements com.baidu.swan.apps.ap.e.b<i.a> {
         return this;
     }
 
-    public b v(String... strArr) {
+    public b w(String... strArr) {
         if (strArr != null && strArr.length > 0) {
             com.baidu.swan.apps.ap.e.a.a(new com.baidu.swan.apps.ap.e.b<String>() { // from class: com.baidu.swan.apps.runtime.b.2
                 /* JADX DEBUG: Method merged with bridge method */
                 @Override // com.baidu.swan.apps.ap.e.b
                 /* renamed from: onCallback */
-                public void J(String str) {
-                    b.this.cRR.remove(str);
+                public void M(String str) {
+                    b.this.ddY.remove(str);
                 }
             }, strArr);
         }
@@ -45,7 +45,7 @@ public final class b implements com.baidu.swan.apps.ap.e.b<i.a> {
 
     public b a(com.baidu.swan.apps.ap.e.c<i.a, Boolean> cVar) {
         if (cVar != null) {
-            this.cRS.add(cVar);
+            this.ddZ.add(cVar);
         }
         return this;
     }
@@ -53,13 +53,13 @@ public final class b implements com.baidu.swan.apps.ap.e.b<i.a> {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.swan.apps.ap.e.b
     /* renamed from: b */
-    public void J(i.a aVar) {
+    public void M(i.a aVar) {
         com.baidu.swan.apps.ap.e.b<i.a> bVar;
         if (DEBUG) {
             Log.i("EventHandler", "handle: " + aVar);
         }
-        if (h(aVar) && (bVar = this.cRR.get(aVar.id)) != null) {
-            bVar.J(aVar);
+        if (h(aVar) && (bVar = this.ddY.get(aVar.id)) != null) {
+            bVar.M(aVar);
         }
     }
 
@@ -67,8 +67,8 @@ public final class b implements com.baidu.swan.apps.ap.e.b<i.a> {
         if (aVar == null) {
             return false;
         }
-        for (com.baidu.swan.apps.ap.e.c<i.a, Boolean> cVar : this.cRS) {
-            if (cVar != null && !cVar.K(aVar).booleanValue()) {
+        for (com.baidu.swan.apps.ap.e.c<i.a, Boolean> cVar : this.ddZ) {
+            if (cVar != null && !cVar.N(aVar).booleanValue()) {
                 return false;
             }
         }

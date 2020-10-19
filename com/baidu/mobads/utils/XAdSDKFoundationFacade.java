@@ -17,10 +17,12 @@ import com.baidu.mobads.interfaces.utils.IXAdURIUitls;
 import com.baidu.mobads.interfaces.utils.IXAdViewUtils;
 import com.baidu.mobads.openad.interfaces.download.IOAdDownloaderManager;
 import java.util.HashMap;
-/* loaded from: classes3.dex */
+/* loaded from: classes7.dex */
 public class XAdSDKFoundationFacade {
     private static final XAdSDKFoundationFacade o = new XAdSDKFoundationFacade();
-    private i a;
+
+    /* renamed from: a  reason: collision with root package name */
+    private i f2432a;
     private Context p;
     private IXAdContainerFactory q;
     private IBase64 c = new a();
@@ -48,7 +50,7 @@ public class XAdSDKFoundationFacade {
         if (this.p == null) {
             this.p = context;
         }
-        this.a = new i(this.p);
+        this.f2432a = new i(this.p);
     }
 
     public void initializeAdContainerFactory(IXAdContainerFactory iXAdContainerFactory) {
@@ -58,7 +60,7 @@ public class XAdSDKFoundationFacade {
     }
 
     public i getAdCreativeCacheManager() {
-        return this.a;
+        return this.f2432a;
     }
 
     public IXAdContainerFactory getAdContainerFactory() {
@@ -130,10 +132,10 @@ public class XAdSDKFoundationFacade {
     }
 
     public void setMobileConfirmed(String str) {
-        com.baidu.mobads.command.a a;
-        com.baidu.mobads.openad.b.b a2 = com.baidu.mobads.openad.b.b.a(str);
-        if (a2 != null && (a = a2.a()) != null) {
-            a.s = true;
+        com.baidu.mobads.command.a a2;
+        com.baidu.mobads.openad.b.b a3 = com.baidu.mobads.openad.b.b.a(str);
+        if (a3 != null && (a2 = a3.a()) != null) {
+            a2.s = true;
         }
     }
 

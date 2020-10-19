@@ -11,37 +11,37 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 import java.util.Locale;
-/* loaded from: classes9.dex */
+/* loaded from: classes12.dex */
 public class aw {
     public static void a(Context context) {
         SharedPreferences sharedPreferences = context.getSharedPreferences("mipush_extra", 0);
         long j = sharedPreferences.getLong("last_sync_info", -1L);
         long currentTimeMillis = System.currentTimeMillis() / 1000;
-        long a = com.xiaomi.push.service.ak.a(context).a(hr.SyncInfoFrequency.a(), 1209600);
+        long a2 = com.xiaomi.push.service.ak.a(context).a(hr.SyncInfoFrequency.a(), 1209600);
         if (j == -1) {
             sharedPreferences.edit().putLong("last_sync_info", currentTimeMillis).commit();
-        } else if (Math.abs(currentTimeMillis - j) > a) {
+        } else if (Math.abs(currentTimeMillis - j) > a2) {
             a(context, true);
             sharedPreferences.edit().putLong("last_sync_info", currentTimeMillis).commit();
         }
     }
 
     public static void a(Context context, il ilVar) {
-        com.xiaomi.channel.commonutils.logger.b.m54a("need to update local info with: " + ilVar.m433a());
-        String str = ilVar.m433a().get(Constants.EXTRA_KEY_ACCEPT_TIME);
+        com.xiaomi.channel.commonutils.logger.b.m55a("need to update local info with: " + ilVar.m434a());
+        String str = ilVar.m434a().get(Constants.EXTRA_KEY_ACCEPT_TIME);
         if (str != null) {
             MiPushClient.removeAcceptTime(context);
             String[] split = str.split(Constants.ACCEPT_TIME_SEPARATOR_SERVER);
             if (split.length == 2) {
                 MiPushClient.addAcceptTime(context, split[0], split[1]);
                 if ("00:00".equals(split[0]) && "00:00".equals(split[1])) {
-                    b.m94a(context).a(true);
+                    b.m95a(context).a(true);
                 } else {
-                    b.m94a(context).a(false);
+                    b.m95a(context).a(false);
                 }
             }
         }
-        String str2 = ilVar.m433a().get(Constants.EXTRA_KEY_ALIASES);
+        String str2 = ilVar.m434a().get(Constants.EXTRA_KEY_ALIASES);
         if (str2 != null) {
             MiPushClient.removeAllAliases(context);
             if (!"".equals(str2)) {
@@ -51,7 +51,7 @@ public class aw {
                 }
             }
         }
-        String str4 = ilVar.m433a().get("topics");
+        String str4 = ilVar.m434a().get("topics");
         if (str4 != null) {
             MiPushClient.removeAllTopics(context);
             if (!"".equals(str4)) {
@@ -61,7 +61,7 @@ public class aw {
                 }
             }
         }
-        String str6 = ilVar.m433a().get(Constants.EXTRA_KEY_ACCOUNTS);
+        String str6 = ilVar.m434a().get(Constants.EXTRA_KEY_ACCOUNTS);
         if (str6 != null) {
             MiPushClient.removeAllAccounts(context);
             if ("".equals(str6)) {
@@ -80,8 +80,8 @@ public class aw {
 
     /* JADX INFO: Access modifiers changed from: private */
     public static String c(List<String> list) {
-        String a = bf.a(d(list));
-        return (TextUtils.isEmpty(a) || a.length() <= 4) ? "" : a.substring(0, 4).toLowerCase();
+        String a2 = bf.a(d(list));
+        return (TextUtils.isEmpty(a2) || a2.length() <= 4) ? "" : a2.substring(0, 4).toLowerCase();
     }
 
     /* JADX INFO: Access modifiers changed from: private */

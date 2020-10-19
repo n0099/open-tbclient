@@ -10,21 +10,25 @@ import android.os.SystemClock;
 import android.util.Log;
 import com.baidu.android.pushservice.h.a.b;
 @TargetApi(21)
-/* loaded from: classes7.dex */
+/* loaded from: classes10.dex */
 public class a {
-    private static C0068a a;
+
+    /* renamed from: a  reason: collision with root package name */
+    private static C0069a f1162a;
     private static boolean b;
 
     /* renamed from: com.baidu.android.pushservice.job.a$a  reason: collision with other inner class name */
-    /* loaded from: classes7.dex */
-    private static class C0068a {
-        private final Context a;
+    /* loaded from: classes10.dex */
+    private static class C0069a {
+
+        /* renamed from: a  reason: collision with root package name */
+        private final Context f1163a;
         private final JobScheduler b;
         private boolean c;
 
-        C0068a(Context context) {
-            this.a = context;
-            this.b = (JobScheduler) this.a.getSystemService("jobscheduler");
+        C0069a(Context context) {
+            this.f1163a = context;
+            this.b = (JobScheduler) this.f1163a.getSystemService("jobscheduler");
         }
 
         private void a() {
@@ -41,7 +45,7 @@ public class a {
                     j = 300000 - (SystemClock.elapsedRealtime() % 300000);
                 }
                 this.c = true;
-                JobInfo.Builder builder = new JobInfo.Builder(1, new ComponentName(this.a.getPackageName(), PushJobService.class.getName()));
+                JobInfo.Builder builder = new JobInfo.Builder(1, new ComponentName(this.f1163a.getPackageName(), PushJobService.class.getName()));
                 builder.setMinimumLatency(j);
                 builder.setOverrideDeadline(j);
                 builder.setRequiredNetworkType(1);
@@ -59,9 +63,9 @@ public class a {
 
     public static synchronized void a(Context context) {
         synchronized (a.class) {
-            if (a == null && Build.VERSION.SDK_INT >= 21) {
+            if (f1162a == null && Build.VERSION.SDK_INT >= 21) {
                 try {
-                    a = new C0068a(context);
+                    f1162a = new C0069a(context);
                 } catch (Exception e) {
                     new b.c(context).a(Log.getStackTraceString(e)).a();
                 }
@@ -71,10 +75,10 @@ public class a {
 
     public static synchronized void a(Context context, boolean z) {
         synchronized (a.class) {
-            if (a != null) {
+            if (f1162a != null) {
                 try {
                     b = true;
-                    a.a(z);
+                    f1162a.a(z);
                 } catch (Exception e) {
                     new b.c(context).a(Log.getStackTraceString(e)).a();
                 }
@@ -88,13 +92,13 @@ public class a {
 
     public static synchronized void b(Context context) {
         synchronized (a.class) {
-            if (a != null) {
+            if (f1162a != null) {
                 try {
-                    a.b();
+                    f1162a.b();
                 } catch (Exception e) {
                     new b.c(context).a(Log.getStackTraceString(e)).a();
                 }
-                a = null;
+                f1162a = null;
                 b = false;
             }
         }

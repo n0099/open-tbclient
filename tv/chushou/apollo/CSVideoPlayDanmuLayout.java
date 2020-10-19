@@ -5,12 +5,12 @@ import java.util.Random;
 import master.flame.danmaku.ui.widget.DanmakuTextureView;
 /* loaded from: classes6.dex */
 public class CSVideoPlayDanmuLayout extends DanmakuTextureView {
-    public static final String[] oUH = {"0xffffffff", "0xff808080", "0xff9825fb", "0xfffc28fc", "0xfffc1368", "0xfffffd38", "0xfffecb2f", "0xfffd9827", "0xfffc6621", "0xfffc361d", "0xff9cfd32", "0xff29fd2e", "0xff2dfffe", "0xff136bfb", "0xff0b24fb"};
-    public static final String[] oUI = {Constants.VIA_REPORT_TYPE_JOININ_GROUP, "20", "30"};
-    public static final int[] oUJ = {5, 1, 4};
-    private int oUK;
+    public static final String[] pka = {"0xffffffff", "0xff808080", "0xff9825fb", "0xfffc28fc", "0xfffc1368", "0xfffffd38", "0xfffecb2f", "0xfffd9827", "0xfffc6621", "0xfffc361d", "0xff9cfd32", "0xff29fd2e", "0xff2dfffe", "0xff136bfb", "0xff0b24fb"};
+    public static final String[] pkb = {Constants.VIA_REPORT_TYPE_JOININ_GROUP, "20", "30"};
+    public static final int[] pkc = {5, 1, 4};
+    private int pkd;
 
     private int getDelayTime() {
-        return new Random(System.currentTimeMillis()).nextInt(this.oUK);
+        return new Random(System.currentTimeMillis()).nextInt(this.pkd);
     }
 }

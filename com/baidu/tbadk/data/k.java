@@ -1,20 +1,20 @@
 package com.baidu.tbadk.data;
 /* loaded from: classes.dex */
 public class k {
-    private boolean eLQ;
+    private boolean eXX;
     private String method;
     private boolean open;
 
-    public boolean brS() {
-        return this.eLQ;
+    public boolean buC() {
+        return this.eXX;
     }
 
-    public void iY(boolean z) {
-        this.eLQ = z;
+    public void jw(boolean z) {
+        this.eXX = z;
     }
 
-    public void brT() {
-        this.eLQ = false;
+    public void buD() {
+        this.eXX = false;
     }
 
     public boolean isOpen() {

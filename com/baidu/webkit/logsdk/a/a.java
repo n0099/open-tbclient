@@ -22,10 +22,12 @@ import java.net.URLEncoder;
 import java.util.HashSet;
 import java.util.Iterator;
 import org.json.JSONObject;
-/* loaded from: classes8.dex */
+/* loaded from: classes11.dex */
 public final class a {
     private static String n;
-    private String a;
+
+    /* renamed from: a  reason: collision with root package name */
+    private String f3949a;
     private int b;
     private int c;
     private int d;
@@ -95,13 +97,13 @@ public final class a {
     }
 
     private String a(com.baidu.webkit.logsdk.b bVar) {
-        if (TextUtils.isEmpty(this.a)) {
-            this.a = bVar.e();
+        if (TextUtils.isEmpty(this.f3949a)) {
+            this.f3949a = bVar.e();
         }
-        if (TextUtils.isEmpty(this.a)) {
+        if (TextUtils.isEmpty(this.f3949a)) {
             throw new RuntimeException("BdLogBase: get cuid null!");
         }
-        return this.a;
+        return this.f3949a;
     }
 
     private String b() {
@@ -753,7 +755,7 @@ public final class a {
 
     public final String b(Context context, String str) {
         com.baidu.webkit.logsdk.b.c c = b.a().e().c(str);
-        if ("full".equals(c.a)) {
+        if ("full".equals(c.f3957a)) {
             return a(context);
         }
         HashSet<String> hashSet = c.c;
@@ -764,14 +766,14 @@ public final class a {
                 Iterator<String> it = hashSet.iterator();
                 while (it.hasNext()) {
                     String next = it.next();
-                    String a = a(next, context, c2);
-                    if (TextUtils.isEmpty(a)) {
-                        int a2 = a(next, context);
-                        if (a2 > 0) {
-                            jSONObject.put(next, a2);
+                    String a2 = a(next, context, c2);
+                    if (TextUtils.isEmpty(a2)) {
+                        int a3 = a(next, context);
+                        if (a3 > 0) {
+                            jSONObject.put(next, a3);
                         }
                     } else {
-                        jSONObject.put(next, a);
+                        jSONObject.put(next, a2);
                     }
                 }
             } catch (Exception e) {

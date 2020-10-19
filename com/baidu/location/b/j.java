@@ -3,11 +3,13 @@ package com.baidu.location.b;
 import java.io.File;
 import java.io.IOException;
 import java.io.RandomAccessFile;
-/* loaded from: classes3.dex */
+/* loaded from: classes7.dex */
 public class j {
-    private static j a = null;
+
+    /* renamed from: a  reason: collision with root package name */
+    private static j f1886a = null;
     private static String b = "Temp_in.dat";
-    private static File c = new File(com.baidu.location.e.k.a, b);
+    private static File c = new File(com.baidu.location.e.k.f1954a, b);
     private static StringBuffer d = null;
     private static boolean e = true;
     private static int f = 0;

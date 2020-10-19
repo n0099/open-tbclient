@@ -8,9 +8,11 @@ import android.view.animation.RotateAnimation;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import com.baidu.pass.biometrics.face.R;
-/* loaded from: classes8.dex */
+/* loaded from: classes18.dex */
 public class ConstrastLoadingView extends LinearLayout {
-    private ImageView a;
+
+    /* renamed from: a  reason: collision with root package name */
+    private ImageView f2753a;
     private ImageView b;
 
     public ConstrastLoadingView(Context context) {
@@ -20,13 +22,13 @@ public class ConstrastLoadingView extends LinearLayout {
 
     private void a(Context context) {
         LayoutInflater.from(context).inflate(R.layout.layout_pass_liveness_constrast_loading, this);
-        this.a = (ImageView) findViewById(R.id.iv_recog_circle);
+        this.f2753a = (ImageView) findViewById(R.id.iv_recog_circle);
         this.b = (ImageView) findViewById(R.id.iv_recog_logo);
         b();
     }
 
     private void b() {
-        this.a.startAnimation(a(true, 1200L));
+        this.f2753a.startAnimation(a(true, 1200L));
     }
 
     public void setVisible(int i) {
@@ -55,7 +57,7 @@ public class ConstrastLoadingView extends LinearLayout {
     }
 
     public void a() {
-        this.a.clearAnimation();
+        this.f2753a.clearAnimation();
         clearAnimation();
         setVisibility(4);
     }

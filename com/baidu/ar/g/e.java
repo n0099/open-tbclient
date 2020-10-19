@@ -2,7 +2,7 @@ package com.baidu.ar.g;
 
 import android.graphics.Bitmap;
 import android.graphics.Matrix;
-/* loaded from: classes10.dex */
+/* loaded from: classes14.dex */
 public class e {
     public static Bitmap a(Bitmap bitmap, int i) {
         Matrix matrix = new Matrix();

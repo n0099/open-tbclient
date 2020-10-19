@@ -12,23 +12,23 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.bg;
 import com.baidu.tbadk.coreExtra.message.UpdateAttentionMessage;
 import com.baidu.tieba.R;
-/* loaded from: classes21.dex */
+/* loaded from: classes22.dex */
 public class h {
-    private com.baidu.tbadk.coreExtra.model.a emW;
-    private c iie;
+    private com.baidu.tbadk.coreExtra.model.a ezg;
+    private c ixb;
     private TbPageContext mPageContext;
-    private BdUniqueId aih = BdUniqueId.gen();
-    private CustomMessageListener ena = new CustomMessageListener(CmdConfigCustom.CMD_UPDATE_ATTENTION) { // from class: com.baidu.tieba.frs.aggregation.h.1
+    private BdUniqueId aiy = BdUniqueId.gen();
+    private CustomMessageListener ezk = new CustomMessageListener(CmdConfigCustom.CMD_UPDATE_ATTENTION) { // from class: com.baidu.tieba.frs.aggregation.h.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             UpdateAttentionMessage updateAttentionMessage;
             UpdateAttentionMessage.a data;
-            if ((customResponsedMessage instanceof UpdateAttentionMessage) && h.this.iie != null && (data = (updateAttentionMessage = (UpdateAttentionMessage) customResponsedMessage).getData()) != null) {
+            if ((customResponsedMessage instanceof UpdateAttentionMessage) && h.this.ixb != null && (data = (updateAttentionMessage = (UpdateAttentionMessage) customResponsedMessage).getData()) != null) {
                 if (!data.isSucc) {
-                    h.this.iie.showMsg(updateAttentionMessage.getData().errorString);
+                    h.this.ixb.showMsg(updateAttentionMessage.getData().errorString);
                 } else {
-                    h.this.iie.oM(data.isAttention);
+                    h.this.ixb.pr(data.isAttention);
                 }
             }
         }
@@ -36,25 +36,25 @@ public class h {
 
     public h(TbPageContext tbPageContext, c cVar) {
         this.mPageContext = tbPageContext;
-        this.iie = cVar;
-        this.emW = new com.baidu.tbadk.coreExtra.model.a(tbPageContext);
-        this.ena.setSelfListener(true);
-        this.ena.setTag(this.aih);
-        MessageManager.getInstance().registerListener(this.ena);
+        this.ixb = cVar;
+        this.ezg = new com.baidu.tbadk.coreExtra.model.a(tbPageContext);
+        this.ezk.setSelfListener(true);
+        this.ezk.setTag(this.aiy);
+        MessageManager.getInstance().registerListener(this.ezk);
     }
 
     public void f(g gVar) {
         if (!j.isNetWorkAvailable()) {
             this.mPageContext.showToast(R.string.no_network);
-        } else if (gVar != null && gVar.ihI != null && this.emW != null && bg.checkUpIsLogin(this.mPageContext.getPageActivity())) {
-            this.emW.a(!gVar.ihI.hasFocus, gVar.ihI.portrait, gVar.ihI.userId, this.aih);
+        } else if (gVar != null && gVar.iwF != null && this.ezg != null && bg.checkUpIsLogin(this.mPageContext.getPageActivity())) {
+            this.ezg.a(!gVar.iwF.hasFocus, gVar.iwF.portrait, gVar.iwF.userId, this.aiy);
         }
     }
 
     public void g(g gVar) {
         if (!j.isNetWorkAvailable()) {
             this.mPageContext.showToast(R.string.no_network);
-        } else if (gVar != null && this.iie != null && bg.checkUpIsLogin(this.mPageContext.getPageActivity())) {
+        } else if (gVar != null && this.ixb != null && bg.checkUpIsLogin(this.mPageContext.getPageActivity())) {
             HttpMessage httpMessage = new HttpMessage(1001601);
             httpMessage.addParam("thread_id", gVar.threadId);
             httpMessage.addParam("op_type", Boolean.valueOf(gVar.hasAgree));
@@ -64,14 +64,14 @@ public class h {
             httpMessage.addParam("z_id", TbadkCoreApplication.getInst().getZid());
             httpMessage.addHeader("needSig", "1");
             MessageManager.getInstance().sendMessage(httpMessage);
-            this.iie.crZ();
+            this.ixb.cvw();
         }
     }
 
-    public void csi() {
-        if (this.emW != null) {
-            this.emW.cancel();
+    public void cvF() {
+        if (this.ezg != null) {
+            this.ezg.cancel();
         }
-        MessageManager.getInstance().unRegisterListener(this.ena);
+        MessageManager.getInstance().unRegisterListener(this.ezk);
     }
 }

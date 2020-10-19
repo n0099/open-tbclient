@@ -3,10 +3,10 @@ package io.reactivex.internal.operators.observable;
 import io.reactivex.c.h;
 import io.reactivex.c.j;
 import io.reactivex.p;
-/* loaded from: classes25.dex */
+/* loaded from: classes17.dex */
 public final class ObservableInternalHelper {
 
-    /* loaded from: classes25.dex */
+    /* loaded from: classes17.dex */
     enum MapToInt implements h<Object, Object> {
         INSTANCE;
 
@@ -16,20 +16,20 @@ public final class ObservableInternalHelper {
         }
     }
 
-    /* loaded from: classes25.dex */
+    /* loaded from: classes17.dex */
     enum ErrorMapperFilter implements h<p<Object>, Throwable>, j<p<Object>> {
         INSTANCE;
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // io.reactivex.c.h
         public Throwable apply(p<Object> pVar) throws Exception {
-            return pVar.eiY();
+            return pVar.emJ();
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // io.reactivex.c.j
         public boolean test(p<Object> pVar) throws Exception {
-            return pVar.eiX();
+            return pVar.emI();
         }
     }
 }

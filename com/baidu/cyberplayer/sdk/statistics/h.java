@@ -6,21 +6,23 @@ import com.baidu.cyberplayer.sdk.k;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes10.dex */
+/* loaded from: classes12.dex */
 public class h {
     private boolean b = false;
-    private g a = new g();
+
+    /* renamed from: a  reason: collision with root package name */
+    private g f1435a = new g();
 
     public synchronized String a() {
         String str = null;
         synchronized (this) {
-            if (this.a != null) {
+            if (this.f1435a != null) {
                 JSONObject jSONObject = new JSONObject();
                 try {
                     a.a().a(jSONObject);
                     jSONObject.put(DpStatConstants.KEY_SERVER_TYPE, DpStatConstants.SERVER_TYPE_DUPLAYER_MONITOR);
                     JSONArray jSONArray = new JSONArray();
-                    jSONArray.put(this.a.a());
+                    jSONArray.put(this.f1435a.a());
                     jSONObject.put("items", jSONArray);
                     str = jSONObject.toString();
                 } catch (JSONException e) {
@@ -34,42 +36,42 @@ public class h {
     }
 
     public synchronized void a(int i, String str, int i2) {
-        if (this.a != null) {
-            this.a.a(i, str, String.valueOf(i2));
+        if (this.f1435a != null) {
+            this.f1435a.a(i, str, String.valueOf(i2));
         }
     }
 
     public synchronized void a(int i, String str, long j) {
-        if (this.a != null) {
-            this.a.a(i, str, String.valueOf(j));
+        if (this.f1435a != null) {
+            this.f1435a.a(i, str, String.valueOf(j));
         }
     }
 
     public synchronized void a(int i, String str, String str2) {
-        if (this.a != null) {
-            this.a.a(i, str, str2);
+        if (this.f1435a != null) {
+            this.f1435a.a(i, str, str2);
         }
     }
 
     public synchronized void a(k kVar) {
-        if (this.a != null && kVar != null) {
-            this.a.a(DpStatConstants.SESSION_TYPE_PLAY_COMMON, DpStatConstants.KEY_CURRENT_POSITION, String.valueOf(kVar.getCurrentPosition()));
-            this.a.a(DpStatConstants.SESSION_TYPE_PLAY_COMMON, "decode_mode", String.valueOf(kVar.getDecodeMode()));
-            this.a.a(DpStatConstants.SESSION_TYPE_PLAY_COMMON, DpStatConstants.KEY_FILE_CACHE, "0");
-            this.a.a(DpStatConstants.SESSION_TYPE_PLAY_COMMON, DpStatConstants.KEY_P_ID, String.valueOf(kVar.b()));
-            this.a.a(DpStatConstants.SESSION_TYPE_PLAY_COMMON, "network", DpNetworkUtils.getNetworkStatisticsData(CyberPlayerManager.getApplicationContext()));
-            this.a.a(DpStatConstants.SESSION_TYPE_PLAY_COMMON, DpStatConstants.KEY_NETWORK_STATUS, DpNetworkUtils.a(CyberPlayerManager.getApplicationContext()));
-            this.a.a(DpStatConstants.SESSION_TYPE_PLAY_COMMON, "url", kVar.a());
-            this.a.a(DpStatConstants.SESSION_TYPE_PLAY_COMMON, "timestamp", String.valueOf(kVar.b()));
-            this.a.a(DpStatConstants.SESSION_TYPE_PLAY_COMMON, "duration", String.valueOf(kVar.getDuration()));
-            this.a.a(DpStatConstants.SESSION_TYPE_PLAY_COMMON, DpStatConstants.KEY_REAL_PLAY_TIME, String.valueOf(kVar.getPlayedTime()));
+        if (this.f1435a != null && kVar != null) {
+            this.f1435a.a(DpStatConstants.SESSION_TYPE_PLAY_COMMON, DpStatConstants.KEY_CURRENT_POSITION, String.valueOf(kVar.getCurrentPosition()));
+            this.f1435a.a(DpStatConstants.SESSION_TYPE_PLAY_COMMON, "decode_mode", String.valueOf(kVar.getDecodeMode()));
+            this.f1435a.a(DpStatConstants.SESSION_TYPE_PLAY_COMMON, DpStatConstants.KEY_FILE_CACHE, "0");
+            this.f1435a.a(DpStatConstants.SESSION_TYPE_PLAY_COMMON, DpStatConstants.KEY_P_ID, String.valueOf(kVar.b()));
+            this.f1435a.a(DpStatConstants.SESSION_TYPE_PLAY_COMMON, "network", DpNetworkUtils.getNetworkStatisticsData(CyberPlayerManager.getApplicationContext()));
+            this.f1435a.a(DpStatConstants.SESSION_TYPE_PLAY_COMMON, DpStatConstants.KEY_NETWORK_STATUS, DpNetworkUtils.a(CyberPlayerManager.getApplicationContext()));
+            this.f1435a.a(DpStatConstants.SESSION_TYPE_PLAY_COMMON, "url", kVar.a());
+            this.f1435a.a(DpStatConstants.SESSION_TYPE_PLAY_COMMON, "timestamp", String.valueOf(kVar.b()));
+            this.f1435a.a(DpStatConstants.SESSION_TYPE_PLAY_COMMON, "duration", String.valueOf(kVar.getDuration()));
+            this.f1435a.a(DpStatConstants.SESSION_TYPE_PLAY_COMMON, DpStatConstants.KEY_REAL_PLAY_TIME, String.valueOf(kVar.getPlayedTime()));
         }
     }
 
     public synchronized void b(k kVar) {
-        if (this.a != null && kVar != null) {
-            this.a.a(DpStatConstants.SESSION_TYPE_MEDIA_FORMAT_INFO, "width", String.valueOf(kVar.getVideoWidth()));
-            this.a.a(DpStatConstants.SESSION_TYPE_MEDIA_FORMAT_INFO, "height", String.valueOf(kVar.getVideoHeight()));
+        if (this.f1435a != null && kVar != null) {
+            this.f1435a.a(DpStatConstants.SESSION_TYPE_MEDIA_FORMAT_INFO, "width", String.valueOf(kVar.getVideoWidth()));
+            this.f1435a.a(DpStatConstants.SESSION_TYPE_MEDIA_FORMAT_INFO, "height", String.valueOf(kVar.getVideoHeight()));
         }
     }
 
@@ -78,18 +80,18 @@ public class h {
     }
 
     public synchronized void c() {
-        if (this.a != null) {
-            this.a.b();
+        if (this.f1435a != null) {
+            this.f1435a.b();
         }
         this.b = false;
     }
 
     public synchronized void c(k kVar) {
-        String a;
+        String a2;
         if (kVar != null) {
-            if (this.a != null && (a = a()) != null) {
+            if (this.f1435a != null && (a2 = a()) != null) {
                 this.b = true;
-                DpSessionDatasUploader.getInstance().upload(a, DpSessionDatasUploader.SAILOR_MONITOR);
+                DpSessionDatasUploader.getInstance().upload(a2, DpSessionDatasUploader.SAILOR_MONITOR);
             }
         }
     }

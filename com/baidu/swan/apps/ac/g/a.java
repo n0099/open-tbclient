@@ -14,7 +14,7 @@ import java.util.UUID;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes10.dex */
 public class a {
     public static boolean a(String str, String str2, h hVar) {
         int length;
@@ -64,9 +64,9 @@ public class a {
 
     private static String d(String str, long j, String str2) {
         String str3 = "";
-        e aAr = e.aAr();
-        if (aAr != null) {
-            str3 = com.baidu.swan.apps.f.a.kH(aAr.getAppKey());
+        e aDa = e.aDa();
+        if (aDa != null) {
+            str3 = com.baidu.swan.apps.f.a.lt(aDa.getAppKey());
         }
         String[] strArr = {str3, str, String.valueOf(j), str2};
         Arrays.sort(strArr);

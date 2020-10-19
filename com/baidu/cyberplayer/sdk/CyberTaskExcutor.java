@@ -7,18 +7,22 @@ import java.util.concurrent.ThreadFactory;
 import java.util.concurrent.ThreadPoolExecutor;
 import java.util.concurrent.TimeUnit;
 import java.util.concurrent.atomic.AtomicInteger;
-/* loaded from: classes10.dex */
+/* loaded from: classes12.dex */
 public final class CyberTaskExcutor {
-    private static CyberTaskExcutor a;
+
+    /* renamed from: a  reason: collision with root package name */
+    private static CyberTaskExcutor f1345a;
     private final int b = 0;
     private final int c = 5;
     private final int d = 180;
     private ExecutorService e = new ThreadPoolExecutor(0, 5, 180, TimeUnit.SECONDS, new LinkedBlockingQueue(), new a("cyber-thread", 5));
     private ExecutorService f = new ThreadPoolExecutor(1, 1, 0, TimeUnit.SECONDS, new LinkedBlockingQueue(), new a("cyber-thread-Single", 5));
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes12.dex */
     public static class a implements ThreadFactory {
-        private final AtomicInteger a = new AtomicInteger(1);
+
+        /* renamed from: a  reason: collision with root package name */
+        private final AtomicInteger f1346a = new AtomicInteger(1);
         private final String b;
         private int c;
 
@@ -30,7 +34,7 @@ public final class CyberTaskExcutor {
 
         @Override // java.util.concurrent.ThreadFactory
         public Thread newThread(Runnable runnable) {
-            Thread thread = new Thread(runnable, this.b + this.a.getAndIncrement());
+            Thread thread = new Thread(runnable, this.b + this.f1346a.getAndIncrement());
             if (thread.isDaemon()) {
                 thread.setDaemon(true);
             }
@@ -46,10 +50,10 @@ public final class CyberTaskExcutor {
     public static synchronized CyberTaskExcutor getInstance() {
         CyberTaskExcutor cyberTaskExcutor;
         synchronized (CyberTaskExcutor.class) {
-            if (a == null) {
-                a = new CyberTaskExcutor();
+            if (f1345a == null) {
+                f1345a = new CyberTaskExcutor();
             }
-            cyberTaskExcutor = a;
+            cyberTaskExcutor = f1345a;
         }
         return cyberTaskExcutor;
     }

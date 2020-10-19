@@ -3,19 +3,21 @@ package com.baidu.platform.comapi.walknavi.g;
 import android.os.Handler;
 import android.os.Message;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes3.dex */
+/* loaded from: classes7.dex */
 public class b extends Handler {
-    final /* synthetic */ a a;
+
+    /* renamed from: a  reason: collision with root package name */
+    final /* synthetic */ a f3016a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public b(a aVar) {
-        this.a = aVar;
+        this.f3016a = aVar;
     }
 
     @Override // android.os.Handler
     public void handleMessage(Message message) {
         if (message.what != 1 && message.what != 2 && message.what == 3) {
-            this.a.m();
+            this.f3016a.m();
         }
     }
 }

@@ -7,38 +7,38 @@ import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 import org.chromium.support_lib_boundary.WebViewProviderFactoryBoundaryInterface;
 import org.chromium.support_lib_boundary.util.BoundaryInterfaceReflectionUtil;
-/* loaded from: classes17.dex */
+/* loaded from: classes15.dex */
 public class d {
 
-    /* loaded from: classes17.dex */
+    /* loaded from: classes15.dex */
     private static class a {
-        static final g zS = new g(d.hS().hM());
+        static final g Ak = new g(d.hT().hN());
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes17.dex */
+    /* loaded from: classes15.dex */
     public static class b {
-        static final e zT = d.hV();
+        static final e Al = d.hW();
     }
 
-    public static e hS() {
-        return b.zT;
+    public static e hT() {
+        return b.Al;
     }
 
-    public static g hT() {
-        return a.zS;
+    public static g hU() {
+        return a.Ak;
     }
 
-    private static InvocationHandler hU() throws IllegalAccessException, InvocationTargetException, ClassNotFoundException, NoSuchMethodException {
+    private static InvocationHandler hV() throws IllegalAccessException, InvocationTargetException, ClassNotFoundException, NoSuchMethodException {
         return (InvocationHandler) Class.forName("org.chromium.support_lib_glue.SupportLibReflectionUtil", false, getWebViewClassLoader()).getDeclaredMethod("createWebViewProviderFactory", new Class[0]).invoke(null, new Object[0]);
     }
 
-    static e hV() {
+    static e hW() {
         if (Build.VERSION.SDK_INT < 21) {
             return new androidx.webkit.internal.a();
         }
         try {
-            return new f((WebViewProviderFactoryBoundaryInterface) BoundaryInterfaceReflectionUtil.castToSuppLibClass(WebViewProviderFactoryBoundaryInterface.class, hU()));
+            return new f((WebViewProviderFactoryBoundaryInterface) BoundaryInterfaceReflectionUtil.castToSuppLibClass(WebViewProviderFactoryBoundaryInterface.class, hV()));
         } catch (ClassNotFoundException e) {
             return new androidx.webkit.internal.a();
         } catch (IllegalAccessException e2) {
@@ -51,10 +51,10 @@ public class d {
     }
 
     public static ClassLoader getWebViewClassLoader() {
-        return Build.VERSION.SDK_INT >= 28 ? WebView.getWebViewClassLoader() : hW().getClass().getClassLoader();
+        return Build.VERSION.SDK_INT >= 28 ? WebView.getWebViewClassLoader() : hX().getClass().getClassLoader();
     }
 
-    private static Object hW() {
+    private static Object hX() {
         try {
             Method declaredMethod = WebView.class.getDeclaredMethod("getFactory", new Class[0]);
             declaredMethod.setAccessible(true);

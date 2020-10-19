@@ -19,19 +19,21 @@ import java.util.List;
 import java.util.UUID;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes18.dex */
+/* loaded from: classes6.dex */
 public class g {
     private static boolean b = false;
-    c amr;
-    private a.C0101a amv;
-    private volatile FileLock amw;
-    private volatile RandomAccessFile amx;
-    private com.baidu.cesium.b.b amy;
+    c amJ;
+    private a.C0102a amN;
+    private volatile FileLock amO;
+    private volatile RandomAccessFile amP;
+    private com.baidu.cesium.b.b amQ;
     private Context f;
 
-    /* loaded from: classes18.dex */
+    /* loaded from: classes6.dex */
     public static class a {
-        public static final String[] a = {ExifInterface.GPS_MEASUREMENT_INTERRUPTED, "O", "0"};
+
+        /* renamed from: a  reason: collision with root package name */
+        public static final String[] f1313a = {ExifInterface.GPS_MEASUREMENT_INTERRUPTED, "O", "0"};
         private String i;
         private String j;
         private String k;
@@ -127,9 +129,9 @@ public class g {
             throw new NullPointerException("context should not be null!!!");
         }
         this.f = context.getApplicationContext();
-        this.amv = aVar.uw().m21do("bohrium");
-        this.amv.a();
-        this.amr = cVar;
+        this.amN = aVar.uw().m20do("bohrium");
+        this.amN.a();
+        this.amJ = cVar;
         a(aVar);
     }
 
@@ -168,20 +170,20 @@ public class g {
     }
 
     private String a(boolean z) {
-        return this.amv.a("libbh.so", z);
+        return this.amN.a("libbh.so", z);
     }
 
     private void a(com.baidu.cesium.e.a aVar) {
         com.baidu.cesium.b.b bVar = new com.baidu.cesium.b.b(new com.baidu.cesium.a());
-        a.C0098a c0098a = new a.C0098a();
-        c0098a.a = this.f;
-        c0098a.alL = aVar;
+        a.C0099a c0099a = new a.C0099a();
+        c0099a.f1295a = this.f;
+        c0099a.amd = aVar;
         a.c cVar = new a.c();
         for (com.baidu.cesium.b.a aVar2 : bVar.a()) {
-            aVar2.a(c0098a);
+            aVar2.a(c0099a);
             aVar2.a(cVar);
         }
-        this.amy = bVar;
+        this.amQ = bVar;
     }
 
     private static String c(String str) {
@@ -215,19 +217,19 @@ public class g {
     }
 
     public a T(String str, String str2) {
-        com.baidu.cesium.b.a dn = this.amy.dn(str2);
+        com.baidu.cesium.b.a dn = this.amQ.dn(str2);
         a.f fVar = new a.f();
-        fVar.a = true;
+        fVar.f1296a = true;
         a.g a2 = dn.a(str, fVar);
         if (a2 == null || !a2.a()) {
             return null;
         }
-        return a2.a;
+        return a2.f1297a;
     }
 
     public void a(a aVar) {
         a.d dVar = new a.d();
-        for (com.baidu.cesium.b.a aVar2 : this.amy.a()) {
+        for (com.baidu.cesium.b.a aVar2 : this.amQ.a()) {
             aVar2.a(dVar, aVar);
         }
     }
@@ -239,7 +241,7 @@ public class g {
         }
         if (!z2) {
             try {
-                if (new File(this.amv.b(), "libbh.so").exists() && (a2 = a(a(true))) != null) {
+                if (new File(this.amN.b(), "libbh.so").exists() && (a2 = a(a(true))) != null) {
                     String g = a2.g();
                     if (!TextUtils.isEmpty(g) && g.equals(aVar.g())) {
                         return true;
@@ -250,7 +252,7 @@ public class g {
                 return false;
             }
         }
-        return this.amv.c("libbh.so", aVar.f(), z);
+        return this.amN.c("libbh.so", aVar.f(), z);
     }
 
     public a b(e eVar) {
@@ -265,7 +267,7 @@ public class g {
             aVar.j = eVar.e.substring(0, 1);
             aVar.i = eVar.d;
             aVar.k = c(eVar.d);
-            String[] strArr = a.a;
+            String[] strArr = a.f1313a;
             int length = strArr.length;
             int i = 0;
             while (true) {
@@ -315,7 +317,7 @@ public class g {
         RandomAccessFile randomAccessFile;
         boolean z = false;
         synchronized (this) {
-            File b2 = this.amv.b(".lock");
+            File b2 = this.amN.b(".lock");
             if (!b2.exists()) {
                 try {
                     b2.createNewFile();
@@ -331,8 +333,8 @@ public class g {
                         break;
                     }
                     try {
-                        this.amw = randomAccessFile.getChannel().lock();
-                        this.amx = randomAccessFile;
+                        this.amO = randomAccessFile.getChannel().lock();
+                        this.amP = randomAccessFile;
                         z = true;
                         break;
                     } catch (OverlappingFileLockException e2) {
@@ -342,7 +344,7 @@ public class g {
                         } catch (Exception e3) {
                             e = e3;
                             com.baidu.cesium.f.c.a(e);
-                            if (this.amw == null) {
+                            if (this.amO == null) {
                                 com.baidu.cesium.f.c.a(randomAccessFile);
                             }
                             return z;
@@ -358,31 +360,31 @@ public class g {
     }
 
     public synchronized void c() {
-        if (this.amw != null) {
+        if (this.amO != null) {
             try {
-                this.amw.release();
+                this.amO.release();
             } catch (IOException e) {
                 e.printStackTrace();
             }
-            this.amw = null;
+            this.amO = null;
         }
-        com.baidu.cesium.f.c.a(this.amx);
-        this.amx = null;
+        com.baidu.cesium.f.c.a(this.amP);
+        this.amP = null;
     }
 
     public a d() {
         a.f fVar = new a.f();
-        fVar.a = true;
-        List<com.baidu.cesium.b.a> a2 = this.amy.a();
-        Collections.sort(a2, com.baidu.cesium.b.a.alK);
-        List<b> N = this.amr.N(this.f);
+        fVar.f1296a = true;
+        List<com.baidu.cesium.b.a> a2 = this.amQ.a();
+        Collections.sort(a2, com.baidu.cesium.b.a.amc);
+        List<b> N = this.amJ.N(this.f);
         if (N != null) {
             for (b bVar : N) {
                 if (!bVar.d && bVar.c) {
                     for (com.baidu.cesium.b.a aVar : a2) {
-                        a.g a3 = aVar.a(bVar.acB.packageName, fVar);
-                        if (a3 != null && a3.a() && a3.a != null) {
-                            return a3.a;
+                        a.g a3 = aVar.a(bVar.acR.packageName, fVar);
+                        if (a3 != null && a3.a() && a3.f1297a != null) {
+                            return a3.f1297a;
                         }
                     }
                     continue;
@@ -393,7 +395,7 @@ public class g {
     }
 
     public a uu() {
-        if (new File(this.amv.b(), "libbh.so").exists()) {
+        if (new File(this.amN.b(), "libbh.so").exists()) {
             return a(a(true));
         }
         return null;

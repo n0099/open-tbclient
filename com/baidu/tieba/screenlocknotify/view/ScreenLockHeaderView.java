@@ -15,37 +15,37 @@ import com.baidu.tieba.screenlocknotify.d;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Locale;
-/* loaded from: classes20.dex */
+/* loaded from: classes21.dex */
 public class ScreenLockHeaderView extends LinearLayout {
-    TextView lVA;
-    TextView lVB;
-    TextView lVC;
-    private d lVD;
-    private TextView lVE;
-    private RelativeLayout lVF;
-    TextView lVx;
-    View lVy;
-    View lVz;
     private EditText mEditText;
     View mLine;
+    TextView mle;
+    View mlf;
+    View mlg;
+    TextView mlh;
+    TextView mli;
+    TextView mlj;
+    private d mlk;
+    private TextView mll;
+    private RelativeLayout mlm;
 
     public ScreenLockHeaderView(Context context) {
         super(context);
         LayoutInflater.from(getContext()).inflate(R.layout.screenlock_show_item_header, (ViewGroup) this, true);
-        this.lVx = (TextView) findViewById(R.id.friend_name_show1);
-        this.lVy = findViewById(R.id.friend_name_layout);
-        this.lVz = findViewById(R.id.msg_content_layout);
-        this.lVA = (TextView) findViewById(R.id.last_msg_time_show1);
-        this.lVB = (TextView) findViewById(R.id.one_msg_content_show1);
-        this.lVC = (TextView) findViewById(R.id.unread_msg_count_show1);
+        this.mle = (TextView) findViewById(R.id.friend_name_show1);
+        this.mlf = findViewById(R.id.friend_name_layout);
+        this.mlg = findViewById(R.id.msg_content_layout);
+        this.mlh = (TextView) findViewById(R.id.last_msg_time_show1);
+        this.mli = (TextView) findViewById(R.id.one_msg_content_show1);
+        this.mlj = (TextView) findViewById(R.id.unread_msg_count_show1);
         this.mLine = findViewById(R.id.line);
         setLayoutParams(new LinearLayout.LayoutParams(-1, -2));
         setBackgroundResource(R.drawable.screen_notify_item_background);
         setOrientation(1);
-        this.lVF = (RelativeLayout) findViewById(R.id.screenlock_input_layout);
-        this.lVE = (TextView) findViewById(R.id.screenlock_send_button);
+        this.mlm = (RelativeLayout) findViewById(R.id.screenlock_input_layout);
+        this.mll = (TextView) findViewById(R.id.screenlock_send_button);
         this.mEditText = (EditText) findViewById(R.id.screenlock_edit_view);
-        this.lVF.setVisibility(8);
+        this.mlm.setVisibility(8);
     }
 
     public ScreenLockHeaderView(Context context, AttributeSet attributeSet) {
@@ -57,28 +57,28 @@ public class ScreenLockHeaderView extends LinearLayout {
     }
 
     public void f(d dVar) {
-        this.lVD = dVar;
-        this.lVx.setText(dVar.groupName);
-        this.lVA.setText(gf(dVar.lastTime));
-        this.lVB.setText(dVar.content);
-        this.lVC.setText(Hf(dVar.unreadCount));
+        this.mlk = dVar;
+        this.mle.setText(dVar.groupName);
+        this.mlh.setText(gx(dVar.lastTime));
+        this.mli.setText(dVar.content);
+        this.mlj.setText(HL(dVar.unreadCount));
     }
 
-    public void vH(boolean z) {
+    public void wo(boolean z) {
         if (z) {
-            this.lVF.setVisibility(0);
+            this.mlm.setVisibility(0);
             this.mLine.setVisibility(8);
             return;
         }
-        this.lVF.setVisibility(8);
+        this.mlm.setVisibility(8);
         this.mLine.setVisibility(0);
     }
 
-    public String gf(long j) {
+    public String gx(long j) {
         return new SimpleDateFormat("HH:mm", Locale.CHINA).format(new Date(j));
     }
 
-    public String Hf(int i) {
+    public String HL(int i) {
         return i < 100 ? "" + i : "99+";
     }
 
@@ -94,12 +94,12 @@ public class ScreenLockHeaderView extends LinearLayout {
     }
 
     public d getData() {
-        return this.lVD;
+        return this.mlk;
     }
 
     public void setUIClickListener(View.OnClickListener onClickListener, View.OnClickListener onClickListener2) {
-        this.lVE.setOnClickListener(onClickListener);
-        this.lVy.setOnClickListener(onClickListener2);
-        this.lVz.setOnClickListener(onClickListener2);
+        this.mll.setOnClickListener(onClickListener);
+        this.mlf.setOnClickListener(onClickListener2);
+        this.mlg.setOnClickListener(onClickListener2);
     }
 }

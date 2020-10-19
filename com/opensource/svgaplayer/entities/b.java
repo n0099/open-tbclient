@@ -12,34 +12,34 @@ import kotlin.h;
 import kotlin.jvm.internal.q;
 import kotlin.text.l;
 @h
-/* loaded from: classes16.dex */
+/* loaded from: classes15.dex */
 public final class b {
-    private final String oor;
-    private Path oos;
+    private final String oDJ;
+    private Path oDK;
 
     public b(String str) {
-        q.m(str, "originValue");
-        this.oor = l.a((CharSequence) str, (CharSequence) Constants.ACCEPT_TIME_SEPARATOR_SP, false, 2, (Object) null) ? l.a(str, Constants.ACCEPT_TIME_SEPARATOR_SP, " ", false, 4, (Object) null) : str;
+        q.n(str, "originValue");
+        this.oDJ = l.a((CharSequence) str, (CharSequence) Constants.ACCEPT_TIME_SEPARATOR_SP, false, 2, (Object) null) ? l.a(str, Constants.ACCEPT_TIME_SEPARATOR_SP, " ", false, 4, (Object) null) : str;
     }
 
     public final void a(Path path) {
         Set set;
-        q.m(path, "toPath");
-        Path path2 = this.oos;
+        q.n(path, "toPath");
+        Path path2 = this.oDK;
         if (path2 != null) {
             path.set(path2);
             return;
         }
         Path path3 = new Path();
-        StringTokenizer stringTokenizer = new StringTokenizer(this.oor, "MLHVCSQRAZmlhvcsqraz", true);
+        StringTokenizer stringTokenizer = new StringTokenizer(this.oDJ, "MLHVCSQRAZmlhvcsqraz", true);
         String str = "";
         while (stringTokenizer.hasMoreTokens()) {
             String nextToken = stringTokenizer.nextToken();
-            q.l((Object) nextToken, "segment");
+            q.m(nextToken, "segment");
             if (!(nextToken.length() == 0)) {
-                set = c.oot;
+                set = c.oDL;
                 if (set.contains(nextToken)) {
-                    if (q.l((Object) nextToken, (Object) "Z") || q.l((Object) nextToken, (Object) MapBundleKey.MapObjKey.OBJ_SS_ARROW_Z)) {
+                    if (q.l(nextToken, "Z") || q.l(nextToken, MapBundleKey.MapObjKey.OBJ_SS_ARROW_Z)) {
                         a(path3, nextToken, new StringTokenizer("", ""));
                     }
                 } else {
@@ -49,7 +49,7 @@ public final class b {
                 str = nextToken;
             }
         }
-        this.oos = path3;
+        this.oDK = path3;
         path.set(path3);
     }
 
@@ -65,7 +65,7 @@ public final class b {
         while (stringTokenizer.hasMoreTokens()) {
             try {
                 String nextToken = stringTokenizer.nextToken();
-                q.l((Object) nextToken, "s");
+                q.m(nextToken, "s");
                 if (!(nextToken.length() == 0)) {
                     if (i == 0) {
                         f7 = Float.parseFloat(nextToken);
@@ -93,41 +93,41 @@ public final class b {
         }
         f = f7;
         com.opensource.svgaplayer.b.a aVar = new com.opensource.svgaplayer.b.a(0.0f, 0.0f, 0.0f);
-        if (q.l((Object) str, (Object) "M")) {
+        if (q.l(str, "M")) {
             path.moveTo(f, f6);
             aVar = new com.opensource.svgaplayer.b.a(f, f6, 0.0f);
-        } else if (q.l((Object) str, (Object) "m")) {
+        } else if (q.l(str, "m")) {
             path.rMoveTo(f, f6);
             aVar = new com.opensource.svgaplayer.b.a(aVar.getX() + f, aVar.getY() + f6, 0.0f);
         }
-        if (q.l((Object) str, (Object) "L")) {
+        if (q.l(str, "L")) {
             path.lineTo(f, f6);
-        } else if (q.l((Object) str, (Object) "l")) {
+        } else if (q.l(str, "l")) {
             path.rLineTo(f, f6);
         }
-        if (q.l((Object) str, (Object) "C")) {
+        if (q.l(str, "C")) {
             path.cubicTo(f, f6, f5, f4, f3, f2);
-        } else if (q.l((Object) str, (Object) "c")) {
+        } else if (q.l(str, "c")) {
             path.rCubicTo(f, f6, f5, f4, f3, f2);
         }
-        if (q.l((Object) str, (Object) "Q")) {
+        if (q.l(str, "Q")) {
             path.quadTo(f, f6, f5, f4);
-        } else if (q.l((Object) str, (Object) IXAdRequestInfo.COST_NAME)) {
+        } else if (q.l(str, IXAdRequestInfo.COST_NAME)) {
             path.rQuadTo(f, f6, f5, f4);
         }
-        if (q.l((Object) str, (Object) IEruptionStrategyGroup.STRATEGY_MODIFIER_H)) {
+        if (q.l(str, IEruptionStrategyGroup.STRATEGY_MODIFIER_H)) {
             path.lineTo(f, aVar.getY());
-        } else if (q.l((Object) str, (Object) "h")) {
+        } else if (q.l(str, "h")) {
             path.rLineTo(f, 0.0f);
         }
-        if (q.l((Object) str, (Object) ExifInterface.GPS_MEASUREMENT_INTERRUPTED)) {
+        if (q.l(str, ExifInterface.GPS_MEASUREMENT_INTERRUPTED)) {
             path.lineTo(aVar.getX(), f);
-        } else if (q.l((Object) str, (Object) "v")) {
+        } else if (q.l(str, "v")) {
             path.rLineTo(0.0f, f);
         }
-        if (q.l((Object) str, (Object) "Z")) {
+        if (q.l(str, "Z")) {
             path.close();
-        } else if (q.l((Object) str, (Object) MapBundleKey.MapObjKey.OBJ_SS_ARROW_Z)) {
+        } else if (q.l(str, MapBundleKey.MapObjKey.OBJ_SS_ARROW_Z)) {
             path.close();
         }
     }

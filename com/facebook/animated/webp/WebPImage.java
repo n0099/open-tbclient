@@ -9,7 +9,7 @@ import java.nio.ByteBuffer;
 import javax.annotation.concurrent.ThreadSafe;
 @ThreadSafe
 @d
-/* loaded from: classes8.dex */
+/* loaded from: classes18.dex */
 public class WebPImage implements c, b {
     @d
     private long mNativeContext;
@@ -51,15 +51,15 @@ public class WebPImage implements c, b {
         nativeFinalize();
     }
 
-    public static WebPImage D(long j, int i) {
-        com.facebook.imagepipeline.nativecode.b.dRK();
+    public static WebPImage H(long j, int i) {
+        com.facebook.imagepipeline.nativecode.b.dVv();
         g.checkArgument(j != 0);
         return nativeCreateFromNativeMemory(j, i);
     }
 
     @Override // com.facebook.imagepipeline.animated.a.c
-    public b C(long j, int i) {
-        return D(j, i);
+    public b G(long j, int i) {
+        return H(j, i);
     }
 
     @Override // com.facebook.imagepipeline.animated.base.b
@@ -78,7 +78,7 @@ public class WebPImage implements c, b {
     }
 
     @Override // com.facebook.imagepipeline.animated.base.b
-    public int[] dRL() {
+    public int[] dVw() {
         return nativeGetFrameDurations();
     }
 
@@ -89,8 +89,8 @@ public class WebPImage implements c, b {
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.facebook.imagepipeline.animated.base.b
-    /* renamed from: Lw */
-    public WebPFrame Lv(int i) {
+    /* renamed from: Mc */
+    public WebPFrame Mb(int i) {
         return nativeGetFrame(i);
     }
 
@@ -100,17 +100,17 @@ public class WebPImage implements c, b {
     }
 
     @Override // com.facebook.imagepipeline.animated.base.b
-    public boolean dRM() {
+    public boolean dVx() {
         return true;
     }
 
     @Override // com.facebook.imagepipeline.animated.base.b
-    public AnimatedDrawableFrameInfo Lt(int i) {
-        WebPFrame Lv = Lv(i);
+    public AnimatedDrawableFrameInfo LZ(int i) {
+        WebPFrame Mb = Mb(i);
         try {
-            return new AnimatedDrawableFrameInfo(i, Lv.getXOffset(), Lv.getYOffset(), Lv.getWidth(), Lv.getHeight(), Lv.dRO() ? AnimatedDrawableFrameInfo.BlendOperation.BLEND_WITH_PREVIOUS : AnimatedDrawableFrameInfo.BlendOperation.NO_BLEND, Lv.dRN() ? AnimatedDrawableFrameInfo.DisposalMethod.DISPOSE_TO_BACKGROUND : AnimatedDrawableFrameInfo.DisposalMethod.DISPOSE_DO_NOT);
+            return new AnimatedDrawableFrameInfo(i, Mb.getXOffset(), Mb.getYOffset(), Mb.getWidth(), Mb.getHeight(), Mb.dVz() ? AnimatedDrawableFrameInfo.BlendOperation.BLEND_WITH_PREVIOUS : AnimatedDrawableFrameInfo.BlendOperation.NO_BLEND, Mb.dVy() ? AnimatedDrawableFrameInfo.DisposalMethod.DISPOSE_TO_BACKGROUND : AnimatedDrawableFrameInfo.DisposalMethod.DISPOSE_DO_NOT);
         } finally {
-            Lv.dispose();
+            Mb.dispose();
         }
     }
 }

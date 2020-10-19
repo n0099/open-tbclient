@@ -2,7 +2,7 @@ package kotlin.jvm.internal;
 
 import java.io.Serializable;
 @Deprecated
-/* loaded from: classes5.dex */
+/* loaded from: classes10.dex */
 public abstract class FunctionImpl implements Serializable, kotlin.c, kotlin.jvm.a.a, kotlin.jvm.a.b, kotlin.jvm.a.c, kotlin.jvm.a.d, kotlin.jvm.a.e, kotlin.jvm.a.f, kotlin.jvm.a.g, kotlin.jvm.a.h, kotlin.jvm.a.i, kotlin.jvm.a.j, kotlin.jvm.a.k, kotlin.jvm.a.l, kotlin.jvm.a.m, kotlin.jvm.a.n, kotlin.jvm.a.o, kotlin.jvm.a.p, kotlin.jvm.a.q, kotlin.jvm.a.r, kotlin.jvm.a.s, kotlin.jvm.a.t, kotlin.jvm.a.u, kotlin.jvm.a.v, kotlin.jvm.a.w {
     public abstract int getArity();
 

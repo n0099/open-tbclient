@@ -10,7 +10,7 @@ import io.reactivex.y;
 import java.util.concurrent.atomic.AtomicInteger;
 import java.util.concurrent.atomic.AtomicLong;
 import java.util.concurrent.atomic.AtomicReference;
-/* loaded from: classes25.dex */
+/* loaded from: classes17.dex */
 public final class FlowableFlatMapSingle<T, R> extends a<T, R> {
     final boolean delayErrors;
     final h<? super T, ? extends aa<? extends R>> mapper;
@@ -18,10 +18,10 @@ public final class FlowableFlatMapSingle<T, R> extends a<T, R> {
 
     @Override // io.reactivex.g
     protected void a(org.a.c<? super R> cVar) {
-        this.owE.a((j) new FlatMapSingleSubscriber(cVar, this.mapper, this.delayErrors, this.maxConcurrency));
+        this.oLT.a((j) new FlatMapSingleSubscriber(cVar, this.mapper, this.delayErrors, this.maxConcurrency));
     }
 
-    /* loaded from: classes25.dex */
+    /* loaded from: classes17.dex */
     static final class FlatMapSingleSubscriber<T, R> extends AtomicInteger implements j<T>, org.a.d {
         private static final long serialVersionUID = 8600231336733376951L;
         final org.a.c<? super R> actual;
@@ -59,7 +59,7 @@ public final class FlowableFlatMapSingle<T, R> extends a<T, R> {
         @Override // org.a.c
         public void onNext(T t) {
             try {
-                aa aaVar = (aa) io.reactivex.internal.functions.a.k(this.mapper.apply(t), "The mapper returned a null SingleSource");
+                aa aaVar = (aa) io.reactivex.internal.functions.a.l(this.mapper.apply(t), "The mapper returned a null SingleSource");
                 this.active.getAndIncrement();
                 InnerObserver innerObserver = new InnerObserver();
                 if (!this.cancelled && this.set.a(innerObserver)) {
@@ -156,7 +156,7 @@ public final class FlowableFlatMapSingle<T, R> extends a<T, R> {
                 if (aVar != null) {
                     break;
                 }
-                aVar = new io.reactivex.internal.queue.a<>(io.reactivex.g.eiV());
+                aVar = new io.reactivex.internal.queue.a<>(io.reactivex.g.emG());
             } while (!this.queue.compareAndSet(null, aVar));
             return aVar;
         }
@@ -334,7 +334,7 @@ public final class FlowableFlatMapSingle<T, R> extends a<T, R> {
             }
         }
 
-        /* loaded from: classes25.dex */
+        /* loaded from: classes17.dex */
         final class InnerObserver extends AtomicReference<io.reactivex.disposables.b> implements io.reactivex.disposables.b, y<R> {
             private static final long serialVersionUID = -502562646270949838L;
 

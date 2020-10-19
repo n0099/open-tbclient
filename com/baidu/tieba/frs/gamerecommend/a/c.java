@@ -12,16 +12,16 @@ import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.core.util.aq;
 import com.baidu.tieba.card.aa;
 import com.baidu.tieba.card.m;
-/* loaded from: classes21.dex */
+/* loaded from: classes22.dex */
 public class c extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.e.b, com.baidu.tieba.card.a.a<com.baidu.tieba.card.f>> {
-    private aa iqg;
-    private com.baidu.tieba.card.f iqi;
+    private aa iEZ;
+    private com.baidu.tieba.card.f iFb;
     private String mForumId;
     private TbPageContext<?> mPageContext;
 
     /* JADX INFO: Access modifiers changed from: protected */
     public c(TbPageContext tbPageContext, String str) {
-        super(tbPageContext.getPageActivity(), com.baidu.tieba.e.b.hxs);
+        super(tbPageContext.getPageActivity(), com.baidu.tieba.e.b.hMn);
         this.mPageContext = tbPageContext;
         this.mForumId = str;
     }
@@ -29,47 +29,47 @@ public class c extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.e.b, com.
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.widget.ListView.a
-    /* renamed from: aL */
+    /* renamed from: aN */
     public com.baidu.tieba.card.a.a<com.baidu.tieba.card.f> c(ViewGroup viewGroup) {
-        this.iqi = new com.baidu.tieba.card.f(this.mPageContext);
-        return new com.baidu.tieba.card.a.a<>(this.iqi);
+        this.iFb = new com.baidu.tieba.card.f(this.mPageContext);
+        return new com.baidu.tieba.card.a.a<>(this.iFb);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.widget.ListView.a
     public View a(int i, View view, ViewGroup viewGroup, com.baidu.tieba.e.b bVar, com.baidu.tieba.card.a.a<com.baidu.tieba.card.f> aVar) {
-        if (aVar.cfU() == null) {
+        if (aVar.cjq() == null) {
             return null;
         }
-        aVar.cfU().a(bVar);
-        aVar.cfU().onChangeSkinType(this.mPageContext, TbadkCoreApplication.getInst().getSkinType());
-        aVar.cfU().c(new aa<com.baidu.tieba.e.b>() { // from class: com.baidu.tieba.frs.gamerecommend.a.c.1
+        aVar.cjq().a(bVar);
+        aVar.cjq().onChangeSkinType(this.mPageContext, TbadkCoreApplication.getInst().getSkinType());
+        aVar.cjq().c(new aa<com.baidu.tieba.e.b>() { // from class: com.baidu.tieba.frs.gamerecommend.a.c.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.tieba.card.aa
             /* renamed from: b */
             public void a(View view2, com.baidu.tieba.e.b bVar2) {
-                TiebaStatic.log(new aq("c13047").ai("obj_locate", 3).dF("fid", c.this.mForumId));
+                TiebaStatic.log(new aq("c13047").aj("obj_locate", 3).dK("fid", c.this.mForumId));
                 c.this.a(view2, bVar2);
             }
         });
-        return aVar.cfU().getView();
+        return aVar.cjq().getView();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void a(View view, com.baidu.tieba.e.b bVar) {
-        PbActivityConfig createFromThreadCfg = new PbActivityConfig(this.mPageContext.getPageActivity()).createFromThreadCfg(bVar.bcY(), null, m.bfk(), RequestResponseCode.REQUEST_FRS_TO_PB, true, false, false);
-        createFromThreadCfg.setForumId(String.valueOf(bVar.bcY().getFid()));
-        createFromThreadCfg.setForumName(bVar.bcY().bfC());
+        PbActivityConfig createFromThreadCfg = new PbActivityConfig(this.mPageContext.getPageActivity()).createFromThreadCfg(bVar.bfG(), null, m.bhT(), RequestResponseCode.REQUEST_FRS_TO_PB, true, false, false);
+        createFromThreadCfg.setForumId(String.valueOf(bVar.bfG().getFid()));
+        createFromThreadCfg.setForumName(bVar.bfG().bil());
         createFromThreadCfg.setStartFrom(0);
-        m.Hw(bVar.bcY().getTid());
+        m.Ij(bVar.bfG().getTid());
         this.mPageContext.sendMessage(new CustomMessage((int) CmdConfigCustom.START_PB_ACTIVITY, createFromThreadCfg));
-        if (this.iqg != null) {
-            this.iqg.a(view, bVar);
+        if (this.iEZ != null) {
+            this.iEZ.a(view, bVar);
         }
     }
 
     public void d(aa aaVar) {
-        this.iqg = aaVar;
+        this.iEZ = aaVar;
     }
 }

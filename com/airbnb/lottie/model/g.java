@@ -6,13 +6,13 @@ import android.support.annotation.VisibleForTesting;
 import android.support.v4.util.LruCache;
 import com.baidu.android.common.logging.Log;
 @RestrictTo({RestrictTo.Scope.LIBRARY})
-/* loaded from: classes6.dex */
+/* loaded from: classes10.dex */
 public class g {
-    private static final g Et = new g();
-    private final LruCache<String, com.airbnb.lottie.e> Eu = new LruCache<>(Log.FILE_LIMETE);
+    private static final g EL = new g();
+    private final LruCache<String, com.airbnb.lottie.e> EM = new LruCache<>(Log.FILE_LIMETE);
 
-    public static g jB() {
-        return Et;
+    public static g jC() {
+        return EL;
     }
 
     @VisibleForTesting
@@ -24,12 +24,12 @@ public class g {
         if (str == null) {
             return null;
         }
-        return this.Eu.get(str);
+        return this.EM.get(str);
     }
 
     public void a(@Nullable String str, com.airbnb.lottie.e eVar) {
         if (str != null) {
-            this.Eu.put(str, eVar);
+            this.EM.put(str, eVar);
         }
     }
 }

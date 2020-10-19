@@ -17,7 +17,7 @@ import java.net.URLEncoder;
 import java.util.Map;
 import java.util.zip.GZIPInputStream;
 import javax.net.ssl.HttpsURLConnection;
-/* loaded from: classes11.dex */
+/* loaded from: classes18.dex */
 public abstract class a<T> {
     protected int aj = 0;
     private boolean ak = false;

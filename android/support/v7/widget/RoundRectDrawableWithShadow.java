@@ -14,7 +14,7 @@ import android.graphics.Shader;
 import android.graphics.drawable.Drawable;
 import android.support.annotation.Nullable;
 import android.support.v7.cardview.R;
-/* loaded from: classes12.dex */
+/* loaded from: classes14.dex */
 class RoundRectDrawableWithShadow extends Drawable {
     private static final double COS_45 = Math.cos(Math.toRadians(45.0d));
     private static final float SHADOW_MULTIPLIER = 1.5f;
@@ -36,7 +36,7 @@ class RoundRectDrawableWithShadow extends Drawable {
     private boolean mPrintedShadowClipWarning = false;
     private Paint mPaint = new Paint(5);
 
-    /* loaded from: classes12.dex */
+    /* loaded from: classes14.dex */
     interface RoundRectHelper {
         void drawRoundRect(Canvas canvas, RectF rectF, float f, Paint paint);
     }

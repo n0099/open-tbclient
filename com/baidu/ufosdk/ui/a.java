@@ -3,12 +3,14 @@ package com.baidu.ufosdk.ui;
 import android.content.Context;
 import android.widget.LinearLayout;
 import java.util.ArrayList;
-/* loaded from: classes21.dex */
+/* loaded from: classes22.dex */
 public final class a {
     private Context c;
     private d e;
     private int f = 0;
-    private ArrayList a = new ArrayList();
+
+    /* renamed from: a  reason: collision with root package name */
+    private ArrayList f3740a = new ArrayList();
     private ArrayList b = new ArrayList();
     private ArrayList d = new ArrayList();
 
@@ -21,7 +23,7 @@ public final class a {
     private void a(ArrayList arrayList) {
         for (int i = 0; i < arrayList.size(); i++) {
             if ((i + 1) % 2 == 1) {
-                this.a.add(arrayList.get(i));
+                this.f3740a.add(arrayList.get(i));
             } else {
                 this.b.add(arrayList.get(i));
             }
@@ -37,12 +39,12 @@ public final class a {
         int i = 0;
         while (true) {
             int i2 = i;
-            if (i2 >= this.a.size()) {
+            if (i2 >= this.f3740a.size()) {
                 return linearLayout;
             }
             e eVar = new e(this.c);
             eVar.a();
-            eVar.a((String) this.a.get(i2));
+            eVar.a((String) this.f3740a.get(i2));
             eVar.a(com.baidu.ufosdk.b.U);
             linearLayout.addView(eVar, layoutParams);
             eVar.setOnClickListener(new b(this, eVar));

@@ -1,7 +1,7 @@
 package com.baidu.swan.apps.performance.a;
-/* loaded from: classes3.dex */
+/* loaded from: classes10.dex */
 public class a {
-    private String bWX;
+    private String cjm;
     private long mEnd;
     private long mStart;
 
@@ -22,18 +22,18 @@ public class a {
     }
 
     public String getApiName() {
-        return this.bWX;
+        return this.cjm;
     }
 
-    public void pI(String str) {
-        this.bWX = str;
+    public void qu(String str) {
+        this.cjm = str;
     }
 
-    public long aiT() {
+    public long alE() {
         return this.mEnd - this.mStart;
     }
 
     public String toString() {
-        return "ApiCalledInfo{mApiName='" + this.bWX + "', mStart=" + this.mStart + ", mEnd=" + this.mEnd + '}';
+        return "ApiCalledInfo{mApiName='" + this.cjm + "', mStart=" + this.mStart + ", mEnd=" + this.mEnd + '}';
     }
 }

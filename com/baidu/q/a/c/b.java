@@ -1,16 +1,16 @@
 package com.baidu.q.a.c;
 
 import java.io.ByteArrayOutputStream;
-/* loaded from: classes25.dex */
+/* loaded from: classes5.dex */
 public class b {
-    private String axu;
-    private boolean axv;
-    private boolean axw;
+    private String ayd;
+    private boolean aye;
+    private boolean ayf;
 
     public b(String str, boolean z, boolean z2) {
-        this.axu = str;
-        this.axv = z;
-        this.axw = z2;
+        this.ayd = str;
+        this.aye = z;
+        this.ayf = z2;
     }
 
     private static int dt(int i) {
@@ -54,13 +54,13 @@ public class b {
             iArr[6] = (byte) (((sArr[3] & 3) << 3) | ((sArr[4] >> 5) & 7));
             iArr[7] = (byte) (sArr[4] & 31);
             for (int i4 = 0; i4 < iArr.length - dt; i4++) {
-                char charAt = this.axu.charAt(iArr[i4]);
-                if (this.axw) {
+                char charAt = this.ayd.charAt(iArr[i4]);
+                if (this.ayf) {
                     charAt = Character.toLowerCase(charAt);
                 }
                 byteArrayOutputStream.write(charAt);
             }
-            if (this.axv) {
+            if (this.aye) {
                 for (int length = iArr.length - dt; length < iArr.length; length++) {
                     byteArrayOutputStream.write(61);
                 }

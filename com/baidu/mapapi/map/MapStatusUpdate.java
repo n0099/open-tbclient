@@ -7,10 +7,12 @@ import com.baidu.mapapi.model.CoordUtil;
 import com.baidu.mapapi.model.LatLng;
 import com.baidu.mapapi.model.LatLngBounds;
 import com.baidu.platform.comapi.basestruct.GeoPoint;
-/* loaded from: classes3.dex */
+/* loaded from: classes7.dex */
 public final class MapStatusUpdate {
     private static final String o = MapStatusUpdate.class.getSimpleName();
-    MapStatus a;
+
+    /* renamed from: a  reason: collision with root package name */
+    MapStatus f2022a;
     LatLng b;
     LatLngBounds c;
     int d;
@@ -48,7 +50,7 @@ public final class MapStatusUpdate {
     private MapStatusUpdate a(MapStatus mapStatus) {
         MapStatusUpdate mapStatusUpdate = new MapStatusUpdate();
         synchronized (this) {
-            mapStatusUpdate.a = mapStatus;
+            mapStatusUpdate.f2022a = mapStatus;
             mapStatusUpdate.c = this.c;
             mapStatusUpdate.k = this.k;
             mapStatusUpdate.l = this.l;
@@ -90,7 +92,7 @@ public final class MapStatusUpdate {
         }
         switch (this.p) {
             case 1:
-                return this.a;
+                return this.f2022a;
             case 2:
                 return new MapStatus(mapStatus.rotate, this.b, mapStatus.overlook, mapStatus.zoom, mapStatus.targetScreen, null);
             case 3:
@@ -99,8 +101,8 @@ public final class MapStatusUpdate {
                 }
                 GeoPoint ll2mc = CoordUtil.ll2mc(this.c.southwest);
                 GeoPoint ll2mc2 = CoordUtil.ll2mc(this.c.northeast);
-                float a = dVar.a((int) ll2mc.getLongitudeE6(), (int) ll2mc2.getLatitudeE6(), (int) ll2mc2.getLongitudeE6(), (int) ll2mc.getLatitudeE6(), mapStatus.a.j.right - mapStatus.a.j.left, mapStatus.a.j.bottom - mapStatus.a.j.top);
-                return new MapStatus(mapStatus.rotate, this.c.getCenter(), mapStatus.overlook, a, mapStatus.targetScreen, null);
+                float a2 = dVar.a((int) ll2mc.getLongitudeE6(), (int) ll2mc2.getLatitudeE6(), (int) ll2mc2.getLongitudeE6(), (int) ll2mc.getLatitudeE6(), mapStatus.f2020a.j.right - mapStatus.f2020a.j.left, mapStatus.f2020a.j.bottom - mapStatus.f2020a.j.top);
+                return new MapStatus(mapStatus.rotate, this.c.getCenter(), mapStatus.overlook, a2, mapStatus.targetScreen, null);
             case 4:
                 return new MapStatus(mapStatus.rotate, this.b, mapStatus.overlook, this.f, mapStatus.targetScreen, null);
             case 5:
@@ -118,8 +120,8 @@ public final class MapStatusUpdate {
                 }
                 GeoPoint ll2mc3 = CoordUtil.ll2mc(this.c.southwest);
                 GeoPoint ll2mc4 = CoordUtil.ll2mc(this.c.northeast);
-                float a2 = dVar.a((int) ll2mc3.getLongitudeE6(), (int) ll2mc4.getLatitudeE6(), (int) ll2mc4.getLongitudeE6(), (int) ll2mc3.getLatitudeE6(), this.d, this.e);
-                return new MapStatus(mapStatus.rotate, this.c.getCenter(), mapStatus.overlook, a2, mapStatus.targetScreen, null);
+                float a3 = dVar.a((int) ll2mc3.getLongitudeE6(), (int) ll2mc4.getLatitudeE6(), (int) ll2mc4.getLongitudeE6(), (int) ll2mc3.getLatitudeE6(), this.d, this.e);
+                return new MapStatus(mapStatus.rotate, this.c.getCenter(), mapStatus.overlook, a3, mapStatus.targetScreen, null);
             case 10:
                 if (this.c == null) {
                     return null;
@@ -134,20 +136,20 @@ public final class MapStatusUpdate {
                     F = dVar.F();
                     Log.e(o, "Bound paddingTop or paddingBottom too larger, please check");
                 }
-                float a3 = a(this.c, dVar, E, F);
-                LatLng a4 = a(this.c, dVar, a(a3));
-                if (a4 == null) {
+                float a4 = a(this.c, dVar, E, F);
+                LatLng a5 = a(this.c, dVar, a(a4));
+                if (a5 == null) {
                     Log.e(o, "Bound center error");
                     return null;
                 }
-                boolean a5 = a(this.c, dVar);
-                boolean a6 = a(this.k, this.l, this.m, this.n, dVar);
-                if (a5 || a6) {
-                    MapStatus mapStatus2 = new MapStatus(mapStatus.rotate, a4, mapStatus.overlook, a3, null, null);
+                boolean a6 = a(this.c, dVar);
+                boolean a7 = a(this.k, this.l, this.m, this.n, dVar);
+                if (a6 || a7) {
+                    MapStatus mapStatus2 = new MapStatus(mapStatus.rotate, a5, mapStatus.overlook, a4, null, null);
                     dVar.a(a(mapStatus2));
                     return mapStatus2;
                 } else if (dVar.D() != null) {
-                    return dVar.D().a;
+                    return dVar.D().f2022a;
                 } else {
                     return null;
                 }
@@ -167,9 +169,9 @@ public final class MapStatusUpdate {
                 }
                 GeoPoint ll2mc5 = CoordUtil.ll2mc(this.c.southwest);
                 GeoPoint ll2mc6 = CoordUtil.ll2mc(this.c.northeast);
-                float a7 = dVar.a((int) ll2mc5.getLongitudeE6(), (int) ll2mc6.getLatitudeE6(), (int) ll2mc6.getLongitudeE6(), (int) ll2mc5.getLatitudeE6(), E2, F2);
+                float a8 = dVar.a((int) ll2mc5.getLongitudeE6(), (int) ll2mc6.getLatitudeE6(), (int) ll2mc6.getLongitudeE6(), (int) ll2mc5.getLatitudeE6(), E2, F2);
                 Point point = new Point(this.k + (E2 / 2), this.l + (F2 / 2));
-                return new MapStatus(mapStatus.rotate, this.c.getCenter(), mapStatus.overlook, a7, point, null);
+                return new MapStatus(mapStatus.rotate, this.c.getCenter(), mapStatus.overlook, a8, point, null);
             default:
                 return null;
         }

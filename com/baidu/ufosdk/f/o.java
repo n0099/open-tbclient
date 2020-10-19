@@ -12,7 +12,7 @@ import java.io.ByteArrayOutputStream;
 import java.io.InputStream;
 import java.io.OutputStream;
 import java.lang.reflect.Field;
-/* loaded from: classes21.dex */
+/* loaded from: classes22.dex */
 public final class o {
     private static int a(byte[] bArr, int i) {
         return bArr[i + 0] | (bArr[i + 1] << 8) | (bArr[i + 2] << 16) | (bArr[i + 3] << 24);
@@ -22,13 +22,13 @@ public final class o {
         Bitmap bitmap;
         InputStream open = context.getAssets().open("ufo_res/" + str);
         Bitmap decodeStream = BitmapFactory.decodeStream(open);
-        byte[] a = a(decodeStream);
-        if (NinePatch.isNinePatchChunk(a)) {
+        byte[] a2 = a(decodeStream);
+        if (NinePatch.isNinePatchChunk(a2)) {
             bitmap = Bitmap.createBitmap(decodeStream, 1, 1, decodeStream.getWidth() - 2, decodeStream.getHeight() - 2);
             decodeStream.recycle();
             Field declaredField = bitmap.getClass().getDeclaredField("mNinePatchChunk");
             declaredField.setAccessible(true);
-            declaredField.set(bitmap, a);
+            declaredField.set(bitmap, a2);
         } else {
             bitmap = decodeStream;
         }

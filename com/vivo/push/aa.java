@@ -5,9 +5,11 @@ import android.os.Handler;
 import android.os.HandlerThread;
 import android.os.Looper;
 import android.os.Message;
-/* loaded from: classes12.dex */
+/* loaded from: classes15.dex */
 public abstract class aa {
-    protected Context a;
+
+    /* renamed from: a  reason: collision with root package name */
+    protected Context f4630a;
     protected Handler b;
     private final Object c = new Object();
 
@@ -20,7 +22,7 @@ public abstract class aa {
     }
 
     public final void a(Context context) {
-        this.a = context;
+        this.f4630a = context;
     }
 
     public final void a(Message message) {
@@ -33,7 +35,7 @@ public abstract class aa {
         }
     }
 
-    /* loaded from: classes12.dex */
+    /* loaded from: classes15.dex */
     class a extends Handler {
         public a(Looper looper) {
             super(looper);

@@ -10,13 +10,13 @@ import android.util.Log;
 /* loaded from: classes11.dex */
 public class e {
     public static boolean b;
-    public static volatile e omK;
+    public static volatile e oCd;
     public Boolean g;
-    public BroadcastReceiver omP;
-    public a omL = new a("udid");
-    public a omM = new a("oaid");
-    public a omO = new a("vaid");
-    public a omN = new a("aaid");
+    public BroadcastReceiver oCi;
+    public a oCe = new a("udid");
+    public a oCf = new a("oaid");
+    public a oCh = new a("vaid");
+    public a oCg = new a("aaid");
 
     public static c A(Cursor cursor) {
         c cVar = new c(null, 0);
@@ -28,7 +28,7 @@ public class e {
             cursor.moveToFirst();
             int columnIndex = cursor.getColumnIndex("value");
             if (columnIndex >= 0) {
-                cVar.a = cursor.getString(columnIndex);
+                cVar.f4450a = cursor.getString(columnIndex);
             } else {
                 a("parseValue fail, index < 0.");
             }
@@ -54,27 +54,27 @@ public class e {
         }
     }
 
-    public static final e eeZ() {
-        if (omK == null) {
+    public static final e eiK() {
+        if (oCd == null) {
             synchronized (e.class) {
-                omK = new e();
+                oCd = new e();
             }
         }
-        return omK;
+        return oCd;
     }
 
-    public a VL(String str) {
+    public a Wz(String str) {
         if ("oaid".equals(str)) {
-            return this.omM;
+            return this.oCf;
         }
         if ("vaid".equals(str)) {
-            return this.omO;
+            return this.oCh;
         }
         if ("aaid".equals(str)) {
-            return this.omN;
+            return this.oCg;
         }
         if ("udid".equals(str)) {
-            return this.omL;
+            return this.oCe;
         }
         return null;
     }
@@ -139,7 +139,7 @@ public class e {
         }
         if (parse != 0) {
             c A = A(parse);
-            str2 = A.a;
+            str2 = A.f4450a;
             try {
                 aVar.a(str2);
                 aVar.a(A.c);
@@ -186,11 +186,11 @@ public class e {
     }
 
     public final synchronized void a(Context context) {
-        if (this.omP == null) {
+        if (this.oCi == null) {
             IntentFilter intentFilter = new IntentFilter();
             intentFilter.addAction("com.meizu.flyme.openid.ACTION_OPEN_ID_CHANGE");
-            this.omP = new d();
-            context.registerReceiver(this.omP, intentFilter, "com.meizu.flyme.openid.permission.OPEN_ID_CHANGE", null);
+            this.oCi = new d();
+            context.registerReceiver(this.oCi, intentFilter, "com.meizu.flyme.openid.permission.OPEN_ID_CHANGE", null);
         }
     }
 
@@ -251,7 +251,7 @@ public class e {
         }
         if (cursor != null) {
             try {
-                String str2 = A(cursor).a;
+                String str2 = A(cursor).f4450a;
                 cursor.close();
                 str = str2;
             } catch (Exception e3) {

@@ -44,7 +44,7 @@ import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
 import org.json.JSONObject;
-/* loaded from: classes9.dex */
+/* loaded from: classes5.dex */
 public class ChatSessionManagerImpl extends ChatMsgManagerImpl {
     private static final String TAG = "SessionManagerImpl";
     private static volatile ChatSessionManagerImpl mInstance;
@@ -222,11 +222,11 @@ public class ChatSessionManagerImpl extends ChatMsgManagerImpl {
                             }
                             LogUtils.d(TAG, "FXF triggerChatSessionChange " + state + " " + z + " chattype: " + chatSession.getChatType() + " id is: " + chatSession.getContacter());
                             LogUtils.d(TAG, "FXF triggerChatSessionChange lastmsg is: " + chatSession.getLastMsg());
-                            next.onChatSessionUpdate(chatSession.m16clone(), z);
+                            next.onChatSessionUpdate(chatSession.m15clone(), z);
                         } else {
                             int state2 = SyncAllMessage.getInstance(mContext).getState();
                             boolean z2 = state2 == 0;
-                            next.onChatSessionUpdate(chatSession.m16clone(), z2);
+                            next.onChatSessionUpdate(chatSession.m15clone(), z2);
                             LogUtils.d(TAG, "FXF triggerChatSessionChange " + state2 + " " + z2 + " chattype: " + chatSession.getChatType() + " id is: " + chatSession.getContacter());
                         }
                     } catch (CloneNotSupportedException e) {
@@ -462,7 +462,7 @@ public class ChatSessionManagerImpl extends ChatMsgManagerImpl {
             creatMethodIntent.putExtra(Constants.EXTRA_CLIENT_MAX_MSGID, maxMsgid);
             creatMethodIntent.putExtra(Constants.EXTRA_LISTENER_ID, addListener);
             try {
-                a.al(mContext).e(mContext, creatMethodIntent);
+                a.ao(mContext).e(mContext, creatMethodIntent);
             } catch (Exception e) {
                 onSyncDialogResult(1003, Constants.ERROR_MSG_SERVICE_ERROR, addListener, maxMsgid, null);
                 LogUtils.e(TAG, "Exception ", e);
@@ -619,7 +619,7 @@ public class ChatSessionManagerImpl extends ChatMsgManagerImpl {
         LogUtils.d(TAG, "BC> contactor=" + j + ", contactorType" + i + ", contactorPauid" + j2 + ", contactorThirdid" + str + ", operation" + i2 + ", listener=" + iMediaContactorSettingListener);
         if (AccountManager.isLogin(mContext) && !AccountManager.isCuidLogin(mContext)) {
             if (AccountManager.getMediaRole(mContext)) {
-                IMMediaContactorSettingRequest iMMediaContactorSettingRequest = new IMMediaContactorSettingRequest(mContext, j, i2, ListenerManager.getInstance().addListener(iMediaContactorSettingListener));
+                IMMediaContactorSettingRequest iMMediaContactorSettingRequest = new IMMediaContactorSettingRequest(mContext, j, i, j2, str, i2, ListenerManager.getInstance().addListener(iMediaContactorSettingListener));
                 HttpHelper.executor(mContext, iMMediaContactorSettingRequest, iMMediaContactorSettingRequest);
             } else if (iMediaContactorSettingListener != null) {
                 iMediaContactorSettingListener.onMediaContactorSettingResult(2000, Constants.ERROR_MSG_NOT_MEDIA_ROLE_ERROR, -1);

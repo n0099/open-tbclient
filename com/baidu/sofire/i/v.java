@@ -8,7 +8,7 @@ import com.xiaomi.mipush.sdk.Constants;
 import java.nio.ByteBuffer;
 import java.util.Random;
 import java.util.UUID;
-/* loaded from: classes12.dex */
+/* loaded from: classes15.dex */
 public final class v {
     public static byte[] a(int i) {
         return new byte[]{(byte) ((i >> 24) & 255), (byte) ((i >> 16) & 255), (byte) ((i >> 8) & 255), (byte) (i & 255)};
@@ -32,7 +32,7 @@ public final class v {
     public static byte[] a(Context context) {
         byte b;
         String str;
-        int a;
+        int a2;
         ByteBuffer allocate = ByteBuffer.allocate(32);
         try {
             String f = h.f(context);
@@ -63,17 +63,17 @@ public final class v {
             } else {
                 str = "baidu.sofire" + str2;
             }
-            byte[] a2 = a(h.a(str.getBytes(), false));
+            byte[] a3 = a(h.a(str.getBytes(), false));
             if (!TextUtils.isEmpty(e) || !TextUtils.isEmpty(cuid)) {
                 if (!TextUtils.isEmpty(e)) {
-                    a = (int) f.a(e);
+                    a2 = (int) f.a(e);
                 } else {
-                    a = !TextUtils.isEmpty(cuid) ? (int) f.a(cuid) : 0;
+                    a2 = !TextUtils.isEmpty(cuid) ? (int) f.a(cuid) : 0;
                 }
             } else {
-                a = (int) f.a(UUID.randomUUID().toString());
+                a2 = (int) f.a(UUID.randomUUID().toString());
             }
-            byte[] a3 = a(a);
+            byte[] a4 = a(a2);
             byte[] bArr = new byte[9];
             if (TextUtils.isEmpty(b2)) {
                 System.arraycopy(a(UUID.randomUUID().toString().replace(Constants.ACCEPT_TIME_SEPARATOR_SERVER, "")), 0, bArr, 0, 9);
@@ -81,8 +81,8 @@ public final class v {
                 System.arraycopy(a(c.a(b2.replace(Constants.ACCEPT_TIME_SEPARATOR_SERVER, ""))), 0, bArr, 0, 8);
                 bArr[8] = (byte) new Random().nextInt(127);
             }
-            allocate.put(a2);
             allocate.put(a3);
+            allocate.put(a4);
             allocate.put(bArr);
             allocate.put(new byte[]{0, 3});
             allocate.put(new byte[]{b});

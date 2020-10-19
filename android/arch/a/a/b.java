@@ -7,16 +7,16 @@ import android.support.annotation.RestrictTo;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
-/* loaded from: classes25.dex */
+/* loaded from: classes15.dex */
 public class b extends c {
     @Nullable
     private volatile Handler mMainHandler;
     private final Object mLock = new Object();
-    private ExecutorService yy = Executors.newFixedThreadPool(2);
+    private ExecutorService yP = Executors.newFixedThreadPool(2);
 
     @Override // android.arch.a.a.c
     public void c(Runnable runnable) {
-        this.yy.execute(runnable);
+        this.yP.execute(runnable);
     }
 
     @Override // android.arch.a.a.c

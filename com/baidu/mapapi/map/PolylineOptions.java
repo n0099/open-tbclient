@@ -6,9 +6,11 @@ import android.util.Log;
 import com.baidu.mapapi.model.LatLng;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes3.dex */
+/* loaded from: classes7.dex */
 public final class PolylineOptions extends OverlayOptions {
-    int a;
+
+    /* renamed from: a  reason: collision with root package name */
+    int f2037a;
     Bundle c;
     private List<LatLng> e;
     private List<Integer> f;
@@ -27,13 +29,13 @@ public final class PolylineOptions extends OverlayOptions {
     private LineCapType q = LineCapType.LineCapButt;
     private boolean r = true;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes7.dex */
     public enum LineCapType {
         LineCapButt,
         LineCapRound
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes7.dex */
     public enum LineJoinType {
         LineJoinBevel,
         LineJoinMiter,
@@ -48,13 +50,13 @@ public final class PolylineOptions extends OverlayOptions {
         Polyline polyline = new Polyline();
         polyline.B = this.b;
         polyline.f = this.m;
-        polyline.A = this.a;
+        polyline.A = this.f2037a;
         polyline.C = this.c;
         if (this.e == null || this.e.size() < 2) {
             throw new IllegalStateException("BDMapSDKException: when you add polyline, you must at least supply 2 points");
         }
         polyline.b = this.e;
-        polyline.a = this.d;
+        polyline.f2035a = this.d;
         polyline.e = this.h;
         polyline.j = this.i;
         polyline.k = this.j;
@@ -182,7 +184,7 @@ public final class PolylineOptions extends OverlayOptions {
     }
 
     public int getZIndex() {
-        return this.a;
+        return this.f2037a;
     }
 
     public boolean isDottedLine() {
@@ -255,7 +257,7 @@ public final class PolylineOptions extends OverlayOptions {
     }
 
     public PolylineOptions zIndex(int i) {
-        this.a = i;
+        this.f2037a = i;
         return this;
     }
 }

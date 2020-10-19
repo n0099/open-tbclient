@@ -1,4 +1,4 @@
 package com.baidu.tieba.pb.pb.main;
-/* loaded from: classes21.dex */
+/* loaded from: classes22.dex */
 public interface e {
 }

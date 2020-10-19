@@ -7,13 +7,13 @@ import java.io.InputStream;
 import java.util.Stack;
 import java.util.zip.ZipEntry;
 import java.util.zip.ZipInputStream;
-/* loaded from: classes8.dex */
+/* loaded from: classes11.dex */
 public class ZipUtils implements INoProGuard {
     private static ZipUtils singleton;
     private ZipEntry nextEntry;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes8.dex */
+    /* loaded from: classes11.dex */
     public class a extends ZipInputStream {
         public a(InputStream inputStream) {
             super(inputStream);

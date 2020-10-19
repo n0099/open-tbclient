@@ -4,7 +4,7 @@ import android.view.animation.Interpolator;
 import com.nineoldandroids.animation.Keyframe;
 import java.util.ArrayList;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes14.dex */
+/* loaded from: classes9.dex */
 public class IntKeyframeSet extends KeyframeSet {
     private int deltaValue;
     private boolean firstTime;
@@ -28,7 +28,7 @@ public class IntKeyframeSet extends KeyframeSet {
         int size = this.mKeyframes.size();
         Keyframe.IntKeyframe[] intKeyframeArr = new Keyframe.IntKeyframe[size];
         for (int i = 0; i < size; i++) {
-            intKeyframeArr[i] = (Keyframe.IntKeyframe) arrayList.get(i).m51clone();
+            intKeyframeArr[i] = (Keyframe.IntKeyframe) arrayList.get(i).m52clone();
         }
         return new IntKeyframeSet(intKeyframeArr);
     }

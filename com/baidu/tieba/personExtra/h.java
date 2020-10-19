@@ -14,9 +14,9 @@ import com.baidu.tieba.R;
 import java.util.Iterator;
 import java.util.List;
 import tbclient.SmartApp;
-/* loaded from: classes23.dex */
+/* loaded from: classes24.dex */
 public class h extends RecyclerView.Adapter<a> {
-    private View.OnLongClickListener lsX;
+    private View.OnLongClickListener lIk;
     private Context mContext;
     private List<SmartApp> mDataList;
     private View.OnClickListener mOnItemClickListener;
@@ -25,11 +25,11 @@ public class h extends RecyclerView.Adapter<a> {
         this.mContext = context;
     }
 
-    public void aO(List<SmartApp> list) {
+    public void aR(List<SmartApp> list) {
         this.mDataList = list;
     }
 
-    public SmartApp OY(String str) {
+    public SmartApp PN(String str) {
         if (y.isEmpty(this.mDataList)) {
             return null;
         }
@@ -49,23 +49,23 @@ public class h extends RecyclerView.Adapter<a> {
     }
 
     public void d(View.OnLongClickListener onLongClickListener) {
-        this.lsX = onLongClickListener;
+        this.lIk = onLongClickListener;
     }
 
-    private SmartApp FO(int i) {
+    private SmartApp Gu(int i) {
         return (SmartApp) y.getItem(this.mDataList, i);
     }
 
     public void a(SmartApp smartApp) {
-        SmartApp OY = OY(smartApp.id);
-        if (OY != null && this.mDataList != null) {
-            y.add(this.mDataList, 0, OY);
+        SmartApp PN = PN(smartApp.id);
+        if (PN != null && this.mDataList != null) {
+            y.add(this.mDataList, 0, PN);
         }
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // android.support.v7.widget.RecyclerView.Adapter
-    /* renamed from: J */
+    /* renamed from: L */
     public a onCreateViewHolder(ViewGroup viewGroup, int i) {
         return new a(LayoutInflater.from(this.mContext).inflate(R.layout.smart_app_history_record_item, viewGroup, false));
     }
@@ -74,11 +74,11 @@ public class h extends RecyclerView.Adapter<a> {
     @Override // android.support.v7.widget.RecyclerView.Adapter
     /* renamed from: a */
     public void onBindViewHolder(a aVar, int i) {
-        SmartApp FO;
-        if (aVar != null && (FO = FO(i)) != null) {
-            aVar.b(FO);
+        SmartApp Gu;
+        if (aVar != null && (Gu = Gu(i)) != null) {
+            aVar.b(Gu);
             aVar.setOnClickListener(this.mOnItemClickListener);
-            aVar.setOnLongClickListener(this.lsX);
+            aVar.setOnLongClickListener(this.lIk);
             aVar.onChangeSkinType();
         }
     }
@@ -88,28 +88,28 @@ public class h extends RecyclerView.Adapter<a> {
         return y.getCount(this.mDataList);
     }
 
-    /* loaded from: classes23.dex */
+    /* loaded from: classes24.dex */
     public static class a extends RecyclerView.ViewHolder {
-        private HeadImageView jPu;
-        private SmartApp lsY;
+        private HeadImageView kes;
+        private SmartApp lIl;
         private TextView mName;
         private View mRootView;
 
         public a(View view) {
             super(view);
             this.mRootView = view;
-            this.jPu = (HeadImageView) view.findViewById(R.id.iv_smart_app_history_record_item_head);
-            this.jPu.setIsRound(true);
-            this.jPu.setPlaceHolder(1);
+            this.kes = (HeadImageView) view.findViewById(R.id.iv_smart_app_history_record_item_head);
+            this.kes.setIsRound(true);
+            this.kes.setPlaceHolder(1);
             this.mName = (TextView) view.findViewById(R.id.tv_smart_app_history_record_item_name);
         }
 
         public void b(SmartApp smartApp) {
-            this.lsY = smartApp;
+            this.lIl = smartApp;
             this.mRootView.setTag(smartApp);
             if (!at.isEmpty(smartApp.avatar)) {
-                this.jPu.setPlaceHolder(1);
-                this.jPu.startLoad(smartApp.avatar, 10, false, false);
+                this.kes.setPlaceHolder(1);
+                this.kes.startLoad(smartApp.avatar, 10, false, false);
             }
             if (!at.isEmpty(smartApp.name)) {
                 this.mName.setText(smartApp.name);
@@ -132,7 +132,7 @@ public class h extends RecyclerView.Adapter<a> {
 
         public void onChangeSkinType() {
             ap.setBackgroundResource(this.mRootView, R.drawable.person_center_action_item_selector);
-            ap.setViewTextColor(this.mName, (int) R.color.cp_cont_b);
+            ap.setViewTextColor(this.mName, R.color.cp_cont_b);
         }
     }
 }

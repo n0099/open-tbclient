@@ -1,10 +1,10 @@
 package com.baidu.tieba.im.db.pojo;
 /* loaded from: classes.dex */
 public class a {
-    private long cra;
+    private long cDo;
     private String forumName;
     private String gid;
-    private String jvf;
+    private String jKc;
     private int unReadCount;
     private int userType;
 
@@ -24,12 +24,12 @@ public class a {
         this.unReadCount = i;
     }
 
-    public String cIc() {
-        return this.jvf;
+    public String cLL() {
+        return this.jKc;
     }
 
-    public void Lg(String str) {
-        this.jvf = str;
+    public void LV(String str) {
+        this.jKc = str;
     }
 
     public String getForumName() {
@@ -48,11 +48,11 @@ public class a {
         this.userType = i;
     }
 
-    public long cFN() {
-        return this.cra;
+    public long cJw() {
+        return this.cDo;
     }
 
-    public void fp(long j) {
-        this.cra = j;
+    public void fH(long j) {
+        this.cDo = j;
     }
 }

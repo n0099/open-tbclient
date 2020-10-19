@@ -3,7 +3,7 @@ package com.facebook.rebound.ui;
 import android.content.res.Resources;
 import android.util.TypedValue;
 import android.widget.FrameLayout;
-/* loaded from: classes17.dex */
+/* loaded from: classes11.dex */
 public abstract class Util {
     public static final int dpToPx(float f, Resources resources) {
         return (int) TypedValue.applyDimension(1, f, resources.getDisplayMetrics());

@@ -1,5 +1,5 @@
 package com.alibaba.fastjson;
-/* loaded from: classes10.dex */
+/* loaded from: classes5.dex */
 class JSONStreamContext {
     static final int ArrayValue = 1005;
     static final int PropertyKey = 1002;

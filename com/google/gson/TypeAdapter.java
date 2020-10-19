@@ -8,7 +8,7 @@ import java.io.Reader;
 import java.io.StringReader;
 import java.io.StringWriter;
 import java.io.Writer;
-/* loaded from: classes23.dex */
+/* loaded from: classes17.dex */
 public abstract class TypeAdapter<T> {
     public abstract T read(a aVar) throws IOException;
 
@@ -23,7 +23,7 @@ public abstract class TypeAdapter<T> {
             @Override // com.google.gson.TypeAdapter
             public void write(b bVar, T t) throws IOException {
                 if (t == null) {
-                    bVar.ebL();
+                    bVar.efw();
                 } else {
                     TypeAdapter.this.write(bVar, t);
                 }
@@ -31,8 +31,8 @@ public abstract class TypeAdapter<T> {
 
             @Override // com.google.gson.TypeAdapter
             public T read(a aVar) throws IOException {
-                if (aVar.ebw() == JsonToken.NULL) {
-                    aVar.ebB();
+                if (aVar.efh() == JsonToken.NULL) {
+                    aVar.efm();
                     return null;
                 }
                 return (T) TypeAdapter.this.read(aVar);
@@ -54,7 +54,7 @@ public abstract class TypeAdapter<T> {
         try {
             com.google.gson.internal.bind.b bVar = new com.google.gson.internal.bind.b();
             write(bVar, t);
-            return bVar.ebF();
+            return bVar.efq();
         } catch (IOException e) {
             throw new JsonIOException(e);
         }

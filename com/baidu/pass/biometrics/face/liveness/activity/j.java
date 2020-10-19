@@ -1,29 +1,31 @@
 package com.baidu.pass.biometrics.face.liveness.activity;
 
 import com.baidu.pass.biometrics.base.debug.Log;
-/* loaded from: classes8.dex */
+/* loaded from: classes18.dex */
 class j implements Runnable {
-    final /* synthetic */ LivenessRecogActivity a;
+
+    /* renamed from: a  reason: collision with root package name */
+    final /* synthetic */ LivenessRecogActivity f2737a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public j(LivenessRecogActivity livenessRecogActivity) {
-        this.a = livenessRecogActivity;
+        this.f2737a = livenessRecogActivity;
     }
 
     @Override // java.lang.Runnable
     public void run() {
-        if (this.a.Z == 2) {
-            this.a.P.s = 5;
-            Log.w("LivenessRecog", "timePointLivingEyeStart" + this.a.da.ba);
-            this.a.J = 0;
+        if (this.f2737a.Z == 2) {
+            this.f2737a.P.s = 5;
+            Log.w("LivenessRecog", "timePointLivingEyeStart" + this.f2737a.da.ba);
+            this.f2737a.J = 0;
         } else {
-            this.a.P.s = 7;
-            Log.w("LivenessRecog", "timePointLivingMouthStart" + this.a.da.da);
-            this.a.J = 5;
+            this.f2737a.P.s = 7;
+            Log.w("LivenessRecog", "timePointLivingMouthStart" + this.f2737a.da.da);
+            this.f2737a.J = 5;
         }
-        long currentTimeMillis = 20000 - (System.currentTimeMillis() - this.a.P.v);
+        long currentTimeMillis = 20000 - (System.currentTimeMillis() - this.f2737a.P.v);
         if (currentTimeMillis < 5000) {
-            this.a.P.w = 25000 - currentTimeMillis;
+            this.f2737a.P.w = 25000 - currentTimeMillis;
         }
     }
 }

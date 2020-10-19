@@ -25,32 +25,32 @@ import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes4.dex */
 public class AlaGiftLuckyStarActivity extends BaseFragmentActivity {
-    private TextView aPE;
-    private TextView aPF;
-    private TextView aPG;
-    private TbImageView aPH;
-    private String aPI;
-    private String aPJ;
-    private String aPK;
-    private String aPL;
-    private TbImageView aPM;
-    private RelativeLayout aPN;
-    private RelativeLayout aPO;
-    private float aPR;
-    private float aPS;
+    private TextView aSP;
+    private TextView aSQ;
+    private TextView aSR;
+    private TbImageView aSS;
+    private String aST;
+    private String aSU;
+    private String aSV;
+    private String aSW;
+    private TbImageView aSX;
+    private RelativeLayout aSY;
+    private RelativeLayout aSZ;
+    private float aTc;
+    private float aTd;
     private View mRootView;
     private TextView mTitleTextView;
-    private boolean aPD = false;
-    private int aPP = 0;
-    private int aPQ = 0;
-    private CustomMessageListener aPT = new CustomMessageListener(2913054) { // from class: com.baidu.live.gift.AlaGiftLuckyStarActivity.5
+    private boolean aSO = false;
+    private int aTa = 0;
+    private int aTb = 0;
+    private CustomMessageListener aTe = new CustomMessageListener(2913054) { // from class: com.baidu.live.gift.AlaGiftLuckyStarActivity.5
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.live.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             AlaGiftLuckyStarActivity.this.closeActivity();
         }
     };
-    CustomMessageListener aPU = new CustomMessageListener(AlaCmdConfigCustom.CMD_ALA_IMAGE_FRAME_PLAYER_CONTROLLER) { // from class: com.baidu.live.gift.AlaGiftLuckyStarActivity.6
+    CustomMessageListener aTf = new CustomMessageListener(AlaCmdConfigCustom.CMD_ALA_IMAGE_FRAME_PLAYER_CONTROLLER) { // from class: com.baidu.live.gift.AlaGiftLuckyStarActivity.6
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.live.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
@@ -66,12 +66,12 @@ public class AlaGiftLuckyStarActivity extends BaseFragmentActivity {
         super.onCreate(bundle);
         if (!isFinishing()) {
             setRequestedOrientation(1);
-            registerListener(this.aPU);
-            registerListener(this.aPT);
-            this.aPI = getIntent().getStringExtra("title");
-            this.aPJ = getIntent().getStringExtra("des");
-            this.aPK = getIntent().getStringExtra("leftbt");
-            this.aPL = getIntent().getStringExtra("rightbt");
+            registerListener(this.aTf);
+            registerListener(this.aTe);
+            this.aST = getIntent().getStringExtra("title");
+            this.aSU = getIntent().getStringExtra("des");
+            this.aSV = getIntent().getStringExtra("leftbt");
+            this.aSW = getIntent().getStringExtra("rightbt");
             initView();
             this.mRootView.setVisibility(4);
         }
@@ -91,9 +91,9 @@ public class AlaGiftLuckyStarActivity extends BaseFragmentActivity {
     @Override // android.support.v4.app.FragmentActivity, android.app.Activity
     public void onStart() {
         super.onStart();
-        if (!this.aPD) {
+        if (!this.aSO) {
             this.mRootView.setVisibility(0);
-            this.aPD = true;
+            this.aSO = true;
         }
     }
 
@@ -101,33 +101,33 @@ public class AlaGiftLuckyStarActivity extends BaseFragmentActivity {
         this.mRootView = LayoutInflater.from(getPageContext().getPageActivity()).inflate(a.h.ala_gift_lucky_star_layout, (ViewGroup) null);
         setContentView(this.mRootView);
         this.mTitleTextView = (TextView) findViewById(a.g.ala_gift_lucky_star_title);
-        this.aPE = (TextView) findViewById(a.g.ala_gift_lucky_star_des);
-        this.aPF = (TextView) findViewById(a.g.ala_gift_lucky_star_left_bt);
-        this.aPG = (TextView) findViewById(a.g.ala_gift_lucky_star_right_bt);
-        this.aPH = (TbImageView) findViewById(a.g.ala_gift_lucky_star_delete);
-        this.aPM = (TbImageView) findViewById(a.g.ala_gift_lucky_star_icon);
-        this.aPN = (RelativeLayout) findViewById(a.g.ala_gift_lucky_star_content);
-        this.aPO = (RelativeLayout) findViewById(a.g.ala_gift_lucky_star_content_bg_view);
-        this.mTitleTextView.setText(this.aPI);
-        this.aPE.setText(this.aPJ);
-        this.aPF.setText(this.aPK);
-        this.aPG.setText(this.aPL);
-        this.aPH.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.live.gift.AlaGiftLuckyStarActivity.1
+        this.aSP = (TextView) findViewById(a.g.ala_gift_lucky_star_des);
+        this.aSQ = (TextView) findViewById(a.g.ala_gift_lucky_star_left_bt);
+        this.aSR = (TextView) findViewById(a.g.ala_gift_lucky_star_right_bt);
+        this.aSS = (TbImageView) findViewById(a.g.ala_gift_lucky_star_delete);
+        this.aSX = (TbImageView) findViewById(a.g.ala_gift_lucky_star_icon);
+        this.aSY = (RelativeLayout) findViewById(a.g.ala_gift_lucky_star_content);
+        this.aSZ = (RelativeLayout) findViewById(a.g.ala_gift_lucky_star_content_bg_view);
+        this.mTitleTextView.setText(this.aST);
+        this.aSP.setText(this.aSU);
+        this.aSQ.setText(this.aSV);
+        this.aSR.setText(this.aSW);
+        this.aSS.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.live.gift.AlaGiftLuckyStarActivity.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                AlaGiftLuckyStarActivity.this.EK();
+                AlaGiftLuckyStarActivity.this.FG();
             }
         });
-        this.aPF.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.live.gift.AlaGiftLuckyStarActivity.2
+        this.aSQ.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.live.gift.AlaGiftLuckyStarActivity.2
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                AlaGiftLuckyStarActivity.this.EK();
+                AlaGiftLuckyStarActivity.this.FG();
             }
         });
-        this.aPG.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.live.gift.AlaGiftLuckyStarActivity.3
+        this.aSR.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.live.gift.AlaGiftLuckyStarActivity.3
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                AlaGiftLuckyStarActivity.this.aPG.postDelayed(new Runnable() { // from class: com.baidu.live.gift.AlaGiftLuckyStarActivity.3.1
+                AlaGiftLuckyStarActivity.this.aSR.postDelayed(new Runnable() { // from class: com.baidu.live.gift.AlaGiftLuckyStarActivity.3.1
                     @Override // java.lang.Runnable
                     public void run() {
                         AlaGiftLuckyStarActivity.this.finish();
@@ -139,24 +139,24 @@ public class AlaGiftLuckyStarActivity extends BaseFragmentActivity {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void EK() {
+    public void FG() {
         MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2913174));
-        EL();
-        EO();
-        EM();
-        EN();
+        FH();
+        FK();
+        FI();
+        FJ();
     }
 
-    private void EL() {
-        ObjectAnimator ofFloat = ObjectAnimator.ofFloat(this.aPN, View.SCALE_X, 1.0f, 1.1f);
+    private void FH() {
+        ObjectAnimator ofFloat = ObjectAnimator.ofFloat(this.aSY, View.SCALE_X, 1.0f, 1.1f);
         ofFloat.setDuration(120L);
-        ObjectAnimator ofFloat2 = ObjectAnimator.ofFloat(this.aPN, View.SCALE_Y, 1.0f, 1.1f);
+        ObjectAnimator ofFloat2 = ObjectAnimator.ofFloat(this.aSY, View.SCALE_Y, 1.0f, 1.1f);
         ofFloat2.setDuration(120L);
-        ObjectAnimator ofFloat3 = ObjectAnimator.ofFloat(this.aPN, View.SCALE_X, 1.1f, 0.3f);
-        ObjectAnimator ofFloat4 = ObjectAnimator.ofFloat(this.aPN, View.SCALE_Y, 1.1f, 0.3f);
+        ObjectAnimator ofFloat3 = ObjectAnimator.ofFloat(this.aSY, View.SCALE_X, 1.1f, 0.3f);
+        ObjectAnimator ofFloat4 = ObjectAnimator.ofFloat(this.aSY, View.SCALE_Y, 1.1f, 0.3f);
         ofFloat3.setDuration(240L);
         ofFloat4.setDuration(240L);
-        ObjectAnimator ofFloat5 = ObjectAnimator.ofFloat(this.aPN, View.ALPHA, 1.0f, 0.0f);
+        ObjectAnimator ofFloat5 = ObjectAnimator.ofFloat(this.aSY, View.ALPHA, 1.0f, 0.0f);
         ofFloat5.setDuration(240L);
         AnimatorSet animatorSet = new AnimatorSet();
         animatorSet.playTogether(ofFloat, ofFloat2);
@@ -166,8 +166,8 @@ public class AlaGiftLuckyStarActivity extends BaseFragmentActivity {
         animatorSet2.start();
     }
 
-    private void EM() {
-        ObjectAnimator ofFloat = ObjectAnimator.ofFloat(this.aPO, View.ALPHA, 1.0f, 0.0f);
+    private void FI() {
+        ObjectAnimator ofFloat = ObjectAnimator.ofFloat(this.aSZ, View.ALPHA, 1.0f, 0.0f);
         ofFloat.setDuration(1000L);
         ofFloat.setInterpolator(new LinearInterpolator());
         AnimatorSet animatorSet = new AnimatorSet();
@@ -193,15 +193,15 @@ public class AlaGiftLuckyStarActivity extends BaseFragmentActivity {
         animatorSet.start();
     }
 
-    private void EN() {
-        float height = ((this.aPQ - this.aPS) - (this.aPM.getHeight() * 0.45f)) + 36.0f;
-        ObjectAnimator ofFloat = ObjectAnimator.ofFloat(this.aPM, View.TRANSLATION_Y, height, height - 10.0f);
-        ObjectAnimator ofFloat2 = ObjectAnimator.ofFloat(this.aPM, View.ALPHA, 0.0f, 1.0f);
+    private void FJ() {
+        float height = ((this.aTb - this.aTd) - (this.aSX.getHeight() * 0.45f)) + 36.0f;
+        ObjectAnimator ofFloat = ObjectAnimator.ofFloat(this.aSX, View.TRANSLATION_Y, height, height - 10.0f);
+        ObjectAnimator ofFloat2 = ObjectAnimator.ofFloat(this.aSX, View.ALPHA, 0.0f, 1.0f);
         AnimatorSet animatorSet = new AnimatorSet();
         animatorSet.setDuration(200L);
         animatorSet.playTogether(ofFloat, ofFloat2);
-        ObjectAnimator ofFloat3 = ObjectAnimator.ofFloat(this.aPM, View.TRANSLATION_Y, height - 10.0f, height);
-        ObjectAnimator ofFloat4 = ObjectAnimator.ofFloat(this.aPM, View.ALPHA, 1.0f, 0.0f);
+        ObjectAnimator ofFloat3 = ObjectAnimator.ofFloat(this.aSX, View.TRANSLATION_Y, height - 10.0f, height);
+        ObjectAnimator ofFloat4 = ObjectAnimator.ofFloat(this.aSX, View.ALPHA, 1.0f, 0.0f);
         AnimatorSet animatorSet2 = new AnimatorSet();
         animatorSet2.setDuration(200L);
         animatorSet2.playTogether(ofFloat3, ofFloat4);
@@ -211,40 +211,40 @@ public class AlaGiftLuckyStarActivity extends BaseFragmentActivity {
         animatorSet3.start();
     }
 
-    private void EO() {
+    private void FK() {
         int[] iArr = new int[2];
-        this.aPM.getLocationOnScreen(iArr);
-        this.aPR = iArr[0];
-        this.aPS = iArr[1];
+        this.aSX.getLocationOnScreen(iArr);
+        this.aTc = iArr[0];
+        this.aTd = iArr[1];
         CustomResponsedMessage runTask = MessageManager.getInstance().runTask(new CustomMessage<>(CmdConfigCustom.CMD_TURN_TAB_LOC), String.class);
         if (runTask != null && !TextUtils.isEmpty((CharSequence) runTask.getData())) {
             try {
                 JSONObject jSONObject = new JSONObject((String) runTask.getData());
-                this.aPP = jSONObject.optInt("turn_tab_x");
-                this.aPQ = jSONObject.optInt("turn_tab_y");
+                this.aTa = jSONObject.optInt("turn_tab_x");
+                this.aTb = jSONObject.optInt("turn_tab_y");
             } catch (JSONException e) {
                 e.printStackTrace();
             }
         }
-        ObjectAnimator ofFloat = ObjectAnimator.ofFloat(this.aPM, View.TRANSLATION_X, 0.0f, ((this.aPP - this.aPR) - (this.aPM.getWidth() * 0.45f)) + 36.0f);
+        ObjectAnimator ofFloat = ObjectAnimator.ofFloat(this.aSX, View.TRANSLATION_X, 0.0f, ((this.aTa - this.aTc) - (this.aSX.getWidth() * 0.45f)) + 36.0f);
         ofFloat.setDuration(400L);
         ofFloat.setInterpolator(new AccelerateInterpolator());
         ofFloat.setStartDelay(200L);
-        ObjectAnimator ofFloat2 = ObjectAnimator.ofFloat(this.aPM, View.TRANSLATION_Y, 0.0f, ((this.aPQ - this.aPS) - (this.aPM.getHeight() * 0.45f)) + 36.0f);
+        ObjectAnimator ofFloat2 = ObjectAnimator.ofFloat(this.aSX, View.TRANSLATION_Y, 0.0f, ((this.aTb - this.aTd) - (this.aSX.getHeight() * 0.45f)) + 36.0f);
         ofFloat2.setDuration(400L);
         ofFloat2.setInterpolator(new AccelerateInterpolator());
         ofFloat2.setStartDelay(200L);
-        ObjectAnimator ofFloat3 = ObjectAnimator.ofFloat(this.aPM, View.SCALE_X, 1.0f, 1.1f);
+        ObjectAnimator ofFloat3 = ObjectAnimator.ofFloat(this.aSX, View.SCALE_X, 1.0f, 1.1f);
         ofFloat3.setDuration(200L);
-        ObjectAnimator ofFloat4 = ObjectAnimator.ofFloat(this.aPM, View.SCALE_Y, 1.0f, 1.1f);
+        ObjectAnimator ofFloat4 = ObjectAnimator.ofFloat(this.aSX, View.SCALE_Y, 1.0f, 1.1f);
         ofFloat4.setDuration(200L);
-        ObjectAnimator ofFloat5 = ObjectAnimator.ofFloat(this.aPM, View.SCALE_X, 1.1f, 0.5f);
+        ObjectAnimator ofFloat5 = ObjectAnimator.ofFloat(this.aSX, View.SCALE_X, 1.1f, 0.5f);
         ofFloat5.setDuration(200L);
-        ObjectAnimator ofFloat6 = ObjectAnimator.ofFloat(this.aPM, View.SCALE_Y, 1.1f, 0.5f);
+        ObjectAnimator ofFloat6 = ObjectAnimator.ofFloat(this.aSX, View.SCALE_Y, 1.1f, 0.5f);
         ofFloat6.setDuration(200L);
-        ObjectAnimator ofFloat7 = ObjectAnimator.ofFloat(this.aPM, View.SCALE_X, 0.5f, 0.2f);
+        ObjectAnimator ofFloat7 = ObjectAnimator.ofFloat(this.aSX, View.SCALE_X, 0.5f, 0.2f);
         ofFloat7.setDuration(200L);
-        ObjectAnimator ofFloat8 = ObjectAnimator.ofFloat(this.aPM, View.SCALE_Y, 0.5f, 0.2f);
+        ObjectAnimator ofFloat8 = ObjectAnimator.ofFloat(this.aSX, View.SCALE_Y, 0.5f, 0.2f);
         ofFloat8.setDuration(200L);
         AnimatorSet animatorSet = new AnimatorSet();
         animatorSet.setInterpolator(new LinearInterpolator());
@@ -252,7 +252,7 @@ public class AlaGiftLuckyStarActivity extends BaseFragmentActivity {
         AnimatorSet animatorSet2 = new AnimatorSet();
         animatorSet2.setInterpolator(new LinearInterpolator());
         animatorSet2.playSequentially(ofFloat4, ofFloat6, ofFloat8);
-        ObjectAnimator ofFloat9 = ObjectAnimator.ofFloat(this.aPM, View.ALPHA, 1.0f, 0.0f);
+        ObjectAnimator ofFloat9 = ObjectAnimator.ofFloat(this.aSX, View.ALPHA, 1.0f, 0.0f);
         ofFloat9.setDuration(200L);
         ofFloat9.setStartDelay(600L);
         AnimatorSet animatorSet3 = new AnimatorSet();
@@ -272,8 +272,8 @@ public class AlaGiftLuckyStarActivity extends BaseFragmentActivity {
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.live.tbadk.core.BaseFragmentActivity, com.baidu.live.adp.base.BdBaseFragmentActivity, android.support.v4.app.FragmentActivity, android.app.Activity
     public void onDestroy() {
-        MessageManager.getInstance().unRegisterListener(this.aPU);
-        MessageManager.getInstance().unRegisterListener(this.aPT);
+        MessageManager.getInstance().unRegisterListener(this.aTf);
+        MessageManager.getInstance().unRegisterListener(this.aTe);
         super.onDestroy();
     }
 }

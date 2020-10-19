@@ -9,32 +9,32 @@ import java.lang.reflect.Proxy;
 import org.chromium.support_lib_boundary.SafeBrowsingResponseBoundaryInterface;
 import org.chromium.support_lib_boundary.util.BoundaryInterfaceReflectionUtil;
 import org.chromium.support_lib_boundary.util.Features;
-/* loaded from: classes17.dex */
+/* loaded from: classes15.dex */
 public class b extends androidx.webkit.a {
-    private SafeBrowsingResponse zN;
-    private SafeBrowsingResponseBoundaryInterface zO;
+    private SafeBrowsingResponse Af;
+    private SafeBrowsingResponseBoundaryInterface Ag;
 
     public b(@NonNull InvocationHandler invocationHandler) {
-        this.zO = (SafeBrowsingResponseBoundaryInterface) BoundaryInterfaceReflectionUtil.castToSuppLibClass(SafeBrowsingResponseBoundaryInterface.class, invocationHandler);
+        this.Ag = (SafeBrowsingResponseBoundaryInterface) BoundaryInterfaceReflectionUtil.castToSuppLibClass(SafeBrowsingResponseBoundaryInterface.class, invocationHandler);
     }
 
     public b(@NonNull SafeBrowsingResponse safeBrowsingResponse) {
-        this.zN = safeBrowsingResponse;
+        this.Af = safeBrowsingResponse;
     }
 
     @RequiresApi(27)
-    private SafeBrowsingResponse hO() {
-        if (this.zN == null) {
-            this.zN = d.hT().b(Proxy.getInvocationHandler(this.zO));
+    private SafeBrowsingResponse hP() {
+        if (this.Af == null) {
+            this.Af = d.hU().b(Proxy.getInvocationHandler(this.Ag));
         }
-        return this.zN;
+        return this.Af;
     }
 
-    private SafeBrowsingResponseBoundaryInterface hP() {
-        if (this.zO == null) {
-            this.zO = (SafeBrowsingResponseBoundaryInterface) BoundaryInterfaceReflectionUtil.castToSuppLibClass(SafeBrowsingResponseBoundaryInterface.class, d.hT().a(this.zN));
+    private SafeBrowsingResponseBoundaryInterface hQ() {
+        if (this.Ag == null) {
+            this.Ag = (SafeBrowsingResponseBoundaryInterface) BoundaryInterfaceReflectionUtil.castToSuppLibClass(SafeBrowsingResponseBoundaryInterface.class, d.hU().a(this.Af));
         }
-        return this.zO;
+        return this.Ag;
     }
 
     @Override // androidx.webkit.a
@@ -42,9 +42,9 @@ public class b extends androidx.webkit.a {
     public void showInterstitial(boolean z) {
         WebViewFeatureInternal feature = WebViewFeatureInternal.getFeature(Features.SAFE_BROWSING_RESPONSE_SHOW_INTERSTITIAL);
         if (feature.isSupportedByFramework()) {
-            hO().showInterstitial(z);
-        } else if (feature.isSupportedByWebView()) {
             hP().showInterstitial(z);
+        } else if (feature.isSupportedByWebView()) {
+            hQ().showInterstitial(z);
         } else {
             throw WebViewFeatureInternal.getUnsupportedOperationException();
         }

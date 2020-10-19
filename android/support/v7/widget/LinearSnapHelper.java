@@ -6,7 +6,7 @@ import android.support.annotation.Nullable;
 import android.support.v7.widget.ActivityChooserView;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
-/* loaded from: classes4.dex */
+/* loaded from: classes16.dex */
 public class LinearSnapHelper extends SnapHelper {
     private static final float INVALID_DISTANCE = 1.0f;
     @Nullable

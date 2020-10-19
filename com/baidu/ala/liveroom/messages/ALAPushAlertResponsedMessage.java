@@ -47,7 +47,7 @@ public class ALAPushAlertResponsedMessage extends SocketResponsedMessage {
                         int optInt2 = jSONObject.optInt("video_channel_id", 0);
                         intent.putExtra("video_channel_id", optInt2);
                         intent.putExtra("id", jSONObject.optString("tid"));
-                        TiebaStatic.log(new aq("c11917").ai("obj_id", optInt2));
+                        TiebaStatic.log(new aq("c11917").aj("obj_id", optInt2));
                     } else if (optInt == 126) {
                         TiebaStatic.log(new aq("c12100"));
                         intent.putExtra("is_live", 1);
@@ -64,9 +64,9 @@ public class ALAPushAlertResponsedMessage extends SocketResponsedMessage {
                             optString2 = "";
                         }
                         if (!StringUtils.isNull(optString3)) {
-                            a CI = c.bub().CI(optString4 + 10);
-                            if (CI != null && CI.getRawBitmap() != null) {
-                                NotificationHelper.showLargeIconNotification(TbadkCoreApplication.getInst().getApplicationContext(), Long.valueOf(optLong).hashCode(), optString2, optString3, optString3, service, CI.getRawBitmap(), false);
+                            a Du = c.bwL().Du(optString4 + 10);
+                            if (Du != null && Du.getRawBitmap() != null) {
+                                NotificationHelper.showLargeIconNotification(TbadkCoreApplication.getInst().getApplicationContext(), Long.valueOf(optLong).hashCode(), optString2, optString3, optString3, service, Du.getRawBitmap(), false);
                                 return;
                             } else if (!StringUtils.isNull(optString4)) {
                                 final String str = optString2;
@@ -74,12 +74,12 @@ public class ALAPushAlertResponsedMessage extends SocketResponsedMessage {
                                 this.mHandler.post(new Runnable() { // from class: com.baidu.ala.liveroom.messages.ALAPushAlertResponsedMessage.1
                                     @Override // java.lang.Runnable
                                     public void run() {
-                                        com.baidu.adp.lib.e.c.mR().a(optString4, 10, new b<a>() { // from class: com.baidu.ala.liveroom.messages.ALAPushAlertResponsedMessage.1.1
+                                        com.baidu.adp.lib.e.c.mS().a(optString4, 10, new b<a>() { // from class: com.baidu.ala.liveroom.messages.ALAPushAlertResponsedMessage.1.1
                                             /* JADX DEBUG: Method merged with bridge method */
                                             /* JADX INFO: Access modifiers changed from: protected */
                                             @Override // com.baidu.adp.lib.e.b
                                             public void onLoaded(a aVar, String str3, int i2) {
-                                                super.onLoaded((C00331) aVar, str3, i2);
+                                                super.onLoaded((C00341) aVar, str3, i2);
                                                 if (aVar != null && aVar.getRawBitmap() != null) {
                                                     NotificationHelper.showLargeIconNotification(TbadkCoreApplication.getInst().getApplicationContext(), Long.valueOf(optLong).hashCode(), str, str2, str2, service, aVar.getRawBitmap(), false);
                                                 } else {

@@ -5,5 +5,5 @@ import com.baidu.live.data.PersonUserData;
 public interface c {
     void a(PersonUserData personUserData);
 
-    void q(int i, String str);
+    void s(int i, String str);
 }

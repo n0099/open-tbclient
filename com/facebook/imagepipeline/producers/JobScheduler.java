@@ -6,21 +6,21 @@ import java.util.concurrent.Executors;
 import java.util.concurrent.ScheduledExecutorService;
 import java.util.concurrent.TimeUnit;
 import javax.annotation.concurrent.GuardedBy;
-/* loaded from: classes25.dex */
+/* loaded from: classes18.dex */
 public class JobScheduler {
     private final Executor mExecutor;
-    private final a nIM;
-    private final int nIP;
-    private final Runnable nIN = new Runnable() { // from class: com.facebook.imagepipeline.producers.JobScheduler.1
+    private final a nYd;
+    private final int nYg;
+    private final Runnable nYe = new Runnable() { // from class: com.facebook.imagepipeline.producers.JobScheduler.1
         @Override // java.lang.Runnable
         public void run() {
-            JobScheduler.this.dZQ();
+            JobScheduler.this.edB();
         }
     };
-    private final Runnable nIO = new Runnable() { // from class: com.facebook.imagepipeline.producers.JobScheduler.2
+    private final Runnable nYf = new Runnable() { // from class: com.facebook.imagepipeline.producers.JobScheduler.2
         @Override // java.lang.Runnable
         public void run() {
-            JobScheduler.this.dZP();
+            JobScheduler.this.edA();
         }
     };
     @GuardedBy("this")
@@ -28,14 +28,14 @@ public class JobScheduler {
     @GuardedBy("this")
     int mStatus = 0;
     @GuardedBy("this")
-    JobState nIQ = JobState.IDLE;
+    JobState nYh = JobState.IDLE;
     @GuardedBy("this")
-    long nIR = 0;
+    long nYi = 0;
     @GuardedBy("this")
-    long nIS = 0;
+    long nYj = 0;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes25.dex */
+    /* loaded from: classes18.dex */
     public enum JobState {
         IDLE,
         QUEUED,
@@ -43,31 +43,31 @@ public class JobScheduler {
         RUNNING_AND_PENDING
     }
 
-    /* loaded from: classes25.dex */
+    /* loaded from: classes18.dex */
     public interface a {
         void d(com.facebook.imagepipeline.g.e eVar, int i);
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes25.dex */
+    /* loaded from: classes18.dex */
     public static class b {
-        private static ScheduledExecutorService nIV;
+        private static ScheduledExecutorService nYm;
 
-        static ScheduledExecutorService dZT() {
-            if (nIV == null) {
-                nIV = Executors.newSingleThreadScheduledExecutor();
+        static ScheduledExecutorService edE() {
+            if (nYm == null) {
+                nYm = Executors.newSingleThreadScheduledExecutor();
             }
-            return nIV;
+            return nYm;
         }
     }
 
     public JobScheduler(Executor executor, a aVar, int i) {
         this.mExecutor = executor;
-        this.nIM = aVar;
-        this.nIP = i;
+        this.nYd = aVar;
+        this.nYg = i;
     }
 
-    public void dZN() {
+    public void edy() {
         com.facebook.imagepipeline.g.e eVar;
         synchronized (this) {
             eVar = this.mEncodedImage;
@@ -91,25 +91,25 @@ public class JobScheduler {
         return true;
     }
 
-    public boolean dZO() {
+    public boolean edz() {
         boolean z = false;
         long uptimeMillis = SystemClock.uptimeMillis();
         long j = 0;
         synchronized (this) {
             if (f(this.mEncodedImage, this.mStatus)) {
-                switch (this.nIQ) {
+                switch (this.nYh) {
                     case IDLE:
-                        j = Math.max(this.nIS + this.nIP, uptimeMillis);
-                        this.nIR = uptimeMillis;
-                        this.nIQ = JobState.QUEUED;
+                        j = Math.max(this.nYj + this.nYg, uptimeMillis);
+                        this.nYi = uptimeMillis;
+                        this.nYh = JobState.QUEUED;
                         z = true;
                         break;
                     case RUNNING:
-                        this.nIQ = JobState.RUNNING_AND_PENDING;
+                        this.nYh = JobState.RUNNING_AND_PENDING;
                         break;
                 }
                 if (z) {
-                    gM(j - uptimeMillis);
+                    he(j - uptimeMillis);
                 }
                 return true;
             }
@@ -117,21 +117,21 @@ public class JobScheduler {
         }
     }
 
-    private void gM(long j) {
+    private void he(long j) {
         if (j > 0) {
-            b.dZT().schedule(this.nIO, j, TimeUnit.MILLISECONDS);
+            b.edE().schedule(this.nYf, j, TimeUnit.MILLISECONDS);
         } else {
-            this.nIO.run();
+            this.nYf.run();
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void dZP() {
-        this.mExecutor.execute(this.nIN);
+    public void edA() {
+        this.mExecutor.execute(this.nYe);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void dZQ() {
+    public void edB() {
         com.facebook.imagepipeline.g.e eVar;
         int i;
         long uptimeMillis = SystemClock.uptimeMillis();
@@ -140,43 +140,43 @@ public class JobScheduler {
             i = this.mStatus;
             this.mEncodedImage = null;
             this.mStatus = 0;
-            this.nIQ = JobState.RUNNING;
-            this.nIS = uptimeMillis;
+            this.nYh = JobState.RUNNING;
+            this.nYj = uptimeMillis;
         }
         try {
             if (f(eVar, i)) {
-                this.nIM.d(eVar, i);
+                this.nYd.d(eVar, i);
             }
         } finally {
             com.facebook.imagepipeline.g.e.e(eVar);
-            dZR();
+            edC();
         }
     }
 
-    private void dZR() {
+    private void edC() {
         long uptimeMillis = SystemClock.uptimeMillis();
         long j = 0;
         boolean z = false;
         synchronized (this) {
-            if (this.nIQ == JobState.RUNNING_AND_PENDING) {
-                j = Math.max(this.nIS + this.nIP, uptimeMillis);
+            if (this.nYh == JobState.RUNNING_AND_PENDING) {
+                j = Math.max(this.nYj + this.nYg, uptimeMillis);
                 z = true;
-                this.nIR = uptimeMillis;
-                this.nIQ = JobState.QUEUED;
+                this.nYi = uptimeMillis;
+                this.nYh = JobState.QUEUED;
             } else {
-                this.nIQ = JobState.IDLE;
+                this.nYh = JobState.IDLE;
             }
         }
         if (z) {
-            gM(j - uptimeMillis);
+            he(j - uptimeMillis);
         }
     }
 
     private static boolean f(com.facebook.imagepipeline.g.e eVar, int i) {
-        return com.facebook.imagepipeline.producers.b.MQ(i) || com.facebook.imagepipeline.producers.b.dN(i, 4) || com.facebook.imagepipeline.g.e.f(eVar);
+        return com.facebook.imagepipeline.producers.b.Nw(i) || com.facebook.imagepipeline.producers.b.dN(i, 4) || com.facebook.imagepipeline.g.e.f(eVar);
     }
 
-    public synchronized long dZS() {
-        return this.nIS - this.nIR;
+    public synchronized long edD() {
+        return this.nYj - this.nYi;
     }
 }

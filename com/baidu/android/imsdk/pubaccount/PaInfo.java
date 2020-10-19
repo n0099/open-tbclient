@@ -4,7 +4,7 @@ import android.os.Parcel;
 import android.os.Parcelable;
 import android.text.TextUtils;
 import org.json.JSONObject;
-/* loaded from: classes9.dex */
+/* loaded from: classes5.dex */
 public class PaInfo implements Parcelable {
     public static final Parcelable.Creator<PaInfo> CREATOR = new Parcelable.Creator<PaInfo>() { // from class: com.baidu.android.imsdk.pubaccount.PaInfo.1
         /* JADX DEBUG: Method merged with bridge method */
@@ -68,6 +68,17 @@ public class PaInfo implements Parcelable {
             }
         }
         return this.mSchema;
+    }
+
+    public String getThirdId() {
+        if (!TextUtils.isEmpty(this.mThirdExt)) {
+            try {
+                return new JSONObject(this.mThirdExt).optString("third_id", "");
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }
+        return "";
     }
 
     public void setIdentity(String str) {

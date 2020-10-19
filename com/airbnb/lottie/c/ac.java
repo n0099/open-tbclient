@@ -3,9 +3,9 @@ package com.airbnb.lottie.c;
 import android.util.JsonReader;
 import android.util.JsonToken;
 import java.io.IOException;
-/* loaded from: classes6.dex */
+/* loaded from: classes10.dex */
 public class ac implements aj<com.airbnb.lottie.e.d> {
-    public static final ac GH = new ac();
+    public static final ac Ha = new ac();
 
     private ac() {
     }

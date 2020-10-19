@@ -15,7 +15,7 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.nio.ByteBuffer;
 import java.util.concurrent.ScheduledThreadPoolExecutor;
-/* loaded from: classes5.dex */
+/* loaded from: classes9.dex */
 public abstract class InputSource {
     /* JADX INFO: Access modifiers changed from: package-private */
     public abstract GifInfoHandle open() throws IOException;
@@ -30,7 +30,7 @@ public abstract class InputSource {
         return new GifDrawable(open, gifDrawable, scheduledThreadPoolExecutor, z);
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes9.dex */
     public static final class DirectByteBufferSource extends InputSource {
         private final ByteBuffer byteBuffer;
 
@@ -44,7 +44,7 @@ public abstract class InputSource {
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes9.dex */
     public static final class ByteArraySource extends InputSource {
         private final byte[] bytes;
 
@@ -58,7 +58,7 @@ public abstract class InputSource {
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes9.dex */
     public static final class FileSource extends InputSource {
         private final String mPath;
 
@@ -76,7 +76,7 @@ public abstract class InputSource {
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes9.dex */
     public static final class UriSource extends InputSource {
         private final ContentResolver mContentResolver;
         private final Uri mUri;
@@ -92,7 +92,7 @@ public abstract class InputSource {
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes9.dex */
     public static final class AssetSource extends InputSource {
         private final AssetManager mAssetManager;
         private final String mAssetName;
@@ -108,7 +108,7 @@ public abstract class InputSource {
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes9.dex */
     public static final class FileDescriptorSource extends InputSource {
         private final FileDescriptor mFd;
 
@@ -122,7 +122,7 @@ public abstract class InputSource {
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes9.dex */
     public static final class InputStreamSource extends InputSource {
         private final InputStream inputStream;
 
@@ -136,7 +136,7 @@ public abstract class InputSource {
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes9.dex */
     public static class ResourcesSource extends InputSource {
         private final int mResourceId;
         private final Resources mResources;
@@ -152,7 +152,7 @@ public abstract class InputSource {
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes9.dex */
     public static class AssetFileDescriptorSource extends InputSource {
         private final AssetFileDescriptor mAssetFileDescriptor;
 

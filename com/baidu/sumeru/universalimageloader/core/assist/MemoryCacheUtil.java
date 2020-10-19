@@ -5,7 +5,7 @@ import com.baidu.sumeru.universalimageloader.cache.memory.MemoryCacheAware;
 import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.List;
-/* loaded from: classes9.dex */
+/* loaded from: classes12.dex */
 public final class MemoryCacheUtil {
     private static final String URI_AND_SIZE_SEPARATOR = "_";
     private static final String WIDTH_AND_HEIGHT_SEPARATOR = "x";

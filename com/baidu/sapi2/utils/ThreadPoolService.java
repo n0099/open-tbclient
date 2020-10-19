@@ -11,28 +11,32 @@ import java.util.concurrent.ThreadFactory;
 import java.util.concurrent.ThreadPoolExecutor;
 import java.util.concurrent.TimeUnit;
 import java.util.concurrent.atomic.AtomicInteger;
-/* loaded from: classes25.dex */
+/* loaded from: classes5.dex */
 public class ThreadPoolService implements NoProguard {
     private static final ThreadFactory b = new a();
     private static final int c = 0;
     private static final int d = 1;
-    private Handler a;
+
+    /* renamed from: a  reason: collision with root package name */
+    private Handler f3529a;
     public ThreadPoolExecutor poolService;
 
-    /* loaded from: classes25.dex */
+    /* loaded from: classes5.dex */
     static class a implements ThreadFactory {
-        private final AtomicInteger a = new AtomicInteger(1);
+
+        /* renamed from: a  reason: collision with root package name */
+        private final AtomicInteger f3530a = new AtomicInteger(1);
 
         a() {
         }
 
         @Override // java.util.concurrent.ThreadFactory
         public Thread newThread(Runnable runnable) {
-            return new Thread(runnable, "pass_pool_thread # " + this.a.getAndIncrement());
+            return new Thread(runnable, "pass_pool_thread # " + this.f3530a.getAndIncrement());
         }
     }
 
-    /* loaded from: classes25.dex */
+    /* loaded from: classes5.dex */
     class b extends Handler {
         b(Looper looper) {
             super(looper);
@@ -49,9 +53,11 @@ public class ThreadPoolService implements NoProguard {
         }
     }
 
-    /* loaded from: classes25.dex */
+    /* loaded from: classes5.dex */
     private static class c {
-        static ThreadPoolService a = new ThreadPoolService(null);
+
+        /* renamed from: a  reason: collision with root package name */
+        static ThreadPoolService f3532a = new ThreadPoolService(null);
 
         private c() {
         }
@@ -62,7 +68,7 @@ public class ThreadPoolService implements NoProguard {
     }
 
     public static ThreadPoolService getInstance() {
-        return c.a;
+        return c.f3532a;
     }
 
     public void run(TPRunnable tPRunnable) {
@@ -70,11 +76,11 @@ public class ThreadPoolService implements NoProguard {
     }
 
     public void runInUiThread(TPRunnable tPRunnable) {
-        this.a.sendMessage(this.a.obtainMessage(0, tPRunnable));
+        this.f3529a.sendMessage(this.f3529a.obtainMessage(0, tPRunnable));
     }
 
     private ThreadPoolService() {
-        this.a = new b(Looper.getMainLooper());
+        this.f3529a = new b(Looper.getMainLooper());
         this.poolService = new ThreadPoolExecutor(6, (int) ActivityChooserView.ActivityChooserViewAdapter.MAX_ACTIVITY_COUNT_UNLIMITED, 60L, TimeUnit.SECONDS, new LinkedBlockingQueue(), b);
         if (Build.VERSION.SDK_INT >= 9) {
             this.poolService.allowCoreThreadTimeOut(true);

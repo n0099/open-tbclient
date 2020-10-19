@@ -9,7 +9,7 @@ import com.vivo.push.model.UnvarnishedMessage;
 import com.vivo.push.p;
 import com.vivo.push.util.s;
 import java.util.List;
-/* loaded from: classes12.dex */
+/* loaded from: classes15.dex */
 public abstract class BasePushMessageReceiver extends BroadcastReceiver implements PushMessageCallback {
     public static final String TAG = "PushMessageReceiver";
 

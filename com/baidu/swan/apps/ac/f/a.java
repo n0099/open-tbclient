@@ -2,28 +2,28 @@ package com.baidu.swan.apps.ac.f;
 
 import android.text.TextUtils;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes10.dex */
 public class a implements Cloneable {
-    public String SK;
-    public String cKA;
-    public String cKB;
-    public int cKC;
-    public String cKD;
-    public String cKE;
+    public String Tc;
+    public String cWD;
+    public String cWE;
+    public int cWF;
+    public String cWG;
+    public String cWH;
 
     public a(JSONObject jSONObject, int i) {
-        this.cKC = 4;
+        this.cWF = 4;
         if (jSONObject != null) {
-            this.cKB = jSONObject.optString("version");
-            this.SK = jSONObject.optString("provider");
-            this.cKD = jSONObject.optString("path");
-            this.cKE = jSONObject.optString("config");
-            this.cKC = i;
+            this.cWE = jSONObject.optString("version");
+            this.Tc = jSONObject.optString("provider");
+            this.cWG = jSONObject.optString("path");
+            this.cWH = jSONObject.optString("config");
+            this.cWF = i;
         }
     }
 
     public boolean isValid() {
-        return (TextUtils.isEmpty(this.SK) || TextUtils.isEmpty(this.cKB)) ? false : true;
+        return (TextUtils.isEmpty(this.Tc) || TextUtils.isEmpty(this.cWE)) ? false : true;
     }
 
     public Object clone() throws CloneNotSupportedException {
@@ -31,6 +31,6 @@ public class a implements Cloneable {
     }
 
     public String toString() {
-        return "SwanPluginModel{pluginAlias='" + this.cKA + "', pluginVersion='" + this.cKB + "', pluginName='" + this.SK + "', pluginCategory=" + this.cKC + ", pluginPath='" + this.cKD + "', pluginPagesConfigFileName='" + this.cKE + "'}";
+        return "SwanPluginModel{pluginAlias='" + this.cWD + "', pluginVersion='" + this.cWE + "', pluginName='" + this.Tc + "', pluginCategory=" + this.cWF + ", pluginPath='" + this.cWG + "', pluginPagesConfigFileName='" + this.cWH + "'}";
     }
 }

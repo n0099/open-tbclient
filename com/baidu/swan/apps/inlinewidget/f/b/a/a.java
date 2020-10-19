@@ -1,7 +1,7 @@
 package com.baidu.swan.apps.inlinewidget.f.b.a;
-/* loaded from: classes3.dex */
+/* loaded from: classes10.dex */
 public interface a {
-    void aoY();
+    void arK();
 
-    void ev(boolean z);
+    void eR(boolean z);
 }

@@ -4,7 +4,7 @@ import android.app.Activity;
 import android.content.Context;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
-/* loaded from: classes3.dex */
+/* loaded from: classes8.dex */
 public class w implements com.baidu.swan.apps.adaptation.a.e {
     @Override // com.baidu.swan.apps.adaptation.a.e
     public void a(Activity activity, Bundle bundle, com.baidu.swan.apps.a.a aVar) {
@@ -12,23 +12,23 @@ public class w implements com.baidu.swan.apps.adaptation.a.e {
     }
 
     @Override // com.baidu.swan.apps.adaptation.a.e
-    public boolean bi(Context context) {
-        return a.cR(context);
+    public boolean bo(Context context) {
+        return a.cX(context);
     }
 
     @Override // com.baidu.swan.apps.adaptation.a.e
-    public String bj(Context context) {
-        return a.cT(context);
+    public String bp(Context context) {
+        return a.cZ(context);
     }
 
     @Override // com.baidu.swan.apps.adaptation.a.e
-    public String bk(@NonNull Context context) {
-        return a.cU(context);
+    public String bq(@NonNull Context context) {
+        return a.da(context);
     }
 
     @Override // com.baidu.swan.apps.adaptation.a.e
-    public String bl(@NonNull Context context) {
-        return a.cS(context);
+    public String br(@NonNull Context context) {
+        return a.cY(context);
     }
 
     @Override // com.baidu.swan.apps.adaptation.a.e

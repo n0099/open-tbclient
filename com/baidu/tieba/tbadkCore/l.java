@@ -3,23 +3,23 @@ package com.baidu.tieba.tbadkCore;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.tbadk.core.data.FeedForumData;
 import java.util.List;
-/* loaded from: classes20.dex */
+/* loaded from: classes21.dex */
 public class l implements com.baidu.adp.widget.ListView.q {
-    public static final BdUniqueId mmO = BdUniqueId.gen();
+    public static final BdUniqueId mCq = BdUniqueId.gen();
     private String forumId;
-    private List<FeedForumData> ioe;
+    private List<FeedForumData> iCX;
 
     @Override // com.baidu.adp.widget.ListView.q
     public BdUniqueId getType() {
-        return mmO;
+        return mCq;
     }
 
-    public List<FeedForumData> dzP() {
-        return this.ioe;
+    public List<FeedForumData> dDA() {
+        return this.iCX;
     }
 
-    public void fm(List<FeedForumData> list) {
-        this.ioe = list;
+    public void fp(List<FeedForumData> list) {
+        this.iCX = list;
     }
 
     public String getForumId() {

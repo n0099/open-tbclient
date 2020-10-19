@@ -6,7 +6,7 @@ import android.view.MotionEvent;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.tbadk.core.view.viewpager.BdBaseViewPager;
-/* loaded from: classes21.dex */
+/* loaded from: classes22.dex */
 public class FrsTabViewPager extends BdBaseViewPager {
     public FrsTabViewPager(Context context) {
         this(context, null);
@@ -20,10 +20,10 @@ public class FrsTabViewPager extends BdBaseViewPager {
     public boolean dispatchTouchEvent(MotionEvent motionEvent) {
         switch (motionEvent.getAction()) {
             case 0:
-                oE(true);
+                pj(true);
                 break;
             case 1:
-                oE(false);
+                pj(false);
                 break;
         }
         return super.dispatchTouchEvent(motionEvent);
@@ -33,46 +33,46 @@ public class FrsTabViewPager extends BdBaseViewPager {
     public boolean onTouchEvent(MotionEvent motionEvent) {
         switch (motionEvent.getAction()) {
             case 1:
-                oE(false);
+                pj(false);
                 break;
         }
         return super.onTouchEvent(motionEvent);
     }
 
-    public void oE(boolean z) {
+    public void pj(boolean z) {
         a aVar = new a();
-        aVar.oF(crl());
-        aVar.oG(z);
+        aVar.pk(cuJ());
+        aVar.pl(z);
         MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921369, aVar));
     }
 
-    public void crk() {
-        oE(false);
+    public void cuI() {
+        pj(false);
     }
 
-    private boolean crl() {
+    private boolean cuJ() {
         return getCurrentItem() == getAdapter().getCount() + (-1);
     }
 
-    /* loaded from: classes21.dex */
+    /* loaded from: classes22.dex */
     public static class a {
-        private boolean ieE;
-        private boolean ieF;
+        private boolean itB;
+        private boolean itC;
 
-        public boolean crm() {
-            return this.ieE;
+        public boolean cuK() {
+            return this.itB;
         }
 
-        public void oF(boolean z) {
-            this.ieE = z;
+        public void pk(boolean z) {
+            this.itB = z;
         }
 
-        public boolean crn() {
-            return this.ieF;
+        public boolean cuL() {
+            return this.itC;
         }
 
-        public void oG(boolean z) {
-            this.ieF = z;
+        public void pl(boolean z) {
+            this.itC = z;
         }
     }
 }

@@ -3,41 +3,43 @@ package com.baidu.mapapi.walknavi.controllers.a;
 import com.baidu.mapapi.walknavi.adapter.IWRoutePlanListener;
 import com.baidu.mapapi.walknavi.model.WalkRoutePlanError;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes3.dex */
+/* loaded from: classes7.dex */
 public class c implements com.baidu.platform.comapi.wnplatform.j.c {
-    final /* synthetic */ IWRoutePlanListener a;
+
+    /* renamed from: a  reason: collision with root package name */
+    final /* synthetic */ IWRoutePlanListener f2171a;
     final /* synthetic */ a b;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public c(a aVar, IWRoutePlanListener iWRoutePlanListener) {
         this.b = aVar;
-        this.a = iWRoutePlanListener;
+        this.f2171a = iWRoutePlanListener;
     }
 
     @Override // com.baidu.platform.comapi.wnplatform.j.c
     public void a() {
-        this.a.onRoutePlanStart();
+        this.f2171a.onRoutePlanStart();
     }
 
     @Override // com.baidu.platform.comapi.wnplatform.j.c
     public void b() {
-        this.a.onRoutePlanSuccess();
+        this.f2171a.onRoutePlanSuccess();
     }
 
     @Override // com.baidu.platform.comapi.wnplatform.j.c
     public void a(int i) {
         switch (i) {
             case 16777214:
-                this.a.onRoutePlanFail(WalkRoutePlanError.FORWARD_AK_ERROR);
+                this.f2171a.onRoutePlanFail(WalkRoutePlanError.FORWARD_AK_ERROR);
                 return;
             case 16777216:
-                this.a.onRoutePlanFail(WalkRoutePlanError.SERVER_UNUSUAL);
+                this.f2171a.onRoutePlanFail(WalkRoutePlanError.SERVER_UNUSUAL);
                 return;
             case 805306368:
-                this.a.onRoutePlanFail(WalkRoutePlanError.NET_ERR);
+                this.f2171a.onRoutePlanFail(WalkRoutePlanError.NET_ERR);
                 return;
             default:
-                this.a.onRoutePlanFail(WalkRoutePlanError.PARSE_FAIL);
+                this.f2171a.onRoutePlanFail(WalkRoutePlanError.PARSE_FAIL);
                 return;
         }
     }

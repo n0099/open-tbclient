@@ -8,6 +8,6 @@ import java.lang.annotation.Target;
 @Target({ElementType.METHOD, ElementType.PARAMETER, ElementType.FIELD, ElementType.LOCAL_VARIABLE})
 @Documented
 @Retention(RetentionPolicy.CLASS)
-/* loaded from: classes11.dex */
+/* loaded from: classes18.dex */
 public @interface StyleableRes {
 }

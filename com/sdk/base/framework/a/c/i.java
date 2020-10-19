@@ -5,9 +5,11 @@ import java.util.concurrent.Executor;
 import java.util.concurrent.ThreadFactory;
 import java.util.concurrent.ThreadPoolExecutor;
 import java.util.concurrent.TimeUnit;
-/* loaded from: classes5.dex */
+/* loaded from: classes16.dex */
 public final class i implements Executor {
-    private static final ThreadFactory a = new j();
+
+    /* renamed from: a  reason: collision with root package name */
+    private static final ThreadFactory f4468a = new j();
     private final BlockingQueue<Runnable> b;
     private final ThreadPoolExecutor c;
 
@@ -17,7 +19,7 @@ public final class i implements Executor {
 
     private i(int i) {
         this.b = new l();
-        this.c = new ThreadPoolExecutor(5, 256, 1L, TimeUnit.SECONDS, this.b, a);
+        this.c = new ThreadPoolExecutor(5, 256, 1L, TimeUnit.SECONDS, this.b, f4468a);
     }
 
     @Override // java.util.concurrent.Executor

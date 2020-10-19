@@ -1,7 +1,7 @@
 package com.baidu.webkit.sdk;
 
 import com.baidu.webkit.internal.INoProGuard;
-/* loaded from: classes8.dex */
+/* loaded from: classes11.dex */
 public class WebKitClient implements INoProGuard {
     public String getLocationInfo() {
         return null;

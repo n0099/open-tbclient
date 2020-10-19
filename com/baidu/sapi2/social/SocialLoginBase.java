@@ -2,7 +2,7 @@ package com.baidu.sapi2.social;
 
 import com.baidu.sapi2.NoProguard;
 import com.baidu.sapi2.activity.BaseActivity;
-/* loaded from: classes25.dex */
+/* loaded from: classes5.dex */
 public class SocialLoginBase extends BaseActivity implements NoProguard {
     private static WXInvokeCallback p;
 

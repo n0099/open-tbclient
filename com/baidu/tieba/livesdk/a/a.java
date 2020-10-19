@@ -4,31 +4,31 @@ import android.app.Application;
 import com.baidu.h.a.a.c;
 /* loaded from: classes4.dex */
 public class a implements com.baidu.tieba.sdk.b.a {
-    private com.baidu.h.a.a.a bAS;
-    private c kcI = new c() { // from class: com.baidu.tieba.livesdk.a.a.1
+    private com.baidu.h.a.a.a bHv;
+    private c krW = new c() { // from class: com.baidu.tieba.livesdk.a.a.1
         @Override // com.baidu.h.a.a.c
         public void onLoginStatusChanged(boolean z, boolean z2) {
-            com.baidu.tieba.sdk.a.dsX().dsY();
+            com.baidu.tieba.sdk.a.dwI().dwJ();
         }
     };
 
     public a(Application application) {
-        this.bAS = com.baidu.h.b.a.aF(application).Sa();
-        this.bAS.a(this.kcI);
+        this.bHv = com.baidu.h.b.a.aJ(application).TT();
+        this.bHv.a(this.krW);
     }
 
     @Override // com.baidu.tieba.sdk.b.a
-    public com.baidu.tieba.sdk.c.a cRu() {
-        com.baidu.h.a.a.b RS;
-        if (this.bAS.isLogin() && (RS = this.bAS.RS()) != null) {
-            return a(RS);
+    public com.baidu.tieba.sdk.c.a cVe() {
+        com.baidu.h.a.a.b TL;
+        if (this.bHv.isLogin() && (TL = this.bHv.TL()) != null) {
+            return a(TL);
         }
         return null;
     }
 
     @Override // com.baidu.tieba.sdk.b.a
-    public void cRv() {
-        this.bAS.login();
+    public void cVf() {
+        this.bHv.login();
     }
 
     private com.baidu.tieba.sdk.c.a a(com.baidu.h.a.a.b bVar) {
@@ -36,7 +36,7 @@ public class a implements com.baidu.tieba.sdk.b.a {
         aVar.userId = bVar.getUid();
         aVar.userName = bVar.getDisplayname();
         aVar.nickName = bVar.getDisplayname();
-        aVar.portrait = bVar.RT();
+        aVar.portrait = bVar.TM();
         aVar.bduss = bVar.getBduss();
         return aVar;
     }

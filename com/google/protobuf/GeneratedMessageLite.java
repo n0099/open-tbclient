@@ -13,11 +13,11 @@ import java.util.Collections;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
-/* loaded from: classes7.dex */
+/* loaded from: classes10.dex */
 public abstract class GeneratedMessageLite extends AbstractMessageLite implements Serializable {
     private static final long serialVersionUID = 1;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes10.dex */
     public interface ExtendableMessageOrBuilder<MessageType extends ExtendableMessage> extends MessageLiteOrBuilder {
         <Type> Type getExtension(GeneratedExtension<MessageType, Type> generatedExtension);
 
@@ -50,7 +50,7 @@ public abstract class GeneratedMessageLite extends AbstractMessageLite implement
     public void makeExtensionsImmutable() {
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes10.dex */
     public static abstract class Builder<MessageType extends GeneratedMessageLite, BuilderType extends Builder> extends AbstractMessageLite.Builder<BuilderType> {
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.google.protobuf.MessageLiteOrBuilder
@@ -75,7 +75,7 @@ public abstract class GeneratedMessageLite extends AbstractMessageLite implement
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes10.dex */
     public static abstract class ExtendableMessage<MessageType extends ExtendableMessage<MessageType>> extends GeneratedMessageLite implements ExtendableMessageOrBuilder<MessageType> {
         private final FieldSet<ExtensionDescriptor> extensions;
 
@@ -139,7 +139,7 @@ public abstract class GeneratedMessageLite extends AbstractMessageLite implement
             this.extensions.makeImmutable();
         }
 
-        /* loaded from: classes7.dex */
+        /* loaded from: classes10.dex */
         protected class ExtensionWriter {
             private final Iterator<Map.Entry<ExtensionDescriptor, Object>> iter;
             private final boolean messageSetWireFormat;
@@ -187,7 +187,7 @@ public abstract class GeneratedMessageLite extends AbstractMessageLite implement
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes10.dex */
     public static abstract class ExtendableBuilder<MessageType extends ExtendableMessage<MessageType>, BuilderType extends ExtendableBuilder<MessageType, BuilderType>> extends Builder<MessageType, BuilderType> implements ExtendableMessageOrBuilder<MessageType> {
         private FieldSet<ExtensionDescriptor> extensions = FieldSet.emptySet();
         private boolean extensionsIsMutable;
@@ -205,7 +205,7 @@ public abstract class GeneratedMessageLite extends AbstractMessageLite implement
 
         private void ensureExtensionsIsMutable() {
             if (!this.extensionsIsMutable) {
-                this.extensions = this.extensions.m46clone();
+                this.extensions = this.extensions.m47clone();
                 this.extensionsIsMutable = true;
             }
         }
@@ -392,7 +392,7 @@ public abstract class GeneratedMessageLite extends AbstractMessageLite implement
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes7.dex */
+    /* loaded from: classes10.dex */
     public static final class ExtensionDescriptor implements FieldSet.FieldDescriptorLite<ExtensionDescriptor> {
         private final Internal.EnumLiteMap<?> enumTypeMap;
         private final boolean isPacked;
@@ -450,7 +450,7 @@ public abstract class GeneratedMessageLite extends AbstractMessageLite implement
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes10.dex */
     public static final class GeneratedExtension<ContainingType extends MessageLite, Type> {
         private final ContainingType containingTypeDefaultInstance;
         private final Type defaultValue;
@@ -484,7 +484,7 @@ public abstract class GeneratedMessageLite extends AbstractMessageLite implement
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes7.dex */
+    /* loaded from: classes10.dex */
     public static final class SerializedForm implements Serializable {
         private static final long serialVersionUID = 0;
         private byte[] asBytes;

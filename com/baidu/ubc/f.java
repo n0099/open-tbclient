@@ -2,18 +2,18 @@ package com.baidu.ubc;
 
 import java.util.HashMap;
 import java.util.HashSet;
-/* loaded from: classes11.dex */
+/* loaded from: classes19.dex */
 public class f {
-    public HashSet<String> npn = new HashSet<>();
-    public HashSet<String> npo = new HashSet<>();
-    public HashSet<String> npp = new HashSet<>();
-    public HashSet<String> npq = new HashSet<>();
-    public HashSet<String> npr = new HashSet<>();
-    public HashMap<String, String> nps = new HashMap<>();
-    public HashMap<String, String> npt = new HashMap<>();
-    public HashMap<String, m> npu = new HashMap<>();
-    public HashSet<String> npv = new HashSet<>();
-    public HashSet<String> npw = new HashSet<>();
-    public HashMap<String, String> npx = new HashMap<>();
-    public HashMap<String, String> npy = new HashMap<>();
+    public HashSet<String> nEH = new HashSet<>();
+    public HashSet<String> nEI = new HashSet<>();
+    public HashSet<String> nEJ = new HashSet<>();
+    public HashSet<String> nEK = new HashSet<>();
+    public HashSet<String> nEL = new HashSet<>();
+    public HashMap<String, String> nEM = new HashMap<>();
+    public HashMap<String, String> nEN = new HashMap<>();
+    public HashMap<String, m> nEO = new HashMap<>();
+    public HashSet<String> nEP = new HashSet<>();
+    public HashSet<String> nEQ = new HashSet<>();
+    public HashMap<String, String> nER = new HashMap<>();
+    public HashMap<String, String> nES = new HashMap<>();
 }

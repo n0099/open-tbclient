@@ -7,7 +7,7 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 import java.util.concurrent.CopyOnWriteArrayList;
-/* loaded from: classes10.dex */
+/* loaded from: classes14.dex */
 public class a {
     b kf;
     private Looper kg;
@@ -133,9 +133,9 @@ public class a {
     }
 
     public void d(Object obj) {
-        List<e> a = this.kd.a(obj.getClass());
+        List<e> a2 = this.kd.a(obj.getClass());
         synchronized (this) {
-            for (e eVar : a) {
+            for (e eVar : a2) {
                 a(obj, eVar);
             }
         }

@@ -23,7 +23,7 @@ import android.view.Window;
 import java.lang.Thread;
 /* JADX INFO: Access modifiers changed from: package-private */
 @RequiresApi(14)
-/* loaded from: classes10.dex */
+/* loaded from: classes5.dex */
 public abstract class AppCompatDelegateImplBase extends AppCompatDelegate {
     static final boolean DEBUG = false;
     static final String EXCEPTION_HANDLER_MESSAGE_SUFFIX = ". If the resource you are trying to use is a vector resource, you may be referencing it in an unsupported way. See AppCompatDelegate.setCompatVectorFromResourcesEnabled() for more info.";
@@ -156,7 +156,7 @@ public abstract class AppCompatDelegateImplBase extends AppCompatDelegate {
         return context;
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes5.dex */
     private class ActionBarDrawableToggleImpl implements ActionBarDrawerToggle.Delegate {
         ActionBarDrawableToggleImpl() {
         }
@@ -257,7 +257,7 @@ public abstract class AppCompatDelegateImplBase extends AppCompatDelegate {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes10.dex */
+    /* loaded from: classes5.dex */
     public class AppCompatWindowCallbackBase extends WindowCallbackWrapper {
         /* JADX INFO: Access modifiers changed from: package-private */
         public AppCompatWindowCallbackBase(Window.Callback callback) {

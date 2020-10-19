@@ -4,22 +4,24 @@ import android.content.Context;
 import java.lang.reflect.InvocationTargetException;
 /* loaded from: classes11.dex */
 public class b {
-    private static Context a;
+
+    /* renamed from: a  reason: collision with root package name */
+    private static Context f3998a;
 
     public static Context a() {
         Context context;
         synchronized (b.class) {
-            if (a == null) {
-                a = b();
+            if (f3998a == null) {
+                f3998a = b();
             }
-            context = a;
+            context = f3998a;
         }
         return context;
     }
 
     public static void a(Context context) {
         synchronized (b.class) {
-            a = context;
+            f3998a = context;
         }
     }
 

@@ -2,45 +2,45 @@ package com.baidu.smallgame.sdk;
 
 import com.baidu.searchbox.v8engine.V8ExceptionInfo;
 import com.baidu.smallgame.sdk.b.c;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 class b extends c {
-    private boolean bRY = false;
-    private long bRZ;
-    private int bSa;
+    private boolean cem = false;
+    private long cen;
+    private int ceo;
     private V8ExceptionInfo mV8ExceptionInfo;
 
-    private void Yg() {
+    private void aaS() {
         this.mV8ExceptionInfo = null;
-        this.bRZ = 0L;
-        this.bSa = -1;
+        this.cen = 0L;
+        this.ceo = -1;
     }
 
     @Override // com.baidu.smallgame.sdk.b.c
     public synchronized void a(int i, V8ExceptionInfo v8ExceptionInfo) {
         if (this.mV8ExceptionInfo == null && v8ExceptionInfo != null) {
             this.mV8ExceptionInfo = new V8ExceptionInfo(v8ExceptionInfo.exceptionTime, v8ExceptionInfo.exceptionMsg, v8ExceptionInfo.exceptionTrace, v8ExceptionInfo.exceptionType, v8ExceptionInfo.filePath);
-            this.bSa = i;
-            if (this.bSj != null) {
-                this.bSj.Yi();
+            this.ceo = i;
+            if (this.cex != null) {
+                this.cex.aaU();
             }
         }
     }
 
-    public synchronized void Yh() {
-        if (!this.bRY) {
-            if (this.bSj == null || this.bRZ <= 0 || this.mV8ExceptionInfo == null) {
+    public synchronized void aaT() {
+        if (!this.cem) {
+            if (this.cex == null || this.cen <= 0 || this.mV8ExceptionInfo == null) {
                 android.util.Log.e("StuckScreenHandler", "[StuckScreen] 未设置冻屏监听器， 或者异常信息已经被清空（需等待下次上屏）。");
-            } else if (System.currentTimeMillis() - this.mV8ExceptionInfo.exceptionTime > this.bSi && this.mV8ExceptionInfo.exceptionTime > this.bRZ) {
-                this.bSj.a(new com.baidu.smallgame.sdk.b.b(this.bSa, this.mV8ExceptionInfo, this.bRZ));
-                Yg();
+            } else if (System.currentTimeMillis() - this.mV8ExceptionInfo.exceptionTime > this.cew && this.mV8ExceptionInfo.exceptionTime > this.cen) {
+                this.cex.a(new com.baidu.smallgame.sdk.b.b(this.ceo, this.mV8ExceptionInfo, this.cen));
+                aaS();
             }
         }
     }
 
-    public synchronized void c(boolean z, long j) {
-        this.bRY = z;
-        if (this.bRY) {
-            this.bRZ = j;
+    public synchronized void e(boolean z, long j) {
+        this.cem = z;
+        if (this.cem) {
+            this.cen = j;
             this.mV8ExceptionInfo = null;
         }
     }

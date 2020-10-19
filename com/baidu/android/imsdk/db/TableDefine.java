@@ -1,7 +1,7 @@
 package com.baidu.android.imsdk.db;
 
 import android.provider.BaseColumns;
-/* loaded from: classes9.dex */
+/* loaded from: classes5.dex */
 public class TableDefine {
     public static final String DB_NAME_PREFIX = "bdimsdk_";
     public static final String DB_TABLE_CHAT_SESSION = "chatrecord";
@@ -18,15 +18,17 @@ public class TableDefine {
     public static final String DB_TABLE_PA_SUBSCRIBE = "paSubscribe";
     public static final String DB_TABLE_RELIABLE_MESSAGE = "liveroom_message";
     public static final String DB_TABLE_STAT_LOG = "stat_log";
+    public static final String DB_TABLE_STUDIO_USE_PA_MESSAGE = "studio_use_pa_message";
     public static final String DB_TABLE_USERINFO = "userinfo";
     public static final String DB_TABLE_ZHIDAINFO = "zhida_info";
-    public static final int DB_VERSION = 46;
+    public static final int DB_VERSION = 47;
     public static final String SQL_COPY_TABLE_USERINFO = "INSERT INTO userinfo (uid, buid, username, sex, phone, user_detail, tiny_url, head_url, account_type, ip_exsit, ip, ip_isp, ip_country, ip_province, ip_city, ip_county, disturb, blacklist) SELECT uid, buid, username, sex, phone, user_detail, tiny_url, head_url, account_type, ip_exsit, ip, ip_isp, ip_country, ip_province, ip_city, ip_county, disturb, blacklist FROM userinfo_temp";
     public static final String SQL_CREATE_DUPLICATE_MESSAGE = "CREATE TABLE duplicate_message (_id INTEGER PRIMARY KEY AUTOINCREMENT , msgid LONG, category LONG, contacter LONG, msg_key TEXT, from_user LONG, input_time LONG, type LONG);";
     public static final String SQL_CREATE_MESSAGE_INDEX = "CREATE INDEX msg_index ON message (expires_time, category, contacter, is_read);";
     public static final String SQL_CREATE_MESSAGE_QUERY_MSGID_ISEXIST_INDEX = "CREATE INDEX msgid_query ON message (msgid, status, contacter);";
     public static final String SQL_CREATE_MESSAGE_QUERY_MSGKEY_ISEXIST_INDEX = "CREATE INDEX msgkey_query ON message (msg_key, contacter);";
     public static final String SQL_CREATE_RELIABLE_MESSAGE = "CREATE TABLE liveroom_message (_id INTEGER PRIMARY KEY AUTOINCREMENT , msgid LONG, category LONG,content TEXT, contacter LONG, mcast_id LONG, msg_key TEXT, from_user LONG, create_time LONG, type LONG, priority LONG,is_read LONG);";
+    public static final String SQL_CREATE_STUDIO_USE_PA_MESSAGE = "CREATE TABLE studio_use_pa_message (_id INTEGER PRIMARY KEY AUTOINCREMENT , msgid LONG, category INTEGER, contacter LONG, msg_key TEXT, from_user LONG, input_time LONG, type INTEGER, content TEXT, is_read INTEGER);";
     public static final String SQL_CREATE_TABLE_CHAT_SESSION = "CREATE TABLE chatrecord (_id LONG PRIMARY KEY,category INTEGER, contacter LONG, name TEXT, last_msg TEXT, last_msg_time LONG, last_open_time LONG, new_msg_sum INTEGER, weight INTEGER, show INTEGER,collection_type INTEGER,chat_type INTEGER,icon_url TEXT,msg_state INTEGER,paid LONG,isclicked INTEGER, classtype INTEGER DEFAULT 0, classtitle TEXT, classshow INTEGER DEFAULT 0, marktop INTEGER DEFAULT 0, marktoptime LONG, classavatar TEXT, nickname TEXT, game_vs_history TEXT, extra TEXT, v_portrait TEXT, certification TEXT, vip_id TEXT, shield INTEGER, shield_time LONG);";
     public static final String SQL_CREATE_TABLE_DAILOG_RECORD = "CREATE TABLE dialog_record ( category INTEGER ,contacter LONG, localmsgid LONG, dialogueMsgid INTEGER, state INTEGER,update_time LONG,jump INTEGER,  PRIMARY KEY (category,contacter));";
     public static final String SQL_CREATE_TABLE_FRIEND_GROUP = "CREATE TABLE friendgroup (_id INTEGER PRIMARY KEY AUTOINCREMENT , friend_group_id LONG, friend_group_name TEXT);";
@@ -39,7 +41,7 @@ public class TableDefine {
     public static final String SQL_CREATE_TABLE_USERINFO = "CREATE TABLE userinfo (_id INTEGER PRIMARY KEY AUTOINCREMENT , uid LONG, buid LONG, username TEXT, sex INTEGER, phone INTEGER, user_detail TEXT, tiny_url TEXT, head_url TEXT, account_type INTEGER, ip_exsit INTEGER, ip TEXT, ip_isp TEXT, ip_country TEXT, ip_province TEXT, ip_city TEXT, ip_county TEXT, disturb INTEGER, blacklist INTEGER, v_portrait INTEGER, identity TEXT, last_update_time LONG, shield INTEGER, shield_time LONG, marktop INTEGER, marktop_time LONG, subscribe_status INTEGER, has_special_identity INTEGER, vip_id TEXT, special_identity TEXT, user_ext TEXT, phone_relation INTEGER);";
     public static final String SQL_CREATE_TABLE_ZHIDAINFO = "CREATE TABLE zhida_info ( zhidaid LONG PRIMARY KEY, apikey TEXT,description TEXT, entry_url TEXT,icon_url TEXT,is_subscribe INTEGER,paid LONG,name TEXT,acceptpush INTEGER, sfot_ttl LONG,status INTEGER);";
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes5.dex */
     public static final class DRColumns {
         public static final String COLUMN_CATEGORY = "category";
         public static final String COLUMN_CONTACTER = "contacter";
@@ -50,13 +52,13 @@ public class TableDefine {
         public static final String COLUMN_UPDATE_TIME = "update_time";
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes5.dex */
     public static final class FriendGroupColumns implements BaseColumns {
         public static final String COLUMN_FRIEND_GROUP_ID = "friend_group_id";
         public static final String COLUMN_FRIEND_GROUP_NAME = "friend_group_name";
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes5.dex */
     public static final class FriendRelationColumns implements BaseColumns {
         public static final String COLUMN_FRIEND_GROUP_ID = "friend_group_id";
         public static final String COLUMN_REVERSE_STATUS = "friend_status_reverse";
@@ -64,7 +66,7 @@ public class TableDefine {
         public static final String COLUMN_UID = "uid";
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes5.dex */
     public static final class GroupInfoColumns implements BaseColumns {
         public static final String COLUMN_DESCRIPTION = "description";
         public static final String COLUMN_GROUP_ID = "group_id";
@@ -72,7 +74,7 @@ public class TableDefine {
         public static final String COLUMN_NAME = "group_name";
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes5.dex */
     public static final class GroupMemberColumns implements BaseColumns {
         public static final String COLUMN_GROUP_ID = "group_id";
         public static final String COLUMN_NAME = "name";
@@ -80,7 +82,7 @@ public class TableDefine {
         public static final String COLUMN_UID = "uid";
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes5.dex */
     public static final class MessageColumns implements BaseColumns {
         public static final String COLUME_EXPIRES_TIME = "expires_time";
         public static final String COLUME_SERVICE_TYPE = "service_type";
@@ -108,7 +110,7 @@ public class TableDefine {
         public static final String COLUMN_TYPE = "type";
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes5.dex */
     public static final class NoDuplicateMessageColumns implements BaseColumns {
         public static final String COLUMN_CATEGORY = "category";
         public static final String COLUMN_CONTACTER = "contacter";
@@ -119,7 +121,7 @@ public class TableDefine {
         public static final String COLUMN_MSG_TYPE = "type";
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes5.dex */
     public static final class PaCmdQueueColumns implements BaseColumns {
         public static final String COLUMN_EXTRA_DATA = "extra";
         public static final String COLUMN_METHOD_ID = "methodId";
@@ -130,7 +132,7 @@ public class TableDefine {
         public static final String COLUMN_UUID = "uuid";
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes5.dex */
     public static final class PaSubscribeColumns implements BaseColumns {
         public static final String COLUMN_ACCEPT_PUSH = "acceptpush";
         public static final String COLUMN_AVATAR = "avatar";
@@ -164,7 +166,7 @@ public class TableDefine {
         public static final String COLUMN_V_PORTRAIT = "v_portrait";
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes5.dex */
     public static final class ReliableMessageColumns implements BaseColumns {
         public static final String COLUMN_CATEGORY = "category";
         public static final String COLUMN_CONTACTER = "contacter";
@@ -179,7 +181,7 @@ public class TableDefine {
         public static final String COLUMN_TYPE = "type";
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes5.dex */
     public static final class SessionColumns implements BaseColumns {
         public static final String COLUMN_CATEGORY = "category";
         public static final String COLUMN_CERTIFICATION = "certification";
@@ -212,7 +214,20 @@ public class TableDefine {
         public static final String COLUMN_WEIGHT = "weight";
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes5.dex */
+    public static final class StudioUsePaMessageColumns implements BaseColumns {
+        public static final String COLUMN_CATEGORY = "category";
+        public static final String COLUMN_CONTACTER = "contacter";
+        public static final String COLUMN_CONTENT = "content";
+        public static final String COLUMN_FROM_USER = "from_user";
+        public static final String COLUMN_INPUT_TIME = "input_time";
+        public static final String COLUMN_IS_READ = "is_read";
+        public static final String COLUMN_MSGID = "msgid";
+        public static final String COLUMN_MSG_KEY = "msg_key";
+        public static final String COLUMN_MSG_TYPE = "type";
+    }
+
+    /* loaded from: classes5.dex */
     public static final class UserInfoColumns implements BaseColumns {
         public static final String COLUMN_ACCOUNTTYPE = "account_type";
         public static final String COLUMN_BAIDU_UID = "buid";
@@ -247,7 +262,7 @@ public class TableDefine {
         public static final String COLUMN_V_PORTRAIT = "v_portrait";
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes5.dex */
     public static final class ZhiDaColumns implements BaseColumns {
         public static final String COLUMN_ACCEPT_PUSH = "acceptpush";
         public static final String COLUMN_APIKEY = "apikey";

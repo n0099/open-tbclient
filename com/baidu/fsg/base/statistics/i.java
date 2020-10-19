@@ -7,9 +7,11 @@ import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 import android.text.TextUtils;
 import com.baidu.fsg.base.utils.LogUtil;
-/* loaded from: classes15.dex */
+/* loaded from: classes16.dex */
 class i extends SQLiteOpenHelper {
-    private static final String a = "logsender";
+
+    /* renamed from: a  reason: collision with root package name */
+    private static final String f1494a = "logsender";
     private static final String d = "rim_stat_event";
     private static final String e = "rim_stat_event.db";
     private static final int f = 1;
@@ -42,7 +44,7 @@ class i extends SQLiteOpenHelper {
             if (hVar != null) {
                 if (!TextUtils.isEmpty(hVar.p)) {
                     ContentValues contentValues = new ContentValues();
-                    contentValues.put(h.a, hVar.p);
+                    contentValues.put(h.f1493a, hVar.p);
                     contentValues.put("et", Long.valueOf(hVar.q));
                     contentValues.put("ev", hVar.r);
                     contentValues.put(h.d, hVar.s);
@@ -51,7 +53,7 @@ class i extends SQLiteOpenHelper {
                         this.b.insert(d, null, contentValues);
                     } catch (Exception e2) {
                     }
-                    LogUtil.d(a, "插入一条数据" + hVar.p);
+                    LogUtil.d(f1494a, "插入一条数据" + hVar.p);
                 }
             }
         }
@@ -130,7 +132,7 @@ class i extends SQLiteOpenHelper {
                 hVarArr = new h[cursor.getCount()];
                 while (cursor.moveToNext()) {
                     h hVar = new h();
-                    hVar.p = cursor.getString(cursor.getColumnIndex(h.a));
+                    hVar.p = cursor.getString(cursor.getColumnIndex(h.f1493a));
                     hVar.q = cursor.getLong(cursor.getColumnIndex("et"));
                     hVar.r = cursor.getString(cursor.getColumnIndex("ev"));
                     hVar.s = cursor.getString(cursor.getColumnIndex(h.d));
@@ -155,17 +157,17 @@ class i extends SQLiteOpenHelper {
         synchronized (this.c) {
             if (hVarArr != null) {
                 if (hVarArr.length != 0) {
-                    LogUtil.d(a, "=====removeEvents-begin=====size=" + hVarArr.length);
+                    LogUtil.d(f1494a, "=====removeEvents-begin=====size=" + hVarArr.length);
                     for (h hVar : hVarArr) {
                         if (hVar != null) {
                             this.b.delete(d, "nu=" + hVar.u, null);
                         }
                     }
-                    LogUtil.d(a, "=====removeEvents-end=====");
+                    LogUtil.d(f1494a, "=====removeEvents-end=====");
                     return;
                 }
             }
-            LogUtil.d(a, "=====removeEvents=====size=0");
+            LogUtil.d(f1494a, "=====removeEvents=====size=0");
         }
     }
 

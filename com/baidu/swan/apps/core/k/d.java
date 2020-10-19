@@ -2,7 +2,7 @@ package com.baidu.swan.apps.core.k;
 
 import com.baidu.adp.plugin.install.PluginInstallerService;
 import java.io.File;
-/* loaded from: classes3.dex */
+/* loaded from: classes10.dex */
 public class d {
     public static boolean k(String str, String str2, boolean z) {
         if (!z) {

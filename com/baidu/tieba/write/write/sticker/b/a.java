@@ -42,12 +42,12 @@ public class a {
         float f9 = fArr[6];
         float f10 = fArr[7];
         float g = g(f3, f4, f5, f6);
-        float a = a(f3, f4, f5, f6, f, f2);
+        float a2 = a(f3, f4, f5, f6, f, f2);
         float g2 = g(f5, f6, f9, f10);
-        float a2 = a(f5, f6, f9, f10, f, f2);
-        float a3 = a(f9, f10, f7, f8, f, f2);
-        float a4 = a(f7, f8, f3, f4, f, f2);
-        if (g > 0.0f && g2 > 0.0f && a <= g2 && a3 <= g2 && a2 <= g && a4 <= g) {
+        float a3 = a(f5, f6, f9, f10, f, f2);
+        float a4 = a(f9, f10, f7, f8, f, f2);
+        float a5 = a(f7, f8, f3, f4, f, f2);
+        if (g > 0.0f && g2 > 0.0f && a2 <= g2 && a4 <= g2 && a3 <= g && a5 <= g) {
             return true;
         }
         return false;

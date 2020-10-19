@@ -8,9 +8,11 @@ import com.sdk.base.framework.c.d;
 import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes5.dex */
+/* loaded from: classes16.dex */
 public class a {
-    private static b a;
+
+    /* renamed from: a  reason: collision with root package name */
+    private static b f4499a;
 
     static {
         a.class.getSimpleName();
@@ -21,14 +23,14 @@ public class a {
         switch (i) {
             case 101005:
                 JSONObject jSONObject2 = new JSONObject();
-                jSONObject2.put("clientTimeOut", a.b());
+                jSONObject2.put("clientTimeOut", f4499a.b());
                 jSONObject2.put("type", 1);
                 JSONObject jSONObject3 = new JSONObject();
                 jSONObject3.put("url", 2);
                 jSONObject3.put("time", 3);
                 jSONObject2.put("fieldType", jSONObject3);
                 JSONArray jSONArray = new JSONArray();
-                for (d dVar : a.c().b()) {
+                for (d dVar : f4499a.c().b()) {
                     JSONObject jSONObject4 = new JSONObject();
                     jSONObject4.put("url", dVar.a());
                     jSONObject4.put("time", dVar.b());
@@ -45,10 +47,10 @@ public class a {
                 break;
             case 302003:
                 jSONObject = new JSONObject();
-                jSONObject.put("clientTimeOut", a.b());
+                jSONObject.put("clientTimeOut", f4499a.b());
                 jSONObject.put("type", 2);
                 JSONArray jSONArray2 = new JSONArray();
-                jSONArray2.put(a.c().a());
+                jSONArray2.put(f4499a.c().a());
                 jSONObject.put("content", jSONArray2);
                 break;
         }
@@ -56,61 +58,61 @@ public class a {
     }
 
     public static void a() {
-        a = new b();
+        f4499a = new b();
     }
 
     public static void a(String str) {
         try {
-            List<String> c = a.c().c();
+            List<String> c = f4499a.c().c();
             c.add(str);
-            a.c().b(c);
+            f4499a.c().b(c);
         } catch (Throwable th) {
         }
     }
 
     public static void a(String str, long j) {
         try {
-            if (c.b(str).booleanValue() && c.a(a.a()).booleanValue()) {
+            if (c.b(str).booleanValue() && c.a(f4499a.a()).booleanValue()) {
                 Uri parse = Uri.parse(str);
                 String queryParameter = parse.getQueryParameter("sequenceNumber");
                 String queryParameter2 = parse.getQueryParameter("ret_url");
                 if (c.b(queryParameter2).booleanValue()) {
                     queryParameter = Uri.parse(com.sdk.base.framework.f.j.d.a(queryParameter2)).getQueryParameter("seq");
                 }
-                a.a(queryParameter);
+                f4499a.a(queryParameter);
             }
-            List<d> b = a.c().b();
+            List<d> b = f4499a.c().b();
             d dVar = new d();
             dVar.a(str);
             dVar.a(j);
             b.add(dVar);
-            a.c().a(b);
+            f4499a.c().a(b);
         } catch (Throwable th) {
         }
     }
 
     public static b b() {
-        if (a == null) {
+        if (f4499a == null) {
             a();
         }
-        return a;
+        return f4499a;
     }
 
     public static void b(String str) {
         try {
-            List<String> d = a.c().d();
+            List<String> d = f4499a.c().d();
             d.add(str);
-            a.c().c(d);
+            f4499a.c().c(d);
         } catch (Throwable th) {
         }
     }
 
     private static JSONObject c() {
         JSONObject jSONObject = new JSONObject();
-        jSONObject.put("clientTimeOut", a.b());
+        jSONObject.put("clientTimeOut", f4499a.b());
         jSONObject.put("type", 2);
         JSONArray jSONArray = new JSONArray();
-        for (String str : a.c().d()) {
+        for (String str : f4499a.c().d()) {
             jSONArray.put(str);
         }
         jSONObject.put("content", jSONArray);
@@ -119,17 +121,17 @@ public class a {
 
     public static void c(String str) {
         try {
-            a.c().a(str);
+            f4499a.c().a(str);
         } catch (Throwable th) {
         }
     }
 
     private static JSONObject d() {
         JSONObject jSONObject = new JSONObject();
-        jSONObject.put("clientTimeOut", a.b());
+        jSONObject.put("clientTimeOut", f4499a.b());
         jSONObject.put("type", 2);
         JSONArray jSONArray = new JSONArray();
-        for (String str : a.c().c()) {
+        for (String str : f4499a.c().c()) {
             jSONArray.put(str);
         }
         jSONObject.put("content", jSONArray);

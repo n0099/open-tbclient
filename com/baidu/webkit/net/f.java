@@ -2,10 +2,12 @@ package com.baidu.webkit.net;
 
 import com.baidu.webkit.net.BdNetTask;
 import com.baidu.webkit.sdk.Log;
-/* loaded from: classes8.dex */
+/* loaded from: classes11.dex */
 public class f {
     private static final String b = f.class.getSimpleName();
-    BdNetTask a;
+
+    /* renamed from: a  reason: collision with root package name */
+    BdNetTask f3974a;
     private BdNet c;
     private BdNetEngine d;
 
@@ -19,7 +21,7 @@ public class f {
     }
 
     public final boolean a() {
-        return this.a != null;
+        return this.f3974a != null;
     }
 
     public final boolean a(BdNetTask bdNetTask) {
@@ -27,9 +29,9 @@ public class f {
             return false;
         }
         try {
-            this.a = bdNetTask;
-            this.a.setNet(this.c);
-            this.a.setWorker(this);
+            this.f3974a = bdNetTask;
+            this.f3974a.setNet(this.c);
+            this.f3974a.setWorker(this);
             if (e.a().c == null) {
                 e.a().c = this.c.getContext();
             }
@@ -38,14 +40,14 @@ public class f {
                 this.d.setEventListener(this.c);
                 e.a();
                 if (!e.b()) {
-                    this.d.startDownload(this.a);
-                } else if (this.a.isHigherPriority()) {
-                    this.d.startDownload(this.a);
+                    this.d.startDownload(this.f3974a);
+                } else if (this.f3974a.isHigherPriority()) {
+                    this.d.startDownload(this.f3974a);
                 }
             } else {
                 e.a();
-                if (!e.b() || this.a.isHigherPriority()) {
-                    BdNetTask bdNetTask2 = this.a;
+                if (!e.b() || this.f3974a.isHigherPriority()) {
+                    BdNetTask bdNetTask2 = this.f3974a;
                     if (bdNetTask2.getTaskPriority$78f3a484() == 0) {
                         e.a().a(bdNetTask2, BdNetTask.b.b - 1);
                     } else {
@@ -68,10 +70,10 @@ public class f {
 
     public final void b() {
         try {
-            if (this.a != null) {
-                this.a.setWorker(null);
-                this.a.stop();
-                this.a = null;
+            if (this.f3974a != null) {
+                this.f3974a.setWorker(null);
+                this.f3974a.stop();
+                this.f3974a = null;
             }
         } catch (Exception e) {
             Log.d(b, "stop Exception", e);

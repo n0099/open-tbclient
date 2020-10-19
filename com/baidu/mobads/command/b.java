@@ -6,9 +6,11 @@ import com.baidu.mobads.interfaces.IXAdResource;
 import com.baidu.mobads.interfaces.IXNonLinearAdSlot;
 import com.baidu.mobads.interfaces.utils.IXAdLogger;
 import com.baidu.mobads.utils.XAdSDKFoundationFacade;
-/* loaded from: classes3.dex */
+/* loaded from: classes7.dex */
 public abstract class b {
-    protected Context a;
+
+    /* renamed from: a  reason: collision with root package name */
+    protected Context f2323a;
     protected IXNonLinearAdSlot b;
     protected IXAdInstanceInfo c;
     protected IXAdResource d;
@@ -17,9 +19,9 @@ public abstract class b {
     public b(IXNonLinearAdSlot iXNonLinearAdSlot, IXAdInstanceInfo iXAdInstanceInfo, IXAdResource iXAdResource) {
         this.b = iXNonLinearAdSlot;
         if (iXNonLinearAdSlot != null) {
-            this.a = iXNonLinearAdSlot.getApplicationContext();
+            this.f2323a = iXNonLinearAdSlot.getApplicationContext();
         } else {
-            this.a = XAdSDKFoundationFacade.getInstance().getApplicationContext();
+            this.f2323a = XAdSDKFoundationFacade.getInstance().getApplicationContext();
         }
         this.c = iXAdInstanceInfo;
         this.d = iXAdResource;

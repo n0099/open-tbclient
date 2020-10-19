@@ -11,16 +11,16 @@ import com.baidu.live.sdk.a;
 import com.baidu.live.tbadk.coreextra.view.CircleProgressView;
 /* loaded from: classes4.dex */
 public class d {
-    private CircleProgressView gCA;
-    private TextView gCB;
-    PendantChildView gCC;
+    private CircleProgressView gQT;
+    private TextView gQU;
+    PendantChildView gQV;
     private Context mContext;
     private View mRootView;
 
     public d(Context context) {
         this.mContext = context;
         this.mRootView = LayoutInflater.from(context).inflate(a.h.ala_apk_downloading_view_layout, (ViewGroup) null);
-        this.gCC = new PendantChildView(context) { // from class: com.baidu.tieba.ala.liveroom.j.d.1
+        this.gQV = new PendantChildView(context) { // from class: com.baidu.tieba.ala.liveroom.j.d.1
             @Override // com.baidu.live.pendantview.PendantChildView
             public PendantParentView.Position getVerticalPosition() {
                 return PendantParentView.Position.RIGHT;
@@ -46,20 +46,20 @@ public class d {
                 return 35;
             }
         };
-        this.gCC.addView(this.mRootView);
-        this.gCA = (CircleProgressView) this.mRootView.findViewById(a.g.apk_download_progress);
-        this.gCB = (TextView) this.mRootView.findViewById(a.g.apk_download_progress_text);
+        this.gQV.addView(this.mRootView);
+        this.gQT = (CircleProgressView) this.mRootView.findViewById(a.g.apk_download_progress);
+        this.gQU = (TextView) this.mRootView.findViewById(a.g.apk_download_progress_text);
         this.mRootView.setBackgroundResource(a.f.sdk_black_oval_shape_alpha50);
-        this.gCA.setCircleForegroundColor(context.getResources().getColor(a.d.sdk_white_alpha100));
-        this.gCA.setCircleBackgroundColor(context.getResources().getColor(a.d.sdk_black_alpha100));
-        this.gCA.setWidth(context.getResources().getDimensionPixelSize(a.e.sdk_ds4));
+        this.gQT.setCircleForegroundColor(context.getResources().getColor(a.d.sdk_white_alpha100));
+        this.gQT.setCircleBackgroundColor(context.getResources().getColor(a.d.sdk_black_alpha100));
+        this.gQT.setWidth(context.getResources().getDimensionPixelSize(a.e.sdk_ds4));
     }
 
-    public PendantChildView bTe() {
-        return this.gCC;
+    public PendantChildView bWx() {
+        return this.gQV;
     }
 
-    public void mj(boolean z) {
+    public void mL(boolean z) {
         if (z) {
             this.mRootView.setAlpha(0.5f);
         } else {
@@ -73,7 +73,7 @@ public class d {
         } else if (i > 100) {
             i = 100;
         }
-        this.gCA.setProgress(i);
-        this.gCB.setText(i + "%");
+        this.gQT.setProgress(i);
+        this.gQU.setText(i + "%");
     }
 }

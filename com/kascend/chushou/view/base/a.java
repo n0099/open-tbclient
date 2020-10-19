@@ -18,7 +18,7 @@ import com.kascend.chushou.a;
 /* loaded from: classes6.dex */
 public abstract class a extends DialogFragment {
     protected Context b;
-    protected ProgressDialog ohT = null;
+    protected ProgressDialog oxm = null;
 
     public abstract View a(LayoutInflater layoutInflater, @Nullable ViewGroup viewGroup, @Nullable Bundle bundle);
 
@@ -44,9 +44,9 @@ public abstract class a extends DialogFragment {
     @Override // android.support.v4.app.Fragment
     @Nullable
     public View onCreateView(LayoutInflater layoutInflater, @Nullable ViewGroup viewGroup, @Nullable Bundle bundle) {
-        View a = a(layoutInflater, viewGroup, bundle);
-        a(a);
-        return a;
+        View a2 = a(layoutInflater, viewGroup, bundle);
+        a(a2);
+        return a2;
     }
 
     @Override // android.support.v4.app.DialogFragment

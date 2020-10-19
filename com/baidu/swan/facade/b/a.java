@@ -13,20 +13,20 @@ import okhttp3.Response;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes3.dex */
+/* loaded from: classes16.dex */
 public class a {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    private static final String djD = SchemeConfig.getSchemeHead() + "://";
+    private static final String dvJ = SchemeConfig.getSchemeHead() + "://";
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public static void tJ(final String str) {
-        HttpManager.getDefault(AppRuntime.getAppContext()).getRequest().setHeader("Swan-Accept", "swan/json").userAgent(com.baidu.swan.apps.an.a.aES()).url(str).build().executeAsyncOnUIBack(new StringResponseCallback() { // from class: com.baidu.swan.facade.b.a.1
-            private Response djE;
+    public static void uv(final String str) {
+        HttpManager.getDefault(AppRuntime.getAppContext()).getRequest().setHeader("Swan-Accept", "swan/json").userAgent(com.baidu.swan.apps.an.a.aHB()).url(str).build().executeAsyncOnUIBack(new StringResponseCallback() { // from class: com.baidu.swan.facade.b.a.1
+            private Response dvK;
 
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.searchbox.http.callback.StringResponseCallback, com.baidu.searchbox.http.callback.ResponseCallback
             public String parseResponse(Response response, int i) throws Exception {
-                this.djE = response;
+                this.dvK = response;
                 return super.parseResponse(response, i);
             }
 
@@ -38,17 +38,17 @@ public class a {
                     Log.d("SwanAppExchanger", "startLaunchAction onSuccess status: " + i);
                 }
                 if (i != 200) {
-                    String e = a.e(this.djE);
+                    String e = a.e(this.dvK);
                     if (TextUtils.isEmpty(e)) {
                         a.d("get launch scheme fail: request fail with code " + i, str, str2, true);
                         return;
                     } else {
-                        b.tM(e);
+                        b.uy(e);
                         return;
                     }
                 }
                 try {
-                    b.tM(new JSONObject(str2).optString("data"));
+                    b.uy(new JSONObject(str2).optString("data"));
                 } catch (JSONException e2) {
                     e2.printStackTrace();
                     a.d("get launch scheme fail: " + e2.getMessage(), str, str2, false);
@@ -67,7 +67,7 @@ public class a {
         if (z) {
             d.a(AppRuntime.getAppContext(), "打开失败，请检查网络设置").showToast();
         }
-        e.aEQ().j(new com.baidu.swan.apps.am.a().bP(1L).bQ(12L).sH(str));
+        e.aHz().j(new com.baidu.swan.apps.am.a().bX(1L).bY(12L).tt(str));
         if (DEBUG) {
             Log.w("SwanAppExchanger", "open aiapp fail, url : " + str2);
         }
@@ -82,6 +82,6 @@ public class a {
         if (TextUtils.isEmpty(header) || !header.startsWith("baiduboxapp://")) {
             return null;
         }
-        return header.replace("baiduboxapp://", djD);
+        return header.replace("baiduboxapp://", dvJ);
     }
 }

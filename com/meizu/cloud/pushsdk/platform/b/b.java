@@ -11,16 +11,18 @@ import com.meizu.cloud.pushsdk.platform.message.RegisterStatus;
 import com.meizu.cloud.pushsdk.util.MzSystemUtils;
 import java.util.concurrent.ScheduledExecutorService;
 import java.util.concurrent.TimeUnit;
-/* loaded from: classes3.dex */
+/* loaded from: classes7.dex */
 public class b extends c<RegisterStatus> {
-    protected Handler a;
+
+    /* renamed from: a  reason: collision with root package name */
+    protected Handler f4440a;
     protected ScheduledExecutorService b;
     protected int c;
 
     public b(Context context, com.meizu.cloud.pushsdk.platform.a.a aVar, ScheduledExecutorService scheduledExecutorService) {
         this(context, null, null, aVar, scheduledExecutorService);
         this.b = (ScheduledExecutorService) com.meizu.cloud.pushsdk.c.b.a.b.a();
-        this.a = new Handler(context.getMainLooper()) { // from class: com.meizu.cloud.pushsdk.platform.b.b.1
+        this.f4440a = new Handler(context.getMainLooper()) { // from class: com.meizu.cloud.pushsdk.platform.b.b.1
             @Override // android.os.Handler
             public void handleMessage(Message message) {
                 switch (message.what) {
@@ -49,7 +51,7 @@ public class b extends c<RegisterStatus> {
             @Override // java.lang.Runnable
             public void run() {
                 b.this.o();
-                b.this.a.sendEmptyMessage(0);
+                b.this.f4440a.sendEmptyMessage(0);
             }
         }, j, TimeUnit.SECONDS);
     }
@@ -117,12 +119,12 @@ public class b extends c<RegisterStatus> {
     /* renamed from: j */
     public RegisterStatus e() {
         RegisterStatus registerStatus = new RegisterStatus();
-        String a = com.meizu.cloud.pushsdk.util.b.a(this.e, this.h);
+        String a2 = com.meizu.cloud.pushsdk.util.b.a(this.e, this.h);
         int b = com.meizu.cloud.pushsdk.util.b.b(this.e, this.h);
-        if (!a(a, b)) {
+        if (!a(a2, b)) {
             registerStatus.setCode(BasicPushStatus.SUCCESS_CODE);
             registerStatus.setMessage("already register PushId,dont register frequently");
-            registerStatus.setPushId(a);
+            registerStatus.setPushId(a2);
             registerStatus.setExpireTime((int) (b - (System.currentTimeMillis() / 1000)));
             return registerStatus;
         }
@@ -137,9 +139,9 @@ public class b extends c<RegisterStatus> {
             return registerStatus;
         }
         this.c = 0;
-        com.meizu.cloud.pushsdk.b.a.c a2 = this.j.a(this.f, this.g, this.i);
-        if (a2.b()) {
-            RegisterStatus registerStatus2 = new RegisterStatus((String) a2.a());
+        com.meizu.cloud.pushsdk.b.a.c a3 = this.j.a(this.f, this.g, this.i);
+        if (a3.b()) {
+            RegisterStatus registerStatus2 = new RegisterStatus((String) a3.a());
             com.meizu.cloud.a.a.e("Strategy", "registerStatus " + registerStatus2);
             if (TextUtils.isEmpty(registerStatus2.getPushId())) {
                 return registerStatus2;
@@ -148,7 +150,7 @@ public class b extends c<RegisterStatus> {
             com.meizu.cloud.pushsdk.util.b.a(this.e, (int) ((System.currentTimeMillis() / 1000) + registerStatus2.getExpireTime()), this.h);
             return registerStatus2;
         }
-        com.meizu.cloud.pushsdk.b.b.a c = a2.c();
+        com.meizu.cloud.pushsdk.b.b.a c = a3.c();
         if (c.a() != null) {
             com.meizu.cloud.a.a.e("Strategy", "status code=" + c.b() + " data=" + c.a());
         }

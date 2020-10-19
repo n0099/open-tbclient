@@ -9,7 +9,7 @@ import com.baidu.searchbox.player.BDPlayerConfig;
 import com.baidu.searchbox.player.session.VideoSession;
 import com.baidu.searchbox.player.utils.BdVideoLog;
 import java.util.HashMap;
-/* loaded from: classes8.dex */
+/* loaded from: classes15.dex */
 public class EmptyKernel extends AbsVideoKernel {
     @Override // com.baidu.searchbox.player.kernel.AbsVideoKernel
     public void setVideoSession(@NonNull VideoSession videoSession) {

@@ -11,21 +11,21 @@ import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tieba.enterForum.recommend.message.RequestRecommendMessage;
 import com.baidu.tieba.enterForum.recommend.message.ResponseHttpRecommendMessage;
 import com.baidu.tieba.enterForum.recommend.message.ResponseSocketRecommendMessage;
-/* loaded from: classes21.dex */
+/* loaded from: classes22.dex */
 public class RecommendModel extends BdBaseModel {
-    private a dRa;
-    private com.baidu.tieba.enterForum.recommend.a hFW;
+    private a edb;
+    private com.baidu.tieba.enterForum.recommend.a hUR;
     private boolean mIsLoading;
     private TbPageContext<?> mPageContext;
 
     public RecommendModel(TbPageContext<?> tbPageContext) {
         super(tbPageContext);
         this.mPageContext = tbPageContext;
-        this.dRa = new a(CmdConfigHttp.CMD_RECOMMEND_FORUM, 309630) { // from class: com.baidu.tieba.enterForum.recommend.model.RecommendModel.1
+        this.edb = new a(CmdConfigHttp.CMD_RECOMMEND_FORUM, 309630) { // from class: com.baidu.tieba.enterForum.recommend.model.RecommendModel.1
             @Override // com.baidu.adp.framework.listener.a
             public void onMessage(ResponsedMessage<?> responsedMessage) {
                 RecommendModel.this.mIsLoading = false;
-                if (responsedMessage != null && responsedMessage.getOrginalMessage() != null && RecommendModel.this.unique_id == responsedMessage.getOrginalMessage().getTag() && RecommendModel.this.hFW != null) {
+                if (responsedMessage != null && responsedMessage.getOrginalMessage() != null && RecommendModel.this.unique_id == responsedMessage.getOrginalMessage().getTag() && RecommendModel.this.hUR != null) {
                     com.baidu.tieba.enterForum.recommend.b.a aVar = null;
                     if (responsedMessage instanceof ResponseHttpRecommendMessage) {
                         aVar = ((ResponseHttpRecommendMessage) responsedMessage).getRecommendData();
@@ -33,27 +33,27 @@ public class RecommendModel extends BdBaseModel {
                     if (responsedMessage instanceof ResponseSocketRecommendMessage) {
                         aVar = ((ResponseSocketRecommendMessage) responsedMessage).getRecommendData();
                     }
-                    RecommendModel.this.hFW.a(responsedMessage.getError(), aVar);
+                    RecommendModel.this.hUR.a(responsedMessage.getError(), aVar);
                 }
             }
         };
     }
 
     public void setPresenter(com.baidu.tieba.enterForum.recommend.a aVar) {
-        this.hFW = aVar;
+        this.hUR = aVar;
     }
 
     @Override // com.baidu.adp.base.BdBaseModel
     public void setUniqueId(BdUniqueId bdUniqueId) {
         super.setUniqueId(bdUniqueId);
-        this.dRa.setTag(bdUniqueId);
-        registerListener(this.dRa);
+        this.edb.setTag(bdUniqueId);
+        registerListener(this.edb);
     }
 
-    public void cjF() {
+    public void cnb() {
         if (!j.isNetworkAvailableForImmediately()) {
-            if (this.hFW != null) {
-                this.hFW.a(-1, null);
+            if (this.hUR != null) {
+                this.hUR.a(-1, null);
             }
         } else if (!this.mIsLoading) {
             cancelLoadData();
@@ -77,7 +77,7 @@ public class RecommendModel extends BdBaseModel {
     }
 
     public void onDestroy() {
-        MessageManager.getInstance().unRegisterListener(this.dRa);
+        MessageManager.getInstance().unRegisterListener(this.edb);
         this.mIsLoading = false;
     }
 }

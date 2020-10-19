@@ -11,9 +11,11 @@ import android.view.View;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import com.baidu.mapapi.common.SysOSUtil;
-/* loaded from: classes3.dex */
+/* loaded from: classes7.dex */
 public class ab extends LinearLayout implements View.OnTouchListener {
-    private ImageView a;
+
+    /* renamed from: a  reason: collision with root package name */
+    private ImageView f2220a;
     private ImageView b;
     private Context c;
     private Bitmap d;
@@ -38,22 +40,22 @@ public class ab extends LinearLayout implements View.OnTouchListener {
         if (this.d == null || this.e == null || this.f == null || this.g == null) {
             return;
         }
-        this.a = new ImageView(this.c);
+        this.f2220a = new ImageView(this.c);
         this.b = new ImageView(this.c);
-        this.a.setImageBitmap(this.d);
+        this.f2220a.setImageBitmap(this.d);
         this.b.setImageBitmap(this.f);
         this.l = a(this.f.getHeight() / 6);
-        a(this.a, "main_topbtn_up.9.png");
+        a(this.f2220a, "main_topbtn_up.9.png");
         a(this.b, "main_bottombtn_up.9.png");
-        this.a.setId(0);
+        this.f2220a.setId(0);
         this.b.setId(1);
-        this.a.setClickable(true);
+        this.f2220a.setClickable(true);
         this.b.setClickable(true);
-        this.a.setOnTouchListener(this);
+        this.f2220a.setOnTouchListener(this);
         this.b.setOnTouchListener(this);
         setOrientation(1);
         setLayoutParams(new LinearLayout.LayoutParams(-2, -2));
-        addView(this.a);
+        addView(this.f2220a);
         addView(this.b);
         this.n = true;
     }
@@ -64,16 +66,16 @@ public class ab extends LinearLayout implements View.OnTouchListener {
         this.n = false;
         this.c = context;
         this.m = z;
-        this.a = new ImageView(this.c);
+        this.f2220a = new ImageView(this.c);
         this.b = new ImageView(this.c);
         if (z) {
             d();
             if (this.h == null || this.i == null || this.j == null || this.k == null) {
                 return;
             }
-            this.a.setLayoutParams(new LinearLayout.LayoutParams(-2, -2));
+            this.f2220a.setLayoutParams(new LinearLayout.LayoutParams(-2, -2));
             this.b.setLayoutParams(new LinearLayout.LayoutParams(-2, -2));
-            this.a.setImageBitmap(this.h);
+            this.f2220a.setImageBitmap(this.h);
             this.b.setImageBitmap(this.j);
             setLayoutParams(new LinearLayout.LayoutParams(-2, -2));
             setOrientation(0);
@@ -82,21 +84,21 @@ public class ab extends LinearLayout implements View.OnTouchListener {
             if (this.d == null || this.e == null || this.f == null || this.g == null) {
                 return;
             }
-            this.a.setImageBitmap(this.d);
+            this.f2220a.setImageBitmap(this.d);
             this.b.setImageBitmap(this.f);
             this.l = a(this.f.getHeight() / 6);
-            a(this.a, "main_topbtn_up.9.png");
+            a(this.f2220a, "main_topbtn_up.9.png");
             a(this.b, "main_bottombtn_up.9.png");
             setLayoutParams(new LinearLayout.LayoutParams(-2, -2));
             setOrientation(1);
         }
-        this.a.setId(0);
+        this.f2220a.setId(0);
         this.b.setId(1);
-        this.a.setClickable(true);
+        this.f2220a.setClickable(true);
         this.b.setClickable(true);
-        this.a.setOnTouchListener(this);
+        this.f2220a.setOnTouchListener(this);
         this.b.setOnTouchListener(this);
-        addView(this.a);
+        addView(this.f2220a);
         addView(this.b);
         this.n = true;
     }
@@ -115,18 +117,18 @@ public class ab extends LinearLayout implements View.OnTouchListener {
         } else {
             matrix.postScale(1.5f, 1.5f);
         }
-        Bitmap a = com.baidu.mapsdkplatform.comapi.commonutils.a.a(str, this.c);
-        if (a == null) {
+        Bitmap a2 = com.baidu.mapsdkplatform.comapi.commonutils.a.a(str, this.c);
+        if (a2 == null) {
             return null;
         }
-        return Bitmap.createBitmap(a, 0, 0, a.getWidth(), a.getHeight(), matrix, true);
+        return Bitmap.createBitmap(a2, 0, 0, a2.getWidth(), a2.getHeight(), matrix, true);
     }
 
     private void a(View view, String str) {
-        Bitmap a = com.baidu.mapsdkplatform.comapi.commonutils.a.a(str, this.c);
-        byte[] ninePatchChunk = a.getNinePatchChunk();
+        Bitmap a2 = com.baidu.mapsdkplatform.comapi.commonutils.a.a(str, this.c);
+        byte[] ninePatchChunk = a2.getNinePatchChunk();
         NinePatch.isNinePatchChunk(ninePatchChunk);
-        view.setBackgroundDrawable(new NinePatchDrawable(a, ninePatchChunk, new Rect(), null));
+        view.setBackgroundDrawable(new NinePatchDrawable(a2, ninePatchChunk, new Rect(), null));
         view.setPadding(this.l, this.l, this.l, this.l);
     }
 
@@ -145,15 +147,15 @@ public class ab extends LinearLayout implements View.OnTouchListener {
     }
 
     public void a(View.OnClickListener onClickListener) {
-        this.a.setOnClickListener(onClickListener);
+        this.f2220a.setOnClickListener(onClickListener);
     }
 
     public void a(boolean z) {
-        this.a.setEnabled(z);
+        this.f2220a.setEnabled(z);
         if (z) {
-            this.a.setImageBitmap(this.d);
+            this.f2220a.setImageBitmap(this.d);
         } else {
-            this.a.setImageBitmap(this.e);
+            this.f2220a.setImageBitmap(this.e);
         }
     }
 
@@ -217,17 +219,17 @@ public class ab extends LinearLayout implements View.OnTouchListener {
                 case 0:
                     if (motionEvent.getAction() == 0) {
                         if (this.m) {
-                            this.a.setImageBitmap(this.i);
+                            this.f2220a.setImageBitmap(this.i);
                             return false;
                         }
-                        a(this.a, "main_topbtn_down.9.png");
+                        a(this.f2220a, "main_topbtn_down.9.png");
                         return false;
                     } else if (motionEvent.getAction() == 1) {
                         if (this.m) {
-                            this.a.setImageBitmap(this.h);
+                            this.f2220a.setImageBitmap(this.h);
                             return false;
                         }
-                        a(this.a, "main_topbtn_up.9.png");
+                        a(this.f2220a, "main_topbtn_up.9.png");
                         return false;
                     } else {
                         return false;

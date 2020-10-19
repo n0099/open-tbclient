@@ -15,13 +15,13 @@ import com.baidu.ar.statistic.StatisticConstants;
 import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
-/* loaded from: classes10.dex */
+/* loaded from: classes14.dex */
 public class ImuAR extends com.baidu.ar.c implements g {
     private static final String TAG = ImuAR.class.getSimpleName();
     private com.baidu.ar.lua.c rw;
 
     /* renamed from: rx  reason: collision with root package name */
-    private i f961rx;
+    private i f1194rx;
     private Matrixf4x4 ry = new Matrixf4x4();
     private Matrixf4x4 rz = new Matrixf4x4();
     private Matrixf4x4 rA = new Matrixf4x4();
@@ -227,17 +227,17 @@ public class ImuAR extends com.baidu.ar.c implements g {
         }
         if (r != null) {
             Matrixf4x4 aT = r.aT();
-            Vector3f a = a(aT);
-            Matrixf4x4 a2 = a(c(a), aT, a);
+            Vector3f a2 = a(aT);
+            Matrixf4x4 a3 = a(c(a2), aT, a2);
             if (this.rJ) {
-                b(a2);
+                b(a3);
             }
-            if (this.f961rx != null && this.f961rx.eX() == b.WORLD && this.rH) {
-                a2 = c(a2);
+            if (this.f1194rx != null && this.f1194rx.eX() == b.WORLD && this.rH) {
+                a3 = c(a3);
             }
             l lVar = new l();
             lVar.p("ability_imu");
-            lVar.setMatrix(a2.getMatrix());
+            lVar.setMatrix(a3.getMatrix());
             r.i(true);
             r.a(lVar);
         }
@@ -258,7 +258,7 @@ public class ImuAR extends com.baidu.ar.c implements g {
         hashMap.put("succeeded", 1);
         b(304, hashMap);
         b(this.rw);
-        this.f961rx = null;
+        this.f1194rx = null;
         super.release();
     }
 
@@ -278,18 +278,18 @@ public class ImuAR extends com.baidu.ar.c implements g {
                     i = (int) ((Float) obj2).floatValue();
                 }
             }
-            this.f961rx = new i();
-            this.f961rx.b(b.J(intValue));
-            this.f961rx.L(i);
-            a(this.f961rx, this);
+            this.f1194rx = new i();
+            this.f1194rx.b(b.J(intValue));
+            this.f1194rx.L(i);
+            a(this.f1194rx, this);
             eT();
             com.baidu.ar.arrender.k r = r();
             if (r != null) {
                 r.bz();
-                if (this.f961rx.eX() == b.RELATIVE) {
+                if (this.f1194rx.eX() == b.RELATIVE) {
                     r.aI();
                 }
-                r.a(this.f961rx.eX());
+                r.a(this.f1194rx.eX());
             }
             HashMap<String, Object> hashMap2 = new HashMap<>();
             hashMap2.put("succeeded", 1);

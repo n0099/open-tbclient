@@ -14,27 +14,27 @@ import java.util.Locale;
 import java.util.Map;
 /* loaded from: classes.dex */
 public class a {
-    private static a Um;
-    private final LinkedHashMap<String, PluginStatus> Un = new LinkedHashMap<>(10);
+    private static a UD;
+    private final LinkedHashMap<String, PluginStatus> UE = new LinkedHashMap<>(10);
 
     private a() {
     }
 
     public static a qB() {
-        if (Um == null) {
+        if (UD == null) {
             synchronized (a.class) {
-                if (Um == null) {
-                    Um = new a();
+                if (UD == null) {
+                    UD = new a();
                 }
             }
         }
-        return Um;
+        return UD;
     }
 
     public void cQ(String str) {
         PluginStatus cS = qB().cS(str);
         if (cS != null) {
-            cS.Uj = PluginPackageManager.PluginStatus.NROMAL;
+            cS.Uz = PluginPackageManager.PluginStatus.NROMAL;
         }
         MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(MessageConfig.PLUGIN_INSTALL_SUCCESS, cS));
     }
@@ -81,11 +81,11 @@ public class a {
         if (cS == null) {
             cS = new PluginStatus();
         }
-        cS.Uj = PluginPackageManager.PluginStatus.ERROR;
+        cS.Uz = PluginPackageManager.PluginStatus.ERROR;
         cS.errorMsg = string;
-        cS.Uk = string2;
+        cS.UB = string2;
         cS.errorCode = i;
-        cS.Ul = false;
+        cS.UC = false;
         MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(MessageConfig.PLUGIN_INSTALL_FAIL, cS));
     }
 
@@ -94,20 +94,20 @@ public class a {
         if (cS == null) {
             cS = new PluginStatus();
         }
-        cS.Uj = PluginPackageManager.PluginStatus.ERROR;
+        cS.Uz = PluginPackageManager.PluginStatus.ERROR;
         cS.errorCode = 100;
         cS.errorMsg = BdBaseApplication.getInst().getString(R.string.pluginstatus_tip_unknown);
-        cS.Uk = BdBaseApplication.getInst().getString(R.string.pluginstatus_resolve_unknown);
+        cS.UB = BdBaseApplication.getInst().getString(R.string.pluginstatus_resolve_unknown);
         MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(MessageConfig.PLUGIN_LOAD_FAIL, cS));
     }
 
     public List<PluginStatus> qC() {
         ArrayList arrayList;
         PluginStatus value;
-        synchronized (this.Un) {
-            arrayList = new ArrayList(this.Un.size());
-            for (Map.Entry<String, PluginStatus> entry : this.Un.entrySet()) {
-                if (entry != null && (value = entry.getValue()) != null && value.Uj == PluginPackageManager.PluginStatus.ERROR) {
+        synchronized (this.UE) {
+            arrayList = new ArrayList(this.UE.size());
+            for (Map.Entry<String, PluginStatus> entry : this.UE.entrySet()) {
+                if (entry != null && (value = entry.getValue()) != null && value.Uz == PluginPackageManager.PluginStatus.ERROR) {
                     arrayList.add(value);
                 }
             }
@@ -120,12 +120,12 @@ public class a {
         if (str == null || TextUtils.isEmpty(str)) {
             return null;
         }
-        synchronized (this.Un) {
-            pluginStatus = this.Un.get(str);
+        synchronized (this.UE) {
+            pluginStatus = this.UE.get(str);
             if (pluginStatus == null) {
                 pluginStatus = new PluginStatus();
                 pluginStatus.pkgName = str;
-                this.Un.put(str, pluginStatus);
+                this.UE.put(str, pluginStatus);
             }
         }
         return pluginStatus;

@@ -1,7 +1,7 @@
 package com.baidu.wallet.bankdetection.entrance;
 
 import com.baidu.wallet.router.RouterProvider;
-/* loaded from: classes15.dex */
+/* loaded from: classes16.dex */
 public class BankCardDetectionProvider extends RouterProvider {
     protected void registerActions() {
         registerAction("bankcarddetction", new BankCardDetectionAction());

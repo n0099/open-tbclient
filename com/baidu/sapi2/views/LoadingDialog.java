@@ -8,24 +8,26 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 import com.baidu.k.a.a;
 import com.baidu.sapi2.NoProguard;
-/* loaded from: classes25.dex */
+/* loaded from: classes5.dex */
 public class LoadingDialog extends Dialog implements NoProguard {
 
-    /* loaded from: classes25.dex */
+    /* loaded from: classes5.dex */
     public static class Builder implements NoProguard {
-        private Context a;
+
+        /* renamed from: a  reason: collision with root package name */
+        private Context f3562a;
         private String b;
         private boolean c = true;
         private boolean d = false;
         private boolean e = false;
 
         public Builder(Context context) {
-            this.a = context;
+            this.f3562a = context;
         }
 
         public LoadingDialog createDialog() {
-            View inflate = LayoutInflater.from(this.a).inflate(a.f.layout_sapi_sdk_loading_dialog, (ViewGroup) null);
-            LoadingDialog loadingDialog = new LoadingDialog(this.a, a.h.sapi_sdk_loading_dialog);
+            View inflate = LayoutInflater.from(this.f3562a).inflate(a.f.layout_sapi_sdk_loading_dialog, (ViewGroup) null);
+            LoadingDialog loadingDialog = new LoadingDialog(this.f3562a, a.h.sapi_sdk_loading_dialog);
             TextView textView = (TextView) inflate.findViewById(a.e.tipTextView);
             if (this.c) {
                 textView.setText(this.b);

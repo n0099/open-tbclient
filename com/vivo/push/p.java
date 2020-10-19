@@ -17,9 +17,11 @@ import java.util.List;
 import java.util.Map;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes12.dex */
+/* loaded from: classes15.dex */
 public final class p {
-    private static final Object a = new Object();
+
+    /* renamed from: a  reason: collision with root package name */
+    private static final Object f4688a = new Object();
     private static volatile p b;
     private Context i;
     private com.vivo.push.util.a k;
@@ -45,7 +47,7 @@ public final class p {
 
     public static p a() {
         if (b == null) {
-            synchronized (a) {
+            synchronized (f4688a) {
                 if (b == null) {
                     b = new p();
                 }
@@ -774,9 +776,11 @@ public final class p {
         return this.p.booleanValue();
     }
 
-    /* loaded from: classes12.dex */
+    /* loaded from: classes15.dex */
     public static class a {
-        private IPushActionListener a;
+
+        /* renamed from: a  reason: collision with root package name */
+        private IPushActionListener f4689a;
         private com.vivo.push.b.c b;
         private IPushActionListener c;
         private Runnable d;
@@ -784,7 +788,7 @@ public final class p {
 
         public a(com.vivo.push.b.c cVar, IPushActionListener iPushActionListener) {
             this.b = cVar;
-            this.a = iPushActionListener;
+            this.f4689a = iPushActionListener;
         }
 
         public final void a(int i, Object... objArr) {
@@ -792,8 +796,8 @@ public final class p {
             if (this.c != null) {
                 this.c.onStateChanged(i);
             }
-            if (this.a != null) {
-                this.a.onStateChanged(i);
+            if (this.f4689a != null) {
+                this.f4689a.onStateChanged(i);
             }
         }
 

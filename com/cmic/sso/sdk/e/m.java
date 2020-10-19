@@ -4,7 +4,7 @@ import android.text.TextUtils;
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.InputStreamReader;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class m {
     public static boolean a() {
         String[] strArr;
@@ -13,10 +13,10 @@ public class m {
             for (int i = 0; i < length; i++) {
                 String str = strArr[i] + "su";
                 if (new File(str).exists()) {
-                    String a = a(new String[]{"ls", "-l", str});
-                    c.b("cyb", "isRooted=" + a);
-                    if (!TextUtils.isEmpty(a)) {
-                        if (a.indexOf("root") != a.lastIndexOf("root")) {
+                    String a2 = a(new String[]{"ls", "-l", str});
+                    c.b("cyb", "isRooted=" + a2);
+                    if (!TextUtils.isEmpty(a2)) {
+                        if (a2.indexOf("root") != a2.lastIndexOf("root")) {
                             return true;
                         }
                     }

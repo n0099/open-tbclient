@@ -1,16 +1,18 @@
 package com.baidu.pano.platform.a;
 
 import java.util.Map;
-/* loaded from: classes3.dex */
+/* loaded from: classes7.dex */
 public class l {
-    public final int a;
+
+    /* renamed from: a  reason: collision with root package name */
+    public final int f2655a;
     public final byte[] b;
     public final Map<String, String> c;
     public final boolean d;
     public final long e;
 
     public l(int i, byte[] bArr, Map<String, String> map, boolean z, long j) {
-        this.a = i;
+        this.f2655a = i;
         this.b = bArr;
         this.c = map;
         this.d = z;

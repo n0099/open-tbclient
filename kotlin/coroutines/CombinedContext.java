@@ -10,36 +10,36 @@ import kotlin.jvm.internal.o;
 import kotlin.jvm.internal.q;
 import kotlin.l;
 @h
-/* loaded from: classes5.dex */
+/* loaded from: classes10.dex */
 public final class CombinedContext implements Serializable, c {
     private final c.b element;
     private final c left;
 
     public CombinedContext(c cVar, c.b bVar) {
-        q.m(cVar, "left");
-        q.m(bVar, "element");
+        q.n(cVar, "left");
+        q.n(bVar, "element");
         this.left = cVar;
         this.element = bVar;
     }
 
     @Override // kotlin.coroutines.c
     public c plus(c cVar) {
-        q.m(cVar, "context");
+        q.n(cVar, "context");
         return c.a.a(this, cVar);
     }
 
     @Override // kotlin.coroutines.c
-    public <E extends c.b> E get(c.InterfaceC0968c<E> interfaceC0968c) {
-        q.m(interfaceC0968c, "key");
+    public <E extends c.b> E get(c.InterfaceC0986c<E> interfaceC0986c) {
+        q.n(interfaceC0986c, "key");
         CombinedContext combinedContext = this;
         while (true) {
-            E e = (E) combinedContext.element.get(interfaceC0968c);
+            E e = (E) combinedContext.element.get(interfaceC0986c);
             if (e == null) {
                 c cVar = combinedContext.left;
                 if (cVar instanceof CombinedContext) {
                     combinedContext = (CombinedContext) cVar;
                 } else {
-                    return (E) cVar.get(interfaceC0968c);
+                    return (E) cVar.get(interfaceC0986c);
                 }
             } else {
                 return e;
@@ -49,17 +49,17 @@ public final class CombinedContext implements Serializable, c {
 
     @Override // kotlin.coroutines.c
     public <R> R fold(R r, m<? super R, ? super c.b, ? extends R> mVar) {
-        q.m(mVar, "operation");
+        q.n(mVar, "operation");
         return mVar.invoke((Object) this.left.fold(r, mVar), this.element);
     }
 
     @Override // kotlin.coroutines.c
-    public c minusKey(c.InterfaceC0968c<?> interfaceC0968c) {
-        q.m(interfaceC0968c, "key");
-        if (this.element.get(interfaceC0968c) != null) {
+    public c minusKey(c.InterfaceC0986c<?> interfaceC0986c) {
+        q.n(interfaceC0986c, "key");
+        if (this.element.get(interfaceC0986c) != null) {
             return this.left;
         }
-        c minusKey = this.left.minusKey(interfaceC0968c);
+        c minusKey = this.left.minusKey(interfaceC0986c);
         return minusKey == this.left ? this : minusKey == EmptyCoroutineContext.INSTANCE ? this.element : new CombinedContext(minusKey, this.element);
     }
 
@@ -81,7 +81,7 @@ public final class CombinedContext implements Serializable, c {
     }
 
     private final boolean contains(c.b bVar) {
-        return q.l(get(bVar.ekh()), bVar);
+        return q.l(get(bVar.enT()), bVar);
     }
 
     private final boolean containsAll(CombinedContext combinedContext) {
@@ -115,7 +115,7 @@ public final class CombinedContext implements Serializable, c {
         c[] cVarArr = new c[size];
         Ref.IntRef intRef = new Ref.IntRef();
         intRef.element = 0;
-        fold(l.oBM, new CombinedContext$writeReplace$1(cVarArr, intRef));
+        fold(l.oRb, new CombinedContext$writeReplace$1(cVarArr, intRef));
         if (intRef.element == size) {
             return new Serialized(cVarArr);
         }
@@ -123,14 +123,14 @@ public final class CombinedContext implements Serializable, c {
     }
 
     @h
-    /* loaded from: classes5.dex */
+    /* loaded from: classes10.dex */
     private static final class Serialized implements Serializable {
         public static final a Companion = new a(null);
         private static final long serialVersionUID = 0;
         private final c[] elements;
 
         @h
-        /* loaded from: classes5.dex */
+        /* loaded from: classes10.dex */
         public static final class a {
             private a() {
             }
@@ -141,7 +141,7 @@ public final class CombinedContext implements Serializable, c {
         }
 
         public Serialized(c[] cVarArr) {
-            q.m(cVarArr, "elements");
+            q.n(cVarArr, "elements");
             this.elements = cVarArr;
         }
 

@@ -5,7 +5,7 @@ import java.util.Iterator;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes24.dex */
+/* loaded from: classes15.dex */
 public class f {
     public static JSONObject b(@Nullable c<JSONArray> cVar, @Nullable c<JSONObject> cVar2) {
         return a(Node.values(), cVar, cVar2);
@@ -38,17 +38,17 @@ public class f {
     }
 
     public static void b(JSONObject jSONObject, com.baidu.swan.pms.a.g gVar, @Nullable com.baidu.swan.pms.a.g gVar2, @Nullable com.baidu.swan.pms.a.g gVar3) {
-        d a;
+        d a2;
         if (jSONObject != null) {
             Iterator<String> keys = jSONObject.keys();
             while (keys.hasNext()) {
                 String next = keys.next();
                 Node nodeByConfigName = Node.getNodeByConfigName(next);
-                if (nodeByConfigName != null && (a = g.a(nodeByConfigName)) != null) {
+                if (nodeByConfigName != null && (a2 = g.a(nodeByConfigName)) != null) {
                     if (nodeByConfigName.isDataArray()) {
-                        a.a(jSONObject.optJSONArray(next), gVar, gVar2, gVar3);
+                        a2.a(jSONObject.optJSONArray(next), gVar, gVar2, gVar3);
                     } else {
-                        a.a(jSONObject.optJSONObject(next), gVar, gVar2, gVar3);
+                        a2.a(jSONObject.optJSONObject(next), gVar, gVar2, gVar3);
                     }
                 }
             }

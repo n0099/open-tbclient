@@ -7,9 +7,11 @@ import android.widget.RelativeLayout;
 import com.baidu.mobad.feeds.RequestParameters;
 import com.baidu.mobads.interfaces.event.IXAdEvent;
 import com.baidu.mobads.openad.interfaces.event.IOAdEventListener;
-/* loaded from: classes3.dex */
+/* loaded from: classes7.dex */
 public class BaiduNativeH5AdView extends RelativeLayout {
-    IOAdEventListener a;
+
+    /* renamed from: a  reason: collision with root package name */
+    IOAdEventListener f2300a;
     private BaiduNativeAdPlacement b;
     private com.baidu.mobads.production.c.a c;
     private BaiduNativeH5EventListner d;
@@ -17,7 +19,7 @@ public class BaiduNativeH5AdView extends RelativeLayout {
     private boolean f;
     private boolean g;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes7.dex */
     public interface BaiduNativeH5EventListner {
         void onAdClick();
 
@@ -46,7 +48,7 @@ public class BaiduNativeH5AdView extends RelativeLayout {
         this.d = null;
         this.f = false;
         this.g = false;
-        this.a = new h(this);
+        this.f2300a = new h(this);
         a(context, i);
     }
 
@@ -55,7 +57,7 @@ public class BaiduNativeH5AdView extends RelativeLayout {
         this.d = null;
         this.f = false;
         this.g = false;
-        this.a = new h(this);
+        this.f2300a = new h(this);
         a(context, 0);
     }
 
@@ -64,7 +66,7 @@ public class BaiduNativeH5AdView extends RelativeLayout {
         this.d = null;
         this.f = false;
         this.g = false;
-        this.a = new h(this);
+        this.f2300a = new h(this);
         a(context, 0);
     }
 
@@ -101,11 +103,11 @@ public class BaiduNativeH5AdView extends RelativeLayout {
         }
         this.c = new com.baidu.mobads.production.c.a(getContext(), this);
         this.c.a(requestParameters);
-        this.c.addEventListener(IXAdEvent.AD_ERROR, this.a);
-        this.c.addEventListener(IXAdEvent.AD_STARTED, this.a);
-        this.c.addEventListener("AdUserClick", this.a);
-        this.c.addEventListener(IXAdEvent.AD_IMPRESSION, this.a);
-        this.c.addEventListener("AdLoadData", this.a);
+        this.c.addEventListener(IXAdEvent.AD_ERROR, this.f2300a);
+        this.c.addEventListener(IXAdEvent.AD_STARTED, this.f2300a);
+        this.c.addEventListener("AdUserClick", this.f2300a);
+        this.c.addEventListener(IXAdEvent.AD_IMPRESSION, this.f2300a);
+        this.c.addEventListener("AdLoadData", this.f2300a);
         if (this.b != null && this.b.getAdResponse() != null) {
             this.c.setAdResponseInfo(this.b.getAdResponse());
         }

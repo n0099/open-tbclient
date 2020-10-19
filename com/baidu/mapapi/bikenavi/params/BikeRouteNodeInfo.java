@@ -1,15 +1,17 @@
 package com.baidu.mapapi.bikenavi.params;
 
 import com.baidu.mapapi.model.LatLng;
-/* loaded from: classes3.dex */
+/* loaded from: classes7.dex */
 public class BikeRouteNodeInfo {
-    private LatLng a;
+
+    /* renamed from: a  reason: collision with root package name */
+    private LatLng f1980a;
 
     public LatLng getLocation() {
-        return this.a;
+        return this.f1980a;
     }
 
     public void setLocation(LatLng latLng) {
-        this.a = latLng;
+        this.f1980a = latLng;
     }
 }

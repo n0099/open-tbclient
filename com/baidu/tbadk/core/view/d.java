@@ -60,7 +60,7 @@ public class d {
 
     public void onDestory() {
         if (this.mDealyResizeRunnable != null) {
-            com.baidu.adp.lib.f.e.mX().removeCallbacks(this.mDealyResizeRunnable);
+            com.baidu.adp.lib.f.e.mY().removeCallbacks(this.mDealyResizeRunnable);
             this.mDealyResizeRunnable = null;
         }
         if (this.mResizeViewGroup != null) {
@@ -139,7 +139,7 @@ public class d {
 
     private void dealyResize(int i) {
         if (this.mDealyResizeRunnable != null) {
-            com.baidu.adp.lib.f.e.mX().removeCallbacks(this.mDealyResizeRunnable);
+            com.baidu.adp.lib.f.e.mY().removeCallbacks(this.mDealyResizeRunnable);
             this.mDealyResizeRunnable = null;
         }
         this.mDealyResizeRunnable = new Runnable() { // from class: com.baidu.tbadk.core.view.d.2
@@ -148,6 +148,6 @@ public class d {
                 d.this.resizeForSoftInput();
             }
         };
-        com.baidu.adp.lib.f.e.mX().postDelayed(this.mDealyResizeRunnable, i);
+        com.baidu.adp.lib.f.e.mY().postDelayed(this.mDealyResizeRunnable, i);
     }
 }

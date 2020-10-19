@@ -1,10 +1,13 @@
 package com.sdk.base.framework.e;
 
+import com.baidu.appsearch.update.patchupdate.GDiffPatcher;
 import java.io.OutputStream;
 import java.io.PushbackInputStream;
-/* loaded from: classes5.dex */
+/* loaded from: classes16.dex */
 public final class a extends d {
-    private static final char[] a = {'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z', 'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z', '0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '+', '/'};
+
+    /* renamed from: a  reason: collision with root package name */
+    private static final char[] f4490a = {'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z', 'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z', '0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '+', '/'};
     private static final byte[] b = new byte[256];
     private byte[] c = new byte[4];
 
@@ -13,7 +16,7 @@ public final class a extends d {
             b[i] = -1;
         }
         for (int i2 = 0; i2 < 64; i2++) {
-            b[a[i2]] = (byte) i2;
+            b[f4490a[i2]] = (byte) i2;
         }
     }
 
@@ -75,14 +78,14 @@ public final class a extends d {
                 }
                 switch (i5) {
                     case 2:
-                        outputStream.write((byte) (((b4 << 2) & 252) | ((b3 >>> 4) & 3)));
+                        outputStream.write((byte) (((b4 << 2) & GDiffPatcher.COPY_INT_UBYTE) | ((b3 >>> 4) & 3)));
                         return;
                     case 3:
-                        outputStream.write((byte) (((b4 << 2) & 252) | ((b3 >>> 4) & 3)));
+                        outputStream.write((byte) (((b4 << 2) & GDiffPatcher.COPY_INT_UBYTE) | ((b3 >>> 4) & 3)));
                         outputStream.write((byte) (((b3 << 4) & 240) | ((b2 >>> 2) & 15)));
                         return;
                     case 4:
-                        outputStream.write((byte) (((b4 << 2) & 252) | ((b3 >>> 4) & 3)));
+                        outputStream.write((byte) (((b4 << 2) & GDiffPatcher.COPY_INT_UBYTE) | ((b3 >>> 4) & 3)));
                         outputStream.write((byte) (((b3 << 4) & 240) | ((b2 >>> 2) & 15)));
                         outputStream.write((byte) ((b5 & 63) | ((b2 << 6) & 192)));
                         return;

@@ -5,7 +5,7 @@ import com.nineoldandroids.animation.Keyframe;
 import java.util.ArrayList;
 import java.util.Arrays;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes14.dex */
+/* loaded from: classes9.dex */
 public class KeyframeSet {
     TypeEvaluator mEvaluator;
     Keyframe mFirstKeyframe;
@@ -104,12 +104,12 @@ public class KeyframeSet {
 
     /* JADX DEBUG: Method merged with bridge method */
     /* renamed from: clone */
-    public KeyframeSet m52clone() {
+    public KeyframeSet m53clone() {
         ArrayList<Keyframe> arrayList = this.mKeyframes;
         int size = this.mKeyframes.size();
         Keyframe[] keyframeArr = new Keyframe[size];
         for (int i = 0; i < size; i++) {
-            keyframeArr[i] = arrayList.get(i).m51clone();
+            keyframeArr[i] = arrayList.get(i).m52clone();
         }
         return new KeyframeSet(keyframeArr);
     }

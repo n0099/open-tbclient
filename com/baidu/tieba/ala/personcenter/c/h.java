@@ -1,16 +1,12 @@
 package com.baidu.tieba.ala.personcenter.c;
 
-import org.json.JSONObject;
+import com.baidu.adp.BdUniqueId;
 /* loaded from: classes4.dex */
-public class h {
-    private int gXq;
+public class h extends b {
+    public static final BdUniqueId hmq = BdUniqueId.gen();
 
-    public void parserJson(JSONObject jSONObject) {
-        if (jSONObject != null) {
-            try {
-                this.gXq = jSONObject.optInt("video_count");
-            } catch (Exception e) {
-            }
-        }
+    @Override // com.baidu.tieba.card.data.b, com.baidu.adp.widget.ListView.q
+    public BdUniqueId getType() {
+        return hmq;
     }
 }

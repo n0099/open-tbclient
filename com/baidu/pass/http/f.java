@@ -2,9 +2,11 @@ package com.baidu.pass.http;
 
 import android.util.Log;
 import java.util.regex.Pattern;
-/* loaded from: classes6.dex */
+/* loaded from: classes9.dex */
 public class f {
-    private static final String a = "f";
+
+    /* renamed from: a  reason: collision with root package name */
+    private static final String f2793a = "f";
     private static final Pattern b = Pattern.compile("([0-9a-fA-F]*:[0-9a-fA-F:.]*)|([\\d.]+)");
     public static boolean c = false;
 
@@ -19,6 +21,6 @@ public class f {
     }
 
     public static void a(String str) {
-        a(a, str);
+        a(f2793a, str);
     }
 }

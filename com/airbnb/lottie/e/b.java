@@ -1,25 +1,25 @@
 package com.airbnb.lottie.e;
 
 import android.support.annotation.RestrictTo;
-/* loaded from: classes6.dex */
+/* loaded from: classes10.dex */
 public class b<T> {
-    private float AX;
-    private float AY;
-    private T GX;
-    private T GY;
-    private float Hf;
-    private float Hg;
-    private float Hh;
+    private float Bo;
+    private float Bp;
+    private T Hn;
+    private T Ho;
+    private float Hv;
+    private float Hw;
+    private float Hx;
 
     @RestrictTo({RestrictTo.Scope.LIBRARY})
     public b<T> a(float f, float f2, T t, T t2, float f3, float f4, float f5) {
-        this.AX = f;
-        this.AY = f2;
-        this.GX = t;
-        this.GY = t2;
-        this.Hf = f3;
-        this.Hg = f4;
-        this.Hh = f5;
+        this.Bo = f;
+        this.Bp = f2;
+        this.Hn = t;
+        this.Ho = t2;
+        this.Hv = f3;
+        this.Hw = f4;
+        this.Hx = f5;
         return this;
     }
 }

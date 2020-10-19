@@ -5,9 +5,11 @@ import java.util.Collections;
 import java.util.Comparator;
 import java.util.LinkedList;
 import java.util.List;
-/* loaded from: classes3.dex */
+/* loaded from: classes7.dex */
 public class b {
-    protected static final Comparator<byte[]> a = new c();
+
+    /* renamed from: a  reason: collision with root package name */
+    protected static final Comparator<byte[]> f2636a = new c();
     private List<byte[]> b = new LinkedList();
     private List<byte[]> c = new ArrayList(64);
     private int d = 0;
@@ -44,7 +46,7 @@ public class b {
         if (bArr != null) {
             if (bArr.length <= this.e) {
                 this.b.add(bArr);
-                int binarySearch = Collections.binarySearch(this.c, bArr, a);
+                int binarySearch = Collections.binarySearch(this.c, bArr, f2636a);
                 if (binarySearch < 0) {
                     binarySearch = (-binarySearch) - 1;
                 }

@@ -10,8 +10,10 @@ import android.text.TextUtils;
 import com.xiaomi.mipush.sdk.Constants;
 /* loaded from: classes11.dex */
 public class sysParamters {
-    private static volatile sysParamters nsp;
-    private String a;
+    private static volatile sysParamters nHJ;
+
+    /* renamed from: a  reason: collision with root package name */
+    private String f4000a;
     private String b;
     private String c;
     private String d = "Android";
@@ -35,22 +37,22 @@ public class sysParamters {
         if (context == null) {
             return "0.1.100";
         }
-        PackageInfo a = a(context, context.getPackageName());
-        if (a == null) {
+        PackageInfo a2 = a(context, context.getPackageName());
+        if (a2 == null) {
             return null;
         }
-        return a.versionName;
+        return a2.versionName;
     }
 
-    public static sysParamters dRk() {
-        if (nsp == null) {
+    public static sysParamters dUV() {
+        if (nHJ == null) {
             synchronized (sysParamters.class) {
-                if (nsp == null) {
-                    nsp = new sysParamters();
+                if (nHJ == null) {
+                    nHJ = new sysParamters();
                 }
             }
         }
-        return nsp;
+        return nHJ;
     }
 
     public static String f() {
@@ -67,11 +69,11 @@ public class sysParamters {
     }
 
     public String b() {
-        if (TextUtils.isEmpty(this.a)) {
-            this.a = a(b.a());
-            return this.a;
+        if (TextUtils.isEmpty(this.f4000a)) {
+            this.f4000a = a(b.a());
+            return this.f4000a;
         }
-        return this.a;
+        return this.f4000a;
     }
 
     public String c() {

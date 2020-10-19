@@ -6,7 +6,7 @@ import android.support.annotation.RequiresApi;
 import android.support.v7.appcompat.R;
 import android.util.AttributeSet;
 import android.widget.SeekBar;
-/* loaded from: classes10.dex */
+/* loaded from: classes5.dex */
 public class AppCompatSeekBar extends SeekBar {
     private final AppCompatSeekBarHelper mAppCompatSeekBarHelper;
 

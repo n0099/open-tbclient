@@ -8,9 +8,11 @@ import java.util.HashSet;
 import java.util.LinkedHashSet;
 import java.util.List;
 import java.util.regex.Pattern;
-/* loaded from: classes15.dex */
+/* loaded from: classes16.dex */
 public class Utils {
-    static final Object[] a = new Object[0];
+
+    /* renamed from: a  reason: collision with root package name */
+    static final Object[] f1530a = new Object[0];
     static final Class<?>[] b = new Class[0];
     private static final String c = "(\\p{javaJavaIdentifierStart}\\p{javaJavaIdentifierPart}*\\.)*\\p{javaJavaIdentifierStart}\\p{javaJavaIdentifierPart}*";
     private static final Pattern d = Pattern.compile(c);
@@ -46,7 +48,7 @@ public class Utils {
     /* JADX INFO: Access modifiers changed from: package-private */
     public static Object[] b(Object[] objArr) {
         if (objArr == null || objArr.length == 0) {
-            return a;
+            return f1530a;
         }
         return objArr;
     }

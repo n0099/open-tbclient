@@ -11,14 +11,14 @@ import android.widget.TextView;
 import tv.chushou.widget.a.b;
 /* loaded from: classes6.dex */
 public class EmptyLoadingView extends RelativeLayout implements View.OnClickListener {
-    private static View.OnClickListener ojs;
+    private static View.OnClickListener oyL;
     private View.OnClickListener mLoginListener;
     private int mType;
-    private ImageView ojt;
-    private TextView oju;
-    private AnimationImageView ojv;
-    private TextView ojw;
-    private View.OnClickListener ojx;
+    private ImageView oyM;
+    private TextView oyN;
+    private AnimationImageView oyO;
+    private TextView oyP;
+    private View.OnClickListener oyQ;
 
     public EmptyLoadingView(Context context) {
         this(context, null, 0);
@@ -32,18 +32,18 @@ public class EmptyLoadingView extends RelativeLayout implements View.OnClickList
         super(context, attributeSet, i);
         this.mType = 4;
         LayoutInflater.from(context.getApplicationContext()).inflate(b.e.commonres_empty_loading_view, (ViewGroup) this, true);
-        this.ojt = (ImageView) findViewById(b.d.iv_empty);
-        this.oju = (TextView) findViewById(b.d.tv_desc);
-        this.ojv = (AnimationImageView) findViewById(b.d.iv_loading);
-        this.ojw = (TextView) findViewById(b.d.tv_button);
-        this.ojt.setOnClickListener(this);
-        this.oju.setOnClickListener(this);
-        this.ojw.setOnClickListener(this);
+        this.oyM = (ImageView) findViewById(b.d.iv_empty);
+        this.oyN = (TextView) findViewById(b.d.tv_desc);
+        this.oyO = (AnimationImageView) findViewById(b.d.iv_loading);
+        this.oyP = (TextView) findViewById(b.d.tv_button);
+        this.oyM.setOnClickListener(this);
+        this.oyN.setOnClickListener(this);
+        this.oyP.setOnClickListener(this);
         setOnClickListener(this);
     }
 
     public static void ap(View.OnClickListener onClickListener) {
-        ojs = onClickListener;
+        oyL = onClickListener;
     }
 
     @Override // android.view.View.OnClickListener
@@ -53,15 +53,15 @@ public class EmptyLoadingView extends RelativeLayout implements View.OnClickList
                 if (this.mLoginListener != null) {
                     this.mLoginListener.onClick(view);
                     return;
-                } else if (ojs != null) {
-                    ojs.onClick(view);
+                } else if (oyL != null) {
+                    oyL.onClick(view);
                     return;
                 } else {
                     return;
                 }
             default:
-                if (this.ojx != null) {
-                    this.ojx.onClick(view);
+                if (this.oyQ != null) {
+                    this.oyQ.onClick(view);
                     return;
                 }
                 return;
@@ -69,23 +69,23 @@ public class EmptyLoadingView extends RelativeLayout implements View.OnClickList
     }
 
     public void setReloadListener(View.OnClickListener onClickListener) {
-        this.ojx = onClickListener;
+        this.oyQ = onClickListener;
     }
 
     public void setLoginListener(View.OnClickListener onClickListener) {
         this.mLoginListener = onClickListener;
     }
 
-    public void NX(int i) {
-        if (this.ojv != null) {
+    public void OD(int i) {
+        if (this.oyO != null) {
             switch (i) {
                 case 1:
                     this.mType = 1;
                     setVisibility(0);
-                    this.ojv.setVisibility(0);
-                    this.ojt.setVisibility(8);
-                    this.oju.setVisibility(8);
-                    this.ojw.setVisibility(8);
+                    this.oyO.setVisibility(0);
+                    this.oyM.setVisibility(8);
+                    this.oyN.setVisibility(8);
+                    this.oyP.setVisibility(8);
                     return;
                 case 2:
                     this.mType = 2;
@@ -94,48 +94,48 @@ public class EmptyLoadingView extends RelativeLayout implements View.OnClickList
                 case 3:
                     this.mType = 3;
                     setVisibility(0);
-                    this.ojv.setVisibility(8);
-                    this.ojt.setVisibility(0);
-                    this.ojt.setImageResource(b.c.commonres_pagestatus_net_error);
-                    this.ojt.setClickable(true);
-                    this.oju.setVisibility(0);
-                    this.oju.setText(b.f.commonres_pagestatus_net_error);
-                    this.ojw.setVisibility(0);
-                    this.ojw.setText(b.f.commonres_pagestatus_action_refresh);
+                    this.oyO.setVisibility(8);
+                    this.oyM.setVisibility(0);
+                    this.oyM.setImageResource(b.c.commonres_pagestatus_net_error);
+                    this.oyM.setClickable(true);
+                    this.oyN.setVisibility(0);
+                    this.oyN.setText(b.f.commonres_pagestatus_net_error);
+                    this.oyP.setVisibility(0);
+                    this.oyP.setText(b.f.commonres_pagestatus_action_refresh);
                     return;
                 case 4:
                     this.mType = 4;
                     setVisibility(0);
-                    this.ojv.setVisibility(8);
-                    this.ojt.setVisibility(0);
-                    this.ojt.setImageResource(b.c.commonres_pagestatus_unknown_error);
-                    this.ojt.setClickable(true);
-                    this.oju.setVisibility(0);
-                    this.oju.setText(b.f.commonres_pagestatus_unknown);
-                    this.ojw.setVisibility(0);
-                    this.ojw.setText(b.f.commonres_pagestatus_action_refresh);
+                    this.oyO.setVisibility(8);
+                    this.oyM.setVisibility(0);
+                    this.oyM.setImageResource(b.c.commonres_pagestatus_unknown_error);
+                    this.oyM.setClickable(true);
+                    this.oyN.setVisibility(0);
+                    this.oyN.setText(b.f.commonres_pagestatus_unknown);
+                    this.oyP.setVisibility(0);
+                    this.oyP.setText(b.f.commonres_pagestatus_action_refresh);
                     return;
                 case 5:
                     this.mType = 5;
                     setVisibility(0);
-                    this.ojv.setVisibility(8);
-                    this.ojt.setVisibility(0);
-                    this.ojt.setImageResource(b.c.commonres_pagestatus_need_login);
-                    this.ojt.setClickable(true);
-                    this.oju.setVisibility(8);
-                    this.ojw.setVisibility(0);
-                    this.ojw.setText(b.f.commonres_pagestatus_action_login);
+                    this.oyO.setVisibility(8);
+                    this.oyM.setVisibility(0);
+                    this.oyM.setImageResource(b.c.commonres_pagestatus_need_login);
+                    this.oyM.setClickable(true);
+                    this.oyN.setVisibility(8);
+                    this.oyP.setVisibility(0);
+                    this.oyP.setText(b.f.commonres_pagestatus_action_login);
                     return;
                 case 6:
                     this.mType = 6;
                     setVisibility(0);
-                    this.ojv.setVisibility(8);
-                    this.ojt.setVisibility(0);
-                    this.ojt.setImageResource(b.c.commonres_pagestatus_empty);
-                    this.ojt.setClickable(true);
-                    this.oju.setVisibility(0);
-                    this.oju.setText(b.f.commonres_pagestatus_empty);
-                    this.ojw.setVisibility(8);
+                    this.oyO.setVisibility(8);
+                    this.oyM.setVisibility(0);
+                    this.oyM.setImageResource(b.c.commonres_pagestatus_empty);
+                    this.oyM.setClickable(true);
+                    this.oyN.setVisibility(0);
+                    this.oyN.setText(b.f.commonres_pagestatus_empty);
+                    this.oyP.setVisibility(8);
                     return;
                 default:
                     this.mType = -1;

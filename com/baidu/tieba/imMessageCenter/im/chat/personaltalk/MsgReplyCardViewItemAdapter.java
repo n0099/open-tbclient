@@ -8,7 +8,7 @@ import com.baidu.tieba.im.chat.MsglistActivity;
 import com.baidu.tieba.im.chat.e;
 import com.baidu.tieba.im.message.chat.ChatMessage;
 import com.baidu.tieba.imMessageCenter.im.stranger.MsgReplyCardView;
-/* loaded from: classes21.dex */
+/* loaded from: classes22.dex */
 public class MsgReplyCardViewItemAdapter extends com.baidu.tieba.im.chat.e<MsgReplyCardView> {
     public MsgReplyCardViewItemAdapter(TbPageContext<MsglistActivity<?>> tbPageContext, BdUniqueId bdUniqueId) {
         super(tbPageContext, bdUniqueId);
@@ -17,7 +17,7 @@ public class MsgReplyCardViewItemAdapter extends com.baidu.tieba.im.chat.e<MsgRe
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.widget.ListView.a
-    /* renamed from: bP */
+    /* renamed from: bR */
     public e.a<MsgReplyCardView> c(ViewGroup viewGroup) {
         MsgReplyCardView msgReplyCardView = new MsgReplyCardView(this.mPageContext);
         return new a(msgReplyCardView.getConvertView(), msgReplyCardView);
@@ -28,17 +28,17 @@ public class MsgReplyCardViewItemAdapter extends com.baidu.tieba.im.chat.e<MsgRe
     @Override // com.baidu.tieba.im.chat.e, com.baidu.adp.widget.ListView.a
     public View a(int i, View view, ViewGroup viewGroup, ChatMessage chatMessage, e.a<MsgReplyCardView> aVar) {
         super.a(i, view, viewGroup, chatMessage, (e.a) aVar);
-        MsgReplyCardView cFA = aVar.cFA();
-        cFA.a(this.mPageContext, chatMessage, viewGroup);
-        cFA.a(this.jom);
-        cFA.setPosition(i);
+        MsgReplyCardView cJj = aVar.cJj();
+        cJj.a(this.mPageContext, chatMessage, viewGroup);
+        cJj.a(this.jDj);
+        cJj.setPosition(i);
         this.mPageContext.getLayoutMode().setNightMode(false);
         this.mPageContext.getLayoutMode().onModeChanged(view);
         return view;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes21.dex */
+    /* loaded from: classes22.dex */
     public class a extends e.a<MsgReplyCardView> {
         public a(View view, MsgReplyCardView msgReplyCardView) {
             super(view, msgReplyCardView);

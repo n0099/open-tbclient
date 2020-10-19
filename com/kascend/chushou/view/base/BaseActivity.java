@@ -22,7 +22,9 @@ public abstract class BaseActivity extends AppCompatActivity {
     protected TextView y;
     protected final String v = getClass().getSimpleName();
     protected final io.reactivex.disposables.a z = new io.reactivex.disposables.a();
-    private ContentObserver a = new ContentObserver(new Handler()) { // from class: com.kascend.chushou.view.base.BaseActivity.2
+
+    /* renamed from: a  reason: collision with root package name */
+    private ContentObserver f4229a = new ContentObserver(new Handler()) { // from class: com.kascend.chushou.view.base.BaseActivity.2
         @Override // android.database.ContentObserver
         public void onChange(boolean z) {
             int i;
@@ -47,7 +49,7 @@ public abstract class BaseActivity extends AppCompatActivity {
         super.onCreate(bundle);
         CSTVSdk.INSTANCE.check();
         this.w = this;
-        ThirdParty thirdParty = (ThirdParty) tv.chushou.basis.d.b.epS().S(ThirdParty.class);
+        ThirdParty thirdParty = (ThirdParty) tv.chushou.basis.d.b.etD().S(ThirdParty.class);
         if (thirdParty != null) {
             thirdParty.onEnterLiveRoom(this);
         }
@@ -67,7 +69,7 @@ public abstract class BaseActivity extends AppCompatActivity {
     }
 
     protected int y() {
-        return tv.chushou.zues.utils.systemBar.b.aB(this);
+        return tv.chushou.zues.utils.systemBar.b.aC(this);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -89,8 +91,8 @@ public abstract class BaseActivity extends AppCompatActivity {
             this.x.dismiss();
         }
         this.x = null;
-        com.kascend.chushou.d.d.nRJ.a();
-        ThirdParty thirdParty = (ThirdParty) tv.chushou.basis.d.b.epS().S(ThirdParty.class);
+        com.kascend.chushou.d.d.ohb.a();
+        ThirdParty thirdParty = (ThirdParty) tv.chushou.basis.d.b.etD().S(ThirdParty.class);
         if (thirdParty != null) {
             thirdParty.onExitLiveRoom(this);
         }
@@ -155,14 +157,14 @@ public abstract class BaseActivity extends AppCompatActivity {
     public void j(boolean z) {
         if (z) {
             if (Build.VERSION.SDK_INT < 21) {
-                getContentResolver().registerContentObserver(Settings.System.getUriFor("navigationbar_is_min"), true, this.a);
+                getContentResolver().registerContentObserver(Settings.System.getUriFor("navigationbar_is_min"), true, this.f4229a);
                 return;
             } else {
-                getContentResolver().registerContentObserver(Settings.Global.getUriFor("navigationbar_is_min"), true, this.a);
+                getContentResolver().registerContentObserver(Settings.Global.getUriFor("navigationbar_is_min"), true, this.f4229a);
                 return;
             }
         }
-        getContentResolver().unregisterContentObserver(this.a);
+        getContentResolver().unregisterContentObserver(this.f4229a);
     }
 
     protected void a(boolean z) {

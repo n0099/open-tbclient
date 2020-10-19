@@ -14,11 +14,13 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes7.dex */
 public class a implements Serializable {
     private long A;
     private boolean B;
-    public String a;
+
+    /* renamed from: a  reason: collision with root package name */
+    public String f2322a;
     public String b;
     public String c;
     public int f;
@@ -47,7 +49,7 @@ public class a implements Serializable {
 
     public a(String str, String str2) {
         this.i = str;
-        this.a = str2;
+        this.f2322a = str2;
     }
 
     public void a(String str, String str2, String str3, boolean z) {
@@ -73,7 +75,7 @@ public class a implements Serializable {
             jSONObject.put(IXAdCommonUtils.PKGS_PREF_DOWNLOAD_STATUS, this.g.getCode());
             jSONObject.put("filename", this.b);
             jSONObject.put("folder", this.c);
-            jSONObject.put("title", this.a);
+            jSONObject.put("title", this.f2322a);
             jSONObject.put("contentLength", this.d);
             jSONObject.put("pk", this.i);
             jSONObject.put("qk", this.n);

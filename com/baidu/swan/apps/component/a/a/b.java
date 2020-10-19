@@ -7,12 +7,12 @@ import com.baidu.swan.apps.ap.ah;
 import com.baidu.swan.apps.runtime.config.SwanAppConfigData;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes10.dex */
 public class b extends com.baidu.swan.apps.component.a.c.b {
-    public boolean ccA;
-    public int ccx;
-    public int ccy;
-    public String ccz;
+    public int coN;
+    public int coO;
+    public String coP;
+    public boolean coQ;
     protected int mViewHeight;
     public int maxLength;
     public int selectionEnd;
@@ -20,7 +20,7 @@ public class b extends com.baidu.swan.apps.component.a.c.b {
 
     public b(String str, @NonNull String str2) {
         super(str, str2);
-        this.ccz = "";
+        this.coP = "";
     }
 
     @Override // com.baidu.swan.apps.component.a.c.b, com.baidu.swan.apps.component.a.d.b, com.baidu.swan.apps.component.b.b, com.baidu.swan.apps.model.a
@@ -28,46 +28,46 @@ public class b extends com.baidu.swan.apps.component.a.c.b {
         if (jSONObject != null) {
             super.parseFromJson(jSONObject);
             this.maxLength = jSONObject.optInt("maxLength");
-            this.ccx = aL(jSONObject);
-            this.ccy = jSONObject.optInt(Constants.EXTRA_CONFIG_CURSOR);
+            this.coN = aS(jSONObject);
+            this.coO = jSONObject.optInt(Constants.EXTRA_CONFIG_CURSOR);
             this.selectionStart = jSONObject.optInt("selectionStart");
             this.selectionEnd = jSONObject.optInt("selectionEnd");
-            this.ccz = jSONObject.optString("confirmType");
-            this.ccA = jSONObject.optInt("password") == 1;
-            adD();
+            this.coP = jSONObject.optString("confirmType");
+            this.coQ = jSONObject.optInt("password") == 1;
+            ago();
         }
     }
 
     @Override // com.baidu.swan.apps.component.a.c.b, com.baidu.swan.apps.component.a.d.b, com.baidu.swan.apps.component.b.b
-    public void aK(JSONObject jSONObject) {
-        super.aK(jSONObject);
+    public void aR(JSONObject jSONObject) {
+        super.aR(jSONObject);
         if (!TextUtils.isEmpty(jSONObject.optString("cursorSpacing"))) {
-            this.ccx = aL(jSONObject);
+            this.coN = aS(jSONObject);
         }
         this.maxLength = jSONObject.optInt("maxLength", this.maxLength);
-        this.ccy = jSONObject.optInt(Constants.EXTRA_CONFIG_CURSOR, this.ccy);
+        this.coO = jSONObject.optInt(Constants.EXTRA_CONFIG_CURSOR, this.coO);
         this.selectionStart = jSONObject.optInt("selectionStart", this.selectionStart);
         this.selectionEnd = jSONObject.optInt("selectionEnd", this.selectionEnd);
-        this.ccz = jSONObject.optString("confirmType", this.ccz);
-        this.ccA = jSONObject.optInt("password", this.ccA ? 1 : 0) == 1;
-        adD();
+        this.coP = jSONObject.optString("confirmType", this.coP);
+        this.coQ = jSONObject.optInt("password", this.coQ ? 1 : 0) == 1;
+        ago();
     }
 
-    private void adD() {
-        if (this.ccK != null) {
-            this.textColor = SwanAppConfigData.fq(this.ccK.optString("color"));
-            this.ccD = true;
+    private void ago() {
+        if (this.cpa != null) {
+            this.textColor = SwanAppConfigData.fv(this.cpa.optString("color"));
+            this.coT = true;
         }
     }
 
-    private int aL(@NonNull JSONObject jSONObject) {
+    private int aS(@NonNull JSONObject jSONObject) {
         String optString = jSONObject.optString("cursorSpacing");
         if (TextUtils.isEmpty(optString)) {
             return 0;
         }
         if (optString.endsWith("rpx")) {
             try {
-                return ah.H(Integer.parseInt(optString.replace("rpx", "")));
+                return ah.J(Integer.parseInt(optString.replace("rpx", "")));
             } catch (NumberFormatException e) {
                 return 0;
             }
@@ -79,12 +79,12 @@ public class b extends com.baidu.swan.apps.component.a.c.b {
         }
     }
 
-    public void ag(int i, int i2) {
+    public void af(int i, int i2) {
         this.selectionStart = i;
         this.selectionEnd = i2;
     }
 
-    public void gN(int i) {
+    public void hk(int i) {
         this.mViewHeight = i;
     }
 }

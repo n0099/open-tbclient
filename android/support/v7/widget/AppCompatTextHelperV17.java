@@ -9,7 +9,7 @@ import android.util.AttributeSet;
 import android.widget.TextView;
 /* JADX INFO: Access modifiers changed from: package-private */
 @RequiresApi(17)
-/* loaded from: classes10.dex */
+/* loaded from: classes5.dex */
 public class AppCompatTextHelperV17 extends AppCompatTextHelper {
     private TintInfo mDrawableEndTint;
     private TintInfo mDrawableStartTint;

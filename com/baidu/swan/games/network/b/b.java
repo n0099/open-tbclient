@@ -1,5 +1,5 @@
 package com.baidu.swan.games.network.b;
-/* loaded from: classes3.dex */
+/* loaded from: classes10.dex */
 public class b {
     public Object data;
     public int type;

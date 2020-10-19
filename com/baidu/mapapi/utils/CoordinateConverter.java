@@ -4,12 +4,14 @@ import com.baidu.mapapi.model.CoordUtil;
 import com.baidu.mapapi.model.LatLng;
 import com.baidu.mapsdkplatform.comapi.util.CoordTrans;
 import com.baidu.platform.comapi.location.CoordinateType;
-/* loaded from: classes3.dex */
+/* loaded from: classes7.dex */
 public class CoordinateConverter {
-    private LatLng a;
+
+    /* renamed from: a  reason: collision with root package name */
+    private LatLng f2154a;
     private CoordType b;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes7.dex */
     public enum CoordType {
         GPS,
         COMMON,
@@ -44,7 +46,7 @@ public class CoordinateConverter {
     }
 
     public LatLng convert() {
-        if (this.a == null) {
+        if (this.f2154a == null) {
             return null;
         }
         if (this.b == null) {
@@ -52,20 +54,20 @@ public class CoordinateConverter {
         }
         switch (this.b) {
             case COMMON:
-                return b(this.a);
+                return b(this.f2154a);
             case GPS:
-                return a(this.a);
+                return a(this.f2154a);
             case BD09LL:
-                return d(this.a);
+                return d(this.f2154a);
             case BD09MC:
-                return c(this.a);
+                return c(this.f2154a);
             default:
                 return null;
         }
     }
 
     public CoordinateConverter coord(LatLng latLng) {
-        this.a = latLng;
+        this.f2154a = latLng;
         return this;
     }
 

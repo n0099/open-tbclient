@@ -3,14 +3,14 @@ package io.reactivex.internal.operators.flowable;
 import io.reactivex.internal.subscribers.SinglePostCompleteSubscriber;
 import io.reactivex.j;
 import io.reactivex.p;
-/* loaded from: classes25.dex */
+/* loaded from: classes17.dex */
 public final class FlowableMaterialize<T> extends a<T, p<T>> {
     @Override // io.reactivex.g
     protected void a(org.a.c<? super p<T>> cVar) {
-        this.owE.a((j) new MaterializeSubscriber(cVar));
+        this.oLT.a((j) new MaterializeSubscriber(cVar));
     }
 
-    /* loaded from: classes25.dex */
+    /* loaded from: classes17.dex */
     static final class MaterializeSubscriber<T> extends SinglePostCompleteSubscriber<T, p<T>> {
         private static final long serialVersionUID = -3740826063558713822L;
 
@@ -26,7 +26,7 @@ public final class FlowableMaterialize<T> extends a<T, p<T>> {
         @Override // org.a.c
         public void onNext(T t) {
             this.produced++;
-            this.actual.onNext(p.bE(t));
+            this.actual.onNext(p.bH(t));
         }
 
         @Override // org.a.c
@@ -36,12 +36,12 @@ public final class FlowableMaterialize<T> extends a<T, p<T>> {
 
         @Override // org.a.c
         public void onComplete() {
-            complete(p.eiZ());
+            complete(p.emK());
         }
 
         protected void onDrop(p<T> pVar) {
-            if (pVar.eiX()) {
-                io.reactivex.e.a.onError(pVar.eiY());
+            if (pVar.emI()) {
+                io.reactivex.e.a.onError(pVar.emJ());
             }
         }
     }

@@ -36,6 +36,7 @@ public class AlaLiveSession implements IFaceUnityOperator, IVideoRecorder, ICame
     private static final boolean VERBOSE = false;
     private ICameraOperator mCameraOperator;
     private Context mContext;
+    private ConcurrentHashMap<String, Object> mDefBeautyParams;
     private EncoderTextureDrawer mEncoderDrawer;
     private IVideoRecorder.IVideoDataCallBack mExternVideoDataCallback;
     private RecorderHandler mHandler;
@@ -57,19 +58,30 @@ public class AlaLiveSession implements IFaceUnityOperator, IVideoRecorder, ICame
     private ImageFilter.Output mImageOutput = new ImageFilter.Output() { // from class: com.baidu.ala.recorder.video.AlaLiveSession.3
         @Override // com.baidu.ala.recorder.video.listener.ImageFilter.Output
         public void onImageDone(int i, float[] fArr, long j) {
-            int i2 = 1;
+            int i2;
             if (AlaLiveSession.this.mScreenDrawer != null) {
                 AlaLiveSession.this.mScreenDrawer.drawFrame(i, fArr);
             }
             boolean isBackCamera = AlaLiveSession.this.mCameraMgr.isBackCamera();
             if (AlaLiveSession.this.mEncoderDrawer != null && AlaLiveSession.this.mEnableEncoderDrawer) {
-                if (!isBackCamera && AlaLiveSession.this.mIsMirror) {
-                    i2 = 3;
+                if (isBackCamera) {
+                    i2 = 1;
+                } else {
+                    i2 = AlaLiveSession.this.mIsMirror ? 3 : 1;
                 }
                 AlaLiveSession.this.mEncoderDrawer.drawFrame(i, EncoderTextureDrawer.getMatrix(i2), j);
             }
             if (AlaLiveSession.this.mTextureReader != null) {
-                AlaLiveSession.this.mTextureReader.onTextureUpdate(i, AlaLiveSession.this.mVideoConfig.getPreviewWidth(), AlaLiveSession.this.mVideoConfig.getPreviewHeight());
+                if (AlaLiveSession.this.mIsMirror) {
+                    AlaLiveSession.this.mTextureReader.setPixelOutputFlipH(true);
+                } else {
+                    AlaLiveSession.this.mTextureReader.setPixelOutputFlipH(false);
+                }
+                if (AlaLiveSession.this.mVideoConfig.isLandscape()) {
+                    AlaLiveSession.this.mTextureReader.onTextureUpdate(i, AlaLiveSession.this.mVideoConfig.getPreviewHeight(), AlaLiveSession.this.mVideoConfig.getPreviewWidth());
+                } else {
+                    AlaLiveSession.this.mTextureReader.onTextureUpdate(i, AlaLiveSession.this.mVideoConfig.getPreviewWidth(), AlaLiveSession.this.mVideoConfig.getPreviewHeight());
+                }
             }
         }
     };
@@ -151,7 +163,9 @@ public class AlaLiveSession implements IFaceUnityOperator, IVideoRecorder, ICame
         @Override // com.baidu.ala.recorder.video.listener.TextureViewListener
         public void onConfigurationChanged(Configuration configuration) {
             AlaLiveSession.logPrint("mTextureViewListener.onSurfaceTextureSizeChanged ");
-            AlaLiveSession.this.mCameraMgr.postResetCamera();
+            if (AlaLiveSession.this.mSurfaceCreated) {
+                AlaLiveSession.this.mCameraMgr.postResetCamera();
+            }
         }
 
         @Override // com.baidu.ala.recorder.video.listener.TextureViewListener
@@ -520,8 +534,11 @@ public class AlaLiveSession implements IFaceUnityOperator, IVideoRecorder, ICame
     }
 
     public void setDefBeautyParams(ConcurrentHashMap<String, Object> concurrentHashMap) {
-        if (this.mCameraOperator != null && (this.mCameraOperator instanceof DuArCameraOperator)) {
-            ((DuArCameraOperator) this.mCameraOperator).setDefBeautyParams(concurrentHashMap);
+        if (concurrentHashMap != null) {
+            this.mDefBeautyParams = concurrentHashMap;
+            if (this.mCameraOperator != null && (this.mCameraOperator instanceof DuArCameraOperator)) {
+                ((DuArCameraOperator) this.mCameraOperator).setDefBeautyParams(concurrentHashMap);
+            }
         }
     }
 
@@ -534,6 +551,12 @@ public class AlaLiveSession implements IFaceUnityOperator, IVideoRecorder, ICame
     public void onBeautyParamsChanged(float f, HashMap<String, Object> hashMap) {
         if (this.mCameraOperator != null && (this.mCameraOperator instanceof DuArCameraOperator)) {
             ((DuArCameraOperator) this.mCameraOperator).onBeautyParamsChanged(f, hashMap);
+        }
+    }
+
+    public void onBeautyParamsChanged(String str, Object obj) {
+        if (this.mCameraOperator != null && (this.mCameraOperator instanceof DuArCameraOperator)) {
+            ((DuArCameraOperator) this.mCameraOperator).onBeautyParamsChanged(str, obj);
         }
     }
 
@@ -555,6 +578,7 @@ public class AlaLiveSession implements IFaceUnityOperator, IVideoRecorder, ICame
         }
         this.mBeautyType = videoBeautyType;
         checkNeedCreateOperator();
+        checkNeedCreateReader();
         startRecord();
     }
 
@@ -592,6 +616,9 @@ public class AlaLiveSession implements IFaceUnityOperator, IVideoRecorder, ICame
             this.mCameraOperator = createCameraOperator(true, this.mBeautyType);
             this.mCameraOperator.setVideoConfig(this.mVideoConfig);
             this.mCameraOperator.getImageFilter().setupImageOutput(this.mImageOutput);
+            if (this.mDefBeautyParams != null) {
+                setDefBeautyParams(this.mDefBeautyParams);
+            }
             logPrint("checkNeedCreateOperator mNeedBeauty | " + this.mNeedBeauty);
         }
     }
@@ -612,6 +639,11 @@ public class AlaLiveSession implements IFaceUnityOperator, IVideoRecorder, ICame
     public void checkNeedCreateReader() {
         if (this.mTextureReader == null) {
             this.mTextureReader = new EGLTextureReader(this.mContext, this.mVideoConfig.getVideoWidth(), this.mVideoConfig.getVideoHeight());
+        }
+        if (this.mVideoConfig.isLandscape()) {
+            this.mTextureReader.setOutPutSize(this.mVideoConfig.getVideoHeight(), this.mVideoConfig.getVideoWidth());
+        } else {
+            this.mTextureReader.setOutPutSize(this.mVideoConfig.getVideoWidth(), this.mVideoConfig.getVideoHeight());
         }
         if (this.mTextureReaderListener != null) {
             this.mTextureReader.setOnPixelReadCallback(this.mTextureReaderListener);

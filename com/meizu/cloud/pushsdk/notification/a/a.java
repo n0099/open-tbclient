@@ -7,7 +7,7 @@ import android.text.TextUtils;
 import com.meizu.cloud.pushsdk.handler.MessageV3;
 import com.meizu.cloud.pushsdk.notification.PushNotificationBuilder;
 import com.meizu.cloud.pushsdk.util.MinSdkChecker;
-/* loaded from: classes3.dex */
+/* loaded from: classes7.dex */
 public class a extends c {
     public a(Context context, PushNotificationBuilder pushNotificationBuilder) {
         super(context, pushNotificationBuilder);
@@ -15,14 +15,14 @@ public class a extends c {
 
     @Override // com.meizu.cloud.pushsdk.notification.a
     protected void a(Notification.Builder builder, MessageV3 messageV3) {
-        Bitmap a;
+        Bitmap a2;
         if (MinSdkChecker.isSupportNotificationBuild()) {
             Notification.BigPictureStyle bigPictureStyle = new Notification.BigPictureStyle();
-            if (messageV3.getmNotificationStyle() == null || a() || TextUtils.isEmpty(messageV3.getmNotificationStyle().getExpandableImageUrl()) || (a = a(messageV3.getmNotificationStyle().getExpandableImageUrl())) == null) {
+            if (messageV3.getmNotificationStyle() == null || a() || TextUtils.isEmpty(messageV3.getmNotificationStyle().getExpandableImageUrl()) || (a2 = a(messageV3.getmNotificationStyle().getExpandableImageUrl())) == null) {
                 return;
             }
             bigPictureStyle.setBigContentTitle(messageV3.getTitle());
-            bigPictureStyle.bigPicture(a);
+            bigPictureStyle.bigPicture(a2);
             builder.setStyle(bigPictureStyle);
         }
     }

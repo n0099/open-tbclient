@@ -5,7 +5,7 @@ import com.baidu.live.tbadk.message.http.JsonHttpResponsedMessage;
 import org.json.JSONObject;
 /* loaded from: classes4.dex */
 public class GetLiveActivityDynamicHttpResponseMessage extends JsonHttpResponsedMessage {
-    private bf bhF;
+    private bf blv;
 
     public GetLiveActivityDynamicHttpResponseMessage() {
         super(1021126);
@@ -15,8 +15,8 @@ public class GetLiveActivityDynamicHttpResponseMessage extends JsonHttpResponsed
     public void decodeLogicInBackGround(int i, JSONObject jSONObject) throws Exception {
         super.decodeLogicInBackGround(i, jSONObject);
         if (jSONObject != null) {
-            this.bhF = new bf();
-            this.bhF.parserJson(jSONObject);
+            this.blv = new bf();
+            this.blv.parserJson(jSONObject);
         }
     }
 }

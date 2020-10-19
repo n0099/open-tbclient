@@ -7,7 +7,7 @@ import android.view.SurfaceView;
 import java.lang.ref.WeakReference;
 import java.util.ArrayList;
 import java.util.concurrent.Semaphore;
-/* loaded from: classes3.dex */
+/* loaded from: classes7.dex */
 public class al implements ad {
     private static final Semaphore e = new Semaphore(1);
     protected boolean b;
@@ -16,10 +16,12 @@ public class al implements ad {
     private WeakReference<SurfaceView> h;
     private boolean f = true;
     private final WeakReference<al> g = new WeakReference<>(this);
-    protected ak a = null;
+
+    /* renamed from: a  reason: collision with root package name */
+    protected ak f2894a = null;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes3.dex */
+    /* loaded from: classes7.dex */
     public class a extends Thread {
         private WeakReference<al> b;
         private boolean d;
@@ -38,7 +40,7 @@ public class al implements ad {
         public a(WeakReference<al> weakReference) {
             this.b = weakReference;
             al alVar = weakReference.get();
-            this.k = alVar.a;
+            this.k = alVar.f2894a;
             this.l = alVar.a();
         }
 
@@ -315,7 +317,7 @@ public class al implements ad {
     @Override // com.baidu.platform.comapi.map.ad
     public void a(ak akVar) {
         c();
-        this.a = akVar;
+        this.f2894a = akVar;
         this.d = new a(this.g);
         this.d.start();
     }
@@ -367,7 +369,7 @@ public class al implements ad {
 
     @Override // com.baidu.platform.comapi.map.ad
     public void i() {
-        if (this.b && this.a != null) {
+        if (this.b && this.f2894a != null) {
             int a2 = this.d != null ? this.d.a() : 1;
             this.d = new a(this.g);
             if (a2 != 1) {

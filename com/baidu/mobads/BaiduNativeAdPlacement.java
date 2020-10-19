@@ -3,9 +3,11 @@ package com.baidu.mobads;
 import com.baidu.mobads.interfaces.IXAdResponseInfo;
 import com.baidu.mobads.utils.XAdSDKFoundationFacade;
 import java.lang.ref.WeakReference;
-/* loaded from: classes3.dex */
+/* loaded from: classes7.dex */
 public class BaiduNativeAdPlacement {
-    private String a;
+
+    /* renamed from: a  reason: collision with root package name */
+    private String f2299a;
     private IXAdResponseInfo b;
     private boolean c;
     private boolean d;
@@ -39,11 +41,11 @@ public class BaiduNativeAdPlacement {
     }
 
     public void setApId(String str) {
-        this.a = str;
+        this.f2299a = str;
     }
 
     public String getApId() {
-        return this.a;
+        return this.f2299a;
     }
 
     public static void setAppSid(String str) {

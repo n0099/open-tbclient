@@ -18,11 +18,13 @@ import android.view.MenuItem;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.WindowManager;
-/* loaded from: classes3.dex */
+/* loaded from: classes7.dex */
 public class AppActivity extends Activity {
     public static String activityName = null;
     private static ActionBarColorTheme b = ActionBarColorTheme.ACTION_BAR_WHITE_THEME;
-    private AppActivityImp a = new AppActivityImp();
+
+    /* renamed from: a  reason: collision with root package name */
+    private AppActivityImp f2295a = new AppActivityImp();
 
     public static void setActivityName(String str) {
         activityName = str;
@@ -44,9 +46,11 @@ public class AppActivity extends Activity {
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes7.dex */
     public static class ActionBarColorTheme {
-        private int a;
+
+        /* renamed from: a  reason: collision with root package name */
+        private int f2296a;
         private int b;
         private int c;
         private int d;
@@ -59,25 +63,25 @@ public class AppActivity extends Activity {
         public static final ActionBarColorTheme ACTION_BAR_BLACK_THEME = new ActionBarColorTheme(-1, -1, -12510, -13749450);
 
         public ActionBarColorTheme(int i, int i2, int i3, int i4) {
-            this.a = i;
+            this.f2296a = i;
             this.b = i2;
             this.c = i3;
             this.d = i4;
         }
 
         public ActionBarColorTheme(ActionBarColorTheme actionBarColorTheme) {
-            this.a = actionBarColorTheme.a;
+            this.f2296a = actionBarColorTheme.f2296a;
             this.b = actionBarColorTheme.b;
             this.c = actionBarColorTheme.c;
             this.d = actionBarColorTheme.d;
         }
 
         public int getCloseColor() {
-            return this.a;
+            return this.f2296a;
         }
 
         public void setCloseColor(int i) {
-            this.a = i;
+            this.f2296a = i;
         }
 
         public int getTitleColor() {
@@ -106,7 +110,7 @@ public class AppActivity extends Activity {
 
         public boolean equals(Object obj) {
             ActionBarColorTheme actionBarColorTheme = (ActionBarColorTheme) obj;
-            return this.d == actionBarColorTheme.d && this.b == actionBarColorTheme.b && this.a == actionBarColorTheme.a && this.c == actionBarColorTheme.c;
+            return this.d == actionBarColorTheme.d && this.b == actionBarColorTheme.b && this.f2296a == actionBarColorTheme.f2296a && this.c == actionBarColorTheme.c;
         }
     }
 
@@ -126,7 +130,7 @@ public class AppActivity extends Activity {
 
     @Override // android.app.Activity, android.view.Window.Callback
     public boolean dispatchKeyEvent(KeyEvent keyEvent) {
-        if (this.a.dispatchKeyEvent(keyEvent)) {
+        if (this.f2295a.dispatchKeyEvent(keyEvent)) {
             return true;
         }
         return super.dispatchKeyEvent(keyEvent);
@@ -134,7 +138,7 @@ public class AppActivity extends Activity {
 
     @Override // android.app.Activity, android.view.Window.Callback
     public boolean dispatchTouchEvent(MotionEvent motionEvent) {
-        if (this.a.dispatchTouchEvent(motionEvent)) {
+        if (this.f2295a.dispatchTouchEvent(motionEvent)) {
             return true;
         }
         return super.dispatchTouchEvent(motionEvent);
@@ -142,7 +146,7 @@ public class AppActivity extends Activity {
 
     @Override // android.app.Activity, android.view.Window.Callback
     public boolean dispatchTrackballEvent(MotionEvent motionEvent) {
-        if (this.a.dispatchTrackballEvent(motionEvent)) {
+        if (this.f2295a.dispatchTrackballEvent(motionEvent)) {
             return true;
         }
         return super.dispatchTrackballEvent(motionEvent);
@@ -150,37 +154,37 @@ public class AppActivity extends Activity {
 
     @Override // android.app.Activity
     protected void onActivityResult(int i, int i2, Intent intent) {
-        this.a.onActivityResult(i, i2, intent);
+        this.f2295a.onActivityResult(i, i2, intent);
         super.onActivityResult(i, i2, intent);
     }
 
     @Override // android.app.Activity, android.view.ContextThemeWrapper
     protected void onApplyThemeResource(Resources.Theme theme, int i, boolean z) {
-        this.a.onApplyThemeResource(theme, i, z);
+        this.f2295a.onApplyThemeResource(theme, i, z);
         super.onApplyThemeResource(theme, i, z);
     }
 
     @Override // android.app.Activity
     protected void onChildTitleChanged(Activity activity, CharSequence charSequence) {
-        this.a.onChildTitleChanged(activity, charSequence);
+        this.f2295a.onChildTitleChanged(activity, charSequence);
         super.onChildTitleChanged(activity, charSequence);
     }
 
     @Override // android.app.Activity, android.content.ComponentCallbacks
     public void onConfigurationChanged(Configuration configuration) {
-        this.a.onConfigurationChanged(configuration);
+        this.f2295a.onConfigurationChanged(configuration);
         super.onConfigurationChanged(configuration);
     }
 
     @Override // android.app.Activity, android.view.Window.Callback
     public void onContentChanged() {
-        this.a.onContentChanged();
+        this.f2295a.onContentChanged();
         super.onContentChanged();
     }
 
     @Override // android.app.Activity
     public boolean onContextItemSelected(MenuItem menuItem) {
-        if (this.a.onContextItemSelected(menuItem)) {
+        if (this.f2295a.onContextItemSelected(menuItem)) {
             return true;
         }
         return super.onContextItemSelected(menuItem);
@@ -188,7 +192,7 @@ public class AppActivity extends Activity {
 
     @Override // android.app.Activity
     public void onContextMenuClosed(Menu menu) {
-        this.a.onContextMenuClosed(menu);
+        this.f2295a.onContextMenuClosed(menu);
         super.onContextMenuClosed(menu);
     }
 
@@ -196,9 +200,9 @@ public class AppActivity extends Activity {
     protected void onCreate(Bundle bundle) {
         super.onCreate(bundle);
         try {
-            this.a.setActivity(this);
-            this.a.invokeRemoteStatic("setActionBarColor", Integer.valueOf(b.a), Integer.valueOf(b.b), Integer.valueOf(b.c), Integer.valueOf(b.d));
-            this.a.onCreate(bundle);
+            this.f2295a.setActivity(this);
+            this.f2295a.invokeRemoteStatic("setActionBarColor", Integer.valueOf(b.f2296a), Integer.valueOf(b.b), Integer.valueOf(b.c), Integer.valueOf(b.d));
+            this.f2295a.onCreate(bundle);
         } catch (Exception e) {
             com.baidu.mobads.utils.m.a().e(e);
         }
@@ -207,24 +211,24 @@ public class AppActivity extends Activity {
     @Override // android.app.Activity, android.view.View.OnCreateContextMenuListener
     public void onCreateContextMenu(ContextMenu contextMenu, View view, ContextMenu.ContextMenuInfo contextMenuInfo) {
         super.onCreateContextMenu(contextMenu, view, contextMenuInfo);
-        this.a.onCreateContextMenu(contextMenu, view, contextMenuInfo);
+        this.f2295a.onCreateContextMenu(contextMenu, view, contextMenuInfo);
     }
 
     @Override // android.app.Activity
     public CharSequence onCreateDescription() {
-        CharSequence onCreateDescription = this.a.onCreateDescription();
+        CharSequence onCreateDescription = this.f2295a.onCreateDescription();
         return onCreateDescription != null ? onCreateDescription : super.onCreateDescription();
     }
 
     @Override // android.app.Activity
     protected Dialog onCreateDialog(int i) {
-        Dialog onCreateDialog = this.a.onCreateDialog(i);
+        Dialog onCreateDialog = this.f2295a.onCreateDialog(i);
         return onCreateDialog != null ? onCreateDialog : super.onCreateDialog(i);
     }
 
     @Override // android.app.Activity
     public boolean onCreateOptionsMenu(Menu menu) {
-        if (this.a.onCreateOptionsMenu(menu)) {
+        if (this.f2295a.onCreateOptionsMenu(menu)) {
             return true;
         }
         return super.onCreateOptionsMenu(menu);
@@ -232,7 +236,7 @@ public class AppActivity extends Activity {
 
     @Override // android.app.Activity, android.view.Window.Callback
     public boolean onCreatePanelMenu(int i, Menu menu) {
-        if (this.a.onCreatePanelMenu(i, menu)) {
+        if (this.f2295a.onCreatePanelMenu(i, menu)) {
             return true;
         }
         return super.onCreatePanelMenu(i, menu);
@@ -240,13 +244,13 @@ public class AppActivity extends Activity {
 
     @Override // android.app.Activity, android.view.Window.Callback
     public View onCreatePanelView(int i) {
-        View onCreatePanelView = this.a.onCreatePanelView(i);
+        View onCreatePanelView = this.f2295a.onCreatePanelView(i);
         return onCreatePanelView != null ? onCreatePanelView : super.onCreatePanelView(i);
     }
 
     @Override // android.app.Activity
     public boolean onCreateThumbnail(Bitmap bitmap, Canvas canvas) {
-        if (this.a.onCreateThumbnail(bitmap, canvas)) {
+        if (this.f2295a.onCreateThumbnail(bitmap, canvas)) {
             return true;
         }
         return super.onCreateThumbnail(bitmap, canvas);
@@ -254,19 +258,19 @@ public class AppActivity extends Activity {
 
     @Override // android.app.Activity, android.view.LayoutInflater.Factory
     public View onCreateView(String str, Context context, AttributeSet attributeSet) {
-        View onCreateView = this.a.onCreateView(str, context, attributeSet);
+        View onCreateView = this.f2295a.onCreateView(str, context, attributeSet);
         return onCreateView != null ? onCreateView : super.onCreateView(str, context, attributeSet);
     }
 
     @Override // android.app.Activity
     protected void onDestroy() {
-        this.a.onDestroy();
+        this.f2295a.onDestroy();
         super.onDestroy();
     }
 
     @Override // android.app.Activity, android.view.KeyEvent.Callback
     public boolean onKeyDown(int i, KeyEvent keyEvent) {
-        if (this.a.onKeyDown(i, keyEvent)) {
+        if (this.f2295a.onKeyDown(i, keyEvent)) {
             return true;
         }
         return super.onKeyDown(i, keyEvent);
@@ -274,7 +278,7 @@ public class AppActivity extends Activity {
 
     @Override // android.app.Activity, android.view.KeyEvent.Callback
     public boolean onKeyMultiple(int i, int i2, KeyEvent keyEvent) {
-        if (this.a.onKeyMultiple(i, i2, keyEvent)) {
+        if (this.f2295a.onKeyMultiple(i, i2, keyEvent)) {
             return true;
         }
         return super.onKeyMultiple(i, i2, keyEvent);
@@ -282,7 +286,7 @@ public class AppActivity extends Activity {
 
     @Override // android.app.Activity, android.view.KeyEvent.Callback
     public boolean onKeyUp(int i, KeyEvent keyEvent) {
-        if (this.a.onKeyUp(i, keyEvent)) {
+        if (this.f2295a.onKeyUp(i, keyEvent)) {
             return true;
         }
         return super.onKeyUp(i, keyEvent);
@@ -290,13 +294,13 @@ public class AppActivity extends Activity {
 
     @Override // android.app.Activity, android.content.ComponentCallbacks
     public void onLowMemory() {
-        this.a.onLowMemory();
+        this.f2295a.onLowMemory();
         super.onLowMemory();
     }
 
     @Override // android.app.Activity, android.view.Window.Callback
     public boolean onMenuItemSelected(int i, MenuItem menuItem) {
-        if (this.a.onMenuItemSelected(i, menuItem)) {
+        if (this.f2295a.onMenuItemSelected(i, menuItem)) {
             return true;
         }
         return super.onMenuItemSelected(i, menuItem);
@@ -304,7 +308,7 @@ public class AppActivity extends Activity {
 
     @Override // android.app.Activity, android.view.Window.Callback
     public boolean onMenuOpened(int i, Menu menu) {
-        if (this.a.onMenuOpened(i, menu)) {
+        if (this.f2295a.onMenuOpened(i, menu)) {
             return true;
         }
         return super.onMenuOpened(i, menu);
@@ -312,13 +316,13 @@ public class AppActivity extends Activity {
 
     @Override // android.app.Activity
     protected void onNewIntent(Intent intent) {
-        this.a.onNewIntent(intent);
+        this.f2295a.onNewIntent(intent);
         super.onNewIntent(intent);
     }
 
     @Override // android.app.Activity
     public boolean onOptionsItemSelected(MenuItem menuItem) {
-        if (this.a.onOptionsItemSelected(menuItem)) {
+        if (this.f2295a.onOptionsItemSelected(menuItem)) {
             return true;
         }
         return super.onOptionsItemSelected(menuItem);
@@ -326,43 +330,43 @@ public class AppActivity extends Activity {
 
     @Override // android.app.Activity
     public void onOptionsMenuClosed(Menu menu) {
-        this.a.onOptionsMenuClosed(menu);
+        this.f2295a.onOptionsMenuClosed(menu);
         super.onOptionsMenuClosed(menu);
     }
 
     @Override // android.app.Activity, android.view.Window.Callback
     public void onPanelClosed(int i, Menu menu) {
-        this.a.onPanelClosed(i, menu);
+        this.f2295a.onPanelClosed(i, menu);
         super.onPanelClosed(i, menu);
     }
 
     @Override // android.app.Activity
     protected void onPause() {
-        this.a.onPause();
+        this.f2295a.onPause();
         super.onPause();
     }
 
     @Override // android.app.Activity
     protected void onPostCreate(Bundle bundle) {
         super.onPostCreate(bundle);
-        this.a.onPostCreate(bundle);
+        this.f2295a.onPostCreate(bundle);
     }
 
     @Override // android.app.Activity
     protected void onPostResume() {
         super.onPostResume();
-        this.a.onPostResume();
+        this.f2295a.onPostResume();
     }
 
     @Override // android.app.Activity
     protected void onPrepareDialog(int i, Dialog dialog) {
         super.onPrepareDialog(i, dialog);
-        this.a.onPrepareDialog(i, dialog);
+        this.f2295a.onPrepareDialog(i, dialog);
     }
 
     @Override // android.app.Activity
     public boolean onPrepareOptionsMenu(Menu menu) {
-        if (this.a.onPrepareOptionsMenu(menu)) {
+        if (this.f2295a.onPrepareOptionsMenu(menu)) {
             return true;
         }
         return super.onPrepareOptionsMenu(menu);
@@ -370,7 +374,7 @@ public class AppActivity extends Activity {
 
     @Override // android.app.Activity, android.view.Window.Callback
     public boolean onPreparePanel(int i, View view, Menu menu) {
-        if (this.a.onPreparePanel(i, view, menu)) {
+        if (this.f2295a.onPreparePanel(i, view, menu)) {
             return true;
         }
         return super.onPreparePanel(i, view, menu);
@@ -379,36 +383,36 @@ public class AppActivity extends Activity {
     @Override // android.app.Activity
     protected void onRestart() {
         super.onRestart();
-        this.a.onRestart();
+        this.f2295a.onRestart();
     }
 
     @Override // android.app.Activity
     protected void onRestoreInstanceState(Bundle bundle) {
         super.onRestoreInstanceState(bundle);
-        this.a.onRestoreInstanceState(bundle);
+        this.f2295a.onRestoreInstanceState(bundle);
     }
 
     @Override // android.app.Activity
     protected void onResume() {
         super.onResume();
-        this.a.onResume();
+        this.f2295a.onResume();
     }
 
     @Override // android.app.Activity
     public Object onRetainNonConfigurationInstance() {
-        Object onRetainNonConfigurationInstance = this.a.onRetainNonConfigurationInstance();
+        Object onRetainNonConfigurationInstance = this.f2295a.onRetainNonConfigurationInstance();
         return onRetainNonConfigurationInstance != null ? onRetainNonConfigurationInstance : super.onRetainNonConfigurationInstance();
     }
 
     @Override // android.app.Activity
     protected void onSaveInstanceState(Bundle bundle) {
         super.onSaveInstanceState(bundle);
-        this.a.onSaveInstanceState(bundle);
+        this.f2295a.onSaveInstanceState(bundle);
     }
 
     @Override // android.app.Activity, android.view.Window.Callback
     public boolean onSearchRequested() {
-        if (this.a.onSearchRequested()) {
+        if (this.f2295a.onSearchRequested()) {
             return true;
         }
         return super.onSearchRequested();
@@ -417,24 +421,24 @@ public class AppActivity extends Activity {
     @Override // android.app.Activity
     protected void onStart() {
         super.onStart();
-        this.a.onStart();
+        this.f2295a.onStart();
     }
 
     @Override // android.app.Activity
     protected void onStop() {
-        this.a.onStop();
+        this.f2295a.onStop();
         super.onStop();
     }
 
     @Override // android.app.Activity
     protected void onTitleChanged(CharSequence charSequence, int i) {
         super.onTitleChanged(charSequence, i);
-        this.a.onTitleChanged(charSequence, i);
+        this.f2295a.onTitleChanged(charSequence, i);
     }
 
     @Override // android.app.Activity
     public boolean onTouchEvent(MotionEvent motionEvent) {
-        if (this.a.onTouchEvent(motionEvent)) {
+        if (this.f2295a.onTouchEvent(motionEvent)) {
             return true;
         }
         return super.onTouchEvent(motionEvent);
@@ -442,7 +446,7 @@ public class AppActivity extends Activity {
 
     @Override // android.app.Activity
     public boolean onTrackballEvent(MotionEvent motionEvent) {
-        if (this.a.onTrackballEvent(motionEvent)) {
+        if (this.f2295a.onTrackballEvent(motionEvent)) {
             return true;
         }
         return super.onTrackballEvent(motionEvent);
@@ -451,24 +455,24 @@ public class AppActivity extends Activity {
     @Override // android.app.Activity
     public void onUserInteraction() {
         super.onUserInteraction();
-        this.a.onUserInteraction();
+        this.f2295a.onUserInteraction();
     }
 
     @Override // android.app.Activity
     protected void onUserLeaveHint() {
         super.onUserLeaveHint();
-        this.a.onUserLeaveHint();
+        this.f2295a.onUserLeaveHint();
     }
 
     @Override // android.app.Activity, android.view.Window.Callback
     public void onWindowAttributesChanged(WindowManager.LayoutParams layoutParams) {
         super.onWindowAttributesChanged(layoutParams);
-        this.a.onWindowAttributesChanged(layoutParams);
+        this.f2295a.onWindowAttributesChanged(layoutParams);
     }
 
     @Override // android.app.Activity, android.view.Window.Callback
     public void onWindowFocusChanged(boolean z) {
         super.onWindowFocusChanged(z);
-        this.a.onWindowFocusChanged(z);
+        this.f2295a.onWindowFocusChanged(z);
     }
 }

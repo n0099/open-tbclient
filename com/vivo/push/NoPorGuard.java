@@ -1,4 +1,4 @@
 package com.vivo.push;
-/* loaded from: classes12.dex */
+/* loaded from: classes15.dex */
 public @interface NoPorGuard {
 }

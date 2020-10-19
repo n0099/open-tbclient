@@ -3,14 +3,14 @@ package com.baidu.tieba.enterForum.tabfeed.b;
 import com.baidu.adp.widget.ListView.q;
 import com.baidu.tbadk.core.data.bj;
 import java.util.ArrayList;
-/* loaded from: classes21.dex */
+/* loaded from: classes22.dex */
 public class b {
-    public c hIz;
+    public c hXu;
     public boolean hasMore = true;
-    public boolean ajR = true;
-    public int hIy = 0;
+    public boolean akj = true;
+    public int hXt = 0;
     public int refreshCount = 0;
-    public boolean fnv = true;
-    public ArrayList<q> hIx = new ArrayList<>();
-    public bj hIw = new bj();
+    public boolean fzJ = true;
+    public ArrayList<q> hXs = new ArrayList<>();
+    public bj hXr = new bj();
 }

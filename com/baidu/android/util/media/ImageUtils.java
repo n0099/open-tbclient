@@ -25,7 +25,7 @@ import java.io.IOException;
 import java.io.InputStream;
 import okhttp3.Response;
 import org.apache.commons.codec.binary4util.bdapp.Base64;
-/* loaded from: classes18.dex */
+/* loaded from: classes15.dex */
 public final class ImageUtils {
     private static final boolean DEBUG = false;
     public static final long DEFAULT_MAX_PIXELS = 131072;

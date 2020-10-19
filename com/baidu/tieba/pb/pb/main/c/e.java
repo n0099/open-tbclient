@@ -13,12 +13,12 @@ import com.baidu.tbadk.core.data.bw;
 import com.baidu.tbadk.core.util.ap;
 import com.baidu.tbadk.core.view.ItemCardView;
 import com.baidu.tieba.R;
-/* loaded from: classes21.dex */
+/* loaded from: classes22.dex */
 public class e extends a {
-    private ItemCardView afU;
-    private AbsThreadDataSupport kYI;
-    private bw kYL;
-    private af kYP;
+    private ItemCardView agm;
+    private AbsThreadDataSupport lnW;
+    private bw lnZ;
+    private af loe;
     private LinearLayout mRootView;
 
     public e(TbPageContext tbPageContext) {
@@ -28,46 +28,46 @@ public class e extends a {
     @Override // com.baidu.tieba.pb.pb.main.c.a
     public View getView() {
         if (this.mRootView == null) {
-            this.mRootView = new LinearLayout(this.ehG.getPageActivity());
+            this.mRootView = new LinearLayout(this.etO.getPageActivity());
             ap.setBackgroundColor(this.mRootView, R.color.cp_bg_line_g);
             this.mRootView.setOrientation(1);
             this.mRootView.setLayoutParams(new LinearLayout.LayoutParams(-1, -2));
         }
         this.mRootView.removeAllViews();
-        if (this.kYP == null) {
-            this.kYP = new af(this.ehG);
-            this.kYP.b((Boolean) true);
+        if (this.loe == null) {
+            this.loe = new af(this.etO);
+            this.loe.b((Boolean) true);
         }
         LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(-1, -2);
-        layoutParams.topMargin = this.ehG.getResources().getDimensionPixelOffset(R.dimen.tbds39);
-        layoutParams.leftMargin = this.ehG.getResources().getDimensionPixelOffset(R.dimen.tbds44);
-        layoutParams.rightMargin = this.ehG.getResources().getDimensionPixelOffset(R.dimen.tbds44);
-        this.mRootView.addView(this.kYP.getView(), layoutParams);
-        if (this.afU == null) {
-            this.afU = new ItemCardView(this.ehG.getPageActivity());
+        layoutParams.topMargin = this.etO.getResources().getDimensionPixelOffset(R.dimen.tbds39);
+        layoutParams.leftMargin = this.etO.getResources().getDimensionPixelOffset(R.dimen.tbds44);
+        layoutParams.rightMargin = this.etO.getResources().getDimensionPixelOffset(R.dimen.tbds44);
+        this.mRootView.addView(this.loe.getView(), layoutParams);
+        if (this.agm == null) {
+            this.agm = new ItemCardView(this.etO.getPageActivity());
         }
-        this.afU.setBackGroundColor(R.color.cp_bg_line_e);
+        this.agm.setBackGroundColor(R.color.cp_bg_line_e);
         LinearLayout.LayoutParams layoutParams2 = new LinearLayout.LayoutParams(-1, -2);
-        layoutParams2.topMargin = this.ehG.getResources().getDimensionPixelOffset(R.dimen.tbds22);
-        layoutParams2.leftMargin = this.ehG.getResources().getDimensionPixelOffset(R.dimen.tbds44);
-        layoutParams2.rightMargin = this.ehG.getResources().getDimensionPixelOffset(R.dimen.tbds44);
-        layoutParams2.bottomMargin = this.ehG.getResources().getDimensionPixelOffset(R.dimen.tbds42);
-        this.mRootView.addView(this.afU, layoutParams2);
+        layoutParams2.topMargin = this.etO.getResources().getDimensionPixelOffset(R.dimen.tbds22);
+        layoutParams2.leftMargin = this.etO.getResources().getDimensionPixelOffset(R.dimen.tbds44);
+        layoutParams2.rightMargin = this.etO.getResources().getDimensionPixelOffset(R.dimen.tbds44);
+        layoutParams2.bottomMargin = this.etO.getResources().getDimensionPixelOffset(R.dimen.tbds42);
+        this.mRootView.addView(this.agm, layoutParams2);
         return this.mRootView;
     }
 
     @Override // com.baidu.tieba.pb.pb.main.c.a
     public void g(OriginalThreadInfo originalThreadInfo) {
-        this.kYH = originalThreadInfo;
-        this.kYL = originalThreadInfo == null ? null : originalThreadInfo.bdZ();
-        this.kYI = new AbsThreadDataSupport() { // from class: com.baidu.tieba.pb.pb.main.c.e.1
+        this.lnV = originalThreadInfo;
+        this.lnZ = originalThreadInfo == null ? null : originalThreadInfo.bgI();
+        this.lnW = new AbsThreadDataSupport() { // from class: com.baidu.tieba.pb.pb.main.c.e.1
             @Override // com.baidu.tbadk.core.data.AbsThreadDataSupport
-            public bw bcY() {
-                return e.this.kYL;
+            public bw bfG() {
+                return e.this.lnZ;
             }
 
             @Override // com.baidu.tbadk.core.data.AbsThreadDataSupport
-            public ar bda() {
+            public ar bfI() {
                 return null;
             }
 
@@ -76,26 +76,26 @@ public class e extends a {
                 return null;
             }
         };
-        if (this.afU != null && originalThreadInfo != null) {
-            this.afU.setData(originalThreadInfo.item, 17);
+        if (this.agm != null && originalThreadInfo != null) {
+            this.agm.setData(originalThreadInfo.item, 17);
         }
-        if (this.kYP != null) {
-            this.kYP.G(this.kYI);
+        if (this.loe != null) {
+            this.loe.H(this.lnW);
         }
     }
 
     @Override // com.baidu.tieba.pb.pb.main.c.a
     public void a(b.a aVar) {
         super.a(aVar);
-        if (this.kYP != null) {
-            this.kYP.a(aVar);
+        if (this.loe != null) {
+            this.loe.a(aVar);
         }
         if (this.mRootView != null) {
             this.mRootView.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.pb.pb.main.c.e.2
                 @Override // android.view.View.OnClickListener
                 public void onClick(View view) {
-                    if (e.this.afo != null) {
-                        e.this.afo.a(e.this.kYI);
+                    if (e.this.afF != null) {
+                        e.this.afF.a(e.this.lnW);
                     }
                 }
             });
@@ -107,11 +107,11 @@ public class e extends a {
         if (this.mSkinType != i) {
             this.mSkinType = i;
             ap.setBackgroundColor(this.mRootView, R.color.cp_bg_line_g);
-            if (this.kYP != null) {
-                this.kYP.onChangeSkinType(tbPageContext, i);
+            if (this.loe != null) {
+                this.loe.onChangeSkinType(tbPageContext, i);
             }
-            if (this.afU != null) {
-                this.afU.onChangeSkinType();
+            if (this.agm != null) {
+                this.agm.onChangeSkinType();
             }
         }
     }

@@ -5,30 +5,30 @@ import android.widget.TextView;
 import com.baidu.adp.widget.ListView.af;
 import com.baidu.tbadk.core.view.BarImageView;
 import com.baidu.tieba.R;
-/* loaded from: classes20.dex */
+/* loaded from: classes21.dex */
 public class f extends af.a {
-    public int aiX;
-    public View gYK;
-    public TextView iGU;
-    public TextView iGV;
-    public TextView jjA;
-    public TextView jjB;
-    public TextView jjC;
-    public TextView jjD;
-    public TextView jjE;
-    public BarImageView jjz;
+    public int ajp;
+    public View hnL;
+    public TextView iVK;
+    public TextView iVL;
+    public TextView jyA;
+    public TextView jyB;
+    public TextView jyC;
+    public BarImageView jyx;
+    public TextView jyy;
+    public TextView jyz;
 
     public f(View view) {
         super(view);
-        this.aiX = 3;
-        this.jjA = (TextView) view.findViewById(R.id.forum_name);
-        this.jjz = (BarImageView) view.findViewById(R.id.forum_avatar);
-        this.jjC = (TextView) view.findViewById(R.id.member_num_label);
-        this.jjB = (TextView) view.findViewById(R.id.post_num_label);
-        this.iGV = (TextView) view.findViewById(R.id.member_num);
-        this.iGU = (TextView) view.findViewById(R.id.post_num);
-        this.jjD = (TextView) view.findViewById(R.id.forum_content);
-        this.jjE = (TextView) view.findViewById(R.id.forum_add_love);
-        this.gYK = view.findViewById(R.id.forum_item_divider);
+        this.ajp = 3;
+        this.jyy = (TextView) view.findViewById(R.id.forum_name);
+        this.jyx = (BarImageView) view.findViewById(R.id.forum_avatar);
+        this.jyA = (TextView) view.findViewById(R.id.member_num_label);
+        this.jyz = (TextView) view.findViewById(R.id.post_num_label);
+        this.iVL = (TextView) view.findViewById(R.id.member_num);
+        this.iVK = (TextView) view.findViewById(R.id.post_num);
+        this.jyB = (TextView) view.findViewById(R.id.forum_content);
+        this.jyC = (TextView) view.findViewById(R.id.forum_add_love);
+        this.hnL = view.findViewById(R.id.forum_item_divider);
     }
 }

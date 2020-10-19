@@ -12,7 +12,7 @@ import com.baidu.ar.c.c;
 import com.baidu.ar.mdl.ARMdlInterfaceJNI;
 import com.baidu.ar.statistic.StatisticApi;
 import com.baidu.platform.comapi.map.MapBundleKey;
-/* loaded from: classes10.dex */
+/* loaded from: classes14.dex */
 public class ObjDetectDetector extends com.baidu.ar.b.a.a {
     private static final String TAG = ObjDetectDetector.class.getSimpleName();
     private int oE = 6;

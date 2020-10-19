@@ -1,7 +1,7 @@
 package com.baidu.platform.comapi.walknavi.g.b;
 
 import android.os.Bundle;
-/* loaded from: classes3.dex */
+/* loaded from: classes7.dex */
 public class a {
     public static Bundle a(Bundle bundle, int i, int i2, int i3) {
         bundle.putInt("updatetype", i);

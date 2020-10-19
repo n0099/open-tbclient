@@ -1,27 +1,27 @@
 package com.baidu.swan.apps.inlinewidget.rtcroom.model;
 
 import android.text.TextUtils;
-/* loaded from: classes3.dex */
+/* loaded from: classes10.dex */
 public class b {
-    public long cvY;
-    public String cvZ;
+    public long cIf;
     public String displayName;
     public String roomName;
+    public String rtcAppId;
     public String token;
 
     public b(String str, long j, String str2, String str3, String str4) {
         this.roomName = str;
-        this.cvY = j;
+        this.cIf = j;
         this.displayName = str2;
-        this.cvZ = str3;
+        this.rtcAppId = str3;
         this.token = str4;
     }
 
     public boolean isValid() {
-        return (TextUtils.isEmpty(this.roomName) || TextUtils.isEmpty(this.displayName) || TextUtils.isEmpty(this.cvZ) || TextUtils.isEmpty(this.token) || !com.baidu.swan.apps.inlinewidget.rtcroom.b.a.ba(this.cvY)) ? false : true;
+        return (TextUtils.isEmpty(this.roomName) || TextUtils.isEmpty(this.displayName) || TextUtils.isEmpty(this.rtcAppId) || TextUtils.isEmpty(this.token) || !com.baidu.swan.apps.inlinewidget.rtcroom.b.a.bi(this.cIf)) ? false : true;
     }
 
     public String toString() {
-        return "roomName=" + this.roomName + ";localUserId=" + this.cvY + ";displayName=" + this.displayName + ";rtcAppId=" + this.cvZ + ";token=" + this.token;
+        return "roomName=" + this.roomName + ";localUserId=" + this.cIf + ";displayName=" + this.displayName + ";rtcAppId=" + this.rtcAppId + ";token=" + this.token;
     }
 }

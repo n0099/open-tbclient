@@ -8,13 +8,13 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.view.commonBtn.TBSpecificationBtn;
 import com.baidu.tbadk.core.view.commonBtn.TBSpecificationButtonConfig;
 import com.baidu.tieba.R;
-/* loaded from: classes21.dex */
+/* loaded from: classes22.dex */
 public class PbFirstFloorUserLikeButton extends TBSpecificationBtn implements com.baidu.tbadk.core.view.userLike.b {
-    protected String ezd;
-    protected String eze;
-    private com.baidu.tbadk.core.view.commonBtn.b lih;
-    private com.baidu.tbadk.core.view.commonBtn.b lii;
-    public View.OnClickListener lij;
+    protected String eLk;
+    protected String eLl;
+    public View.OnClickListener lxA;
+    private com.baidu.tbadk.core.view.commonBtn.b lxy;
+    private com.baidu.tbadk.core.view.commonBtn.b lxz;
 
     public PbFirstFloorUserLikeButton(Context context) {
         super(context);
@@ -32,21 +32,21 @@ public class PbFirstFloorUserLikeButton extends TBSpecificationBtn implements co
     }
 
     private void init() {
-        this.ezd = TbadkCoreApplication.getInst().getString(R.string.relate_forum_is_followed);
-        this.eze = TbadkCoreApplication.getInst().getString(R.string.attention);
+        this.eLk = TbadkCoreApplication.getInst().getString(R.string.relate_forum_is_followed);
+        this.eLl = TbadkCoreApplication.getInst().getString(R.string.attention);
         setTextSize(R.dimen.tbds36);
-        setText(this.eze);
-        this.lih = new com.baidu.tbadk.core.view.commonBtn.b();
-        this.lih.pp(R.color.cp_link_tip_a);
-        this.lih.a(R.drawable.ic_icon_pure_add12_svg, 0, TBSpecificationButtonConfig.IconType.SVG);
-        this.lih.pj(l.getDimens(getContext(), R.dimen.tbds36));
-        this.lii = new com.baidu.tbadk.core.view.commonBtn.b();
-        this.lii.pr(R.color.cp_cont_d);
-        setConfig(this.lih);
+        setText(this.eLl);
+        this.lxy = new com.baidu.tbadk.core.view.commonBtn.b();
+        this.lxy.pN(R.color.cp_link_tip_a);
+        this.lxy.a(R.drawable.ic_icon_pure_add12_svg, 0, TBSpecificationButtonConfig.IconType.SVG);
+        this.lxy.pI(l.getDimens(getContext(), R.dimen.tbds36));
+        this.lxz = new com.baidu.tbadk.core.view.commonBtn.b();
+        this.lxz.pP(R.color.cp_cont_d);
+        setConfig(this.lxy);
     }
 
     public void setFollowIconSize(int i) {
-        this.lih.pj(i);
+        this.lxy.pI(i);
     }
 
     @Override // android.view.View
@@ -55,25 +55,25 @@ public class PbFirstFloorUserLikeButton extends TBSpecificationBtn implements co
     }
 
     public void aN(boolean z) {
-        if (!(this.eyC instanceof Boolean) || ((Boolean) this.eyC).booleanValue() != z) {
-            this.eyC = Boolean.valueOf(z);
+        if (!(this.eKJ instanceof Boolean) || ((Boolean) this.eKJ).booleanValue() != z) {
+            this.eKJ = Boolean.valueOf(z);
             if (z) {
                 setVisibility(8);
                 setClickable(false);
-                setText(this.ezd);
-                setConfig(this.lii);
+                setText(this.eLk);
+                setConfig(this.lxz);
             } else {
                 setVisibility(0);
                 setClickable(true);
-                setText(this.eze);
-                setConfig(this.lih);
+                setText(this.eLl);
+                setConfig(this.lxy);
             }
             onChangeSkinType(TbadkCoreApplication.getInst().getSkinType());
         }
     }
 
     @Override // com.baidu.tbadk.core.view.userLike.b
-    public void r(boolean z, int i) {
+    public void s(boolean z, int i) {
         aN(z);
     }
 
@@ -84,12 +84,12 @@ public class PbFirstFloorUserLikeButton extends TBSpecificationBtn implements co
     }
 
     @Override // com.baidu.tbadk.core.view.userLike.b
-    public void py(int i) {
+    public void pW(int i) {
     }
 
-    public void bm(View view) {
-        if (this.lij != null) {
-            this.lij.onClick(view);
+    public void bq(View view) {
+        if (this.lxA != null) {
+            this.lxA.onClick(view);
         }
     }
 
@@ -99,6 +99,6 @@ public class PbFirstFloorUserLikeButton extends TBSpecificationBtn implements co
     }
 
     public void onChangeSkinType(int i) {
-        blA();
+        bok();
     }
 }

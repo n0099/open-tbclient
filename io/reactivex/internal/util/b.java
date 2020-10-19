@@ -1,7 +1,7 @@
 package io.reactivex.internal.util;
 
 import java.util.concurrent.atomic.AtomicLong;
-/* loaded from: classes25.dex */
+/* loaded from: classes17.dex */
 public final class b {
     public static long M(long j, long j2) {
         long j3 = j + j2;

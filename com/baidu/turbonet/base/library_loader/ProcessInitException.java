@@ -1,5 +1,5 @@
 package com.baidu.turbonet.base.library_loader;
-/* loaded from: classes15.dex */
+/* loaded from: classes17.dex */
 public class ProcessInitException extends Exception {
     private int mErrorCode;
 

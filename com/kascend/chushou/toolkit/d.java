@@ -4,13 +4,15 @@ import android.os.Looper;
 import android.os.SystemClock;
 /* loaded from: classes6.dex */
 public class d {
-    private final long a;
+
+    /* renamed from: a  reason: collision with root package name */
+    private final long f4218a;
     private final Runnable d;
     private long e;
     private long f;
     private int g;
-    private final tv.chushou.zues.c ohf;
-    private final a ohg;
+    private final tv.chushou.zues.c owy;
+    private final a owz;
 
     /* loaded from: classes6.dex */
     public interface a {
@@ -18,13 +20,13 @@ public class d {
     }
 
     public d(long j, a aVar, tv.chushou.zues.c cVar) {
-        this.a = j;
+        this.f4218a = j;
         this.e = j;
-        this.ohg = aVar;
+        this.owz = aVar;
         if (cVar == null) {
-            this.ohf = new tv.chushou.zues.c(Looper.getMainLooper());
+            this.owy = new tv.chushou.zues.c(Looper.getMainLooper());
         } else {
-            this.ohf = cVar;
+            this.owy = cVar;
         }
         this.d = new Runnable() { // from class: com.kascend.chushou.toolkit.d.1
             @Override // java.lang.Runnable
@@ -37,13 +39,13 @@ public class d {
 
     public void a() {
         this.f = SystemClock.uptimeMillis();
-        this.ohf.e(this.d, this.e);
+        this.owy.e(this.d, this.e);
         this.g = 1;
     }
 
     public void b() {
         if (this.g != 3) {
-            this.ohf.L(this.d);
+            this.owy.L(this.d);
             this.e -= SystemClock.uptimeMillis() - this.f;
             this.f = 0L;
             this.g = 2;
@@ -58,16 +60,16 @@ public class d {
     }
 
     public void d() {
-        this.ohf.L(this.d);
+        this.owy.L(this.d);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void e() {
-        this.ohf.L(this.d);
-        this.e = this.a;
+        this.owy.L(this.d);
+        this.e = this.f4218a;
         this.g = 3;
-        if (this.ohg != null) {
-            this.ohg.a();
+        if (this.owz != null) {
+            this.owz.a();
         }
     }
 }

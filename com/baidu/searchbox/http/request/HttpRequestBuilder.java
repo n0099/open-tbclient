@@ -11,7 +11,7 @@ import java.util.Map;
 import okhttp3.Headers;
 import okhttp3.HttpUrl;
 import org.json.JSONObject;
-/* loaded from: classes14.dex */
+/* loaded from: classes15.dex */
 public abstract class HttpRequestBuilder<T extends HttpRequestBuilder> {
     protected int connectionTimeout;
     protected CookieManager cookieManager;

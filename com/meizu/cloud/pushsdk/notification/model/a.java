@@ -6,7 +6,7 @@ import android.text.TextUtils;
 import com.meizu.cloud.pushsdk.handler.MessageV3;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes7.dex */
 public class a implements Parcelable {
     public static final Parcelable.Creator<a> CREATOR = new Parcelable.Creator<a>() { // from class: com.meizu.cloud.pushsdk.notification.model.a.1
         /* JADX DEBUG: Method merged with bridge method */
@@ -23,16 +23,18 @@ public class a implements Parcelable {
             return new a[i];
         }
     };
-    private int a;
+
+    /* renamed from: a  reason: collision with root package name */
+    private int f4430a;
     private String b;
 
     public a() {
-        this.a = 0;
+        this.f4430a = 0;
     }
 
     protected a(Parcel parcel) {
-        this.a = 0;
-        this.a = parcel.readInt();
+        this.f4430a = 0;
+        this.f4430a = parcel.readInt();
         this.b = parcel.readString();
     }
 
@@ -70,9 +72,9 @@ public class a implements Parcelable {
     }
 
     public static int b(MessageV3 messageV3) {
-        a a = a(messageV3);
-        if (a != null) {
-            return a.a();
+        a a2 = a(messageV3);
+        if (a2 != null) {
+            return a2.a();
         }
         return 0;
     }
@@ -104,11 +106,11 @@ public class a implements Parcelable {
     }
 
     public int a() {
-        return this.a;
+        return this.f4430a;
     }
 
     public void a(int i) {
-        this.a = i;
+        this.f4430a = i;
     }
 
     public void a(String str) {
@@ -125,12 +127,12 @@ public class a implements Parcelable {
     }
 
     public String toString() {
-        return "NotifyOption{notifyId=" + this.a + ", notifyKey='" + this.b + "'}";
+        return "NotifyOption{notifyId=" + this.f4430a + ", notifyKey='" + this.b + "'}";
     }
 
     @Override // android.os.Parcelable
     public void writeToParcel(Parcel parcel, int i) {
-        parcel.writeInt(this.a);
+        parcel.writeInt(this.f4430a);
         parcel.writeString(this.b);
     }
 }

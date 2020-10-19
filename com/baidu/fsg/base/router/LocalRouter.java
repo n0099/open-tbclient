@@ -3,9 +3,11 @@ package com.baidu.fsg.base.router;
 import android.content.Context;
 import com.baidu.fsg.base.utils.LogUtil;
 import java.util.HashMap;
-/* loaded from: classes15.dex */
+/* loaded from: classes16.dex */
 public class LocalRouter {
-    private static final String a = "LocalRouter";
+
+    /* renamed from: a  reason: collision with root package name */
+    private static final String f1477a = "LocalRouter";
     private static LocalRouter b = null;
     private HashMap<String, RouterProvider> c;
     private Context d;
@@ -45,10 +47,10 @@ public class LocalRouter {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public void a(Context context, RouterRequest routerRequest, RouterCallback routerCallback) {
-        LogUtil.d(a, "Process:Local route start: " + System.currentTimeMillis());
-        LogUtil.d(a, "Process:Local find action start: " + System.currentTimeMillis());
+        LogUtil.d(f1477a, "Process:Local route start: " + System.currentTimeMillis());
+        LogUtil.d(f1477a, "Process:Local find action start: " + System.currentTimeMillis());
         RouterAction a2 = a(routerRequest);
-        LogUtil.d(a, "Process:Local find action end: " + System.currentTimeMillis());
+        LogUtil.d(f1477a, "Process:Local find action end: " + System.currentTimeMillis());
         try {
             a2.invoke(context, routerRequest.getData(), routerCallback);
         } catch (Exception e) {
@@ -57,7 +59,7 @@ public class LocalRouter {
             hashMap.put("retMsg", e.getMessage());
             routerCallback.onResult(RouterCallback.CODE_ERROR, hashMap);
         }
-        LogUtil.d(a, "Process:Local route end: " + System.currentTimeMillis());
+        LogUtil.d(f1477a, "Process:Local route end: " + System.currentTimeMillis());
     }
 
     private RouterAction a(RouterRequest routerRequest) {

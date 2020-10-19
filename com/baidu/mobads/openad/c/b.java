@@ -2,11 +2,13 @@ package com.baidu.mobads.openad.c;
 
 import com.baidu.mobads.openad.interfaces.event.IOAdEvent;
 import java.util.HashMap;
-/* loaded from: classes3.dex */
+/* loaded from: classes7.dex */
 public class b implements IOAdEvent {
     public static final String COMPLETE = "complete";
     public static final String EVENT_MESSAGE = "message";
-    private final String a;
+
+    /* renamed from: a  reason: collision with root package name */
+    private final String f2380a;
     private final HashMap<String, Object> b;
     private final int c;
     private Object d;
@@ -28,7 +30,7 @@ public class b implements IOAdEvent {
     }
 
     public b(String str, int i, HashMap<String, Object> hashMap) {
-        this.a = str;
+        this.f2380a = str;
         this.c = i;
         this.b = hashMap;
     }
@@ -40,7 +42,7 @@ public class b implements IOAdEvent {
 
     @Override // com.baidu.mobads.openad.interfaces.event.IOAdEvent
     public String getType() {
-        return this.a;
+        return this.f2380a;
     }
 
     @Override // com.baidu.mobads.openad.interfaces.event.IOAdEvent

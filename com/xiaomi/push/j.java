@@ -11,50 +11,54 @@ import android.os.Parcel;
 import java.io.IOException;
 import java.util.concurrent.LinkedBlockingQueue;
 import java.util.concurrent.TimeUnit;
-/* loaded from: classes9.dex */
+/* loaded from: classes12.dex */
 final class j {
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes12.dex */
     static final class a {
-        private final String a;
+
+        /* renamed from: a  reason: collision with root package name */
+        private final String f4993a;
 
         /* renamed from: a  reason: collision with other field name */
-        private final boolean f766a;
+        private final boolean f767a;
 
         a(String str, boolean z) {
-            this.a = str;
-            this.f766a = z;
+            this.f4993a = str;
+            this.f767a = z;
         }
 
         public String a() {
-            return this.a;
+            return this.f4993a;
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes12.dex */
     private static final class b implements ServiceConnection {
-        private final LinkedBlockingQueue<IBinder> a;
+
+        /* renamed from: a  reason: collision with root package name */
+        private final LinkedBlockingQueue<IBinder> f4994a;
 
         /* renamed from: a  reason: collision with other field name */
-        boolean f767a;
+        boolean f768a;
 
         private b() {
-            this.f767a = false;
-            this.a = new LinkedBlockingQueue<>(1);
+            this.f768a = false;
+            this.f4994a = new LinkedBlockingQueue<>(1);
         }
 
         public IBinder a() {
-            if (this.f767a) {
+            if (this.f768a) {
                 throw new IllegalStateException();
             }
-            this.f767a = true;
-            return this.a.poll(30000L, TimeUnit.MILLISECONDS);
+            this.f768a = true;
+            return this.f4994a.poll(30000L, TimeUnit.MILLISECONDS);
         }
 
         @Override // android.content.ServiceConnection
         public void onServiceConnected(ComponentName componentName, IBinder iBinder) {
             try {
-                this.a.put(iBinder);
+                this.f4994a.put(iBinder);
             } catch (InterruptedException e) {
             }
         }
@@ -64,12 +68,14 @@ final class j {
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes12.dex */
     private static final class c implements IInterface {
-        private IBinder a;
+
+        /* renamed from: a  reason: collision with root package name */
+        private IBinder f4995a;
 
         public c(IBinder iBinder) {
-            this.a = iBinder;
+            this.f4995a = iBinder;
         }
 
         public String a() {
@@ -77,7 +83,7 @@ final class j {
             Parcel obtain2 = Parcel.obtain();
             try {
                 obtain.writeInterfaceToken("com.google.android.gms.ads.identifier.internal.IAdvertisingIdService");
-                this.a.transact(1, obtain, obtain2, 0);
+                this.f4995a.transact(1, obtain, obtain2, 0);
                 obtain2.readException();
                 return obtain2.readString();
             } finally {
@@ -88,7 +94,7 @@ final class j {
 
         @Override // android.os.IInterface
         public IBinder asBinder() {
-            return this.a;
+            return this.f4995a;
         }
     }
 

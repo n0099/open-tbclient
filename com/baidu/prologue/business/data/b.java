@@ -7,38 +7,38 @@ import com.baidu.prologue.service.network.Als;
 import com.baidu.prologue.service.network.i;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes10.dex */
+/* loaded from: classes19.dex */
 public class b {
-    private final e bMD;
+    private final e bTm;
 
     public b(e eVar) {
-        this.bMD = eVar;
+        this.bTm = eVar;
     }
 
-    public void VY() {
-        VZ();
-        Wa();
+    public void XV() {
+        XW();
+        XX();
     }
 
     public void a(@NonNull Als.Area area, String str) {
         b(area, str);
-        Wb();
+        XY();
     }
 
-    public void VZ() {
+    public void XW() {
         Als.a aVar = new Als.a(Als.Type.SHOW);
         aVar.a(Als.Page.NA_SPLASH);
-        aVar.iF(this.bMD.ext);
+        aVar.jh(this.bTm.ext);
         Als.a(aVar);
     }
 
     public void b(@NonNull Als.Area area, String str) {
         Als.a aVar = new Als.a(Als.Type.CLICK);
         aVar.a(Als.Page.NA_SPLASH);
-        aVar.iF(this.bMD.ext);
+        aVar.jh(this.bTm.ext);
         aVar.b(area);
         if (!TextUtils.isEmpty(str)) {
-            aVar.iI(str);
+            aVar.jk(str);
         }
         Als.a(aVar);
     }
@@ -46,33 +46,33 @@ public class b {
     public void g(String str, long j) {
         Als.a aVar = new Als.a(Als.Type.CLOSE);
         aVar.a(Als.Page.NA_SPLASH);
-        aVar.iF(this.bMD.ext);
-        aVar.iH(String.valueOf(j));
-        if (com.baidu.prologue.a.b.a.bMm.get().VF()) {
-            aVar.iG("1");
+        aVar.jh(this.bTm.ext);
+        aVar.jj(String.valueOf(j));
+        if (com.baidu.prologue.a.b.a.bSV.get().XC()) {
+            aVar.ji("1");
         } else {
-            aVar.iG("0");
+            aVar.ji("0");
         }
-        aVar.iI(str);
+        aVar.jk(str);
         Als.a(aVar);
     }
 
-    public void aN(String str, String str2) {
+    public void aS(String str, String str2) {
         Als.a aVar = new Als.a(Als.Type.DISCARD);
         aVar.a(Als.Page.NA_SPLASH);
-        aVar.iF(this.bMD.ext);
-        aVar.iG("10");
-        aVar.iH(str);
-        aVar.iI(str2);
+        aVar.jh(this.bTm.ext);
+        aVar.ji("10");
+        aVar.jj(str);
+        aVar.jk(str2);
         Als.a(aVar);
     }
 
-    public void Wa() {
+    public void XX() {
         String[] strArr;
-        for (String str : this.bMD.bMR) {
+        for (String str : this.bTm.bTA) {
             if (!TextUtils.isEmpty(str)) {
                 try {
-                    i.iJ(new JSONObject(str).optString("url"));
+                    i.jl(new JSONObject(str).optString("url"));
                 } catch (JSONException e) {
                     e.printStackTrace();
                 }
@@ -82,12 +82,12 @@ public class b {
         }
     }
 
-    public void Wb() {
+    public void XY() {
         String[] strArr;
-        for (String str : this.bMD.bMS) {
+        for (String str : this.bTm.bTB) {
             if (!TextUtils.isEmpty(str)) {
                 try {
-                    i.iJ(new JSONObject(str).optString("url"));
+                    i.jl(new JSONObject(str).optString("url"));
                 } catch (JSONException e) {
                     e.printStackTrace();
                 }
@@ -97,12 +97,12 @@ public class b {
         }
     }
 
-    public static void Wc() {
+    public static void XZ() {
         String string = k.getString("empty_ext_info", "");
         if (!TextUtils.isEmpty(string)) {
             Als.a aVar = new Als.a(Als.Type.SHOW);
             aVar.a(Als.Page.NA_SPLASH);
-            aVar.iF(string);
+            aVar.jh(string);
             Als.a(aVar);
         }
     }

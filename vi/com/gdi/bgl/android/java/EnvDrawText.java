@@ -9,7 +9,7 @@ import android.text.Layout;
 import android.text.TextPaint;
 import android.util.SparseArray;
 import java.nio.IntBuffer;
-/* loaded from: classes3.dex */
+/* loaded from: classes7.dex */
 public class EnvDrawText {
     private static final String DEVICE_VIVOX3L = "vivo X3L";
     private static final int FONT_STYLE_BOLD = 1;
@@ -620,7 +620,7 @@ public class EnvDrawText {
                 a aVar = fontCache.get(i);
                 if (aVar == null) {
                     a aVar2 = new a();
-                    aVar2.a = typeface;
+                    aVar2.f5405a = typeface;
                     aVar2.b++;
                     fontCache.put(i, aVar2);
                 } else {

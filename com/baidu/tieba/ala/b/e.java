@@ -7,63 +7,63 @@ import java.util.HashSet;
 import java.util.Set;
 /* loaded from: classes4.dex */
 public class e {
-    private b fRJ = null;
-    private b fRK = null;
-    private Set<j> fRL = new HashSet();
-    private Set<j> fRM = null;
-    private boolean fRN = false;
+    private b geb = null;
+    private b gec = null;
+    private Set<j> ged = new HashSet();
+    private Set<j> gee = null;
+    private boolean gef = false;
     private Context mContext;
 
     /* loaded from: classes4.dex */
     public interface a {
-        void bIP();
+        void bLz();
 
         void onCancel();
     }
 
     public e(Context context) {
         this.mContext = context;
-        bIN();
+        bLx();
     }
 
-    private void bIN() {
-        this.fRK = new b("so");
-        this.fRL.add(this.fRK);
-        this.fRJ = new b("source");
-        this.fRL.add(this.fRJ);
+    private void bLx() {
+        this.gec = new b("so");
+        this.ged.add(this.gec);
+        this.geb = new b("source");
+        this.ged.add(this.geb);
     }
 
-    public boolean bIO() {
-        if (this.fRM == null) {
-            this.fRM = new HashSet();
-            for (j jVar : this.fRL) {
+    public boolean bLy() {
+        if (this.gee == null) {
+            this.gee = new HashSet();
+            for (j jVar : this.ged) {
                 if (!jVar.isReady()) {
-                    this.fRM.add(jVar);
+                    this.gee.add(jVar);
                 }
             }
-            if (this.fRM.size() > 0) {
-                this.fRN = true;
+            if (this.gee.size() > 0) {
+                this.gef = true;
             } else {
-                this.fRN = false;
+                this.gef = false;
             }
         }
-        return this.fRN;
+        return this.gef;
     }
 
     public void a(final a aVar) {
-        if (!bIO()) {
-            aVar.bIP();
+        if (!bLy()) {
+            aVar.bLz();
             return;
         }
         ArrayList arrayList = new ArrayList();
-        for (j jVar : this.fRM) {
+        for (j jVar : this.gee) {
             jVar.load();
-            arrayList.add(jVar.bIE());
+            arrayList.add(jVar.bLo());
         }
         f.a(this.mContext, new com.baidu.tieba.ala.b.a((g[]) arrayList.toArray(new g[0]))).p(new Runnable() { // from class: com.baidu.tieba.ala.b.e.3
             @Override // java.lang.Runnable
             public void run() {
-                aVar.bIP();
+                aVar.bLz();
             }
         }).q(new Runnable() { // from class: com.baidu.tieba.ala.b.e.2
             @Override // java.lang.Runnable

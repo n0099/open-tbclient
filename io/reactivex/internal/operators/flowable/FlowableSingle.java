@@ -3,16 +3,16 @@ package io.reactivex.internal.operators.flowable;
 import io.reactivex.internal.subscriptions.DeferredScalarSubscription;
 import io.reactivex.internal.subscriptions.SubscriptionHelper;
 import io.reactivex.j;
-/* loaded from: classes25.dex */
+/* loaded from: classes17.dex */
 public final class FlowableSingle<T> extends a<T, T> {
     final T defaultValue;
 
     @Override // io.reactivex.g
     protected void a(org.a.c<? super T> cVar) {
-        this.owE.a((j) new SingleElementSubscriber(cVar, this.defaultValue));
+        this.oLT.a((j) new SingleElementSubscriber(cVar, this.defaultValue));
     }
 
-    /* loaded from: classes25.dex */
+    /* loaded from: classes17.dex */
     static final class SingleElementSubscriber<T> extends DeferredScalarSubscription<T> implements j<T> {
         private static final long serialVersionUID = -5526049321428043809L;
         final T defaultValue;

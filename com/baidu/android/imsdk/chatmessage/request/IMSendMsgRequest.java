@@ -17,7 +17,7 @@ import java.util.HashMap;
 import java.util.Map;
 import org.apache.http.cookie.SM;
 import org.json.JSONObject;
-/* loaded from: classes9.dex */
+/* loaded from: classes5.dex */
 public class IMSendMsgRequest extends BaseHttpRequest {
     private static final String TAG = "IMSendMsgRequest";
     private String key;
@@ -52,10 +52,10 @@ public class IMSendMsgRequest extends BaseHttpRequest {
 
     @Override // com.baidu.android.imsdk.utils.BaseHttpRequest, com.baidu.android.imsdk.utils.HttpHelper.Request
     public String getHost() {
-        String str = Constants.URL_HTTP_ONLINE;
+        String str = "https://pim.baidu.com/";
         switch (Utility.readIntData(this.mContext, Constants.KEY_ENV, 0)) {
             case 0:
-                str = Constants.URL_HTTP_ONLINE;
+                str = "https://pim.baidu.com/";
                 break;
             case 1:
             case 2:

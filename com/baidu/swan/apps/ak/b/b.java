@@ -6,9 +6,9 @@ import com.baidu.swan.apps.performance.e;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes10.dex */
 public class b implements a<JSONObject> {
-    private JSONArray cYN = new JSONArray();
+    private JSONArray dkX = new JSONArray();
 
     public void add(String str, String str2) {
         if (TextUtils.isEmpty(str)) {
@@ -23,7 +23,7 @@ public class b implements a<JSONObject> {
             jSONObject.put("actionId", str);
             jSONObject.put("timeStamp", String.valueOf(System.currentTimeMillis()));
             jSONObject.put("info", str2);
-            bP(jSONObject);
+            bW(jSONObject);
         } catch (JSONException e) {
             if (DEBUG) {
                 Log.w("LaunchTraceCollector", Log.getStackTraceString(e));
@@ -31,24 +31,24 @@ public class b implements a<JSONObject> {
         }
     }
 
-    public void bP(JSONObject jSONObject) {
+    public void bW(JSONObject jSONObject) {
         if (jSONObject != null) {
-            this.cYN.put(jSONObject);
+            this.dkX.put(jSONObject);
         }
     }
 
-    public JSONObject aCW() {
+    public JSONObject aFF() {
         JSONObject jSONObject = new JSONObject();
         try {
-            jSONObject.put("launchLog", this.cYN);
-            jSONObject.put("performance", e.awz());
+            jSONObject.put("launchLog", this.dkX);
+            jSONObject.put("performance", e.azk());
         } catch (JSONException e) {
             if (DEBUG) {
                 Log.e("LaunchTraceCollector", Log.getStackTraceString(e));
             }
         }
         try {
-            jSONObject.put("abtest", com.baidu.swan.apps.t.a.apx().getRawSwitch());
+            jSONObject.put("abtest", com.baidu.swan.apps.t.a.asi().getRawSwitch());
         } catch (Exception e2) {
             if (DEBUG) {
                 Log.e("LaunchTraceCollector", Log.getStackTraceString(e2));
@@ -58,6 +58,6 @@ public class b implements a<JSONObject> {
     }
 
     public void clear() {
-        this.cYN = new JSONArray();
+        this.dkX = new JSONArray();
     }
 }

@@ -3,7 +3,7 @@ package com.sdk.base.framework.a.c;
 import android.os.Process;
 import java.util.concurrent.atomic.AtomicBoolean;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes5.dex */
+/* loaded from: classes16.dex */
 public final class d extends h<Params, Result> {
     private /* synthetic */ c b;
 
@@ -18,11 +18,11 @@ public final class d extends h<Params, Result> {
     @Override // java.util.concurrent.Callable
     public final Result call() {
         AtomicBoolean atomicBoolean;
-        ?? a;
+        ?? a2;
         atomicBoolean = this.b.g;
         atomicBoolean.set(true);
         Process.setThreadPriority(10);
-        a = this.b.a((c) this.b.b(this.a));
-        return a;
+        a2 = this.b.a((c) this.b.b(this.f4467a));
+        return a2;
     }
 }

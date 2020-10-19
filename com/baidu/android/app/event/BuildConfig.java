@@ -1,5 +1,5 @@
 package com.baidu.android.app.event;
-/* loaded from: classes7.dex */
+/* loaded from: classes14.dex */
 public final class BuildConfig {
     public static final String APPLICATION_ID = "com.baidu.android.app.event";
     public static final String BUILD_TYPE = "release";

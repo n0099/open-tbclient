@@ -3,17 +3,17 @@ package com.google.ar.core;
 import java.nio.ByteBuffer;
 import java.nio.CharBuffer;
 import java.nio.FloatBuffer;
-/* loaded from: classes24.dex */
+/* loaded from: classes11.dex */
 public class AugmentedFace extends TrackableBase {
-    private FloatBuffer nMj;
-    private FloatBuffer nMk;
-    private FloatBuffer nMl;
-    private CharBuffer nMm;
+    private FloatBuffer obB;
+    private FloatBuffer obC;
+    private FloatBuffer obD;
+    private CharBuffer obE;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public AugmentedFace(long j, Session session) {
         super(j, session);
-        eaT();
+        eeE();
     }
 
     private native h nativeGetCenterPose(long j, long j2);
@@ -28,7 +28,7 @@ public class AugmentedFace extends TrackableBase {
 
     private native h nativeGetRegionPose(long j, long j2, int i);
 
-    /* loaded from: classes24.dex */
+    /* loaded from: classes11.dex */
     public enum RegionType {
         NOSE_TIP(0),
         FOREHEAD_LEFT(1),
@@ -45,11 +45,11 @@ public class AugmentedFace extends TrackableBase {
         super(0L, null);
     }
 
-    void eaT() {
-        this.nMj = Session.q(nativeGetMeshVerticesByteBuffer(this.nMh.nMi, this.nMi)).asFloatBuffer().asReadOnlyBuffer();
-        this.nMk = Session.q(nativeGetMeshNormalsByteBuffer(this.nMh.nMi, this.nMi)).asFloatBuffer().asReadOnlyBuffer();
-        this.nMl = Session.q(nativeGetMeshTextureCoordinatesByteBuffer(this.nMh.nMi, this.nMi)).asFloatBuffer().asReadOnlyBuffer();
-        this.nMm = Session.q(nativeGetMeshTriangleIndicesByteBuffer(this.nMh.nMi, this.nMi)).asCharBuffer().asReadOnlyBuffer();
+    void eeE() {
+        this.obB = Session.s(nativeGetMeshVerticesByteBuffer(this.obz.obA, this.obA)).asFloatBuffer().asReadOnlyBuffer();
+        this.obC = Session.s(nativeGetMeshNormalsByteBuffer(this.obz.obA, this.obA)).asFloatBuffer().asReadOnlyBuffer();
+        this.obD = Session.s(nativeGetMeshTextureCoordinatesByteBuffer(this.obz.obA, this.obA)).asFloatBuffer().asReadOnlyBuffer();
+        this.obE = Session.s(nativeGetMeshTriangleIndicesByteBuffer(this.obz.obA, this.obA)).asCharBuffer().asReadOnlyBuffer();
     }
 
     @Override // com.google.ar.core.TrackableBase

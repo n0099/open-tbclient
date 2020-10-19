@@ -2,25 +2,25 @@ package com.baidu.swan.apps.am;
 
 import com.baidu.live.adp.lib.stats.BdStatsConstant;
 import java.util.Locale;
-/* loaded from: classes3.dex */
+/* loaded from: classes10.dex */
 public final class a {
-    private a dcb = null;
-    private long dcc = 0;
-    private long dcd = 0;
-    private long dce = 2;
+    private a dol = null;
+    private long dom = 0;
+    private long don = 0;
+    private long doo = 2;
     private String mDesc = "";
-    private String dcf = "";
+    private String dop = "";
     private final StringBuilder mDetails = new StringBuilder();
-    private boolean dcg = false;
+    private boolean doq = false;
 
     public String toString(int i) {
         StringBuilder sb = new StringBuilder();
-        sb.append(String.format(Locale.getDefault(), "%s :: code(%08d) desc(%s) \n", super.toString(), Long.valueOf(aEM()), Long.valueOf(aEG()), Long.valueOf(aEH()), Long.valueOf(aEI()), aEJ()));
+        sb.append(String.format(Locale.getDefault(), "%s :: code(%08d) desc(%s) \n", super.toString(), Long.valueOf(aHv()), Long.valueOf(aHp()), Long.valueOf(aHq()), Long.valueOf(aHr()), aHs()));
         if (i >= -200) {
-            sb.append(String.format(Locale.getDefault(), "  p(%01d) f(%03d) e(%04d) \n", Long.valueOf(aEG()), Long.valueOf(aEH()), Long.valueOf(aEI())));
+            sb.append(String.format(Locale.getDefault(), "  p(%01d) f(%03d) e(%04d) \n", Long.valueOf(aHp()), Long.valueOf(aHq()), Long.valueOf(aHr())));
         }
         if (i >= -100) {
-            sb.append(String.format(Locale.getDefault(), "  details(%s) \n", aEL()));
+            sb.append(String.format(Locale.getDefault(), "  details(%s) \n", aHu()));
         }
         return sb.toString();
     }
@@ -29,34 +29,34 @@ public final class a {
         return toString(-100);
     }
 
-    public a bO(long j) {
-        this.dce = a(j, 9L, "platform");
+    public a bW(long j) {
+        this.doo = a(j, 9L, "platform");
         return this;
     }
 
-    public long aEG() {
-        return this.dce;
+    public long aHp() {
+        return this.doo;
     }
 
-    public a bP(long j) {
-        this.dcc = a(j, 999L, "feature");
+    public a bX(long j) {
+        this.dom = a(j, 999L, "feature");
         return this;
     }
 
-    public long aEH() {
-        return this.dcc;
+    public long aHq() {
+        return this.dom;
     }
 
-    public a bQ(long j) {
-        this.dcd = a(j, 9999L, BdStatsConstant.StatsType.ERROR);
+    public a bY(long j) {
+        this.don = a(j, 9999L, BdStatsConstant.StatsType.ERROR);
         return this;
     }
 
-    public long aEI() {
-        return this.dcd;
+    public long aHr() {
+        return this.don;
     }
 
-    public a sF(String str) {
+    public a tr(String str) {
         if (str == null) {
             str = "";
         }
@@ -64,55 +64,55 @@ public final class a {
         return this;
     }
 
-    public String aEJ() {
+    public String aHs() {
         return this.mDesc;
     }
 
-    public a sG(String str) {
+    public a ts(String str) {
         if (str == null) {
             str = "";
         }
-        this.dcf = str;
+        this.dop = str;
         return this;
     }
 
-    public String aEK() {
-        return this.dcf;
+    public String aHt() {
+        return this.dop;
     }
 
-    public a sH(String str) {
+    public a tt(String str) {
         this.mDetails.append(str).append("\n");
         return this;
     }
 
-    public StringBuilder aEL() {
+    public StringBuilder aHu() {
         return this.mDetails;
     }
 
-    public long aEM() {
-        return (aEG() * 10000000) + (aEH() * 10000) + (aEI() * 1);
+    public long aHv() {
+        return (aHp() * 10000000) + (aHq() * 10000) + (aHr() * 1);
     }
 
-    public a bR(long j) {
-        bO(j / 10000000);
+    public a bZ(long j) {
+        bW(j / 10000000);
         long j2 = j % 10000000;
-        bP(j2 / 10000);
-        bQ((j2 % 10000) / 1);
+        bX(j2 / 10000);
+        bY((j2 % 10000) / 1);
         return this;
     }
 
-    public boolean aEN() {
-        return this.dcg;
+    public boolean aHw() {
+        return this.doq;
     }
 
-    public void aEO() {
-        this.dcg = true;
+    public void aHx() {
+        this.doq = true;
     }
 
     private long a(long j, long j2, String str) {
         boolean z = j < 0 || j > j2;
         if (z) {
-            sH("illegalFallback " + str + "::" + j);
+            tt("illegalFallback " + str + "::" + j);
         }
         return z ? j2 : j;
     }

@@ -3,10 +3,10 @@ package android.support.v7.view.menu;
 import android.graphics.drawable.Drawable;
 import android.support.annotation.RestrictTo;
 @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
-/* loaded from: classes10.dex */
+/* loaded from: classes5.dex */
 public interface MenuView {
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes5.dex */
     public interface ItemView {
         MenuItemImpl getItemData();
 

@@ -18,7 +18,7 @@ public class e {
         }
     };
 
-    public static e bjn() {
+    public static e blW() {
         return new e();
     }
 

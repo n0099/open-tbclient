@@ -3,22 +3,22 @@ package com.baidu.platform.core.f;
 import com.baidu.mapapi.search.sug.OnGetSuggestionResultListener;
 import com.baidu.mapapi.search.sug.SuggestionSearchOption;
 import com.baidu.platform.base.SearchType;
-/* loaded from: classes3.dex */
+/* loaded from: classes7.dex */
 public class b extends com.baidu.platform.base.a implements a {
     private OnGetSuggestionResultListener b = null;
 
     @Override // com.baidu.platform.core.f.a
     public void a() {
-        this.a.lock();
+        this.f2810a.lock();
         this.b = null;
-        this.a.unlock();
+        this.f2810a.unlock();
     }
 
     @Override // com.baidu.platform.core.f.a
     public void a(OnGetSuggestionResultListener onGetSuggestionResultListener) {
-        this.a.lock();
+        this.f2810a.lock();
         this.b = onGetSuggestionResultListener;
-        this.a.unlock();
+        this.f2810a.unlock();
     }
 
     @Override // com.baidu.platform.core.f.a

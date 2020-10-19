@@ -9,9 +9,11 @@ import java.util.Map;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes15.dex */
+/* loaded from: classes17.dex */
 public class EventAnalysis {
-    private Map<String, a> a = new HashMap();
+
+    /* renamed from: a  reason: collision with root package name */
+    private Map<String, a> f2490a = new HashMap();
 
     public void onEvent(Context context, long j, String str, String str2, int i, long j2, ExtraInfo extraInfo, Map<String, String> map, boolean z) {
         a(context, j, str, str2, i, j2, 0L, extraInfo, map, z);
@@ -28,24 +30,24 @@ public class EventAnalysis {
     public void onEventStart(Context context, String str, String str2, long j) {
         a aVar = new a();
         aVar.c = j;
-        aVar.a = str;
+        aVar.f2491a = str;
         aVar.b = str2;
         String a2 = a(str, str2);
-        if (this.a.containsKey(a2)) {
+        if (this.f2490a.containsKey(a2)) {
             bc.c().b("[WARNING] eventId: " + str + ", with label: " + str2 + " is duplicated, older is removed");
         }
-        this.a.put(a2, aVar);
+        this.f2490a.put(a2, aVar);
     }
 
     public void onEventEnd(Context context, long j, String str, String str2, long j2, ExtraInfo extraInfo, Map<String, String> map, boolean z) {
         String a2 = a(str, str2);
-        a aVar = this.a.get(a2);
+        a aVar = this.f2490a.get(a2);
         if (aVar == null) {
             bc.c().b("[WARNING] eventId: " + str + ", with label: " + str2 + " is not started or alread ended");
-        } else if ((str != null && !str.equals(aVar.a)) || (str2 != null && !str2.equals(aVar.b))) {
+        } else if ((str != null && !str.equals(aVar.f2491a)) || (str2 != null && !str2.equals(aVar.b))) {
             bc.c().b("[WARNING] eventId/label pair not match");
         } else {
-            this.a.remove(a2);
+            this.f2490a.remove(a2);
             long j3 = j2 - aVar.c;
             if (j3 < 0) {
                 bc.c().b("[WARNING] onEventEnd must be invoked after onEventStart");
@@ -80,9 +82,11 @@ public class EventAnalysis {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes15.dex */
+    /* loaded from: classes17.dex */
     public static class a {
-        String a;
+
+        /* renamed from: a  reason: collision with root package name */
+        String f2491a;
         String b;
         long c;
 

@@ -11,10 +11,10 @@ import java.util.Locale;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 import java.util.concurrent.Future;
-/* loaded from: classes25.dex */
+/* loaded from: classes18.dex */
 public class u extends c<t> {
     private final ExecutorService mExecutorService;
-    private int nFA;
+    private int nUT;
 
     public u() {
         this(Executors.newFixedThreadPool(3));
@@ -22,7 +22,7 @@ public class u extends c<t> {
 
     public u(int i) {
         this(Executors.newFixedThreadPool(3));
-        this.nFA = i;
+        this.nUT = i;
     }
 
     u(ExecutorService executorService) {
@@ -42,11 +42,11 @@ public class u extends c<t> {
                 u.this.b(tVar, aVar);
             }
         });
-        tVar.dZI().a(new e() { // from class: com.facebook.imagepipeline.producers.u.2
+        tVar.edt().a(new e() { // from class: com.facebook.imagepipeline.producers.u.2
             @Override // com.facebook.imagepipeline.producers.e, com.facebook.imagepipeline.producers.al
-            public void dVN() {
+            public void dZy() {
                 if (submit.cancel(false)) {
-                    aVar.dSB();
+                    aVar.dWm();
                 }
             }
         });
@@ -133,10 +133,10 @@ public class u extends c<t> {
 
     private HttpURLConnection c(Uri uri, int i) throws IOException {
         HttpURLConnection Y = Y(uri);
-        Y.setConnectTimeout(this.nFA);
+        Y.setConnectTimeout(this.nUT);
         int responseCode = Y.getResponseCode();
-        if (!MT(responseCode)) {
-            if (MU(responseCode)) {
+        if (!Nz(responseCode)) {
+            if (NA(responseCode)) {
                 String headerField = Y.getHeaderField(Headers.LOCATION);
                 Y.disconnect();
                 Uri parse = headerField == null ? null : Uri.parse(headerField);
@@ -156,11 +156,11 @@ public class u extends c<t> {
         return (HttpURLConnection) com.facebook.common.util.d.J(uri).openConnection();
     }
 
-    private static boolean MT(int i) {
+    private static boolean Nz(int i) {
         return i >= 200 && i < 300;
     }
 
-    private static boolean MU(int i) {
+    private static boolean NA(int i) {
         switch (i) {
             case 300:
             case 301:

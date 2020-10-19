@@ -3,9 +3,11 @@ package com.baidu.cyberplayer.sdk.dlna;
 import com.baidu.cyberplayer.sdk.Keep;
 import com.baidu.cyberplayer.sdk.dlna.DlnaProvider;
 @Keep
-/* loaded from: classes10.dex */
+/* loaded from: classes12.dex */
 public class Dlna {
-    private static String a = "com.baidu.media.dlna.DlnaProviderImpl";
+
+    /* renamed from: a  reason: collision with root package name */
+    private static String f1378a = "com.baidu.media.dlna.DlnaProviderImpl";
     private static DlnaProvider b = null;
     public static int DLNA_ERROR_PLAY_ACTION_NOT_FOUND = -1001;
     public static int DLNA_ERROR_DEVICE_CONNECT_TIMEOUT = -1002;
@@ -26,21 +28,23 @@ public class Dlna {
     public static int DLNA_ERROR_CREATE_SSDP_THREAD_FIAL = -1017;
     public static int DLNA_ERROR_STOP_SPCE_INVALIDATE = -1018;
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes12.dex */
     public static class a {
-        private static final Dlna a = new Dlna();
+
+        /* renamed from: a  reason: collision with root package name */
+        private static final Dlna f1379a = new Dlna();
     }
 
     private Dlna() {
     }
 
     public static Dlna getInstance() {
-        return a.a;
+        return a.f1379a;
     }
 
     public static void init(ClassLoader classLoader) {
         try {
-            b = (DlnaProvider) Class.forName(a, true, classLoader).newInstance();
+            b = (DlnaProvider) Class.forName(f1378a, true, classLoader).newInstance();
         } catch (Exception e) {
             e.printStackTrace();
             b = null;

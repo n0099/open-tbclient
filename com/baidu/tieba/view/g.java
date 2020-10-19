@@ -4,14 +4,14 @@ import android.text.TextPaint;
 import android.text.style.ClickableSpan;
 /* loaded from: classes.dex */
 public abstract class g extends ClickableSpan {
-    private boolean mTy;
+    private boolean niY;
 
     public abstract void a(TextPaint textPaint, boolean z);
 
     @Override // android.text.style.ClickableSpan, android.text.style.CharacterStyle
     public void updateDrawState(TextPaint textPaint) {
         super.updateDrawState(textPaint);
-        a(textPaint, this.mTy);
+        a(textPaint, this.niY);
         textPaint.setUnderlineText(false);
         textPaint.clearShadowLayer();
     }

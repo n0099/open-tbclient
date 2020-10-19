@@ -4,12 +4,12 @@ public class e {
     public int clarity;
     public String forumId;
     public String forumName;
-    public boolean gAN;
-    public boolean gAO;
-    public String gAP;
-    public boolean gAQ;
-    public boolean gAR;
-    public boolean gAS;
+    public boolean gPg;
+    public boolean gPh;
+    public String gPi;
+    public boolean gPj;
+    public boolean gPk;
+    public boolean gPl;
     public String gameId;
     public String gameName;
     public int liveType;

@@ -8,7 +8,7 @@ import java.net.UnknownHostException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
-/* loaded from: classes11.dex */
+/* loaded from: classes18.dex */
 public class DnsHelper {
     private boolean j;
 
@@ -66,9 +66,9 @@ public class DnsHelper {
 
     public List<String> getIpListOnlyCache(String str) {
         if (this.j) {
-            DnsParseResult a = b.a(str, true);
-            if (a != null) {
-                return a.getIpList();
+            DnsParseResult a2 = b.a(str, true);
+            if (a2 != null) {
+                return a2.getIpList();
             }
             return new ArrayList();
         }

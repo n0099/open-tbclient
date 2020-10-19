@@ -3,9 +3,9 @@ package com.baidu.swan.apps.t.b;
 import android.app.Activity;
 import android.content.Context;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes10.dex */
 public interface f {
-    boolean aK(Context context);
+    boolean aO(Context context);
 
     void b(Context context, JSONObject jSONObject, com.baidu.l.a.a aVar);
 

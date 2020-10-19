@@ -1,27 +1,29 @@
 package com.baidu.android.pushservice.message;
 
 import android.content.Context;
-/* loaded from: classes7.dex */
+/* loaded from: classes10.dex */
 public class a {
-    private Context a;
+
+    /* renamed from: a  reason: collision with root package name */
+    private Context f1166a;
 
     public a(Context context) {
-        this.a = context;
+        this.f1166a = context;
     }
 
     public c a(h hVar) {
         switch (hVar) {
             case MSG_ID_HANDSHAKE:
-                return new b(this.a);
+                return new b(this.f1166a);
             case MSG_ID_HEARTBEAT_SERVER:
             case MSG_ID_TINY_HEARTBEAT_SERVER:
-                return new l(this.a);
+                return new l(this.f1166a);
             case MSG_ID_HEARTBEAT_CLIENT:
             case MSG_ID_TINY_HEARTBEAT_CLIENT:
             default:
                 return null;
             case MSG_ID_PUSH_MSG:
-                return new j(this.a);
+                return new j(this.f1166a);
         }
     }
 }

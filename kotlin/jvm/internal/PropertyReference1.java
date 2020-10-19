@@ -1,7 +1,7 @@
 package kotlin.jvm.internal;
 
 import kotlin.reflect.l;
-/* loaded from: classes5.dex */
+/* loaded from: classes10.dex */
 public abstract class PropertyReference1 extends PropertyReference implements kotlin.reflect.l {
     public PropertyReference1() {
     }

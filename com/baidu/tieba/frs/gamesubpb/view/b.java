@@ -9,28 +9,28 @@ import com.baidu.tbadk.core.util.ap;
 import com.baidu.tieba.R;
 import com.baidu.tieba.frs.gamesubpb.a;
 import com.baidu.tieba.frs.gamesubpb.model.d;
-/* loaded from: classes21.dex */
+/* loaded from: classes22.dex */
 public class b {
-    private a.InterfaceC0682a irQ;
-    private SpannableTextView isH;
+    private a.InterfaceC0700a iGJ;
+    private SpannableTextView iHA;
     private View mRootView;
     private TbPageContext<?> mTbPageContext;
 
     public b(TbPageContext<?> tbPageContext) {
         this.mTbPageContext = tbPageContext;
         this.mRootView = LayoutInflater.from(tbPageContext.getPageActivity()).inflate(R.layout.game_sub_comment_view, (ViewGroup) null);
-        this.isH = (SpannableTextView) this.mRootView.findViewById(R.id.sub_comment_tv);
-        ap.setViewTextColor(this.isH, (int) R.color.cp_cont_f);
+        this.iHA = (SpannableTextView) this.mRootView.findViewById(R.id.sub_comment_tv);
+        ap.setViewTextColor(this.iHA, (int) R.color.cp_cont_f);
     }
 
     public void f(final d dVar) {
         if (dVar != null && dVar.userName != null) {
-            this.isH.f(dVar);
-            this.isH.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.frs.gamesubpb.view.b.1
+            this.iHA.f(dVar);
+            this.iHA.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.frs.gamesubpb.view.b.1
                 @Override // android.view.View.OnClickListener
                 public void onClick(View view) {
-                    if (b.this.irQ != null) {
-                        b.this.irQ.c(dVar);
+                    if (b.this.iGJ != null) {
+                        b.this.iGJ.c(dVar);
                     }
                 }
             });
@@ -41,22 +41,22 @@ public class b {
         return this.mRootView;
     }
 
-    public void setClickListener(a.InterfaceC0682a interfaceC0682a) {
-        this.irQ = interfaceC0682a;
-        this.isH.setClickListener(interfaceC0682a);
+    public void setClickListener(a.InterfaceC0700a interfaceC0700a) {
+        this.iGJ = interfaceC0700a;
+        this.iHA.setClickListener(interfaceC0700a);
     }
 
-    /* loaded from: classes21.dex */
+    /* loaded from: classes22.dex */
     public static class a extends af.a {
-        private b isJ;
+        private b iHC;
 
         public a(b bVar) {
             super(bVar.getRootView());
-            this.isJ = bVar;
+            this.iHC = bVar;
         }
 
         public void f(d dVar) {
-            this.isJ.f(dVar);
+            this.iHC.f(dVar);
         }
     }
 }

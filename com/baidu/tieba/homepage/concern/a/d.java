@@ -14,59 +14,59 @@ import java.util.ArrayList;
 import java.util.List;
 import tbclient.DiscoverHotForum;
 import tbclient.DiscoverTabCard;
-/* loaded from: classes21.dex */
+/* loaded from: classes22.dex */
 public class d extends AbsThreadDataSupport {
-    private boolean iPJ = false;
-    private List<q> iPK;
+    private boolean jeD = false;
+    private List<q> jeE;
 
-    public List<q> czK() {
-        return this.iPK;
+    public List<q> cDo() {
+        return this.jeE;
     }
 
-    public void dh(List<q> list) {
-        this.iPK = list;
+    public void dk(List<q> list) {
+        this.jeE = list;
     }
 
     public static boolean a(DiscoverHotForum discoverHotForum, int i) {
-        return TbadkApplication.isLogin() && com.baidu.tbadk.a.d.baZ() && discoverHotForum != null && discoverHotForum.floor != null && (i < 0 || i == discoverHotForum.floor.intValue() + (-1)) && !y.isEmpty(discoverHotForum.tab_list);
+        return TbadkApplication.isLogin() && com.baidu.tbadk.a.d.bdH() && discoverHotForum != null && discoverHotForum.floor != null && (i < 0 || i == discoverHotForum.floor.intValue() + (-1)) && !y.isEmpty(discoverHotForum.tab_list);
     }
 
     @Override // com.baidu.tbadk.core.data.AbsThreadDataSupport
-    public bw bcY() {
+    public bw bfG() {
         return null;
     }
 
     @Override // com.baidu.tbadk.core.data.AbsThreadDataSupport
-    public ar bda() {
+    public ar bfI() {
         return null;
     }
 
     @Override // com.baidu.tieba.card.data.b, com.baidu.adp.widget.ListView.q
     public BdUniqueId getType() {
-        return l.huj;
+        return l.hJe;
     }
 
-    public boolean czL() {
-        return this.iPJ;
+    public boolean cDp() {
+        return this.jeD;
     }
 
-    public boolean di(List<DiscoverTabCard> list) {
+    public boolean dl(List<DiscoverTabCard> list) {
         if (y.isEmpty(list)) {
             return false;
         }
         List<q> arrayList = new ArrayList<>();
-        dh(arrayList);
+        dk(arrayList);
         for (int i = 0; i < list.size(); i++) {
             DiscoverTabCard discoverTabCard = list.get(i);
             if (discoverTabCard.forum_list != null && discoverTabCard.forum_list.size() >= 3) {
                 e eVar = new e();
-                this.iPJ = StringUtils.isNull(discoverTabCard.name) || this.iPJ;
-                eVar.iPL = discoverTabCard.name;
-                eVar.iPM = discoverTabCard.is_show_order_number == null ? false : discoverTabCard.is_show_order_number.booleanValue();
-                eVar.aEb = discoverTabCard.jump_name;
+                this.jeD = StringUtils.isNull(discoverTabCard.name) || this.jeD;
+                eVar.jeF = discoverTabCard.name;
+                eVar.jeG = discoverTabCard.is_show_order_number == null ? false : discoverTabCard.is_show_order_number.booleanValue();
+                eVar.aHf = discoverTabCard.jump_name;
                 for (int i2 = 0; i2 < discoverTabCard.forum_list.size() && i2 < 3; i2++) {
-                    eVar.iPN[i2] = new e.a();
-                    eVar.iPN[i2].Kb(discoverTabCard.forum_list.get(i2).forum_name).Ka(discoverTabCard.forum_list.get(i2).avatar).Kd(discoverTabCard.forum_list.get(i2).hot_text).Kc(discoverTabCard.forum_list.get(i2).slogan).Aa(discoverTabCard.forum_list.get(i2).member_count.intValue()).Ab(discoverTabCard.forum_list.get(i2).thread_count.intValue()).pI(discoverTabCard.forum_list.get(i2).is_like.intValue() == 1).e(discoverTabCard.forum_list.get(i2).forum_id).fb(discoverTabCard.forum_list.get(i2).hot_thread_id.longValue());
+                    eVar.jeH[i2] = new e.a();
+                    eVar.jeH[i2].KQ(discoverTabCard.forum_list.get(i2).forum_name).KP(discoverTabCard.forum_list.get(i2).avatar).KS(discoverTabCard.forum_list.get(i2).hot_text).KR(discoverTabCard.forum_list.get(i2).slogan).AG(discoverTabCard.forum_list.get(i2).member_count.intValue()).AH(discoverTabCard.forum_list.get(i2).thread_count.intValue()).qo(discoverTabCard.forum_list.get(i2).is_like.intValue() == 1).e(discoverTabCard.forum_list.get(i2).forum_id).ft(discoverTabCard.forum_list.get(i2).hot_thread_id.longValue());
                 }
                 arrayList.add(eVar);
                 if (arrayList.size() >= 6) {

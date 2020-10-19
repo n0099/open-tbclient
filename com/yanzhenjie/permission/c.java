@@ -4,23 +4,23 @@ import android.support.annotation.NonNull;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
-/* loaded from: classes8.dex */
+/* loaded from: classes6.dex */
 class c implements h {
-    private static final com.yanzhenjie.permission.a.a ouF = new com.yanzhenjie.permission.a.b();
-    private String[] aeM;
-    private com.yanzhenjie.permission.b.b ouG;
-    private a ouH;
-    private a ouI;
+    private static final com.yanzhenjie.permission.a.a oJU = new com.yanzhenjie.permission.a.b();
+    private String[] afd;
+    private com.yanzhenjie.permission.b.b oJV;
+    private a oJW;
+    private a oJX;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public c(com.yanzhenjie.permission.b.b bVar) {
-        this.ouG = bVar;
+        this.oJV = bVar;
     }
 
     @Override // com.yanzhenjie.permission.h
     @NonNull
-    public h W(String... strArr) {
-        this.aeM = strArr;
+    public h Z(String... strArr) {
+        this.afd = strArr;
         return this;
     }
 
@@ -33,50 +33,50 @@ class c implements h {
     @Override // com.yanzhenjie.permission.h
     @NonNull
     public h a(a aVar) {
-        this.ouH = aVar;
+        this.oJW = aVar;
         return this;
     }
 
     @Override // com.yanzhenjie.permission.h
     @NonNull
     public h b(a aVar) {
-        this.ouI = aVar;
+        this.oJX = aVar;
         return this;
     }
 
     @Override // com.yanzhenjie.permission.h
     public void start() {
-        List<String> a = a(this.ouG, this.aeM);
-        if (a.isEmpty()) {
-            eis();
+        List<String> a2 = a(this.oJV, this.afd);
+        if (a2.isEmpty()) {
+            emd();
         } else {
-            gd(a);
+            gg(a2);
         }
     }
 
-    private void eis() {
-        if (this.ouH != null) {
-            List<String> asList = Arrays.asList(this.aeM);
+    private void emd() {
+        if (this.oJW != null) {
+            List<String> asList = Arrays.asList(this.afd);
             try {
-                this.ouH.onAction(asList);
+                this.oJW.onAction(asList);
             } catch (Exception e) {
-                if (this.ouI != null) {
-                    this.ouI.onAction(asList);
+                if (this.oJX != null) {
+                    this.oJX.onAction(asList);
                 }
             }
         }
     }
 
-    private void gd(@NonNull List<String> list) {
-        if (this.ouI != null) {
-            this.ouI.onAction(list);
+    private void gg(@NonNull List<String> list) {
+        if (this.oJX != null) {
+            this.oJX.onAction(list);
         }
     }
 
     private static List<String> a(@NonNull com.yanzhenjie.permission.b.b bVar, @NonNull String... strArr) {
         ArrayList arrayList = new ArrayList(1);
         for (String str : strArr) {
-            if (!ouF.e(bVar.getContext(), str)) {
+            if (!oJU.e(bVar.getContext(), str)) {
                 arrayList.add(str);
             }
         }

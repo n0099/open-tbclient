@@ -1,10 +1,10 @@
 package com.alibaba.fastjson.serializer;
 
 import java.util.Arrays;
-/* loaded from: classes10.dex */
+/* loaded from: classes5.dex */
 public class Labels {
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes5.dex */
     private static class DefaultLabelFilter implements LabelFilter {
         private String[] excludes;
         private String[] includes;

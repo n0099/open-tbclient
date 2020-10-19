@@ -1,5 +1,5 @@
 package com.baidu.swan.apps.adlanding.download.model;
-/* loaded from: classes3.dex */
+/* loaded from: classes10.dex */
 public enum SwanAdDownloadState {
     NOT_START(0),
     DOWNLOADING(1),

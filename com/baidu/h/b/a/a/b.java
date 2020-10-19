@@ -6,30 +6,30 @@ import com.baidu.h.a.b.a.f;
 import com.baidu.h.a.b.d;
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
-/* loaded from: classes23.dex */
+/* loaded from: classes15.dex */
 public class b implements com.baidu.h.a.b.a.b {
-    private d bBp;
+    private d bHR;
     private Context mContext;
-    private boolean bBo = false;
-    private final Map<String, a> bBq = new ConcurrentHashMap();
+    private boolean bHQ = false;
+    private final Map<String, a> bHS = new ConcurrentHashMap();
 
     public b(Context context, d dVar) {
         this.mContext = context;
-        this.bBp = dVar;
+        this.bHR = dVar;
     }
 
     private a h(String str, String str2, boolean z) {
-        a aVar = new a(this.bBp.c(this.mContext, str, str2, z));
-        this.bBq.put(str, aVar);
+        a aVar = new a(this.bHR.c(this.mContext, str, str2, z));
+        this.bHS.put(str, aVar);
         return aVar;
     }
 
-    public a hZ(String str) {
-        return this.bBq.get(str);
+    public a iA(String str) {
+        return this.bHS.get(str);
     }
 
-    public com.baidu.h.a.b.c ia(String str) {
-        return this.bBq.get(str).Sf();
+    public com.baidu.h.a.b.c iB(String str) {
+        return this.bHS.get(str).TY();
     }
 
     @Override // com.baidu.h.a.b.a.b
@@ -39,73 +39,73 @@ public class b implements com.baidu.h.a.b.a.b {
     }
 
     @Override // com.baidu.h.a.b.a.b
-    public synchronized void hY(String str) {
-        a hZ = hZ(str);
-        if (hZ != null) {
-            hZ.hY(str);
-            this.bBq.remove(str);
+    public synchronized void iz(String str) {
+        a iA = iA(str);
+        if (iA != null) {
+            iA.iz(str);
+            this.bHS.remove(str);
         }
     }
 
     @Override // com.baidu.h.a.b.a.b
-    public synchronized void JA() {
+    public synchronized void KG() {
         try {
-            for (Map.Entry<String, a> entry : this.bBq.entrySet()) {
+            for (Map.Entry<String, a> entry : this.bHS.entrySet()) {
                 String key = entry.getKey();
-                a aVar = this.bBq.get(key);
+                a aVar = this.bHS.get(key);
                 if (aVar != null) {
-                    if (aVar.Sg()) {
-                        aVar.JA();
+                    if (aVar.TZ()) {
+                        aVar.KG();
                     }
-                    this.bBq.remove(key);
+                    this.bHS.remove(key);
                 }
             }
-            this.bBp.unregisterConnectListener();
-            this.bBo = false;
+            this.bHR.unregisterConnectListener();
+            this.bHQ = false;
         } catch (Exception e) {
         }
     }
 
     @Override // com.baidu.h.a.b.a.b
     public synchronized void a(String str, e eVar, f fVar) {
-        a hZ = hZ(str);
-        if (hZ != null) {
-            hZ.a(str, eVar, fVar);
+        a iA = iA(str);
+        if (iA != null) {
+            iA.a(str, eVar, fVar);
         }
     }
 
     @Override // com.baidu.h.a.b.a.b
     public void a(String str, com.baidu.h.a.b.a.d dVar) {
-        a hZ = hZ(str);
-        if (hZ != null) {
-            hZ.a(str, dVar);
+        a iA = iA(str);
+        if (iA != null) {
+            iA.a(str, dVar);
         }
     }
 
     private void register() {
-        if (!this.bBo) {
-            this.bBp.unregisterConnectListener();
-            this.bBp.a(new com.baidu.h.a.b.a() { // from class: com.baidu.h.b.a.a.b.1
+        if (!this.bHQ) {
+            this.bHR.unregisterConnectListener();
+            this.bHR.a(new com.baidu.h.a.b.a() { // from class: com.baidu.h.b.a.a.b.1
                 @Override // com.baidu.h.a.b.a
                 public void onResult(int i) {
                     if (i == 0) {
                         b.this.reconnect();
                     } else if (1 == i) {
-                        b.this.bBp.RU();
+                        b.this.bHR.TN();
                     }
                 }
             });
-            this.bBo = true;
+            this.bHQ = true;
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void reconnect() {
         try {
-            for (Map.Entry<String, a> entry : this.bBq.entrySet()) {
-                a aVar = this.bBq.get(entry.getKey());
+            for (Map.Entry<String, a> entry : this.bHS.entrySet()) {
+                a aVar = this.bHS.get(entry.getKey());
                 if (aVar != null) {
-                    aVar.BG();
+                    aVar.CD();
                 }
             }
         } catch (Exception e) {

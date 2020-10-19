@@ -6,10 +6,10 @@ import com.baidu.android.util.devices.DeviceUtil;
 import com.baidu.live.tbadk.pagestayduration.PageStayDurationHelper;
 import com.baidu.searchbox.common.runtime.AppRuntime;
 import com.baidu.util.Base64Encoder;
-/* loaded from: classes11.dex */
+/* loaded from: classes9.dex */
 public class g {
-    private String amP;
-    private String amQ;
+    private String any;
+    private String anz;
     private String mVersionName;
 
     public g() {
@@ -19,8 +19,8 @@ public class g {
     private void init() {
         Context appContext = AppRuntime.getAppContext();
         this.mVersionName = getVersionName(appContext);
-        this.amP = getUA(appContext);
-        this.amQ = new String(Base64Encoder.B64Encode(this.amP.getBytes()));
+        this.any = getUA(appContext);
+        this.anz = new String(Base64Encoder.B64Encode(this.any.getBytes()));
     }
 
     private String getUA(Context context) {
@@ -40,8 +40,8 @@ public class g {
         return stringBuffer.toString();
     }
 
-    public String uU() {
-        return this.amP;
+    public String vd() {
+        return this.any;
     }
 
     public String getVersionName(Context context) {

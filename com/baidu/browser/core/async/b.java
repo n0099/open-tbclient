@@ -3,7 +3,7 @@ package com.baidu.browser.core.async;
 import java.util.HashMap;
 /* loaded from: classes10.dex */
 public final class b {
-    private static HashMap<String, a> aeK = new HashMap<>();
+    private static HashMap<String, a> afb = new HashMap<>();
 
     public static synchronized a dj(String str) {
         a s;
@@ -16,13 +16,13 @@ public final class b {
     static synchronized a s(String str, int i) {
         a aVar;
         synchronized (b.class) {
-            if (!aeK.containsKey(str) || (aVar = aeK.get(str)) == null) {
+            if (!afb.containsKey(str) || (aVar = afb.get(str)) == null) {
                 aVar = new a(str, i);
                 try {
                     aVar.start();
                 } catch (Exception e) {
                 }
-                aeK.put(str, aVar);
+                afb.put(str, aVar);
             }
         }
         return aVar;
@@ -32,7 +32,7 @@ public final class b {
         synchronized (b.class) {
             if (aVar != null) {
                 aVar.ts();
-                aeK.values().remove(aVar);
+                afb.values().remove(aVar);
             }
         }
     }

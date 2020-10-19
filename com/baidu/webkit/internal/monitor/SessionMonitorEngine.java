@@ -24,7 +24,7 @@ import java.util.concurrent.ConcurrentHashMap;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes8.dex */
+/* loaded from: classes11.dex */
 public class SessionMonitorEngine implements INoProGuard {
     private static final boolean DEBUG = false;
     private static final String LOG_TAG = SessionMonitorEngine.class.getSimpleName();
@@ -40,14 +40,14 @@ public class SessionMonitorEngine implements INoProGuard {
     private a sFrameworkBehaviorProvider;
     private WeakReference<IPrototype> sImplement;
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes11.dex */
     public interface IExtraInfoCollector extends INoProGuard {
         JSONObject onPageSessionFinished(WebView webView, String str);
 
         void onPageSessionStarted(WebView webView, String str, boolean z, boolean z2, boolean z3);
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes11.dex */
     public interface IPrototype extends INoProGuard {
         void notifyPageActive(String str, WebView webView, boolean z);
 
@@ -159,7 +159,7 @@ public class SessionMonitorEngine implements INoProGuard {
 
     public long getSearchButtonClickedTimeStamp() {
         if (this.sExtraInterfaceProvider != null) {
-            return this.sExtraInterfaceProvider.a;
+            return this.sExtraInterfaceProvider.f3942a;
         }
         return -1L;
     }
@@ -286,30 +286,30 @@ public class SessionMonitorEngine implements INoProGuard {
 
     public void recordFrameworkBehaviorValue(int i, Object obj) {
         a aVar = this.sFrameworkBehaviorProvider;
-        if (aVar.a == null) {
-            aVar.a = new a.C0849a(aVar, (byte) 0);
+        if (aVar.f3940a == null) {
+            aVar.f3940a = new a.C0867a(aVar, (byte) 0);
         }
         if (i == 9) {
-            aVar.a.a();
-            aVar.a.f = true;
+            aVar.f3940a.a();
+            aVar.f3940a.f = true;
         }
-        if (aVar.a.f) {
+        if (aVar.f3940a.f) {
             switch (i) {
                 case 7:
-                    aVar.a.a = ((Boolean) obj).booleanValue();
+                    aVar.f3940a.f3941a = ((Boolean) obj).booleanValue();
                     return;
                 case 8:
-                    aVar.a.b = ((Boolean) obj).booleanValue();
+                    aVar.f3940a.b = ((Boolean) obj).booleanValue();
                     return;
                 case 9:
-                    aVar.a.c = ((Long) obj).longValue();
+                    aVar.f3940a.c = ((Long) obj).longValue();
                     return;
                 case 10:
-                    aVar.a.d = ((Long) obj).longValue();
-                    aVar.a.f = true;
+                    aVar.f3940a.d = ((Long) obj).longValue();
+                    aVar.f3940a.f = true;
                     return;
                 case 11:
-                    aVar.a.e = ((Boolean) obj).booleanValue();
+                    aVar.f3940a.e = ((Boolean) obj).booleanValue();
                     return;
                 default:
                     return;
@@ -319,8 +319,8 @@ public class SessionMonitorEngine implements INoProGuard {
 
     public void recordFrameworkBehaviorValue(String str, long j) {
         a aVar = this.sFrameworkBehaviorProvider;
-        if (aVar.a != null) {
-            aVar.a.g.put(str, Long.valueOf((aVar.a.g.containsKey(str) ? aVar.a.g.get(str).longValue() : 0L) + j));
+        if (aVar.f3940a != null) {
+            aVar.f3940a.g.put(str, Long.valueOf((aVar.f3940a.g.containsKey(str) ? aVar.f3940a.g.get(str).longValue() : 0L) + j));
         }
     }
 
@@ -366,7 +366,7 @@ public class SessionMonitorEngine implements INoProGuard {
             b bVar = this.sExtraInterfaceProvider;
             switch (i) {
                 case 1:
-                    bVar.a = j;
+                    bVar.f3942a = j;
                     return;
                 case 2:
                     bVar.b = j;
@@ -429,16 +429,16 @@ public class SessionMonitorEngine implements INoProGuard {
 
     public void startFrameworkBehaviorMonitor() {
         a aVar = this.sFrameworkBehaviorProvider;
-        if (aVar.a == null) {
-            aVar.a = new a.C0849a(aVar, (byte) 0);
+        if (aVar.f3940a == null) {
+            aVar.f3940a = new a.C0867a(aVar, (byte) 0);
         }
-        if (aVar.a.c == -1) {
-            aVar.a.a();
+        if (aVar.f3940a.c == -1) {
+            aVar.f3940a.a();
         }
-        if (aVar.a.f) {
+        if (aVar.f3940a.f) {
             return;
         }
-        aVar.a.f = true;
+        aVar.f3940a.f = true;
     }
 
     public void updateCuidIfNeeded() {

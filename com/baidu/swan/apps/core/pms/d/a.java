@@ -14,80 +14,80 @@ import java.util.List;
 import java.util.Map;
 import java.util.Set;
 import java.util.concurrent.ConcurrentHashMap;
-/* loaded from: classes3.dex */
+/* loaded from: classes10.dex */
 public final class a {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    private static final Set<Integer> cnp = i.N(0, 1010, 1011, 1012, 1020, 1015);
-    private static final Map<String, Long> cnq = new ConcurrentHashMap();
-    private static int cnr = -2;
-    private static final c<String, String> cns = new c<String, String>() { // from class: com.baidu.swan.apps.core.pms.d.a.1
+    private static final Set<Integer> czG = i.N(0, 1010, 1011, 1012, 1020, 1015);
+    private static final Map<String, Long> czH = new ConcurrentHashMap();
+    private static int czI = -2;
+    private static final c<String, String> czJ = new c<String, String>() { // from class: com.baidu.swan.apps.core.pms.d.a.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.swan.apps.ap.e.c
-        /* renamed from: lY */
-        public String K(String str) {
+        /* renamed from: mK */
+        public String N(String str) {
             return str;
         }
     };
-    private static final c<b.a, String> cnu = new c<b.a, String>() { // from class: com.baidu.swan.apps.core.pms.d.a.2
+    private static final c<b.a, String> czK = new c<b.a, String>() { // from class: com.baidu.swan.apps.core.pms.d.a.2
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.swan.apps.ap.e.c
         /* renamed from: a */
-        public String K(b.a aVar) {
+        public String N(b.a aVar) {
             return aVar == null ? "" : aVar.getBundleId();
         }
     };
 
-    private static boolean lU(@NonNull String str) {
+    private static boolean mG(@NonNull String str) {
         Long l;
-        if (cnr == -2) {
-            cnr = com.baidu.swan.apps.t.a.apx().getSwitch("swan_predownload_one_sm_interval", -1);
+        if (czI == -2) {
+            czI = com.baidu.swan.apps.t.a.asi().getSwitch("swan_predownload_one_sm_interval", -1);
         }
-        if (cnr < 0) {
-            return !cnq.containsKey(str);
+        if (czI < 0) {
+            return !czH.containsKey(str);
         }
-        return cnr == 0 || (l = cnq.get(str)) == null || System.currentTimeMillis() - l.longValue() > ((long) (cnr * 1000));
+        return czI == 0 || (l = czH.get(str)) == null || System.currentTimeMillis() - l.longValue() > ((long) (czI * 1000));
     }
 
-    public static boolean hu(int i) {
-        return cnp.contains(Integer.valueOf(i));
+    public static boolean hR(int i) {
+        return czG.contains(Integer.valueOf(i));
     }
 
     public static boolean c(com.baidu.swan.pms.model.a aVar) {
-        return aVar != null && hu(aVar.errorNo);
+        return aVar != null && hR(aVar.errorNo);
     }
 
-    public static boolean N(@Nullable String str, boolean z) {
+    public static boolean R(@Nullable String str, boolean z) {
         boolean z2;
         String str2 = "shouldDownloadItem app=" + str + " record=" + z + " : ";
         if (TextUtils.isEmpty(str)) {
             return false;
         }
         if (z) {
-            cnq.put(str, Long.valueOf(System.currentTimeMillis()));
+            czH.put(str, Long.valueOf(System.currentTimeMillis()));
             z2 = true;
         } else {
-            z2 = !cnq.containsKey(str);
+            z2 = !czH.containsKey(str);
         }
-        return ((Boolean) n(new StringBuilder().append(str2).append(" should").toString(), Boolean.valueOf(z2))).booleanValue() || ((Boolean) n(new StringBuilder().append(str2).append(" AB").toString(), Boolean.valueOf(lU(str)))).booleanValue();
+        return ((Boolean) n(new StringBuilder().append(str2).append(" should").toString(), Boolean.valueOf(z2))).booleanValue() || ((Boolean) n(new StringBuilder().append(str2).append(" AB").toString(), Boolean.valueOf(mG(str)))).booleanValue();
     }
 
-    public static boolean lV(String str) {
-        return N(str, false);
+    public static boolean mH(String str) {
+        return R(str, false);
     }
 
-    public static boolean bo(@Nullable String str, @Nullable String str2) {
+    public static boolean bt(@Nullable String str, @Nullable String str2) {
         if (str2 != null && str != null) {
             str = str + str2;
         }
-        return lV(str);
+        return mH(str);
     }
 
     public static List<String> g(Collection<String> collection) {
-        return a(cns, collection);
+        return a(czJ, collection);
     }
 
     public static List<b.a> h(Collection<b.a> collection) {
-        return a(cnu, collection);
+        return a(czK, collection);
     }
 
     public static <SwanItemT> List<SwanItemT> a(@NonNull c<SwanItemT, String> cVar, Collection<SwanItemT> collection, boolean z) {
@@ -96,7 +96,7 @@ public final class a {
             Iterator<SwanItemT> it = collection.iterator();
             while (it.hasNext()) {
                 SwanItemT next = it.next();
-                if (N(next == null ? "" : cVar.K(next), z)) {
+                if (R(next == null ? "" : cVar.N(next), z)) {
                     arrayList.add(next);
                 }
             }
@@ -109,22 +109,22 @@ public final class a {
         return a(cVar, collection, false);
     }
 
-    public static boolean lW(String str) {
-        return N(str, true);
+    public static boolean mI(String str) {
+        return R(str, true);
     }
 
-    public static boolean bp(@NonNull String str, @Nullable String str2) {
+    public static boolean bu(@NonNull String str, @Nullable String str2) {
         if (str2 != null) {
             str = str + str2;
         }
-        return lW(str);
+        return mI(str);
     }
 
-    public static boolean lX(@Nullable String str) {
+    public static boolean mJ(@Nullable String str) {
         if (str == null) {
             return false;
         }
-        Iterator<Map.Entry<String, Long>> it = cnq.entrySet().iterator();
+        Iterator<Map.Entry<String, Long>> it = czH.entrySet().iterator();
         while (it.hasNext()) {
             Map.Entry<String, Long> next = it.next();
             if (next != null && next.getKey() != null && next.getKey().startsWith(str)) {
@@ -136,7 +136,7 @@ public final class a {
 
     private static <T> T n(String str, T t) {
         if (DEBUG) {
-            Log.i("PreDownloadUtils", "Recorded=" + cnq.size() + " # " + str + " => " + t);
+            Log.i("PreDownloadUtils", "Recorded=" + czH.size() + " # " + str + " => " + t);
         }
         return t;
     }

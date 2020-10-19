@@ -4,16 +4,16 @@ import io.reactivex.c.h;
 import io.reactivex.exceptions.CompositeException;
 import io.reactivex.internal.subscribers.SinglePostCompleteSubscriber;
 import io.reactivex.j;
-/* loaded from: classes25.dex */
+/* loaded from: classes17.dex */
 public final class FlowableOnErrorReturn<T> extends a<T, T> {
     final h<? super Throwable, ? extends T> valueSupplier;
 
     @Override // io.reactivex.g
     protected void a(org.a.c<? super T> cVar) {
-        this.owE.a((j) new OnErrorReturnSubscriber(cVar, this.valueSupplier));
+        this.oLT.a((j) new OnErrorReturnSubscriber(cVar, this.valueSupplier));
     }
 
-    /* loaded from: classes25.dex */
+    /* loaded from: classes17.dex */
     static final class OnErrorReturnSubscriber<T> extends SinglePostCompleteSubscriber<T, T> {
         private static final long serialVersionUID = -3740826063558713822L;
         final h<? super Throwable, ? extends T> valueSupplier;
@@ -32,7 +32,7 @@ public final class FlowableOnErrorReturn<T> extends a<T, T> {
         @Override // org.a.c
         public void onError(Throwable th) {
             try {
-                complete(io.reactivex.internal.functions.a.k(this.valueSupplier.apply(th), "The valueSupplier returned a null value"));
+                complete(io.reactivex.internal.functions.a.l(this.valueSupplier.apply(th), "The valueSupplier returned a null value"));
             } catch (Throwable th2) {
                 io.reactivex.exceptions.a.J(th2);
                 this.actual.onError(new CompositeException(th, th2));

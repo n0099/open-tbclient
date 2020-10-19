@@ -7,7 +7,7 @@ import java.util.Collections;
 import java.util.Iterator;
 /* loaded from: classes.dex */
 public class i {
-    public void og() {
+    public void oh() {
         new a().execute(new String[0]);
     }
 
@@ -20,11 +20,11 @@ public class i {
         /* JADX INFO: Access modifiers changed from: protected */
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         public String doInBackground(String... strArr) {
-            og();
+            oh();
             return null;
         }
 
-        private void og() {
+        private void oh() {
             int i;
             ArrayList<com.baidu.adp.lib.stats.base.d> at = com.baidu.adp.lib.stats.base.b.at(true);
             if (at != null && at.size() != 0) {
@@ -35,7 +35,7 @@ public class i {
                     if (!it.hasNext()) {
                         break;
                     }
-                    i2 = (int) (it.next().Og + i);
+                    i2 = (int) (it.next().Ox + i);
                 }
                 int i3 = i - BdStatsConstant.MAX_STATISTICS_SIZE;
                 ArrayList arrayList = new ArrayList();
@@ -49,7 +49,7 @@ public class i {
                         }
                         com.baidu.adp.lib.stats.base.d next = it2.next();
                         arrayList.add(next.mFileName);
-                        i3 = (int) (i4 - next.Og);
+                        i3 = (int) (i4 - next.Ox);
                         if (i3 <= 0) {
                             break;
                         }
@@ -60,7 +60,7 @@ public class i {
                 while (it3.hasNext()) {
                     com.baidu.adp.lib.stats.base.d next2 = it3.next();
                     if (next2 != null) {
-                        long j = next2.Oh;
+                        long j = next2.Oy;
                         if (j != 0 && j + 604800000 < currentTimeMillis && !arrayList.contains(next2.mFileName)) {
                             arrayList.add(next2.mFileName);
                         }

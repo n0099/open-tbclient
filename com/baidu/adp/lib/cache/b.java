@@ -16,7 +16,7 @@ public class b extends c<byte[]> {
             hashCode *= -1;
         }
         String str2 = "cache_kv_b" + hashCode;
-        this.Kn.execSQLNoException("CREATE TABLE IF NOT EXISTS " + str2 + "(m_key VARCHAR(64) PRIMARY KEY, saveTime bigint(21) default 0, lastHitTime bigint(21) default 0, timeToExpire bigint(21) default 0, m_value blob)");
+        this.KE.execSQLNoException("CREATE TABLE IF NOT EXISTS " + str2 + "(m_key VARCHAR(64) PRIMARY KEY, saveTime bigint(21) default 0, lastHitTime bigint(21) default 0, timeToExpire bigint(21) default 0, m_value blob)");
         return str2;
     }
 
@@ -79,7 +79,7 @@ public class b extends c<byte[]> {
 
     @Override // com.baidu.adp.lib.cache.c
     protected boolean clearData(String str) {
-        this.Kn.execSQLNoException("DROP TABLE IF EXISTS " + this.tableName);
+        this.KE.execSQLNoException("DROP TABLE IF EXISTS " + this.tableName);
         return true;
     }
 }

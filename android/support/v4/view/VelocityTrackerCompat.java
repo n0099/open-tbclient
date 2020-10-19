@@ -2,7 +2,7 @@ package android.support.v4.view;
 
 import android.view.VelocityTracker;
 @Deprecated
-/* loaded from: classes23.dex */
+/* loaded from: classes5.dex */
 public final class VelocityTrackerCompat {
     @Deprecated
     public static float getXVelocity(VelocityTracker velocityTracker, int i) {

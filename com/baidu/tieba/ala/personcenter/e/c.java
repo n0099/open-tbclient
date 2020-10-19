@@ -10,19 +10,19 @@ import com.baidu.tbadk.core.util.ap;
 import com.baidu.tieba.R;
 /* loaded from: classes4.dex */
 public class c extends com.baidu.tieba.card.b<com.baidu.tieba.ala.personcenter.c.b> {
-    private TextView hbd;
-    private TextView hbe;
-    private String hbf;
+    private TextView hqe;
+    private TextView hqf;
+    private String hqg;
 
     public c(TbPageContext<?> tbPageContext) {
         super(tbPageContext);
-        am(getView());
+        an(getView());
     }
 
-    private void am(View view) {
-        this.hbd = (TextView) view.findViewById(R.id.ala_person_center_qq_group_item_number_txt);
-        this.hbe = (TextView) view.findViewById(R.id.ala_person_center_qq_group_item_copy_txt);
-        this.hbe.setOnClickListener(this);
+    private void an(View view) {
+        this.hqe = (TextView) view.findViewById(R.id.ala_person_center_qq_group_item_number_txt);
+        this.hqf = (TextView) view.findViewById(R.id.ala_person_center_qq_group_item_copy_txt);
+        this.hqf.setOnClickListener(this);
     }
 
     @Override // com.baidu.tieba.card.b
@@ -35,24 +35,24 @@ public class c extends com.baidu.tieba.card.b<com.baidu.tieba.ala.personcenter.c
     public void a(com.baidu.tieba.ala.personcenter.c.b bVar) {
     }
 
-    public void Hi(String str) {
-        this.hbf = str;
-        if (this.hbd != null) {
-            this.hbd.setText(getContext().getResources().getString(R.string.ala_person_center_qq_group) + str);
+    public void HW(String str) {
+        this.hqg = str;
+        if (this.hqe != null) {
+            this.hqe.setText(getContext().getResources().getString(R.string.ala_person_center_qq_group) + str);
         }
     }
 
     @Override // com.baidu.tieba.card.b
     public void onChangeSkinType(TbPageContext<?> tbPageContext, int i) {
-        ap.setViewTextColor(this.hbd, R.color.common_color_10106);
-        ap.setViewTextColor(this.hbe, R.color.cp_link_tip_a);
+        ap.setViewTextColor(this.hqe, R.color.common_color_10106);
+        ap.setViewTextColor(this.hqf, R.color.cp_link_tip_a);
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        if (!TextUtils.isEmpty(this.hbf)) {
-            UtilHelper.copyToClipBoard(this.hbf);
+        if (!TextUtils.isEmpty(this.hqg)) {
+            UtilHelper.copyToClipBoard(this.hqg);
         }
-        BdToast.b(getContext(), getContext().getResources().getString(R.string.ala_person_center_copy_to_clipboard)).nO(17).big();
+        BdToast.b(getContext(), getContext().getResources().getString(R.string.ala_person_center_copy_to_clipboard)).ol(17).bkP();
     }
 }

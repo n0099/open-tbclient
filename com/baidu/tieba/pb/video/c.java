@@ -5,19 +5,19 @@ import android.widget.TextView;
 import com.baidu.adp.widget.ListView.af;
 import com.baidu.tbadk.core.util.ap;
 import com.baidu.tieba.R;
-/* loaded from: classes21.dex */
+/* loaded from: classes22.dex */
 public class c extends af.a {
-    public int aiX;
+    public int ajp;
     public View dividerLine;
-    public TextView hra;
+    public TextView hFU;
 
     public c(View view) {
         super(view);
-        this.aiX = 3;
-        this.hra = (TextView) view.findViewById(R.id.look_more_view);
+        this.ajp = 3;
+        this.hFU = (TextView) view.findViewById(R.id.look_more_view);
         this.dividerLine = view.findViewById(R.id.divider_line_above_more_god_replays);
-        ap.setViewTextColor(this.hra, R.color.cp_cont_f);
-        ap.setBackgroundResource(this.hra, R.drawable.more_all);
+        ap.setViewTextColor(this.hFU, R.color.cp_cont_f);
+        ap.setBackgroundResource(this.hFU, R.drawable.more_all);
         ap.setBackgroundResource(this.dividerLine, R.color.cp_bg_line_c);
     }
 }

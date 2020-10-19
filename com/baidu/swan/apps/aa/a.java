@@ -9,47 +9,47 @@ import com.baidu.swan.apps.a;
 import com.baidu.swan.apps.core.d.i;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes10.dex */
 public class a {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    public static volatile a cHM;
+    public static volatile a cTP;
     public String appId;
-    public String cHK;
-    public String cHL;
-    public com.baidu.l.a.a cHN;
+    public String cTN;
+    public String cTO;
+    public com.baidu.l.a.a cTQ;
 
     private a() {
     }
 
-    public static a avZ() {
-        if (cHM == null) {
+    public static a ayK() {
+        if (cTP == null) {
             synchronized (a.class) {
-                if (cHM == null) {
-                    cHM = new a();
+                if (cTP == null) {
+                    cTP = new a();
                 }
             }
         }
-        return cHM;
+        return cTP;
     }
 
     public boolean a(Context context, CallbackHandler callbackHandler, UnitedSchemeEntity unitedSchemeEntity) {
-        String a = a(unitedSchemeEntity, "params");
-        if (TextUtils.isEmpty(a)) {
+        String a2 = a(unitedSchemeEntity, "params");
+        if (TextUtils.isEmpty(a2)) {
             com.baidu.swan.apps.console.c.i("SwanAppPayLaunchMsg", "wxPay: url is empty");
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(201);
             return false;
-        } else if (!com.baidu.l.b.Uw().aK(context)) {
+        } else if (!com.baidu.l.b.Wt().aO(context)) {
             com.baidu.swan.apps.res.widget.b.d.a(context, context.getText(a.h.aiapps_wx_not_install_toast_msg)).showToast();
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1002, "had not installed WeChat");
             return false;
-        } else if (!i.b("wxPay", com.baidu.swan.apps.model.b.bP(a, a))) {
+        } else if (!i.b("wxPay", com.baidu.swan.apps.model.b.bU(a2, a2))) {
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
             return false;
         } else {
             com.baidu.swan.apps.console.c.i("SwanAppPayLaunchMsg", "open wxPay page success");
             JSONObject jSONObject = new JSONObject();
             try {
-                jSONObject.put("finalUrl", a);
+                jSONObject.put("finalUrl", a2);
             } catch (JSONException e) {
                 e.printStackTrace();
             }
@@ -73,7 +73,7 @@ public class a {
         }
     }
 
-    public static int iM(int i) {
+    public static int jj(int i) {
         switch (i) {
             case -2:
                 return 2;

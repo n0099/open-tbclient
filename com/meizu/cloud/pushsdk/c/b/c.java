@@ -2,7 +2,6 @@ package com.meizu.cloud.pushsdk.c.b;
 
 import android.content.Context;
 import android.net.Uri;
-import android.support.v7.widget.helper.ItemTouchHelper;
 import android.util.Log;
 import com.baidu.sapi2.utils.SapiUtils;
 import com.baidubce.AbstractBceClient;
@@ -18,7 +17,7 @@ import java.util.concurrent.TimeUnit;
 import java.util.concurrent.atomic.AtomicBoolean;
 import javax.net.ssl.HostnameVerifier;
 import javax.net.ssl.SSLSocketFactory;
-/* loaded from: classes3.dex */
+/* loaded from: classes7.dex */
 public abstract class c {
     protected Context d;
     protected Uri.Builder e;
@@ -36,15 +35,19 @@ public abstract class c {
     protected long q;
     protected TimeUnit r;
     protected com.meizu.cloud.pushsdk.b.c.a s;
-    protected int a = 88;
+
+    /* renamed from: a  reason: collision with root package name */
+    protected int f4388a = 88;
     protected int b = 22;
     private final String u = c.class.getSimpleName();
     protected final com.meizu.cloud.pushsdk.b.c.g c = com.meizu.cloud.pushsdk.b.c.g.a(AbstractBceClient.DEFAULT_CONTENT_TYPE);
     protected AtomicBoolean t = new AtomicBoolean(false);
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes7.dex */
     public static class a {
-        protected final String a;
+
+        /* renamed from: a  reason: collision with root package name */
+        protected final String f4389a;
         protected final Context b;
         protected SSLSocketFactory m;
         protected HostnameVerifier n;
@@ -54,7 +57,7 @@ public abstract class c {
         protected com.meizu.cloud.pushsdk.c.b.a e = com.meizu.cloud.pushsdk.c.b.a.Single;
         protected h f = h.HTTPS;
         protected int g = 5;
-        protected int h = ItemTouchHelper.Callback.DEFAULT_SWIPE_ANIMATION_DURATION;
+        protected int h = 250;
         protected int i = 5;
         protected long j = 40000;
         protected long k = 40000;
@@ -62,7 +65,7 @@ public abstract class c {
         protected com.meizu.cloud.pushsdk.b.c.a o = new com.meizu.cloud.pushsdk.b.c.e();
 
         public a(String str, Context context, Class<? extends c> cls) {
-            this.a = str;
+            this.f4389a = str;
             this.b = context;
             this.p = cls;
         }
@@ -114,7 +117,7 @@ public abstract class c {
         this.o = aVar.h;
         this.p = aVar.j;
         this.q = aVar.k;
-        this.l = aVar.a;
+        this.l = aVar.f4389a;
         this.r = aVar.l;
         this.s = aVar.o;
         c();
@@ -210,13 +213,13 @@ public abstract class c {
                 for (int i3 = i2; i3 < this.h.a() + i2 && i3 < size; i3++) {
                     com.meizu.cloud.pushsdk.c.a.a aVar2 = bVar.a().get(i3);
                     long b2 = aVar2.b() + this.b;
-                    if (this.a + b2 > this.q) {
+                    if (this.f4388a + b2 > this.q) {
                         ArrayList<com.meizu.cloud.pushsdk.c.a.a> arrayList2 = new ArrayList<>();
                         LinkedList linkedList5 = new LinkedList();
                         arrayList2.add(aVar2);
                         linkedList5.add(b.get(i3));
                         linkedList.add(new e(true, a(arrayList2), linkedList5));
-                    } else if (j + b2 + this.a + (arrayList.size() - 1) > this.q) {
+                    } else if (j + b2 + this.f4388a + (arrayList.size() - 1) > this.q) {
                         linkedList.add(new e(false, a(arrayList), linkedList4));
                         arrayList = new ArrayList<>();
                         linkedList4 = new LinkedList();

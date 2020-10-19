@@ -15,9 +15,11 @@ import java.lang.reflect.Method;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.Scanner;
-/* loaded from: classes3.dex */
+/* loaded from: classes7.dex */
 public final class b {
-    static String a;
+
+    /* renamed from: a  reason: collision with root package name */
+    static String f2668a;
     static String b;
     static String c;
     static int d;
@@ -52,8 +54,8 @@ public final class b {
             } catch (Exception e2) {
                 e2.printStackTrace();
             }
-            if (a != null && !a.equals("")) {
-                b = a + File.separator + "BaiduPanoSDK" + File.separator + "cache";
+            if (f2668a != null && !f2668a.equals("")) {
+                b = f2668a + File.separator + "BaiduPanoSDK" + File.separator + "cache";
                 c = context.getCacheDir().getAbsolutePath();
                 d = 20971520;
                 e = 52428800;
@@ -89,7 +91,7 @@ public final class b {
                     if (str != null && str.length() > 0 && "mounted".equals(method2.invoke(storageManager, str)) && b(str)) {
                         arrayList.add(str);
                         if (a(a(str))) {
-                            a = str;
+                            f2668a = str;
                             return;
                         }
                     }
@@ -111,7 +113,7 @@ public final class b {
                             }
                         }
                         if (!z && b(absolutePath) && a(a(absolutePath))) {
-                            a = absolutePath;
+                            f2668a = absolutePath;
                             return;
                         }
                     }
@@ -198,7 +200,7 @@ public final class b {
             }
             String absolutePath = Environment.getExternalStorageDirectory().getAbsolutePath();
             if (a(a(absolutePath))) {
-                a = absolutePath;
+                f2668a = absolutePath;
                 if (0 != 0) {
                     scanner2.close();
                     return;
@@ -209,7 +211,7 @@ public final class b {
                 if (arrayList2.contains(str2) && !str2.equals(absolutePath)) {
                     File file3 = new File(str2);
                     if (file3.exists() && file3.isDirectory() && file3.canWrite() && a(a(absolutePath))) {
-                        a = absolutePath;
+                        f2668a = absolutePath;
                         if (0 != 0) {
                             scanner2.close();
                             return;

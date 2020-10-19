@@ -5,7 +5,7 @@ import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.util.u;
 import tbclient.CommitCardInfo.CommitCardInfoReqIdl;
 import tbclient.CommitCardInfo.DataReq;
-/* loaded from: classes20.dex */
+/* loaded from: classes21.dex */
 public class CommitCardInfoReqMsg extends NetMessage {
     public int card_type;
     public String image_info;

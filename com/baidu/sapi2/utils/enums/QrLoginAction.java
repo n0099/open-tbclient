@@ -2,19 +2,21 @@ package com.baidu.sapi2.utils.enums;
 
 import com.baidu.live.tbadk.log.LogConfig;
 import com.baidu.sapi2.outsdk.OneKeyLoginSdkCall;
-/* loaded from: classes25.dex */
+/* loaded from: classes5.dex */
 public enum QrLoginAction {
     NOTICE(LogConfig.KEY_NOTICE),
     LOGIN(OneKeyLoginSdkCall.k),
     CANCEL("cancel");
     
-    private String a;
+
+    /* renamed from: a  reason: collision with root package name */
+    private String f3548a;
 
     QrLoginAction(String str) {
-        this.a = str;
+        this.f3548a = str;
     }
 
     public String getName() {
-        return this.a;
+        return this.f3548a;
     }
 }

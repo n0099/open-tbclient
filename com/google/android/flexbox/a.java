@@ -2,11 +2,11 @@ package com.google.android.flexbox;
 
 import android.view.View;
 import java.util.List;
-/* loaded from: classes12.dex */
+/* loaded from: classes9.dex */
 interface a {
-    View Nd(int i);
+    View NJ(int i);
 
-    View Ne(int i);
+    View NK(int i);
 
     void a(View view, int i, int i2, b bVar);
 
@@ -16,9 +16,9 @@ interface a {
 
     int ah(int i, int i2, int i3);
 
-    int dE(View view);
+    int dI(View view);
 
-    boolean eaF();
+    boolean eeq();
 
     int getAlignContent();
 

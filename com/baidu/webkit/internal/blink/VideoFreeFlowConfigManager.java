@@ -6,7 +6,7 @@ import com.baidu.adp.plugin.proxy.ContentProviderProxy;
 import com.baidu.webkit.internal.INoProGuard;
 import com.baidu.webkit.sdk.Log;
 import java.util.ArrayList;
-/* loaded from: classes8.dex */
+/* loaded from: classes11.dex */
 public class VideoFreeFlowConfigManager implements INoProGuard {
     public static final String DIRECT = "DIRECT";
     public static final String HOST_MATCH = "HOSTMATCH";
@@ -25,16 +25,18 @@ public class VideoFreeFlowConfigManager implements INoProGuard {
     private byte[] mListLock = new byte[0];
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes8.dex */
+    /* loaded from: classes11.dex */
     public static class a {
-        String a;
+
+        /* renamed from: a  reason: collision with root package name */
+        String f3925a;
         String b;
         String c;
         int d;
         String e;
 
         public a(String str) {
-            this.a = null;
+            this.f3925a = null;
             this.b = null;
             this.c = null;
             this.d = 2;
@@ -47,7 +49,7 @@ public class VideoFreeFlowConfigManager implements INoProGuard {
             for (int i = 0; i < length; i++) {
                 if (!TextUtils.isEmpty(split[i])) {
                     if (i == 0) {
-                        this.a = split[i];
+                        this.f3925a = split[i];
                     } else if (i == 1) {
                         this.b = split[i];
                     } else if (i == 2) {
@@ -112,23 +114,23 @@ public class VideoFreeFlowConfigManager implements INoProGuard {
                 for (int i = 0; i < size; i++) {
                     a aVar = this.mPacRulesList.get(i);
                     if (!TextUtils.isEmpty(str)) {
-                        if (TextUtils.isEmpty(aVar.a) || TextUtils.isEmpty(aVar.b) || TextUtils.isEmpty(aVar.c)) {
+                        if (TextUtils.isEmpty(aVar.f3925a) || TextUtils.isEmpty(aVar.b) || TextUtils.isEmpty(aVar.c)) {
                             z = false;
                         } else if (aVar.b.equals("*")) {
                             z = true;
-                        } else if (aVar.a.equals(HOST_MATCH)) {
+                        } else if (aVar.f3925a.equals(HOST_MATCH)) {
                             if (!TextUtils.isEmpty(host) && host.length() >= aVar.b.length() && host.substring(host.length() - aVar.b.length()).equals(aVar.b)) {
                                 z = true;
                             }
-                        } else if (aVar.a.equals(HOST_STR)) {
+                        } else if (aVar.f3925a.equals(HOST_STR)) {
                             if (host.indexOf(aVar.b) != -1) {
                                 z = true;
                             }
-                        } else if (aVar.a.equals(HOST_STR_MATCH)) {
+                        } else if (aVar.f3925a.equals(HOST_STR_MATCH)) {
                             if (host.equals(aVar.b)) {
                                 z = true;
                             }
-                        } else if (aVar.a.equals(URL_MATCH) && str.indexOf(aVar.b) != -1) {
+                        } else if (aVar.f3925a.equals(URL_MATCH) && str.indexOf(aVar.b) != -1) {
                             z = true;
                         }
                         if (z) {

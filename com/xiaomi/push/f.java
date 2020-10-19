@@ -1,7 +1,9 @@
 package com.xiaomi.push;
-/* loaded from: classes9.dex */
+/* loaded from: classes12.dex */
 public final class f {
-    static final int a = a(1, 3);
+
+    /* renamed from: a  reason: collision with root package name */
+    static final int f4894a = a(1, 3);
     static final int b = a(1, 4);
     static final int c = a(2, 0);
     static final int d = a(3, 2);

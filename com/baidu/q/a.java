@@ -1,41 +1,41 @@
 package com.baidu.q;
 
 import android.text.TextUtils;
-/* loaded from: classes12.dex */
+/* loaded from: classes7.dex */
 public class a {
     protected int mStatusCode;
-    protected boolean nrg;
-    protected boolean nrh;
-    protected String nri;
-    protected String nrj;
-    protected String nrk;
+    protected boolean nGA;
+    protected boolean nGB;
+    protected String nGC;
+    protected String nGD;
+    protected String nGE;
 
     public a(boolean z, boolean z2, String str, String str2, String str3, int i) {
-        this.nrg = z;
-        this.nrh = z2;
-        this.nri = str;
-        this.nrj = str2;
-        this.nrk = str3;
+        this.nGA = z;
+        this.nGB = z2;
+        this.nGC = str;
+        this.nGD = str2;
+        this.nGE = str3;
         this.mStatusCode = i;
     }
 
-    public boolean dQS() {
-        return this.nrg;
+    public boolean dUD() {
+        return this.nGA;
     }
 
     public boolean isSupport() {
-        return this.nrh;
+        return this.nGB;
     }
 
     public int getStatusCode() {
         return this.mStatusCode;
     }
 
-    public String dQT() {
-        return TextUtils.isEmpty(this.nri) ? this.nri : new com.baidu.q.a.c.b("ABCDEFGHIJKLMNOPQRSTUVWXYZ234567=", false, false).encode(this.nri.getBytes());
+    public String dUE() {
+        return TextUtils.isEmpty(this.nGC) ? this.nGC : new com.baidu.q.a.c.b("ABCDEFGHIJKLMNOPQRSTUVWXYZ234567=", false, false).encode(this.nGC.getBytes());
     }
 
     public String toString() {
-        return "UnionIDInfo{isTrackLimited=" + this.nrg + ", isSupport=" + this.nrh + ", OAID='" + this.nri + "', EncodedOAID='" + dQT() + "', AAID='" + this.nrj + "', VAID='" + this.nrk + "', StatusCode='" + this.mStatusCode + "'}";
+        return "UnionIDInfo{isTrackLimited=" + this.nGA + ", isSupport=" + this.nGB + ", OAID='" + this.nGC + "', EncodedOAID='" + dUE() + "', AAID='" + this.nGD + "', VAID='" + this.nGE + "', StatusCode='" + this.mStatusCode + "'}";
     }
 }

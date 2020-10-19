@@ -4,7 +4,7 @@ import android.content.Context;
 import android.support.v4.app.NotificationManagerCompat;
 /* loaded from: classes.dex */
 public class a {
-    public static boolean cL(Context context) {
+    public static boolean cR(Context context) {
         try {
             return NotificationManagerCompat.from(context.getApplicationContext()).areNotificationsEnabled();
         } catch (Exception e) {

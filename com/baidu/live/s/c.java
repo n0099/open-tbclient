@@ -3,15 +3,15 @@ package com.baidu.live.s;
 import android.view.View;
 /* loaded from: classes4.dex */
 public interface c {
-    View Nc();
+    View Oh();
 
-    b Nd();
+    b Oi();
 
-    b Ne();
+    b Oj();
 
-    void Nf();
+    void Ok();
 
-    void Ng();
+    void Ol();
 
     void destory();
 }

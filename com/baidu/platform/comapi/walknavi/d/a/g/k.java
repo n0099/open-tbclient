@@ -2,9 +2,11 @@ package com.baidu.platform.comapi.walknavi.d.a.g;
 
 import android.os.Environment;
 import java.security.MessageDigest;
-/* loaded from: classes3.dex */
+/* loaded from: classes7.dex */
 public final class k {
-    private static final String a = k.class.getName();
+
+    /* renamed from: a  reason: collision with root package name */
+    private static final String f2992a = k.class.getName();
     private static String b = Environment.getExternalStorageDirectory() + "/AR/Screenshots/";
 
     public static String a(String str) {

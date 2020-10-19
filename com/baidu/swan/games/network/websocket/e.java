@@ -1,10 +1,10 @@
 package com.baidu.swan.games.network.websocket;
 
 import com.baidu.searchbox.v8engine.V8JavascriptField;
-/* loaded from: classes3.dex */
+/* loaded from: classes10.dex */
 public class e {
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes10.dex */
     public static class b extends com.baidu.swan.games.binding.model.b {
         /* JADX INFO: Access modifiers changed from: package-private */
         public b(String str) {
@@ -12,7 +12,7 @@ public class e {
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes10.dex */
     public static class c extends com.baidu.swan.games.binding.model.b {
         @V8JavascriptField
         public String socketTaskId;
@@ -25,18 +25,18 @@ public class e {
     }
 
     /* renamed from: com.baidu.swan.games.network.websocket.e$e  reason: collision with other inner class name */
-    /* loaded from: classes3.dex */
-    public static class C0494e {
+    /* loaded from: classes10.dex */
+    public static class C0511e {
         @V8JavascriptField
         public Object header;
 
         /* JADX INFO: Access modifiers changed from: package-private */
-        public C0494e(Object obj) {
+        public C0511e(Object obj) {
             this.header = obj;
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes10.dex */
     public static class d {
         @V8JavascriptField
         public Object data;
@@ -47,7 +47,7 @@ public class e {
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes10.dex */
     public static class a {
         @V8JavascriptField
         public int code;

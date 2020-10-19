@@ -17,7 +17,7 @@ import org.springframework.web.servlet.mvc.method.annotation.ResponseBodyAdvice;
 @ControllerAdvice
 @Deprecated
 @Order(Integer.MIN_VALUE)
-/* loaded from: classes10.dex */
+/* loaded from: classes5.dex */
 public class FastJsonpResponseBodyAdvice implements ResponseBodyAdvice<Object> {
     private static final Pattern CALLBACK_PARAM_PATTERN = Pattern.compile("[0-9A-Za-z_\\.]*");
     public static final String[] DEFAULT_JSONP_QUERY_PARAM_NAMES = {BuyTBeanActivityConfig.CALLBACK, "jsonp"};

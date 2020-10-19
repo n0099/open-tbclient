@@ -5,24 +5,26 @@ import com.baidu.webkit.internal.ETAG;
 import java.util.Iterator;
 import java.util.LinkedHashMap;
 import java.util.Map;
-/* loaded from: classes3.dex */
+/* loaded from: classes7.dex */
 public class a implements ParamBuilder<a> {
-    protected Map<String, String> a;
+
+    /* renamed from: a  reason: collision with root package name */
+    protected Map<String, String> f3192a;
 
     public a a(String str, String str2) {
-        if (this.a == null) {
-            this.a = new LinkedHashMap();
+        if (this.f3192a == null) {
+            this.f3192a = new LinkedHashMap();
         }
-        this.a.put(str, str2);
+        this.f3192a.put(str, str2);
         return this;
     }
 
     public String a() {
-        if (this.a == null || this.a.isEmpty()) {
+        if (this.f3192a == null || this.f3192a.isEmpty()) {
             return null;
         }
         String str = new String();
-        Iterator<String> it = this.a.keySet().iterator();
+        Iterator<String> it = this.f3192a.keySet().iterator();
         int i = 0;
         while (true) {
             int i2 = i;
@@ -31,7 +33,7 @@ public class a implements ParamBuilder<a> {
                 return str2;
             }
             String next = it.next();
-            String encodeUrlParamsValue = AppMD5.encodeUrlParamsValue(this.a.get(next));
+            String encodeUrlParamsValue = AppMD5.encodeUrlParamsValue(this.f3192a.get(next));
             str = i2 == 0 ? str2 + next + ETAG.EQUAL + encodeUrlParamsValue : str2 + ETAG.ITEM_SEPARATOR + next + ETAG.EQUAL + encodeUrlParamsValue;
             i = i2 + 1;
         }

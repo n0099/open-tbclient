@@ -13,7 +13,7 @@ import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes7.dex */
 public class o extends k {
     private RouteNode a(JSONArray jSONArray, List<RouteNode> list) {
         int length;
@@ -22,15 +22,15 @@ public class o extends k {
         }
         int i = 0;
         while (i < length) {
-            RouteNode a = a(jSONArray.optJSONObject(i));
+            RouteNode a2 = a(jSONArray.optJSONObject(i));
             if (i == length - 1) {
-                return a;
+                return a2;
             }
             List<RouteNode> arrayList = list == null ? new ArrayList<>() : list;
             if (arrayList == null) {
                 arrayList = new ArrayList<>();
             }
-            arrayList.add(a);
+            arrayList.add(a2);
             i++;
             list = arrayList;
         }
@@ -123,8 +123,8 @@ public class o extends k {
                                 if (optJSONObject3 == null || optJSONArray2 == null) {
                                     return false;
                                 }
-                                RouteNode a = a(optJSONObject3.optJSONObject("start"));
-                                RouteNode a2 = a(optJSONObject3.optJSONArray("end"), (List<RouteNode>) null);
+                                RouteNode a2 = a(optJSONObject3.optJSONObject("start"));
+                                RouteNode a3 = a(optJSONObject3.optJSONArray("end"), (List<RouteNode>) null);
                                 ArrayList arrayList = new ArrayList();
                                 for (int i = 0; i < optJSONArray2.length(); i++) {
                                     JSONObject optJSONObject4 = optJSONArray2.optJSONObject(i);
@@ -133,8 +133,8 @@ public class o extends k {
                                             JSONObject optJSONObject5 = optJSONArray.optJSONObject(i);
                                             if (optJSONObject5 != null) {
                                                 WalkingRouteLine walkingRouteLine = new WalkingRouteLine();
-                                                walkingRouteLine.setStarting(a);
-                                                walkingRouteLine.setTerminal(a2);
+                                                walkingRouteLine.setStarting(a2);
+                                                walkingRouteLine.setTerminal(a3);
                                                 walkingRouteLine.setDistance(optJSONObject5.optInt("distance"));
                                                 walkingRouteLine.setDuration(optJSONObject5.optInt("duration"));
                                                 walkingRouteLine.setSteps(a(optJSONObject5.optJSONArray("steps")));

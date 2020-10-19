@@ -20,14 +20,16 @@ import com.baidu.platform.comapi.location.CoordinateType;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
-/* loaded from: classes3.dex */
+/* loaded from: classes7.dex */
 public class b {
     private ArrayList<a> g;
     private static b f = null;
     public static long c = 0;
     public static int d = -1;
     private boolean h = false;
-    public boolean a = false;
+
+    /* renamed from: a  reason: collision with root package name */
+    public boolean f1871a = false;
     boolean b = false;
     private BDLocation i = null;
     private BDLocation j = null;
@@ -35,12 +37,14 @@ public class b {
     private BDLocation k = null;
     private boolean l = false;
     private boolean m = false;
-    private RunnableC0204b n = null;
+    private RunnableC0219b n = null;
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes3.dex */
+    /* loaded from: classes7.dex */
     public class a {
-        public String a;
+
+        /* renamed from: a  reason: collision with root package name */
+        public String f1872a;
         public Messenger b;
         public LocationClientOption c = new LocationClientOption();
         public int d = 0;
@@ -49,12 +53,12 @@ public class b {
         public a(b bVar, Message message) {
             boolean z = false;
             this.e = bVar;
-            this.a = null;
+            this.f1872a = null;
             this.b = null;
             this.b = message.replyTo;
-            this.a = message.getData().getString("packName");
+            this.f1872a = message.getData().getString("packName");
             this.c.prodName = message.getData().getString("prodName");
-            com.baidu.location.e.b.a().a(this.c.prodName, this.a);
+            com.baidu.location.e.b.a().a(this.c.prodName, this.f1872a);
             this.c.coorType = message.getData().getString("coorType");
             this.c.addrType = message.getData().getString("addrType");
             this.c.enableSimulateGps = message.getData().getBoolean("enableSimulateGps", false);
@@ -132,7 +136,7 @@ public class b {
         }
 
         private double a(boolean z, BDLocation bDLocation, BDLocation bDLocation2) {
-            double a;
+            double a2;
             double[] dArr;
             if (z) {
                 if (!TextUtils.equals(bDLocation2.getCoorType(), bDLocation.getCoorType())) {
@@ -146,33 +150,33 @@ public class b {
                     bDLocation.setLongitude(dArr[0]);
                     bDLocation.setTime(com.baidu.location.e.l.a());
                     bDLocation.setCoorType(CoordinateType.WGS84);
-                    a = com.baidu.location.e.l.a(bDLocation2.getLatitude(), bDLocation2.getLongitude(), bDLocation.getLatitude(), bDLocation.getLongitude());
-                    bDLocation2.setDisToRealLocation(a);
+                    a2 = com.baidu.location.e.l.a(bDLocation2.getLatitude(), bDLocation2.getLongitude(), bDLocation.getLatitude(), bDLocation.getLongitude());
+                    bDLocation2.setDisToRealLocation(a2);
                 } else if (TextUtils.equals(BDLocation.BDLOCATION_GCJ02_TO_BD09, bDLocation2.getCoorType())) {
                     double[] coorEncrypt2 = Jni.coorEncrypt(bDLocation2.getLongitude(), bDLocation2.getLatitude(), BDLocation.BDLOCATION_BD09_TO_GCJ02);
                     double[] coorEncrypt3 = Jni.coorEncrypt(bDLocation.getLongitude(), bDLocation.getLatitude(), BDLocation.BDLOCATION_BD09_TO_GCJ02);
-                    a = com.baidu.location.e.l.a(coorEncrypt2[1], coorEncrypt2[0], coorEncrypt3[1], coorEncrypt3[0]);
-                    bDLocation2.setDisToRealLocation(a);
+                    a2 = com.baidu.location.e.l.a(coorEncrypt2[1], coorEncrypt2[0], coorEncrypt3[1], coorEncrypt3[0]);
+                    bDLocation2.setDisToRealLocation(a2);
                 } else {
-                    a = com.baidu.location.e.l.a(bDLocation2.getLatitude(), bDLocation2.getLongitude(), bDLocation.getLatitude(), bDLocation.getLongitude());
-                    bDLocation2.setDisToRealLocation(a);
+                    a2 = com.baidu.location.e.l.a(bDLocation2.getLatitude(), bDLocation2.getLongitude(), bDLocation.getLatitude(), bDLocation.getLongitude());
+                    bDLocation2.setDisToRealLocation(a2);
                 }
             } else if (TextUtils.equals(bDLocation2.getCoorType(), bDLocation.getCoorType())) {
-                a = com.baidu.location.e.l.a(bDLocation2.getLatitude(), bDLocation2.getLongitude(), bDLocation.getLatitude(), bDLocation.getLongitude());
-                bDLocation2.setDisToRealLocation(a);
+                a2 = com.baidu.location.e.l.a(bDLocation2.getLatitude(), bDLocation2.getLongitude(), bDLocation.getLatitude(), bDLocation.getLongitude());
+                bDLocation2.setDisToRealLocation(a2);
             } else {
                 double[] coorEncrypt4 = Jni.coorEncrypt(bDLocation.getLongitude(), bDLocation.getLatitude(), "gcj2wgs");
                 bDLocation.setLatitude(coorEncrypt4[1]);
                 bDLocation.setLongitude(coorEncrypt4[0]);
                 bDLocation.setTime(com.baidu.location.e.l.a());
                 bDLocation.setCoorType(CoordinateType.WGS84);
-                a = com.baidu.location.e.l.a(bDLocation2.getLatitude(), bDLocation2.getLongitude(), bDLocation.getLatitude(), bDLocation.getLongitude());
-                bDLocation2.setDisToRealLocation(a);
+                a2 = com.baidu.location.e.l.a(bDLocation2.getLatitude(), bDLocation2.getLongitude(), bDLocation.getLatitude(), bDLocation.getLongitude());
+                bDLocation2.setDisToRealLocation(a2);
             }
             if (bDLocation != null) {
                 bDLocation2.setReallLocation(bDLocation);
             }
-            return a;
+            return a2;
         }
 
         private int a(double d) {
@@ -347,9 +351,11 @@ public class b {
     }
 
     /* renamed from: com.baidu.location.b.b$b  reason: collision with other inner class name */
-    /* loaded from: classes3.dex */
-    private class RunnableC0204b implements Runnable {
-        final /* synthetic */ b a;
+    /* loaded from: classes7.dex */
+    private class RunnableC0219b implements Runnable {
+
+        /* renamed from: a  reason: collision with root package name */
+        final /* synthetic */ b f1873a;
         private int b;
         private boolean c;
 
@@ -359,7 +365,7 @@ public class b {
                 return;
             }
             this.b++;
-            this.a.m = false;
+            this.f1873a.m = false;
         }
     }
 
@@ -426,7 +432,7 @@ public class b {
             }
             z = next.c.location_change_notify ? true : z;
         }
-        com.baidu.location.e.l.a = z;
+        com.baidu.location.e.l.f1955a = z;
         if (this.h != z2) {
             this.h = z2;
             com.baidu.location.c.f.a().a(this.h);
@@ -453,7 +459,7 @@ public class b {
             return;
         }
         c = System.currentTimeMillis();
-        this.a = true;
+        this.f1871a = true;
         com.baidu.location.c.i.a().b();
         a(new a(this, message));
         e();
@@ -472,7 +478,7 @@ public class b {
     }
 
     public void a(boolean z) {
-        this.a = z;
+        this.f1871a = z;
         if (z) {
             d = 1;
         } else {
@@ -558,9 +564,9 @@ public class b {
         if (aVar.c.prodName != null) {
             stringBuffer.append(aVar.c.prodName);
         }
-        if (aVar.a != null) {
+        if (aVar.f1872a != null) {
             stringBuffer.append(":");
-            stringBuffer.append(aVar.a);
+            stringBuffer.append(aVar.f1872a);
             stringBuffer.append("|");
         }
         String stringBuffer2 = stringBuffer.toString();
@@ -599,9 +605,9 @@ public class b {
             a2.c.scanSpan = message.getData().getInt("scanSpan", a2.c.scanSpan);
             if (a2.c.scanSpan < 1000) {
                 r.a().c();
-                this.a = false;
+                this.f1871a = false;
             } else {
-                this.a = true;
+                this.f1871a = true;
             }
             if (a2.c.scanSpan > 999 && i < 1000) {
                 if (a2.c.mIsNeedDeviceDirect || a2.c.isNeedAltitude) {

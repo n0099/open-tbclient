@@ -2,7 +2,7 @@ package com.baidu.swan.apps.adaptation.a;
 
 import com.baidu.searchbox.v8engine.JsObject;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes10.dex */
 public interface av {
     com.baidu.swan.apps.c.b a(JSONObject jSONObject, com.baidu.swan.apps.c.d dVar, com.baidu.swan.apps.c.c cVar);
 

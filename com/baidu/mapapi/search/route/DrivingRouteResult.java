@@ -6,10 +6,12 @@ import com.baidu.mapapi.search.core.SearchResult;
 import com.baidu.mapapi.search.core.TaxiInfo;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes3.dex */
+/* loaded from: classes7.dex */
 public final class DrivingRouteResult extends SearchResult implements Parcelable {
     public static final Parcelable.Creator<DrivingRouteResult> CREATOR = new f();
-    private List<DrivingRouteLine> a;
+
+    /* renamed from: a  reason: collision with root package name */
+    private List<DrivingRouteLine> f2133a;
     private List<TaxiInfo> b;
     private TaxiInfo c;
     private SuggestAddrInfo d;
@@ -19,8 +21,8 @@ public final class DrivingRouteResult extends SearchResult implements Parcelable
 
     /* JADX INFO: Access modifiers changed from: protected */
     public DrivingRouteResult(Parcel parcel) {
-        this.a = new ArrayList();
-        parcel.readTypedList(this.a, DrivingRouteLine.CREATOR);
+        this.f2133a = new ArrayList();
+        parcel.readTypedList(this.f2133a, DrivingRouteLine.CREATOR);
         this.b = new ArrayList();
         parcel.readTypedList(this.b, TaxiInfo.CREATOR);
         this.d = (SuggestAddrInfo) parcel.readParcelable(SuggestAddrInfo.class.getClassLoader());
@@ -32,7 +34,7 @@ public final class DrivingRouteResult extends SearchResult implements Parcelable
     }
 
     public List<DrivingRouteLine> getRouteLines() {
-        return this.a;
+        return this.f2133a;
     }
 
     public SuggestAddrInfo getSuggestAddrInfo() {
@@ -49,7 +51,7 @@ public final class DrivingRouteResult extends SearchResult implements Parcelable
     }
 
     public void setRouteLines(List<DrivingRouteLine> list) {
-        this.a = list;
+        this.f2133a = list;
     }
 
     public void setSuggestAddrInfo(SuggestAddrInfo suggestAddrInfo) {
@@ -62,7 +64,7 @@ public final class DrivingRouteResult extends SearchResult implements Parcelable
 
     @Override // com.baidu.mapapi.search.core.SearchResult, android.os.Parcelable
     public void writeToParcel(Parcel parcel, int i) {
-        parcel.writeTypedList(this.a);
+        parcel.writeTypedList(this.f2133a);
         parcel.writeTypedList(this.b);
         parcel.writeParcelable(this.d, 1);
     }

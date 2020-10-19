@@ -9,16 +9,16 @@ import com.baidu.live.tbadk.TbPageContext;
 import com.baidu.tieba.ala.view.a;
 /* loaded from: classes4.dex */
 public class a {
-    private long bhr;
-    private com.baidu.tieba.ala.view.a fVY;
-    private com.baidu.live.personmanager.b fVZ;
-    private long fxY;
+    private long blh;
+    private long fKh;
+    private com.baidu.tieba.ala.view.a gir;
+    private com.baidu.live.personmanager.b gis;
     private boolean mIsHost;
     private TbPageContext mTbPageContext;
     private long mUserId;
-    private final b.a fWa = new b.a() { // from class: com.baidu.tieba.ala.d.a.1
+    private final b.a git = new b.a() { // from class: com.baidu.tieba.ala.d.a.1
         @Override // com.baidu.live.personmanager.b.a
-        public void MI() {
+        public void NN() {
             BdUtilHelper.showToast(a.this.mTbPageContext.getPageActivity(), a.i.txt_person_report_success);
             a.this.mTbPageContext.getPageActivity().finish();
         }
@@ -31,43 +31,43 @@ public class a {
     private final View.OnClickListener mOnClickListener = new View.OnClickListener() { // from class: com.baidu.tieba.ala.d.a.2
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
-            if (a.this.fVY.ccw().length() > 20) {
+            if (a.this.gir.cfS().length() > 20) {
                 BdUtilHelper.showToast(a.this.mTbPageContext.getPageActivity(), a.i.txt_describe_feedback_reason_text_max_limit);
             } else if (a.this.mUserId > 0) {
-                a.this.fVZ.az(String.valueOf(a.this.mUserId), a.this.fVY.ccw());
+                a.this.gis.aC(String.valueOf(a.this.mUserId), a.this.gir.cfS());
             }
         }
     };
-    private final a.InterfaceC0658a fWb = new a.InterfaceC0658a() { // from class: com.baidu.tieba.ala.d.a.3
-        @Override // com.baidu.tieba.ala.view.a.InterfaceC0658a
+    private final a.InterfaceC0676a giu = new a.InterfaceC0676a() { // from class: com.baidu.tieba.ala.d.a.3
+        @Override // com.baidu.tieba.ala.view.a.InterfaceC0676a
         public void afterTextChanged(Editable editable) {
         }
     };
 
     public a(TbPageContext tbPageContext, long j, long j2, long j3, boolean z) {
         this.mTbPageContext = tbPageContext;
-        this.bhr = j;
-        this.fxY = j2;
+        this.blh = j;
+        this.fKh = j2;
         this.mUserId = j3;
         this.mIsHost = z;
-        this.fVY = new com.baidu.tieba.ala.view.a(this.mTbPageContext, this.mOnClickListener, this.fWb);
-        this.fVY.b(this.bhr, this.fxY, this.mUserId, this.mIsHost);
-        this.fVZ = new com.baidu.live.personmanager.b(this.mTbPageContext);
-        this.fVZ.a(this.fWa);
+        this.gir = new com.baidu.tieba.ala.view.a(this.mTbPageContext, this.mOnClickListener, this.giu);
+        this.gir.b(this.blh, this.fKh, this.mUserId, this.mIsHost);
+        this.gis = new com.baidu.live.personmanager.b(this.mTbPageContext);
+        this.gis.a(this.git);
     }
 
     public View getView() {
-        return this.fVY.getView();
+        return this.gir.getView();
     }
 
     public void onDestroy() {
-        this.fVZ.onDestroy();
-        this.fVY.onDestroy();
+        this.gis.onDestroy();
+        this.gir.onDestroy();
     }
 
     public void onKeyboardVisibilityChanged(boolean z) {
-        if (this.fVY != null) {
-            this.fVY.onKeyboardVisibilityChanged(z);
+        if (this.gir != null) {
+            this.gir.onKeyboardVisibilityChanged(z);
         }
     }
 }

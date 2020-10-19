@@ -5,11 +5,11 @@ import android.view.Surface;
 import com.baidu.cyberplayer.sdk.Keep;
 import com.baidu.cyberplayer.sdk.rtc.CyberRTCSetting;
 @Keep
-/* loaded from: classes10.dex */
+/* loaded from: classes12.dex */
 public abstract class RTCRoomProvider {
 
     @Keep
-    /* loaded from: classes10.dex */
+    /* loaded from: classes12.dex */
     public static class CyberRtcRoomAudioLevel {
         public String nicName;
         public long userID;
@@ -23,7 +23,7 @@ public abstract class RTCRoomProvider {
     }
 
     @Keep
-    /* loaded from: classes10.dex */
+    /* loaded from: classes12.dex */
     public interface CyberRtcRoomDelegate {
         void onErrorInfoUpdate(int i);
 
@@ -33,7 +33,7 @@ public abstract class RTCRoomProvider {
     }
 
     @Keep
-    /* loaded from: classes10.dex */
+    /* loaded from: classes12.dex */
     public static class CyberRtcRoomUserInfo {
         public String attribute;
         public int role;
@@ -49,7 +49,7 @@ public abstract class RTCRoomProvider {
     }
 
     @Keep
-    /* loaded from: classes10.dex */
+    /* loaded from: classes12.dex */
     public static class CyberRtcRoomVideoDimension {
         public int videoHeight;
         public int videoRotation;
@@ -57,7 +57,7 @@ public abstract class RTCRoomProvider {
     }
 
     @Keep
-    /* loaded from: classes10.dex */
+    /* loaded from: classes12.dex */
     public enum CyberRtcSoundMode {
         RTC_SOUND_MODE_SPEAKER,
         RTC_SOUND_MODE_EAR

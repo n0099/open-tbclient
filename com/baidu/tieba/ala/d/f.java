@@ -14,49 +14,49 @@ import com.baidu.tieba.ala.view.PkRankView;
 import org.json.JSONObject;
 /* loaded from: classes4.dex */
 public class f implements com.baidu.live.p.a {
-    u aFP;
-    private boolean aLK;
-    private PendantParentView fTH;
-    private PendantChildView fTI;
-    protected PkRankView fXi;
+    u aIT;
+    private boolean aOP;
+    private PendantParentView gga;
+    private PendantChildView ggb;
+    protected PkRankView gjB;
     private boolean isHost = false;
     private Context mContext;
 
     public f(Context context) {
-        this.aLK = false;
+        this.aOP = false;
         this.mContext = context;
-        if (com.baidu.live.x.a.NN().bhy.aIO != null) {
-            this.aLK = com.baidu.live.x.a.NN().bhy.aIO.aLK;
+        if (com.baidu.live.x.a.OS().blo.aLS != null) {
+            this.aOP = com.baidu.live.x.a.OS().blo.aLS.aOP;
         } else {
-            this.aLK = false;
+            this.aOP = false;
         }
     }
 
     @Override // com.baidu.live.p.a
     public void b(ViewGroup viewGroup, u uVar) {
-        this.aFP = uVar;
+        this.aIT = uVar;
         if (viewGroup != null) {
             if (viewGroup instanceof PendantParentView) {
-                this.fTH = (PendantParentView) viewGroup;
-                bJu();
+                this.gga = (PendantParentView) viewGroup;
+                bMe();
             }
-            if (this.fXi == null || (this.fTI != null && this.fTI.indexOfChild(this.fXi) < 0)) {
-                this.fXi = new PkRankView(this.fTI.getContext(), this.isHost, uVar);
-                this.fTI.addView(this.fXi, new FrameLayout.LayoutParams(-2, -2));
+            if (this.gjB == null || (this.ggb != null && this.ggb.indexOfChild(this.gjB) < 0)) {
+                this.gjB = new PkRankView(this.ggb.getContext(), this.isHost, uVar);
+                this.ggb.addView(this.gjB, new FrameLayout.LayoutParams(-2, -2));
             }
-            if (this.aLK) {
-                this.fXi.cdw();
-                if (uVar.aFg) {
-                    this.fXi.setInSeason(true);
+            if (this.aOP) {
+                this.gjB.cgS();
+                if (uVar.aIk) {
+                    this.gjB.setInSeason(true);
                 } else {
-                    this.fXi.setInSeason(false);
+                    this.gjB.setInSeason(false);
                 }
             }
         }
     }
 
-    private void bJu() {
-        this.fTI = new PendantChildView(this.mContext) { // from class: com.baidu.tieba.ala.d.f.1
+    private void bMe() {
+        this.ggb = new PendantChildView(this.mContext) { // from class: com.baidu.tieba.ala.d.f.1
             @Override // com.baidu.live.pendantview.PendantChildView
             public PendantParentView.Position getVerticalPosition() {
                 return PendantParentView.Position.LEFT;
@@ -82,41 +82,41 @@ public class f implements com.baidu.live.p.a {
                 return 31;
             }
         };
-        this.fTI.setBackgroundColor(0);
-        if (this.fTH != null) {
-            this.fTH.a(this.fTI, new LinearLayout.LayoutParams(-2, -2));
+        this.ggb.setBackgroundColor(0);
+        if (this.gga != null) {
+            this.gga.a(this.ggb, new LinearLayout.LayoutParams(-2, -2));
         }
     }
 
     @Override // com.baidu.live.p.a
     public void a(u uVar) {
-        if (this.aLK) {
-            this.aFP = uVar;
+        if (this.aOP) {
+            this.aIT = uVar;
             if (uVar != null && uVar.mLiveInfo != null) {
                 if (!this.isHost) {
-                    this.fXi.cdw();
+                    this.gjB.cgS();
                 }
-                if (uVar.aFg) {
-                    this.fXi.setInSeason(true);
+                if (uVar.aIk) {
+                    this.gjB.setInSeason(true);
                 } else {
-                    this.fXi.setInSeason(false);
+                    this.gjB.setInSeason(false);
                 }
             }
         }
     }
 
     @Override // com.baidu.live.p.a
-    public boolean N(JSONObject jSONObject) {
-        int dm;
-        if (this.aLK && (dm = dm(jSONObject)) != -1) {
-            this.fXi.e(jSONObject, dm);
+    public boolean M(JSONObject jSONObject) {
+        int dt;
+        if (this.aOP && (dt = dt(jSONObject)) != -1) {
+            this.gjB.f(jSONObject, dt);
             return true;
         }
         return false;
     }
 
     /* JADX WARN: Can't fix incorrect switch cases order, some code will duplicate */
-    private int dm(JSONObject jSONObject) {
+    private int dt(JSONObject jSONObject) {
         char c;
         int i = 4;
         if (jSONObject == null) {
@@ -184,7 +184,7 @@ public class f implements com.baidu.live.p.a {
                 i = 16;
                 break;
             case 1:
-                if (this.aFP.mLiveInfo.room_id == jSONObject.optJSONObject("first_blood_info").optLong("room_id")) {
+                if (this.aIT.mLiveInfo.room_id == jSONObject.optJSONObject("first_blood_info").optLong("room_id")) {
                     i = 11;
                     break;
                 } else {
@@ -199,7 +199,7 @@ public class f implements com.baidu.live.p.a {
             case 4:
                 long optLong = jSONObject.optLong("props_type");
                 if (optLong == 1) {
-                    if (this.aFP.mLiveInfo.room_id == jSONObject.optLong("send_room_id")) {
+                    if (this.aIT.mLiveInfo.room_id == jSONObject.optLong("send_room_id")) {
                         i = 14;
                         break;
                     } else {
@@ -208,7 +208,7 @@ public class f implements com.baidu.live.p.a {
                     }
                 } else {
                     if (optLong == 2) {
-                        if (this.aFP.mLiveInfo.room_id == jSONObject.optLong("send_room_id")) {
+                        if (this.aIT.mLiveInfo.room_id == jSONObject.optLong("send_room_id")) {
                             i = 12;
                             break;
                         } else {
@@ -249,14 +249,14 @@ public class f implements com.baidu.live.p.a {
 
     @Override // com.baidu.live.p.a
     public void setCanVisible(boolean z) {
-        if (this.fXi != null) {
-            this.fXi.setCanVisible(z);
+        if (this.gjB != null) {
+            this.gjB.setCanVisible(z);
         }
     }
 
     @Override // com.baidu.live.p.a
-    public void IT() {
-        kD(true);
+    public void JQ() {
+        lb(true);
         onDestroy();
     }
 
@@ -265,28 +265,28 @@ public class f implements com.baidu.live.p.a {
         this.isHost = z;
     }
 
-    private void kD(boolean z) {
-        if (this.fXi != null && (this.fXi.getParent() instanceof ViewGroup)) {
-            ((ViewGroup) this.fXi.getParent()).removeView(this.fXi);
+    private void lb(boolean z) {
+        if (this.gjB != null && (this.gjB.getParent() instanceof ViewGroup)) {
+            ((ViewGroup) this.gjB.getParent()).removeView(this.gjB);
         }
-        if (z && this.fTI != null && (this.fTI.getParent() instanceof ViewGroup)) {
-            ((ViewGroup) this.fTI.getParent()).removeView(this.fTI);
+        if (z && this.ggb != null && (this.ggb.getParent() instanceof ViewGroup)) {
+            ((ViewGroup) this.ggb.getParent()).removeView(this.ggb);
         }
     }
 
     @Override // com.baidu.live.p.a
-    public boolean BP() {
-        return this.fXi.hhZ >= 10 && this.fXi.hhZ <= 30;
+    public boolean CM() {
+        return this.gjB.hwV >= 10 && this.gjB.hwV <= 30;
     }
 
     @Override // com.baidu.live.p.a
-    public boolean MK() {
-        return this.fXi.hhZ == 2;
+    public boolean NP() {
+        return this.gjB.hwV == 2;
     }
 
     @Override // com.baidu.live.p.a
     public void onDestroy() {
-        kD(true);
-        this.fXi.onDestroy();
+        lb(true);
+        this.gjB.onDestroy();
     }
 }

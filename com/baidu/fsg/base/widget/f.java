@@ -1,13 +1,15 @@
 package com.baidu.fsg.base.widget;
 
 import android.view.View;
-/* loaded from: classes15.dex */
+/* loaded from: classes16.dex */
 class f implements View.OnFocusChangeListener {
-    final /* synthetic */ SafeKeyBoardPopupWindow a;
+
+    /* renamed from: a  reason: collision with root package name */
+    final /* synthetic */ SafeKeyBoardPopupWindow f1550a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public f(SafeKeyBoardPopupWindow safeKeyBoardPopupWindow) {
-        this.a = safeKeyBoardPopupWindow;
+        this.f1550a = safeKeyBoardPopupWindow;
     }
 
     @Override // android.view.View.OnFocusChangeListener

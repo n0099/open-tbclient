@@ -1,7 +1,7 @@
 package com.baidu.android.glview;
 
 import android.view.Surface;
-/* loaded from: classes14.dex */
+/* loaded from: classes6.dex */
 public class GL2JNILib {
     public static native void close(int i);
 

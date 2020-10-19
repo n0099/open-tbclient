@@ -5,7 +5,7 @@ import com.baidu.tbadk.data.ShareBaseMsgData;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes20.dex */
+/* loaded from: classes21.dex */
 public class ShareFromTopicMsgData extends ShareBaseMsgData {
     protected String content;
     protected String hotTopicID;

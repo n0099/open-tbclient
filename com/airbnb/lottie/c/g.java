@@ -6,7 +6,7 @@ import android.util.Log;
 import com.baidu.mobads.interfaces.IXAdRequestInfo;
 import java.io.IOException;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes6.dex */
+/* loaded from: classes10.dex */
 public class g {
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: Can't fix incorrect switch cases order, some code will duplicate */

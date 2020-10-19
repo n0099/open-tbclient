@@ -3,19 +3,13 @@ package com.baidu.tieba.pb.pb.a;
 import android.view.View;
 import com.baidu.tbadk.widget.richText.TbRichTextView;
 import com.baidu.tieba.pb.data.f;
-/* loaded from: classes21.dex */
+/* loaded from: classes22.dex */
 public interface a {
     void A(View.OnClickListener onClickListener);
 
     void S(View.OnClickListener onClickListener);
 
-    void gY(String str);
-
-    void sM(boolean z);
-
-    void sN(boolean z);
-
-    void sO(boolean z);
+    void hp(String str);
 
     void setData(f fVar);
 
@@ -26,4 +20,10 @@ public interface a {
     void setOnImageClickListener(TbRichTextView.i iVar);
 
     void setOnLongClickListener(View.OnLongClickListener onLongClickListener);
+
+    void tt(boolean z);
+
+    void tu(boolean z);
+
+    void tv(boolean z);
 }

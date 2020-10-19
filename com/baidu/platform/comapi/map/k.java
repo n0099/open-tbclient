@@ -6,18 +6,20 @@ import com.baidu.platform.comjni.map.basemap.AppBaseMap;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes3.dex */
+/* loaded from: classes7.dex */
 public class k implements Projection {
-    private MapController a;
+
+    /* renamed from: a  reason: collision with root package name */
+    private MapController f2921a;
 
     public k(MapController mapController) {
-        this.a = null;
-        this.a = mapController;
+        this.f2921a = null;
+        this.f2921a = mapController;
     }
 
     @Override // com.baidu.platform.comapi.map.Projection
     public GeoPoint fromPixels(int i, int i2) {
-        AppBaseMap baseMap = this.a.getBaseMap();
+        AppBaseMap baseMap = this.f2921a.getBaseMap();
         if (baseMap == null) {
             return null;
         }
@@ -38,7 +40,7 @@ public class k implements Projection {
 
     @Override // com.baidu.platform.comapi.map.Projection
     public float metersToEquatorPixels(float f) {
-        return (float) (f / this.a.getZoomUnitsInMeter());
+        return (float) (f / this.f2921a.getZoomUnitsInMeter());
     }
 
     @Override // com.baidu.platform.comapi.map.Projection
@@ -47,7 +49,7 @@ public class k implements Projection {
         if (point == null) {
             point = new Point(0, 0);
         }
-        AppBaseMap baseMap = this.a.getBaseMap();
+        AppBaseMap baseMap = this.f2921a.getBaseMap();
         if (baseMap != null && (GeoPtToScrPoint = baseMap.GeoPtToScrPoint((int) geoPoint.getLongitude(), (int) geoPoint.getLatitude())) != null) {
             try {
                 JSONObject jSONObject = new JSONObject(GeoPtToScrPoint);
@@ -62,7 +64,7 @@ public class k implements Projection {
     @Override // com.baidu.platform.comapi.map.Projection
     public Point world2Screen(float f, float f2, float f3) {
         Point point = new Point(0, 0);
-        AppBaseMap baseMap = this.a.getBaseMap();
+        AppBaseMap baseMap = this.f2921a.getBaseMap();
         if (baseMap == null) {
             return point;
         }

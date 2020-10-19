@@ -1,16 +1,16 @@
 package com.baidu.crabsdk.a;
 
 import android.os.Handler;
-/* loaded from: classes8.dex */
+/* loaded from: classes11.dex */
 public final class j {
-    private static k anm = new k("loop");
-    private static k ann = new k("writelog");
+    private static k anV = new k("loop");
+    private static k anW = new k("writelog");
 
-    public static Handler va() {
-        return anm.getHandler();
+    public static Handler vj() {
+        return anV.getHandler();
     }
 
-    public static Handler vb() {
-        return ann.getHandler();
+    public static Handler vk() {
+        return anW.getHandler();
     }
 }

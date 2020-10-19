@@ -8,15 +8,15 @@ import android.os.Bundle;
 import com.baidu.webkit.internal.a.a;
 import java.lang.reflect.Field;
 import java.util.ArrayList;
-/* loaded from: classes8.dex */
+/* loaded from: classes11.dex */
 public class PermissionActivity extends Activity {
     private static final int REQUEST_CAMERA_RECORD_CODE = 1003;
 
     @Override // android.app.Activity
     protected void onCreate(Bundle bundle) {
-        int a = a.a(this);
+        int a2 = a.a(this);
         super.onCreate(bundle);
-        if (a == -1 || Build.VERSION.SDK_INT != 26 || getApplicationInfo().targetSdkVersion <= 26 || !a.c(this) || a.b(this)) {
+        if (a2 == -1 || Build.VERSION.SDK_INT != 26 || getApplicationInfo().targetSdkVersion <= 26 || !a.c(this) || a.b(this)) {
             return;
         }
         try {
@@ -26,7 +26,7 @@ public class PermissionActivity extends Activity {
             Field declaredField2 = ActivityInfo.class.getDeclaredField("screenOrientation");
             declaredField2.setAccessible(true);
             if (declaredField2.getInt(obj) == -1) {
-                declaredField2.setInt(obj, a);
+                declaredField2.setInt(obj, a2);
             }
         } catch (IllegalAccessException e) {
             e.printStackTrace();

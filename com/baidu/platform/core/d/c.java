@@ -16,7 +16,7 @@ import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes7.dex */
 public class c extends k {
     private RouteNode a(JSONArray jSONArray, List<RouteNode> list) {
         int length;
@@ -26,11 +26,11 @@ public class c extends k {
         for (int i = 0; i < length; i++) {
             JSONObject optJSONObject = jSONArray.optJSONObject(i);
             if (optJSONObject != null) {
-                RouteNode a = a(optJSONObject);
+                RouteNode a2 = a(optJSONObject);
                 if (i == length - 1) {
-                    return a;
+                    return a2;
                 }
-                list.add(a);
+                list.add(a2);
             }
         }
         return null;
@@ -116,14 +116,14 @@ public class c extends k {
                 drivingStep.setExitInstructions(optJSONObject.optString("end_instructions"));
                 drivingStep.setNumTurns(optJSONObject.optInt("turn"));
                 drivingStep.setRoadLevel(optJSONObject.optInt("road_level"));
-                List<LatLng> a = a(optJSONObject.optJSONArray("spath"));
-                drivingStep.setPathList(a);
-                if (a != null) {
+                List<LatLng> a2 = a(optJSONObject.optJSONArray("spath"));
+                drivingStep.setPathList(a2);
+                if (a2 != null) {
                     RouteNode routeNode = new RouteNode();
-                    routeNode.setLocation(a.get(0));
+                    routeNode.setLocation(a2.get(0));
                     drivingStep.setEntrance(routeNode);
                     RouteNode routeNode2 = new RouteNode();
-                    routeNode2.setLocation(a.get(a.size() - 1));
+                    routeNode2.setLocation(a2.get(a2.size() - 1));
                     drivingStep.setExit(routeNode2);
                 }
                 if (z && i5 < i) {
@@ -213,10 +213,10 @@ public class c extends k {
                     if (optJSONObject3 == null || optJSONObject4 == null) {
                         return false;
                     }
-                    RouteNode a = a(optJSONObject3.optJSONObject("start"));
+                    RouteNode a2 = a(optJSONObject3.optJSONObject("start"));
                     ArrayList arrayList = new ArrayList();
-                    RouteNode a2 = a(optJSONObject3.optJSONArray("end"), arrayList);
-                    List<DrivingRouteLine.DrivingStep> a3 = a(optJSONObject4.optJSONArray("steps"), optJSONObject4.optJSONArray("stepts"));
+                    RouteNode a3 = a(optJSONObject3.optJSONArray("end"), arrayList);
+                    List<DrivingRouteLine.DrivingStep> a4 = a(optJSONObject4.optJSONArray("steps"), optJSONObject4.optJSONArray("stepts"));
                     ArrayList arrayList2 = new ArrayList();
                     JSONArray optJSONArray = optJSONObject4.optJSONArray("routes");
                     if (optJSONArray == null) {
@@ -239,14 +239,14 @@ public class c extends k {
                                 if (optJSONObject6 != null) {
                                     i3 += optJSONObject6.optInt("distance");
                                     i2 += optJSONObject6.optInt("duration");
-                                    List<DrivingRouteLine.DrivingStep> b = b(optJSONObject6.optJSONArray("stepis"), a3);
+                                    List<DrivingRouteLine.DrivingStep> b = b(optJSONObject6.optJSONArray("stepis"), a4);
                                     if (b != null) {
                                         arrayList3.addAll(b);
                                     }
                                 }
                             }
-                            drivingRouteLine.setStarting(a);
-                            drivingRouteLine.setTerminal(a2);
+                            drivingRouteLine.setStarting(a2);
+                            drivingRouteLine.setTerminal(a3);
                             if (arrayList.size() == 0) {
                                 drivingRouteLine.setWayPoints(null);
                             } else {

@@ -5,126 +5,127 @@ import android.util.SparseArray;
 import java.util.ArrayList;
 import java.util.List;
 import org.json.JSONArray;
-/* loaded from: classes11.dex */
+/* loaded from: classes19.dex */
 public class w {
-    private final x npO;
+    private final x nFi;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public w(Context context) {
-        this.npO = x.gf(context);
+        this.nFi = x.gm(context);
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public void a(n nVar) {
-        this.npO.a(nVar);
+        this.nFi.a(nVar);
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public void aD(List<n> list) {
-        this.npO.aD(list);
+    public void aG(List<n> list) {
+        this.nFi.aG(list);
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public boolean dQe() {
-        return this.npO.dQe();
+    public boolean dTP() {
+        return this.nFi.dTP();
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public void b(p pVar) {
-        this.npO.b(pVar);
+        this.nFi.b(pVar);
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public void a(String str, int i, long j, JSONArray jSONArray) {
-        this.npO.a(str, i, j, jSONArray);
+        this.nFi.a(str, i, j, jSONArray);
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public void H(String str, int i) {
-        this.npO.H(str, i);
+    public void I(String str, int i) {
+        this.nFi.I(str, i);
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public void f(String str, int i, String str2) {
-        this.npO.f(str, i, str2);
+    public void h(String str, int i, String str2) {
+        this.nFi.h(str, i, str2);
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public void aVW() {
-        this.npO.aVW();
+    public void aYE() {
+        this.nFi.aYE();
     }
 
     public void a(f fVar) {
-        this.npO.a(fVar);
+        this.nFi.a(fVar);
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public void b(SparseArray<ArrayList> sparseArray) {
-        this.npO.b(sparseArray);
+        this.nFi.b(sparseArray);
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public k Uj(String str) {
-        return this.npO.Uj(str);
+    public k UX(String str) {
+        return this.nFi.UX(str);
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public boolean Uk(String str) {
-        return this.npO.Uk(str);
+    public boolean UY(String str) {
+        return this.nFi.UY(str);
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public int a(ArrayList<j> arrayList, ah ahVar) {
-        return this.npO.a(arrayList, ahVar);
+        return this.nFi.a(arrayList, ahVar);
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public int c(ah ahVar) {
-        return this.npO.c(ahVar);
+        return this.nFi.c(ahVar);
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public int d(ah ahVar) {
-        return this.npO.d(ahVar);
+        return this.nFi.d(ahVar);
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public boolean a(k kVar) {
-        return this.npO.a(kVar);
+        return this.nFi.a(kVar);
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public boolean a(SparseArray<Integer> sparseArray, ArrayList<String> arrayList, boolean z, String str) {
-        return this.npO.a(sparseArray, arrayList, z, str);
+        return this.nFi.a(sparseArray, arrayList, z, str);
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public o Ul(String str) {
-        return this.npO.Ul(str);
+    public o UZ(String str) {
+        return this.nFi.UZ(str);
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public void xp(String str) {
-        this.npO.xp(str);
+    public void yb(String str) {
+        this.nFi.yb(str);
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public void aVX() {
-        this.npO.aVX();
+    public void aYF() {
+        this.nFi.aYF();
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public void xq(String str) {
-        this.npO.xq(str);
+    public void yc(String str) {
+        this.nFi.yc(str);
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public void dj(String str, String str2) {
-        this.npO.dj(str, str2);
+    /* renamed from: do  reason: not valid java name */
+    public void m43do(String str, String str2) {
+        this.nFi.m44do(str, str2);
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public void aVY() {
-        this.npO.aVY();
+    public void aYG() {
+        this.nFi.aYG();
     }
 }

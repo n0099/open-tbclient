@@ -5,15 +5,15 @@ import tbclient.ExcPbPage.ExcellentPbThreadInfo;
 import tbclient.ExcPbPage.UserInfo;
 import tbclient.Post;
 import tbclient.User;
-/* loaded from: classes22.dex */
+/* loaded from: classes23.dex */
 public class a implements com.baidu.tieba.pb.chosen.net.a {
-    private UserInfo kEq;
+    private UserInfo kTB;
     private List<Post> postList;
     private ExcellentPbThreadInfo threadInfo;
     private List<User> userList;
 
     public a(UserInfo userInfo, ExcellentPbThreadInfo excellentPbThreadInfo, List<Post> list, List<User> list2) {
-        this.kEq = userInfo;
+        this.kTB = userInfo;
         this.threadInfo = excellentPbThreadInfo;
         this.postList = list;
         this.userList = list2;
@@ -21,7 +21,7 @@ public class a implements com.baidu.tieba.pb.chosen.net.a {
 
     @Override // com.baidu.tieba.pb.chosen.net.a
     public UserInfo getUserInfo() {
-        return this.kEq;
+        return this.kTB;
     }
 
     @Override // com.baidu.tieba.pb.chosen.net.a

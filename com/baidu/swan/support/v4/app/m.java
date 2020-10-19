@@ -3,13 +3,13 @@ package com.baidu.swan.support.v4.app;
 import android.support.annotation.AnimRes;
 import android.support.annotation.IdRes;
 import android.support.annotation.Nullable;
-/* loaded from: classes24.dex */
+/* loaded from: classes6.dex */
 public abstract class m {
     public abstract m a(@IdRes int i, Fragment fragment);
 
     public abstract m a(@IdRes int i, Fragment fragment, @Nullable String str);
 
-    public abstract m aE(@AnimRes int i, @AnimRes int i2);
+    public abstract m aD(@AnimRes int i, @AnimRes int i2);
 
     public abstract m c(Fragment fragment);
 

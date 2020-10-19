@@ -2,7 +2,7 @@ package com.xiaomi.push;
 
 import com.baidu.searchbox.ui.CoolPraiseGuideLottieView;
 import com.tencent.connect.common.Constants;
-/* loaded from: classes9.dex */
+/* loaded from: classes12.dex */
 public enum fh {
     TCP_CONN_FAIL(1),
     TCP_CONN_TIME(2),
@@ -62,10 +62,10 @@ public enum fh {
     
 
     /* renamed from: a  reason: collision with other field name */
-    private final int f321a;
+    private final int f322a;
 
     fh(int i) {
-        this.f321a = i;
+        this.f322a = i;
     }
 
     public static fh a(int i) {
@@ -186,6 +186,6 @@ public enum fh {
     }
 
     public int a() {
-        return this.f321a;
+        return this.f322a;
     }
 }

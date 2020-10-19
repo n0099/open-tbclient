@@ -1,20 +1,20 @@
 package com.baidu.tieba.personPolymeric.c;
 
 import com.baidu.tbadk.core.util.y;
-/* loaded from: classes23.dex */
+/* loaded from: classes24.dex */
 public class p extends a {
     public p(boolean z) {
         super(z);
     }
 
     @Override // com.baidu.tieba.personPolymeric.c.a
-    public void dmj() {
-        this.lvs.clear();
+    public void dpT() {
+        this.lKE.clear();
         if (this.mCardNullPolymericData != null) {
-            this.lvs.add(this.mCardNullPolymericData);
+            this.lKE.add(this.mCardNullPolymericData);
         }
-        if (!y.isEmpty(this.lvr)) {
-            this.lvs.addAll(this.lvr);
+        if (!y.isEmpty(this.lKD)) {
+            this.lKE.addAll(this.lKD);
         }
     }
 }

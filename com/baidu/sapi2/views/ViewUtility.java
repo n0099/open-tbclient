@@ -13,15 +13,17 @@ import com.baidu.sapi2.SapiAccountManager;
 import com.baidu.sapi2.utils.Log;
 import java.lang.reflect.Field;
 import java.lang.reflect.Method;
-/* loaded from: classes25.dex */
+/* loaded from: classes5.dex */
 public class ViewUtility implements NoProguard {
 
-    /* loaded from: classes25.dex */
+    /* loaded from: classes5.dex */
     static class a implements View.OnTouchListener {
-        final /* synthetic */ float a;
+
+        /* renamed from: a  reason: collision with root package name */
+        final /* synthetic */ float f3573a;
 
         a(float f) {
-            this.a = f;
+            this.f3573a = f;
         }
 
         @Override // android.view.View.OnTouchListener
@@ -29,7 +31,7 @@ public class ViewUtility implements NoProguard {
             int action = motionEvent.getAction();
             if (action == 0) {
                 if (Build.VERSION.SDK_INT >= 11) {
-                    view.setAlpha(this.a);
+                    view.setAlpha(this.f3573a);
                     return false;
                 }
                 return false;

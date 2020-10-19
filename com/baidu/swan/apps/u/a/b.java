@@ -3,29 +3,29 @@ package com.baidu.swan.apps.u.a;
 import android.text.TextUtils;
 import android.util.Log;
 import android.util.LruCache;
-/* loaded from: classes3.dex */
+/* loaded from: classes10.dex */
 public final class b {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    private final LruCache<String, Object> cxO;
+    private final LruCache<String, Object> cJT;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes10.dex */
     private static class a {
-        static final b cxP = new b();
+        static final b cJU = new b();
     }
 
     private b() {
-        this.cxO = new LruCache<>(10);
+        this.cJT = new LruCache<>(10);
     }
 
-    public static b are() {
-        return a.cxP;
+    public static b atQ() {
+        return a.cJU;
     }
 
-    public synchronized <RESULT> RESULT nF(String str) {
+    public synchronized <RESULT> RESULT ot(String str) {
         RESULT result = null;
         synchronized (this) {
             if (!TextUtils.isEmpty(str)) {
-                Object obj = this.cxO.get(str);
+                Object obj = this.cJT.get(str);
                 if (obj == null) {
                     if (DEBUG) {
                         Log.d("SwanAppLaunchCache", "doesn't hit the cache result, key = " + str);
@@ -52,22 +52,22 @@ public final class b {
             if (DEBUG) {
                 Log.d("SwanAppLaunchCache", "putConfig key: " + str);
             }
-            this.cxO.put(str, result);
+            this.cJT.put(str, result);
         }
     }
 
-    public synchronized void nG(String str) {
+    public synchronized void ou(String str) {
         if (!TextUtils.isEmpty(str)) {
             if (DEBUG) {
                 Log.d("SwanAppLaunchCache", "removeConfig key: " + str);
             }
-            this.cxO.remove(str);
+            this.cJT.remove(str);
         }
     }
 
     public synchronized void clear() {
-        if (this.cxO != null) {
-            this.cxO.evictAll();
+        if (this.cJT != null) {
+            this.cJT.evictAll();
         }
     }
 }

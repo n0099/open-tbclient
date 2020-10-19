@@ -12,52 +12,52 @@ import java.util.ArrayDeque;
 import java.util.HashSet;
 import java.util.Queue;
 import java.util.Set;
-/* loaded from: classes3.dex */
+/* loaded from: classes10.dex */
 public abstract class d extends a {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    private static d cRV;
+    private static d dec;
     private static Handler sMainHandler;
-    private com.baidu.swan.apps.adaptation.a cRX;
-    private com.baidu.swan.pms.c.f cSc;
-    public final com.baidu.swan.apps.u.c.a.c cRW = new c.a();
-    private final Set<com.baidu.swan.apps.ap.e.b<i.a>> cRY = new HashSet();
-    public volatile int cRZ = 0;
-    private final Queue<Runnable> cSa = new ArrayDeque();
-    private Runnable cSb = null;
+    private com.baidu.swan.apps.adaptation.a dee;
+    private com.baidu.swan.pms.c.f dej;
+    public final com.baidu.swan.apps.u.c.a.c ded = new c.a();
+    private final Set<com.baidu.swan.apps.ap.e.b<i.a>> def = new HashSet();
+    public volatile int deg = 0;
+    private final Queue<Runnable> deh = new ArrayDeque();
+    private Runnable dei = null;
     private boolean inited = false;
 
-    protected abstract com.baidu.swan.pms.c.f aAm();
+    protected abstract com.baidu.swan.pms.c.f aCV();
 
-    public static d aAn() {
-        d aAo = aAo();
-        if (!aAo.inited) {
-            aAo.init();
+    public static d aCW() {
+        d aCX = aCX();
+        if (!aCX.inited) {
+            aCX.init();
         }
-        return aAo;
+        return aCX;
     }
 
-    private static d aAo() {
-        if (cRV instanceof j) {
-            return cRV;
+    private static d aCX() {
+        if (dec instanceof j) {
+            return dec;
         }
         synchronized (d.class) {
-            if (cRV instanceof j) {
-                return cRV;
+            if (dec instanceof j) {
+                return dec;
             }
             SwanAppProcessInfo current = SwanAppProcessInfo.current();
             if (current.isSwanClient) {
-                cRV = new j();
-                return cRV;
+                dec = new j();
+                return dec;
             } else if (current.isSwanService) {
-                if (!(cRV instanceof l)) {
-                    cRV = new l();
+                if (!(dec instanceof l)) {
+                    dec = new l();
                 }
-                return cRV;
+                return dec;
             } else {
-                if (cRV == null) {
-                    cRV = new c();
+                if (dec == null) {
+                    dec = new c();
                 }
-                return cRV;
+                return dec;
             }
         }
     }
@@ -71,21 +71,21 @@ public abstract class d extends a {
 
     private void init() {
         if (!this.inited) {
-            aAq();
+            aCZ();
             com.baidu.swan.apps.process.b.c.init();
         }
     }
 
     @Override // com.baidu.swan.apps.runtime.h
-    public com.baidu.swan.apps.adaptation.a aAp() {
-        if (this.cRX == null) {
-            this.cRX = new com.baidu.swan.apps.adaptation.a();
+    public com.baidu.swan.apps.adaptation.a aCY() {
+        if (this.dee == null) {
+            this.dee = new com.baidu.swan.apps.adaptation.a();
         }
-        return this.cRX;
+        return this.dee;
     }
 
     @Override // com.baidu.swan.apps.runtime.h
-    public void qA(String str) {
+    public void rm(String str) {
         f(str, null);
     }
 
@@ -97,21 +97,21 @@ public abstract class d extends a {
     @Override // com.baidu.swan.apps.runtime.h
     public void i(final i.a aVar) {
         if (DEBUG) {
-            Log.i("SwanImpl", "SwanEvent dispatchEvent: " + aVar + " mEventCallbacks:" + this.cRY.size());
+            Log.i("SwanImpl", "SwanEvent dispatchEvent: " + aVar + " mEventCallbacks:" + this.def.size());
         }
         if (aVar != null) {
             g(new Runnable() { // from class: com.baidu.swan.apps.runtime.d.1
                 @Override // java.lang.Runnable
                 public void run() {
                     boolean z = Looper.getMainLooper() == Looper.myLooper();
-                    for (final com.baidu.swan.apps.ap.e.b bVar : d.this.cRY) {
+                    for (final com.baidu.swan.apps.ap.e.b bVar : d.this.def) {
                         if (z && !aVar.getBoolean("event_flag_force_post", false)) {
-                            bVar.J(aVar);
+                            bVar.M(aVar);
                         } else {
                             d.getMainHandler().post(new Runnable() { // from class: com.baidu.swan.apps.runtime.d.1.1
                                 @Override // java.lang.Runnable
                                 public void run() {
-                                    bVar.J(aVar);
+                                    bVar.M(aVar);
                                 }
                             });
                         }
@@ -127,7 +127,7 @@ public abstract class d extends a {
             g(new Runnable() { // from class: com.baidu.swan.apps.runtime.d.2
                 @Override // java.lang.Runnable
                 public void run() {
-                    d.this.cRY.add(bVar);
+                    d.this.def.add(bVar);
                 }
             });
         }
@@ -139,29 +139,29 @@ public abstract class d extends a {
             g(new Runnable() { // from class: com.baidu.swan.apps.runtime.d.3
                 @Override // java.lang.Runnable
                 public void run() {
-                    d.this.cRY.remove(bVar);
+                    d.this.def.remove(bVar);
                 }
             });
         }
     }
 
     private synchronized void g(@NonNull Runnable runnable) {
-        this.cSa.offer(runnable);
-        if (this.cSb == null) {
-            while (!this.cSa.isEmpty()) {
-                this.cSb = this.cSa.poll();
-                if (this.cSb != null) {
-                    this.cSb.run();
+        this.deh.offer(runnable);
+        if (this.dei == null) {
+            while (!this.deh.isEmpty()) {
+                this.dei = this.deh.poll();
+                if (this.dei != null) {
+                    this.dei.run();
                 }
-                this.cSb = null;
+                this.dei = null;
             }
         }
     }
 
-    public com.baidu.swan.pms.c.f aAq() {
-        if (this.cSc == null) {
-            this.cSc = aAm();
+    public com.baidu.swan.pms.c.f aCZ() {
+        if (this.dej == null) {
+            this.dej = aCV();
         }
-        return this.cSc;
+        return this.dej;
     }
 }

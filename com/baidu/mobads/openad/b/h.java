@@ -1,7 +1,9 @@
 package com.baidu.mobads.openad.b;
-/* loaded from: classes3.dex */
+/* loaded from: classes7.dex */
 class h {
-    private int a;
+
+    /* renamed from: a  reason: collision with root package name */
+    private int f2379a;
     private int b;
     private int c;
     private int d;
@@ -34,11 +36,11 @@ class h {
     }
 
     public int c() {
-        return this.a;
+        return this.f2379a;
     }
 
     public void b(int i) {
-        this.a = i;
+        this.f2379a = i;
     }
 
     public int d() {

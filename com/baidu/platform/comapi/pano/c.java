@@ -1,7 +1,9 @@
 package com.baidu.platform.comapi.pano;
-/* loaded from: classes3.dex */
+/* loaded from: classes7.dex */
 public class c {
-    String a;
+
+    /* renamed from: a  reason: collision with root package name */
+    String f2936a;
     PanoStateError b;
     int c;
 
@@ -21,11 +23,11 @@ public class c {
     }
 
     public void a(String str) {
-        this.a = str;
+        this.f2936a = str;
     }
 
     public String b() {
-        return this.a;
+        return this.f2936a;
     }
 
     public int c() {

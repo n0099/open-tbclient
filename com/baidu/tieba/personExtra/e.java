@@ -14,9 +14,9 @@ import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.core.util.aq;
 import com.baidu.tieba.R;
-/* loaded from: classes23.dex */
+/* loaded from: classes24.dex */
 public class e implements com.baidu.tieba.personPolymeric.b.c {
-    private com.baidu.tieba.post.a.a lsN;
+    private com.baidu.tieba.post.a.a lIa;
     private BdUniqueId mId;
     private TbPageContext mTbPageContext;
     private int mStatus = 0;
@@ -36,14 +36,14 @@ public class e implements com.baidu.tieba.personPolymeric.b.c {
                     e.this.mTbPageContext.showToast(R.string.privacy_setting_toast);
                 }
                 e.this.mStatus = 1;
-                e.this.lsN.startPullRefresh();
+                e.this.lIa.startPullRefresh();
             }
         }
     };
 
     public e(TbPageContext tbPageContext, com.baidu.tieba.post.a.a aVar, BdUniqueId bdUniqueId) {
         this.mTbPageContext = tbPageContext;
-        this.lsN = aVar;
+        this.lIa = aVar;
         this.mId = bdUniqueId;
         CustomMessageListener customMessageListener = new CustomMessageListener(CmdConfigCustom.CMD_PRIVACY_STATUS) { // from class: com.baidu.tieba.personExtra.e.2
             /* JADX DEBUG: Method merged with bridge method */
@@ -57,7 +57,7 @@ public class e implements com.baidu.tieba.personPolymeric.b.c {
                         default:
                             return;
                         case 1:
-                            e.this.lsN.startPullRefresh();
+                            e.this.lIa.startPullRefresh();
                             return;
                     }
                 }
@@ -70,7 +70,7 @@ public class e implements com.baidu.tieba.personPolymeric.b.c {
     }
 
     @Override // com.baidu.tieba.personPolymeric.b.c
-    public void dlG() {
+    public void dpq() {
         if (!com.baidu.adp.lib.util.j.isNetWorkAvailable()) {
             if (this.mTbPageContext != null) {
                 this.mTbPageContext.showToast(R.string.neterror);
@@ -83,6 +83,6 @@ public class e implements com.baidu.tieba.personPolymeric.b.c {
         httpMessage.addParam("val", String.valueOf(1));
         httpMessage.setTag(this.mId);
         MessageManager.getInstance().sendMessage(httpMessage);
-        TiebaStatic.log(new aq("c12515").ai("obj_locate", 1));
+        TiebaStatic.log(new aq("c12515").aj("obj_locate", 1));
     }
 }

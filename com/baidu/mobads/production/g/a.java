@@ -31,7 +31,7 @@ import java.util.Observer;
 import org.apache.http.client.methods.HttpHead;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes7.dex */
 public class a extends com.baidu.mobads.production.b {
     private static boolean D = false;
     private static int E = 0;

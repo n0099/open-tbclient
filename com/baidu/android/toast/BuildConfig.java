@@ -1,5 +1,5 @@
 package com.baidu.android.toast;
-/* loaded from: classes5.dex */
+/* loaded from: classes12.dex */
 public final class BuildConfig {
     public static final String APPLICATION_ID = "com.baidu.android.toast";
     public static final String BUILD_TYPE = "release";

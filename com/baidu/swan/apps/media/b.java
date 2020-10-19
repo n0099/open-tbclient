@@ -4,48 +4,48 @@ import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.text.TextUtils;
 import java.util.ArrayList;
-/* loaded from: classes3.dex */
+/* loaded from: classes10.dex */
 public final class b {
-    private static ArrayList<a> cAo = new ArrayList<>();
+    private static ArrayList<a> cMt = new ArrayList<>();
 
-    public static void eI(boolean z) {
-        for (int size = cAo.size() - 1; size >= 0; size--) {
-            a aVar = cAo.get(size);
+    public static void fe(boolean z) {
+        for (int size = cMt.size() - 1; size >= 0; size--) {
+            a aVar = cMt.get(size);
             if (aVar != null) {
-                aVar.eG(z);
+                aVar.fc(z);
             }
         }
     }
 
-    public static void eH(boolean z) {
-        for (int size = cAo.size() - 1; size >= 0; size--) {
-            a aVar = cAo.get(size);
+    public static void fd(boolean z) {
+        for (int size = cMt.size() - 1; size >= 0; size--) {
+            a aVar = cMt.get(size);
             if (aVar != null) {
-                aVar.eH(z);
+                aVar.fd(z);
             }
         }
     }
 
-    public static a ov(String str) {
+    public static a ph(String str) {
         if (TextUtils.isEmpty(str)) {
             return null;
         }
-        for (int size = cAo.size() - 1; size >= 0; size--) {
-            a aVar = cAo.get(size);
-            if (aVar != null && TextUtils.equals(str, aVar.aoZ())) {
+        for (int size = cMt.size() - 1; size >= 0; size--) {
+            a aVar = cMt.get(size);
+            if (aVar != null && TextUtils.equals(str, aVar.arL())) {
                 return aVar;
             }
         }
         return null;
     }
 
-    public static a G(@Nullable String str, @Nullable String str2, @NonNull String str3) {
+    public static a H(@Nullable String str, @Nullable String str2, @NonNull String str3) {
         if (TextUtils.isEmpty(str3)) {
             return null;
         }
-        for (int size = cAo.size() - 1; size >= 0; size--) {
-            a aVar = cAo.get(size);
-            if (aVar != null && ((TextUtils.isEmpty(str) || TextUtils.equals(str, aVar.getSlaveId())) && ((!TextUtils.isEmpty(str2) && TextUtils.equals(str2, aVar.atc())) || TextUtils.equals(str3, aVar.aoZ())))) {
+        for (int size = cMt.size() - 1; size >= 0; size--) {
+            a aVar = cMt.get(size);
+            if (aVar != null && ((TextUtils.isEmpty(str) || TextUtils.equals(str, aVar.getSlaveId())) && ((!TextUtils.isEmpty(str2) && TextUtils.equals(str2, aVar.avN())) || TextUtils.equals(str3, aVar.arL())))) {
                 return aVar;
             }
         }
@@ -53,27 +53,27 @@ public final class b {
     }
 
     public static void a(a aVar) {
-        if (aVar != null && !cAo.contains(aVar)) {
-            cAo.add(aVar);
+        if (aVar != null && !cMt.contains(aVar)) {
+            cMt.add(aVar);
         }
     }
 
     public static void b(a aVar) {
         if (aVar != null) {
-            cAo.remove(aVar);
+            cMt.remove(aVar);
         }
     }
 
-    public static void ate() {
-        cAo.clear();
+    public static void avP() {
+        cMt.clear();
     }
 
-    public static boolean ow(String str) {
+    public static boolean pi(String str) {
         if (TextUtils.isEmpty(str)) {
             return false;
         }
-        for (int size = cAo.size() - 1; size >= 0; size--) {
-            a aVar = cAo.get(size);
+        for (int size = cMt.size() - 1; size >= 0; size--) {
+            a aVar = cMt.get(size);
             if (aVar != null && TextUtils.equals(str, aVar.getSlaveId()) && aVar.onBackPressed()) {
                 return true;
             }
@@ -81,10 +81,10 @@ public final class b {
         return false;
     }
 
-    public static void he(String str) {
+    public static void hv(String str) {
         if (!TextUtils.isEmpty(str)) {
-            for (int size = cAo.size() - 1; size >= 0; size--) {
-                a aVar = cAo.get(size);
+            for (int size = cMt.size() - 1; size >= 0; size--) {
+                a aVar = cMt.get(size);
                 if (aVar != null && TextUtils.equals(str, aVar.getSlaveId())) {
                     aVar.onDestroy();
                 }
@@ -93,8 +93,8 @@ public final class b {
     }
 
     public static void destroy() {
-        for (int size = cAo.size() - 1; size >= 0; size--) {
-            a aVar = cAo.get(size);
+        for (int size = cMt.size() - 1; size >= 0; size--) {
+            a aVar = cMt.get(size);
             if (aVar != null) {
                 aVar.onDestroy();
             }

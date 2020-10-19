@@ -1,7 +1,7 @@
 package com.sdk.base.framework.a.a;
 
 import java.util.concurrent.ConcurrentHashMap;
-/* loaded from: classes5.dex */
+/* loaded from: classes16.dex */
 public final class b<K, V> extends ConcurrentHashMap<K, Long> {
     public b() {
     }

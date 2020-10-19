@@ -2,19 +2,21 @@ package com.baidu.mapsdkplatform.comapi;
 
 import java.io.File;
 import java.io.FilenameFilter;
-/* loaded from: classes3.dex */
+/* loaded from: classes7.dex */
 class d implements FilenameFilter {
-    final /* synthetic */ String a;
+
+    /* renamed from: a  reason: collision with root package name */
+    final /* synthetic */ String f2212a;
     final /* synthetic */ NativeLoader b;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public d(NativeLoader nativeLoader, String str) {
         this.b = nativeLoader;
-        this.a = str;
+        this.f2212a = str;
     }
 
     @Override // java.io.FilenameFilter
     public boolean accept(File file, String str) {
-        return (str == null || !str.contains("libBaiduMapSDK_") || str.contains(this.a)) ? false : true;
+        return (str == null || !str.contains("libBaiduMapSDK_") || str.contains(this.f2212a)) ? false : true;
     }
 }

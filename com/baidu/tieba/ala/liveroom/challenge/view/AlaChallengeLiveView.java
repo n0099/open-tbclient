@@ -31,55 +31,55 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes4.dex */
 public class AlaChallengeLiveView extends RelativeLayout implements View.OnClickListener {
-    private ay aJG;
-    private ay aJH;
-    private CountDownTimer fTL;
-    private RelativeLayout gxA;
-    private RelativeLayout gxB;
-    private RelativeLayout gxC;
-    private RelativeLayout gxD;
-    private RelativeLayout gxE;
-    private ImageView gxF;
-    private TextView gxG;
-    private LinearLayout gxH;
-    private ChallengeJinzhuView gxI;
-    private ChallengeJinzhuView gxJ;
-    private ChallengeJinzhuView gxK;
-    private RelativeLayout gxL;
-    private RelativeLayout gxM;
-    private HeadImageView gxN;
-    private TextView gxO;
-    private ImageView gxP;
-    private LinearLayout gxQ;
-    private ChallengeJinzhuView gxR;
-    private ChallengeJinzhuView gxS;
-    private ChallengeJinzhuView gxT;
-    private RelativeLayout gxU;
-    private ImageView gxV;
-    private TextView gxW;
-    private AlaChallengeMvpTipView gxX;
-    private AlaChallengeMvpDynamicAnimView gxY;
-    private LinearLayout gxZ;
-    private RelativeLayout gxy;
-    private RelativeLayout gxz;
-    private TextView gya;
-    private RelativeLayout gyb;
-    private TextView gyc;
-    private TextView gyd;
-    private View gye;
-    private View gyf;
-    private TextView gyg;
-    private a gyh;
-    private long gyi;
-    private long gyj;
-    private int gyk;
-    private int gyl;
-    private au gym;
-    private ValueAnimator gyn;
-    private AnimatorSet gyo;
-    private List<as> gyp;
-    private List<as> gyq;
-    public boolean gyr;
+    private ay aML;
+    private ay aMM;
+    private RelativeLayout gLR;
+    private RelativeLayout gLS;
+    private RelativeLayout gLT;
+    private RelativeLayout gLU;
+    private RelativeLayout gLV;
+    private RelativeLayout gLW;
+    private RelativeLayout gLX;
+    private ImageView gLY;
+    private TextView gLZ;
+    private a gMA;
+    private long gMB;
+    private long gMC;
+    private int gMD;
+    private int gME;
+    private au gMF;
+    private ValueAnimator gMG;
+    private AnimatorSet gMH;
+    private List<as> gMI;
+    private List<as> gMJ;
+    public boolean gMK;
+    private LinearLayout gMa;
+    private ChallengeJinzhuView gMb;
+    private ChallengeJinzhuView gMc;
+    private ChallengeJinzhuView gMd;
+    private RelativeLayout gMe;
+    private RelativeLayout gMf;
+    private HeadImageView gMg;
+    private TextView gMh;
+    private ImageView gMi;
+    private LinearLayout gMj;
+    private ChallengeJinzhuView gMk;
+    private ChallengeJinzhuView gMl;
+    private ChallengeJinzhuView gMm;
+    private RelativeLayout gMn;
+    private ImageView gMo;
+    private TextView gMp;
+    private AlaChallengeMvpTipView gMq;
+    private AlaChallengeMvpDynamicAnimView gMr;
+    private LinearLayout gMs;
+    private TextView gMt;
+    private RelativeLayout gMu;
+    private TextView gMv;
+    private TextView gMw;
+    private View gMx;
+    private View gMy;
+    private TextView gMz;
+    private CountDownTimer gge;
     private boolean isHost;
     private Context mContext;
     private Handler mHandler;
@@ -90,9 +90,9 @@ public class AlaChallengeLiveView extends RelativeLayout implements View.OnClick
     public interface a {
         void a(bq bqVar);
 
-        void bRR();
+        void bVl();
 
-        void bRS();
+        void bVm();
 
         void d(ay ayVar);
 
@@ -100,172 +100,172 @@ public class AlaChallengeLiveView extends RelativeLayout implements View.OnClick
 
         void f(ay ayVar);
 
-        void ma(boolean z);
+        void mC(boolean z);
     }
 
     public AlaChallengeLiveView(Context context) {
         super(context);
         this.isHost = false;
-        this.gyi = -1L;
-        this.gyj = -1L;
+        this.gMB = -1L;
+        this.gMC = -1L;
         this.screenWidth = -1;
-        this.gyk = 0;
-        this.gyl = 0;
-        this.gyr = false;
+        this.gMD = 0;
+        this.gME = 0;
+        this.gMK = false;
         init(context);
     }
 
     public AlaChallengeLiveView(Context context, @Nullable AttributeSet attributeSet) {
         super(context, attributeSet);
         this.isHost = false;
-        this.gyi = -1L;
-        this.gyj = -1L;
+        this.gMB = -1L;
+        this.gMC = -1L;
         this.screenWidth = -1;
-        this.gyk = 0;
-        this.gyl = 0;
-        this.gyr = false;
+        this.gMD = 0;
+        this.gME = 0;
+        this.gMK = false;
         init(context);
     }
 
     public AlaChallengeLiveView(Context context, @Nullable AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
         this.isHost = false;
-        this.gyi = -1L;
-        this.gyj = -1L;
+        this.gMB = -1L;
+        this.gMC = -1L;
         this.screenWidth = -1;
-        this.gyk = 0;
-        this.gyl = 0;
-        this.gyr = false;
+        this.gMD = 0;
+        this.gME = 0;
+        this.gMK = false;
         init(context);
     }
 
     private void init(Context context) {
         this.mContext = context;
         this.mHandler = new Handler(Looper.getMainLooper());
-        dK(context);
+        dQ(context);
         updateView();
     }
 
     public void setNeedCloseRecommendFloat(boolean z) {
-        this.gyr = z;
-        this.gxI.setNeedCloseRecommendFloat(this.gyr);
-        this.gxJ.setNeedCloseRecommendFloat(this.gyr);
-        this.gxK.setNeedCloseRecommendFloat(this.gyr);
-        this.gxR.setNeedCloseRecommendFloat(this.gyr);
-        this.gxS.setNeedCloseRecommendFloat(this.gyr);
-        this.gxT.setNeedCloseRecommendFloat(this.gyr);
+        this.gMK = z;
+        this.gMb.setNeedCloseRecommendFloat(this.gMK);
+        this.gMc.setNeedCloseRecommendFloat(this.gMK);
+        this.gMd.setNeedCloseRecommendFloat(this.gMK);
+        this.gMk.setNeedCloseRecommendFloat(this.gMK);
+        this.gMl.setNeedCloseRecommendFloat(this.gMK);
+        this.gMm.setNeedCloseRecommendFloat(this.gMK);
     }
 
     public void setIsHost(boolean z) {
         this.isHost = z;
     }
 
-    private void dK(Context context) {
+    private void dQ(Context context) {
         this.rootView = (RelativeLayout) View.inflate(context, a.h.ala_challenge_panel_optation_view, this);
-        this.gxy = (RelativeLayout) this.rootView.findViewById(a.g.root_container);
-        this.gxA = (RelativeLayout) this.rootView.findViewById(a.g.anchor_live_anim_layout);
-        this.gxB = (RelativeLayout) this.rootView.findViewById(a.g.rival_live_anim_layout);
-        this.gxz = (RelativeLayout) this.rootView.findViewById(a.g.pk_live_container);
-        this.gxD = (RelativeLayout) this.rootView.findViewById(a.g.pk_anchor_live_layout);
-        this.gxE = (RelativeLayout) this.rootView.findViewById(a.g.anchor_streak_win_layout);
-        this.gxF = (ImageView) this.rootView.findViewById(a.g.anchor_user_pk_streak_img);
-        this.gxG = (TextView) this.rootView.findViewById(a.g.anchor_user_pk_streak_time);
-        this.gxC = (RelativeLayout) this.rootView.findViewById(a.g.jinzhu_container);
-        this.gxH = (LinearLayout) this.rootView.findViewById(a.g.anchor_jinzhu_layout);
-        this.gxI = (ChallengeJinzhuView) this.rootView.findViewById(a.g.anchor_jinzhu_1);
-        this.gxJ = (ChallengeJinzhuView) this.rootView.findViewById(a.g.anchor_jinzhu_2);
-        this.gxK = (ChallengeJinzhuView) this.rootView.findViewById(a.g.anchor_jinzhu_3);
-        this.gxL = (RelativeLayout) this.rootView.findViewById(a.g.pk_rival_live_layout);
-        this.gxM = (RelativeLayout) this.rootView.findViewById(a.g.pk_rival_user_layout);
-        this.gxN = (HeadImageView) this.rootView.findViewById(a.g.ala_live_rival_user_image);
-        this.gxO = (TextView) this.rootView.findViewById(a.g.ala_live_rival_user_name);
-        this.gxP = (ImageView) this.rootView.findViewById(a.g.iv_rival_user_follow);
-        this.gxU = (RelativeLayout) this.rootView.findViewById(a.g.rival_streak_win_layout);
-        this.gxQ = (LinearLayout) this.rootView.findViewById(a.g.rival_jinzhu_layout);
-        this.gxR = (ChallengeJinzhuView) this.rootView.findViewById(a.g.rival_jinzhu_1);
-        this.gxS = (ChallengeJinzhuView) this.rootView.findViewById(a.g.rival_jinzhu_2);
-        this.gxT = (ChallengeJinzhuView) this.rootView.findViewById(a.g.rival_jinzhu_3);
-        this.gxV = (ImageView) this.rootView.findViewById(a.g.rival_user_pk_streak_img);
-        this.gxW = (TextView) this.rootView.findViewById(a.g.rival_user_pk_streak_time);
-        this.gxZ = (LinearLayout) this.rootView.findViewById(a.g.pk_time_layout);
-        this.gya = (TextView) this.rootView.findViewById(a.g.pk_time_label);
-        this.gyb = (RelativeLayout) this.rootView.findViewById(a.g.pk_score_progress_layout);
-        this.gyc = (TextView) this.rootView.findViewById(a.g.pk_anchor_progress);
-        this.gyd = (TextView) this.rootView.findViewById(a.g.pk_rival_progress);
-        this.gyg = (TextView) this.rootView.findViewById(a.g.btn_close_challenge_view);
-        this.gye = this.rootView.findViewById(a.g.anchor_progress_bg);
-        this.gyf = this.rootView.findViewById(a.g.rival_progress_bg);
-        this.gxX = (AlaChallengeMvpTipView) this.rootView.findViewById(a.g.id_chellenge_mvp_tip);
-        this.gxY = (AlaChallengeMvpDynamicAnimView) this.rootView.findViewById(a.g.id_challenge_mvp_anim_view);
-        this.gxM.setVisibility(0);
-        this.gxM.setBackgroundResource(a.f.sdk_round_host_header_bg);
-        this.gxN.setIsRound(true);
-        this.gxN.setAutoChangeStyle(false);
-        this.gxN.setDefaultBgResource(a.f.sdk_icon_default_avatar100_bg);
-        this.gxN.setIsNight(false);
-        this.gxM.setOnClickListener(this);
-        this.gxP.setOnClickListener(this);
-        this.gyg.setOnClickListener(this);
-        this.gxH.setVisibility(8);
-        this.gxQ.setVisibility(8);
-        this.gxH.setOnClickListener(this);
-        this.gxQ.setOnClickListener(this);
+        this.gLR = (RelativeLayout) this.rootView.findViewById(a.g.root_container);
+        this.gLT = (RelativeLayout) this.rootView.findViewById(a.g.anchor_live_anim_layout);
+        this.gLU = (RelativeLayout) this.rootView.findViewById(a.g.rival_live_anim_layout);
+        this.gLS = (RelativeLayout) this.rootView.findViewById(a.g.pk_live_container);
+        this.gLW = (RelativeLayout) this.rootView.findViewById(a.g.pk_anchor_live_layout);
+        this.gLX = (RelativeLayout) this.rootView.findViewById(a.g.anchor_streak_win_layout);
+        this.gLY = (ImageView) this.rootView.findViewById(a.g.anchor_user_pk_streak_img);
+        this.gLZ = (TextView) this.rootView.findViewById(a.g.anchor_user_pk_streak_time);
+        this.gLV = (RelativeLayout) this.rootView.findViewById(a.g.jinzhu_container);
+        this.gMa = (LinearLayout) this.rootView.findViewById(a.g.anchor_jinzhu_layout);
+        this.gMb = (ChallengeJinzhuView) this.rootView.findViewById(a.g.anchor_jinzhu_1);
+        this.gMc = (ChallengeJinzhuView) this.rootView.findViewById(a.g.anchor_jinzhu_2);
+        this.gMd = (ChallengeJinzhuView) this.rootView.findViewById(a.g.anchor_jinzhu_3);
+        this.gMe = (RelativeLayout) this.rootView.findViewById(a.g.pk_rival_live_layout);
+        this.gMf = (RelativeLayout) this.rootView.findViewById(a.g.pk_rival_user_layout);
+        this.gMg = (HeadImageView) this.rootView.findViewById(a.g.ala_live_rival_user_image);
+        this.gMh = (TextView) this.rootView.findViewById(a.g.ala_live_rival_user_name);
+        this.gMi = (ImageView) this.rootView.findViewById(a.g.iv_rival_user_follow);
+        this.gMn = (RelativeLayout) this.rootView.findViewById(a.g.rival_streak_win_layout);
+        this.gMj = (LinearLayout) this.rootView.findViewById(a.g.rival_jinzhu_layout);
+        this.gMk = (ChallengeJinzhuView) this.rootView.findViewById(a.g.rival_jinzhu_1);
+        this.gMl = (ChallengeJinzhuView) this.rootView.findViewById(a.g.rival_jinzhu_2);
+        this.gMm = (ChallengeJinzhuView) this.rootView.findViewById(a.g.rival_jinzhu_3);
+        this.gMo = (ImageView) this.rootView.findViewById(a.g.rival_user_pk_streak_img);
+        this.gMp = (TextView) this.rootView.findViewById(a.g.rival_user_pk_streak_time);
+        this.gMs = (LinearLayout) this.rootView.findViewById(a.g.pk_time_layout);
+        this.gMt = (TextView) this.rootView.findViewById(a.g.pk_time_label);
+        this.gMu = (RelativeLayout) this.rootView.findViewById(a.g.pk_score_progress_layout);
+        this.gMv = (TextView) this.rootView.findViewById(a.g.pk_anchor_progress);
+        this.gMw = (TextView) this.rootView.findViewById(a.g.pk_rival_progress);
+        this.gMz = (TextView) this.rootView.findViewById(a.g.btn_close_challenge_view);
+        this.gMx = this.rootView.findViewById(a.g.anchor_progress_bg);
+        this.gMy = this.rootView.findViewById(a.g.rival_progress_bg);
+        this.gMq = (AlaChallengeMvpTipView) this.rootView.findViewById(a.g.id_chellenge_mvp_tip);
+        this.gMr = (AlaChallengeMvpDynamicAnimView) this.rootView.findViewById(a.g.id_challenge_mvp_anim_view);
+        this.gMf.setVisibility(0);
+        this.gMf.setBackgroundResource(a.f.sdk_round_host_header_bg);
+        this.gMg.setIsRound(true);
+        this.gMg.setAutoChangeStyle(false);
+        this.gMg.setDefaultBgResource(a.f.sdk_icon_default_avatar100_bg);
+        this.gMg.setIsNight(false);
+        this.gMf.setOnClickListener(this);
+        this.gMi.setOnClickListener(this);
+        this.gMz.setOnClickListener(this);
+        this.gMa.setVisibility(8);
+        this.gMj.setVisibility(8);
+        this.gMa.setOnClickListener(this);
+        this.gMj.setOnClickListener(this);
     }
 
     private void updateView() {
-        this.gyl = h.az(this.mContext);
-        this.gyk = this.mContext.getResources().getDimensionPixelSize(a.e.sdk_ds50);
+        this.gME = h.aC(this.mContext);
+        this.gMD = this.mContext.getResources().getDimensionPixelSize(a.e.sdk_ds50);
         this.screenWidth = BdUtilHelper.getScreenDimensions(this.mContext)[0];
-        int aC = h.aC(this.mContext);
-        int aB = h.aB(this.mContext);
-        ViewGroup.LayoutParams layoutParams = this.gyb.getLayoutParams();
+        int aF = h.aF(this.mContext);
+        int aE = h.aE(this.mContext);
+        ViewGroup.LayoutParams layoutParams = this.gMu.getLayoutParams();
         if (layoutParams instanceof ViewGroup.MarginLayoutParams) {
-            layoutParams.height = h.btG;
-            ((ViewGroup.MarginLayoutParams) layoutParams).topMargin = h.ay(this.mContext);
-            this.gyb.setLayoutParams(layoutParams);
+            layoutParams.height = h.bxt;
+            ((ViewGroup.MarginLayoutParams) layoutParams).topMargin = h.aB(this.mContext);
+            this.gMu.setLayoutParams(layoutParams);
         }
         RelativeLayout.LayoutParams layoutParams2 = new RelativeLayout.LayoutParams(-1, -2);
-        layoutParams2.topMargin = this.gyl;
-        layoutParams2.height = aB;
-        this.gxz.setLayoutParams(layoutParams2);
-        RelativeLayout.LayoutParams layoutParams3 = (RelativeLayout.LayoutParams) this.gxY.getLayoutParams();
-        layoutParams3.topMargin = this.gyl;
-        this.gxY.setLayoutParams(layoutParams3);
-        ViewGroup.LayoutParams layoutParams4 = this.gxD.getLayoutParams();
+        layoutParams2.topMargin = this.gME;
+        layoutParams2.height = aE;
+        this.gLS.setLayoutParams(layoutParams2);
+        RelativeLayout.LayoutParams layoutParams3 = (RelativeLayout.LayoutParams) this.gMr.getLayoutParams();
+        layoutParams3.topMargin = this.gME;
+        this.gMr.setLayoutParams(layoutParams3);
+        ViewGroup.LayoutParams layoutParams4 = this.gLW.getLayoutParams();
         if (layoutParams4 != null) {
-            layoutParams4.width = aC;
-            layoutParams4.height = aB;
-            this.gxD.setLayoutParams(layoutParams4);
+            layoutParams4.width = aF;
+            layoutParams4.height = aE;
+            this.gLW.setLayoutParams(layoutParams4);
         }
-        ViewGroup.LayoutParams layoutParams5 = this.gxL.getLayoutParams();
+        ViewGroup.LayoutParams layoutParams5 = this.gMe.getLayoutParams();
         if (layoutParams5 != null) {
-            layoutParams5.width = aC;
-            layoutParams5.height = aB;
-            this.gxL.setLayoutParams(layoutParams5);
+            layoutParams5.width = aF;
+            layoutParams5.height = aE;
+            this.gMe.setLayoutParams(layoutParams5);
         }
-        RelativeLayout.LayoutParams layoutParams6 = new RelativeLayout.LayoutParams(aC, aB);
-        layoutParams6.topMargin = this.gyl;
-        this.gxB.setLayoutParams(layoutParams6);
-        RelativeLayout.LayoutParams layoutParams7 = (RelativeLayout.LayoutParams) this.gxZ.getLayoutParams();
-        layoutParams7.topMargin = this.gyl;
+        RelativeLayout.LayoutParams layoutParams6 = new RelativeLayout.LayoutParams(aF, aE);
+        layoutParams6.topMargin = this.gME;
+        this.gLU.setLayoutParams(layoutParams6);
+        RelativeLayout.LayoutParams layoutParams7 = (RelativeLayout.LayoutParams) this.gMs.getLayoutParams();
+        layoutParams7.topMargin = this.gME;
         layoutParams7.addRule(14);
-        this.gxZ.setLayoutParams(layoutParams7);
-        this.gyb.setAlpha(0.0f);
-        int paddingLeft = (((((aC * 2) - this.gxC.getPaddingLeft()) - this.gxC.getPaddingRight()) - ((getResources().getDimensionPixelOffset(a.e.sdk_ds56) * 3) * 2)) - (getResources().getDimensionPixelOffset(a.e.sdk_ds12) * 4)) - (getResources().getDimensionPixelOffset(a.e.sdk_ds12) * 2);
-        ViewGroup.LayoutParams layoutParams8 = this.gxX.getLayoutParams();
+        this.gMs.setLayoutParams(layoutParams7);
+        this.gMu.setAlpha(0.0f);
+        int paddingLeft = (((((aF * 2) - this.gLV.getPaddingLeft()) - this.gLV.getPaddingRight()) - ((getResources().getDimensionPixelOffset(a.e.sdk_ds56) * 3) * 2)) - (getResources().getDimensionPixelOffset(a.e.sdk_ds12) * 4)) - (getResources().getDimensionPixelOffset(a.e.sdk_ds12) * 2);
+        ViewGroup.LayoutParams layoutParams8 = this.gMq.getLayoutParams();
         if (layoutParams8 instanceof ViewGroup.MarginLayoutParams) {
             layoutParams8.width = paddingLeft;
-            ((ViewGroup.MarginLayoutParams) layoutParams8).bottomMargin = this.gxC.getPaddingBottom();
-            this.gxX.setLayoutParams(layoutParams8);
+            ((ViewGroup.MarginLayoutParams) layoutParams8).bottomMargin = this.gLV.getPaddingBottom();
+            this.gMq.setLayoutParams(layoutParams8);
         }
     }
 
     public View getAnchorAnimLiveLayout() {
-        return this.gxA;
+        return this.gLT;
     }
 
     public View getRivalAnimLiveLayout() {
-        return this.gxB;
+        return this.gLU;
     }
 
     public void setAnchorUserViewBg(ay ayVar) {
@@ -275,33 +275,33 @@ public class AlaChallengeLiveView extends RelativeLayout implements View.OnClick
     }
 
     public View getLeftTimeView() {
-        return this.gxZ;
+        return this.gMs;
     }
 
     public ViewGroup getLiveContainerView() {
-        return this.gxz;
+        return this.gLS;
     }
 
     public View getScoreProgressLayout() {
-        return this.gyb;
+        return this.gMu;
     }
 
     public View getJinzhuLayout() {
-        return this.gxC;
+        return this.gLV;
     }
 
     public View getCloseBtnView() {
-        return this.gyg;
+        return this.gMz;
     }
 
     public RelativeLayout getContainerView() {
-        return this.gxy;
+        return this.gLR;
     }
 
     public void a(au auVar, ay ayVar, ay ayVar2, boolean z) {
-        this.aJG = ayVar;
-        this.aJH = ayVar2;
-        int i = auVar.aJK;
+        this.aML = ayVar;
+        this.aMM = ayVar2;
+        int i = auVar.aMP;
         a(auVar.challengeId, i, auVar.nowTime, auVar.stageEndTime);
         c(auVar.anchorScore, auVar.rivalScore, z);
         if (z) {
@@ -309,71 +309,71 @@ public class AlaChallengeLiveView extends RelativeLayout implements View.OnClick
         }
         if (i == 2) {
             setCloseBtnVisible(true);
-            bRN();
+            bVh();
         } else if (i == 3) {
             boolean z2 = false;
-            if (com.baidu.live.x.a.NN().bhy != null && com.baidu.live.x.a.NN().bhy.aHK == 1) {
+            if (com.baidu.live.x.a.OS().blo != null && com.baidu.live.x.a.OS().blo.aKO == 1) {
                 z2 = true;
             }
             if (z2) {
-                this.gyg.setText(this.mContext.getResources().getString(a.i.ala_challenge_btn_close_label_2));
+                this.gMz.setText(this.mContext.getResources().getString(a.i.ala_challenge_btn_close_label_2));
             }
             setCloseBtnVisible(z2);
-            bN(auVar.challengeResult, auVar.aJM);
+            bN(auVar.challengeResult, auVar.aMR);
         } else {
-            bJw();
+            bMg();
             setCloseBtnVisible(false);
-            bN(auVar.challengeResult, auVar.aJM);
+            bN(auVar.challengeResult, auVar.aMR);
         }
-        a(ayVar.aJX);
-        b(ayVar2.aJX);
-        this.gym = auVar;
+        a(ayVar.aNc);
+        b(ayVar2.aNc);
+        this.gMF = auVar;
     }
 
     private void a(at atVar) {
         ArrayList arrayList;
         if (atVar == null) {
-            this.gxI.setVisibility(8);
-            this.gxJ.setVisibility(8);
-            this.gxK.setVisibility(8);
+            this.gMb.setVisibility(8);
+            this.gMc.setVisibility(8);
+            this.gMd.setVisibility(8);
             return;
         }
-        this.gxH.setVisibility(0);
-        if (ListUtils.isEmpty(atVar.aJJ)) {
-            atVar.aJJ = this.gyp;
+        this.gMa.setVisibility(0);
+        if (ListUtils.isEmpty(atVar.aMO)) {
+            atVar.aMO = this.gMI;
         }
-        if (ListUtils.isEmpty(atVar.aJJ)) {
-            this.gxI.setVisibility(0);
-            this.gxJ.setVisibility(8);
-            this.gxK.setVisibility(8);
-            this.gxI.a(true, null, atVar.liveId);
+        if (ListUtils.isEmpty(atVar.aMO)) {
+            this.gMb.setVisibility(0);
+            this.gMc.setVisibility(8);
+            this.gMd.setVisibility(8);
+            this.gMb.a(true, null, atVar.liveId);
             return;
         }
-        this.gyp = atVar.aJJ;
-        this.gxI.setVisibility(8);
-        this.gxJ.setVisibility(8);
-        this.gxK.setVisibility(8);
-        if (atVar.aJJ.size() > 3) {
+        this.gMI = atVar.aMO;
+        this.gMb.setVisibility(8);
+        this.gMc.setVisibility(8);
+        this.gMd.setVisibility(8);
+        if (atVar.aMO.size() > 3) {
             ArrayList arrayList2 = new ArrayList();
             for (int i = 0; i < 3; i++) {
-                arrayList2.add(atVar.aJJ.get(i));
+                arrayList2.add(atVar.aMO.get(i));
             }
             arrayList = arrayList2;
         } else {
-            arrayList = atVar.aJJ;
+            arrayList = atVar.aMO;
         }
         for (int i2 = 0; i2 < arrayList.size(); i2++) {
             as asVar = arrayList.get(i2);
             if (asVar != null) {
-                if (asVar.Dj() || asVar.isFirst()) {
-                    this.gxI.setVisibility(0);
-                    this.gxI.a(true, asVar, atVar.liveId);
+                if (asVar.Eg() || asVar.isFirst()) {
+                    this.gMb.setVisibility(0);
+                    this.gMb.a(true, asVar, atVar.liveId);
                 } else if (asVar.rank == 2) {
-                    this.gxJ.setVisibility(0);
-                    this.gxJ.a(true, asVar, atVar.liveId);
+                    this.gMc.setVisibility(0);
+                    this.gMc.a(true, asVar, atVar.liveId);
                 } else if (asVar.rank == 3) {
-                    this.gxK.setVisibility(0);
-                    this.gxK.a(true, asVar, atVar.liveId);
+                    this.gMd.setVisibility(0);
+                    this.gMd.a(true, asVar, atVar.liveId);
                 }
             }
         }
@@ -382,43 +382,43 @@ public class AlaChallengeLiveView extends RelativeLayout implements View.OnClick
     private void b(at atVar) {
         List<as> list;
         if (atVar == null) {
-            this.gxR.setVisibility(8);
-            this.gxS.setVisibility(8);
-            this.gxT.setVisibility(8);
+            this.gMk.setVisibility(8);
+            this.gMl.setVisibility(8);
+            this.gMm.setVisibility(8);
             return;
         }
-        this.gxQ.setVisibility(0);
-        if (ListUtils.isEmpty(atVar.aJJ)) {
-            atVar.aJJ = this.gyq;
+        this.gMj.setVisibility(0);
+        if (ListUtils.isEmpty(atVar.aMO)) {
+            atVar.aMO = this.gMJ;
         }
-        if (ListUtils.isEmpty(atVar.aJJ)) {
-            this.gxR.setVisibility(0);
-            this.gxS.setVisibility(8);
-            this.gxT.setVisibility(8);
-            this.gxR.a(false, null, atVar.liveId);
+        if (ListUtils.isEmpty(atVar.aMO)) {
+            this.gMk.setVisibility(0);
+            this.gMl.setVisibility(8);
+            this.gMm.setVisibility(8);
+            this.gMk.a(false, null, atVar.liveId);
             return;
         }
-        this.gyq = atVar.aJJ;
-        this.gxR.setVisibility(8);
-        this.gxS.setVisibility(8);
-        this.gxT.setVisibility(8);
-        if (atVar.aJJ.size() > 3) {
-            list = atVar.aJJ.subList(0, 3);
+        this.gMJ = atVar.aMO;
+        this.gMk.setVisibility(8);
+        this.gMl.setVisibility(8);
+        this.gMm.setVisibility(8);
+        if (atVar.aMO.size() > 3) {
+            list = atVar.aMO.subList(0, 3);
         } else {
-            list = atVar.aJJ;
+            list = atVar.aMO;
         }
         for (int i = 0; i < list.size(); i++) {
             as asVar = list.get(i);
             if (asVar != null) {
-                if (asVar.Dj() || asVar.isFirst()) {
-                    this.gxR.setVisibility(0);
-                    this.gxR.a(false, asVar, atVar.liveId);
+                if (asVar.Eg() || asVar.isFirst()) {
+                    this.gMk.setVisibility(0);
+                    this.gMk.a(false, asVar, atVar.liveId);
                 } else if (asVar.rank == 2) {
-                    this.gxS.setVisibility(0);
-                    this.gxS.a(false, asVar, atVar.liveId);
+                    this.gMl.setVisibility(0);
+                    this.gMl.a(false, asVar, atVar.liveId);
                 } else if (asVar.rank == 3) {
-                    this.gxT.setVisibility(0);
-                    this.gxT.a(false, asVar, atVar.liveId);
+                    this.gMm.setVisibility(0);
+                    this.gMm.a(false, asVar, atVar.liveId);
                 }
             }
         }
@@ -426,136 +426,136 @@ public class AlaChallengeLiveView extends RelativeLayout implements View.OnClick
 
     private void a(long j, int i, long j2, long j3) {
         if (j3 >= j2 && a(j, i, j3)) {
-            bJw();
-            if (this.gym != null) {
-                v(this.gym.aJK, (j3 - j2) * 1000);
+            bMg();
+            if (this.gMF != null) {
+                w(this.gMF.aMP, (j3 - j2) * 1000);
             }
-            this.fTL = new CountDownTimer((j3 - j2) * 1000, 1000L) { // from class: com.baidu.tieba.ala.liveroom.challenge.view.AlaChallengeLiveView.1
+            this.gge = new CountDownTimer((j3 - j2) * 1000, 1000L) { // from class: com.baidu.tieba.ala.liveroom.challenge.view.AlaChallengeLiveView.1
                 @Override // android.os.CountDownTimer
                 public void onTick(long j4) {
-                    if (AlaChallengeLiveView.this.gym != null) {
-                        AlaChallengeLiveView.this.v(AlaChallengeLiveView.this.gym.aJK, j4);
+                    if (AlaChallengeLiveView.this.gMF != null) {
+                        AlaChallengeLiveView.this.w(AlaChallengeLiveView.this.gMF.aMP, j4);
                     }
                 }
 
                 @Override // android.os.CountDownTimer
                 public void onFinish() {
-                    if (AlaChallengeLiveView.this.gym != null) {
-                        AlaChallengeLiveView.this.v(AlaChallengeLiveView.this.gym.aJK, 0L);
+                    if (AlaChallengeLiveView.this.gMF != null) {
+                        AlaChallengeLiveView.this.w(AlaChallengeLiveView.this.gMF.aMP, 0L);
                     }
                 }
             };
-            this.fTL.start();
+            this.gge.start();
         }
     }
 
     private boolean a(long j, int i, long j2) {
-        return (this.gym != null && this.gym.challengeId == j && this.gym.aJK == i && this.gym.stageEndTime == j2) ? false : true;
+        return (this.gMF != null && this.gMF.challengeId == j && this.gMF.aMP == i && this.gMF.stageEndTime == j2) ? false : true;
     }
 
-    private void bJw() {
-        if (this.fTL != null) {
-            this.fTL.cancel();
+    private void bMg() {
+        if (this.gge != null) {
+            this.gge.cancel();
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void v(int i, long j) {
-        if (this.gya != null) {
-            this.gya.setCompoundDrawables(null, null, null, null);
+    public void w(int i, long j) {
+        if (this.gMt != null) {
+            this.gMt.setCompoundDrawables(null, null, null, null);
             String formatSecondsTime = StringHelper.formatSecondsTime(Math.round(j / 1000.0d));
             String string = this.mContext.getString(a.i.ala_challenge_operate_challenge_time, formatSecondsTime);
             if (i == 2) {
                 Drawable drawable = getResources().getDrawable(a.f.icon_challenge_timer_countdown);
                 drawable.setBounds(0, 0, getResources().getDimensionPixelOffset(a.e.sdk_ds40), getResources().getDimensionPixelOffset(a.e.sdk_ds40));
-                this.gya.setCompoundDrawablePadding(getResources().getDimensionPixelOffset(a.e.sdk_ds8));
-                this.gya.setCompoundDrawables(drawable, null, null, null);
+                this.gMt.setCompoundDrawablePadding(getResources().getDimensionPixelOffset(a.e.sdk_ds8));
+                this.gMt.setCompoundDrawables(drawable, null, null, null);
             } else if (i == 3) {
                 formatSecondsTime = this.mContext.getString(a.i.ala_challenge_operate_publish_time, formatSecondsTime);
             } else {
                 formatSecondsTime = i == 4 ? this.mContext.getString(a.i.ala_challenge_operate_over_time) : string;
             }
-            this.gya.setText(formatSecondsTime);
+            this.gMt.setText(formatSecondsTime);
         }
     }
 
     public void setLiveContainerVisible(boolean z) {
-        this.gxz.setVisibility(z ? 0 : 4);
+        this.gLS.setVisibility(z ? 0 : 4);
     }
 
     public void setCloseBtnVisible(boolean z) {
         if (this.isHost) {
-            this.gyg.setVisibility(z ? 0 : 4);
+            this.gMz.setVisibility(z ? 0 : 4);
         } else {
-            this.gyg.setVisibility(4);
+            this.gMz.setVisibility(4);
         }
     }
 
-    public void bRM() {
+    public void bVg() {
         setCloseBtnVisible(false);
-        this.gyg.setText(this.mContext.getResources().getString(a.i.ala_challenge_btn_close_label));
-        this.gxX.FT();
-        this.gxY.bRX();
+        this.gMz.setText(this.mContext.getResources().getString(a.i.ala_challenge_btn_close_label));
+        this.gMq.GP();
+        this.gMr.bVr();
         setLiveContainerVisible(false);
-        if (this.gyp != null) {
-            this.gyp.clear();
-            this.gyp = null;
+        if (this.gMI != null) {
+            this.gMI.clear();
+            this.gMI = null;
         }
-        if (this.gyq != null) {
-            this.gyq.clear();
-            this.gyq = null;
+        if (this.gMJ != null) {
+            this.gMJ.clear();
+            this.gMJ = null;
         }
-        this.gym = null;
+        this.gMF = null;
     }
 
     public void bN(int i, int i2) {
-        this.gxE.setVisibility(0);
-        this.gxU.setVisibility(0);
-        this.gxG.setVisibility(4);
-        this.gxW.setVisibility(4);
+        this.gLX.setVisibility(0);
+        this.gMn.setVisibility(0);
+        this.gLZ.setVisibility(4);
+        this.gMp.setVisibility(4);
         if (1 == i) {
-            this.gxF.setImageResource(a.f.icon_live_vs_win);
+            this.gLY.setImageResource(a.f.icon_live_vs_win);
             if (i2 >= 2) {
-                this.gxG.setVisibility(0);
-                this.gxG.setText(this.mContext.getResources().getString(a.i.ala_challenge_streak_win_label, Integer.valueOf(i2)));
+                this.gLZ.setVisibility(0);
+                this.gLZ.setText(this.mContext.getResources().getString(a.i.ala_challenge_streak_win_label, Integer.valueOf(i2)));
             } else {
-                this.gxG.setText("");
+                this.gLZ.setText("");
             }
-            this.gxV.setImageResource(a.f.icon_live_vs_lose);
+            this.gMo.setImageResource(a.f.icon_live_vs_lose);
         } else if (3 == i) {
-            this.gxF.setImageResource(a.f.icon_live_vs_draw);
-            this.gxV.setImageResource(a.f.icon_live_vs_draw);
+            this.gLY.setImageResource(a.f.icon_live_vs_draw);
+            this.gMo.setImageResource(a.f.icon_live_vs_draw);
         } else if (2 == i) {
-            this.gxF.setImageResource(a.f.icon_live_vs_lose);
+            this.gLY.setImageResource(a.f.icon_live_vs_lose);
             if (i2 >= 2) {
-                this.gxW.setVisibility(0);
-                this.gxW.setText(this.mContext.getResources().getString(a.i.ala_challenge_streak_win_label, Integer.valueOf(i2)));
+                this.gMp.setVisibility(0);
+                this.gMp.setText(this.mContext.getResources().getString(a.i.ala_challenge_streak_win_label, Integer.valueOf(i2)));
             } else {
-                this.gxW.setText("");
+                this.gMp.setText("");
             }
-            this.gxV.setImageResource(a.f.icon_live_vs_win);
+            this.gMo.setImageResource(a.f.icon_live_vs_win);
         } else {
-            bRN();
+            bVh();
         }
     }
 
-    public void bRN() {
-        this.gxE.setVisibility(4);
-        this.gxU.setVisibility(4);
+    public void bVh() {
+        this.gLX.setVisibility(4);
+        this.gMn.setVisibility(4);
     }
 
-    public void bRO() {
-        if (this.gyp != null) {
-            this.gyp.clear();
-            this.gyp = null;
+    public void bVi() {
+        if (this.gMI != null) {
+            this.gMI.clear();
+            this.gMI = null;
         }
-        if (this.gyq != null) {
-            this.gyq.clear();
-            this.gyq = null;
+        if (this.gMJ != null) {
+            this.gMJ.clear();
+            this.gMJ = null;
         }
     }
 
-    private ValueAnimator bP(final View view) {
+    private ValueAnimator bT(final View view) {
         ValueAnimator ofFloat = ValueAnimator.ofFloat(0.0f, 0.33f, 0.66f, 1.0f, 1.3f, 1.0f);
         ofFloat.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() { // from class: com.baidu.tieba.ala.liveroom.challenge.view.AlaChallengeLiveView.2
             @Override // android.animation.ValueAnimator.AnimatorUpdateListener
@@ -570,124 +570,124 @@ public class AlaChallengeLiveView extends RelativeLayout implements View.OnClick
         return ofFloat;
     }
 
-    public void bRP() {
-        this.gyc.setText(String.valueOf(this.gyi));
-        this.gyd.setText(String.valueOf(this.gyj));
-        if (this.gyo != null) {
-            this.gyo.cancel();
+    public void bVj() {
+        this.gMv.setText(String.valueOf(this.gMB));
+        this.gMw.setText(String.valueOf(this.gMC));
+        if (this.gMH != null) {
+            this.gMH.cancel();
         }
-        this.gyo = new AnimatorSet();
-        ValueAnimator bP = bP(this.gyc);
-        ValueAnimator bP2 = bP(this.gyd);
-        if (this.gyi != this.gyj) {
-            this.gyo.setStartDelay(500L);
+        this.gMH = new AnimatorSet();
+        ValueAnimator bT = bT(this.gMv);
+        ValueAnimator bT2 = bT(this.gMw);
+        if (this.gMB != this.gMC) {
+            this.gMH.setStartDelay(500L);
         } else {
-            this.gyo.setStartDelay(200L);
+            this.gMH.setStartDelay(200L);
         }
-        this.gyo.playTogether(bP, bP2);
-        this.gyo.start();
+        this.gMH.playTogether(bT, bT2);
+        this.gMH.start();
     }
 
-    public void bRQ() {
-        this.gyc.setAlpha(0.0f);
-        this.gyd.setAlpha(0.0f);
-        this.gyc.setText("");
-        this.gyd.setText("");
+    public void bVk() {
+        this.gMv.setAlpha(0.0f);
+        this.gMw.setAlpha(0.0f);
+        this.gMv.setText("");
+        this.gMw.setText("");
     }
 
     private void c(long j, long j2, boolean z) {
         int i;
-        if (z || this.gyi != j || this.gyj != j2) {
-            this.gyi = j;
-            this.gyj = j2;
+        if (z || this.gMB != j || this.gMC != j2) {
+            this.gMB = j;
+            this.gMC = j2;
             if (z) {
-                bRQ();
+                bVk();
             } else {
-                this.gyc.setText(String.valueOf(this.gyi));
-                this.gyd.setText(String.valueOf(this.gyj));
+                this.gMv.setText(String.valueOf(this.gMB));
+                this.gMw.setText(String.valueOf(this.gMC));
             }
-            float f = (float) (this.gyi + this.gyj);
+            float f = (float) (this.gMB + this.gMC);
             int i2 = this.screenWidth;
             int i3 = i2 / 2;
             if (z && f != 0.0f) {
-                LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.gye.getLayoutParams();
+                LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.gMx.getLayoutParams();
                 layoutParams.width = i3;
-                this.gye.setLayoutParams(layoutParams);
+                this.gMx.setLayoutParams(layoutParams);
             }
-            if (this.gyi != this.gyj && f > 0.0f) {
-                int i4 = (int) ((((float) this.gyi) / f) * i2);
-                int i5 = !z ? ((LinearLayout.LayoutParams) this.gye.getLayoutParams()).width : i3;
-                if (i4 < this.gyk) {
-                    i = this.gyk;
+            if (this.gMB != this.gMC && f > 0.0f) {
+                int i4 = (int) ((((float) this.gMB) / f) * i2);
+                int i5 = !z ? ((LinearLayout.LayoutParams) this.gMx.getLayoutParams()).width : i3;
+                if (i4 < this.gMD) {
+                    i = this.gMD;
                 } else {
-                    i = i4 > i2 - this.gyk ? i2 - this.gyk : i4;
+                    i = i4 > i2 - this.gMD ? i2 - this.gMD : i4;
                 }
-                if (this.gyn != null) {
-                    this.gyn.cancel();
+                if (this.gMG != null) {
+                    this.gMG.cancel();
                 }
-                this.gyn = ValueAnimator.ofInt(i5, i);
+                this.gMG = ValueAnimator.ofInt(i5, i);
                 if (z) {
-                    this.gyn.setDuration(300L);
-                    this.gyn.setStartDelay(200L);
+                    this.gMG.setDuration(300L);
+                    this.gMG.setStartDelay(200L);
                 } else {
-                    this.gyn.setDuration(100L);
+                    this.gMG.setDuration(100L);
                 }
-                this.gyn.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() { // from class: com.baidu.tieba.ala.liveroom.challenge.view.AlaChallengeLiveView.3
+                this.gMG.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() { // from class: com.baidu.tieba.ala.liveroom.challenge.view.AlaChallengeLiveView.3
                     @Override // android.animation.ValueAnimator.AnimatorUpdateListener
                     public void onAnimationUpdate(ValueAnimator valueAnimator) {
-                        LinearLayout.LayoutParams layoutParams2 = (LinearLayout.LayoutParams) AlaChallengeLiveView.this.gye.getLayoutParams();
+                        LinearLayout.LayoutParams layoutParams2 = (LinearLayout.LayoutParams) AlaChallengeLiveView.this.gMx.getLayoutParams();
                         layoutParams2.width = ((Integer) valueAnimator.getAnimatedValue()).intValue();
-                        AlaChallengeLiveView.this.gye.setLayoutParams(layoutParams2);
+                        AlaChallengeLiveView.this.gMx.setLayoutParams(layoutParams2);
                     }
                 });
-                this.gyn.start();
+                this.gMG.start();
                 return;
             }
-            LinearLayout.LayoutParams layoutParams2 = (LinearLayout.LayoutParams) this.gye.getLayoutParams();
+            LinearLayout.LayoutParams layoutParams2 = (LinearLayout.LayoutParams) this.gMx.getLayoutParams();
             layoutParams2.width = i3;
-            this.gye.setLayoutParams(layoutParams2);
+            this.gMx.setLayoutParams(layoutParams2);
         }
     }
 
     public void c(ay ayVar) {
-        if (ayVar == null || ayVar.aJI == null) {
-            this.gxM.setVisibility(4);
+        if (ayVar == null || ayVar.aMN == null) {
+            this.gMf.setVisibility(4);
             return;
         }
-        this.gxM.setTag(ayVar);
-        this.gxN.startLoad(ayVar.aJI.portrait, 12, false, false);
-        String str = ayVar.aJI.userName;
+        this.gMf.setTag(ayVar);
+        this.gMg.startLoad(ayVar.aMN.portrait, 12, false, false);
+        String str = ayVar.aMN.userName;
         if (TextHelper.getTextLengthWithEmoji(str) > 8) {
             str = TextHelper.subStringWithEmoji(str, 8) + StringHelper.STRING_MORE;
         }
-        this.gxO.setText(str);
-        this.gxP.setVisibility(8);
+        this.gMh.setText(str);
+        this.gMi.setVisibility(8);
     }
 
-    public void lZ(boolean z) {
-        if (this.gxP != null) {
-            this.gxP.setVisibility(z ? 8 : 0);
+    public void mB(boolean z) {
+        if (this.gMi != null) {
+            this.gMi.setVisibility(z ? 8 : 0);
         }
     }
 
     public View getRivalUserInfoView() {
-        return this.gxM;
+        return this.gMf;
     }
 
     public void releaseResource() {
-        bJw();
-        if (this.gyn != null) {
-            this.gyn.cancel();
+        bMg();
+        if (this.gMG != null) {
+            this.gMG.cancel();
         }
-        if (this.gyo != null) {
-            this.gyo.cancel();
+        if (this.gMH != null) {
+            this.gMH.cancel();
         }
-        bRQ();
-        this.gxZ.setAlpha(0.0f);
-        this.gyg.setText(this.mContext.getResources().getString(a.i.ala_challenge_btn_close_label));
-        this.gxX.FT();
-        this.gxY.bRX();
-        this.gym = null;
+        bVk();
+        this.gMs.setAlpha(0.0f);
+        this.gMz.setText(this.mContext.getResources().getString(a.i.ala_challenge_btn_close_label));
+        this.gMq.GP();
+        this.gMr.bVr();
+        this.gMF = null;
         if (this.mHandler != null) {
             this.mHandler.removeCallbacksAndMessages(null);
         }
@@ -696,52 +696,52 @@ public class AlaChallengeLiveView extends RelativeLayout implements View.OnClick
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
         boolean z = true;
-        if (view == this.gyg) {
-            if (this.gyh != null) {
-                if (com.baidu.live.x.a.NN().bhy == null || this.gym == null || this.gym.aJK != 3 || com.baidu.live.x.a.NN().bhy.aHK != 1) {
+        if (view == this.gMz) {
+            if (this.gMA != null) {
+                if (com.baidu.live.x.a.OS().blo == null || this.gMF == null || this.gMF.aMP != 3 || com.baidu.live.x.a.OS().blo.aKO != 1) {
                     z = false;
                 }
                 if (z) {
-                    if (this.gym != null) {
-                        this.gyh.a(this.gym.aJP);
+                    if (this.gMF != null) {
+                        this.gMA.a(this.gMF.aMU);
                         return;
                     }
                     return;
                 }
-                this.gyh.bRR();
+                this.gMA.bVl();
             }
-        } else if (view == this.gxM) {
-            if (this.gyh != null) {
-                if (this.gyr) {
-                    this.gyh.bRS();
+        } else if (view == this.gMf) {
+            if (this.gMA != null) {
+                if (this.gMK) {
+                    this.gMA.bVm();
                 } else {
-                    this.gyh.d((ay) this.gxM.getTag());
+                    this.gMA.d((ay) this.gMf.getTag());
                 }
             }
-        } else if (view == this.gxP) {
-            if (this.gyh != null) {
-                if (this.gyr) {
-                    this.gyh.bRS();
+        } else if (view == this.gMi) {
+            if (this.gMA != null) {
+                if (this.gMK) {
+                    this.gMA.bVm();
                 } else {
-                    this.gyh.e((ay) this.gxM.getTag());
+                    this.gMA.e((ay) this.gMf.getTag());
                 }
             }
-        } else if (view == this.gxL) {
-            if (this.gyh != null) {
-                if (this.gyr) {
-                    this.gyh.bRS();
+        } else if (view == this.gMe) {
+            if (this.gMA != null) {
+                if (this.gMK) {
+                    this.gMA.bVm();
                 } else {
-                    this.gyh.f(this.aJH);
+                    this.gMA.f(this.aMM);
                 }
             }
-        } else if (view == this.gxH) {
-            this.gyh.ma(false);
-        } else if (view == this.gxQ) {
-            this.gyh.ma(true);
+        } else if (view == this.gMa) {
+            this.gMA.mC(false);
+        } else if (view == this.gMj) {
+            this.gMA.mC(true);
         }
     }
 
     public void setViewClickCallBack(a aVar) {
-        this.gyh = aVar;
+        this.gMA = aVar;
     }
 }

@@ -8,25 +8,25 @@ import com.baidu.tbadk.BaseActivity;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.core.k;
 import com.baidu.tieba.setting.more.MoreActivity;
-/* loaded from: classes25.dex */
+/* loaded from: classes26.dex */
 public class GetImageWatermarkTypeModel extends BdBaseModel<MoreActivity> {
-    private HttpMessageListener lXM;
+    private HttpMessageListener mns;
 
     public GetImageWatermarkTypeModel(BaseActivity baseActivity) {
         super(baseActivity.getPageContext());
-        this.lXM = new HttpMessageListener(CmdConfigHttp.CMD_GET_IMAGE_WATERMARK_TYPE) { // from class: com.baidu.tieba.setting.model.imageWatermarkType.GetImageWatermarkTypeModel.1
+        this.mns = new HttpMessageListener(CmdConfigHttp.CMD_GET_IMAGE_WATERMARK_TYPE) { // from class: com.baidu.tieba.setting.model.imageWatermarkType.GetImageWatermarkTypeModel.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.adp.framework.listener.MessageListener
             public void onMessage(HttpResponsedMessage httpResponsedMessage) {
                 if (httpResponsedMessage instanceof GetImageWatermarkTypeResMsg) {
                     GetImageWatermarkTypeResMsg getImageWatermarkTypeResMsg = (GetImageWatermarkTypeResMsg) httpResponsedMessage;
                     if (getImageWatermarkTypeResMsg.mMaskType > -1) {
-                        k.bcG().setImageWaterType(getImageWatermarkTypeResMsg.mMaskType);
+                        k.bfo().setImageWaterType(getImageWatermarkTypeResMsg.mMaskType);
                     }
                 }
             }
         };
-        registerListener(this.lXM);
+        registerListener(this.mns);
         LoadData();
     }
 

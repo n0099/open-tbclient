@@ -1,9 +1,11 @@
 package com.meizu.cloud.pushsdk.base.a;
 
 import java.util.HashMap;
-/* loaded from: classes3.dex */
+/* loaded from: classes7.dex */
 public class a {
-    private static HashMap<String, Class<?>> a = new HashMap<>();
+
+    /* renamed from: a  reason: collision with root package name */
+    private static HashMap<String, Class<?>> f4364a = new HashMap<>();
     private Class<?> b;
     private String c;
     private Object d;
@@ -40,10 +42,10 @@ public class a {
         if (this.d != null) {
             return this.d.getClass();
         }
-        Class<?> cls = a.get(this.c);
+        Class<?> cls = f4364a.get(this.c);
         if (cls == null) {
             Class<?> cls2 = Class.forName(this.c);
-            a.put(this.c, cls2);
+            f4364a.put(this.c, cls2);
             return cls2;
         }
         return cls;

@@ -3,7 +3,7 @@ package com.baidu.tieba.addresslist.relationship;
 import android.text.TextUtils;
 import java.io.Serializable;
 import java.util.Comparator;
-/* loaded from: classes20.dex */
+/* loaded from: classes21.dex */
 public class ContactComparator implements Serializable, Comparator<com.baidu.tbadk.coreExtra.relationship.a> {
     private static final String LAST_KEY = "#";
     private static final long serialVersionUID = 5856247139420779621L;
@@ -17,16 +17,16 @@ public class ContactComparator implements Serializable, Comparator<com.baidu.tba
         if (aVar2 == null) {
             return 1;
         }
-        String bqo = aVar.bqo();
-        String bqo2 = aVar2.bqo();
-        if (!TextUtils.isEmpty(bqo) && !TextUtils.isEmpty(bqo2) && !bqo.equals(bqo2)) {
-            if ("#".equals(bqo)) {
+        String bsY = aVar.bsY();
+        String bsY2 = aVar2.bsY();
+        if (!TextUtils.isEmpty(bsY) && !TextUtils.isEmpty(bsY2) && !bsY.equals(bsY2)) {
+            if ("#".equals(bsY)) {
                 return 1;
             }
-            if ("#".equals(bqo2)) {
+            if ("#".equals(bsY2)) {
                 return -1;
             }
-            return bqo.compareToIgnoreCase(bqo2);
+            return bsY.compareToIgnoreCase(bsY2);
         }
         String userName = aVar.getUserName();
         String userName2 = aVar2.getUserName();

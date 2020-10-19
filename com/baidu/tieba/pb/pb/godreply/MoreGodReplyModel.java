@@ -12,28 +12,28 @@ import com.baidu.tieba.pb.pb.main.ai;
 import com.baidu.tieba.tbadkCore.data.PostData;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes21.dex */
+/* loaded from: classes22.dex */
 public class MoreGodReplyModel extends BdBaseModel<e> {
     private boolean isLoading;
-    private PbModel kHG;
-    private int kHH;
-    private int kHI;
-    private ai.a kHJ;
-    private final ai.a kHK;
+    private PbModel kWR;
+    private int kWS;
+    private int kWT;
+    private ai.a kWU;
+    private final ai.a kWV;
 
     /* JADX INFO: Access modifiers changed from: protected */
     public MoreGodReplyModel(e eVar, PbModel pbModel) {
         super(eVar);
         this.isLoading = false;
-        this.kHH = -1;
-        this.kHI = -1;
-        this.kHK = new ai.a() { // from class: com.baidu.tieba.pb.pb.godreply.MoreGodReplyModel.1
+        this.kWS = -1;
+        this.kWT = -1;
+        this.kWV = new ai.a() { // from class: com.baidu.tieba.pb.pb.godreply.MoreGodReplyModel.1
             @Override // com.baidu.tieba.pb.pb.main.ai.a
-            public void bh(List<PostData> list) {
-                r cZf;
+            public void bk(List<PostData> list) {
+                r dcO;
                 MoreGodReplyModel.this.isLoading = false;
-                if (MoreGodReplyModel.this.kHG != null && MoreGodReplyModel.this.kHG.getPbData() != null && (cZf = MoreGodReplyModel.this.kHG.getPbData().cZf()) != null) {
-                    List<PostData> list2 = cZf.kGS;
+                if (MoreGodReplyModel.this.kWR != null && MoreGodReplyModel.this.kWR.getPbData() != null && (dcO = MoreGodReplyModel.this.kWR.getPbData().dcO()) != null) {
+                    List<PostData> list2 = dcO.kWd;
                     int size = list2.size();
                     if (!y.isEmpty(list)) {
                         for (PostData postData : list) {
@@ -42,29 +42,29 @@ public class MoreGodReplyModel extends BdBaseModel<e> {
                             }
                         }
                     }
-                    MoreGodReplyModel.this.kHG.a(MoreGodReplyModel.this.kHG.getPbData(), size);
+                    MoreGodReplyModel.this.kWR.a(MoreGodReplyModel.this.kWR.getPbData(), size);
                 }
-                if (MoreGodReplyModel.this.kHH > 0) {
-                    MoreGodReplyModel.this.kHI = MoreGodReplyModel.this.kHH;
+                if (MoreGodReplyModel.this.kWS > 0) {
+                    MoreGodReplyModel.this.kWT = MoreGodReplyModel.this.kWS;
                 }
-                if (MoreGodReplyModel.this.kHJ != null) {
-                    MoreGodReplyModel.this.kHJ.bh(list);
+                if (MoreGodReplyModel.this.kWU != null) {
+                    MoreGodReplyModel.this.kWU.bk(list);
                 }
             }
 
             @Override // com.baidu.tieba.pb.pb.main.ai.a
             public void n(int i, String str, String str2) {
                 MoreGodReplyModel.this.isLoading = false;
-                if (MoreGodReplyModel.this.kHJ != null) {
-                    MoreGodReplyModel.this.kHJ.n(i, str, str2);
+                if (MoreGodReplyModel.this.kWU != null) {
+                    MoreGodReplyModel.this.kWU.n(i, str, str2);
                 }
             }
         };
         if (pbModel != null) {
-            this.kHG = pbModel;
-            ai dcJ = pbModel.dcJ();
-            if (dcJ != null) {
-                dcJ.b(this.kHK);
+            this.kWR = pbModel;
+            ai dgs = pbModel.dgs();
+            if (dgs != null) {
+                dgs.b(this.kWV);
             }
         }
     }
@@ -86,25 +86,25 @@ public class MoreGodReplyModel extends BdBaseModel<e> {
         return false;
     }
 
-    public boolean dag() {
-        r cZf;
-        f pbData = this.kHG.getPbData();
-        if (pbData == null || (cZf = pbData.cZf()) == null) {
+    public boolean ddP() {
+        r dcO;
+        f pbData = this.kWR.getPbData();
+        if (pbData == null || (dcO = pbData.dcO()) == null) {
             return false;
         }
-        if (this.kHI < 0) {
-            this.kHI = cZf.getCount();
+        if (this.kWT < 0) {
+            this.kWT = dcO.getCount();
         }
-        List<Long> list = cZf.kGT;
+        List<Long> list = dcO.kWe;
         int size = list.size();
-        int i = this.kHI;
-        if (size <= i || cZf.kGS.size() >= 100) {
+        int i = this.kWT;
+        if (size <= i || dcO.kWd.size() >= 100) {
             return false;
         }
         int min = Math.min(100, Math.min(i + 20, size));
-        this.kHH = min;
+        this.kWS = min;
         this.isLoading = true;
-        this.kHG.dcJ().eJ(list.subList(i, min));
+        this.kWR.dgs().eM(list.subList(i, min));
         Log.d("more_god_reply", "load from " + i + " to " + min);
         return true;
     }
@@ -113,25 +113,25 @@ public class MoreGodReplyModel extends BdBaseModel<e> {
         return this.isLoading;
     }
 
-    public PbModel dah() {
-        return this.kHG;
+    public PbModel ddQ() {
+        return this.kWR;
     }
 
-    public List<q> dai() {
+    public List<q> ddR() {
         f pbData;
-        if (this.kHG == null || (pbData = this.kHG.getPbData()) == null || pbData.cZf() == null || y.isEmpty(pbData.cZf().kGS)) {
+        if (this.kWR == null || (pbData = this.kWR.getPbData()) == null || pbData.dcO() == null || y.isEmpty(pbData.dcO().kWd)) {
             return null;
         }
-        r cZf = pbData.cZf();
+        r dcO = pbData.dcO();
         ArrayList arrayList = new ArrayList();
-        List<PostData> list = cZf.kGS;
+        List<PostData> list = dcO.kWd;
         int size = list.size();
         int i = 0;
         while (i < size) {
             PostData postData = list.get(i);
             if (postData != null) {
                 arrayList.add(postData);
-                postData.mpk = i < size + (-1);
+                postData.mEQ = i < size + (-1);
             }
             i++;
         }
@@ -150,19 +150,19 @@ public class MoreGodReplyModel extends BdBaseModel<e> {
     }
 
     public void a(ai.a aVar) {
-        this.kHJ = aVar;
+        this.kWU = aVar;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public boolean azG() {
+    public boolean aCp() {
         f pbData;
-        r cZf;
-        if (this.kHG == null || (pbData = this.kHG.getPbData()) == null || (cZf = pbData.cZf()) == null) {
+        r dcO;
+        if (this.kWR == null || (pbData = this.kWR.getPbData()) == null || (dcO = pbData.dcO()) == null) {
             return false;
         }
-        if (this.kHI < 0) {
-            this.kHI = cZf.getCount();
+        if (this.kWT < 0) {
+            this.kWT = dcO.getCount();
         }
-        return cZf.kGT.size() > this.kHI && cZf.kGS.size() < 100;
+        return dcO.kWe.size() > this.kWT && dcO.kWd.size() < 100;
     }
 }

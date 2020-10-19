@@ -9,16 +9,16 @@ import org.json.JSONObject;
 import org.json.JSONTokener;
 /* loaded from: classes11.dex */
 public class a implements b {
-    public C0850a nrM = new C0850a();
+    public C0868a nHg = new C0868a();
 
     /* renamed from: com.bun.miitmdid.a.a$a  reason: collision with other inner class name */
     /* loaded from: classes11.dex */
-    public class C0850a {
-        public com.bun.miitmdid.a.a.a nrN;
-        public com.bun.miitmdid.a.a.b nrO;
-        public c nrP;
+    public class C0868a {
+        public com.bun.miitmdid.a.a.a nHh;
+        public com.bun.miitmdid.a.a.b nHi;
+        public c nHj;
 
-        public C0850a() {
+        public C0868a() {
         }
     }
 
@@ -30,9 +30,9 @@ public class a implements b {
             return false;
         }
         if (jSONObject.optJSONObject(RomUtils.MANUFACTURER_HUAWEI) != null) {
-            aVar.nrM.nrN = new com.bun.miitmdid.a.a.a();
+            aVar.nHg.nHh = new com.bun.miitmdid.a.a.a();
         }
-        return aVar.nrM.nrN != null;
+        return aVar.nHg.nHh != null;
     }
 
     private static boolean b(a aVar, JSONObject jSONObject) {
@@ -40,9 +40,9 @@ public class a implements b {
             return false;
         }
         if (jSONObject.optJSONObject(RomUtils.MANUFACTURER_XIAOMI) != null) {
-            aVar.nrM.nrP = new c();
+            aVar.nHg.nHj = new c();
         }
-        return aVar.nrM.nrP != null;
+        return aVar.nHg.nHj != null;
     }
 
     private static boolean c(a aVar, JSONObject jSONObject) {
@@ -52,23 +52,23 @@ public class a implements b {
         JSONObject optJSONObject = jSONObject.optJSONObject(RomUtils.MANUFACTURER_VIVO);
         com.bun.miitmdid.a.a.b bVar = new com.bun.miitmdid.a.a.b();
         if (optJSONObject != null) {
-            bVar.a = optJSONObject.optString("appid");
-            aVar.nrM.nrO = bVar;
+            bVar.f3975a = optJSONObject.optString("appid");
+            aVar.nHg.nHi = bVar;
         }
-        return aVar.nrM.nrO != null;
+        return aVar.nHg.nHi != null;
     }
 
-    public static a gn(Context context) {
+    public static a gu(Context context) {
         boolean z;
         JSONObject jSONObject;
         JSONObject optJSONObject;
-        String a = com.bun.miitmdid.utils.c.a(context, "supplierconfig.json");
-        if (TextUtils.isEmpty(a)) {
+        String a2 = com.bun.miitmdid.utils.c.a(context, "supplierconfig.json");
+        if (TextUtils.isEmpty(a2)) {
             return null;
         }
         a aVar = new a();
         try {
-            jSONObject = (JSONObject) new JSONTokener(a).nextValue();
+            jSONObject = (JSONObject) new JSONTokener(a2).nextValue();
         } catch (JSONException e) {
             e.printStackTrace();
             z = false;
@@ -82,6 +82,6 @@ public class a implements b {
 
     @Override // com.bun.miitmdid.a.b
     public String a() {
-        return (this.nrM == null || this.nrM.nrO == null || this.nrM.nrO.a == null) ? "" : this.nrM.nrO.a;
+        return (this.nHg == null || this.nHg.nHi == null || this.nHg.nHi.f3975a == null) ? "" : this.nHg.nHi.f3975a;
     }
 }

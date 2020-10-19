@@ -11,18 +11,18 @@ import com.baidu.tieba.ala.g.d;
 import java.util.List;
 /* loaded from: classes4.dex */
 public class b {
-    private long bhr;
-    private boolean dOQ;
-    private com.baidu.live.personmanager.b fVZ;
-    private com.baidu.tieba.ala.g.d fWd;
-    private com.baidu.tieba.ala.view.b fWe;
-    private long fxY;
+    private long blh;
+    private boolean eaR;
+    private long fKh;
+    private com.baidu.live.personmanager.b gis;
+    private com.baidu.tieba.ala.g.d giw;
+    private com.baidu.tieba.ala.view.b gix;
     private boolean mIsHost;
     private TbPageContext mTbPageContext;
     private long mUserId;
-    private final b.a fWa = new b.a() { // from class: com.baidu.tieba.ala.d.b.1
+    private final b.a git = new b.a() { // from class: com.baidu.tieba.ala.d.b.1
         @Override // com.baidu.live.personmanager.b.a
-        public void MI() {
+        public void NN() {
             BdUtilHelper.showToast(b.this.mTbPageContext.getPageActivity(), a.i.txt_person_report_success);
             b.this.mTbPageContext.getPageActivity().finish();
         }
@@ -35,57 +35,57 @@ public class b {
     private final View.OnClickListener mOnClickListener = new View.OnClickListener() { // from class: com.baidu.tieba.ala.d.b.2
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
-            if (b.this.fWe.ccx() != null && b.this.mUserId > 0) {
-                b.this.fVZ.az(String.valueOf(b.this.mUserId), b.this.fWe.ccx().bJT());
+            if (b.this.gix.cfT() != null && b.this.mUserId > 0) {
+                b.this.gis.aC(String.valueOf(b.this.mUserId), b.this.gix.cfT().bMD());
             }
         }
     };
-    private final d.a fWf = new d.a() { // from class: com.baidu.tieba.ala.d.b.3
+    private final d.a giy = new d.a() { // from class: com.baidu.tieba.ala.d.b.3
         @Override // com.baidu.tieba.ala.g.d.a
-        public void bh(List<com.baidu.tieba.ala.data.b> list) {
+        public void bk(List<com.baidu.tieba.ala.data.b> list) {
             if (ListUtils.isEmpty(list)) {
-                list = b.this.fWd.bZI();
+                list = b.this.giw.cdg();
             }
             if (!ListUtils.isEmpty(list)) {
-                b.this.fWe.setData(list);
+                b.this.gix.setData(list);
             }
         }
 
         @Override // com.baidu.tieba.ala.g.d.a
         public void onFail(int i, String str) {
-            List<com.baidu.tieba.ala.data.b> bZI = b.this.fWd.bZI();
-            if (!ListUtils.isEmpty(bZI)) {
-                b.this.fWe.setData(bZI);
+            List<com.baidu.tieba.ala.data.b> cdg = b.this.giw.cdg();
+            if (!ListUtils.isEmpty(cdg)) {
+                b.this.gix.setData(cdg);
             }
         }
     };
 
     public b(TbPageContext tbPageContext, long j, long j2, long j3, boolean z, boolean z2) {
         this.mTbPageContext = tbPageContext;
-        this.bhr = j;
-        this.fxY = j2;
+        this.blh = j;
+        this.fKh = j2;
         this.mUserId = j3;
         this.mIsHost = z;
-        this.dOQ = z2;
-        this.fWd = new com.baidu.tieba.ala.g.d(this.mTbPageContext, this.fWf);
-        this.fWd.b(this.bhr, this.fxY, this.mUserId, this.mIsHost, this.dOQ);
-        this.fWe = new com.baidu.tieba.ala.view.b(this.mTbPageContext, this.mOnClickListener);
-        this.fWe.b(this.bhr, this.fxY, this.mUserId, this.mIsHost, this.dOQ);
-        this.fWd.bZH();
-        this.fVZ = new com.baidu.live.personmanager.b(this.mTbPageContext);
-        this.fVZ.a(this.fWa);
+        this.eaR = z2;
+        this.giw = new com.baidu.tieba.ala.g.d(this.mTbPageContext, this.giy);
+        this.giw.b(this.blh, this.fKh, this.mUserId, this.mIsHost, this.eaR);
+        this.gix = new com.baidu.tieba.ala.view.b(this.mTbPageContext, this.mOnClickListener);
+        this.gix.b(this.blh, this.fKh, this.mUserId, this.mIsHost, this.eaR);
+        this.giw.cdf();
+        this.gis = new com.baidu.live.personmanager.b(this.mTbPageContext);
+        this.gis.a(this.git);
     }
 
     public View getView() {
-        return this.fWe.getView();
+        return this.gix.getView();
     }
 
     public void onConfigurationChanged(Configuration configuration) {
     }
 
     public void onDestroy() {
-        this.fWd.onDestroy();
-        this.fVZ.onDestroy();
-        this.fWe.onDestroy();
+        this.giw.onDestroy();
+        this.gis.onDestroy();
+        this.gix.onDestroy();
     }
 }

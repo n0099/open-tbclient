@@ -12,7 +12,7 @@ import com.baidu.ar.constants.HttpConstants;
 import com.baidu.ar.mdl.ARMdlInterfaceJNI;
 import com.baidu.ar.statistic.StatisticApi;
 import com.baidu.searchbox.appframework.AppFrameworkConstants;
-/* loaded from: classes10.dex */
+/* loaded from: classes14.dex */
 public class GestureDetector extends com.baidu.ar.b.a.a {
     private static final String TAG = GestureDetector.class.getSimpleName();
     private int oE = 1;

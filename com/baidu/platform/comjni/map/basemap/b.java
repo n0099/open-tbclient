@@ -3,16 +3,18 @@ package com.baidu.platform.comjni.map.basemap;
 import java.util.concurrent.TimeUnit;
 import java.util.concurrent.locks.ReadWriteLock;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes3.dex */
+/* loaded from: classes7.dex */
 public class b implements Runnable {
-    final /* synthetic */ long a;
+
+    /* renamed from: a  reason: collision with root package name */
+    final /* synthetic */ long f3166a;
     final /* synthetic */ boolean b;
     final /* synthetic */ NABaseMap c;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public b(NABaseMap nABaseMap, long j, boolean z) {
         this.c = nABaseMap;
-        this.a = j;
+        this.f3166a = j;
         this.b = z;
     }
 
@@ -23,7 +25,7 @@ public class b implements Runnable {
         ReadWriteLock readWriteLock;
         ReadWriteLock readWriteLock2;
         ReadWriteLock readWriteLock3;
-        boolean a;
+        boolean a2;
         long j;
         ReadWriteLock readWriteLock4;
         try {
@@ -32,11 +34,11 @@ public class b implements Runnable {
                 boolean tryLock = readWriteLock3.readLock().tryLock(2000L, TimeUnit.MILLISECONDS);
                 if (tryLock) {
                     try {
-                        a = this.c.a(this.a);
-                        if (!a) {
+                        a2 = this.c.a(this.f3166a);
+                        if (!a2) {
                             NABaseMap nABaseMap = this.c;
                             j = this.c.b;
-                            nABaseMap.nativeShowLayers(j, this.a, this.b);
+                            nABaseMap.nativeShowLayers(j, this.f3166a, this.b);
                         }
                     } catch (Throwable th2) {
                         z = tryLock;

@@ -17,12 +17,12 @@ import com.baidu.tbadk.core.util.at;
 import com.baidu.tbadk.core.util.be;
 import com.baidu.tieba.R;
 import tbclient.SmartApp;
-/* loaded from: classes20.dex */
+/* loaded from: classes21.dex */
 public class ThreadSmartAppLayout extends RelativeLayout implements View.OnClickListener, p<AbsThreadDataSupport> {
-    private View.OnClickListener aiW;
-    private HeadImageView erW;
-    private TextView exa;
-    private SmartApp exb;
+    private View.OnClickListener ajo;
+    private HeadImageView eEh;
+    private TextView eJk;
+    private SmartApp eJl;
     private TextView mTitleView;
 
     public ThreadSmartAppLayout(Context context) {
@@ -36,11 +36,11 @@ public class ThreadSmartAppLayout extends RelativeLayout implements View.OnClick
     public ThreadSmartAppLayout(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
         LayoutInflater.from(context).inflate(R.layout.thread_smart_app_layout, (ViewGroup) this, true);
-        this.erW = (HeadImageView) findViewById(R.id.iv_thread_smart_app_head);
-        this.erW.setIsRound(true);
-        this.erW.setPlaceHolder(1);
+        this.eEh = (HeadImageView) findViewById(R.id.iv_thread_smart_app_head);
+        this.eEh.setIsRound(true);
+        this.eEh.setPlaceHolder(1);
         this.mTitleView = (TextView) findViewById(R.id.tv_thread_smart_app_title);
-        this.exa = (TextView) findViewById(R.id.tv_thread_smart_app_abstract);
+        this.eJk = (TextView) findViewById(R.id.tv_thread_smart_app_abstract);
         setOnClickListener(this);
         onChangeSkinType();
     }
@@ -48,25 +48,25 @@ public class ThreadSmartAppLayout extends RelativeLayout implements View.OnClick
     public void onChangeSkinType() {
         ap.setBackgroundResource(this, R.drawable.applets_cell_bg);
         ap.setViewTextColor(this.mTitleView, R.color.cp_cont_b);
-        ap.setViewTextColor(this.exa, R.color.cp_cont_j);
+        ap.setViewTextColor(this.eJk, R.color.cp_cont_j);
     }
 
     public void setAfterClickListener(View.OnClickListener onClickListener) {
-        this.aiW = onClickListener;
+        this.ajo = onClickListener;
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        if (this.exb != null) {
-            if (!com.baidu.tieba.aiapps.a.b(this.exb.id, this.exb.link, "1191003900000000", this.exb.is_game)) {
-                if (!at.isEmpty(this.exb.h5_url)) {
-                    be.bkp().b(W(getContext()), new String[]{this.exb.h5_url});
+        if (this.eJl != null) {
+            if (!com.baidu.tieba.aiapps.a.b(this.eJl.id, this.eJl.link, "1191003900000000", this.eJl.is_game)) {
+                if (!at.isEmpty(this.eJl.h5_url)) {
+                    be.bmY().b(W(getContext()), new String[]{this.eJl.h5_url});
                 } else {
                     return;
                 }
             }
-            if (this.aiW != null) {
-                this.aiW.onClick(view);
+            if (this.ajo != null) {
+                this.ajo.onClick(view);
             }
         }
     }
@@ -84,24 +84,24 @@ public class ThreadSmartAppLayout extends RelativeLayout implements View.OnClick
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.card.p
     /* renamed from: b */
-    public void G(AbsThreadDataSupport absThreadDataSupport) {
-        if (absThreadDataSupport == null || absThreadDataSupport.bcY() == null || absThreadDataSupport.bcY().bgn() == null) {
+    public void H(AbsThreadDataSupport absThreadDataSupport) {
+        if (absThreadDataSupport == null || absThreadDataSupport.bfG() == null || absThreadDataSupport.bfG().biW() == null) {
             setVisibility(8);
             return;
         }
-        this.exb = absThreadDataSupport.bcY().bgn();
-        if (!at.isEmpty(this.exb.avatar)) {
-            this.erW.startLoad(this.exb.avatar, 10, false, false);
+        this.eJl = absThreadDataSupport.bfG().biW();
+        if (!at.isEmpty(this.eJl.avatar)) {
+            this.eEh.startLoad(this.eJl.avatar, 10, false, false);
         }
-        if (!at.isEmpty(this.exb.name)) {
-            this.mTitleView.setText(this.exb.name + " " + getContext().getResources().getString(R.string.smart_app_suffix));
+        if (!at.isEmpty(this.eJl.name)) {
+            this.mTitleView.setText(this.eJl.name + " " + getContext().getResources().getString(R.string.smart_app_suffix));
         } else {
             this.mTitleView.setText(getContext().getResources().getString(R.string.intelligent_smart_app));
         }
-        if (!at.isEmpty(this.exb._abstract)) {
-            this.exa.setText(this.exb._abstract);
+        if (!at.isEmpty(this.eJl._abstract)) {
+            this.eJk.setText(this.eJl._abstract);
         } else {
-            this.exa.setText(getContext().getResources().getString(R.string.smart_app_default_abstract));
+            this.eJk.setText(getContext().getResources().getString(R.string.smart_app_default_abstract));
         }
         setVisibility(0);
     }

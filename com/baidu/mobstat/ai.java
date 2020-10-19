@@ -12,7 +12,7 @@ import android.view.ViewGroup;
 import android.widget.FrameLayout;
 import android.widget.TextView;
 import com.baidu.live.tbadk.pay.PayHelper;
-/* loaded from: classes15.dex */
+/* loaded from: classes17.dex */
 public class ai {
     public static boolean a(View view) {
         Object tag = view.getTag(-5000);
@@ -24,27 +24,27 @@ public class ai {
 
     public static void a(Activity activity, boolean z) {
         ViewGroup viewGroup;
-        View a;
+        View a2;
         try {
             viewGroup = (ViewGroup) bj.a(activity).findViewById(16908290);
         } catch (Exception e) {
             viewGroup = null;
         }
-        if (viewGroup != null && (a = a(viewGroup)) != null) {
-            a.setVisibility(z ? 0 : 4);
+        if (viewGroup != null && (a2 = a(viewGroup)) != null) {
+            a2.setVisibility(z ? 0 : 4);
         }
     }
 
     public static void a(Activity activity) {
         ViewGroup viewGroup;
-        View a;
+        View a2;
         try {
             viewGroup = (ViewGroup) bj.a(activity).findViewById(16908290);
         } catch (Exception e) {
             viewGroup = null;
         }
-        if (viewGroup != null && (a = a(viewGroup)) != null) {
-            viewGroup.removeView(a);
+        if (viewGroup != null && (a2 = a(viewGroup)) != null) {
+            viewGroup.removeView(a2);
         }
     }
 
@@ -82,7 +82,9 @@ public class ai {
     private static void a(final Activity activity, TextView textView) {
         final View view = (View) textView.getParent();
         textView.setOnTouchListener(new View.OnTouchListener() { // from class: com.baidu.mobstat.ai.2
-            int a = 0;
+
+            /* renamed from: a  reason: collision with root package name */
+            int f2523a = 0;
             int b = 0;
             int c = 0;
             int d = 0;
@@ -93,13 +95,13 @@ public class ai {
                 int rawY = (int) motionEvent.getRawY();
                 switch (motionEvent.getAction()) {
                     case 0:
-                        this.a = rawX;
+                        this.f2523a = rawX;
                         this.b = rawY;
                         this.c = rawX - view2.getLeft();
                         this.d = rawY - view2.getTop();
                         return true;
                     case 1:
-                        if (ai.b(this.a, (int) motionEvent.getRawX(), this.b, (int) motionEvent.getRawY())) {
+                        if (ai.b(this.f2523a, (int) motionEvent.getRawX(), this.b, (int) motionEvent.getRawY())) {
                             ai.b((Context) activity);
                             return true;
                         }

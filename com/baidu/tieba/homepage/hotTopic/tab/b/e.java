@@ -6,11 +6,11 @@ import com.baidu.adp.widget.ListView.q;
 import com.baidu.tbadk.core.data.bw;
 import com.baidu.tbadk.core.util.y;
 import tbclient.ThreadInfo;
-/* loaded from: classes21.dex */
+/* loaded from: classes22.dex */
 public class e implements q {
     public String cover;
-    public bw dXg;
-    public int egM;
+    public bw eji;
+    public int esS;
     public int index;
     public int time;
     public String title;
@@ -18,18 +18,18 @@ public class e implements q {
     public e(@NonNull ThreadInfo threadInfo, int i) {
         this.index = i + 1;
         this.title = threadInfo.title;
-        this.egM = threadInfo.hot_num.intValue();
+        this.esS = threadInfo.hot_num.intValue();
         if (!y.isEmpty(threadInfo.media)) {
             this.cover = threadInfo.media.get(0).src_pic;
             this.time = threadInfo.media.get(0).during_time.intValue();
         }
-        this.dXg = new bw();
-        this.dXg.egy = true;
-        this.dXg.a(threadInfo);
+        this.eji = new bw();
+        this.eji.esE = true;
+        this.eji.a(threadInfo);
     }
 
     @Override // com.baidu.adp.widget.ListView.q
     public BdUniqueId getType() {
-        return a.iUw;
+        return a.jju;
     }
 }

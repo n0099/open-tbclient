@@ -27,7 +27,7 @@ import java.util.HashMap;
 import java.util.List;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes10.dex */
+/* loaded from: classes14.dex */
 public class FaceAR extends com.baidu.ar.c implements IFace {
     private static final String TAG = FaceAR.class.getSimpleName();
     private LuaMsgListener bZ;
@@ -35,7 +35,7 @@ public class FaceAR extends com.baidu.ar.c implements IFace {
     private e mg;
     private FaceListener na;
     private int[] nf;
-    private a.C0083a nj;
+    private a.C0084a nj;
     private com.baidu.ar.face.attributes.a nk;
     private List<String> nb = new ArrayList();
     private String nc = null;
@@ -158,7 +158,7 @@ public class FaceAR extends com.baidu.ar.c implements IFace {
     }
 
     /* renamed from: do  reason: not valid java name */
-    private void m19do() {
+    private void m18do() {
         int i;
         if (this.U) {
             this.nh.ds();
@@ -184,7 +184,7 @@ public class FaceAR extends com.baidu.ar.c implements IFace {
     }
 
     private j dp() {
-        m19do();
+        m18do();
         j jVar = new j();
         jVar.G(this.nh.getAlgoImageWidth());
         jVar.H(this.nh.getAlgoImageHeight());
@@ -197,20 +197,20 @@ public class FaceAR extends com.baidu.ar.c implements IFace {
             String str2 = this.ni.pI;
             String str3 = this.ni.pJ;
             com.baidu.ar.g.b.c(TAG, "classification result：" + this.ni.pQ);
-            a.C0083a a = this.nh.a(this.ni);
-            if (a != null) {
-                this.nj = a;
-                this.ng = c.a(a.py, str, str2, str3);
+            a.C0084a a2 = this.nh.a(this.ni);
+            if (a2 != null) {
+                this.nj = a2;
+                this.ng = c.a(a2.py, str, str2, str3);
                 com.baidu.ar.g.b.c(TAG, "createFaceParams() mDeviceModelLevel = " + this.ng);
-                jVar.ab(a.px);
+                jVar.ab(a2.px);
                 jVar.ac(str);
                 jVar.ad(str2);
                 jVar.ae(str3);
-                jVar.af(a.pz);
-                jVar.ag(a.pA);
-                jVar.setTrackingSmoothAlpha(Float.parseFloat(a.pB));
-                jVar.setTrackingSmoothThreshold(Float.parseFloat(a.pC));
-                jVar.setTrackingMouthThreshold(Float.parseFloat(a.pD));
+                jVar.af(a2.pz);
+                jVar.ag(a2.pA);
+                jVar.setTrackingSmoothAlpha(Float.parseFloat(a2.pB));
+                jVar.setTrackingSmoothThreshold(Float.parseFloat(a2.pC));
+                jVar.setTrackingMouthThreshold(Float.parseFloat(a2.pD));
             }
         }
         return jVar;
@@ -499,9 +499,9 @@ public class FaceAR extends com.baidu.ar.c implements IFace {
 
                     @Override // com.baidu.ar.lua.LuaMsgListener
                     public void onLuaMessage(HashMap<String, Object> hashMap2) {
-                        int a = c.a(hashMap2, FaceAR.this.mZ.en());
-                        if (a >= 0) {
-                            FaceAR.this.configSyncStatus(a == 2);
+                        int a2 = c.a(hashMap2, FaceAR.this.mZ.en());
+                        if (a2 >= 0) {
+                            FaceAR.this.configSyncStatus(a2 == 2);
                         }
                     }
                 };

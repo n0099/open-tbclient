@@ -8,7 +8,7 @@ import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
 import org.json.JSONException;
 import org.json.JSONObject;
 @Deprecated
-/* loaded from: classes3.dex */
+/* loaded from: classes10.dex */
 public class i extends aa {
     public i(com.baidu.swan.apps.scheme.j jVar) {
         super(jVar, "/swanAPI/getAppInfoSync");
@@ -25,11 +25,11 @@ public class i extends aa {
             return false;
         }
         try {
-            JSONObject a = com.baidu.swan.apps.api.module.h.a.a(eVar, context);
-            if (DEBUG && a != null) {
-                Log.d("GetAppInfoSyncAction", "data: " + a.toString());
+            JSONObject a2 = com.baidu.swan.apps.api.module.h.a.a(eVar, context);
+            if (DEBUG && a2 != null) {
+                Log.d("GetAppInfoSyncAction", "data: " + a2.toString());
             }
-            unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(a, 0);
+            unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(a2, 0);
             return true;
         } catch (JSONException e) {
             if (DEBUG) {

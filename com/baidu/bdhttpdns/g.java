@@ -6,16 +6,16 @@ import com.baidu.bdhttpdns.BDHttpDnsResult;
 import com.baidu.bdhttpdns.f;
 import com.baidu.bdhttpdns.h;
 import java.util.ArrayList;
-/* loaded from: classes18.dex */
+/* loaded from: classes12.dex */
 public class g implements f.a {
-    private final BDHttpDns.a adI;
-    private final BDHttpDns adP;
-    private final h adQ;
+    private final BDHttpDns.a adY;
+    private final BDHttpDns aeg;
+    private final h aeh;
 
     public g(Context context, BDHttpDns.a aVar) {
-        this.adI = aVar;
-        this.adP = BDHttpDns.P(context);
-        this.adQ = this.adP.sT();
+        this.adY = aVar;
+        this.aeg = BDHttpDns.P(context);
+        this.aeh = this.aeg.sT();
     }
 
     @Override // com.baidu.bdhttpdns.f.a
@@ -23,8 +23,8 @@ public class g implements f.a {
         switch (i) {
             case -1:
                 l.a("Async resolve failed, host(%s), dns resolve failed", str);
-                if (this.adI != null) {
-                    this.adI.a(new BDHttpDnsResult(BDHttpDnsResult.ResolveType.RESOLVE_NONE, BDHttpDnsResult.ResolveStatus.BDHttpDnsResolveErrorDnsResolve, arrayList, arrayList2));
+                if (this.adY != null) {
+                    this.adY.a(new BDHttpDnsResult(BDHttpDnsResult.ResolveType.RESOLVE_NONE, BDHttpDnsResult.ResolveStatus.BDHttpDnsResolveErrorDnsResolve, arrayList, arrayList2));
                     return;
                 }
                 return;
@@ -40,9 +40,9 @@ public class g implements f.a {
                 aVar.b(System.currentTimeMillis() / 1000);
                 aVar.a(arrayList);
                 aVar.b(arrayList2);
-                this.adQ.a(str, aVar);
-                if (this.adI != null) {
-                    this.adI.a(new BDHttpDnsResult(BDHttpDnsResult.ResolveType.RESOLVE_FROM_DNS, BDHttpDnsResult.ResolveStatus.BDHttpDnsResolveOK, arrayList, arrayList2));
+                this.aeh.a(str, aVar);
+                if (this.adY != null) {
+                    this.adY.a(new BDHttpDnsResult(BDHttpDnsResult.ResolveType.RESOLVE_FROM_DNS, BDHttpDnsResult.ResolveStatus.BDHttpDnsResolveOK, arrayList, arrayList2));
                     return;
                 }
                 return;

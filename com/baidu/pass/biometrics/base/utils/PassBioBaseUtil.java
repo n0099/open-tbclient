@@ -5,7 +5,7 @@ import com.baidu.android.common.util.DeviceId;
 import com.baidu.pass.common.SecurityUtil;
 import java.util.List;
 import java.util.Random;
-/* loaded from: classes6.dex */
+/* loaded from: classes11.dex */
 public class PassBioBaseUtil {
     public static String getClientId(Context context) {
         try {

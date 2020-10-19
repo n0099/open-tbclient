@@ -4,13 +4,15 @@ import android.view.View;
 import android.widget.TextView;
 import com.baidu.platform.comapi.walknavi.g.c.c;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes3.dex */
+/* loaded from: classes7.dex */
 public class z implements View.OnClickListener {
-    final /* synthetic */ c a;
+
+    /* renamed from: a  reason: collision with root package name */
+    final /* synthetic */ c f3050a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public z(c cVar) {
-        this.a = cVar;
+        this.f3050a = cVar;
     }
 
     @Override // android.view.View.OnClickListener
@@ -25,38 +27,38 @@ public class z implements View.OnClickListener {
         com.baidu.platform.comapi.walknavi.g.a aVar2;
         com.baidu.platform.comapi.walknavi.g.a aVar3;
         TextView textView4;
-        z = this.a.E;
+        z = this.f3050a.E;
         if (!z) {
-            textView = this.a.A;
+            textView = this.f3050a.A;
             if (textView != null) {
-                textView2 = this.a.A;
+                textView2 = this.f3050a.A;
                 textView2.setText("查看全览");
             }
-            c cVar = this.a;
-            z2 = this.a.E;
+            c cVar = this.f3050a;
+            z2 = this.f3050a.E;
             cVar.E = z2 ? false : true;
             if (com.baidu.platform.comapi.walknavi.b.a().M() == 4) {
-                this.a.q();
+                this.f3050a.q();
                 return;
             }
             com.baidu.platform.comapi.walknavi.b.a().I().run("[3D车头向上]按钮点击");
-            aVar = this.a.F;
+            aVar = this.f3050a.F;
             aVar.a(com.baidu.platform.comapi.walknavi.segmentbrowse.b.REFRESH_GUIDANCE);
             com.baidu.platform.comapi.walknavi.b.a().G().j();
             return;
         }
         com.baidu.platform.comapi.walknavi.b.a().I().run("[查看全览]按钮点击");
-        textView3 = this.a.A;
+        textView3 = this.f3050a.A;
         if (textView3 != null) {
-            textView4 = this.a.A;
+            textView4 = this.f3050a.A;
             textView4.setText("继续当前导航");
         }
-        c cVar2 = this.a;
-        z3 = this.a.E;
+        c cVar2 = this.f3050a;
+        z3 = this.f3050a.E;
         cVar2.E = z3 ? false : true;
-        aVar2 = this.a.m;
+        aVar2 = this.f3050a.m;
         if (aVar2 != null) {
-            aVar3 = this.a.m;
+            aVar3 = this.f3050a.m;
             aVar3.v();
         }
     }

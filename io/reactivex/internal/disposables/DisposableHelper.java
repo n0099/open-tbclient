@@ -2,7 +2,7 @@ package io.reactivex.internal.disposables;
 
 import io.reactivex.exceptions.ProtocolViolationException;
 import java.util.concurrent.atomic.AtomicReference;
-/* loaded from: classes25.dex */
+/* loaded from: classes17.dex */
 public enum DisposableHelper implements io.reactivex.disposables.b {
     DISPOSED;
 
@@ -28,7 +28,7 @@ public enum DisposableHelper implements io.reactivex.disposables.b {
     }
 
     public static boolean setOnce(AtomicReference<io.reactivex.disposables.b> atomicReference, io.reactivex.disposables.b bVar) {
-        io.reactivex.internal.functions.a.k(bVar, "d is null");
+        io.reactivex.internal.functions.a.l(bVar, "d is null");
         if (atomicReference.compareAndSet(null, bVar)) {
             return true;
         }

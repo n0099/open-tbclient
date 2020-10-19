@@ -3,63 +3,63 @@ package com.tb.airbnb.lottie.model.a;
 import android.graphics.PointF;
 import android.support.annotation.Nullable;
 import com.tb.airbnb.lottie.a.b.o;
-/* loaded from: classes17.dex */
+/* loaded from: classes16.dex */
 public class l implements com.tb.airbnb.lottie.model.content.b {
-    private final e otg;
-    private final m<PointF, PointF> oth;
-    private final g oti;
-    private final b otj;
-    private final d otk;
+    private final d oIA;
     @Nullable
-    private final b otl;
+    private final b oIB;
     @Nullable
-    private final b otm;
+    private final b oIC;
+    private final e oIw;
+    private final m<PointF, PointF> oIx;
+    private final g oIy;
+    private final b oIz;
 
     public l() {
         this(new e(), new e(), new g(), new b(), new d(), new b(), new b());
     }
 
     public l(e eVar, m<PointF, PointF> mVar, g gVar, b bVar, d dVar, @Nullable b bVar2, @Nullable b bVar3) {
-        this.otg = eVar;
-        this.oth = mVar;
-        this.oti = gVar;
-        this.otj = bVar;
-        this.otk = dVar;
-        this.otl = bVar2;
-        this.otm = bVar3;
+        this.oIw = eVar;
+        this.oIx = mVar;
+        this.oIy = gVar;
+        this.oIz = bVar;
+        this.oIA = dVar;
+        this.oIB = bVar2;
+        this.oIC = bVar3;
     }
 
-    public e ehn() {
-        return this.otg;
+    public e ekY() {
+        return this.oIw;
     }
 
-    public m<PointF, PointF> eho() {
-        return this.oth;
+    public m<PointF, PointF> ekZ() {
+        return this.oIx;
     }
 
-    public g ehp() {
-        return this.oti;
+    public g ela() {
+        return this.oIy;
     }
 
-    public b ehq() {
-        return this.otj;
+    public b elb() {
+        return this.oIz;
     }
 
-    public d ehr() {
-        return this.otk;
-    }
-
-    @Nullable
-    public b ehs() {
-        return this.otl;
+    public d elc() {
+        return this.oIA;
     }
 
     @Nullable
-    public b eht() {
-        return this.otm;
+    public b eld() {
+        return this.oIB;
     }
 
-    public o ehu() {
+    @Nullable
+    public b ele() {
+        return this.oIC;
+    }
+
+    public o elf() {
         return new o(this);
     }
 

@@ -1,5 +1,5 @@
 package com.facebook.rebound;
-/* loaded from: classes17.dex */
+/* loaded from: classes11.dex */
 public class SpringUtil {
     public static double mapValueFromRangeToRange(double d, double d2, double d3, double d4, double d5) {
         return (((d - d2) / (d3 - d2)) * (d5 - d4)) + d4;

@@ -6,9 +6,11 @@ import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes15.dex */
+/* loaded from: classes17.dex */
 public class Session {
-    private volatile long a = 0;
+
+    /* renamed from: a  reason: collision with root package name */
+    private volatile long f2510a = 0;
     private volatile long b = 0;
     private volatile long c = 0;
     private volatile long d = 0;
@@ -18,7 +20,7 @@ public class Session {
     private volatile JSONObject h = null;
 
     public void reset() {
-        this.a = 0L;
+        this.f2510a = 0L;
         this.b = 0L;
         this.c = 0L;
         this.d = 0L;
@@ -56,9 +58,9 @@ public class Session {
                 return;
             }
             a aVar2 = list.get(size - 1);
-            if (TextUtils.isEmpty(aVar2.a) || TextUtils.isEmpty(aVar.a)) {
+            if (TextUtils.isEmpty(aVar2.f2511a) || TextUtils.isEmpty(aVar.f2511a)) {
                 list.add(aVar);
-            } else if (!aVar2.a.equals(aVar.a) || aVar2.f == aVar.f) {
+            } else if (!aVar2.f2511a.equals(aVar.f2511a) || aVar2.f == aVar.f) {
                 list.add(aVar);
             } else if (aVar2.f) {
                 aVar2.a(aVar);
@@ -67,18 +69,18 @@ public class Session {
     }
 
     public void setStartTime(long j) {
-        if (this.a <= 0) {
-            this.a = j;
+        if (this.f2510a <= 0) {
+            this.f2510a = j;
             this.e = j;
         }
     }
 
     public long getStartTime() {
-        return this.a;
+        return this.f2510a;
     }
 
     public boolean hasStart() {
-        return this.a > 0;
+        return this.f2510a > 0;
     }
 
     public boolean hasEnd() {
@@ -96,11 +98,11 @@ public class Session {
     public JSONObject constructJSONObject() {
         JSONObject jSONObject = new JSONObject();
         try {
-            jSONObject.put("s", this.a);
+            jSONObject.put("s", this.f2510a);
             jSONObject.put("e", this.b);
             jSONObject.put("i", this.e);
             jSONObject.put("c", 1);
-            jSONObject.put(Config.SESSTION_TRACK_START_TIME, this.c == 0 ? this.a : this.c);
+            jSONObject.put(Config.SESSTION_TRACK_START_TIME, this.c == 0 ? this.f2510a : this.c);
             jSONObject.put(Config.SESSTION_TRACK_END_TIME, this.d == 0 ? this.b : this.d);
             jSONObject.put("pc", this.f);
             if (this.h != null && this.h.length() != 0) {
@@ -108,7 +110,7 @@ public class Session {
             }
             JSONArray jSONArray = new JSONArray();
             for (int i = 0; i < this.g.size(); i++) {
-                jSONArray.put(getPVJson(this.g.get(i), this.a));
+                jSONArray.put(getPVJson(this.g.get(i), this.f2510a));
             }
             jSONObject.put("p", jSONArray);
         } catch (JSONException e) {
@@ -119,11 +121,11 @@ public class Session {
     public JSONObject getPageSessionHead() {
         JSONObject jSONObject = new JSONObject();
         try {
-            jSONObject.put("s", this.a);
+            jSONObject.put("s", this.f2510a);
             jSONObject.put("e", this.b);
             jSONObject.put("i", this.e);
             jSONObject.put("c", 1);
-            jSONObject.put(Config.SESSTION_TRACK_START_TIME, this.c == 0 ? this.a : this.c);
+            jSONObject.put(Config.SESSTION_TRACK_START_TIME, this.c == 0 ? this.f2510a : this.c);
             jSONObject.put(Config.SESSTION_TRACK_END_TIME, this.d == 0 ? this.b : this.d);
             jSONObject.put("pc", this.f);
         } catch (Exception e) {
@@ -155,9 +157,11 @@ public class Session {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes15.dex */
+    /* loaded from: classes17.dex */
     public static class a {
-        private String a;
+
+        /* renamed from: a  reason: collision with root package name */
+        private String f2511a;
         private String b;
         private String c;
         private long d;
@@ -169,7 +173,7 @@ public class Session {
         public a(String str, String str2, String str3, long j, long j2, boolean z, ExtraInfo extraInfo, boolean z2) {
             this.b = str;
             this.c = str2;
-            this.a = str3;
+            this.f2511a = str3;
             this.d = j;
             this.e = j2;
             this.f = z;
@@ -202,7 +206,7 @@ public class Session {
         }
 
         public void a(a aVar) {
-            this.a = aVar.a;
+            this.f2511a = aVar.f2511a;
             this.b = aVar.b;
             this.c = aVar.c;
             this.d = aVar.d;

@@ -1,18 +1,20 @@
 package com.baidu.location.b;
 
 import android.os.HandlerThread;
-/* loaded from: classes3.dex */
+/* loaded from: classes7.dex */
 public class y {
-    private static HandlerThread a = null;
+
+    /* renamed from: a  reason: collision with root package name */
+    private static HandlerThread f1915a = null;
 
     public static synchronized HandlerThread a() {
         HandlerThread handlerThread;
         synchronized (y.class) {
-            if (a == null) {
-                a = new HandlerThread("ServiceStartArguments", 10);
-                a.start();
+            if (f1915a == null) {
+                f1915a = new HandlerThread("ServiceStartArguments", 10);
+                f1915a.start();
             }
-            handlerThread = a;
+            handlerThread = f1915a;
         }
         return handlerThread;
     }

@@ -6,7 +6,7 @@ import com.baidu.live.liveroom.e.e;
 /* loaded from: classes4.dex */
 public class a implements e {
     @Override // com.baidu.live.liveroom.e.e
-    public d au(Context context) {
+    public d ax(Context context) {
         return new b(context);
     }
 }

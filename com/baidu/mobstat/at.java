@@ -25,10 +25,12 @@ import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
 import org.json.JSONArray;
-/* loaded from: classes15.dex */
+/* loaded from: classes17.dex */
 public class at {
     private static final at u = new at();
-    private Context a;
+
+    /* renamed from: a  reason: collision with root package name */
+    private Context f2545a;
     private WeakReference<Activity> b;
     private Handler c;
     private long g;
@@ -60,7 +62,7 @@ public class at {
     private float z = 0.0f;
     private Object A = new Object();
 
-    /* loaded from: classes15.dex */
+    /* loaded from: classes17.dex */
     public interface a {
         void a(ao aoVar);
 
@@ -116,7 +118,7 @@ public class at {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void a(Activity activity, long j) {
-        this.a = activity.getApplicationContext();
+        this.f2545a = activity.getApplicationContext();
         this.b = new WeakReference<>(activity);
         this.g = j;
         String e = bj.e(activity);
@@ -478,15 +480,15 @@ public class at {
                     String e = bj.e(activity);
                     String f = bj.f(activity);
                     ArrayList<Integer> a2 = a(activity, view);
-                    int a3 = ah.a(this.a, a2.get(0).intValue());
-                    int a4 = ah.a(this.a, a2.get(1).intValue());
+                    int a3 = ah.a(this.f2545a, a2.get(0).intValue());
+                    int a4 = ah.a(this.f2545a, a2.get(1).intValue());
                     ArrayList<Integer> b = bj.b(activity, view);
-                    int a5 = ah.a(this.a, b.get(0).intValue());
-                    int a6 = ah.a(this.a, b.get(1).intValue());
+                    int a5 = ah.a(this.f2545a, b.get(0).intValue());
+                    int a6 = ah.a(this.f2545a, b.get(1).intValue());
                     int i = a5 > a3 ? a5 : a3;
                     int i2 = a6 > a4 ? a6 : a4;
                     if (i != 0 && i2 != 0) {
-                        a(this.a, new ao(e, f, this.l, j2 - j, j, a5, a6, i, i2, str, this.n, this.o));
+                        a(this.f2545a, new ao(e, f, this.l, j2 - j, j, a5, a6, i, i2, str, this.n, this.o));
                     }
                 }
             }
@@ -621,7 +623,7 @@ public class at {
         if (this.v != null) {
             this.v.a(arrayList);
         }
-        aw.a().a(this.a, arrayList);
+        aw.a().a(this.f2545a, arrayList);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -863,7 +865,7 @@ public class at {
         if (this.v != null) {
             this.v.b(arrayList);
         }
-        aw.a().b(this.a, arrayList);
+        aw.a().b(this.f2545a, arrayList);
     }
 
     private ArrayList<aq> h(HashMap<String, ArrayList<aq>> hashMap) {

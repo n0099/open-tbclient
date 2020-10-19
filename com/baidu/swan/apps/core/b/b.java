@@ -6,12 +6,12 @@ import com.baidu.live.adp.lib.stats.BdStatsConstant;
 import com.baidu.swan.apps.core.b.a;
 import com.baidu.webkit.sdk.WebSettings;
 import java.util.ArrayList;
-/* loaded from: classes3.dex */
+/* loaded from: classes10.dex */
 public final class b {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
 
     @NonNull
-    public static WebSettings.CodeCacheSetting bh(String str, @NonNull String str2) {
+    public static WebSettings.CodeCacheSetting bm(String str, @NonNull String str2) {
         WebSettings.CodeCacheSetting codeCacheSetting = new WebSettings.CodeCacheSetting();
         codeCacheSetting.id = str;
         codeCacheSetting.pathList = new ArrayList<>();
@@ -27,9 +27,9 @@ public final class b {
         }
         switch (c) {
             case 0:
-                a.C0376a agw = a.b.agw();
-                codeCacheSetting.maxCount = agw.maxCount;
-                codeCacheSetting.sizeLimit = agw.sizeLimit;
+                a.C0393a ajh = a.b.ajh();
+                codeCacheSetting.maxCount = ajh.maxCount;
+                codeCacheSetting.sizeLimit = ajh.sizeLimit;
                 break;
             default:
                 codeCacheSetting.maxCount = 5;

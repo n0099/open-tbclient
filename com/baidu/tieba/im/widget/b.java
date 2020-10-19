@@ -13,7 +13,7 @@ import com.baidu.tieba.im.db.l;
 import com.baidu.tieba.im.db.m;
 /* loaded from: classes.dex */
 public class b {
-    public static void cMk() {
+    public static void cPS() {
         MessageManager.getInstance().registerListener(CmdConfigCustom.METHOD_ACCOUNT_CHANGE, new CustomMessageListener(0) { // from class: com.baidu.tieba.im.widget.b.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.adp.framework.listener.MessageListener
@@ -21,16 +21,16 @@ public class b {
                 if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2005016 && customResponsedMessage.getData() != null) {
                     final boolean isNull = StringUtils.isNull(((AccountData) customResponsedMessage.getData()).getAccount());
                     if (!isNull) {
-                        com.baidu.tbadk.coreExtra.messageCenter.b.boP().c(new f());
-                        com.baidu.tbadk.coreExtra.messageCenter.b.boP().setMsgChat(0);
-                        com.baidu.tbadk.coreExtra.messageCenter.b.boP().setMsgAtme(0);
-                        com.baidu.tbadk.coreExtra.messageCenter.b.boP().pP(0);
-                        com.baidu.tbadk.coreExtra.messageCenter.b.boP().setMsgFans(0);
-                        com.baidu.tbadk.coreExtra.messageCenter.b.boP().setMsgGiftNum(0);
-                        com.baidu.tbadk.coreExtra.messageCenter.b.boP().bph();
+                        com.baidu.tbadk.coreExtra.messageCenter.b.brz().c(new f());
+                        com.baidu.tbadk.coreExtra.messageCenter.b.brz().setMsgChat(0);
+                        com.baidu.tbadk.coreExtra.messageCenter.b.brz().setMsgAtme(0);
+                        com.baidu.tbadk.coreExtra.messageCenter.b.brz().qn(0);
+                        com.baidu.tbadk.coreExtra.messageCenter.b.brz().setMsgFans(0);
+                        com.baidu.tbadk.coreExtra.messageCenter.b.brz().setMsgGiftNum(0);
+                        com.baidu.tbadk.coreExtra.messageCenter.b.brz().brR();
                         ae.clearQueue();
-                        m.cHX().cHA();
-                        l.cHU().cHA();
+                        m.cLG().cLj();
+                        l.cLD().cLj();
                     }
                     ae.b(new ad<Integer>() { // from class: com.baidu.tieba.im.widget.b.1.1
                         /* JADX DEBUG: Method merged with bridge method */
@@ -38,14 +38,14 @@ public class b {
                         @Override // com.baidu.tbadk.util.ad
                         public Integer doInBackground() {
                             if (!isNull) {
-                                com.baidu.tieba.im.db.b.cHB().cHC();
+                                com.baidu.tieba.im.db.b.cLk().cLl();
                             }
                             return 0;
                         }
                     }, new com.baidu.tbadk.util.m<Integer>() { // from class: com.baidu.tieba.im.widget.b.1.2
                         /* JADX DEBUG: Method merged with bridge method */
                         @Override // com.baidu.tbadk.util.m
-                        /* renamed from: n */
+                        /* renamed from: p */
                         public void onReturnDataInUI(Integer num) {
                             MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(CmdConfigCustom.METHOD_ACCOUNT_CHANGE_FOR_IM, null));
                         }

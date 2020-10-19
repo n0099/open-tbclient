@@ -8,6 +8,7 @@ import android.os.Looper;
 import android.os.Message;
 import android.telephony.PhoneStateListener;
 import android.telephony.TelephonyManager;
+import android.text.TextUtils;
 import android.view.View;
 import com.baidu.ala.dumixar.Config;
 import com.baidu.ala.dumixar.EGLTextureReader;
@@ -493,6 +494,7 @@ public class AlaLiveRecorder implements IFaceUnityOperator, ICameraStatusHandler
             this.mVideoRecorder.enableEncoderDrawer(true);
         } else {
             this.mStreamMode = 3;
+            this.mCurrentPushState = 1;
             stopAudioDevice();
             stopNative(true);
             this.mVideoRecorder.setTextureReaderListener(onPixelReadCallback);
@@ -889,6 +891,21 @@ public class AlaLiveRecorder implements IFaceUnityOperator, ICameraStatusHandler
 
     private void stopVideoRecord() {
         this.mVideoRecorder.stopRecord();
+    }
+
+    public String getPushUrl() {
+        return this.mRecordUrl;
+    }
+
+    public void setPushUrl(String str) {
+        this.mRecordUrl = str;
+    }
+
+    public int startPush() {
+        if (TextUtils.isEmpty(this.mRecordUrl)) {
+            return -1;
+        }
+        return startPush(this.mRecordUrl);
     }
 
     public int startPush(String str) {
@@ -1571,6 +1588,10 @@ public class AlaLiveRecorder implements IFaceUnityOperator, ICameraStatusHandler
         this.mVideoRecorder.onBeautyTypeChanged(videoBeautyType);
     }
 
+    public void onOrientationChanged() {
+        this.mVideoRecorder.onBeautyTypeChanged(this.mBeautyType);
+    }
+
     public VideoBeautyType getBeautyType() {
         return this.mBeautyType;
     }
@@ -1578,6 +1599,12 @@ public class AlaLiveRecorder implements IFaceUnityOperator, ICameraStatusHandler
     public void onBeautyParamsChanged(float f, HashMap<String, Object> hashMap) {
         if (this.mVideoRecorder != null) {
             this.mVideoRecorder.onBeautyParamsChanged(f, hashMap);
+        }
+    }
+
+    public void onBeautyParamsChanged(String str, Object obj) {
+        if (this.mVideoRecorder != null) {
+            this.mVideoRecorder.onBeautyParamsChanged(str, obj);
         }
     }
 

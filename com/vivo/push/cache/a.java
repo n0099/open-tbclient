@@ -10,7 +10,7 @@ import com.xiaomi.mipush.sdk.Constants;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
-/* loaded from: classes12.dex */
+/* loaded from: classes15.dex */
 public final class a extends d<com.vivo.push.model.a> {
     public a(Context context) {
         super(context);
@@ -41,7 +41,7 @@ public final class a extends d<com.vivo.push.model.a> {
 
     @Override // com.vivo.push.cache.d
     final String b(String str) throws Exception {
-        return new String(g.a(g.a(a), g.a(b), Base64.decode(str, 2)), "utf-8");
+        return new String(g.a(g.a(f4673a), g.a(b), Base64.decode(str, 2)), "utf-8");
     }
 
     public final com.vivo.push.model.a c(String str) {

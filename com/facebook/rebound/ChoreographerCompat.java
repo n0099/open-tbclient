@@ -5,7 +5,7 @@ import android.os.Build;
 import android.os.Handler;
 import android.os.Looper;
 import android.view.Choreographer;
-/* loaded from: classes17.dex */
+/* loaded from: classes11.dex */
 public class ChoreographerCompat {
     private static final boolean IS_JELLYBEAN_OR_HIGHER;
     private static final long ONE_FRAME_MILLIS = 17;
@@ -74,7 +74,7 @@ public class ChoreographerCompat {
         this.mChoreographer.removeFrameCallback(frameCallback);
     }
 
-    /* loaded from: classes17.dex */
+    /* loaded from: classes11.dex */
     public static abstract class FrameCallback {
         private Choreographer.FrameCallback mFrameCallback;
         private Runnable mRunnable;

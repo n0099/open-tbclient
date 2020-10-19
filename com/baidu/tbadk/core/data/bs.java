@@ -4,9 +4,9 @@ import tbclient.SimpleForum;
 /* loaded from: classes.dex */
 public class bs implements com.baidu.tbadk.core.view.commonLike.forum.b {
     public String avatar;
-    private boolean ecG;
-    private boolean ecH;
-    public ab ecI;
+    private boolean eoL;
+    private boolean eoM;
+    public ab eoN;
     public String forumId;
     private int forumLevel;
     public String forumName;
@@ -25,30 +25,30 @@ public class bs implements com.baidu.tbadk.core.view.commonLike.forum.b {
     }
 
     @Override // com.baidu.tbadk.core.view.commonLike.forum.b
-    public void hU(boolean z) {
-        this.ecH = z;
+    public void iq(boolean z) {
+        this.eoM = z;
     }
 
-    public boolean beN() {
-        return this.ecH;
+    public boolean bhw() {
+        return this.eoM;
     }
 
     public String getAvatar() {
         return this.avatar;
     }
 
-    public int beO() {
+    public int bhx() {
         return this.forumLevel;
     }
 
     @Override // com.baidu.tbadk.core.view.commonLike.a
     public boolean getIsLike() {
-        return this.ecG;
+        return this.eoL;
     }
 
     @Override // com.baidu.tbadk.core.view.commonLike.a
     public void setIsLike(boolean z) {
-        this.ecG = z;
+        this.eoL = z;
     }
 
     public void parserProtobuf(SimpleForum simpleForum) {
@@ -56,11 +56,11 @@ public class bs implements com.baidu.tbadk.core.view.commonLike.forum.b {
             this.forumId = String.valueOf(simpleForum.id);
             this.forumName = simpleForum.name;
             this.avatar = simpleForum.avatar;
-            this.ecG = simpleForum.is_liked.intValue() == 1;
+            this.eoL = simpleForum.is_liked.intValue() == 1;
             this.forumLevel = simpleForum.level_id.intValue();
             if (simpleForum.multi_forum_perm != null) {
-                this.ecI = new ab();
-                this.ecI.a(simpleForum.multi_forum_perm);
+                this.eoN = new ab();
+                this.eoN.a(simpleForum.multi_forum_perm);
             }
             this.isBrandForum = simpleForum.is_brand_forum.intValue() == 1;
             this.memberNum = simpleForum.member_num.intValue();

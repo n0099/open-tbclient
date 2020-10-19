@@ -1,32 +1,32 @@
 package com.baidu.tieba;
 /* loaded from: classes.dex */
 public class e {
-    public a fnA;
-    private int fnB = 0;
+    public a fzO;
+    private int fzP = 0;
 
     /* loaded from: classes.dex */
     public interface a {
-        void bx(int i, int i2);
+        void bw(int i, int i2);
     }
 
-    public void sj(int i) {
-        if (this.fnB != i) {
-            if (this.fnA != null) {
-                this.fnA.bx(this.fnB, i);
+    public void sH(int i) {
+        if (this.fzP != i) {
+            if (this.fzO != null) {
+                this.fzO.bw(this.fzP, i);
             }
-            this.fnB = i;
+            this.fzP = i;
         }
     }
 
-    public void sk(int i) {
-        this.fnB = i;
+    public void sI(int i) {
+        this.fzP = i;
     }
 
-    public int bAS() {
-        return this.fnB;
+    public int bDE() {
+        return this.fzP;
     }
 
     public void a(a aVar) {
-        this.fnA = aVar;
+        this.fzO = aVar;
     }
 }

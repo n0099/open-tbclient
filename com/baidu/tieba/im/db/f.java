@@ -24,30 +24,30 @@ public class f extends SQLiteOpenHelper {
 
     @Override // android.database.sqlite.SQLiteOpenHelper
     public void onCreate(SQLiteDatabase sQLiteDatabase) {
-        R(sQLiteDatabase);
+        S(sQLiteDatabase);
     }
 
-    private void R(SQLiteDatabase sQLiteDatabase) {
+    private void S(SQLiteDatabase sQLiteDatabase) {
         try {
             b(sQLiteDatabase, "CREATE TABLE IF NOT EXISTS tb_group_news(notice_id TEXT NOT NULL UNIQUE, cmd TEXT, gid TEXT, time long, content TEXT, content_status int, ext TEXT);");
-            S(sQLiteDatabase);
             T(sQLiteDatabase);
+            U(sQLiteDatabase);
         } catch (Exception e) {
             TiebaStatic.printDBExceptionLog(e, "ImDatabaseHelper.createTables", new Object[0]);
         }
     }
 
-    private void S(SQLiteDatabase sQLiteDatabase) {
+    private void T(SQLiteDatabase sQLiteDatabase) {
         if (sQLiteDatabase != null) {
             b(sQLiteDatabase, "CREATE TABLE IF NOT EXISTS tb_message_center(gid TEXT NOT NULL, group_name TEXT, group_head TEXT, custom_group_type int, group_ext TEXT, unread_count int, last_msgId TEXT, last_user_name TEXT, last_content_time long, send_status int, last_content TEXT, is_friend int, pull_msgid TEXT,is_hidden int,is_delete int, sent_mid long, read_mid long, sid long, task_id TEXT, service_id TEXT, ext1 TEXT, ext2 TEXT, user_type int default 1, visit_time LONG DEFAULT -1, group_name_show TEXT);");
         }
     }
 
-    private void T(SQLiteDatabase sQLiteDatabase) {
+    private void U(SQLiteDatabase sQLiteDatabase) {
         b(sQLiteDatabase, "CREATE TABLE IF NOT EXISTS tb_new_friends(_id INTEGER primary key autoincrement, uid LONG NOT NULL, uname TEXT, ustatus INTEGER, uportrait TEXT, ucontent TEXT,isread INTEGER, name_show TEXT);");
     }
 
-    private void U(SQLiteDatabase sQLiteDatabase) {
+    private void V(SQLiteDatabase sQLiteDatabase) {
         if (sQLiteDatabase != null) {
             b(sQLiteDatabase, "CREATE TABLE IF NOT EXISTS tb_message_center(gid TEXT NOT NULL, group_name TEXT, group_head TEXT, custom_group_type int, group_ext TEXT, unread_count int, last_msgId TEXT, last_user_name TEXT, last_content_time long, send_status int, last_content TEXT, is_friend int, pull_msgid TEXT,is_hidden int,is_delete int);");
         }
@@ -58,7 +58,7 @@ public class f extends SQLiteOpenHelper {
     public void onDowngrade(SQLiteDatabase sQLiteDatabase, int i, int i2) {
         try {
             TbadkCoreApplication.getInst().getApp().deleteDatabase(TbadkCoreApplication.getCurrentAccount() + ".db");
-            R(sQLiteDatabase);
+            S(sQLiteDatabase);
         } catch (Exception e) {
             TiebaStatic.printDBExceptionLog(e, "ImDatabaseHelper.onDowngrade", new Object[0]);
             e.printStackTrace();
@@ -70,162 +70,162 @@ public class f extends SQLiteOpenHelper {
         switch (i) {
             case 1:
                 try {
-                    aa(sQLiteDatabase);
-                    V(sQLiteDatabase);
+                    ab(sQLiteDatabase);
                     W(sQLiteDatabase);
                     X(sQLiteDatabase);
                     Y(sQLiteDatabase);
-                    ab(sQLiteDatabase);
+                    Z(sQLiteDatabase);
                     ac(sQLiteDatabase);
                     ad(sQLiteDatabase);
                     ae(sQLiteDatabase);
-                    ag(sQLiteDatabase);
-                    ah(sQLiteDatabase);
-                    ak(sQLiteDatabase);
-                    ai(sQLiteDatabase);
-                    aj(sQLiteDatabase);
                     af(sQLiteDatabase);
+                    ah(sQLiteDatabase);
+                    ai(sQLiteDatabase);
+                    al(sQLiteDatabase);
+                    aj(sQLiteDatabase);
+                    ak(sQLiteDatabase);
+                    ag(sQLiteDatabase);
                     return;
                 } catch (Exception e) {
                     TiebaStatic.printDBExceptionLog(e, "ImDatabaseHelper.onUpgrade", new Object[0]);
                     TbadkCoreApplication.getInst().getApp().deleteDatabase(TbadkCoreApplication.getCurrentAccount() + ".db");
-                    R(sQLiteDatabase);
+                    S(sQLiteDatabase);
                     return;
                 }
             case 2:
-                V(sQLiteDatabase);
                 W(sQLiteDatabase);
                 X(sQLiteDatabase);
                 Y(sQLiteDatabase);
-                ab(sQLiteDatabase);
+                Z(sQLiteDatabase);
                 ac(sQLiteDatabase);
                 ad(sQLiteDatabase);
                 ae(sQLiteDatabase);
-                ag(sQLiteDatabase);
-                ah(sQLiteDatabase);
-                ak(sQLiteDatabase);
-                ai(sQLiteDatabase);
-                aj(sQLiteDatabase);
                 af(sQLiteDatabase);
+                ah(sQLiteDatabase);
+                ai(sQLiteDatabase);
+                al(sQLiteDatabase);
+                aj(sQLiteDatabase);
+                ak(sQLiteDatabase);
+                ag(sQLiteDatabase);
                 return;
             case 3:
-                W(sQLiteDatabase);
                 X(sQLiteDatabase);
                 Y(sQLiteDatabase);
-                ab(sQLiteDatabase);
+                Z(sQLiteDatabase);
                 ac(sQLiteDatabase);
                 ad(sQLiteDatabase);
                 ae(sQLiteDatabase);
-                ag(sQLiteDatabase);
-                ah(sQLiteDatabase);
-                ak(sQLiteDatabase);
-                ai(sQLiteDatabase);
-                aj(sQLiteDatabase);
                 af(sQLiteDatabase);
+                ah(sQLiteDatabase);
+                ai(sQLiteDatabase);
+                al(sQLiteDatabase);
+                aj(sQLiteDatabase);
+                ak(sQLiteDatabase);
+                ag(sQLiteDatabase);
                 return;
             case 4:
-                X(sQLiteDatabase);
                 Y(sQLiteDatabase);
-                ab(sQLiteDatabase);
+                Z(sQLiteDatabase);
                 ac(sQLiteDatabase);
                 ad(sQLiteDatabase);
                 ae(sQLiteDatabase);
-                ag(sQLiteDatabase);
-                ah(sQLiteDatabase);
-                ak(sQLiteDatabase);
-                ai(sQLiteDatabase);
-                aj(sQLiteDatabase);
                 af(sQLiteDatabase);
+                ah(sQLiteDatabase);
+                ai(sQLiteDatabase);
+                al(sQLiteDatabase);
+                aj(sQLiteDatabase);
+                ak(sQLiteDatabase);
+                ag(sQLiteDatabase);
                 return;
             case 5:
-                Y(sQLiteDatabase);
-                ab(sQLiteDatabase);
+                Z(sQLiteDatabase);
                 ac(sQLiteDatabase);
                 ad(sQLiteDatabase);
                 ae(sQLiteDatabase);
-                ag(sQLiteDatabase);
-                ah(sQLiteDatabase);
-                ak(sQLiteDatabase);
-                ai(sQLiteDatabase);
-                aj(sQLiteDatabase);
                 af(sQLiteDatabase);
+                ah(sQLiteDatabase);
+                ai(sQLiteDatabase);
+                al(sQLiteDatabase);
+                aj(sQLiteDatabase);
+                ak(sQLiteDatabase);
+                ag(sQLiteDatabase);
                 return;
             case 6:
-                ab(sQLiteDatabase);
                 ac(sQLiteDatabase);
                 ad(sQLiteDatabase);
                 ae(sQLiteDatabase);
-                ag(sQLiteDatabase);
-                ah(sQLiteDatabase);
-                ak(sQLiteDatabase);
-                ai(sQLiteDatabase);
-                aj(sQLiteDatabase);
                 af(sQLiteDatabase);
+                ah(sQLiteDatabase);
+                ai(sQLiteDatabase);
+                al(sQLiteDatabase);
+                aj(sQLiteDatabase);
+                ak(sQLiteDatabase);
+                ag(sQLiteDatabase);
                 return;
             case 7:
-                ac(sQLiteDatabase);
                 ad(sQLiteDatabase);
                 ae(sQLiteDatabase);
-                ag(sQLiteDatabase);
-                ah(sQLiteDatabase);
-                ak(sQLiteDatabase);
-                ai(sQLiteDatabase);
-                aj(sQLiteDatabase);
                 af(sQLiteDatabase);
+                ah(sQLiteDatabase);
+                ai(sQLiteDatabase);
+                al(sQLiteDatabase);
+                aj(sQLiteDatabase);
+                ak(sQLiteDatabase);
+                ag(sQLiteDatabase);
                 return;
             case 8:
-                ad(sQLiteDatabase);
                 ae(sQLiteDatabase);
-                ag(sQLiteDatabase);
-                ah(sQLiteDatabase);
-                ak(sQLiteDatabase);
-                ai(sQLiteDatabase);
-                aj(sQLiteDatabase);
                 af(sQLiteDatabase);
+                ah(sQLiteDatabase);
+                ai(sQLiteDatabase);
+                al(sQLiteDatabase);
+                aj(sQLiteDatabase);
+                ak(sQLiteDatabase);
+                ag(sQLiteDatabase);
                 return;
             case 9:
-                ae(sQLiteDatabase);
-                ag(sQLiteDatabase);
-                ah(sQLiteDatabase);
-                ak(sQLiteDatabase);
-                ai(sQLiteDatabase);
-                aj(sQLiteDatabase);
                 af(sQLiteDatabase);
+                ah(sQLiteDatabase);
+                ai(sQLiteDatabase);
+                al(sQLiteDatabase);
+                aj(sQLiteDatabase);
+                ak(sQLiteDatabase);
+                ag(sQLiteDatabase);
                 return;
             case 10:
-                ag(sQLiteDatabase);
                 ah(sQLiteDatabase);
-                ak(sQLiteDatabase);
                 ai(sQLiteDatabase);
+                al(sQLiteDatabase);
                 aj(sQLiteDatabase);
-                af(sQLiteDatabase);
+                ak(sQLiteDatabase);
+                ag(sQLiteDatabase);
                 return;
             case 11:
-                ah(sQLiteDatabase);
-                ak(sQLiteDatabase);
                 ai(sQLiteDatabase);
+                al(sQLiteDatabase);
                 aj(sQLiteDatabase);
-                af(sQLiteDatabase);
+                ak(sQLiteDatabase);
+                ag(sQLiteDatabase);
                 return;
             case 12:
-                ai(sQLiteDatabase);
                 aj(sQLiteDatabase);
-                af(sQLiteDatabase);
+                ak(sQLiteDatabase);
+                ag(sQLiteDatabase);
                 return;
             case 13:
-                af(sQLiteDatabase);
+                ag(sQLiteDatabase);
                 return;
             default:
                 return;
         }
     }
 
-    private void V(SQLiteDatabase sQLiteDatabase) {
+    private void W(SQLiteDatabase sQLiteDatabase) {
         if (sQLiteDatabase != null) {
-            LinkedList<String> Z = Z(sQLiteDatabase);
+            LinkedList<String> aa = aa(sQLiteDatabase);
             try {
                 sQLiteDatabase.beginTransaction();
-                Iterator<String> it = Z.iterator();
+                Iterator<String> it = aa.iterator();
                 while (it.hasNext()) {
                     String next = it.next();
                     if (!TextUtils.isEmpty(next) && next.startsWith("tb_group_msg_")) {
@@ -247,10 +247,10 @@ public class f extends SQLiteOpenHelper {
         }
     }
 
-    private void W(SQLiteDatabase sQLiteDatabase) {
+    private void X(SQLiteDatabase sQLiteDatabase) {
     }
 
-    private void X(SQLiteDatabase sQLiteDatabase) {
+    private void Y(SQLiteDatabase sQLiteDatabase) {
         if (sQLiteDatabase != null) {
             try {
                 sQLiteDatabase.beginTransaction();
@@ -267,13 +267,13 @@ public class f extends SQLiteOpenHelper {
         }
     }
 
-    private void Y(SQLiteDatabase sQLiteDatabase) {
+    private void Z(SQLiteDatabase sQLiteDatabase) {
         b(sQLiteDatabase, "CREATE TABLE IF NOT EXISTS tb_new_friends(_id INTEGER primary key autoincrement, uid INTEGER NOT NULL, uname TEXT, ustatus INTEGER, uportrait TEXT, ucontent TEXT,isread INTEGER);");
         if (sQLiteDatabase != null) {
-            LinkedList<String> Z = Z(sQLiteDatabase);
+            LinkedList<String> aa = aa(sQLiteDatabase);
             try {
                 sQLiteDatabase.beginTransaction();
-                Iterator<String> it = Z.iterator();
+                Iterator<String> it = aa.iterator();
                 while (it.hasNext()) {
                     String next = it.next();
                     if (!TextUtils.isEmpty(next) && (next.startsWith(m.HEAD) || next.startsWith(l.HEAD))) {
@@ -292,7 +292,7 @@ public class f extends SQLiteOpenHelper {
         }
     }
 
-    private LinkedList<String> Z(SQLiteDatabase sQLiteDatabase) {
+    private LinkedList<String> aa(SQLiteDatabase sQLiteDatabase) {
         Cursor cursor;
         Throwable th;
         Exception exc;
@@ -338,12 +338,12 @@ public class f extends SQLiteOpenHelper {
         return linkedList;
     }
 
-    private void aa(SQLiteDatabase sQLiteDatabase) {
+    private void ab(SQLiteDatabase sQLiteDatabase) {
         if (sQLiteDatabase != null) {
-            LinkedList<String> Z = Z(sQLiteDatabase);
+            LinkedList<String> aa = aa(sQLiteDatabase);
             try {
                 sQLiteDatabase.beginTransaction();
-                Iterator<String> it = Z.iterator();
+                Iterator<String> it = aa.iterator();
                 while (it.hasNext()) {
                     String next = it.next();
                     if (!TextUtils.isEmpty(next) && next.startsWith("tb_group_msg_")) {
@@ -362,29 +362,29 @@ public class f extends SQLiteOpenHelper {
         }
     }
 
-    private void ab(SQLiteDatabase sQLiteDatabase) {
+    private void ac(SQLiteDatabase sQLiteDatabase) {
         if (sQLiteDatabase != null) {
             try {
                 sQLiteDatabase.beginTransaction();
                 try {
                     sQLiteDatabase.execSQL("ALTER TABLE tb_message_center RENAME TO test_table_temp;");
-                    U(sQLiteDatabase);
+                    V(sQLiteDatabase);
                     sQLiteDatabase.execSQL("INSERT INTO tb_message_center SELECT gid,group_name,group_head,custom_group_type,group_ext,unread_count,last_msgId,last_user_name,last_content_time,'send_status' as send_status,last_content,'is_friend' as is_friend,'pull_msgid' as pull_msgid,is_hidden,is_delete FROM test_table_temp;");
                     sQLiteDatabase.execSQL("DROP TABLE test_table_temp;");
                 } catch (Exception e) {
                     TiebaStatic.printDBExceptionLog(e, "ImDatabaseHelper.messageCenter6to7", new Object[0]);
                     sQLiteDatabase.execSQL("DROP TABLE IF EXISTS tb_message_center");
-                    R(sQLiteDatabase);
+                    S(sQLiteDatabase);
                 }
                 sQLiteDatabase.setTransactionSuccessful();
                 try {
                     sQLiteDatabase.beginTransaction();
-                    g.juS.put(TbadkCoreApplication.getCurrentAccount() + ".db", sQLiteDatabase);
-                    k.cHT();
+                    g.jJP.put(TbadkCoreApplication.getCurrentAccount() + ".db", sQLiteDatabase);
+                    k.cLC();
                     sQLiteDatabase.setTransactionSuccessful();
                 } finally {
                     sQLiteDatabase.endTransaction();
-                    g.juS.remove(TbadkCoreApplication.getCurrentAccount() + ".db");
+                    g.jJP.remove(TbadkCoreApplication.getCurrentAccount() + ".db");
                 }
             } finally {
                 sQLiteDatabase.endTransaction();
@@ -392,7 +392,7 @@ public class f extends SQLiteOpenHelper {
         }
     }
 
-    private void ac(SQLiteDatabase sQLiteDatabase) {
+    private void ad(SQLiteDatabase sQLiteDatabase) {
         if (sQLiteDatabase != null) {
             try {
                 sQLiteDatabase.beginTransaction();
@@ -410,7 +410,7 @@ public class f extends SQLiteOpenHelper {
         }
     }
 
-    private void ad(SQLiteDatabase sQLiteDatabase) {
+    private void ae(SQLiteDatabase sQLiteDatabase) {
         if (sQLiteDatabase != null) {
             try {
                 sQLiteDatabase.beginTransaction();
@@ -427,7 +427,7 @@ public class f extends SQLiteOpenHelper {
         }
     }
 
-    private void ae(SQLiteDatabase sQLiteDatabase) {
+    private void af(SQLiteDatabase sQLiteDatabase) {
         if (sQLiteDatabase != null) {
             try {
                 sQLiteDatabase.beginTransaction();
@@ -447,7 +447,7 @@ public class f extends SQLiteOpenHelper {
         }
     }
 
-    private void af(SQLiteDatabase sQLiteDatabase) {
+    private void ag(SQLiteDatabase sQLiteDatabase) {
         if (sQLiteDatabase != null) {
             try {
                 sQLiteDatabase.beginTransaction();
@@ -464,7 +464,7 @@ public class f extends SQLiteOpenHelper {
         }
     }
 
-    private void ag(SQLiteDatabase sQLiteDatabase) {
+    private void ah(SQLiteDatabase sQLiteDatabase) {
         if (sQLiteDatabase != null) {
             try {
                 sQLiteDatabase.beginTransaction();
@@ -492,7 +492,7 @@ public class f extends SQLiteOpenHelper {
         }
     }
 
-    private void ah(SQLiteDatabase sQLiteDatabase) {
+    private void ai(SQLiteDatabase sQLiteDatabase) {
         if (sQLiteDatabase != null) {
             try {
                 sQLiteDatabase.beginTransaction();
@@ -509,7 +509,7 @@ public class f extends SQLiteOpenHelper {
         }
     }
 
-    private void ai(SQLiteDatabase sQLiteDatabase) {
+    private void aj(SQLiteDatabase sQLiteDatabase) {
         if (sQLiteDatabase != null) {
             try {
                 sQLiteDatabase.beginTransaction();
@@ -526,12 +526,12 @@ public class f extends SQLiteOpenHelper {
         }
     }
 
-    private void aj(SQLiteDatabase sQLiteDatabase) {
+    private void ak(SQLiteDatabase sQLiteDatabase) {
         if (sQLiteDatabase != null) {
-            LinkedList<String> Z = Z(sQLiteDatabase);
+            LinkedList<String> aa = aa(sQLiteDatabase);
             try {
                 sQLiteDatabase.beginTransaction();
-                Iterator<String> it = Z.iterator();
+                Iterator<String> it = aa.iterator();
                 while (it.hasNext()) {
                     String next = it.next();
                     if (!TextUtils.isEmpty(next) && (next.startsWith(m.HEAD) || next.startsWith(l.HEAD))) {
@@ -550,7 +550,7 @@ public class f extends SQLiteOpenHelper {
         }
     }
 
-    private void ak(SQLiteDatabase sQLiteDatabase) {
+    private void al(SQLiteDatabase sQLiteDatabase) {
         if (sQLiteDatabase != null) {
             try {
                 sQLiteDatabase.beginTransaction();

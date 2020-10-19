@@ -26,7 +26,7 @@ import com.idlefish.flutterboost.interfaces.INativeRouter;
 import io.flutter.embedding.android.FlutterView;
 import java.util.HashMap;
 import java.util.Map;
-/* loaded from: classes24.dex */
+/* loaded from: classes25.dex */
 public class FlutterStatic {
     static {
         registerFlutterRule();
@@ -80,19 +80,19 @@ public class FlutterStatic {
             public CustomResponsedMessage<m> run(CustomMessage<m> customMessage) {
                 if (customMessage != null && customMessage.getData() != null) {
                     Context context = customMessage.getData().getContext();
-                    String dAq = customMessage.getData().dAq();
+                    String dEc = customMessage.getData().dEc();
                     HashMap params = customMessage.getData().getParams();
                     if (params == null || params.isEmpty()) {
                         params = new HashMap();
                     }
-                    if (context != null && !TextUtils.isEmpty(dAq) && params != null && !params.isEmpty()) {
-                        OpenFlutter.openFlutterPage(context, dAq, params);
+                    if (context != null && !TextUtils.isEmpty(dEc) && params != null && !params.isEmpty()) {
+                        OpenFlutter.openFlutterPage(context, dEc, params);
                     }
                 }
                 return null;
             }
         }));
-        be.bkp().a(new be.a() { // from class: com.baidu.tieba.flutter.FlutterStatic.5
+        be.bmY().a(new be.a() { // from class: com.baidu.tieba.flutter.FlutterStatic.5
             @Override // com.baidu.tbadk.core.util.be.a
             public int deal(TbPageContext<?> tbPageContext, String[] strArr) {
                 if (strArr == null || strArr[0] == null) {

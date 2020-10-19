@@ -2,7 +2,7 @@ package com.baidu.searchbox.skin.ioc;
 
 import android.content.res.Resources;
 import com.baidu.android.common.others.java.Pair;
-/* loaded from: classes17.dex */
+/* loaded from: classes14.dex */
 public class DefaultSkinResourcesContext implements ISkinResourcesContext {
     @Override // com.baidu.searchbox.skin.ioc.ISkinResourcesContext
     public Resources getSkinResources() {

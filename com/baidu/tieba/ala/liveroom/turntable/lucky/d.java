@@ -13,7 +13,7 @@ public class d extends HttpMessage {
         return this.liveId;
     }
 
-    public void gi(String str) {
+    public void gx(String str) {
         this.liveId = str;
         addParam("live_id", str);
     }

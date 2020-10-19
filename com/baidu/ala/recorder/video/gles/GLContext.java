@@ -132,7 +132,7 @@ public class GLContext {
             }
             switch (i3) {
                 case 1:
-                case EGL_RECORDABLE_ANDROID /* 12610 */:
+                case 12610:
                     this.mSurface = this.mEgl.eglCreatePbufferSurface(this.mDisplay, this.mConfig, iArr5);
                     break;
                 case 2:

@@ -4,7 +4,7 @@ import com.google.zxing.NotFoundException;
 import com.google.zxing.ResultPoint;
 import com.google.zxing.common.BitMatrix;
 @Deprecated
-/* loaded from: classes3.dex */
+/* loaded from: classes7.dex */
 public final class MonochromeRectangleDetector {
     private static final int MAX_MODULES = 32;
     private final BitMatrix image;

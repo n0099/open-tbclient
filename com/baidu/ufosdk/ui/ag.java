@@ -12,12 +12,14 @@ import android.widget.EditText;
 import android.widget.Toast;
 import java.lang.ref.WeakReference;
 import org.json.JSONObject;
-/* loaded from: classes21.dex */
+/* loaded from: classes22.dex */
 final class ag extends Handler {
-    private final WeakReference a;
+
+    /* renamed from: a  reason: collision with root package name */
+    private final WeakReference f3747a;
 
     public ag(FeedbackEditActivity feedbackEditActivity) {
-        this.a = new WeakReference(feedbackEditActivity);
+        this.f3747a = new WeakReference(feedbackEditActivity);
     }
 
     @Override // android.os.Handler
@@ -47,7 +49,7 @@ final class ag extends Handler {
         SharedPreferences.Editor editor6;
         String str10;
         super.handleMessage(message);
-        FeedbackEditActivity feedbackEditActivity = (FeedbackEditActivity) this.a.get();
+        FeedbackEditActivity feedbackEditActivity = (FeedbackEditActivity) this.f3747a.get();
         feedbackEditActivity.a(true);
         com.baidu.ufosdk.f.c.a("msg.what = " + message.what);
         if (feedbackEditActivity == null) {

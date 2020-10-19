@@ -3,72 +3,72 @@ package rx.c;
 import java.util.Map;
 import java.util.Properties;
 import java.util.concurrent.atomic.AtomicReference;
-/* loaded from: classes7.dex */
+/* loaded from: classes16.dex */
 public class f {
-    private static final f oTH = new f();
-    static final b oTM = new b() { // from class: rx.c.f.1
+    private static final f pja = new f();
+    static final b pjf = new b() { // from class: rx.c.f.1
     };
-    private final AtomicReference<b> oTI = new AtomicReference<>();
-    private final AtomicReference<d> oTJ = new AtomicReference<>();
-    private final AtomicReference<h> oTK = new AtomicReference<>();
-    private final AtomicReference<a> oTL = new AtomicReference<>();
-    private final AtomicReference<g> oNG = new AtomicReference<>();
+    private final AtomicReference<b> pjb = new AtomicReference<>();
+    private final AtomicReference<d> pjc = new AtomicReference<>();
+    private final AtomicReference<h> pjd = new AtomicReference<>();
+    private final AtomicReference<a> pje = new AtomicReference<>();
+    private final AtomicReference<g> pcW = new AtomicReference<>();
 
     @Deprecated
-    public static f eoW() {
-        return oTH;
+    public static f esH() {
+        return pja;
     }
 
     f() {
     }
 
-    public b eoX() {
-        if (this.oTI.get() == null) {
-            Object a = a(b.class, System.getProperties());
-            if (a == null) {
-                this.oTI.compareAndSet(null, oTM);
+    public b esI() {
+        if (this.pjb.get() == null) {
+            Object a2 = a(b.class, System.getProperties());
+            if (a2 == null) {
+                this.pjb.compareAndSet(null, pjf);
             } else {
-                this.oTI.compareAndSet(null, (b) a);
+                this.pjb.compareAndSet(null, (b) a2);
             }
         }
-        return this.oTI.get();
+        return this.pjb.get();
     }
 
-    public d eoY() {
-        if (this.oTJ.get() == null) {
-            Object a = a(d.class, System.getProperties());
-            if (a == null) {
-                this.oTJ.compareAndSet(null, e.eoV());
+    public d esJ() {
+        if (this.pjc.get() == null) {
+            Object a2 = a(d.class, System.getProperties());
+            if (a2 == null) {
+                this.pjc.compareAndSet(null, e.esG());
             } else {
-                this.oTJ.compareAndSet(null, (d) a);
+                this.pjc.compareAndSet(null, (d) a2);
             }
         }
-        return this.oTJ.get();
+        return this.pjc.get();
     }
 
-    public h eoZ() {
-        if (this.oTK.get() == null) {
-            Object a = a(h.class, System.getProperties());
-            if (a == null) {
-                this.oTK.compareAndSet(null, i.epj());
+    public h esK() {
+        if (this.pjd.get() == null) {
+            Object a2 = a(h.class, System.getProperties());
+            if (a2 == null) {
+                this.pjd.compareAndSet(null, i.esU());
             } else {
-                this.oTK.compareAndSet(null, (h) a);
+                this.pjd.compareAndSet(null, (h) a2);
             }
         }
-        return this.oTK.get();
+        return this.pjd.get();
     }
 
-    public a epa() {
-        if (this.oTL.get() == null) {
-            Object a = a(a.class, System.getProperties());
-            if (a == null) {
-                this.oTL.compareAndSet(null, new a() { // from class: rx.c.f.2
+    public a esL() {
+        if (this.pje.get() == null) {
+            Object a2 = a(a.class, System.getProperties());
+            if (a2 == null) {
+                this.pje.compareAndSet(null, new a() { // from class: rx.c.f.2
                 });
             } else {
-                this.oTL.compareAndSet(null, (a) a);
+                this.pje.compareAndSet(null, (a) a2);
             }
         }
-        return this.oTL.get();
+        return this.pje.get();
     }
 
     /* JADX WARN: Removed duplicated region for block: B:33:0x0154 A[RETURN, SYNTHETIC] */
@@ -113,15 +113,15 @@ public class f {
         }
     }
 
-    public g epb() {
-        if (this.oNG.get() == null) {
-            Object a = a(g.class, System.getProperties());
-            if (a == null) {
-                this.oNG.compareAndSet(null, g.epi());
+    public g esM() {
+        if (this.pcW.get() == null) {
+            Object a2 = a(g.class, System.getProperties());
+            if (a2 == null) {
+                this.pcW.compareAndSet(null, g.esT());
             } else {
-                this.oNG.compareAndSet(null, (g) a);
+                this.pcW.compareAndSet(null, (g) a2);
             }
         }
-        return this.oNG.get();
+        return this.pcW.get();
     }
 }

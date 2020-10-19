@@ -9,9 +9,8 @@ import android.opengl.EGLExt;
 import android.opengl.EGLSurface;
 import android.util.Log;
 import android.view.Surface;
-import com.baidu.ala.recorder.video.gles.GLContext;
 @TargetApi(18)
-/* loaded from: classes22.dex */
+/* loaded from: classes23.dex */
 class g {
     private EGLContext mEGLContext;
     private EGLDisplay mEGLDisplay;
@@ -37,7 +36,7 @@ class g {
             throw new RuntimeException("unable to initialize EGL14");
         }
         EGLConfig[] eGLConfigArr = new EGLConfig[1];
-        if (!EGL14.eglChooseConfig(this.mEGLDisplay, new int[]{12324, 8, 12323, 8, 12322, 8, 12352, 4, GLContext.EGL_RECORDABLE_ANDROID, 1, 12344}, 0, eGLConfigArr, 0, eGLConfigArr.length, new int[1], 0)) {
+        if (!EGL14.eglChooseConfig(this.mEGLDisplay, new int[]{12324, 8, 12323, 8, 12322, 8, 12352, 4, 12610, 1, 12344}, 0, eGLConfigArr, 0, eGLConfigArr.length, new int[1], 0)) {
             throw new RuntimeException("unable to find RGB888+recordable ES2 EGL config");
         }
         this.mEGLContext = EGL14.eglCreateContext(this.mEGLDisplay, eGLConfigArr[0], EGL14.EGL_NO_CONTEXT, new int[]{12440, 2, 12344}, 0);

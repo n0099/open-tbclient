@@ -169,7 +169,7 @@ public class FrsActivityConfig extends IntentConfig {
     @Override // com.baidu.tbadk.core.frameworkData.IntentConfig
     public void preJump() {
         AccountData currentAccountObj;
-        int Jv;
+        int Ki;
         Intent intent = getIntent();
         String stringExtra = intent.getStringExtra("name");
         String stringExtra2 = intent.getStringExtra("from");
@@ -189,28 +189,28 @@ public class FrsActivityConfig extends IntentConfig {
         }
         FrsRequestData frsRequestData = new FrsRequestData();
         if (FRS_FROM_FREQUENTLT_FORUM_NEW_THREAD.equals(stringExtra2)) {
-            Jv = 3;
+            Ki = 3;
         } else if (FRS_FROM_FREQUENTLY_FORUM_POST_THREAD.equals(stringExtra2)) {
-            Jv = 6;
+            Ki = 6;
         } else {
             String str = "";
             if (TbadkCoreApplication.getCurrentAccountObj() != null) {
                 str = currentAccountObj.getID() + Constants.WAVE_SEPARATOR;
             }
-            Jv = i.Jv("1~" + str + stringExtra);
+            Ki = i.Ki("1~" + str + stringExtra);
         }
-        frsRequestData.setSortType(i.zf(Jv));
-        if (Jv == 5) {
+        frsRequestData.setSortType(i.zL(Ki));
+        if (Ki == 5) {
             frsRequestData.setIsGood(1);
         } else {
             frsRequestData.setIsGood(0);
         }
-        frsRequestData.gc("forum_name", k.getUrlEncode(stringExtra));
-        frsRequestData.gc("client_type", "2");
+        frsRequestData.gj("forum_name", k.getUrlEncode(stringExtra));
+        frsRequestData.gj("client_type", "2");
         frsRequestData.setPn(1);
         frsRequestData.setCallFrom(intExtra);
-        i.a(Jv, frsRequestData);
-        frsRequestData.Rd("2");
+        i.a(Ki, frsRequestData);
+        frsRequestData.RR("2");
         frsRequestData.setObjSource("-2");
         frsRequestData.setKw(stringExtra);
         frsRequestData.setWithGroup(1);
@@ -218,30 +218,30 @@ public class FrsActivityConfig extends IntentConfig {
         frsRequestData.setScrW(l.getEquipmentWidth(TbadkCoreApplication.getInst()));
         frsRequestData.setScrH(l.getEquipmentHeight(TbadkCoreApplication.getInst()));
         frsRequestData.setScrDip(l.getEquipmentDensity(TbadkCoreApplication.getInst()));
-        frsRequestData.setqType(au.bkm().bkn() ? 2 : 1);
+        frsRequestData.setqType(au.bmV().bmW() ? 2 : 1);
         if (uri != null) {
             frsRequestData.setSchemeUrl(uri.toString());
         }
         frsRequestData.setLastId(null);
         frsRequestData.setYuelaouLocate(stringExtra3);
-        frsRequestData.setLastClickTid(b.toLong(ac.bwS(), 0L));
+        frsRequestData.setLastClickTid(b.toLong(ac.bzC(), 0L));
         frsRequestData.setStType(stringExtra2);
-        frsRequestData.In(1);
+        frsRequestData.IT(1);
         frsRequestData.setNeedCache(true);
         frsRequestData.setUpdateType(3);
-        frsRequestData.gj(longExtra);
-        i.a(Jv, frsRequestData);
+        frsRequestData.gB(longExtra);
+        i.a(Ki, frsRequestData);
         frsRequestData.setLoadType(1);
-        if (bw.edR.get() && r.dqU().dqO() != null) {
-            int aT = r.dqU().dqO().aT(stringExtra, false);
-            int aU = r.dqU().dqO().aU(stringExtra, false);
+        if (bw.epW.get() && r.duF().duz() != null) {
+            int aX = r.duF().duz().aX(stringExtra, false);
+            int aY = r.duF().duz().aY(stringExtra, false);
             if (frsRequestData.getLoadType() == 1) {
-                aT++;
+                aX++;
             } else if (frsRequestData.getLoadType() == 2) {
-                aU++;
+                aY++;
             }
-            frsRequestData.setRefreshCount(aT);
-            frsRequestData.setLoadCount(aU);
+            frsRequestData.setRefreshCount(aX);
+            frsRequestData.setLoadCount(aY);
         }
         FrsNetModel frsNetModel = new FrsNetModel(null, frsRequestData);
         frsNetModel.setUniqueId(this.mPageId);

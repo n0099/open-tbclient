@@ -3,7 +3,7 @@ package com.facebook.imagepipeline.memory;
 import android.util.Log;
 import java.io.Closeable;
 @com.facebook.common.internal.d
-/* loaded from: classes25.dex */
+/* loaded from: classes18.dex */
 public class NativeMemoryChunk implements Closeable {
     private boolean mClosed;
     private final long mNativePtr;
@@ -80,7 +80,7 @@ public class NativeMemoryChunk implements Closeable {
         return dL;
     }
 
-    public synchronized byte Lz(int i) {
+    public synchronized byte Mf(int i) {
         byte nativeReadByte;
         synchronized (this) {
             com.facebook.common.internal.g.checkState(!isClosed());
@@ -112,7 +112,7 @@ public class NativeMemoryChunk implements Closeable {
         }
     }
 
-    public long dSM() {
+    public long dWx() {
         return this.mNativePtr;
     }
 

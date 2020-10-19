@@ -4,7 +4,7 @@ import android.app.Activity;
 import android.content.Context;
 import com.baidu.mobads.interfaces.IXAdConstants4PDK;
 import java.util.HashMap;
-/* loaded from: classes3.dex */
+/* loaded from: classes7.dex */
 public class d extends com.baidu.mobads.vo.d {
     public d(Context context, Activity activity, IXAdConstants4PDK.SlotType slotType, String str, String str2) {
         super(context, activity, slotType);

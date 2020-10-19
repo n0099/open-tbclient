@@ -2,9 +2,11 @@ package com.baidu.platform.comjni.map.syncdata;
 
 import android.os.Bundle;
 import com.baidu.platform.comjni.JNIBaseApi;
-/* loaded from: classes3.dex */
+/* loaded from: classes7.dex */
 public class NASyncData extends JNIBaseApi {
-    private long a = 0;
+
+    /* renamed from: a  reason: collision with root package name */
+    private long f3186a = 0;
 
     private native boolean nativeCleanData(long j, String str);
 

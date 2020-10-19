@@ -1,7 +1,7 @@
 package com.baidu.searchbox.network.callback;
 
 import com.baidu.searchbox.network.core.Response;
-/* loaded from: classes14.dex */
+/* loaded from: classes15.dex */
 public abstract class ResponseCallback<T> {
     public abstract void onFail(Exception exc);
 

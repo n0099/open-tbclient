@@ -22,7 +22,7 @@ import com.baidu.tbadk.core.util.be;
 import com.baidu.tieba.R;
 import java.util.regex.Pattern;
 import org.json.JSONObject;
-/* loaded from: classes20.dex */
+/* loaded from: classes21.dex */
 public class YunPushProxyActivity extends BaseActivity<YunPushProxyActivity> {
     /* JADX INFO: Access modifiers changed from: protected */
     /* JADX WARN: Removed duplicated region for block: B:105:0x02a6  */
@@ -108,7 +108,7 @@ public class YunPushProxyActivity extends BaseActivity<YunPushProxyActivity> {
                                 i5 = 5;
                             }
                         }
-                        aq ai = new aq(TbadkCoreStatisticKey.PUSH_CCLICK).ai("obj_type", 2).dF("task_id", str).dF(Constants.EXTRA_SERVICE, str2).dF("shoubai_cuid", TbadkCoreApplication.getInst().getCuidGalaxy2()).dF(TiebaInitialize.Params.OBJ_TO, str3).ai("obj_source", i).ai("obj_locate", i2).ai("obj_param1", i6).ai(TiebaInitialize.Params.OBJ_PARAM2, i4).ai(TiebaInitialize.Params.OBJ_PARAM3, i5);
+                        aq aj = new aq(TbadkCoreStatisticKey.PUSH_CCLICK).aj("obj_type", 2).dK("task_id", str).dK(Constants.EXTRA_SERVICE, str2).dK("shoubai_cuid", TbadkCoreApplication.getInst().getCuidGalaxy2()).dK(TiebaInitialize.Params.OBJ_TO, str3).aj("obj_source", i).aj("obj_locate", i2).aj("obj_param1", i6).aj(TiebaInitialize.Params.OBJ_PARAM2, i4).aj(TiebaInitialize.Params.OBJ_PARAM3, i5);
                         if (TextUtils.isEmpty(str3) && str3.contains("HotThreadList")) {
                             i3 = 6;
                         } else if (TextUtils.isEmpty(str3) && str3.contains("HotInteraction")) {
@@ -118,18 +118,18 @@ public class YunPushProxyActivity extends BaseActivity<YunPushProxyActivity> {
                         } else {
                             i3 = (TextUtils.isEmpty(str3) && str3.contains("collect")) ? 8 : i;
                         }
-                        ai.ai("obj_source", i3);
-                        TiebaStatic.log(ai);
+                        aj.aj("obj_source", i3);
+                        TiebaStatic.log(aj);
                         if (!TextUtils.isEmpty(str3)) {
                             String str5 = str3 + "&from_yunpush=1";
-                            if (TB(str5)) {
+                            if (Up(str5)) {
                                 MainTabActivityConfig mainTabActivityConfig = new MainTabActivityConfig(this);
                                 mainTabActivityConfig.setTargetScheme(str5);
                                 mainTabActivityConfig.setPushFollowUpAction(optInt);
                                 mainTabActivityConfig.setPushDesPage(str4);
                                 MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_MAINTAB, mainTabActivityConfig));
                             } else {
-                                be.bkp().b(getPageContext(), new String[]{str5, "yun_push_tag"});
+                                be.bmY().b(getPageContext(), new String[]{str5, "yun_push_tag"});
                             }
                             if (str5.contains("ForumGradePage")) {
                                 aq u = new aq("c13782").u("uid", TbadkCoreApplication.getCurrentAccountId());
@@ -137,8 +137,8 @@ public class YunPushProxyActivity extends BaseActivity<YunPushProxyActivity> {
                                     Uri parse = Uri.parse(str5);
                                     String queryParameter = parse.getQueryParameter("forum_id");
                                     String queryParameter2 = parse.getQueryParameter("obj_type");
-                                    u.dF("fid", queryParameter);
-                                    u.dF("obj_type", queryParameter2);
+                                    u.dK("fid", queryParameter);
+                                    u.dK("obj_type", queryParameter2);
                                 } catch (Exception e) {
                                     BdLog.e(e);
                                 }
@@ -148,7 +148,7 @@ public class YunPushProxyActivity extends BaseActivity<YunPushProxyActivity> {
                                 TiebaStatic.log(new aq("c13662").u("uid", TbadkCoreApplication.getCurrentAccountId()));
                             }
                             if (str5.contains("weeklygodview")) {
-                                TiebaStatic.log(new aq("c13691").u("uid", TbadkCoreApplication.getCurrentAccountId()).ai("obj_source", 2));
+                                TiebaStatic.log(new aq("c13691").u("uid", TbadkCoreApplication.getCurrentAccountId()).aj("obj_source", 2));
                             }
                         }
                     }
@@ -167,7 +167,7 @@ public class YunPushProxyActivity extends BaseActivity<YunPushProxyActivity> {
                     }
                     if (str3 != null) {
                     }
-                    aq ai2 = new aq(TbadkCoreStatisticKey.PUSH_CCLICK).ai("obj_type", 2).dF("task_id", str).dF(Constants.EXTRA_SERVICE, str2).dF("shoubai_cuid", TbadkCoreApplication.getInst().getCuidGalaxy2()).dF(TiebaInitialize.Params.OBJ_TO, str3).ai("obj_source", i).ai("obj_locate", i2).ai("obj_param1", i6).ai(TiebaInitialize.Params.OBJ_PARAM2, i4).ai(TiebaInitialize.Params.OBJ_PARAM3, i5);
+                    aq aj2 = new aq(TbadkCoreStatisticKey.PUSH_CCLICK).aj("obj_type", 2).dK("task_id", str).dK(Constants.EXTRA_SERVICE, str2).dK("shoubai_cuid", TbadkCoreApplication.getInst().getCuidGalaxy2()).dK(TiebaInitialize.Params.OBJ_TO, str3).aj("obj_source", i).aj("obj_locate", i2).aj("obj_param1", i6).aj(TiebaInitialize.Params.OBJ_PARAM2, i4).aj(TiebaInitialize.Params.OBJ_PARAM3, i5);
                     if (TextUtils.isEmpty(str3)) {
                     }
                     if (TextUtils.isEmpty(str3)) {
@@ -176,8 +176,8 @@ public class YunPushProxyActivity extends BaseActivity<YunPushProxyActivity> {
                     }
                     if (TextUtils.isEmpty(str3)) {
                     }
-                    ai2.ai("obj_source", i3);
-                    TiebaStatic.log(ai2);
+                    aj2.aj("obj_source", i3);
+                    TiebaStatic.log(aj2);
                     if (!TextUtils.isEmpty(str3)) {
                     }
                 }
@@ -187,7 +187,7 @@ public class YunPushProxyActivity extends BaseActivity<YunPushProxyActivity> {
         finish();
     }
 
-    private boolean TB(String str) {
+    private boolean Up(String str) {
         return Pattern.compile("http[s]?://tieba.baidu.com/p").matcher(str).find() || str.startsWith("http://tieba.baidu.com/mo/q/newtopic/detail") || str.startsWith("https://tieba.baidu.com/mo/q/newtopic/detail") || str.startsWith("flt://") || str.startsWith("bdtiebalive://") || str.startsWith("tiebachushou://") || str.contains("achievement=");
     }
 }

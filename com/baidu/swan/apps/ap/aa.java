@@ -4,7 +4,7 @@ import android.content.Context;
 import android.content.SharedPreferences;
 import android.preference.PreferenceManager;
 import com.baidu.searchbox.common.runtime.AppRuntime;
-/* loaded from: classes3.dex */
+/* loaded from: classes10.dex */
 public final class aa {
     private static SharedPreferences mPreference = null;
 

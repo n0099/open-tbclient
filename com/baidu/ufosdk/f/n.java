@@ -9,16 +9,18 @@ import android.text.style.ImageSpan;
 import android.widget.ImageView;
 import android.widget.TextView;
 import com.baidu.live.tbadk.statics.AlaStaticKeys;
-/* loaded from: classes21.dex */
+/* loaded from: classes22.dex */
 public final class n extends Handler {
-    ImageView a;
+
+    /* renamed from: a  reason: collision with root package name */
+    ImageView f3721a;
     Handler b;
     Context c;
     TextView d;
 
     public n(Context context, ImageView imageView, Handler handler) {
         this.d = null;
-        this.a = imageView;
+        this.f3721a = imageView;
         this.b = handler;
         this.c = context;
     }
@@ -42,13 +44,13 @@ public final class n extends Handler {
                 this.d.setText(spannableString.toString());
                 return;
             }
-            this.a.setImageBitmap(bitmap);
+            this.f3721a.setImageBitmap(bitmap);
             if (bitmap.getHeight() > bitmap.getWidth()) {
-                this.a.setMaxWidth(i.a(this.c, 80.0f));
-                this.a.setMaxHeight(i.a(this.c, 120.0f));
+                this.f3721a.setMaxWidth(i.a(this.c, 80.0f));
+                this.f3721a.setMaxHeight(i.a(this.c, 120.0f));
             } else {
-                this.a.setMaxWidth(i.a(this.c, 120.0f));
-                this.a.setMaxHeight(i.a(this.c, 80.0f));
+                this.f3721a.setMaxWidth(i.a(this.c, 120.0f));
+                this.f3721a.setMaxHeight(i.a(this.c, 80.0f));
             }
         }
         if (this.b != null) {

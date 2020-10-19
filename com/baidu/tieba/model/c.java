@@ -9,10 +9,10 @@ import com.baidu.tieba.personExtra.RecommendGodHttpResponseMessage;
 import com.baidu.tieba.personExtra.RecommendGodReqMsg;
 import com.baidu.tieba.personExtra.RecommendGodSocketResponseMessage;
 import com.baidu.tieba.personPolymeric.c.q;
-/* loaded from: classes23.dex */
+/* loaded from: classes24.dex */
 public class c {
-    private a kpy;
-    private boolean kpz;
+    private a kEK;
+    private boolean kEL;
     private q recommendGodData;
     private BdUniqueId uniqueId;
     private int pageNum = 0;
@@ -28,25 +28,25 @@ public class c {
                         c.this.recommendGodData = ((RecommendGodHttpResponseMessage) responsedMessage).recommendGodData;
                     }
                     if (c.this.recommendGodData != null) {
-                        c.this.pageNum = c.this.recommendGodData.gfD;
+                        c.this.pageNum = c.this.recommendGodData.grS;
                     }
                     int error = responsedMessage.getError();
                     if (error == 0 && c.this.recommendGodData != null) {
-                        if (y.isEmpty(c.this.recommendGodData.lvY)) {
-                            error = c.this.kpz ? 3 : 2;
+                        if (y.isEmpty(c.this.recommendGodData.lLk)) {
+                            error = c.this.kEL ? 3 : 2;
                         }
                     } else {
                         error = 1;
                     }
-                    if (c.this.kpy != null) {
-                        c.this.kpy.a(c.this.recommendGodData, error);
+                    if (c.this.kEK != null) {
+                        c.this.kEK.a(c.this.recommendGodData, error);
                     }
                 }
             }
         }
     };
 
-    /* loaded from: classes23.dex */
+    /* loaded from: classes24.dex */
     public interface a {
         void a(q qVar, int i);
     }
@@ -61,16 +61,16 @@ public class c {
         RecommendGodReqMsg recommendGodReqMsg = new RecommendGodReqMsg();
         recommendGodReqMsg.portrait = str;
         if (this.pageNum == 0) {
-            this.kpz = false;
+            this.kEL = false;
         } else {
-            this.kpz = true;
+            this.kEL = true;
         }
         recommendGodReqMsg.pageNum = this.pageNum + 1;
         recommendGodReqMsg.setTag(this.uniqueId);
         MessageManager.getInstance().sendMessage(recommendGodReqMsg);
     }
 
-    public void br(String str, int i) {
+    public void bs(String str, int i) {
         this.pageNum = i;
         request(str);
     }
@@ -81,6 +81,6 @@ public class c {
     }
 
     public void a(a aVar) {
-        this.kpy = aVar;
+        this.kEK = aVar;
     }
 }

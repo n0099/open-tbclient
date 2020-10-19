@@ -14,13 +14,13 @@ public class YuyinImForbiddenStateData implements Serializable {
 
     /* loaded from: classes4.dex */
     public static class a {
-        public int bfk;
-        public String bfl;
+        public int biW;
+        public String biX;
 
         public void parseJson(JSONObject jSONObject) {
             if (jSONObject != null) {
-                this.bfk = jSONObject.optInt("is_forever");
-                this.bfl = jSONObject.optString("count_down");
+                this.biW = jSONObject.optInt("is_forever");
+                this.biX = jSONObject.optString("count_down");
             }
         }
     }

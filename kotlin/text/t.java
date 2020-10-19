@@ -6,7 +6,7 @@ import java.util.Iterator;
 import kotlin.collections.ad;
 /* JADX INFO: Access modifiers changed from: package-private */
 @kotlin.h
-/* loaded from: classes5.dex */
+/* loaded from: classes10.dex */
 public class t extends s {
     public static final boolean H(String str, String str2, boolean z) {
         if (str == null) {
@@ -26,12 +26,12 @@ public class t extends s {
     }
 
     public static final String k(String str, String str2, String str3, boolean z) {
-        String a;
-        kotlin.jvm.internal.q.m(str, "receiver$0");
-        kotlin.jvm.internal.q.m(str2, "oldValue");
-        kotlin.jvm.internal.q.m(str3, "newValue");
-        a = kotlin.sequences.e.a(l.a(str, new String[]{str2}, z, 0, 4, (Object) null), (r14 & 1) != 0 ? ", " : str3, (r14 & 2) != 0 ? "" : null, (r14 & 4) != 0 ? "" : null, (r14 & 8) != 0 ? -1 : 0, (r14 & 16) != 0 ? StringHelper.STRING_MORE : null, (r14 & 32) != 0 ? null : null);
-        return a;
+        String a2;
+        kotlin.jvm.internal.q.n(str, "receiver$0");
+        kotlin.jvm.internal.q.n(str2, "oldValue");
+        kotlin.jvm.internal.q.n(str3, "newValue");
+        a2 = kotlin.sequences.e.a(l.a(str, new String[]{str2}, z, 0, 4, (Object) null), (r14 & 1) != 0 ? ", " : str3, (r14 & 2) != 0 ? "" : null, (r14 & 4) != 0 ? "" : null, (r14 & 8) != 0 ? -1 : 0, (r14 & 16) != 0 ? StringHelper.STRING_MORE : null, (r14 & 32) != 0 ? null : null);
+        return a2;
     }
 
     public static /* synthetic */ boolean a(String str, String str2, boolean z, int i, Object obj) {
@@ -42,18 +42,18 @@ public class t extends s {
     }
 
     public static final boolean I(String str, String str2, boolean z) {
-        kotlin.jvm.internal.q.m(str, "receiver$0");
-        kotlin.jvm.internal.q.m(str2, "prefix");
+        kotlin.jvm.internal.q.n(str, "receiver$0");
+        kotlin.jvm.internal.q.n(str2, "prefix");
         return !z ? str.startsWith(str2) : l.a(str, 0, str2, 0, str2.length(), z);
     }
 
     public static final boolean isBlank(CharSequence charSequence) {
         boolean z;
-        kotlin.jvm.internal.q.m(charSequence, "receiver$0");
+        kotlin.jvm.internal.q.n(charSequence, "receiver$0");
         if (charSequence.length() != 0) {
-            kotlin.b.h u = l.u(charSequence);
-            if (!(u instanceof Collection) || !((Collection) u).isEmpty()) {
-                Iterator<Integer> it = u.iterator();
+            kotlin.b.h v = l.v(charSequence);
+            if (!(v instanceof Collection) || !((Collection) v).isEmpty()) {
+                Iterator<Integer> it = v.iterator();
                 while (true) {
                     if (!it.hasNext()) {
                         z = true;
@@ -74,8 +74,8 @@ public class t extends s {
     }
 
     public static final boolean a(String str, int i, String str2, int i2, int i3, boolean z) {
-        kotlin.jvm.internal.q.m(str, "receiver$0");
-        kotlin.jvm.internal.q.m(str2, "other");
+        kotlin.jvm.internal.q.n(str, "receiver$0");
+        kotlin.jvm.internal.q.n(str2, "other");
         if (!z) {
             return str.regionMatches(i, str2, i2, i3);
         }

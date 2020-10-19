@@ -2,7 +2,7 @@ package protobuf.DebugCommitMsg;
 
 import com.squareup.wire.Message;
 import com.squareup.wire.ProtoField;
-/* loaded from: classes21.dex */
+/* loaded from: classes22.dex */
 public final class DataReq extends Message {
     public static final String DEFAULT_CONTENT = "";
     public static final String DEFAULT_CUID = "";
@@ -49,7 +49,7 @@ public final class DataReq extends Message {
         this.content = builder.content;
     }
 
-    /* loaded from: classes21.dex */
+    /* loaded from: classes22.dex */
     public static final class Builder extends Message.Builder<DataReq> {
         public String content;
         public String cuid;

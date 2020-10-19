@@ -1,7 +1,7 @@
 package com.baidu.webkit.sdk;
 
 import android.location.LocationListener;
-/* loaded from: classes8.dex */
+/* loaded from: classes11.dex */
 public abstract class GeolocationServiceClient {
     public abstract void onSetEnableGps(boolean z);
 

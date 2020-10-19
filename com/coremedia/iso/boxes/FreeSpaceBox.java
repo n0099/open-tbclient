@@ -6,12 +6,12 @@ import com.googlecode.mp4parser.RequiresParseDetailAspect;
 import java.nio.ByteBuffer;
 import org.aspectj.a.b.b;
 import org.aspectj.lang.a;
-/* loaded from: classes4.dex */
+/* loaded from: classes11.dex */
 public class FreeSpaceBox extends AbstractBox {
     public static final String TYPE = "skip";
-    private static final /* synthetic */ a.InterfaceC0979a ajc$tjp_0 = null;
-    private static final /* synthetic */ a.InterfaceC0979a ajc$tjp_1 = null;
-    private static final /* synthetic */ a.InterfaceC0979a ajc$tjp_2 = null;
+    private static final /* synthetic */ a.InterfaceC0997a ajc$tjp_0 = null;
+    private static final /* synthetic */ a.InterfaceC0997a ajc$tjp_1 = null;
+    private static final /* synthetic */ a.InterfaceC0997a ajc$tjp_2 = null;
     byte[] data;
 
     static {

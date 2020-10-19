@@ -16,7 +16,7 @@ import java.net.URISyntaxException;
 import java.util.List;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes20.dex */
+/* loaded from: classes21.dex */
 public class BaiduYunPushMessageReceiver extends PushMessageReceiver {
     public static final String KEY_SHAREDPRE_PUSH_STARTWORK = "baidu_yunpush_start_work";
     private static final String TAG = "BaiduYunPush";
@@ -25,7 +25,7 @@ public class BaiduYunPushMessageReceiver extends PushMessageReceiver {
     public void onBind(Context context, int i, String str, String str2, String str3, String str4) {
         String str5 = "onBind errorCode=" + i;
         if (i == 0) {
-            b.bjf().putBoolean(TbConfig.getVersion() + KEY_SHAREDPRE_PUSH_STARTWORK, true);
+            b.blO().putBoolean(TbConfig.getVersion() + KEY_SHAREDPRE_PUSH_STARTWORK, true);
             TbadkCoreApplication.getInst().setYunpushChannelId(str3);
         }
     }

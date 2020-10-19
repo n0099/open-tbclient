@@ -3,7 +3,7 @@ package com.facebook.common.time;
 import android.os.SystemClock;
 import com.facebook.common.internal.d;
 @d
-/* loaded from: classes17.dex */
+/* loaded from: classes6.dex */
 public class AwakeTimeSinceBootClock implements b {
     @d
     private static final AwakeTimeSinceBootClock INSTANCE = new AwakeTimeSinceBootClock();

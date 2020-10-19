@@ -8,7 +8,7 @@ import kotlin.jvm.internal.Ref;
 import kotlin.jvm.internal.q;
 import kotlin.l;
 @h
-/* loaded from: classes5.dex */
+/* loaded from: classes10.dex */
 final class CombinedContext$writeReplace$1 extends Lambda implements m<l, c.b, l> {
     final /* synthetic */ c[] $elements;
     final /* synthetic */ Ref.IntRef $index;
@@ -26,13 +26,13 @@ final class CombinedContext$writeReplace$1 extends Lambda implements m<l, c.b, l
     @Override // kotlin.jvm.a.m
     public /* bridge */ /* synthetic */ l invoke(l lVar, c.b bVar) {
         invoke2(lVar, bVar);
-        return l.oBM;
+        return l.oRb;
     }
 
     /* renamed from: invoke  reason: avoid collision after fix types in other method */
     public final void invoke2(l lVar, c.b bVar) {
-        q.m(lVar, "<anonymous parameter 0>");
-        q.m(bVar, "element");
+        q.n(lVar, "<anonymous parameter 0>");
+        q.n(bVar, "element");
         c[] cVarArr = this.$elements;
         Ref.IntRef intRef = this.$index;
         int i = intRef.element;

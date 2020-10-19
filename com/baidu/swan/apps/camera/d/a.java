@@ -4,10 +4,10 @@ import android.text.TextUtils;
 import com.baidu.ar.arplay.core.engine.pixel.PixelReadParams;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes10.dex */
 public class a extends com.baidu.swan.apps.component.b.b {
-    private String caM;
-    public String caN;
+    public String cameraId;
+    private String cnc;
     private String devicePosition;
 
     public a(String str) {
@@ -23,36 +23,36 @@ public class a extends com.baidu.swan.apps.component.b.b {
     public void parseFromJson(JSONObject jSONObject) throws JSONException {
         super.parseFromJson(jSONObject);
         this.devicePosition = jSONObject.optString("devicePosition", "back");
-        this.caM = jSONObject.optString("flash", "auto");
-        this.caN = jSONObject.optString("cameraId");
+        this.cnc = jSONObject.optString("flash", "auto");
+        this.cameraId = jSONObject.optString("cameraId");
     }
 
     public boolean isFrontCamera() {
         return TextUtils.equals(this.devicePosition, "front");
     }
 
-    public String adn() {
-        return C0363a.kK(this.caM);
+    public String afZ() {
+        return C0380a.lw(this.cnc);
     }
 
     public int getWidth() {
-        if (this.cdd == null) {
+        if (this.cpt == null) {
             return 0;
         }
-        return this.cdd.getWidth();
+        return this.cpt.getWidth();
     }
 
     public int getHeight() {
-        if (this.cdd == null) {
+        if (this.cpt == null) {
             return 0;
         }
-        return this.cdd.getHeight();
+        return this.cpt.getHeight();
     }
 
     /* renamed from: com.baidu.swan.apps.camera.d.a$a  reason: collision with other inner class name */
-    /* loaded from: classes3.dex */
-    private static class C0363a {
-        static String kK(String str) {
+    /* loaded from: classes10.dex */
+    private static class C0380a {
+        static String lw(String str) {
             char c = 65535;
             switch (str.hashCode()) {
                 case 3551:

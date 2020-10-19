@@ -8,26 +8,26 @@ import android.widget.EditText;
 import com.baidu.sapi2.views.SmsLoginView;
 import com.baidu.swan.apps.ap.w;
 import com.baidu.swan.bdprivate.b;
-/* loaded from: classes3.dex */
+/* loaded from: classes8.dex */
 public class AccountSmsLoginView extends SmsLoginView {
     private Context mContext;
 
     public AccountSmsLoginView(Context context) {
         super(context);
         this.mContext = context;
-        aHh();
+        aJQ();
     }
 
     public AccountSmsLoginView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
         this.mContext = context;
-        aHh();
+        aJQ();
     }
 
     public AccountSmsLoginView(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
         this.mContext = context;
-        aHh();
+        aJQ();
     }
 
     @Override // com.baidu.sapi2.views.SmsLoginView
@@ -46,7 +46,7 @@ public class AccountSmsLoginView extends SmsLoginView {
         }, 100L);
     }
 
-    public void aHh() {
+    public void aJQ() {
         ((EditText) findViewById(b.e.phone)).requestFocus();
         new Handler().postDelayed(new Runnable() { // from class: com.baidu.swan.bdprivate.extensions.loginauthmobile.AccountSmsLoginView.2
             @Override // java.lang.Runnable

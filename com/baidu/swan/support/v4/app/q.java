@@ -6,10 +6,10 @@ import android.util.SparseArray;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.FrameLayout;
-/* loaded from: classes24.dex */
+/* loaded from: classes6.dex */
 class q extends FrameLayout {
     /* JADX INFO: Access modifiers changed from: package-private */
-    public static ViewGroup aW(View view) {
+    public static ViewGroup aX(View view) {
         q qVar = new q(view.getContext());
         ViewGroup.LayoutParams layoutParams = view.getLayoutParams();
         if (layoutParams != null) {

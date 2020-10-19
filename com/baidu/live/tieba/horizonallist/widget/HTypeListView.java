@@ -2,6 +2,8 @@ package com.baidu.live.tieba.horizonallist.widget;
 
 import android.content.Context;
 import android.util.AttributeSet;
+import android.widget.ListAdapter;
+import com.baidu.live.adp.widget.listview.AbsDelegateAdapter;
 import com.baidu.live.adp.widget.listview.IAdapterData;
 import com.baidu.live.adp.widget.listview.TypeAdapter;
 import java.util.List;
@@ -30,6 +32,11 @@ public class HTypeListView extends HListView {
         if (this.mTypeAdapter == null) {
             this.mTypeAdapter = new TypeAdapter();
         }
+    }
+
+    public void addAdapter(AbsDelegateAdapter<IAdapterData, TypeAdapter.ViewHolder> absDelegateAdapter) {
+        this.mTypeAdapter.addAdapter(absDelegateAdapter);
+        setAdapter((ListAdapter) this.mTypeAdapter);
     }
 
     public void setData(List<? extends IAdapterData> list) {

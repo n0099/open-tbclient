@@ -2,10 +2,10 @@ package kotlin.b;
 
 import com.baidu.android.common.others.IStringUtil;
 @kotlin.h
-/* loaded from: classes5.dex */
+/* loaded from: classes10.dex */
 public final class k extends i {
-    public static final a oDf = new a(null);
-    private static final k oDe = new k(1, 0);
+    public static final a oSu = new a(null);
+    private static final k oSt = new k(1, 0);
 
     public k(long j, long j2) {
         super(j, j2, 1L);
@@ -13,12 +13,12 @@ public final class k extends i {
 
     @Override // kotlin.b.i
     public boolean isEmpty() {
-        return ekF() > ekG();
+        return eos() > eot();
     }
 
     @Override // kotlin.b.i
     public boolean equals(Object obj) {
-        return (obj instanceof k) && ((isEmpty() && ((k) obj).isEmpty()) || (ekF() == ((k) obj).ekF() && ekG() == ((k) obj).ekG()));
+        return (obj instanceof k) && ((isEmpty() && ((k) obj).isEmpty()) || (eos() == ((k) obj).eos() && eot() == ((k) obj).eot()));
     }
 
     @Override // kotlin.b.i
@@ -26,16 +26,16 @@ public final class k extends i {
         if (isEmpty()) {
             return -1;
         }
-        return (int) ((31 * (ekF() ^ (ekF() >>> 32))) + (ekG() ^ (ekG() >>> 32)));
+        return (int) ((31 * (eos() ^ (eos() >>> 32))) + (eot() ^ (eot() >>> 32)));
     }
 
     @Override // kotlin.b.i
     public String toString() {
-        return ekF() + IStringUtil.TOP_PATH + ekG();
+        return eos() + IStringUtil.TOP_PATH + eot();
     }
 
     @kotlin.h
-    /* loaded from: classes5.dex */
+    /* loaded from: classes10.dex */
     public static final class a {
         private a() {
         }

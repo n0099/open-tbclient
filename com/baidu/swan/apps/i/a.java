@@ -1,19 +1,19 @@
 package com.baidu.swan.apps.i;
-/* loaded from: classes3.dex */
+/* loaded from: classes10.dex */
 public class a {
     public static String getSearchboxHostForHttps() {
         return "https://mbd.baidu.com";
     }
 
-    public static String aeb() {
+    public static String agM() {
         return String.format("%s/smtapp/ad/similar", getSearchboxHostForHttps());
     }
 
-    public static String aec() {
+    public static String agN() {
         return String.format("%s/smtapp/ad/auto", getSearchboxHostForHttps());
     }
 
-    public static String aed() {
+    public static String agO() {
         return String.format("%s/searchbox?action=userx&type=attribute", getSearchboxHostForHttps());
     }
 

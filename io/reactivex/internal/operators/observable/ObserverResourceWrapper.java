@@ -3,7 +3,7 @@ package io.reactivex.internal.operators.observable;
 import io.reactivex.internal.disposables.DisposableHelper;
 import io.reactivex.u;
 import java.util.concurrent.atomic.AtomicReference;
-/* loaded from: classes25.dex */
+/* loaded from: classes17.dex */
 public final class ObserverResourceWrapper<T> extends AtomicReference<io.reactivex.disposables.b> implements io.reactivex.disposables.b, u<T> {
     private static final long serialVersionUID = -8612022020200669122L;
     final u<? super T> actual;

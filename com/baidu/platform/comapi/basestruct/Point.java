@@ -1,7 +1,7 @@
 package com.baidu.platform.comapi.basestruct;
 
 import java.io.Serializable;
-/* loaded from: classes3.dex */
+/* loaded from: classes7.dex */
 public class Point implements Serializable {
     public double doubleX;
     public double doubleY;

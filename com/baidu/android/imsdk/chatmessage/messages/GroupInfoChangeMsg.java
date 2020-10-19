@@ -6,7 +6,7 @@ import com.baidu.android.imsdk.utils.LogUtils;
 import com.baidu.android.imsdk.utils.NoProGuard;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes9.dex */
+/* loaded from: classes5.dex */
 public class GroupInfoChangeMsg extends NotifyMsg implements Parcelable, NoProGuard {
     public static final Parcelable.Creator<GroupInfoChangeMsg> CREATOR = new Parcelable.Creator<GroupInfoChangeMsg>() { // from class: com.baidu.android.imsdk.chatmessage.messages.GroupInfoChangeMsg.1
         /* JADX DEBUG: Method merged with bridge method */
@@ -25,6 +25,7 @@ public class GroupInfoChangeMsg extends NotifyMsg implements Parcelable, NoProGu
     };
     private String groupname;
     private String member;
+    private String noticeDetail;
 
     public GroupInfoChangeMsg() {
         setMsgType(1005);
@@ -34,6 +35,7 @@ public class GroupInfoChangeMsg extends NotifyMsg implements Parcelable, NoProGu
         super(parcel);
         this.member = parcel.readString();
         this.groupname = parcel.readString();
+        this.noticeDetail = parcel.readString();
     }
 
     @Override // com.baidu.android.imsdk.chatmessage.messages.NotifyMsg, com.baidu.android.imsdk.chatmessage.messages.ChatMsg, android.os.Parcelable
@@ -41,6 +43,7 @@ public class GroupInfoChangeMsg extends NotifyMsg implements Parcelable, NoProGu
         super.writeToParcel(parcel, i);
         parcel.writeString(this.member);
         parcel.writeString(this.groupname);
+        parcel.writeString(this.noticeDetail);
     }
 
     @Override // com.baidu.android.imsdk.chatmessage.messages.ChatMsg
@@ -49,6 +52,7 @@ public class GroupInfoChangeMsg extends NotifyMsg implements Parcelable, NoProGu
             JSONObject jSONObject = new JSONObject(getMsgContent());
             this.member = String.valueOf(jSONObject.optLong("operator"));
             this.groupname = jSONObject.optString("group_name");
+            this.noticeDetail = jSONObject.optString("notice_detail");
             return true;
         } catch (JSONException e) {
             LogUtils.e(LogUtils.TAG, "parseJsonString", e);
@@ -62,6 +66,10 @@ public class GroupInfoChangeMsg extends NotifyMsg implements Parcelable, NoProGu
 
     public String getChangeBuid() {
         return this.member;
+    }
+
+    public String getNoticeDetail() {
+        return this.noticeDetail;
     }
 
     @Override // com.baidu.android.imsdk.chatmessage.messages.NotifyMsg, com.baidu.android.imsdk.chatmessage.messages.ChatMsg

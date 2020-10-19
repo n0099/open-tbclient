@@ -12,9 +12,11 @@ import java.util.regex.Pattern;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes15.dex */
+/* loaded from: classes16.dex */
 public class j {
-    public static final String a = "cu";
+
+    /* renamed from: a  reason: collision with root package name */
+    public static final String f1495a = "cu";
     public static final String b = "cu2";
     public static final String c = "ua";
     public static final String d = "op";
@@ -26,9 +28,11 @@ public class j {
     private Pattern j;
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes15.dex */
+    /* loaded from: classes16.dex */
     public static class a {
-        private static j a = new j();
+
+        /* renamed from: a  reason: collision with root package name */
+        private static j f1496a = new j();
 
         private a() {
         }
@@ -38,7 +42,7 @@ public class j {
         JSONObject jSONObject = new JSONObject();
         try {
             jSONObject.putOpt(c, e(RimStatisticsUtil.getAppContext()));
-            jSONObject.putOpt(a, c(RimStatisticsUtil.getAppContext()));
+            jSONObject.putOpt(f1495a, c(RimStatisticsUtil.getAppContext()));
             jSONObject.put(b, d(RimStatisticsUtil.getAppContext()));
             jSONObject.putOpt("op", f(RimStatisticsUtil.getAppContext()));
             jSONObject.putOpt("bs", g(RimStatisticsUtil.getAppContext()));
@@ -65,7 +69,7 @@ public class j {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public static j c() {
-        return a.a;
+        return a.f1496a;
     }
 
     private String c(Context context) {

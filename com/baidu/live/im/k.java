@@ -6,34 +6,34 @@ public interface k {
 
     /* loaded from: classes4.dex */
     public interface a {
-        boolean JM();
+        boolean KS();
 
-        void JN();
+        void KT();
 
-        void JO();
+        void KU();
 
-        void JP();
+        void KV();
 
-        boolean JQ();
+        boolean KW();
 
-        int JR();
+        int KX();
 
-        void hd(String str);
+        void hu(String str);
     }
 
-    void Bq();
+    void Cn();
 
-    j JJ();
+    j KP();
 
-    com.baidu.live.view.input.a JK();
+    com.baidu.live.view.input.a KQ();
 
-    int JL();
+    int KR();
 
     void a(a aVar);
 
-    void a(String str, String str2, String str3, String str4, String str5, boolean z);
-
     void a(boolean z, int i, int i2, String str);
+
+    void b(String str, String str2, String str3, String str4, String str5, boolean z);
 
     void g(Map<String, Integer> map);
 

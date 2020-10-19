@@ -6,9 +6,11 @@ import com.baidu.b.f;
 import com.baidu.b.g;
 import com.baidu.b.h;
 import com.baidu.live.adp.lib.cache.BdKVCache;
-/* loaded from: classes3.dex */
+/* loaded from: classes7.dex */
 public final class a {
-    public static boolean a = true;
+
+    /* renamed from: a  reason: collision with root package name */
+    public static boolean f989a = true;
     private static volatile a e;
     private final Context b;
     private h c;

@@ -8,7 +8,7 @@ import com.xiaomi.mipush.sdk.Constants;
 import java.util.Map;
 import org.apache.http.impl.cookie.DateParseException;
 import org.apache.http.impl.cookie.DateUtils;
-/* loaded from: classes3.dex */
+/* loaded from: classes7.dex */
 public class h {
     public static b.a a(com.baidu.pano.platform.a.l lVar) {
         boolean z;
@@ -82,7 +82,7 @@ public class h {
             j4 = j3;
         }
         b.a aVar = new b.a();
-        aVar.a = lVar.b;
+        aVar.f2646a = lVar.b;
         aVar.b = str6;
         aVar.f = j4;
         aVar.e = j3;

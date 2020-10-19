@@ -19,9 +19,11 @@ import java.nio.channels.FileChannel;
 import java.nio.channels.FileLock;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
-/* loaded from: classes8.dex */
+/* loaded from: classes11.dex */
 public final class c {
-    private static String a;
+
+    /* renamed from: a  reason: collision with root package name */
+    private static String f3964a;
 
     public static int a(String str) {
         String[] split = str.split(PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS);
@@ -32,22 +34,22 @@ public final class c {
     }
 
     public static String a() {
-        if (TextUtils.isEmpty(a)) {
+        if (TextUtils.isEmpty(f3964a)) {
             Context d = com.baidu.webkit.logsdk.a.b.d();
             if (d == null || d.getFilesDir() == null) {
                 return "";
             }
             String str = d.getFilesDir().getAbsolutePath() + "/bdlogs";
             if (str.endsWith(File.separator)) {
-                a = str.substring(0, str.length() - 1);
+                f3964a = str.substring(0, str.length() - 1);
             } else {
-                a = str;
+                f3964a = str;
             }
-            new File(a).mkdirs();
-            e("BdLogSDK", "Workspace = " + a);
-            return a;
+            new File(f3964a).mkdirs();
+            e("BdLogSDK", "Workspace = " + f3964a);
+            return f3964a;
         }
-        return a;
+        return f3964a;
     }
 
     public static String a(com.baidu.webkit.logsdk.b.b bVar, String str) {
@@ -185,7 +187,7 @@ public final class c {
     public static void a(String str, String str2, String str3) {
         if (com.baidu.webkit.logsdk.a.b && !TextUtils.isEmpty(str3)) {
             Log.d(str, str2 + " = " + str3);
-        } else if (com.baidu.webkit.logsdk.a.a) {
+        } else if (com.baidu.webkit.logsdk.a.f3948a) {
             Log.i(str, str2);
         }
     }
@@ -363,7 +365,7 @@ public final class c {
     }
 
     public static void e(String str, String str2) {
-        if (com.baidu.webkit.logsdk.a.a) {
+        if (com.baidu.webkit.logsdk.a.f3948a) {
             Log.w(str, str2);
         }
     }

@@ -13,19 +13,19 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 import java.util.concurrent.TimeUnit;
-/* loaded from: classes21.dex */
+/* loaded from: classes22.dex */
 public class c {
     public static void A(q qVar) {
-        HashMap<Integer, bw> csV;
-        if (qVar != null && qVar.cqE() != null && (csV = qVar.cqE().csV()) != null) {
+        HashMap<Integer, bw> cws;
+        if (qVar != null && qVar.cuc() != null && (cws = qVar.cuc().cws()) != null) {
             ArrayList<AdvertAppInfo> arrayList = new ArrayList<>();
-            for (Map.Entry<Integer, bw> entry : csV.entrySet()) {
+            for (Map.Entry<Integer, bw> entry : cws.entrySet()) {
                 bw value = entry.getValue();
                 if (value != null && (value instanceof AdvertAppInfo)) {
                     arrayList.add((AdvertAppInfo) value);
                 }
             }
-            com.baidu.tieba.recapp.download.e.dra().L(arrayList);
+            com.baidu.tieba.recapp.download.e.duL().L(arrayList);
         }
     }
 
@@ -44,10 +44,10 @@ public class c {
                 }
             }
             if (z) {
-                com.baidu.adp.lib.f.e.mX().postDelayed(new Runnable() { // from class: com.baidu.tieba.frs.f.c.1
+                com.baidu.adp.lib.f.e.mY().postDelayed(new Runnable() { // from class: com.baidu.tieba.frs.f.c.1
                     @Override // java.lang.Runnable
                     public void run() {
-                        q.this.cqr();
+                        q.this.ctP();
                     }
                 }, TimeUnit.SECONDS.toMillis(2L));
             }

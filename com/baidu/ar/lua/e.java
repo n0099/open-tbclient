@@ -7,7 +7,7 @@ import com.baidu.ar.DefinedLuaListener;
 import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
-/* loaded from: classes10.dex */
+/* loaded from: classes14.dex */
 public class e {
     private LuaMsgListener bZ;
     private b f;
@@ -80,9 +80,9 @@ public class e {
 
     /* JADX INFO: Access modifiers changed from: private */
     public boolean k(HashMap<String, Object> hashMap) {
-        int a = com.baidu.ar.arplay.c.c.a(hashMap.get("id"), -1);
-        Log.d("LuaMsgHelper", "switchCameraById id = " + a);
-        if (a == 10202) {
+        int a2 = com.baidu.ar.arplay.c.c.a(hashMap.get("id"), -1);
+        Log.d("LuaMsgHelper", "switchCameraById id = " + a2);
+        if (a2 == 10202) {
             this.sG.onRequireSwitchCamera(-1);
             return true;
         }

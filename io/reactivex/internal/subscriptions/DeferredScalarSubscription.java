@@ -1,7 +1,7 @@
 package io.reactivex.internal.subscriptions;
 
 import org.a.c;
-/* loaded from: classes25.dex */
+/* loaded from: classes17.dex */
 public class DeferredScalarSubscription<T> extends BasicIntQueueSubscription<T> {
     static final int CANCELLED = 4;
     static final int FUSED_CONSUMED = 32;

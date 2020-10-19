@@ -10,7 +10,7 @@ import java.security.interfaces.RSAPublicKey;
 import java.security.spec.PKCS8EncodedKeySpec;
 import java.security.spec.X509EncodedKeySpec;
 import javax.crypto.Cipher;
-/* loaded from: classes15.dex */
+/* loaded from: classes17.dex */
 public class bv {
     public static String a(byte[] bArr) throws Exception {
         try {
@@ -21,13 +21,13 @@ public class bv {
     }
 
     public static byte[] a(boolean z, byte[] bArr, byte[] bArr2) throws Exception {
-        RSAKey a = a(z, bArr);
-        return a(1, (Key) a, ((a.getModulus().bitLength() + 1) / 8) - 11, bArr2);
+        RSAKey a2 = a(z, bArr);
+        return a(1, (Key) a2, ((a2.getModulus().bitLength() + 1) / 8) - 11, bArr2);
     }
 
     public static byte[] b(boolean z, byte[] bArr, byte[] bArr2) throws Exception {
-        RSAKey a = a(z, bArr);
-        return a(2, (Key) a, (a.getModulus().bitLength() + 1) / 8, bArr2);
+        RSAKey a2 = a(z, bArr);
+        return a(2, (Key) a2, (a2.getModulus().bitLength() + 1) / 8, bArr2);
     }
 
     private static RSAKey a(boolean z, byte[] bArr) throws Exception {

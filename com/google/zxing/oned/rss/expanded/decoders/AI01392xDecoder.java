@@ -4,7 +4,7 @@ import com.google.zxing.FormatException;
 import com.google.zxing.NotFoundException;
 import com.google.zxing.common.BitArray;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes3.dex */
+/* loaded from: classes7.dex */
 public final class AI01392xDecoder extends AI01decoder {
     private static final int HEADER_SIZE = 8;
     private static final int LAST_DIGIT_SIZE = 2;

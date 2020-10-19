@@ -24,9 +24,11 @@ import java.util.Collections;
 import java.util.List;
 import java.util.Map;
 import javax.net.ssl.HttpsURLConnection;
-/* loaded from: classes15.dex */
+/* loaded from: classes16.dex */
 public class b implements com.baidu.fsg.base.restnet.rest.b {
-    private static final String a = "appcache";
+
+    /* renamed from: a  reason: collision with root package name */
+    private static final String f1462a = "appcache";
     private static final int b = 2;
     private Context c;
     private String d;

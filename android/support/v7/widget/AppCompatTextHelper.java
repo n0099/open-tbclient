@@ -19,7 +19,7 @@ import android.widget.TextView;
 import java.lang.ref.WeakReference;
 /* JADX INFO: Access modifiers changed from: package-private */
 @RequiresApi(9)
-/* loaded from: classes10.dex */
+/* loaded from: classes5.dex */
 public class AppCompatTextHelper {
     private static final int MONOSPACE = 3;
     private static final int SANS = 1;

@@ -5,27 +5,29 @@ import android.util.Log;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Locale;
-/* loaded from: classes3.dex */
+/* loaded from: classes7.dex */
 public class w {
-    public static String a = "Volley";
-    public static boolean b = Log.isLoggable(a, 2);
+
+    /* renamed from: a  reason: collision with root package name */
+    public static String f2662a = "Volley";
+    public static boolean b = Log.isLoggable(f2662a, 2);
 
     public static void a(String str, Object... objArr) {
         if (b) {
-            Log.v(a, d(str, objArr));
+            Log.v(f2662a, d(str, objArr));
         }
     }
 
     public static void b(String str, Object... objArr) {
-        Log.d(a, d(str, objArr));
+        Log.d(f2662a, d(str, objArr));
     }
 
     public static void c(String str, Object... objArr) {
-        Log.e(a, d(str, objArr));
+        Log.e(f2662a, d(str, objArr));
     }
 
     public static void a(Throwable th, String str, Object... objArr) {
-        Log.e(a, d(str, objArr), th);
+        Log.e(f2662a, d(str, objArr), th);
     }
 
     private static String d(String str, Object... objArr) {
@@ -52,22 +54,26 @@ public class w {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes3.dex */
+    /* loaded from: classes7.dex */
     public static class a {
-        public static final boolean a = w.b;
-        private final List<C0229a> b = new ArrayList();
+
+        /* renamed from: a  reason: collision with root package name */
+        public static final boolean f2663a = w.b;
+        private final List<C0244a> b = new ArrayList();
         private boolean c = false;
 
         /* JADX INFO: Access modifiers changed from: private */
         /* renamed from: com.baidu.pano.platform.a.w$a$a  reason: collision with other inner class name */
-        /* loaded from: classes3.dex */
-        public static class C0229a {
-            public final String a;
+        /* loaded from: classes7.dex */
+        public static class C0244a {
+
+            /* renamed from: a  reason: collision with root package name */
+            public final String f2664a;
             public final long b;
             public final long c;
 
-            public C0229a(String str, long j, long j2) {
-                this.a = str;
+            public C0244a(String str, long j, long j2) {
+                this.f2664a = str;
                 this.b = j;
                 this.c = j2;
             }
@@ -77,7 +83,7 @@ public class w {
             if (this.c) {
                 throw new IllegalStateException("Marker added to finished log");
             }
-            this.b.add(new C0229a(str, j, SystemClock.elapsedRealtime()));
+            this.b.add(new C0244a(str, j, SystemClock.elapsedRealtime()));
         }
 
         public synchronized void a(String str) {
@@ -87,9 +93,9 @@ public class w {
                 long j = this.b.get(0).c;
                 w.b("(%-4d ms) %s", Long.valueOf(a2), str);
                 long j2 = j;
-                for (C0229a c0229a : this.b) {
-                    long j3 = c0229a.c;
-                    w.b("(+%-4d) [%2d] %s", Long.valueOf(j3 - j2), Long.valueOf(c0229a.b), c0229a.a);
+                for (C0244a c0244a : this.b) {
+                    long j3 = c0244a.c;
+                    w.b("(+%-4d) [%2d] %s", Long.valueOf(j3 - j2), Long.valueOf(c0244a.b), c0244a.f2664a);
                     j2 = j3;
                 }
             }

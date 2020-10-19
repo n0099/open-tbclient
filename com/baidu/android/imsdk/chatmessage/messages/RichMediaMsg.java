@@ -5,7 +5,7 @@ import android.os.Parcelable;
 import com.baidu.android.imsdk.chatmessage.ISendMessageStatusListener;
 import com.baidu.android.imsdk.internal.ListenerManager;
 import com.baidu.android.imsdk.utils.NoProGuard;
-/* loaded from: classes9.dex */
+/* loaded from: classes5.dex */
 public abstract class RichMediaMsg extends NormalMsg implements Parcelable, NoProGuard {
     protected int mProgress;
     protected String mRemoteUrl;

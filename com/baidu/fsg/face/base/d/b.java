@@ -1,9 +1,11 @@
 package com.baidu.fsg.face.base.d;
 
 import android.graphics.Rect;
-/* loaded from: classes16.dex */
+/* loaded from: classes17.dex */
 public class b {
-    public Rect a;
+
+    /* renamed from: a  reason: collision with root package name */
+    public Rect f1581a;
     public Rect b;
     public int c;
     public int d;

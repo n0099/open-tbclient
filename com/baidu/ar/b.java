@@ -25,7 +25,7 @@ import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.CopyOnWriteArrayList;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes10.dex */
+/* loaded from: classes14.dex */
 public class b {
     private com.baidu.ar.filter.a A;
     private c.a B;
@@ -55,7 +55,7 @@ public class b {
     private boolean w = true;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes10.dex */
+    /* loaded from: classes14.dex */
     public class a extends Handler {
         public a(Looper looper) {
             super(looper);
@@ -70,8 +70,8 @@ public class b {
                         b.this.a(cVar.mClassName, cVar.G, cVar.H, cVar.F, cVar.I, cVar.J);
                         break;
                     case 1002:
-                        C0078b c0078b = (C0078b) message.obj;
-                        b.this.a(c0078b.mClassName, c0078b.F);
+                        C0079b c0079b = (C0079b) message.obj;
+                        b.this.a(c0079b.mClassName, c0079b.F);
                         break;
                     case 1003:
                         d dVar = (d) message.obj;
@@ -87,19 +87,19 @@ public class b {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* renamed from: com.baidu.ar.b$b  reason: collision with other inner class name */
-    /* loaded from: classes10.dex */
-    public class C0078b {
+    /* loaded from: classes14.dex */
+    public class C0079b {
         HashMap<String, Object> F;
         String mClassName;
 
-        C0078b(String str, HashMap<String, Object> hashMap) {
+        C0079b(String str, HashMap<String, Object> hashMap) {
             this.mClassName = str;
             this.F = hashMap;
         }
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes10.dex */
+    /* loaded from: classes14.dex */
     public class c {
         HashMap<String, Object> F;
         List<String> G;
@@ -132,7 +132,7 @@ public class b {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes10.dex */
+    /* loaded from: classes14.dex */
     public class d {
         String I;
         com.baidu.ar.d.e J;
@@ -287,8 +287,8 @@ public class b {
     }
 
     private void a(final List<String> list) {
-        com.baidu.ar.libloader.b.a(ARType.FACE, null, null, new a.InterfaceC0084a() { // from class: com.baidu.ar.b.1
-            @Override // com.baidu.ar.libloader.a.InterfaceC0084a
+        com.baidu.ar.libloader.b.a(ARType.FACE, null, null, new a.InterfaceC0085a() { // from class: com.baidu.ar.b.1
+            @Override // com.baidu.ar.libloader.a.InterfaceC0085a
             public void a(ARType aRType, String str, String str2) {
                 b.this.u.addAll(b.this.t);
                 String str3 = (String) b.this.j.get("ability_face_filter");
@@ -603,7 +603,7 @@ public class b {
             com.baidu.ar.g.b.b("AbilityManager", "adjustAbility abilityType = " + str + " not start!!!");
             return false;
         } else if (this.c != null) {
-            this.c.sendMessage(this.c.obtainMessage(1002, new C0078b(this.j.get(str), hashMap)));
+            this.c.sendMessage(this.c.obtainMessage(1002, new C0079b(this.j.get(str), hashMap)));
             return true;
         } else {
             return false;

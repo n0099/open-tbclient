@@ -16,7 +16,7 @@ import java.util.Random;
 import java.util.zip.ZipEntry;
 import java.util.zip.ZipException;
 import java.util.zip.ZipFile;
-/* loaded from: classes18.dex */
+/* loaded from: classes17.dex */
 public class FileUtils {
     public static final String PUBLIC_SUCCESS_TEMP_DIR = "public_succes_temp";
     public static final String VIDEO_COVER_DIR = "video_cover";

@@ -3,11 +3,13 @@ package com.kascend.chushou.b.a.a;
 import java.util.HashMap;
 /* loaded from: classes6.dex */
 public class h {
-    public final int a;
+
+    /* renamed from: a  reason: collision with root package name */
+    public final int f4072a;
     private final HashMap<String, Object> b = new HashMap<>();
 
     public h(int i) {
-        this.a = i;
+        this.f4072a = i;
     }
 
     public void a(String str, Object obj) {

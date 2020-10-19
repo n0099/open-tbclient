@@ -1,7 +1,7 @@
 package com.baidu.live.q;
 /* loaded from: classes4.dex */
 public interface d {
-    boolean MM();
+    boolean NR();
 
     void a(c cVar);
 

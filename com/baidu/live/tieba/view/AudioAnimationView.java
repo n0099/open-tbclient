@@ -15,15 +15,15 @@ import com.baidu.live.tbadk.core.util.SkinManager;
 import java.util.Random;
 /* loaded from: classes4.dex */
 public class AudioAnimationView extends View {
-    private int abh;
-    private int abi;
-    private boolean abj;
-    private boolean abk;
-    private int[] abm;
-    private int abn;
-    private int abo;
-    private final Runnable abp;
-    private Rect[] bra;
+    private boolean abA;
+    private boolean abB;
+    private int[] abD;
+    private int abE;
+    private int abF;
+    private final Runnable abG;
+    private int aby;
+    private int abz;
+    private Rect[] buO;
     private int mCanvasHeight;
     private int mCanvasWidth;
     private Paint mPaint;
@@ -34,14 +34,14 @@ public class AudioAnimationView extends View {
         super(context);
         this.mSkinType = 3;
         this.random = new Random();
-        this.abh = 0;
-        this.abi = 8;
-        this.abj = false;
-        this.abk = true;
-        this.abm = new int[]{6, 3, 5, 10, 8, 6, 5, 3, 5, 10, 8, 6, 5, 3, 6, 3, 5, 10, 8, 6, 5, 3};
-        this.abn = BdUtilHelper.getDimens(TbadkCoreApplication.getInst(), a.e.sdk_ds4);
-        this.abo = a.d.sdk_cp_link_tip_a;
-        this.abp = new Runnable() { // from class: com.baidu.live.tieba.view.AudioAnimationView.1
+        this.aby = 0;
+        this.abz = 8;
+        this.abA = false;
+        this.abB = true;
+        this.abD = new int[]{6, 3, 5, 10, 8, 6, 5, 3, 5, 10, 8, 6, 5, 3, 6, 3, 5, 10, 8, 6, 5, 3};
+        this.abE = BdUtilHelper.getDimens(TbadkCoreApplication.getInst(), a.e.sdk_ds4);
+        this.abF = a.d.sdk_cp_link_tip_a;
+        this.abG = new Runnable() { // from class: com.baidu.live.tieba.view.AudioAnimationView.1
             @Override // java.lang.Runnable
             public void run() {
                 AudioAnimationView.this.sv();
@@ -55,14 +55,14 @@ public class AudioAnimationView extends View {
         super(context, attributeSet);
         this.mSkinType = 3;
         this.random = new Random();
-        this.abh = 0;
-        this.abi = 8;
-        this.abj = false;
-        this.abk = true;
-        this.abm = new int[]{6, 3, 5, 10, 8, 6, 5, 3, 5, 10, 8, 6, 5, 3, 6, 3, 5, 10, 8, 6, 5, 3};
-        this.abn = BdUtilHelper.getDimens(TbadkCoreApplication.getInst(), a.e.sdk_ds4);
-        this.abo = a.d.sdk_cp_link_tip_a;
-        this.abp = new Runnable() { // from class: com.baidu.live.tieba.view.AudioAnimationView.1
+        this.aby = 0;
+        this.abz = 8;
+        this.abA = false;
+        this.abB = true;
+        this.abD = new int[]{6, 3, 5, 10, 8, 6, 5, 3, 5, 10, 8, 6, 5, 3, 6, 3, 5, 10, 8, 6, 5, 3};
+        this.abE = BdUtilHelper.getDimens(TbadkCoreApplication.getInst(), a.e.sdk_ds4);
+        this.abF = a.d.sdk_cp_link_tip_a;
+        this.abG = new Runnable() { // from class: com.baidu.live.tieba.view.AudioAnimationView.1
             @Override // java.lang.Runnable
             public void run() {
                 AudioAnimationView.this.sv();
@@ -74,40 +74,40 @@ public class AudioAnimationView extends View {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void sv() {
-        if (this.abj) {
+        if (this.abA) {
             invalidate();
         }
-        SafeHandler.getInst().removeCallbacks(this.abp);
-        if (!this.abk) {
-            SafeHandler.getInst().postDelayed(this.abp, 250L);
+        SafeHandler.getInst().removeCallbacks(this.abG);
+        if (!this.abB) {
+            SafeHandler.getInst().postDelayed(this.abG, 250L);
         }
     }
 
     @Override // android.view.View
     @SuppressLint({"DrawAllocation"})
     protected void onMeasure(int i, int i2) {
-        if (this.abh > 0) {
+        if (this.aby > 0) {
             int mode = View.MeasureSpec.getMode(i);
-            this.mCanvasWidth = this.abn * ((this.abh * 2) - 1);
-            this.abi = this.abh;
+            this.mCanvasWidth = this.abE * ((this.aby * 2) - 1);
+            this.abz = this.aby;
             i = View.MeasureSpec.makeMeasureSpec(this.mCanvasWidth, mode);
         }
         super.onMeasure(i, i2);
         this.mCanvasHeight = getMeasuredHeight();
         this.mCanvasWidth = getMeasuredWidth();
-        if (this.abh <= 0) {
-            this.abi = (this.mCanvasWidth / this.abn) / 2;
+        if (this.aby <= 0) {
+            this.abz = (this.mCanvasWidth / this.abE) / 2;
         }
     }
 
     @Override // android.view.View
     protected void onDraw(Canvas canvas) {
         super.onDraw(canvas);
-        if (this.abj) {
-            for (int i = 0; i < this.abi; i++) {
+        if (this.abA) {
+            for (int i = 0; i < this.abz; i++) {
                 sx();
-                if (i < this.bra.length) {
-                    canvas.drawRect(this.bra[i], this.mPaint);
+                if (i < this.buO.length) {
+                    canvas.drawRect(this.buO[i], this.mPaint);
                 }
             }
         }
@@ -118,34 +118,34 @@ public class AudioAnimationView extends View {
         this.mPaint.setDither(true);
         this.mPaint.setAntiAlias(true);
         this.mPaint.setStyle(Paint.Style.FILL);
-        this.mPaint.setColor(SkinManager.getColor(this.abo));
+        this.mPaint.setColor(SkinManager.getColor(this.abF));
     }
 
     private void sx() {
         int nextInt;
-        if (this.bra == null || this.bra.length != this.abi) {
-            this.bra = new Rect[this.abi];
+        if (this.buO == null || this.buO.length != this.abz) {
+            this.buO = new Rect[this.abz];
         }
-        for (int i = 0; i < this.abi; i++) {
-            int i2 = this.abn * i * 2;
-            if (this.abk) {
-                nextInt = (int) ((1.0d - (this.abm[i % 22] / 10.0d)) * this.mCanvasHeight);
+        for (int i = 0; i < this.abz; i++) {
+            int i2 = this.abE * i * 2;
+            if (this.abB) {
+                nextInt = (int) ((1.0d - (this.abD[i % 22] / 10.0d)) * this.mCanvasHeight);
             } else {
                 nextInt = this.mCanvasHeight > 0 ? this.random.nextInt(this.mCanvasHeight) : 0;
             }
-            int i3 = this.abn + i2;
+            int i3 = this.abE + i2;
             int i4 = this.mCanvasHeight;
-            if (this.bra[i] == null) {
-                this.bra[i] = new Rect(i2, nextInt, i3, i4);
+            if (this.buO[i] == null) {
+                this.buO[i] = new Rect(i2, nextInt, i3, i4);
             } else {
-                this.bra[i].set(i2, nextInt, i3, i4);
+                this.buO[i].set(i2, nextInt, i3, i4);
             }
         }
     }
 
     public void setColumnWidth(int i) {
         if (i > 0) {
-            this.abn = i;
+            this.abE = i;
         }
     }
 
@@ -153,18 +153,18 @@ public class AudioAnimationView extends View {
         if (this.mPaint != null) {
             this.mPaint.setColor(SkinManager.getColor(i));
         }
-        this.abo = i;
+        this.abF = i;
     }
 
     public void setCertainColumnCount(int i) {
         if (i != 0) {
-            this.abh = i;
+            this.aby = i;
         }
     }
 
     @Override // android.view.View
     protected void onDetachedFromWindow() {
         super.onDetachedFromWindow();
-        SafeHandler.getInst().removeCallbacks(this.abp);
+        SafeHandler.getInst().removeCallbacks(this.abG);
     }
 }

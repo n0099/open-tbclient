@@ -1,7 +1,9 @@
 package com.baidu.sapi2.dto;
-/* loaded from: classes25.dex */
+/* loaded from: classes5.dex */
 public class GetOneKeyLoginStateDTO {
-    private static final int a = 15000;
+
+    /* renamed from: a  reason: collision with root package name */
+    private static final int f3446a = 15000;
     public static long beginTime;
     public int connectTimeout = 15000;
 

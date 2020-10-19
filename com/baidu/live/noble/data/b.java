@@ -6,11 +6,11 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 /* loaded from: classes4.dex */
 public class b {
-    public int biF;
-    public String biG;
-    public a biH;
-    public C0183b biI;
-    public int biJ;
+    public int bms;
+    public String bmt;
+    public a bmu;
+    public C0191b bmv;
+    public int bmw;
     public List<com.baidu.live.noble.data.a> list;
 
     public void parserJson(JSONObject jSONObject) {
@@ -29,23 +29,23 @@ public class b {
             }
             JSONObject optJSONObject2 = jSONObject.optJSONObject("text");
             if (optJSONObject2 != null) {
-                this.biH = new a();
-                this.biH.parserJson(optJSONObject2);
+                this.bmu = new a();
+                this.bmu.parserJson(optJSONObject2);
             }
             JSONObject optJSONObject3 = jSONObject.optJSONObject("user");
             if (optJSONObject3 != null) {
-                this.biI = new C0183b();
-                this.biI.parserJson(optJSONObject3);
+                this.bmv = new C0191b();
+                this.bmv.parserJson(optJSONObject3);
             }
-            this.biF = jSONObject.optInt("total_online");
-            this.biG = jSONObject.optString("help_url");
-            this.biJ = jSONObject.optInt("poll_time");
+            this.bms = jSONObject.optInt("total_online");
+            this.bmt = jSONObject.optString("help_url");
+            this.bmw = jSONObject.optInt("poll_time");
         }
     }
 
     /* loaded from: classes4.dex */
     public static class a {
-        public String biK;
+        public String bmx;
         public String buy_url;
         public String icon_url;
         public String text;
@@ -55,7 +55,7 @@ public class b {
             if (jSONObject != null) {
                 this.type_id = jSONObject.optInt("type_id");
                 this.text = jSONObject.optString("text");
-                this.biK = jSONObject.optString("sub_text");
+                this.bmx = jSONObject.optString("sub_text");
                 this.icon_url = jSONObject.optString("icon_url");
                 this.buy_url = jSONObject.optString("buy_url");
             }
@@ -64,8 +64,8 @@ public class b {
 
     /* renamed from: com.baidu.live.noble.data.b$b  reason: collision with other inner class name */
     /* loaded from: classes4.dex */
-    public static class C0183b {
-        public int biL;
+    public static class C0191b {
+        public int bmy;
         public String description;
         public String id;
         public String name;
@@ -75,7 +75,7 @@ public class b {
                 this.id = jSONObject.optString("id");
                 this.name = jSONObject.optString("name");
                 this.description = jSONObject.optString("description");
-                this.biL = jSONObject.optInt("is_noble");
+                this.bmy = jSONObject.optInt("is_noble");
             }
         }
     }

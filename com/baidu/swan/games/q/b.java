@@ -2,10 +2,10 @@ package com.baidu.swan.games.q;
 
 import kotlin.h;
 @h
-/* loaded from: classes3.dex */
+/* loaded from: classes10.dex */
 public final class b {
     /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [28=4] */
-    public static final Integer vW(String str) {
+    public static final Integer wI(String str) {
         if (str != null) {
             switch (str.hashCode()) {
                 case -1727084929:

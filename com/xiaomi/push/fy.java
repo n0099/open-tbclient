@@ -9,21 +9,23 @@ import java.util.Enumeration;
 import java.util.Vector;
 import org.xmlpull.v1.XmlPullParser;
 import org.xmlpull.v1.XmlPullParserFactory;
-/* loaded from: classes9.dex */
+/* loaded from: classes12.dex */
 public final class fy {
-    private static int a;
+
+    /* renamed from: a  reason: collision with root package name */
+    private static int f4914a;
     private static int b;
     private static int c = UnitedSchemeMainDispatcher.SCHEME_TIME_LIMIT;
     private static int d = 330000;
 
     /* renamed from: a  reason: collision with other field name */
-    private static Vector<String> f377a = new Vector<>();
+    private static Vector<String> f378a = new Vector<>();
 
     static {
-        a = 5000;
+        f4914a = 5000;
         b = 330000;
         try {
-            for (ClassLoader classLoader : m305a()) {
+            for (ClassLoader classLoader : m306a()) {
                 Enumeration<URL> resources = classLoader.getResources("META-INF/smack-config.xml");
                 while (resources.hasMoreElements()) {
                     InputStream inputStream = null;
@@ -38,11 +40,11 @@ public final class fy {
                                 if (newPullParser.getName().equals(PushClientConstants.TAG_CLASS_NAME)) {
                                     a(newPullParser);
                                 } else if (newPullParser.getName().equals("packetReplyTimeout")) {
-                                    a = a(newPullParser, a);
+                                    f4914a = a(newPullParser, f4914a);
                                 } else if (newPullParser.getName().equals("keepAliveInterval")) {
                                     b = a(newPullParser, b);
                                 } else if (newPullParser.getName().equals("mechName")) {
-                                    f377a.add(newPullParser.nextText());
+                                    f378a.add(newPullParser.nextText());
                                 }
                             }
                             eventType = newPullParser.next();
@@ -82,7 +84,7 @@ public final class fy {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public static String m304a() {
+    public static String m305a() {
         return "3.1.0";
     }
 
@@ -96,7 +98,7 @@ public final class fy {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    private static ClassLoader[] m305a() {
+    private static ClassLoader[] m306a() {
         ClassLoader[] classLoaderArr = {fy.class.getClassLoader(), Thread.currentThread().getContextClassLoader()};
         ArrayList arrayList = new ArrayList();
         for (ClassLoader classLoader : classLoaderArr) {

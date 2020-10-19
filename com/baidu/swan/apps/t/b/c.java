@@ -2,7 +2,7 @@ package com.baidu.swan.apps.t.b;
 
 import android.support.annotation.NonNull;
 import java.util.Map;
-/* loaded from: classes3.dex */
+/* loaded from: classes10.dex */
 public interface c {
     void a(com.baidu.swan.apps.scheme.j jVar);
 

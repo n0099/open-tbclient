@@ -11,7 +11,7 @@ import com.baidu.browser.sailor.util.BdZeusUtil;
 import com.baidu.swan.apps.a;
 import java.lang.reflect.Field;
 import java.lang.reflect.Method;
-/* loaded from: classes3.dex */
+/* loaded from: classes10.dex */
 public class a {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
 

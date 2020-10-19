@@ -3,22 +3,22 @@ package com.baidu.platform.core.busline;
 import com.baidu.mapapi.search.busline.BusLineSearchOption;
 import com.baidu.mapapi.search.busline.OnGetBusLineSearchResultListener;
 import com.baidu.platform.base.SearchType;
-/* loaded from: classes3.dex */
+/* loaded from: classes7.dex */
 public class c extends com.baidu.platform.base.a implements IBusLineSearch {
     OnGetBusLineSearchResultListener b = null;
 
     @Override // com.baidu.platform.core.busline.IBusLineSearch
     public void a() {
-        this.a.lock();
+        this.f2810a.lock();
         this.b = null;
-        this.a.unlock();
+        this.f2810a.unlock();
     }
 
     @Override // com.baidu.platform.core.busline.IBusLineSearch
     public void a(OnGetBusLineSearchResultListener onGetBusLineSearchResultListener) {
-        this.a.lock();
+        this.f2810a.lock();
         this.b = onGetBusLineSearchResultListener;
-        this.a.unlock();
+        this.f2810a.unlock();
     }
 
     @Override // com.baidu.platform.core.busline.IBusLineSearch

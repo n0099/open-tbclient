@@ -1,5 +1,5 @@
 package com.baidu.ar.slam;
-/* loaded from: classes10.dex */
+/* loaded from: classes14.dex */
 public class TrackParams {
     public String extendedStatusStr;
     public float processTime;

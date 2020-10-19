@@ -9,23 +9,23 @@ import rx.internal.schedulers.d;
 import rx.internal.schedulers.e;
 import rx.internal.schedulers.h;
 import rx.internal.schedulers.j;
-/* loaded from: classes7.dex */
+/* loaded from: classes16.dex */
 public final class Schedulers {
-    private static final AtomicReference<Schedulers> oNI = new AtomicReference<>();
-    private final g oTQ;
-    private final g oTR;
-    private final g oTS;
+    private static final AtomicReference<Schedulers> pcY = new AtomicReference<>();
+    private final g pjj;
+    private final g pjk;
+    private final g pjl;
 
-    private static Schedulers epk() {
+    private static Schedulers esV() {
         Schedulers schedulers;
         while (true) {
-            schedulers = oNI.get();
+            schedulers = pcY.get();
             if (schedulers == null) {
                 schedulers = new Schedulers();
-                if (oNI.compareAndSet(null, schedulers)) {
+                if (pcY.compareAndSet(null, schedulers)) {
                     break;
                 }
-                schedulers.epm();
+                schedulers.esX();
             } else {
                 break;
             }
@@ -34,45 +34,45 @@ public final class Schedulers {
     }
 
     private Schedulers() {
-        rx.c.g epb = f.eoW().epb();
-        g epf = epb.epf();
-        if (epf != null) {
-            this.oTQ = epf;
+        rx.c.g esM = f.esH().esM();
+        g esQ = esM.esQ();
+        if (esQ != null) {
+            this.pjj = esQ;
         } else {
-            this.oTQ = rx.c.g.epc();
+            this.pjj = rx.c.g.esN();
         }
-        g epg = epb.epg();
-        if (epg != null) {
-            this.oTR = epg;
+        g esR = esM.esR();
+        if (esR != null) {
+            this.pjk = esR;
         } else {
-            this.oTR = rx.c.g.epd();
+            this.pjk = rx.c.g.esO();
         }
-        g eph = epb.eph();
-        if (eph != null) {
-            this.oTS = eph;
+        g esS = esM.esS();
+        if (esS != null) {
+            this.pjl = esS;
         } else {
-            this.oTS = rx.c.g.epe();
+            this.pjl = rx.c.g.esP();
         }
     }
 
     public static g immediate() {
-        return e.oRX;
+        return e.phn;
     }
 
     public static g trampoline() {
-        return j.oSv;
+        return j.phL;
     }
 
     public static g newThread() {
-        return c.k(epk().oTS);
+        return c.k(esV().pjl);
     }
 
     public static g computation() {
-        return c.i(epk().oTQ);
+        return c.i(esV().pjj);
     }
 
     public static g io() {
-        return c.j(epk().oTR);
+        return c.j(esV().pjk);
     }
 
     public static TestScheduler test() {
@@ -84,49 +84,49 @@ public final class Schedulers {
     }
 
     public static void reset() {
-        Schedulers andSet = oNI.getAndSet(null);
+        Schedulers andSet = pcY.getAndSet(null);
         if (andSet != null) {
-            andSet.epm();
+            andSet.esX();
         }
     }
 
     public static void start() {
-        Schedulers epk = epk();
-        epk.epl();
-        synchronized (epk) {
-            d.oRV.start();
+        Schedulers esV = esV();
+        esV.esW();
+        synchronized (esV) {
+            d.phl.start();
         }
     }
 
     public static void shutdown() {
-        Schedulers epk = epk();
-        epk.epm();
-        synchronized (epk) {
-            d.oRV.shutdown();
+        Schedulers esV = esV();
+        esV.esX();
+        synchronized (esV) {
+            d.phl.shutdown();
         }
     }
 
-    synchronized void epl() {
-        if (this.oTQ instanceof h) {
-            ((h) this.oTQ).start();
+    synchronized void esW() {
+        if (this.pjj instanceof h) {
+            ((h) this.pjj).start();
         }
-        if (this.oTR instanceof h) {
-            ((h) this.oTR).start();
+        if (this.pjk instanceof h) {
+            ((h) this.pjk).start();
         }
-        if (this.oTS instanceof h) {
-            ((h) this.oTS).start();
+        if (this.pjl instanceof h) {
+            ((h) this.pjl).start();
         }
     }
 
-    synchronized void epm() {
-        if (this.oTQ instanceof h) {
-            ((h) this.oTQ).shutdown();
+    synchronized void esX() {
+        if (this.pjj instanceof h) {
+            ((h) this.pjj).shutdown();
         }
-        if (this.oTR instanceof h) {
-            ((h) this.oTR).shutdown();
+        if (this.pjk instanceof h) {
+            ((h) this.pjk).shutdown();
         }
-        if (this.oTS instanceof h) {
-            ((h) this.oTS).shutdown();
+        if (this.pjl instanceof h) {
+            ((h) this.pjl).shutdown();
         }
     }
 }

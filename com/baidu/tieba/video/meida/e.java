@@ -1,5 +1,5 @@
 package com.baidu.tieba.video.meida;
-/* loaded from: classes22.dex */
+/* loaded from: classes23.dex */
 public class e {
     public final String errorMsg;
     public final int errorType;

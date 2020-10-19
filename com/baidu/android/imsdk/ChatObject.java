@@ -2,7 +2,7 @@ package com.baidu.android.imsdk;
 
 import android.content.Context;
 import com.baidu.android.imsdk.internal.IMConfigInternal;
-/* loaded from: classes9.dex */
+/* loaded from: classes5.dex */
 public class ChatObject {
     public static final long DEFAULT_PAID = -1;
     public static final int DEFAULT_TYPE = -1;

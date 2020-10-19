@@ -3,7 +3,7 @@ package com.baidu.location.e;
 import android.content.Context;
 import android.os.Build;
 import com.baidu.lbsapi.auth.LBSAuthManager;
-/* loaded from: classes3.dex */
+/* loaded from: classes7.dex */
 public class b {
     public static String e = null;
     public static String f = null;
@@ -12,20 +12,24 @@ public class b {
     public static int i = 0;
     public static int j = -2;
     public static long k = -1;
-    public String a;
+
+    /* renamed from: a  reason: collision with root package name */
+    public String f1943a;
     public String b;
     public String c;
     public String d;
     private boolean l;
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes3.dex */
+    /* loaded from: classes7.dex */
     public static class a {
-        public static final b a = new b();
+
+        /* renamed from: a  reason: collision with root package name */
+        public static final b f1944a = new b();
     }
 
     private b() {
-        this.a = null;
+        this.f1943a = null;
         this.b = null;
         this.c = null;
         this.d = null;
@@ -36,7 +40,7 @@ public class b {
     }
 
     public static b a() {
-        return a.a;
+        return a.f1944a;
     }
 
     public String a(boolean z) {
@@ -85,13 +89,13 @@ public class b {
         }
         if (this.c == null) {
             stringBuffer.append("&im=");
-            stringBuffer.append(this.a);
+            stringBuffer.append(this.f1943a);
         } else {
             stringBuffer.append("&cu=");
             stringBuffer.append(this.c);
-            if (this.a != null && !this.a.equals("NULL") && !this.c.contains(new StringBuffer(this.a).reverse().toString())) {
+            if (this.f1943a != null && !this.f1943a.equals("NULL") && !this.c.contains(new StringBuffer(this.f1943a).reverse().toString())) {
                 stringBuffer.append("&Aim=");
-                stringBuffer.append(this.a);
+                stringBuffer.append(this.f1943a);
             }
         }
         if (this.b != null) {
@@ -156,7 +160,7 @@ public class b {
             stringBuffer.append(this.c);
         } else {
             stringBuffer.append("&im=");
-            stringBuffer.append(this.a);
+            stringBuffer.append(this.f1943a);
         }
         try {
             stringBuffer.append("&mb=");

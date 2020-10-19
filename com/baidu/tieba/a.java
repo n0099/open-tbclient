@@ -4,33 +4,33 @@ import java.util.concurrent.atomic.AtomicBoolean;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class a {
-    private static final a fmP = new a();
-    private AtomicBoolean fmQ = new AtomicBoolean(false);
-    private int fmR = 0;
-    private int fmS;
+    private static final a fzd = new a();
+    private AtomicBoolean fze = new AtomicBoolean(false);
+    private int fzf = 0;
+    private int fzg;
 
     private a() {
     }
 
-    public static a bAp() {
-        return fmP;
+    public static a bDb() {
+        return fzd;
     }
 
     public void parse(JSONObject jSONObject) {
-        boolean z = this.fmQ.get();
+        boolean z = this.fze.get();
         if (jSONObject != null && !z) {
-            this.fmQ.set(true);
-            this.fmR = jSONObject.optInt("tieba_landing_page_type_switch", -1);
-            this.fmS = jSONObject.optInt("tieba_fix_apk_install_status_switch", 1);
+            this.fze.set(true);
+            this.fzf = jSONObject.optInt("tieba_landing_page_type_switch", -1);
+            this.fzg = jSONObject.optInt("tieba_fix_apk_install_status_switch", 1);
         }
     }
 
     @Deprecated
-    public int bAq() {
-        return this.fmR;
+    public int bDc() {
+        return this.fzf;
     }
 
-    public boolean bAr() {
-        return this.fmS == 1;
+    public boolean bDd() {
+        return this.fzg == 1;
     }
 }

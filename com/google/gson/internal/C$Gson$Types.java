@@ -15,9 +15,9 @@ import java.util.Map;
 import java.util.NoSuchElementException;
 import java.util.Properties;
 /* renamed from: com.google.gson.internal.$Gson$Types  reason: invalid class name */
-/* loaded from: classes23.dex */
+/* loaded from: classes17.dex */
 public final class C$Gson$Types {
-    static final Type[] nMO = new Type[0];
+    static final Type[] ocf = new Type[0];
 
     public static ParameterizedType a(Type type, Type type2, Type... typeArr) {
         return new ParameterizedTypeImpl(type, type2, typeArr);
@@ -28,7 +28,7 @@ public final class C$Gson$Types {
     }
 
     public static WildcardType c(Type type) {
-        return new WildcardTypeImpl(type instanceof WildcardType ? ((WildcardType) type).getUpperBounds() : new Type[]{type}, nMO);
+        return new WildcardTypeImpl(type instanceof WildcardType ? ((WildcardType) type).getUpperBounds() : new Type[]{type}, ocf);
     }
 
     public static WildcardType d(Type type) {
@@ -123,7 +123,7 @@ public final class C$Gson$Types {
         }
     }
 
-    static int bw(Object obj) {
+    static int bz(Object obj) {
         if (obj != null) {
             return obj.hashCode();
         }
@@ -201,7 +201,7 @@ public final class C$Gson$Types {
     }
 
     private static Type a(Type type, Class<?> cls, Type type2, Collection<TypeVariable> collection) {
-        Type a;
+        Type a2;
         Type type3 = type2;
         while (type3 instanceof TypeVariable) {
             TypeVariable typeVariable = (TypeVariable) type3;
@@ -218,40 +218,40 @@ public final class C$Gson$Types {
         if ((type3 instanceof Class) && ((Class) type3).isArray()) {
             Class cls2 = (Class) type3;
             Class<?> componentType = cls2.getComponentType();
-            Type a2 = a(type, cls, componentType, collection);
-            if (componentType != a2) {
-                return b(a2);
+            Type a3 = a(type, cls, componentType, collection);
+            if (componentType != a3) {
+                return b(a3);
             }
             return cls2;
         } else if (type3 instanceof GenericArrayType) {
             GenericArrayType genericArrayType = (GenericArrayType) type3;
             Type genericComponentType = genericArrayType.getGenericComponentType();
-            Type a3 = a(type, cls, genericComponentType, collection);
-            if (genericComponentType != a3) {
-                return b(a3);
+            Type a4 = a(type, cls, genericComponentType, collection);
+            if (genericComponentType != a4) {
+                return b(a4);
             }
             return genericArrayType;
         } else if (type3 instanceof ParameterizedType) {
             ParameterizedType parameterizedType = (ParameterizedType) type3;
             Type ownerType = parameterizedType.getOwnerType();
-            Type a4 = a(type, cls, ownerType, collection);
-            boolean z = a4 != ownerType;
+            Type a5 = a(type, cls, ownerType, collection);
+            boolean z = a5 != ownerType;
             Type[] actualTypeArguments = parameterizedType.getActualTypeArguments();
             int length = actualTypeArguments.length;
             boolean z2 = z;
             Type[] typeArr = actualTypeArguments;
             for (int i = 0; i < length; i++) {
-                Type a5 = a(type, cls, typeArr[i], collection);
-                if (a5 != typeArr[i]) {
+                Type a6 = a(type, cls, typeArr[i], collection);
+                if (a6 != typeArr[i]) {
                     if (!z2) {
                         typeArr = (Type[]) typeArr.clone();
                         z2 = true;
                     }
-                    typeArr[i] = a5;
+                    typeArr[i] = a6;
                 }
             }
             if (z2) {
-                return a(a4, parameterizedType.getRawType(), typeArr);
+                return a(a5, parameterizedType.getRawType(), typeArr);
             }
             return parameterizedType;
         } else if (type3 instanceof WildcardType) {
@@ -259,13 +259,13 @@ public final class C$Gson$Types {
             Type[] lowerBounds = wildcardType.getLowerBounds();
             Type[] upperBounds = wildcardType.getUpperBounds();
             if (lowerBounds.length == 1) {
-                Type a6 = a(type, cls, lowerBounds[0], collection);
-                if (a6 != lowerBounds[0]) {
-                    return d(a6);
+                Type a7 = a(type, cls, lowerBounds[0], collection);
+                if (a7 != lowerBounds[0]) {
+                    return d(a7);
                 }
                 return wildcardType;
-            } else if (upperBounds.length == 1 && (a = a(type, cls, upperBounds[0], collection)) != upperBounds[0]) {
-                return c(a);
+            } else if (upperBounds.length == 1 && (a2 = a(type, cls, upperBounds[0], collection)) != upperBounds[0]) {
+                return c(a2);
             } else {
                 return wildcardType;
             }
@@ -275,18 +275,18 @@ public final class C$Gson$Types {
     }
 
     static Type a(Type type, Class<?> cls, TypeVariable<?> typeVariable) {
-        Class<?> a = a(typeVariable);
-        if (a != null) {
-            Type a2 = a(type, cls, a);
-            if (a2 instanceof ParameterizedType) {
-                return ((ParameterizedType) a2).getActualTypeArguments()[b(a.getTypeParameters(), typeVariable)];
+        Class<?> a2 = a(typeVariable);
+        if (a2 != null) {
+            Type a3 = a(type, cls, a2);
+            if (a3 instanceof ParameterizedType) {
+                return ((ParameterizedType) a3).getActualTypeArguments()[c(a2.getTypeParameters(), typeVariable)];
             }
             return typeVariable;
         }
         return typeVariable;
     }
 
-    private static int b(Object[] objArr, Object obj) {
+    private static int c(Object[] objArr, Object obj) {
         int length = objArr.length;
         for (int i = 0; i < length; i++) {
             if (obj.equals(objArr[i])) {
@@ -310,7 +310,7 @@ public final class C$Gson$Types {
 
     /* JADX INFO: Access modifiers changed from: private */
     /* renamed from: com.google.gson.internal.$Gson$Types$ParameterizedTypeImpl */
-    /* loaded from: classes23.dex */
+    /* loaded from: classes17.dex */
     public static final class ParameterizedTypeImpl implements Serializable, ParameterizedType {
         private static final long serialVersionUID = 0;
         private final Type ownerType;
@@ -353,7 +353,7 @@ public final class C$Gson$Types {
         }
 
         public int hashCode() {
-            return (Arrays.hashCode(this.typeArguments) ^ this.rawType.hashCode()) ^ C$Gson$Types.bw(this.ownerType);
+            return (Arrays.hashCode(this.typeArguments) ^ this.rawType.hashCode()) ^ C$Gson$Types.bz(this.ownerType);
         }
 
         public String toString() {
@@ -372,7 +372,7 @@ public final class C$Gson$Types {
 
     /* JADX INFO: Access modifiers changed from: private */
     /* renamed from: com.google.gson.internal.$Gson$Types$GenericArrayTypeImpl */
-    /* loaded from: classes23.dex */
+    /* loaded from: classes17.dex */
     public static final class GenericArrayTypeImpl implements Serializable, GenericArrayType {
         private static final long serialVersionUID = 0;
         private final Type componentType;
@@ -401,7 +401,7 @@ public final class C$Gson$Types {
 
     /* JADX INFO: Access modifiers changed from: private */
     /* renamed from: com.google.gson.internal.$Gson$Types$WildcardTypeImpl */
-    /* loaded from: classes23.dex */
+    /* loaded from: classes17.dex */
     public static final class WildcardTypeImpl implements Serializable, WildcardType {
         private static final long serialVersionUID = 0;
         private final Type lowerBound;
@@ -431,7 +431,7 @@ public final class C$Gson$Types {
 
         @Override // java.lang.reflect.WildcardType
         public Type[] getLowerBounds() {
-            return this.lowerBound != null ? new Type[]{this.lowerBound} : C$Gson$Types.nMO;
+            return this.lowerBound != null ? new Type[]{this.lowerBound} : C$Gson$Types.ocf;
         }
 
         public boolean equals(Object obj) {

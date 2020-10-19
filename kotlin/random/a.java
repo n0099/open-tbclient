@@ -4,49 +4,49 @@ import java.util.Random;
 import kotlin.h;
 import kotlin.jvm.internal.q;
 @h
-/* loaded from: classes5.dex */
+/* loaded from: classes10.dex */
 public abstract class a extends d {
-    public abstract Random ekt();
+    public abstract Random eog();
 
     @Override // kotlin.random.d
-    public int OC(int i) {
-        return e.ei(ekt().nextInt(), i);
+    public int Pi(int i) {
+        return e.ei(eog().nextInt(), i);
     }
 
     @Override // kotlin.random.d
     public int nextInt() {
-        return ekt().nextInt();
+        return eog().nextInt();
     }
 
     @Override // kotlin.random.d
     public int nextInt(int i) {
-        return ekt().nextInt(i);
+        return eog().nextInt(i);
     }
 
     @Override // kotlin.random.d
     public long nextLong() {
-        return ekt().nextLong();
+        return eog().nextLong();
     }
 
     @Override // kotlin.random.d
     public boolean nextBoolean() {
-        return ekt().nextBoolean();
+        return eog().nextBoolean();
     }
 
     @Override // kotlin.random.d
     public double nextDouble() {
-        return ekt().nextDouble();
+        return eog().nextDouble();
     }
 
     @Override // kotlin.random.d
     public float nextFloat() {
-        return ekt().nextFloat();
+        return eog().nextFloat();
     }
 
     @Override // kotlin.random.d
     public byte[] az(byte[] bArr) {
-        q.m(bArr, com.baidu.fsg.base.statistics.b.j);
-        ekt().nextBytes(bArr);
+        q.n(bArr, com.baidu.fsg.base.statistics.b.j);
+        eog().nextBytes(bArr);
         return bArr;
     }
 }

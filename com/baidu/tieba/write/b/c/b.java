@@ -15,7 +15,7 @@ import com.baidu.tieba.write.upload.VideoUploadData;
 /* loaded from: classes3.dex */
 public final class b {
     private boolean isInit;
-    private com.baidu.tieba.write.b.b.a mZQ;
+    private com.baidu.tieba.write.b.b.a npq;
 
     /* loaded from: classes3.dex */
     public interface a {
@@ -26,12 +26,12 @@ public final class b {
 
     /* renamed from: com.baidu.tieba.write.b.c.b$b  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
-    private static class C0827b {
-        private static final b mZT = new b();
+    private static class C0845b {
+        private static final b npt = new b();
     }
 
-    public static final b dKz() {
-        return C0827b.mZT;
+    public static final b dOl() {
+        return C0845b.npt;
     }
 
     private b() {
@@ -44,17 +44,17 @@ public final class b {
             this.isInit = true;
             UgcServerApiUtils.setHostAddress(UgcServerApiUtils.ONLINE_HOST_ADRESS);
             UgcServerApiUtils.setPublisherUserAgent(UgcServerApiUtils.DEFAULT_PUBLISHER_USER_AGENT);
-            com.baidu.d.b.a.uJ().setAppName("tieba");
-            if (this.mZQ == null) {
-                this.mZQ = new com.baidu.tieba.write.b.b.a();
+            com.baidu.d.b.a.uS().setAppName("tieba");
+            if (this.npq == null) {
+                this.npq = new com.baidu.tieba.write.b.b.a();
             }
-            this.mZQ.xt(false);
+            this.npq.ya(false);
             MessageManager.getInstance().registerListener(new CustomMessageListener(CmdConfigCustom.METHOD_ACCOUNT_CHANGE) { // from class: com.baidu.tieba.write.b.c.b.1
                 /* JADX DEBUG: Method merged with bridge method */
                 @Override // com.baidu.adp.framework.listener.MessageListener
                 public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-                    if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2005016 && b.this.mZQ != null) {
-                        b.this.mZQ.xt(false);
+                    if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2005016 && b.this.npq != null) {
+                        b.this.npq.ya(false);
                     }
                 }
             });

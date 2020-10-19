@@ -6,20 +6,20 @@ import com.baidu.sapi2.SapiAccountManager;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.data.AccountData;
 import java.util.List;
-/* loaded from: classes20.dex */
+/* loaded from: classes21.dex */
 public class d implements com.baidu.tbadk.coreExtra.a.c {
-    private static d kCq;
+    private static d kRB;
 
     private d() {
     }
 
-    public static synchronized d cYe() {
+    public static synchronized d dbN() {
         d dVar;
         synchronized (d.class) {
-            if (kCq == null) {
-                kCq = new d();
+            if (kRB == null) {
+                kRB = new d();
             }
-            dVar = kCq;
+            dVar = kRB;
         }
         return dVar;
     }

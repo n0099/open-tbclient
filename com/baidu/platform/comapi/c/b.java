@@ -1,10 +1,12 @@
 package com.baidu.platform.comapi.c;
-/* loaded from: classes3.dex */
+/* loaded from: classes7.dex */
 class b implements Runnable {
-    final /* synthetic */ a a;
+
+    /* renamed from: a  reason: collision with root package name */
+    final /* synthetic */ a f2856a;
 
     @Override // java.lang.Runnable
     public void run() {
-        this.a.a("foreground");
+        this.f2856a.a("foreground");
     }
 }

@@ -1,19 +1,21 @@
 package com.baidu.ufosdk.ui;
 
 import android.os.Handler;
-/* loaded from: classes21.dex */
+/* loaded from: classes22.dex */
 final class cn implements Runnable {
-    final /* synthetic */ cm a;
+
+    /* renamed from: a  reason: collision with root package name */
+    final /* synthetic */ cm f3808a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public cn(cm cmVar) {
-        this.a = cmVar;
+        this.f3808a = cmVar;
     }
 
     @Override // java.lang.Runnable
     public final void run() {
         Handler handler;
-        handler = this.a.a.a.aK;
+        handler = this.f3808a.f3807a.f3801a.aK;
         com.baidu.ufosdk.e.a.a(handler);
     }
 }

@@ -1,5 +1,5 @@
 package com.baidu.searchbox.ui.animview.praise;
-/* loaded from: classes11.dex */
+/* loaded from: classes9.dex */
 public class PraiseDataPassUtil {
     public static final String ACTION_PRAISE_EVENT = "com.baidu.channel.praise.event";
     public static final String KEY_FROM = "from";

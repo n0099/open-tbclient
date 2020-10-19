@@ -13,7 +13,7 @@ import java.security.NoSuchAlgorithmException;
 import java.util.Map;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes9.dex */
+/* loaded from: classes5.dex */
 public class IMMediaSetSessionReadRequest extends IMMediaBaseHttpRequest {
     private static final String TAG = "IMMediaSetSessionReadRequest";
     private long mContacter;

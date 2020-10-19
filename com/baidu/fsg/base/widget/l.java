@@ -2,13 +2,15 @@ package com.baidu.fsg.base.widget;
 
 import android.view.View;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes15.dex */
+/* loaded from: classes16.dex */
 public class l implements Runnable {
-    final /* synthetic */ SafeKeyBoardUtil a;
+
+    /* renamed from: a  reason: collision with root package name */
+    final /* synthetic */ SafeKeyBoardUtil f1556a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public l(SafeKeyBoardUtil safeKeyBoardUtil) {
-        this.a = safeKeyBoardUtil;
+        this.f1556a = safeKeyBoardUtil;
     }
 
     @Override // java.lang.Runnable
@@ -24,25 +26,25 @@ public class l implements Runnable {
         SafeScrollView safeScrollView2;
         int i5;
         int[] iArr = new int[2];
-        view = this.a.f;
+        view = this.f1556a.f;
         view.getLocationOnScreen(iArr);
-        SafeKeyBoardUtil safeKeyBoardUtil = this.a;
+        SafeKeyBoardUtil safeKeyBoardUtil = this.f1556a;
         int i6 = iArr[1];
-        view2 = this.a.f;
+        view2 = this.f1556a.f;
         int height = i6 + view2.getHeight();
-        i = this.a.g;
-        i2 = this.a.j;
+        i = this.f1556a.g;
+        i2 = this.f1556a.j;
         int i7 = height - (i - i2);
-        safeKeyBoardEditText = this.a.c;
+        safeKeyBoardEditText = this.f1556a.c;
         safeKeyBoardUtil.i = i7 + safeKeyBoardEditText.getGap();
-        i3 = this.a.i;
+        i3 = this.f1556a.i;
         if (i3 > 0) {
-            safeScrollView2 = this.a.e;
-            i5 = this.a.i;
+            safeScrollView2 = this.f1556a.e;
+            i5 = this.f1556a.i;
             safeScrollView2.smoothScrollBy(0, i5);
         }
-        safeScrollView = this.a.e;
-        i4 = this.a.j;
+        safeScrollView = this.f1556a.e;
+        i4 = this.f1556a.j;
         safeScrollView.notifyShowKeyBoard(i4);
     }
 }

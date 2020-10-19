@@ -8,12 +8,14 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 @Keep
-/* loaded from: classes10.dex */
+/* loaded from: classes12.dex */
 public class DpRTCSession {
-    private c a = new c(DpStatConstants.SESSION_TYPE_RTC_COMMON);
+
+    /* renamed from: a  reason: collision with root package name */
+    private c f1424a = new c(DpStatConstants.SESSION_TYPE_RTC_COMMON);
 
     private synchronized JSONObject a(JSONObject jSONObject) throws JSONException {
-        this.a.a(jSONObject);
+        this.f1424a.a(jSONObject);
         return jSONObject;
     }
 
@@ -31,7 +33,7 @@ public class DpRTCSession {
 
     public synchronized void add(int i, String str, String str2) {
         if (20488 == i) {
-            this.a.a(new e((int) DpStatConstants.SESSION_TYPE_RTC_COMMON, str, str2));
+            this.f1424a.a(new e((int) DpStatConstants.SESSION_TYPE_RTC_COMMON, str, str2));
         }
     }
 

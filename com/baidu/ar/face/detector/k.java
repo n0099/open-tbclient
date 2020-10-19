@@ -1,5 +1,5 @@
 package com.baidu.ar.face.detector;
-/* loaded from: classes10.dex */
+/* loaded from: classes14.dex */
 public class k {
     private int pa = 300;
     private int pb = 0;
@@ -14,7 +14,7 @@ public class k {
     private double pk;
 
     /* renamed from: pl  reason: collision with root package name */
-    private double f960pl;
+    private double f1193pl;
     private double pm;
 
     public void a(double d) {
@@ -72,14 +72,14 @@ public class k {
     public void e(double d) {
         if (this.pf < this.pa) {
             this.pf++;
-            this.f960pl = (((this.pf - 1) * this.f960pl) + d) / this.pf;
+            this.f1193pl = (((this.pf - 1) * this.f1193pl) + d) / this.pf;
             return;
         }
         if (this.pf == this.pa) {
             this.pf++;
         }
         this.pf = 0;
-        this.f960pl = 0.0d;
+        this.f1193pl = 0.0d;
     }
 
     public void eA() {

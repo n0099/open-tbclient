@@ -9,15 +9,15 @@ import java.util.List;
 import java.util.Map;
 /* loaded from: classes4.dex */
 public class u {
-    private Map<String, t> aQO;
-    private Map<String, Integer> aQP;
+    private Map<String, t> aTZ;
+    private Map<String, Integer> aUa;
     private List<i> mDatas;
 
-    public static u Fk() {
-        return a.aQQ;
+    public static u Gg() {
+        return a.aUb;
     }
 
-    public void F(List<i> list) {
+    public void H(List<i> list) {
         if (this.mDatas == null) {
             this.mDatas = new ArrayList();
         }
@@ -25,7 +25,7 @@ public class u {
         if (list != null) {
             this.mDatas.addAll(list);
         }
-        Fn();
+        Gj();
         MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2913122));
     }
 
@@ -33,46 +33,46 @@ public class u {
         return this.mDatas;
     }
 
-    public Map<String, t> Fl() {
-        return this.aQO;
+    public Map<String, t> Gh() {
+        return this.aTZ;
     }
 
-    public Map<String, Integer> Fm() {
-        return this.aQP;
+    public Map<String, Integer> Gi() {
+        return this.aUa;
     }
 
     public void release() {
         if (this.mDatas != null) {
             this.mDatas.clear();
         }
-        if (this.aQO != null) {
-            this.aQO.clear();
+        if (this.aTZ != null) {
+            this.aTZ.clear();
         }
-        if (this.aQP != null) {
-            this.aQP.clear();
+        if (this.aUa != null) {
+            this.aUa.clear();
         }
     }
 
-    private void Fn() {
+    private void Gj() {
         g.b.a aVar;
-        if (this.aQO == null) {
-            this.aQO = new HashMap();
+        if (this.aTZ == null) {
+            this.aTZ = new HashMap();
         }
-        this.aQO.clear();
-        if (this.aQP == null) {
-            this.aQP = new HashMap();
+        this.aTZ.clear();
+        if (this.aUa == null) {
+            this.aUa = new HashMap();
         }
-        this.aQP.clear();
+        this.aUa.clear();
         if (this.mDatas != null && this.mDatas.size() > 0) {
             for (i iVar : this.mDatas) {
-                List<g> EI = iVar.EI();
-                if (EI != null && !EI.isEmpty()) {
-                    for (g gVar : EI) {
-                        if (gVar.aPi != null && (aVar = gVar.aPi.aPy) != null && aVar.key == 10 && aVar.aPz != null) {
-                            String optString = aVar.aPz.optString("id");
-                            if (this.aQO.get(optString) == null) {
-                                this.aQO.put(optString, new t(gVar.Eh(), gVar.aPi.aPu, gVar.aOZ));
-                                this.aQP.put(optString, Integer.valueOf(gVar.aPi.aPv));
+                List<g> FE = iVar.FE();
+                if (FE != null && !FE.isEmpty()) {
+                    for (g gVar : FE) {
+                        if (gVar.aSt != null && (aVar = gVar.aSt.aSJ) != null && aVar.key == 10 && aVar.aSK != null) {
+                            String optString = aVar.aSK.optString("id");
+                            if (this.aTZ.get(optString) == null) {
+                                this.aTZ.put(optString, new t(gVar.Fd(), gVar.aSt.aSF, gVar.aSk));
+                                this.aUa.put(optString, Integer.valueOf(gVar.aSt.aSG));
                             }
                         }
                     }
@@ -86,6 +86,6 @@ public class u {
 
     /* loaded from: classes4.dex */
     private static class a {
-        private static final u aQQ = new u();
+        private static final u aUb = new u();
     }
 }

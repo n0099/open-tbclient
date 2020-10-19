@@ -17,7 +17,7 @@ import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
 import com.baidu.tieba.tbadkCore.aa;
 import com.baidu.tieba.tbadkCore.z;
-/* loaded from: classes21.dex */
+/* loaded from: classes22.dex */
 public class f implements b {
     private Context mContext;
     private LinearLayout mRootView;
@@ -28,7 +28,7 @@ public class f implements b {
         this.mRootView.setOrientation(0);
     }
 
-    private View fg(Context context) {
+    private View fn(Context context) {
         LinearLayout linearLayout = new LinearLayout(context);
         linearLayout.setGravity(17);
         linearLayout.setOrientation(0);
@@ -65,17 +65,17 @@ public class f implements b {
     public void setData(z zVar) {
         if (zVar != null && !y.isEmpty(zVar.dataList)) {
             this.mRootView.removeAllViews();
-            if (zVar.mnG == 2) {
+            if (zVar.mDl == 2) {
                 LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(-2, -2);
                 layoutParams.leftMargin = l.getDimens(this.mContext, R.dimen.tbds44);
-                this.mRootView.addView(fg(this.mContext), layoutParams);
+                this.mRootView.addView(fn(this.mContext), layoutParams);
                 LinearLayout.LayoutParams layoutParams2 = new LinearLayout.LayoutParams(-2, -2);
                 layoutParams2.leftMargin = l.getDimens(this.mContext, R.dimen.tbds104);
-                this.mRootView.addView(fg(this.mContext), layoutParams2);
-            } else if (zVar.mnG == 3) {
+                this.mRootView.addView(fn(this.mContext), layoutParams2);
+            } else if (zVar.mDl == 3) {
                 int equipmentWidth = l.getEquipmentWidth(this.mContext) / 3;
                 for (int i = 0; i < 3; i++) {
-                    this.mRootView.addView(fg(this.mContext), new LinearLayout.LayoutParams(equipmentWidth, -2));
+                    this.mRootView.addView(fn(this.mContext), new LinearLayout.LayoutParams(equipmentWidth, -2));
                 }
             }
             for (int i2 = 0; i2 < this.mRootView.getChildCount(); i2++) {
@@ -84,12 +84,12 @@ public class f implements b {
                     ((TbImageView) this.mRootView.getChildAt(i2).findViewById(R.id.service_img)).startLoad(aaVar.imageUrl, 10, false);
                     ((TextView) this.mRootView.getChildAt(i2).findViewById(R.id.service_name)).setText(at.cutChineseAndEnglishWithSuffix(aaVar.name, 8, ""));
                     final View findViewById = this.mRootView.getChildAt(i2).findViewById(R.id.service_red_dot);
-                    findViewById.setVisibility(aaVar.aZH ? 0 : 8);
+                    findViewById.setVisibility(aaVar.bdb ? 0 : 8);
                     this.mRootView.getChildAt(i2).setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.frs.servicearea.f.1
                         @Override // android.view.View.OnClickListener
                         public void onClick(View view) {
-                            if (aaVar != null && aaVar.mnH != null) {
-                                TiebaStatic.log(new aq("c13274").u("uid", TbadkCoreApplication.getCurrentAccountId()).dF("fid", aaVar.forumId).dF("obj_source", "frs_card").dF("obj_id", aaVar.mnH.id).dF("obj_name", aaVar.mnH.name).ai("obj_param1", aaVar.mnH.dRR.intValue()));
+                            if (aaVar != null && aaVar.mDm != null) {
+                                TiebaStatic.log(new aq("c13274").u("uid", TbadkCoreApplication.getCurrentAccountId()).dK("fid", aaVar.forumId).dK("obj_source", "frs_card").dK("obj_id", aaVar.mDm.id).dK("obj_name", aaVar.mDm.name).aj("obj_param1", aaVar.mDm.edS.intValue()));
                             }
                             e.a(view.getContext(), aaVar, findViewById);
                             e.c(aaVar);

@@ -12,7 +12,7 @@ import com.baidu.searchbox.unitedscheme.CallbackHandler;
 import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
 import com.baidu.swan.apps.scheme.actions.SwanAppDownloadAction;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes10.dex */
 public interface f {
     boolean a(@NonNull Context context, @NonNull UnitedSchemeEntity unitedSchemeEntity, @NonNull SwanAppDownloadAction.SwanAppDownloadType swanAppDownloadType, @NonNull JSONObject jSONObject, @NonNull CallbackHandler callbackHandler);
 
@@ -20,7 +20,7 @@ public interface f {
 
     boolean h(Context context, JSONObject jSONObject);
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes10.dex */
     public static class a implements f {
         private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
 
@@ -50,7 +50,7 @@ public interface f {
             }
             com.baidu.swan.apps.ab.a.a("android.permission.WRITE_EXTERNAL_STORAGE", new String[]{"android.permission.WRITE_EXTERNAL_STORAGE"}, 3, context, new com.baidu.swan.apps.ab.b() { // from class: com.baidu.swan.apps.adaptation.a.f.a.1
                 @Override // com.baidu.swan.apps.ab.b
-                public void iZ(String str) {
+                public void jL(String str) {
                     DownloadManager.Request request = new DownloadManager.Request(Uri.parse(optString));
                     request.setDestinationInExternalPublicDir("", optString.substring(optString.lastIndexOf("/") + 1));
                     if (!TextUtils.isEmpty(optString2) && !TextUtils.isEmpty(optString3)) {
@@ -71,7 +71,7 @@ public interface f {
                 }
 
                 @Override // com.baidu.swan.apps.ab.b
-                public void O(int i, String str) {
+                public void Z(int i, String str) {
                     if (a.DEBUG) {
                         Log.d("DownloadImpl", "onAuthorizedFailed,  errorCode: " + i + " errorMsg: " + str);
                     }

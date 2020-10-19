@@ -35,43 +35,43 @@ import java.util.ArrayList;
 public class AlaFrsStoryLiveGatherActivity extends BaseActivity<AlaFrsStoryLiveGatherActivity> {
     private String forumId;
     private String forumName;
-    private TextView gbh;
-    private b gbi;
-    private AlaFrsStoryLiveGatherModel gbj;
+    private AlaFrsStoryLiveGatherModel gnA;
+    private TextView gny;
+    private b gnz;
     private NavigationBar mNavigationBar;
     private View mStatusBarView;
-    private AlaFrsStoryLiveGatherModel.a gbk = new AlaFrsStoryLiveGatherModel.a() { // from class: com.baidu.tieba.ala.frsgamelive.mvc.AlaFrsStoryLiveGatherActivity.3
+    private AlaFrsStoryLiveGatherModel.a gnB = new AlaFrsStoryLiveGatherModel.a() { // from class: com.baidu.tieba.ala.frsgamelive.mvc.AlaFrsStoryLiveGatherActivity.3
         @Override // com.baidu.tieba.ala.frsgamelive.mvc.AlaFrsStoryLiveGatherModel.a
-        public void kS(boolean z) {
-            if (AlaFrsStoryLiveGatherActivity.this.getPageContext() != null && AlaFrsStoryLiveGatherActivity.this.gbi != null) {
-                AlaFrsStoryLiveGatherActivity.this.hideLoadingView(AlaFrsStoryLiveGatherActivity.this.gbi.getRootView());
-                AlaFrsStoryLiveGatherActivity.this.gbi.completePullRefresh();
-                AlaFrsStoryLiveGatherActivity.this.gbi.c(AlaFrsStoryLiveGatherActivity.this.gbj.getDatas(), AlaFrsStoryLiveGatherActivity.this.gbj.bKZ(), z);
-                AlaFrsStoryLiveGatherActivity.this.gbi.tf(AlaFrsStoryLiveGatherActivity.this.gbj.getLiveCount());
-                if (y.getCount(AlaFrsStoryLiveGatherActivity.this.gbj.getDatas()) != 0) {
-                    AlaFrsStoryLiveGatherActivity.this.hideNetRefreshView(AlaFrsStoryLiveGatherActivity.this.gbi.getRootView());
+        public void lq(boolean z) {
+            if (AlaFrsStoryLiveGatherActivity.this.getPageContext() != null && AlaFrsStoryLiveGatherActivity.this.gnz != null) {
+                AlaFrsStoryLiveGatherActivity.this.hideLoadingView(AlaFrsStoryLiveGatherActivity.this.gnz.getRootView());
+                AlaFrsStoryLiveGatherActivity.this.gnz.completePullRefresh();
+                AlaFrsStoryLiveGatherActivity.this.gnz.c(AlaFrsStoryLiveGatherActivity.this.gnA.getDatas(), AlaFrsStoryLiveGatherActivity.this.gnA.bNJ(), z);
+                AlaFrsStoryLiveGatherActivity.this.gnz.tD(AlaFrsStoryLiveGatherActivity.this.gnA.getLiveCount());
+                if (y.getCount(AlaFrsStoryLiveGatherActivity.this.gnA.getDatas()) != 0) {
+                    AlaFrsStoryLiveGatherActivity.this.hideNetRefreshView(AlaFrsStoryLiveGatherActivity.this.gnz.getRootView());
                     return;
                 }
                 AlaFrsStoryLiveGatherActivity.this.setNetRefreshViewTopMargin(AlaFrsStoryLiveGatherActivity.this.getResources().getDimensionPixelSize(R.dimen.ds160));
-                AlaFrsStoryLiveGatherActivity.this.showNetRefreshView(AlaFrsStoryLiveGatherActivity.this.gbi.getRootView(), AlaFrsStoryLiveGatherActivity.this.getPageContext().getString(R.string.no_data_text), false);
+                AlaFrsStoryLiveGatherActivity.this.showNetRefreshView(AlaFrsStoryLiveGatherActivity.this.gnz.getRootView(), AlaFrsStoryLiveGatherActivity.this.getPageContext().getString(R.string.no_data_text), false);
             }
         }
 
         @Override // com.baidu.tieba.ala.frsgamelive.mvc.AlaFrsStoryLiveGatherModel.a
-        public void an(int i, String str) {
-            if (AlaFrsStoryLiveGatherActivity.this.gbi != null) {
-                AlaFrsStoryLiveGatherActivity.this.hideLoadingView(AlaFrsStoryLiveGatherActivity.this.gbi.getRootView());
-                AlaFrsStoryLiveGatherActivity.this.gbi.completePullRefresh();
+        public void ay(int i, String str) {
+            if (AlaFrsStoryLiveGatherActivity.this.gnz != null) {
+                AlaFrsStoryLiveGatherActivity.this.hideLoadingView(AlaFrsStoryLiveGatherActivity.this.gnz.getRootView());
+                AlaFrsStoryLiveGatherActivity.this.gnz.completePullRefresh();
             }
-            if (y.getCount(AlaFrsStoryLiveGatherActivity.this.gbj.getDatas()) > 0 && AlaFrsStoryLiveGatherActivity.this.gbi != null) {
+            if (y.getCount(AlaFrsStoryLiveGatherActivity.this.gnA.getDatas()) > 0 && AlaFrsStoryLiveGatherActivity.this.gnz != null) {
                 AlaFrsStoryLiveGatherActivity.this.showToast(str);
                 return;
             }
             AlaFrsStoryLiveGatherActivity.this.setNetRefreshViewTopMargin(AlaFrsStoryLiveGatherActivity.this.getResources().getDimensionPixelSize(R.dimen.ds160));
-            AlaFrsStoryLiveGatherActivity.this.showNetRefreshView(AlaFrsStoryLiveGatherActivity.this.gbi.getRootView(), str, false);
+            AlaFrsStoryLiveGatherActivity.this.showNetRefreshView(AlaFrsStoryLiveGatherActivity.this.gnz.getRootView(), str, false);
         }
     };
-    private f gaK = new f() { // from class: com.baidu.tieba.ala.frsgamelive.mvc.AlaFrsStoryLiveGatherActivity.4
+    private f gnb = new f() { // from class: com.baidu.tieba.ala.frsgamelive.mvc.AlaFrsStoryLiveGatherActivity.4
         /* JADX DEBUG: Multi-variable search result rejected for r1v0, resolved type: com.baidu.tieba.ala.frsgamelive.mvc.AlaFrsStoryLiveGatherActivity */
         /* JADX WARN: Multi-variable type inference failed */
         @Override // com.baidu.tieba.ala.f
@@ -79,37 +79,37 @@ public class AlaFrsStoryLiveGatherActivity extends BaseActivity<AlaFrsStoryLiveG
             AlaFrsStoryLiveGatherActivity.this.a(AlaFrsStoryLiveGatherActivity.this.getPageContext(), bwVar);
         }
     };
-    private f.c fPM = new f.c() { // from class: com.baidu.tieba.ala.frsgamelive.mvc.AlaFrsStoryLiveGatherActivity.5
+    private f.c gce = new f.c() { // from class: com.baidu.tieba.ala.frsgamelive.mvc.AlaFrsStoryLiveGatherActivity.5
         @Override // com.baidu.tbadk.core.view.f.c
         public void onListPullRefresh(boolean z) {
-            if (AlaFrsStoryLiveGatherActivity.this.gbj != null) {
-                AlaFrsStoryLiveGatherActivity.this.gbj.refreshData();
+            if (AlaFrsStoryLiveGatherActivity.this.gnA != null) {
+                AlaFrsStoryLiveGatherActivity.this.gnA.refreshData();
             }
         }
     };
-    private BdListView.e gbl = new BdListView.e() { // from class: com.baidu.tieba.ala.frsgamelive.mvc.AlaFrsStoryLiveGatherActivity.6
+    private BdListView.e gnC = new BdListView.e() { // from class: com.baidu.tieba.ala.frsgamelive.mvc.AlaFrsStoryLiveGatherActivity.6
         @Override // com.baidu.adp.widget.ListView.BdListView.e
         public void onScrollToBottom() {
             boolean z = false;
-            if (AlaFrsStoryLiveGatherActivity.this.gbj != null) {
-                z = AlaFrsStoryLiveGatherActivity.this.gbj.bIp();
+            if (AlaFrsStoryLiveGatherActivity.this.gnA != null) {
+                z = AlaFrsStoryLiveGatherActivity.this.gnA.bKZ();
             }
-            if (AlaFrsStoryLiveGatherActivity.this.gbi != null) {
+            if (AlaFrsStoryLiveGatherActivity.this.gnz != null) {
                 if (z) {
-                    AlaFrsStoryLiveGatherActivity.this.gbi.bHj();
+                    AlaFrsStoryLiveGatherActivity.this.gnz.bJV();
                 } else {
-                    AlaFrsStoryLiveGatherActivity.this.gbi.bHi();
+                    AlaFrsStoryLiveGatherActivity.this.gnz.bJU();
                 }
             }
         }
     };
-    private d gaM = new d() { // from class: com.baidu.tieba.ala.frsgamelive.mvc.AlaFrsStoryLiveGatherActivity.7
+    private d gnd = new d() { // from class: com.baidu.tieba.ala.frsgamelive.mvc.AlaFrsStoryLiveGatherActivity.7
         @Override // com.baidu.tieba.ala.frsgamelive.mvc.d
-        public void tC(int i) {
-            if (AlaFrsStoryLiveGatherActivity.this.gbj != null && AlaFrsStoryLiveGatherActivity.this.gbj.getSortType() != i) {
-                AlaFrsStoryLiveGatherActivity.this.gbj.setSortType(i);
-                if (AlaFrsStoryLiveGatherActivity.this.gbi != null) {
-                    AlaFrsStoryLiveGatherActivity.this.gbi.getListView().startPullRefresh();
+        public void ua(int i) {
+            if (AlaFrsStoryLiveGatherActivity.this.gnA != null && AlaFrsStoryLiveGatherActivity.this.gnA.getSortType() != i) {
+                AlaFrsStoryLiveGatherActivity.this.gnA.setSortType(i);
+                if (AlaFrsStoryLiveGatherActivity.this.gnz != null) {
+                    AlaFrsStoryLiveGatherActivity.this.gnz.getListView().startPullRefresh();
                 }
             }
         }
@@ -132,11 +132,11 @@ public class AlaFrsStoryLiveGatherActivity extends BaseActivity<AlaFrsStoryLiveG
         if (StringUtils.isNull(this.forumId)) {
             finish();
         }
-        setContentView(bKO());
-        HI();
+        setContentView(bNy());
+        IF();
     }
 
-    private View bKO() {
+    private View bNy() {
         String string;
         LinearLayout linearLayout = new LinearLayout(getActivity());
         linearLayout.setOrientation(1);
@@ -155,7 +155,7 @@ public class AlaFrsStoryLiveGatherActivity extends BaseActivity<AlaFrsStoryLiveG
             }
         });
         new LinearLayout.LayoutParams(-2, -2).setMargins(0, 0, l.getDimens(getPageContext().getPageActivity(), R.dimen.ds24), 0);
-        this.gbh = this.mNavigationBar.addTextButton(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, getPageContext().getString(R.string.all), new View.OnClickListener() { // from class: com.baidu.tieba.ala.frsgamelive.mvc.AlaFrsStoryLiveGatherActivity.2
+        this.gny = this.mNavigationBar.addTextButton(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, getPageContext().getString(R.string.all), new View.OnClickListener() { // from class: com.baidu.tieba.ala.frsgamelive.mvc.AlaFrsStoryLiveGatherActivity.2
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
                 TiebaStatic.log(new aq("c12551"));
@@ -170,47 +170,47 @@ public class AlaFrsStoryLiveGatherActivity extends BaseActivity<AlaFrsStoryLiveG
         this.mNavigationBar.setCenterTextTitle(string);
         linearLayout.addView(this.mNavigationBar, new LinearLayout.LayoutParams(-1, -2));
         ap.setBackgroundColor(this.mNavigationBar.getBottomLine(), R.color.cp_bg_line_c);
-        this.gbi = new b(getPageContext(), false, false, getUniqueId());
-        this.gbi.initView();
-        this.gbi.tD(1);
-        this.gbi.b(this.gaK);
-        this.gbi.setListPullRefreshListener(this.fPM);
-        this.gbi.setOnSrollToBottomListener(this.gbl);
-        this.gbi.a(this.gaM);
-        linearLayout.addView(this.gbi.getRootView(), new LinearLayout.LayoutParams(-1, -1));
+        this.gnz = new b(getPageContext(), false, false, getUniqueId());
+        this.gnz.initView();
+        this.gnz.ub(1);
+        this.gnz.b(this.gnb);
+        this.gnz.setListPullRefreshListener(this.gce);
+        this.gnz.setOnSrollToBottomListener(this.gnC);
+        this.gnz.a(this.gnd);
+        linearLayout.addView(this.gnz.getRootView(), new LinearLayout.LayoutParams(-1, -1));
         onChangeSkinType(TbadkCoreApplication.getInst().getSkinType());
         return linearLayout;
     }
 
-    private void HI() {
-        this.gbj = new AlaFrsStoryLiveGatherModel(getPageContext());
-        this.gbj.a(this.gbk);
-        this.gbj.setForumId(this.forumId);
-        this.gbj.refreshData();
+    private void IF() {
+        this.gnA = new AlaFrsStoryLiveGatherModel(getPageContext());
+        this.gnA.a(this.gnB);
+        this.gnA.setForumId(this.forumId);
+        this.gnA.refreshData();
     }
 
     private AlaLiveInfoCoreData T(bw bwVar) {
         AlaLiveInfoCoreData alaLiveInfoCoreData = new AlaLiveInfoCoreData();
-        alaLiveInfoCoreData.fillWithInfoData(bwVar.bfS());
-        alaLiveInfoCoreData.userName = bwVar.bfy().getUserName();
+        alaLiveInfoCoreData.fillWithInfoData(bwVar.biB());
+        alaLiveInfoCoreData.userName = bwVar.bih().getUserName();
         return alaLiveInfoCoreData;
     }
 
     public void a(TbPageContext<?> tbPageContext, bw bwVar) {
-        if (tbPageContext != null && bwVar != null && bwVar.bfy() != null && bwVar.bfS() != null) {
+        if (tbPageContext != null && bwVar != null && bwVar.bih() != null && bwVar.biB() != null) {
             boolean z = false;
             String str = "";
             if (TbadkCoreApplication.getCurrentAccount() != null) {
-                String userId = bwVar.bfy().getUserId();
+                String userId = bwVar.bih().getUserId();
                 str = TbadkCoreApplication.getCurrentAccount();
                 z = TextUtils.equals(userId, str);
             }
-            TiebaStatic.log(new aq("c12550").dF("obj_param1", bwVar.bfy().getUserId()));
+            TiebaStatic.log(new aq("c12550").dK("obj_param1", bwVar.bih().getUserId()));
             AlaLiveInfoCoreData alaLiveInfoCoreData = new AlaLiveInfoCoreData();
-            alaLiveInfoCoreData.fillWithInfoData(bwVar.bfS());
+            alaLiveInfoCoreData.fillWithInfoData(bwVar.biB());
             AlaLiveInfoListCoreData alaLiveInfoListCoreData = new AlaLiveInfoListCoreData();
             alaLiveInfoListCoreData.mLiveInfoList = new ArrayList();
-            for (bw bwVar2 : this.gbj.bIg()) {
+            for (bw bwVar2 : this.gnA.bKS()) {
                 alaLiveInfoListCoreData.mLiveInfoList.add(T(bwVar2));
             }
             MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new AlaLiveRoomActivityConfig(tbPageContext.getPageActivity(), alaLiveInfoCoreData, alaLiveInfoListCoreData, "square_sub_live", str, z, null, null)));
@@ -228,11 +228,11 @@ public class AlaFrsStoryLiveGatherActivity extends BaseActivity<AlaFrsStoryLiveG
         if (this.mStatusBarView != null) {
             ap.setBackgroundColor(this.mStatusBarView, R.color.common_color_10274);
         }
-        if (this.gbh != null) {
-            ap.setViewTextColor(this.gbh, R.color.cp_cont_f);
+        if (this.gny != null) {
+            ap.setViewTextColor(this.gny, R.color.cp_cont_f);
         }
-        if (this.gbi != null) {
-            this.gbi.onChangeSkinType(TbadkCoreApplication.getInst().getSkinType());
+        if (this.gnz != null) {
+            this.gnz.onChangeSkinType(TbadkCoreApplication.getInst().getSkinType());
         }
     }
 }

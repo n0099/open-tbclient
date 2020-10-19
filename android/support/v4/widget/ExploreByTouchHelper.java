@@ -23,7 +23,7 @@ import android.view.accessibility.AccessibilityManager;
 import com.baidu.android.imsdk.upload.action.pb.IMPushPb;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes25.dex */
+/* loaded from: classes10.dex */
 public abstract class ExploreByTouchHelper extends AccessibilityDelegateCompat {
     private static final String DEFAULT_CLASS_NAME = "android.view.View";
     public static final int HOST_ID = -1;
@@ -529,7 +529,7 @@ public abstract class ExploreByTouchHelper extends AccessibilityDelegateCompat {
     protected void onPopulateNodeForHost(@NonNull AccessibilityNodeInfoCompat accessibilityNodeInfoCompat) {
     }
 
-    /* loaded from: classes25.dex */
+    /* loaded from: classes10.dex */
     private class MyNodeProvider extends AccessibilityNodeProviderCompat {
         MyNodeProvider() {
         }

@@ -20,7 +20,9 @@ import tv.chushou.zues.utils.h;
 import tv.chushou.zues.widget.fresco.FrescoThumbnailView;
 /* loaded from: classes6.dex */
 public class AchievementView extends RelativeLayout implements View.OnClickListener {
-    private TextView a;
+
+    /* renamed from: a  reason: collision with root package name */
+    private TextView f4244a;
     private LinearLayout b;
     private TextView c;
     private List<a> d;
@@ -41,13 +43,13 @@ public class AchievementView extends RelativeLayout implements View.OnClickListe
         } else {
             inflate(context, a.h.view_achievement_normal, this);
         }
-        this.a = (TextView) findViewById(a.f.tv_detail);
+        this.f4244a = (TextView) findViewById(a.f.tv_detail);
         this.b = (LinearLayout) findViewById(a.f.ll_items);
         this.c = (TextView) findViewById(a.f.tv_empty);
         this.d.add(new a((LinearLayout) findViewById(a.f.ll_item1), (FrescoThumbnailView) findViewById(a.f.iv_icon1), (TextView) findViewById(a.f.tv_name1), (TextView) findViewById(a.f.tv_desc1)));
         this.d.add(new a((LinearLayout) findViewById(a.f.ll_item2), (FrescoThumbnailView) findViewById(a.f.iv_icon2), (TextView) findViewById(a.f.tv_name2), (TextView) findViewById(a.f.tv_desc2)));
         this.d.add(new a((LinearLayout) findViewById(a.f.ll_item3), (FrescoThumbnailView) findViewById(a.f.iv_icon3), (TextView) findViewById(a.f.tv_name3), (TextView) findViewById(a.f.tv_desc3)));
-        this.a.setOnClickListener(this);
+        this.f4244a.setOnClickListener(this);
     }
 
     public void a(Achievement achievement, String str) {
@@ -75,9 +77,9 @@ public class AchievementView extends RelativeLayout implements View.OnClickListe
             }
         }
         if (achievement != null && achievement.detailItem != null && !TextUtils.isEmpty(achievement.detailItem.name)) {
-            this.a.setText(getContext().getString(a.i.str_achievement_detail_format, achievement.detailItem.name));
+            this.f4244a.setText(getContext().getString(a.i.str_achievement_detail_format, achievement.detailItem.name));
         } else {
-            this.a.setText(a.i.str_achievement_detail);
+            this.f4244a.setText(a.i.str_achievement_detail);
         }
     }
 
@@ -91,34 +93,36 @@ public class AchievementView extends RelativeLayout implements View.OnClickListe
     /* JADX INFO: Access modifiers changed from: package-private */
     /* loaded from: classes6.dex */
     public static class a {
-        public View a;
+
+        /* renamed from: a  reason: collision with root package name */
+        public View f4245a;
         public TextView c;
         public TextView d;
-        public FrescoThumbnailView odO;
+        public FrescoThumbnailView oth;
 
         public a(View view, FrescoThumbnailView frescoThumbnailView, TextView textView, TextView textView2) {
-            this.a = view;
-            this.odO = frescoThumbnailView;
+            this.f4245a = view;
+            this.oth = frescoThumbnailView;
             this.c = textView;
             this.d = textView2;
         }
 
         public void a(final Achievement.Medal medal, final String str) {
             if (medal == null) {
-                this.a.setVisibility(8);
+                this.f4245a.setVisibility(8);
                 return;
             }
-            this.a.setVisibility(0);
-            this.a.setOnClickListener(new View.OnClickListener() { // from class: com.kascend.chushou.widget.AchievementView.a.1
+            this.f4245a.setVisibility(0);
+            this.f4245a.setOnClickListener(new View.OnClickListener() { // from class: com.kascend.chushou.widget.AchievementView.a.1
                 @Override // android.view.View.OnClickListener
                 public void onClick(View view) {
                     ListItem listItem = new ListItem();
                     listItem.mType = "96";
                     listItem.mUrl = c.a(40) + "uid=" + str + "&type=" + medal.type;
-                    e.a(a.this.a.getContext(), listItem, (JSONObject) null);
+                    e.a(a.this.f4245a.getContext(), listItem, (JSONObject) null);
                 }
             });
-            this.odO.h(medal.icon, a.e.icon_achievement_default, 0, 0);
+            this.oth.h(medal.icon, a.e.icon_achievement_default, 0, 0);
             this.c.setText(medal.name);
             this.d.setText(medal.desc);
         }

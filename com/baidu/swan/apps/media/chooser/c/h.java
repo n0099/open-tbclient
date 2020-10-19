@@ -3,14 +3,14 @@ package com.baidu.swan.apps.media.chooser.c;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.helper.ItemTouchHelper;
 import java.util.Collections;
-/* loaded from: classes3.dex */
+/* loaded from: classes10.dex */
 public class h extends ItemTouchHelper.Callback {
-    private g cDf;
-    private com.baidu.swan.apps.media.chooser.adapter.c cDg;
+    private g cPk;
+    private com.baidu.swan.apps.media.chooser.adapter.c cPl;
 
     public h(g gVar, com.baidu.swan.apps.media.chooser.adapter.c cVar) {
-        this.cDf = gVar;
-        this.cDg = cVar;
+        this.cPk = gVar;
+        this.cPl = cVar;
     }
 
     @Override // android.support.v7.widget.helper.ItemTouchHelper.Callback
@@ -20,17 +20,17 @@ public class h extends ItemTouchHelper.Callback {
 
     @Override // android.support.v7.widget.helper.ItemTouchHelper.Callback
     public boolean onMove(RecyclerView recyclerView, RecyclerView.ViewHolder viewHolder, RecyclerView.ViewHolder viewHolder2) {
-        if (this.cDg.atN() == null) {
+        if (this.cPl.awy() == null) {
             return false;
         }
         int adapterPosition = viewHolder.getAdapterPosition();
         int adapterPosition2 = viewHolder2.getAdapterPosition();
-        if (this.cDg != null) {
-            Collections.swap(this.cDg.atN(), adapterPosition, adapterPosition2);
-            this.cDg.notifyItemMoved(adapterPosition, adapterPosition2);
+        if (this.cPl != null) {
+            Collections.swap(this.cPl.awy(), adapterPosition, adapterPosition2);
+            this.cPl.notifyItemMoved(adapterPosition, adapterPosition2);
         }
-        if (this.cDf != null) {
-            this.cDf.an(adapterPosition, adapterPosition2);
+        if (this.cPk != null) {
+            this.cPk.am(adapterPosition, adapterPosition2);
         }
         return true;
     }

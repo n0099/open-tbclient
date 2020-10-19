@@ -1,21 +1,23 @@
 package com.baidu.fsg.base.utils;
 
 import android.os.SystemClock;
-/* loaded from: classes15.dex */
+/* loaded from: classes16.dex */
 public class ConsumeTimeUtils {
-    TimeResult a;
+
+    /* renamed from: a  reason: collision with root package name */
+    TimeResult f1506a;
     String b = "ConsumeTime";
     private String c;
 
     public ConsumeTimeUtils start() {
-        this.a = new TimeResult();
-        this.a.a = SystemClock.uptimeMillis();
+        this.f1506a = new TimeResult();
+        this.f1506a.f1507a = SystemClock.uptimeMillis();
         return this;
     }
 
     public TimeResult finish() {
-        this.a.b = SystemClock.uptimeMillis();
-        return this.a;
+        this.f1506a.b = SystemClock.uptimeMillis();
+        return this.f1506a;
     }
 
     public void setTAGString(String str) {
@@ -26,9 +28,11 @@ public class ConsumeTimeUtils {
         this.c = str;
     }
 
-    /* loaded from: classes15.dex */
+    /* loaded from: classes16.dex */
     public final class TimeResult {
-        long a = 0;
+
+        /* renamed from: a  reason: collision with root package name */
+        long f1507a = 0;
         long b = 0;
         long c = 0;
         int d = 0;
@@ -37,7 +41,7 @@ public class ConsumeTimeUtils {
         }
 
         public long getStartTime() {
-            return this.a;
+            return this.f1507a;
         }
 
         public long getEndTime() {
@@ -45,7 +49,7 @@ public class ConsumeTimeUtils {
         }
 
         public long getDurationMesc() {
-            return this.b - this.a;
+            return this.b - this.f1507a;
         }
 
         public int getDurationSecond() {

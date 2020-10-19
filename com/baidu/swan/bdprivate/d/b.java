@@ -9,7 +9,7 @@ import com.baidu.searchbox.process.ipc.delegate.DelegateListener;
 import com.baidu.searchbox.process.ipc.delegate.DelegateResult;
 import com.baidu.searchbox.process.ipc.delegate.DelegateUtils;
 import com.baidu.swan.apps.ap.v;
-/* loaded from: classes3.dex */
+/* loaded from: classes8.dex */
 public class b implements com.baidu.swan.apps.t.b.b {
     @Override // com.baidu.swan.apps.t.b.b
     public void a(Context context, String str, String str2, final com.baidu.swan.apps.b.c.b bVar) {
@@ -18,14 +18,14 @@ public class b implements com.baidu.swan.apps.t.b.b {
                 @Override // com.baidu.searchbox.process.ipc.delegate.DelegateListener
                 public void onDelegateCallBack(@NonNull DelegateResult delegateResult) {
                     if (delegateResult.mResult == null) {
-                        bVar.gy(0);
+                        bVar.gV(0);
                         return;
                     }
                     String string = delegateResult.mResult.getString("invoiceInfo");
                     if (TextUtils.isEmpty(string)) {
-                        bVar.gy(0);
+                        bVar.gV(0);
                     } else {
-                        bVar.an(v.parseString(string));
+                        bVar.au(v.parseString(string));
                     }
                 }
             });

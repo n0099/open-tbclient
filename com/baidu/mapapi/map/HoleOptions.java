@@ -1,5 +1,5 @@
 package com.baidu.mapapi.map;
-/* loaded from: classes3.dex */
+/* loaded from: classes7.dex */
 public class HoleOptions extends OverlayOptions {
     protected String mHoleType;
 

@@ -1,5 +1,5 @@
 package org.brotli.dec;
-/* loaded from: classes15.dex */
+/* loaded from: classes6.dex */
 final class f {
     private static int es(int i, int i2) {
         int i3 = 1 << (i2 - 1);

@@ -8,32 +8,32 @@ import com.baidu.tieba.ad.download.state.DownloadStatus;
 import com.baidu.tieba.ad.download.state.StopStatus;
 import java.util.HashSet;
 import java.util.Set;
-/* loaded from: classes20.dex */
+/* loaded from: classes21.dex */
 public class a implements c {
     private static final String TAG = a.class.getSimpleName();
-    public final DownloadCacheKey fsk;
+    public final DownloadCacheKey fEv;
     private final Object mLock = new Object();
     private int mPercent = 0;
     private int mState = 0;
-    private final Set<d> fsl = new HashSet();
-    private final com.baidu.tieba.ad.download.c fsj = new com.baidu.tieba.ad.download.c();
+    private final Set<d> fEw = new HashSet();
+    private final com.baidu.tieba.ad.download.c fEu = new com.baidu.tieba.ad.download.c();
 
     public a(DownloadCacheKey downloadCacheKey) {
-        this.fsk = downloadCacheKey;
+        this.fEv = downloadCacheKey;
     }
 
     public void setState(int i) {
         this.mState = i;
     }
 
-    public int bCx() {
+    public int bFj() {
         return this.mState;
     }
 
     public boolean a(d dVar) {
         boolean add;
         synchronized (this.mLock) {
-            add = this.fsl.add(dVar);
+            add = this.fEw.add(dVar);
         }
         return add;
     }
@@ -41,87 +41,47 @@ public class a implements c {
     public boolean b(d dVar) {
         boolean remove;
         synchronized (this.mLock) {
-            remove = this.fsl.remove(dVar);
+            remove = this.fEw.remove(dVar);
         }
         return remove;
     }
 
-    public boolean bCy() {
-        return this.fsl.isEmpty();
+    public boolean bFk() {
+        return this.fEw.isEmpty();
     }
 
-    public void bCz() {
-        if (this.fsk != null) {
-            AdDownloadData d = com.baidu.tieba.ad.download.d.bCs().d(this.fsk);
-            this.fsj.g(710, this.fsk.mPackageName, d.getExtInfo());
+    public void bFl() {
+        if (this.fEv != null) {
+            AdDownloadData d = com.baidu.tieba.ad.download.d.bFe().d(this.fEv);
+            this.fEu.g(710, this.fEv.mPackageName, d.getExtInfo());
             d.extra().setStatus(DownloadStatus.STATUS_INSTALL_SUCCESS);
             d.extra().setPercent(100);
-            if (!bCy()) {
-                for (d dVar : this.fsl) {
-                    dVar.f(this.fsk);
+            if (!bFk()) {
+                for (d dVar : this.fEw) {
+                    dVar.f(this.fEv);
                 }
             }
         }
     }
 
-    public void bCA() {
-        if (this.fsk != null) {
-            com.baidu.tieba.ad.download.d.bCs().d(this.fsk).extra().setStatus(DownloadStatus.STATUS_NONE);
-            if (!bCy()) {
-                for (d dVar : this.fsl) {
-                    dVar.g(this.fsk);
-                }
-            }
-        }
-    }
-
-    @Override // com.baidu.tieba.ad.download.a.c
-    public void DV(String str) {
-        if (this.fsk != null) {
-            com.baidu.tieba.ad.download.d.bCs().d(this.fsk).extra().setStatus(DownloadStatus.STATUS_DOWNLOADING);
-            if (!bCy()) {
-                for (d dVar : this.fsl) {
-                    dVar.e(this.fsk);
+    public void bFm() {
+        if (this.fEv != null) {
+            com.baidu.tieba.ad.download.d.bFe().d(this.fEv).extra().setStatus(DownloadStatus.STATUS_NONE);
+            if (!bFk()) {
+                for (d dVar : this.fEw) {
+                    dVar.g(this.fEv);
                 }
             }
         }
     }
 
     @Override // com.baidu.tieba.ad.download.a.c
-    public void av(String str, int i) {
-        if (this.fsk != null) {
-            com.baidu.tieba.ad.download.d.bCs().d(this.fsk).extra().setStatus(DownloadStatus.STATUS_PAUSED);
-            if (!bCy()) {
-                for (d dVar : this.fsl) {
-                    dVar.b(this.fsk, this.mPercent);
-                }
-            }
-        }
-    }
-
-    @Override // com.baidu.tieba.ad.download.a.c
-    public void a(String str, StopStatus stopStatus) {
-        if (this.fsk != null) {
-            com.baidu.tieba.ad.download.d.bCs().d(this.fsk).extra().setStatus(DownloadStatus.STATUS_NONE);
-            if (!bCy()) {
-                for (d dVar : this.fsl) {
-                    dVar.a(this.fsk, stopStatus);
-                }
-            }
-        }
-    }
-
-    @Override // com.baidu.tieba.ad.download.a.c
-    public void onSuccess(String str, String str2) {
-        if (this.fsk != null) {
-            AdDownloadData d = com.baidu.tieba.ad.download.d.bCs().d(this.fsk);
-            this.fsj.g(704, this.fsk.mPackageName, d.getExtInfo());
-            d.extra().setStatus(DownloadStatus.STATUS_SUCCESS);
-            d.extra().setPercent(100);
-            com.baidu.tieba.ad.download.d.bCs().d(this.fsk).extra().setDownloadPath(str2);
-            if (!bCy()) {
-                for (d dVar : this.fsl) {
-                    dVar.a(this.fsk, str2, false);
+    public void EG(String str) {
+        if (this.fEv != null) {
+            com.baidu.tieba.ad.download.d.bFe().d(this.fEv).extra().setStatus(DownloadStatus.STATUS_DOWNLOADING);
+            if (!bFk()) {
+                for (d dVar : this.fEw) {
+                    dVar.e(this.fEv);
                 }
             }
         }
@@ -129,12 +89,52 @@ public class a implements c {
 
     @Override // com.baidu.tieba.ad.download.a.c
     public void aw(String str, int i) {
-        if (this.fsk != null) {
+        if (this.fEv != null) {
+            com.baidu.tieba.ad.download.d.bFe().d(this.fEv).extra().setStatus(DownloadStatus.STATUS_PAUSED);
+            if (!bFk()) {
+                for (d dVar : this.fEw) {
+                    dVar.b(this.fEv, this.mPercent);
+                }
+            }
+        }
+    }
+
+    @Override // com.baidu.tieba.ad.download.a.c
+    public void a(String str, StopStatus stopStatus) {
+        if (this.fEv != null) {
+            com.baidu.tieba.ad.download.d.bFe().d(this.fEv).extra().setStatus(DownloadStatus.STATUS_NONE);
+            if (!bFk()) {
+                for (d dVar : this.fEw) {
+                    dVar.a(this.fEv, stopStatus);
+                }
+            }
+        }
+    }
+
+    @Override // com.baidu.tieba.ad.download.a.c
+    public void onSuccess(String str, String str2) {
+        if (this.fEv != null) {
+            AdDownloadData d = com.baidu.tieba.ad.download.d.bFe().d(this.fEv);
+            this.fEu.g(704, this.fEv.mPackageName, d.getExtInfo());
+            d.extra().setStatus(DownloadStatus.STATUS_SUCCESS);
+            d.extra().setPercent(100);
+            com.baidu.tieba.ad.download.d.bFe().d(this.fEv).extra().setDownloadPath(str2);
+            if (!bFk()) {
+                for (d dVar : this.fEw) {
+                    dVar.a(this.fEv, str2, false);
+                }
+            }
+        }
+    }
+
+    @Override // com.baidu.tieba.ad.download.a.c
+    public void ax(String str, int i) {
+        if (this.fEv != null) {
             this.mPercent = i;
-            com.baidu.tieba.ad.download.d.bCs().d(this.fsk).extra().setPercent(i);
-            if (!bCy()) {
-                for (d dVar : this.fsl) {
-                    dVar.a(this.fsk, this.mPercent);
+            com.baidu.tieba.ad.download.d.bFe().d(this.fEv).extra().setPercent(i);
+            if (!bFk()) {
+                for (d dVar : this.fEw) {
+                    dVar.a(this.fEv, this.mPercent);
                 }
             }
         }
@@ -163,7 +163,7 @@ public class a implements c {
                 break;
         }
         if (i != -1) {
-            this.fsj.c(str, i, str2, str3);
+            this.fEu.c(str, i, str2, str3);
         }
     }
 }

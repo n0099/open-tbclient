@@ -14,8 +14,8 @@ public class a extends c<byte[]> {
 
     @Override // com.baidu.adp.lib.cache.c
     public String onNewNameSpaceCreated(String str) {
-        this.Kn.execSQLNoException("CREATE TABLE IF NOT EXISTS " + this.sharedTableName + "(m_key VARCHAR(64) PRIMARY KEY, m_ns varchar(128), saveTime bigint(21) default 0, lastHitTime bigint(21) default 0, timeToExpire bigint(21) default 0, m_value blob)");
-        this.Kn.execSQLNoException("CREATE INDEX if not exists idx_mi_ns ON " + this.sharedTableName + "(m_ns)");
+        this.KE.execSQLNoException("CREATE TABLE IF NOT EXISTS " + this.sharedTableName + "(m_key VARCHAR(64) PRIMARY KEY, m_ns varchar(128), saveTime bigint(21) default 0, lastHitTime bigint(21) default 0, timeToExpire bigint(21) default 0, m_value blob)");
+        this.KE.execSQLNoException("CREATE INDEX if not exists idx_mi_ns ON " + this.sharedTableName + "(m_ns)");
         return this.sharedTableName;
     }
 
@@ -81,10 +81,10 @@ public class a extends c<byte[]> {
     @Override // com.baidu.adp.lib.cache.c
     protected boolean clearData(String str) {
         try {
-            this.Kn.getOpenedDatabase().delete(this.tableName, "m_ns = ?", new String[]{str});
+            this.KE.getOpenedDatabase().delete(this.tableName, "m_ns = ?", new String[]{str});
             return true;
         } catch (Throwable th) {
-            this.Kn.notifySQLException(th, "failed to clear from " + str);
+            this.KE.notifySQLException(th, "failed to clear from " + str);
             return false;
         }
     }

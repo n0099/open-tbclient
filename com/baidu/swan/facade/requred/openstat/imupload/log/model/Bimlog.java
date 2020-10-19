@@ -11,10 +11,10 @@ import com.google.protobuf.Parser;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.ObjectStreamException;
-/* loaded from: classes3.dex */
+/* loaded from: classes16.dex */
 public final class Bimlog {
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes16.dex */
     public static final class LogRequest extends GeneratedMessageLite implements b {
         public static final int AUTH_INFO_FIELD_NUMBER = 3;
         public static final int PAYLOAD_FIELD_NUMBER = 6;
@@ -152,7 +152,7 @@ public final class Bimlog {
             return PARSER;
         }
 
-        /* loaded from: classes3.dex */
+        /* loaded from: classes16.dex */
         public static final class AuthInfo extends GeneratedMessageLite implements com.baidu.swan.facade.requred.openstat.imupload.log.model.a {
             public static final int TOKEN_FIELD_NUMBER = 1;
             private static final long serialVersionUID = 0;
@@ -344,7 +344,7 @@ public final class Bimlog {
             }
 
             public static a newBuilder() {
-                return a.aIj();
+                return a.aKS();
             }
 
             /* JADX DEBUG: Method merged with bridge method */
@@ -363,7 +363,7 @@ public final class Bimlog {
                 return newBuilder(this);
             }
 
-            /* loaded from: classes3.dex */
+            /* loaded from: classes16.dex */
             public static final class a extends GeneratedMessageLite.Builder<AuthInfo, a> implements com.baidu.swan.facade.requred.openstat.imupload.log.model.a {
                 private int bitField0_;
                 private Object token_ = "";
@@ -376,13 +376,13 @@ public final class Bimlog {
                 }
 
                 /* JADX INFO: Access modifiers changed from: private */
-                public static a aIj() {
+                public static a aKS() {
                     return new a();
                 }
 
                 /* JADX DEBUG: Method merged with bridge method */
                 @Override // com.google.protobuf.GeneratedMessageLite.Builder, com.google.protobuf.MessageLite.Builder
-                /* renamed from: aIk */
+                /* renamed from: aKT */
                 public a clear() {
                     super.clear();
                     this.token_ = "";
@@ -392,9 +392,9 @@ public final class Bimlog {
 
                 /* JADX DEBUG: Method merged with bridge method */
                 @Override // com.google.protobuf.GeneratedMessageLite.Builder, com.google.protobuf.AbstractMessageLite.Builder, com.google.protobuf.MessageLite.Builder
-                /* renamed from: aIl */
+                /* renamed from: aKU */
                 public a clone() {
-                    return aIj().mergeFrom(buildPartial());
+                    return aKS().mergeFrom(buildPartial());
                 }
 
                 /* JADX DEBUG: Method merged with bridge method */
@@ -405,7 +405,7 @@ public final class Bimlog {
 
                 /* JADX DEBUG: Method merged with bridge method */
                 @Override // com.google.protobuf.MessageLite.Builder
-                /* renamed from: aIm */
+                /* renamed from: aKV */
                 public AuthInfo build() {
                     AuthInfo buildPartial = buildPartial();
                     if (!buildPartial.isInitialized()) {
@@ -416,7 +416,7 @@ public final class Bimlog {
 
                 /* JADX DEBUG: Method merged with bridge method */
                 @Override // com.google.protobuf.MessageLite.Builder
-                /* renamed from: aIn */
+                /* renamed from: aKW */
                 public AuthInfo buildPartial() {
                     AuthInfo authInfo = new AuthInfo(this);
                     int i = (this.bitField0_ & 1) != 1 ? 0 : 1;
@@ -480,7 +480,7 @@ public final class Bimlog {
                     }
                 }
 
-                public a tS(String str) {
+                public a uE(String str) {
                     if (str == null) {
                         throw new NullPointerException();
                     }
@@ -691,7 +691,7 @@ public final class Bimlog {
         }
 
         public static a newBuilder() {
-            return a.aIp();
+            return a.aKY();
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -710,7 +710,7 @@ public final class Bimlog {
             return newBuilder(this);
         }
 
-        /* loaded from: classes3.dex */
+        /* loaded from: classes16.dex */
         public static final class a extends GeneratedMessageLite.Builder<LogRequest, a> implements b {
             private int bitField0_;
             private long requestTimestampMs_;
@@ -728,13 +728,13 @@ public final class Bimlog {
             }
 
             /* JADX INFO: Access modifiers changed from: private */
-            public static a aIp() {
+            public static a aKY() {
                 return new a();
             }
 
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.google.protobuf.GeneratedMessageLite.Builder, com.google.protobuf.MessageLite.Builder
-            /* renamed from: aIq */
+            /* renamed from: aKZ */
             public a clear() {
                 super.clear();
                 this.version_ = 0L;
@@ -754,9 +754,9 @@ public final class Bimlog {
 
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.google.protobuf.GeneratedMessageLite.Builder, com.google.protobuf.AbstractMessageLite.Builder, com.google.protobuf.MessageLite.Builder
-            /* renamed from: aIr */
+            /* renamed from: aLa */
             public a clone() {
-                return aIp().mergeFrom(buildPartial());
+                return aKY().mergeFrom(buildPartial());
             }
 
             /* JADX DEBUG: Method merged with bridge method */
@@ -767,7 +767,7 @@ public final class Bimlog {
 
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.google.protobuf.MessageLite.Builder
-            /* renamed from: aIs */
+            /* renamed from: aLb */
             public LogRequest build() {
                 LogRequest buildPartial = buildPartial();
                 if (!buildPartial.isInitialized()) {
@@ -778,7 +778,7 @@ public final class Bimlog {
 
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.google.protobuf.MessageLite.Builder
-            /* renamed from: aIt */
+            /* renamed from: aLc */
             public LogRequest buildPartial() {
                 LogRequest logRequest = new LogRequest(this);
                 int i = this.bitField0_;
@@ -814,7 +814,7 @@ public final class Bimlog {
             public a mergeFrom(LogRequest logRequest) {
                 if (logRequest != LogRequest.getDefaultInstance()) {
                     if (logRequest.hasVersion()) {
-                        bU(logRequest.getVersion());
+                        cc(logRequest.getVersion());
                     }
                     if (logRequest.hasServiceName()) {
                         this.bitField0_ |= 2;
@@ -824,7 +824,7 @@ public final class Bimlog {
                         c(logRequest.getAuthInfo());
                     }
                     if (logRequest.hasRequestTimestampMs()) {
-                        bV(logRequest.getRequestTimestampMs());
+                        cd(logRequest.getRequestTimestampMs());
                     }
                     if (logRequest.hasSign()) {
                         this.bitField0_ |= 16;
@@ -881,13 +881,13 @@ public final class Bimlog {
                 }
             }
 
-            public a bU(long j) {
+            public a cc(long j) {
                 this.bitField0_ |= 1;
                 this.version_ = j;
                 return this;
             }
 
-            public a tT(String str) {
+            public a uF(String str) {
                 if (str == null) {
                     throw new NullPointerException();
                 }
@@ -915,13 +915,13 @@ public final class Bimlog {
                 return this;
             }
 
-            public a bV(long j) {
+            public a cd(long j) {
                 this.bitField0_ |= 8;
                 this.requestTimestampMs_ = j;
                 return this;
             }
 
-            public a tU(String str) {
+            public a uG(String str) {
                 if (str == null) {
                     throw new NullPointerException();
                 }
@@ -941,7 +941,7 @@ public final class Bimlog {
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes16.dex */
     public static final class LogResponse extends GeneratedMessageLite implements c {
         public static final int ERROR_CODE_FIELD_NUMBER = 1;
         public static final int ERROR_MSG_FIELD_NUMBER = 2;
@@ -1175,7 +1175,7 @@ public final class Bimlog {
         }
 
         public static a newBuilder() {
-            return a.aIv();
+            return a.aLe();
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -1194,7 +1194,7 @@ public final class Bimlog {
             return newBuilder(this);
         }
 
-        /* loaded from: classes3.dex */
+        /* loaded from: classes16.dex */
         public static final class a extends GeneratedMessageLite.Builder<LogResponse, a> implements c {
             private int bitField0_;
             private int errorCode_;
@@ -1209,13 +1209,13 @@ public final class Bimlog {
             }
 
             /* JADX INFO: Access modifiers changed from: private */
-            public static a aIv() {
+            public static a aLe() {
                 return new a();
             }
 
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.google.protobuf.GeneratedMessageLite.Builder, com.google.protobuf.MessageLite.Builder
-            /* renamed from: aIw */
+            /* renamed from: aLf */
             public a clear() {
                 super.clear();
                 this.errorCode_ = 0;
@@ -1229,9 +1229,9 @@ public final class Bimlog {
 
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.google.protobuf.GeneratedMessageLite.Builder, com.google.protobuf.AbstractMessageLite.Builder, com.google.protobuf.MessageLite.Builder
-            /* renamed from: aIx */
+            /* renamed from: aLg */
             public a clone() {
-                return aIv().mergeFrom(buildPartial());
+                return aLe().mergeFrom(buildPartial());
             }
 
             /* JADX DEBUG: Method merged with bridge method */
@@ -1242,7 +1242,7 @@ public final class Bimlog {
 
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.google.protobuf.MessageLite.Builder
-            /* renamed from: aIy */
+            /* renamed from: aLh */
             public LogResponse build() {
                 LogResponse buildPartial = buildPartial();
                 if (!buildPartial.isInitialized()) {
@@ -1253,7 +1253,7 @@ public final class Bimlog {
 
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.google.protobuf.MessageLite.Builder
-            /* renamed from: aIz */
+            /* renamed from: aLi */
             public LogResponse buildPartial() {
                 LogResponse logResponse = new LogResponse(this);
                 int i = this.bitField0_;
@@ -1277,14 +1277,14 @@ public final class Bimlog {
             public a mergeFrom(LogResponse logResponse) {
                 if (logResponse != LogResponse.getDefaultInstance()) {
                     if (logResponse.hasErrorCode()) {
-                        kQ(logResponse.getErrorCode());
+                        ln(logResponse.getErrorCode());
                     }
                     if (logResponse.hasErrorMsg()) {
                         this.bitField0_ |= 2;
                         this.errorMsg_ = logResponse.errorMsg_;
                     }
                     if (logResponse.hasPingIntervalMs()) {
-                        bW(logResponse.getPingIntervalMs());
+                        ce(logResponse.getPingIntervalMs());
                     }
                 }
                 return this;
@@ -1334,13 +1334,13 @@ public final class Bimlog {
                 }
             }
 
-            public a kQ(int i) {
+            public a ln(int i) {
                 this.bitField0_ |= 1;
                 this.errorCode_ = i;
                 return this;
             }
 
-            public a bW(long j) {
+            public a ce(long j) {
                 this.bitField0_ |= 4;
                 this.pingIntervalMs_ = j;
                 return this;

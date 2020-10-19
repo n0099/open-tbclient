@@ -1,7 +1,9 @@
 package com.baidu.sapi2.biometrics.liveness;
-/* loaded from: classes16.dex */
+/* loaded from: classes17.dex */
 public final class a {
-    public static final boolean a = false;
+
+    /* renamed from: a  reason: collision with root package name */
+    public static final boolean f3416a = false;
     public static final String b = "com.baidu.sapi2.biometrics.liveness";
     public static final String c = "release";
     public static final String d = "";

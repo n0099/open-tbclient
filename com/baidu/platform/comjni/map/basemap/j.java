@@ -4,15 +4,17 @@ import java.util.Set;
 import java.util.concurrent.TimeUnit;
 import java.util.concurrent.locks.ReadWriteLock;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes3.dex */
+/* loaded from: classes7.dex */
 public class j implements Runnable {
-    final /* synthetic */ long a;
+
+    /* renamed from: a  reason: collision with root package name */
+    final /* synthetic */ long f3174a;
     final /* synthetic */ NABaseMap b;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public j(NABaseMap nABaseMap, long j) {
         this.b = nABaseMap;
-        this.a = j;
+        this.f3174a = j;
     }
 
     @Override // java.lang.Runnable
@@ -32,10 +34,10 @@ public class j implements Runnable {
                 if (tryLock) {
                     try {
                         set = this.b.d;
-                        set.add(Long.valueOf(this.a));
+                        set.add(Long.valueOf(this.f3174a));
                         NABaseMap nABaseMap = this.b;
                         j = this.b.b;
-                        nABaseMap.nativeRemoveLayer(j, this.a);
+                        nABaseMap.nativeRemoveLayer(j, this.f3174a);
                     } catch (Throwable th2) {
                         z = tryLock;
                         th = th2;

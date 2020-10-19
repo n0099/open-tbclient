@@ -2,13 +2,13 @@ package com.facebook.imagepipeline.producers;
 
 import android.util.Pair;
 import com.facebook.imagepipeline.request.ImageRequest;
-/* loaded from: classes25.dex */
+/* loaded from: classes18.dex */
 public class r extends ad<Pair<com.facebook.cache.common.b, ImageRequest.RequestLevel>, com.facebook.imagepipeline.g.e> {
-    private final com.facebook.imagepipeline.c.f nEZ;
+    private final com.facebook.imagepipeline.c.f nUs;
 
     public r(com.facebook.imagepipeline.c.f fVar, aj ajVar) {
         super(ajVar);
-        this.nEZ = fVar;
+        this.nUs = fVar;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -16,7 +16,7 @@ public class r extends ad<Pair<com.facebook.cache.common.b, ImageRequest.Request
     @Override // com.facebook.imagepipeline.producers.ad
     /* renamed from: a */
     public Pair<com.facebook.cache.common.b, ImageRequest.RequestLevel> b(ak akVar) {
-        return Pair.create(this.nEZ.c(akVar.dZv(), akVar.dUb()), akVar.dZx());
+        return Pair.create(this.nUs.c(akVar.edg(), akVar.dXM()), akVar.edi());
     }
 
     /* JADX DEBUG: Method merged with bridge method */

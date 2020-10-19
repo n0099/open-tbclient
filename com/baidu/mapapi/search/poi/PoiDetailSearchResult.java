@@ -5,10 +5,12 @@ import android.os.Parcelable;
 import com.baidu.mapapi.search.core.PoiDetailInfo;
 import com.baidu.mapapi.search.core.SearchResult;
 import java.util.List;
-/* loaded from: classes3.dex */
+/* loaded from: classes7.dex */
 public class PoiDetailSearchResult extends SearchResult implements Parcelable {
     public static final Parcelable.Creator<PoiDetailSearchResult> CREATOR = new b();
-    private List<PoiDetailInfo> a;
+
+    /* renamed from: a  reason: collision with root package name */
+    private List<PoiDetailInfo> f2118a;
 
     public PoiDetailSearchResult() {
     }
@@ -16,7 +18,7 @@ public class PoiDetailSearchResult extends SearchResult implements Parcelable {
     /* JADX INFO: Access modifiers changed from: protected */
     public PoiDetailSearchResult(Parcel parcel) {
         super(parcel);
-        this.a = parcel.createTypedArrayList(PoiDetailInfo.CREATOR);
+        this.f2118a = parcel.createTypedArrayList(PoiDetailInfo.CREATOR);
     }
 
     public PoiDetailSearchResult(SearchResult.ERRORNO errorno) {
@@ -29,26 +31,26 @@ public class PoiDetailSearchResult extends SearchResult implements Parcelable {
     }
 
     public List<PoiDetailInfo> getPoiDetailInfoList() {
-        return this.a;
+        return this.f2118a;
     }
 
     public void setPoiDetailInfoList(List<PoiDetailInfo> list) {
-        this.a = list;
+        this.f2118a = list;
     }
 
     public String toString() {
-        if (this.a == null || this.a.isEmpty()) {
+        if (this.f2118a == null || this.f2118a.isEmpty()) {
             return "PoiDetailSearchResult is null";
         }
         StringBuffer stringBuffer = new StringBuffer("PoiDetailSearchResult:");
         int i = 0;
         while (true) {
             int i2 = i;
-            if (i2 >= this.a.size()) {
+            if (i2 >= this.f2118a.size()) {
                 return stringBuffer.toString();
             }
             stringBuffer.append(" ").append(i2).append(" ");
-            PoiDetailInfo poiDetailInfo = this.a.get(i2);
+            PoiDetailInfo poiDetailInfo = this.f2118a.get(i2);
             if (poiDetailInfo != null) {
                 stringBuffer.append(poiDetailInfo.toString());
             } else {
@@ -61,6 +63,6 @@ public class PoiDetailSearchResult extends SearchResult implements Parcelable {
     @Override // com.baidu.mapapi.search.core.SearchResult, android.os.Parcelable
     public void writeToParcel(Parcel parcel, int i) {
         super.writeToParcel(parcel, i);
-        parcel.writeTypedList(this.a);
+        parcel.writeTypedList(this.f2118a);
     }
 }

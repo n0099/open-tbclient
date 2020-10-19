@@ -18,13 +18,13 @@ import com.baidu.tieba.R;
 import com.baidu.tieba.homepage.hotTopic.tab.b.c;
 import com.baidu.tieba.homepage.hotTopic.tab.view.HotTopicTabRankListLayout;
 import com.baidu.tieba.homepage.tabfeed.data.b;
-/* loaded from: classes21.dex */
+/* loaded from: classes22.dex */
 public class HotTopicRankLayout extends LinearLayout implements View.OnClickListener, p<b>, q {
-    private View akQ;
-    private ImageView akR;
-    private f<c> iTW;
-    private View jbA;
-    private HotTopicTabRankListLayout jbz;
+    private View ali;
+    private ImageView alj;
+    private f<c> jiU;
+    private HotTopicTabRankListLayout jqy;
+    private View jqz;
     private View mBottomLine;
     private int mSkinType;
     private TextView mTitle;
@@ -32,7 +32,7 @@ public class HotTopicRankLayout extends LinearLayout implements View.OnClickList
     public HotTopicRankLayout(Context context) {
         super(context, null);
         this.mSkinType = 3;
-        this.iTW = new f<c>() { // from class: com.baidu.tieba.homepage.tabfeed.view.HotTopicRankLayout.1
+        this.jiU = new f<c>() { // from class: com.baidu.tieba.homepage.tabfeed.view.HotTopicRankLayout.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.tbadk.h.f
             public void a(View view, c cVar, int i, long j) {
@@ -56,33 +56,33 @@ public class HotTopicRankLayout extends LinearLayout implements View.OnClickList
         setOrientation(1);
         setLayoutParams(new ViewGroup.LayoutParams(-1, -2));
         this.mTitle = (TextView) findViewById(R.id.tv_title);
-        this.akR = (ImageView) findViewById(R.id.iv_into);
-        this.akQ = findViewById(R.id.layout_into);
+        this.alj = (ImageView) findViewById(R.id.iv_into);
+        this.ali = findViewById(R.id.layout_into);
         this.mBottomLine = findViewById(R.id.divider_line_bottom);
-        this.jbA = findViewById(R.id.title_layout);
-        this.jbA.setPadding(0, l.getDimens(getContext(), R.dimen.tbds44), 0, l.getDimens(getContext(), R.dimen.tbds22));
-        ViewGroup.LayoutParams layoutParams = this.jbA.getLayoutParams();
+        this.jqz = findViewById(R.id.title_layout);
+        this.jqz.setPadding(0, l.getDimens(getContext(), R.dimen.tbds44), 0, l.getDimens(getContext(), R.dimen.tbds22));
+        ViewGroup.LayoutParams layoutParams = this.jqz.getLayoutParams();
         layoutParams.width = -1;
         layoutParams.height = -2;
-        this.jbA.setLayoutParams(layoutParams);
+        this.jqz.setLayoutParams(layoutParams);
         LinearLayout linearLayout = (LinearLayout) findViewById(R.id.card_container);
-        this.jbz = new HotTopicTabRankListLayout(getContext());
-        this.jbz.setOnItemCoverListener(this.iTW);
-        linearLayout.addView(this.jbz);
+        this.jqy = new HotTopicTabRankListLayout(getContext());
+        this.jqy.setOnItemCoverListener(this.jiU);
+        linearLayout.addView(this.jqy);
         linearLayout.setPadding(0, 0, 0, l.getDimens(getContext(), R.dimen.tbds48));
-        this.akR.setClickable(false);
-        this.akQ.setOnClickListener(this);
-        this.akR.setVisibility(8);
+        this.alj.setClickable(false);
+        this.ali.setOnClickListener(this);
+        this.alj.setVisibility(8);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.card.p
     /* renamed from: a */
-    public void G(b bVar) {
+    public void H(b bVar) {
         this.mTitle.setText(bVar.title != null ? bVar.title : "");
-        this.jbz.a(bVar);
+        this.jqy.a(bVar);
         com.baidu.tbadk.a.b.a.a(this.mBottomLine, bVar);
-        com.baidu.tieba.homepage.tabfeed.b.Ko("c13753");
+        com.baidu.tieba.homepage.tabfeed.b.Ld("c13753");
     }
 
     @Override // com.baidu.card.q
@@ -91,15 +91,15 @@ public class HotTopicRankLayout extends LinearLayout implements View.OnClickList
             ap.setViewTextColor(this.mTitle, R.color.cp_cont_c);
             ap.setBackgroundResource(this, R.drawable.addresslist_item_bg);
             ap.setBackgroundResource(this.mBottomLine, R.color.cp_bg_line_b);
-            com.baidu.tbadk.a.b.a.aY(this.mBottomLine);
-            SvgManager.bkl().a(this.akR, R.drawable.icon_pure_list_arrow12_right_n_svg, R.color.cp_cont_j, SvgManager.SvgResourceStateType.NORMAL);
+            com.baidu.tbadk.a.b.a.aZ(this.mBottomLine);
+            SvgManager.bmU().a(this.alj, R.drawable.icon_pure_list_arrow12_right_n_svg, R.color.cp_cont_j, SvgManager.SvgResourceStateType.NORMAL);
         }
         this.mSkinType = i;
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        if (this.akQ == view) {
+        if (this.ali == view) {
         }
     }
 }

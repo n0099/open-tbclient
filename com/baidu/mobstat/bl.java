@@ -11,9 +11,11 @@ import java.lang.ref.WeakReference;
 import java.util.Map;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes15.dex */
+/* loaded from: classes17.dex */
 public class bl {
-    private static String a;
+
+    /* renamed from: a  reason: collision with root package name */
+    private static String f2587a;
     private WeakReference<WebView> b;
     private WeakReference<Activity> c;
     private JSONObject d;
@@ -31,11 +33,11 @@ public class bl {
         if (bd.c().b()) {
             bd.c().a("setViewportTreeToNative " + str);
         }
-        a = str;
+        f2587a = str;
     }
 
     public static String a(Activity activity, WebView webView, Rect rect) {
-        a = "";
+        f2587a = "";
         b(activity, webView, rect);
         int i = 0;
         while (true) {
@@ -47,8 +49,8 @@ public class bl {
                 Thread.sleep(20L);
             } catch (Exception e) {
             }
-            if (!TextUtils.isEmpty(a)) {
-                return a;
+            if (!TextUtils.isEmpty(f2587a)) {
+                return f2587a;
             }
             i = i2;
         }

@@ -6,7 +6,7 @@ import com.baidu.live.data.AlaLiveInfoData;
 public interface f {
     void c(AlaLiveInfoData alaLiveInfoData);
 
-    void ci(boolean z);
+    void cl(boolean z);
 
     View getLivePlayer();
 

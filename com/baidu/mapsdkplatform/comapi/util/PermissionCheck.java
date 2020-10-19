@@ -4,12 +4,13 @@ import android.content.Context;
 import android.content.pm.ApplicationInfo;
 import android.content.pm.PackageManager;
 import android.util.Log;
+import com.baidu.appsearch.update.patchupdate.GDiffPatcher;
 import com.baidu.lbsapi.auth.LBSAuthManager;
 import com.baidu.lbsapi.auth.LBSAuthManagerListener;
 import java.util.Hashtable;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes7.dex */
 public class PermissionCheck {
     private static Context e;
     private static String f;
@@ -19,12 +20,14 @@ public class PermissionCheck {
     private static LBSAuthManagerListener i = null;
     private static c j = null;
     private static int k = 601;
-    public static int a = 200;
+
+    /* renamed from: a  reason: collision with root package name */
+    public static int f2242a = 200;
     public static int b = 202;
-    public static int c = 252;
+    public static int c = GDiffPatcher.COPY_INT_UBYTE;
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes3.dex */
+    /* loaded from: classes7.dex */
     public static class a implements LBSAuthManagerListener {
         private a() {
         }
@@ -41,7 +44,7 @@ public class PermissionCheck {
             try {
                 JSONObject jSONObject = new JSONObject(str);
                 if (jSONObject.has("status")) {
-                    bVar.a = jSONObject.optInt("status");
+                    bVar.f2243a = jSONObject.optInt("status");
                 }
                 if (jSONObject.has("appid")) {
                     bVar.c = jSONObject.optString("appid");
@@ -61,16 +64,18 @@ public class PermissionCheck {
             } catch (JSONException e) {
                 e.printStackTrace();
             }
-            int unused = PermissionCheck.k = bVar.a;
+            int unused = PermissionCheck.k = bVar.f2243a;
             if (PermissionCheck.j != null) {
                 PermissionCheck.j.a(bVar);
             }
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes7.dex */
     public static class b {
-        public int a = 0;
+
+        /* renamed from: a  reason: collision with root package name */
+        public int f2243a = 0;
         public String b = "-1";
         public String c = "-1";
         public String d = "";
@@ -78,11 +83,11 @@ public class PermissionCheck {
         public int f;
 
         public String toString() {
-            return String.format("=============================================\n----------------- 鉴权错误信息 ------------\nsha1;package:%s\nkey:%s\nerrorcode: %d uid: %s appid %s msg: %s\n请仔细核查 SHA1、package与key申请信息是否对应，key是否删除，平台是否匹配\nerrorcode为230时，请参考论坛链接：\nhttp://bbs.lbsyun.baidu.com/forum.php?mod=viewthread&tid=106461\n=============================================\n", com.baidu.mapsdkplatform.comapi.util.a.a(PermissionCheck.e), PermissionCheck.f, Integer.valueOf(this.a), this.b, this.c, this.d);
+            return String.format("=============================================\n----------------- 鉴权错误信息 ------------\nsha1;package:%s\nkey:%s\nerrorcode: %d uid: %s appid %s msg: %s\n请仔细核查 SHA1、package与key申请信息是否对应，key是否删除，平台是否匹配\nerrorcode为230时，请参考论坛链接：\nhttp://bbs.lbsyun.baidu.com/forum.php?mod=viewthread&tid=106461\n=============================================\n", com.baidu.mapsdkplatform.comapi.util.a.a(PermissionCheck.e), PermissionCheck.f, Integer.valueOf(this.f2243a), this.b, this.c, this.d);
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes7.dex */
     public interface c {
         void a(b bVar);
     }

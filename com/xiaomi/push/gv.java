@@ -1,19 +1,21 @@
 package com.xiaomi.push;
 
 import com.xiaomi.push.al;
-/* loaded from: classes9.dex */
+/* loaded from: classes12.dex */
 public class gv {
-    private static al a = new al(true, 20);
+
+    /* renamed from: a  reason: collision with root package name */
+    private static al f4935a = new al(true, 20);
 
     public static void a(al.b bVar) {
-        a.a(bVar);
+        f4935a.a(bVar);
     }
 
     public static void a(al.b bVar, long j) {
-        a.a(bVar, j);
+        f4935a.a(bVar, j);
     }
 
     public static void a(Runnable runnable) {
-        a.a(new gw(runnable));
+        f4935a.a(new gw(runnable));
     }
 }

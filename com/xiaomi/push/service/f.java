@@ -8,7 +8,7 @@ import android.content.pm.ResolveInfo;
 import android.content.pm.ServiceInfo;
 import android.os.Build;
 import java.util.List;
-/* loaded from: classes9.dex */
+/* loaded from: classes12.dex */
 public class f {
     public static boolean a(Context context, String str) {
         try {

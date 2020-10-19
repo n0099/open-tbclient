@@ -8,7 +8,7 @@ import java.util.function.BiFunction;
 import javax.net.ssl.SSLEngine;
 import javax.net.ssl.SSLSocket;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes8.dex */
+/* loaded from: classes5.dex */
 public final class Java8EngineSocket extends ConscryptEngineSocket {
     private BiFunction<SSLSocket, List<String>, String> selector;
 

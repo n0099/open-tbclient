@@ -44,7 +44,7 @@ import java.util.List;
 import java.util.Map;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes15.dex */
+/* loaded from: classes17.dex */
 public class bj {
     public static View a(Activity activity) {
         Window window;
@@ -55,11 +55,11 @@ public class bj {
     }
 
     public static View b(Activity activity) {
-        View a = a(activity);
-        if (a == null) {
+        View a2 = a(activity);
+        if (a2 == null) {
             return null;
         }
-        return a.getRootView();
+        return a2.getRootView();
     }
 
     public static int c(Activity activity) {
@@ -136,8 +136,8 @@ public class bj {
             str = WebView.class.getSimpleName();
         }
         if (TextUtils.isEmpty(str)) {
-            String a = a(view.getClass());
-            if (!"android.widget".equals(a) && !"android.view".equals(a)) {
+            String a2 = a(view.getClass());
+            if (!"android.widget".equals(a2) && !"android.view".equals(a2)) {
                 Class<?> cls = null;
                 try {
                     cls = Class.forName("android.support.v7.widget.RecyclerView");
@@ -161,8 +161,8 @@ public class bj {
         if (cls == null) {
             return "";
         }
-        String a = a(cls);
-        if ("android.widget".equals(a) || "android.view".equals(a)) {
+        String a2 = a(cls);
+        if ("android.widget".equals(a2) || "android.view".equals(a2)) {
             return d(cls);
         }
         return c(cls.getSuperclass());
@@ -262,8 +262,8 @@ public class bj {
         if (view == null || (parent = view.getParent()) == null || !(parent instanceof ViewGroup)) {
             return "";
         }
-        String a = a(parent.getClass());
-        if ("android.widget".equals(a) || "android.view".equals(a)) {
+        String a2 = a(parent.getClass());
+        if ("android.widget".equals(a2) || "android.view".equals(a2)) {
             return "";
         }
         ViewGroup viewGroup = (ViewGroup) parent;
@@ -654,22 +654,22 @@ public class bj {
     }
 
     private static String b(String str) {
-        String a = ay.a().a(str);
-        if (TextUtils.isEmpty(a)) {
-            a = au.a().a(str, au.a.a);
+        String a2 = ay.a().a(str);
+        if (TextUtils.isEmpty(a2)) {
+            a2 = au.a().a(str, au.a.f2561a);
         }
-        if (a == null) {
+        if (a2 == null) {
             return "";
         }
-        return a;
+        return a2;
     }
 
     public static String a(String str) {
-        String a = au.a().a(str, au.a.b);
-        if (a == null) {
+        String a2 = au.a().a(str, au.a.b);
+        if (a2 == null) {
             return "";
         }
-        return a;
+        return a2;
     }
 
     public static String e(Activity activity) {
@@ -687,14 +687,14 @@ public class bj {
         if (cls == null) {
             return "";
         }
-        String a = a(cls, false);
-        if (!TextUtils.isEmpty(a) && cls.isAnonymousClass()) {
-            a = a + "$";
+        String a2 = a(cls, false);
+        if (!TextUtils.isEmpty(a2) && cls.isAnonymousClass()) {
+            a2 = a2 + "$";
         }
-        if (a == null) {
+        if (a2 == null) {
             return "";
         }
-        return a;
+        return a2;
     }
 
     public static String l(View view) {
@@ -734,8 +734,8 @@ public class bj {
         if ((view instanceof ListView) || (view instanceof GridView)) {
             return true;
         }
-        String a = a(view.getClass());
-        if (!"android.widget".equals(a) && !"android.view".equals(a)) {
+        String a2 = a(view.getClass());
+        if (!"android.widget".equals(a2) && !"android.view".equals(a2)) {
             Class<?> cls = null;
             try {
                 cls = Class.forName("android.support.v7.widget.RecyclerView");
@@ -830,8 +830,8 @@ public class bj {
         if (view == null) {
             return false;
         }
-        String a = a(view.getClass());
-        if ("android.widget".equals(a) || "android.view".equals(a)) {
+        String a2 = a(view.getClass());
+        if ("android.widget".equals(a2) || "android.view".equals(a2)) {
             return false;
         }
         Class<?> cls = null;
@@ -1131,8 +1131,8 @@ public class bj {
     }
 
     public static boolean c(Activity activity, View view) {
-        View a;
-        if (activity == null || view == null || (a = a(activity)) == null || !x(view) || a == view) {
+        View a2;
+        if (activity == null || view == null || (a2 = a(activity)) == null || !x(view) || a2 == view) {
             return false;
         }
         return true;

@@ -1,13 +1,13 @@
 package com.baidu.live.challenge;
 /* loaded from: classes4.dex */
 public interface k {
-    void Cl();
+    void Di();
 
-    void Cm();
+    void Dj();
 
-    void Cn();
+    void Dk();
 
-    void Co();
+    void Dl();
 
     void a(a aVar);
 }

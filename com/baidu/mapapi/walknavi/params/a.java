@@ -4,11 +4,13 @@ import android.text.TextUtils;
 import com.baidu.mapapi.model.CoordUtil;
 import com.baidu.mapapi.model.LatLng;
 import com.baidu.platform.comapi.basestruct.GeoPoint;
-/* loaded from: classes3.dex */
+/* loaded from: classes7.dex */
 public abstract class a {
     protected String b;
     protected LatLng c;
-    protected RouteNodeType a = RouteNodeType.LOCATION;
+
+    /* renamed from: a  reason: collision with root package name */
+    protected RouteNodeType f2181a = RouteNodeType.LOCATION;
     protected int d = -1;
     protected String e = "";
     protected String f = "";
@@ -28,7 +30,7 @@ public abstract class a {
     }
 
     public RouteNodeType getType() {
-        return this.a;
+        return this.f2181a;
     }
 
     public String getKeyword() {
@@ -54,7 +56,7 @@ public abstract class a {
     public String toQuery() {
         com.baidu.platform.comapi.wnplatform.e.a.a aVar = new com.baidu.platform.comapi.wnplatform.e.a.a();
         aVar.a();
-        aVar.a("type").a(this.a.getNativeType());
+        aVar.a("type").a(this.f2181a.getNativeType());
         aVar.a("uid").b("");
         if (this.b != null) {
             aVar.a("keyword").b(this.b);

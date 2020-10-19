@@ -5,19 +5,21 @@ import android.view.MotionEvent;
 import com.kascend.chushou.widget.cswebview.CSWebView;
 /* loaded from: classes6.dex */
 public class a extends CSWebView {
-    private boolean a;
+
+    /* renamed from: a  reason: collision with root package name */
+    private boolean f4157a;
 
     public a(Context context) {
         super(context);
-        this.a = false;
+        this.f4157a = false;
     }
 
     public void setEnableTouch(boolean z) {
-        this.a = z;
+        this.f4157a = z;
     }
 
     @Override // android.webkit.WebView, android.view.View
     public boolean onTouchEvent(MotionEvent motionEvent) {
-        return this.a && super.onTouchEvent(motionEvent);
+        return this.f4157a && super.onTouchEvent(motionEvent);
     }
 }

@@ -5,15 +5,17 @@ import android.app.NotificationManager;
 import com.baidu.mobads.openad.interfaces.download.IOAdDownloader;
 import com.baidu.mobads.utils.XAdSDKFoundationFacade;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes3.dex */
+/* loaded from: classes7.dex */
 public class c implements Runnable {
-    final /* synthetic */ IOAdDownloader a;
+
+    /* renamed from: a  reason: collision with root package name */
+    final /* synthetic */ IOAdDownloader f2374a;
     final /* synthetic */ b b;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public c(b bVar, IOAdDownloader iOAdDownloader) {
         this.b = bVar;
-        this.a = iOAdDownloader;
+        this.f2374a = iOAdDownloader;
     }
 
     @Override // java.lang.Runnable
@@ -31,14 +33,14 @@ public class c implements Runnable {
         try {
             aVar = this.b.c;
             if (aVar.g == IOAdDownloader.DownloadStatus.CANCELLED) {
-                notificationManager2 = b.a;
+                notificationManager2 = b.f2373a;
                 aVar7 = this.b.c;
                 notificationManager2.cancel(aVar7.f);
             } else {
-                notificationManager = b.a;
+                notificationManager = b.f2373a;
                 aVar2 = this.b.c;
                 int i = aVar2.f;
-                b = this.b.b(this.a);
+                b = this.b.b(this.f2374a);
                 notificationManager.notify(i, b);
                 aVar3 = this.b.c;
                 if (aVar3.g != IOAdDownloader.DownloadStatus.ERROR) {
@@ -49,7 +51,7 @@ public class c implements Runnable {
                             b bVar = this.b;
                             StringBuilder append = new StringBuilder().append("开始下载 ");
                             aVar6 = this.b.c;
-                            bVar.d(append.append(aVar6.a).toString());
+                            bVar.d(append.append(aVar6.f2322a).toString());
                         }
                     }
                 } else {

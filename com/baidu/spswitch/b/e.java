@@ -1,15 +1,15 @@
 package com.baidu.spswitch.b;
 
 import android.app.Activity;
-/* loaded from: classes24.dex */
+/* loaded from: classes19.dex */
 public class e {
     private static final boolean DEBUG = b.isDebug();
 
-    public static boolean B(Activity activity) {
+    public static boolean C(Activity activity) {
         return (activity.getWindow().getAttributes().flags & 67108864) != 0;
     }
 
-    public static boolean C(Activity activity) {
+    public static boolean D(Activity activity) {
         return (activity.getWindow().getDecorView().getSystemUiVisibility() & 1024) != 0;
     }
 }

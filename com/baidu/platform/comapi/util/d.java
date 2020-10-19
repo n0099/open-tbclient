@@ -5,7 +5,7 @@ import android.graphics.Canvas;
 import android.graphics.drawable.BitmapDrawable;
 import android.graphics.drawable.Drawable;
 import android.os.Build;
-/* loaded from: classes3.dex */
+/* loaded from: classes7.dex */
 public class d {
     public static Bitmap a(Drawable drawable) {
         int i;

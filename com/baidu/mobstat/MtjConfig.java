@@ -1,19 +1,19 @@
 package com.baidu.mobstat;
 
 import com.baidu.android.util.devices.RomUtils;
-/* loaded from: classes15.dex */
+/* loaded from: classes17.dex */
 public class MtjConfig {
     public static final String BAIDU_MTJ_PUSH_CALL = "Baidu_mtj_push_call";
     public static final String BAIDU_MTJ_PUSH_MSG = "Baidu_mtj_push_msg";
 
-    /* loaded from: classes15.dex */
+    /* loaded from: classes17.dex */
     public enum FeedTrackStrategy {
         TRACK_ALL,
         TRACK_SINGLE,
         TRACK_NONE
     }
 
-    /* loaded from: classes15.dex */
+    /* loaded from: classes17.dex */
     public enum PushPlatform {
         BAIDUYUN("baiduyun", 0),
         JIGUANG("jiguang", 1),
@@ -26,11 +26,13 @@ public class MtjConfig {
         OPPO(RomUtils.MANUFACTURER_OPPO, 8),
         MEIZU(RomUtils.MANUFACTURER_MEIZU, 9);
         
-        private String a;
+
+        /* renamed from: a  reason: collision with root package name */
+        private String f2507a;
         private int b;
 
         PushPlatform(String str, int i) {
-            this.a = str;
+            this.f2507a = str;
             this.b = i;
         }
 
@@ -39,7 +41,7 @@ public class MtjConfig {
         }
 
         public String showName() {
-            return this.a;
+            return this.f2507a;
         }
     }
 }

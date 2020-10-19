@@ -31,29 +31,29 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes4.dex */
 public class MainBottomLiveTabFragment extends BaseFragment {
-    private CustomViewPager ekP;
-    private LinearLayout fFA;
-    private TextView fFB;
-    private NoNetworkView fFC;
-    private FragmentAdapter fFD;
-    private List<a> fFE = new ArrayList();
-    private NoNetworkView.a fFF = new NoNetworkView.a() { // from class: com.baidu.tieba.ala.alasquare.MainBottomLiveTabFragment.1
+    private CustomViewPager ewX;
+    private LinearLayout fRJ;
+    private TextView fRK;
+    private NoNetworkView fRL;
+    private FragmentAdapter fRM;
+    private List<a> fRN = new ArrayList();
+    private NoNetworkView.a fRO = new NoNetworkView.a() { // from class: com.baidu.tieba.ala.alasquare.MainBottomLiveTabFragment.1
         @Override // com.baidu.tbadk.core.view.NoNetworkView.a
         public void onNetworkChange(boolean z) {
-            if (z && MainBottomLiveTabFragment.this.isPrimary() && MainBottomLiveTabFragment.this.fFD.getCount() > 0) {
-                Fragment item = MainBottomLiveTabFragment.this.fFD.getItem(0);
+            if (z && MainBottomLiveTabFragment.this.isPrimary() && MainBottomLiveTabFragment.this.fRM.getCount() > 0) {
+                Fragment item = MainBottomLiveTabFragment.this.fRM.getItem(0);
                 if (item instanceof AlaLiveTabFragment) {
                     ((AlaLiveTabFragment) item).reload();
                 }
             }
         }
     };
-    private CustomMessageListener fFG = new CustomMessageListener(CmdConfigCustom.CMD_MAIN_TAB_WIDGET_CLICK) { // from class: com.baidu.tieba.ala.alasquare.MainBottomLiveTabFragment.2
+    private CustomMessageListener fRP = new CustomMessageListener(CmdConfigCustom.CMD_MAIN_TAB_WIDGET_CLICK) { // from class: com.baidu.tieba.ala.alasquare.MainBottomLiveTabFragment.2
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             if (customResponsedMessage != null && (customResponsedMessage.getData() instanceof Integer) && ((Integer) customResponsedMessage.getData()).intValue() == 2) {
-                TiebaStatic.log(new aq("c13703").dF("uid", TbadkCoreApplication.getCurrentAccount()));
+                TiebaStatic.log(new aq("c13703").dK("uid", TbadkCoreApplication.getCurrentAccount()));
             }
         }
     };
@@ -61,43 +61,43 @@ public class MainBottomLiveTabFragment extends BaseFragment {
     @Override // com.baidu.tbadk.core.BaseFragment, android.support.v4.app.Fragment
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
-        registerListener(this.fFG);
+        registerListener(this.fRP);
     }
 
     @Override // com.baidu.tbadk.core.BaseFragment, android.support.v4.app.Fragment
     public View onCreateView(LayoutInflater layoutInflater, ViewGroup viewGroup, Bundle bundle) {
         View inflate = layoutInflater.inflate(R.layout.main_bottom_live_tab_layout, (ViewGroup) null);
-        this.fFA = (LinearLayout) inflate.findViewById(R.id.tab_layout);
-        this.fFB = (TextView) inflate.findViewById(R.id.tab_view);
-        this.ekP = (CustomViewPager) inflate.findViewById(R.id.viewpager);
-        this.fFC = (NoNetworkView) inflate.findViewById(R.id.view_no_network);
+        this.fRJ = (LinearLayout) inflate.findViewById(R.id.tab_layout);
+        this.fRK = (TextView) inflate.findViewById(R.id.tab_view);
+        this.ewX = (CustomViewPager) inflate.findViewById(R.id.viewpager);
+        this.fRL = (NoNetworkView) inflate.findViewById(R.id.view_no_network);
         initView();
         return inflate;
     }
 
     private void initView() {
         if (UtilHelper.canUseStyleImmersiveSticky()) {
-            this.fFA.setPadding(0, UtilHelper.getStatusBarHeight(), 0, 0);
+            this.fRJ.setPadding(0, UtilHelper.getStatusBarHeight(), 0, 0);
         }
-        this.fFC.a(this.fFF);
-        this.ekP.setViewPagerScroll(0);
-        this.fFD = new FragmentAdapter(getChildFragmentManager());
-        this.ekP.setAdapter(this.fFD);
+        this.fRL.a(this.fRO);
+        this.ewX.setViewPagerScroll(0);
+        this.fRM = new FragmentAdapter(getChildFragmentManager());
+        this.ewX.setAdapter(this.fRM);
         a aVar = new a();
-        aVar.fFI = new AlaLiveTabFragment();
+        aVar.fRR = new AlaLiveTabFragment();
         aVar.title = TbadkCoreApplication.getInst().getResources().getString(R.string.ala_live);
-        this.fFE.add(aVar);
-        this.fFD.setData(this.fFE);
+        this.fRN.add(aVar);
+        this.fRM.setData(this.fRN);
     }
 
     @Override // com.baidu.tbadk.core.BaseFragment, android.support.v4.app.Fragment
     public void setUserVisibleHint(boolean z) {
         super.setUserVisibleHint(z);
-        if (z && this.fFD.getCount() > 0) {
-            Fragment item = this.fFD.getItem(0);
+        if (z && this.fRM.getCount() > 0) {
+            Fragment item = this.fRM.getItem(0);
             if (item instanceof AlaLiveTabFragment) {
                 AlaLiveTabFragment alaLiveTabFragment = (AlaLiveTabFragment) item;
-                if (alaLiveTabFragment.bHl()) {
+                if (alaLiveTabFragment.bJX()) {
                     alaLiveTabFragment.setUserVisibleHint(true);
                 }
             }
@@ -107,62 +107,62 @@ public class MainBottomLiveTabFragment extends BaseFragment {
     @Override // com.baidu.tbadk.core.BaseFragment
     public void onChangeSkinType(int i) {
         super.onChangeSkinType(i);
-        ap.setViewTextColor(this.fFB, R.color.cp_cont_b);
-        ap.setBackgroundColor(this.fFA, R.color.cp_bg_line_h);
+        ap.setViewTextColor(this.fRK, R.color.cp_cont_b);
+        ap.setBackgroundColor(this.fRJ, R.color.cp_bg_line_h);
         TbPageContext<BaseFragmentActivity> pageContext = getPageContext();
         if (pageContext != null) {
-            this.fFC.onChangeSkinType(pageContext, i);
+            this.fRL.onChangeSkinType(pageContext, i);
         }
     }
 
     @Override // com.baidu.tbadk.core.BaseFragment, android.support.v4.app.Fragment
     public void onDestroy() {
         super.onDestroy();
-        MessageManager.getInstance().unRegisterListener(this.fFG);
+        MessageManager.getInstance().unRegisterListener(this.fRP);
     }
 
     /* loaded from: classes4.dex */
     public static class FragmentAdapter extends FragmentStatePagerAdapter {
-        private List<a> fFE;
+        private List<a> fRN;
 
         public FragmentAdapter(FragmentManager fragmentManager) {
             super(fragmentManager);
-            this.fFE = new ArrayList();
+            this.fRN = new ArrayList();
         }
 
         public void setData(List<a> list) {
-            this.fFE.clear();
+            this.fRN.clear();
             if (!y.isEmpty(list)) {
-                this.fFE.addAll(list);
+                this.fRN.addAll(list);
             }
             notifyDataSetChanged();
         }
 
         @Override // android.support.v4.app.FragmentStatePagerAdapter
         public Fragment getItem(int i) {
-            a aVar = this.fFE.get(i);
+            a aVar = this.fRN.get(i);
             if (aVar != null) {
-                return aVar.fFI;
+                return aVar.fRR;
             }
             return null;
         }
 
         @Override // android.support.v4.view.PagerAdapter
         public int getCount() {
-            return this.fFE.size();
+            return this.fRN.size();
         }
 
         @Override // android.support.v4.view.PagerAdapter
         @Nullable
         public CharSequence getPageTitle(int i) {
-            a aVar = this.fFE.get(i);
+            a aVar = this.fRN.get(i);
             return aVar != null ? aVar.title : "";
         }
     }
 
     /* loaded from: classes4.dex */
     public class a {
-        public AlaLiveTabFragment fFI;
+        public AlaLiveTabFragment fRR;
         public String title;
 
         public a() {

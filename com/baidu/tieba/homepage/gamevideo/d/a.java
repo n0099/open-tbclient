@@ -10,7 +10,7 @@ import java.util.List;
 import tbclient.RecomVertical.DataRes;
 import tbclient.RecomVertical.DislikeReason;
 import tbclient.RecomVertical.ThreadPersonalized;
-/* loaded from: classes21.dex */
+/* loaded from: classes22.dex */
 public class a {
     public static void a(DataRes dataRes, List<q> list) {
         b(dataRes, list);
@@ -18,7 +18,7 @@ public class a {
 
     private static void b(DataRes dataRes, List<q> list) {
         c cVar;
-        bw bcY;
+        bw bfG;
         ThreadPersonalized threadPersonalized;
         if (dataRes != null && list != null) {
             LongSparseArray longSparseArray = new LongSparseArray();
@@ -30,15 +30,15 @@ public class a {
             int count = y.getCount(list);
             for (int i = 0; i < count; i++) {
                 q qVar = (q) y.getItem(list, i);
-                if ((qVar instanceof c) && (bcY = (cVar = (c) qVar).bcY()) != null && (threadPersonalized = (ThreadPersonalized) longSparseArray.get(com.baidu.adp.lib.f.b.toLong(bcY.getTid(), 0L))) != null) {
+                if ((qVar instanceof c) && (bfG = (cVar = (c) qVar).bfG()) != null && (threadPersonalized = (ThreadPersonalized) longSparseArray.get(com.baidu.adp.lib.f.b.toLong(bfG.getTid(), 0L))) != null) {
                     cVar.setSource(threadPersonalized.source);
                     cVar.setWeight(threadPersonalized.weight);
-                    cVar.Hy(threadPersonalized.abtest_tag);
-                    bcY.mRecomAbTag = threadPersonalized.abtest_tag;
-                    bcY.mRecomSource = threadPersonalized.source;
-                    bcY.mRecomWeight = threadPersonalized.weight;
-                    if (bcY.bfQ() != null) {
-                        cVar.l(bcY.bfQ().is_vertical);
+                    cVar.Il(threadPersonalized.abtest_tag);
+                    bfG.mRecomAbTag = threadPersonalized.abtest_tag;
+                    bfG.mRecomSource = threadPersonalized.source;
+                    bfG.mRecomWeight = threadPersonalized.weight;
+                    if (bfG.biz() != null) {
+                        cVar.n(bfG.biz().is_vertical);
                     }
                     List<DislikeReason> list2 = threadPersonalized.dislike_resource;
                     if (list2 != null) {

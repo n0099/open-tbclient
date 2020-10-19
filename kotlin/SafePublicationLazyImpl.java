@@ -5,31 +5,31 @@ import java.util.concurrent.atomic.AtomicReferenceFieldUpdater;
 import kotlin.jvm.internal.o;
 import kotlin.jvm.internal.q;
 @h
-/* loaded from: classes5.dex */
+/* loaded from: classes10.dex */
 final class SafePublicationLazyImpl<T> implements Serializable, d<T> {
     public static final a Companion = new a(null);
-    private static final AtomicReferenceFieldUpdater<SafePublicationLazyImpl<?>, Object> oBK = AtomicReferenceFieldUpdater.newUpdater(SafePublicationLazyImpl.class, Object.class, "_value");
+    private static final AtomicReferenceFieldUpdater<SafePublicationLazyImpl<?>, Object> oQZ = AtomicReferenceFieldUpdater.newUpdater(SafePublicationLazyImpl.class, Object.class, "_value");
     private volatile Object _value;
 
     /* renamed from: final  reason: not valid java name */
-    private final Object f944final;
+    private final Object f945final;
     private volatile kotlin.jvm.a.a<? extends T> initializer;
 
     public SafePublicationLazyImpl(kotlin.jvm.a.a<? extends T> aVar) {
-        q.m(aVar, "initializer");
+        q.n(aVar, "initializer");
         this.initializer = aVar;
-        this._value = k.oBL;
-        this.f944final = k.oBL;
+        this._value = k.oRa;
+        this.f945final = k.oRa;
     }
 
     @Override // kotlin.d
     public T getValue() {
         T t = (T) this._value;
-        if (t == k.oBL) {
+        if (t == k.oRa) {
             kotlin.jvm.a.a<? extends T> aVar = this.initializer;
             if (aVar != null) {
                 T invoke = aVar.invoke();
-                if (oBK.compareAndSet(this, k.oBL, invoke)) {
+                if (oQZ.compareAndSet(this, k.oRa, invoke)) {
                     this.initializer = null;
                     return invoke;
                 }
@@ -40,7 +40,7 @@ final class SafePublicationLazyImpl<T> implements Serializable, d<T> {
     }
 
     public boolean isInitialized() {
-        return this._value != k.oBL;
+        return this._value != k.oRa;
     }
 
     public String toString() {
@@ -52,7 +52,7 @@ final class SafePublicationLazyImpl<T> implements Serializable, d<T> {
     }
 
     @h
-    /* loaded from: classes5.dex */
+    /* loaded from: classes10.dex */
     public static final class a {
         private a() {
         }

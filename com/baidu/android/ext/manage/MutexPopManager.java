@@ -6,7 +6,7 @@ import com.baidu.android.util.concurrent.UiThreadUtil;
 import java.util.concurrent.Executor;
 import java.util.concurrent.Executors;
 import java.util.concurrent.PriorityBlockingQueue;
-/* loaded from: classes11.dex */
+/* loaded from: classes16.dex */
 public class MutexPopManager {
     public static final String TAG = "MutexPopManager";
     private static MutexPopManager sInstance;

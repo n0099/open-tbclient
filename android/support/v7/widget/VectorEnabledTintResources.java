@@ -9,7 +9,7 @@ import android.support.annotation.RestrictTo;
 import android.support.v7.app.AppCompatDelegate;
 import java.lang.ref.WeakReference;
 @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
-/* loaded from: classes10.dex */
+/* loaded from: classes5.dex */
 public class VectorEnabledTintResources extends Resources {
     public static final int MAX_SDK_WHERE_REQUIRED = 20;
     private final WeakReference<Context> mContextRef;

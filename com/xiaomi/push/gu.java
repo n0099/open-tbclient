@@ -2,16 +2,18 @@ package com.xiaomi.push;
 
 import com.baidu.webkit.internal.ETAG;
 import java.util.Random;
-/* loaded from: classes9.dex */
+/* loaded from: classes12.dex */
 public class gu {
 
     /* renamed from: a  reason: collision with other field name */
-    private static final char[] f406a = "&quot;".toCharArray();
+    private static final char[] f407a = "&quot;".toCharArray();
     private static final char[] b = "&apos;".toCharArray();
     private static final char[] c = "&amp;".toCharArray();
     private static final char[] d = "&lt;".toCharArray();
     private static final char[] e = "&gt;".toCharArray();
-    private static Random a = new Random();
+
+    /* renamed from: a  reason: collision with root package name */
+    private static Random f4934a = new Random();
     private static char[] f = "0123456789abcdefghijklmnopqrstuvwxyz0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ".toCharArray();
 
     public static String a(int i) {
@@ -20,7 +22,7 @@ public class gu {
         }
         char[] cArr = new char[i];
         for (int i2 = 0; i2 < cArr.length; i2++) {
-            cArr[i2] = f[a.nextInt(71)];
+            cArr[i2] = f[f4934a.nextInt(71)];
         }
         return new String(cArr);
     }
@@ -62,7 +64,7 @@ public class gu {
                         sb.append(charArray, i, i2 - i);
                     }
                     i = i2 + 1;
-                    sb.append(f406a);
+                    sb.append(f407a);
                 } else if (c2 == '\'') {
                     if (i2 > i) {
                         sb.append(charArray, i, i2 - i);

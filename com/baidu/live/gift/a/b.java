@@ -6,14 +6,14 @@ import java.util.HashMap;
 import java.util.Map;
 /* loaded from: classes4.dex */
 public class b {
-    public String aIB;
-    public int aOT;
-    public String aPZ;
-    public int aQN;
-    public String aQa;
-    public long aQb;
-    public g aUI;
-    public long aUZ;
+    public String aLF;
+    public int aSe;
+    public int aTY;
+    public String aTk;
+    public String aTl;
+    public long aTm;
+    public g aXT;
+    public long aYk;
     public String liveId;
     public String mGiftName;
     public String otherParams;
@@ -21,32 +21,32 @@ public class b {
     public String sceneFrom;
     public String userId;
     public String userName;
-    public Map<Long, Long> aVb = new HashMap();
-    public String aVa = TbadkCoreApplication.getCurrentTbs();
+    public Map<Long, Long> aYm = new HashMap();
+    public String aYl = TbadkCoreApplication.getCurrentTbs();
 
     public b(g gVar, long j, String str, String str2, String str3, String str4, String str5, String str6, String str7, long j2) {
-        this.aUZ = j;
-        this.aIB = gVar.Eh();
+        this.aYk = j;
+        this.aLF = gVar.Fd();
         this.userId = str;
         this.userName = str2;
         this.liveId = str3;
         this.roomId = str4;
-        this.aPZ = str5;
-        this.mGiftName = gVar.Ei();
-        this.aQN = gVar.aOZ;
-        this.aOT = gVar.Em();
+        this.aTk = str5;
+        this.mGiftName = gVar.Fe();
+        this.aTY = gVar.aSk;
+        this.aSe = gVar.Fi();
         this.sceneFrom = gVar.getSceneFrom();
-        this.aUI = gVar;
+        this.aXT = gVar;
         this.otherParams = str6;
-        this.aQa = str7;
-        this.aQb = j2;
+        this.aTl = str7;
+        this.aTm = j2;
     }
 
-    public boolean Er() {
-        return this.aOT == 6;
+    public boolean Fn() {
+        return this.aSe == 6;
     }
 
-    public boolean GH() {
-        return this.aOT == 7;
+    public boolean HD() {
+        return this.aSe == 7;
     }
 }

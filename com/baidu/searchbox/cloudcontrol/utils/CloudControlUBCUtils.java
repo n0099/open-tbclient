@@ -7,7 +7,7 @@ import com.baidu.searchbox.config.AppConfig;
 import com.baidu.ubc.aa;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes23.dex */
+/* loaded from: classes8.dex */
 public class CloudControlUBCUtils {
     private static final String KEY_CONTROL = "control";
     public static final String KEY_EXT = "ext";

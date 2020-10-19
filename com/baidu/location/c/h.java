@@ -16,20 +16,22 @@ import java.util.List;
 import java.util.Locale;
 import java.util.Random;
 import java.util.regex.Pattern;
-/* loaded from: classes3.dex */
+/* loaded from: classes7.dex */
 public class h {
-    public List<ScanResult> a;
+
+    /* renamed from: a  reason: collision with root package name */
+    public List<ScanResult> f1935a;
     private long b;
     private long c;
     private boolean d = false;
     private boolean e;
 
     public h(List<ScanResult> list, long j) {
-        this.a = null;
+        this.f1935a = null;
         this.b = 0L;
         this.c = 0L;
         this.b = j;
-        this.a = list;
+        this.f1935a = list;
         this.c = System.currentTimeMillis();
         try {
             n();
@@ -50,10 +52,10 @@ public class h {
     }
 
     private int m() {
-        if (this.a == null) {
+        if (this.f1935a == null) {
             return 0;
         }
-        return this.a.size();
+        return this.f1935a.size();
     }
 
     private void n() {
@@ -62,15 +64,15 @@ public class h {
             return;
         }
         boolean z2 = true;
-        for (int size = this.a.size() - 1; size >= 1 && z2; size--) {
+        for (int size = this.f1935a.size() - 1; size >= 1 && z2; size--) {
             int i = 0;
             z2 = false;
             while (i < size) {
-                if (this.a.get(i) == null || this.a.get(i + 1) == null || this.a.get(i).level >= this.a.get(i + 1).level) {
+                if (this.f1935a.get(i) == null || this.f1935a.get(i + 1) == null || this.f1935a.get(i).level >= this.f1935a.get(i + 1).level) {
                     z = z2;
                 } else {
-                    this.a.set(i + 1, this.a.get(i));
-                    this.a.set(i, this.a.get(i + 1));
+                    this.f1935a.set(i + 1, this.f1935a.get(i));
+                    this.f1935a.set(i, this.f1935a.get(i + 1));
                     z = true;
                 }
                 i++;
@@ -80,10 +82,10 @@ public class h {
     }
 
     public int a() {
-        if (this.a == null) {
+        if (this.f1935a == null) {
             return 0;
         }
-        return this.a.size();
+        return this.f1935a.size();
     }
 
     public String a(int i) {
@@ -162,7 +164,7 @@ public class h {
                         boolean z8 = z7 ? z7 : z7 && z;
                         int i6 = 0;
                         int i7 = 0;
-                        size = this.a.size();
+                        size = this.f1935a.size();
                         z3 = true;
                         if (size <= i) {
                             z4 = i < l.az;
@@ -176,8 +178,8 @@ public class h {
                         char c3 = 0;
                         while (i3 < i) {
                             int i9 = i8 + 1;
-                            if (this.a.get(i3) != null) {
-                                if (this.a.get(i3).level == 0) {
+                            if (this.f1935a.get(i3) != null) {
+                                if (this.f1935a.get(i3).level == 0) {
                                     stringBuffer = stringBuffer3;
                                     i4 = i7;
                                     c = c3;
@@ -187,7 +189,7 @@ public class h {
                                 } else {
                                     if (z8) {
                                         try {
-                                            j3 = (j - this.a.get(i3).timestamp) / TimeUtils.NANOS_PER_MS;
+                                            j3 = (j - this.f1935a.get(i3).timestamp) / TimeUtils.NANOS_PER_MS;
                                         } catch (Exception e2) {
                                             j3 = 0;
                                         }
@@ -198,7 +200,7 @@ public class h {
                                     }
                                     if (Build.VERSION.SDK_INT >= 23) {
                                         try {
-                                            if (this.a.get(i3).is80211mcResponder()) {
+                                            if (this.f1935a.get(i3).is80211mcResponder()) {
                                                 if (stringBuffer3 == null) {
                                                     stringBuffer3 = new StringBuffer();
                                                 }
@@ -215,11 +217,11 @@ public class h {
                                     } else {
                                         stringBuffer2.append("|");
                                     }
-                                    String str3 = this.a.get(i3).BSSID;
+                                    String str3 = this.f1935a.get(i3).BSSID;
                                     if (str3 != null) {
                                         String replace2 = str3.replace(":", "");
                                         stringBuffer2.append(replace2);
-                                        int i10 = this.a.get(i3).level;
+                                        int i10 = this.f1935a.get(i3).level;
                                         if (i10 < 0) {
                                             i10 = -i10;
                                         }
@@ -227,17 +229,17 @@ public class h {
                                         i6++;
                                         boolean z9 = false;
                                         if (str2 != null && str2.equals(replace2)) {
-                                            this.e = a(this.a.get(i3).capabilities);
+                                            this.e = a(this.f1935a.get(i3).capabilities);
                                             z9 = true;
                                             i7 = i6;
                                         }
                                         if (z9) {
-                                            stringBuffer2.append(b(this.a.get(i3).SSID));
+                                            stringBuffer2.append(b(this.f1935a.get(i3).SSID));
                                         } else {
                                             if (c3 == 0) {
                                                 try {
-                                                    if (random.nextInt(10) == 2 && this.a.get(i3).SSID != null && this.a.get(i3).SSID.length() < 30) {
-                                                        stringBuffer2.append(b(this.a.get(i3).SSID));
+                                                    if (random.nextInt(10) == 2 && this.f1935a.get(i3).SSID != null && this.f1935a.get(i3).SSID.length() < 30) {
+                                                        stringBuffer2.append(b(this.f1935a.get(i3).SSID));
                                                         c2 = 1;
                                                     }
                                                     c2 = c3;
@@ -250,8 +252,8 @@ public class h {
                                                     j2 = j5;
                                                 }
                                             } else {
-                                                if (c3 == 1 && random.nextInt(20) == 1 && this.a.get(i3).SSID != null && this.a.get(i3).SSID.length() < 30) {
-                                                    stringBuffer2.append(b(this.a.get(i3).SSID));
+                                                if (c3 == 1 && random.nextInt(20) == 1 && this.f1935a.get(i3).SSID != null && this.f1935a.get(i3).SSID.length() < 30) {
+                                                    stringBuffer2.append(b(this.f1935a.get(i3).SSID));
                                                     c2 = 2;
                                                 }
                                                 c2 = c3;
@@ -292,19 +294,19 @@ public class h {
                         }
                         if (z4) {
                             boolean z10 = true;
-                            while (i < this.a.size()) {
+                            while (i < this.f1935a.size()) {
                                 int i11 = i8 + 1;
-                                if (this.a.get(i) != null && this.a.get(i).level != 0) {
+                                if (this.f1935a.get(i) != null && this.f1935a.get(i).level != 0) {
                                     if (z10) {
                                         z10 = false;
                                         stringBuffer2.append("&wf2=");
                                     } else {
                                         stringBuffer2.append("|");
                                     }
-                                    String str4 = this.a.get(i).BSSID;
+                                    String str4 = this.f1935a.get(i).BSSID;
                                     if (str4 != null) {
                                         stringBuffer2.append(str4.replace(":", ""));
-                                        int i12 = this.a.get(i).level;
+                                        int i12 = this.f1935a.get(i).level;
                                         if (i12 < 0) {
                                             i12 = -i12;
                                         }
@@ -354,7 +356,7 @@ public class h {
                             stringBuffer2.append("&wf_et=");
                             stringBuffer2.append(this.c);
                             stringBuffer2.append("&wf_vt=");
-                            stringBuffer2.append(i.a);
+                            stringBuffer2.append(i.f1936a);
                             if (i7 > 0) {
                                 this.d = true;
                                 stringBuffer2.append("&wf_en=");
@@ -374,7 +376,7 @@ public class h {
                 }
                 int i62 = 0;
                 int i72 = 0;
-                size = this.a.size();
+                size = this.f1935a.size();
                 z3 = true;
                 if (size <= i) {
                 }
@@ -422,15 +424,15 @@ public class h {
             if (j4 > 0) {
                 z = true;
                 j2 = j4;
-                if (z || this.a == null || this.a.size() == 0) {
+                if (z || this.f1935a == null || this.f1935a.size() == 0) {
                     return false;
                 }
-                int size = this.a.size();
+                int size = this.f1935a.size();
                 i = size <= 16 ? 16 : size;
                 for (i2 = 0; i2 < i; i2++) {
-                    if (this.a.get(i2) != null && this.a.get(i2).level != 0 && z) {
+                    if (this.f1935a.get(i2) != null && this.f1935a.get(i2).level != 0 && z) {
                         try {
-                            j3 = (j2 - this.a.get(i2).timestamp) / TimeUtils.NANOS_PER_MS;
+                            j3 = (j2 - this.f1935a.get(i2).timestamp) / TimeUtils.NANOS_PER_MS;
                         } catch (Error e3) {
                             j3 = 0;
                         } catch (Exception e4) {
@@ -450,7 +452,7 @@ public class h {
         if (z) {
             return false;
         }
-        int size2 = this.a.size();
+        int size2 = this.f1935a.size();
         if (size2 <= 16) {
         }
         while (i2 < i) {
@@ -459,14 +461,14 @@ public class h {
     }
 
     public boolean a(h hVar) {
-        if (this.a == null || hVar == null || hVar.a == null) {
+        if (this.f1935a == null || hVar == null || hVar.f1935a == null) {
             return false;
         }
-        int size = this.a.size() < hVar.a.size() ? this.a.size() : hVar.a.size();
+        int size = this.f1935a.size() < hVar.f1935a.size() ? this.f1935a.size() : hVar.f1935a.size();
         for (int i = 0; i < size; i++) {
-            if (this.a.get(i) != null) {
-                String str = this.a.get(i).BSSID;
-                String str2 = hVar.a.get(i).BSSID;
+            if (this.f1935a.get(i) != null) {
+                String str = this.f1935a.get(i).BSSID;
+                String str2 = hVar.f1935a.get(i).BSSID;
                 if (!TextUtils.isEmpty(str) && !str.equals(str2)) {
                     return false;
                 }
@@ -492,14 +494,14 @@ public class h {
             return null;
         }
         StringBuffer stringBuffer = new StringBuffer(256);
-        int size = this.a.size();
+        int size = this.f1935a.size();
         int i6 = size > l.O ? l.O : size;
         int i7 = 0;
         while (i7 < i6) {
-            if (this.a.get(i7) == null) {
+            if (this.f1935a.get(i7) == null) {
                 i3 = i4;
             } else {
-                if ((i4 & i) == 0 || this.a.get(i7).BSSID == null) {
+                if ((i4 & i) == 0 || this.f1935a.get(i7).BSSID == null) {
                     i2 = i5;
                 } else {
                     if (i5 == 0) {
@@ -507,9 +509,9 @@ public class h {
                     } else {
                         stringBuffer.append("|");
                     }
-                    stringBuffer.append(this.a.get(i7).BSSID.replace(":", ""));
+                    stringBuffer.append(this.f1935a.get(i7).BSSID.replace(":", ""));
                     stringBuffer.append(ContentProviderProxy.PROVIDER_AUTHOR_SEPARATOR);
-                    stringBuffer.append(b(this.a.get(i7).SSID));
+                    stringBuffer.append(b(this.f1935a.get(i7).SSID));
                     i2 = i5 + 1;
                 }
                 int i8 = i2;
@@ -523,16 +525,16 @@ public class h {
     }
 
     public boolean b(h hVar) {
-        if (this.a == null || hVar == null || hVar.a == null) {
+        if (this.f1935a == null || hVar == null || hVar.f1935a == null) {
             return false;
         }
-        int size = this.a.size() < hVar.a.size() ? this.a.size() : hVar.a.size();
+        int size = this.f1935a.size() < hVar.f1935a.size() ? this.f1935a.size() : hVar.f1935a.size();
         for (int i = 0; i < size; i++) {
-            if (this.a.get(i) != null) {
-                String str = this.a.get(i).BSSID;
-                int i2 = this.a.get(i).level;
-                String str2 = hVar.a.get(i).BSSID;
-                int i3 = hVar.a.get(i).level;
+            if (this.f1935a.get(i) != null) {
+                String str = this.f1935a.get(i).BSSID;
+                int i2 = this.f1935a.get(i).level;
+                String str2 = hVar.f1935a.get(i).BSSID;
+                int i3 = hVar.f1935a.get(i).level;
                 if ((!TextUtils.isEmpty(str) && !str.equals(str2)) || i2 != i3) {
                     return false;
                 }
@@ -571,7 +573,7 @@ public class h {
         long j2;
         boolean z;
         long j3;
-        if (this.a == null || this.a.size() == 0) {
+        if (this.f1935a == null || this.f1935a.size() == 0) {
             return 0L;
         }
         if (Build.VERSION.SDK_INT >= 17) {
@@ -594,15 +596,15 @@ public class h {
             j2 = 0;
         }
         if (z) {
-            int size = this.a.size();
+            int size = this.f1935a.size();
             if (size > 16) {
                 size = 16;
             }
             long j4 = 2147483647L;
             for (int i = 0; i < size; i++) {
-                if (this.a.get(i) != null && this.a.get(i).level != 0 && z) {
+                if (this.f1935a.get(i) != null && this.f1935a.get(i).level != 0 && z) {
                     try {
-                        j3 = (j2 - this.a.get(i).timestamp) / TimeUtils.NANOS_PER_MS;
+                        j3 = (j2 - this.f1935a.get(i).timestamp) / TimeUtils.NANOS_PER_MS;
                     } catch (Error e3) {
                         j3 = 0;
                     } catch (Exception e4) {
@@ -632,7 +634,7 @@ public class h {
         long j;
         boolean z;
         long j2;
-        if (this.a == null || this.a.size() == 0) {
+        if (this.f1935a == null || this.f1935a.size() == 0) {
             return 0L;
         }
         long j3 = 0;
@@ -652,13 +654,13 @@ public class h {
                 if (z) {
                     return 0L;
                 }
-                int size = this.a.size();
+                int size = this.f1935a.size();
                 int i = size > 16 ? 16 : size;
                 long j6 = 0;
                 for (int i2 = 0; i2 < i; i2++) {
-                    if (this.a.get(i2) != null && this.a.get(i2).level != 0 && z) {
+                    if (this.f1935a.get(i2) != null && this.f1935a.get(i2).level != 0 && z) {
                         try {
-                            j2 = (j - this.a.get(i2).timestamp) / TimeUtils.NANOS_PER_MS;
+                            j2 = (j - this.f1935a.get(i2).timestamp) / TimeUtils.NANOS_PER_MS;
                         } catch (Error e3) {
                             j2 = 0;
                         } catch (Exception e4) {
@@ -683,7 +685,7 @@ public class h {
     public int h() {
         int i;
         for (int i2 = 0; i2 < a(); i2++) {
-            if (this.a.get(i2) != null && (i = -this.a.get(i2).level) > 0) {
+            if (this.f1935a.get(i2) != null && (i = -this.f1935a.get(i2).level) > 0) {
                 return i;
             }
         }

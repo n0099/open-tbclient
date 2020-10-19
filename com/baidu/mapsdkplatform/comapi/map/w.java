@@ -7,7 +7,7 @@ import com.baidu.live.adp.widget.VerticalTranslateLayout;
 import com.baidu.mapapi.map.WinRound;
 import com.baidu.platform.comapi.basestruct.Point;
 import com.baidu.platform.comapi.map.MapBundleKey;
-/* loaded from: classes3.dex */
+/* loaded from: classes7.dex */
 public class w {
     private static final String t = w.class.getSimpleName();
     public double m;
@@ -17,7 +17,9 @@ public class w {
     public float q;
     public boolean r;
     public int s;
-    public float a = 12.0f;
+
+    /* renamed from: a  reason: collision with root package name */
+    public float f2240a = 12.0f;
     public int b = 0;
     public int c = 0;
     public double d = 1.2958162E7d;
@@ -30,9 +32,11 @@ public class w {
     public a k = new a();
     public boolean l = false;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes7.dex */
     public class a {
-        public long a = 0;
+
+        /* renamed from: a  reason: collision with root package name */
+        public long f2241a = 0;
         public long b = 0;
         public long c = 0;
         public long d = 0;
@@ -46,15 +50,15 @@ public class w {
     }
 
     public Bundle a(d dVar) {
-        if (this.a < dVar.b) {
-            this.a = dVar.b;
+        if (this.f2240a < dVar.b) {
+            this.f2240a = dVar.b;
         }
-        if (this.a > dVar.a) {
-            if (this.a == 1096.0f || d.d == 26.0f) {
-                this.a = 26.0f;
+        if (this.f2240a > dVar.f2222a) {
+            if (this.f2240a == 1096.0f || d.d == 26.0f) {
+                this.f2240a = 26.0f;
                 d.d = 26.0f;
             } else {
-                this.a = dVar.a;
+                this.f2240a = dVar.f2222a;
             }
         }
         while (this.b < 0) {
@@ -68,7 +72,7 @@ public class w {
             this.c = -45;
         }
         Bundle bundle = new Bundle();
-        bundle.putDouble("level", this.a);
+        bundle.putDouble("level", this.f2240a);
         bundle.putDouble(MapBundleKey.MapObjKey.OBJ_SS_ARROW_ROTATION, this.b);
         bundle.putDouble("overlooking", this.c);
         bundle.putDouble("centerptx", this.d);
@@ -93,7 +97,7 @@ public class w {
         bundle.putInt("rty", this.k.g.getIntY());
         bundle.putInt("rbx", this.k.h.getIntX());
         bundle.putInt("rby", this.k.h.getIntY());
-        bundle.putLong("gleft", this.k.a);
+        bundle.putLong("gleft", this.k.f2241a);
         bundle.putLong("gbottom", this.k.d);
         bundle.putLong("gtop", this.k.c);
         bundle.putLong("gright", this.k.b);
@@ -112,7 +116,7 @@ public class w {
         if (bundle == null) {
             return;
         }
-        this.a = (float) bundle.getDouble("level");
+        this.f2240a = (float) bundle.getDouble("level");
         this.b = (int) bundle.getDouble(MapBundleKey.MapObjKey.OBJ_SS_ARROW_ROTATION);
         this.c = (int) bundle.getDouble("overlooking");
         this.d = bundle.getDouble("centerptx");
@@ -128,12 +132,12 @@ public class w {
             this.f = ((this.j.right - this.j.left) / 2) + ((int) this.h);
             this.g = i + ((this.j.bottom - this.j.top) / 2);
         }
-        this.k.a = bundle.getLong("gleft");
+        this.k.f2241a = bundle.getLong("gleft");
         this.k.b = bundle.getLong("gright");
         this.k.c = bundle.getLong("gtop");
         this.k.d = bundle.getLong("gbottom");
-        if (this.k.a <= -20037508) {
-            this.k.a = -20037508L;
+        if (this.k.f2241a <= -20037508) {
+            this.k.f2241a = -20037508L;
         }
         if (this.k.b >= 20037508) {
             this.k.b = 20037508L;
@@ -144,9 +148,9 @@ public class w {
         if (this.k.d <= -20037508) {
             this.k.d = -20037508L;
         }
-        this.k.e.doubleX = this.k.a;
+        this.k.e.doubleX = this.k.f2241a;
         this.k.e.doubleY = this.k.d;
-        this.k.f.doubleX = this.k.a;
+        this.k.f.doubleX = this.k.f2241a;
         this.k.f.doubleY = this.k.c;
         this.k.g.doubleX = this.k.b;
         this.k.g.doubleY = this.k.c;

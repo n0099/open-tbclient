@@ -1,7 +1,7 @@
 package com.baidu.down.manage;
 
 import android.provider.BaseColumns;
-/* loaded from: classes14.dex */
+/* loaded from: classes9.dex */
 public final class DownloadConstants {
     public static final long CTRL_FLAG_AUTO_PAUSED = 2;
     public static final long CTRL_FLAG_CHECK_CONTENT_TYPE = 8;
@@ -34,7 +34,7 @@ public final class DownloadConstants {
     private static String sDestinationDir;
     private static DestinationMode sDestinationMode;
 
-    /* loaded from: classes14.dex */
+    /* loaded from: classes9.dex */
     public enum DestinationMode {
         AUTO,
         INTERNAL_ONLY,
@@ -49,7 +49,7 @@ public final class DownloadConstants {
         return i >= 400 && i < 600;
     }
 
-    /* loaded from: classes14.dex */
+    /* loaded from: classes9.dex */
     public static final class DownloadColumns implements BaseColumns {
         public static final String COLUMN_AUTO_PAUSE = "AUTO_PAUSE";
         public static final String COLUMN_CONTROL_FLAG = "CONTROL_FLAG";

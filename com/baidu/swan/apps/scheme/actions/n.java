@@ -10,7 +10,7 @@ import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
 import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
 import java.util.List;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes10.dex */
 public class n extends aa {
     public n(com.baidu.swan.apps.scheme.j jVar) {
         super(jVar, "/swanAPI/openApp4Ad");
@@ -30,13 +30,13 @@ public class n extends aa {
             com.baidu.swan.apps.console.c.i("OpenAdAppAction", "empty package name");
             return false;
         }
-        ResolveInfo ac = ac(context, optString);
-        if (ac == null) {
+        ResolveInfo af = af(context, optString);
+        if (af == null) {
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "app not installed");
             com.baidu.swan.apps.console.c.i("OpenAdAppAction", "app not installed");
             return false;
         }
-        a(context, ac);
+        a(context, af);
         UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, 0);
         return true;
     }
@@ -57,7 +57,7 @@ public class n extends aa {
         }
     }
 
-    private static ResolveInfo ac(Context context, String str) {
+    private static ResolveInfo af(Context context, String str) {
         if (context == null || TextUtils.isEmpty(str)) {
             return null;
         }

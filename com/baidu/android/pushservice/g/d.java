@@ -1,9 +1,11 @@
 package com.baidu.android.pushservice.g;
 
 import java.util.concurrent.TimeUnit;
-/* loaded from: classes7.dex */
+/* loaded from: classes10.dex */
 public class d {
-    private static a a;
+
+    /* renamed from: a  reason: collision with root package name */
+    private static a f1091a;
     private static d b;
     private static final int c = Runtime.getRuntime().availableProcessors();
     private static final int d = Math.max(2, Math.min(c - 1, 4));
@@ -16,12 +18,12 @@ public class d {
                 d.this.b();
             }
         });
-        a = new a(d, e, 2L, TimeUnit.MINUTES, new b());
-        a.allowCoreThreadTimeOut(true);
+        f1091a = new a(d, e, 2L, TimeUnit.MINUTES, new b());
+        f1091a.allowCoreThreadTimeOut(true);
     }
 
     public static d a() {
-        if (b == null || a == null || a.isShutdown() || a.isTerminated()) {
+        if (b == null || f1091a == null || f1091a.isShutdown() || f1091a.isTerminated()) {
             b = new d();
         }
         return b;
@@ -29,21 +31,21 @@ public class d {
 
     public boolean a(c cVar) {
         try {
-            a.submit(cVar);
+            f1091a.submit(cVar);
             return true;
         } catch (Exception e2) {
-            if (a == null || a.getCorePoolSize() == 0 || a.getPoolSize() == 0) {
-                a = new a(d, e, 2L, TimeUnit.MINUTES, new b());
+            if (f1091a == null || f1091a.getCorePoolSize() == 0 || f1091a.getPoolSize() == 0) {
+                f1091a = new a(d, e, 2L, TimeUnit.MINUTES, new b());
             }
             return false;
         }
     }
 
     public void b() {
-        if (a != null) {
+        if (f1091a != null) {
             try {
-                a.getQueue().clear();
-                a.shutdown();
+                f1091a.getQueue().clear();
+                f1091a.shutdown();
             } catch (Exception e2) {
             }
         }

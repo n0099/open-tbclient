@@ -2,9 +2,11 @@ package com.baidu.mobstat;
 
 import android.content.Context;
 import org.json.JSONObject;
-/* loaded from: classes15.dex */
+/* loaded from: classes17.dex */
 class w implements a {
-    private z a = z.a;
+
+    /* renamed from: a  reason: collision with root package name */
+    private z f2630a = z.f2634a;
     private Object b;
     private Class<?> c;
 
@@ -25,7 +27,7 @@ class w implements a {
             a(new Object[]{context, jSONObject}, "startDataAnynalyze", new Class[]{Context.class, JSONObject.class});
         } catch (Exception e) {
             bb.c().b(e);
-            this.a.a(context, jSONObject);
+            this.f2630a.a(context, jSONObject);
         }
     }
 
@@ -35,7 +37,7 @@ class w implements a {
             a(new Object[]{context, str}, "saveRemoteConfig2", new Class[]{Context.class, String.class});
         } catch (Exception e) {
             bb.c().b(e);
-            this.a.a(context, str);
+            this.f2630a.a(context, str);
         }
     }
 
@@ -45,7 +47,7 @@ class w implements a {
             a(new Object[]{context, str}, "saveRemoteSign", new Class[]{Context.class, String.class});
         } catch (Exception e) {
             bb.c().b(e);
-            this.a.b(context, str);
+            this.f2630a.b(context, str);
         }
     }
 
@@ -55,7 +57,7 @@ class w implements a {
             a(new Object[]{context, Long.valueOf(j)}, "setLastUpdateTime", new Class[]{Context.class, Long.TYPE});
         } catch (Exception e) {
             bb.c().b(e);
-            this.a.a(context, j);
+            this.f2630a.a(context, j);
         }
     }
 
@@ -65,7 +67,7 @@ class w implements a {
             return ((Boolean) a(new Object[]{context}, "needUpdate", new Class[]{Context.class})).booleanValue();
         } catch (Exception e) {
             bb.c().b(e);
-            return this.a.a(context);
+            return this.f2630a.a(context);
         }
     }
 
@@ -75,7 +77,7 @@ class w implements a {
             return ((Boolean) a(new Object[]{context}, "canStartService", new Class[]{Context.class})).booleanValue();
         } catch (Exception e) {
             bb.c().b(e);
-            return this.a.b(context);
+            return this.f2630a.b(context);
         }
     }
 

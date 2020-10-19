@@ -1,10 +1,10 @@
 package com.baidu.platform.comapi.map;
 
 import android.view.SurfaceView;
-/* loaded from: classes3.dex */
+/* loaded from: classes7.dex */
 public class ae {
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes7.dex */
     public enum a {
         OPENGL_ES,
         VULKAN,

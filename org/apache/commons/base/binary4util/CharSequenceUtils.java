@@ -1,5 +1,5 @@
 package org.apache.commons.base.binary4util;
-/* loaded from: classes24.dex */
+/* loaded from: classes15.dex */
 public class CharSequenceUtils {
     public static boolean regionMatches(CharSequence charSequence, boolean z, int i, CharSequence charSequence2, int i2, int i3) {
         if ((charSequence instanceof String) && (charSequence2 instanceof String)) {

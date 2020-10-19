@@ -14,9 +14,11 @@ import java.nio.FloatBuffer;
 import java.nio.IntBuffer;
 import javax.microedition.khronos.egl.EGLConfig;
 import javax.microedition.khronos.opengles.GL10;
-/* loaded from: classes10.dex */
+/* loaded from: classes12.dex */
 public class e implements SurfaceTexture.OnFrameAvailableListener, GLSurfaceView.Renderer {
-    protected a a;
+
+    /* renamed from: a  reason: collision with root package name */
+    protected a f1381a;
     private int h;
     private int i;
     private int j;
@@ -42,7 +44,7 @@ public class e implements SurfaceTexture.OnFrameAvailableListener, GLSurfaceView
     private int x = 0;
     private FloatBuffer c = ByteBuffer.allocateDirect(this.b.length * 4).order(ByteOrder.nativeOrder()).asFloatBuffer();
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes12.dex */
     public interface a {
         void a();
     }
@@ -254,8 +256,8 @@ public class e implements SurfaceTexture.OnFrameAvailableListener, GLSurfaceView
                         GLES20.glClear(16640);
                     }
                     GLES20.glViewport(0, 0, this.t.g(), this.t.h());
-                    if (this.a != null) {
-                        this.a.a();
+                    if (this.f1381a != null) {
+                        this.f1381a.a();
                     }
                     CyberLog.i("CyberRender", "drawScreenSnapshot called end x:" + i + " y:" + i2);
                 }
@@ -279,8 +281,8 @@ public class e implements SurfaceTexture.OnFrameAvailableListener, GLSurfaceView
             this.w = i;
             this.x = i2;
         }
-        if (this.a != null) {
-            this.a.a();
+        if (this.f1381a != null) {
+            this.f1381a.a();
         }
     }
 
@@ -297,7 +299,7 @@ public class e implements SurfaceTexture.OnFrameAvailableListener, GLSurfaceView
     }
 
     public void a(a aVar) {
-        this.a = aVar;
+        this.f1381a = aVar;
     }
 
     public void a(i.a aVar) {
@@ -353,8 +355,8 @@ public class e implements SurfaceTexture.OnFrameAvailableListener, GLSurfaceView
                 return;
             }
             this.p = true;
-            if (this.a != null) {
-                this.a.a();
+            if (this.f1381a != null) {
+                this.f1381a.a();
             }
         }
     }

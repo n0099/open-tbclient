@@ -7,7 +7,7 @@ import okhttp3.Request;
 import okhttp3.Response;
 import okhttp3.internal.http.HttpCodec;
 import okhttp3.internal.http.RealInterceptorChain;
-/* loaded from: classes12.dex */
+/* loaded from: classes5.dex */
 public final class ConnectInterceptor implements Interceptor {
     public final OkHttpClient client;
 

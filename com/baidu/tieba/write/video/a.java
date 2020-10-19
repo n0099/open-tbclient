@@ -12,28 +12,28 @@ import com.baidu.tieba.video.VideoTitleData;
 import java.util.List;
 /* loaded from: classes3.dex */
 public class a extends BaseAdapter {
-    private List<VideoTitleData> nbx;
+    private List<VideoTitleData> nqW;
 
     /* renamed from: com.baidu.tieba.write.video.a$a  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
-    public static class C0833a {
-        public View eis;
+    public static class C0851a {
+        public View euA;
         public TextView title;
     }
 
     @Override // android.widget.Adapter
     public int getCount() {
-        if (y.isEmpty(this.nbx)) {
+        if (y.isEmpty(this.nqW)) {
             return 0;
         }
-        return this.nbx.size();
+        return this.nqW.size();
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // android.widget.Adapter
-    /* renamed from: Kl */
+    /* renamed from: KR */
     public VideoTitleData getItem(int i) {
-        return (VideoTitleData) y.getItem(this.nbx, i);
+        return (VideoTitleData) y.getItem(this.nqW, i);
     }
 
     @Override // android.widget.Adapter
@@ -43,28 +43,28 @@ public class a extends BaseAdapter {
 
     @Override // android.widget.Adapter
     public View getView(int i, View view, ViewGroup viewGroup) {
-        C0833a c0833a;
+        C0851a c0851a;
         if (view == null) {
             view = LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.video_activity_title_item, (ViewGroup) null);
-            C0833a c0833a2 = new C0833a();
-            c0833a2.title = (TextView) view.findViewById(R.id.title);
-            c0833a2.eis = view.findViewById(R.id.divider_line);
-            ap.setViewTextColor(c0833a2.title, R.color.cp_cont_b);
-            ap.setBackgroundColor(c0833a2.eis, R.color.cp_bg_line_c);
-            view.setTag(c0833a2);
-            c0833a = c0833a2;
+            C0851a c0851a2 = new C0851a();
+            c0851a2.title = (TextView) view.findViewById(R.id.title);
+            c0851a2.euA = view.findViewById(R.id.divider_line);
+            ap.setViewTextColor(c0851a2.title, R.color.cp_cont_b);
+            ap.setBackgroundColor(c0851a2.euA, R.color.cp_bg_line_c);
+            view.setTag(c0851a2);
+            c0851a = c0851a2;
         } else {
-            c0833a = (C0833a) view.getTag();
+            c0851a = (C0851a) view.getTag();
         }
         ap.setBackgroundResource(view, R.drawable.addresslist_item_bg);
         if (getItem(i) != null) {
-            c0833a.title.setText("#" + getItem(i).name + "#");
+            c0851a.title.setText("#" + getItem(i).name + "#");
         }
         return view;
     }
 
-    public void fJ(List<VideoTitleData> list) {
-        this.nbx = list;
+    public void fM(List<VideoTitleData> list) {
+        this.nqW = list;
         notifyDataSetChanged();
     }
 }

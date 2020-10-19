@@ -12,17 +12,17 @@ import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.core.util.aq;
 import com.baidu.tieba.card.aa;
 import com.baidu.tieba.card.m;
-/* loaded from: classes21.dex */
+/* loaded from: classes22.dex */
 public class b extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.e.a, com.baidu.tieba.card.a.a<com.baidu.tieba.card.e>> {
-    private com.baidu.tieba.card.e iqf;
-    private aa iqg;
+    private com.baidu.tieba.card.e iEY;
+    private aa iEZ;
     private String mForumId;
     private String mForumName;
     private TbPageContext<?> mPageContext;
 
     /* JADX INFO: Access modifiers changed from: protected */
     public b(TbPageContext tbPageContext, String str, String str2) {
-        super(tbPageContext.getPageActivity(), com.baidu.tieba.e.a.hxr);
+        super(tbPageContext.getPageActivity(), com.baidu.tieba.e.a.hMm);
         this.mForumId = str;
         this.mForumName = str2;
         this.mPageContext = tbPageContext;
@@ -31,47 +31,47 @@ public class b extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.e.a, com.
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.widget.ListView.a
-    /* renamed from: aL */
+    /* renamed from: aN */
     public com.baidu.tieba.card.a.a<com.baidu.tieba.card.e> c(ViewGroup viewGroup) {
-        this.iqf = new com.baidu.tieba.card.e(this.mPageContext, this.mForumId, this.mForumName);
-        return new com.baidu.tieba.card.a.a<>(this.iqf);
+        this.iEY = new com.baidu.tieba.card.e(this.mPageContext, this.mForumId, this.mForumName);
+        return new com.baidu.tieba.card.a.a<>(this.iEY);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.widget.ListView.a
     public View a(int i, View view, ViewGroup viewGroup, com.baidu.tieba.e.a aVar, com.baidu.tieba.card.a.a<com.baidu.tieba.card.e> aVar2) {
-        if (aVar2.cfU() == null) {
+        if (aVar2.cjq() == null) {
             return null;
         }
-        aVar2.cfU().a(aVar);
-        aVar2.cfU().onChangeSkinType(this.mPageContext, TbadkCoreApplication.getInst().getSkinType());
-        aVar2.cfU().c(new aa<com.baidu.tieba.e.a>() { // from class: com.baidu.tieba.frs.gamerecommend.a.b.1
+        aVar2.cjq().a(aVar);
+        aVar2.cjq().onChangeSkinType(this.mPageContext, TbadkCoreApplication.getInst().getSkinType());
+        aVar2.cjq().c(new aa<com.baidu.tieba.e.a>() { // from class: com.baidu.tieba.frs.gamerecommend.a.b.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.tieba.card.aa
             /* renamed from: b */
             public void a(View view2, com.baidu.tieba.e.a aVar3) {
-                TiebaStatic.log(new aq("c13047").ai("obj_locate", 2).dF("fid", b.this.mForumId));
+                TiebaStatic.log(new aq("c13047").aj("obj_locate", 2).dK("fid", b.this.mForumId));
                 b.this.a(view2, aVar3);
             }
         });
-        return aVar2.cfU().getView();
+        return aVar2.cjq().getView();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void a(View view, com.baidu.tieba.e.a aVar) {
-        PbActivityConfig createFromThreadCfg = new PbActivityConfig(this.mPageContext.getPageActivity()).createFromThreadCfg(aVar.bcY(), null, m.bfk(), RequestResponseCode.REQUEST_FRS_TO_PB, true, false, false);
-        createFromThreadCfg.setForumId(String.valueOf(aVar.bcY().getFid()));
-        createFromThreadCfg.setForumName(aVar.bcY().bfC());
+        PbActivityConfig createFromThreadCfg = new PbActivityConfig(this.mPageContext.getPageActivity()).createFromThreadCfg(aVar.bfG(), null, m.bhT(), RequestResponseCode.REQUEST_FRS_TO_PB, true, false, false);
+        createFromThreadCfg.setForumId(String.valueOf(aVar.bfG().getFid()));
+        createFromThreadCfg.setForumName(aVar.bfG().bil());
         createFromThreadCfg.setStartFrom(0);
-        m.Hw(aVar.bcY().getTid());
+        m.Ij(aVar.bfG().getTid());
         this.mPageContext.sendMessage(new CustomMessage((int) CmdConfigCustom.START_PB_ACTIVITY, createFromThreadCfg));
-        if (this.iqg != null) {
-            this.iqg.a(view, aVar);
+        if (this.iEZ != null) {
+            this.iEZ.a(view, aVar);
         }
     }
 
     public void d(aa aaVar) {
-        this.iqg = aaVar;
+        this.iEZ = aaVar;
     }
 }

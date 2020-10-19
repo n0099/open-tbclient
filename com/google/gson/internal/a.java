@@ -1,5 +1,5 @@
 package com.google.gson.internal;
-/* loaded from: classes23.dex */
+/* loaded from: classes17.dex */
 public final class a {
     public static <T> T checkNotNull(T t) {
         if (t == null) {

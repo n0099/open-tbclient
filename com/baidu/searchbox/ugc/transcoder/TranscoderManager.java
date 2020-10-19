@@ -7,7 +7,7 @@ import com.baidu.searchbox.ugc.transcoder.IMediaTranscoder;
 import java.io.File;
 import java.util.LinkedHashMap;
 import java.util.Map;
-/* loaded from: classes18.dex */
+/* loaded from: classes8.dex */
 public class TranscoderManager {
     public static final int MODE_AUTO = 2;
     public static final int MODE_HW = 0;
@@ -26,27 +26,27 @@ public class TranscoderManager {
     private volatile int mCurrMode = 2;
     private Map<String, String> mOptionMap = new LinkedHashMap();
 
-    /* loaded from: classes18.dex */
+    /* loaded from: classes8.dex */
     public interface OnCompletionListener {
         void onCompletion();
     }
 
-    /* loaded from: classes18.dex */
+    /* loaded from: classes8.dex */
     public interface OnErrorListener {
         boolean onError(int i, int i2);
     }
 
-    /* loaded from: classes18.dex */
+    /* loaded from: classes8.dex */
     public interface OnInfoListener {
         boolean onInfo(int i, int i2, Object obj);
     }
 
-    /* loaded from: classes18.dex */
+    /* loaded from: classes8.dex */
     public interface OnPreparedListener {
         void onPrepared();
     }
 
-    /* loaded from: classes18.dex */
+    /* loaded from: classes8.dex */
     public interface OnTerminalListener {
         void onTerminal();
     }

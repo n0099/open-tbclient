@@ -9,16 +9,18 @@ public interface a extends IInterface {
 
     /* renamed from: com.heytap.openid.a$a  reason: collision with other inner class name */
     /* loaded from: classes11.dex */
-    public static abstract class AbstractBinderC0876a extends Binder implements a {
+    public static abstract class AbstractBinderC0894a extends Binder implements a {
 
         /* JADX INFO: Access modifiers changed from: private */
         /* renamed from: com.heytap.openid.a$a$a  reason: collision with other inner class name */
         /* loaded from: classes11.dex */
-        public static class C0877a implements a {
-            public IBinder a;
+        public static class C0895a implements a {
 
-            public C0877a(IBinder iBinder) {
-                this.a = iBinder;
+            /* renamed from: a  reason: collision with root package name */
+            public IBinder f4059a;
+
+            public C0895a(IBinder iBinder) {
+                this.f4059a = iBinder;
             }
 
             public String a(String str, String str2, String str3) {
@@ -29,7 +31,7 @@ public interface a extends IInterface {
                     obtain.writeString(str);
                     obtain.writeString(str2);
                     obtain.writeString(str3);
-                    this.a.transact(1, obtain, obtain2, 0);
+                    this.f4059a.transact(1, obtain, obtain2, 0);
                     obtain2.readException();
                     return obtain2.readString();
                 } finally {
@@ -40,7 +42,7 @@ public interface a extends IInterface {
 
             @Override // android.os.IInterface
             public IBinder asBinder() {
-                return this.a;
+                return this.f4059a;
             }
         }
 
@@ -49,7 +51,7 @@ public interface a extends IInterface {
                 return null;
             }
             IInterface queryLocalInterface = iBinder.queryLocalInterface("com.heytap.openid.IOpenID");
-            return (queryLocalInterface == null || !(queryLocalInterface instanceof a)) ? new C0877a(iBinder) : (a) queryLocalInterface;
+            return (queryLocalInterface == null || !(queryLocalInterface instanceof a)) ? new C0895a(iBinder) : (a) queryLocalInterface;
         }
     }
 }

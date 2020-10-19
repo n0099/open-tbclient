@@ -22,7 +22,7 @@ import com.baidu.sapi2.utils.SapiStatUtil;
 import com.baidu.sapi2.utils.SapiUtils;
 import java.util.ArrayList;
 import org.json.JSONObject;
-/* loaded from: classes25.dex */
+/* loaded from: classes5.dex */
 public class ShareActivity extends BaseActivity {
     private static final String u = "share_fail_reason";
     private static final String v = "share_account";
@@ -101,7 +101,7 @@ public class ShareActivity extends BaseActivity {
             }
             jSONObject.put("portrait", getIntent().getStringExtra("android.intent.extra.TEXT"));
             jSONObject.put("session_id", getIntent().getStringExtra(b.b));
-            jSONObject.put("trace_id", getIntent().getStringExtra(b.a));
+            jSONObject.put("trace_id", getIntent().getStringExtra(b.f3511a));
             this.t = getIntent().getStringExtra(b.c);
         } catch (Exception e) {
             Log.e(e);
@@ -166,7 +166,7 @@ public class ShareActivity extends BaseActivity {
         Intent intent = new Intent();
         Bundle bundle = new Bundle();
         bundle.putParcelable(v, currentAccount);
-        bundle.putInt(b.g, SapiAccountManager.VERSION_CODE);
+        bundle.putInt(b.g, 249);
         bundle.putString("PKG", getPackageName());
         bundle.putString(b.c, this.t);
         if (SapiContext.getInstance().shareLivingunameEnable()) {
@@ -199,7 +199,7 @@ public class ShareActivity extends BaseActivity {
                 LoginActivity.supportShareLogin = true;
                 SapiAccountManager.getInstance().getConfignation().supportFaceLogin = z;
                 ShareActivity.this.q.setResultCode(d.g);
-                ShareActivity.this.q.setResultMsg(String.format(d.a, ShareActivity.this.s));
+                ShareActivity.this.q.setResultMsg(String.format(d.f3515a, ShareActivity.this.s));
                 ShareActivity.this.c();
             }
 
@@ -229,7 +229,7 @@ public class ShareActivity extends BaseActivity {
             return;
         }
         this.q.setResultCode(d.g);
-        this.q.setResultMsg(String.format(d.a, this.s));
+        this.q.setResultMsg(String.format(d.f3515a, this.s));
         c();
     }
 

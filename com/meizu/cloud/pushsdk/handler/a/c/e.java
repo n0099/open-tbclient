@@ -7,7 +7,7 @@ import android.text.TextUtils;
 import com.baidu.android.util.io.ActionJsonData;
 import com.meizu.cloud.pushsdk.constants.PushConstants;
 import com.meizu.cloud.pushsdk.handler.a.b.h;
-/* loaded from: classes3.dex */
+/* loaded from: classes7.dex */
 public class e extends com.meizu.cloud.pushsdk.handler.a.a<h> {
     public e(Context context, com.meizu.cloud.pushsdk.handler.a aVar) {
         super(context, aVar);
@@ -43,9 +43,9 @@ public class e extends com.meizu.cloud.pushsdk.handler.a.a<h> {
         com.meizu.cloud.a.a.i("AbstractMessageHandler", "start WithDrawMessageHandler match");
         String stringExtra = intent.getStringExtra(PushConstants.MZ_PUSH_CONTROL_MESSAGE);
         if (!TextUtils.isEmpty(stringExtra)) {
-            com.meizu.cloud.pushsdk.handler.a.b.b a = com.meizu.cloud.pushsdk.handler.a.b.b.a(stringExtra);
-            if (a.a() != null) {
-                i = a.a().a();
+            com.meizu.cloud.pushsdk.handler.a.b.b a2 = com.meizu.cloud.pushsdk.handler.a.b.b.a(stringExtra);
+            if (a2.a() != null) {
+                i = a2.a().a();
                 return PushConstants.MZ_PUSH_ON_MESSAGE_ACTION.equals(intent.getAction()) && "4".equals(String.valueOf(i));
             }
         }

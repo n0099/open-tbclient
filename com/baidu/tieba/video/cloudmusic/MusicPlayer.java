@@ -6,13 +6,13 @@ import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.live.tbadk.core.frameworkdata.CmdConfigCustom;
 import com.baidu.tieba.video.cloudmusic.data.CloudMusicData;
 import java.io.IOException;
-/* loaded from: classes22.dex */
+/* loaded from: classes23.dex */
 public class MusicPlayer {
-    private static MusicPlayer mEC = null;
-    private MediaPlayer mEB;
-    private MusicPlayerState mED = MusicPlayerState.WAIT;
+    private static MusicPlayer mUq = null;
+    private MediaPlayer mUp;
+    private MusicPlayerState mUr = MusicPlayerState.WAIT;
 
-    /* loaded from: classes22.dex */
+    /* loaded from: classes23.dex */
     public enum MusicPlayerState {
         WAIT,
         PAUSE,
@@ -22,78 +22,78 @@ public class MusicPlayer {
         ERROR
     }
 
-    /* loaded from: classes22.dex */
+    /* loaded from: classes23.dex */
     public interface a {
-        void dFi();
+        void dIU();
     }
 
     private MusicPlayer() {
     }
 
-    public static synchronized MusicPlayer dFk() {
+    public static synchronized MusicPlayer dIW() {
         MusicPlayer musicPlayer;
         synchronized (MusicPlayer.class) {
-            if (mEC == null) {
-                mEC = new MusicPlayer();
+            if (mUq == null) {
+                mUq = new MusicPlayer();
             }
-            musicPlayer = mEC;
+            musicPlayer = mUq;
         }
         return musicPlayer;
     }
 
     public void a(String str, final CloudMusicData.MusicTagList.MusicList musicList, a aVar) {
-        if (this.mED != MusicPlayerState.PAUSE) {
-            if (this.mEB == null) {
-                this.mEB = new MediaPlayer();
-                this.mEB.setAudioStreamType(3);
+        if (this.mUr != MusicPlayerState.PAUSE) {
+            if (this.mUp == null) {
+                this.mUp = new MediaPlayer();
+                this.mUp.setAudioStreamType(3);
             }
             try {
-                this.mEB.reset();
-                this.mEB.setDataSource(str);
-                this.mEB.prepare();
-                this.mED = MusicPlayerState.WAIT;
-                this.mEB.setOnPreparedListener(new MediaPlayer.OnPreparedListener() { // from class: com.baidu.tieba.video.cloudmusic.MusicPlayer.1
+                this.mUp.reset();
+                this.mUp.setDataSource(str);
+                this.mUp.prepare();
+                this.mUr = MusicPlayerState.WAIT;
+                this.mUp.setOnPreparedListener(new MediaPlayer.OnPreparedListener() { // from class: com.baidu.tieba.video.cloudmusic.MusicPlayer.1
                     @Override // android.media.MediaPlayer.OnPreparedListener
                     public void onPrepared(MediaPlayer mediaPlayer) {
-                        com.baidu.tieba.video.cloudmusic.data.a.dFn().a(musicList);
+                        com.baidu.tieba.video.cloudmusic.data.a.dIZ().a(musicList);
                         MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(CmdConfigCustom.CMD_ON_CLOUD_MUSIC_PLAY));
-                        MusicPlayer.this.mEB.setLooping(true);
-                        MusicPlayer.this.mEB.start();
-                        MusicPlayer.this.mED = MusicPlayerState.PREPARED;
+                        MusicPlayer.this.mUp.setLooping(true);
+                        MusicPlayer.this.mUp.start();
+                        MusicPlayer.this.mUr = MusicPlayerState.PREPARED;
                     }
                 });
             } catch (IOException e) {
                 e.printStackTrace();
-                this.mED = MusicPlayerState.ERROR;
+                this.mUr = MusicPlayerState.ERROR;
                 if (aVar != null) {
-                    aVar.dFi();
+                    aVar.dIU();
                 }
             }
         }
     }
 
-    public void dFl() {
-        if (this.mEB != null && this.mEB.isPlaying()) {
-            this.mEB.pause();
+    public void dIX() {
+        if (this.mUp != null && this.mUp.isPlaying()) {
+            this.mUp.pause();
         }
-        this.mED = MusicPlayerState.PAUSE;
+        this.mUr = MusicPlayerState.PAUSE;
     }
 
-    public void dFm() {
-        if (this.mEB != null) {
-            this.mEB.start();
-            this.mEB.seekTo(0);
+    public void dIY() {
+        if (this.mUp != null) {
+            this.mUp.start();
+            this.mUp.seekTo(0);
         }
-        this.mED = MusicPlayerState.RESUME;
+        this.mUr = MusicPlayerState.RESUME;
     }
 
-    public void aXD() {
-        if (this.mEB != null) {
-            if (this.mEB.isPlaying()) {
-                this.mEB.stop();
+    public void bal() {
+        if (this.mUp != null) {
+            if (this.mUp.isPlaying()) {
+                this.mUp.stop();
             }
-            this.mEB.release();
-            this.mEB = null;
+            this.mUp.release();
+            this.mUp = null;
         }
     }
 }

@@ -9,7 +9,7 @@ import java.security.InvalidKeyException;
 import java.security.interfaces.RSAPublicKey;
 import java.security.spec.InvalidKeySpecException;
 import java.security.spec.RSAPublicKeySpec;
-/* loaded from: classes8.dex */
+/* loaded from: classes5.dex */
 public class OpenSSLRSAPublicKey implements RSAPublicKey, OpenSSLKeyHolder {
     private static final long serialVersionUID = 123125005824688292L;
     private transient boolean fetchedParams;

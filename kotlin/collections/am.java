@@ -4,11 +4,11 @@ import java.util.Collections;
 import java.util.Set;
 /* JADX INFO: Access modifiers changed from: package-private */
 @kotlin.h
-/* loaded from: classes5.dex */
+/* loaded from: classes10.dex */
 public class am {
-    public static final <T> Set<T> bO(T t) {
+    public static final <T> Set<T> bR(T t) {
         Set<T> singleton = Collections.singleton(t);
-        kotlin.jvm.internal.q.l((Object) singleton, "java.util.Collections.singleton(element)");
+        kotlin.jvm.internal.q.m(singleton, "java.util.Collections.singleton(element)");
         return singleton;
     }
 }

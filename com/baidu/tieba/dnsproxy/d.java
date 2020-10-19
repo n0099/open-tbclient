@@ -5,23 +5,23 @@ import com.baidu.adp.lib.stats.BdStatisticsManager;
 import com.baidu.live.tbadk.core.util.TiebaInitialize;
 /* loaded from: classes13.dex */
 public class d {
-    private static volatile d hxU = null;
+    private static volatile d hMP = null;
 
-    public static final d cgR() {
-        if (hxU == null) {
+    public static final d ckn() {
+        if (hMP == null) {
             synchronized (d.class) {
-                if (hxU == null) {
-                    hxU = new d();
+                if (hMP == null) {
+                    hMP = new d();
                 }
             }
         }
-        return hxU;
+        return hMP;
     }
 
     private d() {
     }
 
-    public void eu(String str, String str2) {
+    public void eB(String str, String str2) {
         if (!TextUtils.isEmpty(str) || !TextUtils.isEmpty(str2)) {
             com.baidu.adp.lib.stats.a statsItem = BdStatisticsManager.getInstance().getStatsItem("dbg");
             statsItem.append("workflow", "dnsproxy_error");
@@ -35,7 +35,7 @@ public class d {
         }
     }
 
-    public void ao(String str, String str2, String str3) {
+    public void aq(String str, String str2, String str3) {
         if (!TextUtils.isEmpty(str) || !TextUtils.isEmpty(str2) || !TextUtils.isEmpty(str3)) {
             com.baidu.adp.lib.stats.a statsItem = BdStatisticsManager.getInstance().getStatsItem("dbg");
             statsItem.append("workflow", "dnsproxy_event");

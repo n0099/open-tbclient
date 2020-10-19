@@ -8,7 +8,7 @@ import com.baidu.platform.comapi.walknavi.b;
 import com.baidu.platform.comapi.walknavi.segmentbrowse.c;
 import com.baidu.platform.comapi.wnplatform.p.f;
 import com.baidu.tieba.R;
-/* loaded from: classes3.dex */
+/* loaded from: classes7.dex */
 public class RGStateNorth2D extends RGState {
     @Override // com.baidu.platform.comapi.walknavi.fsm.RGState
     protected void onActionUI() {

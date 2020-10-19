@@ -10,24 +10,24 @@ import io.reactivex.m;
 import io.reactivex.o;
 import java.util.concurrent.Callable;
 import java.util.concurrent.atomic.AtomicReference;
-/* loaded from: classes25.dex */
+/* loaded from: classes17.dex */
 public final class MaybeUsing<T, D> extends k<T> {
     final boolean eager;
-    final Callable<? extends D> owC;
-    final h<? super D, ? extends o<? extends T>> oxD;
-    final g<? super D> oxX;
+    final Callable<? extends D> oLR;
+    final h<? super D, ? extends o<? extends T>> oMS;
+    final g<? super D> oNm;
 
     @Override // io.reactivex.k
     protected void b(m<? super T> mVar) {
         try {
-            D call = this.owC.call();
+            D call = this.oLR.call();
             try {
-                ((o) io.reactivex.internal.functions.a.k(this.oxD.apply(call), "The sourceSupplier returned a null MaybeSource")).a(new UsingObserver(mVar, call, this.oxX, this.eager));
+                ((o) io.reactivex.internal.functions.a.l(this.oMS.apply(call), "The sourceSupplier returned a null MaybeSource")).a(new UsingObserver(mVar, call, this.oNm, this.eager));
             } catch (Throwable th) {
                 io.reactivex.exceptions.a.J(th);
                 if (this.eager) {
                     try {
-                        this.oxX.accept(call);
+                        this.oNm.accept(call);
                     } catch (Throwable th2) {
                         io.reactivex.exceptions.a.J(th2);
                         EmptyDisposable.error(new CompositeException(th, th2), mVar);
@@ -37,7 +37,7 @@ public final class MaybeUsing<T, D> extends k<T> {
                 EmptyDisposable.error(th, mVar);
                 if (!this.eager) {
                     try {
-                        this.oxX.accept(call);
+                        this.oNm.accept(call);
                     } catch (Throwable th3) {
                         io.reactivex.exceptions.a.J(th3);
                         io.reactivex.e.a.onError(th3);
@@ -50,7 +50,7 @@ public final class MaybeUsing<T, D> extends k<T> {
         }
     }
 
-    /* loaded from: classes25.dex */
+    /* loaded from: classes17.dex */
     static final class UsingObserver<T, D> extends AtomicReference<Object> implements io.reactivex.disposables.b, m<T> {
         private static final long serialVersionUID = -674404550052917487L;
         final m<? super T> actual;

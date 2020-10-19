@@ -1,5 +1,5 @@
 package com.alibaba.fastjson.serializer;
-/* loaded from: classes10.dex */
+/* loaded from: classes5.dex */
 public class PascalNameFilter implements NameFilter {
     @Override // com.alibaba.fastjson.serializer.NameFilter
     public String process(Object obj, String str, Object obj2) {

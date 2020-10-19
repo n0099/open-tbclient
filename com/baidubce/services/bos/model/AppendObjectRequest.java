@@ -4,7 +4,7 @@ import com.baidubce.auth.BceCredentials;
 import com.baidubce.util.CheckUtils;
 import java.io.File;
 import java.io.InputStream;
-/* loaded from: classes24.dex */
+/* loaded from: classes25.dex */
 public class AppendObjectRequest extends PutObjectRequest {
     private Long offset;
 

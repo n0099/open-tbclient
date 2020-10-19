@@ -10,12 +10,12 @@ import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.ap;
 import com.baidu.tieba.R;
-/* loaded from: classes21.dex */
+/* loaded from: classes22.dex */
 public class i extends com.baidu.adp.widget.ListView.a<z, aa> {
     private int mSkinType;
 
     public i(TbPageContext<?> tbPageContext) {
-        super(tbPageContext.getPageActivity(), z.Xa);
+        super(tbPageContext.getPageActivity(), z.Xr);
         this.mSkinType = 3;
     }
 

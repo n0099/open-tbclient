@@ -1,5 +1,5 @@
 package com.baidu.searchbox.ui.bubble;
-/* loaded from: classes19.dex */
+/* loaded from: classes10.dex */
 public enum BubblePosition {
     INVALID,
     UP,

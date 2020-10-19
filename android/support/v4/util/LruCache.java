@@ -4,7 +4,7 @@ import com.baidu.webkit.internal.ETAG;
 import java.util.LinkedHashMap;
 import java.util.Locale;
 import java.util.Map;
-/* loaded from: classes23.dex */
+/* loaded from: classes5.dex */
 public class LruCache<K, V> {
     private int createCount;
     private int evictionCount;

@@ -1,5 +1,5 @@
 package com.baidu.swan.apps.aa;
-/* loaded from: classes3.dex */
+/* loaded from: classes10.dex */
 public interface d {
     void onPayResult(int i, String str);
 }

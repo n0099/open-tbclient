@@ -15,7 +15,7 @@ import java.util.Map;
 import javax.net.ssl.HostnameVerifier;
 import javax.net.ssl.HttpsURLConnection;
 import javax.net.ssl.SSLSession;
-/* loaded from: classes11.dex */
+/* loaded from: classes18.dex */
 public class c extends com.baidu.searchbox.dns.d.c.b<com.baidu.searchbox.dns.d.a.b> {
     private static String L = null;
     private static long M = -1;
@@ -149,7 +149,7 @@ public class c extends com.baidu.searchbox.dns.d.c.b<com.baidu.searchbox.dns.d.a
         return 0;
     }
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes18.dex */
     private static class a implements HostnameVerifier {
         private a() {
         }

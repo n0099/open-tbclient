@@ -4,9 +4,11 @@ import android.support.media.ExifInterface;
 import android.text.format.Time;
 import android.util.Log;
 import com.xiaomi.mipush.sdk.Constants;
-/* loaded from: classes24.dex */
+/* loaded from: classes6.dex */
 public final class h {
-    public static final h a = new h();
+
+    /* renamed from: a  reason: collision with root package name */
+    public static final h f4582a = new h();
 
     public final String a(int i) {
         switch (i) {

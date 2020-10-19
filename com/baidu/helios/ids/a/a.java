@@ -13,43 +13,43 @@ import java.util.HashSet;
 import java.util.UUID;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes16.dex */
+/* loaded from: classes5.dex */
 public class a extends com.baidu.helios.ids.a {
-    private a.C0149a awa;
-    private b axL;
+    private a.C0153a awJ;
+    private b ayu;
 
     /* renamed from: com.baidu.helios.ids.a.a$a  reason: collision with other inner class name */
-    /* loaded from: classes16.dex */
-    static class C0151a {
-        private HashSet<String> axM = new HashSet<>();
+    /* loaded from: classes5.dex */
+    static class C0155a {
+        private HashSet<String> ayv = new HashSet<>();
         private HashSet<String> e = new HashSet<>();
 
-        C0151a() {
+        C0155a() {
         }
 
-        public static C0151a b(TrustSubject trustSubject) {
+        public static C0155a b(TrustSubject trustSubject) {
             try {
-                String fA = trustSubject.fA("config-aid");
-                if (!TextUtils.isEmpty(fA)) {
+                String fF = trustSubject.fF("config-aid");
+                if (!TextUtils.isEmpty(fF)) {
                     try {
-                        C0151a c0151a = new C0151a();
-                        JSONObject jSONObject = new JSONObject(fA);
+                        C0155a c0155a = new C0155a();
+                        JSONObject jSONObject = new JSONObject(fF);
                         JSONArray optJSONArray = jSONObject.optJSONArray("blist");
                         if (optJSONArray != null) {
                             int length = optJSONArray.length();
                             for (int i = 0; i < length; i++) {
-                                c0151a.axM.add(optJSONArray.getString(i));
+                                c0155a.ayv.add(optJSONArray.getString(i));
                             }
                         }
                         JSONArray optJSONArray2 = jSONObject.optJSONArray("reset_blist");
                         if (optJSONArray2 != null) {
                             int length2 = optJSONArray2.length();
                             for (int i2 = 0; i2 < length2; i2++) {
-                                c0151a.e.add(optJSONArray2.getString(i2));
+                                c0155a.e.add(optJSONArray2.getString(i2));
                             }
-                            return c0151a;
+                            return c0155a;
                         }
-                        return c0151a;
+                        return c0155a;
                     } catch (Exception e) {
                         e.printStackTrace();
                     }
@@ -61,7 +61,7 @@ public class a extends com.baidu.helios.ids.a {
         }
 
         public boolean a(String str) {
-            return this.axM.contains(str);
+            return this.ayv.contains(str);
         }
 
         public boolean b(String str) {
@@ -69,7 +69,7 @@ public class a extends com.baidu.helios.ids.a {
         }
     }
 
-    /* loaded from: classes16.dex */
+    /* loaded from: classes5.dex */
     class b {
         private byte[] f;
         private String g;
@@ -79,7 +79,7 @@ public class a extends com.baidu.helios.ids.a {
         private long m;
         private int n;
         private boolean j = true;
-        private e axN = new e();
+        private e ayw = new e();
 
         b() {
         }
@@ -92,7 +92,7 @@ public class a extends com.baidu.helios.ids.a {
         }
 
         public void a(long j, long j2) {
-            if (this.axN.d(j, j2)) {
+            if (this.ayw.d(j, j2)) {
                 this.j = true;
             }
         }
@@ -120,7 +120,7 @@ public class a extends com.baidu.helios.ids.a {
         }
 
         public long b(long j) {
-            return this.axN.S(j);
+            return this.ayw.S(j);
         }
 
         public String b() {
@@ -163,7 +163,7 @@ public class a extends com.baidu.helios.ids.a {
         }
 
         public boolean e() {
-            String q = a.this.awa.q("aid.dat", true);
+            String q = a.this.awJ.q("aid.dat", true);
             if (!TextUtils.isEmpty(q)) {
                 try {
                     JSONObject jSONObject = new JSONObject(q);
@@ -172,7 +172,7 @@ public class a extends com.baidu.helios.ids.a {
                     this.h = jSONObject.getString("form_id");
                     this.g = jSONObject.getString("and_id");
                     this.k = jSONObject.optString("ran_id", null);
-                    this.axN.R(jSONObject.getLong("flags"));
+                    this.ayw.R(jSONObject.getLong("flags"));
                     this.m = jSONObject.getLong("lst_conf_ver");
                     this.n = jSONObject.getInt("c_form_ver");
                     this.j = false;
@@ -190,7 +190,7 @@ public class a extends com.baidu.helios.ids.a {
                     jSONObject.put("and_id", this.g);
                     jSONObject.put("form_id", this.h);
                     jSONObject.put("gen_ts", this.i);
-                    jSONObject.put("flags", this.axN.As());
+                    jSONObject.put("flags", this.ayw.AA());
                     jSONObject.put("c_form_ver", 1);
                     if (!TextUtils.isEmpty(this.k)) {
                         jSONObject.put("ran_id", this.k);
@@ -199,7 +199,7 @@ public class a extends com.baidu.helios.ids.a {
                         jSONObject.put("raw_id", Base64.encodeToString(this.f, 2));
                     }
                     jSONObject.put("lst_conf_ver", this.m);
-                    a.this.awa.d("aid.dat", jSONObject.toString(), true);
+                    a.this.awJ.d("aid.dat", jSONObject.toString(), true);
                     this.j = false;
                     return true;
                 } catch (Exception e) {
@@ -212,21 +212,21 @@ public class a extends com.baidu.helios.ids.a {
 
     public a() {
         super("aid");
-        this.axL = new b();
+        this.ayu = new b();
     }
 
     public static String D(byte[] bArr) {
-        return ad("A00", new com.baidu.helios.common.b.a.b("ABCDEFGHIJKLMNOPQRSTUVWXYZ234567=", false, false).encode(bArr));
+        return ag("A00", new com.baidu.helios.common.b.a.b("ABCDEFGHIJKLMNOPQRSTUVWXYZ234567=", false, false).encode(bArr));
     }
 
     @Override // com.baidu.helios.ids.a
-    public String AA() {
-        return this.axL.c();
+    public String AI() {
+        return this.ayu.c();
     }
 
     @Override // com.baidu.helios.ids.a
-    public byte[] AB() {
-        return this.axL.a();
+    public byte[] AJ() {
+        return this.ayu.a();
     }
 
     @Override // com.baidu.helios.ids.a
@@ -236,21 +236,21 @@ public class a extends com.baidu.helios.ids.a {
         String str = null;
         boolean z2 = false;
         boolean z3 = true;
-        this.awa = this.axE.fy("aid");
-        this.axL.e();
-        TrustSubject trustSubject = this.axF.axI.ayG;
+        this.awJ = this.ayn.fD("aid");
+        this.ayu.e();
+        TrustSubject trustSubject = this.ayo.ayr.azp;
         if (trustSubject != null) {
-            j = trustSubject.AG();
-            z = j != this.axL.d();
+            j = trustSubject.AO();
+            z = j != this.ayu.d();
         } else {
             j = 0;
             z = false;
         }
-        boolean z4 = TextUtils.isEmpty(this.axL.c()) || this.axL.a() == null || TextUtils.isEmpty(this.axL.b());
+        boolean z4 = TextUtils.isEmpty(this.ayu.c()) || this.ayu.a() == null || TextUtils.isEmpty(this.ayu.b());
         if (z4 || z) {
-            C0151a b2 = trustSubject != null ? C0151a.b(trustSubject) : null;
+            C0155a b2 = trustSubject != null ? C0155a.b(trustSubject) : null;
             try {
-                str = Settings.Secure.getString(this.axF.applicationContext.getContentResolver(), "android_id");
+                str = Settings.Secure.getString(this.ayo.applicationContext.getContentResolver(), "android_id");
             } catch (Throwable th) {
             }
             if (TextUtils.isEmpty(str)) {
@@ -260,7 +260,7 @@ public class a extends com.baidu.helios.ids.a {
                 if (b2 != null && b2.a(str)) {
                     z2 = true;
                 }
-            } else if (b2 != null && this.axL.b(1L) == 0 && b2.b(str)) {
+            } else if (b2 != null && this.ayu.b(1L) == 0 && b2.b(str)) {
                 z2 = true;
             } else {
                 z3 = false;
@@ -269,19 +269,19 @@ public class a extends com.baidu.helios.ids.a {
                 String str2 = "com.helios" + str;
                 if (z2) {
                     String uuid = UUID.randomUUID().toString();
-                    this.axL.c(uuid);
+                    this.ayu.c(uuid);
                     str2 = str2 + uuid;
-                    this.axL.a(1L, 1L);
+                    this.ayu.a(1L, 1L);
                 }
-                byte[] ac = f.ac(str2, "utf-8");
-                String D = D(ac);
-                this.axL.a(ac);
-                this.axL.a(System.currentTimeMillis());
-                this.axL.a(str);
-                this.axL.b(D);
+                byte[] af = f.af(str2, "utf-8");
+                String D = D(af);
+                this.ayu.a(af);
+                this.ayu.a(System.currentTimeMillis());
+                this.ayu.a(str);
+                this.ayu.b(D);
             }
-            this.axL.c(j);
-            this.axL.f();
+            this.ayu.c(j);
+            this.ayu.f();
         }
     }
 }

@@ -14,7 +14,7 @@ import kotlin.h;
 import kotlin.jvm.internal.o;
 import kotlin.jvm.internal.q;
 @h
-/* loaded from: classes5.dex */
+/* loaded from: classes11.dex */
 public class Config {
     public static final Companion Companion = new Companion(null);
     public static final String FLOATING_CLOSE_WARNING = "floating_close_warning";
@@ -37,7 +37,7 @@ public class Config {
     private final Set<String> filter = new LinkedHashSet();
 
     @h
-    /* loaded from: classes5.dex */
+    /* loaded from: classes11.dex */
     public static final class Companion {
         private Companion() {
         }
@@ -52,7 +52,7 @@ public class Config {
     }
 
     public final void setBlockOffset(Rect rect) {
-        q.m(rect, "<set-?>");
+        q.n(rect, "<set-?>");
         this.blockOffset = rect;
     }
 
@@ -61,7 +61,7 @@ public class Config {
     }
 
     public final void setLocation(Pair<Integer, Integer> pair) {
-        q.m(pair, "<set-?>");
+        q.n(pair, "<set-?>");
         this.location = pair;
     }
 
@@ -70,7 +70,7 @@ public class Config {
     }
 
     public final void setSize(Pair<Integer, Integer> pair) {
-        q.m(pair, "<set-?>");
+        q.n(pair, "<set-?>");
         this.size = pair;
     }
 
@@ -88,7 +88,7 @@ public class Config {
     }
 
     public final void setScaleMode(Pair<? extends ScaleMode, ? extends ScaleMode> pair) {
-        q.m(pair, "<set-?>");
+        q.n(pair, "<set-?>");
         this.scaleMode = pair;
     }
 
@@ -145,7 +145,7 @@ public class Config {
     }
 
     public final void setFloatViewListeners(ArrayList<FloatViewListener> arrayList) {
-        q.m(arrayList, "<set-?>");
+        q.n(arrayList, "<set-?>");
         this.floatViewListeners = arrayList;
     }
 

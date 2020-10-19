@@ -1,13 +1,13 @@
 package com.baidu.swan.pms.d.a;
 
-import com.baidu.swan.pms.c.d.g;
+import com.baidu.swan.pms.a.g;
 import com.baidu.swan.pms.node.c;
 import org.json.JSONArray;
-/* loaded from: classes24.dex */
+/* loaded from: classes15.dex */
 public interface a {
-    c<JSONArray> amA();
+    g apl();
 
-    g amB();
+    c<JSONArray> apm();
 
-    com.baidu.swan.pms.a.g amz();
+    com.baidu.swan.pms.c.d.g apn();
 }

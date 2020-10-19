@@ -6,13 +6,15 @@ import android.widget.ImageView;
 import android.widget.Toast;
 import com.baidu.mapapi.walknavi.adapter.IWMoreNPCModelOnClickListener;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes3.dex */
+/* loaded from: classes7.dex */
 public class aa implements View.OnClickListener {
-    final /* synthetic */ c a;
+
+    /* renamed from: a  reason: collision with root package name */
+    final /* synthetic */ c f3021a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public aa(c cVar) {
-        this.a = cVar;
+        this.f3021a = cVar;
     }
 
     @Override // android.view.View.OnClickListener
@@ -23,14 +25,14 @@ public class aa implements View.OnClickListener {
         Context context;
         if (com.baidu.platform.comapi.walknavi.d.e.c().p()) {
             if (com.baidu.platform.comapi.walknavi.d.e.c().j()) {
-                context = this.a.l;
+                context = this.f3021a.l;
                 Toast.makeText(context, "模型下载中, 请稍候", 0).show();
                 return;
             }
-            iWMoreNPCModelOnClickListener = this.a.X;
+            iWMoreNPCModelOnClickListener = this.f3021a.X;
             if (iWMoreNPCModelOnClickListener != null) {
-                iWMoreNPCModelOnClickListener2 = this.a.X;
-                imageView = this.a.O;
+                iWMoreNPCModelOnClickListener2 = this.f3021a.X;
+                imageView = this.f3021a.O;
                 iWMoreNPCModelOnClickListener2.onMoreNPCModelOnClick(imageView);
             }
         }

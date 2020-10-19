@@ -4,15 +4,17 @@ import android.content.Context;
 import com.baidu.live.tbadk.core.frameworkdata.CmdConfigSocket;
 import org.json.JSONObject;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes5.dex */
+/* loaded from: classes16.dex */
 public final class b implements com.sdk.base.framework.b.a<T> {
-    private /* synthetic */ int a;
+
+    /* renamed from: a  reason: collision with root package name */
+    private /* synthetic */ int f4520a;
     private /* synthetic */ a b;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public b(a aVar, int i) {
         this.b = aVar;
-        this.a = i;
+        this.f4520a = i;
     }
 
     @Override // com.sdk.base.framework.b.a
@@ -32,7 +34,7 @@ public final class b implements com.sdk.base.framework.b.a<T> {
         com.sdk.base.framework.f.j.b.b(context);
         if (i == 0) {
             context2 = this.b.d;
-            com.sdk.base.framework.a.a.a.a(context2, this.a, com.sdk.base.framework.a.a.a.a(t, str2));
+            com.sdk.base.framework.a.a.a.a(context2, this.f4520a, com.sdk.base.framework.a.a.a.a(t, str2));
             try {
                 context3 = this.b.d;
                 str3 = com.sdk.base.framework.f.l.a.a(context3, String.valueOf(t));
@@ -42,7 +44,7 @@ public final class b implements com.sdk.base.framework.b.a<T> {
                         return;
                     }
                     JSONObject jSONObject = new JSONObject(String.valueOf(str3));
-                    if (this.a == 1) {
+                    if (this.f4520a == 1) {
                         jSONObject.remove("fakeMobile");
                         str3 = jSONObject.toString();
                     }

@@ -19,14 +19,16 @@ import tv.chushou.zues.utils.h;
 public class b extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
     private String f;
     private boolean j;
-    private com.kascend.chushou.view.a.a<ListItem> nTn;
-    private com.kascend.chushou.view.a.a<PannelItem> oht;
+    private com.kascend.chushou.view.a.a<ListItem> oiF;
+    private com.kascend.chushou.view.a.a<PannelItem> owM;
     private final List<Object> c = new ArrayList();
     private boolean g = true;
     private boolean h = false;
     private boolean i = false;
     public boolean b = false;
-    HashMap<PannelItem, Integer> a = new HashMap<>();
+
+    /* renamed from: a  reason: collision with root package name */
+    HashMap<PannelItem, Integer> f4221a = new HashMap<>();
 
     public static int a(int i, int i2) {
         switch (i) {
@@ -40,8 +42,8 @@ public class b extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
     public b(String str, com.kascend.chushou.view.a.a<PannelItem> aVar, com.kascend.chushou.view.a.a<ListItem> aVar2, boolean z) {
         this.j = false;
         this.f = str;
-        this.oht = new com.kascend.chushou.view.a.b(aVar);
-        this.nTn = new com.kascend.chushou.view.a.b(aVar2);
+        this.owM = new com.kascend.chushou.view.a.b(aVar);
+        this.oiF = new com.kascend.chushou.view.a.b(aVar2);
         this.j = z;
     }
 
@@ -53,7 +55,7 @@ public class b extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
 
     private void b(List<PannelItem> list) {
         this.b = false;
-        this.a.clear();
+        this.f4221a.clear();
         a(true);
         if (!h.isEmpty(list)) {
             for (PannelItem pannelItem : list) {
@@ -118,7 +120,7 @@ public class b extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
             case 6:
                 return new e(from.inflate(a.h.item_listitem_sliding_small_poster, viewGroup, false), this.f, "10");
             case 22:
-                return new a(from.inflate(a.h.item_listitem_double_room_home, viewGroup, false), this.nTn, this.j ? false : true, this.f);
+                return new a(from.inflate(a.h.item_listitem_double_room_home, viewGroup, false), this.oiF, this.j ? false : true, this.f);
             case 34:
                 return new e(from.inflate(a.h.item_listitem_sliding_small_poster, viewGroup, false), this.f, "32");
             default:
@@ -149,7 +151,7 @@ public class b extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
                         return;
                     case 6:
                     case 34:
-                        ((e) viewHolder).a(pannelItem, NU(i));
+                        ((e) viewHolder).a(pannelItem, OA(i));
                         return;
                     default:
                         return;
@@ -179,14 +181,14 @@ public class b extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
         this.h = z;
     }
 
-    public int bz(Object obj) {
+    public int bC(Object obj) {
         if (this.c != null) {
             return this.c.indexOf(obj);
         }
         return -1;
     }
 
-    private int[] NU(int i) {
+    private int[] OA(int i) {
         int i2;
         if (i - 1 >= 0) {
             i2 = 0;

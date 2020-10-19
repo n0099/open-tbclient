@@ -2,52 +2,52 @@ package com.baidu.swan.apps.performance.e;
 
 import android.text.TextUtils;
 import java.util.HashMap;
-/* loaded from: classes3.dex */
+/* loaded from: classes10.dex */
 public final class d {
-    private static volatile d cJJ;
-    private HashMap<String, e> cJK;
-    private HashMap<String, e> cJL;
-    private HashMap<String, e> cJM;
+    private static volatile d cVM;
+    private HashMap<String, e> cVN;
+    private HashMap<String, e> cVO;
+    private HashMap<String, e> cVP;
 
     private d() {
-        axk();
+        azV();
     }
 
-    public static d axj() {
-        if (cJJ == null) {
+    public static d azU() {
+        if (cVM == null) {
             synchronized (d.class) {
-                if (cJJ == null) {
-                    cJJ = new d();
+                if (cVM == null) {
+                    cVM = new d();
                 }
             }
         }
-        return cJJ;
+        return cVM;
     }
 
     public static synchronized void releaseInstance() {
         synchronized (d.class) {
-            if (cJJ != null) {
-                cJJ.release();
-                cJJ = null;
+            if (cVM != null) {
+                cVM.release();
+                cVM = null;
             }
         }
     }
 
     private void release() {
-        if (this.cJK != null) {
-            this.cJK.clear();
+        if (this.cVN != null) {
+            this.cVN.clear();
         }
-        if (this.cJL != null) {
-            this.cJL.clear();
+        if (this.cVO != null) {
+            this.cVO.clear();
         }
-        if (this.cJM != null) {
-            this.cJM.clear();
+        if (this.cVP != null) {
+            this.cVP.clear();
         }
     }
 
-    public void c(String str, String str2, long j) {
+    public void d(String str, String str2, long j) {
         if (!TextUtils.isEmpty(str) && !TextUtils.isEmpty(str2) && j >= 0) {
-            axk();
+            azV();
             char c = 65535;
             switch (str2.hashCode()) {
                 case -1880922749:
@@ -91,12 +91,12 @@ public final class d {
                 case 0:
                 case 1:
                 case 2:
-                    d(str, str2, j);
+                    e(str, str2, j);
                     return;
                 case 3:
                 case 4:
                 case 5:
-                    e(str, str2, j);
+                    f(str, str2, j);
                     return;
                 default:
                     return;
@@ -104,19 +104,19 @@ public final class d {
         }
     }
 
-    private void axk() {
-        if (this.cJK == null) {
-            this.cJK = new HashMap<>();
+    private void azV() {
+        if (this.cVN == null) {
+            this.cVN = new HashMap<>();
         }
-        if (this.cJL == null) {
-            this.cJL = new HashMap<>();
+        if (this.cVO == null) {
+            this.cVO = new HashMap<>();
         }
-        if (this.cJM == null) {
-            this.cJM = new HashMap<>();
+        if (this.cVP == null) {
+            this.cVP = new HashMap<>();
         }
     }
 
-    private void d(String str, String str2, long j) {
+    private void e(String str, String str2, long j) {
         if (!TextUtils.isEmpty(str) && !TextUtils.isEmpty(str2)) {
             e eVar = null;
             char c = 65535;
@@ -142,26 +142,26 @@ public final class d {
             }
             switch (c) {
                 case 0:
-                    eVar = this.cJK.get(str);
+                    eVar = this.cVN.get(str);
                     if (eVar == null) {
                         eVar = new b();
-                        this.cJK.put(str, eVar);
+                        this.cVN.put(str, eVar);
                         break;
                     }
                     break;
                 case 1:
-                    eVar = this.cJL.get(str);
+                    eVar = this.cVO.get(str);
                     if (eVar == null) {
                         eVar = new a();
-                        this.cJL.put(str, eVar);
+                        this.cVO.put(str, eVar);
                         break;
                     }
                     break;
                 case 2:
-                    eVar = this.cJM.get(str);
+                    eVar = this.cVP.get(str);
                     if (eVar == null) {
                         eVar = new c();
-                        this.cJM.put(str, eVar);
+                        this.cVP.put(str, eVar);
                         break;
                     }
                     break;
@@ -172,7 +172,7 @@ public final class d {
         }
     }
 
-    private void e(String str, String str2, long j) {
+    private void f(String str, String str2, long j) {
         if (!TextUtils.isEmpty(str) && !TextUtils.isEmpty(str2)) {
             e eVar = null;
             char c = 65535;
@@ -198,18 +198,18 @@ public final class d {
             }
             switch (c) {
                 case 0:
-                    eVar = this.cJK.remove(str);
+                    eVar = this.cVN.remove(str);
                     break;
                 case 1:
-                    eVar = this.cJL.remove(str);
+                    eVar = this.cVO.remove(str);
                     break;
                 case 2:
-                    eVar = this.cJM.remove(str);
+                    eVar = this.cVP.remove(str);
                     break;
             }
             if (eVar != null) {
                 eVar.setEnd(j);
-                p(eVar.getType(), eVar.aiT());
+                p(eVar.getType(), eVar.alE());
             }
         }
     }
@@ -239,13 +239,13 @@ public final class d {
             }
             switch (c) {
                 case 0:
-                    com.baidu.swan.apps.am.e.dck.X(Long.valueOf(j));
+                    com.baidu.swan.apps.am.e.dou.aa(Long.valueOf(j));
                     return;
                 case 1:
-                    com.baidu.swan.apps.am.e.dcl.X(Long.valueOf(j));
+                    com.baidu.swan.apps.am.e.dov.aa(Long.valueOf(j));
                     return;
                 case 2:
-                    com.baidu.swan.apps.am.e.dcm.X(Long.valueOf(j));
+                    com.baidu.swan.apps.am.e.dow.aa(Long.valueOf(j));
                     return;
                 default:
                     return;

@@ -7,7 +7,7 @@ import kotlin.i;
 import kotlin.jvm.internal.q;
 import kotlin.l;
 @h
-/* loaded from: classes5.dex */
+/* loaded from: classes10.dex */
 public abstract class BaseContinuationImpl implements Serializable, kotlin.coroutines.a<Object>, b {
     private final kotlin.coroutines.a<Object> completion;
 
@@ -29,17 +29,17 @@ public abstract class BaseContinuationImpl implements Serializable, kotlin.corou
         while (true) {
             kotlin.coroutines.a<Object> aVar = baseContinuationImpl.completion;
             if (aVar == null) {
-                q.ekp();
+                q.eob();
             }
             try {
                 invokeSuspend = baseContinuationImpl.invokeSuspend(obj);
             } catch (Throwable th) {
                 Result.a aVar2 = Result.Companion;
-                obj = Result.m592constructorimpl(i.P(th));
+                obj = Result.m593constructorimpl(i.P(th));
             }
-            if (invokeSuspend != kotlin.coroutines.intrinsics.a.ekj()) {
+            if (invokeSuspend != kotlin.coroutines.intrinsics.a.enV()) {
                 Result.a aVar3 = Result.Companion;
-                obj = Result.m592constructorimpl(invokeSuspend);
+                obj = Result.m593constructorimpl(invokeSuspend);
                 baseContinuationImpl.releaseIntercepted();
                 if (aVar instanceof BaseContinuationImpl) {
                     baseContinuationImpl = (BaseContinuationImpl) aVar;
@@ -57,12 +57,12 @@ public abstract class BaseContinuationImpl implements Serializable, kotlin.corou
     }
 
     public kotlin.coroutines.a<l> create(kotlin.coroutines.a<?> aVar) {
-        q.m(aVar, "completion");
+        q.n(aVar, "completion");
         throw new UnsupportedOperationException("create(Continuation) has not been overridden");
     }
 
     public kotlin.coroutines.a<l> create(Object obj, kotlin.coroutines.a<?> aVar) {
-        q.m(aVar, "completion");
+        q.n(aVar, "completion");
         throw new UnsupportedOperationException("create(Any?;Continuation) has not been overridden");
     }
 

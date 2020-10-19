@@ -4,9 +4,11 @@ import android.webkit.JsPromptResult;
 import android.webkit.JsResult;
 import android.webkit.WebChromeClient;
 import android.webkit.WebView;
-/* loaded from: classes21.dex */
+/* loaded from: classes22.dex */
 public final class a extends WebChromeClient {
-    private final String a = "InjectedChromeClient";
+
+    /* renamed from: a  reason: collision with root package name */
+    private final String f3707a = "InjectedChromeClient";
     private b b;
     private boolean c;
 

@@ -4,11 +4,13 @@ import java.util.concurrent.ExecutorService;
 import java.util.concurrent.LinkedBlockingQueue;
 import java.util.concurrent.ThreadPoolExecutor;
 import java.util.concurrent.TimeUnit;
-/* loaded from: classes12.dex */
+/* loaded from: classes15.dex */
 public final class e {
-    private static final int a = Runtime.getRuntime().availableProcessors();
-    private static final int b = Math.max(2, Math.min(a - 1, 4));
-    private static final int c = (a * 2) + 1;
+
+    /* renamed from: a  reason: collision with root package name */
+    private static final int f4699a = Runtime.getRuntime().availableProcessors();
+    private static final int b = Math.max(2, Math.min(f4699a - 1, 4));
+    private static final int c = (f4699a * 2) + 1;
     private static ExecutorService d = a("COMMON_THREAD");
 
     public static ExecutorService a(String str) {

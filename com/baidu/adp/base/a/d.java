@@ -7,7 +7,7 @@ import com.baidu.adp.lib.util.BdLog;
 import java.io.File;
 /* loaded from: classes.dex */
 public abstract class d implements a {
-    private a.InterfaceC0016a HD;
+    private a.InterfaceC0017a HU;
     private SQLiteDatabase database = null;
     private final String dbFileFullPath;
     private int mVersion;
@@ -17,8 +17,8 @@ public abstract class d implements a {
     public abstract void createAllTables(SQLiteDatabase sQLiteDatabase);
 
     @Override // com.baidu.adp.base.a.a
-    public void a(a.InterfaceC0016a interfaceC0016a) {
-        this.HD = interfaceC0016a;
+    public void a(a.InterfaceC0017a interfaceC0017a) {
+        this.HU = interfaceC0017a;
     }
 
     public d(String str, int i) {
@@ -64,8 +64,8 @@ public abstract class d implements a {
     }
 
     private void exeCallback(SQLiteDatabase sQLiteDatabase) {
-        if (this.HD != null) {
-            this.HD.onDatabaseCreated(sQLiteDatabase);
+        if (this.HU != null) {
+            this.HU.onDatabaseCreated(sQLiteDatabase);
         }
     }
 

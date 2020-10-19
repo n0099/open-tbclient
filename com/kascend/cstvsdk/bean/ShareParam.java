@@ -53,7 +53,7 @@ public final class ShareParam {
         if (this != obj) {
             if (obj instanceof ShareParam) {
                 ShareParam shareParam = (ShareParam) obj;
-                if (!q.l((Object) this.title, (Object) shareParam.title) || !q.l((Object) this.thumbnail, (Object) shareParam.thumbnail) || !q.l((Object) this.content, (Object) shareParam.content) || !q.l((Object) this.url, (Object) shareParam.url) || !q.l((Object) this.pic, (Object) shareParam.pic)) {
+                if (!q.l(this.title, shareParam.title) || !q.l(this.thumbnail, shareParam.thumbnail) || !q.l(this.content, shareParam.content) || !q.l(this.url, shareParam.url) || !q.l(this.pic, shareParam.pic)) {
                 }
             }
             return false;

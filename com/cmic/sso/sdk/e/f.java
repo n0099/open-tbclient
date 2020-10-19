@@ -4,7 +4,7 @@ import android.content.Context;
 import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
 import com.baidu.webkit.internal.ETAG;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class f {
     private static PackageInfo U(Context context) {
         try {

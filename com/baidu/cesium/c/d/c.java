@@ -10,16 +10,16 @@ import javax.crypto.IllegalBlockSizeException;
 import javax.crypto.NoSuchPaddingException;
 import javax.crypto.spec.OAEPParameterSpec;
 import javax.crypto.spec.PSource;
-/* loaded from: classes18.dex */
+/* loaded from: classes6.dex */
 public final class c {
     private static final byte[] b = new byte[0];
-    private f amk;
-    private d amm;
+    private f amC;
+    private d amE;
     private int i;
     private byte[] m;
     private int n;
     private int o;
-    private OAEPParameterSpec aml = null;
+    private OAEPParameterSpec amD = null;
     private String q = "SHA-1";
     private String j = "PKCS1Padding";
 
@@ -42,25 +42,25 @@ public final class c {
             throw new InvalidKeyException("only support helios key");
         }
         this.i = z ? 1 : 4;
-        this.amm = dVar;
-        int a = b.a(this.amm.sM());
-        this.o = a;
+        this.amE = dVar;
+        int a2 = b.a(this.amE.sM());
+        this.o = a2;
         this.n = 0;
         if (this.j == "NoPadding") {
             if (algorithmParameterSpec != null) {
                 throw new InvalidAlgorithmParameterException("Parameters not supported");
             }
-            this.amk = f.b(3, a, secureRandom);
-            this.m = new byte[a];
+            this.amC = f.b(3, a2, secureRandom);
+            this.m = new byte[a2];
         } else if (this.j == "PKCS1Padding") {
             if (algorithmParameterSpec != null) {
                 throw new InvalidAlgorithmParameterException("Parameters not supported");
             }
-            this.amk = f.b(this.i <= 2 ? 2 : 1, a, secureRandom);
+            this.amC = f.b(this.i <= 2 ? 2 : 1, a2, secureRandom);
             if (z) {
-                this.m = new byte[this.amk.a()];
+                this.m = new byte[this.amC.a()];
             } else {
-                this.m = new byte[a];
+                this.m = new byte[a2];
             }
         } else if (this.i == 3 || this.i == 4) {
             throw new InvalidKeyException("OAEP cannot be used to sign or verify signatures");
@@ -72,36 +72,36 @@ public final class c {
             } else {
                 oAEPParameterSpec = (OAEPParameterSpec) algorithmParameterSpec;
             }
-            this.amk = f.b(4, a, secureRandom, oAEPParameterSpec);
+            this.amC = f.b(4, a2, secureRandom, oAEPParameterSpec);
             if (z) {
-                this.m = new byte[this.amk.a()];
+                this.m = new byte[this.amC.a()];
             } else {
-                this.m = new byte[a];
+                this.m = new byte[a2];
             }
         }
     }
 
     private byte[] a() {
-        byte[] a;
+        byte[] a2;
         if (this.n > this.m.length) {
             throw new IllegalBlockSizeException("Data must not be longer than " + this.m.length + " bytes");
         }
         try {
             switch (this.i) {
                 case 1:
-                    a = b.a(this.amk.k(this.m, 0, this.n), this.amm);
+                    a2 = b.a(this.amC.k(this.m, 0, this.n), this.amE);
                     break;
                 case 2:
                     throw new UnsupportedOperationException("only verify supported");
                 case 3:
                     throw new UnsupportedOperationException("only verify supported");
                 case 4:
-                    a = this.amk.b(b.a(b.k(this.m, 0, this.n), this.amm));
+                    a2 = this.amC.b(b.a(b.k(this.m, 0, this.n), this.amE));
                     break;
                 default:
                     throw new AssertionError("Internal error");
             }
-            return a;
+            return a2;
         } finally {
             this.n = 0;
         }

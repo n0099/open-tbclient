@@ -8,17 +8,40 @@ import android.view.View;
 import android.view.inputmethod.InputMethodManager;
 import android.webkit.WebView;
 import android.widget.ListPopupWindow;
-/* loaded from: classes5.dex */
-final class InputAwareWebView extends WebView {
+/* JADX INFO: Access modifiers changed from: package-private */
+/* loaded from: classes12.dex */
+public final class InputAwareWebView extends WebView {
     private static final String TAG = "InputAwareWebView";
     private View containerView;
+    private OnScrollChangedCallback mOnScrollChangedCallback;
     private ThreadedInputConnectionProxyAdapterView proxyAdapterView;
     private View threadedInputConnectionProxyView;
+
+    /* loaded from: classes12.dex */
+    public interface OnScrollChangedCallback {
+        void onScroll(int i, int i2, int i3, int i4);
+    }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public InputAwareWebView(Context context, View view) {
         super(context);
         this.containerView = view;
+    }
+
+    @Override // android.webkit.WebView, android.view.View
+    protected void onScrollChanged(int i, int i2, int i3, int i4) {
+        super.onScrollChanged(i, i2, i3, i4);
+        if (this.mOnScrollChangedCallback != null) {
+            this.mOnScrollChangedCallback.onScroll(i, i2, i3, i4);
+        }
+    }
+
+    public OnScrollChangedCallback getOnScrollChangedCallback() {
+        return this.mOnScrollChangedCallback;
+    }
+
+    public void setOnScrollChangedCallback(OnScrollChangedCallback onScrollChangedCallback) {
+        this.mOnScrollChangedCallback = onScrollChangedCallback;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -100,7 +123,7 @@ final class InputAwareWebView extends WebView {
 
     @Override // android.webkit.WebView, android.view.View
     protected void onFocusChanged(boolean z, int i, Rect rect) {
-        if (Build.VERSION.SDK_INT >= 28 || !isCalledFromListPopupWindowShow() || z) {
+        if (Build.VERSION.SDK_INT >= 27 || !isCalledFromListPopupWindowShow() || z) {
             super.onFocusChanged(z, i, rect);
         }
     }

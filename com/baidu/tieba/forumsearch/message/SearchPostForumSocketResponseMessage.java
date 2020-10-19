@@ -5,7 +5,7 @@ import com.baidu.live.tbadk.core.frameworkdata.CmdConfigSocket;
 import com.baidu.tieba.forumsearch.b.c;
 import com.squareup.wire.Wire;
 import tbclient.SearchPostForum.SearchPostForumResIdl;
-/* loaded from: classes23.dex */
+/* loaded from: classes24.dex */
 public class SearchPostForumSocketResponseMessage extends SocketResponsedMessage {
     private c mSearchData;
 

@@ -5,24 +5,24 @@ import com.baidu.live.tbadk.core.util.StringHelper;
 import org.json.JSONObject;
 /* loaded from: classes4.dex */
 public class p {
-    public int aDW;
-    public long aDX;
-    public long aDY;
-    public long aDZ;
+    public int aHa;
+    public long aHb;
+    public long aHc;
+    public long aHd;
     public String bdPortrait;
-    public long fYw;
-    public boolean fYx;
-    public boolean fYy;
+    public long gkO;
+    public boolean gkP;
+    public boolean gkQ;
     public long userId;
     public String userName;
     public String userNickname;
 
     public void parserJson(JSONObject jSONObject) {
         if (jSONObject != null) {
-            this.aDW = jSONObject.optInt("current_rank");
-            this.aDX = jSONObject.optInt("current_charm_value");
-            this.aDY = jSONObject.optInt("up_charm_value");
-            this.aDZ = jSONObject.optInt("down_charm_value");
+            this.aHa = jSONObject.optInt("current_rank");
+            this.aHb = jSONObject.optInt("current_charm_value");
+            this.aHc = jSONObject.optInt("up_charm_value");
+            this.aHd = jSONObject.optInt("down_charm_value");
             this.userId = JavaTypesHelper.toLong(jSONObject.optString("user_id"), 0L);
             this.userName = jSONObject.optString("user_name");
             this.userNickname = jSONObject.optString("user_nickname");
@@ -32,8 +32,8 @@ public class p {
 
     public void a(h hVar) {
         if (hVar != null) {
-            this.aDW = hVar.rank;
-            this.aDX = JavaTypesHelper.toLong(hVar.point, 0L);
+            this.aHa = hVar.rank;
+            this.aHb = JavaTypesHelper.toLong(hVar.point, 0L);
             this.userId = hVar.user_id;
             this.userName = hVar.user_name;
             this.userNickname = hVar.user_nickname;
@@ -41,28 +41,28 @@ public class p {
         }
     }
 
-    public void dV(long j) {
-        this.aDY = j;
+    public void ee(long j) {
+        this.aHc = j;
     }
 
-    public void dW(long j) {
-        this.aDZ = j;
+    public void ef(long j) {
+        this.aHd = j;
     }
 
-    public void lf(boolean z) {
-        this.fYx = z;
+    public void lD(boolean z) {
+        this.gkP = z;
     }
 
-    public boolean bKp() {
-        return this.fYx;
+    public boolean bMZ() {
+        return this.gkP;
     }
 
-    public void lg(boolean z) {
-        this.fYy = z;
+    public void lE(boolean z) {
+        this.gkQ = z;
     }
 
-    public void dX(long j) {
-        this.fYw = j;
+    public void eg(long j) {
+        this.gkO = j;
     }
 
     public String getNameShow() {

@@ -11,7 +11,7 @@ import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes24.dex */
+/* loaded from: classes12.dex */
 public class LogFileUtil {
     public static final String ANALYTICS_FILE_NAME = "app_logs";
     private static final String ANALYTICS_FILE_SUFFIX = ".txt";

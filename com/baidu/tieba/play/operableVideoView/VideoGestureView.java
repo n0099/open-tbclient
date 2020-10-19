@@ -15,72 +15,73 @@ import android.widget.TextView;
 import com.baidu.tbadk.core.util.SvgManager;
 import com.baidu.tbadk.core.util.ap;
 import com.baidu.tieba.R;
+import org.webrtc.MediaStreamTrack;
 /* loaded from: classes.dex */
 public class VideoGestureView extends RelativeLayout {
-    private int jYR;
-    private ViewGroup lEF;
-    private ImageView lEG;
-    private ProgressBar lEH;
-    private ViewGroup lEI;
-    private ImageView lEJ;
-    private TextView lEK;
-    private int lEL;
-    private float lEM;
-    private int lEN;
+    private int kog;
+    private ViewGroup lTT;
+    private ImageView lTU;
+    private ProgressBar lTV;
+    private ViewGroup lTW;
+    private ImageView lTX;
+    private TextView lTY;
+    private int lTZ;
+    private float lUa;
+    private int lUb;
     private AudioManager mAudioManager;
     private int mProgress;
     private int mState;
 
     public VideoGestureView(Context context) {
         super(context);
-        this.jYR = 100;
-        this.lEM = 1.0f;
+        this.kog = 100;
+        this.lUa = 1.0f;
         this.mState = 0;
         init();
     }
 
     public VideoGestureView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.jYR = 100;
-        this.lEM = 1.0f;
+        this.kog = 100;
+        this.lUa = 1.0f;
         this.mState = 0;
         init();
     }
 
     public VideoGestureView(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.jYR = 100;
-        this.lEM = 1.0f;
+        this.kog = 100;
+        this.lUa = 1.0f;
         this.mState = 0;
         init();
     }
 
     private void init() {
         inflate(getContext(), R.layout.operable_video_gesture, this);
-        this.lEF = (ViewGroup) findViewById(R.id.video_gesture_progress_zone);
-        this.lEG = (ImageView) findViewById(R.id.video_gesture_progress_icon);
-        this.lEH = (ProgressBar) findViewById(R.id.video_gesture_progress_bar);
-        this.lEI = (ViewGroup) findViewById(R.id.video_gesture_ffrew_zone);
-        this.lEJ = (ImageView) findViewById(R.id.video_gesture_ffrew_icon);
-        this.lEK = (TextView) findViewById(R.id.video_gesture_ffrew_txt);
-        this.lEF.setBackgroundDrawable(ap.aO(getResources().getDimensionPixelOffset(R.dimen.tbds37), getResources().getColor(R.color.cp_mask_b_alpha33)));
-        this.mAudioManager = (AudioManager) getContext().getSystemService("audio");
+        this.lTT = (ViewGroup) findViewById(R.id.video_gesture_progress_zone);
+        this.lTU = (ImageView) findViewById(R.id.video_gesture_progress_icon);
+        this.lTV = (ProgressBar) findViewById(R.id.video_gesture_progress_bar);
+        this.lTW = (ViewGroup) findViewById(R.id.video_gesture_ffrew_zone);
+        this.lTX = (ImageView) findViewById(R.id.video_gesture_ffrew_icon);
+        this.lTY = (TextView) findViewById(R.id.video_gesture_ffrew_txt);
+        this.lTT.setBackgroundDrawable(ap.aN(getResources().getDimensionPixelOffset(R.dimen.tbds37), getResources().getColor(R.color.cp_mask_b_alpha33)));
+        this.mAudioManager = (AudioManager) getContext().getSystemService(MediaStreamTrack.AUDIO_TRACK_KIND);
         if (this.mAudioManager != null) {
-            this.jYR = this.mAudioManager.getStreamMaxVolume(3);
-            this.lEL = this.mAudioManager.getStreamVolume(3);
-            this.lEM = 100 / this.jYR;
+            this.kog = this.mAudioManager.getStreamMaxVolume(3);
+            this.lTZ = this.mAudioManager.getStreamVolume(3);
+            this.lUa = 100 / this.kog;
         }
     }
 
     public void B(boolean z, String str) {
         if (this.mState != 3) {
-            this.lEI.setVisibility(0);
-            this.lEF.setVisibility(8);
+            this.lTW.setVisibility(0);
+            this.lTT.setVisibility(8);
             setBackgroundResource(R.color.cp_mask_b_alpha33);
             this.mState = 3;
         }
-        this.lEK.setText(str);
-        SvgManager.bkl().a(this.lEJ, z ? R.drawable.ic_icon_pure_video_rewind44_svg : R.drawable.ic_icon_pure_video_forward44_svg, R.color.cp_mask_c_alpha100, (SvgManager.SvgResourceStateType) null);
+        this.lTY.setText(str);
+        SvgManager.bmU().a(this.lTX, z ? R.drawable.ic_icon_pure_video_rewind44_svg : R.drawable.ic_icon_pure_video_forward44_svg, R.color.cp_mask_c_alpha100, (SvgManager.SvgResourceStateType) null);
     }
 
     public void s(Context context, boolean z) {
@@ -90,11 +91,11 @@ public class VideoGestureView extends RelativeLayout {
     public void c(Context context, boolean z, int i) {
         int i2;
         if (this.mState != 1) {
-            this.lEI.setVisibility(8);
-            this.lEF.setVisibility(0);
-            this.lEH.setMax(100);
+            this.lTW.setVisibility(8);
+            this.lTT.setVisibility(0);
+            this.lTV.setMax(100);
             setBackgroundDrawable(null);
-            this.lEL = this.mAudioManager.getStreamVolume(3);
+            this.lTZ = this.mAudioManager.getStreamVolume(3);
             this.mState = 1;
         }
         if (z && this.mProgress < 100) {
@@ -109,7 +110,7 @@ public class VideoGestureView extends RelativeLayout {
         if (this.mProgress < 0) {
             this.mProgress = 0;
         }
-        this.lEL = (int) (this.mProgress / this.lEM);
+        this.lTZ = (int) (this.mProgress / this.lUa);
         if (this.mProgress == 0) {
             i2 = R.drawable.ic_icon_pure_video_silent16_svg;
         } else if (this.mProgress < 50) {
@@ -117,43 +118,43 @@ public class VideoGestureView extends RelativeLayout {
         } else {
             i2 = R.drawable.ic_icon_pure_video_sound_big16_svg;
         }
-        SvgManager.bkl().a(this.lEG, i2, R.color.cp_mask_c_alpha100, (SvgManager.SvgResourceStateType) null);
-        this.mAudioManager.setStreamVolume(3, this.lEL, 0);
-        this.lEH.setProgress(this.mProgress);
+        SvgManager.bmU().a(this.lTU, i2, R.color.cp_mask_c_alpha100, (SvgManager.SvgResourceStateType) null);
+        this.mAudioManager.setStreamVolume(3, this.lTZ, 0);
+        this.lTV.setProgress(this.mProgress);
     }
 
     public void t(Context context, boolean z) {
         int i;
         if (this.mState != 2) {
-            this.lEI.setVisibility(8);
-            this.lEF.setVisibility(0);
-            this.lEH.setMax(255);
+            this.lTW.setVisibility(8);
+            this.lTT.setVisibility(0);
+            this.lTV.setMax(255);
             setBackgroundDrawable(null);
-            this.lEN = Settings.System.getInt(context.getContentResolver(), "screen_brightness", 255);
+            this.lUb = Settings.System.getInt(context.getContentResolver(), "screen_brightness", 255);
             this.mState = 2;
         }
         if (z) {
-            this.lEN += 2;
+            this.lUb += 2;
         } else {
-            this.lEN -= 2;
+            this.lUb -= 2;
         }
-        if (this.lEN < 1) {
-            this.lEN = 1;
-        } else if (this.lEN > 255) {
-            this.lEN = 255;
+        if (this.lUb < 1) {
+            this.lUb = 1;
+        } else if (this.lUb > 255) {
+            this.lUb = 255;
         }
-        if (this.lEN <= 43) {
+        if (this.lUb <= 43) {
             i = R.drawable.ic_icon_pure_video_dark16_svg;
-        } else if (this.lEN <= 128) {
+        } else if (this.lUb <= 128) {
             i = R.drawable.ic_icon_pure_video_weaklight16_svg;
         } else {
             i = R.drawable.ic_icon_pure_video_highlight16_svg;
         }
-        SvgManager.bkl().a(this.lEG, i, R.color.cp_mask_c_alpha100, (SvgManager.SvgResourceStateType) null);
+        SvgManager.bmU().a(this.lTU, i, R.color.cp_mask_c_alpha100, (SvgManager.SvgResourceStateType) null);
         Window window = ((Activity) context).getWindow();
         WindowManager.LayoutParams attributes = window.getAttributes();
-        attributes.screenBrightness = this.lEN / 255.0f;
+        attributes.screenBrightness = this.lUb / 255.0f;
         window.setAttributes(attributes);
-        this.lEH.setProgress(this.lEN);
+        this.lTV.setProgress(this.lUb);
     }
 }

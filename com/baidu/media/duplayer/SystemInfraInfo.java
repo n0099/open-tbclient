@@ -3,7 +3,9 @@ package com.baidu.media.duplayer;
 import com.baidu.cyberplayer.sdk.CyberLog;
 /* loaded from: classes16.dex */
 public class SystemInfraInfo {
-    private boolean a = false;
+
+    /* renamed from: a  reason: collision with root package name */
+    private boolean f2254a = false;
     @Keep
     private long mBuildDateUTC;
     @Keep
@@ -45,12 +47,12 @@ public class SystemInfraInfo {
     }
 
     private void i() {
-        if (this.a) {
+        if (this.f2254a) {
             return;
         }
         nativeGetConstInfo();
         CyberLog.i("", "SystemInfraInfo mNumProcessors:" + this.mNumProcessors + " \nmMaxCpuFreq:" + this.mMaxCpuFreq + " \nmBuildDateUTC" + this.mBuildDateUTC);
-        this.a = true;
+        this.f2254a = true;
     }
 
     private native void nativeGetConstInfo();

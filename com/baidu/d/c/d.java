@@ -1,5 +1,5 @@
 package com.baidu.d.c;
-/* loaded from: classes11.dex */
+/* loaded from: classes9.dex */
 public interface d {
     String getDeviceId();
 
@@ -9,13 +9,13 @@ public interface d {
 
     String k(String str, boolean z);
 
-    String uO();
+    String uX();
 
-    String uP();
+    String uY();
 
-    String uQ();
+    String uZ();
 
-    String uR();
+    String va();
 
-    String uS();
+    String vb();
 }

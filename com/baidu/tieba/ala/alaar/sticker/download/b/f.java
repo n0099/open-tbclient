@@ -12,14 +12,14 @@ import java.net.ProtocolException;
 import java.net.URL;
 /* loaded from: classes4.dex */
 public class f implements com.baidu.tieba.ala.alaar.sticker.download.a.g {
-    private final g.a fBw;
+    private final g.a fNF;
     private volatile long mStartTime;
     private volatile int mStatus;
     private final String mUri;
 
     public f(String str, g.a aVar) {
         this.mUri = str;
-        this.fBw = aVar;
+        this.fNF = aVar;
     }
 
     @Override // com.baidu.tieba.ala.alaar.sticker.download.a.g
@@ -46,7 +46,7 @@ public class f implements com.baidu.tieba.ala.alaar.sticker.download.a.g {
     public void run() {
         Process.setThreadPriority(10);
         this.mStatus = 102;
-        this.fBw.onConnecting();
+        this.fNF.onConnecting();
         try {
             executeConnection();
         } catch (DownloadException e) {
@@ -126,7 +126,7 @@ public class f implements com.baidu.tieba.ala.alaar.sticker.download.a.g {
         }
         checkCanceledOrPaused();
         this.mStatus = 103;
-        this.fBw.onConnected(System.currentTimeMillis() - this.mStartTime, contentLength, z);
+        this.fNF.onConnected(System.currentTimeMillis() - this.mStartTime, contentLength, z);
     }
 
     private void checkCanceledOrPaused() throws DownloadException {
@@ -140,19 +140,19 @@ public class f implements com.baidu.tieba.ala.alaar.sticker.download.a.g {
 
     private void e(DownloadException downloadException) {
         if (downloadException.getErrorCode() == 108) {
-            synchronized (this.fBw) {
+            synchronized (this.fNF) {
                 this.mStatus = 108;
-                this.fBw.b(downloadException);
+                this.fNF.b(downloadException);
             }
         } else if (downloadException.getErrorCode() == 106) {
-            synchronized (this.fBw) {
+            synchronized (this.fNF) {
                 this.mStatus = 106;
-                this.fBw.onConnectPaused();
+                this.fNF.onConnectPaused();
             }
         } else if (downloadException.getErrorCode() == 107) {
-            synchronized (this.fBw) {
+            synchronized (this.fNF) {
                 this.mStatus = 107;
-                this.fBw.onConnectCanceled();
+                this.fNF.onConnectCanceled();
             }
         } else {
             throw new IllegalArgumentException("Unknown state");

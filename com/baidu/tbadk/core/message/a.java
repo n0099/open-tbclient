@@ -17,7 +17,7 @@ import com.baidu.tbadk.mutiprocess.f;
 import com.baidu.tbadk.mutiprocess.g;
 import com.baidu.tieba.tbadkCore.data.AgreeData;
 import com.baidu.tieba.tbadkCore.data.e;
-/* loaded from: classes20.dex */
+/* loaded from: classes21.dex */
 public class a {
     public void a(AgreeData agreeData, int i, BdUniqueId bdUniqueId, boolean z) {
         if (agreeData != null) {
@@ -85,39 +85,39 @@ public class a {
             if (agreeData.baijiahaoData != null) {
                 i = agreeData.baijiahaoData.oriUgcType;
             }
-            aq dF = new aq("c13271").ai("obj_type", cVar.dZd).ai("obj_locate", cVar.dZe).ai("obj_id", cVar.dZf).ai("obj_name", i).dF("post_id", agreeData.postId).dF("nid", agreeData.nid);
+            aq dK = new aq("c13271").aj("obj_type", cVar.elf).aj("obj_locate", cVar.elg).aj("obj_id", cVar.elh).aj("obj_name", i).dK("post_id", agreeData.postId).dK("nid", agreeData.nid);
             if (bwVar != null) {
-                dF.dF("tid", bwVar.getId()).dF("nid", bwVar.getNid()).u("fid", bwVar.getFid()).dF("ab_tag", bwVar.mRecomAbTag).dF(IntentConfig.RECOM_SOURCE, bwVar.mRecomSource).dF("weight", bwVar.mRecomWeight).dF("extra", bwVar.mRecomExtra);
+                dK.dK("tid", bwVar.getId()).dK("nid", bwVar.getNid()).u("fid", bwVar.getFid()).dK("ab_tag", bwVar.mRecomAbTag).dK(IntentConfig.RECOM_SOURCE, bwVar.mRecomSource).dK("weight", bwVar.mRecomWeight).dK("extra", bwVar.mRecomExtra);
                 if (bwVar.getBaijiahaoData() != null) {
-                    dF.dF("obj_param4", bwVar.getBaijiahaoData().oriUgcNid);
-                    if (bwVar.beh() || bwVar.bhu()) {
-                        dF.dF("obj_param6", bwVar.getBaijiahaoData().oriUgcVid);
+                    dK.dK("obj_param4", bwVar.getBaijiahaoData().oriUgcNid);
+                    if (bwVar.bgQ() || bwVar.bkd()) {
+                        dK.dK("obj_param6", bwVar.getBaijiahaoData().oriUgcVid);
                     }
                 }
-                if (bwVar.bhs()) {
-                    dF.ai("obj_param5", 2);
-                } else if (bwVar.beg() || bwVar.beh()) {
-                    dF.ai("obj_param5", 3);
+                if (bwVar.bkb()) {
+                    dK.aj("obj_param5", 2);
+                } else if (bwVar.bgP() || bwVar.bgQ()) {
+                    dK.aj("obj_param5", 3);
                 } else if (bwVar.threadType == 0 || bwVar.threadType == 40) {
-                    dF.ai("obj_param5", 1);
+                    dK.aj("obj_param5", 1);
                 }
             } else {
-                dF.dF("tid", agreeData.threadId);
-                dF.dF("nid", agreeData.nid);
-                dF.dF("fid", agreeData.forumId);
-                dF.ai(IntentConfig.CARD_TYPE, agreeData.cardType);
-                dF.dF("ab_tag", agreeData.recomAbTag);
-                dF.dF(IntentConfig.RECOM_SOURCE, agreeData.recomSource);
-                dF.dF("weight", agreeData.recomWeight);
-                dF.dF("extra", agreeData.recomExtra);
+                dK.dK("tid", agreeData.threadId);
+                dK.dK("nid", agreeData.nid);
+                dK.dK("fid", agreeData.forumId);
+                dK.aj(IntentConfig.CARD_TYPE, agreeData.cardType);
+                dK.dK("ab_tag", agreeData.recomAbTag);
+                dK.dK(IntentConfig.RECOM_SOURCE, agreeData.recomSource);
+                dK.dK("weight", agreeData.recomWeight);
+                dK.dK("extra", agreeData.recomExtra);
                 if (agreeData.baijiahaoData != null) {
-                    dF.dF("obj_param6", agreeData.baijiahaoData.oriUgcVid);
+                    dK.dK("obj_param6", agreeData.baijiahaoData.oriUgcVid);
                 }
             }
             if (context != null) {
-                com.baidu.tbadk.pageInfo.c.a(context, dF);
+                com.baidu.tbadk.pageInfo.c.a(context, dK);
             }
-            TiebaStatic.log(dF);
+            TiebaStatic.log(dK);
         }
     }
 }

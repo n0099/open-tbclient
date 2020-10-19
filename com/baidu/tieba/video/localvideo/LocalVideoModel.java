@@ -2,14 +2,14 @@ package com.baidu.tieba.video.localvideo;
 
 import com.baidu.adp.base.BdBaseModel;
 import com.baidu.tieba.video.localvideo.b;
-/* loaded from: classes22.dex */
+/* loaded from: classes23.dex */
 public class LocalVideoModel extends BdBaseModel {
-    private b.a mIG;
-    private LocalVideoActivity mIR;
+    private b.a mYn;
+    private LocalVideoActivity mYy;
 
     public LocalVideoModel(LocalVideoActivity localVideoActivity) {
         super(localVideoActivity.getPageContext());
-        this.mIR = localVideoActivity;
+        this.mYy = localVideoActivity;
     }
 
     @Override // com.baidu.adp.base.BdBaseModel
@@ -22,13 +22,13 @@ public class LocalVideoModel extends BdBaseModel {
         return false;
     }
 
-    public void dGv() {
-        b bVar = new b(this.mIR);
-        bVar.b(this.mIG);
+    public void dKh() {
+        b bVar = new b(this.mYy);
+        bVar.b(this.mYn);
         bVar.execute(new Void[0]);
     }
 
     public void a(b.a aVar) {
-        this.mIG = aVar;
+        this.mYn = aVar;
     }
 }

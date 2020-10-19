@@ -1,5 +1,5 @@
 package com.baidu.ar.arplay.representation;
-/* loaded from: classes10.dex */
+/* loaded from: classes14.dex */
 public class Quaternion extends Vector4f {
     private static final long serialVersionUID = -7148812599404359073L;
     Quaternion bufferQuaternion;
@@ -97,7 +97,7 @@ public class Quaternion extends Vector4f {
 
     /* JADX DEBUG: Method merged with bridge method */
     /* renamed from: clone */
-    public Quaternion m18clone() {
+    public Quaternion m17clone() {
         Quaternion quaternion = new Quaternion();
         quaternion.copyVec4(this);
         return quaternion;

@@ -16,7 +16,7 @@ import com.baidu.tbadk.core.util.ap;
 import com.baidu.tbadk.core.util.aq;
 import com.baidu.tieba.R;
 import com.baidu.tieba.pb.data.h;
-/* loaded from: classes21.dex */
+/* loaded from: classes22.dex */
 public class d extends com.baidu.adp.widget.ListView.a<h, a> {
     public d(Context context, BdUniqueId bdUniqueId) {
         super(context, bdUniqueId);
@@ -25,7 +25,7 @@ public class d extends com.baidu.adp.widget.ListView.a<h, a> {
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.widget.ListView.a
-    /* renamed from: co */
+    /* renamed from: cq */
     public a c(ViewGroup viewGroup) {
         FrameLayout frameLayout = new FrameLayout(this.mContext);
         CardForumHeadLayout cardForumHeadLayout = new CardForumHeadLayout(this.mContext);
@@ -58,51 +58,51 @@ public class d extends com.baidu.adp.widget.ListView.a<h, a> {
         if (hVar != null) {
             aVar.a(hVar);
         }
-        aVar.blA();
+        aVar.bok();
         return view;
     }
 
-    /* loaded from: classes21.dex */
+    /* loaded from: classes22.dex */
     public class a extends af.a implements View.OnClickListener {
-        View eis;
-        ImageView iFc;
-        View ilz;
-        CardForumHeadLayout kVZ;
-        private h kWa;
+        View bBf;
+        View euA;
+        ImageView iTS;
+        CardForumHeadLayout llm;
+        private h lln;
 
         public a(View view) {
             super(view);
-            this.kVZ = (CardForumHeadLayout) ((ViewGroup) view).getChildAt(0);
-            if (this.kVZ != null) {
-                this.kVZ.setOnClickListener(this.kVZ);
-                this.kVZ.setAfterClickListener(this);
+            this.llm = (CardForumHeadLayout) ((ViewGroup) view).getChildAt(0);
+            if (this.llm != null) {
+                this.llm.setOnClickListener(this.llm);
+                this.llm.setAfterClickListener(this);
             }
-            this.eis = ((ViewGroup) view).getChildAt(1);
-            this.iFc = (ImageView) ((ViewGroup) view).getChildAt(2);
-            this.ilz = ((ViewGroup) view).getChildAt(3);
+            this.euA = ((ViewGroup) view).getChildAt(1);
+            this.iTS = (ImageView) ((ViewGroup) view).getChildAt(2);
+            this.bBf = ((ViewGroup) view).getChildAt(3);
         }
 
         public void a(h hVar) {
             if (hVar != null) {
-                this.kWa = hVar;
-                this.ilz.setVisibility(hVar.kGj ? 0 : 8);
+                this.lln = hVar;
+                this.bBf.setVisibility(hVar.kVu ? 0 : 8);
                 if (getView() != null) {
-                    getView().setPadding(0, 0, 0, hVar.kGj ? l.getDimens(d.this.mContext, R.dimen.tbds42) : 0);
+                    getView().setPadding(0, 0, 0, hVar.kVu ? l.getDimens(d.this.mContext, R.dimen.tbds42) : 0);
                 }
-                this.kVZ.setData(hVar.forumName, hVar.kGi, hVar.postNum, hVar.memberNum);
+                this.llm.setData(hVar.forumName, hVar.kVt, hVar.postNum, hVar.memberNum);
             }
         }
 
-        public void blA() {
-            SvgManager.bkl().a(this.iFc, R.drawable.icon_pure_list_arrow16_right_svg, R.color.cp_cont_j, (SvgManager.SvgResourceStateType) null);
-            ap.setBackgroundColor(this.eis, R.color.cp_bg_line_b);
-            ap.setBackgroundColor(this.ilz, R.color.cp_bg_line_b);
-            this.kVZ.onChangeSkinType();
+        public void bok() {
+            SvgManager.bmU().a(this.iTS, R.drawable.icon_pure_list_arrow16_right_svg, R.color.cp_cont_j, (SvgManager.SvgResourceStateType) null);
+            ap.setBackgroundColor(this.euA, R.color.cp_bg_line_b);
+            ap.setBackgroundColor(this.bBf, R.color.cp_bg_line_b);
+            this.llm.onChangeSkinType();
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
-            TiebaStatic.log(new aq("c13698").dF("tid", this.kWa.tid).dF("fid", this.kWa.fid).u("uid", TbadkCoreApplication.getCurrentAccountId()));
+            TiebaStatic.log(new aq("c13698").dK("tid", this.lln.tid).dK("fid", this.lln.fid).u("uid", TbadkCoreApplication.getCurrentAccountId()));
         }
     }
 }

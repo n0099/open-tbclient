@@ -8,7 +8,7 @@ import com.baidu.fsg.base.utils.LogUtil;
 import com.baidu.fsg.base.utils.ResUtils;
 import java.util.ArrayList;
 import java.util.Collection;
-/* loaded from: classes15.dex */
+/* loaded from: classes16.dex */
 public final class RimStatisticsUtil {
     private static final String TAG = "logsender";
     private static boolean mInited = false;
@@ -17,16 +17,18 @@ public final class RimStatisticsUtil {
     private r mHttpImpl;
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes15.dex */
+    /* loaded from: classes16.dex */
     public static class a {
-        private static RimStatisticsUtil a = new RimStatisticsUtil();
+
+        /* renamed from: a  reason: collision with root package name */
+        private static RimStatisticsUtil f1481a = new RimStatisticsUtil();
 
         private a() {
         }
     }
 
     public static RimStatisticsUtil getInstance() {
-        return a.a;
+        return a.f1481a;
     }
 
     private RimStatisticsUtil() {

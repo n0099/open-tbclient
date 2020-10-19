@@ -4,15 +4,15 @@ import com.baidu.live.data.u;
 import com.baidu.live.tbadk.TbPageContext;
 /* loaded from: classes4.dex */
 public interface a {
-    void Lt();
-
-    com.baidu.live.core.a.a bX(boolean z);
+    void My();
 
     void c(TbPageContext tbPageContext);
 
-    void hi(String str);
+    com.baidu.live.core.a.a ca(boolean z);
 
-    void i(u uVar);
+    void f(u uVar);
+
+    void hz(String str);
 
     void j(u uVar);
 

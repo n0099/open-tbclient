@@ -6,20 +6,20 @@ import io.reactivex.v;
 import java.util.concurrent.ThreadFactory;
 import java.util.concurrent.TimeUnit;
 import java.util.concurrent.atomic.AtomicReference;
-/* loaded from: classes25.dex */
+/* loaded from: classes17.dex */
 public final class a extends v implements h {
-    static final b ozf;
-    static final RxThreadFactory ozg;
-    static final int ozh = ea(Runtime.getRuntime().availableProcessors(), Integer.getInteger("rx2.computation-threads", 0).intValue());
-    static final c ozi = new c(new RxThreadFactory("RxComputationShutdown"));
-    final ThreadFactory ozj;
-    final AtomicReference<b> ozk;
+    static final b oOu;
+    static final RxThreadFactory oOv;
+    static final int oOw = ea(Runtime.getRuntime().availableProcessors(), Integer.getInteger("rx2.computation-threads", 0).intValue());
+    static final c oOx = new c(new RxThreadFactory("RxComputationShutdown"));
+    final ThreadFactory oOy;
+    final AtomicReference<b> oOz;
 
     static {
-        ozi.dispose();
-        ozg = new RxThreadFactory("RxComputationThreadPool", Math.max(1, Math.min(10, Integer.getInteger("rx2.computation-priority", 5).intValue())), true);
-        ozf = new b(0, ozg);
-        ozf.shutdown();
+        oOx.dispose();
+        oOv = new RxThreadFactory("RxComputationThreadPool", Math.max(1, Math.min(10, Integer.getInteger("rx2.computation-priority", 5).intValue())), true);
+        oOu = new b(0, oOv);
+        oOu.shutdown();
     }
 
     static int ea(int i, int i2) {
@@ -27,49 +27,49 @@ public final class a extends v implements h {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes25.dex */
+    /* loaded from: classes17.dex */
     public static final class b implements h {
         long n;
-        final int ozp;
-        final c[] ozq;
+        final int oOE;
+        final c[] oOF;
 
         b(int i, ThreadFactory threadFactory) {
-            this.ozp = i;
-            this.ozq = new c[i];
+            this.oOE = i;
+            this.oOF = new c[i];
             for (int i2 = 0; i2 < i; i2++) {
-                this.ozq[i2] = new c(threadFactory);
+                this.oOF[i2] = new c(threadFactory);
             }
         }
 
-        public c ejt() {
-            int i = this.ozp;
+        public c enf() {
+            int i = this.oOE;
             if (i == 0) {
-                return a.ozi;
+                return a.oOx;
             }
-            c[] cVarArr = this.ozq;
+            c[] cVarArr = this.oOF;
             long j = this.n;
             this.n = 1 + j;
             return cVarArr[(int) (j % i)];
         }
 
         public void shutdown() {
-            for (c cVar : this.ozq) {
+            for (c cVar : this.oOF) {
                 cVar.dispose();
             }
         }
 
         @Override // io.reactivex.internal.schedulers.h
         public void a(int i, h.a aVar) {
-            int i2 = this.ozp;
+            int i2 = this.oOE;
             if (i2 == 0) {
                 for (int i3 = 0; i3 < i; i3++) {
-                    aVar.a(i3, a.ozi);
+                    aVar.a(i3, a.oOx);
                 }
                 return;
             }
             int i4 = ((int) this.n) % i2;
             for (int i5 = 0; i5 < i; i5++) {
-                aVar.a(i5, new C0964a(this.ozq[i4]));
+                aVar.a(i5, new C0982a(this.oOF[i4]));
                 i4++;
                 if (i4 == i2) {
                     i4 = 0;
@@ -80,65 +80,65 @@ public final class a extends v implements h {
     }
 
     public a() {
-        this(ozg);
+        this(oOv);
     }
 
     public a(ThreadFactory threadFactory) {
-        this.ozj = threadFactory;
-        this.ozk = new AtomicReference<>(ozf);
+        this.oOy = threadFactory;
+        this.oOz = new AtomicReference<>(oOu);
         start();
     }
 
     @Override // io.reactivex.v
-    public v.c eja() {
-        return new C0964a(this.ozk.get().ejt());
+    public v.c emL() {
+        return new C0982a(this.oOz.get().enf());
     }
 
     @Override // io.reactivex.internal.schedulers.h
     public void a(int i, h.a aVar) {
-        io.reactivex.internal.functions.a.bM(i, "number > 0 required");
-        this.ozk.get().a(i, aVar);
+        io.reactivex.internal.functions.a.bW(i, "number > 0 required");
+        this.oOz.get().a(i, aVar);
     }
 
     @Override // io.reactivex.v
     public io.reactivex.disposables.b b(Runnable runnable, long j, TimeUnit timeUnit) {
-        return this.ozk.get().ejt().b(runnable, j, timeUnit);
+        return this.oOz.get().enf().b(runnable, j, timeUnit);
     }
 
     @Override // io.reactivex.v
     public io.reactivex.disposables.b a(Runnable runnable, long j, long j2, TimeUnit timeUnit) {
-        return this.ozk.get().ejt().a(runnable, j, j2, timeUnit);
+        return this.oOz.get().enf().a(runnable, j, j2, timeUnit);
     }
 
     @Override // io.reactivex.v
     public void start() {
-        b bVar = new b(ozh, this.ozj);
-        if (!this.ozk.compareAndSet(ozf, bVar)) {
+        b bVar = new b(oOw, this.oOy);
+        if (!this.oOz.compareAndSet(oOu, bVar)) {
             bVar.shutdown();
         }
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* renamed from: io.reactivex.internal.schedulers.a$a  reason: collision with other inner class name */
-    /* loaded from: classes25.dex */
-    public static final class C0964a extends v.c {
+    /* loaded from: classes17.dex */
+    public static final class C0982a extends v.c {
         volatile boolean disposed;
-        private final io.reactivex.internal.disposables.e ozl = new io.reactivex.internal.disposables.e();
-        private final io.reactivex.disposables.a ozm = new io.reactivex.disposables.a();
-        private final io.reactivex.internal.disposables.e ozn = new io.reactivex.internal.disposables.e();
-        private final c ozo;
+        private final io.reactivex.internal.disposables.e oOA = new io.reactivex.internal.disposables.e();
+        private final io.reactivex.disposables.a oOB = new io.reactivex.disposables.a();
+        private final io.reactivex.internal.disposables.e oOC = new io.reactivex.internal.disposables.e();
+        private final c oOD;
 
-        C0964a(c cVar) {
-            this.ozo = cVar;
-            this.ozn.a(this.ozl);
-            this.ozn.a(this.ozm);
+        C0982a(c cVar) {
+            this.oOD = cVar;
+            this.oOC.a(this.oOA);
+            this.oOC.a(this.oOB);
         }
 
         @Override // io.reactivex.disposables.b
         public void dispose() {
             if (!this.disposed) {
                 this.disposed = true;
-                this.ozn.dispose();
+                this.oOC.dispose();
             }
         }
 
@@ -149,17 +149,17 @@ public final class a extends v implements h {
 
         @Override // io.reactivex.v.c
         public io.reactivex.disposables.b G(Runnable runnable) {
-            return this.disposed ? EmptyDisposable.INSTANCE : this.ozo.a(runnable, 0L, TimeUnit.MILLISECONDS, this.ozl);
+            return this.disposed ? EmptyDisposable.INSTANCE : this.oOD.a(runnable, 0L, TimeUnit.MILLISECONDS, this.oOA);
         }
 
         @Override // io.reactivex.v.c
         public io.reactivex.disposables.b c(Runnable runnable, long j, TimeUnit timeUnit) {
-            return this.disposed ? EmptyDisposable.INSTANCE : this.ozo.a(runnable, j, timeUnit, this.ozm);
+            return this.disposed ? EmptyDisposable.INSTANCE : this.oOD.a(runnable, j, timeUnit, this.oOB);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes25.dex */
+    /* loaded from: classes17.dex */
     public static final class c extends f {
         c(ThreadFactory threadFactory) {
             super(threadFactory);

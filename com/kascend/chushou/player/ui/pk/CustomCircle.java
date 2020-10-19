@@ -15,12 +15,14 @@ public class CustomCircle implements Parcelable {
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // android.os.Parcelable.Creator
-        /* renamed from: NS */
+        /* renamed from: Oy */
         public CustomCircle[] newArray(int i) {
             return new CustomCircle[i];
         }
     };
-    public float a;
+
+    /* renamed from: a  reason: collision with root package name */
+    public float f4188a;
     public float b;
     public float c;
     public float d;
@@ -29,7 +31,7 @@ public class CustomCircle implements Parcelable {
     }
 
     public CustomCircle(Parcel parcel) {
-        this.a = parcel.readFloat();
+        this.f4188a = parcel.readFloat();
         this.b = parcel.readFloat();
         this.c = parcel.readFloat();
         this.d = parcel.readFloat();
@@ -42,7 +44,7 @@ public class CustomCircle implements Parcelable {
 
     @Override // android.os.Parcelable
     public void writeToParcel(Parcel parcel, int i) {
-        parcel.writeFloat(this.a);
+        parcel.writeFloat(this.f4188a);
         parcel.writeFloat(this.b);
         parcel.writeFloat(this.c);
         parcel.writeFloat(this.d);
@@ -50,7 +52,7 @@ public class CustomCircle implements Parcelable {
 
     public String toString() {
         StringBuilder sb = new StringBuilder("{");
-        sb.append("\"pointX\":").append(this.a).append(Constants.ACCEPT_TIME_SEPARATOR_SP);
+        sb.append("\"pointX\":").append(this.f4188a).append(Constants.ACCEPT_TIME_SEPARATOR_SP);
         sb.append("\"pointY\":").append(this.b).append(Constants.ACCEPT_TIME_SEPARATOR_SP);
         sb.append("\"angle\":").append(this.c).append(Constants.ACCEPT_TIME_SEPARATOR_SP);
         sb.append("\"radius\":").append(this.d).append(Constants.ACCEPT_TIME_SEPARATOR_SP);

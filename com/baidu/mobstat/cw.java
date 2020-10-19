@@ -1,7 +1,9 @@
 package com.baidu.mobstat;
-/* loaded from: classes15.dex */
+/* loaded from: classes17.dex */
 public class cw extends cy implements da {
-    private short a;
+
+    /* renamed from: a  reason: collision with root package name */
+    private short f2609a;
     private String b;
 
     @Override // com.baidu.mobstat.cz
@@ -16,6 +18,6 @@ public class cw extends cy implements da {
 
     @Override // com.baidu.mobstat.da
     public void a(short s) {
-        this.a = s;
+        this.f2609a = s;
     }
 }

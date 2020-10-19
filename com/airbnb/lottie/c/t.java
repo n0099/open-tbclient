@@ -11,10 +11,10 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-/* loaded from: classes6.dex */
+/* loaded from: classes10.dex */
 public class t {
     public static com.airbnb.lottie.e d(JsonReader jsonReader) throws IOException {
-        float la = com.airbnb.lottie.d.f.la();
+        float lb = com.airbnb.lottie.d.f.lb();
         float f = 0.0f;
         float f2 = 0.0f;
         float f3 = 0.0f;
@@ -146,7 +146,7 @@ public class t {
                 f = f6;
             } else {
                 jsonReader.endObject();
-                eVar.a(new Rect(0, 0, (int) (i4 * la), (int) (i3 * la)), f6, f5, f4, arrayList, longSparseArray, hashMap, hashMap2, sparseArrayCompat, hashMap3);
+                eVar.a(new Rect(0, 0, (int) (i4 * lb), (int) (i3 * lb)), f6, f5, f4, arrayList, longSparseArray, hashMap, hashMap2, sparseArrayCompat, hashMap3);
                 return eVar;
             }
         }
@@ -157,7 +157,7 @@ public class t {
         jsonReader.beginArray();
         while (jsonReader.hasNext()) {
             Layer q = s.q(jsonReader, eVar);
-            if (q.kC() == Layer.LayerType.Image) {
+            if (q.kD() == Layer.LayerType.Image) {
                 i++;
             }
             list.add(q);
@@ -279,8 +279,8 @@ public class t {
                 case 0:
                     jsonReader.beginArray();
                     while (jsonReader.hasNext()) {
-                        com.airbnb.lottie.model.c a = k.a(jsonReader);
-                        map.put(a.getName(), a);
+                        com.airbnb.lottie.model.c a2 = k.a(jsonReader);
+                        map.put(a2.getName(), a2);
                     }
                     jsonReader.endArray();
                     break;

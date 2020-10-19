@@ -3,21 +3,21 @@ package com.baidu.tieba.personCenter.c;
 import com.baidu.adp.lib.util.StringUtils;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes21.dex */
+/* loaded from: classes22.dex */
 public class b {
     private int errorCode = -1;
     private String errorMsg = "";
-    private int lnJ = 0;
+    private int lDa = 0;
 
     public int getErrorCode() {
         return this.errorCode;
     }
 
-    public int buR() {
-        return this.lnJ;
+    public int bxB() {
+        return this.lDa;
     }
 
-    public void OO(String str) {
+    public void PD(String str) {
         if (!StringUtils.isNull(str)) {
             try {
                 JSONObject jSONObject = new JSONObject(str);
@@ -25,7 +25,7 @@ public class b {
                 this.errorMsg = jSONObject.optString("error_msg", "");
                 JSONObject optJSONObject = jSONObject.optJSONObject("data");
                 if (optJSONObject != null) {
-                    this.lnJ = optJSONObject.optInt("msg_count");
+                    this.lDa = optJSONObject.optInt("msg_count");
                 }
             } catch (JSONException e) {
                 e.printStackTrace();

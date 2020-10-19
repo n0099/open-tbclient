@@ -1,5 +1,5 @@
 package rx.internal.util.a;
-/* loaded from: classes7.dex */
+/* loaded from: classes16.dex */
 public final class q<E> extends v<E> {
     public q(int i) {
         super(i);
@@ -10,13 +10,13 @@ public final class q<E> extends v<E> {
         if (e == null) {
             throw new NullPointerException("null elements not allowed");
         }
-        E[] eArr = this.oBY;
+        E[] eArr = this.oRn;
         long j = this.producerIndex;
-        long hr = hr(j);
-        if (b(eArr, hr) != null) {
+        long hJ = hJ(j);
+        if (b(eArr, hJ) != null) {
             return false;
         }
-        b(eArr, hr, e);
+        b(eArr, hJ, e);
         soProducerIndex(1 + j);
         return true;
     }
@@ -24,53 +24,53 @@ public final class q<E> extends v<E> {
     @Override // java.util.Queue
     public E poll() {
         long j = this.consumerIndex;
-        long hr = hr(j);
-        E[] eArr = this.oBY;
-        E b = b(eArr, hr);
+        long hJ = hJ(j);
+        E[] eArr = this.oRn;
+        E b = b(eArr, hJ);
         if (b == null) {
             return null;
         }
-        b(eArr, hr, null);
+        b(eArr, hJ, null);
         soConsumerIndex(j + 1);
         return b;
     }
 
     @Override // java.util.Queue
     public E peek() {
-        return hs(hr(this.consumerIndex));
+        return hK(hJ(this.consumerIndex));
     }
 
     @Override // java.util.AbstractCollection, java.util.Collection
     public int size() {
-        long ejq = ejq();
+        long enb = enb();
         while (true) {
-            long ejp = ejp();
-            long ejq2 = ejq();
-            if (ejq == ejq2) {
-                return (int) (ejp - ejq2);
+            long ena = ena();
+            long enb2 = enb();
+            if (enb == enb2) {
+                return (int) (ena - enb2);
             }
-            ejq = ejq2;
+            enb = enb2;
         }
     }
 
     @Override // java.util.AbstractCollection, java.util.Collection
     public boolean isEmpty() {
-        return ejp() == ejq();
+        return ena() == enb();
     }
 
     private void soProducerIndex(long j) {
-        ae.oTf.a(this, oSZ, j);
+        ae.piy.a(this, pis, j);
     }
 
     private void soConsumerIndex(long j) {
-        ae.oTf.a(this, oSY, j);
+        ae.piy.a(this, pir, j);
     }
 
-    private long ejp() {
-        return ae.oTf.e(this, oSZ);
+    private long ena() {
+        return ae.piy.e(this, pis);
     }
 
-    private long ejq() {
-        return ae.oTf.e(this, oSY);
+    private long enb() {
+        return ae.piy.e(this, pir);
     }
 }

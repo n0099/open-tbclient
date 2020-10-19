@@ -4,12 +4,12 @@ import java.util.Random;
 import kotlin.h;
 import kotlin.jvm.internal.q;
 @h
-/* loaded from: classes5.dex */
+/* loaded from: classes10.dex */
 final class KotlinRandom extends Random {
     private final d impl;
 
     public KotlinRandom(d dVar) {
-        q.m(dVar, "impl");
+        q.n(dVar, "impl");
         this.impl = dVar;
     }
 
@@ -19,7 +19,7 @@ final class KotlinRandom extends Random {
 
     @Override // java.util.Random
     protected int next(int i) {
-        return this.impl.OC(i);
+        return this.impl.Pi(i);
     }
 
     @Override // java.util.Random
@@ -54,7 +54,7 @@ final class KotlinRandom extends Random {
 
     @Override // java.util.Random
     public void nextBytes(byte[] bArr) {
-        q.m(bArr, "bytes");
+        q.n(bArr, "bytes");
         this.impl.az(bArr);
     }
 

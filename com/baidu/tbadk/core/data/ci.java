@@ -12,11 +12,11 @@ public class ci {
     private long end_time;
     private long start_time;
 
-    public String bhT() {
+    public String bkC() {
         return this.activity_banner;
     }
 
-    public String bhU() {
+    public String bkD() {
         return this.activity_button;
     }
 

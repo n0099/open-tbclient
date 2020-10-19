@@ -4,7 +4,7 @@ import com.baidu.searchbox.ugc.upload.HttpRequestTokenModule;
 import com.baidubce.services.bos.model.PartETag;
 import com.baidubce.services.vod.model.GenerateMediaIdResponse;
 import java.util.ArrayList;
-/* loaded from: classes18.dex */
+/* loaded from: classes8.dex */
 public class UploadCacheBean {
     public boolean completeMultipartUpload;
     public boolean completeTranscode;

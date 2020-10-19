@@ -3,13 +3,15 @@ package com.baidu.ufosdk.ui;
 import android.os.AsyncTask;
 import android.view.inputmethod.InputMethodManager;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes21.dex */
+/* loaded from: classes22.dex */
 public final class ei extends AsyncTask {
-    final /* synthetic */ FeedbackReportActivity a;
+
+    /* renamed from: a  reason: collision with root package name */
+    final /* synthetic */ FeedbackReportActivity f3856a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public ei(FeedbackReportActivity feedbackReportActivity) {
-        this.a = feedbackReportActivity;
+        this.f3856a = feedbackReportActivity;
     }
 
     private static Integer a() {
@@ -29,10 +31,10 @@ public final class ei extends AsyncTask {
 
     @Override // android.os.AsyncTask
     protected final /* synthetic */ void onPostExecute(Object obj) {
-        this.a.finish();
+        this.f3856a.finish();
         try {
             com.baidu.ufosdk.f.c.d("执行动画...");
-            this.a.overridePendingTransition(com.baidu.ufosdk.f.i.a(this.a.getApplicationContext(), "ufo_slide_in_from_left"), com.baidu.ufosdk.f.i.a(this.a.getApplicationContext(), "ufo_slide_out_to_right"));
+            this.f3856a.overridePendingTransition(com.baidu.ufosdk.f.i.a(this.f3856a.getApplicationContext(), "ufo_slide_in_from_left"), com.baidu.ufosdk.f.i.a(this.f3856a.getApplicationContext(), "ufo_slide_out_to_right"));
         } catch (Exception e) {
             com.baidu.ufosdk.f.c.d("执行动画失败！！");
         }
@@ -40,10 +42,10 @@ public final class ei extends AsyncTask {
 
     @Override // android.os.AsyncTask
     protected final void onPreExecute() {
-        if (this.a.getCurrentFocus() == null || this.a.getCurrentFocus().getWindowToken() == null) {
+        if (this.f3856a.getCurrentFocus() == null || this.f3856a.getCurrentFocus().getWindowToken() == null) {
             return;
         }
-        ((InputMethodManager) this.a.getSystemService("input_method")).hideSoftInputFromWindow(this.a.getCurrentFocus().getWindowToken(), 2);
+        ((InputMethodManager) this.f3856a.getSystemService("input_method")).hideSoftInputFromWindow(this.f3856a.getCurrentFocus().getWindowToken(), 2);
     }
 
     @Override // android.os.AsyncTask

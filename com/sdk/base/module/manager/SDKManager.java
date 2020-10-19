@@ -5,7 +5,7 @@ import android.support.annotation.Keep;
 import com.sdk.base.api.CallBack;
 import com.sdk.base.framework.c.f;
 import com.sdk.base.module.a.a;
-/* loaded from: classes5.dex */
+/* loaded from: classes16.dex */
 public abstract class SDKManager {
     private static boolean closePermission;
     protected static Context mContext;
@@ -38,17 +38,17 @@ public abstract class SDKManager {
     @Keep
     public static void init(Context context, String str) {
         mContext = context;
-        a a = a.a(context);
+        a a2 = a.a(context);
         Boolean.valueOf(com.sdk.base.framework.f.a.a.c());
-        a.a(null, str);
+        a2.a(null, str);
     }
 
     @Keep
     public static void init(Context context, String str, String str2) {
         mContext = context;
-        a a = a.a(context);
+        a a2 = a.a(context);
         Boolean.valueOf(com.sdk.base.framework.f.a.a.c());
-        a.a(str, str2);
+        a2.a(str, str2);
     }
 
     public static boolean isClosePermission() {

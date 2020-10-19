@@ -2,7 +2,7 @@ package kotlin.internal;
 
 import kotlin.h;
 @h
-/* loaded from: classes5.dex */
+/* loaded from: classes10.dex */
 public final class d {
     private static final int ef(int i, int i2) {
         int i3 = i % i2;

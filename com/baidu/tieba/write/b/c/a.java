@@ -13,27 +13,27 @@ import java.util.LinkedList;
 /* loaded from: classes3.dex */
 public class a {
     private boolean isOriginalImg;
-    private b mZM;
-    private e mZL = new e(true);
-    private com.baidu.tbadk.img.b eRQ = new com.baidu.tbadk.img.b();
+    private b npm;
+    private e npl = new e(true);
+    private com.baidu.tbadk.img.b fdY = new com.baidu.tbadk.img.b();
 
     /* renamed from: com.baidu.tieba.write.b.c.a$a  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
-    public interface InterfaceC0826a {
-        void cUb();
+    public interface InterfaceC0844a {
+        void cXK();
     }
 
-    public void a(LinkedList<ImageFileInfo> linkedList, boolean z, InterfaceC0826a interfaceC0826a) {
+    public void a(LinkedList<ImageFileInfo> linkedList, boolean z, InterfaceC0844a interfaceC0844a) {
         if (linkedList == null || linkedList.size() <= 0) {
-            if (interfaceC0826a != null) {
-                interfaceC0826a.cUb();
+            if (interfaceC0844a != null) {
+                interfaceC0844a.cXK();
                 return;
             }
             return;
         }
         this.isOriginalImg = z;
-        if (this.mZM != null) {
-            this.mZM.cancel();
+        if (this.npm != null) {
+            this.npm.cancel();
         }
         LinkedList linkedList2 = new LinkedList();
         Iterator<ImageFileInfo> it = linkedList.iterator();
@@ -44,21 +44,21 @@ public class a {
             }
         }
         if (linkedList2.size() > 0) {
-            this.mZM = new b(linkedList, interfaceC0826a);
-            this.mZM.execute(new String[0]);
-        } else if (interfaceC0826a != null) {
-            interfaceC0826a.cUb();
+            this.npm = new b(linkedList, interfaceC0844a);
+            this.npm.execute(new String[0]);
+        } else if (interfaceC0844a != null) {
+            interfaceC0844a.cXK();
         }
     }
 
     /* loaded from: classes3.dex */
     public class b extends BdAsyncTask<String, Void, Void> {
-        LinkedList<ImageFileInfo> mZN;
-        InterfaceC0826a mZO;
+        LinkedList<ImageFileInfo> npn;
+        InterfaceC0844a npo;
 
-        public b(LinkedList<ImageFileInfo> linkedList, InterfaceC0826a interfaceC0826a) {
-            this.mZN = linkedList;
-            this.mZO = interfaceC0826a;
+        public b(LinkedList<ImageFileInfo> linkedList, InterfaceC0844a interfaceC0844a) {
+            this.npn = linkedList;
+            this.npo = interfaceC0844a;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -66,12 +66,12 @@ public class a {
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         public Void doInBackground(String... strArr) {
             try {
-                if (this.mZN != null) {
-                    Iterator<ImageFileInfo> it = this.mZN.iterator();
+                if (this.npn != null) {
+                    Iterator<ImageFileInfo> it = this.npn.iterator();
                     while (it.hasNext()) {
                         ImageFileInfo next = it.next();
                         String j = a.this.j(next);
-                        com.baidu.tieba.write.b.a.Tf(j);
+                        com.baidu.tieba.write.b.a.TT(j);
                         next.setFilePath(j);
                         next.setContentUriStr(null);
                     }
@@ -85,8 +85,8 @@ public class a {
         /* JADX INFO: Access modifiers changed from: protected */
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         public void onPostExecute(Void r2) {
-            if (this.mZO != null) {
-                this.mZO.cUb();
+            if (this.npo != null) {
+                this.npo.cXK();
             }
         }
     }
@@ -99,29 +99,29 @@ public class a {
         if (imageFileInfo.getImageType() == 1) {
             return k(imageFileInfo);
         }
-        return this.mZL.c(imageFileInfo, this.isOriginalImg);
+        return this.npl.c(imageFileInfo, this.isOriginalImg);
     }
 
     private String k(ImageFileInfo imageFileInfo) {
-        Object a;
+        Object a2;
         Bitmap rawBitmap;
         int readPictureDegree;
         if (imageFileInfo == null || imageFileInfo.getImageType() != 1) {
             return null;
         }
-        com.baidu.adp.widget.ImageView.a a2 = this.eRQ.a(imageFileInfo, true);
-        if (a2 != null) {
-            rawBitmap = a2.getRawBitmap();
+        com.baidu.adp.widget.ImageView.a a3 = this.fdY.a(imageFileInfo, true);
+        if (a3 != null) {
+            rawBitmap = a3.getRawBitmap();
         } else {
-            com.baidu.adp.lib.e.e au = com.baidu.adp.lib.e.c.mR().au(20);
+            com.baidu.adp.lib.e.e au = com.baidu.adp.lib.e.c.mS().au(20);
             if (au != null) {
                 try {
-                    a = au.a(imageFileInfo.getFilePath(), imageFileInfo.toCachedKey(false), 0, 0, null, null, imageFileInfo.getFilePath(), false, null);
+                    a2 = au.a(imageFileInfo.getFilePath(), imageFileInfo.toCachedKey(false), 0, 0, null, null, imageFileInfo.getFilePath(), false, null);
                 } catch (OutOfMemoryError e) {
                     BdBaseApplication.getInst().onAppMemoryLow();
                 }
-                if (a instanceof com.baidu.adp.widget.ImageView.a) {
-                    rawBitmap = ((com.baidu.adp.widget.ImageView.a) a).getRawBitmap();
+                if (a2 instanceof com.baidu.adp.widget.ImageView.a) {
+                    rawBitmap = ((com.baidu.adp.widget.ImageView.a) a2).getRawBitmap();
                     if (rawBitmap != null && (readPictureDegree = BitmapHelper.readPictureDegree(imageFileInfo.getFilePath())) != 0) {
                         rawBitmap = BitmapHelper.rotateBitmapBydegree(rawBitmap, readPictureDegree);
                     }
@@ -133,7 +133,7 @@ public class a {
             }
         }
         if (rawBitmap != null) {
-            return n.saveFileAsPic(e.eRP + "/", s.toMd5(imageFileInfo.toCachedKey(false)) + ".jpg", rawBitmap, 80, Bitmap.CompressFormat.JPEG);
+            return n.saveFileAsPic(e.fdX + "/", s.toMd5(imageFileInfo.toCachedKey(false)) + ".jpg", rawBitmap, 80, Bitmap.CompressFormat.JPEG);
         }
         return null;
     }

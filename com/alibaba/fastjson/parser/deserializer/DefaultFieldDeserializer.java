@@ -13,7 +13,7 @@ import java.lang.reflect.ParameterizedType;
 import java.lang.reflect.Type;
 import java.util.Map;
 import java.util.zip.GZIPInputStream;
-/* loaded from: classes10.dex */
+/* loaded from: classes5.dex */
 public class DefaultFieldDeserializer extends FieldDeserializer {
     protected ObjectDeserializer fieldValueDeserilizer;
 

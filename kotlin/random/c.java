@@ -2,9 +2,9 @@ package kotlin.random;
 
 import kotlin.h;
 @h
-/* loaded from: classes5.dex */
+/* loaded from: classes10.dex */
 public final class c {
-    public static final int OD(int i) {
+    public static final int Pj(int i) {
         return 31 - Integer.numberOfLeadingZeros(i);
     }
 

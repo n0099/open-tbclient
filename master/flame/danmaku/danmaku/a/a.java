@@ -6,76 +6,76 @@ import master.flame.danmaku.danmaku.model.l;
 import master.flame.danmaku.danmaku.model.m;
 /* loaded from: classes6.dex */
 public abstract class a {
-    protected DanmakuContext oEE;
-    protected f oFn;
-    private l oIA;
-    protected m oIB;
-    protected InterfaceC0973a oIC;
-    protected b<?> oIv;
-    protected int oIw;
-    protected int oIx;
-    protected float oIy;
-    protected float oIz;
+    protected DanmakuContext oTT;
+    protected f oUC;
+    protected b<?> oXJ;
+    protected int oXK;
+    protected int oXL;
+    protected float oXM;
+    protected float oXN;
+    private l oXO;
+    protected m oXP;
+    protected InterfaceC0991a oXQ;
 
     /* renamed from: master.flame.danmaku.danmaku.a.a$a  reason: collision with other inner class name */
     /* loaded from: classes6.dex */
-    public interface InterfaceC0973a {
+    public interface InterfaceC0991a {
     }
 
-    protected abstract l emH();
+    protected abstract l equ();
 
     public a c(m mVar) {
-        this.oIB = mVar;
-        this.oIw = mVar.getWidth();
-        this.oIx = mVar.getHeight();
-        this.oIy = mVar.getDensity();
-        this.oIz = mVar.ema();
-        this.oEE.oHO.j(this.oIw, this.oIx, emE());
-        this.oEE.oHO.emu();
+        this.oXP = mVar;
+        this.oXK = mVar.getWidth();
+        this.oXL = mVar.getHeight();
+        this.oXM = mVar.getDensity();
+        this.oXN = mVar.epN();
+        this.oTT.oXd.j(this.oXK, this.oXL, eqr());
+        this.oTT.oXd.eqh();
         return this;
     }
 
-    public a a(InterfaceC0973a interfaceC0973a) {
-        this.oIC = interfaceC0973a;
+    public a a(InterfaceC0991a interfaceC0991a) {
+        this.oXQ = interfaceC0991a;
         return this;
     }
 
-    protected float emE() {
-        return 1.0f / (this.oIy - 0.6f);
+    protected float eqr() {
+        return 1.0f / (this.oXM - 0.6f);
     }
 
     public a d(f fVar) {
-        this.oFn = fVar;
+        this.oUC = fVar;
         return this;
     }
 
-    public l emF() {
-        if (this.oIA != null) {
-            return this.oIA;
+    public l eqs() {
+        if (this.oXO != null) {
+            return this.oXO;
         }
-        this.oEE.oHO.emt();
-        this.oIA = emH();
-        emG();
-        this.oEE.oHO.emu();
-        return this.oIA;
+        this.oTT.oXd.eqg();
+        this.oXO = equ();
+        eqt();
+        this.oTT.oXd.eqh();
+        return this.oXO;
     }
 
-    protected void emG() {
-        if (this.oIv != null) {
-            this.oIv.release();
+    protected void eqt() {
+        if (this.oXJ != null) {
+            this.oXJ.release();
         }
-        this.oIv = null;
+        this.oXJ = null;
     }
 
     public void release() {
-        emG();
+        eqt();
     }
 
     public a c(DanmakuContext danmakuContext) {
-        if (this.oEE != null && this.oEE != danmakuContext) {
-            this.oIA = null;
+        if (this.oTT != null && this.oTT != danmakuContext) {
+            this.oXO = null;
         }
-        this.oEE = danmakuContext;
+        this.oTT = danmakuContext;
         return this;
     }
 }

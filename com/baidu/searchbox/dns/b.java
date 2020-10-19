@@ -7,7 +7,7 @@ import com.baidu.searchbox.dns.util.DnsUtil;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
-/* loaded from: classes11.dex */
+/* loaded from: classes18.dex */
 public class b {
     static List<String> i;
 
@@ -19,14 +19,14 @@ public class b {
         if (TextUtils.isEmpty(str)) {
             return null;
         }
-        com.baidu.searchbox.dns.c.a k = new a.C0309a(System.currentTimeMillis(), com.baidu.searchbox.dns.d.b.o().a(str, false, 2), com.baidu.searchbox.dns.a.a.e().c(str)).k();
+        com.baidu.searchbox.dns.c.a k = new a.C0326a(System.currentTimeMillis(), com.baidu.searchbox.dns.d.b.o().a(str, false, 2), com.baidu.searchbox.dns.a.a.e().c(str)).k();
         com.baidu.searchbox.dns.d.a i4 = k.i();
         com.baidu.searchbox.dns.d.a.a h = k.h();
         int j = k.j();
         if (h != null) {
-            List<String> a = a(h, DnsUtil.stackType);
-            if (a == null || a.isEmpty()) {
-                list = a;
+            List<String> a2 = a(h, DnsUtil.stackType);
+            if (a2 == null || a2.isEmpty()) {
+                list = a2;
                 i3 = 0;
                 i2 = 1006;
             } else {
@@ -34,11 +34,11 @@ public class b {
                     z = true;
                 }
                 if (DnsUtil.DEBUG) {
-                    Log.d(DnsUtil.TAG, "DnsEngine getIplist -> cache response hit: " + str + " ip: " + a(a));
+                    Log.d(DnsUtil.TAG, "DnsEngine getIplist -> cache response hit: " + str + " ip: " + a(a2));
                 }
                 i3 = 2000;
                 i2 = j;
-                list = a;
+                list = a2;
             }
         } else {
             i2 = j;
@@ -76,12 +76,12 @@ public class b {
         if (TextUtils.isEmpty(str)) {
             return null;
         }
-        DnsParseResult a = a(str, !z);
-        if (a != null) {
-            List<String> ipList = a.getIpList();
-            int type = a.getType();
-            int subType = a.getSubType();
-            int stackType = a.getStackType();
+        DnsParseResult a2 = a(str, !z);
+        if (a2 != null) {
+            List<String> ipList = a2.getIpList();
+            int type = a2.getType();
+            int subType = a2.getSubType();
+            int stackType = a2.getStackType();
             if (ipList == null || ipList.isEmpty()) {
                 if (z) {
                     subType = 2002;
@@ -118,7 +118,7 @@ public class b {
             }
             return new DnsParseResult(list, i2, subType, stackType);
         }
-        return a;
+        return a2;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -150,12 +150,12 @@ public class b {
     }
 
     private static void b(String str) {
-        com.baidu.searchbox.dns.d.a a = com.baidu.searchbox.dns.d.b.o().a(str, true, 1);
-        if (a != null) {
+        com.baidu.searchbox.dns.d.a a2 = com.baidu.searchbox.dns.d.b.o().a(str, true, 1);
+        if (a2 != null) {
             if (DnsUtil.DEBUG) {
                 Log.d(DnsUtil.TAG, " start update domain task: " + str);
             }
-            a.start();
+            a2.start();
         }
     }
 

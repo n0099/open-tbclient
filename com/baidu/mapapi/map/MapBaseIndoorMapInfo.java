@@ -1,14 +1,16 @@
 package com.baidu.mapapi.map;
 
 import java.util.ArrayList;
-/* loaded from: classes3.dex */
+/* loaded from: classes7.dex */
 public final class MapBaseIndoorMapInfo {
     private static final String d = MapBaseIndoorMapInfo.class.getSimpleName();
-    String a;
+
+    /* renamed from: a  reason: collision with root package name */
+    String f2014a;
     String b;
     ArrayList<String> c;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes7.dex */
     public enum SwitchFloorError {
         SWITCH_OK,
         FLOOR_INFO_ERROR,
@@ -21,13 +23,13 @@ public final class MapBaseIndoorMapInfo {
     }
 
     public MapBaseIndoorMapInfo(MapBaseIndoorMapInfo mapBaseIndoorMapInfo) {
-        this.a = mapBaseIndoorMapInfo.a;
+        this.f2014a = mapBaseIndoorMapInfo.f2014a;
         this.b = mapBaseIndoorMapInfo.b;
         this.c = mapBaseIndoorMapInfo.c;
     }
 
     public MapBaseIndoorMapInfo(String str, String str2, ArrayList<String> arrayList) {
-        this.a = str;
+        this.f2014a = str;
         this.b = str2;
         this.c = arrayList;
     }
@@ -41,6 +43,6 @@ public final class MapBaseIndoorMapInfo {
     }
 
     public String getID() {
-        return this.a;
+        return this.f2014a;
     }
 }

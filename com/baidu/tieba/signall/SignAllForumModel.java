@@ -6,65 +6,65 @@ import com.baidu.tbadk.coreExtra.data.AuthTokenData;
 import com.xiaomi.mipush.sdk.Constants;
 import java.util.ArrayList;
 import java.util.Iterator;
-/* loaded from: classes23.dex */
+/* loaded from: classes24.dex */
 public class SignAllForumModel extends BdBaseModel<SignAllForumActivity> {
     public boolean isRunning;
     private String mAuthSid;
-    private b mgG;
-    private h mgH;
-    private a mgI;
-    private c mgJ;
+    private b mwj;
+    private h mwk;
+    private a mwl;
+    private c mwm;
 
-    /* loaded from: classes23.dex */
+    /* loaded from: classes24.dex */
     public interface a {
-        void Lh(String str);
+        void LW(String str);
 
         void b(h hVar);
     }
 
     public SignAllForumModel(SignAllForumActivity signAllForumActivity) {
         super(signAllForumActivity.getPageContext());
-        this.mgG = null;
-        this.mgH = null;
-        this.mgI = null;
-        this.mgH = new h();
+        this.mwj = null;
+        this.mwk = null;
+        this.mwl = null;
+        this.mwk = new h();
     }
 
     public void a(a aVar) {
-        this.mgI = aVar;
+        this.mwl = aVar;
     }
 
     public void d(c cVar) {
-        this.mgJ = cVar;
+        this.mwm = cVar;
     }
 
-    public c dyn() {
-        return this.mgJ;
+    public c dBY() {
+        return this.mwm;
     }
 
-    private String dyo() {
-        ArrayList<d> dxJ = this.mgJ.dxJ();
-        if (dxJ == null) {
+    private String dBZ() {
+        ArrayList<d> dBu = this.mwm.dBu();
+        if (dBu == null) {
             return "";
         }
-        if (!this.mgJ.dxK()) {
+        if (!this.mwm.dBv()) {
             ArrayList arrayList = new ArrayList();
-            Iterator<d> it = dxJ.iterator();
+            Iterator<d> it = dBu.iterator();
             while (it.hasNext()) {
                 d next = it.next();
-                if (next.dxT() < this.mgJ.getLevel()) {
+                if (next.dBE() < this.mwm.getLevel()) {
                     arrayList.add(next);
                 }
             }
-            dxJ.removeAll(arrayList);
+            dBu.removeAll(arrayList);
         }
-        int size = dxJ.size();
+        int size = dBu.size();
         StringBuilder sb = new StringBuilder();
         for (int i = 0; i < size; i++) {
-            d dVar = dxJ.get(i);
-            if (dVar.dxW()) {
-                if (!dVar.dxX()) {
-                    dVar.vY(true);
+            d dVar = dBu.get(i);
+            if (dVar.dBH()) {
+                if (!dVar.dBI()) {
+                    dVar.wF(true);
                 }
             }
             if (i > 0) {
@@ -78,45 +78,45 @@ public class SignAllForumModel extends BdBaseModel<SignAllForumActivity> {
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.base.BdBaseModel
     public boolean LoadData() {
-        if (this.mgG != null) {
+        if (this.mwj != null) {
             return false;
         }
         String str = null;
-        this.mgG = new b();
-        boolean dxz = this.mgJ.dxz();
-        if (!dxz) {
-            str = dyo();
+        this.mwj = new b();
+        boolean dBk = this.mwm.dBk();
+        if (!dBk) {
+            str = dBZ();
         }
-        this.mgG.wa(dxz);
-        this.mgG.execute(str);
+        this.mwj.wH(dBk);
+        this.mwj.execute(str);
         return true;
     }
 
     @Override // com.baidu.adp.base.BdBaseModel
     public boolean cancelLoadData() {
-        if (this.mgG != null) {
-            this.mgG.cancel();
+        if (this.mwj != null) {
+            this.mwj.cancel();
             return true;
         }
         return false;
     }
 
-    /* loaded from: classes23.dex */
+    /* loaded from: classes24.dex */
     private class b extends BdAsyncTask<String, Integer, h> {
-        private e mgK = null;
-        private boolean mgL = false;
+        private e mwn = null;
+        private boolean mwo = false;
         private AuthTokenData tokenData;
 
         public b() {
             setPriority(3);
         }
 
-        public void wa(boolean z) {
-            this.mgL = z;
+        public void wH(boolean z) {
+            this.mwo = z;
         }
 
-        public boolean dyp() {
-            return this.mgL;
+        public boolean dCa() {
+            return this.mwo;
         }
 
         /* JADX INFO: Access modifiers changed from: protected */
@@ -129,16 +129,16 @@ public class SignAllForumModel extends BdBaseModel<SignAllForumActivity> {
         /* JADX DEBUG: Method merged with bridge method */
         /* JADX INFO: Access modifiers changed from: protected */
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-        /* renamed from: P */
+        /* renamed from: S */
         public h doInBackground(String... strArr) {
-            if (!dyp() && (strArr == null || strArr.length == 0 || strArr[0] == null)) {
+            if (!dCa() && (strArr == null || strArr.length == 0 || strArr[0] == null)) {
                 return null;
             }
-            if (dyp()) {
-                this.mgK = new e();
-                this.mgK.setAuthSid(SignAllForumModel.this.mAuthSid);
+            if (dCa()) {
+                this.mwn = new e();
+                this.mwn.setAuthSid(SignAllForumModel.this.mAuthSid);
                 if (com.baidu.adp.lib.util.j.isNetWorkAvailable()) {
-                    dyq();
+                    dCb();
                 }
             } else {
                 String[] split = strArr[0].split(Constants.ACCEPT_TIME_SEPARATOR_SP);
@@ -153,44 +153,44 @@ public class SignAllForumModel extends BdBaseModel<SignAllForumActivity> {
                             sb.append(split[i2 + i3] + Constants.ACCEPT_TIME_SEPARATOR_SP);
                         }
                     }
-                    this.mgK = new e();
-                    this.mgK.setAuthSid(SignAllForumModel.this.mAuthSid);
+                    this.mwn = new e();
+                    this.mwn.setAuthSid(SignAllForumModel.this.mAuthSid);
                     if (com.baidu.adp.lib.util.j.isNetWorkAvailable()) {
-                        QM(sb.toString());
+                        RA(sb.toString());
                     }
                 }
             }
-            return SignAllForumModel.this.mgH;
+            return SignAllForumModel.this.mwk;
         }
 
-        private h dyq() {
-            String dyb = this.mgK.dyb();
-            if (this.mgK.isRequestSuccess()) {
-                SignAllForumModel.this.mgH.parserJson(dyb);
-                return SignAllForumModel.this.mgH;
+        private h dCb() {
+            String dBM = this.mwn.dBM();
+            if (this.mwn.isRequestSuccess()) {
+                SignAllForumModel.this.mwk.parserJson(dBM);
+                return SignAllForumModel.this.mwk;
             }
-            SignAllForumModel.this.mgH = null;
-            this.tokenData = AuthTokenData.parse(dyb);
+            SignAllForumModel.this.mwk = null;
+            this.tokenData = AuthTokenData.parse(dBM);
             return null;
         }
 
-        private h QM(String str) {
-            String QJ = this.mgK.QJ(str);
-            if (this.mgK.isRequestSuccess()) {
-                SignAllForumModel.this.mgH.parserJson(QJ);
-                return SignAllForumModel.this.mgH;
+        private h RA(String str) {
+            String Rx = this.mwn.Rx(str);
+            if (this.mwn.isRequestSuccess()) {
+                SignAllForumModel.this.mwk.parserJson(Rx);
+                return SignAllForumModel.this.mwk;
             }
-            SignAllForumModel.this.mgH = null;
-            this.tokenData = AuthTokenData.parse(QJ);
+            SignAllForumModel.this.mwk = null;
+            this.tokenData = AuthTokenData.parse(Rx);
             return null;
         }
 
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         public void cancel() {
             super.cancel();
-            this.mgK.cancel();
-            this.mgK = null;
-            SignAllForumModel.this.mgG = null;
+            this.mwn.cancel();
+            this.mwn = null;
+            SignAllForumModel.this.mwj = null;
             SignAllForumModel.this.isRunning = false;
         }
 
@@ -200,12 +200,12 @@ public class SignAllForumModel extends BdBaseModel<SignAllForumActivity> {
         /* renamed from: c */
         public void onPostExecute(h hVar) {
             SignAllForumModel.this.isRunning = false;
-            SignAllForumModel.this.mgG = null;
-            if (SignAllForumModel.this.mgI != null) {
-                if (SignAllForumModel.this.mgH != null) {
-                    SignAllForumModel.this.mgI.b(SignAllForumModel.this.mgH);
+            SignAllForumModel.this.mwj = null;
+            if (SignAllForumModel.this.mwl != null) {
+                if (SignAllForumModel.this.mwk != null) {
+                    SignAllForumModel.this.mwl.b(SignAllForumModel.this.mwk);
                 } else {
-                    SignAllForumModel.this.mgI.Lh(this.mgK != null ? this.mgK.bcE() : null);
+                    SignAllForumModel.this.mwl.LW(this.mwn != null ? this.mwn.bfm() : null);
                 }
             }
         }

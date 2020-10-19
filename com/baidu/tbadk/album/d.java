@@ -2,7 +2,7 @@ package com.baidu.tbadk.album;
 
 import com.baidu.tbadk.img.ImageFileInfo;
 import java.util.List;
-/* loaded from: classes20.dex */
+/* loaded from: classes21.dex */
 public interface d {
     void a(List<a> list, List<ImageFileInfo> list2, String str);
 

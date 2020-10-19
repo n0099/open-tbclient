@@ -5,16 +5,18 @@ import java.io.Serializable;
 import java.nio.ByteBuffer;
 import java.nio.ByteOrder;
 import java.util.Arrays;
-/* loaded from: classes3.dex */
+/* loaded from: classes7.dex */
 public class b implements Serializable, Cloneable {
-    static final /* synthetic */ boolean a;
+
+    /* renamed from: a  reason: collision with root package name */
+    static final /* synthetic */ boolean f1242a;
     private static final ObjectStreamField[] b;
     private long[] c;
     private transient int d;
     private transient boolean e;
 
     static {
-        a = !b.class.desiredAssertionStatus();
+        f1242a = !b.class.desiredAssertionStatus();
         b = new ObjectStreamField[]{new ObjectStreamField("bits", long[].class)};
     }
 
@@ -52,13 +54,13 @@ public class b implements Serializable, Cloneable {
     }
 
     private void d() {
-        if (!a && this.d != 0 && this.c[this.d - 1] == 0) {
+        if (!f1242a && this.d != 0 && this.c[this.d - 1] == 0) {
             throw new AssertionError();
         }
-        if (!a && (this.d < 0 || this.d > this.c.length)) {
+        if (!f1242a && (this.d < 0 || this.d > this.c.length)) {
             throw new AssertionError();
         }
-        if (!a && this.d != this.c.length && this.c[this.d] != 0) {
+        if (!f1242a && this.d != this.c.length && this.c[this.d] != 0) {
             throw new AssertionError();
         }
     }

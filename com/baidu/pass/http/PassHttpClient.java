@@ -8,10 +8,12 @@ import java.util.concurrent.LinkedBlockingQueue;
 import java.util.concurrent.ThreadFactory;
 import java.util.concurrent.ThreadPoolExecutor;
 import java.util.concurrent.TimeUnit;
-/* loaded from: classes6.dex */
+/* loaded from: classes9.dex */
 public class PassHttpClient implements com.baidu.pass.a {
-    private static final ThreadFactory a = new a();
-    private static final ThreadPoolExecutor b = new ThreadPoolExecutor(6, (int) ActivityChooserView.ActivityChooserViewAdapter.MAX_ACTIVITY_COUNT_UNLIMITED, 60, TimeUnit.SECONDS, new LinkedBlockingQueue(), a);
+
+    /* renamed from: a  reason: collision with root package name */
+    private static final ThreadFactory f2787a = new a();
+    private static final ThreadPoolExecutor b = new ThreadPoolExecutor(6, (int) ActivityChooserView.ActivityChooserViewAdapter.MAX_ACTIVITY_COUNT_UNLIMITED, 60, TimeUnit.SECONDS, new LinkedBlockingQueue(), f2787a);
     private d c;
 
     static {

@@ -9,9 +9,11 @@ import com.sdk.base.framework.c.f;
 import com.sdk.base.framework.f.h.c;
 import com.sdk.base.module.manager.SDKManager;
 import java.net.HttpURLConnection;
-/* loaded from: classes5.dex */
+/* loaded from: classes16.dex */
 public class a {
-    private static final String a = a.class.getName();
+
+    /* renamed from: a  reason: collision with root package name */
+    private static final String f4497a = a.class.getName();
     private static final Boolean b = Boolean.valueOf(f.b);
 
     static {
@@ -93,7 +95,7 @@ public class a {
                 }
                 return null;
             } catch (Throwable th) {
-                com.sdk.base.framework.a.a.c.b(a, th.getMessage(), b);
+                com.sdk.base.framework.a.a.c.b(f4497a, th.getMessage(), b);
                 return null;
             }
         }

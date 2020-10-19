@@ -1,5 +1,5 @@
 package com.baidu.swan.apps.network.b;
-/* loaded from: classes3.dex */
+/* loaded from: classes10.dex */
 public interface a {
-    void bp(long j);
+    void bx(long j);
 }

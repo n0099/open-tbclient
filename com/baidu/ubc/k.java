@@ -1,36 +1,36 @@
 package com.baidu.ubc;
 
 import android.text.TextUtils;
-/* loaded from: classes16.dex */
+/* loaded from: classes8.dex */
 public class k {
-    private String dLG;
-    private String dLH;
-    private int dLI;
-    private String dLJ;
-    private int dLK;
-    private int dLL;
-    private String dLM;
+    private String dXH;
+    private String dXI;
+    private int dXJ;
+    private String dXK;
+    private int dXL;
+    private int dXM;
+    private String dXN;
     private String mCategory;
     private String mId;
     private int mRate;
     private String mType;
     private String mVersion;
-    private String npE;
-    private String npF;
-    private String npG;
-    private String npH;
-    private String npI;
+    private String nEY;
+    private String nEZ;
+    private String nFa;
+    private String nFb;
+    private String nFc;
 
     public k(String str, String str2, String str3, int i, String str4, String str5) {
         this.mId = str;
-        this.dLG = str2;
-        this.dLH = str3;
-        this.dLI = i;
+        this.dXH = str2;
+        this.dXI = str3;
+        this.dXJ = i;
         this.mType = str4;
-        this.dLJ = str5;
+        this.dXK = str5;
     }
 
-    public void mr(int i) {
+    public void mO(int i) {
         this.mRate = i;
     }
 
@@ -38,47 +38,47 @@ public class k {
         this.mCategory = str;
     }
 
-    public void ms(int i) {
-        this.dLK = i;
+    public void mP(int i) {
+        this.dXL = i;
     }
 
-    public void mt(int i) {
-        this.dLL = i;
+    public void mQ(int i) {
+        this.dXM = i;
     }
 
-    public void Ue(String str) {
-        this.npE = str;
+    public void US(String str) {
+        this.nEY = str;
     }
 
     public String getId() {
         return this.mId;
     }
 
-    public String aWt() {
-        return this.dLG;
+    public String aZb() {
+        return this.dXH;
     }
 
-    public String aWu() {
-        return this.dLH;
+    public String aZc() {
+        return this.dXI;
     }
 
     public int getTimeout() {
-        return this.dLI;
+        return this.dXJ;
     }
 
     public String getType() {
         return this.mType;
     }
 
-    public String aWv() {
-        return this.dLJ;
+    public String aZd() {
+        return this.dXK;
     }
 
-    public String dPW() {
-        return this.npE;
+    public String dTH() {
+        return this.nEY;
     }
 
-    public int aWw() {
+    public int aZe() {
         return this.mRate;
     }
 
@@ -86,28 +86,28 @@ public class k {
         return this.mCategory;
     }
 
-    public int aWx() {
-        return this.dLK;
+    public int aZf() {
+        return this.dXL;
     }
 
-    public int aWy() {
-        return this.dLL;
+    public int aZg() {
+        return this.dXM;
     }
 
-    public void xD(String str) {
-        this.dLM = str;
+    public void yp(String str) {
+        this.dXN = str;
     }
 
-    public String aWz() {
-        return this.dLM;
+    public String aZh() {
+        return this.dXN;
     }
 
-    public String dPX() {
-        return this.npF;
+    public String dTI() {
+        return this.nEZ;
     }
 
-    public void Uf(String str) {
-        this.npF = str;
+    public void UT(String str) {
+        this.nEZ = str;
     }
 
     public void setVersion(String str) {
@@ -118,27 +118,27 @@ public class k {
         return TextUtils.isEmpty(this.mVersion) ? "0" : this.mVersion;
     }
 
-    public void Ug(String str) {
-        this.npG = str;
+    public void UU(String str) {
+        this.nFa = str;
     }
 
-    public String dPY() {
-        return this.npG;
+    public String dTJ() {
+        return this.nFa;
     }
 
-    public void Uh(String str) {
-        this.npH = str;
+    public void UV(String str) {
+        this.nFb = str;
     }
 
-    public String dPZ() {
-        return this.npH;
+    public String dTK() {
+        return this.nFb;
     }
 
-    public String dQa() {
-        return this.npI;
+    public String dTL() {
+        return this.nFc;
     }
 
-    public void Ui(String str) {
-        this.npI = str;
+    public void UW(String str) {
+        this.nFc = str;
     }
 }

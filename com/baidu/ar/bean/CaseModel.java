@@ -2,7 +2,7 @@ package com.baidu.ar.bean;
 
 import android.text.TextUtils;
 import com.baidu.ar.ARType;
-/* loaded from: classes10.dex */
+/* loaded from: classes14.dex */
 public class CaseModel {
     public String mCaseId;
     public String mCasePath;

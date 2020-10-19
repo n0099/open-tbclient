@@ -3,60 +3,60 @@ package com.baidu.tieba.h;
 import tbclient.EsportRank;
 /* loaded from: classes.dex */
 public class a {
-    private String aUW;
-    private String bwq;
-    private String fqU;
-    private String iIo;
-    private String iIp;
-    private String iIq;
+    private String aYh;
+    private String bCT;
+    private String fDh;
+    private String iXg;
+    private String iXh;
+    private String iXi;
     private String mTitle;
 
     public void a(EsportRank esportRank) {
         if (esportRank != null) {
             this.mTitle = esportRank.title;
-            this.iIo = String.valueOf(esportRank.rank);
-            this.aUW = esportRank.text;
-            this.fqU = esportRank.url;
+            this.iXg = String.valueOf(esportRank.rank);
+            this.aYh = esportRank.text;
+            this.fDh = esportRank.url;
             if (esportRank.user != null) {
-                this.iIp = esportRank.user.steam_name;
-                this.iIq = esportRank.user.steam_portrait;
+                this.iXh = esportRank.user.steam_name;
+                this.iXi = esportRank.user.steam_portrait;
             }
         }
     }
 
-    public String cyi() {
+    public String cBF() {
         return this.mTitle;
     }
 
-    public String cyj() {
-        return this.iIo;
+    public String cBG() {
+        return this.iXg;
     }
 
-    public String cyk() {
-        return this.aUW;
+    public String cBH() {
+        return this.aYh;
     }
 
-    public String cyl() {
-        return this.iIp;
+    public String cBI() {
+        return this.iXh;
     }
 
-    public String cym() {
-        return this.iIq;
+    public String cBJ() {
+        return this.iXi;
     }
 
-    public String cyn() {
-        return this.bwq;
+    public String cBK() {
+        return this.bCT;
     }
 
-    public void JC(String str) {
-        this.bwq = str;
+    public void Kp(String str) {
+        this.bCT = str;
     }
 
-    public String cyo() {
-        return this.fqU;
+    public String cBL() {
+        return this.fDh;
     }
 
-    public void JD(String str) {
-        this.fqU = str;
+    public void Kq(String str) {
+        this.fDh = str;
     }
 }

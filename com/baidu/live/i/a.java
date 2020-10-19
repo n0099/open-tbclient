@@ -5,9 +5,9 @@ import com.baidu.live.data.n;
 import com.baidu.live.data.u;
 /* loaded from: classes4.dex */
 public interface a {
-    void IT();
+    void JQ();
 
-    void IW();
+    void Kd();
 
     void a(n nVar);
 
@@ -15,7 +15,7 @@ public interface a {
 
     void b(ViewGroup viewGroup, ViewGroup.LayoutParams layoutParams);
 
-    void bM(boolean z);
+    void bP(boolean z);
 
     void onDestroy();
 

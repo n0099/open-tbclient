@@ -8,7 +8,7 @@ import java.util.Map;
 import java.util.NoSuchElementException;
 import java.util.Set;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes23.dex */
+/* loaded from: classes5.dex */
 public abstract class MapCollections<K, V> {
     MapCollections<K, V>.EntrySet mEntrySet;
     MapCollections<K, V>.KeySet mKeySet;
@@ -32,7 +32,7 @@ public abstract class MapCollections<K, V> {
 
     protected abstract V colSetValue(int i, V v);
 
-    /* loaded from: classes23.dex */
+    /* loaded from: classes5.dex */
     final class ArrayIterator<T> implements Iterator<T> {
         boolean mCanRemove = false;
         int mIndex;
@@ -72,7 +72,7 @@ public abstract class MapCollections<K, V> {
         }
     }
 
-    /* loaded from: classes23.dex */
+    /* loaded from: classes5.dex */
     final class MapIterator implements Iterator<Map.Entry<K, V>>, Map.Entry<K, V> {
         int mEnd;
         boolean mEntryValid = false;
@@ -164,7 +164,7 @@ public abstract class MapCollections<K, V> {
         }
     }
 
-    /* loaded from: classes23.dex */
+    /* loaded from: classes5.dex */
     final class EntrySet implements Set<Map.Entry<K, V>> {
         EntrySet() {
         }
@@ -275,7 +275,7 @@ public abstract class MapCollections<K, V> {
         }
     }
 
-    /* loaded from: classes23.dex */
+    /* loaded from: classes5.dex */
     final class KeySet implements Set<K> {
         KeySet() {
         }
@@ -366,7 +366,7 @@ public abstract class MapCollections<K, V> {
         }
     }
 
-    /* loaded from: classes23.dex */
+    /* loaded from: classes5.dex */
     final class ValuesCollection implements Collection<V> {
         ValuesCollection() {
         }

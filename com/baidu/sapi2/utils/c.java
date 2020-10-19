@@ -3,23 +3,27 @@ package com.baidu.sapi2.utils;
 import android.content.Context;
 import android.text.TextUtils;
 import com.baidu.sofire.ac.FH;
-/* loaded from: classes25.dex */
+/* loaded from: classes5.dex */
 public class c {
-    private static final String a = "SafeService";
+
+    /* renamed from: a  reason: collision with root package name */
+    private static final String f3535a = "SafeService";
     public static final int b = 120;
     public static final int c = 122;
     public static final int d = 1;
 
-    /* loaded from: classes25.dex */
+    /* loaded from: classes5.dex */
     private static class b {
-        public static c a = new c();
+
+        /* renamed from: a  reason: collision with root package name */
+        public static c f3536a = new c();
 
         private b() {
         }
     }
 
     public static c a() {
-        return b.a;
+        return b.f3536a;
     }
 
     private c() {
@@ -30,7 +34,7 @@ public class c {
             FH.init(context, str, str2, iArr);
             return true;
         } catch (Throwable th) {
-            Log.e(a, "init()", th.toString());
+            Log.e(f3535a, "init()", th.toString());
             return false;
         }
     }

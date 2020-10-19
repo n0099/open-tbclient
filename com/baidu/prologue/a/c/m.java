@@ -2,10 +2,10 @@ package com.baidu.prologue.a.c;
 
 import android.content.Context;
 import android.util.DisplayMetrics;
-/* loaded from: classes10.dex */
+/* loaded from: classes19.dex */
 public class m {
-    private static final DisplayMetrics bMs = com.baidu.prologue.a.b.b.getAppContext().getResources().getDisplayMetrics();
-    private static final float bMt = bMs.density;
+    private static final DisplayMetrics bTb = com.baidu.prologue.a.b.b.getAppContext().getResources().getDisplayMetrics();
+    private static final float bTc = bTb.density;
     private static DisplayMetrics sDisplayMetrics;
 
     public static float getDensity(Context context) {

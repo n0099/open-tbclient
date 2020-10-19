@@ -1,7 +1,7 @@
 package com.baidu.swan.apps.event.a;
-/* loaded from: classes3.dex */
+/* loaded from: classes10.dex */
 public abstract class a {
-    public String bZZ;
+    public String cmp;
 
-    public abstract String mQ(String str);
+    public abstract String nC(String str);
 }

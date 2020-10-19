@@ -4,11 +4,11 @@ import io.reactivex.internal.disposables.EmptyDisposable;
 import io.reactivex.internal.disposables.SequentialDisposable;
 import io.reactivex.internal.util.ExceptionHelper;
 import java.util.concurrent.TimeUnit;
-/* loaded from: classes25.dex */
+/* loaded from: classes17.dex */
 public abstract class v {
-    static final long ovT = TimeUnit.MINUTES.toNanos(Long.getLong("rx2.scheduler.drift-tolerance", 15).longValue());
+    static final long oLi = TimeUnit.MINUTES.toNanos(Long.getLong("rx2.scheduler.drift-tolerance", 15).longValue());
 
-    public abstract c eja();
+    public abstract c emL();
 
     public long a(TimeUnit timeUnit) {
         return timeUnit.convert(System.currentTimeMillis(), TimeUnit.MILLISECONDS);
@@ -22,20 +22,20 @@ public abstract class v {
     }
 
     public io.reactivex.disposables.b b(Runnable runnable, long j, TimeUnit timeUnit) {
-        c eja = eja();
-        a aVar = new a(io.reactivex.e.a.I(runnable), eja);
-        eja.c(aVar, j, timeUnit);
+        c emL = emL();
+        a aVar = new a(io.reactivex.e.a.I(runnable), emL);
+        emL.c(aVar, j, timeUnit);
         return aVar;
     }
 
     public io.reactivex.disposables.b a(Runnable runnable, long j, long j2, TimeUnit timeUnit) {
-        c eja = eja();
-        b bVar = new b(io.reactivex.e.a.I(runnable), eja);
-        io.reactivex.disposables.b b2 = eja.b(bVar, j, j2, timeUnit);
+        c emL = emL();
+        b bVar = new b(io.reactivex.e.a.I(runnable), emL);
+        io.reactivex.disposables.b b2 = emL.b(bVar, j, j2, timeUnit);
         return b2 == EmptyDisposable.INSTANCE ? b2 : bVar;
     }
 
-    /* loaded from: classes25.dex */
+    /* loaded from: classes17.dex */
     public static abstract class c implements io.reactivex.disposables.b {
         public abstract io.reactivex.disposables.b c(Runnable runnable, long j, TimeUnit timeUnit);
 
@@ -62,21 +62,21 @@ public abstract class v {
         }
 
         /* JADX INFO: Access modifiers changed from: package-private */
-        /* loaded from: classes25.dex */
+        /* loaded from: classes17.dex */
         public final class a implements Runnable {
             long count;
             final Runnable decoratedRun;
-            final long ovV;
-            long ovW;
-            long ovX;
+            final long oLk;
+            long oLl;
+            long oLm;
             final SequentialDisposable sd;
 
             a(long j, Runnable runnable, long j2, SequentialDisposable sequentialDisposable, long j3) {
                 this.decoratedRun = runnable;
                 this.sd = sequentialDisposable;
-                this.ovV = j3;
-                this.ovW = j2;
-                this.ovX = j;
+                this.oLk = j3;
+                this.oLl = j2;
+                this.oLm = j;
             }
 
             @Override // java.lang.Runnable
@@ -84,34 +84,34 @@ public abstract class v {
                 long j;
                 this.decoratedRun.run();
                 if (!this.sd.isDisposed()) {
-                    long a = c.this.a(TimeUnit.NANOSECONDS);
-                    if (v.ovT + a < this.ovW || a >= this.ovW + this.ovV + v.ovT) {
-                        j = this.ovV + a;
-                        long j2 = this.ovV;
+                    long a2 = c.this.a(TimeUnit.NANOSECONDS);
+                    if (v.oLi + a2 < this.oLl || a2 >= this.oLl + this.oLk + v.oLi) {
+                        j = this.oLk + a2;
+                        long j2 = this.oLk;
                         long j3 = this.count + 1;
                         this.count = j3;
-                        this.ovX = j - (j2 * j3);
+                        this.oLm = j - (j2 * j3);
                     } else {
-                        long j4 = this.ovX;
+                        long j4 = this.oLm;
                         long j5 = this.count + 1;
                         this.count = j5;
-                        j = j4 + (j5 * this.ovV);
+                        j = j4 + (j5 * this.oLk);
                     }
-                    this.ovW = a;
-                    this.sd.replace(c.this.c(this, j - a, TimeUnit.NANOSECONDS));
+                    this.oLl = a2;
+                    this.sd.replace(c.this.c(this, j - a2, TimeUnit.NANOSECONDS));
                 }
             }
         }
     }
 
-    /* loaded from: classes25.dex */
+    /* loaded from: classes17.dex */
     static class b implements io.reactivex.disposables.b, Runnable {
         volatile boolean disposed;
-        final Runnable ovU;
+        final Runnable oLj;
         final c worker;
 
         b(Runnable runnable, c cVar) {
-            this.ovU = runnable;
+            this.oLj = runnable;
             this.worker = cVar;
         }
 
@@ -119,7 +119,7 @@ public abstract class v {
         public void run() {
             if (!this.disposed) {
                 try {
-                    this.ovU.run();
+                    this.oLj.run();
                 } catch (Throwable th) {
                     io.reactivex.exceptions.a.J(th);
                     this.worker.dispose();
@@ -141,7 +141,7 @@ public abstract class v {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes25.dex */
+    /* loaded from: classes17.dex */
     public static final class a implements io.reactivex.disposables.b, Runnable {
         final Runnable decoratedRun;
         Thread runner;

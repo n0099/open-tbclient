@@ -2,7 +2,7 @@ package com.baidu.swan.a.a;
 
 import com.baidu.searchbox.http.AbstractHttpManager;
 import com.baidu.searchbox.http.request.HeadRequest;
-/* loaded from: classes24.dex */
+/* loaded from: classes8.dex */
 public class d extends HeadRequest.HeadRequestBuilder {
     public d(AbstractHttpManager abstractHttpManager) {
         super(abstractHttpManager);
@@ -11,7 +11,7 @@ public class d extends HeadRequest.HeadRequestBuilder {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.searchbox.http.request.HeadRequest.HeadRequestBuilder, com.baidu.searchbox.http.request.HttpRequestBuilder
     public HeadRequest build() {
-        com.baidu.swan.a.b.aTE().a(this.httpUrl.toString(), this);
+        com.baidu.swan.a.b.aWn().a(this.httpUrl.toString(), this);
         return super.build();
     }
 }

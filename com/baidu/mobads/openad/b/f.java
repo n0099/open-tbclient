@@ -12,9 +12,11 @@ import java.io.FileOutputStream;
 import java.net.HttpURLConnection;
 import java.net.URL;
 import java.util.Observable;
-/* loaded from: classes3.dex */
+/* loaded from: classes7.dex */
 public class f extends Observable implements IOAdDownloader, Runnable {
-    protected Context a;
+
+    /* renamed from: a  reason: collision with root package name */
+    protected Context f2377a;
     protected URL b;
     protected String c;
     protected String d;
@@ -26,7 +28,7 @@ public class f extends Observable implements IOAdDownloader, Runnable {
 
     public f(Context context, URL url, String str, String str2, boolean z) {
         this.i = false;
-        this.a = context;
+        this.f2377a = context;
         this.b = url;
         this.c = str;
         this.i = z;

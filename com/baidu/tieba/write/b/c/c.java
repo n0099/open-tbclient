@@ -22,9 +22,9 @@ public final class c {
                 jSONObject.put("source_from", "tieba");
                 jSONObject.put(UgcConstant.SOURCE_ID, "0");
                 jSONObject.put(UgcConstant.SOURCE_TYPE, "0");
-                JSONObject a = a(baseUploadData.poi);
-                if (a != null) {
-                    jSONObject.put("poi", a);
+                JSONObject a2 = a(baseUploadData.poi);
+                if (a2 != null) {
+                    jSONObject.put("poi", a2);
                 }
                 jSONObject.put("uk", UgcLoginUtils.getUK());
             } catch (JSONException e) {
@@ -41,13 +41,13 @@ public final class c {
     public static JSONObject a(ForwardUploadData forwardUploadData) {
         JSONObject b = b(forwardUploadData);
         try {
-            JSONObject a = a(forwardUploadData.forward);
-            if (a != null) {
-                b.put("forward", a);
-            }
-            JSONObject a2 = a(forwardUploadData.extInfo);
+            JSONObject a2 = a(forwardUploadData.forward);
             if (a2 != null) {
-                b.put(UgcConstant.EXT_INFO, a2);
+                b.put("forward", a2);
+            }
+            JSONObject a3 = a(forwardUploadData.extInfo);
+            if (a3 != null) {
+                b.put(UgcConstant.EXT_INFO, a3);
                 return b;
             }
             return b;
@@ -60,9 +60,9 @@ public final class c {
     public static JSONObject a(VideoUploadData videoUploadData) {
         JSONObject b = b(videoUploadData);
         try {
-            JSONArray a = a(videoUploadData.videos);
-            if (a != null) {
-                b.put("videos", a);
+            JSONArray a2 = a(videoUploadData.videos);
+            if (a2 != null) {
+                b.put("videos", a2);
                 return b;
             }
             return b;

@@ -9,22 +9,24 @@ import android.os.IBinder;
 import com.heytap.mcssdk.utils.LogUtil;
 import com.mcs.aidl.IMcsSdkService;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes12.dex */
+/* loaded from: classes15.dex */
 public final class d implements ServiceConnection {
-    final /* synthetic */ Intent a;
+
+    /* renamed from: a  reason: collision with root package name */
+    final /* synthetic */ Intent f4057a;
     final /* synthetic */ PushManager b;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public d(PushManager pushManager, Intent intent) {
         this.b = pushManager;
-        this.a = intent;
+        this.f4057a = intent;
     }
 
     @Override // android.content.ServiceConnection
     public final void onServiceConnected(ComponentName componentName, IBinder iBinder) {
         Context context;
         Bundle bundle = new Bundle();
-        bundle.putAll(this.a.getExtras());
+        bundle.putAll(this.f4057a.getExtras());
         try {
             IMcsSdkService.Stub.asInterface(iBinder).process(bundle);
         } catch (Exception e) {

@@ -2,10 +2,11 @@ package com.google.zxing.datamatrix.encoder;
 
 import android.support.v7.widget.ActivityChooserView;
 import com.alibaba.fastjson.asm.Opcodes;
+import com.baidu.appsearch.update.patchupdate.GDiffPatcher;
 import com.baidu.mapapi.UIMsg;
 import com.google.zxing.Dimension;
 import java.util.Arrays;
-/* loaded from: classes3.dex */
+/* loaded from: classes7.dex */
 public final class HighLevelEncoder {
     static final int ASCII_ENCODATION = 0;
     static final int BASE256_ENCODATION = 5;
@@ -32,7 +33,7 @@ public final class HighLevelEncoder {
     }
 
     private static char randomize253State(char c, int i) {
-        int i2 = ((i * Opcodes.FCMPL) % 253) + 1 + c;
+        int i2 = ((i * Opcodes.FCMPL) % GDiffPatcher.COPY_INT_USHORT) + 1 + c;
         if (i2 > 254) {
             i2 += UIMsg.m_AppUI.V_WM_LISTLISTUPDATE;
         }

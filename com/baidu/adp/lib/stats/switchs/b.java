@@ -9,15 +9,15 @@ import org.json.JSONObject;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class b {
-    public long Or = 0;
-    public String Os = null;
+    public long OH = 0;
+    public String OI = null;
 
-    public boolean nV() {
+    public boolean nW() {
         String str = null;
         d dVar = new d(BdStatsConstant.CONFIG_FILE_PATH, BdStatsConstant.SWITCHS_CONFIG_FILENAME, DiskFileOperate.Action.READ);
         dVar.setSdCard(false);
         dVar.a(DiskFileOperate.OperateType.MUST_SUCCESS);
-        com.baidu.adp.lib.Disk.d.lK().b(dVar);
+        com.baidu.adp.lib.Disk.d.lL().b(dVar);
         if (dVar.isSuccess()) {
             str = dVar.getContent();
         }
@@ -26,8 +26,8 @@ public class b {
         }
         try {
             JSONObject jSONObject = new JSONObject(str);
-            this.Or = jSONObject.getLong("time");
-            this.Os = jSONObject.getString("data");
+            this.OH = jSONObject.getLong("time");
+            this.OI = jSONObject.getString("data");
         } catch (JSONException e) {
             e.printStackTrace();
         }
@@ -45,7 +45,7 @@ public class b {
                 dVar.setSdCard(false);
                 dVar.setContent(jSONObject.toString());
                 dVar.a(DiskFileOperate.OperateType.MUST_SUCCESS);
-                com.baidu.adp.lib.Disk.d.lK().b(dVar);
+                com.baidu.adp.lib.Disk.d.lL().b(dVar);
             } catch (JSONException e) {
                 e.printStackTrace();
             }

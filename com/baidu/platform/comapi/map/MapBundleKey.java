@@ -1,8 +1,8 @@
 package com.baidu.platform.comapi.map;
-/* loaded from: classes3.dex */
+/* loaded from: classes7.dex */
 public class MapBundleKey {
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes7.dex */
     public static class MapLayerType {
         public static final int EMAP_BACKG = 1;
         public static final int EMAP_BACKGMARK = 4;
@@ -48,7 +48,7 @@ public class MapBundleKey {
         public static final int EMAP_WALK_SEARCH_MAP = 39;
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes7.dex */
     public static class MapObjKey {
         public static final String AD_LOG = "ad_log";
         public static final String OBJ_AD = "ad";
@@ -105,7 +105,7 @@ public class MapBundleKey {
         public static final String STREET_TYPE = "streetType";
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes7.dex */
     public static class OfflineMapKey {
         public static final String OFFLINE_ARRAY = "dataset";
         public static final String OFFLINE_CENTER_X = "x";
@@ -121,7 +121,7 @@ public class MapBundleKey {
         public static final String OFFLINE_UPDATE = "up";
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes7.dex */
     public static class UpdateType {
         public static final int ECOMPULSORY_UPDATE = 1;
         public static final int EUPDATE_MAPSTATUSCHANGE = 2;

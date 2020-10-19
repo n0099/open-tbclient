@@ -5,7 +5,7 @@ import java.security.SecureRandom;
 import javax.crypto.Cipher;
 import javax.crypto.KeyGenerator;
 import javax.crypto.spec.SecretKeySpec;
-/* loaded from: classes6.dex */
+/* loaded from: classes18.dex */
 public class KSUtils {
     public static String decrypt(String str, String str2) {
         byte[] bArr = new byte[str2.length() / 2];

@@ -4,9 +4,11 @@ import android.text.TextUtils;
 import java.text.DecimalFormat;
 import java.text.DecimalFormatSymbols;
 import org.json.JSONObject;
-/* loaded from: classes15.dex */
+/* loaded from: classes17.dex */
 public class ao {
-    private String a;
+
+    /* renamed from: a  reason: collision with root package name */
+    private String f2541a;
     private String b;
     private String c;
     private long d;
@@ -20,7 +22,7 @@ public class ao {
     private String l;
 
     public ao(String str, String str2, String str3, long j, long j2, float f, float f2, float f3, float f4, String str4, boolean z, String str5) {
-        this.a = str;
+        this.f2541a = str;
         this.b = str2;
         this.c = str3;
         this.d = j;
@@ -35,7 +37,7 @@ public class ao {
     }
 
     public String a() {
-        return this.a;
+        return this.f2541a;
     }
 
     public String b() {

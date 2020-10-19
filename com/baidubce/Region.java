@@ -3,7 +3,7 @@ package com.baidubce;
 import com.baidubce.util.CheckUtils;
 import java.util.Arrays;
 import java.util.List;
-/* loaded from: classes24.dex */
+/* loaded from: classes25.dex */
 public enum Region {
     CN_N1("bj");
     

@@ -3,9 +3,11 @@ package com.kascend.chushou;
 import android.os.Build;
 /* loaded from: classes6.dex */
 public class c {
-    public static final boolean a;
+
+    /* renamed from: a  reason: collision with root package name */
+    public static final boolean f4079a;
 
     static {
-        a = Build.VERSION.SDK_INT >= 16;
+        f4079a = Build.VERSION.SDK_INT >= 16;
     }
 }

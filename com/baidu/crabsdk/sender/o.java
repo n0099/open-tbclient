@@ -5,66 +5,66 @@ import com.baidu.android.util.devices.RomUtils;
 import com.baidu.crabsdk.OnUploadFilesCallback;
 import org.json.JSONObject;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes8.dex */
+/* loaded from: classes11.dex */
 public final class o implements Runnable {
-    final /* synthetic */ OnUploadFilesCallback apD;
-    final /* synthetic */ String apE;
-    final /* synthetic */ String apF;
-    final /* synthetic */ String apG;
-    final /* synthetic */ String apH;
+    final /* synthetic */ OnUploadFilesCallback aqm;
+    final /* synthetic */ String aqn;
+    final /* synthetic */ String aqo;
+    final /* synthetic */ String aqp;
+    final /* synthetic */ String aqq;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public o(OnUploadFilesCallback onUploadFilesCallback, String str, String str2, String str3, String str4) {
-        this.apD = onUploadFilesCallback;
-        this.apE = str;
-        this.apF = str2;
-        this.apG = str3;
-        this.apH = str4;
+        this.aqm = onUploadFilesCallback;
+        this.aqn = str;
+        this.aqo = str2;
+        this.aqp = str3;
+        this.aqq = str4;
     }
 
     @Override // java.lang.Runnable
     public final void run() {
         String I = com.baidu.crabsdk.b.o.I();
         if (!((I.equals("NONE") || I.equals(RomUtils.UNKNOWN)) ? false : true)) {
-            this.apD.onFailed("Network is not connected!");
+            this.aqm.onFailed("Network is not connected!");
             return;
         }
-        JSONObject a = com.baidu.crabsdk.b.j.a(this.apE, this.apD, this.apF, this.apG, this.apH);
-        if (a != null) {
-            String c = com.baidu.crabsdk.c.d.c(com.baidu.crabsdk.a.d, this.apE);
+        JSONObject a2 = com.baidu.crabsdk.b.j.a(this.aqn, this.aqm, this.aqo, this.aqp, this.aqq);
+        if (a2 != null) {
+            String c = com.baidu.crabsdk.c.d.c(com.baidu.crabsdk.a.d, this.aqn);
             try {
-                byte[] b = com.baidu.crabsdk.c.d.b(com.baidu.crabsdk.c.c.dy(a.toString()), c);
-                String dC = com.baidu.crabsdk.c.e.dC(c);
+                byte[] b = com.baidu.crabsdk.c.d.b(com.baidu.crabsdk.c.c.dD(a2.toString()), c);
+                String dH = com.baidu.crabsdk.c.e.dH(c);
                 String e = com.baidu.crabsdk.a.e();
-                com.baidu.crabsdk.c.a.dv("sendLogRecord postUrl:" + e);
-                String b2 = r.b(e, b, dC);
+                com.baidu.crabsdk.c.a.dA("sendLogRecord postUrl:" + e);
+                String b2 = r.b(e, b, dH);
                 if (TextUtils.isEmpty(b2)) {
-                    com.baidu.crabsdk.c.a.dw("result is empty!");
-                    this.apD.onFailed("Result is empty!");
+                    com.baidu.crabsdk.c.a.dB("result is empty!");
+                    this.aqm.onFailed("Result is empty!");
                 } else if (b2 != null && b2.equals("N/A")) {
-                    this.apD.onFailed("Not connected to server!");
+                    this.aqm.onFailed("Not connected to server!");
                 } else {
                     com.baidu.crabsdk.c.a.v("Result is: " + b2);
                     try {
                         JSONObject jSONObject = new JSONObject(b2);
                         if (jSONObject.has("code")) {
                             if (jSONObject.optInt("code", -1) == 0) {
-                                this.apD.onSuccess();
+                                this.aqm.onSuccess();
                             } else {
-                                this.apD.onFailed(jSONObject.optString("msg", "No errorMessage!"));
+                                this.aqm.onFailed(jSONObject.optString("msg", "No errorMessage!"));
                             }
                         }
                     } catch (Exception e2) {
                         com.baidu.crabsdk.c.a.a("Parse result error!", e2);
-                        this.apD.onFailed("Parse result error!");
+                        this.aqm.onFailed("Parse result error!");
                     }
                 }
             } catch (Exception e3) {
                 com.baidu.crabsdk.c.a.a("crash content AES failed!", e3);
-                this.apD.onFailed(e3.getMessage());
+                this.aqm.onFailed(e3.getMessage());
             } catch (OutOfMemoryError e4) {
                 com.baidu.crabsdk.c.a.a("OutOfMemoryError", e4);
-                this.apD.onFailed(e4.getMessage());
+                this.aqm.onFailed(e4.getMessage());
             }
         }
     }

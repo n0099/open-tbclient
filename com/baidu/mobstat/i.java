@@ -1,20 +1,22 @@
 package com.baidu.mobstat;
-/* loaded from: classes15.dex */
+/* loaded from: classes17.dex */
 public class i {
-    private long a;
+
+    /* renamed from: a  reason: collision with root package name */
+    private long f2620a;
     private String b;
     private String c;
 
     public i(long j, String str, String str2) {
-        this.a = -1L;
+        this.f2620a = -1L;
         str2 = str2 == null ? "" : str2;
-        this.a = j;
+        this.f2620a = j;
         this.b = str;
         this.c = str2;
     }
 
     public long a() {
-        return this.a;
+        return this.f2620a;
     }
 
     public String b() {

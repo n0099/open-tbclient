@@ -1,14 +1,14 @@
 package com.baidu.swan.apps.d.a;
 @kotlin.h
-/* loaded from: classes3.dex */
+/* loaded from: classes10.dex */
 public final class g {
-    private static Boolean bVY;
+    private static Boolean cin;
 
-    public static final Boolean acl() {
-        return bVY;
+    public static final Boolean aeX() {
+        return cin;
     }
 
-    public static final void c(Boolean bool) {
-        bVY = bool;
+    public static final void d(Boolean bool) {
+        cin = bool;
     }
 }

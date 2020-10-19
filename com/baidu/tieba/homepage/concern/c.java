@@ -11,46 +11,46 @@ import java.util.List;
 import tbclient.DiscoverHotForum;
 import tbclient.DiscoverTabCard;
 import tbclient.RecommendForumInfo;
-/* loaded from: classes21.dex */
+/* loaded from: classes22.dex */
 public class c {
     public static void a(View view, AbsThreadDataSupport absThreadDataSupport, int i) {
-        if (view != null && absThreadDataSupport != null && absThreadDataSupport.bcY() != null && !StringUtils.isNull(absThreadDataSupport.bcY().getTid())) {
+        if (view != null && absThreadDataSupport != null && absThreadDataSupport.bfG() != null && !StringUtils.isNull(absThreadDataSupport.bfG().getTid())) {
             aq aqVar = new aq("c12352");
-            bw bcY = absThreadDataSupport.bcY();
-            if (bcY.isLinkThread()) {
-                aqVar.ai("obj_type", 4);
-            } else if (bcY.isShareThread) {
-                aqVar.ai("obj_type", 5);
-            } else if (bcY.beg()) {
-                aqVar.ai("obj_type", 6);
-            } else if (bcY.bht()) {
-                aqVar.ai("obj_type", 7);
-            } else if (bcY.beh()) {
-                aqVar.ai("obj_type", 8);
-            } else if (bcY.bhu()) {
-                aqVar.ai("obj_type", 9);
-            } else if (bcY.getType() == bw.edg) {
-                aqVar.ai("obj_type", 1);
-            } else if (bcY.bee()) {
-                aqVar.ai("obj_type", 2);
+            bw bfG = absThreadDataSupport.bfG();
+            if (bfG.isLinkThread()) {
+                aqVar.aj("obj_type", 4);
+            } else if (bfG.isShareThread) {
+                aqVar.aj("obj_type", 5);
+            } else if (bfG.bgP()) {
+                aqVar.aj("obj_type", 6);
+            } else if (bfG.bkc()) {
+                aqVar.aj("obj_type", 7);
+            } else if (bfG.bgQ()) {
+                aqVar.aj("obj_type", 8);
+            } else if (bfG.bkd()) {
+                aqVar.aj("obj_type", 9);
+            } else if (bfG.getType() == bw.epl) {
+                aqVar.aj("obj_type", 1);
+            } else if (bfG.bgN()) {
+                aqVar.aj("obj_type", 2);
             }
-            aqVar.ai("obj_locate", i);
-            aqVar.dF("tid", absThreadDataSupport.bcY().getTid());
-            aqVar.u("fid", absThreadDataSupport.bcY().getFid());
-            aqVar.ai("obj_source", 1);
+            aqVar.aj("obj_locate", i);
+            aqVar.dK("tid", absThreadDataSupport.bfG().getTid());
+            aqVar.u("fid", absThreadDataSupport.bfG().getFid());
+            aqVar.aj("obj_source", 1);
             if (absThreadDataSupport instanceof com.baidu.tieba.card.data.c) {
-                aqVar.ai("obj_param1", ((com.baidu.tieba.card.data.c) absThreadDataSupport).cfE() ? 2 : 1);
+                aqVar.aj("obj_param1", ((com.baidu.tieba.card.data.c) absThreadDataSupport).cja() ? 2 : 1);
             }
-            if (absThreadDataSupport.bcY().bfy() != null) {
-                aqVar.dF("uid", absThreadDataSupport.bcY().bfy().getUserId());
+            if (absThreadDataSupport.bfG().bih() != null) {
+                aqVar.dK("uid", absThreadDataSupport.bfG().bih().getUserId());
             }
-            if (bcY.getBaijiahaoData() != null) {
-                aqVar.dF("obj_id", bcY.getBaijiahaoData().oriUgcNid);
+            if (bfG.getBaijiahaoData() != null) {
+                aqVar.dK("obj_id", bfG.getBaijiahaoData().oriUgcNid);
             } else {
-                aqVar.dF("obj_id", bcY.getTid());
+                aqVar.dK("obj_id", bfG.getTid());
             }
             TiebaStatic.log(aqVar);
-            d(bcY, i);
+            d(bfG, i);
         }
     }
 

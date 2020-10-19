@@ -6,61 +6,61 @@ import com.baidu.tbadk.core.data.AbsThreadDataSupport;
 import com.baidu.tbadk.core.data.bw;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.core.util.aq;
-/* loaded from: classes23.dex */
+/* loaded from: classes24.dex */
 public class a {
     public static void a(View view, AbsThreadDataSupport absThreadDataSupport, int i) {
-        if (view != null && absThreadDataSupport != null && absThreadDataSupport.bcY() != null && !StringUtils.isNull(absThreadDataSupport.bcY().getTid())) {
+        if (view != null && absThreadDataSupport != null && absThreadDataSupport.bfG() != null && !StringUtils.isNull(absThreadDataSupport.bfG().getTid())) {
             aq aqVar = new aq("c13564");
-            aqVar.ai("obj_source", 3);
-            bw bcY = absThreadDataSupport.bcY();
-            if (bcY.beg()) {
-                aqVar.ai("obj_type", 1);
-            } else if (bcY.beh()) {
-                aqVar.ai("obj_type", 2);
-            } else if (bcY.bht()) {
-                aqVar.ai("obj_type", 3);
-            } else if (bcY.bhu()) {
-                aqVar.ai("obj_type", 4);
-            } else if (bcY.threadType == 0) {
-                aqVar.ai("obj_type", 5);
-            } else if (bcY.bee()) {
-                aqVar.ai("obj_type", 6);
+            aqVar.aj("obj_source", 3);
+            bw bfG = absThreadDataSupport.bfG();
+            if (bfG.bgP()) {
+                aqVar.aj("obj_type", 1);
+            } else if (bfG.bgQ()) {
+                aqVar.aj("obj_type", 2);
+            } else if (bfG.bkc()) {
+                aqVar.aj("obj_type", 3);
+            } else if (bfG.bkd()) {
+                aqVar.aj("obj_type", 4);
+            } else if (bfG.threadType == 0) {
+                aqVar.aj("obj_type", 5);
+            } else if (bfG.bgN()) {
+                aqVar.aj("obj_type", 6);
             }
-            if (absThreadDataSupport.bcY().bfy() != null) {
-                aqVar.dF("uid", absThreadDataSupport.bcY().bfy().getUserId());
+            if (absThreadDataSupport.bfG().bih() != null) {
+                aqVar.dK("uid", absThreadDataSupport.bfG().bih().getUserId());
             }
-            if (bcY.getBaijiahaoData() != null) {
-                aqVar.dF("obj_id", bcY.getBaijiahaoData().oriUgcNid);
+            if (bfG.getBaijiahaoData() != null) {
+                aqVar.dK("obj_id", bfG.getBaijiahaoData().oriUgcNid);
             } else {
-                aqVar.dF("obj_id", bcY.getTid());
+                aqVar.dK("obj_id", bfG.getTid());
             }
-            aqVar.ai("obj_locate", i);
+            aqVar.aj("obj_locate", i);
             TiebaStatic.log(aqVar);
         }
     }
 
     public static void i(AbsThreadDataSupport absThreadDataSupport) {
         aq aqVar = new aq("c13578");
-        bw bcY = absThreadDataSupport.bcY();
-        if (bcY.beg()) {
-            aqVar.ai("obj_type", 1);
-        } else if (bcY.beh()) {
-            aqVar.ai("obj_type", 2);
-        } else if (bcY.bht()) {
-            aqVar.ai("obj_type", 3);
-        } else if (bcY.bhu()) {
-            aqVar.ai("obj_type", 4);
-        } else if (bcY.threadType == 0) {
-            aqVar.ai("obj_type", 5);
-        } else if (bcY.bee()) {
-            aqVar.ai("obj_type", 6);
+        bw bfG = absThreadDataSupport.bfG();
+        if (bfG.bgP()) {
+            aqVar.aj("obj_type", 1);
+        } else if (bfG.bgQ()) {
+            aqVar.aj("obj_type", 2);
+        } else if (bfG.bkc()) {
+            aqVar.aj("obj_type", 3);
+        } else if (bfG.bkd()) {
+            aqVar.aj("obj_type", 4);
+        } else if (bfG.threadType == 0) {
+            aqVar.aj("obj_type", 5);
+        } else if (bfG.bgN()) {
+            aqVar.aj("obj_type", 6);
         }
-        if (bcY.getBaijiahaoData() != null) {
-            aqVar.dF("obj_id", bcY.getBaijiahaoData().oriUgcNid);
+        if (bfG.getBaijiahaoData() != null) {
+            aqVar.dK("obj_id", bfG.getBaijiahaoData().oriUgcNid);
         } else {
-            aqVar.dF("obj_id", bcY.getTid());
+            aqVar.dK("obj_id", bfG.getTid());
         }
-        aqVar.dF("uid", bcY.bfy().getUserId());
+        aqVar.dK("uid", bfG.bih().getUserId());
         TiebaStatic.log(aqVar);
     }
 }

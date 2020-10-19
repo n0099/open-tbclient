@@ -4,7 +4,7 @@ import com.baidu.android.imsdk.utils.NoProGuard;
 import com.baidu.live.adp.lib.stats.BdStatsConstant;
 import com.baidu.live.tbadk.statics.AlaStaticKeys;
 import java.io.File;
-/* loaded from: classes9.dex */
+/* loaded from: classes5.dex */
 public class IMConstants implements ResponseCode, NoProGuard {
     public static final int ACCOUNT_ANON = 0;
     public static final int ACCOUNT_BAIDU = 1;
@@ -39,6 +39,31 @@ public class IMConstants implements ResponseCode, NoProGuard {
     public static final int CHAT_TYPE_LAUNCH = 24;
     public static final int CHAT_TYPE_LEMON = 25;
     public static final int CHAT_TYPE_MEDIA = 5;
+    public static final int CHAT_TYPE_NOTIFICATION_32 = 32;
+    public static final int CHAT_TYPE_NOTIFICATION_33 = 33;
+    public static final int CHAT_TYPE_NOTIFICATION_34 = 34;
+    public static final int CHAT_TYPE_NOTIFICATION_35 = 35;
+    public static final int CHAT_TYPE_NOTIFICATION_36 = 36;
+    public static final int CHAT_TYPE_NOTIFICATION_37 = 37;
+    public static final int CHAT_TYPE_NOTIFICATION_38 = 38;
+    public static final int CHAT_TYPE_NOTIFICATION_39 = 39;
+    public static final int CHAT_TYPE_NOTIFICATION_40 = 40;
+    public static final int CHAT_TYPE_NOTIFICATION_41 = 41;
+    public static final int CHAT_TYPE_NOTIFICATION_42 = 42;
+    public static final int CHAT_TYPE_NOTIFICATION_43 = 43;
+    public static final int CHAT_TYPE_NOTIFICATION_44 = 44;
+    public static final int CHAT_TYPE_NOTIFICATION_45 = 45;
+    public static final int CHAT_TYPE_NOTIFICATION_46 = 46;
+    public static final int CHAT_TYPE_NOTIFICATION_47 = 47;
+    public static final int CHAT_TYPE_NOTIFICATION_48 = 48;
+    public static final int CHAT_TYPE_NOTIFICATION_49 = 49;
+    public static final int CHAT_TYPE_NOTIFICATION_50 = 50;
+    public static final int CHAT_TYPE_NOTIFICATION_51 = 51;
+    public static final int CHAT_TYPE_NOTIFICATION_52 = 52;
+    public static final int CHAT_TYPE_NOTIFICATION_53 = 53;
+    public static final int CHAT_TYPE_NOTIFICATION_54 = 54;
+    public static final int CHAT_TYPE_NOTIFICATION_55 = 55;
+    public static final int CHAT_TYPE_NOTIFICATION_56 = 56;
     public static final int CHAT_TYPE_PA = 1;
     public static final int CHAT_TYPE_SERVECE_NOTICE = 26;
     public static final int CHAT_TYPE_SMART = 17;
@@ -46,6 +71,7 @@ public class IMConstants implements ResponseCode, NoProGuard {
     public static final int CHAT_TYPE_SMART_SERVER = 21;
     public static final int CHAT_TYPE_STAR = 4;
     public static final int CHAT_TYPE_STATION_LETTER = 23;
+    public static final int CHAT_TYPE_STUDIO = 20;
     public static final int CHAT_TYPE_STUDIO_DISCUSS = 60;
     public static final int CHAT_TYPE_USER = 0;
     public static final int CLASSTYPENODEFINE = 0;
@@ -70,6 +96,7 @@ public class IMConstants implements ResponseCode, NoProGuard {
     public static final int ERROR_DEL_MSG_FAIL = 1006;
     public static final int ERROR_FILE_NOT_FOUND = 1007;
     public static final int ERROR_FRIEND_GROUP_UPDATED = 610;
+    public static final int ERROR_GROUP_NAME_NOT_VALID = 60002;
     public static final int ERROR_HTTP_IOEXCEPTION_ERROR = 1012;
     public static final int ERROR_HTTP_RESPONS_ERROR = 1011;
     public static final int ERROR_ID_NOT_EXIST = 1013;
@@ -100,6 +127,7 @@ public class IMConstants implements ResponseCode, NoProGuard {
     public static final int GROUP_TYPE_STAR = 2;
     public static final int IM_ALL_SUBSCRIBED_TYPE = 3;
     public static final int IM_BUSINESS_TYPE_INTERACTIVE = 10;
+    public static final int IM_BUSINESS_TYPE_STUDIO_USE_PA = 11;
     public static final int IM_CATEGORY_ADD_SUBSCRIPTION = 1;
     public static final int IM_CATEGORY_ALL = -1;
     public static final int IM_CATEGORY_CHAT = 0;
@@ -169,6 +197,7 @@ public class IMConstants implements ResponseCode, NoProGuard {
     public static final int IM_MSG_TYPE_DUPA_B_MANUAL = 32;
     public static final int IM_MSG_TYPE_DUPA_EVALUATION = 33;
     public static final int IM_MSG_TYPE_FILE = 4;
+    public static final int IM_MSG_TYPE_GOODS = 29;
     public static final int IM_MSG_TYPE_GROUP_ALLOW = 1011;
     public static final int IM_MSG_TYPE_GROUP_BRAODCAST = 1006;
     public static final int IM_MSG_TYPE_GROUP_DELETE = 1009;
@@ -183,6 +212,8 @@ public class IMConstants implements ResponseCode, NoProGuard {
     public static final int IM_MSG_TYPE_LOCATION = 7;
     public static final int IM_MSG_TYPE_MULTIGRAPHICTEXT = 9;
     public static final int IM_MSG_TYPE_NONE = -1;
+    public static final int IM_MSG_TYPE_PASS = 27;
+    public static final int IM_MSG_TYPE_PASS_SAVE = 28;
     public static final int IM_MSG_TYPE_PRODUCT = 25;
     public static final int IM_MSG_TYPE_QUIT_GROUP = 1003;
     public static final int IM_MSG_TYPE_REAL_TIME_AUDIO = 5;

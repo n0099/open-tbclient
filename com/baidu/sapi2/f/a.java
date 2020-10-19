@@ -14,7 +14,7 @@ import com.baidu.sapi2.utils.SapiUtils;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
-/* loaded from: classes25.dex */
+/* loaded from: classes5.dex */
 public class a {
     public static final String c = "SapiScheme";
     public static final String d = "3.0.5";
@@ -30,7 +30,9 @@ public class a {
     public static final int n = 4;
     public static final int o = 3001;
     public static final String p = "achieve_sc_app_data";
-    private SapiWebView.InvokeScAppCallback.InvokeScAppResult a;
+
+    /* renamed from: a  reason: collision with root package name */
+    private SapiWebView.InvokeScAppCallback.InvokeScAppResult f3454a;
     private b b;
 
     public int a(Context context, String str, SapiWebView.InvokeScAppCallback invokeScAppCallback) {
@@ -52,26 +54,26 @@ public class a {
     }
 
     public void a(Activity activity, String str, String str2, List<PassNameValuePair> list, SapiWebView.InvokeScAppCallback.InvokeScAppResult invokeScAppResult) {
-        this.a = invokeScAppResult;
+        this.f3454a = invokeScAppResult;
         a aVar = new a();
         if (!aVar.a((Context) activity, g)) {
-            this.a.setInvokeResult(a(b.b, b.d));
+            this.f3454a.setInvokeResult(a(b.b, b.d));
             return;
         }
         try {
             aVar.a(activity, aVar.a(str, str2, list));
         } catch (Exception e2) {
-            this.a.setInvokeResult(a(b.a, b.c));
+            this.f3454a.setInvokeResult(a(b.f3455a, b.c));
         }
     }
 
     public void a(int i2, int i3, Intent intent) {
-        if (this.a != null) {
+        if (this.f3454a != null) {
             String str = null;
             if (intent != null) {
                 str = intent.getExtras().getString(p);
             }
-            this.a.setInvokeResult(str);
+            this.f3454a.setInvokeResult(str);
         }
     }
 

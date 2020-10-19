@@ -6,14 +6,14 @@ import com.baidu.mobstat.Config;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes10.dex */
+/* loaded from: classes14.dex */
 public class a {
     private static final int[] pw = {3, 10, 10, 10, 10};
     private String pv;
 
     /* renamed from: com.baidu.ar.face.a.a$a  reason: collision with other inner class name */
-    /* loaded from: classes10.dex */
-    public class C0083a {
+    /* loaded from: classes14.dex */
+    public class C0084a {
         public String pA;
         public String pB;
         public String pC;
@@ -22,11 +22,11 @@ public class a {
         public String py;
         public String pz;
 
-        public C0083a() {
+        public C0084a() {
         }
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes14.dex */
     public class b {
         public int[] od;
         public String pF;
@@ -37,9 +37,9 @@ public class a {
         public String pK;
         public String pL;
         public String pM;
-        public C0083a pN;
-        public C0083a pO;
-        public C0083a pP;
+        public C0084a pN;
+        public C0084a pO;
+        public C0084a pP;
         public int pQ;
 
         public b() {
@@ -110,37 +110,37 @@ public class a {
         }
     }
 
-    private C0083a f(JSONObject jSONObject) {
-        C0083a c0083a = new C0083a();
+    private C0084a f(JSONObject jSONObject) {
+        C0084a c0084a = new C0084a();
         try {
-            c0083a.px = jSONObject.getString("track_param_0");
-            if (TextUtils.isEmpty(c0083a.px)) {
-                c0083a.px = "";
+            c0084a.px = jSONObject.getString("track_param_0");
+            if (TextUtils.isEmpty(c0084a.px)) {
+                c0084a.px = "";
             } else {
-                c0083a.px = this.pv + c0083a.px;
+                c0084a.px = this.pv + c0084a.px;
             }
-            c0083a.py = jSONObject.getString("track_param_1");
-            if (TextUtils.isEmpty(c0083a.py)) {
-                c0083a.py = "";
+            c0084a.py = jSONObject.getString("track_param_1");
+            if (TextUtils.isEmpty(c0084a.py)) {
+                c0084a.py = "";
             } else {
-                c0083a.py = this.pv + c0083a.py;
+                c0084a.py = this.pv + c0084a.py;
             }
-            c0083a.pz = jSONObject.getString("track_param_2");
-            if (TextUtils.isEmpty(c0083a.pz)) {
-                c0083a.pz = "";
+            c0084a.pz = jSONObject.getString("track_param_2");
+            if (TextUtils.isEmpty(c0084a.pz)) {
+                c0084a.pz = "";
             } else {
-                c0083a.pz = this.pv + c0083a.pz;
+                c0084a.pz = this.pv + c0084a.pz;
             }
-            c0083a.pA = jSONObject.getString("track_param_3");
-            if (TextUtils.isEmpty(c0083a.pA)) {
-                c0083a.pA = "";
+            c0084a.pA = jSONObject.getString("track_param_3");
+            if (TextUtils.isEmpty(c0084a.pA)) {
+                c0084a.pA = "";
             } else {
-                c0083a.pA = this.pv + c0083a.pA;
+                c0084a.pA = this.pv + c0084a.pA;
             }
-            c0083a.pB = jSONObject.getString("trackingSmoothAlpha");
-            c0083a.pC = jSONObject.getString("trackingSmoothThreshold");
-            c0083a.pD = jSONObject.getString("trackingMouthThreshold");
-            return c0083a;
+            c0084a.pB = jSONObject.getString("trackingSmoothAlpha");
+            c0084a.pC = jSONObject.getString("trackingSmoothThreshold");
+            c0084a.pD = jSONObject.getString("trackingMouthThreshold");
+            return c0084a;
         } catch (JSONException e) {
             com.baidu.ar.g.b.b("FaceModelConfig", "parse DeviceModel error");
             e.printStackTrace();

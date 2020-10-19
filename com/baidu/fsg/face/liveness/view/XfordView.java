@@ -12,9 +12,11 @@ import android.graphics.Xfermode;
 import android.util.AttributeSet;
 import android.widget.ImageView;
 import com.baidu.sapi2.biometrics.liveness.R;
-/* loaded from: classes16.dex */
+/* loaded from: classes17.dex */
 public class XfordView extends ImageView {
-    private Bitmap a;
+
+    /* renamed from: a  reason: collision with root package name */
+    private Bitmap f1780a;
     private Paint b;
     private Rect c;
     private Rect d;
@@ -22,14 +24,14 @@ public class XfordView extends ImageView {
 
     public XfordView(Context context) {
         super(context);
-        this.a = null;
+        this.f1780a = null;
         this.b = null;
         a();
     }
 
     public XfordView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.a = null;
+        this.f1780a = null;
         this.b = null;
         a();
     }
@@ -39,8 +41,8 @@ public class XfordView extends ImageView {
             this.b = new Paint();
             this.b.setColor(1711276032);
         }
-        if (this.a == null) {
-            this.a = BitmapFactory.decodeResource(getResources(), R.drawable.sapi_liveness_recog_face_mask);
+        if (this.f1780a == null) {
+            this.f1780a = BitmapFactory.decodeResource(getResources(), R.drawable.sapi_liveness_recog_face_mask);
         }
         if (this.e == null) {
             this.e = new PorterDuffXfermode(PorterDuff.Mode.SRC_OUT);
@@ -66,9 +68,9 @@ public class XfordView extends ImageView {
             this.d = new Rect(width, height, dimensionPixelSize2 + width, dimensionPixelSize + height);
         }
         if (this.c == null) {
-            this.c = new Rect(0, 0, this.a.getWidth(), this.a.getHeight());
+            this.c = new Rect(0, 0, this.f1780a.getWidth(), this.f1780a.getHeight());
         }
-        canvas.drawBitmap(this.a, this.c, this.d, this.b);
+        canvas.drawBitmap(this.f1780a, this.c, this.d, this.b);
         this.b.setXfermode(this.e);
         canvas.drawRect(0.0f, 0.0f, getWidth(), getHeight(), this.b);
         this.b.setXfermode(null);
@@ -78,9 +80,9 @@ public class XfordView extends ImageView {
     @Override // android.widget.ImageView, android.view.View
     protected void onDetachedFromWindow() {
         super.onDetachedFromWindow();
-        if (this.a != null && !this.a.isRecycled()) {
-            this.a.recycle();
-            this.a = null;
+        if (this.f1780a != null && !this.f1780a.isRecycled()) {
+            this.f1780a.recycle();
+            this.f1780a = null;
         }
         System.gc();
         this.e = null;

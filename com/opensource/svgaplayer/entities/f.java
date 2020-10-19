@@ -12,7 +12,7 @@ import kotlin.jvm.internal.q;
 import org.json.JSONArray;
 import org.json.JSONObject;
 @h
-/* loaded from: classes16.dex */
+/* loaded from: classes15.dex */
 public final class f {
     private final List<g> frames;
     private final String imageKey;
@@ -21,12 +21,12 @@ public final class f {
         return this.imageKey;
     }
 
-    public final List<g> efW() {
+    public final List<g> ejH() {
         return this.frames;
     }
 
     public f(JSONObject jSONObject) {
-        q.m(jSONObject, MapBundleKey.MapObjKey.OBJ_SL_OBJ);
+        q.n(jSONObject, MapBundleKey.MapObjKey.OBJ_SL_OBJ);
         this.imageKey = jSONObject.optString("imageKey");
         ArrayList arrayList = new ArrayList();
         JSONArray optJSONArray = jSONObject.optJSONArray("frames");
@@ -36,8 +36,8 @@ public final class f {
                 JSONObject optJSONObject = optJSONArray.optJSONObject(i);
                 if (optJSONObject != null) {
                     g gVar = new g(optJSONObject);
-                    if ((!gVar.jy().isEmpty()) && ((SVGAVideoShapeEntity) o.gi(gVar.jy())).efM() && arrayList.size() > 0) {
-                        gVar.fY(((g) o.gj(arrayList)).jy());
+                    if ((!gVar.jz().isEmpty()) && ((SVGAVideoShapeEntity) o.gl(gVar.jz())).ejx() && arrayList.size() > 0) {
+                        gVar.gb(((g) o.gm(arrayList)).jz());
                     }
                     arrayList.add(gVar);
                 }
@@ -47,8 +47,8 @@ public final class f {
     }
 
     public f(SpriteEntity spriteEntity) {
-        ArrayList ejX;
-        q.m(spriteEntity, MapBundleKey.MapObjKey.OBJ_SL_OBJ);
+        ArrayList enJ;
+        q.n(spriteEntity, MapBundleKey.MapObjKey.OBJ_SL_OBJ);
         this.imageKey = spriteEntity.imageKey;
         g gVar = null;
         List<FrameEntity> list = spriteEntity.frames;
@@ -57,18 +57,18 @@ public final class f {
             ArrayList arrayList = new ArrayList(o.a(list2, 10));
             g gVar2 = gVar;
             for (FrameEntity frameEntity : list2) {
-                q.l((Object) frameEntity, AdvanceSetting.NETWORK_TYPE);
+                q.m(frameEntity, AdvanceSetting.NETWORK_TYPE);
                 g gVar3 = new g(frameEntity);
-                if ((!gVar3.jy().isEmpty()) && ((SVGAVideoShapeEntity) o.gi(gVar3.jy())).efM() && gVar2 != null) {
-                    gVar3.fY(gVar2.jy());
+                if ((!gVar3.jz().isEmpty()) && ((SVGAVideoShapeEntity) o.gl(gVar3.jz())).ejx() && gVar2 != null) {
+                    gVar3.gb(gVar2.jz());
                 }
                 arrayList.add(gVar3);
                 gVar2 = gVar3;
             }
-            ejX = arrayList;
+            enJ = arrayList;
         } else {
-            ejX = o.ejX();
+            enJ = o.enJ();
         }
-        this.frames = ejX;
+        this.frames = enJ;
     }
 }

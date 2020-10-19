@@ -1,29 +1,29 @@
 package com.baidu.ubc;
 
 import org.json.JSONObject;
-/* loaded from: classes11.dex */
+/* loaded from: classes19.dex */
 class n {
-    private String aao;
-    private String dLP;
-    private int dLQ;
-    private JSONObject dLR;
-    private String dLS;
-    private boolean dLT;
+    private String aaE;
+    private String dXQ;
+    private int dXR;
+    private JSONObject dXS;
+    private String dXT;
+    private boolean dXU;
     private String mCategory;
     private String mContent;
     private String mId;
     private int mOption;
     private long mTime;
-    private String npG;
+    private String nFa;
 
     public n(String str, String str2, int i) {
         this.mContent = "";
-        this.dLT = false;
-        this.aao = "";
-        this.npG = "0";
+        this.dXU = false;
+        this.aaE = "";
+        this.nFa = "0";
         this.mId = str;
-        this.dLP = str;
-        this.dLQ = -1;
+        this.dXQ = str;
+        this.dXR = -1;
         this.mContent = str2;
         this.mOption = i;
         if ((this.mOption & 2) == 0) {
@@ -33,13 +33,13 @@ class n {
 
     public n(String str, JSONObject jSONObject, int i) {
         this.mContent = "";
-        this.dLT = false;
-        this.aao = "";
-        this.npG = "0";
+        this.dXU = false;
+        this.aaE = "";
+        this.nFa = "0";
         this.mId = str;
-        this.dLP = str;
-        this.dLQ = -1;
-        this.dLR = jSONObject;
+        this.dXQ = str;
+        this.dXR = -1;
+        this.dXS = jSONObject;
         this.mOption = i;
         if ((this.mOption & 2) == 0) {
             this.mTime = System.currentTimeMillis();
@@ -48,12 +48,12 @@ class n {
 
     public n(String str, String str2, int i, String str3, int i2) {
         this.mContent = "";
-        this.dLT = false;
-        this.aao = "";
-        this.npG = "0";
+        this.dXU = false;
+        this.aaE = "";
+        this.nFa = "0";
         this.mId = str2;
-        this.dLP = str;
-        this.dLQ = i;
+        this.dXQ = str;
+        this.dXR = i;
         this.mContent = str3;
         this.mOption = i2;
         if ((this.mOption & 2) == 0) {
@@ -63,12 +63,12 @@ class n {
 
     public n(String str, String str2, int i, String str3, long j, int i2) {
         this.mContent = "";
-        this.dLT = false;
-        this.aao = "";
-        this.npG = "0";
+        this.dXU = false;
+        this.aaE = "";
+        this.nFa = "0";
         this.mId = str2;
-        this.dLP = str;
-        this.dLQ = i;
+        this.dXQ = str;
+        this.dXR = i;
         this.mContent = str3;
         this.mOption = i2;
         if ((this.mOption & 2) == 0) {
@@ -84,12 +84,12 @@ class n {
         return this.mId;
     }
 
-    public String aWC() {
-        return this.dLP;
+    public String aZk() {
+        return this.dXQ;
     }
 
-    public int aWD() {
-        return this.dLQ;
+    public int aZl() {
+        return this.dXR;
     }
 
     public String getContent() {
@@ -104,8 +104,8 @@ class n {
         return this.mOption;
     }
 
-    public String aWE() {
-        return this.dLS;
+    public String aZm() {
+        return this.dXT;
     }
 
     public void setCategory(String str) {
@@ -116,37 +116,37 @@ class n {
         return this.mCategory;
     }
 
-    public JSONObject aWF() {
-        return this.dLR;
+    public JSONObject aZn() {
+        return this.dXS;
     }
 
     public void setFileName(String str) {
-        this.aao = str;
+        this.aaE = str;
     }
 
     public String getFileName() {
-        return this.aao;
+        return this.aaE;
     }
 
-    public void hg(boolean z) {
-        this.dLT = z;
+    public void hC(boolean z) {
+        this.dXU = z;
     }
 
-    public boolean aWA() {
-        return this.dLT;
+    public boolean aZi() {
+        return this.dXU;
     }
 
-    public void aWH() {
-        if (this.mId != null && this.mId.equals(this.dLP) && g.dPU().xv(this.mId)) {
-            this.dLS = UBC.getUBCContext().avU();
+    public void aZp() {
+        if (this.mId != null && this.mId.equals(this.dXQ) && g.dTF().yh(this.mId)) {
+            this.dXT = UBC.getUBCContext().ayF();
         }
     }
 
-    public void Ug(String str) {
-        this.npG = str;
+    public void UU(String str) {
+        this.nFa = str;
     }
 
-    public String dPY() {
-        return this.npG;
+    public String dTJ() {
+        return this.nFa;
     }
 }

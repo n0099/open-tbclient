@@ -8,23 +8,23 @@ import io.reactivex.disposables.b;
 import io.reactivex.internal.disposables.CancellableDisposable;
 import io.reactivex.internal.disposables.DisposableHelper;
 import java.util.concurrent.atomic.AtomicReference;
-/* loaded from: classes25.dex */
+/* loaded from: classes17.dex */
 public final class CompletableCreate extends a {
-    final d owB;
+    final d oLQ;
 
     @Override // io.reactivex.a
     protected void b(c cVar) {
         Emitter emitter = new Emitter(cVar);
         cVar.onSubscribe(emitter);
         try {
-            this.owB.a(emitter);
+            this.oLQ.a(emitter);
         } catch (Throwable th) {
             io.reactivex.exceptions.a.J(th);
             emitter.onError(th);
         }
     }
 
-    /* loaded from: classes25.dex */
+    /* loaded from: classes17.dex */
     static final class Emitter extends AtomicReference<b> implements io.reactivex.b, b {
         private static final long serialVersionUID = -2467358622224974244L;
         final c actual;

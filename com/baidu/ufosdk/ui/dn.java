@@ -2,18 +2,20 @@ package com.baidu.ufosdk.ui;
 
 import android.content.Context;
 import com.baidu.ufosdk.UfoSDK;
-/* loaded from: classes21.dex */
+/* loaded from: classes22.dex */
 final class dn implements Runnable {
-    final /* synthetic */ dl a;
+
+    /* renamed from: a  reason: collision with root package name */
+    final /* synthetic */ dl f3834a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public dn(dl dlVar) {
-        this.a = dlVar;
+        this.f3834a = dlVar;
     }
 
     @Override // java.lang.Runnable
     public final void run() {
-        Context applicationContext = this.a.a.getApplicationContext();
+        Context applicationContext = this.f3834a.f3832a.getApplicationContext();
         String str = UfoSDK.clientid;
         com.baidu.ufosdk.e.a.b(applicationContext);
     }

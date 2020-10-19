@@ -15,7 +15,7 @@ import java.io.IOException;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes10.dex */
+/* loaded from: classes14.dex */
 public class e {
     private static final String TAG = e.class.getSimpleName();
     private IHttpRequest bO;

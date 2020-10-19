@@ -7,23 +7,23 @@ import java.util.Iterator;
 import java.util.Map;
 import java.util.WeakHashMap;
 @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
-/* loaded from: classes18.dex */
+/* loaded from: classes14.dex */
 public class b<K, V> implements Iterable<Map.Entry<K, V>> {
-    private c<K, V> yA;
-    private c<K, V> yz;
-    private WeakHashMap<f<K, V>, Boolean> yB = new WeakHashMap<>();
+    private c<K, V> yQ;
+    private c<K, V> yR;
+    private WeakHashMap<f<K, V>, Boolean> yS = new WeakHashMap<>();
     private int mSize = 0;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes18.dex */
+    /* loaded from: classes14.dex */
     public interface f<K, V> {
         void c(@NonNull c<K, V> cVar);
     }
 
     protected c<K, V> i(K k) {
-        c<K, V> cVar = this.yz;
-        while (cVar != null && !cVar.yC.equals(k)) {
-            cVar = cVar.yD;
+        c<K, V> cVar = this.yQ;
+        while (cVar != null && !cVar.yT.equals(k)) {
+            cVar = cVar.yU;
         }
         return cVar;
     }
@@ -41,13 +41,13 @@ public class b<K, V> implements Iterable<Map.Entry<K, V>> {
     public c<K, V> d(@NonNull K k, @NonNull V v) {
         c<K, V> cVar = new c<>(k, v);
         this.mSize++;
-        if (this.yA == null) {
-            this.yz = cVar;
-            this.yA = this.yz;
+        if (this.yR == null) {
+            this.yQ = cVar;
+            this.yR = this.yQ;
         } else {
-            this.yA.yD = cVar;
-            cVar.yE = this.yA;
-            this.yA = cVar;
+            this.yR.yU = cVar;
+            cVar.yV = this.yR;
+            this.yR = cVar;
         }
         return cVar;
     }
@@ -58,23 +58,23 @@ public class b<K, V> implements Iterable<Map.Entry<K, V>> {
             return null;
         }
         this.mSize--;
-        if (!this.yB.isEmpty()) {
-            for (f<K, V> fVar : this.yB.keySet()) {
+        if (!this.yS.isEmpty()) {
+            for (f<K, V> fVar : this.yS.keySet()) {
                 fVar.c(i);
             }
         }
-        if (i.yE != null) {
-            i.yE.yD = i.yD;
+        if (i.yV != null) {
+            i.yV.yU = i.yU;
         } else {
-            this.yz = i.yD;
+            this.yQ = i.yU;
         }
-        if (i.yD != null) {
-            i.yD.yE = i.yE;
+        if (i.yU != null) {
+            i.yU.yV = i.yV;
         } else {
-            this.yA = i.yE;
+            this.yR = i.yV;
         }
-        i.yD = null;
-        i.yE = null;
+        i.yU = null;
+        i.yV = null;
         return i.mValue;
     }
 
@@ -85,29 +85,29 @@ public class b<K, V> implements Iterable<Map.Entry<K, V>> {
     @Override // java.lang.Iterable
     @NonNull
     public Iterator<Map.Entry<K, V>> iterator() {
-        a aVar = new a(this.yz, this.yA);
-        this.yB.put(aVar, false);
+        a aVar = new a(this.yQ, this.yR);
+        this.yS.put(aVar, false);
         return aVar;
     }
 
     public Iterator<Map.Entry<K, V>> descendingIterator() {
-        C0000b c0000b = new C0000b(this.yA, this.yz);
-        this.yB.put(c0000b, false);
-        return c0000b;
+        C0001b c0001b = new C0001b(this.yR, this.yQ);
+        this.yS.put(c0001b, false);
+        return c0001b;
     }
 
-    public b<K, V>.d hr() {
+    public b<K, V>.d hs() {
         b<K, V>.d dVar = new d();
-        this.yB.put(dVar, false);
+        this.yS.put(dVar, false);
         return dVar;
     }
 
-    public Map.Entry<K, V> hs() {
-        return this.yz;
+    public Map.Entry<K, V> ht() {
+        return this.yQ;
     }
 
-    public Map.Entry<K, V> ht() {
-        return this.yA;
+    public Map.Entry<K, V> hu() {
+        return this.yR;
     }
 
     public boolean equals(Object obj) {
@@ -150,57 +150,57 @@ public class b<K, V> implements Iterable<Map.Entry<K, V>> {
         return sb.toString();
     }
 
-    /* loaded from: classes18.dex */
+    /* loaded from: classes14.dex */
     private static abstract class e<K, V> implements f<K, V>, Iterator<Map.Entry<K, V>> {
-        c<K, V> yD;
-        c<K, V> yI;
+        c<K, V> yU;
+        c<K, V> yZ;
 
         abstract c<K, V> a(c<K, V> cVar);
 
         abstract c<K, V> b(c<K, V> cVar);
 
         e(c<K, V> cVar, c<K, V> cVar2) {
-            this.yI = cVar2;
-            this.yD = cVar;
+            this.yZ = cVar2;
+            this.yU = cVar;
         }
 
         @Override // java.util.Iterator
         public boolean hasNext() {
-            return this.yD != null;
+            return this.yU != null;
         }
 
         @Override // android.arch.a.b.b.f
         public void c(@NonNull c<K, V> cVar) {
-            if (this.yI == cVar && cVar == this.yD) {
-                this.yD = null;
-                this.yI = null;
+            if (this.yZ == cVar && cVar == this.yU) {
+                this.yU = null;
+                this.yZ = null;
             }
-            if (this.yI == cVar) {
-                this.yI = b(this.yI);
+            if (this.yZ == cVar) {
+                this.yZ = b(this.yZ);
             }
-            if (this.yD == cVar) {
-                this.yD = hu();
+            if (this.yU == cVar) {
+                this.yU = hv();
             }
         }
 
-        private c<K, V> hu() {
-            if (this.yD == this.yI || this.yI == null) {
+        private c<K, V> hv() {
+            if (this.yU == this.yZ || this.yZ == null) {
                 return null;
             }
-            return a(this.yD);
+            return a(this.yU);
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // java.util.Iterator
         public Map.Entry<K, V> next() {
-            c<K, V> cVar = this.yD;
-            this.yD = hu();
+            c<K, V> cVar = this.yU;
+            this.yU = hv();
             return cVar;
         }
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes18.dex */
+    /* loaded from: classes14.dex */
     public static class a<K, V> extends e<K, V> {
         a(c<K, V> cVar, c<K, V> cVar2) {
             super(cVar, cVar2);
@@ -208,88 +208,88 @@ public class b<K, V> implements Iterable<Map.Entry<K, V>> {
 
         @Override // android.arch.a.b.b.e
         c<K, V> a(c<K, V> cVar) {
-            return cVar.yD;
+            return cVar.yU;
         }
 
         @Override // android.arch.a.b.b.e
         c<K, V> b(c<K, V> cVar) {
-            return cVar.yE;
+            return cVar.yV;
         }
     }
 
     /* renamed from: android.arch.a.b.b$b  reason: collision with other inner class name */
-    /* loaded from: classes18.dex */
-    private static class C0000b<K, V> extends e<K, V> {
-        C0000b(c<K, V> cVar, c<K, V> cVar2) {
+    /* loaded from: classes14.dex */
+    private static class C0001b<K, V> extends e<K, V> {
+        C0001b(c<K, V> cVar, c<K, V> cVar2) {
             super(cVar, cVar2);
         }
 
         @Override // android.arch.a.b.b.e
         c<K, V> a(c<K, V> cVar) {
-            return cVar.yE;
+            return cVar.yV;
         }
 
         @Override // android.arch.a.b.b.e
         c<K, V> b(c<K, V> cVar) {
-            return cVar.yD;
+            return cVar.yU;
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes18.dex */
+    /* loaded from: classes14.dex */
     public class d implements f<K, V>, Iterator<Map.Entry<K, V>> {
-        private c<K, V> yF;
-        private boolean yG;
+        private c<K, V> yW;
+        private boolean yX;
 
         private d() {
-            this.yG = true;
+            this.yX = true;
         }
 
         @Override // android.arch.a.b.b.f
         public void c(@NonNull c<K, V> cVar) {
-            if (cVar == this.yF) {
-                this.yF = this.yF.yE;
-                this.yG = this.yF == null;
+            if (cVar == this.yW) {
+                this.yW = this.yW.yV;
+                this.yX = this.yW == null;
             }
         }
 
         @Override // java.util.Iterator
         public boolean hasNext() {
-            return this.yG ? b.this.yz != null : (this.yF == null || this.yF.yD == null) ? false : true;
+            return this.yX ? b.this.yQ != null : (this.yW == null || this.yW.yU == null) ? false : true;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // java.util.Iterator
         public Map.Entry<K, V> next() {
-            if (this.yG) {
-                this.yG = false;
-                this.yF = b.this.yz;
+            if (this.yX) {
+                this.yX = false;
+                this.yW = b.this.yQ;
             } else {
-                this.yF = this.yF != null ? this.yF.yD : null;
+                this.yW = this.yW != null ? this.yW.yU : null;
             }
-            return this.yF;
+            return this.yW;
         }
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes18.dex */
+    /* loaded from: classes14.dex */
     public static class c<K, V> implements Map.Entry<K, V> {
         @NonNull
         final V mValue;
         @NonNull
-        final K yC;
-        c<K, V> yD;
-        c<K, V> yE;
+        final K yT;
+        c<K, V> yU;
+        c<K, V> yV;
 
         c(@NonNull K k, @NonNull V v) {
-            this.yC = k;
+            this.yT = k;
             this.mValue = v;
         }
 
         @Override // java.util.Map.Entry
         @NonNull
         public K getKey() {
-            return this.yC;
+            return this.yT;
         }
 
         @Override // java.util.Map.Entry
@@ -304,7 +304,7 @@ public class b<K, V> implements Iterable<Map.Entry<K, V>> {
         }
 
         public String toString() {
-            return this.yC + ETAG.EQUAL + this.mValue;
+            return this.yT + ETAG.EQUAL + this.mValue;
         }
 
         @Override // java.util.Map.Entry
@@ -314,7 +314,7 @@ public class b<K, V> implements Iterable<Map.Entry<K, V>> {
             }
             if (obj instanceof c) {
                 c cVar = (c) obj;
-                return this.yC.equals(cVar.yC) && this.mValue.equals(cVar.mValue);
+                return this.yT.equals(cVar.yT) && this.mValue.equals(cVar.mValue);
             }
             return false;
         }

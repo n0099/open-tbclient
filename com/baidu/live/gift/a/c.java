@@ -8,15 +8,15 @@ import java.util.Comparator;
 import java.util.List;
 /* loaded from: classes4.dex */
 public class c implements Cloneable {
-    public String aEU;
-    public String aEV;
-    public long aQb;
-    public g aVd;
-    public int aVf;
-    public boolean aVh;
-    public long aVi;
-    public boolean aVk;
-    public String aVl;
+    public String aHY;
+    public String aHZ;
+    public long aTm;
+    public g aYo;
+    public int aYq;
+    public boolean aYs;
+    public long aYt;
+    public boolean aYv;
+    public String aYw;
     public String appId;
     public String description;
     public String giftId;
@@ -29,90 +29,90 @@ public class c implements Cloneable {
     public String userId;
     public String userName;
     public int userStatus;
-    public boolean aVc = false;
-    public String aVe = "";
-    public long aVg = 0;
+    public boolean aYn = false;
+    public String aYp = "";
+    public long aYr = 0;
     public long fansCount = 0;
     public String location = "";
     public int priority = 1;
-    public long aVj = 0;
-    private boolean aVm = true;
-    public boolean aVn = false;
-    public boolean aVo = false;
-    public boolean aVp = false;
-    public List<m> aQz = new ArrayList();
+    public long aYu = 0;
+    private boolean aYx = true;
+    public boolean aYy = false;
+    public boolean aYz = false;
+    public boolean aYA = false;
+    public List<m> aTK = new ArrayList();
 
     public c(String str, long j, g gVar, String str2, String str3, String str4, String str5, String str6, boolean z, String str7, String str8, long j2) {
         this.giftId = str;
-        this.aVi = j;
-        this.aVd = gVar;
+        this.aYt = j;
+        this.aYo = gVar;
         this.userId = str2;
         this.portrait = str3;
         this.userName = str4;
         this.liveId = str5;
         this.groupId = str6;
-        this.aVk = z;
-        this.aVl = str7;
+        this.aYv = z;
+        this.aYw = str7;
         this.appId = str8;
         this.msgId = j2;
-        GJ();
+        HF();
     }
 
     public c(String str, long j, g gVar, String str2, String str3, String str4, String str5, String str6, boolean z, String str7, String str8, long j2, boolean z2) {
         this.giftId = str;
-        this.aVi = j;
-        this.aVd = gVar;
+        this.aYt = j;
+        this.aYo = gVar;
         this.userId = str2;
         this.portrait = str3;
         this.userName = str4;
         this.liveId = str5;
         this.groupId = str6;
-        this.aVk = z;
-        this.aVl = str7;
+        this.aYv = z;
+        this.aYw = str7;
         this.appId = str8;
         this.msgId = j2;
-        this.aVh = z2;
-        GJ();
+        this.aYs = z2;
+        HF();
     }
 
     public c(String str, long j, g gVar, String str2, String str3, String str4, int i, int i2, String str5, int i3, String str6, String str7, boolean z, String str8, String str9, long j2) {
         this.giftId = str;
-        this.aVi = j;
-        this.aVd = gVar;
+        this.aYt = j;
+        this.aYo = gVar;
         this.userId = str2;
         this.portrait = str3;
         this.userName = str4;
-        this.aVf = i;
+        this.aYq = i;
         this.sex = i2;
         this.description = str5;
         this.userStatus = i3;
         this.liveId = str6;
         this.groupId = str7;
-        this.aVk = z;
-        this.aVl = str8;
+        this.aYv = z;
+        this.aYw = str8;
         this.appId = str9;
         this.msgId = j2;
-        GJ();
+        HF();
     }
 
-    public void ad(long j) {
+    public void af(long j) {
         this.sendTime = j;
     }
 
-    public long GI() {
+    public long HE() {
         return this.sendTime;
     }
 
-    private void GJ() {
-        this.aVe = this.userId + PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS + this.giftId + PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS + this.userName;
+    private void HF() {
+        this.aYp = this.userId + PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS + this.giftId + PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS + this.userName;
     }
 
-    public String GK() {
-        return this.aVe;
+    public String HG() {
+        return this.aYp;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    /* renamed from: GL */
+    /* renamed from: HH */
     public c clone() {
         try {
             return (c) super.clone();
@@ -122,12 +122,12 @@ public class c implements Cloneable {
         }
     }
 
-    public boolean GM() {
-        return this.aVm;
+    public boolean HI() {
+        return this.aYx;
     }
 
-    public void bG(boolean z) {
-        this.aVm = z;
+    public void bK(boolean z) {
+        this.aYx = z;
     }
 
     /* loaded from: classes4.dex */
@@ -143,10 +143,10 @@ public class c implements Cloneable {
                 if (cVar.priority < cVar2.priority) {
                     return -1;
                 }
-                if (cVar.aVd != null && cVar2.aVd != null) {
+                if (cVar.aYo != null && cVar2.aYo != null) {
                     try {
-                        long parseLong = Long.parseLong(cVar.aVd.getPrice());
-                        long parseLong2 = Long.parseLong(cVar2.aVd.getPrice());
+                        long parseLong = Long.parseLong(cVar.aYo.getPrice());
+                        long parseLong2 = Long.parseLong(cVar2.aYo.getPrice());
                         if (parseLong <= parseLong2) {
                             return parseLong < parseLong2 ? -1 : 0;
                         }

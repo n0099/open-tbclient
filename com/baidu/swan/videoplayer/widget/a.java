@@ -14,43 +14,43 @@ import com.baidu.swan.apps.inlinewidget.b.a;
 import com.baidu.swan.apps.inlinewidget.d;
 import com.baidu.webkit.sdk.plugin.ZeusPluginFactory;
 import java.util.Map;
-/* loaded from: classes25.dex */
+/* loaded from: classes12.dex */
 public class a implements com.baidu.swan.apps.inlinewidget.b.a {
     private static final boolean DEBUG = b.DEBUG;
-    private volatile boolean bEF = false;
-    private String bVN;
-    private a.InterfaceC0402a dOT;
-    private CyberExtractor dOU;
+    private volatile boolean bLh = false;
+    private String cib;
+    private a.InterfaceC0419a eaU;
+    private CyberExtractor eaV;
 
     public a(ZeusPluginFactory.Invoker invoker, String str) {
-        this.bVN = str;
+        this.cib = str;
     }
 
     @Override // com.baidu.swan.apps.inlinewidget.d
     public void a(@NonNull d.a aVar) {
-        this.dOU = new CyberExtractor(true);
-        aVar.ep(true);
+        this.eaV = new CyberExtractor(true);
+        aVar.eL(true);
     }
 
     @Override // com.baidu.swan.apps.inlinewidget.d
     @Nullable
-    public String aov() {
+    public String arh() {
         return null;
     }
 
     @Override // com.baidu.swan.apps.inlinewidget.d
     @Nullable
     public String getSlaveId() {
-        return this.bVN;
+        return this.cib;
     }
 
     public Context getContext() {
-        return com.baidu.swan.apps.t.a.apu();
+        return com.baidu.swan.apps.t.a.asf();
     }
 
     @Override // com.baidu.swan.apps.inlinewidget.b.a
-    public void a(a.InterfaceC0402a interfaceC0402a) {
-        this.dOT = interfaceC0402a;
+    public void a(a.InterfaceC0419a interfaceC0419a) {
+        this.eaU = interfaceC0419a;
     }
 
     @Override // com.baidu.swan.apps.inlinewidget.b.a
@@ -59,17 +59,17 @@ public class a implements com.baidu.swan.apps.inlinewidget.b.a {
             p.postOnComputation(new Runnable() { // from class: com.baidu.swan.videoplayer.widget.a.1
                 @Override // java.lang.Runnable
                 public void run() {
-                    if (a.this.bEF) {
+                    if (a.this.bLh) {
                         if (a.DEBUG) {
                             Log.d("MediaExtractorWidget", "media extractor already released");
                             return;
                         }
                         return;
                     }
-                    a.this.dOU.setDataSource(a.this.getContext(), Uri.parse(com.baidu.swan.apps.inlinewidget.e.a.nn(str)), map);
-                    Bundle metaData = a.this.dOU.getMetaData();
-                    if (a.this.dOT != null) {
-                        a.this.dOT.z(metaData);
+                    a.this.eaV.setDataSource(a.this.getContext(), Uri.parse(com.baidu.swan.apps.inlinewidget.e.a.nZ(str)), map);
+                    Bundle metaData = a.this.eaV.getMetaData();
+                    if (a.this.eaU != null) {
+                        a.this.eaU.z(metaData);
                     }
                 }
             }, "loadMetadata");
@@ -78,14 +78,14 @@ public class a implements com.baidu.swan.apps.inlinewidget.b.a {
 
     @Override // com.baidu.swan.apps.inlinewidget.b.a
     public void release() {
-        this.bEF = true;
-        if (this.dOU != null) {
-            this.dOU.release();
+        this.bLh = true;
+        if (this.eaV != null) {
+            this.eaV.release();
         }
-        this.dOU = null;
-        if (this.dOT != null) {
-            this.dOT.onRelease();
+        this.eaV = null;
+        if (this.eaU != null) {
+            this.eaU.onRelease();
         }
-        this.dOT = null;
+        this.eaU = null;
     }
 }

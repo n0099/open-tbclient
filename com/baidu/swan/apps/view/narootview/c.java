@@ -3,7 +3,7 @@ package com.baidu.swan.apps.view.narootview;
 import android.support.annotation.NonNull;
 import android.widget.FrameLayout;
 import com.baidu.swan.apps.adaptation.b.d;
-/* loaded from: classes3.dex */
+/* loaded from: classes10.dex */
 public class c {
     public static FrameLayout.LayoutParams a(@NonNull d dVar, @NonNull com.baidu.swan.apps.model.a.a.a aVar) {
         int i;
@@ -21,12 +21,12 @@ public class c {
     }
 
     public static void a(@NonNull b bVar, @NonNull com.baidu.swan.apps.model.a.a.a aVar) {
-        bVar.kJ(aVar.getLeft());
-        bVar.kK(aVar.getTop());
+        bVar.lg(aVar.getLeft());
+        bVar.lh(aVar.getTop());
         if (aVar.isFixed()) {
-            bVar.kH(1);
+            bVar.le(1);
         } else {
-            bVar.kI(1);
+            bVar.lf(1);
         }
     }
 }

@@ -1,10 +1,12 @@
 package com.xiaomi.push;
-/* loaded from: classes9.dex */
+/* loaded from: classes12.dex */
 public final class jh {
-    public final byte a;
+
+    /* renamed from: a  reason: collision with root package name */
+    public final byte f5002a;
 
     /* renamed from: a  reason: collision with other field name */
-    public final int f780a;
+    public final int f781a;
     public final byte b;
 
     public jh() {
@@ -12,8 +14,8 @@ public final class jh {
     }
 
     public jh(byte b, byte b2, int i) {
-        this.a = b;
+        this.f5002a = b;
         this.b = b2;
-        this.f780a = i;
+        this.f781a = i;
     }
 }

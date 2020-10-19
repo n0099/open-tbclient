@@ -15,9 +15,11 @@ import android.view.Window;
 import android.view.WindowManager;
 import android.widget.FrameLayout;
 import java.lang.reflect.Method;
-/* loaded from: classes6.dex */
+/* loaded from: classes11.dex */
 public class SapiSystemBarTintManager {
-    private static final int a = -1728053248;
+
+    /* renamed from: a  reason: collision with root package name */
+    private static final int f2713a = -1728053248;
     private static String b;
     private final SystemBarConfig c;
     private boolean d;
@@ -25,9 +27,11 @@ public class SapiSystemBarTintManager {
     private View f;
     private View g;
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes11.dex */
     public static class SystemBarConfig {
-        private static final String a = "status_bar_height";
+
+        /* renamed from: a  reason: collision with root package name */
+        private static final String f2714a = "status_bar_height";
         private static final String b = "navigation_bar_height";
         private static final String c = "navigation_bar_height_landscape";
         private static final String d = "navigation_bar_width";
@@ -98,7 +102,7 @@ public class SapiSystemBarTintManager {
             Resources resources = activity.getResources();
             this.j = resources.getConfiguration().orientation == 1;
             this.k = a(activity);
-            this.f = a(resources, a);
+            this.f = a(resources, f2714a);
             this.h = a((Context) activity);
             this.i = b(activity);
             this.g = this.h > 0;

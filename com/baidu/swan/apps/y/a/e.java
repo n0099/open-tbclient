@@ -1,27 +1,27 @@
 package com.baidu.swan.apps.y.a;
 
 import com.baidu.swan.apps.adaptation.b.f;
-/* loaded from: classes3.dex */
+/* loaded from: classes10.dex */
 public class e extends c {
-    final boolean cGx;
-    final f cGy;
+    final boolean cSA;
+    final f cSB;
 
     public e(f fVar, boolean z) {
         super(6);
-        this.cGx = z;
-        this.cGy = fVar;
+        this.cSA = z;
+        this.cSB = fVar;
     }
 
     @Override // com.baidu.swan.apps.y.a.c
-    public String avv() {
-        com.baidu.swan.apps.scheme.actions.m.d abH;
-        if (this.cGy == null || (abH = this.cGy.abH()) == null) {
+    public String ayg() {
+        com.baidu.swan.apps.scheme.actions.m.d aet;
+        if (this.cSB == null || (aet = this.cSB.aet()) == null) {
             return null;
         }
-        return abH.cda;
+        return aet.cpq;
     }
 
     public boolean isAdd() {
-        return this.cGx;
+        return this.cSA;
     }
 }

@@ -5,30 +5,30 @@ import android.graphics.drawable.Drawable;
 import android.widget.ImageView;
 import com.bumptech.glide.load.resource.bitmap.BitmapTransitionOptions;
 import com.bumptech.glide.request.RequestOptions;
-/* loaded from: classes10.dex */
+/* loaded from: classes19.dex */
 public class d implements b<ImageView> {
     private d() {
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes19.dex */
     private static class a {
-        private static final d bOb = new d();
+        private static final d bUK = new d();
     }
 
-    public static b<ImageView> WC() {
-        return a.bOb;
+    public static b<ImageView> Yz() {
+        return a.bUK;
     }
 
     @Override // com.baidu.prologue.image.b
     public void a(String str, ImageView imageView) {
-        c.aP(com.baidu.prologue.a.b.a.bMm.get().Vt()).asBitmap().load(str).apply(new RequestOptions().placeholder(aQ(imageView.getContext())).error(aR(imageView.getContext())).centerCrop()).transition(new BitmapTransitionOptions().crossFade(300)).into(imageView);
+        c.aT(com.baidu.prologue.a.b.a.bSV.get().Xq()).asBitmap().load(str).apply(new RequestOptions().placeholder(aU(imageView.getContext())).error(aV(imageView.getContext())).centerCrop()).transition(new BitmapTransitionOptions().crossFade(300)).into(imageView);
     }
 
-    private Drawable aQ(Context context) {
+    private Drawable aU(Context context) {
         return null;
     }
 
-    private Drawable aR(Context context) {
+    private Drawable aV(Context context) {
         return null;
     }
 }

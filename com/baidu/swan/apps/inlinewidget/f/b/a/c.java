@@ -1,36 +1,36 @@
 package com.baidu.swan.apps.inlinewidget.f.b.a;
-/* loaded from: classes3.dex */
+/* loaded from: classes10.dex */
 public class c extends b {
-    private final com.baidu.swan.apps.inlinewidget.f.b.a cwC = new com.baidu.swan.apps.inlinewidget.f.b.a();
-    private final String cwD;
+    private final com.baidu.swan.apps.inlinewidget.f.b.a cII = new com.baidu.swan.apps.inlinewidget.f.b.a();
+    private final String cIJ;
 
     public c(String str) {
-        this.cwD = str;
+        this.cIJ = str;
     }
 
     @Override // com.baidu.swan.apps.inlinewidget.f.b.a.b, com.baidu.swan.apps.inlinewidget.f.b.a.a
-    public void aoY() {
-        if (this.cwC.nu("video_will_play")) {
-            this.cwC.nt("video_play_cancel");
+    public void arK() {
+        if (this.cII.oh("video_will_play")) {
+            this.cII.og("video_play_cancel");
         }
-        aoR();
+        arD();
     }
 
     @Override // com.baidu.swan.apps.inlinewidget.f.b.a.b, com.baidu.swan.apps.inlinewidget.f.b.a.a
-    public void ev(boolean z) {
-        if (this.cwC.isFinished()) {
-            this.cwC.aoS();
-            com.baidu.swan.apps.inlinewidget.f.b.b.aoV();
+    public void eR(boolean z) {
+        if (this.cII.isFinished()) {
+            this.cII.arE();
+            com.baidu.swan.apps.inlinewidget.f.b.b.arH();
             return;
         }
-        this.cwC.bx("fmpArrived", z ? "1" : "0");
+        this.cII.bC("fmpArrived", z ? "1" : "0");
     }
 
-    private void aoR() {
-        this.cwC.aoR();
-        if (this.cwC.nv("fmpArrived")) {
-            this.cwC.aoS();
-            com.baidu.swan.apps.inlinewidget.f.b.b.aoV();
+    private void arD() {
+        this.cII.arD();
+        if (this.cII.oi("fmpArrived")) {
+            this.cII.arE();
+            com.baidu.swan.apps.inlinewidget.f.b.b.arH();
         }
     }
 }

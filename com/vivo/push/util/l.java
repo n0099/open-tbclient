@@ -14,9 +14,11 @@ import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes12.dex */
+/* loaded from: classes15.dex */
 public final class l extends AsyncTask<String, Void, List<Bitmap>> {
-    private Context a;
+
+    /* renamed from: a  reason: collision with root package name */
+    private Context f4704a;
     private InsideNotificationItem b;
     private long c;
     private boolean d;
@@ -32,11 +34,11 @@ public final class l extends AsyncTask<String, Void, List<Bitmap>> {
             return;
         }
         w.b().a("com.vivo.push.notify_key", this.c);
-        NotifyAdapterUtil.pushNotification(this.a, list2, this.b, this.c, this.e);
+        NotifyAdapterUtil.pushNotification(this.f4704a, list2, this.b, this.c, this.e);
     }
 
     public l(Context context, InsideNotificationItem insideNotificationItem, long j, boolean z) {
-        this.a = context;
+        this.f4704a = context;
         this.b = insideNotificationItem;
         this.c = j;
         this.d = z;
@@ -53,7 +55,7 @@ public final class l extends AsyncTask<String, Void, List<Bitmap>> {
         InputStream inputStream2;
         int i = 0;
         InputStream inputStream3 = null;
-        this.e = ClientConfigManagerImpl.getInstance(this.a).getNotifyStyle();
+        this.e = ClientConfigManagerImpl.getInstance(this.f4704a).getNotifyStyle();
         if (!this.d) {
             p.d("ImageDownTask", "bitmap is not display by forbid net");
             return null;

@@ -14,32 +14,32 @@ import javax.annotation.Nullable;
 import javax.annotation.concurrent.GuardedBy;
 import javax.annotation.concurrent.ThreadSafe;
 @ThreadSafe
-/* loaded from: classes17.dex */
+/* loaded from: classes6.dex */
 public class StatFsHelper {
-    private static StatFsHelper nvy;
-    private static final long nvz = TimeUnit.MINUTES.toMillis(2);
-    private volatile File nvB;
-    private volatile File nvD;
+    private static StatFsHelper nKR;
+    private static final long nKS = TimeUnit.MINUTES.toMillis(2);
+    private volatile File nKU;
+    private volatile File nKW;
     @GuardedBy("lock")
-    private long nvE;
-    private volatile StatFs nvA = null;
-    private volatile StatFs nvC = null;
+    private long nKX;
+    private volatile StatFs nKT = null;
+    private volatile StatFs nKV = null;
     private volatile boolean mInitialized = false;
     private final Lock lock = new ReentrantLock();
 
-    /* loaded from: classes17.dex */
+    /* loaded from: classes6.dex */
     public enum StorageType {
         INTERNAL,
         EXTERNAL
     }
 
-    public static synchronized StatFsHelper dSW() {
+    public static synchronized StatFsHelper dWH() {
         StatFsHelper statFsHelper;
         synchronized (StatFsHelper.class) {
-            if (nvy == null) {
-                nvy = new StatFsHelper();
+            if (nKR == null) {
+                nKR = new StatFsHelper();
             }
-            statFsHelper = nvy;
+            statFsHelper = nKR;
         }
         return statFsHelper;
     }
@@ -52,9 +52,9 @@ public class StatFsHelper {
             this.lock.lock();
             try {
                 if (!this.mInitialized) {
-                    this.nvB = Environment.getDataDirectory();
-                    this.nvD = Environment.getExternalStorageDirectory();
-                    dSY();
+                    this.nKU = Environment.getDataDirectory();
+                    this.nKW = Environment.getExternalStorageDirectory();
+                    dWJ();
                     this.mInitialized = true;
                 }
             } finally {
@@ -65,8 +65,8 @@ public class StatFsHelper {
 
     public boolean a(StorageType storageType, long j) {
         ensureInitialized();
-        long a = a(storageType);
-        return a <= 0 || a < j;
+        long a2 = a(storageType);
+        return a2 <= 0 || a2 < j;
     }
 
     @SuppressLint({"DeprecatedMethod"})
@@ -74,8 +74,8 @@ public class StatFsHelper {
         long blockSize;
         long availableBlocks;
         ensureInitialized();
-        dSX();
-        StatFs statFs = storageType == StorageType.INTERNAL ? this.nvA : this.nvC;
+        dWI();
+        StatFs statFs = storageType == StorageType.INTERNAL ? this.nKT : this.nKV;
         if (statFs != null) {
             if (Build.VERSION.SDK_INT >= 18) {
                 blockSize = statFs.getBlockSizeLong();
@@ -89,11 +89,11 @@ public class StatFsHelper {
         return 0L;
     }
 
-    private void dSX() {
+    private void dWI() {
         if (this.lock.tryLock()) {
             try {
-                if (SystemClock.uptimeMillis() - this.nvE > nvz) {
-                    dSY();
+                if (SystemClock.uptimeMillis() - this.nKX > nKS) {
+                    dWJ();
                 }
             } finally {
                 this.lock.unlock();
@@ -102,10 +102,10 @@ public class StatFsHelper {
     }
 
     @GuardedBy("lock")
-    private void dSY() {
-        this.nvA = a(this.nvA, this.nvB);
-        this.nvC = a(this.nvC, this.nvD);
-        this.nvE = SystemClock.uptimeMillis();
+    private void dWJ() {
+        this.nKT = a(this.nKT, this.nKU);
+        this.nKV = a(this.nKV, this.nKW);
+        this.nKX = SystemClock.uptimeMillis();
     }
 
     private StatFs a(@Nullable StatFs statFs, @Nullable File file) {
@@ -114,7 +114,7 @@ public class StatFsHelper {
         }
         try {
             if (statFs == null) {
-                statFs = UX(file.getAbsolutePath());
+                statFs = VL(file.getAbsolutePath());
             } else {
                 statFs.restat(file.getAbsolutePath());
             }
@@ -126,7 +126,7 @@ public class StatFsHelper {
         }
     }
 
-    protected static StatFs UX(String str) {
+    protected static StatFs VL(String str) {
         return new StatFs(str);
     }
 }

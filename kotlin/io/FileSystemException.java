@@ -5,7 +5,7 @@ import java.io.IOException;
 import kotlin.jvm.internal.o;
 import kotlin.jvm.internal.q;
 @kotlin.h
-/* loaded from: classes5.dex */
+/* loaded from: classes10.dex */
 public class FileSystemException extends IOException {
     private final File file;
     private final File other;
@@ -34,7 +34,7 @@ public class FileSystemException extends IOException {
     public FileSystemException(File file, File file2, String str) {
         super(r0);
         String b;
-        q.m(file, "file");
+        q.n(file, "file");
         b = c.b(file, file2, str);
         this.file = file;
         this.other = file2;

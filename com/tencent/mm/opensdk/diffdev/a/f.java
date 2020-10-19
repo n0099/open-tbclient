@@ -6,14 +6,14 @@ import com.tencent.mm.opensdk.diffdev.OAuthListener;
 import com.tencent.mm.opensdk.utils.Log;
 import org.json.JSONObject;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes8.dex */
+/* loaded from: classes11.dex */
 public final class f extends AsyncTask<Void, Void, a> {
     private OAuthListener l;
     private String o;
     private int u;
     private String url;
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes11.dex */
     static class a {
         public OAuthErrCode n;
         public String v;

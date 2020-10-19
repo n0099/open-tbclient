@@ -11,7 +11,7 @@ import com.meizu.cloud.pushsdk.notification.PushNotificationBuilder;
 import com.meizu.cloud.pushsdk.notification.c.e;
 import com.meizu.cloud.pushsdk.util.MinSdkChecker;
 import java.io.File;
-/* loaded from: classes3.dex */
+/* loaded from: classes7.dex */
 public class d extends c {
     public d(Context context, PushNotificationBuilder pushNotificationBuilder) {
         super(context, pushNotificationBuilder);
@@ -32,7 +32,7 @@ public class d extends c {
     public void a(Notification notification, MessageV3 messageV3) {
         super.a(notification, messageV3);
         MessageV4 parse = MessageV4.parse(messageV3);
-        if (parse.getActVideoSetting() == null || (parse.getActVideoSetting().isWifiDisplay() && !com.meizu.cloud.pushsdk.util.a.b(this.a))) {
+        if (parse.getActVideoSetting() == null || (parse.getActVideoSetting().isWifiDisplay() && !com.meizu.cloud.pushsdk.util.a.b(this.f4423a))) {
             com.meizu.cloud.a.a.e("AbstractPushNotification", "only wifi can download act");
             return;
         }
@@ -42,9 +42,9 @@ public class d extends c {
         if (!TextUtils.isEmpty(actUrl) && com.meizu.cloud.pushsdk.b.a.a(actUrl, str, valueOf).a().c().b()) {
             com.meizu.cloud.a.a.i("AbstractPushNotification", "down load " + actUrl + " success");
             String str2 = str + File.separator + "ACT-" + valueOf;
-            boolean a = new e(str + File.separator + valueOf, str2).a();
-            com.meizu.cloud.a.a.i("AbstractPushNotification", "zip file " + a);
-            if (a) {
+            boolean a2 = new e(str + File.separator + valueOf, str2).a();
+            com.meizu.cloud.a.a.i("AbstractPushNotification", "zip file " + a2);
+            if (a2) {
                 Bundle bundle = new Bundle();
                 bundle.putString("path", str2);
                 Bundle bundle2 = new Bundle();

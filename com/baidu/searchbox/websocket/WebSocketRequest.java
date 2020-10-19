@@ -14,7 +14,7 @@ import kotlin.sequences.e;
 import org.json.JSONArray;
 import org.json.JSONObject;
 @h
-/* loaded from: classes9.dex */
+/* loaded from: classes11.dex */
 public final class WebSocketRequest {
     public static final Companion Companion = new Companion(null);
     public static final String PARAM_KEY_HEADER = "header";
@@ -32,7 +32,7 @@ public final class WebSocketRequest {
     }
 
     public WebSocketRequest(String str) {
-        q.m(str, "url");
+        q.n(str, "url");
         this.url = str;
         this.method = "GET";
     }
@@ -46,7 +46,7 @@ public final class WebSocketRequest {
     }
 
     public final void setMethod(String str) {
-        q.m(str, "<set-?>");
+        q.n(str, "<set-?>");
         this.method = str;
     }
 
@@ -82,7 +82,7 @@ public final class WebSocketRequest {
         this(r0);
         String url = builder.getUrl();
         if (url == null) {
-            q.ekp();
+            q.eob();
         }
         this.method = builder.getMethod();
         this.headers = builder.getHeaders();
@@ -91,7 +91,7 @@ public final class WebSocketRequest {
     }
 
     @h
-    /* loaded from: classes9.dex */
+    /* loaded from: classes11.dex */
     public static final class Companion {
         private Companion() {
         }
@@ -101,7 +101,7 @@ public final class WebSocketRequest {
         }
 
         public final WebSocketRequest build(b<? super Builder, l> bVar) {
-            q.m(bVar, "block");
+            q.n(bVar, "block");
             Builder builder = new Builder();
             bVar.invoke(builder);
             return builder.build();
@@ -110,24 +110,24 @@ public final class WebSocketRequest {
         /* JADX WARN: Type inference failed for: r0v12, types: [T, org.json.JSONArray] */
         /* JADX WARN: Type inference failed for: r0v15, types: [T, org.json.JSONArray] */
         public final WebSocketRequest fromJSON(JSONObject jSONObject) {
-            q.m(jSONObject, "params");
+            q.n(jSONObject, "params");
             Companion companion = WebSocketRequest.Companion;
             Builder builder = new Builder();
             builder.setUrl(jSONObject.getString("url"));
             if (jSONObject.has("method")) {
                 String string = jSONObject.getString("method");
-                q.l((Object) string, "params.getString(PARAM_KEY_METHOD)");
+                q.m(string, "params.getString(PARAM_KEY_METHOD)");
                 builder.setMethod(string);
             }
             if (jSONObject.has(WebSocketRequest.PARAM_KEY_HEADER)) {
                 JSONObject jSONObject2 = jSONObject.getJSONObject(WebSocketRequest.PARAM_KEY_HEADER);
                 Iterator<String> keys = jSONObject2.keys();
-                q.l((Object) keys, "headers.keys()");
+                q.m(keys, "headers.keys()");
                 while (keys.hasNext()) {
                     String next = keys.next();
-                    q.l((Object) next, "key");
+                    q.m(next, "key");
                     String string2 = jSONObject2.getString(next);
-                    q.l((Object) string2, "headers.getString(key)");
+                    q.m(string2, "headers.getString(key)");
                     builder.addHeader(next, string2);
                 }
             }
@@ -145,7 +145,7 @@ public final class WebSocketRequest {
     }
 
     @h
-    /* loaded from: classes9.dex */
+    /* loaded from: classes11.dex */
     public static final class Builder {
         private Integer connectionLostTimeout;
         private Map<String, String> headers;
@@ -166,7 +166,7 @@ public final class WebSocketRequest {
         }
 
         public final void setMethod(String str) {
-            q.m(str, "<set-?>");
+            q.n(str, "<set-?>");
             this.method = str;
         }
 
@@ -195,8 +195,8 @@ public final class WebSocketRequest {
         }
 
         public final void addHeader(String str, String str2) {
-            q.m(str, "key");
-            q.m(str2, "value");
+            q.n(str, "key");
+            q.n(str2, "value");
             Builder builder = this;
             if (builder.headers == null) {
                 builder.headers = new HashMap();

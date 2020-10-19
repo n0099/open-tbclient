@@ -14,34 +14,34 @@ import java.util.HashMap;
 import java.util.Map;
 /* loaded from: classes.dex */
 public class m extends Thread {
-    private static long QL = 0;
-    private final e.a PZ;
-    private final Handler QI;
-    private final ByteBuffer QJ;
-    private final d QK;
-    private boolean QM;
-    private int QN;
-    private a QO;
-    private int QP;
-    private final f QR;
-    private int QS;
-    private long QT;
-    private long QU;
-    private final l Qh;
+    private static long Rc = 0;
+    private final Handler QZ;
+    private final e.a Qp;
+    private final l Qx;
+    private final ByteBuffer Ra;
+    private final d Rb;
+    private boolean Rd;
+    private int Re;
+    private a Rf;
+    private int Rg;
+    private final f Rh;
+    private int Ri;
+    private long Rj;
+    private long Rk;
     private int mState;
     private boolean mStopped;
 
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes.dex */
     public static class a {
-        public int QV;
-        public boolean QW;
-        public int QX;
-        public int QY;
-        public int QZ;
-        public int Ra;
-        public byte[] Rb;
-        public byte[] Rc;
+        public int Rl;
+        public boolean Rm;
+        public int Rn;
+        public int Ro;
+        public int Rp;
+        public int Rq;
+        public byte[] Rr;
+        public byte[] Rs;
 
         private a() {
         }
@@ -50,26 +50,26 @@ public class m extends Thread {
     public m(Handler handler, e.a aVar, l lVar, String str) {
         super(str);
         this.mStopped = false;
-        this.QM = false;
-        this.QR = new f();
-        this.QS = 0;
-        this.QT = 0L;
-        this.QU = 0L;
-        this.QI = handler;
-        this.PZ = aVar;
-        this.Qh = lVar;
-        this.QJ = ByteBuffer.allocateDirect(lVar.oR() + 14);
-        this.QK = new d(lVar.oS());
-        this.QO = null;
+        this.Rd = false;
+        this.Rh = new f();
+        this.Ri = 0;
+        this.Rj = 0L;
+        this.Rk = 0L;
+        this.QZ = handler;
+        this.Qp = aVar;
+        this.Qx = lVar;
+        this.Ra = ByteBuffer.allocateDirect(lVar.oR() + 14);
+        this.Rb = new d(lVar.oS());
+        this.Rf = null;
         this.mState = 1;
     }
 
     protected void z(Object obj) {
-        this.QT = 0L;
-        this.QU = 0L;
-        Message obtainMessage = this.QI.obtainMessage();
+        this.Rj = 0L;
+        this.Rk = 0L;
+        Message obtainMessage = this.QZ.obtainMessage();
         obtainMessage.obj = obj;
-        this.QI.sendMessage(obtainMessage);
+        this.QZ.sendMessage(obtainMessage);
     }
 
     private boolean oY() throws Exception {
@@ -78,13 +78,13 @@ public class m extends Thread {
         int i2;
         long j;
         byte[] bArr = null;
-        if (this.QO == null) {
-            if (this.QJ.position() >= 2) {
-                byte b = this.QJ.get(0);
+        if (this.Rf == null) {
+            if (this.Ra.position() >= 2) {
+                byte b = this.Ra.get(0);
                 boolean z = (b & 128) != 0;
                 int i3 = (b & 112) >> 4;
                 int i4 = b & 15;
-                byte b2 = this.QJ.get(1);
+                byte b2 = this.Ra.get(1);
                 boolean z2 = (b2 & 128) != 0;
                 int i5 = b2 & Byte.MAX_VALUE;
                 if (i3 != 0) {
@@ -109,10 +109,10 @@ public class m extends Thread {
                 } else if (i4 != 0 && i4 != 1 && i4 != 2) {
                     throw new WebSocketException("data frame using reserved opcode " + i4);
                 } else {
-                    if (!this.QM && i4 == 0) {
+                    if (!this.Rd && i4 == 0) {
                         throw new WebSocketException("received continuation data frame outside fragmented message");
                     }
-                    if (this.QM && i4 != 0) {
+                    if (this.Rd && i4 != 0) {
                         throw new WebSocketException("received non-continuation data frame while inside fragmented message");
                     }
                 }
@@ -125,57 +125,57 @@ public class m extends Thread {
                 } else {
                     throw new Exception("BdLogic error");
                 }
-                if (this.QJ.position() >= i2) {
+                if (this.Ra.position() >= i2) {
                     if (i5 == 126) {
-                        j = ((this.QJ.get(2) & 255) << 8) | (this.QJ.get(3) & 255);
+                        j = ((this.Ra.get(2) & 255) << 8) | (this.Ra.get(3) & 255);
                         if (j < 126) {
                             throw new WebSocketException("invalid data frame length (not using minimal length encoding)");
                         }
                     } else if (i5 == 127) {
-                        if ((this.QJ.get(2) & 128) != 0) {
+                        if ((this.Ra.get(2) & 128) != 0) {
                             throw new WebSocketException("invalid data frame length (> 2^63)");
                         }
-                        j = ((this.QJ.get(2) & 255) << 56) | ((this.QJ.get(3) & 255) << 48) | ((this.QJ.get(4) & 255) << 40) | ((this.QJ.get(5) & 255) << 32) | ((this.QJ.get(6) & 255) << 24) | ((this.QJ.get(7) & 255) << 16) | ((this.QJ.get(8) & 255) << 8) | (this.QJ.get(9) & 255);
+                        j = ((this.Ra.get(2) & 255) << 56) | ((this.Ra.get(3) & 255) << 48) | ((this.Ra.get(4) & 255) << 40) | ((this.Ra.get(5) & 255) << 32) | ((this.Ra.get(6) & 255) << 24) | ((this.Ra.get(7) & 255) << 16) | ((this.Ra.get(8) & 255) << 8) | (this.Ra.get(9) & 255);
                         if (j < 65536) {
                             throw new WebSocketException("invalid data frame length (not using minimal length encoding)");
                         }
                     } else {
                         j = i5;
                     }
-                    this.QO = new a();
-                    this.QO.QV = i4;
-                    this.QO.QW = z;
-                    this.QO.QX = i3;
-                    this.QO.QZ = (int) j;
-                    this.QO.QY = i2;
-                    this.QO.Ra = this.QO.QY + this.QO.QZ;
-                    this.QO.Rb = null;
-                    int position = this.QJ.position();
-                    this.QO.Rc = new byte[this.QO.QY];
-                    this.QJ.position(0);
-                    this.QJ.get(this.QO.Rc, 0, this.QO.QY);
-                    this.QJ.position(this.QO.QY);
-                    this.QJ.limit(position);
-                    this.QJ.compact();
-                    return this.QO.QZ == 0 || this.QJ.position() >= this.QO.QZ;
+                    this.Rf = new a();
+                    this.Rf.Rl = i4;
+                    this.Rf.Rm = z;
+                    this.Rf.Rn = i3;
+                    this.Rf.Rp = (int) j;
+                    this.Rf.Ro = i2;
+                    this.Rf.Rq = this.Rf.Ro + this.Rf.Rp;
+                    this.Rf.Rr = null;
+                    int position = this.Ra.position();
+                    this.Rf.Rs = new byte[this.Rf.Ro];
+                    this.Ra.position(0);
+                    this.Ra.get(this.Rf.Rs, 0, this.Rf.Ro);
+                    this.Ra.position(this.Rf.Ro);
+                    this.Ra.limit(position);
+                    this.Ra.compact();
+                    return this.Rf.Rp == 0 || this.Ra.position() >= this.Rf.Rp;
                 }
                 return false;
             }
             return false;
-        } else if (this.QP >= this.QO.QZ) {
-            if (this.QO.QV > 7) {
-                if (this.QO.QV == 8) {
-                    if (this.QO.QZ < 2) {
+        } else if (this.Rg >= this.Rf.Rp) {
+            if (this.Rf.Rl > 7) {
+                if (this.Rf.Rl == 8) {
+                    if (this.Rf.Rp < 2) {
                         i = 1005;
                         str = null;
                     } else {
-                        i = (this.QO.Rc[1] & 255) + ((this.QO.Rc[0] & 255) * 256);
+                        i = (this.Rf.Rs[1] & 255) + ((this.Rf.Rs[0] & 255) * 256);
                         if (i < 1000 || ((i >= 1000 && i <= 2999 && i != 1000 && i != 1001 && i != 1002 && i != 1003 && i != 1007 && i != 1008 && i != 1009 && i != 1010 && i != 1011) || i >= 5000)) {
                             throw new WebSocketException("invalid close code " + i);
                         }
-                        if (this.QO.QZ > 2) {
-                            byte[] bArr2 = new byte[this.QO.QZ - 2];
-                            System.arraycopy(this.QO.Rc, 2, bArr2, 0, this.QO.QZ - 2);
+                        if (this.Rf.Rp > 2) {
+                            byte[] bArr2 = new byte[this.Rf.Rp - 2];
+                            System.arraycopy(this.Rf.Rs, 2, bArr2, 0, this.Rf.Rp - 2);
                             f fVar = new f();
                             fVar.l(bArr2);
                             if (!fVar.isValid()) {
@@ -187,65 +187,65 @@ public class m extends Thread {
                         }
                     }
                     c(i, str);
-                } else if (this.QO.QV == 9) {
-                    n(this.QK.toByteArray());
-                } else if (this.QO.QV == 10) {
-                    o(this.QK.toByteArray());
+                } else if (this.Rf.Rl == 9) {
+                    n(this.Rb.toByteArray());
+                } else if (this.Rf.Rl == 10) {
+                    o(this.Rb.toByteArray());
                 } else {
                     throw new Exception("BdLogic error");
                 }
             } else {
-                if (!this.QM) {
-                    this.QM = true;
-                    this.QN = this.QO.QV;
-                    if (this.QN == 1 && this.Qh.oV()) {
-                        this.QR.reset();
+                if (!this.Rd) {
+                    this.Rd = true;
+                    this.Re = this.Rf.Rl;
+                    if (this.Re == 1 && this.Qx.oV()) {
+                        this.Rh.reset();
                     }
                 }
-                if (this.QN == 1 && this.Qh.oV() && !this.QR.l(this.QK.toByteArray())) {
+                if (this.Re == 1 && this.Qx.oV() && !this.Rh.l(this.Rb.toByteArray())) {
                     throw new WebSocketException("invalid UTF-8 in text message payload");
                 }
-                if (this.QO.QW) {
-                    if (this.QN == 1) {
-                        if (this.Qh.oV() && !this.QR.isValid()) {
+                if (this.Rf.Rm) {
+                    if (this.Re == 1) {
+                        if (this.Qx.oV() && !this.Rh.isValid()) {
                             throw new WebSocketException("UTF-8 text message payload ended within Unicode code point");
                         }
-                        if (this.Qh.oQ()) {
-                            m(this.QK.toByteArray());
+                        if (this.Qx.oQ()) {
+                            m(this.Rb.toByteArray());
                         } else {
-                            onTextMessage(new String(this.QK.toByteArray(), "UTF-8"));
+                            onTextMessage(new String(this.Rb.toByteArray(), "UTF-8"));
                         }
-                    } else if (this.QN == 2) {
-                        p(this.QK.toByteArray());
+                    } else if (this.Re == 2) {
+                        p(this.Rb.toByteArray());
                     } else {
                         throw new Exception("BdLogic error");
                     }
-                    this.QM = false;
-                    this.QK.reset();
+                    this.Rd = false;
+                    this.Rb.reset();
                 }
             }
-            this.QO = null;
-            this.QP = 0;
-            return this.QJ.position() > 0;
+            this.Rf = null;
+            this.Rg = 0;
+            return this.Ra.position() > 0;
         } else {
-            int position2 = this.QJ.position();
-            if (this.QO.QZ - this.QP < position2) {
-                position2 = this.QO.QZ - this.QP;
+            int position2 = this.Ra.position();
+            if (this.Rf.Rp - this.Rg < position2) {
+                position2 = this.Rf.Rp - this.Rg;
             }
-            int position3 = this.QJ.position();
-            if (this.QO.QZ > 0) {
+            int position3 = this.Ra.position();
+            if (this.Rf.Rp > 0) {
                 bArr = new byte[position2];
-                this.QJ.position(0);
-                this.QJ.get(bArr, 0, position2);
+                this.Ra.position(0);
+                this.Ra.get(bArr, 0, position2);
             }
-            this.QJ.position(position2);
-            this.QJ.limit(position3);
-            this.QJ.compact();
+            this.Ra.position(position2);
+            this.Ra.limit(position3);
+            this.Ra.compact();
             if (bArr != null) {
-                this.QK.write(bArr);
+                this.Rb.write(bArr);
             }
-            this.QP = position2 + this.QP;
-            return this.QP >= this.QO.QZ;
+            this.Rg = position2 + this.Rg;
+            return this.Rg >= this.Rf.Rp;
         }
     }
 
@@ -262,7 +262,7 @@ public class m extends Thread {
     }
 
     protected void o(byte[] bArr) {
-        z(new k.C0023k(bArr));
+        z(new k.C0024k(bArr));
     }
 
     protected void onTextMessage(String str) {
@@ -274,24 +274,24 @@ public class m extends Thread {
     }
 
     protected void p(byte[] bArr) {
-        this.QU = System.currentTimeMillis();
-        z(new k.a(bArr, this.QT, this.QU));
+        this.Rk = System.currentTimeMillis();
+        z(new k.a(bArr, this.Rj, this.Rk));
     }
 
     private boolean oZ() throws UnsupportedEncodingException {
         boolean z;
         boolean z2;
         boolean z3 = false;
-        int position = this.QJ.position() - 4;
+        int position = this.Ra.position() - 4;
         while (true) {
             if (position < 0) {
                 break;
-            } else if (this.QJ.get(position + 0) != 13 || this.QJ.get(position + 1) != 10 || this.QJ.get(position + 2) != 13 || this.QJ.get(position + 3) != 10) {
+            } else if (this.Ra.get(position + 0) != 13 || this.Ra.get(position + 1) != 10 || this.Ra.get(position + 2) != 13 || this.Ra.get(position + 3) != 10) {
                 position--;
             } else {
-                int position2 = this.QJ.position();
+                int position2 = this.Ra.position();
                 Map<String, String> map = null;
-                if (this.QJ.get(0) == 72 && this.QJ.get(1) == 84 && this.QJ.get(2) == 84 && this.QJ.get(3) == 80) {
+                if (this.Ra.get(0) == 72 && this.Ra.get(1) == 84 && this.Ra.get(2) == 84 && this.Ra.get(3) == 80) {
                     Pair<Integer, String> pa = pa();
                     if (((Integer) pa.first).intValue() >= 300) {
                         z(new k.p(((Integer) pa.first).intValue(), (String) pa.second));
@@ -300,24 +300,24 @@ public class m extends Thread {
                         z = false;
                     }
                     if (position > 0) {
-                        this.QJ.position(0);
+                        this.Ra.position(0);
                         byte[] bArr = new byte[position];
-                        this.QJ.get(bArr);
+                        this.Ra.get(bArr);
                         map = q(bArr);
                     }
                 } else {
                     z = false;
                 }
-                this.QJ.position(position + 4);
-                this.QJ.limit(position2);
-                this.QJ.compact();
-                if (this.QS < this.PZ.oB() && map.size() == 0) {
-                    this.QS++;
+                this.Ra.position(position + 4);
+                this.Ra.limit(position2);
+                this.Ra.compact();
+                if (this.Ri < this.Qp.oB() && map.size() == 0) {
+                    this.Ri++;
                     return true;
                 }
-                this.QS = 0;
+                this.Ri = 0;
                 if (!z) {
-                    z2 = this.QJ.position() > 0;
+                    z2 = this.Ra.position() > 0;
                     this.mState = 3;
                 } else {
                     this.mState = 0;
@@ -348,27 +348,27 @@ public class m extends Thread {
 
     private Pair<Integer, String> pa() throws UnsupportedEncodingException {
         int i = 4;
-        while (i < this.QJ.position() && this.QJ.get(i) != 32) {
+        while (i < this.Ra.position() && this.Ra.get(i) != 32) {
             i++;
         }
         int i2 = i + 1;
-        while (i2 < this.QJ.position() && this.QJ.get(i2) != 32) {
+        while (i2 < this.Ra.position() && this.Ra.get(i2) != 32) {
             i2++;
         }
         int i3 = i + 1;
         int i4 = 0;
         for (int i5 = 0; i3 + i5 < i2; i5++) {
-            i4 = (i4 * 10) + (this.QJ.get(i3 + i5) - 48);
+            i4 = (i4 * 10) + (this.Ra.get(i3 + i5) - 48);
         }
         int i6 = i2 + 1;
         int i7 = i6;
-        while (i7 < this.QJ.position() && this.QJ.get(i7) != 13) {
+        while (i7 < this.Ra.position() && this.Ra.get(i7) != 13) {
             i7++;
         }
         int i8 = i7 - i6;
         byte[] bArr = new byte[i8];
-        this.QJ.position(i6);
-        this.QJ.get(bArr, 0, i8);
+        this.Ra.position(i6);
+        this.Ra.get(bArr, 0, i8);
         return new Pair<>(Integer.valueOf(i4), new String(bArr, "UTF-8"));
     }
 
@@ -387,7 +387,7 @@ public class m extends Thread {
     public void quit() {
         this.mStopped = true;
         try {
-            this.PZ.close();
+            this.Qp.close();
         } catch (Throwable th) {
             BdLog.e(th);
         }
@@ -397,16 +397,16 @@ public class m extends Thread {
     @Override // java.lang.Thread, java.lang.Runnable
     public void run() {
         try {
-            this.QJ.clear();
+            this.Ra.clear();
             do {
                 try {
-                    int read = this.PZ.read(this.QJ);
+                    int read = this.Qp.read(this.Ra);
                     if (read > 0) {
-                        if (this.QT <= 0) {
-                            this.QT = System.currentTimeMillis();
+                        if (this.Rj <= 0) {
+                            this.Rj = System.currentTimeMillis();
                         }
                         synchronized (m.class) {
-                            QL += read;
+                            Rc += read;
                         }
                     }
                     if (read > 0) {
@@ -437,14 +437,14 @@ public class m extends Thread {
 
     public void oH() {
         synchronized (m.class) {
-            QL = 0L;
+            Rc = 0L;
         }
     }
 
     public long getDownFlowSize() {
         long j;
         synchronized (m.class) {
-            j = QL;
+            j = Rc;
         }
         return j;
     }

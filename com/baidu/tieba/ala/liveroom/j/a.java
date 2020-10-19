@@ -11,24 +11,24 @@ import com.baidu.live.tbadk.log.LogManager;
 import com.baidu.live.utils.l;
 /* loaded from: classes4.dex */
 public class a extends Dialog implements View.OnClickListener {
-    private HeadImageView gCe;
-    private TextView gCf;
-    private TextView gCg;
-    private InterfaceC0629a gCh;
-    private String gCi;
-    private String gCj;
-    private String gCk;
-    private String gCl;
-    private String gCm;
+    private InterfaceC0647a gQA;
+    private String gQB;
+    private String gQC;
+    private String gQD;
+    private String gQE;
+    private String gQF;
+    private HeadImageView gQx;
+    private TextView gQy;
+    private TextView gQz;
     private View mClose;
     private long roomId;
 
     /* renamed from: com.baidu.tieba.ala.liveroom.j.a$a  reason: collision with other inner class name */
     /* loaded from: classes4.dex */
-    public interface InterfaceC0629a {
-        void bTa();
+    public interface InterfaceC0647a {
+        void bWt();
 
-        void bTb();
+        void bWu();
     }
 
     public a(Context context) {
@@ -45,61 +45,61 @@ public class a extends Dialog implements View.OnClickListener {
     }
 
     private void initData() {
-        this.gCe.setIsRound(true);
-        this.gCe.setBorderWidth(getContext().getResources().getDimensionPixelSize(a.e.sdk_ds2));
-        this.gCe.setBorderColor(getContext().getResources().getColor(a.d.sdk_white_alpha100));
+        this.gQx.setIsRound(true);
+        this.gQx.setBorderWidth(getContext().getResources().getDimensionPixelSize(a.e.sdk_ds2));
+        this.gQx.setBorderColor(getContext().getResources().getColor(a.d.sdk_white_alpha100));
     }
 
     private void initView() {
-        this.gCe = (HeadImageView) findViewById(a.g.user_icon);
-        this.gCf = (TextView) findViewById(a.g.invite_txt);
-        this.gCg = (TextView) findViewById(a.g.go_to_client);
+        this.gQx = (HeadImageView) findViewById(a.g.user_icon);
+        this.gQy = (TextView) findViewById(a.g.invite_txt);
+        this.gQz = (TextView) findViewById(a.g.go_to_client);
         this.mClose = findViewById(a.g.close);
-        l.a(this.gCe, this.gCi, true, false);
-        this.gCf.setText(this.gCj);
-        this.gCg.setText(this.gCk);
+        l.a(this.gQx, this.gQB, true, false);
+        this.gQy.setText(this.gQC);
+        this.gQz.setText(this.gQD);
     }
 
     private void initListener() {
-        this.gCg.setOnClickListener(this);
+        this.gQz.setOnClickListener(this);
         this.mClose.setOnClickListener(this);
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        if (view == this.gCg) {
-            if (this.gCh != null) {
-                this.gCh.bTb();
+        if (view == this.gQz) {
+            if (this.gQA != null) {
+                this.gQA.bWu();
             }
             dismiss();
-            LogManager.getFeedDiversionLogger().doClickGuideFloatDialogLog(this.roomId + "", this.gCl, this.gCm);
+            LogManager.getFeedDiversionLogger().doClickGuideFloatDialogLog(this.roomId + "", this.gQE, this.gQF);
         } else if (view == this.mClose) {
-            if (this.gCh != null) {
-                this.gCh.bTa();
+            if (this.gQA != null) {
+                this.gQA.bWt();
             }
             dismiss();
-            LogManager.getFeedDiversionLogger().doCloseGuideFloatDialogLog(this.roomId + "", this.gCm);
+            LogManager.getFeedDiversionLogger().doCloseGuideFloatDialogLog(this.roomId + "", this.gQF);
         }
     }
 
-    public void Gy(String str) {
-        this.gCi = str;
-        if (this.gCe != null) {
-            l.a(this.gCe, this.gCi, true, false);
+    public void Hk(String str) {
+        this.gQB = str;
+        if (this.gQx != null) {
+            l.a(this.gQx, this.gQB, true, false);
         }
     }
 
-    public void Gz(String str) {
-        this.gCj = str;
-        if (this.gCf != null) {
-            this.gCf.setText(this.gCj);
+    public void Hl(String str) {
+        this.gQC = str;
+        if (this.gQy != null) {
+            this.gQy.setText(this.gQC);
         }
     }
 
-    public void GA(String str) {
-        this.gCk = str;
-        if (this.gCg != null) {
-            this.gCg.setText(this.gCk);
+    public void Hm(String str) {
+        this.gQD = str;
+        if (this.gQz != null) {
+            this.gQz.setText(this.gQD);
         }
     }
 
@@ -107,15 +107,15 @@ public class a extends Dialog implements View.OnClickListener {
         this.roomId = j;
     }
 
-    public void GB(String str) {
-        this.gCl = str;
+    public void Hn(String str) {
+        this.gQE = str;
     }
 
-    public void GC(String str) {
-        this.gCm = str;
+    public void Ho(String str) {
+        this.gQF = str;
     }
 
-    public void a(InterfaceC0629a interfaceC0629a) {
-        this.gCh = interfaceC0629a;
+    public void a(InterfaceC0647a interfaceC0647a) {
+        this.gQA = interfaceC0647a;
     }
 }

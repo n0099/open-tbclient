@@ -12,8 +12,8 @@ import java.util.HashMap;
 import java.util.List;
 /* loaded from: classes.dex */
 public class BdTypeListView extends BdListView implements v<BdTypeListView> {
-    private HashMap<BdUniqueId, a> Wc;
-    private HashMap<BdUniqueId, j> We;
+    private HashMap<BdUniqueId, a> Wt;
+    private HashMap<BdUniqueId, j> Wu;
     af mTypeAdapter;
 
     public BdTypeListView(Context context) {
@@ -38,11 +38,11 @@ public class BdTypeListView extends BdListView implements v<BdTypeListView> {
         if (this.mTypeAdapter == null) {
             this.mTypeAdapter = new af();
         }
-        if (this.Wc == null) {
-            this.Wc = new HashMap<>();
+        if (this.Wt == null) {
+            this.Wt = new HashMap<>();
         }
-        if (this.We == null) {
-            this.We = new HashMap<>();
+        if (this.Wu == null) {
+            this.Wu = new HashMap<>();
         }
         super.setOnItemClickListener(new AdapterView.OnItemClickListener() { // from class: com.baidu.adp.widget.ListView.BdTypeListView.1
             @Override // android.widget.AdapterView.OnItemClickListener
@@ -88,44 +88,44 @@ public class BdTypeListView extends BdListView implements v<BdTypeListView> {
                 BdUniqueId bdUniqueId = null;
                 if (aVar.qJ() != null) {
                     bdUniqueId = aVar.qJ();
-                    if (!this.We.containsKey(bdUniqueId)) {
+                    if (!this.Wu.containsKey(bdUniqueId)) {
                         j jVar = new j(aVar.mContext, bdUniqueId, aVar.mPageId);
                         jVar.a(aVar);
                         this.mTypeAdapter.addAdapter(jVar);
-                        this.We.put(bdUniqueId, jVar);
+                        this.Wu.put(bdUniqueId, jVar);
                     }
                 }
                 if (aVar.qK() != null) {
                     bdUniqueId = aVar.qK();
-                    if (!this.We.containsKey(bdUniqueId)) {
+                    if (!this.Wu.containsKey(bdUniqueId)) {
                         j jVar2 = new j(aVar.mContext, bdUniqueId, aVar.mPageId);
                         jVar2.a(aVar);
                         this.mTypeAdapter.addAdapter(jVar2);
-                        this.We.put(bdUniqueId, jVar2);
+                        this.Wu.put(bdUniqueId, jVar2);
                     }
                 }
                 if (aVar.qL() != null) {
                     bdUniqueId = aVar.qL();
-                    if (!this.We.containsKey(bdUniqueId)) {
+                    if (!this.Wu.containsKey(bdUniqueId)) {
                         j jVar3 = new j(aVar.mContext, bdUniqueId, aVar.mPageId);
                         jVar3.a(aVar);
                         this.mTypeAdapter.addAdapter(jVar3);
-                        this.We.put(bdUniqueId, jVar3);
+                        this.Wu.put(bdUniqueId, jVar3);
                     }
                 }
                 if (aVar.qM() != null) {
                     bdUniqueId = aVar.qM();
-                    if (!this.We.containsKey(bdUniqueId)) {
+                    if (!this.Wu.containsKey(bdUniqueId)) {
                         j jVar4 = new j(aVar.mContext, bdUniqueId, aVar.mPageId);
                         jVar4.a(aVar);
                         this.mTypeAdapter.addAdapter(jVar4);
-                        this.We.put(bdUniqueId, jVar4);
+                        this.Wu.put(bdUniqueId, jVar4);
                     }
                 }
                 if (bdUniqueId == null) {
                     this.mTypeAdapter.addAdapter(aVar);
                 } else {
-                    this.Wc.put(aVar.Vf, aVar);
+                    this.Wt.put(aVar.Vv, aVar);
                 }
             }
         }
@@ -137,8 +137,8 @@ public class BdTypeListView extends BdListView implements v<BdTypeListView> {
         ArrayList arrayList = new ArrayList();
         for (q qVar : list) {
             if (qVar != null) {
-                if (this.Wc.containsKey(qVar.getType())) {
-                    a aVar = this.Wc.get(qVar.getType());
+                if (this.Wt.containsKey(qVar.getType())) {
+                    a aVar = this.Wt.get(qVar.getType());
                     if (aVar.qJ() != null) {
                         i iVar = new i();
                         iVar.g(aVar.qJ());

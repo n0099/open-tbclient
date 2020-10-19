@@ -1,19 +1,21 @@
 package com.baidu.sapi2.utils.enums;
 
 import com.baidu.searchbox.account.contants.LoginConstants;
-/* loaded from: classes25.dex */
+/* loaded from: classes5.dex */
 public enum BindType {
     EXPLICIT("explicit", "afterauth", "finishbind"),
     SMS(LoginConstants.SMS_LOGIN, "afterauth", "finishbind"),
     BIND_MOBILE("bind_mobile", "afterauth", "afterauth");
     
-    private String a;
+
+    /* renamed from: a  reason: collision with root package name */
+    private String f3542a;
     private String b;
     private String c;
 
     BindType(String str, String str2, String str3) {
-        this.a = "";
-        this.a = str;
+        this.f3542a = "";
+        this.f3542a = str;
         this.b = str2;
         this.c = str3;
     }
@@ -27,6 +29,6 @@ public enum BindType {
     }
 
     public String getName() {
-        return this.a;
+        return this.f3542a;
     }
 }

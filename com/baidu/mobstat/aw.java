@@ -12,10 +12,12 @@ import java.util.Iterator;
 import java.util.Map;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes15.dex */
+/* loaded from: classes17.dex */
 public class aw {
     private static aw b = new aw();
-    public a a;
+
+    /* renamed from: a  reason: collision with root package name */
+    public a f2562a;
     private Handler d;
     private volatile int e;
     private int f;
@@ -26,7 +28,7 @@ public class aw {
     private JSONArray j = new JSONArray();
     private JSONArray k = new JSONArray();
 
-    /* loaded from: classes15.dex */
+    /* loaded from: classes17.dex */
     public interface a {
         void a(JSONObject jSONObject);
     }
@@ -186,7 +188,7 @@ public class aw {
             } catch (Exception e7) {
             }
             try {
-                jSONObject.put(Config.EVENT_PATH_MAPPING, au.a().a(au.a.a));
+                jSONObject.put(Config.EVENT_PATH_MAPPING, au.a().a(au.a.f2561a));
             } catch (Exception e8) {
             }
             try {
@@ -230,7 +232,7 @@ public class aw {
             jSONObject.put(Config.FEED_LIST_PART, new JSONArray(this.j.toString()));
             jSONObject.put("sv", new JSONArray(this.k.toString()));
             jSONObject.put(Config.EVENT_PAGE_MAPPING, au.a().a(au.a.b));
-            jSONObject.put(Config.EVENT_PATH_MAPPING, au.a().a(au.a.a));
+            jSONObject.put(Config.EVENT_PATH_MAPPING, au.a().a(au.a.f2561a));
             jSONObject.put("sd", au.a().a(au.a.c));
         } catch (Exception e) {
         }
@@ -287,9 +289,9 @@ public class aw {
 
     private void b(Context context, String str) {
         LogSender.instance().saveLogData(context, str, true);
-        if (this.a != null) {
+        if (this.f2562a != null) {
             try {
-                this.a.a(new JSONObject(str));
+                this.f2562a.a(new JSONObject(str));
             } catch (Exception e) {
             }
         }

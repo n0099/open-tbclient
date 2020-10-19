@@ -7,9 +7,9 @@ import com.baidu.mobstat.Config;
 import java.net.InetAddress;
 import java.net.NetworkInterface;
 import java.util.Enumeration;
-/* loaded from: classes9.dex */
+/* loaded from: classes6.dex */
 public class a {
-    private static InetAddress UX() {
+    private static InetAddress WU() {
         InetAddress inetAddress;
         try {
             Enumeration<NetworkInterface> networkInterfaces = NetworkInterface.getNetworkInterfaces();
@@ -49,11 +49,11 @@ public class a {
         }
     }
 
-    private static String UY() {
+    private static String WV() {
         byte[] hardwareAddress;
         try {
-            InetAddress UX = UX();
-            if (UX == null || (hardwareAddress = NetworkInterface.getByInetAddress(UX).getHardwareAddress()) == null) {
+            InetAddress WU = WU();
+            if (WU == null || (hardwareAddress = NetworkInterface.getByInetAddress(WU).getHardwareAddress()) == null) {
                 return "";
             }
             StringBuilder sb = new StringBuilder();
@@ -73,7 +73,7 @@ public class a {
         }
     }
 
-    private static String UZ() {
+    private static String WW() {
         byte[] hardwareAddress;
         try {
             NetworkInterface byName = NetworkInterface.getByName("wlan0");
@@ -95,23 +95,23 @@ public class a {
     }
 
     private static String getMac() {
-        return ((WifiManager) g.Vb().getApplicationContext().getSystemService("wifi")).getConnectionInfo().getMacAddress();
+        return ((WifiManager) g.WY().getApplicationContext().getSystemService("wifi")).getConnectionInfo().getMacAddress();
     }
 
     public static String getMacAddress() {
-        String UZ;
+        String WW;
         if (Build.VERSION.SDK_INT < 23) {
-            UZ = getMac();
+            WW = getMac();
         } else {
-            UZ = UZ();
+            WW = WW();
         }
-        if (!it(UZ)) {
-            UZ = UY();
+        if (!iV(WW)) {
+            WW = WV();
         }
-        return !TextUtils.isEmpty(UZ) ? UZ.toUpperCase() : UZ;
+        return !TextUtils.isEmpty(WW) ? WW.toUpperCase() : WW;
     }
 
-    private static boolean it(String str) {
+    private static boolean iV(String str) {
         return (TextUtils.isEmpty(str) || str.equals(Config.DEF_MAC_ID)) ? false : true;
     }
 }

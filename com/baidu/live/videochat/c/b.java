@@ -1,219 +1,163 @@
 package com.baidu.live.videochat.c;
 
-import android.content.Context;
-import android.os.Handler;
-import com.baidu.android.imsdk.internal.IMConnection;
-import com.baidu.live.adp.BdUniqueId;
-import com.baidu.live.adp.framework.MessageManager;
-import com.baidu.live.adp.framework.listener.HttpMessageListener;
-import com.baidu.live.adp.framework.message.HttpMessage;
-import com.baidu.live.adp.framework.message.HttpResponsedMessage;
-import com.baidu.live.data.u;
-import com.baidu.live.videochat.message.LiveVideoChatSendCheckConnectResponseMessage;
-import com.baidu.live.videochat.message.LiveVideoChatSendFinishResponseMessage;
-import com.baidu.live.videochat.message.LiveVideoChatSendGetChatInfoResponseMessage;
+import android.app.Activity;
+import android.os.CountDownTimer;
+import com.baidu.live.adp.base.BdPageContext;
+import com.baidu.live.sdk.a;
+import com.baidu.live.tbadk.core.dialog.BdAlertDialog;
+import com.baidu.live.tbadk.ubc.UbcStatConstant;
+import com.baidu.live.tbadk.ubc.UbcStatisticItem;
+import com.baidu.live.tbadk.ubc.UbcStatisticLiveKey;
+import com.baidu.live.tbadk.ubc.UbcStatisticManager;
+import com.baidu.live.videochat.c.a;
+import com.baidu.platform.comapi.map.MapController;
 /* loaded from: classes4.dex */
-public abstract class b {
-    protected u aAP;
-    public BdUniqueId bhK;
-    private c bve;
-    private a bvf;
-    public Context mContext;
-    private long mChatId = 0;
-    private boolean buZ = false;
-    private long bvg = 2000;
-    private long bvh = IMConnection.RETRY_DELAY_TIMES;
-    private HttpMessageListener bvi = new HttpMessageListener(1021179) { // from class: com.baidu.live.videochat.c.b.1
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.live.adp.framework.listener.MessageListener
-        public void onMessage(HttpResponsedMessage httpResponsedMessage) {
-            if (httpResponsedMessage instanceof LiveVideoChatSendCheckConnectResponseMessage) {
-                b.this.a((LiveVideoChatSendCheckConnectResponseMessage) httpResponsedMessage);
-            }
-        }
-    };
-    private HttpMessageListener bvj = new HttpMessageListener(1021180) { // from class: com.baidu.live.videochat.c.b.2
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.live.adp.framework.listener.MessageListener
-        public void onMessage(HttpResponsedMessage httpResponsedMessage) {
-            if (httpResponsedMessage instanceof LiveVideoChatSendGetChatInfoResponseMessage) {
-                b.this.a((LiveVideoChatSendGetChatInfoResponseMessage) httpResponsedMessage);
-            }
-        }
-    };
-    private HttpMessageListener bvk = new HttpMessageListener(1021176) { // from class: com.baidu.live.videochat.c.b.3
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.live.adp.framework.listener.MessageListener
-        public void onMessage(HttpResponsedMessage httpResponsedMessage) {
-            if (httpResponsedMessage instanceof LiveVideoChatSendFinishResponseMessage) {
-                b.this.a((LiveVideoChatSendFinishResponseMessage) httpResponsedMessage);
-            }
-        }
-    };
-    private Runnable bvl = new Runnable() { // from class: com.baidu.live.videochat.c.b.4
-        @Override // java.lang.Runnable
-        public void run() {
-            b.this.mHandler.removeCallbacks(this);
-            MessageManager.getInstance().removeMessage(1021179, b.this.bhK);
-            b.this.QW();
-            b.this.mHandler.postDelayed(this, b.this.bvh);
-        }
-    };
-    private Runnable bvm = new Runnable() { // from class: com.baidu.live.videochat.c.b.5
-        @Override // java.lang.Runnable
-        public void run() {
-            b.this.mHandler.removeCallbacks(this);
-            MessageManager.getInstance().removeMessage(1021180, b.this.bhK);
-            b.this.QY();
-            b.this.mHandler.postDelayed(this, b.this.bvg);
-        }
-    };
-    public Handler mHandler = new Handler();
+public class b {
+    private long bze = 10;
+    private com.baidu.live.videochat.c.a bzf;
+    private a bzg;
+    private BdAlertDialog bzh;
 
-    public abstract int getChatType();
-
-    public b(Context context, BdUniqueId bdUniqueId) {
-        this.mContext = context;
-        this.bhK = bdUniqueId;
-        registerTask();
-        registerListener();
-    }
-
-    private void registerTask() {
-        com.baidu.live.tieba.f.a.a.a(1021176, "ala/livechat/finishLiveChat", LiveVideoChatSendFinishResponseMessage.class, true, true, true, true);
-        com.baidu.live.tieba.f.a.a.a(1021179, "ala/livechat/getLiveChatUserInfo", LiveVideoChatSendCheckConnectResponseMessage.class, true, true, true, true);
-        com.baidu.live.tieba.f.a.a.a(1021180, "ala/livechat/getLiveChatInfo", LiveVideoChatSendGetChatInfoResponseMessage.class, true, true, true, true);
-    }
-
-    private void registerListener() {
-        MessageManager.getInstance().registerListener(this.bvk);
-        MessageManager.getInstance().registerListener(this.bvi);
-        MessageManager.getInstance().registerListener(this.bvj);
-    }
-
-    /* JADX INFO: Access modifiers changed from: private */
-    public void a(LiveVideoChatSendCheckConnectResponseMessage liveVideoChatSendCheckConnectResponseMessage) {
-        if (liveVideoChatSendCheckConnectResponseMessage != null && liveVideoChatSendCheckConnectResponseMessage.getError() == 0) {
-            this.bvh = liveVideoChatSendCheckConnectResponseMessage.getInterval();
-            if (this.bve != null) {
-                this.bve.a(liveVideoChatSendCheckConnectResponseMessage.getStatus(), liveVideoChatSendCheckConnectResponseMessage.getStatusText(), liveVideoChatSendCheckConnectResponseMessage.QP(), liveVideoChatSendCheckConnectResponseMessage.QN(), liveVideoChatSendCheckConnectResponseMessage.QO());
-            }
-        }
-    }
-
-    /* JADX INFO: Access modifiers changed from: private */
-    public void a(LiveVideoChatSendGetChatInfoResponseMessage liveVideoChatSendGetChatInfoResponseMessage) {
-        if (liveVideoChatSendGetChatInfoResponseMessage != null && liveVideoChatSendGetChatInfoResponseMessage.getError() == 0) {
-            this.bvg = liveVideoChatSendGetChatInfoResponseMessage.getInterval();
-            com.baidu.live.videochat.b.b QT = liveVideoChatSendGetChatInfoResponseMessage.QT();
-            boolean z = false;
-            if (liveVideoChatSendGetChatInfoResponseMessage.getOrginalMessage() instanceof com.baidu.live.videochat.message.b) {
-                z = ((com.baidu.live.videochat.message.b) liveVideoChatSendGetChatInfoResponseMessage.getOrginalMessage()).QQ();
-            }
-            if (QT != null) {
-                if (QT.QB()) {
-                    if (this.bve != null) {
-                        this.bve.a(liveVideoChatSendGetChatInfoResponseMessage.QT(), liveVideoChatSendGetChatInfoResponseMessage.QR(), liveVideoChatSendGetChatInfoResponseMessage.QS());
-                    }
-                } else if (QT.QA() && this.bve != null) {
-                    this.bve.a(z, liveVideoChatSendGetChatInfoResponseMessage.QT(), liveVideoChatSendGetChatInfoResponseMessage.QR(), liveVideoChatSendGetChatInfoResponseMessage.QS());
-                }
-            }
-        }
-    }
-
-    /* JADX INFO: Access modifiers changed from: private */
-    public void a(LiveVideoChatSendFinishResponseMessage liveVideoChatSendFinishResponseMessage) {
-        if (liveVideoChatSendFinishResponseMessage != null) {
-            if (liveVideoChatSendFinishResponseMessage.getError() == 0) {
-                if (this.bve != null) {
-                    this.bve.Qm();
-                }
-            } else if (this.bve != null) {
-                this.bve.E(liveVideoChatSendFinishResponseMessage.getError(), liveVideoChatSendFinishResponseMessage.getErrorString());
-            }
-        }
-    }
-
-    /* JADX INFO: Access modifiers changed from: protected */
-    public void a(c cVar) {
-        this.bve = cVar;
-    }
-
-    public long QC() {
-        return this.mChatId;
+    /* loaded from: classes4.dex */
+    public interface a {
+        void OK();
     }
 
     public void a(a aVar) {
-        this.bvf = aVar;
+        this.bzg = aVar;
     }
 
-    public void aB(long j) {
-        if (this.aAP != null && this.aAP.mLiveInfo != null) {
-            HttpMessage httpMessage = new HttpMessage(1021176);
-            httpMessage.addParam("chat_id", j);
-            httpMessage.addParam("live_id", this.aAP.mLiveInfo.live_id);
-            httpMessage.setTag(this.bhK);
-            MessageManager.getInstance().sendMessage(httpMessage);
+    public void aC(long j) {
+        if (j > 0) {
+            this.bze = j;
         }
     }
 
-    public void QV() {
-        QX();
-        QW();
-        this.mHandler.postDelayed(this.bvl, this.bvh);
-    }
-
-    /* JADX INFO: Access modifiers changed from: private */
-    public void QW() {
-        if (this.aAP != null && this.aAP.mLiveInfo != null && this.aAP.aEz != null) {
-            HttpMessage httpMessage = new HttpMessage(1021179);
-            httpMessage.addParam("user_type", getChatType());
-            httpMessage.addParam("live_id", this.aAP.mLiveInfo.live_id);
-            httpMessage.addParam("anchor_id", this.aAP.aEz.userId);
-            httpMessage.setTag(this.bhK);
-            MessageManager.getInstance().sendMessage(httpMessage);
+    public void a(final Activity activity, String str, String str2, final a.InterfaceC0206a interfaceC0206a) {
+        if (this.bzf == null) {
+            this.bzf = new com.baidu.live.videochat.c.a(activity);
         }
-    }
-
-    public void QX() {
-        this.mHandler.removeCallbacks(this.bvl);
-        MessageManager.getInstance().removeMessage(1021179, this.bhK);
-    }
-
-    public void c(long j, boolean z) {
-        this.mChatId = j;
-        this.buZ = z;
-        QZ();
-        QY();
-        this.mHandler.postDelayed(this.bvm, this.bvg);
-    }
-
-    /* JADX INFO: Access modifiers changed from: private */
-    public void QY() {
-        int i;
-        int i2 = 0;
-        if (this.aAP != null && this.aAP.mLiveInfo != null && this.aAP.aEz != null) {
-            if (this.bvf != null) {
-                i2 = this.bvf.Cj();
-                i = this.bvf.Qg();
-            } else {
-                i = 0;
+        final CountDownTimer countDownTimer = new CountDownTimer(this.bze * 1000, 1000L) { // from class: com.baidu.live.videochat.c.b.1
+            @Override // android.os.CountDownTimer
+            public void onTick(long j) {
+                if (b.this.bzf != null && b.this.bzf.isShowing()) {
+                    b.this.bzf.ij(String.format(activity.getString(a.i.linkmic_close_refuse), (((int) (j / 1000)) + 1) + ""));
+                } else {
+                    cancel();
+                }
             }
-            com.baidu.live.videochat.message.b bVar = new com.baidu.live.videochat.message.b(this.buZ);
-            bVar.addParam("chat_id", this.mChatId);
-            bVar.addParam("anchor_id", this.aAP.aEz.userId);
-            bVar.addParam("live_id", this.aAP.mLiveInfo.live_id);
-            bVar.addParam("anchor_id", this.aAP.mLiveInfo.user_id);
-            bVar.addParam("avts_conn", i);
-            bVar.addParam("avts_fail", i2);
-            bVar.setTag(this.bhK);
-            MessageManager.getInstance().sendMessage(bVar);
+
+            @Override // android.os.CountDownTimer
+            public void onFinish() {
+                if (b.this.bzf != null && b.this.bzf.isShowing()) {
+                    interfaceC0206a.Rz();
+                    b.this.bzf.dismiss();
+                }
+            }
+        };
+        this.bzf.a(new a.InterfaceC0206a() { // from class: com.baidu.live.videochat.c.b.2
+            @Override // com.baidu.live.videochat.c.a.InterfaceC0206a
+            public void Rw() {
+                interfaceC0206a.Rw();
+            }
+
+            @Override // com.baidu.live.videochat.c.a.InterfaceC0206a
+            public void Rx() {
+                b.this.t(UbcStatisticLiveKey.KEY_ID_1396, "click", UbcStatConstant.Value.VALUE_CHAT_LINK_INVITE_ACC);
+                interfaceC0206a.Rx();
+                b.this.bzf.dismiss();
+                countDownTimer.cancel();
+            }
+
+            @Override // com.baidu.live.videochat.c.a.InterfaceC0206a
+            public void Ry() {
+                b.this.t(UbcStatisticLiveKey.KEY_ID_1396, "click", UbcStatConstant.Value.VALUE_CHAT_LINK_INVITE_RFS);
+                interfaceC0206a.Ry();
+                b.this.bzf.dismiss();
+                countDownTimer.cancel();
+            }
+
+            @Override // com.baidu.live.videochat.c.a.InterfaceC0206a
+            public void Rz() {
+            }
+        });
+        if (!this.bzf.isShowing()) {
+            t(UbcStatisticLiveKey.KEY_ID_1394, "display", UbcStatConstant.Value.VALUE_CHAT_LINK_INVITE_SHOW);
+            this.bzf.show();
+            if (str != null) {
+                this.bzf.ig(str);
+            }
         }
+        this.bzf.fU(8);
+        this.bzf.ih(str2);
+        this.bzf.setTitle(activity.getString(a.i.linkmic_invite));
+        this.bzf.ii(activity.getString(a.i.linkmic_start));
+        this.bzf.ij(String.format(activity.getString(a.i.linkmic_close_refuse), this.bze + ""));
+        this.bzf.fS(0);
+        this.bzf.fT(0);
+        this.bzf.setCanceledOnTouchOutside(false);
+        countDownTimer.start();
     }
 
-    public void QZ() {
-        this.mHandler.removeCallbacks(this.bvm);
-        MessageManager.getInstance().removeMessage(1021180, this.bhK);
+    public void Sf() {
+        if (this.bzf != null && this.bzf.isShowing()) {
+            this.bzf.dismiss();
+        }
+        this.bzf = null;
+    }
+
+    public void c(BdPageContext bdPageContext, boolean z) {
+        int i = a.i.linkmic_cancel_confirm;
+        if (z) {
+            i = a.i.linkmic_close_confirm;
+        }
+        if (this.bzh == null) {
+            this.bzh = new BdAlertDialog(bdPageContext.getPageActivity());
+        }
+        this.bzh.setAutoNight(false);
+        this.bzh.setTitle((String) null);
+        this.bzh.setMessageId(i);
+        this.bzh.setPositiveButton(a.i.sdk_dialog_ok, new BdAlertDialog.OnClickListener() { // from class: com.baidu.live.videochat.c.b.3
+            @Override // com.baidu.live.tbadk.core.dialog.BdAlertDialog.OnClickListener
+            public void onClick(BdAlertDialog bdAlertDialog) {
+                bdAlertDialog.dismiss();
+                b.this.t(UbcStatisticLiveKey.KEY_ID_1396, "click", UbcStatConstant.Value.VALUE_CHAT_LINK_CLOSE_CFM);
+                if (b.this.bzg != null) {
+                    b.this.bzg.OK();
+                }
+            }
+        });
+        this.bzh.setNegativeButton(a.i.sdk_dialog_cancel, new BdAlertDialog.OnClickListener() { // from class: com.baidu.live.videochat.c.b.4
+            @Override // com.baidu.live.tbadk.core.dialog.BdAlertDialog.OnClickListener
+            public void onClick(BdAlertDialog bdAlertDialog) {
+                bdAlertDialog.dismiss();
+                b.this.t(UbcStatisticLiveKey.KEY_ID_1396, "click", UbcStatConstant.Value.VALUE_CHAT_LINK_CLOSE_CAN);
+            }
+        });
+        this.bzh.setCanceledOnTouchOutside(false);
+        this.bzh.setPositiveButtonTextColor(-55461);
+        this.bzh.setNagetiveButtonTextColor(-14737633);
+        this.bzh.create(bdPageContext).show();
+        t(UbcStatisticLiveKey.KEY_ID_1394, "display", UbcStatConstant.Value.VALUE_CHAT_LINK_CLS_TAB_SHOW);
+    }
+
+    public void Sg() {
+        if (this.bzh != null && this.bzh.isShowing()) {
+            this.bzh.dismiss();
+        }
+        this.bzh = null;
+    }
+
+    public void onDestroy() {
+        this.bzf = null;
+        this.bzh = null;
+        this.bzg = null;
+    }
+
+    /* JADX INFO: Access modifiers changed from: private */
+    public void t(String str, String str2, String str3) {
+        UbcStatisticItem ubcStatisticItem = new UbcStatisticItem(str, str2, UbcStatConstant.Page.AUTHOR_LIVE_ROOM, str3);
+        ubcStatisticItem.setContentExt(null, MapController.POPUP_LAYER_TAG, null);
+        UbcStatisticManager.getInstance().logSendRequest(ubcStatisticItem);
     }
 }

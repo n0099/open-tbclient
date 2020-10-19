@@ -5,7 +5,7 @@ import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.adp.framework.task.CustomMessageTask;
 import com.baidu.live.tbadk.core.frameworkdata.CmdConfigCustom;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-/* loaded from: classes23.dex */
+/* loaded from: classes24.dex */
 public class g implements CustomMessageTask.CustomRunnable<String> {
     @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
     public CustomResponsedMessage<?> run(CustomMessage<String> customMessage) {
@@ -16,7 +16,7 @@ public class g implements CustomMessageTask.CustomRunnable<String> {
         if (TbadkCoreApplication.getCurrentAccountObj() != null) {
             str = TbadkCoreApplication.getCurrentAccountObj().getID();
         }
-        String str2 = com.baidu.tbadk.core.c.a.bhV().zT("tb.my_pages").get("personal_myfollow_" + str);
+        String str2 = com.baidu.tbadk.core.c.a.bkE().AF("tb.my_pages").get("personal_myfollow_" + str);
         ResponsePersonFriendByUidLocalMessage responsePersonFriendByUidLocalMessage = new ResponsePersonFriendByUidLocalMessage();
         if (str2 != null) {
             try {

@@ -15,7 +15,7 @@ import java.lang.reflect.Method;
 import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes12.dex */
+/* loaded from: classes15.dex */
 public class FH {
     public static final int INVOKE_METHOD_ERROR_DEFULT = -1;
     public static final int INVOKE_METHOD_ERROR_ILLGEAL_METHOD_NAME = -3;
@@ -72,11 +72,11 @@ public class FH {
                     return "";
                 }
                 try {
-                    f a = f.a();
-                    if (a == null) {
+                    f a2 = f.a();
+                    if (a2 == null) {
                         return "";
                     }
-                    List<ApkInfo> b = a.b();
+                    List<ApkInfo> b = a2.b();
                     if (b == null || b.size() <= 0) {
                         return "";
                     }

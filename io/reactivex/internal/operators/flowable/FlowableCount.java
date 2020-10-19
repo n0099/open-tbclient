@@ -3,14 +3,14 @@ package io.reactivex.internal.operators.flowable;
 import io.reactivex.internal.subscriptions.DeferredScalarSubscription;
 import io.reactivex.internal.subscriptions.SubscriptionHelper;
 import io.reactivex.j;
-/* loaded from: classes25.dex */
+/* loaded from: classes17.dex */
 public final class FlowableCount<T> extends a<T, Long> {
     @Override // io.reactivex.g
     protected void a(org.a.c<? super Long> cVar) {
-        this.owE.a((j) new CountSubscriber(cVar));
+        this.oLT.a((j) new CountSubscriber(cVar));
     }
 
-    /* loaded from: classes25.dex */
+    /* loaded from: classes17.dex */
     static final class CountSubscriber extends DeferredScalarSubscription<Long> implements j<Object> {
         private static final long serialVersionUID = 4973004223787171406L;
         long count;

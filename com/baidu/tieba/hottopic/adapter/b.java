@@ -6,44 +6,44 @@ import com.baidu.tieba.hottopic.controller.HotRanklistActivity;
 import com.baidu.tieba.hottopic.data.o;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes20.dex */
+/* loaded from: classes21.dex */
 public class b {
-    private List<com.baidu.adp.widget.ListView.a> bdV = new ArrayList();
-    private BdTypeListView fGf;
-    private d jfM;
-    private c jfN;
-    private m jfO;
+    private List<com.baidu.adp.widget.ListView.a> bhH = new ArrayList();
+    private BdTypeListView fSo;
+    private d juL;
+    private c juM;
+    private m juN;
 
     public b(HotRanklistActivity hotRanklistActivity, BdTypeListView bdTypeListView) {
         a(hotRanklistActivity, bdTypeListView);
     }
 
     private void a(HotRanklistActivity hotRanklistActivity, BdTypeListView bdTypeListView) {
-        this.jfM = new d(hotRanklistActivity, com.baidu.tieba.hottopic.data.c.jhD);
-        this.jfN = new c(hotRanklistActivity, com.baidu.tieba.hottopic.data.b.jhC);
-        this.jfO = new m(hotRanklistActivity, o.jiJ);
-        this.bdV.add(this.jfM);
-        this.bdV.add(this.jfN);
-        this.bdV.add(this.jfO);
-        this.fGf = bdTypeListView;
-        this.fGf.addAdapters(this.bdV);
+        this.juL = new d(hotRanklistActivity, com.baidu.tieba.hottopic.data.c.jwC);
+        this.juM = new c(hotRanklistActivity, com.baidu.tieba.hottopic.data.b.jwB);
+        this.juN = new m(hotRanklistActivity, o.jxH);
+        this.bhH.add(this.juL);
+        this.bhH.add(this.juM);
+        this.bhH.add(this.juN);
+        this.fSo = bdTypeListView;
+        this.fSo.addAdapters(this.bhH);
     }
 
     public void a(com.baidu.tieba.hottopic.data.j jVar, String str) {
         ArrayList<q> arrayList;
-        if (jVar.cDN() != null) {
-            arrayList = jVar.cDN();
+        if (jVar.cHw() != null) {
+            arrayList = jVar.cHw();
         } else {
             arrayList = new ArrayList<>();
         }
-        if (this.jfO != null) {
-            this.jfO.cDd();
+        if (this.juN != null) {
+            this.juN.cGM();
         }
-        if (this.jfM != null) {
-            this.jfM.Kq(str);
+        if (this.juL != null) {
+            this.juL.Lf(str);
         }
-        if (this.fGf != null) {
-            this.fGf.setData(arrayList);
+        if (this.fSo != null) {
+            this.fSo.setData(arrayList);
         }
     }
 }

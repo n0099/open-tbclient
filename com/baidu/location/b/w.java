@@ -1,20 +1,22 @@
 package com.baidu.location.b;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes3.dex */
+/* loaded from: classes7.dex */
 public class w extends Thread {
-    final /* synthetic */ s a;
+
+    /* renamed from: a  reason: collision with root package name */
+    final /* synthetic */ s f1913a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public w(s sVar) {
-        this.a = sVar;
+        this.f1913a = sVar;
     }
 
     @Override // java.lang.Thread, java.lang.Runnable
     public void run() {
         boolean g;
-        g = this.a.g();
+        g = this.f1913a.g();
         if (g) {
-            this.a.h();
+            this.f1913a.h();
         }
     }
 }

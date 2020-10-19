@@ -11,7 +11,7 @@ import java.net.InetAddress;
 import java.net.NetworkInterface;
 import java.net.SocketException;
 import java.util.Enumeration;
-/* loaded from: classes15.dex */
+/* loaded from: classes16.dex */
 public final class NetworkUtils {
     public static final int NETWORK_2G = 2;
     public static final int NETWORK_3G = 3;
@@ -21,7 +21,9 @@ public final class NetworkUtils {
     public static final int NETWORK_TYPE_TD_SCDMA = 17;
     public static final int NETWORK_UNKNOW = 0;
     public static final int NETWORK_WIFI = 1;
-    private static final String a = "NetworkUtils";
+
+    /* renamed from: a  reason: collision with root package name */
+    private static final String f1516a = "NetworkUtils";
 
     private NetworkUtils() {
     }
@@ -29,26 +31,26 @@ public final class NetworkUtils {
     public static boolean isNetworkAvailable(Context context) {
         if (context == null) {
             if (ApollonConstants.DEBUG) {
-                LogUtil.d(a, "context is null!");
+                LogUtil.d(f1516a, "context is null!");
             }
             return false;
         }
         ConnectivityManager connectivityManager = (ConnectivityManager) context.getSystemService("connectivity");
         if (connectivityManager == null) {
             if (ApollonConstants.DEBUG) {
-                LogUtil.d(a, "couldn't get connectivity manager");
+                LogUtil.d(f1516a, "couldn't get connectivity manager");
             }
             return false;
         }
         NetworkInfo activeNetworkInfo = connectivityManager.getActiveNetworkInfo();
         if (activeNetworkInfo == null || !activeNetworkInfo.isAvailable()) {
             if (ApollonConstants.DEBUG) {
-                LogUtil.d(a, "network is not available");
+                LogUtil.d(f1516a, "network is not available");
             }
             return false;
         }
         if (ApollonConstants.DEBUG) {
-            LogUtil.d(a, "network is available");
+            LogUtil.d(f1516a, "network is available");
         }
         return true;
     }
@@ -58,7 +60,7 @@ public final class NetworkUtils {
         ConnectivityManager connectivityManager = (ConnectivityManager) context.getSystemService("connectivity");
         if (connectivityManager == null) {
             if (ApollonConstants.DEBUG) {
-                LogUtil.v(a, "couldn't get connectivity manager");
+                LogUtil.v(f1516a, "couldn't get connectivity manager");
             }
             return false;
         }
@@ -67,7 +69,7 @@ public final class NetworkUtils {
             return false;
         }
         if (ApollonConstants.DEBUG) {
-            LogUtil.v(a, "network is roaming");
+            LogUtil.v(f1516a, "network is roaming");
         }
         return true;
     }
@@ -76,7 +78,7 @@ public final class NetworkUtils {
         ConnectivityManager connectivityManager = (ConnectivityManager) context.getSystemService("connectivity");
         if (connectivityManager == null) {
             if (ApollonConstants.DEBUG) {
-                LogUtil.d(a, "couldn't get connectivity manager");
+                LogUtil.d(f1516a, "couldn't get connectivity manager");
                 return false;
             }
             return false;
@@ -149,19 +151,19 @@ public final class NetworkUtils {
         ConnectivityManager connectivityManager = (ConnectivityManager) context.getSystemService("connectivity");
         if (connectivityManager == null) {
             if (ApollonConstants.DEBUG) {
-                Log.d(a, "couldn't get connectivity manager");
+                Log.d(f1516a, "couldn't get connectivity manager");
             }
             return false;
         }
         NetworkInfo activeNetworkInfo = connectivityManager.getActiveNetworkInfo();
         if (activeNetworkInfo == null || !activeNetworkInfo.isAvailable()) {
             if (ApollonConstants.DEBUG) {
-                Log.d(a, "network is not available");
+                Log.d(f1516a, "network is not available");
             }
             return false;
         }
         if (ApollonConstants.DEBUG) {
-            Log.d(a, "network is available");
+            Log.d(f1516a, "network is available");
         }
         return true;
     }

@@ -18,7 +18,7 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.Timer;
 import java.util.TimerTask;
-/* loaded from: classes9.dex */
+/* loaded from: classes5.dex */
 public class BindStateManager {
     private static final int DefaultValue = -1;
     private static final String KEY_BIND_PUSH = "bindpush";
@@ -34,7 +34,7 @@ public class BindStateManager {
     private static SetUnBindRunable runable = new SetUnBindRunable();
     private static Object mTinerSync = new Object();
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes5.dex */
     public enum BindState {
         NOTBIND,
         BINDED,
@@ -115,7 +115,7 @@ public class BindStateManager {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes9.dex */
+    /* loaded from: classes5.dex */
     public static class SetUnBindRunable implements Runnable {
         Context context = null;
 
@@ -133,7 +133,7 @@ public class BindStateManager {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes9.dex */
+    /* loaded from: classes5.dex */
     public static class MyTimeTask extends TimerTask {
         Context context = null;
 
@@ -162,7 +162,7 @@ public class BindStateManager {
                 creatMethodIntent.putExtra(Constants.EXTRA_PUSH_USER_ID, str2);
                 creatMethodIntent.putExtra(Constants.EXTRA_PUSH_APP_ID, str3);
                 try {
-                    a.al(context).e(context, creatMethodIntent);
+                    a.ao(context).e(context, creatMethodIntent);
                 } catch (Exception e) {
                     ListenerManager.getInstance().removeListener(addListener);
                     onRegisterNotifyResult(context, addListener, 1003, Constants.ERROR_MSG_SERVICE_ERROR, false);
@@ -189,7 +189,7 @@ public class BindStateManager {
             creatMethodIntent.putExtra(Constants.EXTRA_PUSH_USER_ID, str2);
             creatMethodIntent.putExtra(Constants.EXTRA_PUSH_APP_ID, str3);
             try {
-                a.al(context).e(context, creatMethodIntent);
+                a.ao(context).e(context, creatMethodIntent);
             } catch (Exception e) {
                 LogUtils.e(TAG, "Exception ", e);
             }

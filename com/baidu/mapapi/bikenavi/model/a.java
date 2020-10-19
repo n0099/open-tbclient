@@ -1,21 +1,23 @@
 package com.baidu.mapapi.bikenavi.model;
-/* loaded from: classes3.dex */
+/* loaded from: classes7.dex */
 public class a {
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes7.dex */
     public static class c {
-        private String a;
+
+        /* renamed from: a  reason: collision with root package name */
+        private String f1977a;
         private String b;
         private String c;
         private String d;
         private String e;
 
         public String a() {
-            return this.a;
+            return this.f1977a;
         }
 
         public void a(String str) {
-            this.a = str;
+            this.f1977a = str;
         }
 
         public String b() {
@@ -51,21 +53,23 @@ public class a {
         }
 
         public String toString() {
-            return "TopGuideLayoutID{guideIconID='" + this.a + "', guideGpsWeakLayoutID='" + this.b + "', guideTextID='" + this.c + "', guideGpsWeakId='" + this.d + "', guideGpsHintId='" + this.e + "'}";
+            return "TopGuideLayoutID{guideIconID='" + this.f1977a + "', guideGpsWeakLayoutID='" + this.b + "', guideTextID='" + this.c + "', guideGpsWeakId='" + this.d + "', guideGpsHintId='" + this.e + "'}";
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes7.dex */
     public static class b {
-        private String a;
+
+        /* renamed from: a  reason: collision with root package name */
+        private String f1976a;
         private String b;
 
         public String a() {
-            return this.a;
+            return this.f1976a;
         }
 
         public void a(String str) {
-            this.a = str;
+            this.f1976a = str;
         }
 
         public String b() {
@@ -77,23 +81,25 @@ public class a {
         }
 
         public String toString() {
-            return "SpeedLayoutID{speedID='" + this.a + "', speedUnitID='" + this.b + "'}";
+            return "SpeedLayoutID{speedID='" + this.f1976a + "', speedUnitID='" + this.b + "'}";
         }
     }
 
     /* renamed from: com.baidu.mapapi.bikenavi.model.a$a  reason: collision with other inner class name */
-    /* loaded from: classes3.dex */
-    public static class C0210a {
-        private String a;
+    /* loaded from: classes7.dex */
+    public static class C0225a {
+
+        /* renamed from: a  reason: collision with root package name */
+        private String f1975a;
         private String b;
         private String c;
 
         public String a() {
-            return this.a;
+            return this.f1975a;
         }
 
         public void a(String str) {
-            this.a = str;
+            this.f1975a = str;
         }
 
         public String b() {
@@ -113,7 +119,7 @@ public class a {
         }
 
         public String toString() {
-            return "BottomSettingLayoutID{quitIconID='" + this.a + "', botSetlookOverID='" + this.b + "', botSetRemain='" + this.c + "'}";
+            return "BottomSettingLayoutID{quitIconID='" + this.f1975a + "', botSetlookOverID='" + this.b + "', botSetRemain='" + this.c + "'}";
         }
     }
 }

@@ -6,17 +6,17 @@ import android.hardware.Camera;
 import android.view.MotionEvent;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes3.dex */
+/* loaded from: classes10.dex */
 public class a {
     public static void a(MotionEvent motionEvent, Camera camera, int i, int i2) {
         if (motionEvent != null && camera != null) {
-            Rect a = a(motionEvent.getX(), motionEvent.getY(), 1.0f, i, i2);
+            Rect a2 = a(motionEvent.getX(), motionEvent.getY(), 1.0f, i, i2);
             camera.cancelAutoFocus();
             Camera.Parameters parameters = camera.getParameters();
             if (parameters != null) {
                 if (parameters.getMaxNumFocusAreas() > 0) {
                     ArrayList arrayList = new ArrayList();
-                    arrayList.add(new Camera.Area(a, 800));
+                    arrayList.add(new Camera.Area(a2, 800));
                     parameters.setFocusAreas(arrayList);
                 }
                 final String focusMode = parameters.getFocusMode();

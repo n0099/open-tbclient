@@ -6,11 +6,13 @@ import android.view.Surface;
 import com.baidu.cyberplayer.sdk.CyberPlayerManager;
 import java.util.Map;
 @Keep
-/* loaded from: classes10.dex */
+/* loaded from: classes12.dex */
 public class MediaInstanceState {
     public static final int INSTANCE_STATE_ACTIVE = 1;
     public static final int INSTANCE_STATE_INACTIVE = 0;
-    private CyberPlayerManager.OnPreparedListener a;
+
+    /* renamed from: a  reason: collision with root package name */
+    private CyberPlayerManager.OnPreparedListener f1351a;
     private CyberPlayerManager.OnCompletionListener b;
     private CyberPlayerManager.OnBufferingUpdateListener c;
     private CyberPlayerManager.OnSeekCompleteListener d;
@@ -101,7 +103,7 @@ public class MediaInstanceState {
     }
 
     public CyberPlayerManager.OnPreparedListener getOnPreparedListener() {
-        return this.a;
+        return this.f1351a;
     }
 
     public CyberPlayerManager.OnSeekCompleteListener getOnSeekCompleteListener() {
@@ -139,12 +141,12 @@ public class MediaInstanceState {
     }
 
     public void release() {
-        this.a = null;
+        this.f1351a = null;
         this.f = null;
         this.d = null;
         this.c = null;
         this.e = null;
-        this.a = null;
+        this.f1351a = null;
         this.g = null;
         this.h = null;
         this.z = null;
@@ -164,7 +166,7 @@ public class MediaInstanceState {
     }
 
     public void setOnPreparedListener(CyberPlayerManager.OnPreparedListener onPreparedListener) {
-        this.a = onPreparedListener;
+        this.f1351a = onPreparedListener;
     }
 
     public void setOnSeekCompleteListener(CyberPlayerManager.OnSeekCompleteListener onSeekCompleteListener) {

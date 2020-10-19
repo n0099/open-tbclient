@@ -1,24 +1,24 @@
 package com.baidu.tieba.video.cloudmusic;
 
 import com.baidu.tieba.video.cloudmusic.data.CloudMusicData;
-/* loaded from: classes22.dex */
+/* loaded from: classes23.dex */
 public interface c {
 
-    /* loaded from: classes22.dex */
+    /* loaded from: classes23.dex */
     public interface a {
-        void csi();
+        void cvF();
 
-        void dFj();
+        void dIV();
     }
 
-    /* loaded from: classes22.dex */
+    /* loaded from: classes23.dex */
     public interface b {
         void a(a aVar);
 
         void a(CloudMusicData cloudMusicData);
 
-        void wK(boolean z);
+        void xr(boolean z);
 
-        void wL(boolean z);
+        void xs(boolean z);
     }
 }

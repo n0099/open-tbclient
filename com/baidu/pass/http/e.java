@@ -19,9 +19,11 @@ import java.util.List;
 import java.util.Locale;
 import java.util.Map;
 import java.util.SimpleTimeZone;
-/* loaded from: classes6.dex */
+/* loaded from: classes9.dex */
 class e {
-    private static final String a = "e";
+
+    /* renamed from: a  reason: collision with root package name */
+    private static final String f2792a = "e";
     private static final String b = "Set-Cookie";
     private static final String c = "EEE, dd-MMM-yyyy HH:mm:ss 'GMT'";
     private static final String d = "Cookie";
@@ -46,8 +48,8 @@ class e {
         try {
             CookieSyncManager.createInstance(context);
             String cookie = CookieManager.getInstance().getCookie("https://" + new URI(passHttpParamDTO.url).getHost());
-            f.a(a, "asyncCookie" + passHttpParamDTO.asyncCookie);
-            f.a(a, "webviewCookies" + cookie);
+            f.a(f2792a, "asyncCookie" + passHttpParamDTO.asyncCookie);
+            f.a(f2792a, "webviewCookies" + cookie);
             String str2 = !passHttpParamDTO.asyncCookie ? null : cookie;
             List<HttpCookie> list = passHttpParamDTO.cookie;
             if (!TextUtils.isEmpty(str2) || (list != null && !list.isEmpty())) {
@@ -84,7 +86,7 @@ class e {
                                         httpCookie = httpCookie2;
                                     }
                                     str = !httpCookie.hasExpired() ? str4 + httpCookie.getName() + ETAG.EQUAL + httpCookie.getValue() + ContentProviderProxy.PROVIDER_AUTHOR_SEPARATOR : str4;
-                                    f.a(a, "httpCookie webview item name:" + httpCookie.getName() + ",value:" + httpCookie.getValue());
+                                    f.a(f2792a, "httpCookie webview item name:" + httpCookie.getName() + ",value:" + httpCookie.getValue());
                                 }
                             }
                         }
@@ -104,12 +106,12 @@ class e {
                 }
                 if (!TextUtils.isEmpty(str3)) {
                     String substring = str3.substring(0, str3.length() - 1);
-                    f.a(a, "cookieStr" + substring);
+                    f.a(f2792a, "cookieStr" + substring);
                     httpURLConnection.setRequestProperty("Cookie", substring);
                 }
             }
         } catch (Exception e2) {
-            f.a(a, "asyncWebviewCookie2NA:" + e2.toString());
+            f.a(f2792a, "asyncWebviewCookie2NA:" + e2.toString());
         }
     }
 
@@ -119,7 +121,7 @@ class e {
         Map<String, List<String>> headerFields;
         List<String> list;
         try {
-            f.a(a, "asyncCookie" + passHttpParamDTO.asyncCookie);
+            f.a(f2792a, "asyncCookie" + passHttpParamDTO.asyncCookie);
             if (passHttpParamDTO.asyncCookie && (headerFields = httpURLConnection.getHeaderFields()) != null && !headerFields.isEmpty() && (list = headerFields.get("Set-Cookie")) != null && !list.isEmpty()) {
                 CookieSyncManager.createInstance(context);
                 CookieManager cookieManager = CookieManager.getInstance();
@@ -131,9 +133,9 @@ class e {
                             if (!parse.isEmpty()) {
                                 HttpCookie httpCookie = parse.get(0);
                                 if (a(passHttpParamDTO.url, httpCookie)) {
-                                    Log.e(a, "httpcookie:" + httpCookie.toString());
+                                    Log.e(f2792a, "httpcookie:" + httpCookie.toString());
                                     String a2 = a(httpCookie.getDomain(), httpCookie.getName(), httpCookie.getValue(), System.currentTimeMillis() + (httpCookie.getMaxAge() * 1000), httpCookie.getSecure());
-                                    Log.e(a, "httpcookie build:" + a2);
+                                    Log.e(f2792a, "httpcookie build:" + a2);
                                     cookieManager.setCookie("https://" + httpCookie.getDomain(), a2);
                                 }
                             }
@@ -147,7 +149,7 @@ class e {
                 }
             }
         } catch (Exception e2) {
-            f.a(a, "asyncNaCookie2Webview:" + e2.toString());
+            f.a(f2792a, "asyncNaCookie2Webview:" + e2.toString());
         }
     }
 

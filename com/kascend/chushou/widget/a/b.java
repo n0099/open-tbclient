@@ -9,14 +9,16 @@ import com.tencent.connect.common.Constants;
 import org.json.JSONObject;
 /* loaded from: classes6.dex */
 public class b {
-    private String a;
+
+    /* renamed from: a  reason: collision with root package name */
+    private String f4261a;
     private String b;
     private long g;
-    private a ojY;
+    private a ozr;
     private volatile boolean c = false;
-    private d<ParserRet> ojX = new com.kascend.chushou.widget.a.a();
+    private d<ParserRet> ozq = new com.kascend.chushou.widget.a.a();
     private boolean f = false;
-    private final tv.chushou.zues.c ojZ = new tv.chushou.zues.c(Looper.getMainLooper(), new Handler.Callback() { // from class: com.kascend.chushou.widget.a.b.2
+    private final tv.chushou.zues.c ozs = new tv.chushou.zues.c(Looper.getMainLooper(), new Handler.Callback() { // from class: com.kascend.chushou.widget.a.b.2
         @Override // android.os.Handler.Callback
         public boolean handleMessage(Message message) {
             switch (message.what) {
@@ -38,26 +40,26 @@ public class b {
     }
 
     public void a(String str) {
-        this.a = str;
-        if (this.ojX != null) {
-            this.ojX.b();
+        this.f4261a = str;
+        if (this.ozq != null) {
+            this.ozq.b();
         }
     }
 
     public void a(a aVar) {
-        this.ojY = aVar;
+        this.ozr = aVar;
     }
 
     public void a(boolean z) {
         if (z) {
-            this.ojX = new c();
+            this.ozq = new c();
         } else {
-            this.ojX = new com.kascend.chushou.widget.a.a();
+            this.ozq = new com.kascend.chushou.widget.a.a();
         }
     }
 
     public void b(boolean z) {
-        this.ojZ.removeMessages(1);
+        this.ozs.removeMessages(1);
         this.c = true;
         if (z) {
             this.b = null;
@@ -69,8 +71,8 @@ public class b {
     }
 
     public void b() {
-        if (this.ojX != null) {
-            this.ojX.c();
+        if (this.ozq != null) {
+            this.ozq.c();
         }
         d();
     }
@@ -81,14 +83,14 @@ public class b {
 
     public void d() {
         this.c = false;
-        this.ojZ.removeMessages(1);
+        this.ozs.removeMessages(1);
         if (!this.f || System.currentTimeMillis() - this.g >= 20000) {
             if (this.f) {
-                com.kascend.chushou.toolkit.a.a.a("type", Constants.VIA_REPORT_TYPE_WPA_STATE, "value", this.a);
+                com.kascend.chushou.toolkit.a.a.a("type", Constants.VIA_REPORT_TYPE_WPA_STATE, "value", this.f4261a);
             }
             this.g = System.currentTimeMillis();
             this.f = true;
-            com.kascend.chushou.c.c.ect().d(new com.kascend.chushou.c.b() { // from class: com.kascend.chushou.widget.a.b.1
+            com.kascend.chushou.c.c.ege().d(new com.kascend.chushou.c.b() { // from class: com.kascend.chushou.widget.a.b.1
                 @Override // com.kascend.chushou.c.b
                 public void a() {
                 }
@@ -100,23 +102,23 @@ public class b {
                     ParserRet F = e.F(jSONObject, b.this.b);
                     if (F.mRc == 0 && F.mData != null) {
                         b.this.b = F.mBreakpoint;
-                        if (b.this.ojY != null) {
-                            b.this.ojY.b(F);
+                        if (b.this.ozr != null) {
+                            b.this.ozr.b(F);
                         }
                         long longValue = ((Long) F.mData1).longValue();
                         if (longValue == -1) {
-                            if (b.this.ojX != null) {
-                                j = b.this.ojX.F(F);
+                            if (b.this.ozq != null) {
+                                j = b.this.ozq.G(F);
                             } else {
                                 j = 1000;
                             }
-                            b.this.ojZ.C(1, j);
+                            b.this.ozs.D(1, j);
                             return;
                         }
-                        if (b.this.ojX != null) {
-                            b.this.ojX.b();
+                        if (b.this.ozq != null) {
+                            b.this.ozq.b();
                         }
-                        b.this.ojZ.C(1, longValue);
+                        b.this.ozs.D(1, longValue);
                         return;
                     }
                     a(-1, "");
@@ -126,14 +128,14 @@ public class b {
                 public void a(int i, String str) {
                     long j;
                     b.this.f = false;
-                    if (b.this.ojX != null) {
-                        j = b.this.ojX.a();
+                    if (b.this.ozq != null) {
+                        j = b.this.ozq.a();
                     } else {
                         j = 1000;
                     }
-                    b.this.ojZ.C(1, j);
+                    b.this.ozs.D(1, j);
                 }
-            }, this.a, this.b);
+            }, this.f4261a, this.b);
         }
     }
 }

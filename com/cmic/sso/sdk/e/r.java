@@ -7,7 +7,7 @@ import java.net.Inet6Address;
 import java.net.InetAddress;
 import java.net.NetworkInterface;
 import java.util.Enumeration;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class r {
     public static String a(boolean z) {
         StringBuilder sb = new StringBuilder();
@@ -34,7 +34,7 @@ public class r {
         }
     }
 
-    public static String aC(boolean z, boolean z2) {
+    public static String aB(boolean z, boolean z2) {
         StringBuilder sb = new StringBuilder();
         try {
             Enumeration<NetworkInterface> networkInterfaces = NetworkInterface.getNetworkInterfaces();

@@ -18,12 +18,14 @@ import java.util.HashMap;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
-/* loaded from: classes3.dex */
+/* loaded from: classes7.dex */
 public class a implements d {
     private SQLiteDatabase b;
     private b c;
     private int f;
-    private String a = a.class.getSimpleName();
+
+    /* renamed from: a  reason: collision with root package name */
+    private String f4397a = a.class.getSimpleName();
     private String[] d = {"id", "eventData", "dateCreated"};
     private long e = -1;
 
@@ -101,18 +103,18 @@ public class a implements d {
     @Override // com.meizu.cloud.pushsdk.c.d.d
     public boolean a(long j) {
         int delete = e() ? this.b.delete("events", "id=" + j, null) : -1;
-        com.meizu.cloud.pushsdk.c.f.c.b(this.a, "Removed event from database: " + j, new Object[0]);
+        com.meizu.cloud.pushsdk.c.f.c.b(this.f4397a, "Removed event from database: " + j, new Object[0]);
         return delete == 1;
     }
 
     public long b(com.meizu.cloud.pushsdk.c.a.a aVar) {
         if (e()) {
-            byte[] a = a(aVar.a());
+            byte[] a2 = a(aVar.a());
             ContentValues contentValues = new ContentValues(2);
-            contentValues.put("eventData", a);
+            contentValues.put("eventData", a2);
             this.e = this.b.insert("events", null, contentValues);
         }
-        com.meizu.cloud.pushsdk.c.f.c.b(this.a, "Added event to database: " + this.e, new Object[0]);
+        com.meizu.cloud.pushsdk.c.f.c.b(this.f4397a, "Added event to database: " + this.e, new Object[0]);
         return this.e;
     }
 
@@ -124,7 +126,7 @@ public class a implements d {
             this.b = this.c.getWritableDatabase();
             this.b.enableWriteAheadLogging();
         } catch (Exception e) {
-            com.meizu.cloud.pushsdk.c.f.c.a(this.a, " open database error " + e.getMessage(), new Object[0]);
+            com.meizu.cloud.pushsdk.c.f.c.a(this.f4397a, " open database error " + e.getMessage(), new Object[0]);
         }
     }
 

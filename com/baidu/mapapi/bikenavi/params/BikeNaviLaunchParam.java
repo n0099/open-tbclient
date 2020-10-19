@@ -3,16 +3,18 @@ package com.baidu.mapapi.bikenavi.params;
 import com.baidu.mapapi.model.LatLng;
 import com.baidu.platform.comapi.walknavi.e.a;
 import com.baidu.platform.comapi.walknavi.e.b;
-/* loaded from: classes3.dex */
+/* loaded from: classes7.dex */
 public class BikeNaviLaunchParam {
-    private LatLng a;
+
+    /* renamed from: a  reason: collision with root package name */
+    private LatLng f1979a;
     private LatLng b;
     private BikeRouteNodeInfo c;
     private BikeRouteNodeInfo d;
     private int e = 0;
 
     public LatLng getStartPt() {
-        return this.a;
+        return this.f1979a;
     }
 
     public LatLng getEndPt() {
@@ -28,7 +30,7 @@ public class BikeNaviLaunchParam {
     }
 
     public BikeNaviLaunchParam stPt(LatLng latLng) {
-        this.a = latLng;
+        this.f1979a = latLng;
         return this;
     }
 

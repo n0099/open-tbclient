@@ -12,27 +12,27 @@ import com.baidu.tbadk.core.util.aq;
 import com.baidu.tbadk.core.util.be;
 import com.baidu.tieba.R;
 import com.baidu.tieba.enterForum.hotuserrank.c;
-/* loaded from: classes21.dex */
+/* loaded from: classes22.dex */
 public class b {
-    private TbPageContext ehG;
-    private c.a hEo;
-    private TextView hEp;
-    private TextView hEq;
-    private String hEr;
-    private int hEs;
+    private TbPageContext etO;
+    private c.a hTk;
+    private TextView hTl;
+    private TextView hTm;
+    private String hTn;
+    private int hTo;
     private View.OnClickListener mOnClickListener = new View.OnClickListener() { // from class: com.baidu.tieba.enterForum.hotuserrank.b.1
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
-            if (TextUtils.isEmpty(b.this.hEr)) {
-                b.this.ehG.showToast(R.string.load_error_retry);
+            if (TextUtils.isEmpty(b.this.hTn)) {
+                b.this.etO.showToast(R.string.load_error_retry);
                 return;
             }
-            be.bkp().b(b.this.ehG, new String[]{b.this.hEr});
-            if (b.this.hEs != 0) {
-                if (b.this.hEs != 2) {
-                    if (b.this.hEs == 1) {
+            be.bmY().b(b.this.etO, new String[]{b.this.hTn});
+            if (b.this.hTo != 0) {
+                if (b.this.hTo != 2) {
+                    if (b.this.hTo == 1) {
                         aq aqVar = new aq("c13669");
-                        aqVar.ai("obj_locate", 2);
+                        aqVar.aj("obj_locate", 2);
                         TiebaStatic.log(aqVar);
                         return;
                     }
@@ -40,7 +40,7 @@ public class b {
                 }
                 aq aqVar2 = new aq("c13658");
                 aqVar2.u("uid", TbadkCoreApplication.getCurrentAccountId());
-                aqVar2.ai("obj_locate", 2);
+                aqVar2.aj("obj_locate", 2);
                 TiebaStatic.log(aqVar2);
             }
         }
@@ -48,34 +48,34 @@ public class b {
     private View mRootView;
 
     public b(TbPageContext tbPageContext, View view) {
-        this.ehG = tbPageContext;
+        this.etO = tbPageContext;
         this.mRootView = view;
-        this.hEo = new c.a(view.findViewById(R.id.user_view));
-        this.hEo.wD(1);
-        this.hEp = (TextView) view.findViewById(R.id.get_influence);
-        this.hEq = (TextView) view.findViewById(R.id.rank_num);
-        this.hEq.setTextSize(0, l.getDimens(this.ehG.getPageActivity(), R.dimen.tbfontsize46));
-        this.hEp.setOnClickListener(this.mOnClickListener);
+        this.hTk = new c.a(view.findViewById(R.id.user_view));
+        this.hTk.xj(1);
+        this.hTl = (TextView) view.findViewById(R.id.get_influence);
+        this.hTm = (TextView) view.findViewById(R.id.rank_num);
+        this.hTm.setTextSize(0, l.getDimens(this.etO.getPageActivity(), R.dimen.tbfontsize46));
+        this.hTl.setOnClickListener(this.mOnClickListener);
     }
 
     public void b(com.baidu.tieba.enterForum.hotuserrank.a.c cVar) {
-        if (cVar != null && cVar.hET != null && cVar.hET.hEP != null && !cVar.hET.hEP.isMask && TbadkCoreApplication.isLogin()) {
+        if (cVar != null && cVar.hTP != null && cVar.hTP.hTL != null && !cVar.hTP.hTL.isMask && TbadkCoreApplication.isLogin()) {
             this.mRootView.setVisibility(0);
-            this.hEo.a(cVar.hET);
-            this.hEo.cjl();
-            this.hEr = cVar.hEU;
+            this.hTk.a(cVar.hTP);
+            this.hTk.cmH();
+            this.hTn = cVar.hTQ;
             return;
         }
         this.mRootView.setVisibility(8);
     }
 
     public void onChangeSkinType(int i) {
-        this.hEo.onChangeSkinType(i);
-        ap.setBackgroundColor(this.hEo.itemView, R.color.cp_bg_line_h);
-        ap.setViewTextColor(this.hEp, R.color.cp_link_tip_a);
+        this.hTk.onChangeSkinType(i);
+        ap.setBackgroundColor(this.hTk.itemView, R.color.cp_bg_line_h);
+        ap.setViewTextColor(this.hTl, R.color.cp_link_tip_a);
     }
 
-    public void wC(int i) {
-        this.hEs = i;
+    public void xi(int i) {
+        this.hTo = i;
     }
 }

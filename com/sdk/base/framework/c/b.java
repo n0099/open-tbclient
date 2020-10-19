@@ -1,8 +1,10 @@
 package com.sdk.base.framework.c;
-/* loaded from: classes5.dex */
+/* loaded from: classes16.dex */
 public final class b {
     private int c;
-    private long a = System.currentTimeMillis();
+
+    /* renamed from: a  reason: collision with root package name */
+    private long f4483a = System.currentTimeMillis();
     private c b = new c();
     private String d = "";
 
@@ -27,6 +29,6 @@ public final class b {
     }
 
     public final String toString() {
-        return "MobileLog{time=" + this.a + ", status=" + this.b + '}';
+        return "MobileLog{time=" + this.f4483a + ", status=" + this.b + '}';
     }
 }

@@ -16,12 +16,14 @@ import java.util.concurrent.locks.Lock;
 import java.util.concurrent.locks.ReentrantLock;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes7.dex */
 public abstract class a {
     private SearchType f;
     private AsyncHttpClient b = new AsyncHttpClient();
     private Handler c = new Handler(Looper.getMainLooper());
-    protected final Lock a = new ReentrantLock();
+
+    /* renamed from: a  reason: collision with root package name */
+    protected final Lock f2810a = new ReentrantLock();
     private boolean d = true;
     private DistrictResult e = null;
 
@@ -51,18 +53,18 @@ public abstract class a {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void a(String str, d dVar, Object obj, AsyncHttpClient asyncHttpClient, HttpClient.ProtoResultCallback protoResultCallback) {
-        SearchResult a = dVar.a(str);
-        a.status = b(str);
-        if (a(dVar, a)) {
-            a(asyncHttpClient, protoResultCallback, a);
+        SearchResult a2 = dVar.a(str);
+        a2.status = b(str);
+        if (a(dVar, a2)) {
+            a(asyncHttpClient, protoResultCallback, a2);
         } else if (!(dVar instanceof com.baidu.platform.core.a.b)) {
-            a(a, obj, dVar);
+            a(a2, obj, dVar);
         } else {
             if (this.e != null) {
-                ((DistrictResult) a).setCityCode(this.e.getCityCode());
-                ((DistrictResult) a).setCenterPt(this.e.getCenterPt());
+                ((DistrictResult) a2).setCityCode(this.e.getCityCode());
+                ((DistrictResult) a2).setCenterPt(this.e.getCenterPt());
             }
-            a(a, obj, dVar);
+            a(a2, obj, dVar);
             this.d = true;
             this.e = null;
             ((com.baidu.platform.core.a.b) dVar).a(false);
@@ -128,12 +130,12 @@ public abstract class a {
             return false;
         }
         this.f = dVar.a();
-        String a = eVar.a(this.f);
-        if (a != null) {
-            this.b.get(a, new b(this, dVar, obj));
+        String a2 = eVar.a(this.f);
+        if (a2 != null) {
+            this.b.get(a2, new b(this, dVar, obj));
             return true;
         }
-        Log.e("BaseSearch", "The sendurl is: " + a);
+        Log.e("BaseSearch", "The sendurl is: " + a2);
         a(dVar.a("{SDK_InnerError:{PermissionCheckError:Error}}"), obj, dVar);
         return false;
     }

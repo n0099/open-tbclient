@@ -3,39 +3,39 @@ package com.baidu.g.a.b;
 import android.content.Context;
 import android.text.TextUtils;
 import android.view.View;
-/* loaded from: classes25.dex */
+/* loaded from: classes26.dex */
 public class a implements b {
-    private static volatile a atT = null;
-    private b atU;
+    private static volatile a auC = null;
+    private b auD;
 
-    public static a zi() {
-        if (atT == null) {
+    public static a zq() {
+        if (auC == null) {
             synchronized (a.class) {
-                if (atT == null) {
-                    atT = new a();
+                if (auC == null) {
+                    auC = new a();
                 }
             }
         }
-        return atT;
+        return auC;
     }
 
     public void b(b bVar) {
-        this.atU = bVar;
+        this.auD = bVar;
     }
 
     @Override // com.baidu.g.a.b.b
-    public View A(Context context, String str) {
-        if (this.atU == null || str == null || TextUtils.isEmpty(str)) {
+    public View C(Context context, String str) {
+        if (this.auD == null || str == null || TextUtils.isEmpty(str)) {
             return null;
         }
-        return this.atU.A(context, str);
+        return this.auD.C(context, str);
     }
 
     @Override // com.baidu.g.a.b.b
     public boolean a(String str, View view, com.baidu.g.a.a.a aVar, boolean z) {
-        if (this.atU == null || view == null || aVar == null) {
+        if (this.auD == null || view == null || aVar == null) {
             return false;
         }
-        return this.atU.a(str, view, aVar, z);
+        return this.auD.a(str, view, aVar, z);
     }
 }

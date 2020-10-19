@@ -6,30 +6,30 @@ import org.json.JSONObject;
 import tv.chushou.basis.http.listener.JsonCallbackWrapper;
 /* loaded from: classes6.dex */
 public class a extends JsonCallbackWrapper {
-    private b nRy;
+    private b ogQ;
 
     public a(b bVar) {
-        this.nRy = bVar;
+        this.ogQ = bVar;
     }
 
     @Override // tv.chushou.basis.http.listener.JsonCallbackWrapper
     public void callStart() {
-        if (this.nRy != null) {
-            this.nRy.a();
+        if (this.ogQ != null) {
+            this.ogQ.a();
         }
     }
 
     @Override // tv.chushou.basis.http.listener.JsonCallbackWrapper
     public void callSuccess(String str, JSONObject jSONObject) {
-        if (this.nRy != null) {
-            this.nRy.a(str, jSONObject);
+        if (this.ogQ != null) {
+            this.ogQ.a(str, jSONObject);
         }
     }
 
     @Override // tv.chushou.basis.http.listener.JsonCallbackWrapper
     public void callFailure(int i, @Nullable String str, @Nullable String str2) {
-        if (this.nRy != null) {
-            this.nRy.a(i, str);
+        if (this.ogQ != null) {
+            this.ogQ.a(i, str);
         }
     }
 }

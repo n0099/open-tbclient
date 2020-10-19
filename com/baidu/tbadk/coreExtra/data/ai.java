@@ -5,50 +5,50 @@ import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class ai {
-    private String eDi;
-    private long eDj;
-    private long eDk;
-    private long eDl;
-    private String eDm;
-    private String eDn;
+    private String ePp;
+    private long ePq;
+    private long ePr;
+    private long ePs;
+    private String ePt;
+    private String ePu;
 
     public void parseJson(String str) {
         if (!at.isEmpty(str)) {
             try {
                 JSONObject jSONObject = new JSONObject(str);
-                this.eDi = jSONObject.optString("splash_video_url");
-                this.eDj = jSONObject.optLong("splash_video_start_time") * 1000;
-                this.eDk = jSONObject.optLong("splash_video_end_time") * 1000;
-                this.eDl = jSONObject.optLong("splash_video_interval_time") * 1000;
-                this.eDm = jSONObject.optString("splash_video_h5_url");
-                this.eDn = jSONObject.optString("splash_video_h5_text");
+                this.ePp = jSONObject.optString("splash_video_url");
+                this.ePq = jSONObject.optLong("splash_video_start_time") * 1000;
+                this.ePr = jSONObject.optLong("splash_video_end_time") * 1000;
+                this.ePs = jSONObject.optLong("splash_video_interval_time") * 1000;
+                this.ePt = jSONObject.optString("splash_video_h5_url");
+                this.ePu = jSONObject.optString("splash_video_h5_text");
             } catch (JSONException e) {
                 e.printStackTrace();
             }
         }
     }
 
-    public String bnU() {
-        return this.eDi;
+    public String bqE() {
+        return this.ePp;
     }
 
-    public long bnV() {
-        return this.eDj;
+    public long bqF() {
+        return this.ePq;
     }
 
-    public long bnW() {
-        return this.eDk;
+    public long bqG() {
+        return this.ePr;
     }
 
-    public long bnX() {
-        return this.eDl;
+    public long bqH() {
+        return this.ePs;
     }
 
-    public String bnY() {
-        return this.eDm;
+    public String bqI() {
+        return this.ePt;
     }
 
-    public String bnZ() {
-        return this.eDn;
+    public String bqJ() {
+        return this.ePu;
     }
 }

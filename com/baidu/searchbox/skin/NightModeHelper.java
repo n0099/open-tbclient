@@ -2,7 +2,7 @@ package com.baidu.searchbox.skin;
 
 import com.baidu.searchbox.skin.callback.NightModeChangeListener;
 import com.baidu.searchbox.skin.ioc.NightRuntime;
-/* loaded from: classes17.dex */
+/* loaded from: classes14.dex */
 public final class NightModeHelper {
     private NightModeHelper() {
     }

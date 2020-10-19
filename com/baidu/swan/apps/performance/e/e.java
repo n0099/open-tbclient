@@ -1,7 +1,7 @@
 package com.baidu.swan.apps.performance.e;
-/* loaded from: classes3.dex */
+/* loaded from: classes10.dex */
 public interface e {
-    long aiT();
+    long alE();
 
     String getType();
 

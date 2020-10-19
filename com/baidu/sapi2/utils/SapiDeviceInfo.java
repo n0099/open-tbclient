@@ -24,9 +24,11 @@ import java.util.Map;
 import java.util.Random;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes25.dex */
+/* loaded from: classes5.dex */
 public class SapiDeviceInfo implements NoProguard {
-    private static final int a = 11;
+
+    /* renamed from: a  reason: collision with root package name */
+    private static final int f3526a = 11;
     private static final String c = "android";
     private static final String b = Character.toString(1);
     private static final String d = TextUtils.join("", new String[]{"O", "a", "L", "h", MapBundleKey.MapObjKey.OBJ_SS_ARROW_Z, "O", "K", ExifInterface.GPS_DIRECTION_TRUE, ExifInterface.GPS_DIRECTION_TRUE, "Q", "G", "L", "w", "8", "h", "P"});
@@ -131,10 +133,10 @@ public class SapiDeviceInfo implements NoProguard {
 
     public static String getDiCookieInfo(List<String> list, boolean z) {
         JSONObject jSONObject = new JSONObject();
-        if (!a.a.isEmpty() && list != null) {
+        if (!a.f3527a.isEmpty() && list != null) {
             for (String str : list) {
                 try {
-                    jSONObject.put(str, a.a.get(str));
+                    jSONObject.put(str, a.f3527a.get(str));
                 } catch (JSONException e) {
                     Log.e(e);
                 }
@@ -171,9 +173,11 @@ public class SapiDeviceInfo implements NoProguard {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes25.dex */
+    /* loaded from: classes5.dex */
     public static final class a {
-        static Map<String, String> a = new HashMap();
+
+        /* renamed from: a  reason: collision with root package name */
+        static Map<String, String> f3527a = new HashMap();
 
         a() {
         }
@@ -223,7 +227,7 @@ public class SapiDeviceInfo implements NoProguard {
         static void a(List<String> list) {
             List<String> a2 = a();
             for (int i = 0; i < a2.size() && i < list.size(); i++) {
-                a.put(a2.get(i), list.get(i));
+                f3527a.put(a2.get(i), list.get(i));
             }
         }
     }

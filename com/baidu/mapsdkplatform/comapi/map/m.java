@@ -1,9 +1,11 @@
 package com.baidu.mapsdkplatform.comapi.map;
 
 import java.util.ArrayList;
-/* loaded from: classes3.dex */
+/* loaded from: classes7.dex */
 public class m {
-    public int a;
+
+    /* renamed from: a  reason: collision with root package name */
+    public int f2231a;
     public String b;
     public int c;
     public int d;

@@ -12,170 +12,170 @@ import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
 import com.baidu.tieba.frs.FrsFragment;
 import com.baidu.tieba.frs.entelechy.view.EntelechyPullUpRefreshView;
-/* loaded from: classes21.dex */
+/* loaded from: classes22.dex */
 public class b implements com.baidu.tieba.frs.entelechy.b.c, com.baidu.tieba.frs.tab.c {
-    private NoPressedRelativeLayout iAK;
-    private Animation iAM;
-    private Animation iAN;
-    private LinearLayout iAQ;
-    private EntelechyPullUpRefreshView iAR;
-    private EntelechyPullUpRefreshView iAS;
-    private FrsFragment icq;
-    private TbImageView iAL = null;
+    private NoPressedRelativeLayout iPC;
+    private Animation iPE;
+    private Animation iPF;
+    private LinearLayout iPI;
+    private EntelechyPullUpRefreshView iPJ;
+    private EntelechyPullUpRefreshView iPK;
+    private FrsFragment irr;
+    private TbImageView iPD = null;
     private int mSkinType = 3;
-    private boolean iAO = false;
-    private float iAP = 360.0f;
+    private boolean iPG = false;
+    private float iPH = 360.0f;
     private boolean isShow = true;
-    private View.OnClickListener iAT = new View.OnClickListener() { // from class: com.baidu.tieba.frs.vc.b.1
+    private View.OnClickListener iPL = new View.OnClickListener() { // from class: com.baidu.tieba.frs.vc.b.1
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
-            if (b.this.icq != null) {
-                if (view == b.this.iAR) {
-                    TiebaStatic.eventStat(b.this.icq.getPageContext().getPageActivity(), "frs_refresh", "frsclick", 1, new Object[0]);
-                    if (!b.this.icq.cpK() && b.this.icq.cpf() != null) {
-                        TiebaStatic.log(new aq("c11752").dF("fid", b.this.icq.getFid()).dF("obj_locate", "3"));
-                        b.this.icq.cpf().startPullRefresh();
+            if (b.this.irr != null) {
+                if (view == b.this.iPJ) {
+                    TiebaStatic.eventStat(b.this.irr.getPageContext().getPageActivity(), "frs_refresh", "frsclick", 1, new Object[0]);
+                    if (!b.this.irr.cti() && b.this.irr.csD() != null) {
+                        TiebaStatic.log(new aq("c11752").dK("fid", b.this.irr.getFid()).dK("obj_locate", "3"));
+                        b.this.irr.csD().startPullRefresh();
                     }
-                } else if (view == b.this.iAS && b.this.icq.cpf() != null && b.this.icq.cpf().getListView() != null) {
-                    b.this.icq.cpf().getListView().smoothScrollToPosition(0);
+                } else if (view == b.this.iPK && b.this.irr.csD() != null && b.this.irr.csD().getListView() != null) {
+                    b.this.irr.csD().getListView().smoothScrollToPosition(0);
                 }
             }
         }
     };
 
     public b(FrsFragment frsFragment, NoPressedRelativeLayout noPressedRelativeLayout) {
-        this.iAQ = null;
-        this.iAR = null;
-        this.iAS = null;
-        this.icq = frsFragment;
-        this.iAK = noPressedRelativeLayout;
-        cwk();
-        this.iAQ = (LinearLayout) this.iAK.findViewById(R.id.frs_stick_bottom_holder);
-        this.iAS = (EntelechyPullUpRefreshView) this.iAK.findViewById(R.id.frs_stick_bottom_goto_top);
-        this.iAR = (EntelechyPullUpRefreshView) this.iAK.findViewById(R.id.frs_stick_bottom_reload);
-        this.iAS.setOnClickListener(this.iAT);
-        this.iAR.setOnClickListener(this.iAT);
+        this.iPI = null;
+        this.iPJ = null;
+        this.iPK = null;
+        this.irr = frsFragment;
+        this.iPC = noPressedRelativeLayout;
+        czH();
+        this.iPI = (LinearLayout) this.iPC.findViewById(R.id.frs_stick_bottom_holder);
+        this.iPK = (EntelechyPullUpRefreshView) this.iPC.findViewById(R.id.frs_stick_bottom_goto_top);
+        this.iPJ = (EntelechyPullUpRefreshView) this.iPC.findViewById(R.id.frs_stick_bottom_reload);
+        this.iPK.setOnClickListener(this.iPL);
+        this.iPJ.setOnClickListener(this.iPL);
         onChangeSkinType(this.mSkinType);
     }
 
-    private void cwk() {
-        this.iAL = new TbImageView(this.icq.getPageContext().getPageActivity());
-        int dimens = com.baidu.adp.lib.util.l.getDimens(this.icq.getPageContext().getPageActivity(), R.dimen.ds68);
+    private void czH() {
+        this.iPD = new TbImageView(this.irr.getPageContext().getPageActivity());
+        int dimens = com.baidu.adp.lib.util.l.getDimens(this.irr.getPageContext().getPageActivity(), R.dimen.ds68);
         RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(dimens, dimens);
         layoutParams.addRule(10);
         layoutParams.addRule(14);
         layoutParams.topMargin = dimens;
-        this.iAL.setLayoutParams(layoutParams);
-        this.iAK.addView(this.iAL);
-        this.iAL.setVisibility(8);
+        this.iPD.setLayoutParams(layoutParams);
+        this.iPC.addView(this.iPD);
+        this.iPD.setVisibility(8);
     }
 
     @Override // com.baidu.tieba.frs.entelechy.b.c
-    public void W(boolean z, boolean z2) {
-        if (!this.iAO) {
+    public void V(boolean z, boolean z2) {
+        if (!this.iPG) {
             this.isShow = z;
             if (z) {
                 if (z2) {
-                    cwn();
+                    czK();
                 } else {
-                    this.iAQ.setVisibility(0);
+                    this.iPI.setVisibility(0);
                 }
             } else if (z2) {
-                cwo();
+                czL();
             } else {
-                this.iAQ.setVisibility(8);
+                this.iPI.setVisibility(8);
             }
         }
     }
 
     @Override // com.baidu.tieba.frs.entelechy.b.c
-    public boolean cte() {
-        if (this.iAR == null) {
+    public boolean cwB() {
+        if (this.iPJ == null) {
             return false;
         }
         return this.isShow;
     }
 
-    private void cwl() {
-        if (this.icq.isAdded()) {
-            this.iAM = AnimationUtils.loadAnimation(this.icq.getPageContext().getPageActivity(), R.anim.frs_pull_up_refresh_out);
-            this.iAM.setAnimationListener(new a(this.iAQ));
+    private void czI() {
+        if (this.irr.isAdded()) {
+            this.iPE = AnimationUtils.loadAnimation(this.irr.getPageContext().getPageActivity(), R.anim.frs_pull_up_refresh_out);
+            this.iPE.setAnimationListener(new a(this.iPI));
         }
     }
 
-    private void cwm() {
-        if (this.icq.isAdded()) {
-            this.iAN = AnimationUtils.loadAnimation(this.icq.getPageContext().getPageActivity(), R.anim.frs_pull_up_refresh_in);
-            this.iAN.setAnimationListener(new animation.Animation$AnimationListenerC0686b(this.iAQ));
+    private void czJ() {
+        if (this.irr.isAdded()) {
+            this.iPF = AnimationUtils.loadAnimation(this.irr.getPageContext().getPageActivity(), R.anim.frs_pull_up_refresh_in);
+            this.iPF.setAnimationListener(new animation.Animation$AnimationListenerC0704b(this.iPI));
         }
     }
 
-    private void cwn() {
+    private void czK() {
         cancelAnimation();
-        if (this.iAN == null) {
-            cwm();
+        if (this.iPF == null) {
+            czJ();
         }
-        if (this.iAN != null) {
-            this.iAQ.setVisibility(0);
-            this.iAQ.startAnimation(this.iAN);
+        if (this.iPF != null) {
+            this.iPI.setVisibility(0);
+            this.iPI.startAnimation(this.iPF);
         }
     }
 
     private void cancelAnimation() {
-        if (this.iAQ != null) {
-            this.iAQ.clearAnimation();
+        if (this.iPI != null) {
+            this.iPI.clearAnimation();
         }
     }
 
-    private void cwo() {
+    private void czL() {
         cancelAnimation();
-        if (this.iAM == null) {
-            cwl();
+        if (this.iPE == null) {
+            czI();
         }
-        if (this.iAM != null) {
-            this.iAQ.startAnimation(this.iAM);
+        if (this.iPE != null) {
+            this.iPI.startAnimation(this.iPE);
         }
     }
 
     @Override // com.baidu.tieba.frs.entelechy.b.c
     public void onChangeSkinType(int i) {
         if (this.mSkinType != i) {
-            if (this.iAR != null) {
-                this.iAR.onChangeSkinType(i);
+            if (this.iPJ != null) {
+                this.iPJ.onChangeSkinType(i);
             }
-            if (this.iAS != null) {
-                this.iAS.onChangeSkinType(i);
+            if (this.iPK != null) {
+                this.iPK.onChangeSkinType(i);
             }
             this.mSkinType = i;
         }
     }
 
     @Override // com.baidu.tieba.frs.entelechy.b.c
-    public void oW(boolean z) {
-        this.iAO = z;
-        if (this.iAR != null) {
+    public void pB(boolean z) {
+        this.iPG = z;
+        if (this.iPJ != null) {
             if (z) {
-                if (this.iAQ != null && this.iAQ.getVisibility() == 0) {
-                    cwo();
+                if (this.iPI != null && this.iPI.getVisibility() == 0) {
+                    czL();
                     return;
                 }
                 return;
             }
-            cwn();
+            czK();
         }
     }
 
     @Override // com.baidu.tieba.frs.tab.c
-    public void cvO() {
-        if (this.iAL != null) {
-            this.iAL.clearAnimation();
-            this.iAL.setImageDrawable(null);
-            this.iAL.setVisibility(8);
+    public void czl() {
+        if (this.iPD != null) {
+            this.iPD.clearAnimation();
+            this.iPD.setImageDrawable(null);
+            this.iPD.setVisibility(8);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes21.dex */
+    /* loaded from: classes22.dex */
     public static class a implements Animation.AnimationListener {
         View view;
 
@@ -204,11 +204,11 @@ public class b implements com.baidu.tieba.frs.entelechy.b.c, com.baidu.tieba.frs
 
     /* JADX INFO: Access modifiers changed from: private */
     /* renamed from: com.baidu.tieba.frs.vc.b$b  reason: collision with other inner class name */
-    /* loaded from: classes21.dex */
-    public static class animation.Animation$AnimationListenerC0686b implements Animation.AnimationListener {
+    /* loaded from: classes22.dex */
+    public static class animation.Animation$AnimationListenerC0704b implements Animation.AnimationListener {
         View view;
 
-        public animation.Animation$AnimationListenerC0686b(View view) {
+        public animation.Animation$AnimationListenerC0704b(View view) {
             this.view = view;
         }
 

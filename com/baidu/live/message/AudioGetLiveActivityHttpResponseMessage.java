@@ -5,7 +5,7 @@ import com.baidu.live.tbadk.message.http.JsonHttpResponsedMessage;
 import org.json.JSONObject;
 /* loaded from: classes4.dex */
 public class AudioGetLiveActivityHttpResponseMessage extends JsonHttpResponsedMessage {
-    private be bhE;
+    private be blu;
 
     public AudioGetLiveActivityHttpResponseMessage() {
         super(1031002);
@@ -15,8 +15,8 @@ public class AudioGetLiveActivityHttpResponseMessage extends JsonHttpResponsedMe
     public void decodeLogicInBackGround(int i, JSONObject jSONObject) throws Exception {
         super.decodeLogicInBackGround(i, jSONObject);
         if (jSONObject != null) {
-            this.bhE = new be();
-            this.bhE.parserJson(jSONObject);
+            this.blu = new be();
+            this.blu.parserJson(jSONObject);
         }
     }
 }

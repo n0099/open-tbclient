@@ -3,7 +3,7 @@ package com.baidu.searchbox.ui.animview.base;
 import android.graphics.Canvas;
 import android.graphics.drawable.Drawable;
 import android.view.animation.Interpolator;
-/* loaded from: classes11.dex */
+/* loaded from: classes9.dex */
 public interface IAnimatedElement {
     BaseAnimatedElement cloneInstance();
 

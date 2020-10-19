@@ -3,7 +3,7 @@ package com.baidu.searchbox.v8engine.event;
 import android.webkit.JavascriptInterface;
 import com.baidu.searchbox.v8engine.JsFunction;
 import com.baidu.searchbox.v8engine.JsObject;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public interface EventTarget {
     @JavascriptInterface
     void addEventListener(String str, JsFunction jsFunction);

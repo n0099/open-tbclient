@@ -9,17 +9,15 @@ import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.text.TextUtils;
 import android.util.Log;
-/* loaded from: classes3.dex */
+/* loaded from: classes10.dex */
 public class an {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    private static a ddC;
-    private boolean ddA;
-    private int ddB;
+    private static a dpK;
     @Nullable
-    private com.baidu.swan.apps.v.a ddy = new com.baidu.swan.apps.v.a() { // from class: com.baidu.swan.apps.ap.an.1
+    private com.baidu.swan.apps.v.a dpG = new com.baidu.swan.apps.v.a() { // from class: com.baidu.swan.apps.ap.an.1
         @Override // com.baidu.swan.apps.v.a, android.app.Application.ActivityLifecycleCallbacks
         public void onActivityCreated(final Activity activity, Bundle bundle) {
-            if (b.aEX()) {
+            if (b.aHG()) {
                 super.onActivityCreated(activity, bundle);
                 if (activity != null && activity.getIntent() != null) {
                     Runnable runnable = new Runnable() { // from class: com.baidu.swan.apps.ap.an.1.1
@@ -27,33 +25,33 @@ public class an {
                         public void run() {
                             boolean c;
                             Intent intent = activity.getIntent();
-                            com.baidu.swan.apps.adaptation.a.r apG = com.baidu.swan.apps.t.a.apG();
+                            com.baidu.swan.apps.adaptation.a.r ass = com.baidu.swan.apps.t.a.ass();
                             ComponentName component = intent.getComponent();
-                            if (an.this.ddz && intent.hasCategory("android.intent.category.LAUNCHER") && "android.intent.action.MAIN".equals(intent.getAction()) && apG != null && component != null && TextUtils.equals(apG.aap(), component.getClassName())) {
-                                if (an.this.ddA) {
+                            if (an.this.dpH && intent.hasCategory("android.intent.category.LAUNCHER") && "android.intent.action.MAIN".equals(intent.getAction()) && ass != null && component != null && TextUtils.equals(ass.adb(), component.getClassName())) {
+                                if (an.this.dpI) {
                                     if (an.DEBUG) {
                                         Log.w("SwanHomeScreenLaunch", "SwanApp is Foreground Now");
                                         return;
                                     }
                                     return;
                                 }
-                                b aEW = b.aEW();
-                                if (c.aFc() && b.aEY()) {
-                                    c = aEW.b(activity, an.this.ddB, false);
+                                b aHF = b.aHF();
+                                if (c.aHL() && b.aHH()) {
+                                    c = aHF.b(activity, an.this.dpJ, false);
                                 } else {
-                                    c = aEW.c(an.this.ddB, false, false);
+                                    c = aHF.c(an.this.dpJ, false, false);
                                 }
                                 if (an.DEBUG) {
-                                    Log.d("SwanHomeScreenLaunch", "moveTaskToFront " + c + ", taskId=" + an.this.ddB);
+                                    Log.d("SwanHomeScreenLaunch", "moveTaskToFront " + c + ", taskId=" + an.this.dpJ);
                                 }
-                                aEW.aEZ();
+                                aHF.aHI();
                             }
                             if (an.DEBUG) {
-                                Log.d("SwanHomeScreenLaunch", "class=" + activity + ", swanAppForeground=" + an.this.ddz + ", flag=" + intent.getFlags() + ", ComponentName=" + component);
+                                Log.d("SwanHomeScreenLaunch", "class=" + activity + ", swanAppForeground=" + an.this.dpH + ", flag=" + intent.getFlags() + ", ComponentName=" + component);
                             }
                         }
                     };
-                    if (c.aFc()) {
+                    if (c.aHL()) {
                         runnable.run();
                     } else {
                         p.postOnComputation(runnable, "moveTaskToFront");
@@ -65,44 +63,46 @@ public class an {
         @Override // com.baidu.swan.apps.v.a, android.app.Application.ActivityLifecycleCallbacks
         public void onActivityStarted(Activity activity) {
             super.onActivityStarted(activity);
-            an.this.ddz = an.this.ddz && activity != null && activity.getTaskId() == an.this.ddB;
+            an.this.dpH = an.this.dpH && activity != null && activity.getTaskId() == an.this.dpJ;
         }
     };
-    private boolean ddz;
+    private boolean dpH;
+    private boolean dpI;
+    private int dpJ;
     @NonNull
     private final Application mApp;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes3.dex */
+    /* loaded from: classes10.dex */
     public interface a {
-        void m(boolean z, int i);
+        void n(boolean z, int i);
     }
 
     public an(@NonNull Application application) {
         this.mApp = application;
-        ddC = new a() { // from class: com.baidu.swan.apps.ap.an.2
+        dpK = new a() { // from class: com.baidu.swan.apps.ap.an.2
             @Override // com.baidu.swan.apps.ap.an.a
-            public void m(boolean z, int i) {
+            public void n(boolean z, int i) {
                 if (z) {
-                    an.this.ddz = true;
-                    an.this.ddB = i;
-                } else if (an.this.ddz && i == 1) {
-                    an.this.ddz = false;
+                    an.this.dpH = true;
+                    an.this.dpJ = i;
+                } else if (an.this.dpH && i == 1) {
+                    an.this.dpH = false;
                 }
-                an.this.ddA = z;
+                an.this.dpI = z;
             }
         };
-        application.registerActivityLifecycleCallbacks(this.ddy);
+        application.registerActivityLifecycleCallbacks(this.dpG);
     }
 
     public void onDestroy() {
-        ddC = null;
-        this.mApp.unregisterActivityLifecycleCallbacks(this.ddy);
+        dpK = null;
+        this.mApp.unregisterActivityLifecycleCallbacks(this.dpG);
     }
 
-    public static void l(boolean z, int i) {
-        if (ddC != null) {
-            ddC.m(z, i);
+    public static void m(boolean z, int i) {
+        if (dpK != null) {
+            dpK.n(z, i);
         }
     }
 }

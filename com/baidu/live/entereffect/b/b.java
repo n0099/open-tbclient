@@ -21,8 +21,8 @@ import org.json.JSONObject;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes4.dex */
 public class b {
-    private boolean aOe;
-    private com.baidu.live.entereffect.a.a aOf;
+    private boolean aRp;
+    private com.baidu.live.entereffect.a.a aRq;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public void a(final boolean z, final com.baidu.live.entereffect.a.a aVar, final String str, final String str2, final String str3) {
@@ -35,10 +35,10 @@ public class b {
                 if (aVar == null || TextUtils.isEmpty(aVar.id) || TextUtils.isEmpty(str) || TextUtils.isEmpty(str2) || TextUtils.isEmpty(str3)) {
                     return null;
                 }
-                b.this.aOe = z;
-                b.this.aOf = aVar;
+                b.this.aRp = z;
+                b.this.aRq = aVar;
                 if (com.baidu.live.f.a.existFile(str2)) {
-                    b.this.gc(str2);
+                    b.this.gq(str2);
                 } else if (!new File(str2).mkdirs()) {
                     return null;
                 }
@@ -48,7 +48,7 @@ public class b {
                 downloadData.setName(str4);
                 downloadData.setUrl(str);
                 downloadData.setType(20);
-                downloadData.setPath(b.this.ak(str2, str4));
+                downloadData.setPath(b.this.am(str2, str4));
                 downloadData.setCallback(new FileDownloadCallBack() { // from class: com.baidu.live.entereffect.b.b.1.1
                     @Override // com.baidu.live.tbadk.download.FileDownloadCallBack
                     public void onFileUpdateProgress(DownloadData downloadData2) {
@@ -66,7 +66,7 @@ public class b {
 
                     @Override // com.baidu.live.tbadk.download.FileDownloadCallBack
                     public void onFileDownloadSucceed(DownloadData downloadData2) {
-                        b.this.aj(b.this.ak(str2, str4), str3);
+                        b.this.al(b.this.am(str2, str4), str3);
                     }
 
                     @Override // com.baidu.live.tbadk.download.FileDownloadCallBack
@@ -127,7 +127,7 @@ public class b {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void aj(final String str, final String str2) {
+    public void al(final String str, final String str2) {
         if (!TextUtils.isEmpty(str) && !TextUtils.isEmpty(str2)) {
             new BdAsyncTask<Void, Void, List<String>>() { // from class: com.baidu.live.entereffect.b.b.2
                 /* JADX DEBUG: Method merged with bridge method */
@@ -135,16 +135,16 @@ public class b {
                 @Override // com.baidu.live.adp.lib.asynctask.BdAsyncTask
                 /* renamed from: c */
                 public List<String> doInBackground(Void... voidArr) {
-                    List<String> al = b.this.al(str, str2);
-                    if (al == null || al.isEmpty()) {
-                        b.this.gc(str);
-                        b.this.gc(str2);
+                    List<String> an = b.this.an(str, str2);
+                    if (an == null || an.isEmpty()) {
+                        b.this.gq(str);
+                        b.this.gq(str2);
                         JSONObject jSONObject = new JSONObject();
                         JSONObject jSONObject2 = new JSONObject();
                         try {
                             String str3 = "";
-                            if (b.this.aOf != null) {
-                                str3 = b.this.aOe ? b.this.aOf.videoUrl : b.this.aOf.aNU;
+                            if (b.this.aRq != null) {
+                                str3 = b.this.aRp ? b.this.aRq.videoUrl : b.this.aRq.aRf;
                             }
                             jSONObject2.put("step_error", 6);
                             jSONObject2.put("down_type", UbcStatConstant.ContentType.UBC_TYPE_ENTEREFFECT_DYNAMIC_LIST);
@@ -155,17 +155,17 @@ public class b {
                         }
                         UbcStatisticManager.getInstance().logSendResponse(new UbcStatisticItem(UbcStatisticLiveKey.KEY_ID_DOWN_RES_RESP, UbcStatConstant.ContentType.UBC_TYPE_RES_DOWN, "liveroom", "").setContentExt(jSONObject), null, true);
                     }
-                    return al;
+                    return an;
                 }
 
                 /* JADX DEBUG: Method merged with bridge method */
                 /* JADX INFO: Access modifiers changed from: protected */
                 @Override // com.baidu.live.adp.lib.asynctask.BdAsyncTask
-                /* renamed from: y */
+                /* renamed from: A */
                 public void onPostExecute(List<String> list) {
                     super.onPostExecute(list);
                     if (list != null && !list.isEmpty()) {
-                        c.Dz().a(b.this.aOe, b.this.aOf, str2, list);
+                        c.Ew().a(b.this.aRp, b.this.aRq, str2, list);
                     }
                 }
             }.execute(new Void[0]);
@@ -173,7 +173,7 @@ public class b {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public String ak(String str, String str2) {
+    public String am(String str, String str2) {
         return str + str2 + ".zip";
     }
 
@@ -186,7 +186,7 @@ public class b {
         	at jadx.core.dex.visitors.blocks.BlockProcessor.visit(BlockProcessor.java:39)
         */
     /* JADX INFO: Access modifiers changed from: private */
-    public java.util.List<java.lang.String> al(java.lang.String r7, java.lang.String r8) {
+    public java.util.List<java.lang.String> an(java.lang.String r7, java.lang.String r8) {
         /*
             r6 = this;
             r1 = 0
@@ -283,10 +283,10 @@ public class b {
             r2 = r1
             goto L37
         */
-        throw new UnsupportedOperationException("Method not decompiled: com.baidu.live.entereffect.b.b.al(java.lang.String, java.lang.String):java.util.List");
+        throw new UnsupportedOperationException("Method not decompiled: com.baidu.live.entereffect.b.b.an(java.lang.String, java.lang.String):java.util.List");
     }
 
-    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [371=5, 372=5, 373=5, 375=5, 376=5] */
+    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [369=5, 370=5, 371=5, 373=5, 374=5] */
     /* JADX WARN: Removed duplicated region for block: B:70:0x00d3 A[EXC_TOP_SPLITTER, SYNTHETIC] */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
@@ -399,7 +399,7 @@ public class b {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void gc(String str) {
+    public void gq(String str) {
         if (!TextUtils.isEmpty(str)) {
             com.baidu.live.f.a.cleanDir(new File(str));
         }

@@ -2,26 +2,26 @@ package com.baidu.swan.apps.canvas.a.a;
 
 import android.graphics.Canvas;
 import org.json.JSONArray;
-/* loaded from: classes3.dex */
+/* loaded from: classes10.dex */
 public class ag extends a {
-    private i cbO;
+    private i coe;
 
     @Override // com.baidu.swan.apps.canvas.a.a.a
     public void parseJson(JSONArray jSONArray) {
         if (jSONArray.length() > 0) {
-            this.cbO = new i(jSONArray);
+            this.coe = new i(jSONArray);
         }
     }
 
     @Override // com.baidu.swan.apps.canvas.a.a.a
     public void a(b bVar, Canvas canvas) {
-        if (this.cbO != null && this.cbO.isValid()) {
-            if (this.cbO.adv()) {
-                bVar.mStrokePaint.setShader(this.cbO.adw());
+        if (this.coe != null && this.coe.isValid()) {
+            if (this.coe.agg()) {
+                bVar.mStrokePaint.setShader(this.coe.agh());
                 return;
             }
-            bVar.mStrokeColor = this.cbO.getColor();
-            bVar.mStrokePaint.setColor(this.cbO.getColor());
+            bVar.mStrokeColor = this.coe.getColor();
+            bVar.mStrokePaint.setColor(this.coe.getColor());
             bVar.mFillPaint.setShader(null);
         }
     }

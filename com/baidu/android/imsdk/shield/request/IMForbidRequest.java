@@ -22,7 +22,7 @@ import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes9.dex */
+/* loaded from: classes5.dex */
 public class IMForbidRequest extends IMSettingBaseHttpRequest {
     private static final String TAG = "IMForbidRequest";
     private List<ChatMsg> chatMsgs;
@@ -167,7 +167,7 @@ public class IMForbidRequest extends IMSettingBaseHttpRequest {
     protected String getHostUrl() {
         switch (Utility.readIntData(this.mContext, Constants.KEY_ENV, 0)) {
             case 0:
-                return Constants.URL_HTTP_ONLINE;
+                return "https://pim.baidu.com/";
             case 1:
             case 2:
                 return "http://cp01-ocean-749.epc.baidu.com:8111/";

@@ -6,7 +6,7 @@ import java.io.IOException;
 import java.io.StringWriter;
 import java.math.BigDecimal;
 import java.math.BigInteger;
-/* loaded from: classes23.dex */
+/* loaded from: classes17.dex */
 public abstract class JsonElement {
     public abstract JsonElement deepCopy();
 
@@ -110,7 +110,7 @@ public abstract class JsonElement {
         try {
             StringWriter stringWriter = new StringWriter();
             b bVar = new b(stringWriter);
-            bVar.yz(true);
+            bVar.zg(true);
             h.a(this, bVar);
             return stringWriter.toString();
         } catch (IOException e) {

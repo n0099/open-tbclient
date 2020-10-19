@@ -2,12 +2,14 @@ package com.baidu.ufosdk.ui;
 
 import android.view.View;
 import com.baidu.tieba.R;
-/* loaded from: classes21.dex */
+/* loaded from: classes22.dex */
 final class k implements View.OnClickListener {
-    final /* synthetic */ j a;
+
+    /* renamed from: a  reason: collision with root package name */
+    final /* synthetic */ j f3881a;
 
     private k(j jVar) {
-        this.a = jVar;
+        this.f3881a = jVar;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -19,10 +21,10 @@ final class k implements View.OnClickListener {
     public final void onClick(View view) {
         switch (view.getId()) {
             case R.xml.pass_sdk_file_provider /* 2131165189 */:
-                j.a(this.a).b();
+                j.a(this.f3881a).b();
                 return;
             case R.xml.tieba_file_paths /* 2131165190 */:
-                j.a(this.a).a();
+                j.a(this.f3881a).a();
                 return;
             default:
                 return;

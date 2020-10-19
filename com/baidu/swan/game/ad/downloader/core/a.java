@@ -22,76 +22,76 @@ import java.util.TimerTask;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
-/* loaded from: classes10.dex */
+/* loaded from: classes14.dex */
 public final class a implements com.baidu.swan.game.ad.downloader.c.c, c.a {
-    private static a dlW;
-    private final com.baidu.swan.game.ad.downloader.c.a dlT;
-    private long dlV;
-    private final ConcurrentHashMap<String, Object> dlX;
-    private final List<DownloadInfo> dlY;
-    private final com.baidu.swan.game.ad.downloader.c.d dlZ;
-    private final com.baidu.swan.game.ad.downloader.a.a dma;
-    private ConcurrentHashMap<Uri, BroadcastReceiver> dmb = new ConcurrentHashMap<>();
-    private ConcurrentHashMap<Uri, Timer> dmc = new ConcurrentHashMap<>();
+    private static a dyc;
+    private final com.baidu.swan.game.ad.downloader.c.a dxZ;
+    private long dyb;
+    private final ConcurrentHashMap<String, Object> dyd;
+    private final List<DownloadInfo> dye;
+    private final com.baidu.swan.game.ad.downloader.c.d dyf;
+    private final com.baidu.swan.game.ad.downloader.a.a dyg;
+    private ConcurrentHashMap<Uri, BroadcastReceiver> dyh = new ConcurrentHashMap<>();
+    private ConcurrentHashMap<Uri, Timer> dyi = new ConcurrentHashMap<>();
     private final Context mContext;
     private ExecutorService mExecutorService;
 
     private a(Context context, com.baidu.swan.game.ad.downloader.a.a aVar) {
         this.mContext = context;
         if (aVar == null) {
-            this.dma = new com.baidu.swan.game.ad.downloader.a.a();
+            this.dyg = new com.baidu.swan.game.ad.downloader.a.a();
         } else {
-            this.dma = aVar;
+            this.dyg = aVar;
         }
-        if (this.dma.aJk() == null) {
-            this.dlT = new com.baidu.swan.game.ad.downloader.b.a(context, this.dma);
+        if (this.dyg.aLT() == null) {
+            this.dxZ = new com.baidu.swan.game.ad.downloader.b.a(context, this.dyg);
         } else {
-            this.dlT = this.dma.aJk();
+            this.dxZ = this.dyg.aLT();
         }
-        this.dlY = new ArrayList();
-        this.dlX = new ConcurrentHashMap<>();
-        this.dlT.aJq();
-        this.mExecutorService = Executors.newFixedThreadPool(this.dma.aJj());
-        this.dlZ = new b(this.dlT);
+        this.dye = new ArrayList();
+        this.dyd = new ConcurrentHashMap<>();
+        this.dxZ.aLZ();
+        this.mExecutorService = Executors.newFixedThreadPool(this.dyg.aLS());
+        this.dyf = new b(this.dxZ);
     }
 
     public static com.baidu.swan.game.ad.downloader.c.c a(Context context, com.baidu.swan.game.ad.downloader.a.a aVar) {
         synchronized (a.class) {
-            if (dlW == null) {
-                dlW = new a(context, aVar);
+            if (dyc == null) {
+                dyc = new a(context, aVar);
             }
         }
-        return dlW;
+        return dyc;
     }
 
     @Override // com.baidu.swan.game.ad.downloader.c.c
     public void e(DownloadInfo downloadInfo) {
-        this.dlY.add(downloadInfo);
+        this.dye.add(downloadInfo);
         f(downloadInfo);
     }
 
     private void f(DownloadInfo downloadInfo) {
-        if (this.dlX.size() >= this.dma.aJj()) {
+        if (this.dyd.size() >= this.dyg.aLS()) {
             downloadInfo.setStatus(SwanAdDownloadState.WAIT.value());
-            this.dlZ.l(downloadInfo);
+            this.dyf.l(downloadInfo);
             return;
         }
-        c cVar = new c(this.mExecutorService, this.dlZ, downloadInfo, this);
-        this.dlX.put(downloadInfo.getId(), cVar);
+        c cVar = new c(this.mExecutorService, this.dyf, downloadInfo, this);
+        this.dyd.put(downloadInfo.getId(), cVar);
         downloadInfo.setStatus(SwanAdDownloadState.PREPARE_DOWNLOAD.value());
-        this.dlZ.l(downloadInfo);
+        this.dyf.l(downloadInfo);
         cVar.start();
     }
 
     @Override // com.baidu.swan.game.ad.downloader.c.c
     public void g(DownloadInfo downloadInfo) {
-        if (aJm()) {
+        if (aLV()) {
             j(downloadInfo);
         }
     }
 
-    private void aJl() {
-        for (DownloadInfo downloadInfo : this.dlY) {
+    private void aLU() {
+        for (DownloadInfo downloadInfo : this.dye) {
             if (downloadInfo.getStatus() == SwanAdDownloadState.WAIT.value()) {
                 f(downloadInfo);
                 return;
@@ -101,7 +101,7 @@ public final class a implements com.baidu.swan.game.ad.downloader.c.c, c.a {
 
     @Override // com.baidu.swan.game.ad.downloader.c.c
     public void h(DownloadInfo downloadInfo) {
-        if (aJm()) {
+        if (aLV()) {
             f(downloadInfo);
         }
     }
@@ -109,27 +109,27 @@ public final class a implements com.baidu.swan.game.ad.downloader.c.c, c.a {
     @Override // com.baidu.swan.game.ad.downloader.c.c
     public void i(DownloadInfo downloadInfo) {
         downloadInfo.setStatus(SwanAdDownloadState.DELETED.value());
-        this.dlX.remove(downloadInfo.getId());
-        this.dlY.remove(downloadInfo);
-        this.dlT.n(downloadInfo);
-        this.dlZ.l(downloadInfo);
+        this.dyd.remove(downloadInfo.getId());
+        this.dye.remove(downloadInfo);
+        this.dxZ.n(downloadInfo);
+        this.dyf.l(downloadInfo);
         new File(downloadInfo.getPath()).delete();
     }
 
     @Override // com.baidu.swan.game.ad.downloader.c.c
     public void destroy() {
-        aJn();
+        aLW();
         if (this.mExecutorService != null) {
             this.mExecutorService.shutdownNow();
             this.mExecutorService = null;
         }
-        dlW = null;
+        dyc = null;
     }
 
     @Override // com.baidu.swan.game.ad.downloader.c.c
-    public DownloadInfo tY(String str) {
+    public DownloadInfo uK(String str) {
         DownloadInfo downloadInfo;
-        Iterator<DownloadInfo> it = this.dlY.iterator();
+        Iterator<DownloadInfo> it = this.dye.iterator();
         while (true) {
             if (!it.hasNext()) {
                 downloadInfo = null;
@@ -141,29 +141,29 @@ public final class a implements com.baidu.swan.game.ad.downloader.c.c, c.a {
             }
         }
         if (downloadInfo == null) {
-            return this.dlT.ua(str);
+            return this.dxZ.uM(str);
         }
         return downloadInfo;
     }
 
     private void j(DownloadInfo downloadInfo) {
         downloadInfo.setStatus(SwanAdDownloadState.DOWNLOAD_PAUSED.value());
-        this.dlX.remove(downloadInfo.getId());
-        this.dlZ.l(downloadInfo);
-        aJl();
+        this.dyd.remove(downloadInfo.getId());
+        this.dyf.l(downloadInfo);
+        aLU();
     }
 
     @Override // com.baidu.swan.game.ad.downloader.core.c.a
     public void k(DownloadInfo downloadInfo) {
-        e.ad(downloadInfo.getPath(), false);
-        this.dlX.remove(downloadInfo.getId());
-        this.dlY.remove(downloadInfo);
-        aJl();
+        e.ah(downloadInfo.getPath(), false);
+        this.dyd.remove(downloadInfo.getId());
+        this.dye.remove(downloadInfo);
+        aLU();
     }
 
-    public boolean aJm() {
-        if (System.currentTimeMillis() - this.dlV > 500) {
-            this.dlV = System.currentTimeMillis();
+    public boolean aLV() {
+        if (System.currentTimeMillis() - this.dyb > 500) {
+            this.dyb = System.currentTimeMillis();
             return true;
         }
         return false;
@@ -171,10 +171,10 @@ public final class a implements com.baidu.swan.game.ad.downloader.c.c, c.a {
 
     @Override // com.baidu.swan.game.ad.downloader.c.c
     @AnyThread
-    public void a(@NonNull final String str, @NonNull final Uri uri, @NonNull final AbstractC0477a<Boolean> abstractC0477a) {
+    public void a(@NonNull final String str, @NonNull final Uri uri, @NonNull final AbstractC0494a<Boolean> abstractC0494a) {
         final Context appContext = AppRuntime.getAppContext();
-        if (e.ai(appContext, str)) {
-            abstractC0477a.onResult(true);
+        if (e.al(appContext, str)) {
+            abstractC0494a.onResult(true);
         }
         IntentFilter intentFilter = new IntentFilter();
         intentFilter.addDataScheme("package");
@@ -184,7 +184,7 @@ public final class a implements com.baidu.swan.game.ad.downloader.c.c, c.a {
             public void onReceive(Context context, Intent intent) {
                 String dataString = intent.getDataString();
                 if (dataString != null && dataString.endsWith(str)) {
-                    abstractC0477a.onResult(true);
+                    abstractC0494a.onResult(true);
                     a.this.e(context, uri);
                 }
             }
@@ -194,32 +194,32 @@ public final class a implements com.baidu.swan.game.ad.downloader.c.c, c.a {
         timer.schedule(new TimerTask() { // from class: com.baidu.swan.game.ad.downloader.core.a.2
             @Override // java.util.TimerTask, java.lang.Runnable
             public void run() {
-                abstractC0477a.onResult(false);
+                abstractC0494a.onResult(false);
                 a.this.e(appContext, uri);
             }
         }, 60000L);
-        this.dmb.put(uri, broadcastReceiver);
-        this.dmc.put(uri, timer);
+        this.dyh.put(uri, broadcastReceiver);
+        this.dyi.put(uri, timer);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void e(Context context, Uri uri) {
-        BroadcastReceiver remove = this.dmb.remove(uri);
+        BroadcastReceiver remove = this.dyh.remove(uri);
         if (remove != null) {
             context.unregisterReceiver(remove);
         }
-        Timer remove2 = this.dmc.remove(uri);
+        Timer remove2 = this.dyi.remove(uri);
         if (remove2 != null) {
             remove2.cancel();
         }
     }
 
-    private void aJn() {
+    private void aLW() {
         final Timer timer = new Timer();
         timer.schedule(new TimerTask() { // from class: com.baidu.swan.game.ad.downloader.core.a.3
             @Override // java.util.TimerTask, java.lang.Runnable
             public void run() {
-                for (Map.Entry entry : a.this.dmb.entrySet()) {
+                for (Map.Entry entry : a.this.dyh.entrySet()) {
                     a.this.e(a.this.mContext, (Uri) entry.getKey());
                 }
                 timer.cancel();
@@ -228,8 +228,8 @@ public final class a implements com.baidu.swan.game.ad.downloader.c.c, c.a {
     }
 
     /* renamed from: com.baidu.swan.game.ad.downloader.core.a$a  reason: collision with other inner class name */
-    /* loaded from: classes10.dex */
-    public static abstract class AbstractC0477a<T> {
+    /* loaded from: classes14.dex */
+    public static abstract class AbstractC0494a<T> {
         public void onResult(T t) {
         }
     }

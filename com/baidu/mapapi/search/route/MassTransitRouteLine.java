@@ -17,7 +17,7 @@ import com.baidu.mapsdkplatform.comapi.util.CoordTrans;
 import com.xiaomi.mipush.sdk.Constants;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes3.dex */
+/* loaded from: classes7.dex */
 public final class MassTransitRouteLine extends RouteLine<TransitStep> implements Parcelable {
     public static final Parcelable.Creator<MassTransitRouteLine> CREATOR = new i();
     private String b;
@@ -25,7 +25,7 @@ public final class MassTransitRouteLine extends RouteLine<TransitStep> implement
     private List<PriceInfo> d;
     private List<List<TransitStep>> e;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes7.dex */
     public static class TransitStep extends RouteStep implements Parcelable {
         public static final Parcelable.Creator<TransitStep> CREATOR = new j();
         private List<TrafficCondition> d;
@@ -39,7 +39,7 @@ public final class MassTransitRouteLine extends RouteLine<TransitStep> implement
         private String l;
         private String m;
 
-        /* loaded from: classes3.dex */
+        /* loaded from: classes7.dex */
         public enum StepVehicleInfoType {
             ESTEP_TRAIN(1),
             ESTEP_PLANE(2),
@@ -48,22 +48,26 @@ public final class MassTransitRouteLine extends RouteLine<TransitStep> implement
             ESTEP_WALK(5),
             ESTEP_COACH(6);
             
-            private int a;
+
+            /* renamed from: a  reason: collision with root package name */
+            private int f2137a;
 
             StepVehicleInfoType(int i) {
-                this.a = 0;
-                this.a = i;
+                this.f2137a = 0;
+                this.f2137a = i;
             }
 
             public int getInt() {
-                return this.a;
+                return this.f2137a;
             }
         }
 
-        /* loaded from: classes3.dex */
+        /* loaded from: classes7.dex */
         public static class TrafficCondition implements Parcelable {
             public static final Parcelable.Creator<TrafficCondition> CREATOR = new k();
-            private int a;
+
+            /* renamed from: a  reason: collision with root package name */
+            private int f2138a;
             private int b;
 
             public TrafficCondition() {
@@ -71,7 +75,7 @@ public final class MassTransitRouteLine extends RouteLine<TransitStep> implement
 
             /* JADX INFO: Access modifiers changed from: protected */
             public TrafficCondition(Parcel parcel) {
-                this.a = parcel.readInt();
+                this.f2138a = parcel.readInt();
                 this.b = parcel.readInt();
             }
 
@@ -85,7 +89,7 @@ public final class MassTransitRouteLine extends RouteLine<TransitStep> implement
             }
 
             public int getTrafficStatus() {
-                return this.a;
+                return this.f2138a;
             }
 
             public void setTrafficGeoCnt(int i) {
@@ -93,12 +97,12 @@ public final class MassTransitRouteLine extends RouteLine<TransitStep> implement
             }
 
             public void setTrafficStatus(int i) {
-                this.a = i;
+                this.f2138a = i;
             }
 
             @Override // android.os.Parcelable
             public void writeToParcel(Parcel parcel, int i) {
-                parcel.writeInt(this.a);
+                parcel.writeInt(this.f2138a);
                 parcel.writeInt(this.b);
             }
         }

@@ -9,7 +9,7 @@ import com.baidu.sapi2.SapiContext;
 import com.baidu.sapi2.utils.SapiDeviceUtils;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes25.dex */
+/* loaded from: classes5.dex */
 public class h {
     @TargetApi(8)
     public String a(Long l, String str, String str2) {

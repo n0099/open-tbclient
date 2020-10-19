@@ -1,11 +1,13 @@
 package com.baidu.platform.comapi.basestruct;
-/* loaded from: classes3.dex */
+/* loaded from: classes7.dex */
 public class GeoPoint {
-    private double a;
+
+    /* renamed from: a  reason: collision with root package name */
+    private double f2822a;
     private double b;
 
     public GeoPoint(double d, double d2) {
-        this.a = d;
+        this.f2822a = d;
         this.b = d2;
     }
 
@@ -13,15 +15,15 @@ public class GeoPoint {
         if (obj == null) {
             return false;
         }
-        return obj.getClass() == getClass() && Math.abs(this.a - ((GeoPoint) obj).a) <= 1.0E-6d && Math.abs(this.b - ((GeoPoint) obj).b) <= 1.0E-6d;
+        return obj.getClass() == getClass() && Math.abs(this.f2822a - ((GeoPoint) obj).f2822a) <= 1.0E-6d && Math.abs(this.b - ((GeoPoint) obj).b) <= 1.0E-6d;
     }
 
     public double getLatitude() {
-        return this.a;
+        return this.f2822a;
     }
 
     public double getLatitudeE6() {
-        return this.a;
+        return this.f2822a;
     }
 
     public double getLongitude() {
@@ -37,11 +39,11 @@ public class GeoPoint {
     }
 
     public void setLatitude(double d) {
-        this.a = d;
+        this.f2822a = d;
     }
 
     public void setLatitudeE6(double d) {
-        this.a = d;
+        this.f2822a = d;
     }
 
     public void setLongitude(double d) {
@@ -53,6 +55,6 @@ public class GeoPoint {
     }
 
     public String toString() {
-        return "GeoPoint: Latitude: " + this.a + ", Longitude: " + this.b;
+        return "GeoPoint: Latitude: " + this.f2822a + ", Longitude: " + this.b;
     }
 }

@@ -17,11 +17,11 @@ import android.os.ParcelFileDescriptor;
 import android.os.Process;
 import java.io.FileNotFoundException;
 import java.util.ArrayList;
-/* loaded from: classes7.dex */
+/* loaded from: classes16.dex */
 public abstract class a {
-    private ContentProvider bOY;
-    private final int bOZ;
-    public final int bPa;
+    private ContentProvider bVH;
+    private final int bVI;
+    public final int bVJ;
 
     public abstract int a(int i, Uri uri, ContentValues contentValues, String str, String[] strArr);
 
@@ -38,21 +38,21 @@ public abstract class a {
     public abstract boolean onCreate();
 
     public a(int i, int i2) {
-        this.bOZ = i;
-        this.bPa = i2;
+        this.bVI = i;
+        this.bVJ = i2;
     }
 
-    public final int Xd() {
-        return this.bOZ;
+    public final int Za() {
+        return this.bVI;
     }
 
-    public final int Xe() {
-        return this.bPa;
+    public final int Zb() {
+        return this.bVJ;
     }
 
     public void a(ContentProvider contentProvider) {
-        if (this.bOY == null) {
-            this.bOY = contentProvider;
+        if (this.bVH == null) {
+            this.bVH = contentProvider;
         }
     }
 
@@ -90,7 +90,7 @@ public abstract class a {
         int size = arrayList.size();
         ContentProviderResult[] contentProviderResultArr = new ContentProviderResult[size];
         for (int i = 0; i < size; i++) {
-            contentProviderResultArr[i] = arrayList.get(i).apply(this.bOY, contentProviderResultArr, i);
+            contentProviderResultArr[i] = arrayList.get(i).apply(this.bVH, contentProviderResultArr, i);
         }
         return contentProviderResultArr;
     }
@@ -100,9 +100,9 @@ public abstract class a {
     }
 
     public AssetFileDescriptor b(int i, Uri uri, String str) throws FileNotFoundException {
-        ParcelFileDescriptor a = a(i, uri, str);
-        if (a != null) {
-            return new AssetFileDescriptor(a, 0L, -1L);
+        ParcelFileDescriptor a2 = a(i, uri, str);
+        if (a2 != null) {
+            return new AssetFileDescriptor(a2, 0L, -1L);
         }
         return null;
     }

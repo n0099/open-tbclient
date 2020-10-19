@@ -30,14 +30,16 @@ import okhttp3.OkHttpClient;
 import okhttp3.Request;
 import okhttp3.RequestBody;
 import okhttp3.Response;
-/* loaded from: classes12.dex */
+/* loaded from: classes15.dex */
 public final class r {
     private static SSLSocketFactory b;
     private static final byte[] c = new byte[1024];
-    private Context a;
+
+    /* renamed from: a  reason: collision with root package name */
+    private Context f3641a;
 
     public r(Context context) {
-        this.a = context;
+        this.f3641a = context;
     }
 
     private OkHttpClient a() {
@@ -80,12 +82,12 @@ public final class r {
     private Request b(String str, byte[] bArr) {
         try {
             MediaType parse = MediaType.parse("application/x-www-form-urlencoded; charset=utf-8");
-            String str2 = e.g(this.a)[0];
+            String str2 = e.g(this.f3641a)[0];
             Request.Builder url = new Request.Builder().url(str);
             if (bArr != null) {
                 url.post(RequestBody.create(parse, bArr));
             }
-            return url.addHeader("User-Agent", "eos/" + str2 + "/" + y.a(this.a) + "/3.4.4.1").addHeader("Pragma", "no-cache").addHeader("Accept", "*/*").addHeader("Accept-Language", Locale.getDefault().getLanguage() + Constants.ACCEPT_TIME_SEPARATOR_SERVER + Locale.getDefault().getCountry()).addHeader("x-device-id", p.a(h.b(this.a))).build();
+            return url.addHeader("User-Agent", "eos/" + str2 + "/" + y.a(this.f3641a) + "/3.4.4.1").addHeader("Pragma", "no-cache").addHeader("Accept", "*/*").addHeader("Accept-Language", Locale.getDefault().getLanguage() + Constants.ACCEPT_TIME_SEPARATOR_SERVER + Locale.getDefault().getCountry()).addHeader("x-device-id", p.a(h.b(this.f3641a))).build();
         } catch (Throwable th) {
             e.a();
             return null;
@@ -147,7 +149,7 @@ public final class r {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes12.dex */
+    /* loaded from: classes15.dex */
     public class a implements X509TrustManager {
         private X509TrustManager b;
 
@@ -174,7 +176,7 @@ public final class r {
                     if ((th2 instanceof CertificateExpiredException) || (th2 instanceof CertificateNotYetValidException)) {
                         HashMap hashMap = new HashMap();
                         hashMap.put("0", Long.valueOf(System.currentTimeMillis()));
-                        e.a(r.this.a.getApplicationContext(), "1003121", hashMap);
+                        e.a(r.this.f3641a.getApplicationContext(), "1003121", hashMap);
                         return;
                     }
                 }

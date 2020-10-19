@@ -13,16 +13,18 @@ import com.baidu.pass.http.PassHttpParamDTO;
 import com.baidu.sapi2.SapiContext;
 import java.util.HashMap;
 import java.util.Map;
-/* loaded from: classes6.dex */
+/* loaded from: classes11.dex */
 public final class StatService {
     public static final String DOMAIN_NSCLICK_URL = "https://nsclick.baidu.com/v.gif";
     public static final String TAG = "StatService";
-    private static final Map<String, String> a = new HashMap();
+
+    /* renamed from: a  reason: collision with root package name */
+    private static final Map<String, String> f2715a = new HashMap();
 
     static {
-        a.put("pid", "111");
-        a.put("type", "1023");
-        a.put(Config.DEVICE_PART, "android");
+        f2715a.put("pid", "111");
+        f2715a.put("type", "1023");
+        f2715a.put(Config.DEVICE_PART, "android");
     }
 
     private StatService() {
@@ -33,7 +35,7 @@ public final class StatService {
             try {
                 if (NetworkUtils.isNetworkAvailable(context)) {
                     HashMap hashMap = new HashMap();
-                    hashMap.putAll(a);
+                    hashMap.putAll(f2715a);
                     map.put("v", String.valueOf(System.currentTimeMillis()));
                     hashMap.put("name", str);
                     hashMap.put("model", Build.MODEL);

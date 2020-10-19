@@ -11,43 +11,43 @@ import com.baidu.tbadk.core.util.ap;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
 import java.util.ArrayList;
-/* loaded from: classes20.dex */
+/* loaded from: classes21.dex */
 public class a extends BaseAdapter {
-    private ArrayList<b> eXr;
-    private int eXt;
-    private int eXu;
-    private TbPageContext<?> ehG;
+    private TbPageContext<?> etO;
+    private ArrayList<b> fjD;
+    private int fjF;
+    private int fjG;
     private int padding;
-    private int eXk = -1;
+    private int fjw = -1;
     private int rowSize = 0;
-    private int eru = ap.getColor(R.color.common_color_10043);
-    private int eXs = ap.getColor(R.color.cp_link_tip_a);
+    private int eDF = ap.getColor(R.color.common_color_10043);
+    private int fjE = ap.getColor(R.color.cp_link_tip_a);
 
     public a(TbPageContext<?> tbPageContext) {
-        this.eXr = null;
-        this.ehG = null;
+        this.fjD = null;
+        this.etO = null;
         this.padding = 0;
-        this.ehG = tbPageContext;
-        this.eXr = new ArrayList<>();
-        this.eXt = l.getDimens(tbPageContext.getPageActivity(), R.dimen.ds1);
-        this.eXu = l.getDimens(this.ehG.getPageActivity(), R.dimen.ds4);
-        this.padding = l.getDimens(this.ehG.getPageActivity(), R.dimen.ds36);
+        this.etO = tbPageContext;
+        this.fjD = new ArrayList<>();
+        this.fjF = l.getDimens(tbPageContext.getPageActivity(), R.dimen.ds1);
+        this.fjG = l.getDimens(this.etO.getPageActivity(), R.dimen.ds4);
+        this.padding = l.getDimens(this.etO.getPageActivity(), R.dimen.ds36);
     }
 
     @Override // android.widget.Adapter
     public int getCount() {
-        if (this.eXr != null) {
-            return this.eXr.size();
+        if (this.fjD != null) {
+            return this.fjD.size();
         }
         return 0;
     }
 
     @Override // android.widget.Adapter
     public Object getItem(int i) {
-        if (this.eXr == null || i >= this.eXr.size()) {
+        if (this.fjD == null || i >= this.fjD.size()) {
             return null;
         }
-        return this.eXr.get(i);
+        return this.fjD.get(i);
     }
 
     @Override // android.widget.Adapter
@@ -57,41 +57,41 @@ public class a extends BaseAdapter {
 
     @Override // android.widget.Adapter
     public View getView(int i, View view, ViewGroup viewGroup) {
-        C0554a c0554a;
+        C0571a c0571a;
         int itemViewType = getItemViewType(i);
         if (view == null) {
-            view = LayoutInflater.from(this.ehG.getPageActivity()).inflate(R.layout.recommend_system_photo_item, viewGroup, false);
-            c0554a = new C0554a();
-            c0554a.eJG = (LinearLayout) view.findViewById(R.id.photo_container);
-            c0554a.eXv = (TbImageView) view.findViewById(R.id.photo);
+            view = LayoutInflater.from(this.etO.getPageActivity()).inflate(R.layout.recommend_system_photo_item, viewGroup, false);
+            c0571a = new C0571a();
+            c0571a.eVN = (LinearLayout) view.findViewById(R.id.photo_container);
+            c0571a.fjH = (TbImageView) view.findViewById(R.id.photo);
         } else {
-            c0554a = (C0554a) view.getTag();
+            c0571a = (C0571a) view.getTag();
         }
-        if (qW(i) == 1) {
-            c0554a.eJG.setPadding(0, this.padding, 0, 0);
-        } else if (qW(i) == 2) {
-            c0554a.eJG.setPadding(0, 0, 0, this.padding);
+        if (ru(i) == 1) {
+            c0571a.eVN.setPadding(0, this.padding, 0, 0);
+        } else if (ru(i) == 2) {
+            c0571a.eVN.setPadding(0, 0, 0, this.padding);
         } else {
-            c0554a.eJG.setPadding(0, 0, 0, 0);
+            c0571a.eVN.setPadding(0, 0, 0, 0);
         }
-        c0554a.eXv.setDrawerType(0);
-        c0554a.eXv.setBorderSurroundContent(true);
-        c0554a.eXv.setDrawBorder(true);
+        c0571a.fjH.setDrawerType(0);
+        c0571a.fjH.setBorderSurroundContent(true);
+        c0571a.fjH.setDrawBorder(true);
         if (itemViewType == 0) {
-            c0554a.eXv.setBorderColor(this.eru);
-            c0554a.eXv.setBorderWidth(this.eXt);
+            c0571a.fjH.setBorderColor(this.eDF);
+            c0571a.fjH.setBorderWidth(this.fjF);
         } else {
-            c0554a.eXv.setBorderColor(this.eXs);
-            c0554a.eXv.setBorderWidth(this.eXu);
+            c0571a.fjH.setBorderColor(this.fjE);
+            c0571a.fjH.setBorderWidth(this.fjG);
         }
-        c0554a.eXv.setDefaultResource(R.drawable.transparent_bg);
-        c0554a.eXv.setDefaultErrorResource(R.drawable.icon_default_avatar100);
-        c0554a.eXv.startLoad(this.eXr.get(i).getUrl(), 10, false);
-        view.setTag(c0554a);
+        c0571a.fjH.setDefaultResource(R.drawable.transparent_bg);
+        c0571a.fjH.setDefaultErrorResource(R.drawable.icon_default_avatar100);
+        c0571a.fjH.startLoad(this.fjD.get(i).getUrl(), 10, false);
+        view.setTag(c0571a);
         return view;
     }
 
-    public int qW(int i) {
+    public int ru(int i) {
         if (i / 4 == 0) {
             return 1;
         }
@@ -103,7 +103,7 @@ public class a extends BaseAdapter {
 
     @Override // android.widget.BaseAdapter, android.widget.Adapter
     public int getItemViewType(int i) {
-        return i == this.eXk ? 1 : 0;
+        return i == this.fjw ? 1 : 0;
     }
 
     @Override // android.widget.BaseAdapter, android.widget.Adapter
@@ -112,7 +112,7 @@ public class a extends BaseAdapter {
     }
 
     public void O(ArrayList<b> arrayList) {
-        this.eXr = arrayList;
+        this.fjD = arrayList;
         if (arrayList != null) {
             if (arrayList.size() % 4 == 0) {
                 this.rowSize = arrayList.size() / 4;
@@ -122,17 +122,17 @@ public class a extends BaseAdapter {
         }
     }
 
-    public void qX(int i) {
-        this.eXk = i;
+    public void rv(int i) {
+        this.fjw = i;
     }
 
     /* renamed from: com.baidu.tbadk.system.portrait.a$a  reason: collision with other inner class name */
-    /* loaded from: classes20.dex */
-    private class C0554a {
-        LinearLayout eJG;
-        TbImageView eXv;
+    /* loaded from: classes21.dex */
+    private class C0571a {
+        LinearLayout eVN;
+        TbImageView fjH;
 
-        private C0554a() {
+        private C0571a() {
         }
     }
 }

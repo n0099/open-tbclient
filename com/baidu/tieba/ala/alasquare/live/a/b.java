@@ -11,54 +11,54 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes4.dex */
 public class b {
-    private final List<com.baidu.adp.widget.ListView.a> bdV = new ArrayList();
-    private e eid;
-    private BdTypeListView fGf;
-    private a fGg;
-    private com.baidu.tieba.ala.alasquare.subtablist.a.a fGh;
-    private com.baidu.tieba.ala.alasquare.subtablist.a.b fGi;
+    private final List<com.baidu.adp.widget.ListView.a> bhH = new ArrayList();
+    private e eul;
+    private BdTypeListView fSo;
+    private a fSp;
+    private com.baidu.tieba.ala.alasquare.subtablist.a.a fSq;
+    private com.baidu.tieba.ala.alasquare.subtablist.a.b fSr;
 
     public b(TbPageContext<?> tbPageContext, BdTypeListView bdTypeListView) {
-        this.eid = tbPageContext;
-        this.fGf = bdTypeListView;
-        JZ();
+        this.eul = tbPageContext;
+        this.fSo = bdTypeListView;
+        Le();
     }
 
-    private void JZ() {
-        this.fGi = new com.baidu.tieba.ala.alasquare.subtablist.a.b((TbPageContext) this.eid);
-        this.fGi.setFrom(1);
-        this.fGh = new com.baidu.tieba.ala.alasquare.subtablist.a.a((TbPageContext) this.eid);
-        this.fGh.setFrom(1);
-        this.fGg = new a((TbPageContext) this.eid, com.baidu.tieba.ala.alasquare.live.b.b.fGm);
-        this.bdV.add(this.fGi);
-        this.bdV.add(this.fGh);
-        this.bdV.add(this.fGg);
-        this.fGf.addAdapters(this.bdV);
+    private void Le() {
+        this.fSr = new com.baidu.tieba.ala.alasquare.subtablist.a.b((TbPageContext) this.eul);
+        this.fSr.setFrom(1);
+        this.fSq = new com.baidu.tieba.ala.alasquare.subtablist.a.a((TbPageContext) this.eul);
+        this.fSq.setFrom(1);
+        this.fSp = new a((TbPageContext) this.eul, com.baidu.tieba.ala.alasquare.live.b.b.fSv);
+        this.bhH.add(this.fSr);
+        this.bhH.add(this.fSq);
+        this.bhH.add(this.fSp);
+        this.fSo.addAdapters(this.bhH);
     }
 
     public void setDatas(List<q> list) {
-        if (this.fGf != null) {
-            this.fGf.setData(list);
+        if (this.fSo != null) {
+            this.fSo.setData(list);
         }
     }
 
-    public void sR(int i) {
-        this.fGi.sR(i);
-        this.fGh.sR(i);
+    public void tp(int i) {
+        this.fSr.tp(i);
+        this.fSq.tp(i);
     }
 
     public void notifyDataSetChanged() {
-        if (this.fGf != null && (this.fGf.getAdapter() instanceof BaseAdapter)) {
-            this.fGf.getAdapter().notifyDataSetChanged();
+        if (this.fSo != null && (this.fSo.getAdapter() instanceof BaseAdapter)) {
+            this.fSo.getAdapter().notifyDataSetChanged();
         }
     }
 
     public void a(IAlaSquareTabController iAlaSquareTabController) {
-        this.fGg.a(iAlaSquareTabController);
+        this.fSp.a(iAlaSquareTabController);
     }
 
     public void a(i iVar) {
-        this.fGi.b(iVar);
-        this.fGh.b(iVar);
+        this.fSr.b(iVar);
+        this.fSq.b(iVar);
     }
 }

@@ -15,7 +15,7 @@ import java.io.StringWriter;
 import java.nio.ByteBuffer;
 import java.util.List;
 import java.util.Map;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class PlatformViewsChannel {
     private static final String TAG = "PlatformViewsChannel";
     private final MethodChannel channel;
@@ -153,7 +153,7 @@ public class PlatformViewsChannel {
         }
     };
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes7.dex */
     public interface PlatformViewsHandler {
         void clearFocus(int i);
 
@@ -190,7 +190,7 @@ public class PlatformViewsChannel {
         this.handler = platformViewsHandler;
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes7.dex */
     public static class PlatformViewCreationRequest {
         public final int direction;
         public final double logicalHeight;
@@ -211,7 +211,7 @@ public class PlatformViewsChannel {
         }
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes7.dex */
     public static class PlatformViewResizeRequest {
         public final double newLogicalHeight;
         public final double newLogicalWidth;
@@ -224,7 +224,7 @@ public class PlatformViewsChannel {
         }
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes7.dex */
     public static class PlatformViewTouch {
         public final int action;
         public final int buttonState;

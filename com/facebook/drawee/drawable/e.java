@@ -2,7 +2,7 @@ package com.facebook.drawee.drawable;
 
 import android.graphics.drawable.Drawable;
 import javax.annotation.Nullable;
-/* loaded from: classes11.dex */
+/* loaded from: classes15.dex */
 public class e {
     public static void d(Drawable drawable, Drawable drawable2) {
         if (drawable2 != null && drawable != null && drawable != drawable2) {
@@ -39,7 +39,7 @@ public class e {
         return i;
     }
 
-    public static int LL(int i) {
+    public static int Mr(int i) {
         int i2 = i >>> 24;
         if (i2 == 255) {
             return -1;

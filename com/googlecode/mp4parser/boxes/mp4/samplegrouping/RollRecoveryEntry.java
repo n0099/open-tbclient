@@ -1,7 +1,7 @@
 package com.googlecode.mp4parser.boxes.mp4.samplegrouping;
 
 import java.nio.ByteBuffer;
-/* loaded from: classes4.dex */
+/* loaded from: classes11.dex */
 public class RollRecoveryEntry extends GroupEntry {
     public static final String TYPE = "roll";
     private short rollDistance;

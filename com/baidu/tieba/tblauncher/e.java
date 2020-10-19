@@ -12,16 +12,16 @@ import com.baidu.tbadk.core.tabHost.FragmentTabHost;
 import com.baidu.tieba.R;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
-/* loaded from: classes21.dex */
+/* loaded from: classes22.dex */
 public class e {
-    private TbPageContext ehG;
+    private TbPageContext etO;
 
     public e(TbPageContext tbPageContext) {
-        this.ehG = tbPageContext;
+        this.etO = tbPageContext;
         MessageManager.getInstance().registerStickyMode(2921453);
     }
 
-    public boolean am(Intent intent) {
+    public boolean ak(Intent intent) {
         return intent.getIntExtra(MainTabActivityConfig.PUSH_FOLLOW_UP_ACTION, 0) == 1;
     }
 
@@ -30,16 +30,16 @@ public class e {
         if (intent != null) {
             String stringExtra = intent.getStringExtra(MainTabActivityConfig.PUSH_DES_PAGE);
             if (!TextUtils.isEmpty(stringExtra)) {
-                String string = this.ehG.getString(R.string.des_page_home_recommend);
+                String string = this.etO.getString(R.string.des_page_home_recommend);
                 be beVar = new be();
                 Matcher matcher = Pattern.compile("http[s]?://tieba.baidu.com/p/([\\d]+)").matcher(intent.getStringExtra(MainTabActivityConfig.TARGET_SCHEME));
                 if (matcher.find()) {
                     beVar.tid = matcher.group(1);
                 }
                 if (stringExtra.equals(string)) {
-                    beVar.ecc = 1;
+                    beVar.eoh = 1;
                 } else {
-                    beVar.ecc = 2;
+                    beVar.eoh = 2;
                     beVar.tabName = stringExtra;
                 }
                 MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921453, beVar));
@@ -49,11 +49,11 @@ public class e {
                     intent.putExtra("sub_locate_type", stringExtra);
                     i = 1;
                 }
-                if (dVar != null && dVar.crf() != null) {
-                    dVar.crf().setCurrentTabByType(i);
-                    FragmentTabHost.b nY = dVar.crf().nY(i);
-                    if (nY != null && (nY.mContentFragment instanceof g)) {
-                        ((g) nY.mContentFragment).B(intent);
+                if (dVar != null && dVar.cuD() != null) {
+                    dVar.cuD().setCurrentTabByType(i);
+                    FragmentTabHost.b ov = dVar.cuD().ov(i);
+                    if (ov != null && (ov.mContentFragment instanceof g)) {
+                        ((g) ov.mContentFragment).B(intent);
                     }
                 }
             }

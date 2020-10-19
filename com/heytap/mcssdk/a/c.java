@@ -8,11 +8,11 @@ import com.heytap.mcssdk.utils.CryptoUtil;
 import com.heytap.mcssdk.utils.LogUtil;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes12.dex */
+/* loaded from: classes15.dex */
 public abstract class c implements d {
     public static List<Message> a(Context context, Intent intent) {
         int i;
-        Message a;
+        Message a2;
         if (intent == null) {
             return null;
         }
@@ -25,8 +25,8 @@ public abstract class c implements d {
         LogUtil.d("MessageParser--getMessageByIntent--type:" + i);
         ArrayList arrayList = new ArrayList();
         for (d dVar : PushManager.getInstance().getParsers()) {
-            if (dVar != null && (a = dVar.a(context, i, intent)) != null) {
-                arrayList.add(a);
+            if (dVar != null && (a2 = dVar.a(context, i, intent)) != null) {
+                arrayList.add(a2);
             }
         }
         return arrayList;

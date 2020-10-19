@@ -17,7 +17,7 @@ import android.view.ViewGroup;
 import android.widget.Adapter;
 import android.widget.LinearLayout;
 import com.baidu.searchbox.widget.RecyclePool;
-/* loaded from: classes19.dex */
+/* loaded from: classes10.dex */
 public class AdapterLinearLayout extends LinearLayout {
     public static final int INVALID_POSITION = -1;
     private Adapter mAdapter;
@@ -42,12 +42,12 @@ public class AdapterLinearLayout extends LinearLayout {
     private int mTouchSlop;
     private RecyclePool<View> mViewRecycle;
 
-    /* loaded from: classes19.dex */
+    /* loaded from: classes10.dex */
     public interface OnItemClickListener {
         void onItemClick(AdapterLinearLayout adapterLinearLayout, View view, int i);
     }
 
-    /* loaded from: classes19.dex */
+    /* loaded from: classes10.dex */
     public static class LayoutParams extends LinearLayout.LayoutParams {
         public LayoutParams(int i, int i2) {
             super(i, i2);
@@ -514,7 +514,7 @@ public class AdapterLinearLayout extends LinearLayout {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes19.dex */
+    /* loaded from: classes10.dex */
     public abstract class CheckForTap implements Runnable {
         private int mPosition = -1;
 
@@ -530,7 +530,7 @@ public class AdapterLinearLayout extends LinearLayout {
         }
     }
 
-    /* loaded from: classes19.dex */
+    /* loaded from: classes10.dex */
     private class ItemDataSetObserver extends DataSetObserver {
         private ItemDataSetObserver() {
         }

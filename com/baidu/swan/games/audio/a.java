@@ -1,5 +1,5 @@
 package com.baidu.swan.games.audio;
-/* loaded from: classes3.dex */
+/* loaded from: classes10.dex */
 public interface a {
     void destroy();
 

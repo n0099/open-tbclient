@@ -1,13 +1,15 @@
 package com.baidu.cyberplayer.sdk;
 @Keep
-/* loaded from: classes10.dex */
+/* loaded from: classes12.dex */
 public class MultiInstanceManager {
-    private static MediaInstanceManagerProvider a = null;
+
+    /* renamed from: a  reason: collision with root package name */
+    private static MediaInstanceManagerProvider f1352a = null;
 
     public static MediaInstanceManagerProvider getInstance() {
-        if (a == null) {
-            a = d.c();
+        if (f1352a == null) {
+            f1352a = d.c();
         }
-        return a;
+        return f1352a;
     }
 }

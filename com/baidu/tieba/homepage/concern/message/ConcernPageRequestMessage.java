@@ -4,12 +4,12 @@ import android.text.TextUtils;
 import com.baidu.adp.framework.message.NetMessage;
 import com.baidu.live.tbadk.core.frameworkdata.CmdConfigSocket;
 import com.baidu.live.tbadk.core.sharedpref.SharedPrefConfig;
-import com.baidu.tbadk.a.d;
 import com.baidu.tbadk.core.sharedPref.b;
 import com.baidu.tbadk.util.u;
+import com.baidu.tieba.homepage.concern.d;
 import tbclient.Userlike.DataReq;
 import tbclient.Userlike.UserlikeReqIdl;
-/* loaded from: classes21.dex */
+/* loaded from: classes22.dex */
 public class ConcernPageRequestMessage extends NetMessage {
     private String pageTag;
 
@@ -22,8 +22,15 @@ public class ConcernPageRequestMessage extends NetMessage {
         try {
             DataReq.Builder builder = new DataReq.Builder();
             builder.page_tag = this.pageTag;
-            builder.last_req_unix = Long.valueOf(b.bjf().getLong(b.getSharedPrefKeyWithAccount(SharedPrefConfig.CONCERN_DATA_RES_REQUEST_TIME), 0L));
-            builder.follow_type = Integer.valueOf(d.bbc() ? b.bjf().getInt("key_home_concern_all_status", 0) : 1);
+            if (d.cDh()) {
+                if (!d.cDl()) {
+                    builder.page_tag = d.cDj();
+                } else {
+                    builder.page_tag = d.cDi();
+                }
+            }
+            builder.last_req_unix = Long.valueOf(b.blO().getLong(b.getSharedPrefKeyWithAccount(SharedPrefConfig.CONCERN_DATA_RES_REQUEST_TIME), 0L));
+            builder.follow_type = Integer.valueOf(com.baidu.tbadk.a.d.bdK() ? b.blO().getInt("key_home_concern_all_status", 0) : 1);
             if (z) {
                 u.a(builder, true);
             }

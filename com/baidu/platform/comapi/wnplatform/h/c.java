@@ -13,7 +13,7 @@ import com.baidu.mapapi.map.ItemizedOverlay;
 import com.baidu.mapapi.map.MarkerOptions;
 import com.baidu.mapapi.model.LatLng;
 import com.baidu.platform.comapi.basestruct.GeoPoint;
-/* loaded from: classes3.dex */
+/* loaded from: classes7.dex */
 public class c extends ItemizedOverlay {
     private View b;
     private TextView c;
@@ -21,13 +21,15 @@ public class c extends ItemizedOverlay {
     private Context e;
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes3.dex */
+    /* loaded from: classes7.dex */
     public static class a {
-        static final c a = new c();
+
+        /* renamed from: a  reason: collision with root package name */
+        static final c f3114a = new c();
     }
 
     public static c b() {
-        return a.a;
+        return a.f3114a;
     }
 
     private c() {

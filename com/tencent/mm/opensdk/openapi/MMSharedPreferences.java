@@ -13,7 +13,7 @@ import java.util.HashSet;
 import java.util.Iterator;
 import java.util.Map;
 import java.util.Set;
-/* loaded from: classes8.dex */
+/* loaded from: classes11.dex */
 class MMSharedPreferences implements SharedPreferences {
     private static final String TAG = "MicroMsg.SDK.SharedPreferences";
     private final ContentResolver cr;
@@ -21,7 +21,7 @@ class MMSharedPreferences implements SharedPreferences {
     private final HashMap<String, Object> values = new HashMap<>();
     private REditor editor = null;
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes11.dex */
     private static class REditor implements SharedPreferences.Editor {
         private ContentResolver cr;
         private Map<String, Object> values = new HashMap();
@@ -147,9 +147,9 @@ class MMSharedPreferences implements SharedPreferences {
             if (query == null) {
                 return null;
             }
-            Object a = query.moveToFirst() ? c.a.a(query.getInt(query.getColumnIndex("type")), query.getString(query.getColumnIndex("value"))) : null;
+            Object a2 = query.moveToFirst() ? c.a.a(query.getInt(query.getColumnIndex("type")), query.getString(query.getColumnIndex("value"))) : null;
             query.close();
-            return a;
+            return a2;
         } catch (Exception e) {
             Log.e(TAG, "getValue exception:" + e.getMessage());
             return null;

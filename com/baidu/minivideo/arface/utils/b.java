@@ -1,13 +1,12 @@
 package com.baidu.minivideo.arface.utils;
 
 import android.content.Context;
-import android.content.res.AssetManager;
 import android.text.TextUtils;
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
-/* loaded from: classes11.dex */
+/* loaded from: classes15.dex */
 public class b {
     private Context mContext;
 
@@ -15,63 +14,83 @@ public class b {
         this.mContext = context;
     }
 
-    /* JADX WARN: Removed duplicated region for block: B:62:0x00cc A[Catch: IOException -> 0x00d0, TRY_LEAVE, TryCatch #7 {IOException -> 0x00d0, blocks: (B:60:0x00c7, B:62:0x00cc), top: B:77:0x00c7 }] */
-    /* JADX WARN: Removed duplicated region for block: B:77:0x00c7 A[EXC_TOP_SPLITTER, SYNTHETIC] */
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
-    public boolean b(String str, File file) {
+    public boolean assetToSD(String str, File file) {
+        boolean doAssetToSDcard = doAssetToSDcard(str, file);
+        if (file.isDirectory()) {
+            File file2 = new File(file, ".nomedia");
+            if (!file2.exists()) {
+                try {
+                    file2.createNewFile();
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            }
+        }
+        return doAssetToSDcard;
+    }
+
+    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:72:0x00de */
+    /* JADX WARN: Multi-variable type inference failed */
+    /* JADX WARN: Type inference failed for: r1v1, types: [android.content.res.AssetManager] */
+    /* JADX WARN: Type inference failed for: r1v3 */
+    /* JADX WARN: Type inference failed for: r1v6, types: [java.io.InputStream] */
+    /* JADX WARN: Type inference failed for: r1v9, types: [java.io.InputStream] */
+    private boolean doAssetToSDcard(String str, File file) {
         FileOutputStream fileOutputStream;
         Throwable th;
-        InputStream inputStream;
-        Exception e;
         FileOutputStream fileOutputStream2;
+        Exception e;
+        InputStream inputStream;
+        FileOutputStream fileOutputStream3;
         InputStream inputStream2 = null;
-        AssetManager assets = this.mContext.getAssets();
+        ?? assets = this.mContext.getAssets();
         try {
-            String[] list = assets.list(str);
-            if (list.length > 0) {
-                if (file.isDirectory() && !file.exists()) {
-                    file.mkdirs();
-                }
-                for (String str2 : list) {
-                    if (!TextUtils.isEmpty(str2)) {
-                        b(str + File.separator + str2, new File(file, str2));
+            try {
+                String[] list = assets.list(str);
+                if (list.length > 0) {
+                    if (!file.isDirectory() && file.exists()) {
+                        file.delete();
                     }
-                }
-                fileOutputStream2 = null;
-            } else {
-                str.substring(0, str.lastIndexOf("/"));
-                File parentFile = file.getParentFile();
-                if (parentFile != null && !parentFile.exists()) {
-                    parentFile.mkdirs();
-                }
-                if (file.exists()) {
-                    file.delete();
-                }
-                file.createNewFile();
-                inputStream = assets.open(str);
-                try {
-                    fileOutputStream = new FileOutputStream(file);
+                    if (file.isDirectory() && !file.exists()) {
+                        file.mkdirs();
+                    }
+                    for (String str2 : list) {
+                        if (!TextUtils.isEmpty(str2)) {
+                            doAssetToSDcard(str + File.separator + str2, new File(file, str2));
+                        }
+                    }
+                    fileOutputStream3 = null;
+                } else {
+                    File parentFile = file.getParentFile();
+                    if (parentFile != null && !parentFile.exists()) {
+                        parentFile.mkdirs();
+                    }
+                    if (file.exists()) {
+                        file.delete();
+                    }
+                    file.createNewFile();
+                    assets = assets.open(str);
                     try {
+                        fileOutputStream2 = new FileOutputStream(file);
                         try {
                             byte[] bArr = new byte[1024];
                             while (true) {
-                                int read = inputStream.read(bArr);
+                                int read = assets.read(bArr);
                                 if (read == -1) {
                                     break;
                                 }
-                                fileOutputStream.write(bArr, 0, read);
+                                fileOutputStream2.write(bArr, 0, read);
                             }
-                            fileOutputStream.flush();
-                            inputStream2 = inputStream;
-                            fileOutputStream2 = fileOutputStream;
+                            fileOutputStream2.flush();
+                            inputStream2 = assets;
+                            fileOutputStream3 = fileOutputStream2;
                         } catch (Exception e2) {
                             e = e2;
+                            inputStream = assets;
                             e.printStackTrace();
-                            if (fileOutputStream != null) {
+                            if (fileOutputStream2 != null) {
                                 try {
-                                    fileOutputStream.close();
+                                    fileOutputStream2.close();
                                 } catch (IOException e3) {
                                     e3.printStackTrace();
                                     return false;
@@ -82,53 +101,49 @@ public class b {
                             }
                             return false;
                         }
+                    } catch (Exception e4) {
+                        fileOutputStream2 = null;
+                        e = e4;
+                        inputStream = assets;
                     } catch (Throwable th2) {
+                        fileOutputStream = null;
                         th = th2;
                         if (fileOutputStream != null) {
                             try {
                                 fileOutputStream.close();
-                            } catch (IOException e4) {
-                                e4.printStackTrace();
+                            } catch (IOException e5) {
+                                e5.printStackTrace();
                                 throw th;
                             }
                         }
-                        if (inputStream != null) {
-                            inputStream.close();
+                        if (assets != 0) {
+                            assets.close();
                         }
                         throw th;
                     }
-                } catch (Exception e5) {
-                    fileOutputStream = null;
-                    e = e5;
-                } catch (Throwable th3) {
-                    fileOutputStream = null;
-                    th = th3;
-                    if (fileOutputStream != null) {
-                    }
-                    if (inputStream != null) {
-                    }
-                    throw th;
                 }
-            }
-            if (fileOutputStream2 != null) {
-                try {
-                    fileOutputStream2.close();
-                } catch (IOException e6) {
-                    e6.printStackTrace();
+                if (fileOutputStream3 != null) {
+                    try {
+                        fileOutputStream3.close();
+                    } catch (IOException e6) {
+                        e6.printStackTrace();
+                    }
                 }
+                if (inputStream2 != null) {
+                    inputStream2.close();
+                }
+                return true;
+            } catch (Throwable th3) {
+                th = th3;
             }
-            if (inputStream2 != null) {
-                inputStream2.close();
-            }
-            return true;
         } catch (Exception e7) {
-            fileOutputStream = null;
+            fileOutputStream2 = null;
             e = e7;
             inputStream = null;
         } catch (Throwable th4) {
             fileOutputStream = null;
             th = th4;
-            inputStream = null;
+            assets = 0;
         }
     }
 }

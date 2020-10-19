@@ -1,7 +1,7 @@
 package com.yanzhenjie.permission.b;
 
 import android.content.Context;
-/* loaded from: classes8.dex */
+/* loaded from: classes6.dex */
 public class a extends b {
     private Context mContext;
 

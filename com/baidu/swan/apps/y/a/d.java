@@ -1,16 +1,16 @@
 package com.baidu.swan.apps.y.a;
 
 import android.graphics.Bitmap;
-/* loaded from: classes3.dex */
+/* loaded from: classes10.dex */
 public class d extends c {
-    private Bitmap cGw;
+    private Bitmap cSz;
 
     public d(String str, Bitmap bitmap) {
         super(5, str);
-        this.cGw = bitmap;
+        this.cSz = bitmap;
     }
 
-    public Bitmap avy() {
-        return this.cGw;
+    public Bitmap ayj() {
+        return this.cSz;
     }
 }

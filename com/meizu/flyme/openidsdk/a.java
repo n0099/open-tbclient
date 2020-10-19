@@ -1,7 +1,9 @@
 package com.meizu.flyme.openidsdk;
 /* loaded from: classes11.dex */
 public class a {
-    public long a;
+
+    /* renamed from: a  reason: collision with root package name */
+    public long f4449a;
     public String b;
     public String c;
     public int d;
@@ -15,7 +17,7 @@ public class a {
     }
 
     public void a(long j) {
-        this.a = j;
+        this.f4449a = j;
     }
 
     public void a(String str) {
@@ -23,10 +25,10 @@ public class a {
     }
 
     public boolean a() {
-        return this.a > System.currentTimeMillis();
+        return this.f4449a > System.currentTimeMillis();
     }
 
     public void b() {
-        this.a = 0L;
+        this.f4449a = 0L;
     }
 }

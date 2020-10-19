@@ -1,9 +1,11 @@
 package com.cmic.sso.sdk;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class b {
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public static final class a {
-        public static String a = "aes_key";
+
+        /* renamed from: a  reason: collision with root package name */
+        public static String f4005a = "aes_key";
     }
 }

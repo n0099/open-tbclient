@@ -12,11 +12,11 @@ import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes10.dex */
+/* loaded from: classes19.dex */
 public class a {
     protected static final boolean DEBUG = com.baidu.prologue.a.a.a.GLOBAL_DEBUG;
 
-    public static List<e> aM(String str, String str2) throws ParseError {
+    public static List<e> aR(String str, String str2) throws ParseError {
         if (TextUtils.isEmpty(str)) {
             throw new ParseError(1, "afd/entry retun null");
         }
@@ -30,7 +30,7 @@ public class a {
 
     public static List<e> o(JSONObject jSONObject, String str) throws ParseError {
         List<e> list;
-        List<e> Wg;
+        List<e> Yd;
         if (DEBUG) {
             Log.d("AfdResponseParser", "AFD response : " + jSONObject.toString());
         }
@@ -46,7 +46,7 @@ public class a {
         JSONArray optJSONArray = optJSONObject.optJSONArray(MapBundleKey.MapObjKey.OBJ_AD);
         if (optJSONObject2 != null) {
             String optString = optJSONObject2.optString("cmd");
-            SplashStyleRecorder.ak(optJSONObject2.optJSONObject("style_desc"));
+            SplashStyleRecorder.an(optJSONObject2.optJSONObject("style_desc"));
             if (TextUtils.equals(IMTrack.DbBuilder.ACTION_UPDATE, optString)) {
                 list = a(optJSONArray, str, false);
                 String optString2 = optJSONObject2.optString("empty_ext_info");
@@ -60,9 +60,9 @@ public class a {
                     list = a(optJSONArray, str, true);
                 } else {
                     String optString3 = optJSONObject2.optString("ukey");
-                    if (!TextUtils.isEmpty(optString3) && (Wg = d.Wg()) != null) {
-                        for (e eVar : Wg) {
-                            if (TextUtils.equals(eVar.bMM, optString3)) {
+                    if (!TextUtils.isEmpty(optString3) && (Yd = d.Yd()) != null) {
+                        for (e eVar : Yd) {
+                            if (TextUtils.equals(eVar.bTv, optString3)) {
                                 arrayList.add(eVar);
                                 list = arrayList;
                                 break;
@@ -86,18 +86,18 @@ public class a {
         List<e> p = e.p(jSONArray);
         if (z) {
             for (e eVar : p) {
-                eVar.bMW = true;
+                eVar.bTF = true;
             }
         } else {
             new ArrayList();
-            HashMap<String, e> Wh = d.Wh();
-            if (Wh == null || Wh.size() == 0) {
-                d.aa(p);
+            HashMap<String, e> Ye = d.Ye();
+            if (Ye == null || Ye.size() == 0) {
+                d.ad(p);
             } else {
-                d.Wf();
-                d.aa(p);
+                d.Yc();
+                d.ad(p);
             }
-            d.ab(p);
+            d.ae(p);
         }
         return p;
     }

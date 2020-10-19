@@ -7,102 +7,102 @@ import com.baidu.swan.apps.a;
 import com.baidu.swan.apps.res.ui.BdMultiPicker;
 import com.baidu.swan.apps.res.widget.dialog.h;
 import org.json.JSONArray;
-/* loaded from: classes3.dex */
+/* loaded from: classes10.dex */
 public class e extends h {
-    private JSONArray cMG;
-    private JSONArray cMH;
-    private BdMultiPicker cRc;
-    private BdMultiPicker.a cRd;
-    private boolean cRe;
+    private JSONArray cYJ;
+    private JSONArray cYK;
+    private BdMultiPicker ddi;
+    private BdMultiPicker.a ddj;
+    private boolean ddk;
 
     public e(Context context) {
         super(context, a.i.NoTitleDialog);
     }
 
-    private void azS() {
-        this.cRc = new BdMultiPicker(getContext());
+    private void aCB() {
+        this.ddi = new BdMultiPicker(getContext());
         FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(-2, -2);
         layoutParams.gravity = 1;
-        this.cRc.setLayoutParams(layoutParams);
-        this.cRc.setMultiWheelData(this.cMG, this.cMH);
-        if (!this.cRe) {
-            this.cRc.setMultiSelectedListener(this.cRd);
+        this.ddi.setLayoutParams(layoutParams);
+        this.ddi.setMultiWheelData(this.cYJ, this.cYK);
+        if (!this.ddk) {
+            this.ddi.setMultiSelectedListener(this.ddj);
         }
     }
 
     @Override // android.app.Dialog
     protected void onCreate(Bundle bundle) {
-        azS();
-        azZ().av(this.cRc);
+        aCB();
+        aCI().aw(this.ddi);
     }
 
     public void setDataArray(JSONArray jSONArray) {
-        this.cMG = jSONArray;
+        this.cYJ = jSONArray;
     }
 
     public void setDataIndex(JSONArray jSONArray) {
-        this.cMH = jSONArray;
+        this.cYK = jSONArray;
     }
 
-    public void fv(boolean z) {
-        this.cRe = z;
+    public void fR(boolean z) {
+        this.ddk = z;
     }
 
     public void setMultiSelectedListener(BdMultiPicker.a aVar) {
-        this.cRd = aVar;
+        this.ddj = aVar;
     }
 
     public JSONArray getCurrentIndex() {
-        return this.cRc.getCurrentIndex();
+        return this.ddi.getCurrentIndex();
     }
 
     public void a(int i, JSONArray jSONArray, int i2) {
-        this.cRc.a(i, jSONArray, i2);
+        this.ddi.a(i, jSONArray, i2);
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes10.dex */
     public static class a extends h.a {
-        public JSONArray cRf;
-        public JSONArray cRg;
-        public boolean cRh;
-        public BdMultiPicker.a cRi;
+        public JSONArray ddl;
+        public JSONArray ddm;
+        public boolean ddn;
+        public BdMultiPicker.a ddo;
 
         public a(Context context) {
             super(context);
         }
 
         public a E(JSONArray jSONArray) {
-            this.cRf = jSONArray;
+            this.ddl = jSONArray;
             return this;
         }
 
         public a F(JSONArray jSONArray) {
-            this.cRg = jSONArray;
+            this.ddm = jSONArray;
             return this;
         }
 
-        public a fw(boolean z) {
-            this.cRh = z;
+        public a fS(boolean z) {
+            this.ddn = z;
             return this;
         }
 
         public a a(BdMultiPicker.a aVar) {
-            this.cRi = aVar;
+            this.ddo = aVar;
             return this;
         }
 
         @Override // com.baidu.swan.apps.res.widget.dialog.h.a
-        protected h cm(Context context) {
+        protected h cs(Context context) {
             return new e(context);
         }
 
         @Override // com.baidu.swan.apps.res.widget.dialog.h.a
-        public h azR() {
-            e eVar = (e) super.azR();
-            eVar.setDataArray(this.cRf);
-            eVar.setDataIndex(this.cRg);
-            eVar.fv(this.cRh);
-            eVar.setMultiSelectedListener(this.cRi);
+        public h aCA() {
+            e eVar = (e) super.aCA();
+            eVar.setDataArray(this.ddl);
+            eVar.setDataIndex(this.ddm);
+            eVar.fR(this.ddn);
+            eVar.setMultiSelectedListener(this.ddo);
             return eVar;
         }
     }

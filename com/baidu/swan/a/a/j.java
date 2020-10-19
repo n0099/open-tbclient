@@ -2,7 +2,7 @@ package com.baidu.swan.a.a;
 
 import com.baidu.searchbox.http.AbstractHttpManager;
 import com.baidu.swan.a.d.c;
-/* loaded from: classes24.dex */
+/* loaded from: classes8.dex */
 public class j extends c.a {
     public j(AbstractHttpManager abstractHttpManager) {
         super(abstractHttpManager);
@@ -10,9 +10,9 @@ public class j extends c.a {
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.swan.a.d.c.a, com.baidu.searchbox.http.request.HttpRequestBuilder
-    /* renamed from: aTH */
+    /* renamed from: aWq */
     public com.baidu.swan.a.d.c build() {
-        com.baidu.swan.a.b.aTE().a(this.httpUrl.toString(), this);
+        com.baidu.swan.a.b.aWn().a(this.httpUrl.toString(), this);
         return super.build();
     }
 }

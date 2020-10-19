@@ -8,9 +8,11 @@ import android.graphics.PaintFlagsDrawFilter;
 import android.util.AttributeSet;
 import android.view.View;
 import com.baidu.fsg.face.base.d.h;
-/* loaded from: classes16.dex */
+/* loaded from: classes17.dex */
 public class DynamicWaveView extends View {
-    private static final int a = 1715238655;
+
+    /* renamed from: a  reason: collision with root package name */
+    private static final int f1746a = 1715238655;
     private static final float b = 30.0f;
     private static final int c = 0;
     private static final int d = 3;
@@ -49,7 +51,7 @@ public class DynamicWaveView extends View {
         this.s = new Paint();
         this.s.setAntiAlias(true);
         this.s.setStyle(Paint.Style.FILL);
-        this.s.setColor(a);
+        this.s.setColor(f1746a);
         this.t = new PaintFlagsDrawFilter(0, 3);
         this.j = h.a(context, 5.0f);
         this.k = h.a(context, (float) b);

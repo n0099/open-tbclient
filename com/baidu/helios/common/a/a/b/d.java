@@ -1,9 +1,11 @@
 package com.baidu.helios.common.a.a.b;
 
 import java.math.BigInteger;
-/* loaded from: classes25.dex */
+/* loaded from: classes11.dex */
 public class d {
-    private static byte[] a;
+
+    /* renamed from: a  reason: collision with root package name */
+    private static byte[] f1804a;
     private static byte[] b;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -17,10 +19,10 @@ public class d {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public static byte[] b() {
-        if (a != null) {
-            return a;
+        if (f1804a != null) {
+            return f1804a;
         }
-        a = new BigInteger(c.a).modPow(new BigInteger(c.b), new BigInteger(c.e)).toByteArray();
-        return a;
+        f1804a = new BigInteger(c.f1803a).modPow(new BigInteger(c.b), new BigInteger(c.e)).toByteArray();
+        return f1804a;
     }
 }

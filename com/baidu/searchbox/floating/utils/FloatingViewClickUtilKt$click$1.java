@@ -4,7 +4,7 @@ import android.view.View;
 import kotlin.h;
 import kotlin.jvm.a.b;
 @h
-/* loaded from: classes5.dex */
+/* loaded from: classes11.dex */
 public final class FloatingViewClickUtilKt$click$1 implements View.OnClickListener {
     final /* synthetic */ b $block;
     final /* synthetic */ long $time;

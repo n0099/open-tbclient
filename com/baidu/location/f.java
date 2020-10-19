@@ -13,9 +13,11 @@ import com.baidu.location.e.l;
 import dalvik.system.DexClassLoader;
 import java.io.File;
 import java.io.RandomAccessFile;
-/* loaded from: classes3.dex */
+/* loaded from: classes7.dex */
 public class f extends Service {
-    LLSInterface a = null;
+
+    /* renamed from: a  reason: collision with root package name */
+    LLSInterface f1956a = null;
     LLSInterface b = null;
     LLSInterface c = null;
     public static String replaceFileName = "repll.jar";
@@ -35,8 +37,8 @@ public class f extends Service {
                     byte[] bArr = new byte[readInt];
                     randomAccessFile.read(bArr, 0, readInt);
                     String str = new String(bArr);
-                    String a = l.a(file, "SHA-256");
-                    if (str != null && a != null && l.b(a, str, "MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQCiP7BS5IjEOzrKGR9/Ww9oSDhdX1ir26VOsYjT1T6tk2XumRpkHRwZbrucDcNnvSB4QsqiEJnvTSRi7YMbh2H9sLMkcvHlMV5jAErNvnuskWfcvf7T2mq7EUZI/Hf4oVZhHV0hQJRFVdTcjWI6q2uaaKM3VMh+roDesiE7CR2biQIDAQAB")) {
+                    String a2 = l.a(file, "SHA-256");
+                    if (str != null && a2 != null && l.b(a2, str, "MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQCiP7BS5IjEOzrKGR9/Ww9oSDhdX1ir26VOsYjT1T6tk2XumRpkHRwZbrucDcNnvSB4QsqiEJnvTSRi7YMbh2H9sLMkcvHlMV5jAErNvnuskWfcvf7T2mq7EUZI/Hf4oVZhHV0hQJRFVdTcjWI6q2uaaKM3VMh+roDesiE7CR2biQIDAQAB")) {
                         z = true;
                     }
                 }
@@ -91,16 +93,16 @@ public class f extends Service {
                 file.renameTo(file2);
             }
             if (file2.exists() && a(new File(l.j() + File.separator + "app.jar"))) {
-                this.a = (LLSInterface) new DexClassLoader(l.j() + File.separator + "app.jar", l.j(), null, getClassLoader()).loadClass("com.baidu.serverLoc.LocationService").newInstance();
+                this.f1956a = (LLSInterface) new DexClassLoader(l.j() + File.separator + "app.jar", l.j(), null, getClassLoader()).loadClass("com.baidu.serverLoc.LocationService").newInstance();
             }
         } catch (Exception e) {
-            this.a = null;
+            this.f1956a = null;
         }
-        if (this.a == null || this.a.getVersion() < this.b.getVersion()) {
+        if (this.f1956a == null || this.f1956a.getVersion() < this.b.getVersion()) {
             this.c = this.b;
-            this.a = null;
+            this.f1956a = null;
         } else {
-            this.c = this.a;
+            this.c = this.f1956a;
             this.b = null;
         }
         isServing = true;

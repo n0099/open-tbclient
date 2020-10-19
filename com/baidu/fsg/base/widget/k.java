@@ -1,20 +1,22 @@
 package com.baidu.fsg.base.widget;
-/* loaded from: classes15.dex */
+/* loaded from: classes16.dex */
 class k implements Runnable {
-    final /* synthetic */ j a;
+
+    /* renamed from: a  reason: collision with root package name */
+    final /* synthetic */ j f1555a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public k(j jVar) {
-        this.a = jVar;
+        this.f1555a = jVar;
     }
 
     @Override // java.lang.Runnable
     public void run() {
         SafeScrollView safeScrollView;
-        if (this.a.a.mPopupWindow != null && this.a.a.mPopupWindow.isShowing()) {
-            safeScrollView = this.a.a.e;
+        if (this.f1555a.f1554a.mPopupWindow != null && this.f1555a.f1554a.mPopupWindow.isShowing()) {
+            safeScrollView = this.f1555a.f1554a.e;
             if (safeScrollView.hasWindowFocus()) {
-                this.a.a.a();
+                this.f1555a.f1554a.a();
             }
         }
     }

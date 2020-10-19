@@ -16,7 +16,9 @@ import tv.chushou.zues.widget.fresco.FrescoThumbnailView;
 import tv.chushou.zues.widget.fresco.b;
 /* loaded from: classes6.dex */
 public class c extends com.kascend.chushou.view.base.a {
-    private TextView a;
+
+    /* renamed from: a  reason: collision with root package name */
+    private TextView f4228a;
     private TextView d;
     private TextView e;
     private TextView f;
@@ -24,8 +26,8 @@ public class c extends com.kascend.chushou.view.base.a {
     private String i;
     private int j;
     private String k;
-    private FrescoThumbnailView odF;
-    private a ohL;
+    private FrescoThumbnailView osY;
+    private a oxe;
 
     /* loaded from: classes6.dex */
     public interface a {
@@ -72,10 +74,10 @@ public class c extends com.kascend.chushou.view.base.a {
                 c.this.dismissAllowingStateLoss();
             }
         });
-        this.a = (TextView) inflate.findViewById(a.f.tv_point);
+        this.f4228a = (TextView) inflate.findViewById(a.f.tv_point);
         this.d = (TextView) inflate.findViewById(a.f.tv_cancel);
         this.e = (TextView) inflate.findViewById(a.f.tv_sure);
-        this.odF = (FrescoThumbnailView) inflate.findViewById(a.f.iv_icon);
+        this.osY = (FrescoThumbnailView) inflate.findViewById(a.f.iv_icon);
         this.d.setOnClickListener(new View.OnClickListener() { // from class: com.kascend.chushou.view.b.c.2
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
@@ -85,8 +87,8 @@ public class c extends com.kascend.chushou.view.base.a {
         this.e.setOnClickListener(new View.OnClickListener() { // from class: com.kascend.chushou.view.b.c.3
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                if (c.this.ohL != null) {
-                    c.this.ohL.a(c.this.j, c.this.h);
+                if (c.this.oxe != null) {
+                    c.this.oxe.a(c.this.j, c.this.h);
                 }
             }
         });
@@ -106,11 +108,11 @@ public class c extends com.kascend.chushou.view.base.a {
 
     @Override // com.kascend.chushou.view.base.a
     public void a(View view) {
-        this.odF.i(this.i, a.e.default_gift, b.a.oYs, b.a.oYs);
-        this.a.setText(String.format(this.b.getString(a.i.send_loyalfans3), Integer.valueOf(this.j)));
+        this.osY.i(this.i, a.e.default_gift, b.a.pnM, b.a.pnM);
+        this.f4228a.setText(String.format(this.b.getString(a.i.send_loyalfans3), Integer.valueOf(this.j)));
     }
 
     public void a(a aVar) {
-        this.ohL = aVar;
+        this.oxe = aVar;
     }
 }

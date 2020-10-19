@@ -5,18 +5,18 @@ import java.util.Arrays;
 import kotlin.jvm.internal.o;
 import kotlin.jvm.internal.q;
 @kotlin.h
-/* loaded from: classes3.dex */
+/* loaded from: classes10.dex */
 public final class j {
-    private long aPw;
-    private int drM;
-    private volatile int drN;
-    private Integer drO;
-    private Integer drP;
-    private Integer drQ;
-    private Integer drR;
-    private byte[] drS;
-    private byte[] drT;
-    private byte[] drU;
+    private long aSH;
+    private int dDP;
+    private volatile int dDQ;
+    private Integer dDR;
+    private Integer dDS;
+    private Integer dDT;
+    private Integer dDU;
+    private byte[] dDV;
+    private byte[] dDW;
+    private byte[] dDX;
 
     public j() {
         this(null, null, null, null, null, null, 0L, null, 255, null);
@@ -28,10 +28,10 @@ public final class j {
                 return false;
             }
             j jVar = (j) obj;
-            if (!q.l(this.drO, jVar.drO) || !q.l(this.drP, jVar.drP) || !q.l(this.drQ, jVar.drQ) || !q.l(this.drR, jVar.drR) || !q.l(this.drS, jVar.drS) || !q.l(this.drT, jVar.drT)) {
+            if (!q.l(this.dDR, jVar.dDR) || !q.l(this.dDS, jVar.dDS) || !q.l(this.dDT, jVar.dDT) || !q.l(this.dDU, jVar.dDU) || !q.l(this.dDV, jVar.dDV) || !q.l(this.dDW, jVar.dDW)) {
                 return false;
             }
-            if (!(this.aPw == jVar.aPw) || !q.l(this.drU, jVar.drU)) {
+            if (!(this.aSH == jVar.aSH) || !q.l(this.dDX, jVar.dDX)) {
                 return false;
             }
         }
@@ -39,136 +39,136 @@ public final class j {
     }
 
     public int hashCode() {
-        Integer num = this.drO;
+        Integer num = this.dDR;
         int hashCode = (num != null ? num.hashCode() : 0) * 31;
-        Integer num2 = this.drP;
+        Integer num2 = this.dDS;
         int hashCode2 = ((num2 != null ? num2.hashCode() : 0) + hashCode) * 31;
-        Integer num3 = this.drQ;
+        Integer num3 = this.dDT;
         int hashCode3 = ((num3 != null ? num3.hashCode() : 0) + hashCode2) * 31;
-        Integer num4 = this.drR;
+        Integer num4 = this.dDU;
         int hashCode4 = ((num4 != null ? num4.hashCode() : 0) + hashCode3) * 31;
-        byte[] bArr = this.drS;
+        byte[] bArr = this.dDV;
         int hashCode5 = ((bArr != null ? Arrays.hashCode(bArr) : 0) + hashCode4) * 31;
-        byte[] bArr2 = this.drT;
+        byte[] bArr2 = this.dDW;
         int hashCode6 = bArr2 != null ? Arrays.hashCode(bArr2) : 0;
-        long j = this.aPw;
+        long j = this.aSH;
         int i = (((hashCode6 + hashCode5) * 31) + ((int) (j ^ (j >>> 32)))) * 31;
-        byte[] bArr3 = this.drU;
+        byte[] bArr3 = this.dDX;
         return i + (bArr3 != null ? Arrays.hashCode(bArr3) : 0);
     }
 
     public String toString() {
-        return "SessionParams(dhGroupId=" + this.drO + ", dhSecretKey=" + this.drP + ", dhPublicKey=" + this.drQ + ", dhServerPublicKey=" + this.drR + ", aesSecretKey=" + Arrays.toString(this.drS) + ", sessionTicket=" + Arrays.toString(this.drT) + ", expireTime=" + this.aPw + ", entryType=" + Arrays.toString(this.drU) + ")";
+        return "SessionParams(dhGroupId=" + this.dDR + ", dhSecretKey=" + this.dDS + ", dhPublicKey=" + this.dDT + ", dhServerPublicKey=" + this.dDU + ", aesSecretKey=" + Arrays.toString(this.dDV) + ", sessionTicket=" + Arrays.toString(this.dDW) + ", expireTime=" + this.aSH + ", entryType=" + Arrays.toString(this.dDX) + ")";
     }
 
     public j(Integer num, Integer num2, Integer num3, Integer num4, byte[] bArr, byte[] bArr2, long j, byte[] bArr3) {
-        this.drO = num;
-        this.drP = num2;
-        this.drQ = num3;
-        this.drR = num4;
-        this.drS = bArr;
-        this.drT = bArr2;
-        this.aPw = j;
-        this.drU = bArr3;
+        this.dDR = num;
+        this.dDS = num2;
+        this.dDT = num3;
+        this.dDU = num4;
+        this.dDV = bArr;
+        this.dDW = bArr2;
+        this.aSH = j;
+        this.dDX = bArr3;
     }
 
     public /* synthetic */ j(Integer num, Integer num2, Integer num3, Integer num4, byte[] bArr, byte[] bArr2, long j, byte[] bArr3, int i, o oVar) {
         this((i & 1) != 0 ? null : num, (i & 2) != 0 ? null : num2, (i & 4) != 0 ? null : num3, (i & 8) != 0 ? null : num4, (i & 16) != 0 ? null : bArr, (i & 32) != 0 ? null : bArr2, (i & 64) != 0 ? 0L : j, (i & 128) != 0 ? null : bArr3);
     }
 
-    public final Integer aNc() {
-        return this.drO;
-    }
-
-    public final void e(Integer num) {
-        this.drO = num;
-    }
-
-    public final Integer aNd() {
-        return this.drP;
-    }
-
-    public final void f(Integer num) {
-        this.drP = num;
-    }
-
-    public final Integer aNe() {
-        return this.drQ;
+    public final Integer aPL() {
+        return this.dDR;
     }
 
     public final void g(Integer num) {
-        this.drQ = num;
+        this.dDR = num;
     }
 
-    public final Integer aNf() {
-        return this.drR;
+    public final Integer aPM() {
+        return this.dDS;
     }
 
     public final void h(Integer num) {
-        this.drR = num;
+        this.dDS = num;
+    }
+
+    public final Integer aPN() {
+        return this.dDT;
+    }
+
+    public final void i(Integer num) {
+        this.dDT = num;
+    }
+
+    public final Integer aPO() {
+        return this.dDU;
+    }
+
+    public final void j(Integer num) {
+        this.dDU = num;
     }
 
     public final void U(byte[] bArr) {
-        this.drS = bArr;
+        this.dDV = bArr;
     }
 
-    public final byte[] aNg() {
-        return this.drS;
+    public final byte[] aPP() {
+        return this.dDV;
     }
 
     public final void V(byte[] bArr) {
-        this.drT = bArr;
+        this.dDW = bArr;
     }
 
-    public final byte[] aNh() {
-        return this.drT;
+    public final byte[] aPQ() {
+        return this.dDW;
     }
 
     public final void E(long j) {
-        this.aPw = j;
+        this.aSH = j;
     }
 
     public final void W(byte[] bArr) {
-        this.drU = bArr;
+        this.dDX = bArr;
     }
 
-    public final int aMX() {
-        return this.drM;
+    public final int aPG() {
+        return this.dDP;
     }
 
-    public final void lj(int i) {
-        this.drM = i;
+    public final void lG(int i) {
+        this.dDP = i;
     }
 
-    public final void aMY() {
+    public final void aPH() {
         if (com.baidu.swan.apps.b.DEBUG) {
-            Log.d("BDTLS", "Recovery: add recoveryCount: " + this.drN);
+            Log.d("BDTLS", "Recovery: add recoveryCount: " + this.dDQ);
         }
-        this.drN++;
+        this.dDQ++;
     }
 
-    public final synchronized boolean aMZ() {
+    public final synchronized boolean aPI() {
         boolean z = true;
         synchronized (this) {
             long currentTimeMillis = System.currentTimeMillis() / 1000;
-            if (this.drS == null || this.drT == null || this.aPw <= currentTimeMillis || this.drM != 1) {
+            if (this.dDV == null || this.dDW == null || this.aSH <= currentTimeMillis || this.dDP != 1) {
                 z = false;
             }
             if (com.baidu.swan.games.bdtls.a.DEBUG) {
-                Log.d("BDTLS", "isSessionEnable " + this.drS + ' ' + this.drT + ' ' + this.aPw + ' ' + this.drM);
+                Log.d("BDTLS", "isSessionEnable " + this.dDV + ' ' + this.dDW + ' ' + this.aSH + ' ' + this.dDP);
             }
         }
         return z;
     }
 
-    public final boolean aNa() {
-        return this.drN < 3;
+    public final boolean aPJ() {
+        return this.dDQ < 3;
     }
 
-    public final void aNb() {
+    public final void aPK() {
         if (com.baidu.swan.apps.b.DEBUG) {
-            Log.d("BDTLS", "Downgrade: reset downgrade count " + this.drN);
+            Log.d("BDTLS", "Downgrade: reset downgrade count " + this.dDQ);
         }
-        this.drN = 0;
+        this.dDQ = 0;
     }
 }

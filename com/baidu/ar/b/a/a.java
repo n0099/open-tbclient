@@ -7,7 +7,7 @@ import com.baidu.ar.c.c;
 import com.baidu.ar.d.j;
 import com.baidu.ar.d.l;
 import com.baidu.ar.databasic.AlgoHandleController;
-/* loaded from: classes10.dex */
+/* loaded from: classes14.dex */
 public abstract class a extends j {
     protected AlgoHandleController bY = null;
 
@@ -58,11 +58,11 @@ public abstract class a extends j {
     }
 
     public final void b(Bundle bundle) {
-        b a = a(bundle);
-        if (a == null) {
+        b a2 = a(bundle);
+        if (a2 == null) {
             return;
         }
-        c.ce().c((com.baidu.ar.c.a) a);
+        c.ce().c((com.baidu.ar.c.a) a2);
     }
 
     @Override // com.baidu.ar.d.j

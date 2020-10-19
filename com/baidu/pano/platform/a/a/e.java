@@ -18,15 +18,17 @@ import java.util.HashMap;
 import java.util.Iterator;
 import java.util.LinkedHashMap;
 import java.util.Map;
-/* loaded from: classes3.dex */
+/* loaded from: classes7.dex */
 public class e implements com.baidu.pano.platform.a.b {
-    private final Map<String, a> a;
+
+    /* renamed from: a  reason: collision with root package name */
+    private final Map<String, a> f2638a;
     private long b;
     private final File c;
     private final int d;
 
     public e(File file, int i) {
-        this.a = new LinkedHashMap(16, 0.75f, true);
+        this.f2638a = new LinkedHashMap(16, 0.75f, true);
         this.b = 0L;
         this.c = file;
         this.d = i;
@@ -42,7 +44,7 @@ public class e implements com.baidu.pano.platform.a.b {
         b bVar;
         b.a aVar;
         File c;
-        a aVar2 = this.a.get(str);
+        a aVar2 = this.f2638a.get(str);
         if (aVar2 == null) {
             aVar = null;
         } else {
@@ -55,7 +57,7 @@ public class e implements com.baidu.pano.platform.a.b {
                 bVar = new b(new FileInputStream(c));
                 try {
                     a.a(bVar);
-                    aVar = aVar2.a(a(bVar, (int) (c.length() - bVar.a)));
+                    aVar = aVar2.a(a(bVar, (int) (c.length() - bVar.f2640a)));
                     if (bVar != null) {
                         try {
                             bVar.close();
@@ -129,7 +131,7 @@ public class e implements com.baidu.pano.platform.a.b {
                         try {
                             try {
                                 a a2 = a.a(bufferedInputStream);
-                                a2.a = file.length();
+                                a2.f2639a = file.length();
                                 a(a2.b, a2);
                                 if (bufferedInputStream != null) {
                                     try {
@@ -173,7 +175,7 @@ public class e implements com.baidu.pano.platform.a.b {
     public synchronized void a(String str, b.a aVar) {
         FileOutputStream fileOutputStream;
         a aVar2;
-        a(aVar.a.length);
+        a(aVar.f2646a.length);
         File c = c(str);
         try {
             fileOutputStream = new FileOutputStream(c);
@@ -188,7 +190,7 @@ public class e implements com.baidu.pano.platform.a.b {
             w.b("Failed to write header for %s", c.getAbsolutePath());
             throw new IOException();
         }
-        fileOutputStream.write(aVar.a);
+        fileOutputStream.write(aVar.f2646a);
         fileOutputStream.close();
         a(str, aVar2);
     }
@@ -218,7 +220,7 @@ public class e implements com.baidu.pano.platform.a.b {
             }
             long j = this.b;
             long elapsedRealtime = SystemClock.elapsedRealtime();
-            Iterator<Map.Entry<String, a>> it = this.a.entrySet().iterator();
+            Iterator<Map.Entry<String, a>> it = this.f2638a.entrySet().iterator();
             int i3 = 0;
             while (true) {
                 if (!it.hasNext()) {
@@ -227,7 +229,7 @@ public class e implements com.baidu.pano.platform.a.b {
                 }
                 a value = it.next().getValue();
                 if (c(value.b).delete()) {
-                    this.b -= value.a;
+                    this.b -= value.f2639a;
                 } else {
                     w.b("Could not delete cache entry for key=%s, filename=%s", value.b, d(value.b));
                 }
@@ -245,19 +247,19 @@ public class e implements com.baidu.pano.platform.a.b {
     }
 
     private void a(String str, a aVar) {
-        if (!this.a.containsKey(str)) {
-            this.b += aVar.a;
+        if (!this.f2638a.containsKey(str)) {
+            this.b += aVar.f2639a;
         } else {
-            this.b = (aVar.a - this.a.get(str).a) + this.b;
+            this.b = (aVar.f2639a - this.f2638a.get(str).f2639a) + this.b;
         }
-        this.a.put(str, aVar);
+        this.f2638a.put(str, aVar);
     }
 
     private void e(String str) {
-        a aVar = this.a.get(str);
+        a aVar = this.f2638a.get(str);
         if (aVar != null) {
-            this.b -= aVar.a;
-            this.a.remove(str);
+            this.b -= aVar.f2639a;
+            this.f2638a.remove(str);
         }
     }
 
@@ -278,9 +280,11 @@ public class e implements com.baidu.pano.platform.a.b {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes3.dex */
+    /* loaded from: classes7.dex */
     public static class a {
-        public long a;
+
+        /* renamed from: a  reason: collision with root package name */
+        public long f2639a;
         public String b;
         public String c;
         public long d;
@@ -294,7 +298,7 @@ public class e implements com.baidu.pano.platform.a.b {
 
         public a(String str, b.a aVar) {
             this.b = str;
-            this.a = aVar.a.length;
+            this.f2639a = aVar.f2646a.length;
             this.c = aVar.b;
             this.d = aVar.c;
             this.e = aVar.d;
@@ -323,7 +327,7 @@ public class e implements com.baidu.pano.platform.a.b {
 
         public b.a a(byte[] bArr) {
             b.a aVar = new b.a();
-            aVar.a = bArr;
+            aVar.f2646a = bArr;
             aVar.b = this.c;
             aVar.c = this.d;
             aVar.d = this.e;
@@ -352,20 +356,22 @@ public class e implements com.baidu.pano.platform.a.b {
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes7.dex */
     private static class b extends FilterInputStream {
-        private int a;
+
+        /* renamed from: a  reason: collision with root package name */
+        private int f2640a;
 
         private b(InputStream inputStream) {
             super(inputStream);
-            this.a = 0;
+            this.f2640a = 0;
         }
 
         @Override // java.io.FilterInputStream, java.io.InputStream
         public int read() throws IOException {
             int read = super.read();
             if (read != -1) {
-                this.a++;
+                this.f2640a++;
             }
             return read;
         }
@@ -374,7 +380,7 @@ public class e implements com.baidu.pano.platform.a.b {
         public int read(byte[] bArr, int i, int i2) throws IOException {
             int read = super.read(bArr, i, i2);
             if (read != -1) {
-                this.a += read;
+                this.f2640a += read;
             }
             return read;
         }

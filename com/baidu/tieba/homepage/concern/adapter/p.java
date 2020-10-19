@@ -8,7 +8,7 @@ import com.baidu.card.am;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tieba.R;
-/* loaded from: classes21.dex */
+/* loaded from: classes22.dex */
 public class p extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.homepage.concern.a.a, am<com.baidu.tieba.homepage.concern.a.a>> {
     private TbPageContext<?> mPageContext;
 
@@ -20,7 +20,7 @@ public class p extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.homepage.
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.widget.ListView.a
-    /* renamed from: aR */
+    /* renamed from: aT */
     public am<com.baidu.tieba.homepage.concern.a.a> c(ViewGroup viewGroup) {
         ak.a aVar = new ak.a(this.mPageContext.getPageActivity(), false);
         aVar.c(new com.baidu.tieba.homepage.concern.view.a(this.mPageContext));

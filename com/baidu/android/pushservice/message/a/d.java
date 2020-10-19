@@ -24,7 +24,7 @@ import com.baidu.android.pushservice.message.PublicMsg;
 import com.baidu.android.util.io.ActionJsonData;
 import com.meizu.cloud.pushsdk.constants.PushConstants;
 import java.util.Locale;
-/* loaded from: classes7.dex */
+/* loaded from: classes10.dex */
 public class d {
     /* JADX INFO: Access modifiers changed from: package-private */
     public static void a(final Context context, final CrossPushMessage crossPushMessage, final String str, final byte[] bArr, final byte[] bArr2) {
@@ -33,8 +33,8 @@ public class d {
             public void a() {
                 Bitmap q;
                 try {
-                    Intent parseUri = Intent.parseUri("baidupush://bdpush/cross?from=" + context.getPackageName() + "&to=" + crossPushMessage.a, 0);
-                    parseUri.setPackage(crossPushMessage.a);
+                    Intent parseUri = Intent.parseUri("baidupush://bdpush/cross?from=" + context.getPackageName() + "&to=" + crossPushMessage.f1164a, 0);
+                    parseUri.setPackage(crossPushMessage.f1164a);
                     parseUri.addFlags(268435456);
                     parseUri.putExtra("msgid", crossPushMessage.mMsgId);
                     parseUri.putExtra("notification_title", crossPushMessage.mTitle);

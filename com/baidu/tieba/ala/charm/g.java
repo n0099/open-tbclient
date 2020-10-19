@@ -5,7 +5,7 @@ import com.baidu.live.sdk.a;
 import com.baidu.live.tbadk.statics.SdkStaticKeys;
 /* loaded from: classes4.dex */
 public class g {
-    public static String tr(int i) {
+    public static String tP(int i) {
         if (i == 2) {
             return SdkStaticKeys.CHARM_TYPE_WEEK;
         }

@@ -10,7 +10,7 @@ import tbclient.GetMemberInfo.ManagerApplyInfo;
 import tbclient.GetMemberInfo.MemberGodInfo;
 import tbclient.MemberGroupInfo;
 import tbclient.PriManagerApplyInfo;
-/* loaded from: classes22.dex */
+/* loaded from: classes23.dex */
 public class ForumMemberSocketResponseMessage extends SocketResponsedMessage {
     private boolean isNeedUpdateCache;
     private boolean mIsBawuShow;
@@ -42,7 +42,7 @@ public class ForumMemberSocketResponseMessage extends SocketResponsedMessage {
                         this.mUserInfo.setLike(getMemberInfoResIdl.data.forum_member_info.is_like.intValue());
                         this.mUserInfo.setCurScore(getMemberInfoResIdl.data.forum_member_info.cur_score.intValue());
                         this.mUserInfo.setLevelupScore(getMemberInfoResIdl.data.forum_member_info.levelup_score.intValue());
-                        this.mUserInfo.HY(getMemberInfoResIdl.data.forum_member_info.user_level.intValue());
+                        this.mUserInfo.IE(getMemberInfoResIdl.data.forum_member_info.user_level.intValue());
                         this.mUserInfo.setLevelName(getMemberInfoResIdl.data.forum_member_info.level_name);
                     }
                     this.mMemberGroupInfoList = getMemberInfoResIdl.data.member_group_info;

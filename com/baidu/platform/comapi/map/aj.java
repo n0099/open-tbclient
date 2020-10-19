@@ -1,5 +1,5 @@
 package com.baidu.platform.comapi.map;
-/* loaded from: classes3.dex */
+/* loaded from: classes7.dex */
 public class aj extends InnerOverlay {
     public aj() {
         super(30);

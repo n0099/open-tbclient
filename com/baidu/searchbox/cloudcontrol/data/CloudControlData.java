@@ -2,7 +2,7 @@ package com.baidu.searchbox.cloudcontrol.data;
 
 import java.util.HashMap;
 import org.json.JSONObject;
-/* loaded from: classes23.dex */
+/* loaded from: classes8.dex */
 public class CloudControlData {
     private HashMap<String, Object> mCheckDatas;
     private CloudControlErrorBean mCloudControlErrorBean;

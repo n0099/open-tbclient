@@ -6,7 +6,7 @@ import com.vivo.push.util.p;
 import com.xiaomi.mipush.sdk.Constants;
 import java.util.HashSet;
 import java.util.Set;
-/* loaded from: classes12.dex */
+/* loaded from: classes15.dex */
 public class ClientConfigManagerImpl implements e {
     private static final Object SLOCK = new Object();
     private static final String TAG = "ClientConfigManager";

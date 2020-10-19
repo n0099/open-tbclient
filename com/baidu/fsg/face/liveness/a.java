@@ -16,37 +16,39 @@ import java.util.HashMap;
 import java.util.UUID;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes16.dex */
+/* loaded from: classes17.dex */
 public class a {
     private a() {
     }
 
     public static a a() {
-        return C0124a.a;
+        return C0128a.f1597a;
     }
 
     /* renamed from: com.baidu.fsg.face.liveness.a$a  reason: collision with other inner class name */
-    /* loaded from: classes16.dex */
-    private static class C0124a {
-        private static a a = new a();
+    /* loaded from: classes17.dex */
+    private static class C0128a {
 
-        private C0124a() {
+        /* renamed from: a  reason: collision with root package name */
+        private static a f1597a = new a();
+
+        private C0128a() {
         }
     }
 
     public void a(Context context, HashMap hashMap, final RouterCallback routerCallback) {
         if (routerCallback != null && context != null && hashMap != null) {
-            LivenessRecogDTO a = a(hashMap);
+            LivenessRecogDTO a2 = a(hashMap);
             final SapiLivenessOperation sapiLivenessOperation = new SapiLivenessOperation();
-            if (a != null && a.isVideoRecog()) {
+            if (a2 != null && a2.isVideoRecog()) {
                 sapiLivenessOperation.operationType = SapiLivenessOperation.OperationType.VIDEORECOG;
                 ArrayList arrayList = new ArrayList();
-                arrayList.add(a.getSpno() + "");
-                arrayList.add(a.spParams + "");
+                arrayList.add(a2.getSpno() + "");
+                arrayList.add(a2.spParams + "");
                 RimStatisticsUtil.onEventWithValues(d.I, arrayList);
             } else {
                 sapiLivenessOperation.operationType = SapiLivenessOperation.OperationType.RECOGNIZE;
-                RimStatisticsUtil.onEventWithValue(d.a, a != null ? a.getSpno() : "");
+                RimStatisticsUtil.onEventWithValue(d.f1724a, a2 != null ? a2.getSpno() : "");
             }
             SapiLivenessRecogManager.getInstance().execute(sapiLivenessOperation, new LivenessRecogCallback() { // from class: com.baidu.fsg.face.liveness.a.1
                 /* JADX DEBUG: Method merged with bridge method */
@@ -170,7 +172,7 @@ public class a {
                         }
                     }
                 }
-            }, a, context);
+            }, a2, context);
         }
     }
 

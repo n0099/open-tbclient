@@ -26,11 +26,11 @@ public class VerticalRoomGiftView extends BaseGiftView {
     private Context m;
     private List<GeneralGift> n;
     private Map<Integer, List<GeneralGift>> o;
-    private GiftViewPager olW;
-    private PagerSlidingTabStrip olX;
-    private a olY;
-    private io.reactivex.disposables.a olZ;
-    private f.a oma;
+    private GiftViewPager oBp;
+    private PagerSlidingTabStrip oBq;
+    private a oBr;
+    private io.reactivex.disposables.a oBs;
+    private f.a oBt;
     private int p;
     private int q;
     private int r;
@@ -50,24 +50,24 @@ public class VerticalRoomGiftView extends BaseGiftView {
         this.p = -1;
         this.q = 0;
         this.r = 5;
-        this.olZ = new io.reactivex.disposables.a();
-        this.oma = new f.a() { // from class: com.kascend.chushou.widget.gifts.VerticalRoomGiftView.3
+        this.oBs = new io.reactivex.disposables.a();
+        this.oBt = new f.a() { // from class: com.kascend.chushou.widget.gifts.VerticalRoomGiftView.3
             @Override // com.kascend.chushou.widget.gifts.f.a
             public void a(View view, Object obj, int i3, int i4) {
                 VerticalRoomGiftView.this.c = view;
                 if (obj instanceof GeneralGift) {
-                    VerticalRoomGiftView.this.olb = (GeneralGift) obj;
+                    VerticalRoomGiftView.this.oAu = (GeneralGift) obj;
                 }
                 VerticalRoomGiftView.this.e = i3;
-                if (VerticalRoomGiftView.this.ola != null) {
-                    VerticalRoomGiftView.this.ola.b(VerticalRoomGiftView.this.c, VerticalRoomGiftView.this.olb, VerticalRoomGiftView.this.e, VerticalRoomGiftView.this.getTag().toString());
+                if (VerticalRoomGiftView.this.oAt != null) {
+                    VerticalRoomGiftView.this.oAt.b(VerticalRoomGiftView.this.c, VerticalRoomGiftView.this.oAu, VerticalRoomGiftView.this.e, VerticalRoomGiftView.this.getTag().toString());
                 }
             }
 
             @Override // com.kascend.chushou.widget.gifts.f.a
             public void a(Object obj) {
-                if (VerticalRoomGiftView.this.ola != null) {
-                    VerticalRoomGiftView.this.ola.a(obj);
+                if (VerticalRoomGiftView.this.oAt != null) {
+                    VerticalRoomGiftView.this.oAt.a(obj);
                 }
             }
         };
@@ -79,14 +79,14 @@ public class VerticalRoomGiftView extends BaseGiftView {
         this.m = context;
         this.g = false;
         View inflate = LayoutInflater.from(context).inflate(a.h.gift_room_base_view, (ViewGroup) this, true);
-        this.olW = (GiftViewPager) inflate.findViewById(a.f.gift_kasvp);
-        this.olX = (PagerSlidingTabStrip) inflate.findViewById(a.f.gift_indicator);
+        this.oBp = (GiftViewPager) inflate.findViewById(a.f.gift_kasvp);
+        this.oBq = (PagerSlidingTabStrip) inflate.findViewById(a.f.gift_indicator);
         this.i = new ArrayList();
-        this.olY = new a();
-        this.olW.setAdapter(this.olY);
-        this.olX.setVisibility(8);
+        this.oBr = new a();
+        this.oBp.setAdapter(this.oBr);
+        this.oBq.setVisibility(8);
         this.q = 0;
-        this.olW.addOnPageChangeListener(new ViewPager.OnPageChangeListener() { // from class: com.kascend.chushou.widget.gifts.VerticalRoomGiftView.1
+        this.oBp.addOnPageChangeListener(new ViewPager.OnPageChangeListener() { // from class: com.kascend.chushou.widget.gifts.VerticalRoomGiftView.1
             @Override // android.support.v4.view.ViewPager.OnPageChangeListener
             public void onPageScrolled(int i, float f, int i2) {
             }
@@ -96,10 +96,10 @@ public class VerticalRoomGiftView extends BaseGiftView {
                 f fVar = VerticalRoomGiftView.this.i.get(i);
                 VerticalRoomGiftView.this.q = i;
                 VerticalRoomGiftView.this.c = fVar.b;
-                VerticalRoomGiftView.this.olb = fVar.nRD;
+                VerticalRoomGiftView.this.oAu = fVar.ogV;
                 VerticalRoomGiftView.this.e = fVar.d;
-                if (VerticalRoomGiftView.this.ola != null) {
-                    VerticalRoomGiftView.this.ola.b(VerticalRoomGiftView.this.c, VerticalRoomGiftView.this.olb, VerticalRoomGiftView.this.e, VerticalRoomGiftView.this.getTag().toString());
+                if (VerticalRoomGiftView.this.oAt != null) {
+                    VerticalRoomGiftView.this.oAt.b(VerticalRoomGiftView.this.c, VerticalRoomGiftView.this.oAu, VerticalRoomGiftView.this.e, VerticalRoomGiftView.this.getTag().toString());
                 }
             }
 
@@ -143,7 +143,7 @@ public class VerticalRoomGiftView extends BaseGiftView {
                 if (tag != null && !h.isEmpty(tag.toString())) {
                     VerticalRoomGiftView.this.i.remove(i);
                 }
-                VerticalRoomGiftView.this.olY.notifyDataSetChanged();
+                VerticalRoomGiftView.this.oBr.notifyDataSetChanged();
             }
         }
 
@@ -199,7 +199,7 @@ public class VerticalRoomGiftView extends BaseGiftView {
                     if (i5 >= Math.abs(i2)) {
                         break;
                     }
-                    this.i.add(new f(this.m, size2 + i5, this.oma, str, this.r));
+                    this.i.add(new f(this.m, size2 + i5, this.oBt, str, this.r));
                     i4 = i5 + 1;
                 }
             }
@@ -217,11 +217,11 @@ public class VerticalRoomGiftView extends BaseGiftView {
                 i6 = i7 + 1;
             }
             if (this.i.size() > 1 && this.h) {
-                this.olX.setVisibility(0);
-                this.olX.c(this.olW);
-                this.olX.setSelectItem(this.q);
+                this.oBq.setVisibility(0);
+                this.oBq.c(this.oBp);
+                this.oBq.setSelectItem(this.q);
             } else {
-                this.olX.setVisibility(8);
+                this.oBq.setVisibility(8);
             }
             if (this.h && this.r == 5) {
                 this.t = str;
@@ -233,9 +233,9 @@ public class VerticalRoomGiftView extends BaseGiftView {
         }
         this.n.clear();
         this.n.addAll(arrayList);
-        this.olY.notifyDataSetChanged();
-        if (h.isEmpty(this.n) && this.ola != null) {
-            this.ola.a(i);
+        this.oBr.notifyDataSetChanged();
+        if (h.isEmpty(this.n) && this.oAt != null) {
+            this.oAt.a(i);
         }
     }
 
@@ -258,8 +258,8 @@ public class VerticalRoomGiftView extends BaseGiftView {
     public void a(List<GeneralGift> list, String str, int i, boolean z) {
         this.p = i;
         if (!h.isEmpty(list)) {
-            if (this.ola != null) {
-                this.ola.b(this.p);
+            if (this.oAt != null) {
+                this.oAt.b(this.p);
             }
             if (this.n == null) {
                 this.n = new ArrayList();
@@ -275,7 +275,7 @@ public class VerticalRoomGiftView extends BaseGiftView {
             for (Integer num : this.o.keySet()) {
                 List<GeneralGift> list2 = this.o.get(num);
                 if (list2 != null) {
-                    f fVar = new f(this.m, i2, this.oma, str, this.r);
+                    f fVar = new f(this.m, i2, this.oBt, str, this.r);
                     if (z) {
                         fVar.setLoadMoreFooter(new DefaultLoadMoreView(getContext()));
                         fVar.setPresenter(new d());
@@ -286,11 +286,11 @@ public class VerticalRoomGiftView extends BaseGiftView {
                 i2++;
             }
             if (this.i.size() > 1 && this.h) {
-                this.olX.setVisibility(0);
-                this.olX.c(this.olW);
-                this.olX.setSelectItem(this.q);
+                this.oBq.setVisibility(0);
+                this.oBq.c(this.oBp);
+                this.oBq.setSelectItem(this.q);
             } else {
-                this.olX.setVisibility(8);
+                this.oBq.setVisibility(8);
             }
             if (this.h) {
                 this.t = str;
@@ -298,8 +298,8 @@ public class VerticalRoomGiftView extends BaseGiftView {
             } else {
                 this.s.setVisibility(8);
             }
-            this.olY.notifyDataSetChanged();
-            this.olW.setOffscreenPageLimit(size);
+            this.oBr.notifyDataSetChanged();
+            this.oBp.setOffscreenPageLimit(size);
             this.g = true;
         }
     }
@@ -330,7 +330,7 @@ public class VerticalRoomGiftView extends BaseGiftView {
         f fVar;
         if (this.q >= 0 && this.q < this.i.size() && (fVar = this.i.get(this.q)) != null) {
             this.c = fVar.b;
-            this.olb = fVar.nRD;
+            this.oAu = fVar.ogV;
             this.e = fVar.d;
         }
     }
@@ -348,12 +348,12 @@ public class VerticalRoomGiftView extends BaseGiftView {
     @Override // com.kascend.chushou.widget.gifts.BaseGiftView, android.view.ViewGroup, android.view.View
     public void onDetachedFromWindow() {
         super.onDetachedFromWindow();
-        this.olZ.dispose();
-        this.olW = null;
-        this.olX = null;
+        this.oBs.dispose();
+        this.oBp = null;
+        this.oBq = null;
         this.c = null;
         this.e = -1;
-        this.olb = null;
+        this.oAu = null;
         if (this.i != null) {
             this.i.clear();
             this.i = null;

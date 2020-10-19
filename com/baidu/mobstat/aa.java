@@ -1,9 +1,11 @@
 package com.baidu.mobstat;
 
 import android.os.Build;
-/* loaded from: classes15.dex */
+/* loaded from: classes17.dex */
 public final class aa {
-    public static boolean a = true;
+
+    /* renamed from: a  reason: collision with root package name */
+    public static boolean f2515a = true;
     public static final String b;
     public static final String c;
 

@@ -1,5 +1,5 @@
 package tv.chushou.zues.widget.psts;
 /* loaded from: classes6.dex */
 public interface a {
-    void zv(boolean z);
+    void Ac(boolean z);
 }

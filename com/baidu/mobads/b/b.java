@@ -7,9 +7,11 @@ import com.baidu.mobads.interfaces.utils.IXAdLogger;
 import com.baidu.mobads.openad.a.d;
 import com.baidu.mobads.utils.XAdSDKFoundationFacade;
 import java.io.File;
-/* loaded from: classes3.dex */
+/* loaded from: classes7.dex */
 public class b extends d {
-    protected final IXAdLogger a;
+
+    /* renamed from: a  reason: collision with root package name */
+    protected final IXAdLogger f2317a;
     private a d;
     private String e;
     private File f;
@@ -17,7 +19,7 @@ public class b extends d {
 
     public b(Context context, String str, File file, boolean z) {
         super(context);
-        this.a = XAdSDKFoundationFacade.getInstance().getAdLogger();
+        this.f2317a = XAdSDKFoundationFacade.getInstance().getAdLogger();
         this.e = str;
         this.f = file;
         this.g = Boolean.valueOf(z);
@@ -36,7 +38,7 @@ public class b extends d {
             }
             XAdSDKFoundationFacade.getInstance().getPackageUtils().b(this.b, this.f);
         } catch (Exception e) {
-            this.a.e("XAdInstallController", "");
+            this.f2317a.e("XAdInstallController", "");
         }
     }
 }

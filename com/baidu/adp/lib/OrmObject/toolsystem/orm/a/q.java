@@ -7,34 +7,34 @@ import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class q implements h {
-    private SparseArray<?> JP;
+    private SparseArray<?> Kf;
 
     public q(SparseArray<?> sparseArray) {
-        this.JP = sparseArray;
+        this.Kf = sparseArray;
     }
 
     @Override // com.baidu.adp.lib.OrmObject.toolsystem.orm.a.h
     public Object a(com.baidu.adp.lib.OrmObject.toolsystem.orm.d.c cVar) {
-        Type[] lP = cVar.lP();
+        Type[] lQ = cVar.lQ();
         JSONObject jSONObject = new JSONObject();
-        int size = this.JP.size();
+        int size = this.Kf.size();
         for (int i = 0; i < size; i++) {
-            int keyAt = this.JP.keyAt(i);
-            Object obj = this.JP.get(keyAt);
+            int keyAt = this.Kf.keyAt(i);
+            Object obj = this.Kf.get(keyAt);
             if (obj != null) {
-                if (lP != null && lP.length >= 1) {
-                    Object a = com.baidu.adp.lib.OrmObject.toolsystem.orm.d.f.v(obj).a(new com.baidu.adp.lib.OrmObject.toolsystem.orm.d.c(lP[0]));
-                    if (a != null) {
+                if (lQ != null && lQ.length >= 1) {
+                    Object a2 = com.baidu.adp.lib.OrmObject.toolsystem.orm.d.f.v(obj).a(new com.baidu.adp.lib.OrmObject.toolsystem.orm.d.c(lQ[0]));
+                    if (a2 != null) {
                         try {
-                            jSONObject.put(String.valueOf(keyAt), a);
+                            jSONObject.put(String.valueOf(keyAt), a2);
                         } catch (JSONException e) {
                         }
                     }
                 } else {
-                    Object a2 = com.baidu.adp.lib.OrmObject.toolsystem.orm.d.f.v(obj).a(new com.baidu.adp.lib.OrmObject.toolsystem.orm.d.c(cVar.getFieldClass()));
-                    if (a2 != null) {
+                    Object a3 = com.baidu.adp.lib.OrmObject.toolsystem.orm.d.f.v(obj).a(new com.baidu.adp.lib.OrmObject.toolsystem.orm.d.c(cVar.getFieldClass()));
+                    if (a3 != null) {
                         try {
-                            jSONObject.put(String.valueOf(keyAt), a2);
+                            jSONObject.put(String.valueOf(keyAt), a3);
                         } catch (JSONException e2) {
                         }
                     }
@@ -46,11 +46,11 @@ public class q implements h {
 
     @Override // com.baidu.adp.lib.OrmObject.toolsystem.orm.a.h
     public Object b(com.baidu.adp.lib.OrmObject.toolsystem.orm.d.c cVar) {
-        Object a = a(cVar);
-        if (a == null || !(a instanceof JSONObject)) {
+        Object a2 = a(cVar);
+        if (a2 == null || !(a2 instanceof JSONObject)) {
             return null;
         }
-        return a.toString();
+        return a2.toString();
     }
 
     @Override // com.baidu.adp.lib.OrmObject.toolsystem.orm.a.h
@@ -60,26 +60,26 @@ public class q implements h {
 
     @Override // com.baidu.adp.lib.OrmObject.toolsystem.orm.a.h
     public Object d(com.baidu.adp.lib.OrmObject.toolsystem.orm.d.c cVar) {
-        return this.JP;
+        return this.Kf;
     }
 
     @Override // com.baidu.adp.lib.OrmObject.toolsystem.orm.a.h
     public Object e(com.baidu.adp.lib.OrmObject.toolsystem.orm.d.c cVar) {
-        Object a = a(cVar);
-        if (a != null) {
-            if (a instanceof JSONObject) {
-                return a.toString();
+        Object a2 = a(cVar);
+        if (a2 != null) {
+            if (a2 instanceof JSONObject) {
+                return a2.toString();
             }
-            if (a instanceof JSONArray) {
-                return a.toString();
+            if (a2 instanceof JSONArray) {
+                return a2.toString();
             }
-            return a;
+            return a2;
         }
         return null;
     }
 
     @Override // com.baidu.adp.lib.OrmObject.toolsystem.orm.a.h
     public Object f(com.baidu.adp.lib.OrmObject.toolsystem.orm.d.c cVar) {
-        return this.JP;
+        return this.Kf;
     }
 }

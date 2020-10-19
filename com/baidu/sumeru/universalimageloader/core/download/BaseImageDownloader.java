@@ -17,7 +17,7 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.net.HttpURLConnection;
 import java.net.URL;
-/* loaded from: classes9.dex */
+/* loaded from: classes12.dex */
 public class BaseImageDownloader implements ImageDownloader {
     protected static final String ALLOWED_URI_CHARS = "@#&=*+-_.,:!?()/~'%";
     protected static final int BUFFER_SIZE = 32768;

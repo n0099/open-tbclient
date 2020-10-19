@@ -12,10 +12,10 @@ import com.baidu.android.imsdk.upload.action.track.Msg;
 import com.baidu.android.imsdk.upload.action.track.Request;
 import com.baidu.android.imsdk.upload.action.track.Ui;
 import com.baidu.android.imsdk.utils.Utility;
-/* loaded from: classes9.dex */
+/* loaded from: classes5.dex */
 public class IMTrack {
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes5.dex */
     public static final class UiBuilder {
         public static final String CATEGORY_CLICK = "category_click";
         public static final String CATEGORY_MI = "category_mi";
@@ -74,7 +74,7 @@ public class IMTrack {
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes5.dex */
     public static final class CrashBuilder {
         public static final int CRASH_TYPE_CATCH = 201001;
         public static final int CRASH_TYPE_DEFAULT = 201002;
@@ -111,7 +111,7 @@ public class IMTrack {
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes5.dex */
     public static final class DbBuilder {
         public static final String ACTION_ADD = "add";
         public static final String ACTION_DELETE = "delete";
@@ -184,7 +184,7 @@ public class IMTrack {
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes5.dex */
     public static final class ConnectionBuilder {
         public static final int CONN_TYPE_SOCKET_CONNECTION_ENV_FAIL = 401203;
         public static final int CONN_TYPE_SOCKET_CONNECTION_EXCEPTION = 401205;
@@ -246,7 +246,7 @@ public class IMTrack {
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes5.dex */
     public static final class RequestBuilder {
         public static final int REQUEST_INIT = 501100;
         public static final int REQUEST_JOIN = 501112;
@@ -306,7 +306,7 @@ public class IMTrack {
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes5.dex */
     public static final class AckBuilder {
         public static final String PROXY_TYPE = "proxy";
         public static final String PUSH_TYPE = "push";
@@ -352,7 +352,7 @@ public class IMTrack {
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes5.dex */
     public static final class MsgBuilder {
         private Context context;
         private Msg msg = new Msg();
@@ -446,7 +446,7 @@ public class IMTrack {
     }
 
     /* renamed from: com.baidu.android.imsdk.upload.action.IMTrack$2  reason: invalid class name */
-    /* loaded from: classes9.dex */
+    /* loaded from: classes5.dex */
     static /* synthetic */ class AnonymousClass2 {
         static final /* synthetic */ int[] $SwitchMap$com$baidu$android$imsdk$upload$action$pb$IMPushPb$ActionType = new int[IMPushPb.ActionType.values().length];
 

@@ -12,18 +12,20 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes15.dex */
+/* loaded from: classes17.dex */
 public class CooperService implements ICooperService {
-    private static CooperService a;
+
+    /* renamed from: a  reason: collision with root package name */
+    private static CooperService f2488a;
     private HeadObject b = new HeadObject();
 
     public static synchronized CooperService instance() {
         CooperService cooperService;
         synchronized (CooperService.class) {
-            if (a == null) {
-                a = new CooperService();
+            if (f2488a == null) {
+                f2488a = new CooperService();
             }
-            cooperService = a;
+            cooperService = f2488a;
         }
         return cooperService;
     }

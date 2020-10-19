@@ -5,11 +5,13 @@ import com.bun.miitmdid.supplier.InnerIdSupplier;
 import com.bun.miitmdid.utils.SupplierListener;
 /* loaded from: classes11.dex */
 public class a implements InnerIdSupplier {
-    private Context a;
+
+    /* renamed from: a  reason: collision with root package name */
+    private Context f3988a;
 
     public a(Context context) {
         com.heytap.openid.a.a.a(context);
-        this.a = context;
+        this.f3988a = context;
     }
 
     @Override // com.bun.miitmdid.supplier.InnerIdSupplier
@@ -45,7 +47,7 @@ public class a implements InnerIdSupplier {
         /*
             r3 = this;
             java.lang.String r1 = ""
-            android.content.Context r0 = r3.a     // Catch: java.lang.Exception -> Lf
+            android.content.Context r0 = r3.f3988a     // Catch: java.lang.Exception -> Lf
             java.lang.String r0 = com.heytap.openid.a.a.d(r0)     // Catch: java.lang.Exception -> Lf
             if (r0 != 0) goto Le
             java.lang.String r0 = ""
@@ -77,7 +79,7 @@ public class a implements InnerIdSupplier {
         /*
             r3 = this;
             java.lang.String r1 = ""
-            android.content.Context r0 = r3.a     // Catch: java.lang.Exception -> Lf
+            android.content.Context r0 = r3.f3988a     // Catch: java.lang.Exception -> Lf
             java.lang.String r0 = com.heytap.openid.a.a.b(r0)     // Catch: java.lang.Exception -> Lf
             if (r0 != 0) goto Le
             java.lang.String r0 = ""
@@ -114,7 +116,7 @@ public class a implements InnerIdSupplier {
         /*
             r3 = this;
             java.lang.String r1 = ""
-            android.content.Context r0 = r3.a     // Catch: java.lang.Exception -> Lf
+            android.content.Context r0 = r3.f3988a     // Catch: java.lang.Exception -> Lf
             java.lang.String r0 = com.heytap.openid.a.a.c(r0)     // Catch: java.lang.Exception -> Lf
             if (r0 != 0) goto Le
             java.lang.String r0 = ""

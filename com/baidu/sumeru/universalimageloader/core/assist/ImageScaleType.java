@@ -1,5 +1,5 @@
 package com.baidu.sumeru.universalimageloader.core.assist;
-/* loaded from: classes9.dex */
+/* loaded from: classes12.dex */
 public enum ImageScaleType {
     NONE,
     IN_SAMPLE_POWER_OF_2,

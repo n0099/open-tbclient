@@ -13,41 +13,41 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes4.dex */
 public class b extends BdBaseModel {
-    private HttpMessageListener fSL;
-    private a gjO;
-    private com.baidu.tieba.ala.live.personcenter.admin.b.a gjT;
+    private HttpMessageListener gfe;
+    private a gyh;
+    private com.baidu.tieba.ala.live.personcenter.admin.b.a gym;
 
     /* loaded from: classes4.dex */
     public interface a {
-        void an(int i, String str);
+        void ay(int i, String str);
 
-        void kS(boolean z);
+        void lq(boolean z);
     }
 
     public b(TbPageContext tbPageContext) {
         super(tbPageContext);
-        this.fSL = new HttpMessageListener(1021078, true) { // from class: com.baidu.tieba.ala.live.personcenter.admin.c.b.1
+        this.gfe = new HttpMessageListener(1021078, true) { // from class: com.baidu.tieba.ala.live.personcenter.admin.c.b.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.live.adp.framework.listener.MessageListener
             public void onMessage(HttpResponsedMessage httpResponsedMessage) {
                 if (httpResponsedMessage instanceof AlaAdminListResponseMessage) {
                     AlaAdminListResponseMessage alaAdminListResponseMessage = (AlaAdminListResponseMessage) httpResponsedMessage;
                     if (!alaAdminListResponseMessage.isSuccess()) {
-                        if (b.this.gjO != null) {
-                            b.this.gjO.an(alaAdminListResponseMessage.getError(), alaAdminListResponseMessage.getErrorString());
+                        if (b.this.gyh != null) {
+                            b.this.gyh.ay(alaAdminListResponseMessage.getError(), alaAdminListResponseMessage.getErrorString());
                             return;
                         }
                         return;
                     }
-                    b.this.gjT = alaAdminListResponseMessage.bMB();
-                    if (b.this.gjO != null) {
-                        b.this.gjO.kS(false);
+                    b.this.gym = alaAdminListResponseMessage.bPS();
+                    if (b.this.gyh != null) {
+                        b.this.gyh.lq(false);
                     }
                 }
             }
         };
         registerTask();
-        registerListener(this.fSL);
+        registerListener(this.gfe);
     }
 
     private void registerTask() {
@@ -59,13 +59,13 @@ public class b extends BdBaseModel {
         MessageManager.getInstance().registerTask(tbHttpMessageTask);
     }
 
-    public void bMC() {
+    public void bPT() {
         sendMessage(new com.baidu.tieba.ala.live.personcenter.admin.message.a());
     }
 
     @Override // com.baidu.live.adp.base.BdBaseModel
     protected boolean loadData() {
-        bMC();
+        bPT();
         return true;
     }
 
@@ -76,30 +76,30 @@ public class b extends BdBaseModel {
     }
 
     public List<IAdapterData> getUserList() {
-        return hasData() ? new ArrayList(this.gjT.getUserList()) : new ArrayList();
+        return hasData() ? new ArrayList(this.gym.getUserList()) : new ArrayList();
     }
 
-    public int bMA() {
+    public int bPR() {
         if (hasData()) {
-            return this.gjT.bMA();
+            return this.gym.bPR();
         }
         return -1;
     }
 
     public void a(a aVar) {
-        this.gjO = aVar;
+        this.gyh = aVar;
     }
 
     public void a(com.baidu.tieba.ala.live.personcenter.admin.b.b bVar) {
         if (hasData()) {
-            this.gjT.getUserList().remove(bVar);
-            if (this.gjO != null) {
-                this.gjO.kS(false);
+            this.gym.getUserList().remove(bVar);
+            if (this.gyh != null) {
+                this.gyh.lq(false);
             }
         }
     }
 
     private boolean hasData() {
-        return (this.gjT == null || this.gjT.getUserList() == null || this.gjT.getUserList().isEmpty()) ? false : true;
+        return (this.gym == null || this.gym.getUserList() == null || this.gym.getUserList().isEmpty()) ? false : true;
     }
 }

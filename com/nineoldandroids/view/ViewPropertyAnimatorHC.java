@@ -9,7 +9,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Iterator;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes14.dex */
+/* loaded from: classes9.dex */
 public class ViewPropertyAnimatorHC extends ViewPropertyAnimator {
     private static final int ALPHA = 512;
     private static final int NONE = 0;
@@ -42,7 +42,7 @@ public class ViewPropertyAnimatorHC extends ViewPropertyAnimator {
     private HashMap<Animator, PropertyBundle> mAnimatorMap = new HashMap<>();
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes14.dex */
+    /* loaded from: classes9.dex */
     public static class PropertyBundle {
         ArrayList<NameValuesHolder> mNameValuesHolder;
         int mPropertyMask;
@@ -68,7 +68,7 @@ public class ViewPropertyAnimatorHC extends ViewPropertyAnimator {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes14.dex */
+    /* loaded from: classes9.dex */
     public static class NameValuesHolder {
         float mDeltaValue;
         float mFromValue;
@@ -403,7 +403,7 @@ public class ViewPropertyAnimatorHC extends ViewPropertyAnimator {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes14.dex */
+    /* loaded from: classes9.dex */
     public class AnimatorEventListener implements Animator.AnimatorListener, ValueAnimator.AnimatorUpdateListener {
         private AnimatorEventListener() {
         }

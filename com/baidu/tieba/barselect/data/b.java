@@ -7,12 +7,12 @@ import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.message.http.JsonHttpResponsedMessage;
 import com.baidu.tbadk.task.TbHttpMessageTask;
-/* loaded from: classes20.dex */
+/* loaded from: classes21.dex */
 public class b {
-    private TbPageContext ehG;
+    private TbPageContext etO;
 
     public b(TbPageContext tbPageContext) {
-        this.ehG = tbPageContext;
+        this.etO = tbPageContext;
         TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_CHECK_CARD_INFO, TbConfig.SERVER_ADDRESS + "c/c/bawu/verifyIdentityInfo");
         tbHttpMessageTask.setResponsedClass(JsonHttpResponsedMessage.class);
         tbHttpMessageTask.setIsNeedAddCommenParam(true);
@@ -21,7 +21,7 @@ public class b {
         MessageManager.getInstance().registerTask(tbHttpMessageTask);
     }
 
-    public void eA(long j) {
+    public void eR(long j) {
         HttpMessage httpMessage = new HttpMessage(CmdConfigHttp.CMD_CHECK_CARD_INFO);
         httpMessage.addParam("fid", j);
         MessageManager.getInstance().sendMessage(httpMessage);

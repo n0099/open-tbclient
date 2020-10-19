@@ -9,9 +9,11 @@ import java.io.File;
 import java.net.URL;
 import java.util.Observable;
 import java.util.Observer;
-/* loaded from: classes3.dex */
+/* loaded from: classes7.dex */
 public class i {
-    private static long a = 30000000;
+
+    /* renamed from: a  reason: collision with root package name */
+    private static long f2439a = 30000000;
     private Context b;
 
     public i(Context context) {
@@ -19,7 +21,7 @@ public class i {
     }
 
     public static void a(int i) {
-        a = i * 1000 * 1000;
+        f2439a = i * 1000 * 1000;
     }
 
     public void a(String str) {
@@ -120,7 +122,7 @@ public class i {
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes7.dex */
     class a implements Observer {
         private final Handler b;
         private final String c;

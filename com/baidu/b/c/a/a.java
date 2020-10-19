@@ -1,5 +1,7 @@
 package com.baidu.b.c.a;
-/* loaded from: classes3.dex */
+/* loaded from: classes7.dex */
 public interface a {
-    public static final int[] a = {16, 24, 32};
+
+    /* renamed from: a  reason: collision with root package name */
+    public static final int[] f1255a = {16, 24, 32};
 }

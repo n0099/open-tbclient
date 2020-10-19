@@ -9,7 +9,7 @@ import java.util.NoSuchElementException;
 import javax.net.ssl.SSLSession;
 import javax.net.ssl.SSLSessionContext;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes8.dex */
+/* loaded from: classes5.dex */
 public abstract class AbstractSessionContext implements SSLSessionContext {
     private static final int DEFAULT_SESSION_TIMEOUT_SECONDS = 28800;
     private volatile int maximumSize;

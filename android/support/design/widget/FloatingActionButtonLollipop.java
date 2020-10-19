@@ -17,7 +17,7 @@ import android.support.v4.graphics.drawable.DrawableCompat;
 import android.view.View;
 import java.util.ArrayList;
 @RequiresApi(21)
-/* loaded from: classes5.dex */
+/* loaded from: classes16.dex */
 class FloatingActionButtonLollipop extends FloatingActionButtonImpl {
     private InsetDrawable mInsetDrawable;
 
@@ -161,7 +161,7 @@ class FloatingActionButtonLollipop extends FloatingActionButtonImpl {
         rect.set(0, 0, 0, 0);
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes16.dex */
     static class AlwaysStatefulGradientDrawable extends GradientDrawable {
         AlwaysStatefulGradientDrawable() {
         }

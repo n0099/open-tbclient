@@ -15,7 +15,7 @@ public class h {
         return TextUtils.isEmpty(flvUrl) ? alaLiveInfoData.session_info.getRtmpUrl(AlaLiveStreamSessionInfo.STREAM_LEVEL_DEFAULT) : flvUrl;
     }
 
-    public static String hm(String str) {
+    public static String hD(String str) {
         if (str == null || TextUtils.isEmpty(str)) {
             return null;
         }
@@ -32,19 +32,19 @@ public class h {
         return null;
     }
 
-    public static boolean aD(String str, String str2) {
+    public static boolean aG(String str, String str2) {
         if (str == null || TextUtils.isEmpty(str) || str2 == null || TextUtils.isEmpty(str2)) {
             return false;
         }
-        String hm = hm(str);
-        String hm2 = hm(str2);
-        if (hm == null || hm2 == null) {
+        String hD = hD(str);
+        String hD2 = hD(str2);
+        if (hD == null || hD2 == null) {
             return str.equals(str2);
         }
-        return hm.equals(hm2);
+        return hD.equals(hD2);
     }
 
-    public static boolean aE(String str, String str2) {
+    public static boolean aH(String str, String str2) {
         if (str == null || TextUtils.isEmpty(str) || str2 == null || TextUtils.isEmpty(str2)) {
             return false;
         }

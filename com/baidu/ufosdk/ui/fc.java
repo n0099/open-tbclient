@@ -2,20 +2,22 @@ package com.baidu.ufosdk.ui;
 
 import android.view.View;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes21.dex */
+/* loaded from: classes22.dex */
 public final class fc implements View.OnClickListener {
-    final /* synthetic */ fa a;
+
+    /* renamed from: a  reason: collision with root package name */
+    final /* synthetic */ fa f3874a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public fc(fa faVar) {
-        this.a = faVar;
+        this.f3874a = faVar;
     }
 
     @Override // android.view.View.OnClickListener
     public final void onClick(View view) {
-        if (this.a == null || !this.a.isShowing()) {
+        if (this.f3874a == null || !this.f3874a.isShowing()) {
             return;
         }
-        this.a.dismiss();
+        this.f3874a.dismiss();
     }
 }

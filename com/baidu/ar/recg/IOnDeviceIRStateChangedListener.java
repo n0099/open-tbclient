@@ -1,5 +1,5 @@
 package com.baidu.ar.recg;
-/* loaded from: classes10.dex */
+/* loaded from: classes14.dex */
 public interface IOnDeviceIRStateChangedListener {
     void onStateChanged(OnDeviceIRState onDeviceIRState, IOnDeviceIRResult iOnDeviceIRResult);
 }

@@ -10,20 +10,20 @@ import com.baidu.webkit.internal.ETAG;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes24.dex */
+/* loaded from: classes15.dex */
 public class b {
     private static final boolean DEBUG = com.baidu.swan.pms.d.DEBUG;
-    private static volatile b dJe;
+    private static volatile b dVf;
 
-    public static b aVv() {
-        if (dJe == null) {
+    public static b aYe() {
+        if (dVf == null) {
             synchronized (b.class) {
-                if (dJe == null) {
-                    dJe = new b();
+                if (dVf == null) {
+                    dVf = new b();
                 }
             }
         }
-        return dJe;
+        return dVf;
     }
 
     public void b(JSONArray jSONArray, g gVar, g gVar2, g gVar3) {
@@ -39,7 +39,7 @@ public class b {
             if (gVar3 == null) {
                 cVar = null;
             } else {
-                cVar = gVar3.mM("so");
+                cVar = gVar3.ny("so");
             }
             if (DEBUG) {
                 Log.i("SoBundleId", "updateConfig: soNodeHandler=" + cVar);
@@ -83,7 +83,7 @@ public class b {
                                     com.baidu.swan.pms.model.d dVar = (com.baidu.swan.pms.model.d) com.baidu.swan.pms.utils.e.a(jSONObject2, new com.baidu.swan.pms.model.d());
                                     if (dVar != null) {
                                         a(dVar, fVar);
-                                        aVar.dJc = dVar;
+                                        aVar.dVd = dVar;
                                         break;
                                     } else {
                                         continue;
@@ -92,7 +92,7 @@ public class b {
                                     com.baidu.swan.pms.model.d dVar2 = (com.baidu.swan.pms.model.d) com.baidu.swan.pms.utils.e.a(jSONObject2, new com.baidu.swan.pms.model.d());
                                     if (dVar2 != null) {
                                         a(dVar2, fVar2);
-                                        aVar2.dJb = dVar2;
+                                        aVar2.dVc = dVar2;
                                         break;
                                     } else {
                                         continue;
@@ -101,7 +101,7 @@ public class b {
                                     com.baidu.swan.pms.model.b bVar = (com.baidu.swan.pms.model.b) com.baidu.swan.pms.utils.e.a(jSONObject2, new com.baidu.swan.pms.model.b());
                                     if (bVar != null) {
                                         a(bVar, fVar);
-                                        aVar.dIp = bVar;
+                                        aVar.dUq = bVar;
                                         break;
                                     } else {
                                         continue;
@@ -131,8 +131,8 @@ public class b {
                 Log.i("SoBundleId", "updateConfig: end parse soNodeHandler=" + cVar);
             }
             if (gVar != null) {
-                if (fVar.aVw() == 0) {
-                    gVar.agl();
+                if (fVar.aYf() == 0) {
+                    gVar.aiW();
                 } else {
                     gVar.a(fVar);
                     com.baidu.swan.pms.c.a.a.a(aVar, gVar);
@@ -142,8 +142,8 @@ public class b {
                 Log.i("SoBundleId", "updateConfig: handle core end");
             }
             if (gVar2 != null) {
-                if (fVar2.aVw() == 0) {
-                    gVar2.agl();
+                if (fVar2.aYf() == 0) {
+                    gVar2.aiW();
                 } else {
                     gVar2.a(fVar2);
                     com.baidu.swan.pms.c.a.a.a(aVar2, gVar2);
@@ -153,7 +153,7 @@ public class b {
                 Log.i("SoBundleId", "updateConfig: handle game end");
             }
             if (cVar != null) {
-                cVar.amD();
+                cVar.app();
             }
             if (DEBUG) {
                 Log.i("SoBundleId", "updateConfig: handle so end");

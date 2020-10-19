@@ -1,8 +1,8 @@
 package com.baidu.platform.comapi.walknavi.d.a.f;
-/* loaded from: classes3.dex */
+/* loaded from: classes7.dex */
 public class f {
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes7.dex */
     public interface a<T> {
         void a(T t);
 

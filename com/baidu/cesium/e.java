@@ -5,7 +5,7 @@ import java.io.UnsupportedEncodingException;
 import java.util.Iterator;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes18.dex */
+/* loaded from: classes6.dex */
 public class e {
     public String d;
     public String e;
@@ -86,8 +86,8 @@ public class e {
             return null;
         }
         try {
-            byte[] a = com.baidu.cesium.c.a.g.a();
-            return new String(com.baidu.cesium.c.a.c.c(a, a, com.baidu.cesium.d.a.a(str.getBytes())));
+            byte[] a2 = com.baidu.cesium.c.a.g.a();
+            return new String(com.baidu.cesium.c.a.c.c(a2, a2, com.baidu.cesium.d.a.a(str.getBytes())));
         } catch (Exception e) {
             com.baidu.cesium.f.c.a(e);
             return "";
@@ -108,8 +108,8 @@ public class e {
             return null;
         }
         try {
-            byte[] a = com.baidu.cesium.c.a.g.a();
-            return com.baidu.cesium.d.a.a(com.baidu.cesium.c.a.c.a(a, a, str.getBytes()), "utf-8");
+            byte[] a2 = com.baidu.cesium.c.a.g.a();
+            return com.baidu.cesium.d.a.a(com.baidu.cesium.c.a.c.a(a2, a2, str.getBytes()), "utf-8");
         } catch (UnsupportedEncodingException e) {
             com.baidu.cesium.f.c.a(e);
             return "";

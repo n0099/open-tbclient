@@ -3,22 +3,22 @@ package com.tb.airbnb.lottie.a.b;
 import android.graphics.Path;
 import android.graphics.PointF;
 import android.support.annotation.Nullable;
-/* loaded from: classes17.dex */
+/* loaded from: classes16.dex */
 public class h extends com.tb.airbnb.lottie.e.a<PointF> {
     @Nullable
     private Path path;
 
     public h(com.tb.airbnb.lottie.d dVar, com.tb.airbnb.lottie.e.a<PointF> aVar) {
-        super(dVar, aVar.GX, aVar.GY, aVar.GZ, aVar.AX, aVar.Ha);
-        boolean z = (this.GY == 0 || this.GX == 0 || !((PointF) this.GX).equals(((PointF) this.GY).x, ((PointF) this.GY).y)) ? false : true;
-        if (this.GY != 0 && !z) {
-            this.path = com.tb.airbnb.lottie.d.f.a((PointF) this.GX, (PointF) this.GY, aVar.Hd, aVar.He);
+        super(dVar, aVar.Hn, aVar.Ho, aVar.Hp, aVar.Bo, aVar.Hq);
+        boolean z = (this.Ho == 0 || this.Hn == 0 || !((PointF) this.Hn).equals(((PointF) this.Ho).x, ((PointF) this.Ho).y)) ? false : true;
+        if (this.Ho != 0 && !z) {
+            this.path = com.tb.airbnb.lottie.d.f.a((PointF) this.Hn, (PointF) this.Ho, aVar.Ht, aVar.Hu);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     @Nullable
-    public Path iV() {
+    public Path iW() {
         return this.path;
     }
 }

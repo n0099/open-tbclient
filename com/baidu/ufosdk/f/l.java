@@ -3,12 +3,14 @@ package com.baidu.ufosdk.f;
 import android.os.Build;
 import android.text.TextUtils;
 import com.baidu.android.util.devices.RomUtils;
-/* loaded from: classes21.dex */
+/* loaded from: classes22.dex */
 public final class l {
-    private static int a = 0;
+
+    /* renamed from: a  reason: collision with root package name */
+    private static int f3720a = 0;
 
     public static int a() {
-        if (a == 0) {
+        if (f3720a == 0) {
             String str = Build.MODEL;
             String str2 = Build.MANUFACTURER;
             String str3 = Build.BRAND;
@@ -22,23 +24,23 @@ public final class l {
                 str3 = str3.toLowerCase();
             }
             if (TextUtils.isEmpty(str) || TextUtils.isEmpty(str2) || TextUtils.isEmpty(str3)) {
-                a = 1;
+                f3720a = 1;
             } else if (str.contains(RomUtils.MANUFACTURER_XIAOMI) || str2.contains(RomUtils.MANUFACTURER_XIAOMI) || str3.contains(RomUtils.MANUFACTURER_XIAOMI)) {
-                a = 2;
+                f3720a = 2;
             } else if (str.contains("samsung") || str2.contains("samsung") || str3.contains("samsung")) {
-                a = 3;
+                f3720a = 3;
             } else if (str.contains(RomUtils.MANUFACTURER_HUAWEI) || str2.contains(RomUtils.MANUFACTURER_HUAWEI) || str3.contains(RomUtils.MANUFACTURER_HUAWEI)) {
-                a = 4;
+                f3720a = 4;
             } else if (str.contains(RomUtils.MANUFACTURER_VIVO) || str2.contains(RomUtils.MANUFACTURER_VIVO) || str3.contains(RomUtils.MANUFACTURER_VIVO)) {
-                a = 5;
+                f3720a = 5;
             } else if (str.contains(RomUtils.MANUFACTURER_OPPO) || str2.contains(RomUtils.MANUFACTURER_OPPO) || str3.contains(RomUtils.MANUFACTURER_OPPO)) {
-                a = 6;
+                f3720a = 6;
             } else if (str.contains(RomUtils.MANUFACTURER_MEIZU) || str2.contains(RomUtils.MANUFACTURER_MEIZU) || str3.contains(RomUtils.MANUFACTURER_MEIZU)) {
-                a = 7;
+                f3720a = 7;
             } else {
-                a = 1;
+                f3720a = 1;
             }
         }
-        return a;
+        return f3720a;
     }
 }

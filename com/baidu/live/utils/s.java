@@ -3,59 +3,59 @@ package com.baidu.live.utils;
 import android.text.TextUtils;
 /* loaded from: classes4.dex */
 public class s {
-    public static String PT() {
-        return r.btQ;
+    public static String QY() {
+        return r.bxD;
     }
 
-    public static String hG(String str) {
-        return !TextUtils.isEmpty(str) ? PT() + "/" + str : "";
+    public static String hX(String str) {
+        return !TextUtils.isEmpty(str) ? QY() + "/" + str : "";
     }
 
-    public static String hH(String str) {
-        return !TextUtils.isEmpty(str) ? hG(str) + "/dest" : "";
+    public static String hY(String str) {
+        return !TextUtils.isEmpty(str) ? hX(str) + "/dest" : "";
     }
 
-    public static String hI(String str) {
-        return !TextUtils.isEmpty(str) ? hG(str) + "/video" : "";
+    public static String hZ(String str) {
+        return !TextUtils.isEmpty(str) ? hX(str) + "/video" : "";
     }
 
-    public static String hJ(String str) {
-        return !TextUtils.isEmpty(str) ? hG(str) + "/frame" : "";
+    public static String ia(String str) {
+        return !TextUtils.isEmpty(str) ? hX(str) + "/frame" : "";
     }
 
-    public static String PU() {
-        return r.btR;
+    public static String QZ() {
+        return r.bxE;
     }
 
-    public static String hK(String str) {
-        return !TextUtils.isEmpty(str) ? PU() + "/" + str : "";
+    public static String ib(String str) {
+        return !TextUtils.isEmpty(str) ? QZ() + "/" + str : "";
     }
 
-    public static String hL(String str) {
-        return !TextUtils.isEmpty(str) ? hK(str) + "/dest" : "";
+    public static String ic(String str) {
+        return !TextUtils.isEmpty(str) ? ib(str) + "/dest" : "";
     }
 
-    public static String hM(String str) {
-        return !TextUtils.isEmpty(str) ? hK(str) + "/video" : "";
+    public static String id(String str) {
+        return !TextUtils.isEmpty(str) ? ib(str) + "/video" : "";
     }
 
-    public static String hN(String str) {
-        return !TextUtils.isEmpty(str) ? hK(str) + "/frame" : "";
+    public static String ie(String str) {
+        return !TextUtils.isEmpty(str) ? ib(str) + "/frame" : "";
     }
 
-    public static String PV() {
-        return r.btS;
+    public static String Ra() {
+        return r.bxF;
     }
 
-    public static String PW() {
-        return PV() + "/start";
+    public static String Rb() {
+        return Ra() + "/start";
     }
 
-    public static String PX() {
-        return PW() + "/dest";
+    public static String Rc() {
+        return Rb() + "/dest";
     }
 
-    public static String PY() {
-        return PW() + "/video";
+    public static String Rd() {
+        return Rb() + "/video";
     }
 }

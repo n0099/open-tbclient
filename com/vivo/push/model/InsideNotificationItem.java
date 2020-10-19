@@ -1,5 +1,5 @@
 package com.vivo.push.model;
-/* loaded from: classes12.dex */
+/* loaded from: classes15.dex */
 public class InsideNotificationItem extends UPSNotificationMessage {
     private int mAppType;
     private boolean mIsShowBigPicOnMobileNet;

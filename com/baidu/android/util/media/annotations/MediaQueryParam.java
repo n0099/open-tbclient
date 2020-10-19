@@ -6,7 +6,7 @@ import java.lang.annotation.RetentionPolicy;
 import java.lang.annotation.Target;
 @Target({ElementType.TYPE})
 @Retention(RetentionPolicy.RUNTIME)
-/* loaded from: classes18.dex */
+/* loaded from: classes15.dex */
 public @interface MediaQueryParam {
     public static final String SORT_ASC = " ASC";
     public static final String SORT_DESC = " DESC";

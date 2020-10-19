@@ -19,15 +19,15 @@ import javax.crypto.spec.IvParameterSpec;
 import javax.crypto.spec.SecretKeySpec;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes8.dex */
 public class a {
     private static final boolean DEBUG = b.DEBUG;
 
-    public static boolean dm(@NonNull Context context) {
+    public static boolean ds(@NonNull Context context) {
         return (context.getResources().getConfiguration().screenLayout & 15) >= 3;
     }
 
-    public static int dn(Context context) {
+    public static int dt(Context context) {
         TelephonyManager telephonyManager;
         String simOperator;
         if (context != null && (telephonyManager = (TelephonyManager) context.getSystemService("phone")) != null && (simOperator = telephonyManager.getSimOperator()) != null) {
@@ -42,7 +42,7 @@ public class a {
         return 0;
     }
 
-    public static int aHD() {
+    public static int aKm() {
         String networkClass = SwanAppNetworkUtils.getNetworkClass();
         if ("wifi".equals(networkClass)) {
             return 1;
@@ -60,7 +60,7 @@ public class a {
     }
 
     @Nullable
-    public static String tG(String str) {
+    public static String us(String str) {
         try {
             Cipher cipher = Cipher.getInstance(e.p);
             cipher.init(1, new SecretKeySpec((EncryptConstant.getPartRecommendAesKey() + "rtad@mic").getBytes(), e.q), new IvParameterSpec((EncryptConstant.getPartRecommendAesIv() + "21248000").getBytes()));
@@ -75,7 +75,7 @@ public class a {
                     e2.printStackTrace();
                 }
             }
-            tH(jSONObject.toString());
+            ut(jSONObject.toString());
             return null;
         }
     }
@@ -85,7 +85,7 @@ public class a {
         boolean z;
         int i;
         if (aVar != null && bVar != null) {
-            String str = TextUtils.isEmpty(bVar.djn) ? "unknown" : bVar.djn;
+            String str = TextUtils.isEmpty(bVar.dvt) ? "unknown" : bVar.dvt;
             switch (str.hashCode()) {
                 case -1395470197:
                     if (str.equals("bd09ll")) {
@@ -136,18 +136,18 @@ public class a {
                     i = -1;
                     break;
             }
-            aVar.dje.coordType = i;
-            aVar.dje.latitude = bVar.latitude;
-            aVar.dje.longitude = bVar.longitude;
+            aVar.dvk.coordType = i;
+            aVar.dvk.latitude = bVar.latitude;
+            aVar.dvk.longitude = bVar.longitude;
         }
     }
 
-    public static void tH(String str) {
+    public static void ut(String str) {
         if (!TextUtils.isEmpty(str)) {
             if (DEBUG) {
                 Log.d("recommend", "reportInfoWhenResponseIsNull: " + str);
             }
-            new c.a(10003).rD(str).rC(com.baidu.swan.apps.runtime.e.aAt()).amK();
+            new c.a(10003).sp(str).so(com.baidu.swan.apps.runtime.e.aDc()).apw();
         }
     }
 }

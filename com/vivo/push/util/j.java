@@ -4,25 +4,27 @@ import android.content.Context;
 import android.content.res.Resources;
 import android.graphics.Color;
 import android.support.v4.view.ViewCompat;
-/* loaded from: classes12.dex */
+/* loaded from: classes15.dex */
 public final class j implements BaseNotifyLayoutAdapter {
-    private Resources a;
+
+    /* renamed from: a  reason: collision with root package name */
+    private Resources f4702a;
     private String b;
 
     @Override // com.vivo.push.util.BaseNotifyLayoutAdapter
     public final void init(Context context) {
         this.b = context.getPackageName();
-        this.a = context.getResources();
+        this.f4702a = context.getResources();
     }
 
     @Override // com.vivo.push.util.BaseNotifyLayoutAdapter
     public final int getNotificationLayout() {
-        return this.a.getIdentifier("push_notify", "layout", this.b);
+        return this.f4702a.getIdentifier("push_notify", "layout", this.b);
     }
 
     @Override // com.vivo.push.util.BaseNotifyLayoutAdapter
     public final int getSuitIconId() {
-        return k.g ? this.a.getIdentifier("notify_icon_rom30", "id", this.b) : k.f ? this.a.getIdentifier("notify_icon_rom20", "id", this.b) : this.a.getIdentifier("notify_icon", "id", this.b);
+        return k.g ? this.f4702a.getIdentifier("notify_icon_rom30", "id", this.b) : k.f ? this.f4702a.getIdentifier("notify_icon_rom20", "id", this.b) : this.f4702a.getIdentifier("notify_icon", "id", this.b);
     }
 
     @Override // com.vivo.push.util.BaseNotifyLayoutAdapter
@@ -35,7 +37,7 @@ public final class j implements BaseNotifyLayoutAdapter {
             i = 0;
         }
         if (i > 0) {
-            return this.a.getColor(i);
+            return this.f4702a.getColor(i);
         }
         if (k.g) {
             return -1;

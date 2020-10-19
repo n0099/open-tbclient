@@ -4,7 +4,7 @@ import android.content.Context;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.net.wifi.WifiManager;
-/* loaded from: classes3.dex */
+/* loaded from: classes7.dex */
 public final class g {
     public static NetworkInfo a(Context context) {
         ConnectivityManager connectivityManager;

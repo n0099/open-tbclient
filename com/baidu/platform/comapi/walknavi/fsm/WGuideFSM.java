@@ -2,15 +2,17 @@ package com.baidu.platform.comapi.walknavi.fsm;
 
 import android.util.Log;
 import com.baidu.platform.comapi.walknavi.b;
-/* loaded from: classes3.dex */
+/* loaded from: classes7.dex */
 public class WGuideFSM extends com.baidu.platform.comapi.walknavi.a {
-    private String a;
+
+    /* renamed from: a  reason: collision with root package name */
+    private String f3010a;
     private String b;
     private String c;
 
     public WGuideFSM() {
         setInitialState("Entry");
-        this.c = this.a;
+        this.c = this.f3010a;
         FSMTable.initTransition();
     }
 
@@ -25,26 +27,26 @@ public class WGuideFSM extends com.baidu.platform.comapi.walknavi.a {
     }
 
     public void setInitialState(String str) {
-        this.a = str;
+        this.f3010a = str;
     }
 
     public synchronized void runCurrentState() {
-        if (!this.a.equalsIgnoreCase("Entry")) {
-            a(this.a, RGState.METHOD_NAME_EXCUTE);
+        if (!this.f3010a.equalsIgnoreCase("Entry")) {
+            a(this.f3010a, RGState.METHOD_NAME_EXCUTE);
         }
     }
 
     public synchronized void runEntryState() {
         if (b.a().M() == 4) {
-            this.a = "SegEntry";
+            this.f3010a = "SegEntry";
         } else {
-            this.a = "Entry";
+            this.f3010a = "Entry";
         }
-        a(this.a, RGState.METHOD_NAME_EXCUTE);
+        a(this.f3010a, RGState.METHOD_NAME_EXCUTE);
     }
 
     public synchronized void run(String str) {
-        String str2 = this.a;
+        String str2 = this.f3010a;
         String queryDestState = FSMTable.queryDestState(str2, str);
         if (queryDestState != null) {
             this.b = str;
@@ -54,13 +56,13 @@ public class WGuideFSM extends com.baidu.platform.comapi.walknavi.a {
             a(str2, RGState.METHOD_NAME_EXIT);
             a(queryDestState, "enter");
             a(queryDestState, RGState.METHOD_NAME_EXCUTE);
-            this.a = queryDestState;
+            this.f3010a = queryDestState;
             a(queryDestState);
         }
     }
 
     public String getCurrentState() {
-        return this.a;
+        return this.f3010a;
     }
 
     public String getCurrentEvent() {

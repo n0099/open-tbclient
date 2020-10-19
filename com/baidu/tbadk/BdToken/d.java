@@ -32,56 +32,56 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 /* loaded from: classes.dex */
 public class d {
-    public static final Pattern dQR = Pattern.compile("\\$[0-9A-Za-z@_]{5,200}[#$]", 2);
-    public static final Pattern dQS = Pattern.compile("\\$(com.baidu.tieba://unidispatch/)[0-9a-zA-Z]{1,10}\\?[0-9a-zA-Z_=&%\\-.]{1,300}[$]", 2);
-    private long dQT;
-    private t dQU;
-    private e dQV;
-    private AtomicBoolean dQW = new AtomicBoolean(false);
-    private e.a dQX = new e.a() { // from class: com.baidu.tbadk.BdToken.d.1
+    public static final Pattern ecS = Pattern.compile("\\$[0-9A-Za-z@_]{5,200}[#$]", 2);
+    public static final Pattern ecT = Pattern.compile("\\$(com.baidu.tieba://unidispatch/)[0-9a-zA-Z]{1,10}\\?[0-9a-zA-Z_=&%\\-.]{1,300}[$]", 2);
+    private long ecU;
+    private t ecV;
+    private e ecW;
+    private AtomicBoolean ecX = new AtomicBoolean(false);
+    private e.a ecY = new e.a() { // from class: com.baidu.tbadk.BdToken.d.1
         @Override // com.baidu.tbadk.BdToken.e.a
         public void a(boolean z, x xVar) {
             if (z && xVar != null) {
                 d.this.clearClipBoard();
-                d.this.dp(xVar.getTitle(), xVar.getUrl());
+                d.this.du(xVar.getTitle(), xVar.getUrl());
                 d.this.a(xVar);
             }
         }
     };
     private boolean isInit;
 
-    public static final d aZu() {
-        return a.dQZ;
+    public static final d bcc() {
+        return a.eda;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes.dex */
     public static class a {
-        private static final d dQZ = new d();
+        private static final d eda = new d();
     }
 
-    public void ab(Activity activity) {
+    public void r(Activity activity) {
         if (!this.isInit) {
             registerTask();
             registerListener();
-            this.dQV = new e();
-            this.dQV.a(this.dQX);
-            this.dQU = new t();
+            this.ecW = new e();
+            this.ecW.a(this.ecY);
+            this.ecV = new t();
             String clipBoardContent = getClipBoardContent();
             if (!at.isEmpty(clipBoardContent)) {
-                aZu().yg(clipBoardContent);
+                bcc().yS(clipBoardContent);
             } else if (UtilHelper.isActivityStartFromScheme(activity)) {
-                com.baidu.adp.lib.f.e.mX().postDelayed(new Runnable() { // from class: com.baidu.tbadk.BdToken.d.2
+                com.baidu.adp.lib.f.e.mY().postDelayed(new Runnable() { // from class: com.baidu.tbadk.BdToken.d.2
                     @Override // java.lang.Runnable
                     public void run() {
-                        d.aZu().yg(d.this.getClipBoardContent());
+                        d.bcc().yS(d.this.getClipBoardContent());
                     }
                 }, 4000L);
-            } else if (an.isEmui() || an.bkd()) {
-                com.baidu.adp.lib.f.e.mX().postDelayed(new Runnable() { // from class: com.baidu.tbadk.BdToken.d.3
+            } else if (an.isEmui() || an.bmM()) {
+                com.baidu.adp.lib.f.e.mY().postDelayed(new Runnable() { // from class: com.baidu.tbadk.BdToken.d.3
                     @Override // java.lang.Runnable
                     public void run() {
-                        d.aZu().yg(d.this.getClipBoardContent());
+                        d.bcc().yS(d.this.getClipBoardContent());
                     }
                 }, 2000L);
             }
@@ -91,7 +91,7 @@ public class d {
 
     private void registerTask() {
         com.baidu.tieba.tbadkCore.a.a.a(309626, DecryptCodeSocketRespMsg.class, false, false);
-        TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_HTTP_DECRYPT_CODE, com.baidu.tieba.tbadkCore.a.a.bH(TbConfig.DECRYPT_CODE_URL, 309626));
+        TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_HTTP_DECRYPT_CODE, com.baidu.tieba.tbadkCore.a.a.bI(TbConfig.DECRYPT_CODE_URL, 309626));
         tbHttpMessageTask.setResponsedClass(DecryptCodeHttpRespMsg.class);
         tbHttpMessageTask.setIsNeedAddCommenParam(true);
         MessageManager.getInstance().registerTask(tbHttpMessageTask);
@@ -102,7 +102,7 @@ public class d {
             @Override // com.baidu.adp.framework.listener.a
             public void onMessage(ResponsedMessage responsedMessage) {
                 g decryptData;
-                d.this.dQW.compareAndSet(true, false);
+                d.this.ecX.compareAndSet(true, false);
                 if (responsedMessage instanceof DecryptCodeHttpRespMsg) {
                     decryptData = ((DecryptCodeHttpRespMsg) responsedMessage).getDecryptData();
                 } else if (responsedMessage instanceof DecryptCodeSocketRespMsg) {
@@ -112,15 +112,15 @@ public class d {
                 }
                 if (decryptData != null) {
                     UtilHelper.clearClipBoard();
-                    int aZC = decryptData.aZC();
-                    if (aZC == 1 || aZC == 0) {
+                    int bck = decryptData.bck();
+                    if (bck == 1 || bck == 0) {
                         if (MessageManager.getInstance().findTask(2921361) != null && !decryptData.appId.equals(TbadkCoreApplication.getInst().getCurAiAppid())) {
                             TbadkCoreApplication.getInst().setCurAiAppid(null);
                             MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921377, decryptData));
                         }
-                    } else if (aZC == 2) {
-                        d.this.dp(decryptData.getTitle(), decryptData.getUrl());
-                    } else if (aZC != 4 && aZC == 3 && !StringUtils.isNull(decryptData.getUrl())) {
+                    } else if (bck == 2) {
+                        d.this.du(decryptData.getTitle(), decryptData.getUrl());
+                    } else if (bck != 4 && bck == 3 && !StringUtils.isNull(decryptData.getUrl())) {
                         Uri parse = Uri.parse(decryptData.getUrl());
                         String queryParameter = parse != null ? parse.getQueryParameter("obj_source") : "";
                         String queryParameter2 = parse != null ? parse.getQueryParameter("obj_type") : "";
@@ -128,12 +128,12 @@ public class d {
                         String queryParameter4 = parse != null ? parse.getQueryParameter("fname") : "";
                         String queryParameter5 = parse != null ? parse.getQueryParameter("eqid") : "";
                         if (TextUtils.isEmpty(queryParameter) || TextUtils.isEmpty(queryParameter2) || !queryParameter2.startsWith("tbcm")) {
-                            d.this.ym(decryptData.getUrl());
-                            TiebaStatic.log(new aq("c13390").dF("obj_type", queryParameter2).dF("obj_source", queryParameter).dF("tid", queryParameter3).dF("fname", queryParameter4).dF("query", queryParameter5));
+                            d.this.yY(decryptData.getUrl());
+                            TiebaStatic.log(new aq("c13390").dK("obj_type", queryParameter2).dK("obj_source", queryParameter).dK("tid", queryParameter3).dK("fname", queryParameter4).dK("query", queryParameter5));
                             return;
                         }
-                        d.this.ym(decryptData.getUrl());
-                        TiebaStatic.log(new aq("c13390").dF("obj_type", queryParameter2).dF("obj_source", queryParameter).dF("tid", queryParameter3).dF("fname", queryParameter4));
+                        d.this.yY(decryptData.getUrl());
+                        TiebaStatic.log(new aq("c13390").dK("obj_type", queryParameter2).dK("obj_source", queryParameter).dK("tid", queryParameter3).dK("fname", queryParameter4));
                     }
                 }
             }
@@ -143,20 +143,20 @@ public class d {
             @Override // com.baidu.adp.framework.listener.MessageListener
             public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
                 if (customResponsedMessage != null && (customResponsedMessage instanceof BackgroundSwitchMessage) && !((BackgroundSwitchMessage) customResponsedMessage).getData().booleanValue()) {
-                    d.this.yg(d.this.getClipBoardContent());
+                    d.this.yS(d.this.getClipBoardContent());
                 }
             }
         });
     }
 
-    public void yg(String str) {
-        yh(str);
-        yk(str);
-        yj(str);
-        yi(str);
+    public void yS(String str) {
+        yT(str);
+        yW(str);
+        yV(str);
+        yU(str);
     }
 
-    public void yh(String str) {
+    public void yT(String str) {
         if (!at.isEmpty(str)) {
             new BdAsyncTask<String, Integer, String>() { // from class: com.baidu.tbadk.BdToken.d.6
                 /* JADX DEBUG: Method merged with bridge method */
@@ -171,8 +171,8 @@ public class d {
                     if (at.isEmpty(str2)) {
                         return null;
                     }
-                    String aZw = d.this.aZw();
-                    if (at.isEmpty(aZw) || (matcher = Pattern.compile(aZw).matcher(str2)) == null || !matcher.find()) {
+                    String bce = d.this.bce();
+                    if (at.isEmpty(bce) || (matcher = Pattern.compile(bce).matcher(str2)) == null || !matcher.find()) {
                         return null;
                     }
                     return str2;
@@ -184,19 +184,19 @@ public class d {
                 public void onPostExecute(String str2) {
                     super.onPostExecute((AnonymousClass6) str2);
                     if (str2 == null) {
-                        if (d.this.dQU != null && d.this.aZv()) {
-                            d.this.dQU.check();
+                        if (d.this.ecV != null && d.this.bcd()) {
+                            d.this.ecV.check();
                             return;
                         }
                         return;
                     }
-                    d.this.yl(str2);
+                    d.this.yX(str2);
                 }
             }.execute(str);
         }
     }
 
-    public void yi(String str) {
+    public void yU(String str) {
         if (!at.isEmpty(str)) {
             new BdAsyncTask<String, Integer, String>() { // from class: com.baidu.tbadk.BdToken.d.7
                 /* JADX DEBUG: Method merged with bridge method */
@@ -208,7 +208,7 @@ public class d {
                         return null;
                     }
                     String str2 = strArr[0];
-                    if (at.isEmpty(str2) || (matcher = d.dQS.matcher(str2)) == null || !matcher.find()) {
+                    if (at.isEmpty(str2) || (matcher = d.ecT.matcher(str2)) == null || !matcher.find()) {
                         return null;
                     }
                     return str2;
@@ -220,14 +220,14 @@ public class d {
                 public void onPostExecute(String str2) {
                     super.onPostExecute((AnonymousClass7) str2);
                     if (str2 != null) {
-                        d.this.ym(str2.substring(1, str2.length() - 1));
+                        d.this.yY(str2.substring(1, str2.length() - 1));
                     }
                 }
             }.execute(str);
         }
     }
 
-    public void yj(String str) {
+    public void yV(String str) {
         if (!at.isEmpty(str)) {
             new BdAsyncTask<String, Integer, String>() { // from class: com.baidu.tbadk.BdToken.d.8
                 /* JADX DEBUG: Method merged with bridge method */
@@ -239,7 +239,7 @@ public class d {
                         return null;
                     }
                     String str2 = strArr[0];
-                    if (at.isEmpty(str2) || (matcher = d.dQR.matcher(str2)) == null || !matcher.find()) {
+                    if (at.isEmpty(str2) || (matcher = d.ecS.matcher(str2)) == null || !matcher.find()) {
                         return null;
                     }
                     return str2;
@@ -250,8 +250,8 @@ public class d {
                 @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
                 public void onPostExecute(String str2) {
                     super.onPostExecute((AnonymousClass8) str2);
-                    if (str2 != null && !d.this.dQW.get()) {
-                        d.this.dQW.compareAndSet(false, true);
+                    if (str2 != null && !d.this.ecX.get()) {
+                        d.this.ecX.compareAndSet(false, true);
                         DecryptCodeReqMsg decryptCodeReqMsg = new DecryptCodeReqMsg();
                         decryptCodeReqMsg.setCode(str2);
                         MessageManager.getInstance().sendMessage(decryptCodeReqMsg);
@@ -261,21 +261,21 @@ public class d {
         }
     }
 
-    public void yk(String str) {
+    public void yW(String str) {
         if (!at.isEmpty(str) && str.contains("^sZqulxTVsT$")) {
-            yl(str);
+            yX(str);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public boolean aZv() {
+    public boolean bcd() {
         String topActivityClassName = UtilHelper.getTopActivityClassName();
         return !at.isEmpty(topActivityClassName) && topActivityClassName.equals("com.baidu.tieba.tblauncher.MainTabActivity") && TbSingleton.getInstance().isRecommendPage();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void yl(String str) {
-        this.dQV.load(str);
+    public void yX(String str) {
+        this.ecW.load(str);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -285,34 +285,34 @@ public class d {
 
     /* JADX INFO: Access modifiers changed from: private */
     public String getClipBoardContent() {
-        if (System.currentTimeMillis() - this.dQT < 2000) {
+        if (System.currentTimeMillis() - this.ecU < 2000) {
             return null;
         }
-        this.dQT = System.currentTimeMillis();
+        this.ecU = System.currentTimeMillis();
         return UtilHelper.getClipBoardContent();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public String aZw() {
-        return new String(Base64.decode(com.baidu.tbadk.core.sharedPref.b.bjf().getString("key_baidu_password_re", "LipcXlsjJGEtekEtWjAtOV9dezUsfVxeezAsMX1bXF4kXXsxfS4q"), 0));
+    public String bce() {
+        return new String(Base64.decode(com.baidu.tbadk.core.sharedPref.b.blO().getString("key_baidu_password_re", "LipcXlsjJGEtekEtWjAtOV9dezUsfVxeezAsMX1bXF4kXXsxfS4q"), 0));
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void dp(String str, String str2) {
+    public void du(String str, String str2) {
         TbPageContext<?> o;
         if (!at.isEmpty(str2) && (o = o(TbadkCoreApplication.getInst().getCurrentActivity())) != null) {
-            be.bkp().a(o, str, new String[]{str2});
+            be.bmY().a(o, str, new String[]{str2});
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void ym(String str) {
+    public void yY(String str) {
         Activity currentActivity;
         Uri parse;
         if (!at.isEmpty(str) && (currentActivity = TbadkCoreApplication.getInst().getCurrentActivity()) != null && (parse = Uri.parse(str)) != null) {
-            if (str.startsWith(f.dRc)) {
+            if (str.startsWith(f.edd)) {
                 Uri.Builder buildUpon = Uri.parse(str).buildUpon();
-                buildUpon.appendQueryParameter(f.dRx, f.dRK);
+                buildUpon.appendQueryParameter(f.edy, f.edL);
                 parse = buildUpon.build();
             }
             UtilHelper.dealOneScheme(currentActivity, parse.toString());
@@ -321,8 +321,8 @@ public class d {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void a(x xVar) {
-        if (xVar != null && xVar.ban() != null && !at.isEmpty(xVar.ban().btntext) && aZv()) {
-            MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921380, xVar.ban().btntext));
+        if (xVar != null && xVar.bcV() != null && !at.isEmpty(xVar.bcV().btntext) && bcd()) {
+            MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921380, xVar.bcV().btntext));
         }
     }
 

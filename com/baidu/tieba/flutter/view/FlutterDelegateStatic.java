@@ -23,7 +23,7 @@ import com.baidu.tbadk.mainTab.d;
 import com.baidu.tbadk.switchs.FlutterMyTabEnableSwitch;
 import com.baidu.tieba.flutter.util.OpenFlutter;
 import com.idlefish.flutterboost.containers.FlutterFragment;
-/* loaded from: classes24.dex */
+/* loaded from: classes25.dex */
 public class FlutterDelegateStatic extends b {
     private static final int PERSON_INFO_TAB_MIDDLE_REDDOT_DISTANCE = 10;
     private static boolean isInited = true;
@@ -59,23 +59,23 @@ public class FlutterDelegateStatic extends b {
         cVar.frag = new FlutterFragment.NewEngineFragmentBuilder(TbFlutterFragment.class).url(OpenFlutter.FRAGMENT_MYTAB).isTabHost(true).build();
         isInited = false;
         cVar.type = 8;
-        Resources resources = g.lh().getResources();
+        Resources resources = g.li().getResources();
         cVar.textResId = resources.getIdentifier("mine", "string", BdBaseApplication.getInst().getPackageName());
         cVar.animationResId = resources.getIdentifier("lottie_tab_my", "raw", BdBaseApplication.getInst().getPackageName());
-        cVar.showIconType = c.eSu;
+        cVar.showIconType = c.feC;
         return cVar;
     }
 
     @Override // com.baidu.tbadk.mainTab.b
     public TbFragmentTabIndicator getTabIndicator(Context context) {
-        this.mIndicator = (MaintabBottomIndicator) LayoutInflater.from(context).inflate(g.lh().getResources().getIdentifier("maintab_bottom_indicator", "layout", BdBaseApplication.getInst().getPackageName()), (ViewGroup) null);
+        this.mIndicator = (MaintabBottomIndicator) LayoutInflater.from(context).inflate(g.li().getResources().getIdentifier("maintab_bottom_indicator", "layout", BdBaseApplication.getInst().getPackageName()), (ViewGroup) null);
         this.tipView = new MessageRedDotView(context);
         TbFragmentTabIndicator.a aVar = new TbFragmentTabIndicator.a();
-        aVar.eSL = this.mIndicator;
+        aVar.feT = this.mIndicator;
         aVar.offsetX = l.dip2px(context, 10.0f);
         aVar.view = this.tipView;
         this.mIndicator.b("emotion", aVar);
-        boolean z = com.baidu.tbadk.core.sharedPref.b.bjf().getBoolean(SharedPrefConfig.KEY_FEEDBACK_PERSON_TAB_SHOW, false);
+        boolean z = com.baidu.tbadk.core.sharedPref.b.blO().getBoolean(SharedPrefConfig.KEY_FEEDBACK_PERSON_TAB_SHOW, false);
         if (this.isNew.booleanValue() || z) {
             this.tipView.refresh(0);
             this.tipView.setVisibility(0);
@@ -92,7 +92,7 @@ public class FlutterDelegateStatic extends b {
             @Override // com.baidu.adp.framework.listener.MessageListener
             public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
                 if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2007014 && customResponsedMessage.getData() != null && (customResponsedMessage.getData() instanceof a)) {
-                    FlutterDelegateStatic.this.isNew = Boolean.valueOf(((a) customResponsedMessage.getData()).eSm);
+                    FlutterDelegateStatic.this.isNew = Boolean.valueOf(((a) customResponsedMessage.getData()).feu);
                     if (FlutterDelegateStatic.this.isNew.booleanValue()) {
                         FlutterDelegateStatic.this.tipView.refresh(0);
                         FlutterDelegateStatic.this.tipView.setVisibility(0);

@@ -4,11 +4,11 @@ import com.baidu.live.ar.AlaFilterAndBeautyData;
 import java.util.HashMap;
 /* loaded from: classes4.dex */
 public interface j {
-    void Bl();
+    void Ci();
 
-    void Bm();
+    void Cj();
 
-    void Bn();
+    void Ck();
 
     void a(float f, AlaFilterAndBeautyData.BeautyAdjustKey beautyAdjustKey);
 

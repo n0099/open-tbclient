@@ -8,7 +8,7 @@ import android.text.TextUtils;
 import cn.com.chinatelecom.account.api.a.d;
 import cn.com.chinatelecom.account.api.c.b;
 import cn.com.chinatelecom.account.api.c.e;
-/* loaded from: classes14.dex */
+/* loaded from: classes6.dex */
 public class CtAuth {
     private static volatile CtAuth instance;
     public static Context mContext;
@@ -107,9 +107,9 @@ public class CtAuth {
         } else if (!e.b(mContext)) {
             resultListener.onResult("{\"result\":\"-8100\",\"msg\":\"网络无连接\"}");
         } else if (e.d(mContext)) {
-            new a().a(mContext, mAppKey, mAppSecret, d.a(b.a), ctSetting, resultListener);
+            new a().a(mContext, mAppKey, mAppSecret, d.a(b.f983a), ctSetting, resultListener);
         } else if (e.e(mContext)) {
-            new a().b(mContext, mAppKey, mAppSecret, d.a(b.a), ctSetting, resultListener);
+            new a().b(mContext, mAppKey, mAppSecret, d.a(b.f983a), ctSetting, resultListener);
         } else {
             resultListener.onResult("{\"result\":-8004,\"msg\":\"移动网络未开启\"}");
         }

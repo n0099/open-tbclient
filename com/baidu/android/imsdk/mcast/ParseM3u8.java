@@ -15,14 +15,14 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.Iterator;
 import java.util.List;
-/* loaded from: classes9.dex */
+/* loaded from: classes5.dex */
 public class ParseM3u8 {
     private static final String TAG = ParseM3u8.class.getSimpleName();
     private int mDuration;
     private ArrayList<TS> mTslist = new ArrayList<>();
     private boolean mIsend = false;
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes5.dex */
     public class TS {
         public double duration;
         public long relativetime;

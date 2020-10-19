@@ -8,9 +8,9 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 import com.baidu.swan.apps.a;
 import com.baidu.swan.apps.res.ui.pullrefresh.ILoadingLayout;
-/* loaded from: classes3.dex */
+/* loaded from: classes10.dex */
 public class FooterLoadingLayout extends LoadingLayout {
-    private LoadingAnimView cOJ;
+    private LoadingAnimView daO;
     private TextView mHintView;
 
     public FooterLoadingLayout(Context context) {
@@ -24,7 +24,7 @@ public class FooterLoadingLayout extends LoadingLayout {
     }
 
     private void init(Context context) {
-        this.cOJ = (LoadingAnimView) findViewById(a.f.pull_to_load_footer_progressbar);
+        this.daO = (LoadingAnimView) findViewById(a.f.pull_to_load_footer_progressbar);
         this.mHintView = (TextView) findViewById(a.f.pull_to_load_footer_hint_textview);
         this.mHintView.setTextColor(getResources().getColor(a.c.aiapps_picture_loading_text_color));
         setState(ILoadingLayout.State.RESET);
@@ -50,8 +50,8 @@ public class FooterLoadingLayout extends LoadingLayout {
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.swan.apps.res.ui.pullrefresh.LoadingLayout
     public void a(ILoadingLayout.State state, ILoadingLayout.State state2) {
-        this.cOJ.setVisibility(8);
-        this.cOJ.stopAnim();
+        this.daO.setVisibility(8);
+        this.daO.stopAnim();
         this.mHintView.setVisibility(4);
         super.a(state, state2);
     }
@@ -75,8 +75,8 @@ public class FooterLoadingLayout extends LoadingLayout {
 
     @Override // com.baidu.swan.apps.res.ui.pullrefresh.LoadingLayout
     protected void onRefreshing() {
-        this.cOJ.setVisibility(0);
-        this.cOJ.startAnim();
+        this.daO.setVisibility(0);
+        this.daO.startAnim();
         this.mHintView.setVisibility(0);
         this.mHintView.setText(a.h.aiapps_pull_to_refresh_header_hint_loading);
     }

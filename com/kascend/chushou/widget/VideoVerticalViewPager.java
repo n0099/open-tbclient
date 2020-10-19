@@ -17,8 +17,10 @@ import com.kascend.chushou.widget.showplayer.PlayShowRecommendView;
 import tv.chushou.zues.widget.viewpager.KasVerticalViewPager;
 /* loaded from: classes6.dex */
 public class VideoVerticalViewPager extends KasVerticalViewPager {
-    private boolean a;
-    private int[] amb;
+
+    /* renamed from: a  reason: collision with root package name */
+    private boolean f4258a;
+    private int[] amt;
     private int b;
     private float c;
     private float d;
@@ -26,13 +28,13 @@ public class VideoVerticalViewPager extends KasVerticalViewPager {
 
     public VideoVerticalViewPager(Context context) {
         super(context);
-        this.a = false;
+        this.f4258a = false;
         a(context);
     }
 
     public VideoVerticalViewPager(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.a = false;
+        this.f4258a = false;
         a(context);
     }
 
@@ -42,7 +44,7 @@ public class VideoVerticalViewPager extends KasVerticalViewPager {
 
     @Override // tv.chushou.zues.widget.viewpager.KasVerticalViewPager, android.view.ViewGroup
     public boolean onInterceptTouchEvent(MotionEvent motionEvent) {
-        if (this.a) {
+        if (this.f4258a) {
             return super.onInterceptTouchEvent(motionEvent);
         }
         Log.d("VerticalViewPager", "onInterceptTouchEvent: mNoFocus:false");
@@ -104,7 +106,7 @@ public class VideoVerticalViewPager extends KasVerticalViewPager {
                 this.c = motionEvent.getY();
                 this.d = motionEvent.getX();
                 this.e = false;
-                if (this.a) {
+                if (this.f4258a) {
                     return super.onTouchEvent(motionEvent);
                 }
                 return false;
@@ -114,7 +116,7 @@ public class VideoVerticalViewPager extends KasVerticalViewPager {
                     return false;
                 }
                 this.e = false;
-                if (this.a) {
+                if (this.f4258a) {
                 }
                 break;
             case 2:
@@ -133,19 +135,19 @@ public class VideoVerticalViewPager extends KasVerticalViewPager {
                 }
                 break;
             default:
-                if (this.a) {
+                if (this.f4258a) {
                 }
                 break;
         }
     }
 
     public void setNoFocus(boolean z) {
-        this.a = z;
+        this.f4258a = z;
     }
 
     public void setSurfaceLoc(int[] iArr) {
         if (iArr != null && iArr.length == 4) {
-            this.amb = iArr;
+            this.amt = iArr;
         }
     }
 }

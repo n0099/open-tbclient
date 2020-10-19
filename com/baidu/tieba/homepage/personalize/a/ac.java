@@ -10,9 +10,9 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.core.util.aq;
 import com.baidu.tieba.NEGFeedBack.NEGFeedBackView;
-/* loaded from: classes21.dex */
+/* loaded from: classes22.dex */
 public class ac extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.homepage.personalize.data.g, am<com.baidu.tieba.homepage.personalize.data.g>> {
-    public BdUniqueId eSq;
+    public BdUniqueId fey;
     private TbPageContext mPageContext;
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -24,7 +24,7 @@ public class ac extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.homepage
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.widget.ListView.a
-    /* renamed from: aR */
+    /* renamed from: aT */
     public am<com.baidu.tieba.homepage.personalize.data.g> c(ViewGroup viewGroup) {
         ak.a aVar = new ak.a(this.mPageContext.getPageActivity(), false);
         com.baidu.tieba.homepage.personalize.view.d dVar = new com.baidu.tieba.homepage.personalize.view.d(this.mPageContext.getPageActivity(), this.mPageContext);
@@ -38,7 +38,7 @@ public class ac extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.homepage
         ak tV = aVar.tV();
         tV.setSourceForPb(2);
         am<com.baidu.tieba.homepage.personalize.data.g> amVar = new am<>(tV);
-        amVar.setPageId(this.eSq);
+        amVar.setPageId(this.fey);
         return amVar;
     }
 
@@ -49,7 +49,7 @@ public class ac extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.homepage
         if (gVar == null || amVar == null || amVar.getView() == null) {
             return null;
         }
-        TiebaStatic.log(new aq("c13742").ai("obj_source", 3).ai("obj_type", 1));
+        TiebaStatic.log(new aq("c13742").aj("obj_source", 3).aj("obj_type", 1));
         amVar.b((am<com.baidu.tieba.homepage.personalize.data.g>) gVar);
         amVar.tW().onChangeSkinType(this.mPageContext, TbadkCoreApplication.getInst().getSkinType());
         return amVar.getView();

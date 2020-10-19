@@ -11,7 +11,8 @@ import com.baidu.swan.apps.scheme.actions.aa;
 import com.baidu.swan.apps.scheme.j;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+import org.webrtc.MediaStreamTrack;
+/* loaded from: classes10.dex */
 public class a extends aa {
     public a(j jVar) {
         super(jVar, "/swanAPI/getMediaVolumeSync");
@@ -34,7 +35,7 @@ public class a extends aa {
             }
             return false;
         } else {
-            AudioManager audioManager = (AudioManager) context.getSystemService("audio");
+            AudioManager audioManager = (AudioManager) context.getSystemService(MediaStreamTrack.AUDIO_TRACK_KIND);
             if (audioManager == null) {
                 unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "get AudioManager error");
                 if (DEBUG) {

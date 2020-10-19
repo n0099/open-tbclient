@@ -1,13 +1,15 @@
 package com.baidu.mobads;
 
 import java.util.HashMap;
-/* loaded from: classes3.dex */
+/* loaded from: classes7.dex */
 class q implements SplashAdListener {
-    final /* synthetic */ SplashAd a;
+
+    /* renamed from: a  reason: collision with root package name */
+    final /* synthetic */ SplashAd f2428a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public q(SplashAd splashAd) {
-        this.a = splashAd;
+        this.f2428a = splashAd;
     }
 
     @Override // com.baidu.mobads.SplashAdListener

@@ -18,9 +18,9 @@ import com.baidu.tieba.R;
 import java.util.List;
 import tbclient.PbContent;
 import tbclient.RecommendForumInfo;
-/* loaded from: classes25.dex */
+/* loaded from: classes26.dex */
 public class ItemInfoView extends LinearLayout {
-    private TextView jxg;
+    private TextView jMd;
 
     public ItemInfoView(Context context) {
         super(context);
@@ -36,14 +36,14 @@ public class ItemInfoView extends LinearLayout {
         setOrientation(1);
         LayoutInflater.from(context).inflate(R.layout.forum_detail_info, (ViewGroup) this, true);
         setVisibility(8);
-        this.jxg = (TextView) findViewById(R.id.info_brief_content);
+        this.jMd = (TextView) findViewById(R.id.info_brief_content);
     }
 
     public void setData(RecommendForumInfo recommendForumInfo) {
         if ((recommendForumInfo != null && recommendForumInfo.content != null && recommendForumInfo.content.size() > 0) || (recommendForumInfo != null && !at.isEmpty(recommendForumInfo.slogan))) {
-            this.jxg.setText(i(recommendForumInfo.content, recommendForumInfo.slogan));
+            this.jMd.setText(i(recommendForumInfo.content, recommendForumInfo.slogan));
         } else {
-            this.jxg.setText(getResources().getString(R.string.forum_detail_info_no_brief));
+            this.jMd.setText(getResources().getString(R.string.forum_detail_info_no_brief));
         }
         setVisibility(0);
     }
@@ -56,7 +56,7 @@ public class ItemInfoView extends LinearLayout {
             PbContent pbContent = list.get(i);
             if (pbContent != null) {
                 if (pbContent.type.intValue() == 2) {
-                    Bitmap cashBitmap = BitmapHelper.getCashBitmap(bVar.Ck(pbContent.text));
+                    Bitmap cashBitmap = BitmapHelper.getCashBitmap(bVar.CW(pbContent.text));
                     if (cashBitmap != null) {
                         BitmapDrawable bitmapDrawable = new BitmapDrawable(cashBitmap);
                         bitmapDrawable.setBounds(0, 0, cashBitmap.getWidth(), cashBitmap.getHeight());
@@ -73,7 +73,7 @@ public class ItemInfoView extends LinearLayout {
     }
 
     public void a(ForumDetailActivity forumDetailActivity, int i) {
-        ap.setViewTextColor(this.jxg, R.color.common_color_10177, 1);
+        ap.setViewTextColor(this.jMd, R.color.common_color_10177, 1);
         forumDetailActivity.getLayoutMode().setNightMode(i == 1);
         forumDetailActivity.getLayoutMode().onModeChanged(this);
     }

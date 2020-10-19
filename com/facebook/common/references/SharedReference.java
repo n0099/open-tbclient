@@ -4,42 +4,42 @@ import com.facebook.common.internal.g;
 import java.util.IdentityHashMap;
 import java.util.Map;
 import javax.annotation.concurrent.GuardedBy;
-/* loaded from: classes17.dex */
+/* loaded from: classes6.dex */
 public class SharedReference<T> {
     @GuardedBy("itself")
-    private static final Map<Object, Integer> nvw = new IdentityHashMap();
+    private static final Map<Object, Integer> nKP = new IdentityHashMap();
     @GuardedBy("this")
     private int mRefCount = 1;
     @GuardedBy("this")
     private T mValue;
-    private final c<T> nvk;
+    private final c<T> nKD;
 
     public SharedReference(T t, c<T> cVar) {
         this.mValue = (T) g.checkNotNull(t);
-        this.nvk = (c) g.checkNotNull(cVar);
-        aV(t);
+        this.nKD = (c) g.checkNotNull(cVar);
+        aY(t);
     }
 
-    private static void aV(Object obj) {
-        synchronized (nvw) {
-            Integer num = nvw.get(obj);
+    private static void aY(Object obj) {
+        synchronized (nKP) {
+            Integer num = nKP.get(obj);
             if (num == null) {
-                nvw.put(obj, 1);
+                nKP.put(obj, 1);
             } else {
-                nvw.put(obj, Integer.valueOf(num.intValue() + 1));
+                nKP.put(obj, Integer.valueOf(num.intValue() + 1));
             }
         }
     }
 
-    private static void aW(Object obj) {
-        synchronized (nvw) {
-            Integer num = nvw.get(obj);
+    private static void aZ(Object obj) {
+        synchronized (nKP) {
+            Integer num = nKP.get(obj);
             if (num == null) {
                 com.facebook.common.c.a.k("SharedReference", "No entry in sLiveObjects for value of type %s", obj.getClass());
             } else if (num.intValue() == 1) {
-                nvw.remove(obj);
+                nKP.remove(obj);
             } else {
-                nvw.put(obj, Integer.valueOf(num.intValue() - 1));
+                nKP.put(obj, Integer.valueOf(num.intValue() - 1));
             }
         }
     }
@@ -56,37 +56,37 @@ public class SharedReference<T> {
         return sharedReference != null && sharedReference.isValid();
     }
 
-    public synchronized void dSS() {
-        dSV();
+    public synchronized void dWD() {
+        dWG();
         this.mRefCount++;
     }
 
-    public void dST() {
+    public void dWE() {
         T t;
-        if (dSU() == 0) {
+        if (dWF() == 0) {
             synchronized (this) {
                 t = this.mValue;
                 this.mValue = null;
             }
-            this.nvk.release(t);
-            aW(t);
+            this.nKD.release(t);
+            aZ(t);
         }
     }
 
-    private synchronized int dSU() {
-        dSV();
+    private synchronized int dWF() {
+        dWG();
         g.checkArgument(this.mRefCount > 0);
         this.mRefCount--;
         return this.mRefCount;
     }
 
-    private void dSV() {
+    private void dWG() {
         if (!a(this)) {
             throw new NullReferenceException();
         }
     }
 
-    /* loaded from: classes17.dex */
+    /* loaded from: classes6.dex */
     public static class NullReferenceException extends RuntimeException {
         public NullReferenceException() {
             super("Null shared reference");

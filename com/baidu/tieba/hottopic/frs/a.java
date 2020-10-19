@@ -9,15 +9,15 @@ import com.baidu.tieba.card.aa;
 import com.baidu.tieba.card.w;
 import com.baidu.tieba.card.x;
 import com.baidu.tieba.frs.k;
-/* loaded from: classes20.dex */
+/* loaded from: classes21.dex */
 public class a extends k<bw, com.baidu.tieba.card.a.a<w>> implements x {
-    private aa<bw> fJh;
+    private aa<bw> fVy;
     private String mFrom;
     private TbPageContext mPageContext;
 
     public a(TbPageContext tbPageContext, BdUniqueId bdUniqueId) {
         super(tbPageContext, bdUniqueId);
-        this.fJh = new aa<bw>() { // from class: com.baidu.tieba.hottopic.frs.a.1
+        this.fVy = new aa<bw>() { // from class: com.baidu.tieba.hottopic.frs.a.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.tieba.card.aa
             public void a(View view, bw bwVar, Object obj) {
@@ -36,14 +36,14 @@ public class a extends k<bw, com.baidu.tieba.card.a.a<w>> implements x {
     }
 
     @Override // com.baidu.tieba.card.x
-    public String VJ() {
+    public String XG() {
         return "FrsHottopicVideoDelegateAdapter";
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.widget.ListView.a
-    /* renamed from: aL */
+    /* renamed from: aN */
     public com.baidu.tieba.card.a.a<w> c(ViewGroup viewGroup) {
         return new com.baidu.tieba.card.a.a<>(new w(this.mPageContext, viewGroup));
     }
@@ -52,11 +52,11 @@ public class a extends k<bw, com.baidu.tieba.card.a.a<w>> implements x {
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tieba.frs.k, com.baidu.adp.widget.ListView.a
     public View a(int i, View view, ViewGroup viewGroup, bw bwVar, com.baidu.tieba.card.a.a<w> aVar) {
-        if (aVar == null || aVar.cfU() == null) {
+        if (aVar == null || aVar.cjq() == null) {
             return null;
         }
-        aVar.cfU().c(this.fJh);
-        aVar.cfU().a(bwVar);
+        aVar.cjq().c(this.fVy);
+        aVar.cjq().a(bwVar);
         return aVar.getView();
     }
 

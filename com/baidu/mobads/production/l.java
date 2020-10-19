@@ -5,9 +5,11 @@ import android.os.Looper;
 import android.os.Message;
 import com.baidu.mobads.interfaces.IXAdInstanceInfo;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes3.dex */
+/* loaded from: classes7.dex */
 public class l extends Handler {
-    final /* synthetic */ IXAdInstanceInfo a;
+
+    /* renamed from: a  reason: collision with root package name */
+    final /* synthetic */ IXAdInstanceInfo f2417a;
     final /* synthetic */ b b;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -15,7 +17,7 @@ public class l extends Handler {
     public l(b bVar, Looper looper, IXAdInstanceInfo iXAdInstanceInfo) {
         super(looper);
         this.b = bVar;
-        this.a = iXAdInstanceInfo;
+        this.f2417a = iXAdInstanceInfo;
     }
 
     @Override // android.os.Handler
@@ -23,7 +25,7 @@ public class l extends Handler {
         switch (message.what) {
             case 0:
                 try {
-                    this.b.a(message, this.a);
+                    this.b.a(message, this.f2417a);
                     return;
                 } catch (Exception e) {
                     com.baidu.mobads.utils.m.a().e(e);

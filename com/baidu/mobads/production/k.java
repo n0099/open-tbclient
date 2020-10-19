@@ -3,13 +3,15 @@ package com.baidu.mobads.production;
 import com.baidu.mobads.g.g;
 import com.baidu.mobads.interfaces.event.IXAdEvent;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes3.dex */
+/* loaded from: classes7.dex */
 public class k implements g.c {
-    final /* synthetic */ b a;
+
+    /* renamed from: a  reason: collision with root package name */
+    final /* synthetic */ b f2416a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public k(b bVar) {
-        this.a = bVar;
+        this.f2416a = bVar;
     }
 
     @Override // com.baidu.mobads.g.g.c
@@ -17,9 +19,9 @@ public class k implements g.c {
         if (z) {
             try {
                 if (BaiduXAdSDKContext.mApkLoader != null) {
-                    b.a = BaiduXAdSDKContext.mApkLoader.h();
-                    if (b.a != null) {
-                        this.a.r();
+                    b.f2392a = BaiduXAdSDKContext.mApkLoader.h();
+                    if (b.f2392a != null) {
+                        this.f2416a.r();
                     }
                 }
             } catch (Exception e) {
@@ -29,6 +31,6 @@ public class k implements g.c {
             }
         }
         BaiduXAdSDKContext.mApkLoader = null;
-        this.a.dispatchEvent(new com.baidu.mobads.f.a(IXAdEvent.AD_ERROR));
+        this.f2416a.dispatchEvent(new com.baidu.mobads.f.a(IXAdEvent.AD_ERROR));
     }
 }

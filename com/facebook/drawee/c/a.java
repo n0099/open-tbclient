@@ -3,77 +3,77 @@ package com.facebook.drawee.c;
 import android.content.Context;
 import android.view.MotionEvent;
 import android.view.ViewConfiguration;
-/* loaded from: classes11.dex */
+/* loaded from: classes15.dex */
 public class a {
-    InterfaceC0862a nAp;
-    final float nAq;
-    boolean nAr;
-    boolean nAs;
-    long nAt;
-    float nAu;
-    float nAv;
+    InterfaceC0880a nPI;
+    final float nPJ;
+    boolean nPK;
+    boolean nPL;
+    long nPM;
+    float nPN;
+    float nPO;
 
     /* renamed from: com.facebook.drawee.c.a$a  reason: collision with other inner class name */
-    /* loaded from: classes11.dex */
-    public interface InterfaceC0862a {
-        boolean dTZ();
+    /* loaded from: classes15.dex */
+    public interface InterfaceC0880a {
+        boolean dXK();
     }
 
     public a(Context context) {
-        this.nAq = ViewConfiguration.get(context).getScaledTouchSlop();
+        this.nPJ = ViewConfiguration.get(context).getScaledTouchSlop();
         init();
     }
 
-    public static a gw(Context context) {
+    public static a gE(Context context) {
         return new a(context);
     }
 
     public void init() {
-        this.nAp = null;
+        this.nPI = null;
         reset();
     }
 
     public void reset() {
-        this.nAr = false;
-        this.nAs = false;
+        this.nPK = false;
+        this.nPL = false;
     }
 
-    public void a(InterfaceC0862a interfaceC0862a) {
-        this.nAp = interfaceC0862a;
+    public void a(InterfaceC0880a interfaceC0880a) {
+        this.nPI = interfaceC0880a;
     }
 
-    public boolean dVc() {
-        return this.nAr;
+    public boolean dYN() {
+        return this.nPK;
     }
 
     public boolean onTouchEvent(MotionEvent motionEvent) {
         switch (motionEvent.getAction()) {
             case 0:
-                this.nAr = true;
-                this.nAs = true;
-                this.nAt = motionEvent.getEventTime();
-                this.nAu = motionEvent.getX();
-                this.nAv = motionEvent.getY();
+                this.nPK = true;
+                this.nPL = true;
+                this.nPM = motionEvent.getEventTime();
+                this.nPN = motionEvent.getX();
+                this.nPO = motionEvent.getY();
                 break;
             case 1:
-                this.nAr = false;
-                if (Math.abs(motionEvent.getX() - this.nAu) > this.nAq || Math.abs(motionEvent.getY() - this.nAv) > this.nAq) {
-                    this.nAs = false;
+                this.nPK = false;
+                if (Math.abs(motionEvent.getX() - this.nPN) > this.nPJ || Math.abs(motionEvent.getY() - this.nPO) > this.nPJ) {
+                    this.nPL = false;
                 }
-                if (this.nAs && motionEvent.getEventTime() - this.nAt <= ViewConfiguration.getLongPressTimeout() && this.nAp != null) {
-                    this.nAp.dTZ();
+                if (this.nPL && motionEvent.getEventTime() - this.nPM <= ViewConfiguration.getLongPressTimeout() && this.nPI != null) {
+                    this.nPI.dXK();
                 }
-                this.nAs = false;
+                this.nPL = false;
                 break;
             case 2:
-                if (Math.abs(motionEvent.getX() - this.nAu) > this.nAq || Math.abs(motionEvent.getY() - this.nAv) > this.nAq) {
-                    this.nAs = false;
+                if (Math.abs(motionEvent.getX() - this.nPN) > this.nPJ || Math.abs(motionEvent.getY() - this.nPO) > this.nPJ) {
+                    this.nPL = false;
                     break;
                 }
                 break;
             case 3:
-                this.nAr = false;
-                this.nAs = false;
+                this.nPK = false;
+                this.nPL = false;
                 break;
         }
         return true;

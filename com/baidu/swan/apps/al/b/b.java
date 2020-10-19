@@ -12,7 +12,7 @@ import com.baidu.swan.apps.scheme.actions.aa;
 import com.baidu.swan.apps.scheme.j;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes10.dex */
 public class b extends aa {
     public b(j jVar) {
         super(jVar, "/swanAPI/startMediaVolumeListen");
@@ -47,9 +47,9 @@ public class b extends aa {
                 unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202);
                 return false;
             }
-            d.aEl().a(optString2, new d.a() { // from class: com.baidu.swan.apps.al.b.b.1
+            d.aGU().a(optString2, new d.a() { // from class: com.baidu.swan.apps.al.b.b.1
                 @Override // com.baidu.swan.apps.al.b.d.a
-                public void kj(int i) {
+                public void kG(int i) {
                     b.this.a(i, callbackHandler, unitedSchemeEntity, optString);
                 }
             });
@@ -61,11 +61,11 @@ public class b extends aa {
     /* JADX INFO: Access modifiers changed from: private */
     public void a(double d, CallbackHandler callbackHandler, UnitedSchemeEntity unitedSchemeEntity, String str) {
         JSONObject jSONObject = new JSONObject();
-        int aEm = (int) ((d / d.aEl().aEm()) * 100.0d);
-        if (aEm < 0) {
-            aEm = 0;
+        int aGV = (int) ((d / d.aGU().aGV()) * 100.0d);
+        if (aGV < 0) {
+            aGV = 0;
         }
-        int i = aEm <= 100 ? aEm : 100;
+        int i = aGV <= 100 ? aGV : 100;
         try {
             jSONObject.put("volume", i);
             if (DEBUG) {

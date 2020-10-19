@@ -7,13 +7,15 @@ import com.baidu.searchbox.ugc.model.UgcConstant;
 import com.xiaomi.mipush.sdk.Constants;
 import java.util.ArrayList;
 import java.util.HashMap;
-/* loaded from: classes3.dex */
+/* loaded from: classes7.dex */
 public class d {
-    private static int a;
+
+    /* renamed from: a  reason: collision with root package name */
+    private static int f3087a;
     private static int b = 0;
 
     public static void a(int i) {
-        a = i;
+        f3087a = i;
     }
 
     /* JADX DEBUG: Multi-variable search result rejected for r5v0, resolved type: java.util.ArrayList<com.baidu.platform.comapi.walknavi.segmentbrowse.widget.b> */
@@ -223,7 +225,7 @@ public class d {
             arrayList.remove(0);
             arrayList.add(0, a2);
         }
-        if (arrayList.size() >= 2 && arrayList.get(1).c.length > a) {
+        if (arrayList.size() >= 2 && arrayList.get(1).c.length > f3087a) {
             com.baidu.platform.comapi.wnplatform.d.a.c("yang11", "guide enter new branch2!!!");
             b bVar2 = arrayList.get(1);
             if (arrayList.size() < 3) {
@@ -231,8 +233,8 @@ public class d {
             } else {
                 bVar = arrayList.get(2);
             }
-            b a3 = b.a(arrayList.get(1), a);
-            b b2 = b.b(arrayList.get(1), a);
+            b a3 = b.a(arrayList.get(1), f3087a);
+            b b2 = b.b(arrayList.get(1), f3087a);
             b = b2.c.length;
             com.baidu.platform.comapi.wnplatform.d.a.c("yang11", "headSecondText:" + String.valueOf(a3.c));
             com.baidu.platform.comapi.wnplatform.d.a.c("yang11", "tailSecondText:" + String.valueOf(b2.c));
@@ -253,7 +255,7 @@ public class d {
             arrayList.remove(0);
             arrayList.remove(0);
             arrayList.add(0, a2);
-            if (arrayList.get(0).c.length > a) {
+            if (arrayList.get(0).c.length > f3087a) {
                 com.baidu.platform.comapi.wnplatform.d.a.c("yang11", "poi enter new branch2!!!");
                 b bVar2 = arrayList.get(0);
                 if (arrayList.size() < 2) {
@@ -261,8 +263,8 @@ public class d {
                 } else {
                     bVar = arrayList.get(1);
                 }
-                b a3 = b.a(arrayList.get(0), a);
-                b b2 = b.b(arrayList.get(0), a);
+                b a3 = b.a(arrayList.get(0), f3087a);
+                b b2 = b.b(arrayList.get(0), f3087a);
                 com.baidu.platform.comapi.wnplatform.d.a.c("yang11", "headSecondText:" + String.valueOf(a3.c));
                 com.baidu.platform.comapi.wnplatform.d.a.c("yang11", "tailSecondText:" + String.valueOf(b2.c));
                 b a4 = arrayList.size() >= 2 ? b.a(b2, arrayList.get(1)) : b2;

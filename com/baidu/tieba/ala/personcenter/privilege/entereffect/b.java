@@ -14,12 +14,12 @@ import com.baidu.tieba.R;
 import com.baidu.tieba.ala.personcenter.privilege.entereffect.data.AlaEnterEffectData;
 /* loaded from: classes4.dex */
 public class b {
-    private RelativeLayout gZY;
-    private IImageFramePlayerViewController gZZ;
-    private AlaEffectPreviewView haa;
-    private AlaEnterEffectData hab;
-    private int hac = 2;
-    private IFrameCallback had = new IFrameCallback() { // from class: com.baidu.tieba.ala.personcenter.privilege.entereffect.b.1
+    private RelativeLayout hoZ;
+    private IImageFramePlayerViewController hpa;
+    private AlaEffectPreviewView hpb;
+    private AlaEnterEffectData hpc;
+    private int hpd = 2;
+    private IFrameCallback hpe = new IFrameCallback() { // from class: com.baidu.tieba.ala.personcenter.privilege.entereffect.b.1
         @Override // com.baidu.ala.gift.IFrameCallback
         public void onFrameStart() {
         }
@@ -31,24 +31,24 @@ public class b {
         @Override // com.baidu.ala.gift.IFrameCallback
         public void onFrameEnd() {
             b.a(b.this);
-            if (b.this.hac <= 0 && b.this.hab != null) {
-                b.this.a(b.this.hab);
+            if (b.this.hpd <= 0 && b.this.hpc != null) {
+                b.this.a(b.this.hpc);
             }
         }
     };
-    private a hae = new a() { // from class: com.baidu.tieba.ala.personcenter.privilege.entereffect.b.2
+    private a hpf = new a() { // from class: com.baidu.tieba.ala.personcenter.privilege.entereffect.b.2
         @Override // com.baidu.tieba.ala.personcenter.privilege.entereffect.b.a
-        public void caX() {
+        public void cev() {
             b.a(b.this);
-            if (b.this.hab != null) {
-                if (b.this.hab.type != 1 || b.this.hac > 0) {
-                    if (b.this.hab.type == 0) {
-                        b.this.a(b.this.hab);
+            if (b.this.hpc != null) {
+                if (b.this.hpc.type != 1 || b.this.hpd > 0) {
+                    if (b.this.hpc.type == 0) {
+                        b.this.a(b.this.hpc);
                         return;
                     }
                     return;
                 }
-                b.this.a(b.this.hab);
+                b.this.a(b.this.hpc);
             }
         }
     };
@@ -56,28 +56,28 @@ public class b {
 
     /* loaded from: classes4.dex */
     public interface a {
-        void caX();
+        void cev();
     }
 
     static /* synthetic */ int a(b bVar) {
-        int i = bVar.hac;
-        bVar.hac = i - 1;
+        int i = bVar.hpd;
+        bVar.hpd = i - 1;
         return i;
     }
 
     public b(Context context, RelativeLayout relativeLayout) {
         this.mContext = context;
-        this.gZY = relativeLayout;
+        this.hoZ = relativeLayout;
     }
 
     public void a(AlaEnterEffectData alaEnterEffectData) {
         if (alaEnterEffectData != null) {
-            this.hab = alaEnterEffectData;
-            if (this.hab.type == 1) {
-                this.hac = 2;
+            this.hpc = alaEnterEffectData;
+            if (this.hpc.type == 1) {
+                this.hpd = 2;
                 b(alaEnterEffectData);
                 c(alaEnterEffectData);
-            } else if (this.hab.type == 0) {
+            } else if (this.hpc.type == 0) {
                 c(alaEnterEffectData);
             }
         }
@@ -85,13 +85,13 @@ public class b {
 
     private void b(AlaEnterEffectData alaEnterEffectData) {
         CustomResponsedMessage runTask;
-        if (this.gZZ == null && (runTask = MessageManager.getInstance().runTask(AlaCmdConfigCustom.CMD_ALA_IMAGE_FRAME_PLAYER_CONTROLLER, IImageFramePlayerViewController.class, this.mContext)) != null && runTask.getData() != null) {
-            this.gZZ = (IImageFramePlayerViewController) runTask.getData();
-            this.gZZ.setFrameCallback(this.had);
+        if (this.hpa == null && (runTask = MessageManager.getInstance().runTask(AlaCmdConfigCustom.CMD_ALA_IMAGE_FRAME_PLAYER_CONTROLLER, IImageFramePlayerViewController.class, this.mContext)) != null && runTask.getData() != null) {
+            this.hpa = (IImageFramePlayerViewController) runTask.getData();
+            this.hpa.setFrameCallback(this.hpe);
         }
-        if (this.gZZ != null) {
-            if (this.gZZ.getAnimView().getParent() == null) {
-                this.gZY.addView(this.gZZ.getAnimView(), new RelativeLayout.LayoutParams(-1, l.getEquipmentHeight(this.mContext)));
+        if (this.hpa != null) {
+            if (this.hpa.getAnimView().getParent() == null) {
+                this.hoZ.addView(this.hpa.getAnimView(), new RelativeLayout.LayoutParams(-1, l.getEquipmentHeight(this.mContext)));
             }
             AlaDynamicGiftAndNativeData alaDynamicGiftAndNativeData = new AlaDynamicGiftAndNativeData();
             alaDynamicGiftAndNativeData.mAlaDynamicGift = alaEnterEffectData.gift;
@@ -100,32 +100,32 @@ public class b {
                 alaDynamicGiftAndNativeData.mAlaDynamicGift.configInfo.oppositeY = 0.6499999761581421d;
             }
             alaDynamicGiftAndNativeData.upZipDirPath = AlaDynamicGiftLocalInfoConfig.DIR_PATH + alaEnterEffectData.gift.giftZip.zipName;
-            this.gZZ.setData(alaDynamicGiftAndNativeData);
-            this.gZZ.startAnim();
+            this.hpa.setData(alaDynamicGiftAndNativeData);
+            this.hpa.startAnim();
         }
     }
 
     private void c(AlaEnterEffectData alaEnterEffectData) {
-        if (this.haa == null) {
-            this.haa = new AlaEffectPreviewView(this.mContext);
-            this.haa.setAnimCompleteCallback(this.hae);
+        if (this.hpb == null) {
+            this.hpb = new AlaEffectPreviewView(this.mContext);
+            this.hpb.setAnimCompleteCallback(this.hpf);
         }
-        if (this.haa.getParent() == null) {
+        if (this.hpb.getParent() == null) {
             RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(-2, -2);
             layoutParams.addRule(2, R.id.effet_name_tv);
             layoutParams.bottomMargin = this.mContext.getResources().getDimensionPixelSize(R.dimen.ds51);
-            this.gZY.addView(this.haa, layoutParams);
+            this.hoZ.addView(this.hpb, layoutParams);
         }
-        this.haa.setData(alaEnterEffectData);
-        this.haa.caV();
+        this.hpb.setData(alaEnterEffectData);
+        this.hpb.cet();
     }
 
     public void onDestory() {
-        if (this.gZZ != null) {
-            this.gZZ.onDestroy();
+        if (this.hpa != null) {
+            this.hpa.onDestroy();
         }
-        if (this.haa != null) {
-            this.haa.onDestory();
+        if (this.hpb != null) {
+            this.hpb.onDestory();
         }
     }
 }

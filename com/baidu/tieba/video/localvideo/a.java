@@ -10,36 +10,36 @@ import com.baidu.tbadk.core.util.y;
 import com.baidu.tieba.R;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes22.dex */
+/* loaded from: classes23.dex */
 public class a extends BaseAdapter {
     private Context mContext;
-    private ArrayList<d> mIS = new ArrayList<>();
-    private boolean mIT = false;
+    private ArrayList<d> mYz = new ArrayList<>();
+    private boolean mYA = false;
 
     public a(Context context) {
         this.mContext = context;
     }
 
     public void setData(List<d> list) {
-        this.mIT = true;
-        this.mIS.clear();
+        this.mYA = true;
+        this.mYz.clear();
         if ((list != null ? list.size() : 0) > 0) {
-            this.mIS.addAll(list);
+            this.mYz.addAll(list);
         }
         notifyDataSetChanged();
     }
 
-    public void Sr(String str) {
-        if (this.mIS != null && !TextUtils.isEmpty(str)) {
+    public void Tf(String str) {
+        if (this.mYz != null && !TextUtils.isEmpty(str)) {
             int i = 0;
             while (true) {
                 int i2 = i;
-                if (i2 < this.mIS.size()) {
-                    d dVar = this.mIS.get(i2);
+                if (i2 < this.mYz.size()) {
+                    d dVar = this.mYz.get(i2);
                     if (dVar == null || !str.equals(dVar.getVideoPath())) {
                         i = i2 + 1;
                     } else {
-                        this.mIS.remove(i2);
+                        this.mYz.remove(i2);
                         notifyDataSetChanged();
                         return;
                     }
@@ -52,20 +52,20 @@ public class a extends BaseAdapter {
 
     @Override // android.widget.Adapter
     public int getCount() {
-        if (y.isEmpty(this.mIS)) {
+        if (y.isEmpty(this.mYz)) {
             return 0;
         }
-        return this.mIS.size();
+        return this.mYz.size();
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // android.widget.Adapter
-    /* renamed from: Jz */
+    /* renamed from: Kf */
     public d getItem(int i) {
-        if (this.mIS == null || this.mIS.isEmpty() || i < 0 || i >= this.mIS.size()) {
+        if (this.mYz == null || this.mYz.isEmpty() || i < 0 || i >= this.mYz.size()) {
             return null;
         }
-        return this.mIS.get(i);
+        return this.mYz.get(i);
     }
 
     @Override // android.widget.Adapter
@@ -93,12 +93,12 @@ public class a extends BaseAdapter {
         if (localVideoInfoView == null) {
             return null;
         }
-        if (this.mIS != null && this.mIS.size() > i) {
-            localVideoInfoView.a(this.mIS.get(i));
-        } else if (i == 0 && this.mIT) {
-            localVideoInfoView.wR(true);
+        if (this.mYz != null && this.mYz.size() > i) {
+            localVideoInfoView.a(this.mYz.get(i));
+        } else if (i == 0 && this.mYA) {
+            localVideoInfoView.xy(true);
         } else {
-            localVideoInfoView.wR(false);
+            localVideoInfoView.xy(false);
         }
         return view2;
     }

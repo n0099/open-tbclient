@@ -6,15 +6,15 @@ import com.baidu.live.tbadk.core.frameworkdata.CmdConfigSocket;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.task.TbHttpMessageTask;
 import com.baidu.tbadk.task.b;
-/* loaded from: classes20.dex */
+/* loaded from: classes21.dex */
 public class HomePageStatic {
-    public static boolean iNq = false;
+    public static boolean jci = false;
 
     static {
-        czs();
+        cCP();
     }
 
-    public static void czs() {
+    public static void cCP() {
         MessageManager messageManager = MessageManager.getInstance();
         TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(1003010, TbConfig.SERVER_ADDRESS + TbConfig.GET_MY_POST + "?cmd=" + CmdConfigSocket.CMD_GET_MY_POST);
         tbHttpMessageTask.setResponsedClass(GetMyPostHttpResponseMessage.class);

@@ -1,5 +1,5 @@
 package com.google.ar.core.exceptions;
-/* loaded from: classes24.dex */
+/* loaded from: classes11.dex */
 public class FatalException extends RuntimeException {
     public FatalException() {
     }

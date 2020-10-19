@@ -1,12 +1,12 @@
 package rx.c;
-/* loaded from: classes7.dex */
+/* loaded from: classes16.dex */
 final class e extends d {
-    private static final e oTG = new e();
+    private static final e piZ = new e();
 
     private e() {
     }
 
-    public static d eoV() {
-        return oTG;
+    public static d esG() {
+        return piZ;
     }
 }

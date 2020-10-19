@@ -39,7 +39,7 @@ import java.util.List;
 import java.util.Map;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes12.dex */
+/* loaded from: classes15.dex */
 public class U extends Thread {
     public static final int FROM_DAILY_ALARM = 6;
     public static final int FROM_DEFAULT = 0;
@@ -102,7 +102,7 @@ public class U extends Thread {
     private static boolean sSetRetrmAlarm = false;
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes12.dex */
+    /* loaded from: classes15.dex */
     public class UpgradeResult {
         int networkId;
         int resultId;
@@ -244,11 +244,11 @@ public class U extends Thread {
                         throw new NetworkErrorException("blocked by Huawei Input");
                     }
                     sLastCheckTime = System.currentTimeMillis();
-                    if (com.baidu.sofire.i.e.g != null && (sMonitorNetworkWhenUpgradeNoNet || com.baidu.sofire.i.e.a)) {
+                    if (com.baidu.sofire.i.e.g != null && (sMonitorNetworkWhenUpgradeNoNet || com.baidu.sofire.i.e.f3628a)) {
                         this.context.getApplicationContext().unregisterReceiver(com.baidu.sofire.i.e.g);
                     }
                     sMonitorNetworkWhenUpgradeNoNet = false;
-                    com.baidu.sofire.i.e.a = false;
+                    com.baidu.sofire.i.e.f3628a = false;
                     if (this.mFrom != 1) {
                         this.mWholeJson = com.baidu.sofire.i.e.o(this.context);
                     }
@@ -280,7 +280,7 @@ public class U extends Thread {
                     this.loadedPluginDB.d();
                     if (!sPidRegister) {
                         e eVar2 = this.preference;
-                        eVar2.c.putInt("pdcg", this.preference.a.getInt("pdcg", 0) + 1);
+                        eVar2.c.putInt("pdcg", this.preference.f3618a.getInt("pdcg", 0) + 1);
                         eVar2.c.commit();
                         e eVar3 = this.preference;
                         long currentTimeMillis2 = System.currentTimeMillis();
@@ -288,7 +288,7 @@ public class U extends Thread {
                             eVar3.c.putString("pdcgts", "");
                             eVar3.c.commit();
                         } else {
-                            String string = eVar3.a.getString("pdcgts", "");
+                            String string = eVar3.f3618a.getString("pdcgts", "");
                             if (TextUtils.isEmpty(string)) {
                                 str = String.valueOf(currentTimeMillis2);
                             } else if (string.split(PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS).length < 20) {
@@ -302,10 +302,10 @@ public class U extends Thread {
                         sPidRegister = true;
                     }
                     e eVar4 = this.preference;
-                    eVar4.c.putInt("rtqe", this.preference.a.getInt("rtqe", 0) + 1);
+                    eVar4.c.putInt("rtqe", this.preference.f3618a.getInt("rtqe", 0) + 1);
                     eVar4.c.commit();
-                    List<ApkInfo> a = this.loadedPluginDB.a();
-                    new StringBuilder("a=").append(a);
+                    List<ApkInfo> a2 = this.loadedPluginDB.a();
+                    new StringBuilder("a=").append(a2);
                     b.a();
                     ArrayList arrayList = new ArrayList();
                     ArrayList arrayList2 = new ArrayList();
@@ -346,7 +346,7 @@ public class U extends Thread {
                             int optInt2 = optJSONObject2.optInt("r");
                             if (z2) {
                                 e eVar5 = this.preference;
-                                if (optInt2 > eVar5.a.getInt("opi", 0)) {
+                                if (optInt2 > eVar5.f3618a.getInt("opi", 0)) {
                                     eVar5.c.putInt("opi", optInt2);
                                     eVar5.c.commit();
                                 }
@@ -428,19 +428,19 @@ public class U extends Thread {
                                 boolean z5 = z4;
                                 apkInfo.signMD5 = lowerCase;
                                 apkInfo.startTime = System.currentTimeMillis();
-                                int indexOf = a.indexOf(apkInfo);
+                                int indexOf = a2.indexOf(apkInfo);
                                 new StringBuilder("t=").append(apkInfo).append(", i=").append(indexOf);
                                 b.a();
                                 ApkInfo apkInfo2 = new ApkInfo(apkInfo);
                                 if (!TextUtils.isEmpty(apkInfo.packageName)) {
                                     apkInfo2.packageName = new StringBuilder(apkInfo2.packageName).reverse().toString();
                                 }
-                                int indexOf2 = a.indexOf(apkInfo2);
+                                int indexOf2 = a2.indexOf(apkInfo2);
                                 if (indexOf2 >= 0) {
-                                    a.remove(indexOf2);
+                                    a2.remove(indexOf2);
                                 }
                                 if (indexOf >= 0) {
-                                    ApkInfo apkInfo3 = a.get(indexOf);
+                                    ApkInfo apkInfo3 = a2.get(indexOf);
                                     if (!com.baidu.sofire.i.e.b(apkInfo.versionName, apkInfo3.versionName) || (c.c != null && ((c.c == null || c.c.contains(Integer.valueOf(apkInfo.key))) && !z5))) {
                                         if (apkInfo3.priority != apkInfo.priority) {
                                             apkInfo3.priority = apkInfo.priority;
@@ -463,7 +463,7 @@ public class U extends Thread {
                                             }
                                         }
                                     }
-                                    a.remove(indexOf);
+                                    a2.remove(indexOf);
                                 } else {
                                     arrayList2.add(apkInfo);
                                     if (this.mDownloadPluginsList != null) {
@@ -476,9 +476,9 @@ public class U extends Thread {
                     if (c.c != null) {
                         c.c.clear();
                     }
-                    new StringBuilder().append(a);
+                    new StringBuilder().append(a2);
                     b.a();
-                    for (ApkInfo apkInfo4 : a) {
+                    for (ApkInfo apkInfo4 : a2) {
                         if (!arrayList3.contains(apkInfo4.packageName)) {
                             if (this.mUnloadPluginsList != null) {
                                 this.mUnloadPluginsList.add(Integer.valueOf(apkInfo4.key));
@@ -489,7 +489,7 @@ public class U extends Thread {
                     com.baidu.sofire.i.e.c(this.context);
                     new StringBuilder().append(arrayList);
                     b.a();
-                    f a2 = f.a(this.context.getApplicationContext());
+                    f a3 = f.a(this.context.getApplicationContext());
                     final List<Integer> r = this.preference.r();
                     List<Integer> q2 = this.preference.q();
                     for (int i4 = 0; i4 < q2.size(); i4++) {
@@ -527,7 +527,7 @@ public class U extends Thread {
                     for (int i5 = 0; i5 < arrayList5.size(); i5++) {
                         ApkInfo apkInfo5 = (ApkInfo) arrayList5.get(i5);
                         if (arrayList.contains(apkInfo5)) {
-                            if (a2.d(apkInfo5.packageName) == null) {
+                            if (a3.d(apkInfo5.packageName) == null) {
                                 boolean z6 = true;
                                 if (this.loadedPluginDB.g(apkInfo5.key) == 3) {
                                     b.a();
@@ -638,7 +638,7 @@ public class U extends Thread {
 
     private void handleThreadStart() {
         try {
-            long j = this.preference.a.getLong("slruct", 0L);
+            long j = this.preference.f3618a.getLong("slruct", 0L);
             long currentTimeMillis = System.currentTimeMillis();
             if (j > 0 && currentTimeMillis - j > 86400000) {
                 HashMap hashMap = new HashMap();
@@ -704,18 +704,18 @@ public class U extends Thread {
         apkInfo.pkgPath = file.getAbsolutePath();
         String str = "before update, time=" + System.currentTimeMillis() + ", downloadAPK path:" + file.getAbsolutePath() + ", exists=" + file.exists() + ", canRead=" + file.canRead() + ", isFile=" + file.isFile() + ",length" + file.length();
         StringBuilder sb = new StringBuilder("before update, time=" + System.currentTimeMillis() + ", ");
-        ApkInfo a = this.loadedPluginDB.a(apkInfo.key);
-        if (a == null) {
+        ApkInfo a2 = this.loadedPluginDB.a(apkInfo.key);
+        if (a2 == null) {
             sb.append("apkInDB == null");
         } else {
-            File file4 = new File(a.pkgPath);
+            File file4 = new File(a2.pkgPath);
             sb.append("origAPK path:" + file4.getAbsolutePath() + ", exists=" + file4.exists() + ", canRead=" + file4.canRead() + ", isFile=" + file4.isFile() + ",length" + file4.length());
         }
-        boolean a2 = this.forHostAPP.a(apkInfo, str);
-        new StringBuilder().append(apkInfo.packageName).append(" s=").append(a2);
+        boolean a3 = this.forHostAPP.a(apkInfo, str);
+        new StringBuilder().append(apkInfo.packageName).append(" s=").append(a3);
         b.a();
         this.loadedPluginDB.a(apkInfo.key + ABTestConstants.MAX_FATAL_ALLOCATION_FAILURE_SIZE_DEFAULT, apkInfo.versionName);
-        if (!a2) {
+        if (!a3) {
             if (this.mUpgradeResultMap != null && !this.mUpgradeResultMap.keySet().contains(Integer.valueOf(apkInfo.key))) {
                 this.mUpgradeResultMap.put(Integer.valueOf(apkInfo.key), new UpgradeResult(i, 5));
                 return;
@@ -735,19 +735,19 @@ public class U extends Thread {
 
     /* JADX INFO: Access modifiers changed from: private */
     public boolean handlePluginDownload(ApkInfo apkInfo, File file, File file2, int i) {
-        boolean a;
+        boolean a2;
         try {
             if (file.exists()) {
                 file.delete();
             }
             if (!"com.baidu.input_huawei".equals(this.context.getPackageName()) || this.preference.A()) {
                 if (r.a(this.context)) {
-                    a = new r(this.context).a(apkInfo.downloadURL, file);
+                    a2 = new r(this.context).a(apkInfo.downloadURL, file);
                 } else {
-                    a = new n(this.context).a(apkInfo.downloadURL, file);
+                    a2 = new n(this.context).a(apkInfo.downloadURL, file);
                 }
                 b.a();
-                if (a) {
+                if (a2) {
                     if (file2.exists()) {
                         b.a();
                         file2.delete();
@@ -767,20 +767,20 @@ public class U extends Thread {
                             if (this.mUpgradeResultMap != null && !this.mUpgradeResultMap.keySet().contains(Integer.valueOf(apkInfo.key))) {
                                 this.mUpgradeResultMap.put(Integer.valueOf(apkInfo.key), new UpgradeResult(i, 7));
                             }
-                            a = false;
+                            a2 = false;
                         }
                     }
                 } else if (this.mUpgradeResultMap != null && !this.mUpgradeResultMap.keySet().contains(Integer.valueOf(apkInfo.key))) {
                     this.mUpgradeResultMap.put(Integer.valueOf(apkInfo.key), new UpgradeResult(i, 4));
                 }
-                new StringBuilder().append(a);
+                new StringBuilder().append(a2);
                 b.a();
-                String a2 = p.a(file2);
-                new StringBuilder("ds=").append(a).append(", fm=").append(apkInfo.apkMD5).append(", am=").append(a2);
+                String a3 = p.a(file2);
+                new StringBuilder("ds=").append(a2).append(", fm=").append(apkInfo.apkMD5).append(", am=").append(a3);
                 b.a();
                 file.delete();
-                if (a) {
-                    return apkInfo.apkMD5.equals(a2);
+                if (a2) {
+                    return apkInfo.apkMD5.equals(a3);
                 }
                 return false;
             }
@@ -815,7 +815,7 @@ public class U extends Thread {
         }
         long currentTimeMillis = System.currentTimeMillis();
         e eVar = this.preference;
-        long j = eVar.a.getLong("pu_ap_fd", 0L);
+        long j = eVar.f3618a.getLong("pu_ap_fd", 0L);
         if (j == 0) {
             j = System.currentTimeMillis();
             eVar.d();
@@ -871,7 +871,7 @@ public class U extends Thread {
             if (!this.tmpDir.exists()) {
                 this.tmpDir.mkdir();
             }
-            ApkInfo a = this.loadedPluginDB.a(apkInfo.key + ABTestConstants.MAX_FATAL_ALLOCATION_FAILURE_SIZE_DEFAULT);
+            ApkInfo a2 = this.loadedPluginDB.a(apkInfo.key + ABTestConstants.MAX_FATAL_ALLOCATION_FAILURE_SIZE_DEFAULT);
             final File file2 = new File(this.tmpDir, apkInfo.key + Constants.ACCEPT_TIME_SEPARATOR_SERVER + apkInfo.versionName + ".tmp");
             final File file3 = new File(this.tmpDir, apkInfo.key + Constants.ACCEPT_TIME_SEPARATOR_SERVER + apkInfo.versionName + ".zip");
             if (file3.exists()) {
@@ -925,10 +925,10 @@ public class U extends Thread {
                 new StringBuilder().append(handlePluginDownload);
                 b.a();
                 boolean z8 = !handlePluginDownload;
-                if (a != null) {
-                    this.loadedPluginDB.h(a.key + ABTestConstants.MAX_FATAL_ALLOCATION_FAILURE_SIZE_DEFAULT);
-                    if (!TextUtils.isEmpty(a.pkgPath)) {
-                        File file4 = new File(a.pkgPath);
+                if (a2 != null) {
+                    this.loadedPluginDB.h(a2.key + ABTestConstants.MAX_FATAL_ALLOCATION_FAILURE_SIZE_DEFAULT);
+                    if (!TextUtils.isEmpty(a2.pkgPath)) {
+                        File file4 = new File(a2.pkgPath);
                         if (file4.exists()) {
                             file4.delete();
                         }
@@ -942,37 +942,37 @@ public class U extends Thread {
                 b.a();
                 pluginUpdate(file3, apkInfo, k);
             } else {
-                if (a != null) {
+                if (a2 != null) {
                     b.a();
-                    ApkInfo a2 = this.loadedPluginDB.a(apkInfo.key);
-                    if (a2 != null) {
-                        if (com.baidu.sofire.i.e.b(a.versionName, a2.versionName)) {
+                    ApkInfo a3 = this.loadedPluginDB.a(apkInfo.key);
+                    if (a3 != null) {
+                        if (com.baidu.sofire.i.e.b(a2.versionName, a3.versionName)) {
                             b.a();
                         } else {
                             z6 = false;
-                            if (TextUtils.isEmpty(a.versionName) && a.versionName.equals(apkInfo.versionName)) {
+                            if (TextUtils.isEmpty(a2.versionName) && a2.versionName.equals(apkInfo.versionName)) {
                                 b.a();
-                                this.loadedPluginDB.a(a.key + ABTestConstants.MAX_FATAL_ALLOCATION_FAILURE_SIZE_DEFAULT, a.versionName);
+                                this.loadedPluginDB.a(a2.key + ABTestConstants.MAX_FATAL_ALLOCATION_FAILURE_SIZE_DEFAULT, a2.versionName);
                                 z7 = false;
                             } else {
                                 z7 = z6;
                             }
                             file = null;
-                            if (!TextUtils.isEmpty(a.pkgPath)) {
-                                file = new File(a.pkgPath);
+                            if (!TextUtils.isEmpty(a2.pkgPath)) {
+                                file = new File(a2.pkgPath);
                             }
                             if (file == null && file.exists() && z7) {
-                                if (a.apkMD5.equals(p.a(file))) {
-                                    a.key -= ABTestConstants.MAX_FATAL_ALLOCATION_FAILURE_SIZE_DEFAULT;
-                                    if (!TextUtils.isEmpty(a.packageName)) {
-                                        a.packageName = new StringBuilder(a.packageName).reverse().toString();
+                                if (a2.apkMD5.equals(p.a(file))) {
+                                    a2.key -= ABTestConstants.MAX_FATAL_ALLOCATION_FAILURE_SIZE_DEFAULT;
+                                    if (!TextUtils.isEmpty(a2.packageName)) {
+                                        a2.packageName = new StringBuilder(a2.packageName).reverse().toString();
                                     }
-                                    new StringBuilder().append(a.versionName);
+                                    new StringBuilder().append(a2.versionName);
                                     b.a();
-                                    pluginUpdate(file, a, k);
+                                    pluginUpdate(file, a2, k);
                                     z5 = true;
                                 } else {
-                                    this.loadedPluginDB.a(a.key + ABTestConstants.MAX_FATAL_ALLOCATION_FAILURE_SIZE_DEFAULT, a.versionName);
+                                    this.loadedPluginDB.a(a2.key + ABTestConstants.MAX_FATAL_ALLOCATION_FAILURE_SIZE_DEFAULT, a2.versionName);
                                     file.delete();
                                     z5 = false;
                                 }
@@ -982,11 +982,11 @@ public class U extends Thread {
                         }
                     }
                     z6 = true;
-                    if (TextUtils.isEmpty(a.versionName)) {
+                    if (TextUtils.isEmpty(a2.versionName)) {
                     }
                     z7 = z6;
                     file = null;
-                    if (!TextUtils.isEmpty(a.pkgPath)) {
+                    if (!TextUtils.isEmpty(a2.pkgPath)) {
                     }
                     if (file == null) {
                     }

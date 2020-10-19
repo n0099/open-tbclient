@@ -1,54 +1,54 @@
 package rx;
 
 import rx.exceptions.MissingBackpressureException;
-/* loaded from: classes7.dex */
+/* loaded from: classes16.dex */
 public final class a {
-    public static final d oMY = c.oNe;
-    public static final d oMZ = oMY;
-    public static final d oNa = b.oNd;
-    public static final d oNb = C0982a.oNc;
+    public static final d pco = c.pcu;
+    public static final d pcp = pco;
+    public static final d pcq = b.pct;
+    public static final d pcr = C1000a.pcs;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes16.dex */
     public interface d {
-        boolean enH() throws MissingBackpressureException;
+        boolean ert() throws MissingBackpressureException;
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes16.dex */
     static final class b implements d {
-        static final b oNd = new b();
+        static final b pct = new b();
 
         private b() {
         }
 
         @Override // rx.a.d
-        public boolean enH() {
+        public boolean ert() {
             return true;
         }
     }
 
     /* renamed from: rx.a$a  reason: collision with other inner class name */
-    /* loaded from: classes7.dex */
-    static final class C0982a implements d {
-        static final C0982a oNc = new C0982a();
+    /* loaded from: classes16.dex */
+    static final class C1000a implements d {
+        static final C1000a pcs = new C1000a();
 
-        private C0982a() {
+        private C1000a() {
         }
 
         @Override // rx.a.d
-        public boolean enH() {
+        public boolean ert() {
             return false;
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes16.dex */
     static final class c implements d {
-        static final c oNe = new c();
+        static final c pcu = new c();
 
         private c() {
         }
 
         @Override // rx.a.d
-        public boolean enH() throws MissingBackpressureException {
+        public boolean ert() throws MissingBackpressureException {
             throw new MissingBackpressureException("Overflowed buffer");
         }
     }

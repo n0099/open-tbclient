@@ -12,17 +12,19 @@ import java.util.Enumeration;
 import java.util.zip.ZipEntry;
 import java.util.zip.ZipException;
 import java.util.zip.ZipFile;
-/* loaded from: classes3.dex */
+/* loaded from: classes7.dex */
 public class e {
-    private final File a;
+
+    /* renamed from: a  reason: collision with root package name */
+    private final File f4429a;
     private final File b;
     private String c;
 
     public e(String str, String str2) {
-        this.a = new File(str);
+        this.f4429a = new File(str);
         this.b = new File(str2);
         this.c = this.b.getAbsolutePath();
-        com.meizu.cloud.a.a.i("ZipExtractTask", "Extract mInput file = " + this.a.toString());
+        com.meizu.cloud.a.a.i("ZipExtractTask", "Extract mInput file = " + this.f4429a.toString());
         com.meizu.cloud.a.a.i("ZipExtractTask", "Extract mOutput file = " + this.b.toString());
     }
 
@@ -72,13 +74,13 @@ public class e {
     }
 
     private void b() {
-        if (this.a == null || !this.a.exists()) {
+        if (this.f4429a == null || !this.f4429a.exists()) {
             return;
         }
-        if (this.a.delete()) {
-            com.meizu.cloud.a.a.i("ZipExtractTask", "Delete file:" + this.a.toString() + " after extracted.");
+        if (this.f4429a.delete()) {
+            com.meizu.cloud.a.a.i("ZipExtractTask", "Delete file:" + this.f4429a.toString() + " after extracted.");
         } else {
-            com.meizu.cloud.a.a.i("ZipExtractTask", "Can't delete file:" + this.a.toString() + " after extracted.");
+            com.meizu.cloud.a.a.i("ZipExtractTask", "Can't delete file:" + this.f4429a.toString() + " after extracted.");
         }
     }
 
@@ -111,7 +113,7 @@ public class e {
         long j2 = 0;
         try {
             try {
-                zipFile = new ZipFile(this.a);
+                zipFile = new ZipFile(this.f4429a);
                 try {
                     Enumeration<? extends ZipEntry> entries = zipFile.entries();
                     while (entries.hasMoreElements()) {
@@ -152,7 +154,7 @@ public class e {
                             }
                             z = false;
                             j = j2;
-                            com.meizu.cloud.a.a.i("ZipExtractTask", "Extract file " + this.a + ", UseTime =" + String.valueOf(SystemClock.currentThreadTimeMillis() - currentThreadTimeMillis));
+                            com.meizu.cloud.a.a.i("ZipExtractTask", "Extract file " + this.f4429a + ", UseTime =" + String.valueOf(SystemClock.currentThreadTimeMillis() - currentThreadTimeMillis));
                             if (z) {
                             }
                             b();
@@ -172,7 +174,7 @@ public class e {
                             }
                             z = false;
                             j = j2;
-                            com.meizu.cloud.a.a.i("ZipExtractTask", "Extract file " + this.a + ", UseTime =" + String.valueOf(SystemClock.currentThreadTimeMillis() - currentThreadTimeMillis));
+                            com.meizu.cloud.a.a.i("ZipExtractTask", "Extract file " + this.f4429a + ", UseTime =" + String.valueOf(SystemClock.currentThreadTimeMillis() - currentThreadTimeMillis));
                             if (z) {
                             }
                             b();
@@ -192,7 +194,7 @@ public class e {
                             }
                             z = false;
                             j = j2;
-                            com.meizu.cloud.a.a.i("ZipExtractTask", "Extract file " + this.a + ", UseTime =" + String.valueOf(SystemClock.currentThreadTimeMillis() - currentThreadTimeMillis));
+                            com.meizu.cloud.a.a.i("ZipExtractTask", "Extract file " + this.f4429a + ", UseTime =" + String.valueOf(SystemClock.currentThreadTimeMillis() - currentThreadTimeMillis));
                             if (z) {
                             }
                             b();
@@ -260,7 +262,7 @@ public class e {
             }
             throw th;
         }
-        com.meizu.cloud.a.a.i("ZipExtractTask", "Extract file " + this.a + ", UseTime =" + String.valueOf(SystemClock.currentThreadTimeMillis() - currentThreadTimeMillis));
+        com.meizu.cloud.a.a.i("ZipExtractTask", "Extract file " + this.f4429a + ", UseTime =" + String.valueOf(SystemClock.currentThreadTimeMillis() - currentThreadTimeMillis));
         if (z) {
             a.b(this.b + "/" + str);
         }

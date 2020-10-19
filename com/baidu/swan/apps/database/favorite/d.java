@@ -3,11 +3,11 @@ package com.baidu.swan.apps.database.favorite;
 import android.database.sqlite.SQLiteDatabase;
 import android.net.Uri;
 import android.support.annotation.NonNull;
-/* loaded from: classes3.dex */
+/* loaded from: classes10.dex */
 public class d {
-    private static Uri cqR;
+    private static Uri cDf;
 
-    public static void x(@NonNull SQLiteDatabase sQLiteDatabase) {
+    public static void y(@NonNull SQLiteDatabase sQLiteDatabase) {
         try {
             sQLiteDatabase.execSQL("CREATE TABLE IF NOT EXISTS user_behavior(_id INTEGER PRIMARY KEY AUTOINCREMENT,appKey varchar(100) NOT NULL,launch_type INT NOT NULL,source varchar(100),ext TEXT,time BIGINT);");
         } catch (Exception e) {
@@ -16,13 +16,13 @@ public class d {
     }
 
     @NonNull
-    public static synchronized Uri alN() {
+    public static synchronized Uri aoy() {
         Uri uri;
         synchronized (d.class) {
-            if (cqR == null) {
-                cqR = b.CONTENT_URI.buildUpon().appendPath("user_behavior").build();
+            if (cDf == null) {
+                cDf = b.CONTENT_URI.buildUpon().appendPath("user_behavior").build();
             }
-            uri = cqR;
+            uri = cDf;
         }
         return uri;
     }
