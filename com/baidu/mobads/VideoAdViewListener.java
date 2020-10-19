@@ -1,5 +1,5 @@
 package com.baidu.mobads;
-/* loaded from: classes3.dex */
+/* loaded from: classes7.dex */
 public interface VideoAdViewListener {
     void onVideoClickAd();
 

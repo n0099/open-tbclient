@@ -9,7 +9,7 @@ import android.text.StaticLayout;
 import android.text.TextPaint;
 import android.text.TextUtils;
 import com.baidu.live.tbadk.core.util.StringHelper;
-/* loaded from: classes18.dex */
+/* loaded from: classes15.dex */
 public class DrawTextUtil {
     static float[] sMeasuredWidth = new float[1];
     private Paint.FontMetrics mFontMetrics;

@@ -2,11 +2,11 @@ package io.reactivex.internal.observers;
 
 import io.reactivex.internal.disposables.DisposableHelper;
 import io.reactivex.u;
-/* loaded from: classes25.dex */
+/* loaded from: classes17.dex */
 public abstract class a<T, R> implements io.reactivex.internal.a.b<R>, u<T> {
     protected final u<? super R> actual;
     protected boolean done;
-    protected io.reactivex.internal.a.b<T> owv;
+    protected io.reactivex.internal.a.b<T> oLK;
     protected io.reactivex.disposables.b s;
     protected int sourceMode;
 
@@ -19,20 +19,20 @@ public abstract class a<T, R> implements io.reactivex.internal.a.b<R>, u<T> {
         if (DisposableHelper.validate(this.s, bVar)) {
             this.s = bVar;
             if (bVar instanceof io.reactivex.internal.a.b) {
-                this.owv = (io.reactivex.internal.a.b) bVar;
+                this.oLK = (io.reactivex.internal.a.b) bVar;
             }
-            if (ejg()) {
+            if (emR()) {
                 this.actual.onSubscribe(this);
-                ejh();
+                emS();
             }
         }
     }
 
-    protected boolean ejg() {
+    protected boolean emR() {
         return true;
     }
 
-    protected void ejh() {
+    protected void emS() {
     }
 
     @Override // io.reactivex.u
@@ -61,8 +61,8 @@ public abstract class a<T, R> implements io.reactivex.internal.a.b<R>, u<T> {
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public final int Or(int i) {
-        io.reactivex.internal.a.b<T> bVar = this.owv;
+    public final int OX(int i) {
+        io.reactivex.internal.a.b<T> bVar = this.oLK;
         if (bVar == null || (i & 4) != 0) {
             return 0;
         }
@@ -86,12 +86,12 @@ public abstract class a<T, R> implements io.reactivex.internal.a.b<R>, u<T> {
 
     @Override // io.reactivex.internal.a.g
     public boolean isEmpty() {
-        return this.owv.isEmpty();
+        return this.oLK.isEmpty();
     }
 
     @Override // io.reactivex.internal.a.g
     public void clear() {
-        this.owv.clear();
+        this.oLK.clear();
     }
 
     @Override // io.reactivex.internal.a.g

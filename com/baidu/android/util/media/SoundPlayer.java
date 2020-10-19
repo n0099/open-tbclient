@@ -5,7 +5,7 @@ import android.content.Context;
 import android.media.SoundPool;
 import android.os.Build;
 import android.util.SparseIntArray;
-/* loaded from: classes18.dex */
+/* loaded from: classes15.dex */
 public class SoundPlayer {
     private static final long LOAD_SOUND_MILLIS = 100;
     private static final int MAX_STREAMS = 5;

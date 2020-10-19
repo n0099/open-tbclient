@@ -13,7 +13,7 @@ import com.baidu.searchbox.process.ipc.delegate.DelegateUtils;
 import com.baidu.searchbox.process.ipc.util.ProcessUtils;
 import com.baidu.swan.apps.ap.u;
 import com.baidu.swan.bdprivate.a.v;
-/* loaded from: classes3.dex */
+/* loaded from: classes8.dex */
 public class f {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
 
@@ -38,10 +38,10 @@ public class f {
                 String str2 = oneKeyLoginResult.encryptPhoneNum;
                 boolean z2 = oneKeyLoginResult.hasHistory;
                 a aVar = new a();
-                aVar.gn(z);
-                aVar.tF(str);
-                aVar.tE(str2);
-                aVar.go(z2);
+                aVar.gJ(z);
+                aVar.ur(str);
+                aVar.uq(str2);
+                aVar.gK(z2);
                 char c = 65535;
                 switch (str.hashCode()) {
                     case 2154:
@@ -65,13 +65,13 @@ public class f {
                 }
                 switch (c) {
                     case 0:
-                        aVar.kM(12);
+                        aVar.lj(12);
                         break;
                     case 1:
-                        aVar.kM(13);
+                        aVar.lj(13);
                         break;
                     case 2:
-                        aVar.kM(14);
+                        aVar.lj(14);
                         break;
                 }
                 c.this.a(QuickLoginInfo.a(aVar));
@@ -86,16 +86,16 @@ public class f {
     }
 
     public static void c(final c cVar) {
-        com.baidu.swan.apps.runtime.e aAs = com.baidu.swan.apps.runtime.e.aAs();
-        if (aAs == null) {
+        com.baidu.swan.apps.runtime.e aDb = com.baidu.swan.apps.runtime.e.aDb();
+        if (aDb == null) {
             cVar.a(null);
             return;
         }
-        com.baidu.swan.apps.process.messaging.client.a aAi = aAs.aAi();
-        if (aAi == null) {
+        com.baidu.swan.apps.process.messaging.client.a aCR = aDb.aCR();
+        if (aCR == null) {
             cVar.a(null);
         } else {
-            aAi.b(null, b.class, new com.baidu.swan.apps.process.a.b.c.b() { // from class: com.baidu.swan.bdprivate.extensions.quicklogin.f.2
+            aCR.b(null, b.class, new com.baidu.swan.apps.process.a.b.c.b() { // from class: com.baidu.swan.bdprivate.extensions.quicklogin.f.2
                 /* JADX DEBUG: Method merged with bridge method */
                 @Override // com.baidu.swan.apps.process.a.b.c.a
                 public void onEvent(@NonNull com.baidu.swan.apps.process.a.b.a.b bVar) {
@@ -128,7 +128,7 @@ public class f {
         SapiAccountManager.getInstance().getOneKeyLoginIsAvailable(new OneKeyLoginCallback() { // from class: com.baidu.swan.bdprivate.extensions.quicklogin.f.3
             @Override // com.baidu.sapi2.callback.OneKeyLoginCallback
             public void available(OneKeyLoginResult oneKeyLoginResult) {
-                v.aGY().a(activity, oneKeyLoginResult.sign, eVar);
+                v.aJH().a(activity, oneKeyLoginResult.sign, eVar);
             }
 
             @Override // com.baidu.sapi2.callback.OneKeyLoginCallback

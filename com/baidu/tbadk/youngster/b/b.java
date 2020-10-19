@@ -1,72 +1,49 @@
 package com.baidu.tbadk.youngster.b;
 
+import android.content.SharedPreferences;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.data.AccountData;
-import com.xiaomi.mipush.sdk.Constants;
 /* loaded from: classes.dex */
 public class b {
-    public static void Dv(String str) {
-        AccountData currentAccountInfo;
-        if (!StringUtils.isNull(str) && (currentAccountInfo = TbadkCoreApplication.getCurrentAccountInfo()) != null) {
-            com.baidu.tbadk.core.sharedPref.b.bjf().putString("key_youngster_verify", a(new com.baidu.tbadk.youngster.a.a(currentAccountInfo.getID(), currentAccountInfo.getPortrait(), str)));
+    private String fkA;
+    private final SharedPreferences fzc = TbadkCoreApplication.getInst().getSharedPreferences("youngster_tip_sp", 0);
+    private String mUid;
+
+    public b(String str, String str2) {
+        this.mUid = str;
+        this.fkA = str2;
+    }
+
+    public long bCX() {
+        if (dV(this.mUid, this.fkA)) {
+            return this.fzc.getLong(this.mUid + '_' + this.fkA + "_youngster_tip_time", 0L);
+        }
+        return 0L;
+    }
+
+    public int bCY() {
+        if (dV(this.mUid, this.fkA)) {
+            return this.fzc.getInt(this.mUid + '_' + this.fkA + "_youngster_tip_times", 0);
+        }
+        return 0;
+    }
+
+    public void dJ(long j) {
+        if (dV(this.mUid, this.fkA)) {
+            String str = this.mUid + '_' + this.fkA + "_youngster_tip_times";
+            String str2 = this.mUid + '_' + this.fkA + "_youngster_tip_time";
+            int i = this.fzc.getInt(str, 0);
+            SharedPreferences.Editor edit = this.fzc.edit();
+            if (i + 1 <= 10) {
+                i++;
+            }
+            edit.putInt(str, i);
+            edit.putLong(str2, j);
+            edit.apply();
         }
     }
 
-    public static void bAn() {
-        com.baidu.tbadk.core.sharedPref.b.bjf().remove("key_youngster_verify");
-    }
-
-    public static boolean bAo() {
-        String string = com.baidu.tbadk.core.sharedPref.b.bjf().getString("key_youngster_verify", "");
-        if (StringUtils.isNull(string)) {
-            bAn();
-            return false;
-        }
-        AccountData currentAccountInfo = TbadkCoreApplication.getCurrentAccountInfo();
-        if (currentAccountInfo == null) {
-            bAn();
-            return false;
-        }
-        com.baidu.tbadk.youngster.a.a Dx = Dx(string);
-        if (Dx != null && !StringUtils.isNull(Dx.getUid()) && Dx.getUid().equals(currentAccountInfo.getID()) && !StringUtils.isNull(Dx.getPortrait()) && Dx.getPortrait().equals(currentAccountInfo.getPortrait())) {
-            return true;
-        }
-        bAn();
-        return false;
-    }
-
-    public static boolean Dw(String str) {
-        if (StringUtils.isNull(str)) {
-            return false;
-        }
-        String string = com.baidu.tbadk.core.sharedPref.b.bjf().getString("key_youngster_verify", "");
-        if (StringUtils.isNull(string)) {
-            bAn();
-            return false;
-        }
-        com.baidu.tbadk.youngster.a.a Dx = Dx(string);
-        if (Dx != null) {
-            return str.equals(Dx.getPassword());
-        }
-        return false;
-    }
-
-    private static String a(com.baidu.tbadk.youngster.a.a aVar) {
-        if (aVar == null || StringUtils.isNull(aVar.getUid()) || StringUtils.isNull(aVar.getPortrait()) || StringUtils.isNull(aVar.getPassword())) {
-            return "";
-        }
-        return aVar.getUid() + Constants.ACCEPT_TIME_SEPARATOR_SP + aVar.getPortrait() + Constants.ACCEPT_TIME_SEPARATOR_SP + aVar.getPassword();
-    }
-
-    private static com.baidu.tbadk.youngster.a.a Dx(String str) {
-        if (StringUtils.isNull(str)) {
-            return null;
-        }
-        String[] split = str.split(Constants.ACCEPT_TIME_SEPARATOR_SP);
-        if (split.length > 2) {
-            return new com.baidu.tbadk.youngster.a.a(split[0], split[1], split[2]);
-        }
-        return null;
+    private boolean dV(String str, String str2) {
+        return (StringUtils.isNull(str) || StringUtils.isNull(str2) || "0".equals(str) || "0".equals(str2)) ? false : true;
     }
 }

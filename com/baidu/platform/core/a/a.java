@@ -3,7 +3,7 @@ package com.baidu.platform.core.a;
 import com.baidu.mapapi.search.district.DistrictSearchOption;
 import com.baidu.mobstat.Config;
 import com.meizu.cloud.pushsdk.notification.model.ActVideoSetting;
-/* loaded from: classes3.dex */
+/* loaded from: classes7.dex */
 public class a extends com.baidu.platform.base.e {
     /* JADX INFO: Access modifiers changed from: package-private */
     public a(DistrictSearchOption districtSearchOption) {
@@ -14,19 +14,19 @@ public class a extends com.baidu.platform.base.e {
         if (districtSearchOption == null) {
             return;
         }
-        this.a.a("qt", "con");
-        this.a.a("rp_format", "json");
-        this.a.a("rp_filter", "mobile");
-        this.a.a("area_res", "true");
-        this.a.a("addr_identify", "1");
-        this.a.a("ie", "utf-8");
-        this.a.a(Config.PACKAGE_NAME, "0");
-        this.a.a("rn", "10");
-        this.a.a("c", districtSearchOption.mCityName);
+        this.f2814a.a("qt", "con");
+        this.f2814a.a("rp_format", "json");
+        this.f2814a.a("rp_filter", "mobile");
+        this.f2814a.a("area_res", "true");
+        this.f2814a.a("addr_identify", "1");
+        this.f2814a.a("ie", "utf-8");
+        this.f2814a.a(Config.PACKAGE_NAME, "0");
+        this.f2814a.a("rn", "10");
+        this.f2814a.a("c", districtSearchOption.mCityName);
         if (districtSearchOption.mDistrictName == null || districtSearchOption.mDistrictName.equals("")) {
-            this.a.a(ActVideoSetting.WIFI_DISPLAY, districtSearchOption.mCityName);
+            this.f2814a.a(ActVideoSetting.WIFI_DISPLAY, districtSearchOption.mCityName);
         } else {
-            this.a.a(ActVideoSetting.WIFI_DISPLAY, districtSearchOption.mDistrictName);
+            this.f2814a.a(ActVideoSetting.WIFI_DISPLAY, districtSearchOption.mDistrictName);
         }
     }
 

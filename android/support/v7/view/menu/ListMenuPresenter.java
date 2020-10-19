@@ -17,7 +17,7 @@ import android.widget.BaseAdapter;
 import android.widget.ListAdapter;
 import java.util.ArrayList;
 @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
-/* loaded from: classes10.dex */
+/* loaded from: classes5.dex */
 public class ListMenuPresenter implements MenuPresenter, AdapterView.OnItemClickListener {
     private static final String TAG = "ListMenuPresenter";
     public static final String VIEWS_TAG = "android:menu:list";
@@ -182,7 +182,7 @@ public class ListMenuPresenter implements MenuPresenter, AdapterView.OnItemClick
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes10.dex */
+    /* loaded from: classes5.dex */
     public class MenuAdapter extends BaseAdapter {
         private int mExpandedIndex = -1;
 

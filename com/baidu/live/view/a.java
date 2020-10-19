@@ -33,26 +33,39 @@ import java.util.LinkedList;
 import org.json.JSONObject;
 /* loaded from: classes4.dex */
 public class a {
-    private static volatile a bwb;
+    private static volatile a bCE;
+    private String mUserId;
     private HashMap<String, LinkedList<com.baidu.live.data.e>> mUserAttentionRequestMap = new HashMap<>();
-    private HashMap<String, C0198a> mAttentionTaskMap = new HashMap<>();
+    private HashMap<String, C0213a> mAttentionTaskMap = new HashMap<>();
 
     private a() {
     }
 
-    public static a Rg() {
-        if (bwb == null) {
+    public static a SY() {
+        if (bCE == null) {
             synchronized (a.class) {
-                if (bwb == null) {
-                    bwb = new a();
+                if (bCE == null) {
+                    bCE = new a();
                 }
             }
         }
-        return bwb;
+        return bCE;
     }
 
     public void a(String str, com.baidu.live.data.e eVar) {
         if (!StringUtils.isNull(str) && eVar != null && eVar.getPortrait() != null) {
+            LinkedList<com.baidu.live.data.e> linkedList = this.mUserAttentionRequestMap.get(str);
+            if (linkedList == null) {
+                linkedList = new LinkedList<>();
+                this.mUserAttentionRequestMap.put(str, linkedList);
+            }
+            a(linkedList, eVar);
+            executeAttentionTask(str);
+        }
+    }
+
+    public void b(String str, com.baidu.live.data.e eVar) {
+        if (!StringUtils.isNull(str) && eVar != null) {
             LinkedList<com.baidu.live.data.e> linkedList = this.mUserAttentionRequestMap.get(str);
             if (linkedList == null) {
                 linkedList = new LinkedList<>();
@@ -94,19 +107,19 @@ public class a {
     public void executeAttentionTask(String str) {
         LinkedList<com.baidu.live.data.e> linkedList;
         if (!StringUtils.isNull(str) && this.mAttentionTaskMap.get(str) == null && (linkedList = this.mUserAttentionRequestMap.get(str)) != null && linkedList.size() > 0) {
-            C0198a c0198a = new C0198a();
-            this.mAttentionTaskMap.put(str, c0198a);
-            c0198a.setPriority(2);
-            c0198a.a(linkedList.getFirst());
-            c0198a.execute(new Integer[0]);
+            C0213a c0213a = new C0213a();
+            this.mAttentionTaskMap.put(str, c0213a);
+            c0213a.setPriority(2);
+            c0213a.a(linkedList.getFirst());
+            c0213a.execute(new Integer[0]);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     /* renamed from: com.baidu.live.view.a$a  reason: collision with other inner class name */
     /* loaded from: classes4.dex */
-    public class C0198a extends BdAsyncTask<Integer, Integer, String> {
-        private BdUniqueId bwg;
+    public class C0213a extends BdAsyncTask<Integer, Integer, String> {
+        private BdUniqueId bCJ;
         private String forumId;
         private String from;
         private String inLive;
@@ -117,7 +130,7 @@ public class a {
         private boolean showToastAfterAttentionSuc;
         private String toUid;
 
-        private C0198a() {
+        private C0213a() {
             this.mNetwork = null;
             this.metaKey = "";
             this.isGod = false;
@@ -131,9 +144,9 @@ public class a {
             this.isAttention = eVar.isAttention();
             this.toUid = eVar.getUserId();
             this.inLive = eVar.getInLive();
-            this.bwg = eVar.CH();
+            this.bCJ = eVar.DE();
             this.from = eVar.getFrom();
-            this.metaKey = eVar.CI();
+            this.metaKey = eVar.DF();
             if (this.forumId != null) {
                 this.showToastAfterAttentionSuc = true;
             }
@@ -170,7 +183,7 @@ public class a {
         /* JADX INFO: Access modifiers changed from: protected */
         @Override // com.baidu.live.adp.lib.asynctask.BdAsyncTask
         public void onPostExecute(String str) {
-            super.onPostExecute((C0198a) str);
+            super.onPostExecute((C0213a) str);
             if (this.mNetwork != null) {
                 UpdateAttentionMessage.UpdateAttentionData updateAttentionData = new UpdateAttentionMessage.UpdateAttentionData();
                 updateAttentionData.isSucc = this.mNetwork.isRequestSuccess();
@@ -185,7 +198,7 @@ public class a {
                     updateAttentionData.isSucc = updateAttentionData.response.mServerErrorCode == 0;
                 }
                 UpdateAttentionMessage updateAttentionMessage = new UpdateAttentionMessage(updateAttentionData);
-                updateAttentionMessage.setOrginalMessage(new CustomMessage((int) MessageConfig.BASE_CUSTOM_CMD, this.bwg));
+                updateAttentionMessage.setOrginalMessage(new CustomMessage((int) MessageConfig.BASE_CUSTOM_CMD, this.bCJ));
                 MessageManager.getInstance().dispatchResponsedMessage(updateAttentionMessage);
                 a.this.a(updateAttentionData, this.from);
             }
@@ -312,5 +325,31 @@ public class a {
             return false;
         }
         return false;
+    }
+
+    public void n(String[] strArr) {
+        for (String str : strArr) {
+            if (SZ() != null && SZ().equals(str)) {
+                UpdateAttentionMessage.UpdateAttentionData updateAttentionData = new UpdateAttentionMessage.UpdateAttentionData();
+                updateAttentionData.isSucc = true;
+                updateAttentionData.errorString = null;
+                updateAttentionData.isAttention = true;
+                updateAttentionData.toUid = SZ();
+                updateAttentionData.isGod = false;
+                updateAttentionData.isShowMessage = false;
+                UpdateAttentionMessage updateAttentionMessage = new UpdateAttentionMessage(updateAttentionData);
+                updateAttentionMessage.setOrginalMessage(new CustomMessage((int) MessageConfig.BASE_CUSTOM_CMD, BdUniqueId.gen()));
+                MessageManager.getInstance().dispatchResponsedMessage(updateAttentionMessage);
+                return;
+            }
+        }
+    }
+
+    public String SZ() {
+        return this.mUserId;
+    }
+
+    public void io(String str) {
+        this.mUserId = str;
     }
 }

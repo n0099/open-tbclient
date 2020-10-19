@@ -2,10 +2,10 @@ package kotlin.b;
 
 import com.baidu.android.common.others.IStringUtil;
 @kotlin.h
-/* loaded from: classes5.dex */
+/* loaded from: classes10.dex */
 public final class c extends kotlin.b.a {
-    public static final a oCO = new a(null);
-    private static final c oCN = new c((char) 1, (char) 0);
+    public static final a oSd = new a(null);
+    private static final c oSc = new c((char) 1, (char) 0);
 
     public c(char c, char c2) {
         super(c, c2, 1);
@@ -13,12 +13,12 @@ public final class c extends kotlin.b.a {
 
     @Override // kotlin.b.a
     public boolean isEmpty() {
-        return ekw() > ekx();
+        return eoj() > eok();
     }
 
     @Override // kotlin.b.a
     public boolean equals(Object obj) {
-        return (obj instanceof c) && ((isEmpty() && ((c) obj).isEmpty()) || (ekw() == ((c) obj).ekw() && ekx() == ((c) obj).ekx()));
+        return (obj instanceof c) && ((isEmpty() && ((c) obj).isEmpty()) || (eoj() == ((c) obj).eoj() && eok() == ((c) obj).eok()));
     }
 
     @Override // kotlin.b.a
@@ -26,16 +26,16 @@ public final class c extends kotlin.b.a {
         if (isEmpty()) {
             return -1;
         }
-        return (ekw() * 31) + ekx();
+        return (eoj() * 31) + eok();
     }
 
     @Override // kotlin.b.a
     public String toString() {
-        return ekw() + IStringUtil.TOP_PATH + ekx();
+        return eoj() + IStringUtil.TOP_PATH + eok();
     }
 
     @kotlin.h
-    /* loaded from: classes5.dex */
+    /* loaded from: classes10.dex */
     public static final class a {
         private a() {
         }

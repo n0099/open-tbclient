@@ -3,39 +3,39 @@ package com.baidu.adp.lib.OrmObject.toolsystem.orm.c;
 import java.io.IOException;
 /* loaded from: classes.dex */
 public class b implements h {
-    private boolean JI;
+    private boolean JY;
 
     public b(boolean z) {
-        this.JI = z;
+        this.JY = z;
     }
 
     @Override // com.baidu.adp.lib.OrmObject.toolsystem.orm.c.h
     public Object g(com.baidu.adp.lib.OrmObject.toolsystem.orm.d.c cVar) {
         Class<?> fieldClass = cVar.getFieldClass();
         if (fieldClass == Boolean.class || fieldClass == Boolean.TYPE) {
-            return Boolean.valueOf(this.JI);
+            return Boolean.valueOf(this.JY);
         }
         if (fieldClass == Short.class || fieldClass == Short.TYPE) {
-            return Short.valueOf((short) (this.JI ? 0 : 1));
+            return Short.valueOf((short) (this.JY ? 0 : 1));
         } else if (fieldClass == Integer.class || fieldClass == Integer.TYPE) {
-            return Integer.valueOf(this.JI ? 0 : 1);
+            return Integer.valueOf(this.JY ? 0 : 1);
         } else if (fieldClass == Long.class || fieldClass == Long.TYPE) {
-            return Long.valueOf(this.JI ? 0 : 1);
+            return Long.valueOf(this.JY ? 0 : 1);
         } else if (fieldClass == Float.class || fieldClass == Float.TYPE) {
-            return Float.valueOf(this.JI ? 0 : 1);
+            return Float.valueOf(this.JY ? 0 : 1);
         } else if (fieldClass == Double.class || fieldClass == Double.TYPE) {
-            return Double.valueOf(this.JI ? 0 : 1);
+            return Double.valueOf(this.JY ? 0 : 1);
         } else if (fieldClass == Character.class || fieldClass == Character.TYPE) {
-            return Character.valueOf((char) (this.JI ? 0 : 1));
+            return Character.valueOf((char) (this.JY ? 0 : 1));
         } else if (fieldClass == String.class) {
-            return String.valueOf(this.JI);
+            return String.valueOf(this.JY);
         } else {
             if (fieldClass == char[].class) {
-                return String.valueOf(this.JI).toCharArray();
+                return String.valueOf(this.JY).toCharArray();
             }
             if (fieldClass == byte[].class) {
                 try {
-                    return com.baidu.adp.lib.util.c.decode(String.valueOf(this.JI), 0);
+                    return com.baidu.adp.lib.util.c.decode(String.valueOf(this.JY), 0);
                 } catch (IOException e) {
                     e.printStackTrace();
                 }

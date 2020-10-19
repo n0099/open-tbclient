@@ -3,9 +3,11 @@ package com.baidu.webkit.logsdk;
 import android.content.Context;
 import android.os.Message;
 import android.text.TextUtils;
-/* loaded from: classes8.dex */
+/* loaded from: classes11.dex */
 public final class a {
-    public static boolean a;
+
+    /* renamed from: a  reason: collision with root package name */
+    public static boolean f3948a;
     public static boolean b;
 
     public static void a(String str, String str2) {

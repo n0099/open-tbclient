@@ -11,15 +11,15 @@ import com.baidu.tieba.R;
 import com.baidu.tieba.forumsearch.message.SearchPostForumHttpResponseMessage;
 import com.baidu.tieba.forumsearch.message.SearchPostForumRequestMessage;
 import com.baidu.tieba.forumsearch.message.SearchPostForumSocketResponseMessage;
-/* loaded from: classes23.dex */
+/* loaded from: classes24.dex */
 public class d {
-    private a hXT;
-    private com.baidu.adp.framework.listener.a hXX = new com.baidu.adp.framework.listener.a(1003335, CmdConfigSocket.CMD_SEARCH_POST_FORUM) { // from class: com.baidu.tieba.forumsearch.controller.d.1
+    private a imT;
+    private com.baidu.adp.framework.listener.a imX = new com.baidu.adp.framework.listener.a(1003335, CmdConfigSocket.CMD_SEARCH_POST_FORUM) { // from class: com.baidu.tieba.forumsearch.controller.d.1
         @Override // com.baidu.adp.framework.listener.a
         public void onMessage(ResponsedMessage<?> responsedMessage) {
             if (responsedMessage == null || responsedMessage.hasError() || responsedMessage.getOrginalMessage() == null || responsedMessage.getOrginalMessage().getTag() != d.this.mPageId) {
-                if (d.this.hXT != null) {
-                    d.this.hXT.a(false, null);
+                if (d.this.imT != null) {
+                    d.this.imT.a(false, null);
                     return;
                 }
                 return;
@@ -28,15 +28,15 @@ public class d {
             if (responsedMessage instanceof SearchPostForumSocketResponseMessage) {
                 searchData = ((SearchPostForumSocketResponseMessage) responsedMessage).getSearchData();
             }
-            if (d.this.hXT != null) {
-                d.this.hXT.a(searchData != null, searchData);
+            if (d.this.imT != null) {
+                d.this.imT.a(searchData != null, searchData);
             }
         }
     };
     TbPageContext mPageContext;
     private final BdUniqueId mPageId;
 
-    /* loaded from: classes23.dex */
+    /* loaded from: classes24.dex */
     public interface a {
         void a(boolean z, com.baidu.tieba.forumsearch.b.c cVar);
     }
@@ -44,15 +44,15 @@ public class d {
     public d(TbPageContext tbPageContext, BdUniqueId bdUniqueId) {
         this.mPageContext = tbPageContext;
         this.mPageId = bdUniqueId;
-        this.hXX.setTag(this.mPageId);
-        MessageManager.getInstance().registerListener(this.hXX);
+        this.imX.setTag(this.mPageId);
+        MessageManager.getInstance().registerListener(this.imX);
     }
 
     public void a(a aVar) {
-        this.hXT = aVar;
+        this.imT = aVar;
     }
 
-    public void IK(String str) {
+    public void Jx(String str) {
         if (!StringUtils.isNull(str)) {
             if (!l.isNetOk()) {
                 this.mPageContext.showToast(R.string.neterror);

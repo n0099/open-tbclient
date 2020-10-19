@@ -1,16 +1,16 @@
 package com.baidu.swan.apps.n;
 
 import android.support.annotation.NonNull;
-/* loaded from: classes3.dex */
+/* loaded from: classes10.dex */
 public final class d {
     @NonNull
-    public String cuo;
+    public String cGx;
     @NonNull
-    public String cup;
-    public boolean cuq = false;
+    public String cGy;
+    public boolean cGz = false;
 
     public d(@NonNull String str, @NonNull String str2) {
-        this.cuo = str;
-        this.cup = str2;
+        this.cGx = str;
+        this.cGy = str2;
     }
 }

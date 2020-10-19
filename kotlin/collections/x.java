@@ -4,10 +4,10 @@ import java.util.Collections;
 import java.util.List;
 /* JADX INFO: Access modifiers changed from: package-private */
 @kotlin.h
-/* loaded from: classes5.dex */
+/* loaded from: classes10.dex */
 public class x extends w {
-    public static final <T> void gh(List<T> list) {
-        kotlin.jvm.internal.q.m(list, "receiver$0");
+    public static final <T> void gk(List<T> list) {
+        kotlin.jvm.internal.q.n(list, "receiver$0");
         Collections.reverse(list);
     }
 }

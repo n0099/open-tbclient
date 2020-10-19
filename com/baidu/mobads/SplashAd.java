@@ -9,10 +9,12 @@ import com.baidu.mobads.component.XAdView;
 import com.baidu.mobads.openad.interfaces.event.IOAdEventListener;
 import com.baidu.mobads.utils.XAdSDKFoundationFacade;
 import com.baidu.sapi2.outsdk.OneKeyLoginSdkCall;
-/* loaded from: classes3.dex */
+/* loaded from: classes7.dex */
 public class SplashAd {
     private static boolean d;
-    private com.baidu.mobads.production.g.a a;
+
+    /* renamed from: a  reason: collision with root package name */
+    private com.baidu.mobads.production.g.a f2305a;
     private int b;
     private volatile String c;
     private SplashAdListener e;
@@ -75,8 +77,8 @@ public class SplashAd {
     }
 
     public void destroy() {
-        if (this.a != null) {
-            this.a.p();
+        if (this.f2305a != null) {
+            this.f2305a.p();
         }
     }
 

@@ -10,7 +10,7 @@ import com.baidu.tieba.im.settingcache.PersonalSettingItemData;
 import com.baidu.tieba.im.settingcache.e;
 import java.util.ArrayList;
 import java.util.ListIterator;
-/* loaded from: classes21.dex */
+/* loaded from: classes22.dex */
 public class StrangerListModel extends ImBaseMessageCenterModel {
     /* JADX INFO: Access modifiers changed from: protected */
     public StrangerListModel(TbPageContext tbPageContext) {
@@ -39,9 +39,9 @@ public class StrangerListModel extends ImBaseMessageCenterModel {
         if (buildNormalItem != null) {
             buildNormalItem.setSendStatus(imMessageCenterPojo.getSend_status());
             buildNormalItem.setOwnerName(String.valueOf(7));
-            PersonalSettingItemData fg = e.cLR().fg(TbadkCoreApplication.getCurrentAccount(), imMessageCenterPojo.getGid());
-            if (fg != null) {
-                buildNormalItem.setGroupSetting(fg);
+            PersonalSettingItemData fn = e.cPz().fn(TbadkCoreApplication.getCurrentAccount(), imMessageCenterPojo.getGid());
+            if (fn != null) {
+                buildNormalItem.setGroupSetting(fn);
             }
             insertShowData(buildNormalItem, this.mList);
         }

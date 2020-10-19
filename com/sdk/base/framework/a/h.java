@@ -13,9 +13,11 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.UUID;
-/* loaded from: classes5.dex */
+/* loaded from: classes16.dex */
 public class h<T> {
-    private static final String a = h.class.getSimpleName();
+
+    /* renamed from: a  reason: collision with root package name */
+    private static final String f4475a = h.class.getSimpleName();
     private static boolean b = com.sdk.base.framework.c.f.b;
     private static String c = UUID.randomUUID().toString();
     private Context d;
@@ -68,7 +70,7 @@ public class h<T> {
                 }
             } catch (Exception e) {
                 com.sdk.base.framework.f.g.a.b(e.toString());
-                com.sdk.base.framework.a.a.c.b(a, e.toString(), Boolean.valueOf(b));
+                com.sdk.base.framework.a.a.c.b(f4475a, e.toString(), Boolean.valueOf(b));
             }
         }
         return byteArrayOutputStream;
@@ -85,7 +87,7 @@ public class h<T> {
             if (this.e != null) {
                 String a2 = this.e.a();
                 String e = this.e.e();
-                str = i.a.k;
+                str = i.f4476a.k;
                 if (a2.equals(str)) {
                     String b2 = j.b(this.e.f());
                     return com.sdk.base.framework.a.a.c.b(b2).booleanValue() ? e + "?" + b2 : e;
@@ -94,7 +96,7 @@ public class h<T> {
                 return com.sdk.base.framework.a.a.c.b((String) null).booleanValue() ? e + "?unikey=" + ((String) null) : e;
             }
         } catch (Exception e2) {
-            com.sdk.base.framework.a.a.c.b(a, e2.getMessage(), Boolean.valueOf(b));
+            com.sdk.base.framework.a.a.c.b(f4475a, e2.getMessage(), Boolean.valueOf(b));
         }
         return null;
     }
@@ -138,7 +140,7 @@ public class h<T> {
                     httpURLConnection = (HttpURLConnection) url.openConnection();
                     i = a2;
                 } else {
-                    i = a2 == com.sdk.base.framework.f.h.c.a.a() ? 2 : a2;
+                    i = a2 == com.sdk.base.framework.f.h.c.f4501a.a() ? 2 : a2;
                 }
                 httpURLConnection.setDoOutput(true);
                 httpURLConnection.setConnectTimeout(30000);
@@ -161,7 +163,7 @@ public class h<T> {
             return null;
         } catch (Exception e2) {
             com.sdk.base.framework.f.g.a.b(e2.toString());
-            com.sdk.base.framework.a.a.c.b(a, e2.toString(), Boolean.valueOf(b));
+            com.sdk.base.framework.a.a.c.b(f4475a, e2.toString(), Boolean.valueOf(b));
             throw e2;
         }
     }
@@ -196,6 +198,6 @@ public class h<T> {
     }
 
     public final void c() {
-        this.e.a(i.a.toString());
+        this.e.a(i.f4476a.toString());
     }
 }

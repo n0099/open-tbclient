@@ -4,7 +4,7 @@ import com.baidu.mapapi.model.CoordUtil;
 import com.baidu.mapapi.model.LatLng;
 import com.baidu.platform.comapi.basestruct.GeoPoint;
 import java.util.List;
-/* loaded from: classes3.dex */
+/* loaded from: classes7.dex */
 public class SpatialRelationUtil {
     private static LatLng a(LatLng latLng, LatLng latLng2, LatLng latLng3) {
         GeoPoint ll2mc = CoordUtil.ll2mc(latLng);
@@ -22,8 +22,8 @@ public class SpatialRelationUtil {
         int i = 0;
         LatLng latLng2 = null;
         while (i < list.size() - 1) {
-            LatLng a = a(list.get(i), list.get(i + 1), latLng);
-            LatLng latLng3 = ((a.latitude - list.get(i).latitude) * (a.latitude - list.get(i + 1).latitude) > 0.0d || (a.longitude - list.get(i).longitude) * (a.longitude - list.get(i + 1).longitude) > 0.0d) ? DistanceUtil.getDistance(latLng, list.get(i)) < DistanceUtil.getDistance(latLng, list.get(i + 1)) ? list.get(i) : list.get(i + 1) : a;
+            LatLng a2 = a(list.get(i), list.get(i + 1), latLng);
+            LatLng latLng3 = ((a2.latitude - list.get(i).latitude) * (a2.latitude - list.get(i + 1).latitude) > 0.0d || (a2.longitude - list.get(i).longitude) * (a2.longitude - list.get(i + 1).longitude) > 0.0d) ? DistanceUtil.getDistance(latLng, list.get(i)) < DistanceUtil.getDistance(latLng, list.get(i + 1)) ? list.get(i) : list.get(i + 1) : a2;
             if (latLng2 != null && DistanceUtil.getDistance(latLng, latLng3) >= DistanceUtil.getDistance(latLng, latLng2)) {
                 latLng3 = latLng2;
             }

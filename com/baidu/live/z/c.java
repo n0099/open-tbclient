@@ -3,7 +3,7 @@ package com.baidu.live.z;
 import android.content.Context;
 /* loaded from: classes4.dex */
 public interface c {
-    void FD();
+    void Gz();
 
     void a(Context context, long j, int[] iArr);
 

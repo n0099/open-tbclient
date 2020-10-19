@@ -27,7 +27,7 @@ import java.net.URLEncoder;
 import java.util.ArrayList;
 import java.util.Set;
 import org.json.JSONObject;
-/* loaded from: classes24.dex */
+/* loaded from: classes6.dex */
 public class QzoneShare extends BaseApi {
     public static final String SHARE_TO_QQ_APP_NAME = "appName";
     public static final String SHARE_TO_QQ_AUDIO_URL = "audio_url";
@@ -74,11 +74,11 @@ public class QzoneShare extends BaseApi {
         String string2 = bundle.getString("summary");
         String string3 = bundle.getString("targetUrl");
         ArrayList<String> stringArrayList = bundle.getStringArrayList("imageUrl");
-        String a = j.a(activity);
-        if (a == null) {
-            a = bundle.getString("appName");
-        } else if (a.length() > 20) {
-            a = a.substring(0, 20) + StringHelper.STRING_MORE;
+        String a2 = j.a(activity);
+        if (a2 == null) {
+            a2 = bundle.getString("appName");
+        } else if (a2.length() > 20) {
+            a2 = a2.substring(0, 20) + StringHelper.STRING_MORE;
         }
         int i = bundle.getInt("req_type");
         switch (i) {
@@ -115,7 +115,7 @@ public class QzoneShare extends BaseApi {
                     if (stringArrayList != null && stringArrayList.size() != 0) {
                         this.c = false;
                     } else {
-                        string = "来自" + a + "的分享";
+                        string = "来自" + a2 + "的分享";
                         this.c = true;
                     }
                 } else {
@@ -180,8 +180,8 @@ public class QzoneShare extends BaseApi {
                 bundle.putString("summary", j.a(string2, 600, (String) null, (String) null));
             }
         }
-        if (!TextUtils.isEmpty(a)) {
-            bundle.putString("appName", a);
+        if (!TextUtils.isEmpty(a2)) {
+            bundle.putString("appName", a2);
         }
         if (stringArrayList == null || (stringArrayList != null && stringArrayList.size() == 0)) {
             if (this.f) {

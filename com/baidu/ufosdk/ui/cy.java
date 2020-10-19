@@ -4,13 +4,15 @@ import android.content.Intent;
 import android.os.AsyncTask;
 import android.view.inputmethod.InputMethodManager;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes21.dex */
+/* loaded from: classes22.dex */
 public final class cy extends AsyncTask {
-    final /* synthetic */ FeedbackInputActivity a;
+
+    /* renamed from: a  reason: collision with root package name */
+    final /* synthetic */ FeedbackInputActivity f3819a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public cy(FeedbackInputActivity feedbackInputActivity) {
-        this.a = feedbackInputActivity;
+        this.f3819a = feedbackInputActivity;
     }
 
     private static Integer a() {
@@ -31,17 +33,17 @@ public final class cy extends AsyncTask {
     @Override // android.os.AsyncTask
     protected final /* synthetic */ void onPostExecute(Object obj) {
         boolean z;
-        z = this.a.aD;
+        z = this.f3819a.aD;
         if (z) {
-            Intent intent = new Intent(this.a, FeedbackListActivity.class);
+            Intent intent = new Intent(this.f3819a, FeedbackListActivity.class);
             intent.putExtra("feedback_channel", com.baidu.ufosdk.b.j);
             intent.putExtra("backPress", true);
-            this.a.startActivity(intent);
+            this.f3819a.startActivity(intent);
         }
-        this.a.finish();
+        this.f3819a.finish();
         try {
             com.baidu.ufosdk.f.c.d("执行动画...");
-            this.a.overridePendingTransition(com.baidu.ufosdk.f.i.a(this.a.getApplicationContext(), "ufo_slide_in_from_left"), com.baidu.ufosdk.f.i.a(this.a.getApplicationContext(), "ufo_slide_out_to_right"));
+            this.f3819a.overridePendingTransition(com.baidu.ufosdk.f.i.a(this.f3819a.getApplicationContext(), "ufo_slide_in_from_left"), com.baidu.ufosdk.f.i.a(this.f3819a.getApplicationContext(), "ufo_slide_out_to_right"));
         } catch (Exception e) {
             com.baidu.ufosdk.f.c.d("执行动画失败！！");
         }
@@ -49,10 +51,10 @@ public final class cy extends AsyncTask {
 
     @Override // android.os.AsyncTask
     protected final void onPreExecute() {
-        if (this.a.getCurrentFocus() == null || this.a.getCurrentFocus().getWindowToken() == null) {
+        if (this.f3819a.getCurrentFocus() == null || this.f3819a.getCurrentFocus().getWindowToken() == null) {
             return;
         }
-        ((InputMethodManager) this.a.getSystemService("input_method")).hideSoftInputFromWindow(this.a.getCurrentFocus().getWindowToken(), 2);
+        ((InputMethodManager) this.f3819a.getSystemService("input_method")).hideSoftInputFromWindow(this.f3819a.getCurrentFocus().getWindowToken(), 2);
     }
 
     @Override // android.os.AsyncTask

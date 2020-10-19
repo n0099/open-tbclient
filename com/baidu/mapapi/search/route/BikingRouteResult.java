@@ -5,10 +5,12 @@ import android.os.Parcelable;
 import com.baidu.mapapi.search.core.SearchResult;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes3.dex */
+/* loaded from: classes7.dex */
 public class BikingRouteResult extends SearchResult implements Parcelable {
     public static final Parcelable.Creator<BikingRouteResult> CREATOR = new c();
-    private List<BikingRouteLine> a;
+
+    /* renamed from: a  reason: collision with root package name */
+    private List<BikingRouteLine> f2130a;
     private SuggestAddrInfo b;
 
     public BikingRouteResult() {
@@ -16,8 +18,8 @@ public class BikingRouteResult extends SearchResult implements Parcelable {
 
     /* JADX INFO: Access modifiers changed from: protected */
     public BikingRouteResult(Parcel parcel) {
-        this.a = new ArrayList();
-        parcel.readList(this.a, BikingRouteLine.class.getClassLoader());
+        this.f2130a = new ArrayList();
+        parcel.readList(this.f2130a, BikingRouteLine.class.getClassLoader());
         this.b = (SuggestAddrInfo) parcel.readParcelable(SuggestAddrInfo.class.getClassLoader());
     }
 
@@ -27,7 +29,7 @@ public class BikingRouteResult extends SearchResult implements Parcelable {
     }
 
     public List<BikingRouteLine> getRouteLines() {
-        return this.a;
+        return this.f2130a;
     }
 
     public SuggestAddrInfo getSuggestAddrInfo() {
@@ -35,7 +37,7 @@ public class BikingRouteResult extends SearchResult implements Parcelable {
     }
 
     public void setRouteLines(List<BikingRouteLine> list) {
-        this.a = list;
+        this.f2130a = list;
     }
 
     public void setSuggestAddrInfo(SuggestAddrInfo suggestAddrInfo) {
@@ -44,7 +46,7 @@ public class BikingRouteResult extends SearchResult implements Parcelable {
 
     @Override // com.baidu.mapapi.search.core.SearchResult, android.os.Parcelable
     public void writeToParcel(Parcel parcel, int i) {
-        parcel.writeList(this.a);
+        parcel.writeList(this.f2130a);
         parcel.writeParcelable(this.b, 1);
     }
 }

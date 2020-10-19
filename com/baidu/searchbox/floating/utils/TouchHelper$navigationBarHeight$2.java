@@ -4,7 +4,7 @@ import kotlin.h;
 import kotlin.jvm.a.a;
 import kotlin.jvm.internal.Lambda;
 @h
-/* loaded from: classes5.dex */
+/* loaded from: classes11.dex */
 final class TouchHelper$navigationBarHeight$2 extends Lambda implements a<Integer> {
     final /* synthetic */ TouchHelper this$0;
 
@@ -23,7 +23,7 @@ final class TouchHelper$navigationBarHeight$2 extends Lambda implements a<Intege
     }
 
     /* JADX DEBUG: Return type fixed from 'int' to match base method */
-    /* JADX WARN: Type inference failed for: r0v2, types: [int, java.lang.Integer] */
+    /* JADX WARN: Type inference failed for: r0v2, types: [java.lang.Integer, int] */
     @Override // kotlin.jvm.a.a
     public final Integer invoke() {
         return UtilsKt.getNavBarHeight(this.this$0.getContext());

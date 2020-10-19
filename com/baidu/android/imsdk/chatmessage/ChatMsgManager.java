@@ -4,6 +4,7 @@ import android.content.Context;
 import android.text.TextUtils;
 import android.util.Log;
 import android.util.Pair;
+import android.util.SparseArray;
 import com.baidu.android.imsdk.ChatObject;
 import com.baidu.android.imsdk.account.AccountManager;
 import com.baidu.android.imsdk.account.IKickOutListener;
@@ -18,9 +19,11 @@ import com.baidu.android.imsdk.group.GroupInfo;
 import com.baidu.android.imsdk.group.db.GroupInfoDAOImpl;
 import com.baidu.android.imsdk.internal.BaseManager;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.android.imsdk.mcast.ILiveMsgReceiveListener;
 import com.baidu.android.imsdk.notification.IFetchNotificationDataListener;
 import com.baidu.android.imsdk.upload.FileUploadTask;
 import com.baidu.android.imsdk.upload.IFileUploadListener;
+import com.baidu.android.imsdk.upload.IUploadTransferListener;
 import com.baidu.android.imsdk.upload.action.IMTrack;
 import com.baidu.android.imsdk.utils.LogUtils;
 import com.baidu.android.imsdk.utils.Utility;
@@ -28,7 +31,7 @@ import java.io.File;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
-/* loaded from: classes9.dex */
+/* loaded from: classes5.dex */
 public class ChatMsgManager extends BaseManager {
     public static void init(Context context) {
         if (!isNullContext(context)) {
@@ -234,6 +237,10 @@ public class ChatMsgManager extends BaseManager {
         return ChatMsgManagerImpl.getInstance(context).setMsgReadByChatTpyes(list, j);
     }
 
+    public static boolean setMsgReadByChatTypeAndSubType(Context context, SparseArray<List<Integer>> sparseArray, long j, ISetMessageReadListener iSetMessageReadListener) {
+        return ChatMsgManagerImpl.getInstance(context).setMsgReadByChatTypeAndSubType(sparseArray, j, iSetMessageReadListener);
+    }
+
     @Deprecated
     public static long getTotalNewMsgNum(Context context) {
         if (isNullContext(context)) {
@@ -315,6 +322,10 @@ public class ChatMsgManager extends BaseManager {
         }
     }
 
+    public static void getNotificationMsgDataList(Context context, SparseArray<List<Integer>> sparseArray, long j, int i, IFetchNotificationDataListener iFetchNotificationDataListener) {
+        ChatMsgManagerImpl.getInstance(context).getNotificationMsgDataList(sparseArray, j, i, iFetchNotificationDataListener);
+    }
+
     public static void unregisterChatSessionListener(Context context, IChatSessionChangeListener iChatSessionChangeListener) {
         if (!isNullContext(context)) {
             ChatSessionManagerImpl.getInstance(context).unregisterMessageReceiveListener(context, iChatSessionChangeListener);
@@ -369,6 +380,17 @@ public class ChatMsgManager extends BaseManager {
             return;
         }
         ChatMsgManagerImpl.getInstance(context).genBosObjectUrl(str, str2, str3, i, i2, i3, iGenBosObjectUrlListener);
+    }
+
+    public static void asyncUploadImgToBos(Context context, String str, String str2, int i, int i2, int i3, IUploadTransferListener iUploadTransferListener) {
+        if (context == null || TextUtils.isEmpty(str)) {
+            if (iUploadTransferListener != null) {
+                iUploadTransferListener.onFailed(1005, 1, str);
+                return;
+            }
+            return;
+        }
+        ChatMsgManagerImpl.getInstance(context).asyncUploadImgToBos(str, str2, i, i2, i3, iUploadTransferListener);
     }
 
     public static void audioTrans(Context context, String str, String str2, String str3, int i, BIMValueCallBack bIMValueCallBack) {
@@ -592,5 +614,29 @@ public class ChatMsgManager extends BaseManager {
 
     public static void mediaGetContactorSetting(Context context, long j, int i, long j2, String str, int i2, IMediaContactorSettingListener iMediaContactorSettingListener) {
         ChatSessionManagerImpl.getInstance(context).mediaGetContactorSetting(j, i, j2, str, i2, iMediaContactorSettingListener);
+    }
+
+    public static void sendPaChatMsg(Context context, int i, int i2, long j, int i3, String str, ISendMessageListener iSendMessageListener) {
+        ChatMsgManagerImpl.getInstance(context).sendPaChatMsg(i, i2, j, i3, str, iSendMessageListener);
+    }
+
+    public static void fetchPaChatMsgs(Context context, int i, int i2, long j, long j2, long j3, int i3, IFetchMessageListener iFetchMessageListener) {
+        ChatMsgManagerImpl.getInstance(context).fetchPaChatMsgs(i, i2, j, j2, j3, i3, iFetchMessageListener);
+    }
+
+    public static void setPaMsgsRead(Context context, int i, int i2, long j, long j2, long j3) {
+        ChatMsgManagerImpl.getInstance(context).setPaMsgsRead(i, i2, j, j2, j3);
+    }
+
+    public static void getPaNewMsgCount(Context context, int i, int i2, long j, IGetNewMsgCountListener iGetNewMsgCountListener) {
+        ChatMsgManagerImpl.getInstance(context).getPaNewMsgCount(i, i2, j, iGetNewMsgCountListener);
+    }
+
+    public static void registerStudioUsePaReceivePaMsg(Context context, ILiveMsgReceiveListener iLiveMsgReceiveListener) {
+        ChatMsgManagerImpl.getInstance(context).registerStudioUsePaReceivePaMsg(iLiveMsgReceiveListener);
+    }
+
+    public static void unregisterStudioUsePaReceivePaMsg(Context context, ILiveMsgReceiveListener iLiveMsgReceiveListener) {
+        ChatMsgManagerImpl.getInstance(context).unregisterStudioUsePaReceivePaMsg(iLiveMsgReceiveListener);
     }
 }

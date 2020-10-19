@@ -18,14 +18,16 @@ import com.baidu.mobstat.av;
 import com.baidu.tbadk.mutiprocess.mission.MissionEvent;
 import java.util.ArrayList;
 import java.util.Map;
-/* loaded from: classes15.dex */
+/* loaded from: classes17.dex */
 public class StatService {
     public static final int EXCEPTION_LOG = 1;
     public static final int JAVA_EXCEPTION_LOG = 16;
-    private static boolean a = false;
+
+    /* renamed from: a  reason: collision with root package name */
+    private static boolean f2514a = false;
     private static boolean b;
 
-    /* loaded from: classes15.dex */
+    /* loaded from: classes17.dex */
     public interface WearListener {
         boolean onSendLogData(String str);
     }
@@ -120,8 +122,8 @@ public class StatService {
     }
 
     public static void setOn(Context context, int i) {
-        if (a(context, "setOn(...)") && !a) {
-            a = true;
+        if (a(context, "setOn(...)") && !f2514a) {
+            f2514a = true;
             if ((i & 1) != 0) {
                 a(context, false);
             } else if ((i & 16) != 0) {

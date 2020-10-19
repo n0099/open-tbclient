@@ -1,12 +1,12 @@
 package com.baidu.tbadk.core.data;
 /* loaded from: classes.dex */
 public class bk extends u {
-    private boolean eck;
+    private boolean eop;
     private String title;
 
     public bk(String str, boolean z) {
-        nb(7);
-        this.eck = z;
+        ny(7);
+        this.eop = z;
         this.title = str;
     }
 

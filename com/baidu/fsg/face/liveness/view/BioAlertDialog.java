@@ -9,9 +9,11 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.ViewSwitcher;
 import com.baidu.sapi2.biometrics.liveness.R;
-/* loaded from: classes16.dex */
+/* loaded from: classes17.dex */
 public class BioAlertDialog extends Dialog {
-    private ViewSwitcher a;
+
+    /* renamed from: a  reason: collision with root package name */
+    private ViewSwitcher f1733a;
     private TextView b;
     private TextView c;
     private TextView d;
@@ -40,7 +42,7 @@ public class BioAlertDialog extends Dialog {
     private void a() {
         setContentView(R.layout.layout_sapi_liveness_alert_dialog);
         setCanceledOnTouchOutside(false);
-        this.a = (ViewSwitcher) findViewById(R.id.view_switcher);
+        this.f1733a = (ViewSwitcher) findViewById(R.id.view_switcher);
         this.b = (TextView) findViewById(R.id.dialog_title);
         this.c = (TextView) findViewById(R.id.dialog_msg);
         this.d = (TextView) findViewById(R.id.msg_text);
@@ -80,9 +82,9 @@ public class BioAlertDialog extends Dialog {
             i = 2;
         }
         if (i == 2) {
-            this.a.setDisplayedChild(0);
+            this.f1733a.setDisplayedChild(0);
         } else {
-            this.a.setDisplayedChild(1);
+            this.f1733a.setDisplayedChild(1);
         }
     }
 

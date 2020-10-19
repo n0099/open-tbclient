@@ -5,10 +5,12 @@ import android.os.Parcelable;
 import com.baidu.mapapi.search.core.CityInfo;
 import com.baidu.mapapi.search.core.PoiInfo;
 import java.util.List;
-/* loaded from: classes3.dex */
+/* loaded from: classes7.dex */
 public class SuggestAddrInfo implements Parcelable {
     public static final Parcelable.Creator<SuggestAddrInfo> CREATOR = new n();
-    private List<PoiInfo> a;
+
+    /* renamed from: a  reason: collision with root package name */
+    private List<PoiInfo> f2145a;
     private List<PoiInfo> b;
     private List<List<PoiInfo>> c;
     private List<CityInfo> d;
@@ -20,7 +22,7 @@ public class SuggestAddrInfo implements Parcelable {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public SuggestAddrInfo(Parcel parcel) {
-        this.a = parcel.readArrayList(PoiInfo.class.getClassLoader());
+        this.f2145a = parcel.readArrayList(PoiInfo.class.getClassLoader());
         this.b = parcel.readArrayList(PoiInfo.class.getClassLoader());
         this.c = parcel.readArrayList(PoiInfo.class.getClassLoader());
         this.d = parcel.readArrayList(CityInfo.class.getClassLoader());
@@ -46,7 +48,7 @@ public class SuggestAddrInfo implements Parcelable {
     }
 
     public List<PoiInfo> getSuggestStartNode() {
-        return this.a;
+        return this.f2145a;
     }
 
     public List<List<CityInfo>> getSuggestWpCity() {
@@ -70,7 +72,7 @@ public class SuggestAddrInfo implements Parcelable {
     }
 
     public void setSuggestStartNode(List<PoiInfo> list) {
-        this.a = list;
+        this.f2145a = list;
     }
 
     public void setSuggestWpCity(List<List<CityInfo>> list) {
@@ -83,7 +85,7 @@ public class SuggestAddrInfo implements Parcelable {
 
     @Override // android.os.Parcelable
     public void writeToParcel(Parcel parcel, int i) {
-        parcel.writeList(this.a);
+        parcel.writeList(this.f2145a);
         parcel.writeList(this.b);
         parcel.writeList(this.c);
         parcel.writeList(this.d);

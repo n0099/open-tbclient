@@ -15,7 +15,7 @@ import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes7.dex */
 public class e extends com.baidu.platform.base.d {
     private PoiInfo.ParentPoiInfo a(JSONObject jSONObject) {
         if (jSONObject == null || jSONObject.length() == 0) {
@@ -126,13 +126,13 @@ public class e extends com.baidu.platform.base.d {
         reverseGeoCodeResult.setCityCode(optJSONObject.optInt("cityCode"));
         reverseGeoCodeResult.setAddress(optJSONObject.optString("formatted_address"));
         reverseGeoCodeResult.setBusinessCircle(optJSONObject.optString("business"));
-        ReverseGeoCodeResult.AddressComponent a = a(optJSONObject, "addressComponent");
-        reverseGeoCodeResult.setAddressDetail(a);
+        ReverseGeoCodeResult.AddressComponent a2 = a(optJSONObject, "addressComponent");
+        reverseGeoCodeResult.setAddressDetail(a2);
         reverseGeoCodeResult.setLocation(d(optJSONObject, "location"));
         String str = "";
-        if (a != null) {
-            str = a.city;
-            reverseGeoCodeResult.setAdcode(a.adcode);
+        if (a2 != null) {
+            str = a2.city;
+            reverseGeoCodeResult.setAdcode(a2.adcode);
         }
         reverseGeoCodeResult.setPoiList(a(optJSONObject, "pois", str));
         reverseGeoCodeResult.setSematicDescription(optJSONObject.optString("sematic_description"));

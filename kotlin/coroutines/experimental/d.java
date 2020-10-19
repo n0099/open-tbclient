@@ -3,25 +3,25 @@ package kotlin.coroutines.experimental;
 import kotlin.h;
 import kotlin.jvm.a.m;
 @h
-/* loaded from: classes5.dex */
+/* loaded from: classes10.dex */
 public interface d {
 
     @h
-    /* loaded from: classes5.dex */
+    /* loaded from: classes10.dex */
     public static final class a {
     }
 
     @h
-    /* loaded from: classes5.dex */
+    /* loaded from: classes10.dex */
     public interface b extends d {
         @Override // kotlin.coroutines.experimental.d
         <E extends b> E a(c<E> cVar);
 
-        c<?> eki();
+        c<?> enU();
     }
 
     @h
-    /* loaded from: classes5.dex */
+    /* loaded from: classes10.dex */
     public interface c<E extends b> {
     }
 

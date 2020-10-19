@@ -4,10 +4,12 @@ import com.baidu.mobads.openad.interfaces.utils.IOAdTimer;
 import com.baidu.mobads.utils.XAdSDKFoundationFacade;
 import java.util.Timer;
 import java.util.concurrent.atomic.AtomicInteger;
-/* loaded from: classes3.dex */
+/* loaded from: classes7.dex */
 public class a implements IOAdTimer {
     private static String c = "OAdTimer";
-    protected int a;
+
+    /* renamed from: a  reason: collision with root package name */
+    protected int f2386a;
     private IOAdTimer.EventHandler b;
     private int d;
     private int e;
@@ -27,9 +29,9 @@ public class a implements IOAdTimer {
     }
 
     public a(int i, int i2) {
-        this.a = 300;
-        this.a = i2;
-        int i3 = i / this.a;
+        this.f2386a = 300;
+        this.f2386a = i2;
+        int i3 = i / this.f2386a;
         XAdSDKFoundationFacade.getInstance().getAdLogger().i(c, "RendererTimer(duration=" + i3 + ")");
         this.d = i3;
         this.e = i3;
@@ -46,7 +48,7 @@ public class a implements IOAdTimer {
     public void start() {
         XAdSDKFoundationFacade.getInstance().getAdLogger().i(c, "start");
         this.h.set(0);
-        this.g.scheduleAtFixedRate(new b(this), 0L, this.a);
+        this.g.scheduleAtFixedRate(new b(this), 0L, this.f2386a);
     }
 
     @Override // com.baidu.mobads.openad.interfaces.utils.IOAdTimer

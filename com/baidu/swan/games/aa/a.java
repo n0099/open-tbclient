@@ -3,33 +3,33 @@ package com.baidu.swan.games.aa;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.locks.ReentrantLock;
-/* loaded from: classes3.dex */
+/* loaded from: classes10.dex */
 public class a {
-    private static final ReentrantLock dzv = new ReentrantLock();
-    private static volatile a dzw;
-    private d dsu;
-    private List<c> dtm = new ArrayList(3);
+    private static final ReentrantLock dLw = new ReentrantLock();
+    private static volatile a dLx;
+    private d dEw;
+    private List<c> dFo = new ArrayList(3);
 
     private a() {
     }
 
-    public static a aQn() {
-        if (dzw == null) {
+    public static a aSW() {
+        if (dLx == null) {
             synchronized (a.class) {
-                if (dzw == null) {
-                    dzw = new a();
+                if (dLx == null) {
+                    dLx = new a();
                 }
             }
         }
-        return dzw;
+        return dLx;
     }
 
     public void a(d dVar) {
-        this.dsu = dVar;
-        aQo();
+        this.dEw = dVar;
+        aSX();
     }
 
-    public void am(String str, boolean z) {
+    public void aq(String str, boolean z) {
         com.baidu.swan.apps.console.c.i("SwanGameBundleUpdateManager", String.format("sendJSMessage : eventType = %s; hasUpdate = %s", str, Boolean.valueOf(z)));
         c cVar = new c(str);
         cVar.hasUpdate = z;
@@ -37,33 +37,33 @@ public class a {
     }
 
     public void release() {
-        this.dsu = null;
-        this.dtm.clear();
+        this.dEw = null;
+        this.dFo.clear();
     }
 
     private void a(c cVar) {
-        dzv.lock();
+        dLw.lock();
         try {
-            if (this.dsu != null) {
-                this.dsu.c(cVar);
+            if (this.dEw != null) {
+                this.dEw.c(cVar);
             } else {
-                this.dtm.add(cVar);
+                this.dFo.add(cVar);
             }
         } finally {
-            dzv.unlock();
+            dLw.unlock();
         }
     }
 
-    private void aQo() {
-        if (!this.dtm.isEmpty() && this.dsu != null) {
-            dzv.lock();
+    private void aSX() {
+        if (!this.dFo.isEmpty() && this.dEw != null) {
+            dLw.lock();
             try {
-                for (c cVar : this.dtm) {
-                    this.dsu.c(cVar);
+                for (c cVar : this.dFo) {
+                    this.dEw.c(cVar);
                 }
-                this.dtm.clear();
+                this.dFo.clear();
             } finally {
-                dzv.unlock();
+                dLw.unlock();
             }
         }
     }

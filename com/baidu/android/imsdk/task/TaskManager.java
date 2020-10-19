@@ -9,7 +9,7 @@ import java.util.concurrent.Future;
 import java.util.concurrent.LinkedBlockingQueue;
 import java.util.concurrent.ThreadPoolExecutor;
 import java.util.concurrent.TimeUnit;
-/* loaded from: classes9.dex */
+/* loaded from: classes5.dex */
 public class TaskManager {
     private static final int KEEP_ALIVE_SECONDS = 30;
     public static final String TAG = "TaskManager";
@@ -44,7 +44,7 @@ public class TaskManager {
         try {
             this.singleThreadService.submit(runnable);
         } catch (Exception e) {
-            LogUtils.e(TAG, "Exception ", e);
+            LogUtils.e("TaskManager", "Exception ", e);
         }
     }
 
@@ -57,7 +57,7 @@ public class TaskManager {
             this.service.submit(runnable);
             return true;
         } catch (Throwable th) {
-            LogUtils.e(TAG, "Exception ", th);
+            LogUtils.e("TaskManager", "Exception ", th);
             return false;
         }
     }
@@ -66,7 +66,7 @@ public class TaskManager {
         this.service.purge();
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes5.dex */
     public static class Task implements Runnable {
         protected String mAction;
         protected String mJson;

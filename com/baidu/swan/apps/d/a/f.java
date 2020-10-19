@@ -5,63 +5,63 @@ import com.baidu.searchbox.common.runtime.AppRuntime;
 import com.baidu.searchbox.process.ipc.delegate.DelegateUtils;
 import kotlin.jvm.internal.q;
 @kotlin.h
-/* loaded from: classes3.dex */
+/* loaded from: classes10.dex */
 public final class f {
     private static final String TAG;
-    private static com.baidu.swan.apps.a.a bVU;
-    private static com.baidu.swan.apps.a.c bVV;
-    private static boolean bVW;
-    public static final f bVX = new f();
+    private static com.baidu.swan.apps.a.a cij;
+    private static com.baidu.swan.apps.a.c cik;
+    private static boolean cil;
+    public static final f cim = new f();
 
     static {
-        String simpleName = bVX.getClass().getSimpleName();
-        q.l((Object) simpleName, "SwanAppAllianceLoginHelper.javaClass.simpleName");
+        String simpleName = cim.getClass().getSimpleName();
+        q.m(simpleName, "SwanAppAllianceLoginHelper.javaClass.simpleName");
         TAG = simpleName;
     }
 
     private f() {
     }
 
-    public final com.baidu.swan.apps.a.a acf() {
-        return bVU;
+    public final com.baidu.swan.apps.a.a aeR() {
+        return cij;
     }
 
-    public final com.baidu.swan.apps.a.c acg() {
-        return bVV;
+    public final com.baidu.swan.apps.a.c aeS() {
+        return cik;
     }
 
-    public final boolean ach() {
-        return bVW;
+    public final boolean aeT() {
+        return cil;
     }
 
-    public final void dz(boolean z) {
-        bVW = z;
+    public final void dV(boolean z) {
+        cil = z;
     }
 
-    public final void aci() {
-        d.bVS.acb();
-        h.bWa.acm();
-        dq(false);
+    public final void aeU() {
+        d.cih.aeN();
+        h.cip.aeY();
+        dM(false);
     }
 
-    public final boolean acj() {
-        if (g.acl() == null) {
-            ack();
+    public final boolean aeV() {
+        if (g.aeX() == null) {
+            aeW();
         }
-        Boolean acl = g.acl();
-        if (acl == null) {
-            q.ekp();
+        Boolean aeX = g.aeX();
+        if (aeX == null) {
+            q.eob();
         }
-        return acl.booleanValue();
+        return aeX.booleanValue();
     }
 
-    public final void dq(boolean z) {
+    public final void dM(boolean z) {
         Bundle bundle = new Bundle();
         bundle.putBoolean("status", z);
         DelegateUtils.callOnMainWithContentProvider(AppRuntime.getAppContext(), c.class, bundle);
     }
 
-    private final void ack() {
+    private final void aeW() {
         boolean z;
         try {
             Class.forName("com.baidu.sapi2.SapiAccountManager");
@@ -69,6 +69,6 @@ public final class f {
         } catch (ClassNotFoundException e) {
             z = true;
         }
-        g.c(Boolean.valueOf(z));
+        g.d(Boolean.valueOf(z));
     }
 }

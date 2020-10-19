@@ -1,15 +1,15 @@
 package com.baidu.prologue.a.a;
 
 import android.text.TextUtils;
-/* loaded from: classes10.dex */
+/* loaded from: classes19.dex */
 public class a {
-    public static final boolean GLOBAL_DEBUG = com.baidu.prologue.a.b.a.bMm.get().VD();
+    public static final boolean GLOBAL_DEBUG = com.baidu.prologue.a.b.a.bSV.get().XA();
     private static String url = "https://afd.baidu.com/afd/entry";
 
-    public static String Vs() {
-        if (!GLOBAL_DEBUG || TextUtils.isEmpty(com.baidu.prologue.a.b.a.bMm.get().VQ())) {
+    public static String Xp() {
+        if (!GLOBAL_DEBUG || TextUtils.isEmpty(com.baidu.prologue.a.b.a.bSV.get().XN())) {
             return TextUtils.isEmpty(url) ? "https://afd.baidu.com/afd/entry" : url;
         }
-        return com.baidu.prologue.a.b.a.bMm.get().VQ();
+        return com.baidu.prologue.a.b.a.bSV.get().XN();
     }
 }

@@ -11,19 +11,21 @@ import java.util.HashSet;
 import java.util.Map;
 import java.util.Set;
 import java.util.concurrent.ConcurrentHashMap;
-/* loaded from: classes3.dex */
+/* loaded from: classes7.dex */
 public class b {
-    private static Field a;
+
+    /* renamed from: a  reason: collision with root package name */
+    private static Field f4427a;
     private static Field b;
     private static Field c;
     private static Object d = new Object();
     private static Map<String, Set<String>> e = new ConcurrentHashMap();
 
     static {
-        a = null;
+        f4427a = null;
         b = null;
         try {
-            a = Notification.class.getDeclaredField("mFlymeNotification");
+            f4427a = Notification.class.getDeclaredField("mFlymeNotification");
             b = Class.forName("android.app.NotificationExt").getDeclaredField("internalApp");
             b.setAccessible(true);
             c = Notification.class.getDeclaredField("replyIntent");
@@ -46,11 +48,11 @@ public class b {
     }
 
     public static void a(Notification notification, boolean z) {
-        if (a == null || b == null) {
+        if (f4427a == null || b == null) {
             return;
         }
         try {
-            b.set(a.get(notification), Integer.valueOf(z ? 1 : 0));
+            b.set(f4427a.get(notification), Integer.valueOf(z ? 1 : 0));
         } catch (IllegalAccessException e2) {
             com.meizu.cloud.a.a.e("NotificationUtils", "setInternalApp error " + e2.getMessage());
         }

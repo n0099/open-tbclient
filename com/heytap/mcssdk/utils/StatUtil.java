@@ -9,7 +9,7 @@ import com.heytap.mcssdk.mode.MessageStat;
 import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
-/* loaded from: classes12.dex */
+/* loaded from: classes15.dex */
 public class StatUtil {
     private static final String COUNT = "count";
     private static final int MCS_SUPPORT_VERSION = 1017;

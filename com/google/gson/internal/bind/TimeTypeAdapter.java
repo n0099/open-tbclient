@@ -11,30 +11,30 @@ import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
-/* loaded from: classes23.dex */
+/* loaded from: classes17.dex */
 public final class TimeTypeAdapter extends TypeAdapter<Time> {
-    public static final TypeAdapterFactory nNO = new TypeAdapterFactory() { // from class: com.google.gson.internal.bind.TimeTypeAdapter.1
+    public static final TypeAdapterFactory odg = new TypeAdapterFactory() { // from class: com.google.gson.internal.bind.TimeTypeAdapter.1
         @Override // com.google.gson.TypeAdapterFactory
         public <T> TypeAdapter<T> create(Gson gson, com.google.gson.b.a<T> aVar) {
-            if (aVar.ebP() == Time.class) {
+            if (aVar.efA() == Time.class) {
                 return new TimeTypeAdapter();
             }
             return null;
         }
     };
-    private final DateFormat nOq = new SimpleDateFormat("hh:mm:ss a");
+    private final DateFormat odI = new SimpleDateFormat("hh:mm:ss a");
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.google.gson.TypeAdapter
     /* renamed from: e */
     public synchronized Time read(com.google.gson.stream.a aVar) throws IOException {
         Time time;
-        if (aVar.ebw() == JsonToken.NULL) {
-            aVar.ebB();
+        if (aVar.efh() == JsonToken.NULL) {
+            aVar.efm();
             time = null;
         } else {
             try {
-                time = new Time(this.nOq.parse(aVar.ebA()).getTime());
+                time = new Time(this.odI.parse(aVar.efl()).getTime());
             } catch (ParseException e) {
                 throw new JsonSyntaxException(e);
             }
@@ -46,6 +46,6 @@ public final class TimeTypeAdapter extends TypeAdapter<Time> {
     @Override // com.google.gson.TypeAdapter
     /* renamed from: a */
     public synchronized void write(com.google.gson.stream.b bVar, Time time) throws IOException {
-        bVar.Vv(time == null ? null : this.nOq.format((Date) time));
+        bVar.Wj(time == null ? null : this.odI.format((Date) time));
     }
 }

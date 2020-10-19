@@ -1,4 +1,4 @@
 package kotlin.text;
-/* loaded from: classes5.dex */
+/* loaded from: classes10.dex */
 public interface h extends g {
 }

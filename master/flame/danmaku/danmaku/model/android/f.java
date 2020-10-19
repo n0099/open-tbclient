@@ -12,9 +12,9 @@ public class f {
     public Bitmap bitmap;
     public Object extra;
     public int height;
-    public Canvas oGL;
-    public Bitmap[][] oIo;
-    private int oIp;
+    public Canvas oWa;
+    public Bitmap[][] oXD;
+    private int oXE;
     public int width;
 
     public void f(int i, int i2, int i3, boolean z) {
@@ -28,8 +28,8 @@ public class f {
         }
         if (z2 && this.bitmap != null) {
             this.bitmap.eraseColor(0);
-            this.oGL.setBitmap(this.bitmap);
-            emA();
+            this.oWa.setBitmap(this.bitmap);
+            eqn();
             return;
         }
         if (this.bitmap != null) {
@@ -39,15 +39,15 @@ public class f {
         this.height = i2;
         this.bitmap = NativeBitmapFactory.f(i, i2, Bitmap.Config.ARGB_8888);
         if (i3 > 0) {
-            this.oIp = i3;
+            this.oXE = i3;
             this.bitmap.setDensity(i3);
         }
-        if (this.oGL == null) {
-            this.oGL = new Canvas(this.bitmap);
-            this.oGL.setDensity(i3);
+        if (this.oWa == null) {
+            this.oWa = new Canvas(this.bitmap);
+            this.oWa.setDensity(i3);
             return;
         }
-        this.oGL.setBitmap(this.bitmap);
+        this.oWa.setBitmap(this.bitmap);
     }
 
     public synchronized void recycle() {
@@ -58,13 +58,13 @@ public class f {
         if (bitmap != null) {
             bitmap.recycle();
         }
-        emA();
+        eqn();
         this.extra = null;
     }
 
     @SuppressLint({"NewApi"})
     public void K(int i, int i2, int i3, int i4) {
-        emA();
+        eqn();
         if (this.width > 0 && this.height > 0 && this.bitmap != null) {
             if (this.width > i3 || this.height > i4) {
                 int min = Math.min(i3, i);
@@ -74,10 +74,10 @@ public class f {
                 int i7 = this.width / i5;
                 int i8 = this.height / i6;
                 Bitmap[][] bitmapArr = (Bitmap[][]) Array.newInstance(Bitmap.class, i6, i5);
-                if (this.oGL == null) {
-                    this.oGL = new Canvas();
-                    if (this.oIp > 0) {
-                        this.oGL.setDensity(this.oIp);
+                if (this.oWa == null) {
+                    this.oWa = new Canvas();
+                    if (this.oXE > 0) {
+                        this.oWa.setDensity(this.oXE);
                     }
                 }
                 Rect rect = new Rect();
@@ -87,26 +87,26 @@ public class f {
                         Bitmap[] bitmapArr2 = bitmapArr[i9];
                         Bitmap f = NativeBitmapFactory.f(i7, i8, Bitmap.Config.ARGB_8888);
                         bitmapArr2[i10] = f;
-                        if (this.oIp > 0) {
-                            f.setDensity(this.oIp);
+                        if (this.oXE > 0) {
+                            f.setDensity(this.oXE);
                         }
-                        this.oGL.setBitmap(f);
+                        this.oWa.setBitmap(f);
                         int i11 = i10 * i7;
                         int i12 = i9 * i8;
                         rect.set(i11, i12, i11 + i7, i12 + i8);
                         rect2.set(0, 0, f.getWidth(), f.getHeight());
-                        this.oGL.drawBitmap(this.bitmap, rect, rect2, (Paint) null);
+                        this.oWa.drawBitmap(this.bitmap, rect, rect2, (Paint) null);
                     }
                 }
-                this.oGL.setBitmap(this.bitmap);
-                this.oIo = bitmapArr;
+                this.oWa.setBitmap(this.bitmap);
+                this.oXD = bitmapArr;
             }
         }
     }
 
-    private void emA() {
-        Bitmap[][] bitmapArr = this.oIo;
-        this.oIo = null;
+    private void eqn() {
+        Bitmap[][] bitmapArr = this.oXD;
+        this.oXD = null;
         if (bitmapArr != null) {
             for (int i = 0; i < bitmapArr.length; i++) {
                 for (int i2 = 0; i2 < bitmapArr[i].length; i2++) {
@@ -122,10 +122,10 @@ public class f {
     public final synchronized boolean a(Canvas canvas, float f, float f2, Paint paint) {
         boolean z = true;
         synchronized (this) {
-            if (this.oIo != null) {
-                for (int i = 0; i < this.oIo.length; i++) {
-                    for (int i2 = 0; i2 < this.oIo[i].length; i2++) {
-                        Bitmap bitmap = this.oIo[i][i2];
+            if (this.oXD != null) {
+                for (int i = 0; i < this.oXD.length; i++) {
+                    for (int i2 = 0; i2 < this.oXD[i].length; i2++) {
+                        Bitmap bitmap = this.oXD[i][i2];
                         if (bitmap != null) {
                             float width = (bitmap.getWidth() * i2) + f;
                             if (width <= canvas.getWidth() && bitmap.getWidth() + width >= 0.0f) {

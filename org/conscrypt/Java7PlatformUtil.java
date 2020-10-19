@@ -16,7 +16,7 @@ import javax.net.ssl.SSLSession;
 import javax.net.ssl.X509ExtendedTrustManager;
 import javax.net.ssl.X509TrustManager;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes8.dex */
+/* loaded from: classes5.dex */
 public final class Java7PlatformUtil {
     /* JADX INFO: Access modifiers changed from: package-private */
     public static String getHostStringFromInetSocketAddress(InetSocketAddress inetSocketAddress) {

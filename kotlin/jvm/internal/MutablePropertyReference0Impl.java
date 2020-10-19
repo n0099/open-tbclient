@@ -1,5 +1,5 @@
 package kotlin.jvm.internal;
-/* loaded from: classes5.dex */
+/* loaded from: classes10.dex */
 public class MutablePropertyReference0Impl extends MutablePropertyReference0 {
     private final String name;
     private final kotlin.reflect.d owner;

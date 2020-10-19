@@ -1,7 +1,7 @@
 package com.baidu.helios.a.a;
 
 import org.json.JSONObject;
-/* loaded from: classes12.dex */
+/* loaded from: classes7.dex */
 public interface b {
-    JSONObject Ak();
+    JSONObject As();
 }

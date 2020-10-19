@@ -1,5 +1,5 @@
 package com.google.zxing.oned.rss;
-/* loaded from: classes3.dex */
+/* loaded from: classes7.dex */
 public class DataCharacter {
     private final int checksumPortion;
     private final int value;

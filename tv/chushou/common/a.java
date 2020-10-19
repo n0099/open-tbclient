@@ -1,118 +1,118 @@
 package tv.chushou.common;
 /* loaded from: classes6.dex */
 public final class a {
-    private static final a oVT;
-    private static final a oVU;
-    private static volatile a oVV;
+    private static final a pln;
+    private static final a plo;
+    private static volatile a plp;
     private String ad;
     private String city;
-    private String iMt;
-    private String oVD;
-    private String oVE;
-    private String oVF;
-    private String oVG;
-    private String oVH;
-    private String oVI;
-    private String oVJ;
-    private String oVK;
-    private String oVL;
-    private String oVM;
-    private String oVN;
-    private String oVO;
-    private String oVP;
-    private String oVQ;
-    private int oVR;
-    private String oVS;
+    private String jbl;
+    private String pkX;
+    private String pkY;
+    private String pkZ;
+    private String pla;
+    private String plb;
+    private String plc;
+    private String pld;
+    private String ple;
+    private String plf;
+    private String plg;
+    private String plh;
+    private String pli;
+    private String plj;
+    private String plk;
+    private int pll;
+    private String plm;
     private String sdk;
 
     static {
         a aVar = new a();
-        aVar.oVD = "https://api.chushou.tv/";
-        aVar.oVE = "https://bee.kascend.com/";
-        aVar.iMt = "https://chushou.tv/";
-        aVar.oVF = "https://chat.chushou.tv/";
-        aVar.oVG = "https://qos-stat.chushou.tv/";
-        aVar.oVH = "im.chushou.tv";
-        aVar.oVI = "https://imapi.chushou.tv/";
-        aVar.oVJ = "https://pay.chushou.tv/kaspay/";
-        aVar.oVK = "https://gemini.chushou.tv/";
-        aVar.oVL = "https://mic.chushou.tv/";
+        aVar.pkX = "https://api.chushou.tv/";
+        aVar.pkY = "https://bee.kascend.com/";
+        aVar.jbl = "https://chushou.tv/";
+        aVar.pkZ = "https://chat.chushou.tv/";
+        aVar.pla = "https://qos-stat.chushou.tv/";
+        aVar.plb = "im.chushou.tv";
+        aVar.plc = "https://imapi.chushou.tv/";
+        aVar.pld = "https://pay.chushou.tv/kaspay/";
+        aVar.ple = "https://gemini.chushou.tv/";
+        aVar.plf = "https://mic.chushou.tv/";
         aVar.ad = "https://ja.chushou.tv/";
         aVar.city = "https://geo.chushou.tv/";
-        aVar.oVM = "https://playground.chushou.tv/";
-        aVar.oVN = "https://appstat.chushou.tv/";
-        aVar.oVO = "https://luck.chushou.tv/";
-        aVar.oVP = "https://gmapi.chushou.tv/";
-        aVar.oVQ = "https://gm.chushou.tv/";
+        aVar.plg = "https://playground.chushou.tv/";
+        aVar.plh = "https://appstat.chushou.tv/";
+        aVar.pli = "https://luck.chushou.tv/";
+        aVar.plj = "https://gmapi.chushou.tv/";
+        aVar.plk = "https://gm.chushou.tv/";
         aVar.sdk = "https://open.chushou.tv/";
-        aVar.oVR = 8178;
-        aVar.oVS = "rc";
-        oVT = aVar;
+        aVar.pll = 8178;
+        aVar.plm = "rc";
+        pln = aVar;
         a aVar2 = new a();
-        aVar2.oVD = "https://api.vchushou.com/";
-        aVar2.oVE = "https://bee.vchushou.com/";
-        aVar2.iMt = "https://vchushou.com/";
-        aVar2.oVF = "https://chat.vchushou.com/";
-        aVar2.oVG = "https://qos-stat.vchushou.com/";
-        aVar2.oVH = "im.vchushou.com";
-        aVar2.oVI = "https://imapi.vchushou.com/";
-        aVar2.oVJ = "https://pay.vchushou.com/";
-        aVar2.oVK = "https://gemini.vchushou.com/";
-        aVar2.oVL = "https://mic.vchushou.com/";
+        aVar2.pkX = "https://api.vchushou.com/";
+        aVar2.pkY = "https://bee.vchushou.com/";
+        aVar2.jbl = "https://vchushou.com/";
+        aVar2.pkZ = "https://chat.vchushou.com/";
+        aVar2.pla = "https://qos-stat.vchushou.com/";
+        aVar2.plb = "im.vchushou.com";
+        aVar2.plc = "https://imapi.vchushou.com/";
+        aVar2.pld = "https://pay.vchushou.com/";
+        aVar2.ple = "https://gemini.vchushou.com/";
+        aVar2.plf = "https://mic.vchushou.com/";
         aVar2.ad = "https://ja.vchushou.com/";
         aVar2.city = "https://geo.vchushou.com/";
-        aVar2.oVM = "https://open-game.vchushou.com/";
-        aVar2.oVN = "https://vchushou.com/";
-        aVar2.oVO = "https://luck.vchushou.com/";
-        aVar2.oVP = "https://gamemate.vchushou.com/";
-        aVar2.oVQ = "https://gamemate.vchushou.com/";
+        aVar2.plg = "https://open-game.vchushou.com/";
+        aVar2.plh = "https://vchushou.com/";
+        aVar2.pli = "https://luck.vchushou.com/";
+        aVar2.plj = "https://gamemate.vchushou.com/";
+        aVar2.plk = "https://gamemate.vchushou.com/";
         aVar2.sdk = "https://open.vchushou.com/";
-        aVar2.oVR = 8178;
-        aVar2.oVS = "https";
-        oVU = aVar2;
-        oVV = oVT;
+        aVar2.pll = 8178;
+        aVar2.plm = "https";
+        plo = aVar2;
+        plp = pln;
     }
 
     private a() {
     }
 
-    public static void Xo(String str) {
+    public static void Yc(String str) {
         if ("beta".equals(str)) {
-            oVV = oVU;
+            plp = plo;
         } else {
-            oVV = oVT;
+            plp = pln;
         }
     }
 
-    public static String epT() {
-        return oVV.oVD;
+    public static String etE() {
+        return plp.pkX;
     }
 
-    public static String epU() {
-        return oVV.oVE;
+    public static String etF() {
+        return plp.pkY;
     }
 
-    public static String cyX() {
-        return oVV.iMt;
+    public static String cCv() {
+        return plp.jbl;
     }
 
-    public static String epV() {
-        return oVV.oVF;
+    public static String etG() {
+        return plp.pkZ;
     }
 
-    public static String epW() {
-        return oVV.oVL;
+    public static String etH() {
+        return plp.plf;
     }
 
-    public static String epX() {
-        return oVV.ad;
+    public static String etI() {
+        return plp.ad;
     }
 
-    public static String epY() {
-        return oVV.oVO;
+    public static String etJ() {
+        return plp.pli;
     }
 
-    public static String epZ() {
-        return oVV.sdk;
+    public static String etK() {
+        return plp.sdk;
     }
 }

@@ -11,16 +11,18 @@ import java.security.interfaces.RSAPublicKey;
 import java.security.spec.InvalidKeySpecException;
 import java.security.spec.X509EncodedKeySpec;
 import javax.crypto.Cipher;
-/* loaded from: classes3.dex */
+/* loaded from: classes7.dex */
 public class c {
-    public static final Charset a = Charset.forName("UTF-8");
+
+    /* renamed from: a  reason: collision with root package name */
+    public static final Charset f4448a = Charset.forName("UTF-8");
 
     public static String a(String str, String str2) {
         String str3;
         if (str != null) {
             try {
                 if (!TextUtils.isEmpty(str2)) {
-                    str3 = new String(a(a(str), b(str2)), a);
+                    str3 = new String(a(a(str), b(str2)), f4448a);
                     return str3;
                 }
             } catch (Exception e) {

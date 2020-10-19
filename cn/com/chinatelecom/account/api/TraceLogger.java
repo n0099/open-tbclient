@@ -1,5 +1,5 @@
 package cn.com.chinatelecom.account.api;
-/* loaded from: classes14.dex */
+/* loaded from: classes6.dex */
 public interface TraceLogger {
     void debug(String str, String str2);
 

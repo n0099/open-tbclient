@@ -4,7 +4,7 @@ import android.hardware.SensorEvent;
 import android.hardware.SensorManager;
 import android.opengl.Matrix;
 import com.baidu.ar.arplay.representation.Quaternion;
-/* loaded from: classes10.dex */
+/* loaded from: classes14.dex */
 public class a extends j {
     private static final String TAG = a.class.getSimpleName();
     private final Quaternion rj;
@@ -58,10 +58,10 @@ public class a extends j {
                 synchronized (this.sh) {
                     this.rj.multiplyByQuat(this.sk, this.sk);
                 }
-                Quaternion m18clone = this.sk.m18clone();
-                m18clone.w(-m18clone.w());
+                Quaternion m17clone = this.sk.m17clone();
+                m17clone.w(-m17clone.w());
                 synchronized (this.sh) {
-                    SensorManager.getRotationMatrixFromVector(this.sj.matrix, m18clone.toArray());
+                    SensorManager.getRotationMatrixFromVector(this.sj.matrix, m17clone.toArray());
                 }
             }
             this.timestamp = sensorEvent.timestamp;

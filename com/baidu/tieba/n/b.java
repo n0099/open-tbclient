@@ -3,11 +3,11 @@ package com.baidu.tieba.n;
 import com.baidu.cyberplayer.sdk.statistics.DpStatConstants;
 import com.baidu.tieba.VideoPlatformStatic;
 import org.json.JSONObject;
-/* loaded from: classes22.dex */
+/* loaded from: classes23.dex */
 public interface b {
-    JSONObject doz();
+    JSONObject dsk();
 
-    /* loaded from: classes22.dex */
+    /* loaded from: classes23.dex */
     public static abstract class a implements b {
         public final int state;
         private final long timestamp = System.currentTimeMillis();
@@ -17,12 +17,12 @@ public interface b {
         }
 
         @Override // com.baidu.tieba.n.b
-        public JSONObject doz() {
+        public JSONObject dsk() {
             JSONObject jSONObject = new JSONObject();
             try {
                 jSONObject.put("type", this.state);
                 jSONObject.put("timestamp", this.timestamp);
-                jSONObject.put(DpStatConstants.KEY_NETWORK_STATUS, VideoPlatformStatic.no());
+                jSONObject.put(DpStatConstants.KEY_NETWORK_STATUS, VideoPlatformStatic.np());
             } catch (Exception e) {
                 e.printStackTrace();
             }
@@ -31,19 +31,19 @@ public interface b {
     }
 
     /* renamed from: com.baidu.tieba.n.b$b  reason: collision with other inner class name */
-    /* loaded from: classes22.dex */
-    public static abstract class AbstractC0747b implements b {
+    /* loaded from: classes23.dex */
+    public static abstract class AbstractC0765b implements b {
         private final String source;
         public final int state;
         private final long timestamp = System.currentTimeMillis();
 
-        public AbstractC0747b(int i, String str) {
+        public AbstractC0765b(int i, String str) {
             this.state = i;
             this.source = str;
         }
 
         @Override // com.baidu.tieba.n.b
-        public JSONObject doz() {
+        public JSONObject dsk() {
             JSONObject jSONObject = new JSONObject();
             try {
                 jSONObject.put("type", this.state);

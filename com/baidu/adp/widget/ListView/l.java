@@ -3,65 +3,65 @@ package com.baidu.adp.widget.ListView;
 import com.baidu.ala.recorder.video.drawer.EncoderTextureDrawer;
 /* loaded from: classes.dex */
 public class l {
-    private float Ws = 8.0f;
-    private float Wt = 15.0f;
-    private float Wu = 4.0f;
-    private float Wv = 60.0f;
-    private int Ww = 150;
-    private int Wx = 150;
-    private int Wy = 500;
-    private float Wz = 0.4f;
-    private float WA = 1.0f;
-    private float WB = 20.0f;
-    private float WC = 10.0f;
-    private int WD = EncoderTextureDrawer.X264_WIDTH;
-    private float WE = 5.0f;
+    private float WI = 8.0f;
+    private float WJ = 15.0f;
+    private float WK = 4.0f;
+    private float WL = 60.0f;
+    private int WM = 150;
+    private int WN = 150;
+    private int WO = 500;
+    private float WP = 0.4f;
+    private float WQ = 1.0f;
+    private float WR = 20.0f;
+    private float WS = 10.0f;
+    private int WT = EncoderTextureDrawer.X264_WIDTH;
+    private float WU = 5.0f;
 
     public float qV() {
-        return this.Ws;
+        return this.WI;
     }
 
     public float qW() {
-        return this.Wt;
+        return this.WJ;
     }
 
     public float qX() {
-        return this.Wu;
+        return this.WK;
     }
 
     public float qY() {
-        return this.Wv;
+        return this.WL;
     }
 
     public int qZ() {
-        return this.Ww;
+        return this.WM;
     }
 
     public int ra() {
-        return this.Wx;
+        return this.WN;
     }
 
     public int rb() {
-        return this.Wy;
+        return this.WO;
     }
 
     public float rc() {
-        return this.Wz;
+        return this.WP;
     }
 
     public float rd() {
-        return this.WA;
+        return this.WQ;
     }
 
     public float re() {
-        return this.WB;
+        return this.WR;
     }
 
     public float rf() {
-        return this.WC;
+        return this.WS;
     }
 
     public int rg() {
-        return this.WD;
+        return this.WT;
     }
 }

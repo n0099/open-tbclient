@@ -21,11 +21,11 @@ import com.baidu.live.tbadk.widget.lottie.TBLottieAnimationView;
 import java.util.List;
 /* loaded from: classes4.dex */
 public class AudienceLiveGoodsEnterView extends FrameLayout implements com.baidu.live.core.a.a {
-    private View bmo;
-    private ImageView bmp;
-    private TBLottieAnimationView bmq;
-    private a bmr;
-    private ViewGroup bms;
+    private View bqb;
+    private ImageView bqc;
+    private TBLottieAnimationView bqd;
+    private a bqe;
+    private ViewGroup bqf;
     private Handler mHandler;
 
     public AudienceLiveGoodsEnterView(@NonNull Context context) {
@@ -46,62 +46,62 @@ public class AudienceLiveGoodsEnterView extends FrameLayout implements com.baidu
     private void init(Context context) {
         this.mHandler = new Handler();
         View inflate = View.inflate(context, a.h.ala_audience_live_goods_enter_view, this);
-        this.bmo = inflate.findViewById(a.g.audience_goods_layout);
-        this.bmp = (ImageView) inflate.findViewById(a.g.audience_goods_imageView);
-        this.bmq = (TBLottieAnimationView) inflate.findViewById(a.g.audience_goods_lottieView);
-        this.bmq.setImageAssetsFolder("images/");
-        this.bmq.setAnimation("shoppingJson.json");
-        this.bmq.setRepeatCount(0);
-        this.bmq.addAnimatorListener(new AnimatorListenerAdapter() { // from class: com.baidu.live.sdk.goods.view.AudienceLiveGoodsEnterView.1
+        this.bqb = inflate.findViewById(a.g.audience_goods_layout);
+        this.bqc = (ImageView) inflate.findViewById(a.g.audience_goods_imageView);
+        this.bqd = (TBLottieAnimationView) inflate.findViewById(a.g.audience_goods_lottieView);
+        this.bqd.setImageAssetsFolder("images/");
+        this.bqd.setAnimation("shoppingJson.json");
+        this.bqd.setRepeatCount(0);
+        this.bqd.addAnimatorListener(new AnimatorListenerAdapter() { // from class: com.baidu.live.sdk.goods.view.AudienceLiveGoodsEnterView.1
             @Override // android.animation.AnimatorListenerAdapter, android.animation.Animator.AnimatorListener
             public void onAnimationEnd(Animator animator) {
                 super.onAnimationEnd(animator);
-                AudienceLiveGoodsEnterView.this.cn(false);
+                AudienceLiveGoodsEnterView.this.cq(false);
             }
         });
-        this.bmr = new a();
+        this.bqe = new a();
     }
 
     public void setOutClickListener(View.OnClickListener onClickListener) {
-        this.bmo.setOnClickListener(onClickListener);
+        this.bqb.setOnClickListener(onClickListener);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void cn(boolean z) {
-        if (this.bmo.getVisibility() == 0 && this.bmq != null && this.bmp != null) {
+    public void cq(boolean z) {
+        if (this.bqb.getVisibility() == 0 && this.bqd != null && this.bqc != null) {
             if (z) {
-                if (!this.bmq.isAnimating()) {
-                    this.bmq.setVisibility(0);
-                    this.bmp.setVisibility(4);
-                    this.bmq.playAnimation();
+                if (!this.bqd.isAnimating()) {
+                    this.bqd.setVisibility(0);
+                    this.bqc.setVisibility(4);
+                    this.bqd.playAnimation();
                     return;
                 }
                 return;
             }
-            if (this.bmq.isAnimating()) {
-                this.bmq.cancelAnimation();
+            if (this.bqd.isAnimating()) {
+                this.bqd.cancelAnimation();
             }
-            this.bmq.setVisibility(4);
-            this.bmp.setVisibility(0);
+            this.bqd.setVisibility(4);
+            this.bqc.setVisibility(0);
         }
     }
 
-    public void co(boolean z) {
-        if (this.bmr != null) {
+    public void cr(boolean z) {
+        if (this.bqe != null) {
             if (z) {
-                cn(true);
-                this.mHandler.removeCallbacks(this.bmr);
-                this.mHandler.postDelayed(this.bmr, 7000L);
+                cq(true);
+                this.mHandler.removeCallbacks(this.bqe);
+                this.mHandler.postDelayed(this.bqe, 7000L);
                 return;
             }
-            cn(false);
-            this.mHandler.removeCallbacks(this.bmr);
+            cq(false);
+            this.mHandler.removeCallbacks(this.bqe);
         }
     }
 
     public void release() {
         this.mHandler.removeCallbacksAndMessages(null);
-        this.bmo.setVisibility(8);
+        this.bqb.setVisibility(8);
     }
 
     @Override // com.baidu.live.core.a.a
@@ -109,29 +109,29 @@ public class AudienceLiveGoodsEnterView extends FrameLayout implements com.baidu
         return this;
     }
 
-    public boolean NJ() {
-        return this.bmo.getVisibility() == 0;
+    public boolean OO() {
+        return this.bqb.getVisibility() == 0;
     }
 
     @Override // com.baidu.live.core.a.a
     public void setTargetView(View view) {
-        this.bms = (ViewGroup) view;
+        this.bqf = (ViewGroup) view;
     }
 
     public ViewGroup getTargetView() {
-        return this.bms;
+        return this.bqf;
     }
 
     public void a(long j, String str, long j2, String str2, int i, List<com.baidu.live.sdk.goods.a.a> list) {
         if (i <= 0) {
-            this.bmo.setVisibility(8);
+            this.bqb.setVisibility(8);
             return;
         }
-        if (this.bmo.getVisibility() == 8) {
+        if (this.bqb.getVisibility() == 8) {
             UbcStatisticManager.getInstance().logEvent(new UbcStatisticItem(UbcStatisticLiveKey.KEY_ID_1394, "display", "liveroom", "shopcart_show"));
         }
-        this.bmo.setVisibility(0);
-        co(true);
+        this.bqb.setVisibility(0);
+        cr(true);
         if (!ILiveGoodsLogger.displayStoreIconMap.contains(Long.valueOf(j2))) {
             ILiveGoodsLogger.displayStoreIconMap.add(Long.valueOf(j2));
             LogManager.getLiveGoodsLogger().doDisplayStoreIconLog(j2 + "", j + "", str, str2);
@@ -146,8 +146,8 @@ public class AudienceLiveGoodsEnterView extends FrameLayout implements com.baidu
 
         @Override // java.lang.Runnable
         public void run() {
-            AudienceLiveGoodsEnterView.this.cn(true);
-            AudienceLiveGoodsEnterView.this.mHandler.postDelayed(AudienceLiveGoodsEnterView.this.bmr, 12000L);
+            AudienceLiveGoodsEnterView.this.cq(true);
+            AudienceLiveGoodsEnterView.this.mHandler.postDelayed(AudienceLiveGoodsEnterView.this.bqe, 12000L);
         }
     }
 }

@@ -16,37 +16,37 @@ import com.baidu.tbadk.util.ab;
 import com.baidu.tieba.frs.aq;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes21.dex */
+/* loaded from: classes22.dex */
 public class VideoTabFragment extends BaseFragment implements aq {
-    private a jeQ;
-    private boolean jeR = false;
+    private a jtP;
+    private boolean jtQ = false;
 
     @Override // com.baidu.tbadk.core.BaseFragment, android.support.v4.app.Fragment
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
-        if (this.jeQ == null) {
-            this.jeQ = new a(getPageContext(), getUniqueId());
+        if (this.jtP == null) {
+            this.jtP = new a(getPageContext(), getUniqueId());
         }
-        this.jeQ.init();
+        this.jtP.init();
     }
 
     @Override // com.baidu.tbadk.core.BaseFragment, android.support.v4.app.Fragment
     @Nullable
     public View onCreateView(LayoutInflater layoutInflater, @Nullable ViewGroup viewGroup, @Nullable Bundle bundle) {
-        if (this.jeQ == null || this.jeQ.getView() == null) {
+        if (this.jtP == null || this.jtP.getView() == null) {
             return super.onCreateView(layoutInflater, viewGroup, bundle);
         }
-        if (this.jeQ.getView().getParent() instanceof ViewGroup) {
-            ((ViewGroup) this.jeQ.getView().getParent()).removeView(this.jeQ.getView());
+        if (this.jtP.getView().getParent() instanceof ViewGroup) {
+            ((ViewGroup) this.jtP.getView().getParent()).removeView(this.jtP.getView());
         }
-        return this.jeQ.getView();
+        return this.jtP.getView();
     }
 
     @Override // com.baidu.tbadk.core.BaseFragment
     public void onLazyLoad() {
         super.onLazyLoad();
-        if (this.jeQ != null) {
-            this.jeQ.loadData();
+        if (this.jtP != null) {
+            this.jtP.loadData();
         }
     }
 
@@ -54,30 +54,30 @@ public class VideoTabFragment extends BaseFragment implements aq {
     public void onPrimary() {
         super.onPrimary();
         if (isPrimary()) {
-            if (!this.jeR) {
-                this.jeR = true;
+            if (!this.jtQ) {
+                this.jtQ = true;
                 TiebaStatic.log(new com.baidu.tbadk.core.util.aq("c13579"));
             }
             MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921400, false));
         }
-        if (this.jeQ != null) {
-            this.jeQ.setPrimary(isPrimary());
+        if (this.jtP != null) {
+            this.jtP.setPrimary(isPrimary());
         }
     }
 
     @Override // com.baidu.tieba.frs.aq
-    public void Pd() {
-        if (this.jeQ != null) {
-            this.jeQ.Pd();
+    public void Qi() {
+        if (this.jtP != null) {
+            this.jtP.Qi();
         }
     }
 
     @Override // com.baidu.tieba.frs.aq
-    public void bHp() {
+    public void bKa() {
     }
 
     @Override // com.baidu.tieba.frs.aq
-    public void bHq() {
+    public void bKb() {
     }
 
     @Override // com.baidu.tieba.frs.aq
@@ -89,15 +89,15 @@ public class VideoTabFragment extends BaseFragment implements aq {
     }
 
     @Override // com.baidu.tieba.frs.aq
-    public void blA() {
+    public void bok() {
         onChangeSkinType(TbadkCoreApplication.getInst().getSkinType());
     }
 
     @Override // com.baidu.tbadk.core.BaseFragment
     public void onChangeSkinType(int i) {
         super.onChangeSkinType(i);
-        if (this.jeQ != null) {
-            this.jeQ.blA();
+        if (this.jtP != null) {
+            this.jtP.bok();
         }
     }
 
@@ -118,16 +118,16 @@ public class VideoTabFragment extends BaseFragment implements aq {
     @Override // com.baidu.tbadk.core.BaseFragment, android.support.v4.app.Fragment
     public void onPause() {
         super.onPause();
-        if (this.jeQ != null) {
-            this.jeQ.onPause();
+        if (this.jtP != null) {
+            this.jtP.onPause();
         }
     }
 
     @Override // com.baidu.tbadk.core.BaseFragment, android.support.v4.app.Fragment
     public void onDestroy() {
         super.onDestroy();
-        if (this.jeQ != null) {
-            this.jeQ.onDestroy();
+        if (this.jtP != null) {
+            this.jtP.onDestroy();
         }
     }
 

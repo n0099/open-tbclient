@@ -12,16 +12,16 @@ public class o implements com.baidu.adp.lib.e.e<com.baidu.adp.widget.ImageView.a
     private int height = 0;
 
     public o() {
-        bkJ();
+        bnt();
     }
 
-    private void bkJ() {
+    private void bnt() {
         this.width = com.baidu.adp.lib.util.l.getEquipmentWidth(TbadkCoreApplication.getInst());
         this.height = com.baidu.adp.lib.util.l.getEquipmentHeight(TbadkCoreApplication.getInst());
     }
 
     @Override // com.baidu.adp.lib.e.e
-    public boolean mU() {
+    public boolean mV() {
         return true;
     }
 
@@ -29,7 +29,7 @@ public class o implements com.baidu.adp.lib.e.e<com.baidu.adp.widget.ImageView.a
     @Override // com.baidu.adp.lib.e.e
     /* renamed from: b */
     public com.baidu.adp.widget.ImageView.a a(String str, String str2, int i, int i2, Object... objArr) {
-        com.baidu.adp.widget.ImageView.a checkIsValidPicMemoryCache = BitmapHelper.checkIsValidPicMemoryCache(p(str, i, i2), com.baidu.tbadk.imageManager.c.bub().CI(p(str, i, i2)), i, i2);
+        com.baidu.adp.widget.ImageView.a checkIsValidPicMemoryCache = BitmapHelper.checkIsValidPicMemoryCache(p(str, i, i2), com.baidu.tbadk.imageManager.c.bwL().Du(p(str, i, i2)), i, i2);
         if (checkIsValidPicMemoryCache == null || checkIsValidPicMemoryCache.getRawBitmap() == null || checkIsValidPicMemoryCache.getRawBitmap().isRecycled()) {
             return null;
         }
@@ -52,7 +52,7 @@ public class o implements com.baidu.adp.lib.e.e<com.baidu.adp.widget.ImageView.a
             com.baidu.adp.widget.ImageView.a aVar = (com.baidu.adp.widget.ImageView.a) obj;
             aVar.aJ(i);
             aVar.aK(i2);
-            com.baidu.tbadk.imageManager.c.bub().c(p(str, i, i2), aVar);
+            com.baidu.tbadk.imageManager.c.bwL().c(p(str, i, i2), aVar);
         }
     }
 
@@ -64,12 +64,12 @@ public class o implements com.baidu.adp.lib.e.e<com.baidu.adp.widget.ImageView.a
     }
 
     @Override // com.baidu.adp.lib.e.e
-    public BdAsyncTaskParallel mV() {
+    public BdAsyncTaskParallel mW() {
         return null;
     }
 
     @Override // com.baidu.adp.lib.e.e
-    public int mW() {
+    public int mX() {
         return 1;
     }
 

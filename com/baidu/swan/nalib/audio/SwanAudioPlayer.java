@@ -9,8 +9,9 @@ import android.os.Looper;
 import android.os.Message;
 import android.support.annotation.Keep;
 import android.util.SparseArray;
+import org.webrtc.MediaStreamTrack;
 @Keep
-/* loaded from: classes25.dex */
+/* loaded from: classes14.dex */
 public class SwanAudioPlayer {
     private static final int DEFAULT_BUFFER_SIZE_IN_FRAMES = 192;
     private static final int DEFAULT_SAMPLE_RATE = 44100;
@@ -159,7 +160,7 @@ public class SwanAudioPlayer {
         }
     }
 
-    /* loaded from: classes25.dex */
+    /* loaded from: classes14.dex */
     private class a extends Handler {
         public a(Looper looper) {
             super(looper);
@@ -220,7 +221,7 @@ public class SwanAudioPlayer {
     }
 
     public static final void settingNativeAudioParameters(Context context) {
-        AudioManager audioManager = (AudioManager) context.getSystemService("audio");
+        AudioManager audioManager = (AudioManager) context.getSystemService(MediaStreamTrack.AUDIO_TRACK_KIND);
         String property = audioManager.getProperty("android.media.property.OUTPUT_SAMPLE_RATE");
         String property2 = audioManager.getProperty("android.media.property.OUTPUT_FRAMES_PER_BUFFER");
         try {

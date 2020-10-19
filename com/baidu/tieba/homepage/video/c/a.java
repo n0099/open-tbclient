@@ -16,27 +16,27 @@ import com.baidu.tbadk.core.util.aq;
 import com.baidu.tieba.card.data.c;
 import com.baidu.tieba.card.m;
 import com.baidu.tieba.frs.l;
-/* loaded from: classes21.dex */
+/* loaded from: classes22.dex */
 public class a {
     public static void a(AbsThreadDataSupport absThreadDataSupport, Context context, int i, boolean z, Rect rect) {
-        if (absThreadDataSupport != null && absThreadDataSupport.bcY() != null && context != null) {
-            bw bcY = absThreadDataSupport.bcY();
-            PbActivityConfig createFromThreadCfg = new PbActivityConfig(context).createFromThreadCfg(bcY, null, "video_tab", RequestResponseCode.REQUEST_FRS_TO_PB, true, false, false);
-            createFromThreadCfg.setForumId(String.valueOf(bcY.getFid()));
+        if (absThreadDataSupport != null && absThreadDataSupport.bfG() != null && context != null) {
+            bw bfG = absThreadDataSupport.bfG();
+            PbActivityConfig createFromThreadCfg = new PbActivityConfig(context).createFromThreadCfg(bfG, null, "video_tab", RequestResponseCode.REQUEST_FRS_TO_PB, true, false, false);
+            createFromThreadCfg.setForumId(String.valueOf(bfG.getFid()));
             createFromThreadCfg.setFrom(PbActivityConfig.KEY_FROM_VIDEO_TAB);
-            createFromThreadCfg.setForumName(bcY.bfC());
+            createFromThreadCfg.setForumName(bfG.bil());
             createFromThreadCfg.setStartFrom(i);
             createFromThreadCfg.setVideoOriginArea(rect);
-            if (absThreadDataSupport.bdb() != null) {
-                createFromThreadCfg.addLocateParam(absThreadDataSupport.bdb());
+            if (absThreadDataSupport.bfJ() != null) {
+                createFromThreadCfg.addLocateParam(absThreadDataSupport.bfJ());
             }
-            if (TbSingleton.getInstance().isPbPreloadSwitchOn() && w(bcY)) {
+            if (TbSingleton.getInstance().isPbPreloadSwitchOn() && w(bfG)) {
                 createFromThreadCfg.setNeedPreLoad(true);
-                l.al(bcY);
+                l.al(bfG);
             }
             createFromThreadCfg.setVideo_source("video_tab");
             createFromThreadCfg.setJumpGodReply(z);
-            m.Hw(bcY.getTid());
+            m.Ij(bfG.getTid());
             MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_PB_ACTIVITY, createFromThreadCfg));
         }
     }
@@ -49,60 +49,60 @@ public class a {
         if (i == 0 || i == 11 || i == 40) {
             return true;
         }
-        return bwVar.bei();
+        return bwVar.bgR();
     }
 
     public static void n(c cVar) {
-        aq aC;
-        if (cVar != null && (aC = cVar.aC("c13583", true)) != null) {
-            a(cVar, aC);
-            TiebaStatic.log(aC);
+        aq aG;
+        if (cVar != null && (aG = cVar.aG("c13583", true)) != null) {
+            a(cVar, aG);
+            TiebaStatic.log(aG);
         }
     }
 
     public static void o(c cVar) {
-        aq aC;
-        if (cVar != null && (aC = cVar.aC("c13584", true)) != null) {
-            a(cVar, aC);
-            aC.ai("obj_floor", cVar.position + 1);
-            TiebaStatic.log(aC);
+        aq aG;
+        if (cVar != null && (aG = cVar.aG("c13584", true)) != null) {
+            a(cVar, aG);
+            aG.aj("obj_floor", cVar.position + 1);
+            TiebaStatic.log(aG);
         }
     }
 
     public static void p(c cVar) {
-        aq aC;
-        if (cVar != null && (aC = cVar.aC("c13585", true)) != null) {
-            a(cVar, aC);
-            TiebaStatic.log(aC);
+        aq aG;
+        if (cVar != null && (aG = cVar.aG("c13585", true)) != null) {
+            a(cVar, aG);
+            TiebaStatic.log(aG);
         }
     }
 
     public static void q(c cVar) {
-        aq aC;
-        if (cVar != null && (aC = cVar.aC("c13586", true)) != null) {
-            a(cVar, aC);
-            TiebaStatic.log(aC);
+        aq aG;
+        if (cVar != null && (aG = cVar.aG("c13586", true)) != null) {
+            a(cVar, aG);
+            TiebaStatic.log(aG);
         }
     }
 
     public static void r(c cVar) {
-        aq aC;
-        if (cVar != null && (aC = cVar.aC("c13587", true)) != null) {
-            a(cVar, aC);
-            TiebaStatic.log(aC);
+        aq aG;
+        if (cVar != null && (aG = cVar.aG("c13587", true)) != null) {
+            a(cVar, aG);
+            TiebaStatic.log(aG);
         }
     }
 
     private static void a(c cVar, aq aqVar) {
-        if (cVar != null && cVar.bcY() != null && aqVar != null) {
-            if (cVar.bcY().getBaijiahaoData() != null) {
-                BaijiahaoData baijiahaoData = cVar.bcY().getBaijiahaoData();
-                aqVar.ai("obj_param5", 3);
-                aqVar.dF("obj_param4", baijiahaoData.oriUgcNid);
-                aqVar.dF("obj_param6", baijiahaoData.oriUgcVid);
+        if (cVar != null && cVar.bfG() != null && aqVar != null) {
+            if (cVar.bfG().getBaijiahaoData() != null) {
+                BaijiahaoData baijiahaoData = cVar.bfG().getBaijiahaoData();
+                aqVar.aj("obj_param5", 3);
+                aqVar.dK("obj_param4", baijiahaoData.oriUgcNid);
+                aqVar.dK("obj_param6", baijiahaoData.oriUgcVid);
                 return;
             }
-            aqVar.ai("obj_param5", 1);
+            aqVar.aj("obj_param5", 1);
         }
     }
 }

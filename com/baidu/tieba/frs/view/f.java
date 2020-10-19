@@ -3,10 +3,10 @@ package com.baidu.tieba.frs.view;
 import android.graphics.Rect;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
-/* loaded from: classes21.dex */
+/* loaded from: classes22.dex */
 public class f extends RecyclerView.ItemDecoration {
     private int hSpacing;
-    private boolean iHy;
+    private boolean iWo;
     private int spanCount;
     private int vSpacing;
 
@@ -14,14 +14,14 @@ public class f extends RecyclerView.ItemDecoration {
         this.spanCount = i;
         this.vSpacing = i2;
         this.hSpacing = i3;
-        this.iHy = z;
+        this.iWo = z;
     }
 
     @Override // android.support.v7.widget.RecyclerView.ItemDecoration
     public void getItemOffsets(Rect rect, View view, RecyclerView recyclerView, RecyclerView.State state) {
         int childAdapterPosition = recyclerView.getChildAdapterPosition(view);
         int i = childAdapterPosition % this.spanCount;
-        if (this.iHy) {
+        if (this.iWo) {
             rect.left = this.vSpacing - ((this.vSpacing * i) / this.spanCount);
             rect.right = ((i + 1) * this.vSpacing) / this.spanCount;
             if (childAdapterPosition < this.spanCount) {

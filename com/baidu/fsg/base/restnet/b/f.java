@@ -7,9 +7,11 @@ import java.io.InputStream;
 import java.util.List;
 import java.util.Map;
 import java.util.zip.GZIPInputStream;
-/* loaded from: classes15.dex */
+/* loaded from: classes16.dex */
 public class f implements com.baidu.fsg.base.restnet.rest.e {
-    private InputStream a;
+
+    /* renamed from: a  reason: collision with root package name */
+    private InputStream f1466a;
     private int b;
     private String c;
     private Map<String, List<String>> d;
@@ -17,7 +19,7 @@ public class f implements com.baidu.fsg.base.restnet.rest.e {
     private InputStream f;
 
     public f(InputStream inputStream, int i, String str, Map<String, List<String>> map) {
-        this.a = inputStream;
+        this.f1466a = inputStream;
         this.b = i;
         this.c = str;
         this.d = map;
@@ -35,7 +37,7 @@ public class f implements com.baidu.fsg.base.restnet.rest.e {
 
     @Override // com.baidu.fsg.base.restnet.rest.e
     public InputStream c() throws IOException {
-        return g() ? a(this.a) : this.a;
+        return g() ? a(this.f1466a) : this.f1466a;
     }
 
     private boolean g() {
@@ -72,9 +74,9 @@ public class f implements com.baidu.fsg.base.restnet.rest.e {
                 e.printStackTrace();
             }
         }
-        if (this.a != null) {
+        if (this.f1466a != null) {
             try {
-                this.a.close();
+                this.f1466a.close();
             } catch (IOException e2) {
                 e2.printStackTrace();
             }

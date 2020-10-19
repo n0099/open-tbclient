@@ -19,9 +19,11 @@ import com.baidu.fsg.base.utils.ResUtils;
 import java.lang.ref.WeakReference;
 import java.util.ArrayList;
 import java.util.Random;
-/* loaded from: classes15.dex */
+/* loaded from: classes16.dex */
 public class SafeKeyBoardPopupWindow extends PopupWindow implements View.OnClickListener {
-    private Button a;
+
+    /* renamed from: a  reason: collision with root package name */
+    private Button f1541a;
     private Button b;
     private Button c;
     protected View contentView;
@@ -71,7 +73,7 @@ public class SafeKeyBoardPopupWindow extends PopupWindow implements View.OnClick
         setBackgroundDrawable(new BitmapDrawable());
         setAnimationStyle(ResUtils.style(this.mContext, "rim_base_safekeyboard_popwindown_anim"));
         this.j = (Button) this.contentView.findViewById(ResUtils.id(this.mContext, "btn0"));
-        this.a = (Button) this.contentView.findViewById(ResUtils.id(this.mContext, "btn1"));
+        this.f1541a = (Button) this.contentView.findViewById(ResUtils.id(this.mContext, "btn1"));
         this.b = (Button) this.contentView.findViewById(ResUtils.id(this.mContext, "btn2"));
         this.c = (Button) this.contentView.findViewById(ResUtils.id(this.mContext, "btn3"));
         this.d = (Button) this.contentView.findViewById(ResUtils.id(this.mContext, "btn4"));
@@ -83,7 +85,7 @@ public class SafeKeyBoardPopupWindow extends PopupWindow implements View.OnClick
         this.mButtonX = (Button) this.contentView.findViewById(ResUtils.id(this.mContext, "btn_x"));
         this.k = (ImageButton) this.contentView.findViewById(ResUtils.id(this.mContext, "btn_del"));
         this.j.setOnClickListener(this);
-        this.a.setOnClickListener(this);
+        this.f1541a.setOnClickListener(this);
         this.b.setOnClickListener(this);
         this.c.setOnClickListener(this);
         this.d.setOnClickListener(this);
@@ -117,8 +119,8 @@ public class SafeKeyBoardPopupWindow extends PopupWindow implements View.OnClick
         int[] a2 = a(z);
         this.j.setText("" + a2[0]);
         this.j.setTag(Integer.valueOf(a2[0]));
-        this.a.setText("" + a2[1]);
-        this.a.setTag(Integer.valueOf(a2[1]));
+        this.f1541a.setText("" + a2[1]);
+        this.f1541a.setTag(Integer.valueOf(a2[1]));
         this.b.setText("" + a2[2]);
         this.b.setTag(Integer.valueOf(a2[2]));
         this.c.setText("" + a2[3]);
@@ -190,18 +192,20 @@ public class SafeKeyBoardPopupWindow extends PopupWindow implements View.OnClick
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes15.dex */
+    /* loaded from: classes16.dex */
     public static class a extends Handler {
-        WeakReference<SafeKeyBoardPopupWindow> a;
+
+        /* renamed from: a  reason: collision with root package name */
+        WeakReference<SafeKeyBoardPopupWindow> f1542a;
 
         public a(SafeKeyBoardPopupWindow safeKeyBoardPopupWindow) {
-            this.a = new WeakReference<>(safeKeyBoardPopupWindow);
+            this.f1542a = new WeakReference<>(safeKeyBoardPopupWindow);
         }
 
         @Override // android.os.Handler
         public void handleMessage(Message message) {
             super.handleMessage(message);
-            SafeKeyBoardPopupWindow safeKeyBoardPopupWindow = this.a.get();
+            SafeKeyBoardPopupWindow safeKeyBoardPopupWindow = this.f1542a.get();
             if (safeKeyBoardPopupWindow != null) {
                 if (!TextUtils.isEmpty(safeKeyBoardPopupWindow.mySafeEditText.getText())) {
                     int selectionStart = safeKeyBoardPopupWindow.mySafeEditText.getSelectionStart();

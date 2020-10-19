@@ -4,7 +4,7 @@ import com.baidu.live.tbadk.core.frameworkdata.CmdConfigSocket;
 import com.baidu.tbadk.message.websockt.TbSocketMessage;
 import tbclient.GetGameDetail.DataReq;
 import tbclient.GetGameDetail.GetGameDetailReqIdl;
-/* loaded from: classes25.dex */
+/* loaded from: classes26.dex */
 public class RequestGameDetailMessage extends TbSocketMessage {
     private String mGameId;
 

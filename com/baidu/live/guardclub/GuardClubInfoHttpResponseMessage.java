@@ -6,14 +6,14 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 /* loaded from: classes4.dex */
 public class GuardClubInfoHttpResponseMessage extends JsonHttpResponsedMessage {
-    public boolean baA;
-    public a bat;
-    public String bau;
-    public String[] bav;
-    public boolean baw;
-    public boolean bax;
-    public d[] bay;
-    public f baz;
+    public a bdN;
+    public String bdO;
+    public String[] bdP;
+    public boolean bdQ;
+    public boolean bdR;
+    public d[] bdS;
+    public f bdT;
+    public boolean bdU;
 
     public GuardClubInfoHttpResponseMessage() {
         super(1021137);
@@ -24,35 +24,35 @@ public class GuardClubInfoHttpResponseMessage extends JsonHttpResponsedMessage {
         JSONObject optJSONObject;
         super.decodeLogicInBackGround(i, jSONObject);
         if (getError() == 0 && (optJSONObject = jSONObject.optJSONObject("data")) != null) {
-            this.bat = new a();
+            this.bdN = new a();
             JSONObject optJSONObject2 = optJSONObject.optJSONObject("guard_club_info");
             if (optJSONObject2 != null) {
-                this.bat.parseJson(optJSONObject2);
+                this.bdN.parseJson(optJSONObject2);
             }
-            this.bau = optJSONObject.optString("explain_url");
+            this.bdO = optJSONObject.optString("explain_url");
             JSONArray optJSONArray = optJSONObject.optJSONArray("privilege_conf");
             if (optJSONArray != null) {
-                this.bav = new String[optJSONArray.length()];
+                this.bdP = new String[optJSONArray.length()];
                 for (int i2 = 0; i2 < optJSONArray.length(); i2++) {
-                    this.bav[i2] = optJSONArray.getString(i2);
+                    this.bdP[i2] = optJSONArray.getString(i2);
                 }
             }
-            this.baw = optJSONObject.optInt(GuardClubInfoActivityConfig.IS_CLUB_MEMBER) == 1;
-            this.bax = optJSONObject.optInt("isAnchor") == 1;
+            this.bdQ = optJSONObject.optInt(GuardClubInfoActivityConfig.IS_CLUB_MEMBER) == 1;
+            this.bdR = optJSONObject.optInt("isAnchor") == 1;
             JSONArray optJSONArray2 = optJSONObject.optJSONArray("join_club_privilege");
             if (optJSONArray2 != null) {
-                this.bay = new d[optJSONArray2.length()];
+                this.bdS = new d[optJSONArray2.length()];
                 for (int i3 = 0; i3 < optJSONArray2.length(); i3++) {
-                    this.bay[i3] = new d();
-                    this.bay[i3].parseJson(optJSONArray2.optJSONObject(i3));
+                    this.bdS[i3] = new d();
+                    this.bdS[i3].parseJson(optJSONArray2.optJSONObject(i3));
                 }
             }
             JSONObject optJSONObject3 = optJSONObject.optJSONObject("login_member_info");
             if (optJSONObject3 != null) {
-                this.baz = new f();
-                this.baz.parseJson(optJSONObject3);
+                this.bdT = new f();
+                this.bdT.parseJson(optJSONObject3);
             }
-            this.baA = optJSONObject.optInt("has_quit_tips") == 1;
+            this.bdU = optJSONObject.optInt("has_quit_tips") == 1;
         }
     }
 }

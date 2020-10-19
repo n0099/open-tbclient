@@ -2,16 +2,16 @@ package com.baidu.smallgame.sdk.c;
 
 import android.text.TextUtils;
 import java.io.File;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public final class a {
-    public static boolean iN(String str) {
+    public static boolean jz(String str) {
         if (TextUtils.isEmpty(str)) {
             return false;
         }
-        return s(new File(str));
+        return p(new File(str));
     }
 
-    public static boolean s(File file) {
+    public static boolean p(File file) {
         return file != null && file.exists() && file.isFile();
     }
 }

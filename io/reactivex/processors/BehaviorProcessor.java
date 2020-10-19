@@ -10,15 +10,15 @@ import java.util.concurrent.atomic.AtomicReference;
 import java.util.concurrent.locks.Lock;
 import org.a.c;
 import org.a.d;
-/* loaded from: classes25.dex */
+/* loaded from: classes17.dex */
 public final class BehaviorProcessor<T> extends a<T> {
-    static final Object[] oAU = new Object[0];
-    static final BehaviorSubscription[] oAV = new BehaviorSubscription[0];
-    static final BehaviorSubscription[] oAW = new BehaviorSubscription[0];
+    static final Object[] oQj = new Object[0];
+    static final BehaviorSubscription[] oQk = new BehaviorSubscription[0];
+    static final BehaviorSubscription[] oQl = new BehaviorSubscription[0];
     long index;
-    final Lock oAX;
-    final Lock oAY;
-    final AtomicReference<Throwable> oAZ;
+    final Lock oQm;
+    final Lock oQn;
+    final AtomicReference<Throwable> oQo;
     final AtomicReference<BehaviorSubscription<T>[]> subscribers;
     final AtomicReference<Object> value;
 
@@ -35,7 +35,7 @@ public final class BehaviorProcessor<T> extends a<T> {
                 return;
             }
         }
-        Throwable th = this.oAZ.get();
+        Throwable th = this.oQo.get();
         if (th == ExceptionHelper.TERMINATED) {
             cVar.onComplete();
         } else {
@@ -45,7 +45,7 @@ public final class BehaviorProcessor<T> extends a<T> {
 
     @Override // io.reactivex.j, org.a.c
     public void onSubscribe(d dVar) {
-        if (this.oAZ.get() != null) {
+        if (this.oQo.get() != null) {
             dVar.cancel();
         } else {
             dVar.request(Long.MAX_VALUE);
@@ -54,10 +54,10 @@ public final class BehaviorProcessor<T> extends a<T> {
 
     @Override // org.a.c
     public void onNext(T t) {
-        io.reactivex.internal.functions.a.k(t, "onNext called with null. Null values are generally not allowed in 2.x operators and sources.");
-        if (this.oAZ.get() == null) {
+        io.reactivex.internal.functions.a.l(t, "onNext called with null. Null values are generally not allowed in 2.x operators and sources.");
+        if (this.oQo.get() == null) {
             Object next = NotificationLite.next(t);
-            bJ(next);
+            bM(next);
             for (BehaviorSubscription<T> behaviorSubscription : this.subscribers.get()) {
                 behaviorSubscription.emitNext(next, this.index);
             }
@@ -66,22 +66,22 @@ public final class BehaviorProcessor<T> extends a<T> {
 
     @Override // org.a.c
     public void onError(Throwable th) {
-        io.reactivex.internal.functions.a.k(th, "onError called with null. Null values are generally not allowed in 2.x operators and sources.");
-        if (!this.oAZ.compareAndSet(null, th)) {
+        io.reactivex.internal.functions.a.l(th, "onError called with null. Null values are generally not allowed in 2.x operators and sources.");
+        if (!this.oQo.compareAndSet(null, th)) {
             io.reactivex.e.a.onError(th);
             return;
         }
         Object error = NotificationLite.error(th);
-        for (BehaviorSubscription<T> behaviorSubscription : bI(error)) {
+        for (BehaviorSubscription<T> behaviorSubscription : bL(error)) {
             behaviorSubscription.emitNext(error, this.index);
         }
     }
 
     @Override // org.a.c
     public void onComplete() {
-        if (this.oAZ.compareAndSet(null, ExceptionHelper.TERMINATED)) {
+        if (this.oQo.compareAndSet(null, ExceptionHelper.TERMINATED)) {
             Object complete = NotificationLite.complete();
-            for (BehaviorSubscription<T> behaviorSubscription : bI(complete)) {
+            for (BehaviorSubscription<T> behaviorSubscription : bL(complete)) {
                 behaviorSubscription.emitNext(complete, this.index);
             }
         }
@@ -92,7 +92,7 @@ public final class BehaviorProcessor<T> extends a<T> {
         BehaviorSubscription<T>[] behaviorSubscriptionArr2;
         do {
             behaviorSubscriptionArr = this.subscribers.get();
-            if (behaviorSubscriptionArr == oAW) {
+            if (behaviorSubscriptionArr == oQl) {
                 return false;
             }
             int length = behaviorSubscriptionArr.length;
@@ -108,7 +108,7 @@ public final class BehaviorProcessor<T> extends a<T> {
         BehaviorSubscription<T>[] behaviorSubscriptionArr2;
         do {
             behaviorSubscriptionArr = this.subscribers.get();
-            if (behaviorSubscriptionArr != oAW && behaviorSubscriptionArr != oAV) {
+            if (behaviorSubscriptionArr != oQl && behaviorSubscriptionArr != oQk) {
                 int length = behaviorSubscriptionArr.length;
                 int i = -1;
                 int i2 = 0;
@@ -124,7 +124,7 @@ public final class BehaviorProcessor<T> extends a<T> {
                 }
                 if (i >= 0) {
                     if (length == 1) {
-                        behaviorSubscriptionArr2 = oAV;
+                        behaviorSubscriptionArr2 = oQk;
                     } else {
                         behaviorSubscriptionArr2 = new BehaviorSubscription[length - 1];
                         System.arraycopy(behaviorSubscriptionArr, 0, behaviorSubscriptionArr2, 0, i);
@@ -139,16 +139,16 @@ public final class BehaviorProcessor<T> extends a<T> {
         } while (!this.subscribers.compareAndSet(behaviorSubscriptionArr, behaviorSubscriptionArr2));
     }
 
-    BehaviorSubscription<T>[] bI(Object obj) {
+    BehaviorSubscription<T>[] bL(Object obj) {
         BehaviorSubscription<T>[] behaviorSubscriptionArr = this.subscribers.get();
-        if (behaviorSubscriptionArr != oAW && (behaviorSubscriptionArr = this.subscribers.getAndSet(oAW)) != oAW) {
-            bJ(obj);
+        if (behaviorSubscriptionArr != oQl && (behaviorSubscriptionArr = this.subscribers.getAndSet(oQl)) != oQl) {
+            bM(obj);
         }
         return behaviorSubscriptionArr;
     }
 
-    void bJ(Object obj) {
-        Lock lock = this.oAY;
+    void bM(Object obj) {
+        Lock lock = this.oQn;
         lock.lock();
         this.index++;
         this.value.lazySet(obj);
@@ -156,8 +156,8 @@ public final class BehaviorProcessor<T> extends a<T> {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes25.dex */
-    public static final class BehaviorSubscription<T> extends AtomicLong implements a.InterfaceC0965a<Object>, d {
+    /* loaded from: classes17.dex */
+    public static final class BehaviorSubscription<T> extends AtomicLong implements a.InterfaceC0983a<Object>, d {
         private static final long serialVersionUID = 3293175281126227086L;
         final c<? super T> actual;
         volatile boolean cancelled;
@@ -194,7 +194,7 @@ public final class BehaviorProcessor<T> extends a<T> {
                     if (!this.cancelled) {
                         if (!this.next) {
                             BehaviorProcessor<T> behaviorProcessor = this.state;
-                            Lock lock = behaviorProcessor.oAX;
+                            Lock lock = behaviorProcessor.oQm;
                             lock.lock();
                             this.index = behaviorProcessor.index;
                             Object obj = behaviorProcessor.value.get();
@@ -239,7 +239,7 @@ public final class BehaviorProcessor<T> extends a<T> {
             }
         }
 
-        @Override // io.reactivex.internal.util.a.InterfaceC0965a, io.reactivex.c.j
+        @Override // io.reactivex.internal.util.a.InterfaceC0983a, io.reactivex.c.j
         public boolean test(Object obj) {
             if (this.cancelled) {
                 return true;

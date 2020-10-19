@@ -8,7 +8,7 @@ import java.util.concurrent.atomic.AtomicInteger;
 import java.util.concurrent.atomic.AtomicLong;
 import rx.d;
 import rx.subjects.UnicastSubject;
-/* loaded from: classes7.dex */
+/* loaded from: classes16.dex */
 public final class OperatorWindowWithSize<T> implements d.b<rx.d<T>, T> {
     final int size;
     final int skip;
@@ -21,54 +21,54 @@ public final class OperatorWindowWithSize<T> implements d.b<rx.d<T>, T> {
     public rx.j<? super T> call(rx.j<? super rx.d<T>> jVar) {
         if (this.skip == this.size) {
             a aVar = new a(jVar, this.size);
-            jVar.add(aVar.oRb);
-            jVar.setProducer(aVar.eok());
+            jVar.add(aVar.pgr);
+            jVar.setProducer(aVar.erV());
             return aVar;
         } else if (this.skip > this.size) {
             WindowSkip windowSkip = new WindowSkip(jVar, this.size, this.skip);
-            jVar.add(windowSkip.oRb);
-            jVar.setProducer(windowSkip.eok());
+            jVar.add(windowSkip.pgr);
+            jVar.setProducer(windowSkip.erV());
             return windowSkip;
         } else {
             WindowOverlap windowOverlap = new WindowOverlap(jVar, this.size, this.skip);
-            jVar.add(windowOverlap.oRb);
-            jVar.setProducer(windowOverlap.eok());
+            jVar.add(windowOverlap.pgr);
+            jVar.setProducer(windowOverlap.erV());
             return windowOverlap;
         }
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes7.dex */
+    /* loaded from: classes16.dex */
     public static final class a<T> extends rx.j<T> implements rx.functions.a {
         final rx.j<? super rx.d<T>> actual;
         int index;
-        rx.subjects.c<T, T> oRc;
+        rx.subjects.c<T, T> pgs;
         final int size;
         final AtomicInteger wip = new AtomicInteger(1);
-        final rx.k oRb = rx.subscriptions.e.l(this);
+        final rx.k pgr = rx.subscriptions.e.l(this);
 
         public a(rx.j<? super rx.d<T>> jVar, int i) {
             this.actual = jVar;
             this.size = i;
-            add(this.oRb);
+            add(this.pgr);
             request(0L);
         }
 
         @Override // rx.e
         public void onNext(T t) {
             int i = this.index;
-            UnicastSubject unicastSubject = this.oRc;
+            UnicastSubject unicastSubject = this.pgs;
             if (i == 0) {
                 this.wip.getAndIncrement();
                 unicastSubject = UnicastSubject.a(this.size, this);
-                this.oRc = unicastSubject;
+                this.pgs = unicastSubject;
                 this.actual.onNext(unicastSubject);
             }
             int i2 = i + 1;
             unicastSubject.onNext(t);
             if (i2 == this.size) {
                 this.index = 0;
-                this.oRc = null;
+                this.pgs = null;
                 unicastSubject.onCompleted();
                 return;
             }
@@ -77,9 +77,9 @@ public final class OperatorWindowWithSize<T> implements d.b<rx.d<T>, T> {
 
         @Override // rx.e
         public void onError(Throwable th) {
-            rx.subjects.c<T, T> cVar = this.oRc;
+            rx.subjects.c<T, T> cVar = this.pgs;
             if (cVar != null) {
-                this.oRc = null;
+                this.pgs = null;
                 cVar.onError(th);
             }
             this.actual.onError(th);
@@ -87,15 +87,15 @@ public final class OperatorWindowWithSize<T> implements d.b<rx.d<T>, T> {
 
         @Override // rx.e
         public void onCompleted() {
-            rx.subjects.c<T, T> cVar = this.oRc;
+            rx.subjects.c<T, T> cVar = this.pgs;
             if (cVar != null) {
-                this.oRc = null;
+                this.pgs = null;
                 cVar.onCompleted();
             }
             this.actual.onCompleted();
         }
 
-        rx.f eok() {
+        rx.f erV() {
             return new rx.f() { // from class: rx.internal.operators.OperatorWindowWithSize.a.1
                 @Override // rx.f
                 public void request(long j) {
@@ -118,32 +118,32 @@ public final class OperatorWindowWithSize<T> implements d.b<rx.d<T>, T> {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes7.dex */
+    /* loaded from: classes16.dex */
     public static final class WindowSkip<T> extends rx.j<T> implements rx.functions.a {
         final rx.j<? super rx.d<T>> actual;
         int index;
-        rx.subjects.c<T, T> oRc;
+        rx.subjects.c<T, T> pgs;
         final int size;
         final int skip;
         final AtomicInteger wip = new AtomicInteger(1);
-        final rx.k oRb = rx.subscriptions.e.l(this);
+        final rx.k pgr = rx.subscriptions.e.l(this);
 
         public WindowSkip(rx.j<? super rx.d<T>> jVar, int i, int i2) {
             this.actual = jVar;
             this.size = i;
             this.skip = i2;
-            add(this.oRb);
+            add(this.pgr);
             request(0L);
         }
 
         @Override // rx.e
         public void onNext(T t) {
             int i = this.index;
-            UnicastSubject unicastSubject = this.oRc;
+            UnicastSubject unicastSubject = this.pgs;
             if (i == 0) {
                 this.wip.getAndIncrement();
                 unicastSubject = UnicastSubject.a(this.size, this);
-                this.oRc = unicastSubject;
+                this.pgs = unicastSubject;
                 this.actual.onNext(unicastSubject);
             }
             int i2 = i + 1;
@@ -152,7 +152,7 @@ public final class OperatorWindowWithSize<T> implements d.b<rx.d<T>, T> {
             }
             if (i2 == this.size) {
                 this.index = i2;
-                this.oRc = null;
+                this.pgs = null;
                 unicastSubject.onCompleted();
             } else if (i2 == this.skip) {
                 this.index = 0;
@@ -163,9 +163,9 @@ public final class OperatorWindowWithSize<T> implements d.b<rx.d<T>, T> {
 
         @Override // rx.e
         public void onError(Throwable th) {
-            rx.subjects.c<T, T> cVar = this.oRc;
+            rx.subjects.c<T, T> cVar = this.pgs;
             if (cVar != null) {
-                this.oRc = null;
+                this.pgs = null;
                 cVar.onError(th);
             }
             this.actual.onError(th);
@@ -173,15 +173,15 @@ public final class OperatorWindowWithSize<T> implements d.b<rx.d<T>, T> {
 
         @Override // rx.e
         public void onCompleted() {
-            rx.subjects.c<T, T> cVar = this.oRc;
+            rx.subjects.c<T, T> cVar = this.pgs;
             if (cVar != null) {
-                this.oRc = null;
+                this.pgs = null;
                 cVar.onCompleted();
             }
             this.actual.onCompleted();
         }
 
-        rx.f eok() {
+        rx.f erV() {
             return new WindowSkipProducer();
         }
 
@@ -193,7 +193,7 @@ public final class OperatorWindowWithSize<T> implements d.b<rx.d<T>, T> {
         }
 
         /* JADX INFO: Access modifiers changed from: package-private */
-        /* loaded from: classes7.dex */
+        /* loaded from: classes16.dex */
         public final class WindowSkipProducer extends AtomicBoolean implements rx.f {
             private static final long serialVersionUID = 4625807964358024108L;
 
@@ -218,7 +218,7 @@ public final class OperatorWindowWithSize<T> implements d.b<rx.d<T>, T> {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes7.dex */
+    /* loaded from: classes16.dex */
     public static final class WindowOverlap<T> extends rx.j<T> implements rx.functions.a {
         final rx.j<? super rx.d<T>> actual;
         volatile boolean done;
@@ -230,15 +230,15 @@ public final class OperatorWindowWithSize<T> implements d.b<rx.d<T>, T> {
         final int skip;
         final AtomicInteger wip = new AtomicInteger(1);
         final ArrayDeque<rx.subjects.c<T, T>> windows = new ArrayDeque<>();
-        final AtomicInteger oRe = new AtomicInteger();
+        final AtomicInteger pgu = new AtomicInteger();
         final AtomicLong requested = new AtomicLong();
-        final rx.k oRb = rx.subscriptions.e.l(this);
+        final rx.k pgr = rx.subscriptions.e.l(this);
 
         public WindowOverlap(rx.j<? super rx.d<T>> jVar, int i, int i2) {
             this.actual = jVar;
             this.size = i;
             this.skip = i2;
-            add(this.oRb);
+            add(this.pgr);
             request(0L);
             this.queue = new rx.internal.util.atomic.d(((i2 - 1) + i) / i2);
         }
@@ -249,9 +249,9 @@ public final class OperatorWindowWithSize<T> implements d.b<rx.d<T>, T> {
             ArrayDeque<rx.subjects.c<T, T>> arrayDeque = this.windows;
             if (i == 0 && !this.actual.isUnsubscribed()) {
                 this.wip.getAndIncrement();
-                UnicastSubject a = UnicastSubject.a(16, this);
-                arrayDeque.offer(a);
-                this.queue.offer(a);
+                UnicastSubject a2 = UnicastSubject.a(16, this);
+                arrayDeque.offer(a2);
+                this.queue.offer(a2);
                 drain();
             }
             Iterator<rx.subjects.c<T, T>> it = this.windows.iterator();
@@ -299,7 +299,7 @@ public final class OperatorWindowWithSize<T> implements d.b<rx.d<T>, T> {
             drain();
         }
 
-        rx.f eok() {
+        rx.f erV() {
             return new WindowOverlapProducer();
         }
 
@@ -314,7 +314,7 @@ public final class OperatorWindowWithSize<T> implements d.b<rx.d<T>, T> {
         /* JADX WARN: Multi-variable type inference failed */
         void drain() {
             long j;
-            AtomicInteger atomicInteger = this.oRe;
+            AtomicInteger atomicInteger = this.pgu;
             if (atomicInteger.getAndIncrement() == 0) {
                 rx.j<? super rx.d<T>> jVar = this.actual;
                 Queue<rx.subjects.c<T, T>> queue = this.queue;
@@ -376,7 +376,7 @@ public final class OperatorWindowWithSize<T> implements d.b<rx.d<T>, T> {
         }
 
         /* JADX INFO: Access modifiers changed from: package-private */
-        /* loaded from: classes7.dex */
+        /* loaded from: classes16.dex */
         public final class WindowOverlapProducer extends AtomicBoolean implements rx.f {
             private static final long serialVersionUID = 4625807964358024108L;
 

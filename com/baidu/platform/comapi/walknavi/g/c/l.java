@@ -6,13 +6,15 @@ import android.view.animation.Animation;
 import android.widget.RelativeLayout;
 import com.baidu.tieba.R;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes3.dex */
+/* loaded from: classes7.dex */
 public class l implements View.OnClickListener {
-    final /* synthetic */ c a;
+
+    /* renamed from: a  reason: collision with root package name */
+    final /* synthetic */ c f3036a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public l(c cVar) {
-        this.a = cVar;
+        this.f3036a = cVar;
     }
 
     @Override // android.view.View.OnClickListener
@@ -21,30 +23,30 @@ public class l implements View.OnClickListener {
         Context context;
         RelativeLayout relativeLayout2;
         if (com.baidu.platform.comapi.walknavi.b.a().M() == 4) {
-            this.a.c.setChecked(false);
+            this.f3036a.c.setChecked(false);
         } else if (com.baidu.platform.comapi.walknavi.b.a().K().a("WALKNAVI_VOICE_ON_OFF", true)) {
-            this.a.c.setChecked(true);
+            this.f3036a.c.setChecked(true);
         } else {
-            this.a.c.setChecked(false);
+            this.f3036a.c.setChecked(false);
         }
         if (com.baidu.platform.comapi.walknavi.b.a().K().a("WALKNAVI_STREET_POI_ON_OFF", true)) {
-            this.a.d.setChecked(true);
+            this.f3036a.d.setChecked(true);
         } else {
-            this.a.d.setChecked(false);
+            this.f3036a.d.setChecked(false);
         }
         if (com.baidu.platform.comapi.walknavi.b.a().K().a("WALKNAVI_THREED_MAP_ON_OFF", true)) {
-            this.a.e.setChecked(true);
+            this.f3036a.e.setChecked(true);
         } else {
-            this.a.e.setChecked(false);
+            this.f3036a.e.setChecked(false);
         }
         try {
-            context = this.a.l;
+            context = this.f3036a.l;
             Animation c = com.baidu.platform.comapi.wnplatform.p.a.a.c(context, R.layout.abc_action_menu_layout);
-            relativeLayout2 = this.a.H;
+            relativeLayout2 = this.f3036a.H;
             relativeLayout2.setAnimation(c);
         } catch (Exception e) {
         }
-        relativeLayout = this.a.H;
+        relativeLayout = this.f3036a.H;
         relativeLayout.setVisibility(0);
     }
 }

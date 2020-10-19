@@ -2,7 +2,7 @@ package com.baidu.card;
 
 import android.content.Context;
 import com.baidu.tbadk.core.data.AbsThreadDataSupport;
-/* loaded from: classes20.dex */
+/* loaded from: classes21.dex */
 public abstract class i extends b<AbsThreadDataSupport> {
     private int bottomMargin;
     private int topMargin;

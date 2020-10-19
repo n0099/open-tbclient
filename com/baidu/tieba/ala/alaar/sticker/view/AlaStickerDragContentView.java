@@ -15,7 +15,7 @@ import com.baidu.live.tbadk.core.util.UtilHelper;
 /* loaded from: classes4.dex */
 public class AlaStickerDragContentView extends RelativeLayout {
     private int borderWidth;
-    private int fCU;
+    private int fPd;
 
     public AlaStickerDragContentView(Context context) {
         super(context);
@@ -29,9 +29,9 @@ public class AlaStickerDragContentView extends RelativeLayout {
         super(context, attributeSet, i);
     }
 
-    public void bB(int i, int i2) {
+    public void bA(int i, int i2) {
         this.borderWidth = i;
-        this.fCU = i2;
+        this.fPd = i2;
     }
 
     public DragTextView a(int i, Bitmap bitmap, int i2, e eVar, AlaLiveStickerInfo alaLiveStickerInfo) {
@@ -51,7 +51,7 @@ public class AlaStickerDragContentView extends RelativeLayout {
             dragTextView.setBackground(new BitmapDrawable(createScaledBitmap));
         }
         dragTextView.setType(i);
-        dragTextView.setParentBorder(0, 0, this.borderWidth, this.fCU);
+        dragTextView.setParentBorder(0, 0, this.borderWidth, this.fPd);
         dragTextView.setOnDragViewEventListener(eVar);
         dragTextView.setTextColor(getContext().getResources().getColor(i2));
         if (i == 1) {
@@ -111,7 +111,7 @@ public class AlaStickerDragContentView extends RelativeLayout {
             dragTextView.setBackground(new BitmapDrawable(createScaledBitmap));
         }
         dragTextView.setType(i);
-        dragTextView.setParentBorder(0, 0, this.borderWidth, this.fCU);
+        dragTextView.setParentBorder(0, 0, this.borderWidth, this.fPd);
         dragTextView.setOnDragViewEventListener(eVar);
         dragTextView.setTextColor(getContext().getResources().getColor(i2));
         if (i == 1) {
@@ -145,7 +145,7 @@ public class AlaStickerDragContentView extends RelativeLayout {
         addView(dragTextView, layoutParams);
     }
 
-    public void bJ(View view) {
+    public void bN(View view) {
         if (view.getParent() != null) {
             view.setVisibility(8);
             ((ViewGroup) view.getParent()).removeView(view);

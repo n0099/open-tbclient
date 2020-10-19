@@ -7,38 +7,38 @@ public interface a {
 
     /* renamed from: com.baidu.adp.gif.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    public static class C0017a implements a {
-        private static a Jj;
-        private int Jk;
-        private final d Jl = new d();
+    public static class C0018a implements a {
+        private static a Jz;
+        private int JA;
+        private final d JB = new d();
 
-        public C0017a() {
-            this.Jk = 0;
-            if (NSGif.Jn) {
-                this.Jk = 0;
+        public C0018a() {
+            this.JA = 0;
+            if (NSGif.JD) {
+                this.JA = 0;
             } else {
-                this.Jk = 1;
+                this.JA = 1;
             }
         }
 
-        public static synchronized a lH() {
+        public static synchronized a lI() {
             a aVar;
-            synchronized (C0017a.class) {
-                if (Jj == null) {
-                    Jj = new C0017a();
+            synchronized (C0018a.class) {
+                if (Jz == null) {
+                    Jz = new C0018a();
                 }
-                aVar = Jj;
+                aVar = Jz;
             }
             return aVar;
         }
 
         @Override // com.baidu.adp.gif.a
         public com.baidu.adp.widget.ImageView.a bv(String str) {
-            if (this.Jk != 0) {
+            if (this.JA != 0) {
                 return null;
             }
             try {
-                return this.Jl.bv(str);
+                return this.JB.bv(str);
             } catch (Exception e) {
                 return null;
             }
@@ -46,11 +46,11 @@ public interface a {
 
         @Override // com.baidu.adp.gif.a
         public com.baidu.adp.widget.ImageView.a f(byte[] bArr, int i, int i2) {
-            if (this.Jk != 0) {
+            if (this.JA != 0) {
                 return null;
             }
             try {
-                return this.Jl.f(bArr, i, i2);
+                return this.JB.f(bArr, i, i2);
             } catch (Exception e) {
                 return null;
             }

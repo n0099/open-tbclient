@@ -2,56 +2,56 @@ package rx.internal.util;
 
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes7.dex */
+/* loaded from: classes16.dex */
 public class c {
     final int capacityHint;
-    Object[] oAo;
-    Object[] oAp;
-    int oAq;
+    Object[] oPD;
+    Object[] oPE;
+    int oPF;
     volatile int size;
 
     public void add(Object obj) {
         if (this.size == 0) {
-            this.oAo = new Object[this.capacityHint + 1];
-            this.oAp = this.oAo;
-            this.oAo[0] = obj;
-            this.oAq = 1;
+            this.oPD = new Object[this.capacityHint + 1];
+            this.oPE = this.oPD;
+            this.oPD[0] = obj;
+            this.oPF = 1;
             this.size = 1;
-        } else if (this.oAq == this.capacityHint) {
+        } else if (this.oPF == this.capacityHint) {
             Object[] objArr = new Object[this.capacityHint + 1];
             objArr[0] = obj;
-            this.oAp[this.capacityHint] = objArr;
-            this.oAp = objArr;
-            this.oAq = 1;
+            this.oPE[this.capacityHint] = objArr;
+            this.oPE = objArr;
+            this.oPF = 1;
             this.size++;
         } else {
-            this.oAp[this.oAq] = obj;
-            this.oAq++;
+            this.oPE[this.oPF] = obj;
+            this.oPF++;
             this.size++;
         }
     }
 
-    public Object[] ejz() {
-        return this.oAo;
+    public Object[] enl() {
+        return this.oPD;
     }
 
     public int size() {
         return this.size;
     }
 
-    List<Object> eoA() {
+    List<Object> esl() {
         int i = this.capacityHint;
         int i2 = this.size;
         ArrayList arrayList = new ArrayList(i2 + 1);
         int i3 = 0;
-        Object[] ejz = ejz();
+        Object[] enl = enl();
         int i4 = 0;
         while (i3 < i2) {
-            arrayList.add(ejz[i4]);
+            arrayList.add(enl[i4]);
             i3++;
             i4++;
             if (i4 == i) {
-                ejz = (Object[]) ejz[i];
+                enl = (Object[]) enl[i];
                 i4 = 0;
             }
         }
@@ -59,6 +59,6 @@ public class c {
     }
 
     public String toString() {
-        return eoA().toString();
+        return esl().toString();
     }
 }

@@ -10,18 +10,18 @@ import com.googlecode.mp4parser.RequiresParseDetailAspect;
 import java.nio.ByteBuffer;
 import org.aspectj.a.b.b;
 import org.aspectj.lang.a;
-/* loaded from: classes4.dex */
+/* loaded from: classes11.dex */
 public class ClassificationBox extends AbstractFullBox {
     public static final String TYPE = "clsf";
-    private static final /* synthetic */ a.InterfaceC0979a ajc$tjp_0 = null;
-    private static final /* synthetic */ a.InterfaceC0979a ajc$tjp_1 = null;
-    private static final /* synthetic */ a.InterfaceC0979a ajc$tjp_2 = null;
-    private static final /* synthetic */ a.InterfaceC0979a ajc$tjp_3 = null;
-    private static final /* synthetic */ a.InterfaceC0979a ajc$tjp_4 = null;
-    private static final /* synthetic */ a.InterfaceC0979a ajc$tjp_5 = null;
-    private static final /* synthetic */ a.InterfaceC0979a ajc$tjp_6 = null;
-    private static final /* synthetic */ a.InterfaceC0979a ajc$tjp_7 = null;
-    private static final /* synthetic */ a.InterfaceC0979a ajc$tjp_8 = null;
+    private static final /* synthetic */ a.InterfaceC0997a ajc$tjp_0 = null;
+    private static final /* synthetic */ a.InterfaceC0997a ajc$tjp_1 = null;
+    private static final /* synthetic */ a.InterfaceC0997a ajc$tjp_2 = null;
+    private static final /* synthetic */ a.InterfaceC0997a ajc$tjp_3 = null;
+    private static final /* synthetic */ a.InterfaceC0997a ajc$tjp_4 = null;
+    private static final /* synthetic */ a.InterfaceC0997a ajc$tjp_5 = null;
+    private static final /* synthetic */ a.InterfaceC0997a ajc$tjp_6 = null;
+    private static final /* synthetic */ a.InterfaceC0997a ajc$tjp_7 = null;
+    private static final /* synthetic */ a.InterfaceC0997a ajc$tjp_8 = null;
     private String classificationEntity;
     private String classificationInfo;
     private int classificationTableIndex;
@@ -74,7 +74,7 @@ public class ClassificationBox extends AbstractFullBox {
     }
 
     public void setClassificationTableIndex(int i) {
-        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_5, this, this, org.aspectj.a.a.a.OL(i)));
+        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_5, this, this, org.aspectj.a.a.a.Pr(i)));
         this.classificationTableIndex = i;
     }
 

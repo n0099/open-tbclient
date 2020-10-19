@@ -1,7 +1,7 @@
 package com.baidu.sapi2.callback;
 
 import com.baidu.sapi2.result.AccountRealNameResult;
-/* loaded from: classes25.dex */
+/* loaded from: classes5.dex */
 public class AccountRealNameCallback {
     @Deprecated
     public void onFinish() {

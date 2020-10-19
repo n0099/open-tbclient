@@ -1,33 +1,33 @@
 package com.facebook.imagepipeline.c;
-/* loaded from: classes25.dex */
+/* loaded from: classes18.dex */
 public class o<K, V> implements p<K, V> {
-    private final p<K, V> nEj;
-    private final r nEk;
+    private final p<K, V> nTC;
+    private final r nTD;
 
     public o(p<K, V> pVar, r rVar) {
-        this.nEj = pVar;
-        this.nEk = rVar;
+        this.nTC = pVar;
+        this.nTD = rVar;
     }
 
     @Override // com.facebook.imagepipeline.c.p
-    public com.facebook.common.references.a<V> bn(K k) {
-        com.facebook.common.references.a<V> bn = this.nEj.bn(k);
-        if (bn == null) {
-            this.nEk.dVP();
+    public com.facebook.common.references.a<V> bq(K k) {
+        com.facebook.common.references.a<V> bq = this.nTC.bq(k);
+        if (bq == null) {
+            this.nTD.dZA();
         } else {
-            this.nEk.bk(k);
+            this.nTD.bn(k);
         }
-        return bn;
+        return bq;
     }
 
     @Override // com.facebook.imagepipeline.c.p
     public com.facebook.common.references.a<V> a(K k, com.facebook.common.references.a<V> aVar) {
-        this.nEk.dVQ();
-        return this.nEj.a(k, aVar);
+        this.nTD.dZB();
+        return this.nTC.a(k, aVar);
     }
 
     @Override // com.facebook.imagepipeline.c.p
     public boolean b(com.facebook.common.internal.h<K> hVar) {
-        return this.nEj.b(hVar);
+        return this.nTC.b(hVar);
     }
 }

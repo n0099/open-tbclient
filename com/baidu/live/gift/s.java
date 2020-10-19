@@ -5,29 +5,29 @@ import java.util.HashSet;
 import java.util.Set;
 /* loaded from: classes4.dex */
 public class s {
-    private Set<String> aQJ;
+    private Set<String> aTU;
 
-    public static s Fi() {
-        return a.aQK;
+    public static s Ge() {
+        return a.aTV;
     }
 
-    public boolean gn(String str) {
-        if (TextUtils.isEmpty(str) || this.aQJ == null || this.aQJ.isEmpty()) {
+    public boolean gC(String str) {
+        if (TextUtils.isEmpty(str) || this.aTU == null || this.aTU.isEmpty()) {
             return false;
         }
-        return this.aQJ.contains(str);
+        return this.aTU.contains(str);
     }
 
-    public void go(String str) {
-        if (this.aQJ == null) {
-            this.aQJ = new HashSet();
+    public void gD(String str) {
+        if (this.aTU == null) {
+            this.aTU = new HashSet();
         }
-        this.aQJ.add(str);
+        this.aTU.add(str);
     }
 
     public void release() {
-        if (this.aQJ != null) {
-            this.aQJ.clear();
+        if (this.aTU != null) {
+            this.aTU.clear();
         }
     }
 
@@ -36,6 +36,6 @@ public class s {
 
     /* loaded from: classes4.dex */
     private static class a {
-        private static s aQK = new s();
+        private static s aTV = new s();
     }
 }

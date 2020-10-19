@@ -1,15 +1,15 @@
 package com.tb.airbnb.lottie.a.b;
 
 import java.util.List;
-/* loaded from: classes17.dex */
+/* loaded from: classes16.dex */
 public class d extends f<com.tb.airbnb.lottie.model.content.c> {
-    private final com.tb.airbnb.lottie.model.content.c osI;
+    private final com.tb.airbnb.lottie.model.content.c oHY;
 
     public d(List<com.tb.airbnb.lottie.e.a<com.tb.airbnb.lottie.model.content.c>> list) {
         super(list);
-        com.tb.airbnb.lottie.model.content.c cVar = list.get(0).GX;
+        com.tb.airbnb.lottie.model.content.c cVar = list.get(0).Hn;
         int size = cVar == null ? 0 : cVar.getSize();
-        this.osI = new com.tb.airbnb.lottie.model.content.c(new float[size], new int[size]);
+        this.oHY = new com.tb.airbnb.lottie.model.content.c(new float[size], new int[size]);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -17,7 +17,7 @@ public class d extends f<com.tb.airbnb.lottie.model.content.c> {
     @Override // com.tb.airbnb.lottie.a.b.a
     /* renamed from: d */
     public com.tb.airbnb.lottie.model.content.c a(com.tb.airbnb.lottie.e.a<com.tb.airbnb.lottie.model.content.c> aVar, float f) {
-        this.osI.a(aVar.GX, aVar.GY, f);
-        return this.osI;
+        this.oHY.a(aVar.Hn, aVar.Ho, f);
+        return this.oHY;
     }
 }

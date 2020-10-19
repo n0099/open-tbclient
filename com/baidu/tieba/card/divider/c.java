@@ -7,24 +7,24 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tbadk.core.util.ap;
 import com.baidu.tieba.R;
-/* loaded from: classes20.dex */
+/* loaded from: classes21.dex */
 public class c extends com.baidu.tieba.card.b<b> {
     private int dividerHeight;
-    private View fpN;
-    private int hvk;
+    private View fCa;
+    private int hKf;
 
     public c(TbPageContext tbPageContext) {
         super(tbPageContext);
-        this.hvk = R.color.cp_bg_line_c;
+        this.hKf = R.color.cp_bg_line_c;
         this.dividerHeight = UtilHelper.getDimenPixelSize(R.dimen.tbds16);
         getView().setOnClickListener(this);
-        this.fpN = getView().findViewById(R.id.card_divider);
+        this.fCa = getView().findViewById(R.id.card_divider);
     }
 
     @Override // com.baidu.tieba.card.b
     public void onChangeSkinType(TbPageContext tbPageContext, int i) {
         if (this.mSkinType != i) {
-            ap.setBackgroundColor(this.fpN, this.hvk);
+            ap.setBackgroundColor(this.fCa, this.hKf);
         }
         this.mSkinType = i;
     }
@@ -38,19 +38,19 @@ public class c extends com.baidu.tieba.card.b<b> {
     @Override // com.baidu.tieba.card.b
     public void a(b bVar) {
         if (bVar != null) {
-            this.fpN.setVisibility(0);
-            this.hvk = bVar.hvk;
+            this.fCa.setVisibility(0);
+            this.hKf = bVar.hKf;
             this.dividerHeight = bVar.dividerHeight;
-            cfT();
+            cjp();
             onChangeSkinType(this.mTbPageContext, TbadkCoreApplication.getInst().getSkinType());
         }
     }
 
-    private void cfT() {
-        ViewGroup.LayoutParams layoutParams = this.fpN.getLayoutParams();
+    private void cjp() {
+        ViewGroup.LayoutParams layoutParams = this.fCa.getLayoutParams();
         if (layoutParams != null && layoutParams.height != this.dividerHeight) {
             layoutParams.height = this.dividerHeight;
-            this.fpN.setLayoutParams(layoutParams);
+            this.fCa.setLayoutParams(layoutParams);
         }
     }
 

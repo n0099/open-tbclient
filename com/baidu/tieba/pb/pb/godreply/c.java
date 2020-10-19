@@ -6,84 +6,84 @@ import com.baidu.adp.lib.util.l;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tieba.R;
 import com.baidu.tieba.f.a;
-/* loaded from: classes21.dex */
+/* loaded from: classes22.dex */
 public class c {
     private static final int TOUCH_SLOP = l.getDimens(TbadkCoreApplication.getInst(), R.dimen.ds20);
-    private boolean kHM;
-    private boolean kHN;
-    private final a kHO;
-    private final com.baidu.tieba.f.b kHP;
-    private a.InterfaceC0671a kHQ = new a.InterfaceC0671a() { // from class: com.baidu.tieba.pb.pb.godreply.c.1
-        @Override // com.baidu.tieba.f.a.InterfaceC0671a
+    private boolean kWX;
+    private boolean kWY;
+    private final a kWZ;
+    private final com.baidu.tieba.f.b kXa;
+    private a.InterfaceC0689a kXb = new a.InterfaceC0689a() { // from class: com.baidu.tieba.pb.pb.godreply.c.1
+        @Override // com.baidu.tieba.f.a.InterfaceC0689a
         public void H(int i, int i2) {
-            if (c.this.kHO.isActive() && !c.this.daj() && !c.this.dak()) {
-                c.this.sP(true);
+            if (c.this.kWZ.isActive() && !c.this.ddS() && !c.this.ddT()) {
+                c.this.tw(true);
                 c.this.setFullscreen(true);
-                c.this.kHO.daf().u(new Runnable() { // from class: com.baidu.tieba.pb.pb.godreply.c.1.1
+                c.this.kWZ.ddO().u(new Runnable() { // from class: com.baidu.tieba.pb.pb.godreply.c.1.1
                     @Override // java.lang.Runnable
                     public void run() {
-                        c.this.sP(false);
+                        c.this.tw(false);
                     }
                 });
             }
         }
 
-        @Override // com.baidu.tieba.f.a.InterfaceC0671a
+        @Override // com.baidu.tieba.f.a.InterfaceC0689a
         public void I(int i, int i2) {
-            if (c.this.kHO.isActive() && !c.this.daj() && c.this.kHO.daf().dap() && Math.abs(i2) > c.TOUCH_SLOP) {
-                c.this.kHO.t(new Runnable() { // from class: com.baidu.tieba.pb.pb.godreply.c.1.2
+            if (c.this.kWZ.isActive() && !c.this.ddS() && c.this.kWZ.ddO().ddY() && Math.abs(i2) > c.TOUCH_SLOP) {
+                c.this.kWZ.t(new Runnable() { // from class: com.baidu.tieba.pb.pb.godreply.c.1.2
                     @Override // java.lang.Runnable
                     public void run() {
-                        c.this.sP(false);
+                        c.this.tw(false);
                     }
                 });
-                c.this.sP(true);
+                c.this.tw(true);
                 c.this.setFullscreen(false);
             }
         }
 
-        @Override // com.baidu.tieba.f.a.InterfaceC0671a
+        @Override // com.baidu.tieba.f.a.InterfaceC0689a
         public void cc(int i, int i2) {
         }
 
-        @Override // com.baidu.tieba.f.a.InterfaceC0671a
+        @Override // com.baidu.tieba.f.a.InterfaceC0689a
         public void J(int i, int i2) {
         }
     };
-    private View.OnTouchListener kHR = new View.OnTouchListener() { // from class: com.baidu.tieba.pb.pb.godreply.c.2
+    private View.OnTouchListener kXc = new View.OnTouchListener() { // from class: com.baidu.tieba.pb.pb.godreply.c.2
         @Override // android.view.View.OnTouchListener
         public boolean onTouch(View view, MotionEvent motionEvent) {
-            c.this.kHP.onTouchEvent(motionEvent);
+            c.this.kXa.onTouchEvent(motionEvent);
             return false;
         }
     };
 
     public c(a aVar) {
-        this.kHO = aVar;
-        this.kHP = new com.baidu.tieba.f.b(aVar.kHq.getPageContext().getPageActivity());
-        this.kHP.a(this.kHQ);
+        this.kWZ = aVar;
+        this.kXa = new com.baidu.tieba.f.b(aVar.kWB.getPageContext().getPageActivity());
+        this.kXa.a(this.kXb);
     }
 
     public void initialize() {
-        d daf = this.kHO.daf();
-        if (daf.dam()) {
-            daf.getListView().setOnTouchListener(this.kHR);
+        d ddO = this.kWZ.ddO();
+        if (ddO.ddV()) {
+            ddO.getListView().setOnTouchListener(this.kXc);
         }
     }
 
-    public boolean daj() {
-        return this.kHM;
+    public boolean ddS() {
+        return this.kWX;
     }
 
-    public void sP(boolean z) {
-        this.kHM = z;
+    public void tw(boolean z) {
+        this.kWX = z;
     }
 
-    public boolean dak() {
-        return this.kHN;
+    public boolean ddT() {
+        return this.kWY;
     }
 
     public void setFullscreen(boolean z) {
-        this.kHN = z;
+        this.kWY = z;
     }
 }

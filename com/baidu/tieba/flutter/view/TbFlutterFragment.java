@@ -22,7 +22,7 @@ import com.idlefish.flutterboost.containers.ViewSplashScreen;
 import io.flutter.embedding.android.SplashScreen;
 import java.util.HashMap;
 import java.util.Map;
-/* loaded from: classes24.dex */
+/* loaded from: classes25.dex */
 public class TbFlutterFragment extends FlutterFragment {
     private ContinuousAnimationView loadingView;
     private TbFlutterFragmentLifeCircleInterface mLifeCycleListener;
@@ -51,7 +51,7 @@ public class TbFlutterFragment extends FlutterFragment {
         FrameLayout frameLayout = new FrameLayout(getActivity());
         frameLayout.setLayoutParams(new FrameLayout.LayoutParams(-1, -1));
         this.loadingView = new ContinuousAnimationView(getActivity());
-        Resources resources = g.lh().getResources();
+        Resources resources = g.li().getResources();
         ap.a(this.loadingView, resources.getIdentifier("lottie_full_screen_refresh", "raw", BdBaseApplication.getInst().getPackageName()));
         this.loadingView.setSpeed(1.2f);
         this.loadingView.setLayoutParams(new FrameLayout.LayoutParams(resources.getDimensionPixelSize(resources.getIdentifier("tbds290", "dimen", BdBaseApplication.getInst().getPackageName())), resources.getDimensionPixelSize(resources.getIdentifier("tbds304", "dimen", BdBaseApplication.getInst().getPackageName())), 17));

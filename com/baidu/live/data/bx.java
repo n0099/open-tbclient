@@ -3,25 +3,25 @@ package com.baidu.live.data;
 import org.json.JSONObject;
 /* loaded from: classes4.dex */
 public class bx {
-    public String aEQ;
-    public int aLW;
-    public int aLX;
-    public int aLu;
-    public String aMg;
-    public String aMh;
-    public String aMi;
-    public String aMj;
-    public boolean aMk;
+    public String aHU;
+    public int aOz;
+    public int aPb;
+    public int aPc;
+    public String aPl;
+    public String aPm;
+    public String aPn;
+    public String aPo;
+    public boolean aPp;
 
     public bx(JSONObject jSONObject) {
-        this.aLW = jSONObject.optInt("show_times_daily");
-        this.aLX = jSONObject.optInt("continue_show_times");
-        this.aLu = jSONObject.optInt("condition");
-        this.aEQ = jSONObject.optString("toast_text");
-        this.aMg = jSONObject.optString("first_recharge_bg");
-        this.aMh = jSONObject.optString("first_recharge_button");
-        this.aMi = jSONObject.optString("first_recharge_h5");
-        this.aMj = jSONObject.optString("first_recharge_h5_audio");
-        this.aMk = jSONObject.optInt("audio_show_switch") == 1;
+        this.aPb = jSONObject.optInt("show_times_daily");
+        this.aPc = jSONObject.optInt("continue_show_times");
+        this.aOz = jSONObject.optInt("condition");
+        this.aHU = jSONObject.optString("toast_text");
+        this.aPl = jSONObject.optString("first_recharge_bg");
+        this.aPm = jSONObject.optString("first_recharge_button");
+        this.aPn = jSONObject.optString("first_recharge_h5");
+        this.aPo = jSONObject.optString("first_recharge_h5_audio");
+        this.aPp = jSONObject.optInt("audio_show_switch") == 1;
     }
 }

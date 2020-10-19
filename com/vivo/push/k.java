@@ -2,20 +2,22 @@ package com.vivo.push;
 
 import android.content.Context;
 import com.vivo.push.LocalAliasTagsManager;
-/* loaded from: classes12.dex */
+/* loaded from: classes15.dex */
 final class k implements Runnable {
-    final /* synthetic */ j a;
+
+    /* renamed from: a  reason: collision with root package name */
+    final /* synthetic */ j f4681a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public k(j jVar) {
-        this.a = jVar;
+        this.f4681a = jVar;
     }
 
     @Override // java.lang.Runnable
     public final void run() {
         Context context;
-        LocalAliasTagsManager.LocalMessageCallback localMessageCallback = this.a.b;
-        context = this.a.c.mContext;
-        localMessageCallback.onTransmissionMessage(context, this.a.a);
+        LocalAliasTagsManager.LocalMessageCallback localMessageCallback = this.f4681a.b;
+        context = this.f4681a.c.mContext;
+        localMessageCallback.onTransmissionMessage(context, this.f4681a.f4680a);
     }
 }

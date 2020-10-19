@@ -32,143 +32,144 @@ import com.baidu.live.tbadk.img.WriteImagesInfo;
 import com.baidu.m.a.a;
 import com.baidu.megapp.ma.Util;
 /* loaded from: classes4.dex */
-public class AlbumActivity extends BaseActivity implements View.OnClickListener, a.InterfaceC0209a {
+public class AlbumActivity extends BaseActivity implements View.OnClickListener, a.InterfaceC0224a {
     public static String PHOTO_RESOURCE = "resourceid";
     public static String PIC_INFO = "pic_info";
-    private c brG;
-    private com.baidu.live.tieba.write.album.a brH;
-    private e brJ;
-    private boolean brP;
-    private com.baidu.live.tieba.c.a brQ;
-    private FrameLayout brR;
-    private FrameLayout brS;
-    private int aTP = 0;
-    private boolean brI = false;
+    private boolean bvD;
+    private com.baidu.live.tieba.c.a bvE;
+    private FrameLayout bvF;
+    private FrameLayout bvG;
+    private c bvu;
+    private com.baidu.live.tieba.write.album.a bvv;
+    private e bvx;
+    private int aXa = 0;
+    private boolean bvw = false;
     private String callFrom = "";
     private String from = "";
     private String forumName = "";
     private String forumId = "0";
     private int requestFrom = 0;
-    private int brK = 0;
-    private boolean brL = false;
-    private boolean brM = false;
-    private int brN = 0;
-    private View brO = null;
+    private int bvy = 0;
+    private boolean bvz = false;
+    private boolean bvA = false;
+    private int bvB = 0;
+    private View bvC = null;
 
     /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.live.tbadk.BaseActivity, com.baidu.live.adp.base.BdBaseActivity, android.app.Activity
+    @Override // com.baidu.live.tbadk.BaseActivity, com.baidu.live.adp.base.BdBaseActivity, android.support.v4.app.FragmentActivity, android.support.v4.app.SupportActivity, android.app.Activity
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
         if (!isFinishing()) {
             setSwipeBackEnabled(false);
             setContentView(a.h.sdk_ph_album_activity);
-            this.brO = findViewById(a.g.statebar_view);
-            this.brR = (FrameLayout) findViewById(a.g.imageList_layout);
-            this.brS = (FrameLayout) findViewById(a.g.imageBrowse_layout);
-            this.brP = UtilHelper.canUseStyleImmersiveSticky();
-            OR();
+            this.bvC = findViewById(a.g.statebar_view);
+            this.bvF = (FrameLayout) findViewById(a.g.imageList_layout);
+            this.bvG = (FrameLayout) findViewById(a.g.imageBrowse_layout);
+            this.bvD = UtilHelper.canUseStyleImmersiveSticky();
+            PW();
             initData(bundle);
-            this.brH = new com.baidu.live.tieba.write.album.a(this);
-            this.brH.Pe();
+            this.bvv = new com.baidu.live.tieba.write.album.a(this);
+            this.bvv.Qj();
             ViewGroup.LayoutParams layoutParams = new ViewGroup.LayoutParams(-1, -1);
-            this.brR.addView(this.brH.Pm().getView(), layoutParams);
-            this.brS.addView(this.brH.Pl().getView(), layoutParams);
-            fy(0);
+            this.bvF.addView(this.bvv.Qr().getView(), layoutParams);
+            this.bvG.addView(this.bvv.Qq().getView(), layoutParams);
+            fH(0);
         }
     }
 
     public void showTip(View view) {
-        if (this.brQ == null && view != null) {
-            this.brQ = new com.baidu.live.tieba.c.a(getPageContext(), view);
-            this.brQ.eW(a.f.sdk_ph_bg_tip_blue_up_left);
-            this.brQ.c(new View.OnClickListener() { // from class: com.baidu.live.tieba.write.album.AlbumActivity.1
+        if (this.bvE == null && view != null) {
+            this.bvE = new com.baidu.live.tieba.c.a(getPageContext(), view);
+            this.bvE.ff(a.f.sdk_ph_bg_tip_blue_up_left);
+            this.bvE.c(new View.OnClickListener() { // from class: com.baidu.live.tieba.write.album.AlbumActivity.1
                 @Override // android.view.View.OnClickListener
                 public void onClick(View view2) {
-                    AlbumActivity.this.brQ.Oj();
+                    AlbumActivity.this.bvE.Po();
                 }
             });
-            this.brQ.eV(16);
-            this.brQ.eX(5000);
+            this.bvE.fe(16);
+            this.bvE.fg(5000);
         }
-        if (this.brQ != null) {
+        if (this.bvE != null) {
             String sharedPrefKeyWithAccount = SharedPrefHelper.getSharedPrefKeyWithAccount(SharedPrefConfig.KEY_SHOW_TAKE_PHOTO_TIP);
-            this.brQ.aG(getString(a.i.sdk_ph_album_take_photo_tip), sharedPrefKeyWithAccount);
+            this.bvE.aJ(getString(a.i.sdk_ph_album_take_photo_tip), sharedPrefKeyWithAccount);
         }
     }
 
-    private void OR() {
-        if (this.brO != null) {
-            if (this.brP && this.brO.getLayoutParams() != null) {
-                ViewGroup.LayoutParams layoutParams = this.brO.getLayoutParams();
+    private void PW() {
+        if (this.bvC != null) {
+            if (this.bvD && this.bvC.getLayoutParams() != null) {
+                ViewGroup.LayoutParams layoutParams = this.bvC.getLayoutParams();
                 layoutParams.height = UtilHelper.getStatusBarHeight();
-                this.brO.setLayoutParams(layoutParams);
-                cz(true);
+                this.bvC.setLayoutParams(layoutParams);
+                cC(true);
                 return;
             }
-            cz(false);
+            cC(false);
         }
     }
 
-    private void cz(boolean z) {
-        if (this.brO != null) {
-            if (this.brP && z && this.brO.getVisibility() != 0) {
-                this.brO.setVisibility(0);
-            } else if (!z && this.brO.getVisibility() != 8) {
-                this.brO.setVisibility(8);
+    private void cC(boolean z) {
+        if (this.bvC != null) {
+            if (this.bvD && z && this.bvC.getVisibility() != 0) {
+                this.bvC.setVisibility(0);
+            } else if (!z && this.bvC.getVisibility() != 8) {
+                this.bvC.setVisibility(8);
             }
         }
     }
 
-    @Override // android.app.Activity
-    protected void onSaveInstanceState(Bundle bundle) {
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // android.support.v4.app.FragmentActivity, android.support.v4.app.SupportActivity, android.app.Activity
+    public void onSaveInstanceState(Bundle bundle) {
         super.onSaveInstanceState(bundle);
-        bundle.putString("write_images_info", this.brG.Pr().toJsonString());
-        bundle.putBoolean("use_original_img", this.brL);
+        bundle.putString("write_images_info", this.bvu.Qw().toJsonString());
+        bundle.putBoolean("use_original_img", this.bvz);
         bundle.putInt("camera_request_from", this.requestFrom);
         bundle.putString("forum_id", this.forumId);
         bundle.putString("forum_name", this.forumName);
-        bundle.putInt("album_thread", this.brK);
-        bundle.putBoolean("from_write", this.brM);
+        bundle.putInt("album_thread", this.bvy);
+        bundle.putBoolean("from_write", this.bvA);
     }
 
     private void initData(Bundle bundle) {
-        this.brG = new c(this);
+        this.bvu = new c(this);
         if (bundle != null) {
             WriteImagesInfo writeImagesInfo = new WriteImagesInfo();
             writeImagesInfo.parseJson(bundle.getString("write_images_info"));
-            this.brG.a(writeImagesInfo);
-            this.brL = bundle.getBoolean("use_original_img", false);
+            this.bvu.a(writeImagesInfo);
+            this.bvz = bundle.getBoolean("use_original_img", false);
             this.requestFrom = bundle.getInt("camera_request_from", 0);
             this.forumId = bundle.getString("forum_id");
             this.forumName = bundle.getString("forum_name");
-            this.brK = bundle.getInt("album_thread");
-            this.brM = bundle.getBoolean("from_write");
+            this.bvy = bundle.getInt("album_thread");
+            this.bvA = bundle.getBoolean("from_write");
             this.callFrom = bundle.getString("KEY_CALL_FROM");
-            this.brN = bundle.getInt("from_type");
+            this.bvB = bundle.getInt("from_type");
         } else {
             Intent intent = getIntent();
             if (intent != null) {
                 WriteImagesInfo writeImagesInfo2 = new WriteImagesInfo();
                 writeImagesInfo2.parseJson(intent.getStringExtra("write_images_info"));
-                this.brG.a(writeImagesInfo2);
-                this.brG.setOriginalImg(writeImagesInfo2.isOriginalImg());
-                this.brL = intent.getBooleanExtra("use_original_img", false);
+                this.bvu.a(writeImagesInfo2);
+                this.bvu.setOriginalImg(writeImagesInfo2.isOriginalImg());
+                this.bvz = intent.getBooleanExtra("use_original_img", false);
                 this.requestFrom = intent.getIntExtra("camera_request_from", 0);
                 this.from = intent.getStringExtra("from");
                 this.forumId = intent.getStringExtra("forum_id");
                 this.forumName = intent.getStringExtra("forum_name");
-                this.brK = intent.getIntExtra("album_thread", 0);
-                this.brM = intent.getBooleanExtra("from_write", false);
+                this.bvy = intent.getIntExtra("album_thread", 0);
+                this.bvA = intent.getBooleanExtra("from_write", false);
                 this.callFrom = intent.getStringExtra("KEY_CALL_FROM");
-                this.brN = intent.getIntExtra("from_type", 0);
+                this.bvB = intent.getIntExtra("from_type", 0);
             }
         }
-        OS();
+        PX();
     }
 
-    private void OS() {
+    private void PX() {
         if (this.requestFrom == 2) {
-            this.brJ = new e() { // from class: com.baidu.live.tieba.write.album.AlbumActivity.2
+            this.bvx = new e() { // from class: com.baidu.live.tieba.write.album.AlbumActivity.2
                 @Override // com.baidu.live.tieba.write.album.e
                 public boolean c(ImageFileInfo imageFileInfo) {
                     if (imageFileInfo != null) {
@@ -193,22 +194,22 @@ public class AlbumActivity extends BaseActivity implements View.OnClickListener,
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.live.tbadk.BaseActivity
     public void onChangeSkinType(int i) {
-        if (this.brH != null) {
-            this.brH.onChangeSkinType(i);
+        if (this.bvv != null) {
+            this.bvv.onChangeSkinType(i);
         }
-        SkinManager.setBackgroundColor(this.brO, a.d.sdk_cp_bg_line_d, i);
+        SkinManager.setBackgroundColor(this.bvC, a.d.sdk_cp_bg_line_d, i);
     }
 
-    public void OT() {
+    public void PY() {
         if (this.requestFrom == 3) {
             TiebaInitialize.log(TbadkCoreStatisticKey.UPGRADE_DIALOG_CHOOSE_IMAGE);
         }
         if (this.requestFrom == 5) {
             showLoadingDialog("正在上传");
             new a().execute(new String[0]);
-        } else if (this.brG != null) {
-            if (ListUtils.getCount(this.brG.Pq()) == 1 && this.brN == 0) {
-                OU();
+        } else if (this.bvu != null) {
+            if (ListUtils.getCount(this.bvu.Qv()) == 1 && this.bvB == 0) {
+                PZ();
             } else {
                 n(null);
             }
@@ -217,9 +218,9 @@ public class AlbumActivity extends BaseActivity implements View.OnClickListener,
 
     private void n(Intent intent) {
         Intent intent2 = new Intent();
-        intent2.putExtra("album_result", this.brG.Pr().toJsonString());
+        intent2.putExtra("album_result", this.bvu.Qw().toJsonString());
         intent2.putExtra("camera_request_from", this.requestFrom);
-        intent2.putExtra("from_type", this.brN);
+        intent2.putExtra("from_type", this.bvB);
         if (intent != null && !StringUtils.isNull(intent.getStringExtra("file_name"))) {
             intent2.putExtra("file_name", intent.getStringExtra("file_name"));
         }
@@ -227,31 +228,31 @@ public class AlbumActivity extends BaseActivity implements View.OnClickListener,
         finish();
     }
 
-    private void OU() {
-        WriteImagesInfo Pr;
-        if (this.brG != null && (Pr = this.brG.Pr()) != null) {
+    private void PZ() {
+        WriteImagesInfo Qw;
+        if (this.bvu != null && (Qw = this.bvu.Qw()) != null) {
             Intent intent = new Intent();
-            intent.putExtra("album_result", Pr.toJsonString());
+            intent.putExtra("album_result", Qw.toJsonString());
             n(intent);
         }
     }
 
     private void o(Intent intent) {
-        if (intent == null || this.brG == null) {
+        if (intent == null || this.bvu == null) {
             n(null);
             return;
         }
         String stringExtra = intent.getStringExtra("album_result");
         if (stringExtra != null) {
-            WriteImagesInfo Pr = this.brG.Pr();
-            Pr.parseJson(stringExtra);
-            Pr.updateQuality();
+            WriteImagesInfo Qw = this.bvu.Qw();
+            Qw.parseJson(stringExtra);
+            Qw.updateQuality();
             n(intent);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.live.tbadk.BaseActivity, android.app.Activity
+    @Override // com.baidu.live.tbadk.BaseActivity, android.support.v4.app.FragmentActivity, android.app.Activity
     public void onActivityResult(int i, int i2, Intent intent) {
         super.onActivityResult(i, i2, intent);
         if (i2 == -1) {
@@ -261,69 +262,69 @@ public class AlbumActivity extends BaseActivity implements View.OnClickListener,
 
     @Override // com.baidu.live.adp.base.BdBaseActivity, android.view.View.OnClickListener
     public void onClick(View view) {
-        if (view == this.brH.Pg()) {
-            OT();
-        } else if (view == this.brH.Pi()) {
-            OT();
-        } else if (view == this.brH.Pf()) {
-            if (this.brG != null) {
-                this.brG.setLastAlbumId(null);
+        if (view == this.bvv.Ql()) {
+            PY();
+        } else if (view == this.bvv.Qn()) {
+            PY();
+        } else if (view == this.bvv.Qk()) {
+            if (this.bvu != null) {
+                this.bvu.setLastAlbumId(null);
             }
-            Pa();
-        } else if (view == this.brH.Ph()) {
-            fy(0);
-        } else if (view == this.brH.Pj()) {
-            fw(2);
-        } else if (view == this.brH.Pk()) {
-            fw(1);
+            Qf();
+        } else if (view == this.bvv.Qm()) {
+            fH(0);
+        } else if (view == this.bvv.Qo()) {
+            fF(2);
+        } else if (view == this.bvv.Qp()) {
+            fF(1);
         }
     }
 
-    private void fw(int i) {
-        if (this.brH != null && this.brG != null) {
-            this.brG.setOriginalImg(!this.brG.isOriginalImg());
-            OV();
-            fx(i);
+    private void fF(int i) {
+        if (this.bvv != null && this.bvu != null) {
+            this.bvu.setOriginalImg(!this.bvu.isOriginalImg());
+            Qa();
+            fG(i);
         }
     }
 
-    private void fx(int i) {
-        if (this.brG != null && this.brG.isOriginalImg() && !StringUtils.isNull(this.from, true) && !StringUtils.isNull(this.forumId, true)) {
+    private void fG(int i) {
+        if (this.bvu != null && this.bvu.isOriginalImg() && !StringUtils.isNull(this.from, true) && !StringUtils.isNull(this.forumId, true)) {
             TiebaInitialize.log(new StatisticItem("c10349").param("fid", this.forumId).param("obj_type", this.from).param("obj_locate", i));
         }
     }
 
-    public void OV() {
-        if (this.brG != null && this.brH != null) {
-            this.brH.cA(this.brG.isOriginalImg());
+    public void Qa() {
+        if (this.bvu != null && this.bvv != null) {
+            this.bvv.cD(this.bvu.isOriginalImg());
         }
     }
 
-    public View OW() {
-        return this.brO;
+    public View Qb() {
+        return this.bvC;
     }
 
-    public int OX() {
-        return this.brK;
+    public int Qc() {
+        return this.bvy;
     }
 
-    public c OY() {
-        return this.brG;
+    public c Qd() {
+        return this.bvu;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public void fy(int i) {
-        if (!this.brI) {
-            this.aTP = i;
+    public void fH(int i) {
+        if (!this.bvw) {
+            this.aXa = i;
             if (i == 0) {
-                this.brR.setVisibility(0);
-                this.brS.setVisibility(8);
-                this.brH.Pm().onResume();
+                this.bvF.setVisibility(0);
+                this.bvG.setVisibility(8);
+                this.bvv.Qr().onResume();
                 return;
             }
-            this.brR.setVisibility(8);
-            this.brS.setVisibility(0);
-            this.brH.Pl().onResume();
+            this.bvF.setVisibility(8);
+            this.bvG.setVisibility(0);
+            this.bvv.Qq().onResume();
         }
     }
 
@@ -332,22 +333,22 @@ public class AlbumActivity extends BaseActivity implements View.OnClickListener,
         if (imageFileInfo == null) {
             return false;
         }
-        int maxImagesAllowed = this.brG.getMaxImagesAllowed();
-        if (this.brG.size() < maxImagesAllowed) {
-            if (this.brJ == null || this.brJ.c(imageFileInfo)) {
+        int maxImagesAllowed = this.bvu.getMaxImagesAllowed();
+        if (this.bvu.size() < maxImagesAllowed) {
+            if (this.bvx == null || this.bvx.c(imageFileInfo)) {
                 ImageFileInfo imageFileInfo2 = new ImageFileInfo();
                 imageFileInfo2.setAlbumnId(imageFileInfo.getAlbumId());
                 imageFileInfo2.setFilePath(imageFileInfo.getFilePath());
                 imageFileInfo2.setModifyTime(imageFileInfo.getModifyTime());
                 imageFileInfo2.setIsGif(imageFileInfo.isGif());
                 imageFileInfo2.setIsLong(imageFileInfo.isLong());
-                this.brG.a((VideoFileInfo) null);
-                this.brG.addChooseFile(imageFileInfo2);
-                OV();
+                this.bvu.a((VideoFileInfo) null);
+                this.bvu.addChooseFile(imageFileInfo2);
+                Qa();
                 return true;
             }
             return false;
-        } else if (OZ()) {
+        } else if (Qe()) {
             return a(imageFileInfo);
         } else {
             showToast(String.format(getPageContext().getContext().getString(a.i.sdk_ph_album_beyond_max_choose), Integer.valueOf(maxImagesAllowed)));
@@ -355,12 +356,12 @@ public class AlbumActivity extends BaseActivity implements View.OnClickListener,
         }
     }
 
-    public boolean OZ() {
+    public boolean Qe() {
         if (getIntent().getBooleanExtra("select_directly", false)) {
-            int maxImagesAllowed = this.brG.getMaxImagesAllowed();
-            if (this.brG.size() == maxImagesAllowed && maxImagesAllowed == 1) {
+            int maxImagesAllowed = this.bvu.getMaxImagesAllowed();
+            if (this.bvu.size() == maxImagesAllowed && maxImagesAllowed == 1) {
                 try {
-                    ImageFileInfo imageFileInfo = (ImageFileInfo) ListUtils.getItem(this.brG.Pq(), 0);
+                    ImageFileInfo imageFileInfo = (ImageFileInfo) ListUtils.getItem(this.bvu.Qv(), 0);
                     if (b(imageFileInfo)) {
                         a(imageFileInfo, false);
                         b(imageFileInfo, false);
@@ -379,9 +380,9 @@ public class AlbumActivity extends BaseActivity implements View.OnClickListener,
         if (imageFileInfo == null) {
             return false;
         }
-        this.brG.a((VideoFileInfo) null);
-        this.brG.delChooseFile(imageFileInfo);
-        OV();
+        this.bvu.a((VideoFileInfo) null);
+        this.bvu.delChooseFile(imageFileInfo);
+        Qa();
         return true;
     }
 
@@ -389,14 +390,14 @@ public class AlbumActivity extends BaseActivity implements View.OnClickListener,
     public boolean onKeyDown(int i, KeyEvent keyEvent) {
         if (i == 4) {
             closeLoadingDialog();
-            if (this.aTP == 0) {
-                if (this.brG != null) {
-                    this.brG.setLastAlbumId(null);
+            if (this.aXa == 0) {
+                if (this.bvu != null) {
+                    this.bvu.setLastAlbumId(null);
                 }
-                Pa();
+                Qf();
                 return true;
-            } else if (this.aTP == 1) {
-                fy(0);
+            } else if (this.aXa == 1) {
+                fH(0);
                 return true;
             } else {
                 return true;
@@ -407,20 +408,20 @@ public class AlbumActivity extends BaseActivity implements View.OnClickListener,
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public void a(ImageFileInfo imageFileInfo, boolean z) {
-        if (this.brH != null) {
-            this.brH.Pm().c(imageFileInfo, z);
+        if (this.bvv != null) {
+            this.bvv.Qr().c(imageFileInfo, z);
         }
     }
 
     void b(ImageFileInfo imageFileInfo, boolean z) {
-        if (this.brH != null) {
-            this.brH.Pl().c(imageFileInfo, z);
+        if (this.bvv != null) {
+            this.bvv.Qq().c(imageFileInfo, z);
         }
     }
 
-    private void Pa() {
+    private void Qf() {
         Intent intent = new Intent();
-        String lastAlbumId = this.brG.getLastAlbumId();
+        String lastAlbumId = this.bvu.getLastAlbumId();
         if (TextUtils.isEmpty(lastAlbumId)) {
             lastAlbumId = "";
         }
@@ -436,18 +437,18 @@ public class AlbumActivity extends BaseActivity implements View.OnClickListener,
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.live.tbadk.BaseActivity, com.baidu.live.adp.base.BdBaseActivity, android.app.Activity
+    @Override // com.baidu.live.tbadk.BaseActivity, com.baidu.live.adp.base.BdBaseActivity, android.support.v4.app.FragmentActivity, android.app.Activity
     public void onDestroy() {
         super.onDestroy();
-        this.brI = true;
+        this.bvw = true;
         closeLoadingDialog();
         dismissAllDialog();
-        d.Pv().destory();
-        if (this.brO != null) {
-            this.brO.setBackgroundDrawable(null);
+        d.QA().destory();
+        if (this.bvC != null) {
+            this.bvC.setBackgroundDrawable(null);
         }
-        if (this.brH != null) {
-            this.brH.onDestroy();
+        if (this.bvv != null) {
+            this.bvv.onDestroy();
         }
     }
 
@@ -461,8 +462,8 @@ public class AlbumActivity extends BaseActivity implements View.OnClickListener,
         /* JADX INFO: Access modifiers changed from: protected */
         @Override // com.baidu.live.adp.lib.asynctask.BdAsyncTask
         public String doInBackground(String... strArr) {
-            new ImageUploader(null).uploadInBackgroundIgnoreAlreadyUploaded(AlbumActivity.this.brG.Pr(), true);
-            return AlbumActivity.this.brG.Pr().toJsonString();
+            new ImageUploader(null).uploadInBackgroundIgnoreAlreadyUploaded(AlbumActivity.this.bvu.Qw(), true);
+            return AlbumActivity.this.bvu.Qw().toJsonString();
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -480,10 +481,10 @@ public class AlbumActivity extends BaseActivity implements View.OnClickListener,
     public void enterExitAnimation() {
         if (this instanceof Activity) {
             ActivityPendingTransitionFactory.enterExitAnimation(getPageContext(), 4);
-        } else if (TbadkCoreApplication.getInst().isQuanmin() || TbadkCoreApplication.getInst().isTieba()) {
+        } else if (TbadkCoreApplication.getInst().isQuanmin() || TbadkCoreApplication.getInst().isTieba() || TbadkCoreApplication.getInst().isYinbo()) {
             overridePendingTransition(Util.getHostResourcesId(getActivity(), TbConfig.PACKAGE_NAME, "slide_in_from_bottom", ResUtils.ANIM), Util.getHostResourcesId(getActivity(), TbConfig.PACKAGE_NAME, "sdk_fade_out", ResUtils.ANIM));
         } else {
-            aH("sdk_in_from_bottom", "sdk_fade_out");
+            aK("sdk_in_from_bottom", "sdk_fade_out");
         }
     }
 
@@ -491,12 +492,12 @@ public class AlbumActivity extends BaseActivity implements View.OnClickListener,
     public void closeAnimation() {
         if (this instanceof Activity) {
             ActivityPendingTransitionFactory.closeAnimation(getPageContext(), 4);
-        } else if (!TbadkCoreApplication.getInst().isQuanmin() && !TbadkCoreApplication.getInst().isTieba()) {
-            aH("sdk_fade_in", "sdk_out_to_bottom");
+        } else if (!TbadkCoreApplication.getInst().isQuanmin() && !TbadkCoreApplication.getInst().isTieba() && !TbadkCoreApplication.getInst().isYinbo()) {
+            aK("sdk_fade_in", "sdk_out_to_bottom");
         }
     }
 
-    public void aH(String str, String str2) {
+    public void aK(String str, String str2) {
         overridePendingTransition(Util.getHostResourcesId(getActivity(), TbConfig.PACKAGE_NAME, str, ResUtils.ANIM), Util.getHostResourcesId(getActivity(), TbConfig.PACKAGE_NAME, str2, ResUtils.ANIM));
     }
 }

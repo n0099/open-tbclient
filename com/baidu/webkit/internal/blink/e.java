@@ -1,18 +1,20 @@
 package com.baidu.webkit.internal.blink;
-/* loaded from: classes8.dex */
+/* loaded from: classes11.dex */
 public final class e implements Runnable {
-    final /* synthetic */ d a;
+
+    /* renamed from: a  reason: collision with root package name */
+    final /* synthetic */ d f3931a;
 
     public e(d dVar) {
-        this.a = dVar;
+        this.f3931a = dVar;
     }
 
     @Override // java.lang.Runnable
     public final void run() {
         synchronized (d.g) {
-            if (this.a.c != null) {
-                this.a.c.unzipFinished();
-                this.a.c = null;
+            if (this.f3931a.c != null) {
+                this.f3931a.c.unzipFinished();
+                this.f3931a.c = null;
             }
         }
     }

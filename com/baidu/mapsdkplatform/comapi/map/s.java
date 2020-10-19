@@ -2,9 +2,11 @@ package com.baidu.mapsdkplatform.comapi.map;
 
 import android.os.Message;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes3.dex */
+/* loaded from: classes7.dex */
 public class s {
-    private static final String a = s.class.getSimpleName();
+
+    /* renamed from: a  reason: collision with root package name */
+    private static final String f2236a = s.class.getSimpleName();
     private r b;
 
     /* JADX INFO: Access modifiers changed from: package-private */

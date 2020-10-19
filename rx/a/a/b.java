@@ -1,15 +1,15 @@
 package rx.a.a;
 
 import rx.g;
-/* loaded from: classes7.dex */
+/* loaded from: classes16.dex */
 public class b {
-    private static final b oNH = new b();
+    private static final b pcX = new b();
 
-    public static b enX() {
-        return oNH;
+    public static b erJ() {
+        return pcX;
     }
 
-    public g enY() {
+    public g erK() {
         return null;
     }
 

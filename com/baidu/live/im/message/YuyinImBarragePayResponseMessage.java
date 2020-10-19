@@ -4,7 +4,7 @@ import com.baidu.live.tbadk.message.http.JsonHttpResponsedMessage;
 import org.json.JSONObject;
 /* loaded from: classes4.dex */
 public class YuyinImBarragePayResponseMessage extends JsonHttpResponsedMessage {
-    private long bfr;
+    private long bjd;
 
     public YuyinImBarragePayResponseMessage() {
         super(1031047);
@@ -16,7 +16,7 @@ public class YuyinImBarragePayResponseMessage extends JsonHttpResponsedMessage {
             super.decodeLogicInBackGround(i, jSONObject);
             JSONObject optJSONObject = jSONObject.optJSONObject("data");
             if (optJSONObject != null) {
-                this.bfr = optJSONObject.optLong("left_scores");
+                this.bjd = optJSONObject.optLong("left_scores");
             }
         }
     }

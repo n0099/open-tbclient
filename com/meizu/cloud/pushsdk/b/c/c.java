@@ -5,13 +5,17 @@ import java.util.Collections;
 import java.util.List;
 import java.util.Set;
 import java.util.TreeSet;
-/* loaded from: classes3.dex */
+/* loaded from: classes7.dex */
 public final class c {
-    private final String[] a;
 
-    /* loaded from: classes3.dex */
+    /* renamed from: a  reason: collision with root package name */
+    private final String[] f4322a;
+
+    /* loaded from: classes7.dex */
     public static final class a {
-        private final List<String> a = new ArrayList(20);
+
+        /* renamed from: a  reason: collision with root package name */
+        private final List<String> f4323a = new ArrayList(20);
 
         private void c(String str, String str2) {
             if (str == null) {
@@ -49,18 +53,18 @@ public final class c {
         }
 
         a b(String str, String str2) {
-            this.a.add(str);
-            this.a.add(str2.trim());
+            this.f4323a.add(str);
+            this.f4323a.add(str2.trim());
             return this;
         }
     }
 
     private c(a aVar) {
-        this.a = (String[]) aVar.a.toArray(new String[aVar.a.size()]);
+        this.f4322a = (String[]) aVar.f4323a.toArray(new String[aVar.f4323a.size()]);
     }
 
     private c(String[] strArr) {
-        this.a = strArr;
+        this.f4322a = strArr;
     }
 
     public static c a(String... strArr) {
@@ -94,19 +98,19 @@ public final class c {
     }
 
     public int a() {
-        return this.a.length / 2;
+        return this.f4322a.length / 2;
     }
 
     public String a(int i) {
-        return this.a[i * 2];
+        return this.f4322a[i * 2];
     }
 
     public String a(String str) {
-        return a(this.a, str);
+        return a(this.f4322a, str);
     }
 
     public String b(int i) {
-        return this.a[(i * 2) + 1];
+        return this.f4322a[(i * 2) + 1];
     }
 
     public Set<String> b() {
@@ -120,7 +124,7 @@ public final class c {
 
     public a c() {
         a aVar = new a();
-        Collections.addAll(aVar.a, this.a);
+        Collections.addAll(aVar.f4323a, this.f4322a);
         return aVar;
     }
 

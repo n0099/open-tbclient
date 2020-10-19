@@ -2,11 +2,11 @@ package com.nineoldandroids.animation;
 
 import android.view.animation.Interpolator;
 import java.util.ArrayList;
-/* loaded from: classes14.dex */
+/* loaded from: classes9.dex */
 public abstract class Animator implements Cloneable {
     ArrayList<AnimatorListener> mListeners = null;
 
-    /* loaded from: classes14.dex */
+    /* loaded from: classes9.dex */
     public interface AnimatorListener {
         void onAnimationCancel(Animator animator);
 
@@ -71,7 +71,7 @@ public abstract class Animator implements Cloneable {
 
     /* JADX DEBUG: Method merged with bridge method */
     /* renamed from: clone */
-    public Animator m49clone() {
+    public Animator m50clone() {
         try {
             Animator animator = (Animator) super.clone();
             if (this.mListeners != null) {

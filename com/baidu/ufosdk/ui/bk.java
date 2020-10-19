@@ -2,13 +2,15 @@ package com.baidu.ufosdk.ui;
 
 import android.content.SharedPreferences;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes21.dex */
+/* loaded from: classes22.dex */
 public final class bk implements Runnable {
-    final /* synthetic */ FeedbackInputActivity a;
+
+    /* renamed from: a  reason: collision with root package name */
+    final /* synthetic */ FeedbackInputActivity f3778a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public bk(FeedbackInputActivity feedbackInputActivity) {
-        this.a = feedbackInputActivity;
+        this.f3778a = feedbackInputActivity;
     }
 
     @Override // java.lang.Runnable
@@ -16,19 +18,19 @@ public final class bk implements Runnable {
         String str;
         String str2;
         String str3;
-        SharedPreferences.Editor edit = this.a.getSharedPreferences("UfoSharePreference", 0).edit();
-        str = this.a.aA;
+        SharedPreferences.Editor edit = this.f3778a.getSharedPreferences("UfoSharePreference", 0).edit();
+        str = this.f3778a.aA;
         if (str != null) {
-            str2 = this.a.aA;
+            str2 = this.f3778a.aA;
             if (str2.trim().length() > 0) {
-                str3 = this.a.aA;
+                str3 = this.f3778a.aA;
                 edit.putString("cryptContactData", com.baidu.ufosdk.f.k.a(str3));
                 edit.commit();
-                FeedbackInputActivity.j(this.a);
+                FeedbackInputActivity.j(this.f3778a);
             }
         }
         edit.putString("cryptContactData", "");
         edit.commit();
-        FeedbackInputActivity.j(this.a);
+        FeedbackInputActivity.j(this.f3778a);
     }
 }

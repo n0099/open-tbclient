@@ -4,17 +4,17 @@ import com.baidu.live.tbadk.statics.AlaStaticKeys;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class n {
-    private String alA;
-    private String eCq;
-    private String eCr;
+    private String alS;
+    private String eOx;
+    private String eOy;
     private String mIcon;
     private int mVersion;
 
-    public void db(JSONObject jSONObject) {
+    public void di(JSONObject jSONObject) {
         this.mIcon = jSONObject.optString(AlaStaticKeys.ALA_STATIC_VALUE_ICON);
-        this.eCq = jSONObject.optString("tab_code");
-        this.eCr = jSONObject.optString("pop_text");
-        this.alA = jSONObject.optString("thread_id");
+        this.eOx = jSONObject.optString("tab_code");
+        this.eOy = jSONObject.optString("pop_text");
+        this.alS = jSONObject.optString("thread_id");
         this.mVersion = jSONObject.optInt("version");
     }
 
@@ -22,16 +22,16 @@ public class n {
         return this.mIcon;
     }
 
-    public String bnB() {
-        return this.eCq;
+    public String bql() {
+        return this.eOx;
     }
 
     public String getPopText() {
-        return this.eCr;
+        return this.eOy;
     }
 
     public String getTid() {
-        return this.alA;
+        return this.alS;
     }
 
     public int getVersion() {

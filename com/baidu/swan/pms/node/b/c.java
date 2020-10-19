@@ -2,20 +2,20 @@ package com.baidu.swan.pms.node.b;
 
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes24.dex */
+/* loaded from: classes15.dex */
 public class c extends com.baidu.swan.pms.node.b {
     @Override // com.baidu.swan.pms.node.b
-    public JSONObject aVi() {
+    public JSONObject aXR() {
         JSONObject jSONObject = new JSONObject();
         try {
             JSONObject jSONObject2 = new JSONObject();
-            jSONObject2.put("version", e.aVq().getVersion());
+            jSONObject2.put("version", e.aXZ().getVersion());
             jSONObject.put("tipmsgs", jSONObject2);
             JSONObject jSONObject3 = new JSONObject();
-            jSONObject3.put("version", g.aVs().getVersion());
+            jSONObject3.put("version", g.aYb().getVersion());
             jSONObject.put("pkg_preload", jSONObject3);
             JSONObject jSONObject4 = new JSONObject();
-            jSONObject4.put("version", b.aVo().getVersion());
+            jSONObject4.put("version", b.aXX().getVersion());
             jSONObject.put("pkg_clean_strategy", jSONObject4);
         } catch (JSONException e) {
             if (com.baidu.swan.pms.d.DEBUG) {

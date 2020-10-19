@@ -9,7 +9,7 @@ import com.baidu.ar.record.EncoderParams;
 import com.baidu.ar.recorder.b.c;
 import com.baidu.ar.recorder.b.d;
 import com.baidu.ar.recorder.b.f;
-/* loaded from: classes10.dex */
+/* loaded from: classes14.dex */
 public class b {
     private static final String TAG = b.class.getSimpleName();
     private d tA;
@@ -19,7 +19,7 @@ public class b {
     private volatile boolean tn = false;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes10.dex */
+    /* loaded from: classes14.dex */
     public class a extends Handler {
         public a(Looper looper) {
             super(looper);

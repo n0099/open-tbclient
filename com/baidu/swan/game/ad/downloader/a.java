@@ -1,13 +1,13 @@
 package com.baidu.swan.game.ad.downloader;
-/* loaded from: classes10.dex */
+/* loaded from: classes14.dex */
 public class a {
-    private static int dlJ = com.baidu.swan.apps.t.a.apx().Zk();
+    private static int dxP = com.baidu.swan.apps.t.a.asi().abW();
 
-    public static boolean aIZ() {
-        return dlJ == 3;
+    public static boolean aLI() {
+        return dxP == 3;
     }
 
-    public static boolean aJa() {
-        return dlJ == 2;
+    public static boolean aLJ() {
+        return dxP == 2;
     }
 }

@@ -4,10 +4,12 @@ import android.graphics.Point;
 import android.os.Parcel;
 import android.os.Parcelable;
 import com.baidu.mapapi.model.LatLng;
-/* loaded from: classes3.dex */
+/* loaded from: classes7.dex */
 public final class BaiduMapOptions implements Parcelable {
     public static final Parcelable.Creator<BaiduMapOptions> CREATOR = new k();
-    MapStatus a;
+
+    /* renamed from: a  reason: collision with root package name */
+    MapStatus f1996a;
     boolean b;
     int c;
     boolean d;
@@ -21,7 +23,7 @@ public final class BaiduMapOptions implements Parcelable {
     Point l;
 
     public BaiduMapOptions() {
-        this.a = new MapStatus(0.0f, new LatLng(39.914935d, 116.403119d), 0.0f, 12.0f, null, null);
+        this.f1996a = new MapStatus(0.0f, new LatLng(39.914935d, 116.403119d), 0.0f, 12.0f, null, null);
         this.b = false;
         this.c = 1;
         this.d = true;
@@ -34,7 +36,7 @@ public final class BaiduMapOptions implements Parcelable {
 
     /* JADX INFO: Access modifiers changed from: protected */
     public BaiduMapOptions(Parcel parcel) {
-        this.a = new MapStatus(0.0f, new LatLng(39.914935d, 116.403119d), 0.0f, 12.0f, null, null);
+        this.f1996a = new MapStatus(0.0f, new LatLng(39.914935d, 116.403119d), 0.0f, 12.0f, null, null);
         this.b = false;
         this.c = 1;
         this.d = true;
@@ -43,7 +45,7 @@ public final class BaiduMapOptions implements Parcelable {
         this.g = true;
         this.h = true;
         this.i = true;
-        this.a = (MapStatus) parcel.readParcelable(MapStatus.class.getClassLoader());
+        this.f1996a = (MapStatus) parcel.readParcelable(MapStatus.class.getClassLoader());
         this.b = parcel.readByte() != 0;
         this.c = parcel.readInt();
         this.d = parcel.readByte() != 0;
@@ -58,7 +60,7 @@ public final class BaiduMapOptions implements Parcelable {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public com.baidu.mapsdkplatform.comapi.map.u a() {
-        return new com.baidu.mapsdkplatform.comapi.map.u().a(this.a.c()).a(this.b).a(this.c).b(this.d).c(this.e).d(this.f).e(this.g);
+        return new com.baidu.mapsdkplatform.comapi.map.u().a(this.f1996a.c()).a(this.b).a(this.c).b(this.d).c(this.e).d(this.f).e(this.g);
     }
 
     public BaiduMapOptions compassEnabled(boolean z) {
@@ -78,7 +80,7 @@ public final class BaiduMapOptions implements Parcelable {
 
     public BaiduMapOptions mapStatus(MapStatus mapStatus) {
         if (mapStatus != null) {
-            this.a = mapStatus;
+            this.f1996a = mapStatus;
         }
         return this;
     }
@@ -115,7 +117,7 @@ public final class BaiduMapOptions implements Parcelable {
 
     @Override // android.os.Parcelable
     public void writeToParcel(Parcel parcel, int i) {
-        parcel.writeParcelable(this.a, i);
+        parcel.writeParcelable(this.f1996a, i);
         parcel.writeByte((byte) (this.b ? 1 : 0));
         parcel.writeInt(this.c);
         parcel.writeByte((byte) (this.d ? 1 : 0));

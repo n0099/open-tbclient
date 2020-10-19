@@ -7,7 +7,7 @@ import android.support.annotation.Nullable;
 import android.support.annotation.RequiresApi;
 import android.support.v4.graphics.drawable.WrappedDrawableApi14;
 @RequiresApi(19)
-/* loaded from: classes23.dex */
+/* loaded from: classes5.dex */
 class WrappedDrawableApi19 extends WrappedDrawableApi14 {
     /* JADX INFO: Access modifiers changed from: package-private */
     public WrappedDrawableApi19(Drawable drawable) {
@@ -35,7 +35,7 @@ class WrappedDrawableApi19 extends WrappedDrawableApi14 {
         return new DrawableWrapperStateKitKat(this.mState, null);
     }
 
-    /* loaded from: classes23.dex */
+    /* loaded from: classes5.dex */
     private static class DrawableWrapperStateKitKat extends WrappedDrawableApi14.DrawableWrapperState {
         DrawableWrapperStateKitKat(@Nullable WrappedDrawableApi14.DrawableWrapperState drawableWrapperState, @Nullable Resources resources) {
             super(drawableWrapperState, resources);

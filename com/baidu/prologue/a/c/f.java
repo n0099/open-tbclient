@@ -2,7 +2,7 @@ package com.baidu.prologue.a.c;
 
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
-/* loaded from: classes10.dex */
+/* loaded from: classes19.dex */
 public class f {
     public static String md5(String str) {
         try {

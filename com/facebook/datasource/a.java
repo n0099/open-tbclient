@@ -1,5 +1,5 @@
 package com.facebook.datasource;
-/* loaded from: classes17.dex */
+/* loaded from: classes6.dex */
 public abstract class a<T> implements d<T> {
     protected abstract void a(b<T> bVar);
 
@@ -12,7 +12,7 @@ public abstract class a<T> implements d<T> {
             g(bVar);
         } finally {
             if (isFinished) {
-                bVar.aik();
+                bVar.akV();
             }
         }
     }
@@ -22,7 +22,7 @@ public abstract class a<T> implements d<T> {
         try {
             a(bVar);
         } finally {
-            bVar.aik();
+            bVar.akV();
         }
     }
 

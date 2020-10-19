@@ -5,7 +5,7 @@ import android.view.View;
 import com.baidu.searchbox.floating.config.ScaleMode;
 import kotlin.h;
 @h
-/* loaded from: classes5.dex */
+/* loaded from: classes11.dex */
 public interface FloatViewListener {
     void onClick(View view);
 

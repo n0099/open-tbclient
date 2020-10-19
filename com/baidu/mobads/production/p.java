@@ -26,9 +26,11 @@ import com.baidu.mobads.openad.interfaces.download.IOAdDownloaderManager;
 import com.baidu.mobads.openad.interfaces.utils.IOAdTimer;
 import com.baidu.mobads.utils.XAdSDKFoundationFacade;
 import java.util.HashMap;
-/* loaded from: classes3.dex */
+/* loaded from: classes7.dex */
 public class p extends com.baidu.mobads.openad.c.c implements IXAdContainerContext {
-    public IXAdContainerEventListener a;
+
+    /* renamed from: a  reason: collision with root package name */
+    public IXAdContainerEventListener f2421a;
     private Context b;
     private Activity d;
     private RelativeLayout e;
@@ -39,7 +41,7 @@ public class p extends com.baidu.mobads.openad.c.c implements IXAdContainerConte
     private long j = 0;
     private HashMap<String, Integer> k = new HashMap<>();
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes7.dex */
     public class a extends com.baidu.mobads.openad.c.b {
         private String b;
         private HashMap<String, Object> c;
@@ -62,7 +64,7 @@ public class p extends com.baidu.mobads.openad.c.c implements IXAdContainerConte
         this.d = activity;
         this.i = iXAdProdInfo;
         this.e = relativeLayout;
-        this.a = iXAdContainerEventListener;
+        this.f2421a = iXAdContainerEventListener;
         this.f = iXAdResponseInfo;
         this.g = iXAdResponseInfo.getPrimaryAdInstanceInfo();
         this.h = view;
@@ -83,7 +85,7 @@ public class p extends com.baidu.mobads.openad.c.c implements IXAdContainerConte
 
     @Override // com.baidu.mobads.interfaces.IXAdContainerContext
     public IXAdContainerEventListener getAdContainerListener() {
-        return this.a;
+        return this.f2421a;
     }
 
     @Override // com.baidu.mobads.interfaces.IXAdContainerContext

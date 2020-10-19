@@ -1,31 +1,31 @@
 package com.baidu.poly.a.d;
 
 import android.widget.ImageView;
-/* loaded from: classes9.dex */
+/* loaded from: classes6.dex */
 public class b {
-    private static b bHf;
-    private c bHg;
+    private static b bNO;
+    private c bNP;
 
     public b(c cVar) {
-        this.bHg = cVar;
+        this.bNP = cVar;
     }
 
-    public static b UI() {
-        return bHf;
+    public static b WF() {
+        return bNO;
     }
 
     public static void a(c cVar) {
-        if (bHf == null) {
+        if (bNO == null) {
             synchronized (b.class) {
-                if (bHf == null) {
-                    bHf = new b(cVar);
+                if (bNO == null) {
+                    bNO = new b(cVar);
                 }
             }
         }
     }
 
     public void b(ImageView imageView, String str) {
-        c cVar = this.bHg;
+        c cVar = this.bNP;
         if (cVar != null) {
             cVar.a(imageView, str);
         }

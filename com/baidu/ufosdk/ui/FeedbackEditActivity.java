@@ -53,7 +53,7 @@ import java.util.Map;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes21.dex */
+/* loaded from: classes22.dex */
 public class FeedbackEditActivity extends Activity {
     private TextView C;
     private TextView D;
@@ -111,7 +111,9 @@ public class FeedbackEditActivity extends Activity {
     private String ac = com.baidu.ufosdk.f.s.a("43");
     private String ad = "";
     private String ae = "";
-    public Map a = new HashMap();
+
+    /* renamed from: a  reason: collision with root package name */
+    public Map f3733a = new HashMap();
     private Handler af = new ag(this);
 
     private void a() {
@@ -664,65 +666,65 @@ public class FeedbackEditActivity extends Activity {
             com.baidu.ufosdk.b.ag.onSubmitNewMessage();
         }
         com.baidu.ufosdk.f.c.c("url is https://ufosdk.baidu.com/?m=Index&a=postmsg");
-        this.a.put("clientid", str);
-        this.a.put("appid", UfoSDK.appid);
-        this.a.put("devid", UfoSDK.devid);
-        this.a.put("id", str2);
-        this.a.put("content", str3);
-        this.a.put("product_type", Integer.valueOf(this.W));
-        this.a.put("need_manual", 1);
+        this.f3733a.put("clientid", str);
+        this.f3733a.put("appid", UfoSDK.appid);
+        this.f3733a.put("devid", UfoSDK.devid);
+        this.f3733a.put("id", str2);
+        this.f3733a.put("content", str3);
+        this.f3733a.put("product_type", Integer.valueOf(this.W));
+        this.f3733a.put("need_manual", 1);
         int i = com.baidu.ufosdk.f.i.a(str4) ? 1 : com.baidu.ufosdk.f.i.b(str4) ? 2 : com.baidu.ufosdk.f.i.c(str4) ? 3 : 0;
         com.baidu.ufosdk.f.c.c("contactWay is " + str4 + "; type = " + i);
         if (i == 0) {
-            this.a.put("contact_way", str4);
+            this.f3733a.put("contact_way", str4);
         } else if (i == 1) {
             com.baidu.ufosdk.f.c.c("contactWay is email");
-            this.a.put(NotificationCompat.CATEGORY_EMAIL, str4);
+            this.f3733a.put(NotificationCompat.CATEGORY_EMAIL, str4);
         } else if (i == 2) {
             com.baidu.ufosdk.f.c.c("contactWay is tel");
-            this.a.put("tel", str4);
+            this.f3733a.put("tel", str4);
         } else {
             com.baidu.ufosdk.f.c.c("contactWay is qq");
-            this.a.put("qq", str4);
+            this.f3733a.put("qq", str4);
         }
-        this.a.put(com.xiaomi.mipush.sdk.Constants.PHONE_BRAND, Build.MANUFACTURER);
-        this.a.put("model", Build.MODEL);
-        this.a.put("sdkvn", "2.9.10");
-        this.a.put("os", "android");
-        this.a.put("appvn", com.baidu.ufosdk.b.e.b());
-        this.a.put("freespace", String.valueOf(com.baidu.ufosdk.b.a.a()));
-        this.a.put("uid", com.baidu.ufosdk.b.d);
-        this.a.put("username", com.baidu.ufosdk.b.b);
-        this.a.put(DpStatConstants.KEY_USER_ID, com.baidu.ufosdk.b.d);
-        this.a.put("osvn", Build.VERSION.RELEASE);
-        this.a.put("extra", com.baidu.ufosdk.b.f);
-        this.a.put("extend_feedback_channel", Integer.valueOf(com.baidu.ufosdk.b.j));
-        this.a.put("osvc", String.valueOf(com.baidu.ufosdk.f.j.a()));
-        this.a.put(Config.LAUNCH_REFERER, com.baidu.ufosdk.b.p);
-        this.a.put("baiducuid", com.baidu.ufosdk.b.c);
+        this.f3733a.put(com.xiaomi.mipush.sdk.Constants.PHONE_BRAND, Build.MANUFACTURER);
+        this.f3733a.put("model", Build.MODEL);
+        this.f3733a.put("sdkvn", "2.9.10");
+        this.f3733a.put("os", "android");
+        this.f3733a.put("appvn", com.baidu.ufosdk.b.e.b());
+        this.f3733a.put("freespace", String.valueOf(com.baidu.ufosdk.b.a.a()));
+        this.f3733a.put("uid", com.baidu.ufosdk.b.d);
+        this.f3733a.put("username", com.baidu.ufosdk.b.b);
+        this.f3733a.put(DpStatConstants.KEY_USER_ID, com.baidu.ufosdk.b.d);
+        this.f3733a.put("osvn", Build.VERSION.RELEASE);
+        this.f3733a.put("extra", com.baidu.ufosdk.b.f);
+        this.f3733a.put("extend_feedback_channel", Integer.valueOf(com.baidu.ufosdk.b.j));
+        this.f3733a.put("osvc", String.valueOf(com.baidu.ufosdk.f.j.a()));
+        this.f3733a.put(Config.LAUNCH_REFERER, com.baidu.ufosdk.b.p);
+        this.f3733a.put("baiducuid", com.baidu.ufosdk.b.c);
         if (!TextUtils.isEmpty(this.g)) {
-            this.a.put("faq_id", this.g);
+            this.f3733a.put("faq_id", this.g);
         }
-        this.a.put("phonetime", String.valueOf(System.currentTimeMillis()));
+        this.f3733a.put("phonetime", String.valueOf(System.currentTimeMillis()));
         if (com.baidu.ufosdk.f.p.a("android.permission.ACCESS_NETWORK_STATE")) {
-            this.a.put("nettype", com.baidu.ufosdk.b.d.a(context));
+            this.f3733a.put("nettype", com.baidu.ufosdk.b.d.a(context));
         } else {
-            this.a.put("nettype", "N/A");
+            this.f3733a.put("nettype", "N/A");
         }
-        this.a.put("screenSize", com.baidu.ufosdk.b.f.a(context));
-        if (com.baidu.ufosdk.b.a) {
-            this.a.put("logcat", com.baidu.ufosdk.b.b.a());
+        this.f3733a.put("screenSize", com.baidu.ufosdk.b.f.a(context));
+        if (com.baidu.ufosdk.b.f3700a) {
+            this.f3733a.put("logcat", com.baidu.ufosdk.b.b.a());
         }
         if (!TextUtils.isEmpty(com.baidu.ufosdk.b.h)) {
-            this.a.put("ip_location", com.baidu.ufosdk.b.h);
+            this.f3733a.put("ip_location", com.baidu.ufosdk.b.h);
         }
-        String a = com.baidu.ufosdk.f.k.a(com.baidu.ufosdk.c.a.a(this.a));
+        String a2 = com.baidu.ufosdk.f.k.a(com.baidu.ufosdk.c.a.a(this.f3733a));
         try {
-            String a2 = com.baidu.ufosdk.e.b.a("https://ufosdk.baidu.com/?m=Index&a=postmsg", TextUtils.isEmpty(str5) ? "sdk_encrypt=" + URLEncoder.encode(a, "UTF-8") : "sdk_encrypt=" + URLEncoder.encode(a, "UTF-8") + "&screenshot=" + URLEncoder.encode(str5, "UTF-8"));
-            if (TextUtils.isEmpty(a2)) {
+            String a3 = com.baidu.ufosdk.e.b.a("https://ufosdk.baidu.com/?m=Index&a=postmsg", TextUtils.isEmpty(str5) ? "sdk_encrypt=" + URLEncoder.encode(a2, "UTF-8") : "sdk_encrypt=" + URLEncoder.encode(a2, "UTF-8") + "&screenshot=" + URLEncoder.encode(str5, "UTF-8"));
+            if (TextUtils.isEmpty(a3)) {
                 com.baidu.ufosdk.f.c.c("response is empty, return false!");
             } else {
-                JSONObject jSONObject = new JSONObject(com.baidu.ufosdk.f.k.b(a2));
+                JSONObject jSONObject = new JSONObject(com.baidu.ufosdk.f.k.b(a3));
                 com.baidu.ufosdk.f.c.a("response is -----------------> " + jSONObject.toString());
                 int intValue = ((Integer) jSONObject.get(BaseJsonData.TAG_ERRNO)).intValue();
                 if (intValue == 0) {
@@ -805,8 +807,8 @@ public class FeedbackEditActivity extends Activity {
                         }
                         return;
                     }
-                    byte[] a = a(openInputStream);
-                    if (a == null) {
+                    byte[] a2 = a(openInputStream);
+                    if (a2 == null) {
                         Toast.makeText(this, com.baidu.ufosdk.f.s.a(Constants.VIA_REPORT_TYPE_QQFAVORITES), 1).show();
                         if (openInputStream != null) {
                             try {
@@ -818,8 +820,8 @@ public class FeedbackEditActivity extends Activity {
                         }
                         return;
                     }
-                    byte[] a2 = com.baidu.ufosdk.f.q.a(a);
-                    if (a2 == null) {
+                    byte[] a3 = com.baidu.ufosdk.f.q.a(a2);
+                    if (a3 == null) {
                         Toast.makeText(this, com.baidu.ufosdk.f.s.a(Constants.VIA_REPORT_TYPE_QQFAVORITES), 1).show();
                         if (openInputStream != null) {
                             try {
@@ -827,7 +829,7 @@ public class FeedbackEditActivity extends Activity {
                             } catch (Exception e4) {
                             }
                         }
-                    } else if (a2.length > 307200) {
+                    } else if (a3.length > 307200) {
                         Toast.makeText(this, com.baidu.ufosdk.f.s.a(Constants.VIA_REPORT_TYPE_QQFAVORITES), 1).show();
                         if (openInputStream != null) {
                             try {
@@ -836,9 +838,9 @@ public class FeedbackEditActivity extends Activity {
                             }
                         }
                     } else {
-                        if (a2.length != 0) {
-                            this.q.add(a2);
-                            a(a2, true, this.q.size() - 1);
+                        if (a3.length != 0) {
+                            this.q.add(a3);
+                            a(a3, true, this.q.size() - 1);
                         } else {
                             Toast.makeText(this, "图片错误，请重新选择一张。", 1).show();
                         }

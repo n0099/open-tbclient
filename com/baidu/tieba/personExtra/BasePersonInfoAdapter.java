@@ -5,47 +5,47 @@ import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentPagerAdapter;
 import com.baidu.tbadk.core.BaseFragment;
 import java.util.ArrayList;
-/* loaded from: classes23.dex */
+/* loaded from: classes24.dex */
 public abstract class BasePersonInfoAdapter extends FragmentPagerAdapter {
-    private int[] gcg;
-    private ArrayList<BaseFragment> lpU;
+    private int[] gox;
+    private ArrayList<BaseFragment> lFh;
 
-    protected abstract BaseFragment dkK();
+    protected abstract BaseFragment dou();
 
     public BasePersonInfoAdapter(BasePersonInfoActivity basePersonInfoActivity, boolean z) {
         super(basePersonInfoActivity.getSupportFragmentManager());
-        this.lpU = new ArrayList<>();
+        this.lFh = new ArrayList<>();
         Bundle bundle = new Bundle();
         bundle.putInt("page_type", 0);
-        BaseFragment dkK = dkK();
-        dkK.setArguments(bundle);
-        this.lpU.add(dkK);
+        BaseFragment dou = dou();
+        dou.setArguments(bundle);
+        this.lFh.add(dou);
         if (!z) {
             Bundle bundle2 = new Bundle();
             bundle2.putInt("page_type", 1);
-            BaseFragment dkK2 = dkK();
-            dkK2.setArguments(bundle2);
-            this.lpU.add(dkK2);
-            this.gcg = new int[]{0, 1};
+            BaseFragment dou2 = dou();
+            dou2.setArguments(bundle2);
+            this.lFh.add(dou2);
+            this.gox = new int[]{0, 1};
             return;
         }
-        this.gcg = new int[]{0};
+        this.gox = new int[]{0};
     }
 
     @Override // android.support.v4.app.FragmentPagerAdapter
     public Fragment getItem(int i) {
-        if (i >= this.gcg.length || i < 0) {
+        if (i >= this.gox.length || i < 0) {
             return null;
         }
-        return this.lpU.get(i);
+        return this.lFh.get(i);
     }
 
     @Override // android.support.v4.view.PagerAdapter
     public int getCount() {
-        return this.gcg.length;
+        return this.gox.length;
     }
 
-    public int Cg(int i) {
-        return this.gcg[i];
+    public int CM(int i) {
+        return this.gox[i];
     }
 }

@@ -5,7 +5,7 @@ import android.view.ViewGroup;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tieba.personCenter.c.n;
-/* loaded from: classes21.dex */
+/* loaded from: classes22.dex */
 public class g extends com.baidu.adp.widget.ListView.a<n, com.baidu.tieba.card.a.a<com.baidu.tieba.personCenter.view.e>> {
     private TbPageContext mPageContext;
 
@@ -17,7 +17,7 @@ public class g extends com.baidu.adp.widget.ListView.a<n, com.baidu.tieba.card.a
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.widget.ListView.a
-    /* renamed from: aL */
+    /* renamed from: aN */
     public com.baidu.tieba.card.a.a<com.baidu.tieba.personCenter.view.e> c(ViewGroup viewGroup) {
         return new com.baidu.tieba.card.a.a<>(new com.baidu.tieba.personCenter.view.e(this.mPageContext));
     }
@@ -26,7 +26,7 @@ public class g extends com.baidu.adp.widget.ListView.a<n, com.baidu.tieba.card.a
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.widget.ListView.a
     public View a(int i, View view, ViewGroup viewGroup, n nVar, com.baidu.tieba.card.a.a<com.baidu.tieba.personCenter.view.e> aVar) {
-        aVar.cfU().a(nVar);
+        aVar.cjq().a(nVar);
         return aVar.getView();
     }
 }

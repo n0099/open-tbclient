@@ -1,7 +1,7 @@
 package com.baidu.mario.a;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public interface c {
-    void H(int i, String str);
+    void S(int i, String str);
 
     void onError(int i);
 

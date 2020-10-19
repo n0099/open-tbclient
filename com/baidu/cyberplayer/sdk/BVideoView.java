@@ -24,9 +24,11 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 @Keep
-/* loaded from: classes10.dex */
+/* loaded from: classes12.dex */
 public class BVideoView extends GLSurfaceView implements CyberPlayerManager.OnBufferingUpdateListener, CyberPlayerManager.OnCompletionListener, CyberPlayerManager.OnErrorListener, CyberPlayerManager.OnInfoListener, CyberPlayerManager.OnPreparedListener, CyberPlayerManager.OnSeekCompleteListener, CyberPlayerManager.OnVideoSizeChangedListener, ICyberVideoView {
-    static String a = "BVideoView";
+
+    /* renamed from: a  reason: collision with root package name */
+    static String f1337a = "BVideoView";
     private float A;
     private long B;
     private i.a C;
@@ -81,7 +83,7 @@ public class BVideoView extends GLSurfaceView implements CyberPlayerManager.OnBu
                             Bitmap createBitmap = Bitmap.createBitmap(i, i2, Bitmap.Config.ARGB_8888);
                             createBitmap.copyPixelsFromBuffer(buffer);
                             Bitmap a2 = n.a(createBitmap);
-                            CyberLog.d(BVideoView.a, "onTakeSnapShot rotate bmp finished");
+                            CyberLog.d(BVideoView.f1337a, "onTakeSnapShot rotate bmp finished");
                             synchronized (BVideoView.this.w) {
                                 for (int i3 = 0; i3 < BVideoView.this.w.size(); i3++) {
                                     ((ICyberVideoView.OnSnapShotCompleteListener) BVideoView.this.w.get(i3)).onSnapShotComplete(a2);
@@ -116,7 +118,7 @@ public class BVideoView extends GLSurfaceView implements CyberPlayerManager.OnBu
             @Override // com.baidu.cyberplayer.sdk.i.a
             public boolean a(int i) {
                 Surface c;
-                CyberLog.d(BVideoView.a, "onSurfaceReady renderType:" + i);
+                CyberLog.d(BVideoView.f1337a, "onSurfaceReady renderType:" + i);
                 if (i != 0 || Build.VERSION.SDK_INT >= 16) {
                     return false;
                 }
@@ -157,7 +159,7 @@ public class BVideoView extends GLSurfaceView implements CyberPlayerManager.OnBu
     private static boolean a(String str) {
         try {
             if (CyberCfgManager.getInstance().a("enable_hls_force_mediaplayer", false) && str.split("\\?")[0].endsWith(".m3u8")) {
-                CyberLog.d(a, "force mediaplayer");
+                CyberLog.d(f1337a, "force mediaplayer");
                 return true;
             }
             return false;
@@ -215,15 +217,15 @@ public class BVideoView extends GLSurfaceView implements CyberPlayerManager.OnBu
     }
 
     private void c() {
-        ArrayList<a.C0104a> b;
+        ArrayList<a.C0108a> b;
         if (this.c == null || (b = this.v.b()) == null) {
             return;
         }
         int size = b.size();
         for (int i = 0; i < size; i++) {
-            a.C0104a c0104a = b.get(i);
-            if (c0104a != null && c0104a.a() != null) {
-                this.c.setExternalInfo(c0104a.a(), c0104a.b());
+            a.C0108a c0108a = b.get(i);
+            if (c0108a != null && c0108a.a() != null) {
+                this.c.setExternalInfo(c0108a.a(), c0108a.b());
             }
         }
     }
@@ -276,7 +278,7 @@ public class BVideoView extends GLSurfaceView implements CyberPlayerManager.OnBu
 
     @Override // com.baidu.cyberplayer.sdk.ICyberVideoView
     public void destory() {
-        CyberLog.i(a, "destory called");
+        CyberLog.i(f1337a, "destory called");
         d();
         if (this.k != null) {
             this.k.clear();
@@ -379,11 +381,11 @@ public class BVideoView extends GLSurfaceView implements CyberPlayerManager.OnBu
     @Override // com.baidu.cyberplayer.sdk.ICyberVideoView
     public void muteOrUnmuteAudio(boolean z) {
         this.y = z;
-        CyberLog.i(a, "muteOrUnmuteAudio flag:" + z);
+        CyberLog.i(f1337a, "muteOrUnmuteAudio flag:" + z);
         if (this.c != null) {
             this.c.muteOrUnmuteAudio(z);
         } else {
-            CyberLog.i(a, "muteOrUnmuteAudio must call after setVideoPath or setVideoURI");
+            CyberLog.i(f1337a, "muteOrUnmuteAudio must call after setVideoPath or setVideoURI");
         }
     }
 
@@ -431,7 +433,7 @@ public class BVideoView extends GLSurfaceView implements CyberPlayerManager.OnBu
             seekTo(this.f);
         }
         this.f = -1;
-        CyberLog.i(a, "onPrepared mTargetState::" + this.h);
+        CyberLog.i(f1337a, "onPrepared mTargetState::" + this.h);
         if (this.h == 3 && this.g == 2) {
             start();
         } else if (this.h == 4 && this.g == 2) {
@@ -580,7 +582,7 @@ public class BVideoView extends GLSurfaceView implements CyberPlayerManager.OnBu
     @Override // com.baidu.cyberplayer.sdk.ICyberVideoView
     public void setOption(String str, String str2) {
         if (this.g != 0) {
-            CyberLog.i(a, "Do not set option when the video player playing");
+            CyberLog.i(f1337a, "Do not set option when the video player playing");
             return;
         }
         if (this.k != null) {
@@ -600,12 +602,12 @@ public class BVideoView extends GLSurfaceView implements CyberPlayerManager.OnBu
 
     @Override // com.baidu.cyberplayer.sdk.ICyberVideoView
     public void setSpeed(float f) {
-        CyberLog.i(a, "setSpeed()");
+        CyberLog.i(f1337a, "setSpeed()");
         this.A = f;
         if (this.c != null) {
             this.c.setSpeed(f);
         } else {
-            CyberLog.i(a, "setSpeed must call after setVideoPath or setVideoURI");
+            CyberLog.i(f1337a, "setSpeed must call after setVideoPath or setVideoURI");
         }
     }
 
@@ -644,7 +646,7 @@ public class BVideoView extends GLSurfaceView implements CyberPlayerManager.OnBu
 
     @Override // com.baidu.cyberplayer.sdk.ICyberVideoView
     public void start() {
-        CyberLog.i(a, "start mCyberPlayer:" + this.c + " mCurrentState:" + this.g);
+        CyberLog.i(f1337a, "start mCyberPlayer:" + this.c + " mCurrentState:" + this.g);
         if (e()) {
             this.c.start();
             this.g = 3;
@@ -691,7 +693,7 @@ public class BVideoView extends GLSurfaceView implements CyberPlayerManager.OnBu
         if (onSnapShotCompleteListener == null) {
             return false;
         }
-        CyberLog.d(a, "takeSnapshotAsync called");
+        CyberLog.d(f1337a, "takeSnapshotAsync called");
         if (this.u != null) {
             synchronized (this.w) {
                 if (this.w.isEmpty()) {

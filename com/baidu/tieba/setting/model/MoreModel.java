@@ -2,12 +2,12 @@ package com.baidu.tieba.setting.model;
 
 import com.baidu.adp.base.BdBaseModel;
 import com.baidu.tbadk.coreExtra.data.PersonChangeData;
-/* loaded from: classes25.dex */
+/* loaded from: classes26.dex */
 public class MoreModel extends BdBaseModel {
-    private boolean lXA;
-    private PersonChangeData luT;
+    private PersonChangeData lKf;
+    private boolean mng;
 
-    /* loaded from: classes25.dex */
+    /* loaded from: classes26.dex */
     public enum TaskType {
         DO_CACHE_CLEAR,
         GET_SIZE
@@ -15,24 +15,24 @@ public class MoreModel extends BdBaseModel {
 
     public MoreModel(PersonChangeData personChangeData) {
         super(null);
-        this.luT = null;
-        this.lXA = false;
-        this.luT = personChangeData;
-        if (this.luT == null) {
-            this.luT = new PersonChangeData();
+        this.lKf = null;
+        this.mng = false;
+        this.lKf = personChangeData;
+        if (this.lKf == null) {
+            this.lKf = new PersonChangeData();
         }
     }
 
     public void b(PersonChangeData personChangeData) {
-        this.luT = personChangeData;
+        this.lKf = personChangeData;
     }
 
-    public void vJ(boolean z) {
-        this.lXA = z;
+    public void wq(boolean z) {
+        this.mng = z;
     }
 
-    public boolean dtY() {
-        return this.lXA;
+    public boolean dxJ() {
+        return this.mng;
     }
 
     @Override // com.baidu.adp.base.BdBaseModel
@@ -45,7 +45,7 @@ public class MoreModel extends BdBaseModel {
         return false;
     }
 
-    public PersonChangeData dtZ() {
-        return this.luT;
+    public PersonChangeData dxK() {
+        return this.lKf;
     }
 }

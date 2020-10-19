@@ -74,7 +74,6 @@ import com.baidu.live.tbadk.core.util.StringHelper;
 import com.baidu.live.tbadk.core.util.TiebaInitialize;
 import com.baidu.live.tbadk.core.util.TiebaStaticHelper;
 import com.baidu.live.tbadk.core.util.UtilHelper;
-import com.baidu.live.tbadk.core.util.ViewHelper;
 import com.baidu.live.tbadk.coreextra.act.AccountCoreSetting;
 import com.baidu.live.tbadk.coreextra.data.AlaLiveSwitchData;
 import com.baidu.live.tbadk.coreextra.data.ListItemsRule;
@@ -115,6 +114,7 @@ public class TbadkCoreApplication extends BdBaseApplication implements BdActivit
     public static final String APP_ID_MOBILE_BAIDU = "mobilebaidu";
     public static final String APP_ID_QUANMIN = "quanmin";
     public static final String APP_ID_TIEBA = "tieba";
+    public static final String APP_ID_YINBO = "yinbo";
     protected static final String DEFAULT_IMEI = "000000000000000";
     public static final String SWITCH_PROCESS_NOTIFICATION_KEY = "com.tieba.baidu.notifyprocess";
     public static AlaLiveSwitchData sAlaLiveSwitchData;
@@ -583,7 +583,6 @@ public class TbadkCoreApplication extends BdBaseApplication implements BdActivit
         initSdcardDatabaseCallback();
         MessageManager.getInstance().addMessageRule(new TbParamsHttpRule(0));
         initAppSettings();
-        ViewHelper.initSkinDataOnStartup(getContext());
         TiebaInitialize.init(getContext(), isMainProcess(false));
         if (isMainProcess(true)) {
             sendMessageForEnterBackground();
@@ -1450,12 +1449,16 @@ public class TbadkCoreApplication extends BdBaseApplication implements BdActivit
         return APP_ID_QUANMIN.equals(TbConfig.getSubappType());
     }
 
+    public boolean isYinbo() {
+        return APP_ID_YINBO.equals(TbConfig.getSubappType());
+    }
+
     public boolean isTieba() {
         return "tieba".equals(TbConfig.getSubappType());
     }
 
     public boolean isOther() {
-        return ("tieba".equals(TbConfig.getSubappType()) || APP_ID_QUANMIN.equals(TbConfig.getSubappType()) || "haokan".equals(TbConfig.getSubappType()) || APP_ID_MOBILE_BAIDU.equals(TbConfig.getSubappType())) ? false : true;
+        return ("tieba".equals(TbConfig.getSubappType()) || APP_ID_QUANMIN.equals(TbConfig.getSubappType()) || "haokan".equals(TbConfig.getSubappType()) || APP_ID_MOBILE_BAIDU.equals(TbConfig.getSubappType()) || APP_ID_YINBO.equals(TbConfig.getSubappType())) ? false : true;
     }
 
     public void onLowMemory() {

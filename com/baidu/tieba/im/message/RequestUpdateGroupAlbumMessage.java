@@ -3,7 +3,7 @@ package com.baidu.tieba.im.message;
 import com.xiaomi.mipush.sdk.Constants;
 import java.util.List;
 import protobuf.GroupInfo;
-/* loaded from: classes22.dex */
+/* loaded from: classes23.dex */
 public class RequestUpdateGroupAlbumMessage extends RequestUpdateGroupMessage {
     private String album;
 

@@ -13,9 +13,11 @@ import com.baidu.mapapi.animation.SingleScaleAnimation;
 import com.baidu.mapapi.animation.Transformation;
 import com.baidu.mapapi.map.Marker;
 import java.util.ArrayList;
-/* loaded from: classes3.dex */
+/* loaded from: classes7.dex */
 public class d extends c {
-    private Animator a = null;
+
+    /* renamed from: a  reason: collision with root package name */
+    private Animator f2190a = null;
     private long b = 0;
     private Interpolator c = null;
     private Animation.AnimationListener d = null;
@@ -45,10 +47,10 @@ public class d extends c {
     @Override // com.baidu.mapsdkplatform.comapi.a.c
     @TargetApi(11)
     public void a() {
-        if (this.a == null) {
+        if (this.f2190a == null) {
             return;
         }
-        this.a.start();
+        this.f2190a.start();
     }
 
     @Override // com.baidu.mapsdkplatform.comapi.a.c
@@ -93,7 +95,7 @@ public class d extends c {
     @TargetApi(11)
     public void a(Marker marker, Animation animation) {
         ObjectAnimator b;
-        this.a = new AnimatorSet();
+        this.f2190a = new AnimatorSet();
         ArrayList<Animation> arrayList = this.f;
         ArrayList arrayList2 = new ArrayList();
         arrayList2.clear();
@@ -110,27 +112,27 @@ public class d extends c {
             i = i2 + 1;
         }
         if (this.b != 0) {
-            this.a.setDuration(this.b);
+            this.f2190a.setDuration(this.b);
         }
         if (this.c != null) {
-            this.a.setInterpolator(this.c);
+            this.f2190a.setInterpolator(this.c);
         }
         if (arrayList2.size() != 0) {
             if (this.e == 0) {
-                ((AnimatorSet) this.a).playTogether(arrayList2);
+                ((AnimatorSet) this.f2190a).playTogether(arrayList2);
             } else if (this.e == 1) {
-                ((AnimatorSet) this.a).playSequentially(arrayList2);
+                ((AnimatorSet) this.f2190a).playSequentially(arrayList2);
             }
         }
-        a(this.a);
+        a(this.f2190a);
     }
 
     @Override // com.baidu.mapsdkplatform.comapi.a.c
     @TargetApi(11)
     public void b() {
-        if (this.a != null) {
-            this.a.cancel();
-            this.a = null;
+        if (this.f2190a != null) {
+            this.f2190a.cancel();
+            this.f2190a = null;
         }
     }
 

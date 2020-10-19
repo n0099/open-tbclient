@@ -1,17 +1,19 @@
 package com.vivo.push.b;
-/* loaded from: classes12.dex */
+/* loaded from: classes15.dex */
 public final class l extends u {
-    private int a;
+
+    /* renamed from: a  reason: collision with root package name */
+    private int f4643a;
     private int b;
 
     public l() {
         super(12);
-        this.a = -1;
+        this.f4643a = -1;
         this.b = -1;
     }
 
     public final int d() {
-        return this.a;
+        return this.f4643a;
     }
 
     public final int e() {
@@ -22,7 +24,7 @@ public final class l extends u {
     @Override // com.vivo.push.b.u, com.vivo.push.y
     public final void c(com.vivo.push.a aVar) {
         super.c(aVar);
-        aVar.a("OnChangePushStatus.EXTRA_REQ_SERVICE_STATUS", this.a);
+        aVar.a("OnChangePushStatus.EXTRA_REQ_SERVICE_STATUS", this.f4643a);
         aVar.a("OnChangePushStatus.EXTRA_REQ_RECEIVER_STATUS", this.b);
     }
 
@@ -30,7 +32,7 @@ public final class l extends u {
     @Override // com.vivo.push.b.u, com.vivo.push.y
     public final void d(com.vivo.push.a aVar) {
         super.d(aVar);
-        this.a = aVar.b("OnChangePushStatus.EXTRA_REQ_SERVICE_STATUS", this.a);
+        this.f4643a = aVar.b("OnChangePushStatus.EXTRA_REQ_SERVICE_STATUS", this.f4643a);
         this.b = aVar.b("OnChangePushStatus.EXTRA_REQ_RECEIVER_STATUS", this.b);
     }
 

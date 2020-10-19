@@ -9,7 +9,7 @@ import com.baidu.tbadk.util.u;
 import com.baidu.tieba.personPolymeric.mode.PersonPostModel;
 import com.squareup.wire.Message;
 import tbclient.User;
-/* loaded from: classes23.dex */
+/* loaded from: classes24.dex */
 public class UserPostPageRequestMessage extends NetMessage {
     private int from;
     private boolean isHost;

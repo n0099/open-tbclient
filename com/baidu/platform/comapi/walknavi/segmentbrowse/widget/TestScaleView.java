@@ -7,9 +7,11 @@ import android.graphics.Paint;
 import android.graphics.Rect;
 import android.util.AttributeSet;
 import android.view.View;
-/* loaded from: classes3.dex */
+/* loaded from: classes7.dex */
 public class TestScaleView extends View {
-    private double a;
+
+    /* renamed from: a  reason: collision with root package name */
+    private double f3084a;
     private double b;
 
     public TestScaleView(Context context) {
@@ -21,7 +23,7 @@ public class TestScaleView extends View {
     }
 
     public void setPassLengthAndTotalLength(int i, int i2) {
-        this.a = i;
+        this.f3084a = i;
         this.b = i2;
         invalidate();
     }
@@ -38,14 +40,14 @@ public class TestScaleView extends View {
         rect.left = 0;
         rect.top = 0;
         rect.bottom = 25;
-        rect.right = (int) ((this.a / this.b) * com.baidu.platform.comapi.walknavi.segmentbrowse.c.a);
+        rect.right = (int) ((this.f3084a / this.b) * com.baidu.platform.comapi.walknavi.segmentbrowse.c.f3083a);
         paint.setColor(Color.rgb(61, 139, 255));
         canvas.drawRect(rect, paint);
         Rect rect2 = new Rect();
-        rect2.left = (int) ((this.a / this.b) * com.baidu.platform.comapi.walknavi.segmentbrowse.c.a);
+        rect2.left = (int) ((this.f3084a / this.b) * com.baidu.platform.comapi.walknavi.segmentbrowse.c.f3083a);
         rect2.top = 0;
         rect2.bottom = 25;
-        rect2.right = com.baidu.platform.comapi.walknavi.segmentbrowse.c.a;
+        rect2.right = com.baidu.platform.comapi.walknavi.segmentbrowse.c.f3083a;
         paint.setColor(Color.rgb(234, 234, 234));
         canvas.drawRect(rect2, paint);
     }

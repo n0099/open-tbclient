@@ -15,7 +15,7 @@ import com.tencent.open.a.f;
 import com.tencent.open.b.d;
 import com.tencent.open.utils.HttpUtils;
 import com.tencent.open.utils.j;
-/* loaded from: classes24.dex */
+/* loaded from: classes6.dex */
 public class SocialOperation extends BaseApi {
     public static final String GAME_FRIEND_ADD_MESSAGE = "add_msg";
     public static final String GAME_FRIEND_LABEL = "friend_label";
@@ -44,7 +44,7 @@ public class SocialOperation extends BaseApi {
         }
         String string2 = bundle.getString(GAME_FRIEND_LABEL);
         String string3 = bundle.getString(GAME_FRIEND_ADD_MESSAGE);
-        String a = j.a(activity);
+        String a2 = j.a(activity);
         String openId = this.b.getOpenId();
         String appId = this.b.getAppId();
         f.a("openSDK_LOG.GameAppOperation", "-->make friend, fOpenid: " + string + " | label: " + string2 + " | message: " + string3 + " | openid: " + openId + " | appid:" + appId);
@@ -62,8 +62,8 @@ public class SocialOperation extends BaseApi {
         if (!TextUtils.isEmpty(string3)) {
             stringBuffer.append("&add_msg=" + Base64.encodeToString(j.i(string3), 2));
         }
-        if (!TextUtils.isEmpty(a)) {
-            stringBuffer.append("&app_name=" + Base64.encodeToString(j.i(a), 2));
+        if (!TextUtils.isEmpty(a2)) {
+            stringBuffer.append("&app_name=" + Base64.encodeToString(j.i(a2), 2));
         }
         f.a("openSDK_LOG.GameAppOperation", "-->make friend, url: " + stringBuffer.toString());
         Intent intent = new Intent("android.intent.action.VIEW");
@@ -96,10 +96,10 @@ public class SocialOperation extends BaseApi {
             f.e("openSDK_LOG.GameAppOperation", "-->bindQQGroup, params is empty.");
             d.a().a(this.b.getOpenId(), this.b.getAppId(), Constants.VIA_BIND_GROUP, "18", "18", "1");
         } else {
-            String a = j.a(activity);
+            String a2 = j.a(activity);
             StringBuffer stringBuffer = new StringBuffer("mqqapi://gamesdk/bind_group?src_type=app&version=1");
-            if (!TextUtils.isEmpty(a)) {
-                stringBuffer.append("&app_name=" + Base64.encodeToString(j.i(a), 2));
+            if (!TextUtils.isEmpty(a2)) {
+                stringBuffer.append("&app_name=" + Base64.encodeToString(j.i(a2), 2));
             }
             String string = bundle.getString(GAME_UNION_ID);
             if (TextUtils.isEmpty(string)) {

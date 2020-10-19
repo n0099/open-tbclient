@@ -3,9 +3,11 @@ package com.baidu.pass.common;
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.text.TextUtils;
-/* loaded from: classes6.dex */
+/* loaded from: classes9.dex */
 public class SharedPreferencesUtil implements com.baidu.pass.a {
-    private static SharedPreferencesUtil a = null;
+
+    /* renamed from: a  reason: collision with root package name */
+    private static SharedPreferencesUtil f2757a = null;
     private static SharedPreferences b = null;
     private static final String c = "sapi_system";
     private static String d;
@@ -79,8 +81,8 @@ public class SharedPreferencesUtil implements com.baidu.pass.a {
 
     public static synchronized void getInstance(Context context) {
         synchronized (SharedPreferencesUtil.class) {
-            if (a == null) {
-                a = new SharedPreferencesUtil(context, c);
+            if (f2757a == null) {
+                f2757a = new SharedPreferencesUtil(context, c);
             }
         }
     }

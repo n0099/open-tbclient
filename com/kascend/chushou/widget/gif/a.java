@@ -21,11 +21,11 @@ import kotlin.jvm.internal.v;
 @h
 /* loaded from: classes6.dex */
 public final class a extends com.facebook.imagepipeline.request.a {
-    public static final C0912a okX = new C0912a(null);
+    public static final C0930a oAq = new C0930a(null);
     private final int c;
     private final int d;
     private final String e;
-    private com.facebook.cache.common.b okW;
+    private com.facebook.cache.common.b oAp;
 
     public a(int i, int i2, String str) {
         this.c = i;
@@ -36,11 +36,11 @@ public final class a extends com.facebook.imagepipeline.request.a {
     @h
     /* renamed from: com.kascend.chushou.widget.gif.a$a  reason: collision with other inner class name */
     /* loaded from: classes6.dex */
-    public static final class C0912a {
-        private C0912a() {
+    public static final class C0930a {
+        private C0930a() {
         }
 
-        public /* synthetic */ C0912a(o oVar) {
+        public /* synthetic */ C0930a(o oVar) {
             this();
         }
     }
@@ -51,37 +51,37 @@ public final class a extends com.facebook.imagepipeline.request.a {
     }
 
     @Override // com.facebook.imagepipeline.request.a, com.facebook.imagepipeline.request.b
-    public com.facebook.cache.common.b dZu() {
+    public com.facebook.cache.common.b edf() {
         String generate;
-        if (this.okW == null) {
-            v vVar = v.oCD;
+        if (this.oAp == null) {
+            v vVar = v.oRS;
             Locale locale = Locale.CHINA;
-            q.l((Object) locale, "Locale.CHINA");
+            q.m(locale, "Locale.CHINA");
             Object[] objArr = new Object[1];
             String str = this.e;
             if (str == null || str.length() == 0) {
                 generate = SchemeCollecter.CLASSIFY_EMPTY;
             } else {
-                generate = tv.chushou.zues.toolkit.b.a.oWO.generate(this.e);
+                generate = tv.chushou.zues.toolkit.b.a.pmi.generate(this.e);
             }
             objArr[0] = generate;
             String format = String.format(locale, "%s", Arrays.copyOf(objArr, objArr.length));
-            q.l((Object) format, "java.lang.String.format(locale, format, *args)");
-            this.okW = new g(format);
+            q.m(format, "java.lang.String.format(locale, format, *args)");
+            this.oAp = new g(format);
         }
-        return this.okW;
+        return this.oAp;
     }
 
     @Override // com.facebook.imagepipeline.request.a, com.facebook.imagepipeline.request.b
     public com.facebook.common.references.a<Bitmap> a(Bitmap bitmap, f fVar) {
         Bitmap bitmap2;
-        q.m(bitmap, "sourceBitmap");
-        q.m(fVar, "bitmapFactory");
+        q.n(bitmap, "sourceBitmap");
+        q.n(fVar, "bitmapFactory");
         Bitmap.Config config = bitmap.getConfig();
         int i = this.c;
         int i2 = this.c;
         if (config == null) {
-            config = com.facebook.imagepipeline.request.a.nKd;
+            config = com.facebook.imagepipeline.request.a.nZu;
         }
         com.facebook.common.references.a<Bitmap> c = fVar.c(i, i2, config);
         if (c == null) {
@@ -102,7 +102,7 @@ public final class a extends com.facebook.imagepipeline.request.a {
         if (bitmap != null && bitmap2 != null) {
             Canvas canvas = new Canvas(bitmap);
             RoundedBitmapDrawable create = RoundedBitmapDrawableFactory.create(tv.chushou.widget.a.c.getResources(), bitmap2);
-            q.l((Object) create, "avatarDrawable");
+            q.m(create, "avatarDrawable");
             create.setCircular(true);
             create.setBounds(0, 0, this.d, this.d);
             canvas.save();
@@ -111,26 +111,26 @@ public final class a extends com.facebook.imagepipeline.request.a {
             create.draw(canvas);
             canvas.restore();
             String str = this.e;
-            Bitmap a = str == null || str.length() == 0 ? null : a(this.e, this.c);
-            if (a != null) {
-                canvas.drawBitmap(a, new Rect(0, 0, a.getWidth(), a.getHeight()), new RectF(0.0f, 0.0f, this.c, this.c), (Paint) null);
+            Bitmap a2 = str == null || str.length() == 0 ? null : a(this.e, this.c);
+            if (a2 != null) {
+                canvas.drawBitmap(a2, new Rect(0, 0, a2.getWidth(), a2.getHeight()), new RectF(0.0f, 0.0f, this.c, this.c), (Paint) null);
             }
         }
     }
 
     private final Bitmap a(String str, int i) {
-        File ah = tv.chushou.zues.widget.fresco.a.ah(i.Vq(str));
+        File ah = tv.chushou.zues.widget.fresco.a.ah(i.We(str));
         if (ah != null) {
-            return tv.chushou.zues.utils.c.z(ah.getAbsolutePath(), i, i);
+            return tv.chushou.zues.utils.c.A(ah.getAbsolutePath(), i, i);
         }
-        File c = com.kascend.chushou.d.c.nRI.c();
-        tv.chushou.a.a.d.a.at(c);
-        File file = new File(c, tv.chushou.zues.toolkit.b.a.oWO.generate(str));
+        File c = com.kascend.chushou.d.c.oha.c();
+        tv.chushou.a.a.d.a.aw(c);
+        File file = new File(c, tv.chushou.zues.toolkit.b.a.pmi.generate(str));
         if (file.isFile() && file.exists()) {
-            return tv.chushou.zues.utils.c.z(file.getAbsolutePath(), i, i);
+            return tv.chushou.zues.utils.c.A(file.getAbsolutePath(), i, i);
         }
-        if (tv.chushou.zues.widget.fresco.a.s(str, file)) {
-            return tv.chushou.zues.utils.c.z(file.getAbsolutePath(), i, i);
+        if (tv.chushou.zues.widget.fresco.a.r(str, file)) {
+            return tv.chushou.zues.utils.c.A(file.getAbsolutePath(), i, i);
         }
         return null;
     }

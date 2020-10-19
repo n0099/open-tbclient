@@ -1,22 +1,22 @@
 package com.baidu.tieba.tbadkCore.data;
 /* loaded from: classes.dex */
 public class p {
-    private String kGG;
-    private int mpM;
+    private String kVR;
+    private int mFt;
 
-    public int dAQ() {
-        return this.mpM;
+    public int dEC() {
+        return this.mFt;
     }
 
-    public void It(int i) {
-        this.mpM = i;
+    public void IZ(int i) {
+        this.mFt = i;
     }
 
-    public String dAR() {
-        return this.kGG;
+    public String dED() {
+        return this.kVR;
     }
 
-    public void Ro(String str) {
-        this.kGG = str;
+    public void Sc(String str) {
+        this.kVR = str;
     }
 }

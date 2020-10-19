@@ -6,34 +6,34 @@ import java.util.regex.MatchResult;
 import java.util.regex.Matcher;
 /* JADX INFO: Access modifiers changed from: package-private */
 @kotlin.h
-/* loaded from: classes5.dex */
+/* loaded from: classes10.dex */
 public final class j implements i {
-    private final g oDE;
-    private final Matcher oDF;
-    private final CharSequence oDw;
+    private final CharSequence oSL;
+    private final g oST;
+    private final Matcher oSU;
 
     public j(Matcher matcher, CharSequence charSequence) {
-        kotlin.jvm.internal.q.m(matcher, "matcher");
-        kotlin.jvm.internal.q.m(charSequence, Config.INPUT_PART);
-        this.oDF = matcher;
-        this.oDw = charSequence;
-        this.oDE = new a();
+        kotlin.jvm.internal.q.n(matcher, "matcher");
+        kotlin.jvm.internal.q.n(charSequence, Config.INPUT_PART);
+        this.oSU = matcher;
+        this.oSL = charSequence;
+        this.oST = new a();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public final MatchResult ekM() {
-        return this.oDF;
+    public final MatchResult eoz() {
+        return this.oSU;
     }
 
     @Override // kotlin.text.i
-    public kotlin.b.h ekK() {
+    public kotlin.b.h eox() {
         kotlin.b.h a2;
-        a2 = k.a(ekM());
+        a2 = k.a(eoz());
         return a2;
     }
 
     @kotlin.h
-    /* loaded from: classes5.dex */
+    /* loaded from: classes10.dex */
     public static final class a extends kotlin.collections.a<f> implements h {
         /* JADX DEBUG: Incorrect args count in method signature: ()V */
         a() {
@@ -53,7 +53,7 @@ public final class j implements i {
 
         @Override // kotlin.collections.a
         public int getSize() {
-            return j.this.ekM().groupCount() + 1;
+            return j.this.eoz().groupCount() + 1;
         }
 
         @Override // kotlin.collections.a, java.util.Collection
@@ -66,26 +66,26 @@ public final class j implements i {
             return kotlin.sequences.e.c(kotlin.collections.o.i(kotlin.collections.o.o(this)), new MatcherMatchResult$groups$1$iterator$1(this)).iterator();
         }
 
-        public f OE(int i) {
-            kotlin.b.h a;
-            a = k.a(j.this.ekM(), i);
-            if (a.ekB().intValue() >= 0) {
-                String group = j.this.ekM().group(i);
-                kotlin.jvm.internal.q.l((Object) group, "matchResult.group(index)");
-                return new f(group, a);
+        public f Pk(int i) {
+            kotlin.b.h a2;
+            a2 = k.a(j.this.eoz(), i);
+            if (a2.eoo().intValue() >= 0) {
+                String group = j.this.eoz().group(i);
+                kotlin.jvm.internal.q.m(group, "matchResult.group(index)");
+                return new f(group, a2);
             }
             return null;
         }
     }
 
     @Override // kotlin.text.i
-    public i ekL() {
+    public i eoy() {
         i a2;
-        int end = (ekM().end() == ekM().start() ? 1 : 0) + ekM().end();
-        if (end <= this.oDw.length()) {
-            Matcher matcher = this.oDF.pattern().matcher(this.oDw);
-            kotlin.jvm.internal.q.l((Object) matcher, "matcher.pattern().matcher(input)");
-            a2 = k.a(matcher, end, this.oDw);
+        int end = (eoz().end() == eoz().start() ? 1 : 0) + eoz().end();
+        if (end <= this.oSL.length()) {
+            Matcher matcher = this.oSU.pattern().matcher(this.oSL);
+            kotlin.jvm.internal.q.m(matcher, "matcher.pattern().matcher(input)");
+            a2 = k.a(matcher, end, this.oSL);
             return a2;
         }
         return null;

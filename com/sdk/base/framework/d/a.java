@@ -21,11 +21,13 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.TreeMap;
-/* loaded from: classes5.dex */
+/* loaded from: classes16.dex */
 public class a<T> {
     private static final String d = a.class.getName();
     private static final boolean e = f.b;
-    public Context a;
+
+    /* renamed from: a  reason: collision with root package name */
+    public Context f4488a;
     public String b;
     public String c;
     private PInfo f;
@@ -39,7 +41,7 @@ public class a<T> {
     }
 
     public a(Context context, com.sdk.base.framework.b.a<T> aVar, e eVar) {
-        this.a = context;
+        this.f4488a = context;
         this.j = aVar;
         this.k = eVar;
     }
@@ -60,38 +62,38 @@ public class a<T> {
             }
         }
         TreeMap<String, Object> treeMap = new TreeMap<>();
-        String a = com.sdk.base.framework.f.j.a.a(this.a);
-        String a2 = com.sdk.base.framework.f.j.a.a(16);
-        String a3 = com.sdk.base.framework.f.a.a.a(this.a, BaseConfig.apk);
-        String a4 = com.sdk.base.framework.f.b.a.a(this.a, "public_key");
+        String a2 = com.sdk.base.framework.f.j.a.a(this.f4488a);
+        String a3 = com.sdk.base.framework.f.j.a.a(16);
+        String a4 = com.sdk.base.framework.f.a.a.a(this.f4488a, BaseConfig.apk);
+        String a5 = com.sdk.base.framework.f.b.a.a(this.f4488a, "public_key");
         if ("/st/api/v1.0/ses".equals(str2)) {
-            a4 = "MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQCgdQaZgBcrXGxxD6F1TVVXAzvbB3xpoyk2AFMNj4vOcDWZoH1b3Mx5aVcEd0BZPZR6Icb8yi8ecMUVChGCRe20O8EQWLh1aCwR8JazNL+koD3Tn6TIwVwjVEQWy9w6DeXxMtQuFBL/jAChJcU7aDwMsSD1jYpdET37aB4p8Lvn2QIDAQAB";
+            a5 = "MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQCgdQaZgBcrXGxxD6F1TVVXAzvbB3xpoyk2AFMNj4vOcDWZoH1b3Mx5aVcEd0BZPZR6Icb8yi8ecMUVChGCRe20O8EQWLh1aCwR8JazNL+koD3Tn6TIwVwjVEQWy9w6DeXxMtQuFBL/jAChJcU7aDwMsSD1jYpdET37aB4p8Lvn2QIDAQAB";
         }
-        if (com.sdk.base.framework.a.a.c.a(a3, a4)) {
+        if (com.sdk.base.framework.a.a.c.a(a4, a5)) {
             a(1, 101004, "ApiKey或PublicKey不能为空");
             return null;
         }
         try {
             if (com.sdk.base.framework.f.a.a.b() >= 23 && !SDKManager.isClosePermission()) {
-                com.sdk.base.module.permission.c cVar = new com.sdk.base.module.permission.c(this.a);
+                com.sdk.base.module.permission.c cVar = new com.sdk.base.module.permission.c(this.f4488a);
                 cVar.a("android.permission.READ_PHONE_STATE");
                 cVar.a(new b(this));
                 cVar.a();
             }
         } catch (Exception e4) {
         }
-        String a5 = a(dataInfo, a2);
+        String a6 = a(dataInfo, a3);
         try {
-            String b = com.sdk.base.framework.f.i.b.b(a4, a + a2);
-            treeMap.put("apiKey", a3);
-            treeMap.put("params", a5);
+            String b = com.sdk.base.framework.f.i.b.b(a5, a2 + a3);
+            treeMap.put("apiKey", a4);
+            treeMap.put("params", a6);
             treeMap.put("paramsKey", b);
-            String a6 = com.sdk.base.framework.f.k.a.a(a3, str2, treeMap);
+            String a7 = com.sdk.base.framework.f.k.a.a(a4, str2, treeMap);
             HashMap<String, Object> hashMap = new HashMap<>(16);
-            if (com.sdk.base.framework.a.a.c.b(a6).booleanValue()) {
-                treeMap.put("sign", a6);
+            if (com.sdk.base.framework.a.a.c.b(a7).booleanValue()) {
+                treeMap.put("sign", a7);
                 treeMap.put("sign_Type", "B");
-                hashMap.put("sign", a6);
+                hashMap.put("sign", a7);
                 hashMap.put("api-protocol", "1.1");
             }
             j jVar = new j();
@@ -110,7 +112,7 @@ public class a<T> {
                 gVar = g.c;
             }
             jVar.a(gVar);
-            h hVar = new h(this.a, jVar);
+            h hVar = new h(this.f4488a, jVar);
             fVar = new com.sdk.base.framework.a.f<>(hVar);
             try {
                 fVar.c(hVar);
@@ -133,13 +135,13 @@ public class a<T> {
         String str2;
         try {
             if (this.g == null) {
-                this.g = com.sdk.base.framework.c.a.a(this.a);
+                this.g = com.sdk.base.framework.c.a.a(this.f4488a);
             }
             if (this.h == null) {
                 this.h = com.sdk.base.framework.c.a.a();
             }
             if (this.i == null) {
-                this.i = com.sdk.base.framework.c.a.b(this.a);
+                this.i = com.sdk.base.framework.c.a.b(this.f4488a);
             }
             ArrayList arrayList = new ArrayList();
             Iterator<KInfo> it = this.i.iterator();
@@ -153,14 +155,14 @@ public class a<T> {
                 arrayList.add(mobileKInfo);
             }
             if (this.f == null) {
-                this.f = com.sdk.base.framework.c.a.c(this.a);
+                this.f = com.sdk.base.framework.c.a.c(this.f4488a);
             }
             str2 = "{app:" + this.g + ",sdk:" + this.h + ",device:" + this.f + ",sim:" + arrayList + ",data:" + dataInfo + "}";
         } catch (Exception e2) {
             com.sdk.base.framework.a.a.c.b(d, e2.toString(), Boolean.valueOf(e));
             str2 = null;
         }
-        return com.sdk.base.framework.f.j.a.a(str2, com.sdk.base.framework.f.b.a.b(this.a, f.a), str);
+        return com.sdk.base.framework.f.j.a.a(str2, com.sdk.base.framework.f.b.a.b(this.f4488a, f.f4486a), str);
     }
 
     public final com.sdk.base.framework.a.f<T> a(String str, String str2, DataInfo dataInfo, com.sdk.base.framework.b.b<T> bVar, int i, i iVar) {

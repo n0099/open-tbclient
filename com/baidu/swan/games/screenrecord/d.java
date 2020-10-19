@@ -2,61 +2,61 @@ package com.baidu.swan.games.screenrecord;
 
 import android.support.annotation.NonNull;
 import android.util.Log;
-/* loaded from: classes3.dex */
+/* loaded from: classes10.dex */
 public class d {
     protected static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    private static volatile d dyz = null;
-    private GameRecorderController dvr;
-    private boolean dyA;
+    private static volatile d dKA = null;
+    private GameRecorderController dHs;
+    private boolean dKB;
 
     private d() {
     }
 
-    public static d aPK() {
-        if (dyz == null) {
+    public static d aSt() {
+        if (dKA == null) {
             synchronized (d.class) {
-                if (dyz == null) {
-                    dyz = new d();
+                if (dKA == null) {
+                    dKA = new d();
                 }
             }
         }
-        return dyz;
+        return dKA;
     }
 
     public void g(GameRecorderController gameRecorderController) {
-        if (this.dvr != null && this.dvr != gameRecorderController) {
-            this.dvr.release();
+        if (this.dHs != null && this.dHs != gameRecorderController) {
+            this.dHs.release();
         }
-        this.dvr = gameRecorderController;
+        this.dHs = gameRecorderController;
     }
 
     @NonNull
-    public GameRecorderController aPL() {
+    public GameRecorderController aSu() {
         if (DEBUG) {
-            Log.i("GameRecorderManager", "getRecorderController:" + this.dvr);
+            Log.i("GameRecorderManager", "getRecorderController:" + this.dHs);
         }
-        return this.dvr == null ? GameRecorderController.aPJ() : this.dvr;
+        return this.dHs == null ? GameRecorderController.aSs() : this.dHs;
     }
 
     public void h(GameRecorderController gameRecorderController) {
-        if (this.dvr != null && this.dvr == gameRecorderController) {
-            this.dvr.release();
-            this.dvr = null;
+        if (this.dHs != null && this.dHs == gameRecorderController) {
+            this.dHs.release();
+            this.dHs = null;
         }
     }
 
-    public boolean aPM() {
+    public boolean aSv() {
         if (DEBUG) {
-            Log.i("GameRecorderManager", "isGamePause:" + this.dyA);
+            Log.i("GameRecorderManager", "isGamePause:" + this.dKB);
         }
-        return this.dyA;
+        return this.dKB;
     }
 
-    public void aPN() {
-        this.dyA = true;
+    public void aSw() {
+        this.dKB = true;
     }
 
-    public void aPO() {
-        this.dyA = false;
+    public void aSx() {
+        this.dKB = false;
     }
 }

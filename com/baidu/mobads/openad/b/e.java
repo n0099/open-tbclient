@@ -8,22 +8,24 @@ import com.baidu.mobads.openad.interfaces.event.IOAdEventListener;
 import com.baidu.mobads.utils.XAdSDKFoundationFacade;
 import java.util.ArrayList;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes3.dex */
+/* loaded from: classes7.dex */
 public class e implements IOAdEventListener {
-    final /* synthetic */ d a;
+
+    /* renamed from: a  reason: collision with root package name */
+    final /* synthetic */ d f2376a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public e(d dVar) {
-        this.a = dVar;
+        this.f2376a = dVar;
     }
 
     @Override // com.baidu.mobads.openad.interfaces.event.IOAdEventListener
     public void run(IOAdEvent iOAdEvent) {
         NetworkInfo activeNetworkInfo;
-        com.baidu.mobads.command.a a;
+        com.baidu.mobads.command.a a2;
         try {
             XAdSDKFoundationFacade.getInstance().getAdLogger().d("OAdDownloadManager", "网络状态已经改变");
-            activeNetworkInfo = ((ConnectivityManager) this.a.a.getSystemService("connectivity")).getActiveNetworkInfo();
+            activeNetworkInfo = ((ConnectivityManager) this.f2376a.f2375a.getSystemService("connectivity")).getActiveNetworkInfo();
         } catch (Exception e) {
             XAdSDKFoundationFacade.getInstance().getAdLogger().d("OAdDownloadManager", e);
             com.baidu.mobads.c.a.a().a("create apk downloader failed: " + e.toString());
@@ -33,7 +35,7 @@ public class e implements IOAdEventListener {
             String typeName = activeNetworkInfo.getTypeName();
             int type = activeNetworkInfo.getType();
             XAdSDKFoundationFacade.getInstance().getAdLogger().d("OAdDownloadManager", "当前网络名称：" + typeName + "; 网络类型：" + type);
-            ArrayList<IOAdDownloader> allAdsApkDownloaderes = this.a.getAllAdsApkDownloaderes();
+            ArrayList<IOAdDownloader> allAdsApkDownloaderes = this.f2376a.getAllAdsApkDownloaderes();
             if (allAdsApkDownloaderes != null) {
                 for (IOAdDownloader iOAdDownloader : allAdsApkDownloaderes) {
                     if (type == 1) {
@@ -46,9 +48,9 @@ public class e implements IOAdEventListener {
                         }
                     } else if (type == 0) {
                         XAdSDKFoundationFacade.getInstance().getAdLogger().d("OAdDownloadManager", "mobile net work");
-                        b a2 = b.a(iOAdDownloader.getPackageName());
-                        if (a2 != null && (a = a2.a()) != null) {
-                            if (a.s) {
+                        b a3 = b.a(iOAdDownloader.getPackageName());
+                        if (a3 != null && (a2 = a3.a()) != null) {
+                            if (a2.s) {
                                 if (iOAdDownloader.getState() == IOAdDownloader.DownloadStatus.ERROR || iOAdDownloader.getState() == IOAdDownloader.DownloadStatus.PAUSED) {
                                     try {
                                         iOAdDownloader.resume();

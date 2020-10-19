@@ -8,13 +8,13 @@ import java.util.HashMap;
 import java.util.concurrent.atomic.AtomicBoolean;
 import java.util.concurrent.atomic.AtomicInteger;
 import org.json.JSONObject;
-/* loaded from: classes12.dex */
+/* loaded from: classes7.dex */
 public class a {
-    private static a awM;
-    private Thread awN;
-    private b awO;
-    private com.baidu.helios.a.a.a.b awP;
-    private i awQ;
+    private static a axv;
+    private Thread axw;
+    private b axx;
+    private com.baidu.helios.a.a.a.b axy;
+    private i axz;
     private AtomicInteger f;
     private AtomicBoolean g;
     private HashMap<String, String> j;
@@ -22,59 +22,59 @@ public class a {
     private Context m;
 
     /* renamed from: com.baidu.helios.a.a.a$1  reason: invalid class name */
-    /* loaded from: classes12.dex */
+    /* loaded from: classes7.dex */
     class AnonymousClass1 implements Runnable {
-        final /* synthetic */ a awR;
+        final /* synthetic */ a axA;
 
         @Override // java.lang.Runnable
         public void run() {
-            if (this.awR.awQ != null) {
-                this.awR.awQ.b();
+            if (this.axA.axz != null) {
+                this.axA.axz.b();
             }
         }
     }
 
     /* renamed from: com.baidu.helios.a.a.a$a  reason: collision with other inner class name */
-    /* loaded from: classes12.dex */
-    public static class C0134a {
-        private static C0134a awS;
+    /* loaded from: classes7.dex */
+    public static class C0138a {
+        private static C0138a axB;
 
-        private C0134a(Context context) {
+        private C0138a(Context context) {
             if (context == null) {
                 throw new NullPointerException("context should not be null");
             }
-            if (a.awM == null) {
+            if (a.axv == null) {
                 synchronized (a.class) {
-                    if (a.awM == null) {
-                        a unused = a.awM = new a(context.getApplicationContext(), null);
+                    if (a.axv == null) {
+                        a unused = a.axv = new a(context.getApplicationContext(), null);
                     }
                 }
             }
         }
 
         private void a() {
-            a.awM.j = new HashMap();
-            a.awM.j.put("Charset", "utf-8");
-            a.awM.j.put("Content-type", HttpHelper.CONTENT_JSON);
-            a.awM.awP = new com.baidu.helios.a.a.b.a();
+            a.axv.j = new HashMap();
+            a.axv.j.put("Charset", "utf-8");
+            a.axv.j.put("Content-type", HttpHelper.CONTENT_JSON);
+            a.axv.axy = new com.baidu.helios.a.a.b.a();
         }
 
-        public static C0134a aj(Context context) {
-            if (awS == null) {
+        public static C0138a am(Context context) {
+            if (axB == null) {
                 synchronized (a.class) {
-                    if (awS == null) {
-                        awS = new C0134a(context);
+                    if (axB == null) {
+                        axB = new C0138a(context);
                     }
                 }
             }
-            return awS;
+            return axB;
         }
 
-        public a Aj() {
-            if (a.awM.awP == null) {
+        public a Ar() {
+            if (a.axv.axy == null) {
                 a();
             }
-            return a.awM;
+            return a.axv;
         }
     }
 
@@ -82,28 +82,28 @@ public class a {
         this.f = new AtomicInteger(0);
         this.g = new AtomicBoolean(false);
         this.m = context;
-        this.awQ = new m(context);
+        this.axz = new m(context);
     }
 
     /* synthetic */ a(Context context, AnonymousClass1 anonymousClass1) {
         this(context);
     }
 
-    private Runnable Ah() {
+    private Runnable Ap() {
         return new Runnable() { // from class: com.baidu.helios.a.a.a.2
             @Override // java.lang.Runnable
             public void run() {
-                a.this.awO = new f(a.this.m);
+                a.this.axx = new f(a.this.m);
                 boolean z = false;
-                if (a.this.awQ != null) {
-                    a.this.awQ.r(a.this.awO.Ak());
-                    z = a.this.awQ.a();
+                if (a.this.axz != null) {
+                    a.this.axz.r(a.this.axx.As());
+                    z = a.this.axz.a();
                 }
                 if (z && a.this.c()) {
                     a.this.d();
                     a.this.e();
                 }
-                a.this.awN = null;
+                a.this.axw = null;
             }
         };
     }
@@ -117,23 +117,23 @@ public class a {
 
     /* JADX INFO: Access modifiers changed from: private */
     public boolean c() {
-        com.baidu.helios.a.a.a.c An;
-        String a = a("https://mbd.baidu.com/store");
+        com.baidu.helios.a.a.a.c Av;
+        String a2 = a("https://mbd.baidu.com/store");
         String str = null;
-        if (this.awP != null && (An = this.awP.An()) != null) {
-            str = An.a(a, "POST", this.j, this.awO.Ak());
+        if (this.axy != null && (Av = this.axy.Av()) != null) {
+            str = Av.a(a2, "POST", this.j, this.axx.As());
         }
-        JSONObject a2 = l.a(str);
-        if (a2 == null) {
+        JSONObject a3 = l.a(str);
+        if (a3 == null) {
             return false;
         }
-        return a2.optInt(BaseJsonData.TAG_ERRNO, -1) == 0;
+        return a3.optInt(BaseJsonData.TAG_ERRNO, -1) == 0;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void d() {
-        if (this.awQ != null) {
-            this.awQ.b(this.awO.Ak());
+        if (this.axz != null) {
+            this.axz.b(this.axx.As());
         }
     }
 
@@ -144,17 +144,17 @@ public class a {
         }
     }
 
-    public void Ag() {
+    public void Ao() {
         synchronized (a.class) {
             if (this.f.get() == 0) {
                 if (this.m == null) {
                     throw new NullPointerException("context should not be null");
                 }
                 this.f.set(1);
-                if (this.awN == null) {
-                    this.awN = new Thread(Ah());
+                if (this.axw == null) {
+                    this.axw = new Thread(Ap());
                 }
-                this.awN.start();
+                this.axw.start();
             }
         }
     }

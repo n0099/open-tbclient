@@ -4,9 +4,11 @@ import android.text.TextUtils;
 import android.util.Log;
 import java.util.LinkedHashMap;
 import java.util.Map;
-/* loaded from: classes5.dex */
+/* loaded from: classes16.dex */
 public class c<K, V> {
-    private final LinkedHashMap<K, V> a;
+
+    /* renamed from: a  reason: collision with root package name */
+    private final LinkedHashMap<K, V> f4458a;
     private int b;
     private int c;
     private b<K, Long> d;
@@ -16,7 +18,7 @@ public class c<K, V> {
             throw new IllegalArgumentException("maxSize <= 0");
         }
         this.c = i;
-        this.a = new LinkedHashMap<>(0, 0.75f, true);
+        this.f4458a = new LinkedHashMap<>(0, 0.75f, true);
         this.d = new b<>(0, 0.75f);
     }
 
@@ -56,13 +58,13 @@ public class c<K, V> {
     private void a(int i) {
         while (true) {
             synchronized (this) {
-                if (this.b <= i || this.a.isEmpty()) {
+                if (this.b <= i || this.f4458a.isEmpty()) {
                     break;
                 }
-                Map.Entry<K, V> next = this.a.entrySet().iterator().next();
+                Map.Entry<K, V> next = this.f4458a.entrySet().iterator().next();
                 K key = next.getKey();
                 V value = next.getValue();
-                this.a.remove(key);
+                this.f4458a.remove(key);
                 this.d.remove(key);
                 this.b -= b(key, value);
             }
@@ -80,14 +82,14 @@ public class c<K, V> {
     }
 
     private int b(K k, V v) {
-        int a = a((c<K, V>) k, (K) v);
-        if (a <= 0) {
+        int a2 = a((c<K, V>) k, (K) v);
+        if (a2 <= 0) {
             this.b = 0;
-            for (Map.Entry<K, V> entry : this.a.entrySet()) {
+            for (Map.Entry<K, V> entry : this.f4458a.entrySet()) {
                 this.b = a((c<K, V>) entry.getKey(), (K) entry.getValue()) + this.b;
             }
         }
-        return a;
+        return a2;
     }
 
     public static int b(String str, String str2, Boolean bool) {
@@ -110,7 +112,7 @@ public class c<K, V> {
             throw new NullPointerException("key == null");
         }
         synchronized (this) {
-            remove = this.a.remove(k);
+            remove = this.f4458a.remove(k);
             this.d.remove(k);
             if (remove != null) {
                 this.b -= b(k, remove);
@@ -142,7 +144,7 @@ public class c<K, V> {
                 b((c<K, V>) k);
                 return null;
             }
-            V v = this.a.get(k);
+            V v = this.f4458a.get(k);
             if (v != null) {
                 return v;
             }
@@ -157,7 +159,7 @@ public class c<K, V> {
         }
         synchronized (this) {
             this.b += b(k, v);
-            put = this.a.put(k, v);
+            put = this.f4458a.put(k, v);
             this.d.put(k, Long.valueOf(j));
             if (put != null) {
                 this.b -= b(k, put);

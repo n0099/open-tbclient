@@ -5,8 +5,8 @@ import android.os.Message;
 import com.baidu.adp.R;
 /* loaded from: classes.dex */
 public class a {
-    private static b Pj;
-    private static c Pk;
+    private static c PD;
+    private static b Pz;
     private static String mFileName;
     private static int mPlayingState = 0;
     private static Handler mHandler = new Handler(new Handler.Callback() { // from class: com.baidu.adp.lib.voice.a.1
@@ -14,55 +14,55 @@ public class a {
         public boolean handleMessage(Message message) {
             switch (message.what) {
                 case 0:
-                    if (a.Pk != null) {
-                        a.Pk.m(a.mFileName, message.arg1);
+                    if (a.PD != null) {
+                        a.PD.m(a.mFileName, message.arg1);
                         break;
                     }
                     break;
                 case 1:
-                    if (a.Pk != null) {
-                        a.Pk.error(message.what, h.getString(R.string.voice_err_no_file));
+                    if (a.PD != null) {
+                        a.PD.error(message.what, h.getString(R.string.voice_err_no_file));
                         break;
                     }
                     break;
                 case 6:
-                    if (a.Pk != null) {
-                        a.Pk.aA(message.arg1);
+                    if (a.PD != null) {
+                        a.PD.aA(message.arg1);
                     }
                     return true;
                 default:
-                    if (a.Pk != null) {
-                        a.Pk.error(message.what, h.getString(R.string.voice_err_play));
+                    if (a.PD != null) {
+                        a.PD.error(message.what, h.getString(R.string.voice_err_play));
                         break;
                     }
                     break;
             }
             int unused = a.mPlayingState = 0;
-            c unused2 = a.Pk = null;
+            c unused2 = a.PD = null;
             return false;
         }
     });
 
     public static boolean a(String str, c cVar, int i) {
         if (mPlayingState == 0) {
-            if (Pj == null) {
-                Pj = new b(mHandler, i);
+            if (Pz == null) {
+                Pz = new b(mHandler, i);
             } else {
-                Pj.az(i);
+                Pz.az(i);
             }
             mFileName = str;
-            Pk = cVar;
-            Pj.cj(str);
+            PD = cVar;
+            Pz.cj(str);
             mPlayingState = 2;
-            new Thread(Pj).start();
+            new Thread(Pz).start();
             return true;
         }
         return false;
     }
 
     public static void stop() {
-        if (Pj != null) {
-            Pj.stop();
+        if (Pz != null) {
+            Pz.stop();
         } else {
             mPlayingState = 0;
         }

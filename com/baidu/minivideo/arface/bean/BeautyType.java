@@ -1,7 +1,7 @@
 package com.baidu.minivideo.arface.bean;
 
 import com.baidu.ar.filter.FilterParam;
-/* loaded from: classes11.dex */
+/* loaded from: classes15.dex */
 public enum BeautyType {
     lutFile(FilterParam.LutFilter.lutFile),
     lutIntensity(FilterParam.LutFilter.lutIntensity),
@@ -15,6 +15,7 @@ public enum BeautyType {
     eyeball(FilterParam.MakeupFilter.eyeball),
     eyelash(FilterParam.MakeupFilter.eyelash),
     eyebrow(FilterParam.MakeupFilter.eyebrow),
+    makeupClose(FilterParam.MakeupFilter.lipsMask),
     whiten(0.0f, FilterParam.SkinFilter.whiten),
     smooth(0.0f, FilterParam.SkinFilter.smooth),
     eye(0.0f, FilterParam.FaceFilter.eye),

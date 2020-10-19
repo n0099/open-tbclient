@@ -5,50 +5,50 @@ import com.baidu.adp.lib.util.BdLog;
 import tbclient.PrivatePopInfo;
 /* loaded from: classes.dex */
 public class PrivateForumPopInfoData extends OrmObject {
-    private String ebY = null;
-    private String ebZ = null;
-    private String eca = null;
-    private Integer ecb = null;
+    private String eoc = null;
+    private String eod = null;
+    private String eoe = null;
+    private Integer eog = null;
 
-    public void zy(String str) {
-        this.ebY = str;
+    public void Ak(String str) {
+        this.eoc = str;
     }
 
-    public String bex() {
-        return this.ebY;
+    public String bhg() {
+        return this.eoc;
     }
 
-    public void zz(String str) {
-        this.ebZ = str;
+    public void Al(String str) {
+        this.eod = str;
     }
 
-    public String bey() {
-        return this.ebZ;
+    public String bhh() {
+        return this.eod;
     }
 
-    public void zA(String str) {
-        this.eca = str;
+    public void Am(String str) {
+        this.eoe = str;
     }
 
-    public String bez() {
-        return this.eca;
+    public String bhi() {
+        return this.eoe;
     }
 
-    public void i(Integer num) {
-        this.ecb = num;
+    public void k(Integer num) {
+        this.eog = num;
     }
 
-    public Integer beA() {
-        return this.ecb;
+    public Integer bhj() {
+        return this.eog;
     }
 
     public void a(PrivatePopInfo privatePopInfo) {
         if (privatePopInfo != null) {
             try {
-                this.ebY = privatePopInfo.pop_type;
-                this.ebZ = privatePopInfo.pop_content;
-                this.eca = privatePopInfo.pop_url;
-                this.ecb = privatePopInfo.pop_forum_id;
+                this.eoc = privatePopInfo.pop_type;
+                this.eod = privatePopInfo.pop_content;
+                this.eoe = privatePopInfo.pop_url;
+                this.eog = privatePopInfo.pop_forum_id;
             } catch (Exception e) {
                 BdLog.detailException(e);
             }

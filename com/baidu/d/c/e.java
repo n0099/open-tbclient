@@ -12,26 +12,26 @@ import com.baidu.live.tbadk.pagestayduration.PageStayDurationHelper;
 import com.baidu.searchbox.common.runtime.AppRuntime;
 import com.baidu.searchbox.config.AppConfig;
 import java.util.HashMap;
-/* loaded from: classes11.dex */
+/* loaded from: classes9.dex */
 public class e {
     private static boolean DEBUG = AppConfig.isDebug();
     private static String TAG = "networkparam";
-    private static HashMap<String, Integer> amO = new HashMap<>();
+    private static HashMap<String, Integer> anx = new HashMap<>();
     private Context mContext = AppRuntime.getAppContext();
 
     static {
-        amO.put("WIFI", 1);
-        amO.put("3GNET", 21);
-        amO.put("3GWAP", 22);
-        amO.put("CMNET", 31);
-        amO.put("UNINET", 32);
-        amO.put("CTNET", 33);
-        amO.put("CMWAP", 41);
-        amO.put("UNIWAP", 42);
-        amO.put("CTWAP", 43);
+        anx.put("WIFI", 1);
+        anx.put("3GNET", 21);
+        anx.put("3GWAP", 22);
+        anx.put("CMNET", 31);
+        anx.put("UNINET", 32);
+        anx.put("CTNET", 33);
+        anx.put("CMWAP", 41);
+        anx.put("UNIWAP", 42);
+        anx.put("CTWAP", 43);
     }
 
-    public String uT() {
+    public String vc() {
         long j;
         String str;
         if (!DEBUG) {
@@ -44,7 +44,7 @@ public class e {
         int subType = connectManager.getSubType();
         if (!TextUtils.isEmpty(netType)) {
             String upperCase = netType.toUpperCase();
-            Integer num = amO.get(upperCase);
+            Integer num = anx.get(upperCase);
             if (num == null) {
                 num = 5;
             }
@@ -61,20 +61,20 @@ public class e {
 
     public String l(String str, boolean z) {
         if (z) {
-            String uT = uT();
-            if (TextUtils.equals(uT, "5_0")) {
+            String vc = vc();
+            if (TextUtils.equals(vc, "5_0")) {
                 return UrlUtil.addParam(str, "network", PreferenceManager.getDefaultSharedPreferences(this.mContext.getApplicationContext()).getString("last network type", "5_0"));
             }
-            if (!TextUtils.isEmpty(uT)) {
-                if (!TextUtils.equals(uT, "5_0")) {
+            if (!TextUtils.isEmpty(vc)) {
+                if (!TextUtils.equals(vc, "5_0")) {
                     SharedPreferences.Editor edit = PreferenceManager.getDefaultSharedPreferences(this.mContext.getApplicationContext()).edit();
-                    edit.putString("last network type", uT);
+                    edit.putString("last network type", vc);
                     edit.commit();
                 }
-                return UrlUtil.addParam(str, "network", uT);
+                return UrlUtil.addParam(str, "network", vc);
             }
             return str;
         }
-        return UrlUtil.addParam(str, "network", uT());
+        return UrlUtil.addParam(str, "network", vc());
     }
 }

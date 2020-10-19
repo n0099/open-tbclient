@@ -13,7 +13,7 @@ import com.heytap.mcssdk.mode.CommandMessage;
 import java.util.Iterator;
 import java.util.List;
 @SuppressLint({"WorldReadableFiles"})
-/* loaded from: classes7.dex */
+/* loaded from: classes10.dex */
 public class PushManager {
     private static final String TAG = "PushManager";
 
@@ -252,7 +252,7 @@ public class PushManager {
         if (f.m(context)) {
             return;
         }
-        f.a = i;
+        f.f1078a = i;
         f.b = str;
         h.b(context);
         String f = m.f(context, str);

@@ -1,7 +1,7 @@
 package com.baidu.tieba.im.message;
 
 import protobuf.GroupInfo;
-/* loaded from: classes22.dex */
+/* loaded from: classes23.dex */
 public class RequestUpdateGroupFlagMessage extends RequestUpdateGroupMessage {
     private String business;
     private int flag;

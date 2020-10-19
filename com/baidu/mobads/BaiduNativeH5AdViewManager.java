@@ -1,9 +1,11 @@
 package com.baidu.mobads;
 
 import android.content.Context;
-/* loaded from: classes3.dex */
+/* loaded from: classes7.dex */
 public class BaiduNativeH5AdViewManager {
-    private static BaiduNativeH5AdViewManager a;
+
+    /* renamed from: a  reason: collision with root package name */
+    private static BaiduNativeH5AdViewManager f2301a;
 
     private BaiduNativeH5AdViewManager() {
     }
@@ -11,10 +13,10 @@ public class BaiduNativeH5AdViewManager {
     public static synchronized BaiduNativeH5AdViewManager getInstance() {
         BaiduNativeH5AdViewManager baiduNativeH5AdViewManager;
         synchronized (BaiduNativeH5AdViewManager.class) {
-            if (a == null) {
-                a = new BaiduNativeH5AdViewManager();
+            if (f2301a == null) {
+                f2301a = new BaiduNativeH5AdViewManager();
             }
-            baiduNativeH5AdViewManager = a;
+            baiduNativeH5AdViewManager = f2301a;
         }
         return baiduNativeH5AdViewManager;
     }

@@ -18,7 +18,7 @@ import java.util.Iterator;
 import java.util.List;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes12.dex */
+/* loaded from: classes15.dex */
 public class PushManager implements b {
     private static final String APP_PACKAGE = "appPackage";
     private static final String APP_VERSION_CODE = "versionCode";

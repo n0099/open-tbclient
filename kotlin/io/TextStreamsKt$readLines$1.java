@@ -6,7 +6,7 @@ import kotlin.jvm.internal.Lambda;
 import kotlin.jvm.internal.q;
 import kotlin.l;
 @kotlin.h
-/* loaded from: classes5.dex */
+/* loaded from: classes10.dex */
 final class TextStreamsKt$readLines$1 extends Lambda implements kotlin.jvm.a.b<String, l> {
     final /* synthetic */ ArrayList $result;
 
@@ -21,12 +21,12 @@ final class TextStreamsKt$readLines$1 extends Lambda implements kotlin.jvm.a.b<S
     @Override // kotlin.jvm.a.b
     public /* bridge */ /* synthetic */ l invoke(String str) {
         invoke2(str);
-        return l.oBM;
+        return l.oRb;
     }
 
     /* renamed from: invoke  reason: avoid collision after fix types in other method */
     public final void invoke2(String str) {
-        q.m(str, AdvanceSetting.NETWORK_TYPE);
+        q.n(str, AdvanceSetting.NETWORK_TYPE);
         this.$result.add(str);
     }
 }

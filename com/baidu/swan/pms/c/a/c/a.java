@@ -4,11 +4,11 @@ import android.support.annotation.NonNull;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
-/* loaded from: classes24.dex */
+/* loaded from: classes15.dex */
 public class a<T> {
     protected final List<T> mQueue = new ArrayList();
 
-    public synchronized T aUB() {
+    public synchronized T aXk() {
         T t;
         if (this.mQueue.isEmpty()) {
             t = null;
@@ -29,7 +29,7 @@ public class a<T> {
         return t;
     }
 
-    public T aj(T t) {
+    public T am(T t) {
         if (t != null) {
             for (int size = this.mQueue.size() - 1; size >= 0; size--) {
                 if (t.equals(this.mQueue.get(size))) {
@@ -41,7 +41,7 @@ public class a<T> {
     }
 
     @NonNull
-    public Iterator<T> aUC() {
+    public Iterator<T> aXl() {
         return this.mQueue.iterator();
     }
 

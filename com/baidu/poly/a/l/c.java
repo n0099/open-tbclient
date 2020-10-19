@@ -10,18 +10,18 @@ import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.TextView;
 import com.baidu.poly.b;
-/* loaded from: classes9.dex */
+/* loaded from: classes6.dex */
 public class c extends FrameLayout {
-    private ImageView bIB;
-    private TextView bIC;
-    private Animation bID;
-    private boolean bIE;
+    private ImageView bPk;
+    private TextView bPl;
+    private Animation bPm;
+    private boolean bPn;
 
     public c(Context context) {
         this(context, null);
     }
 
-    private void UW() {
+    private void WT() {
         ViewGroup.LayoutParams layoutParams = getLayoutParams();
         if (layoutParams == null) {
             setLayoutParams(new ViewGroup.LayoutParams(-1, -1));
@@ -33,30 +33,30 @@ public class c extends FrameLayout {
 
     private void c(Context context) {
         LayoutInflater.from(context).inflate(b.f.view_toast_loading, (ViewGroup) this, true);
-        this.bIB = (ImageView) findViewById(b.e.toast_loading_view);
-        this.bIC = (TextView) findViewById(b.e.toast_text_view);
-        this.bID = AnimationUtils.loadAnimation(context, b.a.loading_rotate);
+        this.bPk = (ImageView) findViewById(b.e.toast_loading_view);
+        this.bPl = (TextView) findViewById(b.e.toast_text_view);
+        this.bPm = AnimationUtils.loadAnimation(context, b.a.loading_rotate);
         setClickable(true);
     }
 
     public boolean getIsLoading() {
-        return this.bIE;
+        return this.bPn;
     }
 
     public void setLoading(boolean z) {
-        UW();
-        this.bIE = z;
+        WT();
+        this.bPn = z;
         if (z) {
             setVisibility(0);
-            this.bIB.startAnimation(this.bID);
+            this.bPk.startAnimation(this.bPm);
             return;
         }
-        this.bIB.clearAnimation();
+        this.bPk.clearAnimation();
         setVisibility(8);
     }
 
     public void setText(String str) {
-        this.bIC.setText(str);
+        this.bPl.setText(str);
     }
 
     public c(Context context, AttributeSet attributeSet) {

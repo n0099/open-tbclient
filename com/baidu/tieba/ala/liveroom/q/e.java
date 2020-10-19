@@ -11,37 +11,37 @@ import com.baidu.live.tbadk.task.TbHttpMessageTask;
 import com.baidu.tieba.ala.liveroom.messages.AlaDiversionInfoResponseMessage;
 /* loaded from: classes4.dex */
 public class e extends BdBaseModel {
-    private a gJJ;
-    private HttpMessageListener gJK;
+    private a gYk;
+    private HttpMessageListener gYl;
 
     /* loaded from: classes4.dex */
     public interface a {
         void a(com.baidu.tieba.ala.liveroom.data.c cVar);
 
-        void aT(int i, String str);
+        void bd(int i, String str);
     }
 
     public e(BdPageContext<?> bdPageContext, a aVar) {
         super(bdPageContext);
-        this.gJK = new HttpMessageListener(1021181) { // from class: com.baidu.tieba.ala.liveroom.q.e.1
+        this.gYl = new HttpMessageListener(1021181) { // from class: com.baidu.tieba.ala.liveroom.q.e.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.live.adp.framework.listener.MessageListener
             public void onMessage(HttpResponsedMessage httpResponsedMessage) {
                 if (httpResponsedMessage != null && httpResponsedMessage.getCmd() == 1021181 && (httpResponsedMessage instanceof AlaDiversionInfoResponseMessage)) {
                     AlaDiversionInfoResponseMessage alaDiversionInfoResponseMessage = (AlaDiversionInfoResponseMessage) httpResponsedMessage;
-                    if (e.this.gJJ != null) {
+                    if (e.this.gYk != null) {
                         if (alaDiversionInfoResponseMessage.getError() != 0 || !alaDiversionInfoResponseMessage.isSuccess()) {
-                            e.this.gJJ.aT(alaDiversionInfoResponseMessage.getError(), alaDiversionInfoResponseMessage.getErrorString());
+                            e.this.gYk.bd(alaDiversionInfoResponseMessage.getError(), alaDiversionInfoResponseMessage.getErrorString());
                         } else {
-                            e.this.gJJ.a(alaDiversionInfoResponseMessage.bWH());
+                            e.this.gYk.a(alaDiversionInfoResponseMessage.cac());
                         }
                     }
                 }
             }
         };
-        this.gJJ = aVar;
+        this.gYk = aVar;
         initTasks();
-        registerListener(this.gJK);
+        registerListener(this.gYl);
     }
 
     private void initTasks() {
@@ -53,7 +53,7 @@ public class e extends BdBaseModel {
         MessageManager.getInstance().registerTask(tbHttpMessageTask);
     }
 
-    public void g(String str, String str2, long j) {
+    public void h(String str, String str2, long j) {
         HttpMessage httpMessage = new HttpMessage(1021181);
         httpMessage.addParam("live_id", str);
         httpMessage.addParam("anchor_user_id", str2);

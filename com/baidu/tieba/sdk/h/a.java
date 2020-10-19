@@ -3,16 +3,16 @@ package com.baidu.tieba.sdk.h;
 import com.baidu.live.adp.framework.message.CustomMessage;
 import com.baidu.live.adp.framework.message.CustomResponsedMessage;
 import com.baidu.live.adp.framework.task.CustomMessageTask;
-import com.baidu.tieba.sdk.b.g;
+import com.baidu.tieba.sdk.b.f;
 /* loaded from: classes4.dex */
 public class a implements CustomMessageTask.CustomRunnable {
     @Override // com.baidu.live.adp.framework.task.CustomMessageTask.CustomRunnable
     public CustomResponsedMessage<?> run(CustomMessage customMessage) {
         if (customMessage != null && (customMessage.getData() instanceof String)) {
             String str = (String) customMessage.getData();
-            g dtk = com.baidu.tieba.sdk.d.a.dtb().dtk();
-            if (dtk != null) {
-                dtk.Mq(str);
+            f dwV = com.baidu.tieba.sdk.d.a.dwM().dwV();
+            if (dwV != null) {
+                dwV.Nf(str);
                 return null;
             }
             return null;

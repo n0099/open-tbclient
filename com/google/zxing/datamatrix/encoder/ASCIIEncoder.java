@@ -2,7 +2,7 @@ package com.google.zxing.datamatrix.encoder;
 
 import com.baidu.android.imsdk.upload.action.pb.IMPushPb;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes3.dex */
+/* loaded from: classes7.dex */
 public final class ASCIIEncoder implements Encoder {
     @Override // com.google.zxing.datamatrix.encoder.Encoder
     public int getEncodingMode() {

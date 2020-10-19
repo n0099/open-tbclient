@@ -1,17 +1,19 @@
 package com.baidu.mobstat;
-/* loaded from: classes15.dex */
+/* loaded from: classes17.dex */
 public class cg extends RuntimeException {
-    private int a;
+
+    /* renamed from: a  reason: collision with root package name */
+    private int f2603a;
 
     public cg(int i) {
-        this.a = i;
+        this.f2603a = i;
     }
 
     public cg() {
-        this.a = 0;
+        this.f2603a = 0;
     }
 
     public int a() {
-        return this.a;
+        return this.f2603a;
     }
 }

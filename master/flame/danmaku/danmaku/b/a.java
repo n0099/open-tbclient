@@ -10,11 +10,11 @@ public interface a {
 
     /* renamed from: master.flame.danmaku.danmaku.b.a$a  reason: collision with other inner class name */
     /* loaded from: classes6.dex */
-    public interface InterfaceC0974a {
+    public interface InterfaceC0992a {
         void i(d dVar);
     }
 
-    void a(InterfaceC0974a interfaceC0974a);
+    void a(InterfaceC0992a interfaceC0992a);
 
     void a(k kVar);
 
@@ -22,118 +22,118 @@ public interface a {
 
     void clear();
 
-    void emI();
+    void eqv();
 
     void release();
 
-    void zf(boolean z);
+    void zM(boolean z);
 
-    void zg(boolean z);
+    void zN(boolean z);
 
     /* loaded from: classes6.dex */
     public static class b {
         public long beginTime;
         public long endTime;
-        public long fYd;
-        public boolean oID;
-        public int oIE;
-        public int oIF;
-        public d oIG;
-        public int oIH;
-        public int oII;
-        public int oIJ;
-        public int oIK;
-        public int oIL;
-        public int oIM;
-        public int oIN;
-        public long oIO;
-        public boolean oIP;
-        public long oIQ;
-        public long oIR;
-        private boolean oIT;
-        public f oEJ = new f();
-        private l oIS = new master.flame.danmaku.danmaku.model.android.d(4);
+        public long gkv;
+        public boolean oXR;
+        public int oXS;
+        public int oXT;
+        public d oXU;
+        public int oXV;
+        public int oXW;
+        public int oXX;
+        public int oXY;
+        public int oXZ;
+        public int oYa;
+        public int oYb;
+        public long oYc;
+        public boolean oYd;
+        public long oYe;
+        public long oYf;
+        private boolean oYh;
+        public f oTY = new f();
+        private l oYg = new master.flame.danmaku.danmaku.model.android.d(4);
 
-        public int OJ(int i) {
-            this.oIM += i;
-            return this.oIM;
+        public int Pp(int i) {
+            this.oYa += i;
+            return this.oYa;
         }
 
         public int ep(int i, int i2) {
             switch (i) {
                 case 1:
-                    this.oIH += i2;
-                    return this.oIH;
+                    this.oXV += i2;
+                    return this.oXV;
                 case 2:
                 case 3:
                 default:
                     return 0;
                 case 4:
-                    this.oIK += i2;
-                    return this.oIK;
+                    this.oXY += i2;
+                    return this.oXY;
                 case 5:
-                    this.oIJ += i2;
-                    return this.oIJ;
+                    this.oXX += i2;
+                    return this.oXX;
                 case 6:
-                    this.oII += i2;
-                    return this.oII;
+                    this.oXW += i2;
+                    return this.oXW;
                 case 7:
-                    this.oIL += i2;
-                    return this.oIL;
+                    this.oXZ += i2;
+                    return this.oXZ;
             }
         }
 
         public void reset() {
-            this.oIN = this.oIM;
-            this.oIM = 0;
-            this.oIL = 0;
-            this.oIK = 0;
-            this.oIJ = 0;
-            this.oII = 0;
-            this.oIH = 0;
-            this.oIO = 0L;
+            this.oYb = this.oYa;
+            this.oYa = 0;
+            this.oXZ = 0;
+            this.oXY = 0;
+            this.oXX = 0;
+            this.oXW = 0;
+            this.oXV = 0;
+            this.oYc = 0L;
             this.endTime = 0L;
             this.beginTime = 0L;
-            this.fYd = 0L;
-            this.oIP = false;
+            this.gkv = 0L;
+            this.oYd = false;
             synchronized (this) {
-                this.oIS.clear();
+                this.oYg.clear();
             }
         }
 
         public void b(b bVar) {
             if (bVar != null) {
-                this.oIN = bVar.oIN;
-                this.oIH = bVar.oIH;
-                this.oII = bVar.oII;
-                this.oIJ = bVar.oIJ;
-                this.oIK = bVar.oIK;
-                this.oIL = bVar.oIL;
-                this.oIM = bVar.oIM;
-                this.oIO = bVar.oIO;
+                this.oYb = bVar.oYb;
+                this.oXV = bVar.oXV;
+                this.oXW = bVar.oXW;
+                this.oXX = bVar.oXX;
+                this.oXY = bVar.oXY;
+                this.oXZ = bVar.oXZ;
+                this.oYa = bVar.oYa;
+                this.oYc = bVar.oYc;
                 this.beginTime = bVar.beginTime;
                 this.endTime = bVar.endTime;
-                this.oIP = bVar.oIP;
-                this.fYd = bVar.fYd;
-                this.oIQ = bVar.oIQ;
-                this.oIR = bVar.oIR;
+                this.oYd = bVar.oYd;
+                this.gkv = bVar.gkv;
+                this.oYe = bVar.oYe;
+                this.oYf = bVar.oYf;
             }
         }
 
         public void v(d dVar) {
-            if (!this.oIT) {
-                this.oIS.k(dVar);
+            if (!this.oYh) {
+                this.oYg.k(dVar);
             }
         }
 
-        public l emJ() {
+        public l eqw() {
             l lVar;
-            this.oIT = true;
+            this.oYh = true;
             synchronized (this) {
-                lVar = this.oIS;
-                this.oIS = new master.flame.danmaku.danmaku.model.android.d(4);
+                lVar = this.oYg;
+                this.oYg = new master.flame.danmaku.danmaku.model.android.d(4);
             }
-            this.oIT = false;
+            this.oYh = false;
             return lVar;
         }
     }

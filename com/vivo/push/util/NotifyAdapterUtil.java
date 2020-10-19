@@ -21,7 +21,8 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
 import java.util.Locale;
-/* loaded from: classes12.dex */
+import org.webrtc.MediaStreamTrack;
+/* loaded from: classes15.dex */
 public class NotifyAdapterUtil {
     public static final int NOTIFY_MULTITERM_STYLE = 1;
     public static final int NOTIFY_SINGLE_STYLE = 0;
@@ -136,7 +137,7 @@ public class NotifyAdapterUtil {
         if (Build.VERSION.SDK_INT >= 16 && TextUtils.isEmpty(insideNotificationItem.getPurePicUrl())) {
             notification.bigContentView = remoteViews;
         }
-        AudioManager audioManager = (AudioManager) context.getSystemService("audio");
+        AudioManager audioManager = (AudioManager) context.getSystemService(MediaStreamTrack.AUDIO_TRACK_KIND);
         int ringerMode = audioManager.getRingerMode();
         int vibrateSetting = audioManager.getVibrateSetting(0);
         p.d(TAG, "ringMode=" + ringerMode + " callVibrateSetting=" + vibrateSetting);
@@ -191,7 +192,7 @@ public class NotifyAdapterUtil {
         String content = insideNotificationItem.getContent();
         int intValue = Integer.valueOf(context.getApplicationInfo().icon).intValue();
         boolean isShowTime = insideNotificationItem.isShowTime();
-        AudioManager audioManager = (AudioManager) context.getSystemService("audio");
+        AudioManager audioManager = (AudioManager) context.getSystemService(MediaStreamTrack.AUDIO_TRACK_KIND);
         Bitmap bitmap = null;
         int defaultNotifyIcon = NotifyUtil.getNotifyDataAdapter(context).getDefaultNotifyIcon();
         if (list != null && !list.isEmpty() && (bitmap = list.get(0)) != null && defaultNotifyIcon > 0 && (decodeResource = BitmapFactory.decodeResource(context.getResources(), defaultNotifyIcon)) != null) {

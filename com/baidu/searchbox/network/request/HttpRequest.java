@@ -26,7 +26,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 import org.json.JSONObject;
-/* loaded from: classes14.dex */
+/* loaded from: classes15.dex */
 public abstract class HttpRequest<T extends HttpRequestBuilder> {
     public static final String EXT_HEADER_TRACE_ID = "X-Bd-Traceid";
     public static final int REQUESTFROM_FEED = 1;

@@ -6,60 +6,60 @@ import com.baidu.swan.apps.ap.ai;
 import com.baidu.swan.apps.scheme.actions.k.j;
 import com.baidu.tieba.imMessageCenter.InvokeNewImMessageCenterFragmentConfig;
 import java.util.TreeMap;
-/* loaded from: classes3.dex */
+/* loaded from: classes10.dex */
 public final class b {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
     public String appPath;
-    public String cpp;
-    public String cpq;
-    public boolean cpr;
-    public boolean cps;
-    public String cpt;
-    public String cpv;
-    public String cpw;
-    public String cpx;
-    public String cpy;
-    private String cpz;
+    public String cBE;
+    public String cBF;
+    public boolean cBG;
+    public boolean cBH;
+    public String cBI;
+    public String cBJ;
+    public String cBK;
+    public String cBL;
+    public String cBM;
+    private String cBN;
     public String pageType;
 
     public static com.baidu.swan.apps.event.a.b b(b bVar) {
         TreeMap treeMap = new TreeMap();
         treeMap.put("appPath", bVar.appPath);
-        treeMap.put("pagePath", bVar.cpv);
+        treeMap.put("pagePath", bVar.cBJ);
         treeMap.put(InvokeNewImMessageCenterFragmentConfig.PAGE_TYPE, bVar.pageType);
-        treeMap.put("devhook", bVar.cpp);
-        if (!TextUtils.isEmpty(bVar.cpx)) {
+        treeMap.put("devhook", bVar.cBE);
+        if (!TextUtils.isEmpty(bVar.cBL)) {
             if (DEBUG) {
-                Log.d("PageReadyEvent", "add initData: " + bVar.cpx);
+                Log.d("PageReadyEvent", "add initData: " + bVar.cBL);
             }
-            treeMap.put("initData", bVar.cpx);
+            treeMap.put("initData", bVar.cBL);
         }
-        if (!TextUtils.isEmpty(bVar.cpw)) {
-            treeMap.put("onReachBottomDistance", bVar.cpw);
+        if (!TextUtils.isEmpty(bVar.cBK)) {
+            treeMap.put("onReachBottomDistance", bVar.cBK);
         }
-        treeMap.put("showPerformancePanel", String.valueOf(bVar.cpr));
-        if (!TextUtils.isEmpty(bVar.cpy)) {
-            treeMap.put("routeId", bVar.cpy);
+        treeMap.put("showPerformancePanel", String.valueOf(bVar.cBG));
+        if (!TextUtils.isEmpty(bVar.cBM)) {
+            treeMap.put("routeId", bVar.cBM);
         }
-        treeMap.put("isT7Available", String.valueOf(bVar.cps));
-        if (!TextUtils.isEmpty(bVar.cpt)) {
-            treeMap.put("slavePreload", bVar.cpt);
+        treeMap.put("isT7Available", String.valueOf(bVar.cBH));
+        if (!TextUtils.isEmpty(bVar.cBI)) {
+            treeMap.put("slavePreload", bVar.cBI);
         }
-        treeMap.put("root", bVar.cpq);
+        treeMap.put("root", bVar.cBF);
         com.baidu.swan.apps.ac.g.b.c(treeMap, "page ready event");
-        j.g(bVar.cpv, treeMap);
-        bVar.cpz = com.baidu.swan.apps.runtime.config.a.cf(bVar.appPath, ai.delAllParamsFromUrl(j.rq(bVar.cpv)));
-        if (!TextUtils.isEmpty(bVar.cpz)) {
-            treeMap.put("pageConfig", bVar.cpz);
+        j.g(bVar.cBJ, treeMap);
+        bVar.cBN = com.baidu.swan.apps.runtime.config.a.ck(bVar.appPath, ai.delAllParamsFromUrl(j.sc(bVar.cBJ)));
+        if (!TextUtils.isEmpty(bVar.cBN)) {
+            treeMap.put("pageConfig", bVar.cBN);
         }
-        com.baidu.swan.apps.core.g.a akT = d.akC().akT();
-        if (akT != null) {
-            treeMap.put("masterId", akT.abD());
+        com.baidu.swan.apps.core.g.a anE = d.ann().anE();
+        if (anE != null) {
+            treeMap.put("masterId", anE.aep());
         }
         return new com.baidu.swan.apps.event.a.b("PageReady", treeMap);
     }
 
     public String toString() {
-        return "PageReadyEvent{appPath='" + this.appPath + "', pagePath='" + this.cpv + "', pageType='" + this.pageType + "', onReachBottomDistance='" + this.cpw + "', sConsole='" + this.cpp + "', initData='" + this.cpx + "', showPerformancePanel=" + this.cpr + ", routeId='" + this.cpy + "', isT7Available=" + this.cps + ", preloadFile='" + this.cpt + "', rootPath='" + this.cpq + "', pageConfig='" + this.cpz + "'}";
+        return "PageReadyEvent{appPath='" + this.appPath + "', pagePath='" + this.cBJ + "', pageType='" + this.pageType + "', onReachBottomDistance='" + this.cBK + "', sConsole='" + this.cBE + "', initData='" + this.cBL + "', showPerformancePanel=" + this.cBG + ", routeId='" + this.cBM + "', isT7Available=" + this.cBH + ", preloadFile='" + this.cBI + "', rootPath='" + this.cBF + "', pageConfig='" + this.cBN + "'}";
     }
 }

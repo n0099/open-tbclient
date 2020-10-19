@@ -10,13 +10,15 @@ import com.baidu.mobads.production.c.c;
 import com.baidu.mobads.production.i.a;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes3.dex */
+/* loaded from: classes7.dex */
 public class BaiduVideoNative implements BaiduNative.BaiduNativeNetworkListener {
-    private c a;
+
+    /* renamed from: a  reason: collision with root package name */
+    private c f2275a;
     private BaiduVideoNetworkListener b;
     private BaiduNative c;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes7.dex */
     public interface BaiduVideoNetworkListener {
         void onAdFail(NativeErrorCode nativeErrorCode);
 
@@ -24,9 +26,9 @@ public class BaiduVideoNative implements BaiduNative.BaiduNativeNetworkListener 
     }
 
     public BaiduVideoNative(Context context, String str, BaiduVideoNetworkListener baiduVideoNetworkListener) {
-        this.a = new a(context, str);
+        this.f2275a = new a(context, str);
         this.b = baiduVideoNetworkListener;
-        this.c = new BaiduNative(context, str, this, this.a);
+        this.c = new BaiduNative(context, str, this, this.f2275a);
     }
 
     public void makeRequest(RequestParameters requestParameters) {

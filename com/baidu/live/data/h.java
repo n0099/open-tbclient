@@ -9,16 +9,16 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 /* loaded from: classes4.dex */
 public class h extends BaseData {
-    public int aDT;
-    public a aDU;
-    public List<b> aDV;
+    public int aGX;
+    public a aGY;
+    public List<b> aGZ;
 
     /* loaded from: classes4.dex */
     public static class a {
-        public int aDW;
-        public long aDX;
-        public long aDY;
-        public long aDZ;
+        public int aHa;
+        public long aHb;
+        public long aHc;
+        public long aHd;
         public String bd_portrait;
         public String user_name;
         public String user_nickname;
@@ -26,7 +26,7 @@ public class h extends BaseData {
 
     /* loaded from: classes4.dex */
     public static class b {
-        public String aEa;
+        public String aHe;
         public String bd_portrait;
         public int follow_status;
         public int level_id;
@@ -42,23 +42,23 @@ public class h extends BaseData {
     public void parserJson(JSONObject jSONObject) {
         if (jSONObject != null && jSONObject.has("data")) {
             JSONObject optJSONObject = jSONObject.optJSONObject("data");
-            this.aDT = optJSONObject.optInt("room_charm");
+            this.aGX = optJSONObject.optInt("room_charm");
             if (optJSONObject.has("charm_data")) {
                 JSONObject optJSONObject2 = optJSONObject.optJSONObject("charm_data");
-                this.aDU = new a();
+                this.aGY = new a();
                 if (optJSONObject2 != null) {
-                    this.aDU.bd_portrait = optJSONObject2.optString("bd_portrait");
-                    this.aDU.user_name = optJSONObject2.optString("user_name");
-                    this.aDU.user_nickname = optJSONObject2.optString("user_nickname");
-                    this.aDU.aDW = optJSONObject2.optInt("current_rank");
-                    this.aDU.aDX = optJSONObject2.optLong("current_charm_value");
-                    this.aDU.aDY = optJSONObject2.optLong("up_charm_value");
-                    this.aDU.aDZ = optJSONObject2.optLong("down_charm_value");
+                    this.aGY.bd_portrait = optJSONObject2.optString("bd_portrait");
+                    this.aGY.user_name = optJSONObject2.optString("user_name");
+                    this.aGY.user_nickname = optJSONObject2.optString("user_nickname");
+                    this.aGY.aHa = optJSONObject2.optInt("current_rank");
+                    this.aGY.aHb = optJSONObject2.optLong("current_charm_value");
+                    this.aGY.aHc = optJSONObject2.optLong("up_charm_value");
+                    this.aGY.aHd = optJSONObject2.optLong("down_charm_value");
                 }
             }
             JSONArray optJSONArray = optJSONObject.optJSONArray("rank_list");
             if (optJSONArray != null) {
-                this.aDV = new ArrayList();
+                this.aGZ = new ArrayList();
                 for (int i = 0; i < optJSONArray.length(); i++) {
                     JSONObject optJSONObject3 = optJSONArray.optJSONObject(i);
                     b bVar = new b();
@@ -70,7 +70,7 @@ public class h extends BaseData {
                     bVar.follow_status = optJSONObject3.optInt("follow_status");
                     bVar.bd_portrait = optJSONObject3.optString("bd_portrait");
                     bVar.level_id = optJSONObject3.optInt("level_id");
-                    bVar.aEa = optJSONObject3.optString("noble_id");
+                    bVar.aHe = optJSONObject3.optString("noble_id");
                     if (optJSONObject3.has(SubPbActivityConfig.ICON_LIST)) {
                         if (bVar.live_mark_info_new == null) {
                             bVar.live_mark_info_new = new ArrayList();
@@ -89,7 +89,7 @@ public class h extends BaseData {
                             return;
                         }
                     }
-                    this.aDV.add(bVar);
+                    this.aGZ.add(bVar);
                 }
             }
         }

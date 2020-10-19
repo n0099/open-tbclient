@@ -91,21 +91,20 @@ public class TbadkApplication extends TbadkCoreApplication {
                     boolean z3 = Build.VERSION.SDK_INT < 28 ? z2 : false;
                     if (!this.isKeepLiveProcess) {
                         if (!this.mPluginIsInited) {
-                            PluginPackageManager.pT().a(com.baidu.tbadk.o.c.bvG(), new d(), z3, (Object) null);
+                            PluginPackageManager.pT().a(com.baidu.tbadk.o.c.byq(), new d(), z3, (Object) null);
                         }
                         PluginSettings qs = com.baidu.adp.plugin.packageManager.pluginSettings.c.qv().qs();
                         if (qs != null) {
                             String containerVersion = qs.getContainerVersion();
                             if (!TextUtils.isEmpty(containerVersion) && Util.L(containerVersion, str) == Util.VersionCompare.EQUAL) {
-                                n.bvx().jG(z3);
-                                n.bvx().dh(System.currentTimeMillis() - currentTimeMillis);
+                                n.byh().ke(z3);
+                                n.byh().dp(System.currentTimeMillis() - currentTimeMillis);
                             }
                         }
                     }
                     this.mAppInitHandler.sendEmptyMessage(7);
                     return;
                 case 7:
-                    initSettings();
                     setActivityStackMaxSize(20);
                     if (isMainProcess(false)) {
                         updateSignAlarm();
@@ -121,17 +120,17 @@ public class TbadkApplication extends TbadkCoreApplication {
                         NASLib.setCallBack(new NASLib.NASCallBack() { // from class: com.baidu.tbadk.TbadkApplication.2
                             @Override // com.baidu.appsearchlib.NASLib.NASCallBack
                             public void callback(String str2, String str3) {
-                                be.bkp().b(null, new String[]{str3});
+                                be.bmY().b(null, new String[]{str3});
                             }
                         });
-                        n.bvx().dr(System.currentTimeMillis() - currentTimeMillis2);
+                        n.byh().dz(System.currentTimeMillis() - currentTimeMillis2);
                     }
                     this.mAppInitHandler.sendEmptyMessage(9);
                     return;
                 case 9:
-                    j.bjt();
+                    j.bmc();
                     if (this.isRemoteProcess) {
-                        n.bvx().dz(System.currentTimeMillis() - this.processCreateTime);
+                        n.byh().dH(System.currentTimeMillis() - this.processCreateTime);
                         return;
                     }
                     return;
@@ -139,10 +138,6 @@ public class TbadkApplication extends TbadkCoreApplication {
                     return;
             }
         }
-    }
-
-    private void initSettings() {
-        getInst().mViewImageQuality = TbadkSettings.getInst().loadInt(SharedPrefConfig.PREFS_VIEW_IMAGE_QUALITY, 0);
     }
 
     public boolean isSignAlertOn() {
@@ -242,7 +237,7 @@ public class TbadkApplication extends TbadkCoreApplication {
     }
 
     public void loginShareRemove() {
-        com.baidu.tbadk.core.sharedPref.b.bjf().remove(SharedPrefConfig.ACCOUNT_SHARE);
+        com.baidu.tbadk.core.sharedPref.b.blO().remove(SharedPrefConfig.ACCOUNT_SHARE);
     }
 
     public String loginShareRead() {
@@ -281,12 +276,12 @@ public class TbadkApplication extends TbadkCoreApplication {
     public void loadPatchs() {
         if (!this.isKeepLiveProcess) {
             super.loadPatchs();
-            int i = com.baidu.tbadk.core.sharedPref.b.bjf().getInt(SharedPrefConfig.PATCH_FATAL_ERROR_COUNT, 0);
+            int i = com.baidu.tbadk.core.sharedPref.b.blO().getInt(SharedPrefConfig.PATCH_FATAL_ERROR_COUNT, 0);
             PluginPackageManager.pT().aE(i);
             if (checkSyncPatchBlacklist() && com.baidu.adp.plugin.install.d.pB() && i == 0 && PluginPackageManager.pT().pX()) {
                 long currentTimeMillis = System.currentTimeMillis();
                 PluginPackageManager.pT().pY();
-                n.bvx().dg(System.currentTimeMillis() - currentTimeMillis);
+                n.byh().m38do(System.currentTimeMillis() - currentTimeMillis);
             }
         }
     }

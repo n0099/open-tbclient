@@ -3,25 +3,25 @@ package kotlin.jvm.internal;
 import java.util.NoSuchElementException;
 import kotlin.collections.z;
 @kotlin.h
-/* loaded from: classes5.dex */
+/* loaded from: classes10.dex */
 final class d extends z {
     private int index;
-    private final double[] oCt;
+    private final double[] oRI;
 
     public d(double[] dArr) {
-        q.m(dArr, com.baidu.fsg.base.statistics.b.j);
-        this.oCt = dArr;
+        q.n(dArr, com.baidu.fsg.base.statistics.b.j);
+        this.oRI = dArr;
     }
 
     @Override // java.util.Iterator
     public boolean hasNext() {
-        return this.index < this.oCt.length;
+        return this.index < this.oRI.length;
     }
 
     @Override // kotlin.collections.z
     public double nextDouble() {
         try {
-            double[] dArr = this.oCt;
+            double[] dArr = this.oRI;
             int i = this.index;
             this.index = i + 1;
             return dArr[i];

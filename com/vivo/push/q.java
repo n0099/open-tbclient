@@ -2,15 +2,17 @@ package com.vivo.push;
 
 import com.vivo.push.p;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes12.dex */
+/* loaded from: classes15.dex */
 public final class q implements IPushActionListener {
-    final /* synthetic */ p.a a;
+
+    /* renamed from: a  reason: collision with root package name */
+    final /* synthetic */ p.a f4690a;
     final /* synthetic */ p b;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public q(p pVar, p.a aVar) {
         this.b = pVar;
-        this.a = aVar;
+        this.f4690a = aVar;
     }
 
     @Override // com.vivo.push.IPushActionListener
@@ -22,11 +24,11 @@ public final class q implements IPushActionListener {
             aVar.c("APP_TOKEN");
             return;
         }
-        Object[] b = this.a.b();
+        Object[] b = this.f4690a.b();
         if (b == null || b.length == 0) {
             com.vivo.push.util.p.a("PushClientManager", "bind app result is null");
         } else {
-            this.b.a((String) this.a.b()[0]);
+            this.b.a((String) this.f4690a.b()[0]);
         }
     }
 }

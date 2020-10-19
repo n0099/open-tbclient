@@ -18,35 +18,35 @@ import org.json.JSONArray;
 import org.json.JSONException;
 /* loaded from: classes4.dex */
 public class a implements y {
-    private final String aTw;
-    private com.baidu.live.gift.c.a aYc;
+    private final String aWH;
+    private com.baidu.live.gift.c.a bbw;
     private Context mContext;
 
     public a(Context context) {
-        this.aTw = "live_key_privilege_tab_unlock_giftid_array_" + (TbadkCoreApplication.getCurrentAccountInfo() == null ? "" : TbadkCoreApplication.getCurrentAccountInfo().getID());
+        this.aWH = "live_key_privilege_tab_unlock_giftid_array_" + (TbadkCoreApplication.getCurrentAccountInfo() == null ? "" : TbadkCoreApplication.getCurrentAccountInfo().getID());
         this.mContext = context;
-        HI();
+        IF();
     }
 
     @Override // com.baidu.live.gift.y
-    public void gE(String str) {
-        this.aYc.gV(str);
+    public void gS(String str) {
+        this.bbw.hj(str);
     }
 
     @Override // com.baidu.live.gift.y
-    public void FB() {
+    public void Gx() {
     }
 
     @Override // com.baidu.live.gift.y
     public void release() {
-        if (this.aYc != null) {
-            this.aYc.release();
+        if (this.bbw != null) {
+            this.bbw.release();
         }
     }
 
-    private void HI() {
-        this.aYc = new com.baidu.live.gift.c.a();
-        this.aYc.a(new com.baidu.live.gift.c.b() { // from class: com.baidu.live.gift.panel.a.1
+    private void IF() {
+        this.bbw = new com.baidu.live.gift.c.a();
+        this.bbw.a(new com.baidu.live.gift.c.b() { // from class: com.baidu.live.gift.panel.a.1
             @Override // com.baidu.live.gift.c.b, com.baidu.live.gift.c.c.a
             public void a(boolean z, int i, String str, ArrayList<i> arrayList, ArrayList<g> arrayList2, ArrayList<com.baidu.live.data.i> arrayList3) {
                 super.a(z, i, str, arrayList, arrayList2, arrayList3);
@@ -64,7 +64,7 @@ public class a implements y {
     /* JADX INFO: Access modifiers changed from: private */
     public void c(boolean z, List<i> list) {
         if (z) {
-            u.Fk().F(list);
+            u.Gg().H(list);
         }
     }
 
@@ -78,17 +78,17 @@ public class a implements y {
             BdUtilHelper.showToast(this.mContext.getApplicationContext(), str);
         }
         if (i == 101) {
-            if (this.aYc == null) {
-                this.aYc = new com.baidu.live.gift.c.a();
+            if (this.bbw == null) {
+                this.bbw = new com.baidu.live.gift.c.a();
             }
-            this.aYc.gV("gift_send_101");
+            this.bbw.hj("gift_send_101");
         }
     }
 
-    private void gW(String str) {
+    private void hk(String str) {
         if (str != null) {
             HashSet<Object> hashSet = new HashSet();
-            String string = SharedPrefHelper.getInstance().getString(this.aTw, "");
+            String string = SharedPrefHelper.getInstance().getString(this.aWH, "");
             if (!TextUtils.isEmpty(string)) {
                 try {
                     JSONArray jSONArray = new JSONArray(string);
@@ -104,38 +104,38 @@ public class a implements y {
             for (Object obj : hashSet) {
                 jSONArray2.put(obj);
             }
-            SharedPrefHelper.getInstance().putString(this.aTw, jSONArray2.toString());
-            AlaGiftTabView.aUs.remove(str);
+            SharedPrefHelper.getInstance().putString(this.aWH, jSONArray2.toString());
+            AlaGiftTabView.aXD.remove(str);
         }
     }
 
     private void B(String str, int i) {
         List<i> datas;
         if (i == 0) {
-            gW(str);
+            hk(str);
         }
-        if (!TextUtils.isEmpty(str) && (datas = u.Fk().getDatas()) != null) {
+        if (!TextUtils.isEmpty(str) && (datas = u.Gg().getDatas()) != null) {
             ArrayList<i> arrayList = new ArrayList(datas);
             for (i iVar : arrayList) {
-                List<com.baidu.live.gift.g> EI = iVar.EI();
-                if (EI != null) {
+                List<com.baidu.live.gift.g> FE = iVar.FE();
+                if (FE != null) {
                     if (i == 0) {
-                        Iterator<com.baidu.live.gift.g> it = EI.iterator();
+                        Iterator<com.baidu.live.gift.g> it = FE.iterator();
                         while (it.hasNext()) {
-                            if (it.next().Eh().equals(str)) {
+                            if (it.next().Fd().equals(str)) {
                                 it.remove();
                             }
                         }
                     } else {
-                        for (com.baidu.live.gift.g gVar : EI) {
-                            if (gVar.Eh().equals(str)) {
-                                gVar.aPi.aPv = i;
+                        for (com.baidu.live.gift.g gVar : FE) {
+                            if (gVar.Fd().equals(str)) {
+                                gVar.aSt.aSG = i;
                             }
                         }
                     }
                 }
             }
-            u.Fk().F(arrayList);
+            u.Gg().H(arrayList);
         }
     }
 }

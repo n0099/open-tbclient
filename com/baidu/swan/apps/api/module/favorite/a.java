@@ -33,48 +33,48 @@ import com.baidu.swan.games.view.b;
 import com.baidu.swan.menu.PopupWindow;
 import java.util.Timer;
 import java.util.TimerTask;
-/* loaded from: classes3.dex */
+/* loaded from: classes10.dex */
 public class a {
-    public static ShowFavoriteGuideApi.GuideType bXj;
-    private static volatile a bXk;
-    private PopupWindow bXl;
-    private Timer bXm;
-    private SwanAppActivity bXn;
-    private c bXo;
-    private ContentObserver bXp;
-    private com.baidu.swan.apps.framework.a bXq;
-    private b bXr;
-    private InterfaceC0350a bXs;
+    public static ShowFavoriteGuideApi.GuideType cjy;
+    private static volatile a cjz;
+    private PopupWindow cjA;
+    private Timer cjB;
+    private SwanAppActivity cjC;
+    private c cjD;
+    private ContentObserver cjE;
+    private com.baidu.swan.apps.framework.a cjF;
+    private b cjG;
+    private InterfaceC0367a cjH;
 
     /* renamed from: com.baidu.swan.apps.api.module.favorite.a$a  reason: collision with other inner class name */
-    /* loaded from: classes3.dex */
-    public interface InterfaceC0350a {
-        void dA(boolean z);
+    /* loaded from: classes10.dex */
+    public interface InterfaceC0367a {
+        void dW(boolean z);
     }
 
     private a() {
     }
 
-    public static a acw() {
-        if (bXk == null) {
+    public static a afi() {
+        if (cjz == null) {
             synchronized (a.class) {
-                if (bXk == null) {
-                    bXk = new a();
+                if (cjz == null) {
+                    cjz = new a();
                 }
             }
         }
-        return bXk;
+        return cjz;
     }
 
     @UiThread
-    public void a(@Nullable InterfaceC0350a interfaceC0350a, @NonNull final Activity activity, @NonNull final e eVar, @NonNull final ShowFavoriteGuideApi.GuideType guideType, @Nullable String str, @Nullable String str2, long j) {
-        final f YG;
-        this.bXs = interfaceC0350a;
-        PF();
-        if (eVar.aAK()) {
-            acx();
-            if (this.bXr != null) {
-                this.bXr.lu(0);
+    public void a(@Nullable InterfaceC0367a interfaceC0367a, @NonNull final Activity activity, @NonNull final e eVar, @NonNull final ShowFavoriteGuideApi.GuideType guideType, @Nullable String str, @Nullable String str2, long j) {
+        final f abs;
+        this.cjH = interfaceC0367a;
+        QK();
+        if (eVar.aDt()) {
+            afj();
+            if (this.cjG != null) {
+                this.cjG.lR(0);
             }
         }
         a(activity, eVar, guideType);
@@ -91,11 +91,11 @@ public class a {
             if (findViewById != null) {
                 int[] iArr = new int[2];
                 findViewById.getLocationOnScreen(iArr);
-                inflate.findViewById(a.f.favorite_guide_arrow).setPadding(0, 0, ((ah.getDisplayWidth(null) - iArr[0]) - (findViewById.getWidth() / 2)) - ah.H(7.0f), 0);
-                this.bXl = new PopupWindow(inflate, -2, -2);
-                if (this.bXn != null && !this.bXn.isFinishing() && !this.bXn.isDestroyed() && findViewById.isAttachedToWindow()) {
+                inflate.findViewById(a.f.favorite_guide_arrow).setPadding(0, 0, ((ah.getDisplayWidth(null) - iArr[0]) - (findViewById.getWidth() / 2)) - ah.J(7.0f), 0);
+                this.cjA = new PopupWindow(inflate, -2, -2);
+                if (this.cjC != null && !this.cjC.isFinishing() && !this.cjC.isDestroyed() && findViewById.isAttachedToWindow()) {
                     try {
-                        this.bXl.showAsDropDown(findViewById, 0, -ah.H(3.0f));
+                        this.cjA.showAsDropDown(findViewById, 0, -ah.J(3.0f));
                     } catch (WindowManager.BadTokenException e) {
                         if (com.baidu.swan.apps.b.DEBUG) {
                             Log.e("FavoriteGuideHelper", "Bad token when showing fav guide popup!");
@@ -108,10 +108,10 @@ public class a {
             RelativeLayout relativeLayout = (RelativeLayout) inflate.findViewById(a.f.favorite_guide_container);
             ViewGroup.LayoutParams layoutParams = relativeLayout.getLayoutParams();
             int i = guideType.showWidth4px;
-            int H = ah.H(7.0f);
+            int J = ah.J(7.0f);
             int displayWidth = ah.getDisplayWidth(null);
-            if (displayWidth - i < H * 2) {
-                i = displayWidth - (H * 2);
+            if (displayWidth - i < J * 2) {
+                i = displayWidth - (J * 2);
             }
             layoutParams.width = i;
             relativeLayout.setLayoutParams(layoutParams);
@@ -123,9 +123,9 @@ public class a {
                 imageView.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.swan.apps.api.module.favorite.a.1
                     @Override // android.view.View.OnClickListener
                     public void onClick(View view) {
-                        a.this.PF();
-                        if (a.this.bXs != null) {
-                            a.this.bXs.dA(false);
+                        a.this.QK();
+                        if (a.this.cjH != null) {
+                            a.this.cjH.dW(false);
                         }
                         ShowFavoriteGuideApi.a(guideType, "flow_close_close", "click");
                     }
@@ -134,45 +134,45 @@ public class a {
             ((Button) inflate.findViewById(a.f.favorite_guide_add_btn)).setOnClickListener(new View.OnClickListener() { // from class: com.baidu.swan.apps.api.module.favorite.a.2
                 @Override // android.view.View.OnClickListener
                 public void onClick(View view) {
-                    a.bXj = guideType;
-                    com.baidu.swan.apps.menu.a.a(activity, new a.InterfaceC0411a() { // from class: com.baidu.swan.apps.api.module.favorite.a.2.1
-                        @Override // com.baidu.swan.apps.menu.a.InterfaceC0411a
+                    a.cjy = guideType;
+                    com.baidu.swan.apps.menu.a.a(activity, new a.InterfaceC0428a() { // from class: com.baidu.swan.apps.api.module.favorite.a.2.1
+                        @Override // com.baidu.swan.apps.menu.a.InterfaceC0428a
                         public void onSuccess() {
-                            if (a.this.bXs != null) {
-                                a.this.bXs.dA(true);
+                            if (a.this.cjH != null) {
+                                a.this.cjH.dW(true);
                             }
                             com.baidu.swan.apps.console.c.i("FavoriteGuideHelper", "add favorite result=true");
                         }
 
-                        @Override // com.baidu.swan.apps.menu.a.InterfaceC0411a
+                        @Override // com.baidu.swan.apps.menu.a.InterfaceC0428a
                         public void onFail() {
-                            if (a.this.bXs != null) {
-                                a.this.bXs.dA(false);
+                            if (a.this.cjH != null) {
+                                a.this.cjH.dW(false);
                             }
                             com.baidu.swan.apps.console.c.i("FavoriteGuideHelper", "add favorite result=false");
                         }
                     });
-                    a.this.PF();
-                    if (a.this.bXm != null) {
-                        a.this.bXm.cancel();
+                    a.this.QK();
+                    if (a.this.cjB != null) {
+                        a.this.cjB.cancel();
                     }
                     ShowFavoriteGuideApi.a(guideType, guideType == ShowFavoriteGuideApi.GuideType.WEAK ? "flow_add" : "flow_close_add", "click");
                 }
             });
-            this.bXl = new PopupWindow(inflate, -1, -2);
-            this.bXl.setSoftInputMode(16);
-            this.bXl.showAtLocation(activity.getWindow().getDecorView(), 81, 0, (int) ah.I(50.0f));
+            this.cjA = new PopupWindow(inflate, -1, -2);
+            this.cjA.setSoftInputMode(16);
+            this.cjA.showAtLocation(activity.getWindow().getDecorView(), 81, 0, (int) ah.K(50.0f));
         }
-        if ((guideType == ShowFavoriteGuideApi.GuideType.NORMAL || guideType == ShowFavoriteGuideApi.GuideType.TIPS) && this.bXn != null && (YG = this.bXn.YG()) != null && findViewById != null) {
-            final com.baidu.swan.apps.core.d.e ahY = YG.ahY();
-            final String ahG = ahY == null ? "" : ahY.ahG();
+        if ((guideType == ShowFavoriteGuideApi.GuideType.NORMAL || guideType == ShowFavoriteGuideApi.GuideType.TIPS) && this.cjC != null && (abs = this.cjC.abs()) != null && findViewById != null) {
+            final com.baidu.swan.apps.core.d.e akJ = abs.akJ();
+            final String akr = akJ == null ? "" : akJ.akr();
             final ViewTreeObserver viewTreeObserver = findViewById.getViewTreeObserver();
             viewTreeObserver.addOnGlobalLayoutListener(new ViewTreeObserver.OnGlobalLayoutListener() { // from class: com.baidu.swan.apps.api.module.favorite.a.3
                 @Override // android.view.ViewTreeObserver.OnGlobalLayoutListener
                 public void onGlobalLayout() {
-                    if (a.this.bXl != null || viewTreeObserver == null || !viewTreeObserver.isAlive()) {
-                        if (a.this.bXo != YG.ahW() || ((ahY != null && !TextUtils.equals(ahG, ahY.ahG())) || (!eVar.aAK() && ah.isScreenLand()))) {
-                            a.this.PF();
+                    if (a.this.cjA != null || viewTreeObserver == null || !viewTreeObserver.isAlive()) {
+                        if (a.this.cjD != abs.akH() || ((akJ != null && !TextUtils.equals(akr, akJ.akr())) || (!eVar.aDt() && ah.isScreenLand()))) {
+                            a.this.QK();
                             if (viewTreeObserver != null && viewTreeObserver.isAlive()) {
                                 viewTreeObserver.removeOnGlobalLayoutListener(this);
                                 return;
@@ -186,19 +186,19 @@ public class a {
             });
         }
         if (guideType == ShowFavoriteGuideApi.GuideType.TIPS || guideType == ShowFavoriteGuideApi.GuideType.WEAK) {
-            if (this.bXm != null) {
-                this.bXm.cancel();
+            if (this.cjB != null) {
+                this.cjB.cancel();
             }
-            this.bXm = new Timer();
-            this.bXm.schedule(new TimerTask() { // from class: com.baidu.swan.apps.api.module.favorite.a.4
+            this.cjB = new Timer();
+            this.cjB.schedule(new TimerTask() { // from class: com.baidu.swan.apps.api.module.favorite.a.4
                 @Override // java.util.TimerTask, java.lang.Runnable
                 public void run() {
-                    a.this.PF();
-                    if (a.this.bXs != null) {
-                        a.this.bXs.dA(com.baidu.swan.apps.database.favorite.a.mv(eVar.id));
+                    a.this.QK();
+                    if (a.this.cjH != null) {
+                        a.this.cjH.dW(com.baidu.swan.apps.database.favorite.a.nh(eVar.id));
                     }
-                    if (a.this.bXm != null) {
-                        a.this.bXm.cancel();
+                    if (a.this.cjB != null) {
+                        a.this.cjB.cancel();
                     }
                 }
             }, 1000 * j);
@@ -206,21 +206,21 @@ public class a {
         ShowFavoriteGuideApi.a(guideType, "", "show");
     }
 
-    private void acx() {
-        if (this.bXr == null) {
-            this.bXr = b.aQX();
-            if (this.bXr != null) {
-                this.bXr.a(new b.a() { // from class: com.baidu.swan.apps.api.module.favorite.a.5
+    private void afj() {
+        if (this.cjG == null) {
+            this.cjG = b.aTG();
+            if (this.cjG != null) {
+                this.cjG.a(new b.a() { // from class: com.baidu.swan.apps.api.module.favorite.a.5
                     @Override // com.baidu.swan.games.view.b.a
-                    public void gF(int i) {
+                    public void hc(int i) {
                         if (i == 1) {
-                            a.this.PF();
+                            a.this.QK();
                         }
                     }
 
                     @Override // com.baidu.swan.games.view.b.a
-                    public void acy() {
-                        a.this.PF();
+                    public void afk() {
+                        a.this.QK();
                     }
                 });
             }
@@ -228,65 +228,65 @@ public class a {
     }
 
     private synchronized void a(@NonNull Activity activity, @NonNull final e eVar, final ShowFavoriteGuideApi.GuideType guideType) {
-        this.bXp = new ContentObserver(null) { // from class: com.baidu.swan.apps.api.module.favorite.a.6
+        this.cjE = new ContentObserver(null) { // from class: com.baidu.swan.apps.api.module.favorite.a.6
             @Override // android.database.ContentObserver
             public void onChange(boolean z) {
                 super.onChange(z);
-                p.aFy().execute(new Runnable() { // from class: com.baidu.swan.apps.api.module.favorite.a.6.1
+                p.aIh().execute(new Runnable() { // from class: com.baidu.swan.apps.api.module.favorite.a.6.1
                     @Override // java.lang.Runnable
                     public void run() {
-                        if (com.baidu.swan.apps.database.favorite.a.mv(eVar.id)) {
-                            if (guideType == ShowFavoriteGuideApi.GuideType.NORMAL && a.this.bXs != null) {
-                                a.this.bXs.dA(true);
+                        if (com.baidu.swan.apps.database.favorite.a.nh(eVar.id)) {
+                            if (guideType == ShowFavoriteGuideApi.GuideType.NORMAL && a.this.cjH != null) {
+                                a.this.cjH.dW(true);
                             }
-                            a.this.PF();
+                            a.this.QK();
                         }
                     }
                 });
             }
         };
-        AppRuntime.getAppContext().getContentResolver().registerContentObserver(com.baidu.swan.apps.database.favorite.a.alF(), false, this.bXp);
+        AppRuntime.getAppContext().getContentResolver().registerContentObserver(com.baidu.swan.apps.database.favorite.a.aoq(), false, this.cjE);
         if (activity instanceof SwanAppActivity) {
-            this.bXn = (SwanAppActivity) activity;
-            if (this.bXq != null) {
-                this.bXn.b(this.bXq);
+            this.cjC = (SwanAppActivity) activity;
+            if (this.cjF != null) {
+                this.cjC.b(this.cjF);
             }
-            this.bXq = new com.baidu.swan.apps.framework.a() { // from class: com.baidu.swan.apps.api.module.favorite.a.7
+            this.cjF = new com.baidu.swan.apps.framework.a() { // from class: com.baidu.swan.apps.api.module.favorite.a.7
                 @Override // com.baidu.swan.apps.framework.a, com.baidu.swan.apps.framework.b
-                public void acz() {
+                public void afl() {
                     com.baidu.swan.apps.console.c.i("FavoriteGuideHelper", "call onActivityDestroyed");
-                    a.this.PF();
-                    if (a.this.bXn != null && a.this.bXq != null) {
-                        a.this.bXn.b(a.this.bXq);
+                    a.this.QK();
+                    if (a.this.cjC != null && a.this.cjF != null) {
+                        a.this.cjC.b(a.this.cjF);
                     }
                 }
 
                 @Override // com.baidu.swan.apps.framework.a, com.baidu.swan.apps.framework.b
-                public void acA() {
-                    super.acA();
-                    com.baidu.swan.apps.console.c.i("FavoriteGuideHelper", "swanId=" + eVar.id + ", nowId=" + e.aAt());
-                    if (!TextUtils.equals(eVar.id, e.aAt())) {
-                        a.this.PF();
+                public void afm() {
+                    super.afm();
+                    com.baidu.swan.apps.console.c.i("FavoriteGuideHelper", "swanId=" + eVar.id + ", nowId=" + e.aDc());
+                    if (!TextUtils.equals(eVar.id, e.aDc())) {
+                        a.this.QK();
                     }
                 }
 
                 @Override // com.baidu.swan.apps.framework.a, com.baidu.swan.apps.framework.b
-                public void acB() {
-                    if (a.this.bXl != null && a.this.bXl.isShowing()) {
-                        a.this.PF();
+                public void afn() {
+                    if (a.this.cjA != null && a.this.cjA.isShowing()) {
+                        a.this.QK();
                     }
                 }
             };
-            this.bXn.a(this.bXq);
+            this.cjC.a(this.cjF);
         }
-        f YG = this.bXn.YG();
-        if (YG != null) {
-            this.bXo = YG.ahW();
-            if (this.bXo != null) {
-                this.bXo.a(new c.b() { // from class: com.baidu.swan.apps.api.module.favorite.a.8
+        f abs = this.cjC.abs();
+        if (abs != null) {
+            this.cjD = abs.akH();
+            if (this.cjD != null) {
+                this.cjD.a(new c.b() { // from class: com.baidu.swan.apps.api.module.favorite.a.8
                     @Override // com.baidu.swan.apps.core.d.c.b
-                    public void acB() {
-                        a.this.PF();
+                    public void afn() {
+                        a.this.QK();
                     }
                 });
             }
@@ -295,29 +295,29 @@ public class a {
 
     /* JADX INFO: Access modifiers changed from: private */
     @AnyThread
-    public synchronized void PF() {
+    public synchronized void QK() {
         ak.runOnUiThread(new Runnable() { // from class: com.baidu.swan.apps.api.module.favorite.a.9
             @Override // java.lang.Runnable
             public void run() {
-                if (a.this.bXl != null) {
-                    a.this.bXl.dismiss();
-                    a.this.bXl = null;
+                if (a.this.cjA != null) {
+                    a.this.cjA.dismiss();
+                    a.this.cjA = null;
                 }
-                if (a.this.bXp != null) {
-                    AppRuntime.getAppContext().getContentResolver().unregisterContentObserver(a.this.bXp);
-                    a.this.bXp = null;
+                if (a.this.cjE != null) {
+                    AppRuntime.getAppContext().getContentResolver().unregisterContentObserver(a.this.cjE);
+                    a.this.cjE = null;
                 }
-                if (a.this.bXn != null && a.this.bXq != null) {
-                    a.this.bXn.b(a.this.bXq);
+                if (a.this.cjC != null && a.this.cjF != null) {
+                    a.this.cjC.b(a.this.cjF);
                 }
-                if (a.this.bXo != null) {
-                    a.this.bXo.a((c.b) null);
+                if (a.this.cjD != null) {
+                    a.this.cjD.a((c.b) null);
                 }
             }
         });
     }
 
-    public boolean jo(String str) {
+    public boolean ka(String str) {
         return TextUtils.isEmpty(str) || ShowFavoriteGuideApi.GuideType.parse(str) == ShowFavoriteGuideApi.GuideType.NORMAL;
     }
 }

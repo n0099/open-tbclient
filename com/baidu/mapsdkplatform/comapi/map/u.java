@@ -1,7 +1,9 @@
 package com.baidu.mapsdkplatform.comapi.map;
-/* loaded from: classes3.dex */
+/* loaded from: classes7.dex */
 public final class u {
-    public w a = new w();
+
+    /* renamed from: a  reason: collision with root package name */
+    public w f2238a = new w();
     public boolean b = false;
     public int c = 1;
     public boolean d = true;
@@ -15,7 +17,7 @@ public final class u {
     }
 
     public u a(w wVar) {
-        this.a = wVar;
+        this.f2238a = wVar;
         return this;
     }
 

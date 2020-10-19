@@ -2,9 +2,9 @@ package com.baidu.tieba.image;
 
 import android.content.Context;
 import com.baidu.tbadk.core.data.AdvertAppInfo;
-/* loaded from: classes20.dex */
+/* loaded from: classes21.dex */
 public class c {
-    private AdvertAppInfo jPE;
+    private AdvertAppInfo keD;
     private Context mContext;
     private String mForumId;
     private String mPostId;
@@ -16,29 +16,29 @@ public class c {
     }
 
     public void c(AdvertAppInfo advertAppInfo) {
-        this.jPE = advertAppInfo;
+        this.keD = advertAppInfo;
     }
 
-    public void LR(String str) {
-        LT("click");
-        com.baidu.tieba.recapp.report.c c = com.baidu.tieba.recapp.report.g.c(this.jPE, 2, 0);
-        c.Qk(str);
-        com.baidu.tieba.recapp.report.d.drV().a(c);
+    public void MG(String str) {
+        MI("click");
+        com.baidu.tieba.recapp.report.c c = com.baidu.tieba.recapp.report.g.c(this.keD, 2, 0);
+        c.QY(str);
+        com.baidu.tieba.recapp.report.d.dvG().a(c);
     }
 
-    public void LS(String str) {
-        LT("click");
-        com.baidu.tieba.recapp.report.c c = com.baidu.tieba.recapp.report.g.c(this.jPE, 706, 0);
-        c.Qk(str);
-        com.baidu.tieba.recapp.report.d.drV().a(c);
+    public void MH(String str) {
+        MI("click");
+        com.baidu.tieba.recapp.report.c c = com.baidu.tieba.recapp.report.g.c(this.keD, 706, 0);
+        c.QY(str);
+        com.baidu.tieba.recapp.report.d.dvG().a(c);
     }
 
-    public void afP() {
-        LT("show");
-        com.baidu.tieba.recapp.report.d.drV().a(com.baidu.tieba.recapp.report.g.c(this.jPE, 3, 0));
+    public void aiA() {
+        MI("show");
+        com.baidu.tieba.recapp.report.d.dvG().a(com.baidu.tieba.recapp.report.g.c(this.keD, 3, 0));
     }
 
-    public void LT(String str) {
-        com.baidu.tbadk.distribute.a.bsi().a(this.jPE, this.mForumId, com.baidu.adp.lib.f.b.toLong(this.mPostId, 0L), "PIC_PAGE", str, 1);
+    public void MI(String str) {
+        com.baidu.tbadk.distribute.a.buS().a(this.keD, this.mForumId, com.baidu.adp.lib.f.b.toLong(this.mPostId, 0L), "PIC_PAGE", str, 1);
     }
 }

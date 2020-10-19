@@ -11,27 +11,27 @@ import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes4.dex */
 public class r {
-    public static boolean aQI = false;
+    public static boolean aTT = false;
 
     public static void f(com.baidu.live.gift.a.c cVar) {
         com.baidu.live.im.h hVar = new com.baidu.live.im.h();
-        hVar.count = cVar.aVi;
+        hVar.count = cVar.aYt;
         hVar.giftId = cVar.giftId;
-        if (cVar.aVd.Eo()) {
+        if (cVar.aYo.Fk()) {
             hVar.giftName = TbadkCoreApplication.getInst().getString(a.i.text_gift_graffiti);
         } else {
-            hVar.giftName = cVar.aVd.Ei();
+            hVar.giftName = cVar.aYo.Fe();
         }
-        hVar.bdz = cVar.aVd.Er();
-        hVar.aQb = cVar.aQb;
-        hVar.bdA = cVar.aVi;
-        hVar.bdC.add(Long.valueOf(hVar.aQb));
-        if (aQI && !cVar.aVh) {
-            String Fh = Fh();
-            if (Fh != null) {
+        hVar.bhl = cVar.aYo.Fn();
+        hVar.aTm = cVar.aTm;
+        hVar.bhm = cVar.aYt;
+        hVar.bho.add(Long.valueOf(hVar.aTm));
+        if (aTT && !cVar.aYs) {
+            String Gd = Gd();
+            if (Gd != null) {
                 try {
-                    JSONObject jSONObject = new JSONObject(Fh);
-                    hVar.bdD = jSONObject.optString("pk_honer_buff_multiple");
+                    JSONObject jSONObject = new JSONObject(Gd);
+                    hVar.bhp = jSONObject.optString("pk_honer_buff_multiple");
                     hVar.text = jSONObject.optString("pk_honer_buff_text");
                     hVar.fontColor = jSONObject.optString("pk_honer_buff_text_font_color");
                     hVar.startColor = jSONObject.optString("pk_honer_buff_text_color_start");
@@ -40,7 +40,7 @@ public class r {
                     e.printStackTrace();
                 }
             } else {
-                hVar.bdD = LibsInfoDef.CYBER_VIDEO_SR_MODEL_VERSION;
+                hVar.bhp = LibsInfoDef.CYBER_VIDEO_SR_MODEL_VERSION;
                 hVar.text = "荣耀值";
                 hVar.fontColor = "#FFFFFF";
                 hVar.startColor = "#F53DC7";
@@ -52,37 +52,37 @@ public class r {
 
     public static void g(com.baidu.live.gift.a.c cVar) {
         com.baidu.live.im.i iVar = new com.baidu.live.im.i();
-        iVar.aVe = cVar.aVe;
-        iVar.bdE = cVar.msgId;
-        iVar.bdF = cVar.aVi;
-        iVar.bdG = cVar.aQb;
+        iVar.aYp = cVar.aYp;
+        iVar.bhq = cVar.msgId;
+        iVar.bhr = cVar.aYt;
+        iVar.bhs = cVar.aTm;
         MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2913184, iVar));
     }
 
     public static void a(com.baidu.live.gift.a.c cVar, com.baidu.live.gift.a.c cVar2) {
-        if (cVar != null && cVar2 != null && TextUtils.equals(cVar.GK(), cVar2.GK())) {
+        if (cVar != null && cVar2 != null && TextUtils.equals(cVar.HG(), cVar2.HG())) {
             com.baidu.live.im.i iVar = new com.baidu.live.im.i();
-            iVar.aVe = cVar.aVe;
-            iVar.bdE = cVar.msgId;
-            iVar.bdF = cVar.aVi;
-            iVar.bdG = cVar.aQb;
-            iVar.bdH = cVar2.msgId;
-            iVar.bdI = cVar2.aVi;
-            iVar.bdJ = cVar2.aQb;
+            iVar.aYp = cVar.aYp;
+            iVar.bhq = cVar.msgId;
+            iVar.bhr = cVar.aYt;
+            iVar.bhs = cVar.aTm;
+            iVar.bht = cVar2.msgId;
+            iVar.bhu = cVar2.aYt;
+            iVar.bhv = cVar2.aTm;
             MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2913183, iVar));
         }
     }
 
     public static void a(long j, String str, String str2, String str3, long j2, long j3) {
         com.baidu.live.im.i iVar = new com.baidu.live.im.i();
-        iVar.aVe = str2 + PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS + str + PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS + str3;
-        iVar.bdE = j;
-        iVar.bdK = j2;
-        iVar.bdL = j3;
+        iVar.aYp = str2 + PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS + str + PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS + str3;
+        iVar.bhq = j;
+        iVar.bhw = j2;
+        iVar.bhx = j3;
         MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2913195, iVar));
     }
 
-    private static String Fh() {
-        return com.baidu.live.x.a.NN().bhy.aGm;
+    private static String Gd() {
+        return com.baidu.live.x.a.OS().blo.aJq;
     }
 }

@@ -9,18 +9,18 @@ import java.lang.ref.WeakReference;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.Map;
-/* loaded from: classes12.dex */
+/* loaded from: classes19.dex */
 public class k extends Lifecycle {
-    private final WeakReference<j> zd;
-    private android.arch.a.b.a<i, a> zb = new android.arch.a.b.a<>();
-    private int ze = 0;
-    private boolean zf = false;
-    private boolean zg = false;
-    private ArrayList<Lifecycle.State> zh = new ArrayList<>();
-    private Lifecycle.State zc = Lifecycle.State.INITIALIZED;
+    private final WeakReference<j> zu;
+    private android.arch.a.b.a<i, a> zs = new android.arch.a.b.a<>();
+    private int zv = 0;
+    private boolean zw = false;
+    private boolean zx = false;
+    private ArrayList<Lifecycle.State> zy = new ArrayList<>();
+    private Lifecycle.State zt = Lifecycle.State.INITIALIZED;
 
     public k(@NonNull j jVar) {
-        this.zd = new WeakReference<>(jVar);
+        this.zu = new WeakReference<>(jVar);
     }
 
     @MainThread
@@ -33,70 +33,70 @@ public class k extends Lifecycle {
     }
 
     private void b(Lifecycle.State state) {
-        if (this.zc != state) {
-            this.zc = state;
-            if (this.zf || this.ze != 0) {
-                this.zg = true;
+        if (this.zt != state) {
+            this.zt = state;
+            if (this.zw || this.zv != 0) {
+                this.zx = true;
                 return;
             }
-            this.zf = true;
+            this.zw = true;
             sync();
-            this.zf = false;
+            this.zw = false;
         }
     }
 
-    private boolean hw() {
-        if (this.zb.size() == 0) {
+    private boolean hx() {
+        if (this.zs.size() == 0) {
             return true;
         }
-        Lifecycle.State state = this.zb.hs().getValue().zc;
-        Lifecycle.State state2 = this.zb.ht().getValue().zc;
-        return state == state2 && this.zc == state2;
+        Lifecycle.State state = this.zs.ht().getValue().zt;
+        Lifecycle.State state2 = this.zs.hu().getValue().zt;
+        return state == state2 && this.zt == state2;
     }
 
     private Lifecycle.State c(i iVar) {
-        Map.Entry<i, a> j = this.zb.j(iVar);
-        return a(a(this.zc, j != null ? j.getValue().zc : null), !this.zh.isEmpty() ? this.zh.get(this.zh.size() - 1) : null);
+        Map.Entry<i, a> j = this.zs.j(iVar);
+        return a(a(this.zt, j != null ? j.getValue().zt : null), !this.zy.isEmpty() ? this.zy.get(this.zy.size() - 1) : null);
     }
 
     @Override // android.arch.lifecycle.Lifecycle
     public void a(@NonNull i iVar) {
         j jVar;
-        a aVar = new a(iVar, this.zc == Lifecycle.State.DESTROYED ? Lifecycle.State.DESTROYED : Lifecycle.State.INITIALIZED);
-        if (this.zb.c(iVar, aVar) == null && (jVar = this.zd.get()) != null) {
-            boolean z = this.ze != 0 || this.zf;
+        a aVar = new a(iVar, this.zt == Lifecycle.State.DESTROYED ? Lifecycle.State.DESTROYED : Lifecycle.State.INITIALIZED);
+        if (this.zs.c(iVar, aVar) == null && (jVar = this.zu.get()) != null) {
+            boolean z = this.zv != 0 || this.zw;
             Lifecycle.State c = c(iVar);
-            this.ze++;
-            while (aVar.zc.compareTo(c) < 0 && this.zb.contains(iVar)) {
-                c(aVar.zc);
-                aVar.b(jVar, e(aVar.zc));
-                hx();
+            this.zv++;
+            while (aVar.zt.compareTo(c) < 0 && this.zs.contains(iVar)) {
+                c(aVar.zt);
+                aVar.b(jVar, e(aVar.zt));
+                hy();
                 c = c(iVar);
             }
             if (!z) {
                 sync();
             }
-            this.ze--;
+            this.zv--;
         }
     }
 
-    private void hx() {
-        this.zh.remove(this.zh.size() - 1);
+    private void hy() {
+        this.zy.remove(this.zy.size() - 1);
     }
 
     private void c(Lifecycle.State state) {
-        this.zh.add(state);
+        this.zy.add(state);
     }
 
     @Override // android.arch.lifecycle.Lifecycle
     public void b(@NonNull i iVar) {
-        this.zb.remove(iVar);
+        this.zs.remove(iVar);
     }
 
     @Override // android.arch.lifecycle.Lifecycle
     @NonNull
-    public Lifecycle.State hv() {
-        return this.zc;
+    public Lifecycle.State hw() {
+        return this.zt;
     }
 
     static Lifecycle.State c(Lifecycle.Event event) {
@@ -152,49 +152,49 @@ public class k extends Lifecycle {
     /* JADX DEBUG: Multi-variable search result rejected for r3v3, resolved type: android.arch.a.b.a<android.arch.lifecycle.i, android.arch.lifecycle.k$a> */
     /* JADX WARN: Multi-variable type inference failed */
     private void g(j jVar) {
-        android.arch.a.b.b<i, a>.d hr = this.zb.hr();
-        while (hr.hasNext() && !this.zg) {
-            Map.Entry next = hr.next();
+        android.arch.a.b.b<i, a>.d hs = this.zs.hs();
+        while (hs.hasNext() && !this.zx) {
+            Map.Entry next = hs.next();
             a aVar = (a) next.getValue();
-            while (aVar.zc.compareTo(this.zc) < 0 && !this.zg && this.zb.contains(next.getKey())) {
-                c(aVar.zc);
-                aVar.b(jVar, e(aVar.zc));
-                hx();
+            while (aVar.zt.compareTo(this.zt) < 0 && !this.zx && this.zs.contains(next.getKey())) {
+                c(aVar.zt);
+                aVar.b(jVar, e(aVar.zt));
+                hy();
             }
         }
     }
 
     private void h(j jVar) {
-        Iterator<Map.Entry<i, a>> descendingIterator = this.zb.descendingIterator();
-        while (descendingIterator.hasNext() && !this.zg) {
+        Iterator<Map.Entry<i, a>> descendingIterator = this.zs.descendingIterator();
+        while (descendingIterator.hasNext() && !this.zx) {
             Map.Entry<i, a> next = descendingIterator.next();
             a value = next.getValue();
-            while (value.zc.compareTo(this.zc) > 0 && !this.zg && this.zb.contains(next.getKey())) {
-                Lifecycle.Event d = d(value.zc);
+            while (value.zt.compareTo(this.zt) > 0 && !this.zx && this.zs.contains(next.getKey())) {
+                Lifecycle.Event d = d(value.zt);
                 c(c(d));
                 value.b(jVar, d);
-                hx();
+                hy();
             }
         }
     }
 
     private void sync() {
-        j jVar = this.zd.get();
+        j jVar = this.zu.get();
         if (jVar == null) {
             Log.w("LifecycleRegistry", "LifecycleOwner is garbage collected, you shouldn't try dispatch new events from it.");
             return;
         }
-        while (!hw()) {
-            this.zg = false;
-            if (this.zc.compareTo(this.zb.hs().getValue().zc) < 0) {
+        while (!hx()) {
+            this.zx = false;
+            if (this.zt.compareTo(this.zs.ht().getValue().zt) < 0) {
                 h(jVar);
             }
-            Map.Entry<i, a> ht = this.zb.ht();
-            if (!this.zg && ht != null && this.zc.compareTo(ht.getValue().zc) > 0) {
+            Map.Entry<i, a> hu = this.zs.hu();
+            if (!this.zx && hu != null && this.zt.compareTo(hu.getValue().zt) > 0) {
                 g(jVar);
             }
         }
-        this.zg = false;
+        this.zx = false;
     }
 
     static Lifecycle.State a(@NonNull Lifecycle.State state, @Nullable Lifecycle.State state2) {
@@ -202,21 +202,21 @@ public class k extends Lifecycle {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes12.dex */
+    /* loaded from: classes19.dex */
     public static class a {
-        Lifecycle.State zc;
-        h zj;
+        h zA;
+        Lifecycle.State zt;
 
         a(i iVar, Lifecycle.State state) {
-            this.zj = m.k(iVar);
-            this.zc = state;
+            this.zA = m.k(iVar);
+            this.zt = state;
         }
 
         void b(j jVar, Lifecycle.Event event) {
             Lifecycle.State c = k.c(event);
-            this.zc = k.a(this.zc, c);
-            this.zj.a(jVar, event);
-            this.zc = c;
+            this.zt = k.a(this.zt, c);
+            this.zA.a(jVar, event);
+            this.zt = c;
         }
     }
 }

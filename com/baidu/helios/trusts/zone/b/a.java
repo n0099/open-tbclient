@@ -20,13 +20,13 @@ import java.util.Set;
 import java.util.regex.Pattern;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes6.dex */
+/* loaded from: classes11.dex */
 public class a {
-    private static final byte[] ayM = {77, 73, 78, 71};
+    private static final byte[] azv = {77, 73, 78, 71};
     private String D;
     private int F;
-    private Set<String> ayN;
-    private Context ayO;
+    private Set<String> azw;
+    private Context azx;
     public String o;
     private long t;
     private boolean u;
@@ -49,12 +49,12 @@ public class a {
             }
             byte[] decode = Base64.decode(string.getBytes("utf-8"), 1);
             for (int i = 0; i < decode.length; i++) {
-                decode[i] = (byte) (decode[i] ^ ayM[i % ayM.length]);
+                decode[i] = (byte) (decode[i] ^ azv[i % azv.length]);
             }
             JSONObject jSONObject = new JSONObject(new String(decode));
             if (s(jSONObject)) {
-                this.ayN = new HashSet();
-                if (!a(this.D, this.ayO, jSONObject, this.ayN)) {
+                this.azw = new HashSet();
+                if (!a(this.D, this.azx, jSONObject, this.azw)) {
                     this.F |= 4;
                 } else if (!Arrays.equals(g.b(Base64.decode(string2, 0), aVar), f.sha256(decode))) {
                     this.F |= 8;
@@ -75,11 +75,11 @@ public class a {
         for (int i = 0; i < strArr.length; i++) {
             strArr[i] = jSONArray.getString(i);
         }
-        String[] a = a(context.getPackageManager().getPackageInfo(str, 64).signatures);
-        if (a != null && a.length > 0) {
-            Collections.addAll(set, a);
+        String[] a2 = a(context.getPackageManager().getPackageInfo(str, 64).signatures);
+        if (a2 != null && a2.length > 0) {
+            Collections.addAll(set, a2);
         }
-        return a(strArr, a);
+        return a(strArr, a2);
     }
 
     private static boolean a(String[] strArr, String[] strArr2) {
@@ -144,15 +144,15 @@ public class a {
         return true;
     }
 
-    public Set<String> AN() {
-        return this.ayN;
+    public Set<String> AV() {
+        return this.azw;
     }
 
     public void a(com.baidu.helios.common.a.b.a aVar, boolean z) {
         PackageInfo packageInfo;
         ActivityInfo[] activityInfoArr;
         ActivityInfo activityInfo;
-        PackageManager packageManager = this.ayO.getPackageManager();
+        PackageManager packageManager = this.azx.getPackageManager();
         try {
             packageInfo = packageManager.getPackageInfo(this.D, 2);
         } catch (PackageManager.NameNotFoundException e) {
@@ -180,7 +180,7 @@ public class a {
 
     public void a(String str, Context context) {
         this.D = str;
-        this.ayO = context;
+        this.azx = context;
     }
 
     public boolean a() {

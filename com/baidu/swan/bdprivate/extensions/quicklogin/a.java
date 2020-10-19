@@ -2,54 +2,54 @@ package com.baidu.swan.bdprivate.extensions.quicklogin;
 
 import com.baidu.searchbox.common.runtime.AppRuntime;
 import com.baidu.swan.bdprivate.b;
-/* loaded from: classes3.dex */
+/* loaded from: classes8.dex */
 public class a {
     private String agreeText;
-    private boolean diO;
-    private String diP;
-    private String diQ;
+    private boolean duU;
+    private String duV;
+    private String duW;
     private String encryptPhoneNum;
     private boolean hasHistory;
     private int loginMode;
 
-    public int aHu() {
+    public int aKd() {
         return this.loginMode;
     }
 
-    public void kM(int i) {
+    public void lj(int i) {
         this.loginMode = i;
     }
 
-    public boolean aHv() {
-        return this.diO;
+    public boolean aKe() {
+        return this.duU;
     }
 
-    public void gn(boolean z) {
-        this.diO = z;
+    public void gJ(boolean z) {
+        this.duU = z;
     }
 
-    public String aHw() {
+    public String aKf() {
         return this.encryptPhoneNum;
     }
 
-    public void tE(String str) {
+    public void uq(String str) {
         this.encryptPhoneNum = str;
     }
 
-    public boolean aHx() {
+    public boolean aKg() {
         return this.hasHistory;
     }
 
-    public void go(boolean z) {
+    public void gK(boolean z) {
         this.hasHistory = z;
     }
 
-    public void tF(String str) {
-        this.diP = str;
+    public void ur(String str) {
+        this.duV = str;
     }
 
-    public String aHy() {
-        String str = this.diP;
+    public String aKh() {
+        String str = this.duV;
         char c = 65535;
         switch (str.hashCode()) {
             case 2154:
@@ -73,20 +73,20 @@ public class a {
         }
         switch (c) {
             case 0:
-                this.diQ = "https://e.189.cn/sdk/agreement/detail.do?hidetop=true";
+                this.duW = "https://e.189.cn/sdk/agreement/detail.do?hidetop=true";
                 break;
             case 1:
-                this.diQ = "https://ms.zzx9.cn/html/oauth/protocol2.html";
+                this.duW = "https://ms.zzx9.cn/html/oauth/protocol2.html";
                 break;
             case 2:
-                this.diQ = "https://wap.cmpassport.com/resources/html/contract.html";
+                this.duW = "https://wap.cmpassport.com/resources/html/contract.html";
                 break;
         }
-        return this.diQ;
+        return this.duW;
     }
 
-    public String aHz() {
-        String str = this.diP;
+    public String aKi() {
+        String str = this.duV;
         char c = 65535;
         switch (str.hashCode()) {
             case 2154:

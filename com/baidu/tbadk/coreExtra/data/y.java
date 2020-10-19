@@ -9,10 +9,10 @@ import java.util.Arrays;
 import java.util.List;
 /* loaded from: classes.dex */
 public class y {
-    public static final List<String> eCO = Arrays.asList(".baidu.com", ".nuomi.com", ".baifubao.com", ".hao123.com");
-    private static List<String> eCP;
+    public static final List<String> eOV = Arrays.asList(".baidu.com", ".nuomi.com", ".baifubao.com", ".hao123.com");
+    private static List<String> eOW;
 
-    public static boolean Bs(String str) {
+    public static boolean Ce(String str) {
         String string;
         if (TbadkCoreApplication.getInst().isDebugMode() || TbSingleton.getInstance().isDebugToolMode()) {
             return true;
@@ -20,16 +20,16 @@ public class y {
         if (at.isEmpty(str)) {
             return false;
         }
-        if (eCP == null && (string = com.baidu.tbadk.core.sharedPref.b.bjf().getString("js_host_white_list", null)) != null) {
-            eCP = Bu(string);
+        if (eOW == null && (string = com.baidu.tbadk.core.sharedPref.b.blO().getString("js_host_white_list", null)) != null) {
+            eOW = Cg(string);
         }
-        if (eCP == null) {
-            eCP = eCO;
+        if (eOW == null) {
+            eOW = eOV;
         }
         Uri parse = Uri.parse(str);
         if (parse != null) {
             String host = parse.getHost();
-            for (String str2 : eCP) {
+            for (String str2 : eOW) {
                 if (host.endsWith(str2)) {
                     return true;
                 }
@@ -38,16 +38,16 @@ public class y {
         return false;
     }
 
-    public static void Bt(String str) {
+    public static void Cf(String str) {
         if (str == null) {
-            com.baidu.tbadk.core.sharedPref.b.bjf().putString("js_host_white_list", "");
+            com.baidu.tbadk.core.sharedPref.b.blO().putString("js_host_white_list", "");
         } else {
-            com.baidu.tbadk.core.sharedPref.b.bjf().putString("js_host_white_list", str);
+            com.baidu.tbadk.core.sharedPref.b.blO().putString("js_host_white_list", str);
         }
-        eCP = Bu(str);
+        eOW = Cg(str);
     }
 
-    private static List<String> Bu(String str) {
+    private static List<String> Cg(String str) {
         if (at.isEmpty(str)) {
             return null;
         }

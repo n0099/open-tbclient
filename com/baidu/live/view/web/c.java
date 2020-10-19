@@ -4,23 +4,23 @@ import android.webkit.JsResult;
 /* loaded from: classes4.dex */
 public abstract class c implements b {
     @Override // com.baidu.live.view.web.b
-    public void ho(String str) {
+    public void hF(String str) {
     }
 
     @Override // com.baidu.live.view.web.b
-    public void eO(int i) {
+    public void eX(int i) {
     }
 
     @Override // com.baidu.live.view.web.b
-    public void hp(String str) {
+    public void hG(String str) {
     }
 
     @Override // com.baidu.live.view.web.b
-    public void c(String str, int i, String str2) {
+    public void e(String str, int i, String str2) {
     }
 
     @Override // com.baidu.live.view.web.b
-    public void RB() {
+    public void Tu() {
     }
 
     @Override // com.baidu.live.view.web.b
@@ -29,16 +29,16 @@ public abstract class c implements b {
     }
 
     @Override // com.baidu.live.view.web.b
-    public void hQ(String str) {
+    public void ir(String str) {
     }
 
     @Override // com.baidu.live.view.web.b
-    public boolean hR(String str) {
+    public boolean is(String str) {
         return false;
     }
 
     @Override // com.baidu.live.view.web.b
-    public boolean A(String str, boolean z) {
+    public boolean D(String str, boolean z) {
         return false;
     }
 }

@@ -45,7 +45,7 @@ import java.util.Enumeration;
 import java.util.List;
 import java.util.Locale;
 import org.json.JSONArray;
-/* loaded from: classes3.dex */
+/* loaded from: classes7.dex */
 public class p implements IXAdSystemUtils {
     private String d;
     private String e;
@@ -56,7 +56,9 @@ public class p implements IXAdSystemUtils {
     private String k;
     private String l;
     private String m;
-    public JSONArray a = new JSONArray();
+
+    /* renamed from: a  reason: collision with root package name */
+    public JSONArray f2444a = new JSONArray();
     private String b = "";
     private String c = "";
     private int h = -1;
@@ -152,9 +154,9 @@ public class p implements IXAdSystemUtils {
         double[] dArr;
         Location lastKnownLocation;
         try {
-            Object a = XAdSDKFoundationFacade.getInstance().getCommonUtils().a("SYSGPS");
-            if (a != null) {
-                return (double[]) a;
+            Object a2 = XAdSDKFoundationFacade.getInstance().getCommonUtils().a("SYSGPS");
+            if (a2 != null) {
+                return (double[]) a2;
             }
         } catch (Exception e) {
             m.a().e(e);
@@ -218,9 +220,9 @@ public class p implements IXAdSystemUtils {
     @Override // com.baidu.mobads.interfaces.utils.IXAdSystemUtils
     public String getAppSDC() {
         try {
-            Object a = XAdSDKFoundationFacade.getInstance().getCommonUtils().a("sysSdc");
-            if (a != null) {
-                return (String) a;
+            Object a2 = XAdSDKFoundationFacade.getInstance().getCommonUtils().a("sysSdc");
+            if (a2 != null) {
+                return (String) a2;
             }
         } catch (Exception e) {
             m.a().e(e);
@@ -241,9 +243,9 @@ public class p implements IXAdSystemUtils {
     @Override // com.baidu.mobads.interfaces.utils.IXAdSystemUtils
     public String getMem() {
         try {
-            Object a = XAdSDKFoundationFacade.getInstance().getCommonUtils().a("sysMem");
-            if (a != null) {
-                return (String) a;
+            Object a2 = XAdSDKFoundationFacade.getInstance().getCommonUtils().a("sysMem");
+            if (a2 != null) {
+                return (String) a2;
             }
         } catch (Exception e) {
             m.a().e(e);
@@ -661,9 +663,9 @@ public class p implements IXAdSystemUtils {
     @Override // com.baidu.mobads.interfaces.utils.IXAdSystemUtils
     public List<String[]> getCell(Context context) {
         try {
-            Object a = XAdSDKFoundationFacade.getInstance().getCommonUtils().a("cell");
-            if (a != null) {
-                return (List) a;
+            Object a2 = XAdSDKFoundationFacade.getInstance().getCommonUtils().a("cell");
+            if (a2 != null) {
+                return (List) a2;
             }
         } catch (Exception e) {
             m.a().e(e);
@@ -696,9 +698,9 @@ public class p implements IXAdSystemUtils {
     public List<String[]> getWIFI(Context context) {
         e commonUtils = XAdSDKFoundationFacade.getInstance().getCommonUtils();
         try {
-            Object a = commonUtils.a("wifi");
-            if (a != null) {
-                return (List) a;
+            Object a2 = commonUtils.a("wifi");
+            if (a2 != null) {
+                return (List) a2;
             }
         } catch (Exception e) {
             m.a().e(e);
@@ -766,9 +768,9 @@ public class p implements IXAdSystemUtils {
     @Override // com.baidu.mobads.interfaces.utils.IXAdSystemUtils
     public JSONArray getWifiScans(Context context) {
         try {
-            Object a = XAdSDKFoundationFacade.getInstance().getCommonUtils().a("wifiScans");
-            if (a != null) {
-                return (JSONArray) a;
+            Object a2 = XAdSDKFoundationFacade.getInstance().getCommonUtils().a("wifiScans");
+            if (a2 != null) {
+                return (JSONArray) a2;
             }
         } catch (Exception e) {
             m.a().e(e);
@@ -810,7 +812,7 @@ public class p implements IXAdSystemUtils {
                 if (packageManager.getLaunchIntentForPackage(runningAppProcessInfo.processName) != null && packageManager.getApplicationInfo(runningAppProcessInfo.processName, 128) != null) {
                     for (String str : supportedBrowsers) {
                         if (runningAppProcessInfo.processName.equals(str)) {
-                            this.a.put(runningAppProcessInfo.processName);
+                            this.f2444a.put(runningAppProcessInfo.processName);
                         }
                     }
                 }
@@ -818,8 +820,8 @@ public class p implements IXAdSystemUtils {
         } catch (Exception e) {
             adLogger.d(e);
         }
-        adLogger.d("bgBrowsers:" + this.a);
-        return this.a;
+        adLogger.d("bgBrowsers:" + this.f2444a);
+        return this.f2444a;
     }
 
     @Override // com.baidu.mobads.interfaces.utils.IXAdSystemUtils

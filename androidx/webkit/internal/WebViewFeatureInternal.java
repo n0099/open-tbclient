@@ -2,7 +2,7 @@ package androidx.webkit.internal;
 
 import android.os.Build;
 import org.chromium.support_lib_boundary.util.Features;
-/* loaded from: classes17.dex */
+/* loaded from: classes15.dex */
 public enum WebViewFeatureInternal {
     VISUAL_STATE_CALLBACK_FEATURE(Features.VISUAL_STATE_CALLBACK, 23),
     OFF_SCREEN_PRERASTER(Features.OFF_SCREEN_PRERASTER, 23),
@@ -37,9 +37,9 @@ public enum WebViewFeatureInternal {
     private final String mFeatureValue;
     private final int mOsVersion;
 
-    /* loaded from: classes17.dex */
+    /* loaded from: classes15.dex */
     private static class a {
-        static final String[] zR = d.hS().hN();
+        static final String[] Aj = d.hT().hO();
     }
 
     WebViewFeatureInternal(String str, int i) {
@@ -62,7 +62,7 @@ public enum WebViewFeatureInternal {
     }
 
     public boolean isSupportedByWebView() {
-        for (String str : a.zR) {
+        for (String str : a.Aj) {
             if (str.equals(this.mFeatureValue)) {
                 return true;
             }
@@ -71,7 +71,7 @@ public enum WebViewFeatureInternal {
     }
 
     public static String[] getWebViewApkFeaturesForTesting() {
-        return a.zR;
+        return a.Aj;
     }
 
     public static UnsupportedOperationException getUnsupportedOperationException() {

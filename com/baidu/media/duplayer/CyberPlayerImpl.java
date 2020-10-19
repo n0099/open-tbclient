@@ -24,9 +24,9 @@ import org.json.JSONObject;
 import tv.danmaku.ijk.media.player.IjkMediaPlayer;
 import tv.danmaku.ijk.media.player.b;
 /* loaded from: classes16.dex */
-public class CyberPlayerImpl extends PlayerProvider implements IjkMediaPlayer.e, b.a, b.InterfaceC1017b, b.c, b.d, b.e, b.f, b.h {
+public class CyberPlayerImpl extends PlayerProvider implements IjkMediaPlayer.e, b.a, b.InterfaceC1035b, b.c, b.d, b.e, b.f, b.h {
     private CyberPlayerManager.OnPreparedListener b;
-    private IjkMediaPlayer bDR;
+    private IjkMediaPlayer bKt;
     private CyberPlayerManager.OnCompletionListener c;
     private CyberPlayerManager.OnBufferingUpdateListener d;
     private CyberPlayerManager.OnSeekCompleteListener e;
@@ -44,18 +44,18 @@ public class CyberPlayerImpl extends PlayerProvider implements IjkMediaPlayer.e,
 
     CyberPlayerImpl(int i, CyberPlayerManager.HttpDNS httpDNS) {
         try {
-            this.bDR = new IjkMediaPlayer();
+            this.bKt = new IjkMediaPlayer();
             this.l = i;
-            this.bDR.b(this.l);
-            this.bDR.a((b.e) this);
-            this.bDR.a((b.InterfaceC1017b) this);
-            this.bDR.a((b.a) this);
-            this.bDR.a((b.f) this);
-            this.bDR.a((b.h) this);
-            this.bDR.a((b.c) this);
-            this.bDR.a((b.d) this);
-            this.bDR.a((IjkMediaPlayer.e) this);
-            this.bDR.a(httpDNS);
+            this.bKt.b(this.l);
+            this.bKt.a((b.e) this);
+            this.bKt.a((b.InterfaceC1035b) this);
+            this.bKt.a((b.a) this);
+            this.bKt.a((b.f) this);
+            this.bKt.a((b.h) this);
+            this.bKt.a((b.c) this);
+            this.bKt.a((b.d) this);
+            this.bKt.a((IjkMediaPlayer.e) this);
+            this.bKt.a(httpDNS);
         } catch (Throwable th) {
             th.printStackTrace();
             throw th;
@@ -95,9 +95,9 @@ public class CyberPlayerImpl extends PlayerProvider implements IjkMediaPlayer.e,
 
     private void b() {
         if (d() && this.i && !this.j) {
-            this.bDR.a(1, "proxytcp-enable", 1L);
+            this.bKt.a(1, "proxytcp-enable", 1L);
         } else {
-            this.bDR.a(1, "proxytcp-enable", 0L);
+            this.bKt.a(1, "proxytcp-enable", 0L);
         }
     }
 
@@ -107,11 +107,11 @@ public class CyberPlayerImpl extends PlayerProvider implements IjkMediaPlayer.e,
 
     @Keep
     public static PlayerProvider create(int i, CyberPlayerManager.HttpDNS httpDNS) {
-        int a = a(i);
-        if (a == 4) {
+        int a2 = a(i);
+        if (a2 == 4) {
             return null;
         }
-        return new CyberPlayerImpl(a, httpDNS);
+        return new CyberPlayerImpl(a2, httpDNS);
     }
 
     private boolean d() {
@@ -119,14 +119,14 @@ public class CyberPlayerImpl extends PlayerProvider implements IjkMediaPlayer.e,
     }
 
     private boolean e() {
-        return (this.bDR == null || this.o == -1 || this.o == 0 || this.o == 1) ? false : true;
+        return (this.bKt == null || this.o == -1 || this.o == 0 || this.o == 1) ? false : true;
     }
 
     private boolean f() {
-        return (this.bDR == null || this.o == 0 || this.o == 1) ? false : true;
+        return (this.bKt == null || this.o == 0 || this.o == 1) ? false : true;
     }
 
-    private long ig(String str) {
+    private long iH(String str) {
         try {
             return Math.min(Math.max(Long.parseLong(str), 1048576L), 20971520L);
         } catch (Exception e) {
@@ -187,7 +187,7 @@ public class CyberPlayerImpl extends PlayerProvider implements IjkMediaPlayer.e,
         return this.g != null && this.g.onError(i, i2, obj);
     }
 
-    @Override // tv.danmaku.ijk.media.player.b.InterfaceC1017b
+    @Override // tv.danmaku.ijk.media.player.b.InterfaceC1035b
     public void b(tv.danmaku.ijk.media.player.b bVar) {
         this.o = 5;
         this.p = 5;
@@ -215,26 +215,26 @@ public class CyberPlayerImpl extends PlayerProvider implements IjkMediaPlayer.e,
 
     @Override // com.baidu.cyberplayer.sdk.PlayerProvider
     public void changeProxyDynamic(String str, boolean z) {
-        if (this.bDR != null) {
+        if (this.bKt != null) {
             if (!TextUtils.isEmpty(str)) {
                 str = "http://" + str;
             }
-            this.bDR.a(str, z);
+            this.bKt.a(str, z);
         }
     }
 
     @Override // com.baidu.cyberplayer.sdk.PlayerProvider
     public int getCurrentPosition() {
-        if (this.bDR != null) {
-            return this.m > -1 ? (int) this.m : (int) this.bDR.m();
+        if (this.bKt != null) {
+            return this.m > -1 ? (int) this.m : (int) this.bKt.m();
         }
         return 0;
     }
 
     @Override // com.baidu.cyberplayer.sdk.PlayerProvider
     public int getCurrentPositionSync() {
-        if (this.bDR != null) {
-            return this.m > -1 ? (int) this.m : (int) this.bDR.n();
+        if (this.bKt != null) {
+            return this.m > -1 ? (int) this.m : (int) this.bKt.n();
         }
         return 0;
     }
@@ -247,7 +247,7 @@ public class CyberPlayerImpl extends PlayerProvider implements IjkMediaPlayer.e,
     @Override // com.baidu.cyberplayer.sdk.PlayerProvider
     public long getDownloadSpeed() {
         if (e()) {
-            return this.bDR.t();
+            return this.bKt.t();
         }
         return 0L;
     }
@@ -255,7 +255,7 @@ public class CyberPlayerImpl extends PlayerProvider implements IjkMediaPlayer.e,
     @Override // com.baidu.cyberplayer.sdk.PlayerProvider
     public int getDuration() {
         if (f()) {
-            return (int) this.bDR.o();
+            return (int) this.bKt.o();
         }
         return -1;
     }
@@ -263,30 +263,30 @@ public class CyberPlayerImpl extends PlayerProvider implements IjkMediaPlayer.e,
     @Override // com.baidu.cyberplayer.sdk.PlayerProvider
     public long getPlayedTime() {
         if (f()) {
-            return this.bDR.s();
+            return this.bKt.s();
         }
         return 0L;
     }
 
     @Override // com.baidu.cyberplayer.sdk.PlayerProvider
     public int getVideoHeight() {
-        if (this.bDR != null) {
-            return this.bDR.l();
+        if (this.bKt != null) {
+            return this.bKt.l();
         }
         return 0;
     }
 
     @Override // com.baidu.cyberplayer.sdk.PlayerProvider
     public int getVideoWidth() {
-        if (this.bDR != null) {
-            return this.bDR.k();
+        if (this.bKt != null) {
+            return this.bKt.k();
         }
         return 0;
     }
 
     @Override // com.baidu.cyberplayer.sdk.PlayerProvider
     public boolean isLooping() {
-        return this.bDR != null && this.bDR.r();
+        return this.bKt != null && this.bKt.r();
     }
 
     @Override // com.baidu.cyberplayer.sdk.PlayerProvider
@@ -301,8 +301,8 @@ public class CyberPlayerImpl extends PlayerProvider implements IjkMediaPlayer.e,
 
     @Override // com.baidu.cyberplayer.sdk.PlayerProvider
     public void muteOrUnmuteAudio(boolean z) {
-        if (this.bDR != null) {
-            this.bDR.d(z);
+        if (this.bKt != null) {
+            this.bKt.d(z);
         }
     }
 
@@ -311,9 +311,9 @@ public class CyberPlayerImpl extends PlayerProvider implements IjkMediaPlayer.e,
         if (e()) {
             if (this.o != 4) {
                 this.o = 4;
-                this.bDR.j();
+                this.bKt.j();
             }
-        } else if (this.bDR != null) {
+        } else if (this.bKt != null) {
             sendCommand(1000, 0, 0L, null);
         }
         this.p = 4;
@@ -321,21 +321,21 @@ public class CyberPlayerImpl extends PlayerProvider implements IjkMediaPlayer.e,
 
     @Override // com.baidu.cyberplayer.sdk.PlayerProvider
     public void prepareAsync() {
-        if (this.bDR != null) {
+        if (this.bKt != null) {
             this.o = 1;
             a();
             b();
-            this.bDR.g();
+            this.bKt.g();
         }
     }
 
     @Override // com.baidu.cyberplayer.sdk.PlayerProvider
     public void release() {
-        if (this.bDR != null) {
+        if (this.bKt != null) {
             this.n = -1L;
             this.o = 0;
             this.p = 0;
-            this.bDR.p();
+            this.bKt.p();
         }
     }
 
@@ -345,16 +345,16 @@ public class CyberPlayerImpl extends PlayerProvider implements IjkMediaPlayer.e,
         this.m = -1L;
         this.o = 0;
         this.p = 0;
-        if (this.bDR != null) {
-            this.bDR.q();
+        if (this.bKt != null) {
+            this.bKt.q();
         }
     }
 
     @Override // com.baidu.cyberplayer.sdk.PlayerProvider
     public void seekTo(long j) {
-        if (this.bDR != null) {
+        if (this.bKt != null) {
             if (e()) {
-                this.bDR.a(j);
+                this.bKt.a(j);
             } else {
                 this.n = j;
             }
@@ -364,12 +364,12 @@ public class CyberPlayerImpl extends PlayerProvider implements IjkMediaPlayer.e,
 
     @Override // com.baidu.cyberplayer.sdk.PlayerProvider
     public void sendCommand(int i, int i2, long j, String str) {
-        if (this.bDR == null) {
+        if (this.bKt == null) {
             return;
         }
         switch (i) {
             case 1000:
-                this.bDR.c(i2 == 1);
+                this.bKt.c(i2 == 1);
                 return;
             case 1001:
                 if (TextUtils.isEmpty(str)) {
@@ -380,7 +380,7 @@ public class CyberPlayerImpl extends PlayerProvider implements IjkMediaPlayer.e,
                     Iterator<String> keys = jSONObject.keys();
                     while (keys.hasNext()) {
                         String next = keys.next();
-                        this.bDR.b(DpStatConstants.SESSION_TYPE_STAGE_INFO, next, jSONObject.getString(next));
+                        this.bKt.b(DpStatConstants.SESSION_TYPE_STAGE_INFO, next, jSONObject.getString(next));
                     }
                     return;
                 } catch (JSONException e) {
@@ -402,7 +402,7 @@ public class CyberPlayerImpl extends PlayerProvider implements IjkMediaPlayer.e,
                     Iterator<String> keys2 = jSONObject2.keys();
                     while (keys2.hasNext()) {
                         String next2 = keys2.next();
-                        this.bDR.b(i2, next2, jSONObject2.getString(next2));
+                        this.bKt.b(i2, next2, jSONObject2.getString(next2));
                     }
                     return;
                 } catch (JSONException e2) {
@@ -414,10 +414,10 @@ public class CyberPlayerImpl extends PlayerProvider implements IjkMediaPlayer.e,
 
     @Override // com.baidu.cyberplayer.sdk.PlayerProvider
     public void setDataSource(Context context, Uri uri) {
-        if (this.bDR != null) {
+        if (this.bKt != null) {
             try {
                 this.k = uri.getHost();
-                this.bDR.a(context, uri);
+                this.bKt.a(context, uri);
             } catch (IOException e) {
                 e.printStackTrace();
             }
@@ -426,10 +426,10 @@ public class CyberPlayerImpl extends PlayerProvider implements IjkMediaPlayer.e,
 
     @Override // com.baidu.cyberplayer.sdk.PlayerProvider
     public void setDataSource(Context context, Uri uri, Map<String, String> map) {
-        if (this.bDR != null) {
+        if (this.bKt != null) {
             try {
                 this.k = uri.getHost();
-                this.bDR.a(context, uri, map);
+                this.bKt.a(context, uri, map);
             } catch (IOException e) {
                 e.printStackTrace();
             }
@@ -438,9 +438,9 @@ public class CyberPlayerImpl extends PlayerProvider implements IjkMediaPlayer.e,
 
     @Override // com.baidu.cyberplayer.sdk.PlayerProvider
     public void setDataSource(FileDescriptor fileDescriptor) {
-        if (this.bDR != null) {
+        if (this.bKt != null) {
             try {
-                this.bDR.b(fileDescriptor);
+                this.bKt.b(fileDescriptor);
             } catch (IOException e) {
                 e.printStackTrace();
             }
@@ -449,10 +449,10 @@ public class CyberPlayerImpl extends PlayerProvider implements IjkMediaPlayer.e,
 
     @Override // com.baidu.cyberplayer.sdk.PlayerProvider
     public void setDataSource(String str) {
-        if (this.bDR != null) {
+        if (this.bKt != null) {
             try {
                 this.k = str;
-                this.bDR.a(str);
+                this.bKt.a(str);
             } catch (IOException e) {
                 e.printStackTrace();
             }
@@ -461,10 +461,10 @@ public class CyberPlayerImpl extends PlayerProvider implements IjkMediaPlayer.e,
 
     @Override // com.baidu.cyberplayer.sdk.PlayerProvider
     public void setDataSource(String str, Map<String, String> map) {
-        if (this.bDR != null) {
+        if (this.bKt != null) {
             try {
                 this.k = str;
-                this.bDR.a(str, map);
+                this.bKt.a(str, map);
             } catch (IOException e) {
                 e.printStackTrace();
             }
@@ -473,15 +473,15 @@ public class CyberPlayerImpl extends PlayerProvider implements IjkMediaPlayer.e,
 
     @Override // com.baidu.cyberplayer.sdk.PlayerProvider
     public void setDisplay(SurfaceHolder surfaceHolder) {
-        if (this.bDR != null) {
-            this.bDR.a(surfaceHolder);
+        if (this.bKt != null) {
+            this.bKt.a(surfaceHolder);
         }
     }
 
     @Override // com.baidu.cyberplayer.sdk.PlayerProvider
     public void setLooping(boolean z) {
-        if (this.bDR != null) {
-            this.bDR.b(z);
+        if (this.bKt != null) {
+            this.bKt.b(z);
         }
     }
 
@@ -522,11 +522,11 @@ public class CyberPlayerImpl extends PlayerProvider implements IjkMediaPlayer.e,
 
     @Override // com.baidu.cyberplayer.sdk.PlayerProvider
     public void setOption(String str, long j) {
-        if (this.bDR != null) {
+        if (this.bKt != null) {
             if (str.equals(CyberPlayerManager.OPT_CLIENT_SET_URL_TIME) || str.equals(CyberPlayerManager.OPT_CLIENT_USER_CLICK_TIME)) {
-                this.bDR.a(1, str, j);
+                this.bKt.a(1, str, j);
             } else {
-                this.bDR.a(4, str, j);
+                this.bKt.a(4, str, j);
             }
         }
     }
@@ -534,25 +534,25 @@ public class CyberPlayerImpl extends PlayerProvider implements IjkMediaPlayer.e,
     @Override // com.baidu.cyberplayer.sdk.PlayerProvider
     public void setOption(String str, String str2) {
         CyberLog.v("CyberPlayerImpl", "setOption: " + str + Constants.ACCEPT_TIME_SEPARATOR_SP + str2);
-        if (this.bDR != null) {
+        if (this.bKt != null) {
             if (str.equals(CyberPlayerManager.OPT_FILE_MIN_SIZE)) {
-                this.bDR.a(1, str, a(str2));
+                this.bKt.a(1, str, a(str2));
             } else if (str.equals(CyberPlayerManager.OPT_FILE_MAX_SIZE)) {
-                this.bDR.a(1, str, b(str2));
+                this.bKt.a(1, str, b(str2));
             } else if (str.equals(CyberPlayerManager.OPT_BUFFER_SIZE)) {
-                this.bDR.a(4, str, ig(str2));
+                this.bKt.a(4, str, iH(str2));
             } else if (str.equals(CyberPlayerManager.OPT_HTTP_PROXY)) {
-                this.bDR.a(1, str, "http://" + str2);
+                this.bKt.a(1, str, "http://" + str2);
             } else if (str.equals(CyberPlayerManager.OPT_NEED_T5_AUTH)) {
-                this.bDR.a(1, str, Boolean.parseBoolean(str2) ? 1L : 0L);
+                this.bKt.a(1, str, Boolean.parseBoolean(str2) ? 1L : 0L);
             } else if (str.equals(CyberPlayerManager.OPT_ENABLE_FILECACHE)) {
                 this.i = Boolean.parseBoolean(str2);
             } else if (str.equals(CyberPlayerManager.OPT_IS_LIVE_VIDEO)) {
                 this.j = Boolean.valueOf(str2).booleanValue();
             } else if (str.equals(CyberPlayerManager.OPT_SUPPORT_PROCESS)) {
-                this.bDR.a(1, str, Boolean.parseBoolean(str2) ? 1L : 0L);
+                this.bKt.a(1, str, Boolean.parseBoolean(str2) ? 1L : 0L);
             } else if (str.equals(CyberPlayerManager.OPT_CLIENT_SET_URL_TIME) || str.equals(CyberPlayerManager.OPT_CLIENT_USER_CLICK_TIME)) {
-                this.bDR.a(1, str, Long.parseLong(str2));
+                this.bKt.a(1, str, Long.parseLong(str2));
             } else if (str.equals(CyberPlayerManager.OPT_PCDN_NETHANDLE)) {
                 if (c()) {
                     PcdnApi.nativePcdnInit(b.b(), Long.parseLong(str2));
@@ -561,34 +561,34 @@ public class CyberPlayerImpl extends PlayerProvider implements IjkMediaPlayer.e,
                 KernelNetApi.nativeKernelNetInit(Long.parseLong(str2));
             } else if (str.equals(CyberPlayerManager.OPT_ENABLE_PCDN)) {
                 if (c()) {
-                    this.bDR.a(1, str, Long.parseLong(str2));
+                    this.bKt.a(1, str, Long.parseLong(str2));
                 }
-                this.bDR.b(DpStatConstants.SESSION_TYPE_PLAY_COMMON, "pcdn_enable", str2);
+                this.bKt.b(DpStatConstants.SESSION_TYPE_PLAY_COMMON, "pcdn_enable", str2);
             } else if (str.equals(CyberPlayerManager.OPT_ENABLE_P2P)) {
                 if (c()) {
-                    this.bDR.a(1, str, Long.parseLong(str2));
+                    this.bKt.a(1, str, Long.parseLong(str2));
                 }
-                this.bDR.b(DpStatConstants.SESSION_TYPE_PLAY_COMMON, "p2p_enable", str2);
+                this.bKt.b(DpStatConstants.SESSION_TYPE_PLAY_COMMON, "p2p_enable", str2);
             } else if (str.equals(CyberPlayerManager.OPT_ENABLE_KERNEL_NET)) {
-                this.bDR.a(1, str, Long.parseLong(str2));
-                this.bDR.b(DpStatConstants.SESSION_TYPE_PLAY_COMMON, "kernel_net_enable", str2);
+                this.bKt.a(1, str, Long.parseLong(str2));
+                this.bKt.b(DpStatConstants.SESSION_TYPE_PLAY_COMMON, "kernel_net_enable", str2);
             } else if (str.equals(CyberPlayerManager.OPT_PCDN_TYPE)) {
-                this.bDR.a(1, str, Long.parseLong(str2));
+                this.bKt.a(1, str, Long.parseLong(str2));
             } else if (str.equals(CyberPlayerManager.OPT_FILE_SIZE)) {
-                this.bDR.a(1, str, Long.parseLong(str2));
+                this.bKt.a(1, str, Long.parseLong(str2));
             } else if (str.equals(CyberPlayerManager.OPT_STAGE_TYPE)) {
-                this.bDR.a(1, str, str2);
+                this.bKt.a(1, str, str2);
             } else if (!str.equals(CyberPlayerManager.OPT_SR_OPTION)) {
                 if (str.equals(CyberPlayerManager.OPT_NEED_HTTP_REFERER)) {
-                    this.bDR.a(1, str, str2);
+                    this.bKt.a(1, str, str2);
                 } else {
-                    this.bDR.a(4, str, str2);
+                    this.bKt.a(4, str, str2);
                 }
             } else if (CyberCfgManager.getInstance().getCfgBoolValue(CyberCfgManager.KEY_INT_ENABLE_SR, true)) {
-                this.bDR.a(1, str, str2);
+                this.bKt.a(1, str, str2);
                 CyberLog.v("CyberPlayerImpl", "enable sr");
             } else {
-                this.bDR.a(1, str, 0L);
+                this.bKt.a(1, str, 0L);
                 CyberLog.v("CyberPlayerImpl", "disable sr");
             }
         }
@@ -596,36 +596,36 @@ public class CyberPlayerImpl extends PlayerProvider implements IjkMediaPlayer.e,
 
     @Override // com.baidu.cyberplayer.sdk.PlayerProvider
     public void setScreenOnWhilePlaying(boolean z) {
-        if (this.bDR != null) {
-            this.bDR.a(z);
+        if (this.bKt != null) {
+            this.bKt.a(z);
         }
     }
 
     @Override // com.baidu.cyberplayer.sdk.PlayerProvider
     public void setSpeed(float f) {
-        if (this.bDR != null) {
-            this.bDR.a(f);
+        if (this.bKt != null) {
+            this.bKt.a(f);
         }
     }
 
     @Override // com.baidu.cyberplayer.sdk.PlayerProvider
     public void setSurface(Surface surface) {
-        if (this.bDR != null) {
-            this.bDR.a(surface);
+        if (this.bKt != null) {
+            this.bKt.a(surface);
         }
     }
 
     @Override // com.baidu.cyberplayer.sdk.PlayerProvider
     public void setVolume(float f, float f2) {
-        if (this.bDR != null) {
-            this.bDR.a(f, f2);
+        if (this.bKt != null) {
+            this.bKt.a(f, f2);
         }
     }
 
     @Override // com.baidu.cyberplayer.sdk.PlayerProvider
     public void setWakeMode(Context context, int i) {
-        if (this.bDR != null) {
-            this.bDR.a(context, i);
+        if (this.bKt != null) {
+            this.bKt.a(context, i);
         }
     }
 
@@ -633,8 +633,8 @@ public class CyberPlayerImpl extends PlayerProvider implements IjkMediaPlayer.e,
     public void start() {
         if (e()) {
             this.o = 3;
-            this.bDR.h();
-        } else if (this.bDR != null) {
+            this.bKt.h();
+        } else if (this.bKt != null) {
             sendCommand(1000, 1, 0L, null);
         }
         this.p = 3;
@@ -642,11 +642,11 @@ public class CyberPlayerImpl extends PlayerProvider implements IjkMediaPlayer.e,
 
     @Override // com.baidu.cyberplayer.sdk.PlayerProvider
     public void stop() {
-        if (this.bDR != null) {
+        if (this.bKt != null) {
             this.n = -1L;
             this.o = 0;
             this.p = 0;
-            this.bDR.i();
+            this.bKt.i();
         }
     }
 }

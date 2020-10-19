@@ -5,10 +5,10 @@ import io.reactivex.c.h;
 import io.reactivex.q;
 import java.util.NoSuchElementException;
 import java.util.concurrent.Callable;
-/* loaded from: classes25.dex */
+/* loaded from: classes17.dex */
 public final class SingleInternalHelper {
 
-    /* loaded from: classes25.dex */
+    /* loaded from: classes17.dex */
     enum NoSuchElementCallable implements Callable<NoSuchElementException> {
         INSTANCE;
 
@@ -19,7 +19,7 @@ public final class SingleInternalHelper {
         }
     }
 
-    /* loaded from: classes25.dex */
+    /* loaded from: classes17.dex */
     enum ToFlowable implements h<aa, org.a.b> {
         INSTANCE;
 
@@ -30,7 +30,7 @@ public final class SingleInternalHelper {
         }
     }
 
-    /* loaded from: classes25.dex */
+    /* loaded from: classes17.dex */
     enum ToObservable implements h<aa, q> {
         INSTANCE;
 

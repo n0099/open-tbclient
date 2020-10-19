@@ -10,11 +10,13 @@ import android.view.Window;
 import android.webkit.WebView;
 import com.baidu.mobstat.al;
 import org.json.JSONObject;
-/* loaded from: classes15.dex */
+/* loaded from: classes17.dex */
 public class az {
     private static final az k = new az();
     private static volatile boolean l = true;
-    private Context a;
+
+    /* renamed from: a  reason: collision with root package name */
+    private Context f2571a;
     private Activity b;
     private volatile boolean c;
     private volatile boolean d;
@@ -92,7 +94,7 @@ public class az {
     public void a(Activity activity) {
         if (d()) {
             a(true);
-            this.a = activity.getApplicationContext();
+            this.f2571a = activity.getApplicationContext();
             this.b = activity;
             e();
             c(activity);
@@ -135,7 +137,7 @@ public class az {
 
     public void a(WebView webView, String str, bl blVar) {
         if (TextUtils.isEmpty(this.e)) {
-            this.e = bo.a(this.a, "mtj_autoTracker.js");
+            this.e = bo.a(this.f2571a, "mtj_autoTracker.js");
         }
         b(webView, this.e, blVar);
     }
@@ -145,14 +147,14 @@ public class az {
     }
 
     private void e() {
-        if (bw.s(this.a) && !this.c) {
+        if (bw.s(this.f2571a) && !this.c) {
             if (!this.d) {
-                this.e = bo.a(this.a, "mtj_autoTracker.js");
+                this.e = bo.a(this.f2571a, "mtj_autoTracker.js");
                 this.d = true;
             }
             if (this.f == 0) {
-                this.f = bq.a().n(this.a);
-                this.g = bq.a().o(this.a);
+                this.f = bq.a().n(this.f2571a);
+                this.g = bq.a().o(this.f2571a);
             }
             if ((this.d && TextUtils.isEmpty(this.e)) || System.currentTimeMillis() - this.f > this.g) {
                 f();
@@ -165,10 +167,10 @@ public class az {
             @Override // java.lang.Runnable
             public void run() {
                 if (!az.this.c) {
-                    boolean a = bg.a(az.this.a, az.this.h, 1, false);
+                    boolean a2 = bg.a(az.this.f2571a, az.this.h, 1, false);
                     az.this.c = true;
-                    if (a) {
-                        az.this.e = bo.a(az.this.a, "mtj_autoTracker.js");
+                    if (a2) {
+                        az.this.e = bo.a(az.this.f2571a, "mtj_autoTracker.js");
                     }
                 }
             }

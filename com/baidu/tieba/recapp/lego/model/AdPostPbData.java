@@ -6,7 +6,7 @@ import com.baidu.tbadk.core.data.AdvertAppInfo;
 import com.baidu.tieba.lego.card.b.b;
 import com.baidu.tieba.recapp.lego.model.postad.PostAdBaseData;
 import org.json.JSONObject;
-/* loaded from: classes25.dex */
+/* loaded from: classes26.dex */
 public class AdPostPbData extends PostAdBaseData implements AdvertAppInfo.ILegoAdvert, b {
     public PostAdBaseData.a.b buttonClick;
     public String buttonText;
@@ -46,41 +46,41 @@ public class AdPostPbData extends PostAdBaseData implements AdvertAppInfo.ILegoA
         if (optJSONObject != null) {
             this.buttonClick = new PostAdBaseData.a.b();
             this.buttonClick.scheme = optJSONObject.optString("scheme");
-            this.buttonClick.auh = optJSONObject.optString("als_stat");
-            this.buttonClick.aui = optJSONObject.optString("url_stat");
+            this.buttonClick.auQ = optJSONObject.optString("als_stat");
+            this.buttonClick.auR = optJSONObject.optString("url_stat");
         }
         JSONObject optJSONObject2 = jSONObject.optJSONObject("ext_data");
         if (optJSONObject2 != null) {
             this.extraData = new PostAdBaseData.a.c();
             JSONObject optJSONObject3 = optJSONObject2.optJSONObject("ad_download");
             if (optJSONObject3 != null) {
-                this.extraData.lMW = new PostAdBaseData.a.C0790a();
-                this.extraData.lMW.packageName = optJSONObject3.optString("pkgname");
-                this.extraData.lMW.downloadUrl = optJSONObject3.optString("download_url");
+                this.extraData.mcn = new PostAdBaseData.a.C0808a();
+                this.extraData.mcn.packageName = optJSONObject3.optString("pkgname");
+                this.extraData.mcn.downloadUrl = optJSONObject3.optString("download_url");
             }
         }
     }
 
     public boolean isDownload() {
-        return (!"apk_download".equals(this.style) || this.extraData == null || this.extraData.lMW == null) ? false : true;
+        return (!"apk_download".equals(this.style) || this.extraData == null || this.extraData.mcn == null) ? false : true;
     }
 
     public String apkDownloadUrl() {
-        if (this.extraData == null || this.extraData.lMW == null) {
+        if (this.extraData == null || this.extraData.mcn == null) {
             return null;
         }
-        return this.extraData.lMW.downloadUrl;
+        return this.extraData.mcn.downloadUrl;
     }
 
     public String apkDownloadPackage() {
-        if (this.extraData == null || this.extraData.lMW == null) {
+        if (this.extraData == null || this.extraData.mcn == null) {
             return null;
         }
-        return this.extraData.lMW.packageName;
+        return this.extraData.mcn.packageName;
     }
 
     public AdvertAppInfo toAppData() {
-        if (this.extraData == null || this.extraData.lMW == null) {
+        if (this.extraData == null || this.extraData.mcn == null) {
             return null;
         }
         AdvertAppInfo advertAppInfo = new AdvertAppInfo();
@@ -91,23 +91,23 @@ public class AdPostPbData extends PostAdBaseData implements AdvertAppInfo.ILegoA
     private void updateAppInfo(AdvertAppInfo advertAppInfo) {
         if (advertAppInfo != null) {
             if ("apk_download".equals(this.style)) {
-                advertAppInfo.ZD = 3;
+                advertAppInfo.ZT = 3;
             }
-            if (TextUtils.isEmpty(advertAppInfo.dYt)) {
-                advertAppInfo.dYt = this.id;
+            if (TextUtils.isEmpty(advertAppInfo.ekv)) {
+                advertAppInfo.ekv = this.id;
             }
             if (advertAppInfo.getFid() == 0) {
                 advertAppInfo.setFid(this.fid);
             }
             advertAppInfo.apkUrl = apkDownloadUrl();
             advertAppInfo.extensionInfo = this.extInfo;
-            advertAppInfo.dYw = apkDownloadPackage();
-            advertAppInfo.dYu = !TextUtils.isEmpty(this.name) ? this.name : apkDownloadPackage();
-            if (advertAppInfo.dYC == null) {
-                advertAppInfo.dYC = new AdvertAppInfo.a();
+            advertAppInfo.eky = apkDownloadPackage();
+            advertAppInfo.ekw = !TextUtils.isEmpty(this.name) ? this.name : apkDownloadPackage();
+            if (advertAppInfo.ekE == null) {
+                advertAppInfo.ekE = new AdvertAppInfo.a();
             }
-            advertAppInfo.dYC.userPortrait = this.portrait;
-            advertAppInfo.dYC.userName = this.title;
+            advertAppInfo.ekE.userPortrait = this.portrait;
+            advertAppInfo.ekE.userName = this.title;
         }
     }
 

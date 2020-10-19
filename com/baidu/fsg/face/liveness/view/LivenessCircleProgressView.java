@@ -10,9 +10,11 @@ import android.support.annotation.Nullable;
 import android.util.AttributeSet;
 import android.widget.FrameLayout;
 import com.baidu.sapi2.biometrics.liveness.R;
-/* loaded from: classes16.dex */
+/* loaded from: classes17.dex */
 public class LivenessCircleProgressView extends FrameLayout {
-    private Paint a;
+
+    /* renamed from: a  reason: collision with root package name */
+    private Paint f1748a;
     private Paint b;
     private Paint c;
     private int d;
@@ -31,11 +33,11 @@ public class LivenessCircleProgressView extends FrameLayout {
 
     private void a() {
         this.f = 12;
-        this.a = new Paint();
-        this.a.setColor(Color.argb(127, 255, 255, 255));
-        this.a.setAntiAlias(true);
-        this.a.setStrokeWidth(this.f);
-        this.a.setStyle(Paint.Style.STROKE);
+        this.f1748a = new Paint();
+        this.f1748a.setColor(Color.argb(127, 255, 255, 255));
+        this.f1748a.setAntiAlias(true);
+        this.f1748a.setStrokeWidth(this.f);
+        this.f1748a.setStyle(Paint.Style.STROKE);
         this.b = new Paint();
         this.b.setColor(Color.argb(255, 255, 255, 255));
         this.b.setAntiAlias(true);
@@ -52,7 +54,7 @@ public class LivenessCircleProgressView extends FrameLayout {
     @Override // android.view.View
     protected void onDraw(Canvas canvas) {
         super.onDraw(canvas);
-        canvas.drawCircle(getWidth() / 2, getHeight() / 2, (getWidth() / 2) - (this.f / 2), this.a);
+        canvas.drawCircle(getWidth() / 2, getHeight() / 2, (getWidth() / 2) - (this.f / 2), this.f1748a);
         this.e.left = this.f / 2;
         this.e.top = this.f / 2;
         this.e.right = getWidth() - (this.f / 2);

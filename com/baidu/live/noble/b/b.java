@@ -5,37 +5,37 @@ import com.baidu.live.noble.c.d;
 import com.baidu.live.noble.data.NobleUserInfo;
 /* loaded from: classes4.dex */
 public class b implements a {
-    private a.InterfaceC0182a biq;
-    private com.baidu.live.noble.c.a bir;
+    private a.InterfaceC0190a bmd;
+    private com.baidu.live.noble.c.a bme;
 
     @Override // com.baidu.live.noble.b.a
-    public void a(a.InterfaceC0182a interfaceC0182a) {
-        this.biq = interfaceC0182a;
+    public void a(a.InterfaceC0190a interfaceC0190a) {
+        this.bmd = interfaceC0190a;
     }
 
     @Override // com.baidu.live.noble.b.a
-    public void Mt() {
-        if (this.bir == null) {
-            this.bir = new com.baidu.live.noble.c.b();
-            this.bir.a(new d() { // from class: com.baidu.live.noble.b.b.1
+    public void Ny() {
+        if (this.bme == null) {
+            this.bme = new com.baidu.live.noble.c.b();
+            this.bme.a(new d() { // from class: com.baidu.live.noble.b.b.1
                 @Override // com.baidu.live.noble.c.d, com.baidu.live.noble.c.c
                 public void b(NobleUserInfo nobleUserInfo) {
                     super.b(nobleUserInfo);
-                    if (b.this.biq != null) {
-                        b.this.biq.a(nobleUserInfo);
+                    if (b.this.bmd != null) {
+                        b.this.bmd.a(nobleUserInfo);
                     }
                 }
             });
         }
-        this.bir.Mz();
+        this.bme.NE();
     }
 
     @Override // com.baidu.live.noble.b.a
     public void release() {
-        this.biq = null;
-        if (this.bir != null) {
-            this.bir.release();
-            this.bir = null;
+        this.bmd = null;
+        if (this.bme != null) {
+            this.bme.release();
+            this.bme = null;
         }
     }
 }

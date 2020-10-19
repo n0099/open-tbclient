@@ -1,5 +1,5 @@
 package com.baidu.searchbox.ui.common;
-/* loaded from: classes19.dex */
+/* loaded from: classes10.dex */
 public interface IViewLifecycle {
     void onViewCreate();
 

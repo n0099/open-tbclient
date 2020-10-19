@@ -1,15 +1,15 @@
 package com.baidu.ubs.analytics.a;
 
 import java.util.List;
-/* loaded from: classes7.dex */
+/* loaded from: classes10.dex */
 public final class j {
-    private h nqj = new h();
+    private h nFD = new h();
 
-    public final List<i> dQq() {
-        return this.nqj.dQq();
+    public final List<i> dUb() {
+        return this.nFD.dUb();
     }
 
     public final void a(int i) {
-        this.nqj.a(i);
+        this.nFD.a(i);
     }
 }

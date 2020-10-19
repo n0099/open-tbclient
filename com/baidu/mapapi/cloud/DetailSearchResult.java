@@ -3,7 +3,7 @@ package com.baidu.mapapi.cloud;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes7.dex */
 public class DetailSearchResult extends BaseSearchResult {
     public CloudPoiInfo poiInfo;
 

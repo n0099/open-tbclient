@@ -5,24 +5,24 @@ import com.baidu.searchbox.http.request.HttpCommonRequest;
 import com.baidu.searchbox.http.request.HttpCommonRequestBuilder;
 import okhttp3.Request;
 import okhttp3.RequestBody;
-/* loaded from: classes24.dex */
-public class a extends HttpCommonRequest<C0325a> {
-    public a(C0325a c0325a) {
-        super(c0325a);
+/* loaded from: classes8.dex */
+public class a extends HttpCommonRequest<C0342a> {
+    public a(C0342a c0342a) {
+        super(c0342a);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.searchbox.http.request.HttpRequest
-    /* renamed from: aTV */
-    public C0325a newBuilder() {
-        return new C0325a(this);
+    /* renamed from: aWE */
+    public C0342a newBuilder() {
+        return new C0342a(this);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.searchbox.http.request.HttpRequest
     /* renamed from: a */
-    public C0325a newBuilder(AbstractHttpManager abstractHttpManager) {
-        return new C0325a(this, abstractHttpManager);
+    public C0342a newBuilder(AbstractHttpManager abstractHttpManager) {
+        return new C0342a(this, abstractHttpManager);
     }
 
     @Override // com.baidu.searchbox.http.request.HttpRequest
@@ -31,23 +31,23 @@ public class a extends HttpCommonRequest<C0325a> {
     }
 
     /* renamed from: com.baidu.swan.a.d.a$a  reason: collision with other inner class name */
-    /* loaded from: classes24.dex */
-    public static class C0325a extends HttpCommonRequestBuilder<C0325a> {
-        public C0325a(AbstractHttpManager abstractHttpManager) {
+    /* loaded from: classes8.dex */
+    public static class C0342a extends HttpCommonRequestBuilder<C0342a> {
+        public C0342a(AbstractHttpManager abstractHttpManager) {
             super(abstractHttpManager);
         }
 
-        public C0325a(a aVar) {
+        public C0342a(a aVar) {
             this(aVar, null);
         }
 
-        public C0325a(a aVar, AbstractHttpManager abstractHttpManager) {
+        public C0342a(a aVar, AbstractHttpManager abstractHttpManager) {
             super(aVar, abstractHttpManager);
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.searchbox.http.request.HttpRequestBuilder
-        /* renamed from: aTF */
+        /* renamed from: aWo */
         public a build() {
             return new a(this);
         }

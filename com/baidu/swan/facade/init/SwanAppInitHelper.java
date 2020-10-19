@@ -16,7 +16,7 @@ import com.baidu.swan.ubc.r;
 import com.baidu.webkit.sdk.WebViewFactory;
 import com.facebook.drawee.a.a.c;
 @Keep
-/* loaded from: classes3.dex */
+/* loaded from: classes16.dex */
 public class SwanAppInitHelper {
     private static final boolean DEBUG = false;
     private static final String TAG = "SwanAppInitHelper";
@@ -50,35 +50,35 @@ public class SwanAppInitHelper {
     }
 
     private static void initStatisticsModule(Application application) {
-        if (com.baidu.pyramid.runtime.multiprocess.a.WR()) {
-            r.aWV();
+        if (com.baidu.pyramid.runtime.multiprocess.a.YO()) {
+            r.aZD();
             initConfig();
         }
     }
 
     private static void initSwanAppModule(Application application) {
-        if (!c.dTx()) {
+        if (!c.dXi()) {
             c.initialize(application);
         }
         if (ProcessUtils.isMainProcess()) {
-            a.dq(application).aHS();
+            a.dw(application).aKB();
         }
         initWebView(application);
         if (ProcessUtils.isMainProcess()) {
             asyncUpdateSwanAppCore();
             if (b.DEBUG) {
-                com.baidu.swan.apps.ao.a.at(0, 1);
+                com.baidu.swan.apps.ao.a.as(0, 1);
             }
         }
     }
 
     private static void asyncUpdateSwanAppCore() {
-        final boolean mg = com.baidu.swan.pms.g.a.mg(0);
-        if (mg) {
+        final boolean mD = com.baidu.swan.pms.g.a.mD(0);
+        if (mD) {
             p.postOnIO(new Runnable() { // from class: com.baidu.swan.facade.init.SwanAppInitHelper.1
                 @Override // java.lang.Runnable
                 public void run() {
-                    if (mg) {
+                    if (mD) {
                         com.baidu.swan.pms.c.a(new h(0), new i(null), new com.baidu.swan.games.k.b.a(null));
                     }
                 }
@@ -103,22 +103,22 @@ public class SwanAppInitHelper {
     }
 
     private static void initWebView(Context context) {
-        WebViewFactory.initOnAppStart(AppRuntime.getAppContext(), com.baidu.swan.apps.t.a.aqh().abn(), false);
-        if (com.baidu.swan.apps.t.a.aqh().abo()) {
+        WebViewFactory.initOnAppStart(AppRuntime.getAppContext(), com.baidu.swan.apps.t.a.asT().adZ(), false);
+        if (com.baidu.swan.apps.t.a.asT().aea()) {
             doWebViewInit(context);
         }
     }
 
     private static void doWebViewInit(Context context) {
         if (ProcessUtils.isMainProcess()) {
-            com.baidu.swan.apps.core.k.b.bS(context).a(new b.a() { // from class: com.baidu.swan.facade.init.SwanAppInitHelper.2
+            com.baidu.swan.apps.core.k.b.bY(context).a(new b.a() { // from class: com.baidu.swan.facade.init.SwanAppInitHelper.2
                 @Override // com.baidu.swan.apps.core.k.b.a
-                public void Zg() {
-                    com.baidu.swan.apps.env.e.amb().q(null);
+                public void abS() {
+                    com.baidu.swan.apps.env.e.aoM().q(null);
                 }
             });
         }
-        com.baidu.swan.apps.core.k.b.bS(context).ec(ProcessUtils.isMainProcess());
+        com.baidu.swan.apps.core.k.b.bY(context).ey(ProcessUtils.isMainProcess());
     }
 
     private static boolean isProcessNeedInit() {
@@ -126,7 +126,7 @@ public class SwanAppInitHelper {
     }
 
     public static void onTerminate() {
-        com.baidu.swan.apps.core.k.b.bS(AppRuntime.getAppContext()).onTerminate();
+        com.baidu.swan.apps.core.k.b.bY(AppRuntime.getAppContext()).onTerminate();
     }
 
     public static void initConfig() {
@@ -134,8 +134,8 @@ public class SwanAppInitHelper {
     }
 
     private static void uploadLastData() {
-        com.baidu.swan.ubc.p aWO = com.baidu.swan.ubc.p.aWO();
-        aWO.upload();
-        aWO.aWP();
+        com.baidu.swan.ubc.p aZw = com.baidu.swan.ubc.p.aZw();
+        aZw.upload();
+        aZw.aZx();
     }
 }

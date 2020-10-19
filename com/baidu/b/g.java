@@ -12,21 +12,23 @@ import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
 import java.util.List;
-/* loaded from: classes3.dex */
+/* loaded from: classes7.dex */
 public class g {
-    private Context a;
-    private c adw;
+
+    /* renamed from: a  reason: collision with root package name */
+    private Context f1270a;
+    private c adM;
 
     public g(Context context, c cVar) {
-        this.a = context;
-        this.adw = cVar;
+        this.f1270a = context;
+        this.adM = cVar;
     }
 
     private f O(Context context) {
         String str;
         f fVar;
         f fVar2 = null;
-        List<b> N = this.adw.N(context);
+        List<b> N = this.adM.N(context);
         if (N != null) {
             File filesDir = context.getFilesDir();
             if (com.baidu.fsg.face.base.b.c.g.equals(filesDir.getName())) {
@@ -37,7 +39,7 @@ public class g {
             }
             for (b bVar : N) {
                 if (!bVar.d) {
-                    File file = new File(new File(bVar.acB.dataDir, str), "libcuid.so");
+                    File file = new File(new File(bVar.acR.dataDir, str), "libcuid.so");
                     if (file.exists()) {
                         fVar = f.cY(com.baidu.b.f.c.a(file));
                         if (fVar != null) {
@@ -55,12 +57,12 @@ public class g {
     }
 
     private boolean b(String str) {
-        return this.a.checkPermission(str, Process.myPid(), Process.myUid()) == 0;
+        return this.f1270a.checkPermission(str, Process.myPid(), Process.myUid()) == 0;
     }
 
     private String c(String str) {
         try {
-            return Settings.System.getString(this.a.getContentResolver(), str);
+            return Settings.System.getString(this.f1270a.getContentResolver(), str);
         } catch (Exception e) {
             com.baidu.b.f.c.a(e);
             return null;
@@ -90,8 +92,8 @@ public class g {
                 sb.append("\r\n");
             }
             bufferedReader.close();
-            byte[] a = com.baidu.b.c.a.g.a();
-            String[] split = new String(com.baidu.b.c.a.c.a(a, a, com.baidu.b.d.a.a(sb.toString().getBytes()))).split(ETAG.EQUAL);
+            byte[] a2 = com.baidu.b.c.a.g.a();
+            String[] split = new String(com.baidu.b.c.a.c.a(a2, a2, com.baidu.b.d.a.a(sb.toString().getBytes()))).split(ETAG.EQUAL);
             if (split != null && split.length == 2) {
                 str3 = split[0];
                 str2 = split[1];
@@ -116,7 +118,7 @@ public class g {
     }
 
     public f da(String str) {
-        f O = 0 == 0 ? O(this.a) : null;
+        f O = 0 == 0 ? O(this.f1270a) : null;
         if (O == null) {
             O = f.cY(c("com.baidu.deviceid.v2"));
         }

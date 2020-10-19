@@ -5,10 +5,12 @@ import com.baidu.browser.sailor.BdSailor;
 import com.baidu.browser.sailor.util.BdZeusUtil;
 import com.baidu.webkit.sdk.Log;
 import com.baidu.webkit.sdk.WebView;
-/* loaded from: classes8.dex */
+/* loaded from: classes11.dex */
 public final class a {
-    public static final String a = BdSailor.class.getName();
-    private static a afe;
+
+    /* renamed from: a  reason: collision with root package name */
+    public static final String f1286a = BdSailor.class.getName();
+    private static a afv;
     public Context b;
     public WebView c;
     private boolean e;
@@ -20,11 +22,11 @@ public final class a {
         a tx = tx();
         tx.f();
         tx.b = null;
-        afe = null;
+        afv = null;
     }
 
     private void f() {
-        Log.w(a, "BdWebViewSingleton, old instance has been destroyed");
+        Log.w(f1286a, "BdWebViewSingleton, old instance has been destroyed");
         if (this.c != null) {
             this.c.destroy();
             this.c = null;
@@ -32,18 +34,18 @@ public final class a {
     }
 
     public static a tx() {
-        if (afe == null) {
-            afe = new a();
-        } else if (afe.c != null && (afe.e ^ BdZeusUtil.isWebkitLoaded())) {
-            Log.d(a, "BdWebViewSingleton, re-new instance need because of the kernel changed");
-            afe.f();
-            afe.e();
+        if (afv == null) {
+            afv = new a();
+        } else if (afv.c != null && (afv.e ^ BdZeusUtil.isWebkitLoaded())) {
+            Log.d(f1286a, "BdWebViewSingleton, re-new instance need because of the kernel changed");
+            afv.f();
+            afv.e();
         }
-        return afe;
+        return afv;
     }
 
     public final boolean c() {
-        Log.d(a, "BdWebViewSingleton pauseTimer");
+        Log.d(f1286a, "BdWebViewSingleton pauseTimer");
         try {
             e();
             this.c.pauseTimers();
@@ -55,7 +57,7 @@ public final class a {
     }
 
     public final boolean d() {
-        Log.d(a, "BdWebViewSingleton resumeTimer");
+        Log.d(f1286a, "BdWebViewSingleton resumeTimer");
         try {
             e();
             this.c.resumeTimers();
@@ -74,7 +76,7 @@ public final class a {
             this.e = true;
         } else {
             this.e = false;
-            Log.d(a, "BdWebViewSingleton init system webview,zeus was not load complete");
+            Log.d(f1286a, "BdWebViewSingleton init system webview,zeus was not load complete");
         }
         this.c = new WebView(this.b);
     }

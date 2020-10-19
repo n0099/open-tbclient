@@ -2,7 +2,7 @@ package com.xiaomi.push;
 
 import android.content.Context;
 import java.util.List;
-/* loaded from: classes9.dex */
+/* loaded from: classes12.dex */
 public class ez extends com.xiaomi.clientreport.processor.b {
     public ez(Context context) {
         super(context);
@@ -10,6 +10,6 @@ public class ez extends com.xiaomi.clientreport.processor.b {
 
     @Override // com.xiaomi.clientreport.processor.b
     public void a(List<String> list) {
-        fa.a(this.a, list);
+        fa.a(this.f4730a, list);
     }
 }

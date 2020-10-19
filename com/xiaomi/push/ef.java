@@ -7,9 +7,11 @@ import android.telephony.TelephonyManager;
 import android.util.DisplayMetrics;
 import android.view.WindowManager;
 import com.xiaomi.mipush.sdk.Constants;
-/* loaded from: classes9.dex */
+/* loaded from: classes12.dex */
 public class ef extends ed {
-    private boolean a;
+
+    /* renamed from: a  reason: collision with root package name */
+    private boolean f4874a;
     private boolean b;
     private boolean c;
     private boolean d;
@@ -17,7 +19,7 @@ public class ef extends ed {
 
     public ef(Context context, int i, boolean z, boolean z2, boolean z3, boolean z4, boolean z5) {
         super(context, i);
-        this.a = z;
+        this.f4874a = z;
         this.b = z2;
         this.c = z3;
         this.d = z4;
@@ -25,10 +27,10 @@ public class ef extends ed {
     }
 
     private String b() {
-        if (this.a) {
+        if (this.f4874a) {
             try {
                 DisplayMetrics displayMetrics = new DisplayMetrics();
-                ((WindowManager) this.f231a.getSystemService("window")).getDefaultDisplay().getMetrics(displayMetrics);
+                ((WindowManager) this.f232a.getSystemService("window")).getDefaultDisplay().getMetrics(displayMetrics);
                 return displayMetrics.heightPixels + Constants.ACCEPT_TIME_SEPARATOR_SP + displayMetrics.widthPixels;
             } catch (Throwable th) {
                 return "";
@@ -62,7 +64,7 @@ public class ef extends ed {
     private String e() {
         if (this.d) {
             try {
-                return Settings.Secure.getString(this.f231a.getContentResolver(), "android_id");
+                return Settings.Secure.getString(this.f232a.getContentResolver(), "android_id");
             } catch (Throwable th) {
                 return "";
             }
@@ -73,7 +75,7 @@ public class ef extends ed {
     private String f() {
         if (this.e) {
             try {
-                return ((TelephonyManager) this.f231a.getSystemService("phone")).getSimOperator();
+                return ((TelephonyManager) this.f232a.getSystemService("phone")).getSimOperator();
             } catch (Throwable th) {
                 return "";
             }
@@ -83,19 +85,19 @@ public class ef extends ed {
 
     @Override // com.xiaomi.push.ed, com.xiaomi.push.ai.a
     /* renamed from: a */
-    public int mo166a() {
+    public int mo167a() {
         return 3;
     }
 
     @Override // com.xiaomi.push.ed, com.xiaomi.push.ai.a
     /* renamed from: a */
-    public ho mo166a() {
+    public ho mo167a() {
         return ho.DeviceInfoV2;
     }
 
     @Override // com.xiaomi.push.ed, com.xiaomi.push.ai.a
     /* renamed from: a */
-    public String mo166a() {
+    public String mo167a() {
         return b() + "|" + c() + "|" + d() + "|" + e() + "|" + f();
     }
 }

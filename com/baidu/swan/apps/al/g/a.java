@@ -7,53 +7,53 @@ import android.hardware.SensorManager;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import com.baidu.swan.apps.console.c;
-/* loaded from: classes3.dex */
+/* loaded from: classes10.dex */
 public class a {
-    private static volatile a dbo;
-    private SensorManager bqI;
-    private Sensor daO;
-    private boolean daR = false;
-    private Sensor dbf;
-    private float[] dbg;
-    private float[] dbh;
-    private SensorEventListener dbp;
-    private InterfaceC0336a dbq;
+    private static volatile a dnx;
+    private SensorManager buw;
+    private Sensor dmW;
+    private boolean dmZ = false;
+    private Sensor dnn;
+    private float[] dno;
+    private float[] dnp;
+    private SensorEventListener dny;
+    private InterfaceC0353a dnz;
 
     /* renamed from: com.baidu.swan.apps.al.g.a$a  reason: collision with other inner class name */
-    /* loaded from: classes3.dex */
-    public interface InterfaceC0336a {
+    /* loaded from: classes10.dex */
+    public interface InterfaceC0353a {
         void x(float[] fArr);
     }
 
-    public static a aEu() {
-        if (dbo == null) {
+    public static a aHd() {
+        if (dnx == null) {
             synchronized (a.class) {
-                if (dbo == null) {
-                    dbo = new a();
+                if (dnx == null) {
+                    dnx = new a();
                 }
             }
         }
-        return dbo;
+        return dnx;
     }
 
-    public boolean a(int i, @NonNull InterfaceC0336a interfaceC0336a) {
-        if (this.daR) {
+    public boolean a(int i, @NonNull InterfaceC0353a interfaceC0353a) {
+        if (this.dmZ) {
             c.w("SwanAppOrientationManager", "has already start, change new listener");
-            this.dbq = interfaceC0336a;
+            this.dnz = interfaceC0353a;
             return true;
         }
-        this.bqI = (SensorManager) com.baidu.swan.apps.t.a.apu().getSystemService("sensor");
-        if (this.bqI != null) {
-            this.dbq = interfaceC0336a;
-            this.daO = this.bqI.getDefaultSensor(1);
-            this.dbf = this.bqI.getDefaultSensor(2);
-            if (this.daO == null || this.dbf == null) {
+        this.buw = (SensorManager) com.baidu.swan.apps.t.a.asf().getSystemService("sensor");
+        if (this.buw != null) {
+            this.dnz = interfaceC0353a;
+            this.dmW = this.buw.getDefaultSensor(1);
+            this.dnn = this.buw.getDefaultSensor(2);
+            if (this.dmW == null || this.dnn == null) {
                 c.e("SwanAppOrientationManager", "Accelerometer || Magnetic is null");
                 return false;
             }
-            this.bqI.registerListener(aEw(), this.daO, i);
-            this.bqI.registerListener(aEw(), this.dbf, i);
-            this.daR = true;
+            this.buw.registerListener(aHf(), this.dmW, i);
+            this.buw.registerListener(aHf(), this.dnn, i);
+            this.dmZ = true;
             c.i("SwanAppOrientationManager", "start listen");
             return true;
         }
@@ -61,61 +61,61 @@ public class a {
         return false;
     }
 
-    public void aEv() {
-        if (!this.daR) {
+    public void aHe() {
+        if (!this.dmZ) {
             c.w("SwanAppOrientationManager", "has already stop");
             return;
         }
-        this.daR = false;
-        if (this.dbp != null && this.bqI != null) {
-            this.bqI.unregisterListener(this.dbp);
-            this.dbp = null;
+        this.dmZ = false;
+        if (this.dny != null && this.buw != null) {
+            this.buw.unregisterListener(this.dny);
+            this.dny = null;
         }
-        this.dbq = null;
-        this.bqI = null;
-        this.daO = null;
-        this.dbf = null;
+        this.dnz = null;
+        this.buw = null;
+        this.dmW = null;
+        this.dnn = null;
     }
 
     public static void release() {
-        if (dbo != null) {
-            dbo.aEj();
+        if (dnx != null) {
+            dnx.aGS();
         }
     }
 
-    private void aEj() {
+    private void aGS() {
         c.i("SwanAppOrientationManager", "release");
-        if (this.daR) {
-            aEv();
+        if (this.dmZ) {
+            aHe();
         }
-        this.bqI = null;
-        this.daO = null;
-        this.dbf = null;
-        this.dbp = null;
-        this.dbg = null;
-        this.dbh = null;
-        dbo = null;
+        this.buw = null;
+        this.dmW = null;
+        this.dnn = null;
+        this.dny = null;
+        this.dno = null;
+        this.dnp = null;
+        dnx = null;
     }
 
-    private SensorEventListener aEw() {
+    private SensorEventListener aHf() {
         c.i("SwanAppOrientationManager", "get System Sensor listener");
-        if (this.dbp != null) {
-            return this.dbp;
+        if (this.dny != null) {
+            return this.dny;
         }
-        this.dbp = new SensorEventListener() { // from class: com.baidu.swan.apps.al.g.a.1
+        this.dny = new SensorEventListener() { // from class: com.baidu.swan.apps.al.g.a.1
             @Override // android.hardware.SensorEventListener
             public void onSensorChanged(SensorEvent sensorEvent) {
-                float[] aEx;
+                float[] aHg;
                 if (sensorEvent != null && sensorEvent.sensor != null && sensorEvent.sensor.getType() == 1) {
                     if (sensorEvent.values != null && sensorEvent.values.length == 3) {
-                        a.this.dbg = (float[]) sensorEvent.values.clone();
+                        a.this.dno = (float[]) sensorEvent.values.clone();
                     }
                 } else if (sensorEvent != null && sensorEvent.sensor != null && sensorEvent.sensor.getType() == 2) {
                     if (sensorEvent.values != null && sensorEvent.values.length == 3) {
-                        a.this.dbh = (float[]) sensorEvent.values.clone();
+                        a.this.dnp = (float[]) sensorEvent.values.clone();
                     }
-                    if (a.this.dbq != null && a.this.dbg != null && a.this.dbh != null && (aEx = a.this.aEx()) != null) {
-                        a.this.dbq.x(aEx);
+                    if (a.this.dnz != null && a.this.dno != null && a.this.dnp != null && (aHg = a.this.aHg()) != null) {
+                        a.this.dnz.x(aHg);
                     }
                 }
             }
@@ -124,16 +124,16 @@ public class a {
             public void onAccuracyChanged(Sensor sensor, int i) {
             }
         };
-        return this.dbp;
+        return this.dny;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     @Nullable
-    public float[] aEx() {
+    public float[] aHg() {
         float[] fArr = new float[9];
         float[] fArr2 = new float[9];
         float[] fArr3 = new float[3];
-        if (SensorManager.getRotationMatrix(fArr, null, this.dbg, this.dbh) && SensorManager.remapCoordinateSystem(fArr, 2, 129, fArr2)) {
+        if (SensorManager.getRotationMatrix(fArr, null, this.dno, this.dnp) && SensorManager.remapCoordinateSystem(fArr, 2, 129, fArr2)) {
             SensorManager.getOrientation(fArr2, fArr3);
             return fArr3;
         }

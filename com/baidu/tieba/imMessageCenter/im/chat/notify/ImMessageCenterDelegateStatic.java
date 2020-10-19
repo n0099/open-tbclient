@@ -20,9 +20,9 @@ import com.baidu.tbadk.mainTab.d;
 import com.baidu.tieba.R;
 import com.baidu.tieba.imMessageCenter.mention.MessageCenterFragment;
 import com.vivo.push.PushClientConstants;
-/* loaded from: classes21.dex */
+/* loaded from: classes22.dex */
 public class ImMessageCenterDelegateStatic extends b {
-    private CustomMessageListener jJX;
+    private CustomMessageListener jYU;
     private MessageRedDotView tipView;
 
     @Override // com.baidu.tbadk.mainTab.b
@@ -46,7 +46,7 @@ public class ImMessageCenterDelegateStatic extends b {
         this.mIndicator = (MaintabBottomIndicator) LayoutInflater.from(context).inflate(R.layout.maintab_bottom_indicator, (ViewGroup) null);
         this.tipView = new MessageRedDotView(context);
         TbFragmentTabIndicator.a aVar = new TbFragmentTabIndicator.a();
-        aVar.eSL = this.mIndicator;
+        aVar.feT = this.mIndicator;
         aVar.view = this.tipView;
         aVar.isRight = true;
         this.mIndicator.b("msg", aVar);
@@ -73,7 +73,7 @@ public class ImMessageCenterDelegateStatic extends b {
 
     @Override // com.baidu.tbadk.mainTab.b
     public void onAdd() {
-        this.jJX = new CustomMessageListener(CmdConfigCustom.CMD_HOME_NOTIFY_MSG) { // from class: com.baidu.tieba.imMessageCenter.im.chat.notify.ImMessageCenterDelegateStatic.2
+        this.jYU = new CustomMessageListener(CmdConfigCustom.CMD_HOME_NOTIFY_MSG) { // from class: com.baidu.tieba.imMessageCenter.im.chat.notify.ImMessageCenterDelegateStatic.2
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.adp.framework.listener.MessageListener
             public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
@@ -89,20 +89,20 @@ public class ImMessageCenterDelegateStatic extends b {
                         } catch (Exception e) {
                             i = intValue;
                             z = false;
-                            ImMessageCenterDelegateStatic.this.x(z, i);
+                            ImMessageCenterDelegateStatic.this.A(z, i);
                         }
                     } catch (Exception e2) {
                         i = 0;
                     }
-                    ImMessageCenterDelegateStatic.this.x(z, i);
+                    ImMessageCenterDelegateStatic.this.A(z, i);
                 }
             }
         };
-        MessageManager.getInstance().registerListener(this.jJX);
+        MessageManager.getInstance().registerListener(this.jYU);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void x(boolean z, int i) {
+    public void A(boolean z, int i) {
         if (this.tipView != null) {
             if (z) {
                 this.tipView.setThreeDotMode(2);
@@ -134,6 +134,6 @@ public class ImMessageCenterDelegateStatic extends b {
     @Override // com.baidu.tbadk.mainTab.b
     public void onRemove() {
         super.onRemove();
-        MessageManager.getInstance().unRegisterListener(this.jJX);
+        MessageManager.getInstance().unRegisterListener(this.jYU);
     }
 }

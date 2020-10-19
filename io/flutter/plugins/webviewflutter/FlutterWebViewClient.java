@@ -10,7 +10,6 @@ import android.webkit.WebResourceError;
 import android.webkit.WebResourceRequest;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
-import androidx.annotation.RequiresApi;
 import androidx.webkit.b;
 import androidx.webkit.c;
 import com.baidu.live.tbadk.core.util.TiebaInitialize;
@@ -18,7 +17,7 @@ import io.flutter.plugin.common.MethodChannel;
 import java.util.HashMap;
 import java.util.Locale;
 import java.util.Map;
-/* loaded from: classes5.dex */
+/* loaded from: classes12.dex */
 class FlutterWebViewClient {
     private static final String TAG = "FlutterWebViewClient";
     private boolean hasNavigationDelegate;
@@ -187,7 +186,6 @@ class FlutterWebViewClient {
             }
 
             @Override // androidx.webkit.c
-            @RequiresApi(api = 21)
             @SuppressLint({"RequiresFeature"})
             public void onReceivedError(WebView webView, WebResourceRequest webResourceRequest, b bVar) {
                 FlutterWebViewClient.this.onWebResourceError(bVar.getErrorCode(), bVar.getDescription().toString(), webResourceRequest.getUrl().toString());
@@ -205,7 +203,7 @@ class FlutterWebViewClient {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes5.dex */
+    /* loaded from: classes12.dex */
     public static class OnNavigationRequestResult implements MethodChannel.Result {
         private final Map<String, String> headers;
         private final String url;

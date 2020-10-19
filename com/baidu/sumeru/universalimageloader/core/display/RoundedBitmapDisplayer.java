@@ -12,7 +12,7 @@ import android.graphics.drawable.Drawable;
 import com.baidu.sumeru.universalimageloader.core.assist.LoadedFrom;
 import com.baidu.sumeru.universalimageloader.core.imageaware.ImageAware;
 import com.baidu.sumeru.universalimageloader.core.imageaware.ImageViewAware;
-/* loaded from: classes9.dex */
+/* loaded from: classes12.dex */
 public class RoundedBitmapDisplayer implements BitmapDisplayer {
     protected final int cornerRadius;
     protected final int margin;
@@ -34,7 +34,7 @@ public class RoundedBitmapDisplayer implements BitmapDisplayer {
         imageAware.setImageDrawable(new RoundedDrawable(bitmap, this.cornerRadius, this.margin));
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes12.dex */
     protected static class RoundedDrawable extends Drawable {
         protected final BitmapShader bitmapShader;
         protected final float cornerRadius;

@@ -3,11 +3,11 @@ package com.baidu.android.imsdk.chatmessage.messages;
 import android.content.Context;
 import com.baidu.android.imsdk.IMConstants;
 import com.baidu.android.imsdk.internal.IMConfigInternal;
-/* loaded from: classes9.dex */
+/* loaded from: classes5.dex */
 public class ChatMsgFactory {
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes9.dex */
+    /* loaded from: classes5.dex */
     public static class SingletonHolder {
         static final ChatMsgFactory INSTANCE = new ChatMsgFactory();
 
@@ -82,6 +82,12 @@ public class ChatMsgFactory {
                 return new ProductMsg();
             case 26:
                 return new ConsultCouponMsg();
+            case 27:
+                return new PassMsg();
+            case 28:
+                return new PassSaveMsg();
+            case 29:
+                return new GoodsMsg();
             case 32:
                 return new DuPaBManualMsg();
             case 33:

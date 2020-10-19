@@ -6,27 +6,29 @@ import android.view.MotionEvent;
 import com.kascend.chushou.widget.cswebview.CSWebView;
 /* loaded from: classes6.dex */
 public class MyWebView extends CSWebView {
-    long a;
+
+    /* renamed from: a  reason: collision with root package name */
+    long f4249a;
 
     public MyWebView(Context context) {
         super(context);
-        this.a = 0L;
+        this.f4249a = 0L;
     }
 
     public MyWebView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.a = 0L;
+        this.f4249a = 0L;
     }
 
     @Override // android.view.ViewGroup, android.view.View
     public boolean dispatchTouchEvent(MotionEvent motionEvent) {
         if (motionEvent.getAction() == 1) {
             long currentTimeMillis = System.currentTimeMillis();
-            if (currentTimeMillis - this.a <= 300) {
-                this.a = currentTimeMillis;
+            if (currentTimeMillis - this.f4249a <= 300) {
+                this.f4249a = currentTimeMillis;
                 return true;
             }
-            this.a = currentTimeMillis;
+            this.f4249a = currentTimeMillis;
         }
         return super.dispatchTouchEvent(motionEvent);
     }

@@ -1,7 +1,7 @@
 package com.android.support.appcompat.storage;
-/* loaded from: classes8.dex */
+/* loaded from: classes14.dex */
 public interface a<T> {
-    void lc();
+    void ld();
 
     void p(T t);
 }

@@ -11,9 +11,9 @@ public class c extends a {
 
     @Override // com.baidu.adp.newwidget.ImageView.a
     public void a(d dVar, ImageView imageView) {
-        if (this.Rh.mHasBorder) {
-            float f = this.Rh.mBorderWidth / 2.0f;
-            if (!this.Rh.mBorderSurroundContent) {
+        if (this.Rx.mHasBorder) {
+            float f = this.Rx.mBorderWidth / 2.0f;
+            if (!this.Rx.mBorderSurroundContent) {
                 this.mBorderRect.set(f, f, imageView.getWidth() - f, imageView.getHeight() - f);
                 return;
             }
@@ -36,25 +36,25 @@ public class c extends a {
             canvas.drawBitmap(bitmap, this.mTemp, this.mBounds, this.mPaint);
         } else if (dVar.isBdImgAvailable()) {
             this.mTemp.set(0, 0, dVar.getWidth(), dVar.getHeight());
-            dVar.Rm.drawImageTo(canvas, this.mTemp, this.mBounds, this.mPaint);
+            dVar.RC.drawImageTo(canvas, this.mTemp, this.mBounds, this.mPaint);
         }
     }
 
     @Override // com.baidu.adp.newwidget.ImageView.a
     public void drawBorder(Canvas canvas, ImageView imageView) {
-        if (this.Rh.mHasBorder) {
+        if (this.Rx.mHasBorder) {
             canvas.drawRect(this.mBorderRect, this.mBorderPaint);
         }
     }
 
     @Override // com.baidu.adp.newwidget.ImageView.a
     public void drawForeground(Canvas canvas, ImageView imageView) {
-        if (this.Rh.mForegroundColor != 0) {
+        if (this.Rx.mForegroundColor != 0) {
             int scrollX = imageView.getScrollX();
             int scrollY = imageView.getScrollY();
             canvas.translate(scrollX, scrollY);
             this.mForegroundRect.set(0.0f, 0.0f, imageView.getWidth(), imageView.getHeight());
-            this.mForegroundPaint.setColor(this.Rh.mForegroundColor);
+            this.mForegroundPaint.setColor(this.Rx.mForegroundColor);
             canvas.drawRect(this.mForegroundRect, this.mForegroundPaint);
             canvas.translate(-scrollX, -scrollY);
         }

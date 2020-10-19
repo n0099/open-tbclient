@@ -16,9 +16,11 @@ import java.io.IOException;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes15.dex */
+/* loaded from: classes16.dex */
 public class a {
-    private static final String a = "utf-8";
+
+    /* renamed from: a  reason: collision with root package name */
+    private static final String f1484a = "utf-8";
     private static final String b = "c82c403505338808201aad86f8194734";
 
     a() {
@@ -37,7 +39,7 @@ public class a {
                 FileOutputStream openFileOutput = context.openFileOutput(str, z ? 32768 : 0);
                 if (openFileOutput != null) {
                     try {
-                        openFileOutput.write(str2.getBytes(a));
+                        openFileOutput.write(str2.getBytes(f1484a));
                     } catch (Throwable th2) {
                         fileOutputStream = openFileOutput;
                         th = th2;
@@ -79,7 +81,7 @@ public class a {
             if (b2 == null) {
                 return "";
             }
-            return new String(b2, a);
+            return new String(b2, f1484a);
         } catch (Exception e) {
             return "";
         }

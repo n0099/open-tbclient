@@ -5,7 +5,7 @@ import com.baidu.live.data.AlaLiveUserInfoData;
 import org.json.JSONObject;
 /* loaded from: classes4.dex */
 public class a {
-    public AlaLiveUserInfoData aJI;
+    public AlaLiveUserInfoData aMN;
     public int rank;
     public String score;
 
@@ -13,8 +13,8 @@ public class a {
         if (jSONObject != null) {
             JSONObject optJSONObject = jSONObject.optJSONObject("user_info");
             if (optJSONObject != null) {
-                this.aJI = new AlaLiveUserInfoData();
-                this.aJI.parserJson(optJSONObject);
+                this.aMN = new AlaLiveUserInfoData();
+                this.aMN.parserJson(optJSONObject);
             }
             this.rank = jSONObject.optInt("rank");
             this.score = jSONObject.optString(GestureAR.SDK_TO_LUA_GESTURE_RESULT_SCORE);

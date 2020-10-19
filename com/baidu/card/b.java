@@ -6,15 +6,15 @@ import android.view.ViewGroup;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.card.a.a;
 import com.baidu.tbadk.core.data.AbsThreadDataSupport;
-/* loaded from: classes20.dex */
+/* loaded from: classes21.dex */
 public abstract class b<T extends AbsThreadDataSupport> implements p<T>, q {
-    protected ak afl;
-    private Boolean afm = false;
-    private com.baidu.tieba.card.aa<T> afn;
-    public a afo;
+    protected ak afC;
+    private Boolean afD = false;
+    private com.baidu.tieba.card.aa<T> afE;
+    public a afF;
     protected Context mContext;
 
-    /* loaded from: classes20.dex */
+    /* loaded from: classes21.dex */
     public interface a {
         void a(AbsThreadDataSupport absThreadDataSupport);
     }
@@ -27,7 +27,7 @@ public abstract class b<T extends AbsThreadDataSupport> implements p<T>, q {
     }
 
     public void a(ak akVar) {
-        this.afl = akVar;
+        this.afC = akVar;
     }
 
     public void bo(int i) {
@@ -41,15 +41,15 @@ public abstract class b<T extends AbsThreadDataSupport> implements p<T>, q {
     }
 
     public com.baidu.tieba.card.aa<T> tB() {
-        return this.afn;
+        return this.afE;
     }
 
     public void setOnCardSubClickListener(com.baidu.tieba.card.aa<T> aaVar) {
-        this.afn = aaVar;
+        this.afE = aaVar;
     }
 
     public void a(int i, a.b bVar) {
-        this.afl.a(i, bVar);
+        this.afC.a(i, bVar);
     }
 
     public void bq(int i) {
@@ -69,10 +69,10 @@ public abstract class b<T extends AbsThreadDataSupport> implements p<T>, q {
     }
 
     public Boolean tC() {
-        return this.afm;
+        return this.afD;
     }
 
     public void b(Boolean bool) {
-        this.afm = bool;
+        this.afD = bool;
     }
 }

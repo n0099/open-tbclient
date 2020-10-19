@@ -3,15 +3,17 @@ package com.baidu.mapapi.walknavi.controllers.a;
 import com.baidu.mapapi.walknavi.adapter.IWNaviCalcRouteListener;
 import com.baidu.mapapi.walknavi.model.WalkRoutePlanError;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes3.dex */
+/* loaded from: classes7.dex */
 public class d implements com.baidu.platform.comapi.wnplatform.j.c {
-    final /* synthetic */ IWNaviCalcRouteListener a;
+
+    /* renamed from: a  reason: collision with root package name */
+    final /* synthetic */ IWNaviCalcRouteListener f2172a;
     final /* synthetic */ a b;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public d(a aVar, IWNaviCalcRouteListener iWNaviCalcRouteListener) {
         this.b = aVar;
-        this.a = iWNaviCalcRouteListener;
+        this.f2172a = iWNaviCalcRouteListener;
     }
 
     @Override // com.baidu.platform.comapi.wnplatform.j.c
@@ -20,15 +22,15 @@ public class d implements com.baidu.platform.comapi.wnplatform.j.c {
 
     @Override // com.baidu.platform.comapi.wnplatform.j.c
     public void b() {
-        if (this.a != null) {
-            this.a.onNaviCalcRouteSuccess();
+        if (this.f2172a != null) {
+            this.f2172a.onNaviCalcRouteSuccess();
         }
     }
 
     @Override // com.baidu.platform.comapi.wnplatform.j.c
     public void a(int i) {
-        if (this.a != null) {
-            this.a.onNaviCalcRouteFail(WalkRoutePlanError.PARSE_FAIL);
+        if (this.f2172a != null) {
+            this.f2172a.onNaviCalcRouteFail(WalkRoutePlanError.PARSE_FAIL);
         }
     }
 }

@@ -6,9 +6,9 @@ import java.util.ArrayList;
 import java.util.List;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes23.dex */
+/* loaded from: classes24.dex */
 public class a implements com.baidu.tieba.tbadkCore.e.b {
-    private List<c> hyO = new ArrayList();
+    private List<c> hNJ = new ArrayList();
 
     public a() {
         a(new com.baidu.tieba.easterEgg.b.a.b());
@@ -17,14 +17,14 @@ public class a implements com.baidu.tieba.tbadkCore.e.b {
     }
 
     public void a(c cVar) {
-        if (cVar != null && this.hyO != null) {
-            this.hyO.add(cVar);
+        if (cVar != null && this.hNJ != null) {
+            this.hNJ.add(cVar);
         }
     }
 
     public void clearListener() {
-        if (this.hyO != null) {
-            this.hyO.clear();
+        if (this.hNJ != null) {
+            this.hNJ.clear();
         }
     }
 
@@ -36,7 +36,7 @@ public class a implements com.baidu.tieba.tbadkCore.e.b {
                 String optString = jSONObject.optString("method_name");
                 if (!at.isEmpty(str2)) {
                     String trim = optString.trim();
-                    for (c cVar : this.hyO) {
+                    for (c cVar : this.hNJ) {
                         if (trim.equals(cVar.getMethodName())) {
                             cVar.a(trim, jSONObject.optString("args"), jSONObject.optString("native_exts"), jSONObject.optString("native_clbk"), jsPromptResult);
                         }

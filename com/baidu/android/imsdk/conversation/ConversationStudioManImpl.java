@@ -49,7 +49,7 @@ import java.util.concurrent.atomic.AtomicBoolean;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes9.dex */
+/* loaded from: classes5.dex */
 public class ConversationStudioManImpl {
     private static final int ACK_INTERVAL_TIME = 3000;
     private static final int ACK_MAX_COUNT = 1;
@@ -103,7 +103,7 @@ public class ConversationStudioManImpl {
         }
     };
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes5.dex */
     interface HeartbeatOperation {
         void cancelHearbeat();
 
@@ -235,13 +235,13 @@ public class ConversationStudioManImpl {
         this.mJoinReliableCastId = 0L;
         this.mJoinMsgCastId = 0L;
         String addListener = ListenerManager.getInstance().addListener(iMcastSetListener);
-        if (a.ayR || LoginManager.getInstance(mContext).isIMLogined()) {
+        if (a.azA || LoginManager.getInstance(mContext).isIMLogined()) {
             Intent createMcastMethodIntent = Utility.createMcastMethodIntent(mContext, 201);
             createMcastMethodIntent.putExtra(Constants.EXTRA_LISTENER_ID, addListener);
             createMcastMethodIntent.putExtra("mcast_id", j);
             createMcastMethodIntent.putExtra(Constants.EXTRA_OPT_EXT, z);
             try {
-                a.al(mContext).e(mContext, createMcastMethodIntent);
+                a.ao(mContext).e(mContext, createMcastMethodIntent);
                 new IMTrack.RequestBuilder(mContext).requestId("" + j).requestTime(System.currentTimeMillis()).ext("service enqueue join").aliasId(501112L).build();
                 return;
             } catch (Exception e) {
@@ -317,7 +317,7 @@ public class ConversationStudioManImpl {
             createMcastMethodIntent.putExtra(Constants.EXTRA_LISTENER_ID, addListener);
             createMcastMethodIntent.putExtra("mcast_id", j);
             try {
-                a.al(mContext).e(mContext, createMcastMethodIntent);
+                a.ao(mContext).e(mContext, createMcastMethodIntent);
                 return;
             } catch (Exception e) {
                 ListenerManager.getInstance().removeListener(addListener);
@@ -339,7 +339,7 @@ public class ConversationStudioManImpl {
             createMcastMethodIntent.putExtra(Constants.EXTRA_OPT_CODE, i);
             createMcastMethodIntent.putExtra(Constants.EXTRA_OPT_EXT, str);
             try {
-                a.al(mContext).e(mContext, createMcastMethodIntent);
+                a.ao(mContext).e(mContext, createMcastMethodIntent);
                 return;
             } catch (Exception e) {
                 ListenerManager.getInstance().removeListener(addListener);
@@ -485,7 +485,7 @@ public class ConversationStudioManImpl {
     }
 
     public static void resetHeartBeat(int i) {
-        if (!a.ayR) {
+        if (!a.azA) {
             Heartbeat.ALARM_TIMEOUT = i;
             LogUtils.d(TAG, "reset heartbeat time to = " + Heartbeat.ALARM_TIMEOUT);
             IMSDK.getInstance(mContext).mHeartbeatOperator.cancelHearbeat();
@@ -494,7 +494,7 @@ public class ConversationStudioManImpl {
     }
 
     public void setMcastQuickHeartBeat() {
-        if (!a.ayR) {
+        if (!a.azA) {
             mCastHeartBeatTime = mRandom.nextInt(3000) + 3000;
             LogUtils.d(TAG, "mcast now quick heart beat = " + mCastHeartBeatTime);
             if (mcastHeartbeat == null) {
@@ -505,7 +505,7 @@ public class ConversationStudioManImpl {
     }
 
     public void cancelMcastQuickHeartBeat() {
-        if (!a.ayR) {
+        if (!a.azA) {
             if (mcastHeartbeat != null) {
                 mcastHeartbeat.cancelHearbeat();
                 mcastHeartbeat = null;
@@ -515,17 +515,17 @@ public class ConversationStudioManImpl {
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes5.dex */
     public class McastHeartbeat implements HeartbeatOperation {
         private Runnable startHeartBeatTask = new Runnable() { // from class: com.baidu.android.imsdk.conversation.ConversationStudioManImpl.McastHeartbeat.1
             @Override // java.lang.Runnable
             public void run() {
                 try {
-                    if (!a.ayR) {
+                    if (!a.azA) {
                         Intent intent = new Intent(ConversationStudioManImpl.mContext, a.class);
                         intent.putExtra(Constants.EXTRA_ALARM_ALERT, "OK");
                         intent.setPackage(ConversationStudioManImpl.mContext.getPackageName());
-                        a.al(ConversationStudioManImpl.mContext).e(ConversationStudioManImpl.mContext, intent);
+                        a.ao(ConversationStudioManImpl.mContext).e(ConversationStudioManImpl.mContext, intent);
                     }
                 } catch (Exception e) {
                     if (e instanceof SecurityException) {
@@ -582,7 +582,7 @@ public class ConversationStudioManImpl {
     }
 
     private void registerNetChangedReceiver() {
-        if (!a.ayR) {
+        if (!a.azA) {
             try {
                 if (mNetChangedReceiver == null && mContext != null) {
                     mNetChangedReceiver = new IMReceiver();
@@ -601,7 +601,7 @@ public class ConversationStudioManImpl {
     }
 
     private void unRegisterNetChangedReceiver() {
-        if (!a.ayR) {
+        if (!a.azA) {
             try {
                 if (this.isRegisterNetReceiver && mContext != null) {
                     mContext.unregisterReceiver(mNetChangedReceiver);
@@ -615,7 +615,7 @@ public class ConversationStudioManImpl {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes9.dex */
+    /* loaded from: classes5.dex */
     public class McastTodoAfterLogin implements TodoAfterLogin {
         McastTodoAfterLogin() {
         }
@@ -623,6 +623,7 @@ public class ConversationStudioManImpl {
         @Override // com.baidu.android.imsdk.account.TodoAfterLogin
         public void todo(boolean z) {
             ChatMessageDBManager.getInstance(ConversationStudioManImpl.mContext).deleteExpiredReliableMsgs();
+            ChatMessageDBManager.getInstance(ConversationStudioManImpl.mContext).deleteStudioUsePaMsgs();
         }
     }
 }

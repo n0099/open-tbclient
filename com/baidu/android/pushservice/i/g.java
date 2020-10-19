@@ -12,9 +12,11 @@ import java.net.Inet4Address;
 import java.net.InetAddress;
 import java.net.NetworkInterface;
 import java.util.Enumeration;
-/* loaded from: classes7.dex */
+/* loaded from: classes10.dex */
 public class g {
-    private static ConnectivityManager a = null;
+
+    /* renamed from: a  reason: collision with root package name */
+    private static ConnectivityManager f1152a = null;
     private static TelephonyManager b = null;
 
     public static boolean a(Context context) {
@@ -146,12 +148,12 @@ public class g {
 
     private static ConnectivityManager j(Context context) {
         if (context == null) {
-            return a;
+            return f1152a;
         }
-        if (a == null) {
-            a = (ConnectivityManager) context.getSystemService("connectivity");
+        if (f1152a == null) {
+            f1152a = (ConnectivityManager) context.getSystemService("connectivity");
         }
-        return a;
+        return f1152a;
     }
 
     private static TelephonyManager k(Context context) {

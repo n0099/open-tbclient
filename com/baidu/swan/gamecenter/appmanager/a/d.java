@@ -7,7 +7,7 @@ import com.baidu.searchbox.common.runtime.AppRuntime;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes14.dex */
+/* loaded from: classes6.dex */
 public class d extends com.baidu.swan.gamecenter.c.a {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
 
@@ -19,7 +19,7 @@ public class d extends com.baidu.swan.gamecenter.c.a {
     public com.baidu.swan.apps.api.c.b b(@NonNull JSONObject jSONObject, @NonNull com.baidu.swan.apps.o.b bVar) {
         JSONObject jSONObject2 = new JSONObject();
         try {
-            jSONObject2.put("data", aKT());
+            jSONObject2.put("data", aNC());
             if (DEBUG) {
                 Log.i("GetAppListAction", jSONObject2.toString());
             }
@@ -28,11 +28,11 @@ public class d extends com.baidu.swan.gamecenter.c.a {
                 e.printStackTrace();
             }
         }
-        bVar.ao(jSONObject2);
+        bVar.av(jSONObject2);
         return null;
     }
 
-    private JSONArray aKT() throws JSONException {
+    private JSONArray aNC() throws JSONException {
         JSONArray jSONArray = new JSONArray();
         for (PackageInfo packageInfo : AppRuntime.getAppContext().getPackageManager().getInstalledPackages(1)) {
             jSONArray.put(c(packageInfo));

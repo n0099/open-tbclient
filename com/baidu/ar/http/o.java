@@ -5,7 +5,7 @@ import com.baidu.webkit.internal.ETAG;
 import java.net.URL;
 import java.nio.charset.Charset;
 import java.nio.charset.StandardCharsets;
-/* loaded from: classes10.dex */
+/* loaded from: classes14.dex */
 class o {
     private Charset qs = StandardCharsets.UTF_8;
     private String ra;

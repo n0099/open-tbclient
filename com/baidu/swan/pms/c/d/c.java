@@ -1,74 +1,74 @@
 package com.baidu.swan.pms.c.d;
-/* loaded from: classes24.dex */
+/* loaded from: classes15.dex */
 public class c extends g {
-    private String dIs;
-    private long dIt;
-    private long dIu;
-    private String dIv;
-    private String dIw;
-    private int dIx;
+    private String dUt;
+    private long dUu;
+    private long dUv;
+    private String dUw;
+    private String dUx;
+    private int dUy;
     private String mPath;
 
     public c(String str, int i) {
         super(i);
-        this.dIt = -1L;
-        this.dIu = -1L;
-        this.dIx = -1;
-        this.dIs = str;
+        this.dUu = -1L;
+        this.dUv = -1L;
+        this.dUy = -1;
+        this.dUt = str;
     }
 
-    public c me(int i) {
-        this.dIx = i;
+    public c mB(int i) {
+        this.dUy = i;
         return this;
     }
 
-    public int aUY() {
-        return this.dIx;
+    public int aXH() {
+        return this.dUy;
     }
 
-    public c xb(String str) {
-        this.dIv = str;
+    public c xN(String str) {
+        this.dUw = str;
         return this;
     }
 
-    public c cm(long j) {
-        this.dIt = j;
+    public c cu(long j) {
+        this.dUu = j;
         return this;
     }
 
-    public c cn(long j) {
-        this.dIu = j;
+    public c cv(long j) {
+        this.dUv = j;
         return this;
     }
 
-    public c xc(String str) {
-        this.dIw = str;
+    public c xO(String str) {
+        this.dUx = str;
         return this;
     }
 
-    public c xd(String str) {
+    public c xP(String str) {
         this.mPath = str;
         return this;
     }
 
     public String getBundleId() {
-        return this.dIs;
+        return this.dUt;
     }
 
-    public long aUW() {
-        return this.dIt;
+    public long aXF() {
+        return this.dUu;
     }
 
-    public long aUX() {
-        return this.dIu;
+    public long aXG() {
+        return this.dUv;
     }
 
-    public String aUZ() {
-        return this.dIv;
+    public String aXI() {
+        return this.dUw;
     }
 
-    public String aVa() {
-        return this.dIw;
+    public String aXJ() {
+        return this.dUx;
     }
 
     public String getPath() {

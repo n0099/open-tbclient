@@ -1,7 +1,7 @@
 package com.baidu.swan.pms.utils;
 
 import android.support.annotation.NonNull;
-/* loaded from: classes24.dex */
+/* loaded from: classes15.dex */
 public interface a {
-    boolean tj(@NonNull String str);
+    boolean tV(@NonNull String str);
 }

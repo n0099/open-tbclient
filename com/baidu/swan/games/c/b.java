@@ -1,5 +1,5 @@
 package com.baidu.swan.games.c;
-/* loaded from: classes3.dex */
+/* loaded from: classes10.dex */
 public interface b {
-    void dN(boolean z);
+    void ej(boolean z);
 }

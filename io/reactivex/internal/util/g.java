@@ -1,10 +1,10 @@
 package io.reactivex.internal.util;
-/* loaded from: classes25.dex */
+/* loaded from: classes17.dex */
 public final class g<T> {
     final float loadFactor;
     int mask;
     int maxSize;
-    T[] oAr;
+    T[] oPG;
     int size;
 
     public g() {
@@ -13,31 +13,31 @@ public final class g<T> {
 
     public g(int i, float f) {
         this.loadFactor = f;
-        int Ow = h.Ow(i);
-        this.mask = Ow - 1;
-        this.maxSize = (int) (Ow * f);
-        this.oAr = (T[]) new Object[Ow];
+        int Pc = h.Pc(i);
+        this.mask = Pc - 1;
+        this.maxSize = (int) (Pc * f);
+        this.oPG = (T[]) new Object[Pc];
     }
 
     public boolean add(T t) {
         T t2;
-        T[] tArr = this.oAr;
+        T[] tArr = this.oPG;
         int i = this.mask;
-        int Ov = Ov(t.hashCode()) & i;
-        T t3 = tArr[Ov];
+        int Pb = Pb(t.hashCode()) & i;
+        T t3 = tArr[Pb];
         if (t3 != null) {
             if (t3.equals(t)) {
                 return false;
             }
             do {
-                Ov = (Ov + 1) & i;
-                t2 = tArr[Ov];
+                Pb = (Pb + 1) & i;
+                t2 = tArr[Pb];
                 if (t2 == null) {
                 }
             } while (!t2.equals(t));
             return false;
         }
-        tArr[Ov] = t;
+        tArr[Pb] = t;
         int i2 = this.size + 1;
         this.size = i2;
         if (i2 >= this.maxSize) {
@@ -48,24 +48,24 @@ public final class g<T> {
 
     public boolean remove(T t) {
         T t2;
-        T[] tArr = this.oAr;
+        T[] tArr = this.oPG;
         int i = this.mask;
-        int Ov = Ov(t.hashCode()) & i;
-        T t3 = tArr[Ov];
+        int Pb = Pb(t.hashCode()) & i;
+        T t3 = tArr[Pb];
         if (t3 == null) {
             return false;
         }
         if (t3.equals(t)) {
-            return a(Ov, tArr, i);
+            return a(Pb, tArr, i);
         }
         do {
-            Ov = (Ov + 1) & i;
-            t2 = tArr[Ov];
+            Pb = (Pb + 1) & i;
+            t2 = tArr[Pb];
             if (t2 == null) {
                 return false;
             }
         } while (!t2.equals(t));
-        return a(Ov, tArr, i);
+        return a(Pb, tArr, i);
     }
 
     boolean a(int i, T[] tArr, int i2) {
@@ -81,13 +81,13 @@ public final class g<T> {
                     tArr[i] = null;
                     return true;
                 }
-                int Ov = Ov(t.hashCode()) & i2;
+                int Pb = Pb(t.hashCode()) & i2;
                 if (i > i3) {
-                    if (i >= Ov && Ov > i3) {
+                    if (i >= Pb && Pb > i3) {
                         break;
                     }
                     i4 = i3 + 1;
-                } else if (i < Ov && Ov <= i3) {
+                } else if (i < Pb && Pb <= i3) {
                     i4 = i3 + 1;
                 }
             }
@@ -97,7 +97,7 @@ public final class g<T> {
     }
 
     void rehash() {
-        T[] tArr = this.oAr;
+        T[] tArr = this.oPG;
         int length = tArr.length;
         int i = length << 1;
         int i2 = i - 1;
@@ -110,30 +110,30 @@ public final class g<T> {
                 do {
                     i3--;
                 } while (tArr[i3] == null);
-                int Ov = Ov(tArr[i3].hashCode()) & i2;
-                if (tArr2[Ov] != null) {
+                int Pb = Pb(tArr[i3].hashCode()) & i2;
+                if (tArr2[Pb] != null) {
                     do {
-                        Ov = (Ov + 1) & i2;
-                    } while (tArr2[Ov] != null);
+                        Pb = (Pb + 1) & i2;
+                    } while (tArr2[Pb] != null);
                 }
-                tArr2[Ov] = tArr[i3];
+                tArr2[Pb] = tArr[i3];
                 i4 = i5;
             } else {
                 this.mask = i2;
                 this.maxSize = (int) (i * this.loadFactor);
-                this.oAr = tArr2;
+                this.oPG = tArr2;
                 return;
             }
         }
     }
 
-    static int Ov(int i) {
+    static int Pb(int i) {
         int i2 = (-1640531527) * i;
         return i2 ^ (i2 >>> 16);
     }
 
-    public Object[] ejA() {
-        return this.oAr;
+    public Object[] enm() {
+        return this.oPG;
     }
 
     public int size() {

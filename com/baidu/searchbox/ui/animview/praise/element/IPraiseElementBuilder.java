@@ -4,7 +4,7 @@ import android.graphics.drawable.Drawable;
 import com.baidu.searchbox.ui.animview.base.IResourceProvider;
 import java.lang.ref.WeakReference;
 import java.util.Map;
-/* loaded from: classes11.dex */
+/* loaded from: classes9.dex */
 public interface IPraiseElementBuilder<RESULT> {
     PreBuildConfig getPreBuildConfig();
 
@@ -12,7 +12,7 @@ public interface IPraiseElementBuilder<RESULT> {
 
     void preBuild(PreBuildConfig preBuildConfig);
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes9.dex */
     public static class PreBuildConfig {
         private Map<Integer, Integer> elementCntsMap;
         private WeakReference<IResourceProvider> resourceProvider;
@@ -38,7 +38,7 @@ public interface IPraiseElementBuilder<RESULT> {
         }
     }
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes9.dex */
     public static class FetchConfig {
         private WeakReference<Drawable.Callback> callback;
         private int canvasHeight;

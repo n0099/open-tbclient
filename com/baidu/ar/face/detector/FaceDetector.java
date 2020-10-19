@@ -9,7 +9,7 @@ import com.baidu.ar.arplay.core.engine.pixel.PixelType;
 import com.baidu.ar.bus.CallBack;
 import com.baidu.ar.databasic.AlgoHandleController;
 import com.baidu.ar.face.a.a;
-/* loaded from: classes10.dex */
+/* loaded from: classes14.dex */
 public class FaceDetector extends com.baidu.ar.b.a.a {
     private PixelReadParams mU;
     private j oF;
@@ -25,7 +25,7 @@ public class FaceDetector extends com.baidu.ar.b.a.a {
     private long oJ = 0;
 
     /* JADX INFO: Access modifiers changed from: protected */
-    /* loaded from: classes10.dex */
+    /* loaded from: classes14.dex */
     public class a {
         protected a() {
         }
@@ -133,11 +133,11 @@ public class FaceDetector extends com.baidu.ar.b.a.a {
         this.ok.a(algoHandleController);
     }
 
-    public void a(a.C0083a c0083a, int i, com.baidu.ar.face.b bVar, a.b bVar2, String str) {
+    public void a(a.C0084a c0084a, int i, com.baidu.ar.face.b bVar, a.b bVar2, String str) {
         this.ok.E(i);
-        if (c0083a != null) {
-            this.ok.a(Float.parseFloat(c0083a.pB), Float.parseFloat(c0083a.pC));
-            this.ok.e(Float.parseFloat(c0083a.pD));
+        if (c0084a != null) {
+            this.ok.a(Float.parseFloat(c0084a.pB), Float.parseFloat(c0084a.pC));
+            this.ok.e(Float.parseFloat(c0084a.pD));
         }
         this.ok.B(bVar.dz());
         this.ok.D(bVar.dA());

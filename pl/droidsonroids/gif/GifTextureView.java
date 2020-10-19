@@ -19,7 +19,7 @@ import java.io.IOException;
 import java.lang.ref.WeakReference;
 import pl.droidsonroids.gif.InputSource;
 @TargetApi(14)
-/* loaded from: classes5.dex */
+/* loaded from: classes9.dex */
 public class GifTextureView extends TextureView {
     private static final ImageView.ScaleType[] sScaleTypeArray = {ImageView.ScaleType.MATRIX, ImageView.ScaleType.FIT_XY, ImageView.ScaleType.FIT_START, ImageView.ScaleType.FIT_CENTER, ImageView.ScaleType.FIT_END, ImageView.ScaleType.CENTER, ImageView.ScaleType.CENTER_CROP, ImageView.ScaleType.CENTER_INSIDE};
     private boolean mFreezesAnimation;
@@ -117,7 +117,7 @@ public class GifTextureView extends TextureView {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes5.dex */
+    /* loaded from: classes9.dex */
     public static class RenderThread extends Thread implements TextureView.SurfaceTextureListener {
         final ConditionVariable isSurfaceValid;
         private GifInfoHandle mGifInfoHandle;
@@ -311,7 +311,7 @@ public class GifTextureView extends TextureView {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* renamed from: pl.droidsonroids.gif.GifTextureView$1  reason: invalid class name */
-    /* loaded from: classes5.dex */
+    /* loaded from: classes9.dex */
     public static /* synthetic */ class AnonymousClass1 {
         static final /* synthetic */ int[] $SwitchMap$android$widget$ImageView$ScaleType = new int[ImageView.ScaleType.values().length];
 

@@ -4,18 +4,18 @@ import android.os.Handler;
 import android.os.HandlerThread;
 import android.os.Looper;
 import android.os.Message;
-/* loaded from: classes10.dex */
+/* loaded from: classes14.dex */
 public class b {
     private static final String TAG = b.class.getSimpleName();
     private static volatile b iq;
     private c in;
 
     /* renamed from: io  reason: collision with root package name */
-    private HandlerThread f958io;
+    private HandlerThread f1191io;
     private Handler ip;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes10.dex */
+    /* loaded from: classes14.dex */
     public class a extends Handler {
         public a(Looper looper) {
             super(looper);
@@ -67,9 +67,9 @@ public class b {
     }
 
     private void ch() {
-        this.f958io = new HandlerThread("AudioHandlerThread");
-        this.f958io.start();
-        this.ip = new a(this.f958io.getLooper());
+        this.f1191io = new HandlerThread("AudioHandlerThread");
+        this.f1191io.start();
+        this.ip = new a(this.f1191io.getLooper());
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -101,9 +101,9 @@ public class b {
             this.ip.removeCallbacksAndMessages(null);
             this.ip = null;
         }
-        if (this.f958io != null) {
-            this.f958io.quit();
-            this.f958io = null;
+        if (this.f1191io != null) {
+            this.f1191io.quit();
+            this.f1191io = null;
         }
     }
 
@@ -145,7 +145,7 @@ public class b {
     }
 
     public boolean isRunning() {
-        return this.f958io != null && this.f958io.isAlive();
+        return this.f1191io != null && this.f1191io.isAlive();
     }
 
     public void setVolumeListener(VolumeListener volumeListener) {

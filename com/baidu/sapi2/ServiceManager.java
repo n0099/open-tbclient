@@ -1,10 +1,12 @@
 package com.baidu.sapi2;
 
 import com.baidu.sapi2.service.interfaces.ISAccountManager;
-/* loaded from: classes25.dex */
+/* loaded from: classes5.dex */
 public class ServiceManager implements NoProguard {
     private static ServiceManager b;
-    private ISAccountManager a;
+
+    /* renamed from: a  reason: collision with root package name */
+    private ISAccountManager f3286a;
 
     public static synchronized ServiceManager getInstance() {
         ServiceManager serviceManager;
@@ -18,10 +20,10 @@ public class ServiceManager implements NoProguard {
     }
 
     public ISAccountManager getIsAccountManager() {
-        return this.a;
+        return this.f3286a;
     }
 
     public void setIsAccountManager(ISAccountManager iSAccountManager) {
-        this.a = iSAccountManager;
+        this.f3286a = iSAccountManager;
     }
 }

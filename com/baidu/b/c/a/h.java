@@ -1,18 +1,20 @@
 package com.baidu.b.c.a;
 
 import javax.crypto.ShortBufferException;
-/* loaded from: classes3.dex */
+/* loaded from: classes7.dex */
 final class h implements i {
-    private int a;
+
+    /* renamed from: a  reason: collision with root package name */
+    private int f1259a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public h(int i) {
-        this.a = i;
+        this.f1259a = i;
     }
 
     @Override // com.baidu.b.c.a.i
     public int a(int i) {
-        return this.a - (i % this.a);
+        return this.f1259a - (i % this.f1259a);
     }
 
     @Override // com.baidu.b.c.a.i
@@ -37,7 +39,7 @@ final class h implements i {
         }
         int i4 = bArr[(i + i2) - 1];
         int i5 = i4 & 255;
-        if (i5 < 1 || i5 > this.a || (i3 = (i + i2) - (i4 & 255)) < i) {
+        if (i5 < 1 || i5 > this.f1259a || (i3 = (i + i2) - (i4 & 255)) < i) {
             return -1;
         }
         for (int i6 = 0; i6 < (i4 & 255); i6++) {

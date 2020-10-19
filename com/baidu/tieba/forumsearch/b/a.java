@@ -2,35 +2,35 @@ package com.baidu.tieba.forumsearch.b;
 
 import com.baidu.adp.BdUniqueId;
 import java.util.ArrayList;
-/* loaded from: classes23.dex */
+/* loaded from: classes24.dex */
 public class a extends com.baidu.tieba.card.data.b {
-    public static final BdUniqueId hXZ = BdUniqueId.gen();
-    public static final BdUniqueId hYa = BdUniqueId.gen();
-    public static final BdUniqueId hYb = BdUniqueId.gen();
-    private BdUniqueId Vf;
-    private ArrayList<String> hYc;
+    public static final BdUniqueId imZ = BdUniqueId.gen();
+    public static final BdUniqueId ina = BdUniqueId.gen();
+    public static final BdUniqueId inb = BdUniqueId.gen();
+    private BdUniqueId Vv;
+    private ArrayList<String> inc;
 
     @Override // com.baidu.tieba.card.data.b, com.baidu.adp.widget.ListView.q
     public BdUniqueId getType() {
-        return this.Vf;
+        return this.Vv;
     }
 
     public void g(BdUniqueId bdUniqueId) {
-        this.Vf = bdUniqueId;
+        this.Vv = bdUniqueId;
     }
 
     public a() {
-        this.Vf = hYa;
-        this.Vf = hYa;
+        this.Vv = ina;
+        this.Vv = ina;
     }
 
     public a(ArrayList<String> arrayList) {
-        this.Vf = hYa;
-        this.hYc = arrayList;
-        this.Vf = hXZ;
+        this.Vv = ina;
+        this.inc = arrayList;
+        this.Vv = imZ;
     }
 
-    public ArrayList<String> cnS() {
-        return this.hYc;
+    public ArrayList<String> crq() {
+        return this.inc;
     }
 }

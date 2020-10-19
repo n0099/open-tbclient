@@ -13,7 +13,7 @@ import com.baidu.pano.platform.c.g;
 import com.baidu.pano.platform.c.h;
 import com.baidu.pano.platform.c.i;
 import com.baidu.webkit.internal.ETAG;
-/* loaded from: classes3.dex */
+/* loaded from: classes7.dex */
 public class AppFunctionProcessor {
     public static Object doGetSync(Object obj, String str) {
         if (obj == null) {
@@ -45,25 +45,25 @@ public class AppFunctionProcessor {
             return null;
         }
         Context context = (Context) obj;
-        int a = h.a(f, context);
-        int a2 = h.a(d.a(i3), context);
-        int a3 = h.a(d.b(i3), context);
-        int a4 = h.a(d.c(i3), context);
-        int a5 = h.a(d.d(i3), context);
+        int a2 = h.a(f, context);
+        int a3 = h.a(d.a(i3), context);
+        int a4 = h.a(d.b(i3), context);
+        int a5 = h.a(d.c(i3), context);
+        int a6 = h.a(d.d(i3), context);
         Canvas canvas = new Canvas();
         Paint paint = new Paint();
         paint.setSubpixelText(true);
         paint.setAntiAlias(true);
-        paint.setTextSize(a);
+        paint.setTextSize(a2);
         int indexOf = str.indexOf(10, 0);
         if (indexOf == -1) {
             Paint.FontMetrics fontMetrics = paint.getFontMetrics();
-            Bitmap createBitmap = Bitmap.createBitmap(((int) paint.measureText(str)) + a2 + a4, ((int) Math.ceil(fontMetrics.descent - fontMetrics.ascent)) + a3 + a5, Bitmap.Config.ARGB_8888);
+            Bitmap createBitmap = Bitmap.createBitmap(((int) paint.measureText(str)) + a3 + a5, ((int) Math.ceil(fontMetrics.descent - fontMetrics.ascent)) + a4 + a6, Bitmap.Config.ARGB_8888);
             canvas.setBitmap(createBitmap);
             canvas.drawColor(i2);
             paint.setStyle(Paint.Style.FILL);
             paint.setColor(i);
-            canvas.drawText(str, a2 + 0, (0.0f - fontMetrics.ascent) + a3, paint);
+            canvas.drawText(str, a3 + 0, (0.0f - fontMetrics.ascent) + a4, paint);
             return createBitmap;
         }
         int i4 = indexOf + 1;
@@ -86,8 +86,8 @@ public class AppFunctionProcessor {
         }
         Paint.FontMetrics fontMetrics2 = paint.getFontMetrics();
         int ceil = (int) Math.ceil(fontMetrics2.descent - fontMetrics2.ascent);
-        int i6 = measureText2 + a2 + a4;
-        Bitmap createBitmap2 = Bitmap.createBitmap(i6, (i5 * ceil) + a3 + a5, Bitmap.Config.ARGB_8888);
+        int i6 = measureText2 + a3 + a5;
+        Bitmap createBitmap2 = Bitmap.createBitmap(i6, (i5 * ceil) + a4 + a6, Bitmap.Config.ARGB_8888);
         canvas.setBitmap(createBitmap2);
         canvas.drawColor(i2);
         int i7 = 0;
@@ -98,19 +98,19 @@ public class AppFunctionProcessor {
                 break;
             }
             String substring = str.substring(i7, indexOf3);
-            int measureText4 = ((int) paint.measureText(substring)) + a2 + a4;
+            int measureText4 = ((int) paint.measureText(substring)) + a3 + a5;
             i7 = indexOf3 + 1;
             paint.setStyle(Paint.Style.FILL);
             paint.setColor(i);
-            canvas.drawText(substring, ((i6 - measureText4) / 2) + a2, ((i8 * ceil) - fontMetrics2.ascent) + a3, paint);
+            canvas.drawText(substring, ((i6 - measureText4) / 2) + a3, ((i8 * ceil) - fontMetrics2.ascent) + a4, paint);
             i8++;
         }
         if (i7 != str.length()) {
             String substring2 = str.substring(i7, str.length());
-            int measureText5 = a4 + ((int) paint.measureText(substring2)) + a2;
+            int measureText5 = a5 + ((int) paint.measureText(substring2)) + a3;
             paint.setStyle(Paint.Style.FILL);
             paint.setColor(i);
-            canvas.drawText(substring2, a2 + ((i6 - measureText5) / 2), ((i8 * ceil) - fontMetrics2.ascent) + a3, paint);
+            canvas.drawText(substring2, a3 + ((i6 - measureText5) / 2), ((i8 * ceil) - fontMetrics2.ascent) + a4, paint);
         }
         return createBitmap2;
     }
@@ -142,6 +142,6 @@ public class AppFunctionProcessor {
         if (TextUtils.isEmpty(str)) {
             return false;
         }
-        return str.contains(i.b) || str.contains(i.a) || str.contains(i.f) || str.contains(i.e) || str.contains(i.d) || str.contains(i.c);
+        return str.contains(i.b) || str.contains(i.f2674a) || str.contains(i.f) || str.contains(i.e) || str.contains(i.d) || str.contains(i.c);
     }
 }

@@ -1,7 +1,9 @@
 package com.baidu.fsg.base.utils;
-/* loaded from: classes15.dex */
+/* loaded from: classes16.dex */
 public final class ChannelUtils {
-    private static boolean a;
+
+    /* renamed from: a  reason: collision with root package name */
+    private static boolean f1504a;
     private static String b;
     private static String c = "";
     private static String d;
@@ -9,7 +11,7 @@ public final class ChannelUtils {
 
     public static void initBussinessParams(String str, boolean z, String str2) {
         b = str;
-        a = z;
+        f1504a = z;
         e = str2;
     }
 
@@ -18,7 +20,7 @@ public final class ChannelUtils {
     }
 
     public static boolean isSpecailPackage() {
-        return a;
+        return f1504a;
     }
 
     public static String getSDKVersion() {

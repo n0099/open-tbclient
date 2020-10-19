@@ -20,15 +20,15 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 /* loaded from: classes.dex */
 public class b {
-    public static String eWI = "#";
-    public static String eWJ = "＃";
-    private static final Pattern dQR = Pattern.compile("#([^#(]+)#", 2);
+    public static String fiU = "#";
+    public static String fiV = "＃";
+    private static final Pattern ecS = Pattern.compile("#([^#(]+)#", 2);
 
-    public static boolean CU(String str) {
-        return eWI.equals(str);
+    public static boolean DG(String str) {
+        return fiU.equals(str);
     }
 
-    public static boolean jH(boolean z) {
+    public static boolean kf(boolean z) {
         boolean appResponseToIntentClass;
         if (PluginPackageManager.pT().cx("com.baidu.tieba.pluginHotTopic")) {
             if (z) {
@@ -41,7 +41,7 @@ public class b {
         return false;
     }
 
-    public static boolean bvK() {
+    public static boolean byu() {
         return PluginPackageManager.pT().cD("com.baidu.tieba.pluginHotTopic");
     }
 
@@ -53,16 +53,16 @@ public class b {
         return a(tbPageContext, true, true);
     }
 
-    public static SpannableString CV(String str) {
+    public static SpannableString DH(String str) {
         if (StringUtils.isNull(str)) {
             return new SpannableString("");
         }
-        Matcher matcher = dQR.matcher(str);
+        Matcher matcher = ecS.matcher(str);
         SpannableString spannableString = new SpannableString(str);
         while (matcher.find()) {
             int start = matcher.start();
             int end = matcher.end();
-            if (!CX(str.substring(start, end))) {
+            if (!DJ(str.substring(start, end))) {
                 spannableString.setSpan(new ForegroundColorSpan(ap.getColor(R.color.cp_link_tip_c)), start, end, 18);
             }
         }
@@ -74,11 +74,11 @@ public class b {
         if (spannable != null) {
             String obj = spannable.toString();
             if (!StringUtils.isNull(obj)) {
-                Matcher matcher = dQR.matcher(obj);
+                Matcher matcher = ecS.matcher(obj);
                 while (matcher.find()) {
                     int start = matcher.start();
                     int end = matcher.end();
-                    if (!CX(obj.substring(start, end)) && ((imageSpanArr = (ImageSpan[]) spannable.getSpans(start, end, ImageSpan.class)) == null || imageSpanArr.length <= 0)) {
+                    if (!DJ(obj.substring(start, end)) && ((imageSpanArr = (ImageSpan[]) spannable.getSpans(start, end, ImageSpan.class)) == null || imageSpanArr.length <= 0)) {
                         spannable.setSpan(new ForegroundColorSpan(ap.getColor(R.color.cp_link_tip_c)), start, end, 18);
                     }
                 }
@@ -86,20 +86,20 @@ public class b {
         }
     }
 
-    public static String CW(String str) {
+    public static String DI(String str) {
         if (StringUtils.isNull(str)) {
             return "";
         }
         if (str.charAt(0) != '#' || str.charAt(str.length() - 1) != '#') {
             StringBuilder sb = new StringBuilder(str.length() + 2);
-            sb.append(eWI).append(str).append(eWI);
+            sb.append(fiU).append(str).append(fiU);
             return sb.toString();
         }
         return str;
     }
 
-    public static boolean CX(String str) {
-        return str != null && str.startsWith(eWI) && str.endsWith(eWI) && "".equals(str.substring(1, str.length() + (-1)).trim());
+    public static boolean DJ(String str) {
+        return str != null && str.startsWith(fiU) && str.endsWith(fiU) && "".equals(str.substring(1, str.length() + (-1)).trim());
     }
 
     public static void a(l lVar) {
@@ -121,10 +121,10 @@ public class b {
                 str = "1";
                 break;
         }
-        TiebaStatic.log(new aq(TbadkCoreStatisticKey.HOT_TOPIC_CLICK).dF("obj_locate", str));
+        TiebaStatic.log(new aq(TbadkCoreStatisticKey.HOT_TOPIC_CLICK).dK("obj_locate", str));
     }
 
-    public static String CY(String str) {
+    public static String DK(String str) {
         StringBuffer stringBuffer = new StringBuffer("http://tieba.baidu.com/n/video/opersquare?tab=hot&topic_name=");
         int length = str.length();
         String str2 = null;

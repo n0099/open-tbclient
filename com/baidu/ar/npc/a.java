@@ -4,20 +4,22 @@ import android.os.Handler;
 import android.os.Message;
 import com.baidu.ar.npc.ArBridge;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes3.dex */
+/* loaded from: classes7.dex */
 public class a implements Handler.Callback {
-    final /* synthetic */ ArBridge a;
+
+    /* renamed from: a  reason: collision with root package name */
+    final /* synthetic */ ArBridge f1210a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public a(ArBridge arBridge) {
-        this.a = arBridge;
+        this.f1210a = arBridge;
     }
 
     @Override // android.os.Handler.Callback
     public boolean handleMessage(Message message) {
         switch (message.what) {
             case 1:
-                this.a.a((ArBridge.b) message.obj);
+                this.f1210a.a((ArBridge.b) message.obj);
                 return false;
             default:
                 return false;

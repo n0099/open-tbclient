@@ -1,5 +1,5 @@
 package com.nineoldandroids.util;
-/* loaded from: classes14.dex */
+/* loaded from: classes9.dex */
 public abstract class IntProperty<T> extends Property<T, Integer> {
     public abstract void setValue(T t, int i);
 

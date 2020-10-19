@@ -5,7 +5,7 @@ import java.util.List;
 import org.json.JSONObject;
 /* loaded from: classes4.dex */
 public class ALAGroupHttpResponseMessage extends JsonHttpResponsedMessage {
-    private boolean bfo;
+    private boolean bja;
     private List<com.baidu.live.im.data.a> chatMsgs;
     private long mGroupId;
 
@@ -13,19 +13,19 @@ public class ALAGroupHttpResponseMessage extends JsonHttpResponsedMessage {
         super(1021012);
     }
 
-    public boolean KI() {
-        return this.bfo;
+    public boolean LN() {
+        return this.bja;
     }
 
-    public void bT(boolean z) {
-        this.bfo = z;
+    public void bW(boolean z) {
+        this.bja = z;
     }
 
-    public List<com.baidu.live.im.data.a> KJ() {
+    public List<com.baidu.live.im.data.a> LO() {
         return this.chatMsgs;
     }
 
-    public void T(List<com.baidu.live.im.data.a> list) {
+    public void V(List<com.baidu.live.im.data.a> list) {
         this.chatMsgs = list;
     }
 

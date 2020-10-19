@@ -1,8 +1,10 @@
 package vi.com.gdi.bgl.android.java;
 
 import android.graphics.Typeface;
-/* loaded from: classes3.dex */
+/* loaded from: classes7.dex */
 class a {
-    Typeface a = null;
+
+    /* renamed from: a  reason: collision with root package name */
+    Typeface f5405a = null;
     int b = 0;
 }

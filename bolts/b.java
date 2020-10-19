@@ -5,14 +5,14 @@ import java.util.concurrent.Executor;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 import java.util.concurrent.ScheduledExecutorService;
-/* loaded from: classes16.dex */
+/* loaded from: classes19.dex */
 final class b {
-    private static final b zY = new b();
-    private final ScheduledExecutorService Aa;
-    private final Executor Ab;
-    private final ExecutorService zZ;
+    private static final b Aq = new b();
+    private final ExecutorService Ar;
+    private final ScheduledExecutorService As;
+    private final Executor At;
 
-    private static boolean hZ() {
+    private static boolean ia() {
         String property = System.getProperty("java.runtime.name");
         if (property == null) {
             return false;
@@ -21,48 +21,49 @@ final class b {
     }
 
     private b() {
-        this.zZ = !hZ() ? Executors.newCachedThreadPool() : bolts.a.hX();
-        this.Aa = Executors.newSingleThreadScheduledExecutor();
-        this.Ab = new a();
+        this.Ar = !ia() ? Executors.newCachedThreadPool() : bolts.a.hY();
+        this.As = Executors.newSingleThreadScheduledExecutor();
+        this.At = new a();
     }
 
-    public static ExecutorService ia() {
-        return zY.zZ;
+    public static ExecutorService ib() {
+        return Aq.Ar;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public static Executor ib() {
-        return zY.Ab;
+    public static Executor ic() {
+        return Aq.At;
     }
 
-    /* loaded from: classes16.dex */
+    /* loaded from: classes19.dex */
     private static class a implements Executor {
-        private ThreadLocal<Integer> Ac;
+        private ThreadLocal<Integer> Au;
 
         private a() {
-            this.Ac = new ThreadLocal<>();
+            this.Au = new ThreadLocal<>();
         }
 
-        private int ic() {
-            Integer num = this.Ac.get();
+        private int ie() {
+            Integer num = this.Au.get();
             if (num == null) {
                 num = 0;
             }
             int intValue = num.intValue() + 1;
-            this.Ac.set(Integer.valueOf(intValue));
+            this.Au.set(Integer.valueOf(intValue));
             return intValue;
         }
 
-        private int ie() {
-            Integer num = this.Ac.get();
+        /* renamed from: if  reason: not valid java name */
+        private int m7if() {
+            Integer num = this.Au.get();
             if (num == null) {
                 num = 0;
             }
             int intValue = num.intValue() - 1;
             if (intValue == 0) {
-                this.Ac.remove();
+                this.Au.remove();
             } else {
-                this.Ac.set(Integer.valueOf(intValue));
+                this.Au.set(Integer.valueOf(intValue));
             }
             return intValue;
         }
@@ -70,13 +71,13 @@ final class b {
         @Override // java.util.concurrent.Executor
         public void execute(Runnable runnable) {
             try {
-                if (ic() <= 15) {
+                if (ie() <= 15) {
                     runnable.run();
                 } else {
-                    b.ia().execute(runnable);
+                    b.ib().execute(runnable);
                 }
             } finally {
-                ie();
+                m7if();
             }
         }
     }

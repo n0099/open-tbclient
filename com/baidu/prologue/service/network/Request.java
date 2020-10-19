@@ -10,13 +10,13 @@ import java.net.URISyntaxException;
 import java.net.URL;
 import java.util.HashMap;
 import java.util.Map;
-/* loaded from: classes10.dex */
+/* loaded from: classes19.dex */
 public final class Request {
-    protected boolean bOA;
-    protected boolean bOB;
-    protected final Map<String, String> bOx;
-    private final e bOy;
-    private final RequestError bOz;
+    protected final Map<String, String> bVg;
+    private final e bVh;
+    private final RequestError bVi;
+    protected boolean bVj;
+    protected boolean bVk;
     private final Context context;
     private final Handler handler;
     protected final Map<String, String> headers;
@@ -25,21 +25,21 @@ public final class Request {
     protected final URL url;
 
     private Request(a aVar) {
-        this.bOz = aVar.bOz;
+        this.bVi = aVar.bVi;
         this.context = aVar.context;
         this.handler = new Handler(this.context.getMainLooper());
         this.url = aVar.url;
         this.method = aVar.method;
         this.headers = aVar.headers;
-        this.bOx = aVar.bOx;
-        this.bOA = aVar.bOA;
+        this.bVg = aVar.bVg;
+        this.bVj = aVar.bVj;
         this.tag = aVar.tag != null ? aVar.tag : this;
-        this.bOy = c.aS(this.context);
-        this.bOB = aVar.bOH;
+        this.bVh = c.aW(this.context);
+        this.bVk = aVar.bVq;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public static byte[] h(InputStream inputStream) {
+    public static byte[] i(InputStream inputStream) {
         if (inputStream == null) {
             return new byte[0];
         }
@@ -54,7 +54,7 @@ public final class Request {
                     }
                     byteArrayOutputStream.write(bArr, 0, read);
                 } catch (IOException e) {
-                    com.baidu.prologue.a.c.g.bMo.e("Request", "failed to read is", e);
+                    com.baidu.prologue.a.c.g.bSX.e("Request", "failed to read is", e);
                 }
             }
             return byteArrayOutputStream.toByteArray();
@@ -69,18 +69,18 @@ public final class Request {
     }
 
     public void a(final m mVar) {
-        if (this.bOz != null) {
+        if (this.bVi != null) {
             e(new Runnable() { // from class: com.baidu.prologue.service.network.Request.1
                 @Override // java.lang.Runnable
                 public void run() {
-                    mVar.n(Request.this.bOz);
+                    mVar.n(Request.this.bVi);
                 }
             });
         } else {
-            this.bOy.a(this, new l() { // from class: com.baidu.prologue.service.network.Request.2
+            this.bVh.a(this, new l() { // from class: com.baidu.prologue.service.network.Request.2
                 @Override // com.baidu.prologue.service.network.l
                 public void a(long j, InputStream inputStream) {
-                    final String str = new String(Request.h(inputStream));
+                    final String str = new String(Request.i(inputStream));
                     Request.this.e(new Runnable() { // from class: com.baidu.prologue.service.network.Request.2.1
                         @Override // java.lang.Runnable
                         public void run() {
@@ -103,16 +103,16 @@ public final class Request {
     }
 
     public void a(l lVar) {
-        this.bOy.a(this, lVar);
+        this.bVh.a(this, lVar);
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes19.dex */
     public static class a {
-        private boolean bOA;
-        private final String bOG;
-        private boolean bOH;
-        private Map<String, String> bOx;
-        private RequestError bOz;
+        private Map<String, String> bVg;
+        private RequestError bVi;
+        private boolean bVj;
+        private final String bVp;
+        private boolean bVq;
         private final Context context;
         private Map<String, String> headers;
         private String method;
@@ -121,52 +121,52 @@ public final class Request {
 
         public a(Context context, String str) {
             this.context = context.getApplicationContext();
-            this.bOG = str;
+            this.bVp = str;
         }
 
-        public Request WL() {
+        public Request YI() {
             if (this.method == null) {
-                WM();
+                YJ();
             }
             if ("GET".equals(this.method)) {
                 try {
-                    this.url = new URL(b.d(this.url.toString(), this.bOx));
+                    this.url = new URL(b.d(this.url.toString(), this.bVg));
                 } catch (MalformedURLException e) {
-                    this.bOz = new RequestError("Failed to create url", e);
+                    this.bVi = new RequestError("Failed to create url", e);
                 } catch (URISyntaxException e2) {
-                    this.bOz = new RequestError("Failed to add parameters to url", e2);
+                    this.bVi = new RequestError("Failed to add parameters to url", e2);
                 }
             }
             return new Request(this);
         }
 
-        public a WM() {
+        public a YJ() {
             if (this.url != null) {
-                this.bOz = new RequestError("Method called twice");
+                this.bVi = new RequestError("Method called twice");
             }
             try {
-                this.url = new URL(this.bOG);
+                this.url = new URL(this.bVp);
             } catch (MalformedURLException e) {
-                this.bOz = new RequestError(e);
+                this.bVi = new RequestError(e);
             }
             this.method = "GET";
             return this;
         }
 
-        public a WN() {
+        public a YK() {
             if (this.url != null) {
-                this.bOz = new RequestError("Method called twice");
+                this.bVi = new RequestError("Method called twice");
             }
             try {
-                this.url = new URL(this.bOG);
+                this.url = new URL(this.bVp);
             } catch (MalformedURLException e) {
-                this.bOz = new RequestError(e);
+                this.bVi = new RequestError(e);
             }
             this.method = "POST";
             return this;
         }
 
-        public a aQ(String str, String str2) {
+        public a aV(String str, String str2) {
             if (this.headers == null) {
                 this.headers = new HashMap();
             }
@@ -174,21 +174,21 @@ public final class Request {
             return this;
         }
 
-        public a aR(String str, String str2) {
-            if (this.bOx == null) {
-                this.bOx = new HashMap();
+        public a aW(String str, String str2) {
+            if (this.bVg == null) {
+                this.bVg = new HashMap();
             }
-            this.bOx.put(str, str2);
+            this.bVg.put(str, str2);
             return this;
         }
 
-        public a dm(boolean z) {
-            this.bOH = z;
+        public a dt(boolean z) {
+            this.bVq = z;
             return this;
         }
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes19.dex */
     public static class RequestError extends IOException {
         public RequestError() {
         }

@@ -1,5 +1,5 @@
 package com.baidu.sapi2.result;
-/* loaded from: classes25.dex */
+/* loaded from: classes5.dex */
 public class SsoHashResult extends SapiResult {
     public String ssoHash;
 }

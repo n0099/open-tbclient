@@ -6,8 +6,8 @@ import com.baidu.live.data.AlaLiveInfoData;
 import com.baidu.live.videochat.player.LivePlayer;
 /* loaded from: classes4.dex */
 public class b {
-    private LivePlayer buG;
-    private com.baidu.live.q.b buH;
+    private LivePlayer byI;
+    private com.baidu.live.q.b byJ;
     private Activity mActivity;
 
     public b(Activity activity) {
@@ -15,40 +15,40 @@ public class b {
     }
 
     public void a(com.baidu.live.q.b bVar) {
-        this.buH = bVar;
+        this.byJ = bVar;
     }
 
     public void e(AlaLiveInfoData alaLiveInfoData) {
-        if (this.buG == null) {
-            this.buG = new LivePlayer(this.mActivity);
-            this.buG.setIPlayerCallBack(new com.baidu.live.q.b() { // from class: com.baidu.live.videochat.a.b.1
+        if (this.byI == null) {
+            this.byI = new LivePlayer(this.mActivity);
+            this.byI.setIPlayerCallBack(new com.baidu.live.q.b() { // from class: com.baidu.live.videochat.a.b.1
                 @Override // com.baidu.live.q.b
-                public void dH(int i) {
-                    if (b.this.buH != null) {
-                        b.this.buH.dH(i);
+                public void dM(int i) {
+                    if (b.this.byJ != null) {
+                        b.this.byJ.dM(i);
                     }
                 }
             });
         }
-        this.buG.c(alaLiveInfoData);
+        this.byI.c(alaLiveInfoData);
     }
 
-    public void Qz() {
-        if (this.buG != null) {
-            this.buG.setIPlayerCallBack(null);
-            this.buG.ci(true);
-            this.buG.destroy();
-            this.buG = null;
+    public void RW() {
+        if (this.byI != null) {
+            this.byI.setIPlayerCallBack(null);
+            this.byI.cl(true);
+            this.byI.destroy();
+            this.byI = null;
         }
     }
 
     public boolean isStarted() {
-        return this.buG != null;
+        return this.byI != null;
     }
 
-    public View Qu() {
-        if (this.buG != null) {
-            return this.buG.getLivePlayer();
+    public View RR() {
+        if (this.byI != null) {
+            return this.byI.getLivePlayer();
         }
         return null;
     }

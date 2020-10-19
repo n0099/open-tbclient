@@ -6,9 +6,11 @@ import android.os.Process;
 import android.text.TextUtils;
 import com.baidu.cesium.d.b;
 import com.meizu.cloud.pushsdk.constants.PushConstants;
-/* loaded from: classes18.dex */
+/* loaded from: classes6.dex */
 public final class Util {
-    private static final boolean a = false;
+
+    /* renamed from: a  reason: collision with root package name */
+    private static final boolean f995a = false;
     private static final String b = "Util";
 
     private Util() {

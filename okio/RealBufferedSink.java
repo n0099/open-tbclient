@@ -7,7 +7,7 @@ import java.io.OutputStream;
 import java.nio.ByteBuffer;
 import java.nio.charset.Charset;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes16.dex */
+/* loaded from: classes11.dex */
 public final class RealBufferedSink implements BufferedSink {
     public final Buffer buffer = new Buffer();
     boolean closed;

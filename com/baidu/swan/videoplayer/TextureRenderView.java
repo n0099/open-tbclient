@@ -16,35 +16,35 @@ import java.lang.ref.WeakReference;
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 @TargetApi(14)
-/* loaded from: classes25.dex */
+/* loaded from: classes12.dex */
 public class TextureRenderView extends TextureView implements com.baidu.swan.videoplayer.a {
-    private int dNA;
-    private SurfaceTexture dNB;
-    public b dNC;
-    private com.baidu.swan.videoplayer.b dNz;
+    private com.baidu.swan.videoplayer.b dZA;
+    private int dZB;
+    private SurfaceTexture dZC;
+    public b dZD;
 
     public TextureRenderView(Context context) {
         super(context);
-        this.dNA = 0;
-        dK(context);
+        this.dZB = 0;
+        dQ(context);
     }
 
     public TextureRenderView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.dNA = 0;
-        dK(context);
+        this.dZB = 0;
+        dQ(context);
     }
 
     public TextureRenderView(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.dNA = 0;
-        dK(context);
+        this.dZB = 0;
+        dQ(context);
     }
 
-    private void dK(Context context) {
-        this.dNz = new com.baidu.swan.videoplayer.b(this);
-        this.dNC = new b(this);
-        setSurfaceTextureListener(this.dNC);
+    private void dQ(Context context) {
+        this.dZA = new com.baidu.swan.videoplayer.b(this);
+        this.dZD = new b(this);
+        setSurfaceTextureListener(this.dZD);
     }
 
     @Override // com.baidu.swan.videoplayer.a
@@ -61,49 +61,49 @@ public class TextureRenderView extends TextureView implements com.baidu.swan.vid
     @Override // com.baidu.swan.videoplayer.a
     public void setVideoSize(int i, int i2) {
         if (i > 0 && i2 > 0) {
-            this.dNz.setVideoSize(i, i2);
+            this.dZA.setVideoSize(i, i2);
             requestLayout();
         }
     }
 
     public void setVideoSampleAspectRatio(int i, int i2) {
         if (i > 0 && i2 > 0) {
-            this.dNz.setVideoSampleAspectRatio(i, i2);
+            this.dZA.setVideoSampleAspectRatio(i, i2);
             requestLayout();
         }
     }
 
     public void setVideoRotation(int i) {
-        this.dNz.setVideoRotation(i);
+        this.dZA.setVideoRotation(i);
         setRotation(i);
     }
 
     @Override // com.baidu.swan.videoplayer.a
     public void setAspectRatio(int i) {
-        this.dNz.setAspectRatio(i);
+        this.dZA.setAspectRatio(i);
         requestLayout();
     }
 
     @Override // android.view.View
     protected void onMeasure(int i, int i2) {
-        this.dNz.aG(i, i2);
-        setMeasuredDimension(this.dNz.aXw(), this.dNz.aXx());
+        this.dZA.aF(i, i2);
+        setMeasuredDimension(this.dZA.bae(), this.dZA.baf());
     }
 
     public void setCurrentMediaPlayerCode(int i) {
-        this.dNA = i;
+        this.dZB = i;
     }
 
     public int getCurrentMediaPlayerCode() {
-        return this.dNA;
+        return this.dZB;
     }
 
     public SurfaceTexture getLastSurfaceTexture() {
-        return this.dNB;
+        return this.dZC;
     }
 
     public void setLastSurfaceTexture(SurfaceTexture surfaceTexture) {
-        this.dNB = surfaceTexture;
+        this.dZC = surfaceTexture;
     }
 
     public a.b getSurfaceHolder() {
@@ -111,141 +111,141 @@ public class TextureRenderView extends TextureView implements com.baidu.swan.vid
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes25.dex */
+    /* loaded from: classes12.dex */
     public static final class a implements a.b {
-        private TextureRenderView dND;
+        private TextureRenderView dZE;
 
         public a(TextureRenderView textureRenderView) {
-            this.dND = textureRenderView;
+            this.dZE = textureRenderView;
         }
 
         @Override // com.baidu.swan.videoplayer.a.b
         @TargetApi(16)
         public void b(MediaPlayer mediaPlayer) {
-            if (mediaPlayer != null && this.dND.getSurfaceTexture() != null) {
-                if (mediaPlayer.hashCode() != this.dND.getCurrentMediaPlayerCode()) {
-                    mediaPlayer.setSurface(aXE());
-                } else if (!this.dND.getLastSurfaceTexture().equals(this.dND.getSurfaceTexture())) {
-                    this.dND.setSurfaceTexture(this.dND.getLastSurfaceTexture());
+            if (mediaPlayer != null && this.dZE.getSurfaceTexture() != null) {
+                if (mediaPlayer.hashCode() != this.dZE.getCurrentMediaPlayerCode()) {
+                    mediaPlayer.setSurface(bam());
+                } else if (!this.dZE.getLastSurfaceTexture().equals(this.dZE.getSurfaceTexture())) {
+                    this.dZE.setSurfaceTexture(this.dZE.getLastSurfaceTexture());
                 }
-                this.dND.setCurrentMediaPlayerCode(mediaPlayer.hashCode());
+                this.dZE.setCurrentMediaPlayerCode(mediaPlayer.hashCode());
             }
         }
 
         @Override // com.baidu.swan.videoplayer.a.b
-        public com.baidu.swan.videoplayer.a aXv() {
-            return this.dND;
+        public com.baidu.swan.videoplayer.a bad() {
+            return this.dZE;
         }
 
-        public Surface aXE() {
-            return new Surface(this.dND.getSurfaceTexture());
+        public Surface bam() {
+            return new Surface(this.dZE.getSurfaceTexture());
         }
     }
 
     @Override // com.baidu.swan.videoplayer.a
-    public void a(a.InterfaceC0521a interfaceC0521a) {
-        this.dNC.a(interfaceC0521a);
+    public void a(a.InterfaceC0538a interfaceC0538a) {
+        this.dZD.a(interfaceC0538a);
     }
 
     @Override // com.baidu.swan.videoplayer.a
-    public void b(a.InterfaceC0521a interfaceC0521a) {
-        this.dNC.b(interfaceC0521a);
+    public void b(a.InterfaceC0538a interfaceC0538a) {
+        this.dZD.b(interfaceC0538a);
     }
 
     @Override // com.baidu.swan.videoplayer.a
     @TargetApi(16)
     public void release() {
-        if (this.dNB != null) {
+        if (this.dZC != null) {
             if (isAvailable()) {
-                this.dNC.hj(true);
+                this.dZD.hF(true);
                 return;
             }
-            this.dNB.release();
-            this.dNB = null;
+            this.dZC.release();
+            this.dZC = null;
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes25.dex */
+    /* loaded from: classes12.dex */
     public static final class b implements TextureView.SurfaceTextureListener {
-        private boolean dNE;
-        private WeakReference<TextureRenderView> dNG;
+        private boolean dZF;
+        private WeakReference<TextureRenderView> dZH;
         private int mHeight;
         private SurfaceTexture mSurfaceTexture;
         private int mWidth;
-        private volatile boolean dNF = false;
-        private Map<a.InterfaceC0521a, Object> dNH = new ConcurrentHashMap();
+        private volatile boolean dZG = false;
+        private Map<a.InterfaceC0538a, Object> dZI = new ConcurrentHashMap();
 
         public b(TextureRenderView textureRenderView) {
-            this.dNG = new WeakReference<>(textureRenderView);
+            this.dZH = new WeakReference<>(textureRenderView);
         }
 
-        public void hj(boolean z) {
-            this.dNF = z;
+        public void hF(boolean z) {
+            this.dZG = z;
         }
 
-        public void a(a.InterfaceC0521a interfaceC0521a) {
-            this.dNH.put(interfaceC0521a, interfaceC0521a);
+        public void a(a.InterfaceC0538a interfaceC0538a) {
+            this.dZI.put(interfaceC0538a, interfaceC0538a);
             a aVar = null;
             if (this.mSurfaceTexture != null) {
                 if (0 == 0) {
-                    aVar = new a(this.dNG.get());
+                    aVar = new a(this.dZH.get());
                 }
-                interfaceC0521a.a(aVar, this.mWidth, this.mHeight);
+                interfaceC0538a.a(aVar, this.mWidth, this.mHeight);
             }
-            if (this.dNE) {
+            if (this.dZF) {
                 if (aVar == null) {
-                    aVar = new a(this.dNG.get());
+                    aVar = new a(this.dZH.get());
                 }
-                interfaceC0521a.a(aVar, 0, this.mWidth, this.mHeight);
+                interfaceC0538a.a(aVar, 0, this.mWidth, this.mHeight);
             }
         }
 
-        public void b(a.InterfaceC0521a interfaceC0521a) {
-            this.dNH.remove(interfaceC0521a);
+        public void b(a.InterfaceC0538a interfaceC0538a) {
+            this.dZI.remove(interfaceC0538a);
         }
 
         @Override // android.view.TextureView.SurfaceTextureListener
         @TargetApi(16)
         public void onSurfaceTextureAvailable(SurfaceTexture surfaceTexture, int i, int i2) {
             this.mSurfaceTexture = surfaceTexture;
-            if (this.dNG.get() == null) {
+            if (this.dZH.get() == null) {
                 Log.e("TextureRenderView", "!!!!!Too bad, textureview in callback is released. function will not work normally");
-            } else if (this.dNG.get().getLastSurfaceTexture() == null) {
-                this.dNG.get().setLastSurfaceTexture(surfaceTexture);
+            } else if (this.dZH.get().getLastSurfaceTexture() == null) {
+                this.dZH.get().setLastSurfaceTexture(surfaceTexture);
             }
-            this.dNE = false;
+            this.dZF = false;
             this.mWidth = 0;
             this.mHeight = 0;
-            a aVar = new a(this.dNG.get());
-            for (a.InterfaceC0521a interfaceC0521a : this.dNH.keySet()) {
-                interfaceC0521a.a(aVar, 0, 0);
+            a aVar = new a(this.dZH.get());
+            for (a.InterfaceC0538a interfaceC0538a : this.dZI.keySet()) {
+                interfaceC0538a.a(aVar, 0, 0);
             }
         }
 
         @Override // android.view.TextureView.SurfaceTextureListener
         public void onSurfaceTextureSizeChanged(SurfaceTexture surfaceTexture, int i, int i2) {
             this.mSurfaceTexture = surfaceTexture;
-            this.dNE = true;
+            this.dZF = true;
             this.mWidth = i;
             this.mHeight = i2;
-            a aVar = new a(this.dNG.get());
-            for (a.InterfaceC0521a interfaceC0521a : this.dNH.keySet()) {
-                interfaceC0521a.a(aVar, 0, i, i2);
+            a aVar = new a(this.dZH.get());
+            for (a.InterfaceC0538a interfaceC0538a : this.dZI.keySet()) {
+                interfaceC0538a.a(aVar, 0, i, i2);
             }
         }
 
         @Override // android.view.TextureView.SurfaceTextureListener
         public boolean onSurfaceTextureDestroyed(SurfaceTexture surfaceTexture) {
             this.mSurfaceTexture = surfaceTexture;
-            this.dNE = false;
+            this.dZF = false;
             this.mWidth = 0;
             this.mHeight = 0;
-            a aVar = new a(this.dNG.get());
-            for (a.InterfaceC0521a interfaceC0521a : this.dNH.keySet()) {
-                interfaceC0521a.a(aVar);
+            a aVar = new a(this.dZH.get());
+            for (a.InterfaceC0538a interfaceC0538a : this.dZI.keySet()) {
+                interfaceC0538a.a(aVar);
             }
-            return this.dNF;
+            return this.dZG;
         }
 
         @Override // android.view.TextureView.SurfaceTextureListener

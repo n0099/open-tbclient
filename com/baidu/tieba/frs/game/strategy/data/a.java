@@ -1,5 +1,5 @@
 package com.baidu.tieba.frs.game.strategy.data;
-/* loaded from: classes21.dex */
+/* loaded from: classes22.dex */
 public class a {
     public boolean isSelect;
     public int labelId;

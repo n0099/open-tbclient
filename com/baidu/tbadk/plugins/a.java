@@ -3,9 +3,9 @@ package com.baidu.tbadk.plugins;
 import android.content.ContentProvider;
 /* loaded from: classes.dex */
 public class a {
-    private static ContentProvider eWH;
+    private static ContentProvider fiT;
 
-    public static ContentProvider bvJ() {
-        return eWH;
+    public static ContentProvider byt() {
+        return fiT;
     }
 }

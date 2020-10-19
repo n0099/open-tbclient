@@ -3,7 +3,7 @@ package com.baidu.fsg.base.utils.support;
 import android.view.View;
 import android.view.ViewGroup;
 import java.util.ArrayList;
-/* loaded from: classes15.dex */
+/* loaded from: classes16.dex */
 public final class ViewHelper {
     private ViewHelper() {
     }
@@ -26,22 +26,22 @@ public final class ViewHelper {
                 setAlpha(view, f);
                 return;
             }
-            ArrayList<View> a = a(view);
-            if (a == null || a.size() <= 0) {
+            ArrayList<View> a2 = a(view);
+            if (a2 == null || a2.size() <= 0) {
                 setAlpha(view, f);
                 return;
             }
             for (View view2 : viewArr) {
-                b(a, view2, true);
+                b(a2, view2, true);
             }
-            for (int i = 0; i < a.size(); i++) {
-                View view3 = a.get(i);
+            for (int i = 0; i < a2.size(); i++) {
+                View view3 = a2.get(i);
                 if ((view3 instanceof ViewGroup) && ((ViewGroup) view3).getChildCount() > 0) {
-                    a(a, view3, false);
+                    a(a2, view3, false);
                 }
             }
-            for (int i2 = 0; i2 < a.size(); i2++) {
-                View view4 = a.get(i2);
+            for (int i2 = 0; i2 < a2.size(); i2++) {
+                View view4 = a2.get(i2);
                 if (view4 != null) {
                     setAlpha(view4, f);
                 }
@@ -51,14 +51,14 @@ public final class ViewHelper {
 
     private static void a(ArrayList<View> arrayList, View view, boolean z) {
         if (arrayList != null && arrayList.size() > 0 && view != null) {
-            ArrayList<View> a = a(view);
+            ArrayList<View> a2 = a(view);
             int i = 1;
             while (true) {
                 int i2 = i;
-                if (i2 >= a.size()) {
+                if (i2 >= a2.size()) {
                     break;
                 }
-                View view2 = a.get(i2);
+                View view2 = a2.get(i2);
                 if (view2 != null && arrayList.contains(view2)) {
                     arrayList.remove(view2);
                 }
@@ -258,7 +258,7 @@ public final class ViewHelper {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes15.dex */
+    /* loaded from: classes16.dex */
     public static final class Honeycomb {
         private Honeycomb() {
         }

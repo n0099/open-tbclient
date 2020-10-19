@@ -14,7 +14,7 @@ import java.util.ArrayList;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes9.dex */
+/* loaded from: classes5.dex */
 public abstract class NotifyMessageHandler {
     private static final String TAG = "NotifyMessageHandler";
 
@@ -104,5 +104,19 @@ public abstract class NotifyMessageHandler {
 
     public static void handleMediaNotifyMessage(Context context, JSONObject jSONObject) {
         ChatMsgManagerImpl.getInstance(context).handleMediaNotifyMessage(jSONObject);
+    }
+
+    public static void handleRtcNotifyMessage(Context context, JSONObject jSONObject) {
+        if (context == null || jSONObject == null) {
+            LogUtils.i(TAG, "handleRtcNotifyMessage context == null || msgobj == null ");
+            return;
+        }
+        try {
+            LogUtils.i(TAG, "handleRtcNotifyMessage context ！= null && msgobj ！= null ");
+            Class<?> cls = Class.forName("com.baidu.android.imrtc.BIMRtcManager");
+            cls.getMethod("notifyParse", JSONObject.class).invoke(cls, jSONObject);
+        } catch (Throwable th) {
+            LogUtils.e(TAG, "handleRtcNotifyMessage ClassNotFoundException BIMRtcManager...", th);
+        }
     }
 }

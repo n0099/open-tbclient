@@ -23,17 +23,17 @@ public class z extends a {
     }
 
     @Override // com.baidu.tbadk.core.util.c.a
-    public boolean bkD() {
+    public boolean bnn() {
         return false;
     }
 
     @Override // com.baidu.tbadk.core.util.c.a
-    public boolean bkE() {
+    public boolean bno() {
         return true;
     }
 
     @Override // com.baidu.tbadk.core.util.c.a
-    public int bkF() {
+    public int bnp() {
         return this.procType;
     }
 }

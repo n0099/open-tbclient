@@ -1,7 +1,7 @@
 package com.baidu.searchbox.ui.animview.praise.ioc;
 
 import android.content.Context;
-/* loaded from: classes11.dex */
+/* loaded from: classes9.dex */
 public interface IComboPraiseContext {
     void doLogin(Context context, ILoginStatusListener iLoginStatusListener);
 

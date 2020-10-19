@@ -2,7 +2,7 @@ package kotlin.text;
 
 import kotlin.jvm.internal.Lambda;
 @kotlin.h
-/* loaded from: classes5.dex */
+/* loaded from: classes10.dex */
 final class StringsKt__IndentKt$getIndentFunction$2 extends Lambda implements kotlin.jvm.a.b<String, String> {
     final /* synthetic */ String $indent;
 
@@ -15,7 +15,7 @@ final class StringsKt__IndentKt$getIndentFunction$2 extends Lambda implements ko
     /* JADX DEBUG: Method merged with bridge method */
     @Override // kotlin.jvm.a.b
     public final String invoke(String str) {
-        kotlin.jvm.internal.q.m(str, "line");
+        kotlin.jvm.internal.q.n(str, "line");
         return this.$indent + str;
     }
 }

@@ -12,9 +12,11 @@ import com.xiaomi.push.fb;
 import java.util.HashSet;
 import java.util.Set;
 @TargetApi(14)
-/* loaded from: classes9.dex */
+/* loaded from: classes12.dex */
 public class a implements Application.ActivityLifecycleCallbacks {
-    private Set<String> a = new HashSet();
+
+    /* renamed from: a  reason: collision with root package name */
+    private Set<String> f4741a = new HashSet();
 
     private static void a(Application application) {
         application.registerActivityLifecycleCallbacks(new a());
@@ -44,14 +46,14 @@ public class a implements Application.ActivityLifecycleCallbacks {
         }
         String stringExtra = intent.getStringExtra("messageId");
         int intExtra = intent.getIntExtra("eventMessageType", -1);
-        if (TextUtils.isEmpty(stringExtra) || intExtra <= 0 || this.a.contains(stringExtra)) {
+        if (TextUtils.isEmpty(stringExtra) || intExtra <= 0 || this.f4741a.contains(stringExtra)) {
             return;
         }
-        this.a.add(stringExtra);
+        this.f4741a.add(stringExtra);
         if (intExtra == 3000) {
-            fb.a(activity.getApplicationContext()).a(activity.getPackageName(), fa.m271a(intExtra), stringExtra, 3008, null);
+            fb.a(activity.getApplicationContext()).a(activity.getPackageName(), fa.m272a(intExtra), stringExtra, 3008, null);
         } else if (intExtra == 1000) {
-            fb.a(activity.getApplicationContext()).a(activity.getPackageName(), fa.m271a(intExtra), stringExtra, 1008, null);
+            fb.a(activity.getApplicationContext()).a(activity.getPackageName(), fa.m272a(intExtra), stringExtra, 1008, null);
         }
     }
 

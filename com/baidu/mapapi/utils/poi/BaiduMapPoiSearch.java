@@ -12,12 +12,14 @@ import com.baidu.mapapi.utils.route.BaiduMapRoutePlan;
 import com.baidu.mapsdkplatform.comapi.util.CoordTrans;
 import com.xiaomi.mipush.sdk.Constants;
 import java.util.List;
-/* loaded from: classes3.dex */
+/* loaded from: classes7.dex */
 public class BaiduMapPoiSearch {
-    private static boolean a = true;
+
+    /* renamed from: a  reason: collision with root package name */
+    private static boolean f2160a = true;
 
     private static void a(PoiParaOption poiParaOption, Context context) {
-        Uri parse = Uri.parse("http://api.map.baidu.com/place/detail?uid=" + poiParaOption.a + "&output=html&src=" + context.getPackageName());
+        Uri parse = Uri.parse("http://api.map.baidu.com/place/detail?uid=" + poiParaOption.f2161a + "&output=html&src=" + context.getPackageName());
         Intent intent = new Intent();
         intent.setAction("android.intent.action.VIEW");
         intent.setFlags(268435456);
@@ -102,17 +104,17 @@ public class BaiduMapPoiSearch {
         if (poiParaOption == null || context == null) {
             throw new IllegalPoiSearchArgumentException("BDMapSDKException: para or context can not be null.");
         }
-        if (poiParaOption.a == null) {
+        if (poiParaOption.f2161a == null) {
             throw new IllegalPoiSearchArgumentException("BDMapSDKException: poi uid can not be null.");
         }
-        if (poiParaOption.a.equals("")) {
+        if (poiParaOption.f2161a.equals("")) {
             Log.e(BaiduMapRoutePlan.class.getName(), "poi uid can not be empty string");
             return false;
         }
         int baiduMapVersion = OpenClientUtil.getBaiduMapVersion(context);
         if (baiduMapVersion == 0) {
             Log.e("baidumapsdk", "BaiduMap app is not installed.");
-            if (a) {
+            if (f2160a) {
                 a(poiParaOption, context);
                 return true;
             }
@@ -121,7 +123,7 @@ public class BaiduMapPoiSearch {
             return com.baidu.mapapi.utils.b.a(poiParaOption, context, 3);
         } else {
             Log.e("baidumapsdk", "Baidumap app version is too lowl.Version is greater than 8.1");
-            if (a) {
+            if (f2160a) {
                 a(poiParaOption, context);
                 return true;
             }
@@ -151,7 +153,7 @@ public class BaiduMapPoiSearch {
         int baiduMapVersion = OpenClientUtil.getBaiduMapVersion(context);
         if (baiduMapVersion == 0) {
             Log.e("baidumapsdk", "BaiduMap app is not installed.");
-            if (a) {
+            if (f2160a) {
                 b(poiParaOption, context);
                 return true;
             }
@@ -160,7 +162,7 @@ public class BaiduMapPoiSearch {
             return com.baidu.mapapi.utils.b.a(poiParaOption, context, 4);
         } else {
             Log.e("baidumapsdk", "Baidumap app version is too lowl.Version is greater than 8.1");
-            if (a) {
+            if (f2160a) {
                 b(poiParaOption, context);
                 return true;
             }
@@ -169,6 +171,6 @@ public class BaiduMapPoiSearch {
     }
 
     public static void setSupportWebPoi(boolean z) {
-        a = z;
+        f2160a = z;
     }
 }

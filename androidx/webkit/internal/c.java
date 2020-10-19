@@ -9,32 +9,32 @@ import java.lang.reflect.Proxy;
 import org.chromium.support_lib_boundary.WebResourceErrorBoundaryInterface;
 import org.chromium.support_lib_boundary.util.BoundaryInterfaceReflectionUtil;
 import org.chromium.support_lib_boundary.util.Features;
-/* loaded from: classes17.dex */
+/* loaded from: classes15.dex */
 public class c extends androidx.webkit.b {
-    private WebResourceError zP;
-    private WebResourceErrorBoundaryInterface zQ;
+    private WebResourceError Ah;
+    private WebResourceErrorBoundaryInterface Ai;
 
     public c(@NonNull InvocationHandler invocationHandler) {
-        this.zQ = (WebResourceErrorBoundaryInterface) BoundaryInterfaceReflectionUtil.castToSuppLibClass(WebResourceErrorBoundaryInterface.class, invocationHandler);
+        this.Ai = (WebResourceErrorBoundaryInterface) BoundaryInterfaceReflectionUtil.castToSuppLibClass(WebResourceErrorBoundaryInterface.class, invocationHandler);
     }
 
     public c(@NonNull WebResourceError webResourceError) {
-        this.zP = webResourceError;
+        this.Ah = webResourceError;
     }
 
     @RequiresApi(23)
-    private WebResourceError hQ() {
-        if (this.zP == null) {
-            this.zP = d.hT().a(Proxy.getInvocationHandler(this.zQ));
+    private WebResourceError hR() {
+        if (this.Ah == null) {
+            this.Ah = d.hU().a(Proxy.getInvocationHandler(this.Ai));
         }
-        return this.zP;
+        return this.Ah;
     }
 
-    private WebResourceErrorBoundaryInterface hR() {
-        if (this.zQ == null) {
-            this.zQ = (WebResourceErrorBoundaryInterface) BoundaryInterfaceReflectionUtil.castToSuppLibClass(WebResourceErrorBoundaryInterface.class, d.hT().a(this.zP));
+    private WebResourceErrorBoundaryInterface hS() {
+        if (this.Ai == null) {
+            this.Ai = (WebResourceErrorBoundaryInterface) BoundaryInterfaceReflectionUtil.castToSuppLibClass(WebResourceErrorBoundaryInterface.class, d.hU().a(this.Ah));
         }
-        return this.zQ;
+        return this.Ai;
     }
 
     @Override // androidx.webkit.b
@@ -42,10 +42,10 @@ public class c extends androidx.webkit.b {
     public int getErrorCode() {
         WebViewFeatureInternal feature = WebViewFeatureInternal.getFeature(Features.WEB_RESOURCE_ERROR_GET_CODE);
         if (feature.isSupportedByFramework()) {
-            return hQ().getErrorCode();
+            return hR().getErrorCode();
         }
         if (feature.isSupportedByWebView()) {
-            return hR().getErrorCode();
+            return hS().getErrorCode();
         }
         throw WebViewFeatureInternal.getUnsupportedOperationException();
     }
@@ -56,10 +56,10 @@ public class c extends androidx.webkit.b {
     public CharSequence getDescription() {
         WebViewFeatureInternal feature = WebViewFeatureInternal.getFeature(Features.WEB_RESOURCE_ERROR_GET_DESCRIPTION);
         if (feature.isSupportedByFramework()) {
-            return hQ().getDescription();
+            return hR().getDescription();
         }
         if (feature.isSupportedByWebView()) {
-            return hR().getDescription();
+            return hS().getDescription();
         }
         throw WebViewFeatureInternal.getUnsupportedOperationException();
     }

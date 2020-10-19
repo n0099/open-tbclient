@@ -1,31 +1,31 @@
 package com.airbnb.lottie.a.b;
 
 import java.util.Collections;
-/* loaded from: classes6.dex */
+/* loaded from: classes10.dex */
 public class p<K, A> extends a<K, A> {
-    private final com.airbnb.lottie.e.b<A> DU;
+    private final com.airbnb.lottie.e.b<A> El;
 
     public p(com.airbnb.lottie.e.c<A> cVar) {
         super(Collections.emptyList());
-        this.DU = new com.airbnb.lottie.e.b<>();
+        this.El = new com.airbnb.lottie.e.b<>();
         a(cVar);
     }
 
     @Override // com.airbnb.lottie.a.b.a
-    float jl() {
+    float jm() {
         return 1.0f;
     }
 
     @Override // com.airbnb.lottie.a.b.a
-    public void iO() {
-        if (this.Dv != null) {
-            super.iO();
+    public void iP() {
+        if (this.DQ != null) {
+            super.iP();
         }
     }
 
     @Override // com.airbnb.lottie.a.b.a
     public A getValue() {
-        return this.Dv.b(0.0f, 0.0f, null, null, getProgress(), getProgress(), getProgress());
+        return this.DQ.b(0.0f, 0.0f, null, null, getProgress(), getProgress(), getProgress());
     }
 
     @Override // com.airbnb.lottie.a.b.a

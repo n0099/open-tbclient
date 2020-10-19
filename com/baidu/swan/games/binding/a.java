@@ -4,17 +4,17 @@ import android.app.Activity;
 import android.content.Context;
 import com.baidu.searchbox.unitedscheme.UnitedSchemeMainDispatcher;
 import com.baidu.swan.apps.scheme.e;
-/* loaded from: classes3.dex */
+/* loaded from: classes10.dex */
 public final class a {
-    private com.baidu.swan.apps.jsbridge.a.a chS = new com.baidu.swan.apps.jsbridge.a.a();
+    private com.baidu.swan.apps.jsbridge.a.a cuk = new com.baidu.swan.apps.jsbridge.a.a();
 
     public void a(com.baidu.swan.games.f.a aVar, Context context) {
         UnitedSchemeMainDispatcher unitedSchemeMainDispatcher = new UnitedSchemeMainDispatcher();
-        this.chS.a(aVar, context, aVar, unitedSchemeMainDispatcher);
+        this.cuk.a(aVar, context, aVar, unitedSchemeMainDispatcher);
         e.a(unitedSchemeMainDispatcher);
     }
 
-    public void V(Activity activity) {
-        this.chS.F(activity);
+    public void W(Activity activity) {
+        this.cuk.G(activity);
     }
 }

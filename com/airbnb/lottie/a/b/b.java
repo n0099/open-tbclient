@@ -1,7 +1,7 @@
 package com.airbnb.lottie.a.b;
 
 import java.util.List;
-/* loaded from: classes6.dex */
+/* loaded from: classes10.dex */
 public class b extends f<Integer> {
     public b(List<com.airbnb.lottie.e.a<Integer>> list) {
         super(list);
@@ -12,11 +12,11 @@ public class b extends f<Integer> {
     /* renamed from: b */
     public Integer a(com.airbnb.lottie.e.a<Integer> aVar, float f) {
         Integer num;
-        if (aVar.GX == null || aVar.GY == null) {
+        if (aVar.Hn == null || aVar.Ho == null) {
             throw new IllegalStateException("Missing values for keyframe.");
         }
-        int intValue = aVar.GX.intValue();
-        int intValue2 = aVar.GY.intValue();
-        return (this.Dv == null || (num = (Integer) this.Dv.b(aVar.AX, aVar.Ha.floatValue(), Integer.valueOf(intValue), Integer.valueOf(intValue2), f, ji(), getProgress())) == null) ? Integer.valueOf(com.airbnb.lottie.d.b.b(f, intValue, intValue2)) : num;
+        int intValue = aVar.Hn.intValue();
+        int intValue2 = aVar.Ho.intValue();
+        return (this.DQ == null || (num = (Integer) this.DQ.b(aVar.Bo, aVar.Hq.floatValue(), Integer.valueOf(intValue), Integer.valueOf(intValue2), f, jj(), getProgress())) == null) ? Integer.valueOf(com.airbnb.lottie.d.b.b(f, intValue, intValue2)) : num;
     }
 }

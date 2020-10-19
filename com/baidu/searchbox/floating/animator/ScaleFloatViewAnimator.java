@@ -13,25 +13,25 @@ import kotlin.TypeCastException;
 import kotlin.h;
 import kotlin.jvm.internal.q;
 @h
-/* loaded from: classes5.dex */
+/* loaded from: classes11.dex */
 public final class ScaleFloatViewAnimator implements FloatViewAnimator {
     private final long mDuration = 2000;
 
     @Override // com.baidu.searchbox.floating.animator.FloatViewAnimator
     public Animator enterAnim(final WeakReference<View> weakReference, final WindowManager.LayoutParams layoutParams, final WindowManager windowManager) {
-        q.m(weakReference, "viewRef");
-        q.m(layoutParams, "params");
-        q.m(windowManager, "windowManager");
+        q.n(weakReference, "viewRef");
+        q.n(layoutParams, "params");
+        q.n(windowManager, "windowManager");
         View view = weakReference.get();
         if (view == null) {
             return null;
         }
-        q.l((Object) view, "view");
+        q.m(view, "view");
         ValueAnimator duration = ValueAnimator.ofObject(new RectEvaluator(), startValue(view, layoutParams, windowManager), endValue(view, layoutParams, windowManager)).setDuration(this.mDuration);
         duration.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() { // from class: com.baidu.searchbox.floating.animator.ScaleFloatViewAnimator$enterAnim$1
             @Override // android.animation.ValueAnimator.AnimatorUpdateListener
             public final void onAnimationUpdate(ValueAnimator valueAnimator) {
-                q.l((Object) valueAnimator, AdvanceSetting.NETWORK_TYPE);
+                q.m(valueAnimator, AdvanceSetting.NETWORK_TYPE);
                 Object animatedValue = valueAnimator.getAnimatedValue();
                 if (animatedValue == null) {
                     throw new TypeCastException("null cannot be cast to non-null type com.baidu.searchbox.floating.animator.RectEvaluator.ViewRect");
@@ -52,9 +52,9 @@ public final class ScaleFloatViewAnimator implements FloatViewAnimator {
 
     @Override // com.baidu.searchbox.floating.animator.FloatViewAnimator
     public Animator exitAnim(WeakReference<View> weakReference, WindowManager.LayoutParams layoutParams, WindowManager windowManager) {
-        q.m(weakReference, "viewRef");
-        q.m(layoutParams, "params");
-        q.m(windowManager, "windowManager");
+        q.n(weakReference, "viewRef");
+        q.n(layoutParams, "params");
+        q.n(windowManager, "windowManager");
         return null;
     }
 
@@ -64,7 +64,7 @@ public final class ScaleFloatViewAnimator implements FloatViewAnimator {
 
     private final RectEvaluator.ViewRect startValue(View view, WindowManager.LayoutParams layoutParams, WindowManager windowManager) {
         Context context = view.getContext();
-        q.l((Object) context, "view.context");
+        q.m(context, "view.context");
         int screenWidth = UtilsKt.getScreenWidth(context);
         return new RectEvaluator.ViewRect(0, 0, screenWidth, (screenWidth / 16) * 9);
     }

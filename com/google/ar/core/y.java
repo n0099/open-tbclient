@@ -3,47 +3,49 @@ package com.google.ar.core;
 import com.google.ar.core.exceptions.UnavailableException;
 import com.google.ar.core.exceptions.UnavailableUserDeclinedInstallationException;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes24.dex */
+/* loaded from: classes11.dex */
 public class y {
-    boolean a = false;
-    final /* synthetic */ InstallActivity nMK;
+
+    /* renamed from: a  reason: collision with root package name */
+    boolean f4050a = false;
+    final /* synthetic */ InstallActivity ocb;
 
     public void a(p pVar) {
-        synchronized (this.nMK) {
-            if (!this.a) {
-                InstallActivity.a(this.nMK, pVar);
+        synchronized (this.ocb) {
+            if (!this.f4050a) {
+                InstallActivity.a(this.ocb, pVar);
                 switch (pVar.ordinal()) {
                     case 0:
                         return;
                     case 1:
-                        InstallActivity.a(this.nMK, new UnavailableUserDeclinedInstallationException());
+                        InstallActivity.a(this.ocb, new UnavailableUserDeclinedInstallationException());
                         break;
                     case 2:
-                        if (!InstallActivity.d(this.nMK)) {
-                            InstallActivity.e(this.nMK);
+                        if (!InstallActivity.d(this.ocb)) {
+                            InstallActivity.e(this.ocb);
                         }
-                        InstallActivity.a(this.nMK, (Exception) null);
+                        InstallActivity.a(this.ocb, (Exception) null);
                         break;
                 }
-                this.a = true;
+                this.f4050a = true;
             }
         }
     }
 
     public void a(Exception exc) {
-        synchronized (this.nMK) {
-            if (!this.a) {
-                this.a = true;
-                InstallActivity.a(this.nMK, p.CANCELLED);
+        synchronized (this.ocb) {
+            if (!this.f4050a) {
+                this.f4050a = true;
+                InstallActivity.a(this.ocb, p.CANCELLED);
                 if (!(exc instanceof UnavailableException)) {
                 }
-                InstallActivity.a(this.nMK, exc);
+                InstallActivity.a(this.ocb, exc);
             }
         }
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public y(InstallActivity installActivity) {
-        this.nMK = installActivity;
+        this.ocb = installActivity;
     }
 }

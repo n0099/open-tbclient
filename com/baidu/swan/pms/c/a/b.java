@@ -1,15 +1,15 @@
 package com.baidu.swan.pms.c.a;
 
 import com.baidu.swan.pms.c.a.d.f;
-/* loaded from: classes24.dex */
+/* loaded from: classes15.dex */
 public abstract class b {
     public abstract boolean a(f fVar);
 
-    public abstract f aUA();
+    public abstract f aXj();
 
-    public abstract void gZ(boolean z);
+    public abstract void hv(boolean z);
 
     public String toString() {
-        return "task=" + aUA();
+        return "task=" + aXj();
     }
 }

@@ -3,13 +3,15 @@ package com.baidu.mapapi.map;
 import android.view.View;
 import com.baidu.platform.comapi.map.MapSurfaceView;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes3.dex */
+/* loaded from: classes7.dex */
 public class r implements View.OnClickListener {
-    final /* synthetic */ MapView a;
+
+    /* renamed from: a  reason: collision with root package name */
+    final /* synthetic */ MapView f2080a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public r(MapView mapView) {
-        this.a = mapView;
+        this.f2080a = mapView;
     }
 
     @Override // android.view.View.OnClickListener
@@ -17,16 +19,16 @@ public class r implements View.OnClickListener {
         MapSurfaceView mapSurfaceView;
         MapSurfaceView mapSurfaceView2;
         MapSurfaceView mapSurfaceView3;
-        mapSurfaceView = this.a.e;
+        mapSurfaceView = this.f2080a.e;
         float zoomLevel = mapSurfaceView.getZoomLevel();
         float f = zoomLevel - 1.0f;
         if (Math.floor(zoomLevel) != zoomLevel) {
             f = (float) Math.floor(zoomLevel);
         }
-        mapSurfaceView2 = this.a.e;
+        mapSurfaceView2 = this.f2080a.e;
         float max = Math.max(f, mapSurfaceView2.getController().mMinZoomLevel);
         BaiduMap.mapStatusReason |= 16;
-        mapSurfaceView3 = this.a.e;
+        mapSurfaceView3 = this.f2080a.e;
         mapSurfaceView3.setZoomLevel(max);
     }
 }

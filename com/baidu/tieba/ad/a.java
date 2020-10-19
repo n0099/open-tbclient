@@ -14,26 +14,26 @@ import java.util.List;
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.regex.Pattern;
-/* loaded from: classes20.dex */
+/* loaded from: classes21.dex */
 public final class a implements g {
     private static final Pattern pattern = Pattern.compile("(http://|ftp://|https://|www){1,1}[^一-龥\\s]*", 2);
-    private static a fre = new a();
+    private static a fDq = new a();
     private final List<g.a> mListeners = new LinkedList();
     private final ConcurrentHashMap<String, g.b> mHandlers = new ConcurrentHashMap<>();
-    private g.c frf = null;
+    private g.c fDr = null;
 
     private a() {
     }
 
-    public static a bCg() {
-        return fre;
+    public static a bES() {
+        return fDq;
     }
 
     public void a(final g.a aVar) {
         if (l.isMainThread()) {
             b(aVar);
         } else {
-            e.mX().post(new Runnable() { // from class: com.baidu.tieba.ad.a.1
+            e.mY().post(new Runnable() { // from class: com.baidu.tieba.ad.a.1
                 @Override // java.lang.Runnable
                 public void run() {
                     a.this.b(aVar);
@@ -50,7 +50,7 @@ public final class a implements g {
     }
 
     public void a(g.c cVar) {
-        this.frf = cVar;
+        this.fDr = cVar;
     }
 
     public boolean a(Context context, String[] strArr, boolean z, g.d dVar, boolean z2) {
@@ -79,7 +79,7 @@ public final class a implements g {
         String str2 = strArr[0];
         g.b bVar = this.mHandlers.get(getSchemaKey(str2));
         if (bVar != null) {
-            bVar.l(context, getInnerParamPair(DK(str2)));
+            bVar.l(context, getInnerParamPair(Ev(str2)));
             return true;
         }
         Iterator<g.a> it = this.mListeners.iterator();
@@ -94,7 +94,7 @@ public final class a implements g {
                 break;
             }
         }
-        if (!z3 && this.frf != null) {
+        if (!z3 && this.fDr != null) {
             if (str2.contains("nohead:url") || str2.contains("booktown") || str2.contains("bookreader")) {
                 z4 = true;
                 return z4;
@@ -105,7 +105,7 @@ public final class a implements g {
         return z4;
     }
 
-    private String DK(String str) {
+    private String Ev(String str) {
         int lastIndexOf;
         if (!StringUtils.isNull(str) && (lastIndexOf = str.lastIndexOf(":")) >= 0) {
             return str.substring(lastIndexOf + 1);
@@ -154,12 +154,12 @@ public final class a implements g {
 
     private void a(Context context, String str, String str2, boolean z, g.d dVar, boolean z2) {
         if (pattern.matcher(str2).find()) {
-            this.frf.b(context, str, str2, z, dVar, z2);
+            this.fDr.b(context, str, str2, z, dVar, z2);
         }
     }
 
     @Override // com.baidu.tieba.recapp.g
-    public boolean DL(String str) {
+    public boolean Ew(String str) {
         return pattern.matcher(str).find();
     }
 }

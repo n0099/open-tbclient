@@ -13,9 +13,11 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes15.dex */
+/* loaded from: classes17.dex */
 public class e {
-    static final e a = new e();
+
+    /* renamed from: a  reason: collision with root package name */
+    static final e f2616a = new e();
 
     e() {
     }

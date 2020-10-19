@@ -6,8 +6,8 @@ import com.baidu.tbadk.TbPageContext;
 import com.baidu.tieba.im.message.chat.ChatMessage;
 /* loaded from: classes.dex */
 public class VoiceSendModel extends BdBaseModel {
-    private a jHx;
-    private b jHy;
+    private a jWu;
+    private b jWv;
 
     /* loaded from: classes.dex */
     public interface b {
@@ -29,24 +29,24 @@ public class VoiceSendModel extends BdBaseModel {
     }
 
     public void b(String str, ChatMessage chatMessage) {
-        this.jHx = new a(str, chatMessage);
-        this.jHx.execute(new Object[0]);
+        this.jWu = new a(str, chatMessage);
+        this.jWu.execute(new Object[0]);
     }
 
     public void a(b bVar) {
-        this.jHy = bVar;
+        this.jWv = bVar;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes.dex */
     public class a extends BdAsyncTask<Object, Integer, String> {
-        private com.baidu.tieba.im.sendmessage.b jHA = new com.baidu.tieba.im.sendmessage.b();
-        private ChatMessage jHz;
+        private ChatMessage jWw;
+        private com.baidu.tieba.im.sendmessage.b jWx = new com.baidu.tieba.im.sendmessage.b();
         private String mVid;
 
         public a(String str, ChatMessage chatMessage) {
             this.mVid = str;
-            this.jHz = chatMessage;
+            this.jWw = chatMessage;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -55,7 +55,7 @@ public class VoiceSendModel extends BdBaseModel {
         /* renamed from: k */
         public String doInBackground(Object... objArr) {
             try {
-                return this.jHA.LC(this.mVid);
+                return this.jWx.Mr(this.mVid);
             } catch (Exception e) {
                 return null;
             }
@@ -66,8 +66,8 @@ public class VoiceSendModel extends BdBaseModel {
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         public void onPostExecute(String str) {
             super.onPostExecute((a) str);
-            if (VoiceSendModel.this.jHy != null) {
-                VoiceSendModel.this.jHy.a(str, this.jHz);
+            if (VoiceSendModel.this.jWv != null) {
+                VoiceSendModel.this.jWv.a(str, this.jWw);
             }
         }
     }

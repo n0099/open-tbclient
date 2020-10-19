@@ -1,7 +1,7 @@
 package com.baidu.live.ae;
 /* loaded from: classes4.dex */
 public interface b {
-    void MZ();
+    boolean Ri();
 
-    void onDismiss();
+    void Rj();
 }

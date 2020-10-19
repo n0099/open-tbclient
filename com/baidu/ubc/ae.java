@@ -1,7 +1,7 @@
 package com.baidu.ubc;
-/* loaded from: classes19.dex */
+/* loaded from: classes20.dex */
 public class ae {
-    public static u dQj() {
-        return i.dPV();
+    public static u dTU() {
+        return i.dTG();
     }
 }

@@ -4,7 +4,7 @@ import android.os.AsyncTask;
 import android.support.v4.app.JobIntentService;
 import com.baidu.android.imsdk.utils.LogUtils;
 import java.util.ArrayList;
-/* loaded from: classes9.dex */
+/* loaded from: classes5.dex */
 public abstract class ABIMService extends JobIntentService {
     private static final String TAG = "ABIMService";
     SafeCommandProcessor curProcessor;
@@ -64,7 +64,7 @@ public abstract class ABIMService extends JobIntentService {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes9.dex */
+    /* loaded from: classes5.dex */
     public final class SafeCommandProcessor extends AsyncTask<Void, Void, Void> {
         SafeCommandProcessor() {
         }

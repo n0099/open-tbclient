@@ -1,0 +1,10 @@
+package com.baidu.live.alablmsdk.config.enums;
+/* loaded from: classes4.dex */
+public enum BLMLiveTransferMixMode {
+    BLM_LIVE_TRANSFER_MIX_MODE_ONLYAUDIO,
+    BLM_LIVE_TRANSFER_MIX_MODE_PUREAUDIO,
+    BLM_LIVE_TRANSFER_MIX_MODE_EQUAL,
+    BLM_LIVE_TRANSFER_MIX_MODE_PRIMARY,
+    BLM_LIVE_TRANSFER_MIX_MODE_PIPTOP,
+    BLM_LIVE_TRANSFER_MIX_MODE_PIPBOTTOM
+}

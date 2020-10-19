@@ -7,9 +7,11 @@ import com.baidu.mobstat.Session;
 import java.util.HashMap;
 import java.util.Map;
 import org.json.JSONObject;
-/* loaded from: classes15.dex */
+/* loaded from: classes17.dex */
 public class SessionAnalysis {
-    private boolean a = false;
+
+    /* renamed from: a  reason: collision with root package name */
+    private boolean f2512a = false;
     private Map<String, a> b = new HashMap();
     private a c = new a();
     private a d = new a();
@@ -23,7 +25,7 @@ public class SessionAnalysis {
     private LaunchInfo l;
     public Callback mCallback;
 
-    /* loaded from: classes15.dex */
+    /* loaded from: classes17.dex */
     public interface Callback {
         void onCallback(JSONObject jSONObject);
     }
@@ -94,7 +96,7 @@ public class SessionAnalysis {
     }
 
     public void onSessionStart(Context context, long j, boolean z) {
-        if (!this.a) {
+        if (!this.f2512a) {
             DataCore.instance().init(context);
             try {
                 Thread.sleep(IMConnection.RETRY_DELAY_TIMES);
@@ -105,7 +107,7 @@ public class SessionAnalysis {
                 i = this.k.getLaunchType(context);
             }
             a(context, j, z, true, i);
-            this.a = true;
+            this.f2512a = true;
         }
     }
 
@@ -133,7 +135,7 @@ public class SessionAnalysis {
                 bc.c().c("[WARNING] 遗漏StatService.onPageStart(), 请检查邻近页面埋点: " + str);
                 return;
             }
-            a(context, a2.a, str, a2.b, j, str2, "", str3, false, extraInfo, z);
+            a(context, a2.f2513a, str, a2.b, j, str2, "", str3, false, extraInfo, z);
             b(str);
             this.f = j;
         }
@@ -151,7 +153,7 @@ public class SessionAnalysis {
                 this.e = true;
             }
             aVar.c = true;
-            aVar.a = str;
+            aVar.f2513a = str;
             aVar.b = j;
         }
     }
@@ -166,7 +168,7 @@ public class SessionAnalysis {
             }
             return;
         }
-        a(context, aVar.a, str, aVar.b, j, str2, str3, str, z, extraInfo, false);
+        a(context, aVar.f2513a, str, aVar.b, j, str2, str3, str, z, extraInfo, false);
         aVar.c = false;
         this.f = j;
     }
@@ -180,7 +182,7 @@ public class SessionAnalysis {
             }
             a(context, this.f, j, 2, 2);
             a2.c = true;
-            a2.a = str;
+            a2.f2513a = str;
             a2.b = j;
         }
     }
@@ -192,7 +194,7 @@ public class SessionAnalysis {
                 bc.c().c("[WARNING] 遗漏StatService.onResume(Fragment), 请检查邻近页面埋点: " + str);
                 return;
             }
-            a(context, a2.a, str, a2.b, j, str2, str3, null, false, null, false);
+            a(context, a2.f2513a, str, a2.b, j, str2, str3, null, false, null, false);
             b(str);
             this.f = j;
         }
@@ -291,9 +293,11 @@ public class SessionAnalysis {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes15.dex */
+    /* loaded from: classes17.dex */
     public static class a {
-        String a;
+
+        /* renamed from: a  reason: collision with root package name */
+        String f2513a;
         long b;
         boolean c = false;
 
@@ -301,7 +305,7 @@ public class SessionAnalysis {
         }
 
         public a(String str) {
-            this.a = str;
+            this.f2513a = str;
         }
     }
 }

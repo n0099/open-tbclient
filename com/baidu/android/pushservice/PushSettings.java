@@ -2,9 +2,11 @@ package com.baidu.android.pushservice;
 
 import android.content.Context;
 import android.text.TextUtils;
-/* loaded from: classes7.dex */
+/* loaded from: classes10.dex */
 public class PushSettings {
-    public static int a = -1;
+
+    /* renamed from: a  reason: collision with root package name */
+    public static int f1009a = -1;
     public static int b = -1;
     public static int c = -1;
     public static int d = -1;
@@ -63,11 +65,11 @@ public class PushSettings {
     }
 
     public static boolean e(Context context) {
-        return context != null && a == 1;
+        return context != null && f1009a == 1;
     }
 
     public static void enableDebugMode(boolean z) {
-        a = z ? 1 : 0;
+        f1009a = z ? 1 : 0;
     }
 
     public static boolean f(Context context) {

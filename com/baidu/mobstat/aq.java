@@ -4,9 +4,11 @@ import android.text.TextUtils;
 import com.baidu.mobstat.bt;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes15.dex */
+/* loaded from: classes17.dex */
 public class aq {
-    private String a;
+
+    /* renamed from: a  reason: collision with root package name */
+    private String f2543a;
     private String b;
     private JSONArray c;
     private String d;
@@ -21,7 +23,7 @@ public class aq {
     private String m;
 
     public aq(String str, String str2, JSONArray jSONArray, String str3, String str4, String str5, boolean z, int i, long j, long j2, long j3, String str6, String str7) {
-        this.a = str;
+        this.f2543a = str;
         this.b = str2;
         this.c = jSONArray;
         this.d = str3;
@@ -37,7 +39,7 @@ public class aq {
     }
 
     public String a() {
-        return this.a;
+        return this.f2543a;
     }
 
     public String b() {
@@ -105,13 +107,13 @@ public class aq {
     }
 
     public JSONObject a(String str, String str2, String str3) {
-        String a = a(this.a, this.b, this.c, this.d, this.e, this.f, this.g);
-        if (TextUtils.isEmpty(a)) {
+        String a2 = a(this.f2543a, this.b, this.c, this.d, this.e, this.f, this.g);
+        if (TextUtils.isEmpty(a2)) {
             return null;
         }
         JSONObject jSONObject = new JSONObject();
         try {
-            jSONObject.put("id", this.a);
+            jSONObject.put("id", this.f2543a);
             jSONObject.put("d", this.l);
             jSONObject.put("p", str);
             jSONObject.put("path", str3);
@@ -122,7 +124,7 @@ public class aq {
             jSONObject.put("c", this.k);
             jSONObject.put("t", this.h);
             jSONObject.put("ps", this.m);
-            jSONObject.put("sign", a);
+            jSONObject.put("sign", a2);
         } catch (Exception e) {
             jSONObject = null;
         }

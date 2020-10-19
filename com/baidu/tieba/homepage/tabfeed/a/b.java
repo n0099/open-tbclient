@@ -23,18 +23,18 @@ import com.baidu.tbadk.core.util.aa;
 import com.baidu.tbadk.core.util.aq;
 import com.baidu.tieba.NEGFeedBack.NEGFeedBackView;
 import java.util.ArrayList;
-/* loaded from: classes21.dex */
+/* loaded from: classes22.dex */
 public class b extends com.baidu.adp.widget.ListView.a<bo, am<bo>> implements com.baidu.tieba.a.f {
-    private String ahc;
-    private com.baidu.tbadk.h.f ait;
-    private v alj;
-    public BdUniqueId eSq;
-    private NEGFeedBackView.a gmy;
+    private String aht;
+    private com.baidu.tbadk.h.f aiL;
+    private v alC;
+    public BdUniqueId fey;
+    private NEGFeedBackView.a gAR;
     private TbPageContext<?> mPageContext;
 
     public b(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId) {
         super(tbPageContext.getPageActivity(), bdUniqueId);
-        this.ait = new com.baidu.tbadk.h.f<MetaData>() { // from class: com.baidu.tieba.homepage.tabfeed.a.b.1
+        this.aiL = new com.baidu.tbadk.h.f<MetaData>() { // from class: com.baidu.tieba.homepage.tabfeed.a.b.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.tbadk.h.f
             public void a(View view, MetaData metaData, int i, long j) {
@@ -51,7 +51,7 @@ public class b extends com.baidu.adp.widget.ListView.a<bo, am<bo>> implements co
                 }
             }
         };
-        this.gmy = new NEGFeedBackView.a() { // from class: com.baidu.tieba.homepage.tabfeed.a.b.2
+        this.gAR = new NEGFeedBackView.a() { // from class: com.baidu.tieba.homepage.tabfeed.a.b.2
             @Override // com.baidu.tieba.NEGFeedBack.NEGFeedBackView.a
             public void onNEGFeedbackWindowShow(ar arVar) {
             }
@@ -76,24 +76,24 @@ public class b extends com.baidu.adp.widget.ListView.a<bo, am<bo>> implements co
     }
 
     public void a(v vVar) {
-        this.alj = vVar;
+        this.alC = vVar;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.widget.ListView.a
-    /* renamed from: aR */
+    /* renamed from: aT */
     public am c(ViewGroup viewGroup) {
         ak.a aVar = new ak.a(this.mPageContext.getPageActivity(), false);
-        com.baidu.tieba.homepage.concern.view.b bVar = new com.baidu.tieba.homepage.concern.view.b(this.mPageContext, this.eSq);
-        bVar.setOnItemCoverListener(this.ait);
+        com.baidu.tieba.homepage.concern.view.b bVar = new com.baidu.tieba.homepage.concern.view.b(this.mPageContext, this.fey);
+        bVar.setOnItemCoverListener(this.aiL);
         aVar.c(bVar);
         aVar.tU().bz(0);
         aVar.tU().bB(0);
         aVar.tU().bA(0);
         aVar.tU().bv(0);
-        am amVar = new am(aVar.a(true, viewGroup, this.alj));
-        amVar.setPageId(this.eSq);
+        am amVar = new am(aVar.a(true, viewGroup, this.alC));
+        amVar.setPageId(this.fey);
         return amVar;
     }
 
@@ -106,14 +106,14 @@ public class b extends com.baidu.adp.widget.ListView.a<bo, am<bo>> implements co
         }
         amVar.tW().setPosition(i);
         if (amVar.tW() instanceof com.baidu.tieba.a.e) {
-            amVar.tW().setPage(this.ahc);
+            amVar.tW().setPage(this.aht);
         }
         amVar.b((am<bo>) boVar);
         amVar.tW().onChangeSkinType(this.mPageContext, TbadkCoreApplication.getInst().getSkinType());
         return amVar.getView();
     }
 
-    /* loaded from: classes21.dex */
+    /* loaded from: classes22.dex */
     private class a extends BdAsyncTask<Integer, Integer, String> {
         private aa mNetwork;
 
@@ -130,7 +130,7 @@ public class b extends com.baidu.adp.widget.ListView.a<bo, am<bo>> implements co
                 this.mNetwork.setUrl(TbConfig.SERVER_ADDRESS + TbConfig.CONCERN_RECOMMEND_FEEDBACK);
                 this.mNetwork.addPostData("dislike_from", "concernpage");
                 this.mNetwork.addPostData("dislike_type", "1");
-                this.mNetwork.bjL().bkq().mIsNeedTbs = true;
+                this.mNetwork.bmu().bna().mIsNeedTbs = true;
                 return this.mNetwork.postNetData();
             } catch (Exception e) {
                 BdLog.e(e.getMessage());
@@ -156,7 +156,7 @@ public class b extends com.baidu.adp.widget.ListView.a<bo, am<bo>> implements co
     }
 
     @Override // com.baidu.tieba.a.f
-    public void DH(String str) {
-        this.ahc = str;
+    public void Es(String str) {
+        this.aht = str;
     }
 }

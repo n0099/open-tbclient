@@ -12,8 +12,8 @@ import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 /* loaded from: classes4.dex */
 public class g extends Drawable {
-    private int[] bwU;
-    private int[] bwV;
+    private int[] bDx;
+    private int[] bDy;
     private int mAlpha = 255;
     private ColorFilter mColorFilter;
     private float mCornerRadius;
@@ -30,8 +30,8 @@ public class g extends Drawable {
         Rect bounds = getBounds();
         float strokeWidth = this.mStrokePaint.getStrokeWidth();
         this.mRectF.set(bounds.left + (strokeWidth * 0.5f), bounds.top + (strokeWidth * 0.5f), bounds.right - (strokeWidth * 0.5f), bounds.bottom - (strokeWidth * 0.5f));
-        this.mFillPaint.setShader(new LinearGradient(bounds.left + strokeWidth, bounds.top + strokeWidth, bounds.right - strokeWidth, bounds.top + strokeWidth, this.bwU, (float[]) null, Shader.TileMode.CLAMP));
-        this.mStrokePaint.setShader(new LinearGradient(this.mRectF.left, this.mRectF.top, this.mRectF.right, this.mRectF.top, this.bwV, (float[]) null, Shader.TileMode.CLAMP));
+        this.mFillPaint.setShader(new LinearGradient(bounds.left + strokeWidth, bounds.top + strokeWidth, bounds.right - strokeWidth, bounds.top + strokeWidth, this.bDx, (float[]) null, Shader.TileMode.CLAMP));
+        this.mStrokePaint.setShader(new LinearGradient(this.mRectF.left, this.mRectF.top, this.mRectF.right, this.mRectF.top, this.bDy, (float[]) null, Shader.TileMode.CLAMP));
         this.mStrokePaint.setStrokeWidth(strokeWidth);
         float min = Math.min(this.mCornerRadius, Math.min(this.mRectF.width(), this.mRectF.height()) * 0.5f);
         canvas.drawRoundRect(this.mRectF, min, min, this.mFillPaint);
@@ -83,8 +83,8 @@ public class g extends Drawable {
     }
 
     public void f(int[] iArr, int[] iArr2) {
-        this.bwU = iArr;
-        this.bwV = iArr2;
+        this.bDx = iArr;
+        this.bDy = iArr2;
         invalidateSelf();
     }
 

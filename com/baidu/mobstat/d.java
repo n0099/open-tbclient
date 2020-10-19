@@ -15,9 +15,11 @@ import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes15.dex */
+/* loaded from: classes17.dex */
 public class d {
-    static d a = new d();
+
+    /* renamed from: a  reason: collision with root package name */
+    static d f2611a = new d();
 
     public synchronized void a(Context context) {
         b(context);
@@ -104,9 +106,11 @@ public class d {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes15.dex */
+    /* loaded from: classes17.dex */
     public static class a {
-        private String a;
+
+        /* renamed from: a  reason: collision with root package name */
+        private String f2612a;
         private String b;
         private String c;
         private String d;
@@ -116,7 +120,7 @@ public class d {
             str2 = str2 == null ? "" : str2;
             str3 = str3 == null ? "" : str3;
             str4 = str4 == null ? "" : str4;
-            this.a = str;
+            this.f2612a = str;
             this.b = str2;
             this.c = str3;
             this.d = str4;
@@ -125,7 +129,7 @@ public class d {
         public JSONObject a() {
             JSONObject jSONObject = new JSONObject();
             try {
-                jSONObject.put("n", this.a);
+                jSONObject.put("n", this.f2612a);
                 jSONObject.put("v", this.b);
                 jSONObject.put("c", this.c);
                 jSONObject.put("a", this.d);

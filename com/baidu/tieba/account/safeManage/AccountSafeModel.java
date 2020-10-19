@@ -4,26 +4,26 @@ import com.baidu.adp.base.BdBaseModel;
 import com.baidu.tbadk.BaseActivity;
 import com.baidu.tieba.setting.im.more.PrivateInfoNetMessage;
 import tbclient.SimpleUser;
-/* loaded from: classes21.dex */
+/* loaded from: classes22.dex */
 public class AccountSafeModel extends BdBaseModel {
-    private boolean eWD;
-    private com.baidu.tieba.setting.im.more.a fqT;
-    private String fqU;
-    private String fqV;
-    private String fqW;
+    private com.baidu.tieba.setting.im.more.a fDg;
+    private String fDh;
+    private String fDi;
+    private String fDj;
+    private boolean fiP;
     private boolean mFinished;
 
-    public com.baidu.tieba.setting.im.more.a bCa() {
-        return this.fqT;
+    public com.baidu.tieba.setting.im.more.a bEM() {
+        return this.fDg;
     }
 
-    public String CK() {
-        return this.fqU;
+    public String DH() {
+        return this.fDh;
     }
 
     public AccountSafeModel(BaseActivity baseActivity) {
         super(baseActivity.getPageContext());
-        this.eWD = false;
+        this.fiP = false;
         this.mFinished = false;
     }
 
@@ -34,52 +34,52 @@ public class AccountSafeModel extends BdBaseModel {
 
     @Override // com.baidu.adp.base.BdBaseModel
     public boolean cancelLoadData() {
-        this.eWD = false;
+        this.fiP = false;
         this.mFinished = false;
         return false;
     }
 
-    private PrivateInfoNetMessage bCb() {
+    private PrivateInfoNetMessage bEN() {
         return new PrivateInfoNetMessage();
     }
 
-    public boolean bCc() {
-        if (this.eWD) {
+    public boolean bEO() {
+        if (this.fiP) {
             return false;
         }
-        this.eWD = true;
+        this.fiP = true;
         this.mFinished = false;
-        sendMessage(bCb());
+        sendMessage(bEN());
         return true;
     }
 
     public void a(com.baidu.tieba.setting.im.more.a aVar) {
-        this.fqT = aVar;
-        bCd();
+        this.fDg = aVar;
+        bEP();
     }
 
-    private void bCd() {
-        SimpleUser bCe = bCe();
-        if (bCe != null) {
-            this.fqV = bCe.secureemail;
-            this.fqW = bCe.securemobil;
-            this.fqU = bCe.ahead_url;
+    private void bEP() {
+        SimpleUser bEQ = bEQ();
+        if (bEQ != null) {
+            this.fDi = bEQ.secureemail;
+            this.fDj = bEQ.securemobil;
+            this.fDh = bEQ.ahead_url;
             this.mFinished = true;
         }
     }
 
-    private SimpleUser bCe() {
-        if (this.fqT == null || this.fqT.bCe() == null) {
+    private SimpleUser bEQ() {
+        if (this.fDg == null || this.fDg.bEQ() == null) {
             return null;
         }
-        return this.fqT.bCe();
+        return this.fDg.bEQ();
     }
 
     public boolean isLoading() {
-        return this.eWD;
+        return this.fiP;
     }
 
     public void setLoading(boolean z) {
-        this.eWD = z;
+        this.fiP = z;
     }
 }

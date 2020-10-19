@@ -10,33 +10,33 @@ import android.util.Base64;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes10.dex */
 public class j extends a {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    private String cbz;
+    private String cnP;
     private Bitmap mBitmap;
     private Matrix mMatrix;
 
     public j(String str) {
-        this.cbz = str;
+        this.cnP = str;
     }
 
     @Override // com.baidu.swan.apps.canvas.a.a.a
     public void parseJson(JSONArray jSONArray) {
     }
 
-    public int adx() {
+    public int agi() {
         try {
-            JSONObject jSONObject = new JSONObject(this.cbz);
-            int H = com.baidu.swan.apps.ap.ah.H((float) jSONObject.optDouble("x"));
-            int H2 = com.baidu.swan.apps.ap.ah.H((float) jSONObject.optDouble("y"));
+            JSONObject jSONObject = new JSONObject(this.cnP);
+            int J = com.baidu.swan.apps.ap.ah.J((float) jSONObject.optDouble("x"));
+            int J2 = com.baidu.swan.apps.ap.ah.J((float) jSONObject.optDouble("y"));
             int optInt = jSONObject.optInt("width");
             int optInt2 = jSONObject.optInt("height");
             if (optInt <= 0 || optInt2 <= 0) {
                 return 2002;
             }
-            float H3 = com.baidu.swan.apps.ap.ah.H(optInt);
-            float H4 = com.baidu.swan.apps.ap.ah.H(optInt2);
+            float J3 = com.baidu.swan.apps.ap.ah.J(optInt);
+            float J4 = com.baidu.swan.apps.ap.ah.J(optInt2);
             String optString = jSONObject.optString("data");
             if (TextUtils.isEmpty(optString)) {
                 return 2001;
@@ -47,9 +47,9 @@ public class j extends a {
                 if (decode == null || decode.length != i) {
                     return 2001;
                 }
-                this.mBitmap = b(o(decode, optInt, optInt2), H3, H4);
+                this.mBitmap = b(q(decode, optInt, optInt2), J3, J4);
                 this.mMatrix = new Matrix();
-                this.mMatrix.postTranslate(H, H2);
+                this.mMatrix.postTranslate(J, J2);
                 return 0;
             } catch (Exception e) {
                 if (DEBUG) {
@@ -67,7 +67,7 @@ public class j extends a {
     }
 
     @NonNull
-    private Bitmap o(@NonNull byte[] bArr, int i, int i2) {
+    private Bitmap q(@NonNull byte[] bArr, int i, int i2) {
         int[] iArr = new int[i * i2];
         int length = iArr.length;
         for (int i3 = 0; i3 < length; i3++) {

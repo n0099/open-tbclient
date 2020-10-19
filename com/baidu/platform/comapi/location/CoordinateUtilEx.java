@@ -4,7 +4,7 @@ import com.baidu.platform.comapi.basestruct.GeoPoint;
 import com.baidu.platform.comapi.basestruct.Point;
 import com.baidu.platform.comapi.basestruct.a;
 import java.util.ArrayList;
-/* loaded from: classes3.dex */
+/* loaded from: classes7.dex */
 public class CoordinateUtilEx {
     public static Point Coordinate_encryptEx(float f, float f2, String str) {
         if (str == null) {

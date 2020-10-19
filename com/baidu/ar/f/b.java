@@ -2,7 +2,7 @@ package com.baidu.ar.f;
 
 import android.content.Context;
 import com.baidu.ar.f.a;
-/* loaded from: classes10.dex */
+/* loaded from: classes14.dex */
 public class b {
     private static b vp;
     private a vq;
@@ -29,9 +29,9 @@ public class b {
         }
     }
 
-    public void b(a.InterfaceC0082a interfaceC0082a) {
+    public void b(a.InterfaceC0083a interfaceC0083a) {
         if (this.vq != null) {
-            this.vq.a(interfaceC0082a);
+            this.vq.a(interfaceC0083a);
             if (this.vr) {
                 return;
             }

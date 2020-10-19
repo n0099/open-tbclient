@@ -13,13 +13,13 @@ import com.baidu.tieba.card.y;
 import com.baidu.tieba.frs.k;
 /* loaded from: classes4.dex */
 public class c extends k<bw, com.baidu.tieba.ala.livecard.a.a> implements y {
-    private com.baidu.tieba.ala.livecard.b.b glT;
-    private aa<bw> glU;
+    private com.baidu.tieba.ala.livecard.b.b gAm;
+    private aa<bw> gAn;
     private String mForumName;
 
     public c(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId, BdUniqueId bdUniqueId2) {
         super(tbPageContext, bdUniqueId, bdUniqueId2);
-        this.glU = new aa<bw>() { // from class: com.baidu.tieba.ala.livecard.adapters.c.1
+        this.gAn = new aa<bw>() { // from class: com.baidu.tieba.ala.livecard.adapters.c.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.tieba.card.aa
             /* renamed from: b */
@@ -39,26 +39,26 @@ public class c extends k<bw, com.baidu.tieba.ala.livecard.a.a> implements y {
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.widget.ListView.a
-    /* renamed from: ao */
+    /* renamed from: aq */
     public com.baidu.tieba.ala.livecard.a.a c(ViewGroup viewGroup) {
         if (this.mPageContext == null) {
             return null;
         }
-        this.glT = new com.baidu.tieba.ala.livecard.b.b(this.mPageContext);
-        this.glT.o(this.mPageId);
-        this.glT.setForumName(this.mForumName);
-        return new com.baidu.tieba.ala.livecard.a.a(this.glT);
+        this.gAm = new com.baidu.tieba.ala.livecard.b.b(this.mPageContext);
+        this.gAm.o(this.mPageId);
+        this.gAm.setForumName(this.mForumName);
+        return new com.baidu.tieba.ala.livecard.a.a(this.gAm);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tieba.frs.k, com.baidu.adp.widget.ListView.a
     public View a(int i, View view, ViewGroup viewGroup, bw bwVar, com.baidu.tieba.ala.livecard.a.a aVar) {
-        aVar.gmg.a(bwVar);
-        aVar.gmg.setForumName(this.mForumName);
-        aVar.gmg.c(this.glU);
+        aVar.gAz.a(bwVar);
+        aVar.gAz.setForumName(this.mForumName);
+        aVar.gAz.c(this.gAn);
         if (bwVar != null) {
-            bwVar.bgK();
+            bwVar.bjt();
         }
         return aVar.getView();
     }
@@ -69,6 +69,6 @@ public class c extends k<bw, com.baidu.tieba.ala.livecard.a.a> implements y {
     }
 
     @Override // com.baidu.tieba.card.y
-    public void tS(int i) {
+    public void ux(int i) {
     }
 }

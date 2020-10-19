@@ -8,9 +8,9 @@ import android.support.annotation.WorkerThread;
 import android.text.TextUtils;
 import com.baidu.swan.apps.console.c;
 import com.xiaomi.mipush.sdk.Constants;
-/* loaded from: classes3.dex */
+/* loaded from: classes10.dex */
 public final class a {
-    public static void x(@NonNull SQLiteDatabase sQLiteDatabase) {
+    public static void y(@NonNull SQLiteDatabase sQLiteDatabase) {
         try {
             sQLiteDatabase.execSQL("CREATE TABLE IF NOT EXISTS swanapp_subscribe_msg(_id INTEGER PRIMARY KEY AUTOINCREMENT,appKey varchar(100) NOT NULL,templateId varchar(50) NOT NULL,title varchar(100) NOT NULL,tips TEXT,result TINYINT default 0);");
         } catch (Exception e) {
@@ -19,9 +19,9 @@ public final class a {
     }
 
     @WorkerThread
-    public static void p(@Nullable String... strArr) {
-        Application apu;
-        if (com.baidu.swan.apps.t.a.apu() == null || strArr == null) {
+    public static void q(@Nullable String... strArr) {
+        Application asf;
+        if (com.baidu.swan.apps.t.a.asf() == null || strArr == null) {
             c.w("SwanAppSubscribeMsg", "deleteAllByAppKey fail");
             return;
         }
@@ -36,6 +36,6 @@ public final class a {
                 }
             }
         }
-        c.i("SwanAppSubscribeMsg", "deleteAllByAppKey count=" + apu.getContentResolver().delete(SwanAppSubscribeMsgProvider.CONTENT_URI, "appKey in (?)", new String[]{sb.toString()}) + ", appKey=" + sb.toString());
+        c.i("SwanAppSubscribeMsg", "deleteAllByAppKey count=" + asf.getContentResolver().delete(SwanAppSubscribeMsgProvider.CONTENT_URI, "appKey in (?)", new String[]{sb.toString()}) + ", appKey=" + sb.toString());
     }
 }

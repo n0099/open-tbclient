@@ -1,7 +1,7 @@
 package com.google.zxing;
 
 import com.baidu.searchbox.ugc.model.UgcConstant;
-/* loaded from: classes3.dex */
+/* loaded from: classes7.dex */
 public abstract class LuminanceSource {
     private final int height;
     private final int width;

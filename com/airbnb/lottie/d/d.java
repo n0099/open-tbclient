@@ -1,14 +1,14 @@
 package com.airbnb.lottie.d;
-/* loaded from: classes6.dex */
+/* loaded from: classes10.dex */
 public class d {
-    private float GR;
+    private float Hj;
     private int n;
 
     public void add(float f) {
-        this.GR += f;
+        this.Hj += f;
         this.n++;
         if (this.n == Integer.MAX_VALUE) {
-            this.GR /= 2.0f;
+            this.Hj /= 2.0f;
             this.n /= 2;
         }
     }

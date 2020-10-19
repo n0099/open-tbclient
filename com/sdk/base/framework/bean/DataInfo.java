@@ -2,7 +2,7 @@ package com.sdk.base.framework.bean;
 
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes5.dex */
+/* loaded from: classes16.dex */
 public class DataInfo extends JSONObject {
     public DataInfo() {
         try {

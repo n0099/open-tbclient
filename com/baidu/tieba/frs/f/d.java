@@ -9,56 +9,56 @@ import com.baidu.tbadk.TbadkApplication;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.core.util.aq;
 import com.baidu.tieba.R;
-/* loaded from: classes21.dex */
+/* loaded from: classes22.dex */
 public class d {
-    private e iAj;
-    private LongSparseArray<Integer> iAk = new LongSparseArray<>();
-    private com.baidu.tieba.frs.gametab.c iAl;
+    private e iPc;
+    private LongSparseArray<Integer> iPd = new LongSparseArray<>();
+    private com.baidu.tieba.frs.gametab.c iPe;
 
     public d() {
-        this.iAj = null;
-        this.iAj = new e();
+        this.iPc = null;
+        this.iPc = new e();
     }
 
-    public e cwd() {
-        return this.iAj;
+    public e czA() {
+        return this.iPc;
     }
 
-    public int eV(long j) {
+    public int fm(long j) {
         if (j == 0) {
             return 0;
         }
-        Integer num = this.iAk.get(j);
+        Integer num = this.iPd.get(j);
         if (num == null) {
-            this.iAk.put(j, 1);
+            this.iPd.put(j, 1);
             return 1;
         }
-        this.iAk.put(j, Integer.valueOf(num.intValue() + 1));
+        this.iPd.put(j, Integer.valueOf(num.intValue() + 1));
         return num.intValue() + 1;
     }
 
-    public void eW(long j) {
+    public void fn(long j) {
         if (j != 0) {
-            this.iAk.remove(j);
+            this.iPd.remove(j);
         }
     }
 
-    public void eM(String str, String str2) {
-        this.iAj.eS(str, str2);
+    public void eT(String str, String str2) {
+        this.iPc.eZ(str, str2);
     }
 
-    public boolean eN(String str, String str2) {
-        if (StringUtils.isNull(str) || StringUtils.isNull(str2) || "0".equals(str) || "0".equals(str2) || this.iAj == null) {
+    public boolean eU(String str, String str2) {
+        if (StringUtils.isNull(str) || StringUtils.isNull(str2) || "0".equals(str) || "0".equals(str2) || this.iPc == null) {
             return false;
         }
-        long currentTimeMillis = System.currentTimeMillis() - this.iAj.eP(str, str2);
+        long currentTimeMillis = System.currentTimeMillis() - this.iPc.eW(str, str2);
         if (currentTimeMillis >= BdKVCache.MILLS_1Hour) {
-            if (this.iAj.eQ(str, str2) <= 3 || currentTimeMillis >= BdKVCache.MILLS_30Days) {
-                long eR = this.iAj.eR(str, str2);
-                if (eR != 0 && System.currentTimeMillis() - eR <= 604800000) {
+            if (this.iPc.eX(str, str2) <= 3 || currentTimeMillis >= BdKVCache.MILLS_30Days) {
+                long eY = this.iPc.eY(str, str2);
+                if (eY != 0 && System.currentTimeMillis() - eY <= 604800000) {
                     return true;
                 }
-                return this.iAj.eO(str, str2);
+                return this.iPc.eV(str, str2);
             }
             return false;
         }
@@ -67,29 +67,29 @@ public class d {
 
     public void a(Activity activity, final String str, final String str2, String str3, final com.baidu.tieba.frs.vc.f fVar) {
         if (activity != null) {
-            if (this.iAl == null) {
-                this.iAl = new com.baidu.tieba.frs.gametab.c(activity, R.id.frs_guide_tip);
+            if (this.iPe == null) {
+                this.iPe = new com.baidu.tieba.frs.gametab.c(activity, R.id.frs_guide_tip);
             }
             if (!StringUtils.isNull(str3)) {
-                this.iAl.Jc(str3);
+                this.iPe.JP(str3);
             }
-            this.iAl.setClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.frs.f.d.1
+            this.iPe.setClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.frs.f.d.1
                 @Override // android.view.View.OnClickListener
                 public void onClick(View view) {
                     if (fVar != null) {
-                        fVar.eU(str, str2);
+                        fVar.fa(str, str2);
                     }
-                    TiebaStatic.log(new aq("c13982").dF("fid", str2).dF("uid", TbadkApplication.getCurrentAccount()));
+                    TiebaStatic.log(new aq("c13982").dK("fid", str2).dK("uid", TbadkApplication.getCurrentAccount()));
                 }
             });
-            this.iAl.ccj();
-            TiebaStatic.log(new aq("c13894").dF("fid", str2).dF("uid", TbadkApplication.getCurrentAccount()));
+            this.iPe.cfF();
+            TiebaStatic.log(new aq("c13894").dK("fid", str2).dK("uid", TbadkApplication.getCurrentAccount()));
         }
     }
 
-    public void cwe() {
-        if (this.iAl != null) {
-            this.iAl.cuk();
+    public void czB() {
+        if (this.iPe != null) {
+            this.iPe.cxH();
         }
     }
 }

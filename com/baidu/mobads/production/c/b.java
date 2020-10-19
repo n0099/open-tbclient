@@ -5,15 +5,17 @@ import android.content.Context;
 import com.baidu.mobads.interfaces.IXAdConstants4PDK;
 import com.baidu.mobads.interfaces.IXAdRequestInfo;
 import java.util.HashMap;
-/* loaded from: classes3.dex */
+/* loaded from: classes7.dex */
 public class b extends com.baidu.mobads.vo.d {
-    private int a;
+
+    /* renamed from: a  reason: collision with root package name */
+    private int f2396a;
     private int j;
     private int k;
 
     public b(Context context, Activity activity, IXAdConstants4PDK.SlotType slotType) {
         super(context, activity, slotType);
-        this.a = 1;
+        this.f2396a = 1;
         this.j = 1;
         this.k = 1;
         this.b = this.i.replaceURLWithSupportProtocol("http://mobads.baidu.com/cpro/ui/mads.php");
@@ -26,12 +28,12 @@ public class b extends com.baidu.mobads.vo.d {
         hashMap.put(IXAdRequestInfo.FET, "ANTI,MSSP,NMON,HTML,CLICK2VIDEO,PAUSE,VIDEO");
         hashMap.put("pos", "" + this.j);
         hashMap.put("seq", "" + this.k);
-        hashMap.put("viewid", "" + this.a);
+        hashMap.put("viewid", "" + this.f2396a);
         return hashMap;
     }
 
     public void a(int i) {
-        this.a = i;
+        this.f2396a = i;
     }
 
     public void b(int i) {

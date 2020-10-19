@@ -26,7 +26,7 @@ import com.baidu.tieba.frs.view.FrsPrivateShareDialogView;
 import com.baidu.tieba.frs.view.FrsShareCardView;
 import com.baidu.tieba.tbadkCore.FrsViewData;
 import java.net.URLEncoder;
-/* loaded from: classes21.dex */
+/* loaded from: classes22.dex */
 public class g {
     public static void a(final TbPageContext tbPageContext, final FrsViewData frsViewData, String str) {
         final String str2;
@@ -51,8 +51,8 @@ public class g {
             shareItem.title = name + tbPageContext.getString(R.string.forum);
             shareItem.content = slogan;
             shareItem.linkUrl = str2;
-            shareItem.eGl = true;
-            shareItem.eGC = 10;
+            shareItem.eSs = true;
+            shareItem.eSJ = 10;
             shareItem.extData = str;
             if (parse2 != null) {
                 shareItem.imageUri = parse2;
@@ -61,8 +61,8 @@ public class g {
             shareItem2.title = name + tbPageContext.getString(R.string.forum);
             shareItem2.content = slogan;
             shareItem2.linkUrl = str2;
-            shareItem2.eGl = true;
-            shareItem2.eGC = 10;
+            shareItem2.eSs = true;
+            shareItem2.eSJ = 10;
             shareItem2.extData = str;
             shareItem2.fName = frsViewData.getForum().getName();
             String str3 = frsViewData.getForum().getfShareImage();
@@ -85,13 +85,13 @@ public class g {
             shareDialogConfig.addOutsideTextView(R.string.poster_share, R.drawable.icon_pure_share_poster40_svg, new View.OnClickListener() { // from class: com.baidu.tieba.frs.f.g.1
                 @Override // android.view.View.OnClickListener
                 public void onClick(View view) {
-                    TiebaStatic.log(new aq(TbadkCoreStatisticKey.KEY_SHARE_FORUM_OR_THREAD).dF("fid", ShareItem.this.extData).ai("obj_type", 18).ai("obj_source", 10));
+                    TiebaStatic.log(new aq(TbadkCoreStatisticKey.KEY_SHARE_FORUM_OR_THREAD).dK("fid", ShareItem.this.extData).aj("obj_type", 18).aj("obj_source", 10));
                     FrsPrivateShareDialogView frsPrivateShareDialogView = new FrsPrivateShareDialogView(tbPageContext.getPageActivity());
                     com.baidu.tbadk.core.dialog.a aVar = new com.baidu.tbadk.core.dialog.a(tbPageContext.getPageActivity());
                     if (frsPrivateShareDialogView.a(frsViewData, tbPageContext, aVar)) {
-                        aVar.nH(2);
-                        aVar.aZ(frsPrivateShareDialogView);
-                        aVar.b(tbPageContext).bia();
+                        aVar.oe(2);
+                        aVar.ba(frsPrivateShareDialogView);
+                        aVar.b(tbPageContext).bkJ();
                     }
                 }
             });
@@ -110,9 +110,9 @@ public class g {
         FrsPrivateShareDialogView frsPrivateShareDialogView = new FrsPrivateShareDialogView(tbPageContext.getPageActivity());
         com.baidu.tbadk.core.dialog.a aVar = new com.baidu.tbadk.core.dialog.a(tbPageContext.getPageActivity());
         if (frsPrivateShareDialogView.a(frsViewData, tbPageContext, aVar)) {
-            aVar.nH(2);
-            aVar.aZ(frsPrivateShareDialogView);
-            aVar.b(tbPageContext).bia();
+            aVar.oe(2);
+            aVar.ba(frsPrivateShareDialogView);
+            aVar.b(tbPageContext).bkJ();
         }
     }
 
@@ -133,8 +133,8 @@ public class g {
             final FrsShareCardView frsShareCardView = new FrsShareCardView(frsFragment.getPageContext().getPageActivity());
             frsShareCardView.setPageId(frsFragment.getUniqueId());
             frsShareCardView.setData(h);
-            aVar.nH(1);
-            aVar.aZ(frsShareCardView);
+            aVar.oe(1);
+            aVar.ba(frsShareCardView);
             aVar.a(R.string.share, new a.b() { // from class: com.baidu.tieba.frs.f.g.3
                 @Override // com.baidu.tbadk.core.dialog.a.b
                 public void onClick(com.baidu.tbadk.core.dialog.a aVar2) {
@@ -150,10 +150,10 @@ public class g {
                     aVar2.dismiss();
                 }
             });
-            aVar.ie(true);
-            aVar.b(frsFragment.getPageContext()).bia();
+            aVar.iA(true);
+            aVar.b(frsFragment.getPageContext()).bkJ();
             if (!com.baidu.adp.lib.util.k.isEmpty(h.getImageUrl())) {
-                frsShareCardView.aJ(h.getImageUrl(), false);
+                frsShareCardView.aN(h.getImageUrl(), false);
             }
         }
     }

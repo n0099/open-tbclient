@@ -1,10 +1,10 @@
 package com.yanzhenjie.permission;
 
 import android.support.annotation.NonNull;
-/* loaded from: classes8.dex */
+/* loaded from: classes6.dex */
 public interface h {
     @NonNull
-    h W(String... strArr);
+    h Z(String... strArr);
 
     @NonNull
     h a(a aVar);

@@ -1,7 +1,7 @@
 package com.baidu.android.util.media.model;
 
 import android.net.Uri;
-/* loaded from: classes18.dex */
+/* loaded from: classes15.dex */
 public class MediaInfo {
     public Uri contentUri;
 

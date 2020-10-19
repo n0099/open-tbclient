@@ -3,35 +3,35 @@ package com.baidu.swan.apps.t.b;
 import android.content.Context;
 import android.support.annotation.NonNull;
 import android.widget.FrameLayout;
-/* loaded from: classes3.dex */
+/* loaded from: classes10.dex */
 public interface j {
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes10.dex */
     public interface a {
         void b(j jVar);
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes10.dex */
     public interface b {
         boolean a(j jVar, int i, int i2);
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes10.dex */
     public interface c {
         void e(j jVar);
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes10.dex */
     public interface d {
         void a(j jVar);
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes10.dex */
     public interface e {
         void c(j jVar);
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes10.dex */
     public interface f {
         void d(j jVar);
     }
@@ -54,33 +54,33 @@ public interface j {
 
     void a(f fVar);
 
-    void ara();
-
-    void b(FrameLayout frameLayout);
+    void atM();
 
     void b(com.baidu.swan.apps.media.b.c cVar);
 
-    void eA(boolean z);
+    void c(FrameLayout frameLayout);
+
+    void eW(boolean z);
 
     int getCurrentPosition();
 
     int getDuration();
 
-    void i(boolean z, int i);
-
     boolean isEnd();
 
     boolean isPlaying();
 
-    void mute(boolean z);
+    void j(boolean z, int i);
 
-    void nC(String str);
+    void mute(boolean z);
 
     boolean onBackPressed();
 
     void onBackground();
 
     void onForeground();
+
+    void oq(String str);
 
     void pause();
 

@@ -1,6 +1,9 @@
 package com.baidu.ala.dumixar;
 
+import com.baidu.minivideo.arface.b;
+import com.baidu.minivideo.arface.c;
 import java.io.File;
+@Deprecated
 /* loaded from: classes12.dex */
 public class DuArConfig {
     private static DuArConfig sInstance;
@@ -28,8 +31,10 @@ public class DuArConfig {
         return sInstance;
     }
 
+    @Deprecated
     public void setDuArSourcePath(String str) {
         this.sourcePath = str;
+        b.a(null, "17", Config.apiKey, "", new c(str));
     }
 
     public String getDuArSourcePath() {

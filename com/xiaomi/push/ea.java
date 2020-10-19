@@ -6,18 +6,20 @@ import android.content.pm.PackageManager;
 import android.text.TextUtils;
 import com.baidu.adp.plugin.proxy.ContentProviderProxy;
 import com.xiaomi.mipush.sdk.Constants;
-/* loaded from: classes9.dex */
+/* loaded from: classes12.dex */
 public class ea extends ed {
-    private String a;
+
+    /* renamed from: a  reason: collision with root package name */
+    private String f4870a;
 
     public ea(Context context, int i, String str) {
         super(context, i);
-        this.a = str;
+        this.f4870a = str;
     }
 
     private String[] a() {
-        if (!TextUtils.isEmpty(this.a)) {
-            String b = bc.b(this.a);
+        if (!TextUtils.isEmpty(this.f4870a)) {
+            String b = bc.b(this.f4870a);
             if (!TextUtils.isEmpty(b)) {
                 return b.contains(Constants.ACCEPT_TIME_SEPARATOR_SP) ? b.split(Constants.ACCEPT_TIME_SEPARATOR_SP) : new String[]{b};
             }
@@ -27,26 +29,26 @@ public class ea extends ed {
 
     @Override // com.xiaomi.push.ed, com.xiaomi.push.ai.a
     /* renamed from: a */
-    public int mo166a() {
+    public int mo167a() {
         return 24;
     }
 
     @Override // com.xiaomi.push.ed, com.xiaomi.push.ai.a
     /* renamed from: a */
-    public ho mo166a() {
+    public ho mo167a() {
         return ho.AppIsInstalled;
     }
 
     @Override // com.xiaomi.push.ed, com.xiaomi.push.ai.a
     /* renamed from: a */
-    public String mo166a() {
-        String[] a = a();
-        if (a == null || a.length <= 0) {
+    public String mo167a() {
+        String[] a2 = a();
+        if (a2 == null || a2.length <= 0) {
             return null;
         }
-        PackageManager packageManager = this.f231a.getPackageManager();
+        PackageManager packageManager = this.f232a.getPackageManager();
         StringBuilder sb = new StringBuilder();
-        for (String str : a) {
+        for (String str : a2) {
             try {
                 PackageInfo packageInfo = packageManager.getPackageInfo(str, 16384);
                 if (packageInfo != null) {

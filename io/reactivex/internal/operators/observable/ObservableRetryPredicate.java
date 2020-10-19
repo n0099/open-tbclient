@@ -6,7 +6,7 @@ import io.reactivex.internal.disposables.SequentialDisposable;
 import io.reactivex.t;
 import io.reactivex.u;
 import java.util.concurrent.atomic.AtomicInteger;
-/* loaded from: classes25.dex */
+/* loaded from: classes17.dex */
 public final class ObservableRetryPredicate<T> extends a<T, T> {
     final long count;
     final j<? super Throwable> predicate;
@@ -18,7 +18,7 @@ public final class ObservableRetryPredicate<T> extends a<T, T> {
         new RepeatObserver(uVar, this.count, this.predicate, sequentialDisposable, this.source).subscribeNext();
     }
 
-    /* loaded from: classes25.dex */
+    /* loaded from: classes17.dex */
     static final class RepeatObserver<T> extends AtomicInteger implements u<T> {
         private static final long serialVersionUID = -7098360935104053232L;
         final u<? super T> actual;

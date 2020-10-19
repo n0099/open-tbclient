@@ -7,7 +7,7 @@ import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Properties;
-/* loaded from: classes10.dex */
+/* loaded from: classes12.dex */
 public class a {
     public static Map<String, String> a(String str) {
         HashMap hashMap = null;

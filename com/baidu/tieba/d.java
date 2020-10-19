@@ -1,9 +1,9 @@
 package com.baidu.tieba;
-/* loaded from: classes21.dex */
+/* loaded from: classes22.dex */
 public interface d<T> {
-    void Dy(String str);
+    void Ej(String str);
 
-    void aw(T t);
+    void az(T t);
 
     String getTitle();
 

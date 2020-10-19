@@ -15,7 +15,7 @@ import com.kascend.chushou.constants.ListItem;
 import com.kascend.chushou.widget.cswebview.CSWebView;
 /* loaded from: classes6.dex */
 public abstract class k {
-    public static final k odV = new k() { // from class: com.kascend.chushou.player.ui.food.k.2
+    public static final k oto = new k() { // from class: com.kascend.chushou.player.ui.food.k.2
         @Override // com.kascend.chushou.player.ui.food.k
         int a() {
             return 17367043;
@@ -29,9 +29,11 @@ public abstract class k {
         void a(ListItem listItem, boolean z) {
         }
     };
-    private boolean a;
-    FoodView odT;
-    private com.kascend.chushou.player.ui.food.a odU;
+
+    /* renamed from: a  reason: collision with root package name */
+    private boolean f4161a;
+    FoodView otm;
+    private com.kascend.chushou.player.ui.food.a otn;
     Context q;
     int m = AdCard.INVALID_NUM;
     int n = AdCard.INVALID_NUM;
@@ -42,7 +44,9 @@ public abstract class k {
 
     /* loaded from: classes6.dex */
     public static class a {
-        public boolean a;
+
+        /* renamed from: a  reason: collision with root package name */
+        public boolean f4162a;
         public boolean b;
         public int c;
         public int d;
@@ -64,8 +68,8 @@ public abstract class k {
     @CallSuper
     public void f(FoodView foodView) {
         this.q = foodView.getContext();
-        this.odT = foodView;
-        this.odT.removeAllViews();
+        this.otm = foodView;
+        this.otm.removeAllViews();
         LayoutInflater.from(foodView.getContext()).inflate(a(), (ViewGroup) foodView, true);
     }
 
@@ -75,15 +79,15 @@ public abstract class k {
         if (listItem.mAdExtraInfo != null && com.kascend.chushou.a.a.t.equals(listItem.mAdExtraInfo.mShowType)) {
             if (viewGroup.getChildCount() > 0) {
                 if (viewGroup.getChildAt(0) instanceof com.kascend.chushou.player.ui.food.a) {
-                    this.a = true;
+                    this.f4161a = true;
                 } else {
                     viewGroup.removeAllViews();
-                    this.odU = null;
-                    this.a = false;
+                    this.otn = null;
+                    this.f4161a = false;
                 }
             } else {
-                this.odU = new com.kascend.chushou.player.ui.food.a(this.q.getApplicationContext());
-                this.odU.setOnTouchListener(new View.OnTouchListener() { // from class: com.kascend.chushou.player.ui.food.k.1
+                this.otn = new com.kascend.chushou.player.ui.food.a(this.q.getApplicationContext());
+                this.otn.setOnTouchListener(new View.OnTouchListener() { // from class: com.kascend.chushou.player.ui.food.k.1
                     @Override // android.view.View.OnTouchListener
                     public boolean onTouch(View view, MotionEvent motionEvent) {
                         if (motionEvent.getActionMasked() == 0) {
@@ -94,7 +98,7 @@ public abstract class k {
                         } else if (motionEvent.getActionMasked() == 1) {
                             k.this.o = (int) motionEvent.getX();
                             k.this.p = (int) motionEvent.getY();
-                            k.this.odT.a(k.this.m, k.this.n, k.this.o, k.this.p);
+                            k.this.otm.a(k.this.m, k.this.n, k.this.o, k.this.p);
                         }
                         if (k.this.d) {
                             return false;
@@ -102,45 +106,45 @@ public abstract class k {
                         if (motionEvent.getActionMasked() != 1 || System.currentTimeMillis() - k.this.c <= 1000) {
                             return true;
                         }
-                        k.this.odU.performClick();
+                        k.this.otn.performClick();
                         k.this.c = System.currentTimeMillis();
                         return true;
                     }
                 });
-                CSWebView.a(this.odU, this.q, null, null);
-                this.odU.resumeTimers();
-                this.odU.onResume();
-                viewGroup.addView(this.odU, 0, new ViewGroup.LayoutParams(-1, -1));
-                this.a = true;
+                CSWebView.a(this.otn, this.q, null, null);
+                this.otn.resumeTimers();
+                this.otn.onResume();
+                viewGroup.addView(this.otn, 0, new ViewGroup.LayoutParams(-1, -1));
+                this.f4161a = true;
             }
         } else {
-            this.a = false;
+            this.f4161a = false;
             if (viewGroup.getChildCount() > 0) {
                 if (viewGroup.getChildAt(0) instanceof com.kascend.chushou.player.ui.food.a) {
                     ((com.kascend.chushou.player.ui.food.a) viewGroup.getChildAt(0)).destroy();
                 }
                 viewGroup.removeAllViews();
-                this.odU = null;
+                this.otn = null;
             }
         }
-        return this.a;
+        return this.f4161a;
     }
 
     public boolean b() {
-        return this.a;
+        return this.f4161a;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public void c() {
         this.d = true;
-        if (ees() != null) {
-            ees().setEnableTouch(true);
+        if (eid() != null) {
+            eid().setEnableTouch(true);
         }
     }
 
     @Nullable
-    public com.kascend.chushou.player.ui.food.a ees() {
-        return this.odU;
+    public com.kascend.chushou.player.ui.food.a eid() {
+        return this.otn;
     }
 
     public void a(ListItem listItem, boolean z, boolean z2) {
@@ -150,17 +154,17 @@ public abstract class k {
     /* JADX INFO: Access modifiers changed from: package-private */
     @CallSuper
     public void e() {
-        if (this.odU != null) {
-            this.odU.destroy();
-            this.odU = null;
+        if (this.otn != null) {
+            this.otn.destroy();
+            this.otn = null;
         }
     }
 
     @Nullable
-    public final <T extends View> T NP(@IdRes int i) {
-        if (this.odT == null) {
+    public final <T extends View> T Ov(@IdRes int i) {
+        if (this.otm == null) {
             return null;
         }
-        return (T) this.odT.findViewById(i);
+        return (T) this.otm.findViewById(i);
     }
 }

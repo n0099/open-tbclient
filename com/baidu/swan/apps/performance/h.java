@@ -1,7 +1,7 @@
 package com.baidu.swan.apps.performance;
 
 import android.util.Log;
-/* loaded from: classes3.dex */
+/* loaded from: classes10.dex */
 public final class h {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
 

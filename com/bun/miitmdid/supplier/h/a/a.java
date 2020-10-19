@@ -5,10 +5,12 @@ import android.database.Cursor;
 import android.net.Uri;
 /* loaded from: classes11.dex */
 public class a {
-    private Context a;
+
+    /* renamed from: a  reason: collision with root package name */
+    private Context f3992a;
 
     public a(Context context) {
-        this.a = context;
+        this.f3992a = context;
     }
 
     public String a(int i, String str) {
@@ -27,7 +29,7 @@ public class a {
                 parse = null;
                 break;
         }
-        Cursor query = this.a.getContentResolver().query(parse, null, null, null, null);
+        Cursor query = this.f3992a.getContentResolver().query(parse, null, null, null, null);
         if (query != null) {
             r2 = query.moveToNext() ? query.getString(query.getColumnIndex("value")) : null;
             query.close();

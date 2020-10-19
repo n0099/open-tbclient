@@ -4,17 +4,17 @@ import android.util.Log;
 import java.util.Locale;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes10.dex */
 public class UbcFlowEvent {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
     public final String id;
     private long mTime = System.currentTimeMillis();
     private String mValue = "";
-    private String cIS = "NA";
-    private RecordType cIT = RecordType.KEEP;
-    private boolean cIU = false;
+    private String cUV = "NA";
+    private RecordType cUW = RecordType.KEEP;
+    private boolean cUX = false;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes10.dex */
     public enum RecordType {
         KEEP,
         UPDATE,
@@ -26,7 +26,7 @@ public class UbcFlowEvent {
         this.id = str;
     }
 
-    public UbcFlowEvent bs(long j) {
+    public UbcFlowEvent bA(long j) {
         if (j < 0) {
             j = 0;
         }
@@ -34,7 +34,7 @@ public class UbcFlowEvent {
         return this;
     }
 
-    public long awF() {
+    public long azq() {
         return this.mTime;
     }
 
@@ -42,39 +42,39 @@ public class UbcFlowEvent {
         return this.mValue;
     }
 
-    public UbcFlowEvent pH(String str) {
-        this.cIS = str;
+    public UbcFlowEvent qt(String str) {
+        this.cUV = str;
         return this;
     }
 
-    public String awG() {
-        return this.cIS;
+    public String azr() {
+        return this.cUV;
     }
 
-    public UbcFlowEvent fa(boolean z) {
-        this.cIU = z;
+    public UbcFlowEvent fw(boolean z) {
+        this.cUX = z;
         return this;
     }
 
-    public boolean awH() {
-        return this.cIU;
+    public boolean azs() {
+        return this.cUX;
     }
 
     public UbcFlowEvent a(RecordType recordType) {
-        this.cIT = recordType;
+        this.cUW = recordType;
         return this;
     }
 
-    public RecordType awI() {
-        return this.cIT;
+    public RecordType azt() {
+        return this.cUW;
     }
 
     public String toString() {
         Locale locale = Locale.getDefault();
         Object[] objArr = new Object[3];
-        objArr[0] = Long.valueOf(awF());
+        objArr[0] = Long.valueOf(azq());
         objArr[1] = this.id;
-        objArr[2] = awH() ? "(justLocalRecord)" : "";
+        objArr[2] = azs() ? "(justLocalRecord)" : "";
         return String.format(locale, "Event at %d id = %s %s", objArr);
     }
 

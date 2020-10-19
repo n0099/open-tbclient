@@ -4,24 +4,24 @@ import android.opengl.Matrix;
 import java.nio.ByteBuffer;
 import java.nio.ByteOrder;
 import java.nio.FloatBuffer;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public class a {
     public static final float[] IDENTITY_MATRIX = new float[16];
     public static final float[] VERT_FLIP_MATRIX;
-    public static final float[] bSp;
-    public static final float[] bSq;
+    public static final float[] ceD;
+    public static final float[] ceE;
 
     static {
         Matrix.setIdentityM(IDENTITY_MATRIX, 0);
-        bSp = new float[16];
-        Matrix.setIdentityM(bSp, 0);
-        Matrix.scaleM(bSp, 0, -1.0f, 1.0f, 1.0f);
+        ceD = new float[16];
+        Matrix.setIdentityM(ceD, 0);
+        Matrix.scaleM(ceD, 0, -1.0f, 1.0f, 1.0f);
         VERT_FLIP_MATRIX = new float[16];
         Matrix.setIdentityM(VERT_FLIP_MATRIX, 0);
         Matrix.scaleM(VERT_FLIP_MATRIX, 0, 1.0f, -1.0f, 1.0f);
-        bSq = new float[16];
-        Matrix.setIdentityM(bSq, 0);
-        Matrix.scaleM(bSq, 0, -1.0f, -1.0f, 1.0f);
+        ceE = new float[16];
+        Matrix.setIdentityM(ceE, 0);
+        Matrix.scaleM(ceE, 0, -1.0f, -1.0f, 1.0f);
     }
 
     public static FloatBuffer createFloatBuffer(float[] fArr) {

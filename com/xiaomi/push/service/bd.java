@@ -8,13 +8,15 @@ import android.os.Messenger;
 import android.os.RemoteException;
 import java.util.List;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes9.dex */
+/* loaded from: classes12.dex */
 public class bd implements ServiceConnection {
-    final /* synthetic */ bb a;
+
+    /* renamed from: a  reason: collision with root package name */
+    final /* synthetic */ bb f5076a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public bd(bb bbVar) {
-        this.a = bbVar;
+        this.f5076a = bbVar;
     }
 
     @Override // android.content.ServiceConnection
@@ -22,26 +24,26 @@ public class bd implements ServiceConnection {
         List<Message> list;
         List list2;
         Messenger messenger;
-        synchronized (this.a) {
-            this.a.b = new Messenger(iBinder);
-            this.a.f882b = false;
-            list = this.a.f880a;
+        synchronized (this.f5076a) {
+            this.f5076a.b = new Messenger(iBinder);
+            this.f5076a.f883b = false;
+            list = this.f5076a.f881a;
             for (Message message : list) {
                 try {
-                    messenger = this.a.b;
+                    messenger = this.f5076a.b;
                     messenger.send(message);
                 } catch (RemoteException e) {
                     com.xiaomi.channel.commonutils.logger.b.a(e);
                 }
             }
-            list2 = this.a.f880a;
+            list2 = this.f5076a.f881a;
             list2.clear();
         }
     }
 
     @Override // android.content.ServiceConnection
     public void onServiceDisconnected(ComponentName componentName) {
-        this.a.b = null;
-        this.a.f882b = false;
+        this.f5076a.b = null;
+        this.f5076a.f883b = false;
     }
 }

@@ -8,7 +8,7 @@ import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.live.tbadk.core.frameworkdata.CmdConfigCustom;
 import com.baidu.tbadk.plugins.a;
-/* loaded from: classes20.dex */
+/* loaded from: classes21.dex */
 public class DownloadProvider extends ContentProvider {
     private boolean isPluginSetted = false;
 
@@ -20,8 +20,8 @@ public class DownloadProvider extends ContentProvider {
     @Override // android.content.ContentProvider
     public Cursor query(Uri uri, String[] strArr, String str, String[] strArr2, String str2) {
         setPlugin();
-        if (a.bvJ() != null) {
-            return a.bvJ().query(uri, strArr, str, strArr2, str2);
+        if (a.byt() != null) {
+            return a.byt().query(uri, strArr, str, strArr2, str2);
         }
         return null;
     }
@@ -29,8 +29,8 @@ public class DownloadProvider extends ContentProvider {
     @Override // android.content.ContentProvider
     public String getType(Uri uri) {
         setPlugin();
-        if (a.bvJ() != null) {
-            return a.bvJ().getType(uri);
+        if (a.byt() != null) {
+            return a.byt().getType(uri);
         }
         return null;
     }
@@ -38,8 +38,8 @@ public class DownloadProvider extends ContentProvider {
     @Override // android.content.ContentProvider
     public Uri insert(Uri uri, ContentValues contentValues) {
         setPlugin();
-        if (a.bvJ() != null) {
-            return a.bvJ().insert(uri, contentValues);
+        if (a.byt() != null) {
+            return a.byt().insert(uri, contentValues);
         }
         return null;
     }
@@ -47,8 +47,8 @@ public class DownloadProvider extends ContentProvider {
     @Override // android.content.ContentProvider
     public int delete(Uri uri, String str, String[] strArr) {
         setPlugin();
-        if (a.bvJ() != null) {
-            return a.bvJ().delete(uri, str, strArr);
+        if (a.byt() != null) {
+            return a.byt().delete(uri, str, strArr);
         }
         return 0;
     }
@@ -56,8 +56,8 @@ public class DownloadProvider extends ContentProvider {
     @Override // android.content.ContentProvider
     public int update(Uri uri, ContentValues contentValues, String str, String[] strArr) {
         setPlugin();
-        if (a.bvJ() != null) {
-            return a.bvJ().update(uri, contentValues, str, strArr);
+        if (a.byt() != null) {
+            return a.byt().update(uri, contentValues, str, strArr);
         }
         return 0;
     }
@@ -65,8 +65,8 @@ public class DownloadProvider extends ContentProvider {
     private void setPlugin() {
         if (!this.isPluginSetted) {
             MessageManager.getInstance().runTask(new CustomMessage<>((int) CmdConfigCustom.CMD_PROXY_BAIDU_NOVEL_DOWNLOAD_PROVIDER_READY, this), (Class) null);
-            if (a.bvJ() != null) {
-                a.bvJ().onCreate();
+            if (a.byt() != null) {
+                a.byt().onCreate();
                 this.isPluginSetted = true;
             }
         }

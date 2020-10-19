@@ -11,21 +11,21 @@ import com.baidu.tbadk.core.util.ap;
 import com.baidu.tbadk.core.util.at;
 import com.baidu.tieba.R;
 import com.baidu.tieba.hottopic.controller.HotTopicActivity;
-/* loaded from: classes20.dex */
+/* loaded from: classes21.dex */
 public class h extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.hottopic.data.i, com.baidu.tieba.hottopic.a.d> {
-    private HotTopicActivity jgc;
+    private HotTopicActivity jvb;
     public int mSkinType;
 
     /* JADX INFO: Access modifiers changed from: protected */
     public h(HotTopicActivity hotTopicActivity, BdUniqueId bdUniqueId) {
         super(hotTopicActivity.getPageContext().getPageActivity(), bdUniqueId);
-        this.jgc = hotTopicActivity;
+        this.jvb = hotTopicActivity;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.widget.ListView.a
-    /* renamed from: bL */
+    /* renamed from: bN */
     public com.baidu.tieba.hottopic.a.d c(ViewGroup viewGroup) {
         return new com.baidu.tieba.hottopic.a.d(LayoutInflater.from(this.mContext).inflate(R.layout.hot_topic_pk_item, viewGroup, false));
     }
@@ -44,23 +44,23 @@ public class h extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.hottopic.
     private void a(com.baidu.tieba.hottopic.a.d dVar, View view) {
         if (dVar != null) {
             this.mSkinType = TbadkCoreApplication.getInst().getSkinType();
-            if (this.jgc != null && dVar.aiX != this.mSkinType) {
-                dVar.aiX = this.mSkinType;
+            if (this.jvb != null && dVar.ajp != this.mSkinType) {
+                dVar.ajp = this.mSkinType;
                 ap.setBackgroundColor(dVar.getView(), R.color.cp_bg_line_d);
-                this.jgc.getLayoutMode().setNightMode(this.mSkinType == 1);
-                this.jgc.getLayoutMode().onModeChanged(view);
+                this.jvb.getLayoutMode().setNightMode(this.mSkinType == 1);
+                this.jvb.getLayoutMode().onModeChanged(view);
             }
         }
     }
 
     private void a(com.baidu.tieba.hottopic.a.d dVar, com.baidu.tieba.hottopic.data.i iVar) {
         if (dVar != null && iVar != null) {
-            dVar.jjn.setText(StringUtils.isNull(iVar.jht) ? this.jgc.getResources().getString(R.string.pk_topic_default) : iVar.jht.trim());
-            dVar.jjo.setText(at.cutStringWithSuffix(iVar.jhu.trim(), 32, StringHelper.STRING_MORE));
-            dVar.jjo.setText(iVar.jhu.trim());
-            dVar.jjp.setData(iVar, this.jgc);
-            dVar.jjq.setText(iVar.jil.trim());
-            dVar.jjr.setText(iVar.jio.trim());
+            dVar.jyl.setText(StringUtils.isNull(iVar.jws) ? this.jvb.getResources().getString(R.string.pk_topic_default) : iVar.jws.trim());
+            dVar.jym.setText(at.cutStringWithSuffix(iVar.jwt.trim(), 32, StringHelper.STRING_MORE));
+            dVar.jym.setText(iVar.jwt.trim());
+            dVar.jyn.setData(iVar, this.jvb);
+            dVar.jyo.setText(iVar.jxj.trim());
+            dVar.jyp.setText(iVar.jxm.trim());
         }
     }
 }

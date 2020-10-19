@@ -1,64 +1,64 @@
 package rx.internal.util.a;
 
 import java.util.Iterator;
-/* loaded from: classes7.dex */
+/* loaded from: classes16.dex */
 public abstract class f<E> extends g<E> {
-    protected static final int oSU = Integer.getInteger("sparse.shift", 0).intValue();
-    private static final long oSV;
-    private static final int oSW;
-    protected final E[] oBY;
-    protected final long oSX;
+    protected static final int pim = Integer.getInteger("sparse.shift", 0).intValue();
+    private static final long pio;
+    private static final int pip;
+    protected final E[] oRn;
+    protected final long piq;
 
     static {
-        int Q = ae.oTf.Q(Object[].class);
+        int Q = ae.piy.Q(Object[].class);
         if (4 == Q) {
-            oSW = oSU + 2;
+            pip = pim + 2;
         } else if (8 == Q) {
-            oSW = oSU + 3;
+            pip = pim + 3;
         } else {
             throw new IllegalStateException("Unknown pointer size");
         }
-        oSV = ae.oTf.R(Object[].class) + (32 << (oSW - oSU));
+        pio = ae.piy.R(Object[].class) + (32 << (pip - pim));
     }
 
     public f(int i) {
-        int Ow = h.Ow(i);
-        this.oSX = Ow - 1;
-        this.oBY = (E[]) new Object[(Ow << oSU) + 64];
+        int Pc = h.Pc(i);
+        this.piq = Pc - 1;
+        this.oRn = (E[]) new Object[(Pc << pim) + 64];
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public final long hr(long j) {
-        return U(j, this.oSX);
+    public final long hJ(long j) {
+        return U(j, this.piq);
     }
 
     protected final long U(long j, long j2) {
-        return oSV + ((j & j2) << oSW);
+        return pio + ((j & j2) << pip);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     public final void a(E[] eArr, long j, E e) {
-        ae.oTf.a(eArr, j, e);
+        ae.piy.a(eArr, j, e);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     public final void b(E[] eArr, long j, E e) {
-        ae.oTf.b(eArr, j, e);
+        ae.piy.b(eArr, j, e);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     public final E a(E[] eArr, long j) {
-        return (E) ae.oTf.c(eArr, j);
+        return (E) ae.piy.c(eArr, j);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public final E hs(long j) {
-        return b(this.oBY, j);
+    public final E hK(long j) {
+        return b(this.oRn, j);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     public final E b(E[] eArr, long j) {
-        return (E) ae.oTf.d(eArr, j);
+        return (E) ae.piy.d(eArr, j);
     }
 
     @Override // java.util.AbstractCollection, java.util.Collection, java.lang.Iterable

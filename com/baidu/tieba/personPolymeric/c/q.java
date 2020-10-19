@@ -4,24 +4,24 @@ import com.baidu.tbadk.core.data.bo;
 import java.util.List;
 import tbclient.GetRecommendGodList.DataRes;
 import tbclient.User;
-/* loaded from: classes23.dex */
+/* loaded from: classes24.dex */
 public class q {
-    public int gfD;
-    public int iKv;
-    public List<User> lvY;
+    public int grS;
+    public int iZn;
+    public List<User> lLk;
 
     public void a(DataRes dataRes) {
         if (dataRes != null) {
-            this.lvY = dataRes.recom_user_list;
-            this.iKv = dataRes.has_more.intValue();
-            this.gfD = dataRes.current_page.intValue();
+            this.lLk = dataRes.recom_user_list;
+            this.iZn = dataRes.has_more.intValue();
+            this.grS = dataRes.current_page.intValue();
         }
     }
 
-    public bo dmo() {
+    public bo dpY() {
         bo boVar = new bo();
-        boVar.ecv = false;
-        boVar.aQ(this.lvY);
+        boVar.eoA = false;
+        boVar.aT(this.lLk);
         return boVar;
     }
 }

@@ -16,7 +16,7 @@ import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.util.ArrayList;
 import java.util.Iterator;
-/* loaded from: classes22.dex */
+/* loaded from: classes23.dex */
 public class c {
     public static byte[] a(int i, int i2, Bitmap bitmap) {
         try {
@@ -92,7 +92,7 @@ public class c {
         return a(bitmap.getWidth(), bitmap.getHeight(), bitmap);
     }
 
-    public static Bitmap r(byte[] bArr, int i, int i2) {
+    public static Bitmap t(byte[] bArr, int i, int i2) {
         Throwable th;
         Bitmap bitmap;
         ByteArrayOutputStream byteArrayOutputStream;
@@ -123,7 +123,7 @@ public class c {
         return Bitmap.createBitmap(bitmap, 0, 0, bitmap.getWidth(), bitmap.getHeight(), matrix, true);
     }
 
-    public static void bj(Context context, String str) {
+    public static void bm(Context context, String str) {
         try {
             Intent intent = new Intent("android.intent.action.MEDIA_SCANNER_SCAN_FILE");
             intent.setData(UtilHelper.getUriFromFile(new File(str), intent, context));
@@ -186,7 +186,7 @@ public class c {
         return true;
     }
 
-    /* loaded from: classes22.dex */
+    /* loaded from: classes23.dex */
     public static class a {
         public int color;
         public int x;

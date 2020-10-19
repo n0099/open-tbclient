@@ -2,7 +2,7 @@ package com.baidu.sofire.core;
 
 import android.os.Parcel;
 import android.os.Parcelable;
-/* loaded from: classes12.dex */
+/* loaded from: classes15.dex */
 public class CallArgs implements Parcelable {
     public static final Parcelable.Creator<CallArgs> CREATOR = new Parcelable.Creator<CallArgs>() { // from class: com.baidu.sofire.core.CallArgs.1
         /* JADX DEBUG: Return type fixed from 'java.lang.Object[]' to match base method */
@@ -17,7 +17,9 @@ public class CallArgs implements Parcelable {
             return new CallArgs(parcel);
         }
     };
-    public int a;
+
+    /* renamed from: a  reason: collision with root package name */
+    public int f3599a;
     public int b;
     public String c;
     public Object[] d;
@@ -28,7 +30,7 @@ public class CallArgs implements Parcelable {
     }
 
     protected CallArgs(Parcel parcel) {
-        this.a = parcel.readInt();
+        this.f3599a = parcel.readInt();
         this.b = parcel.readInt();
         this.c = parcel.readString();
         this.e = parcel.readArray(CallArgs.class.getClassLoader());
@@ -43,7 +45,7 @@ public class CallArgs implements Parcelable {
 
     @Override // android.os.Parcelable
     public void writeToParcel(Parcel parcel, int i) {
-        parcel.writeInt(this.a);
+        parcel.writeInt(this.f3599a);
         parcel.writeInt(this.b);
         parcel.writeString(this.c);
         parcel.writeArray(this.e);

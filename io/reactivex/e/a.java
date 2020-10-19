@@ -2,12 +2,12 @@ package io.reactivex.e;
 
 import io.reactivex.c.c;
 import io.reactivex.c.e;
+import io.reactivex.c.g;
 import io.reactivex.c.h;
 import io.reactivex.exceptions.CompositeException;
 import io.reactivex.exceptions.MissingBackpressureException;
 import io.reactivex.exceptions.OnErrorNotImplementedException;
 import io.reactivex.exceptions.UndeliverableException;
-import io.reactivex.g;
 import io.reactivex.internal.util.ExceptionHelper;
 import io.reactivex.k;
 import io.reactivex.m;
@@ -17,64 +17,64 @@ import io.reactivex.v;
 import io.reactivex.w;
 import io.reactivex.y;
 import java.util.concurrent.Callable;
-/* loaded from: classes25.dex */
+/* loaded from: classes17.dex */
 public final class a {
-    static volatile h<? super Callable<v>, ? extends v> oAA;
-    static volatile h<? super Callable<v>, ? extends v> oAB;
-    static volatile h<? super Callable<v>, ? extends v> oAC;
-    static volatile h<? super Callable<v>, ? extends v> oAD;
-    static volatile h<? super v, ? extends v> oAE;
-    static volatile h<? super v, ? extends v> oAF;
-    static volatile h<? super v, ? extends v> oAG;
-    static volatile h<? super v, ? extends v> oAH;
-    static volatile h<? super g, ? extends g> oAI;
-    static volatile h<? super q, ? extends q> oAJ;
-    static volatile c<? super g, ? super org.a.c, ? extends org.a.c> oAK;
-    static volatile c<? super k, ? super m, ? extends m> oAL;
-    static volatile c<? super q, ? super u, ? extends u> oAM;
-    static volatile c<? super w, ? super y, ? extends y> oAN;
-    static volatile c<? super io.reactivex.a, ? super io.reactivex.c, ? extends io.reactivex.c> oAO;
-    static volatile e oAP;
-    static volatile boolean oAQ;
-    static volatile boolean oAR;
-    static volatile io.reactivex.c.g<? super Throwable> oAy;
-    static volatile h<? super Runnable, ? extends Runnable> oAz;
+    static volatile g<? super Throwable> oPN;
+    static volatile h<? super Runnable, ? extends Runnable> oPO;
+    static volatile h<? super Callable<v>, ? extends v> oPP;
+    static volatile h<? super Callable<v>, ? extends v> oPQ;
+    static volatile h<? super Callable<v>, ? extends v> oPR;
+    static volatile h<? super Callable<v>, ? extends v> oPS;
+    static volatile h<? super v, ? extends v> oPT;
+    static volatile h<? super v, ? extends v> oPU;
+    static volatile h<? super v, ? extends v> oPV;
+    static volatile h<? super v, ? extends v> oPW;
+    static volatile h<? super io.reactivex.g, ? extends io.reactivex.g> oPX;
+    static volatile h<? super q, ? extends q> oPY;
+    static volatile c<? super io.reactivex.g, ? super org.a.c, ? extends org.a.c> oPZ;
+    static volatile c<? super k, ? super m, ? extends m> oQa;
+    static volatile c<? super q, ? super u, ? extends u> oQb;
+    static volatile c<? super w, ? super y, ? extends y> oQc;
+    static volatile c<? super io.reactivex.a, ? super io.reactivex.c, ? extends io.reactivex.c> oQd;
+    static volatile e oQe;
+    static volatile boolean oQf;
+    static volatile boolean oQg;
 
-    public static boolean ejB() {
-        return oAR;
+    public static boolean enn() {
+        return oQg;
     }
 
     public static v f(Callable<v> callable) {
-        io.reactivex.internal.functions.a.k(callable, "Scheduler Callable can't be null");
-        h<? super Callable<v>, ? extends v> hVar = oAA;
+        io.reactivex.internal.functions.a.l(callable, "Scheduler Callable can't be null");
+        h<? super Callable<v>, ? extends v> hVar = oPP;
         return hVar == null ? e(callable) : a(hVar, callable);
     }
 
     public static v g(Callable<v> callable) {
-        io.reactivex.internal.functions.a.k(callable, "Scheduler Callable can't be null");
-        h<? super Callable<v>, ? extends v> hVar = oAC;
+        io.reactivex.internal.functions.a.l(callable, "Scheduler Callable can't be null");
+        h<? super Callable<v>, ? extends v> hVar = oPR;
         return hVar == null ? e(callable) : a(hVar, callable);
     }
 
     public static v h(Callable<v> callable) {
-        io.reactivex.internal.functions.a.k(callable, "Scheduler Callable can't be null");
-        h<? super Callable<v>, ? extends v> hVar = oAD;
+        io.reactivex.internal.functions.a.l(callable, "Scheduler Callable can't be null");
+        h<? super Callable<v>, ? extends v> hVar = oPS;
         return hVar == null ? e(callable) : a(hVar, callable);
     }
 
     public static v i(Callable<v> callable) {
-        io.reactivex.internal.functions.a.k(callable, "Scheduler Callable can't be null");
-        h<? super Callable<v>, ? extends v> hVar = oAB;
+        io.reactivex.internal.functions.a.l(callable, "Scheduler Callable can't be null");
+        h<? super Callable<v>, ? extends v> hVar = oPQ;
         return hVar == null ? e(callable) : a(hVar, callable);
     }
 
     public static v f(v vVar) {
-        h<? super v, ? extends v> hVar = oAE;
+        h<? super v, ? extends v> hVar = oPT;
         return hVar == null ? vVar : (v) a((h<v, Object>) hVar, vVar);
     }
 
     public static void onError(Throwable th) {
-        io.reactivex.c.g<? super Throwable> gVar = oAy;
+        g<? super Throwable> gVar = oPN;
         if (th == null) {
             th = new NullPointerException("onError called with null. Null values are generally not allowed in 2.x operators and sources.");
         } else if (!N(th)) {
@@ -103,70 +103,70 @@ public final class a {
     }
 
     public static v g(v vVar) {
-        h<? super v, ? extends v> hVar = oAG;
+        h<? super v, ? extends v> hVar = oPV;
         return hVar == null ? vVar : (v) a((h<v, Object>) hVar, vVar);
     }
 
     public static v h(v vVar) {
-        h<? super v, ? extends v> hVar = oAH;
+        h<? super v, ? extends v> hVar = oPW;
         return hVar == null ? vVar : (v) a((h<v, Object>) hVar, vVar);
     }
 
     public static Runnable I(Runnable runnable) {
-        io.reactivex.internal.functions.a.k(runnable, "run is null");
-        h<? super Runnable, ? extends Runnable> hVar = oAz;
+        io.reactivex.internal.functions.a.l(runnable, "run is null");
+        h<? super Runnable, ? extends Runnable> hVar = oPO;
         return hVar == null ? runnable : (Runnable) a((h<Runnable, Object>) hVar, runnable);
     }
 
     public static v i(v vVar) {
-        h<? super v, ? extends v> hVar = oAF;
+        h<? super v, ? extends v> hVar = oPU;
         return hVar == null ? vVar : (v) a((h<v, Object>) hVar, vVar);
     }
 
-    public static void d(io.reactivex.c.g<? super Throwable> gVar) {
-        if (oAQ) {
+    public static void d(g<? super Throwable> gVar) {
+        if (oQf) {
             throw new IllegalStateException("Plugins can't be changed anymore");
         }
-        oAy = gVar;
+        oPN = gVar;
     }
 
-    public static <T> org.a.c<? super T> a(g<T> gVar, org.a.c<? super T> cVar) {
-        c<? super g, ? super org.a.c, ? extends org.a.c> cVar2 = oAK;
+    public static <T> org.a.c<? super T> a(io.reactivex.g<T> gVar, org.a.c<? super T> cVar) {
+        c<? super io.reactivex.g, ? super org.a.c, ? extends org.a.c> cVar2 = oPZ;
         return cVar2 != null ? (org.a.c) a(cVar2, gVar, cVar) : cVar;
     }
 
     public static <T> u<? super T> a(q<T> qVar, u<? super T> uVar) {
-        c<? super q, ? super u, ? extends u> cVar = oAM;
+        c<? super q, ? super u, ? extends u> cVar = oQb;
         return cVar != null ? (u) a(cVar, qVar, uVar) : uVar;
     }
 
     public static <T> y<? super T> a(w<T> wVar, y<? super T> yVar) {
-        c<? super w, ? super y, ? extends y> cVar = oAN;
+        c<? super w, ? super y, ? extends y> cVar = oQc;
         return cVar != null ? (y) a(cVar, wVar, yVar) : yVar;
     }
 
     public static io.reactivex.c a(io.reactivex.a aVar, io.reactivex.c cVar) {
-        c<? super io.reactivex.a, ? super io.reactivex.c, ? extends io.reactivex.c> cVar2 = oAO;
+        c<? super io.reactivex.a, ? super io.reactivex.c, ? extends io.reactivex.c> cVar2 = oQd;
         return cVar2 != null ? (io.reactivex.c) a(cVar2, aVar, cVar) : cVar;
     }
 
     public static <T> m<? super T> a(k<T> kVar, m<? super T> mVar) {
-        c<? super k, ? super m, ? extends m> cVar = oAL;
+        c<? super k, ? super m, ? extends m> cVar = oQa;
         return cVar != null ? (m) a(cVar, kVar, mVar) : mVar;
     }
 
-    public static <T> g<T> a(g<T> gVar) {
-        h<? super g, ? extends g> hVar = oAI;
-        return hVar != null ? (g) a((h<g<T>, Object>) hVar, gVar) : gVar;
+    public static <T> io.reactivex.g<T> a(io.reactivex.g<T> gVar) {
+        h<? super io.reactivex.g, ? extends io.reactivex.g> hVar = oPX;
+        return hVar != null ? (io.reactivex.g) a((h<io.reactivex.g<T>, Object>) hVar, gVar) : gVar;
     }
 
     public static <T> q<T> a(q<T> qVar) {
-        h<? super q, ? extends q> hVar = oAJ;
+        h<? super q, ? extends q> hVar = oPY;
         return hVar != null ? (q) a((h<q<T>, Object>) hVar, qVar) : qVar;
     }
 
-    public static boolean ejC() {
-        e eVar = oAP;
+    public static boolean eno() {
+        e eVar = oQe;
         if (eVar != null) {
             try {
                 return eVar.getAsBoolean();
@@ -195,13 +195,13 @@ public final class a {
 
     static v e(Callable<v> callable) {
         try {
-            return (v) io.reactivex.internal.functions.a.k(callable.call(), "Scheduler Callable result can't be null");
+            return (v) io.reactivex.internal.functions.a.l(callable.call(), "Scheduler Callable result can't be null");
         } catch (Throwable th) {
             throw ExceptionHelper.L(th);
         }
     }
 
     static v a(h<? super Callable<v>, ? extends v> hVar, Callable<v> callable) {
-        return (v) io.reactivex.internal.functions.a.k(a((h<Callable<v>, Object>) hVar, callable), "Scheduler Callable result can't be null");
+        return (v) io.reactivex.internal.functions.a.l(a((h<Callable<v>, Object>) hVar, callable), "Scheduler Callable result can't be null");
     }
 }

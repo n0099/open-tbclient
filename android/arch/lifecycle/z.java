@@ -1,13 +1,13 @@
 package android.arch.lifecycle;
 
 import java.util.HashMap;
-/* loaded from: classes10.dex */
+/* loaded from: classes14.dex */
 public class z {
-    private final HashMap<String, w> zK = new HashMap<>();
+    private final HashMap<String, w> Ab = new HashMap<>();
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public final void a(String str, w wVar) {
-        w put = this.zK.put(str, wVar);
+        w put = this.Ab.put(str, wVar);
         if (put != null) {
             put.onCleared();
         }
@@ -15,13 +15,13 @@ public class z {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public final w aX(String str) {
-        return this.zK.get(str);
+        return this.Ab.get(str);
     }
 
     public final void clear() {
-        for (w wVar : this.zK.values()) {
+        for (w wVar : this.Ab.values()) {
             wVar.onCleared();
         }
-        this.zK.clear();
+        this.Ab.clear();
     }
 }

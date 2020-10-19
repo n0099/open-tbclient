@@ -4,117 +4,117 @@ import android.graphics.Rect;
 import java.util.LinkedList;
 import java.util.List;
 import javax.annotation.Nullable;
-/* loaded from: classes15.dex */
+/* loaded from: classes18.dex */
 public class g extends com.facebook.imagepipeline.h.a {
     private boolean mEnabled;
+    private final com.facebook.drawee.a.a.d nMC;
+    private final com.facebook.common.time.b nMD;
+    private final h nME = new h();
     @Nullable
-    private b nwK;
-    private final com.facebook.drawee.a.a.d nxj;
-    private final com.facebook.common.time.b nxk;
-    private final h nxl = new h();
+    private c nMF;
     @Nullable
-    private c nxm;
+    private com.facebook.drawee.a.a.a.a.c nMG;
     @Nullable
-    private com.facebook.drawee.a.a.a.a.c nxn;
+    private com.facebook.drawee.a.a.a.a.a nMH;
     @Nullable
-    private com.facebook.drawee.a.a.a.a.a nxo;
+    private com.facebook.imagepipeline.h.b nMI;
     @Nullable
-    private com.facebook.imagepipeline.h.b nxp;
+    private List<f> nMJ;
     @Nullable
-    private List<f> nxq;
+    private b nMd;
 
     public g(com.facebook.common.time.b bVar, com.facebook.drawee.a.a.d dVar) {
-        this.nxk = bVar;
-        this.nxj = dVar;
+        this.nMD = bVar;
+        this.nMC = dVar;
     }
 
     public void setEnabled(boolean z) {
         this.mEnabled = z;
         if (z) {
-            dTL();
-            if (this.nwK != null) {
-                this.nxj.a(this.nwK);
+            dXw();
+            if (this.nMd != null) {
+                this.nMC.a(this.nMd);
             }
-            if (this.nxo != null) {
-                this.nxj.a(this.nxo);
+            if (this.nMH != null) {
+                this.nMC.a(this.nMH);
             }
-            if (this.nxp != null) {
-                this.nxj.a(this.nxp);
+            if (this.nMI != null) {
+                this.nMC.a(this.nMI);
                 return;
             }
             return;
         }
-        if (this.nwK != null) {
-            this.nxj.b(this.nwK);
+        if (this.nMd != null) {
+            this.nMC.b(this.nMd);
         }
-        if (this.nxo != null) {
-            this.nxj.b(this.nxo);
+        if (this.nMH != null) {
+            this.nMC.b(this.nMH);
         }
-        if (this.nxp != null) {
-            this.nxj.b(this.nxp);
+        if (this.nMI != null) {
+            this.nMC.b(this.nMI);
         }
     }
 
     public void b(@Nullable f fVar) {
         if (fVar != null) {
-            if (this.nxq == null) {
-                this.nxq = new LinkedList();
+            if (this.nMJ == null) {
+                this.nMJ = new LinkedList();
             }
-            this.nxq.add(fVar);
+            this.nMJ.add(fVar);
         }
     }
 
-    public void dTJ() {
-        if (this.nxq != null) {
-            this.nxq.clear();
+    public void dXu() {
+        if (this.nMJ != null) {
+            this.nMJ.clear();
         }
     }
 
     public void a(h hVar, int i) {
-        hVar.LE(i);
-        if (this.mEnabled && this.nxq != null && !this.nxq.isEmpty()) {
+        hVar.Mk(i);
+        if (this.mEnabled && this.nMJ != null && !this.nMJ.isEmpty()) {
             if (i == 3) {
-                dTK();
+                dXv();
             }
-            e dTN = hVar.dTN();
-            for (f fVar : this.nxq) {
-                fVar.a(dTN, i);
+            e dXy = hVar.dXy();
+            for (f fVar : this.nMJ) {
+                fVar.a(dXy, i);
             }
         }
     }
 
-    private void dTK() {
-        com.facebook.drawee.d.b hierarchy = this.nxj.getHierarchy();
+    private void dXv() {
+        com.facebook.drawee.d.b hierarchy = this.nMC.getHierarchy();
         if (hierarchy != null && hierarchy.getTopLevelDrawable() != null) {
             Rect bounds = hierarchy.getTopLevelDrawable().getBounds();
-            this.nxl.LG(bounds.width());
-            this.nxl.LH(bounds.height());
+            this.nME.Mm(bounds.width());
+            this.nME.Mn(bounds.height());
         }
     }
 
-    private void dTL() {
-        if (this.nxo == null) {
-            this.nxo = new com.facebook.drawee.a.a.a.a.a(this.nxk, this.nxl, this);
+    private void dXw() {
+        if (this.nMH == null) {
+            this.nMH = new com.facebook.drawee.a.a.a.a.a(this.nMD, this.nME, this);
         }
-        if (this.nxn == null) {
-            this.nxn = new com.facebook.drawee.a.a.a.a.c(this.nxk, this.nxl);
+        if (this.nMG == null) {
+            this.nMG = new com.facebook.drawee.a.a.a.a.c(this.nMD, this.nME);
         }
-        if (this.nwK == null) {
-            this.nwK = new com.facebook.drawee.a.a.a.a.b(this.nxl, this);
+        if (this.nMd == null) {
+            this.nMd = new com.facebook.drawee.a.a.a.a.b(this.nME, this);
         }
-        if (this.nxm == null) {
-            this.nxm = new c(this.nxj.getId(), this.nwK);
+        if (this.nMF == null) {
+            this.nMF = new c(this.nMC.getId(), this.nMd);
         } else {
-            this.nxm.init(this.nxj.getId());
+            this.nMF.init(this.nMC.getId());
         }
-        if (this.nxp == null) {
-            this.nxp = new com.facebook.imagepipeline.h.b(this.nxn, this.nxm);
+        if (this.nMI == null) {
+            this.nMI = new com.facebook.imagepipeline.h.b(this.nMG, this.nMF);
         }
     }
 
     public void reset() {
-        dTJ();
+        dXu();
         setEnabled(false);
-        this.nxl.reset();
+        this.nME.reset();
     }
 }

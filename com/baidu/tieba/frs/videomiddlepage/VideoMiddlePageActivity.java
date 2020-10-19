@@ -18,9 +18,9 @@ import com.baidu.tbadk.core.util.at;
 import com.baidu.tbadk.pageInfo.TbPageTag;
 import com.baidu.tieba.R;
 import java.util.ArrayList;
-/* loaded from: classes21.dex */
+/* loaded from: classes22.dex */
 public class VideoMiddlePageActivity extends BaseFragmentActivity {
-    private VideoMiddlePageFragment iDV;
+    private VideoMiddlePageFragment iSL;
     private String mFrom;
     private String mId;
     private String mNid;
@@ -43,33 +43,33 @@ public class VideoMiddlePageActivity extends BaseFragmentActivity {
         this.mId = intent.getStringExtra("PARAM_FID");
         this.mFrom = intent.getStringExtra("PARAM_FROM");
         this.mNid = intent.getStringExtra("key_nid");
-        Pe();
-        cxM();
+        Qj();
+        cBj();
     }
 
-    private void cxM() {
+    private void cBj() {
         aq aqVar = new aq("c12664");
         if (!StringUtils.isNull(this.mFrom)) {
-            aqVar.dF("obj_source", this.mFrom);
+            aqVar.dK("obj_source", this.mFrom);
         }
         if (TextUtils.isEmpty(this.mNid)) {
-            aqVar.dF("obj_type", "1");
+            aqVar.dK("obj_type", "1");
         } else {
-            aqVar.dF("obj_type", "2");
-            aqVar.dF("obj_id", this.mNid);
+            aqVar.dK("obj_type", "2");
+            aqVar.dK("obj_id", this.mNid);
         }
         TiebaStatic.log(aqVar);
     }
 
-    private void Pe() {
+    private void Qj() {
         FragmentManager supportFragmentManager = getSupportFragmentManager();
         if (supportFragmentManager != null && !supportFragmentManager.isDestroyed()) {
             VideoMiddlePageFragment videoMiddlePageFragment = (VideoMiddlePageFragment) supportFragmentManager.findFragmentByTag(VideoMiddlePageFragment.class.getCanonicalName());
             if (videoMiddlePageFragment == null) {
-                videoMiddlePageFragment = VideoMiddlePageFragment.eW(this.mFrom, this.mId);
+                videoMiddlePageFragment = VideoMiddlePageFragment.fc(this.mFrom, this.mId);
                 supportFragmentManager.beginTransaction().add(R.id.video_middle_page_container, videoMiddlePageFragment, VideoMiddlePageFragment.class.getCanonicalName()).commitAllowingStateLoss();
             }
-            this.iDV = videoMiddlePageFragment;
+            this.iSL = videoMiddlePageFragment;
         }
     }
 
@@ -78,7 +78,7 @@ public class VideoMiddlePageActivity extends BaseFragmentActivity {
     public void onResume() {
         super.onResume();
         if (!at.isEmpty(this.mId)) {
-            com.baidu.tbadk.BdToken.c.aZe().p(com.baidu.tbadk.BdToken.b.dPT, com.baidu.adp.lib.f.b.toLong(this.mId, 0L));
+            com.baidu.tbadk.BdToken.c.bbM().q(com.baidu.tbadk.BdToken.b.ebU, com.baidu.adp.lib.f.b.toLong(this.mId, 0L));
         }
     }
 
@@ -86,7 +86,7 @@ public class VideoMiddlePageActivity extends BaseFragmentActivity {
     @Override // com.baidu.tbadk.core.BaseFragmentActivity, com.baidu.adp.base.BdBaseFragmentActivity, android.support.v4.app.FragmentActivity, android.app.Activity
     public void onPause() {
         super.onPause();
-        com.baidu.tbadk.BdToken.c.aZe().aZp();
+        com.baidu.tbadk.BdToken.c.bbM().bbX();
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -120,10 +120,10 @@ public class VideoMiddlePageActivity extends BaseFragmentActivity {
 
     @Override // com.baidu.tbadk.core.BaseFragmentActivity, android.app.Activity, android.view.KeyEvent.Callback
     public boolean onKeyDown(int i, KeyEvent keyEvent) {
-        if (keyEvent == null || this.iDV == null) {
+        if (keyEvent == null || this.iSL == null) {
             return super.onKeyDown(i, keyEvent);
         }
-        if (this.iDV.ya(i)) {
+        if (this.iSL.yG(i)) {
             return true;
         }
         return super.onKeyDown(i, keyEvent);
@@ -150,7 +150,7 @@ public class VideoMiddlePageActivity extends BaseFragmentActivity {
             }
             pageStayDurationItem.setSorceKeyList(arrayList);
             pageStayDurationItem.isVertical = "0";
-            pageStayDurationItem.eUf = TextUtils.isEmpty(this.mNid) ? "0" : "1";
+            pageStayDurationItem.fgn = TextUtils.isEmpty(this.mNid) ? "0" : "1";
         }
         return pageStayDurationItem;
     }

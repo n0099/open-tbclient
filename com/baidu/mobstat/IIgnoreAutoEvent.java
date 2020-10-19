@@ -1,4 +1,4 @@
 package com.baidu.mobstat;
-/* loaded from: classes15.dex */
+/* loaded from: classes17.dex */
 public interface IIgnoreAutoEvent {
 }

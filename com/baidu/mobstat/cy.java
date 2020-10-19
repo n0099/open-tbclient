@@ -3,9 +3,11 @@ package com.baidu.mobstat;
 import java.util.Collections;
 import java.util.Iterator;
 import java.util.TreeMap;
-/* loaded from: classes15.dex */
+/* loaded from: classes17.dex */
 public class cy implements cu {
-    private byte[] a;
+
+    /* renamed from: a  reason: collision with root package name */
+    private byte[] f2610a;
     private TreeMap<String, String> b = new TreeMap<>(String.CASE_INSENSITIVE_ORDER);
 
     @Override // com.baidu.mobstat.cx
@@ -24,7 +26,7 @@ public class cy implements cu {
 
     @Override // com.baidu.mobstat.cx
     public byte[] c() {
-        return this.a;
+        return this.f2610a;
     }
 
     @Override // com.baidu.mobstat.cu

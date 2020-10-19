@@ -3,9 +3,11 @@ package com.baidu.pano.platform.a;
 import android.os.Process;
 import com.baidu.pano.platform.a.b;
 import java.util.concurrent.BlockingQueue;
-/* loaded from: classes3.dex */
+/* loaded from: classes7.dex */
 public class c extends Thread {
-    private static final boolean a = w.b;
+
+    /* renamed from: a  reason: collision with root package name */
+    private static final boolean f2647a = w.b;
     private final BlockingQueue<n<?>> b;
     private final BlockingQueue<n<?>> c;
     private final b d;
@@ -26,7 +28,7 @@ public class c extends Thread {
 
     @Override // java.lang.Thread, java.lang.Runnable
     public void run() {
-        if (a) {
+        if (f2647a) {
             w.a("start new dispatcher", new Object[0]);
         }
         Process.setThreadPriority(10);
@@ -48,7 +50,7 @@ public class c extends Thread {
                         this.c.put(take);
                     } else {
                         take.a("cache-hit");
-                        q<?> a3 = take.a(new l(a2.a, a2.g));
+                        q<?> a3 = take.a(new l(a2.f2646a, a2.g));
                         take.a("cache-hit-parsed");
                         if (!a2.b()) {
                             this.e.a(take, a3);

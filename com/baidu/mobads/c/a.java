@@ -25,9 +25,11 @@ import com.xiaomi.mipush.sdk.Constants;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Random;
-/* loaded from: classes3.dex */
+/* loaded from: classes7.dex */
 public class a {
-    protected final IXAdLogger a = XAdSDKFoundationFacade.getInstance().getAdLogger();
+
+    /* renamed from: a  reason: collision with root package name */
+    protected final IXAdLogger f2319a = XAdSDKFoundationFacade.getInstance().getAdLogger();
     private Context e;
     private static a d = new a();
     public static volatile String b = "";
@@ -106,9 +108,9 @@ public class a {
     }
 
     private void a(Context context, String str, com.baidu.mobads.command.a aVar) {
-        IXAppInfo a = com.baidu.mobads.command.a.a.a(aVar);
-        if (a != null) {
-            a(context, str, a);
+        IXAppInfo a2 = com.baidu.mobads.command.a.a.a(aVar);
+        if (a2 != null) {
+            a(context, str, a2);
         }
     }
 
@@ -185,12 +187,12 @@ public class a {
             }
             sb2.append("mobads,");
             String md5 = commonUtils.getMD5(sb2.toString());
-            this.a.d("ExtraQuery.allValue:" + ((Object) sb2));
+            this.f2319a.d("ExtraQuery.allValue:" + ((Object) sb2));
             sb.append("vd=" + md5 + ETAG.ITEM_SEPARATOR);
-            this.a.d("ExtraQuery.params:" + ((Object) sb));
+            this.f2319a.d("ExtraQuery.params:" + ((Object) sb));
             return "https://mobads-logs.baidu.com/dz.zb?" + sb.toString();
         } catch (Exception e) {
-            this.a.d(e);
+            this.f2319a.d(e);
             return "";
         }
     }

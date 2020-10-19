@@ -8,7 +8,7 @@ import java.lang.annotation.Target;
 @Target({ElementType.ANNOTATION_TYPE})
 @Documented
 @Retention(RetentionPolicy.RUNTIME)
-/* loaded from: classes10.dex */
+/* loaded from: classes5.dex */
 public @interface FastJsonFilter {
     Class<?> clazz();
 

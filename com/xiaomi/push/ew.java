@@ -5,7 +5,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.text.TextUtils;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes9.dex */
+/* loaded from: classes12.dex */
 public class ew implements et {
     private void a(Service service, Intent intent) {
         String stringExtra = intent.getStringExtra("awake_info");
@@ -22,17 +22,17 @@ public class ew implements et {
     }
 
     private void b(Context context, ep epVar) {
-        String m266a = epVar.m266a();
+        String m267a = epVar.m267a();
         String b = epVar.b();
         String d = epVar.d();
-        int a = epVar.a();
-        if (context == null || TextUtils.isEmpty(m266a) || TextUtils.isEmpty(b) || TextUtils.isEmpty(d)) {
+        int a2 = epVar.a();
+        if (context == null || TextUtils.isEmpty(m267a) || TextUtils.isEmpty(b) || TextUtils.isEmpty(d)) {
             if (TextUtils.isEmpty(d)) {
                 em.a(context, "service", 1008, "argument error");
             } else {
                 em.a(context, d, 1008, "argument error");
             }
-        } else if (!com.xiaomi.push.service.f.a(context, m266a, b)) {
+        } else if (!com.xiaomi.push.service.f.a(context, m267a, b)) {
             em.a(context, d, 1003, "B is not ready");
         } else {
             em.a(context, d, 1002, "B is ready");
@@ -40,9 +40,9 @@ public class ew implements et {
             try {
                 Intent intent = new Intent();
                 intent.setAction(b);
-                intent.setPackage(m266a);
+                intent.setPackage(m267a);
                 intent.putExtra("awake_info", el.a(d));
-                if (a == 1 && !eq.m267a(context)) {
+                if (a2 == 1 && !eq.m268a(context)) {
                     em.a(context, d, 1008, "A not in foreground");
                 } else if (context.startService(intent) != null) {
                     em.a(context, d, 1005, "A is successful");

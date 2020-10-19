@@ -21,38 +21,38 @@ import com.baidu.tieba.R;
 import java.util.List;
 /* loaded from: classes.dex */
 public class a {
-    private TbImageView dVA;
-    private View dVB;
-    private View dVC;
-    private View dVD;
-    private LinearLayout dVE;
-    private ImageView dVF;
-    private TextView dVG;
-    private LinearLayout dVH;
-    private ImageView dVI;
-    private TextView dVJ;
-    private LinearLayout dVK;
-    private ImageView dVL;
-    private TextView dVM;
-    private View dVN;
-    private View dVO;
-    private View dVP;
-    private final ThreadAchievementShareInfo dVk;
-    private final ThreadAchievementShareInfo.ParamBean dVl;
-    private TextView dVm;
-    private TextView dVn;
-    private TextView dVo;
-    private TextView dVp;
-    private TextView dVq;
-    private TextView dVr;
-    private TextView dVs;
-    private TextView dVt;
-    private TextView dVu;
-    private View dVv;
-    private View dVw;
-    private View dVx;
-    private TbImageView dVy;
-    private TbImageView dVz;
+    private TbImageView ehA;
+    private TbImageView ehB;
+    private TbImageView ehC;
+    private View ehD;
+    private View ehE;
+    private View ehF;
+    private LinearLayout ehG;
+    private ImageView ehH;
+    private TextView ehI;
+    private LinearLayout ehJ;
+    private ImageView ehK;
+    private TextView ehL;
+    private LinearLayout ehM;
+    private ImageView ehN;
+    private TextView ehO;
+    private View ehP;
+    private View ehQ;
+    private View ehR;
+    private final ThreadAchievementShareInfo ehm;
+    private final ThreadAchievementShareInfo.ParamBean ehn;
+    private TextView eho;
+    private TextView ehp;
+    private TextView ehq;
+    private TextView ehr;
+    private TextView ehs;
+    private TextView eht;
+    private TextView ehu;
+    private TextView ehv;
+    private TextView ehw;
+    private View ehx;
+    private View ehy;
+    private View ehz;
     private final Context mContext;
     private final View mRoot;
     private List<ThreadAchievementShareInfo.ThreadListBean> mThreadList;
@@ -61,10 +61,10 @@ public class a {
     public a(Context context, ThreadAchievementShareInfo threadAchievementShareInfo) {
         this.mContext = context;
         this.mRoot = LayoutInflater.from(context).inflate(R.layout.hot_thread_rank_list, (ViewGroup) null);
-        this.dVk = threadAchievementShareInfo;
-        this.dVl = threadAchievementShareInfo.getParams();
-        if (this.dVl != null) {
-            this.mThreadList = this.dVl.getThread_list();
+        this.ehm = threadAchievementShareInfo;
+        this.ehn = threadAchievementShareInfo.getParams();
+        if (this.ehn != null) {
+            this.mThreadList = this.ehn.getThread_list();
         }
         initUI();
         initData();
@@ -73,170 +73,170 @@ public class a {
     @SuppressLint({"CutPasteId"})
     private void initUI() {
         this.mTitle = (TextView) this.mRoot.findViewById(R.id.title);
-        this.dVm = (TextView) this.mRoot.findViewById(R.id.first_rank_num);
-        this.dVn = (TextView) this.mRoot.findViewById(R.id.first_thread_content);
-        this.dVy = (TbImageView) this.mRoot.findViewById(R.id.first_thread_img);
-        this.dVo = (TextView) this.mRoot.findViewById(R.id.first_heat_degree);
-        this.dVv = this.mRoot.findViewById(R.id.first_heat_degree_bg);
-        this.dVp = (TextView) this.mRoot.findViewById(R.id.second_rank_num);
-        this.dVq = (TextView) this.mRoot.findViewById(R.id.second_thread_content);
-        this.dVz = (TbImageView) this.mRoot.findViewById(R.id.second_thread_img);
-        this.dVr = (TextView) this.mRoot.findViewById(R.id.second_heat_degree);
-        this.dVw = this.mRoot.findViewById(R.id.second_heat_degree_bg);
-        this.dVs = (TextView) this.mRoot.findViewById(R.id.current_rank_num);
-        this.dVt = (TextView) this.mRoot.findViewById(R.id.current_thread_content);
-        this.dVA = (TbImageView) this.mRoot.findViewById(R.id.current_thread_img);
-        this.dVu = (TextView) this.mRoot.findViewById(R.id.current_heat_degree);
-        this.dVx = this.mRoot.findViewById(R.id.current_heat_degree_bg);
-        this.dVC = this.mRoot.findViewById(R.id.first_item_layout);
-        this.dVD = this.mRoot.findViewById(R.id.second_item_layout);
-        this.dVB = this.mRoot.findViewById(R.id.current_item_layout);
-        this.dVP = this.mRoot.findViewById(R.id.first_thread_img_overlay);
-        this.dVO = this.mRoot.findViewById(R.id.second_thread_img_overlay);
-        this.dVN = this.mRoot.findViewById(R.id.current_thread_img_overlay);
-        this.dVE = (LinearLayout) this.mRoot.findViewById(R.id.first_video_during_container);
-        this.dVF = (ImageView) this.mRoot.findViewById(R.id.first_vidoe_play_iv);
-        this.dVG = (TextView) this.mRoot.findViewById(R.id.first_video_during_tv);
-        this.dVH = (LinearLayout) this.mRoot.findViewById(R.id.second_video_during_container);
-        this.dVI = (ImageView) this.mRoot.findViewById(R.id.second_vidoe_play_iv);
-        this.dVJ = (TextView) this.mRoot.findViewById(R.id.second_video_during_tv);
-        this.dVK = (LinearLayout) this.mRoot.findViewById(R.id.current_video_during_container);
-        this.dVL = (ImageView) this.mRoot.findViewById(R.id.current_vidoe_play_iv);
-        this.dVM = (TextView) this.mRoot.findViewById(R.id.current_video_during_tv);
-        this.dVy.setRadius(l.getDimens(this.mContext, R.dimen.tbds10));
-        this.dVy.setConrers(15);
-        this.dVy.setPlaceHolder(2);
-        this.dVz.setRadius(l.getDimens(this.mContext, R.dimen.tbds10));
-        this.dVz.setConrers(15);
-        this.dVz.setPlaceHolder(2);
-        this.dVA.setRadius(l.getDimens(this.mContext, R.dimen.tbds10));
-        this.dVA.setConrers(15);
-        this.dVA.setPlaceHolder(2);
-        this.dVn.setLineSpacing(l.getDimens(this.mContext, R.dimen.tbds13), 1.0f);
-        this.dVq.setLineSpacing(l.getDimens(this.mContext, R.dimen.tbds13), 1.0f);
-        this.dVt.setLineSpacing(l.getDimens(this.mContext, R.dimen.tbds13), 1.0f);
+        this.eho = (TextView) this.mRoot.findViewById(R.id.first_rank_num);
+        this.ehp = (TextView) this.mRoot.findViewById(R.id.first_thread_content);
+        this.ehA = (TbImageView) this.mRoot.findViewById(R.id.first_thread_img);
+        this.ehq = (TextView) this.mRoot.findViewById(R.id.first_heat_degree);
+        this.ehx = this.mRoot.findViewById(R.id.first_heat_degree_bg);
+        this.ehr = (TextView) this.mRoot.findViewById(R.id.second_rank_num);
+        this.ehs = (TextView) this.mRoot.findViewById(R.id.second_thread_content);
+        this.ehB = (TbImageView) this.mRoot.findViewById(R.id.second_thread_img);
+        this.eht = (TextView) this.mRoot.findViewById(R.id.second_heat_degree);
+        this.ehy = this.mRoot.findViewById(R.id.second_heat_degree_bg);
+        this.ehu = (TextView) this.mRoot.findViewById(R.id.current_rank_num);
+        this.ehv = (TextView) this.mRoot.findViewById(R.id.current_thread_content);
+        this.ehC = (TbImageView) this.mRoot.findViewById(R.id.current_thread_img);
+        this.ehw = (TextView) this.mRoot.findViewById(R.id.current_heat_degree);
+        this.ehz = this.mRoot.findViewById(R.id.current_heat_degree_bg);
+        this.ehE = this.mRoot.findViewById(R.id.first_item_layout);
+        this.ehF = this.mRoot.findViewById(R.id.second_item_layout);
+        this.ehD = this.mRoot.findViewById(R.id.current_item_layout);
+        this.ehR = this.mRoot.findViewById(R.id.first_thread_img_overlay);
+        this.ehQ = this.mRoot.findViewById(R.id.second_thread_img_overlay);
+        this.ehP = this.mRoot.findViewById(R.id.current_thread_img_overlay);
+        this.ehG = (LinearLayout) this.mRoot.findViewById(R.id.first_video_during_container);
+        this.ehH = (ImageView) this.mRoot.findViewById(R.id.first_vidoe_play_iv);
+        this.ehI = (TextView) this.mRoot.findViewById(R.id.first_video_during_tv);
+        this.ehJ = (LinearLayout) this.mRoot.findViewById(R.id.second_video_during_container);
+        this.ehK = (ImageView) this.mRoot.findViewById(R.id.second_vidoe_play_iv);
+        this.ehL = (TextView) this.mRoot.findViewById(R.id.second_video_during_tv);
+        this.ehM = (LinearLayout) this.mRoot.findViewById(R.id.current_video_during_container);
+        this.ehN = (ImageView) this.mRoot.findViewById(R.id.current_vidoe_play_iv);
+        this.ehO = (TextView) this.mRoot.findViewById(R.id.current_video_during_tv);
+        this.ehA.setRadius(l.getDimens(this.mContext, R.dimen.tbds10));
+        this.ehA.setConrers(15);
+        this.ehA.setPlaceHolder(2);
+        this.ehB.setRadius(l.getDimens(this.mContext, R.dimen.tbds10));
+        this.ehB.setConrers(15);
+        this.ehB.setPlaceHolder(2);
+        this.ehC.setRadius(l.getDimens(this.mContext, R.dimen.tbds10));
+        this.ehC.setConrers(15);
+        this.ehC.setPlaceHolder(2);
+        this.ehp.setLineSpacing(l.getDimens(this.mContext, R.dimen.tbds13), 1.0f);
+        this.ehs.setLineSpacing(l.getDimens(this.mContext, R.dimen.tbds13), 1.0f);
+        this.ehv.setLineSpacing(l.getDimens(this.mContext, R.dimen.tbds13), 1.0f);
         ap.setViewTextColor(this.mTitle, R.color.cp_cont_b);
-        ap.setViewTextColor(this.dVm, R.color.cp_cont_a);
-        ap.setBackgroundResource(this.dVm, R.drawable.cp_other_d_round_bg);
-        ap.setBackgroundResource(this.dVv, R.drawable.cp_other_b_alpha20_round_bg);
-        ap.setViewTextColor(this.dVn, R.color.cp_cont_b);
-        ap.setViewTextColor(this.dVo, R.color.cp_other_d);
-        ap.setViewTextColor(this.dVp, R.color.cp_cont_a);
-        ap.setBackgroundResource(this.dVp, R.drawable.cp_link_tip_d_round_bg);
-        ap.setBackgroundResource(this.dVw, R.drawable.cp_link_tip_d_alpha20_round_bg);
-        ap.setViewTextColor(this.dVq, R.color.cp_cont_b);
-        ap.setViewTextColor(this.dVr, R.color.cp_link_tip_d);
-        ap.setViewTextColor(this.dVs, R.color.cp_cont_a);
-        ap.setBackgroundResource(this.dVs, R.drawable.cp_link_tip_d_round_bg);
-        ap.setBackgroundResource(this.dVx, R.drawable.cp_link_tip_d_alpha20_round_bg);
-        ap.setViewTextColor(this.dVt, R.color.cp_cont_b);
-        ap.setViewTextColor(this.dVu, R.color.cp_link_tip_d);
+        ap.setViewTextColor(this.eho, R.color.cp_cont_a);
+        ap.setBackgroundResource(this.eho, R.drawable.cp_other_d_round_bg);
+        ap.setBackgroundResource(this.ehx, R.drawable.cp_other_b_alpha20_round_bg);
+        ap.setViewTextColor(this.ehp, R.color.cp_cont_b);
+        ap.setViewTextColor(this.ehq, R.color.cp_other_d);
+        ap.setViewTextColor(this.ehr, R.color.cp_cont_a);
+        ap.setBackgroundResource(this.ehr, R.drawable.cp_link_tip_d_round_bg);
+        ap.setBackgroundResource(this.ehy, R.drawable.cp_link_tip_d_alpha20_round_bg);
+        ap.setViewTextColor(this.ehs, R.color.cp_cont_b);
+        ap.setViewTextColor(this.eht, R.color.cp_link_tip_d);
+        ap.setViewTextColor(this.ehu, R.color.cp_cont_a);
+        ap.setBackgroundResource(this.ehu, R.drawable.cp_link_tip_d_round_bg);
+        ap.setBackgroundResource(this.ehz, R.drawable.cp_link_tip_d_alpha20_round_bg);
+        ap.setViewTextColor(this.ehv, R.color.cp_cont_b);
+        ap.setViewTextColor(this.ehw, R.color.cp_link_tip_d);
         ap.setBackgroundColor(this.mRoot, R.color.cp_bg_line_d);
-        com.baidu.tbadk.core.util.e.a.bkK().oz(1).oB(0).oG(ap.oe(R.color.cp_bg_line_d)).oC(ap.oe(R.color.cp_shadow_a_alpha33)).oA(4112).oD(l.getDimens(this.mContext, R.dimen.tbds16)).oE(0).oF(l.getDimens(this.mContext, R.dimen.tbds5)).bb(this.dVB);
-        this.dVF.setImageDrawable(SvgManager.bkl().a(R.drawable.ic_icon_pure_video_play12_svg, R.color.cp_cont_a, (SvgManager.SvgResourceStateType) null));
-        this.dVI.setImageDrawable(SvgManager.bkl().a(R.drawable.ic_icon_pure_video_play12_svg, R.color.cp_cont_a, (SvgManager.SvgResourceStateType) null));
-        this.dVL.setImageDrawable(SvgManager.bkl().a(R.drawable.ic_icon_pure_video_play12_svg, R.color.cp_cont_a, (SvgManager.SvgResourceStateType) null));
-        ap.setViewTextColor(this.dVG, R.color.cp_cont_a);
-        ap.setViewTextColor(this.dVJ, R.color.cp_cont_a);
-        ap.setViewTextColor(this.dVM, R.color.cp_cont_a);
+        com.baidu.tbadk.core.util.e.a.bnu().oX(1).oZ(0).pe(ap.oB(R.color.cp_bg_line_d)).pa(ap.oB(R.color.cp_shadow_a_alpha33)).oY(4112).pb(l.getDimens(this.mContext, R.dimen.tbds16)).pc(0).pd(l.getDimens(this.mContext, R.dimen.tbds5)).bf(this.ehD);
+        this.ehH.setImageDrawable(SvgManager.bmU().a(R.drawable.ic_icon_pure_video_play12_svg, R.color.cp_cont_a, (SvgManager.SvgResourceStateType) null));
+        this.ehK.setImageDrawable(SvgManager.bmU().a(R.drawable.ic_icon_pure_video_play12_svg, R.color.cp_cont_a, (SvgManager.SvgResourceStateType) null));
+        this.ehN.setImageDrawable(SvgManager.bmU().a(R.drawable.ic_icon_pure_video_play12_svg, R.color.cp_cont_a, (SvgManager.SvgResourceStateType) null));
+        ap.setViewTextColor(this.ehI, R.color.cp_cont_a);
+        ap.setViewTextColor(this.ehL, R.color.cp_cont_a);
+        ap.setViewTextColor(this.ehO, R.color.cp_cont_a);
     }
 
     private void initData() {
-        if (this.dVl != null && this.mThreadList != null && this.mThreadList.size() >= 2) {
-            int rank = this.dVl.getRank();
+        if (this.ehn != null && this.mThreadList != null && this.mThreadList.size() >= 2) {
+            int rank = this.ehn.getRank();
             if (rank == 0) {
                 ThreadAchievementShareInfo.ThreadListBean threadListBean = this.mThreadList.get(rank);
                 threadListBean.setDuration(500);
                 a(rank + 1, threadListBean);
                 b(rank + 2, this.mThreadList.get(rank + 1));
-                this.dVB.setVisibility(8);
-                LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.dVD.getLayoutParams();
+                this.ehD.setVisibility(8);
+                LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.ehF.getLayoutParams();
                 layoutParams.topMargin = 0;
                 layoutParams.bottomMargin = l.getDimens(this.mContext, R.dimen.tbds8);
             } else if (rank == 1) {
                 c(rank, this.mThreadList.get(rank - 1));
                 b(rank + 1, this.mThreadList.get(rank));
-                this.dVC.setVisibility(4);
-                ((RelativeLayout.LayoutParams) this.dVB.getLayoutParams()).topMargin = l.getDimens(this.mContext, R.dimen.tbds5);
-                ap.setBackgroundColor(this.dVs, R.color.cp_other_d);
-                ap.setViewTextColor(this.dVu, R.color.cp_other_d);
-                ap.setBackgroundColor(this.dVx, R.color.cp_other_b_alpha20);
+                this.ehE.setVisibility(4);
+                ((RelativeLayout.LayoutParams) this.ehD.getLayoutParams()).topMargin = l.getDimens(this.mContext, R.dimen.tbds5);
+                ap.setBackgroundColor(this.ehu, R.color.cp_other_d);
+                ap.setViewTextColor(this.ehw, R.color.cp_other_d);
+                ap.setBackgroundColor(this.ehz, R.color.cp_other_b_alpha20);
             } else {
                 a(rank - 1, this.mThreadList.get(rank - 2));
                 c(rank, this.mThreadList.get(rank - 1));
-                ((RelativeLayout.LayoutParams) this.dVB.getLayoutParams()).topMargin = l.getDimens(this.mContext, R.dimen.tbds230);
-                this.dVD.setVisibility(4);
+                ((RelativeLayout.LayoutParams) this.ehD.getLayoutParams()).topMargin = l.getDimens(this.mContext, R.dimen.tbds230);
+                this.ehF.setVisibility(4);
             }
         }
     }
 
     private void a(int i, ThreadAchievementShareInfo.ThreadListBean threadListBean) {
-        this.dVC.setVisibility(0);
-        this.dVm.setText(String.valueOf(i));
-        this.dVn.setText(threadListBean.getTitle());
+        this.ehE.setVisibility(0);
+        this.eho.setText(String.valueOf(i));
+        this.ehp.setText(threadListBean.getTitle());
         if (!TextUtils.isEmpty(threadListBean.getHotvalue())) {
-            this.dVv.setVisibility(0);
-            this.dVo.setText("热度 " + at.numFormatOverWanNa(Long.parseLong(threadListBean.getHotvalue())));
+            this.ehx.setVisibility(0);
+            this.ehq.setText("热度 " + at.numFormatOverWanNa(Long.parseLong(threadListBean.getHotvalue())));
         }
         if (threadListBean.getDuration() > 0) {
-            this.dVE.setVisibility(0);
-            this.dVP.setVisibility(0);
-            this.dVG.setText(StringUtils.translateSecondsToString(threadListBean.getDuration()));
+            this.ehG.setVisibility(0);
+            this.ehR.setVisibility(0);
+            this.ehI.setText(StringUtils.translateSecondsToString(threadListBean.getDuration()));
         }
         if (!TextUtils.isEmpty(threadListBean.getImg())) {
-            this.dVy.setVisibility(0);
-            this.dVy.startLoad(threadListBean.getImg(), 10, false);
+            this.ehA.setVisibility(0);
+            this.ehA.startLoad(threadListBean.getImg(), 10, false);
             return;
         }
-        this.dVy.setVisibility(8);
-        this.dVE.setVisibility(8);
-        ((RelativeLayout.LayoutParams) this.dVn.getLayoutParams()).rightMargin = l.getDimens(this.mContext, R.dimen.tbds44);
+        this.ehA.setVisibility(8);
+        this.ehG.setVisibility(8);
+        ((RelativeLayout.LayoutParams) this.ehp.getLayoutParams()).rightMargin = l.getDimens(this.mContext, R.dimen.tbds44);
     }
 
     private void b(int i, ThreadAchievementShareInfo.ThreadListBean threadListBean) {
-        this.dVD.setVisibility(0);
-        this.dVp.setText(String.valueOf(i));
-        this.dVq.setText(threadListBean.getTitle());
+        this.ehF.setVisibility(0);
+        this.ehr.setText(String.valueOf(i));
+        this.ehs.setText(threadListBean.getTitle());
         if (!TextUtils.isEmpty(threadListBean.getHotvalue())) {
-            this.dVw.setVisibility(0);
-            this.dVr.setText("热度 " + at.numFormatOverWanNa(Long.parseLong(threadListBean.getHotvalue())));
+            this.ehy.setVisibility(0);
+            this.eht.setText("热度 " + at.numFormatOverWanNa(Long.parseLong(threadListBean.getHotvalue())));
         }
         if (threadListBean.getDuration() > 0) {
-            this.dVH.setVisibility(0);
-            this.dVO.setVisibility(0);
-            this.dVJ.setText(StringUtils.translateSecondsToString(threadListBean.getDuration()));
+            this.ehJ.setVisibility(0);
+            this.ehQ.setVisibility(0);
+            this.ehL.setText(StringUtils.translateSecondsToString(threadListBean.getDuration()));
         }
         if (!TextUtils.isEmpty(threadListBean.getImg())) {
-            this.dVz.setVisibility(0);
-            this.dVz.startLoad(threadListBean.getImg(), 10, false);
+            this.ehB.setVisibility(0);
+            this.ehB.startLoad(threadListBean.getImg(), 10, false);
             return;
         }
-        this.dVz.setVisibility(8);
-        this.dVH.setVisibility(8);
-        ((RelativeLayout.LayoutParams) this.dVq.getLayoutParams()).rightMargin = l.getDimens(this.mContext, R.dimen.tbds44);
+        this.ehB.setVisibility(8);
+        this.ehJ.setVisibility(8);
+        ((RelativeLayout.LayoutParams) this.ehs.getLayoutParams()).rightMargin = l.getDimens(this.mContext, R.dimen.tbds44);
     }
 
     private void c(int i, ThreadAchievementShareInfo.ThreadListBean threadListBean) {
-        this.dVB.setVisibility(0);
-        this.dVs.setText(String.valueOf(i));
-        this.dVt.setText(threadListBean.getTitle());
+        this.ehD.setVisibility(0);
+        this.ehu.setText(String.valueOf(i));
+        this.ehv.setText(threadListBean.getTitle());
         if (!TextUtils.isEmpty(threadListBean.getHotvalue())) {
-            this.dVx.setVisibility(0);
-            this.dVu.setText("热度 " + at.numFormatOverWanNa(Long.parseLong(threadListBean.getHotvalue())));
+            this.ehz.setVisibility(0);
+            this.ehw.setText("热度 " + at.numFormatOverWanNa(Long.parseLong(threadListBean.getHotvalue())));
         }
         if (threadListBean.getDuration() > 0) {
-            this.dVK.setVisibility(0);
-            this.dVN.setVisibility(0);
-            this.dVM.setText(StringUtils.translateSecondsToString(threadListBean.getDuration()));
+            this.ehM.setVisibility(0);
+            this.ehP.setVisibility(0);
+            this.ehO.setText(StringUtils.translateSecondsToString(threadListBean.getDuration()));
         }
         if (!TextUtils.isEmpty(threadListBean.getImg())) {
-            this.dVA.setVisibility(0);
-            this.dVA.startLoad(threadListBean.getImg(), 10, false);
+            this.ehC.setVisibility(0);
+            this.ehC.startLoad(threadListBean.getImg(), 10, false);
             return;
         }
-        this.dVA.setVisibility(8);
-        this.dVK.setVisibility(8);
-        ((RelativeLayout.LayoutParams) this.dVt.getLayoutParams()).rightMargin = l.getDimens(this.mContext, R.dimen.tbds44);
+        this.ehC.setVisibility(8);
+        this.ehM.setVisibility(8);
+        ((RelativeLayout.LayoutParams) this.ehv.getLayoutParams()).rightMargin = l.getDimens(this.mContext, R.dimen.tbds44);
     }
 
     public View getView() {

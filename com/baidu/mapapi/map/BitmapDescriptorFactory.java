@@ -12,13 +12,15 @@ import com.baidu.mapapi.common.SysOSUtil;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
-/* loaded from: classes3.dex */
+/* loaded from: classes7.dex */
 public class BitmapDescriptorFactory {
-    static final /* synthetic */ boolean a;
+
+    /* renamed from: a  reason: collision with root package name */
+    static final /* synthetic */ boolean f1998a;
     private static final String b;
 
     static {
-        a = !BitmapDescriptorFactory.class.desiredAssertionStatus();
+        f1998a = !BitmapDescriptorFactory.class.desiredAssertionStatus();
         b = "BaiduMapSDK-" + BitmapDescriptorFactory.class.getSimpleName();
     }
 
@@ -30,7 +32,7 @@ public class BitmapDescriptorFactory {
         try {
             Bitmap a2 = com.baidu.mapsdkplatform.comapi.commonutils.a.a(str, context);
             BitmapDescriptor fromBitmap = fromBitmap(a2);
-            if (a || a2 != null) {
+            if (f1998a || a2 != null) {
                 a2.recycle();
                 return fromBitmap;
             }

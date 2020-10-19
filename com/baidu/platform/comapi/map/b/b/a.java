@@ -3,12 +3,14 @@ package com.baidu.platform.comapi.map.b.b;
 import android.util.Pair;
 import com.baidu.platform.comapi.map.MapController;
 import com.baidu.platform.comapi.map.b.a;
-/* loaded from: classes3.dex */
+/* loaded from: classes7.dex */
 public abstract class a {
-    protected MapController a;
+
+    /* renamed from: a  reason: collision with root package name */
+    protected MapController f2905a;
 
     public a(MapController mapController) {
-        this.a = mapController;
+        this.f2905a = mapController;
     }
 
     public void a(com.baidu.platform.comapi.map.b.a.b bVar) {

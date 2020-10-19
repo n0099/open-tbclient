@@ -10,9 +10,11 @@ import android.util.AttributeSet;
 import android.view.View;
 import com.baidu.ala.recorder.video.drawer.EncoderTextureDrawer;
 import com.baidu.fsg.face.base.d.h;
-/* loaded from: classes16.dex */
+/* loaded from: classes17.dex */
 public class UploadCircleView extends View {
-    private Paint a;
+
+    /* renamed from: a  reason: collision with root package name */
+    private Paint f1776a;
     private Paint b;
     private Paint c;
     private RectF d;
@@ -38,15 +40,15 @@ public class UploadCircleView extends View {
         this.h = h.a(context, 24.0f);
         this.e = Color.parseColor("#E1DDDD");
         this.f = Color.parseColor("#3C76FF");
-        this.a = new Paint();
+        this.f1776a = new Paint();
         this.b = new Paint();
         this.c = new Paint();
         this.d = new RectF();
-        this.a.setColor(this.e);
-        this.a.setStyle(Paint.Style.STROKE);
-        this.a.setStrokeWidth(this.g);
-        this.a.setAntiAlias(true);
-        this.a.setStrokeCap(Paint.Cap.ROUND);
+        this.f1776a.setColor(this.e);
+        this.f1776a.setStyle(Paint.Style.STROKE);
+        this.f1776a.setStrokeWidth(this.g);
+        this.f1776a.setAntiAlias(true);
+        this.f1776a.setStrokeCap(Paint.Cap.ROUND);
         this.b.setColor(this.f);
         this.b.setStyle(Paint.Style.STROKE);
         this.b.setStrokeWidth(this.g);
@@ -62,7 +64,7 @@ public class UploadCircleView extends View {
     protected void onDraw(Canvas canvas) {
         float width = getWidth() / 2;
         float f = width - (this.g / 2);
-        canvas.drawCircle(width, width, f, this.a);
+        canvas.drawCircle(width, width, f, this.f1776a);
         this.d.set(width - f, width - f, width + f, f + width);
         canvas.drawArc(this.d, -90.0f, this.i, false, this.b);
         canvas.drawText(this.j, width - (this.c.measureText(this.j) / 2.0f), width, this.c);

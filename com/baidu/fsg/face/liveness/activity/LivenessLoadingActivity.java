@@ -24,11 +24,13 @@ import com.baidu.sapi2.biometrics.liveness.R;
 import java.util.ArrayList;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes16.dex */
+/* loaded from: classes17.dex */
 public class LivenessLoadingActivity extends LivenessBaseActivity {
     public static final String CLOSE_LOADING_ACTION = "com.baidu.sapi2.biometrics.liveness.close.loading";
     public static final String TAG = "LivenessLoadingActivity";
-    private LoadingDialog a;
+
+    /* renamed from: a  reason: collision with root package name */
+    private LoadingDialog f1606a;
     private i b;
     private g c;
     private LivenessRecogDTO d;
@@ -195,19 +197,19 @@ public class LivenessLoadingActivity extends LivenessBaseActivity {
     }
 
     private void a(Context context) {
-        if (this.a == null) {
-            this.a = new LoadingDialog(context);
-            this.a.setMessage(context.getString(R.string.sapi_liveness_recog_loading));
-            this.a.setCancelable(false);
+        if (this.f1606a == null) {
+            this.f1606a = new LoadingDialog(context);
+            this.f1606a.setMessage(context.getString(R.string.sapi_liveness_recog_loading));
+            this.f1606a.setCancelable(false);
         }
-        if ((context instanceof Activity) && isUseable((Activity) context) && !this.a.isShowing()) {
-            this.a.show();
+        if ((context instanceof Activity) && isUseable((Activity) context) && !this.f1606a.isShowing()) {
+            this.f1606a.show();
         }
     }
 
     private void c() {
-        if (isUseable(this) && this.a.isShowing()) {
-            this.a.dismiss();
+        if (isUseable(this) && this.f1606a.isShowing()) {
+            this.f1606a.dismiss();
             finish();
         }
     }

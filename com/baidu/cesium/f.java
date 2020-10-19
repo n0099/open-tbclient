@@ -20,13 +20,13 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.util.List;
 import java.util.Random;
-/* loaded from: classes18.dex */
+/* loaded from: classes6.dex */
 public class f {
-    private c amu;
+    private c amM;
     private Context l;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes18.dex */
+    /* loaded from: classes6.dex */
     public static class a {
         static boolean a(String str, int i) {
             if (Build.VERSION.SDK_INT >= 21) {
@@ -43,14 +43,14 @@ public class f {
 
     public f(Context context, c cVar) {
         this.l = context;
-        this.amu = cVar;
+        this.amM = cVar;
     }
 
     private e X(Context context) {
         String str;
         e eVar;
         e eVar2 = null;
-        List<b> N = this.amu.N(context);
+        List<b> N = this.amM.N(context);
         if (N != null) {
             File filesDir = context.getFilesDir();
             if (com.baidu.fsg.face.base.b.c.g.equals(filesDir.getName())) {
@@ -61,7 +61,7 @@ public class f {
             }
             for (b bVar : N) {
                 if (!bVar.d) {
-                    File file = new File(new File(bVar.acB.dataDir, str), "libcuid.so");
+                    File file = new File(new File(bVar.acR.dataDir, str), "libcuid.so");
                     if (file.exists()) {
                         eVar = e.dp(com.baidu.cesium.f.c.a(file));
                         if (eVar != null) {

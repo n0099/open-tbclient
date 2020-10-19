@@ -8,15 +8,15 @@ import com.baidu.searchbox.http.cookie.CookieManager;
 import java.util.List;
 /* loaded from: classes3.dex */
 public class c implements CookieManager {
-    private static String mZC;
-    private boolean mUn;
-    private boolean mZD;
+    private static String npc;
+    private boolean njM;
+    private boolean npd;
 
     public c(boolean z, boolean z2) {
-        this.mUn = true;
-        this.mZD = false;
-        this.mUn = z;
-        this.mZD = z2;
+        this.njM = true;
+        this.npd = false;
+        this.njM = z;
+        this.npd = z2;
     }
 
     @Override // com.baidu.searchbox.http.cookie.CookieManager
@@ -24,7 +24,7 @@ public class c implements CookieManager {
         if (TextUtils.isEmpty(str2)) {
             return false;
         }
-        return this.mZD || !Tg(str2);
+        return this.npd || !TU(str2);
     }
 
     @Override // com.baidu.searchbox.http.cookie.CookieManager
@@ -41,7 +41,7 @@ public class c implements CookieManager {
                 for (String str2 : list) {
                     cookieManager.setCookie(str, str2);
                 }
-                if (this.mUn && (cookieSyncManager = CookieSyncManager.getInstance()) != null) {
+                if (this.njM && (cookieSyncManager = CookieSyncManager.getInstance()) != null) {
                     cookieSyncManager.sync();
                 }
             } catch (Exception e) {
@@ -52,18 +52,18 @@ public class c implements CookieManager {
 
     @Override // com.baidu.searchbox.http.cookie.CookieManager
     public String getCookie(String str) {
-        return mZC;
+        return npc;
     }
 
     public static void bP(String str) {
-        mZC = "BAIDUCUID=" + AppCuidRuntime.getAppCuidManager().getCuid() + ContentProviderProxy.PROVIDER_AUTHOR_SEPARATOR + "BDUSS=" + str;
+        npc = "BAIDUCUID=" + AppCuidRuntime.getAppCuidManager().getCuid() + ContentProviderProxy.PROVIDER_AUTHOR_SEPARATOR + "BDUSS=" + str;
     }
 
-    public static void dKv() {
-        mZC = "";
+    public static void dOh() {
+        npc = "";
     }
 
-    public static boolean Tg(String str) {
+    public static boolean TU(String str) {
         if (TextUtils.isEmpty(str)) {
             return false;
         }

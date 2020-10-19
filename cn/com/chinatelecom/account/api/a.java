@@ -13,9 +13,11 @@ import java.util.concurrent.Future;
 import java.util.concurrent.TimeUnit;
 import java.util.concurrent.TimeoutException;
 import org.json.JSONObject;
-/* loaded from: classes14.dex */
+/* loaded from: classes6.dex */
 public final class a {
-    private static final String a = a.class.getSimpleName();
+
+    /* renamed from: a  reason: collision with root package name */
+    private static final String f964a = a.class.getSimpleName();
 
     /* JADX INFO: Access modifiers changed from: private */
     public String a(Context context, String str, String str2, String str3, CtSetting ctSetting) {
@@ -24,7 +26,7 @@ public final class a {
             String optString = jSONObject.optString("p");
             return cn.com.chinatelecom.account.api.c.a.a(context, c.a(context, f.a(), optString, ctSetting, null, false, 0, "Auth").b, jSONObject.optString("k"));
         } catch (Throwable th) {
-            CtAuth.warn(a, "AuthManager requestNetworkAuth() exception", th);
+            CtAuth.warn(f964a, "AuthManager requestNetworkAuth() exception", th);
             return "{\"result\":\"-8001\",\"msg\":\"请求网络异常\"}";
         }
     }
@@ -40,7 +42,7 @@ public final class a {
             e a4 = c.a(context, a3, optString, ctSetting, network, true, 0, "preAuth");
             return a4.c ? b(context, str, str2, str3, ctSetting, network) : cn.com.chinatelecom.account.api.c.a.a(context, a4, optString2, network, true);
         } catch (Throwable th) {
-            CtAuth.warn(a, "AuthManager getPreMobile() exception", th);
+            CtAuth.warn(f964a, "AuthManager getPreMobile() exception", th);
             return "{\"result\":\"-8001\",\"msg\":\"请求网络异常\"}";
         }
     }
@@ -59,7 +61,7 @@ public final class a {
                         if (th instanceof TimeoutException) {
                             CtAuth.postResultOnMainThread("{\"result\":-8003,\"msg\":\"请求超时\"}", resultListener);
                         } else {
-                            CtAuth.warn(a.a, "submitOnTimeoutInterrupted other exception", th);
+                            CtAuth.warn(a.f964a, "submitOnTimeoutInterrupted other exception", th);
                             CtAuth.postResultOnMainThread("{\"result\":\"-8001\",\"msg\":\"请求网络异常\"}", resultListener);
                         }
                         if (b == null || b.isDone()) {
@@ -84,7 +86,7 @@ public final class a {
             String optString = jSONObject.optString("p");
             return cn.com.chinatelecom.account.api.c.a.a(context, c.a(context, a3, optString, ctSetting, network, true, 0, "preAuth"), jSONObject.optString("k"), network, true);
         } catch (Throwable th) {
-            CtAuth.warn(a, "AuthManager retryPreMobile() exception", th);
+            CtAuth.warn(f964a, "AuthManager retryPreMobile() exception", th);
             return "{\"result\":\"-8001\",\"msg\":\"请求网络异常\"}";
         }
     }
@@ -143,13 +145,13 @@ public final class a {
                 if (!this.h && !this.i) {
                     this.i = true;
                     CtAuth.postResultOnMainThread(i.a(i, str4), resultListener);
-                    CtAuth.info(a.a, "Switching network failed (L), errorMsg :" + str4 + " , expendTime ：" + j);
+                    CtAuth.info(a.f964a, "Switching network failed (L), errorMsg :" + str4 + " , expendTime ：" + j);
                 }
             }
 
             @Override // cn.com.chinatelecom.account.api.b.d.a
             public void a(Network network, long j) {
-                CtAuth.info(a.a, "Switching network successfully (L) , expendTime ：" + j);
+                CtAuth.info(a.f964a, "Switching network successfully (L) , expendTime ：" + j);
                 if (this.h || this.i) {
                     return;
                 }

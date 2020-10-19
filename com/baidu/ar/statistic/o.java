@@ -1,14 +1,14 @@
 package com.baidu.ar.statistic;
 
 import java.lang.reflect.Constructor;
-/* loaded from: classes10.dex */
+/* loaded from: classes14.dex */
 class o implements f {
     private f wd;
 
     public o() {
-        Constructor<?> a = com.baidu.ar.g.n.a("com.baidu.ar.statistic.performance.PerformanceStatisticApi", new Class[0]);
-        if (a != null) {
-            this.wd = (f) com.baidu.ar.g.n.a(a, new Object[0]);
+        Constructor<?> a2 = com.baidu.ar.g.n.a("com.baidu.ar.statistic.performance.PerformanceStatisticApi", new Class[0]);
+        if (a2 != null) {
+            this.wd = (f) com.baidu.ar.g.n.a(a2, new Object[0]);
         }
     }
 

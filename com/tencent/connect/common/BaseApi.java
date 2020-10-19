@@ -27,9 +27,11 @@ import java.net.SocketTimeoutException;
 import org.apache.http.conn.ConnectTimeoutException;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes24.dex */
+/* loaded from: classes6.dex */
 public abstract class BaseApi {
-    protected c a;
+
+    /* renamed from: a  reason: collision with root package name */
+    protected c f4550a;
     protected QQToken b;
     public static String registerChannel = null;
     public static String installChannel = null;
@@ -37,7 +39,7 @@ public abstract class BaseApi {
     public static boolean isOEM = false;
 
     public BaseApi(c cVar, QQToken qQToken) {
-        this.a = cVar;
+        this.f4550a = cVar;
         this.b = qQToken;
     }
 
@@ -71,13 +73,13 @@ public abstract class BaseApi {
 
     /* JADX INFO: Access modifiers changed from: protected */
     public String a(String str) {
-        Bundle a = a();
+        Bundle a2 = a();
         StringBuilder sb = new StringBuilder();
         if (!TextUtils.isEmpty(str)) {
-            a.putString("need_version", str);
+            a2.putString("need_version", str);
         }
         sb.append("http://openmobile.qq.com/oauth2.0/m_jump_by_version?");
-        sb.append(HttpUtils.encodeUrl(a));
+        sb.append(HttpUtils.encodeUrl(a2));
         return sb.toString();
     }
 
@@ -183,7 +185,7 @@ public abstract class BaseApi {
     public void releaseResource() {
     }
 
-    /* loaded from: classes24.dex */
+    /* loaded from: classes6.dex */
     public class TempRequestListener implements IRequestListener {
         private final IUiListener b;
         private final Handler c;

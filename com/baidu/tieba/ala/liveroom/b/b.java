@@ -11,7 +11,8 @@ import com.baidu.live.tbadk.TbPageContext;
 import com.baidu.live.tbadk.core.util.UtilHelper;
 /* loaded from: classes4.dex */
 public class b {
-    private CustomMessageListener fTe = new CustomMessageListener(2913095) { // from class: com.baidu.tieba.ala.liveroom.b.b.1
+    private c gDA;
+    private CustomMessageListener gfx = new CustomMessageListener(2913095) { // from class: com.baidu.tieba.ala.liveroom.b.b.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.live.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
@@ -24,7 +25,6 @@ public class b {
             }
         }
     };
-    private c gph;
     private final boolean mIsHost;
     private TbPageContext mTbPageContext;
     private String otherParams;
@@ -32,14 +32,14 @@ public class b {
     public b(TbPageContext tbPageContext, boolean z) {
         this.mTbPageContext = tbPageContext;
         this.mIsHost = z;
-        this.fTe.setTag(tbPageContext.getUniqueId());
-        MessageManager.getInstance().registerListener(this.fTe);
+        this.gfx.setTag(tbPageContext.getUniqueId());
+        MessageManager.getInstance().registerListener(this.gfx);
     }
 
     public void c(ViewGroup viewGroup, u uVar) {
         if (viewGroup != null && this.mTbPageContext != null && uVar != null) {
-            this.gph = new c(this.mTbPageContext);
-            bOl();
+            this.gDA = new c(this.mTbPageContext);
+            bRC();
             FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(-2, -2);
             if (UtilHelper.canUseStyleImmersiveSticky()) {
                 layoutParams.topMargin = this.mTbPageContext.getPageActivity().getResources().getDimensionPixelOffset(a.e.sdk_ds144) + UtilHelper.getStatusBarHeight();
@@ -48,16 +48,16 @@ public class b {
             }
             layoutParams.rightMargin = this.mTbPageContext.getPageActivity().getResources().getDimensionPixelSize(a.e.sdk_ds22);
             layoutParams.gravity = 5;
-            viewGroup.addView(this.gph.getView(), 2, layoutParams);
-            if (uVar.aEz != null) {
-                this.gph.ee(uVar.aEz.alaId);
+            viewGroup.addView(this.gDA.getView(), 2, layoutParams);
+            if (uVar.aHD != null) {
+                this.gDA.eu(uVar.aHD.alaId);
             }
         }
     }
 
-    public void lH(boolean z) {
-        if (this.gph != null) {
-            ViewGroup.LayoutParams layoutParams = this.gph.getView().getLayoutParams();
+    public void mj(boolean z) {
+        if (this.gDA != null) {
+            ViewGroup.LayoutParams layoutParams = this.gDA.getView().getLayoutParams();
             if (layoutParams instanceof FrameLayout.LayoutParams) {
                 FrameLayout.LayoutParams layoutParams2 = (FrameLayout.LayoutParams) layoutParams;
                 if (z) {
@@ -73,20 +73,20 @@ public class b {
                 }
                 layoutParams2.rightMargin = this.mTbPageContext.getPageActivity().getResources().getDimensionPixelSize(a.e.sdk_ds22);
                 layoutParams2.gravity = 5;
-                this.gph.getView().setLayoutParams(layoutParams2);
+                this.gDA.getView().setLayoutParams(layoutParams2);
             }
         }
     }
 
-    public void bOl() {
-        if (this.gph != null && this.gph.getView() != null && this.gph.getView().getParent() != null) {
-            ((ViewGroup) this.gph.getView().getParent()).removeView(this.gph.getView());
+    public void bRC() {
+        if (this.gDA != null && this.gDA.getView() != null && this.gDA.getView().getParent() != null) {
+            ((ViewGroup) this.gDA.getView().getParent()).removeView(this.gDA.getView());
         }
     }
 
-    public void FB() {
-        if (this.fTe != null) {
-            MessageManager.getInstance().unRegisterListener(this.fTe);
+    public void Gx() {
+        if (this.gfx != null) {
+            MessageManager.getInstance().unRegisterListener(this.gfx);
         }
     }
 }

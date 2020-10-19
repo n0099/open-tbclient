@@ -25,12 +25,12 @@ import com.google.ar.core.exceptions.UnavailableUserDeclinedInstallationExceptio
 import com.google.ar.core.exceptions.UnsupportedConfigurationException;
 import java.nio.ByteBuffer;
 import java.nio.ByteOrder;
-/* loaded from: classes24.dex */
+/* loaded from: classes11.dex */
 public class Session {
-    long nMi;
-    final q nMx;
+    long obA;
+    final q obP;
 
-    /* loaded from: classes24.dex */
+    /* loaded from: classes11.dex */
     enum a {
         END_OF_LIST(0);
         
@@ -40,7 +40,7 @@ public class Session {
         }
     }
 
-    /* loaded from: classes24.dex */
+    /* loaded from: classes11.dex */
     enum b {
         SUCCESS(0, null),
         ERROR_INVALID_ARGUMENT(-1, IllegalArgumentException.class),
@@ -86,17 +86,19 @@ public class Session {
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
     /* JADX WARN: Unknown enum class pattern. Please report as an issue! */
-    /* loaded from: classes24.dex */
+    /* loaded from: classes11.dex */
     static abstract class c {
         final int b;
         private final Class<?> h;
         private static final c c = new ad("BASE_TRACKABLE", 0, 1095893248, k.class);
-        public static final c a = new ae("UNKNOWN_TO_JAVA", 1, -1, null);
+
+        /* renamed from: a  reason: collision with root package name */
+        public static final c f4037a = new ae("UNKNOWN_TO_JAVA", 1, -1, null);
         private static final c d = new af("PLANE", 2, 1095893249, Plane.class);
         private static final c e = new ag("POINT", 3, 1095893250, Point.class);
         private static final c f = new ah("AUGMENTED_IMAGE", 4, 1095893252, AugmentedImage.class);
         private static final c g = new ai("FACE", 5, 1095893253, AugmentedFace.class);
-        private static final /* synthetic */ c[] i = {c, a, d, e, f, g};
+        private static final /* synthetic */ c[] i = {c, f4037a, d, e, f, g};
 
         public static c[] values() {
             return (c[]) i.clone();
@@ -116,7 +118,7 @@ public class Session {
                     return cVar;
                 }
             }
-            return a;
+            return f4037a;
         }
 
         /* JADX INFO: Access modifiers changed from: package-private */
@@ -167,7 +169,7 @@ public class Session {
 
     native long[] nativeAcquireAllTrackables(long j, int i);
 
-    /* loaded from: classes24.dex */
+    /* loaded from: classes11.dex */
     public enum Feature {
         FRONT_CAMERA(1),
         SHARED_CAMERA(1000);
@@ -180,15 +182,15 @@ public class Session {
     }
 
     protected void finalize() throws Throwable {
-        if (this.nMi != 0) {
-            nativeDestroySession(this.nMi);
-            this.nMi = 0L;
+        if (this.obA != 0) {
+            nativeDestroySession(this.obA);
+            this.obA = 0L;
         }
         super.finalize();
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public static ByteBuffer q(ByteBuffer byteBuffer) {
+    public static ByteBuffer s(ByteBuffer byteBuffer) {
         return byteBuffer == null ? ByteBuffer.allocateDirect(0).order(ByteOrder.nativeOrder()) : byteBuffer.order(ByteOrder.nativeOrder());
     }
 }

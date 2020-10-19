@@ -2,10 +2,10 @@ package com.baidu.sofire.o;
 
 import android.text.TextUtils;
 import com.baidu.android.util.devices.RomUtils;
-/* loaded from: classes12.dex */
+/* loaded from: classes15.dex */
 public final class b {
 
-    /* loaded from: classes12.dex */
+    /* loaded from: classes15.dex */
     public enum a {
         UNSUPPORT(-1, "unsupport"),
         HUA_WEI(0, "HUAWEI"),

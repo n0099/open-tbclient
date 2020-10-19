@@ -1,7 +1,9 @@
 package com.baidu.platform.comapi.wnplatform.model.datastruct;
-/* loaded from: classes3.dex */
+/* loaded from: classes7.dex */
 public class a implements Cloneable {
-    public double a;
+
+    /* renamed from: a  reason: collision with root package name */
+    public double f3132a;
     public double b;
     public double c;
     public double d;
@@ -13,7 +15,7 @@ public class a implements Cloneable {
     public a clone() {
         a aVar = new a();
         synchronized (this) {
-            aVar.a = this.a;
+            aVar.f3132a = this.f3132a;
             aVar.b = this.b;
             aVar.c = this.c;
             aVar.d = this.d;
@@ -24,6 +26,6 @@ public class a implements Cloneable {
     }
 
     public String toString() {
-        return String.format("SensorData {accx:%1$f accy:%2$f accz:%3$f heading:%4$f pitch:%5$f roll:%6$f}", Double.valueOf(this.a), Double.valueOf(this.b), Double.valueOf(this.c), Double.valueOf(this.d), Double.valueOf(this.e), Double.valueOf(this.f));
+        return String.format("SensorData {accx:%1$f accy:%2$f accz:%3$f heading:%4$f pitch:%5$f roll:%6$f}", Double.valueOf(this.f3132a), Double.valueOf(this.b), Double.valueOf(this.c), Double.valueOf(this.d), Double.valueOf(this.e), Double.valueOf(this.f));
     }
 }

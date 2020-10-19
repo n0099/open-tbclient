@@ -46,7 +46,7 @@ public class PendantfixBottomView extends PendantPriorityView {
     protected void onLayout(boolean z, int i, int i2, int i3, int i4) {
         super.onLayout(z, i, i2, i3, i4);
         if (getOrientation() == 1) {
-            eK(i4 - i2);
+            eT(i4 - i2);
         }
     }
 
@@ -55,7 +55,7 @@ public class PendantfixBottomView extends PendantPriorityView {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    private void eK(int i) {
+    private void eT(int i) {
         boolean z;
         int i2;
         int i3;

@@ -3,13 +3,15 @@ package com.baidu.platform.comapi.bikenavi.widget;
 import android.widget.ImageView;
 import com.baidu.platform.comapi.bikenavi.widget.CustomScrollView;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes3.dex */
+/* loaded from: classes7.dex */
 public class e implements CustomScrollView.b {
-    final /* synthetic */ a a;
+
+    /* renamed from: a  reason: collision with root package name */
+    final /* synthetic */ a f2848a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public e(a aVar) {
-        this.a = aVar;
+        this.f2848a = aVar;
     }
 
     @Override // com.baidu.platform.comapi.bikenavi.widget.CustomScrollView.b
@@ -21,18 +23,18 @@ public class e implements CustomScrollView.b {
         if (bVar != bVar2) {
             switch (bVar2) {
                 case TOP:
-                    imageView3 = this.a.t;
+                    imageView3 = this.f2848a.t;
                     imageView3.setVisibility(8);
-                    imageView4 = this.a.u;
+                    imageView4 = this.f2848a.u;
                     imageView4.setVisibility(0);
-                    this.a.b(true);
+                    this.f2848a.b(true);
                     return;
                 case BOTTOM:
-                    imageView = this.a.t;
+                    imageView = this.f2848a.t;
                     imageView.setVisibility(0);
-                    imageView2 = this.a.u;
+                    imageView2 = this.f2848a.u;
                     imageView2.setVisibility(8);
-                    this.a.b(false);
+                    this.f2848a.b(false);
                     return;
                 default:
                     return;

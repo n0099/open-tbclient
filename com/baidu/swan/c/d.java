@@ -29,7 +29,7 @@ import java.util.List;
 import java.util.zip.ZipEntry;
 import java.util.zip.ZipFile;
 import java.util.zip.ZipInputStream;
-/* loaded from: classes24.dex */
+/* loaded from: classes15.dex */
 public final class d {
     private static String sCacheDir = null;
     private static int INVALID_INDEX = -1;
@@ -207,7 +207,7 @@ public final class d {
         return j;
     }
 
-    public static void k(File file, File file2) {
+    public static void l(File file, File file2) {
         String[] list;
         if (file != null && file2 != null && (list = file.list()) != null && list.length != 0) {
             ensureDirectoryExist(file2);
@@ -216,7 +216,7 @@ public final class d {
                     File file3 = new File(file, str);
                     File file4 = new File(file2, str);
                     if (file3.isDirectory()) {
-                        k(file3, file4);
+                        l(file3, file4);
                     }
                     if (file3.isFile()) {
                         createNewFileSafely(file4);
@@ -258,7 +258,7 @@ public final class d {
         }
     }
 
-    public static byte[] I(File file) {
+    public static byte[] L(File file) {
         FileInputStream fileInputStream;
         Throwable th;
         FileInputStream fileInputStream2;
@@ -313,7 +313,7 @@ public final class d {
         }
     }
 
-    public static boolean xM(String str) {
+    public static boolean yy(String str) {
         return !TextUtils.isEmpty(str) && safeDeleteFile(new File(str));
     }
 
@@ -357,11 +357,11 @@ public final class d {
     }
 
     public static boolean unzipFile(String str, String str2) {
-        return dm(str, str2) == null;
+        return dr(str, str2) == null;
     }
 
     /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [975=4] */
-    public static Exception dm(String str, String str2) {
+    public static Exception dr(String str, String str2) {
         ZipFile zipFile;
         BufferedOutputStream bufferedOutputStream;
         BufferedInputStream bufferedInputStream;
@@ -385,7 +385,7 @@ public final class d {
                 while (entries.hasMoreElements()) {
                     try {
                         ZipEntry nextElement = entries.nextElement();
-                        if (!TextUtils.isEmpty(nextElement.getName()) && !xP(nextElement.getName())) {
+                        if (!TextUtils.isEmpty(nextElement.getName()) && !yB(nextElement.getName())) {
                             File file = new File(str2 + "/" + nextElement.getName());
                             if (!nextElement.isDirectory()) {
                                 if (!file.exists()) {
@@ -490,7 +490,7 @@ public final class d {
     }
 
     /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [1045=4] */
-    public static boolean dn(String str, String str2) {
+    public static boolean ds(String str, String str2) {
         ZipInputStream zipInputStream;
         InputStream inputStream;
         InputStream inputStream2;
@@ -529,7 +529,7 @@ public final class d {
                     closeSafely(inputStream);
                     closeSafely(zipInputStream);
                     return true;
-                } else if (!TextUtils.isEmpty(nextEntry.getName()) && !xP(nextEntry.getName())) {
+                } else if (!TextUtils.isEmpty(nextEntry.getName()) && !yB(nextEntry.getName())) {
                     File file2 = new File(str2 + File.separator + nextEntry.getName());
                     if (nextEntry.isDirectory()) {
                         if (!file2.exists()) {
@@ -594,7 +594,7 @@ public final class d {
 
     @CheckResult
     @Nullable
-    public static String xN(@Nullable String str) {
+    public static String yz(@Nullable String str) {
         int lastIndexOf;
         if (TextUtils.isEmpty(str) || (lastIndexOf = str.lastIndexOf(46)) <= -1 || lastIndexOf >= str.length() - 1) {
             return null;
@@ -614,7 +614,7 @@ public final class d {
         return str;
     }
 
-    public static String xO(String str) {
+    public static String yA(String str) {
         int lastIndexOf;
         String fileNameFromPath = getFileNameFromPath(str);
         if (TextUtils.isEmpty(fileNameFromPath) || (lastIndexOf = fileNameFromPath.lastIndexOf(".")) == INVALID_INDEX || lastIndexOf == fileNameFromPath.length() - 1) {
@@ -721,15 +721,15 @@ public final class d {
         }
     }
 
-    public static boolean xP(String str) {
+    public static boolean yB(String str) {
         return str.contains("../");
     }
 
-    public static boolean J(File file) {
+    public static boolean M(File file) {
         return file != null && file.exists() && file.isFile();
     }
 
-    public static List<String> K(File file) {
+    public static List<String> N(File file) {
         try {
             return a(new FileInputStream(file));
         } catch (FileNotFoundException e) {
@@ -821,7 +821,7 @@ public final class d {
         }
     }
 
-    public static long xQ(String str) {
+    public static long yC(String str) {
         long j = -1;
         if (!TextUtils.isEmpty(str)) {
             MediaMetadataRetriever mediaMetadataRetriever = new MediaMetadataRetriever();

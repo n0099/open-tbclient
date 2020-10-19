@@ -39,46 +39,46 @@ public class H5UploadActivity extends BaseActivity {
     private String c;
     private String d;
     private String e;
-    private Uri oib;
-    private ProgressDialog oia = null;
+    private Uri oxu;
+    private ProgressDialog oxt = null;
     private int f = 1;
     private String g = "";
     private String h = "upload";
     private ArrayList<ImageInfo> i = new ArrayList<>();
-    private c obP = new c(new Handler.Callback() { // from class: com.kascend.chushou.view.h5.H5UploadActivity.3
+    private c orj = new c(new Handler.Callback() { // from class: com.kascend.chushou.view.h5.H5UploadActivity.3
         @Override // android.os.Handler.Callback
         public boolean handleMessage(Message message) {
             switch (message.what) {
                 case 1:
-                    if (H5UploadActivity.this.oia == null) {
-                        H5UploadActivity.this.oia = new ProgressDialog(H5UploadActivity.this.w);
-                        H5UploadActivity.this.oia.setProgressStyle(0);
-                        H5UploadActivity.this.oia.requestWindowFeature(1);
-                        H5UploadActivity.this.oia.setMessage(H5UploadActivity.this.w.getText(a.i.image_upload_progress));
-                        H5UploadActivity.this.oia.setCancelable(true);
+                    if (H5UploadActivity.this.oxt == null) {
+                        H5UploadActivity.this.oxt = new ProgressDialog(H5UploadActivity.this.w);
+                        H5UploadActivity.this.oxt.setProgressStyle(0);
+                        H5UploadActivity.this.oxt.requestWindowFeature(1);
+                        H5UploadActivity.this.oxt.setMessage(H5UploadActivity.this.w.getText(a.i.image_upload_progress));
+                        H5UploadActivity.this.oxt.setCancelable(true);
                     }
-                    if (!H5UploadActivity.this.oia.isShowing()) {
-                        H5UploadActivity.this.oia.show();
+                    if (!H5UploadActivity.this.oxt.isShowing()) {
+                        H5UploadActivity.this.oxt.show();
                         break;
                     }
                     break;
                 case 2:
-                    if (H5UploadActivity.this.oia != null && H5UploadActivity.this.oia.isShowing()) {
-                        H5UploadActivity.this.oia.dismiss();
+                    if (H5UploadActivity.this.oxt != null && H5UploadActivity.this.oxt.isShowing()) {
+                        H5UploadActivity.this.oxt.dismiss();
                     }
-                    g.Pk(a.i.image_upload_success);
+                    g.PQ(a.i.image_upload_success);
                     H5UploadActivity.this.finish();
                     break;
                 case 3:
-                    if (H5UploadActivity.this.oia != null && H5UploadActivity.this.oia.isShowing()) {
-                        H5UploadActivity.this.oia.dismiss();
+                    if (H5UploadActivity.this.oxt != null && H5UploadActivity.this.oxt.isShowing()) {
+                        H5UploadActivity.this.oxt.dismiss();
                     }
-                    g.w((!(message.obj instanceof String) || h.isEmpty((String) message.obj)) ? H5UploadActivity.this.w.getResources().getString(a.i.image_upload_failure) : (String) message.obj);
+                    g.x((!(message.obj instanceof String) || h.isEmpty((String) message.obj)) ? H5UploadActivity.this.w.getResources().getString(a.i.image_upload_failure) : (String) message.obj);
                     break;
                 case 4:
-                    if (H5UploadActivity.this.oia != null && H5UploadActivity.this.oia.isShowing()) {
-                        H5UploadActivity.this.oia.dismiss();
-                        H5UploadActivity.this.oia = null;
+                    if (H5UploadActivity.this.oxt != null && H5UploadActivity.this.oxt.isShowing()) {
+                        H5UploadActivity.this.oxt.dismiss();
+                        H5UploadActivity.this.oxt = null;
                         break;
                     }
                     break;
@@ -138,8 +138,8 @@ public class H5UploadActivity extends BaseActivity {
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.kascend.chushou.view.base.BaseActivity, android.support.v7.app.AppCompatActivity, android.support.v4.app.FragmentActivity, android.app.Activity
     public void onDestroy() {
-        if (this.oia != null && this.oia.isShowing()) {
-            this.oia.dismiss();
+        if (this.oxt != null && this.oxt.isShowing()) {
+            this.oxt.dismiss();
         }
         super.onDestroy();
     }
@@ -160,19 +160,19 @@ public class H5UploadActivity extends BaseActivity {
         super.onActivityResult(i, i2, intent);
         if (i2 == -1) {
             if (i == 1001) {
-                Uri uri = this.oib;
-                this.oib = null;
+                Uri uri = this.oxu;
+                this.oxu = null;
                 if (uri != null) {
                     a(i.a(this, uri));
                 } else {
-                    g.Pk(a.i.get_photo_failured);
+                    g.PQ(a.i.get_photo_failured);
                 }
             } else if (i == 1002) {
                 Uri data = intent.getData();
                 if (data != null) {
                     a(i.a(this, data));
                 } else {
-                    g.Pk(a.i.get_photo_failured);
+                    g.PQ(a.i.get_photo_failured);
                 }
             }
         }
@@ -201,11 +201,11 @@ public class H5UploadActivity extends BaseActivity {
                 if (H5UploadActivity.this.i.size() != H5UploadActivity.this.f) {
                     H5UploadActivity.this.g();
                 } else {
-                    g.w(tv.chushou.widget.a.c.getString(a.i.str_upload_max_size, Integer.valueOf(H5UploadActivity.this.f)));
+                    g.x(tv.chushou.widget.a.c.getString(a.i.str_upload_max_size, Integer.valueOf(H5UploadActivity.this.f)));
                 }
             }
         });
-        dialog.setContentView(inflate, new ViewGroup.LayoutParams((int) (tv.chushou.zues.utils.a.hc(this.w).x / 1.5d), this.w.getResources().getDimensionPixelSize(a.d.popwin_list_item_height) * 2));
+        dialog.setContentView(inflate, new ViewGroup.LayoutParams((int) (tv.chushou.zues.utils.a.hj(this.w).x / 1.5d), this.w.getResources().getDimensionPixelSize(a.d.popwin_list_item_height) * 2));
         dialog.show();
     }
 
@@ -216,18 +216,18 @@ public class H5UploadActivity extends BaseActivity {
         }
         File file = new File(str);
         if (!file.exists()) {
-            g.Pk(a.i.update_userinfo_failed);
+            g.PQ(a.i.update_userinfo_failed);
             return;
         }
-        tv.chushou.basis.d.a.a.c cVar = (tv.chushou.basis.d.a.a.c) tv.chushou.basis.d.b.epS().S(tv.chushou.basis.d.a.a.c.class);
+        tv.chushou.basis.d.a.a.c cVar = (tv.chushou.basis.d.a.a.c) tv.chushou.basis.d.b.etD().S(tv.chushou.basis.d.a.a.c.class);
         if (cVar == null) {
-            g.Pk(a.i.update_userinfo_failed);
+            g.PQ(a.i.update_userinfo_failed);
         } else {
             cVar.b(this.c, this.b, file, new c.a() { // from class: com.kascend.chushou.view.h5.H5UploadActivity.13
                 @Override // tv.chushou.basis.d.a.c.a
                 public void onStart() {
-                    if (!H5UploadActivity.this.isFinishing() && H5UploadActivity.this.obP != null) {
-                        H5UploadActivity.this.obP.Pb(1);
+                    if (!H5UploadActivity.this.isFinishing() && H5UploadActivity.this.orj != null) {
+                        H5UploadActivity.this.orj.PH(1);
                     }
                 }
 
@@ -247,16 +247,16 @@ public class H5UploadActivity extends BaseActivity {
                         ImageInfo decodeSync = ImageInfo.decodeSync(str);
                         decodeSync.url = str2;
                         H5UploadActivity.this.i.add(decodeSync);
-                        if (H5UploadActivity.this.obP != null) {
-                            H5UploadActivity.this.obP.Pb(2);
+                        if (H5UploadActivity.this.orj != null) {
+                            H5UploadActivity.this.orj.PH(2);
                         }
                     }
                 }
 
                 @Override // tv.chushou.basis.d.a.c.a
                 public void onFailure(int i, String str2, Throwable th) {
-                    if (!H5UploadActivity.this.isFinishing() && H5UploadActivity.this.obP != null) {
-                        H5UploadActivity.this.obP.Pb(3);
+                    if (!H5UploadActivity.this.isFinishing() && H5UploadActivity.this.orj != null) {
+                        H5UploadActivity.this.orj.PH(3);
                     }
                 }
             });
@@ -265,7 +265,7 @@ public class H5UploadActivity extends BaseActivity {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void a(final String str, final String str2) {
-        com.kascend.chushou.c.c.ect().a(new com.kascend.chushou.c.b() { // from class: com.kascend.chushou.view.h5.H5UploadActivity.2
+        com.kascend.chushou.c.c.ege().a(new com.kascend.chushou.c.b() { // from class: com.kascend.chushou.view.h5.H5UploadActivity.2
             @Override // com.kascend.chushou.c.b
             public void a() {
             }
@@ -277,11 +277,11 @@ public class H5UploadActivity extends BaseActivity {
                     int optInt = jSONObject.optInt("code", -1);
                     String optString = jSONObject.optString("message");
                     if (optInt != 0) {
-                        if (H5UploadActivity.this.obP != null) {
-                            Message Pd = H5UploadActivity.this.obP.Pd(3);
-                            Pd.arg1 = optInt;
-                            Pd.obj = optString;
-                            H5UploadActivity.this.obP.S(Pd);
+                        if (H5UploadActivity.this.orj != null) {
+                            Message PJ = H5UploadActivity.this.orj.PJ(3);
+                            PJ.arg1 = optInt;
+                            PJ.obj = optString;
+                            H5UploadActivity.this.orj.S(PJ);
                             return;
                         }
                         return;
@@ -289,29 +289,29 @@ public class H5UploadActivity extends BaseActivity {
                     ImageInfo decodeSync = ImageInfo.decodeSync(str);
                     decodeSync.url = str2;
                     H5UploadActivity.this.i.add(decodeSync);
-                    if (H5UploadActivity.this.obP != null) {
-                        H5UploadActivity.this.obP.Pb(2);
+                    if (H5UploadActivity.this.orj != null) {
+                        H5UploadActivity.this.orj.PH(2);
                     }
                 }
             }
 
             @Override // com.kascend.chushou.c.b
             public void a(int i, String str3) {
-                if (!H5UploadActivity.this.isFinishing() && H5UploadActivity.this.obP != null) {
-                    H5UploadActivity.this.obP.Pb(3);
+                if (!H5UploadActivity.this.isFinishing() && H5UploadActivity.this.orj != null) {
+                    H5UploadActivity.this.orj.PH(3);
                 }
             }
         }, this.c, this.d, this.e, str2);
     }
 
-    private Uri eeJ() {
-        return Uri.fromFile(new File(com.kascend.chushou.d.c.nRI.c(), "chushou_capture_" + System.currentTimeMillis() + ".jpg"));
+    private Uri eiu() {
+        return Uri.fromFile(new File(com.kascend.chushou.d.c.oha.c(), "chushou_capture_" + System.currentTimeMillis() + ".jpg"));
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void e() {
         if (!new com.yanzhenjie.permission.a.b().e(this.w, PermissionRequest.RESOURCE_VIDEO_CAPTURE)) {
-            com.yanzhenjie.permission.b.gR(this.w).W(PermissionRequest.RESOURCE_VIDEO_CAPTURE).a(new com.yanzhenjie.permission.g() { // from class: com.kascend.chushou.view.h5.H5UploadActivity.4
+            com.yanzhenjie.permission.b.gY(this.w).Z(PermissionRequest.RESOURCE_VIDEO_CAPTURE).a(new com.yanzhenjie.permission.g() { // from class: com.kascend.chushou.view.h5.H5UploadActivity.4
                 @Override // com.yanzhenjie.permission.g
                 public void showRationale(Context context, List<String> list, final com.yanzhenjie.permission.i iVar) {
                     List<String> d = com.yanzhenjie.permission.e.d(context, list);
@@ -319,22 +319,22 @@ public class H5UploadActivity extends BaseActivity {
                     bVar.a(new b.a() { // from class: com.kascend.chushou.view.h5.H5UploadActivity.4.2
                         @Override // tv.chushou.zues.widget.sweetalert.b.a
                         public void onClick(tv.chushou.zues.widget.sweetalert.b bVar2) {
-                            bVar.eqR();
+                            bVar.euC();
                             iVar.cancel();
                         }
                     }).b(new b.a() { // from class: com.kascend.chushou.view.h5.H5UploadActivity.4.1
                         @Override // tv.chushou.zues.widget.sweetalert.b.a
                         public void onClick(tv.chushou.zues.widget.sweetalert.b bVar2) {
-                            bVar.eqR();
+                            bVar.euC();
                             iVar.execute();
                         }
-                    }).XG(context.getString(a.i.alert_dialog_cancel)).XI(context.getString(a.i.gallery_permissions_continue)).z(context.getString(a.i.gallery_permissions_rationale, d)).setCanceledOnTouchOutside(false);
+                    }).Yu(context.getString(a.i.alert_dialog_cancel)).Yw(context.getString(a.i.gallery_permissions_continue)).A(context.getString(a.i.gallery_permissions_rationale, d)).setCanceledOnTouchOutside(false);
                     bVar.show();
                 }
             }).b(new com.yanzhenjie.permission.a() { // from class: com.kascend.chushou.view.h5.H5UploadActivity.6
                 @Override // com.yanzhenjie.permission.a
                 public void onAction(List<String> list) {
-                    g.Pk(a.i.gallery_camera_permission_denied);
+                    g.PQ(a.i.gallery_camera_permission_denied);
                 }
             }).a(new com.yanzhenjie.permission.a() { // from class: com.kascend.chushou.view.h5.H5UploadActivity.5
                 @Override // com.yanzhenjie.permission.a
@@ -350,13 +350,13 @@ public class H5UploadActivity extends BaseActivity {
     /* JADX INFO: Access modifiers changed from: private */
     public void f() {
         Intent intent = new Intent("android.media.action.IMAGE_CAPTURE");
-        Uri eeJ = eeJ();
-        this.oib = eeJ;
+        Uri eiu = eiu();
+        this.oxu = eiu;
         if (Build.VERSION.SDK_INT < 24) {
-            intent.putExtra("output", eeJ);
+            intent.putExtra("output", eiu);
         } else {
             ContentValues contentValues = new ContentValues(1);
-            contentValues.put("_data", eeJ.getPath());
+            contentValues.put("_data", eiu.getPath());
             contentValues.put("mime_type", MimeType.Image.JPEG);
             intent.putExtra("output", getContentResolver().insert(MediaStore.Images.Media.EXTERNAL_CONTENT_URI, contentValues));
         }
@@ -368,7 +368,7 @@ public class H5UploadActivity extends BaseActivity {
     /* JADX INFO: Access modifiers changed from: private */
     public void g() {
         if (!new com.yanzhenjie.permission.a.b().e(this.w, "android.permission.READ_EXTERNAL_STORAGE", "android.permission.WRITE_EXTERNAL_STORAGE")) {
-            com.yanzhenjie.permission.b.gR(this.w).W("android.permission.READ_EXTERNAL_STORAGE", "android.permission.WRITE_EXTERNAL_STORAGE").a(new com.yanzhenjie.permission.g() { // from class: com.kascend.chushou.view.h5.H5UploadActivity.7
+            com.yanzhenjie.permission.b.gY(this.w).Z("android.permission.READ_EXTERNAL_STORAGE", "android.permission.WRITE_EXTERNAL_STORAGE").a(new com.yanzhenjie.permission.g() { // from class: com.kascend.chushou.view.h5.H5UploadActivity.7
                 @Override // com.yanzhenjie.permission.g
                 public void showRationale(Context context, List<String> list, final com.yanzhenjie.permission.i iVar) {
                     List<String> d = com.yanzhenjie.permission.e.d(context, list);
@@ -376,22 +376,22 @@ public class H5UploadActivity extends BaseActivity {
                     bVar.a(new b.a() { // from class: com.kascend.chushou.view.h5.H5UploadActivity.7.2
                         @Override // tv.chushou.zues.widget.sweetalert.b.a
                         public void onClick(tv.chushou.zues.widget.sweetalert.b bVar2) {
-                            bVar.eqR();
+                            bVar.euC();
                             iVar.cancel();
                         }
                     }).b(new b.a() { // from class: com.kascend.chushou.view.h5.H5UploadActivity.7.1
                         @Override // tv.chushou.zues.widget.sweetalert.b.a
                         public void onClick(tv.chushou.zues.widget.sweetalert.b bVar2) {
-                            bVar.eqR();
+                            bVar.euC();
                             iVar.execute();
                         }
-                    }).XG(context.getString(a.i.alert_dialog_cancel)).XI(context.getString(a.i.gallery_permissions_continue)).z(context.getString(a.i.gallery_permissions_rationale, d)).setCanceledOnTouchOutside(false);
+                    }).Yu(context.getString(a.i.alert_dialog_cancel)).Yw(context.getString(a.i.gallery_permissions_continue)).A(context.getString(a.i.gallery_permissions_rationale, d)).setCanceledOnTouchOutside(false);
                     bVar.show();
                 }
             }).b(new com.yanzhenjie.permission.a() { // from class: com.kascend.chushou.view.h5.H5UploadActivity.9
                 @Override // com.yanzhenjie.permission.a
                 public void onAction(List<String> list) {
-                    g.Pk(a.i.gallery_sdcard_permission_denied);
+                    g.PQ(a.i.gallery_sdcard_permission_denied);
                 }
             }).a(new com.yanzhenjie.permission.a() { // from class: com.kascend.chushou.view.h5.H5UploadActivity.8
                 @Override // com.yanzhenjie.permission.a

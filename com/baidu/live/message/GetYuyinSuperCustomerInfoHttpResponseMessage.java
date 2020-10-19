@@ -6,7 +6,7 @@ import com.baidu.live.tbadk.message.http.JsonHttpResponsedMessage;
 import org.json.JSONObject;
 /* loaded from: classes4.dex */
 public class GetYuyinSuperCustomerInfoHttpResponseMessage extends JsonHttpResponsedMessage {
-    private af bhH;
+    private af blx;
 
     public GetYuyinSuperCustomerInfoHttpResponseMessage() {
         super(1031064);
@@ -17,8 +17,8 @@ public class GetYuyinSuperCustomerInfoHttpResponseMessage extends JsonHttpRespon
         super.decodeLogicInBackGround(i, jSONObject);
         if (jSONObject != null) {
             Log.d("SuperCustomerHelper", "GetSuperCustomerInfoHttpResponseMessage retJson:" + jSONObject.toString());
-            this.bhH = new af();
-            this.bhH.parseJson(jSONObject);
+            this.blx = new af();
+            this.blx.parseJson(jSONObject);
         }
     }
 }

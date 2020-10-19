@@ -9,21 +9,21 @@ import com.baidu.tieba.frs.ResponseIncrForumAccessCountHttpMessage;
 import com.baidu.tieba.frs.ResponseIncrForumAccessCountSocketMessage;
 import com.baidu.tieba.frs.ResponseSetCommForumStateHttpMessage;
 import com.baidu.tieba.frs.ResponseSetCommForumStateSocketMessage;
-/* loaded from: classes21.dex */
+/* loaded from: classes22.dex */
 public class i {
     public i() {
-        cvC();
-        cvD();
+        cyZ();
+        cza();
     }
 
-    private void cvC() {
-        com.baidu.tbadk.task.b a = com.baidu.tieba.tbadkCore.a.a.a(CmdConfigSocket.INCREASE_FORUM_ACCESS_COUNT, ResponseIncrForumAccessCountSocketMessage.class, false, false);
-        a.setResponsedClass(ResponseIncrForumAccessCountSocketMessage.class);
-        a.setNeedAck(true);
-        a.setNeedCompress(false);
-        a.a(SocketMessageTask.DupLicateMode.NONE);
-        MessageManager.getInstance().registerTask(a);
-        TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(1003150, com.baidu.tieba.tbadkCore.a.a.bH(TbConfig.INCR_FORUM_ACCESS_ACOUNT, CmdConfigSocket.INCREASE_FORUM_ACCESS_COUNT));
+    private void cyZ() {
+        com.baidu.tbadk.task.b a2 = com.baidu.tieba.tbadkCore.a.a.a(CmdConfigSocket.INCREASE_FORUM_ACCESS_COUNT, ResponseIncrForumAccessCountSocketMessage.class, false, false);
+        a2.setResponsedClass(ResponseIncrForumAccessCountSocketMessage.class);
+        a2.setNeedAck(true);
+        a2.setNeedCompress(false);
+        a2.a(SocketMessageTask.DupLicateMode.NONE);
+        MessageManager.getInstance().registerTask(a2);
+        TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(1003150, com.baidu.tieba.tbadkCore.a.a.bI(TbConfig.INCR_FORUM_ACCESS_ACOUNT, CmdConfigSocket.INCREASE_FORUM_ACCESS_COUNT));
         tbHttpMessageTask.setIsNeedLogin(false);
         tbHttpMessageTask.setIsNeedTbs(false);
         tbHttpMessageTask.setIsNeedAddCommenParam(false);
@@ -33,14 +33,14 @@ public class i {
         MessageManager.getInstance().registerTask(tbHttpMessageTask);
     }
 
-    private void cvD() {
-        com.baidu.tbadk.task.b a = com.baidu.tieba.tbadkCore.a.a.a(CmdConfigSocket.SET_COMMON_FORUM_STATE, ResponseSetCommForumStateSocketMessage.class, false, false);
-        a.setResponsedClass(ResponseSetCommForumStateSocketMessage.class);
-        a.setNeedAck(true);
-        a.setNeedCompress(false);
-        a.a(SocketMessageTask.DupLicateMode.NONE);
-        MessageManager.getInstance().registerTask(a);
-        TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(1003151, com.baidu.tieba.tbadkCore.a.a.bH(TbConfig.SET_COMMON_FORUM_STATE, CmdConfigSocket.SET_COMMON_FORUM_STATE));
+    private void cza() {
+        com.baidu.tbadk.task.b a2 = com.baidu.tieba.tbadkCore.a.a.a(CmdConfigSocket.SET_COMMON_FORUM_STATE, ResponseSetCommForumStateSocketMessage.class, false, false);
+        a2.setResponsedClass(ResponseSetCommForumStateSocketMessage.class);
+        a2.setNeedAck(true);
+        a2.setNeedCompress(false);
+        a2.a(SocketMessageTask.DupLicateMode.NONE);
+        MessageManager.getInstance().registerTask(a2);
+        TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(1003151, com.baidu.tieba.tbadkCore.a.a.bI(TbConfig.SET_COMMON_FORUM_STATE, CmdConfigSocket.SET_COMMON_FORUM_STATE));
         tbHttpMessageTask.setIsNeedLogin(false);
         tbHttpMessageTask.setIsNeedTbs(false);
         tbHttpMessageTask.setIsNeedAddCommenParam(false);

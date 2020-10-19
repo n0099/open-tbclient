@@ -42,8 +42,8 @@ public class WebPManager {
     }
 
     public static Drawable a(int i, @Nullable ResourceStateType resourceStateType) {
-        Drawable on;
-        Drawable on2;
+        Drawable oL;
+        Drawable oL2;
         if (i <= 0) {
             return null;
         }
@@ -51,23 +51,23 @@ public class WebPManager {
             resourceStateType = ResourceStateType.NORMAL;
         }
         StateListDrawable stateListDrawable = new StateListDrawable();
-        if (resourceStateType.canDisable && (on2 = on(i)) != null) {
-            on2.setAlpha(76);
-            stateListDrawable.addState(new int[]{-16842910}, on2);
+        if (resourceStateType.canDisable && (oL2 = oL(i)) != null) {
+            oL2.setAlpha(76);
+            stateListDrawable.addState(new int[]{-16842910}, oL2);
         }
-        if (resourceStateType.canPress && (on = on(i)) != null) {
-            on.setAlpha(127);
-            stateListDrawable.addState(new int[]{16842919}, on);
+        if (resourceStateType.canPress && (oL = oL(i)) != null) {
+            oL.setAlpha(127);
+            stateListDrawable.addState(new int[]{16842919}, oL);
         }
-        Drawable on3 = on(i);
-        if (on3 != null) {
-            stateListDrawable.addState(new int[0], on3);
+        Drawable oL3 = oL(i);
+        if (oL3 != null) {
+            stateListDrawable.addState(new int[0], oL3);
             return stateListDrawable;
         }
         return null;
     }
 
-    private static Drawable on(int i) {
+    private static Drawable oL(int i) {
         Drawable mutate = ap.getDrawable(i).mutate();
         if (TbadkCoreApplication.getInst().getSkinType() != 0) {
             mutate.setColorFilter(ap.getColor(R.color.cp_mask_a), PorterDuff.Mode.SRC_ATOP);
@@ -83,7 +83,7 @@ public class WebPManager {
         int[] iArr = new int[resourceStateType.stateCount];
         int[][] iArr2 = new int[resourceStateType.stateCount];
         if (resourceStateType.canDisable) {
-            iArr[0] = com.baidu.tieba.tbadkCore.c.l(i, 0.3f);
+            iArr[0] = com.baidu.tieba.tbadkCore.c.m(i, 0.3f);
             int[] iArr3 = new int[1];
             iArr3[0] = -16842910;
             iArr2[0] = iArr3;
@@ -92,7 +92,7 @@ public class WebPManager {
             i2 = 0;
         }
         if (resourceStateType.canPress) {
-            iArr[i2] = com.baidu.tieba.tbadkCore.c.l(i, 0.5f);
+            iArr[i2] = com.baidu.tieba.tbadkCore.c.m(i, 0.5f);
             int[] iArr4 = new int[1];
             iArr4[0] = 16842919;
             iArr2[i2] = iArr4;

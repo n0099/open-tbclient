@@ -2,14 +2,14 @@ package com.xiaomi.push;
 
 import android.content.Context;
 import android.text.TextUtils;
-/* loaded from: classes9.dex */
+/* loaded from: classes12.dex */
 public class df {
     public static int a(Context context, int i) {
-        int a = gx.a(context);
-        if (-1 == a) {
+        int a2 = gx.a(context);
+        if (-1 == a2) {
             return -1;
         }
-        return ((a == 0 ? 13 : 11) * i) / 10;
+        return ((a2 == 0 ? 13 : 11) * i) / 10;
     }
 
     public static int a(hm hmVar) {
@@ -17,7 +17,7 @@ public class df {
     }
 
     public static int a(ix ixVar, hm hmVar) {
-        switch (dg.a[hmVar.ordinal()]) {
+        switch (dg.f4853a[hmVar.ordinal()]) {
             case 1:
             case 2:
             case 3:
@@ -30,55 +30,55 @@ public class df {
             case 10:
                 return fa.a(hmVar.a());
             case 11:
-                int a = fa.a(hmVar.a());
-                if (ixVar != null) {
-                    try {
-                        if (ixVar instanceof id) {
-                            String str = ((id) ixVar).f563d;
-                            return (TextUtils.isEmpty(str) || fa.a(fa.m270a(str)) == -1) ? a : fa.a(fa.m270a(str));
-                        } else if (ixVar instanceof il) {
-                            String str2 = ((il) ixVar).f622d;
-                            if (TextUtils.isEmpty(str2)) {
-                                return a;
-                            }
-                            if (fa.a(fa.m270a(str2)) != -1) {
-                                a = fa.a(fa.m270a(str2));
-                            }
-                            if (hw.UploadTinyData.equals(fa.m270a(str2))) {
-                                return -1;
-                            }
-                            return a;
-                        } else {
-                            return a;
-                        }
-                    } catch (Exception e) {
-                        com.xiaomi.channel.commonutils.logger.b.d("PERF_ERROR : parse Notification type error");
-                        return a;
-                    }
-                }
-                return a;
-            case 12:
                 int a2 = fa.a(hmVar.a());
                 if (ixVar != null) {
                     try {
-                        if (ixVar instanceof ih) {
-                            String a3 = ((ih) ixVar).a();
-                            if (!TextUtils.isEmpty(a3) && fg.a(a3) != -1) {
-                                a2 = fg.a(a3);
+                        if (ixVar instanceof id) {
+                            String str = ((id) ixVar).f564d;
+                            return (TextUtils.isEmpty(str) || fa.a(fa.m271a(str)) == -1) ? a2 : fa.a(fa.m271a(str));
+                        } else if (ixVar instanceof il) {
+                            String str2 = ((il) ixVar).f623d;
+                            if (TextUtils.isEmpty(str2)) {
+                                return a2;
                             }
-                        } else if (ixVar instanceof ig) {
-                            String a4 = ((ig) ixVar).a();
-                            if (!TextUtils.isEmpty(a4) && fg.a(a4) != -1) {
-                                a2 = fg.a(a4);
+                            if (fa.a(fa.m271a(str2)) != -1) {
+                                a2 = fa.a(fa.m271a(str2));
                             }
+                            if (hw.UploadTinyData.equals(fa.m271a(str2))) {
+                                return -1;
+                            }
+                            return a2;
+                        } else {
+                            return a2;
                         }
-                        return a2;
-                    } catch (Exception e2) {
-                        com.xiaomi.channel.commonutils.logger.b.d("PERF_ERROR : parse Command type error");
+                    } catch (Exception e) {
+                        com.xiaomi.channel.commonutils.logger.b.d("PERF_ERROR : parse Notification type error");
                         return a2;
                     }
                 }
                 return a2;
+            case 12:
+                int a3 = fa.a(hmVar.a());
+                if (ixVar != null) {
+                    try {
+                        if (ixVar instanceof ih) {
+                            String a4 = ((ih) ixVar).a();
+                            if (!TextUtils.isEmpty(a4) && fg.a(a4) != -1) {
+                                a3 = fg.a(a4);
+                            }
+                        } else if (ixVar instanceof ig) {
+                            String a5 = ((ig) ixVar).a();
+                            if (!TextUtils.isEmpty(a5) && fg.a(a5) != -1) {
+                                a3 = fg.a(a5);
+                            }
+                        }
+                        return a3;
+                    } catch (Exception e2) {
+                        com.xiaomi.channel.commonutils.logger.b.d("PERF_ERROR : parse Command type error");
+                        return a3;
+                    }
+                }
+                return a3;
             default:
                 return -1;
         }
@@ -88,28 +88,28 @@ public class df {
         if (i <= 0 || i2 <= 0) {
             return;
         }
-        int a = a(context, i2);
+        int a2 = a(context, i2);
         if (i != fa.a(hw.UploadTinyData)) {
-            fb.a(context.getApplicationContext()).a(str, i, 1L, a);
+            fb.a(context.getApplicationContext()).a(str, i, 1L, a2);
         }
     }
 
     public static void a(String str, Context context, ii iiVar, int i) {
-        hm a;
-        if (context == null || iiVar == null || (a = iiVar.a()) == null) {
+        hm a2;
+        if (context == null || iiVar == null || (a2 = iiVar.a()) == null) {
             return;
         }
-        int a2 = a(a);
+        int a3 = a(a2);
         int i2 = 0;
         if (i <= 0) {
-            byte[] a3 = iw.a(iiVar);
-            if (a3 != null) {
-                i2 = a3.length;
+            byte[] a4 = iw.a(iiVar);
+            if (a4 != null) {
+                i2 = a4.length;
             }
         } else {
             i2 = i;
         }
-        a(str, context, a2, i2);
+        a(str, context, a3, i2);
     }
 
     public static void a(String str, Context context, ix ixVar, hm hmVar, int i) {
@@ -125,7 +125,7 @@ public class df {
             iw.a(iiVar, bArr);
             a(str, context, iiVar, bArr.length);
         } catch (jc e) {
-            com.xiaomi.channel.commonutils.logger.b.m54a("fail to convert bytes to container");
+            com.xiaomi.channel.commonutils.logger.b.m55a("fail to convert bytes to container");
         }
     }
 }

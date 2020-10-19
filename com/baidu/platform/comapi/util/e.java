@@ -6,22 +6,24 @@ import com.baidu.mobads.interfaces.IXAdRequestInfo;
 import com.baidu.mobstat.Config;
 import com.baidu.platform.comjni.map.commonmemcache.NACommonMemCache;
 import com.baidu.vi.VIContext;
-/* loaded from: classes3.dex */
+/* loaded from: classes7.dex */
 public class e {
-    private static NACommonMemCache a = new NACommonMemCache();
+
+    /* renamed from: a  reason: collision with root package name */
+    private static NACommonMemCache f2945a = new NACommonMemCache();
 
     public static void a() {
         c();
     }
 
     public static NACommonMemCache b() {
-        return a;
+        return f2945a;
     }
 
     private static void c() {
         JsonBuilder jsonBuilder = new JsonBuilder();
         String str = Build.MODEL;
-        a.a(SyncSysInfo.initPhoneInfo());
+        f2945a.a(SyncSysInfo.initPhoneInfo());
         jsonBuilder.object();
         jsonBuilder.putStringValue(Config.EVENT_PAGE_MAPPING, "map");
         jsonBuilder.putStringValue("ov", "Android" + Build.VERSION.SDK_INT);
@@ -35,7 +37,7 @@ public class e {
         jsonBuilder.putStringValue("cuid", SyncSysInfo.getCid());
         jsonBuilder.putStringValue("path", SysOSUtil.getInstance().getOutputDirPath() + "/udc/");
         jsonBuilder.endObject();
-        a.a("logstatistics", jsonBuilder.getJson());
+        f2945a.a("logstatistics", jsonBuilder.getJson());
         jsonBuilder.reset();
         jsonBuilder.object();
         jsonBuilder.putStringValue("cuid", SyncSysInfo.getCid());
@@ -43,6 +45,6 @@ public class e {
         jsonBuilder.putStringValue("path", VIContext.getContext().getCacheDir().getAbsolutePath() + "/");
         jsonBuilder.putStringValue("domain", "");
         jsonBuilder.endObject();
-        a.a("longlink", jsonBuilder.getJson());
+        f2945a.a("longlink", jsonBuilder.getJson());
     }
 }

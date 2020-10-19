@@ -4,7 +4,7 @@ import android.os.Handler;
 import android.os.HandlerThread;
 import android.os.Looper;
 import android.os.Message;
-/* loaded from: classes10.dex */
+/* loaded from: classes14.dex */
 public class a {
     private int R;
     private int S;
@@ -12,17 +12,17 @@ public class a {
     private d lC;
     private CropAlgo lw;
     private Handler ly;
-    private InterfaceC0081a lz;
+    private InterfaceC0082a lz;
     private boolean lA = true;
     private HandlerThread lx = new HandlerThread("ChildAlgoController");
 
     /* renamed from: com.baidu.ar.child.a$a  reason: collision with other inner class name */
-    /* loaded from: classes10.dex */
-    public interface InterfaceC0081a {
+    /* loaded from: classes14.dex */
+    public interface InterfaceC0082a {
         void a(long j, byte[] bArr, int i);
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes14.dex */
     private static class b extends Handler {
         private c lD;
 
@@ -39,12 +39,12 @@ public class a {
         }
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes14.dex */
     private interface c {
         void handleMessage(Message message);
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes14.dex */
     class d implements c {
         d() {
         }
@@ -67,10 +67,10 @@ public class a {
                         cVar.w(bVar.cS().cY());
                         cVar.setWidth(a.this.R);
                         cVar.setHeight(a.this.S);
-                        byte[] a = a.this.a(cVar);
+                        byte[] a2 = a.this.a(cVar);
                         a.this.lB = true;
                         if (a.this.lz != null) {
-                            a.this.lz.a(cZ, a, cS.getDegree());
+                            a.this.lz.a(cZ, a2, cS.getDegree());
                             return;
                         }
                         return;
@@ -145,8 +145,8 @@ public class a {
         return this.lw.nativeWriteCameraDataToHandel(j, bArr, i, i2, f);
     }
 
-    public void a(InterfaceC0081a interfaceC0081a) {
-        this.lz = interfaceC0081a;
+    public void a(InterfaceC0082a interfaceC0082a) {
+        this.lz = interfaceC0082a;
     }
 
     public void a(com.baidu.ar.child.b bVar) {

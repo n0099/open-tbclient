@@ -17,7 +17,7 @@ import java.util.Map;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes10.dex */
 public class a extends aa {
     public a(j jVar) {
         super(jVar, "/swanAPI/getLaunchAppInfo");
@@ -43,8 +43,8 @@ public class a extends aa {
         com.baidu.swan.apps.network.c.b.a.s(new b<Map<String, com.baidu.swan.apps.setting.oauth.e>>() { // from class: com.baidu.swan.apps.h.a.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.swan.apps.ap.e.b
-            /* renamed from: n */
-            public void J(Map<String, com.baidu.swan.apps.setting.oauth.e> map) {
+            /* renamed from: x */
+            public void M(Map<String, com.baidu.swan.apps.setting.oauth.e> map) {
                 if (map != null) {
                     a.this.a(str, callbackHandler, map);
                 } else {
@@ -62,21 +62,21 @@ public class a extends aa {
             return;
         }
         boolean z = eVar.forbidden;
-        int aFN = aj.aFN();
-        long aFO = aj.aFO();
-        List<String> list = eVar.cXn;
+        int aIw = aj.aIw();
+        long aIx = aj.aIx();
+        List<String> list = eVar.djx;
         JSONArray jSONArray = new JSONArray();
         JSONObject jSONObject = new JSONObject();
         try {
             for (String str2 : list) {
                 jSONArray.put(str2);
             }
-            jSONObject.put("launchCount", aFN);
-            jSONObject.put("visitDuration", aFO);
+            jSONObject.put("launchCount", aIw);
+            jSONObject.put("visitDuration", aIx);
             jSONObject.put("forbidden", z);
             jSONObject.put("ext", jSONArray);
             if (DEBUG) {
-                Log.i("GetBehaviorInfoAction", "launchCount:" + aFN + " visitDuration:" + aFO + " forbidden:" + z + " ext:" + jSONArray.toString());
+                Log.i("GetBehaviorInfoAction", "launchCount:" + aIw + " visitDuration:" + aIx + " forbidden:" + z + " ext:" + jSONArray.toString());
             }
             callbackHandler.handleSchemeDispatchCallback(str, UnitedSchemeUtility.wrapCallbackParams(jSONObject, 0).toString());
         } catch (JSONException e) {

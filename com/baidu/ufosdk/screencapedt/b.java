@@ -4,13 +4,15 @@ import android.support.v4.view.ViewCompat;
 import android.view.View;
 import android.widget.RelativeLayout;
 import com.baidu.ufosdk.f.m;
-/* loaded from: classes21.dex */
+/* loaded from: classes22.dex */
 final class b implements View.OnClickListener {
-    final /* synthetic */ ScreenCapEditActivity a;
+
+    /* renamed from: a  reason: collision with root package name */
+    final /* synthetic */ ScreenCapEditActivity f3725a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public b(ScreenCapEditActivity screenCapEditActivity) {
-        this.a = screenCapEditActivity;
+        this.f3725a = screenCapEditActivity;
     }
 
     @Override // android.view.View.OnClickListener
@@ -19,17 +21,17 @@ final class b implements View.OnClickListener {
         boolean z2;
         RelativeLayout relativeLayout;
         RelativeLayout relativeLayout2;
-        ScreenCapEditActivity screenCapEditActivity = this.a;
-        z = this.a.H;
+        ScreenCapEditActivity screenCapEditActivity = this.f3725a;
+        z = this.f3725a.H;
         screenCapEditActivity.H = !z;
-        z2 = this.a.H;
+        z2 = this.f3725a.H;
         if (z2) {
-            relativeLayout2 = this.a.Q;
+            relativeLayout2 = this.f3725a.Q;
             relativeLayout2.setBackgroundColor(ViewCompat.MEASURED_STATE_MASK);
             return;
         }
-        relativeLayout = this.a.Q;
-        this.a.getApplicationContext();
+        relativeLayout = this.f3725a.Q;
+        this.f3725a.getApplicationContext();
         relativeLayout.setBackgroundDrawable(m.a((int) ViewCompat.MEASURED_STATE_MASK));
     }
 }

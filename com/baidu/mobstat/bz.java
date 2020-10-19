@@ -2,7 +2,7 @@ package com.baidu.mobstat;
 
 import com.baidu.mobstat.cq;
 import java.net.InetSocketAddress;
-/* loaded from: classes15.dex */
+/* loaded from: classes17.dex */
 public abstract class bz implements cb {
     @Override // com.baidu.mobstat.cb
     public void a(by byVar, cs csVar, cz czVar) throws ch {
@@ -29,10 +29,10 @@ public abstract class bz implements cb {
 
     @Override // com.baidu.mobstat.cb
     public String a(by byVar) throws ch {
-        InetSocketAddress a = byVar.a();
-        if (a == null) {
+        InetSocketAddress a2 = byVar.a();
+        if (a2 == null) {
             throw new cj("socket not bound");
         }
-        return "<cross-domain-policy><allow-access-from domain=\"*\" to-ports=\"" + a.getPort() + "\" /></cross-domain-policy>\u0000";
+        return "<cross-domain-policy><allow-access-from domain=\"*\" to-ports=\"" + a2.getPort() + "\" /></cross-domain-policy>\u0000";
     }
 }

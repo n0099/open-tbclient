@@ -10,9 +10,9 @@ import com.baidu.adp.lib.util.l;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.ap;
 import com.baidu.tieba.R;
-/* loaded from: classes20.dex */
+/* loaded from: classes21.dex */
 public class a extends AlertDialog {
-    private View hns;
+    private View hCm;
     private String mTitle;
     private TextView mTitleView;
 
@@ -27,16 +27,16 @@ public class a extends AlertDialog {
         if (window != null) {
             window.setDimAmount(0.0f);
             window.setContentView(R.layout.id_card_dialog);
-            this.hns = window.findViewById(R.id.toast_container);
+            this.hCm = window.findViewById(R.id.toast_container);
             this.mTitleView = (TextView) window.findViewById(R.id.toast_tv);
             if (!StringUtils.isNull(this.mTitle)) {
                 this.mTitleView.setText(this.mTitle);
             }
-            tE(TbadkCoreApplication.getInst().getSkinType());
+            uc(TbadkCoreApplication.getInst().getSkinType());
         }
     }
 
-    public void tE(int i) {
-        ap.c(this.hns, l.getDimens(TbadkCoreApplication.getInst(), R.dimen.tbds5), R.color.cp_cont_b_alpha80, R.color.cp_cont_b_alpha80, i);
+    public void uc(int i) {
+        ap.c(this.hCm, l.getDimens(TbadkCoreApplication.getInst(), R.dimen.tbds5), R.color.cp_cont_b_alpha80, R.color.cp_cont_b_alpha80, i);
     }
 }

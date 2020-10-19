@@ -11,14 +11,16 @@ import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 import com.baidu.fsg.base.utils.ResUtils;
-/* loaded from: classes15.dex */
+/* loaded from: classes16.dex */
 public class BdActionBar extends RelativeLayout {
     public static final float FOCUS_ALPHA_VALUE = 0.5f;
     public static final float NORMAL_ALPHA_VALUE = 1.0f;
     public static final int TEXT_ALIGN_CENTER = 1;
     public static final int TEXT_ALIGN_LEFT = 0;
     public static final int TEXT_ALIGN_RIGHT = 2;
-    private String a;
+
+    /* renamed from: a  reason: collision with root package name */
+    private String f1538a;
     private View b;
     private View c;
     private ImageView d;
@@ -38,19 +40,19 @@ public class BdActionBar extends RelativeLayout {
 
     public BdActionBar(Context context) {
         super(context);
-        this.a = "";
+        this.f1538a = "";
         a();
     }
 
     public BdActionBar(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.a = "";
+        this.f1538a = "";
         a();
     }
 
     public BdActionBar(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.a = "";
+        this.f1538a = "";
         a();
     }
 
@@ -73,8 +75,8 @@ public class BdActionBar extends RelativeLayout {
         this.j = findViewById(ResUtils.id(getContext(), "title_right_imgzone2"));
         this.k = (ImageView) findViewById(ResUtils.id(getContext(), "title_right_imgzone2_img"));
         this.l = (TextView) findViewById(ResUtils.id(getContext(), "title_right_imgzone2_notify"));
-        if (!TextUtils.isEmpty(this.a)) {
-            setTitle(this.a);
+        if (!TextUtils.isEmpty(this.f1538a)) {
+            setTitle(this.f1538a);
         }
         this.p = (ImageView) findViewById(ResUtils.id(getContext(), "title_bottom_seperator"));
     }
@@ -129,7 +131,7 @@ public class BdActionBar extends RelativeLayout {
     }
 
     public void setTitle(String str) {
-        this.a = str;
+        this.f1538a = str;
         this.mTitleCenterText.setText(str);
     }
 
@@ -300,7 +302,7 @@ public class BdActionBar extends RelativeLayout {
     }
 
     public String getTitle() {
-        return this.a;
+        return this.f1538a;
     }
 
     public void setCloseOnClickListener(View.OnClickListener onClickListener) {

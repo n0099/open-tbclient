@@ -4,7 +4,7 @@ import java.lang.reflect.Constructor;
 import java.lang.reflect.Field;
 /* loaded from: classes4.dex */
 public class b {
-    public static Object a(Class<?> cls, Class<?>[] clsArr, Object[] objArr) {
+    public static Object b(Class<?> cls, Class<?>[] clsArr, Object[] objArr) {
         try {
             Constructor<?> declaredConstructor = cls.getDeclaredConstructor(clsArr);
             declaredConstructor.setAccessible(true);
@@ -15,7 +15,7 @@ public class b {
         }
     }
 
-    public static void a(Object obj, String str, Object obj2) {
+    public static void b(Object obj, String str, Object obj2) {
         Field declaredField = getDeclaredField(obj, str);
         if (declaredField != null) {
             declaredField.setAccessible(true);

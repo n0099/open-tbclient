@@ -4,7 +4,7 @@ import android.os.Parcel;
 import android.os.Parcelable;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes7.dex */
 public class a implements Parcelable {
     public static final Parcelable.Creator<a> CREATOR = new Parcelable.Creator<a>() { // from class: com.meizu.cloud.pushsdk.handler.a.b.a.1
         /* JADX DEBUG: Method merged with bridge method */
@@ -21,7 +21,9 @@ public class a implements Parcelable {
             return new a[i];
         }
     };
-    private int a;
+
+    /* renamed from: a  reason: collision with root package name */
+    private int f4413a;
     private int b;
     private int c;
 
@@ -29,7 +31,7 @@ public class a implements Parcelable {
     }
 
     protected a(Parcel parcel) {
-        this.a = parcel.readInt();
+        this.f4413a = parcel.readInt();
         this.b = parcel.readInt();
         this.c = parcel.readInt();
     }
@@ -57,11 +59,11 @@ public class a implements Parcelable {
     }
 
     public int a() {
-        return this.a;
+        return this.f4413a;
     }
 
     public void a(int i) {
-        this.a = i;
+        this.f4413a = i;
     }
 
     public void b(int i) {
@@ -78,12 +80,12 @@ public class a implements Parcelable {
     }
 
     public String toString() {
-        return "Control{pushType=" + this.a + ", cached=" + this.b + ", cacheNum=" + this.c + '}';
+        return "Control{pushType=" + this.f4413a + ", cached=" + this.b + ", cacheNum=" + this.c + '}';
     }
 
     @Override // android.os.Parcelable
     public void writeToParcel(Parcel parcel, int i) {
-        parcel.writeInt(this.a);
+        parcel.writeInt(this.f4413a);
         parcel.writeInt(this.b);
         parcel.writeInt(this.c);
     }

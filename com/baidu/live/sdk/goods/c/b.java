@@ -10,8 +10,8 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes4.dex */
 public class b extends BaseAdapter {
-    private a blY;
-    private List<com.baidu.live.sdk.goods.a.a> blZ;
+    private a bpL;
+    private List<com.baidu.live.sdk.goods.a.a> bpM;
     private boolean isHost;
 
     /* loaded from: classes4.dex */
@@ -22,31 +22,31 @@ public class b extends BaseAdapter {
     }
 
     public void a(a aVar) {
-        this.blY = aVar;
+        this.bpL = aVar;
     }
 
     public void e(boolean z, List<com.baidu.live.sdk.goods.a.a> list) {
         this.isHost = z;
-        if (this.blZ == null) {
-            this.blZ = new ArrayList();
+        if (this.bpM == null) {
+            this.bpM = new ArrayList();
         }
-        this.blZ.clear();
-        this.blZ.addAll(list);
+        this.bpM.clear();
+        this.bpM.addAll(list);
         notifyDataSetChanged();
     }
 
     @Override // android.widget.Adapter
     public int getCount() {
-        if (this.blZ != null) {
-            return this.blZ.size();
+        if (this.bpM != null) {
+            return this.bpM.size();
         }
         return 0;
     }
 
     @Override // android.widget.Adapter
     public Object getItem(int i) {
-        if (this.blZ != null) {
-            return this.blZ.get(i);
+        if (this.bpM != null) {
+            return this.bpM.get(i);
         }
         return null;
     }
@@ -58,32 +58,32 @@ public class b extends BaseAdapter {
 
     @Override // android.widget.Adapter
     public View getView(int i, View view, ViewGroup viewGroup) {
-        C0188b c0188b;
+        C0196b c0196b;
         if (view == null) {
             view = LayoutInflater.from(viewGroup.getContext()).inflate(a.h.live_goods_display_list_item, viewGroup, false);
-            C0188b c0188b2 = new C0188b();
-            c0188b2.bmc = (LiveGoodsDisplayItemView) view.findViewById(a.g.item_live_goods_display);
-            view.setTag(c0188b2);
-            c0188b = c0188b2;
+            C0196b c0196b2 = new C0196b();
+            c0196b2.bpP = (LiveGoodsDisplayItemView) view.findViewById(a.g.item_live_goods_display);
+            view.setTag(c0196b2);
+            c0196b = c0196b2;
         } else {
-            c0188b = (C0188b) view.getTag();
+            c0196b = (C0196b) view.getTag();
         }
         final Object item = getItem(i);
         if (item instanceof com.baidu.live.sdk.goods.a.a) {
-            c0188b.bmc.setHost(this.isHost);
-            c0188b.bmc.setData(i + 1, (com.baidu.live.sdk.goods.a.a) item);
+            c0196b.bpP.setHost(this.isHost);
+            c0196b.bpP.setData(i + 1, (com.baidu.live.sdk.goods.a.a) item);
             if (this.isHost) {
-                c0188b.bmc.setCallback(new LiveGoodsDisplayItemView.a() { // from class: com.baidu.live.sdk.goods.c.b.1
+                c0196b.bpP.setCallback(new LiveGoodsDisplayItemView.a() { // from class: com.baidu.live.sdk.goods.c.b.1
                     @Override // com.baidu.live.sdk.goods.view.LiveGoodsDisplayItemView.a
-                    public void NA() {
-                        if (b.this.blY != null) {
-                            b.this.blY.v(((com.baidu.live.sdk.goods.a.a) item).gid, ((com.baidu.live.sdk.goods.a.a) item).blv);
+                    public void OF() {
+                        if (b.this.bpL != null) {
+                            b.this.bpL.v(((com.baidu.live.sdk.goods.a.a) item).gid, ((com.baidu.live.sdk.goods.a.a) item).bpi);
                         }
                     }
                 });
             }
-            if (this.blY != null) {
-                this.blY.u(((com.baidu.live.sdk.goods.a.a) item).gid, ((com.baidu.live.sdk.goods.a.a) item).blv);
+            if (this.bpL != null) {
+                this.bpL.u(((com.baidu.live.sdk.goods.a.a) item).gid, ((com.baidu.live.sdk.goods.a.a) item).bpi);
             }
         }
         return view;
@@ -91,12 +91,12 @@ public class b extends BaseAdapter {
 
     /* renamed from: com.baidu.live.sdk.goods.c.b$b  reason: collision with other inner class name */
     /* loaded from: classes4.dex */
-    public static class C0188b {
-        private LiveGoodsDisplayItemView bmc;
+    public static class C0196b {
+        private LiveGoodsDisplayItemView bpP;
 
         public void recycle() {
-            if (this.bmc != null) {
-                this.bmc.release();
+            if (this.bpP != null) {
+                this.bpP.release();
             }
         }
     }

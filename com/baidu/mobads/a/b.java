@@ -1,7 +1,9 @@
 package com.baidu.mobads.a;
-/* loaded from: classes3.dex */
+/* loaded from: classes7.dex */
 public class b {
-    public static final Boolean a = false;
+
+    /* renamed from: a  reason: collision with root package name */
+    public static final Boolean f2314a = false;
     public static final Boolean b = false;
 
     public static double a() {

@@ -2,9 +2,11 @@ package com.baidu.pass.biometrics.face.liveness.a;
 
 import com.baidu.pass.biometrics.base.dto.PassBiometricDto;
 import java.util.HashMap;
-/* loaded from: classes8.dex */
+/* loaded from: classes18.dex */
 public class a {
-    private static a a = null;
+
+    /* renamed from: a  reason: collision with root package name */
+    private static a f2722a = null;
     public static final String b = "request_data";
     private HashMap<String, PassBiometricDto> c = new HashMap<>();
 
@@ -12,10 +14,10 @@ public class a {
     }
 
     public static a a() {
-        if (a == null) {
-            a = new a();
+        if (f2722a == null) {
+            f2722a = new a();
         }
-        return a;
+        return f2722a;
     }
 
     public void b() {

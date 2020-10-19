@@ -1,14 +1,14 @@
 package kotlin.b;
 /* JADX INFO: Access modifiers changed from: package-private */
 @kotlin.h
-/* loaded from: classes5.dex */
+/* loaded from: classes10.dex */
 public class o extends n {
     public static final f ek(int i, int i2) {
-        return f.oCV.ao(i, i2, -1);
+        return f.oSk.ao(i, i2, -1);
     }
 
     public static final h el(int i, int i2) {
-        return i2 <= Integer.MIN_VALUE ? h.oCX.ekE() : new h(i, i2 - 1);
+        return i2 <= Integer.MIN_VALUE ? h.oSm.eor() : new h(i, i2 - 1);
     }
 
     public static final int em(int i, int i2) {

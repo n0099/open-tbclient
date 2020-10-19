@@ -6,11 +6,11 @@ import com.baidu.tbadk.util.u;
 import tbclient.CommonReq;
 import tbclient.GetHorseRaceLampList.DataReq;
 import tbclient.GetHorseRaceLampList.GetHorseRaceLampListReqIdl;
-/* loaded from: classes21.dex */
+/* loaded from: classes22.dex */
 public class LiveHorseRaceRequestMessage extends NetMessage {
 
     /* renamed from: common  reason: collision with root package name */
-    private CommonReq f976common;
+    private CommonReq f3682common;
     private Long forum_id;
 
     public LiveHorseRaceRequestMessage() {
@@ -18,7 +18,7 @@ public class LiveHorseRaceRequestMessage extends NetMessage {
     }
 
     public void setCommon(CommonReq commonReq) {
-        this.f976common = commonReq;
+        this.f3682common = commonReq;
     }
 
     public void setForum_id(Long l) {
@@ -28,7 +28,7 @@ public class LiveHorseRaceRequestMessage extends NetMessage {
     @Override // com.baidu.adp.framework.message.NetMessage
     public Object encode(boolean z) {
         DataReq.Builder builder = new DataReq.Builder();
-        builder.f1087common = this.f976common;
+        builder.f5223common = this.f3682common;
         builder.forum_id = this.forum_id;
         if (z) {
             u.a(builder, true);

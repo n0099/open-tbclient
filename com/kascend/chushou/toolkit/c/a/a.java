@@ -11,25 +11,25 @@ import tv.chushou.basis.http.model.RequestTag;
 @h
 /* loaded from: classes6.dex */
 public final class a {
-    private c.a ogY;
+    private c.a owr;
 
     public final void a(String str, String str2, File file, c.a aVar) {
-        this.ogY = aVar;
+        this.owr = aVar;
         if (str == null || file == null) {
-            c.a aVar2 = this.ogY;
+            c.a aVar2 = this.owr;
             if (aVar2 != null) {
                 aVar2.onFailure(-1, "", null);
                 return;
             }
             return;
         }
-        c.a aVar3 = this.ogY;
+        c.a aVar3 = this.owr;
         if (aVar3 != null) {
             aVar3.onStart();
         }
-        Http http = (Http) tv.chushou.basis.d.b.epS().S(Http.class);
+        Http http = (Http) tv.chushou.basis.d.b.etD().S(Http.class);
         if (http == null) {
-            c.a aVar4 = this.ogY;
+            c.a aVar4 = this.owr;
             if (aVar4 != null) {
                 aVar4.onFailure(-1, "", null);
                 return;
@@ -38,18 +38,18 @@ public final class a {
         }
         HashMap hashMap = new HashMap();
         hashMap.put("type", str);
-        http.getAsync(tv.chushou.common.a.epT(), "api/upload/up-token.htm?", hashMap, RequestTag.normal(), new C0901a(str, str2, file));
+        http.getAsync(tv.chushou.common.a.etE(), "api/upload/up-token.htm?", hashMap, RequestTag.normal(), new C0919a(str, str2, file));
     }
 
     @h
     /* renamed from: com.kascend.chushou.toolkit.c.a.a$a  reason: collision with other inner class name */
     /* loaded from: classes6.dex */
-    public static final class C0901a implements tv.chushou.basis.d.a.c.a<Http.Resp> {
+    public static final class C0919a implements tv.chushou.basis.d.a.c.a<Http.Resp> {
         final /* synthetic */ String b;
         final /* synthetic */ String c;
         final /* synthetic */ File d;
 
-        C0901a(String str, String str2, File file) {
+        C0919a(String str, String str2, File file) {
             this.b = str;
             this.c = str2;
             this.d = file;
@@ -65,7 +65,7 @@ public final class a {
         public void onSuccess(Http.Resp resp) {
             String optString;
             if ((resp != null ? resp.respJson : null) == null) {
-                c.a aVar = a.this.ogY;
+                c.a aVar = a.this.owr;
                 if (aVar != null) {
                     aVar.onFailure(-1, "", null);
                     return;
@@ -84,7 +84,7 @@ public final class a {
                     return;
                 }
             }
-            c.a aVar2 = a.this.ogY;
+            c.a aVar2 = a.this.owr;
             if (aVar2 != null) {
                 aVar2.onFailure(optInt, str, null);
             }
@@ -92,7 +92,7 @@ public final class a {
 
         @Override // tv.chushou.basis.d.a.c.a
         public void onFailure(int i, String str, Throwable th) {
-            c.a aVar = a.this.ogY;
+            c.a aVar = a.this.owr;
             if (aVar != null) {
                 aVar.onFailure(i, str, th);
             }
@@ -119,14 +119,14 @@ public final class a {
             }
             String str3 = str2;
             if (str3 == null || str3.length() == 0) {
-                c.a aVar = a.this.ogY;
+                c.a aVar = a.this.owr;
                 if (aVar != null) {
                     aVar.onFailure(-1, "", null);
                     return;
                 }
                 return;
             }
-            c.a aVar2 = a.this.ogY;
+            c.a aVar2 = a.this.owr;
             if (aVar2 != null) {
                 aVar2.onSuccess(this.b);
             }
@@ -134,7 +134,7 @@ public final class a {
 
         @Override // tv.chushou.basis.d.a.c.a
         public void onFailure(int i, String str, Throwable th) {
-            c.a aVar = a.this.ogY;
+            c.a aVar = a.this.owr;
             if (aVar != null) {
                 aVar.onFailure(i, str, th);
             }
@@ -142,7 +142,7 @@ public final class a {
 
         @Override // tv.chushou.basis.d.a.a.c.a
         public void onProgress(int i) {
-            c.a aVar = a.this.ogY;
+            c.a aVar = a.this.owr;
             if (aVar != null) {
                 aVar.onProgress(i);
             }
@@ -155,7 +155,7 @@ public final class a {
 
     /* JADX INFO: Access modifiers changed from: private */
     public final void a(File file, String str, String str2) {
-        com.kascend.chushou.toolkit.c.a.b.ohc.eeD().a(file, str, str2, new b(str));
+        com.kascend.chushou.toolkit.c.a.b.owv.eio().a(file, str, str2, new b(str));
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -164,14 +164,14 @@ public final class a {
         if (str3 == null || str3.length() == 0) {
             return "";
         }
-        String a = com.kascend.chushou.d.b.a();
+        String a2 = com.kascend.chushou.d.b.a();
         if (str2 == null) {
             str2 = "";
         }
         StringBuilder sb = new StringBuilder();
-        sb.append("sdk/" + a + '/').append(str2).append("/").append(System.currentTimeMillis()).append(".jpg");
+        sb.append("sdk/" + a2 + '/').append(str2).append("/").append(System.currentTimeMillis()).append(".jpg");
         String sb2 = sb.toString();
-        q.l((Object) sb2, "sb.toString()");
+        q.m(sb2, "sb.toString()");
         return sb2;
     }
 }

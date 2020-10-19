@@ -1,7 +1,7 @@
 package com.baidu.ufosdk.f;
 
 import android.os.Build;
-/* loaded from: classes21.dex */
+/* loaded from: classes22.dex */
 public final class j {
     public static int a() {
         try {

@@ -5,13 +5,15 @@ import android.location.LocationListener;
 import android.os.Bundle;
 import com.baidu.platform.comapi.wnplatform.model.datastruct.WLocData;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes3.dex */
+/* loaded from: classes7.dex */
 public class f implements LocationListener {
-    final /* synthetic */ d a;
+
+    /* renamed from: a  reason: collision with root package name */
+    final /* synthetic */ d f3102a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public f(d dVar) {
-        this.a = dVar;
+        this.f3102a = dVar;
     }
 
     @Override // android.location.LocationListener
@@ -22,25 +24,25 @@ public class f implements LocationListener {
         Location location3;
         Location location4;
         if (location != null && !com.baidu.platform.comapi.wnplatform.a.a().d()) {
-            z = this.a.i;
+            z = this.f3102a.i;
             if (!z) {
-                location2 = this.a.v;
+                location2 = this.f3102a.v;
                 if (location2 == null) {
-                    this.a.a(location);
+                    this.f3102a.a(location);
                 } else {
-                    d dVar = this.a;
-                    location3 = this.a.v;
+                    d dVar = this.f3102a;
+                    location3 = this.f3102a.v;
                     if (dVar.a(location, location3)) {
-                        this.a.v = location;
+                        this.f3102a.v = location;
                     }
-                    d dVar2 = this.a;
-                    location4 = this.a.v;
+                    d dVar2 = this.f3102a;
+                    location4 = this.f3102a.v;
                     dVar2.a(location4);
                 }
-                d dVar3 = this.a;
-                wLocData = this.a.c;
+                d dVar3 = this.f3102a;
+                wLocData = this.f3102a.c;
                 dVar3.a(wLocData, "gps");
-                this.a.h = true;
+                this.f3102a.h = true;
             }
         }
     }
@@ -51,7 +53,7 @@ public class f implements LocationListener {
 
     @Override // android.location.LocationListener
     public void onProviderEnabled(String str) {
-        for (a aVar : this.a.f) {
+        for (a aVar : this.f3102a.f) {
             if (aVar != null) {
                 aVar.d(4);
             }
@@ -60,7 +62,7 @@ public class f implements LocationListener {
 
     @Override // android.location.LocationListener
     public void onProviderDisabled(String str) {
-        for (a aVar : this.a.f) {
+        for (a aVar : this.f3102a.f) {
             if (aVar != null) {
                 aVar.d(5);
             }

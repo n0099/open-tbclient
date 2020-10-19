@@ -1,6 +1,6 @@
 package kotlin.collections;
 @kotlin.h
-/* loaded from: classes5.dex */
+/* loaded from: classes10.dex */
 class g {
     public static final void ed(int i, int i2) {
         if (i > i2) {

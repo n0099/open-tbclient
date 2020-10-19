@@ -14,7 +14,7 @@ import com.baidu.searchbox.appframework.AppFrameworkConstants;
 import com.baidu.tbadk.core.atomData.WriteVoteActivityConfig;
 import java.util.HashMap;
 import java.util.Map;
-/* loaded from: classes10.dex */
+/* loaded from: classes14.dex */
 public class GestureAR extends c {
     public static final int MDL_GESTURE_STATUS_DETECTED = 5002;
     public static final String SDK_TO_LUA_GESTURE_RESULT_BODY = "gesture_result";

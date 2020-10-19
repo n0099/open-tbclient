@@ -7,7 +7,8 @@ import com.baidu.android.imsdk.ChatObject;
 import com.baidu.android.imsdk.GetChatObjectInfoForRecordHandler;
 import com.baidu.android.imsdk.GetChatObjectInfoForRecordManager;
 import com.baidu.android.imsdk.utils.LogUtils;
-/* loaded from: classes9.dex */
+import com.baidu.android.imsdk.utils.Utility;
+/* loaded from: classes5.dex */
 public class GetPaInfoForSessionHandler extends GetChatObjectInfoForRecordHandler {
     private GetChatObjectInfoForRecordHandler mChatObjectHandler;
     int mNextTask;
@@ -88,8 +89,11 @@ public class GetPaInfoForSessionHandler extends GetChatObjectInfoForRecordHandle
                 i2 = -1;
                 break;
         }
-        if (i2 != -1) {
-            callBack.onSuccess(i2, 0, paInfo);
+        if (i2 != -1 || !Utility.availableNotificationPaType(i)) {
+            i = i2;
+        }
+        if (i != -1) {
+            callBack.onSuccess(i, 0, paInfo);
         } else {
             LogUtils.d("GetPaInfoForSessionHandler", "pa type as default -1");
         }

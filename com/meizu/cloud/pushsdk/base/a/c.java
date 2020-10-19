@@ -4,16 +4,18 @@ import com.meizu.cloud.pushsdk.base.h;
 import java.lang.reflect.Method;
 import java.util.Arrays;
 import java.util.HashMap;
-/* loaded from: classes3.dex */
+/* loaded from: classes7.dex */
 public class c {
     private static HashMap<String, Method> b = new HashMap<>();
-    private String a = "ReflectMethod";
+
+    /* renamed from: a  reason: collision with root package name */
+    private String f4366a = "ReflectMethod";
     private com.meizu.cloud.pushsdk.base.a.a c;
     private String d;
     private Class<?>[] e;
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes3.dex */
+    /* loaded from: classes7.dex */
     public class a {
     }
 
@@ -108,9 +110,9 @@ public class c {
             }
             method.setAccessible(true);
             dVar.b = (T) method.invoke(obj, objArr);
-            dVar.a = true;
+            dVar.f4367a = true;
         } catch (Exception e) {
-            h.b().a(this.a, "invoke", e);
+            h.b().a(this.f4366a, "invoke", e);
         }
         return dVar;
     }

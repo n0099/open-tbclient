@@ -1,5 +1,5 @@
 package io.reactivex.internal.schedulers;
-/* loaded from: classes25.dex */
+/* loaded from: classes17.dex */
 public final class ScheduledDirectPeriodicTask extends AbstractDirectTask implements Runnable {
     private static final long serialVersionUID = 1811839108042568751L;
 

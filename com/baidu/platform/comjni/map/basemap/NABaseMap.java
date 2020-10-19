@@ -12,21 +12,23 @@ import java.util.concurrent.ThreadPoolExecutor;
 import java.util.concurrent.TimeUnit;
 import java.util.concurrent.locks.ReadWriteLock;
 import java.util.concurrent.locks.ReentrantReadWriteLock;
-/* loaded from: classes3.dex */
+/* loaded from: classes7.dex */
 public class NABaseMap extends NativeComponent {
     private long b;
-    private ThreadPoolExecutor a = new ThreadPoolExecutor(1, 1, 0, TimeUnit.MILLISECONDS, new LinkedBlockingQueue());
+
+    /* renamed from: a  reason: collision with root package name */
+    private ThreadPoolExecutor f3165a = new ThreadPoolExecutor(1, 1, 0, TimeUnit.MILLISECONDS, new LinkedBlockingQueue());
     private final ReadWriteLock c = new ReentrantReadWriteLock(true);
     private final Set<Long> d = new HashSet();
 
     private void a() {
         try {
-            if (this.a != null) {
-                if (this.a.getQueue() != null) {
-                    this.a.getQueue().clear();
+            if (this.f3165a != null) {
+                if (this.f3165a.getQueue() != null) {
+                    this.f3165a.getQueue().clear();
                 }
-                this.a.shutdownNow();
-                this.a.awaitTermination(20L, TimeUnit.MILLISECONDS);
+                this.f3165a.shutdownNow();
+                this.f3165a.awaitTermination(20L, TimeUnit.MILLISECONDS);
             }
         } catch (Exception e) {
         }
@@ -39,7 +41,7 @@ public class NABaseMap extends NativeComponent {
 
     /* JADX INFO: Access modifiers changed from: private */
     public boolean b() {
-        return (this.a.isShutdown() || this.a.isTerminated()) ? false : true;
+        return (this.f3165a.isShutdown() || this.f3165a.isTerminated()) ? false : true;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -342,7 +344,7 @@ public class NABaseMap extends NativeComponent {
 
     public void addItemData(Bundle bundle) {
         if (b()) {
-            this.a.submit(new o(this, bundle));
+            this.f3165a.submit(new o(this, bundle));
         }
     }
 
@@ -382,13 +384,13 @@ public class NABaseMap extends NativeComponent {
 
     public void addOneOverlayItem(Bundle bundle) {
         if (b()) {
-            this.a.submit(new d(this, bundle));
+            this.f3165a.submit(new d(this, bundle));
         }
     }
 
     public void addOverlayItems(Bundle[] bundleArr, int i) {
         if (b()) {
-            this.a.submit(new e(this, bundleArr, i));
+            this.f3165a.submit(new e(this, bundleArr, i));
         }
     }
 
@@ -416,7 +418,7 @@ public class NABaseMap extends NativeComponent {
 
     public void clearLayer(long j) {
         if (b()) {
-            this.a.submit(new m(this, j));
+            this.f3165a.submit(new m(this, j));
         }
     }
 
@@ -430,7 +432,7 @@ public class NABaseMap extends NativeComponent {
 
     public void clearSDKLayer(long j) {
         if (b()) {
-            this.a.submit(new l(this, j));
+            this.f3165a.submit(new l(this, j));
         }
     }
 
@@ -902,7 +904,7 @@ public class NABaseMap extends NativeComponent {
 
     public boolean removeItemData(Bundle bundle) {
         if (b()) {
-            this.a.submit(new c(this, bundle));
+            this.f3165a.submit(new c(this, bundle));
             return true;
         }
         return false;
@@ -910,13 +912,13 @@ public class NABaseMap extends NativeComponent {
 
     public void removeLayer(long j) {
         if (b()) {
-            this.a.submit(new j(this, j));
+            this.f3165a.submit(new j(this, j));
         }
     }
 
     public void removeOneOverlayItem(Bundle bundle) {
         if (b()) {
-            this.a.submit(new g(this, bundle));
+            this.f3165a.submit(new g(this, bundle));
         }
     }
 
@@ -1008,7 +1010,7 @@ public class NABaseMap extends NativeComponent {
 
     public void setFocus(long j, long j2, boolean z, Bundle bundle) {
         if (b()) {
-            this.a.submit(new n(this, j, j2, z, bundle));
+            this.f3165a.submit(new n(this, j, j2, z, bundle));
         }
     }
 
@@ -1022,7 +1024,7 @@ public class NABaseMap extends NativeComponent {
 
     public void setLayersClickable(long j, boolean z) {
         if (b()) {
-            this.a.submit(new h(this, j, z));
+            this.f3165a.submit(new h(this, j, z));
         }
     }
 
@@ -1118,7 +1120,7 @@ public class NABaseMap extends NativeComponent {
 
     public void showLayers(long j, boolean z) {
         if (b()) {
-            this.a.submit(new b(this, j, z));
+            this.f3165a.submit(new b(this, j, z));
         }
     }
 
@@ -1174,7 +1176,7 @@ public class NABaseMap extends NativeComponent {
 
     public boolean switchLayer(long j, long j2) {
         if (b()) {
-            this.a.submit(new k(this, j, j2));
+            this.f3165a.submit(new k(this, j, j2));
             return true;
         }
         return false;
@@ -1192,13 +1194,13 @@ public class NABaseMap extends NativeComponent {
 
     public void updateLayers(long j) {
         if (b()) {
-            this.a.submit(new i(this, j));
+            this.f3165a.submit(new i(this, j));
         }
     }
 
     public void updateOneOverlayItem(Bundle bundle) {
         if (b()) {
-            this.a.submit(new f(this, bundle));
+            this.f3165a.submit(new f(this, bundle));
         }
     }
 

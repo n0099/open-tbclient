@@ -11,34 +11,34 @@ import android.util.SparseArray;
 import java.util.Arrays;
 import java.util.HashSet;
 import java.util.Set;
-/* loaded from: classes3.dex */
+/* loaded from: classes10.dex */
 public final class c {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    private static volatile c cJS;
-    private SparseArray<a> cJQ = new SparseArray<>();
-    private Set<String> cJR = new HashSet();
+    private static volatile c cVV;
+    private SparseArray<a> cVT = new SparseArray<>();
+    private Set<String> cVU = new HashSet();
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes10.dex */
     public interface a {
         void onRequestPermissionsResult(int i, @NonNull String[] strArr, @NonNull int[] iArr);
     }
 
-    public static c axl() {
-        if (cJS == null) {
+    public static c azW() {
+        if (cVV == null) {
             synchronized (com.baidu.swan.games.audio.b.b.class) {
-                if (cJS == null) {
-                    cJS = new c();
+                if (cVV == null) {
+                    cVV = new c();
                 }
             }
         }
-        return cJS;
+        return cVV;
     }
 
     @TargetApi(23)
     public void a(Activity activity, int i, @NonNull String[] strArr, a aVar) {
         if (aVar != null) {
-            if (!t(strArr)) {
-                this.cJQ.put(i, aVar);
+            if (!u(strArr)) {
+                this.cVT.put(i, aVar);
                 activity.requestPermissions(strArr, i);
                 if (DEBUG) {
                     Log.d("SwanAppPermission", "requestPermissions activity: " + activity + " requestCode: " + i + " permissions: " + Arrays.toString(strArr));
@@ -50,12 +50,12 @@ public final class c {
         }
     }
 
-    private boolean t(@NonNull String[] strArr) {
+    private boolean u(@NonNull String[] strArr) {
         if (strArr.length <= 0) {
             return true;
         }
         for (String str : strArr) {
-            if (!TextUtils.isEmpty(str) && this.cJR.contains(str)) {
+            if (!TextUtils.isEmpty(str) && this.cVU.contains(str)) {
                 return true;
             }
         }
@@ -66,12 +66,12 @@ public final class c {
         if (Build.VERSION.SDK_INT >= 23) {
             a(activity, strArr, iArr);
         }
-        a aVar = this.cJQ.get(i);
+        a aVar = this.cVT.get(i);
         if (aVar != null) {
             if (strArr.length > 0 && iArr.length > 0) {
                 aVar.onRequestPermissionsResult(i, strArr, iArr);
             }
-            this.cJQ.remove(i);
+            this.cVT.remove(i);
         }
         if (DEBUG) {
             Log.d("SwanAppPermission", "onRequestPermissionsResult requestCode: " + i + " permissions: " + Arrays.toString(strArr));
@@ -87,7 +87,7 @@ public final class c {
                 int i2 = iArr[i];
                 String str = strArr[i];
                 if (!TextUtils.isEmpty(str) && i2 == -1 && !activity.shouldShowRequestPermissionRationale(str)) {
-                    this.cJR.add(str);
+                    this.cVU.add(str);
                 }
             }
         }

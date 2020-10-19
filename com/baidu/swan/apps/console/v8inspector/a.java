@@ -5,20 +5,20 @@ import com.baidu.searchbox.elasticthread.ExecutorUtilsExt;
 import com.baidu.swan.apps.console.debugger.b.d;
 import com.baidu.swan.apps.console.v8inspector.a.c;
 import com.baidu.swan.apps.storage.c.h;
-/* loaded from: classes3.dex */
+/* loaded from: classes10.dex */
 public class a {
     private static int mStatus;
-    private InterfaceC0370a cfM;
-    private b cfN;
+    private InterfaceC0387a csd;
+    private b cse;
     private Context mContext;
 
     /* renamed from: com.baidu.swan.apps.console.v8inspector.a$a  reason: collision with other inner class name */
-    /* loaded from: classes3.dex */
-    public interface InterfaceC0370a {
+    /* loaded from: classes10.dex */
+    public interface InterfaceC0387a {
         void onConnected();
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes10.dex */
     public interface b {
         void start();
 
@@ -26,7 +26,7 @@ public class a {
     }
 
     static {
-        mStatus = h.aDP().getBoolean("Inspector", false) ? 2 : 0;
+        mStatus = h.aGy().getBoolean("Inspector", false) ? 2 : 0;
     }
 
     public a(Context context) {
@@ -37,28 +37,28 @@ public class a {
         ExecutorUtilsExt.postOnSerial(new Runnable() { // from class: com.baidu.swan.apps.console.v8inspector.a.1
             @Override // java.lang.Runnable
             public void run() {
-                if (com.baidu.swan.apps.console.debugger.b.aez() || a.getStatus() != 0) {
-                    a.this.cfN = new c(String.format("v8in%s_devtools_remote", a.this.mContext.getPackageName()), a.this.cfM);
-                } else if (com.baidu.swan.apps.console.debugger.b.aeA()) {
-                    a.this.cfN = new com.baidu.swan.apps.console.v8inspector.a.b(d.aeX(), a.this.cfM);
+                if (com.baidu.swan.apps.console.debugger.b.ahk() || a.getStatus() != 0) {
+                    a.this.cse = new c(String.format("v8in%s_devtools_remote", a.this.mContext.getPackageName()), a.this.csd);
+                } else if (com.baidu.swan.apps.console.debugger.b.ahl()) {
+                    a.this.cse = new com.baidu.swan.apps.console.v8inspector.a.b(d.ahI(), a.this.csd);
                 } else {
                     com.baidu.swan.apps.console.c.e("V8Inspector", "Unknown inspect mode");
                     return;
                 }
-                a.this.cfN.start();
+                a.this.cse.start();
             }
         }, "V8Inspector");
     }
 
     public void stop() {
-        if (this.cfN != null) {
-            this.cfN.stop();
-            this.cfN = null;
+        if (this.cse != null) {
+            this.cse.stop();
+            this.cse = null;
         }
     }
 
-    public void a(InterfaceC0370a interfaceC0370a) {
-        this.cfM = interfaceC0370a;
+    public void a(InterfaceC0387a interfaceC0387a) {
+        this.csd = interfaceC0387a;
     }
 
     public static int getStatus() {
@@ -66,7 +66,7 @@ public class a {
     }
 
     public static void setStatus(int i) {
-        h.aDP().putBoolean("Inspector", i == 2);
+        h.aGy().putBoolean("Inspector", i == 2);
         mStatus = i;
     }
 }

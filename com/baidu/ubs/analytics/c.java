@@ -2,15 +2,15 @@ package com.baidu.ubs.analytics;
 
 import android.content.Context;
 import com.baidu.ubs.analytics.d.j;
-/* loaded from: classes7.dex */
+/* loaded from: classes10.dex */
 public final class c {
     private long e;
     private Context mContext;
-    private boolean npU;
-    private long npV;
-    private long npW;
-    private boolean npX;
-    private int npY;
+    private boolean nFo;
+    private long nFp;
+    private long nFq;
+    private boolean nFr;
+    private int nFs;
 
     /* synthetic */ c(a aVar, byte b) {
         this(aVar);
@@ -18,12 +18,12 @@ public final class c {
 
     private c(a aVar) {
         this.mContext = aVar.mContext;
-        this.npU = aVar.npU;
-        this.e = aVar.npZ;
-        this.npV = aVar.npV;
-        this.npX = aVar.npX;
-        this.npW = aVar.npW;
-        this.npY = aVar.npY;
+        this.nFo = aVar.nFo;
+        this.e = aVar.nFt;
+        this.nFp = aVar.nFp;
+        this.nFr = aVar.nFr;
+        this.nFq = aVar.nFq;
+        this.nFs = aVar.nFs;
     }
 
     public final Context b() {
@@ -31,7 +31,7 @@ public final class c {
     }
 
     public final boolean c() {
-        return this.npU;
+        return this.nFo;
     }
 
     public final long d() {
@@ -39,68 +39,68 @@ public final class c {
     }
 
     public final long e() {
-        return this.npV;
+        return this.nFp;
     }
 
     public final long f() {
-        return this.npW;
+        return this.nFq;
     }
 
     public final boolean g() {
-        return this.npX;
+        return this.nFr;
     }
 
     public final int h() {
-        return this.npY;
+        return this.nFs;
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes10.dex */
     public static class a {
         private Context mContext;
-        private boolean npU = true;
-        private long npZ = 30000;
-        private long npV = 60000;
-        private long npW = 10000;
-        private boolean npX = false;
-        private int npY = 1000;
+        private boolean nFo = true;
+        private long nFt = 30000;
+        private long nFp = 60000;
+        private long nFq = 10000;
+        private boolean nFr = false;
+        private int nFs = 1000;
 
-        public a gg(Context context) {
+        public a gn(Context context) {
             this.mContext = context;
             return this;
         }
 
-        public a xS(boolean z) {
-            this.npU = z;
+        public a yz(boolean z) {
+            this.nFo = z;
             return this;
         }
 
-        public a gu(long j) {
-            this.npZ = 1000 * j;
+        public a gM(long j) {
+            this.nFt = 1000 * j;
             return this;
         }
 
-        public a Li(int i) {
-            this.npV = i * 60 * 1000;
+        public a LO(int i) {
+            this.nFp = i * 60 * 1000;
             return this;
         }
 
-        public a gv(long j) {
-            this.npW = 1000 * j;
+        public a gN(long j) {
+            this.nFq = 1000 * j;
             return this;
         }
 
-        public a xT(boolean z) {
-            this.npX = z;
+        public a yA(boolean z) {
+            this.nFr = z;
             return this;
         }
 
-        public a Lj(int i) {
+        public a LP(int i) {
             int i2 = i <= 0 ? 0 : i;
-            this.npY = i2 < 1000 ? i2 : 1000;
+            this.nFs = i2 < 1000 ? i2 : 1000;
             return this;
         }
 
-        public c dQn() {
+        public c dTY() {
             if (this.mContext == null) {
                 j.I("Context must be not empty!");
                 return null;

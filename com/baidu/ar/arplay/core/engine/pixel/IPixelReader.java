@@ -1,5 +1,5 @@
 package com.baidu.ar.arplay.core.engine.pixel;
-/* loaded from: classes10.dex */
+/* loaded from: classes14.dex */
 public interface IPixelReader {
     void createPixelReader(PixelReadParams pixelReadParams, PixelReadListener pixelReadListener);
 

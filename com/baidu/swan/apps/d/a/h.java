@@ -3,27 +3,27 @@ package com.baidu.swan.apps.d.a;
 import kotlin.jvm.internal.q;
 import org.json.JSONObject;
 @kotlin.h
-/* loaded from: classes3.dex */
+/* loaded from: classes10.dex */
 public final class h {
-    private static String bVZ;
-    public static final h bWa = new h();
+    private static String cio;
+    public static final h cip = new h();
 
     private h() {
     }
 
     public final void d(int i, JSONObject jSONObject) {
-        q.m(jSONObject, "jsonObject");
+        q.n(jSONObject, "jsonObject");
         if (i == 0) {
-            ap(jSONObject);
+            aw(jSONObject);
         }
     }
 
-    private final void ap(JSONObject jSONObject) {
-        com.baidu.swan.apps.storage.c.h.aDP().putString("alliance_login_uk", jSONObject.optString("uk"));
+    private final void aw(JSONObject jSONObject) {
+        com.baidu.swan.apps.storage.c.h.aGy().putString("alliance_login_uk", jSONObject.optString("uk"));
     }
 
-    public final void acm() {
-        com.baidu.swan.apps.storage.c.h.aDP().putString("alliance_login_uk", "");
-        bVZ = null;
+    public final void aeY() {
+        com.baidu.swan.apps.storage.c.h.aGy().putString("alliance_login_uk", "");
+        cio = null;
     }
 }

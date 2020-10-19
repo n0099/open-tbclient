@@ -3,7 +3,7 @@ package com.baidu.tieba.homepage.hotTopic.tab.net;
 import com.baidu.adp.widget.ListView.q;
 import java.util.List;
 import tbclient.HotThreadList.HotThreadListResIdl;
-/* loaded from: classes21.dex */
+/* loaded from: classes22.dex */
 public interface a {
     List<q> getDataList();
 

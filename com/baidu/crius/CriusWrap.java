@@ -2,7 +2,7 @@ package com.baidu.crius;
 
 import com.baidu.crius.proguard.annotations.DoNotStrip;
 @DoNotStrip
-/* loaded from: classes9.dex */
+/* loaded from: classes11.dex */
 public enum CriusWrap {
     NO_WRAP(0),
     WRAP(1),

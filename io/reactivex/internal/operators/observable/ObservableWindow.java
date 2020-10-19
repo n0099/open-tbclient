@@ -8,7 +8,7 @@ import java.util.ArrayDeque;
 import java.util.Iterator;
 import java.util.concurrent.atomic.AtomicBoolean;
 import java.util.concurrent.atomic.AtomicInteger;
-/* loaded from: classes25.dex */
+/* loaded from: classes17.dex */
 public final class ObservableWindow<T> extends a<T, q<T>> {
     final int capacityHint;
     final long count;
@@ -23,7 +23,7 @@ public final class ObservableWindow<T> extends a<T, q<T>> {
         }
     }
 
-    /* loaded from: classes25.dex */
+    /* loaded from: classes17.dex */
     static final class WindowExactObserver<T> extends AtomicInteger implements io.reactivex.disposables.b, u<T>, Runnable {
         private static final long serialVersionUID = -7481782523886138128L;
         final u<? super q<T>> actual;
@@ -52,7 +52,7 @@ public final class ObservableWindow<T> extends a<T, q<T>> {
         public void onNext(T t) {
             UnicastSubject<T> unicastSubject = this.window;
             if (unicastSubject == null && !this.cancelled) {
-                unicastSubject = UnicastSubject.c(this.capacityHint, this);
+                unicastSubject = UnicastSubject.d(this.capacityHint, this);
                 this.window = unicastSubject;
                 this.actual.onNext(unicastSubject);
             }
@@ -109,7 +109,7 @@ public final class ObservableWindow<T> extends a<T, q<T>> {
         }
     }
 
-    /* loaded from: classes25.dex */
+    /* loaded from: classes17.dex */
     static final class WindowSkipObserver<T> extends AtomicBoolean implements io.reactivex.disposables.b, u<T>, Runnable {
         private static final long serialVersionUID = 3366976432059579510L;
         final u<? super q<T>> actual;
@@ -145,9 +145,9 @@ public final class ObservableWindow<T> extends a<T, q<T>> {
             long j2 = this.skip;
             if (j % j2 == 0 && !this.cancelled) {
                 this.wip.getAndIncrement();
-                UnicastSubject<T> c = UnicastSubject.c(this.capacityHint, this);
-                arrayDeque.offer(c);
-                this.actual.onNext(c);
+                UnicastSubject<T> d = UnicastSubject.d(this.capacityHint, this);
+                arrayDeque.offer(d);
+                this.actual.onNext(d);
             }
             long j3 = this.firstEmission + 1;
             Iterator<UnicastSubject<T>> it = arrayDeque.iterator();

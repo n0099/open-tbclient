@@ -6,9 +6,11 @@ import com.baidu.mapapi.model.LatLng;
 import com.baidu.platform.comapi.basestruct.GeoPoint;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes3.dex */
+/* loaded from: classes7.dex */
 public final class Polygon extends Overlay {
-    Stroke a;
+
+    /* renamed from: a  reason: collision with root package name */
+    Stroke f2032a;
     int b;
     List<LatLng> c;
     List<HoleOptions> d;
@@ -46,11 +48,11 @@ public final class Polygon extends Overlay {
         bundle.putDouble("location_y", ll2mc.getLatitudeE6());
         Overlay.a(this.c, bundle);
         Overlay.a(this.b, bundle);
-        if (this.a == null) {
+        if (this.f2032a == null) {
             bundle.putInt("has_stroke", 0);
         } else {
             bundle.putInt("has_stroke", 1);
-            bundle.putBundle("stroke", this.a.a(new Bundle()));
+            bundle.putBundle("stroke", this.f2032a.a(new Bundle()));
         }
         if (this.d != null && this.d.size() != 0) {
             c(this.d, bundle);
@@ -89,7 +91,7 @@ public final class Polygon extends Overlay {
     }
 
     public Stroke getStroke() {
-        return this.a;
+        return this.f2032a;
     }
 
     public void setFillColor(int i) {
@@ -142,7 +144,7 @@ public final class Polygon extends Overlay {
     }
 
     public void setStroke(Stroke stroke) {
-        this.a = stroke;
+        this.f2032a = stroke;
         this.listener.b(this);
     }
 }

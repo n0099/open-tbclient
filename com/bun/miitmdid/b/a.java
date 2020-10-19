@@ -4,13 +4,15 @@ import android.text.TextUtils;
 import com.bun.miitmdid.utils.sysParamters;
 /* loaded from: classes11.dex */
 public class a {
-    private static String a;
+
+    /* renamed from: a  reason: collision with root package name */
+    private static String f3976a;
 
     public static String a() {
-        if (TextUtils.isEmpty(a)) {
-            a = "miitmdid(sdkv_" + sysParamters.dRk().c() + ")";
-            return a;
+        if (TextUtils.isEmpty(f3976a)) {
+            f3976a = "miitmdid(sdkv_" + sysParamters.dUV().c() + ")";
+            return f3976a;
         }
-        return a;
+        return f3976a;
     }
 }

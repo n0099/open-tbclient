@@ -19,35 +19,35 @@ import java.nio.channels.ReadableByteChannel;
 import java.util.HashMap;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes10.dex */
 abstract class b {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
 
     protected abstract boolean a(c cVar);
 
-    protected abstract String ajW();
+    protected abstract String amH();
 
-    protected abstract String mh(String str);
+    protected abstract String mT(String str);
 
-    public HashMap<String, c> ajX() {
+    public HashMap<String, c> amI() {
         JSONArray optJSONArray;
-        String ajW = ajW();
-        if (TextUtils.isEmpty(ajW) || (optJSONArray = v.parseString(ajW).optJSONArray("list")) == null) {
+        String amH = amH();
+        if (TextUtils.isEmpty(amH) || (optJSONArray = v.parseString(amH).optJSONArray("list")) == null) {
             return null;
         }
         HashMap<String, c> hashMap = new HashMap<>();
         for (int i = 0; i < optJSONArray.length(); i++) {
-            c aT = aT(optJSONArray.optJSONObject(i));
-            if (aT != null) {
-                hashMap.put(aT.dHr, aT);
+            c ba = ba(optJSONArray.optJSONObject(i));
+            if (ba != null) {
+                hashMap.put(ba.dTs, ba);
             }
         }
         return hashMap;
     }
 
     public void a(final c cVar, final d dVar) {
-        final HybridUbcFlow pq = i.pq("startup");
-        pq.f(new UbcFlowEvent("loadPresetApp-start").fa(true));
+        final HybridUbcFlow qc = i.qc("startup");
+        qc.f(new UbcFlowEvent("loadPresetApp-start").fw(true));
         if (dVar != null) {
             if (cVar == null) {
                 dVar.onFailed(0);
@@ -56,40 +56,40 @@ abstract class b {
             p.postOnIO(new Runnable() { // from class: com.baidu.swan.apps.core.j.b.1
                 @Override // java.lang.Runnable
                 public void run() {
-                    pq.f(new UbcFlowEvent("loadPresetApp#run-start").fa(true));
-                    String mh = b.this.mh(cVar.dHr);
-                    if (TextUtils.isEmpty(mh)) {
+                    qc.f(new UbcFlowEvent("loadPresetApp#run-start").fw(true));
+                    String mT = b.this.mT(cVar.dTs);
+                    if (TextUtils.isEmpty(mT)) {
                         dVar.onFailed(0);
                         return;
                     }
-                    JSONObject parseString = v.parseString(mh);
-                    pq.f(new UbcFlowEvent("loadPresetApp#run-appInfoJson").fa(true));
-                    PMSAppInfo a = b.this.a(cVar, parseString);
-                    if (a == null) {
+                    JSONObject parseString = v.parseString(mT);
+                    qc.f(new UbcFlowEvent("loadPresetApp#run-appInfoJson").fw(true));
+                    PMSAppInfo a2 = b.this.a(cVar, parseString);
+                    if (a2 == null) {
                         dVar.onFailed(1);
                         return;
                     }
-                    pq.f(new UbcFlowEvent("loadPresetApp#run-PMSAppInfo").fa(true));
-                    dVar.i(a);
+                    qc.f(new UbcFlowEvent("loadPresetApp#run-PMSAppInfo").fw(true));
+                    dVar.i(a2);
                     long currentTimeMillis = System.currentTimeMillis();
-                    boolean a2 = b.this.a(cVar);
+                    boolean a3 = b.this.a(cVar);
                     if (b.DEBUG) {
                         Log.d("PresetController", "签名+解压 耗时：" + (System.currentTimeMillis() - currentTimeMillis));
                     }
-                    pq.f(new UbcFlowEvent("loadPresetApp#run-doUnzipBundle").fa(true));
-                    if (a2) {
-                        a.setOrientation(b.this.b(cVar.category, cVar.dHr, cVar.versionCode));
-                        a.lZ(3);
-                        com.baidu.swan.pms.database.a.aUf().a(cVar, a);
-                        pq.f(new UbcFlowEvent("loadPresetApp#run-bulkInsert").fa(true));
-                        dVar.j(a);
+                    qc.f(new UbcFlowEvent("loadPresetApp#run-doUnzipBundle").fw(true));
+                    if (a3) {
+                        a2.setOrientation(b.this.b(cVar.category, cVar.dTs, cVar.versionCode));
+                        a2.mw(3);
+                        com.baidu.swan.pms.database.a.aWO().a(cVar, a2);
+                        qc.f(new UbcFlowEvent("loadPresetApp#run-bulkInsert").fw(true));
+                        dVar.j(a2);
                     } else {
                         dVar.onFailed(2);
                     }
-                    pq.f(new UbcFlowEvent("loadPresetApp#run-return").fa(true));
+                    qc.f(new UbcFlowEvent("loadPresetApp#run-return").fw(true));
                 }
             }, "加载小程序预置包");
-            pq.f(new UbcFlowEvent("loadPresetApp-return").fa(true));
+            qc.f(new UbcFlowEvent("loadPresetApp-return").fw(true));
         }
     }
 
@@ -99,26 +99,26 @@ abstract class b {
         if (i != 1 || (i2 = com.baidu.swan.apps.core.pms.f.a.i(str, j)) == null) {
             return 0;
         }
-        return i2.dxT;
+        return i2.dJU;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public PMSAppInfo a(c cVar, JSONObject jSONObject) {
-        PMSAppInfo cO;
-        if (jSONObject == null || cVar == null || (cO = com.baidu.swan.pms.utils.e.cO(jSONObject)) == null) {
+        PMSAppInfo cV;
+        if (jSONObject == null || cVar == null || (cV = com.baidu.swan.pms.utils.e.cV(jSONObject)) == null) {
             return null;
         }
-        cO.h(cVar);
-        cO.createTime = System.currentTimeMillis();
-        return cO;
+        cV.h(cVar);
+        cV.createTime = System.currentTimeMillis();
+        return cV;
     }
 
-    private c aT(JSONObject jSONObject) {
+    private c ba(JSONObject jSONObject) {
         c cVar;
         if (jSONObject != null && (cVar = (c) com.baidu.swan.pms.utils.e.a(jSONObject, new c())) != null) {
-            cVar.dHv = jSONObject.optInt("pkg_type");
-            cVar.coj = jSONObject.optString("bundle_name");
-            if (cVar.ajY()) {
+            cVar.dTw = jSONObject.optInt("pkg_type");
+            cVar.cAz = jSONObject.optString("bundle_name");
+            if (cVar.amJ()) {
                 return cVar;
             }
             return null;
@@ -129,10 +129,10 @@ abstract class b {
     /* JADX INFO: Access modifiers changed from: protected */
     public File c(int i, String str, long j) {
         if (i == 0) {
-            return d.C0421d.bB(str, String.valueOf(j));
+            return d.C0438d.bG(str, String.valueOf(j));
         }
         if (i == 1) {
-            return a.c.bB(str, String.valueOf(j));
+            return a.c.bG(str, String.valueOf(j));
         }
         return null;
     }
@@ -143,11 +143,11 @@ abstract class b {
         if (bufferedInputStream != null) {
             try {
                 if (file != null) {
-                    a.b a = com.baidu.swan.apps.r.a.a.a(bufferedInputStream);
-                    if ((a == null || a.type == -1) ? false : true) {
-                        z = com.baidu.swan.apps.r.a.a.a(bufferedInputStream, file, a.type).isSuccess;
+                    a.b a2 = com.baidu.swan.apps.r.a.a.a(bufferedInputStream);
+                    if ((a2 == null || a2.type == -1) ? false : true) {
+                        z = com.baidu.swan.apps.r.a.a.a(bufferedInputStream, file, a2.type).isSuccess;
                     } else {
-                        z = com.baidu.swan.c.f.f(bufferedInputStream, file.getPath());
+                        z = com.baidu.swan.c.f.g(bufferedInputStream, file.getPath());
                     }
                 }
             } catch (IOException e) {

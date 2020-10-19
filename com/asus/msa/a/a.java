@@ -9,15 +9,17 @@ public interface a extends IInterface {
 
     /* renamed from: com.asus.msa.a.a$a  reason: collision with other inner class name */
     /* loaded from: classes11.dex */
-    public static abstract class AbstractBinderC0013a extends Binder implements a {
+    public static abstract class AbstractBinderC0014a extends Binder implements a {
 
         /* renamed from: com.asus.msa.a.a$a$a  reason: collision with other inner class name */
         /* loaded from: classes11.dex */
-        public static class C0014a implements a {
-            public IBinder a;
+        public static class C0015a implements a {
 
-            public C0014a(IBinder iBinder) {
-                this.a = iBinder;
+            /* renamed from: a  reason: collision with root package name */
+            public IBinder f987a;
+
+            public C0015a(IBinder iBinder) {
+                this.f987a = iBinder;
             }
 
             @Override // com.asus.msa.a.a
@@ -26,7 +28,7 @@ public interface a extends IInterface {
                 Parcel obtain2 = Parcel.obtain();
                 try {
                     obtain.writeInterfaceToken("com.asus.msa.SupplementaryDID.IDidAidlInterface");
-                    this.a.transact(1, obtain, obtain2, 0);
+                    this.f987a.transact(1, obtain, obtain2, 0);
                     obtain2.readException();
                     return obtain2.readInt() != 0;
                 } finally {
@@ -37,7 +39,7 @@ public interface a extends IInterface {
 
             @Override // android.os.IInterface
             public IBinder asBinder() {
-                return this.a;
+                return this.f987a;
             }
 
             @Override // com.asus.msa.a.a
@@ -46,7 +48,7 @@ public interface a extends IInterface {
                 Parcel obtain2 = Parcel.obtain();
                 try {
                     obtain.writeInterfaceToken("com.asus.msa.SupplementaryDID.IDidAidlInterface");
-                    this.a.transact(2, obtain, obtain2, 0);
+                    this.f987a.transact(2, obtain, obtain2, 0);
                     obtain2.readException();
                     return obtain2.readString();
                 } finally {
@@ -61,7 +63,7 @@ public interface a extends IInterface {
                 Parcel obtain2 = Parcel.obtain();
                 try {
                     obtain.writeInterfaceToken("com.asus.msa.SupplementaryDID.IDidAidlInterface");
-                    this.a.transact(3, obtain, obtain2, 0);
+                    this.f987a.transact(3, obtain, obtain2, 0);
                     obtain2.readException();
                     return obtain2.readString();
                 } finally {
@@ -76,7 +78,7 @@ public interface a extends IInterface {
                 Parcel obtain2 = Parcel.obtain();
                 try {
                     obtain.writeInterfaceToken("com.asus.msa.SupplementaryDID.IDidAidlInterface");
-                    this.a.transact(4, obtain, obtain2, 0);
+                    this.f987a.transact(4, obtain, obtain2, 0);
                     obtain2.readException();
                     return obtain2.readString();
                 } finally {
@@ -91,7 +93,7 @@ public interface a extends IInterface {
                 Parcel obtain2 = Parcel.obtain();
                 try {
                     obtain.writeInterfaceToken("com.asus.msa.SupplementaryDID.IDidAidlInterface");
-                    this.a.transact(5, obtain, obtain2, 0);
+                    this.f987a.transact(5, obtain, obtain2, 0);
                     obtain2.readException();
                     return obtain2.readString();
                 } finally {
@@ -106,7 +108,7 @@ public interface a extends IInterface {
                 return null;
             }
             IInterface queryLocalInterface = iBinder.queryLocalInterface("com.asus.msa.SupplementaryDID.IDidAidlInterface");
-            return (queryLocalInterface == null || !(queryLocalInterface instanceof a)) ? new C0014a(iBinder) : (a) queryLocalInterface;
+            return (queryLocalInterface == null || !(queryLocalInterface instanceof a)) ? new C0015a(iBinder) : (a) queryLocalInterface;
         }
 
         @Override // android.os.Binder
@@ -118,9 +120,9 @@ public interface a extends IInterface {
             switch (i) {
                 case 1:
                     parcel.enforceInterface("com.asus.msa.SupplementaryDID.IDidAidlInterface");
-                    boolean a = a();
+                    boolean a2 = a();
                     parcel2.writeNoException();
-                    parcel2.writeInt(a ? 1 : 0);
+                    parcel2.writeInt(a2 ? 1 : 0);
                     return true;
                 case 2:
                     parcel.enforceInterface("com.asus.msa.SupplementaryDID.IDidAidlInterface");

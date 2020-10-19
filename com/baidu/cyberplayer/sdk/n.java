@@ -43,9 +43,11 @@ import java.util.zip.ZipEntry;
 import java.util.zip.ZipFile;
 import org.json.JSONObject;
 import org.json.JSONTokener;
-/* loaded from: classes10.dex */
+/* loaded from: classes12.dex */
 public class n {
-    public static String a = ".video_cache";
+
+    /* renamed from: a  reason: collision with root package name */
+    public static String f1404a = ".video_cache";
     public static String b = "last_file_cache_time";
     public static long c = 86400000;
     public static long d = 536870912;

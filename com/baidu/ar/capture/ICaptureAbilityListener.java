@@ -1,5 +1,5 @@
 package com.baidu.ar.capture;
-/* loaded from: classes10.dex */
+/* loaded from: classes14.dex */
 public interface ICaptureAbilityListener {
     void onClose();
 

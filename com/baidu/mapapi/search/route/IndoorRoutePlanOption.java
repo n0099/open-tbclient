@@ -1,5 +1,5 @@
 package com.baidu.mapapi.search.route;
-/* loaded from: classes3.dex */
+/* loaded from: classes7.dex */
 public class IndoorRoutePlanOption {
     public IndoorPlanNode mFrom = null;
     public IndoorPlanNode mTo = null;

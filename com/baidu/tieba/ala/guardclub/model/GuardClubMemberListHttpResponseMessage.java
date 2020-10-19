@@ -9,11 +9,11 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 /* loaded from: classes4.dex */
 public class GuardClubMemberListHttpResponseMessage extends JsonHttpResponsedMessage {
-    public boolean baw;
-    public boolean bax;
-    public com.baidu.live.guardclub.f baz;
-    public int gfD;
-    public List<com.baidu.live.guardclub.f> gfK;
+    public boolean bdQ;
+    public boolean bdR;
+    public com.baidu.live.guardclub.f bdT;
+    public int grS;
+    public List<com.baidu.live.guardclub.f> grZ;
     public boolean hasMore;
     public int memberCount;
 
@@ -26,24 +26,24 @@ public class GuardClubMemberListHttpResponseMessage extends JsonHttpResponsedMes
         JSONObject optJSONObject;
         super.decodeLogicInBackGround(i, jSONObject);
         if (getError() == 0 && (optJSONObject = jSONObject.optJSONObject("data")) != null) {
-            this.baw = optJSONObject.optInt(GuardClubInfoActivityConfig.IS_CLUB_MEMBER) == 1;
+            this.bdQ = optJSONObject.optInt(GuardClubInfoActivityConfig.IS_CLUB_MEMBER) == 1;
             this.memberCount = optJSONObject.optInt("total_count");
-            this.bax = optJSONObject.optInt("is_anchor") == 1;
+            this.bdR = optJSONObject.optInt("is_anchor") == 1;
             this.hasMore = optJSONObject.optInt("has_more") == 1;
-            this.gfD = optJSONObject.optInt(Config.PACKAGE_NAME);
+            this.grS = optJSONObject.optInt(Config.PACKAGE_NAME);
             JSONObject optJSONObject2 = optJSONObject.optJSONObject("login_member_info");
             if (optJSONObject2 != null) {
-                this.baz = new com.baidu.live.guardclub.f();
-                this.baz.parseJson(optJSONObject2);
+                this.bdT = new com.baidu.live.guardclub.f();
+                this.bdT.parseJson(optJSONObject2);
             }
             JSONArray optJSONArray = optJSONObject.optJSONArray("member_rank_list");
             if (optJSONArray != null && optJSONArray.length() > 0) {
-                this.gfK = new ArrayList();
+                this.grZ = new ArrayList();
                 for (int i2 = 0; i2 < optJSONArray.length(); i2++) {
                     JSONObject optJSONObject3 = optJSONArray.optJSONObject(i2);
                     com.baidu.live.guardclub.f fVar = new com.baidu.live.guardclub.f();
                     fVar.parseJson(optJSONObject3);
-                    this.gfK.add(fVar);
+                    this.grZ.add(fVar);
                 }
             }
         }

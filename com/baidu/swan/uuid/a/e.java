@@ -5,7 +5,7 @@ import android.os.Build;
 import android.system.Os;
 import java.io.File;
 import java.io.FileOutputStream;
-/* loaded from: classes24.dex */
+/* loaded from: classes5.dex */
 public class e implements b<String> {
     private Context mContext;
 
@@ -19,18 +19,18 @@ public class e implements b<String> {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.swan.uuid.a.b
     public void put(String str) {
-        xT(str);
+        yF(str);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.swan.uuid.a.b
-    /* renamed from: aFu */
+    /* renamed from: aId */
     public String get() {
-        return aXp();
+        return aZX();
     }
 
     @Override // com.baidu.swan.uuid.a.b
-    public boolean aXm() {
+    public boolean aZU() {
         return !new File(this.mContext.getFilesDir(), "libuuid.so").exists();
     }
 
@@ -39,7 +39,7 @@ public class e implements b<String> {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    private void xT(String str) {
+    private void yF(String str) {
         FileOutputStream fileOutputStream;
         File file = new File(this.mContext.getFilesDir(), "libuuid.so");
         boolean z = Build.VERSION.SDK_INT >= 24;
@@ -79,11 +79,11 @@ public class e implements b<String> {
         }
     }
 
-    private String aXp() {
+    private String aZX() {
         File file = new File(this.mContext.getFilesDir(), "libuuid.so");
         if (!file.exists()) {
             return null;
         }
-        return com.baidu.swan.uuid.b.a.q(file);
+        return com.baidu.swan.uuid.b.a.u(file);
     }
 }

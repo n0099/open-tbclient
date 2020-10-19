@@ -7,7 +7,7 @@ import java.util.Collections;
 import java.util.Comparator;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes12.dex */
+/* loaded from: classes7.dex */
 class k {
     /* JADX INFO: Access modifiers changed from: package-private */
     public static boolean a(JSONObject jSONObject, JSONObject jSONObject2, String str) {

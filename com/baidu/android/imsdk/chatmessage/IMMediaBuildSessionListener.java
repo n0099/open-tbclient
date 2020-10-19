@@ -12,7 +12,7 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
-/* loaded from: classes9.dex */
+/* loaded from: classes5.dex */
 public class IMMediaBuildSessionListener implements IGetUserIdentityListener, IGetPaInfosListener {
     private static final String TAG = "IMMediaBuildSessionListener";
     private Context mContext;

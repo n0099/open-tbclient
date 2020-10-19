@@ -13,23 +13,25 @@ public class H5Activity extends BaseActivity {
     public static int d = 0;
     public String b;
     private String f;
-    private a ohZ;
-    public boolean a = true;
+    private a oxs;
+
+    /* renamed from: a  reason: collision with root package name */
+    public boolean f4232a = true;
     public boolean c = false;
 
     @Override // com.kascend.chushou.view.base.BaseActivity
     public void a() {
         super.setContentView(a.h.activity_h5_page);
         a(getIntent());
-        e.d(this.v, "mH5Url = " + this.b + ", mCanBack = " + this.a);
+        e.d(this.v, "mH5Url = " + this.b + ", mCanBack = " + this.f4232a);
         a(this.f);
         H5Options h5Options = new H5Options();
         h5Options.c = this.c;
-        h5Options.b = this.a;
-        h5Options.a = this.b;
-        this.ohZ = a.a(h5Options);
+        h5Options.b = this.f4232a;
+        h5Options.f4233a = this.b;
+        this.oxs = a.a(h5Options);
         FragmentTransaction beginTransaction = getSupportFragmentManager().beginTransaction();
-        beginTransaction.add(a.f.fl_fragment, this.ohZ);
+        beginTransaction.add(a.f.fl_fragment, this.oxs);
         beginTransaction.commitAllowingStateLoss();
     }
 
@@ -43,9 +45,9 @@ public class H5Activity extends BaseActivity {
         super.onNewIntent(intent);
         e.i(this.v, "onNewIntent");
         a(intent);
-        if (this.ohZ != null) {
-            this.ohZ.a(this.a);
-            this.ohZ.a(this.b);
+        if (this.oxs != null) {
+            this.oxs.a(this.f4232a);
+            this.oxs.a(this.b);
         }
     }
 
@@ -70,8 +72,8 @@ public class H5Activity extends BaseActivity {
 
     @Override // android.support.v7.app.AppCompatActivity, android.app.Activity, android.view.KeyEvent.Callback
     public boolean onKeyDown(int i, KeyEvent keyEvent) {
-        if (i == 4 && this.ohZ != null && this.ohZ.a()) {
-            this.ohZ.a(i, keyEvent);
+        if (i == 4 && this.oxs != null && this.oxs.a()) {
+            this.oxs.a(i, keyEvent);
             return true;
         }
         return super.onKeyDown(i, keyEvent);
@@ -82,8 +84,8 @@ public class H5Activity extends BaseActivity {
     public void onActivityResult(int i, int i2, Intent intent) {
         e.d(this.v, "onActivityResult");
         super.onActivityResult(i, i2, intent);
-        if (this.ohZ != null) {
-            this.ohZ.onActivityResult(i, i2, intent);
+        if (this.oxs != null) {
+            this.oxs.onActivityResult(i, i2, intent);
         }
     }
 
@@ -93,6 +95,6 @@ public class H5Activity extends BaseActivity {
         if (this.b != null && this.b.contains("bizCode")) {
             d--;
         }
-        this.ohZ = null;
+        this.oxs = null;
     }
 }

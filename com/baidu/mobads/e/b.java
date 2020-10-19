@@ -6,22 +6,24 @@ import com.baidu.mobads.interfaces.error.XAdErrorCode;
 import com.baidu.mobads.interfaces.utils.IXAdLogger;
 import com.baidu.mobads.utils.XAdSDKFoundationFacade;
 import java.util.Map;
-/* loaded from: classes3.dex */
+/* loaded from: classes7.dex */
 public class b implements IXAdErrorCode {
-    protected final IXAdLogger a;
+
+    /* renamed from: a  reason: collision with root package name */
+    protected final IXAdLogger f2327a;
 
     public b(IXAdLogger iXAdLogger) {
-        this.a = iXAdLogger;
+        this.f2327a = iXAdLogger;
     }
 
     @Override // com.baidu.mobads.interfaces.error.IXAdErrorCode
     public void printErrorMessage(XAdErrorCode xAdErrorCode, String str) {
-        this.a.e(genCompleteErrorMessage(xAdErrorCode, str));
+        this.f2327a.e(genCompleteErrorMessage(xAdErrorCode, str));
     }
 
     @Override // com.baidu.mobads.interfaces.error.IXAdErrorCode
     public void printErrorMessage(String str, String str2, String str3) {
-        this.a.e(a(str, str2, str3));
+        this.f2327a.e(a(str, str2, str3));
     }
 
     @Override // com.baidu.mobads.interfaces.error.IXAdErrorCode

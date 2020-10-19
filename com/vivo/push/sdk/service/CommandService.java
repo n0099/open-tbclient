@@ -6,7 +6,7 @@ import android.os.IBinder;
 import android.text.TextUtils;
 import com.vivo.push.sdk.a;
 import com.vivo.push.util.p;
-/* loaded from: classes12.dex */
+/* loaded from: classes15.dex */
 public class CommandService extends Service {
     @Override // android.app.Service
     public void onCreate() {

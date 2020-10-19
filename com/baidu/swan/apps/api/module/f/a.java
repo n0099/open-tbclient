@@ -17,22 +17,22 @@ import com.baidu.swan.apps.v.f;
 import java.util.HashMap;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes10.dex */
 public class a extends d implements b.a {
     public a(@NonNull com.baidu.swan.apps.api.a.b bVar) {
         super(bVar);
     }
 
-    public com.baidu.swan.apps.api.c.b jN(String str) {
+    public com.baidu.swan.apps.api.c.b kz(String str) {
         if (DEBUG) {
             Log.d("Api-GetLocationAction", "handle: " + str);
         }
-        e aAs = e.aAs();
-        if (aAs == null) {
+        e aDb = e.aDb();
+        if (aDb == null) {
             return new com.baidu.swan.apps.api.c.b(1001, "SwanApp is null");
         }
-        Pair<com.baidu.swan.apps.api.c.b, JSONObject> aX = com.baidu.swan.apps.api.d.b.aX("Api-GetLocationAction", str);
-        com.baidu.swan.apps.api.c.b bVar = (com.baidu.swan.apps.api.c.b) aX.first;
+        Pair<com.baidu.swan.apps.api.c.b, JSONObject> bc = com.baidu.swan.apps.api.d.b.bc("Api-GetLocationAction", str);
+        com.baidu.swan.apps.api.c.b bVar = (com.baidu.swan.apps.api.c.b) bc.first;
         if (!bVar.isSuccess()) {
             if (DEBUG) {
                 c.e("Api-GetLocationAction", "parse fail");
@@ -40,20 +40,20 @@ public class a extends d implements b.a {
             }
             return bVar;
         }
-        final C0348a jP = C0348a.jP(((JSONObject) aX.second).toString());
-        if (jP == null || !jP.isValid()) {
+        final C0365a kB = C0365a.kB(((JSONObject) bc.second).toString());
+        if (kB == null || !kB.isValid()) {
             c.e("Api-GetLocationAction", "params is invalid");
             return new com.baidu.swan.apps.api.c.b(201, "params is invalid");
-        } else if (TextUtils.isEmpty(jP.bYJ)) {
+        } else if (TextUtils.isEmpty(kB.ckY)) {
             c.e("Api-GetLocationAction", "empty cb");
             return new com.baidu.swan.apps.api.c.b(201, "empty cb");
         } else {
-            aAs.aAD().b(getContext(), "mapp_location", new com.baidu.swan.apps.ap.e.b<h<b.d>>() { // from class: com.baidu.swan.apps.api.module.f.a.1
+            aDb.aDm().b(getContext(), "mapp_location", new com.baidu.swan.apps.ap.e.b<h<b.d>>() { // from class: com.baidu.swan.apps.api.module.f.a.1
                 /* JADX DEBUG: Method merged with bridge method */
                 @Override // com.baidu.swan.apps.ap.e.b
                 /* renamed from: a */
-                public void J(h<b.d> hVar) {
-                    a.this.a(hVar, jP, false);
+                public void M(h<b.d> hVar) {
+                    a.this.a(hVar, kB, false);
                 }
             });
             return new com.baidu.swan.apps.api.c.b(0);
@@ -61,45 +61,45 @@ public class a extends d implements b.a {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void a(h<b.d> hVar, C0348a c0348a, boolean z) {
+    public void a(h<b.d> hVar, C0365a c0365a, boolean z) {
         c.i("Api-GetLocationAction", "authorized result is " + hVar);
         if (com.baidu.swan.apps.setting.oauth.c.b(hVar)) {
-            b.acI().a(c0348a, this, z);
+            b.afu().a(c0365a, this, z);
             return;
         }
         int errorCode = hVar.getErrorCode();
-        a(c0348a.bYJ, new com.baidu.swan.apps.api.c.b(errorCode, com.baidu.swan.apps.setting.oauth.c.gL(errorCode)));
+        a(c0365a.ckY, new com.baidu.swan.apps.api.c.b(errorCode, com.baidu.swan.apps.setting.oauth.c.hi(errorCode)));
     }
 
     @Override // com.baidu.swan.apps.api.module.f.b.a
-    public void a(C0348a c0348a, com.baidu.swan.apps.scheme.actions.f.b bVar) {
+    public void a(C0365a c0365a, com.baidu.swan.apps.scheme.actions.f.b bVar) {
         if (DEBUG) {
             Log.d("Api-GetLocationAction", "convert info : " + bVar.toJSON());
         }
-        a(c0348a.bYJ, new com.baidu.swan.apps.api.c.b(0, "success", bVar.toJSON()));
+        a(c0365a.ckY, new com.baidu.swan.apps.api.c.b(0, "success", bVar.toJSON()));
     }
 
     @Override // com.baidu.swan.apps.api.module.f.b.a
-    public void a(C0348a c0348a, int i) {
+    public void a(C0365a c0365a, int i) {
         c.e("Api-GetLocationAction", "request location error code : " + i);
-        a(c0348a.bYJ, new com.baidu.swan.apps.api.c.b(1001, String.valueOf(i)));
+        a(c0365a.ckY, new com.baidu.swan.apps.api.c.b(1001, String.valueOf(i)));
     }
 
     @Override // com.baidu.swan.apps.api.module.f.b.a
-    public void a(C0348a c0348a, String str) {
-        a(c0348a.bYJ, new com.baidu.swan.apps.api.c.b(10005, "system deny"));
+    public void a(C0365a c0365a, String str) {
+        a(c0365a.ckY, new com.baidu.swan.apps.api.c.b(10005, "system deny"));
     }
 
-    public com.baidu.swan.apps.api.c.b jO(String str) {
+    public com.baidu.swan.apps.api.c.b kA(String str) {
         if (DEBUG) {
             Log.d("Api-GetLocationAction", "handle: " + str);
         }
-        e aAs = e.aAs();
-        if (aAs == null) {
+        e aDb = e.aDb();
+        if (aDb == null) {
             return new com.baidu.swan.apps.api.c.b(1001, "SwanApp is null");
         }
-        Pair<com.baidu.swan.apps.api.c.b, JSONObject> aX = com.baidu.swan.apps.api.d.b.aX("Api-GetLocationAction", str);
-        com.baidu.swan.apps.api.c.b bVar = (com.baidu.swan.apps.api.c.b) aX.first;
+        Pair<com.baidu.swan.apps.api.c.b, JSONObject> bc = com.baidu.swan.apps.api.d.b.bc("Api-GetLocationAction", str);
+        com.baidu.swan.apps.api.c.b bVar = (com.baidu.swan.apps.api.c.b) bc.first;
         if (!bVar.isSuccess()) {
             if (DEBUG) {
                 c.e("Api-GetLocationAction", "parse fail");
@@ -107,28 +107,28 @@ public class a extends d implements b.a {
             }
             return bVar;
         }
-        final String optString = ((JSONObject) aX.second).optString("cb");
+        final String optString = ((JSONObject) bc.second).optString("cb");
         if (TextUtils.isEmpty(optString)) {
             return new com.baidu.swan.apps.api.c.b(201, "empty cb");
         }
-        aAs.aAD().b(getContext(), "mapp_location", new com.baidu.swan.apps.ap.e.b<h<b.d>>() { // from class: com.baidu.swan.apps.api.module.f.a.2
+        aDb.aDm().b(getContext(), "mapp_location", new com.baidu.swan.apps.ap.e.b<h<b.d>>() { // from class: com.baidu.swan.apps.api.module.f.a.2
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.swan.apps.ap.e.b
             /* renamed from: a */
-            public void J(h<b.d> hVar) {
+            public void M(h<b.d> hVar) {
                 if (!com.baidu.swan.apps.setting.oauth.c.b(hVar)) {
                     int errorCode = hVar.getErrorCode();
-                    a.this.a(optString, new com.baidu.swan.apps.api.c.b(errorCode, com.baidu.swan.apps.setting.oauth.c.gL(errorCode)));
-                } else if (!ak.aFT()) {
-                    a.this.a(optString, new com.baidu.swan.apps.api.c.b(10005, com.baidu.swan.apps.setting.oauth.c.gL(10005)));
+                    a.this.a(optString, new com.baidu.swan.apps.api.c.b(errorCode, com.baidu.swan.apps.setting.oauth.c.hi(errorCode)));
+                } else if (!ak.aIC()) {
+                    a.this.a(optString, new com.baidu.swan.apps.api.c.b(10005, com.baidu.swan.apps.setting.oauth.c.hi(10005)));
                 } else {
                     a.this.a(optString, new com.baidu.swan.apps.api.c.b(0));
-                    com.baidu.swan.apps.t.a.apM().a(new d.a() { // from class: com.baidu.swan.apps.api.module.f.a.2.1
+                    com.baidu.swan.apps.t.a.asy().a(new d.a() { // from class: com.baidu.swan.apps.api.module.f.a.2.1
                         @Override // com.baidu.swan.apps.t.b.d.a
                         public void a(com.baidu.swan.apps.scheme.actions.f.b bVar2) {
                             HashMap hashMap = new HashMap();
                             hashMap.put("data", bVar2.toJSON().toString());
-                            f.asJ().b(new com.baidu.swan.apps.event.a.b("locationChange", hashMap));
+                            f.avu().b(new com.baidu.swan.apps.event.a.b("locationChange", hashMap));
                         }
 
                         @Override // com.baidu.swan.apps.t.b.d.a
@@ -141,35 +141,35 @@ public class a extends d implements b.a {
         return new com.baidu.swan.apps.api.c.b(0);
     }
 
-    public com.baidu.swan.apps.api.c.b acH() {
-        com.baidu.swan.apps.t.a.apM().aqV();
+    public com.baidu.swan.apps.api.c.b aft() {
+        com.baidu.swan.apps.t.a.asy().atH();
         return new com.baidu.swan.apps.api.c.b(0);
     }
 
     /* renamed from: com.baidu.swan.apps.api.module.f.a$a  reason: collision with other inner class name */
-    /* loaded from: classes3.dex */
-    public static class C0348a {
-        boolean bYI;
-        public String bYJ;
+    /* loaded from: classes10.dex */
+    public static class C0365a {
+        boolean ckX;
+        public String ckY;
         public String mType;
 
-        public static C0348a jP(String str) {
+        public static C0365a kB(String str) {
             if (TextUtils.isEmpty(str)) {
                 return null;
             }
-            C0348a c0348a = new C0348a();
+            C0365a c0365a = new C0365a();
             try {
                 JSONObject jSONObject = new JSONObject(str);
-                c0348a.mType = jSONObject.optString("type");
-                if (TextUtils.isEmpty(c0348a.mType)) {
-                    c0348a.mType = CoordinateType.WGS84;
+                c0365a.mType = jSONObject.optString("type");
+                if (TextUtils.isEmpty(c0365a.mType)) {
+                    c0365a.mType = CoordinateType.WGS84;
                 }
-                c0348a.bYI = jSONObject.optBoolean("altitude");
-                c0348a.bYJ = jSONObject.optString("cb");
-                if (TextUtils.isEmpty(c0348a.bYJ)) {
+                c0365a.ckX = jSONObject.optBoolean("altitude");
+                c0365a.ckY = jSONObject.optString("cb");
+                if (TextUtils.isEmpty(c0365a.ckY)) {
                     return null;
                 }
-                return c0348a;
+                return c0365a;
             } catch (JSONException e) {
                 if (com.baidu.swan.apps.api.a.d.DEBUG) {
                     Log.e("Api-GetLocationAction", "parse failed: " + Log.getStackTraceString(e));
@@ -180,7 +180,7 @@ public class a extends d implements b.a {
         }
 
         public boolean isValid() {
-            return (TextUtils.equals(this.mType, CoordinateType.WGS84) || TextUtils.equals(this.mType, "gcj02") || TextUtils.equals(this.mType, "bd09ll")) && !TextUtils.isEmpty(this.bYJ);
+            return (TextUtils.equals(this.mType, CoordinateType.WGS84) || TextUtils.equals(this.mType, "gcj02") || TextUtils.equals(this.mType, "bd09ll")) && !TextUtils.isEmpty(this.ckY);
         }
     }
 }

@@ -1,24 +1,24 @@
 package com.baidu.live.liveroom.f;
 /* loaded from: classes4.dex */
 public class c {
-    private static volatile c bhi = null;
-    private b bhj = null;
+    private static volatile c bkY = null;
+    private b bkZ = null;
 
     private c() {
     }
 
-    public static c LZ() {
-        if (bhi == null) {
+    public static c Ne() {
+        if (bkY == null) {
             synchronized (c.class) {
-                if (bhi == null) {
-                    bhi = new c();
+                if (bkY == null) {
+                    bkY = new c();
                 }
             }
         }
-        return bhi;
+        return bkY;
     }
 
-    public b Ma() {
-        return this.bhj;
+    public b Nf() {
+        return this.bkZ;
     }
 }

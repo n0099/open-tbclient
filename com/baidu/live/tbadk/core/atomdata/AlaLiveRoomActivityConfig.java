@@ -78,6 +78,8 @@ public class AlaLiveRoomActivityConfig extends IntentConfig {
     public static final String LIVE_INFO = "live_info_core";
     public static final String LIVE_IS_HOST = "live_is_host";
     public static final String LIVE_SHOW_GITE_PANEL = "open_giftlist";
+    public static final String MIX_EXTRA_PARAMS = "mix_extra_params";
+    public static final String MIX_ROOM_ID = "mix_room_id";
     public static final String SDK_EXTRA_BACK_FLOATING = "back_suspense";
     public static final String SDK_EXTRA_COVER_URL = "cover";
     public static final String SDK_EXTRA_ENTER_FROM_TYPE = "live_enter_type";

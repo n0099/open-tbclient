@@ -5,7 +5,7 @@ import android.graphics.drawable.Drawable;
 import android.support.annotation.DrawableRes;
 import android.util.LongSparseArray;
 import com.baidu.searchbox.common.runtime.AppRuntime;
-/* loaded from: classes18.dex */
+/* loaded from: classes15.dex */
 public class PreloadUIResUtil {
     private static final boolean DEBUG = false;
     public static final String TAG = "PreloadUIResUtil";

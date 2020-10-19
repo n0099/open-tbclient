@@ -1,4 +1,4 @@
 package com.baidu.audiorecorder.lib.voice;
-/* loaded from: classes23.dex */
+/* loaded from: classes24.dex */
 public interface f {
 }

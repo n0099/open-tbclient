@@ -4,7 +4,7 @@ import android.util.Pair;
 import java.io.RandomAccessFile;
 import java.nio.ByteBuffer;
 import java.nio.ByteOrder;
-/* loaded from: classes6.dex */
+/* loaded from: classes11.dex */
 abstract class a {
     private static Pair<ByteBuffer, Long> a(RandomAccessFile randomAccessFile, int i) {
         if (i < 0 || i > 65535) {
@@ -69,8 +69,8 @@ abstract class a {
         if (randomAccessFile.length() < 22) {
             return null;
         }
-        Pair<ByteBuffer, Long> a = a(randomAccessFile, 0);
-        return a == null ? a(randomAccessFile, 65535) : a;
+        Pair<ByteBuffer, Long> a2 = a(randomAccessFile, 0);
+        return a2 == null ? a(randomAccessFile, 65535) : a2;
     }
 
     private static int i(ByteBuffer byteBuffer) {

@@ -1,7 +1,7 @@
 package com.baidu.sumeru.universalimageloader.cache.memory;
 
 import java.util.Collection;
-/* loaded from: classes9.dex */
+/* loaded from: classes12.dex */
 public interface MemoryCacheAware<K, V> {
     void clear();
 

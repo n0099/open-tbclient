@@ -2,63 +2,65 @@ package com.baidu.platform.comapi.wnplatform.e.a;
 
 import com.xiaomi.mipush.sdk.Constants;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes7.dex */
 public class a {
-    private StringBuilder a = new StringBuilder();
+
+    /* renamed from: a  reason: collision with root package name */
+    private StringBuilder f3104a = new StringBuilder();
     private boolean b = false;
 
     public a a() {
         d();
-        this.a.append("{");
+        this.f3104a.append("{");
         e();
         return this;
     }
 
     public a b() {
-        this.a.append("}");
+        this.f3104a.append("}");
         f();
         return this;
     }
 
     public a a(String str) {
         d();
-        this.a.append(JSONObject.quote(str));
-        this.a.append(":");
+        this.f3104a.append(JSONObject.quote(str));
+        this.f3104a.append(":");
         e();
         return this;
     }
 
     public a a(boolean z) {
         d();
-        this.a.append(z);
+        this.f3104a.append(z);
         f();
         return this;
     }
 
     public a a(int i) {
         d();
-        this.a.append(i);
+        this.f3104a.append(i);
         f();
         return this;
     }
 
     public a a(long j) {
         d();
-        this.a.append(j);
+        this.f3104a.append(j);
         f();
         return this;
     }
 
     public a a(double d) {
         d();
-        this.a.append(String.format("%f", Double.valueOf(d)));
+        this.f3104a.append(String.format("%f", Double.valueOf(d)));
         f();
         return this;
     }
 
     public a b(String str) {
         d();
-        this.a.append(JSONObject.quote(str));
+        this.f3104a.append(JSONObject.quote(str));
         f();
         return this;
     }
@@ -90,7 +92,7 @@ public class a {
 
     private void d() {
         if (this.b) {
-            this.a.append(Constants.ACCEPT_TIME_SEPARATOR_SP);
+            this.f3104a.append(Constants.ACCEPT_TIME_SEPARATOR_SP);
         }
     }
 
@@ -103,7 +105,7 @@ public class a {
     }
 
     public String c() {
-        return this.a.toString();
+        return this.f3104a.toString();
     }
 
     public String toString() {

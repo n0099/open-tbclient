@@ -20,7 +20,7 @@ import java.io.OutputStream;
 import java.io.RandomAccessFile;
 import java.net.HttpURLConnection;
 import java.util.Set;
-/* loaded from: classes24.dex */
+/* loaded from: classes12.dex */
 public class HttpManager {
     private static final String BOUNDARY;
     private static final String END_MP_BOUNDARY;

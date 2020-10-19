@@ -12,7 +12,7 @@ import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-/* loaded from: classes23.dex */
+/* loaded from: classes17.dex */
 public final class GsonBuilder {
     private boolean complexMapKeySerialization;
     private String datePattern;
@@ -32,7 +32,7 @@ public final class GsonBuilder {
     private int timeStyle;
 
     public GsonBuilder() {
-        this.excluder = Excluder.nMW;
+        this.excluder = Excluder.ocn;
         this.longSerializationPolicy = LongSerializationPolicy.DEFAULT;
         this.fieldNamingPolicy = FieldNamingPolicy.IDENTITY;
         this.instanceCreators = new HashMap();
@@ -51,7 +51,7 @@ public final class GsonBuilder {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public GsonBuilder(Gson gson) {
-        this.excluder = Excluder.nMW;
+        this.excluder = Excluder.ocn;
         this.longSerializationPolicy = LongSerializationPolicy.DEFAULT;
         this.fieldNamingPolicy = FieldNamingPolicy.IDENTITY;
         this.instanceCreators = new HashMap();
@@ -85,12 +85,12 @@ public final class GsonBuilder {
     }
 
     public GsonBuilder setVersion(double d) {
-        this.excluder = this.excluder.K(d);
+        this.excluder = this.excluder.N(d);
         return this;
     }
 
     public GsonBuilder excludeFieldsWithModifiers(int... iArr) {
-        this.excluder = this.excluder.r(iArr);
+        this.excluder = this.excluder.q(iArr);
         return this;
     }
 
@@ -100,7 +100,7 @@ public final class GsonBuilder {
     }
 
     public GsonBuilder excludeFieldsWithoutExposeAnnotation() {
-        this.excluder = this.excluder.ebg();
+        this.excluder = this.excluder.eeR();
         return this;
     }
 
@@ -115,7 +115,7 @@ public final class GsonBuilder {
     }
 
     public GsonBuilder disableInnerClassSerialization() {
-        this.excluder = this.excluder.ebf();
+        this.excluder = this.excluder.eeQ();
         return this;
     }
 

@@ -6,13 +6,15 @@ import com.baidu.mobads.interfaces.utils.IXAdURIUitls;
 import com.baidu.mobads.utils.XAdSDKFoundationFacade;
 import java.util.HashMap;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes3.dex */
+/* loaded from: classes7.dex */
 public class l implements Runnable {
-    final /* synthetic */ k a;
+
+    /* renamed from: a  reason: collision with root package name */
+    final /* synthetic */ k f2339a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public l(k kVar) {
-        this.a = kVar;
+        this.f2339a = kVar;
     }
 
     @Override // java.lang.Runnable
@@ -23,8 +25,8 @@ public class l implements Runnable {
         com.baidu.mobads.openad.d.a aVar3;
         try {
             IXAdURIUitls uRIUitls = XAdSDKFoundationFacade.getInstance().getURIUitls();
-            double d = this.a.a ? g.b.a : 0.0d;
-            if (this.a.a) {
+            double d = this.f2339a.f2338a ? g.b.f2330a : 0.0d;
+            if (this.f2339a.f2338a) {
             }
             m mVar = new m(this, d);
             HashMap<String, String> hashMap = new HashMap<>();
@@ -35,12 +37,12 @@ public class l implements Runnable {
             str = g.i;
             com.baidu.mobads.openad.d.c cVar = new com.baidu.mobads.openad.d.c(uRIUitls.addParameters(str, hashMap), "");
             cVar.e = 1;
-            this.a.b.j = new com.baidu.mobads.openad.d.a();
-            aVar = this.a.b.j;
+            this.f2339a.b.j = new com.baidu.mobads.openad.d.a();
+            aVar = this.f2339a.b.j;
             aVar.addEventListener("URLLoader.Load.Complete", mVar);
-            aVar2 = this.a.b.j;
+            aVar2 = this.f2339a.b.j;
             aVar2.addEventListener("URLLoader.Load.Error", mVar);
-            aVar3 = this.a.b.j;
+            aVar3 = this.f2339a.b.j;
             aVar3.a(cVar);
         } catch (Exception e) {
         }

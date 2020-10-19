@@ -11,7 +11,7 @@ import com.baidu.fsg.face.liveness.dto.LivenessRecogDTO;
 import java.io.UnsupportedEncodingException;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes16.dex */
+/* loaded from: classes17.dex */
 public class e extends l {
     private String b;
     private String c;
@@ -41,7 +41,7 @@ public class e extends l {
         arrayList.add(new RestNameValuePair("imgdigests", this.b));
         String randomString = RandomUtils.getRandomString(4096);
         try {
-            arrayList.add(new RestNameValuePair("image", Base64Utils.encodeToString(SafeUtils.xor(this.a, randomString).getBytes("UTF-8"))));
+            arrayList.add(new RestNameValuePair("image", Base64Utils.encodeToString(SafeUtils.xor(this.f1713a, randomString).getBytes("UTF-8"))));
         } catch (UnsupportedEncodingException e) {
             e.printStackTrace();
         }

@@ -5,7 +5,7 @@ import android.content.Context;
 import com.baidu.vi.VIContext;
 import java.util.concurrent.CountDownLatch;
 import java.util.concurrent.atomic.AtomicBoolean;
-/* loaded from: classes3.dex */
+/* loaded from: classes7.dex */
 public class b {
     private static Context d;
     private static a e;
@@ -13,7 +13,9 @@ public class b {
     private static boolean h;
     private static boolean i;
     private static boolean j;
-    private static final AtomicBoolean a = new AtomicBoolean(false);
+
+    /* renamed from: a  reason: collision with root package name */
+    private static final AtomicBoolean f2818a = new AtomicBoolean(false);
     private static final AtomicBoolean b = new AtomicBoolean(false);
     private static final AtomicBoolean c = new AtomicBoolean(false);
     private static final CountDownLatch f = new CountDownLatch(1);
@@ -38,11 +40,11 @@ public class b {
 
     public static void b() {
         while (true) {
-            boolean z = a.get();
+            boolean z = f2818a.get();
             if (z) {
                 return;
             }
-            if (a.compareAndSet(z, true)) {
+            if (f2818a.compareAndSet(z, true)) {
                 e = new a();
                 if (!e.a(d)) {
                     throw new RuntimeException("engine init failed");
@@ -59,7 +61,7 @@ public class b {
             }
             if (c.compareAndSet(z, true)) {
                 try {
-                    com.baidu.platform.comapi.d.b.a.a();
+                    com.baidu.platform.comapi.d.b.f2857a.a();
                 } finally {
                     f.countDown();
                 }
@@ -69,7 +71,7 @@ public class b {
 
     public static void d() {
         e.b();
-        a.set(false);
+        f2818a.set(false);
     }
 
     public static Context e() {

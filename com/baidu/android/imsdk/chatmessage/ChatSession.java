@@ -9,7 +9,7 @@ import com.baidu.android.imsdk.utils.NoProGuard;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import org.json.JSONObject;
-/* loaded from: classes9.dex */
+/* loaded from: classes5.dex */
 public final class ChatSession implements Parcelable, NoProGuard, Cloneable {
     public static final Parcelable.Creator<ChatSession> CREATOR = new Parcelable.Creator<ChatSession>() { // from class: com.baidu.android.imsdk.chatmessage.ChatSession.1
         /* JADX DEBUG: Method merged with bridge method */
@@ -522,7 +522,7 @@ public final class ChatSession implements Parcelable, NoProGuard, Cloneable {
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     /* renamed from: clone */
-    public ChatSession m16clone() throws CloneNotSupportedException {
+    public ChatSession m15clone() throws CloneNotSupportedException {
         return (ChatSession) super.clone();
     }
 

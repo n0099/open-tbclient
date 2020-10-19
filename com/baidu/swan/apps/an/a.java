@@ -1,18 +1,18 @@
 package com.baidu.swan.apps.an;
 
 import android.text.TextUtils;
-/* loaded from: classes3.dex */
+/* loaded from: classes10.dex */
 public final class a {
-    private static String dcy;
+    private static String doH;
 
-    public static String sI(String str) {
-        return String.format("%s %s", str, aES());
+    public static String tu(String str) {
+        return String.format("%s %s", str, aHB());
     }
 
-    public static String aES() {
-        if (TextUtils.isEmpty(dcy)) {
-            dcy = b.aES();
+    public static String aHB() {
+        if (TextUtils.isEmpty(doH)) {
+            doH = b.aHB();
         }
-        return dcy;
+        return doH;
     }
 }

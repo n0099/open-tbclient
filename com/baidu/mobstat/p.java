@@ -4,7 +4,7 @@ import android.content.ContentValues;
 import android.database.Cursor;
 import com.baidu.android.imsdk.IMConstants;
 import java.util.ArrayList;
-/* loaded from: classes15.dex */
+/* loaded from: classes17.dex */
 class p extends j {
     public p() {
         super("app_change3", "Create table if not exists app_change3(_id Integer primary key AUTOINCREMENT,time VARCHAR(50),content TEXT);");
@@ -12,12 +12,12 @@ class p extends j {
 
     @Override // com.baidu.mobstat.j
     public ArrayList<i> a(int i, int i2) {
-        Cursor a = a("time", i, i2);
-        ArrayList<i> a2 = a(a);
-        if (a != null) {
-            a.close();
+        Cursor a2 = a("time", i, i2);
+        ArrayList<i> a3 = a(a2);
+        if (a2 != null) {
+            a2.close();
         }
-        return a2;
+        return a3;
     }
 
     @Override // com.baidu.mobstat.j

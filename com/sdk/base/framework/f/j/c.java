@@ -2,15 +2,17 @@ package com.sdk.base.framework.f.j;
 
 import com.baidu.android.imsdk.internal.Constants;
 import com.sdk.base.framework.c.f;
-/* loaded from: classes5.dex */
+/* loaded from: classes16.dex */
 public final class c {
-    private static final char[] a;
+
+    /* renamed from: a  reason: collision with root package name */
+    private static final char[] f4507a;
     private static final byte[] b;
 
     static {
         c.class.getName();
         Boolean.valueOf(f.b);
-        a = new char[]{'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z', 'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z', '0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '+', '/'};
+        f4507a = new char[]{'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z', 'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z', '0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '+', '/'};
         b = new byte[]{-1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, 62, -1, 63, -1, 63, 52, 53, 54, 55, 56, 57, 58, 59, 60, 61, -1, -1, -1, 0, -1, -1, -1, 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, Constants.GZIP_CAST_TYPE, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, -1, -1, -1, -1, -1, -1, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46, 47, 48, 49, 50, 51, -1, -1, -1, -1, -1};
     }
 
@@ -23,10 +25,10 @@ public final class c {
         for (int i2 = 0; i2 < bArr.length; i2++) {
             i |= (bArr[i2] << (16 - ((i2 % 3) << 3))) & (255 << (16 - ((i2 % 3) << 3)));
             if (i2 % 3 == 2 || i2 == bArr.length - 1) {
-                stringBuffer.append(a[(16515072 & i) >>> 18]);
-                stringBuffer.append(a[(258048 & i) >>> 12]);
-                stringBuffer.append(a[(i & 4032) >>> 6]);
-                stringBuffer.append(a[i & 63]);
+                stringBuffer.append(f4507a[(16515072 & i) >>> 18]);
+                stringBuffer.append(f4507a[(258048 & i) >>> 12]);
+                stringBuffer.append(f4507a[(i & 4032) >>> 6]);
+                stringBuffer.append(f4507a[i & 63]);
                 i = 0;
             }
         }

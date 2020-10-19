@@ -5,7 +5,7 @@ import com.baidu.android.imsdk.account.AccountManager;
 import com.baidu.android.imsdk.utils.LogUtils;
 import com.baidu.android.imsdk.utils.Utility;
 import java.util.Random;
-/* loaded from: classes9.dex */
+/* loaded from: classes5.dex */
 public final class Constants {
     public static final int ACK_MAX_SIZE = 20;
     public static final String ACTION_METHOD = "com.baidu.android.imsdk.action.METHOD";
@@ -44,6 +44,8 @@ public final class Constants {
     public static final String ERROR_MSG_HTTP_RESPONSE_ERROR = "http response is error!";
     public static final String ERROR_MSG_INTERNAL_DB_ERROR = "db operation error!";
     public static final String ERROR_MSG_JSON_PARSE_EXCEPTION = "parse json exception!";
+    public static final String ERROR_MSG_MD5_EMPTY = "byte empty";
+    public static final String ERROR_MSG_MD5_NULL = "byte null";
     public static final String ERROR_MSG_NETWORK_ERROR = "Network error!";
     public static final String ERROR_MSG_NOT_MEDIA_ROLE_ERROR = "not amedia role";
     public static final String ERROR_MSG_PARAMETER_ERROR = "Parameter error!";
@@ -159,7 +161,7 @@ public final class Constants {
     public static final String KEY_USER_SETTING_NOT_CONCERNED = "user_setting_not_concerned";
     public static final String KEY_VCODE = "imsdk_product_vcode";
     public static final String KEY_ZID = "imsdk_product_zid";
-    public static final String LITTLE_VERSION = "5";
+    public static final String LITTLE_VERSION = "6";
     public static final int LOGIN_STATE_LOGIN = 3;
     public static final int LOGIN_STATE_LOGINING = 1;
     public static final int LOGIN_STATE_LOGIN_FAILED = 2;
@@ -200,6 +202,7 @@ public final class Constants {
     public static final int METHOD_IM_NOTIFY = 96;
     public static final int METHOD_IM_QUERY_PRESENCE = 21;
     public static final int METHOD_IM_QUIT_CAST = 202;
+    public static final int METHOD_IM_RTC_NOTIFY_MSG = 231;
     public static final int METHOD_IM_SCRIBE_PA = 100;
     public static final int METHOD_IM_SEARCH_PA = 103;
     public static final int METHOD_IM_SEND_GROUP_MSG = 65;
@@ -216,7 +219,7 @@ public final class Constants {
     public static final int METHOD_MEDIA_NOTIFY = 226;
     public static final int METHOD_SEND_USER_MSG = 1048578;
     public static final int METHOD_SYNC_DIALOG = 94;
-    public static final String MIDDLE_VERSION = "2";
+    public static final String MIDDLE_VERSION = "3";
     public static final int MSG_NOTIFY = 1;
     public static final int MSG_NOT_NOTIFY = 0;
     public static final int NOT_CLEAR_AFTER_LOGOUT = 0;
@@ -235,8 +238,10 @@ public final class Constants {
     public static final int PA_CMD_MSG_SEND_IDLE = 1;
     public static final int PA_NOT_ACCEPT_PUSH = 0;
     public static final String PREF_COMMON_DATA = "baidu_imsdk_common_data";
+    public static final String PREF_RELIABLE_MSG_DATA = "imsdk_reliable_msg_data";
     public static final int RECORD_TO_TOP = 0;
     public static final int RECPRD_UPDATE_CONTENT = 1;
+    public static final String RELIABLE_MAX_MSGINFO_KEY = "reliable_msg_info";
     public static final int SAVE_TO_DB = 1;
     public static final String SETTING_DEBUG_MODE = "com.baidu.android.imsdk.Settings.debug_mode";
     public static final byte SHORT_PING_CMD_TYPE = 101;
@@ -269,6 +274,10 @@ public final class Constants {
     public static final String USERINFO_PREFIX = "USERINFO";
     public static final int USER_SETTING_UK_NOT_CONCERNED = -2;
     public static final String ZHIDA_SP_PRE = "prefix_crm_zhida_";
+    public static final Long EXPIRED_TIME = 604800000L;
+    public static String RELIABLE_MSGID = "msgid";
+    public static String RELIABLE_CASTID = "castid";
+    public static String RELIABLE_UPDATTIME = "updatetime";
     public static long SYNC_USERS_PROFILE_RANDTIME = new Random().nextInt(12) + 12;
     public static final int SOCKET_PORT_SSL = 443;
     public static int URL_SOCKET_PORT_OL_SSL = SOCKET_PORT_SSL;

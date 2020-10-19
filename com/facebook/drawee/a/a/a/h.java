@@ -2,63 +2,63 @@ package com.facebook.drawee.a.a.a;
 
 import com.facebook.imagepipeline.request.ImageRequest;
 import javax.annotation.Nullable;
-/* loaded from: classes15.dex */
+/* loaded from: classes18.dex */
 public class h {
-    private boolean Ut;
+    private boolean UM;
     private boolean mIsCanceled;
     @Nullable
     private String mRequestId;
     @Nullable
-    private String nwT;
+    private String nMm;
     @Nullable
-    private Object nwV;
+    private Object nMo;
     @Nullable
-    private ImageRequest nwW;
+    private ImageRequest nMp;
     @Nullable
-    private com.facebook.imagepipeline.g.f nwX;
-    private boolean nxg;
-    private long nwY = -1;
-    private long nwZ = -1;
-    private long nxa = -1;
-    private long nxb = -1;
-    private long nxc = -1;
-    private long nxd = -1;
-    private long nxe = -1;
-    private int nxf = -1;
-    private int nxh = -1;
-    private int nxi = -1;
-    private int nxr = -1;
+    private com.facebook.imagepipeline.g.f nMq;
+    private boolean nMz;
+    private long nMr = -1;
+    private long nMs = -1;
+    private long nMt = -1;
+    private long nMu = -1;
+    private long nMv = -1;
+    private long nMw = -1;
+    private long nMx = -1;
+    private int nMy = -1;
+    private int nMA = -1;
+    private int nMB = -1;
+    private int nMK = -1;
 
     public void reset() {
         this.mRequestId = null;
-        this.nwW = null;
-        this.nwV = null;
-        this.nwX = null;
-        this.nwY = -1L;
-        this.nxa = -1L;
-        this.nxb = -1L;
-        this.nxc = -1L;
-        this.nxd = -1L;
-        this.nxe = -1L;
-        this.nxf = -1;
+        this.nMp = null;
+        this.nMo = null;
+        this.nMq = null;
+        this.nMr = -1L;
+        this.nMt = -1L;
+        this.nMu = -1L;
+        this.nMv = -1L;
+        this.nMw = -1L;
+        this.nMx = -1L;
+        this.nMy = -1;
         this.mIsCanceled = false;
-        this.Ut = false;
-        this.nxg = false;
-        this.nxh = -1;
-        this.nxi = -1;
-        this.nxr = -1;
+        this.UM = false;
+        this.nMz = false;
+        this.nMA = -1;
+        this.nMB = -1;
+        this.nMK = -1;
     }
 
-    public void LE(int i) {
-        this.nxr = i;
+    public void Mk(int i) {
+        this.nMK = i;
     }
 
-    public int dTM() {
-        return this.nxr;
+    public int dXx() {
+        return this.nMK;
     }
 
-    public void Vb(@Nullable String str) {
-        this.nwT = str;
+    public void VP(@Nullable String str) {
+        this.nMm = str;
     }
 
     public void setRequestId(@Nullable String str) {
@@ -66,70 +66,70 @@ public class h {
     }
 
     public void setImageRequest(@Nullable ImageRequest imageRequest) {
-        this.nwW = imageRequest;
+        this.nMp = imageRequest;
     }
 
-    public void bd(@Nullable Object obj) {
-        this.nwV = obj;
+    public void bg(@Nullable Object obj) {
+        this.nMo = obj;
     }
 
-    public void gA(long j) {
-        this.nwY = j;
+    public void gS(long j) {
+        this.nMr = j;
     }
 
-    public void gB(long j) {
-        this.nwZ = j;
+    public void gT(long j) {
+        this.nMs = j;
     }
 
-    public void gC(long j) {
-        this.nxa = j;
+    public void gU(long j) {
+        this.nMt = j;
     }
 
-    public void gD(long j) {
-        this.nxb = j;
+    public void gV(long j) {
+        this.nMu = j;
     }
 
-    public void gE(long j) {
-        this.nxc = j;
+    public void gW(long j) {
+        this.nMv = j;
     }
 
-    public void gF(long j) {
-        this.nxd = j;
+    public void gX(long j) {
+        this.nMw = j;
     }
 
-    public void gG(long j) {
-        this.nxe = j;
+    public void gY(long j) {
+        this.nMx = j;
     }
 
-    public void LF(int i) {
-        this.nxf = i;
+    public void Ml(int i) {
+        this.nMy = i;
     }
 
-    public void xZ(boolean z) {
+    public void yG(boolean z) {
         this.mIsCanceled = z;
     }
 
-    public void ya(boolean z) {
-        this.Ut = z;
+    public void yH(boolean z) {
+        this.UM = z;
     }
 
-    public void yb(boolean z) {
-        this.nxg = z;
+    public void yI(boolean z) {
+        this.nMz = z;
     }
 
     public void a(@Nullable com.facebook.imagepipeline.g.f fVar) {
-        this.nwX = fVar;
+        this.nMq = fVar;
     }
 
-    public void LG(int i) {
-        this.nxh = i;
+    public void Mm(int i) {
+        this.nMA = i;
     }
 
-    public void LH(int i) {
-        this.nxi = i;
+    public void Mn(int i) {
+        this.nMB = i;
     }
 
-    public e dTN() {
-        return new e(this.nwT, this.mRequestId, this.nwW, this.nwV, this.nwX, this.nwY, this.nwZ, this.nxa, this.nxb, this.nxc, this.nxd, this.nxe, this.nxf, this.mIsCanceled, this.Ut, this.nxg, this.nxh, this.nxi);
+    public e dXy() {
+        return new e(this.nMm, this.mRequestId, this.nMp, this.nMo, this.nMq, this.nMr, this.nMs, this.nMt, this.nMu, this.nMv, this.nMw, this.nMx, this.nMy, this.mIsCanceled, this.UM, this.nMz, this.nMA, this.nMB);
     }
 }

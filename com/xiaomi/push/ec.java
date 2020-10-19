@@ -3,9 +3,11 @@ package com.xiaomi.push;
 import android.content.Context;
 import android.text.TextUtils;
 import com.xiaomi.mipush.sdk.Constants;
-/* loaded from: classes9.dex */
+/* loaded from: classes12.dex */
 public class ec extends ed {
-    public static String a = "";
+
+    /* renamed from: a  reason: collision with root package name */
+    public static String f4871a = "";
     public static String b = "";
 
     public ec(Context context, int i) {
@@ -32,23 +34,23 @@ public class ec extends ed {
 
     @Override // com.xiaomi.push.ed, com.xiaomi.push.ai.a
     /* renamed from: a */
-    public int mo166a() {
+    public int mo167a() {
         return 12;
     }
 
     @Override // com.xiaomi.push.ed, com.xiaomi.push.ai.a
     /* renamed from: a */
-    public ho mo166a() {
+    public ho mo167a() {
         return ho.BroadcastAction;
     }
 
     @Override // com.xiaomi.push.ed, com.xiaomi.push.ai.a
     /* renamed from: a */
-    public String mo166a() {
+    public String mo167a() {
         String str = "";
-        if (!TextUtils.isEmpty(a)) {
-            str = "" + a(dv.f229a, a);
-            a = "";
+        if (!TextUtils.isEmpty(f4871a)) {
+            str = "" + a(dv.f230a, f4871a);
+            f4871a = "";
         }
         if (TextUtils.isEmpty(b)) {
             return str;

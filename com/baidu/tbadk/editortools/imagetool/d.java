@@ -8,10 +8,10 @@ import com.baidu.tieba.R;
 public class d extends m {
     public d(Context context, int i) {
         super(context, TbadkCoreApplication.getInst().getString(R.string.editor_image), 10, i);
-        this.eNF = R.drawable.icon_pure_post_image24_svg;
-        this.eNG = R.drawable.icon_mask_image_selection24_svg;
-        this.eNI = true;
-        this.eNK = false;
-        this.eNO = new int[]{14};
+        this.eZM = R.drawable.icon_pure_post_image24_svg;
+        this.eZN = R.drawable.icon_mask_image_selection24_svg;
+        this.eZP = true;
+        this.eZR = false;
+        this.eZV = new int[]{14};
     }
 }

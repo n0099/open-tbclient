@@ -10,7 +10,7 @@ import java.util.Collections;
 import java.util.Iterator;
 import java.util.List;
 import org.apache.http.NameValuePair;
-/* loaded from: classes9.dex */
+/* loaded from: classes12.dex */
 class cr {
     public static String a(String str) {
         if (str == null) {
@@ -18,7 +18,7 @@ class cr {
         }
         try {
             MessageDigest messageDigest = MessageDigest.getInstance("MD5");
-            messageDigest.update(m204a(str));
+            messageDigest.update(m205a(str));
             return String.format("%1$032X", new BigInteger(1, messageDigest.digest()));
         } catch (NoSuchAlgorithmException e) {
             throw new RuntimeException(e);
@@ -34,7 +34,7 @@ class cr {
             boolean z2 = z;
             if (!it.hasNext()) {
                 sb.append(ETAG.ITEM_SEPARATOR).append(str);
-                return a(new String(Base64.encode(m204a(sb.toString()), 2)));
+                return a(new String(Base64.encode(m205a(sb.toString()), 2)));
             }
             NameValuePair next = it.next();
             if (!z2) {
@@ -46,11 +46,11 @@ class cr {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public static void m203a(String str) {
+    public static void m204a(String str) {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    private static byte[] m204a(String str) {
+    private static byte[] m205a(String str) {
         try {
             return str.getBytes("UTF-8");
         } catch (UnsupportedEncodingException e) {

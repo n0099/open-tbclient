@@ -1,16 +1,16 @@
 package master.flame.danmaku.danmaku.model;
 /* loaded from: classes6.dex */
 public class f {
-    public long oGd;
-    private long oGe;
+    public long oVs;
+    private long oVt;
 
-    public long hl(long j) {
-        this.oGe = j - this.oGd;
-        this.oGd = j;
-        return this.oGe;
+    public long hD(long j) {
+        this.oVt = j - this.oVs;
+        this.oVs = j;
+        return this.oVt;
     }
 
-    public long hm(long j) {
-        return hl(this.oGd + j);
+    public long hE(long j) {
+        return hD(this.oVs + j);
     }
 }

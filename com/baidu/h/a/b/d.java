@@ -1,9 +1,9 @@
 package com.baidu.h.a.b;
 
 import android.content.Context;
-/* loaded from: classes23.dex */
+/* loaded from: classes15.dex */
 public interface d {
-    void RU();
+    void TN();
 
     void a(a aVar);
 

@@ -12,7 +12,6 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.view.Window;
 import android.view.WindowManager;
-import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import com.baidu.live.adp.base.BdPageContext;
@@ -25,8 +24,6 @@ import com.baidu.live.tbadk.core.BDLayoutMode;
 import com.baidu.live.tbadk.core.TbadkCoreApplication;
 import com.baidu.live.tbadk.core.util.SkinManager;
 import com.baidu.live.tbadk.core.util.UtilHelper;
-import com.baidu.live.tbadk.core.util.ViewHelper;
-import java.util.concurrent.atomic.AtomicBoolean;
 /* loaded from: classes4.dex */
 public class BdAlertDialog {
     public static final int DIALOG_SIZE_BIG = 1;
@@ -447,20 +444,6 @@ public class BdAlertDialog {
                 attributes.height = -2;
                 window.setAttributes(attributes);
                 window.setContentView(this.mRootView);
-                final AtomicBoolean atomicBoolean = new AtomicBoolean(false);
-                ViewHelper.processAllViewsIn(this.mRootView, false, new ViewHelper.ViewCallback() { // from class: com.baidu.live.tbadk.core.dialog.BdAlertDialog.1
-                    @Override // com.baidu.live.tbadk.core.util.ViewHelper.ViewCallback
-                    public boolean onViewFound(View view) {
-                        if (view instanceof EditText) {
-                            atomicBoolean.set(true);
-                            return true;
-                        }
-                        return false;
-                    }
-                });
-                if (atomicBoolean.get()) {
-                    window.clearFlags(131080);
-                }
             }
         }
         return this;

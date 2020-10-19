@@ -15,7 +15,7 @@ import kotlin.jvm.internal.q;
 import kotlin.jvm.internal.t;
 import kotlin.reflect.j;
 @h
-/* loaded from: classes5.dex */
+/* loaded from: classes11.dex */
 public final class TouchHelper {
     static final /* synthetic */ j[] $$delegatedProperties = {t.a(new PropertyReference1Impl(t.M(TouchHelper.class), "mScreenHeight", "getMScreenHeight()I")), t.a(new PropertyReference1Impl(t.M(TouchHelper.class), "navigationBarHeight", "getNavigationBarHeight()I")), t.a(new PropertyReference1Impl(t.M(TouchHelper.class), "mTouchSlop", "getMTouchSlop()I")), t.a(new PropertyReference1Impl(t.M(TouchHelper.class), "mBlockOffset", "getMBlockOffset()Landroid/graphics/Rect;"))};
     private final Config config;
@@ -57,8 +57,8 @@ public final class TouchHelper {
     }
 
     public TouchHelper(Context context, Config config) {
-        q.m(context, "context");
-        q.m(config, "config");
+        q.n(context, "context");
+        q.n(config, "config");
         this.context = context;
         this.config = config;
         this.mDisplayRect = new Rect();
@@ -78,10 +78,10 @@ public final class TouchHelper {
     }
 
     public final void onTouch(View view, MotionEvent motionEvent, WindowManager windowManager, WindowManager.LayoutParams layoutParams) {
-        q.m(view, "view");
-        q.m(motionEvent, NotificationCompat.CATEGORY_EVENT);
-        q.m(windowManager, "windowManager");
-        q.m(layoutParams, "params");
+        q.n(view, "view");
+        q.n(motionEvent, NotificationCompat.CATEGORY_EVENT);
+        q.n(windowManager, "windowManager");
+        q.n(layoutParams, "params");
         if (!this.config.getCanDrag() || this.config.isAnimating()) {
             this.config.setDragging(false);
             return;

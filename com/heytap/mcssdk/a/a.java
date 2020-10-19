@@ -7,14 +7,14 @@ import com.heytap.mcssdk.mode.AppMessage;
 import com.heytap.mcssdk.mode.Message;
 import com.heytap.mcssdk.utils.CryptoUtil;
 import com.heytap.mcssdk.utils.LogUtil;
-/* loaded from: classes12.dex */
+/* loaded from: classes15.dex */
 public final class a extends c {
     @Override // com.heytap.mcssdk.a.d
     public final Message a(Context context, int i, Intent intent) {
         if (4098 == i) {
-            Message a = a(intent);
-            PushManager.statisticMessage(context, (AppMessage) a, PushManager.EVENT_ID_PUSH_TRANSMIT);
-            return a;
+            Message a2 = a(intent);
+            PushManager.statisticMessage(context, (AppMessage) a2, PushManager.EVENT_ID_PUSH_TRANSMIT);
+            return a2;
         }
         return null;
     }

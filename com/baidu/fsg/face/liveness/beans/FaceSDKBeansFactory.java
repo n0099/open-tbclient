@@ -5,7 +5,7 @@ import com.baidu.fsg.base.NoProguard;
 import com.baidu.fsg.base.restnet.beans.ApollonBean;
 import com.baidu.fsg.base.restnet.beans.BeanManager;
 import com.baidu.fsg.base.restnet.beans.IBeanFactory;
-/* loaded from: classes16.dex */
+/* loaded from: classes17.dex */
 public class FaceSDKBeansFactory implements NoProguard, IBeanFactory {
     public static final int CONFIG_URL = 4;
     public static final int FACE_DETECT_BEAN = 8;
@@ -19,16 +19,18 @@ public class FaceSDKBeansFactory implements NoProguard, IBeanFactory {
     public static final int VIDEO_FACEMATCH_BEAN = 10;
     public static final int VIDEO_GETPORTRAIT_BEAN = 9;
     public static final int VIDEO_UPLOAD_BEAN = 11;
-    private static FaceSDKBeansFactory a;
+
+    /* renamed from: a  reason: collision with root package name */
+    private static FaceSDKBeansFactory f1707a;
 
     private FaceSDKBeansFactory() {
     }
 
     public static FaceSDKBeansFactory getInstance() {
-        if (a == null) {
-            a = new FaceSDKBeansFactory();
+        if (f1707a == null) {
+            f1707a = new FaceSDKBeansFactory();
         }
-        return a;
+        return f1707a;
     }
 
     @Override // com.baidu.fsg.base.restnet.beans.IBeanFactory

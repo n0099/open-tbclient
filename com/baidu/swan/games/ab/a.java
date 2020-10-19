@@ -11,15 +11,15 @@ import com.baidu.webkit.internal.ETAG;
 import com.baidu.webkit.sdk.CookieManager;
 import java.util.HashMap;
 import java.util.Map;
-/* loaded from: classes3.dex */
+/* loaded from: classes10.dex */
 public class a {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
 
     public static void getUUAPInfo(JsObject jsObject) {
         final c e = c.e(jsObject);
         if (e != null) {
-            e aAs = e.aAs();
-            if (aAs == null) {
+            e aDb = e.aDb();
+            if (aDb == null) {
                 c(e, "internal error");
                 return;
             }
@@ -27,12 +27,12 @@ public class a {
             if (DEBUG) {
                 Log.i("SwanGameUuapApi", "getUUAPInfo-domain: " + optString);
             }
-            aAs.aAD().e("mapp_uuap_info", new com.baidu.swan.apps.ap.e.b<com.baidu.swan.apps.setting.oauth.e>() { // from class: com.baidu.swan.games.ab.a.1
+            aDb.aDm().e("mapp_uuap_info", new com.baidu.swan.apps.ap.e.b<com.baidu.swan.apps.setting.oauth.e>() { // from class: com.baidu.swan.games.ab.a.1
                 /* JADX DEBUG: Method merged with bridge method */
                 @Override // com.baidu.swan.apps.ap.e.b
                 /* renamed from: c */
-                public void J(com.baidu.swan.apps.setting.oauth.e eVar) {
-                    if (eVar == null || eVar.forbidden || eVar.cXo != 1) {
+                public void M(com.baidu.swan.apps.setting.oauth.e eVar) {
+                    if (eVar == null || eVar.forbidden || eVar.djy != 1) {
                         a.c(c.this, "system deny");
                     } else {
                         a.d(c.this, optString);
@@ -47,10 +47,10 @@ public class a {
         b bVar = new b();
         String cookie = CookieManager.getInstance().getCookie(str);
         if (!TextUtils.isEmpty(cookie)) {
-            Map<String, String> wC = wC(cookie);
-            bVar.uuap_p_token = wC.get("UUAP_P_TOKEN");
-            bVar.uuap_p_token_offline = wC.get("UUAP_P_TOKEN_OFFLINE");
-            bVar.uuap_s_token = wC.get("UUAP_S_TOKEN");
+            Map<String, String> xo = xo(cookie);
+            bVar.uuap_p_token = xo.get("UUAP_P_TOKEN");
+            bVar.uuap_p_token_offline = xo.get("UUAP_P_TOKEN_OFFLINE");
+            bVar.uuap_s_token = xo.get("UUAP_S_TOKEN");
         }
         com.baidu.swan.games.utils.b.a(cVar, true, bVar);
     }
@@ -63,7 +63,7 @@ public class a {
     }
 
     @NonNull
-    private static Map<String, String> wC(@NonNull String str) {
+    private static Map<String, String> xo(@NonNull String str) {
         String[] split;
         HashMap hashMap = new HashMap();
         for (String str2 : str.split(ContentProviderProxy.PROVIDER_AUTHOR_SEPARATOR)) {

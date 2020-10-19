@@ -1,8 +1,10 @@
 package com.meizu.cloud.pushsdk.b.g;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes3.dex */
+/* loaded from: classes7.dex */
 public final class k {
-    static j a;
+
+    /* renamed from: a  reason: collision with root package name */
+    static j f4358a;
     static long b;
 
     private k() {
@@ -11,9 +13,9 @@ public final class k {
     /* JADX INFO: Access modifiers changed from: package-private */
     public static j a() {
         synchronized (k.class) {
-            if (a != null) {
-                j jVar = a;
-                a = jVar.f;
+            if (f4358a != null) {
+                j jVar = f4358a;
+                f4358a = jVar.f;
                 jVar.f = null;
                 b -= 2048;
                 return jVar;
@@ -33,10 +35,10 @@ public final class k {
         synchronized (k.class) {
             if (b + 2048 <= 65536) {
                 b += 2048;
-                jVar.f = a;
+                jVar.f = f4358a;
                 jVar.c = 0;
                 jVar.b = 0;
-                a = jVar;
+                f4358a = jVar;
             }
         }
     }

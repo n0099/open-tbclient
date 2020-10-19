@@ -10,7 +10,7 @@ import java.net.Inet4Address;
 import java.net.InetAddress;
 import java.net.NetworkInterface;
 import java.util.Enumeration;
-/* loaded from: classes9.dex */
+/* loaded from: classes5.dex */
 public class RequsetNetworkUtils extends BaseUtils {
     private static final String TAG = "RequsetNetworkUtils";
     private static ConnectivityManager mConnManager = null;
@@ -23,10 +23,10 @@ public class RequsetNetworkUtils extends BaseUtils {
         }
         switch (Utility.readIntData(context, Constants.KEY_ENV, 0)) {
             case 0:
-                return Constants.URL_HTTP_ONLINE;
+                return "https://pim.baidu.com/";
             case 1:
             case 2:
-                return Constants.URL_HTTP_RD;
+                return "http://cp01-ocean-749.epc.baidu.com:8080/";
             case 3:
                 return Constants.URL_HTTP_BOX;
             default:

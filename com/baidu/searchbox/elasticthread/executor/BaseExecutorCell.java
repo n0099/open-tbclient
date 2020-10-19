@@ -7,7 +7,7 @@ import com.baidu.searchbox.elasticthread.task.ElasticTask;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.concurrent.ThreadPoolExecutor;
-/* loaded from: classes10.dex */
+/* loaded from: classes17.dex */
 public abstract class BaseExecutorCell implements Recordable {
     protected static final boolean DEBUG = false;
     protected int completedTaskCountInRecordLifeCycle;
@@ -19,7 +19,7 @@ public abstract class BaseExecutorCell implements Recordable {
     protected long recordEndTime = Long.MAX_VALUE;
     protected Recordable.RecordStatus mRecordStatus = Recordable.RecordStatus.UNINITIATED;
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes17.dex */
     public enum ExecutorType {
         ARTERY,
         DREDGE_NORMAL,

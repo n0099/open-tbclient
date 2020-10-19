@@ -4,9 +4,11 @@ import com.baidu.platform.comapi.map.MapBundleKey;
 import java.math.BigDecimal;
 import java.math.RoundingMode;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes7.dex */
 public class WLocData implements Cloneable {
-    private int a;
+
+    /* renamed from: a  reason: collision with root package name */
+    private int f3131a;
     public float accuracy;
     public double altitude;
     private int b;
@@ -29,14 +31,14 @@ public class WLocData implements Cloneable {
 
     /* JADX DEBUG: Method merged with bridge method */
     /* renamed from: clone */
-    public WLocData m31clone() {
+    public WLocData m30clone() {
         WLocData wLocData = new WLocData();
         synchronized (this) {
             wLocData.accuracy = this.accuracy;
             wLocData.direction = this.direction;
             wLocData.latitude = this.latitude;
             wLocData.longitude = this.longitude;
-            wLocData.a = this.a;
+            wLocData.f3131a = this.f3131a;
             wLocData.speed = this.speed;
             wLocData.altitude = this.altitude;
             wLocData.coordType = this.coordType;

@@ -3,20 +3,22 @@ package com.baidu.mapapi;
 import android.content.Context;
 import com.baidu.mapapi.http.HttpClient;
 import com.baidu.mapsdkplatform.comapi.c;
-/* loaded from: classes3.dex */
+/* loaded from: classes7.dex */
 public class SDKInitializer {
     public static final String SDK_BROADCAST_ACTION_STRING_NETWORK_ERROR = "network error";
     public static final String SDK_BROADTCAST_ACTION_STRING_PERMISSION_CHECK_ERROR = "permission check error";
     public static final String SDK_BROADTCAST_ACTION_STRING_PERMISSION_CHECK_OK = "permission check ok";
     public static final String SDK_BROADTCAST_INTENT_EXTRA_INFO_KEY_ERROR_CODE = "error_code";
     public static final String SDK_BROADTCAST_INTENT_EXTRA_INFO_KEY_ERROR_MESSAGE = "error_message";
-    private static CoordType a = CoordType.BD09LL;
+
+    /* renamed from: a  reason: collision with root package name */
+    private static CoordType f1960a = CoordType.BD09LL;
 
     private SDKInitializer() {
     }
 
     public static CoordType getCoordType() {
-        return a;
+        return f1960a;
     }
 
     public static void initialize(Context context) {
@@ -36,7 +38,7 @@ public class SDKInitializer {
     }
 
     public static void setCoordType(CoordType coordType) {
-        a = coordType;
+        f1960a = coordType;
     }
 
     public static void setHttpsEnable(boolean z) {

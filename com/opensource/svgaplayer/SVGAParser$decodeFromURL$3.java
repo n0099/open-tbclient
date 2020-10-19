@@ -8,7 +8,7 @@ import kotlin.jvm.internal.q;
 import kotlin.l;
 /* JADX INFO: Access modifiers changed from: package-private */
 @h
-/* loaded from: classes16.dex */
+/* loaded from: classes15.dex */
 public final class SVGAParser$decodeFromURL$3 extends Lambda implements kotlin.jvm.a.b<Exception, l> {
     final /* synthetic */ d.c $callback;
     final /* synthetic */ d this$0;
@@ -26,12 +26,12 @@ public final class SVGAParser$decodeFromURL$3 extends Lambda implements kotlin.j
     @Override // kotlin.jvm.a.b
     public /* bridge */ /* synthetic */ l invoke(Exception exc) {
         invoke2(exc);
-        return l.oBM;
+        return l.oRb;
     }
 
     /* renamed from: invoke  reason: avoid collision after fix types in other method */
     public final void invoke2(Exception exc) {
-        q.m(exc, AdvanceSetting.NETWORK_TYPE);
+        q.n(exc, AdvanceSetting.NETWORK_TYPE);
         this.this$0.a(exc, this.$callback);
     }
 }

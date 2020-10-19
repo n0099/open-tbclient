@@ -8,10 +8,12 @@ import android.view.KeyEvent;
 import com.baidu.pass.biometrics.base.NoProguard;
 import com.baidu.pass.biometrics.base.R;
 import com.baidu.pass.biometrics.base.utils.PassBioGlobalUtils;
-/* loaded from: classes6.dex */
+/* loaded from: classes11.dex */
 public class BaseActivity extends Activity implements NoProguard {
     private String c;
-    private boolean a = false;
+
+    /* renamed from: a  reason: collision with root package name */
+    private boolean f2688a = false;
     private boolean b = true;
     private boolean d = false;
 
@@ -20,7 +22,7 @@ public class BaseActivity extends Activity implements NoProguard {
         if (Build.VERSION.SDK_INT < 24 || !isInMultiWindowMode()) {
             return;
         }
-        if (this.a) {
+        if (this.f2688a) {
             PassBioGlobalUtils.toastWithText(getActivity(), this.c, 1);
         }
         if (this.b) {
@@ -68,7 +70,7 @@ public class BaseActivity extends Activity implements NoProguard {
         if (Build.VERSION.SDK_INT >= 24) {
             super.onMultiWindowModeChanged(z);
             if (z && isActivityInForeground()) {
-                if (this.a) {
+                if (this.f2688a) {
                     PassBioGlobalUtils.toastWithText(getActivity(), this.c, 1);
                 }
                 if (this.b) {
@@ -99,8 +101,8 @@ public class BaseActivity extends Activity implements NoProguard {
     }
 
     protected void setIsShowMultiWindowTips(boolean z) {
-        if (z != this.a) {
-            this.a = z;
+        if (z != this.f2688a) {
+            this.f2688a = z;
         }
     }
 

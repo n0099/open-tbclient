@@ -2,7 +2,7 @@ package com.google.zxing.oned.rss.expanded.decoders;
 
 import com.baidu.cyberplayer.sdk.statistics.DpStatConstants;
 import com.google.zxing.common.BitArray;
-/* loaded from: classes3.dex */
+/* loaded from: classes7.dex */
 final class AI01320xDecoder extends AI013x0xDecoder {
     /* JADX INFO: Access modifiers changed from: package-private */
     public AI01320xDecoder(BitArray bitArray) {

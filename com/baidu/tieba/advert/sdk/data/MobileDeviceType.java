@@ -1,5 +1,5 @@
 package com.baidu.tieba.advert.sdk.data;
-/* loaded from: classes22.dex */
+/* loaded from: classes23.dex */
 public enum MobileDeviceType {
     UNKNOWN_DEVICE(0),
     IPHONE(1),

@@ -7,9 +7,11 @@ import android.util.Base64;
 import com.xiaomi.mipush.sdk.Constants;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes12.dex */
+/* loaded from: classes15.dex */
 public final class e {
-    public SharedPreferences a;
+
+    /* renamed from: a  reason: collision with root package name */
+    public SharedPreferences f3618a;
     public SharedPreferences b;
     public SharedPreferences.Editor c;
     public SharedPreferences.Editor d;
@@ -20,8 +22,8 @@ public final class e {
     public e(Context context) {
         try {
             this.g = context;
-            this.a = context.getSharedPreferences("leroadcfg", 4);
-            this.c = this.a.edit();
+            this.f3618a = context.getSharedPreferences("leroadcfg", 4);
+            this.c = this.f3618a.edit();
             this.b = context.getSharedPreferences("leroadcfg", 4);
             this.d = this.b.edit();
             this.e = context.getSharedPreferences("re_po_rt", 4);
@@ -33,15 +35,15 @@ public final class e {
     }
 
     public final boolean a() {
-        return this.a.getBoolean("iio", false);
+        return this.f3618a.getBoolean("iio", false);
     }
 
     public final String b() {
-        return this.a.getString("svi_n", "");
+        return this.f3618a.getString("svi_n", "");
     }
 
     public final boolean c() {
-        return this.a.getBoolean("bka", true);
+        return this.f3618a.getBoolean("bka", true);
     }
 
     public final void d() {
@@ -50,7 +52,7 @@ public final class e {
     }
 
     public final int e() {
-        return this.a.getInt("wi_fa_pu_ap", 0);
+        return this.f3618a.getInt("wi_fa_pu_ap", 0);
     }
 
     public final void a(int i) {
@@ -59,7 +61,7 @@ public final class e {
     }
 
     public final int f() {
-        return this.a.getInt("mo_fa_pu_ap", 0);
+        return this.f3618a.getInt("mo_fa_pu_ap", 0);
     }
 
     public final void b(int i) {
@@ -78,15 +80,15 @@ public final class e {
     }
 
     public final int i() {
-        return this.a.getInt("wi_fa_pu_cl", 0);
+        return this.f3618a.getInt("wi_fa_pu_cl", 0);
     }
 
     public final int j() {
-        return this.a.getInt("mo_fa_pu_cl", 0);
+        return this.f3618a.getInt("mo_fa_pu_cl", 0);
     }
 
     public final int k() {
-        return this.a.getInt("mo_ae_fa_ct", 0);
+        return this.f3618a.getInt("mo_ae_fa_ct", 0);
     }
 
     public final void c(int i) {
@@ -174,7 +176,7 @@ public final class e {
     public final List<Integer> q() {
         String[] split;
         ArrayList arrayList = new ArrayList();
-        String string = this.a.getString("hcpk", "");
+        String string = this.f3618a.getString("hcpk", "");
         if (!TextUtils.isEmpty(string) && (split = string.split(Constants.ACCEPT_TIME_SEPARATOR_SERVER)) != null && split.length > 0) {
             for (String str : split) {
                 try {
@@ -207,7 +209,7 @@ public final class e {
     public final List<Integer> r() {
         String[] split;
         ArrayList arrayList = new ArrayList();
-        String string = this.a.getString("glspk", "");
+        String string = this.f3618a.getString("glspk", "");
         if (!TextUtils.isEmpty(string) && (split = string.split(Constants.ACCEPT_TIME_SEPARATOR_SERVER)) != null && split.length > 0) {
             for (String str : split) {
                 try {
@@ -243,7 +245,7 @@ public final class e {
     }
 
     public final boolean t() {
-        return this.a.getBoolean("lpcf", false);
+        return this.f3618a.getBoolean("lpcf", false);
     }
 
     public final void d(int i) {
@@ -257,7 +259,7 @@ public final class e {
     }
 
     public final int u() {
-        return this.a.getInt("appal_te", 24);
+        return this.f3618a.getInt("appal_te", 24);
     }
 
     public final void f(int i) {
@@ -266,7 +268,7 @@ public final class e {
     }
 
     public final int v() {
-        return this.a.getInt("sustfd", 0);
+        return this.f3618a.getInt("sustfd", 0);
     }
 
     public final void g(int i) {
@@ -275,7 +277,7 @@ public final class e {
     }
 
     public final int w() {
-        return this.a.getInt("sufzfd", 0);
+        return this.f3618a.getInt("sufzfd", 0);
     }
 
     public final void a(long j) {
@@ -312,7 +314,7 @@ public final class e {
         if (TextUtils.isEmpty(str)) {
             return -1;
         }
-        return this.a.getInt(str + i2, 0);
+        return this.f3618a.getInt(str + i2, 0);
     }
 
     public final void a(com.baidu.sofire.d.a aVar) {
@@ -321,7 +323,7 @@ public final class e {
     }
 
     public final List<com.baidu.sofire.d.a> x() {
-        com.baidu.sofire.d.a a;
+        com.baidu.sofire.d.a a2;
         String string = this.e.getString("re_con", "");
         if (TextUtils.isEmpty(string)) {
             return null;
@@ -329,8 +331,8 @@ public final class e {
         ArrayList arrayList = new ArrayList();
         String[] split = string.split("\\|\\|");
         for (String str : split) {
-            if (!TextUtils.isEmpty(str) && (a = com.baidu.sofire.d.a.a(str)) != null) {
-                arrayList.add(a);
+            if (!TextUtils.isEmpty(str) && (a2 = com.baidu.sofire.d.a.a(str)) != null) {
+                arrayList.add(a2);
             }
         }
         return arrayList;
@@ -387,7 +389,7 @@ public final class e {
     }
 
     public final boolean A() {
-        return this.a.getBoolean("s_c_c", true);
+        return this.f3618a.getBoolean("s_c_c", true);
     }
 
     public final void b(boolean z) {

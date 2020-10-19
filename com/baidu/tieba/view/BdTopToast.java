@@ -17,15 +17,15 @@ import com.baidu.tbadk.core.util.ap;
 import com.baidu.tieba.R;
 /* loaded from: classes.dex */
 public class BdTopToast extends LinearLayout {
-    private TextView clp;
-    private Animation iBn;
-    private Animation iBo;
+    private Animation bBp;
+    private Animation bBq;
+    private TextView cxH;
     private int mDuration;
     private Runnable mHideRunnable;
     private ImageView mIconView;
-    private BottomShadowLinearLayout mQy;
-    private boolean mQz;
     private View mStatusBarView;
+    private BottomShadowLinearLayout ngd;
+    private boolean nge;
 
     public BdTopToast(Context context, int i) {
         this(context);
@@ -53,16 +53,16 @@ public class BdTopToast extends LinearLayout {
             addView(this.mStatusBarView, 0, new LinearLayout.LayoutParams(-1, UtilHelper.getStatusBarHeight()));
         }
         LayoutInflater.from(getContext()).inflate(R.layout.bd_top_toast_layout, this);
-        this.mQy = (BottomShadowLinearLayout) findViewById(R.id.bd_top_toast_group);
+        this.ngd = (BottomShadowLinearLayout) findViewById(R.id.bd_top_toast_group);
         this.mIconView = (ImageView) findViewById(R.id.bd_top_toast_icon);
-        this.clp = (TextView) findViewById(R.id.bd_top_toast_content);
+        this.cxH = (TextView) findViewById(R.id.bd_top_toast_content);
         initAnimation();
     }
 
     private void initAnimation() {
-        this.iBn = AnimationUtils.loadAnimation(getContext(), R.anim.in_from_top);
-        this.iBo = AnimationUtils.loadAnimation(getContext(), R.anim.out_to_top);
-        this.iBo.setAnimationListener(new Animation.AnimationListener() { // from class: com.baidu.tieba.view.BdTopToast.1
+        this.bBp = AnimationUtils.loadAnimation(getContext(), R.anim.in_from_top);
+        this.bBq = AnimationUtils.loadAnimation(getContext(), R.anim.out_to_top);
+        this.bBq.setAnimationListener(new Animation.AnimationListener() { // from class: com.baidu.tieba.view.BdTopToast.1
             @Override // android.view.animation.Animation.AnimationListener
             public void onAnimationStart(Animation animation) {
             }
@@ -87,17 +87,17 @@ public class BdTopToast extends LinearLayout {
         };
     }
 
-    public BdTopToast xd(boolean z) {
-        this.mQz = z;
+    public BdTopToast xK(boolean z) {
+        this.nge = z;
         return this;
     }
 
-    public BdTopToast SP(String str) {
-        this.clp.setText(str);
+    public BdTopToast TD(String str) {
+        this.cxH.setText(str);
         return this;
     }
 
-    public void aF(ViewGroup viewGroup) {
+    public void aH(ViewGroup viewGroup) {
         if (viewGroup != null) {
             if (getParent() != null) {
                 ((ViewGroup) getParent()).removeView(this);
@@ -105,11 +105,11 @@ public class BdTopToast extends LinearLayout {
             release();
             viewGroup.addView(this, -1, -2);
             onChangeSkinType();
-            startAnimation(this.iBn);
+            startAnimation(this.bBp);
             if (this.mDuration >= 0) {
-                com.baidu.adp.lib.f.e.mX().postDelayed(this.mHideRunnable, this.mDuration);
+                com.baidu.adp.lib.f.e.mY().postDelayed(this.mHideRunnable, this.mDuration);
             } else {
-                com.baidu.adp.lib.f.e.mX().postDelayed(this.mHideRunnable, 5000L);
+                com.baidu.adp.lib.f.e.mY().postDelayed(this.mHideRunnable, 5000L);
             }
         }
     }
@@ -117,24 +117,24 @@ public class BdTopToast extends LinearLayout {
     /* JADX INFO: Access modifiers changed from: private */
     public void hide() {
         release();
-        startAnimation(this.iBo);
+        startAnimation(this.bBq);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void release() {
-        com.baidu.adp.lib.f.e.mX().removeCallbacks(this.mHideRunnable);
+        com.baidu.adp.lib.f.e.mY().removeCallbacks(this.mHideRunnable);
         clearAnimation();
     }
 
     public void onChangeSkinType() {
         ap.setBackgroundColor(this.mStatusBarView, R.color.cp_bg_line_h);
-        if (this.mQz) {
-            SvgManager.bkl().a(this.mIconView, R.drawable.ic_icon_pure_succeed_use_n, (SvgManager.SvgResourceStateType) null);
-            ap.setViewTextColor(this.clp, R.color.cp_link_tip_a);
+        if (this.nge) {
+            SvgManager.bmU().a(this.mIconView, R.drawable.ic_icon_pure_succeed_use_n, (SvgManager.SvgResourceStateType) null);
+            ap.setViewTextColor(this.cxH, R.color.cp_link_tip_a);
         } else {
-            SvgManager.bkl().a(this.mIconView, R.drawable.ic_icon_pure_defeated_use_n, (SvgManager.SvgResourceStateType) null);
-            ap.setViewTextColor(this.clp, R.color.cp_cont_h);
+            SvgManager.bmU().a(this.mIconView, R.drawable.ic_icon_pure_defeated_use_n, (SvgManager.SvgResourceStateType) null);
+            ap.setViewTextColor(this.cxH, R.color.cp_cont_h);
         }
-        this.mQy.onChangeSkinType();
+        this.ngd.onChangeSkinType();
     }
 }

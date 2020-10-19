@@ -15,24 +15,26 @@ import java.lang.ref.WeakReference;
 import java.util.Map;
 /* loaded from: classes16.dex */
 public class DuMediaExtractor implements b {
-    private b.a bEl;
-    private a bEm;
+    private b.a bKN;
+    private a bKO;
     @Keep
     private long mNativeDuMediaExtractor;
 
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes16.dex */
     public static class a extends Handler {
-        private final WeakReference<DuMediaExtractor> a;
+
+        /* renamed from: a  reason: collision with root package name */
+        private final WeakReference<DuMediaExtractor> f2262a;
 
         public a(DuMediaExtractor duMediaExtractor, Looper looper) {
             super(looper);
-            this.a = new WeakReference<>(duMediaExtractor);
+            this.f2262a = new WeakReference<>(duMediaExtractor);
         }
 
         @Override // android.os.Handler
         public void handleMessage(Message message) {
-            DuMediaExtractor duMediaExtractor = this.a.get();
+            DuMediaExtractor duMediaExtractor = this.f2262a.get();
             if (duMediaExtractor == null || duMediaExtractor.mNativeDuMediaExtractor == 0) {
                 CyberLog.w("DuMediaExtractor", "IjkMediaPlayer went away with unhandled events");
             } else {
@@ -49,14 +51,14 @@ public class DuMediaExtractor implements b {
     private void c() {
         Looper myLooper = Looper.myLooper();
         if (myLooper != null) {
-            this.bEm = new a(this, myLooper);
+            this.bKO = new a(this, myLooper);
             return;
         }
         Looper mainLooper = Looper.getMainLooper();
         if (mainLooper != null) {
-            this.bEm = new a(this, mainLooper);
+            this.bKO = new a(this, mainLooper);
         } else {
-            this.bEm = null;
+            this.bKO = null;
         }
     }
 
@@ -85,8 +87,8 @@ public class DuMediaExtractor implements b {
     public void a() {
         synchronized (this) {
             nativeRelease();
-            this.bEl = null;
-            this.bEm = null;
+            this.bKN = null;
+            this.bKO = null;
             this.mNativeDuMediaExtractor = 0L;
         }
     }

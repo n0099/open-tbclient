@@ -1,8 +1,8 @@
 package com.baidu.minivideo.plugin.capture.download.base;
-/* loaded from: classes18.dex */
+/* loaded from: classes17.dex */
 public interface Downloader {
 
-    /* loaded from: classes18.dex */
+    /* loaded from: classes17.dex */
     public interface OnDownloaderDestroyedListener {
         void onDestroyed(String str, Downloader downloader);
     }

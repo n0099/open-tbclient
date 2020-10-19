@@ -15,35 +15,35 @@ import com.baidu.swan.apps.res.widget.dialog.g;
 import com.baidu.swan.apps.runtime.d;
 import com.baidu.swan.apps.runtime.e;
 import com.baidu.swan.apps.u.c.b;
-/* loaded from: classes3.dex */
+/* loaded from: classes10.dex */
 public class a {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    private g dpT;
+    private g dBX;
 
     public void reload(JsObject jsObject) {
         final com.baidu.swan.games.binding.model.c e = com.baidu.swan.games.binding.model.c.e(jsObject);
         if (e == null) {
             e = new com.baidu.swan.games.binding.model.c();
         }
-        e aAj = d.aAn().aAj();
-        if (!aAj.available()) {
+        e aCS = d.aCW().aCS();
+        if (!aCS.available()) {
             b(e, "reload failed, api internal error.");
             return;
         }
-        final SwanAppActivity aAl = aAj.aAl();
-        final b.a aAv = aAj.aAv();
-        if (aAl == null) {
+        final SwanAppActivity aCU = aCS.aCU();
+        final b.a aDe = aCS.aDe();
+        if (aCU == null) {
             b(e, "reload failed, api internal error.");
             return;
         }
         final String optString = e.optString("content");
         if (TextUtils.isEmpty(optString)) {
-            optString = aAl.getString(a.h.swangame_reload_dialog_content);
+            optString = aCU.getString(a.h.swangame_reload_dialog_content);
         }
         ak.runOnUiThread(new Runnable() { // from class: com.baidu.swan.games.s.a.1
             @Override // java.lang.Runnable
             public void run() {
-                a.this.a(aAl, optString, e, aAv);
+                a.this.a(aCU, optString, e, aDe);
             }
         });
     }
@@ -56,12 +56,12 @@ public class a {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void a(@NonNull Activity activity, @NonNull String str, @NonNull final com.baidu.swan.games.binding.model.c cVar, @NonNull final com.baidu.swan.apps.u.c.b bVar) {
-        if (this.dpT != null && this.dpT.isShowing()) {
+        if (this.dBX != null && this.dBX.isShowing()) {
             b(cVar, "reload failed, the reload dialog has been displayed.");
             return;
         }
         g.a aVar = new g.a(activity);
-        aVar.hn(a.h.swangame_reload_dialog_title).qy(str).azU().a(new com.baidu.swan.apps.view.c.a()).fz(false);
+        aVar.hK(a.h.swangame_reload_dialog_title).rk(str).aCD().a(new com.baidu.swan.apps.view.c.a()).fV(false);
         aVar.d(a.h.aiapps_cancel, new DialogInterface.OnClickListener() { // from class: com.baidu.swan.games.s.a.2
             @Override // android.content.DialogInterface.OnClickListener
             public void onClick(DialogInterface dialogInterface, int i) {
@@ -75,13 +75,13 @@ public class a {
                 a.this.r(bVar);
             }
         });
-        this.dpT = aVar.azY();
+        this.dBX = aVar.aCH();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void r(@NonNull com.baidu.swan.apps.u.c.b bVar) {
         String appId = bVar.getAppId();
-        String e = com.baidu.swan.apps.u.c.c.e(bVar.getAppId(), bVar.arx(), bVar.getAppFrameType());
+        String e = com.baidu.swan.apps.u.c.c.e(bVar.getAppId(), bVar.auj(), bVar.getAppFrameType());
         Bundle bundle = new Bundle();
         bundle.putString("appId", appId);
         bundle.putString("scheme", e);
@@ -89,6 +89,6 @@ public class a {
         if (DEBUG) {
             Log.d("SwanGameReloadApi", "reload-appid:" + bVar.getAppId());
         }
-        com.baidu.swan.apps.process.messaging.client.a.ayl().b(bundle, b.class);
+        com.baidu.swan.apps.process.messaging.client.a.aAU().b(bundle, b.class);
     }
 }

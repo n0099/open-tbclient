@@ -5,13 +5,13 @@ import com.baidu.searchbox.http.cookie.CookieManager;
 import com.baidu.searchbox.http.request.HttpRequestBuilder;
 import java.util.List;
 import okhttp3.Interceptor;
-/* loaded from: classes24.dex */
+/* loaded from: classes8.dex */
 public interface a {
     void a(String str, HttpRequestBuilder httpRequestBuilder);
 
-    CookieManager aqL();
+    int atC();
 
-    int aqQ();
+    CookieManager atx();
 
     Context getAppContext();
 

@@ -12,16 +12,16 @@ import com.baidu.searchbox.v8engine.event.JSEvent;
 import com.baidu.swan.game.ad.a;
 import com.baidu.swan.game.ad.e.f;
 import com.googlecode.mp4parser.boxes.apple.TrackLoadSettingsAtom;
-/* loaded from: classes10.dex */
-public class c extends EventTargetImpl implements a.InterfaceC0472a, f.a, com.baidu.swan.games.a.b {
-    public boolean aQj;
+/* loaded from: classes14.dex */
+public class c extends EventTargetImpl implements a.InterfaceC0489a, f.a, com.baidu.swan.games.a.b {
+    public boolean aTu;
     @V8JavascriptField
     public String adUnitId;
-    private String dmP;
-    private com.baidu.swan.games.f.b dog;
-    private e doh;
-    private boolean doi;
-    private i doj;
+    private com.baidu.swan.games.f.b dAk;
+    private e dAl;
+    private boolean dAm;
+    private i dAn;
+    private String dyV;
     private String mErrorCode;
     @V8JavascriptField
     public f style;
@@ -29,7 +29,7 @@ public class c extends EventTargetImpl implements a.InterfaceC0472a, f.a, com.ba
     public c(com.baidu.swan.games.f.b bVar, JsObject jsObject) {
         super(bVar);
         this.style = null;
-        this.doj = new i() { // from class: com.baidu.swan.game.ad.e.c.2
+        this.dAn = new i() { // from class: com.baidu.swan.game.ad.e.c.2
             @Override // com.baidu.swan.game.ad.e.i
             public void onLoad() {
                 c.this.dispatchEvent(new JSEvent(TrackLoadSettingsAtom.TYPE));
@@ -38,7 +38,7 @@ public class c extends EventTargetImpl implements a.InterfaceC0472a, f.a, com.ba
             @Override // com.baidu.swan.game.ad.e.i
             public void onError(String str) {
                 JSEvent jSEvent = new JSEvent(BdStatsConstant.StatsType.ERROR);
-                jSEvent.data = d.uu(str);
+                jSEvent.data = d.vg(str);
                 c.this.dispatchEvent(jSEvent);
             }
 
@@ -49,40 +49,40 @@ public class c extends EventTargetImpl implements a.InterfaceC0472a, f.a, com.ba
                 c.this.dispatchEvent(jSEvent);
             }
         };
-        this.dog = bVar;
+        this.dAk = bVar;
         com.baidu.swan.games.binding.model.c e = com.baidu.swan.games.binding.model.c.e(jsObject);
         if (e != null) {
             this.adUnitId = e.optString("adUnitId");
-            this.dmP = e.optString("appSid");
-            com.baidu.swan.games.binding.model.c vm = e.vm("style");
-            if (vm != null) {
-                this.style = new f(vm);
+            this.dyV = e.optString("appSid");
+            com.baidu.swan.games.binding.model.c vY = e.vY("style");
+            if (vY != null) {
+                this.style = new f(vY);
             }
         }
-        this.doi = com.baidu.swan.game.ad.d.f.aKb();
-        if (this.doi) {
-            this.dmP = com.baidu.swan.game.ad.d.f.aKe();
-            this.adUnitId = com.baidu.swan.game.ad.d.f.aKf();
+        this.dAm = com.baidu.swan.game.ad.d.f.aMK();
+        if (this.dAm) {
+            this.dyV = com.baidu.swan.game.ad.d.f.aMN();
+            this.adUnitId = com.baidu.swan.game.ad.d.f.aMO();
         }
-        if (aKl()) {
-            if (e == null || TextUtils.isEmpty(this.adUnitId) || TextUtils.isEmpty(this.dmP) || this.style == null) {
+        if (aMU()) {
+            if (e == null || TextUtils.isEmpty(this.adUnitId) || TextUtils.isEmpty(this.dyV) || this.style == null) {
                 bVar.throwJSException(JSExceptionType.Error, "请求广告的必须参数为空,中断执行");
                 return;
             }
-            this.doh = new e(this.dmP, this.adUnitId, this.style, this, this.doi);
-            this.doh.a(this.doj);
+            this.dAl = new e(this.dyV, this.adUnitId, this.style, this, this.dAm);
+            this.dAl.a(this.dAn);
             if (this.style != null) {
                 this.style.a(this);
             }
         }
     }
 
-    private boolean aKl() {
+    private boolean aMU() {
         if (TextUtils.isEmpty(this.mErrorCode)) {
-            com.baidu.swan.games.utils.c aQr = com.baidu.swan.games.utils.c.aQr();
-            if (!aQr.aQz()) {
-                if (!aQr.aQA()) {
-                    if (aQr.wv(this.adUnitId)) {
+            com.baidu.swan.games.utils.c aTa = com.baidu.swan.games.utils.c.aTa();
+            if (!aTa.aTi()) {
+                if (!aTa.aTj()) {
+                    if (aTa.xh(this.adUnitId)) {
                         this.mErrorCode = "3010011";
                     }
                 } else {
@@ -93,15 +93,15 @@ public class c extends EventTargetImpl implements a.InterfaceC0472a, f.a, com.ba
             }
         }
         if (!TextUtils.isEmpty(this.mErrorCode)) {
-            this.dog.postOnJSThread(new Runnable() { // from class: com.baidu.swan.game.ad.e.c.1
+            this.dAk.postOnJSThread(new Runnable() { // from class: com.baidu.swan.game.ad.e.c.1
                 @Override // java.lang.Runnable
                 public void run() {
                     JSEvent jSEvent = new JSEvent(BdStatsConstant.StatsType.ERROR);
-                    jSEvent.data = d.uu(c.this.mErrorCode);
+                    jSEvent.data = d.vg(c.this.mErrorCode);
                     c.this.dispatchEvent(jSEvent);
                 }
             });
-            com.baidu.swan.games.view.a.b.U(this.doi ? "gdtbanner" : "banner", "reject", this.mErrorCode);
+            com.baidu.swan.games.view.a.b.V(this.dAm ? "gdtbanner" : "banner", "reject", this.mErrorCode);
             return false;
         }
         return true;
@@ -110,43 +110,43 @@ public class c extends EventTargetImpl implements a.InterfaceC0472a, f.a, com.ba
     @Override // com.baidu.swan.games.a.b
     @JavascriptInterface
     public void showAd(JsObject jsObject) {
-        com.baidu.swan.games.view.a.b.wD(this.doi ? "gdtbanner" : "banner");
-        if (aKl() && this.doh != null) {
-            com.baidu.swan.games.utils.c.aQr().aQy();
-            this.doh.c(jsObject);
+        com.baidu.swan.games.view.a.b.xp(this.dAm ? "gdtbanner" : "banner");
+        if (aMU() && this.dAl != null) {
+            com.baidu.swan.games.utils.c.aTa().aTh();
+            this.dAl.c(jsObject);
         }
     }
 
     @Override // com.baidu.swan.games.a.b
     @JavascriptInterface
     public void hide() {
-        if (this.doh != null) {
-            this.doh.aKm();
+        if (this.dAl != null) {
+            this.dAl.aMV();
         }
     }
 
     @Override // com.baidu.swan.games.a.b
     @JavascriptInterface
     public void destroy() {
-        this.aQj = true;
+        this.aTu = true;
         removeEventListener(BdStatsConstant.StatsType.ERROR, null);
         removeEventListener(TrackLoadSettingsAtom.TYPE, null);
         removeEventListener(ResizeImageAction.ACTION_NAME, null);
-        if (this.doh != null) {
-            this.doh.aKn();
-            this.doh = null;
+        if (this.dAl != null) {
+            this.dAl.aMW();
+            this.dAl = null;
         }
     }
 
     @Override // com.baidu.swan.game.ad.e.f.a
-    public void ut(String str) {
-        if (!this.aQj && !TextUtils.isEmpty(str) && !str.equals("height") && this.style != null && this.doh != null) {
-            this.doh.uv(str);
+    public void vf(String str) {
+        if (!this.aTu && !TextUtils.isEmpty(str) && !str.equals("height") && this.style != null && this.dAl != null) {
+            this.dAl.vh(str);
         }
     }
 
-    @Override // com.baidu.swan.game.ad.a.InterfaceC0472a
-    public void aIF() {
+    @Override // com.baidu.swan.game.ad.a.InterfaceC0489a
+    public void aLo() {
         destroy();
     }
 }

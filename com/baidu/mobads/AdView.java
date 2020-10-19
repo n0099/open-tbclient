@@ -11,10 +11,12 @@ import com.baidu.mobads.interfaces.event.IXAdEvent;
 import com.baidu.mobads.openad.interfaces.event.IOAdEventListener;
 import com.baidu.mobads.utils.XAdSDKFoundationFacade;
 import java.util.concurrent.atomic.AtomicBoolean;
-/* loaded from: classes3.dex */
+/* loaded from: classes7.dex */
 public final class AdView extends RelativeLayout {
     protected static final String P_VERSION = "3.61";
-    IOAdEventListener a;
+
+    /* renamed from: a  reason: collision with root package name */
+    IOAdEventListener f2294a;
     private AtomicBoolean b;
     private com.baidu.mobads.production.a.a c;
     private AdViewListener d;
@@ -22,7 +24,7 @@ public final class AdView extends RelativeLayout {
     public AdView(Context context) {
         super(context);
         this.b = new AtomicBoolean(false);
-        this.a = new a(this);
+        this.f2294a = new a(this);
     }
 
     public AdView(Context context, String str) {
@@ -41,14 +43,14 @@ public final class AdView extends RelativeLayout {
     public AdView(Context context, AttributeSet attributeSet, boolean z, AdSize adSize, String str) {
         super(context, attributeSet);
         this.b = new AtomicBoolean(false);
-        this.a = new a(this);
+        this.f2294a = new a(this);
         XAdView xAdView = new XAdView(context);
         this.c = new com.baidu.mobads.production.a.a(context, xAdView, str, z);
-        this.c.addEventListener(IXAdEvent.AD_LOADED, this.a);
-        this.c.addEventListener(IXAdEvent.AD_ERROR, this.a);
-        this.c.addEventListener(IXAdEvent.AD_STARTED, this.a);
-        this.c.addEventListener("AdUserClick", this.a);
-        this.c.addEventListener(IXAdEvent.AD_USER_CLOSE, this.a);
+        this.c.addEventListener(IXAdEvent.AD_LOADED, this.f2294a);
+        this.c.addEventListener(IXAdEvent.AD_ERROR, this.f2294a);
+        this.c.addEventListener(IXAdEvent.AD_STARTED, this.f2294a);
+        this.c.addEventListener("AdUserClick", this.f2294a);
+        this.c.addEventListener(IXAdEvent.AD_USER_CLOSE, this.f2294a);
         xAdView.setListener(new c(this));
         addView(xAdView, new ViewGroup.LayoutParams(-1, -1));
     }

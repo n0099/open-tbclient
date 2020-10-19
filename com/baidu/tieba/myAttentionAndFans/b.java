@@ -4,24 +4,24 @@ import android.widget.BaseAdapter;
 import com.baidu.tbadk.core.data.UserData;
 import com.baidu.tbadk.core.data.bc;
 import java.util.ArrayList;
-/* loaded from: classes22.dex */
+/* loaded from: classes23.dex */
 public abstract class b extends BaseAdapter {
-    protected ArrayList<UserData> eiq = null;
-    boolean gkC = false;
+    protected ArrayList<UserData> euy = null;
+    boolean gyV = false;
     private boolean mHasMore = false;
 
     public abstract void a(bc bcVar);
 
-    public abstract boolean fP(long j);
+    public abstract boolean gh(long j);
 
     public void resetData() {
-        this.eiq.clear();
+        this.euy.clear();
     }
 
-    public void bMN() {
-        this.gkC = false;
-        if (this.eiq != null && this.eiq.size() == 0) {
-            this.gkC = true;
+    public void bQe() {
+        this.gyV = false;
+        if (this.euy != null && this.euy.size() == 0) {
+            this.gyV = true;
         }
     }
 

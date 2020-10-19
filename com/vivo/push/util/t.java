@@ -8,13 +8,15 @@ import java.security.PublicKey;
 import java.security.Signature;
 import java.security.spec.InvalidKeySpecException;
 import java.security.spec.X509EncodedKeySpec;
-/* loaded from: classes12.dex */
+/* loaded from: classes15.dex */
 public final class t {
-    private static String a = RSAUtil.ALGORITHM_RSA;
+
+    /* renamed from: a  reason: collision with root package name */
+    private static String f4708a = RSAUtil.ALGORITHM_RSA;
 
     public static PublicKey a(String str) throws Exception {
         try {
-            return KeyFactory.getInstance(a).generatePublic(new X509EncodedKeySpec(Base64.decode(str, 2)));
+            return KeyFactory.getInstance(f4708a).generatePublic(new X509EncodedKeySpec(Base64.decode(str, 2)));
         } catch (NullPointerException e) {
             throw new Exception("公钥数据为空");
         } catch (NoSuchAlgorithmException e2) {

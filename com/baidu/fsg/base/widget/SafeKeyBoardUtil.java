@@ -11,9 +11,11 @@ import android.widget.EditText;
 import com.baidu.fsg.base.utils.LogUtil;
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
-/* loaded from: classes15.dex */
+/* loaded from: classes16.dex */
 public final class SafeKeyBoardUtil {
-    private String a;
+
+    /* renamed from: a  reason: collision with root package name */
+    private String f1543a;
     private Context b;
     private SafeKeyBoardEditText c;
     private ViewGroup d;

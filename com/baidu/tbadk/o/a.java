@@ -19,7 +19,7 @@ import java.io.OutputStream;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class a {
-    private static boolean eWn = false;
+    private static boolean fiz = false;
     private static String link = "";
 
     /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [77=4, 78=4, 80=4, 81=4, 84=4, 85=4, 87=4, 88=4] */
@@ -173,7 +173,7 @@ public class a {
         return z;
     }
 
-    public static String eo(Context context) {
+    public static String ev(Context context) {
         String host;
         int port;
         String str = null;
@@ -199,7 +199,7 @@ public class a {
         }
     }
 
-    public static boolean bvE() {
+    public static boolean byo() {
         try {
             return Settings.Secure.getInt(ContentResolverProxy.getContentResolver(), "adb_enabled", 0) > 0;
         } catch (Exception e) {
@@ -208,10 +208,10 @@ public class a {
     }
 
     /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [169=5, 171=4, 172=4, 173=4] */
-    public static String Q(File file) {
+    public static String T(File file) {
         FileInputStream fileInputStream;
         String str;
-        if (eWn) {
+        if (fiz) {
             return "hasSend_" + link;
         }
         String str2 = TbConfig.SERVER_ADDRESS + TbConfig.DEBUG_UPLOAD;
@@ -232,7 +232,7 @@ public class a {
                     str = aaVar.postMultiNetData();
                     if (str != null && !str.isEmpty()) {
                         link = new JSONObject(str).getString("url");
-                        eWn = true;
+                        fiz = true;
                         String str3 = link;
                         if (fileInputStream != null) {
                             try {

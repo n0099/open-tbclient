@@ -14,16 +14,16 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.ap;
 import com.baidu.tieba.R;
 import com.baidu.tieba.newdetail.a.c;
-/* loaded from: classes20.dex */
+/* loaded from: classes21.dex */
 public class b extends com.baidu.adp.widget.ListView.a<c, a> {
     public b(TbPageContext tbPageContext) {
-        super(tbPageContext.getPageActivity(), com.baidu.tieba.newdetail.a.a.kuH);
+        super(tbPageContext.getPageActivity(), com.baidu.tieba.newdetail.a.a.kJT);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.widget.ListView.a
-    /* renamed from: bY */
+    /* renamed from: ca */
     public a c(ViewGroup viewGroup) {
         LinearLayout linearLayout = new LinearLayout(viewGroup.getContext());
         linearLayout.setOrientation(1);
@@ -58,31 +58,31 @@ public class b extends com.baidu.adp.widget.ListView.a<c, a> {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes20.dex */
+    /* loaded from: classes21.dex */
     public static class a extends af.a {
-        private TextView dUN;
-        private View eis;
-        private int iUD;
+        private TextView egP;
+        private View euA;
+        private int jjB;
 
         a(View view, TextView textView, View view2) {
             super(view);
-            this.iUD = 3;
-            this.dUN = textView;
-            this.eis = view2;
+            this.jjB = 3;
+            this.egP = textView;
+            this.euA = view2;
         }
 
         void a(c cVar) {
             if (cVar != null) {
-                this.dUN.setText(cVar.title);
-                this.eis.setVisibility(cVar.khV ? 0 : 8);
+                this.egP.setText(cVar.title);
+                this.euA.setVisibility(cVar.kxi ? 0 : 8);
             }
         }
 
         void onChangeSkinType(int i) {
-            if (this.iUD != i) {
-                ap.setViewTextColor(this.dUN, R.color.cp_cont_b);
-                ap.setBackgroundColor(this.eis, R.color.cp_bg_line_c);
-                this.iUD = i;
+            if (this.jjB != i) {
+                ap.setViewTextColor(this.egP, R.color.cp_cont_b);
+                ap.setBackgroundColor(this.euA, R.color.cp_bg_line_c);
+                this.jjB = i;
             }
         }
     }

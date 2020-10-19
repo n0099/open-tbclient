@@ -8,13 +8,13 @@ public interface c {
 
     /* loaded from: classes.dex */
     public interface a {
-        public static final String kpL = File.separator;
-        public static final String kpM = TbadkCoreApplication.getInst().getCacheDir().getAbsolutePath();
-        public static final String kpN = kpM + kpL + ".tieba_video_monitor";
-        public static final String kpO = kpN + kpL + AbstractBceClient.URL_PREFIX;
-        public static final String kpP = kpO + kpL;
-        public static final String kpQ = kpM + kpL + ".tieba_video_monitor_log";
-        public static final String kpR = kpQ + kpL + AbstractBceClient.URL_PREFIX;
-        public static final String kpS = kpR + kpL;
+        public static final String kEX = File.separator;
+        public static final String kEY = TbadkCoreApplication.getInst().getCacheDir().getAbsolutePath();
+        public static final String kEZ = kEY + kEX + ".tieba_video_monitor";
+        public static final String kFa = kEZ + kEX + AbstractBceClient.URL_PREFIX;
+        public static final String kFb = kFa + kEX;
+        public static final String kFc = kEY + kEX + ".tieba_video_monitor_log";
+        public static final String kFd = kFc + kEX + AbstractBceClient.URL_PREFIX;
+        public static final String kFe = kFd + kEX;
     }
 }

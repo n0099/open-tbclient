@@ -1,7 +1,9 @@
 package com.baidu.pass.biometrics.base.debug;
-/* loaded from: classes6.dex */
+/* loaded from: classes11.dex */
 public final class Log {
-    private static final String a = "SAPI_BIOMETRIC";
+
+    /* renamed from: a  reason: collision with root package name */
+    private static final String f2690a = "SAPI_BIOMETRIC";
     private static boolean b;
 
     private Log() {
@@ -47,7 +49,7 @@ public final class Log {
     }
 
     public static void e(Throwable th) {
-        e(a, th);
+        e(f2690a, th);
     }
 
     public static void enable(boolean z) {
@@ -73,7 +75,7 @@ public final class Log {
     }
 
     public static void d(Object... objArr) {
-        d(a, objArr);
+        d(f2690a, objArr);
     }
 
     public static void e(String str, Object... objArr) {
@@ -84,10 +86,10 @@ public final class Log {
     }
 
     public static void i(Object... objArr) {
-        i(a, objArr);
+        i(f2690a, objArr);
     }
 
     public static void w(Object... objArr) {
-        w(a, objArr);
+        w(f2690a, objArr);
     }
 }

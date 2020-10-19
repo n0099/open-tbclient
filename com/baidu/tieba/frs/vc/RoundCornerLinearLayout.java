@@ -13,10 +13,10 @@ import android.util.AttributeSet;
 import android.widget.LinearLayout;
 import com.baidu.tieba.R;
 import java.util.Arrays;
-/* loaded from: classes21.dex */
+/* loaded from: classes22.dex */
 public class RoundCornerLinearLayout extends LinearLayout {
-    private static final int flN = R.color.white_alpha100;
-    private Shape eiu;
+    private static final int fyb = R.color.white_alpha100;
+    private Shape euC;
     private Paint mPaint;
     private float mRadius;
     private RectF mRectF;
@@ -44,9 +44,9 @@ public class RoundCornerLinearLayout extends LinearLayout {
         this.mPaint.setXfermode(new PorterDuffXfermode(PorterDuff.Mode.DST_OUT));
         this.mStrokePaint = new Paint();
         this.mStrokePaint.setAntiAlias(true);
-        this.mStrokePaint.setColor(getResources().getColor(flN));
+        this.mStrokePaint.setColor(getResources().getColor(fyb));
         this.mStrokePaint.setStyle(Paint.Style.FILL);
-        this.mStrokePaint.setShadowLayer(getResources().getDimension(R.dimen.tbds5), 0.0f, getResources().getDimension(R.dimen.tbds4), getResources().getColor(flN));
+        this.mStrokePaint.setShadowLayer(getResources().getDimension(R.dimen.tbds5), 0.0f, getResources().getDimension(R.dimen.tbds4), getResources().getColor(fyb));
         this.mStrokePaint.setXfermode(new PorterDuffXfermode(PorterDuff.Mode.DST_OVER));
         this.mRectF = new RectF();
         this.mRadius = getResources().getDimension(R.dimen.tbds20);
@@ -61,7 +61,7 @@ public class RoundCornerLinearLayout extends LinearLayout {
     protected void onLayout(boolean z, int i, int i2, int i3, int i4) {
         super.onLayout(z, i, i2, i3, i4);
         if (z) {
-            if (this.eiu == null) {
+            if (this.euC == null) {
                 float[] fArr = new float[8];
                 Arrays.fill(fArr, 0.0f);
                 float dimension = ((float) getPaddingLeft()) <= getResources().getDimension(R.dimen.tbds5) ? getResources().getDimension(R.dimen.tbds5) : getPaddingLeft();
@@ -71,10 +71,10 @@ public class RoundCornerLinearLayout extends LinearLayout {
                 RectF rectF = new RectF(dimension, paddingTop, dimension2, paddingBottom);
                 float[] fArr2 = new float[8];
                 Arrays.fill(fArr2, this.mRadius);
-                this.eiu = new RoundRectShape(fArr, rectF, fArr2);
+                this.euC = new RoundRectShape(fArr, rectF, fArr2);
                 this.mRectF.set(dimension, paddingTop, getWidth() - dimension2, getHeight() - paddingBottom);
             }
-            this.eiu.resize(getWidth(), getHeight());
+            this.euC.resize(getWidth(), getHeight());
         }
     }
 
@@ -83,8 +83,8 @@ public class RoundCornerLinearLayout extends LinearLayout {
         int saveCount = canvas.getSaveCount();
         canvas.save();
         super.dispatchDraw(canvas);
-        if (this.eiu != null) {
-            this.eiu.draw(canvas, this.mPaint);
+        if (this.euC != null) {
+            this.euC.draw(canvas, this.mPaint);
         }
         canvas.drawRoundRect(this.mRectF, this.mRadius, this.mRadius, this.mStrokePaint);
         if (saveCount >= 1 && saveCount <= canvas.getSaveCount()) {

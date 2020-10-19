@@ -1,9 +1,11 @@
 package com.baidu.pano.platform.a;
 
 import com.baidu.tbadk.TbConfig;
-/* loaded from: classes3.dex */
+/* loaded from: classes7.dex */
 public class e implements s {
-    private int a;
+
+    /* renamed from: a  reason: collision with root package name */
+    private int f2649a;
     private int b;
     private final int c;
     private final float d;
@@ -13,14 +15,14 @@ public class e implements s {
     }
 
     public e(int i, int i2, float f) {
-        this.a = i;
+        this.f2649a = i;
         this.c = i2;
         this.d = f;
     }
 
     @Override // com.baidu.pano.platform.a.s
     public int a() {
-        return this.a;
+        return this.f2649a;
     }
 
     @Override // com.baidu.pano.platform.a.s
@@ -31,7 +33,7 @@ public class e implements s {
     @Override // com.baidu.pano.platform.a.s
     public void a(v vVar) throws v {
         this.b++;
-        this.a = (int) (this.a + (this.a * this.d));
+        this.f2649a = (int) (this.f2649a + (this.f2649a * this.d));
         if (!c()) {
             throw vVar;
         }

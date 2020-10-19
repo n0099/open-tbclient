@@ -12,7 +12,7 @@ import com.baidu.ar.DuMixOutput;
 import com.baidu.ar.arplay.core.engine.pixel.PixelRotation;
 import com.baidu.ar.bean.MirriorType;
 import com.baidu.ar.bean.Size;
-/* loaded from: classes10.dex */
+/* loaded from: classes14.dex */
 public class d extends c implements IGLRenderer {
     private String gO;
     private String gP;
@@ -53,12 +53,12 @@ public class d extends c implements IGLRenderer {
         this.aa = duMixOutput;
         this.gZ.setUpEGLEnv(this.hp);
         this.gZ.setCameraFace(duMixInput.isFrontCamera());
-        PixelRotation a = b.a(duMixInput.isCameraInput() && duMixInput.isFitCameraAuto(), duMixInput.getRotationType(), MirriorType.VERTICAL_MIRRIOR);
+        PixelRotation a2 = b.a(duMixInput.isCameraInput() && duMixInput.isFitCameraAuto(), duMixInput.getRotationType(), MirriorType.VERTICAL_MIRRIOR);
         com.baidu.ar.arplay.core.engine.c cVar = com.baidu.ar.arplay.core.engine.c.INTERNAL_2D_TEX;
         if (duMixInput.isSyncInputContent()) {
-            this.gZ.createSyncInputSource(a, cVar);
+            this.gZ.createSyncInputSource(a2, cVar);
         } else {
-            this.gZ.createInputSource(a, cVar);
+            this.gZ.createInputSource(a2, cVar);
         }
         if (duMixInput.getInputTexture() != null) {
             setInputTexture(duMixInput.getInputTexture().getType(), duMixInput.getInputTexture().getId(), duMixInput.getInputWidth(), duMixInput.getInputHeight());
@@ -84,8 +84,8 @@ public class d extends c implements IGLRenderer {
         this.aa = duMixOutput;
         a(this.aa.getOutputTexture().getType(), this.aa.getOutputTexture().getId(), this.aa.getOutputWidth(), this.aa.getOutputHeight(), b.a(this.aa.getRotationType(), this.aa.getMirriorType()));
         if (this.ha != null) {
-            Size a = a(a(this.W));
-            this.ha.setWindowSize(a.getWidth(), a.getHeight());
+            Size a2 = a(a(this.W));
+            this.ha.setWindowSize(a2.getWidth(), a2.getHeight());
         }
     }
 

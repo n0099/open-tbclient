@@ -5,17 +5,17 @@ import com.baidu.live.tbadk.message.http.JsonHttpResponsedMessage;
 import org.json.JSONObject;
 /* loaded from: classes4.dex */
 public class AlaGetQualifyingResultResponseMessage extends JsonHttpResponsedMessage {
-    private int gug;
-    private boolean guh;
-    private int gui;
-    private int guj;
-    private String guk;
+    private int gIB;
+    private boolean gIC;
+    private int gID;
+    private int gIE;
+    private String gIF;
 
     public AlaGetQualifyingResultResponseMessage() {
         super(1021209);
-        this.gug = 0;
-        this.guh = false;
-        this.gui = 0;
+        this.gIB = 0;
+        this.gIC = false;
+        this.gID = 0;
     }
 
     @Override // com.baidu.live.tbadk.message.http.JsonHttpResponsedMessage
@@ -23,42 +23,42 @@ public class AlaGetQualifyingResultResponseMessage extends JsonHttpResponsedMess
         JSONObject optJSONObject;
         ag agVar;
         super.decodeLogicInBackGround(i, jSONObject);
-        if (jSONObject != null && (optJSONObject = jSONObject.optJSONObject("data")) != null && (agVar = com.baidu.live.x.a.NN().bhy) != null && agVar.aIO != null) {
-            this.guh = agVar.aIO.aLK;
-            if (this.guh) {
+        if (jSONObject != null && (optJSONObject = jSONObject.optJSONObject("data")) != null && (agVar = com.baidu.live.x.a.OS().blo) != null && agVar.aLS != null) {
+            this.gIC = agVar.aLS.aOP;
+            if (this.gIC) {
                 JSONObject optJSONObject2 = optJSONObject.optJSONObject("season_info");
                 if (optJSONObject2 != null) {
-                    this.gug = 1;
-                    this.guk = optJSONObject2.optString("show_last_time");
-                    if (this.guk == null || this.guk.isEmpty()) {
-                        this.gui = 0;
+                    this.gIB = 1;
+                    this.gIF = optJSONObject2.optString("show_last_time");
+                    if (this.gIF == null || this.gIF.isEmpty()) {
+                        this.gID = 0;
                         return;
                     } else {
-                        this.gui = 1;
+                        this.gID = 1;
                         return;
                     }
                 }
-                this.gug = 0;
+                this.gIB = 0;
                 return;
             }
-            this.gug = 0;
+            this.gIB = 0;
         }
     }
 
-    public boolean bQU() {
-        return this.gug == 1;
+    public boolean bUo() {
+        return this.gIB == 1;
     }
 
-    public boolean bQV() {
-        return this.gui == 1;
+    public boolean bUp() {
+        return this.gID == 1;
     }
 
-    public long bQW() {
+    public long bUq() {
         try {
-            this.guj = Integer.parseInt(this.guk);
+            this.gIE = Integer.parseInt(this.gIF);
         } catch (NumberFormatException e) {
             e.printStackTrace();
         }
-        return this.guj * 1000;
+        return this.gIE * 1000;
     }
 }

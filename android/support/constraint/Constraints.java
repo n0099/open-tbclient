@@ -6,7 +6,7 @@ import android.support.constraint.ConstraintLayout;
 import android.util.AttributeSet;
 import android.util.Log;
 import android.view.ViewGroup;
-/* loaded from: classes5.dex */
+/* loaded from: classes8.dex */
 public class Constraints extends ViewGroup {
     public static final String TAG = "Constraints";
     ConstraintSet myConstraintSet;
@@ -34,7 +34,7 @@ public class Constraints extends ViewGroup {
         return new LayoutParams(getContext(), attributeSet);
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes8.dex */
     public static class LayoutParams extends ConstraintLayout.LayoutParams {
         public float alpha;
         public boolean applyElevation;

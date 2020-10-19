@@ -16,79 +16,79 @@ import java.util.Iterator;
 import java.util.List;
 /* loaded from: classes4.dex */
 public class e extends c {
-    private com.baidu.live.gift.c.a aYB;
-    private long aYC;
+    private com.baidu.live.gift.c.a bbV;
+    private long bbW;
 
     @Override // com.baidu.live.gift.panel.c, com.baidu.live.tbadk.core.fragment.LazyLoadFragment
     protected void onInflate(View view, Bundle bundle) {
         super.onInflate(view, bundle);
-        this.aYs.setType(1);
-        this.aYs.Gs();
+        this.bbM.setType(1);
+        this.bbM.Ho();
     }
 
     @Override // com.baidu.live.gift.panel.c, com.baidu.live.tbadk.core.fragment.LazyLoadFragment
     protected void onInitial() {
         super.onInitial();
-        HI();
-        this.aYB.gV("gift_panel");
+        IF();
+        this.bbV.hj("gift_panel");
     }
 
     @Override // com.baidu.live.gift.panel.c
-    protected boolean HY() {
-        g GA = this.aYs.GA();
-        if (GA == null) {
+    protected boolean IV() {
+        g Hw = this.bbM.Hw();
+        if (Hw == null) {
             return false;
         }
-        HI();
-        int GB = this.aYs.GB();
-        if (!a(GA, GB) || e(GA)) {
+        IF();
+        int Hx = this.bbM.Hx();
+        if (!a(Hw, Hx) || e(Hw)) {
             return true;
         }
         long currentTimeMillis = System.currentTimeMillis();
-        if (GA.Eo()) {
-            GA.aPo = this.aYt != null ? this.aYt.Gc() : null;
-            if (GA.aPo == null) {
+        if (Hw.Fk()) {
+            Hw.aSz = this.bbN != null ? this.bbN.GY() : null;
+            if (Hw.aSz == null) {
                 return false;
             }
-            GA.aPo.aQu = GA.El();
-            com.baidu.live.gift.b.b.Hn().a(GA, GB, this.aYe.mUserId, this.aYe.mUserName, this.aYe.mLiveId, this.aYe.mRoomId, this.aYe.mAppId, this.aYe.aVs, this.aYe.otherParams, 0L, currentTimeMillis);
+            Hw.aSz.aTF = Hw.Fh();
+            com.baidu.live.gift.b.b.Ik().a(Hw, Hx, this.bby.mUserId, this.bby.mUserName, this.bby.mLiveId, this.bby.mRoomId, this.bby.mAppId, this.bby.aYD, this.bby.otherParams, 0L, currentTimeMillis);
             closeActivity();
         } else {
-            com.baidu.live.gift.b.b.Hn().a(GA, GB, this.aYe.mUserId, this.aYe.mUserName, this.aYe.mLiveId, this.aYe.mRoomId, this.aYe.mAppId, this.aYe.aVs, this.aYe.otherParams, 0L, currentTimeMillis);
+            com.baidu.live.gift.b.b.Ik().a(Hw, Hx, this.bby.mUserId, this.bby.mUserName, this.bby.mLiveId, this.bby.mRoomId, this.bby.mAppId, this.bby.aYD, this.bby.otherParams, 0L, currentTimeMillis);
         }
         String str = null;
-        if (GA.aPo != null) {
-            str = GA.aPo.EY();
+        if (Hw.aSz != null) {
+            str = Hw.aSz.FU();
         }
         if (str == null) {
             str = "";
         }
-        this.aYB.a(GA.Eh(), GA.Ei(), GA.aPi.aPu, this.aYe.mUserId, this.aYe.mLiveId, GB, GB > 1 ? 1 : 0, str, currentTimeMillis);
+        this.bbV.a(Hw.Fd(), Hw.Fe(), Hw.aSt.aSF, this.bby.mUserId, this.bby.mLiveId, Hx, Hx > 1 ? 1 : 0, str, currentTimeMillis);
         return true;
     }
 
     @Override // com.baidu.live.gift.panel.c
-    protected void HZ() {
-        HI();
-        this.aYB.gV("gift_panel");
+    protected void IW() {
+        IF();
+        this.bbV.hj("gift_panel");
     }
 
     @Override // com.baidu.live.gift.panel.c
     protected boolean a(g gVar, int i) {
         g.b bVar;
-        boolean a = super.a(gVar, i);
-        if (a && (bVar = gVar.aPi) != null && i > bVar.aPv) {
+        boolean a2 = super.a(gVar, i);
+        if (a2 && (bVar = gVar.aSt) != null && i > bVar.aSG) {
             BdUtilHelper.showToast(TbadkCoreApplication.getInst(), "赠送失败，达到最高发送礼物上限");
             return false;
         }
-        return a;
+        return a2;
     }
 
     @Override // com.baidu.live.gift.panel.c
-    protected boolean HX() {
+    protected boolean IU() {
         long currentTimeMillis = System.currentTimeMillis();
-        if (currentTimeMillis - this.aYC >= 1000) {
-            this.aYC = currentTimeMillis;
+        if (currentTimeMillis - this.bbW >= 1000) {
+            this.bbW = currentTimeMillis;
             return true;
         }
         return false;
@@ -97,53 +97,53 @@ public class e extends c {
     @Override // com.baidu.live.gift.panel.c, com.baidu.live.tbadk.core.fragment.LazyLoadFragment, com.baidu.live.tbadk.core.fragment.SupportXFragment
     public void onDestroy() {
         super.onDestroy();
-        if (this.aYB != null) {
-            this.aYB.release();
+        if (this.bbV != null) {
+            this.bbV.release();
         }
     }
 
-    private void HI() {
-        if (this.aYB == null) {
-            this.aYB = new com.baidu.live.gift.c.a();
-            this.aYB.a(new com.baidu.live.gift.c.b() { // from class: com.baidu.live.gift.panel.e.1
+    private void IF() {
+        if (this.bbV == null) {
+            this.bbV = new com.baidu.live.gift.c.a();
+            this.bbV.a(new com.baidu.live.gift.c.b() { // from class: com.baidu.live.gift.panel.e.1
                 @Override // com.baidu.live.gift.c.b, com.baidu.live.gift.c.c.a
                 public void a(boolean z, int i, String str, ArrayList<i> arrayList, ArrayList<com.baidu.live.data.g> arrayList2, ArrayList<com.baidu.live.data.i> arrayList3) {
                     super.a(z, i, str, arrayList, arrayList2, arrayList3);
                     if (!z && !TextUtils.isEmpty(str) && e.this.mVisible) {
                         BdUtilHelper.showToast(TbadkCoreApplication.getInst(), str);
                     }
-                    e.this.aYs.a(true, arrayList, arrayList2, arrayList3, z, i);
+                    e.this.bbM.a(true, arrayList, arrayList2, arrayList3, z, i);
                 }
 
                 @Override // com.baidu.live.gift.c.b, com.baidu.live.gift.c.c.a
                 public void a(boolean z, int i, String str, String str2, int i2) {
                     ArrayList<i> arrayList;
                     super.a(z, i, str, str2, i2);
-                    if (z && !TextUtils.isEmpty(str2) && (arrayList = e.this.aYs.aTq) != null) {
+                    if (z && !TextUtils.isEmpty(str2) && (arrayList = e.this.bbM.aWB) != null) {
                         Iterator<i> it = arrayList.iterator();
                         while (it.hasNext()) {
-                            List<g> EI = it.next().EI();
-                            if (EI != null) {
+                            List<g> FE = it.next().FE();
+                            if (FE != null) {
                                 if (i2 == 0) {
-                                    Iterator<g> it2 = EI.iterator();
+                                    Iterator<g> it2 = FE.iterator();
                                     while (it2.hasNext()) {
-                                        if (it2.next().Eh().equals(str2)) {
+                                        if (it2.next().Fd().equals(str2)) {
                                             it2.remove();
                                         }
                                     }
                                 } else {
-                                    for (g gVar : EI) {
-                                        if (gVar.Eh().equals(str2)) {
-                                            gVar.aPi.aPv = i2;
+                                    for (g gVar : FE) {
+                                        if (gVar.Fd().equals(str2)) {
+                                            gVar.aSt.aSG = i2;
                                         }
                                     }
                                 }
                             }
                         }
                         if (i2 == 0) {
-                            e.this.aYs.a(false, z, i);
+                            e.this.bbM.a(false, z, i);
                         } else {
-                            e.this.aYs.A(str2, i2);
+                            e.this.bbM.A(str2, i2);
                         }
                     }
                 }
@@ -153,20 +153,20 @@ public class e extends c {
 
     private boolean e(g gVar) {
         g.b.a aVar;
-        g.b bVar = gVar.aPi;
-        if (bVar == null || (aVar = bVar.aPy) == null || aVar.key != 10) {
+        g.b bVar = gVar.aSt;
+        if (bVar == null || (aVar = bVar.aSJ) == null || aVar.key != 10) {
             return false;
         }
-        if (aVar.aPz != null && aVar.aPz.optInt("price") == 100) {
-            Id();
+        if (aVar.aSK != null && aVar.aSK.optInt("price") == 100) {
+            Ja();
         }
         return true;
     }
 
-    private void Id() {
+    private void Ja() {
         bz[] bzVarArr;
-        bj bjVar = com.baidu.live.x.a.NN().bmW;
-        if (bjVar != null && bjVar.aKT != null && bjVar.aKT.aMX && bjVar.aKQ != null && (bzVarArr = bjVar.aKQ.aLY) != null && bzVarArr.length > 0) {
+        bj bjVar = com.baidu.live.x.a.OS().bqJ;
+        if (bjVar != null && bjVar.aNY != null && bjVar.aNY.aQc && bjVar.aNV != null && (bzVarArr = bjVar.aNV.aPd) != null && bzVarArr.length > 0) {
             for (int i = 0; i < bzVarArr.length; i++) {
                 if (bzVarArr[i].price == 100) {
                     closeActivity();

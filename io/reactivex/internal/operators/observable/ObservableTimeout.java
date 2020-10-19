@@ -7,13 +7,13 @@ import io.reactivex.t;
 import io.reactivex.u;
 import java.util.concurrent.TimeoutException;
 import java.util.concurrent.atomic.AtomicReference;
-/* loaded from: classes25.dex */
+/* loaded from: classes17.dex */
 public final class ObservableTimeout<T, U, V> extends io.reactivex.internal.operators.observable.a<T, T> {
     final t<U> firstTimeoutIndicator;
     final h<? super T, ? extends t<V>> itemTimeoutIndicator;
     final t<? extends T> other;
 
-    /* loaded from: classes25.dex */
+    /* loaded from: classes17.dex */
     interface a {
         void innerError(Throwable th);
 
@@ -29,7 +29,7 @@ public final class ObservableTimeout<T, U, V> extends io.reactivex.internal.oper
         }
     }
 
-    /* loaded from: classes25.dex */
+    /* loaded from: classes17.dex */
     static final class TimeoutObserver<T, U, V> extends AtomicReference<io.reactivex.disposables.b> implements io.reactivex.disposables.b, a, u<T> {
         private static final long serialVersionUID = 2672739326310051084L;
         final u<? super T> actual;
@@ -73,7 +73,7 @@ public final class ObservableTimeout<T, U, V> extends io.reactivex.internal.oper
                 bVar.dispose();
             }
             try {
-                t tVar = (t) io.reactivex.internal.functions.a.k(this.itemTimeoutIndicator.apply(t), "The ObservableSource returned is null");
+                t tVar = (t) io.reactivex.internal.functions.a.l(this.itemTimeoutIndicator.apply(t), "The ObservableSource returned is null");
                 b bVar2 = new b(this, j);
                 if (compareAndSet(bVar, bVar2)) {
                     tVar.subscribe(bVar2);
@@ -124,14 +124,14 @@ public final class ObservableTimeout<T, U, V> extends io.reactivex.internal.oper
         }
     }
 
-    /* loaded from: classes25.dex */
+    /* loaded from: classes17.dex */
     static final class b<T, U, V> extends io.reactivex.observers.a<Object> {
         boolean done;
         final long index;
-        final a oyy;
+        final a oNN;
 
         b(a aVar, long j) {
-            this.oyy = aVar;
+            this.oNN = aVar;
             this.index = j;
         }
 
@@ -140,7 +140,7 @@ public final class ObservableTimeout<T, U, V> extends io.reactivex.internal.oper
             if (!this.done) {
                 this.done = true;
                 dispose();
-                this.oyy.timeout(this.index);
+                this.oNN.timeout(this.index);
             }
         }
 
@@ -151,19 +151,19 @@ public final class ObservableTimeout<T, U, V> extends io.reactivex.internal.oper
                 return;
             }
             this.done = true;
-            this.oyy.innerError(th);
+            this.oNN.innerError(th);
         }
 
         @Override // io.reactivex.u
         public void onComplete() {
             if (!this.done) {
                 this.done = true;
-                this.oyy.timeout(this.index);
+                this.oNN.timeout(this.index);
             }
         }
     }
 
-    /* loaded from: classes25.dex */
+    /* loaded from: classes17.dex */
     static final class TimeoutOtherObserver<T, U, V> extends AtomicReference<io.reactivex.disposables.b> implements io.reactivex.disposables.b, a, u<T> {
         private static final long serialVersionUID = -1957813281749686898L;
         final u<? super T> actual;
@@ -214,7 +214,7 @@ public final class ObservableTimeout<T, U, V> extends io.reactivex.internal.oper
                         bVar.dispose();
                     }
                     try {
-                        t tVar = (t) io.reactivex.internal.functions.a.k(this.itemTimeoutIndicator.apply(t), "The ObservableSource returned is null");
+                        t tVar = (t) io.reactivex.internal.functions.a.l(this.itemTimeoutIndicator.apply(t), "The ObservableSource returned is null");
                         b bVar2 = new b(this, j);
                         if (compareAndSet(bVar, bVar2)) {
                             tVar.subscribe(bVar2);

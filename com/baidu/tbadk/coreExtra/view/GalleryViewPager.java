@@ -9,8 +9,8 @@ import com.baidu.tbadk.widget.DragImageView;
 import com.baidu.tieba.compatible.CompatibleUtile;
 /* loaded from: classes.dex */
 public class GalleryViewPager extends BaseViewPager {
-    private PointF eIc;
-    private DragImageView eId;
+    private PointF eUj;
+    private DragImageView eUk;
 
     public GalleryViewPager(Context context) {
         super(context);
@@ -21,11 +21,11 @@ public class GalleryViewPager extends BaseViewPager {
     }
 
     public void setCurrentView(DragImageView dragImageView) {
-        this.eId = dragImageView;
+        this.eUk = dragImageView;
     }
 
     public DragImageView getCurrentView() {
-        return this.eId;
+        return this.eUk;
     }
 
     private float[] F(MotionEvent motionEvent) {
@@ -33,9 +33,9 @@ public class GalleryViewPager extends BaseViewPager {
             case 1:
             case 2:
                 PointF pointF = new PointF(motionEvent.getX(), motionEvent.getY());
-                return new float[]{pointF.x - this.eIc.x, pointF.y - this.eIc.y};
+                return new float[]{pointF.x - this.eUj.x, pointF.y - this.eUj.y};
             case 0:
-                this.eIc = new PointF(motionEvent.getX(), motionEvent.getY());
+                this.eUj = new PointF(motionEvent.getX(), motionEvent.getY());
                 break;
         }
         return null;
@@ -45,25 +45,25 @@ public class GalleryViewPager extends BaseViewPager {
     public boolean onTouchEvent(MotionEvent motionEvent) {
         if ((motionEvent.getAction() & CompatibleUtile.getActionMask()) == 1) {
             super.onTouchEvent(motionEvent);
-            if (this.eId != null) {
-                this.eId.actionUp();
+            if (this.eUk != null) {
+                this.eUk.actionUp();
             }
         }
-        if (this.eId == null) {
+        if (this.eUk == null) {
             return super.onTouchEvent(motionEvent);
         }
         float[] F = F(motionEvent);
-        if (this.eId.pagerCantScroll()) {
+        if (this.eUk.pagerCantScroll()) {
             return super.onTouchEvent(motionEvent);
         }
-        if (F != null && this.eId.onRightSide() && F[0] < 0.0f) {
+        if (F != null && this.eUk.onRightSide() && F[0] < 0.0f) {
             return super.onTouchEvent(motionEvent);
         }
-        if (F != null && this.eId.onLeftSide() && F[0] > 0.0f) {
+        if (F != null && this.eUk.onLeftSide() && F[0] > 0.0f) {
             return super.onTouchEvent(motionEvent);
         }
         if (F == null) {
-            if (this.eId.onLeftSide() || this.eId.onRightSide()) {
+            if (this.eUk.onLeftSide() || this.eUk.onRightSide()) {
                 return super.onTouchEvent(motionEvent);
             }
             return false;
@@ -77,20 +77,20 @@ public class GalleryViewPager extends BaseViewPager {
             super.onInterceptTouchEvent(motionEvent);
         }
         float[] F = F(motionEvent);
-        if (this.eId == null) {
+        if (this.eUk == null) {
             return super.onInterceptTouchEvent(motionEvent);
         }
-        if (this.eId.pagerCantScroll()) {
+        if (this.eUk.pagerCantScroll()) {
             return super.onInterceptTouchEvent(motionEvent);
         }
-        if (F != null && this.eId.onRightSide() && F[0] < 0.0f) {
+        if (F != null && this.eUk.onRightSide() && F[0] < 0.0f) {
             return super.onInterceptTouchEvent(motionEvent);
         }
-        if (F != null && this.eId.onLeftSide() && F[0] > 0.0f) {
+        if (F != null && this.eUk.onLeftSide() && F[0] > 0.0f) {
             return super.onInterceptTouchEvent(motionEvent);
         }
         if (F == null) {
-            if (this.eId.onLeftSide() || this.eId.onRightSide()) {
+            if (this.eUk.onLeftSide() || this.eUk.onRightSide()) {
                 return super.onInterceptTouchEvent(motionEvent);
             }
             return false;

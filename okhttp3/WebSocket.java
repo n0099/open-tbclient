@@ -2,10 +2,10 @@ package okhttp3;
 
 import javax.annotation.Nullable;
 import okio.ByteString;
-/* loaded from: classes12.dex */
+/* loaded from: classes5.dex */
 public interface WebSocket {
 
-    /* loaded from: classes12.dex */
+    /* loaded from: classes5.dex */
     public interface Factory {
         WebSocket newWebSocket(Request request, WebSocketListener webSocketListener);
     }

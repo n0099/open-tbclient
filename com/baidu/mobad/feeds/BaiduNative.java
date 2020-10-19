@@ -15,22 +15,24 @@ import com.baidu.mobads.utils.h;
 import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
-/* loaded from: classes3.dex */
+/* loaded from: classes7.dex */
 public class BaiduNative {
-    private final Context a;
+
+    /* renamed from: a  reason: collision with root package name */
+    private final Context f2264a;
     private final String b;
     private c c;
     private BaiduNativeNetworkListener d;
     private BaiduNativeEventListener e;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes7.dex */
     public interface BaiduNativeEventListener {
         void onClicked();
 
         void onImpressionSended();
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes7.dex */
     public interface BaiduNativeNetworkListener {
         void onNativeFail(NativeErrorCode nativeErrorCode);
 
@@ -38,7 +40,7 @@ public class BaiduNative {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes3.dex */
+    /* loaded from: classes7.dex */
     public class CustomIOAdEventListener implements IOAdEventListener {
         private IXAdFeedsRequestParameters b;
 
@@ -70,7 +72,7 @@ public class BaiduNative {
                                 z2 = true;
                             } else {
                                 hashSet.add(appPackageName);
-                                if (XAdSDKFoundationFacade.getInstance().getPackageUtils().isInstalled(BaiduNative.this.a, appPackageName)) {
+                                if (XAdSDKFoundationFacade.getInstance().getPackageUtils().isInstalled(BaiduNative.this.f2264a, appPackageName)) {
                                     z = true;
                                     z2 = false;
                                 }
@@ -116,7 +118,7 @@ public class BaiduNative {
     }
 
     public BaiduNative(Context context, String str, BaiduNativeNetworkListener baiduNativeNetworkListener, c cVar) {
-        this.a = context;
+        this.f2264a = context;
         XAdSDKFoundationFacade.getInstance().initializeApplicationContext(context.getApplicationContext());
         this.b = str;
         this.d = baiduNativeNetworkListener;

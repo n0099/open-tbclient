@@ -3,7 +3,7 @@ package com.meizu.cloud.a;
 import android.content.Context;
 import android.os.Environment;
 import com.meizu.cloud.pushsdk.base.h;
-/* loaded from: classes3.dex */
+/* loaded from: classes7.dex */
 public class a {
     public static boolean debug = false;
 
@@ -19,7 +19,7 @@ public class a {
         h.b().a(false);
     }
 
-    public static void gJ(Context context) {
+    public static void gQ(Context context) {
         h.b().a(context);
         h.b().a(Environment.getExternalStorageDirectory().getAbsolutePath() + "/Android/data/pushSdk/" + context.getPackageName());
     }

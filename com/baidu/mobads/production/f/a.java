@@ -4,7 +4,7 @@ import android.app.Activity;
 import android.view.KeyEvent;
 import android.widget.RelativeLayout;
 import com.baidu.mobads.openad.interfaces.event.IOAdEventListener;
-/* loaded from: classes3.dex */
+/* loaded from: classes7.dex */
 public interface a {
     void a(int i, int i2);
 

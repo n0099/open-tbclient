@@ -4,15 +4,17 @@ import com.baidu.platform.comapi.basestruct.GeoPoint;
 import com.baidu.platform.comapi.map.MapController;
 import com.baidu.platform.comapi.map.MapViewInterface;
 import java.util.IllegalFormatException;
-/* loaded from: classes3.dex */
+/* loaded from: classes7.dex */
 public class d {
-    private float a;
+
+    /* renamed from: a  reason: collision with root package name */
+    private float f2908a;
     private StringBuffer b = new StringBuffer();
     private StringBuffer c = new StringBuffer();
     private MapController d;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes3.dex */
+    /* loaded from: classes7.dex */
     public enum a {
         ZOOM_OUT,
         ZOOM_IN,
@@ -71,15 +73,15 @@ public class d {
     }
 
     private void d(float f) {
-        this.a = f;
+        this.f2908a = f;
     }
 
     private boolean e(float f) {
-        return f > this.a;
+        return f > this.f2908a;
     }
 
     private boolean f(float f) {
-        return f < this.a;
+        return f < this.f2908a;
     }
 
     public void a() {

@@ -10,13 +10,13 @@ import com.baidu.live.tbadk.core.TbadkCoreApplication;
 public class e {
     public static void init() {
         TbConfig.setLiveEnterFrom("live_sdk");
-        com.baidu.h.b.a.aF(TbadkCoreApplication.getInst()).a(new com.baidu.h.b.b.b());
-        com.baidu.h.b.a.aF(TbadkCoreApplication.getInst()).a(new com.baidu.live.widget.a());
-        AT();
-        AU();
+        com.baidu.h.b.a.aJ(TbadkCoreApplication.getInst()).a(new com.baidu.h.b.b.b());
+        com.baidu.h.b.a.aJ(TbadkCoreApplication.getInst()).a(new com.baidu.live.widget.a());
+        Bb();
+        Bc();
     }
 
-    public static void AT() {
+    public static void Bb() {
         AccountHelper.setOnSyncAccountCallback(new OnSyncAccountCallback() { // from class: com.baidu.live.e.1
             @Override // com.baidu.live.tbadk.account.OnSyncAccountCallback
             public void onSyncAccount(boolean z) {
@@ -25,7 +25,7 @@ public class e {
         });
     }
 
-    public static void AU() {
+    public static void Bc() {
         com.baidu.live.activity.a.d(TbadkCoreApplication.getInst().getApp());
     }
 }

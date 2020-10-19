@@ -13,12 +13,12 @@ import com.baidu.adp.widget.ListView.af;
 import com.baidu.adp.widget.ListView.af.a;
 /* loaded from: classes.dex */
 public abstract class a<T, V extends af.a> {
-    protected ab Vd;
-    protected ac Ve;
-    protected BdUniqueId Vf;
-    private u<q> Vg;
-    protected V Vh;
-    private com.baidu.adp.widget.a.a Vi = new com.baidu.adp.widget.a.a();
+    protected ab Vt;
+    protected ac Vu;
+    protected BdUniqueId Vv;
+    private u<q> Vw;
+    protected V Vx;
+    private com.baidu.adp.widget.a.a Vy = new com.baidu.adp.widget.a.a();
     protected Context mContext;
     protected BdUniqueId mPageId;
 
@@ -31,13 +31,13 @@ public abstract class a<T, V extends af.a> {
     /* JADX INFO: Access modifiers changed from: protected */
     public a(Context context, BdUniqueId bdUniqueId) {
         this.mContext = context;
-        this.Vf = bdUniqueId;
+        this.Vv = bdUniqueId;
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     public a(Context context, BdUniqueId bdUniqueId, BdUniqueId bdUniqueId2) {
         this.mContext = context;
-        this.Vf = bdUniqueId;
+        this.Vv = bdUniqueId;
         this.mPageId = bdUniqueId2;
     }
 
@@ -46,10 +46,10 @@ public abstract class a<T, V extends af.a> {
     public View getView(int i, View view, ViewGroup viewGroup, T t) {
         View view2;
         if (needCreateNewHolder(view)) {
-            this.Vh = (V) c(viewGroup);
-            view2 = this.Vh.getView();
+            this.Vx = (V) c(viewGroup);
+            view2 = this.Vx.getView();
             if (BdBaseApplication.getInst().isDebugMode()) {
-                BdLog.i("convertView is creating" + this.Vh.getClass().getName());
+                BdLog.i("convertView is creating" + this.Vx.getClass().getName());
             }
         } else {
             view2 = view;
@@ -58,7 +58,7 @@ public abstract class a<T, V extends af.a> {
     }
 
     private boolean needCreateNewHolder(View view) {
-        return view == null || view.getTag() == null || this.Vh == null || !this.Vh.getClass().isAssignableFrom(view.getTag().getClass()) || !view.getTag().getClass().isAssignableFrom(this.Vh.getClass());
+        return view == null || view.getTag() == null || this.Vx == null || !this.Vx.getClass().isAssignableFrom(view.getTag().getClass()) || !view.getTag().getClass().isAssignableFrom(this.Vx.getClass());
     }
 
     public V a(ViewGroup viewGroup, T t) {
@@ -118,23 +118,23 @@ public abstract class a<T, V extends af.a> {
     }
 
     public void a(ab abVar) {
-        this.Vd = abVar;
+        this.Vt = abVar;
     }
 
     public ab qN() {
-        return this.Vd;
+        return this.Vt;
     }
 
     public void a(ac acVar) {
-        this.Ve = acVar;
+        this.Vu = acVar;
     }
 
     public ac qO() {
-        return this.Ve;
+        return this.Vu;
     }
 
     public BdUniqueId getType() {
-        return this.Vf;
+        return this.Vv;
     }
 
     public void setPageId(BdUniqueId bdUniqueId) {
@@ -143,27 +143,27 @@ public abstract class a<T, V extends af.a> {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public void a(u<q> uVar) {
-        this.Vg = uVar;
+        this.Vw = uVar;
     }
 
     public void notifyDataSetChanged() {
-        if (this.Vg != null) {
-            this.Vg.notifyDataSetChanged();
+        if (this.Vw != null) {
+            this.Vw.notifyDataSetChanged();
         }
     }
 
     public q getItem(int i) {
-        if (this.Vg != null) {
-            return this.Vg.getItem(i);
+        if (this.Vw != null) {
+            return this.Vw.getItem(i);
         }
         return null;
     }
 
     public int getPositionByType(int i) {
-        if (this.Vg == null || this.Vf == null) {
+        if (this.Vw == null || this.Vv == null) {
             return -1;
         }
-        return this.Vg.getPositionByType(i, this.Vf.getId());
+        return this.Vw.getPositionByType(i, this.Vv.getId());
     }
 
     public ViewGroup.LayoutParams generateLayoutParamsByParent(ViewGroup viewGroup) {
@@ -177,10 +177,10 @@ public abstract class a<T, V extends af.a> {
     }
 
     public boolean h(int i, int i2, int i3) {
-        return this.Vi.h(i, i2, i3);
+        return this.Vy.h(i, i2, i3);
     }
 
     public boolean aI(int i) {
-        return this.Vi.aI(i);
+        return this.Vy.aI(i);
     }
 }

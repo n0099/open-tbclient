@@ -2,12 +2,12 @@ package com.baidu.swan.apps.w.a;
 
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes10.dex */
 public class g extends c {
-    public com.baidu.swan.apps.w.a.a.c czX;
+    public com.baidu.swan.apps.w.a.a.c cMc;
     public String callBack = "";
-    public String czY = "";
-    public String czZ = "";
+    public String cMd = "";
+    public String cMe = "";
 
     @Override // com.baidu.swan.apps.w.a.c, com.baidu.swan.apps.component.b.b, com.baidu.swan.apps.model.a
     public void parseFromJson(JSONObject jSONObject) throws JSONException {
@@ -16,17 +16,17 @@ public class g extends c {
             this.callBack = jSONObject.optString("cb");
             double optDouble = jSONObject.optDouble("latitude");
             double optDouble2 = jSONObject.optDouble("longitude");
-            this.czY = jSONObject.optString("guideKey");
-            this.czZ = jSONObject.optString("guideIcon");
+            this.cMd = jSONObject.optString("guideKey");
+            this.cMe = jSONObject.optString("guideIcon");
             if (!Double.isNaN(optDouble) && !Double.isNaN(optDouble2) && optDouble >= -90.0d && optDouble <= 90.0d && optDouble2 >= -180.0d && optDouble2 <= 180.0d) {
-                this.czX = new com.baidu.swan.apps.w.a.a.c();
-                this.czX.parseFromJson(jSONObject);
+                this.cMc = new com.baidu.swan.apps.w.a.a.c();
+                this.cMc.parseFromJson(jSONObject);
             }
         }
     }
 
     @Override // com.baidu.swan.apps.component.b.b, com.baidu.swan.apps.model.a
     public boolean isValid() {
-        return this.czX != null;
+        return this.cMc != null;
     }
 }

@@ -1,9 +1,9 @@
 package com.baidu.prologue.a.b;
 
 import android.content.Context;
-/* loaded from: classes10.dex */
+/* loaded from: classes19.dex */
 public class b {
     public static Context getAppContext() {
-        return a.bMm.get().Vt();
+        return a.bSV.get().Xq();
     }
 }

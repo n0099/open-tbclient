@@ -3,7 +3,7 @@ package com.baidu.platform.comapi.map;
 import com.baidu.platform.comapi.basestruct.GeoPoint;
 import java.util.List;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes7.dex */
 public interface MapViewListener {
     void onClickPolymericMapObj(List<MapObj> list);
 

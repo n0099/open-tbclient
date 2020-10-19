@@ -5,17 +5,17 @@ import io.reactivex.internal.disposables.DisposableHelper;
 import io.reactivex.w;
 import io.reactivex.y;
 import java.util.concurrent.atomic.AtomicReference;
-/* loaded from: classes25.dex */
+/* loaded from: classes17.dex */
 public final class SingleDoOnDispose<T> extends w<T> {
-    final io.reactivex.c.a oyS;
+    final io.reactivex.c.a oOh;
     final aa<T> source;
 
     @Override // io.reactivex.w
     protected void b(y<? super T> yVar) {
-        this.source.a(new DoOnDisposeObserver(yVar, this.oyS));
+        this.source.a(new DoOnDisposeObserver(yVar, this.oOh));
     }
 
-    /* loaded from: classes25.dex */
+    /* loaded from: classes17.dex */
     static final class DoOnDisposeObserver<T> extends AtomicReference<io.reactivex.c.a> implements io.reactivex.disposables.b, y<T> {
         private static final long serialVersionUID = -8583764624474935784L;
         final y<? super T> actual;

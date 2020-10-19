@@ -21,7 +21,7 @@ import com.meizu.cloud.pushsdk.notification.model.AppIconSetting;
 import java.util.ArrayList;
 import java.util.Iterator;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes9.dex */
 public class OpenBdussService extends AbstractService implements NoProguard {
     private Context context;
 

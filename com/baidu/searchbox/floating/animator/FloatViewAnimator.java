@@ -6,7 +6,7 @@ import android.view.WindowManager;
 import java.lang.ref.WeakReference;
 import kotlin.h;
 @h
-/* loaded from: classes5.dex */
+/* loaded from: classes11.dex */
 public interface FloatViewAnimator {
     Animator enterAnim(WeakReference<View> weakReference, WindowManager.LayoutParams layoutParams, WindowManager windowManager);
 

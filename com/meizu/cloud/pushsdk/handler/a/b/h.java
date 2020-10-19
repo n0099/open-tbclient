@@ -4,7 +4,7 @@ import android.os.Parcel;
 import android.os.Parcelable;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes7.dex */
 public class h implements Parcelable {
     public static final Parcelable.Creator<h> CREATOR = new Parcelable.Creator<h>() { // from class: com.meizu.cloud.pushsdk.handler.a.b.h.1
         /* JADX DEBUG: Method merged with bridge method */
@@ -21,12 +21,14 @@ public class h implements Parcelable {
             return new h[i];
         }
     };
-    private b a;
+
+    /* renamed from: a  reason: collision with root package name */
+    private b f4422a;
     private String b;
     private int c;
 
     protected h(Parcel parcel) {
-        this.a = (b) parcel.readParcelable(b.class.getClassLoader());
+        this.f4422a = (b) parcel.readParcelable(b.class.getClassLoader());
         this.b = parcel.readString();
         this.c = parcel.readInt();
     }
@@ -41,11 +43,11 @@ public class h implements Parcelable {
         } catch (JSONException e) {
             com.meizu.cloud.a.a.e("WithDrawMessage", "parse WithDrawMessage error " + e.getMessage());
         }
-        this.a = new b(str3, str4, str5);
+        this.f4422a = new b(str3, str4, str5);
     }
 
     public b a() {
-        return this.a;
+        return this.f4422a;
     }
 
     public int b() {
@@ -62,12 +64,12 @@ public class h implements Parcelable {
     }
 
     public String toString() {
-        return "WithDrawMessage{controlMessage=" + this.a + ", revokePackageName='" + this.b + "', notifyId=" + this.c + '}';
+        return "WithDrawMessage{controlMessage=" + this.f4422a + ", revokePackageName='" + this.b + "', notifyId=" + this.c + '}';
     }
 
     @Override // android.os.Parcelable
     public void writeToParcel(Parcel parcel, int i) {
-        parcel.writeParcelable(this.a, i);
+        parcel.writeParcelable(this.f4422a, i);
         parcel.writeString(this.b);
         parcel.writeInt(this.c);
     }

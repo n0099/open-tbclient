@@ -3,9 +3,11 @@ package com.baidu.mapapi.map;
 import android.os.Bundle;
 import android.support.v4.view.ViewCompat;
 import com.baidu.mapapi.model.LatLng;
-/* loaded from: classes3.dex */
+/* loaded from: classes7.dex */
 public final class DotOptions extends OverlayOptions {
-    int a;
+
+    /* renamed from: a  reason: collision with root package name */
+    int f2004a;
     Bundle c;
     private LatLng d;
     private int e = ViewCompat.MEASURED_STATE_MASK;
@@ -17,10 +19,10 @@ public final class DotOptions extends OverlayOptions {
     public Overlay a() {
         Dot dot = new Dot();
         dot.B = this.b;
-        dot.A = this.a;
+        dot.A = this.f2004a;
         dot.C = this.c;
         dot.b = this.e;
-        dot.a = this.d;
+        dot.f2003a = this.d;
         dot.c = this.f;
         return dot;
     }
@@ -60,7 +62,7 @@ public final class DotOptions extends OverlayOptions {
     }
 
     public int getZIndex() {
-        return this.a;
+        return this.f2004a;
     }
 
     public boolean isVisible() {
@@ -80,7 +82,7 @@ public final class DotOptions extends OverlayOptions {
     }
 
     public DotOptions zIndex(int i) {
-        this.a = i;
+        this.f2004a = i;
         return this;
     }
 }

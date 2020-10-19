@@ -6,7 +6,7 @@ import com.airbnb.lottie.g;
 import com.baidu.searchbox.ui.animview.base.BaseAnimatedElement;
 import com.baidu.searchbox.ui.animview.base.IResourcePackage;
 import com.baidu.searchbox.ui.animview.util.PraiseLevelUtil;
-/* loaded from: classes11.dex */
+/* loaded from: classes9.dex */
 public class PraiseLevelAnimElement extends BaseAnimatedElement {
     private static final boolean DEBUG = false;
     private static final float FACTOR_SCALE_OUT = 0.82f;

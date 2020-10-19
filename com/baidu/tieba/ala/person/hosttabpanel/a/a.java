@@ -7,41 +7,41 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes4.dex */
 public class a {
-    private List<AbsDelegateAdapter> bdV = new ArrayList();
-    private BdTypeListView bdX;
-    private b gTv;
-    private c gTw;
-    private e gTx;
-    private f gTy;
-    private d gTz;
+    private List<AbsDelegateAdapter> bhH = new ArrayList();
+    private BdTypeListView bhJ;
+    private b hit;
+    private c hiu;
+    private e hiv;
+    private f hiw;
+    private d hix;
     private TbPageContext mPageContext;
 
     public a(TbPageContext tbPageContext, BdTypeListView bdTypeListView) {
         this.mPageContext = tbPageContext;
-        this.bdX = bdTypeListView;
-        JZ();
+        this.bhJ = bdTypeListView;
+        Le();
     }
 
-    private void JZ() {
-        this.gTv = new b(this.mPageContext, com.baidu.tieba.ala.person.hosttabpanel.b.a.gTC);
-        this.gTw = new c(this.mPageContext, com.baidu.tieba.ala.person.hosttabpanel.b.b.gTF);
-        this.gTx = new e(this.mPageContext, com.baidu.tieba.ala.person.hosttabpanel.b.d.gTH);
-        this.gTy = new f(this.mPageContext, com.baidu.tieba.ala.person.hosttabpanel.b.e.gTI);
-        this.gTz = new d(this.mPageContext, com.baidu.tieba.ala.person.hosttabpanel.b.c.gTG);
-        this.bdV.add(this.gTv);
-        this.bdV.add(this.gTw);
-        this.bdV.add(this.gTx);
-        this.bdV.add(this.gTy);
-        this.bdV.add(this.gTz);
-        this.bdX.addAdapters(this.bdV);
+    private void Le() {
+        this.hit = new b(this.mPageContext, com.baidu.tieba.ala.person.hosttabpanel.b.a.hiA);
+        this.hiu = new c(this.mPageContext, com.baidu.tieba.ala.person.hosttabpanel.b.b.hiD);
+        this.hiv = new e(this.mPageContext, com.baidu.tieba.ala.person.hosttabpanel.b.d.hiF);
+        this.hiw = new f(this.mPageContext, com.baidu.tieba.ala.person.hosttabpanel.b.e.hiG);
+        this.hix = new d(this.mPageContext, com.baidu.tieba.ala.person.hosttabpanel.b.c.hiE);
+        this.bhH.add(this.hit);
+        this.bhH.add(this.hiu);
+        this.bhH.add(this.hiv);
+        this.bhH.add(this.hiw);
+        this.bhH.add(this.hix);
+        this.bhJ.addAdapters(this.bhH);
     }
 
     public void onDestroy() {
-        if (this.gTv != null) {
-            this.gTv.onDestroy();
+        if (this.hit != null) {
+            this.hit.onDestroy();
         }
-        if (this.gTw != null) {
-            this.gTw.onDestroy();
+        if (this.hiu != null) {
+            this.hiu.onDestroy();
         }
     }
 }

@@ -24,7 +24,7 @@ import java.util.Set;
 import java.util.zip.ZipEntry;
 import java.util.zip.ZipFile;
 @Keep
-/* loaded from: classes3.dex */
+/* loaded from: classes10.dex */
 public final class SoLoader {
     private static final String TAG = "SoLoader";
     private StringBuilder sb = new StringBuilder();
@@ -36,20 +36,20 @@ public final class SoLoader {
     }
 
     public static f loadV8EngineSo(Context context) {
-        String aQU = e.aQU();
-        if (sLoadedLibraries.contains(aQU)) {
-            return f.aQW();
+        String aTD = e.aTD();
+        if (sLoadedLibraries.contains(aTD)) {
+            return f.aTF();
         }
-        f a = e.a(context, new SoLoader());
-        if (a.isSuccess()) {
-            sLoadedLibraries.add(aQU);
-            return a;
+        f a2 = e.a(context, new SoLoader());
+        if (a2.isSuccess()) {
+            sLoadedLibraries.add(aTD);
+            return a2;
         }
-        return a;
+        return a2;
     }
 
     public static String getV8SoDependentFilePath() {
-        if (!sLoadedLibraries.contains(e.aQU())) {
+        if (!sLoadedLibraries.contains(e.aTD())) {
             return null;
         }
         String v8SoDependentFilePath = e.getV8SoDependentFilePath();
@@ -71,11 +71,11 @@ public final class SoLoader {
     public static void load(Context context, String str, boolean z, boolean z2) {
         boolean load;
         if (!sLoadedLibraries.contains(str)) {
-            a aQK = a.aQK();
+            a aTt = a.aTt();
             if (!z) {
-                load = new SoLoader().loadInternalFromLocal(context, str, aQK, z2);
+                load = new SoLoader().loadInternalFromLocal(context, str, aTt, z2);
             } else {
-                load = load(context, str, aQK, z2);
+                load = load(context, str, aTt, z2);
             }
             if (load) {
                 sLoadedLibraries.add(str);
@@ -85,7 +85,7 @@ public final class SoLoader {
 
     private static boolean load(Context context, String str, b bVar, boolean z) {
         if (bVar == null) {
-            bVar = a.aQK();
+            bVar = a.aTt();
         }
         SoLoader soLoader = new SoLoader();
         if (soSources.size() == 0) {

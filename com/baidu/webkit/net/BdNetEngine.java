@@ -34,7 +34,7 @@ import javax.net.ssl.HttpsURLConnection;
 import javax.net.ssl.SSLContext;
 import javax.security.auth.x500.X500Principal;
 import org.apache.http.cookie.SM;
-/* loaded from: classes8.dex */
+/* loaded from: classes11.dex */
 public class BdNetEngine extends HandlerThread implements INoProGuard {
     private static final int ALT_DNS_NAME = 2;
     private static final int ALT_IPA_NAME = 7;
@@ -68,9 +68,11 @@ public class BdNetEngine extends HandlerThread implements INoProGuard {
     private static long mWaitTime = 10000;
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes8.dex */
+    /* loaded from: classes11.dex */
     public static final class a {
-        final String a;
+
+        /* renamed from: a  reason: collision with root package name */
+        final String f3969a;
         final int b;
         int c;
         int d;
@@ -79,15 +81,15 @@ public class BdNetEngine extends HandlerThread implements INoProGuard {
         char[] g;
 
         public a(X500Principal x500Principal) {
-            this.a = x500Principal.getName("RFC2253");
-            this.b = this.a.length();
+            this.f3969a = x500Principal.getName("RFC2253");
+            this.b = this.f3969a.length();
         }
 
         private int a(int i) {
             int i2;
             int i3;
             if (i + 1 >= this.b) {
-                throw new IllegalStateException("Malformed DN: " + this.a);
+                throw new IllegalStateException("Malformed DN: " + this.f3969a);
             }
             char c = this.g[i];
             if (c >= '0' && c <= '9') {
@@ -95,7 +97,7 @@ public class BdNetEngine extends HandlerThread implements INoProGuard {
             } else if (c >= 'a' && c <= 'f') {
                 i2 = c - 'W';
             } else if (c < 'A' || c > 'F') {
-                throw new IllegalStateException("Malformed DN: " + this.a);
+                throw new IllegalStateException("Malformed DN: " + this.f3969a);
             } else {
                 i2 = c - '7';
             }
@@ -105,7 +107,7 @@ public class BdNetEngine extends HandlerThread implements INoProGuard {
             } else if (c2 >= 'a' && c2 <= 'f') {
                 i3 = c2 - 'W';
             } else if (c2 < 'A' || c2 > 'F') {
-                throw new IllegalStateException("Malformed DN: " + this.a);
+                throw new IllegalStateException("Malformed DN: " + this.f3969a);
             } else {
                 i3 = c2 - '7';
             }
@@ -115,23 +117,23 @@ public class BdNetEngine extends HandlerThread implements INoProGuard {
         private char e() {
             int i;
             int i2;
-            int a = a(this.c);
+            int a2 = a(this.c);
             this.c++;
-            if (a < 128) {
-                return (char) a;
+            if (a2 < 128) {
+                return (char) a2;
             }
-            if (a < 192 || a > 247) {
+            if (a2 < 192 || a2 > 247) {
                 return '?';
             }
-            if (a <= 223) {
+            if (a2 <= 223) {
                 i = 1;
-                i2 = a & 31;
-            } else if (a <= 239) {
+                i2 = a2 & 31;
+            } else if (a2 <= 239) {
                 i = 2;
-                i2 = a & 15;
+                i2 = a2 & 15;
             } else {
                 i = 3;
-                i2 = a & 7;
+                i2 = a2 & 7;
             }
             int i3 = i2;
             for (int i4 = 0; i4 < i; i4++) {
@@ -140,12 +142,12 @@ public class BdNetEngine extends HandlerThread implements INoProGuard {
                     return '?';
                 }
                 this.c++;
-                int a2 = a(this.c);
+                int a3 = a(this.c);
                 this.c++;
-                if ((a2 & 192) != 128) {
+                if ((a3 & 192) != 128) {
                     return '?';
                 }
-                i3 = (i3 << 6) + (a2 & 63);
+                i3 = (i3 << 6) + (a3 & 63);
             }
             return (char) i3;
         }
@@ -163,7 +165,7 @@ public class BdNetEngine extends HandlerThread implements INoProGuard {
                 this.c++;
             }
             if (this.c >= this.b) {
-                throw new IllegalStateException("Unexpected end of DN: " + this.a);
+                throw new IllegalStateException("Unexpected end of DN: " + this.f3969a);
             }
             this.e = this.c;
             if (this.g[this.c] == ' ') {
@@ -171,7 +173,7 @@ public class BdNetEngine extends HandlerThread implements INoProGuard {
                     this.c++;
                 }
                 if (this.g[this.c] != '=' || this.c == this.b) {
-                    throw new IllegalStateException("Unexpected end of DN: " + this.a);
+                    throw new IllegalStateException("Unexpected end of DN: " + this.f3969a);
                 }
             }
             do {
@@ -189,7 +191,7 @@ public class BdNetEngine extends HandlerThread implements INoProGuard {
         final String b() {
             int i;
             if (this.c + 4 >= this.b) {
-                throw new IllegalStateException("Unexpected end of DN: " + this.a);
+                throw new IllegalStateException("Unexpected end of DN: " + this.f3969a);
             }
             this.d = this.c;
             this.c++;
@@ -202,7 +204,7 @@ public class BdNetEngine extends HandlerThread implements INoProGuard {
                     }
                     i = this.e - this.d;
                     if (i >= 5 || (i & 1) == 0) {
-                        throw new IllegalStateException("Unexpected end of DN: " + this.a);
+                        throw new IllegalStateException("Unexpected end of DN: " + this.f3969a);
                     }
                     byte[] bArr = new byte[i / 2];
                     int i2 = this.d + 1;
@@ -223,7 +225,7 @@ public class BdNetEngine extends HandlerThread implements INoProGuard {
             i = this.e - this.d;
             if (i >= 5) {
             }
-            throw new IllegalStateException("Unexpected end of DN: " + this.a);
+            throw new IllegalStateException("Unexpected end of DN: " + this.f3969a);
         }
 
         final String c() {
@@ -276,7 +278,7 @@ public class BdNetEngine extends HandlerThread implements INoProGuard {
         final char d() {
             this.c++;
             if (this.c == this.b) {
-                throw new IllegalStateException("Unexpected end of DN: " + this.a);
+                throw new IllegalStateException("Unexpected end of DN: " + this.f3969a);
             }
             switch (this.g[this.c]) {
                 case ' ':
@@ -299,7 +301,7 @@ public class BdNetEngine extends HandlerThread implements INoProGuard {
         }
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes11.dex */
     public interface b {
         BdNetTask onNetDownloadComplete(BdNetEngine bdNetEngine, BdNetTask bdNetTask, boolean z);
 
@@ -947,7 +949,7 @@ public class BdNetEngine extends HandlerThread implements INoProGuard {
             aVar.d = 0;
             aVar.e = 0;
             aVar.f = 0;
-            aVar.g = aVar.a.toCharArray();
+            aVar.g = aVar.f3969a.toCharArray();
             String a2 = aVar.a();
             if (a2 != null) {
                 do {
@@ -978,7 +980,7 @@ public class BdNetEngine extends HandlerThread implements INoProGuard {
                                         aVar.e++;
                                     }
                                 }
-                                throw new IllegalStateException("Unexpected end of DN: " + aVar.a);
+                                throw new IllegalStateException("Unexpected end of DN: " + aVar.f3969a);
                             case '#':
                                 str2 = aVar.b();
                                 break;
@@ -994,7 +996,7 @@ public class BdNetEngine extends HandlerThread implements INoProGuard {
                             if (aVar.c >= aVar.b) {
                                 str2 = null;
                             } else if (aVar.g[aVar.c] != '+') {
-                                throw new IllegalStateException("Malformed DN: " + aVar.a);
+                                throw new IllegalStateException("Malformed DN: " + aVar.f3969a);
                             } else {
                                 aVar.c++;
                                 a2 = aVar.a();
@@ -1002,7 +1004,7 @@ public class BdNetEngine extends HandlerThread implements INoProGuard {
                         }
                     }
                 } while (a2 != null);
-                throw new IllegalStateException("Malformed DN: " + aVar.a);
+                throw new IllegalStateException("Malformed DN: " + aVar.f3969a);
             }
             str2 = null;
             if (str2 != null) {

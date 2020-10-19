@@ -1,7 +1,7 @@
 package com.baidu.tieba.hottopic.data;
 
 import tbclient.Hottopic.UserInfo;
-/* loaded from: classes20.dex */
+/* loaded from: classes21.dex */
 public class l {
     public String portrait;
     public long userId;

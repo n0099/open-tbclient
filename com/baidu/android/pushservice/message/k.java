@@ -1,9 +1,11 @@
 package com.baidu.android.pushservice.message;
 
 import java.io.Serializable;
-/* loaded from: classes7.dex */
+/* loaded from: classes10.dex */
 public class k implements Serializable {
-    private String a;
+
+    /* renamed from: a  reason: collision with root package name */
+    private String f1183a;
     private String b;
     private long c;
     private int d;
@@ -25,7 +27,7 @@ public class k implements Serializable {
     }
 
     public void a(String str) {
-        this.a = str;
+        this.f1183a = str;
     }
 
     public void a(boolean z) {
@@ -37,7 +39,7 @@ public class k implements Serializable {
     }
 
     public String b() {
-        return this.a;
+        return this.f1183a;
     }
 
     public void b(long j) {
@@ -77,6 +79,6 @@ public class k implements Serializable {
     }
 
     public String toString() {
-        return "type:" + this.d + " appid:" + this.a + " msgId:" + this.c + " isAlarm:  " + this.h + " pkgName:  " + this.b;
+        return "type:" + this.d + " appid:" + this.f1183a + " msgId:" + this.c + " isAlarm:  " + this.h + " pkgName:  " + this.b;
     }
 }

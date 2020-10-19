@@ -7,7 +7,7 @@ import java.util.List;
 import java.util.ListIterator;
 import java.util.RandomAccess;
 import java.util.concurrent.atomic.AtomicInteger;
-/* loaded from: classes25.dex */
+/* loaded from: classes17.dex */
 public final class VolatileSizeArrayList<T> extends AtomicInteger implements List<T>, RandomAccess {
     private static final long serialVersionUID = 3972397474470203923L;
     final ArrayList<T> list;

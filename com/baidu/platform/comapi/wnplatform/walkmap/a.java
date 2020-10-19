@@ -7,9 +7,11 @@ import com.baidu.mapapi.map.MapStatus;
 import com.baidu.mapapi.map.MapStatusUpdate;
 import com.baidu.mapapi.map.MapView;
 import java.lang.ref.SoftReference;
-/* loaded from: classes3.dex */
+/* loaded from: classes7.dex */
 public class a {
-    SoftReference<MapView> a = null;
+
+    /* renamed from: a  reason: collision with root package name */
+    SoftReference<MapView> f3155a = null;
     private BaiduMap b;
     private WNaviBaiduMap c;
     private f d;
@@ -19,17 +21,17 @@ public class a {
     }
 
     public void a() {
-        this.a = null;
+        this.f3155a = null;
     }
 
     public void a(MapView mapView) {
-        this.a = new SoftReference<>(mapView);
-        this.b = this.a.get().getMap();
+        this.f3155a = new SoftReference<>(mapView);
+        this.b = this.f3155a.get().getMap();
         this.c = WNaviBaiduMap.getInstance();
     }
 
     public void b() {
-        this.a = null;
+        this.f3155a = null;
     }
 
     public void a(MapStatusUpdate mapStatusUpdate) {

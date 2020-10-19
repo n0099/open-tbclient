@@ -4,7 +4,7 @@ import com.baidu.adp.framework.message.SocketResponsedMessage;
 import com.baidu.live.tbadk.core.frameworkdata.CmdConfigSocket;
 import com.squareup.wire.Wire;
 import protobuf.AddGroupUsers.AddGroupUsersResIdl;
-/* loaded from: classes20.dex */
+/* loaded from: classes21.dex */
 public class ResponseAddGroupUserMessage extends SocketResponsedMessage {
     private long groupId;
 

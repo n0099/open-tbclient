@@ -4,7 +4,7 @@ import java.util.Iterator;
 import java.util.regex.MatchResult;
 import java.util.regex.Matcher;
 @kotlin.h
-/* loaded from: classes5.dex */
+/* loaded from: classes10.dex */
 public final class k {
     /* JADX INFO: Access modifiers changed from: private */
     public static final int j(Iterable<? extends e> iterable) {

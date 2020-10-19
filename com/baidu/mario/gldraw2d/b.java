@@ -2,82 +2,82 @@ package com.baidu.mario.gldraw2d;
 
 import com.baidu.ala.recorder.video.drawer.EncoderTextureDrawer;
 import com.baidu.mario.gldraw2d.c.c;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public class b {
     private static final String TAG = b.class.getSimpleName();
-    private com.baidu.mario.gldraw2d.b.a bBA;
-    private c bBB;
-    private com.baidu.mario.gldraw2d.params.c bBC;
+    private com.baidu.mario.gldraw2d.b.a bIc;
+    private c bId;
+    private com.baidu.mario.gldraw2d.params.c bIe;
 
     public b(com.baidu.mario.gldraw2d.params.c cVar) {
-        this.bBC = cVar;
-        this.bBA = new com.baidu.mario.gldraw2d.b.a(cVar.getEGLContext(), 1);
-        Sl();
+        this.bIe = cVar;
+        this.bIc = new com.baidu.mario.gldraw2d.b.a(cVar.getEGLContext(), 1);
+        Ue();
     }
 
-    public void Sj() {
-        this.bBB = this.bBC.SJ();
-        b(this.bBB);
+    public void Uc() {
+        this.bId = this.bIe.UC();
+        b(this.bId);
     }
 
-    public com.baidu.mario.gldraw2d.b.a Sk() {
-        return this.bBA;
+    public com.baidu.mario.gldraw2d.b.a Ud() {
+        return this.bIc;
     }
 
-    public void aG(long j) {
-        if (this.bBB != null && this.bBC != null) {
-            if (this.bBC.SI()) {
-                Sl();
+    public void aI(long j) {
+        if (this.bId != null && this.bIe != null) {
+            if (this.bIe.UB()) {
+                Ue();
             }
             if (j != 0) {
-                this.bBC.SK().setTimestamp(j);
+                this.bIe.UD().setTimestamp(j);
             }
-            this.bBB.c(this.bBC.SG(), this.bBC.SK());
+            this.bId.c(this.bIe.Uz(), this.bIe.UD());
         }
     }
 
     public void a(c cVar) {
-        if (this.bBC != null) {
-            this.bBC.c(cVar);
+        if (this.bIe != null) {
+            this.bIe.c(cVar);
         }
-        this.bBB.release();
+        this.bId.release();
         b(cVar);
     }
 
     public void release() {
-        if (this.bBB != null) {
-            this.bBB.release();
-            this.bBB = null;
+        if (this.bId != null) {
+            this.bId.release();
+            this.bId = null;
         }
-        if (this.bBA != null) {
-            this.bBA.release();
-            this.bBA = null;
+        if (this.bIc != null) {
+            this.bIc.release();
+            this.bIc = null;
         }
     }
 
-    private void Sl() {
-        float[] Sz = this.bBC.SK().Sz();
-        com.baidu.mario.gldraw2d.e.b.v(Sz);
-        com.baidu.mario.gldraw2d.params.a SH = this.bBC.SH();
-        com.baidu.mario.gldraw2d.e.b.a(Sz, SH.getTranslateX(), SH.getTranslateY());
-        com.baidu.mario.gldraw2d.e.b.a(Sz, SH.St());
-        com.baidu.mario.gldraw2d.e.b.a(Sz, SH.Sw());
-        if ((SH.Sx() + EncoderTextureDrawer.X264_WIDTH) % 180 == 0) {
-            com.baidu.mario.gldraw2d.e.b.a(Sz, this.bBC.SE(), this.bBC.SF(), SH.Su(), SH.Sv());
+    private void Ue() {
+        float[] Us = this.bIe.UD().Us();
+        com.baidu.mario.gldraw2d.e.b.v(Us);
+        com.baidu.mario.gldraw2d.params.a UA = this.bIe.UA();
+        com.baidu.mario.gldraw2d.e.b.a(Us, UA.getTranslateX(), UA.getTranslateY());
+        com.baidu.mario.gldraw2d.e.b.a(Us, UA.Um());
+        com.baidu.mario.gldraw2d.e.b.a(Us, UA.Up());
+        if ((UA.Uq() + EncoderTextureDrawer.X264_WIDTH) % 180 == 0) {
+            com.baidu.mario.gldraw2d.e.b.a(Us, this.bIe.Ux(), this.bIe.Uy(), UA.Un(), UA.Uo());
             return;
         }
-        com.baidu.mario.gldraw2d.d.c clone = this.bBC.SF().clone();
-        clone.setWidth(this.bBC.SF().getHeight());
-        clone.setHeight(this.bBC.SF().getWidth());
-        com.baidu.mario.gldraw2d.e.b.a(Sz, this.bBC.SE(), clone, SH.Su(), SH.Sv());
+        com.baidu.mario.gldraw2d.d.c clone = this.bIe.Uy().clone();
+        clone.setWidth(this.bIe.Uy().getHeight());
+        clone.setHeight(this.bIe.Uy().getWidth());
+        com.baidu.mario.gldraw2d.e.b.a(Us, this.bIe.Ux(), clone, UA.Un(), UA.Uo());
     }
 
     private void b(c cVar) {
         if (cVar == null) {
-            this.bBB = new com.baidu.mario.gldraw2d.c.b();
+            this.bId = new com.baidu.mario.gldraw2d.c.b();
         } else {
-            this.bBB = cVar;
+            this.bId = cVar;
         }
-        this.bBB.a(this.bBC.SE(), this.bBC.SF());
+        this.bId.a(this.bIe.Ux(), this.bIe.Uy());
     }
 }

@@ -14,7 +14,7 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
 import java.security.MessageDigest;
-/* loaded from: classes24.dex */
+/* loaded from: classes6.dex */
 public class h {
     public static String a(Context context, String str) {
         try {
@@ -81,10 +81,10 @@ public class h {
             Signature[] signatureArr = context.getPackageManager().getPackageInfo(packageName, 64).signatures;
             MessageDigest messageDigest = MessageDigest.getInstance("MD5");
             messageDigest.update(signatureArr[0].toByteArray());
-            String a = j.a(messageDigest.digest());
+            String a2 = j.a(messageDigest.digest());
             messageDigest.reset();
-            com.tencent.open.a.f.a("openSDK_LOG.SystemUtils", "-->sign: " + a);
-            messageDigest.update(j.i(packageName + PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS + a + PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS + str + ""));
+            com.tencent.open.a.f.a("openSDK_LOG.SystemUtils", "-->sign: " + a2);
+            messageDigest.update(j.i(packageName + PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS + a2 + PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS + str + ""));
             str2 = j.a(messageDigest.digest());
             try {
                 messageDigest.reset();
@@ -141,13 +141,13 @@ public class h {
         FileOutputStream fileOutputStream = null;
         boolean z = false;
         com.tencent.open.a.f.c("openSDK_LOG.SystemUtils", "-->extractSecureLib, libName: " + str);
-        Context a = e.a();
-        if (a == null) {
+        Context a2 = e.a();
+        if (a2 == null) {
             com.tencent.open.a.f.c("openSDK_LOG.SystemUtils", "-->extractSecureLib, global context is null. ");
             return false;
         }
-        SharedPreferences sharedPreferences = a.getSharedPreferences("secure_lib", 0);
-        ?? file = new File(a.getFilesDir(), str2);
+        SharedPreferences sharedPreferences = a2.getSharedPreferences("secure_lib", 0);
+        ?? file = new File(a2.getFilesDir(), str2);
         if (file.exists()) {
             int i2 = sharedPreferences.getInt("version", 0);
             com.tencent.open.a.f.c("openSDK_LOG.SystemUtils", "-->extractSecureLib, libVersion: " + i + " | oldVersion: " + i2);
@@ -173,9 +173,9 @@ public class h {
         }
         try {
             try {
-                iOException = a.getAssets().open(str);
+                iOException = a2.getAssets().open(str);
                 try {
-                    fileOutputStream = a.openFileOutput(str2, 0);
+                    fileOutputStream = a2.openFileOutput(str2, 0);
                     a(iOException, fileOutputStream);
                     SharedPreferences.Editor edit = sharedPreferences.edit();
                     edit.putInt("version", i);

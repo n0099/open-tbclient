@@ -12,9 +12,11 @@ import java.util.ArrayList;
 import java.util.List;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes10.dex */
+/* loaded from: classes12.dex */
 public class f extends b.a implements CyberPlayerManager.HttpDNS, CyberPlayerManager.OnBufferingUpdateListener, CyberPlayerManager.OnCompletionListener, CyberPlayerManager.OnErrorListener, CyberPlayerManager.OnInfoListener, CyberPlayerManager.OnPreparedListener, CyberPlayerManager.OnSeekCompleteListener, CyberPlayerManager.OnVideoSizeChangedListener {
-    private CyberPlayer a;
+
+    /* renamed from: a  reason: collision with root package name */
+    private CyberPlayer f1410a;
     private int b;
     private RemotePlayerService c;
     private Surface e;
@@ -25,19 +27,19 @@ public class f extends b.a implements CyberPlayerManager.HttpDNS, CyberPlayerMan
     public f(int i, RemotePlayerService remotePlayerService) {
         this.b = i;
         this.c = remotePlayerService;
-        this.a = new CyberPlayer(this.b, this, false);
-        this.a.setIsInMainProcess(false);
-        this.a.setOnPreparedListener(this);
-        this.a.setOnCompletionListener(this);
-        this.a.setOnBufferingUpdateListener(this);
-        this.a.setOnVideoSizeChangedListener(this);
-        this.a.setOnSeekCompleteListener(this);
-        this.a.setOnErrorListener(this);
-        this.a.setOnInfoListener(this);
+        this.f1410a = new CyberPlayer(this.b, this, false);
+        this.f1410a.setIsInMainProcess(false);
+        this.f1410a.setOnPreparedListener(this);
+        this.f1410a.setOnCompletionListener(this);
+        this.f1410a.setOnBufferingUpdateListener(this);
+        this.f1410a.setOnVideoSizeChangedListener(this);
+        this.f1410a.setOnSeekCompleteListener(this);
+        this.f1410a.setOnErrorListener(this);
+        this.f1410a.setOnInfoListener(this);
     }
 
     private CyberPlayer q() {
-        return this.a;
+        return this.f1410a;
     }
 
     @Override // com.baidu.cyberplayer.sdk.remote.b
@@ -222,8 +224,8 @@ public class f extends b.a implements CyberPlayerManager.HttpDNS, CyberPlayerMan
     @Override // com.baidu.cyberplayer.sdk.remote.b
     public void l() {
         synchronized (this) {
-            if (this.a != null) {
-                this.a.release();
+            if (this.f1410a != null) {
+                this.f1410a.release();
             }
         }
         synchronized (this.d) {
@@ -294,7 +296,7 @@ public class f extends b.a implements CyberPlayerManager.HttpDNS, CyberPlayerMan
     @Override // com.baidu.cyberplayer.sdk.CyberPlayerManager.OnErrorListener
     public boolean onError(int i, int i2, Object obj) {
         boolean z;
-        boolean a;
+        boolean a2;
         synchronized (this.d) {
             int beginBroadcast = this.d.beginBroadcast();
             int i3 = 0;
@@ -303,16 +305,16 @@ public class f extends b.a implements CyberPlayerManager.HttpDNS, CyberPlayerMan
                 d broadcastItem = this.d.getBroadcastItem(i3);
                 if (broadcastItem != null) {
                     try {
-                        a = broadcastItem.a(i, i2, obj instanceof String ? (String) obj : null);
+                        a2 = broadcastItem.a(i, i2, obj instanceof String ? (String) obj : null);
                     } catch (RemoteException e) {
                         e.printStackTrace();
                     }
                     i3++;
-                    z = a;
+                    z = a2;
                 }
-                a = z;
+                a2 = z;
                 i3++;
-                z = a;
+                z = a2;
             }
             this.d.finishBroadcast();
         }

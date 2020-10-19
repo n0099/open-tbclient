@@ -1,5 +1,5 @@
 package com.baidu.ar.bean;
-/* loaded from: classes10.dex */
+/* loaded from: classes14.dex */
 public enum RotationType {
     ROTATE_0(0),
     ROTATE_90(90),

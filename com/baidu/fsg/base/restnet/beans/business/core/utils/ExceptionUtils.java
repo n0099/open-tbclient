@@ -1,5 +1,5 @@
 package com.baidu.fsg.base.restnet.beans.business.core.utils;
-/* loaded from: classes15.dex */
+/* loaded from: classes16.dex */
 public class ExceptionUtils {
     public static String createStackTrackMessage(Exception exc) {
         StringBuffer stringBuffer = new StringBuffer();

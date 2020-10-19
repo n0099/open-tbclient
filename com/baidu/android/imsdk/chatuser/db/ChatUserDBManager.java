@@ -25,7 +25,7 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
-/* loaded from: classes9.dex */
+/* loaded from: classes5.dex */
 public class ChatUserDBManager extends DBBase {
     private static final String TAG = ChatUserDBManager.class.getSimpleName();
     private static ChatUserDBManager mInstance = null;
@@ -35,9 +35,11 @@ public class ChatUserDBManager extends DBBase {
     }
 
     public static ChatUserDBManager getInstance(Context context) {
-        synchronized (mSyncLock) {
-            if (mInstance == null) {
-                mInstance = new ChatUserDBManager(context);
+        if (mInstance == null) {
+            synchronized (ChatUserDBManager.class) {
+                if (mInstance == null) {
+                    mInstance = new ChatUserDBManager(context);
+                }
             }
         }
         return mInstance;
@@ -149,7 +151,7 @@ public class ChatUserDBManager extends DBBase {
         }
     }
 
-    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [184=5, 185=4] */
+    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [186=5, 187=4] */
     public Long getUkByBuid(long j) {
         Cursor cursor;
         Cursor cursor2 = null;
@@ -216,7 +218,7 @@ public class ChatUserDBManager extends DBBase {
         return chatUser;
     }
 
-    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [224=4, 223=5] */
+    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [225=5, 226=4] */
     private ChatUser getChatUserByBuid(SQLiteDatabase sQLiteDatabase, long j) {
         Cursor cursor;
         Cursor cursor2 = null;
@@ -358,7 +360,7 @@ public class ChatUserDBManager extends DBBase {
         return chatUser;
     }
 
-    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [338=5, 339=4] */
+    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [340=5, 341=4] */
     private ChatUser getChatUser(SQLiteDatabase sQLiteDatabase, long j) {
         Cursor cursor;
         Cursor cursor2 = null;
@@ -407,7 +409,7 @@ public class ChatUserDBManager extends DBBase {
         }
     }
 
-    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [363=4] */
+    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [365=4] */
     /* JADX WARN: Removed duplicated region for block: B:28:0x005e A[Catch: all -> 0x0062, TryCatch #1 {, blocks: (B:4:0x0004, B:6:0x000f, B:22:0x0054, B:23:0x0057, B:18:0x004c, B:19:0x004f, B:28:0x005e, B:29:0x0061), top: B:39:0x0004 }] */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
@@ -655,7 +657,7 @@ public class ChatUserDBManager extends DBBase {
         }
     }
 
-    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [612=4] */
+    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [614=4] */
     public List<ChatSession> getShieldUsers() {
         Cursor cursor;
         Cursor cursor2 = null;
@@ -704,7 +706,7 @@ public class ChatUserDBManager extends DBBase {
         }
     }
 
-    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [685=4] */
+    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [687=4] */
     public void getShieldUserByUids(@NonNull List<ChatSession> list, boolean z, @NonNull IGetUserShieldListener iGetUserShieldListener) {
         Cursor cursor;
         ChatSession chatSession;

@@ -3,7 +3,7 @@ package com.baidu.searchbox.ui.wheelview3d.listener;
 import android.view.GestureDetector;
 import android.view.MotionEvent;
 import com.baidu.searchbox.ui.wheelview3d.WheelView3d;
-/* loaded from: classes19.dex */
+/* loaded from: classes10.dex */
 public final class LoopViewGestureListener extends GestureDetector.SimpleOnGestureListener {
     private final WheelView3d wheelView;
 

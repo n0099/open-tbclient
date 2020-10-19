@@ -14,11 +14,13 @@ import java.io.File;
 import java.io.UnsupportedEncodingException;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes6.dex */
+/* loaded from: classes11.dex */
 public class LocalConfigOptions {
     public static final int DEFAULT_ILLUM_GRAY = -1;
     public static final int DEFAULT_ZIP_GRAY_THRESHOLD = 100;
-    private static final String a = ".BD_SAPI_CACHE";
+
+    /* renamed from: a  reason: collision with root package name */
+    private static final String f2693a = ".BD_SAPI_CACHE";
     private static final String b = "pass_face_sdk";
     private static final String c = "illum_gray";
     private static LocalConfigOptions d;
@@ -36,7 +38,7 @@ public class LocalConfigOptions {
     }
 
     public static String getExternalZipPath(String str) {
-        return Environment.getExternalStorageDirectory().getAbsolutePath() + "/" + a + "/" + b + "/" + SdkConfigOptions.HOST_VERSION + Constants.ACCEPT_TIME_SEPARATOR_SERVER + str + ".zip";
+        return Environment.getExternalStorageDirectory().getAbsolutePath() + "/" + f2693a + "/" + b + "/" + SdkConfigOptions.HOST_VERSION + Constants.ACCEPT_TIME_SEPARATOR_SERVER + str + ".zip";
     }
 
     public static LocalConfigOptions getInstance(Context context) {

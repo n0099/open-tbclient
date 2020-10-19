@@ -1,7 +1,7 @@
 package com.baidu.mario.a.b;
 
 import io.flutter.plugin.platform.PlatformPlugin;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public class d {
     private String mOutputFile = "/sdcard/AR/video/arvideo.mp4";
     private int mOutputFormat = 0;

@@ -10,12 +10,12 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 /* loaded from: classes4.dex */
 public class bf extends BaseData {
-    public String aKA;
-    public String aKB;
-    public String aKC;
-    public List<a> aKx;
-    public String aKy;
-    public String aKz;
+    public List<a> aNC;
+    public String aND;
+    public String aNE;
+    public String aNF;
+    public String aNG;
+    public String aNH;
     public String point;
     public String text;
 
@@ -27,24 +27,24 @@ public class bf extends BaseData {
             this.point = jSONObject.optString(Config.EVENT_HEAT_POINT);
             JSONArray optJSONArray = jSONObject.optJSONArray("data");
             if (optJSONArray != null && (length = optJSONArray.length()) != 0) {
-                this.aKx = new ArrayList();
+                this.aNC = new ArrayList();
                 for (int i = 0; i < length; i++) {
-                    this.aKx.add(new a(optJSONArray.optJSONObject(i)));
+                    this.aNC.add(new a(optJSONArray.optJSONObject(i)));
                 }
-                this.aKy = jSONObject.optString("text_color");
-                if (!TextUtils.isEmpty(this.aKy) && this.aKy.charAt(0) != '#') {
-                    this.aKy = UgcConstant.TOPIC_PATTERN_TAG + this.aKy;
+                this.aND = jSONObject.optString("text_color");
+                if (!TextUtils.isEmpty(this.aND) && this.aND.charAt(0) != '#') {
+                    this.aND = UgcConstant.TOPIC_PATTERN_TAG + this.aND;
                 }
-                this.aKz = jSONObject.optString("value_color");
-                if (!TextUtils.isEmpty(this.aKz) && this.aKz.charAt(0) != '#') {
-                    this.aKz = UgcConstant.TOPIC_PATTERN_TAG + this.aKz;
+                this.aNE = jSONObject.optString("value_color");
+                if (!TextUtils.isEmpty(this.aNE) && this.aNE.charAt(0) != '#') {
+                    this.aNE = UgcConstant.TOPIC_PATTERN_TAG + this.aNE;
                 }
-                this.aKA = jSONObject.optString("background_color");
-                if (!TextUtils.isEmpty(this.aKA) && this.aKA.charAt(0) != '#') {
-                    this.aKA = UgcConstant.TOPIC_PATTERN_TAG + this.aKA;
+                this.aNF = jSONObject.optString("background_color");
+                if (!TextUtils.isEmpty(this.aNF) && this.aNF.charAt(0) != '#') {
+                    this.aNF = UgcConstant.TOPIC_PATTERN_TAG + this.aNF;
                 }
-                this.aKB = jSONObject.optString("transparency");
-                this.aKC = jSONObject.optString("timer_point_text");
+                this.aNG = jSONObject.optString("transparency");
+                this.aNH = jSONObject.optString("timer_point_text");
             }
         }
     }

@@ -4,7 +4,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.tbadk.TbPageContext;
-/* loaded from: classes23.dex */
+/* loaded from: classes24.dex */
 public class f extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.personPolymeric.c.o, com.baidu.tieba.card.a.a<com.baidu.tieba.personPolymeric.view.n>> {
     private View.OnClickListener mOnClickListener;
     private TbPageContext mPageContext;
@@ -17,7 +17,7 @@ public class f extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.personPol
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.widget.ListView.a
-    /* renamed from: aL */
+    /* renamed from: aN */
     public com.baidu.tieba.card.a.a<com.baidu.tieba.personPolymeric.view.n> c(ViewGroup viewGroup) {
         return new com.baidu.tieba.card.a.a<>(new com.baidu.tieba.personPolymeric.view.n(this.mPageContext));
     }
@@ -26,14 +26,14 @@ public class f extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.personPol
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.widget.ListView.a
     public View a(int i, View view, ViewGroup viewGroup, com.baidu.tieba.personPolymeric.c.o oVar, com.baidu.tieba.card.a.a<com.baidu.tieba.personPolymeric.view.n> aVar) {
-        if (oVar == null || aVar == null || aVar.cfU() == null) {
+        if (oVar == null || aVar == null || aVar.cjq() == null) {
             return null;
         }
-        aVar.cfU().a(oVar);
-        if (aVar.cfU().getView() != null) {
-            aVar.cfU().getView().setOnClickListener(this.mOnClickListener);
+        aVar.cjq().a(oVar);
+        if (aVar.cjq().getView() != null) {
+            aVar.cjq().getView().setOnClickListener(this.mOnClickListener);
         }
-        return aVar.cfU().getView();
+        return aVar.cjq().getView();
     }
 
     public void setOnClickListener(View.OnClickListener onClickListener) {

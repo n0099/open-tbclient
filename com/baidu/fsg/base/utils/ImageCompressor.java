@@ -6,20 +6,20 @@ import android.graphics.BitmapFactory;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
-/* loaded from: classes15.dex */
+/* loaded from: classes16.dex */
 public class ImageCompressor {
     public static final int UNCONSTRAINED = -1;
 
     public static int computeSampleSize(BitmapFactory.Options options, int i, int i2) {
-        int a = a(options, i, i2);
-        if (a <= 8) {
+        int a2 = a(options, i, i2);
+        if (a2 <= 8) {
             int i3 = 1;
-            while (i3 < a) {
+            while (i3 < a2) {
                 i3 <<= 1;
             }
             return i3;
         }
-        return ((a + 7) / 8) * 8;
+        return ((a2 + 7) / 8) * 8;
     }
 
     private static int a(BitmapFactory.Options options, int i, int i2) {

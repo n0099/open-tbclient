@@ -9,8 +9,8 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes6.dex */
 public class j {
-    private static j nRN = null;
-    private final LruCache<String, VideoPlayInfo> nRM = new LruCache<String, VideoPlayInfo>(50) { // from class: com.kascend.chushou.d.j.1
+    private static j ohf = null;
+    private final LruCache<String, VideoPlayInfo> ohe = new LruCache<String, VideoPlayInfo>(50) { // from class: com.kascend.chushou.d.j.1
         /* JADX DEBUG: Method merged with bridge method */
         /* JADX INFO: Access modifiers changed from: protected */
         @Override // android.util.LruCache
@@ -19,7 +19,7 @@ public class j {
             return 1;
         }
     };
-    private final LruCache<String, VideoPlayInfo> adR = new LruCache<String, VideoPlayInfo>(100) { // from class: com.kascend.chushou.d.j.2
+    private final LruCache<String, VideoPlayInfo> aei = new LruCache<String, VideoPlayInfo>(100) { // from class: com.kascend.chushou.d.j.2
         /* JADX DEBUG: Method merged with bridge method */
         /* JADX INFO: Access modifiers changed from: protected */
         @Override // android.util.LruCache
@@ -29,39 +29,39 @@ public class j {
         }
     };
 
-    public static j ecE() {
-        if (nRN == null) {
+    public static j egp() {
+        if (ohf == null) {
             synchronized (j.class) {
-                if (nRN == null) {
-                    nRN = new j();
+                if (ohf == null) {
+                    ohf = new j();
                 }
             }
         }
-        return nRN;
+        return ohf;
     }
 
     private j() {
     }
 
     public VideoPlayInfo N(String str, long j) {
-        return a(this.nRM, str, j);
+        return a(this.ohe, str, j);
     }
 
     public void a(String str) {
-        this.nRM.remove(str);
+        this.ohe.remove(str);
     }
 
     public void a(String str, List<PlayUrl> list) {
-        a(this.nRM, str, list);
+        a(this.ohe, str, list);
     }
 
     public void a(final String str, final String str2) {
         if (O(str, 600000L) == null) {
-            com.kascend.chushou.player.c.a.edq().a(str, str2, new a.InterfaceC0884a() { // from class: com.kascend.chushou.d.j.3
-                @Override // com.kascend.chushou.player.c.a.InterfaceC0884a
+            com.kascend.chushou.player.c.a.ehb().a(str, str2, new a.InterfaceC0902a() { // from class: com.kascend.chushou.d.j.3
+                @Override // com.kascend.chushou.player.c.a.InterfaceC0902a
                 public void a(ParserRet parserRet) {
                     if (parserRet.mRc == 0 && parserRet.mData != null) {
-                        j.ecE().a(str + str2, (ArrayList) parserRet.mData);
+                        j.egp().a(str + str2, (ArrayList) parserRet.mData);
                     }
                 }
             });
@@ -69,19 +69,19 @@ public class j {
     }
 
     public VideoPlayInfo O(String str, long j) {
-        return a(this.adR, str, j);
+        return a(this.aei, str, j);
     }
 
     public void b(String str) {
-        this.adR.remove(str);
+        this.aei.remove(str);
     }
 
     public void s(String str, List<PlayUrl> list) {
-        a(this.adR, str, list);
+        a(this.aei, str, list);
     }
 
     public void a(String str, int i) {
-        VideoPlayInfo videoPlayInfo = this.adR.get(str);
+        VideoPlayInfo videoPlayInfo = this.aei.get(str);
         if (videoPlayInfo != null) {
             videoPlayInfo.mPos = i;
         }

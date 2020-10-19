@@ -3,66 +3,66 @@ package com.baidu.tieba.im.frsgroup;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.adp.widget.ListView.q;
 import com.baidu.tbadk.core.view.NoDataViewFactory;
-/* loaded from: classes22.dex */
+/* loaded from: classes23.dex */
 public class h implements q {
-    public static final BdUniqueId jyb = BdUniqueId.gen();
-    private Object aiq;
-    private NoDataViewFactory.ImgType jyc;
-    private String jyd;
-    private String jye;
-    private String jyf;
-    private int jyg;
+    public static final BdUniqueId jMY = BdUniqueId.gen();
+    private Object aiI;
+    private NoDataViewFactory.ImgType jMZ;
+    private String jNa;
+    private String jNb;
+    private String jNc;
+    private int jNd;
 
     @Override // com.baidu.adp.widget.ListView.q
     public BdUniqueId getType() {
-        return jyb;
+        return jMY;
     }
 
-    public String cIF() {
-        return this.jyd;
+    public String cMo() {
+        return this.jNa;
     }
 
-    public void Lj(String str) {
-        this.jyd = str;
+    public void LY(String str) {
+        this.jNa = str;
     }
 
-    public String cIG() {
-        return this.jye;
+    public String cMp() {
+        return this.jNb;
     }
 
-    public void Lk(String str) {
-        this.jye = str;
+    public void LZ(String str) {
+        this.jNb = str;
     }
 
-    public String cIH() {
-        return this.jyf;
+    public String cMq() {
+        return this.jNc;
     }
 
-    public void Ll(String str) {
-        this.jyf = str;
+    public void Ma(String str) {
+        this.jNc = str;
     }
 
-    public int cII() {
-        return this.jyg;
+    public int cMr() {
+        return this.jNd;
     }
 
-    public void BI(int i) {
-        this.jyg = i;
+    public void Co(int i) {
+        this.jNd = i;
     }
 
     public Object ud() {
-        return this.aiq;
+        return this.aiI;
     }
 
     public void setExtraData(Object obj) {
-        this.aiq = obj;
+        this.aiI = obj;
     }
 
-    public NoDataViewFactory.ImgType cIJ() {
-        return this.jyc;
+    public NoDataViewFactory.ImgType cMs() {
+        return this.jMZ;
     }
 
     public void c(NoDataViewFactory.ImgType imgType) {
-        this.jyc = imgType;
+        this.jMZ = imgType;
     }
 }

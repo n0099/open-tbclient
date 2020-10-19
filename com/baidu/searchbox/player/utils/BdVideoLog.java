@@ -3,7 +3,7 @@ package com.baidu.searchbox.player.utils;
 import android.text.TextUtils;
 import android.util.Log;
 import com.baidu.searchbox.player.BDPlayerConfig;
-/* loaded from: classes8.dex */
+/* loaded from: classes15.dex */
 public final class BdVideoLog {
     public static final boolean DEBUG_DEBUG = true;
     public static final boolean DEBUG_ERROR = true;
@@ -14,7 +14,7 @@ public final class BdVideoLog {
     public static final String LOG_TAG = "videoplayer";
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes8.dex */
+    /* loaded from: classes15.dex */
     public enum LogLevel {
         DEBUG,
         ERROR,

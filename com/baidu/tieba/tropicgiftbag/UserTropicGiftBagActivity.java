@@ -17,31 +17,31 @@ import com.baidu.tbadk.core.util.be;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
 import com.baidu.tieba.view.RoundRelativeLayout;
-/* loaded from: classes21.dex */
+/* loaded from: classes22.dex */
 public class UserTropicGiftBagActivity extends BaseActivity {
-    private RoundRelativeLayout lUk;
-    private TextView mCC;
-    private TextView mCD;
-    private TextView mCE;
-    private Button mCF;
-    private TbImageView mCG;
-    private TbImageView mCH;
-    private TbImageView mCI;
-    private TbImageView mCJ;
     private View.OnClickListener mOnClickListener = new View.OnClickListener() { // from class: com.baidu.tieba.tropicgiftbag.UserTropicGiftBagActivity.1
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             TbPageContext<?> pageContext = UserTropicGiftBagActivity.this.getPageContext();
-            if (view.getId() == UserTropicGiftBagActivity.this.mCF.getId()) {
-                be.bkp().a(pageContext, new String[]{TbConfig.URL_JUMP_TAG_CARDBOX}, true);
-                UserTropicGiftBagActivity.this.Ji(2);
+            if (view.getId() == UserTropicGiftBagActivity.this.mSr.getId()) {
+                be.bmY().a(pageContext, new String[]{TbConfig.URL_JUMP_TAG_CARDBOX}, true);
+                UserTropicGiftBagActivity.this.JO(2);
                 UserTropicGiftBagActivity.this.finish();
             }
-            if (view.getId() == UserTropicGiftBagActivity.this.mCJ.getId()) {
+            if (view.getId() == UserTropicGiftBagActivity.this.mSv.getId()) {
                 UserTropicGiftBagActivity.this.finish();
             }
         }
     };
+    private TextView mSn;
+    private TextView mSo;
+    private TextView mSq;
+    private Button mSr;
+    private TbImageView mSs;
+    private TbImageView mSt;
+    private TbImageView mSu;
+    private TbImageView mSv;
+    private RoundRelativeLayout mjR;
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
@@ -50,7 +50,7 @@ public class UserTropicGiftBagActivity extends BaseActivity {
         super.onCreate(bundle);
         setContentView(R.layout.activity_user_tropic_gift_bag);
         initView();
-        czU();
+        cDy();
     }
 
     @Override // com.baidu.tbadk.BaseActivity
@@ -68,19 +68,19 @@ public class UserTropicGiftBagActivity extends BaseActivity {
     public void onChangeSkinType(int i) {
         boolean z = false;
         super.onChangeSkinType(i);
-        ap.setImageResource(this.mCG, R.drawable.icon_tropic);
-        this.mCG.setIsNight(i == 4 || i == 1);
-        ap.setImageResource(this.mCH, R.drawable.icon_tropic_left);
-        this.mCI.setIsNight(i == 4 || i == 1);
-        ap.setImageResource(this.mCI, R.drawable.icon_tropic_right);
-        this.mCI.setIsNight(i == 4 || i == 1);
-        ap.setBackgroundColor(this.lUk, R.color.cp_bg_line_e);
-        ap.setViewTextColor(this.mCC, R.color.cp_cont_b);
-        ap.setViewTextColor(this.mCD, R.color.cp_cont_b);
-        ap.setViewTextColor(this.mCE, R.color.cp_cont_d);
-        ap.e(this.mCF, R.color.cp_link_tip_a, R.color.cp_link_tip_a_alpha50);
-        ap.setImageResource(this.mCJ, R.drawable.icon_popup_close);
-        TbImageView tbImageView = this.mCJ;
+        ap.setImageResource(this.mSs, R.drawable.icon_tropic);
+        this.mSs.setIsNight(i == 4 || i == 1);
+        ap.setImageResource(this.mSt, R.drawable.icon_tropic_left);
+        this.mSu.setIsNight(i == 4 || i == 1);
+        ap.setImageResource(this.mSu, R.drawable.icon_tropic_right);
+        this.mSu.setIsNight(i == 4 || i == 1);
+        ap.setBackgroundColor(this.mjR, R.color.cp_bg_line_e);
+        ap.setViewTextColor(this.mSn, R.color.cp_cont_b);
+        ap.setViewTextColor(this.mSo, R.color.cp_cont_b);
+        ap.setViewTextColor(this.mSq, R.color.cp_cont_d);
+        ap.e(this.mSr, R.color.cp_link_tip_a, R.color.cp_link_tip_a_alpha50);
+        ap.setImageResource(this.mSv, R.drawable.icon_popup_close);
+        TbImageView tbImageView = this.mSv;
         if (i == 4 || i == 1) {
             z = true;
         }
@@ -91,7 +91,7 @@ public class UserTropicGiftBagActivity extends BaseActivity {
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onResume() {
         super.onResume();
-        Ji(1);
+        JO(1);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -104,29 +104,29 @@ public class UserTropicGiftBagActivity extends BaseActivity {
     }
 
     private void initView() {
-        this.lUk = (RoundRelativeLayout) findViewById(R.id.tropic_gift_bag_layout);
-        this.lUk.setAllCornerRound(l.getDimens(this, R.dimen.tbds32));
-        this.mCC = (TextView) findViewById(R.id.tropic_greetings);
-        this.mCG = (TbImageView) findViewById(R.id.vip_pic);
-        this.mCH = (TbImageView) findViewById(R.id.line_tropic_left);
-        this.mCI = (TbImageView) findViewById(R.id.line_tropic_right);
-        this.mCD = (TextView) findViewById(R.id.seven_day_vip);
-        this.mCE = (TextView) findViewById(R.id.seven_day_vip_dec);
-        this.mCF = (Button) findViewById(R.id.tropic_know);
-        this.mCJ = (TbImageView) findViewById(R.id.close);
+        this.mjR = (RoundRelativeLayout) findViewById(R.id.tropic_gift_bag_layout);
+        this.mjR.setAllCornerRound(l.getDimens(this, R.dimen.tbds32));
+        this.mSn = (TextView) findViewById(R.id.tropic_greetings);
+        this.mSs = (TbImageView) findViewById(R.id.vip_pic);
+        this.mSt = (TbImageView) findViewById(R.id.line_tropic_left);
+        this.mSu = (TbImageView) findViewById(R.id.line_tropic_right);
+        this.mSo = (TextView) findViewById(R.id.seven_day_vip);
+        this.mSq = (TextView) findViewById(R.id.seven_day_vip_dec);
+        this.mSr = (Button) findViewById(R.id.tropic_know);
+        this.mSv = (TbImageView) findViewById(R.id.close);
     }
 
-    private void czU() {
-        this.mCF.setOnClickListener(this.mOnClickListener);
-        this.mCJ.setOnClickListener(this.mOnClickListener);
+    private void cDy() {
+        this.mSr.setOnClickListener(this.mOnClickListener);
+        this.mSv.setOnClickListener(this.mOnClickListener);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void Ji(int i) {
+    public void JO(int i) {
         aq aqVar = new aq("c13997");
-        aqVar.dF("obj_name", getResources().getString(R.string.static_item));
-        aqVar.ai("obj_type", i);
-        aqVar.dF("uid", TbadkApplication.getCurrentAccount());
+        aqVar.dK("obj_name", getResources().getString(R.string.static_item));
+        aqVar.aj("obj_type", i);
+        aqVar.dK("uid", TbadkApplication.getCurrentAccount());
         TiebaStatic.log(aqVar);
     }
 }

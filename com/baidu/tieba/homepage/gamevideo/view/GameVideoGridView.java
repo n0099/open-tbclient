@@ -8,10 +8,10 @@ import android.view.animation.AnimationUtils;
 import android.view.animation.GridLayoutAnimationController;
 import com.baidu.tbadk.core.view.BdGridView;
 import com.baidu.tieba.R;
-/* loaded from: classes21.dex */
+/* loaded from: classes22.dex */
 public class GameVideoGridView extends BdGridView {
-    private Animation iTy;
-    private GridLayoutAnimationController iTz;
+    private Animation jiw;
+    private GridLayoutAnimationController jix;
     private int mMaxHeight;
 
     public GameVideoGridView(Context context, AttributeSet attributeSet, int i) {
@@ -33,15 +33,15 @@ public class GameVideoGridView extends BdGridView {
     }
 
     private void init() {
-        if (this.iTy == null) {
-            this.iTy = AnimationUtils.loadAnimation(getContext(), R.anim.game_choose_slide_in_top);
+        if (this.jiw == null) {
+            this.jiw = AnimationUtils.loadAnimation(getContext(), R.anim.game_choose_slide_in_top);
         }
-        if (this.iTz == null) {
-            this.iTz = new GridLayoutAnimationController(this.iTy);
-            this.iTz.setColumnDelay(0.4f);
-            this.iTz.setRowDelay(0.2f);
-            this.iTz.setDirection(0);
-            this.iTz.setDirectionPriority(0);
+        if (this.jix == null) {
+            this.jix = new GridLayoutAnimationController(this.jiw);
+            this.jix.setColumnDelay(0.4f);
+            this.jix.setRowDelay(0.2f);
+            this.jix.setDirection(0);
+            this.jix.setDirectionPriority(0);
         }
     }
 
@@ -57,17 +57,17 @@ public class GameVideoGridView extends BdGridView {
         super.onMeasure(i, i2);
     }
 
-    public void cAV() {
-        if (this.iTz != null) {
-            setLayoutAnimation(this.iTz);
-            this.iTz.start();
+    public void cEC() {
+        if (this.jix != null) {
+            setLayoutAnimation(this.jix);
+            this.jix.start();
             startLayoutAnimation();
         }
     }
 
     public void onDestroy() {
-        if (this.iTy != null) {
-            this.iTy.cancel();
+        if (this.jiw != null) {
+            this.jiw.cancel();
         }
     }
 }

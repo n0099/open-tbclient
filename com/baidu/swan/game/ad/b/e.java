@@ -21,16 +21,16 @@ import java.util.UUID;
 import org.apache.http.cookie.ClientCookie;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes10.dex */
+/* loaded from: classes14.dex */
 public class e extends d {
-    private String amP;
-    private int dnn;
+    private String any;
+    private int dzt;
     private int mPos;
     private int mType;
 
     public e(Context context, b bVar, int i, int i2) {
         super(context, bVar);
-        this.dnn = 1;
+        this.dzt = 1;
         this.mType = 1;
         this.mPos = 1;
         this.mType = i;
@@ -38,55 +38,55 @@ public class e extends d {
     }
 
     @Override // com.baidu.swan.game.ad.b.d
-    public String aJV() {
+    public String aME() {
         return "https://powerful.xdplt.com/api/v1/front/ltc";
     }
 
     @Override // com.baidu.swan.game.ad.b.d
-    protected HashMap<String, String> aJU() {
+    protected HashMap<String, String> aMD() {
         return null;
     }
 
     @Override // com.baidu.swan.game.ad.b.d
-    protected String aJT() {
+    protected String aMC() {
         return null;
     }
 
-    public JSONObject aJY() {
+    public JSONObject aMH() {
         JSONObject jSONObject = new JSONObject();
         try {
             jSONObject.put("id", String.valueOf(System.currentTimeMillis()));
             JSONObject jSONObject2 = new JSONObject();
-            jSONObject2.put("id", this.dnk.getAppSid());
-            jSONObject2.put("name", com.baidu.swan.apps.t.a.aqg().getHostName());
-            jSONObject2.put("bundle", com.baidu.swan.apps.t.a.apu().getPackageName());
+            jSONObject2.put("id", this.dzq.getAppSid());
+            jSONObject2.put("name", com.baidu.swan.apps.t.a.asS().getHostName());
+            jSONObject2.put("bundle", com.baidu.swan.apps.t.a.asf().getPackageName());
             jSONObject2.put("version", ak.getVersionName());
             jSONObject.put("app", jSONObject2);
             JSONObject jSONObject3 = new JSONObject();
             jSONObject3.put(j.c, getUserAgent());
-            jSONObject3.put("imei", ak.aFW());
+            jSONObject3.put("imei", ak.aIF());
             jSONObject3.put("android_id", getAndroidId());
-            jSONObject3.put(TableDefine.UserInfoColumns.COLUMN_IP, gr(true));
+            jSONObject3.put(TableDefine.UserInfoColumns.COLUMN_IP, gN(true));
             jSONObject3.put("type", 1);
             jSONObject3.put("os", 1);
-            jSONObject3.put("os_version", com.baidu.swan.apps.i.c.aem());
-            jSONObject3.put("make", com.baidu.swan.apps.i.c.ael());
+            jSONObject3.put("os_version", com.baidu.swan.apps.i.c.agX());
+            jSONObject3.put("make", com.baidu.swan.apps.i.c.agW());
             jSONObject3.put("model", com.baidu.swan.apps.i.c.getDeviceModel());
             jSONObject3.put("language", this.mContext.getResources().getConfiguration().locale.getLanguage());
-            jSONObject3.put("connection_type", aHD());
-            jSONObject3.put("carrier", dn(this.mContext));
+            jSONObject3.put("connection_type", aKm());
+            jSONObject3.put("carrier", dt(this.mContext));
             jSONObject3.put("mac", ak.getWifiInfo(this.mContext));
             jSONObject3.put("screen_width", ah.getDisplayWidth(this.mContext));
             jSONObject3.put("screen_height", ah.getDisplayHeight(this.mContext));
             jSONObject3.put("screen_orientation", this.mContext.getResources().getConfiguration().orientation);
             jSONObject.put(Config.DEVICE_PART, jSONObject3);
             JSONObject jSONObject4 = new JSONObject();
-            jSONObject4.put(UbcStatConstant.KEY_CONTENT_EXT_SID, this.dnk.aJQ());
-            jSONObject4.put("ad_count", this.dnn);
+            jSONObject4.put(UbcStatConstant.KEY_CONTENT_EXT_SID, this.dzq.aMz());
+            jSONObject4.put("ad_count", this.dzt);
             jSONObject4.put("ad_type", this.mType);
             jSONObject4.put("pos", this.mPos);
-            jSONObject4.put("width", this.dnk.aJO());
-            jSONObject4.put("height", this.dnk.aJP());
+            jSONObject4.put("width", this.dzq.aMx());
+            jSONObject4.put("height", this.dzq.aMy());
             jSONObject4.put(ClientCookie.SECURE_ATTR, 1);
             JSONArray jSONArray = new JSONArray();
             jSONArray.put(jSONObject4);
@@ -97,8 +97,8 @@ public class e extends d {
         }
     }
 
-    private int aHD() {
-        switch (SwanAppNetworkUtils.avC()) {
+    private int aKm() {
+        switch (SwanAppNetworkUtils.ayn()) {
             case WIFI:
                 return 1;
             case _2G:
@@ -114,7 +114,7 @@ public class e extends d {
         }
     }
 
-    public int dn(Context context) {
+    public int dt(Context context) {
         TelephonyManager telephonyManager;
         String simOperator;
         if (context != null && (telephonyManager = (TelephonyManager) context.getSystemService("phone")) != null && (simOperator = telephonyManager.getSimOperator()) != null) {
@@ -142,18 +142,18 @@ public class e extends d {
     }
 
     private String getUserAgent() {
-        if (TextUtils.isEmpty(this.amP)) {
+        if (TextUtils.isEmpty(this.any)) {
             try {
-                this.amP = WebSettings.getDefaultUserAgent(this.mContext);
+                this.any = WebSettings.getDefaultUserAgent(this.mContext);
             } catch (Exception e) {
                 try {
-                    this.amP = System.getProperty("http.agent");
+                    this.any = System.getProperty("http.agent");
                 } catch (Exception e2) {
-                    this.amP = "";
+                    this.any = "";
                 }
             }
         }
-        return this.amP;
+        return this.any;
     }
 
     /* JADX WARN: Code restructure failed: missing block: B:15:0x002d, code lost:
@@ -162,7 +162,7 @@ public class e extends d {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    private String gr(boolean z) {
+    private String gN(boolean z) {
         String str;
         try {
             Enumeration<NetworkInterface> networkInterfaces = NetworkInterface.getNetworkInterfaces();

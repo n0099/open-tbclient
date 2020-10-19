@@ -1,13 +1,13 @@
 package com.baidu.mario.gldraw2d.params;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public class a implements Cloneable {
     private float mTranslateX = 0.0f;
     private float mTranslateY = 0.0f;
-    private MirrorType bBG = MirrorType.NO_MIRROR;
-    private int bBH = 0;
-    private ScaleType bBI = ScaleType.FIT_XY;
-    private float bBJ = 1.0f;
-    private int bBK = -90;
+    private MirrorType bIi = MirrorType.NO_MIRROR;
+    private int bIj = 0;
+    private ScaleType bIk = ScaleType.FIT_XY;
+    private float bIl = 1.0f;
+    private int bIm = -90;
 
     public float getTranslateX() {
         return this.mTranslateX;
@@ -17,36 +17,36 @@ public class a implements Cloneable {
         return this.mTranslateY;
     }
 
-    public MirrorType St() {
-        return this.bBG;
+    public MirrorType Um() {
+        return this.bIi;
     }
 
     public void a(MirrorType mirrorType) {
-        this.bBG = mirrorType;
+        this.bIi = mirrorType;
     }
 
-    public ScaleType Su() {
-        return this.bBI;
+    public ScaleType Un() {
+        return this.bIk;
     }
 
-    public float Sv() {
-        return this.bBJ;
+    public float Uo() {
+        return this.bIl;
     }
 
-    public int Sw() {
-        return this.bBH;
+    public int Up() {
+        return this.bIj;
     }
 
-    public void fN(int i) {
-        this.bBH = i;
+    public void gg(int i) {
+        this.bIj = i;
     }
 
-    public int Sx() {
-        return this.bBK;
+    public int Uq() {
+        return this.bIm;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    /* renamed from: Sy */
+    /* renamed from: Ur */
     public a clone() {
         try {
             return (a) super.clone();

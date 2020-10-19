@@ -2,7 +2,7 @@ package com.baidu.swan.apps.adaptation.a;
 
 import java.io.IOException;
 import java.io.InputStream;
-/* loaded from: classes3.dex */
+/* loaded from: classes10.dex */
 public interface n {
-    InputStream j(InputStream inputStream) throws IOException;
+    InputStream k(InputStream inputStream) throws IOException;
 }

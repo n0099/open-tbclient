@@ -5,57 +5,57 @@ import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Map;
 import java.util.Set;
-/* loaded from: classes3.dex */
+/* loaded from: classes10.dex */
 public class d {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    private final Set<String> csi = new HashSet();
-    private final Map<String, a<Boolean>> csj = new HashMap();
-    private final Map<String, a<b>> csk = new HashMap();
-    private a<Exception> csl = new a<>();
+    private final Set<String> cEt = new HashSet();
+    private final Map<String, a<Boolean>> cEu = new HashMap();
+    private final Map<String, a<b>> cEv = new HashMap();
+    private a<Exception> cEw = new a<>();
 
-    public d q(String... strArr) {
-        this.csi.addAll(Arrays.asList(strArr));
+    public d r(String... strArr) {
+        this.cEt.addAll(Arrays.asList(strArr));
         return this;
     }
 
     public d a(String str, com.baidu.swan.apps.ap.e.b<Boolean> bVar) {
-        return a(this.csj, str, bVar);
+        return a(this.cEu, str, bVar);
     }
 
     public d h(com.baidu.swan.apps.ap.e.b<Exception> bVar) {
-        this.csl.i(bVar);
+        this.cEw.i(bVar);
         return this;
     }
 
     private <T> d a(Map<String, a<T>> map, String str, com.baidu.swan.apps.ap.e.b<T> bVar) {
-        q(str);
+        r(str);
         b(map, str).i(bVar);
         return this;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public HashSet<String> amp() {
-        return new HashSet<>(this.csi);
+    public HashSet<String> apa() {
+        return new HashSet<>(this.cEt);
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public void a(String str, b bVar) {
         if (bVar == null || bVar.valid()) {
-            b(this.csk, str).S(bVar);
+            b(this.cEv, str).V(bVar);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public void P(String str, boolean z) {
-        a b2 = b(this.csj, str);
-        b2.S(Boolean.valueOf(z));
+    public void T(String str, boolean z) {
+        a b2 = b(this.cEu, str);
+        b2.V(Boolean.valueOf(z));
         b2.clear();
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public void q(Exception exc) {
-        this.csl.S(exc);
-        this.csl.clear();
+        this.cEw.V(exc);
+        this.cEw.clear();
     }
 
     private static <T> a<T> b(Map<String, a<T>> map, String str) {
@@ -68,45 +68,45 @@ public class d {
         return aVar;
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes10.dex */
     public static class a<T> {
-        private Set<com.baidu.swan.apps.ap.e.b<T>> csm = new HashSet();
+        private Set<com.baidu.swan.apps.ap.e.b<T>> cEx = new HashSet();
 
         public void i(com.baidu.swan.apps.ap.e.b<T> bVar) {
             if (bVar != null) {
-                this.csm.add(bVar);
+                this.cEx.add(bVar);
             }
         }
 
         public void clear() {
-            this.csm.clear();
+            this.cEx.clear();
         }
 
-        public void S(T t) {
-            for (com.baidu.swan.apps.ap.e.b<T> bVar : this.csm) {
-                bVar.J(t);
+        public void V(T t) {
+            for (com.baidu.swan.apps.ap.e.b<T> bVar : this.cEx) {
+                bVar.M(t);
             }
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes10.dex */
     public static class b {
-        public final long csn;
-        public final double cso;
+        public final long cEy;
+        public final double cEz;
         public final long current;
 
         public b(long j, long j2) {
             this.current = j;
-            this.csn = j2;
+            this.cEy = j2;
             if (j2 == 0) {
-                this.cso = 0.0d;
+                this.cEz = 0.0d;
             } else {
-                this.cso = j / j2;
+                this.cEz = j / j2;
             }
         }
 
         public boolean valid() {
-            return this.csn > 0;
+            return this.cEy > 0;
         }
     }
 }

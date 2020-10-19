@@ -3,7 +3,7 @@ package com.baidu.ueg.lib;
 import android.support.v7.widget.ActivityChooserView;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.ueg.lib.b;
-/* loaded from: classes25.dex */
+/* loaded from: classes7.dex */
 public class a extends b {
     private final int decodeSize;
     private final byte[] decodeTable;
@@ -59,7 +59,7 @@ public class a extends b {
             if (i2 < 0) {
                 aVar.eof = true;
                 if (aVar.modulus != 0 || this.lineLength != 0) {
-                    byte[] a = a(this.encodeSize, aVar);
+                    byte[] a2 = a(this.encodeSize, aVar);
                     int i3 = aVar.pos;
                     switch (aVar.modulus) {
                         case 0:
@@ -67,34 +67,34 @@ public class a extends b {
                         case 1:
                             int i4 = aVar.pos;
                             aVar.pos = i4 + 1;
-                            a[i4] = this.encodeTable[(aVar.ibitWorkArea >> 2) & 63];
+                            a2[i4] = this.encodeTable[(aVar.ibitWorkArea >> 2) & 63];
                             int i5 = aVar.pos;
                             aVar.pos = i5 + 1;
-                            a[i5] = this.encodeTable[(aVar.ibitWorkArea << 4) & 63];
+                            a2[i5] = this.encodeTable[(aVar.ibitWorkArea << 4) & 63];
                             if (this.encodeTable == STANDARD_ENCODE_TABLE) {
                                 int i6 = aVar.pos;
                                 aVar.pos = i6 + 1;
-                                a[i6] = 61;
+                                a2[i6] = 61;
                                 int i7 = aVar.pos;
                                 aVar.pos = i7 + 1;
-                                a[i7] = 61;
+                                a2[i7] = 61;
                                 break;
                             }
                             break;
                         case 2:
                             int i8 = aVar.pos;
                             aVar.pos = i8 + 1;
-                            a[i8] = this.encodeTable[(aVar.ibitWorkArea >> 10) & 63];
+                            a2[i8] = this.encodeTable[(aVar.ibitWorkArea >> 10) & 63];
                             int i9 = aVar.pos;
                             aVar.pos = i9 + 1;
-                            a[i9] = this.encodeTable[(aVar.ibitWorkArea >> 4) & 63];
+                            a2[i9] = this.encodeTable[(aVar.ibitWorkArea >> 4) & 63];
                             int i10 = aVar.pos;
                             aVar.pos = i10 + 1;
-                            a[i10] = this.encodeTable[(aVar.ibitWorkArea << 2) & 63];
+                            a2[i10] = this.encodeTable[(aVar.ibitWorkArea << 2) & 63];
                             if (this.encodeTable == STANDARD_ENCODE_TABLE) {
                                 int i11 = aVar.pos;
                                 aVar.pos = i11 + 1;
-                                a[i11] = 61;
+                                a2[i11] = 61;
                                 break;
                             }
                             break;
@@ -103,7 +103,7 @@ public class a extends b {
                     }
                     aVar.currentLinePos = (aVar.pos - i3) + aVar.currentLinePos;
                     if (this.lineLength > 0 && aVar.currentLinePos > 0) {
-                        System.arraycopy(this.lineSeparator, 0, a, aVar.pos, this.lineSeparator.length);
+                        System.arraycopy(this.lineSeparator, 0, a2, aVar.pos, this.lineSeparator.length);
                         aVar.pos += this.lineSeparator.length;
                         return;
                     }
@@ -113,7 +113,7 @@ public class a extends b {
             }
             int i12 = 0;
             while (i12 < i2) {
-                byte[] a2 = a(this.encodeSize, aVar);
+                byte[] a3 = a(this.encodeSize, aVar);
                 aVar.modulus = (aVar.modulus + 1) % 3;
                 int i13 = i + 1;
                 int i14 = bArr[i];
@@ -124,19 +124,19 @@ public class a extends b {
                 if (aVar.modulus == 0) {
                     int i15 = aVar.pos;
                     aVar.pos = i15 + 1;
-                    a2[i15] = this.encodeTable[(aVar.ibitWorkArea >> 18) & 63];
+                    a3[i15] = this.encodeTable[(aVar.ibitWorkArea >> 18) & 63];
                     int i16 = aVar.pos;
                     aVar.pos = i16 + 1;
-                    a2[i16] = this.encodeTable[(aVar.ibitWorkArea >> 12) & 63];
+                    a3[i16] = this.encodeTable[(aVar.ibitWorkArea >> 12) & 63];
                     int i17 = aVar.pos;
                     aVar.pos = i17 + 1;
-                    a2[i17] = this.encodeTable[(aVar.ibitWorkArea >> 6) & 63];
+                    a3[i17] = this.encodeTable[(aVar.ibitWorkArea >> 6) & 63];
                     int i18 = aVar.pos;
                     aVar.pos = i18 + 1;
-                    a2[i18] = this.encodeTable[aVar.ibitWorkArea & 63];
+                    a3[i18] = this.encodeTable[aVar.ibitWorkArea & 63];
                     aVar.currentLinePos += 4;
                     if (this.lineLength > 0 && this.lineLength <= aVar.currentLinePos) {
-                        System.arraycopy(this.lineSeparator, 0, a2, aVar.pos, this.lineSeparator.length);
+                        System.arraycopy(this.lineSeparator, 0, a3, aVar.pos, this.lineSeparator.length);
                         aVar.pos += this.lineSeparator.length;
                         aVar.currentLinePos = 0;
                     }
@@ -159,7 +159,7 @@ public class a extends b {
                 if (i3 >= i2) {
                     break;
                 }
-                byte[] a = a(this.decodeSize, aVar);
+                byte[] a2 = a(this.decodeSize, aVar);
                 int i4 = i + 1;
                 byte b2 = bArr[i];
                 if (b2 == 61) {
@@ -172,20 +172,20 @@ public class a extends b {
                     if (aVar.modulus == 0) {
                         int i5 = aVar.pos;
                         aVar.pos = i5 + 1;
-                        a[i5] = (byte) ((aVar.ibitWorkArea >> 16) & 255);
+                        a2[i5] = (byte) ((aVar.ibitWorkArea >> 16) & 255);
                         int i6 = aVar.pos;
                         aVar.pos = i6 + 1;
-                        a[i6] = (byte) ((aVar.ibitWorkArea >> 8) & 255);
+                        a2[i6] = (byte) ((aVar.ibitWorkArea >> 8) & 255);
                         int i7 = aVar.pos;
                         aVar.pos = i7 + 1;
-                        a[i7] = (byte) (aVar.ibitWorkArea & 255);
+                        a2[i7] = (byte) (aVar.ibitWorkArea & 255);
                     }
                 }
                 i3++;
                 i = i4;
             }
             if (aVar.eof && aVar.modulus != 0) {
-                byte[] a2 = a(this.decodeSize, aVar);
+                byte[] a3 = a(this.decodeSize, aVar);
                 switch (aVar.modulus) {
                     case 1:
                         return;
@@ -193,16 +193,16 @@ public class a extends b {
                         aVar.ibitWorkArea >>= 4;
                         int i8 = aVar.pos;
                         aVar.pos = i8 + 1;
-                        a2[i8] = (byte) (aVar.ibitWorkArea & 255);
+                        a3[i8] = (byte) (aVar.ibitWorkArea & 255);
                         return;
                     case 3:
                         aVar.ibitWorkArea >>= 2;
                         int i9 = aVar.pos;
                         aVar.pos = i9 + 1;
-                        a2[i9] = (byte) ((aVar.ibitWorkArea >> 8) & 255);
+                        a3[i9] = (byte) ((aVar.ibitWorkArea >> 8) & 255);
                         int i10 = aVar.pos;
                         aVar.pos = i10 + 1;
-                        a2[i10] = (byte) (aVar.ibitWorkArea & 255);
+                        a3[i10] = (byte) (aVar.ibitWorkArea & 255);
                         return;
                     default:
                         throw new IllegalStateException("Impossible modulus " + aVar.modulus);

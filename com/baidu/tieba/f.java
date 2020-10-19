@@ -18,15 +18,15 @@ import com.baidu.tbadk.core.util.ap;
 import com.baidu.tbadk.core.util.aq;
 import com.baidu.tbadk.core.view.NavigationBar;
 import com.baidu.tbadk.core.view.viewpager.BdBaseViewPager;
-/* loaded from: classes21.dex */
+/* loaded from: classes22.dex */
 public class f implements View.OnClickListener, TbTabLayout.b, com.baidu.tbadk.suspended.a {
-    private BdBaseViewPager eAA;
-    private String fpi = "key_select_forum_tab_index";
-    private ImageView fpj;
-    private TbTabLayout fpk;
-    private SelectForumPagerAdapter fpl;
-    private Intent fpm;
-    private boolean fpn;
+    private BdBaseViewPager eMH;
+    private Intent fBA;
+    private boolean fBB;
+    private String fBw = "key_select_forum_tab_index";
+    private ImageView fBx;
+    private TbTabLayout fBy;
+    private SelectForumPagerAdapter fBz;
     private LinearLayout mContentView;
     private NavigationBar mNavigationBar;
     private TbPageContext<SelectForumActivity> mPageContext;
@@ -37,46 +37,46 @@ public class f implements View.OnClickListener, TbTabLayout.b, com.baidu.tbadk.s
         this.mNavigationBar = navigationBar;
         String currentAccount = TbadkCoreApplication.getCurrentAccount();
         if (!StringUtils.isNull(currentAccount)) {
-            this.fpi += currentAccount;
+            this.fBw += currentAccount;
         }
-        bvT();
-        Wq();
-        bBz();
+        byD();
+        Yn();
+        bEl();
         initViewPager();
     }
 
-    private void bvT() {
+    private void byD() {
         this.mNavigationBar.setCenterTextTitle(this.mPageContext.getResources().getString(R.string.activity_select_forum_title));
-        this.fpj = (ImageView) this.mNavigationBar.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, R.layout.widget_nb_item_search, (View.OnClickListener) null);
-        LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.fpj.getLayoutParams();
+        this.fBx = (ImageView) this.mNavigationBar.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, R.layout.widget_nb_item_search, (View.OnClickListener) null);
+        LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.fBx.getLayoutParams();
         layoutParams.setMargins(0, 0, l.getDimens(this.mPageContext.getPageActivity(), R.dimen.ds10), 0);
-        this.fpj.setLayoutParams(layoutParams);
-        this.fpj.setOnClickListener(this);
-        this.fpj.setVisibility(8);
+        this.fBx.setLayoutParams(layoutParams);
+        this.fBx.setOnClickListener(this);
+        this.fBx.setVisibility(8);
     }
 
-    private void Wq() {
+    private void Yn() {
         LayoutInflater.from(this.mPageContext.getPageActivity()).inflate(R.layout.activity_select_forum_layout, (ViewGroup) this.mContentView, true);
-        this.fpk = (TbTabLayout) this.mContentView.findViewById(R.id.activity_select_forum_tab_layout);
-        this.eAA = (BdBaseViewPager) this.mContentView.findViewById(R.id.activity_select_forum_viewpager);
+        this.fBy = (TbTabLayout) this.mContentView.findViewById(R.id.activity_select_forum_tab_layout);
+        this.eMH = (BdBaseViewPager) this.mContentView.findViewById(R.id.activity_select_forum_viewpager);
     }
 
-    private void bBz() {
-        this.fpk.setSelectedTabTextBlod(true);
-        this.fpk.setSelectedTabIndicatorColor(0);
-        TbTabLayout.e b = this.fpk.rj().b(TbadkCoreApplication.getInst().getString(R.string.activity_select_forum_tab_recently));
-        TbTabLayout.e b2 = this.fpk.rj().b(TbadkCoreApplication.getInst().getString(R.string.activity_select_forum_tab_attention));
-        this.fpk.a(b, false);
-        this.fpk.a(b2, false);
+    private void bEl() {
+        this.fBy.setSelectedTabTextBlod(true);
+        this.fBy.setSelectedTabIndicatorColor(0);
+        TbTabLayout.e b = this.fBy.rj().b(TbadkCoreApplication.getInst().getString(R.string.activity_select_forum_tab_recently));
+        TbTabLayout.e b2 = this.fBy.rj().b(TbadkCoreApplication.getInst().getString(R.string.activity_select_forum_tab_attention));
+        this.fBy.a(b, false);
+        this.fBy.a(b2, false);
     }
 
     private void initViewPager() {
-        this.fpl = new SelectForumPagerAdapter(this.mPageContext);
-        this.eAA.setAdapter(this.fpl);
-        this.fpk.setupWithViewPager(this.eAA);
-        sn(com.baidu.tbadk.core.sharedPref.b.bjf().getInt(this.fpi, 0));
-        this.fpk.setOnTabSelectedListener(this);
-        this.eAA.addOnPageChangeListener(new ViewPager.OnPageChangeListener() { // from class: com.baidu.tieba.f.1
+        this.fBz = new SelectForumPagerAdapter(this.mPageContext);
+        this.eMH.setAdapter(this.fBz);
+        this.fBy.setupWithViewPager(this.eMH);
+        sL(com.baidu.tbadk.core.sharedPref.b.blO().getInt(this.fBw, 0));
+        this.fBy.setOnTabSelectedListener(this);
+        this.eMH.addOnPageChangeListener(new ViewPager.OnPageChangeListener() { // from class: com.baidu.tieba.f.1
             @Override // android.support.v4.view.ViewPager.OnPageChangeListener
             public void onPageScrolled(int i, float f, int i2) {
             }
@@ -87,21 +87,21 @@ public class f implements View.OnClickListener, TbTabLayout.b, com.baidu.tbadk.s
 
             @Override // android.support.v4.view.ViewPager.OnPageChangeListener
             public void onPageScrollStateChanged(int i) {
-                f.this.fpn = i == 0;
+                f.this.fBB = i == 0;
             }
         });
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        if (view == this.fpj) {
+        if (view == this.fBx) {
         }
     }
 
     @Override // com.baidu.adp.widget.design.TbTabLayout.b
     public void h(TbTabLayout.e eVar) {
-        TiebaStatic.log(new aq("c13994").ai("obj_type", eVar.getPosition() + 1));
-        com.baidu.tbadk.core.sharedPref.b.bjf().putInt(this.fpi, eVar.getPosition());
+        TiebaStatic.log(new aq("c13994").aj("obj_type", eVar.getPosition() + 1));
+        com.baidu.tbadk.core.sharedPref.b.blO().putInt(this.fBw, eVar.getPosition());
     }
 
     @Override // com.baidu.adp.widget.design.TbTabLayout.b
@@ -112,11 +112,11 @@ public class f implements View.OnClickListener, TbTabLayout.b, com.baidu.tbadk.s
     public void j(TbTabLayout.e eVar) {
     }
 
-    public boolean sn(int i) {
+    public boolean sL(int i) {
         if (i < 0 || i > 1) {
             return false;
         }
-        TbTabLayout.e aU = this.fpk.aU(i);
+        TbTabLayout.e aU = this.fBy.aU(i);
         if (aU == null || aU.isSelected()) {
             return true;
         }
@@ -125,24 +125,24 @@ public class f implements View.OnClickListener, TbTabLayout.b, com.baidu.tbadk.s
     }
 
     @Override // com.baidu.tbadk.suspended.a
-    public boolean bvP() {
+    public boolean byz() {
         return false;
     }
 
     @Override // com.baidu.tbadk.suspended.a
-    public boolean bvQ() {
+    public boolean byA() {
         return true;
     }
 
     @Override // com.baidu.tbadk.suspended.a
-    public void qV(int i) {
-        SvgManager.bkl().a(this.fpj, R.drawable.icon_pure_topbar_search44_svg, R.color.cp_cont_b, SvgManager.SvgResourceStateType.NORMAL_PRESS);
-        this.fpk.setTabTextColors(ap.getColor(R.color.cp_cont_c), ap.getColor(R.color.cp_cont_b));
-        this.fpl.bBx();
+    public void rt(int i) {
+        SvgManager.bmU().a(this.fBx, R.drawable.icon_pure_topbar_search44_svg, R.color.cp_cont_b, SvgManager.SvgResourceStateType.NORMAL_PRESS);
+        this.fBy.setTabTextColors(ap.getColor(R.color.cp_cont_c), ap.getColor(R.color.cp_cont_b));
+        this.fBz.bEj();
     }
 
     @Override // com.baidu.tbadk.suspended.a
-    public Intent bvR() {
-        return this.fpm;
+    public Intent byB() {
+        return this.fBA;
     }
 }

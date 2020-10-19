@@ -2,17 +2,19 @@ package com.baidu.mapapi.map;
 
 import android.animation.Animator;
 import android.animation.AnimatorListenerAdapter;
-/* loaded from: classes3.dex */
+/* loaded from: classes7.dex */
 class u extends AnimatorListenerAdapter {
-    final /* synthetic */ SwipeDismissTouchListener a;
+
+    /* renamed from: a  reason: collision with root package name */
+    final /* synthetic */ SwipeDismissTouchListener f2083a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public u(SwipeDismissTouchListener swipeDismissTouchListener) {
-        this.a = swipeDismissTouchListener;
+        this.f2083a = swipeDismissTouchListener;
     }
 
     @Override // android.animation.AnimatorListenerAdapter, android.animation.Animator.AnimatorListener
     public void onAnimationEnd(Animator animator) {
-        this.a.a();
+        this.f2083a.a();
     }
 }

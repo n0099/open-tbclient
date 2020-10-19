@@ -3,27 +3,27 @@ package com.facebook.common.memory;
 import java.io.InputStream;
 import javax.annotation.concurrent.NotThreadSafe;
 @NotThreadSafe
-/* loaded from: classes17.dex */
+/* loaded from: classes6.dex */
 public class h extends InputStream {
     int mOffset;
-    final PooledByteBuffer nvn;
-    int nvo;
+    final PooledByteBuffer nKG;
+    int nKH;
 
     public h(PooledByteBuffer pooledByteBuffer) {
         com.facebook.common.internal.g.checkArgument(!pooledByteBuffer.isClosed());
-        this.nvn = (PooledByteBuffer) com.facebook.common.internal.g.checkNotNull(pooledByteBuffer);
+        this.nKG = (PooledByteBuffer) com.facebook.common.internal.g.checkNotNull(pooledByteBuffer);
         this.mOffset = 0;
-        this.nvo = 0;
+        this.nKH = 0;
     }
 
     @Override // java.io.InputStream
     public int available() {
-        return this.nvn.size() - this.mOffset;
+        return this.nKG.size() - this.mOffset;
     }
 
     @Override // java.io.InputStream
     public void mark(int i) {
-        this.nvo = this.mOffset;
+        this.nKH = this.mOffset;
     }
 
     @Override // java.io.InputStream
@@ -36,10 +36,10 @@ public class h extends InputStream {
         if (available() <= 0) {
             return -1;
         }
-        PooledByteBuffer pooledByteBuffer = this.nvn;
+        PooledByteBuffer pooledByteBuffer = this.nKG;
         int i = this.mOffset;
         this.mOffset = i + 1;
-        return pooledByteBuffer.Lz(i) & 255;
+        return pooledByteBuffer.Mf(i) & 255;
     }
 
     @Override // java.io.InputStream
@@ -60,14 +60,14 @@ public class h extends InputStream {
             return 0;
         }
         int min = Math.min(available, i2);
-        this.nvn.c(this.mOffset, bArr, i, min);
+        this.nKG.c(this.mOffset, bArr, i, min);
         this.mOffset += min;
         return min;
     }
 
     @Override // java.io.InputStream
     public void reset() {
-        this.mOffset = this.nvo;
+        this.mOffset = this.nKH;
     }
 
     @Override // java.io.InputStream

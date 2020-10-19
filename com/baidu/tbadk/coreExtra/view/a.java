@@ -11,117 +11,117 @@ import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.tbadk.core.util.ap;
 import com.baidu.tbadk.coreExtra.view.ImageViewerBottomLayout;
 import com.baidu.tieba.R;
-/* loaded from: classes20.dex */
+/* loaded from: classes21.dex */
 public class a {
-    private ImageViewerBottomLayout eIv;
-    private AbsFloorImageTextView eIw;
-    private LinearLayout eIx;
-    private boolean eIy = true;
-    private final ImageViewerBottomLayout.a eIz = new ImageViewerBottomLayout.a() { // from class: com.baidu.tbadk.coreExtra.view.a.1
+    private ImageViewerBottomLayout eUC;
+    private AbsFloorImageTextView eUD;
+    private LinearLayout eUE;
+    private boolean eUF = true;
+    private final ImageViewerBottomLayout.a eUG = new ImageViewerBottomLayout.a() { // from class: com.baidu.tbadk.coreExtra.view.a.1
         @Override // com.baidu.tbadk.coreExtra.view.ImageViewerBottomLayout.a
         public void a(ImageViewerBottomLayout imageViewerBottomLayout, boolean z) {
-            a.this.eIy = z;
-            MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2016496, Boolean.valueOf(a.this.eIy)));
-            a.this.iT(z);
+            a.this.eUF = z;
+            MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2016496, Boolean.valueOf(a.this.eUF)));
+            a.this.jr(z);
         }
     };
     private Context mContext;
 
     public a(@NonNull Context context, @NonNull RelativeLayout relativeLayout) {
         this.mContext = context;
-        this.eIx = new LinearLayout(context);
-        this.eIx.setOrientation(1);
-        this.eIx.setVisibility(8);
-        ap.a(this.eIx, R.color.cp_mask_b_alpha66, GradientDrawable.Orientation.BOTTOM_TOP);
+        this.eUE = new LinearLayout(context);
+        this.eUE.setOrientation(1);
+        this.eUE.setVisibility(8);
+        ap.a(this.eUE, R.color.cp_mask_b_alpha66, GradientDrawable.Orientation.BOTTOM_TOP);
         RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(-1, -2);
         layoutParams.addRule(12);
-        relativeLayout.addView(this.eIx, layoutParams);
-        bqH();
-        bqG();
+        relativeLayout.addView(this.eUE, layoutParams);
+        btr();
+        btq();
     }
 
-    private void bqG() {
-        LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(-1, ImageViewerBottomLayout.eIB);
-        this.eIv = new ImageViewerBottomLayout(this.mContext);
-        this.eIx.addView(this.eIv, layoutParams);
-        this.eIv.setExpandButtonListener(this.eIz);
+    private void btq() {
+        LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(-1, ImageViewerBottomLayout.eUI);
+        this.eUC = new ImageViewerBottomLayout(this.mContext);
+        this.eUE.addView(this.eUC, layoutParams);
+        this.eUC.setExpandButtonListener(this.eUG);
     }
 
-    private void bqH() {
+    private void btr() {
         LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(-1, -2);
-        this.eIw = new FloorImageTextViewNew(this.mContext);
-        this.eIx.addView(this.eIw, layoutParams);
+        this.eUD = new FloorImageTextViewNew(this.mContext);
+        this.eUE.addView(this.eUD, layoutParams);
     }
 
-    public void iT(boolean z) {
-        if (this.eIw != null) {
-            this.eIw.iT(z);
+    public void jr(boolean z) {
+        if (this.eUD != null) {
+            this.eUD.jr(z);
         }
-        if (this.eIv != null) {
-            this.eIv.iU(!z);
+        if (this.eUC != null) {
+            this.eUC.js(!z);
         }
     }
 
     public void setUserId(String str) {
-        if (this.eIw != null) {
-            this.eIw.setUserId(str);
+        if (this.eUD != null) {
+            this.eUD.setUserId(str);
         }
-        if (this.eIv != null) {
-            this.eIv.setUserId(str);
+        if (this.eUC != null) {
+            this.eUC.setUserId(str);
         }
     }
 
     public void setAssistUrl(ImageUrlData imageUrlData) {
-        if (this.eIw != null) {
-            this.eIw.a(imageUrlData);
+        if (this.eUD != null) {
+            this.eUD.a(imageUrlData);
         }
-        if (this.eIv != null) {
-            this.eIv.b(imageUrlData);
+        if (this.eUC != null) {
+            this.eUC.b(imageUrlData);
         }
     }
 
-    private boolean bp(View view) {
+    private boolean bt(View view) {
         return view != null && view.getVisibility() == 0;
     }
 
     public boolean isShown() {
-        return bp(this.eIx);
+        return bt(this.eUE);
     }
 
-    public boolean bqI() {
-        return this.eIy;
+    public boolean bts() {
+        return this.eUF;
     }
 
     public void setVisibility(int i) {
-        if (this.eIx != null) {
-            this.eIx.clearAnimation();
-            this.eIx.setVisibility(i);
+        if (this.eUE != null) {
+            this.eUE.clearAnimation();
+            this.eUE.setVisibility(i);
         }
     }
 
-    public void be(int i, int i2) {
+    public void bd(int i, int i2) {
         if (i == 0) {
-            com.baidu.tieba.v.a.z(this.eIx, i2);
+            com.baidu.tieba.v.a.A(this.eUE, i2);
         } else {
-            com.baidu.tieba.v.a.y(this.eIx, i2);
+            com.baidu.tieba.v.a.z(this.eUE, i2);
         }
     }
 
     public void setOnShareImageListener(ImageViewerBottomLayout.c cVar) {
-        if (this.eIv != null) {
-            this.eIv.setOnShareImageListener(cVar);
+        if (this.eUC != null) {
+            this.eUC.setOnShareImageListener(cVar);
         }
     }
 
     public void setOnDownloadImageListener(ImageViewerBottomLayout.b bVar) {
-        if (this.eIv != null) {
-            this.eIv.setOnDownloadImageListener(bVar);
+        if (this.eUC != null) {
+            this.eUC.setOnDownloadImageListener(bVar);
         }
     }
 
     public void setOnReplyClickListener(View.OnClickListener onClickListener) {
-        if (this.eIv != null) {
-            this.eIv.setOnReplyClickListener(onClickListener);
+        if (this.eUC != null) {
+            this.eUC.setOnReplyClickListener(onClickListener);
         }
     }
 }

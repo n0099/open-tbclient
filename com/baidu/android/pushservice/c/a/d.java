@@ -1,7 +1,9 @@
 package com.baidu.android.pushservice.c.a;
-/* loaded from: classes7.dex */
+/* loaded from: classes10.dex */
 public class d {
-    public String a;
+
+    /* renamed from: a  reason: collision with root package name */
+    public String f1033a;
     public String b;
     public String c;
     public String d;

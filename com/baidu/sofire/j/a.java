@@ -3,9 +3,11 @@ package com.baidu.sofire.j;
 import android.content.Context;
 import android.os.Build;
 import com.baidu.sofire.o.b;
-/* loaded from: classes12.dex */
+/* loaded from: classes15.dex */
 public class a implements b {
-    private static a a;
+
+    /* renamed from: a  reason: collision with root package name */
+    private static a f3648a;
     private b b = null;
     private boolean c = false;
 
@@ -13,14 +15,14 @@ public class a implements b {
     }
 
     public static a a() {
-        if (a == null) {
+        if (f3648a == null) {
             synchronized (a.class) {
-                if (a == null) {
-                    a = new a();
+                if (f3648a == null) {
+                    f3648a = new a();
                 }
             }
         }
-        return a;
+        return f3648a;
     }
 
     @Override // com.baidu.sofire.j.b

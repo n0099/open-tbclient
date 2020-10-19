@@ -1,7 +1,7 @@
 package com.baidu.h.a.b;
-/* loaded from: classes23.dex */
+/* loaded from: classes15.dex */
 public interface g {
-    void d(int i, Object obj);
-
     void e(int i, Object obj);
+
+    void f(int i, Object obj);
 }

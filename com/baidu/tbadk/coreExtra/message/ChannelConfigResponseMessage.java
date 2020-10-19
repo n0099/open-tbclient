@@ -15,7 +15,7 @@ public class ChannelConfigResponseMessage extends JsonHttpResponsedMessage {
     public void decodeLogicInBackGround(int i, JSONObject jSONObject) throws Exception {
         if (jSONObject != null && isSuccess()) {
             this.mData = new m();
-            this.mData.db(jSONObject);
+            this.mData.di(jSONObject);
         }
     }
 

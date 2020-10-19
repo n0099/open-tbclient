@@ -27,11 +27,11 @@ import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 import okhttp3.Response;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes10.dex */
 public class a extends aa {
-    private ExecutorService ceD;
-    private int ceE;
-    private c ceU;
+    private ExecutorService cqT;
+    private int cqU;
+    private c crl;
 
     public a(j jVar) {
         super(jVar, "/swanAPI/wirelessdebuglaunch");
@@ -45,8 +45,8 @@ public class a extends aa {
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202);
             return false;
         }
-        this.ceU = c.aR(optParamsAsJo);
-        if (this.ceU == null || this.ceU.isInvalid()) {
+        this.crl = c.aY(optParamsAsJo);
+        if (this.crl == null || this.crl.isInvalid()) {
             if (DEBUG) {
                 Log.e("WirelessDebugAction", "Wireless Debug params is invalid");
             }
@@ -58,37 +58,37 @@ public class a extends aa {
     }
 
     private void f(final Context context, final UnitedSchemeEntity unitedSchemeEntity, final CallbackHandler callbackHandler) {
-        final File aeV = b.aeV();
-        if (aeV.exists()) {
-            aeV.delete();
+        final File ahG = b.ahG();
+        if (ahG.exists()) {
+            ahG.delete();
         }
-        this.ceD = Executors.newFixedThreadPool(4);
-        this.ceE = 0;
-        if (this.ceU.cfc == null || this.ceU.cfc.length() <= 0) {
+        this.cqT = Executors.newFixedThreadPool(4);
+        this.cqU = 0;
+        if (this.crl.crt == null || this.crl.crt.length() <= 0) {
             ExecutorUtilsExt.postOnSerial(new Runnable() { // from class: com.baidu.swan.apps.console.debugger.b.a.1
                 @Override // java.lang.Runnable
                 public void run() {
-                    a.this.a(context, a.this.ceU.ceY, a.this.ceU.PM, aeV, unitedSchemeEntity, callbackHandler);
+                    a.this.a(context, a.this.crl.crp, a.this.crl.Qe, ahG, unitedSchemeEntity, callbackHandler);
                 }
             }, "WirelessDebugAction");
             return;
         }
-        int length = this.ceU.cfc.length();
+        int length = this.crl.crt.length();
         for (int i = 0; i < length; i++) {
-            final String gV = this.ceU.gV(i);
-            if (TextUtils.isEmpty(gV)) {
-                int i2 = this.ceE + 1;
-                this.ceE = i2;
+            final String hs = this.crl.hs(i);
+            if (TextUtils.isEmpty(hs)) {
+                int i2 = this.cqU + 1;
+                this.cqU = i2;
                 if (i2 >= length) {
                     com.baidu.swan.apps.console.c.e("WirelessDebugAction", "Hosts are invalid");
-                    W(context, "404");
+                    Z(context, "404");
                 }
             } else {
-                final String gW = this.ceU.gW(i);
-                this.ceD.execute(new Runnable() { // from class: com.baidu.swan.apps.console.debugger.b.a.2
+                final String ht = this.crl.ht(i);
+                this.cqT.execute(new Runnable() { // from class: com.baidu.swan.apps.console.debugger.b.a.2
                     @Override // java.lang.Runnable
                     public void run() {
-                        a.this.a(context, gV, gW, aeV, unitedSchemeEntity, callbackHandler);
+                        a.this.a(context, hs, ht, ahG, unitedSchemeEntity, callbackHandler);
                     }
                 });
             }
@@ -98,31 +98,31 @@ public class a extends aa {
     /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [208=4] */
     /* JADX INFO: Access modifiers changed from: private */
     /* JADX WARN: Code restructure failed: missing block: B:32:0x00b5, code lost:
-        if (r0 >= r7.ceU.cfc.length()) goto L39;
+        if (r0 >= r7.crl.crt.length()) goto L39;
      */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
     public void a(Context context, String str, String str2, File file, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler) {
         try {
-            Response executeSync = com.baidu.swan.a.c.a.aTI().getRequest().url(str).connectionTimeout(1500).build().executeSync();
+            Response executeSync = com.baidu.swan.a.c.a.aWr().getRequest().url(str).connectionTimeout(1500).build().executeSync();
             if (executeSync != null && executeSync.code() == 200 && executeSync.body() != null) {
                 f.streamToFile(executeSync.body().byteStream(), file);
-                Intent a = com.baidu.swan.apps.u.c.c.a(context, aeT());
-                a.putExtra("masterPreload", this.ceU.cfa);
-                a.putExtra("slavePreload", this.ceU.cfb);
-                a.putExtra("extraWSUrl", str2);
-                context.startActivity(a);
+                Intent a2 = com.baidu.swan.apps.u.c.c.a(context, ahE());
+                a2.putExtra("masterPreload", this.crl.crr);
+                a2.putExtra("slavePreload", this.crl.crs);
+                a2.putExtra("extraWSUrl", str2);
+                context.startActivity(a2);
                 UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(0));
-                if (this.ceD != null) {
-                    this.ceD.shutdownNow();
-                    this.ceD = null;
+                if (this.cqT != null) {
+                    this.cqT.shutdownNow();
+                    this.cqT = null;
                 }
                 if (!ProcessUtils.isMainProcess()) {
                     if (DEBUG) {
                         Log.d("WirelessDebugAction", "Suicide for reload.");
                     }
-                    d.aeY();
+                    d.ahJ();
                 }
             }
             if (executeSync != null) {
@@ -135,31 +135,31 @@ public class a extends aa {
         } catch (IOException e) {
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
             synchronized (this) {
-                if (this.ceU.cfc != null) {
-                    int i = this.ceE + 1;
-                    this.ceE = i;
+                if (this.crl.crt != null) {
+                    int i = this.cqU + 1;
+                    this.cqU = i;
                 }
                 com.baidu.swan.apps.console.c.e("WirelessDebugAction", "Host IPs are invalid");
-                W(context, "404");
-                aeU();
+                Z(context, "404");
+                ahF();
             }
         }
     }
 
-    private c.a aeT() {
-        return (c.a) ((c.a) ((c.a) new c.a().nV(this.ceU.mAppKey)).eD(false)).oc(this.ceU.ceZ);
+    private c.a ahE() {
+        return (c.a) ((c.a) ((c.a) new c.a().oJ(this.crl.mAppKey)).eZ(false)).oQ(this.crl.crq);
     }
 
-    private void W(Context context, String str) {
-        String string = h.aDP().getString("errorURL", "");
+    private void Z(Context context, String str) {
+        String string = h.aGy().getString("errorURL", "");
         if (TextUtils.isEmpty(string)) {
             com.baidu.swan.apps.res.widget.b.d.a(context, "IPs are invalid ：" + str).showToast();
         } else {
-            SchemeRouter.invoke(context, SchemeConfig.getSchemeHead() + "://v1/easybrowse/open?url=" + dt(string + "?" + str));
+            SchemeRouter.invoke(context, SchemeConfig.getSchemeHead() + "://v1/easybrowse/open?url=" + dy(string + "?" + str));
         }
     }
 
-    private String dt(String str) {
+    private String dy(String str) {
         try {
             return URLEncoder.encode(str, "UTF-8");
         } catch (UnsupportedEncodingException e) {
@@ -171,11 +171,11 @@ public class a extends aa {
         }
     }
 
-    private void aeU() {
-        b.a aAv = com.baidu.swan.apps.runtime.d.aAn().aAj().aAv();
+    private void ahF() {
+        b.a aDe = com.baidu.swan.apps.runtime.d.aCW().aCS().aDe();
         com.baidu.swan.apps.statistic.a.f fVar = new com.baidu.swan.apps.statistic.a.f();
-        fVar.b(aAv);
-        fVar.mFrom = com.baidu.swan.apps.statistic.h.jG(aAv.getAppFrameType());
+        fVar.b(aDe);
+        fVar.mFrom = com.baidu.swan.apps.statistic.h.kd(aDe.getAppFrameType());
         fVar.mType = Config.LAUNCH;
         fVar.mSource = "adb-debug";
         fVar.mValue = "download_fail";

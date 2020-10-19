@@ -20,18 +20,18 @@ import com.baidu.tbadk.core.frameworkData.IntentConfig;
 import com.baidu.tbadk.core.util.ay;
 import com.baidu.tbadk.core.view.ThreadCommentAndPraiseInfoLayout;
 import com.baidu.tieba.card.aa;
-/* loaded from: classes21.dex */
+/* loaded from: classes22.dex */
 public class l extends a<bv, am<bw>> {
-    private aa<bv> afn;
+    private aa<bv> afE;
 
     public l(TbPageContext<?> tbPageContext) {
-        super(tbPageContext, bw.edr);
-        this.afn = new aa<bv>() { // from class: com.baidu.tieba.homepage.hotTopic.tab.a.l.1
+        super(tbPageContext, bw.epw);
+        this.afE = new aa<bv>() { // from class: com.baidu.tieba.homepage.hotTopic.tab.a.l.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.tieba.card.aa
             public void a(View view, bv bvVar) {
                 if (bvVar != null) {
-                    l.this.f(view, bvVar.dXg);
+                    l.this.f(view, bvVar.eji);
                 }
             }
         };
@@ -40,13 +40,13 @@ public class l extends a<bv, am<bw>> {
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.widget.ListView.a
-    /* renamed from: aR */
+    /* renamed from: aT */
     public am c(ViewGroup viewGroup) {
         ak.a aVar = new ak.a(this.mPageContext.getPageActivity(), false);
         an anVar = new an(this.mPageContext.getPageActivity());
         com.baidu.tbadk.core.data.c cVar = new com.baidu.tbadk.core.data.c();
-        cVar.dYY = 1;
-        cVar.dZe = 1;
+        cVar.ela = 1;
+        cVar.elg = 1;
         anVar.setAgreeStatisticData(cVar);
         anVar.setFrom(1);
         anVar.setStType("personalize_page");
@@ -54,22 +54,22 @@ public class l extends a<bv, am<bw>> {
         anVar.setFromForPb(2);
         anVar.bo(32);
         aVar.b(anVar);
-        ak a = aVar.a(true, viewGroup, this.alj);
-        a.setSourceForPb(2);
-        am amVar = new am(a);
+        ak a2 = aVar.a(true, viewGroup, this.alC);
+        a2.setSourceForPb(2);
+        am amVar = new am(a2);
         amVar.setPageId(this.mPageId);
         a(new ab() { // from class: com.baidu.tieba.homepage.hotTopic.tab.a.l.2
             @Override // com.baidu.adp.widget.ListView.ab
             public void a(View view, q qVar, BdUniqueId bdUniqueId, ViewGroup viewGroup2, int i, long j) {
                 if ((qVar instanceof bv) && (view.getTag() instanceof am)) {
                     am amVar2 = (am) view.getTag();
-                    bw bwVar = ((bv) qVar).dXg;
+                    bw bwVar = ((bv) qVar).eji;
                     bwVar.objType = 1;
-                    if (l.this.afn != null) {
-                        l.this.afn.a(amVar2.getView(), (bv) qVar);
+                    if (l.this.afE != null) {
+                        l.this.afE.a(amVar2.getView(), (bv) qVar);
                     }
                     ay.a((AbsThreadDataSupport) bwVar, view.getContext(), 0, false, com.baidu.card.f.a((v) viewGroup2, view, i));
-                    amVar2.tW().b(new a.C0096a(1));
+                    amVar2.tW().b(new a.C0097a(1));
                 }
             }
         });
@@ -80,10 +80,10 @@ public class l extends a<bv, am<bw>> {
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tieba.homepage.hotTopic.tab.a.a, com.baidu.adp.widget.ListView.a
     public View a(final int i, final View view, final ViewGroup viewGroup, bv bvVar, am amVar) {
-        if (bvVar == null || amVar == null || amVar.getView() == null || bvVar.dXg == null) {
+        if (bvVar == null || amVar == null || amVar.getView() == null || bvVar.eji == null) {
             return null;
         }
-        bvVar.dXg.ebp = getPositionByType(i) + 1;
+        bvVar.eji.ens = getPositionByType(i) + 1;
         amVar.tW().setPosition(i);
         if (amVar.tW().tQ() instanceof an) {
             ((an) amVar.tW().tQ()).setOnCommentClickCallback(new ThreadCommentAndPraiseInfoLayout.a() { // from class: com.baidu.tieba.homepage.hotTopic.tab.a.l.3
@@ -97,7 +97,7 @@ public class l extends a<bv, am<bw>> {
         }
         amVar.b((am) bvVar);
         amVar.tW().onChangeSkinType(this.mPageContext, TbadkCoreApplication.getInst().getSkinType());
-        amVar.tW().a(this.afn);
+        amVar.tW().a(this.afE);
         return amVar.getView();
     }
 }

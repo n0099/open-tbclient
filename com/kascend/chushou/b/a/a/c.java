@@ -1,7 +1,9 @@
 package com.kascend.chushou.b.a.a;
 /* loaded from: classes6.dex */
 public class c {
-    public static int a = 1;
+
+    /* renamed from: a  reason: collision with root package name */
+    public static int f4067a = 1;
     public static int b = 2;
     public int c;
     public String d;

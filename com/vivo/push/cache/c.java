@@ -13,7 +13,7 @@ import java.util.Set;
 import javax.crypto.Cipher;
 import javax.crypto.spec.IvParameterSpec;
 import javax.crypto.spec.SecretKeySpec;
-/* loaded from: classes12.dex */
+/* loaded from: classes15.dex */
 public abstract class c<T> {
     protected static final String TAG = "IAppManager";
     protected Context mContext;
@@ -41,15 +41,15 @@ public abstract class c<T> {
         synchronized (sAppLock) {
             h.a(generateStrByType());
             this.mAppDatas.clear();
-            String a = this.mSharePreferenceManager.a(generateStrByType());
-            if (TextUtils.isEmpty(a)) {
+            String a2 = this.mSharePreferenceManager.a(generateStrByType());
+            if (TextUtils.isEmpty(a2)) {
                 p.d(TAG, "AppManager init strApps empty.");
-            } else if (a.length() > MAX_CLIENT_SAVE_LENGTH) {
+            } else if (a2.length() > MAX_CLIENT_SAVE_LENGTH) {
                 p.d(TAG, "sync  strApps lenght too large");
                 clearData();
             } else {
                 try {
-                    String str = new String(g.a(g.a(CRPYT_IV_BYTE), g.a(CRPYT_KEY_BYTE), Base64.decode(a, 2)), "utf-8");
+                    String str = new String(g.a(g.a(CRPYT_IV_BYTE), g.a(CRPYT_KEY_BYTE), Base64.decode(a2, 2)), "utf-8");
                     p.d(TAG, "AppManager init strApps : " + str);
                     Set<T> parseAppStr = parseAppStr(str);
                     if (parseAppStr != null) {
@@ -129,12 +129,12 @@ public abstract class c<T> {
         String str = null;
         String appStr = toAppStr(set);
         try {
-            String a = g.a(CRPYT_IV_BYTE);
-            String a2 = g.a(CRPYT_KEY_BYTE);
+            String a2 = g.a(CRPYT_IV_BYTE);
+            String a3 = g.a(CRPYT_KEY_BYTE);
             byte[] bytes = appStr.getBytes("utf-8");
-            SecretKeySpec secretKeySpec = new SecretKeySpec(a2.getBytes("utf-8"), com.baidu.sapi2.utils.e.q);
+            SecretKeySpec secretKeySpec = new SecretKeySpec(a3.getBytes("utf-8"), com.baidu.sapi2.utils.e.q);
             Cipher cipher = Cipher.getInstance(com.baidu.sapi2.utils.e.p);
-            cipher.init(1, secretKeySpec, new IvParameterSpec(a.getBytes("utf-8")));
+            cipher.init(1, secretKeySpec, new IvParameterSpec(a2.getBytes("utf-8")));
             String encodeToString = Base64.encodeToString(cipher.doFinal(bytes), 2);
             if (!TextUtils.isEmpty(encodeToString) && encodeToString.length() > MAX_CLIENT_SAVE_LENGTH) {
                 p.d(TAG, "sync  strApps lenght too large");

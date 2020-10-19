@@ -18,9 +18,11 @@ import java.util.List;
 import java.util.Map;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
-/* loaded from: classes10.dex */
+/* loaded from: classes12.dex */
 public class b {
-    private static b a;
+
+    /* renamed from: a  reason: collision with root package name */
+    private static b f1399a;
     private Context f;
     private final Object c = new Object();
     private volatile int e = 0;
@@ -79,7 +81,7 @@ public class b {
     private ExecutorService d = Executors.newSingleThreadExecutor();
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes10.dex */
+    /* loaded from: classes12.dex */
     public class a {
         private int b;
         private CyberPlayerManager.InstallListener c;
@@ -96,10 +98,10 @@ public class b {
     public static synchronized b a() {
         b bVar;
         synchronized (b.class) {
-            if (a == null) {
-                a = new b();
+            if (f1399a == null) {
+                f1399a = new b();
             }
-            bVar = a;
+            bVar = f1399a;
         }
         return bVar;
     }

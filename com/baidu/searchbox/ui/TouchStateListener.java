@@ -3,7 +3,7 @@ package com.baidu.searchbox.ui;
 import android.view.MotionEvent;
 import android.view.View;
 import com.baidu.searchbox.skin.NightModeHelper;
-/* loaded from: classes19.dex */
+/* loaded from: classes10.dex */
 public class TouchStateListener implements View.OnTouchListener {
     public static final float PRESSED_ALPHA_IN_DAY_MODE = 0.2f;
     public static final float PRESSED_ALPHA_IN_NIGHT_MODE = 0.5f;

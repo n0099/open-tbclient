@@ -5,22 +5,22 @@ import java.util.List;
 import java.util.RandomAccess;
 /* JADX INFO: Access modifiers changed from: package-private */
 @kotlin.h
-/* loaded from: classes5.dex */
+/* loaded from: classes10.dex */
 public class i extends h {
     public static final <T> List<T> asList(T[] tArr) {
-        kotlin.jvm.internal.q.m(tArr, "receiver$0");
+        kotlin.jvm.internal.q.n(tArr, "receiver$0");
         List<T> asList = k.asList(tArr);
-        kotlin.jvm.internal.q.l((Object) asList, "ArraysUtilJVM.asList(this)");
+        kotlin.jvm.internal.q.m(asList, "ArraysUtilJVM.asList(this)");
         return asList;
     }
 
     @kotlin.h
-    /* loaded from: classes5.dex */
+    /* loaded from: classes10.dex */
     public static final class a extends d<Byte> implements RandomAccess {
-        final /* synthetic */ byte[] oBV;
+        final /* synthetic */ byte[] oRk;
 
         a(byte[] bArr) {
-            this.oBV = bArr;
+            this.oRk = bArr;
         }
 
         @Override // kotlin.collections.a, java.util.Collection
@@ -49,44 +49,44 @@ public class i extends h {
 
         @Override // kotlin.collections.a
         public int getSize() {
-            return this.oBV.length;
+            return this.oRk.length;
         }
 
         @Override // kotlin.collections.a, java.util.Collection
         public boolean isEmpty() {
-            return this.oBV.length == 0;
+            return this.oRk.length == 0;
         }
 
         public boolean e(byte b) {
-            return f.a(this.oBV, b);
+            return f.a(this.oRk, b);
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // kotlin.collections.d, java.util.List
-        /* renamed from: Oz */
+        /* renamed from: Pf */
         public Byte get(int i) {
-            return Byte.valueOf(this.oBV[i]);
+            return Byte.valueOf(this.oRk[i]);
         }
 
         public int f(byte b) {
-            return f.b(this.oBV, b);
+            return f.b(this.oRk, b);
         }
 
         public int g(byte b) {
-            return f.c(this.oBV, b);
+            return f.c(this.oRk, b);
         }
     }
 
     public static final List<Byte> av(byte[] bArr) {
-        kotlin.jvm.internal.q.m(bArr, "receiver$0");
+        kotlin.jvm.internal.q.n(bArr, "receiver$0");
         return new a(bArr);
     }
 
-    public static final byte[] q(byte[] bArr, int i, int i2) {
-        kotlin.jvm.internal.q.m(bArr, "receiver$0");
+    public static final byte[] s(byte[] bArr, int i, int i2) {
+        kotlin.jvm.internal.q.n(bArr, "receiver$0");
         f.ed(i2, bArr.length);
         byte[] copyOfRange = Arrays.copyOfRange(bArr, i, i2);
-        kotlin.jvm.internal.q.l((Object) copyOfRange, "java.util.Arrays.copyOfR…this, fromIndex, toIndex)");
+        kotlin.jvm.internal.q.m(copyOfRange, "java.util.Arrays.copyOfR…this, fromIndex, toIndex)");
         return copyOfRange;
     }
 }

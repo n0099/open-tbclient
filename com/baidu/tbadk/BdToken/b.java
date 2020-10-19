@@ -13,109 +13,109 @@ import org.json.JSONObject;
 import tbclient.MissionInfo;
 /* loaded from: classes.dex */
 public class b {
-    private int dQa;
-    private int dQb;
-    private long dQc;
-    private String dQd;
-    private int dQe;
-    private long dQf;
-    private String dQg;
-    private String dQh;
-    private String dQi;
-    private String dQj;
-    private long dQk;
-    private int dQl;
-    private long dQm;
-    private int[] dQn;
-    private long dQo;
-    private volatile int dQp;
-    private volatile int dQq;
-    private boolean dQr;
-    private int dQs;
-    public boolean dQt;
-    private final ArrayList<h> dQu;
+    private int ecb;
+    private int ecc;
+    private long ecd;
+    private String ece;
+    private int ecf;
+    private long ecg;
+    private String ech;
+    private String eci;
+    private String ecj;
+    private String eck;
+    private long ecl;
+    private int ecm;
+    private long ecn;
+    private int[] eco;
+    private long ecp;
+    private volatile int ecq;
+    private volatile int ecr;
+    private boolean ecs;
+    private int ect;
+    public boolean ecu;
+    private final ArrayList<h> ecv;
     private long mFid;
     private String mSource;
     private volatile int mTag;
     private int mTaskType;
     private int mThreadNum;
     private String mToken;
-    private int yO;
+    private int zf;
     public static String ACTIVITY_ID = "activityid";
-    public static String dPw = "missionid";
-    public static String dPx = "activitysource";
+    public static String ebx = "missionid";
+    public static String eby = "activitysource";
     public static String SOURCE = "source";
-    public static String dPy = "tab";
-    public static String dPz = "calltype";
-    public static String dPA = DownloadDataConstants.Columns.COLUMN_TASK_TYPE;
-    public static String dPB = "browsetimepage";
-    public static String dPC = "browsetime";
-    public static String dPD = "threadnum";
-    public static String dPE = "forumnum";
-    public static String dPF = "cleartype";
-    public static String dPG = "cleartime";
+    public static String ebz = "tab";
+    public static String ebA = "calltype";
+    public static String ebB = DownloadDataConstants.Columns.COLUMN_TASK_TYPE;
+    public static String ebC = "browsetimepage";
+    public static String ebD = "browsetime";
+    public static String ebE = "threadnum";
+    public static String ebF = "forumnum";
+    public static String ebG = "cleartype";
+    public static String ebH = "cleartime";
     public static String TID = "tid";
     public static String FID = "fid";
-    public static String dPH = "threadtext";
-    public static String dPI = "threadimg";
-    public static String dPJ = "threadforum";
-    public static String dPK = "total_limit";
-    public static int dPL = -1;
-    public static int dPM = 1;
-    public static int dPN = 2;
-    public static int dPO = 3;
-    public static int dPP = 4;
-    public static int dPQ = 5;
-    public static int dPR = 6;
-    public static int dPS = 7;
-    public static int dPT = 8;
-    public static int dPU = 9;
-    public static int dPV = -1;
-    public static int dPW = 0;
-    public static int dPX = 1;
-    public static int dPY = 2;
-    public static int dPZ = 3;
+    public static String ebI = "threadtext";
+    public static String ebJ = "threadimg";
+    public static String ebK = "threadforum";
+    public static String ebL = "total_limit";
+    public static int ebM = -1;
+    public static int ebN = 1;
+    public static int ebO = 2;
+    public static int ebP = 3;
+    public static int ebQ = 4;
+    public static int ebR = 5;
+    public static int ebS = 6;
+    public static int ebT = 7;
+    public static int ebU = 8;
+    public static int ebV = 9;
+    public static int ebW = -1;
+    public static int ebX = 0;
+    public static int ebY = 1;
+    public static int ebZ = 2;
+    public static int eca = 3;
 
     public void reset() {
-        this.dQu.clear();
-        this.dQp = 0;
-        this.dQq = 0;
+        this.ecv.clear();
+        this.ecq = 0;
+        this.ecr = 0;
         this.mTag = 0;
     }
 
     public void a(h hVar) {
         if (this.mTaskType == 7 && (hVar instanceof k)) {
-            if (!this.dQu.contains(hVar)) {
-                this.dQu.add(hVar);
+            if (!this.ecv.contains(hVar)) {
+                this.ecv.add(hVar);
             }
         } else if (this.mTaskType == 1 && (hVar instanceof m)) {
-            if (!this.dQu.contains(hVar)) {
-                this.dQu.add(hVar);
+            if (!this.ecv.contains(hVar)) {
+                this.ecv.add(hVar);
             }
         } else if (this.mTaskType == 2 && (hVar instanceof j)) {
-            if (!this.dQu.contains(hVar)) {
-                this.dQu.add(hVar);
+            if (!this.ecv.contains(hVar)) {
+                this.ecv.add(hVar);
             }
         } else if (this.mTaskType == 4 && (hVar instanceof i)) {
-            if (!this.dQu.contains(hVar)) {
-                this.dQu.add(hVar);
+            if (!this.ecv.contains(hVar)) {
+                this.ecv.add(hVar);
             }
-        } else if (this.mTaskType == 8 && (hVar instanceof l) && !this.dQu.contains(hVar)) {
-            this.dQu.add(hVar);
+        } else if (this.mTaskType == 8 && (hVar instanceof l) && !this.ecv.contains(hVar)) {
+            this.ecv.add(hVar);
         }
     }
 
-    public ArrayList<h> aYD() {
-        return this.dQu;
+    public ArrayList<h> bbl() {
+        return this.ecv;
     }
 
-    public int aYE() {
+    public int bbm() {
         int i;
-        int size = this.dQu.size();
+        int size = this.ecv.size();
         int i2 = 0;
         int i3 = 0;
         while (i2 < size) {
-            h hVar = (h) y.getItem(this.dQu, i2);
+            h hVar = (h) y.getItem(this.ecv, i2);
             if (hVar instanceof k) {
                 i = ((k) hVar).getTag() == getTag() ? i3 + 1 : i3;
             } else {
@@ -143,22 +143,22 @@ public class b {
         return ((j) hVar).getFid();
     }
 
-    public void aYF() {
-        int size = this.dQu.size();
+    public void bbn() {
+        int size = this.ecv.size();
         for (int i = 0; i < size; i++) {
-            h hVar = (h) y.getItem(this.dQu, i);
+            h hVar = (h) y.getItem(this.ecv, i);
             if (hVar != null) {
-                hVar.ht(true);
+                hVar.hP(true);
             }
         }
     }
 
-    public boolean cs(long j) {
-        for (int i = 0; i < this.dQu.size(); i++) {
-            h hVar = (h) y.getItem(this.dQu, i);
+    public boolean cA(long j) {
+        for (int i = 0; i < this.ecv.size(); i++) {
+            h hVar = (h) y.getItem(this.ecv, i);
             if (hVar != null) {
                 long b = b(hVar);
-                if (b > 0 && b == j && hVar.ij()) {
+                if (b > 0 && b == j && hVar.ik()) {
                     return true;
                 }
             }
@@ -166,7 +166,7 @@ public class b {
         return false;
     }
 
-    public void ak(int i, String str) {
+    public void av(int i, String str) {
         try {
             JSONArray jSONArray = new JSONArray(str);
             for (int i2 = 0; i2 < jSONArray.length(); i2++) {
@@ -178,38 +178,38 @@ public class b {
                 if (i == 7) {
                     if (optLong > 0) {
                         k kVar = new k(this, optLong);
-                        kVar.ht(optBoolean);
-                        kVar.cx(optLong2);
-                        kVar.mN(optInt);
+                        kVar.hP(optBoolean);
+                        kVar.cF(optLong2);
+                        kVar.nk(optInt);
                         a(kVar);
                     }
                 } else if (i == 1) {
                     if (optLong > 0) {
                         m mVar = new m(this, optLong);
-                        mVar.ht(optBoolean);
-                        mVar.cx(optLong2);
-                        mVar.mN(optInt);
+                        mVar.hP(optBoolean);
+                        mVar.cF(optLong2);
+                        mVar.nk(optInt);
                         a(mVar);
                     }
                 } else if (i == 2) {
                     if (optLong > 0) {
                         j jVar = new j(this, optLong);
-                        jVar.ht(optBoolean);
-                        jVar.cx(optLong2);
-                        jVar.mN(optInt);
+                        jVar.hP(optBoolean);
+                        jVar.cF(optLong2);
+                        jVar.nk(optInt);
                         a(jVar);
                     }
                 } else if (i == 4) {
                     i iVar = new i(this);
-                    iVar.ht(optBoolean);
-                    iVar.cx(optLong2);
-                    iVar.mN(optInt);
+                    iVar.hP(optBoolean);
+                    iVar.cF(optLong2);
+                    iVar.nk(optInt);
                     a(iVar);
                 } else if (i == 8) {
                     l lVar = new l(this);
-                    lVar.ht(optBoolean);
-                    lVar.cx(optLong2);
-                    lVar.mN(optInt);
+                    lVar.hP(optBoolean);
+                    lVar.cF(optLong2);
+                    lVar.nk(optInt);
                     a(lVar);
                 }
             }
@@ -218,16 +218,16 @@ public class b {
         }
     }
 
-    public String aYG() {
+    public String bbo() {
         try {
-            ArrayList<h> arrayList = this.dQu;
+            ArrayList<h> arrayList = this.ecv;
             JSONArray jSONArray = new JSONArray();
             for (int i = 0; i < arrayList.size(); i++) {
                 h hVar = (h) y.getItem(arrayList, i);
                 JSONObject jSONObject = new JSONObject();
                 jSONObject.put("i", b(hVar));
-                jSONObject.put("t", hVar.aZE());
-                jSONObject.put("c", hVar.ij());
+                jSONObject.put("t", hVar.bcm());
+                jSONObject.put("c", hVar.ik());
                 jSONObject.put("a", hVar.getTag());
                 jSONArray.put(jSONObject);
             }
@@ -239,69 +239,69 @@ public class b {
     }
 
     public b() {
-        this.dQl = dPV;
-        this.dQp = 0;
-        this.dQq = 0;
-        this.dQr = false;
-        this.dQs = 1;
+        this.ecm = ebW;
+        this.ecq = 0;
+        this.ecr = 0;
+        this.ecs = false;
+        this.ect = 1;
         this.mTag = 0;
-        this.dQt = false;
-        this.dQu = new ArrayList<>();
+        this.ecu = false;
+        this.ecv = new ArrayList<>();
     }
 
     public b(String str) {
-        this.dQl = dPV;
-        this.dQp = 0;
-        this.dQq = 0;
-        this.dQr = false;
-        this.dQs = 1;
+        this.ecm = ebW;
+        this.ecq = 0;
+        this.ecr = 0;
+        this.ecs = false;
+        this.ect = 1;
         this.mTag = 0;
-        this.dQt = false;
-        this.dQu = new ArrayList<>();
-        ya(str);
+        this.ecu = false;
+        this.ecv = new ArrayList<>();
+        yM(str);
     }
 
     public void a(ActiveCenterData.ActiveCenterMissionData activeCenterMissionData) {
         if (activeCenterMissionData != null) {
-            mH(activeCenterMissionData.mission_id);
-            mM(activeCenterMissionData.total_limit);
-            mJ(activeCenterMissionData.task_type);
+            ne(activeCenterMissionData.mission_id);
+            nj(activeCenterMissionData.total_limit);
+            ng(activeCenterMissionData.task_type);
             setActivityId(activeCenterMissionData.active_id);
-            mL(activeCenterMissionData.cleartype);
-            cu(activeCenterMissionData.cleartime);
+            ni(activeCenterMissionData.cleartype);
+            cC(activeCenterMissionData.cleartime);
         }
     }
 
-    public boolean ya(String str) {
+    public boolean yM(String str) {
         if (at.isEmpty(str)) {
             return false;
         }
         try {
             JSONObject jSONObject = new JSONObject(str);
             if (jSONObject != null) {
-                this.dQa = jSONObject.optInt(ACTIVITY_ID);
-                this.dQb = jSONObject.optInt(dPw);
-                this.dQg = jSONObject.optString(dPx);
+                this.ecb = jSONObject.optInt(ACTIVITY_ID);
+                this.ecc = jSONObject.optInt(ebx);
+                this.ech = jSONObject.optString(eby);
                 this.mSource = jSONObject.optString(SOURCE);
-                this.dQh = jSONObject.optString(dPy);
-                this.yO = jSONObject.optInt(dPz);
-                this.mTaskType = jSONObject.optInt(dPA);
-                this.dQd = jSONObject.optString(dPB);
-                this.dQn = yb(this.dQd);
-                this.dQc = jSONObject.optLong(dPC);
-                this.mThreadNum = jSONObject.optInt(dPD);
-                this.dQe = jSONObject.optInt(dPE);
-                this.dQl = jSONObject.optInt(dPF);
-                this.dQm = jSONObject.optLong(dPG);
-                this.dQo = aYM();
-                this.dQf = jSONObject.optLong(TID);
+                this.eci = jSONObject.optString(ebz);
+                this.zf = jSONObject.optInt(ebA);
+                this.mTaskType = jSONObject.optInt(ebB);
+                this.ece = jSONObject.optString(ebC);
+                this.eco = yN(this.ece);
+                this.ecd = jSONObject.optLong(ebD);
+                this.mThreadNum = jSONObject.optInt(ebE);
+                this.ecf = jSONObject.optInt(ebF);
+                this.ecm = jSONObject.optInt(ebG);
+                this.ecn = jSONObject.optLong(ebH);
+                this.ecp = bbu();
+                this.ecg = jSONObject.optLong(TID);
                 this.mFid = jSONObject.optLong(FID);
-                this.dQi = jSONObject.optString(dPH);
-                this.dQj = jSONObject.optString(dPI);
-                this.dQk = jSONObject.optLong(dPJ);
-                int optInt = jSONObject.optInt(dPK);
+                this.ecj = jSONObject.optString(ebI);
+                this.eck = jSONObject.optString(ebJ);
+                this.ecl = jSONObject.optLong(ebK);
+                int optInt = jSONObject.optInt(ebL);
                 if (optInt > 0) {
-                    this.dQs = optInt;
+                    this.ect = optInt;
                 }
                 return true;
             }
@@ -313,66 +313,66 @@ public class b {
     }
 
     public b(MissionInfo missionInfo) {
-        this.dQl = dPV;
-        this.dQp = 0;
-        this.dQq = 0;
-        this.dQr = false;
-        this.dQs = 1;
+        this.ecm = ebW;
+        this.ecq = 0;
+        this.ecr = 0;
+        this.ecs = false;
+        this.ect = 1;
         this.mTag = 0;
-        this.dQt = false;
-        this.dQu = new ArrayList<>();
+        this.ecu = false;
+        this.ecv = new ArrayList<>();
         if (missionInfo != null) {
-            this.dQa = missionInfo.activityid.intValue();
-            this.dQb = missionInfo.missionid.intValue();
+            this.ecb = missionInfo.activityid.intValue();
+            this.ecc = missionInfo.missionid.intValue();
             this.mTaskType = missionInfo.tasktype.intValue();
-            this.dQl = missionInfo.cleartype.intValue();
-            this.dQm = missionInfo.cleartime.intValue();
-            this.dQo = aYM();
-            this.dQd = missionInfo.browsetimepage;
-            this.dQn = yb(this.dQd);
+            this.ecm = missionInfo.cleartype.intValue();
+            this.ecn = missionInfo.cleartime.intValue();
+            this.ecp = bbu();
+            this.ece = missionInfo.browsetimepage;
+            this.eco = yN(this.ece);
             if (missionInfo.threadnum.intValue() > 0) {
                 this.mThreadNum = missionInfo.threadnum.intValue();
             }
             if (missionInfo.browsetime.intValue() > 0) {
-                this.dQc = missionInfo.browsetime.intValue();
+                this.ecd = missionInfo.browsetime.intValue();
             }
             if (missionInfo.total_limit.intValue() > 0) {
-                this.dQs = missionInfo.total_limit.intValue();
+                this.ect = missionInfo.total_limit.intValue();
             }
         }
     }
 
-    public boolean aYH() {
-        return this.dQa > 0 && this.dQb > 0 && this.mTaskType > 0 && this.dQc > 0;
+    public boolean bbp() {
+        return this.ecb > 0 && this.ecc > 0 && this.mTaskType > 0 && this.ecd > 0;
     }
 
-    public synchronized int aYI() {
+    public synchronized int bbq() {
         int i;
-        i = this.dQq + 1;
-        this.dQq = i;
+        i = this.ecr + 1;
+        this.ecr = i;
         return i;
     }
 
-    public synchronized int aYJ() {
+    public synchronized int bbr() {
         int i;
-        i = this.dQp + 1;
-        this.dQp = i;
+        i = this.ecq + 1;
+        this.ecq = i;
         return i;
     }
 
-    public synchronized int aYK() {
+    public synchronized int bbs() {
         int i;
         i = this.mTag + 1;
         this.mTag = i;
         return i;
     }
 
-    private int[] yb(String str) {
+    private int[] yN(String str) {
         if (this.mTaskType == 8) {
-            return new int[]{dPL};
+            return new int[]{ebM};
         }
         if (this.mTaskType == 7) {
-            return new int[]{dPM, dPT, dPU};
+            return new int[]{ebN, ebU, ebV};
         }
         if (str == null) {
             return null;
@@ -388,34 +388,34 @@ public class b {
         return iArr;
     }
 
-    public boolean aYL() {
-        return System.currentTimeMillis() > aYY() * 1000;
+    public boolean bbt() {
+        return System.currentTimeMillis() > bbG() * 1000;
     }
 
-    public long aYM() {
-        if (this.dQl == dPV) {
+    public long bbu() {
+        if (this.ecm == ebW) {
             return 0L;
         }
-        if (this.dQl == dPW) {
-            return (System.currentTimeMillis() / 1000) + this.dQm;
+        if (this.ecm == ebX) {
+            return (System.currentTimeMillis() / 1000) + this.ecn;
         }
-        if (this.dQl == dPX) {
-            long aYN = (aYN() / 1000) + this.dQm;
-            if (System.currentTimeMillis() > aYN) {
-                return aYN + 86400;
+        if (this.ecm == ebY) {
+            long bbv = (bbv() / 1000) + this.ecn;
+            if (System.currentTimeMillis() > bbv) {
+                return bbv + 86400;
             }
-            return aYN;
-        } else if (this.dQl == dPY) {
-            return m((int) this.dQm, mG(4)) / 1000;
+            return bbv;
+        } else if (this.ecm == ebZ) {
+            return n((int) this.ecn, nd(4)) / 1000;
         } else {
-            if (this.dQl == dPZ) {
-                return this.dQm / 1000;
+            if (this.ecm == eca) {
+                return this.ecn / 1000;
             }
             return 0L;
         }
     }
 
-    private long aYN() {
+    private long bbv() {
         Calendar calendar = Calendar.getInstance();
         calendar.set(11, 0);
         calendar.set(12, 0);
@@ -424,17 +424,17 @@ public class b {
         return calendar.getTimeInMillis();
     }
 
-    private long mG(int i) {
-        long aYN = aYN();
+    private long nd(int i) {
+        long bbv = bbv();
         Calendar calendar = Calendar.getInstance();
         calendar.set(11, i);
         calendar.set(12, 0);
         calendar.set(13, 0);
         calendar.set(14, 0);
-        return calendar.getTimeInMillis() - aYN;
+        return calendar.getTimeInMillis() - bbv;
     }
 
-    private long m(int i, long j) {
+    private long n(int i, long j) {
         switch (i) {
             case 1:
                 i = 2;
@@ -474,72 +474,72 @@ public class b {
     }
 
     public int getActivityId() {
-        return this.dQa;
+        return this.ecb;
     }
 
     public void setActivityId(int i) {
-        this.dQa = i;
+        this.ecb = i;
     }
 
-    public int aYO() {
-        return this.dQb;
+    public int bbw() {
+        return this.ecc;
     }
 
-    public void mH(int i) {
-        this.dQb = i;
+    public void ne(int i) {
+        this.ecc = i;
     }
 
-    public String aYP() {
-        return this.dQg;
+    public String bbx() {
+        return this.ech;
     }
 
-    public void yc(String str) {
-        this.dQg = str;
+    public void yO(String str) {
+        this.ech = str;
     }
 
-    public String aYQ() {
-        return this.dQh;
+    public String bby() {
+        return this.eci;
     }
 
     public String getSource() {
         return this.mSource;
     }
 
-    public int aYR() {
-        return this.yO;
+    public int bbz() {
+        return this.zf;
     }
 
-    public void mI(int i) {
-        this.yO = i;
+    public void nf(int i) {
+        this.zf = i;
     }
 
     public int getTaskType() {
         return this.mTaskType;
     }
 
-    public void mJ(int i) {
+    public void ng(int i) {
         this.mTaskType = i;
     }
 
-    public String aYS() {
-        return this.dQd;
+    public String bbA() {
+        return this.ece;
     }
 
-    public void yd(String str) {
-        this.dQd = str;
-        this.dQn = yb(str);
+    public void yP(String str) {
+        this.ece = str;
+        this.eco = yN(str);
     }
 
-    public int[] aYT() {
-        return this.dQn;
+    public int[] bbB() {
+        return this.eco;
     }
 
-    public long aYU() {
-        return this.dQc;
+    public long bbC() {
+        return this.ecd;
     }
 
-    public void ct(long j) {
-        this.dQc = j;
+    public void cB(long j) {
+        this.ecd = j;
     }
 
     public int getThreadNum() {
@@ -550,44 +550,44 @@ public class b {
         this.mThreadNum = i;
     }
 
-    public int aYV() {
-        return this.dQe;
+    public int bbD() {
+        return this.ecf;
     }
 
-    public void mK(int i) {
-        this.dQe = i;
+    public void nh(int i) {
+        this.ecf = i;
     }
 
-    public int aYW() {
-        return this.dQl;
+    public int bbE() {
+        return this.ecm;
     }
 
-    public void mL(int i) {
-        this.dQl = i;
+    public void ni(int i) {
+        this.ecm = i;
     }
 
-    public long aYX() {
-        return this.dQm;
+    public long bbF() {
+        return this.ecn;
     }
 
-    public void cu(long j) {
-        this.dQm = j;
+    public void cC(long j) {
+        this.ecn = j;
     }
 
-    public long aYY() {
-        return this.dQo;
+    public long bbG() {
+        return this.ecp;
     }
 
-    public void cv(long j) {
-        this.dQo = j;
+    public void cD(long j) {
+        this.ecp = j;
     }
 
     public long getTid() {
-        return this.dQf;
+        return this.ecg;
     }
 
     public void setTid(long j) {
-        this.dQf = j;
+        this.ecg = j;
     }
 
     public long getFid() {
@@ -598,39 +598,39 @@ public class b {
         this.mFid = j;
     }
 
-    public String aYZ() {
-        return this.dQi;
+    public String bbH() {
+        return this.ecj;
     }
 
-    public void ye(String str) {
-        this.dQi = str;
+    public void yQ(String str) {
+        this.ecj = str;
     }
 
-    public String aZa() {
-        return this.dQj;
+    public String bbI() {
+        return this.eck;
     }
 
-    public void yf(String str) {
-        this.dQj = str;
+    public void yR(String str) {
+        this.eck = str;
     }
 
-    public long aZb() {
-        return this.dQk;
+    public long bbJ() {
+        return this.ecl;
     }
 
-    public void cw(long j) {
-        this.dQk = j;
+    public void cE(long j) {
+        this.ecl = j;
     }
 
-    public int aZc() {
-        return this.dQs;
+    public int bbK() {
+        return this.ect;
     }
 
-    public void mM(int i) {
-        this.dQs = i;
+    public void nj(int i) {
+        this.ect = i;
     }
 
-    public void mN(int i) {
+    public void nk(int i) {
         this.mTag = i;
     }
 
@@ -638,12 +638,12 @@ public class b {
         return this.mTag;
     }
 
-    public boolean aZd() {
-        return this.dQr;
+    public boolean bbL() {
+        return this.ecs;
     }
 
-    public void hs(boolean z) {
-        this.dQr = z;
+    public void hO(boolean z) {
+        this.ecs = z;
     }
 
     public String getToken() {

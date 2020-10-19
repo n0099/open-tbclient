@@ -18,7 +18,7 @@ public class b implements a {
     }
 
     @Override // com.facebook.a.a
-    public InputStream dRP() throws IOException {
+    public InputStream dVA() throws IOException {
         return new FileInputStream(this.mFile);
     }
 
@@ -38,7 +38,7 @@ public class b implements a {
         return this.mFile.hashCode();
     }
 
-    public static b ad(File file) {
+    public static b ag(File file) {
         if (file != null) {
             return new b(file);
         }

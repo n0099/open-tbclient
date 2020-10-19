@@ -18,46 +18,46 @@ import com.baidu.tbadk.core.data.bj;
 import com.baidu.tbadk.core.util.aq;
 import com.baidu.tbadk.core.util.at;
 import com.baidu.tbadk.widget.horizontalpullview.PullLeftRefreshLayout;
-/* loaded from: classes21.dex */
+/* loaded from: classes22.dex */
 public class a extends com.baidu.adp.widget.ListView.a<bj, am<bj>> implements com.baidu.tieba.a.f {
-    private String ahc;
-    private com.baidu.tbadk.h.f ait;
-    private View.OnClickListener akY;
-    private PullLeftRefreshLayout.a akZ;
-    private v alj;
-    public BdUniqueId eSq;
+    private String aht;
+    private com.baidu.tbadk.h.f aiL;
+    private v alC;
+    private View.OnClickListener alr;
+    private PullLeftRefreshLayout.a als;
+    public BdUniqueId fey;
     private String mClassName;
     private TbPageContext<?> mPageContext;
     private String mTabName;
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void cCs() {
+    public void cGb() {
         this.mPageContext.sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new ForumSquareActivityConfig(this.mPageContext.getPageActivity(), this.mClassName)));
         aq aqVar = new aq("c13757");
-        aqVar.dF("uid", TbadkCoreApplication.getCurrentAccount());
-        aqVar.bki();
+        aqVar.dK("uid", TbadkCoreApplication.getCurrentAccount());
+        aqVar.bmR();
     }
 
     public a(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId) {
         super(tbPageContext.getPageActivity(), bdUniqueId);
-        this.akY = new View.OnClickListener() { // from class: com.baidu.tieba.homepage.tabfeed.a.a.1
+        this.alr = new View.OnClickListener() { // from class: com.baidu.tieba.homepage.tabfeed.a.a.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                a.this.cCs();
+                a.this.cGb();
             }
         };
-        this.akZ = new PullLeftRefreshLayout.a() { // from class: com.baidu.tieba.homepage.tabfeed.a.a.2
+        this.als = new PullLeftRefreshLayout.a() { // from class: com.baidu.tieba.homepage.tabfeed.a.a.2
             @Override // com.baidu.tbadk.widget.horizontalpullview.PullLeftRefreshLayout.a
-            public void byd() {
-                a.this.cCs();
+            public void bAN() {
+                a.this.cGb();
             }
         };
-        this.ait = new com.baidu.tbadk.h.f<bi>() { // from class: com.baidu.tieba.homepage.tabfeed.a.a.3
+        this.aiL = new com.baidu.tbadk.h.f<bi>() { // from class: com.baidu.tieba.homepage.tabfeed.a.a.3
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.tbadk.h.f
             public void a(View view, bi biVar, int i, long j) {
                 if (biVar == null) {
-                    a.this.cCs();
+                    a.this.cGb();
                     return;
                 }
                 String forumName = biVar.getForumName();
@@ -79,26 +79,26 @@ public class a extends com.baidu.adp.widget.ListView.a<bj, am<bj>> implements co
     }
 
     public void a(v vVar) {
-        this.alj = vVar;
+        this.alC = vVar;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.widget.ListView.a
-    /* renamed from: aR */
+    /* renamed from: aT */
     public am c(ViewGroup viewGroup) {
         ak.a aVar = new ak.a(this.mPageContext.getPageActivity(), false);
-        ae aeVar = new ae(this.mPageContext, this.eSq);
-        aeVar.setOnRullOkCallbackr(this.akZ);
-        aeVar.setOnClickRightArrowListener(this.akY);
-        aeVar.setOnItemCoverListener(this.ait);
+        ae aeVar = new ae(this.mPageContext, this.fey);
+        aeVar.setOnRullOkCallbackr(this.als);
+        aeVar.setOnClickRightArrowListener(this.alr);
+        aeVar.setOnItemCoverListener(this.aiL);
         aVar.c(aeVar);
         aVar.tU().bz(0);
         aVar.tU().bB(0);
         aVar.tU().bA(0);
         aVar.tU().bv(0);
-        am amVar = new am(aVar.a(true, viewGroup, this.alj));
-        amVar.setPageId(this.eSq);
+        am amVar = new am(aVar.a(true, viewGroup, this.alC));
+        amVar.setPageId(this.fey);
         return amVar;
     }
 
@@ -111,7 +111,7 @@ public class a extends com.baidu.adp.widget.ListView.a<bj, am<bj>> implements co
         }
         amVar.tW().setPosition(i);
         if (amVar.tW() instanceof com.baidu.tieba.a.e) {
-            amVar.tW().setPage(this.ahc);
+            amVar.tW().setPage(this.aht);
         }
         this.mClassName = bjVar.className;
         amVar.b((am<bj>) bjVar);
@@ -120,8 +120,8 @@ public class a extends com.baidu.adp.widget.ListView.a<bj, am<bj>> implements co
     }
 
     @Override // com.baidu.tieba.a.f
-    public void DH(String str) {
-        this.ahc = str;
+    public void Es(String str) {
+        this.aht = str;
     }
 
     public void setTabName(String str) {

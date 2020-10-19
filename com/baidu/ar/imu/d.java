@@ -3,7 +3,7 @@ package com.baidu.ar.imu;
 import android.hardware.SensorEvent;
 import android.hardware.SensorManager;
 import com.baidu.ar.arplay.representation.Quaternion;
-/* loaded from: classes10.dex */
+/* loaded from: classes14.dex */
 public class d extends j {
     private static final String TAG = d.class.getSimpleName();
     private final Quaternion rj;
@@ -28,11 +28,11 @@ public class d extends j {
     }
 
     private void a(Quaternion quaternion) {
-        Quaternion m18clone = quaternion.m18clone();
-        m18clone.w(-m18clone.w());
+        Quaternion m17clone = quaternion.m17clone();
+        m17clone.w(-m17clone.w());
         synchronized (this.sh) {
             this.sk.copyVec4(quaternion);
-            SensorManager.getRotationMatrixFromVector(this.sj.matrix, m18clone.toArray());
+            SensorManager.getRotationMatrixFromVector(this.sj.matrix, m17clone.toArray());
             eR();
             this.rk++;
             if (this.rk > 100) {

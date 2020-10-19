@@ -1,7 +1,9 @@
 package com.baidu.fsg.base.activity;
-/* loaded from: classes15.dex */
+/* loaded from: classes16.dex */
 class a implements Runnable {
-    final /* synthetic */ int a;
+
+    /* renamed from: a  reason: collision with root package name */
+    final /* synthetic */ int f1448a;
     final /* synthetic */ Object b;
     final /* synthetic */ String c;
     final /* synthetic */ String d;
@@ -10,7 +12,7 @@ class a implements Runnable {
     /* JADX INFO: Access modifiers changed from: package-private */
     public a(BeanActivity beanActivity, int i, Object obj, String str, String str2) {
         this.e = beanActivity;
-        this.a = i;
+        this.f1448a = i;
         this.b = obj;
         this.c = str;
         this.d = str2;
@@ -19,8 +21,8 @@ class a implements Runnable {
     @Override // java.lang.Runnable
     public void run() {
         if (this.e.mAct != null) {
-            this.e.handleResponse(this.a, this.b, this.c);
-            this.e.handleResponse(this.a, this.b, this.c, this.d);
+            this.e.handleResponse(this.f1448a, this.b, this.c);
+            this.e.handleResponse(this.f1448a, this.b, this.c, this.d);
         }
     }
 }

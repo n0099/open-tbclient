@@ -1,7 +1,7 @@
 package com.baidu.ar;
 
 import com.baidu.ar.arrender.Texture;
-/* loaded from: classes10.dex */
+/* loaded from: classes14.dex */
 public class DuMixOutput2 extends DuMixOutput {
     public DuMixOutput2(int i, int i2) {
         super(i, i2);

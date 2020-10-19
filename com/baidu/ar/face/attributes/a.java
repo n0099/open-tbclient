@@ -13,7 +13,7 @@ import java.io.File;
 import java.nio.ByteBuffer;
 import java.util.HashMap;
 import java.util.List;
-/* loaded from: classes10.dex */
+/* loaded from: classes14.dex */
 public class a {
     private HashMap<Integer, float[]> nI = new HashMap<>();
     private boolean nJ = false;
@@ -81,14 +81,14 @@ public class a {
                 faceResultData.setGenders(fArr);
                 return;
             }
-            float[] a = a(mVar.eC(), faceBoxes.get(0), i, i2);
-            if (a == null || !this.nJ) {
+            float[] a2 = a(mVar.eC(), faceBoxes.get(0), i, i2);
+            if (a2 == null || !this.nJ) {
                 return;
             }
-            this.nI.put(Integer.valueOf(i3), a);
-            faceResultData.setGenders(a);
+            this.nI.put(Integer.valueOf(i3), a2);
+            faceResultData.setGenders(a2);
             if (this.nK != null) {
-                this.nK.b("face_gender_predict", Float.valueOf(a[0]));
+                this.nK.b("face_gender_predict", Float.valueOf(a2[0]));
             }
         }
     }

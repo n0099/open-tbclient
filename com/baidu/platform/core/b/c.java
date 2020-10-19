@@ -1,18 +1,18 @@
 package com.baidu.platform.core.b;
 
 import com.baidu.mapapi.search.geocode.GeoCodeOption;
-/* loaded from: classes3.dex */
+/* loaded from: classes7.dex */
 public class c extends com.baidu.platform.base.e {
     public c(GeoCodeOption geoCodeOption) {
         a(geoCodeOption);
     }
 
     private void a(GeoCodeOption geoCodeOption) {
-        this.a.a("city", geoCodeOption.mCity);
-        this.a.a("address", geoCodeOption.mAddress);
-        this.a.a("output", "json");
-        this.a.a("ret_coordtype", "bd09ll");
-        this.a.a("from", "android_map_sdk");
+        this.f2814a.a("city", geoCodeOption.mCity);
+        this.f2814a.a("address", geoCodeOption.mAddress);
+        this.f2814a.a("output", "json");
+        this.f2814a.a("ret_coordtype", "bd09ll");
+        this.f2814a.a("from", "android_map_sdk");
     }
 
     @Override // com.baidu.platform.base.e

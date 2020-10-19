@@ -5,10 +5,10 @@ import com.baidu.live.tbadk.core.sharedpref.SharedPrefConfig;
 import com.baidu.swan.c.d;
 import com.baidu.swan.pms.model.PMSAppInfo;
 import java.util.HashMap;
-/* loaded from: classes3.dex */
+/* loaded from: classes16.dex */
 public class a {
-    public static HashMap<String, PMSAppInfo> aIa() {
-        Cursor query = com.baidu.swan.pms.database.provider.a.aUm().getReadableDatabase().query("swan_app", null, null, null, null, null, null);
+    public static HashMap<String, PMSAppInfo> aKJ() {
+        Cursor query = com.baidu.swan.pms.database.provider.a.aWV().getReadableDatabase().query("swan_app", null, null, null, null, null, null);
         HashMap<String, PMSAppInfo> hashMap = new HashMap<>();
         if (query != null && query.moveToFirst()) {
             int columnIndex = query.getColumnIndex("app_id");

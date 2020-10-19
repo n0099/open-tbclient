@@ -16,8 +16,8 @@ import com.baidu.tbadk.core.util.aq;
 import com.baidu.tieba.R;
 /* loaded from: classes.dex */
 public class f extends ClickableSpan {
-    private String fit;
-    private int fiu;
+    private String fuI;
+    private int fuJ;
     private int mType;
     private String mUrl;
     private int color = -1;
@@ -42,8 +42,8 @@ public class f extends ClickableSpan {
         this.mType = i;
     }
 
-    public void rI(int i) {
-        this.fiu = i;
+    public void sg(int i) {
+        this.fuJ = i;
     }
 
     public void setColor(int i) {
@@ -54,12 +54,12 @@ public class f extends ClickableSpan {
         this.textColor = i;
     }
 
-    public void rJ(int i) {
+    public void sh(int i) {
         this.urlType = i;
     }
 
-    public void Dp(String str) {
-        this.fit = str;
+    public void Eb(String str) {
+        this.fuI = str;
     }
 
     public String getLink() {
@@ -70,7 +70,7 @@ public class f extends ClickableSpan {
     public void updateDrawState(TextPaint textPaint) {
         if (this.textColor != -1) {
             textPaint.setColor(ap.getColor(this.textColor));
-        } else if (bzi()) {
+        } else if (bBS()) {
             textPaint.setColor(TbadkCoreApplication.getInst().getResources().getColor(R.color.cp_link_tip_c));
         } else {
             textPaint.setColor(textPaint.linkColor);
@@ -78,18 +78,18 @@ public class f extends ClickableSpan {
         textPaint.setUnderlineText(false);
         if (this.color != -1) {
             textPaint.bgColor = this.color;
-        } else if (this.fiu == 1 && bzj()) {
+        } else if (this.fuJ == 1 && bBT()) {
             if (TbadkCoreApplication.getInst().getSkinType() == 1) {
                 textPaint.bgColor = ap.getColor(R.color.cp_bg_line_c);
             } else {
                 textPaint.bgColor = ap.getColor(R.color.cp_bg_line_z);
             }
-        } else if (this.fiu == 2) {
+        } else if (this.fuJ == 2) {
             textPaint.bgColor = ap.getColor(R.color.transparent);
         }
     }
 
-    private boolean bzi() {
+    private boolean bBS() {
         switch (this.mType) {
             case 2:
             case 16:
@@ -100,7 +100,7 @@ public class f extends ClickableSpan {
         }
     }
 
-    public boolean bzj() {
+    public boolean bBT() {
         switch (this.mType) {
             case 16:
             case 18:
@@ -115,7 +115,7 @@ public class f extends ClickableSpan {
     public void onClick(View view) {
         int i = 2;
         int i2 = 1;
-        CustomResponsedMessage customResponsedMessage = new CustomResponsedMessage(CmdConfigCustom.CMD_RICHTEXT_INTENTSPAN_CLICK, new a(this.mType, this.mUrl, this.fit));
+        CustomResponsedMessage customResponsedMessage = new CustomResponsedMessage(CmdConfigCustom.CMD_RICHTEXT_INTENTSPAN_CLICK, new a(this.mType, this.mUrl, this.fuI));
         if (this.mType == 2) {
             if (this.urlType != 1) {
                 if (this.urlType == 2) {
@@ -125,7 +125,7 @@ public class f extends ClickableSpan {
                     i = 1;
                 }
             }
-            TiebaStatic.log(new aq(TbadkCoreStatisticKey.PB_URL_CLICK_KEY).ai("obj_source", i2).ai("obj_type", i));
+            TiebaStatic.log(new aq(TbadkCoreStatisticKey.PB_URL_CLICK_KEY).aj("obj_source", i2).aj("obj_type", i));
         }
         MessageManager.getInstance().dispatchResponsedMessage(customResponsedMessage);
     }
@@ -137,25 +137,25 @@ public class f extends ClickableSpan {
                     iVar.f(context, str, false);
                     return;
                 case 16:
-                    iVar.at(context, str);
+                    iVar.aw(context, str);
                     return;
                 case 18:
                     iVar.f(context, str, true);
                     return;
                 case 32:
-                    iVar.au(context, str);
+                    iVar.ax(context, str);
                     return;
                 case 64:
-                    iVar.av(context, str);
+                    iVar.ay(context, str);
                     return;
                 case 128:
-                    iVar.aw(context, str);
+                    iVar.az(context, str);
                     return;
                 case 256:
-                    iVar.r(context, str, str2);
+                    iVar.u(context, str, str2);
                     return;
                 case 1024:
-                    iVar.ax(context, str);
+                    iVar.aA(context, str);
                     return;
                 default:
                     return;

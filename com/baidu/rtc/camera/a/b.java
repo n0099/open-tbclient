@@ -1,10 +1,10 @@
 package com.baidu.rtc.camera.a;
 
 import com.baidu.searchbox.unitedscheme.UnitedSchemeMainDispatcher;
-/* loaded from: classes15.dex */
+/* loaded from: classes11.dex */
 public class b {
-    private static b bPn = new b();
-    public com.baidu.rtc.camera.b.a bPo;
+    private static b bYJ = new b();
+    public com.baidu.rtc.camera.b.a bYK;
     public int encodeWidth = 270;
     public int encodeHeight = 480;
     public int encodeBitrate = UnitedSchemeMainDispatcher.SCHEME_TIME_LIMIT;
@@ -15,7 +15,7 @@ public class b {
     private b() {
     }
 
-    public static b Xo() {
-        return bPn;
+    public static b ZG() {
+        return bYJ;
     }
 }

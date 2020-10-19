@@ -17,14 +17,16 @@ import com.kascend.chushou.constants.H5Positon;
 import com.kascend.chushou.player.VideoPlayer;
 /* loaded from: classes6.dex */
 public class CommonH5View extends FrameLayout implements View.OnClickListener {
-    private Context a;
+
+    /* renamed from: a  reason: collision with root package name */
+    private Context f4164a;
     private View b;
     private View c;
     private int e;
-    private CommonH5Item oee;
-    private H5Positon oef;
-    private com.kascend.chushou.player.ui.h5.c.a oeg;
-    private com.kascend.chushou.widget.cswebview.d oeh;
+    private com.kascend.chushou.widget.cswebview.d otA;
+    private CommonH5Item otx;
+    private H5Positon oty;
+    private com.kascend.chushou.player.ui.h5.c.a otz;
 
     public CommonH5View(@NonNull Context context) {
         this(context, null);
@@ -41,14 +43,14 @@ public class CommonH5View extends FrameLayout implements View.OnClickListener {
     }
 
     private void a(Context context) {
-        this.a = context;
+        this.f4164a = context;
     }
 
     public void a(int i, H5Positon h5Positon, com.kascend.chushou.player.ui.h5.c.a aVar) {
         int i2;
         this.e = i;
-        this.oef = h5Positon;
-        this.oeg = aVar;
+        this.oty = h5Positon;
+        this.otz = aVar;
         if (this.b == null) {
             c();
         }
@@ -63,7 +65,7 @@ public class CommonH5View extends FrameLayout implements View.OnClickListener {
             i2 = 0;
         }
         setBackgroundColor(i2);
-        this.oee.a(aVar);
+        this.otx.a(aVar);
     }
 
     private void c() {
@@ -71,15 +73,15 @@ public class CommonH5View extends FrameLayout implements View.OnClickListener {
         if (this.e == 1) {
             i = a.h.layout_common_room_webview_landscape;
         }
-        this.b = LayoutInflater.from(this.a).inflate(i, (ViewGroup) this, false);
+        this.b = LayoutInflater.from(this.f4164a).inflate(i, (ViewGroup) this, false);
         this.c = this.b.findViewById(a.f.view_redpacketlist_close);
-        if (this.oeg.i == 0) {
+        if (this.otz.i == 0) {
             this.c.setVisibility(4);
         } else {
             this.c.setOnClickListener(this);
         }
-        this.oee = (CommonH5Item) this.b.findViewById(a.f.view_smallh5);
-        this.oee.setListener(new com.kascend.chushou.widget.cswebview.d() { // from class: com.kascend.chushou.player.ui.h5.CommonH5View.1
+        this.otx = (CommonH5Item) this.b.findViewById(a.f.view_smallh5);
+        this.otx.setListener(new com.kascend.chushou.widget.cswebview.d() { // from class: com.kascend.chushou.player.ui.h5.CommonH5View.1
             @Override // com.kascend.chushou.widget.cswebview.d
             public void a(Object obj) {
                 CommonH5View.this.a();
@@ -87,8 +89,8 @@ public class CommonH5View extends FrameLayout implements View.OnClickListener {
 
             @Override // com.kascend.chushou.widget.cswebview.d
             public void a(String str) {
-                if (CommonH5View.this.oeg != null) {
-                    tv.chushou.zues.a.a.post(new com.kascend.chushou.b.a.a.c(com.kascend.chushou.b.a.a.c.b, str, CommonH5View.this.oeg.p));
+                if (CommonH5View.this.otz != null) {
+                    tv.chushou.zues.a.a.post(new com.kascend.chushou.b.a.a.c(com.kascend.chushou.b.a.a.c.b, str, CommonH5View.this.otz.p));
                 }
             }
         });
@@ -101,22 +103,22 @@ public class CommonH5View extends FrameLayout implements View.OnClickListener {
         layoutParams.height = -1;
         layoutParams.gravity = 17;
         this.b.setLayoutParams(layoutParams);
-        Point hc = tv.chushou.zues.utils.a.hc(this.a);
-        int statusBarHeight = tv.chushou.zues.utils.systemBar.b.getStatusBarHeight(this.a);
-        int i = hc.x;
-        int i2 = hc.y - statusBarHeight;
-        if (this.a != null && (this.a instanceof VideoPlayer) && ((VideoPlayer) this.a).getWindow().getDecorView().getSystemUiVisibility() == 1792) {
-            i2 = hc.y;
+        Point hj = tv.chushou.zues.utils.a.hj(this.f4164a);
+        int statusBarHeight = tv.chushou.zues.utils.systemBar.b.getStatusBarHeight(this.f4164a);
+        int i = hj.x;
+        int i2 = hj.y - statusBarHeight;
+        if (this.f4164a != null && (this.f4164a instanceof VideoPlayer) && ((VideoPlayer) this.f4164a).getWindow().getDecorView().getSystemUiVisibility() == 1792) {
+            i2 = hj.y;
         }
         View findViewById = this.b.findViewById(a.f.empty_view);
         LinearLayout.LayoutParams layoutParams2 = (LinearLayout.LayoutParams) findViewById.getLayoutParams();
-        int i3 = (int) (((((100 - this.oef.mHeight) * 1.0d) / 2.0d) / 100.0d) * i2);
+        int i3 = (int) (((((100 - this.oty.mHeight) * 1.0d) / 2.0d) / 100.0d) * i2);
         layoutParams2.height = i3;
         findViewById.setLayoutParams(layoutParams2);
-        LinearLayout.LayoutParams layoutParams3 = (LinearLayout.LayoutParams) this.oee.getLayoutParams();
-        layoutParams3.width = (int) (i * ((this.oef.mWidth * 1.0d) / 100.0d));
-        layoutParams3.height = (int) (((this.oef.mHeight * 1.0d) / 100.0d) * i2);
-        this.oee.setLayoutParams(layoutParams3);
+        LinearLayout.LayoutParams layoutParams3 = (LinearLayout.LayoutParams) this.otx.getLayoutParams();
+        layoutParams3.width = (int) (i * ((this.oty.mWidth * 1.0d) / 100.0d));
+        layoutParams3.height = (int) (((this.oty.mHeight * 1.0d) / 100.0d) * i2);
+        this.otx.setLayoutParams(layoutParams3);
         LinearLayout.LayoutParams layoutParams4 = (LinearLayout.LayoutParams) this.c.getLayoutParams();
         layoutParams4.topMargin = (int) (i3 * 0.2d);
         this.c.setLayoutParams(layoutParams4);
@@ -124,14 +126,14 @@ public class CommonH5View extends FrameLayout implements View.OnClickListener {
 
     private void e() {
         int i;
-        Point hc = tv.chushou.zues.utils.a.hc(this.a);
-        int i2 = (int) (((this.oef.mHeight * 1.0d) / 100.0d) * hc.y);
-        if (this.oef.mAspectRadio == 0) {
-            i = (int) (((this.oef.mWidth * 1.0d) / 100.0d) * hc.x);
+        Point hj = tv.chushou.zues.utils.a.hj(this.f4164a);
+        int i2 = (int) (((this.oty.mHeight * 1.0d) / 100.0d) * hj.y);
+        if (this.oty.mAspectRadio == 0) {
+            i = (int) (((this.oty.mWidth * 1.0d) / 100.0d) * hj.x);
         } else {
-            i = (int) (((this.oef.mAspectRadio * 1.0d) / 100.0d) * i2);
+            i = (int) (((this.oty.mAspectRadio * 1.0d) / 100.0d) * i2);
         }
-        if (this.oeg.i == 0) {
+        if (this.otz.i == 0) {
             FrameLayout.LayoutParams layoutParams = (FrameLayout.LayoutParams) this.b.getLayoutParams();
             layoutParams.width = i;
             layoutParams.height = i2;
@@ -140,32 +142,32 @@ public class CommonH5View extends FrameLayout implements View.OnClickListener {
             return;
         }
         RelativeLayout.LayoutParams layoutParams2 = (RelativeLayout.LayoutParams) this.c.getLayoutParams();
-        layoutParams2.topMargin = (int) (hc.y * 0.05d);
+        layoutParams2.topMargin = (int) (hj.y * 0.05d);
         this.c.setLayoutParams(layoutParams2);
-        int dip2px = tv.chushou.zues.utils.a.dip2px(this.a, 60.0f);
+        int dip2px = tv.chushou.zues.utils.a.dip2px(this.f4164a, 60.0f);
         FrameLayout.LayoutParams layoutParams3 = (FrameLayout.LayoutParams) this.b.getLayoutParams();
         layoutParams3.width = dip2px + i;
         layoutParams3.height = i2;
         layoutParams3.gravity = 16;
-        layoutParams3.leftMargin = (hc.x - i) / 2;
+        layoutParams3.leftMargin = (hj.x - i) / 2;
         this.b.setLayoutParams(layoutParams3);
     }
 
     public void a() {
-        if (this.oeh != null) {
-            this.oeh.a(this);
+        if (this.otA != null) {
+            this.otA.a(this);
         }
     }
 
     public void setCloseH5Listener(com.kascend.chushou.widget.cswebview.d dVar) {
-        this.oeh = dVar;
+        this.otA = dVar;
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
         if (view.getId() == a.f.view_redpacketlist_close) {
-            if (this.oeg != null && this.oeg.j == 1) {
-                tv.chushou.zues.a.a.post(new com.kascend.chushou.b.a.a.c(com.kascend.chushou.b.a.a.c.b, this.oeg.b, this.oeg.p));
+            if (this.otz != null && this.otz.j == 1) {
+                tv.chushou.zues.a.a.post(new com.kascend.chushou.b.a.a.c(com.kascend.chushou.b.a.a.c.b, this.otz.b, this.otz.p));
             } else {
                 a();
             }
@@ -173,10 +175,10 @@ public class CommonH5View extends FrameLayout implements View.OnClickListener {
     }
 
     public void b() {
-        if (this.oee != null) {
-            tv.chushou.zues.toolkit.d.b.setScaleX(this.oee, 0.0f);
-            tv.chushou.zues.toolkit.d.b.setScaleY(this.oee, 0.0f);
-            this.oee.animate().scaleX(1.0f).scaleY(1.0f).setDuration(300L).start();
+        if (this.otx != null) {
+            tv.chushou.zues.toolkit.d.b.setScaleX(this.otx, 0.0f);
+            tv.chushou.zues.toolkit.d.b.setScaleY(this.otx, 0.0f);
+            this.otx.animate().scaleX(1.0f).scaleY(1.0f).setDuration(300L).start();
         }
     }
 }

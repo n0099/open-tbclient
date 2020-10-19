@@ -11,41 +11,41 @@ import java.util.ArrayList;
 import java.util.List;
 import tbclient.AlaLiveInfo;
 import tbclient.Personalized.UserFollowLive;
-/* loaded from: classes21.dex */
+/* loaded from: classes22.dex */
 public class f extends AbsThreadDataSupport {
-    public static final BdUniqueId iYF = BdUniqueId.gen();
-    private List<AlaLiveInfo> iYG = new ArrayList();
+    public static final BdUniqueId jnE = BdUniqueId.gen();
+    private List<AlaLiveInfo> jnF = new ArrayList();
 
     public void a(UserFollowLive userFollowLive) {
-        this.iYG.clear();
+        this.jnF.clear();
         if (userFollowLive != null && userFollowLive._switch.intValue() != 0 && !y.isEmpty(userFollowLive.user_follow_live)) {
-            this.iYG.addAll(userFollowLive.user_follow_live);
+            this.jnF.addAll(userFollowLive.user_follow_live);
         }
     }
 
     @Override // com.baidu.tieba.card.data.b, com.baidu.adp.widget.ListView.q
     public BdUniqueId getType() {
-        return iYF;
+        return jnE;
     }
 
     @Override // com.baidu.tbadk.core.data.AbsThreadDataSupport
-    public bw bcY() {
+    public bw bfG() {
         return null;
     }
 
     @Override // com.baidu.tbadk.core.data.AbsThreadDataSupport
-    public ar bda() {
+    public ar bfI() {
         return null;
     }
 
-    public List<AlaLiveInfo> cCc() {
-        return this.iYG;
+    public List<AlaLiveInfo> cFL() {
+        return this.jnF;
     }
 
-    public aq cCd() {
+    public aq cFM() {
         aq aqVar = new aq("c13620");
         aqVar.u("uid", TbadkApplication.getCurrentAccountId());
-        aqVar.ai("fid", 0);
+        aqVar.aj("fid", 0);
         return aqVar;
     }
 }

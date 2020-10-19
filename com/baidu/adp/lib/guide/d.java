@@ -5,10 +5,10 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes.dex */
 public class d {
-    private a KR;
+    private a Lh;
     private boolean mBuilt;
     private List<b> mComponents = new ArrayList();
-    private Configuration KO = new Configuration();
+    private Configuration Le = new Configuration();
 
     /* loaded from: classes.dex */
     public interface a {
@@ -24,7 +24,7 @@ public class d {
         if (i < 0 || i > 255) {
             throw new BuildException("Illegal alpha value, should between [0-255]");
         }
-        this.KO.mAlpha = i;
+        this.Le.mAlpha = i;
         return this;
     }
 
@@ -35,7 +35,7 @@ public class d {
         if (view == null) {
             throw new BuildException("Illegal view.");
         }
-        this.KO.mTargetView = view;
+        this.Le.mTargetView = view;
         return this;
     }
 
@@ -46,7 +46,7 @@ public class d {
         if (i <= 0) {
             throw new BuildException("Illegal view id.");
         }
-        this.KO.mTargetViewId = i;
+        this.Le.mTargetViewId = i;
         return this;
     }
 
@@ -54,7 +54,7 @@ public class d {
         if (this.mBuilt) {
             throw new BuildException("Already created, rebuild a new one.");
         }
-        this.KO.mAutoDismiss = z;
+        this.Le.mAutoDismiss = z;
         return this;
     }
 
@@ -62,7 +62,7 @@ public class d {
         if (this.mBuilt) {
             throw new BuildException("Already created, rebuild a new one.");
         }
-        this.KO.mOverlayTarget = z;
+        this.Le.mOverlayTarget = z;
         return this;
     }
 
@@ -73,7 +73,7 @@ public class d {
         if (i <= 0) {
             throw new BuildException("Illegal animation resource id.");
         }
-        this.KO.mEnterAnimationId = i;
+        this.Le.mEnterAnimationId = i;
         return this;
     }
 
@@ -84,7 +84,7 @@ public class d {
         if (i <= 0) {
             throw new BuildException("Illegal animation resource id.");
         }
-        this.KO.mExitAnimationId = i;
+        this.Le.mExitAnimationId = i;
         return this;
     }
 
@@ -100,23 +100,23 @@ public class d {
         if (this.mBuilt) {
             throw new BuildException("Already created, rebuild a new one.");
         }
-        this.KR = aVar;
+        this.Lh = aVar;
         return this;
     }
 
     public d ag(boolean z) {
-        this.KO.mOutsideTouchable = z;
+        this.Le.mOutsideTouchable = z;
         return this;
     }
 
-    public c mh() {
+    public c mi() {
         c cVar = new c();
         cVar.a((b[]) this.mComponents.toArray(new b[this.mComponents.size()]));
-        cVar.a(this.KO);
-        cVar.a(this.KR);
+        cVar.a(this.Le);
+        cVar.a(this.Lh);
         this.mComponents = null;
-        this.KO = null;
-        this.KR = null;
+        this.Le = null;
+        this.Lh = null;
         this.mBuilt = true;
         return cVar;
     }

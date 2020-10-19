@@ -14,15 +14,15 @@ import com.baidu.live.tbadk.ubc.UbcStatConstant;
 import com.baidu.tieba.ala.AlaRankListPKStatusActivity;
 /* loaded from: classes4.dex */
 public class f {
-    private int aFQ;
-    private String fyT;
-    private boolean fyU;
-    private TextView heA;
-    private FrameLayout heB;
-    private HeadImageView heC;
-    private TextView heD;
-    private TextView hfe;
-    private TextView hff;
+    private int aIU;
+    private String fLc;
+    private boolean fLd;
+    private TextView htD;
+    private FrameLayout htE;
+    private HeadImageView htF;
+    private TextView htG;
+    private TextView huh;
+    private TextView hui;
     private Context mContext;
     private String mPortrait;
     private long mUserId;
@@ -30,49 +30,49 @@ public class f {
 
     public f(Context context, String str, boolean z, long j, int i, String str2) {
         this.mContext = context;
-        this.fyT = str;
-        this.fyU = z;
+        this.fLc = str;
+        this.fLd = z;
         this.mUserId = j;
-        this.aFQ = i;
+        this.aIU = i;
         this.mPortrait = str2;
         initView();
     }
 
     private void initView() {
         this.view = LayoutInflater.from(this.mContext).inflate(a.h.ala_rank_list_pk_bottom_view, (ViewGroup) null);
-        this.heA = (TextView) this.view.findViewById(a.g.ala_rank_list_user_rank);
-        this.heB = (FrameLayout) this.view.findViewById(a.g.ala_rank_list_header_layout);
-        this.heC = (HeadImageView) this.view.findViewById(a.g.ala_rank_list_user_header);
-        this.heD = (TextView) this.view.findViewById(a.g.ala_rank_list_user_name);
-        this.hfe = (TextView) this.view.findViewById(a.g.btn_user_anti_list);
-        this.hff = (TextView) this.view.findViewById(a.g.btn_user_challenge_history_list);
-        this.hfe.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.ala.view.f.1
+        this.htD = (TextView) this.view.findViewById(a.g.ala_rank_list_user_rank);
+        this.htE = (FrameLayout) this.view.findViewById(a.g.ala_rank_list_header_layout);
+        this.htF = (HeadImageView) this.view.findViewById(a.g.ala_rank_list_user_header);
+        this.htG = (TextView) this.view.findViewById(a.g.ala_rank_list_user_name);
+        this.huh = (TextView) this.view.findViewById(a.g.btn_user_anti_list);
+        this.hui = (TextView) this.view.findViewById(a.g.btn_user_challenge_history_list);
+        this.huh.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.ala.view.f.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
                 Intent intent = new Intent(f.this.mContext, AlaRankListPKStatusActivity.class);
-                intent.putExtra(UbcStatConstant.KEY_LIVE_TYPE, f.this.aFQ);
+                intent.putExtra(UbcStatConstant.KEY_LIVE_TYPE, f.this.aIU);
                 intent.putExtra(TbEnum.SystemMessage.KEY_USER_ID, f.this.mUserId);
                 intent.putExtra("rank_list_type", "guard");
-                intent.putExtra("rank_list_from", f.this.fyU);
+                intent.putExtra("rank_list_from", f.this.fLd);
                 intent.putExtra("portrait", f.this.mPortrait);
                 f.this.mContext.startActivity(intent);
             }
         });
-        this.hff.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.ala.view.f.2
+        this.hui.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.ala.view.f.2
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
                 Intent intent = new Intent(f.this.mContext, AlaRankListPKStatusActivity.class);
-                intent.putExtra(UbcStatConstant.KEY_LIVE_TYPE, f.this.aFQ);
+                intent.putExtra(UbcStatConstant.KEY_LIVE_TYPE, f.this.aIU);
                 intent.putExtra(TbEnum.SystemMessage.KEY_USER_ID, f.this.mUserId);
                 intent.putExtra("rank_list_type", "challenge_history");
-                intent.putExtra("rank_list_from", f.this.fyU);
+                intent.putExtra("rank_list_from", f.this.fLd);
                 intent.putExtra("portrait", f.this.mPortrait);
                 f.this.mContext.startActivity(intent);
             }
         });
-        if (this.heC != null) {
-            this.heC.setIsRound(true);
-            this.heC.setAutoChangeStyle(false);
+        if (this.htF != null) {
+            this.htF.setIsRound(true);
+            this.htF.setAutoChangeStyle(false);
         }
     }
 

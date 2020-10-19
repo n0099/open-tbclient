@@ -10,10 +10,12 @@ import com.baidu.mapapi.model.CoordUtil;
 import com.baidu.mapapi.model.LatLng;
 import com.baidu.platform.comapi.basestruct.GeoPoint;
 import vi.com.gdi.bgl.android.java.EnvDrawText;
-/* loaded from: classes3.dex */
+/* loaded from: classes7.dex */
 public final class Text extends Overlay {
     private static final String k = Text.class.getSimpleName();
-    String a;
+
+    /* renamed from: a  reason: collision with root package name */
+    String f2044a;
     LatLng b;
     int c;
     int d;
@@ -47,7 +49,7 @@ public final class Text extends Overlay {
         if (this.b == null) {
             throw new IllegalStateException("BDMapSDKException: when you add a text overlay, you must provide text and the position info.");
         }
-        bundle.putString("text", this.a);
+        bundle.putString("text", this.f2044a);
         GeoPoint ll2mc = CoordUtil.ll2mc(this.b);
         bundle.putDouble("location_x", ll2mc.getLongitudeE6());
         bundle.putDouble("location_y", ll2mc.getLatitudeE6());
@@ -117,7 +119,7 @@ public final class Text extends Overlay {
     }
 
     public String getText() {
-        return this.a;
+        return this.f2044a;
     }
 
     public Typeface getTypeface() {
@@ -168,7 +170,7 @@ public final class Text extends Overlay {
         if (str == null || str.equals("")) {
             throw new IllegalArgumentException("BDMapSDKException: text can not be null or empty");
         }
-        this.a = str;
+        this.f2044a = str;
         this.j = 1;
         this.listener.b(this);
     }

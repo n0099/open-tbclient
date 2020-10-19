@@ -3,11 +3,11 @@ package com.baidu.swan.apps.y.b;
 import android.graphics.Bitmap;
 import android.graphics.Rect;
 import android.util.Log;
-/* loaded from: classes3.dex */
+/* loaded from: classes10.dex */
 public class b extends a {
     /* JADX INFO: Access modifiers changed from: package-private */
     public b(double d) {
-        this.cGz = d;
+        this.cSC = d;
     }
 
     @Override // com.baidu.swan.apps.y.b.a
@@ -26,7 +26,7 @@ public class b extends a {
         int height = rect.height() - 2;
         int i2 = width / 3;
         int i3 = height / i2;
-        int ceil = (int) Math.ceil(i3 * 3 * this.cGz);
+        int ceil = (int) Math.ceil(i3 * 3 * this.cSC);
         int i4 = 0;
         int i5 = 0;
         while (true) {

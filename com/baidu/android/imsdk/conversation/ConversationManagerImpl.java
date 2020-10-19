@@ -22,7 +22,7 @@ import com.baidu.live.tbadk.pagestayduration.PageStayDurationHelper;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Iterator;
-/* loaded from: classes9.dex */
+/* loaded from: classes5.dex */
 public class ConversationManagerImpl {
     private static final String TAG = "ConversationManagerImpl";
     public static Context mContext;
@@ -286,6 +286,7 @@ public class ConversationManagerImpl {
                 this.mConversationsListMaps.get(category).clear();
             }
         }
+        ConversationStudioManImpl.getInstance(mContext).clear();
     }
 
     public static BIMManager.CATEGORY getCategoryByProtocolCategory(int i, int i2) {

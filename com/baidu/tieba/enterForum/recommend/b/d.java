@@ -3,18 +3,18 @@ package com.baidu.tieba.enterForum.recommend.b;
 import com.baidu.adp.BdUniqueId;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes21.dex */
+/* loaded from: classes22.dex */
 public class d extends com.baidu.tieba.card.data.b {
-    public static final BdUniqueId hFO = BdUniqueId.gen();
+    public static final BdUniqueId hUJ = BdUniqueId.gen();
     private List<b> forumList;
-    private int hFP;
-    private int hFQ = 0;
-    private List<c> hFR;
+    private int hUK;
+    private int hUL = 0;
+    private List<c> hUM;
     private String title;
 
     @Override // com.baidu.tieba.card.data.b, com.baidu.adp.widget.ListView.q
     public BdUniqueId getType() {
-        return hFO;
+        return hUJ;
     }
 
     public String getTitle() {
@@ -25,79 +25,79 @@ public class d extends com.baidu.tieba.card.data.b {
         this.title = str;
     }
 
-    public int cjA() {
-        return this.hFP;
+    public int cmW() {
+        return this.hUK;
     }
 
-    public void wE(int i) {
-        this.hFP = i;
+    public void xk(int i) {
+        this.hUK = i;
     }
 
     public List<b> getForumList() {
         return this.forumList;
     }
 
-    public void cs(List<b> list) {
+    public void cv(List<b> list) {
         this.forumList = list;
     }
 
-    public List<c> cjB() {
-        return this.hFR;
+    public List<c> cmX() {
+        return this.hUM;
     }
 
-    private void ct(List<c> list) {
-        this.hFR = list;
+    private void cw(List<c> list) {
+        this.hUM = list;
     }
 
-    public List<c> cjC() {
+    public List<c> cmY() {
         if (getForumList().size() <= 0) {
             return null;
         }
         ArrayList arrayList = new ArrayList();
-        if (this.hFP == 2) {
-            if (cjD() != null) {
-                arrayList.add(cjD());
+        if (this.hUK == 2) {
+            if (cmZ() != null) {
+                arrayList.add(cmZ());
             }
         } else {
-            c cjD = cjD();
-            c cjD2 = cjD();
-            if (cjD != null) {
-                arrayList.add(cjD);
+            c cmZ = cmZ();
+            c cmZ2 = cmZ();
+            if (cmZ != null) {
+                arrayList.add(cmZ);
             }
-            if (cjD2 != null) {
-                arrayList.add(cjD2);
+            if (cmZ2 != null) {
+                arrayList.add(cmZ2);
             }
         }
-        ct(arrayList);
+        cw(arrayList);
         return arrayList;
     }
 
-    private c cjD() {
+    private c cmZ() {
         if (getForumList().size() <= 0) {
             return null;
         }
-        b cjE = cjE();
-        b cjE2 = cjE();
-        if (cjE == null && cjE2 == null) {
+        b cna = cna();
+        b cna2 = cna();
+        if (cna == null && cna2 == null) {
             return null;
         }
         c cVar = new c();
-        cVar.b(cjE);
-        cVar.a(cjE2);
+        cVar.b(cna);
+        cVar.a(cna2);
         return cVar;
     }
 
-    private b cjE() {
+    private b cna() {
         b bVar;
-        if (this.hFQ < getForumList().size()) {
-            bVar = getForumList().get(this.hFQ);
-        } else if (this.hFP < getForumList().size()) {
-            this.hFQ = 0;
-            bVar = getForumList().get(this.hFQ);
+        if (this.hUL < getForumList().size()) {
+            bVar = getForumList().get(this.hUL);
+        } else if (this.hUK < getForumList().size()) {
+            this.hUL = 0;
+            bVar = getForumList().get(this.hUL);
         } else {
             return null;
         }
-        this.hFQ++;
+        this.hUL++;
         return bVar;
     }
 }

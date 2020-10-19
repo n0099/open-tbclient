@@ -5,22 +5,22 @@ import com.baidu.tbadk.coreExtra.data.x;
 import java.util.ArrayList;
 import java.util.List;
 import org.json.JSONArray;
-/* loaded from: classes21.dex */
+/* loaded from: classes22.dex */
 public class a {
-    private int iRR = 1;
-    private final List<x> iRS = new ArrayList();
+    private int jgO = 1;
+    private final List<x> jgP = new ArrayList();
 
     public a() {
-        List<x> cAm = cAm();
-        if (!y.isEmpty(cAm)) {
-            this.iRS.addAll(cAm);
+        List<x> cDT = cDT();
+        if (!y.isEmpty(cDT)) {
+            this.jgP.addAll(cDT);
         }
     }
 
-    private List<x> cAm() {
+    private List<x> cDT() {
         ArrayList arrayList = new ArrayList();
         try {
-            JSONArray jSONArray = new JSONArray(com.baidu.tbadk.core.sharedPref.b.bjf().getString("key_index_tab_info_list", "[]"));
+            JSONArray jSONArray = new JSONArray(com.baidu.tbadk.core.sharedPref.b.blO().getString("key_index_tab_info_list", "[]"));
             for (int i = 0; i < jSONArray.length(); i++) {
                 x xVar = new x();
                 xVar.parserJson(jSONArray.getJSONObject(i));
@@ -34,11 +34,11 @@ public class a {
         return arrayList;
     }
 
-    public List<x> cAn() {
-        return this.iRS;
+    public List<x> cDU() {
+        return this.jgP;
     }
 
-    public int cAo() {
-        return this.iRR;
+    public int cDV() {
+        return this.jgO;
     }
 }

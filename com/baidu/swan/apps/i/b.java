@@ -4,27 +4,27 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.concurrent.TimeUnit;
 import java.util.zip.CRC32;
-/* loaded from: classes3.dex */
+/* loaded from: classes10.dex */
 public class b {
-    public final String cep;
-    public final Map<String, String> ceq = new HashMap();
+    public final String cqF;
+    public final Map<String, String> cqG = new HashMap();
     public final long delta;
     public final long serverTime;
 
-    public static b aee() {
+    public static b agP() {
         return new b(0L);
     }
 
     private b(long j) {
         this.delta = TimeUnit.MILLISECONDS.toSeconds(j);
         this.serverTime = TimeUnit.MILLISECONDS.toSeconds(System.currentTimeMillis() - j);
-        this.cep = Long.toHexString(kV(this.serverTime + "#" + this.delta));
-        this.ceq.put("timestamp", Long.toString(this.serverTime));
-        this.ceq.put("delta", Long.toString(this.delta));
-        this.ceq.put("rasign", this.cep);
+        this.cqF = Long.toHexString(lH(this.serverTime + "#" + this.delta));
+        this.cqG.put("timestamp", Long.toString(this.serverTime));
+        this.cqG.put("delta", Long.toString(this.delta));
+        this.cqG.put("rasign", this.cqF);
     }
 
-    private long kV(String str) {
+    private long lH(String str) {
         CRC32 crc32 = new CRC32();
         crc32.reset();
         crc32.update(str.getBytes());
@@ -32,14 +32,14 @@ public class b {
     }
 
     public String toString() {
-        return super.toString() + " serverTime:" + this.serverTime + " delta:" + this.delta + " rasign:" + this.cep;
+        return super.toString() + " serverTime:" + this.serverTime + " delta:" + this.delta + " rasign:" + this.cqF;
     }
 
-    public String aO(long j) {
-        return Long.toHexString(kV(j + "#smartapp_formid"));
+    public String aW(long j) {
+        return Long.toHexString(lH(j + "#smartapp_formid"));
     }
 
-    public String aP(long j) {
-        return Long.toHexString(kV(j + "#payid"));
+    public String aX(long j) {
+        return Long.toHexString(lH(j + "#payid"));
     }
 }

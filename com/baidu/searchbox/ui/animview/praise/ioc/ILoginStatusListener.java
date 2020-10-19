@@ -1,5 +1,5 @@
 package com.baidu.searchbox.ui.animview.praise.ioc;
-/* loaded from: classes11.dex */
+/* loaded from: classes9.dex */
 public interface ILoginStatusListener {
     void loginFail();
 

@@ -8,59 +8,59 @@ import android.hardware.SensorManager;
 import android.util.Log;
 import com.baidu.swan.apps.console.c;
 import com.baidu.swan.apps.runtime.e;
-/* loaded from: classes3.dex */
+/* loaded from: classes10.dex */
 public class a {
-    private static volatile a daM;
-    private SensorManager bqI;
-    private SensorEventListener daN;
-    private Sensor daO;
-    private InterfaceC0332a daP;
-    private double[] daQ = new double[3];
-    private boolean daR = false;
-    private long daS = 0;
-    private int daT;
+    private static volatile a dmU;
+    private SensorManager buw;
+    private SensorEventListener dmV;
+    private Sensor dmW;
+    private InterfaceC0349a dmX;
+    private double[] dmY = new double[3];
+    private boolean dmZ = false;
+    private long dna = 0;
+    private int dnb;
     private Context mContext;
 
     /* renamed from: com.baidu.swan.apps.al.a.a$a  reason: collision with other inner class name */
-    /* loaded from: classes3.dex */
-    public interface InterfaceC0332a {
+    /* loaded from: classes10.dex */
+    public interface InterfaceC0349a {
         void b(double[] dArr);
     }
 
     private a() {
     }
 
-    public static a aEg() {
-        if (daM == null) {
+    public static a aGP() {
+        if (dmU == null) {
             synchronized (a.class) {
-                if (daM == null) {
-                    daM = new a();
+                if (dmU == null) {
+                    dmU = new a();
                 }
             }
         }
-        return daM;
+        return dmU;
     }
 
     public void m(Context context, int i) {
         this.mContext = context;
-        this.daT = i;
+        this.dnb = i;
     }
 
-    public void a(InterfaceC0332a interfaceC0332a) {
-        this.daP = interfaceC0332a;
+    public void a(InterfaceC0349a interfaceC0349a) {
+        this.dmX = interfaceC0349a;
     }
 
-    public void aEh() {
+    public void aGQ() {
         if (this.mContext == null) {
             c.e("accelerometer", "start error, none context");
-        } else if (this.daR) {
+        } else if (this.dmZ) {
             c.w("accelerometer", "has already start");
         } else {
-            this.bqI = (SensorManager) this.mContext.getSystemService("sensor");
-            if (this.bqI != null) {
-                this.daO = this.bqI.getDefaultSensor(1);
-                this.bqI.registerListener(aEk(), this.daO, 1);
-                this.daR = true;
+            this.buw = (SensorManager) this.mContext.getSystemService("sensor");
+            if (this.buw != null) {
+                this.dmW = this.buw.getDefaultSensor(1);
+                this.buw.registerListener(aGT(), this.dmW, 1);
+                this.dmZ = true;
                 c.i("accelerometer", "start listen");
                 return;
             }
@@ -68,58 +68,58 @@ public class a {
         }
     }
 
-    public void aEi() {
-        if (!this.daR) {
+    public void aGR() {
+        if (!this.dmZ) {
             c.w("accelerometer", "has already stop");
             return;
         }
-        if (this.daN != null && this.bqI != null) {
-            this.bqI.unregisterListener(this.daN);
-            this.daN = null;
+        if (this.dmV != null && this.buw != null) {
+            this.buw.unregisterListener(this.dmV);
+            this.dmV = null;
         }
-        this.bqI = null;
-        this.daO = null;
-        this.daR = false;
+        this.buw = null;
+        this.dmW = null;
+        this.dmZ = false;
     }
 
     public static void release() {
-        if (daM != null) {
-            daM.aEj();
+        if (dmU != null) {
+            dmU.aGS();
         }
     }
 
-    private void aEj() {
+    private void aGS() {
         c.i("accelerometer", "release");
-        if (this.daR) {
-            aEi();
+        if (this.dmZ) {
+            aGR();
         }
-        this.bqI = null;
-        this.daO = null;
-        this.daN = null;
-        this.daQ = null;
+        this.buw = null;
+        this.dmW = null;
+        this.dmV = null;
+        this.dmY = null;
         this.mContext = null;
-        daM = null;
+        dmU = null;
     }
 
-    private SensorEventListener aEk() {
+    private SensorEventListener aGT() {
         c.i("accelerometer", "get Accelerometer listener");
-        if (this.daN != null) {
-            return this.daN;
+        if (this.dmV != null) {
+            return this.dmV;
         }
-        this.daN = new SensorEventListener() { // from class: com.baidu.swan.apps.al.a.a.1
+        this.dmV = new SensorEventListener() { // from class: com.baidu.swan.apps.al.a.a.1
             @Override // android.hardware.SensorEventListener
             public void onSensorChanged(SensorEvent sensorEvent) {
                 if (sensorEvent != null && sensorEvent.sensor != null && sensorEvent.sensor.getType() == 1) {
                     if (sensorEvent.values != null && sensorEvent.values.length == 3) {
-                        if (a.this.daP != null && System.currentTimeMillis() - a.this.daS > a.this.daT) {
-                            a.this.daQ[0] = (-sensorEvent.values[0]) / 9.8d;
-                            a.this.daQ[1] = (-sensorEvent.values[1]) / 9.8d;
-                            a.this.daQ[2] = (-sensorEvent.values[2]) / 9.8d;
-                            a.this.daP.b(a.this.daQ);
-                            a.this.daS = System.currentTimeMillis();
+                        if (a.this.dmX != null && System.currentTimeMillis() - a.this.dna > a.this.dnb) {
+                            a.this.dmY[0] = (-sensorEvent.values[0]) / 9.8d;
+                            a.this.dmY[1] = (-sensorEvent.values[1]) / 9.8d;
+                            a.this.dmY[2] = (-sensorEvent.values[2]) / 9.8d;
+                            a.this.dmX.b(a.this.dmY);
+                            a.this.dna = System.currentTimeMillis();
                         }
                         if (e.DEBUG) {
-                            Log.d("AccelerometerManager", "current Time : " + a.this.daS + "current Acc x : " + a.this.daQ[0] + "current Acc y : " + a.this.daQ[1] + "current Acc z : " + a.this.daQ[2]);
+                            Log.d("AccelerometerManager", "current Time : " + a.this.dna + "current Acc x : " + a.this.dmY[0] + "current Acc y : " + a.this.dmY[1] + "current Acc z : " + a.this.dmY[2]);
                             return;
                         }
                         return;
@@ -132,6 +132,6 @@ public class a {
             public void onAccuracyChanged(Sensor sensor, int i) {
             }
         };
-        return this.daN;
+        return this.dmV;
     }
 }

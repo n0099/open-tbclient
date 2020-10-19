@@ -6,7 +6,7 @@ import android.provider.Settings;
 import kotlin.h;
 import kotlin.jvm.internal.q;
 @h
-/* loaded from: classes5.dex */
+/* loaded from: classes11.dex */
 public final class OverlayPermissionCheck {
     public static final OverlayPermissionCheck INSTANCE = new OverlayPermissionCheck();
 
@@ -14,7 +14,7 @@ public final class OverlayPermissionCheck {
     }
 
     public final boolean hasPermission(Context context) {
-        q.m(context, "context");
+        q.n(context, "context");
         if (Build.VERSION.SDK_INT < 23) {
             return false;
         }

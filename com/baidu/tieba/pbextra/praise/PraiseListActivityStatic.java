@@ -2,7 +2,7 @@ package com.baidu.tieba.pbextra.praise;
 
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.atomData.PraiseListActivityConfig;
-/* loaded from: classes21.dex */
+/* loaded from: classes22.dex */
 public class PraiseListActivityStatic {
     public static String Tag = "tag";
 

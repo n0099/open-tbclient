@@ -10,10 +10,11 @@ import android.provider.DocumentsContract;
 import android.provider.MediaStore;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
+import org.webrtc.MediaStreamTrack;
 /* loaded from: classes6.dex */
 public final class i {
     @Nullable
-    public static Uri Vq(@Nullable String str) {
+    public static Uri We(@Nullable String str) {
         if (str != null) {
             return Uri.parse(str);
         }
@@ -59,7 +60,7 @@ public final class i {
                         uri2 = MediaStore.Images.Media.EXTERNAL_CONTENT_URI;
                     } else if ("video".equals(str)) {
                         uri2 = MediaStore.Video.Media.EXTERNAL_CONTENT_URI;
-                    } else if ("audio".equals(str)) {
+                    } else if (MediaStreamTrack.AUDIO_TRACK_KIND.equals(str)) {
                         uri2 = MediaStore.Audio.Media.EXTERNAL_CONTENT_URI;
                     }
                     return a(context, uri2, "_id=?", new String[]{split2[1]});

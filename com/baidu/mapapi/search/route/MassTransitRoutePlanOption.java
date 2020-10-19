@@ -1,5 +1,5 @@
 package com.baidu.mapapi.search.route;
-/* loaded from: classes3.dex */
+/* loaded from: classes7.dex */
 public class MassTransitRoutePlanOption {
     public PlanNode mFrom = null;
     public PlanNode mTo = null;
@@ -10,7 +10,7 @@ public class MassTransitRoutePlanOption {
     public int mPageSize = 10;
     public int mPageIndex = 1;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes7.dex */
     public enum TacticsIncity {
         ETRANS_SUGGEST(0),
         ETRANS_LEAST_TRANSFER(1),
@@ -19,51 +19,57 @@ public class MassTransitRoutePlanOption {
         ETRANS_LEAST_TIME(4),
         ETRANS_SUBWAY_FIRST(5);
         
-        private int a;
+
+        /* renamed from: a  reason: collision with root package name */
+        private int f2139a;
 
         TacticsIncity(int i) {
-            this.a = 0;
-            this.a = i;
+            this.f2139a = 0;
+            this.f2139a = i;
         }
 
         public int getInt() {
-            return this.a;
+            return this.f2139a;
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes7.dex */
     public enum TacticsIntercity {
         ETRANS_LEAST_TIME(0),
         ETRANS_START_EARLY(1),
         ETRANS_LEAST_PRICE(2);
         
-        private int a;
+
+        /* renamed from: a  reason: collision with root package name */
+        private int f2140a;
 
         TacticsIntercity(int i) {
-            this.a = 0;
-            this.a = i;
+            this.f2140a = 0;
+            this.f2140a = i;
         }
 
         public int getInt() {
-            return this.a;
+            return this.f2140a;
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes7.dex */
     public enum TransTypeIntercity {
         ETRANS_TRAIN_FIRST(0),
         ETRANS_PLANE_FIRST(1),
         ETRANS_COACH_FIRST(2);
         
-        private int a;
+
+        /* renamed from: a  reason: collision with root package name */
+        private int f2141a;
 
         TransTypeIntercity(int i) {
-            this.a = 0;
-            this.a = i;
+            this.f2141a = 0;
+            this.f2141a = i;
         }
 
         public int getInt() {
-            return this.a;
+            return this.f2141a;
         }
     }
 

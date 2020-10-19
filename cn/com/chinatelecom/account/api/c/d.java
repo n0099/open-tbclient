@@ -6,9 +6,11 @@ import android.text.TextUtils;
 import com.baidu.mobads.interfaces.IXAdRequestInfo;
 import com.baidu.mobstat.Config;
 import com.xiaomi.mipush.sdk.Constants;
-/* loaded from: classes14.dex */
+/* loaded from: classes6.dex */
 public class d {
-    private static final String a = d.class.getCanonicalName();
+
+    /* renamed from: a  reason: collision with root package name */
+    private static final String f984a = d.class.getCanonicalName();
     private static String b = "";
     private static int c = 0;
     private static int d = 5;
@@ -34,7 +36,7 @@ public class d {
                 return Config.EXCEPTION_CRASH_TYPE;
             }
             if (str.startsWith("46001") || str.startsWith("46006") || str.startsWith("46009")) {
-                return com.baidu.fsg.base.statistics.j.a;
+                return com.baidu.fsg.base.statistics.j.f1495a;
             }
         }
         return "";

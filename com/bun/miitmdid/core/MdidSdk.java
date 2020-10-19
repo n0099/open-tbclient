@@ -43,17 +43,17 @@ public class MdidSdk implements SupplierListener {
     public int InitSdk(Context context, IIdentifierListener iIdentifierListener) {
         this._InnerListener = iIdentifierListener;
         com.bun.miitmdid.utils.b.a(context);
-        b.a a = b.a.a(Build.MANUFACTURER);
-        if (a == b.a.UNSUPPORT) {
+        b.a a2 = b.a.a(Build.MANUFACTURER);
+        if (a2 == b.a.UNSUPPORT) {
             return _InnerFailed(ErrorCode.INIT_ERROR_MANUFACTURER_NOSUPPORT, new com.bun.miitmdid.supplier.a());
         }
-        com.bun.miitmdid.a.a gn = com.bun.miitmdid.a.a.gn(context);
-        if (gn == null) {
+        com.bun.miitmdid.a.a gu = com.bun.miitmdid.a.a.gu(context);
+        if (gu == null) {
             return _InnerFailed(ErrorCode.INIT_ERROR_LOAD_CONFIGFILE, new com.bun.miitmdid.supplier.a());
         }
-        this._setting = gn;
+        this._setting = gu;
         InnerIdSupplier innerIdSupplier = null;
-        switch (a) {
+        switch (a2) {
             case XIAOMI:
                 innerIdSupplier = new com.bun.miitmdid.supplier.i.b(context);
                 break;

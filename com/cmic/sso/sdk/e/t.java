@@ -10,16 +10,16 @@ import android.os.Build;
 import android.util.Log;
 import java.net.InetAddress;
 import java.net.UnknownHostException;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class t {
-    private static t ntp = null;
+    private static t nIJ = null;
     private ConnectivityManager b;
     private ConnectivityManager.NetworkCallback d;
     private boolean e;
     private volatile boolean f = false;
-    private Network ntq;
+    private Network nIK;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public interface a {
         void f(Network network);
     }
@@ -30,29 +30,29 @@ public class t {
 
     public boolean a() {
         if (Build.VERSION.SDK_INT >= 21) {
-            return this.ntq != null;
+            return this.nIK != null;
         }
         return this.f;
     }
 
-    public static t gu(Context context) {
-        if (ntp == null) {
+    public static t gC(Context context) {
+        if (nIJ == null) {
             synchronized (t.class) {
-                if (ntp == null) {
-                    ntp = new t(context);
+                if (nIJ == null) {
+                    nIJ = new t(context);
                 }
             }
         }
-        return ntp;
+        return nIJ;
     }
 
     @TargetApi(21)
     public void a(final a aVar) {
         NetworkInfo networkInfo;
         if (Build.VERSION.SDK_INT >= 21) {
-            if (this.ntq != null && !this.e && (networkInfo = this.b.getNetworkInfo(this.ntq)) != null && networkInfo.isAvailable()) {
+            if (this.nIK != null && !this.e && (networkInfo = this.b.getNetworkInfo(this.nIK)) != null && networkInfo.isAvailable()) {
                 Log.e("HttpUtils", "reuse network: ");
-                aVar.f(this.ntq);
+                aVar.f(this.nIK);
                 return;
             }
             if (this.d != null) {
@@ -68,7 +68,7 @@ public class t {
             this.d = new ConnectivityManager.NetworkCallback() { // from class: com.cmic.sso.sdk.e.t.1
                 @Override // android.net.ConnectivityManager.NetworkCallback
                 public void onAvailable(Network network) {
-                    t.this.ntq = network;
+                    t.this.nIK = network;
                     aVar.f(network);
                     t.this.e = false;
                 }
@@ -90,7 +90,7 @@ public class t {
             } else if (this.b != null && this.d != null) {
                 this.b.unregisterNetworkCallback(this.d);
                 this.d = null;
-                this.ntq = null;
+                this.nIK = null;
             }
         } catch (Exception e) {
             e.printStackTrace();
@@ -139,7 +139,7 @@ public class t {
                 }
                 Thread.sleep(1000L);
             } catch (InterruptedException e) {
-                com.cmic.sso.sdk.d.a.ntf.add(e);
+                com.cmic.sso.sdk.d.a.nIz.add(e);
                 c.a("WifiNetworkUtils", "check hipri failed");
             }
         }

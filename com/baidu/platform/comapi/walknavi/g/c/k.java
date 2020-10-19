@@ -6,13 +6,15 @@ import android.view.animation.Animation;
 import android.widget.RelativeLayout;
 import com.baidu.tieba.R;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes3.dex */
+/* loaded from: classes7.dex */
 public class k implements View.OnClickListener {
-    final /* synthetic */ c a;
+
+    /* renamed from: a  reason: collision with root package name */
+    final /* synthetic */ c f3035a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public k(c cVar) {
-        this.a = cVar;
+        this.f3035a = cVar;
     }
 
     @Override // android.view.View.OnClickListener
@@ -21,13 +23,13 @@ public class k implements View.OnClickListener {
         Context context2;
         RelativeLayout relativeLayout;
         RelativeLayout relativeLayout2;
-        context = this.a.l;
+        context = this.f3035a.l;
         if (context != null) {
-            context2 = this.a.l;
+            context2 = this.f3035a.l;
             Animation c = com.baidu.platform.comapi.wnplatform.p.a.a.c(context2, R.layout.abc_action_mode_bar);
-            relativeLayout = this.a.H;
+            relativeLayout = this.f3035a.H;
             relativeLayout.setAnimation(c);
-            relativeLayout2 = this.a.H;
+            relativeLayout2 = this.f3035a.H;
             relativeLayout2.setVisibility(8);
         }
     }

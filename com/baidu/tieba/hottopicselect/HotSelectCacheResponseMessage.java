@@ -6,7 +6,7 @@ import com.baidu.live.tbadk.core.frameworkdata.CmdConfigCustom;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.squareup.wire.Wire;
 import java.io.IOException;
-/* loaded from: classes20.dex */
+/* loaded from: classes21.dex */
 public class HotSelectCacheResponseMessage extends CustomResponsedMessage<Object> {
     public static final String TOPIC_SELECT_KEY = "topic_select_user";
     public c mBangData;
@@ -27,7 +27,7 @@ public class HotSelectCacheResponseMessage extends CustomResponsedMessage<Object
         if (currentAccount == null) {
             currentAccount = "";
         }
-        byte[] bArr2 = com.baidu.tbadk.core.c.a.bhV().dv("topic_select_space", currentAccount).get("topic_select_user");
+        byte[] bArr2 = com.baidu.tbadk.core.c.a.bkE().dA("topic_select_space", currentAccount).get("topic_select_user");
         if (bArr2 == null) {
             this.resultStatus = 1;
         }

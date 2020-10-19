@@ -1,10 +1,10 @@
 package com.meizu.cloud.pushsdk.base;
-/* loaded from: classes3.dex */
+/* loaded from: classes7.dex */
 public class j {
     public static String a(String str) {
-        com.meizu.cloud.pushsdk.base.a.d a = com.meizu.cloud.pushsdk.base.a.a.a("android.os.SystemProperties").a("get", String.class).a(str);
-        if (a.a) {
-            return (String) a.b;
+        com.meizu.cloud.pushsdk.base.a.d a2 = com.meizu.cloud.pushsdk.base.a.a.a("android.os.SystemProperties").a("get", String.class).a(str);
+        if (a2.f4367a) {
+            return (String) a2.b;
         }
         return null;
     }

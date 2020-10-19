@@ -1,26 +1,26 @@
 package com.baidu.adp.lib.network.http.a;
 /* loaded from: classes.dex */
 public class c {
-    private int Lz;
-    private String Mh;
-    private String Mk;
-    private int Ml;
-    private long Mm;
+    private int LU;
+    private String MA;
+    private int MC;
+    private long MD;
+    private String Mx;
     private String exception;
-    private boolean Mi = false;
-    private boolean Mj = false;
-    private int Ln = 0;
+    private boolean My = false;
+    private boolean Mz = false;
+    private int LD = 0;
 
     public void am(boolean z) {
-        this.Mi = z;
+        this.My = z;
     }
 
-    public boolean mI() {
-        return this.Mj;
+    public boolean mJ() {
+        return this.Mz;
     }
 
     public void an(boolean z) {
-        this.Mj = z;
+        this.Mz = z;
     }
 
     public void setException(String str) {
@@ -28,42 +28,42 @@ public class c {
     }
 
     public void ar(int i) {
-        this.Ln = i;
+        this.LD = i;
     }
 
-    public void mJ() {
+    public void mK() {
         this.exception = "";
     }
 
     public void bM(String str) {
-        this.Mk = str;
-    }
-
-    public String mK() {
-        return this.Mk;
-    }
-
-    public void as(int i) {
-        this.Ml = i;
-    }
-
-    public void G(long j) {
-        this.Mm = j;
-    }
-
-    public String toString() {
-        return "isFromNet_" + this.Mi + "-statType_" + this.Ml + "-dnsErr_" + this.exception + "-hasRetry_" + this.Ln + "-cost_" + this.Mm + "-ipIndex_" + this.Lz + "-ipResult_" + this.Mh;
+        this.MA = str;
     }
 
     public String mL() {
-        return this.Mh;
+        return this.MA;
+    }
+
+    public void as(int i) {
+        this.MC = i;
+    }
+
+    public void G(long j) {
+        this.MD = j;
+    }
+
+    public String toString() {
+        return "isFromNet_" + this.My + "-statType_" + this.MC + "-dnsErr_" + this.exception + "-hasRetry_" + this.LD + "-cost_" + this.MD + "-ipIndex_" + this.LU + "-ipResult_" + this.Mx;
+    }
+
+    public String mM() {
+        return this.Mx;
     }
 
     public void bN(String str) {
-        this.Mh = str;
+        this.Mx = str;
     }
 
     public void ao(int i) {
-        this.Lz = i;
+        this.LU = i;
     }
 }

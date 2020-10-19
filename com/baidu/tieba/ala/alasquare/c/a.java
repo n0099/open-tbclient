@@ -10,68 +10,68 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes4.dex */
 public class a {
-    private static a fMd;
-    private List<aq> fql;
+    private static a fYu;
+    private List<aq> fCy;
 
-    public static a bHO() {
-        if (fMd == null) {
+    public static a bKA() {
+        if (fYu == null) {
             synchronized (a.class) {
-                if (fMd == null) {
-                    fMd = new a();
+                if (fYu == null) {
+                    fYu = new a();
                 }
             }
         }
-        return fMd;
+        return fYu;
     }
 
     public void e(aq aqVar) {
         if (aqVar != null) {
-            if (this.fql == null) {
-                this.fql = new ArrayList();
+            if (this.fCy == null) {
+                this.fCy = new ArrayList();
             }
-            if (this.fql != null) {
-                this.fql.add(aqVar);
+            if (this.fCy != null) {
+                this.fCy.add(aqVar);
             }
         }
     }
 
-    public void Fa(String str) {
+    public void FL(String str) {
         if (str != null) {
-            if (this.fql == null) {
-                this.fql = new ArrayList();
+            if (this.fCy == null) {
+                this.fCy = new ArrayList();
             }
-            if (this.fql != null) {
-                this.fql.add(new aq(str));
+            if (this.fCy != null) {
+                this.fCy.add(new aq(str));
             }
         }
     }
 
-    public void bFm() {
-        if (y.getCount(this.fql) != 0) {
-            for (aq aqVar : this.fql) {
+    public void bHY() {
+        if (y.getCount(this.fCy) != 0) {
+            for (aq aqVar : this.fCy) {
                 if (aqVar != null) {
                     TiebaStatic.log(aqVar);
                 }
             }
-            this.fql.clear();
+            this.fCy.clear();
         }
     }
 
-    public void kO(boolean z) {
-        if (y.getCount(this.fql) != 0) {
-            for (aq aqVar : this.fql) {
+    public void lm(boolean z) {
+        if (y.getCount(this.fCy) != 0) {
+            for (aq aqVar : this.fCy) {
                 if (aqVar != null) {
                     int i = 0;
                     if (z) {
                         i = 1;
                     }
                     if (!aqVar.getParams().contains(TiebaInitialize.Params.OBJ_PARAM2)) {
-                        aqVar.ai(TiebaInitialize.Params.OBJ_PARAM2, i);
+                        aqVar.aj(TiebaInitialize.Params.OBJ_PARAM2, i);
                     }
                     TiebaStatic.log(aqVar);
                 }
             }
-            this.fql.clear();
+            this.fCy.clear();
         }
     }
 
@@ -80,32 +80,32 @@ public class a {
             return null;
         }
         String str3 = "";
-        if (bwVar.bfS() != null && !StringUtils.isNull(bwVar.bfS().appId)) {
-            str3 = bwVar.bfS().appId;
+        if (bwVar.biB() != null && !StringUtils.isNull(bwVar.biB().appId)) {
+            str3 = bwVar.biB().appId;
         }
         aq aqVar = new aq(str);
-        aqVar.ai("obj_type", 1);
+        aqVar.aj("obj_type", 1);
         aqVar.u("obj_id", S(bwVar));
-        aqVar.dF("tid", bwVar.getId());
-        aqVar.dF(TiebaInitialize.Params.OBJ_PARAM3, str3);
-        aqVar.ai("entryid", i2);
-        aqVar.dF("name", str2);
-        aqVar.ai("is_small_follow", i);
+        aqVar.dK("tid", bwVar.getId());
+        aqVar.dK(TiebaInitialize.Params.OBJ_PARAM3, str3);
+        aqVar.aj("entryid", i2);
+        aqVar.dK("name", str2);
+        aqVar.aj("is_small_follow", i);
         return aqVar;
     }
 
     private long S(bw bwVar) {
-        if (bwVar == null || bwVar.bfS() == null) {
+        if (bwVar == null || bwVar.biB() == null) {
             return -1L;
         }
-        return bwVar.bfS().live_id;
+        return bwVar.biB().live_id;
     }
 
     public void c(String str, int i, int i2, String str2) {
         aq aqVar = new aq(str);
-        aqVar.ai("obj_source", i);
-        aqVar.ai("obj_type", i2);
-        aqVar.dF("tid", str2);
+        aqVar.aj("obj_source", i);
+        aqVar.aj("obj_type", i2);
+        aqVar.dK("tid", str2);
         TiebaStatic.log(aqVar);
     }
 }

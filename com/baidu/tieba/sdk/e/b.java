@@ -6,7 +6,6 @@ import com.baidu.live.adp.framework.message.CustomMessage;
 import com.baidu.live.adp.framework.message.CustomResponsedMessage;
 import com.baidu.live.adp.framework.task.CustomMessageTask;
 import com.baidu.live.tbadk.core.atomdata.AlaLiveRoomActivityConfig;
-import com.baidu.tieba.sdk.b.e;
 /* loaded from: classes4.dex */
 public class b implements CustomMessageTask.CustomRunnable {
     @Override // com.baidu.live.adp.framework.task.CustomMessageTask.CustomRunnable
@@ -23,9 +22,9 @@ public class b implements CustomMessageTask.CustomRunnable {
             if (!(alaLiveRoomActivityConfig.getContext() instanceof Activity)) {
                 intent.addFlags(268435456);
             }
-            e dtf = com.baidu.tieba.sdk.d.a.dtb().dtf();
-            if (dtf != null) {
-                dtf.g(alaLiveRoomActivityConfig.getContext(), intent);
+            com.baidu.tieba.sdk.b.d dwQ = com.baidu.tieba.sdk.d.a.dwM().dwQ();
+            if (dwQ != null) {
+                dwQ.g(alaLiveRoomActivityConfig.getContext(), intent);
                 return null;
             }
             return null;

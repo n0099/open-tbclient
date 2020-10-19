@@ -15,7 +15,7 @@ import com.baidu.imsdk.a;
 import com.baidu.sapi2.SapiContext;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes9.dex */
+/* loaded from: classes5.dex */
 public class IMJoinCastMsg extends Message {
     private static final String TAG = "IMJoinCastMsg";
     private Context mContext;
@@ -119,7 +119,7 @@ public class IMJoinCastMsg extends Message {
                     int optInt = jSONObject.optInt("ping_interval", 60000);
                     if (optInt > 0) {
                         Heartbeat.ALARM_TIMEOUT = optInt * 1000;
-                        if (a.ayR) {
+                        if (a.azA) {
                             ConversationStudioManImpl.mCastHeartBeatTime = optInt;
                         }
                     } else {

@@ -2,7 +2,7 @@ package org.apache.commons.codec.digest4util;
 
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
-/* loaded from: classes16.dex */
+/* loaded from: classes17.dex */
 public class Sha256Utils {
     public static String toHash(byte[] bArr, boolean z) {
         try {

@@ -4,7 +4,7 @@ import android.content.Context;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import java.util.ArrayList;
-/* loaded from: classes5.dex */
+/* loaded from: classes16.dex */
 public class b extends com.sdk.base.framework.f.a {
     static {
         b.class.getName();
@@ -25,13 +25,13 @@ public class b extends com.sdk.base.framework.f.a {
                 String substring = str.substring(3);
                 str2 = substring.substring(0, substring.length() - 10);
             }
-            b = com.sdk.base.framework.a.a.c.a(str2).booleanValue() ? -1 : com.sdk.base.framework.a.a.c.a(str2).booleanValue() ? -1 : ("01".equals(str2) || "06".equals(str2) || "09".equals(str2)) ? g.b.b() : ("00".equals(str2) || "02".equals(str2) || "04".equals(str2) || "07".equals(str2)) ? g.a.b() : ("03".equals(str2) || "05".equals(str2) || "11".equals(str2)) ? g.c.b() : -1;
+            b = com.sdk.base.framework.a.a.c.a(str2).booleanValue() ? -1 : com.sdk.base.framework.a.a.c.a(str2).booleanValue() ? -1 : ("01".equals(str2) || "06".equals(str2) || "09".equals(str2)) ? g.b.b() : ("00".equals(str2) || "02".equals(str2) || "04".equals(str2) || "07".equals(str2)) ? g.f4502a.b() : ("03".equals(str2) || "05".equals(str2) || "11".equals(str2)) ? g.c.b() : -1;
             if (b == -1 && activeNetworkInfo != null) {
                 String typeName = activeNetworkInfo.getTypeName();
                 if (!"WIFI".equalsIgnoreCase(typeName) && "MOBILE".equalsIgnoreCase(typeName)) {
                     String extraInfo = activeNetworkInfo.getExtraInfo();
                     if ("cmnet".equals(extraInfo) || "cmwap".equals(extraInfo)) {
-                        b = g.a.b();
+                        b = g.f4502a.b();
                     } else if ("3gwap".equals(extraInfo) || "uniwap".equals(extraInfo) || "3gnet".equals(extraInfo) || "uninet".equals(extraInfo)) {
                         b = g.b.b();
                     } else if ("ctnet".equals(extraInfo) || "ctwap".equals(extraInfo)) {
@@ -47,8 +47,8 @@ public class b extends com.sdk.base.framework.f.a {
         if (b == g.c.b()) {
             return g.c.a();
         }
-        if (b == g.a.b()) {
-            return g.a.a();
+        if (b == g.f4502a.b()) {
+            return g.f4502a.a();
         }
         return "UNKOWN";
     }

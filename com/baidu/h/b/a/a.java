@@ -13,20 +13,20 @@ import com.baidu.h.a.b.f;
 import com.baidu.h.a.b.g;
 import java.util.ArrayList;
 import org.json.JSONArray;
-/* loaded from: classes23.dex */
+/* loaded from: classes15.dex */
 public class a implements c {
-    private BIMConversation bAX;
+    private BIMConversation bHz;
     private Context mContext;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public a(Context context, BIMConversation bIMConversation) {
         this.mContext = context;
-        this.bAX = bIMConversation;
+        this.bHz = bIMConversation;
     }
 
     @Override // com.baidu.h.a.b.c
     public void setPullInterval(int i) {
-        this.bAX.setPullInterval(i);
+        this.bHz.setPullInterval(i);
     }
 
     @Override // com.baidu.h.a.b.c
@@ -36,20 +36,20 @@ public class a implements c {
             j = Long.parseLong(str);
         } catch (Exception e) {
         }
-        this.bAX.registerLiveMsgReceiveListener(j, new ILiveMsgReceiveListener() { // from class: com.baidu.h.b.a.a.1
+        this.bHz.registerLiveMsgReceiveListener(j, new ILiveMsgReceiveListener() { // from class: com.baidu.h.b.a.a.1
             @Override // com.baidu.android.imsdk.mcast.ILiveMsgReceiveListener
             public void onReceiveMessage(int i, JSONArray jSONArray) {
                 if (eVar != null) {
-                    eVar.b(i, com.baidu.h.b.a.a.a.a.n(jSONArray));
+                    eVar.c(i, com.baidu.h.b.a.a.a.a.n(jSONArray));
                 }
             }
         });
     }
 
     @Override // com.baidu.h.a.b.c
-    public void hX(String str) {
+    public void iy(String str) {
         try {
-            this.bAX.unregisterLiveMsgReceiveListener(Long.parseLong(str));
+            this.bHz.unregisterLiveMsgReceiveListener(Long.parseLong(str));
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -57,7 +57,7 @@ public class a implements c {
 
     @Override // com.baidu.h.a.b.c
     public void a(final com.baidu.h.a.b.b bVar) {
-        this.bAX.beginWithCompletion(new IMcastSetListener() { // from class: com.baidu.h.b.a.a.2
+        this.bHz.beginWithCompletion(new IMcastSetListener() { // from class: com.baidu.h.b.a.a.2
             @Override // com.baidu.android.imsdk.mcast.IMcastSetListener
             public void onResult(int i, long j, long j2) {
                 if (bVar != null) {
@@ -69,7 +69,7 @@ public class a implements c {
 
     @Override // com.baidu.h.a.b.c
     public void b(final com.baidu.h.a.b.b bVar) {
-        this.bAX.endWithCompletion(new IMcastSetListener() { // from class: com.baidu.h.b.a.a.3
+        this.bHz.endWithCompletion(new IMcastSetListener() { // from class: com.baidu.h.b.a.a.3
             @Override // com.baidu.android.imsdk.mcast.IMcastSetListener
             public void onResult(int i, long j, long j2) {
                 if (bVar != null) {
@@ -81,18 +81,18 @@ public class a implements c {
 
     @Override // com.baidu.h.a.b.c
     public void a(Object obj, final g gVar, final f fVar) {
-        this.bAX.sendMessage(com.baidu.h.b.a.a.a.a.a(this.mContext, (com.baidu.h.a.b.a.e) obj), new ISendMessageStatusListener() { // from class: com.baidu.h.b.a.a.4
+        this.bHz.sendMessage(com.baidu.h.b.a.a.a.a.a(this.mContext, (com.baidu.h.a.b.a.e) obj), new ISendMessageStatusListener() { // from class: com.baidu.h.b.a.a.4
             @Override // com.baidu.android.imsdk.chatmessage.ISendMessageStatusListener
             public void onSendStatus(int i, ChatMsg chatMsg) {
                 if (gVar != null) {
-                    gVar.d(i, chatMsg);
+                    gVar.e(i, chatMsg);
                 }
             }
 
             @Override // com.baidu.android.imsdk.chatmessage.ISendMessageStatusListener
             public void onSendProgress(int i, ChatMsg chatMsg) {
                 if (gVar != null) {
-                    gVar.e(i, chatMsg);
+                    gVar.f(i, chatMsg);
                 }
             }
         }, new ISendMessageListener() { // from class: com.baidu.h.b.a.a.5
@@ -111,7 +111,7 @@ public class a implements c {
                 arrayList = new ArrayList();
                 arrayList.add(com.baidu.h.b.a.a.a.a.a(chatMsg));
             }
-            fVar.c(i, arrayList);
+            fVar.d(i, arrayList);
         }
     }
 
@@ -119,7 +119,7 @@ public class a implements c {
     public void quitLiveShow() {
     }
 
-    public BIMConversation Se() {
-        return this.bAX;
+    public BIMConversation TX() {
+        return this.bHz;
     }
 }

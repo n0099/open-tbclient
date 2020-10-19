@@ -2,7 +2,7 @@ package kotlin.jvm.internal;
 
 import java.io.Serializable;
 @kotlin.h
-/* loaded from: classes5.dex */
+/* loaded from: classes10.dex */
 public abstract class Lambda<R> implements Serializable, p<R> {
     private final int arity;
 
@@ -16,8 +16,8 @@ public abstract class Lambda<R> implements Serializable, p<R> {
     }
 
     public String toString() {
-        String a = t.a((Lambda) this);
-        q.l((Object) a, "Reflection.renderLambdaToString(this)");
-        return a;
+        String a2 = t.a((Lambda) this);
+        q.m(a2, "Reflection.renderLambdaToString(this)");
+        return a2;
     }
 }

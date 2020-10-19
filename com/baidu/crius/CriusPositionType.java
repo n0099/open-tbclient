@@ -2,7 +2,7 @@ package com.baidu.crius;
 
 import com.baidu.crius.proguard.annotations.DoNotStrip;
 @DoNotStrip
-/* loaded from: classes9.dex */
+/* loaded from: classes11.dex */
 public enum CriusPositionType {
     RELATIVE(0),
     ABSOLUTE(1);

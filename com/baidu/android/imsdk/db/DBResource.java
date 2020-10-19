@@ -10,11 +10,11 @@ import com.baidu.android.imsdk.account.AccountManagerImpl;
 import com.baidu.android.imsdk.upload.action.IMTrack;
 import com.baidu.android.imsdk.utils.LogUtils;
 import com.baidu.live.tbadk.pagestayduration.PageStayDurationHelper;
-/* loaded from: classes9.dex */
+/* loaded from: classes5.dex */
 public class DBResource {
     private static final String TAG = "DBManager";
     private static Context mContext;
-    private static DBResource sInstanceDbResource = new DBResource();
+    private static final DBResource sInstanceDbResource = new DBResource();
     private SQLiteDatabase mDatabase;
     private long appid = -1;
     private String mUid = null;
@@ -23,7 +23,9 @@ public class DBResource {
     }
 
     public static DBResource getInstance(Context context) {
-        mContext = context.getApplicationContext();
+        if (mContext == null) {
+            mContext = context.getApplicationContext();
+        }
         return sInstanceDbResource;
     }
 
@@ -81,7 +83,7 @@ public class DBResource {
         return this.mDatabase;
     }
 
-    public void closeDatabase() {
+    private void closeDatabase() {
         if (this.mDatabase != null) {
             this.mDatabase.close();
             this.mDatabase = null;

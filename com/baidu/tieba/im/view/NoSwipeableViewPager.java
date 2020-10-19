@@ -4,7 +4,7 @@ import android.content.Context;
 import android.support.v4.view.ViewPager;
 import android.util.AttributeSet;
 import android.view.MotionEvent;
-/* loaded from: classes22.dex */
+/* loaded from: classes23.dex */
 public class NoSwipeableViewPager extends ViewPager {
     public NoSwipeableViewPager(Context context) {
         super(context);

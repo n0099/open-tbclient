@@ -7,16 +7,18 @@ import android.util.Log;
 import com.baidu.android.imsdk.upload.action.IMTrack;
 import com.baidu.mobads.utils.XAdSDKFoundationFacade;
 import java.lang.Thread;
-/* loaded from: classes3.dex */
+/* loaded from: classes7.dex */
 public class q implements Thread.UncaughtExceptionHandler {
-    public static String a = "";
+
+    /* renamed from: a  reason: collision with root package name */
+    public static String f2344a = "";
     private static Thread.UncaughtExceptionHandler b;
     private static volatile q c;
     private Context d;
     private a e;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes3.dex */
+    /* loaded from: classes7.dex */
     public interface a {
         void a(String str);
     }
@@ -112,7 +114,7 @@ public class q implements Thread.UncaughtExceptionHandler {
         SharedPreferences.Editor d = d();
         d.putString("key_crash_source", str);
         d.putString("key_crash_trace", str2);
-        d.putString("key_crash_ad", a);
+        d.putString("key_crash_ad", f2344a);
         if (Build.VERSION.SDK_INT >= 9) {
             d.apply();
         } else {

@@ -1,6 +1,6 @@
 package com.baidu.sapi2.callback;
 
 import com.baidu.sapi2.result.SapiResult;
-/* loaded from: classes25.dex */
+/* loaded from: classes5.dex */
 public abstract class VerifyUserFaceIDCallback<R extends SapiResult> extends FaceIDCallback {
 }

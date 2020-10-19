@@ -11,19 +11,19 @@ import java.util.Iterator;
 import java.util.List;
 /* loaded from: classes.dex */
 public final class a {
-    private static a Hs;
+    private static a HI;
     private static ArrayList<SoftReference<Activity>> sActivityStack;
-    private InterfaceC0015a Ht;
+    private InterfaceC0016a HJ;
     private int mActivityStackMaxSize = 0;
 
     /* renamed from: com.baidu.adp.base.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    public interface InterfaceC0015a {
+    public interface InterfaceC0016a {
         void onActivityClosed();
     }
 
-    public void a(InterfaceC0015a interfaceC0015a) {
-        this.Ht = interfaceC0015a;
+    public void a(InterfaceC0016a interfaceC0016a) {
+        this.HJ = interfaceC0016a;
     }
 
     private a() {
@@ -32,11 +32,11 @@ public final class a {
         }
     }
 
-    public static a lf() {
-        if (Hs == null) {
-            Hs = new a();
+    public static a lg() {
+        if (HI == null) {
+            HI = new a();
         }
-        return Hs;
+        return HI;
     }
 
     public int getSize() {
@@ -117,8 +117,8 @@ public final class a {
         if (activity != null) {
             int size = sActivityStack.size();
             if (size == 0) {
-                if (this.Ht != null) {
-                    this.Ht.onActivityClosed();
+                if (this.HJ != null) {
+                    this.HJ.onActivityClosed();
                     return;
                 }
                 return;
@@ -129,13 +129,13 @@ public final class a {
                     sActivityStack.remove(i);
                 } else if (activity.equals(softReference.get())) {
                     sActivityStack.remove(i);
-                    if (sActivityStack.size() == 0 && this.Ht != null) {
-                        this.Ht.onActivityClosed();
+                    if (sActivityStack.size() == 0 && this.HJ != null) {
+                        this.HJ.onActivityClosed();
                         return;
                     }
                     return;
-                } else if (sActivityStack.size() == 0 && this.Ht != null) {
-                    this.Ht.onActivityClosed();
+                } else if (sActivityStack.size() == 0 && this.HJ != null) {
+                    this.HJ.onActivityClosed();
                 }
             }
         }
@@ -184,8 +184,8 @@ public final class a {
                 }
             }
         }
-        if (this.Ht != null) {
-            this.Ht.onActivityClosed();
+        if (this.HJ != null) {
+            this.HJ.onActivityClosed();
         }
     }
 
@@ -195,10 +195,10 @@ public final class a {
 
     private void checkAndMaintainActivityStack(int i) {
         if (i != 0) {
-            int size = lf().getSize();
+            int size = lg().getSize();
             while (size > i) {
                 size--;
-                Activity popActivity = lf().popActivity(1);
+                Activity popActivity = lg().popActivity(1);
                 if (popActivity != null) {
                     popActivity.finish();
                 }
@@ -206,7 +206,7 @@ public final class a {
         }
     }
 
-    public String lg() {
+    public String lh() {
         ActivityManager activityManager;
         List<ActivityManager.RunningTaskInfo> runningTasks;
         String str;

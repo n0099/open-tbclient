@@ -4,7 +4,7 @@ import com.baidu.sumeru.universalimageloader.core.assist.FlushedInputStream;
 import com.baidu.sumeru.universalimageloader.core.download.ImageDownloader;
 import java.io.IOException;
 import java.io.InputStream;
-/* loaded from: classes9.dex */
+/* loaded from: classes12.dex */
 public class SlowNetworkImageDownloader implements ImageDownloader {
     private final ImageDownloader wrappedDownloader;
 

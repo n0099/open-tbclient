@@ -6,20 +6,20 @@ import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.data.AbsThreadDataSupport;
 import com.baidu.tbadk.core.view.ThreadSmartAppLayout;
 import com.baidu.tieba.R;
-/* loaded from: classes20.dex */
+/* loaded from: classes21.dex */
 public class ai extends i {
-    private AbsThreadDataSupport afq;
-    private ThreadSmartAppLayout agM;
+    private AbsThreadDataSupport afH;
+    private ThreadSmartAppLayout ahd;
 
     public ai(Context context) {
         super(context);
         setTopMargin(com.baidu.adp.lib.util.l.getDimens(context, R.dimen.tbds21));
-        this.agM = new ThreadSmartAppLayout(context);
-        this.agM.setAfterClickListener(new View.OnClickListener() { // from class: com.baidu.card.ai.1
+        this.ahd = new ThreadSmartAppLayout(context);
+        this.ahd.setAfterClickListener(new View.OnClickListener() { // from class: com.baidu.card.ai.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
                 if (ai.this.tB() != null) {
-                    ai.this.tB().a(view, ai.this.afq);
+                    ai.this.tB().a(view, ai.this.afH);
                 }
             }
         });
@@ -28,21 +28,21 @@ public class ai extends i {
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.card.b
     public View getView() {
-        return this.agM;
+        return this.ahd;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.card.p
     /* renamed from: b */
-    public void G(AbsThreadDataSupport absThreadDataSupport) {
-        this.afq = absThreadDataSupport;
-        this.agM.G(absThreadDataSupport);
+    public void H(AbsThreadDataSupport absThreadDataSupport) {
+        this.afH = absThreadDataSupport;
+        this.ahd.H(absThreadDataSupport);
     }
 
     @Override // com.baidu.card.q
     public void onChangeSkinType(TbPageContext tbPageContext, int i) {
-        if (this.agM != null) {
-            this.agM.onChangeSkinType();
+        if (this.ahd != null) {
+            this.ahd.onChangeSkinType();
         }
     }
 }

@@ -1,5 +1,5 @@
 package com.baidu.ar.child;
-/* loaded from: classes10.dex */
+/* loaded from: classes14.dex */
 public class CropAlgo {
     static {
         com.baidu.ar.libloader.b.as("cropface");

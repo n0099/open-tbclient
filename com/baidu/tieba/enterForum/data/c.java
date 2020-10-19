@@ -1,8 +1,8 @@
 package com.baidu.tieba.enterForum.data;
-/* loaded from: classes21.dex */
+/* loaded from: classes22.dex */
 public class c implements com.baidu.tbadk.mvc.d.b {
-    public boolean hBb;
-    public boolean hBc;
-    public int hBd;
-    public int hBe;
+    public boolean hPW;
+    public boolean hPX;
+    public int hPY;
+    public int hPZ;
 }

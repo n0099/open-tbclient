@@ -9,19 +9,19 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes4.dex */
 public class AlaGiftPagerAdapter extends PagerAdapter {
-    private List<View> aSQ;
+    private List<View> aWb;
 
     public AlaGiftPagerAdapter(List<View> list) {
-        this.aSQ = new ArrayList();
-        this.aSQ = list;
+        this.aWb = new ArrayList();
+        this.aWb = list;
     }
 
     @Override // android.support.v4.view.PagerAdapter
     public int getCount() {
-        if (this.aSQ == null) {
+        if (this.aWb == null) {
             return 0;
         }
-        return this.aSQ.size();
+        return this.aWb.size();
     }
 
     @Override // android.support.v4.view.PagerAdapter
@@ -32,7 +32,7 @@ public class AlaGiftPagerAdapter extends PagerAdapter {
     @Override // android.support.v4.view.PagerAdapter
     public void destroyItem(ViewGroup viewGroup, int i, Object obj) {
         if (i >= 0 && i < getCount()) {
-            View view = this.aSQ.get(i);
+            View view = this.aWb.get(i);
             P(view);
             viewGroup.removeView(view);
         }
@@ -43,7 +43,7 @@ public class AlaGiftPagerAdapter extends PagerAdapter {
         if (i < 0 || i >= getCount()) {
             return null;
         }
-        View view = this.aSQ.get(i);
+        View view = this.aWb.get(i);
         viewGroup.addView(view);
         return view;
     }
@@ -61,8 +61,8 @@ public class AlaGiftPagerAdapter extends PagerAdapter {
                             View childAt = gridView.getChildAt(i3);
                             if (childAt != null) {
                                 Object tag = childAt.getTag();
-                                if (tag instanceof a.C0174a) {
-                                    ((a.C0174a) tag).recycle();
+                                if (tag instanceof a.C0181a) {
+                                    ((a.C0181a) tag).recycle();
                                 }
                             }
                             i = i3 + 1;

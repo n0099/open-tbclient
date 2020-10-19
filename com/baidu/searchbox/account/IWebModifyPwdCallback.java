@@ -1,7 +1,7 @@
 package com.baidu.searchbox.account;
 
 import com.baidu.searchbox.account.result.BoxSapiResult;
-/* loaded from: classes23.dex */
+/* loaded from: classes15.dex */
 public interface IWebModifyPwdCallback {
     void onFinish(BoxSapiResult boxSapiResult);
 }

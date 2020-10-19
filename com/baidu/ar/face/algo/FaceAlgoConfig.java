@@ -1,5 +1,5 @@
 package com.baidu.ar.face.algo;
-/* loaded from: classes10.dex */
+/* loaded from: classes14.dex */
 public class FaceAlgoConfig {
     boolean autoCalibrate;
     boolean debug;

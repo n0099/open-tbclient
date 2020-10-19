@@ -11,9 +11,11 @@ import java.util.Calendar;
 import java.util.HashMap;
 import java.util.Map;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes7.dex */
 public class a {
-    private static a a = null;
+
+    /* renamed from: a  reason: collision with root package name */
+    private static a f2982a = null;
     private d b;
     private com.baidu.platform.comapi.walknavi.d.a.a.a c;
     private String d;
@@ -23,14 +25,14 @@ public class a {
     }
 
     public static a a() {
-        if (a == null) {
+        if (f2982a == null) {
             synchronized (a.class) {
-                if (a == null) {
-                    a = new a();
+                if (f2982a == null) {
+                    f2982a = new a();
                 }
             }
         }
-        return a;
+        return f2982a;
     }
 
     public void a(Context context, com.baidu.platform.comapi.walknavi.d.a.a.a aVar) {
@@ -57,7 +59,7 @@ public class a {
     }
 
     private void a(Context context, Map<String, String> map) {
-        String str = com.baidu.platform.comapi.walknavi.d.a.g.d.a + com.baidu.platform.comapi.walknavi.d.a.g.d.c + "/count_ar";
+        String str = com.baidu.platform.comapi.walknavi.d.a.g.d.f2987a + com.baidu.platform.comapi.walknavi.d.a.g.d.c + "/count_ar";
         String uuid = new e(context).a().toString();
         JSONObject jSONObject = new JSONObject();
         try {
@@ -94,8 +96,8 @@ public class a {
             this.b.cancel(true);
             this.b = null;
         }
-        if (a != null) {
-            a = null;
+        if (f2982a != null) {
+            f2982a = null;
         }
         this.d = null;
     }

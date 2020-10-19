@@ -4,22 +4,22 @@ import android.app.Activity;
 import android.content.Context;
 import android.text.TextUtils;
 import org.json.JSONObject;
-/* loaded from: classes14.dex */
+/* loaded from: classes16.dex */
 public class c {
     private static final String TAG = c.class.getSimpleName();
-    private static volatile c bGB;
+    private static volatile c bNk;
 
-    public static synchronized c Ux() {
+    public static synchronized c Wu() {
         c cVar;
         synchronized (c.class) {
-            if (bGB == null) {
+            if (bNk == null) {
                 synchronized (c.class) {
-                    if (bGB == null) {
-                        bGB = new c();
+                    if (bNk == null) {
+                        bNk = new c();
                     }
                 }
             }
-            cVar = bGB;
+            cVar = bNk;
         }
         return cVar;
     }
@@ -31,7 +31,7 @@ public class c {
         if (TextUtils.isEmpty(str)) {
             return false;
         }
-        b.Uw().e(activity, str, aVar);
+        b.Wt().e(activity, str, aVar);
         return true;
     }
 
@@ -39,7 +39,7 @@ public class c {
         if (TextUtils.isEmpty(str)) {
             return false;
         }
-        b.Uw().f(activity, str, aVar);
+        b.Wt().f(activity, str, aVar);
         return true;
     }
 
@@ -47,7 +47,7 @@ public class c {
         if (jSONObject == null) {
             return false;
         }
-        b.Uw().b(context, jSONObject, aVar);
+        b.Wt().b(context, jSONObject, aVar);
         return true;
     }
 
@@ -55,7 +55,7 @@ public class c {
         if (jSONObject == null) {
             return false;
         }
-        b.Uw().g(context, jSONObject);
+        b.Wt().g(context, jSONObject);
         return true;
     }
 
@@ -63,7 +63,7 @@ public class c {
         if (jSONObject == null) {
             return false;
         }
-        b.Uw().b(activity, jSONObject, aVar);
+        b.Wt().b(activity, jSONObject, aVar);
         return true;
     }
 }

@@ -3,9 +3,11 @@ package com.baidu.fsg.base.router;
 import java.util.HashMap;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes15.dex */
+/* loaded from: classes16.dex */
 public class RouterRequest {
-    private static final String a = "RouterRequest";
+
+    /* renamed from: a  reason: collision with root package name */
+    private static final String f1480a = "RouterRequest";
     private String b = "";
     private String c = "";
     private HashMap d = new HashMap();

@@ -6,9 +6,11 @@ import java.io.File;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
-/* loaded from: classes3.dex */
+/* loaded from: classes7.dex */
 public final class g {
-    private static volatile g a = null;
+
+    /* renamed from: a  reason: collision with root package name */
+    private static volatile g f2250a = null;
     private boolean b = false;
     private boolean c = true;
     private final List<f> d = new ArrayList();
@@ -18,14 +20,14 @@ public final class g {
     }
 
     public static g a() {
-        if (a == null) {
+        if (f2250a == null) {
             synchronized (g.class) {
-                if (a == null) {
-                    a = new g();
+                if (f2250a == null) {
+                    f2250a = new g();
                 }
             }
         }
-        return a;
+        return f2250a;
     }
 
     private boolean a(String str) {

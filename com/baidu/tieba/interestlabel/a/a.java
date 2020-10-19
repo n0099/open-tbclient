@@ -8,9 +8,9 @@ import com.baidu.tbadk.core.util.y;
 import com.baidu.tieba.interestlabel.view.LabelItemView;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes22.dex */
+/* loaded from: classes23.dex */
 public class a extends BaseAdapter {
-    private List<com.baidu.tieba.interestlabel.b.a> jTH = new ArrayList();
+    private List<com.baidu.tieba.interestlabel.b.a> kiH = new ArrayList();
     private Context mContext;
     private View.OnClickListener mOnClickListener;
 
@@ -20,7 +20,7 @@ public class a extends BaseAdapter {
 
     public void setData(List<com.baidu.tieba.interestlabel.b.a> list) {
         if (!y.isEmpty(list)) {
-            this.jTH = list;
+            this.kiH = list;
             notifyDataSetChanged();
         }
     }
@@ -31,7 +31,7 @@ public class a extends BaseAdapter {
 
     @Override // android.widget.Adapter
     public int getCount() {
-        int size = this.jTH.size();
+        int size = this.kiH.size();
         if (size % 3 == 0) {
             return size / 3;
         }
@@ -57,7 +57,7 @@ public class a extends BaseAdapter {
             labelItemView = (LabelItemView) view;
         }
         int i2 = i * 3;
-        labelItemView.setData(this.jTH.subList(i2, Math.min(this.jTH.size(), i2 + 3)), i == getCount() + (-1));
+        labelItemView.setData(this.kiH.subList(i2, Math.min(this.kiH.size(), i2 + 3)), i == getCount() + (-1));
         labelItemView.setOnClickListener(this.mOnClickListener);
         return labelItemView;
     }

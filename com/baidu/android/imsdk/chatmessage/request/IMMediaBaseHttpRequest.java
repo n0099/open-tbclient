@@ -17,7 +17,7 @@ import java.util.TreeSet;
 import org.apache.http.cookie.SM;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes9.dex */
+/* loaded from: classes5.dex */
 abstract class IMMediaBaseHttpRequest extends BaseHttpRequest {
     private static final String TAG = "IMMediaBaseHttpRequest";
 
@@ -32,7 +32,7 @@ abstract class IMMediaBaseHttpRequest extends BaseHttpRequest {
     public String getHostUrl() {
         switch (Utility.readIntData(this.mContext, Constants.KEY_ENV, 0)) {
             case 0:
-                return Constants.URL_HTTP_ONLINE;
+                return "https://pim.baidu.com/";
             case 1:
                 return "http://cp01-ocean-749.epc.baidu.com:8111/";
             case 2:

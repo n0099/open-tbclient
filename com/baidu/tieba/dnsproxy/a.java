@@ -7,48 +7,48 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import java.util.Random;
 /* loaded from: classes13.dex */
 public class a {
-    private static final String[] hxP = {"119.75.222.62", "119.75.222.63"};
-    private static final String[] hxQ = {"111.13.100.247", "117.185.16.61"};
-    private static final String[] hxR = {"111.206.37.190"};
-    private static final String[] hxS = {"115.239.211.146", "180.97.33.196"};
-    private volatile int djm;
-    private volatile String hxO;
+    private static final String[] hMK = {"119.75.222.62", "119.75.222.63"};
+    private static final String[] hML = {"111.13.100.247", "117.185.16.61"};
+    private static final String[] hMM = {"111.206.37.190"};
+    private static final String[] hMN = {"115.239.211.146", "180.97.33.196"};
+    private volatile int dvs;
+    private volatile String hMJ;
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public String cgO() {
-        cgP();
+    public String ckk() {
+        ckl();
         if (j.isWifiNet()) {
-            return hxS[new Random().nextInt(hxS.length)];
+            return hMN[new Random().nextInt(hMN.length)];
         }
         if (j.isMobileNet()) {
-            if (this.djm == 1) {
-                return hxP[new Random().nextInt(hxP.length)];
+            if (this.dvs == 1) {
+                return hMK[new Random().nextInt(hMK.length)];
             }
-            if (this.djm == 2) {
-                return hxQ[new Random().nextInt(hxQ.length)];
+            if (this.dvs == 2) {
+                return hML[new Random().nextInt(hML.length)];
             }
-            if (this.djm == 3) {
-                return hxR[new Random().nextInt(hxR.length)];
+            if (this.dvs == 3) {
+                return hMM[new Random().nextInt(hMM.length)];
             }
             return "119.75.222.62";
         }
         return "119.75.222.62";
     }
 
-    protected void cgP() {
+    protected void ckl() {
         try {
-            this.hxO = ((TelephonyManager) TbadkCoreApplication.getInst().getContext().getSystemService("phone")).getSubscriberId();
+            this.hMJ = ((TelephonyManager) TbadkCoreApplication.getInst().getContext().getSystemService("phone")).getSubscriberId();
         } catch (Exception e) {
             BdLog.e(e);
         }
-        this.djm = 0;
-        if (this.hxO != null) {
-            if (this.hxO.startsWith("46000") || this.hxO.startsWith("46002") || this.hxO.startsWith("46007")) {
-                this.djm = 1;
-            } else if (this.hxO.startsWith("46001") || this.hxO.startsWith("46006")) {
-                this.djm = 2;
-            } else if (this.hxO.startsWith("46003") || this.hxO.startsWith("46005")) {
-                this.djm = 3;
+        this.dvs = 0;
+        if (this.hMJ != null) {
+            if (this.hMJ.startsWith("46000") || this.hMJ.startsWith("46002") || this.hMJ.startsWith("46007")) {
+                this.dvs = 1;
+            } else if (this.hMJ.startsWith("46001") || this.hMJ.startsWith("46006")) {
+                this.dvs = 2;
+            } else if (this.hMJ.startsWith("46003") || this.hMJ.startsWith("46005")) {
+                this.dvs = 3;
             }
         }
     }

@@ -36,9 +36,11 @@ import com.baidu.webkit.sdk.PermissionRequest;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
-/* loaded from: classes3.dex */
+/* loaded from: classes7.dex */
 public class a {
-    private static IWTTSPlayer a;
+
+    /* renamed from: a  reason: collision with root package name */
+    private static IWTTSPlayer f2169a;
     private static com.baidu.platform.comapi.wnplatform.n.c h = new e();
     private FrameLayout c;
     private RelativeLayout d;
@@ -80,7 +82,7 @@ public class a {
     }
 
     public void a(IWTTSPlayer iWTTSPlayer) {
-        a = iWTTSPlayer;
+        f2169a = iWTTSPlayer;
     }
 
     public void a(WLocData wLocData) {
@@ -193,8 +195,8 @@ public class a {
     }
 
     public void e() {
-        if (a != null) {
-            a = null;
+        if (f2169a != null) {
+            f2169a = null;
         }
         if (this.b != null) {
             this.b.getMap().clear();
@@ -315,10 +317,10 @@ public class a {
         if (Q == null) {
             return null;
         }
-        if (Q.vI() > 0) {
-            int vI = Q.vI();
+        if (Q.vR() > 0) {
+            int vR = Q.vR();
             ArrayList arrayList2 = new ArrayList();
-            for (int i = 0; i < vI; i++) {
+            for (int i = 0; i < vR; i++) {
                 ArrayList<LatLng> b = g.b(Q, i);
                 if (b.size() >= 2) {
                     PolylineOptions polylineOptions = new PolylineOptions();

@@ -24,14 +24,14 @@ public class e extends Dialog {
         if (UtilHelper.getRealScreenOrientation(getContext()) == 2) {
             getWindow().setFlags(8, 8);
             super.show();
-            ac(getWindow().getDecorView());
+            ad(getWindow().getDecorView());
             getWindow().clearFlags(8);
             return;
         }
         super.show();
     }
 
-    private void ac(View view) {
+    private void ad(View view) {
         if (Build.VERSION.SDK_INT >= 19) {
             view.setSystemUiVisibility(5894);
         }

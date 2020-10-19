@@ -1,47 +1,57 @@
 package com.baidu.android.imsdk.upload;
 
 import android.content.Context;
+import android.net.Uri;
 import android.os.AsyncTask;
 import android.text.TextUtils;
 import android.util.Log;
 import com.baidu.android.imsdk.upload.action.IMTrack;
 import com.baidu.android.imsdk.utils.LogUtils;
+import com.baidu.android.imsdk.utils.Utility;
 import com.baidubce.http.Headers;
+import java.io.DataOutputStream;
 import java.io.File;
+import java.io.FileInputStream;
+import java.io.IOException;
+import java.io.InputStream;
+import java.net.HttpURLConnection;
+import java.net.MalformedURLException;
+import java.net.ProtocolException;
+import java.net.URL;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Locale;
-import java.util.Timer;
-import java.util.TimerTask;
-import org.apache.http.HttpResponse;
 import org.apache.http.client.methods.HttpPut;
-import org.apache.http.client.params.HttpClientParams;
-import org.apache.http.impl.client.DefaultHttpClient;
-import org.apache.http.params.BasicHttpParams;
-import org.apache.http.params.HttpConnectionParams;
-/* loaded from: classes9.dex */
+import org.apache.http.protocol.HTTP;
+/* loaded from: classes5.dex */
 public class AsyncUploadTask extends AsyncTask<Void, Integer, Integer> {
-    private static final int RESPONSE_TIMEOUT = 6000;
+    private static final int DOWNLOAD_BYTES_SIZE = 8192;
     public static final String TAG = AsyncUploadTask.class.getSimpleName();
-    private static final int UPLOAD_TIMEOUT = 30000;
-    private AsyncChatTask mAsycChatTask;
     private String mAuthorization;
     private String mContentType;
     private Context mContext;
     private String mFilePath;
+    private IUploadTransferListener mListener;
+    private String mRemoteUrl;
     private int mType;
     private String mUrl;
     private String mXbcs;
 
-    public AsyncUploadTask(Context context, int i, String str, String str2, String str3, String str4, String str5, AsyncChatTask asyncChatTask) {
+    public AsyncUploadTask(Context context, int i, String str, String str2, String str3, String str4, String str5, IUploadTransferListener iUploadTransferListener) {
+        this.mRemoteUrl = "";
         this.mContext = context;
-        this.mAsycChatTask = asyncChatTask;
+        this.mListener = iUploadTransferListener;
         this.mUrl = str;
         this.mType = i;
         this.mFilePath = str2;
         this.mContentType = str3;
         this.mAuthorization = str4;
         this.mXbcs = str5;
+    }
+
+    public AsyncUploadTask(Context context, int i, String str, String str2, String str3, String str4, String str5, String str6, IUploadTransferListener iUploadTransferListener) {
+        this(context, i, str, str3, str4, str5, str6, iUploadTransferListener);
+        this.mRemoteUrl = str2;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -58,50 +68,78 @@ public class AsyncUploadTask extends AsyncTask<Void, Integer, Integer> {
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // android.os.AsyncTask
     public void onProgressUpdate(Integer... numArr) {
-        this.mAsycChatTask.onProgress(numArr[0].intValue());
+        if (this.mListener != null) {
+            this.mListener.onProgress(numArr[0].intValue());
+        }
     }
 
     private Integer doUpload() {
-        int i;
+        long length;
+        FileInputStream fileInputStream;
+        long j = 0;
         try {
-            File file = new File(this.mFilePath);
-            if (!file.exists() || file.isDirectory()) {
-                i = 1007;
-            } else {
-                BasicHttpParams basicHttpParams = new BasicHttpParams();
-                HttpConnectionParams.setConnectionTimeout(basicHttpParams, 6000);
-                HttpConnectionParams.setSoTimeout(basicHttpParams, 6000);
-                HttpClientParams.setRedirecting(basicHttpParams, true);
-                HttpConnectionParams.setTcpNoDelay(basicHttpParams, true);
-                DefaultHttpClient defaultHttpClient = new DefaultHttpClient(basicHttpParams);
-                final HttpPut httpPut = new HttpPut(this.mUrl);
-                httpPut.addHeader("Content-type", this.mContentType);
-                httpPut.addHeader("Authorization", this.mAuthorization);
-                httpPut.addHeader(Headers.BCE_DATE, this.mXbcs);
-                IMUpLoadFileEntity iMUpLoadFileEntity = new IMUpLoadFileEntity(file, "UTF-8");
-                iMUpLoadFileEntity.setTransferListener(this.mAsycChatTask);
-                httpPut.setEntity(iMUpLoadFileEntity);
-                Timer timer = new Timer();
-                timer.schedule(new TimerTask() { // from class: com.baidu.android.imsdk.upload.AsyncUploadTask.1
-                    @Override // java.util.TimerTask, java.lang.Runnable
-                    public void run() {
-                        httpPut.abort();
-                    }
-                }, 30000L);
-                HttpResponse execute = defaultHttpClient.execute(httpPut);
-                timer.cancel();
-                if (execute.getStatusLine().getStatusCode() == 200 || execute.getStatusLine().getStatusCode() == 201) {
-                    LogUtils.i(TAG, "upload success " + execute.getStatusLine().getStatusCode());
-                    i = 0;
+            if (Utility.isMediaUri(this.mFilePath)) {
+                InputStream openInputStream = this.mContext.getContentResolver().openInputStream(Uri.parse(this.mFilePath));
+                if (openInputStream != null) {
+                    length = openInputStream.available();
+                    fileInputStream = openInputStream;
                 } else {
-                    LogUtils.e(TAG, "upload failure " + execute.getStatusLine());
-                    i = 1008;
+                    fileInputStream = openInputStream;
+                    length = 0;
                 }
+            } else {
+                File file = new File(this.mFilePath);
+                if (!file.exists() || file.isDirectory()) {
+                    return 1007;
+                }
+                length = file.length();
+                fileInputStream = new FileInputStream(this.mFilePath);
             }
-            return i;
-        } catch (Exception e) {
-            LogUtils.e(LogUtils.TAG, "Exception:" + e);
-            new IMTrack.CrashBuilder(this.mContext).exception(Log.getStackTraceString(e)).build();
+            if (fileInputStream == null) {
+                return 1007;
+            }
+            LogUtils.d(TAG, "upload url is " + this.mUrl);
+            HttpURLConnection httpURLConnection = (HttpURLConnection) new URL(this.mUrl).openConnection();
+            httpURLConnection.setDoInput(true);
+            httpURLConnection.setDoOutput(true);
+            httpURLConnection.setUseCaches(false);
+            httpURLConnection.setRequestMethod(HttpPut.METHOD_NAME);
+            httpURLConnection.setRequestProperty(HTTP.CONN_DIRECTIVE, HTTP.CONN_KEEP_ALIVE);
+            httpURLConnection.setRequestProperty("Charset", "utf-8");
+            httpURLConnection.setRequestProperty("Content-type", this.mContentType);
+            httpURLConnection.setRequestProperty("Authorization", this.mAuthorization);
+            httpURLConnection.setRequestProperty(Headers.BCE_DATE, this.mXbcs);
+            DataOutputStream dataOutputStream = new DataOutputStream(httpURLConnection.getOutputStream());
+            byte[] bArr = new byte[8192];
+            long currentTimeMillis = System.currentTimeMillis();
+            while (true) {
+                int read = fileInputStream.read(bArr);
+                if (read == -1) {
+                    break;
+                }
+                dataOutputStream.write(bArr, 0, read);
+                j += read;
+                LogUtils.d(TAG, "write bytes:" + read + "  total:" + j + "  time:" + (((float) (System.currentTimeMillis() - currentTimeMillis)) / 1000.0f));
+                onProgressUpdate(Integer.valueOf((int) ((100 * j) / length)));
+            }
+            fileInputStream.close();
+            dataOutputStream.flush();
+            dataOutputStream.close();
+            int responseCode = httpURLConnection.getResponseCode();
+            if (responseCode == 200) {
+                LogUtils.i(TAG, "upload success " + responseCode);
+                return 0;
+            }
+            LogUtils.e(TAG, "upload failure " + responseCode);
+            return 1008;
+        } catch (MalformedURLException e) {
+            Log.e(TAG, "MalformedURLException:" + e);
+            return 1008;
+        } catch (ProtocolException e2) {
+            Log.e(TAG, "ProtocolException:" + e2);
+            return 1008;
+        } catch (IOException e3) {
+            Log.e(TAG, "IOException:" + e3);
             return 1008;
         }
     }
@@ -119,8 +157,8 @@ public class AsyncUploadTask extends AsyncTask<Void, Integer, Integer> {
 
     private void notifyFailed(int i) {
         try {
-            if (this.mAsycChatTask != null) {
-                this.mAsycChatTask.onFailed(i, this.mType, this.mFilePath);
+            if (this.mListener != null) {
+                this.mListener.onFailed(i, this.mType, this.mFilePath);
             }
         } catch (Exception e) {
             LogUtils.e(TAG, "notifyFailed", e);
@@ -130,8 +168,8 @@ public class AsyncUploadTask extends AsyncTask<Void, Integer, Integer> {
 
     private void notifyFinished() {
         try {
-            if (this.mAsycChatTask != null) {
-                this.mAsycChatTask.onFinished(this.mType, this.mFilePath);
+            if (this.mListener != null) {
+                this.mListener.onFinished(this.mType, this.mRemoteUrl);
             }
         } catch (Exception e) {
             LogUtils.e(TAG, "notifyFinished", e);

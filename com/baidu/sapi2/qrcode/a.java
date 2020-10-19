@@ -1,7 +1,9 @@
 package com.baidu.sapi2.qrcode;
-/* loaded from: classes7.dex */
+/* loaded from: classes19.dex */
 public final class a {
-    public static final boolean a = false;
+
+    /* renamed from: a  reason: collision with root package name */
+    public static final boolean f3484a = false;
     public static final String b = "com.baidu.sapi2.qrcode";
     @Deprecated
     public static final String c = "com.baidu.sapi2.qrcode";

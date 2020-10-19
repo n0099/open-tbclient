@@ -1,14 +1,16 @@
 package com.baidu.mobads.g;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes3.dex */
+/* loaded from: classes7.dex */
 public class k implements Runnable {
-    final /* synthetic */ boolean a;
+
+    /* renamed from: a  reason: collision with root package name */
+    final /* synthetic */ boolean f2338a;
     final /* synthetic */ g b;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public k(g gVar, boolean z) {
         this.b = gVar;
-        this.a = z;
+        this.f2338a = z;
     }
 
     @Override // java.lang.Runnable

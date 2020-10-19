@@ -1,5 +1,5 @@
 package com.baidu.crius;
-/* loaded from: classes9.dex */
+/* loaded from: classes11.dex */
 public class CriusMeasureOutput {
     public static long make(float f, float f2) {
         int floatToRawIntBits = Float.floatToRawIntBits(f);

@@ -10,7 +10,7 @@ import com.baidu.ar.arplay.representation.Vector3f;
 import com.baidu.ar.arrender.k;
 import com.baidu.ar.arrender.l;
 import java.util.HashMap;
-/* loaded from: classes10.dex */
+/* loaded from: classes14.dex */
 public class g implements d {
     private int mPreviewHeight;
     private int mPreviewWidth;
@@ -81,10 +81,10 @@ public class g implements d {
             f = bVar.y;
             f2 = f3;
         }
-        String a = a(this.ym);
+        String a2 = a(this.ym);
         if (bVar.type == 3) {
             this.yn.hi();
-            a(a, (int) f2, (int) f, null, (int) bVar.yk);
+            a(a2, (int) f2, (int) f, null, (int) bVar.yk);
             this.ys = new Runnable() { // from class: com.baidu.ar.vo.c.g.1
                 @Override // java.lang.Runnable
                 public void run() {
@@ -95,7 +95,7 @@ public class g implements d {
             };
         } else if (bVar.type == 2) {
             this.yn.hi();
-            a(a, (int) f2, (int) f, null, (int) bVar.yk);
+            a(a2, (int) f2, (int) f, null, (int) bVar.yk);
             this.ys = new Runnable() { // from class: com.baidu.ar.vo.c.g.2
                 @Override // java.lang.Runnable
                 public void run() {

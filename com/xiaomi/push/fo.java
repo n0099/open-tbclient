@@ -6,44 +6,46 @@ import java.io.InputStreamReader;
 import org.xmlpull.v1.XmlPullParser;
 import org.xmlpull.v1.XmlPullParserException;
 import org.xmlpull.v1.XmlPullParserFactory;
-/* loaded from: classes9.dex */
+/* loaded from: classes12.dex */
 public class fo {
-    private XmlPullParser a;
+
+    /* renamed from: a  reason: collision with root package name */
+    private XmlPullParser f4908a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public fo() {
         try {
-            this.a = XmlPullParserFactory.newInstance().newPullParser();
-            this.a.setFeature("http://xmlpull.org/v1/doc/features.html#process-namespaces", true);
+            this.f4908a = XmlPullParserFactory.newInstance().newPullParser();
+            this.f4908a.setFeature("http://xmlpull.org/v1/doc/features.html#process-namespaces", true);
         } catch (XmlPullParserException e) {
         }
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public gj a(byte[] bArr, fs fsVar) {
-        this.a.setInput(new InputStreamReader(new ByteArrayInputStream(bArr)));
-        this.a.next();
-        int eventType = this.a.getEventType();
-        String name = this.a.getName();
+        this.f4908a.setInput(new InputStreamReader(new ByteArrayInputStream(bArr)));
+        this.f4908a.next();
+        int eventType = this.f4908a.getEventType();
+        String name = this.f4908a.getName();
         if (eventType == 2) {
             if (name.equals("message")) {
-                return gr.a(this.a);
+                return gr.a(this.f4908a);
             }
             if (name.equals("iq")) {
-                return gr.a(this.a, fsVar);
+                return gr.a(this.f4908a, fsVar);
             }
             if (name.equals("presence")) {
-                return gr.m323a(this.a);
+                return gr.m324a(this.f4908a);
             }
-            if (!this.a.getName().equals("stream")) {
-                if (this.a.getName().equals(BdStatsConstant.StatsType.ERROR)) {
-                    throw new gd(gr.m324a(this.a));
+            if (!this.f4908a.getName().equals("stream")) {
+                if (this.f4908a.getName().equals(BdStatsConstant.StatsType.ERROR)) {
+                    throw new gd(gr.m325a(this.f4908a));
                 }
-                if (this.a.getName().equals("warning")) {
-                    this.a.next();
-                    if (this.a.getName().equals("multi-login")) {
+                if (this.f4908a.getName().equals("warning")) {
+                    this.f4908a.next();
+                    if (this.f4908a.getName().equals("multi-login")) {
                     }
-                } else if (this.a.getName().equals("bind")) {
+                } else if (this.f4908a.getName().equals("bind")) {
                 }
             }
         }

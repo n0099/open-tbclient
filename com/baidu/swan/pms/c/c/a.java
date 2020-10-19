@@ -4,43 +4,43 @@ import com.baidu.swan.pms.model.PMSAppInfo;
 import com.baidu.swan.pms.model.f;
 import com.baidu.swan.pms.model.g;
 import java.util.List;
-/* loaded from: classes24.dex */
+/* loaded from: classes15.dex */
 public class a {
-    public List<C0515a> dIi;
+    public List<C0532a> dUj;
 
     /* renamed from: com.baidu.swan.pms.c.c.a$a  reason: collision with other inner class name */
-    /* loaded from: classes24.dex */
-    public static class C0515a {
+    /* loaded from: classes15.dex */
+    public static class C0532a {
         public int category;
-        public String dHr;
-        public f dIj;
-        public List<g> dIk;
-        public PMSAppInfo dIl;
-        public boolean dIm;
+        public String dTs;
+        public f dUk;
+        public List<g> dUl;
+        public PMSAppInfo dUm;
+        public boolean dUn;
         public int errorCode;
 
         public boolean equals(Object obj) {
             if (super.equals(obj)) {
                 return true;
             }
-            if (obj == null || this.dIj == null || !(obj instanceof C0515a)) {
+            if (obj == null || this.dUk == null || !(obj instanceof C0532a)) {
                 return false;
             }
-            return this.dIj.equals(((C0515a) obj).dIj);
+            return this.dUk.equals(((C0532a) obj).dUk);
         }
 
         public int hashCode() {
-            return this.dIj == null ? super.hashCode() : this.dIj.hashCode();
+            return this.dUk == null ? super.hashCode() : this.dUk.hashCode();
         }
 
         public String toString() {
             StringBuilder sb = new StringBuilder();
-            sb.append("PMS Item: ").append(this.dHr);
-            if (this.dIj != null) {
-                sb.append(",pkgMain=").append(this.dIj);
+            sb.append("PMS Item: ").append(this.dTs);
+            if (this.dUk != null) {
+                sb.append(",pkgMain=").append(this.dUk);
             }
-            if (this.dIl != null) {
-                sb.append(",appInfo=").append(this.dIl);
+            if (this.dUm != null) {
+                sb.append(",appInfo=").append(this.dUm);
             }
             return sb.toString();
         }

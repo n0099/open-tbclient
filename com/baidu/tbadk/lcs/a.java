@@ -8,12 +8,12 @@ import com.baidu.tbadk.core.sharedPref.b;
 import com.baidu.tbadk.task.TbHttpMessageTask;
 /* loaded from: classes.dex */
 public class a {
-    private static boolean eSc;
+    private static boolean fek;
 
     static {
-        eSc = false;
-        eSc = b.bjf().getInt("key_lcs_log_switch", 0) == 1;
-        if (eSc) {
+        fek = false;
+        fek = b.blO().getInt("key_lcs_log_switch", 0) == 1;
+        if (fek) {
             registerTask();
         }
     }
@@ -31,7 +31,7 @@ public class a {
     }
 
     public static void e(int i, int i2, int i3, int i4, int i5, int i6) {
-        if (eSc) {
+        if (fek) {
             HttpMessage httpMessage = new HttpMessage(CmdConfigHttp.CMD_LCS_STATISTICS);
             httpMessage.addParam("cmd", i);
             httpMessage.addParam("lcs_status", i2);

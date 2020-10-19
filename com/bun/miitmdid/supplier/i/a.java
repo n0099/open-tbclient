@@ -4,7 +4,9 @@ import android.content.Context;
 import java.lang.reflect.Method;
 /* loaded from: classes11.dex */
 public class a {
-    private static Object a;
+
+    /* renamed from: a  reason: collision with root package name */
+    private static Object f3995a;
     private static Class<?> b;
     private static Method c;
     private static Method d;
@@ -16,7 +18,7 @@ public class a {
         e = null;
         try {
             b = Class.forName("com.android.id.impl.IdProviderImpl");
-            a = b.newInstance();
+            f3995a = b.newInstance();
         } catch (Exception e2) {
             com.bun.miitmdid.utils.a.a("IdentifierManager", "reflect exception!", e2);
         }
@@ -42,9 +44,9 @@ public class a {
     }
 
     private static String a(Context context, Method method) {
-        if (a != null && method != null) {
+        if (f3995a != null && method != null) {
             try {
-                Object invoke = method.invoke(a, context);
+                Object invoke = method.invoke(f3995a, context);
                 if (invoke != null) {
                     return (String) invoke;
                 }
@@ -56,7 +58,7 @@ public class a {
     }
 
     public static boolean a() {
-        return (b == null || a == null) ? false : true;
+        return (b == null || f3995a == null) ? false : true;
     }
 
     public static String b(Context context) {

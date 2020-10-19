@@ -5,24 +5,24 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class m implements h {
-    private OrmObject JM;
+    private OrmObject Kc;
 
     public m(OrmObject ormObject) {
-        this.JM = ormObject;
+        this.Kc = ormObject;
     }
 
     @Override // com.baidu.adp.lib.OrmObject.toolsystem.orm.a.h
     public Object a(com.baidu.adp.lib.OrmObject.toolsystem.orm.d.c cVar) {
-        return OrmObject.jsonWithObject(this.JM);
+        return OrmObject.jsonWithObject(this.Kc);
     }
 
     @Override // com.baidu.adp.lib.OrmObject.toolsystem.orm.a.h
     public Object b(com.baidu.adp.lib.OrmObject.toolsystem.orm.d.c cVar) {
-        Object a = a(cVar);
-        if (a == null || !(a instanceof JSONObject)) {
+        Object a2 = a(cVar);
+        if (a2 == null || !(a2 instanceof JSONObject)) {
             return null;
         }
-        return a.toString();
+        return a2.toString();
     }
 
     @Override // com.baidu.adp.lib.OrmObject.toolsystem.orm.a.h
@@ -32,26 +32,26 @@ public class m implements h {
 
     @Override // com.baidu.adp.lib.OrmObject.toolsystem.orm.a.h
     public Object d(com.baidu.adp.lib.OrmObject.toolsystem.orm.d.c cVar) {
-        return this.JM;
+        return this.Kc;
     }
 
     @Override // com.baidu.adp.lib.OrmObject.toolsystem.orm.a.h
     public Object e(com.baidu.adp.lib.OrmObject.toolsystem.orm.d.c cVar) {
-        Object a = a(cVar);
-        if (a != null) {
-            if (a instanceof JSONObject) {
-                return a.toString();
+        Object a2 = a(cVar);
+        if (a2 != null) {
+            if (a2 instanceof JSONObject) {
+                return a2.toString();
             }
-            if (a instanceof JSONArray) {
-                return a.toString();
+            if (a2 instanceof JSONArray) {
+                return a2.toString();
             }
-            return a;
+            return a2;
         }
         return null;
     }
 
     @Override // com.baidu.adp.lib.OrmObject.toolsystem.orm.a.h
     public Object f(com.baidu.adp.lib.OrmObject.toolsystem.orm.d.c cVar) {
-        return this.JM;
+        return this.Kc;
     }
 }

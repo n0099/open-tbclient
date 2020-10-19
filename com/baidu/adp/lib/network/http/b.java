@@ -33,21 +33,21 @@ import javax.net.ssl.SSLSession;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class b {
-    private e If;
-    private HttpURLConnection KY;
+    private e Iv;
+    private HttpURLConnection Lo;
     private static Pattern mPattern = Pattern.compile("^[0]{0,1}10\\.[0]{1,3}\\.[0]{1,3}\\.(172|200)$", 8);
     private static String boundary = "--------7da3d81520810*";
-    private long KZ = 0;
-    private long La = 0;
+    private long Lp = 0;
+    private long Lq = 0;
     private long firstByteReachTime = 0;
-    private long Lb = 0;
-    private long Lc = 0;
-    private boolean Ld = false;
-    private boolean Le = true;
-    private boolean Lf = true;
-    private boolean Lg = true;
-    private int Lh = 0;
-    private TimerTask Li = new TimerTask() { // from class: com.baidu.adp.lib.network.http.b.1
+    private long Lr = 0;
+    private long Ls = 0;
+    private boolean Lt = false;
+    private boolean Lu = true;
+    private boolean Lv = true;
+    private boolean Lw = true;
+    private int Lx = 0;
+    private TimerTask Ly = new TimerTask() { // from class: com.baidu.adp.lib.network.http.b.1
         @Override // java.util.TimerTask, java.lang.Runnable
         public void run() {
             try {
@@ -57,11 +57,11 @@ public class b {
             }
         }
     };
-    private TimerTask Lj = new TimerTask() { // from class: com.baidu.adp.lib.network.http.b.2
+    private TimerTask Lz = new TimerTask() { // from class: com.baidu.adp.lib.network.http.b.2
         @Override // java.util.TimerTask, java.lang.Runnable
         public void run() {
             try {
-                com.baidu.adp.lib.f.a.close(b.this.KY);
+                com.baidu.adp.lib.f.a.close(b.this.Lo);
             } catch (Exception e) {
                 e.printStackTrace();
             }
@@ -69,32 +69,32 @@ public class b {
     };
     private Timer timer = new Timer();
 
-    public long ml() {
-        return this.Lc;
-    }
-
     public long mm() {
-        return this.Lb;
+        return this.Ls;
     }
 
     public long mn() {
-        return this.KZ;
+        return this.Lr;
     }
 
     public long mo() {
-        return this.La;
+        return this.Lp;
     }
 
     public long mp() {
+        return this.Lq;
+    }
+
+    public long mq() {
         return this.firstByteReachTime;
     }
 
-    public boolean mq() {
-        return this.Ld;
+    public boolean mr() {
+        return this.Lt;
     }
 
     public void ah(boolean z) {
-        this.Lf = z;
+        this.Lv = z;
     }
 
     static {
@@ -105,47 +105,47 @@ public class b {
         if (eVar == null) {
             throw new NullPointerException("init HttpImpl's args context is null");
         }
-        this.If = eVar;
+        this.Iv = eVar;
     }
 
     public void cancelNetConnect() {
-        this.If.mx().LX = true;
-        com.baidu.adp.lib.f.a.close(this.KY);
+        this.Iv.my().Mn = true;
+        com.baidu.adp.lib.f.a.close(this.Lo);
     }
 
     private URL a(String str, d dVar) throws Exception {
         URL url;
-        a mk;
+        a ml;
         Exception exc;
         URL url2 = new URL(str);
-        if (!TextUtils.isEmpty(str) && this.Lf && this.Lg) {
+        if (!TextUtils.isEmpty(str) && this.Lv && this.Lw) {
             try {
                 String host = url2.getHost();
                 if (!TextUtils.isEmpty(host)) {
                     String str2 = host.contains("hiphotos.baidu.com") ? "hiphotos.baidu.com" : host;
                     BDHttpDnsResult j = BDHttpDns.P(BdBaseApplication.getInst().getApplicationContext()).j(str2, true);
                     if (j != null) {
-                        dVar.Lw = j.sW();
-                        dVar.Lx = j.sX();
+                        dVar.LQ = j.sW();
+                        dVar.LR = j.sX();
                         ArrayList<String> sY = j.sY();
                         if (sY != null && sY.size() > 0) {
-                            dVar.Ly = sY.toString();
-                            int size = this.Lh % sY.size();
+                            dVar.LS = sY.toString();
+                            int size = this.Lx % sY.size();
                             String str3 = sY.get(size);
                             if (!TextUtils.isEmpty(str3) && (!str3.startsWith("10.") || !url2.getProtocol().equals("https"))) {
-                                this.If.mw().u("Host", str2);
+                                this.Iv.mx().u("Host", str2);
                                 URL url3 = new URL(str.replaceFirst("://(.*)" + str2, "://" + str3));
                                 try {
-                                    this.Ld = true;
-                                    dVar.Lz = size;
-                                    dVar.Lv = str3;
-                                    dVar.Ld = this.Ld;
+                                    this.Lt = true;
+                                    dVar.LU = size;
+                                    dVar.LO = str3;
+                                    dVar.Lt = this.Lt;
                                     return url3;
                                 } catch (Exception e) {
                                     exc = e;
                                     url = url3;
                                     BdLog.e(exc);
-                                    return !this.Le ? url : url;
+                                    return !this.Lu ? url : url;
                                 }
                             }
                         }
@@ -159,13 +159,13 @@ public class b {
         } else {
             url = url2;
         }
-        if (!this.Le && this.Lg && (mk = a.mk()) != null) {
-            String bI = mk.bI(str);
+        if (!this.Lu && this.Lw && (ml = a.ml()) != null) {
+            String bI = ml.bI(str);
             if (!TextUtils.isEmpty(bI)) {
-                this.If.mw().u("Host", url.getHost());
+                this.Iv.mx().u("Host", url.getHost());
                 URL url4 = new URL(str.replace("://" + url.getHost(), "://" + bI));
-                this.Ld = true;
-                dVar.Lv = bI;
+                this.Lt = true;
+                dVar.LO = bI;
                 return url4;
             }
             return url;
@@ -200,7 +200,7 @@ public class b {
                         sb.append(file);
                         HttpURLConnection httpURLConnection = (HttpURLConnection) new URL(sb.toString()).openConnection();
                         try {
-                            this.If.mw().u("X-Online-Host", url.getHost());
+                            this.Iv.mx().u("X-Online-Host", url.getHost());
                             httpsURLConnection = httpURLConnection;
                         } catch (Exception e) {
                             httpsURLConnection = httpURLConnection;
@@ -215,7 +215,7 @@ public class b {
                 if (httpsURLConnection == null) {
                     httpsURLConnection = (HttpURLConnection) url.openConnection();
                 }
-                if (this.Ld && url.getProtocol().equals("https")) {
+                if (this.Lt && url.getProtocol().equals("https")) {
                     final HttpsURLConnection httpsURLConnection2 = httpsURLConnection;
                     httpsURLConnection2.setSSLSocketFactory(new i(httpsURLConnection2));
                     httpsURLConnection2.setHostnameVerifier(new HostnameVerifier() { // from class: com.baidu.adp.lib.network.http.b.3
@@ -243,82 +243,82 @@ public class b {
         URL url;
         Map<String, List<String>> map;
         List<String> list;
-        dVar.Lt = -1;
-        if (this.If.mx().LX) {
+        dVar.LM = -1;
+        if (this.Iv.my().Mn) {
             throw new BdHttpCancelException();
         }
-        String c = this.If.mw().c(dVar);
+        String c = this.Iv.mx().c(dVar);
         dVar.url = c;
-        URL a = a(c, dVar);
-        if (this.If.mx().LX) {
+        URL a2 = a(c, dVar);
+        if (this.Iv.my().Mn) {
             throw new BdHttpCancelException();
         }
-        dVar.Lt = -2;
-        this.KY = c(a);
-        dVar.Lt = -3;
+        dVar.LM = -2;
+        this.Lo = c(a2);
+        dVar.LM = -3;
         long currentTimeMillis = System.currentTimeMillis();
         try {
-            if (this.KY == null) {
+            if (this.Lo == null) {
                 throw new SocketException("network not available.");
             }
-            this.KY.setRequestMethod("GET");
-            this.KY.setConnectTimeout(i2);
-            this.KY.setReadTimeout(i);
-            this.If.mw().f(this.KY);
-            if (this.If.mx().LX) {
+            this.Lo.setRequestMethod("GET");
+            this.Lo.setConnectTimeout(i2);
+            this.Lo.setReadTimeout(i);
+            this.Iv.mx().f(this.Lo);
+            if (this.Iv.my().Mn) {
                 throw new BdHttpCancelException();
             }
             dVar.dnsTime = new Date().getTime() - currentTimeMillis;
-            dVar.Lt = -4;
-            this.KY.connect();
-            if (this.KZ <= 0) {
-                this.KZ = System.currentTimeMillis();
+            dVar.LM = -4;
+            this.Lo.connect();
+            if (this.Lp <= 0) {
+                this.Lp = System.currentTimeMillis();
             }
-            this.La = System.currentTimeMillis();
-            dVar.Lt = -5;
+            this.Lq = System.currentTimeMillis();
+            dVar.LM = -5;
             dVar.connectTime = (new Date().getTime() - currentTimeMillis) - dVar.dnsTime;
-            if (this.If.mx().LX) {
+            if (this.Iv.my().Mn) {
                 throw new BdHttpCancelException();
             }
-            if (this.If.mw().mE() && this.timer != null && this.Lh >= 0 && this.Lh < 3) {
-                this.timer.schedule(this.Lj, (this.Lh + 1) * 3000);
+            if (this.Iv.mx().mF() && this.timer != null && this.Lx >= 0 && this.Lx < 3) {
+                this.timer.schedule(this.Lz, (this.Lx + 1) * 3000);
             }
-            String contentType = this.KY.getContentType();
+            String contentType = this.Lo.getContentType();
             this.firstByteReachTime = System.currentTimeMillis();
             if (com.baidu.adp.lib.network.a.b.bT(contentType)) {
-                this.KY.disconnect();
-                this.KY.connect();
-                if (this.If.mx().LX) {
+                this.Lo.disconnect();
+                this.Lo.connect();
+                if (this.Iv.my().Mn) {
                     throw new BdHttpCancelException();
                 }
             }
-            dVar.Lt = -8;
-            this.If.mx().g(this.KY);
-            if (c.contains("c.tieba.baidu.com") && (map = this.If.mx().LY) != null && !map.isEmpty() && (list = map.get("Tracecode")) != null && list.size() > 1) {
-                dVar.LA = list.get(0);
-                dVar.LB = list.get(1);
+            dVar.LM = -8;
+            this.Iv.my().g(this.Lo);
+            if (c.contains("c.tieba.baidu.com") && (map = this.Iv.my().Mo) != null && !map.isEmpty() && (list = map.get("Tracecode")) != null && list.size() > 1) {
+                dVar.LV = list.get(0);
+                dVar.LW = list.get(1);
             }
-            if (this.If.mx().responseCode == 302 && (url = this.KY.getURL()) != null) {
+            if (this.Iv.my().responseCode == 302 && (url = this.Lo.getURL()) != null) {
                 dVar.redirectUrl = url.toString();
             }
-            dVar.Ls = this.If.mx().responseCode;
-            dVar.downloadSize = this.KY.getHeaderFields().toString().getBytes().length;
+            dVar.LK = this.Iv.my().responseCode;
+            dVar.downloadSize = this.Lo.getHeaderFields().toString().getBytes().length;
             if (this.timer != null) {
                 this.timer.cancel();
             }
-            byte[] e = e(this.KY);
+            byte[] e = e(this.Lo);
             if (e != null) {
                 dVar.downloadSize += e.length;
-                this.If.mx().retBytes = c(this.If.mx().contentEncoding, e);
+                this.Iv.my().retBytes = c(this.Iv.my().contentEncoding, e);
             }
-            dVar.Lt = -9;
-            dVar.Lq = new Date().getTime() - currentTimeMillis;
+            dVar.LM = -9;
+            dVar.LI = new Date().getTime() - currentTimeMillis;
         } finally {
             if (this.timer != null) {
                 this.timer.cancel();
             }
-            if (this.KY != null) {
-                this.KY.disconnect();
+            if (this.Lo != null) {
+                this.Lo.disconnect();
             }
         }
     }
@@ -328,10 +328,10 @@ public class b {
             ByteArrayInputStream byteArrayInputStream = new ByteArrayInputStream(bArr);
             ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream(1024);
             com.baidu.adp.lib.util.g.decompress(byteArrayInputStream, byteArrayOutputStream);
-            this.Lc = System.currentTimeMillis();
+            this.Ls = System.currentTimeMillis();
             return byteArrayOutputStream.toByteArray();
-        } else if (this.Lc == 0) {
-            this.Lc = System.currentTimeMillis();
+        } else if (this.Ls == 0) {
+            this.Ls = System.currentTimeMillis();
             return bArr;
         } else {
             return bArr;
@@ -349,19 +349,19 @@ public class b {
             try {
                 byte[] bArr2 = new byte[1024];
                 inputStream2 = httpURLConnection.getInputStream();
-                while (!this.If.mx().LX && (read = inputStream2.read(bArr2)) != -1) {
+                while (!this.Iv.my().Mn && (read = inputStream2.read(bArr2)) != -1) {
                     try {
                         byteArrayOutputStream.write(bArr2, 0, read);
                     } catch (Throwable th2) {
                         inputStream = inputStream2;
                         th = th2;
-                        this.Lb = System.currentTimeMillis();
+                        this.Lr = System.currentTimeMillis();
                         com.baidu.adp.lib.f.a.close((OutputStream) byteArrayOutputStream);
                         com.baidu.adp.lib.f.a.close(inputStream);
                         throw th;
                     }
                 }
-                if (this.If.mx().LX) {
+                if (this.Iv.my().Mn) {
                     throw new BdHttpCancelException();
                 }
                 bArr = byteArrayOutputStream.toByteArray();
@@ -372,89 +372,89 @@ public class b {
         } else {
             bArr = null;
         }
-        this.Lb = System.currentTimeMillis();
+        this.Lr = System.currentTimeMillis();
         com.baidu.adp.lib.f.a.close((OutputStream) byteArrayOutputStream);
         com.baidu.adp.lib.f.a.close(inputStream2);
         return bArr;
     }
 
     public void b(int i, int i2, d dVar) throws Exception {
-        dVar.Lt = -1;
+        dVar.LM = -1;
         try {
-            String url = this.If.mw().getUrl();
+            String url = this.Iv.mx().getUrl();
             dVar.url = url;
-            URL a = a(url, dVar);
-            if (this.If.mx().LX) {
+            URL a2 = a(url, dVar);
+            if (this.Iv.my().Mn) {
                 throw new BdHttpCancelException();
             }
-            dVar.Lt = -2;
-            this.KY = c(a);
-            dVar.Lt = -3;
+            dVar.LM = -2;
+            this.Lo = c(a2);
+            dVar.LM = -3;
             System.currentTimeMillis();
-            if (this.KY == null) {
+            if (this.Lo == null) {
                 throw new SocketException("network not available.");
             }
-            this.KY.setRequestMethod("POST");
-            this.KY.setDoOutput(true);
-            this.KY.setDoInput(true);
-            this.KY.setConnectTimeout(i2);
-            this.KY.setReadTimeout(i);
-            this.KY.setRequestProperty("Content-Type", "multipart/form-data; boundary=" + boundary);
-            if (this.If.mx().LX) {
+            this.Lo.setRequestMethod("POST");
+            this.Lo.setDoOutput(true);
+            this.Lo.setDoInput(true);
+            this.Lo.setConnectTimeout(i2);
+            this.Lo.setReadTimeout(i);
+            this.Lo.setRequestProperty("Content-Type", "multipart/form-data; boundary=" + boundary);
+            if (this.Iv.my().Mn) {
                 throw new BdHttpCancelException();
             }
-            this.If.mw().f(this.KY);
-            if (this.If.mx().LX) {
+            this.Iv.mx().f(this.Lo);
+            if (this.Iv.my().Mn) {
                 throw new BdHttpCancelException();
             }
             long time = new Date().getTime();
             dVar.dnsTime = new Date().getTime() - time;
-            dVar.Lt = -4;
-            this.KY.connect();
-            if (this.KZ <= 0) {
-                this.KZ = System.currentTimeMillis();
+            dVar.LM = -4;
+            this.Lo.connect();
+            if (this.Lp <= 0) {
+                this.Lp = System.currentTimeMillis();
             }
-            this.La = System.currentTimeMillis();
-            dVar.Lt = -5;
+            this.Lq = System.currentTimeMillis();
+            dVar.LM = -5;
             dVar.connectTime = (new Date().getTime() - time) - dVar.dnsTime;
-            if (this.If.mx().LX) {
+            if (this.Iv.my().Mn) {
                 throw new BdHttpCancelException();
             }
             if (this.timer != null) {
-                this.timer.schedule(this.Li, 45000L);
+                this.timer.schedule(this.Ly, 45000L);
             }
-            dVar.Lt = -6;
-            this.If.mw().a(this.KY, boundary, dVar);
-            dVar.Lt = -7;
-            String contentType = this.KY.getContentType();
+            dVar.LM = -6;
+            this.Iv.mx().a(this.Lo, boundary, dVar);
+            dVar.LM = -7;
+            String contentType = this.Lo.getContentType();
             this.firstByteReachTime = System.currentTimeMillis();
             if (com.baidu.adp.lib.network.a.b.bT(contentType)) {
-                this.KY.disconnect();
-                this.KY.connect();
-                if (this.If.mx().LX) {
+                this.Lo.disconnect();
+                this.Lo.connect();
+                if (this.Iv.my().Mn) {
                     throw new BdHttpCancelException();
                 }
             }
-            if (this.If.mx().LX) {
+            if (this.Iv.my().Mn) {
                 throw new BdHttpCancelException();
             }
-            dVar.Lt = -8;
-            this.If.mx().g(this.KY);
-            dVar.Ls = this.If.mx().responseCode;
-            dVar.downloadSize = this.KY.getHeaderFields().toString().getBytes().length;
-            byte[] e = e(this.KY);
+            dVar.LM = -8;
+            this.Iv.my().g(this.Lo);
+            dVar.LK = this.Iv.my().responseCode;
+            dVar.downloadSize = this.Lo.getHeaderFields().toString().getBytes().length;
+            byte[] e = e(this.Lo);
             if (e != null) {
                 dVar.downloadSize += e.length;
-                this.If.mx().downSize = e.length;
-                this.If.mx().retBytes = c(this.If.mx().contentEncoding, e);
+                this.Iv.my().downSize = e.length;
+                this.Iv.my().retBytes = c(this.Iv.my().contentEncoding, e);
             }
-            dVar.Lq = new Date().getTime() - time;
-            dVar.Lt = -9;
+            dVar.LI = new Date().getTime() - time;
+            dVar.LM = -9;
         } finally {
             if (this.timer != null) {
                 this.timer.cancel();
             }
-            com.baidu.adp.lib.f.a.close(this.KY);
+            com.baidu.adp.lib.f.a.close(this.Lo);
         }
     }
 
@@ -469,14 +469,14 @@ public class b {
         FileOutputStream fileOutputStream = null;
         d dVar2 = dVar == null ? new d() : dVar;
         try {
-            String url2 = this.If.mw().getUrl();
+            String url2 = this.Iv.mx().getUrl();
             dVar2.url = url2;
-            URL a = a(url2, dVar2);
-            this.KY = a(a, i2, i);
-            if (this.If.mx().LX) {
-                this.Lb = System.currentTimeMillis();
+            URL a2 = a(url2, dVar2);
+            this.Lo = a(a2, i2, i);
+            if (this.Iv.my().Mn) {
+                this.Lr = System.currentTimeMillis();
                 com.baidu.adp.lib.f.a.close((InputStream) null);
-                com.baidu.adp.lib.f.a.close(this.KY);
+                com.baidu.adp.lib.f.a.close(this.Lo);
                 com.baidu.adp.lib.f.a.close((OutputStream) null);
                 return false;
             }
@@ -490,31 +490,31 @@ public class b {
             long length = file.length();
             FileOutputStream fileOutputStream2 = new FileOutputStream(file, true);
             try {
-                this.If.mw().f(this.KY);
-                this.KY.addRequestProperty(Headers.RANGE, "bytes=" + String.valueOf(length) + Constants.ACCEPT_TIME_SEPARATOR_SERVER);
-                this.KY.connect();
-                if (this.KZ <= 0) {
-                    this.KZ = System.currentTimeMillis();
+                this.Iv.mx().f(this.Lo);
+                this.Lo.addRequestProperty(Headers.RANGE, "bytes=" + String.valueOf(length) + Constants.ACCEPT_TIME_SEPARATOR_SERVER);
+                this.Lo.connect();
+                if (this.Lp <= 0) {
+                    this.Lp = System.currentTimeMillis();
                 }
-                this.La = System.currentTimeMillis();
-                int responseCode = this.KY.getResponseCode();
+                this.Lq = System.currentTimeMillis();
+                int responseCode = this.Lo.getResponseCode();
                 this.firstByteReachTime = System.currentTimeMillis();
                 if (responseCode == 302) {
-                    URL url3 = this.KY.getURL();
+                    URL url3 = this.Lo.getURL();
                     if (url3 != null) {
                         dVar2.redirectUrl = url3.toString();
                     }
-                    if (url3 == null || TextUtils.equals(url3.getProtocol(), a.getProtocol())) {
+                    if (url3 == null || TextUtils.equals(url3.getProtocol(), a2.getProtocol())) {
                         i3 = responseCode;
                         url = url3;
                         z3 = false;
                     } else {
-                        com.baidu.adp.lib.f.a.close(this.KY);
-                        this.KY = a(new URL(url3.toString()), i2, i);
-                        this.If.mw().f(this.KY);
-                        this.KY.addRequestProperty(Headers.RANGE, "bytes=" + String.valueOf(length) + Constants.ACCEPT_TIME_SEPARATOR_SERVER);
-                        this.KY.connect();
-                        i3 = this.KY.getResponseCode();
+                        com.baidu.adp.lib.f.a.close(this.Lo);
+                        this.Lo = a(new URL(url3.toString()), i2, i);
+                        this.Iv.mx().f(this.Lo);
+                        this.Lo.addRequestProperty(Headers.RANGE, "bytes=" + String.valueOf(length) + Constants.ACCEPT_TIME_SEPARATOR_SERVER);
+                        this.Lo.connect();
+                        i3 = this.Lo.getResponseCode();
                         url = url3;
                         z3 = true;
                     }
@@ -523,51 +523,51 @@ public class b {
                     url = null;
                     z3 = false;
                 }
-                this.If.mx().responseCode = i3;
+                this.Iv.my().responseCode = i3;
                 int i4 = 0;
-                String headerField2 = this.KY.getHeaderField(Headers.CONTENT_RANGE);
+                String headerField2 = this.Lo.getHeaderField(Headers.CONTENT_RANGE);
                 if (headerField2 != null && (indexOf = headerField2.indexOf("/")) != -1) {
                     i4 = com.baidu.adp.lib.f.b.toInt(headerField2.substring(indexOf + 1), 0);
                 }
-                int i5 = (i4 == 0 && this.If.mx().responseCode == 200 && (headerField = this.KY.getHeaderField("Content-Length")) != null) ? com.baidu.adp.lib.f.b.toInt(headerField, 0) : i4;
-                this.If.mx().contentLength = String.valueOf(i5);
+                int i5 = (i4 == 0 && this.Iv.my().responseCode == 200 && (headerField = this.Lo.getHeaderField("Content-Length")) != null) ? com.baidu.adp.lib.f.b.toInt(headerField, 0) : i4;
+                this.Iv.my().contentLength = String.valueOf(i5);
                 if (!isFileSegSuccess()) {
                     String str2 = "";
                     if (i3 == 302) {
-                        str2 = (z3 ? "isReConn " : "") + "url=" + a + "-newUrl=" + url;
+                        str2 = (z3 ? "isReConn " : "") + "url=" + a2 + "-newUrl=" + url;
                     } else if (i3 == 416) {
                         if (i5 > 0 && i5 == length) {
-                            this.Lb = System.currentTimeMillis();
+                            this.Lr = System.currentTimeMillis();
                             com.baidu.adp.lib.f.a.close((InputStream) null);
-                            com.baidu.adp.lib.f.a.close(this.KY);
+                            com.baidu.adp.lib.f.a.close(this.Lo);
                             com.baidu.adp.lib.f.a.close((OutputStream) fileOutputStream2);
                             return false;
                         }
                         str2 = "fileLen=" + length + "-contentLen=" + i5;
                     }
                     throw new UnsupportedOperationException(str2);
-                } else if (this.KY.getContentType() != null && this.KY.getContentType().contains("text/vnd.wap.wml")) {
-                    this.KY.disconnect();
-                    this.If.mx().responseCode = 0;
-                    boolean a2 = a(str, hVar, i, i2, z, dVar2, z2);
-                    this.Lb = System.currentTimeMillis();
+                } else if (this.Lo.getContentType() != null && this.Lo.getContentType().contains("text/vnd.wap.wml")) {
+                    this.Lo.disconnect();
+                    this.Iv.my().responseCode = 0;
+                    boolean a3 = a(str, hVar, i, i2, z, dVar2, z2);
+                    this.Lr = System.currentTimeMillis();
                     com.baidu.adp.lib.f.a.close((InputStream) null);
-                    com.baidu.adp.lib.f.a.close(this.KY);
+                    com.baidu.adp.lib.f.a.close(this.Lo);
                     com.baidu.adp.lib.f.a.close((OutputStream) fileOutputStream2);
-                    return a2;
+                    return a3;
                 } else {
-                    dVar2.Lp = url2.getBytes().length;
-                    dVar2.downloadSize = this.KY.getHeaderFields().toString().getBytes().length;
+                    dVar2.LH = url2.getBytes().length;
+                    dVar2.downloadSize = this.Lo.getHeaderFields().toString().getBytes().length;
                     dVar2.downloadSize += i5;
                     if (i5 != 0 && length >= i5) {
-                        this.Lb = System.currentTimeMillis();
-                        this.Lb = System.currentTimeMillis();
+                        this.Lr = System.currentTimeMillis();
+                        this.Lr = System.currentTimeMillis();
                         com.baidu.adp.lib.f.a.close((InputStream) null);
-                        com.baidu.adp.lib.f.a.close(this.KY);
+                        com.baidu.adp.lib.f.a.close(this.Lo);
                         com.baidu.adp.lib.f.a.close((OutputStream) fileOutputStream2);
                         return true;
                     }
-                    InputStream inputStream2 = this.KY.getInputStream();
+                    InputStream inputStream2 = this.Lo.getInputStream();
                     try {
                         byte[] bArr = new byte[1024];
                         int i6 = 0;
@@ -576,7 +576,7 @@ public class b {
                         if (hVar != null && length > 0) {
                             hVar.onProgress((int) length, i5);
                         }
-                        while (!this.If.mx().LX) {
+                        while (!this.Iv.my().Mn) {
                             int read = inputStream2.read(bArr);
                             if (read != -1) {
                                 try {
@@ -594,13 +594,13 @@ public class b {
                         }
                         try {
                             fileOutputStream2.flush();
-                            dVar2.LD = i6;
-                            dVar2.LG = length;
-                            dVar2.LH = i5;
+                            dVar2.LY = i6;
+                            dVar2.LZ = length;
+                            dVar2.Ma = i5;
                             boolean z4 = ((long) i6) + length >= ((long) i5);
-                            this.Lb = System.currentTimeMillis();
+                            this.Lr = System.currentTimeMillis();
                             com.baidu.adp.lib.f.a.close(inputStream2);
-                            com.baidu.adp.lib.f.a.close(this.KY);
+                            com.baidu.adp.lib.f.a.close(this.Lo);
                             com.baidu.adp.lib.f.a.close((OutputStream) fileOutputStream2);
                             return z4;
                         } catch (Exception e2) {
@@ -610,9 +610,9 @@ public class b {
                         th = th;
                         inputStream = inputStream2;
                         fileOutputStream = fileOutputStream2;
-                        this.Lb = System.currentTimeMillis();
+                        this.Lr = System.currentTimeMillis();
                         com.baidu.adp.lib.f.a.close(inputStream);
-                        com.baidu.adp.lib.f.a.close(this.KY);
+                        com.baidu.adp.lib.f.a.close(this.Lo);
                         com.baidu.adp.lib.f.a.close((OutputStream) fileOutputStream);
                         throw th;
                     }
@@ -629,87 +629,87 @@ public class b {
     }
 
     private boolean isFileSegSuccess() {
-        return this.If.mx().responseCode == 200 || this.If.mx().responseCode == 206;
+        return this.Iv.my().responseCode == 200 || this.Iv.my().responseCode == 206;
     }
 
     public void c(int i, int i2, d dVar) throws Exception {
-        dVar.Lt = -1;
+        dVar.LM = -1;
         try {
-            String url = this.If.mw().getUrl();
+            String url = this.Iv.mx().getUrl();
             dVar.url = url;
-            URL a = a(url, dVar);
-            if (this.If.mx().LX) {
+            URL a2 = a(url, dVar);
+            if (this.Iv.my().Mn) {
                 throw new BdHttpCancelException();
             }
-            dVar.Lt = -2;
-            this.KY = c(a);
-            dVar.Lt = -3;
+            dVar.LM = -2;
+            this.Lo = c(a2);
+            dVar.LM = -3;
             long currentTimeMillis = System.currentTimeMillis();
-            if (this.KY == null) {
+            if (this.Lo == null) {
                 throw new SocketException("network not available.");
             }
-            this.KY.setRequestMethod("POST");
-            this.KY.setDoOutput(true);
-            this.KY.setDoInput(true);
-            this.KY.setConnectTimeout(i2);
-            this.KY.setReadTimeout(i);
-            this.KY.setRequestProperty("Content-Type", "application/x-www-form-urlencoded");
-            if (this.If.mx().LX) {
+            this.Lo.setRequestMethod("POST");
+            this.Lo.setDoOutput(true);
+            this.Lo.setDoInput(true);
+            this.Lo.setConnectTimeout(i2);
+            this.Lo.setReadTimeout(i);
+            this.Lo.setRequestProperty("Content-Type", "application/x-www-form-urlencoded");
+            if (this.Iv.my().Mn) {
                 throw new BdHttpCancelException();
             }
-            this.If.mw().f(this.KY);
-            if (this.If.mx().LX) {
+            this.Iv.mx().f(this.Lo);
+            if (this.Iv.my().Mn) {
                 throw new BdHttpCancelException();
             }
             dVar.dnsTime = System.currentTimeMillis() - currentTimeMillis;
-            dVar.Lt = -4;
-            this.KY.connect();
-            if (this.KZ <= 0) {
-                this.KZ = System.currentTimeMillis();
+            dVar.LM = -4;
+            this.Lo.connect();
+            if (this.Lp <= 0) {
+                this.Lp = System.currentTimeMillis();
             }
-            this.La = System.currentTimeMillis();
-            dVar.Lt = -5;
+            this.Lq = System.currentTimeMillis();
+            dVar.LM = -5;
             dVar.connectTime = (System.currentTimeMillis() - currentTimeMillis) - dVar.dnsTime;
-            if (this.If.mx().LX) {
+            if (this.Iv.my().Mn) {
                 throw new BdHttpCancelException();
             }
-            dVar.Lt = -6;
-            this.If.mw().a(this.KY, dVar);
-            dVar.Lt = -7;
-            if (this.If.mx().LX) {
+            dVar.LM = -6;
+            this.Iv.mx().a(this.Lo, dVar);
+            dVar.LM = -7;
+            if (this.Iv.my().Mn) {
                 throw new BdHttpCancelException();
             }
-            String contentType = this.KY.getContentType();
+            String contentType = this.Lo.getContentType();
             this.firstByteReachTime = System.currentTimeMillis();
             if (com.baidu.adp.lib.network.a.b.bT(contentType)) {
-                this.KY.disconnect();
-                this.KY.connect();
-                if (this.If.mx().LX) {
+                this.Lo.disconnect();
+                this.Lo.connect();
+                if (this.Iv.my().Mn) {
                     throw new BdHttpCancelException();
                 }
             }
-            dVar.Lt = -8;
-            this.If.mx().g(this.KY);
-            dVar.Ls = this.If.mx().responseCode;
-            dVar.downloadSize = this.KY.getHeaderFields().toString().getBytes().length;
-            byte[] e = e(this.KY);
+            dVar.LM = -8;
+            this.Iv.my().g(this.Lo);
+            dVar.LK = this.Iv.my().responseCode;
+            dVar.downloadSize = this.Lo.getHeaderFields().toString().getBytes().length;
+            byte[] e = e(this.Lo);
             if (e != null) {
                 dVar.downloadSize += e.length;
-                this.If.mx().downSize = e.length;
-                this.If.mx().retBytes = c(this.If.mx().contentEncoding, e);
+                this.Iv.my().downSize = e.length;
+                this.Iv.my().retBytes = c(this.Iv.my().contentEncoding, e);
             }
-            dVar.Lq = new Date().getTime() - currentTimeMillis;
-            dVar.Lt = -9;
+            dVar.LI = new Date().getTime() - currentTimeMillis;
+            dVar.LM = -9;
         } finally {
-            com.baidu.adp.lib.f.a.close(this.KY);
+            com.baidu.adp.lib.f.a.close(this.Lo);
         }
     }
 
     public void ao(int i) {
-        this.Lh = i;
+        this.Lx = i;
     }
 
     public void ai(boolean z) {
-        this.Lg = z;
+        this.Lw = z;
     }
 }

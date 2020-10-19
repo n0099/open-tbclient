@@ -4,9 +4,9 @@ import android.graphics.Color;
 import android.text.TextUtils;
 import com.baidu.searchbox.common.runtime.AppRuntime;
 import com.baidu.swan.apps.ap.ah;
-/* loaded from: classes3.dex */
+/* loaded from: classes10.dex */
 public class d {
-    public static int P(String str, int i) {
+    public static int Q(String str, int i) {
         int i2;
         if (TextUtils.isEmpty(str)) {
             com.baidu.swan.apps.console.c.w("map", "color string is empty, use default " + Integer.toHexString(i));
@@ -33,7 +33,7 @@ public class d {
         return i2;
     }
 
-    public static float r(double d) {
+    public static float u(double d) {
         return (float) (ah.getDensity(AppRuntime.getAppContext()) * d);
     }
 }

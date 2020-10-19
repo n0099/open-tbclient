@@ -5,7 +5,7 @@ import kotlin.h;
 import kotlin.jvm.a.a;
 import kotlin.jvm.internal.Lambda;
 @h
-/* loaded from: classes5.dex */
+/* loaded from: classes11.dex */
 final class TouchHelper$mBlockOffset$2 extends Lambda implements a<Rect> {
     final /* synthetic */ TouchHelper this$0;
 

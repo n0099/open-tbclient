@@ -8,11 +8,11 @@ import com.baidu.searchbox.config.AppConfig;
 import com.baidu.ubc.IRemoteUBCService;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes11.dex */
+/* loaded from: classes19.dex */
 public class z {
     private static final String TAG = z.class.getSimpleName();
 
-    public static void dQf() {
+    public static void dTQ() {
         IPCServiceManager.addService(UBC.UBC_REMOTE_SERVICE_NAME, new IRemoteUBCService.Stub() { // from class: com.baidu.ubc.UBCIPCManager$1
             @Override // com.baidu.ubc.IRemoteUBCService
             public void ubcOnEvent(String str, String str2, int i) throws RemoteException {

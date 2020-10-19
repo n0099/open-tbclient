@@ -13,9 +13,9 @@ import rx.internal.util.a.x;
 import rx.internal.util.a.y;
 import rx.j;
 import rx.k;
-/* loaded from: classes7.dex */
+/* loaded from: classes16.dex */
 public final class UnicastSubject<T> extends c<T, T> {
-    final State<T> oUr;
+    final State<T> pjK;
 
     public static <T> UnicastSubject<T> a(int i, rx.functions.a aVar) {
         return new UnicastSubject<>(new State(i, aVar));
@@ -23,25 +23,25 @@ public final class UnicastSubject<T> extends c<T, T> {
 
     private UnicastSubject(State<T> state) {
         super(state);
-        this.oUr = state;
+        this.pjK = state;
     }
 
     @Override // rx.e
     public void onNext(T t) {
-        this.oUr.onNext(t);
+        this.pjK.onNext(t);
     }
 
     @Override // rx.e
     public void onError(Throwable th) {
-        this.oUr.onError(th);
+        this.pjK.onError(th);
     }
 
     @Override // rx.e
     public void onCompleted() {
-        this.oUr.onCompleted();
+        this.pjK.onCompleted();
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes16.dex */
     static final class State<T> extends AtomicLong implements d.a<T>, e<T>, f, k {
         private static final long serialVersionUID = -9044104859202255786L;
         volatile boolean caughtUp;
@@ -62,9 +62,9 @@ public final class UnicastSubject<T> extends c<T, T> {
             Queue<Object> xVar;
             this.terminateOnce = aVar != null ? new AtomicReference<>(aVar) : null;
             if (i > 1) {
-                xVar = ae.eoN() ? new y<>(i) : new rx.internal.util.atomic.f<>(i);
+                xVar = ae.esy() ? new y<>(i) : new rx.internal.util.atomic.f<>(i);
             } else {
-                xVar = ae.eoN() ? new x<>() : new rx.internal.util.atomic.e<>();
+                xVar = ae.esy() ? new x<>() : new rx.internal.util.atomic.e<>();
             }
             this.queue = xVar;
         }

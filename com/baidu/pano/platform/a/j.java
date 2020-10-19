@@ -6,16 +6,18 @@ import android.os.Build;
 import android.os.Process;
 import android.os.SystemClock;
 import java.util.concurrent.BlockingQueue;
-/* loaded from: classes3.dex */
+/* loaded from: classes7.dex */
 public class j extends Thread {
-    private final BlockingQueue<n<?>> a;
+
+    /* renamed from: a  reason: collision with root package name */
+    private final BlockingQueue<n<?>> f2654a;
     private final i b;
     private final b c;
     private final r d;
     private volatile boolean e = false;
 
     public j(BlockingQueue<n<?>> blockingQueue, i iVar, b bVar, r rVar) {
-        this.a = blockingQueue;
+        this.f2654a = blockingQueue;
         this.b = iVar;
         this.c = bVar;
         this.d = rVar;
@@ -39,26 +41,26 @@ public class j extends Thread {
         while (true) {
             long elapsedRealtime = SystemClock.elapsedRealtime();
             try {
-                n<?> take = this.a.take();
+                n<?> take = this.f2654a.take();
                 try {
                     take.a("network-queue-take");
                     if (take.h()) {
                         take.b("network-discard-cancelled");
                     } else {
                         a(take);
-                        l a = this.b.a(take);
+                        l a2 = this.b.a(take);
                         take.a("network-http-complete");
-                        if (a.d && take.w()) {
+                        if (a2.d && take.w()) {
                             take.b("not-modified");
                         } else {
-                            q<?> a2 = take.a(a);
+                            q<?> a3 = take.a(a2);
                             take.a("network-parse-complete");
-                            if (take.r() && a2.b != null) {
-                                this.c.a(take.e(), a2.b);
+                            if (take.r() && a3.b != null) {
+                                this.c.a(take.e(), a3.b);
                                 take.a("network-cache-written");
                             }
                             take.v();
-                            this.d.a(take, a2);
+                            this.d.a(take, a3);
                         }
                     }
                 } catch (v e) {

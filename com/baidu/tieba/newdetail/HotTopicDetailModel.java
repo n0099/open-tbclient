@@ -22,32 +22,32 @@ import com.baidu.tieba.hottopic.message.ResponseSocketGetTopicRelateThreadMessag
 import com.baidu.tieba.hottopic.message.ResponseSocketHotTopicMessage;
 import com.baidu.tieba.message.RequestBlessMessage;
 import com.baidu.tieba.newdetail.a;
-/* loaded from: classes20.dex */
+/* loaded from: classes21.dex */
 public class HotTopicDetailModel extends BdBaseModel {
-    private String ecp;
+    private String eou;
     private String from;
     private int height;
-    private a.InterfaceC0748a ktI;
-    private boolean ktJ;
-    private double ktK;
+    private a.InterfaceC0766a kIU;
+    private boolean kIV;
+    private double kIW;
     private boolean mIsLoading;
     private long topicId;
     private int width;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public HotTopicDetailModel(TbPageContext<?> tbPageContext, a.InterfaceC0748a interfaceC0748a) {
+    public HotTopicDetailModel(TbPageContext<?> tbPageContext, a.InterfaceC0766a interfaceC0766a) {
         super(tbPageContext);
-        this.ktK = TbadkCoreApplication.getInst().getApp().getResources().getDisplayMetrics().density;
+        this.kIW = TbadkCoreApplication.getInst().getApp().getResources().getDisplayMetrics().density;
         this.width = l.getEquipmentWidth(TbadkCoreApplication.getInst().getApp());
         this.height = l.getEquipmentHeight(TbadkCoreApplication.getInst().getApp());
-        cBk();
-        this.ktI = interfaceC0748a;
+        cER();
+        this.kIU = interfaceC0766a;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public void t(long j, String str) {
+    public void u(long j, String str) {
         this.topicId = j;
-        this.ecp = str;
+        this.eou = str;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -55,7 +55,7 @@ public class HotTopicDetailModel extends BdBaseModel {
         this.from = str;
     }
 
-    private void cBk() {
+    private void cER() {
         registerListener(new com.baidu.adp.framework.listener.a(1003041, CmdConfigSocket.CMD_HOT_TOPIC) { // from class: com.baidu.tieba.newdetail.HotTopicDetailModel.1
             @Override // com.baidu.adp.framework.listener.a
             public void onMessage(ResponsedMessage<?> responsedMessage) {
@@ -69,17 +69,17 @@ public class HotTopicDetailModel extends BdBaseModel {
                         }
                         if (hotTopicData != null && responsedMessage.getOrginalMessage() != null && (responsedMessage.getOrginalMessage().getExtra() instanceof Integer)) {
                             hotTopicData.sortType = ((Integer) responsedMessage.getOrginalMessage().getExtra()).intValue();
-                            if (hotTopicData.jhR != null) {
-                                hotTopicData.jhR.sortType = hotTopicData.sortType;
+                            if (hotTopicData.jwQ != null) {
+                                hotTopicData.jwQ.sortType = hotTopicData.sortType;
                             }
                             if (hotTopicData.sortType == -1) {
                                 HotTopicDetailModel.this.mIsLoading = z;
                             }
                         }
                         if (hotTopicData != null) {
-                            HotTopicDetailModel.this.ktI.a(responsedMessage.getError(), hotTopicData);
+                            HotTopicDetailModel.this.kIU.a(responsedMessage.getError(), hotTopicData);
                         } else {
-                            HotTopicDetailModel.this.ktI.a(-1, (e) null);
+                            HotTopicDetailModel.this.kIU.a(-1, (e) null);
                         }
                     }
                 }
@@ -99,9 +99,9 @@ public class HotTopicDetailModel extends BdBaseModel {
                             hotThreadItemListData.sortType = ((Integer) responsedMessage.getOrginalMessage().getExtra()).intValue();
                         }
                         if (hotThreadItemListData != null) {
-                            HotTopicDetailModel.this.ktI.a(responsedMessage.getError(), hotThreadItemListData);
+                            HotTopicDetailModel.this.kIU.a(responsedMessage.getError(), hotThreadItemListData);
                         } else {
-                            HotTopicDetailModel.this.ktI.a(-1, (d) null);
+                            HotTopicDetailModel.this.kIU.a(-1, (d) null);
                         }
                     }
                 }
@@ -131,13 +131,13 @@ public class HotTopicDetailModel extends BdBaseModel {
                         } else {
                             i = ((Integer) responsedMessage.getOrginalMessage().getExtra()).intValue();
                             if (i == 1 || i == 2) {
-                                HotTopicDetailModel.this.ktJ = false;
+                                HotTopicDetailModel.this.kIV = false;
                             }
                         }
                         if (j != 0) {
-                            HotTopicDetailModel.this.ktI.a(responsedMessage.getError(), j, j2, i);
+                            HotTopicDetailModel.this.kIU.a(responsedMessage.getError(), j, j2, i);
                         } else {
-                            HotTopicDetailModel.this.ktI.a(-1, j, j2, i);
+                            HotTopicDetailModel.this.kIU.a(-1, j, j2, i);
                         }
                     }
                 }
@@ -169,7 +169,7 @@ public class HotTopicDetailModel extends BdBaseModel {
     }
 
     public boolean a(i iVar, int i) {
-        if (iVar == null || !j.isNetworkAvailableForImmediately() || this.ktJ) {
+        if (iVar == null || !j.isNetworkAvailableForImmediately() || this.kIV) {
             return false;
         }
         RequestBlessMessage requestBlessMessage = new RequestBlessMessage();
@@ -188,24 +188,24 @@ public class HotTopicDetailModel extends BdBaseModel {
             requestBlessMessage.getSocketMessage().setExtra(Integer.valueOf(i));
             requestBlessMessage.getSocketMessage().setTag(getUniqueId());
         }
-        this.ktJ = MessageManager.getInstance().sendMessage(requestBlessMessage);
-        return this.ktJ;
+        this.kIV = MessageManager.getInstance().sendMessage(requestBlessMessage);
+        return this.kIV;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public boolean DV(int i) {
+    public boolean EB(int i) {
         if (!j.isNetworkAvailableForImmediately() || this.mIsLoading) {
             return false;
         }
         cancelLoadData();
         RequestHotTopicMessage requestHotTopicMessage = new RequestHotTopicMessage();
         requestHotTopicMessage.setTopicId(Long.valueOf(this.topicId));
-        requestHotTopicMessage.setTopicName(this.ecp);
-        requestHotTopicMessage.setCall_from(Kr(this.from));
+        requestHotTopicMessage.setTopicName(this.eou);
+        requestHotTopicMessage.setCall_from(Lg(this.from));
         requestHotTopicMessage.setSort_type(Integer.valueOf(i));
         requestHotTopicMessage.setScrH(Integer.valueOf(this.height));
         requestHotTopicMessage.setScrW(Integer.valueOf(this.width));
-        requestHotTopicMessage.setSrcDip(Double.valueOf(this.ktK));
+        requestHotTopicMessage.setSrcDip(Double.valueOf(this.kIW));
         if (requestHotTopicMessage.getHttpMessage() != null) {
             requestHotTopicMessage.getHttpMessage().setExtra(Integer.valueOf(i));
             requestHotTopicMessage.getHttpMessage().setTag(getUniqueId());
@@ -219,16 +219,16 @@ public class HotTopicDetailModel extends BdBaseModel {
         return this.mIsLoading;
     }
 
-    public void cWc() {
+    public void cZL() {
         if (j.isNetworkAvailableForImmediately()) {
             RequestHotTopicMessage requestHotTopicMessage = new RequestHotTopicMessage();
             requestHotTopicMessage.setTopicId(Long.valueOf(this.topicId));
-            requestHotTopicMessage.setTopicName(this.ecp);
-            requestHotTopicMessage.setCall_from(Kr(this.from));
+            requestHotTopicMessage.setTopicName(this.eou);
+            requestHotTopicMessage.setCall_from(Lg(this.from));
             requestHotTopicMessage.setSort_type(1);
             requestHotTopicMessage.setScrH(Integer.valueOf(this.height));
             requestHotTopicMessage.setScrW(Integer.valueOf(this.width));
-            requestHotTopicMessage.setSrcDip(Double.valueOf(this.ktK));
+            requestHotTopicMessage.setSrcDip(Double.valueOf(this.kIW));
             if (requestHotTopicMessage.getHttpMessage() != null) {
                 requestHotTopicMessage.getHttpMessage().setExtra(-1);
                 requestHotTopicMessage.getHttpMessage().setTag(getUniqueId());
@@ -242,21 +242,21 @@ public class HotTopicDetailModel extends BdBaseModel {
         }
     }
 
-    public boolean DW(int i) {
+    public boolean EC(int i) {
         if (!j.isNetworkAvailableForImmediately() || this.mIsLoading) {
             return false;
         }
         cancelLoadData();
         RequestGetTopicRelateThreadMessage requestGetTopicRelateThreadMessage = new RequestGetTopicRelateThreadMessage();
         requestGetTopicRelateThreadMessage.setTopicId(Long.valueOf(this.topicId));
-        requestGetTopicRelateThreadMessage.setTopicName(this.ecp);
+        requestGetTopicRelateThreadMessage.setTopicName(this.eou);
         requestGetTopicRelateThreadMessage.setRn(10);
         requestGetTopicRelateThreadMessage.setPageNo(1);
         requestGetTopicRelateThreadMessage.setLastId(0L);
         requestGetTopicRelateThreadMessage.setSort_type(Integer.valueOf(i));
         requestGetTopicRelateThreadMessage.setScrH(Integer.valueOf(this.height));
         requestGetTopicRelateThreadMessage.setScrW(Integer.valueOf(this.width));
-        requestGetTopicRelateThreadMessage.setScrDip(Double.valueOf(this.ktK));
+        requestGetTopicRelateThreadMessage.setScrDip(Double.valueOf(this.kIW));
         if (requestGetTopicRelateThreadMessage.getHttpMessage() != null) {
             requestGetTopicRelateThreadMessage.getHttpMessage().setExtra(Integer.valueOf(i));
             requestGetTopicRelateThreadMessage.getHttpMessage().setTag(getUniqueId());
@@ -277,14 +277,14 @@ public class HotTopicDetailModel extends BdBaseModel {
         cancelLoadData();
         RequestGetTopicRelateThreadMessage requestGetTopicRelateThreadMessage = new RequestGetTopicRelateThreadMessage();
         requestGetTopicRelateThreadMessage.setTopicId(Long.valueOf(this.topicId));
-        requestGetTopicRelateThreadMessage.setTopicName(this.ecp);
+        requestGetTopicRelateThreadMessage.setTopicName(this.eou);
         requestGetTopicRelateThreadMessage.setRn(10);
-        requestGetTopicRelateThreadMessage.setPageNo(Integer.valueOf(avVar.bem() + 1));
+        requestGetTopicRelateThreadMessage.setPageNo(Integer.valueOf(avVar.bgV() + 1));
         requestGetTopicRelateThreadMessage.setLastId(Long.valueOf(j));
         requestGetTopicRelateThreadMessage.setSort_type(Integer.valueOf(i));
         requestGetTopicRelateThreadMessage.setScrH(Integer.valueOf(this.height));
         requestGetTopicRelateThreadMessage.setScrW(Integer.valueOf(this.width));
-        requestGetTopicRelateThreadMessage.setScrDip(Double.valueOf(this.ktK));
+        requestGetTopicRelateThreadMessage.setScrDip(Double.valueOf(this.kIW));
         if (requestGetTopicRelateThreadMessage.getHttpMessage() != null) {
             requestGetTopicRelateThreadMessage.getHttpMessage().setExtra(Integer.valueOf(i));
             requestGetTopicRelateThreadMessage.getHttpMessage().setTag(getUniqueId());
@@ -300,7 +300,7 @@ public class HotTopicDetailModel extends BdBaseModel {
 
     @Override // com.baidu.adp.base.BdBaseModel
     protected boolean LoadData() {
-        return DV(1);
+        return EB(1);
     }
 
     @Override // com.baidu.adp.base.BdBaseModel
@@ -309,7 +309,7 @@ public class HotTopicDetailModel extends BdBaseModel {
         return false;
     }
 
-    private int Kr(String str) {
+    private int Lg(String str) {
         if ("1".equals(str)) {
             return 1;
         }

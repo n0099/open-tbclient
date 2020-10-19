@@ -7,7 +7,7 @@ import com.baidu.android.imsdk.utils.Utility;
 import java.util.HashMap;
 import java.util.Map;
 import org.apache.http.cookie.SM;
-/* loaded from: classes9.dex */
+/* loaded from: classes5.dex */
 public abstract class IMUserBaseHttpRequest extends BaseHttpRequest {
     @Override // com.baidu.android.imsdk.utils.BaseHttpRequest, com.baidu.android.imsdk.utils.HttpHelper.Request
     public Map<String, String> getHeaders() {
@@ -28,9 +28,9 @@ public abstract class IMUserBaseHttpRequest extends BaseHttpRequest {
     public String getHostUrl() {
         switch (Utility.readIntData(this.mContext, Constants.KEY_ENV, 0)) {
             case 0:
-                return Constants.URL_HTTP_ONLINE;
+                return "https://pim.baidu.com/";
             case 1:
-                return Constants.URL_HTTP_RD;
+                return "http://cp01-ocean-749.epc.baidu.com:8080/";
             case 2:
                 return Constants.URL_HTTP_QA;
             case 3:

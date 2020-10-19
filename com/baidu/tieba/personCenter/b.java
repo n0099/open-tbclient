@@ -3,20 +3,20 @@ package com.baidu.tieba.personCenter;
 import android.content.Context;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.ufosdk.UfoSDK;
-/* loaded from: classes21.dex */
+/* loaded from: classes22.dex */
 public class b {
-    private static b lnw;
+    private static b lCN;
     private Context context;
 
-    public static b dkd() {
-        if (lnw == null) {
+    public static b dnN() {
+        if (lCN == null) {
             synchronized (b.class) {
-                if (lnw == null) {
-                    lnw = new b(TbadkCoreApplication.getInst());
+                if (lCN == null) {
+                    lCN = new b(TbadkCoreApplication.getInst());
                 }
             }
         }
-        return lnw;
+        return lCN;
     }
 
     public b(Context context) {
@@ -26,7 +26,7 @@ public class b {
         UfoSDK.setContactDialogSwitch(false);
     }
 
-    public void dke() {
+    public void dnO() {
         TbadkCoreApplication.getInst();
         if (TbadkCoreApplication.getCurrentAccountInfo() != null) {
             TbadkCoreApplication.getInst();

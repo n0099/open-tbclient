@@ -10,11 +10,13 @@ import java.util.Iterator;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes8.dex */
+/* loaded from: classes11.dex */
 public final class b {
     public static String b = "MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQDjTe6LTkPFvWowhciLFGS+nqhc\nhfaYCwBhVIkmZXNNiqdBMcNBUmqaAIKYB8lh1+UFf/KmuO14QbAKqzE/FjHWAV51\n68IJCk+DLxu885hYRiNH+kJDRuzDVMOv4NudroOwY1zB3c8VOjjLuz7xE7rRet7d\nAjH9k8YPZuedladalwIDAQAB";
     public static String c = "1_0";
-    public String a;
+
+    /* renamed from: a  reason: collision with root package name */
+    public String f3956a;
     public HashMap<String, a> d = new HashMap<>();
     public HashMap<String, String> e = new HashMap<>();
     private HashMap<String, c> f = new HashMap<>();
@@ -87,7 +89,7 @@ public final class b {
         if (this.d.containsKey(str)) {
             return this.d.get(str);
         }
-        SharedPreferences a = a();
+        SharedPreferences a2 = a();
         int i2 = 1;
         if ("frame_pv".equals(str)) {
             i2 = 2;
@@ -96,12 +98,12 @@ public final class b {
         }
         String str3 = "";
         try {
-            str3 = a.getString(str, "");
+            str3 = a2.getString(str, "");
             com.baidu.webkit.logsdk.d.c.e("BdLogSDK", "getConfig = " + str3);
             i = i2;
             str2 = str3;
         } catch (ClassCastException e) {
-            int i3 = a.getInt(str, i2);
+            int i3 = a2.getInt(str, i2);
             com.baidu.webkit.logsdk.d.c.e("BdLogSDK", "getConfig level = " + str3);
             String str4 = str3;
             i = i3;
@@ -113,9 +115,9 @@ public final class b {
             com.baidu.webkit.logsdk.d.c.a(e2);
             jSONObject = null;
         }
-        a a2 = a(str, i, jSONObject);
-        this.d.put(str, a2);
-        return a2;
+        a a3 = a(str, i, jSONObject);
+        this.d.put(str, a3);
+        return a3;
     }
 
     public final void a(JSONObject jSONObject, SharedPreferences.Editor editor) throws JSONException {
@@ -182,9 +184,9 @@ public final class b {
         if (this.f.containsKey(str)) {
             return this.f.get(str);
         }
-        SharedPreferences a = a();
-        String string = a.getString(str + "@body", "");
-        String string2 = a.getString(str + "@url", "");
+        SharedPreferences a2 = a();
+        String string = a2.getString(str + "@body", "");
+        String string2 = a2.getString(str + "@url", "");
         if (!TextUtils.isEmpty(string) || !TextUtils.isEmpty(string2)) {
             try {
                 c cVar = new c(str);

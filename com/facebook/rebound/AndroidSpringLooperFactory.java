@@ -5,7 +5,7 @@ import android.os.Build;
 import android.os.Handler;
 import android.os.SystemClock;
 import android.view.Choreographer;
-/* loaded from: classes17.dex */
+/* loaded from: classes11.dex */
 abstract class AndroidSpringLooperFactory {
     AndroidSpringLooperFactory() {
     }
@@ -14,7 +14,7 @@ abstract class AndroidSpringLooperFactory {
         return Build.VERSION.SDK_INT >= 16 ? ChoreographerAndroidSpringLooper.create() : LegacyAndroidSpringLooper.create();
     }
 
-    /* loaded from: classes17.dex */
+    /* loaded from: classes11.dex */
     private static class LegacyAndroidSpringLooper extends SpringLooper {
         private final Handler mHandler;
         private long mLastTime;
@@ -57,7 +57,7 @@ abstract class AndroidSpringLooperFactory {
     }
 
     @TargetApi(16)
-    /* loaded from: classes17.dex */
+    /* loaded from: classes11.dex */
     private static class ChoreographerAndroidSpringLooper extends SpringLooper {
         private final Choreographer mChoreographer;
         private final Choreographer.FrameCallback mFrameCallback = new Choreographer.FrameCallback() { // from class: com.facebook.rebound.AndroidSpringLooperFactory.ChoreographerAndroidSpringLooper.1

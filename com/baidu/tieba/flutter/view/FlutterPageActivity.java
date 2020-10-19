@@ -54,7 +54,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-/* loaded from: classes24.dex */
+/* loaded from: classes25.dex */
 public class FlutterPageActivity<T> extends BoostFlutterActivity implements f<T>, TbPageContextSupport, a {
     private static Class<? extends TbPageContext> mClazz4GetPageContext = FlutterActivityPageContext.class;
     private long lastResumeTime;
@@ -97,7 +97,7 @@ public class FlutterPageActivity<T> extends BoostFlutterActivity implements f<T>
 
     @Override // android.view.ContextThemeWrapper, android.content.ContextWrapper, android.content.Context
     public Resources getResources() {
-        Resources resources = g.lh().getResources();
+        Resources resources = g.li().getResources();
         return (resources == null || !BdBaseApplication.getInst().getIsPluginResourcOpen()) ? super.getResources() : resources;
     }
 
@@ -141,7 +141,7 @@ public class FlutterPageActivity<T> extends BoostFlutterActivity implements f<T>
         TbadkCoreApplication.setIsAppRunning(true);
         bc.setCurrentActivity(getClass().getName());
         TbadkCoreApplication.getInst().setCurrentActivity(getPageContext().getPageActivity());
-        com.baidu.adp.base.a.lf().pushActivity(getPageContext().getPageActivity());
+        com.baidu.adp.base.a.lg().pushActivity(getPageContext().getPageActivity());
         if (TbadkCoreApplication.getInst().getSkinType() == 1 || TbadkCoreApplication.getInst().getSkinType() == 4) {
             z = true;
         }
@@ -167,7 +167,7 @@ public class FlutterPageActivity<T> extends BoostFlutterActivity implements f<T>
     public SplashScreen provideSplashScreen() {
         FrameLayout frameLayout = new FrameLayout(getActivity());
         frameLayout.setLayoutParams(new FrameLayout.LayoutParams(-1, -1));
-        Resources resources = g.lh().getResources();
+        Resources resources = g.li().getResources();
         if (getBackgroundMode() == BoostFlutterActivity.BackgroundMode.transparent) {
             frameLayout.setBackgroundColor(0);
         } else {
@@ -213,7 +213,7 @@ public class FlutterPageActivity<T> extends BoostFlutterActivity implements f<T>
             MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(CmdConfigCustom.CMD_APP_ENTER_FOREGROUND, this));
         }
         TbSingleton.getInstance().setLastResumeTime(System.currentTimeMillis());
-        r.n(getPageId(), 0L);
+        r.o(getPageId(), 0L);
     }
 
     public void setUseStyleImmersiveSticky(boolean z) {
@@ -233,7 +233,7 @@ public class FlutterPageActivity<T> extends BoostFlutterActivity implements f<T>
             long currentTimeMillis = System.currentTimeMillis() - this.lastResumeTime;
             d pageStayDurationItem = getPageStayDurationItem();
             pageStayDurationItem.setStayDurationTime(currentTimeMillis);
-            e.bve().a(getPageContext().getPageActivity(), pageStayDurationItem, null);
+            e.bxO().a(getPageContext().getPageActivity(), pageStayDurationItem, null);
         }
         TbadkCoreApplication.getInst().DelResumeNum();
         TbadkCoreApplication.getInst().setCurrentActivity(null);
@@ -260,7 +260,7 @@ public class FlutterPageActivity<T> extends BoostFlutterActivity implements f<T>
         }
         MessageManager.getInstance().unRegisterListener(this.skinTypeChangeListener);
         super.onDestroy();
-        com.baidu.adp.base.a.lf().popActivity(getPageContext().getPageActivity());
+        com.baidu.adp.base.a.lg().popActivity(getPageContext().getPageActivity());
     }
 
     @Override // com.idlefish.flutterboost.containers.BoostFlutterActivity, com.idlefish.flutterboost.containers.FlutterActivityAndFragmentDelegate.Host
@@ -337,7 +337,7 @@ public class FlutterPageActivity<T> extends BoostFlutterActivity implements f<T>
 
             @Override // com.baidu.tbadk.m.b
             public int getMaxCost() {
-                return e.bve().getMaxCostFromServer();
+                return e.bxO().getMaxCostFromServer();
             }
 
             @Override // com.baidu.tbadk.m.b

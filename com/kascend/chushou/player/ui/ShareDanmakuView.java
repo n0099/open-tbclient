@@ -27,15 +27,17 @@ import tv.chushou.zues.toolkit.richtext.b;
 import tv.chushou.zues.utils.h;
 /* loaded from: classes6.dex */
 public class ShareDanmakuView extends RelativeLayout implements Handler.Callback, View.OnClickListener {
-    private Context a;
-    private JSONObject afd;
+
+    /* renamed from: a  reason: collision with root package name */
+    private Context f4145a;
+    private JSONObject afu;
     private int e;
     private boolean g;
-    private SimpleDraweeSpanTextView nTi;
-    private final c ocd;
-    private a oce;
-    private ChatInfo ocf;
-    private final LinkedList<ChatInfo> ocg;
+    private SimpleDraweeSpanTextView oiA;
+    private final LinkedList<ChatInfo> orA;
+    private final c orx;
+    private a ory;
+    private ChatInfo orz;
 
     /* loaded from: classes6.dex */
     public interface a {
@@ -44,34 +46,34 @@ public class ShareDanmakuView extends RelativeLayout implements Handler.Callback
 
     public ShareDanmakuView(Context context) {
         super(context);
-        this.ocd = new c(this);
+        this.orx = new c(this);
         this.g = false;
-        this.ocg = new LinkedList<>();
+        this.orA = new LinkedList<>();
         a(context);
     }
 
     public ShareDanmakuView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.ocd = new c(this);
+        this.orx = new c(this);
         this.g = false;
-        this.ocg = new LinkedList<>();
+        this.orA = new LinkedList<>();
         a(context);
     }
 
     public ShareDanmakuView(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.ocd = new c(this);
+        this.orx = new c(this);
         this.g = false;
-        this.ocg = new LinkedList<>();
+        this.orA = new LinkedList<>();
         a(context);
     }
 
     private void a(Context context) {
-        this.a = context;
-        LayoutInflater.from(this.a).inflate(a.h.view_share_danmaku, (ViewGroup) this, true);
-        this.nTi = (SimpleDraweeSpanTextView) findViewById(a.f.tv_content);
+        this.f4145a = context;
+        LayoutInflater.from(this.f4145a).inflate(a.h.view_share_danmaku, (ViewGroup) this, true);
+        this.oiA = (SimpleDraweeSpanTextView) findViewById(a.f.tv_content);
         TextView textView = (TextView) findViewById(a.f.tv_share_room);
-        textView.setText(new tv.chushou.zues.widget.a.c().append(this.a.getString(a.i.videoplayer_danmaku_share)).N(this.a, a.e.videoplayer_danmaku_share_icon));
+        textView.setText(new tv.chushou.zues.widget.a.c().append(this.f4145a.getString(a.i.videoplayer_danmaku_share)).N(this.f4145a, a.e.videoplayer_danmaku_share_icon));
         textView.setOnClickListener(this);
     }
 
@@ -79,12 +81,12 @@ public class ShareDanmakuView extends RelativeLayout implements Handler.Callback
     public boolean handleMessage(Message message) {
         switch (message.what) {
             case 1:
-                ChatInfo poll = this.ocg.poll();
+                ChatInfo poll = this.orA.poll();
                 if (poll != null) {
                     a(poll);
                 }
-                if (this.ocg.isEmpty()) {
-                    this.ocd.C(2, TimeUnit.SECONDS.toMillis(3L));
+                if (this.orA.isEmpty()) {
+                    this.orx.D(2, TimeUnit.SECONDS.toMillis(3L));
                     return true;
                 }
                 return true;
@@ -98,20 +100,20 @@ public class ShareDanmakuView extends RelativeLayout implements Handler.Callback
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        if (this.ocf != null && this.ocf.mItem != null) {
-            e.a(this.a, this.ocf.mItem, this.afd);
+        if (this.orz != null && this.orz.mItem != null) {
+            e.a(this.f4145a, this.orz.mItem, this.afu);
         }
     }
 
     public void a(Context context, @ColorInt int i, a aVar, String str) {
         if (context != null) {
-            this.a = context;
+            this.f4145a = context;
         }
         this.e = i;
-        this.oce = aVar;
+        this.ory = aVar;
         if (!h.isEmpty(str)) {
             try {
-                this.afd = new JSONObject(str);
+                this.afu = new JSONObject(str);
             } catch (JSONException e) {
             }
         }
@@ -119,40 +121,40 @@ public class ShareDanmakuView extends RelativeLayout implements Handler.Callback
 
     public void a(List<ChatInfo> list) {
         if (!h.isEmpty(list)) {
-            this.ocd.removeMessages(2);
-            this.ocd.removeMessages(1);
+            this.orx.removeMessages(2);
+            this.orx.removeMessages(1);
             if (!this.g) {
                 c();
                 a(list.remove(0));
             }
-            this.ocg.addAll(list);
-            if (h.isEmpty(this.ocg)) {
-                this.ocd.C(2, TimeUnit.SECONDS.toMillis(3L));
+            this.orA.addAll(list);
+            if (h.isEmpty(this.orA)) {
+                this.orx.D(2, TimeUnit.SECONDS.toMillis(3L));
                 return;
             }
-            int size = this.ocg.size();
+            int size = this.orA.size();
             for (int i = 0; i < size; i++) {
-                this.ocd.C(1, TimeUnit.SECONDS.toMillis(i + 1));
+                this.orx.D(1, TimeUnit.SECONDS.toMillis(i + 1));
             }
         }
     }
 
     public void a() {
-        this.ocg.clear();
-        this.ocd.cl(null);
+        this.orA.clear();
+        this.orx.co(null);
     }
 
     public void b() {
-        this.ocf = null;
-        this.ocg.clear();
-        this.ocd.cl(null);
+        this.orz = null;
+        this.orA.clear();
+        this.orx.co(null);
         d();
     }
 
     private void c() {
         if (!this.g) {
             this.g = true;
-            Animation loadAnimation = AnimationUtils.loadAnimation(this.a, a.C0879a.videoplayer_share_danmaku_in);
+            Animation loadAnimation = AnimationUtils.loadAnimation(this.f4145a, a.C0897a.videoplayer_share_danmaku_in);
             setVisibility(0);
             startAnimation(loadAnimation);
         }
@@ -161,16 +163,16 @@ public class ShareDanmakuView extends RelativeLayout implements Handler.Callback
     private void d() {
         if (this.g) {
             this.g = false;
-            Animation loadAnimation = AnimationUtils.loadAnimation(this.a, a.C0879a.videoplayer_share_danmaku_out);
+            Animation loadAnimation = AnimationUtils.loadAnimation(this.f4145a, a.C0897a.videoplayer_share_danmaku_out);
             loadAnimation.setAnimationListener(new tv.chushou.zues.toolkit.c.a() { // from class: com.kascend.chushou.player.ui.ShareDanmakuView.1
                 @Override // tv.chushou.zues.toolkit.c.a, android.view.animation.Animation.AnimationListener
                 public void onAnimationEnd(Animation animation) {
                     super.onAnimationEnd(animation);
                     ShareDanmakuView.this.setVisibility(8);
-                    if (ShareDanmakuView.this.ocf != null && ShareDanmakuView.this.oce != null) {
-                        ShareDanmakuView.this.oce.a(ShareDanmakuView.this.ocf);
+                    if (ShareDanmakuView.this.orz != null && ShareDanmakuView.this.ory != null) {
+                        ShareDanmakuView.this.ory.a(ShareDanmakuView.this.orz);
                     }
-                    ShareDanmakuView.this.ocf = null;
+                    ShareDanmakuView.this.orz = null;
                 }
             });
             startAnimation(loadAnimation);
@@ -178,14 +180,14 @@ public class ShareDanmakuView extends RelativeLayout implements Handler.Callback
     }
 
     private void a(ChatInfo chatInfo) {
-        if (this.ocf != null && this.oce != null) {
-            this.oce.a(this.ocf);
+        if (this.orz != null && this.ory != null) {
+            this.ory.a(this.orz);
         }
-        this.ocf = chatInfo;
+        this.orz = chatInfo;
         tv.chushou.zues.widget.a.c cVar = new tv.chushou.zues.widget.a.c();
-        if (!b.a(this.a, cVar, chatInfo.mContentRichText, 14, this.e, this.nTi, null, null)) {
-            cVar.a(chatInfo.mContent, new ForegroundColorSpan(this.a.getResources().getColor(a.c.banrrage_chat_text_color)));
+        if (!b.a(this.f4145a, cVar, chatInfo.mContentRichText, 14, this.e, this.oiA, null, null)) {
+            cVar.a(chatInfo.mContent, new ForegroundColorSpan(this.f4145a.getResources().getColor(a.c.banrrage_chat_text_color)));
         }
-        this.nTi.setDraweeSpanStringBuilder(cVar);
+        this.oiA.setDraweeSpanStringBuilder(cVar);
     }
 }

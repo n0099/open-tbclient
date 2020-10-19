@@ -1,5 +1,5 @@
 package com.googlecode.mp4parser.util;
-/* loaded from: classes4.dex */
+/* loaded from: classes11.dex */
 public class Math {
     public static long gcd(long j, long j2) {
         while (j2 > 0) {

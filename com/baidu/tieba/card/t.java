@@ -1,4 +1,4 @@
 package com.baidu.tieba.card;
-/* loaded from: classes20.dex */
+/* loaded from: classes21.dex */
 public class t {
 }

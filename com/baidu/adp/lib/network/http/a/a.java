@@ -8,8 +8,8 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class a {
-    private List<String> Ma;
-    private long Mb;
+    private List<String> Mq;
+    private long Mr;
     private String mHost;
     private long mStartTime = System.currentTimeMillis();
 
@@ -20,7 +20,7 @@ public class a {
         }
         try {
             JSONObject jSONObject = new JSONObject(str);
-            this.Mb = jSONObject.optLong("ttl");
+            this.Mr = jSONObject.optLong("ttl");
             JSONObject optJSONObject = jSONObject.optJSONObject("data");
             if (optJSONObject == null) {
                 return null;
@@ -28,12 +28,12 @@ public class a {
             this.mHost = optJSONObject.keys().next();
             JSONObject optJSONObject2 = optJSONObject.optJSONObject(this.mHost);
             if (optJSONObject2 != null && (optJSONArray = optJSONObject2.optJSONArray(TableDefine.UserInfoColumns.COLUMN_IP)) != null && optJSONArray.length() > 0) {
-                this.Ma = new ArrayList();
+                this.Mq = new ArrayList();
                 int i = 0;
                 while (true) {
                     int i2 = i;
                     if (i2 < optJSONArray.length()) {
-                        this.Ma.add((String) optJSONArray.get(i2));
+                        this.Mq.add((String) optJSONArray.get(i2));
                         i = i2 + 1;
                     } else {
                         return this;
@@ -50,7 +50,7 @@ public class a {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public void E(long j) {
-        this.Mb = j;
+        this.Mr = j;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -58,11 +58,11 @@ public class a {
         this.mStartTime = j;
     }
 
-    public List<String> mG() {
-        return this.Ma;
+    public List<String> mH() {
+        return this.Mq;
     }
 
     public boolean F(long j) {
-        return j - this.mStartTime > this.Mb * 1000;
+        return j - this.mStartTime > this.Mr * 1000;
     }
 }

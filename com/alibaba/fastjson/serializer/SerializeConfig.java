@@ -54,7 +54,7 @@ import java.util.concurrent.atomic.AtomicLongArray;
 import java.util.concurrent.atomic.AtomicReference;
 import java.util.regex.Pattern;
 import javax.xml.datatype.XMLGregorianCalendar;
-/* loaded from: classes10.dex */
+/* loaded from: classes5.dex */
 public class SerializeConfig {
     private boolean asm;
     private ASMSerializerFactory asmFactory;

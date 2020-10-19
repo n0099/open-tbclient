@@ -5,10 +5,10 @@ import com.baidu.live.tbadk.core.atomdata.AlaMasterLiveRoomActivityConfig;
 /* loaded from: classes4.dex */
 public class MasterLiveInitialize {
     static {
-        bWq();
+        bZL();
     }
 
-    private static void bWq() {
+    private static void bZL() {
         TbadkCoreApplication.getInst().RegisterIntent(AlaMasterLiveRoomActivityConfig.class, AlaMasterLiveRoomActivity.class);
     }
 }

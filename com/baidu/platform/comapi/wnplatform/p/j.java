@@ -2,19 +2,21 @@ package com.baidu.platform.comapi.wnplatform.p;
 
 import android.media.MediaPlayer;
 import android.text.TextUtils;
-/* loaded from: classes3.dex */
+/* loaded from: classes7.dex */
 public class j {
-    private static j a;
+
+    /* renamed from: a  reason: collision with root package name */
+    private static j f3147a;
     private MediaPlayer b = null;
     private boolean c = false;
 
     public static synchronized j a() {
         j jVar;
         synchronized (j.class) {
-            if (a == null) {
-                a = new j();
+            if (f3147a == null) {
+                f3147a = new j();
             }
-            jVar = a;
+            jVar = f3147a;
         }
         return jVar;
     }

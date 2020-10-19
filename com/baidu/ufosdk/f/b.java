@@ -4,9 +4,11 @@ import android.graphics.Bitmap;
 import java.lang.ref.SoftReference;
 import java.util.HashMap;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes21.dex */
+/* loaded from: classes22.dex */
 public final class b implements Runnable {
-    final /* synthetic */ String a;
+
+    /* renamed from: a  reason: collision with root package name */
+    final /* synthetic */ String f3712a;
     final /* synthetic */ String b;
     final /* synthetic */ n c;
     final /* synthetic */ a d;
@@ -14,7 +16,7 @@ public final class b implements Runnable {
     /* JADX INFO: Access modifiers changed from: package-private */
     public b(a aVar, String str, String str2, n nVar) {
         this.d = aVar;
-        this.a = str;
+        this.f3712a = str;
         this.b = str2;
         this.c = nVar;
     }
@@ -23,12 +25,12 @@ public final class b implements Runnable {
     public final void run() {
         HashMap hashMap;
         try {
-            Bitmap a = a.a(this.a);
-            if (a != null) {
+            Bitmap a2 = a.a(this.f3712a);
+            if (a2 != null) {
                 hashMap = a.b;
-                hashMap.put(this.b, new SoftReference(a));
-                f.a().a(a, this.b);
-                this.c.obtainMessage(0, a).sendToTarget();
+                hashMap.put(this.b, new SoftReference(a2));
+                f.a().a(a2, this.b);
+                this.c.obtainMessage(0, a2).sendToTarget();
             } else {
                 this.c.obtainMessage(0, null).sendToTarget();
             }

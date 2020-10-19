@@ -7,7 +7,7 @@ import android.widget.FrameLayout;
 import com.baidu.swan.apps.adaptation.a.ao;
 import com.baidu.swan.apps.adaptation.b.d;
 import com.baidu.swan.apps.core.container.PullToRefreshBaseWebView;
-/* loaded from: classes3.dex */
+/* loaded from: classes10.dex */
 public interface c<T extends d> extends ao, e<T> {
     void a(ViewGroup viewGroup, View view);
 
@@ -21,24 +21,24 @@ public interface c<T extends d> extends ao, e<T> {
 
     boolean a(com.baidu.swan.apps.scheme.actions.m.d dVar);
 
-    String abA();
+    boolean aee();
 
-    boolean abs();
+    PullToRefreshBaseWebView aef();
 
-    PullToRefreshBaseWebView abt();
+    f aeg();
 
-    f abu();
+    boolean aeh();
 
-    boolean abv();
-
-    void abw();
+    void aei();
 
     @Nullable
-    com.baidu.swan.apps.component.c.a abx();
+    com.baidu.swan.apps.component.c.a aej();
 
-    boolean aby();
+    boolean aek();
 
-    com.baidu.swan.apps.adaptation.b.a.d abz();
+    com.baidu.swan.apps.adaptation.b.a.d ael();
+
+    String aem();
 
     void b(FrameLayout frameLayout, com.baidu.swan.apps.runtime.config.c cVar);
 
@@ -46,11 +46,11 @@ public interface c<T extends d> extends ao, e<T> {
 
     boolean c(com.baidu.swan.apps.scheme.actions.m.d dVar);
 
-    void gC(int i);
+    void gZ(int i);
 
-    boolean gD(int i);
+    boolean ha(int i);
 
-    void jc(String str);
+    void jO(String str);
 
-    void jd(String str);
+    void jP(String str);
 }

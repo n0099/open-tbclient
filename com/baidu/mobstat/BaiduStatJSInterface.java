@@ -36,25 +36,27 @@ import java.util.Iterator;
 import java.util.Map;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes15.dex */
+/* loaded from: classes17.dex */
 public class BaiduStatJSInterface {
 
-    /* loaded from: classes15.dex */
+    /* loaded from: classes17.dex */
     public interface IWebviewPageLoadCallback {
         void onPageFinished(WebView webView, String str, bl blVar);
 
         void onPageStarted(WebView webView, String str, bl blVar);
     }
 
-    /* loaded from: classes15.dex */
+    /* loaded from: classes17.dex */
     public static class CustomWebViewClient extends WebViewClient {
-        private WeakReference<Context> a;
+
+        /* renamed from: a  reason: collision with root package name */
+        private WeakReference<Context> f2485a;
         private WebViewClient b;
         private IWebviewPageLoadCallback c;
         private bl d;
 
         public CustomWebViewClient(Context context, WebViewClient webViewClient, IWebviewPageLoadCallback iWebviewPageLoadCallback, bl blVar) {
-            this.a = new WeakReference<>(context);
+            this.f2485a = new WeakReference<>(context);
             this.b = webViewClient;
             this.c = iWebviewPageLoadCallback;
             this.d = blVar;
@@ -97,7 +99,7 @@ public class BaiduStatJSInterface {
             JSONObject jSONObject4 = new JSONObject(str);
             String string = jSONObject4.getString("action");
             JSONObject jSONObject5 = jSONObject4.getJSONObject(MapBundleKey.MapObjKey.OBJ_SL_OBJ);
-            Context context = this.a.get();
+            Context context = this.f2485a.get();
             if (context != null) {
                 if ("onPageStart".equals(string)) {
                     String string2 = jSONObject5.getString("page");
@@ -320,16 +322,18 @@ public class BaiduStatJSInterface {
         }
     }
 
-    /* loaded from: classes15.dex */
+    /* loaded from: classes17.dex */
     public static class CustomWebChromeViewClient extends WebChromeClient {
-        private WeakReference<Context> a;
+
+        /* renamed from: a  reason: collision with root package name */
+        private WeakReference<Context> f2484a;
         private WebChromeClient b;
         private ArrayList<IWebviewPageLoadCallback> c;
         private bl d;
         private int e = 0;
 
         public CustomWebChromeViewClient(Context context, WebChromeClient webChromeClient, ArrayList<IWebviewPageLoadCallback> arrayList, bl blVar) {
-            this.a = new WeakReference<>(context);
+            this.f2484a = new WeakReference<>(context);
             this.b = webChromeClient;
             this.c = arrayList;
             this.d = blVar;

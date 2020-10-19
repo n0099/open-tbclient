@@ -27,7 +27,7 @@ import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
-/* loaded from: classes3.dex */
+/* loaded from: classes7.dex */
 public class XAdContext implements IXAdContext {
     public static final String PARAMETER_KEY_OF_BASE_HEIGHT = "BASE_HEIGHT";
     public static final String PARAMETER_KEY_OF_BASE_WIDTH = "BASE_WIDTH";
@@ -45,7 +45,9 @@ public class XAdContext implements IXAdContext {
     private IXAdConstants4PDK.ScreenSizeMode d = IXAdConstants4PDK.ScreenSizeMode.FULL_SCREEN;
     private IXAdConstants4PDK.VideoState e = IXAdConstants4PDK.VideoState.IDLE;
     private IXAdConstants4PDK.ActivityState f = IXAdConstants4PDK.ActivityState.CREATE;
-    int a = 0;
+
+    /* renamed from: a  reason: collision with root package name */
+    int f2279a = 0;
     int b = 0;
     private final IOAdEventDispatcher p = new c();
     private final XAdSlotManager q = new XAdSlotManager();
@@ -175,22 +177,24 @@ public class XAdContext implements IXAdContext {
             HashMap<String, String> parameter = retrievePrerollAdSlot.getParameter();
             parameter.put(IXAdInternalConstants.PARAMETER_KEY_OF_AD_REQUESTING_TIMEOUT, "" + this.i);
             parameter.put(IXAdInternalConstants.PARAMETER_KEY_OF_AD_CREATIVE_LOADING_TIMEOUT, "" + this.j);
-            parameter.put(PARAMETER_KEY_OF_BASE_WIDTH, "" + this.a);
+            parameter.put(PARAMETER_KEY_OF_BASE_WIDTH, "" + this.f2279a);
             parameter.put(PARAMETER_KEY_OF_BASE_HEIGHT, "" + this.b);
             retrievePrerollAdSlot.setParameter(parameter);
         }
         retrievePrerollAdSlot.request();
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes7.dex */
     public static class AdSlotEventListener implements IOAdEventListener {
         public static final String TAG = "AdSlotEventListener";
-        private final Context a;
+
+        /* renamed from: a  reason: collision with root package name */
+        private final Context f2281a;
         private final IXAdProd b;
         private final IOAdEventDispatcher c;
 
         public AdSlotEventListener(Context context, IXAdProd iXAdProd, IOAdEventDispatcher iOAdEventDispatcher) {
-            this.a = context;
+            this.f2281a = context;
             this.b = iXAdProd;
             this.c = iOAdEventDispatcher;
         }
@@ -284,7 +288,7 @@ public class XAdContext implements IXAdContext {
 
     @Override // com.baidu.mobads.interfaces.IXAdContext
     public void setVideoDisplayBaseWidth(int i) {
-        this.a = i;
+        this.f2279a = i;
     }
 
     @Override // com.baidu.mobads.interfaces.IXAdContext

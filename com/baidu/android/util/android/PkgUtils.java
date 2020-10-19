@@ -5,7 +5,7 @@ import android.content.pm.ApplicationInfo;
 import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
 import android.text.TextUtils;
-/* loaded from: classes4.dex */
+/* loaded from: classes8.dex */
 public class PkgUtils {
     private static final String TAG = "PkgUtils";
 

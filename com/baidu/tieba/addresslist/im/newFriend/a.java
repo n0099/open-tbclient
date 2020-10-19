@@ -16,55 +16,55 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 @SuppressLint({"UseSparseArrays"})
-/* loaded from: classes20.dex */
+/* loaded from: classes21.dex */
 public class a extends BaseAdapter implements View.OnClickListener {
-    private static SparseArray<Integer> ftQ = new SparseArray<>();
-    private static HashMap<C0569a, Integer> ftR = new HashMap<>();
-    private static HashMap<C0569a, Integer> ftS = new HashMap<>();
+    private static SparseArray<Integer> fFZ = new SparseArray<>();
+    private static HashMap<C0586a, Integer> fGa = new HashMap<>();
+    private static HashMap<C0586a, Integer> fGb = new HashMap<>();
     private List<com.baidu.tieba.im.data.a> data;
-    private NewFriendsActivity ftP;
-    private b ftT;
+    private NewFriendsActivity fFY;
+    private b fGc;
 
-    /* loaded from: classes20.dex */
+    /* loaded from: classes21.dex */
     public interface b {
         void a(int i, int i2, View view, com.baidu.tieba.im.data.a aVar);
     }
 
     static {
-        ftQ.put(0, Integer.valueOf(R.string.add));
-        ftQ.put(4, Integer.valueOf(R.string.added));
-        ftQ.put(1, Integer.valueOf(R.string.pass));
-        ftQ.put(2, Integer.valueOf(R.string.passed));
-        ftQ.put(3, Integer.valueOf(R.string.waiting));
-        ftR.put(new C0569a(false), Integer.valueOf(R.drawable.btn_pass));
-        ftR.put(new C0569a(true), Integer.valueOf(R.drawable.btn_all_blue));
-        ftS.put(new C0569a(false), Integer.valueOf(R.color.btn_pass_text_color));
-        ftS.put(new C0569a(true), Integer.valueOf(R.color.btn_agree_text_color));
+        fFZ.put(0, Integer.valueOf(R.string.add));
+        fFZ.put(4, Integer.valueOf(R.string.added));
+        fFZ.put(1, Integer.valueOf(R.string.pass));
+        fFZ.put(2, Integer.valueOf(R.string.passed));
+        fFZ.put(3, Integer.valueOf(R.string.waiting));
+        fGa.put(new C0586a(false), Integer.valueOf(R.drawable.btn_pass));
+        fGa.put(new C0586a(true), Integer.valueOf(R.drawable.btn_all_blue));
+        fGb.put(new C0586a(false), Integer.valueOf(R.color.btn_pass_text_color));
+        fGb.put(new C0586a(true), Integer.valueOf(R.color.btn_agree_text_color));
     }
 
     /* renamed from: com.baidu.tieba.addresslist.im.newFriend.a$a  reason: collision with other inner class name */
-    /* loaded from: classes20.dex */
-    private static class C0569a {
-        private boolean ftU;
+    /* loaded from: classes21.dex */
+    private static class C0586a {
+        private boolean fGd;
 
-        public C0569a(boolean z) {
-            this.ftU = z;
+        public C0586a(boolean z) {
+            this.fGd = z;
         }
 
         public int hashCode() {
-            return (this.ftU ? 1231 : 1237) + 31;
+            return (this.fGd ? 1231 : 1237) + 31;
         }
 
         public boolean equals(Object obj) {
             if (this == obj) {
                 return true;
             }
-            return obj != null && getClass() == obj.getClass() && this.ftU == ((C0569a) obj).ftU;
+            return obj != null && getClass() == obj.getClass() && this.fGd == ((C0586a) obj).fGd;
         }
     }
 
     public a(NewFriendsActivity newFriendsActivity) {
-        this.ftP = newFriendsActivity;
+        this.fFY = newFriendsActivity;
     }
 
     @Override // android.widget.Adapter
@@ -77,7 +77,7 @@ public class a extends BaseAdapter implements View.OnClickListener {
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // android.widget.Adapter
-    /* renamed from: sA */
+    /* renamed from: sY */
     public com.baidu.tieba.im.data.a getItem(int i) {
         return this.data.get(i);
     }
@@ -95,25 +95,25 @@ public class a extends BaseAdapter implements View.OnClickListener {
         } else {
             view = LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.add_new_friend_list_item, (ViewGroup) null);
             cVar = new c();
-            cVar.ftV = (HeadImageView) view.findViewById(R.id.friend_icon);
-            cVar.ftW = (TextView) view.findViewById(R.id.friend_name);
-            cVar.ftX = (TextView) view.findViewById(R.id.friend_info);
-            cVar.ftY = (TextView) view.findViewById(R.id.friend_add_btn);
+            cVar.fGe = (HeadImageView) view.findViewById(R.id.friend_icon);
+            cVar.fGf = (TextView) view.findViewById(R.id.friend_name);
+            cVar.fGg = (TextView) view.findViewById(R.id.friend_info);
+            cVar.fGh = (TextView) view.findViewById(R.id.friend_add_btn);
             view.setTag(cVar);
         }
         com.baidu.tieba.im.data.a item = getItem(i);
         cVar.c(item);
-        cVar.ftY.setTag(Integer.valueOf(i));
-        cVar.ftY.setOnClickListener(this);
-        this.ftP.getLayoutMode().setNightMode(TbadkCoreApplication.getInst().getSkinType() == 1);
-        this.ftP.getLayoutMode().onModeChanged(view);
-        Integer num = ftR.get(new C0569a(item.getStatus() == 1));
+        cVar.fGh.setTag(Integer.valueOf(i));
+        cVar.fGh.setOnClickListener(this);
+        this.fFY.getLayoutMode().setNightMode(TbadkCoreApplication.getInst().getSkinType() == 1);
+        this.fFY.getLayoutMode().onModeChanged(view);
+        Integer num = fGa.get(new C0586a(item.getStatus() == 1));
         if (num != null) {
-            ap.setBackgroundResource(cVar.ftY, num.intValue());
+            ap.setBackgroundResource(cVar.fGh, num.intValue());
         }
-        Integer num2 = ftS.get(new C0569a(item.getStatus() == 1));
+        Integer num2 = fGb.get(new C0586a(item.getStatus() == 1));
         if (num2 != null) {
-            ap.setViewTextColor(cVar.ftY, num2.intValue(), 1);
+            ap.setViewTextColor(cVar.fGh, num2.intValue(), 1);
         }
         return view;
     }
@@ -128,7 +128,7 @@ public class a extends BaseAdapter implements View.OnClickListener {
         }
     }
 
-    public void bx(List<com.baidu.tieba.im.data.a> list) {
+    public void bA(List<com.baidu.tieba.im.data.a> list) {
         if (this.data == null) {
             this.data = new ArrayList();
         }
@@ -144,9 +144,9 @@ public class a extends BaseAdapter implements View.OnClickListener {
             this.data = new ArrayList();
         }
         if (aVar != null && aVar.getId() != 0) {
-            int dD = dD(aVar.getId());
-            if (dD != -1) {
-                this.data.remove(dD);
+            int dM = dM(aVar.getId());
+            if (dM != -1) {
+                this.data.remove(dM);
                 this.data.add(0, aVar);
                 return;
             }
@@ -154,7 +154,7 @@ public class a extends BaseAdapter implements View.OnClickListener {
         }
     }
 
-    private int dD(long j) {
+    private int dM(long j) {
         if (this.data != null) {
             int size = this.data.size();
             for (int i = 0; i < size; i++) {
@@ -166,40 +166,40 @@ public class a extends BaseAdapter implements View.OnClickListener {
         return -1;
     }
 
-    /* loaded from: classes20.dex */
+    /* loaded from: classes21.dex */
     private static class c {
-        HeadImageView ftV;
-        TextView ftW;
-        TextView ftX;
-        TextView ftY;
+        HeadImageView fGe;
+        TextView fGf;
+        TextView fGg;
+        TextView fGh;
 
         private c() {
         }
 
         public void c(com.baidu.tieba.im.data.a aVar) {
-            this.ftV.startLoad(aVar.getPortrait(), 12, false);
-            this.ftW.setText(aVar.getName());
+            this.fGe.startLoad(aVar.getPortrait(), 12, false);
+            this.fGf.setText(aVar.getName());
             if (!TextUtils.isEmpty(aVar.getContent())) {
-                this.ftX.setText(aVar.getContent());
+                this.fGg.setText(aVar.getContent());
             } else {
-                this.ftX.setText("");
+                this.fGg.setText("");
             }
             int status = aVar.getStatus();
-            this.ftY.setText(((Integer) a.ftQ.get(status)).intValue());
-            this.ftY.setEnabled(status == 0 || status == 1);
+            this.fGh.setText(((Integer) a.fFZ.get(status)).intValue());
+            this.fGh.setEnabled(status == 0 || status == 1);
         }
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        if (this.ftT != null) {
+        if (this.fGc != null) {
             int id = view.getId();
             int intValue = ((Integer) view.getTag()).intValue();
-            this.ftT.a(id, intValue, view, getItem(intValue));
+            this.fGc.a(id, intValue, view, getItem(intValue));
         }
     }
 
     public void a(b bVar) {
-        this.ftT = bVar;
+        this.fGc = bVar;
     }
 }

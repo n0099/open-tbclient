@@ -21,7 +21,7 @@ import com.baidu.tieba.forumMember.tbtitle.TbTitleActivityConfig;
 import java.util.Locale;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes6.dex */
+/* loaded from: classes19.dex */
 public class a extends UnitedSchemeBaseDispatcher {
     private static final boolean DEBUG = b.DEBUG;
     private static final String TAG = a.class.getSimpleName();
@@ -76,12 +76,12 @@ public class a extends UnitedSchemeBaseDispatcher {
     private boolean a(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler) {
         JSONObject jSONObject;
         String str = null;
-        e aAr = e.aAr();
-        if (aAr == null) {
+        e aDa = e.aDa();
+        if (aDa == null) {
             c.e(TAG, "swan app is null");
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202);
             return false;
-        } else if (TextUtils.isEmpty(aAr.id)) {
+        } else if (TextUtils.isEmpty(aDa.id)) {
             c.e(TAG, "aiapp id is invalid");
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202);
             return false;

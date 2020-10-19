@@ -2,19 +2,21 @@ package com.baidu.ufosdk.ui;
 
 import android.content.Intent;
 import android.view.View;
-/* loaded from: classes21.dex */
+/* loaded from: classes22.dex */
 final class cb implements View.OnClickListener {
-    final /* synthetic */ FeedbackInputActivity a;
+
+    /* renamed from: a  reason: collision with root package name */
+    final /* synthetic */ FeedbackInputActivity f3796a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public cb(FeedbackInputActivity feedbackInputActivity) {
-        this.a = feedbackInputActivity;
+        this.f3796a = feedbackInputActivity;
     }
 
     @Override // android.view.View.OnClickListener
     public final void onClick(View view) {
-        Intent intent = new Intent(this.a, FeedbackListActivity.class);
+        Intent intent = new Intent(this.f3796a, FeedbackListActivity.class);
         intent.putExtra("feedback_channel", com.baidu.ufosdk.b.j);
-        this.a.startActivity(intent);
+        this.f3796a.startActivity(intent);
     }
 }

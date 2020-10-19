@@ -7,11 +7,13 @@ import android.content.pm.Signature;
 import android.text.TextUtils;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
-/* loaded from: classes12.dex */
+/* loaded from: classes15.dex */
 public final class b {
     Context b;
     public com.baidu.sofire.j.c c;
-    public a a = null;
+
+    /* renamed from: a  reason: collision with root package name */
+    public a f3655a = null;
     private String e = null;
     private String f = null;
     ServiceConnection d = new d(this);
@@ -64,7 +66,7 @@ public final class b {
                     }
                 }
             }
-            str2 = this.a.a(this.e, this.f, str);
+            str2 = this.f3655a.a(this.e, this.f, str);
         } catch (Throwable th3) {
             str2 = null;
             th = th3;

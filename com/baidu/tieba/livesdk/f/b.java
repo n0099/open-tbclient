@@ -9,15 +9,15 @@ import com.baidu.live.tbadk.location.interfaces.LocationCallback;
 public class b implements ILocation {
     @Override // com.baidu.live.tbadk.location.interfaces.ILocation
     public LocationInfo getLocationInfo() {
-        return a(com.baidu.adp.lib.c.a.mj().getAddress(false));
+        return a(com.baidu.adp.lib.c.a.mk().getAddress(false));
     }
 
     @Override // com.baidu.live.tbadk.location.interfaces.ILocation
     public void getLocation(final LocationCallback locationCallback) {
         if (locationCallback != null) {
             try {
-                com.baidu.adp.lib.c.a.mj().a(false, new a.InterfaceC0019a() { // from class: com.baidu.tieba.livesdk.f.b.1
-                    @Override // com.baidu.adp.lib.c.a.InterfaceC0019a
+                com.baidu.adp.lib.c.a.mk().a(false, new a.InterfaceC0020a() { // from class: com.baidu.tieba.livesdk.f.b.1
+                    @Override // com.baidu.adp.lib.c.a.InterfaceC0020a
                     public void onLocationGeted(int i, String str, Address address) {
                         try {
                             if (locationCallback != null) {
@@ -36,7 +36,7 @@ public class b implements ILocation {
 
     @Override // com.baidu.live.tbadk.location.interfaces.ILocation
     public void requestLocate() {
-        com.baidu.adp.lib.c.a.mj().getAddress(true);
+        com.baidu.adp.lib.c.a.mk().getAddress(true);
     }
 
     /* JADX INFO: Access modifiers changed from: private */

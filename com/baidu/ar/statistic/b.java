@@ -10,7 +10,7 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 import java.util.UUID;
-/* loaded from: classes10.dex */
+/* loaded from: classes14.dex */
 class b implements k.a {
     private d vB;
     private String vC;
@@ -237,10 +237,10 @@ class b implements k.a {
         if (aF == null || aF.isEmpty() || (aVar2 = this.vA.get((aF + ":" + gf))) == null) {
             return;
         }
-        Pair<Long, Long> a = a(aVar2.getTimestamp(), aVar.getTimestamp());
+        Pair<Long, Long> a2 = a(aVar2.getTimestamp(), aVar.getTimestamp());
         aVar.c("st", String.valueOf(aVar2.getTimestamp()));
-        aVar.c("duration", String.valueOf(((Long) a.first).longValue()));
-        aVar.c("_pausedt", String.valueOf(((Long) a.second).longValue()));
+        aVar.c("duration", String.valueOf(((Long) a2.first).longValue()));
+        aVar.c("_pausedt", String.valueOf(((Long) a2.second).longValue()));
         c(aVar);
         this.vA.remove(str);
         a.a(aVar2);

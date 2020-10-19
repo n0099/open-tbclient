@@ -6,7 +6,7 @@ import java.util.ArrayList;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes18.dex */
+/* loaded from: classes17.dex */
 public class MusicData extends MusicBaseBean implements Serializable {
     public static final int CATEGORY_RECOMMEND = 1;
     public static final int CATEGORY_SEARCH = 2;

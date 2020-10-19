@@ -22,9 +22,11 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 import org.json.JSONStringer;
-/* loaded from: classes15.dex */
+/* loaded from: classes16.dex */
 public final class JsonUtils {
-    private static final boolean a = ApollonConstants.DEBUG & false;
+
+    /* renamed from: a  reason: collision with root package name */
+    private static final boolean f1513a = ApollonConstants.DEBUG & false;
 
     private JsonUtils() {
     }
@@ -46,7 +48,7 @@ public final class JsonUtils {
         return (T) Decoder.deserialize(new JSONObject(str), cls);
     }
 
-    /* loaded from: classes15.dex */
+    /* loaded from: classes16.dex */
     private static class Encoder {
         private Encoder() {
         }
@@ -75,7 +77,7 @@ public final class JsonUtils {
             try {
                 jSONStringer.value((Object) null);
             } catch (JSONException e) {
-                if (JsonUtils.a) {
+                if (JsonUtils.f1513a) {
                     e.printStackTrace();
                 }
             }
@@ -85,7 +87,7 @@ public final class JsonUtils {
             try {
                 jSONStringer.value(obj);
             } catch (JSONException e) {
-                if (JsonUtils.a) {
+                if (JsonUtils.f1513a) {
                     e.printStackTrace();
                 }
             }
@@ -99,7 +101,7 @@ public final class JsonUtils {
                 }
                 jSONStringer.endArray();
             } catch (Exception e) {
-                if (JsonUtils.a) {
+                if (JsonUtils.f1513a) {
                     e.printStackTrace();
                 }
             }
@@ -115,7 +117,7 @@ public final class JsonUtils {
                 }
                 jSONStringer.endArray();
             } catch (Exception e) {
-                if (JsonUtils.a) {
+                if (JsonUtils.f1513a) {
                     e.printStackTrace();
                 }
             }
@@ -130,7 +132,7 @@ public final class JsonUtils {
                 }
                 jSONStringer.endObject();
             } catch (Exception e) {
-                if (JsonUtils.a) {
+                if (JsonUtils.f1513a) {
                     e.printStackTrace();
                 }
             }
@@ -142,7 +144,7 @@ public final class JsonUtils {
                 a(jSONStringer, obj.getClass(), obj);
                 jSONStringer.endObject();
             } catch (Exception e) {
-                if (JsonUtils.a) {
+                if (JsonUtils.f1513a) {
                     e.printStackTrace();
                 }
             }
@@ -171,7 +173,7 @@ public final class JsonUtils {
         }
     }
 
-    /* loaded from: classes15.dex */
+    /* loaded from: classes16.dex */
     private static class Decoder {
         private Decoder() {
         }
@@ -228,7 +230,7 @@ public final class JsonUtils {
             String name = field.getName();
             try {
             } catch (Exception e) {
-                if (!JsonUtils.a) {
+                if (!JsonUtils.f1513a) {
                 }
             }
             if (DataType.isRaw(type)) {
@@ -236,7 +238,7 @@ public final class JsonUtils {
                     try {
                         deserialize = Integer.valueOf(jSONObject.getInt(name));
                     } catch (JSONException e2) {
-                        if (JsonUtils.a) {
+                        if (JsonUtils.f1513a) {
                             e2.printStackTrace();
                         }
                         deserialize = null;
@@ -245,7 +247,7 @@ public final class JsonUtils {
                     try {
                         deserialize = Long.valueOf(jSONObject.getLong(name));
                     } catch (JSONException e3) {
-                        if (JsonUtils.a) {
+                        if (JsonUtils.f1513a) {
                             e3.printStackTrace();
                         }
                         deserialize = null;
@@ -254,7 +256,7 @@ public final class JsonUtils {
                     try {
                         deserialize = Double.valueOf(jSONObject.getDouble(name));
                     } catch (JSONException e4) {
-                        if (JsonUtils.a) {
+                        if (JsonUtils.f1513a) {
                             e4.printStackTrace();
                         }
                         deserialize = null;
@@ -263,7 +265,7 @@ public final class JsonUtils {
                     try {
                         deserialize = Boolean.valueOf(jSONObject.getBoolean(name));
                     } catch (JSONException e5) {
-                        if (JsonUtils.a) {
+                        if (JsonUtils.f1513a) {
                             e5.printStackTrace();
                         }
                         deserialize = null;
@@ -271,7 +273,7 @@ public final class JsonUtils {
                 } else {
                     deserialize = jSONObject.opt(name);
                 }
-                if (!JsonUtils.a) {
+                if (!JsonUtils.f1513a) {
                     e.printStackTrace();
                     return;
                 }
@@ -301,7 +303,7 @@ public final class JsonUtils {
                         field.set(obj, obj2);
                     }
                 } catch (Exception e) {
-                    if (JsonUtils.a) {
+                    if (JsonUtils.f1513a) {
                         e.printStackTrace();
                     }
                 }
@@ -321,7 +323,7 @@ public final class JsonUtils {
                 }
                 return map;
             } catch (JSONException e) {
-                if (JsonUtils.a) {
+                if (JsonUtils.f1513a) {
                     e.printStackTrace();
                 }
                 return null;
@@ -341,7 +343,7 @@ public final class JsonUtils {
                 try {
                     tArr[i] = a(jSONArray, i, cls, z);
                 } catch (JSONException e) {
-                    if (JsonUtils.a) {
+                    if (JsonUtils.f1513a) {
                         e.printStackTrace();
                         return tArr;
                     }
@@ -368,7 +370,7 @@ public final class JsonUtils {
                 try {
                     r0.add(a(jSONArray, i, cls2, z));
                 } catch (JSONException e) {
-                    if (JsonUtils.a) {
+                    if (JsonUtils.f1513a) {
                         e.printStackTrace();
                         return r0;
                     }
@@ -413,7 +415,7 @@ public final class JsonUtils {
         }
     }
 
-    /* loaded from: classes15.dex */
+    /* loaded from: classes16.dex */
     public static class DataType {
         public static boolean isNull(Object obj) {
             if (obj instanceof JSONObject) {

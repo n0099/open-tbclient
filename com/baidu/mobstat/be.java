@@ -11,7 +11,7 @@ import java.text.DecimalFormatSymbols;
 import java.util.Map;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes15.dex */
+/* loaded from: classes17.dex */
 public class be implements bk.b {
     @Override // com.baidu.mobstat.bk.b
     public void a(View view, boolean z, Activity activity) {
@@ -23,20 +23,20 @@ public class be implements bk.b {
             if (bh.c().b()) {
                 bh.c().a("OnEvent view:" + view.getClass().getName() + "; content:" + bj.h(view) + "; activity:" + activity.getClass().getName());
             }
-            JSONArray a = bj.a(activity, view);
+            JSONArray a2 = bj.a(activity, view);
             String f = bj.f(view);
             Map<String, String> g = bj.g(view);
-            String a2 = bj.a(view);
+            String a3 = bj.a(view);
             Context applicationContext = activity.getApplicationContext();
             long currentTimeMillis = System.currentTimeMillis();
             JSONArray jSONArray = new JSONArray();
             String name = activity.getClass().getName();
             if (z) {
-                BDStatCore.instance().onEvent(applicationContext, "", a2, 1, currentTimeMillis, a, jSONArray, name, "", f, g);
+                BDStatCore.instance().onEvent(applicationContext, "", a3, 1, currentTimeMillis, a2, jSONArray, name, "", f, g);
             }
-            JSONObject a3 = a(activity, view, az.a().b());
-            String a4 = a(activity, view);
-            aw.a().a(applicationContext, "", bj.k(view), 1, currentTimeMillis, name, a, "", jSONArray, f, g, a3, a4);
+            JSONObject a4 = a(activity, view, az.a().b());
+            String a5 = a(activity, view);
+            aw.a().a(applicationContext, "", bj.k(view), 1, currentTimeMillis, name, a2, "", jSONArray, f, g, a4, a5);
         }
     }
 
@@ -56,9 +56,9 @@ public class be implements bk.b {
         }
         float b = ah.b(activity, f);
         float b2 = ah.b(activity, f2);
-        float a = ah.a(activity, bj.o(view));
-        float a2 = ah.a(activity, bj.p(view));
-        if (a == 0.0f || a2 == 0.0f) {
+        float a2 = ah.a(activity, bj.o(view));
+        float a3 = ah.a(activity, bj.p(view));
+        if (a2 == 0.0f || a3 == 0.0f) {
             return null;
         }
         JSONObject jSONObject = new JSONObject();
@@ -69,8 +69,8 @@ public class be implements bk.b {
             decimalFormat.setDecimalFormatSymbols(decimalFormatSymbols);
             jSONObject.put("x", decimalFormat.format(b));
             jSONObject.put("y", decimalFormat.format(b2));
-            jSONObject.put(Config.EVENT_HEAT_XP, decimalFormat.format((b * 100.0f) / a));
-            jSONObject.put(Config.EVENT_HEAT_YP, decimalFormat.format((b2 * 100.0f) / a2));
+            jSONObject.put(Config.EVENT_HEAT_XP, decimalFormat.format((b * 100.0f) / a2));
+            jSONObject.put(Config.EVENT_HEAT_YP, decimalFormat.format((b2 * 100.0f) / a3));
             return jSONObject;
         } catch (Exception e) {
             return jSONObject;
@@ -78,15 +78,15 @@ public class be implements bk.b {
     }
 
     private String a(Activity activity, View view) {
-        View a;
+        View a2;
         View n;
-        if (activity == null || view == null || (n = bj.n((a = bj.a(view, activity)))) == null) {
+        if (activity == null || view == null || (n = bj.n((a2 = bj.a(view, activity)))) == null) {
             return "";
         }
-        String a2 = at.a().a(activity, a, n);
-        if (TextUtils.isEmpty(a2)) {
-            a2 = "";
+        String a3 = at.a().a(activity, a2, n);
+        if (TextUtils.isEmpty(a3)) {
+            a3 = "";
         }
-        return a2;
+        return a3;
     }
 }

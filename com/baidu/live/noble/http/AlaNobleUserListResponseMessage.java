@@ -5,7 +5,7 @@ import com.baidu.live.tbadk.message.http.JsonHttpResponsedMessage;
 import org.json.JSONObject;
 /* loaded from: classes4.dex */
 public class AlaNobleUserListResponseMessage extends JsonHttpResponsedMessage {
-    private b biv;
+    private b bmi;
 
     public AlaNobleUserListResponseMessage() {
         super(1021190);
@@ -16,12 +16,12 @@ public class AlaNobleUserListResponseMessage extends JsonHttpResponsedMessage {
         JSONObject optJSONObject;
         super.decodeLogicInBackGround(i, jSONObject);
         if (jSONObject != null && (optJSONObject = jSONObject.optJSONObject("data")) != null && getError() == 0) {
-            this.biv = new b();
-            this.biv.parserJson(optJSONObject);
+            this.bmi = new b();
+            this.bmi.parserJson(optJSONObject);
         }
     }
 
-    public b Mx() {
-        return this.biv;
+    public b NC() {
+        return this.bmi;
     }
 }

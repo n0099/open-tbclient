@@ -6,38 +6,38 @@ import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes4.dex */
 public class bh {
-    private String aKG;
-    private String aKH;
-    private String aKI;
-    private String aKJ;
-    private String aKK;
+    private String aNL;
+    private String aNM;
+    private String aNN;
+    private String aNO;
+    private String aNP;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public bh(String str) {
         parserJson(str);
     }
 
-    public boolean Dm() {
+    public boolean Ej() {
         return true;
     }
 
-    public boolean Dn() {
-        return "1".equals(this.aKI);
+    public boolean Ek() {
+        return "1".equals(this.aNN);
     }
 
-    public boolean Do() {
-        return "1".equals(this.aKK);
+    public boolean El() {
+        return "1".equals(this.aNP);
     }
 
     private void parserJson(String str) {
         if (!TextUtils.isEmpty(str)) {
             try {
                 JSONObject jSONObject = new JSONObject(str);
-                this.aKG = jSONObject.optString("is_prettify");
-                this.aKH = jSONObject.optString("is_stickers");
-                this.aKI = jSONObject.optString("is_privilegewin");
-                this.aKJ = jSONObject.optString("unused_text");
-                this.aKK = jSONObject.optString("is_wishlist", "1");
+                this.aNL = jSONObject.optString("is_prettify");
+                this.aNM = jSONObject.optString("is_stickers");
+                this.aNN = jSONObject.optString("is_privilegewin");
+                this.aNO = jSONObject.optString("unused_text");
+                this.aNP = jSONObject.optString("is_wishlist", "1");
             } catch (JSONException e) {
                 e.printStackTrace();
             }
@@ -49,7 +49,7 @@ public class bh {
     }
 
     public static boolean b(bj bjVar) {
-        return Build.VERSION.SDK_INT > 19 && bjVar != null && bjVar.aKO != null && "1".equals(bjVar.aKO.aKG);
+        return Build.VERSION.SDK_INT > 19 && bjVar != null && bjVar.aNT != null && "1".equals(bjVar.aNT.aNL);
     }
 
     public static boolean c(bj bjVar) {

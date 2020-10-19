@@ -4,10 +4,10 @@ import android.net.Uri;
 import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeConstants;
 import java.util.HashMap;
 import org.json.JSONObject;
-/* loaded from: classes10.dex */
+/* loaded from: classes19.dex */
 public class g implements Cloneable {
     public static final String UNITED_SCHEME = c.getSchemeHead() + "://";
-    g bOj;
+    g bUS;
     private HashMap<String, String> mParams;
     private String[] mPaths;
     private String mReferUrl;
@@ -35,10 +35,10 @@ public class g implements Cloneable {
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    /* renamed from: WG */
+    /* renamed from: YD */
     public g clone() {
         g gVar = new g(this.mUri, this.mSource, j.getPaths(this.mUri), (HashMap) this.mParams.clone());
-        gVar.bOj = this;
+        gVar.bUS = this;
         gVar.callbackInvoked = this.callbackInvoked;
         gVar.mReferUrl = this.mReferUrl;
         return gVar;

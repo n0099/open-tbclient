@@ -1,7 +1,7 @@
 package com.baidu.tieba.frs;
-/* loaded from: classes21.dex */
+/* loaded from: classes22.dex */
 public class ad {
-    public boolean euE = true;
-    public au iem;
+    public boolean eGO = true;
+    public au itj;
     public int tabId;
 }

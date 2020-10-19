@@ -12,15 +12,15 @@ public class w extends y {
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.core.util.c.a
     public Bitmap a(byte[] bArr, Rect rect, StringBuilder sb) {
-        Bitmap a = super.a(bArr, rect, sb);
-        if (a != null) {
-            Bitmap fastblur = BitmapHelper.fastblur(a, 10, 0.25f);
-            if (fastblur != a) {
-                a.recycle();
+        Bitmap a2 = super.a(bArr, rect, sb);
+        if (a2 != null) {
+            Bitmap fastblur = BitmapHelper.fastblur(a2, 10, 0.25f);
+            if (fastblur != a2) {
+                a2.recycle();
             }
             return fastblur;
         }
-        return a;
+        return a2;
     }
 
     /* JADX INFO: Access modifiers changed from: protected */

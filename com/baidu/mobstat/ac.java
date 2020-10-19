@@ -2,24 +2,26 @@ package com.baidu.mobstat;
 
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes15.dex */
+/* loaded from: classes17.dex */
 public class ac {
-    public boolean a;
+
+    /* renamed from: a  reason: collision with root package name */
+    public boolean f2517a;
     public String b;
     public boolean c;
 
     public ac() {
-        this.a = false;
+        this.f2517a = false;
         this.b = "";
         this.c = false;
     }
 
     public ac(JSONObject jSONObject) {
-        this.a = false;
+        this.f2517a = false;
         this.b = "";
         this.c = false;
         try {
-            this.a = jSONObject.getBoolean("SDK_BPLUS_SERVICE");
+            this.f2517a = jSONObject.getBoolean("SDK_BPLUS_SERVICE");
         } catch (Exception e) {
             bb.c().b(e);
         }
@@ -38,7 +40,7 @@ public class ac {
     public JSONObject a() {
         JSONObject jSONObject = new JSONObject();
         try {
-            jSONObject.put("SDK_BPLUS_SERVICE", this.a);
+            jSONObject.put("SDK_BPLUS_SERVICE", this.f2517a);
         } catch (JSONException e) {
             bb.c().b(e);
         }

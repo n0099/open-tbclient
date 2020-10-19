@@ -4,6 +4,7 @@ import android.annotation.SuppressLint;
 import android.os.Handler;
 import android.os.Looper;
 import android.os.Message;
+import android.text.TextUtils;
 import com.baidu.live.adp.lib.asynctask.BdAsyncTask;
 import com.baidu.live.adp.lib.util.BdFileHelper;
 import com.baidu.live.adp.lib.util.BdLog;
@@ -407,6 +408,7 @@ public class FileSerialDownLoader {
         /* JADX INFO: Access modifiers changed from: protected */
         @Override // com.baidu.live.adp.lib.asynctask.BdAsyncTask
         public Integer doInBackground(final DownloadData... downloadDataArr) {
+            JSONObject jSONObject;
             Boolean.valueOf(false);
             if (downloadDataArr[0] != null) {
                 if (downloadDataArr[0].getCallback() != null && !downloadDataArr[0].getCallback().onPreDownload(downloadDataArr[0])) {
@@ -417,168 +419,178 @@ public class FileSerialDownLoader {
                         file.delete();
                     }
                     if (!file.exists()) {
-                        this.mNetWork.setUrl(downloadDataArr[0].getUrl());
-                        this.mNetWork.downloadFile(FileHelper.getCacheFilePath(downloadDataArr[0].getId() + PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS + downloadDataArr[0].getName() + ".tmp"), FileSerialDownLoader.this.mFileHandler, 17, 3, new NetWork.DownloadResultCallback() { // from class: com.baidu.live.tbadk.download.FileSerialDownLoader.AsyFileDownLoadTask.1
-                            /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [518=5, 520=4, 521=4, 522=4] */
-                            /* JADX DEBUG: Failed to insert an additional move for type inference into block B:52:0x0133 */
-                            /* JADX DEBUG: Failed to insert an additional move for type inference into block B:54:0x0135 */
-                            /* JADX DEBUG: Failed to insert an additional move for type inference into block B:59:? */
-                            /* JADX WARN: Multi-variable type inference failed */
-                            /* JADX WARN: Removed duplicated region for block: B:62:0x011f A[EXC_TOP_SPLITTER, SYNTHETIC] */
-                            /* JADX WARN: Type inference failed for: r1v12 */
-                            /* JADX WARN: Type inference failed for: r1v17 */
-                            /* JADX WARN: Type inference failed for: r1v18, types: [java.io.FileInputStream] */
-                            /* JADX WARN: Type inference failed for: r1v21 */
-                            /* JADX WARN: Type inference failed for: r1v22 */
-                            /* JADX WARN: Type inference failed for: r1v23 */
-                            /* JADX WARN: Type inference failed for: r1v24 */
-                            /* JADX WARN: Type inference failed for: r1v25, types: [java.io.FileInputStream] */
-                            /* JADX WARN: Type inference failed for: r1v26, types: [java.io.FileInputStream, java.io.InputStream] */
-                            /* JADX WARN: Type inference failed for: r1v31 */
-                            /* JADX WARN: Type inference failed for: r1v32 */
-                            /* JADX WARN: Type inference failed for: r1v33 */
-                            /* JADX WARN: Type inference failed for: r1v34 */
-                            /* JADX WARN: Type inference failed for: r1v35 */
-                            /* JADX WARN: Type inference failed for: r1v36 */
-                            /* JADX WARN: Type inference failed for: r1v37 */
-                            @Override // com.baidu.live.tbadk.core.util.NetWork.DownloadResultCallback
-                            /*
-                                Code decompiled incorrectly, please refer to instructions dump.
-                            */
-                            public void onSuccess() {
-                                String str;
-                                Throwable th;
-                                ?? r1;
-                                boolean equalsIgnoreCase;
-                                File GetFileInCache = FileHelper.GetFileInCache(downloadDataArr[0].getId() + PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS + downloadDataArr[0].getName() + ".tmp");
-                                if (GetFileInCache == null) {
-                                    AsyFileDownLoadTask.this.sendResultMsg(1);
-                                    return;
-                                }
-                                try {
-                                    String parent = GetFileInCache.getParent();
-                                    String parent2 = file.getParent();
-                                    if (parent.equals(parent2)) {
-                                        String name = file.getName();
-                                        GetFileInCache.renameTo(new File(parent2, name));
-                                        str = name;
-                                    } else {
-                                        File file2 = file;
-                                        BdFileHelper.copyFile(GetFileInCache, file2);
-                                        BdFileHelper.deleteQuietly(GetFileInCache);
-                                        str = file2;
+                        if (TextUtils.isEmpty(downloadDataArr[0].getUrl())) {
+                            try {
+                                jSONObject = new JSONObject();
+                            } catch (Exception e) {
+                                e.printStackTrace();
+                                jSONObject = null;
+                            }
+                            sendResultMsg(2, jSONObject);
+                        } else {
+                            this.mNetWork.setUrl(downloadDataArr[0].getUrl());
+                            this.mNetWork.downloadFile(FileHelper.getCacheFilePath(downloadDataArr[0].getId() + PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS + downloadDataArr[0].getName() + ".tmp"), FileSerialDownLoader.this.mFileHandler, 17, 3, new NetWork.DownloadResultCallback() { // from class: com.baidu.live.tbadk.download.FileSerialDownLoader.AsyFileDownLoadTask.1
+                                /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [529=5, 531=4, 532=4, 533=4] */
+                                /* JADX DEBUG: Failed to insert an additional move for type inference into block B:52:0x0133 */
+                                /* JADX DEBUG: Failed to insert an additional move for type inference into block B:54:0x0135 */
+                                /* JADX DEBUG: Failed to insert an additional move for type inference into block B:59:? */
+                                /* JADX WARN: Multi-variable type inference failed */
+                                /* JADX WARN: Removed duplicated region for block: B:62:0x011f A[EXC_TOP_SPLITTER, SYNTHETIC] */
+                                /* JADX WARN: Type inference failed for: r1v12 */
+                                /* JADX WARN: Type inference failed for: r1v17 */
+                                /* JADX WARN: Type inference failed for: r1v18, types: [java.io.FileInputStream] */
+                                /* JADX WARN: Type inference failed for: r1v21 */
+                                /* JADX WARN: Type inference failed for: r1v22 */
+                                /* JADX WARN: Type inference failed for: r1v23 */
+                                /* JADX WARN: Type inference failed for: r1v24 */
+                                /* JADX WARN: Type inference failed for: r1v25, types: [java.io.FileInputStream] */
+                                /* JADX WARN: Type inference failed for: r1v26, types: [java.io.FileInputStream, java.io.InputStream] */
+                                /* JADX WARN: Type inference failed for: r1v31 */
+                                /* JADX WARN: Type inference failed for: r1v32 */
+                                /* JADX WARN: Type inference failed for: r1v33 */
+                                /* JADX WARN: Type inference failed for: r1v34 */
+                                /* JADX WARN: Type inference failed for: r1v35 */
+                                /* JADX WARN: Type inference failed for: r1v36 */
+                                /* JADX WARN: Type inference failed for: r1v37 */
+                                @Override // com.baidu.live.tbadk.core.util.NetWork.DownloadResultCallback
+                                /*
+                                    Code decompiled incorrectly, please refer to instructions dump.
+                                */
+                                public void onSuccess() {
+                                    String str;
+                                    Throwable th;
+                                    ?? r1;
+                                    boolean equalsIgnoreCase;
+                                    File GetFileInCache = FileHelper.GetFileInCache(downloadDataArr[0].getId() + PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS + downloadDataArr[0].getName() + ".tmp");
+                                    if (GetFileInCache == null) {
+                                        AsyFileDownLoadTask.this.sendResultMsg(1);
+                                        return;
                                     }
-                                    DownloadData downloadData = str;
-                                    if (!StringHelper.isEmpty(downloadDataArr[0].getCheck())) {
-                                        try {
+                                    try {
+                                        String parent = GetFileInCache.getParent();
+                                        String parent2 = file.getParent();
+                                        if (parent.equals(parent2)) {
+                                            String name = file.getName();
+                                            GetFileInCache.renameTo(new File(parent2, name));
+                                            str = name;
+                                        } else {
+                                            File file2 = file;
+                                            BdFileHelper.copyFile(GetFileInCache, file2);
+                                            BdFileHelper.deleteQuietly(GetFileInCache);
+                                            str = file2;
+                                        }
+                                        DownloadData downloadData = str;
+                                        if (!StringHelper.isEmpty(downloadDataArr[0].getCheck())) {
                                             try {
-                                                r1 = new FileInputStream(downloadDataArr[0].getPath());
                                                 try {
-                                                    equalsIgnoreCase = Md5.toMd5((InputStream) r1).equalsIgnoreCase(downloadDataArr[0].getCheck());
-                                                    downloadData = r1;
-                                                } catch (FileNotFoundException e) {
-                                                    e = e;
-                                                    BdLog.d(e.getMessage());
-                                                    AsyFileDownLoadTask.this.sendResultMsg(6);
-                                                    str = r1;
-                                                    if (r1 != 0) {
-                                                        try {
-                                                            r1.close();
-                                                            str = r1;
-                                                        } catch (IOException e2) {
-                                                            BdLog.d(e2.getMessage());
-                                                            str = r1;
+                                                    r1 = new FileInputStream(downloadDataArr[0].getPath());
+                                                    try {
+                                                        equalsIgnoreCase = Md5.toMd5((InputStream) r1).equalsIgnoreCase(downloadDataArr[0].getCheck());
+                                                        downloadData = r1;
+                                                    } catch (FileNotFoundException e2) {
+                                                        e = e2;
+                                                        BdLog.d(e.getMessage());
+                                                        AsyFileDownLoadTask.this.sendResultMsg(6);
+                                                        str = r1;
+                                                        if (r1 != 0) {
+                                                            try {
+                                                                r1.close();
+                                                                str = r1;
+                                                            } catch (IOException e3) {
+                                                                BdLog.d(e3.getMessage());
+                                                                str = r1;
+                                                            }
                                                         }
                                                     }
-                                                }
-                                            } catch (Throwable th2) {
-                                                th = th2;
-                                                if (str != 0) {
-                                                    try {
-                                                        str.close();
-                                                    } catch (IOException e3) {
-                                                        BdLog.d(e3.getMessage());
+                                                } catch (Throwable th2) {
+                                                    th = th2;
+                                                    if (str != 0) {
+                                                        try {
+                                                            str.close();
+                                                        } catch (IOException e4) {
+                                                            BdLog.d(e4.getMessage());
+                                                        }
                                                     }
+                                                    throw th;
+                                                }
+                                            } catch (FileNotFoundException e5) {
+                                                e = e5;
+                                                r1 = 0;
+                                            } catch (Throwable th3) {
+                                                th = th3;
+                                                str = 0;
+                                                if (str != 0) {
                                                 }
                                                 throw th;
                                             }
-                                        } catch (FileNotFoundException e4) {
-                                            e = e4;
-                                            r1 = 0;
-                                        } catch (Throwable th3) {
-                                            th = th3;
-                                            str = 0;
-                                            if (str != 0) {
-                                            }
-                                            throw th;
-                                        }
-                                        if (!equalsIgnoreCase) {
-                                            BdFileHelper.deleteQuietly(new File(downloadDataArr[0].getPath()));
-                                            AsyFileDownLoadTask.this.sendResultMsg(4);
-                                            str = r1;
-                                            if (r1 != 0) {
+                                            if (!equalsIgnoreCase) {
+                                                BdFileHelper.deleteQuietly(new File(downloadDataArr[0].getPath()));
+                                                AsyFileDownLoadTask.this.sendResultMsg(4);
+                                                str = r1;
+                                                if (r1 != 0) {
+                                                    try {
+                                                        r1.close();
+                                                        str = r1;
+                                                    } catch (IOException e6) {
+                                                        BdLog.d(e6.getMessage());
+                                                        str = r1;
+                                                    }
+                                                }
+                                            } else if (r1 != 0) {
                                                 try {
                                                     r1.close();
-                                                    str = r1;
-                                                } catch (IOException e5) {
-                                                    BdLog.d(e5.getMessage());
-                                                    str = r1;
+                                                    downloadData = r1;
+                                                } catch (IOException e7) {
+                                                    BdLog.d(e7.getMessage());
+                                                    downloadData = r1;
                                                 }
                                             }
-                                        } else if (r1 != 0) {
-                                            try {
-                                                r1.close();
-                                                downloadData = r1;
-                                            } catch (IOException e6) {
-                                                BdLog.d(e6.getMessage());
-                                                downloadData = r1;
+                                        }
+                                        DownloadData downloadData2 = downloadData;
+                                        if (downloadDataArr[0].getCallback() != null) {
+                                            FileDownloadCallBack callback = downloadDataArr[0].getCallback();
+                                            DownloadData downloadData3 = downloadDataArr[0];
+                                            boolean onFileDownloaded = callback.onFileDownloaded(downloadData3);
+                                            downloadData2 = downloadData3;
+                                            if (!onFileDownloaded) {
+                                                str = 2;
+                                                AsyFileDownLoadTask.this.sendResultMsg(2);
                                             }
                                         }
-                                    }
-                                    DownloadData downloadData2 = downloadData;
-                                    if (downloadDataArr[0].getCallback() != null) {
-                                        FileDownloadCallBack callback = downloadDataArr[0].getCallback();
-                                        DownloadData downloadData3 = downloadDataArr[0];
-                                        boolean onFileDownloaded = callback.onFileDownloaded(downloadData3);
-                                        downloadData2 = downloadData3;
-                                        if (!onFileDownloaded) {
-                                            str = 2;
-                                            AsyFileDownLoadTask.this.sendResultMsg(2);
+                                        AsyFileDownLoadTask.this.sendResultMsg(0);
+                                        str = downloadData2;
+                                    } catch (IOException e8) {
+                                        try {
+                                            BdFileHelper.deleteQuietly(file);
+                                        } catch (Exception e9) {
+                                            e9.printStackTrace();
                                         }
+                                        AsyFileDownLoadTask.this.sendResultMsg(7);
                                     }
-                                    AsyFileDownLoadTask.this.sendResultMsg(0);
-                                    str = downloadData2;
-                                } catch (IOException e7) {
-                                    try {
-                                        BdFileHelper.deleteQuietly(file);
-                                    } catch (Exception e8) {
-                                        e8.printStackTrace();
-                                    }
-                                    AsyFileDownLoadTask.this.sendResultMsg(7);
                                 }
-                            }
 
-                            @Override // com.baidu.live.tbadk.core.util.NetWork.DownloadResultCallback
-                            public void onFail(int i, String str) {
-                                JSONObject jSONObject;
-                                Exception e;
-                                try {
-                                    jSONObject = new JSONObject();
-                                } catch (Exception e2) {
-                                    jSONObject = null;
-                                    e = e2;
+                                @Override // com.baidu.live.tbadk.core.util.NetWork.DownloadResultCallback
+                                public void onFail(int i, String str) {
+                                    JSONObject jSONObject2;
+                                    Exception e2;
+                                    try {
+                                        jSONObject2 = new JSONObject();
+                                    } catch (Exception e3) {
+                                        jSONObject2 = null;
+                                        e2 = e3;
+                                    }
+                                    try {
+                                        jSONObject2.put("err_code", i);
+                                        jSONObject2.put("exception", str);
+                                    } catch (Exception e4) {
+                                        e2 = e4;
+                                        e2.printStackTrace();
+                                        AsyFileDownLoadTask.this.sendResultMsg(3, jSONObject2);
+                                    }
+                                    AsyFileDownLoadTask.this.sendResultMsg(3, jSONObject2);
                                 }
-                                try {
-                                    jSONObject.put("err_code", i);
-                                    jSONObject.put("exception", str);
-                                } catch (Exception e3) {
-                                    e = e3;
-                                    e.printStackTrace();
-                                    AsyFileDownLoadTask.this.sendResultMsg(3, jSONObject);
-                                }
-                                AsyFileDownLoadTask.this.sendResultMsg(3, jSONObject);
-                            }
-                        });
+                            });
+                        }
                     }
                 }
             }

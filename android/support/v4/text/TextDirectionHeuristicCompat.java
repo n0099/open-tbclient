@@ -1,5 +1,5 @@
 package android.support.v4.text;
-/* loaded from: classes23.dex */
+/* loaded from: classes5.dex */
 public interface TextDirectionHeuristicCompat {
     boolean isRtl(CharSequence charSequence, int i, int i2);
 

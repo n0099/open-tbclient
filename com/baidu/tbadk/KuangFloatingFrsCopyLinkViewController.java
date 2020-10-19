@@ -57,7 +57,7 @@ public class KuangFloatingFrsCopyLinkViewController {
                 if (KuangFloatingFrsCopyLinkViewController.this.bgTopActivity != null) {
                     KuangFloatingFrsCopyLinkViewController.this.topActivity = KuangFloatingFrsCopyLinkViewController.this.bgTopActivity;
                     KuangFloatingFrsCopyLinkViewController.this.bgTopActivity = null;
-                    if (a.lf().m(KuangFloatingFrsCopyLinkViewController.this.topActivity) != -1) {
+                    if (a.lg().m(KuangFloatingFrsCopyLinkViewController.this.topActivity) != -1) {
                         KuangFloatingFrsCopyLinkViewController.this.init();
                         KuangFloatingFrsCopyLinkViewController.this.showFloatingView(false);
                     }
@@ -105,8 +105,8 @@ public class KuangFloatingFrsCopyLinkViewController {
                 public void onClick(View view) {
                     int m;
                     int size;
-                    if (KuangFloatingFrsCopyLinkViewController.this.topActivity != null && (m = a.lf().m(KuangFloatingFrsCopyLinkViewController.this.topActivity)) != -1 && m < a.lf().getSize() && (size = a.lf().getSize() - m) >= 0) {
-                        a.lf().Y(size);
+                    if (KuangFloatingFrsCopyLinkViewController.this.topActivity != null && (m = a.lg().m(KuangFloatingFrsCopyLinkViewController.this.topActivity)) != -1 && m < a.lg().getSize() && (size = a.lg().getSize() - m) >= 0) {
+                        a.lg().Y(size);
                     }
                     TiebaStatic.log(new aq("c13881").u("uid", TbadkCoreApplication.getCurrentAccountId()));
                     KuangFloatingFrsCopyLinkViewController.this.hideFloatingView(false);
@@ -128,13 +128,13 @@ public class KuangFloatingFrsCopyLinkViewController {
     public void changeSkin() {
         ap.setViewTextColor(this.floatingViewTitle, R.color.cp_cont_a);
         ap.setImageResource(this.floatingViewIcon, R.drawable.pic_float_return_broadcast32);
-        SvgManager.bkl().a(this.floatingViewArrow, R.drawable.ic_icon_mybar_pure_list_arrow16_right, R.color.cp_cont_a, SvgManager.SvgResourceStateType.NORMAL);
-        com.baidu.tbadk.core.util.e.a.bkL().or(R.color.cp_link_tip_d).oq(0).oy(211).X(l.getDimens(TbadkCoreApplication.getInst(), R.dimen.tbds52)).Z(l.getDimens(TbadkCoreApplication.getInst(), R.dimen.tbds52)).bb(this.floatingViewMain);
+        SvgManager.bmU().a(this.floatingViewArrow, R.drawable.ic_icon_mybar_pure_list_arrow16_right, R.color.cp_cont_a, SvgManager.SvgResourceStateType.NORMAL);
+        com.baidu.tbadk.core.util.e.a.bnv().oP(R.color.cp_link_tip_d).oO(0).oW(211).Z(l.getDimens(TbadkCoreApplication.getInst(), R.dimen.tbds52)).ab(l.getDimens(TbadkCoreApplication.getInst(), R.dimen.tbds52)).bf(this.floatingViewMain);
     }
 
     public void showFloatingView(boolean z) {
         WindowManager.LayoutParams layoutParams = new WindowManager.LayoutParams();
-        layoutParams.type = c.Jk(2002);
+        layoutParams.type = c.JQ(2002);
         layoutParams.flags = 65800;
         layoutParams.format = -3;
         layoutParams.x = 0;
@@ -153,7 +153,7 @@ public class KuangFloatingFrsCopyLinkViewController {
                 if (this.mFloatingView != null && this.mFloatingView.getParent() == null) {
                     this.wm.addView(this.mFloatingView, layoutParams);
                     if (z) {
-                        this.topActivity = a.lf().currentActivity();
+                        this.topActivity = a.lg().currentActivity();
                     }
                 }
                 MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921473, 0));
@@ -191,7 +191,7 @@ public class KuangFloatingFrsCopyLinkViewController {
                             MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921473, 1));
                         }
                     };
-                    e.mX().postDelayed(this.runnable, 300L);
+                    e.mY().postDelayed(this.runnable, 300L);
                 }
             } catch (SecurityException e) {
                 this.wm = null;
@@ -210,7 +210,7 @@ public class KuangFloatingFrsCopyLinkViewController {
         this.topActivity = null;
         instance = null;
         if (this.runnable != null) {
-            e.mX().removeCallbacks(this.runnable);
+            e.mY().removeCallbacks(this.runnable);
         }
     }
 }

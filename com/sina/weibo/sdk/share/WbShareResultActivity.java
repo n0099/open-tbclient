@@ -4,7 +4,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import com.sina.weibo.sdk.constant.WBConstants;
 import com.sina.weibo.sdk.utils.LogUtil;
-/* loaded from: classes24.dex */
+/* loaded from: classes12.dex */
 public class WbShareResultActivity extends BaseActivity {
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.sina.weibo.sdk.share.BaseActivity, android.app.Activity

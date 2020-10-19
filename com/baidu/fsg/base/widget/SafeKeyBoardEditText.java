@@ -7,9 +7,11 @@ import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
 import com.baidu.fsg.base.utils.RimGlobalUtils;
-/* loaded from: classes15.dex */
+/* loaded from: classes16.dex */
 public class SafeKeyBoardEditText extends PluginEditText implements View.OnTouchListener {
-    private SafeKeyBoardState a;
+
+    /* renamed from: a  reason: collision with root package name */
+    private SafeKeyBoardState f1540a;
     private Context b;
     private ViewGroup c;
     private SafeScrollView d;
@@ -28,17 +30,17 @@ public class SafeKeyBoardEditText extends PluginEditText implements View.OnTouch
     private View.OnClickListener q;
     private CheckFunc r;
 
-    /* loaded from: classes15.dex */
+    /* loaded from: classes16.dex */
     public interface CheckFunc {
         boolean check(String str);
     }
 
-    /* loaded from: classes15.dex */
+    /* loaded from: classes16.dex */
     public interface OnMyFocusChangeListener {
         void onMyFocusChange(View view, boolean z);
     }
 
-    /* loaded from: classes15.dex */
+    /* loaded from: classes16.dex */
     public enum SafeKeyBoardState {
         NORMAL_STATE,
         CONFRIM_STATE
@@ -84,7 +86,7 @@ public class SafeKeyBoardEditText extends PluginEditText implements View.OnTouch
     }
 
     public SafeKeyBoardState getKeyBoardState() {
-        return this.a;
+        return this.f1540a;
     }
 
     @Override // com.baidu.fsg.base.widget.PluginEditText, android.view.View.OnTouchListener

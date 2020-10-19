@@ -3,13 +3,15 @@ package com.baidu.vi;
 import android.hardware.Sensor;
 import android.hardware.SensorEvent;
 import android.hardware.SensorEventListener;
-/* loaded from: classes3.dex */
+/* loaded from: classes7.dex */
 class d implements SensorEventListener {
-    final /* synthetic */ VCompass a;
+
+    /* renamed from: a  reason: collision with root package name */
+    final /* synthetic */ VCompass f3906a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public d(VCompass vCompass) {
-        this.a = vCompass;
+        this.f3906a = vCompass;
     }
 
     @Override // android.hardware.SensorEventListener
@@ -18,11 +20,11 @@ class d implements SensorEventListener {
 
     @Override // android.hardware.SensorEventListener
     public void onSensorChanged(SensorEvent sensorEvent) {
-        float a;
+        float a2;
         switch (sensorEvent.sensor.getType()) {
             case 3:
-                a = this.a.a(sensorEvent.values[0]);
-                this.a.updateCompass((int) a);
+                a2 = this.f3906a.a(sensorEvent.values[0]);
+                this.f3906a.updateCompass((int) a2);
                 return;
             default:
                 return;

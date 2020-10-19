@@ -1,15 +1,17 @@
 package com.baidu.mapapi.search.route;
 
 import com.baidu.mapapi.model.LatLng;
-/* loaded from: classes3.dex */
+/* loaded from: classes7.dex */
 public class IndoorPlanNode {
-    private LatLng a;
+
+    /* renamed from: a  reason: collision with root package name */
+    private LatLng f2134a;
     private String b;
 
     public IndoorPlanNode(LatLng latLng, String str) {
-        this.a = null;
+        this.f2134a = null;
         this.b = null;
-        this.a = latLng;
+        this.f2134a = latLng;
         this.b = str;
     }
 
@@ -18,6 +20,6 @@ public class IndoorPlanNode {
     }
 
     public LatLng getLocation() {
-        return this.a;
+        return this.f2134a;
     }
 }

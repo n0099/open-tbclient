@@ -3,22 +3,24 @@ package com.baidu.platform.comapi.walknavi.f;
 import com.baidu.platform.comapi.wnplatform.n.c;
 import com.baidu.platform.comapi.wnplatform.p.j;
 import com.baidu.platform.comjni.jninative.tts.WNaviTTSPlayer;
-/* loaded from: classes3.dex */
+/* loaded from: classes7.dex */
 public class a extends com.baidu.platform.comapi.wnplatform.n.a {
-    private boolean a = false;
+
+    /* renamed from: a  reason: collision with root package name */
+    private boolean f3006a = false;
     private c b = null;
 
     @Override // com.baidu.platform.comapi.walknavi.a
     public void release() {
         c();
         WNaviTTSPlayer.setTTSPlayerListener(null);
-        this.a = false;
+        this.f3006a = false;
         this.b = null;
     }
 
     @Override // com.baidu.platform.comapi.walknavi.a
     public boolean ready() {
-        this.a = false;
+        this.f3006a = false;
         if (com.baidu.platform.comapi.walknavi.b.a().M() != 4) {
             a();
             WNaviTTSPlayer.setTTSPlayerListener(new b(this));
@@ -29,7 +31,7 @@ public class a extends com.baidu.platform.comapi.wnplatform.n.a {
     /* JADX INFO: Access modifiers changed from: private */
     public int a(String str, int i) {
         com.baidu.platform.comapi.wnplatform.d.a.a("yang12", "playTTSText--->" + str + "type:" + i);
-        if (com.baidu.platform.comapi.walknavi.b.a == com.baidu.platform.comapi.walknavi.b.a().u()) {
+        if (com.baidu.platform.comapi.walknavi.b.f2953a == com.baidu.platform.comapi.walknavi.b.a().u()) {
             return a(str, false);
         }
         if (com.baidu.platform.comapi.walknavi.b.b == com.baidu.platform.comapi.walknavi.b.a().u()) {
@@ -51,7 +53,7 @@ public class a extends com.baidu.platform.comapi.wnplatform.n.a {
     @Override // com.baidu.platform.comapi.wnplatform.n.a
     public void a(c cVar) {
         this.b = cVar;
-        this.a = true;
+        this.f3006a = true;
     }
 
     public void a() {
@@ -68,7 +70,7 @@ public class a extends com.baidu.platform.comapi.wnplatform.n.a {
     }
 
     public int a(String str, boolean z) {
-        if (this.b == null || this.a) {
+        if (this.b == null || this.f3006a) {
             return 0;
         }
         return this.b.a(str, z);

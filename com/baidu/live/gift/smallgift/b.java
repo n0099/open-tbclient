@@ -10,13 +10,13 @@ import com.baidu.live.gift.smallgift.AlaSmallGiftView;
 import com.baidu.live.tbadk.core.TbadkCoreApplication;
 /* loaded from: classes4.dex */
 public class b {
-    private AlaSmallGiftView aZe;
-    private c aZf;
-    private a aZg;
-    private int aZh;
-    private AlaSmallGiftView.a aWn = new AlaSmallGiftView.a() { // from class: com.baidu.live.gift.smallgift.b.1
+    private a bcA;
+    private int bcB;
+    private AlaSmallGiftView bcy;
+    private c bcz;
+    private AlaSmallGiftView.a aZy = new AlaSmallGiftView.a() { // from class: com.baidu.live.gift.smallgift.b.1
         @Override // com.baidu.live.gift.smallgift.AlaSmallGiftView.a
-        public void GZ() {
+        public void HV() {
             b.this.mHandler.sendEmptyMessage(2);
         }
 
@@ -24,17 +24,17 @@ public class b {
         public void T(View view) {
             view.setVisibility(4);
             view.clearAnimation();
-            if (b.this.aZg != null) {
-                b.this.aZg.u(b.this.aZf);
+            if (b.this.bcA != null) {
+                b.this.bcA.u(b.this.bcz);
             }
-            b.this.aZf = null;
-            if (b.this.aZg != null) {
-                b.this.aZg.If();
+            b.this.bcz = null;
+            if (b.this.bcA != null) {
+                b.this.bcA.Jc();
             }
         }
 
         @Override // com.baidu.live.gift.smallgift.AlaSmallGiftView.a
-        public void Ha() {
+        public void HW() {
             b.this.mHandler.sendEmptyMessageDelayed(2, 240L);
         }
     };
@@ -43,25 +43,25 @@ public class b {
         public boolean handleMessage(Message message) {
             switch (message.what) {
                 case 1:
-                    b.this.Im();
+                    b.this.Jj();
                     return false;
                 case 2:
-                    b.this.Iw();
+                    b.this.Jt();
                     return false;
                 case 3:
-                    b.this.In();
+                    b.this.Jk();
                     return false;
                 default:
                     return false;
             }
         }
     });
-    private Runnable aZi = new Runnable() { // from class: com.baidu.live.gift.smallgift.b.3
+    private Runnable bcC = new Runnable() { // from class: com.baidu.live.gift.smallgift.b.3
         @Override // java.lang.Runnable
         public void run() {
-            if (b.this.aZf != null) {
-                if (System.currentTimeMillis() - b.this.aZf.GI() < b.this.aZh || b.this.aZf.aVj < b.this.aZf.aVi) {
-                    b.this.mHandler.postDelayed(b.this.aZi, 1000L);
+            if (b.this.bcz != null) {
+                if (System.currentTimeMillis() - b.this.bcz.HE() < b.this.bcB || b.this.bcz.aYu < b.this.bcz.aYt) {
+                    b.this.mHandler.postDelayed(b.this.bcC, 1000L);
                     return;
                 }
                 b.this.mHandler.removeMessages(2);
@@ -73,7 +73,7 @@ public class b {
 
     /* loaded from: classes4.dex */
     public interface a {
-        void If();
+        void Jc();
 
         void u(c cVar);
 
@@ -81,147 +81,147 @@ public class b {
     }
 
     public b(AlaSmallGiftView alaSmallGiftView) {
-        this.aZe = alaSmallGiftView;
-        this.aZe.setSmallAnimCallBack(this.aWn);
+        this.bcy = alaSmallGiftView;
+        this.bcy.setSmallAnimCallBack(this.aZy);
     }
 
     public boolean isReady() {
-        return this.aZf == null;
+        return this.bcz == null;
     }
 
-    public boolean It() {
-        if (this.aZf == null || StringUtils.isNull(this.aZf.userId)) {
+    public boolean Jq() {
+        if (this.bcz == null || StringUtils.isNull(this.bcz.userId)) {
             return false;
         }
-        return this.aZf.userId.equals(TbadkCoreApplication.getCurrentAccount());
+        return this.bcz.userId.equals(TbadkCoreApplication.getCurrentAccount());
     }
 
     public boolean w(c cVar) {
-        return (cVar == null || this.aZf == null || cVar.priority <= this.aZf.priority) ? false : true;
+        return (cVar == null || this.bcz == null || cVar.priority <= this.bcz.priority) ? false : true;
     }
 
     public boolean x(c cVar) {
-        if (this.aZe == null || this.aZe.getVisibility() == 0 || this.aZf != null || cVar == null || StringUtils.isNull(cVar.userId) || StringUtils.isNull(cVar.giftId)) {
+        if (this.bcy == null || this.bcy.getVisibility() == 0 || this.bcz != null || cVar == null || StringUtils.isNull(cVar.userId) || StringUtils.isNull(cVar.giftId)) {
             return false;
         }
-        this.aZf = cVar;
-        Iu();
+        this.bcz = cVar;
+        Jr();
         this.mHandler.sendEmptyMessage(1);
-        this.mHandler.postDelayed(this.aZi, 1000L);
+        this.mHandler.postDelayed(this.bcC, 1000L);
         return true;
     }
 
     public void y(c cVar) {
-        Iv();
-        if (this.aZg != null) {
-            this.aZg.v(this.aZf);
-            this.aZf = null;
+        Js();
+        if (this.bcA != null) {
+            this.bcA.v(this.bcz);
+            this.bcz = null;
         }
-        this.aZf = cVar;
-        Iu();
-        this.aZe.setVisibility(0);
-        this.aZe.setTag(this.aZf.GK());
-        this.aZe.setData(this.aZf, false);
-        this.mHandler.postDelayed(this.aZi, 1000L);
+        this.bcz = cVar;
+        Jr();
+        this.bcy.setVisibility(0);
+        this.bcy.setTag(this.bcz.HG());
+        this.bcy.setData(this.bcz, false);
+        this.mHandler.postDelayed(this.bcC, 1000L);
         this.mHandler.sendEmptyMessage(2);
     }
 
-    private void Iu() {
-        this.aZh = this.aZf.aVi > 10 ? 6000 : 3000;
+    private void Jr() {
+        this.bcB = this.bcz.aYt > 10 ? 6000 : 3000;
     }
 
-    public void EQ() {
-        if (this.aZf != null) {
-            Iv();
-            this.aZe.setVisibility(4);
-            r.g(this.aZf);
-            if (this.aZg != null) {
-                this.aZg.v(this.aZf);
-                this.aZf = null;
+    public void FM() {
+        if (this.bcz != null) {
+            Js();
+            this.bcy.setVisibility(4);
+            r.g(this.bcz);
+            if (this.bcA != null) {
+                this.bcA.v(this.bcz);
+                this.bcz = null;
             }
         }
     }
 
-    public void ER() {
-        if (this.aZg != null) {
-            this.aZg.If();
+    public void FN() {
+        if (this.bcA != null) {
+            this.bcA.Jc();
         }
     }
 
     public void onDestroy() {
-        Iv();
-        if (this.aZe != null) {
-            this.aZe.onDestroy();
+        Js();
+        if (this.bcy != null) {
+            this.bcy.onDestroy();
         }
     }
 
-    private void Iv() {
-        this.mHandler.removeCallbacks(this.aZi);
+    private void Js() {
+        this.mHandler.removeCallbacks(this.bcC);
         this.mHandler.removeMessages(1);
         this.mHandler.removeMessages(2);
         this.mHandler.removeMessages(3);
     }
 
     public boolean z(c cVar) {
-        if (this.aZf == null || StringUtils.isNull(this.aZf.userId) || StringUtils.isNull(this.aZf.giftId) || !com.baidu.live.gift.smallgift.a.c(this.aZf, cVar)) {
+        if (this.bcz == null || StringUtils.isNull(this.bcz.userId) || StringUtils.isNull(this.bcz.giftId) || !com.baidu.live.gift.smallgift.a.c(this.bcz, cVar)) {
             return false;
         }
-        com.baidu.live.gift.smallgift.a.d(this.aZf, cVar);
+        com.baidu.live.gift.smallgift.a.d(this.bcz, cVar);
         return true;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void Im() {
-        if (this.aZf != null) {
-            this.aZe.setVisibility(0);
-            this.aZe.setTag(this.aZf.GK());
-            this.aZe.setData(this.aZf, false);
-            this.aZe.Im();
-            Iw();
+    public void Jj() {
+        if (this.bcz != null) {
+            this.bcy.setVisibility(0);
+            this.bcy.setTag(this.bcz.HG());
+            this.bcy.setData(this.bcz, false);
+            this.bcy.Jj();
+            Jt();
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void In() {
-        if (this.aZf != null) {
-            r.g(this.aZf);
+    public void Jk() {
+        if (this.bcz != null) {
+            r.g(this.bcz);
         }
-        this.aZe.In();
+        this.bcy.Jk();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void Iw() {
+    public void Jt() {
         long j;
-        if (this.aZe.getVisibility() == 0) {
-            this.aZe.clearAnimation();
-            if (this.aZf != null) {
-                if (this.aZf.aVj >= this.aZf.aVi) {
+        if (this.bcy.getVisibility() == 0) {
+            this.bcy.clearAnimation();
+            if (this.bcz != null) {
+                if (this.bcz.aYu >= this.bcz.aYt) {
                     this.mHandler.sendEmptyMessageDelayed(2, 240L);
                     return;
                 }
-                this.aZf.ad(System.currentTimeMillis());
-                boolean z = this.aZf.aVi > 10;
-                c cVar = this.aZf;
+                this.bcz.af(System.currentTimeMillis());
+                boolean z = this.bcz.aYt > 10;
+                c cVar = this.bcz;
                 if (z) {
-                    j = this.aZf.aVi;
+                    j = this.bcz.aYt;
                 } else {
-                    c cVar2 = this.aZf;
-                    j = cVar2.aVj + 1;
-                    cVar2.aVj = j;
+                    c cVar2 = this.bcz;
+                    j = cVar2.aYu + 1;
+                    cVar2.aYu = j;
                 }
-                cVar.aVj = j;
-                this.aZe.f(this.aZf.aVi, this.aZf.aVj);
+                cVar.aYu = j;
+                this.bcy.f(this.bcz.aYt, this.bcz.aYu);
             }
         }
     }
 
-    public void FQ() {
-        if (this.aZf != null && this.aZf.aVi == this.aZf.aVj) {
-            this.mHandler.postDelayed(this.aZi, 1000L);
+    public void GM() {
+        if (this.bcz != null && this.bcz.aYt == this.bcz.aYu) {
+            this.mHandler.postDelayed(this.bcC, 1000L);
         }
     }
 
     public void a(a aVar) {
-        this.aZg = aVar;
+        this.bcA = aVar;
     }
 }

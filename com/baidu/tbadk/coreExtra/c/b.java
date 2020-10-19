@@ -5,17 +5,17 @@ import com.baidu.tbadk.TbPageContext;
 import com.baidu.tieba.R;
 import com.baidu.tieba.tbadkCore.writeModel.PostWriteCallBackData;
 import com.baidu.tieba.view.NewUserRewardDialogView;
-/* loaded from: classes20.dex */
+/* loaded from: classes21.dex */
 public class b {
     public static void a(TbPageContext tbPageContext, PostWriteCallBackData postWriteCallBackData) {
         final NewUserRewardDialogView newUserRewardDialogView = new NewUserRewardDialogView(tbPageContext.getPageActivity());
         newUserRewardDialogView.setData(postWriteCallBackData.getIconStampData());
         final com.baidu.tbadk.core.dialog.a aVar = new com.baidu.tbadk.core.dialog.a(tbPageContext.getPageActivity());
-        aVar.nH(5);
-        aVar.aZ(newUserRewardDialogView);
-        aVar.ie(false);
-        aVar.nI(R.style.picker_view_scale_anim);
-        aVar.b(tbPageContext).bia();
+        aVar.oe(5);
+        aVar.ba(newUserRewardDialogView);
+        aVar.iA(false);
+        aVar.of(R.style.picker_view_scale_anim);
+        aVar.b(tbPageContext).bkJ();
         newUserRewardDialogView.setCloseListener(new View.OnClickListener() { // from class: com.baidu.tbadk.coreExtra.c.b.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {

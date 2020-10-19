@@ -4,19 +4,19 @@ import com.alibaba.fastjson.asm.Opcodes;
 import java.net.SocketException;
 import java.net.SocketTimeoutException;
 import java.net.UnknownHostException;
-/* loaded from: classes9.dex */
+/* loaded from: classes12.dex */
 public class fu {
     public static int a(Throwable th) {
-        Throwable a = (!(th instanceof gd) || ((gd) th).a() == null) ? th : ((gd) th).a();
-        String message = a.getMessage();
-        if (a.getCause() != null) {
-            message = a.getCause().getMessage();
+        Throwable a2 = (!(th instanceof gd) || ((gd) th).a() == null) ? th : ((gd) th).a();
+        String message = a2.getMessage();
+        if (a2.getCause() != null) {
+            message = a2.getCause().getMessage();
         }
-        if (a instanceof SocketTimeoutException) {
+        if (a2 instanceof SocketTimeoutException) {
             return 105;
         }
-        if (!(a instanceof SocketException)) {
-            if (a instanceof UnknownHostException) {
+        if (!(a2 instanceof SocketException)) {
+            if (a2 instanceof UnknownHostException) {
                 return 107;
             }
             return th instanceof gd ? 399 : 0;

@@ -5,7 +5,7 @@ import kotlin.jvm.internal.p;
 import kotlin.jvm.internal.q;
 import kotlin.jvm.internal.t;
 @h
-/* loaded from: classes5.dex */
+/* loaded from: classes10.dex */
 public abstract class RestrictedSuspendLambda extends RestrictedContinuationImpl implements p<Object> {
     private final int arity;
 
@@ -26,9 +26,9 @@ public abstract class RestrictedSuspendLambda extends RestrictedContinuationImpl
     @Override // kotlin.coroutines.jvm.internal.BaseContinuationImpl
     public String toString() {
         if (getCompletion() == null) {
-            String a = t.a(this);
-            q.l((Object) a, "Reflection.renderLambdaToString(this)");
-            return a;
+            String a2 = t.a(this);
+            q.m(a2, "Reflection.renderLambdaToString(this)");
+            return a2;
         }
         return super.toString();
     }

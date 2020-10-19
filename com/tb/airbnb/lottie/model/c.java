@@ -2,29 +2,29 @@ package com.tb.airbnb.lottie.model;
 
 import android.support.annotation.RestrictTo;
 @RestrictTo({RestrictTo.Scope.LIBRARY})
-/* loaded from: classes17.dex */
+/* loaded from: classes16.dex */
 public class c {
-    private final String En;
-    private final float Eo;
+    private final String EF;
+    private final float EG;
     private final String name;
     private final String style;
 
     public c(String str, String str2, String str3, float f) {
-        this.En = str;
+        this.EF = str;
         this.name = str2;
         this.style = str3;
-        this.Eo = f;
+        this.EG = f;
     }
 
-    public String jw() {
-        return this.En;
+    public String jx() {
+        return this.EF;
     }
 
     public String getName() {
         return this.name;
     }
 
-    public String jx() {
+    public String jy() {
         return this.style;
     }
 }

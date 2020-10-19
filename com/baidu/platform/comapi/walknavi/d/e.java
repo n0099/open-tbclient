@@ -4,17 +4,21 @@ import android.os.Handler;
 import com.baidu.ar.npc.BaiduArView;
 import com.baidu.platform.comapi.walknavi.d.g;
 import java.io.File;
-/* loaded from: classes3.dex */
+/* loaded from: classes7.dex */
 public class e {
     private static Handler b = new Handler();
     private static final String c = e.class.getSimpleName();
-    final Runnable a;
+
+    /* renamed from: a  reason: collision with root package name */
+    final Runnable f2993a;
     private g d;
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes3.dex */
+    /* loaded from: classes7.dex */
     public static class a {
-        static final e a = new e(null);
+
+        /* renamed from: a  reason: collision with root package name */
+        static final e f2994a = new e(null);
     }
 
     /* synthetic */ e(f fVar) {
@@ -34,12 +38,12 @@ public class e {
     }
 
     private e() {
-        this.a = new f(this);
+        this.f2993a = new f(this);
         this.d = new g();
     }
 
     public static e c() {
-        return a.a;
+        return a.f2994a;
     }
 
     public void a(b bVar) {
@@ -97,18 +101,18 @@ public class e {
     }
 
     public void a(String str, String str2) {
-        if (b != null && this.a != null) {
-            b.removeCallbacks(this.a);
+        if (b != null && this.f2993a != null) {
+            b.removeCallbacks(this.f2993a);
         }
         this.d.a(str, str2);
     }
 
     public void b(String str, String str2) {
-        if (b != null && this.a != null) {
-            b.removeCallbacks(this.a);
+        if (b != null && this.f2993a != null) {
+            b.removeCallbacks(this.f2993a);
         }
         this.d.a(str, str2);
-        b.postDelayed(this.a, 30000L);
+        b.postDelayed(this.f2993a, 30000L);
     }
 
     public boolean b(String str) {

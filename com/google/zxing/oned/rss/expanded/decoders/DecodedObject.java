@@ -1,5 +1,5 @@
 package com.google.zxing.oned.rss.expanded.decoders;
-/* loaded from: classes3.dex */
+/* loaded from: classes7.dex */
 abstract class DecodedObject {
     private final int newPosition;
 

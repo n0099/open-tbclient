@@ -11,7 +11,7 @@ import java.text.DecimalFormat;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Vector;
-/* loaded from: classes10.dex */
+/* loaded from: classes14.dex */
 public class a {
     private b el;
     private boolean em = true;
@@ -36,8 +36,8 @@ public class a {
 
     /* JADX INFO: Access modifiers changed from: private */
     /* renamed from: com.baidu.ar.arplay.core.engine.a$a  reason: collision with other inner class name */
-    /* loaded from: classes10.dex */
-    public enum EnumC0074a {
+    /* loaded from: classes14.dex */
+    public enum EnumC0075a {
         EGESTURE_CLICK,
         EGESTURE_DOUBLE_CLICK,
         EGESTURE_LONG_PRESS,
@@ -51,7 +51,7 @@ public class a {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes10.dex */
+    /* loaded from: classes14.dex */
     public class b extends Handler {
         public b(Looper looper) {
             super(looper);
@@ -85,7 +85,7 @@ public class a {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes10.dex */
+    /* loaded from: classes14.dex */
     public enum c {
         EStatSingFingerCandidate,
         EStatTwoFingersCandidate,
@@ -102,7 +102,7 @@ public class a {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes10.dex */
+    /* loaded from: classes14.dex */
     public enum d {
         ESWIPE_RIGHT,
         ESWIPE_LEFT,
@@ -111,7 +111,7 @@ public class a {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes10.dex */
+    /* loaded from: classes14.dex */
     public class e {
         int id;
         long time;
@@ -138,7 +138,7 @@ public class a {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes10.dex */
+    /* loaded from: classes14.dex */
     public enum f {
         ETOUCH_BEGIN,
         ETOUCH_MOVE,
@@ -261,7 +261,7 @@ public class a {
         if (this.ek == null || !this.ek.bc()) {
             return;
         }
-        a(EnumC0074a.EGESTURE_CLICK.ordinal(), j, i, f2, f3, -1.0f, -1.0f, -1, -1.0f, -1.0f, -1.0f, -1.0f, -1, 0.0f);
+        a(EnumC0075a.EGESTURE_CLICK.ordinal(), j, i, f2, f3, -1.0f, -1.0f, -1, -1.0f, -1.0f, -1.0f, -1.0f, -1, 0.0f);
         aY();
     }
 
@@ -269,14 +269,14 @@ public class a {
         if (this.ek == null || !this.ek.bf()) {
             return;
         }
-        a(EnumC0074a.EGESTURE_SINGLE_FINGER_SCROLL.ordinal(), j, i, f2, f3, f4, f5, -1, -1.0f, -1.0f, -1.0f, -1.0f, -1, 0.0f);
+        a(EnumC0075a.EGESTURE_SINGLE_FINGER_SCROLL.ordinal(), j, i, f2, f3, f4, f5, -1, -1.0f, -1.0f, -1.0f, -1.0f, -1, 0.0f);
     }
 
     private void a(long j, int i, float f2, float f3, float f4, float f5, int i2, float f6, float f7, float f8, float f9) {
         if (this.ek == null || !this.ek.bg()) {
             return;
         }
-        a(EnumC0074a.EGESTURE_TWO_FINGER_SCROLL.ordinal(), j, i, f2, f3, f4, f5, i2, f6, f7, f8, f9, -1, 0.0f);
+        a(EnumC0075a.EGESTURE_TWO_FINGER_SCROLL.ordinal(), j, i, f2, f3, f4, f5, i2, f6, f7, f8, f9, -1, 0.0f);
     }
 
     private void a(long j, int i, float f2, float f3, float f4, float f5, int i2, float f6, float f7, float f8, float f9, boolean z) {
@@ -289,9 +289,9 @@ public class a {
             }
             this.eB = z;
         }
-        int ordinal = EnumC0074a.EGESTURE_TWO_FINGER_UNPINCH.ordinal();
+        int ordinal = EnumC0075a.EGESTURE_TWO_FINGER_UNPINCH.ordinal();
         if (z) {
-            ordinal = EnumC0074a.EGESTURE_TWO_FINGER_PINCH.ordinal();
+            ordinal = EnumC0075a.EGESTURE_TWO_FINGER_PINCH.ordinal();
         }
         a(ordinal, j, i, f2, f3, f4, f5, i2, f6, f7, f8, f9, -1, 0.0f);
         if (this.eA) {
@@ -303,14 +303,14 @@ public class a {
         if (this.ek == null || !this.ek.bj()) {
             return;
         }
-        a(EnumC0074a.EGESTURE_TWO_FINGER_ROTATE.ordinal(), j, i, f2, f3, -1.0f, -1.0f, i2, f4, f5, -1.0f, -1.0f, -1, f6);
+        a(EnumC0075a.EGESTURE_TWO_FINGER_ROTATE.ordinal(), j, i, f2, f3, -1.0f, -1.0f, i2, f4, f5, -1.0f, -1.0f, -1, f6);
     }
 
     private void a(long j, int i, int i2) {
         if (this.ek == null || !this.ek.bh()) {
             return;
         }
-        a(EnumC0074a.EGESTURE_SWIPE.ordinal(), j, i, -1.0f, -1.0f, -1.0f, -1.0f, -1, -1.0f, -1.0f, -1.0f, -1.0f, i2, 0.0f);
+        a(EnumC0075a.EGESTURE_SWIPE.ordinal(), j, i, -1.0f, -1.0f, -1.0f, -1.0f, -1, -1.0f, -1.0f, -1.0f, -1.0f, i2, 0.0f);
         clearStatus();
     }
 
@@ -390,11 +390,11 @@ public class a {
     }
 
     private void aY() {
-        a(EnumC0074a.EGESTURE_CLEAR.ordinal(), -1L, -1, -1.0f, -1.0f, -1.0f, -1.0f, -1, -1.0f, -1.0f, -1.0f, -1.0f, -1, 0.0f);
+        a(EnumC0075a.EGESTURE_CLEAR.ordinal(), -1L, -1, -1.0f, -1.0f, -1.0f, -1.0f, -1, -1.0f, -1.0f, -1.0f, -1.0f, -1, 0.0f);
     }
 
     private void aZ() {
-        ARPEngine.getInstance().onGestureUpdateWithScaleFinish(EnumC0074a.EGESTURE_CLEAR.ordinal(), -1L, -1, -1.0f, -1.0f, -1.0f, -1.0f, -1, -1.0f, -1.0f, -1.0f, -1.0f, -1, 0.0f, true);
+        ARPEngine.getInstance().onGestureUpdateWithScaleFinish(EnumC0075a.EGESTURE_CLEAR.ordinal(), -1L, -1, -1.0f, -1.0f, -1.0f, -1.0f, -1, -1.0f, -1.0f, -1.0f, -1.0f, -1, 0.0f, true);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -402,7 +402,7 @@ public class a {
         if (this.ek == null || !this.ek.be()) {
             return;
         }
-        a(EnumC0074a.EGESTURE_LONG_PRESS.ordinal(), j, i, f2, f3, -1.0f, -1.0f, -1, -1.0f, -1.0f, -1.0f, -1.0f, -1, 0.0f);
+        a(EnumC0075a.EGESTURE_LONG_PRESS.ordinal(), j, i, f2, f3, -1.0f, -1.0f, -1, -1.0f, -1.0f, -1.0f, -1.0f, -1, 0.0f);
     }
 
     private void b(MotionEvent motionEvent) {
@@ -497,15 +497,15 @@ public class a {
     }
 
     private void e(MotionEvent motionEvent) {
-        double a = a(this.ev.x, this.ev.y, motionEvent.getX(), motionEvent.getY());
-        Log.d("ARPTouchInput", "touchMoveInSingleFingerCandidate() distance = " + a);
-        if (a < 20.0d) {
+        double a2 = a(this.ev.x, this.ev.y, motionEvent.getX(), motionEvent.getY());
+        Log.d("ARPTouchInput", "touchMoveInSingleFingerCandidate() distance = " + a2);
+        if (a2 < 20.0d) {
             if (motionEvent.getEventTime() - motionEvent.getDownTime() > 600) {
                 this.er = c.EStatLongPress;
                 b(motionEvent.getDownTime(), this.ev.id, motionEvent.getX(), motionEvent.getY());
                 this.el.removeMessages(1);
             }
-        } else if (a < 50.0d) {
+        } else if (a2 < 50.0d) {
             this.eu = false;
         } else {
             ba();
@@ -557,23 +557,23 @@ public class a {
         float v = v(motionEvent);
         float w = w(motionEvent);
         float x = x(motionEvent);
-        double a = a(this.ev.x, this.ev.y, u, v);
-        double a2 = a(this.ex.x, this.ex.y, w, x);
-        if ((a > 50.0d || a2 > 50.0d) && a > 20.0d && a2 > 20.0d) {
-            double a3 = a(this.ev.x, this.ev.y, u, v, this.ex.x, this.ex.y, w, x);
-            if (a3 < 0.7853981633974483d) {
+        double a2 = a(this.ev.x, this.ev.y, u, v);
+        double a3 = a(this.ex.x, this.ex.y, w, x);
+        if ((a2 > 50.0d || a3 > 50.0d) && a2 > 20.0d && a3 > 20.0d) {
+            double a4 = a(this.ev.x, this.ev.y, u, v, this.ex.x, this.ex.y, w, x);
+            if (a4 < 0.7853981633974483d) {
                 this.er = c.EStatTwoFingersScroll;
                 a(motionEvent.getDownTime(), this.ev.id, u, v, q(motionEvent), r(motionEvent), this.ex.id, w, x, s(motionEvent), t(motionEvent));
                 Log.d("ARPTouchInput", "EStatTwoFingersScroll");
-            } else if (a3 > 3.141592653589793d || a3 <= 1.5707963267948966d) {
+            } else if (a4 > 3.141592653589793d || a4 <= 1.5707963267948966d) {
                 this.er = c.EStatPinchAndUnpinch;
                 this.ez = a(u, v, w, x);
             } else {
                 float f2 = (this.ev.x + this.ex.x) / 2.0f;
                 float f3 = (this.ev.y + this.ex.y) / 2.0f;
-                double a4 = a(f2, f3, this.ev.x, this.ev.y, this.ev.x, this.ev.y, u, v);
-                double a5 = a(f2, f3, this.ex.x, this.ex.y, this.ex.x, this.ex.y, w, x);
-                if (Math.abs(a4 - 1.5707963267948966d) < 0.6283185307179586d || Math.abs(a5 - 1.5707963267948966d) < 0.6283185307179586d) {
+                double a5 = a(f2, f3, this.ev.x, this.ev.y, this.ev.x, this.ev.y, u, v);
+                double a6 = a(f2, f3, this.ex.x, this.ex.y, this.ex.x, this.ex.y, w, x);
+                if (Math.abs(a5 - 1.5707963267948966d) < 0.6283185307179586d || Math.abs(a6 - 1.5707963267948966d) < 0.6283185307179586d) {
                     this.er = c.EStatTwoFingersRotate;
                 } else {
                     this.er = c.EStatPinchAndUnpinch;
@@ -692,9 +692,9 @@ public class a {
             float v = v(motionEvent);
             float w = w(motionEvent);
             float x = x(motionEvent);
-            double a = a(u, v, w, x);
-            a(motionEvent.getEventTime(), this.ev.id, u, v, q(motionEvent), r(motionEvent), this.ex.id, w, x, s(motionEvent), t(motionEvent), a < this.ez);
-            this.ez = a;
+            double a2 = a(u, v, w, x);
+            a(motionEvent.getEventTime(), this.ev.id, u, v, q(motionEvent), r(motionEvent), this.ex.id, w, x, s(motionEvent), t(motionEvent), a2 < this.ez);
+            this.ez = a2;
             this.ev.x = u;
             this.ev.y = v;
             this.ew.time = motionEvent.getEventTime();

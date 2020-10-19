@@ -11,9 +11,11 @@ import java.util.ArrayList;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes7.dex */
 public class n {
-    private static final String a = n.class.getSimpleName();
+
+    /* renamed from: a  reason: collision with root package name */
+    private static final String f2232a = n.class.getSimpleName();
     private static n c;
     private AppBaseMap b;
     private s d;
@@ -73,7 +75,7 @@ public class n {
                 JSONObject jSONObject2 = optJSONArray.getJSONObject(i);
                 int optInt = jSONObject2.optInt("id");
                 if (optInt <= 2000 || optInt == 2912 || optInt == 2911 || optInt == 9000) {
-                    mVar.a = optInt;
+                    mVar.f2231a = optInt;
                     mVar.b = jSONObject2.optString("name");
                     mVar.c = jSONObject2.optInt("mapsize");
                     mVar.d = jSONObject2.optInt(MapBundleKey.OfflineMapKey.OFFLINE_CITY_TYPE);
@@ -83,7 +85,7 @@ public class n {
                         for (int i2 = 0; i2 < optJSONArray2.length(); i2++) {
                             m mVar2 = new m();
                             JSONObject optJSONObject = optJSONArray2.optJSONObject(i2);
-                            mVar2.a = optJSONObject.optInt("id");
+                            mVar2.f2231a = optJSONObject.optInt("id");
                             mVar2.b = optJSONObject.optString("name");
                             mVar2.c = optJSONObject.optInt("mapsize");
                             mVar2.d = optJSONObject.optInt(MapBundleKey.OfflineMapKey.OFFLINE_CITY_TYPE);
@@ -158,7 +160,7 @@ public class n {
                 for (int i = 0; i < optJSONArray.length(); i++) {
                     m mVar = new m();
                     JSONObject optJSONObject = optJSONArray.optJSONObject(i);
-                    mVar.a = optJSONObject.optInt("id");
+                    mVar.f2231a = optJSONObject.optInt("id");
                     mVar.b = optJSONObject.optString("name");
                     mVar.c = optJSONObject.optInt("mapsize");
                     mVar.d = optJSONObject.optInt(MapBundleKey.OfflineMapKey.OFFLINE_CITY_TYPE);
@@ -168,7 +170,7 @@ public class n {
                         for (int i2 = 0; i2 < optJSONArray2.length(); i2++) {
                             m mVar2 = new m();
                             JSONObject optJSONObject2 = optJSONArray2.optJSONObject(i2);
-                            mVar2.a = optJSONObject2.optInt("id");
+                            mVar2.f2231a = optJSONObject2.optInt("id");
                             mVar2.b = optJSONObject2.optString("name");
                             mVar2.c = optJSONObject2.optInt("mapsize");
                             mVar2.d = optJSONObject2.optInt(MapBundleKey.OfflineMapKey.OFFLINE_CITY_TYPE);
@@ -207,7 +209,7 @@ public class n {
                 JSONObject optJSONObject = optJSONArray.optJSONObject(i);
                 int optInt = optJSONObject.optInt("id");
                 if (optInt <= 2000 || optInt == 2912 || optInt == 2911 || optInt == 9000) {
-                    mVar.a = optInt;
+                    mVar.f2231a = optInt;
                     mVar.b = optJSONObject.optString("name");
                     mVar.c = optJSONObject.optInt("mapsize");
                     mVar.d = optJSONObject.optInt(MapBundleKey.OfflineMapKey.OFFLINE_CITY_TYPE);
@@ -217,7 +219,7 @@ public class n {
                         for (int i2 = 0; i2 < optJSONArray2.length(); i2++) {
                             m mVar2 = new m();
                             JSONObject optJSONObject2 = optJSONArray2.optJSONObject(i2);
-                            mVar2.a = optJSONObject2.optInt("id");
+                            mVar2.f2231a = optJSONObject2.optInt("id");
                             mVar2.b = optJSONObject2.optString("name");
                             mVar2.c = optJSONObject2.optInt("mapsize");
                             mVar2.d = optJSONObject2.optInt(MapBundleKey.OfflineMapKey.OFFLINE_CITY_TYPE);
@@ -257,7 +259,7 @@ public class n {
                     q qVar = new q();
                     p pVar = new p();
                     JSONObject optJSONObject = optJSONArray.optJSONObject(i);
-                    pVar.a = optJSONObject.optInt("id");
+                    pVar.f2234a = optJSONObject.optInt("id");
                     pVar.b = optJSONObject.optString("name");
                     pVar.c = optJSONObject.optString("pinyin");
                     pVar.h = optJSONObject.optInt("mapoldsize");
@@ -313,7 +315,7 @@ public class n {
             if (jSONObject.length() != 0) {
                 int optInt = jSONObject.optInt("id");
                 if (optInt <= 2000 || optInt == 2912 || optInt == 2911 || optInt == 9000) {
-                    pVar.a = optInt;
+                    pVar.f2234a = optInt;
                     pVar.b = jSONObject.optString("name");
                     pVar.c = jSONObject.optString("pinyin");
                     pVar.d = jSONObject.optString("headchar");

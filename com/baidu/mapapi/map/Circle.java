@@ -6,9 +6,11 @@ import com.baidu.mapapi.model.LatLng;
 import com.baidu.platform.comapi.basestruct.GeoPoint;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes3.dex */
+/* loaded from: classes7.dex */
 public final class Circle extends Overlay {
-    LatLng a;
+
+    /* renamed from: a  reason: collision with root package name */
+    LatLng f1999a;
     int b;
     int c;
     Stroke d;
@@ -42,7 +44,7 @@ public final class Circle extends Overlay {
     @Override // com.baidu.mapapi.map.Overlay
     public Bundle a(Bundle bundle) {
         super.a(bundle);
-        GeoPoint ll2mc = CoordUtil.ll2mc(this.a);
+        GeoPoint ll2mc = CoordUtil.ll2mc(this.f1999a);
         bundle.putDouble("location_x", ll2mc.getLongitudeE6());
         bundle.putDouble("location_y", ll2mc.getLatitudeE6());
         if (this.e) {
@@ -53,7 +55,7 @@ public final class Circle extends Overlay {
         } else {
             bundle.putInt("has_dotted_stroke", 0);
         }
-        bundle.putInt("radius", CoordUtil.getMCDistanceByOneLatLngAndRadius(this.a, this.c));
+        bundle.putInt("radius", CoordUtil.getMCDistanceByOneLatLngAndRadius(this.f1999a, this.c));
         Overlay.a(this.b, bundle);
         if (this.d == null) {
             bundle.putInt("has_stroke", 0);
@@ -74,7 +76,7 @@ public final class Circle extends Overlay {
     }
 
     public LatLng getCenter() {
-        return this.a;
+        return this.f1999a;
     }
 
     public int getDottedStrokeType() {
@@ -109,7 +111,7 @@ public final class Circle extends Overlay {
         if (latLng == null) {
             throw new IllegalArgumentException("BDMapSDKException: circle center can not be null");
         }
-        this.a = latLng;
+        this.f1999a = latLng;
         this.listener.b(this);
     }
 

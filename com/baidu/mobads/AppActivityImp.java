@@ -27,28 +27,30 @@ import java.lang.reflect.Method;
 import java.util.concurrent.atomic.AtomicBoolean;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes7.dex */
 public class AppActivityImp {
     public static final String EXTRA_AD_INSTANCE_INFO = "EXTRA_DATA_STRING_AD";
     public static final String EXTRA_COMMAND_EXTRA_INFO = "EXTRA_DATA_STRING_COM";
     public static final String EXTRA_DATA = "EXTRA_DATA";
     public static final String EXTRA_LANDINGPAGE_EXTRA_INFO = "EXTRA_DATA_STRING";
     private static Class<?> d;
-    private Activity a;
+
+    /* renamed from: a  reason: collision with root package name */
+    private Activity f2297a;
     private Object c;
     private Method[] e = null;
     private static boolean b = false;
     private static AtomicBoolean f = new AtomicBoolean(false);
 
     public AppActivityImp(Activity activity) {
-        this.a = activity;
+        this.f2297a = activity;
     }
 
     public AppActivityImp() {
     }
 
     public void setActivity(Activity activity) {
-        this.a = activity;
+        this.f2297a = activity;
     }
 
     public static void canLpShowWhenLocked(boolean z) {
@@ -75,18 +77,18 @@ public class AppActivityImp {
 
     public void invokeRemoteStatic(String str, Object... objArr) {
         try {
-            com.baidu.mobads.utils.m a = com.baidu.mobads.utils.m.a();
+            com.baidu.mobads.utils.m a2 = com.baidu.mobads.utils.m.a();
             Object[] objArr2 = new Object[3];
             objArr2[0] = str;
             objArr2[1] = Integer.valueOf(objArr != null ? objArr.length : 0);
             objArr2[2] = objArr;
-            a.d(objArr2);
-            Method a2 = a(str);
-            if (a2 != null) {
+            a2.d(objArr2);
+            Method a3 = a(str);
+            if (a3 != null) {
                 if (objArr == null || objArr.length == 0) {
-                    a2.invoke(null, new Object[0]);
+                    a3.invoke(null, new Object[0]);
                 } else {
-                    a2.invoke(null, objArr);
+                    a3.invoke(null, objArr);
                 }
             }
         } catch (Exception e) {
@@ -96,18 +98,18 @@ public class AppActivityImp {
 
     private void a(String str, Object... objArr) {
         try {
-            com.baidu.mobads.utils.m a = com.baidu.mobads.utils.m.a();
+            com.baidu.mobads.utils.m a2 = com.baidu.mobads.utils.m.a();
             Object[] objArr2 = new Object[3];
             objArr2[0] = str;
             objArr2[1] = Integer.valueOf(objArr != null ? objArr.length : 0);
             objArr2[2] = objArr;
-            a.d(objArr2);
-            Method a2 = a(str);
-            if (a2 != null) {
+            a2.d(objArr2);
+            Method a3 = a(str);
+            if (a3 != null) {
                 if (objArr == null || objArr.length == 0) {
-                    a2.invoke(this.c, new Object[0]);
+                    a3.invoke(this.c, new Object[0]);
                 } else {
-                    a2.invoke(this.c, objArr);
+                    a3.invoke(this.c, objArr);
                 }
             }
         } catch (Exception e) {
@@ -117,18 +119,18 @@ public class AppActivityImp {
 
     private boolean b(String str, Object... objArr) {
         try {
-            com.baidu.mobads.utils.m a = com.baidu.mobads.utils.m.a();
+            com.baidu.mobads.utils.m a2 = com.baidu.mobads.utils.m.a();
             Object[] objArr2 = new Object[3];
             objArr2[0] = str;
             objArr2[1] = Integer.valueOf(objArr != null ? objArr.length : 0);
             objArr2[2] = objArr;
-            a.d(objArr2);
-            Method a2 = a(str);
-            if (a2 != null) {
+            a2.d(objArr2);
+            Method a3 = a(str);
+            if (a3 != null) {
                 if (objArr == null || objArr.length == 0) {
-                    return ((Boolean) a2.invoke(this.c, new Object[0])).booleanValue();
+                    return ((Boolean) a3.invoke(this.c, new Object[0])).booleanValue();
                 }
-                return ((Boolean) a2.invoke(this.c, objArr)).booleanValue();
+                return ((Boolean) a3.invoke(this.c, objArr)).booleanValue();
             }
         } catch (Exception e) {
             com.baidu.mobads.utils.m.a().d(e);
@@ -138,18 +140,18 @@ public class AppActivityImp {
 
     private Object c(String str, Object... objArr) {
         try {
-            com.baidu.mobads.utils.m a = com.baidu.mobads.utils.m.a();
+            com.baidu.mobads.utils.m a2 = com.baidu.mobads.utils.m.a();
             Object[] objArr2 = new Object[3];
             objArr2[0] = str;
             objArr2[1] = Integer.valueOf(objArr != null ? objArr.length : 0);
             objArr2[2] = objArr;
-            a.d(objArr2);
-            Method a2 = a(str);
-            if (a2 != null) {
+            a2.d(objArr2);
+            Method a3 = a(str);
+            if (a3 != null) {
                 if (objArr == null || objArr.length == 0) {
-                    return a2.invoke(this.c, new Object[0]);
+                    return a3.invoke(this.c, new Object[0]);
                 }
-                return a2.invoke(this.c, objArr);
+                return a3.invoke(this.c, objArr);
             }
         } catch (Exception e) {
             com.baidu.mobads.utils.m.a().d(e);
@@ -204,12 +206,12 @@ public class AppActivityImp {
     public void onCreate(Bundle bundle) {
         try {
             f.set(true);
-            Intent intent = this.a.getIntent();
+            Intent intent = this.f2297a.getIntent();
             if (AppActivity.isAnti() && intent.getParcelableExtra(EXTRA_DATA) == null) {
                 XAdLandingPageExtraInfo xAdLandingPageExtraInfo = new XAdLandingPageExtraInfo((String) null, new XAdInstanceInfo(new JSONObject()));
-                a(XAdLandingPageExtraInfo.class, xAdLandingPageExtraInfo, this.a.getIntent().getStringExtra(EXTRA_LANDINGPAGE_EXTRA_INFO));
-                a(XAdCommandExtraInfo.class, xAdLandingPageExtraInfo, this.a.getIntent().getStringExtra(EXTRA_COMMAND_EXTRA_INFO));
-                a(XAdInstanceInfo.class, xAdLandingPageExtraInfo.getAdInstanceInfo(), this.a.getIntent().getStringExtra(EXTRA_AD_INSTANCE_INFO));
+                a(XAdLandingPageExtraInfo.class, xAdLandingPageExtraInfo, this.f2297a.getIntent().getStringExtra(EXTRA_LANDINGPAGE_EXTRA_INFO));
+                a(XAdCommandExtraInfo.class, xAdLandingPageExtraInfo, this.f2297a.getIntent().getStringExtra(EXTRA_COMMAND_EXTRA_INFO));
+                a(XAdInstanceInfo.class, xAdLandingPageExtraInfo.getAdInstanceInfo(), this.f2297a.getIntent().getStringExtra(EXTRA_AD_INSTANCE_INFO));
                 intent.putExtra(EXTRA_DATA, xAdLandingPageExtraInfo);
             }
             DexClassLoader d2 = com.baidu.mobads.g.b.d();
@@ -219,7 +221,7 @@ public class AppActivityImp {
                 d = loadLocalApk("com.baidu.mobads.container.landingpage.App2Activity");
             }
             this.e = d.getDeclaredMethods();
-            this.c = d.getConstructor(Activity.class).newInstance(this.a);
+            this.c = d.getConstructor(Activity.class).newInstance(this.f2297a);
             invokeRemoteStatic("canLpShowWhenLocked", Boolean.valueOf(b));
             com.baidu.mobads.utils.m.a().d("com.baidu.mobads.container.landingpage.App2Activity", d, this.c);
         } catch (Exception e) {
@@ -230,13 +232,13 @@ public class AppActivityImp {
 
     public Class<?> loadLocalApk(String str) {
         Class<?> cls = null;
-        com.baidu.mobads.utils.m a = com.baidu.mobads.utils.m.a();
+        com.baidu.mobads.utils.m a2 = com.baidu.mobads.utils.m.a();
         try {
-            cls = Class.forName(str, true, new DexClassLoader(com.baidu.mobads.g.g.a(this.a), this.a.getFilesDir().getAbsolutePath(), null, getClass().getClassLoader()));
+            cls = Class.forName(str, true, new DexClassLoader(com.baidu.mobads.g.g.a(this.f2297a), this.f2297a.getFilesDir().getAbsolutePath(), null, getClass().getClassLoader()));
         } catch (Exception e) {
-            a.e(e);
+            a2.e(e);
         }
-        a.i("jar.path=, clz=" + cls);
+        a2.i("jar.path=, clz=" + cls);
         return cls;
     }
 

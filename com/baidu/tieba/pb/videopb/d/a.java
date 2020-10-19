@@ -24,51 +24,51 @@ import com.baidu.tieba.pb.pb.main.PbActivity;
 import com.baidu.tieba.pb.pb.main.PbModel;
 import com.baidu.tieba.share.AddExperiencedModel;
 import java.text.MessageFormat;
-/* loaded from: classes21.dex */
+/* loaded from: classes22.dex */
 public class a {
     public static void a(final PbActivity pbActivity, int i, int i2) {
-        String dcf;
+        String dfO;
         String str;
         String str2;
-        if (pbActivity != null && pbActivity.dah() != null) {
-            final PbModel dah = pbActivity.dah();
+        if (pbActivity != null && pbActivity.ddQ() != null) {
+            final PbModel ddQ = pbActivity.ddQ();
             final View rootView = pbActivity.getRootView();
-            if (dah.hasData()) {
+            if (ddQ.hasData()) {
                 TiebaStatic.eventStat(pbActivity, CheckRealNameModel.TYPE_PB_SHARE, "pbclick", 1, new Object[0]);
-                f pbData = dah.getPbData();
-                String title = pbData.cYR().getTitle();
-                int i3 = dah.getHostMode() ? 1 : 0;
+                f pbData = ddQ.getPbData();
+                String title = pbData.dcA().getTitle();
+                int i3 = ddQ.getHostMode() ? 1 : 0;
                 boolean z = false;
                 if (pbData.getForum() != null) {
-                    if ((pbData.getForum().isLike() == 1) && AddExperiencedModel.Qx(pbData.getForumId())) {
+                    if ((pbData.getForum().isLike() == 1) && AddExperiencedModel.Rl(pbData.getForumId())) {
                         z = true;
                     }
                 }
-                bw cYR = dah.getPbData().cYR();
-                if (cYR.bei()) {
-                    dcf = cYR.getBaijiahaoData().oriUgcTid;
-                    str = "?share=9105&fr=dshare&see_lz=" + i3 + "&dtype=" + cYR.getBaijiahaoData().oriUgcType + "&dvid=" + cYR.getBaijiahaoData().oriUgcVid + "&nid=" + cYR.getBaijiahaoData().oriUgcNid;
+                bw dcA = ddQ.getPbData().dcA();
+                if (dcA.bgR()) {
+                    dfO = dcA.getBaijiahaoData().oriUgcTid;
+                    str = "?share=9105&fr=dshare&see_lz=" + i3 + "&dtype=" + dcA.getBaijiahaoData().oriUgcType + "&dvid=" + dcA.getBaijiahaoData().oriUgcVid + "&nid=" + dcA.getBaijiahaoData().oriUgcNid;
                 } else {
-                    dcf = dah.dcf();
+                    dfO = ddQ.dfO();
                     str = "?share=9105&fr=share&see_lz=" + i3;
                 }
-                String str3 = "http://tieba.baidu.com/p/" + dcf + (str + "&share_from=post");
-                String[] fB = pbData.fB(pbActivity);
-                String str4 = fB[0];
+                String str3 = "http://tieba.baidu.com/p/" + dfO + (str + "&share_from=post");
+                String[] fI = pbData.fI(pbActivity);
+                String str4 = fI[0];
                 if (!StringUtils.isNull(str4) && str4.startsWith(TbConfig.URL_IMAGE_PREFIX)) {
                     str4 = str4.substring(TbConfig.URL_IMAGE_PREFIX.length());
                 }
                 Uri parse = str4 == null ? null : Uri.parse(str4);
-                String str5 = fB[1];
+                String str5 = fI[1];
                 String currentAccount = TbadkCoreApplication.getCurrentAccount();
                 if (i == 1) {
-                    TiebaStatic.log(new aq("c10399").dF("fid", pbData.getForumId()).dF("tid", pbData.getThreadId()).dF("uid", currentAccount));
+                    TiebaStatic.log(new aq("c10399").dK("fid", pbData.getForumId()).dK("tid", pbData.getThreadId()).dK("uid", currentAccount));
                 }
                 String string = TbadkCoreApplication.getInst().getResources().getString(R.string.default_share_content_tpl);
-                if (pbData.cZu() && cYR.bfy() != null) {
-                    if (TextUtils.isEmpty(title) || TextUtils.isEmpty(str5) || cYR.bhu() || cYR.beh()) {
-                        str2 = TextUtils.isEmpty(title) ? fB[1] : title;
-                        title = MessageFormat.format(string, cYR.bfy().getName_show(), TbadkCoreApplication.getInst().getResources().getString(R.string.default_share_content_tpl_suffix));
+                if (pbData.ddd() && dcA.bih() != null) {
+                    if (TextUtils.isEmpty(title) || TextUtils.isEmpty(str5) || dcA.bkd() || dcA.bgQ()) {
+                        str2 = TextUtils.isEmpty(title) ? fI[1] : title;
+                        title = MessageFormat.format(string, dcA.bih().getName_show(), TbadkCoreApplication.getInst().getResources().getString(R.string.default_share_content_tpl_suffix));
                     } else {
                         str2 = title;
                         title = str5;
@@ -84,42 +84,42 @@ public class a {
                 ShareItem shareItem = new ShareItem();
                 shareItem.title = cutString;
                 shareItem.content = cutString2;
-                if (pbData.cZu()) {
-                    shareItem.eGA = cutString2;
+                if (pbData.ddd()) {
+                    shareItem.eSH = cutString2;
                     shareItem.readCount = -1L;
-                } else if (pbData.cYR() != null && pbData.cYR().bfQ() != null && !pbData.cYR().bei()) {
-                    shareItem.readCount = pbData.cYR().bfQ().play_count.intValue();
+                } else if (pbData.dcA() != null && pbData.dcA().biz() != null && !pbData.dcA().bgR()) {
+                    shareItem.readCount = pbData.dcA().biz().play_count.intValue();
                 }
                 shareItem.linkUrl = str3;
-                shareItem.eGm = true;
-                shareItem.eGv = z;
-                shareItem.extData = dah.dcf();
-                shareItem.eGD = 3;
-                shareItem.eGC = i2;
-                shareItem.fid = dah.getForumId();
-                shareItem.tid = dah.dcf();
-                shareItem.eGH = F(pbData);
+                shareItem.eSt = true;
+                shareItem.eSC = z;
+                shareItem.extData = ddQ.dfO();
+                shareItem.eSK = 3;
+                shareItem.eSJ = i2;
+                shareItem.fid = ddQ.getForumId();
+                shareItem.tid = ddQ.dfO();
+                shareItem.eSO = F(pbData);
                 shareItem.uid = TbadkCoreApplication.getCurrentAccount();
                 if (parse != null) {
                     shareItem.imageUri = parse;
                 }
-                if (pbData.cZu()) {
+                if (pbData.ddd()) {
                     shareItem.canShareBySmartApp = false;
                 }
-                shareItem.eGK = OriginalThreadInfo.ShareInfo.generateShareInfo(cYR);
-                if (pbData != null && pbData.cYT() != null && pbData.cYT().size() > 0) {
-                    shareItem.eGL = ShareItem.ForwardInfo.generateForwardInfo(cYR, 1, pbData.cYT().get(0));
+                shareItem.eSR = OriginalThreadInfo.ShareInfo.generateShareInfo(dcA);
+                if (pbData != null && pbData.dcC() != null && pbData.dcC().size() > 0) {
+                    shareItem.eSS = ShareItem.ForwardInfo.generateForwardInfo(dcA, 1, pbData.dcC().get(0));
                 } else {
-                    shareItem.eGL = ShareItem.ForwardInfo.generateForwardInfo(cYR, 1, null);
+                    shareItem.eSS = ShareItem.ForwardInfo.generateForwardInfo(dcA, 1, null);
                 }
                 TbadkCoreApplication.getInst().setShareItem(shareItem);
-                if (cYR != null) {
-                    shareItem.eGR = cYR.getShareImageUrl();
+                if (dcA != null) {
+                    shareItem.eSY = dcA.getShareImageUrl();
                 }
-                shareItem.eGE = getShareObjParam2(cYR);
+                shareItem.eSL = getShareObjParam2(dcA);
                 Bundle bundle = new Bundle();
-                bundle.putInt("obj_param1", shareItem.eGD);
-                bundle.putInt("obj_type", shareItem.eGH);
+                bundle.putInt("obj_param1", shareItem.eSK);
+                bundle.putInt("obj_type", shareItem.eSO);
                 bundle.putString("fid", shareItem.fid);
                 bundle.putString("tid", shareItem.tid);
                 bundle.putString("uid", shareItem.uid);
@@ -128,13 +128,13 @@ public class a {
                 shareDialogConfig.setOnDismissListener(new DialogInterface.OnDismissListener() { // from class: com.baidu.tieba.pb.videopb.d.a.1
                     @Override // android.content.DialogInterface.OnDismissListener
                     public void onDismiss(DialogInterface dialogInterface) {
-                        if (PbModel.this != null && PbModel.this.getPbData() != null && PbModel.this.getPbData().cZr() && !TbSingleton.getInstance().isNotchScreen(pbActivity) && !TbSingleton.getInstance().isCutoutScreen(pbActivity) && rootView != null) {
+                        if (PbModel.this != null && PbModel.this.getPbData() != null && PbModel.this.getPbData().dda() && !TbSingleton.getInstance().isNotchScreen(pbActivity) && !TbSingleton.getInstance().isCutoutScreen(pbActivity) && rootView != null) {
                             rootView.setSystemUiVisibility(4);
                         }
                     }
                 });
                 shareDialogConfig.setFrom(ShareDialogConfig.From.PB);
-                com.baidu.tieba.c.f.cgr().b(shareDialogConfig);
+                com.baidu.tieba.c.f.cjN().b(shareDialogConfig);
             }
         }
     }
@@ -143,16 +143,16 @@ public class a {
         if (bwVar == null) {
             return 0;
         }
-        if (bwVar.beg()) {
+        if (bwVar.bgP()) {
             return 10;
         }
-        if (bwVar.beh()) {
+        if (bwVar.bgQ()) {
             return 9;
         }
-        if (bwVar.bhu()) {
+        if (bwVar.bkd()) {
             return 8;
         }
-        if (bwVar.bht()) {
+        if (bwVar.bkc()) {
             return 7;
         }
         if (bwVar.isShareThread) {
@@ -174,27 +174,27 @@ public class a {
     }
 
     private static int F(f fVar) {
-        bw cYR;
-        if (fVar != null && (cYR = fVar.cYR()) != null) {
-            if (cYR.bfA()) {
+        bw dcA;
+        if (fVar != null && (dcA = fVar.dcA()) != null) {
+            if (dcA.bij()) {
                 return 4;
             }
-            if (cYR.bfv() == 1) {
+            if (dcA.bie() == 1) {
                 return 3;
             }
-            if (cYR.beg()) {
+            if (dcA.bgP()) {
                 return 5;
             }
-            if (cYR.beh()) {
+            if (dcA.bgQ()) {
                 return 6;
             }
-            if (cYR.bht()) {
+            if (dcA.bkc()) {
                 return 7;
             }
-            if (cYR.bhu()) {
+            if (dcA.bkd()) {
                 return 8;
             }
-            return cYR.bgQ() ? 2 : 1;
+            return dcA.bjz() ? 2 : 1;
         }
         return 0;
     }

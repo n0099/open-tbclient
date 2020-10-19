@@ -19,9 +19,9 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes4.dex */
 public class a extends BaseAdapter {
-    private long bhr;
-    private long fxY;
-    private ArrayList<com.baidu.tieba.ala.liveroom.challenge.a.a> fzo = new ArrayList<>();
+    private long blh;
+    private long fKh;
+    private ArrayList<com.baidu.tieba.ala.liveroom.challenge.a.a> fLx = new ArrayList<>();
     private boolean mIsHost;
     private TbPageContext mTbPageContext;
     private int mType;
@@ -31,34 +31,34 @@ public class a extends BaseAdapter {
     }
 
     public void setData(List<com.baidu.tieba.ala.liveroom.challenge.a.a> list) {
-        if (this.fzo == null) {
-            this.fzo = new ArrayList<>();
+        if (this.fLx == null) {
+            this.fLx = new ArrayList<>();
         } else {
-            this.fzo.clear();
+            this.fLx.clear();
         }
-        this.fzo.addAll(list);
+        this.fLx.addAll(list);
         notifyDataSetChanged();
     }
 
     public void a(int i, long j, long j2, boolean z) {
-        this.bhr = j;
+        this.blh = j;
         this.mIsHost = z;
         this.mType = i;
-        this.fxY = j2;
+        this.fKh = j2;
     }
 
     @Override // android.widget.Adapter
     public int getCount() {
-        if (this.fzo != null) {
-            return this.fzo.size();
+        if (this.fLx != null) {
+            return this.fLx.size();
         }
         return 0;
     }
 
     @Override // android.widget.Adapter
     public Object getItem(int i) {
-        if (this.fzo != null) {
-            return this.fzo.get(i);
+        if (this.fLx != null) {
+            return this.fLx.get(i);
         }
         return null;
     }
@@ -80,74 +80,74 @@ public class a extends BaseAdapter {
 
     @Override // android.widget.Adapter
     public View getView(int i, View view, ViewGroup viewGroup) {
-        C0620a c0620a;
+        C0638a c0638a;
         if (view == null) {
             view = LayoutInflater.from(this.mTbPageContext.getPageActivity()).inflate(a.h.ala_jinzhu_list_item_layout, viewGroup, false);
-            C0620a c0620a2 = new C0620a(view);
-            view.setTag(c0620a2);
-            c0620a = c0620a2;
+            C0638a c0638a2 = new C0638a(view);
+            view.setTag(c0638a2);
+            c0638a = c0638a2;
         } else {
-            c0620a = (C0620a) view.getTag();
+            c0638a = (C0638a) view.getTag();
         }
         com.baidu.tieba.ala.liveroom.challenge.a.a aVar = (com.baidu.tieba.ala.liveroom.challenge.a.a) getItem(i);
         if (aVar != null) {
-            c0620a.a(i, aVar);
+            c0638a.a(i, aVar);
         }
         return view;
     }
 
     /* renamed from: com.baidu.tieba.ala.liveroom.challenge.adapter.a$a  reason: collision with other inner class name */
     /* loaded from: classes4.dex */
-    public class C0620a {
-        private ImageView gtG;
-        private TextView gtH;
-        private TextView gtI;
-        private TextView gtJ;
-        private HeadImageView gtK;
+    public class C0638a {
+        private ImageView gIb;
+        private TextView gIc;
+        private TextView gId;
+        private TextView gIe;
+        private HeadImageView gIf;
 
-        public C0620a(View view) {
-            this.gtG = (ImageView) view.findViewById(a.g.id_jinzhu_item_rank_no_iv);
-            this.gtH = (TextView) view.findViewById(a.g.id_jinzhu_item_rank_no_tv);
-            this.gtI = (TextView) view.findViewById(a.g.id_jinzhu_item_pk_score);
-            this.gtJ = (TextView) view.findViewById(a.g.id_jinzhu_item_name);
-            this.gtK = (HeadImageView) view.findViewById(a.g.id_jinzhu_item_head_iv);
-            this.gtK.setIsRound(true);
-            this.gtK.setAutoChangeStyle(false);
-            this.gtK.setDefaultResource(a.f.sdk_pic_mycenter_avatar_def);
-            this.gtK.setDefaultErrorResource(a.f.sdk_pic_mycenter_avatar_def);
+        public C0638a(View view) {
+            this.gIb = (ImageView) view.findViewById(a.g.id_jinzhu_item_rank_no_iv);
+            this.gIc = (TextView) view.findViewById(a.g.id_jinzhu_item_rank_no_tv);
+            this.gId = (TextView) view.findViewById(a.g.id_jinzhu_item_pk_score);
+            this.gIe = (TextView) view.findViewById(a.g.id_jinzhu_item_name);
+            this.gIf = (HeadImageView) view.findViewById(a.g.id_jinzhu_item_head_iv);
+            this.gIf.setIsRound(true);
+            this.gIf.setAutoChangeStyle(false);
+            this.gIf.setDefaultResource(a.f.sdk_pic_mycenter_avatar_def);
+            this.gIf.setDefaultErrorResource(a.f.sdk_pic_mycenter_avatar_def);
         }
 
         public void a(int i, final com.baidu.tieba.ala.liveroom.challenge.a.a aVar) {
             if (aVar != null) {
                 if (i == 0) {
-                    this.gtG.setVisibility(0);
-                    this.gtH.setVisibility(4);
-                    this.gtG.setImageResource(a.f.icon_jinzhu_item_rank1);
+                    this.gIb.setVisibility(0);
+                    this.gIc.setVisibility(4);
+                    this.gIb.setImageResource(a.f.icon_jinzhu_item_rank1);
                 } else if (i == 1) {
-                    this.gtG.setVisibility(0);
-                    this.gtH.setVisibility(4);
-                    this.gtG.setImageResource(a.f.icon_jinzhu_item_rank2);
+                    this.gIb.setVisibility(0);
+                    this.gIc.setVisibility(4);
+                    this.gIb.setImageResource(a.f.icon_jinzhu_item_rank2);
                 } else if (i == 2) {
-                    this.gtG.setVisibility(0);
-                    this.gtH.setVisibility(4);
-                    this.gtG.setImageResource(a.f.icon_jinzhu_item_rank3);
+                    this.gIb.setVisibility(0);
+                    this.gIc.setVisibility(4);
+                    this.gIb.setImageResource(a.f.icon_jinzhu_item_rank3);
                 } else {
-                    this.gtG.setVisibility(4);
-                    this.gtH.setVisibility(0);
-                    this.gtH.setText(String.valueOf(i + 1));
+                    this.gIb.setVisibility(4);
+                    this.gIc.setVisibility(0);
+                    this.gIc.setText(String.valueOf(i + 1));
                 }
-                if (aVar.aJI != null) {
-                    l.a(this.gtK, aVar.aJI.portrait, true, false);
-                    this.gtJ.setText(aVar.aJI.nickName);
+                if (aVar.aMN != null) {
+                    l.a(this.gIf, aVar.aMN.portrait, true, false);
+                    this.gIe.setText(aVar.aMN.nickName);
                 }
-                this.gtI.setText(aVar.score);
-                this.gtK.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.ala.liveroom.challenge.adapter.a.a.1
+                this.gId.setText(aVar.score);
+                this.gIf.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.ala.liveroom.challenge.adapter.a.a.1
                     @Override // android.view.View.OnClickListener
                     public void onClick(View view) {
-                        AlaLiveUserInfoData alaLiveUserInfoData = aVar.aJI;
+                        AlaLiveUserInfoData alaLiveUserInfoData = aVar.aMN;
                         if (alaLiveUserInfoData != null) {
                             a.this.mTbPageContext.getPageActivity().finish();
-                            MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new AlaPersonCardActivityConfig(a.this.mTbPageContext.getPageActivity(), alaLiveUserInfoData.userId + "", alaLiveUserInfoData.userName, alaLiveUserInfoData.portrait, 0, 0, null, null, 0L, 0L, 0L, 0, null, String.valueOf(a.this.bhr), a.this.mIsHost, String.valueOf(a.this.fxY), null, alaLiveUserInfoData.userName, "")));
+                            MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new AlaPersonCardActivityConfig(a.this.mTbPageContext.getPageActivity(), alaLiveUserInfoData.userId + "", alaLiveUserInfoData.userName, alaLiveUserInfoData.portrait, 0, 0, null, null, 0L, 0L, 0L, 0, null, String.valueOf(a.this.blh), a.this.mIsHost, String.valueOf(a.this.fKh), null, alaLiveUserInfoData.userName, "")));
                         }
                     }
                 });

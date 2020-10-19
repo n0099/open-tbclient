@@ -4,9 +4,11 @@ import android.content.Context;
 import com.baidu.android.imsdk.internal.Constants;
 import com.sdk.base.framework.a.a.c;
 import com.sdk.base.framework.c.f;
-/* loaded from: classes5.dex */
+/* loaded from: classes16.dex */
 public class a {
-    private static a a;
+
+    /* renamed from: a  reason: collision with root package name */
+    private static a f4512a;
     private Context b;
 
     static {
@@ -19,12 +21,12 @@ public class a {
     }
 
     public static a a(Context context) {
-        if (a == null) {
+        if (f4512a == null) {
             synchronized (a.class) {
-                a = new a(context);
+                f4512a = new a(context);
             }
         }
-        return a;
+        return f4512a;
     }
 
     public final void a(String str, String str2) {

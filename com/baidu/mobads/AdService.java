@@ -3,11 +3,13 @@ package com.baidu.mobads;
 import android.content.Context;
 import android.view.ViewGroup;
 import com.baidu.mobads.utils.XAdSDKFoundationFacade;
-/* loaded from: classes3.dex */
+/* loaded from: classes7.dex */
 public class AdService {
     protected static String channelId = "";
     protected static int instanceCount = -1;
-    private AdView a;
+
+    /* renamed from: a  reason: collision with root package name */
+    private AdView f2287a;
 
     public static void setChannelId(String str) {
         channelId = str;
@@ -22,19 +24,19 @@ public class AdService {
         if (context == null || viewGroup == null || layoutParams == null || adViewListener == null || adSize == null) {
             throw new IllegalArgumentException("One of arguments is null");
         }
-        this.a = new AdView(context, false, adSize, str);
-        this.a.setListener(adViewListener);
+        this.f2287a = new AdView(context, false, adSize, str);
+        this.f2287a.setListener(adViewListener);
         a(viewGroup, layoutParams);
         instanceCount++;
     }
 
     private void a(ViewGroup viewGroup, ViewGroup.LayoutParams layoutParams) {
         try {
-            if (this.a.getParent() != viewGroup) {
-                if (this.a.getParent() != null) {
-                    ((ViewGroup) this.a.getParent()).removeView(this.a);
+            if (this.f2287a.getParent() != viewGroup) {
+                if (this.f2287a.getParent() != null) {
+                    ((ViewGroup) this.f2287a.getParent()).removeView(this.f2287a);
                 }
-                viewGroup.addView(this.a, layoutParams);
+                viewGroup.addView(this.f2287a, layoutParams);
             }
         } catch (Exception e) {
             XAdSDKFoundationFacade.getInstance().getAdLogger().d(e);
@@ -42,9 +44,9 @@ public class AdService {
     }
 
     public void destroy() {
-        if (this.a != null) {
-            this.a.destroy();
-            this.a = null;
+        if (this.f2287a != null) {
+            this.f2287a.destroy();
+            this.f2287a = null;
         }
     }
 }

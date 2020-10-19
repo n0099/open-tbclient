@@ -2,12 +2,13 @@ package com.coremedia.iso;
 
 import android.support.v4.view.MotionEventCompat;
 import android.support.v4.view.ViewCompat;
+import com.baidu.appsearch.update.patchupdate.GDiffPatcher;
 import com.baidu.searchbox.account.contants.AccountConstants;
 import com.googlecode.mp4parser.util.IntHashMap;
 import java.io.ByteArrayOutputStream;
 import java.io.UnsupportedEncodingException;
 import java.nio.ByteBuffer;
-/* loaded from: classes4.dex */
+/* loaded from: classes11.dex */
 public final class IsoTypeReader {
     private static IntHashMap codeCache = new IntHashMap();
     private static byte[] codeBytes = new byte[4];
@@ -43,7 +44,7 @@ public final class IsoTypeReader {
     }
 
     public static int byte2int(byte b) {
-        return b < 0 ? b + 256 : b;
+        return b < 0 ? b + GDiffPatcher.EOF : b;
     }
 
     public static String readString(ByteBuffer byteBuffer) {

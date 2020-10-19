@@ -1,9 +1,11 @@
 package com.baidu.platform.comjni.map.msgcenter;
 
 import com.baidu.platform.comjni.JNIBaseApi;
-/* loaded from: classes3.dex */
+/* loaded from: classes7.dex */
 public class NAMsgCenter extends JNIBaseApi {
-    private long a = 0;
+
+    /* renamed from: a  reason: collision with root package name */
+    private long f3184a = 0;
 
     private native boolean nativeCancelRequest(long j);
 

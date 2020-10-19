@@ -17,9 +17,11 @@ import java.util.HashMap;
 import java.util.Map;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes24.dex */
+/* loaded from: classes6.dex */
 public class f {
-    private static Map<String, f> a = Collections.synchronizedMap(new HashMap());
+
+    /* renamed from: a  reason: collision with root package name */
+    private static Map<String, f> f4615a = Collections.synchronizedMap(new HashMap());
     private static String b = null;
     private Context c;
     private String d;
@@ -30,7 +32,7 @@ public class f {
 
     public static f a(Context context, String str) {
         f fVar;
-        synchronized (a) {
+        synchronized (f4615a) {
             com.tencent.open.a.f.a("openSDK_LOG.OpenConfig", "getInstance begin");
             if (str != null) {
                 b = str;
@@ -42,10 +44,10 @@ public class f {
                     str = "0";
                 }
             }
-            fVar = a.get(str);
+            fVar = f4615a.get(str);
             if (fVar == null) {
                 fVar = new f(context, str);
-                a.put(str, fVar);
+                f4615a.put(str, fVar);
             }
             com.tencent.open.a.f.a("openSDK_LOG.OpenConfig", "getInstance end");
         }
@@ -153,7 +155,7 @@ public class f {
             @Override // java.lang.Thread, java.lang.Runnable
             public void run() {
                 try {
-                    f.this.a(j.d(HttpUtils.openUrl2(f.this.c, "http://cgi.connect.qq.com/qqconnectopen/openapi/policy_conf", "GET", bundle).a));
+                    f.this.a(j.d(HttpUtils.openUrl2(f.this.c, "http://cgi.connect.qq.com/qqconnectopen/openapi/policy_conf", "GET", bundle).f4622a));
                 } catch (Exception e) {
                     e.printStackTrace();
                 }

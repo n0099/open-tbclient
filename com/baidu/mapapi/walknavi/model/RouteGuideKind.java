@@ -1,5 +1,5 @@
 package com.baidu.mapapi.walknavi.model;
-/* loaded from: classes3.dex */
+/* loaded from: classes7.dex */
 public enum RouteGuideKind {
     NE_Maneuver_Kind_Invalid,
     NE_Maneuver_Kind_Start,

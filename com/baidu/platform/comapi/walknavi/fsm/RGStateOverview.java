@@ -7,7 +7,7 @@ import com.baidu.mapapi.model.inner.MapBound;
 import com.baidu.platform.comapi.basestruct.GeoPoint;
 import com.baidu.platform.comapi.walknavi.b;
 import com.baidu.tieba.R;
-/* loaded from: classes3.dex */
+/* loaded from: classes7.dex */
 public class RGStateOverview extends RGState {
     @Override // com.baidu.platform.comapi.walknavi.fsm.RGState
     protected void onActionUI() {
@@ -34,12 +34,12 @@ public class RGStateOverview extends RGState {
             builder.overlook(0.0f);
             builder.targetScreen(new Point((i.winRound.right + i.winRound.left) / 2, ((i.winRound.bottom + i.winRound.top) / 2) - ((int) 0)));
             if (W != null) {
-                float a = b.a().J().a(W, com.baidu.platform.comapi.wnplatform.p.b.b.a().b(), com.baidu.platform.comapi.wnplatform.p.b.b.a().c() - b.a().T().n());
+                float a2 = b.a().J().a(W, com.baidu.platform.comapi.wnplatform.p.b.b.a().b(), com.baidu.platform.comapi.wnplatform.p.b.b.a().c() - b.a().T().n());
                 builder.target(CoordUtil.mc2ll(new GeoPoint((W.getPtRT().getIntY() + W.getPtLB().getIntY()) / 2, (W.getPtLB().getIntX() + W.getPtRT().getIntX()) / 2)));
-                if (a > 3.0f) {
-                    a = (float) (a - 0.8d);
+                if (a2 > 3.0f) {
+                    a2 = (float) (a2 - 0.8d);
                 }
-                builder.zoom(a);
+                builder.zoom(a2);
             }
             b.a().J().a(builder.build(), 500);
         }

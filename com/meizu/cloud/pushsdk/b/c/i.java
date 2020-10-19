@@ -5,17 +5,21 @@ import com.meizu.cloud.pushsdk.b.c.c;
 import org.apache.http.client.methods.HttpDelete;
 import org.apache.http.client.methods.HttpHead;
 import org.apache.http.client.methods.HttpPut;
-/* loaded from: classes3.dex */
+/* loaded from: classes7.dex */
 public class i {
-    private final f a;
+
+    /* renamed from: a  reason: collision with root package name */
+    private final f f4334a;
     private final String b;
     private final c c;
     private final j d;
     private final Object e;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes7.dex */
     public static class a {
-        private f a;
+
+        /* renamed from: a  reason: collision with root package name */
+        private f f4335a;
         private String b = "GET";
         private c.a c = new c.a();
         private j d;
@@ -34,7 +38,7 @@ public class i {
             if (fVar == null) {
                 throw new IllegalArgumentException("url == null");
             }
-            this.a = fVar;
+            this.f4335a = fVar;
             return this;
         }
 
@@ -91,7 +95,7 @@ public class i {
         }
 
         public i c() {
-            if (this.a == null) {
+            if (this.f4335a == null) {
                 throw new IllegalStateException("url == null");
             }
             return new i(this);
@@ -103,7 +107,7 @@ public class i {
     }
 
     private i(a aVar) {
-        this.a = aVar.a;
+        this.f4334a = aVar.f4335a;
         this.b = aVar.b;
         this.c = aVar.c.a();
         this.d = aVar.d;
@@ -111,7 +115,7 @@ public class i {
     }
 
     public f a() {
-        return this.a;
+        return this.f4334a;
     }
 
     public String a(String str) {
@@ -150,10 +154,10 @@ public class i {
     }
 
     public boolean f() {
-        return this.a.a();
+        return this.f4334a.a();
     }
 
     public String toString() {
-        return "Request{method=" + this.b + ", url=" + this.a + ", tag=" + (this.e != this ? this.e : null) + '}';
+        return "Request{method=" + this.b + ", url=" + this.f4334a + ", tag=" + (this.e != this ? this.e : null) + '}';
     }
 }

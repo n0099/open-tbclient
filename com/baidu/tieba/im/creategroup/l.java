@@ -4,29 +4,29 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import com.baidu.tbadk.TbadkApplication;
-/* loaded from: classes22.dex */
+/* loaded from: classes23.dex */
 public class l extends BaseAdapter {
-    private String[] jtY;
-    private GroupAddressEditActivity jua;
+    private String[] jIV;
+    private GroupAddressEditActivity jIX;
 
     public l(GroupAddressEditActivity groupAddressEditActivity, String[] strArr) {
-        this.jtY = null;
-        this.jua = null;
-        this.jua = groupAddressEditActivity;
-        this.jtY = strArr;
+        this.jIV = null;
+        this.jIX = null;
+        this.jIX = groupAddressEditActivity;
+        this.jIV = strArr;
     }
 
     @Override // android.widget.Adapter
     public int getCount() {
-        if (this.jtY != null) {
-            return this.jtY.length;
+        if (this.jIV != null) {
+            return this.jIV.length;
         }
         return 0;
     }
 
     @Override // android.widget.Adapter
     public Object getItem(int i) {
-        return (this.jtY == null || i <= -1 || i >= this.jtY.length) ? "" : this.jtY[i];
+        return (this.jIV == null || i <= -1 || i >= this.jIV.length) ? "" : this.jIV[i];
     }
 
     @Override // android.widget.Adapter
@@ -38,23 +38,23 @@ public class l extends BaseAdapter {
     public View getView(int i, View view, ViewGroup viewGroup) {
         a aVar;
         if (view == null) {
-            aVar = new a(this.jua);
-            view = aVar.bMK();
+            aVar = new a(this.jIX);
+            view = aVar.bQb();
         } else {
             aVar = (a) view.getTag();
         }
-        aVar.KI(getItem(i).toString());
-        if (this.jua.cHi() == i) {
-            aVar.qy(true);
+        aVar.Lx(getItem(i).toString());
+        if (this.jIX.cKR() == i) {
+            aVar.re(true);
         } else {
-            aVar.qy(false);
+            aVar.re(false);
         }
-        cx(view);
+        cB(view);
         return view;
     }
 
-    private void cx(View view) {
-        this.jua.getLayoutMode().setNightMode(TbadkApplication.getInst().getSkinType() == 1);
-        this.jua.getLayoutMode().onModeChanged(view);
+    private void cB(View view) {
+        this.jIX.getLayoutMode().setNightMode(TbadkApplication.getInst().getSkinType() == 1);
+        this.jIX.getLayoutMode().onModeChanged(view);
     }
 }

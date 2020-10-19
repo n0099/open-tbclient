@@ -16,21 +16,21 @@ import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes6.dex */
+/* loaded from: classes19.dex */
 public class a extends com.baidu.swan.apps.component.a.d.a<SVGAImageView, b> {
-    private d bTt;
+    private d cfH;
 
     public a(@Nullable Context context, @NonNull b bVar) {
         super(context, bVar);
-        this.bTt = null;
+        this.cfH = null;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.swan.apps.component.b.a
     @NonNull
-    /* renamed from: bd */
-    public SVGAImageView be(@NonNull Context context) {
+    /* renamed from: bj */
+    public SVGAImageView bk(@NonNull Context context) {
         return new SVGAImageView(context);
     }
 
@@ -38,18 +38,18 @@ public class a extends com.baidu.swan.apps.component.a.d.a<SVGAImageView, b> {
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.swan.apps.component.b.a
     /* renamed from: a */
-    public void ah(@NonNull final SVGAImageView sVGAImageView) {
+    public void ai(@NonNull final SVGAImageView sVGAImageView) {
         String str;
         FileInputStream fileInputStream;
-        super.ah(sVGAImageView);
-        if (this.bTt == null) {
-            this.bTt = new d(sVGAImageView.getContext());
+        super.ai(sVGAImageView);
+        if (this.cfH == null) {
+            this.cfH = new d(sVGAImageView.getContext());
         }
-        final b bVar = (b) adL();
+        final b bVar = (b) agw();
         sVGAImageView.setLoops(bVar.loop ? 1 : 0);
         if (!TextUtils.isEmpty(bVar.path)) {
             if (bVar.path.startsWith("bdfile://")) {
-                str = com.baidu.swan.apps.storage.b.cn(bVar.path, e.aAr().id);
+                str = com.baidu.swan.apps.storage.b.cs(bVar.path, e.aDa().id);
             } else {
                 str = bVar.path;
             }
@@ -61,7 +61,7 @@ public class a extends com.baidu.swan.apps.component.a.d.a<SVGAImageView, b> {
                     e.printStackTrace();
                     fileInputStream = null;
                 }
-                this.bTt.b(fileInputStream, str, new d.c() { // from class: com.baidu.n.a.a.1
+                this.cfH.b(fileInputStream, str, new d.c() { // from class: com.baidu.n.a.a.1
                     @Override // com.opensource.svgaplayer.d.c
                     public void a(f fVar) {
                         sVGAImageView.setImageDrawable(new com.opensource.svgaplayer.b(fVar));
@@ -93,7 +93,7 @@ public class a extends com.baidu.swan.apps.component.a.d.a<SVGAImageView, b> {
     }
 
     private void a(@NonNull SVGAImageView sVGAImageView, @NonNull b bVar) {
-        if (adP()) {
+        if (agA()) {
             if (DEBUG) {
                 Log.d("Component-SvgaView", "renderAction");
             }
@@ -112,9 +112,9 @@ public class a extends com.baidu.swan.apps.component.a.d.a<SVGAImageView, b> {
         final JSONObject jSONObject = new JSONObject();
         try {
             JSONObject jSONObject2 = new JSONObject();
-            jSONObject.put("wvID", bVar.cda);
+            jSONObject.put("wvID", bVar.cpq);
             jSONObject.put("vtype", "ended");
-            jSONObject2.putOpt("animationViewId", bVar.ccZ);
+            jSONObject2.putOpt("animationViewId", bVar.cpp);
             jSONObject.put("data", jSONObject2.toString());
         } catch (JSONException e) {
             if (DEBUG) {
@@ -127,14 +127,14 @@ public class a extends com.baidu.swan.apps.component.a.d.a<SVGAImageView, b> {
             }
 
             @Override // com.opensource.svgaplayer.a
-            public void Yu() {
+            public void abg() {
                 if (!bVar.loop) {
-                    com.baidu.swan.apps.view.b.b.a.a(bVar.cda, bVar.ccZ, "animateview", "ended", jSONObject);
+                    com.baidu.swan.apps.view.b.b.a.a(bVar.cpq, bVar.cpp, "animateview", "ended", jSONObject);
                 }
             }
 
             @Override // com.opensource.svgaplayer.a
-            public void Yv() {
+            public void abh() {
                 c.d("Component-SvgaView", "onAnimationRepeat ");
             }
 

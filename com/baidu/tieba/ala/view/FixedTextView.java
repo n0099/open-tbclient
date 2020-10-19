@@ -15,9 +15,9 @@ import android.view.View;
 import com.baidu.live.sdk.a;
 /* loaded from: classes4.dex */
 public class FixedTextView extends View {
-    private float hfA;
-    private TextPaint hfB;
-    private int hfz;
+    private int huC;
+    private float huD;
+    private TextPaint huE;
     private String mText;
     private int mTextColor;
 
@@ -38,15 +38,15 @@ public class FixedTextView extends View {
 
     private void init(Context context, AttributeSet attributeSet) {
         TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, a.k.sdk_FixedTextView);
-        this.hfz = obtainStyledAttributes.getInt(a.k.sdk_FixedTextView_sdk_ftvMaxLine, 1);
+        this.huC = obtainStyledAttributes.getInt(a.k.sdk_FixedTextView_sdk_ftvMaxLine, 1);
         this.mTextColor = obtainStyledAttributes.getColor(a.k.sdk_FixedTextView_sdk_ftvTextColor, Color.parseColor("#333333"));
-        this.hfA = obtainStyledAttributes.getDimension(a.k.sdk_FixedTextView_sdk_ftvMinTextSize, -1.0f);
+        this.huD = obtainStyledAttributes.getDimension(a.k.sdk_FixedTextView_sdk_ftvMinTextSize, -1.0f);
         this.mText = obtainStyledAttributes.getString(a.k.sdk_FixedTextView_sdk_ftvText);
         obtainStyledAttributes.recycle();
-        this.hfB = new TextPaint(1);
-        this.hfB.setColor(this.mTextColor);
-        this.hfB.setTextSize(this.hfA);
-        this.hfB.setStyle(Paint.Style.FILL);
+        this.huE = new TextPaint(1);
+        this.huE.setColor(this.mTextColor);
+        this.huE.setTextSize(this.huD);
+        this.huE.setStyle(Paint.Style.FILL);
     }
 
     @Override // android.view.View
@@ -59,33 +59,33 @@ public class FixedTextView extends View {
         int height = canvas.getHeight();
         int floor = (int) Math.floor((width - getPaddingLeft()) - getPaddingRight());
         int floor2 = (int) Math.floor((height - getPaddingTop()) - getPaddingBottom());
-        float floor3 = (float) Math.floor(floor2 / this.hfz);
-        float max = Math.max(this.hfA, floor2);
+        float floor3 = (float) Math.floor(floor2 / this.huC);
+        float max = Math.max(this.huD, floor2);
         while (true) {
-            this.hfB.setTextSize(max);
-            staticLayout = new StaticLayout(this.mText, this.hfB, floor, Layout.Alignment.ALIGN_NORMAL, 1.0f, 0.0f, false);
+            this.huE.setTextSize(max);
+            staticLayout = new StaticLayout(this.mText, this.huE, floor, Layout.Alignment.ALIGN_NORMAL, 1.0f, 0.0f, false);
             f = max - 0.1f;
-            if ((this.hfA == -1.0f || f > this.hfA) && staticLayout.getLineCount() > this.hfz) {
+            if ((this.huD == -1.0f || f > this.huD) && staticLayout.getLineCount() > this.huC) {
                 max = f;
             }
         }
-        if (this.hfA != -1.0f && f <= this.hfA && staticLayout.getLineCount() > this.hfz) {
+        if (this.huD != -1.0f && f <= this.huD && staticLayout.getLineCount() > this.huC) {
             staticLayout.getLineCount();
             int lineForVertical = staticLayout.getLineForVertical(floor2);
             int length = this.mText.length();
             while (true) {
                 i = length - 1;
-                if (new StaticLayout(this.mText.substring(0, i), this.hfB, floor, Layout.Alignment.ALIGN_NORMAL, 1.0f, 0.0f, false).getLineCount() <= lineForVertical) {
+                if (new StaticLayout(this.mText.substring(0, i), this.huE, floor, Layout.Alignment.ALIGN_NORMAL, 1.0f, 0.0f, false).getLineCount() <= lineForVertical) {
                     break;
                 }
                 length = i;
             }
-            staticLayout = new StaticLayout(this.mText.substring(0, i - 1) + "…", this.hfB, floor, Layout.Alignment.ALIGN_NORMAL, 1.0f, 0.0f, false);
+            staticLayout = new StaticLayout(this.mText.substring(0, i - 1) + "…", this.huE, floor, Layout.Alignment.ALIGN_NORMAL, 1.0f, 0.0f, false);
         }
         float paddingLeft = getPaddingLeft();
         Rect rect = new Rect();
         String charSequence = staticLayout.getText().toString();
-        this.hfB.getTextBounds(charSequence, 0, charSequence.length(), rect);
+        this.huE.getTextBounds(charSequence, 0, charSequence.length(), rect);
         if (rect.width() < floor) {
             paddingLeft = getPaddingLeft();
         }

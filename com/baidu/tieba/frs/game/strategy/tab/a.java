@@ -1,5 +1,5 @@
 package com.baidu.tieba.frs.game.strategy.tab;
-/* loaded from: classes21.dex */
+/* loaded from: classes22.dex */
 public interface a {
     void cn(int i, int i2);
 
@@ -9,5 +9,5 @@ public interface a {
 
     String getForumId();
 
-    e yq(int i);
+    e yW(int i);
 }

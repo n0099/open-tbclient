@@ -11,15 +11,17 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes8.dex */
+/* loaded from: classes18.dex */
 public class l extends AsyncTask<Void, Void, PassFaceRecogResult> {
-    final /* synthetic */ ContrastPortraitResult a;
+
+    /* renamed from: a  reason: collision with root package name */
+    final /* synthetic */ ContrastPortraitResult f2739a;
     final /* synthetic */ LivenessRecogActivity b;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public l(LivenessRecogActivity livenessRecogActivity, ContrastPortraitResult contrastPortraitResult) {
         this.b = livenessRecogActivity;
-        this.a = contrastPortraitResult;
+        this.f2739a = contrastPortraitResult;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -37,18 +39,18 @@ public class l extends AsyncTask<Void, Void, PassFaceRecogResult> {
         List list2;
         List list3;
         List list4;
-        String a;
+        String a2;
         ArrayList arrayList5;
         int i = 0;
         PassFaceRecogResult passFaceRecogResult = new PassFaceRecogResult();
-        if (this.a.isProcessPass()) {
+        if (this.f2739a.isProcessPass()) {
             this.b.da.H = com.baidu.pass.biometrics.face.liveness.c.a.o;
             passFaceRecogResult.setResultCode(0);
         } else {
             this.b.da.H = "fail";
             passFaceRecogResult.setResultCode(-302);
         }
-        ContrastPortraitResult contrastPortraitResult = this.a;
+        ContrastPortraitResult contrastPortraitResult = this.f2739a;
         passFaceRecogResult.callbackkey = contrastPortraitResult.callbackkey;
         if (!TextUtils.isEmpty(contrastPortraitResult.imgdigests)) {
             arrayList = this.b.ga;
@@ -64,7 +66,7 @@ public class l extends AsyncTask<Void, Void, PassFaceRecogResult> {
                         }
                         arrayList5 = this.b.ga;
                         byte[] bArr = (byte[]) ((HashMap) arrayList5.get(i)).get("digest");
-                        if (bArr != null && this.a.imgdigests.equals(new String(bArr))) {
+                        if (bArr != null && this.f2739a.imgdigests.equals(new String(bArr))) {
                             break;
                         }
                         i++;
@@ -78,8 +80,8 @@ public class l extends AsyncTask<Void, Void, PassFaceRecogResult> {
                                     LivenessRecogActivity livenessRecogActivity = this.b;
                                     list3 = livenessRecogActivity.X;
                                     list4 = this.b.X;
-                                    a = livenessRecogActivity.a((int[]) list3.get((list4.size() - i) - 1));
-                                    passFaceRecogResult.originalImage = a;
+                                    a2 = livenessRecogActivity.a((int[]) list3.get((list4.size() - i) - 1));
+                                    passFaceRecogResult.originalImage = a2;
                                 }
                             }
                         }
@@ -89,13 +91,13 @@ public class l extends AsyncTask<Void, Void, PassFaceRecogResult> {
                             if (bArr2 != null && (encode = Base64Utils.encode(bArr2)) != null) {
                                 passFaceRecogResult.faceimage = new String(encode);
                             }
-                            passFaceRecogResult.imgdigests = new String(this.a.imgdigests);
+                            passFaceRecogResult.imgdigests = new String(this.f2739a.imgdigests);
                         }
                     }
                 }
             }
         }
-        passFaceRecogResult.authSid = this.a.authsid;
+        passFaceRecogResult.authSid = this.f2739a.authsid;
         return passFaceRecogResult;
     }
 
@@ -107,7 +109,7 @@ public class l extends AsyncTask<Void, Void, PassFaceRecogResult> {
         PassFaceRecogCallback passFaceRecogCallback;
         PassFaceRecogCallback passFaceRecogCallback2;
         super.onPostExecute(passFaceRecogResult);
-        if (this.a.isProcessPass()) {
+        if (this.f2739a.isProcessPass()) {
             passFaceRecogCallback2 = this.b.t;
             passFaceRecogCallback2.onSuccess(passFaceRecogResult);
         } else {

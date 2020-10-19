@@ -1,16 +1,18 @@
 package com.baidu.mobstat;
 
 import org.json.JSONObject;
-/* loaded from: classes15.dex */
+/* loaded from: classes17.dex */
 public class ap {
-    private String a;
+
+    /* renamed from: a  reason: collision with root package name */
+    private String f2542a;
     private long b;
     private long c;
     private boolean d;
     private long e;
 
     public ap(String str, long j, long j2, long j3, boolean z) {
-        this.a = str;
+        this.f2542a = str;
         this.b = j;
         this.c = j2;
         this.e = j3;
@@ -22,7 +24,7 @@ public class ap {
     }
 
     public String a() {
-        return this.a;
+        return this.f2542a;
     }
 
     public long b() {

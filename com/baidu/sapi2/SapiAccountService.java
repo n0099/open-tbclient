@@ -60,21 +60,25 @@ import java.util.Collection;
 import java.util.List;
 import java.util.Map;
 import org.json.JSONObject;
-/* loaded from: classes25.dex */
+/* loaded from: classes5.dex */
 public final class SapiAccountService implements com.baidu.sapi2.service.interfaces.a {
     public static final String BUSINESS_FROM_ONE_KEY_LOGIN = "business_from_one_key_login";
     private static final String c = "SapiAccountService";
     private static final String d = "native";
-    private SapiConfiguration a = SapiAccountManager.getInstance().getSapiConfiguration();
+
+    /* renamed from: a  reason: collision with root package name */
+    private SapiConfiguration f3225a = SapiAccountManager.getInstance().getSapiConfiguration();
     private c b = new c();
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes25.dex */
+    /* loaded from: classes5.dex */
     public class a extends GetTplStokenCallback {
-        final /* synthetic */ Context a;
+
+        /* renamed from: a  reason: collision with root package name */
+        final /* synthetic */ Context f3226a;
 
         a(Context context) {
-            this.a = context;
+            this.f3226a = context;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -93,17 +97,19 @@ public final class SapiAccountService implements com.baidu.sapi2.service.interfa
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.sapi2.callback.SapiCallback
         public void onSuccess(GetTplStokenResult getTplStokenResult) {
-            SapiAccountService.a(this.a, getTplStokenResult.tplStokenMap.get("pp"));
+            SapiAccountService.a(this.f3226a, getTplStokenResult.tplStokenMap.get("pp"));
         }
     }
 
-    /* loaded from: classes25.dex */
+    /* loaded from: classes5.dex */
     class b implements SapiCallback<OAuthResult> {
-        final /* synthetic */ Map a;
+
+        /* renamed from: a  reason: collision with root package name */
+        final /* synthetic */ Map f3227a;
         final /* synthetic */ SapiAccount b;
 
         b(Map map, SapiAccount sapiAccount) {
-            this.a = map;
+            this.f3227a = map;
             this.b = sapiAccount;
         }
 
@@ -120,8 +126,8 @@ public final class SapiAccountService implements com.baidu.sapi2.service.interfa
             if (TextUtils.isEmpty(oAuthResult.openid)) {
                 return;
             }
-            this.a.put(oAuthResult.openid, this.b.uid);
-            SapiContext.getInstance().put(SapiContext.KEY_OPENID_UID_LIST, SapiUtils.mapToUrlParams(this.a, false));
+            this.f3227a.put(oAuthResult.openid, this.b.uid);
+            SapiContext.getInstance().put(SapiContext.KEY_OPENID_UID_LIST, SapiUtils.mapToUrlParams(this.f3227a, false));
         }
 
         @Override // com.baidu.sapi2.callback.SapiCallback
@@ -230,19 +236,19 @@ public final class SapiAccountService implements com.baidu.sapi2.service.interfa
     }
 
     public int getBdussState() {
-        return new OpenBdussService(this.a, "8.9.9.1").getBdussState();
+        return new OpenBdussService(this.f3225a, "8.9.9.1").getBdussState();
     }
 
     public void getCaptcha(SapiCallback<GetCaptchaResult> sapiCallback) {
-        EnhancedService.getInstance(this.a, "8.9.9.1").getCaptcha(sapiCallback);
+        EnhancedService.getInstance(this.f3225a, "8.9.9.1").getCaptcha(sapiCallback);
     }
 
     public String getCaptchaKey() {
-        return EnhancedService.getInstance(this.a, "8.9.9.1").getCaptchaKey();
+        return EnhancedService.getInstance(this.f3225a, "8.9.9.1").getCaptchaKey();
     }
 
     public void getContacts(GetContactsCallback getContactsCallback, GetContactsDTO getContactsDTO) {
-        GetContactsService.getInstance(this.a, "8.9.9.1").getContacts(getContactsCallback, getContactsDTO);
+        GetContactsService.getInstance(this.f3225a, "8.9.9.1").getContacts(getContactsCallback, getContactsDTO);
     }
 
     @Deprecated
@@ -255,7 +261,7 @@ public final class SapiAccountService implements com.baidu.sapi2.service.interfa
     }
 
     public void getHistoryPortraits(GetHistoryPortraitsCallback getHistoryPortraitsCallback, GetHistoryPortraitsDTO getHistoryPortraitsDTO) {
-        new PortraitService(this.a, "8.9.9.1").getHistoryPortraits(getHistoryPortraitsCallback, getHistoryPortraitsDTO);
+        new PortraitService(this.f3225a, "8.9.9.1").getHistoryPortraits(getHistoryPortraitsCallback, getHistoryPortraitsDTO);
     }
 
     public String getIqiyiAccessToken() {
@@ -263,11 +269,11 @@ public final class SapiAccountService implements com.baidu.sapi2.service.interfa
     }
 
     public void getOneKeyLoginToken(OneKeyLoginSdkCall.TokenListener tokenListener) {
-        new OneKeyLoginSdkCall().b(this.a, tokenListener);
+        new OneKeyLoginSdkCall().b(this.f3225a, tokenListener);
     }
 
     public void getOpenBduss(GetOpenBdussDTO getOpenBdussDTO, GetOpenBdussCallback getOpenBdussCallback) {
-        new OpenBdussService(this.a, "8.9.9.1").getOpenBduss(getOpenBdussDTO, getOpenBdussCallback);
+        new OpenBdussService(this.f3225a, "8.9.9.1").getOpenBduss(getOpenBdussDTO, getOpenBdussCallback);
     }
 
     public JSONObject getPhoneNumAndOperatorType() {
@@ -275,11 +281,11 @@ public final class SapiAccountService implements com.baidu.sapi2.service.interfa
     }
 
     public void getPopularPortraitsInfo(GetPopularPortraitsCallback getPopularPortraitsCallback, String str) {
-        new PortraitService(this.a, "8.9.9.1").getPopularPortraitsInfo(getPopularPortraitsCallback, str);
+        new PortraitService(this.f3225a, "8.9.9.1").getPopularPortraitsInfo(getPopularPortraitsCallback, str);
     }
 
     public void getQrCodeImage(SapiCallback<GetQrCodeImageResult> sapiCallback, GetQrCodeImageDTO getQrCodeImageDTO) {
-        QrCodeService.getInstance(this.a, "8.9.9.1").getQrCodeImage(sapiCallback, getQrCodeImageDTO);
+        QrCodeService.getInstance(this.f3225a, "8.9.9.1").getQrCodeImage(sapiCallback, getQrCodeImageDTO);
     }
 
     public Map<String, String> getTplStoken(GetTplStokenCallback getTplStokenCallback, String str, List<String> list) {
@@ -341,24 +347,24 @@ public final class SapiAccountService implements com.baidu.sapi2.service.interfa
     }
 
     public void preGetPhoneInfo() {
-        new OneKeyLoginSdkCall().a(this.a, "product");
+        new OneKeyLoginSdkCall().a(this.f3225a, "product");
     }
 
     public void qrAppLogin(SapiCallback<QrAppLoginResult> sapiCallback, String str, String str2) {
-        QrCodeService.getInstance(this.a, "8.9.9.1").qrAppLogin(sapiCallback, str, str2);
+        QrCodeService.getInstance(this.f3225a, "8.9.9.1").qrAppLogin(sapiCallback, str, str2);
     }
 
     public void qrJoinLoginStatusCheck(QrLoginStatusCheckCallback qrLoginStatusCheckCallback, QrLoginStstusCheckDTO qrLoginStstusCheckDTO) {
         qrLoginStstusCheckDTO.isJoinCodeLogin = true;
-        QrCodeService.getInstance(this.a, "8.9.9.1").qrLoginStatusCheck(qrLoginStatusCheckCallback, qrLoginStstusCheckDTO, true);
+        QrCodeService.getInstance(this.f3225a, "8.9.9.1").qrLoginStatusCheck(qrLoginStatusCheckCallback, qrLoginStstusCheckDTO, true);
     }
 
     public void qrLoginStatusCheck(QrLoginStatusCheckCallback qrLoginStatusCheckCallback, QrLoginStstusCheckDTO qrLoginStstusCheckDTO) {
-        QrCodeService.getInstance(this.a, "8.9.9.1").qrLoginStatusCheck(qrLoginStatusCheckCallback, qrLoginStstusCheckDTO, true);
+        QrCodeService.getInstance(this.f3225a, "8.9.9.1").qrLoginStatusCheck(qrLoginStatusCheckCallback, qrLoginStstusCheckDTO, true);
     }
 
     public void refreshOpenidToUid() {
-        if (this.a.needOpenid) {
+        if (this.f3225a.needOpenid) {
             List<SapiAccount> loginAccounts = SapiAccountManager.getInstance().getLoginAccounts();
             loginAccounts.addAll(SapiAccountManager.getInstance().getShareAccounts());
             if (loginAccounts.size() == 0) {
@@ -382,11 +388,11 @@ public final class SapiAccountService implements com.baidu.sapi2.service.interfa
     }
 
     public void relaseContactsSource() {
-        GetContactsService.getInstance(this.a, "8.9.9.1").relaseContactsSource();
+        GetContactsService.getInstance(this.f3225a, "8.9.9.1").relaseContactsSource();
     }
 
     public void sendContactsSms(SendSmsDTO sendSmsDTO) {
-        GetContactsService.getInstance(this.a, "8.9.9.1").sendSMS(sendSmsDTO);
+        GetContactsService.getInstance(this.f3225a, "8.9.9.1").sendSMS(sendSmsDTO);
     }
 
     public void setCloudShareAccount(int i, ShareStorage.StorageModel storageModel) {
@@ -402,7 +408,7 @@ public final class SapiAccountService implements com.baidu.sapi2.service.interfa
     }
 
     public void setPopularPortrait(SetPopularPortraitCallback setPopularPortraitCallback, SetPopularPortraitDTO setPopularPortraitDTO) {
-        new PortraitService(this.a, "8.9.9.1").setPopularPortrait(setPopularPortraitCallback, setPopularPortraitDTO);
+        new PortraitService(this.f3225a, "8.9.9.1").setPopularPortrait(setPopularPortraitCallback, setPopularPortraitDTO);
     }
 
     @Deprecated
@@ -415,7 +421,7 @@ public final class SapiAccountService implements com.baidu.sapi2.service.interfa
     }
 
     public void stopQrLoginStatusCheck() {
-        QrCodeService.getInstance(this.a, "8.9.9.1").stopLoginStatusCheck();
+        QrCodeService.getInstance(this.f3225a, "8.9.9.1").stopLoginStatusCheck();
     }
 
     public void web2NativeLogin(Web2NativeLoginCallback web2NativeLoginCallback) {
@@ -428,12 +434,12 @@ public final class SapiAccountService implements com.baidu.sapi2.service.interfa
 
     @Deprecated
     public void dynamicPwdLogin(SapiCallback<DynamicPwdLoginResult> sapiCallback, String str, String str2) {
-        EnhancedService.getInstance(this.a, "8.9.9.1").dynamicPwdLogin(sapiCallback, str, str2, (Map) null);
+        EnhancedService.getInstance(this.f3225a, "8.9.9.1").dynamicPwdLogin(sapiCallback, str, str2, (Map) null);
     }
 
     @Deprecated
     public void getDynamicPwd(SapiCallback<GetDynamicPwdResult> sapiCallback, String str) {
-        EnhancedService.getInstance(this.a, "8.9.9.1").getDynamicPwd(sapiCallback, str);
+        EnhancedService.getInstance(this.f3225a, "8.9.9.1").getDynamicPwd(sapiCallback, str);
     }
 
     public void oauth(SapiCallback<OAuthResult> sapiCallback, String str, String str2) {
@@ -476,15 +482,15 @@ public final class SapiAccountService implements com.baidu.sapi2.service.interfa
     }
 
     public void dynamicPwdLogin(DynamicPwdLoginCallback dynamicPwdLoginCallback, String str, String str2, Map<String, String> map) {
-        EnhancedService.getInstance(this.a, "8.9.9.1").dynamicPwdLogin(dynamicPwdLoginCallback, str, str2, map);
+        EnhancedService.getInstance(this.f3225a, "8.9.9.1").dynamicPwdLogin(dynamicPwdLoginCallback, str, str2, map);
     }
 
     public void getDynamicPwd(GetDynamicPwdCallback getDynamicPwdCallback, String str, String str2, Map<String, String> map) {
-        EnhancedService.getInstance(this.a, "8.9.9.1").getDynamicPwd(getDynamicPwdCallback, str, str2, map);
+        EnhancedService.getInstance(this.f3225a, "8.9.9.1").getDynamicPwd(getDynamicPwdCallback, str, str2, map);
     }
 
     public void setPortrait(SetPortraitDTO setPortraitDTO, SetPortraitCallback setPortraitCallback) {
-        new PortraitService(this.a, "8.9.9.1").setPortrait(setPortraitDTO, setPortraitCallback);
+        new PortraitService(this.f3225a, "8.9.9.1").setPortrait(setPortraitDTO, setPortraitCallback);
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -505,7 +511,7 @@ public final class SapiAccountService implements com.baidu.sapi2.service.interfa
         ArrayList arrayList = new ArrayList();
         arrayList.add(new PassNameValuePair("adapter", "3"));
         arrayList.add(new PassNameValuePair("wapsec", "center"));
-        if (this.a.accountCenterRealAutnen) {
+        if (this.f3225a.accountCenterRealAutnen) {
             arrayList.add(new PassNameValuePair("realName", "1"));
         } else {
             arrayList.add(new PassNameValuePair("realName", "0"));
@@ -524,30 +530,30 @@ public final class SapiAccountService implements com.baidu.sapi2.service.interfa
     String a(boolean z) {
         ArrayList arrayList = new ArrayList();
         arrayList.add(new PassNameValuePair("clientfrom", d));
-        arrayList.add(new PassNameValuePair("tpl", this.a.tpl));
-        arrayList.add(new PassNameValuePair("login_share_strategy", this.a.loginShareStrategy().getStrValue()));
+        arrayList.add(new PassNameValuePair("tpl", this.f3225a.tpl));
+        arrayList.add(new PassNameValuePair("login_share_strategy", this.f3225a.loginShareStrategy().getStrValue()));
         arrayList.add(new PassNameValuePair("client", "android"));
         if (z) {
-            arrayList.add(new PassNameValuePair("adapter", this.a.customActionBarEnabled ? "3" : ""));
+            arrayList.add(new PassNameValuePair("adapter", this.f3225a.customActionBarEnabled ? "3" : ""));
         }
         arrayList.add(new PassNameValuePair("t", String.valueOf(System.currentTimeMillis())));
-        arrayList.add(new PassNameValuePair("act", this.a.socialBindType.getName()));
-        arrayList.add(new PassNameValuePair("hideExtraEntry", String.valueOf(this.a.smsLoginConfig.flagHideExtraEntry.ordinal())));
-        arrayList.add(new PassNameValuePair("loginLink", String.valueOf(this.a.smsLoginConfig.flagShowLoginLink.ordinal())));
-        arrayList.add(new PassNameValuePair("smsLoginLink", String.valueOf(this.a.smsLoginConfig.flagShowSmsLoginLink.ordinal())));
-        arrayList.add(new PassNameValuePair("lPFastRegLink", String.valueOf(this.a.smsLoginConfig.flagShowFastRegLink.ordinal())));
-        arrayList.add(new PassNameValuePair("lPlayout", String.valueOf(this.a.configurableViewLayout.ordinal())));
-        if (this.a.uniteVerify) {
+        arrayList.add(new PassNameValuePair("act", this.f3225a.socialBindType.getName()));
+        arrayList.add(new PassNameValuePair("hideExtraEntry", String.valueOf(this.f3225a.smsLoginConfig.flagHideExtraEntry.ordinal())));
+        arrayList.add(new PassNameValuePair("loginLink", String.valueOf(this.f3225a.smsLoginConfig.flagShowLoginLink.ordinal())));
+        arrayList.add(new PassNameValuePair("smsLoginLink", String.valueOf(this.f3225a.smsLoginConfig.flagShowSmsLoginLink.ordinal())));
+        arrayList.add(new PassNameValuePair("lPFastRegLink", String.valueOf(this.f3225a.smsLoginConfig.flagShowFastRegLink.ordinal())));
+        arrayList.add(new PassNameValuePair("lPlayout", String.valueOf(this.f3225a.configurableViewLayout.ordinal())));
+        if (this.f3225a.uniteVerify) {
             arrayList.add(new PassNameValuePair("connect", "1"));
         }
-        if (this.a.language == Language.ENGLISH) {
-            arrayList.add(new PassNameValuePair("lang", h.a));
+        if (this.f3225a.language == Language.ENGLISH) {
+            arrayList.add(new PassNameValuePair("lang", h.f1493a));
         }
         arrayList.add(new PassNameValuePair("suppcheck", "1"));
-        if (this.a.supportFaceLogin) {
+        if (this.f3225a.supportFaceLogin) {
             arrayList.add(new PassNameValuePair("scanface", "1"));
         }
-        if (this.a.disableVoiceVerify) {
+        if (this.f3225a.disableVoiceVerify) {
             arrayList.add(new PassNameValuePair("disable_voice_vcode", "1"));
         }
         return SapiUtils.createRequestParams(arrayList);
@@ -632,21 +638,21 @@ public final class SapiAccountService implements com.baidu.sapi2.service.interfa
         sapiAccount.ptoken = sapiAccountResponse.ptoken;
         sapiAccount.email = sapiAccountResponse.email;
         sapiAccount.username = sapiAccountResponse.username;
-        sapiAccount.app = TextUtils.isEmpty(sapiAccountResponse.app) ? SapiUtils.getAppName(this.a.context) : sapiAccountResponse.app;
+        sapiAccount.app = TextUtils.isEmpty(sapiAccountResponse.app) ? SapiUtils.getAppName(this.f3225a.context) : sapiAccountResponse.app;
         sapiAccount.extra = sapiAccountResponse.extra;
         if (SocialType.UNKNOWN != sapiAccountResponse.socialType) {
             SapiContext.getInstance().put(SapiContext.KEY_PRE_LOGIN_TYPE, sapiAccountResponse.socialType.getName());
             sapiAccount.addSocialInfo(sapiAccountResponse.socialType, sapiAccountResponse.socialPortraitUrl);
             sapiAccount.putExtra("account_type", Integer.valueOf(sapiAccountResponse.accountType.getType()));
         }
-        sapiAccount.putExtra("tpl", this.a.tpl);
+        sapiAccount.putExtra("tpl", this.f3225a.tpl);
         if (!sapiAccountResponse.tplStokenMap.isEmpty()) {
             sapiAccount.addDispersionCertification(sapiAccountResponse.tplStokenMap);
         }
         SapiContext.getInstance().setAccountActionType(sapiAccountResponse.actionType);
         sapiAccount.addIsGuestAccount(sapiAccountResponse.isGuestAccount);
         if (!TextUtils.isEmpty(sapiAccountResponse.livingUname)) {
-            new FaceLoginService().syncFaceLoginUID(this.a.context, sapiAccountResponse.livingUname);
+            new FaceLoginService().syncFaceLoginUID(this.f3225a.context, sapiAccountResponse.livingUname);
         }
         return sapiAccount;
     }

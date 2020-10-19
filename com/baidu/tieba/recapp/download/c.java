@@ -3,29 +3,29 @@ package com.baidu.tieba.recapp.download;
 import android.os.Handler;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.s;
-/* loaded from: classes25.dex */
+/* loaded from: classes26.dex */
 public class c {
-    private s emi = null;
-    private com.baidu.tbadk.core.util.a.a emh = null;
+    private s eyt = null;
+    private com.baidu.tbadk.core.util.a.a eys = null;
 
     public c() {
         initNetWork();
     }
 
     public void setCancel() {
-        if (this.emi != null) {
-            this.emi.setCancel();
+        if (this.eyt != null) {
+            this.eyt.setCancel();
         }
     }
 
     public void setUrl(String str) {
-        this.emh.bkq().bku().mUrl = str;
+        this.eys.bna().bne().mUrl = str;
     }
 
     private void initNetWork() {
-        this.emh = new com.baidu.tbadk.core.util.a.a();
-        this.emi = new d(this.emh);
-        this.emh.bkq().bku().mNetType = com.baidu.tbadk.core.util.a.h.getNetType();
+        this.eys = new com.baidu.tbadk.core.util.a.a();
+        this.eyt = new d(this.eys);
+        this.eys.bna().bne().mNetType = com.baidu.tbadk.core.util.a.h.getNetType();
         com.baidu.adp.lib.network.a.a.setCuid(TbadkCoreApplication.getInst().getCuid());
         com.baidu.adp.lib.network.a.a.bQ(TbadkCoreApplication.getInst().getCuidGalaxy2());
         com.baidu.adp.lib.network.a.a.bS(TbadkCoreApplication.getInst().getCuidGid());
@@ -36,11 +36,11 @@ public class c {
     }
 
     public boolean downloadFile(String str, Handler handler, int i, int i2, int i3, boolean z) {
-        bjL().bkq().a(this.emi);
-        return this.emi.downloadFile(str, handler, i, i2, i3, z);
+        bmu().bna().a(this.eyt);
+        return this.eyt.downloadFile(str, handler, i, i2, i3, z);
     }
 
-    public com.baidu.tbadk.core.util.a.a bjL() {
-        return this.emh;
+    public com.baidu.tbadk.core.util.a.a bmu() {
+        return this.eys;
     }
 }

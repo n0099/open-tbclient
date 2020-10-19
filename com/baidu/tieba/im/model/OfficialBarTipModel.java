@@ -11,7 +11,7 @@ import com.baidu.tieba.im.settingcache.OfficialSettingItemData;
 import com.baidu.tieba.im.settingcache.d;
 import java.util.ArrayList;
 import java.util.ListIterator;
-/* loaded from: classes25.dex */
+/* loaded from: classes26.dex */
 public class OfficialBarTipModel extends ImBaseMessageCenterModel {
     public static final int MASK_TYPE = 12;
 
@@ -34,9 +34,9 @@ public class OfficialBarTipModel extends ImBaseMessageCenterModel {
         ImMessageCenterShowItemData buildNormalItem = buildNormalItem(imMessageCenterPojo, imMessageCenterShowItemData);
         if (buildNormalItem != null) {
             buildNormalItem.setSendStatus(imMessageCenterPojo.getSend_status());
-            OfficialSettingItemData fg = d.cLQ().fg(TbadkApplication.getCurrentAccount(), imMessageCenterPojo.getGid());
-            if (fg != null) {
-                buildNormalItem.setGroupSetting(fg);
+            OfficialSettingItemData fn = d.cPy().fn(TbadkApplication.getCurrentAccount(), imMessageCenterPojo.getGid());
+            if (fn != null) {
+                buildNormalItem.setGroupSetting(fn);
             }
             insertShowData(buildNormalItem, this.mList);
         }

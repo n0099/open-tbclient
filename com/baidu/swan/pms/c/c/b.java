@@ -4,11 +4,11 @@ import com.baidu.swan.pms.model.PMSAppInfo;
 import com.baidu.swan.pms.model.f;
 import com.baidu.swan.pms.model.g;
 import java.util.List;
-/* loaded from: classes24.dex */
+/* loaded from: classes15.dex */
 public class b {
-    public f dIj;
-    public List<g> dIk;
-    public com.baidu.swan.pms.model.d dIn;
-    public PMSAppInfo dIo;
-    public com.baidu.swan.pms.model.b dIp;
+    public f dUk;
+    public List<g> dUl;
+    public com.baidu.swan.pms.model.d dUo;
+    public PMSAppInfo dUp;
+    public com.baidu.swan.pms.model.b dUq;
 }

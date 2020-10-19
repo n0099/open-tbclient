@@ -1,7 +1,7 @@
 package android.support.design.widget;
 
 import android.graphics.PorterDuff;
-/* loaded from: classes5.dex */
+/* loaded from: classes16.dex */
 class ViewUtils {
     ViewUtils() {
     }

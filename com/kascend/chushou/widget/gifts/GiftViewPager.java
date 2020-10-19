@@ -6,7 +6,9 @@ import android.util.AttributeSet;
 import android.view.MotionEvent;
 /* loaded from: classes6.dex */
 public class GiftViewPager extends ViewPager {
-    private int a;
+
+    /* renamed from: a  reason: collision with root package name */
+    private int f4275a;
     private int b;
 
     public GiftViewPager(Context context) {
@@ -21,12 +23,12 @@ public class GiftViewPager extends ViewPager {
     public boolean onInterceptTouchEvent(MotionEvent motionEvent) {
         switch (motionEvent.getActionMasked()) {
             case 0:
-                this.a = (int) motionEvent.getX();
+                this.f4275a = (int) motionEvent.getX();
                 this.b = (int) motionEvent.getY();
                 break;
             case 2:
                 int x = (int) motionEvent.getX();
-                if (Math.abs(x - this.a) > Math.abs(((int) motionEvent.getY()) - this.b) && ((x > this.a && getCurrentItem() == 0) || (x < this.a && getCurrentItem() == getAdapter().getCount() - 1))) {
+                if (Math.abs(x - this.f4275a) > Math.abs(((int) motionEvent.getY()) - this.b) && ((x > this.f4275a && getCurrentItem() == 0) || (x < this.f4275a && getCurrentItem() == getAdapter().getCount() - 1))) {
                     getParent().requestDisallowInterceptTouchEvent(false);
                     break;
                 } else {
@@ -42,13 +44,13 @@ public class GiftViewPager extends ViewPager {
     public boolean onTouchEvent(MotionEvent motionEvent) {
         switch (motionEvent.getActionMasked()) {
             case 0:
-                this.a = (int) motionEvent.getX();
+                this.f4275a = (int) motionEvent.getX();
                 this.b = (int) motionEvent.getY();
                 break;
             case 2:
                 int x = (int) motionEvent.getX();
-                if (Math.abs(x - this.a) > Math.abs(((int) motionEvent.getY()) - this.b)) {
-                    if (x > this.a) {
+                if (Math.abs(x - this.f4275a) > Math.abs(((int) motionEvent.getY()) - this.b)) {
+                    if (x > this.f4275a) {
                         if (getCurrentItem() == 0) {
                             getParent().requestDisallowInterceptTouchEvent(false);
                             return false;

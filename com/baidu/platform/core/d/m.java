@@ -13,7 +13,7 @@ import java.util.ArrayList;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes7.dex */
 public class m extends k {
     private RouteNode a(JSONObject jSONObject, String str) {
         if (jSONObject == null || str == null || "".equals(str)) {
@@ -108,8 +108,8 @@ public class m extends k {
                     if (optJSONObject4 == null) {
                         return false;
                     }
-                    RouteNode a = a(optJSONObject4, "start");
-                    RouteNode a2 = a(optJSONObject4, "end");
+                    RouteNode a2 = a(optJSONObject4, "start");
+                    RouteNode a3 = a(optJSONObject4, "end");
                     JSONArray optJSONArray = optJSONObject2.optJSONArray("routes");
                     if (optJSONArray == null || optJSONArray.length() <= 0) {
                         return false;
@@ -127,8 +127,8 @@ public class m extends k {
                             TransitRouteLine transitRouteLine = new TransitRouteLine();
                             transitRouteLine.setDistance(jSONObject2.optInt("distance"));
                             transitRouteLine.setDuration(jSONObject2.optInt("duration"));
-                            transitRouteLine.setStarting(a);
-                            transitRouteLine.setTerminal(a2);
+                            transitRouteLine.setStarting(a2);
+                            transitRouteLine.setTerminal(a3);
                             JSONArray optJSONArray2 = jSONObject2.optJSONArray("steps");
                             if (optJSONArray2 != null && optJSONArray2.length() > 0) {
                                 ArrayList arrayList2 = new ArrayList();

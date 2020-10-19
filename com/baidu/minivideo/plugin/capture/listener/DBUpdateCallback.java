@@ -2,7 +2,7 @@ package com.baidu.minivideo.plugin.capture.listener;
 
 import com.baidu.minivideo.plugin.capture.bean.VideoDraftBean;
 import java.util.ArrayList;
-/* loaded from: classes18.dex */
+/* loaded from: classes17.dex */
 public interface DBUpdateCallback extends ApsListener {
     void onAddResult();
 

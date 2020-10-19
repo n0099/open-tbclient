@@ -15,17 +15,17 @@ import java.util.List;
 /* loaded from: classes4.dex */
 public class a extends BaseAdapter {
     private Context context;
-    private int fUD;
-    private InterfaceC0645a gTn;
-    private c gTo;
-    private b gTp;
+    private int ggW;
+    private InterfaceC0663a hil;
+    private c him;
+    private b hin;
     private List mList;
     private int mSkinType;
     private int type;
 
     /* renamed from: com.baidu.tieba.ala.person.adapter.a$a  reason: collision with other inner class name */
     /* loaded from: classes4.dex */
-    public interface InterfaceC0645a {
+    public interface InterfaceC0663a {
         void a(az azVar, View view);
     }
 
@@ -40,9 +40,9 @@ public class a extends BaseAdapter {
     }
 
     public a(Context context, int i) {
-        this.fUD = 2;
+        this.ggW = 2;
         this.context = context;
-        this.fUD = i;
+        this.ggW = i;
     }
 
     public void a(boolean z, List list, int i) {
@@ -82,22 +82,22 @@ public class a extends BaseAdapter {
         com.baidu.tieba.ala.person.view.c cVar = null;
         if (view == null) {
             if (this.mList.get(i) != null) {
-                if (this.fUD == 1) {
+                if (this.ggW == 1) {
                     if (this.type == 1 || this.type == 0) {
                         view = LayoutInflater.from(this.context).inflate(a.h.ala_person_list_item_layout, (ViewGroup) null);
-                        cVar = new com.baidu.tieba.ala.person.view.b(view, this.fUD);
+                        cVar = new com.baidu.tieba.ala.person.view.b(view, this.ggW);
                     } else if (this.type == 2) {
                         view = LayoutInflater.from(this.context).inflate(a.h.ala_playbacks_list_item_layout, (ViewGroup) null);
-                        cVar = new e(view, this.fUD);
+                        cVar = new e(view, this.ggW);
                     }
-                } else if (this.fUD == 2) {
+                } else if (this.ggW == 2) {
                     view = LayoutInflater.from(this.context).inflate(a.h.ala_person_card_list_item_layout, (ViewGroup) null);
-                    cVar = new com.baidu.tieba.ala.person.view.b(view, this.fUD);
+                    cVar = new com.baidu.tieba.ala.person.view.b(view, this.ggW);
                 }
                 if (cVar != null) {
-                    cVar.a(this.gTn);
-                    cVar.a(this.gTp);
-                    cVar.a(this.gTo);
+                    cVar.a(this.hil);
+                    cVar.a(this.hin);
+                    cVar.a(this.him);
                 }
                 if (view != null) {
                     view.setTag(cVar);
@@ -113,16 +113,16 @@ public class a extends BaseAdapter {
         return view;
     }
 
-    public void aw(String str, boolean z) {
+    public void aA(String str, boolean z) {
         if (str != null && !ListUtils.isEmpty(this.mList)) {
             for (Object obj : this.mList) {
                 if (this.type != 2 && (obj instanceof az)) {
                     az azVar = (az) obj;
                     if (str.equals(azVar.id)) {
                         if (z) {
-                            azVar.aJZ = 1;
+                            azVar.aNe = 1;
                         } else {
-                            azVar.aJZ = 0;
+                            azVar.aNe = 0;
                         }
                         notifyDataSetChanged();
                         return;
@@ -136,15 +136,15 @@ public class a extends BaseAdapter {
         this.mSkinType = i;
     }
 
-    public void a(InterfaceC0645a interfaceC0645a) {
-        this.gTn = interfaceC0645a;
+    public void a(InterfaceC0663a interfaceC0663a) {
+        this.hil = interfaceC0663a;
     }
 
     public void a(c cVar) {
-        this.gTo = cVar;
+        this.him = cVar;
     }
 
     public void a(b bVar) {
-        this.gTp = bVar;
+        this.hin = bVar;
     }
 }

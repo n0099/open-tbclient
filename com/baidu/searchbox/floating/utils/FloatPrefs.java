@@ -12,7 +12,7 @@ import kotlin.jvm.internal.q;
 import kotlin.jvm.internal.t;
 import kotlin.reflect.j;
 @h
-/* loaded from: classes5.dex */
+/* loaded from: classes11.dex */
 public final class FloatPrefs {
     private static final String FILE_NAME = "player_floating_sp";
     private static final String FLOATING_LOCATION_X = "floating_location_x";
@@ -22,7 +22,7 @@ public final class FloatPrefs {
     private static final d prefs$delegate = e.b(FloatPrefs$Companion$prefs$2.INSTANCE);
 
     @h
-    /* loaded from: classes5.dex */
+    /* loaded from: classes11.dex */
     public static final class Companion {
         static final /* synthetic */ j[] $$delegatedProperties = {t.a(new PropertyReference1Impl(t.M(Companion.class), "prefs", "getPrefs()Lcom/baidu/searchbox/player/utils/SharedPrefsWrapper;"))};
 
@@ -44,7 +44,7 @@ public final class FloatPrefs {
         }
 
         public final void setLocation(Pair<Integer, Integer> pair) {
-            q.m(pair, "value");
+            q.n(pair, "value");
             FloatPrefs.Companion.getPrefs().putInt(FloatPrefs.FLOATING_LOCATION_X, pair.getFirst().intValue() < 0 ? 0 : pair.getFirst().intValue());
             FloatPrefs.Companion.getPrefs().putInt(FloatPrefs.FLOATING_LOCATION_Y, pair.getSecond().intValue() >= 0 ? pair.getSecond().intValue() : 0);
         }
@@ -55,7 +55,7 @@ public final class FloatPrefs {
         }
 
         public final void setScaleMode(Pair<? extends ScaleMode, ? extends ScaleMode> pair) {
-            q.m(pair, "value");
+            q.n(pair, "value");
             FloatPrefs.Companion.getPrefs().putInt(FloatPrefs.FLOATING_SCALE_MODE, pair.getSecond().ordinal());
         }
     }

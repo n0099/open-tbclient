@@ -1,7 +1,9 @@
 package com.google.vr.dynamite.client;
-/* loaded from: classes24.dex */
+/* loaded from: classes11.dex */
 public final class c extends Exception {
-    private final int a = 1;
+
+    /* renamed from: a  reason: collision with root package name */
+    private final int f4051a = 1;
 
     public c(int i) {
     }
@@ -9,7 +11,7 @@ public final class c extends Exception {
     @Override // java.lang.Throwable
     public final String getMessage() {
         String str;
-        switch (this.a) {
+        switch (this.f4051a) {
             case 1:
                 str = "Package not available";
                 break;

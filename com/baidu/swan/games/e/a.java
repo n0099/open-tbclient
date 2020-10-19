@@ -13,7 +13,7 @@ import com.baidu.swan.apps.scheme.j;
 import com.baidu.webkit.internal.ETAG;
 import java.io.File;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes10.dex */
 public class a extends aa {
     public a(j jVar) {
         super(jVar, "/swanAPI/debug/dashboardConnect");
@@ -30,19 +30,19 @@ public class a extends aa {
                 if (TextUtils.isEmpty(optString)) {
                     showToast(a.h.aiapps_debug_swan_core_url_empty);
                 } else {
-                    b.amZ();
+                    b.apL();
                     d.c cVar = new d.c();
-                    cVar.mDownloadUrl = al(context, optString);
-                    new com.baidu.swan.apps.l.a().a(cVar, b.ana().getPath(), new d.b() { // from class: com.baidu.swan.games.e.a.1
+                    cVar.mDownloadUrl = ao(context, optString);
+                    new com.baidu.swan.apps.l.a().a(cVar, b.apM().getPath(), new d.b() { // from class: com.baidu.swan.games.e.a.1
                         @Override // com.baidu.swan.apps.r.d.b
-                        public void eO(int i) {
+                        public void eX(int i) {
                         }
 
                         @Override // com.baidu.swan.apps.r.d.b
                         public void onSuccess() {
-                            File ana = b.ana();
-                            File amY = b.amY();
-                            if (!ana.exists() || !com.baidu.swan.c.d.unzipFile(ana.getPath(), amY.getPath())) {
+                            File apM = b.apM();
+                            File apK = b.apK();
+                            if (!apM.exists() || !com.baidu.swan.c.d.unzipFile(apM.getPath(), apK.getPath())) {
                                 a.this.showToast(a.h.swangame_dashboard_download_failed);
                             } else {
                                 a.this.showToast(a.h.swangame_dashboard_download_success);
@@ -60,12 +60,12 @@ public class a extends aa {
         return false;
     }
 
-    private String al(Context context, String str) {
-        return str + (str.contains("?") ? ETAG.ITEM_SEPARATOR : "?") + "cuid" + ETAG.EQUAL + new String(com.baidu.swan.games.m.a.aPc().h("BASE64", (com.baidu.swan.apps.t.a.apz().bk(context) + "\u0000\u0000").getBytes()));
+    private String ao(Context context, String str) {
+        return str + (str.contains("?") ? ETAG.ITEM_SEPARATOR : "?") + "cuid" + ETAG.EQUAL + new String(com.baidu.swan.games.m.a.aRL().h("BASE64", (com.baidu.swan.apps.t.a.ask().bq(context) + "\u0000\u0000").getBytes()));
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void showToast(int i) {
-        Toast.makeText(com.baidu.swan.apps.t.a.apu(), i, 1).show();
+        Toast.makeText(com.baidu.swan.apps.t.a.asf(), i, 1).show();
     }
 }

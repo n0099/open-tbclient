@@ -6,16 +6,20 @@ import android.os.Handler;
 import android.os.IBinder;
 import android.os.Message;
 import java.lang.ref.WeakReference;
-/* loaded from: classes9.dex */
+/* loaded from: classes12.dex */
 public abstract class BaseService extends Service {
-    private a a;
 
-    /* loaded from: classes9.dex */
+    /* renamed from: a  reason: collision with root package name */
+    private a f4731a;
+
+    /* loaded from: classes12.dex */
     public static class a extends Handler {
-        private WeakReference<BaseService> a;
+
+        /* renamed from: a  reason: collision with root package name */
+        private WeakReference<BaseService> f4732a;
 
         public a(WeakReference<BaseService> weakReference) {
-            this.a = weakReference;
+            this.f4732a = weakReference;
         }
 
         public void a() {
@@ -30,11 +34,11 @@ public abstract class BaseService extends Service {
             BaseService baseService;
             switch (message.what) {
                 case 1001:
-                    if (this.a == null || (baseService = this.a.get()) == null) {
+                    if (this.f4732a == null || (baseService = this.f4732a.get()) == null) {
                         return;
                     }
                     com.xiaomi.channel.commonutils.logger.b.c("TimeoutHandler" + baseService.toString() + "  kill self");
-                    if (!baseService.mo72a()) {
+                    if (!baseService.mo73a()) {
                         baseService.stopSelf();
                         return;
                     }
@@ -48,7 +52,7 @@ public abstract class BaseService extends Service {
     }
 
     /* renamed from: a */
-    protected abstract boolean mo72a();
+    protected abstract boolean mo73a();
 
     @Override // android.app.Service
     public IBinder onBind(Intent intent) {
@@ -58,9 +62,9 @@ public abstract class BaseService extends Service {
     @Override // android.app.Service
     public void onStart(Intent intent, int i) {
         super.onStart(intent, i);
-        if (this.a == null) {
-            this.a = new a(new WeakReference(this));
+        if (this.f4731a == null) {
+            this.f4731a = new a(new WeakReference(this));
         }
-        this.a.a();
+        this.f4731a.a();
     }
 }

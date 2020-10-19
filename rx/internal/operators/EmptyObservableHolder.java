@@ -1,7 +1,7 @@
 package rx.internal.operators;
 
 import rx.d;
-/* loaded from: classes7.dex */
+/* loaded from: classes16.dex */
 public enum EmptyObservableHolder implements d.a<Object> {
     INSTANCE;
     

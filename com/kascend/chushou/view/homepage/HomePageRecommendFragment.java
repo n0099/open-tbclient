@@ -87,7 +87,7 @@ public class HomePageRecommendFragment extends b implements View.OnClickListener
         this.mLayoutManager.setSpanSizeLookup(new GridLayoutManager.SpanSizeLookup() { // from class: com.kascend.chushou.view.homepage.HomePageRecommendFragment.1
             @Override // android.support.v7.widget.GridLayoutManager.SpanSizeLookup
             public int getSpanSize(int i) {
-                if (HomePageRecommendFragment.this.mRecyclerView.Pp(i) || HomePageRecommendFragment.this.mRecyclerView.Pq(i)) {
+                if (HomePageRecommendFragment.this.mRecyclerView.PV(i) || HomePageRecommendFragment.this.mRecyclerView.PW(i)) {
                     return 4;
                 }
                 return com.kascend.chushou.view.a.a.b.a(HomePageRecommendFragment.this.mAdapter.getItemViewType(i - HomePageRecommendFragment.this.mRecyclerView.getHeaderViewCount()), 4);
@@ -135,12 +135,12 @@ public class HomePageRecommendFragment extends b implements View.OnClickListener
                 } else {
                     str2 = "68";
                 }
-                String a = com.kascend.chushou.toolkit.a.b.a(listItem.mDisplayStyle);
+                String a2 = com.kascend.chushou.toolkit.a.b.a(listItem.mDisplayStyle);
                 Object[] objArr = new Object[6];
                 objArr[0] = "_fromView";
                 objArr[1] = str2;
                 objArr[2] = "_fromPos";
-                objArr[3] = a;
+                objArr[3] = a2;
                 objArr[4] = "_sc";
                 objArr[5] = listItem != null ? listItem.mSC : "";
                 com.kascend.chushou.d.e.a(HomePageRecommendFragment.this.mContext, listItem, com.kascend.chushou.d.e.O(objArr));
@@ -186,7 +186,7 @@ public class HomePageRecommendFragment extends b implements View.OnClickListener
 
     @Override // com.kascend.chushou.view.base.b, android.support.v4.app.Fragment
     public void onDestroyView() {
-        tv.chushou.zues.a.a.cm(this);
+        tv.chushou.zues.a.a.cp(this);
         this.mPresenter.a();
         super.onDestroyView();
     }
@@ -206,14 +206,14 @@ public class HomePageRecommendFragment extends b implements View.OnClickListener
         switch (i) {
             case 1:
                 if (!this.mLoadedSuc) {
-                    this.mEmptyView.NX(1);
+                    this.mEmptyView.OD(1);
                     this.mRecyclerView.setVisibility(8);
                     return;
                 }
                 return;
             case 2:
                 this.mLoadedSuc = true;
-                this.mEmptyView.NX(2);
+                this.mEmptyView.OD(2);
                 this.mRecyclerView.completeRefresh();
                 this.mRecyclerView.setVisibility(0);
                 return;
@@ -222,7 +222,7 @@ public class HomePageRecommendFragment extends b implements View.OnClickListener
             case 6:
                 this.mLoadedSuc = false;
                 this.mRecyclerView.completeRefresh();
-                this.mEmptyView.NX(i);
+                this.mEmptyView.OD(i);
                 this.mRecyclerView.setVisibility(8);
                 return;
             case 5:
@@ -277,9 +277,9 @@ public class HomePageRecommendFragment extends b implements View.OnClickListener
 
     public void subscribeResult(boolean z, String str, ListItem listItem) {
         if (z) {
-            int bz = this.mAdapter.bz(listItem);
-            if (bz != -1) {
-                this.mAdapter.notifyItemChanged(bz, TableDefine.PaSubscribeColumns.COLUMN_SUBSCRIBE);
+            int bC = this.mAdapter.bC(listItem);
+            if (bC != -1) {
+                this.mAdapter.notifyItemChanged(bC, TableDefine.PaSubscribeColumns.COLUMN_SUBSCRIBE);
                 return;
             }
             return;
@@ -287,7 +287,7 @@ public class HomePageRecommendFragment extends b implements View.OnClickListener
         if (h.isEmpty(str)) {
             str = tv.chushou.widget.a.c.getString(a.i.subscribe_failed);
         }
-        g.w(str);
+        g.x(str);
     }
 
     public int getRecommend() {

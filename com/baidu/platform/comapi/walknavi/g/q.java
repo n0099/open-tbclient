@@ -2,19 +2,21 @@ package com.baidu.platform.comapi.walknavi.g;
 
 import android.app.Activity;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes3.dex */
+/* loaded from: classes7.dex */
 public class q implements Runnable {
-    final /* synthetic */ a a;
+
+    /* renamed from: a  reason: collision with root package name */
+    final /* synthetic */ a f3070a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public q(a aVar) {
-        this.a = aVar;
+        this.f3070a = aVar;
     }
 
     @Override // java.lang.Runnable
     public void run() {
         Activity activity;
-        activity = this.a.g;
+        activity = this.f3070a.g;
         if (activity != null) {
             com.baidu.platform.comapi.walknavi.b.a().K().b("WALKNAVI_AR_HINT_HAS_SHOW", true);
         }

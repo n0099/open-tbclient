@@ -9,9 +9,9 @@ import java.net.MalformedURLException;
 import java.net.URL;
 import javax.annotation.Nullable;
 import org.apache.http.HttpHost;
-/* loaded from: classes17.dex */
+/* loaded from: classes6.dex */
 public class d {
-    private static final Uri nvO = Uri.withAppendedPath(ContactsContract.AUTHORITY_URI, "display_photo");
+    private static final Uri nLh = Uri.withAppendedPath(ContactsContract.AUTHORITY_URI, "display_photo");
 
     @Nullable
     public static URL J(@Nullable Uri uri) {
@@ -39,7 +39,7 @@ public class d {
     }
 
     public static boolean L(Uri uri) {
-        return isLocalContentUri(uri) && "com.android.contacts".equals(uri.getAuthority()) && !uri.getPath().startsWith(nvO.getPath());
+        return isLocalContentUri(uri) && "com.android.contacts".equals(uri.getAuthority()) && !uri.getPath().startsWith(nLh.getPath());
     }
 
     public static boolean M(Uri uri) {
@@ -116,7 +116,7 @@ public class d {
         }
     }
 
-    public static Uri LB(int i) {
+    public static Uri Mh(int i) {
         return new Uri.Builder().scheme("res").path(String.valueOf(i)).build();
     }
 }

@@ -8,33 +8,33 @@ import tv.chushou.zues.c;
 import tv.chushou.zues.utils.h;
 /* loaded from: classes6.dex */
 public class a {
-    private InterfaceC0892a oex;
-    private final c oew = new c(Looper.getMainLooper());
+    private InterfaceC0910a otQ;
+    private final c otP = new c(Looper.getMainLooper());
     private final List<com.kascend.chushou.player.ui.h5.c.b> c = new ArrayList();
 
     /* renamed from: com.kascend.chushou.player.ui.h5.a.a$a  reason: collision with other inner class name */
     /* loaded from: classes6.dex */
-    public interface InterfaceC0892a {
+    public interface InterfaceC0910a {
         void c(int i);
     }
 
     public a(Activity activity) {
         try {
-            this.oex = (InterfaceC0892a) activity;
+            this.otQ = (InterfaceC0910a) activity;
         } catch (Exception e) {
-            this.oex = null;
+            this.otQ = null;
         }
     }
 
     public void a() {
         this.c.clear();
-        this.oew.cl(null);
+        this.otP.co(null);
     }
 
     public void b() {
         this.c.clear();
-        this.oew.cl(null);
-        this.oex = null;
+        this.otP.co(null);
+        this.otQ = null;
     }
 
     public void a(List<com.kascend.chushou.player.ui.h5.c.b> list) {
@@ -48,7 +48,7 @@ public class a {
             for (int i2 = 0; i2 < this.c.size(); i2++) {
                 final com.kascend.chushou.player.ui.h5.c.b bVar2 = this.c.get(i2);
                 if (bVar2.b > 0) {
-                    this.oew.e(new Runnable() { // from class: com.kascend.chushou.player.ui.h5.a.a.1
+                    this.otP.e(new Runnable() { // from class: com.kascend.chushou.player.ui.h5.a.a.1
                         @Override // java.lang.Runnable
                         public void run() {
                             a.this.b(bVar2);
@@ -56,8 +56,8 @@ public class a {
                     }, bVar2.b * 1000);
                 }
             }
-            if (this.oex != null) {
-                this.oex.c(this.c.size());
+            if (this.otQ != null) {
+                this.otQ.c(this.c.size());
             }
         }
     }
@@ -88,8 +88,8 @@ public class a {
         if (bVar != null) {
             this.c.remove(bVar);
         }
-        if (this.oex != null) {
-            this.oex.c(this.c.size());
+        if (this.otQ != null) {
+            this.otQ.c(this.c.size());
         }
     }
 

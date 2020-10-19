@@ -1,19 +1,19 @@
 package com.baidu.swan.game.ad.d;
-/* loaded from: classes10.dex */
+/* loaded from: classes14.dex */
 public class d {
-    public static float dnN = 3.0f;
-    public static float dnO = 1.5f;
-    public static float dnP = 0.12f;
-    public static float dnQ = 0.06f;
-    public static float dnR = 0.13f;
-    public static float dnS = 0.12f;
-    public static float dnT = 0.19f;
-    public static float dnU = 0.05f;
-    public static float dnV = 0.48f;
-    public static float dnW = 0.33f;
-    public static float dnX = 0.19f;
-    public static float dnY = 0.45f;
-    public static float dnZ = 0.15f;
-    public static float doa = 0.12f;
-    public static float dob = 0.13f;
+    public static float dzS = 3.0f;
+    public static float dzT = 1.5f;
+    public static float dzU = 0.12f;
+    public static float dzV = 0.06f;
+    public static float dzW = 0.13f;
+    public static float dzX = 0.12f;
+    public static float dzY = 0.19f;
+    public static float dzZ = 0.05f;
+    public static float dAa = 0.48f;
+    public static float dAb = 0.33f;
+    public static float dAc = 0.19f;
+    public static float dAd = 0.45f;
+    public static float dAe = 0.15f;
+    public static float dAf = 0.12f;
+    public static float dAg = 0.13f;
 }

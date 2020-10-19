@@ -2,10 +2,12 @@ package com.baidu.mapapi.search.core;
 
 import android.os.Parcel;
 import android.os.Parcelable;
-/* loaded from: classes3.dex */
+/* loaded from: classes7.dex */
 public class TrainInfo extends TransitBaseInfo {
     public static final Parcelable.Creator<TrainInfo> CREATOR = new n();
-    private double a;
+
+    /* renamed from: a  reason: collision with root package name */
+    private double f2108a;
     private String b;
 
     public TrainInfo() {
@@ -14,12 +16,12 @@ public class TrainInfo extends TransitBaseInfo {
     /* JADX INFO: Access modifiers changed from: protected */
     public TrainInfo(Parcel parcel) {
         super(parcel);
-        this.a = parcel.readDouble();
+        this.f2108a = parcel.readDouble();
         this.b = parcel.readString();
     }
 
     public void a(double d) {
-        this.a = d;
+        this.f2108a = d;
     }
 
     public void a(String str) {
@@ -34,7 +36,7 @@ public class TrainInfo extends TransitBaseInfo {
     @Override // com.baidu.mapapi.search.core.TransitBaseInfo, android.os.Parcelable
     public void writeToParcel(Parcel parcel, int i) {
         super.writeToParcel(parcel, i);
-        parcel.writeDouble(this.a);
+        parcel.writeDouble(this.f2108a);
         parcel.writeString(this.b);
     }
 }

@@ -18,7 +18,7 @@ import kotlin.jvm.internal.o;
 import kotlin.jvm.internal.q;
 import kotlin.l;
 @h
-/* loaded from: classes5.dex */
+/* loaded from: classes11.dex */
 public final class FloatView {
     public static final Companion Companion = new Companion(null);
     public static final String TAG = "FloatView";
@@ -38,7 +38,7 @@ public final class FloatView {
     }
 
     @h
-    /* loaded from: classes5.dex */
+    /* loaded from: classes11.dex */
     public static final class Companion {
         private Companion() {
         }
@@ -64,12 +64,12 @@ public final class FloatView {
         }
 
         public final Builder with(Context context) {
-            q.m(context, "context");
+            q.n(context, "context");
             return new Builder(context);
         }
 
         public final void showAppFloatView(Context context) {
-            q.m(context, "context");
+            q.n(context, "context");
             FloatViewService.Companion.setVisible(context, true);
         }
 
@@ -81,12 +81,12 @@ public final class FloatView {
         }
 
         public final void dismissAppFloatView(Context context, boolean z) {
-            q.m(context, "context");
+            q.n(context, "context");
             FloatViewService.Companion.dismiss(context, z);
         }
 
         public final void hideAppFloatView(Context context) {
-            q.m(context, "context");
+            q.n(context, "context");
             FloatViewService.Companion.setVisible(context, false);
         }
 
@@ -107,7 +107,7 @@ public final class FloatView {
         }
 
         public final void invalidate(Context context) {
-            q.m(context, "context");
+            q.n(context, "context");
             FloatViewService.Companion.invalidate(context);
         }
 
@@ -122,7 +122,7 @@ public final class FloatView {
         }
 
         public final void registerLifeCycle(a<l> aVar) {
-            q.m(aVar, "lifeCycle");
+            q.n(aVar, "lifeCycle");
             if (!isRegisterLifecycle()) {
                 setRegisterLifecycle(true);
                 aVar.invoke();
@@ -130,7 +130,7 @@ public final class FloatView {
         }
 
         public final void unregisterLifecycle(a<l> aVar) {
-            q.m(aVar, "lifeCycle");
+            q.n(aVar, "lifeCycle");
             if (isRegisterLifecycle()) {
                 setRegisterLifecycle(false);
                 aVar.invoke();
@@ -139,13 +139,13 @@ public final class FloatView {
     }
 
     @h
-    /* loaded from: classes5.dex */
+    /* loaded from: classes11.dex */
     public static final class Builder {
         private final Context context;
         private Config mConfig;
 
         public Builder(Context context) {
-            q.m(context, "context");
+            q.n(context, "context");
             this.context = context;
             this.mConfig = new Config();
         }
@@ -155,7 +155,7 @@ public final class FloatView {
         }
 
         public final Builder setConfig(Config config) {
-            q.m(config, "config");
+            q.n(config, "config");
             this.mConfig = config;
             return this;
         }
@@ -176,26 +176,26 @@ public final class FloatView {
         }
 
         public final Builder setAnimator(FloatViewAnimator floatViewAnimator) {
-            q.m(floatViewAnimator, "animator");
+            q.n(floatViewAnimator, "animator");
             this.mConfig.setAnimator(floatViewAnimator);
             return this;
         }
 
         public final Builder startForeground(Notification notification) {
-            q.m(notification, ActionJsonData.TAG_NOTIFICATION);
+            q.n(notification, ActionJsonData.TAG_NOTIFICATION);
             this.mConfig.setNotification(notification);
             this.mConfig.setForeground(true);
             return this;
         }
 
         public final Builder addFloatListener(FloatViewListener floatViewListener) {
-            q.m(floatViewListener, "listener");
+            q.n(floatViewListener, "listener");
             this.mConfig.getFloatViewListeners().add(floatViewListener);
             return this;
         }
 
         public final Builder bindContext(IFloating iFloating) {
-            q.m(iFloating, "context");
+            q.n(iFloating, "context");
             this.mConfig.setFloatingContext(iFloating);
             return this;
         }
@@ -223,7 +223,7 @@ public final class FloatView {
         }
 
         public final Builder filters(List<String> list) {
-            q.m(list, "filters");
+            q.n(list, "filters");
             this.mConfig.getFilter().clear();
             this.mConfig.getFilter().addAll(list);
             return this;

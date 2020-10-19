@@ -1,5 +1,5 @@
 package com.baidu.platform.comjni.jninative;
-/* loaded from: classes3.dex */
+/* loaded from: classes7.dex */
 public class EngineCommonConfig {
     public boolean mNoExistSensor;
     public String mStrPath;

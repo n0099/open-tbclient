@@ -1,7 +1,7 @@
 package com.baidu.platform.comapi.map;
 
 import com.baidu.platform.comapi.basestruct.Point;
-/* loaded from: classes3.dex */
+/* loaded from: classes7.dex */
 public class MapObj {
     public int ad;
     public String adLog;

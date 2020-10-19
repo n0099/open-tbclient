@@ -8,7 +8,7 @@ import com.baidu.tieba.card.y;
 import com.baidu.tieba.frs.k;
 /* loaded from: classes4.dex */
 public class e extends k<com.baidu.tieba.tbadkCore.h, com.baidu.tieba.ala.livecard.a.c> implements y {
-    private com.baidu.tieba.ala.livecard.b.d gma;
+    private com.baidu.tieba.ala.livecard.b.d gAt;
     private String mForumName;
 
     public e(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId, BdUniqueId bdUniqueId2) {
@@ -21,20 +21,20 @@ public class e extends k<com.baidu.tieba.tbadkCore.h, com.baidu.tieba.ala.liveca
     }
 
     @Override // com.baidu.tieba.card.y
-    public void tS(int i) {
+    public void ux(int i) {
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.widget.ListView.a
-    /* renamed from: aq */
+    /* renamed from: as */
     public com.baidu.tieba.ala.livecard.a.c c(ViewGroup viewGroup) {
         if (this.mPageContext == null) {
             return null;
         }
-        this.gma = new com.baidu.tieba.ala.livecard.b.d(this.mPageContext);
-        this.gma.setForumName(this.mForumName);
-        return new com.baidu.tieba.ala.livecard.a.c(this.gma);
+        this.gAt = new com.baidu.tieba.ala.livecard.b.d(this.mPageContext);
+        this.gAt.setForumName(this.mForumName);
+        return new com.baidu.tieba.ala.livecard.a.c(this.gAt);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -44,12 +44,12 @@ public class e extends k<com.baidu.tieba.tbadkCore.h, com.baidu.tieba.ala.liveca
         super.a(i, view, viewGroup, (ViewGroup) hVar, (com.baidu.tieba.tbadkCore.h) cVar);
         if (hVar != null) {
             int i2 = 0;
-            if (this.hZt != null) {
-                i2 = this.hZt.getTopThreadSize();
+            if (this.iou != null) {
+                i2 = this.iou.getTopThreadSize();
             }
-            cVar.gmi.ebp = (i + 1) - i2;
-            cVar.gmi.setForumName(this.mForumName);
-            cVar.gmi.a(hVar);
+            cVar.gAB.ens = (i + 1) - i2;
+            cVar.gAB.setForumName(this.mForumName);
+            cVar.gAB.a(hVar);
         }
         return view;
     }

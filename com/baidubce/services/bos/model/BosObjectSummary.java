@@ -2,7 +2,7 @@ package com.baidubce.services.bos.model;
 
 import com.baidubce.model.User;
 import java.util.Date;
-/* loaded from: classes24.dex */
+/* loaded from: classes25.dex */
 public class BosObjectSummary {
     protected String bucketName;
     protected String eTag;

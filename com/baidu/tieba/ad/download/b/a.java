@@ -6,36 +6,36 @@ import com.baidu.tieba.ad.download.AdDownloadData;
 import com.baidu.tieba.ad.download.DownloadCacheKey;
 import com.baidu.tieba.ad.download.a.c;
 import java.util.concurrent.atomic.AtomicReference;
-/* loaded from: classes20.dex */
+/* loaded from: classes21.dex */
 public interface a {
-    public static final AtomicReference<a> bMm = new AtomicReference<>();
-    public static final a fsn = new a() { // from class: com.baidu.tieba.ad.download.b.a.1
+    public static final AtomicReference<a> bSV = new AtomicReference<>();
+    public static final a fEy = new a() { // from class: com.baidu.tieba.ad.download.b.a.1
         @Override // com.baidu.tieba.ad.download.b.a
         public void b(@NonNull DownloadCacheKey downloadCacheKey, @Nullable AdDownloadData adDownloadData) {
             throw new IllegalArgumentException("IDownloaderProxy 无有效实例");
         }
 
         @Override // com.baidu.tieba.ad.download.b.a
-        public void DW(String str) {
+        public void EH(String str) {
             throw new IllegalArgumentException("IDownloaderProxy 无有效实例");
         }
 
         @Override // com.baidu.tieba.ad.download.b.a
-        public void DX(String str) {
+        public void EI(String str) {
             throw new IllegalArgumentException("IDownloaderProxy 无有效实例");
         }
 
         @Override // com.baidu.tieba.ad.download.b.a
-        public c bCB() {
+        public c bFn() {
             throw new IllegalArgumentException("IDownloaderProxy 无有效实例");
         }
     };
 
-    void DW(String str);
+    void EH(String str);
 
-    void DX(String str);
+    void EI(String str);
 
     void b(@NonNull DownloadCacheKey downloadCacheKey, @Nullable AdDownloadData adDownloadData);
 
-    c bCB();
+    c bFn();
 }

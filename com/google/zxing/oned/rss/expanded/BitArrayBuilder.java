@@ -2,7 +2,7 @@ package com.google.zxing.oned.rss.expanded;
 
 import com.google.zxing.common.BitArray;
 import java.util.List;
-/* loaded from: classes3.dex */
+/* loaded from: classes7.dex */
 final class BitArrayBuilder {
     private BitArrayBuilder() {
     }

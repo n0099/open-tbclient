@@ -7,16 +7,16 @@ import com.baidu.mapapi.model.LatLng;
 import com.baidu.mapsdkplatform.comapi.util.CoordTrans;
 import com.baidu.webkit.internal.ETAG;
 import com.xiaomi.mipush.sdk.Constants;
-/* loaded from: classes3.dex */
+/* loaded from: classes7.dex */
 public class NearbySearchInfo extends BaseCloudSearchInfo {
     public String location;
     public int radius;
 
     public NearbySearchInfo() {
         if (HttpClient.isHttpsEnable) {
-            this.a = "https://api.map.baidu.com/geosearch/v2/nearby";
+            this.f1981a = "https://api.map.baidu.com/geosearch/v2/nearby";
         } else {
-            this.a = "http://api.map.baidu.com/geosearch/v2/nearby";
+            this.f1981a = "http://api.map.baidu.com/geosearch/v2/nearby";
         }
         this.radius = 1000;
     }

@@ -8,7 +8,7 @@ import java.util.LinkedList;
 import java.util.List;
 import java.util.concurrent.TimeUnit;
 import java.util.concurrent.atomic.AtomicBoolean;
-/* loaded from: classes3.dex */
+/* loaded from: classes7.dex */
 public abstract class c {
     private static final String n = c.class.getSimpleName();
     protected com.meizu.cloud.pushsdk.c.b.c b;
@@ -22,12 +22,16 @@ public abstract class c {
     protected long j;
     protected int k;
     protected TimeUnit l;
-    protected final String a = PushManager.TAG;
+
+    /* renamed from: a  reason: collision with root package name */
+    protected final String f4405a = PushManager.TAG;
     protected AtomicBoolean m = new AtomicBoolean(true);
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes7.dex */
     public static class a {
-        protected final com.meizu.cloud.pushsdk.c.b.c a;
+
+        /* renamed from: a  reason: collision with root package name */
+        protected final com.meizu.cloud.pushsdk.c.b.c f4406a;
         protected final String b;
         protected final String c;
         protected final Context d;
@@ -43,7 +47,7 @@ public abstract class c {
         private Class<? extends c> n;
 
         public a(com.meizu.cloud.pushsdk.c.b.c cVar, String str, String str2, Context context, Class<? extends c> cls) {
-            this.a = cVar;
+            this.f4406a = cVar;
             this.b = str;
             this.c = str2;
             this.d = context;
@@ -72,7 +76,7 @@ public abstract class c {
     }
 
     public c(a aVar) {
-        this.b = aVar.a;
+        this.b = aVar.f4406a;
         this.f = aVar.c;
         this.g = aVar.f;
         this.e = aVar.b;

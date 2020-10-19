@@ -1,10 +1,12 @@
 package com.baidu.platform.comapi.util;
 
 import com.baidu.vi.VIContext;
-/* loaded from: classes3.dex */
+/* loaded from: classes7.dex */
 public class SysOSUtil {
     private static SysOSUtil g = new SysOSUtil();
-    private com.baidu.platform.comapi.util.a.b a = null;
+
+    /* renamed from: a  reason: collision with root package name */
+    private com.baidu.platform.comapi.util.a.b f2938a = null;
     private com.baidu.platform.comapi.util.a.a b = null;
     private boolean c = false;
     private String d = "";
@@ -45,11 +47,11 @@ public class SysOSUtil {
     }
 
     public String getOutputCache() {
-        return this.a != null ? this.a.c() : "";
+        return this.f2938a != null ? this.f2938a.c() : "";
     }
 
     public String getOutputDirPath() {
-        return this.a != null ? this.a.a() : "";
+        return this.f2938a != null ? this.f2938a.a() : "";
     }
 
     public int getScreenHeight() {
@@ -67,22 +69,22 @@ public class SysOSUtil {
     }
 
     public String getSdcardPath() {
-        return this.a != null ? this.a.b() : "";
+        return this.f2938a != null ? this.f2938a.b() : "";
     }
 
     public void init(com.baidu.platform.comapi.util.a.b bVar, com.baidu.platform.comapi.util.a.a aVar) {
         if (this.c) {
             return;
         }
-        this.a = bVar;
+        this.f2938a = bVar;
         this.b = aVar;
-        if (this.a == null) {
-            this.a = new com.baidu.platform.comapi.util.a.b();
+        if (this.f2938a == null) {
+            this.f2938a = new com.baidu.platform.comapi.util.a.b();
         }
         if (this.b == null) {
             this.b = new com.baidu.platform.comapi.util.a.a();
         }
-        this.a.a(VIContext.getContext());
+        this.f2938a.a(VIContext.getContext());
         this.b.a(VIContext.getContext());
         this.d = NetworkUtil.getCurrentNetMode(VIContext.getContext());
         this.c = true;

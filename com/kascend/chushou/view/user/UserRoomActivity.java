@@ -11,15 +11,17 @@ import com.kascend.chushou.view.base.BaseActivity;
 import tv.chushou.zues.widget.animation.AnimationImageView;
 /* loaded from: classes6.dex */
 public class UserRoomActivity extends BaseActivity {
-    private View a;
+
+    /* renamed from: a  reason: collision with root package name */
+    private View f4240a;
     private View b;
     private ImageView c;
     private TextView e;
     private String h;
     private String i;
-    private FrameLayout ogr;
-    private b oiA;
-    private AnimationImageView oiz;
+    private FrameLayout ovK;
+    private AnimationImageView oxS;
+    private b oxT;
 
     @Override // com.kascend.chushou.view.base.BaseActivity, android.support.v7.app.AppCompatActivity, android.support.v4.app.FragmentActivity, android.support.v4.app.SupportActivity, android.app.Activity
     public void onCreate(Bundle bundle) {
@@ -30,11 +32,11 @@ public class UserRoomActivity extends BaseActivity {
     @Override // com.kascend.chushou.view.base.BaseActivity
     public void a() {
         setContentView(a.h.activity_my_room);
-        this.a = findViewById(a.f.title_view);
-        this.ogr = (FrameLayout) findViewById(a.f.fragment_container);
+        this.f4240a = findViewById(a.f.title_view);
+        this.ovK = (FrameLayout) findViewById(a.f.fragment_container);
         this.b = findViewById(a.f.rl_empty);
         this.c = (ImageView) findViewById(a.f.iv_empty);
-        this.oiz = (AnimationImageView) findViewById(a.f.iv_loading);
+        this.oxS = (AnimationImageView) findViewById(a.f.iv_loading);
         this.e = (TextView) findViewById(a.f.tv_empty);
     }
 
@@ -44,18 +46,18 @@ public class UserRoomActivity extends BaseActivity {
         this.h = intent.getStringExtra("uid");
         this.i = intent.getStringExtra("dataInfo");
         boolean booleanExtra = intent.getBooleanExtra("scrollto", false);
-        if (!tv.chushou.zues.utils.a.eqo()) {
+        if (!tv.chushou.zues.utils.a.etZ()) {
             a_(3);
             return;
         }
         a_(1);
-        this.oiA = b.c(this.h, null, booleanExtra, this.i);
-        getSupportFragmentManager().beginTransaction().replace(a.f.fragment_container, this.oiA).commitAllowingStateLoss();
+        this.oxT = b.c(this.h, null, booleanExtra, this.i);
+        getSupportFragmentManager().beginTransaction().replace(a.f.fragment_container, this.oxT).commitAllowingStateLoss();
     }
 
     @Override // com.kascend.chushou.view.base.BaseActivity
     protected int y() {
-        tv.chushou.zues.utils.systemBar.b.aG(this);
+        tv.chushou.zues.utils.systemBar.b.aH(this);
         return 1;
     }
 
@@ -63,10 +65,10 @@ public class UserRoomActivity extends BaseActivity {
     public void a_(int i) {
         switch (i) {
             case 1:
-                this.a.setVisibility(0);
-                this.ogr.setVisibility(8);
+                this.f4240a.setVisibility(0);
+                this.ovK.setVisibility(8);
                 this.b.setVisibility(0);
-                this.oiz.setVisibility(0);
+                this.oxS.setVisibility(0);
                 this.c.setVisibility(8);
                 this.e.setVisibility(8);
                 return;
@@ -74,19 +76,19 @@ public class UserRoomActivity extends BaseActivity {
             default:
                 return;
             case 3:
-                this.a.setVisibility(0);
-                this.ogr.setVisibility(8);
+                this.f4240a.setVisibility(0);
+                this.ovK.setVisibility(8);
                 this.b.setVisibility(0);
-                this.oiz.setVisibility(8);
+                this.oxS.setVisibility(8);
                 this.c.setVisibility(0);
                 this.c.setImageResource(a.e.commonres_pagestatus_net_error);
                 this.e.setVisibility(8);
                 return;
             case 4:
-                this.a.setVisibility(0);
-                this.ogr.setVisibility(8);
+                this.f4240a.setVisibility(0);
+                this.ovK.setVisibility(8);
                 this.b.setVisibility(0);
-                this.oiz.setVisibility(8);
+                this.oxS.setVisibility(8);
                 this.c.setVisibility(0);
                 this.c.setImageResource(a.e.commonres_pagestatus_unknown_error);
                 this.e.setVisibility(8);
@@ -95,8 +97,8 @@ public class UserRoomActivity extends BaseActivity {
     }
 
     public void c() {
-        this.a.setVisibility(8);
+        this.f4240a.setVisibility(8);
         this.b.setVisibility(8);
-        this.ogr.setVisibility(0);
+        this.ovK.setVisibility(0);
     }
 }

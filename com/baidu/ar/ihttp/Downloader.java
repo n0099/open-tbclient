@@ -8,7 +8,7 @@ import java.io.File;
 import java.io.InputStream;
 import java.io.RandomAccessFile;
 import org.apache.http.client.methods.HttpHead;
-/* loaded from: classes10.dex */
+/* loaded from: classes14.dex */
 public final class Downloader {
     private String rc;
     private int rd = 0;

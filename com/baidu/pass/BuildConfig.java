@@ -1,5 +1,5 @@
 package com.baidu.pass;
-/* loaded from: classes6.dex */
+/* loaded from: classes9.dex */
 public final class BuildConfig {
     public static final String APPLICATION_ID = "com.baidu.pass";
     public static final String BUILD_TYPE = "release";

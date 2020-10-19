@@ -18,7 +18,7 @@ import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes7.dex */
 public class g extends com.baidu.platform.base.d {
     private static final String b = g.class.getSimpleName();
     private int c;
@@ -138,8 +138,8 @@ public class g extends com.baidu.platform.base.d {
             poiDetailInfo.setCheckinNum(jSONObject.optInt("checkin_num"));
             poiDetailInfo.setShopHours(jSONObject.optString("shop_hours"));
             poiDetailInfo.naviLocation = a(jSONObject.optJSONObject("navi_location"));
-            SearchType a = a();
-            if (SearchType.POI_IN_CITY_SEARCH == a || SearchType.POI_NEAR_BY_SEARCH == a) {
+            SearchType a2 = a();
+            if (SearchType.POI_IN_CITY_SEARCH == a2 || SearchType.POI_NEAR_BY_SEARCH == a2) {
                 poiDetailInfo.setPoiChildrenInfoList(b(jSONObject));
                 return poiDetailInfo;
             }

@@ -21,13 +21,13 @@ import java.util.List;
 /* loaded from: classes4.dex */
 public abstract class a implements com.baidu.live.liveroom.middleware.b, d, i {
     protected Activity activity;
-    protected com.baidu.live.liveroom.a.c bhb;
-    protected com.baidu.live.liveroom.g.a bhc;
-    protected e bhd;
-    protected f bhe;
+    protected com.baidu.live.liveroom.a.c bkR;
+    protected com.baidu.live.liveroom.g.a bkS;
+    protected e bkT;
+    protected f bkU;
     protected ViewGroup rootView;
     protected Handler mHandler = new Handler();
-    private CustomMessageListener bhf = new CustomMessageListener(2913146) { // from class: com.baidu.live.liveroom.f.a.1
+    private CustomMessageListener bkV = new CustomMessageListener(2913146) { // from class: com.baidu.live.liveroom.f.a.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.live.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
@@ -39,7 +39,7 @@ public abstract class a implements com.baidu.live.liveroom.middleware.b, d, i {
             }
         }
     };
-    private CustomMessageListener bhg = new CustomMessageListener(2913167) { // from class: com.baidu.live.liveroom.f.a.2
+    private CustomMessageListener bkW = new CustomMessageListener(2913167) { // from class: com.baidu.live.liveroom.f.a.2
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.live.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
@@ -52,7 +52,7 @@ public abstract class a implements com.baidu.live.liveroom.middleware.b, d, i {
         }
     };
 
-    public abstract boolean LX();
+    public abstract boolean Nc();
 
     public abstract View a(Context context, u uVar, boolean z);
 
@@ -88,12 +88,16 @@ public abstract class a implements com.baidu.live.liveroom.middleware.b, d, i {
     public abstract void onStop();
 
     public void init() {
-        MessageManager.getInstance().registerListener(this.bhf);
-        MessageManager.getInstance().registerListener(this.bhg);
+        MessageManager.getInstance().registerListener(this.bkV);
+        MessageManager.getInstance().registerListener(this.bkW);
     }
 
     public void a(com.baidu.live.liveroom.a.c cVar) {
-        this.bhb = cVar;
+        this.bkR = cVar;
+    }
+
+    public Activity getActivity() {
+        return this.activity;
     }
 
     public void setActivity(Activity activity) {
@@ -105,24 +109,24 @@ public abstract class a implements com.baidu.live.liveroom.middleware.b, d, i {
     }
 
     public void b(com.baidu.live.liveroom.g.a aVar) {
-        this.bhc = aVar;
+        this.bkS = aVar;
     }
 
-    public void cd(boolean z) {
+    public void cg(boolean z) {
         this.mHandler.removeCallbacksAndMessages(null);
     }
 
     @Override // com.baidu.live.liveroom.middleware.i
-    public final void r(Activity activity) {
+    public final void s(Activity activity) {
     }
 
     @Override // com.baidu.live.liveroom.middleware.i
-    public void cb(boolean z) {
+    public void ce(boolean z) {
         if (this.mHandler != null) {
             this.mHandler.removeCallbacksAndMessages(null);
         }
-        MessageManager.getInstance().unRegisterListener(this.bhf);
-        MessageManager.getInstance().unRegisterListener(this.bhg);
+        MessageManager.getInstance().unRegisterListener(this.bkV);
+        MessageManager.getInstance().unRegisterListener(this.bkW);
     }
 
     @Override // com.baidu.live.liveroom.middleware.i
@@ -134,15 +138,15 @@ public abstract class a implements com.baidu.live.liveroom.middleware.b, d, i {
     public void onRequestPermissionsResult(int i, String[] strArr, int[] iArr) {
     }
 
-    public void dH(int i) {
+    public void dM(int i) {
     }
 
     public void a(e eVar, f fVar) {
-        this.bhd = eVar;
-        this.bhe = fVar;
+        this.bkT = eVar;
+        this.bkU = fVar;
     }
 
-    public f LY() {
-        return this.bhe;
+    public f Nd() {
+        return this.bkU;
     }
 }

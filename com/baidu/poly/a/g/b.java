@@ -3,7 +3,7 @@ package com.baidu.poly.a.g;
 import android.text.TextUtils;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
-/* loaded from: classes9.dex */
+/* loaded from: classes6.dex */
 public class b {
     private static String a(byte[] bArr) {
         StringBuilder sb = new StringBuilder();
@@ -17,7 +17,7 @@ public class b {
         return sb.toString();
     }
 
-    public static String dF(String str) {
+    public static String dK(String str) {
         if (TextUtils.isEmpty(str)) {
             return "";
         }

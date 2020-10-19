@@ -17,9 +17,9 @@ import com.baidu.live.adp.framework.message.NetMessage;
 import com.baidu.live.adp.lib.util.BdUtilHelper;
 import com.baidu.live.adp.newwidget.imageview.IRefresh;
 import com.baidu.live.adp.widget.listview.IPreLoadListView;
-import com.baidu.megapp.ma.MAFragmentActivity;
+import com.baidu.searchbox.live.base.LiveBaseActivity;
 /* loaded from: classes4.dex */
-public abstract class BdBaseFragmentActivity<T> extends MAFragmentActivity implements DialogInterface.OnClickListener, View.OnClickListener, View.OnLongClickListener, AdapterView.OnItemClickListener, AdapterView.OnItemLongClickListener, BdPageContextSupport<T>, IScrollable {
+public abstract class BdBaseFragmentActivity<T> extends LiveBaseActivity implements DialogInterface.OnClickListener, View.OnClickListener, View.OnLongClickListener, AdapterView.OnItemClickListener, AdapterView.OnItemLongClickListener, BdPageContextSupport<T>, IScrollable {
     private static final int PRELOAD_DELAY = 100;
     private BdUniqueId mId = null;
     private boolean mIsScroll = false;
@@ -73,7 +73,7 @@ public abstract class BdBaseFragmentActivity<T> extends MAFragmentActivity imple
     }
 
     public void showToast(String str) {
-        BdUtilHelper.showToast(getApplicationContext(), str);
+        BdUtilHelper.showToast(getActivity(), str);
     }
 
     public void releaseResouce() {

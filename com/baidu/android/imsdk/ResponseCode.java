@@ -1,5 +1,5 @@
 package com.baidu.android.imsdk;
-/* loaded from: classes9.dex */
+/* loaded from: classes5.dex */
 public interface ResponseCode {
     public static final int ACCOUNT_NOT_LOGIN = 1000;
     public static final int APPID_NOT_ONLINE = 50013;
@@ -10,6 +10,9 @@ public interface ResponseCode {
     public static final int DEL_MSG_FAIL = 1006;
     public static final int ERROR_BDUSS_EXPIRE = 8;
     public static final int ERROR_FETCH_LENGTH_OVER = 1024;
+    public static final int ERROR_LOGIN_CALL_BACKEND_FAILED = 4005;
+    public static final int ERROR_LOGIN_INVALID_REQUEST = 4003;
+    public static final int ERROR_LOGIN_LOGIN_FAILED = 4004;
     public static final int ERROR_LOGIN_STATE = 4001;
     public static final int FILE_NOT_FOUND = 1007;
     public static final int FRIEND_GROUP_UPDATED = 610;

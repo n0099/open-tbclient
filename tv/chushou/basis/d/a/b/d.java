@@ -3,13 +3,13 @@ package tv.chushou.basis.d.a.b;
 import java.util.Map;
 /* loaded from: classes6.dex */
 public interface d extends tv.chushou.basis.d.a {
-    String aFW();
+    String aIF();
 
-    String epI();
+    String ett();
 
-    String epJ();
+    String etu();
 
-    Map<String, String> epK();
+    Map<String, String> etv();
 
     String getIdentifier();
 }

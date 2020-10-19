@@ -7,30 +7,32 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.util.ArrayList;
-/* loaded from: classes3.dex */
+/* loaded from: classes7.dex */
 public class a {
-    private Context a;
-    private C0091a acD;
+
+    /* renamed from: a  reason: collision with root package name */
+    private Context f1266a;
+    private C0092a acT;
 
     /* renamed from: com.baidu.b.e.a$a  reason: collision with other inner class name */
-    /* loaded from: classes3.dex */
-    public final class C0091a {
-        private C0091a acK;
+    /* loaded from: classes7.dex */
+    public final class C0092a {
+        private C0092a ada;
         private File b;
         private String c;
         private boolean e;
 
-        C0091a(File file) {
+        C0092a(File file) {
             this.e = false;
             this.e = true;
             this.b = file;
             this.c = file.getName();
         }
 
-        C0091a(String str, C0091a c0091a) {
+        C0092a(String str, C0092a c0092a) {
             this.e = false;
             this.c = str;
-            this.acK = c0091a;
+            this.ada = c0092a;
             this.e = false;
         }
 
@@ -45,7 +47,7 @@ public class a {
         public File b() {
             File file = this.b;
             if (file == null) {
-                file = this.acK == null ? new File(a.this.a(), this.c) : new File(this.acK.b(), this.c);
+                file = this.ada == null ? new File(a.this.a(), this.c) : new File(this.ada.b(), this.c);
                 this.b = file;
             }
             return file;
@@ -59,36 +61,36 @@ public class a {
             return a.a(b(), str, str2, "UTF-8", z);
         }
 
-        public C0091a cX(String str) {
-            return new C0091a(str, this);
+        public C0092a cX(String str) {
+            return new C0092a(str, this);
         }
 
-        public C0091a i(File file) {
+        public C0092a i(File file) {
             if (this.e) {
                 throw new IllegalStateException("isolate session is not support");
             }
             ArrayList arrayList = new ArrayList();
-            C0091a c0091a = this;
+            C0092a c0092a = this;
             do {
-                arrayList.add(c0091a.c());
-                c0091a = c0091a.sP();
-            } while (c0091a != null);
+                arrayList.add(c0092a.c());
+                c0092a = c0092a.sP();
+            } while (c0092a != null);
             int size = arrayList.size() - 1;
             while (size >= 0) {
                 File file2 = new File(file, (String) arrayList.get(size));
                 size--;
                 file = file2;
             }
-            return new C0091a(file);
+            return new C0092a(file);
         }
 
-        public C0091a sP() {
-            return this.acK;
+        public C0092a sP() {
+            return this.ada;
         }
     }
 
     public a(Context context) {
-        this.a = context;
+        this.f1266a = context;
         c().mkdirs();
     }
 
@@ -186,13 +188,13 @@ public class a {
     }
 
     public File a() {
-        return new File(this.a.getApplicationInfo().dataDir);
+        return new File(this.f1266a.getApplicationInfo().dataDir);
     }
 
-    public synchronized C0091a sO() {
-        if (this.acD == null) {
-            this.acD = new C0091a(".cesium", null);
+    public synchronized C0092a sO() {
+        if (this.acT == null) {
+            this.acT = new C0092a(".cesium", null);
         }
-        return this.acD;
+        return this.acT;
     }
 }

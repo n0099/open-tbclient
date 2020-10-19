@@ -16,19 +16,21 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-/* loaded from: classes12.dex */
+/* loaded from: classes15.dex */
 public final class a {
     public static a d;
-    int a = 5;
+
+    /* renamed from: a  reason: collision with root package name */
+    int f3597a = 5;
     String b = "create table pgn(k INTEGER PRIMARY KEY ON CONFLICT ABORT,p TEXT UNIQUE ON CONFLICT ABORT,v TEXT,n INTEGER,s INTEGER,i INTEGER,u INTEGER,la INTEGER,o INTEGER,r INTEGER,ap INTEGER,apk TEXT,cl TEXT,b TEXT,t TEXT,ac BLOB,st INTEGER,du INTEGER,th INTEGER,m5 TEXT,rs INTEGER,l TEXT,pr INTEGER DEFAULT -1,pdld INTEGER DEFAULT 0,a TEXT)";
     public SQLiteDatabase c;
-    private C0314a e;
+    private C0331a e;
     private Context f;
 
     private a(Context context) {
         b.a();
         this.f = context.getApplicationContext();
-        this.e = new C0314a(context.getApplicationContext());
+        this.e = new C0331a(context.getApplicationContext());
         try {
             this.c = this.e.getWritableDatabase();
         } catch (Throwable th) {
@@ -50,11 +52,11 @@ public final class a {
     }
 
     /* renamed from: com.baidu.sofire.c.a$a  reason: collision with other inner class name */
-    /* loaded from: classes12.dex */
-    private class C0314a extends SQLiteOpenHelper {
-        public C0314a(Context context) {
-            super(context, "tpgcc.db", (SQLiteDatabase.CursorFactory) null, a.this.a);
-            new StringBuilder().append(a.this.a);
+    /* loaded from: classes15.dex */
+    private class C0331a extends SQLiteOpenHelper {
+        public C0331a(Context context) {
+            super(context, "tpgcc.db", (SQLiteDatabase.CursorFactory) null, a.this.f3597a);
+            new StringBuilder().append(a.this.f3597a);
             b.a();
         }
 
@@ -302,7 +304,7 @@ public final class a {
     public final ApkInfo a(int i) {
         Cursor cursor;
         ApkInfo apkInfo;
-        ArrayList<com.baidu.sofire.core.b> a;
+        ArrayList<com.baidu.sofire.core.b> a2;
         int size;
         try {
             cursor = this.c.query("pgn", null, "k=" + i, null, null, null, null);
@@ -333,23 +335,23 @@ public final class a {
                     apkInfo2.apkMD5 = cursor.getString(cursor.getColumnIndex("m5"));
                     apkInfo2.priority = cursor.getInt(cursor.getColumnIndex(Config.PRINCIPAL_PART));
                     byte[] blob = cursor.getBlob(cursor.getColumnIndex("ac"));
-                    if (blob != null && (a = com.baidu.sofire.core.a.a(blob)) != null && (size = a.size()) > 0) {
+                    if (blob != null && (a2 = com.baidu.sofire.core.a.a(blob)) != null && (size = a2.size()) > 0) {
                         apkInfo2.activities = new ActivityInfo[size];
                         for (int i2 = 0; i2 < size; i2++) {
                             ActivityInfo activityInfo = new ActivityInfo();
-                            activityInfo.theme = a.get(i2).a;
-                            activityInfo.name = a.get(i2).j;
-                            activityInfo.configChanges = a.get(i2).h;
-                            activityInfo.flags = a.get(i2).f;
-                            activityInfo.labelRes = a.get(i2).l;
-                            activityInfo.launchMode = a.get(i2).b;
-                            activityInfo.nonLocalizedLabel = a.get(i2).m;
-                            activityInfo.packageName = a.get(i2).k;
-                            activityInfo.permission = a.get(i2).c;
-                            activityInfo.screenOrientation = a.get(i2).g;
-                            activityInfo.softInputMode = a.get(i2).i;
-                            activityInfo.targetActivity = a.get(i2).e;
-                            activityInfo.taskAffinity = a.get(i2).d;
+                            activityInfo.theme = a2.get(i2).f3601a;
+                            activityInfo.name = a2.get(i2).j;
+                            activityInfo.configChanges = a2.get(i2).h;
+                            activityInfo.flags = a2.get(i2).f;
+                            activityInfo.labelRes = a2.get(i2).l;
+                            activityInfo.launchMode = a2.get(i2).b;
+                            activityInfo.nonLocalizedLabel = a2.get(i2).m;
+                            activityInfo.packageName = a2.get(i2).k;
+                            activityInfo.permission = a2.get(i2).c;
+                            activityInfo.screenOrientation = a2.get(i2).g;
+                            activityInfo.softInputMode = a2.get(i2).i;
+                            activityInfo.targetActivity = a2.get(i2).e;
+                            activityInfo.taskAffinity = a2.get(i2).d;
                             apkInfo2.activities[i2] = activityInfo;
                         }
                     }
@@ -601,10 +603,10 @@ public final class a {
                     arrayList.add(apkInfo);
                 }
             }
-            f a = f.a();
+            f a2 = f.a();
             for (ApkInfo apkInfo2 : arrayList) {
-                if (a != null) {
-                    a.b(apkInfo2.packageName);
+                if (a2 != null) {
+                    a2.b(apkInfo2.packageName);
                 }
                 new StringBuilder().append(apkInfo2.packageName).append(this.c.delete("pgn", "k=" + apkInfo2.key, null));
                 b.a();
@@ -1089,7 +1091,7 @@ public final class a {
             r6.<init>()     // Catch: java.lang.Throwable -> L1db
             java.lang.Object r0 = r4.get(r3)     // Catch: java.lang.Throwable -> L1db
             com.baidu.sofire.core.b r0 = (com.baidu.sofire.core.b) r0     // Catch: java.lang.Throwable -> L1db
-            int r0 = r0.a     // Catch: java.lang.Throwable -> L1db
+            int r0 = r0.f3601a     // Catch: java.lang.Throwable -> L1db
             r6.theme = r0     // Catch: java.lang.Throwable -> L1db
             java.lang.Object r0 = r4.get(r3)     // Catch: java.lang.Throwable -> L1db
             com.baidu.sofire.core.b r0 = (com.baidu.sofire.core.b) r0     // Catch: java.lang.Throwable -> L1db

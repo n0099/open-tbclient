@@ -12,29 +12,29 @@ import com.baidu.live.sdk.a;
 import com.baidu.live.tieba.view.bubbleview.BubbleLayout;
 /* loaded from: classes4.dex */
 public class LiveVideoChatEnterView extends RelativeLayout {
-    private TextView bvA;
-    private boolean bvB;
-    private long bvC;
-    private String bvD;
-    private int bvE;
-    private int bvF;
-    private Runnable bvG;
-    private ImageView bvy;
-    private BubbleLayout bvz;
+    private ImageView bCb;
+    private BubbleLayout bCc;
+    private TextView bCd;
+    private boolean bCe;
+    private long bCf;
+    private String bCg;
+    private int bCh;
+    private int bCi;
+    private Runnable bCj;
     private CharSequence mContentText;
     private Handler mHandler;
 
     public LiveVideoChatEnterView(Context context) {
         super(context);
-        this.bvB = false;
-        this.bvC = 0L;
-        this.bvD = null;
-        this.bvE = -1;
-        this.bvF = 0;
-        this.bvG = new Runnable() { // from class: com.baidu.live.videochat.view.LiveVideoChatEnterView.1
+        this.bCe = false;
+        this.bCf = 0L;
+        this.bCg = null;
+        this.bCh = -1;
+        this.bCi = 0;
+        this.bCj = new Runnable() { // from class: com.baidu.live.videochat.view.LiveVideoChatEnterView.1
             @Override // java.lang.Runnable
             public void run() {
-                LiveVideoChatEnterView.this.Rc();
+                LiveVideoChatEnterView.this.SU();
             }
         };
         init(context);
@@ -42,15 +42,15 @@ public class LiveVideoChatEnterView extends RelativeLayout {
 
     public LiveVideoChatEnterView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.bvB = false;
-        this.bvC = 0L;
-        this.bvD = null;
-        this.bvE = -1;
-        this.bvF = 0;
-        this.bvG = new Runnable() { // from class: com.baidu.live.videochat.view.LiveVideoChatEnterView.1
+        this.bCe = false;
+        this.bCf = 0L;
+        this.bCg = null;
+        this.bCh = -1;
+        this.bCi = 0;
+        this.bCj = new Runnable() { // from class: com.baidu.live.videochat.view.LiveVideoChatEnterView.1
             @Override // java.lang.Runnable
             public void run() {
-                LiveVideoChatEnterView.this.Rc();
+                LiveVideoChatEnterView.this.SU();
             }
         };
         init(context);
@@ -58,15 +58,15 @@ public class LiveVideoChatEnterView extends RelativeLayout {
 
     public LiveVideoChatEnterView(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.bvB = false;
-        this.bvC = 0L;
-        this.bvD = null;
-        this.bvE = -1;
-        this.bvF = 0;
-        this.bvG = new Runnable() { // from class: com.baidu.live.videochat.view.LiveVideoChatEnterView.1
+        this.bCe = false;
+        this.bCf = 0L;
+        this.bCg = null;
+        this.bCh = -1;
+        this.bCi = 0;
+        this.bCj = new Runnable() { // from class: com.baidu.live.videochat.view.LiveVideoChatEnterView.1
             @Override // java.lang.Runnable
             public void run() {
-                LiveVideoChatEnterView.this.Rc();
+                LiveVideoChatEnterView.this.SU();
             }
         };
         init(context);
@@ -74,9 +74,9 @@ public class LiveVideoChatEnterView extends RelativeLayout {
 
     private void init(Context context) {
         LayoutInflater.from(context).inflate(a.h.sdk_live_video_chat_enter_view, this);
-        this.bvz = (BubbleLayout) findViewById(a.g.layout_bubble);
-        this.bvA = (TextView) findViewById(a.g.layout_bubble_text);
-        this.bvy = (ImageView) findViewById(a.g.live_video_chat_enter);
+        this.bCc = (BubbleLayout) findViewById(a.g.layout_bubble);
+        this.bCd = (TextView) findViewById(a.g.layout_bubble_text);
+        this.bCb = (ImageView) findViewById(a.g.live_video_chat_enter);
     }
 
     public View getEnterView() {
@@ -88,26 +88,26 @@ public class LiveVideoChatEnterView extends RelativeLayout {
     }
 
     public void setAutoHideBubble(boolean z, long j) {
-        if (this.bvC <= 0) {
-            this.bvC = 0L;
+        if (this.bCf <= 0) {
+            this.bCf = 0L;
         }
-        this.bvB = z;
-        this.bvC = j;
+        this.bCe = z;
+        this.bCf = j;
     }
 
     public void setMaxShowTime(int i) {
         if (i < 0) {
             i = -1;
         }
-        this.bvE = i;
+        this.bCh = i;
     }
 
-    public void Rc() {
+    public void SU() {
         if (this.mHandler != null) {
             this.mHandler.removeCallbacksAndMessages(null);
         }
-        if (this.bvz != null && this.bvz.getParent() != null) {
-            this.bvz.setVisibility(4);
+        if (this.bCc != null && this.bCc.getParent() != null) {
+            this.bCc.setVisibility(4);
         }
     }
 }

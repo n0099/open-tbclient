@@ -4,13 +4,15 @@ import android.os.Bundle;
 import com.baidu.mapapi.map.Overlay;
 import java.util.List;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes3.dex */
+/* loaded from: classes7.dex */
 public class a implements Overlay.a {
-    final /* synthetic */ BaiduMap a;
+
+    /* renamed from: a  reason: collision with root package name */
+    final /* synthetic */ BaiduMap f2056a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public a(BaiduMap baiduMap) {
-        this.a = baiduMap;
+        this.f2056a = baiduMap;
     }
 
     @Override // com.baidu.mapapi.map.Overlay.a
@@ -27,42 +29,42 @@ public class a implements Overlay.a {
         com.baidu.mapsdkplatform.comapi.map.d dVar3;
         List list7;
         com.baidu.mapsdkplatform.comapi.map.d dVar4;
-        z = this.a.U;
+        z = this.f2056a.U;
         if (z) {
             return;
         }
         if (overlay != null) {
-            list6 = this.a.k;
+            list6 = this.f2056a.k;
             if (list6.contains(overlay)) {
-                Bundle a = overlay.a();
-                dVar3 = this.a.j;
+                Bundle a2 = overlay.a();
+                dVar3 = this.f2056a.j;
                 if (dVar3 != null) {
-                    dVar4 = this.a.j;
-                    dVar4.d(a);
+                    dVar4 = this.f2056a.j;
+                    dVar4.d(a2);
                 }
-                list7 = this.a.k;
+                list7 = this.f2056a.k;
                 list7.remove(overlay);
             }
         }
         if (overlay != null) {
-            list4 = this.a.m;
+            list4 = this.f2056a.m;
             if (list4.contains(overlay)) {
-                list5 = this.a.m;
+                list5 = this.f2056a.m;
                 list5.remove(overlay);
             }
         }
         if (overlay != null) {
-            list = this.a.l;
+            list = this.f2056a.l;
             if (list.contains(overlay)) {
                 Marker marker = (Marker) overlay;
                 if (marker.p != null) {
-                    list2 = this.a.l;
+                    list2 = this.f2056a.l;
                     list2.remove(marker);
-                    list3 = this.a.l;
+                    list3 = this.f2056a.l;
                     if (list3.size() == 0) {
-                        dVar = this.a.j;
+                        dVar = this.f2056a.j;
                         if (dVar != null) {
-                            dVar2 = this.a.j;
+                            dVar2 = this.f2056a.j;
                             dVar2.b(false);
                         }
                     }
@@ -91,12 +93,12 @@ public class a implements Overlay.a {
         boolean z4;
         com.baidu.mapsdkplatform.comapi.map.d dVar6;
         List list8;
-        z = this.a.U;
+        z = this.f2056a.U;
         if (z) {
             return;
         }
         if (overlay != null) {
-            list4 = this.a.k;
+            list4 = this.f2056a.k;
             if (list4.contains(overlay)) {
                 boolean z5 = false;
                 if (overlay instanceof Marker) {
@@ -104,15 +106,15 @@ public class a implements Overlay.a {
                     if (marker.b != null) {
                         if (marker.p != null && marker.p.size() > 1) {
                             Bundle bundle = new Bundle();
-                            dVar5 = this.a.j;
+                            dVar5 = this.f2056a.j;
                             if (dVar5 != null) {
-                                z4 = this.a.U;
+                                z4 = this.f2056a.U;
                                 if (!z4) {
                                     marker.remove();
                                     marker.p.clear();
-                                    dVar6 = this.a.j;
+                                    dVar6 = this.f2056a.j;
                                     dVar6.b(overlay.a(bundle));
-                                    list8 = this.a.k;
+                                    list8 = this.f2056a.k;
                                     list8.add(overlay);
                                     z3 = true;
                                     z5 = z3;
@@ -122,38 +124,38 @@ public class a implements Overlay.a {
                             z5 = z3;
                         }
                     } else if (marker.p != null && marker.p.size() != 0) {
-                        list5 = this.a.l;
+                        list5 = this.f2056a.l;
                         if (list5.contains(marker)) {
-                            list7 = this.a.l;
+                            list7 = this.f2056a.l;
                             list7.remove(marker);
                         }
-                        list6 = this.a.l;
+                        list6 = this.f2056a.l;
                         list6.add(marker);
-                        dVar3 = this.a.j;
+                        dVar3 = this.f2056a.j;
                         if (dVar3 != null) {
-                            dVar4 = this.a.j;
+                            dVar4 = this.f2056a.j;
                             dVar4.b(true);
                         }
                     }
                 }
-                dVar = this.a.j;
+                dVar = this.f2056a.j;
                 if (dVar != null && !z5) {
-                    z2 = this.a.U;
+                    z2 = this.f2056a.U;
                     if (!z2) {
                         Bundle bundle2 = new Bundle();
-                        dVar2 = this.a.j;
+                        dVar2 = this.f2056a.j;
                         dVar2.c(overlay.a(bundle2));
                     }
                 }
             }
         }
-        list = this.a.m;
+        list = this.f2056a.m;
         if (list.contains(overlay)) {
-            list3 = this.a.m;
+            list3 = this.f2056a.m;
             list3.remove(overlay);
         }
         if (overlay instanceof Marker) {
-            list2 = this.a.m;
+            list2 = this.f2056a.m;
             list2.add((Marker) overlay);
         }
     }
@@ -162,9 +164,9 @@ public class a implements Overlay.a {
     public boolean c(Overlay overlay) {
         List list;
         List list2;
-        list = this.a.k;
+        list = this.f2056a.k;
         if (list != null) {
-            list2 = this.a.k;
+            list2 = this.f2056a.k;
             if (!list2.contains(overlay)) {
                 return true;
             }

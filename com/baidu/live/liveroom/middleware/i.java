@@ -5,7 +5,7 @@ import android.content.Intent;
 import android.view.KeyEvent;
 /* loaded from: classes4.dex */
 public interface i {
-    void cb(boolean z);
+    void ce(boolean z);
 
     void onActivityResult(int i, int i2, Intent intent);
 
@@ -19,5 +19,5 @@ public interface i {
 
     void onStop();
 
-    void r(Activity activity);
+    void s(Activity activity);
 }

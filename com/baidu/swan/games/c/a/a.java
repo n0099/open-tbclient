@@ -13,10 +13,10 @@ import com.baidu.swan.pms.model.h;
 import com.baidu.swan.pms.utils.f;
 import java.io.File;
 import java.util.Set;
-/* loaded from: classes3.dex */
+/* loaded from: classes10.dex */
 public class a extends j {
     private static final boolean DEBUG = b.DEBUG;
-    private c<h> cJW = new com.baidu.swan.pms.a.b<h>() { // from class: com.baidu.swan.games.c.a.a.1
+    private c<h> cVZ = new com.baidu.swan.pms.a.b<h>() { // from class: com.baidu.swan.games.c.a.a.1
         @Override // com.baidu.swan.pms.a.e
         @NonNull
         public Bundle a(@NonNull Bundle bundle, Set<String> set) {
@@ -26,15 +26,15 @@ public class a extends j {
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.swan.pms.a.c
         /* renamed from: a */
-        public String R(h hVar) {
-            return a.c.apo().getPath();
+        public String U(h hVar) {
+            return a.c.arZ().getPath();
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.swan.pms.a.b, com.baidu.swan.pms.a.c
         /* renamed from: b */
-        public void P(h hVar) {
-            super.P(hVar);
+        public void S(h hVar) {
+            super.S(hVar);
             if (a.DEBUG) {
                 Log.i("ConsoleJsDownload", "onDownloadStart: " + hVar.toString());
             }
@@ -43,8 +43,8 @@ public class a extends j {
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.swan.pms.a.b, com.baidu.swan.pms.a.c
         /* renamed from: c */
-        public void Q(h hVar) {
-            super.Q(hVar);
+        public void T(h hVar) {
+            super.T(hVar);
             if (a.DEBUG) {
                 Log.i("ConsoleJsDownload", "onDownloading: 其它地方正在下载此包");
             }
@@ -57,14 +57,14 @@ public class a extends j {
             if (a.DEBUG) {
                 Log.e("ConsoleJsDownload", "onDownloadError: " + aVar.toString());
             }
-            a.this.dtb.dN(false);
+            a.this.dFd.ej(false);
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.swan.pms.a.b, com.baidu.swan.pms.a.c
         /* renamed from: d */
-        public void N(h hVar) {
-            super.N(hVar);
+        public void Q(h hVar) {
+            super.Q(hVar);
             if (a.DEBUG) {
                 Log.i("ConsoleJsDownload", "onDownloadFinish: " + hVar.toString());
             }
@@ -72,36 +72,36 @@ public class a extends j {
                 if (a.DEBUG) {
                     Log.e("ConsoleJsDownload", "onDownloadFinish: 校验签名失败");
                 }
-                a.this.dtb.dN(false);
+                a.this.dFd.ej(false);
                 return;
             }
-            File agB = a.this.dtc.agB();
-            if (agB.exists()) {
-                d.deleteFile(agB);
+            File ajm = a.this.dFe.ajm();
+            if (ajm.exists()) {
+                d.deleteFile(ajm);
             } else {
-                d.ensureDirectoryExist(agB);
+                d.ensureDirectoryExist(ajm);
             }
-            boolean unzipFile = d.unzipFile(hVar.filePath, agB.getAbsolutePath());
+            boolean unzipFile = d.unzipFile(hVar.filePath, ajm.getAbsolutePath());
             if (unzipFile) {
-                a.this.dtc.lw(hVar.versionName);
+                a.this.dFe.mi(hVar.versionName);
             }
             d.deleteFile(hVar.filePath);
-            a.this.dtb.dN(unzipFile);
+            a.this.dFd.ej(unzipFile);
         }
     };
     @NonNull
-    private com.baidu.swan.games.c.b dtb;
+    private com.baidu.swan.games.c.b dFd;
     @NonNull
-    private com.baidu.swan.games.c.b.a dtc;
+    private com.baidu.swan.games.c.b.a dFe;
 
     public a(@NonNull com.baidu.swan.games.c.b.a aVar, @NonNull com.baidu.swan.games.c.b bVar) {
-        this.dtb = bVar;
-        this.dtc = aVar;
+        this.dFd = bVar;
+        this.dFe = aVar;
     }
 
     @Override // com.baidu.swan.pms.a.g
-    public void ajg() {
-        super.ajg();
+    public void alR() {
+        super.alR();
         if (DEBUG) {
             Log.i("ConsoleJsDownload", "onFetchSuccess");
         }
@@ -113,16 +113,16 @@ public class a extends j {
         if (DEBUG) {
             Log.e("ConsoleJsDownload", "onFetchError: " + aVar.toString());
         }
-        this.dtb.dN(false);
+        this.dFd.ej(false);
     }
 
     @Override // com.baidu.swan.pms.a.g
-    public void agl() {
-        super.agl();
+    public void aiW() {
+        super.aiW();
         if (DEBUG) {
             Log.i("ConsoleJsDownload", "onNoPackage");
         }
-        this.dtb.dN(false);
+        this.dFd.ej(false);
     }
 
     @Override // com.baidu.swan.pms.a.g
@@ -134,7 +134,7 @@ public class a extends j {
     }
 
     @Override // com.baidu.swan.pms.a.g
-    public c<h> axm() {
-        return this.cJW;
+    public c<h> azX() {
+        return this.cVZ;
     }
 }

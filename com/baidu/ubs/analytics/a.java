@@ -5,24 +5,24 @@ import com.baidu.ubs.analytics.c.g;
 import com.baidu.ubs.analytics.c.j;
 import com.baidu.ubs.analytics.d;
 import java.util.Map;
-/* loaded from: classes7.dex */
+/* loaded from: classes10.dex */
 public class a {
-    private static boolean npT = false;
+    private static boolean nFn = false;
 
-    public static void Un(String str) {
-        if (npT) {
-            e.dQw().Un(str);
+    public static void Vb(String str) {
+        if (nFn) {
+            e.dUh().Vb(str);
         }
     }
 
-    public static void Uo(String str) {
-        if (npT) {
-            e.dQw().Uo(str);
+    public static void Vc(String str) {
+        if (nFn) {
+            e.dUh().Vc(str);
         }
     }
 
     public static void a(String str, String str2, String str3, Map<String, String> map) {
-        if (npT && str != null) {
+        if (nFn && str != null) {
             j.b(str, str2, str3, map);
         }
     }
@@ -33,11 +33,11 @@ public class a {
         }
     }
 
-    public static SampleResult Up(String str) {
-        return npT ? d.a.nqb.Uq(str) : SampleResult.OTHERE;
+    public static SampleResult Vd(String str) {
+        return nFn ? d.a.nFv.Ve(str) : SampleResult.OTHERE;
     }
 
-    public static void xR(boolean z) {
-        npT = z;
+    public static void yy(boolean z) {
+        nFn = z;
     }
 }

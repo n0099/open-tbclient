@@ -4,7 +4,7 @@ import android.os.Bundle;
 import com.sina.weibo.sdk.constant.WBConstants;
 import com.sina.weibo.sdk.utils.LogUtil;
 import java.io.Serializable;
-/* loaded from: classes24.dex */
+/* loaded from: classes12.dex */
 public final class WeiboMultiMessage implements Serializable {
     private static final String TAG = "WeiboMultiMessage";
     public ImageObject imageObject;

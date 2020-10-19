@@ -14,47 +14,47 @@ public final class b {
 
     /* renamed from: tv.chushou.widget.a.b$b  reason: collision with other inner class name */
     /* loaded from: classes5.dex */
-    public static final class C1003b {
-        public static final int commonres_placeholder_bg = 2131493836;
-        public static final int commonres_second_black = 2131493837;
-        public static final int commonres_selected_green = 2131493838;
+    public static final class C1021b {
+        public static final int commonres_placeholder_bg = 2131493845;
+        public static final int commonres_second_black = 2131493846;
+        public static final int commonres_selected_green = 2131493847;
     }
 
     /* loaded from: classes5.dex */
     public static final class c {
-        public static final int commonres_bg_page_status_button = 2130839808;
-        public static final int commonres_female_big = 2130839809;
-        public static final int commonres_female_no_border = 2130839810;
-        public static final int commonres_loading = 2130839811;
-        public static final int commonres_loading_anim = 2130839812;
-        public static final int commonres_male_big = 2130839813;
-        public static final int commonres_male_no_border = 2130839814;
-        public static final int commonres_pagestatus_empty = 2130839815;
-        public static final int commonres_pagestatus_need_login = 2130839816;
-        public static final int commonres_pagestatus_net_error = 2130839817;
-        public static final int commonres_pagestatus_unknown_error = 2130839818;
-        public static final int commonres_placeholder_icon = 2130839819;
+        public static final int commonres_bg_page_status_button = 2130839829;
+        public static final int commonres_female_big = 2130839830;
+        public static final int commonres_female_no_border = 2130839831;
+        public static final int commonres_loading = 2130839832;
+        public static final int commonres_loading_anim = 2130839833;
+        public static final int commonres_male_big = 2130839834;
+        public static final int commonres_male_no_border = 2130839835;
+        public static final int commonres_pagestatus_empty = 2130839836;
+        public static final int commonres_pagestatus_need_login = 2130839837;
+        public static final int commonres_pagestatus_net_error = 2130839838;
+        public static final int commonres_pagestatus_unknown_error = 2130839839;
+        public static final int commonres_placeholder_icon = 2130839840;
     }
 
     /* loaded from: classes5.dex */
     public static final class d {
-        public static final int iv_empty = 2131758922;
-        public static final int iv_loading = 2131758923;
-        public static final int tv_button = 2131758280;
-        public static final int tv_desc = 2131758924;
+        public static final int iv_empty = 2131758970;
+        public static final int iv_loading = 2131758971;
+        public static final int tv_button = 2131758329;
+        public static final int tv_desc = 2131758972;
     }
 
     /* loaded from: classes5.dex */
     public static final class e {
-        public static final int commonres_empty_loading_view = 2130969289;
+        public static final int commonres_empty_loading_view = 2130969301;
     }
 
     /* loaded from: classes5.dex */
     public static final class f {
-        public static final int commonres_pagestatus_action_login = 2131297959;
-        public static final int commonres_pagestatus_action_refresh = 2131297960;
-        public static final int commonres_pagestatus_empty = 2131297961;
-        public static final int commonres_pagestatus_net_error = 2131297962;
-        public static final int commonres_pagestatus_unknown = 2131297963;
+        public static final int commonres_pagestatus_action_login = 2131297972;
+        public static final int commonres_pagestatus_action_refresh = 2131297973;
+        public static final int commonres_pagestatus_empty = 2131297974;
+        public static final int commonres_pagestatus_net_error = 2131297975;
+        public static final int commonres_pagestatus_unknown = 2131297976;
     }
 }

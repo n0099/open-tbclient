@@ -1,9 +1,9 @@
 package com.baidu.ar.g;
-/* loaded from: classes10.dex */
+/* loaded from: classes14.dex */
 public class f {
     private static volatile boolean xi = false;
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes14.dex */
     public static class a {
         public double wu;
         public long wv;

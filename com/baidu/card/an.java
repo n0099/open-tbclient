@@ -10,63 +10,63 @@ import com.baidu.tbadk.core.data.AbsThreadDataSupport;
 import com.baidu.tbadk.core.view.ThreadCardBottomOpSegmentLayout;
 import com.baidu.tbadk.core.view.ThreadCommentAndPraiseInfoLayout;
 import java.util.List;
-/* loaded from: classes20.dex */
+/* loaded from: classes21.dex */
 public class an extends b<AbsThreadDataSupport> {
-    private int ahG;
-    private int ahH;
-    private ThreadCommentAndPraiseInfoLayout ahI;
-    private AbsThreadDataSupport ahJ;
-    private a.C0096a ahK;
-    private Runnable ahL;
+    private int ahX;
+    private int ahY;
+    private ThreadCommentAndPraiseInfoLayout ahZ;
+    private AbsThreadDataSupport aia;
+    private a.C0097a aib;
+    private Runnable aic;
 
     public an(Context context) {
         super(context);
-        this.ahG = 11;
-        this.ahH = this.ahG;
-        this.ahK = new a.C0096a(5);
-        this.ahL = new Runnable() { // from class: com.baidu.card.an.1
+        this.ahX = 11;
+        this.ahY = this.ahX;
+        this.aib = new a.C0097a(5);
+        this.aic = new Runnable() { // from class: com.baidu.card.an.1
             @Override // java.lang.Runnable
             public void run() {
-                an.this.ahK.setExtraData(Integer.valueOf(an.this.ahI.getCommentContainer().getRight() + an.this.afl.tU().ahv));
-                an.this.afl.b(an.this.ahK);
+                an.this.aib.setExtraData(Integer.valueOf(an.this.ahZ.getCommentContainer().getRight() + an.this.afC.tU().ahM));
+                an.this.afC.b(an.this.aib);
             }
         };
-        this.ahI = new ThreadCardBottomOpSegmentLayout(context);
-        this.ahI.setReplyTimeVisible(false);
-        this.ahI.setShowPraiseNum(true);
-        this.ahI.setNeedAddPraiseIcon(true);
-        this.ahI.setNeedAddReplyIcon(true);
-        this.ahI.setShareVisible(true);
-        this.ahI.setForumAfterClickListener(new View.OnClickListener() { // from class: com.baidu.card.an.2
+        this.ahZ = new ThreadCardBottomOpSegmentLayout(context);
+        this.ahZ.setReplyTimeVisible(false);
+        this.ahZ.setShowPraiseNum(true);
+        this.ahZ.setNeedAddPraiseIcon(true);
+        this.ahZ.setNeedAddReplyIcon(true);
+        this.ahZ.setShareVisible(true);
+        this.ahZ.setForumAfterClickListener(new View.OnClickListener() { // from class: com.baidu.card.an.2
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
                 if (an.this.tB() != null) {
-                    an.this.tB().a(view, an.this.ahJ);
+                    an.this.tB().a(view, an.this.aia);
                 }
             }
         });
     }
 
     public void setOnCommentClickCallback(ThreadCommentAndPraiseInfoLayout.a aVar) {
-        if (this.ahI != null) {
-            this.ahI.setOnCommentClickCallback(aVar);
+        if (this.ahZ != null) {
+            this.ahZ.setOnCommentClickCallback(aVar);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.card.b
     public void tA() {
-        this.afl.a(4, new a.b() { // from class: com.baidu.card.an.3
+        this.afC.a(4, new a.b() { // from class: com.baidu.card.an.3
             @Override // com.baidu.card.a.a.b
-            public boolean a(a.C0096a c0096a) {
-                if (c0096a.ud() instanceof Boolean) {
-                    if (((Boolean) c0096a.ud()).booleanValue()) {
-                        an.this.ahG = an.this.ahH;
+            public boolean a(a.C0097a c0097a) {
+                if (c0097a.ud() instanceof Boolean) {
+                    if (((Boolean) c0097a.ud()).booleanValue()) {
+                        an.this.ahX = an.this.ahY;
                     } else {
-                        an.this.ahG &= -5;
-                        an.this.ahG |= 64;
+                        an.this.ahX &= -5;
+                        an.this.ahX |= 64;
                     }
-                    an.this.ahI.setShowFlag(an.this.ahG);
+                    an.this.ahZ.setShowFlag(an.this.ahX);
                 }
                 return false;
             }
@@ -75,40 +75,40 @@ public class an extends b<AbsThreadDataSupport> {
 
     @Override // com.baidu.card.b
     public void bo(int i) {
-        this.ahG |= i;
-        this.ahI.setShowFlag(this.ahG);
-        this.ahH = this.ahG;
+        this.ahX |= i;
+        this.ahZ.setShowFlag(this.ahX);
+        this.ahY = this.ahX;
     }
 
     @Override // com.baidu.card.b
     public void bp(int i) {
-        this.ahG &= i ^ (-1);
-        this.ahI.setShowFlag(this.ahG);
-        this.ahH = this.ahG;
+        this.ahX &= i ^ (-1);
+        this.ahZ.setShowFlag(this.ahX);
+        this.ahY = this.ahX;
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.card.b
     public View getView() {
-        return this.ahI;
+        return this.ahZ;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.card.p
     /* renamed from: b */
-    public void G(AbsThreadDataSupport absThreadDataSupport) {
-        this.ahJ = absThreadDataSupport;
-        this.ahI.setData(absThreadDataSupport.bcY());
-        if ((this.ahG & 4) > 0 || (this.ahG & 64) > 0) {
-            this.ahI.post(this.ahL);
+    public void H(AbsThreadDataSupport absThreadDataSupport) {
+        this.aia = absThreadDataSupport;
+        this.ahZ.setData(absThreadDataSupport.bfG());
+        if ((this.ahX & 4) > 0 || (this.ahX & 64) > 0) {
+            this.ahZ.post(this.aic);
         }
         ua();
     }
 
     private void ua() {
         boolean z;
-        setMarginsTop(this.ahI, 0);
-        b tP = this.afl.tP();
+        setMarginsTop(this.ahZ, 0);
+        b tP = this.afC.tP();
         if (tP != null) {
             ViewGroup viewGroup = (ViewGroup) tP.getView();
             int childCount = viewGroup.getChildCount();
@@ -125,7 +125,7 @@ public class an extends b<AbsThreadDataSupport> {
                 }
             }
             if (z) {
-                List<i> tR = this.afl.tR();
+                List<i> tR = this.afC.tR();
                 if (!com.baidu.tbadk.core.util.y.isEmpty(tR)) {
                     for (i iVar : tR) {
                         if (iVar != null && iVar.getView() != null && iVar.getView().getVisibility() == 0) {
@@ -139,34 +139,34 @@ public class an extends b<AbsThreadDataSupport> {
 
     @Override // com.baidu.card.q
     public void onChangeSkinType(TbPageContext tbPageContext, int i) {
-        this.ahI.onChangeSkinType();
+        this.ahZ.onChangeSkinType();
     }
 
     public void setFromForPb(int i) {
-        this.ahI.ewe = i;
+        this.ahZ.eIo = i;
     }
 
     public void setFrom(int i) {
-        this.ahI.setFrom(i);
+        this.ahZ.setFrom(i);
     }
 
     public void setStType(String str) {
-        this.ahI.setStType(str);
+        this.ahZ.setStType(str);
     }
 
     public void setAgreeStatisticData(com.baidu.tbadk.core.data.c cVar) {
-        this.ahI.setAgreeStatisticData(cVar);
+        this.ahZ.setAgreeStatisticData(cVar);
     }
 
     public void setShareReportFrom(int i) {
-        this.ahI.setShareReportFrom(i);
+        this.ahZ.setShareReportFrom(i);
     }
 
     public void setGameId(int i) {
-        this.ahI.setGameId(i);
+        this.ahZ.setGameId(i);
     }
 
     public void setTabName(String str) {
-        this.ahI.setTabName(str);
+        this.ahZ.setTabName(str);
     }
 }

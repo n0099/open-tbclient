@@ -21,10 +21,10 @@ public class c {
     }
 
     public static boolean copyFile(String str, String str2) throws IOException {
-        return g(new FileInputStream(str), str2);
+        return h(new FileInputStream(str), str2);
     }
 
-    public static boolean g(InputStream inputStream, String str) throws IOException {
+    public static boolean h(InputStream inputStream, String str) throws IOException {
         int i = 0;
         try {
             FileOutputStream fileOutputStream = new FileOutputStream(str);
@@ -70,7 +70,7 @@ public class c {
         }
     }
 
-    public static void l(File file, File file2) throws ZipException, IOException {
+    public static void d(File file, File file2) throws ZipException, IOException {
         if (!file2.exists()) {
             file2.mkdirs();
         }

@@ -1,50 +1,35 @@
 package com.baidu.tieba.ala.personcenter.a;
 
 import android.graphics.drawable.Drawable;
-import android.os.Build;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
-import com.baidu.adp.base.BdBaseApplication;
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.CustomMessage;
-import com.baidu.adp.framework.message.HttpMessage;
-import com.baidu.adp.plugin.Plugin;
-import com.baidu.adp.plugin.PluginCenter;
-import com.baidu.live.tbadk.core.frameworkdata.CmdConfigCustom;
+import com.baidu.ala.AlaSharedPrefConfig;
+import com.baidu.ala.AlaSharedPrefHelper;
 import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.TbadkApplication;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.atomData.AlaMasterLiveRoomActivityConfig;
-import com.baidu.tbadk.core.dialog.a;
 import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tbadk.core.util.bg;
-import com.baidu.tbadk.core.util.permission.PermissionJudgePolicy;
+import com.baidu.tbadk.core.util.aq;
 import com.baidu.tieba.R;
-import com.baidu.tieba.ala.personcenter.c.l;
-import com.baidu.webkit.sdk.PermissionRequest;
+import com.baidu.webkit.internal.ETAG;
 /* loaded from: classes4.dex */
-public class i extends com.baidu.adp.widget.ListView.a<l, com.baidu.tieba.card.a.a<com.baidu.tieba.ala.personcenter.e.a>> {
-    private com.baidu.tieba.ueg.d fLE;
-    private TextView fRA;
-    private String gFF;
-    private boolean gWQ;
-    private boolean gWR;
-    private String mForumId;
-    private String mForumName;
+public class i extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.ala.personcenter.c.l, com.baidu.tieba.card.a.a<com.baidu.tieba.ala.personcenter.e.a>> {
+    private TextView gdS;
+    private String hlN;
     private TbPageContext mPageContext;
+    private String user_id;
 
     /* JADX INFO: Access modifiers changed from: protected */
     public i(TbPageContext tbPageContext) {
-        super(tbPageContext.getPageActivity(), l.gXu);
-        this.gWQ = false;
-        this.gWR = false;
+        super(tbPageContext.getPageActivity(), com.baidu.tieba.ala.personcenter.c.l.hmu);
         this.mPageContext = tbPageContext;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.widget.ListView.a
-    /* renamed from: aL */
+    /* renamed from: aN */
     public com.baidu.tieba.card.a.a<com.baidu.tieba.ala.personcenter.e.a> c(ViewGroup viewGroup) {
         return new com.baidu.tieba.card.a.a<>(new com.baidu.tieba.ala.personcenter.e.a(this.mPageContext));
     }
@@ -52,39 +37,34 @@ public class i extends com.baidu.adp.widget.ListView.a<l, com.baidu.tieba.card.a
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.widget.ListView.a
-    public View a(int i, View view, ViewGroup viewGroup, final l lVar, com.baidu.tieba.card.a.a<com.baidu.tieba.ala.personcenter.e.a> aVar) {
-        if (aVar.cfU() == null) {
+    public View a(int i, View view, ViewGroup viewGroup, com.baidu.tieba.ala.personcenter.c.l lVar, com.baidu.tieba.card.a.a<com.baidu.tieba.ala.personcenter.e.a> aVar) {
+        if (aVar.cjq() == null) {
             return null;
         }
-        a(lVar, aVar.cfU());
-        aVar.cfU().getView().setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.ala.personcenter.a.i.1
+        a(lVar, aVar.cjq());
+        aVar.cjq().getView().setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.ala.personcenter.a.i.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view2) {
-                i.this.a(lVar);
+                i.this.click();
             }
         });
-        return aVar.cfU().getView();
+        return aVar.cjq().getView();
     }
 
-    private void a(l lVar, com.baidu.tieba.ala.personcenter.e.a aVar) {
-        if (lVar.getPersonCenterData() != null) {
-            this.fRA = aVar.caZ();
-            caw();
-            aVar.vn(8);
-            aVar.setTitle(this.mContext.getResources().getString(R.string.ala_person_center_publish_live));
+    private void a(com.baidu.tieba.ala.personcenter.c.l lVar, com.baidu.tieba.ala.personcenter.e.a aVar) {
+        com.baidu.tieba.ala.personcenter.c.c personCenterData = lVar.getPersonCenterData();
+        if (personCenterData != null && aVar != null) {
+            this.gdS = aVar.cex();
+            this.user_id = personCenterData.cdY().user_id;
+            a(personCenterData, aVar);
+            aVar.vT(8);
+            aVar.setTitle(this.mContext.getResources().getString(R.string.ala_person_live_privilege));
             aVar.onChangeSkinType(this.mPageContext, TbadkCoreApplication.getInst().getSkinType());
         }
     }
 
-    private void caw() {
-        if (!this.gWR) {
-            this.gWR = true;
-            if (!com.baidu.tbadk.core.sharedPref.b.bjf().getBoolean(com.baidu.tbadk.core.sharedPref.b.getSharedPrefKeyWithAccount("live_publish_live_has_showed"), false)) {
-                com.baidu.tbadk.core.sharedPref.b.bjf().putBoolean(com.baidu.tbadk.core.sharedPref.b.getSharedPrefKeyWithAccount("live_publish_live_has_showed"), true);
-                a(this.fRA, null, true);
-                return;
-            }
-            a(this.fRA, null, false);
+    private void a(com.baidu.tieba.ala.personcenter.c.c cVar, com.baidu.tieba.ala.personcenter.e.a aVar) {
+        if (cVar == null || aVar == null) {
         }
     }
 
@@ -107,90 +87,28 @@ public class i extends com.baidu.adp.widget.ListView.a<l, com.baidu.tieba.card.a
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void a(l lVar) {
-        if (lVar != null && lVar.getPersonCenterData() != null) {
-            com.baidu.tbadk.core.sharedPref.b.bjf().putBoolean(com.baidu.tbadk.core.sharedPref.b.getSharedPrefKeyWithAccount("live_publish_live_has_showed"), true);
-            a(this.fRA, null, false);
-            bHM();
-            TiebaStatic.log("c13618");
-        }
-    }
-
-    private void bHM() {
-        Plugin plugin2;
-        if (Build.VERSION.SDK_INT < 21) {
-            com.baidu.tbadk.core.dialog.a aVar = new com.baidu.tbadk.core.dialog.a(this.mPageContext.getPageActivity());
-            aVar.setAutoNight(false);
-            aVar.nD(R.string.prompt);
-            aVar.zV(this.mPageContext.getResources().getString(R.string.disallow_open_live_by_android_v5_0));
-            aVar.setTitleShowCenter(true);
-            aVar.setMessageShowCenter(true);
-            aVar.a(R.string.know, new a.b() { // from class: com.baidu.tieba.ala.personcenter.a.i.2
-                @Override // com.baidu.tbadk.core.dialog.a.b
-                public void onClick(com.baidu.tbadk.core.dialog.a aVar2) {
-                    aVar2.dismiss();
-                }
-            });
-            aVar.b(this.mPageContext).bia();
-        } else if (bg.checkUpIsLogin(this.mPageContext.getPageActivity())) {
-            if (this.fLE == null) {
-                this.fLE = new com.baidu.tieba.ueg.d(this.mPageContext);
+    public void click() {
+        AlaSharedPrefHelper.getInstance().putBoolean(AlaSharedPrefConfig.ALA_MY_LIVE_PRIVILEGE_HAS_ENTERED, true);
+        a(this.gdS, this.hlN, false);
+        aq aqVar = new aq("c13333");
+        aqVar.dK("uid", TbadkApplication.getCurrentAccount());
+        TiebaStatic.log(aqVar);
+        String string = com.baidu.tbadk.core.sharedPref.b.blO().getString("ala_personal_privilege_detail_url", "http://lumotian.rmb.rmb.otp.baidu.com/cashliveui/privilege.html");
+        if (string != null) {
+            if (string.endsWith("/")) {
+                string = string.substring(0, string.length() - 1);
             }
-            if (this.gWQ) {
-                if (this.fLE.dEu()) {
-                    return;
-                }
-            } else if (this.fLE.dEt()) {
-                return;
-            }
-            if (!BdBaseApplication.getInst().isDebugMode() && (plugin2 = PluginCenter.getInstance().getPlugin("com.baidu.tieba.pluginAla")) != null && !plugin2.isLoaded()) {
-                com.baidu.adp.lib.util.l.showToast(this.mPageContext.getPageActivity(), R.string.plugin_config_not_found);
+            String str = this.user_id;
+            StringBuilder sb = new StringBuilder();
+            sb.append("id=");
+            sb.append(str);
+            if (!string.contains("?")) {
+                sb.insert(0, "?");
             } else {
-                o(this.mPageContext);
+                sb.insert(0, ETAG.ITEM_SEPARATOR);
             }
+            sb.insert(0, string);
+            com.baidu.tbadk.browser.a.startWebActivity(this.mPageContext.getPageActivity(), sb.toString());
         }
-    }
-
-    private void o(final TbPageContext tbPageContext) {
-        if (tbPageContext != null) {
-            PermissionJudgePolicy permissionJudgePolicy = new PermissionJudgePolicy();
-            permissionJudgePolicy.clearRequestPermissionList();
-            permissionJudgePolicy.appendRequestPermission(tbPageContext.getPageActivity(), "android.permission.WRITE_EXTERNAL_STORAGE");
-            permissionJudgePolicy.appendRequestPermission(tbPageContext.getPageActivity(), PermissionRequest.RESOURCE_VIDEO_CAPTURE);
-            permissionJudgePolicy.appendRequestPermission(tbPageContext.getPageActivity(), PermissionRequest.RESOURCE_AUDIO_CAPTURE);
-            permissionJudgePolicy.a(new PermissionJudgePolicy.b() { // from class: com.baidu.tieba.ala.personcenter.a.i.3
-                @Override // com.baidu.tbadk.core.util.permission.PermissionJudgePolicy.b
-                public void onPermissionsGranted() {
-                    String str;
-                    if (i.this.gWQ) {
-                        str = i.this.mForumId;
-                    } else {
-                        str = "0";
-                    }
-                    String str2 = i.this.gWQ ? i.this.mForumName : null;
-                    String str3 = i.this.gWQ ? i.this.gFF : null;
-                    MessageManager.getInstance().sendMessage(new HttpMessage(1003303));
-                    com.baidu.adp.lib.c.a.mj().getAddress(false);
-                    MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new AlaMasterLiveRoomActivityConfig(tbPageContext.getPageActivity(), str2, str, TbadkCoreApplication.getCurrentAccount(), str3)));
-                }
-            });
-            permissionJudgePolicy.startRequestPermission(tbPageContext.getPageActivity());
-        }
-    }
-
-    public void setForumId(String str) {
-        this.mForumId = str;
-    }
-
-    public void setForumName(String str) {
-        this.mForumName = str;
-    }
-
-    public void kE(boolean z) {
-        this.gWQ = z;
-    }
-
-    public void Hc(String str) {
-        this.gFF = str;
     }
 }

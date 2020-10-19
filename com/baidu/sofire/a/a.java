@@ -2,9 +2,11 @@ package com.baidu.sofire.a;
 
 import android.content.Context;
 import android.telephony.TelephonyManager;
-/* loaded from: classes12.dex */
+/* loaded from: classes15.dex */
 public final class a {
-    private static String a;
+
+    /* renamed from: a  reason: collision with root package name */
+    private static String f3592a;
     private static int b = -1;
 
     private static String b(Context context) {
@@ -26,10 +28,10 @@ public final class a {
             java.lang.Class<com.baidu.sofire.a.a> r1 = com.baidu.sofire.a.a.class
             monitor-enter(r1)
             java.lang.String r0 = ""
-            java.lang.String r2 = com.baidu.sofire.a.a.a     // Catch: java.lang.Throwable -> L24
+            java.lang.String r2 = com.baidu.sofire.a.a.f3592a     // Catch: java.lang.Throwable -> L24
             boolean r2 = android.text.TextUtils.isEmpty(r2)     // Catch: java.lang.Throwable -> L24
             if (r2 != 0) goto L12
-            java.lang.String r0 = com.baidu.sofire.a.a.a     // Catch: java.lang.Throwable -> L24
+            java.lang.String r0 = com.baidu.sofire.a.a.f3592a     // Catch: java.lang.Throwable -> L24
         L10:
             monitor-exit(r1)
             return r0
@@ -39,7 +41,7 @@ public final class a {
             java.lang.String r0 = r2.a()     // Catch: java.lang.Throwable -> L24
             boolean r3 = android.text.TextUtils.isEmpty(r0)     // Catch: java.lang.Throwable -> L24
             if (r3 != 0) goto L26
-            com.baidu.sofire.a.a.a = r0     // Catch: java.lang.Throwable -> L24
+            com.baidu.sofire.a.a.f3592a = r0     // Catch: java.lang.Throwable -> L24
             goto L10
         L24:
             r2 = move-exception
@@ -52,22 +54,22 @@ public final class a {
             r4 = -1
             if (r3 == r4) goto L10
             java.lang.String r0 = b(r8)     // Catch: java.lang.Throwable -> L24
-            com.baidu.sofire.a.a.a = r0     // Catch: java.lang.Throwable -> L24
+            com.baidu.sofire.a.a.f3592a = r0     // Catch: java.lang.Throwable -> L24
             boolean r3 = android.text.TextUtils.isEmpty(r0)     // Catch: java.lang.Throwable -> L6f
             if (r3 != 0) goto L10
-            android.content.SharedPreferences$Editor r3 = r2.a     // Catch: java.lang.Throwable -> L6f
+            android.content.SharedPreferences$Editor r3 = r2.f3595a     // Catch: java.lang.Throwable -> L6f
             java.lang.String r4 = "dd_v_d"
             java.lang.String r5 = com.baidu.sofire.b.c.a(r0)     // Catch: java.lang.Throwable -> L6f
             r3.putString(r4, r5)     // Catch: java.lang.Throwable -> L6f
-            android.content.SharedPreferences$Editor r3 = r2.a     // Catch: java.lang.Throwable -> L6f
+            android.content.SharedPreferences$Editor r3 = r2.f3595a     // Catch: java.lang.Throwable -> L6f
             r3.commit()     // Catch: java.lang.Throwable -> L6f
             long r4 = java.lang.System.currentTimeMillis()     // Catch: java.lang.Throwable -> L6f
             java.lang.Long r3 = java.lang.Long.valueOf(r4)     // Catch: java.lang.Throwable -> L6f
-            android.content.SharedPreferences$Editor r4 = r2.a     // Catch: java.lang.Throwable -> L6f
+            android.content.SharedPreferences$Editor r4 = r2.f3595a     // Catch: java.lang.Throwable -> L6f
             java.lang.String r5 = "dd_v_d_t"
             long r6 = r3.longValue()     // Catch: java.lang.Throwable -> L6f
             r4.putLong(r5, r6)     // Catch: java.lang.Throwable -> L6f
-            android.content.SharedPreferences$Editor r2 = r2.a     // Catch: java.lang.Throwable -> L6f
+            android.content.SharedPreferences$Editor r2 = r2.f3595a     // Catch: java.lang.Throwable -> L6f
             r2.commit()     // Catch: java.lang.Throwable -> L6f
             goto L10
         L6f:

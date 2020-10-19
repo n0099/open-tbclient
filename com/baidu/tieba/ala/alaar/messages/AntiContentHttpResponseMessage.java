@@ -6,15 +6,15 @@ import java.util.List;
 import org.json.JSONObject;
 /* loaded from: classes4.dex */
 public class AntiContentHttpResponseMessage extends JsonHttpResponsedMessage {
-    private int bMQ;
-    private int fAP;
-    private int fAQ;
-    public List<FuFaceItem> fAR;
+    private int bTz;
+    private int fMY;
+    private int fMZ;
+    public List<FuFaceItem> fNa;
     private int mask;
 
     public AntiContentHttpResponseMessage() {
         super(1021158);
-        this.fAR = null;
+        this.fNa = null;
     }
 
     @Override // com.baidu.live.tbadk.message.http.JsonHttpResponsedMessage
@@ -22,14 +22,14 @@ public class AntiContentHttpResponseMessage extends JsonHttpResponsedMessage {
         JSONObject optJSONObject;
         super.decodeLogicInBackGround(i, jSONObject);
         if (getError() == 0 && (optJSONObject = jSONObject.optJSONObject("data")) != null) {
-            this.fAP = optJSONObject.optInt("auditType");
+            this.fMY = optJSONObject.optInt("auditType");
             this.mask = optJSONObject.optInt("mask");
-            this.bMQ = optJSONObject.optInt("display");
-            this.fAQ = optJSONObject.optInt("ansSense");
+            this.bTz = optJSONObject.optInt("display");
+            this.fMZ = optJSONObject.optInt("ansSense");
         }
     }
 
-    public boolean bFz() {
-        return this.bMQ == 1;
+    public boolean bIl() {
+        return this.bTz == 1;
     }
 }

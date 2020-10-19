@@ -10,7 +10,7 @@ import com.baidu.android.imsdk.upload.action.IMTrack;
 import com.baidu.android.imsdk.utils.LogUtils;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes9.dex */
+/* loaded from: classes5.dex */
 public class IMGetPaTypeRequest extends PaBaseHttpRequest {
     private String mKey;
     private long mPaId;

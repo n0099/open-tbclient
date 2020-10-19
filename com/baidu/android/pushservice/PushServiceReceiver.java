@@ -17,7 +17,7 @@ import com.baidu.android.pushservice.message.PublicMsg;
 import com.baidu.android.util.io.ActionJsonData;
 import java.net.URISyntaxException;
 @SuppressLint({"NewApi"})
-/* loaded from: classes7.dex */
+/* loaded from: classes10.dex */
 public class PushServiceReceiver extends BroadcastReceiver {
     private static Intent a(Context context, String str) {
         Intent intent;
@@ -58,10 +58,10 @@ public class PushServiceReceiver extends BroadcastReceiver {
             }
             if (intent != null) {
                 PendingIntent activity = PendingIntent.getActivity(context, 0, intent, 0);
-                Notification a = d.a(context, 0, 7, publicMsg.mTitle, publicMsg.mDescription, false);
-                if (a != null) {
-                    a.contentIntent = activity;
-                    notificationManager.notify(System.currentTimeMillis() + "", 0, a);
+                Notification a2 = d.a(context, 0, 7, publicMsg.mTitle, publicMsg.mDescription, false);
+                if (a2 != null) {
+                    a2.contentIntent = activity;
+                    notificationManager.notify(System.currentTimeMillis() + "", 0, a2);
                 }
             }
         } catch (Exception e2) {
@@ -125,10 +125,10 @@ public class PushServiceReceiver extends BroadcastReceiver {
         intent2.putExtra("msg_id", publicMsg.mMsgId);
         PendingIntent service2 = PendingIntent.getService(context, 0, intent2, 0);
         boolean h = m.h(context, publicMsg.mPkgName);
-        Notification a = publicMsg.mNotificationBuilder == 0 ? d.a(context, publicMsg.mNotificationBuilder, publicMsg.mNotificationBasicStyle, publicMsg.mTitle, publicMsg.mDescription, h) : d.a(context, publicMsg.mNotificationBuilder, publicMsg.mTitle, publicMsg.mDescription, h);
-        a.contentIntent = service;
-        a.deleteIntent = service2;
-        notificationManager.notify(publicMsg.mMsgId, 0, a);
+        Notification a2 = publicMsg.mNotificationBuilder == 0 ? d.a(context, publicMsg.mNotificationBuilder, publicMsg.mNotificationBasicStyle, publicMsg.mTitle, publicMsg.mDescription, h) : d.a(context, publicMsg.mNotificationBuilder, publicMsg.mTitle, publicMsg.mDescription, h);
+        a2.contentIntent = service;
+        a2.deleteIntent = service2;
+        notificationManager.notify(publicMsg.mMsgId, 0, a2);
         m.a(publicMsg.mMsgId + " notified!", context.getApplicationContext());
         a(context, publicMsg, bArr, bArr2);
     }
@@ -182,11 +182,11 @@ public class PushServiceReceiver extends BroadcastReceiver {
                     com.baidu.android.pushservice.g.d.a().a(new com.baidu.android.pushservice.g.c("showPrivateNotification", (short) 99) { // from class: com.baidu.android.pushservice.PushServiceReceiver.3
                         @Override // com.baidu.android.pushservice.g.c
                         public void a() {
-                            PublicMsg a = com.baidu.android.pushservice.message.a.c.a(context, stringExtra4, stringExtra5, byteArrayExtra2, byteArrayExtra);
-                            if (a == null) {
+                            PublicMsg a2 = com.baidu.android.pushservice.message.a.c.a(context, stringExtra4, stringExtra5, byteArrayExtra2, byteArrayExtra);
+                            if (a2 == null) {
                                 m.a(stringExtra5 + " check fail!, type=" + stringExtra3, context.getApplicationContext());
                             } else if (com.meizu.cloud.pushsdk.constants.PushConstants.MZ_PUSH_MESSAGE_METHOD_ACTION_PRIVATE.equals(stringExtra3)) {
-                                PushServiceReceiver.b(context, stringExtra, stringExtra2, a, byteArrayExtra2, byteArrayExtra);
+                                PushServiceReceiver.b(context, stringExtra, stringExtra2, a2, byteArrayExtra2, byteArrayExtra);
                             }
                         }
                     });

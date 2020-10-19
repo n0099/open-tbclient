@@ -7,96 +7,96 @@ import com.baidu.swan.apps.core.h.a;
 import com.baidu.swan.apps.core.turbo.d;
 import com.baidu.swan.apps.res.ui.pullrefresh.PullToRefreshBase;
 import com.baidu.swan.apps.y.f;
-/* loaded from: classes3.dex */
+/* loaded from: classes10.dex */
 public class b {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    public static final boolean cJi;
-    private static volatile boolean cJj;
-    private static volatile a cJk;
+    public static final boolean cVl;
+    private static volatile boolean cVm;
+    private static volatile a cVn;
 
     static {
-        cJi = !ProcessUtils.isMainProcess() && com.baidu.swan.apps.t.a.apx().ZR();
-        cJj = false;
+        cVl = !ProcessUtils.isMainProcess() && com.baidu.swan.apps.t.a.asi().acD();
+        cVm = false;
     }
 
     public static void init() {
-        if (!cJj) {
+        if (!cVm) {
             if (DEBUG) {
-                Log.d("SwanAbSwitchCache", "SwanAbSwitchCache-init:" + ProcessUtils.getCurProcessName() + ":" + cJi);
+                Log.d("SwanAbSwitchCache", "SwanAbSwitchCache-init:" + ProcessUtils.getCurProcessName() + ":" + cVl);
             }
-            awN();
-            awO();
-            cJj = true;
+            azy();
+            azz();
+            cVm = true;
         }
     }
 
-    private static void awN() {
-        a.b.agw();
-        a.C0383a.ajP();
-        com.baidu.swan.apps.t.a.apx().Zl();
-        com.baidu.swan.apps.core.i.a.ajS();
-        com.baidu.swan.apps.ap.b.aEX();
-        d.axc();
+    private static void azy() {
+        a.b.ajh();
+        a.C0400a.amA();
+        com.baidu.swan.apps.t.a.asi().abX();
+        com.baidu.swan.apps.core.i.a.amD();
+        com.baidu.swan.apps.ap.b.aHG();
+        d.azN();
         d.a.isEnable();
-        d.C0391d.Zs();
-        d.c.f(true);
+        d.C0408d.ace();
+        d.c.g(true);
     }
 
-    private static void awO() {
-        awP();
+    private static void azz() {
+        azA();
     }
 
-    private static a awP() {
-        if (cJk == null) {
+    private static a azA() {
+        if (cVn == null) {
             synchronized (a.class) {
-                if (cJk == null) {
-                    cJk = new a();
+                if (cVn == null) {
+                    cVn = new a();
                     if (DEBUG) {
                         Log.d("SwanAbSwitchCache", "getAbSwitchHolder:init.");
                     }
                 }
             }
         }
-        return cJk;
+        return cVn;
     }
 
-    public static boolean awQ() {
-        return cJj;
+    public static boolean azB() {
+        return cVm;
     }
 
-    public static boolean awR() {
-        return cJi && cJj && cJk != null;
+    public static boolean azC() {
+        return cVl && cVm && cVn != null;
     }
 
-    public static boolean avt() {
-        return awP().cJo;
+    public static boolean aye() {
+        return azA().cVr;
     }
 
-    public static boolean anX() {
-        return awP().cJp;
+    public static boolean aqJ() {
+        return azA().cVs;
     }
 
     public static boolean getNgWebViewHeightSwitch() {
-        return awP().cJq;
+        return azA().cVt;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes3.dex */
+    /* loaded from: classes10.dex */
     public static class a {
-        private final int cJl;
-        private final long cJm;
-        private final boolean cJn;
-        private final boolean cJo;
-        private final boolean cJp;
-        private final boolean cJq;
+        private final int cVo;
+        private final long cVp;
+        private final boolean cVq;
+        private final boolean cVr;
+        private final boolean cVs;
+        private final boolean cVt;
 
         private a() {
-            this.cJl = com.baidu.swan.apps.t.a.apx().ZS();
-            this.cJm = com.baidu.swan.apps.t.a.apx().ZE();
-            this.cJn = com.baidu.swan.apps.t.a.apx().ZA();
-            this.cJo = f.avt();
-            this.cJp = com.baidu.swan.apps.framework.c.anX();
-            this.cJq = PullToRefreshBase.getNgWebViewHeightSwitch();
+            this.cVo = com.baidu.swan.apps.t.a.asi().acE();
+            this.cVp = com.baidu.swan.apps.t.a.asi().acq();
+            this.cVq = com.baidu.swan.apps.t.a.asi().acm();
+            this.cVr = f.aye();
+            this.cVs = com.baidu.swan.apps.framework.c.aqJ();
+            this.cVt = PullToRefreshBase.getNgWebViewHeightSwitch();
         }
     }
 }

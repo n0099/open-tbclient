@@ -1,5 +1,5 @@
 package com.baidu.fsg.face.liveness.utils;
-/* loaded from: classes16.dex */
+/* loaded from: classes17.dex */
 public class LivenessVideoState {
     public static final int STATE_RECOG_FIRST = 1;
     public static final int STATE_RECOG_INIT = 0;
@@ -8,7 +8,9 @@ public class LivenessVideoState {
     public static final int STATE_TO_START_VIDEO = 4;
     public static final int STATE_VIDEO = 5;
     public static final int STATE_VIDEO_DONE = 6;
-    private long a;
+
+    /* renamed from: a  reason: collision with root package name */
+    private long f1726a;
     private long b;
     public boolean isLrcTipAnimCalling;
     public boolean isWarningTipAnimCalled;
@@ -32,20 +34,20 @@ public class LivenessVideoState {
     }
 
     public String getLrcStartTimeOffset() {
-        return ((this.lrcTextStartTime - this.a) / 1000) + "";
+        return ((this.lrcTextStartTime - this.f1726a) / 1000) + "";
     }
 
     public void setProcessStartTime() {
-        this.a = System.currentTimeMillis();
+        this.f1726a = System.currentTimeMillis();
         setLastFindFaceStartTime();
     }
 
     public boolean isFirstRecogTimeout() {
-        return this.currentState < 5 && System.currentTimeMillis() - this.a > 20000;
+        return this.currentState < 5 && System.currentTimeMillis() - this.f1726a > 20000;
     }
 
     public long getVideoTime() {
-        return (System.currentTimeMillis() - this.a) / 1000;
+        return (System.currentTimeMillis() - this.f1726a) / 1000;
     }
 
     public void setLastFindFaceStartTime() {

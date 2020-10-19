@@ -59,10 +59,12 @@ import android.widget.ViewSwitcher;
 import com.baidu.live.data.AlaLiveStreamSessionInfo;
 import java.util.HashMap;
 import java.util.Locale;
-/* loaded from: classes15.dex */
+/* loaded from: classes17.dex */
 public class ay {
     private static final ay b = new ay();
-    private HashMap<String, String> a = new HashMap<>();
+
+    /* renamed from: a  reason: collision with root package name */
+    private HashMap<String, String> f2570a = new HashMap<>();
 
     public static ay a() {
         return b;
@@ -79,7 +81,7 @@ public class ay {
     }
 
     private void b() {
-        if (Build.VERSION.SDK_INT >= 14 && this.a.size() == 0) {
+        if (Build.VERSION.SDK_INT >= 14 && this.f2570a.size() == 0) {
             try {
                 a(AutoCompleteTextView.class.getSimpleName(), "A0");
             } catch (Throwable th) {
@@ -359,12 +361,12 @@ public class ay {
     }
 
     private void a(String str, String str2) {
-        if (!TextUtils.isEmpty(str) && !this.a.containsKey(str)) {
-            this.a.put(str, str2.toUpperCase(Locale.ENGLISH));
+        if (!TextUtils.isEmpty(str) && !this.f2570a.containsKey(str)) {
+            this.f2570a.put(str, str2.toUpperCase(Locale.ENGLISH));
         }
     }
 
     public String a(String str) {
-        return this.a.get(str);
+        return this.f2570a.get(str);
     }
 }

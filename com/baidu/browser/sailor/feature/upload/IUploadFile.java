@@ -6,7 +6,7 @@ import android.net.Uri;
 import android.webkit.ValueCallback;
 import com.baidu.browser.core.INoProGuard;
 import com.baidu.webkit.sdk.WebChromeClient;
-/* loaded from: classes8.dex */
+/* loaded from: classes11.dex */
 public interface IUploadFile extends INoProGuard {
     void cancelUpload(Activity activity);
 

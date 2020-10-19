@@ -1,17 +1,17 @@
 package com.google.gson.internal.a;
 
 import java.lang.reflect.AccessibleObject;
-/* loaded from: classes23.dex */
+/* loaded from: classes17.dex */
 public abstract class b {
-    private static final b nPO;
+    private static final b ofh;
 
     public abstract void b(AccessibleObject accessibleObject);
 
     static {
-        nPO = com.google.gson.internal.c.ebj() < 9 ? new a() : new c();
+        ofh = com.google.gson.internal.c.eeU() < 9 ? new a() : new c();
     }
 
-    public static b ebM() {
-        return nPO;
+    public static b efx() {
+        return ofh;
     }
 }

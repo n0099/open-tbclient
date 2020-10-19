@@ -15,9 +15,11 @@ import android.view.Window;
 import android.view.WindowManager;
 import android.widget.FrameLayout;
 import java.lang.reflect.Method;
-/* loaded from: classes16.dex */
+/* loaded from: classes17.dex */
 public class j {
-    public static final int a = -1728053248;
+
+    /* renamed from: a  reason: collision with root package name */
+    public static final int f1588a = -1728053248;
     private static String b;
     private final a c;
     private boolean d;
@@ -128,9 +130,11 @@ public class j {
         viewGroup.addView(this.g);
     }
 
-    /* loaded from: classes16.dex */
+    /* loaded from: classes17.dex */
     public static class a {
-        private static final String a = "status_bar_height";
+
+        /* renamed from: a  reason: collision with root package name */
+        private static final String f1589a = "status_bar_height";
         private static final String b = "navigation_bar_height";
         private static final String c = "navigation_bar_height_landscape";
         private static final String d = "navigation_bar_width";
@@ -146,7 +150,7 @@ public class j {
             Resources resources = activity.getResources();
             this.j = resources.getConfiguration().orientation == 1;
             this.k = a(activity);
-            this.f = a(resources, a);
+            this.f = a(resources, f1589a);
             this.h = a((Context) activity);
             this.i = b(activity);
             this.g = this.h > 0;

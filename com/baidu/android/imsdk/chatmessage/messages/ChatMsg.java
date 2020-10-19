@@ -12,6 +12,7 @@ import com.baidu.android.imsdk.task.TaskManager;
 import com.baidu.android.imsdk.utils.LogUtils;
 import com.baidu.android.imsdk.utils.NoProGuard;
 import com.baidu.android.imsdk.utils.Utility;
+import com.baidu.live.adp.lib.stats.BdStatsConstant;
 import com.baidu.live.tbadk.log.LogConfig;
 import java.util.ArrayList;
 import java.util.List;
@@ -19,7 +20,7 @@ import java.util.Random;
 import java.util.concurrent.atomic.AtomicInteger;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes9.dex */
+/* loaded from: classes5.dex */
 public abstract class ChatMsg implements Parcelable, NoProGuard {
     public static final int MSG_FORM_OTHER_DEVICE = 2;
     public static final int MSG_FROM_SAME_DEVICE = 1;
@@ -939,5 +940,20 @@ public abstract class ChatMsg implements Parcelable, NoProGuard {
 
     public int getTemplateType() {
         return this.mTemplateType;
+    }
+
+    public String toJsonString() {
+        JSONObject jSONObject = new JSONObject();
+        try {
+            jSONObject.put("content", getJsonContent());
+            jSONObject.put("msgid", getMsgId());
+            jSONObject.put("type", getMsgType());
+            jSONObject.put("time", getMsgTime());
+            jSONObject.put("status", getStatus());
+            jSONObject.put(BdStatsConstant.StatsType.ERROR, getTipsCode());
+        } catch (JSONException e) {
+            LogUtils.e(TAG, "toJsonString exception ", e);
+        }
+        return jSONObject.toString();
     }
 }

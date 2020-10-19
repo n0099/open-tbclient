@@ -3,7 +3,7 @@ package com.baidu.mobad.feeds;
 import com.baidu.mobads.interfaces.feeds.IXAdFeedsRequestParameters;
 import java.util.HashMap;
 import java.util.Map;
-/* loaded from: classes3.dex */
+/* loaded from: classes7.dex */
 public final class RequestParameters implements IXAdFeedsRequestParameters {
     public static final int ADS_TYPE_DOWNLOAD = 2;
     public static final int ADS_TYPE_OPENPAGE = 1;
@@ -13,7 +13,9 @@ public final class RequestParameters implements IXAdFeedsRequestParameters {
     public static final int DOWNLOAD_APP_CONFIRM_ONLY_MOBILE = 1;
     public static final int MAX_ASSETS_RESERVED = 15;
     public static final String TAG = "RequestParameters";
-    private final String a;
+
+    /* renamed from: a  reason: collision with root package name */
+    private final String f2270a;
     private int b;
     private boolean c;
     private Map<String, String> d;
@@ -22,9 +24,11 @@ public final class RequestParameters implements IXAdFeedsRequestParameters {
     private int g;
     protected String mPlacementId;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes7.dex */
     public static class Builder {
-        private String a;
+
+        /* renamed from: a  reason: collision with root package name */
+        private String f2271a;
         private Map<String, String> b = new HashMap();
         private int c = 3;
         private boolean d = false;
@@ -70,7 +74,7 @@ public final class RequestParameters implements IXAdFeedsRequestParameters {
     private RequestParameters(Builder builder) {
         this.e = 0;
         this.f = 0;
-        this.a = builder.a;
+        this.f2270a = builder.f2271a;
         this.b = builder.c;
         this.e = builder.e;
         this.f = builder.f;
@@ -81,7 +85,7 @@ public final class RequestParameters implements IXAdFeedsRequestParameters {
 
     @Override // com.baidu.mobads.interfaces.feeds.IXAdFeedsRequestParameters
     public final String getKeywords() {
-        return this.a;
+        return this.f2270a;
     }
 
     public int getWidth() {
@@ -118,7 +122,7 @@ public final class RequestParameters implements IXAdFeedsRequestParameters {
     @Override // com.baidu.mobads.interfaces.feeds.IXAdFeedsRequestParameters
     public HashMap<String, Object> toHashMap() {
         HashMap<String, Object> hashMap = new HashMap<>();
-        hashMap.put("mKeywords", this.a);
+        hashMap.put("mKeywords", this.f2270a);
         hashMap.put("adsType", Integer.valueOf(this.b));
         hashMap.put("confirmDownloading", Boolean.valueOf(this.c));
         HashMap hashMap2 = new HashMap();

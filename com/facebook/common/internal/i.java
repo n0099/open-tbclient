@@ -6,31 +6,31 @@ import java.util.IdentityHashMap;
 import java.util.Map;
 import java.util.Set;
 import java.util.concurrent.CopyOnWriteArraySet;
-/* loaded from: classes17.dex */
+/* loaded from: classes6.dex */
 public final class i {
-    public static <E> HashSet<E> dSE() {
+    public static <E> HashSet<E> dWp() {
         return new HashSet<>();
     }
 
     public static <E> HashSet<E> N(E... eArr) {
-        HashSet<E> Ly = Ly(eArr.length);
-        Collections.addAll(Ly, eArr);
-        return Ly;
+        HashSet<E> Me = Me(eArr.length);
+        Collections.addAll(Me, eArr);
+        return Me;
     }
 
-    public static <E> HashSet<E> Ly(int i) {
+    public static <E> HashSet<E> Me(int i) {
         return new HashSet<>(i);
     }
 
-    public static <E> Set<E> dSF() {
-        return x(new IdentityHashMap());
+    public static <E> Set<E> dWq() {
+        return H(new IdentityHashMap());
     }
 
-    public static <E> Set<E> x(Map<E, Boolean> map) {
+    public static <E> Set<E> H(Map<E, Boolean> map) {
         return Collections.newSetFromMap(map);
     }
 
-    public static <E> CopyOnWriteArraySet<E> dSG() {
+    public static <E> CopyOnWriteArraySet<E> dWr() {
         return new CopyOnWriteArraySet<>();
     }
 }

@@ -4,15 +4,17 @@ import android.os.Handler;
 import android.os.Message;
 import java.util.TimerTask;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes3.dex */
+/* loaded from: classes7.dex */
 public class h extends TimerTask {
-    final /* synthetic */ int a;
+
+    /* renamed from: a  reason: collision with root package name */
+    final /* synthetic */ int f2683a;
     final /* synthetic */ e b;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public h(e eVar, int i) {
         this.b = eVar;
-        this.a = i;
+        this.f2683a = i;
     }
 
     @Override // java.util.TimerTask, java.lang.Runnable
@@ -25,41 +27,41 @@ public class h extends TimerTask {
         Handler handler2;
         com.baidu.pano.platform.c.a aVar5;
         float c = this.b.c();
-        if (1 == this.a) {
+        if (1 == this.f2683a) {
             if (c > 40.0f) {
-                aVar5 = this.b.a;
+                aVar5 = this.b.f2680a;
                 c = aVar5.a();
             } else {
                 this.b.k();
                 return;
             }
-        } else if (2 == this.a) {
+        } else if (2 == this.f2683a) {
             if (c > 20.0f) {
-                aVar4 = this.b.a;
+                aVar4 = this.b.f2680a;
                 c = aVar4.a();
             } else {
                 this.b.k();
                 return;
             }
-        } else if (3 == this.a) {
+        } else if (3 == this.f2683a) {
             if (c < 60.0f) {
-                aVar3 = this.b.a;
+                aVar3 = this.b.f2680a;
                 c = aVar3.a();
             } else {
                 this.b.k();
                 return;
             }
-        } else if (4 == this.a) {
+        } else if (4 == this.f2683a) {
             if (c > 20.0f) {
-                aVar2 = this.b.a;
+                aVar2 = this.b.f2680a;
                 c = aVar2.a();
             } else {
                 this.b.k();
                 return;
             }
-        } else if (5 == this.a) {
+        } else if (5 == this.f2683a) {
             if (c > 40.0f) {
-                aVar = this.b.a;
+                aVar = this.b.f2680a;
                 c = aVar.a();
             } else {
                 this.b.k();

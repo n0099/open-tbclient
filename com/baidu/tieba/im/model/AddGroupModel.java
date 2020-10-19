@@ -6,7 +6,7 @@ import com.baidu.live.tbadk.core.util.TbEnum;
 import com.baidu.tbadk.BaseActivity;
 import com.baidu.tieba.im.message.RequestAddGroupMessage;
 import com.baidu.tieba.im.message.ResponseAddGroupMessage;
-/* loaded from: classes22.dex */
+/* loaded from: classes23.dex */
 public class AddGroupModel extends BdBaseModel<Object> {
     private String business;
     private int flag;

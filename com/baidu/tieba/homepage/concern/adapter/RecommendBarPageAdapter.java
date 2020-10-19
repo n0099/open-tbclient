@@ -13,25 +13,25 @@ import com.baidu.tbadk.core.util.aq;
 import com.baidu.tieba.R;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes21.dex */
+/* loaded from: classes22.dex */
 public class RecommendBarPageAdapter extends PagerAdapter {
-    private int aiX = 3;
-    private List<com.baidu.adp.widget.ListView.q> iPA = new ArrayList(6);
-    private List<com.baidu.tieba.homepage.concern.b.b> iPB = new ArrayList(6);
-    private byte iPz;
+    private byte jet;
     private TbPageContext<?> pageContext;
+    private int ajp = 3;
+    private List<com.baidu.adp.widget.ListView.q> jeu = new ArrayList(6);
+    private List<com.baidu.tieba.homepage.concern.b.b> jev = new ArrayList(6);
 
     public RecommendBarPageAdapter(TbPageContext<?> tbPageContext, byte b) {
         this.pageContext = tbPageContext;
-        this.iPz = b;
+        this.jet = b;
         for (int i = 0; i < 6; i++) {
-            this.iPB.add(new com.baidu.tieba.homepage.concern.b.b(LayoutInflater.from(this.pageContext.getPageActivity()).inflate(R.layout.recommend_bar_item, (ViewGroup) null, false), this.pageContext, b));
+            this.jev.add(new com.baidu.tieba.homepage.concern.b.b(LayoutInflater.from(this.pageContext.getPageActivity()).inflate(R.layout.recommend_bar_item, (ViewGroup) null, false), this.pageContext, b));
         }
     }
 
     @Override // android.support.v4.view.PagerAdapter
     public int getCount() {
-        return com.baidu.tbadk.core.util.y.getCount(this.iPA);
+        return com.baidu.tbadk.core.util.y.getCount(this.jeu);
     }
 
     @Override // android.support.v4.view.PagerAdapter
@@ -40,40 +40,40 @@ public class RecommendBarPageAdapter extends PagerAdapter {
     }
 
     public void a(com.baidu.tieba.homepage.concern.a.d dVar) {
-        if (dVar != null && !com.baidu.tbadk.core.util.y.isEmpty(dVar.czK())) {
-            this.iPA.clear();
-            this.iPA.addAll(dVar.czK());
-            for (int i = 0; i < this.iPA.size() && i < this.iPB.size(); i++) {
-                com.baidu.tieba.homepage.concern.b.b bVar = this.iPB.get(i);
-                bVar.pL(!dVar.czL());
-                bVar.a((com.baidu.adp.widget.ListView.q) com.baidu.tbadk.core.util.y.getItem(this.iPA, i));
+        if (dVar != null && !com.baidu.tbadk.core.util.y.isEmpty(dVar.cDo())) {
+            this.jeu.clear();
+            this.jeu.addAll(dVar.cDo());
+            for (int i = 0; i < this.jeu.size() && i < this.jev.size(); i++) {
+                com.baidu.tieba.homepage.concern.b.b bVar = this.jev.get(i);
+                bVar.qr(!dVar.cDp());
+                bVar.a((com.baidu.adp.widget.ListView.q) com.baidu.tbadk.core.util.y.getItem(this.jeu, i));
             }
             notifyDataSetChanged();
-            if (this.iPA.get(0) instanceof com.baidu.tieba.homepage.concern.a.e) {
-                com.baidu.tieba.homepage.concern.a.e eVar = (com.baidu.tieba.homepage.concern.a.e) this.iPA.get(0);
-                aq ai = new aq("c14004").dF("uid", TbadkApplication.getCurrentAccount()).ai("obj_locate", this.iPz).ai("obj_param1", 0);
-                if (!StringUtils.isNull(eVar.iPL)) {
-                    ai = ai.dF("obj_name", eVar.iPL);
+            if (this.jeu.get(0) instanceof com.baidu.tieba.homepage.concern.a.e) {
+                com.baidu.tieba.homepage.concern.a.e eVar = (com.baidu.tieba.homepage.concern.a.e) this.jeu.get(0);
+                aq aj = new aq("c14004").dK("uid", TbadkApplication.getCurrentAccount()).aj("obj_locate", this.jet).aj("obj_param1", 0);
+                if (!StringUtils.isNull(eVar.jeF)) {
+                    aj = aj.dK("obj_name", eVar.jeF);
                 }
-                TiebaStatic.log(ai);
-                aq ai2 = new aq("c13643").dF("uid", TbadkApplication.getCurrentAccount()).dF("fid", eVar.czM()).ai("obj_locate", this.iPz);
-                TiebaStatic.log(StringUtils.isNull(eVar.iPL) ? ai2 : ai2.dF("obj_name", eVar.iPL));
+                TiebaStatic.log(aj);
+                aq aj2 = new aq("c13643").dK("uid", TbadkApplication.getCurrentAccount()).dK("fid", eVar.cDq()).aj("obj_locate", this.jet);
+                TiebaStatic.log(StringUtils.isNull(eVar.jeF) ? aj2 : aj2.dK("obj_name", eVar.jeF));
             }
         }
     }
 
     @Override // android.support.v4.view.PagerAdapter
     public void destroyItem(ViewGroup viewGroup, int i, @NonNull Object obj) {
-        viewGroup.removeView(this.iPB.get(i).getView());
+        viewGroup.removeView(this.jev.get(i).getView());
     }
 
     @Override // android.support.v4.view.PagerAdapter
     @NonNull
     public Object instantiateItem(ViewGroup viewGroup, int i) {
-        if (this.iPB == null) {
+        if (this.jev == null) {
             return super.instantiateItem(viewGroup, i);
         }
-        com.baidu.tieba.homepage.concern.b.b bVar = (com.baidu.tieba.homepage.concern.b.b) com.baidu.tbadk.core.util.y.getItem(this.iPB, i);
+        com.baidu.tieba.homepage.concern.b.b bVar = (com.baidu.tieba.homepage.concern.b.b) com.baidu.tbadk.core.util.y.getItem(this.jev, i);
         if (bVar == null) {
             return super.instantiateItem(viewGroup, i);
         }
@@ -81,37 +81,37 @@ public class RecommendBarPageAdapter extends PagerAdapter {
             viewGroup.addView(bVar.getView(), new ViewGroup.LayoutParams(-2, -2));
         }
         bVar.getView().setTag(Integer.valueOf(i));
-        bVar.a((com.baidu.adp.widget.ListView.q) com.baidu.tbadk.core.util.y.getItem(this.iPA, i));
+        bVar.a((com.baidu.adp.widget.ListView.q) com.baidu.tbadk.core.util.y.getItem(this.jeu, i));
         return bVar.getView();
     }
 
     public void onSkinTypeChanged(int i) {
-        if (this.aiX != i) {
-            this.aiX = i;
-            if (this.iPB != null && this.iPB.size() > 0) {
-                for (com.baidu.tieba.homepage.concern.b.b bVar : this.iPB) {
+        if (this.ajp != i) {
+            this.ajp = i;
+            if (this.jev != null && this.jev.size() > 0) {
+                for (com.baidu.tieba.homepage.concern.b.b bVar : this.jev) {
                     bVar.onSkinTypeChanged(i);
                 }
             }
         }
     }
 
-    public com.baidu.adp.widget.ListView.q zZ(int i) {
-        if (com.baidu.tbadk.core.util.y.isEmpty(this.iPA) || i >= this.iPA.size()) {
+    public com.baidu.adp.widget.ListView.q AF(int i) {
+        if (com.baidu.tbadk.core.util.y.isEmpty(this.jeu) || i >= this.jeu.size()) {
             return null;
         }
-        return this.iPA.get(i);
+        return this.jeu.get(i);
     }
 
     public void k(long j, boolean z) {
-        if (!com.baidu.tbadk.core.util.y.isEmpty(this.iPB)) {
-            for (int i = 0; i < this.iPB.size(); i++) {
-                com.baidu.tieba.homepage.concern.b.b bVar = this.iPB.get(i);
-                com.baidu.tieba.homepage.concern.a.e czT = bVar.czT();
-                if (czT != null) {
-                    for (int i2 = 0; i2 < czT.iPN.length; i2++) {
-                        if (czT.iPN[i2].getForumId() == j) {
-                            bVar.U(i2, z);
+        if (!com.baidu.tbadk.core.util.y.isEmpty(this.jev)) {
+            for (int i = 0; i < this.jev.size(); i++) {
+                com.baidu.tieba.homepage.concern.b.b bVar = this.jev.get(i);
+                com.baidu.tieba.homepage.concern.a.e cDx = bVar.cDx();
+                if (cDx != null) {
+                    for (int i2 = 0; i2 < cDx.jeH.length; i2++) {
+                        if (cDx.jeH[i2].getForumId() == j) {
+                            bVar.W(i2, z);
                         }
                     }
                 }

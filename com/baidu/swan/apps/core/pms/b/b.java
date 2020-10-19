@@ -9,7 +9,7 @@ import com.baidu.swan.apps.runtime.j;
 import com.baidu.swan.pms.c.f;
 import java.util.Map;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes10.dex */
 public final class b extends com.baidu.swan.apps.core.pms.b.a implements f {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
 
@@ -39,38 +39,38 @@ public final class b extends com.baidu.swan.apps.core.pms.b.a implements f {
         }
         String jSONObject2 = jSONObject == null ? "" : jSONObject.toString();
         final a aVar2 = new a(aVar);
-        com.baidu.swan.apps.process.b.b bJ = com.baidu.swan.apps.process.b.c.qb("pms_http_with_ipc").bJ("pms_http_with_ipc_key_action", str);
+        com.baidu.swan.apps.process.b.b bO = com.baidu.swan.apps.process.b.c.qN("pms_http_with_ipc").bO("pms_http_with_ipc_key_action", str);
         if (TextUtils.isEmpty(str2)) {
             str2 = "";
         }
-        com.baidu.swan.apps.process.b.b bJ2 = bJ.bJ("pms_http_with_ipc_key_url", str2);
+        com.baidu.swan.apps.process.b.b bO2 = bO.bO("pms_http_with_ipc_key_url", str2);
         if (TextUtils.isEmpty(jSONObject2)) {
             jSONObject2 = "";
         }
-        com.baidu.swan.apps.process.b.b t = bJ2.bJ("pms_http_with_ipc_keyjson_body", jSONObject2).d("pms_http_with_ipc_key_url_param_map", p(map)).d("pms_http_with_ipc_key_header_param_map", p(map2)).fm(true).u(aVar2).t(new com.baidu.swan.apps.ap.e.b<com.baidu.swan.apps.process.b.b>() { // from class: com.baidu.swan.apps.core.pms.b.b.1
+        com.baidu.swan.apps.process.b.b t = bO2.bO("pms_http_with_ipc_keyjson_body", jSONObject2).d("pms_http_with_ipc_key_url_param_map", z(map)).d("pms_http_with_ipc_key_header_param_map", z(map2)).fI(true).u(aVar2).t(new com.baidu.swan.apps.ap.e.b<com.baidu.swan.apps.process.b.b>() { // from class: com.baidu.swan.apps.core.pms.b.b.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.swan.apps.ap.e.b
             /* renamed from: a */
-            public void J(com.baidu.swan.apps.process.b.b bVar) {
+            public void M(com.baidu.swan.apps.process.b.b bVar) {
                 aVar2.onFail(bVar.getException());
             }
         });
         if (DEBUG) {
             E("ipcHttp", "session=" + t);
         }
-        t.bB(cnl);
+        t.bJ(czC);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes3.dex */
+    /* loaded from: classes10.dex */
     public class a implements com.baidu.swan.apps.ap.e.b<i.a>, f.a {
-        final f.a cng;
-        final boolean cnh;
+        final f.a czx;
+        final boolean czy;
         boolean finished = false;
 
         public a(f.a aVar) {
-            this.cng = aVar;
-            this.cnh = aVar != null;
+            this.czx = aVar;
+            this.czy = aVar != null;
             if (b.DEBUG) {
                 b.this.E("IpcHttpCallbackWrapper", "wrappedCallback=" + aVar);
             }
@@ -79,7 +79,7 @@ public final class b extends com.baidu.swan.apps.core.pms.b.a implements f {
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.swan.apps.ap.e.b
         /* renamed from: b */
-        public void J(i.a aVar) {
+        public void M(i.a aVar) {
             synchronized (this) {
                 boolean valid = valid();
                 if (b.DEBUG) {
@@ -131,7 +131,7 @@ public final class b extends com.baidu.swan.apps.core.pms.b.a implements f {
                     b.this.E("IpcHttpCallbackWrapper#onStatRecord", "valid=" + valid + " url=" + str + " statRecord=" + jSONObject);
                 }
                 if (valid) {
-                    this.cng.b(str, str2, jSONObject);
+                    this.czx.b(str, str2, jSONObject);
                 }
             }
         }
@@ -145,7 +145,7 @@ public final class b extends com.baidu.swan.apps.core.pms.b.a implements f {
                 }
                 if (valid) {
                     finish();
-                    this.cng.onSuccess(str, i);
+                    this.czx.onSuccess(str, i);
                 }
             }
         }
@@ -159,7 +159,7 @@ public final class b extends com.baidu.swan.apps.core.pms.b.a implements f {
                 }
                 if (valid) {
                     finish();
-                    f.a aVar = this.cng;
+                    f.a aVar = this.czx;
                     if (exc == null) {
                         exc = new Exception("onFail");
                     }
@@ -174,7 +174,7 @@ public final class b extends com.baidu.swan.apps.core.pms.b.a implements f {
 
         synchronized boolean valid() {
             boolean z;
-            if (this.cnh) {
+            if (this.czy) {
                 z = this.finished ? false : true;
             }
             return z;

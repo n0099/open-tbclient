@@ -4,7 +4,7 @@ import android.text.TextUtils;
 import android.util.Base64;
 import com.vivo.push.sdk.PushMessageCallback;
 import java.security.PublicKey;
-/* loaded from: classes12.dex */
+/* loaded from: classes15.dex */
 public abstract class ab extends com.vivo.push.v {
     protected PushMessageCallback b;
 
@@ -35,7 +35,7 @@ public abstract class ab extends com.vivo.push.v {
                     com.vivo.push.util.p.d("OnVerifyCallBackCommand", "vertify id is success");
                 } else {
                     com.vivo.push.util.p.d("OnVerifyCallBackCommand", "vertify fail srcDigest is " + str);
-                    com.vivo.push.util.p.c(this.a, "vertify fail srcDigest is " + str);
+                    com.vivo.push.util.p.c(this.f4714a, "vertify fail srcDigest is " + str);
                     z = false;
                 }
                 return z;

@@ -1,7 +1,7 @@
 package com.vivo.push.util;
 
 import android.content.Context;
-/* loaded from: classes12.dex */
+/* loaded from: classes15.dex */
 public final class w extends a {
     private static w b;
 
@@ -17,8 +17,8 @@ public final class w extends a {
     }
 
     public final void a(Context context) {
-        if (this.a == null) {
-            this.a = context;
+        if (this.f4698a == null) {
+            this.f4698a = context;
             a(context, "com.vivo.push_preferences");
         }
     }

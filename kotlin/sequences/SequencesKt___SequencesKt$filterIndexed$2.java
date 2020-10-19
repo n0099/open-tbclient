@@ -5,7 +5,7 @@ import kotlin.collections.ac;
 import kotlin.jvm.internal.Lambda;
 import kotlin.jvm.internal.q;
 @kotlin.h
-/* loaded from: classes5.dex */
+/* loaded from: classes10.dex */
 final class SequencesKt___SequencesKt$filterIndexed$2 extends Lambda implements kotlin.jvm.a.b<ac<? extends T>, T> {
     public static final SequencesKt___SequencesKt$filterIndexed$2 INSTANCE = new SequencesKt___SequencesKt$filterIndexed$2();
 
@@ -20,7 +20,7 @@ final class SequencesKt___SequencesKt$filterIndexed$2 extends Lambda implements 
 
     /* JADX WARN: Type inference failed for: r0v1, types: [T, java.lang.Object] */
     public final T invoke(ac<? extends T> acVar) {
-        q.m(acVar, AdvanceSetting.NETWORK_TYPE);
+        q.n(acVar, AdvanceSetting.NETWORK_TYPE);
         return acVar.getValue();
     }
 }

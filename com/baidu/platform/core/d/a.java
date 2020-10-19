@@ -17,7 +17,7 @@ import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes7.dex */
 public class a extends com.baidu.platform.base.d {
     private LatLng a(JSONObject jSONObject) {
         if (jSONObject == null) {
@@ -101,8 +101,8 @@ public class a extends com.baidu.platform.base.d {
                             } else if (optInt != 2 || (optJSONArray = optJSONObject2.optJSONArray("routes")) == null || optJSONArray.length() <= 0) {
                                 return false;
                             } else {
-                                RouteNode a = a(optJSONObject2, "origin", "originPt");
-                                RouteNode a2 = a(optJSONObject2, "destination", "destinationPt");
+                                RouteNode a2 = a(optJSONObject2, "origin", "originPt");
+                                RouteNode a3 = a(optJSONObject2, "destination", "destinationPt");
                                 ArrayList arrayList = new ArrayList();
                                 for (int i = 0; i < optJSONArray.length(); i++) {
                                     BikingRouteLine bikingRouteLine = new BikingRouteLine();
@@ -113,8 +113,8 @@ public class a extends com.baidu.platform.base.d {
                                     if (optJSONObject == null) {
                                         return false;
                                     }
-                                    bikingRouteLine.setStarting(a);
-                                    bikingRouteLine.setTerminal(a2);
+                                    bikingRouteLine.setStarting(a2);
+                                    bikingRouteLine.setTerminal(a3);
                                     bikingRouteLine.setDistance(optJSONObject.optInt("distance"));
                                     bikingRouteLine.setDuration(optJSONObject.optInt("duration"));
                                     bikingRouteLine.setSteps(a(optJSONObject.optJSONArray("steps")));

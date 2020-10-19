@@ -9,32 +9,32 @@ import java.util.Collections;
 import java.util.Comparator;
 /* loaded from: classes4.dex */
 public class c {
-    public b aOF;
-    public String aOG;
+    public b aRQ;
+    public String aRR;
     public ArrayList<String> unZipFilesPathList;
     public String upZipDirPath;
     public String videoPath;
 
     public String getDynamicGiftId() {
-        if (this.aOF == null) {
+        if (this.aRQ == null) {
             return null;
         }
-        return this.aOF.giftId;
+        return this.aRQ.giftId;
     }
 
     public boolean isLandScapeZip() {
-        if (this.aOF == null || this.aOF.aOD == null) {
+        if (this.aRQ == null || this.aRQ.aRO == null) {
             return false;
         }
-        return this.aOF.aOD.isLandScape();
+        return this.aRQ.aRO.isLandScape();
     }
 
-    public String DQ() {
+    public String EM() {
         File[] listFiles;
         if (!TextUtils.isEmpty(this.videoPath)) {
             return this.videoPath;
         }
-        if (TextUtils.isEmpty(this.aOG) || (listFiles = new File(this.aOG).listFiles()) == null || listFiles.length == 0 || listFiles[0] == null) {
+        if (TextUtils.isEmpty(this.aRR) || (listFiles = new File(this.aRR).listFiles()) == null || listFiles.length == 0 || listFiles[0] == null) {
             return null;
         }
         this.videoPath = listFiles[0].getAbsolutePath();

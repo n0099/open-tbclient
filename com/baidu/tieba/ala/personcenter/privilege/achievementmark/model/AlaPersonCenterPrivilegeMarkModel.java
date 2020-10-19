@@ -14,13 +14,13 @@ import com.baidu.tbadk.task.TbHttpMessageTask;
 import com.baidu.tieba.ala.personcenter.privilege.achievementmark.message.AlaAchievementMarkResponsedMessage;
 /* loaded from: classes4.dex */
 public class AlaPersonCenterPrivilegeMarkModel extends BdBaseModel {
-    private a gYO;
-    private HttpMessageListener gZc = new HttpMessageListener(AlaCmdConfigHttp.CMD_ALA_GET_PRIVILEGE_MARK_LIST) { // from class: com.baidu.tieba.ala.personcenter.privilege.achievementmark.model.AlaPersonCenterPrivilegeMarkModel.1
+    private a hnP;
+    private HttpMessageListener hod = new HttpMessageListener(AlaCmdConfigHttp.CMD_ALA_GET_PRIVILEGE_MARK_LIST) { // from class: com.baidu.tieba.ala.personcenter.privilege.achievementmark.model.AlaPersonCenterPrivilegeMarkModel.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(HttpResponsedMessage httpResponsedMessage) {
             if (httpResponsedMessage != null && (httpResponsedMessage instanceof AlaAchievementMarkResponsedMessage) && httpResponsedMessage.getOrginalMessage() != null && httpResponsedMessage.getOrginalMessage().getTag() == AlaPersonCenterPrivilegeMarkModel.this.unique_id) {
-                AlaPersonCenterPrivilegeMarkModel.this.gYO.a(httpResponsedMessage.getError(), httpResponsedMessage.getErrorString(), httpResponsedMessage);
+                AlaPersonCenterPrivilegeMarkModel.this.hnP.a(httpResponsedMessage.getError(), httpResponsedMessage.getErrorString(), httpResponsedMessage);
             }
         }
     };
@@ -32,9 +32,9 @@ public class AlaPersonCenterPrivilegeMarkModel extends BdBaseModel {
 
     public AlaPersonCenterPrivilegeMarkModel(BdUniqueId bdUniqueId, a aVar) {
         this.unique_id = bdUniqueId;
-        this.gYO = aVar;
+        this.hnP = aVar;
         registerTask();
-        registerListener(this.gZc);
+        registerListener(this.hod);
     }
 
     private void registerTask() {
@@ -43,7 +43,7 @@ public class AlaPersonCenterPrivilegeMarkModel extends BdBaseModel {
         MessageManager.getInstance().registerTask(tbHttpMessageTask);
     }
 
-    public void caU() {
+    public void ces() {
         HttpMessage httpMessage = new HttpMessage(AlaCmdConfigHttp.CMD_ALA_GET_PRIVILEGE_MARK_LIST);
         httpMessage.addParam("user_id", TbadkApplication.getCurrentAccount());
         httpMessage.setTag(this.unique_id);

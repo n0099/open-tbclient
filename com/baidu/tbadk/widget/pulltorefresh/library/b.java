@@ -6,17 +6,17 @@ import java.util.HashSet;
 import java.util.Iterator;
 /* loaded from: classes.dex */
 public class b implements a {
-    private final HashSet<LoadingLayout> fgp = new HashSet<>();
+    private final HashSet<LoadingLayout> fsE = new HashSet<>();
 
     public void a(LoadingLayout loadingLayout) {
         if (loadingLayout != null) {
-            this.fgp.add(loadingLayout);
+            this.fsE.add(loadingLayout);
         }
     }
 
     @Override // com.baidu.tbadk.widget.pulltorefresh.library.a
     public void setLastUpdatedLabel(CharSequence charSequence) {
-        Iterator<LoadingLayout> it = this.fgp.iterator();
+        Iterator<LoadingLayout> it = this.fsE.iterator();
         while (it.hasNext()) {
             it.next().setLastUpdatedLabel(charSequence);
         }
@@ -24,7 +24,7 @@ public class b implements a {
 
     @Override // com.baidu.tbadk.widget.pulltorefresh.library.a
     public void setLoadingDrawable(Drawable drawable) {
-        Iterator<LoadingLayout> it = this.fgp.iterator();
+        Iterator<LoadingLayout> it = this.fsE.iterator();
         while (it.hasNext()) {
             it.next().setLoadingDrawable(drawable);
         }
@@ -32,7 +32,7 @@ public class b implements a {
 
     @Override // com.baidu.tbadk.widget.pulltorefresh.library.a
     public void setRefreshingLabel(CharSequence charSequence) {
-        Iterator<LoadingLayout> it = this.fgp.iterator();
+        Iterator<LoadingLayout> it = this.fsE.iterator();
         while (it.hasNext()) {
             it.next().setRefreshingLabel(charSequence);
         }
@@ -40,7 +40,7 @@ public class b implements a {
 
     @Override // com.baidu.tbadk.widget.pulltorefresh.library.a
     public void setPullLabel(CharSequence charSequence) {
-        Iterator<LoadingLayout> it = this.fgp.iterator();
+        Iterator<LoadingLayout> it = this.fsE.iterator();
         while (it.hasNext()) {
             it.next().setPullLabel(charSequence);
         }
@@ -48,7 +48,7 @@ public class b implements a {
 
     @Override // com.baidu.tbadk.widget.pulltorefresh.library.a
     public void setReleaseLabel(CharSequence charSequence) {
-        Iterator<LoadingLayout> it = this.fgp.iterator();
+        Iterator<LoadingLayout> it = this.fsE.iterator();
         while (it.hasNext()) {
             it.next().setReleaseLabel(charSequence);
         }

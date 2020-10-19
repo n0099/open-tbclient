@@ -14,10 +14,10 @@ import com.baidu.tbadk.core.view.commonBtn.b;
 import com.baidu.tbadk.core.view.userLike.c;
 import com.baidu.tieba.R;
 import com.baidu.tieba.view.FollowUserButton;
-/* loaded from: classes20.dex */
+/* loaded from: classes21.dex */
 public class FollowUserDecorView extends FollowUserButton {
-    private c ajD;
-    private boolean ajE;
+    private c ajV;
+    private boolean ajW;
     private BdUniqueId mBdUniqueId;
 
     public FollowUserDecorView(Context context) {
@@ -33,22 +33,22 @@ public class FollowUserDecorView extends FollowUserButton {
     }
 
     public void setData(bw bwVar) {
-        if (bwVar == null || bwVar.bfy() == null) {
+        if (bwVar == null || bwVar.bih() == null) {
             setVisibility(8);
             return;
         }
-        if (this.ajD == null) {
-            this.ajD = new c(W(getContext()), this);
-            this.ajD.l(this.mBdUniqueId);
+        if (this.ajV == null) {
+            this.ajV = new c(W(getContext()), this);
+            this.ajV.l(this.mBdUniqueId);
         }
         setVisibility(0);
-        this.ajD.a(bwVar.bfy());
+        this.ajV.a(bwVar.bih());
     }
 
     public void setPageUniqueId(BdUniqueId bdUniqueId) {
         this.mBdUniqueId = bdUniqueId;
-        if (this.ajD != null) {
-            this.ajD.l(this.mBdUniqueId);
+        if (this.ajV != null) {
+            this.ajV.l(this.mBdUniqueId);
         }
     }
 
@@ -65,16 +65,16 @@ public class FollowUserDecorView extends FollowUserButton {
     @Override // com.baidu.tieba.view.FollowUserButton
     public void aN(boolean z) {
         super.aN(z);
-        if (this.ajE && !z) {
+        if (this.ajW && !z) {
             b bVar = new b();
-            bVar.pp(R.color.cp_link_tip_a);
-            bVar.pj(UtilHelper.getDimenPixelSize(R.dimen.tbds24));
+            bVar.pN(R.color.cp_link_tip_a);
+            bVar.pI(UtilHelper.getDimenPixelSize(R.dimen.tbds24));
             bVar.a(R.drawable.icon_pure_add12_svg, 0, TBSpecificationButtonConfig.IconType.SVG);
             setConfig(bVar);
         }
     }
 
     public void setUseNewStyle(boolean z) {
-        this.ajE = z;
+        this.ajW = z;
     }
 }

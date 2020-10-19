@@ -25,9 +25,11 @@ import java.io.InputStream;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.regex.Pattern;
-/* loaded from: classes21.dex */
+/* loaded from: classes22.dex */
 public final class i {
-    private static SimpleDateFormat a;
+
+    /* renamed from: a  reason: collision with root package name */
+    private static SimpleDateFormat f3719a;
 
     public static int a() {
         return Build.VERSION.SDK_INT;
@@ -81,10 +83,10 @@ public final class i {
     }
 
     public static String a(long j) {
-        if (a == null) {
-            a = new SimpleDateFormat("MM-dd HH:mm");
+        if (f3719a == null) {
+            f3719a = new SimpleDateFormat("MM-dd HH:mm");
         }
-        return a.format(new Date(j));
+        return f3719a.format(new Date(j));
     }
 
     public static void a(Context context, TextView textView) {
@@ -174,10 +176,10 @@ public final class i {
     }
 
     public static String b(long j) {
-        if (a == null) {
-            a = new SimpleDateFormat("yy-MM-dd");
+        if (f3719a == null) {
+            f3719a = new SimpleDateFormat("yy-MM-dd");
         }
-        return a.format(new Date(j));
+        return f3719a.format(new Date(j));
     }
 
     public static boolean b(String str) {
@@ -189,9 +191,9 @@ public final class i {
 
     public static String c(long j) {
         SimpleDateFormat simpleDateFormat = new SimpleDateFormat("MM-dd HH:mm");
-        a = simpleDateFormat;
+        f3719a = simpleDateFormat;
         String format = simpleDateFormat.format(new Date(j));
-        a = null;
+        f3719a = null;
         return format.split(" ")[1];
     }
 

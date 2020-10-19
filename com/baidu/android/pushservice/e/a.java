@@ -1,13 +1,15 @@
 package com.baidu.android.pushservice.e;
 
 import java.io.InputStream;
-/* loaded from: classes7.dex */
+/* loaded from: classes10.dex */
 public class a {
-    private InputStream a;
+
+    /* renamed from: a  reason: collision with root package name */
+    private InputStream f1073a;
     private int b;
 
     public InputStream a() {
-        return this.a;
+        return this.f1073a;
     }
 
     public void a(int i) {
@@ -15,7 +17,7 @@ public class a {
     }
 
     public void a(InputStream inputStream) {
-        this.a = inputStream;
+        this.f1073a = inputStream;
     }
 
     public int b() {

@@ -58,13 +58,13 @@ public class a implements Interceptor {
             for (String str : hashSet) {
                 newBuilder2.removeAllQueryParameters(str);
             }
-            for (Map.Entry<String, String> entry : httpParam.epP()) {
+            for (Map.Entry<String, String> entry : httpParam.etA()) {
                 newBuilder2.addQueryParameter(entry.getKey(), entry.getValue());
             }
             newBuilder.url(newBuilder2.build());
         } else {
             FormBody.Builder builder = new FormBody.Builder();
-            for (Map.Entry<String, String> entry2 : httpParam.epP()) {
+            for (Map.Entry<String, String> entry2 : httpParam.etA()) {
                 builder.add(entry2.getKey(), entry2.getValue());
             }
             newBuilder.post(builder.build());

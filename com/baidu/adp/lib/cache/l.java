@@ -21,7 +21,7 @@ public interface l<T> {
 
         String getNameSpace();
 
-        k<T> ma();
+        k<T> mb();
     }
 
     void a(String str, a<T> aVar);

@@ -26,37 +26,37 @@ import org.json.JSONObject;
 public class e {
     public static a.b a(a.b bVar) {
         a.b bVar2;
-        String[] cUF;
+        String[] cYo;
         if (bVar == null) {
             return null;
         }
         try {
-            cUF = cUF();
+            cYo = cYo();
         } catch (Exception e) {
             BdLog.e(e.getMessage());
         }
-        if (cUF != null) {
+        if (cYo != null) {
             ArrayList<BasicNameValuePair> arrayList = new ArrayList<>();
             arrayList.add(new BasicNameValuePair("crypttype", "1"));
             arrayList.add(new BasicNameValuePair("tpl", "tb"));
             arrayList.add(new BasicNameValuePair("appid", "1"));
             arrayList.add(new BasicNameValuePair("clientip", getClientIP()));
-            arrayList.add(new BasicNameValuePair("cert_id", cUF[0]));
+            arrayList.add(new BasicNameValuePair("cert_id", cYo[0]));
             JSONObject jSONObject = new JSONObject();
             jSONObject.put("bduss", bVar.mBduss);
             jSONObject.put("ptoken", bVar.mPtoken);
             jSONObject.put("cuid", DeviceId.getDeviceID(TbadkCoreApplication.getInst().getApp()));
             jSONObject.put("clientid", TbadkCoreApplication.getInst().getImei());
-            arrayList.add(new BasicNameValuePair(TableDefine.DB_TABLE_USERINFO, new com.baidu.tbadk.core.a.c().encrypt(cUF[1], jSONObject.toString())));
+            arrayList.add(new BasicNameValuePair(TableDefine.DB_TABLE_USERINFO, new com.baidu.tbadk.core.a.c().encrypt(cYo[1], jSONObject.toString())));
             arrayList.add(new BasicNameValuePair("sig", f(arrayList, "6e93e7659ae637845c7f83abee68a740")));
             aa aaVar = new aa("http://passport.baidu.com/v2/sapi/bdusslogin");
-            aaVar.bjL().bkq().mIsNeedAddCommenParam = false;
-            aaVar.bjL().bkq().mIsUseCurrentBDUSS = false;
+            aaVar.bmu().bna().mIsNeedAddCommenParam = false;
+            aaVar.bmu().bna().mIsUseCurrentBDUSS = false;
             aaVar.setPostData(arrayList);
-            aaVar.bjL().bkq().bku().mRequestGzip = true;
-            aaVar.bjL().bkq().bku().mIsBaiduServer = false;
+            aaVar.bmu().bna().bne().mRequestGzip = true;
+            aaVar.bmu().bna().bne().mIsBaiduServer = false;
             String postNetData = aaVar.postNetData();
-            if (aaVar.bjL().bkr().isRequestSuccess() && !at.isEmpty(postNetData)) {
+            if (aaVar.bmu().bnb().isRequestSuccess() && !at.isEmpty(postNetData)) {
                 JSONObject jSONObject2 = new JSONObject(postNetData);
                 if ("0".equals(jSONObject2.optString(BaseJsonData.TAG_ERRNO))) {
                     bVar2 = new a.b();
@@ -72,11 +72,11 @@ public class e {
         return null;
     }
 
-    private static String[] cUF() {
+    private static String[] cYo() {
         try {
             aa aaVar = new aa("http://passport.baidu.com/sslcrypt/get_last_cert");
-            aaVar.bjL().bkq().mIsNeedAddCommenParam = false;
-            aaVar.bjL().bkq().mIsUseCurrentBDUSS = false;
+            aaVar.bmu().bna().mIsNeedAddCommenParam = false;
+            aaVar.bmu().bna().mIsUseCurrentBDUSS = false;
             JSONObject jSONObject = new JSONObject(new String(aaVar.getNetData()));
             return new String[]{jSONObject.optString("cert_id"), jSONObject.optString("cert")};
         } catch (Exception e) {

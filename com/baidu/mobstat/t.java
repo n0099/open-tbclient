@@ -7,7 +7,7 @@ import android.support.media.ExifInterface;
 import android.support.v7.widget.ActivityChooserView;
 import com.meizu.cloud.pushsdk.constants.PushConstants;
 import java.util.List;
-/* loaded from: classes15.dex */
+/* loaded from: classes17.dex */
 public enum t {
     SERVICE(1) { // from class: com.baidu.mobstat.t.1
         @Override // com.baidu.mobstat.t
@@ -28,12 +28,12 @@ public enum t {
         public void a(Context context) {
             if (t.d(context)) {
                 Context applicationContext = context.getApplicationContext();
-                a a = u.a(context);
+                a a2 = u.a(context);
                 ac acVar = new ac();
-                acVar.a = false;
+                acVar.f2517a = false;
                 acVar.b = "M";
                 acVar.c = false;
-                a.a(applicationContext, acVar.a());
+                a2.a(applicationContext, acVar.a());
             }
         }
     },
@@ -42,12 +42,12 @@ public enum t {
         public void a(Context context) {
             if (t.d(context)) {
                 Context applicationContext = context.getApplicationContext();
-                a a = u.a(context);
+                a a2 = u.a(context);
                 ac acVar = new ac();
-                acVar.a = false;
+                acVar.f2517a = false;
                 acVar.b = "R";
                 acVar.c = false;
-                a.a(applicationContext, acVar.a());
+                a2.a(applicationContext, acVar.a());
             }
         }
     },
@@ -56,12 +56,12 @@ public enum t {
         public void a(Context context) {
             if (t.d(context)) {
                 Context applicationContext = context.getApplicationContext();
-                a a = u.a(context);
+                a a2 = u.a(context);
                 ac acVar = new ac();
-                acVar.a = false;
+                acVar.f2517a = false;
                 acVar.b = ExifInterface.LONGITUDE_EAST;
                 acVar.c = false;
-                a.a(applicationContext, acVar.a());
+                a2.a(applicationContext, acVar.a());
             }
         }
     };

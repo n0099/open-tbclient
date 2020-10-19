@@ -1,13 +1,12 @@
 package com.google.zxing.oned.rss.expanded.decoders;
 
-import android.support.v7.widget.helper.ItemTouchHelper;
+import com.baidu.appsearch.update.patchupdate.GDiffPatcher;
 import com.baidu.fsg.base.activity.BaseActivity;
-import com.baidu.sapi2.SapiAccountManager;
 import com.google.zxing.FormatException;
 import com.google.zxing.NotFoundException;
 import com.google.zxing.common.BitArray;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes3.dex */
+/* loaded from: classes7.dex */
 public final class GeneralAppIdDecoder {
     private final BitArray information;
     private final CurrentParsingState current = new CurrentParsingState();
@@ -253,31 +252,31 @@ public final class GeneralAppIdDecoder {
             case 243:
                 c = '.';
                 break;
-            case 244:
+            case GDiffPatcher.COPY_UBYTE_UBYTE /* 244 */:
                 c = '/';
                 break;
-            case 245:
+            case GDiffPatcher.COPY_UBYTE_USHORT /* 245 */:
                 c = ':';
                 break;
             case 246:
                 c = ';';
                 break;
-            case 247:
+            case GDiffPatcher.DATA_USHORT /* 247 */:
                 c = '<';
                 break;
-            case 248:
+            case GDiffPatcher.DATA_INT /* 248 */:
                 c = '=';
                 break;
-            case SapiAccountManager.VERSION_CODE /* 249 */:
+            case 249:
                 c = '>';
                 break;
-            case ItemTouchHelper.Callback.DEFAULT_SWIPE_ANIMATION_DURATION /* 250 */:
+            case 250:
                 c = '?';
                 break;
-            case 251:
+            case GDiffPatcher.COPY_USHORT_INT /* 251 */:
                 c = '_';
                 break;
-            case 252:
+            case GDiffPatcher.COPY_INT_UBYTE /* 252 */:
                 c = ' ';
                 break;
             default:

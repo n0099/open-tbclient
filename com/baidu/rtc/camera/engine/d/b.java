@@ -2,25 +2,25 @@ package com.baidu.rtc.camera.engine.d;
 
 import android.content.Context;
 import android.graphics.SurfaceTexture;
-/* loaded from: classes15.dex */
+/* loaded from: classes11.dex */
 public final class b {
-    private com.baidu.rtc.camera.engine.a.b bPR;
-    private d bPS;
-    private f bPT;
-    private final Object bPU;
+    private com.baidu.rtc.camera.engine.a.b bZn;
+    private d bZo;
+    private f bZp;
+    private final Object bZq;
 
     private b() {
-        this.bPU = new Object();
-        this.bPR = com.baidu.rtc.camera.engine.a.b.Xq();
+        this.bZq = new Object();
+        this.bZn = com.baidu.rtc.camera.engine.a.b.ZI();
     }
 
-    /* loaded from: classes15.dex */
+    /* loaded from: classes11.dex */
     private static class a {
-        private static b bPV = new b();
+        private static b bZr = new b();
     }
 
-    public static b Xw() {
-        return a.bPV;
+    public static b ZO() {
+        return a.bZr;
     }
 
     public c a(com.baidu.rtc.camera.engine.b.a aVar) {
@@ -28,67 +28,67 @@ public final class b {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public void aU(Context context) {
-        synchronized (this.bPU) {
-            this.bPT = new f(context, "RenderThread");
-            this.bPT.start();
-            this.bPS = new d(this.bPT);
-            this.bPT.a(this.bPS);
+    public void aZ(Context context) {
+        synchronized (this.bZq) {
+            this.bZp = new f(context, "RenderThread");
+            this.bZp.start();
+            this.bZo = new d(this.bZp);
+            this.bZp.a(this.bZo);
         }
     }
 
     public void c(SurfaceTexture surfaceTexture) {
-        if (this.bPS != null) {
-            this.bPS.sendMessage(this.bPS.obtainMessage(1, surfaceTexture));
+        if (this.bZo != null) {
+            this.bZo.sendMessage(this.bZo.obtainMessage(1, surfaceTexture));
         }
     }
 
     public void U(int i, int i2) {
-        if (this.bPS != null) {
-            this.bPS.sendMessage(this.bPS.obtainMessage(2, i, i2));
+        if (this.bZo != null) {
+            this.bZo.sendMessage(this.bZo.obtainMessage(2, i, i2));
         }
     }
 
-    public void Xx() {
-        if (this.bPS != null) {
-            this.bPS.sendMessage(this.bPS.obtainMessage(3));
+    public void ZP() {
+        if (this.bZo != null) {
+            this.bZo.sendMessage(this.bZo.obtainMessage(3));
         }
     }
 
     public void requestRender() {
-        if (this.bPT != null) {
-            this.bPT.requestRender();
+        if (this.bZp != null) {
+            this.bZp.requestRender();
         }
     }
 
     public void startRecording() {
-        if (this.bPS != null) {
-            synchronized (this.bPU) {
-                this.bPS.sendMessage(this.bPS.obtainMessage(6));
+        if (this.bZo != null) {
+            synchronized (this.bZq) {
+                this.bZo.sendMessage(this.bZo.obtainMessage(6));
             }
         }
     }
 
     public void stopRecording() {
-        if (this.bPS != null) {
-            synchronized (this.bPU) {
-                this.bPS.sendEmptyMessage(8);
+        if (this.bZo != null) {
+            synchronized (this.bZq) {
+                this.bZo.sendEmptyMessage(8);
             }
         }
     }
 
     public void switchCamera() {
-        if (this.bPS != null) {
-            synchronized (this.bPU) {
-                this.bPS.sendEmptyMessage(16);
+        if (this.bZo != null) {
+            synchronized (this.bZq) {
+                this.bZo.sendEmptyMessage(16);
             }
         }
     }
 
-    public void Xt() {
-        if (this.bPS != null) {
-            synchronized (this.bPU) {
-                this.bPS.sendEmptyMessage(9);
+    public void ZL() {
+        if (this.bZo != null) {
+            synchronized (this.bZq) {
+                this.bZo.sendEmptyMessage(9);
             }
         }
     }

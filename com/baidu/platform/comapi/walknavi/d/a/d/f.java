@@ -2,16 +2,18 @@ package com.baidu.platform.comapi.walknavi.d.a.d;
 
 import com.baidu.platform.comapi.walknavi.d.a.d.b;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes3.dex */
+/* loaded from: classes7.dex */
 public class f implements Runnable {
-    final /* synthetic */ boolean a;
+
+    /* renamed from: a  reason: collision with root package name */
+    final /* synthetic */ boolean f2978a;
     final /* synthetic */ h b;
-    final /* synthetic */ b.C0248b c;
+    final /* synthetic */ b.C0263b c;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public f(b.C0248b c0248b, boolean z, h hVar) {
-        this.c = c0248b;
-        this.a = z;
+    public f(b.C0263b c0263b, boolean z, h hVar) {
+        this.c = c0263b;
+        this.f2978a = z;
         this.b = hVar;
     }
 
@@ -19,14 +21,14 @@ public class f implements Runnable {
     public void run() {
         g gVar;
         g gVar2;
-        if (this.a) {
+        if (this.f2978a) {
             gVar = b.this.d;
             gVar.b(com.baidu.platform.comapi.walknavi.d.a.g.b.b());
             gVar2 = b.this.d;
-            gVar2.a(this.b.a);
+            gVar2.a(this.b.f2980a);
         }
         if (!this.c.b()) {
-            b.this.a(this.a, true);
+            b.this.a(this.f2978a, true);
         }
     }
 }

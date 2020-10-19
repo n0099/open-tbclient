@@ -2,7 +2,7 @@ package com.baidu.sumeru.universalimageloader.core.assist;
 
 import android.graphics.Bitmap;
 import android.view.View;
-/* loaded from: classes9.dex */
+/* loaded from: classes12.dex */
 public interface ImageLoadingListener {
     void onLoadingCancelled(String str, View view);
 

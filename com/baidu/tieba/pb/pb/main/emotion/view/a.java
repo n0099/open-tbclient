@@ -19,20 +19,20 @@ import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
-/* loaded from: classes21.dex */
+/* loaded from: classes22.dex */
 public class a extends BaseAdapter {
-    private List<EmotionImageData> hMh;
-    private EmotionView.a kXa;
-    private int kYf;
-    private PbEmotionBar.a kYg;
-    private Set<String> kxY = new HashSet();
+    private List<EmotionImageData> ibc;
+    private Set<String> kNk = new HashSet();
+    private EmotionView.a lmn;
+    private int lnt;
+    private PbEmotionBar.a lnu;
 
     @Override // android.widget.Adapter
     public int getCount() {
-        if (y.isEmpty(this.hMh)) {
+        if (y.isEmpty(this.ibc)) {
             return 0;
         }
-        return this.hMh.size() + 1;
+        return this.ibc.size() + 1;
     }
 
     @Override // android.widget.Adapter
@@ -41,7 +41,7 @@ public class a extends BaseAdapter {
     }
 
     public void setData(List<EmotionImageData> list) {
-        this.hMh = list;
+        this.ibc = list;
     }
 
     @Override // android.widget.Adapter
@@ -51,104 +51,104 @@ public class a extends BaseAdapter {
 
     @Override // android.widget.Adapter
     public View getView(int i, View view, ViewGroup viewGroup) {
-        C0770a c0770a;
+        C0788a c0788a;
         if (view == null) {
-            c0770a = new C0770a();
+            c0788a = new C0788a();
             view = LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.list_item_pb_emotion_bar, (ViewGroup) null);
-            c0770a.kyg = (EmotionView) view.findViewById(R.id.iv_emotion);
-            c0770a.kyg.ckV();
-            c0770a.kyg.setController(this.kXa);
-            c0770a.kyg.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.pb.pb.main.emotion.view.a.1
+            c0788a.kNs = (EmotionView) view.findViewById(R.id.iv_emotion);
+            c0788a.kNs.cot();
+            c0788a.kNs.setController(this.lmn);
+            c0788a.kNs.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.pb.pb.main.emotion.view.a.1
                 @Override // android.view.View.OnClickListener
                 public void onClick(View view2) {
-                    if (a.this.kYg != null && (view2 instanceof EmotionView)) {
-                        a.this.kYg.b(((EmotionView) view2).getData(), ((EmotionView) view2).getIsGif());
+                    if (a.this.lnu != null && (view2 instanceof EmotionView)) {
+                        a.this.lnu.b(((EmotionView) view2).getData(), ((EmotionView) view2).getIsGif());
                         TiebaStatic.log("c12176");
                     }
                 }
             });
-            c0770a.iob = (TextView) view.findViewById(R.id.tv_more);
-            ap.setViewTextColor(c0770a.iob, R.color.cp_cont_d);
-            c0770a.iob.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.pb.pb.main.emotion.view.a.2
+            c0788a.iCU = (TextView) view.findViewById(R.id.tv_more);
+            ap.setViewTextColor(c0788a.iCU, R.color.cp_cont_d);
+            c0788a.iCU.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.pb.pb.main.emotion.view.a.2
                 @Override // android.view.View.OnClickListener
                 public void onClick(View view2) {
-                    if (a.this.kYg != null) {
+                    if (a.this.lnu != null) {
                         ArrayList arrayList = new ArrayList();
-                        if (!y.isEmpty(a.this.hMh)) {
-                            for (EmotionImageData emotionImageData : a.this.hMh) {
+                        if (!y.isEmpty(a.this.ibc)) {
+                            for (EmotionImageData emotionImageData : a.this.ibc) {
                                 if (emotionImageData != null && !TextUtils.isEmpty(emotionImageData.getThumbUrl())) {
                                     arrayList.add(emotionImageData.getThumbUrl());
                                 }
                             }
                         }
-                        a.this.kYg.c(null, null, arrayList);
+                        a.this.lnu.c(null, null, arrayList);
                     }
                 }
             });
-            view.setTag(c0770a);
+            view.setTag(c0788a);
         } else {
-            c0770a = (C0770a) view.getTag();
+            c0788a = (C0788a) view.getTag();
         }
         if (i >= 0) {
-            if (i < this.hMh.size()) {
-                c0770a.kyg.getLayoutParams().width = this.kYf;
-                c0770a.kyg.getLayoutParams().height = this.kYf;
-                c0770a.kyg.reset();
-                c0770a.kyg.setTag(R.id.iv_emotion, null);
-                EmotionImageData emotionImageData = this.hMh.get(i);
+            if (i < this.ibc.size()) {
+                c0788a.kNs.getLayoutParams().width = this.lnt;
+                c0788a.kNs.getLayoutParams().height = this.lnt;
+                c0788a.kNs.reset();
+                c0788a.kNs.setTag(R.id.iv_emotion, null);
+                EmotionImageData emotionImageData = this.ibc.get(i);
                 if (emotionImageData != null) {
-                    c0770a.kyg.a(emotionImageData);
-                    if (this.kxY != null && !TextUtils.isEmpty(emotionImageData.getThumbUrl())) {
-                        this.kxY.add(emotionImageData.getThumbUrl() + c0770a.kyg.getLoadProcType());
+                    c0788a.kNs.a(emotionImageData);
+                    if (this.kNk != null && !TextUtils.isEmpty(emotionImageData.getThumbUrl())) {
+                        this.kNk.add(emotionImageData.getThumbUrl() + c0788a.kNs.getLoadProcType());
                     }
                 }
-                c0770a.kyg.setVisibility(0);
-                c0770a.iob.setVisibility(8);
-            } else if (i == this.hMh.size()) {
-                c0770a.iob.getLayoutParams().width = this.kYf;
-                c0770a.iob.getLayoutParams().height = this.kYf;
-                c0770a.kyg.setVisibility(8);
-                c0770a.iob.setVisibility(0);
+                c0788a.kNs.setVisibility(0);
+                c0788a.iCU.setVisibility(8);
+            } else if (i == this.ibc.size()) {
+                c0788a.iCU.getLayoutParams().width = this.lnt;
+                c0788a.iCU.getLayoutParams().height = this.lnt;
+                c0788a.kNs.setVisibility(8);
+                c0788a.iCU.setVisibility(0);
             }
         }
         return view;
     }
 
-    public void Fb(int i) {
-        if (this.kYf != i) {
-            this.kYf = i;
+    public void FH(int i) {
+        if (this.lnt != i) {
+            this.lnt = i;
             notifyDataSetChanged();
         }
     }
 
     public void a(EmotionView.a aVar) {
-        this.kXa = aVar;
+        this.lmn = aVar;
     }
 
     public void a(PbEmotionBar.a aVar) {
-        this.kYg = aVar;
+        this.lnu = aVar;
     }
 
     /* renamed from: com.baidu.tieba.pb.pb.main.emotion.view.a$a  reason: collision with other inner class name */
-    /* loaded from: classes21.dex */
-    static class C0770a {
-        TextView iob;
-        EmotionView kyg;
+    /* loaded from: classes22.dex */
+    static class C0788a {
+        TextView iCU;
+        EmotionView kNs;
 
-        C0770a() {
+        C0788a() {
         }
     }
 
-    public void cWQ() {
+    public void daz() {
         new BdAsyncTask<Void, Void, Boolean>() { // from class: com.baidu.tieba.pb.pb.main.emotion.view.a.3
             /* JADX DEBUG: Method merged with bridge method */
             /* JADX INFO: Access modifiers changed from: protected */
             @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
             public Boolean doInBackground(Void... voidArr) {
-                if (a.this.kxY != null) {
-                    for (String str : a.this.kxY) {
+                if (a.this.kNk != null) {
+                    for (String str : a.this.kNk) {
                         if (!TextUtils.isEmpty(str)) {
-                            c.bub().deletePic(str);
+                            c.bwL().deletePic(str);
                         }
                     }
                     return true;

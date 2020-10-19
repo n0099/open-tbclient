@@ -1,11 +1,11 @@
 package com.baidu.q.a;
 
 import android.content.Context;
-/* loaded from: classes25.dex */
+/* loaded from: classes5.dex */
 class c {
-    public com.baidu.q.a.a.c nry;
+    public com.baidu.q.a.a.c nGS;
 
     public c(Context context) {
-        this.nry = new d(context).dQX();
+        this.nGS = new d(context).dUI();
     }
 }

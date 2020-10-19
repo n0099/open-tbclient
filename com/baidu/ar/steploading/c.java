@@ -9,7 +9,7 @@ import com.baidu.ar.ihttp.Downloader;
 import com.baidu.ar.ihttp.HttpException;
 import com.baidu.ar.ihttp.IProgressCallback;
 import java.io.File;
-/* loaded from: classes10.dex */
+/* loaded from: classes14.dex */
 class c extends com.baidu.ar.e.a<String, Void> {
     private IProgressCallback qx;
     private ARCaseBundleInfo wJ;
@@ -59,21 +59,21 @@ class c extends com.baidu.ar.e.a<String, Void> {
                 iError.onError(2, "res is not exists", null);
                 return;
             }
-            String a = a(aK);
-            if (a == null) {
+            String a2 = a(aK);
+            if (a2 == null) {
                 iError.onError(2, "未知的资源encoding", null);
                 return;
             }
             Downloader downloader = new Downloader(str);
             try {
                 int fileSize = downloader.getFileSize();
-                if (a(a, aK, fileSize)) {
+                if (a(a2, aK, fileSize)) {
                     iCallbackWith.run(null);
                     return;
                 }
                 try {
-                    downloader.download(a, this.qx);
-                    if (a(a, aK, fileSize)) {
+                    downloader.download(a2, this.qx);
+                    if (a(a2, aK, fileSize)) {
                         iCallbackWith.run(null);
                     } else {
                         iError.onError(2, "download fail", null);

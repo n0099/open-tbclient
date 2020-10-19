@@ -6,30 +6,30 @@ import android.util.AttributeSet;
 import android.view.MotionEvent;
 /* loaded from: classes4.dex */
 public class ScrollEnableViewPager extends ViewPager {
-    private boolean bxB;
+    private boolean bEe;
 
     public ScrollEnableViewPager(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
         setOverScrollMode(2);
-        this.bxB = true;
+        this.bEe = true;
     }
 
     public void setScrollEnabled(boolean z) {
-        this.bxB = z;
+        this.bEe = z;
     }
 
     @Override // android.support.v4.view.ViewPager, android.view.ViewGroup
     public boolean onInterceptTouchEvent(MotionEvent motionEvent) {
-        return this.bxB && super.onInterceptTouchEvent(motionEvent);
+        return this.bEe && super.onInterceptTouchEvent(motionEvent);
     }
 
     @Override // android.support.v4.view.ViewPager, android.view.View
     public boolean onTouchEvent(MotionEvent motionEvent) {
-        return this.bxB && super.onTouchEvent(motionEvent);
+        return this.bEe && super.onTouchEvent(motionEvent);
     }
 
     @Override // android.support.v4.view.ViewPager
     public void setCurrentItem(int i) {
-        super.setCurrentItem(i, this.bxB);
+        super.setCurrentItem(i, this.bEe);
     }
 }

@@ -6,28 +6,28 @@ import com.baidu.searchbox.v8engine.event.JSEvent;
 import com.baidu.swan.apps.SwanAppActivity;
 import com.baidu.swan.apps.ap.ak;
 import com.baidu.swan.apps.v.f;
-/* loaded from: classes3.dex */
+/* loaded from: classes10.dex */
 public class d {
-    private b dzA;
+    private b dLB;
 
     public d(JsObject jsObject) {
-        this.dzA = b.l(com.baidu.swan.games.binding.model.c.e(jsObject));
-        a.aQn().a(this);
+        this.dLB = b.l(com.baidu.swan.games.binding.model.c.e(jsObject));
+        a.aSW().a(this);
     }
 
     @JavascriptInterface
     public boolean applyUpdate() {
-        final SwanAppActivity ast = f.asJ().ast();
-        if (ast == null) {
+        final SwanAppActivity ave = f.avu().ave();
+        if (ave == null) {
             com.baidu.swan.apps.console.c.e("UpdateManagerApi", "applyUpdate activity is null");
             return false;
-        } else if (ast.isDestroyed() || ast.getIntent() == null) {
+        } else if (ave.isDestroyed() || ave.getIntent() == null) {
             return false;
         } else {
             ak.runOnUiThread(new Runnable() { // from class: com.baidu.swan.games.aa.d.1
                 @Override // java.lang.Runnable
                 public void run() {
-                    com.baidu.swan.games.utils.a.n(ast);
+                    com.baidu.swan.games.utils.a.n(ave);
                 }
             });
             return true;
@@ -43,7 +43,7 @@ public class d {
     */
     public void c(c cVar) {
         boolean z = false;
-        if (this.dzA != null && JSEvent.isValid(cVar)) {
+        if (this.dLB != null && JSEvent.isValid(cVar)) {
             com.baidu.swan.apps.console.c.i("UpdateManagerApi", String.format("dispatchEvent : eventType = %s; hasUpdate = %s", cVar.type, Boolean.valueOf(cVar.hasUpdate)));
             String str = cVar.type;
             switch (str.hashCode()) {
@@ -69,13 +69,13 @@ public class d {
             }
             switch (z) {
                 case false:
-                    this.dzA.b(cVar);
+                    this.dLB.b(cVar);
                     return;
                 case true:
-                    this.dzA.aQp();
+                    this.dLB.aSY();
                     return;
                 case true:
-                    this.dzA.aQq();
+                    this.dLB.aSZ();
                     return;
                 default:
                     return;

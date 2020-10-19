@@ -1,7 +1,7 @@
 package okhttp3.internal.tls;
 
 import javax.security.auth.x500.X500Principal;
-/* loaded from: classes12.dex */
+/* loaded from: classes5.dex */
 final class DistinguishedNameParser {
     private int beg;
     private char[] chars;

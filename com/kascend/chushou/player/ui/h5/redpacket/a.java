@@ -11,13 +11,15 @@ import tv.chushou.basis.rxjava.thread.EventThread;
 import tv.chushou.zues.utils.h;
 /* loaded from: classes6.dex */
 public class a {
-    private final List<e> a = new ArrayList();
+
+    /* renamed from: a  reason: collision with root package name */
+    private final List<e> f4181a = new ArrayList();
     private io.reactivex.disposables.a c = new io.reactivex.disposables.a();
-    private InterfaceC0895a ofi;
+    private InterfaceC0913a ouB;
 
     /* renamed from: com.kascend.chushou.player.ui.h5.redpacket.a$a  reason: collision with other inner class name */
     /* loaded from: classes6.dex */
-    public interface InterfaceC0895a {
+    public interface InterfaceC0913a {
         void D();
 
         void a(int i);
@@ -25,20 +27,20 @@ public class a {
 
     public a(Context context) {
         try {
-            this.ofi = (InterfaceC0895a) context;
+            this.ouB = (InterfaceC0913a) context;
         } catch (Exception e) {
-            this.ofi = null;
+            this.ouB = null;
         }
     }
 
     public List<e> a() {
-        return this.a;
+        return this.f4181a;
     }
 
     public void a(List<e> list) {
         for (e eVar : list) {
             if (eVar != null && !a(eVar)) {
-                this.a.add(0, eVar);
+                this.f4181a.add(0, eVar);
             }
         }
         e();
@@ -46,9 +48,9 @@ public class a {
 
     public void a(String str) {
         if (!h.isEmpty(str)) {
-            for (e eVar : this.a) {
+            for (e eVar : this.f4181a) {
                 if (str.equals(eVar.a())) {
-                    eVar.NR(2);
+                    eVar.Ox(2);
                     return;
                 }
             }
@@ -56,15 +58,15 @@ public class a {
     }
 
     public void b() {
-        Iterator<e> it = this.a.iterator();
+        Iterator<e> it = this.f4181a.iterator();
         while (it.hasNext()) {
             e next = it.next();
             if (next == null || next.c() == 2) {
                 it.remove();
             }
         }
-        if (this.ofi != null) {
-            this.ofi.a(this.a.size());
+        if (this.ouB != null) {
+            this.ouB.a(this.f4181a.size());
         }
     }
 
@@ -74,7 +76,7 @@ public class a {
             this.c = null;
         }
         this.c = new io.reactivex.disposables.a();
-        this.a.clear();
+        this.f4181a.clear();
         e();
     }
 
@@ -83,45 +85,45 @@ public class a {
             this.c.dispose();
             this.c = null;
         }
-        this.a.clear();
+        this.f4181a.clear();
     }
 
     public void e() {
         RxExecutor.post(this.c, EventThread.MAIN_THREAD, new Runnable() { // from class: com.kascend.chushou.player.ui.h5.redpacket.a.1
             @Override // java.lang.Runnable
             public void run() {
-                if (a.this.ofi != null) {
-                    a.this.ofi.a(a.this.a.size());
+                if (a.this.ouB != null) {
+                    a.this.ouB.a(a.this.f4181a.size());
                 }
             }
         });
-        if (com.kascend.chushou.d.h.ecy().q() && this.a.size() > 0 && this.ofi != null) {
-            this.ofi.D();
+        if (com.kascend.chushou.d.h.egj().q() && this.f4181a.size() > 0 && this.ouB != null) {
+            this.ouB.D();
         }
     }
 
-    public H5Positon NQ(int i) {
-        if (this.a.size() == 0) {
+    public H5Positon Ow(int i) {
+        if (this.f4181a.size() == 0) {
             return null;
         }
-        e eVar = this.a.get(0);
+        e eVar = this.f4181a.get(0);
         if (i == 2) {
-            return eVar.eev();
+            return eVar.eig();
         }
         if (i == 1) {
-            return eVar.eeu();
+            return eVar.eif();
         }
         return null;
     }
 
     public String f() {
-        return this.a.size() > 0 ? this.a.get(0).d() : "";
+        return this.f4181a.size() > 0 ? this.f4181a.get(0).d() : "";
     }
 
     private boolean a(e eVar) {
-        for (e eVar2 : this.a) {
-            String a = eVar.a();
-            if (!h.isEmpty(a) && a.equals(eVar2.a())) {
+        for (e eVar2 : this.f4181a) {
+            String a2 = eVar.a();
+            if (!h.isEmpty(a2) && a2.equals(eVar2.a())) {
                 return true;
             }
         }

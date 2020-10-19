@@ -25,21 +25,21 @@ import com.baidu.live.utils.h;
 import com.baidu.tieba.recapp.lego.model.FormCard;
 /* loaded from: classes4.dex */
 public class AlaDynamicVideoGiftLayout extends RelativeLayout implements com.baidu.live.gift.biggift.c {
-    private int aRl;
-    private com.baidu.live.gift.biggift.b aWc;
-    private AlaBigGiftExtraInfoRevisionView aWd;
-    private com.baidu.live.alphavideo.c aWp;
-    private com.baidu.live.gift.c aWq;
-    private com.baidu.live.gift.a.c aWr;
-    private int aWs;
-    private MediaMetadataRetriever aWt;
+    private int aUw;
+    private com.baidu.live.alphavideo.c aZA;
+    private com.baidu.live.gift.c aZB;
+    private com.baidu.live.gift.a.c aZC;
+    private int aZD;
+    private MediaMetadataRetriever aZE;
+    private com.baidu.live.gift.biggift.b aZn;
+    private AlaBigGiftExtraInfoRevisionView aZo;
     private boolean isHost;
     private Handler mHandler;
     private boolean mStopped;
 
     static /* synthetic */ int f(AlaDynamicVideoGiftLayout alaDynamicVideoGiftLayout) {
-        int i = alaDynamicVideoGiftLayout.aWs + 1;
-        alaDynamicVideoGiftLayout.aWs = i;
+        int i = alaDynamicVideoGiftLayout.aZD + 1;
+        alaDynamicVideoGiftLayout.aZD = i;
         return i;
     }
 
@@ -52,15 +52,15 @@ public class AlaDynamicVideoGiftLayout extends RelativeLayout implements com.bai
     }
 
     public void setEnterEffectRelativeBottomMargin(int i) {
-        this.aRl = i;
+        this.aUw = i;
     }
 
     public void setData(com.baidu.live.gift.c cVar, com.baidu.live.gift.a.c cVar2) {
-        if (cVar != null && cVar.aOF != null && cVar.aOF.aOE != null) {
-            this.aWq = cVar;
-            this.aWr = cVar2;
-            int[] gN = gN(this.aWq.DQ());
-            z(gN[0], gN[1]);
+        if (cVar != null && cVar.aRQ != null && cVar.aRQ.aRP != null) {
+            this.aZB = cVar;
+            this.aZC = cVar2;
+            int[] hb = hb(this.aZB.EM());
+            z(hb[0], hb[1]);
         }
     }
 
@@ -70,18 +70,18 @@ public class AlaDynamicVideoGiftLayout extends RelativeLayout implements com.bai
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    private int[] gN(String str) {
+    private int[] hb(String str) {
         int i;
         int i2;
         int i3;
-        if (this.aWt == null) {
-            this.aWt = new MediaMetadataRetriever();
+        if (this.aZE == null) {
+            this.aZE = new MediaMetadataRetriever();
         }
         try {
-            this.aWt.setDataSource(str);
-            i = Integer.valueOf(this.aWt.extractMetadata(18)).intValue();
+            this.aZE.setDataSource(str);
+            i = Integer.valueOf(this.aZE.extractMetadata(18)).intValue();
             try {
-                i2 = Integer.valueOf(this.aWt.extractMetadata(19)).intValue();
+                i2 = Integer.valueOf(this.aZE.extractMetadata(19)).intValue();
             } catch (Throwable th) {
                 th = th;
                 th.printStackTrace();
@@ -107,10 +107,10 @@ public class AlaDynamicVideoGiftLayout extends RelativeLayout implements com.bai
         return new int[]{i3, i2};
     }
 
-    public void FQ() {
+    public void GM() {
         stopAnim();
-        if (this.aWc != null) {
-            this.aWc.m(this.aWr);
+        if (this.aZn != null) {
+            this.aZn.m(this.aZC);
         }
     }
 
@@ -121,21 +121,21 @@ public class AlaDynamicVideoGiftLayout extends RelativeLayout implements com.bai
     }
 
     public void setBigGiftCallBack(com.baidu.live.gift.biggift.b bVar) {
-        this.aWc = bVar;
+        this.aZn = bVar;
     }
 
     public void startAnim() {
         this.mStopped = false;
-        this.aWs = 0;
-        if (this.aWp != null && !this.aWp.isDestroyed() && !TextUtils.isEmpty(this.aWq.DQ())) {
-            this.aWp.play(this.aWq.DQ());
-            if (this.aWc != null) {
-                this.aWc.l(this.aWr);
+        this.aZD = 0;
+        if (this.aZA != null && !this.aZA.isDestroyed() && !TextUtils.isEmpty(this.aZB.EM())) {
+            this.aZA.play(this.aZB.EM());
+            if (this.aZn != null) {
+                this.aZn.l(this.aZC);
                 return;
             }
             return;
         }
-        Hf();
+        Ib();
     }
 
     public void stopAnim() {
@@ -143,12 +143,12 @@ public class AlaDynamicVideoGiftLayout extends RelativeLayout implements com.bai
         if (this.mHandler != null) {
             this.mHandler.removeCallbacksAndMessages(null);
         }
-        if (this.aWp != null) {
-            this.aWp.stop();
-            this.aWp.reset();
+        if (this.aZA != null) {
+            this.aZA.stop();
+            this.aZA.reset();
         }
-        if (this.aWd != null) {
-            this.aWd.end();
+        if (this.aZo != null) {
+            this.aZo.end();
         }
     }
 
@@ -157,109 +157,109 @@ public class AlaDynamicVideoGiftLayout extends RelativeLayout implements com.bai
         if (this.mHandler != null) {
             this.mHandler.removeCallbacksAndMessages(null);
         }
-        if (this.aWt != null) {
-            this.aWt.release();
+        if (this.aZE != null) {
+            this.aZE.release();
         }
-        if (this.aWp != null) {
-            this.aWp.stop();
-            this.aWp.release();
+        if (this.aZA != null) {
+            this.aZA.stop();
+            this.aZA.release();
         }
-        if (this.aWd != null) {
-            this.aWd.onDestroy();
+        if (this.aZo != null) {
+            this.aZo.onDestroy();
         }
         removeAllViews();
     }
 
     private void z(int i, int i2) {
         A(i, i2);
-        if (this.aWr.GM()) {
-            GX();
+        if (this.aZC.HI()) {
+            HT();
         }
     }
 
     private void A(int i, int i2) {
-        if (this.aWp == null || this.aWp.isDestroyed()) {
+        if (this.aZA == null || this.aZA.isDestroyed()) {
             CustomResponsedMessage runTask = MessageManager.getInstance().runTask(2913181, com.baidu.live.alphavideo.c.class, getContext());
             if (runTask != null && runTask.getData() != null) {
-                this.aWp = (com.baidu.live.alphavideo.c) runTask.getData();
+                this.aZA = (com.baidu.live.alphavideo.c) runTask.getData();
             } else {
                 return;
             }
         }
-        Hb();
-        if (indexOfChild(this.aWp.getView()) < 0) {
-            addView(this.aWp.getView());
+        HX();
+        if (indexOfChild(this.aZA.getView()) < 0) {
+            addView(this.aZA.getView());
         }
         B(i, i2);
     }
 
-    private void GX() {
+    private void HT() {
         int dimensionPixelOffset;
-        int aA;
-        if (this.aWd == null) {
-            this.aWd = new AlaBigGiftExtraInfoRevisionView(getContext());
+        int aD;
+        if (this.aZo == null) {
+            this.aZo = new AlaBigGiftExtraInfoRevisionView(getContext());
         }
-        this.aWd.setData(this.aWr);
-        this.aWd.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.live.gift.dynamicGift.AlaDynamicVideoGiftLayout.1
+        this.aZo.setData(this.aZC);
+        this.aZo.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.live.gift.dynamicGift.AlaDynamicVideoGiftLayout.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                AlaDynamicVideoGiftLayout.this.Hg();
+                AlaDynamicVideoGiftLayout.this.Ic();
             }
         });
-        this.aWd.setVisibility(8);
-        if (indexOfChild(this.aWd) < 0) {
+        this.aZo.setVisibility(8);
+        if (indexOfChild(this.aZo) < 0) {
             RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(-2, -2);
             layoutParams.addRule(14);
-            addView(this.aWd, layoutParams);
+            addView(this.aZo, layoutParams);
         }
-        ViewGroup.LayoutParams layoutParams2 = this.aWd.getLayoutParams();
+        ViewGroup.LayoutParams layoutParams2 = this.aZo.getLayoutParams();
         if (layoutParams2 instanceof ViewGroup.MarginLayoutParams) {
             if (UtilHelper.getRealScreenOrientation(getContext()) == 1) {
                 if (this.isHost) {
-                    aA = h.az(getContext());
+                    aD = h.aC(getContext());
                 } else {
-                    aA = h.aA(getContext());
+                    aD = h.aD(getContext());
                 }
-                dimensionPixelOffset = aA + getResources().getDimensionPixelOffset(a.e.sdk_ds72);
+                dimensionPixelOffset = aD + getResources().getDimensionPixelOffset(a.e.sdk_ds72);
             } else {
                 dimensionPixelOffset = getResources().getDimensionPixelOffset(a.e.sdk_ds180);
             }
             ((ViewGroup.MarginLayoutParams) layoutParams2).topMargin = dimensionPixelOffset;
-            this.aWd.setLayoutParams(layoutParams2);
+            this.aZo.setLayoutParams(layoutParams2);
         }
     }
 
-    private void Hb() {
-        this.aWp.a(new c.a() { // from class: com.baidu.live.gift.dynamicGift.AlaDynamicVideoGiftLayout.2
+    private void HX() {
+        this.aZA.a(new c.a() { // from class: com.baidu.live.gift.dynamicGift.AlaDynamicVideoGiftLayout.2
             @Override // com.baidu.live.alphavideo.c.a
             public void onStart() {
-                if (AlaDynamicVideoGiftLayout.this.aWr != null && AlaDynamicVideoGiftLayout.this.aWr.GM() && AlaDynamicVideoGiftLayout.this.aWd != null) {
-                    AlaDynamicVideoGiftLayout.this.Hc();
+                if (AlaDynamicVideoGiftLayout.this.aZC != null && AlaDynamicVideoGiftLayout.this.aZC.HI() && AlaDynamicVideoGiftLayout.this.aZo != null) {
+                    AlaDynamicVideoGiftLayout.this.HY();
                 }
             }
 
             @Override // com.baidu.live.alphavideo.c.a
             public void onEnd() {
                 if (!AlaDynamicVideoGiftLayout.this.mStopped) {
-                    if (AlaDynamicVideoGiftLayout.f(AlaDynamicVideoGiftLayout.this) >= AlaDynamicVideoGiftLayout.this.aWq.aOF.aOE.repeatCount || AlaDynamicVideoGiftLayout.this.aWp == null || AlaDynamicVideoGiftLayout.this.aWp.isDestroyed()) {
-                        AlaDynamicVideoGiftLayout.this.Hf();
+                    if (AlaDynamicVideoGiftLayout.f(AlaDynamicVideoGiftLayout.this) >= AlaDynamicVideoGiftLayout.this.aZB.aRQ.aRP.repeatCount || AlaDynamicVideoGiftLayout.this.aZA == null || AlaDynamicVideoGiftLayout.this.aZA.isDestroyed()) {
+                        AlaDynamicVideoGiftLayout.this.Ib();
                     } else {
-                        AlaDynamicVideoGiftLayout.this.aWp.play(AlaDynamicVideoGiftLayout.this.aWq.DQ());
+                        AlaDynamicVideoGiftLayout.this.aZA.play(AlaDynamicVideoGiftLayout.this.aZB.EM());
                     }
                 }
             }
 
             @Override // com.baidu.live.alphavideo.c.a
             public void onError(int i, String str) {
-                AlaDynamicVideoGiftLayout.this.Hf();
+                AlaDynamicVideoGiftLayout.this.Ib();
                 AlaStatsItem alaStatsItem = new AlaStatsItem();
                 alaStatsItem.addValue("err", Integer.valueOf(i));
                 alaStatsItem.addValue(BaseJsonData.TAG_ERRMSG, str);
-                if (AlaDynamicVideoGiftLayout.this.aWq != null && AlaDynamicVideoGiftLayout.this.aWq.aOF != null) {
-                    if (AlaDynamicVideoGiftLayout.this.aWq.aOF.aOD != null) {
-                        alaStatsItem.addValue("videourl", AlaDynamicVideoGiftLayout.this.aWq.aOF.aOD.videoUrl);
+                if (AlaDynamicVideoGiftLayout.this.aZB != null && AlaDynamicVideoGiftLayout.this.aZB.aRQ != null) {
+                    if (AlaDynamicVideoGiftLayout.this.aZB.aRQ.aRO != null) {
+                        alaStatsItem.addValue("videourl", AlaDynamicVideoGiftLayout.this.aZB.aRQ.aRO.videoUrl);
                     }
-                    alaStatsItem.addValue("giftid", AlaDynamicVideoGiftLayout.this.aWq.aOF.giftId);
+                    alaStatsItem.addValue("giftid", AlaDynamicVideoGiftLayout.this.aZB.aRQ.giftId);
                 }
                 AlaStatManager.getInstance().debug("mp4player_playfail", alaStatsItem);
             }
@@ -267,7 +267,7 @@ public class AlaDynamicVideoGiftLayout extends RelativeLayout implements com.bai
     }
 
     private void B(int i, int i2) {
-        ViewGroup.LayoutParams layoutParams = this.aWp.getView().getLayoutParams();
+        ViewGroup.LayoutParams layoutParams = this.aZA.getView().getLayoutParams();
         if (!(layoutParams instanceof RelativeLayout.LayoutParams)) {
             layoutParams = new RelativeLayout.LayoutParams(-2, -2);
         }
@@ -280,12 +280,12 @@ public class AlaDynamicVideoGiftLayout extends RelativeLayout implements com.bai
             layoutParams.height = -1;
             ((RelativeLayout.LayoutParams) layoutParams).addRule(14);
         }
-        if (this.aWr != null && this.aWr.aVn && this.aWq != null && this.aWq.aOF != null && this.aWq.aOF.aOE != null && this.aWq.aOF.aOE.aOI) {
+        if (this.aZC != null && this.aZC.aYy && this.aZB != null && this.aZB.aRQ != null && this.aZB.aRQ.aRP != null && this.aZB.aRQ.aRP.aRT) {
             ((RelativeLayout.LayoutParams) layoutParams).addRule(12);
-            ((RelativeLayout.LayoutParams) layoutParams).bottomMargin = this.aRl;
+            ((RelativeLayout.LayoutParams) layoutParams).bottomMargin = this.aUw;
             return;
         }
-        if (this.aWq != null && this.aWq.aOF != null && this.aWq.aOF.aOE != null && this.aWq.aOF.aOE.isBottomMargin()) {
+        if (this.aZB != null && this.aZB.aRQ != null && this.aZB.aRQ.aRP != null && this.aZB.aRQ.aRP.isBottomMargin()) {
             ((RelativeLayout.LayoutParams) layoutParams).addRule(12);
         } else if (Build.VERSION.SDK_INT >= 17) {
             ((RelativeLayout.LayoutParams) layoutParams).removeRule(12);
@@ -293,61 +293,61 @@ public class AlaDynamicVideoGiftLayout extends RelativeLayout implements com.bai
             ((RelativeLayout.LayoutParams) layoutParams).addRule(12, 0);
         }
         ((RelativeLayout.LayoutParams) layoutParams).bottomMargin = 0;
-        this.aWp.getView().setLayoutParams(layoutParams);
+        this.aZA.getView().setLayoutParams(layoutParams);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void Hc() {
-        if (this.aWp != null) {
-            long duration = this.aWp.getDuration();
+    public void HY() {
+        if (this.aZA != null) {
+            long duration = this.aZA.getDuration();
             if (duration > 0) {
                 this.mHandler = new Handler();
                 this.mHandler.postDelayed(new Runnable() { // from class: com.baidu.live.gift.dynamicGift.AlaDynamicVideoGiftLayout.3
                     @Override // java.lang.Runnable
                     public void run() {
-                        AlaDynamicVideoGiftLayout.this.Hd();
+                        AlaDynamicVideoGiftLayout.this.HZ();
                     }
                 }, ((float) duration) * 0.07f);
                 this.mHandler.postDelayed(new Runnable() { // from class: com.baidu.live.gift.dynamicGift.AlaDynamicVideoGiftLayout.4
                     @Override // java.lang.Runnable
                     public void run() {
-                        AlaDynamicVideoGiftLayout.this.He();
+                        AlaDynamicVideoGiftLayout.this.Ia();
                     }
                 }, ((float) duration) * 0.87f);
                 return;
             }
-            Hd();
+            HZ();
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void Hd() {
-        if (this.aWd != null) {
-            this.aWd.FF();
+    public void HZ() {
+        if (this.aZo != null) {
+            this.aZo.GB();
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void He() {
-        if (this.aWd != null) {
-            this.aWd.FG();
+    public void Ia() {
+        if (this.aZo != null) {
+            this.aZo.GC();
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void Hf() {
-        if (this.aWd != null) {
-            this.aWd.end();
+    public void Ib() {
+        if (this.aZo != null) {
+            this.aZo.end();
         }
-        if (this.aWc != null) {
-            this.aWc.m(this.aWr);
+        if (this.aZn != null) {
+            this.aZn.m(this.aZC);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void Hg() {
-        if (this.aWr != null) {
-            MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new AlaPersonCardActivityConfig(getContext(), String.valueOf(this.aWr.userId), this.aWr.userName, this.aWr.portrait, this.aWr.sex, this.aWr.aVf, this.aWr.location, this.aWr.description, 0L, this.aWr.fansCount, this.aWr.aVg, this.aWr.userStatus, this.aWr.liveId, this.aWr.groupId, this.aWr.aVk, this.aWr.aVl, this.aWr.appId, this.aWr.userName, "")));
+    public void Ic() {
+        if (this.aZC != null) {
+            MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new AlaPersonCardActivityConfig(getContext(), String.valueOf(this.aZC.userId), this.aZC.userName, this.aZC.portrait, this.aZC.sex, this.aZC.aYq, this.aZC.location, this.aZC.description, 0L, this.aZC.fansCount, this.aZC.aYr, this.aZC.userStatus, this.aZC.liveId, this.aZC.groupId, this.aZC.aYv, this.aZC.aYw, this.aZC.appId, this.aZC.userName, "")));
         }
     }
 }

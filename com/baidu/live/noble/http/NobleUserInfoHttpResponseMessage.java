@@ -5,14 +5,14 @@ import com.baidu.live.tbadk.message.http.JsonHttpResponsedMessage;
 import org.json.JSONObject;
 /* loaded from: classes4.dex */
 public class NobleUserInfoHttpResponseMessage extends JsonHttpResponsedMessage {
-    private NobleUserInfo biQ;
+    private NobleUserInfo bmD;
 
     public NobleUserInfoHttpResponseMessage() {
         super(1021195);
     }
 
-    public NobleUserInfo My() {
-        return this.biQ;
+    public NobleUserInfo ND() {
+        return this.bmD;
     }
 
     @Override // com.baidu.live.tbadk.message.http.JsonHttpResponsedMessage
@@ -20,8 +20,8 @@ public class NobleUserInfoHttpResponseMessage extends JsonHttpResponsedMessage {
         JSONObject optJSONObject;
         super.decodeLogicInBackGround(i, jSONObject);
         if (jSONObject != null && (optJSONObject = jSONObject.optJSONObject("data")) != null) {
-            this.biQ = new NobleUserInfo();
-            this.biQ.parserJson(optJSONObject);
+            this.bmD = new NobleUserInfo();
+            this.bmD.parserJson(optJSONObject);
         }
     }
 }

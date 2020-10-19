@@ -16,7 +16,7 @@ import java.util.Collection;
 import java.util.Collections;
 import java.util.Iterator;
 import java.util.List;
-/* loaded from: classes8.dex */
+/* loaded from: classes5.dex */
 public class OpenSSLX509CertificateFactory extends CertificateFactorySpi {
     private static final byte[] PKCS7_MARKER = {45, 45, 45, 45, 45, 66, 69, 71, 73, 78, 32, 80, 75, 67, 83, 55};
     private static final int PUSHBACK_SIZE = 64;
@@ -68,7 +68,7 @@ public class OpenSSLX509CertificateFactory extends CertificateFactorySpi {
     };
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes8.dex */
+    /* loaded from: classes5.dex */
     public static class ParsingException extends Exception {
         private static final long serialVersionUID = 8390802697728301325L;
 
@@ -87,7 +87,7 @@ public class OpenSSLX509CertificateFactory extends CertificateFactorySpi {
         }
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes5.dex */
     private static abstract class Parser<T> {
         protected abstract List<? extends T> fromPkcs7DerInputStream(InputStream inputStream) throws ParsingException;
 

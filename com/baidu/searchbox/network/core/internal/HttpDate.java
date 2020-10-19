@@ -6,7 +6,7 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Locale;
 import org.apache.http.impl.cookie.DateUtils;
-/* loaded from: classes14.dex */
+/* loaded from: classes15.dex */
 public final class HttpDate {
     public static final long MAX_DATE = 253402300799999L;
     private static final ThreadLocal<DateFormat> STANDARD_DATE_FORMAT = new ThreadLocal<DateFormat>() { // from class: com.baidu.searchbox.network.core.internal.HttpDate.1

@@ -2,29 +2,33 @@ package com.baidu.location.b;
 
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
-/* loaded from: classes3.dex */
+/* loaded from: classes7.dex */
 public class z {
-    private ExecutorService a;
+
+    /* renamed from: a  reason: collision with root package name */
+    private ExecutorService f1916a;
     private ExecutorService b;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes7.dex */
     private static class a {
-        private static z a = new z();
+
+        /* renamed from: a  reason: collision with root package name */
+        private static z f1917a = new z();
     }
 
     private z() {
     }
 
     public static z a() {
-        return a.a;
+        return a.f1917a;
     }
 
     public synchronized ExecutorService b() {
-        if (this.a == null || this.a.isShutdown()) {
-            this.a = null;
-            this.a = Executors.newSingleThreadExecutor();
+        if (this.f1916a == null || this.f1916a.isShutdown()) {
+            this.f1916a = null;
+            this.f1916a = Executors.newSingleThreadExecutor();
         }
-        return this.a;
+        return this.f1916a;
     }
 
     public synchronized ExecutorService c() {
@@ -36,8 +40,8 @@ public class z {
     }
 
     public void d() {
-        if (this.a != null) {
-            this.a.shutdown();
+        if (this.f1916a != null) {
+            this.f1916a.shutdown();
         }
         if (this.b != null) {
             this.b.shutdown();

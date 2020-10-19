@@ -3,9 +3,9 @@ package com.baidu.g.a.b;
 import android.content.Context;
 import android.view.View;
 import com.baidu.tbadk.TbPageContext;
-/* loaded from: classes25.dex */
+/* loaded from: classes26.dex */
 public interface c {
-    View B(Context context, String str);
+    View D(Context context, String str);
 
     boolean a(String str, View view, com.baidu.g.a.a.a aVar, TbPageContext<?> tbPageContext);
 

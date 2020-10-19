@@ -1,19 +1,19 @@
 package com.baidu.swan.pms.c.a.d;
-/* loaded from: classes24.dex */
+/* loaded from: classes15.dex */
 public class d {
-    private static d dHO;
-    private com.baidu.swan.pms.c.a.c.b dHP = new com.baidu.swan.pms.c.a.c.b();
+    private static d dTP;
+    private com.baidu.swan.pms.c.a.c.b dTQ = new com.baidu.swan.pms.c.a.c.b();
 
-    public static d aUG() {
-        if (dHO != null) {
-            return dHO;
+    public static d aXp() {
+        if (dTP != null) {
+            return dTP;
         }
         synchronized (d.class) {
-            if (dHO == null) {
-                dHO = new d();
+            if (dTP == null) {
+                dTP = new d();
             }
         }
-        return dHO;
+        return dTP;
     }
 
     private d() {
@@ -27,23 +27,23 @@ public class d {
     }
 
     public synchronized <T> void j(f<T> fVar) {
-        fVar.hc(false);
-        this.dHP.b(fVar);
+        fVar.hy(false);
+        this.dTQ.b(fVar);
     }
 
-    public synchronized boolean wQ(String str) {
-        return this.dHP.wQ(str);
+    public synchronized boolean xC(String str) {
+        return this.dTQ.xC(str);
     }
 
-    public synchronized boolean wR(String str) {
-        return this.dHP.wR(str);
+    public synchronized boolean xD(String str) {
+        return this.dTQ.xD(str);
     }
 
     public synchronized void c(b bVar) {
-        this.dHP.a(bVar);
+        this.dTQ.a(bVar);
     }
 
     public synchronized void d(b bVar) {
-        this.dHP.b(bVar);
+        this.dTQ.b(bVar);
     }
 }

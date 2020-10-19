@@ -16,7 +16,7 @@ public class f extends HttpMessage {
         addParam("tbs", TbadkCoreApplication.getInst().getTbs());
     }
 
-    public boolean Mh() {
+    public boolean Nm() {
         return this.mIsAudio == 1;
     }
 

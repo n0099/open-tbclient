@@ -2,16 +2,16 @@ package com.baidu.swan.games.bdtls.model;
 
 import kotlin.jvm.internal.q;
 @kotlin.h
-/* loaded from: classes3.dex */
+/* loaded from: classes10.dex */
 public final class f {
-    private String drx;
-    private com.baidu.swan.games.bdtls.b.b dry;
+    private String dDA;
+    private com.baidu.swan.games.bdtls.b.b dDB;
 
     public boolean equals(Object obj) {
         if (this != obj) {
             if (obj instanceof f) {
                 f fVar = (f) obj;
-                if (!q.l((Object) this.drx, (Object) fVar.drx) || !q.l(this.dry, fVar.dry)) {
+                if (!q.l(this.dDA, fVar.dDA) || !q.l(this.dDB, fVar.dDB)) {
                 }
             }
             return false;
@@ -20,26 +20,26 @@ public final class f {
     }
 
     public int hashCode() {
-        String str = this.drx;
+        String str = this.dDA;
         int hashCode = (str != null ? str.hashCode() : 0) * 31;
-        com.baidu.swan.games.bdtls.b.b bVar = this.dry;
+        com.baidu.swan.games.bdtls.b.b bVar = this.dDB;
         return hashCode + (bVar != null ? bVar.hashCode() : 0);
     }
 
     public String toString() {
-        return "BdtlsRequestParams(requestData=" + this.drx + ", bdtlsRequest=" + this.dry + ")";
+        return "BdtlsRequestParams(requestData=" + this.dDA + ", bdtlsRequest=" + this.dDB + ")";
     }
 
     public f(String str, com.baidu.swan.games.bdtls.b.b bVar) {
-        this.drx = str;
-        this.dry = bVar;
+        this.dDA = str;
+        this.dDB = bVar;
     }
 
-    public final String aMM() {
-        return this.drx;
+    public final String aPv() {
+        return this.dDA;
     }
 
-    public final com.baidu.swan.games.bdtls.b.b aMN() {
-        return this.dry;
+    public final com.baidu.swan.games.bdtls.b.b aPw() {
+        return this.dDB;
     }
 }

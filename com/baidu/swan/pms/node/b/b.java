@@ -5,58 +5,58 @@ import android.text.TextUtils;
 import com.baidu.swan.c.i;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes24.dex */
+/* loaded from: classes15.dex */
 public class b {
-    private static volatile b dIL;
-    private a dIM = new a();
+    private static volatile b dUM;
+    private a dUN = new a();
 
-    public static b aVo() {
-        if (dIL == null) {
+    public static b aXX() {
+        if (dUM == null) {
             synchronized (b.class) {
-                if (dIL == null) {
-                    dIL = new b();
+                if (dUM == null) {
+                    dUM = new b();
                 }
             }
         }
-        return dIL;
+        return dUM;
     }
 
     private b() {
     }
 
     public String getVersion() {
-        return this.dIM.getString("version", "0");
+        return this.dUN.getString("version", "0");
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public void cC(JSONObject jSONObject) {
+    public void cJ(JSONObject jSONObject) {
         if (jSONObject != null) {
             String optString = jSONObject.optString("version");
             if (!TextUtils.isEmpty(optString)) {
                 String optString2 = jSONObject.optString("data");
                 if (!TextUtils.isEmpty(optString2)) {
-                    this.dIM.edit().putString("version", optString).putString("data", optString2).apply();
+                    this.dUN.edit().putString("version", optString).putString("data", optString2).apply();
                 }
             }
         }
     }
 
     @NonNull
-    public com.baidu.swan.pms.node.b.a aVp() {
+    public com.baidu.swan.pms.node.b.a aXY() {
         com.baidu.swan.pms.node.b.a aVar;
         try {
-            aVar = com.baidu.swan.pms.node.b.a.cB(new JSONObject(this.dIM.getString("data", "")));
+            aVar = com.baidu.swan.pms.node.b.a.cI(new JSONObject(this.dUN.getString("data", "")));
         } catch (JSONException e) {
             e.printStackTrace();
             aVar = null;
         }
         if (aVar == null) {
-            return com.baidu.swan.pms.node.b.a.dIK;
+            return com.baidu.swan.pms.node.b.a.dUL;
         }
         return aVar;
     }
 
-    /* loaded from: classes24.dex */
+    /* loaded from: classes15.dex */
     private static class a extends i {
         private a() {
             super("swan_clean_stratey");

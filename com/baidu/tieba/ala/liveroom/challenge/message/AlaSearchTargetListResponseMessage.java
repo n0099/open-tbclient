@@ -11,8 +11,8 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 /* loaded from: classes4.dex */
 public class AlaSearchTargetListResponseMessage extends JsonHttpResponsedMessage {
-    private b gum;
-    private List<d> gun;
+    private b gIH;
+    private List<d> gII;
 
     public AlaSearchTargetListResponseMessage() {
         super(1021182);
@@ -25,24 +25,24 @@ public class AlaSearchTargetListResponseMessage extends JsonHttpResponsedMessage
             JSONObject optJSONObject = jSONObject.optJSONObject("data");
             JSONObject optJSONObject2 = optJSONObject.optJSONObject("page");
             if (optJSONObject2 != null) {
-                this.gum = new b();
-                this.gum.parseJson(optJSONObject2);
+                this.gIH = new b();
+                this.gIH.parseJson(optJSONObject2);
             }
             String optString = optJSONObject.optString("query_words");
             JSONArray optJSONArray = optJSONObject.optJSONArray("user_list");
             if (optJSONArray != null && optJSONArray.length() > 0) {
-                this.gun = new ArrayList();
+                this.gII = new ArrayList();
                 for (int i2 = 0; i2 < optJSONArray.length(); i2++) {
                     d dVar = new d();
                     dVar.parseJson(optJSONArray.optJSONObject(i2));
-                    dVar.userName = ed(optString, dVar.userName);
-                    this.gun.add(dVar);
+                    dVar.userName = ek(optString, dVar.userName);
+                    this.gII.add(dVar);
                 }
             }
         }
     }
 
-    private static String ed(String str, String str2) {
+    private static String ek(String str, String str2) {
         Matcher matcher = Pattern.compile(str, 2).matcher(str2);
         StringBuffer stringBuffer = new StringBuffer();
         while (matcher.find()) {
@@ -52,11 +52,11 @@ public class AlaSearchTargetListResponseMessage extends JsonHttpResponsedMessage
         return stringBuffer.toString();
     }
 
-    public b bQY() {
-        return this.gum;
+    public b bUs() {
+        return this.gIH;
     }
 
-    public List<d> bQZ() {
-        return this.gun;
+    public List<d> bUt() {
+        return this.gII;
     }
 }

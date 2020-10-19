@@ -10,7 +10,7 @@ import com.baidu.swan.apps.scheme.actions.aa;
 import com.baidu.swan.apps.scheme.j;
 import com.baidu.swan.apps.setting.a;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes10.dex */
 public class i extends aa {
     public i(j jVar) {
         super(jVar, "/swanAPI/openSetting");
@@ -21,7 +21,7 @@ public class i extends aa {
         if (eVar == null) {
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "empty swanApp");
             return false;
-        } else if (eVar.acu()) {
+        } else if (eVar.afg()) {
             if (DEBUG) {
                 Log.d("SwanAppAction", "SwanAppAction does not supported when app is invisible.");
             }
@@ -38,15 +38,15 @@ public class i extends aa {
                 unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(201, "empty cb");
                 return false;
             }
-            final com.baidu.swan.apps.setting.a aAD = eVar.aAD();
-            if (!eVar.aAD().aBZ()) {
+            final com.baidu.swan.apps.setting.a aDm = eVar.aDm();
+            if (!eVar.aDm().aEI()) {
                 unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "can not open setting page");
                 return false;
             }
-            aAD.a(new a.b() { // from class: com.baidu.swan.apps.setting.a.i.1
+            aDm.a(new a.b() { // from class: com.baidu.swan.apps.setting.a.i.1
                 @Override // com.baidu.swan.apps.setting.a.b
-                public void aCc() {
-                    aAD.b(this);
+                public void aEL() {
+                    aDm.b(this);
                     com.baidu.swan.apps.api.module.h.a.a(callbackHandler, optString);
                 }
             });

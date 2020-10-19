@@ -1,13 +1,13 @@
 package rx.c;
-/* loaded from: classes7.dex */
+/* loaded from: classes16.dex */
 public abstract class b {
     @Deprecated
     public void F(Throwable th) {
     }
 
-    public final String ch(Object obj) {
+    public final String ck(Object obj) {
         try {
-            return ci(obj);
+            return cl(obj);
         } catch (InterruptedException e) {
             Thread.currentThread().interrupt();
             return obj.getClass().getName() + ".errorRendering";
@@ -17,7 +17,7 @@ public abstract class b {
         }
     }
 
-    protected String ci(Object obj) throws InterruptedException {
+    protected String cl(Object obj) throws InterruptedException {
         return null;
     }
 }

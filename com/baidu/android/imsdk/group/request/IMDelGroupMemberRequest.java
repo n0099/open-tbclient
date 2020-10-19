@@ -18,7 +18,7 @@ import java.util.Iterator;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes9.dex */
+/* loaded from: classes5.dex */
 public class IMDelGroupMemberRequest extends GroupBaseHttpRequest {
     private static final String TAG = IMDelGroupMemberRequest.class.getSimpleName();
     private long mAppid;
@@ -26,7 +26,7 @@ public class IMDelGroupMemberRequest extends GroupBaseHttpRequest {
     private String mGroupId;
     private String mKey;
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes5.dex */
     class Mytask extends TaskManager.Task {
         public Mytask(String str, String str2) {
             super(str, str2);

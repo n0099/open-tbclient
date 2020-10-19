@@ -1,9 +1,11 @@
 package com.meizu.cloud.pushsdk.b.c;
 
 import com.meizu.cloud.pushsdk.b.c.c;
-/* loaded from: classes3.dex */
+/* loaded from: classes7.dex */
 public class k {
-    private final i a;
+
+    /* renamed from: a  reason: collision with root package name */
+    private final i f4338a;
     private final int b;
     private final String c;
     private final c d;
@@ -12,9 +14,11 @@ public class k {
     private k g;
     private final k h;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes7.dex */
     public static class a {
-        private i a;
+
+        /* renamed from: a  reason: collision with root package name */
+        private i f4339a;
         private String c;
         private l e;
         private k f;
@@ -34,7 +38,7 @@ public class k {
         }
 
         public a a(i iVar) {
-            this.a = iVar;
+            this.f4339a = iVar;
             return this;
         }
 
@@ -49,7 +53,7 @@ public class k {
         }
 
         public k a() {
-            if (this.a == null) {
+            if (this.f4339a == null) {
                 throw new IllegalStateException("request == null");
             }
             if (this.b < 0) {
@@ -60,7 +64,7 @@ public class k {
     }
 
     private k(a aVar) {
-        this.a = aVar.a;
+        this.f4338a = aVar.f4339a;
         this.b = aVar.b;
         this.c = aVar.c;
         this.d = aVar.d.a();
@@ -79,6 +83,6 @@ public class k {
     }
 
     public String toString() {
-        return "Response{protocol=, code=" + this.b + ", message=" + this.c + ", url=" + this.a.a() + '}';
+        return "Response{protocol=, code=" + this.b + ", message=" + this.c + ", url=" + this.f4338a.a() + '}';
     }
 }

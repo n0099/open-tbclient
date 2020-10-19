@@ -10,23 +10,23 @@ import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes10.dex */
+/* loaded from: classes19.dex */
 public class e {
     protected static final boolean DEBUG = com.baidu.prologue.a.a.a.GLOBAL_DEBUG;
-    public String aEb;
+    public String aHf;
     public String action;
     public int advisible;
-    public String bMM;
-    public String bMN;
-    public String bMO;
-    public int bMP;
-    public int bMQ;
-    public String[] bMR;
-    public String[] bMS;
-    public int bMT;
-    public int bMU;
-    public int bMV = 0;
-    public boolean bMW = false;
+    public String[] bTA;
+    public String[] bTB;
+    public int bTC;
+    public int bTD;
+    public int bTE = 0;
+    public boolean bTF = false;
+    public String bTv;
+    public String bTw;
+    public String bTx;
+    public int bTy;
+    public int bTz;
     public long end;
     public String ext;
     public int height;
@@ -38,8 +38,8 @@ public class e {
     public String url;
     public int width;
 
-    public boolean Wj() {
-        return TextUtils.equals(this.bMN, "splash_image");
+    public boolean Yg() {
+        return TextUtils.equals(this.bTw, "splash_image");
     }
 
     public boolean isFullScreen() {
@@ -50,13 +50,13 @@ public class e {
         a.a(eVar, eVar2);
     }
 
-    public String Wk() {
+    public String Yh() {
         JSONObject jSONObject = new JSONObject();
         a.c(jSONObject, this);
         return jSONObject.toString();
     }
 
-    public static e ai(JSONObject jSONObject) {
+    public static e al(JSONObject jSONObject) {
         e eVar = new e();
         try {
             a.b(jSONObject, eVar);
@@ -72,7 +72,7 @@ public class e {
         return eVar;
     }
 
-    public static e aj(JSONObject jSONObject) {
+    public static e am(JSONObject jSONObject) {
         try {
             e eVar = new e();
             a.a(jSONObject, eVar);
@@ -91,11 +91,11 @@ public class e {
     }
 
     public static List<e> p(JSONArray jSONArray) {
-        e aj;
+        e am;
         ArrayList arrayList = new ArrayList();
         for (int i = 0; i < jSONArray.length(); i++) {
             try {
-                aj = aj((JSONObject) jSONArray.get(i));
+                am = am((JSONObject) jSONArray.get(i));
             } catch (JSONException e) {
                 e.printStackTrace();
                 if (DEBUG) {
@@ -103,17 +103,17 @@ public class e {
                     e.printStackTrace();
                 }
             }
-            if (aj == null) {
+            if (am == null) {
                 break;
             }
-            if (aj.advisible == 1 && !g(aj)) {
+            if (am.advisible == 1 && !g(am)) {
                 if (DEBUG) {
-                    Log.d("SplashData", "物料不合法抛弃： splashDataItem:  i=" + i + ",content" + aj.toString());
+                    Log.d("SplashData", "物料不合法抛弃： splashDataItem:  i=" + i + ",content" + am.toString());
                 }
             } else {
-                arrayList.add(aj);
+                arrayList.add(am);
                 if (DEBUG) {
-                    Log.d("SplashData", "splashDataItem:  i=" + i + ",content" + aj.toString());
+                    Log.d("SplashData", "splashDataItem:  i=" + i + ",content" + am.toString());
                 }
             }
         }
@@ -144,35 +144,35 @@ public class e {
         if (z) {
             return true;
         }
-        new com.baidu.prologue.business.data.b(eVar).aN(eVar.Wj() ? "BC0263" : "BC0265", str);
+        new com.baidu.prologue.business.data.b(eVar).aS(eVar.Yg() ? "BC0263" : "BC0265", str);
         return false;
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes19.dex */
     public static class a {
         static void a(e eVar, e eVar2) {
             eVar.advisible = eVar2.advisible;
             eVar.id = eVar2.id;
-            eVar.bMM = eVar2.bMM;
+            eVar.bTv = eVar2.bTv;
             eVar.ext = eVar2.ext;
-            eVar.bMN = eVar2.bMN;
+            eVar.bTw = eVar2.bTw;
             eVar.type = eVar2.type;
             eVar.url = eVar2.url;
             eVar.width = eVar2.width;
             eVar.height = eVar2.height;
             eVar.md5 = eVar2.md5;
-            eVar.aEb = eVar2.aEb;
-            eVar.bMO = eVar2.bMO;
-            eVar.bMP = eVar2.bMP;
-            eVar.bMQ = eVar2.bMQ;
+            eVar.aHf = eVar2.aHf;
+            eVar.bTx = eVar2.bTx;
+            eVar.bTy = eVar2.bTy;
+            eVar.bTz = eVar2.bTz;
             eVar.action = eVar2.action;
-            eVar.bMR = eVar2.bMR;
-            eVar.bMS = eVar2.bMS;
+            eVar.bTA = eVar2.bTA;
+            eVar.bTB = eVar2.bTB;
             eVar.start = eVar2.start;
             eVar.end = eVar2.end;
-            eVar.bMT = eVar2.bMT;
-            eVar.bMU = eVar2.bMU;
-            eVar.bMV = eVar2.bMV;
+            eVar.bTC = eVar2.bTC;
+            eVar.bTD = eVar2.bTD;
+            eVar.bTE = eVar2.bTE;
         }
 
         static void a(JSONObject jSONObject, e eVar) {
@@ -183,7 +183,7 @@ public class e {
                 if (optJSONArray != null && (optJSONObject = optJSONArray.optJSONObject(0)) != null) {
                     eVar.advisible = optJSONObject.optInt("advisible", 1);
                     eVar.id = optJSONObject.optString("id");
-                    eVar.bMM = optJSONObject.optString("ukey");
+                    eVar.bTv = optJSONObject.optString("ukey");
                     JSONArray optJSONArray2 = optJSONObject.optJSONArray("extra");
                     if (optJSONArray2 != null && optJSONArray2.length() > 0) {
                         int i = 0;
@@ -214,17 +214,17 @@ public class e {
                         }
                         if (optJSONArray4 != null) {
                             JSONObject optJSONObject4 = optJSONArray4.optJSONObject(0);
-                            eVar.bMN = optJSONObject4.optString("layout");
+                            eVar.bTw = optJSONObject4.optString("layout");
                             JSONObject optJSONObject5 = optJSONObject4.optJSONObject("common");
                             if (optJSONObject5 != null) {
                                 eVar.type = optJSONObject5.optInt("type");
-                                eVar.aEb = optJSONObject5.optString(BigdayActivityConfig.JUMP_URL);
+                                eVar.aHf = optJSONObject5.optString(BigdayActivityConfig.JUMP_URL);
                                 eVar.action = optJSONObject5.optString("action");
-                                eVar.bMO = optJSONObject5.optString("flag_name");
-                                eVar.bMP = optJSONObject5.optInt("logo_type");
-                                eVar.bMQ = optJSONObject5.optInt("display");
+                                eVar.bTx = optJSONObject5.optString("flag_name");
+                                eVar.bTy = optJSONObject5.optInt("logo_type");
+                                eVar.bTz = optJSONObject5.optInt("display");
                                 JSONArray optJSONArray5 = optJSONObject5.optJSONArray("image_list");
-                                if (eVar.Wj() && optJSONArray5 != null && optJSONArray5.length() > 0) {
+                                if (eVar.Yg() && optJSONArray5 != null && optJSONArray5.length() > 0) {
                                     b.d(optJSONArray5.optJSONObject(0), eVar);
                                 } else {
                                     c.d(optJSONObject5, eVar);
@@ -232,18 +232,18 @@ public class e {
                             }
                             JSONArray optJSONArray6 = optJSONObject4.optJSONArray("show_urls");
                             if (optJSONArray6 != null) {
-                                eVar.bMR = new String[optJSONArray6.length()];
+                                eVar.bTA = new String[optJSONArray6.length()];
                                 int length = optJSONArray6.length();
                                 for (int i2 = 0; i2 < length; i2++) {
-                                    eVar.bMR[i2] = optJSONArray6.optString(i2);
+                                    eVar.bTA[i2] = optJSONArray6.optString(i2);
                                 }
                             }
                             JSONArray optJSONArray7 = optJSONObject4.optJSONArray("click_urls");
                             if (optJSONArray7 != null) {
-                                eVar.bMS = new String[optJSONArray7.length()];
+                                eVar.bTB = new String[optJSONArray7.length()];
                                 int length2 = optJSONArray7.length();
                                 for (int i3 = 0; i3 < length2; i3++) {
-                                    eVar.bMS[i3] = optJSONArray7.optString(i3);
+                                    eVar.bTB[i3] = optJSONArray7.optString(i3);
                                 }
                             }
                             JSONObject optJSONObject6 = optJSONObject4.optJSONObject("policy");
@@ -251,8 +251,8 @@ public class e {
                                 JSONObject jSONObject2 = optJSONObject6.getJSONObject("expire_time");
                                 eVar.start = jSONObject2.optLong("start");
                                 eVar.end = jSONObject2.optLong("end");
-                                eVar.bMT = optJSONObject6.optInt("expose_interval");
-                                eVar.bMU = optJSONObject6.optInt("expose_times");
+                                eVar.bTC = optJSONObject6.optInt("expose_interval");
+                                eVar.bTD = optJSONObject6.optInt("expose_times");
                                 eVar.preloadType = optJSONObject6.optInt("preload_type");
                             }
                         }
@@ -270,42 +270,42 @@ public class e {
             try {
                 eVar.advisible = jSONObject.optInt("advisible");
                 eVar.id = jSONObject.optString("id");
-                eVar.bMM = jSONObject.optString("ukey");
+                eVar.bTv = jSONObject.optString("ukey");
                 eVar.ext = jSONObject.optString("extra");
-                eVar.bMN = jSONObject.optString("layout");
+                eVar.bTw = jSONObject.optString("layout");
                 eVar.type = jSONObject.optInt("type");
-                eVar.aEb = jSONObject.optString(BigdayActivityConfig.JUMP_URL);
+                eVar.aHf = jSONObject.optString(BigdayActivityConfig.JUMP_URL);
                 eVar.action = jSONObject.optString("action");
-                eVar.bMO = jSONObject.optString("flag_name");
-                eVar.bMP = jSONObject.optInt("logo_type");
-                eVar.bMQ = jSONObject.optInt("display");
-                if (eVar.Wj()) {
+                eVar.bTx = jSONObject.optString("flag_name");
+                eVar.bTy = jSONObject.optInt("logo_type");
+                eVar.bTz = jSONObject.optInt("display");
+                if (eVar.Yg()) {
                     b.d(jSONObject, eVar);
                 } else {
                     c.d(jSONObject, eVar);
                 }
                 JSONArray optJSONArray = jSONObject.optJSONArray("show_urls");
                 if (optJSONArray != null) {
-                    eVar.bMR = new String[optJSONArray.length()];
+                    eVar.bTA = new String[optJSONArray.length()];
                     int length = optJSONArray.length();
                     for (int i = 0; i < length; i++) {
-                        eVar.bMR[i] = optJSONArray.optString(i);
+                        eVar.bTA[i] = optJSONArray.optString(i);
                     }
                 }
                 JSONArray optJSONArray2 = jSONObject.optJSONArray("click_urls");
                 if (optJSONArray2 != null) {
-                    eVar.bMS = new String[optJSONArray2.length()];
+                    eVar.bTB = new String[optJSONArray2.length()];
                     int length2 = optJSONArray2.length();
                     for (int i2 = 0; i2 < length2; i2++) {
-                        eVar.bMS[i2] = optJSONArray2.optString(i2);
+                        eVar.bTB[i2] = optJSONArray2.optString(i2);
                     }
                 }
                 eVar.start = jSONObject.optLong("start");
                 eVar.end = jSONObject.optLong("end");
-                eVar.bMT = jSONObject.optInt("expose_interval");
-                eVar.bMU = jSONObject.optInt("expose_times");
+                eVar.bTC = jSONObject.optInt("expose_interval");
+                eVar.bTD = jSONObject.optInt("expose_times");
                 eVar.preloadType = jSONObject.optInt("preload_type");
-                eVar.bMV = jSONObject.optInt("curRate");
+                eVar.bTE = jSONObject.optInt("curRate");
             } catch (Exception e) {
                 if (e.DEBUG) {
                     Log.d("SplashData", "createFromJson() Exception e: ");
@@ -318,36 +318,36 @@ public class e {
             try {
                 jSONObject.put("advisible", eVar.advisible);
                 jSONObject.put("id", eVar.id);
-                jSONObject.put("ukey", eVar.bMM);
+                jSONObject.put("ukey", eVar.bTv);
                 jSONObject.put("extra", eVar.ext);
-                jSONObject.put("layout", eVar.bMN);
+                jSONObject.put("layout", eVar.bTw);
                 jSONObject.put("type", eVar.type);
-                jSONObject.put(BigdayActivityConfig.JUMP_URL, eVar.aEb);
+                jSONObject.put(BigdayActivityConfig.JUMP_URL, eVar.aHf);
                 jSONObject.put("action", eVar.action);
-                jSONObject.put("flag_name", eVar.bMO);
-                jSONObject.put("logo_type", eVar.bMP);
-                jSONObject.put("display", eVar.bMQ);
+                jSONObject.put("flag_name", eVar.bTx);
+                jSONObject.put("logo_type", eVar.bTy);
+                jSONObject.put("display", eVar.bTz);
                 jSONObject.put("start", eVar.start);
                 jSONObject.put("end", eVar.end);
-                jSONObject.put("expose_times", eVar.bMU);
-                jSONObject.put("expose_interval", eVar.bMT);
+                jSONObject.put("expose_times", eVar.bTD);
+                jSONObject.put("expose_interval", eVar.bTC);
                 jSONObject.put("preload_type", eVar.preloadType);
-                jSONObject.put("curRate", eVar.bMV);
-                if (eVar.bMR != null) {
+                jSONObject.put("curRate", eVar.bTE);
+                if (eVar.bTA != null) {
                     if (com.baidu.prologue.a.c.d.hasKitKat()) {
-                        jSONObject.put("show_urls", new JSONArray(eVar.bMR));
+                        jSONObject.put("show_urls", new JSONArray(eVar.bTA));
                     } else {
-                        jSONObject.put("show_urls", new JSONArray((Collection) Arrays.asList(eVar.bMR)));
+                        jSONObject.put("show_urls", new JSONArray((Collection) Arrays.asList(eVar.bTA)));
                     }
                 }
-                if (eVar.bMS != null) {
+                if (eVar.bTB != null) {
                     if (com.baidu.prologue.a.c.d.hasKitKat()) {
-                        jSONObject.put("click_urls", new JSONArray(eVar.bMS));
+                        jSONObject.put("click_urls", new JSONArray(eVar.bTB));
                     } else {
-                        jSONObject.put("click_urls", new JSONArray((Collection) Arrays.asList(eVar.bMS)));
+                        jSONObject.put("click_urls", new JSONArray((Collection) Arrays.asList(eVar.bTB)));
                     }
                 }
-                if (eVar.Wj()) {
+                if (eVar.Yg()) {
                     b.c(jSONObject, eVar);
                 } else {
                     c.c(jSONObject, eVar);
@@ -358,7 +358,7 @@ public class e {
         }
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes19.dex */
     public static class b {
         static void d(JSONObject jSONObject, e eVar) {
             if (jSONObject != null) {
@@ -388,7 +388,7 @@ public class e {
         }
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes19.dex */
     public static class c {
         static void d(JSONObject jSONObject, e eVar) {
             if (jSONObject != null) {

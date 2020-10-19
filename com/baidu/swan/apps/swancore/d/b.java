@@ -2,49 +2,49 @@ package com.baidu.swan.apps.swancore.d;
 
 import android.support.annotation.Nullable;
 import com.baidu.swan.apps.u.c.c;
-/* loaded from: classes3.dex */
+/* loaded from: classes10.dex */
 public class b {
-    public boolean daI;
-    public boolean daJ;
+    public boolean dmQ;
+    public boolean dmR;
     @Nullable
-    public c daK;
-    public String daL;
+    public c dmS;
+    public String dmT;
 
     private b() {
-        this.daI = false;
-        this.daJ = false;
-        this.daK = null;
-        this.daL = "";
+        this.dmQ = false;
+        this.dmR = false;
+        this.dmS = null;
+        this.dmT = "";
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes10.dex */
     public static class a {
-        private boolean daI = false;
-        private boolean daJ = false;
+        private boolean dmQ = false;
+        private boolean dmR = false;
         @Nullable
-        private c daK = null;
-        private String daL = "";
+        private c dmS = null;
+        private String dmT = "";
 
-        public static a aEe() {
+        public static a aGN() {
             return new a();
         }
 
-        public a fU(boolean z) {
-            this.daI = z;
+        public a gq(boolean z) {
+            this.dmQ = z;
             return this;
         }
 
-        public a sy(String str) {
-            this.daL = str;
+        public a tk(String str) {
+            this.dmT = str;
             return this;
         }
 
-        public b aEf() {
+        public b aGO() {
             b bVar = new b();
-            bVar.daI = this.daI;
-            bVar.daJ = this.daJ;
-            bVar.daK = this.daK;
-            bVar.daL = this.daL;
+            bVar.dmQ = this.dmQ;
+            bVar.dmR = this.dmR;
+            bVar.dmS = this.dmS;
+            bVar.dmT = this.dmT;
             return bVar;
         }
     }

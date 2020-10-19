@@ -18,7 +18,7 @@ import java.util.Map;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes25.dex */
+/* loaded from: classes5.dex */
 public class SapiAccount implements Parcelable, Cloneable {
     public static final Parcelable.Creator<SapiAccount> CREATOR;
     public static final String SAPI_ACCOUNT_APP = "app";
@@ -33,7 +33,9 @@ public class SapiAccount implements Parcelable, Cloneable {
     private static final String h = "ptoken";
     private static final String i = "stoken";
     @Deprecated
-    private String a;
+
+    /* renamed from: a  reason: collision with root package name */
+    private String f3219a;
     public String app;
     public String bduss;
     public String displayname;
@@ -49,7 +51,7 @@ public class SapiAccount implements Parcelable, Cloneable {
     public String uid;
     public String username;
 
-    /* loaded from: classes25.dex */
+    /* loaded from: classes5.dex */
     static class a implements Parcelable.Creator<SapiAccount> {
         a() {
         }
@@ -297,7 +299,7 @@ public class SapiAccount implements Parcelable, Cloneable {
                     ExtraProperty fromJSONObject = ExtraProperty.fromJSONObject(new JSONObject(sapiAccount.extra));
                     extraProperty.dispersionCertification.tplStokenMap = fromJSONObject.dispersionCertification.tplStokenMap;
                     extraProperty.d = fromJSONObject.d;
-                    extraProperty.a = fromJSONObject.a;
+                    extraProperty.f3220a = fromJSONObject.f3220a;
                     extraProperty.e = fromJSONObject.e;
                     this.extra = extraProperty.toJSONObject().toString();
                 } catch (JSONException e2) {
@@ -318,7 +320,7 @@ public class SapiAccount implements Parcelable, Cloneable {
         parcel.writeString(this.app);
         parcel.writeString(this.ptoken);
         parcel.writeString(this.stoken);
-        parcel.writeString(this.a);
+        parcel.writeString(this.f3219a);
         parcel.writeString(this.extra);
         parcel.writeString(this.portrait);
     }
@@ -333,13 +335,13 @@ public class SapiAccount implements Parcelable, Cloneable {
         this.app = parcel.readString();
         this.ptoken = parcel.readString();
         this.stoken = parcel.readString();
-        this.a = parcel.readString();
+        this.f3219a = parcel.readString();
         this.extra = parcel.readString();
         this.portrait = parcel.readString();
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes25.dex */
+    /* loaded from: classes5.dex */
     public static final class DispersionCertification implements NoProguard {
         protected Map<String, String> tplStokenMap = new HashMap();
 
@@ -415,7 +417,7 @@ public class SapiAccount implements Parcelable, Cloneable {
         return str2;
     }
 
-    /* loaded from: classes25.dex */
+    /* loaded from: classes5.dex */
     static final class ExtraProperty implements NoProguard {
         protected static final String EXTRA_ACCOUNT_TYPE = "account_type";
         protected static final String EXTRA_IS_GUEST_ACCOUNT = "is_guest_account";
@@ -425,7 +427,9 @@ public class SapiAccount implements Parcelable, Cloneable {
         protected static final String EXTRA_SOCIAL_TYPE = "social_type";
         protected static final String EXTRA_TPL = "tpl";
         protected static final String EXTRA_TPL_STOKEN_LIST = "stoken_list";
-        String a;
+
+        /* renamed from: a  reason: collision with root package name */
+        String f3220a;
         String b;
         String c;
         String d;
@@ -438,7 +442,7 @@ public class SapiAccount implements Parcelable, Cloneable {
         public JSONObject toJSONObject() {
             JSONObject jSONObject = new JSONObject();
             try {
-                jSONObject.put("account_type", this.a);
+                jSONObject.put("account_type", this.f3220a);
                 jSONObject.put(EXTRA_IS_SOCIAL_ACCOUNT, this.b);
                 jSONObject.put("social_type", this.c);
                 jSONObject.put(EXTRA_SOCIAL_PORTRAIT, this.d);
@@ -458,7 +462,7 @@ public class SapiAccount implements Parcelable, Cloneable {
                 return null;
             }
             ExtraProperty extraProperty = new ExtraProperty();
-            extraProperty.a = jSONObject.optString("account_type");
+            extraProperty.f3220a = jSONObject.optString("account_type");
             extraProperty.b = jSONObject.optString(EXTRA_IS_SOCIAL_ACCOUNT);
             extraProperty.c = jSONObject.optString("social_type");
             extraProperty.d = jSONObject.optString(EXTRA_SOCIAL_PORTRAIT);

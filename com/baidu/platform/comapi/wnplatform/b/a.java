@@ -9,9 +9,11 @@ import com.baidu.platform.comjni.bikenavi.JNIGuidanceControl;
 import com.google.protobuf.micro.MessageMicro;
 import java.io.IOException;
 import java.util.List;
-/* loaded from: classes3.dex */
+/* loaded from: classes7.dex */
 public class a extends com.baidu.platform.comapi.walknavi.a {
-    int a;
+
+    /* renamed from: a  reason: collision with root package name */
+    int f3098a;
     private JNIGuidanceControl b;
     private long c;
     private boolean d;
@@ -40,9 +42,9 @@ public class a extends com.baidu.platform.comapi.walknavi.a {
 
     public boolean a(int[] iArr, int[] iArr2, int[] iArr3, int[] iArr4) {
         if (this.b != null) {
-            this.a = iArr.length;
-            String[] strArr = new String[this.a];
-            String[] strArr2 = new String[this.a];
+            this.f3098a = iArr.length;
+            String[] strArr = new String[this.f3098a];
+            String[] strArr2 = new String[this.f3098a];
             for (int i = 0; i < strArr.length; i++) {
                 strArr[i] = "";
             }
@@ -56,14 +58,14 @@ public class a extends com.baidu.platform.comapi.walknavi.a {
 
     public boolean a(int[] iArr, int[] iArr2, int[] iArr3, int[] iArr4, String[] strArr, String[] strArr2) {
         if (this.b != null) {
-            this.a = iArr.length;
+            this.f3098a = iArr.length;
             return this.b.setNaviNodes(this.c, iArr, iArr2, iArr3, iArr4, strArr, strArr2, null, null);
         }
         return false;
     }
 
     public int a() {
-        return this.a;
+        return this.f3098a;
     }
 
     public int b() {
@@ -116,8 +118,8 @@ public class a extends com.baidu.platform.comapi.walknavi.a {
             return null;
         }
         try {
-            List<MessageMicro> a = d.a(GetProtobufResult);
-            cVar = a.size() >= 1 ? new c(0, 31, a) : null;
+            List<MessageMicro> a2 = d.a(GetProtobufResult);
+            cVar = a2.size() >= 1 ? new c(0, 31, a2) : null;
         } catch (IOException e) {
             cVar = null;
         }

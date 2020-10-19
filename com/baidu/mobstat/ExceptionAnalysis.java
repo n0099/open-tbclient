@@ -10,22 +10,24 @@ import java.io.PrintWriter;
 import java.io.StringWriter;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes15.dex */
+/* loaded from: classes17.dex */
 public class ExceptionAnalysis {
-    private static ExceptionAnalysis a = new ExceptionAnalysis();
+
+    /* renamed from: a  reason: collision with root package name */
+    private static ExceptionAnalysis f2492a = new ExceptionAnalysis();
     private Context c;
     private String e;
     public Callback mCallback;
     private boolean b = false;
     private HeadObject d = new HeadObject();
 
-    /* loaded from: classes15.dex */
+    /* loaded from: classes17.dex */
     public interface Callback {
         void onCallback(JSONObject jSONObject);
     }
 
     public static ExceptionAnalysis getInstance() {
-        return a;
+        return f2492a;
     }
 
     private ExceptionAnalysis() {

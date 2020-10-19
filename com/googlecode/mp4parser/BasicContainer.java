@@ -14,7 +14,7 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 import java.util.NoSuchElementException;
-/* loaded from: classes4.dex */
+/* loaded from: classes11.dex */
 public class BasicContainer implements Container, Iterator<Box> {
     protected BoxParser boxParser;
     protected DataSource dataSource;

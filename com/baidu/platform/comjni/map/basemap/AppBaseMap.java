@@ -6,10 +6,12 @@ import android.view.Surface;
 import java.util.concurrent.locks.Lock;
 import java.util.concurrent.locks.ReadWriteLock;
 import java.util.concurrent.locks.ReentrantReadWriteLock;
-/* loaded from: classes3.dex */
+/* loaded from: classes7.dex */
 public class AppBaseMap {
     private NABaseMap b;
-    private long a = 0;
+
+    /* renamed from: a  reason: collision with root package name */
+    private long f3163a = 0;
     private final ReadWriteLock c = new ReentrantReadWriteLock(true);
 
     public AppBaseMap() {
@@ -38,7 +40,7 @@ public class AppBaseMap {
     }
 
     public void AddStreetCustomMarker(Bundle bundle, Bitmap bitmap) {
-        if (this.a != 0) {
+        if (this.f3163a != 0) {
             this.b.addStreetCustomMarker(bundle, bitmap);
         }
     }
@@ -74,7 +76,7 @@ public class AppBaseMap {
     public boolean Create() {
         try {
             this.c.writeLock().lock();
-            this.a = this.b.create();
+            this.f3163a = this.b.create();
             return true;
         } finally {
             this.c.writeLock().unlock();
@@ -82,8 +84,8 @@ public class AppBaseMap {
     }
 
     public boolean CreateByDuplicate(long j) {
-        this.a = this.b.createByDuplicate(j);
-        return this.a != 0;
+        this.f3163a = this.b.createByDuplicate(j);
+        return this.f3163a != 0;
     }
 
     public long CreateDuplicate() {
@@ -91,7 +93,7 @@ public class AppBaseMap {
     }
 
     public int Draw() {
-        if (this.a != 0) {
+        if (this.f3163a != 0) {
             return this.b.draw();
         }
         return 0;
@@ -122,14 +124,14 @@ public class AppBaseMap {
     }
 
     public String GetFocusedBaseIndoorMapInfo() {
-        if (this.a != 0) {
+        if (this.f3163a != 0) {
             return this.b.getFocusedBaseIndoorMapInfo();
         }
         return null;
     }
 
     public long GetId() {
-        return this.a;
+        return this.f3163a;
     }
 
     public int GetMapRenderType() {
@@ -161,19 +163,19 @@ public class AppBaseMap {
     }
 
     public boolean Init(String str, String str2, String str3, String str4, String str5, String str6, String str7, int i, int i2, int i3, int i4, int i5, int i6, int i7, boolean z, boolean z2) {
-        return this.a != 0 && this.b.init(str, str2, str3, str4, str5, str6, str7, i, i2, i3, i4, i5, i6, i7, z, z2);
+        return this.f3163a != 0 && this.b.init(str, str2, str3, str4, str5, str6, str7, i, i2, i3, i4, i5, i6, i7, z, z2);
     }
 
     public boolean IsBaseIndoorMapMode() {
-        return this.a != 0 && this.b.isBaseIndoorMapMode();
+        return this.f3163a != 0 && this.b.isBaseIndoorMapMode();
     }
 
     public boolean IsPointInFocusBarBorder(double d, double d2, double d3) {
-        return this.a != 0 && this.b.isPointInFocusBarBorder(d, d2, d3);
+        return this.f3163a != 0 && this.b.isPointInFocusBarBorder(d, d2, d3);
     }
 
     public boolean IsPointInFocusIDRBorder(double d, double d2) {
-        return this.a != 0 && this.b.isPointInFocusIDRBorder(d, d2);
+        return this.f3163a != 0 && this.b.isPointInFocusIDRBorder(d, d2);
     }
 
     public boolean IsStreetArrowShown() {
@@ -185,7 +187,7 @@ public class AppBaseMap {
     }
 
     public boolean IsStreetPOIMarkerShown() {
-        return this.a != 0 && this.b.isStreetPOIMarkerShown();
+        return this.f3163a != 0 && this.b.isStreetPOIMarkerShown();
     }
 
     public boolean IsStreetRoadClickable() {
@@ -203,7 +205,7 @@ public class AppBaseMap {
     public void OnBackground() {
         try {
             this.c.readLock().lock();
-            if (this.a != 0) {
+            if (this.f3163a != 0) {
                 this.b.onBackground();
             }
         } finally {
@@ -214,7 +216,7 @@ public class AppBaseMap {
     public void OnForeground() {
         try {
             this.c.readLock().lock();
-            if (this.a != 0) {
+            if (this.f3163a != 0) {
                 this.b.onForeground();
             }
         } finally {
@@ -229,7 +231,7 @@ public class AppBaseMap {
     public void OnPause() {
         try {
             this.c.readLock().lock();
-            if (this.a != 0) {
+            if (this.f3163a != 0) {
                 this.b.onPause();
             }
         } finally {
@@ -272,7 +274,7 @@ public class AppBaseMap {
     public void OnResume() {
         try {
             this.c.readLock().lock();
-            if (this.a != 0) {
+            if (this.f3163a != 0) {
                 this.b.onResume();
             }
         } finally {
@@ -297,12 +299,12 @@ public class AppBaseMap {
         Lock writeLock;
         try {
             this.c.writeLock().lock();
-            if (this.a == 0) {
+            if (this.f3163a == 0) {
                 return false;
             }
-            BaseMapCallback.release(this.a);
+            BaseMapCallback.release(this.f3163a);
             this.b.dispose();
-            this.a = 0L;
+            this.f3163a = 0L;
             return true;
         } finally {
             this.c.writeLock().unlock();
@@ -329,7 +331,7 @@ public class AppBaseMap {
     }
 
     public void ResetImageRes() {
-        if (this.a != 0) {
+        if (this.f3163a != 0) {
             this.b.resetImageRes();
         }
     }
@@ -355,13 +357,13 @@ public class AppBaseMap {
     }
 
     public void SetAllStreetCustomMarkerVisibility(boolean z) {
-        if (this.a != 0) {
+        if (this.f3163a != 0) {
             this.b.setAllStreetCustomMarkerVisibility(z);
         }
     }
 
     public boolean SetCallback(a aVar) {
-        return (aVar == null || this.a == 0 || !BaseMapCallback.setMapCallback(this.a, aVar)) ? false : true;
+        return (aVar == null || this.f3163a == 0 || !BaseMapCallback.setMapCallback(this.f3163a, aVar)) ? false : true;
     }
 
     public void SetFocus(long j, long j2, boolean z, Bundle bundle) {
@@ -397,7 +399,7 @@ public class AppBaseMap {
     }
 
     public boolean SetSDKLayerCallback(com.baidu.mapsdkplatform.comjni.a.a.a aVar) {
-        return (aVar == null || this.a == 0 || !BaseMapCallback.setMapSDKCallback(this.a, aVar)) ? false : true;
+        return (aVar == null || this.f3163a == 0 || !BaseMapCallback.setMapSDKCallback(this.f3163a, aVar)) ? false : true;
     }
 
     public void SetStreetArrowShow(boolean z) {
@@ -417,7 +419,7 @@ public class AppBaseMap {
     }
 
     public void SetTargetStreetCustomMarkerVisibility(boolean z, String str) {
-        if (this.a != 0) {
+        if (this.f3163a != 0) {
             this.b.setTargetStreetCustomMarkerVisibility(z, str);
         }
     }
@@ -435,7 +437,7 @@ public class AppBaseMap {
     }
 
     public void ShowLayers(long j, boolean z) {
-        if (this.a != 0) {
+        if (this.f3163a != 0) {
             this.b.showLayers(j, z);
         }
     }
@@ -449,7 +451,7 @@ public class AppBaseMap {
     }
 
     public void ShowStreetPOIMarker(boolean z) {
-        if (this.a != 0) {
+        if (this.f3163a != 0) {
             this.b.showStreetPOIMarker(z);
         }
     }
@@ -487,11 +489,11 @@ public class AppBaseMap {
     }
 
     public boolean addSDKTileData(Bundle bundle) {
-        return this.b.nativeAddTileOverlay(this.a, bundle);
+        return this.b.nativeAddTileOverlay(this.f3163a, bundle);
     }
 
     public boolean cleanSDKTileDataCache(long j) {
-        return this.b.nativeCleanSDKTileDataCache(this.a, j);
+        return this.b.nativeCleanSDKTileDataCache(this.f3163a, j);
     }
 
     public void clearUniversalLayer() {
@@ -654,7 +656,7 @@ public class AppBaseMap {
     }
 
     public void resize(int i, int i2) {
-        if (this.a != 0) {
+        if (this.f3163a != 0) {
             this.b.renderResize(i, i2);
         }
     }
@@ -752,7 +754,7 @@ public class AppBaseMap {
     }
 
     public boolean updateSDKTile(Bundle bundle) {
-        return this.b.nativeUpdateSDKTile(this.a, bundle);
+        return this.b.nativeUpdateSDKTile(this.f3163a, bundle);
     }
 
     public String worldPointToScreenPoint(float f, float f2, float f3) {

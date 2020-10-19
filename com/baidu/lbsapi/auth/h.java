@@ -4,13 +4,15 @@ import javax.net.ssl.HostnameVerifier;
 import javax.net.ssl.HttpsURLConnection;
 import javax.net.ssl.SSLSession;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes3.dex */
+/* loaded from: classes7.dex */
 public class h implements HostnameVerifier {
-    final /* synthetic */ g a;
+
+    /* renamed from: a  reason: collision with root package name */
+    final /* synthetic */ g f1837a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public h(g gVar) {
-        this.a = gVar;
+        this.f1837a = gVar;
     }
 
     @Override // javax.net.ssl.HostnameVerifier

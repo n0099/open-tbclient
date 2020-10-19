@@ -8,13 +8,13 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 /* loaded from: classes4.dex */
 public class AlaGetWishListResponseMessage extends JsonHttpResponsedMessage {
-    private ArrayList<d> eiq;
-    private long gRx;
+    private ArrayList<d> euy;
+    private long hgu;
     private String mTips;
 
     public AlaGetWishListResponseMessage(int i) {
         super(1021165);
-        this.eiq = new ArrayList<>();
+        this.euy = new ArrayList<>();
     }
 
     @Override // com.baidu.live.tbadk.message.http.JsonHttpResponsedMessage
@@ -24,19 +24,19 @@ public class AlaGetWishListResponseMessage extends JsonHttpResponsedMessage {
         if (jSONObject != null && (optJSONObject = jSONObject.optJSONObject("data")) != null) {
             JSONArray optJSONArray = optJSONObject.optJSONArray("list");
             this.mTips = optJSONObject.optString(TableDefine.MessageColumns.COLUME_TIPS);
-            this.gRx = optJSONObject.optLong("sys_time");
+            this.hgu = optJSONObject.optLong("sys_time");
             if (optJSONArray != null && optJSONArray.length() > 0) {
                 for (int i2 = 0; i2 < optJSONArray.length(); i2++) {
                     d dVar = new d();
                     dVar.parserJson(optJSONArray.getJSONObject(i2));
-                    this.eiq.add(dVar);
+                    this.euy.add(dVar);
                 }
             }
         }
     }
 
     public ArrayList<d> getData() {
-        return this.eiq;
+        return this.euy;
     }
 
     public String getTips() {
@@ -44,6 +44,6 @@ public class AlaGetWishListResponseMessage extends JsonHttpResponsedMessage {
     }
 
     public long getSysTime() {
-        return this.gRx;
+        return this.hgu;
     }
 }

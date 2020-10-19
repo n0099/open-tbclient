@@ -1,22 +1,24 @@
 package com.xiaomi.push;
 
 import android.os.AsyncTask;
-/* loaded from: classes9.dex */
+/* loaded from: classes12.dex */
 class cp extends AsyncTask<String, Integer, Integer> {
-    cm a;
+
+    /* renamed from: a  reason: collision with root package name */
+    cm f4843a;
 
     /* renamed from: a  reason: collision with other field name */
-    ct f177a;
+    ct f178a;
 
     /* renamed from: a  reason: collision with other field name */
-    String f178a;
+    String f179a;
     String b;
 
     public cp(ct ctVar, String str, String str2, cm cmVar) {
-        this.f178a = str;
+        this.f179a = str;
         this.b = str2;
-        this.f177a = ctVar;
-        this.a = cmVar;
+        this.f178a = ctVar;
+        this.f4843a = cmVar;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -24,7 +26,7 @@ class cp extends AsyncTask<String, Integer, Integer> {
     @Override // android.os.AsyncTask
     /* renamed from: a */
     public Integer doInBackground(String... strArr) {
-        return Integer.valueOf(cq.a(this.f178a, this.b, this.a));
+        return Integer.valueOf(cq.a(this.f179a, this.b, this.f4843a));
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -33,16 +35,16 @@ class cp extends AsyncTask<String, Integer, Integer> {
     /* renamed from: a */
     public void onPostExecute(Integer num) {
         super.onPostExecute(num);
-        if (this.f177a != null) {
-            this.f177a.a(num, this.a);
+        if (this.f178a != null) {
+            this.f178a.a(num, this.f4843a);
         }
     }
 
     @Override // android.os.AsyncTask
     protected void onCancelled() {
         super.onCancelled();
-        if (this.f177a != null) {
-            this.f177a.a(1, this.a);
+        if (this.f178a != null) {
+            this.f178a.a(1, this.f4843a);
         }
     }
 }

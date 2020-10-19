@@ -1,5 +1,5 @@
 package com.sina.weibo.sdk.network.base;
-/* loaded from: classes24.dex */
+/* loaded from: classes12.dex */
 public class WbUserInfo {
     private String gsid;
     private String token;

@@ -1,5 +1,5 @@
 package android.support.v4.view;
-/* loaded from: classes23.dex */
+/* loaded from: classes5.dex */
 public final class InputDeviceCompat {
     public static final int SOURCE_ANY = -256;
     public static final int SOURCE_CLASS_BUTTON = 1;

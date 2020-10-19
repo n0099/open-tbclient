@@ -10,7 +10,9 @@ import java.io.File;
 @Keep
 /* loaded from: classes16.dex */
 public class CyberMediaExtLoader {
-    private static ClassLoader a = null;
+
+    /* renamed from: a  reason: collision with root package name */
+    private static ClassLoader f2261a = null;
 
     private static void a(Context context) {
         CyberLog.i("CyberMediaExtInvoker", "tryLoadExtJar isExtJarLoader = " + a.a());
@@ -18,11 +20,11 @@ public class CyberMediaExtLoader {
             return;
         }
         String str = b.c() + File.separator + "libs";
-        File file = new File(e.TI().fQ(2048).c());
+        File file = new File(e.VB().gj(2048).c());
         if (file == null || !file.exists()) {
             CyberLog.e("CyberMediaExtInvoker", "dexFile = null or dexFile not exist!");
         } else {
-            a = new CyberClassLoader(file.getAbsolutePath(), new File(str), null, context.getClassLoader());
+            f2261a = new CyberClassLoader(file.getAbsolutePath(), new File(str), null, context.getClassLoader());
         }
     }
 
@@ -30,7 +32,7 @@ public class CyberMediaExtLoader {
         boolean a2;
         synchronized (CyberMediaExtLoader.class) {
             a(context);
-            a.b(a);
+            a.b(f2261a);
             a2 = a.a();
         }
         return a2;

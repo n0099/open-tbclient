@@ -5,16 +5,18 @@ import android.os.Bundle;
 import android.text.TextUtils;
 import java.io.Serializable;
 import java.util.ArrayList;
-/* loaded from: classes12.dex */
+/* loaded from: classes15.dex */
 public final class a {
-    private Bundle a;
+
+    /* renamed from: a  reason: collision with root package name */
+    private Bundle f4629a;
     private String b;
     private String c;
 
     public a(String str, String str2, Bundle bundle) {
         this.b = str;
         this.c = str2;
-        this.a = bundle;
+        this.f4629a = bundle;
     }
 
     /* JADX WARN: Code restructure failed: missing block: B:9:0x001e, code lost:
@@ -51,81 +53,81 @@ public final class a {
     }
 
     public final void a(String str, int i) {
-        if (this.a == null) {
-            this.a = new Bundle();
+        if (this.f4629a == null) {
+            this.f4629a = new Bundle();
         }
-        this.a.putInt(str, i);
+        this.f4629a.putInt(str, i);
     }
 
     public final void a(String str, long j) {
-        if (this.a == null) {
-            this.a = new Bundle();
+        if (this.f4629a == null) {
+            this.f4629a = new Bundle();
         }
-        this.a.putLong(str, j);
+        this.f4629a.putLong(str, j);
     }
 
     public final void a(String str, String str2) {
-        if (this.a == null) {
-            this.a = new Bundle();
+        if (this.f4629a == null) {
+            this.f4629a = new Bundle();
         }
-        this.a.putString(str, str2);
+        this.f4629a.putString(str, str2);
     }
 
     public final void a(String str, Serializable serializable) {
-        if (this.a == null) {
-            this.a = new Bundle();
+        if (this.f4629a == null) {
+            this.f4629a = new Bundle();
         }
-        this.a.putSerializable(str, serializable);
+        this.f4629a.putSerializable(str, serializable);
     }
 
     public final void a(String str, boolean z) {
-        if (this.a == null) {
-            this.a = new Bundle();
+        if (this.f4629a == null) {
+            this.f4629a = new Bundle();
         }
-        this.a.putBoolean(str, z);
+        this.f4629a.putBoolean(str, z);
     }
 
     public final void a(String str, ArrayList<String> arrayList) {
-        if (this.a == null) {
-            this.a = new Bundle();
+        if (this.f4629a == null) {
+            this.f4629a = new Bundle();
         }
-        this.a.putStringArrayList(str, arrayList);
+        this.f4629a.putStringArrayList(str, arrayList);
     }
 
     public final String a(String str) {
-        if (this.a == null) {
+        if (this.f4629a == null) {
             return null;
         }
-        return this.a.getString(str);
+        return this.f4629a.getString(str);
     }
 
     public final int b(String str, int i) {
-        return this.a == null ? i : this.a.getInt(str, i);
+        return this.f4629a == null ? i : this.f4629a.getInt(str, i);
     }
 
     public final ArrayList<String> b(String str) {
-        if (this.a == null) {
+        if (this.f4629a == null) {
             return null;
         }
-        return this.a.getStringArrayList(str);
+        return this.f4629a.getStringArrayList(str);
     }
 
     public final long b(String str, long j) {
-        return this.a == null ? j : this.a.getLong(str, j);
+        return this.f4629a == null ? j : this.f4629a.getLong(str, j);
     }
 
     public final Serializable c(String str) {
-        if (this.a == null) {
+        if (this.f4629a == null) {
             return null;
         }
-        return this.a.getSerializable(str);
+        return this.f4629a.getSerializable(str);
     }
 
     public final boolean d(String str) {
-        if (this.a == null) {
+        if (this.f4629a == null) {
             return false;
         }
-        return this.a.getBoolean(str, false);
+        return this.f4629a.getBoolean(str, false);
     }
 
     public final String a() {
@@ -133,6 +135,6 @@ public final class a {
     }
 
     public final Bundle b() {
-        return this.a;
+        return this.f4629a;
     }
 }

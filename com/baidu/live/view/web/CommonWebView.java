@@ -10,8 +10,8 @@ import com.baidu.live.tbadk.core.TbadkCoreApplication;
 import com.baidu.live.tbadk.extraparams.ExtraParamsManager;
 /* loaded from: classes4.dex */
 public class CommonWebView extends WebView {
-    private boolean byE;
-    private boolean byF;
+    private boolean bFh;
+    private boolean bFi;
 
     public CommonWebView(Context context) {
         super(context);
@@ -19,11 +19,11 @@ public class CommonWebView extends WebView {
     }
 
     public void setVerticalScrollEnabled(boolean z) {
-        this.byE = z;
+        this.bFh = z;
     }
 
     public void setHorizontalScrollEnabled(boolean z) {
-        this.byF = z;
+        this.bFi = z;
     }
 
     @Override // android.view.ViewGroup, android.view.View
@@ -35,25 +35,25 @@ public class CommonWebView extends WebView {
     @Override // android.webkit.WebView, android.view.View
     protected void onScrollChanged(int i, int i2, int i3, int i4) {
         super.onScrollChanged(i, i2, i3, i4);
-        if (!this.byE && !this.byF) {
+        if (!this.bFh && !this.bFi) {
             scrollTo(0, 0);
-        } else if (!this.byE) {
+        } else if (!this.bFh) {
             scrollTo(i, 0);
-        } else if (!this.byF) {
+        } else if (!this.bFi) {
             scrollTo(0, i2);
         }
     }
 
     @Override // android.webkit.WebView
     public void loadUrl(String str) {
-        i.G(getContext(), str);
-        i.H(getContext(), str);
+        i.I(getContext(), str);
+        i.J(getContext(), str);
         super.loadUrl(str);
     }
 
     private void init() {
-        this.byE = true;
-        this.byF = true;
+        this.bFh = true;
+        this.bFi = true;
         setBackgroundColor(0);
         if (getBackground() != null) {
             getBackground().setAlpha(0);
@@ -81,7 +81,7 @@ public class CommonWebView extends WebView {
         if (TbadkCoreApplication.getInst().isHaokan()) {
             resumeTimers();
         }
-        if (TbadkCoreApplication.getInst().isQuanmin() || TbadkCoreApplication.getInst().isHaokan()) {
+        if (TbadkCoreApplication.getInst().isQuanmin() || TbadkCoreApplication.getInst().isHaokan() || TbadkCoreApplication.getInst().isYinbo()) {
             ExtraParamsManager.syncWebCookie();
         }
     }

@@ -3,9 +3,11 @@ package com.baidu.cyberplayer.sdk.rtc;
 import android.content.Context;
 import com.baidu.cyberplayer.sdk.config.CyberCfgManager;
 import com.baidu.cyberplayer.sdk.d;
-/* loaded from: classes10.dex */
+/* loaded from: classes12.dex */
 public class a {
-    private static a a = null;
+
+    /* renamed from: a  reason: collision with root package name */
+    private static a f1423a = null;
 
     private a() {
     }
@@ -14,10 +16,10 @@ public class a {
     public static synchronized a a() {
         a aVar;
         synchronized (a.class) {
-            if (a == null) {
-                a = new a();
+            if (f1423a == null) {
+                f1423a = new a();
             }
-            aVar = a;
+            aVar = f1423a;
         }
         return aVar;
     }

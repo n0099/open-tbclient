@@ -18,11 +18,13 @@ import com.baidu.fsg.face.liveness.result.LivenessRecogResult;
 import com.baidu.fsg.face.liveness.view.LoadingDialog;
 import com.baidu.sapi2.biometrics.liveness.R;
 import java.util.ArrayList;
-/* loaded from: classes16.dex */
+/* loaded from: classes17.dex */
 public class LivenessVideoLoadingActivity extends LivenessBaseActivity {
     public static final String KEY_VIDEOGETPORTRAITMODEL = "VideoGetPortraitModel";
     public static final String TAG = "LivenessVideoLoadingActivity";
-    private LoadingDialog a;
+
+    /* renamed from: a  reason: collision with root package name */
+    private LoadingDialog f1705a;
 
     @Override // com.baidu.fsg.face.liveness.activity.LivenessBaseActivity, com.baidu.fsg.base.activity.BeanActivity, com.baidu.fsg.base.activity.BaseActivity, android.app.Activity
     public void onCreate(Bundle bundle) {
@@ -45,20 +47,20 @@ public class LivenessVideoLoadingActivity extends LivenessBaseActivity {
     }
 
     private void a(Context context) {
-        if (this.a == null) {
-            this.a = new LoadingDialog(context);
-            this.a.setMessage(context.getString(R.string.sapi_liveness_recog_loading));
-            this.a.setCancelable(false);
+        if (this.f1705a == null) {
+            this.f1705a = new LoadingDialog(context);
+            this.f1705a.setMessage(context.getString(R.string.sapi_liveness_recog_loading));
+            this.f1705a.setCancelable(false);
         }
-        if (!((Activity) context).isFinishing() && this.a != null && !this.a.isShowing()) {
-            this.a.show();
+        if (!((Activity) context).isFinishing() && this.f1705a != null && !this.f1705a.isShowing()) {
+            this.f1705a.show();
         }
     }
 
     private void b() {
-        if (this.a != null) {
-            if (!isFinishing() || !this.a.isShowing()) {
-                this.a.dismiss();
+        if (this.f1705a != null) {
+            if (!isFinishing() || !this.f1705a.isShowing()) {
+                this.f1705a.dismiss();
                 finish();
             }
         }

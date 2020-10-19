@@ -2,7 +2,7 @@ package com.vivo.push.util;
 
 import android.os.Looper;
 import android.util.Log;
-/* loaded from: classes12.dex */
+/* loaded from: classes15.dex */
 public final class h {
     public static void a(String str) {
         if (p.a() && Looper.myLooper() == Looper.getMainLooper()) {

@@ -21,94 +21,94 @@ import com.baidu.tbadk.core.util.ap;
 import com.baidu.tbadk.core.util.aq;
 import com.baidu.tbadk.core.view.AgreeView;
 import com.baidu.tieba.R;
-/* loaded from: classes20.dex */
+/* loaded from: classes21.dex */
 public class ImageViewerBottomLayout extends LinearLayout implements View.OnClickListener, View.OnTouchListener {
-    public static final int eIB = l.getDimens(TbadkApplication.getInst(), R.dimen.tbds130);
-    private TextView dVT;
-    private ImageUrlData eHo;
-    private TextView eIC;
-    private ImageView eID;
-    private View eIE;
-    private TextView eIF;
-    private LinearLayout eIG;
-    private ImageView eIH;
-    private c eII;
-    private b eIJ;
-    private a eIz;
-    private AgreeView evE;
-    private ImageView evF;
-    private ImageView evI;
+    public static final int eUI = l.getDimens(TbadkApplication.getInst(), R.dimen.tbds130);
+    private AgreeView eHO;
+    private ImageView eHP;
+    private ImageView eHS;
+    private ImageUrlData eTv;
+    private a eUG;
+    private TextView eUJ;
+    private ImageView eUK;
+    private View eUL;
+    private TextView eUM;
+    private LinearLayout eUN;
+    private ImageView eUO;
+    private c eUP;
+    private b eUQ;
+    private TextView ehV;
     private String mUserId;
 
-    /* loaded from: classes20.dex */
+    /* loaded from: classes21.dex */
     public interface a {
         void a(ImageViewerBottomLayout imageViewerBottomLayout, boolean z);
     }
 
-    /* loaded from: classes20.dex */
+    /* loaded from: classes21.dex */
     public interface b {
-        void bqJ();
+        void btt();
     }
 
-    /* loaded from: classes20.dex */
+    /* loaded from: classes21.dex */
     public interface c {
-        void bqK();
+        void btu();
     }
 
     public ImageViewerBottomLayout(Context context) {
         super(context);
-        this.eIz = null;
-        this.eII = null;
-        this.eIJ = null;
+        this.eUG = null;
+        this.eUP = null;
+        this.eUQ = null;
         init(context);
         initListener();
     }
 
     private void init(Context context) {
         LayoutInflater.from(context).inflate(R.layout.image_viewer_bottom_layout, (ViewGroup) this, true);
-        this.eIE = findViewById(R.id.unfold_root);
-        this.eIC = (TextView) findViewById(R.id.unfold_text);
-        this.eID = (ImageView) findViewById(R.id.unfold_icon);
-        this.eIE.setVisibility(8);
-        SvgManager.bkl().a(this.eID, R.drawable.icon_pure_unfold12_svg, R.color.cp_cont_a, (SvgManager.SvgResourceStateType) null);
-        this.eIF = (TextView) findViewById(R.id.image_viewer_reply);
-        this.eIF.setText(R.string.image_viewer_reply);
-        ap.setViewTextColor(this.eIF, R.color.cp_cont_a);
-        this.eIF.setBackground(ap.aO(l.getDimens(context, R.dimen.tbds38), ap.getColor(R.color.cp_mask_c_alpha25)));
-        this.eIG = (LinearLayout) findViewById(R.id.image_viewer_comment_and_agree);
-        this.evF = (ImageView) findViewById(R.id.comment_icon);
-        SvgManager.bkl().a(this.evF, R.drawable.icon_pure_imageviewer_comment24_svg, R.color.cp_cont_a, (SvgManager.SvgResourceStateType) null);
-        this.dVT = (TextView) findViewById(R.id.comment_num);
-        this.dVT.setText("0");
-        this.evE = (AgreeView) findViewById(R.id.agree_and_disagreeview);
-        this.evE.setResourceId(R.raw.lottie_agree_imageviewer, R.raw.lottie_disagree_imageviewer);
-        this.evE.setIsFromBigpic(true);
-        this.evE.setAgreeAlone(true);
-        this.evE.setAgreeAnimationResource();
+        this.eUL = findViewById(R.id.unfold_root);
+        this.eUJ = (TextView) findViewById(R.id.unfold_text);
+        this.eUK = (ImageView) findViewById(R.id.unfold_icon);
+        this.eUL.setVisibility(8);
+        SvgManager.bmU().a(this.eUK, R.drawable.icon_pure_unfold12_svg, R.color.cp_cont_a, (SvgManager.SvgResourceStateType) null);
+        this.eUM = (TextView) findViewById(R.id.image_viewer_reply);
+        this.eUM.setText(R.string.image_viewer_reply);
+        ap.setViewTextColor(this.eUM, R.color.cp_cont_a);
+        this.eUM.setBackground(ap.aN(l.getDimens(context, R.dimen.tbds38), ap.getColor(R.color.cp_mask_c_alpha25)));
+        this.eUN = (LinearLayout) findViewById(R.id.image_viewer_comment_and_agree);
+        this.eHP = (ImageView) findViewById(R.id.comment_icon);
+        SvgManager.bmU().a(this.eHP, R.drawable.icon_pure_imageviewer_comment24_svg, R.color.cp_cont_a, (SvgManager.SvgResourceStateType) null);
+        this.ehV = (TextView) findViewById(R.id.comment_num);
+        this.ehV.setText("0");
+        this.eHO = (AgreeView) findViewById(R.id.agree_and_disagreeview);
+        this.eHO.setResourceId(R.raw.lottie_agree_imageviewer, R.raw.lottie_disagree_imageviewer);
+        this.eHO.setIsFromBigpic(true);
+        this.eHO.setAgreeAlone(true);
+        this.eHO.setAgreeAnimationResource();
         com.baidu.tbadk.core.data.c cVar = new com.baidu.tbadk.core.data.c();
-        cVar.dYY = 13;
-        cVar.dZe = 10;
-        this.evE.setStatisticData(cVar);
-        this.evI = (ImageView) findViewById(R.id.share_icon);
-        SvgManager.bkl().a(this.evI, R.drawable.ic_icon_pure_share24, R.color.cp_cont_a, (SvgManager.SvgResourceStateType) null);
-        this.eIH = (ImageView) findViewById(R.id.download_icon);
-        SvgManager.bkl().a(this.eIH, R.drawable.ic_icon_pure_download24, R.color.cp_cont_a, (SvgManager.SvgResourceStateType) null);
+        cVar.ela = 13;
+        cVar.elg = 10;
+        this.eHO.setStatisticData(cVar);
+        this.eHS = (ImageView) findViewById(R.id.share_icon);
+        SvgManager.bmU().a(this.eHS, R.drawable.ic_icon_pure_share24, R.color.cp_cont_a, (SvgManager.SvgResourceStateType) null);
+        this.eUO = (ImageView) findViewById(R.id.download_icon);
+        SvgManager.bmU().a(this.eUO, R.drawable.ic_icon_pure_download24, R.color.cp_cont_a, (SvgManager.SvgResourceStateType) null);
     }
 
     public void setExpandButtonListener(a aVar) {
-        this.eIz = aVar;
+        this.eUG = aVar;
     }
 
     public void setOnShareImageListener(c cVar) {
-        this.eII = cVar;
+        this.eUP = cVar;
     }
 
     public void setOnDownloadImageListener(b bVar) {
-        this.eIJ = bVar;
+        this.eUQ = bVar;
     }
 
     public void setOnReplyClickListener(View.OnClickListener onClickListener) {
-        this.eIF.setOnClickListener(onClickListener);
+        this.eUM.setOnClickListener(onClickListener);
     }
 
     public void setUserId(String str) {
@@ -116,104 +116,104 @@ public class ImageViewerBottomLayout extends LinearLayout implements View.OnClic
     }
 
     public void b(ImageUrlData imageUrlData) {
-        this.eHo = imageUrlData;
+        this.eTv = imageUrlData;
         if (imageUrlData != null && imageUrlData.agreeData != null) {
             setVisibility(0);
             if (imageUrlData.commentNum != null) {
-                this.dVT.setText(imageUrlData.commentNum);
+                this.ehV.setText(imageUrlData.commentNum);
             }
             if (imageUrlData.agreeData != null) {
-                this.evE.setData(imageUrlData.agreeData);
+                this.eHO.setData(imageUrlData.agreeData);
             }
-            this.eIE.setVisibility(0);
+            this.eUL.setVisibility(0);
             return;
         }
         setVisibility(8);
     }
 
     private void initListener() {
-        this.evF.setOnClickListener(this);
-        this.dVT.setOnClickListener(this);
-        this.evI.setOnClickListener(this);
-        this.eIH.setOnClickListener(this);
-        this.eIE.setOnClickListener(this);
+        this.eHP.setOnClickListener(this);
+        this.ehV.setOnClickListener(this);
+        this.eHS.setOnClickListener(this);
+        this.eUO.setOnClickListener(this);
+        this.eUL.setOnClickListener(this);
         setOnTouchListener(this);
     }
 
-    public void iU(boolean z) {
+    public void js(boolean z) {
         if (z) {
-            this.eIC.setText(getContext().getString(R.string.expand));
-            SvgManager.bkl().a(this.eID, R.drawable.icon_pure_fold12_svg, R.color.cp_cont_a, (SvgManager.SvgResourceStateType) null);
-            this.eIG.setVisibility(8);
-            this.eIF.setVisibility(8);
+            this.eUJ.setText(getContext().getString(R.string.expand));
+            SvgManager.bmU().a(this.eUK, R.drawable.icon_pure_fold12_svg, R.color.cp_cont_a, (SvgManager.SvgResourceStateType) null);
+            this.eUN.setVisibility(8);
+            this.eUM.setVisibility(8);
             return;
         }
-        this.eIC.setText(getContext().getString(R.string.fold));
-        SvgManager.bkl().a(this.eID, R.drawable.icon_pure_unfold12_svg, R.color.cp_cont_a, (SvgManager.SvgResourceStateType) null);
-        this.eIG.setVisibility(0);
-        this.eIF.setVisibility(0);
+        this.eUJ.setText(getContext().getString(R.string.fold));
+        SvgManager.bmU().a(this.eUK, R.drawable.icon_pure_unfold12_svg, R.color.cp_cont_a, (SvgManager.SvgResourceStateType) null);
+        this.eUN.setVisibility(0);
+        this.eUM.setVisibility(0);
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        if (view == this.evF || view == this.dVT) {
-            if (this.eHo != null) {
+        if (view == this.eHP || view == this.ehV) {
+            if (this.eTv != null) {
                 aq aqVar = new aq("c13685");
-                aqVar.u("tid", this.eHo.threadId);
-                aqVar.dF("nid", this.eHo.nid);
-                aqVar.dF("fid", this.eHo.forumId);
-                if (this.eHo.from == "index") {
-                    aqVar.ai("obj_locate", 1);
-                } else if (this.eHo.from == "frs") {
-                    aqVar.ai("obj_locate", 2);
-                } else if (this.eHo.from == "pb") {
-                    aqVar.ai("obj_locate", 3);
+                aqVar.u("tid", this.eTv.threadId);
+                aqVar.dK("nid", this.eTv.nid);
+                aqVar.dK("fid", this.eTv.forumId);
+                if (this.eTv.from == "index") {
+                    aqVar.aj("obj_locate", 1);
+                } else if (this.eTv.from == "frs") {
+                    aqVar.aj("obj_locate", 2);
+                } else if (this.eTv.from == "pb") {
+                    aqVar.aj("obj_locate", 3);
                 }
                 TiebaStatic.log(aqVar);
             }
-            TiebaStatic.log(new aq("c12942").dF("obj_type", "2").dF("obj_locate", "12"));
-            bqz();
-        } else if (view == this.evI) {
-            if (this.eII != null) {
-                this.eII.bqK();
+            TiebaStatic.log(new aq("c12942").dK("obj_type", "2").dK("obj_locate", "12"));
+            btj();
+        } else if (view == this.eHS) {
+            if (this.eUP != null) {
+                this.eUP.btu();
             }
-            if (this.eHo != null) {
-                TiebaStatic.log(new aq("c13857").dF("obj_type", "1").u("post_id", this.eHo.threadId).dF("uid", TbadkCoreApplication.getCurrentAccount()).dF("fid", this.eHo.forumId));
+            if (this.eTv != null) {
+                TiebaStatic.log(new aq("c13857").dK("obj_type", "1").u("post_id", this.eTv.threadId).dK("uid", TbadkCoreApplication.getCurrentAccount()).dK("fid", this.eTv.forumId));
             }
-        } else if (view == this.eIH) {
-            if (this.eIJ != null) {
-                this.eIJ.bqJ();
+        } else if (view == this.eUO) {
+            if (this.eUQ != null) {
+                this.eUQ.btt();
             }
-            if (this.eHo != null) {
-                TiebaStatic.log(new aq("c13857").dF("obj_type", "2").u("post_id", this.eHo.threadId).dF("uid", TbadkCoreApplication.getCurrentAccount()).dF("fid", this.eHo.forumId));
+            if (this.eTv != null) {
+                TiebaStatic.log(new aq("c13857").dK("obj_type", "2").u("post_id", this.eTv.threadId).dK("uid", TbadkCoreApplication.getCurrentAccount()).dK("fid", this.eTv.forumId));
             }
-        } else if (view == this.eIE) {
-            if (this.eIC.getText().toString().equals(getContext().getString(R.string.expand))) {
-                this.eIC.setText(getContext().getString(R.string.fold));
-                SvgManager.bkl().a(this.eID, R.drawable.icon_pure_unfold12_svg, R.color.cp_cont_a, (SvgManager.SvgResourceStateType) null);
-                if (this.eIz != null) {
-                    this.eIz.a(this, true);
+        } else if (view == this.eUL) {
+            if (this.eUJ.getText().toString().equals(getContext().getString(R.string.expand))) {
+                this.eUJ.setText(getContext().getString(R.string.fold));
+                SvgManager.bmU().a(this.eUK, R.drawable.icon_pure_unfold12_svg, R.color.cp_cont_a, (SvgManager.SvgResourceStateType) null);
+                if (this.eUG != null) {
+                    this.eUG.a(this, true);
                 }
             } else {
-                this.eIC.setText(getContext().getString(R.string.expand));
-                SvgManager.bkl().a(this.eID, R.drawable.icon_pure_fold12_svg, R.color.cp_cont_a, (SvgManager.SvgResourceStateType) null);
-                if (this.eIz != null) {
-                    this.eIz.a(this, false);
+                this.eUJ.setText(getContext().getString(R.string.expand));
+                SvgManager.bmU().a(this.eUK, R.drawable.icon_pure_fold12_svg, R.color.cp_cont_a, (SvgManager.SvgResourceStateType) null);
+                if (this.eUG != null) {
+                    this.eUG.a(this, false);
                 }
             }
-            TiebaStatic.log(new aq("c13857").dF("obj_type", "6").u("post_id", this.eHo.threadId).dF("uid", TbadkCoreApplication.getCurrentAccount()).dF("fid", this.eHo.forumId));
+            TiebaStatic.log(new aq("c13857").dK("obj_type", "6").u("post_id", this.eTv.threadId).dK("uid", TbadkCoreApplication.getCurrentAccount()).dK("fid", this.eTv.forumId));
         }
     }
 
     @Override // android.view.View.OnTouchListener
     public boolean onTouch(View view, MotionEvent motionEvent) {
-        TiebaStatic.log(new aq("c13339").dF("uid", this.mUserId).u("post_id", this.eHo.threadId));
+        TiebaStatic.log(new aq("c13339").dK("uid", this.mUserId).u("post_id", this.eTv.threadId));
         return true;
     }
 
-    private void bqz() {
-        if (this.eHo != null) {
-            PbActivityConfig createHistoryCfg = new PbActivityConfig(getContext()).createHistoryCfg(String.valueOf(this.eHo.threadId), String.valueOf(this.eHo.postId), this.eHo.mIsSeeHost, this.eHo.mIsReserver, null);
+    private void btj() {
+        if (this.eTv != null) {
+            PbActivityConfig createHistoryCfg = new PbActivityConfig(getContext()).createHistoryCfg(String.valueOf(this.eTv.threadId), String.valueOf(this.eTv.postId), this.eTv.mIsSeeHost, this.eTv.mIsReserver, null);
             createHistoryCfg.setJumpToCommentArea(true);
             MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_PB_ACTIVITY, createHistoryCfg));
         }

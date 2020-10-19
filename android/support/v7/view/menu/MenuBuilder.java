@@ -28,7 +28,7 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.concurrent.CopyOnWriteArrayList;
 @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
-/* loaded from: classes10.dex */
+/* loaded from: classes5.dex */
 public class MenuBuilder implements SupportMenu {
     private static final String ACTION_VIEW_STATES_KEY = "android:menu:actionviewstates";
     private static final String EXPANDED_ACTION_VIEW_ID = "android:menu:expandedactionview";
@@ -63,7 +63,7 @@ public class MenuBuilder implements SupportMenu {
     private boolean mIsActionItemsStale = true;
 
     @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
-    /* loaded from: classes10.dex */
+    /* loaded from: classes5.dex */
     public interface Callback {
         boolean onMenuItemSelected(MenuBuilder menuBuilder, MenuItem menuItem);
 
@@ -71,7 +71,7 @@ public class MenuBuilder implements SupportMenu {
     }
 
     @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
-    /* loaded from: classes10.dex */
+    /* loaded from: classes5.dex */
     public interface ItemInvoker {
         boolean invokeItem(MenuItemImpl menuItemImpl);
     }

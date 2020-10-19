@@ -17,32 +17,32 @@ import com.baidu.tbadk.core.data.bi;
 import com.baidu.tbadk.core.data.bj;
 import com.baidu.tbadk.core.util.at;
 import com.baidu.tbadk.widget.horizontalpullview.PullLeftRefreshLayout;
-/* loaded from: classes20.dex */
+/* loaded from: classes21.dex */
 public class m extends a<bj, am<bj>> implements com.baidu.tieba.a.f {
-    private String ahc;
-    private com.baidu.tbadk.h.f ait;
-    private View.OnClickListener akY;
-    private PullLeftRefreshLayout.a akZ;
-    private v alj;
-    public BdUniqueId eSq;
+    private String aht;
+    private com.baidu.tbadk.h.f aiL;
+    private v alC;
+    private View.OnClickListener alr;
+    private PullLeftRefreshLayout.a als;
+    public BdUniqueId fey;
     private TbPageContext<?> mPageContext;
     private String mTabName;
 
     public m(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId) {
         super(tbPageContext.getPageActivity(), bdUniqueId);
-        this.akY = new View.OnClickListener() { // from class: com.baidu.tieba.newdetail.adapter.a.m.1
+        this.alr = new View.OnClickListener() { // from class: com.baidu.tieba.newdetail.adapter.a.m.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
                 m.this.mPageContext.sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new ForumSquareActivityConfig(m.this.mPageContext.getPageActivity(), m.this.mTabName)));
             }
         };
-        this.akZ = new PullLeftRefreshLayout.a() { // from class: com.baidu.tieba.newdetail.adapter.a.m.2
+        this.als = new PullLeftRefreshLayout.a() { // from class: com.baidu.tieba.newdetail.adapter.a.m.2
             @Override // com.baidu.tbadk.widget.horizontalpullview.PullLeftRefreshLayout.a
-            public void byd() {
+            public void bAN() {
                 m.this.mPageContext.sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new ForumSquareActivityConfig(m.this.mPageContext.getPageActivity(), m.this.mTabName)));
             }
         };
-        this.ait = new com.baidu.tbadk.h.f<bi>() { // from class: com.baidu.tieba.newdetail.adapter.a.m.3
+        this.aiL = new com.baidu.tbadk.h.f<bi>() { // from class: com.baidu.tieba.newdetail.adapter.a.m.3
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.tbadk.h.f
             public void a(View view, bi biVar, int i, long j) {
@@ -66,29 +66,29 @@ public class m extends a<bj, am<bj>> implements com.baidu.tieba.a.f {
     }
 
     public void a(v vVar) {
-        this.alj = vVar;
+        this.alC = vVar;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.widget.ListView.a
-    /* renamed from: aR */
+    /* renamed from: aT */
     public am c(ViewGroup viewGroup) {
         ak.a aVar = new ak.a(this.mPageContext.getPageActivity(), false);
-        ae aeVar = new ae(this.mPageContext, this.eSq);
+        ae aeVar = new ae(this.mPageContext, this.fey);
         aeVar.setShowSquareEntrance(false);
         aeVar.setEnableShowInto(false);
         aeVar.setShowMore(false);
-        aeVar.setOnRullOkCallbackr(this.akZ);
-        aeVar.setOnClickRightArrowListener(this.akY);
-        aeVar.setOnItemCoverListener(this.ait);
+        aeVar.setOnRullOkCallbackr(this.als);
+        aeVar.setOnClickRightArrowListener(this.alr);
+        aeVar.setOnItemCoverListener(this.aiL);
         aVar.c(aeVar);
         aVar.tU().bz(0);
         aVar.tU().bB(0);
         aVar.tU().bA(0);
         aVar.tU().bv(0);
-        am amVar = new am(aVar.a(true, viewGroup, this.alj));
-        amVar.setPageId(this.eSq);
+        am amVar = new am(aVar.a(true, viewGroup, this.alC));
+        amVar.setPageId(this.fey);
         return amVar;
     }
 
@@ -101,7 +101,7 @@ public class m extends a<bj, am<bj>> implements com.baidu.tieba.a.f {
         }
         amVar.tW().setPosition(i);
         if (amVar.tW() instanceof com.baidu.tieba.a.e) {
-            amVar.tW().setPage(this.ahc);
+            amVar.tW().setPage(this.aht);
         }
         amVar.b((am<bj>) bjVar);
         amVar.tW().onChangeSkinType(this.mPageContext, TbadkCoreApplication.getInst().getSkinType());
@@ -109,7 +109,7 @@ public class m extends a<bj, am<bj>> implements com.baidu.tieba.a.f {
     }
 
     @Override // com.baidu.tieba.a.f
-    public void DH(String str) {
-        this.ahc = str;
+    public void Es(String str) {
+        this.aht = str;
     }
 }

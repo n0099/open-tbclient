@@ -1,7 +1,7 @@
 package com.baidu.turbonet.net;
 
 import java.io.IOException;
-/* loaded from: classes15.dex */
+/* loaded from: classes17.dex */
 public class UrlRequestException extends IOException {
     public static final int ERROR_ADDRESS_UNREACHABLE = 9;
     public static final int ERROR_CONNECTION_CLOSED = 5;

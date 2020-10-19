@@ -9,15 +9,17 @@ public interface a extends IInterface {
 
     /* renamed from: com.samsung.android.deviceidservice.a$a  reason: collision with other inner class name */
     /* loaded from: classes11.dex */
-    public static abstract class AbstractBinderC0926a extends Binder implements a {
+    public static abstract class AbstractBinderC0944a extends Binder implements a {
 
         /* renamed from: com.samsung.android.deviceidservice.a$a$a  reason: collision with other inner class name */
         /* loaded from: classes11.dex */
-        private static class C0927a implements a {
-            private IBinder a;
+        private static class C0945a implements a {
 
-            C0927a(IBinder iBinder) {
-                this.a = iBinder;
+            /* renamed from: a  reason: collision with root package name */
+            private IBinder f4455a;
+
+            C0945a(IBinder iBinder) {
+                this.f4455a = iBinder;
             }
 
             @Override // com.samsung.android.deviceidservice.a
@@ -26,7 +28,7 @@ public interface a extends IInterface {
                 Parcel obtain2 = Parcel.obtain();
                 try {
                     obtain.writeInterfaceToken("com.samsung.android.deviceidservice.IDeviceIdService");
-                    this.a.transact(1, obtain, obtain2, 0);
+                    this.f4455a.transact(1, obtain, obtain2, 0);
                     obtain2.readException();
                     return obtain2.readString();
                 } finally {
@@ -42,7 +44,7 @@ public interface a extends IInterface {
                 try {
                     obtain.writeInterfaceToken("com.samsung.android.deviceidservice.IDeviceIdService");
                     obtain.writeString(str);
-                    this.a.transact(2, obtain, obtain2, 0);
+                    this.f4455a.transact(2, obtain, obtain2, 0);
                     obtain2.readException();
                     return obtain2.readString();
                 } finally {
@@ -53,7 +55,7 @@ public interface a extends IInterface {
 
             @Override // android.os.IInterface
             public IBinder asBinder() {
-                return this.a;
+                return this.f4455a;
             }
 
             @Override // com.samsung.android.deviceidservice.a
@@ -63,7 +65,7 @@ public interface a extends IInterface {
                 try {
                     obtain.writeInterfaceToken("com.samsung.android.deviceidservice.IDeviceIdService");
                     obtain.writeString(str);
-                    this.a.transact(3, obtain, obtain2, 0);
+                    this.f4455a.transact(3, obtain, obtain2, 0);
                     obtain2.readException();
                     return obtain2.readString();
                 } finally {
@@ -73,7 +75,7 @@ public interface a extends IInterface {
             }
         }
 
-        public AbstractBinderC0926a() {
+        public AbstractBinderC0944a() {
             attachInterface(this, "com.samsung.android.deviceidservice.IDeviceIdService");
         }
 
@@ -82,7 +84,7 @@ public interface a extends IInterface {
                 return null;
             }
             IInterface queryLocalInterface = iBinder.queryLocalInterface("com.samsung.android.deviceidservice.IDeviceIdService");
-            return (queryLocalInterface == null || !(queryLocalInterface instanceof a)) ? new C0927a(iBinder) : (a) queryLocalInterface;
+            return (queryLocalInterface == null || !(queryLocalInterface instanceof a)) ? new C0945a(iBinder) : (a) queryLocalInterface;
         }
 
         @Override // android.os.Binder
@@ -90,15 +92,15 @@ public interface a extends IInterface {
             switch (i) {
                 case 1:
                     parcel.enforceInterface("com.samsung.android.deviceidservice.IDeviceIdService");
-                    String a = a();
+                    String a2 = a();
                     parcel2.writeNoException();
-                    parcel2.writeString(a);
+                    parcel2.writeString(a2);
                     return true;
                 case 2:
                     parcel.enforceInterface("com.samsung.android.deviceidservice.IDeviceIdService");
-                    String a2 = a(parcel.readString());
+                    String a3 = a(parcel.readString());
                     parcel2.writeNoException();
-                    parcel2.writeString(a2);
+                    parcel2.writeString(a3);
                     return true;
                 case 3:
                     parcel.enforceInterface("com.samsung.android.deviceidservice.IDeviceIdService");

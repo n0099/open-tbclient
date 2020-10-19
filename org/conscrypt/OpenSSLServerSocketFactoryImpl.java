@@ -5,7 +5,7 @@ import java.net.InetAddress;
 import java.net.ServerSocket;
 import java.security.KeyManagementException;
 import javax.net.ssl.SSLServerSocketFactory;
-/* loaded from: classes8.dex */
+/* loaded from: classes5.dex */
 final class OpenSSLServerSocketFactoryImpl extends SSLServerSocketFactory {
     private static boolean useEngineSocketByDefault = SSLUtils.USE_ENGINE_SOCKET_BY_DEFAULT;
     private IOException instantiationException;

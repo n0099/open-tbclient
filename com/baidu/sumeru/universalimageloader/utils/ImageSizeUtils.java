@@ -4,7 +4,7 @@ import android.opengl.GLES10;
 import com.baidu.sumeru.universalimageloader.core.assist.ImageSize;
 import com.baidu.sumeru.universalimageloader.core.assist.ViewScaleType;
 import com.baidu.sumeru.universalimageloader.core.imageaware.ImageAware;
-/* loaded from: classes9.dex */
+/* loaded from: classes12.dex */
 public final class ImageSizeUtils {
     private static final int DEFAULT_MAX_BITMAP_DIMENSION = 2048;
     private static ImageSize maxBitmapSize;

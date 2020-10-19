@@ -1,5 +1,5 @@
 package pl.droidsonroids.gif;
-/* loaded from: classes5.dex */
+/* loaded from: classes9.dex */
 class ConditionVariable {
     private volatile boolean mCondition;
 

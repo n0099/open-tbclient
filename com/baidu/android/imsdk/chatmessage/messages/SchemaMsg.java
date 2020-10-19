@@ -9,7 +9,7 @@ import com.baidu.android.imsdk.utils.LogUtils;
 import java.net.URLDecoder;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes9.dex */
+/* loaded from: classes5.dex */
 public class SchemaMsg extends NormalMsg {
     public static final Parcelable.Creator<SchemaMsg> CREATOR = new Parcelable.Creator<SchemaMsg>() { // from class: com.baidu.android.imsdk.chatmessage.messages.SchemaMsg.1
         /* JADX DEBUG: Method merged with bridge method */

@@ -12,16 +12,16 @@ import java.util.Iterator;
 import java.util.concurrent.Callable;
 import java.util.concurrent.atomic.AtomicLong;
 import java.util.concurrent.atomic.AtomicReference;
-/* loaded from: classes25.dex */
+/* loaded from: classes17.dex */
 public final class FlowableFlattenIterable<T, R> extends a<T, R> {
     final h<? super T, ? extends Iterable<? extends R>> mapper;
     final int prefetch;
 
     @Override // io.reactivex.g
     public void a(org.a.c<? super R> cVar) {
-        if (this.owE instanceof Callable) {
+        if (this.oLT instanceof Callable) {
             try {
-                Object call = ((Callable) this.owE).call();
+                Object call = ((Callable) this.oLT).call();
                 if (call == null) {
                     EmptySubscription.complete(cVar);
                     return;
@@ -40,10 +40,10 @@ public final class FlowableFlattenIterable<T, R> extends a<T, R> {
                 return;
             }
         }
-        this.owE.a((j) new FlattenIterableSubscriber(cVar, this.mapper, this.prefetch));
+        this.oLT.a((j) new FlattenIterableSubscriber(cVar, this.mapper, this.prefetch));
     }
 
-    /* loaded from: classes25.dex */
+    /* loaded from: classes17.dex */
     static final class FlattenIterableSubscriber<T, R> extends BasicIntQueueSubscription<R> implements j<T> {
         private static final long serialVersionUID = -3096000382929934955L;
         final org.a.c<? super R> actual;
@@ -183,7 +183,7 @@ public final class FlowableFlattenIterable<T, R> extends a<T, R> {
                                                         break;
                                                     } else if (!checkTerminated(this.done, false, cVar, gVar)) {
                                                         try {
-                                                            cVar.onNext((Object) io.reactivex.internal.functions.a.k(it.next(), "The iterator returned a null value"));
+                                                            cVar.onNext((Object) io.reactivex.internal.functions.a.l(it.next(), "The iterator returned a null value"));
                                                             if (!checkTerminated(this.done, false, cVar, gVar)) {
                                                                 j3++;
                                                                 try {
@@ -338,7 +338,7 @@ public final class FlowableFlattenIterable<T, R> extends a<T, R> {
                     break;
                 }
             }
-            R r = (R) io.reactivex.internal.functions.a.k(it.next(), "The iterator returned a null value");
+            R r = (R) io.reactivex.internal.functions.a.l(it.next(), "The iterator returned a null value");
             if (!it.hasNext()) {
                 this.current = null;
             }

@@ -3,7 +3,7 @@ package com.baidu.ar.a;
 import android.content.Context;
 import com.baidu.ar.callback.ICallbackWith;
 import org.json.JSONObject;
-/* loaded from: classes10.dex */
+/* loaded from: classes14.dex */
 public class b {
     private static final String TAG = b.class.getSimpleName();
     private JSONObject bG;
@@ -17,10 +17,10 @@ public class b {
         this.bJ = "default";
         if (context != null) {
             this.mContext = context.getApplicationContext();
-            a a = d.a(context);
-            if (a != null) {
-                this.bG = a.bF;
-                this.bJ = a.bE;
+            a a2 = d.a(context);
+            if (a2 != null) {
+                this.bG = a2.bF;
+                this.bJ = a2.bE;
             }
         }
     }

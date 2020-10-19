@@ -13,10 +13,10 @@ import java.util.HashMap;
 import java.util.Map;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes11.dex */
+/* loaded from: classes19.dex */
 public abstract class a implements u {
     private static final boolean DEBUG = AppConfig.isDebug();
-    protected ad noN = new ad();
+    protected ad nEh = new ad();
 
     public abstract ab a(String str, byte[] bArr, Map<String, String> map) throws IOException;
 
@@ -27,20 +27,20 @@ public abstract class a implements u {
 
     public boolean a(String str, JSONObject jSONObject, boolean z) {
         String str2;
-        boolean dQi = this.noN.dQi();
-        if (dQi) {
+        boolean dTT = this.nEh.dTT();
+        if (dTT) {
             str2 = "http://bjyz-mco-searchbox201609-m12xi3-044.bjyz.baidu.com:8080/ztbox?action=zubc";
         } else {
             str2 = str + "/ztbox?action=zubc";
         }
-        String processUrl = com.baidu.d.c.b.uM().processUrl(str2);
-        if (dQi && !TextUtils.isEmpty(processUrl)) {
+        String processUrl = com.baidu.d.c.b.uV().processUrl(str2);
+        if (dTT && !TextUtils.isEmpty(processUrl)) {
             processUrl = UrlUtil.addParam(processUrl, ETAG.KEY_DEBUG, "1");
         }
         if (z) {
             processUrl = UrlUtil.addParam(processUrl, "reallog", "1");
         }
-        if (g.dPU().isBeta()) {
+        if (g.dTF().isBeta()) {
             processUrl = UrlUtil.addParam(processUrl, "beta", "1");
         }
         HashMap hashMap = new HashMap(2);
@@ -53,16 +53,16 @@ public abstract class a implements u {
             }
             gZip[0] = 117;
             gZip[1] = 123;
-            ab a = a(processUrl, gZip, hashMap);
-            if (!a.isSuccessful()) {
+            ab a2 = a(processUrl, gZip, hashMap);
+            if (!a2.isSuccessful()) {
                 if (DEBUG) {
-                    Log.d("UploadManager", "postByteRequest, fail: " + a.getMessage());
+                    Log.d("UploadManager", "postByteRequest, fail: " + a2.getMessage());
                 }
-                a.close();
+                a2.close();
                 return false;
             }
             try {
-                int i = new JSONObject(a.getBody()).getInt(BdStatsConstant.StatsType.ERROR);
+                int i = new JSONObject(a2.getBody()).getInt(BdStatsConstant.StatsType.ERROR);
                 if (i != 0) {
                     if (DEBUG) {
                         Log.d("UploadManager", "server error");
@@ -70,11 +70,11 @@ public abstract class a implements u {
                     if (!DEBUG) {
                         JSONObject jSONObject2 = new JSONObject();
                         try {
-                            String em = em(jSONObject);
+                            String eq = eq(jSONObject);
                             jSONObject2.put("type", "sendFail");
                             jSONObject2.put("error_no", i);
-                            if (!TextUtils.isEmpty(em)) {
-                                jSONObject2.put("md5", em);
+                            if (!TextUtils.isEmpty(eq)) {
+                                jSONObject2.put("md5", eq);
                             }
                         } catch (JSONException e) {
                             e.printStackTrace();
@@ -87,7 +87,7 @@ public abstract class a implements u {
                     Log.d("UploadManager", "body tostring fail:" + e2.getMessage());
                 }
             }
-            a.close();
+            a2.close();
             return true;
         } catch (Exception e3) {
             if (DEBUG) {
@@ -97,7 +97,7 @@ public abstract class a implements u {
         }
     }
 
-    protected String em(JSONObject jSONObject) {
+    protected String eq(JSONObject jSONObject) {
         if (jSONObject == null || !jSONObject.has("metadata")) {
             return "";
         }

@@ -4,22 +4,24 @@ import com.baidu.searchbox.websocket.WebSocketRequest;
 import com.baidu.tbadk.TbConfig;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class f extends g {
-    private b nsW;
-    private a nsX;
+    private b nIq;
+    private a nIr;
 
     public void a(b bVar) {
-        this.nsW = bVar;
+        this.nIq = bVar;
     }
 
     public void a(a aVar) {
-        this.nsX = aVar;
+        this.nIr = aVar;
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public static class b {
-        private String a;
+
+        /* renamed from: a  reason: collision with root package name */
+        private String f4014a;
         private String b;
         private String c;
         private String d;
@@ -42,11 +44,11 @@ public class f extends g {
         }
 
         public String c() {
-            return this.a;
+            return this.f4014a;
         }
 
         public void c(String str) {
-            this.a = str;
+            this.f4014a = str;
         }
 
         public String d() {
@@ -70,22 +72,24 @@ public class f extends g {
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public static class a {
-        private JSONObject a;
+
+        /* renamed from: a  reason: collision with root package name */
+        private JSONObject f4013a;
 
         public JSONObject a() {
-            return this.a;
+            return this.f4013a;
         }
 
         public void a(JSONObject jSONObject) {
-            this.a = jSONObject;
+            this.f4013a = jSONObject;
         }
     }
 
     @Override // com.cmic.sso.sdk.c.b.g
     public String a() {
-        return this.nsW.d;
+        return this.nIq.d;
     }
 
     @Override // com.cmic.sso.sdk.c.b.g
@@ -94,13 +98,13 @@ public class f extends g {
         JSONObject jSONObject2 = new JSONObject();
         JSONObject jSONObject3 = new JSONObject();
         try {
-            jSONObject2.put("sign", this.nsW.c());
-            jSONObject2.put("msgid", this.nsW.d());
-            jSONObject2.put("systemtime", this.nsW.e());
-            jSONObject2.put("appid", this.nsW.b());
-            jSONObject2.put("version", this.nsW.a());
+            jSONObject2.put("sign", this.nIq.c());
+            jSONObject2.put("msgid", this.nIq.d());
+            jSONObject2.put("systemtime", this.nIq.e());
+            jSONObject2.put("appid", this.nIq.b());
+            jSONObject2.put("version", this.nIq.a());
             jSONObject.put(WebSocketRequest.PARAM_KEY_HEADER, jSONObject2);
-            jSONObject3.put(TbConfig.TMP_LOG_DIR_NAME, this.nsX.a());
+            jSONObject3.put(TbConfig.TMP_LOG_DIR_NAME, this.nIr.a());
             jSONObject.put("body", jSONObject3);
         } catch (JSONException e) {
             e.printStackTrace();

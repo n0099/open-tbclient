@@ -6,9 +6,11 @@ import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.net.Uri;
 import com.baidu.android.imsdk.upload.action.IMTrack;
-/* loaded from: classes24.dex */
+/* loaded from: classes6.dex */
 public class a {
-    protected static final Uri a = Uri.parse("content://telephony/carriers/preferapn");
+
+    /* renamed from: a  reason: collision with root package name */
+    protected static final Uri f4586a = Uri.parse("content://telephony/carriers/preferapn");
 
     public static String a(Context context) {
         int d = d(context);
@@ -54,7 +56,7 @@ public class a {
 
     public static String b(Context context) {
         try {
-            Cursor query = context.getContentResolver().query(a, null, null, null, null);
+            Cursor query = context.getContentResolver().query(f4586a, null, null, null, null);
             if (query == null) {
                 return null;
             }
@@ -82,7 +84,7 @@ public class a {
 
     public static String c(Context context) {
         try {
-            Cursor query = context.getContentResolver().query(a, null, null, null, null);
+            Cursor query = context.getContentResolver().query(f4586a, null, null, null, null);
             if (query == null) {
                 return null;
             }

@@ -9,16 +9,18 @@ import com.cmic.sso.sdk.c.d.b;
 import com.cmic.sso.sdk.e.s;
 import java.util.List;
 import java.util.Map;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class a {
-    private String a;
+
+    /* renamed from: a  reason: collision with root package name */
+    private String f4006a;
     private String b;
 
     public c a(c cVar, b bVar, com.cmic.sso.sdk.a aVar) {
         List<String> list;
         Map<String, List<String>> b = bVar.b();
-        if (TextUtils.isEmpty(this.a) && (list = b.get("pplocation")) != null && list.size() > 0) {
-            this.a = list.get(0);
+        if (TextUtils.isEmpty(this.f4006a) && (list = b.get("pplocation")) != null && list.size() > 0) {
+            this.f4006a = list.get(0);
         }
         s.b(aVar, String.valueOf(bVar.a()));
         List<String> list2 = b.get(Headers.LOCATION);
@@ -38,9 +40,9 @@ public class a {
                 }
             }
         }
-        c a = a(this.b, cVar.f(), "GET", new com.cmic.sso.sdk.c.b.c(cVar.dRs().a()));
-        a.f(cVar.dRr());
-        return a;
+        c a2 = a(this.b, cVar.f(), "GET", new com.cmic.sso.sdk.c.b.c(cVar.dVd().a()));
+        a2.f(cVar.dVc());
+        return a2;
     }
 
     public c b(c cVar, b bVar, com.cmic.sso.sdk.a aVar) {
@@ -53,10 +55,10 @@ public class a {
             s.a(aVar, "NONE");
         }
         s.b(aVar, String.valueOf(bVar.a()));
-        c a = a("http://www.cmpassport.com/unisdk" + this.a, cVar.f(), "POST", new d(cVar.dRs().a(), "1.0", bVar.c()));
-        a.f(cVar.dRr());
-        this.a = null;
-        return a;
+        c a2 = a("http://www.cmpassport.com/unisdk" + this.f4006a, cVar.f(), "POST", new d(cVar.dVd().a(), "1.0", bVar.c()));
+        a2.f(cVar.dVc());
+        this.f4006a = null;
+        return a2;
     }
 
     private c a(String str, String str2, String str3, g gVar) {
@@ -68,6 +70,6 @@ public class a {
     }
 
     public String a() {
-        return this.a;
+        return this.f4006a;
     }
 }

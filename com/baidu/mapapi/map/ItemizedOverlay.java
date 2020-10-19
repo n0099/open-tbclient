@@ -1,26 +1,28 @@
 package com.baidu.mapapi.map;
 
 import android.graphics.drawable.Drawable;
-/* loaded from: classes3.dex */
+/* loaded from: classes7.dex */
 public class ItemizedOverlay extends Overlay {
-    MapView a;
+
+    /* renamed from: a  reason: collision with root package name */
+    MapView f2012a;
 
     public ItemizedOverlay(Drawable drawable, MapView mapView) {
         this.type = com.baidu.mapsdkplatform.comapi.map.i.marker;
-        this.a = mapView;
+        this.f2012a = mapView;
     }
 
     public void addItem(OverlayOptions overlayOptions) {
         if (overlayOptions == null || overlayOptions == null) {
             return;
         }
-        this.a.getMap().addOverlay(overlayOptions);
+        this.f2012a.getMap().addOverlay(overlayOptions);
     }
 
     public void reAddAll() {
     }
 
     public void removeAll() {
-        this.a.getMap().clear();
+        this.f2012a.getMap().clear();
     }
 }

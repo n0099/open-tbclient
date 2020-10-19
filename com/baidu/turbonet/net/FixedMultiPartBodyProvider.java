@@ -1,7 +1,7 @@
 package com.baidu.turbonet.net;
 
 import java.nio.ByteBuffer;
-/* loaded from: classes15.dex */
+/* loaded from: classes17.dex */
 public class FixedMultiPartBodyProvider extends UploadDataProvider {
     private String mContent;
     private int mOffset;
@@ -22,12 +22,12 @@ public class FixedMultiPartBodyProvider extends UploadDataProvider {
             byteBuffer.put(this.mContent.getBytes(), this.mOffset, byteBuffer.remaining());
             this.mOffset += byteBuffer.remaining();
         }
-        uploadDataSink.xJ(false);
+        uploadDataSink.yq(false);
     }
 
     @Override // com.baidu.turbonet.net.UploadDataProvider
     public void a(UploadDataSink uploadDataSink) {
         this.mOffset = 0;
-        uploadDataSink.dOl();
+        uploadDataSink.dRX();
     }
 }

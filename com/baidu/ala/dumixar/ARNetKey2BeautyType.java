@@ -29,6 +29,14 @@ public class ARNetKey2BeautyType {
         sKeyMap.put("noseLength", BeautyType.noseLength);
         sKeyMap.put("upCount", BeautyType.upCount);
         sKeyMap.put("eyeDistance", BeautyType.eyeDistance);
+        sKeyMap.put("lips", BeautyType.lips);
+        sKeyMap.put("cheeks", BeautyType.cheeks);
+        sKeyMap.put("highlight", BeautyType.highlight);
+        sKeyMap.put("eyeliner", BeautyType.eyeliner);
+        sKeyMap.put("eyeshadow", BeautyType.eyeshadow);
+        sKeyMap.put("eyeball", BeautyType.eyeball);
+        sKeyMap.put("eyelash", BeautyType.eyelash);
+        sKeyMap.put("eyebrow", BeautyType.eyebrow);
     }
 
     public static BeautyType getBeautyType(String str) {

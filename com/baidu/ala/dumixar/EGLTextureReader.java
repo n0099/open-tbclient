@@ -66,6 +66,11 @@ public class EGLTextureReader implements ITextureReader {
         this.mHasSetup = false;
     }
 
+    public void setOutPutSize(int i, int i2) {
+        this.mOutputWidth = i;
+        this.mOutputHeight = i2;
+    }
+
     @Override // com.baidu.ala.dumixar.ITextureReader
     public void setup(EGLContext eGLContext) {
         if (!this.mHasSetup) {

@@ -8,23 +8,23 @@ import java.net.UnknownHostException;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
-/* loaded from: classes18.dex */
+/* loaded from: classes12.dex */
 final class f {
-    private static volatile f adN;
+    private static volatile f aee;
 
-    /* loaded from: classes18.dex */
+    /* loaded from: classes12.dex */
     interface a {
         void a(int i, ArrayList<String> arrayList, ArrayList<String> arrayList2, long j, String str);
     }
 
-    /* loaded from: classes18.dex */
+    /* loaded from: classes12.dex */
     private class b implements Runnable {
-        private a adO;
+        private a aef;
         private String b;
 
         public b(String str, a aVar) {
             this.b = str;
-            this.adO = aVar;
+            this.aef = aVar;
         }
 
         @Override // java.lang.Runnable
@@ -38,7 +38,7 @@ final class f {
             } else {
                 arrayList = null;
             }
-            this.adO.a(((arrayList == null || arrayList.isEmpty()) && (arrayList2 == null || arrayList2.isEmpty())) ? -1 : 0, arrayList, arrayList2, 60L, this.b);
+            this.aef.a(((arrayList == null || arrayList.isEmpty()) && (arrayList2 == null || arrayList2.isEmpty())) ? -1 : 0, arrayList, arrayList2, 60L, this.b);
         }
     }
 
@@ -86,14 +86,14 @@ final class f {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public static f ta() {
-        if (adN == null) {
+        if (aee == null) {
             synchronized (f.class) {
-                if (adN == null) {
-                    adN = new f();
+                if (aee == null) {
+                    aee = new f();
                 }
             }
         }
-        return adN;
+        return aee;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */

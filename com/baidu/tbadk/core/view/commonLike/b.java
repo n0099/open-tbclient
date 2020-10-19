@@ -5,7 +5,7 @@ import android.view.View;
 public interface b {
     void aN(boolean z);
 
-    void bm(View view);
+    void bq(View view);
 
     void g(View.OnClickListener onClickListener);
 }

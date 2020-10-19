@@ -1,5 +1,5 @@
 package com.baidu.swan.apps.adaptation.a;
-/* loaded from: classes3.dex */
+/* loaded from: classes10.dex */
 public interface k {
     void a(String str, com.baidu.swan.apps.media.audio.service.a aVar);
 

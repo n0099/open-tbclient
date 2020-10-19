@@ -5,10 +5,12 @@ import android.os.Parcelable;
 import com.baidu.mapapi.model.LatLng;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes3.dex */
+/* loaded from: classes7.dex */
 public class RouteStep implements Parcelable {
     public static final Parcelable.Creator<RouteStep> CREATOR = new k();
-    int a;
+
+    /* renamed from: a  reason: collision with root package name */
+    int f2106a;
     int b;
     String c;
     protected List<LatLng> mWayPoints;
@@ -19,7 +21,7 @@ public class RouteStep implements Parcelable {
 
     /* JADX INFO: Access modifiers changed from: protected */
     public RouteStep(Parcel parcel) {
-        this.a = parcel.readInt();
+        this.f2106a = parcel.readInt();
         this.b = parcel.readInt();
         this.c = parcel.readString();
         this.mWayPoints = new ArrayList();
@@ -35,7 +37,7 @@ public class RouteStep implements Parcelable {
     }
 
     public int getDistance() {
-        return this.a;
+        return this.f2106a;
     }
 
     public int getDuration() {
@@ -51,7 +53,7 @@ public class RouteStep implements Parcelable {
     }
 
     public void setDistance(int i) {
-        this.a = i;
+        this.f2106a = i;
     }
 
     public void setDuration(int i) {
@@ -68,7 +70,7 @@ public class RouteStep implements Parcelable {
 
     @Override // android.os.Parcelable
     public void writeToParcel(Parcel parcel, int i) {
-        parcel.writeInt(this.a);
+        parcel.writeInt(this.f2106a);
         parcel.writeInt(this.b);
         parcel.writeString(this.c);
         parcel.writeList(this.mWayPoints);

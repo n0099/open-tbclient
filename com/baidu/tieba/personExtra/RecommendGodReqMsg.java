@@ -5,7 +5,7 @@ import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.util.u;
 import tbclient.GetRecommendGodList.DataReq;
 import tbclient.GetRecommendGodList.GetRecommendGodListReqIdl;
-/* loaded from: classes23.dex */
+/* loaded from: classes24.dex */
 public class RecommendGodReqMsg extends NetMessage {
     public int pageNum;
     public String portrait;

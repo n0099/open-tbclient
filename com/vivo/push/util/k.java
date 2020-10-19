@@ -6,9 +6,11 @@ import com.baidu.android.util.devices.RomUtils;
 import java.lang.reflect.Method;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
-/* loaded from: classes12.dex */
+/* loaded from: classes15.dex */
 public final class k {
-    public static final boolean a = z.b("ro.vivo.product.overseas", "no").equals("yes");
+
+    /* renamed from: a  reason: collision with root package name */
+    public static final boolean f4703a = z.b("ro.vivo.product.overseas", "no").equals("yes");
     public static final String b;
     public static final boolean c;
     public static final boolean d;

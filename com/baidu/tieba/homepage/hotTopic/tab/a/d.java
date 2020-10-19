@@ -17,13 +17,13 @@ import com.baidu.tbadk.core.data.bv;
 import com.baidu.tbadk.core.data.bw;
 import com.baidu.tbadk.core.util.ay;
 import com.baidu.tieba.card.aa;
-/* loaded from: classes21.dex */
+/* loaded from: classes22.dex */
 public class d extends a<bv, am<bw>> {
-    private aa<bw> afn;
+    private aa<bw> afE;
 
     public d(TbPageContext<?> tbPageContext) {
-        super(tbPageContext, bw.edo);
-        this.afn = new aa<bw>() { // from class: com.baidu.tieba.homepage.hotTopic.tab.a.d.1
+        super(tbPageContext, bw.ept);
+        this.afE = new aa<bw>() { // from class: com.baidu.tieba.homepage.hotTopic.tab.a.d.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.tieba.card.aa
             /* renamed from: b */
@@ -36,29 +36,29 @@ public class d extends a<bv, am<bw>> {
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.widget.ListView.a
-    /* renamed from: aR */
+    /* renamed from: aT */
     public am c(ViewGroup viewGroup) {
         ak.a aVar = new ak.a(this.mPageContext.getPageActivity(), false);
         y yVar = new y(this.mPageContext.getPageActivity());
         yVar.setFrom("index");
         yVar.setFromCDN(isFromCDN());
         aVar.c(yVar);
-        ak a = aVar.a(false, viewGroup, this.alj);
-        a.setSourceForPb(2);
-        am amVar = new am(a);
+        ak a2 = aVar.a(false, viewGroup, this.alC);
+        a2.setSourceForPb(2);
+        am amVar = new am(a2);
         amVar.setPageId(this.mPageId);
         a(new ab() { // from class: com.baidu.tieba.homepage.hotTopic.tab.a.d.2
             @Override // com.baidu.adp.widget.ListView.ab
             public void a(View view, q qVar, BdUniqueId bdUniqueId, ViewGroup viewGroup2, int i, long j) {
                 if ((qVar instanceof bv) && (view.getTag() instanceof am)) {
                     am amVar2 = (am) view.getTag();
-                    bw bwVar = ((bv) qVar).dXg;
+                    bw bwVar = ((bv) qVar).eji;
                     bwVar.objType = 1;
-                    if (d.this.afn != null) {
-                        d.this.afn.a(amVar2.getView(), bwVar);
+                    if (d.this.afE != null) {
+                        d.this.afE.a(amVar2.getView(), bwVar);
                     }
                     ay.a((AbsThreadDataSupport) bwVar, view.getContext(), 0, false);
-                    amVar2.tW().b(new a.C0096a(1));
+                    amVar2.tW().b(new a.C0097a(1));
                 }
             }
         });
@@ -69,22 +69,22 @@ public class d extends a<bv, am<bw>> {
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tieba.homepage.hotTopic.tab.a.a, com.baidu.adp.widget.ListView.a
     public View a(int i, View view, ViewGroup viewGroup, bv bvVar, am<bw> amVar) {
-        if (bvVar == null || amVar == null || amVar.getView() == null || bvVar.dXg == null) {
+        if (bvVar == null || amVar == null || amVar.getView() == null || bvVar.eji == null) {
             return null;
         }
-        bvVar.dXg.ebp = getPositionByType(i) + 1;
+        bvVar.eji.ens = getPositionByType(i) + 1;
         amVar.tW().setPosition(i);
-        amVar.b((am<bw>) bvVar.dXg);
+        amVar.b((am<bw>) bvVar.eji);
         amVar.tW().onChangeSkinType(this.mPageContext, TbadkCoreApplication.getInst().getSkinType());
-        amVar.tW().a(this.afn);
+        amVar.tW().a(this.afE);
         y yVar = (y) amVar.tW().tP();
-        LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) yVar.agq.akp.getLayoutParams();
-        layoutParams.width = bvVar.edd;
-        layoutParams.height = bvVar.ede;
-        if (yVar.agq.akp.getVisibility() != 8) {
-            yVar.agq.akp.setLayoutParams(layoutParams);
+        LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) yVar.agH.akH.getLayoutParams();
+        layoutParams.width = bvVar.epi;
+        layoutParams.height = bvVar.epj;
+        if (yVar.agH.akH.getVisibility() != 8) {
+            yVar.agH.akH.setLayoutParams(layoutParams);
         }
-        a(amVar.getView(), bvVar.dXg, i, i);
+        a(amVar.getView(), bvVar.eji, i, i);
         return amVar.getView();
     }
 }

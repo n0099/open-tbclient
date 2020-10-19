@@ -4,7 +4,7 @@ import android.content.Context;
 import android.content.SharedPreferences;
 import android.preference.PreferenceManager;
 import android.text.TextUtils;
-/* loaded from: classes24.dex */
+/* loaded from: classes5.dex */
 public class c implements b<String> {
     private Context mContext;
 
@@ -25,13 +25,13 @@ public class c implements b<String> {
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.swan.uuid.a.b
-    /* renamed from: aFu */
+    /* renamed from: aId */
     public String get() {
         return PreferenceManager.getDefaultSharedPreferences(this.mContext).getString("uuid_identity", null);
     }
 
     @Override // com.baidu.swan.uuid.a.b
-    public boolean aXm() {
+    public boolean aZU() {
         return TextUtils.isEmpty(get());
     }
 }

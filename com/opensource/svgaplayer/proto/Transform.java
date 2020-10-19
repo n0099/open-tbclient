@@ -9,7 +9,7 @@ import com.squareup.wire2.d;
 import com.squareup.wire2.internal.a;
 import java.io.IOException;
 import okio.ByteString;
-/* loaded from: classes16.dex */
+/* loaded from: classes15.dex */
 public final class Transform extends Message<Transform, Builder> {
     public static final ProtoAdapter<Transform> ADAPTER = new ProtoAdapter_Transform();
     public static final Float DEFAULT_A = Float.valueOf(0.0f);
@@ -19,17 +19,19 @@ public final class Transform extends Message<Transform, Builder> {
     public static final Float DEFAULT_TX = Float.valueOf(0.0f);
     public static final Float DEFAULT_TY = Float.valueOf(0.0f);
     private static final long serialVersionUID = 0;
-    @WireField(egS = "com.squareup.wire.ProtoAdapter#FLOAT", tag = 1)
-    public final Float a;
-    @WireField(egS = "com.squareup.wire.ProtoAdapter#FLOAT", tag = 2)
+    @WireField(ekD = "com.squareup.wire.ProtoAdapter#FLOAT", tag = 1)
+
+    /* renamed from: a  reason: collision with root package name */
+    public final Float f4453a;
+    @WireField(ekD = "com.squareup.wire.ProtoAdapter#FLOAT", tag = 2)
     public final Float b;
-    @WireField(egS = "com.squareup.wire.ProtoAdapter#FLOAT", tag = 3)
+    @WireField(ekD = "com.squareup.wire.ProtoAdapter#FLOAT", tag = 3)
     public final Float c;
-    @WireField(egS = "com.squareup.wire.ProtoAdapter#FLOAT", tag = 4)
+    @WireField(ekD = "com.squareup.wire.ProtoAdapter#FLOAT", tag = 4)
     public final Float d;
-    @WireField(egS = "com.squareup.wire.ProtoAdapter#FLOAT", tag = 5)
+    @WireField(ekD = "com.squareup.wire.ProtoAdapter#FLOAT", tag = 5)
     public final Float tx;
-    @WireField(egS = "com.squareup.wire.ProtoAdapter#FLOAT", tag = 6)
+    @WireField(ekD = "com.squareup.wire.ProtoAdapter#FLOAT", tag = 6)
     public final Float ty;
 
     public Transform(Float f, Float f2, Float f3, Float f4, Float f5, Float f6) {
@@ -38,7 +40,7 @@ public final class Transform extends Message<Transform, Builder> {
 
     public Transform(Float f, Float f2, Float f3, Float f4, Float f5, Float f6, ByteString byteString) {
         super(ADAPTER, byteString);
-        this.a = f;
+        this.f4453a = f;
         this.b = f2;
         this.c = f3;
         this.d = f4;
@@ -52,7 +54,7 @@ public final class Transform extends Message<Transform, Builder> {
     /* renamed from: newBuilder */
     public Message.a<Transform, Builder> newBuilder2() {
         Builder builder = new Builder();
-        builder.a = this.a;
+        builder.f4454a = this.f4453a;
         builder.b = this.b;
         builder.c = this.c;
         builder.d = this.d;
@@ -68,7 +70,7 @@ public final class Transform extends Message<Transform, Builder> {
         }
         if (obj instanceof Transform) {
             Transform transform = (Transform) obj;
-            return unknownFields().equals(transform.unknownFields()) && a.equals(this.a, transform.a) && a.equals(this.b, transform.b) && a.equals(this.c, transform.c) && a.equals(this.d, transform.d) && a.equals(this.tx, transform.tx) && a.equals(this.ty, transform.ty);
+            return unknownFields().equals(transform.unknownFields()) && a.equals(this.f4453a, transform.f4453a) && a.equals(this.b, transform.b) && a.equals(this.c, transform.c) && a.equals(this.d, transform.d) && a.equals(this.tx, transform.tx) && a.equals(this.ty, transform.ty);
         }
         return false;
     }
@@ -76,7 +78,7 @@ public final class Transform extends Message<Transform, Builder> {
     public int hashCode() {
         int i = this.hashCode;
         if (i == 0) {
-            int hashCode = (((this.tx != null ? this.tx.hashCode() : 0) + (((this.d != null ? this.d.hashCode() : 0) + (((this.c != null ? this.c.hashCode() : 0) + (((this.b != null ? this.b.hashCode() : 0) + (((this.a != null ? this.a.hashCode() : 0) + (unknownFields().hashCode() * 37)) * 37)) * 37)) * 37)) * 37)) * 37) + (this.ty != null ? this.ty.hashCode() : 0);
+            int hashCode = (((this.tx != null ? this.tx.hashCode() : 0) + (((this.d != null ? this.d.hashCode() : 0) + (((this.c != null ? this.c.hashCode() : 0) + (((this.b != null ? this.b.hashCode() : 0) + (((this.f4453a != null ? this.f4453a.hashCode() : 0) + (unknownFields().hashCode() * 37)) * 37)) * 37)) * 37)) * 37)) * 37) + (this.ty != null ? this.ty.hashCode() : 0);
             this.hashCode = hashCode;
             return hashCode;
         }
@@ -86,8 +88,8 @@ public final class Transform extends Message<Transform, Builder> {
     @Override // com.squareup.wire2.Message
     public String toString() {
         StringBuilder sb = new StringBuilder();
-        if (this.a != null) {
-            sb.append(", a=").append(this.a);
+        if (this.f4453a != null) {
+            sb.append(", a=").append(this.f4453a);
         }
         if (this.b != null) {
             sb.append(", b=").append(this.b);
@@ -107,9 +109,11 @@ public final class Transform extends Message<Transform, Builder> {
         return sb.replace(0, 2, "Transform{").append('}').toString();
     }
 
-    /* loaded from: classes16.dex */
+    /* loaded from: classes15.dex */
     public static final class Builder extends Message.a<Transform, Builder> {
-        public Float a;
+
+        /* renamed from: a  reason: collision with root package name */
+        public Float f4454a;
         public Float b;
         public Float c;
         public Float d;
@@ -117,7 +121,7 @@ public final class Transform extends Message<Transform, Builder> {
         public Float ty;
 
         public Builder a(Float f) {
-            this.a = f;
+            this.f4454a = f;
             return this;
         }
 
@@ -150,11 +154,11 @@ public final class Transform extends Message<Transform, Builder> {
         /* JADX WARN: Can't rename method to resolve collision */
         @Override // com.squareup.wire2.Message.a
         public Transform build() {
-            return new Transform(this.a, this.b, this.c, this.d, this.tx, this.ty, super.buildUnknownFields());
+            return new Transform(this.f4454a, this.b, this.c, this.d, this.tx, this.ty, super.buildUnknownFields());
         }
     }
 
-    /* loaded from: classes16.dex */
+    /* loaded from: classes15.dex */
     private static final class ProtoAdapter_Transform extends ProtoAdapter<Transform> {
         ProtoAdapter_Transform() {
             super(FieldEncoding.LENGTH_DELIMITED, Transform.class);
@@ -163,14 +167,14 @@ public final class Transform extends Message<Transform, Builder> {
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.squareup.wire2.ProtoAdapter
         public int encodedSize(Transform transform) {
-            return (transform.tx != null ? ProtoAdapter.FLOAT.encodedSizeWithTag(5, transform.tx) : 0) + (transform.b != null ? ProtoAdapter.FLOAT.encodedSizeWithTag(2, transform.b) : 0) + (transform.a != null ? ProtoAdapter.FLOAT.encodedSizeWithTag(1, transform.a) : 0) + (transform.c != null ? ProtoAdapter.FLOAT.encodedSizeWithTag(3, transform.c) : 0) + (transform.d != null ? ProtoAdapter.FLOAT.encodedSizeWithTag(4, transform.d) : 0) + (transform.ty != null ? ProtoAdapter.FLOAT.encodedSizeWithTag(6, transform.ty) : 0) + transform.unknownFields().size();
+            return (transform.tx != null ? ProtoAdapter.FLOAT.encodedSizeWithTag(5, transform.tx) : 0) + (transform.b != null ? ProtoAdapter.FLOAT.encodedSizeWithTag(2, transform.b) : 0) + (transform.f4453a != null ? ProtoAdapter.FLOAT.encodedSizeWithTag(1, transform.f4453a) : 0) + (transform.c != null ? ProtoAdapter.FLOAT.encodedSizeWithTag(3, transform.c) : 0) + (transform.d != null ? ProtoAdapter.FLOAT.encodedSizeWithTag(4, transform.d) : 0) + (transform.ty != null ? ProtoAdapter.FLOAT.encodedSizeWithTag(6, transform.ty) : 0) + transform.unknownFields().size();
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.squareup.wire2.ProtoAdapter
         public void encode(d dVar, Transform transform) throws IOException {
-            if (transform.a != null) {
-                ProtoAdapter.FLOAT.encodeWithTag(dVar, 1, transform.a);
+            if (transform.f4453a != null) {
+                ProtoAdapter.FLOAT.encodeWithTag(dVar, 1, transform.f4453a);
             }
             if (transform.b != null) {
                 ProtoAdapter.FLOAT.encodeWithTag(dVar, 2, transform.b);
@@ -195,11 +199,11 @@ public final class Transform extends Message<Transform, Builder> {
         @Override // com.squareup.wire2.ProtoAdapter
         public Transform decode(c cVar) throws IOException {
             Builder builder = new Builder();
-            long egK = cVar.egK();
+            long ekv = cVar.ekv();
             while (true) {
-                int egL = cVar.egL();
-                if (egL != -1) {
-                    switch (egL) {
+                int ekw = cVar.ekw();
+                if (ekw != -1) {
+                    switch (ekw) {
                         case 1:
                             builder.a(ProtoAdapter.FLOAT.decode(cVar));
                             break;
@@ -219,12 +223,12 @@ public final class Transform extends Message<Transform, Builder> {
                             builder.ty(ProtoAdapter.FLOAT.decode(cVar));
                             break;
                         default:
-                            FieldEncoding egM = cVar.egM();
-                            builder.addUnknownField(egL, egM, egM.rawProtoAdapter().decode(cVar));
+                            FieldEncoding ekx = cVar.ekx();
+                            builder.addUnknownField(ekw, ekx, ekx.rawProtoAdapter().decode(cVar));
                             break;
                     }
                 } else {
-                    cVar.gX(egK);
+                    cVar.hp(ekv);
                     return builder.build();
                 }
             }

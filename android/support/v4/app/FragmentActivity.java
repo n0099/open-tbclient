@@ -28,7 +28,7 @@ import android.view.View;
 import android.view.Window;
 import java.io.FileDescriptor;
 import java.io.PrintWriter;
-/* loaded from: classes4.dex */
+/* loaded from: classes7.dex */
 public class FragmentActivity extends BaseFragmentActivityApi16 implements aa, ActivityCompat.OnRequestPermissionsResultCallback, ActivityCompat.RequestPermissionsRequestCodeValidator {
     static final String ALLOCATED_REQUEST_INDICIES_TAG = "android:support:request_indicies";
     static final String FRAGMENTS_TAG = "android:support:fragments";
@@ -97,7 +97,7 @@ public class FragmentActivity extends BaseFragmentActivityApi16 implements aa, A
         super.startIntentSenderForResult(intentSender, i, intent, i2, i3, i4, bundle);
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes7.dex */
     static final class NonConfigurationInstances {
         Object custom;
         FragmentManagerNonConfig fragments;
@@ -579,7 +579,7 @@ public class FragmentActivity extends BaseFragmentActivityApi16 implements aa, A
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes7.dex */
     class HostCallbacks extends FragmentHostCallback<FragmentActivity> {
         public HostCallbacks() {
             super(FragmentActivity.this);
@@ -678,7 +678,7 @@ public class FragmentActivity extends BaseFragmentActivityApi16 implements aa, A
         boolean z = false;
         for (Fragment fragment : fragmentManager.getFragments()) {
             if (fragment != null) {
-                if (fragment.getLifecycle().hv().isAtLeast(Lifecycle.State.STARTED)) {
+                if (fragment.getLifecycle().hw().isAtLeast(Lifecycle.State.STARTED)) {
                     fragment.mLifecycleRegistry.a(state);
                     z = true;
                 }

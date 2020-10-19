@@ -19,13 +19,15 @@ import java.util.Map;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes25.dex */
+/* loaded from: classes5.dex */
 public class FaceLoginService {
     private static final String b = "FaceLoginService";
     private static final String c = "face_login_model_v2";
     private static final String d = "livingunames";
     private static final int e = 10;
-    private Context a = SapiAccountManager.getInstance().getConfignation().context;
+
+    /* renamed from: a  reason: collision with root package name */
+    private Context f3518a = SapiAccountManager.getInstance().getConfignation().context;
 
     private String a(Map<String, Long> map) {
         JSONObject jSONObject = new JSONObject();
@@ -80,23 +82,23 @@ public class FaceLoginService {
         }
         arrayList.addAll(b());
         arrayList.addAll(a());
-        Map<String, Long> a = a(arrayList);
+        Map<String, Long> a2 = a(arrayList);
         JSONObject jSONObject = new JSONObject();
         JSONArray jSONArray = new JSONArray();
         try {
-            for (String str : a.keySet()) {
+            for (String str : a2.keySet()) {
                 JSONObject jSONObject2 = new JSONObject();
                 jSONObject2.put("livinguname", str);
-                jSONObject2.put("time", a.get(str));
+                jSONObject2.put("time", a2.get(str));
                 jSONArray.put(jSONObject2);
             }
             jSONObject.put("list", jSONArray);
         } catch (JSONException e2) {
             Log.i(e2);
         }
-        String a2 = a(a);
-        a(a2);
-        SapiContext.getInstance().setV2FaceLivingunames(a2);
+        String a3 = a(a2);
+        a(a3);
+        SapiContext.getInstance().setV2FaceLivingunames(a3);
         SapiContext.getInstance().setV2FaceLoginCheckResults(jSONObject.toString());
     }
 
@@ -117,8 +119,8 @@ public class FaceLoginService {
         }
         Collections.sort(list);
         for (a aVar : list) {
-            if (!linkedHashMap.containsKey(aVar.a)) {
-                linkedHashMap.put(aVar.a, Long.valueOf(aVar.b));
+            if (!linkedHashMap.containsKey(aVar.f3519a)) {
+                linkedHashMap.put(aVar.f3519a, Long.valueOf(aVar.b));
             }
         }
         if (linkedHashMap.size() > 10) {
@@ -135,7 +137,7 @@ public class FaceLoginService {
     private List<a> a() {
         ArrayList arrayList = new ArrayList();
         if (SapiContext.getInstance().shareLivingunameEnable()) {
-            List<Intent> c2 = e.c(this.a);
+            List<Intent> c2 = e.c(this.f3518a);
             if (c2.isEmpty()) {
                 return arrayList;
             }

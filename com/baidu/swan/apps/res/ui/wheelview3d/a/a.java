@@ -1,7 +1,7 @@
 package com.baidu.swan.apps.res.ui.wheelview3d.a;
 
 import java.util.List;
-/* loaded from: classes3.dex */
+/* loaded from: classes10.dex */
 public class a<T> implements c {
     private List<T> items;
 

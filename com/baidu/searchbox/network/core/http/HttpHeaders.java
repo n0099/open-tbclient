@@ -20,7 +20,7 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 import org.apache.http.client.methods.HttpHead;
 import org.apache.http.protocol.HTTP;
-/* loaded from: classes14.dex */
+/* loaded from: classes15.dex */
 public final class HttpHeaders {
     private static final String AUTH_PARAM_PATTERN_PART = "[!#$%&'*+.^_`|~\\p{Alnum}-]+[ \\t]*=[ \\t]*(?:[!#$%&'*+.^_`|~\\p{Alnum}-]+|\"(?:[\\t \\x21\\x23-\\x5B\\x5D-\\x7E\\x80-\\xFF]|\\\\([\\t \\p{Graph}\\x80-\\xFF]))*\")";
     private static final String CHALLENGE_PATTERN_PART = "[!#$%&'*+.^_`|~\\p{Alnum}-]+(?: +(?:[\\p{Alnum}._~+/-]+=*|(?:,|[!#$%&'*+.^_`|~\\p{Alnum}-]+[ \\t]*=[ \\t]*(?:[!#$%&'*+.^_`|~\\p{Alnum}-]+|\"(?:[\\t \\x21\\x23-\\x5B\\x5D-\\x7E\\x80-\\xFF]|\\\\([\\t \\p{Graph}\\x80-\\xFF]))*\"))(?:[ \\t]*,(?:[ \\t]*[!#$%&'*+.^_`|~\\p{Alnum}-]+[ \\t]*=[ \\t]*(?:[!#$%&'*+.^_`|~\\p{Alnum}-]+|\"(?:[\\t \\x21\\x23-\\x5B\\x5D-\\x7E\\x80-\\xFF]|\\\\([\\t \\p{Graph}\\x80-\\xFF]))*\"))?)*)?)?";

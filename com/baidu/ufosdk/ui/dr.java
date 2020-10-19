@@ -1,15 +1,17 @@
 package com.baidu.ufosdk.ui;
-/* loaded from: classes21.dex */
+/* loaded from: classes22.dex */
 final class dr implements Runnable {
-    final /* synthetic */ FeedbackListActivity a;
+
+    /* renamed from: a  reason: collision with root package name */
+    final /* synthetic */ FeedbackListActivity f3838a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public dr(FeedbackListActivity feedbackListActivity) {
-        this.a = feedbackListActivity;
+        this.f3838a = feedbackListActivity;
     }
 
     @Override // java.lang.Runnable
     public final void run() {
-        com.baidu.ufosdk.e.a.a(this.a.getApplicationContext());
+        com.baidu.ufosdk.e.a.a(this.f3838a.getApplicationContext());
     }
 }

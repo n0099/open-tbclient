@@ -14,7 +14,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Set;
-/* loaded from: classes10.dex */
+/* loaded from: classes14.dex */
 public class ARAuthFacade implements l {
     public static final int AUTH_TYPE_AIP = 1;
     public static final int AUTH_TYPE_AR_SERVER = 2;
@@ -98,9 +98,9 @@ public class ARAuthFacade implements l {
     }
 
     private boolean a(final Context context, final k kVar, final g gVar, final ICallbackWith<List<Integer>> iCallbackWith) {
-        final m a = a(gVar);
-        if (a != null) {
-            a.a(new m.a() { // from class: com.baidu.ar.auth.ARAuthFacade.7
+        final m a2 = a(gVar);
+        if (a2 != null) {
+            a2.a(new m.a() { // from class: com.baidu.ar.auth.ARAuthFacade.7
                 @Override // com.baidu.ar.auth.m.a
                 public void a(Set<Integer> set) {
                     if (ARAuthFacade.this.iK != null) {
@@ -118,7 +118,7 @@ public class ARAuthFacade implements l {
             this.iP.execute(new Runnable() { // from class: com.baidu.ar.auth.ARAuthFacade.8
                 @Override // java.lang.Runnable
                 public void run() {
-                    a.doAuth(context, new k() { // from class: com.baidu.ar.auth.ARAuthFacade.8.1
+                    a2.doAuth(context, new k() { // from class: com.baidu.ar.auth.ARAuthFacade.8.1
                         @Override // com.baidu.ar.auth.k
                         public void onError(String str, int i) {
                             ARAuthFacade.this.a(str, gVar, context);
@@ -333,18 +333,18 @@ public class ARAuthFacade implements l {
                 this.iK.R("invalid license data");
                 return false;
             }
-            m a = a(d);
-            if (a instanceof n) {
+            m a2 = a(d);
+            if (a2 instanceof n) {
                 this.iK = new j(this.iI != null ? this.iI.jy : null);
                 String[] strArr = new String[1];
-                boolean a2 = ((n) a).a(context, strArr);
-                if (a2) {
+                boolean a3 = ((n) a2).a(context, strArr);
+                if (a3) {
                     this.iK.cB();
-                    return a2;
+                    return a3;
                 }
                 this.iK.R(strArr[0]);
                 com.baidu.ar.g.b.b("ARAuth", strArr[0]);
-                return a2;
+                return a3;
             }
             return false;
         }

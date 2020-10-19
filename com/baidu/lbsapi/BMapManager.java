@@ -4,9 +4,11 @@ import android.app.Application;
 import android.content.Context;
 import com.baidu.lbsapi.auth.LBSAuthManager;
 import com.baidu.pano.platform.c.b;
-/* loaded from: classes3.dex */
+/* loaded from: classes7.dex */
 public class BMapManager {
-    private static boolean a = true;
+
+    /* renamed from: a  reason: collision with root package name */
+    private static boolean f1828a = true;
     private Context b;
 
     static {
@@ -37,6 +39,6 @@ public class BMapManager {
     }
 
     public static boolean isIllegalPanoSDKUser() {
-        return a;
+        return f1828a;
     }
 }

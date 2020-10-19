@@ -10,13 +10,13 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.atomData.TbWebViewActivityConfig;
 import com.baidu.tbadk.core.util.ap;
 import com.baidu.tieba.R;
-/* loaded from: classes22.dex */
+/* loaded from: classes23.dex */
 public class a extends com.baidu.adp.widget.ListView.a<b, c> {
     private View.OnClickListener mClickListener;
     private int mSkinType;
 
     public a(com.baidu.adp.base.e eVar) {
-        super(eVar.getPageActivity(), b.hVS, eVar.getUniqueId());
+        super(eVar.getPageActivity(), b.ikR, eVar.getUniqueId());
         this.mClickListener = new View.OnClickListener() { // from class: com.baidu.tieba.forumMember.member.a.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
@@ -36,7 +36,7 @@ public class a extends com.baidu.adp.widget.ListView.a<b, c> {
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.widget.ListView.a
-    /* renamed from: ba */
+    /* renamed from: bc */
     public c c(ViewGroup viewGroup) {
         return new c(LayoutInflater.from(this.mContext).inflate(R.layout.item_complaint_bar_lord_view, viewGroup, false));
     }
@@ -56,16 +56,16 @@ public class a extends com.baidu.adp.widget.ListView.a<b, c> {
         this.mSkinType = TbadkCoreApplication.getInst().getSkinType();
         if (cVar.mSkinType != this.mSkinType) {
             cVar.mSkinType = this.mSkinType;
-            ap.setBackgroundResource(cVar.bsG, R.drawable.frs_member_manito_bg);
+            ap.setBackgroundResource(cVar.bwu, R.drawable.frs_member_manito_bg);
             ap.setBackgroundColor(cVar.mLineView, R.color.cp_bg_line_c);
             ap.setViewTextColor(cVar.mTitleView, R.color.cp_cont_b, 1);
-            ap.setImageResource(cVar.haR, R.drawable.icon_arrow12_gray66_right);
+            ap.setImageResource(cVar.hpS, R.drawable.icon_arrow12_gray66_right);
         }
     }
 
     private void a(c cVar, b bVar) {
-        cVar.mTitleView.setText(bVar.hVT);
-        cVar.bsG.setTag(bVar.mUrl);
-        cVar.bsG.setOnClickListener(this.mClickListener);
+        cVar.mTitleView.setText(bVar.ikS);
+        cVar.bwu.setTag(bVar.mUrl);
+        cVar.bwu.setOnClickListener(this.mClickListener);
     }
 }

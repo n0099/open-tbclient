@@ -6,7 +6,7 @@ import android.net.NetworkInfo;
 import android.telephony.TelephonyManager;
 import cn.com.chinatelecom.account.api.CtAuth;
 import java.lang.reflect.Method;
-/* loaded from: classes14.dex */
+/* loaded from: classes6.dex */
 public class e {
     private static int a(int i) {
         switch (i) {
@@ -49,18 +49,18 @@ public class e {
     }
 
     public static boolean b(Context context) {
-        NetworkInfo a = a(context);
-        return a != null && a.isAvailable();
+        NetworkInfo a2 = a(context);
+        return a2 != null && a2.isAvailable();
     }
 
     public static boolean c(Context context) {
-        NetworkInfo a = a(context);
-        return a != null && a.getType() == 1;
+        NetworkInfo a2 = a(context);
+        return a2 != null && a2.getType() == 1;
     }
 
     public static boolean d(Context context) {
-        NetworkInfo a = a(context);
-        return a != null && a.getType() == 0;
+        NetworkInfo a2 = a(context);
+        return a2 != null && a2.getType() == 0;
     }
 
     public static boolean e(Context context) {
@@ -108,9 +108,9 @@ public class e {
         Exception e;
         NullPointerException e2;
         try {
-            NetworkInfo a = a(context);
-            if (a != null && a.isAvailable() && a.isConnected()) {
-                int type = a.getType();
+            NetworkInfo a2 = a(context);
+            if (a2 != null && a2.isAvailable() && a2.isConnected()) {
+                int type = a2.getType();
                 if (type == 1) {
                     i = -101;
                 } else if (type == 0) {
@@ -122,7 +122,7 @@ public class e {
                     }
                     if (i == 0) {
                         try {
-                            i = a.getSubtype();
+                            i = a2.getSubtype();
                         } catch (NullPointerException e4) {
                             e2 = e4;
                             e2.printStackTrace();

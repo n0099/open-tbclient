@@ -5,16 +5,18 @@ import android.util.Log;
 import com.baidu.mapapi.http.HttpClient;
 import com.baidu.platform.comapi.pano.a;
 import com.baidu.platform.comapi.pano.c;
-/* loaded from: classes3.dex */
-final class a implements a.InterfaceC0243a<c> {
-    final /* synthetic */ Context a;
+/* loaded from: classes7.dex */
+final class a implements a.InterfaceC0258a<c> {
+
+    /* renamed from: a  reason: collision with root package name */
+    final /* synthetic */ Context f2162a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public a(Context context) {
-        this.a = context;
+        this.f2162a = context;
     }
 
-    @Override // com.baidu.platform.comapi.pano.a.InterfaceC0243a
+    @Override // com.baidu.platform.comapi.pano.a.InterfaceC0258a
     public void a(HttpClient.HttpStateError httpStateError) {
         switch (httpStateError) {
             case NETWORK_ERROR:
@@ -29,7 +31,7 @@ final class a implements a.InterfaceC0243a<c> {
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.platform.comapi.pano.a.InterfaceC0243a
+    @Override // com.baidu.platform.comapi.pano.a.InterfaceC0258a
     public void a(c cVar) {
         if (cVar == null) {
             Log.d("baidumapsdk", "pano info is null");
@@ -51,7 +53,7 @@ final class a implements a.InterfaceC0243a<c> {
                     return;
                 }
                 try {
-                    BaiduMapPoiSearch.b(cVar.b(), this.a);
+                    BaiduMapPoiSearch.b(cVar.b(), this.f2162a);
                     return;
                 } catch (Exception e) {
                     e.printStackTrace();

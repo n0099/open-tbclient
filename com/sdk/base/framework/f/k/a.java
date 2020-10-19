@@ -6,9 +6,11 @@ import com.sdk.base.framework.c.f;
 import com.sdk.base.framework.f.j.e;
 import java.util.Map;
 import java.util.TreeMap;
-/* loaded from: classes5.dex */
+/* loaded from: classes16.dex */
 public class a extends com.sdk.base.framework.f.a {
-    private static final String a = a.class.getName();
+
+    /* renamed from: a  reason: collision with root package name */
+    private static final String f4510a = a.class.getName();
     private static boolean b = f.b;
 
     /* JADX DEBUG: TODO: convert one arg to string using `String.valueOf()`, args: [(wrap: java.lang.Object : 0x0034: INVOKE  (r6v0 java.lang.Object A[REMOVE]) = (r0v15 java.util.Map$Entry<java.lang.String, java.lang.Object>) type: INTERFACE call: java.util.Map.Entry.getValue():java.lang.Object)] */
@@ -28,7 +30,7 @@ public class a extends com.sdk.base.framework.f.a {
             }
             return e.a(stringBuffer.toString());
         } catch (Exception e) {
-            c.b(a, e.getMessage(), Boolean.valueOf(b));
+            c.b(f4510a, e.getMessage(), Boolean.valueOf(b));
             return null;
         }
     }

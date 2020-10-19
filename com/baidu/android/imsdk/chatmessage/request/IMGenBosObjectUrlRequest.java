@@ -1,6 +1,7 @@
 package com.baidu.android.imsdk.chatmessage.request;
 
 import android.content.Context;
+import android.net.Uri;
 import android.text.TextUtils;
 import android.util.Log;
 import android.util.Pair;
@@ -15,6 +16,7 @@ import com.baidu.android.imsdk.utils.HttpHelper;
 import com.baidu.android.imsdk.utils.LogUtils;
 import com.baidu.android.imsdk.utils.Utility;
 import java.io.File;
+import java.io.InputStream;
 import java.io.UnsupportedEncodingException;
 import java.net.URLEncoder;
 import java.security.MessageDigest;
@@ -23,7 +25,7 @@ import java.util.HashMap;
 import java.util.Map;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes9.dex */
+/* loaded from: classes5.dex */
 public class IMGenBosObjectUrlRequest implements HttpHelper.Request, HttpHelper.ResponseHandler {
     private String mContentType;
     private Context mContext;
@@ -170,29 +172,52 @@ public class IMGenBosObjectUrlRequest implements HttpHelper.Request, HttpHelper.
         long appid = AccountManager.getAppid(this.mContext);
         sb.append("&appid=" + appid);
         sb.append("&uk=").append(AccountManager.getUK(this.mContext));
-        sb.append("&content_length=" + new File(this.mFilePath).length());
+        long j = 0;
+        if (Utility.isMediaUri(this.mFilePath)) {
+            try {
+                InputStream openInputStream = this.mContext.getContentResolver().openInputStream(Uri.parse(this.mFilePath));
+                if (openInputStream != null) {
+                    j = openInputStream.available();
+                }
+            } catch (Exception e) {
+            }
+        } else {
+            j = new File(this.mFilePath).length();
+        }
+        sb.append("&content_length=" + j);
         if (!TextUtils.isEmpty(this.mContentType)) {
             try {
                 sb.append("&content_type=" + URLEncoder.encode(this.mContentType, "UTF-8"));
-            } catch (UnsupportedEncodingException e) {
-                LogUtils.e("IMGenBosObjectUrlRequest", e.getMessage(), e);
+            } catch (UnsupportedEncodingException e2) {
+                LogUtils.e("IMGenBosObjectUrlRequest", e2.getMessage(), e2);
                 sb.append("&content_type=" + URLEncoder.encode(this.mContentType));
-                new IMTrack.CrashBuilder(this.mContext).exception(Log.getStackTraceString(e)).build();
+                new IMTrack.CrashBuilder(this.mContext).exception(Log.getStackTraceString(e2)).build();
             }
         }
-        sb.append("&format=" + this.mFormat);
+        if (!TextUtils.isEmpty(this.mFormat)) {
+            sb.append("&format=" + this.mFormat);
+        }
         sb.append("&api_version=1");
         sb.append("&req_source=" + this.mReqSource);
         sb.append("&img_width=" + this.mOriWidth);
         sb.append("&img_height=" + this.mOriHeight);
         long currentTimeMillis = System.currentTimeMillis() / 1000;
         sb.append("&timestamp=" + currentTimeMillis);
+        sb.append("&account_type=");
+        String bduss = IMConfigInternal.getInstance().getIMConfig(this.mContext).getBduss(this.mContext);
+        if (AccountManager.isCuidLogin(this.mContext)) {
+            sb.append(6);
+            sb.append("&token=");
+            sb.append(bduss);
+        } else {
+            sb.append(1);
+        }
         String str = "";
         try {
-            str = getMd5("" + currentTimeMillis + IMConfigInternal.getInstance().getIMConfig(this.mContext).getBduss(this.mContext) + appid);
-        } catch (Exception e2) {
-            LogUtils.e(getClass().getSimpleName(), "Exception ", e2);
-            new IMTrack.CrashBuilder(this.mContext).exception(Log.getStackTraceString(e2)).build();
+            str = getMd5("" + currentTimeMillis + bduss + appid);
+        } catch (Exception e3) {
+            LogUtils.e(getClass().getSimpleName(), "Exception ", e3);
+            new IMTrack.CrashBuilder(this.mContext).exception(Log.getStackTraceString(e3)).build();
         }
         sb.append("&sign=" + str);
         return sb.toString().getBytes();

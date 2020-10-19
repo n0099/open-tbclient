@@ -16,33 +16,33 @@ import okhttp3.Response;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes10.dex */
 public class a {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    private BearLayout deJ;
-    private SwanAppBearInfo deK;
+    private BearLayout dqP;
+    private SwanAppBearInfo dqQ;
     private Activity mActivity;
 
     public a(Activity activity, View view, @NonNull SwanAppBearInfo swanAppBearInfo, @IdRes int i) {
         this.mActivity = activity;
-        this.deK = swanAppBearInfo;
-        this.deJ = (BearLayout) view.findViewById(i);
-        this.deJ.setVisibility(0);
-        this.deJ.a(activity, swanAppBearInfo, this);
+        this.dqQ = swanAppBearInfo;
+        this.dqP = (BearLayout) view.findViewById(i);
+        this.dqP.setVisibility(0);
+        this.dqP.a(activity, swanAppBearInfo, this);
     }
 
-    public void aGt() {
+    public void aJc() {
         if (SwanAppNetworkUtils.isNetworkConnected(this.mActivity)) {
             LinkedHashMap linkedHashMap = new LinkedHashMap();
             linkedHashMap.put("type", "media");
             linkedHashMap.put("sfrom", "searchpaws");
             linkedHashMap.put("store", "uid_cuid");
             linkedHashMap.put("source", "dusite_na_subbar");
-            linkedHashMap.put("third_id", this.deK.bearId);
+            linkedHashMap.put("third_id", this.dqQ.bearId);
             linkedHashMap.put("op_type", "add");
-            String aam = com.baidu.swan.apps.t.a.apG().aam();
-            if (!TextUtils.isEmpty(aam)) {
-                com.baidu.swan.a.c.a.aTI().getRequest().url(aam).addUrlParams(linkedHashMap).cookieManager(com.baidu.swan.apps.t.a.apT().abd()).build().executeAsyncOnUIBack(new C0450a(this.deJ.getCallback(), false));
+            String acY = com.baidu.swan.apps.t.a.ass().acY();
+            if (!TextUtils.isEmpty(acY)) {
+                com.baidu.swan.a.c.a.aWr().getRequest().url(acY).addUrlParams(linkedHashMap).cookieManager(com.baidu.swan.apps.t.a.asF().adP()).build().executeAsyncOnUIBack(new C0467a(this.dqP.getCallback(), false));
                 return;
             }
             return;
@@ -50,31 +50,31 @@ public class a {
         com.baidu.swan.apps.res.widget.b.d.k(this.mActivity, a.h.aiapps_net_error).showToast();
     }
 
-    public void aGu() {
+    public void aJd() {
         if (SwanAppNetworkUtils.isNetworkConnected(this.mActivity)) {
             LinkedHashMap linkedHashMap = new LinkedHashMap();
             linkedHashMap.put("type", "media");
             linkedHashMap.put("sfrom", "searchpaws");
             linkedHashMap.put("store", "uid_cuid");
             linkedHashMap.put("source", "dusite_na_subbar");
-            linkedHashMap.put("third_id", this.deK.bearId);
-            String aal = com.baidu.swan.apps.t.a.apG().aal();
-            if (!TextUtils.isEmpty(aal)) {
-                com.baidu.swan.a.c.a.aTI().getRequest().url(aal).connectionTimeout(3000).addUrlParams(linkedHashMap).cookieManager(com.baidu.swan.apps.t.a.apT().abd()).build().executeAsyncOnUIBack(new C0450a(this.deJ.getCallback(), true));
+            linkedHashMap.put("third_id", this.dqQ.bearId);
+            String acX = com.baidu.swan.apps.t.a.ass().acX();
+            if (!TextUtils.isEmpty(acX)) {
+                com.baidu.swan.a.c.a.aWr().getRequest().url(acX).connectionTimeout(3000).addUrlParams(linkedHashMap).cookieManager(com.baidu.swan.apps.t.a.asF().adP()).build().executeAsyncOnUIBack(new C0467a(this.dqP.getCallback(), true));
             }
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     /* renamed from: com.baidu.swan.apps.view.a$a  reason: collision with other inner class name */
-    /* loaded from: classes3.dex */
-    public class C0450a extends ResponseCallback<String> {
-        private BearLayout.a deL;
-        private boolean deM;
+    /* loaded from: classes10.dex */
+    public class C0467a extends ResponseCallback<String> {
+        private BearLayout.a dqR;
+        private boolean dqS;
 
-        C0450a(BearLayout.a aVar, boolean z) {
-            this.deL = aVar;
-            this.deM = z;
+        C0467a(BearLayout.a aVar, boolean z) {
+            this.dqR = aVar;
+            this.dqS = z;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -86,33 +86,33 @@ public class a {
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.searchbox.http.callback.ResponseCallback
         public void onSuccess(String str, int i) {
-            if (this.deL != null) {
+            if (this.dqR != null) {
                 try {
                     JSONObject jSONObject = new JSONObject(str);
                     int optInt = jSONObject.optInt(BaseJsonData.TAG_ERRNO);
                     if (optInt == 0) {
-                        if (this.deM) {
+                        if (this.dqS) {
                             JSONObject optJSONObject = jSONObject.optJSONObject("data");
                             if (optJSONObject != null) {
                                 JSONArray optJSONArray = optJSONObject.optJSONArray("items");
                                 if (optJSONArray == null || optJSONArray.length() <= 0) {
-                                    this.deL.ga(false);
+                                    this.dqR.gw(false);
                                 } else {
-                                    this.deL.ga(true);
+                                    this.dqR.gw(true);
                                 }
                             }
                         } else {
-                            this.deL.ga(true);
+                            this.dqR.gw(true);
                         }
                     } else if (800200 == optInt) {
-                        this.deL.tn("errNo:" + optInt + ",errMsg:" + jSONObject.optString(BaseJsonData.TAG_ERRMSG));
+                        this.dqR.tZ("errNo:" + optInt + ",errMsg:" + jSONObject.optString(BaseJsonData.TAG_ERRMSG));
                     } else {
-                        this.deL.tn("errNo:" + optInt);
+                        this.dqR.tZ("errNo:" + optInt);
                     }
                 } catch (JSONException e) {
                     if (a.DEBUG) {
                         e.printStackTrace();
-                        this.deL.tn(e.getMessage());
+                        this.dqR.tZ(e.getMessage());
                     }
                 }
             }
@@ -122,7 +122,7 @@ public class a {
         public void onFail(Exception exc) {
             if (a.DEBUG) {
                 exc.printStackTrace();
-                this.deL.tn(exc.getMessage());
+                this.dqR.tZ(exc.getMessage());
             }
         }
     }

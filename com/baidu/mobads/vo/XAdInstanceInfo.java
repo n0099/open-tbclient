@@ -18,7 +18,7 @@ import java.util.Random;
 import java.util.Set;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes7.dex */
 public class XAdInstanceInfo implements Parcelable, IXAdInstanceInfo, Cloneable {
     public static final Parcelable.Creator<XAdInstanceInfo> CREATOR = new a();
     public static final String TAG = "XAdInstanceInfo";
@@ -49,7 +49,9 @@ public class XAdInstanceInfo implements Parcelable, IXAdInstanceInfo, Cloneable 
     private int X;
     private boolean Y;
     private long Z;
-    private String a;
+
+    /* renamed from: a  reason: collision with root package name */
+    private String f2449a;
     private IXAdInstanceInfo.CreativeType aa;
     private String ab;
     private int ac;
@@ -216,12 +218,12 @@ public class XAdInstanceInfo implements Parcelable, IXAdInstanceInfo, Cloneable 
 
     @Override // com.baidu.mobads.interfaces.IXAdInstanceInfo
     public String getFwt() {
-        return this.a;
+        return this.f2449a;
     }
 
     @Override // com.baidu.mobads.interfaces.IXAdInstanceInfo
     public void setFwt(String str) {
-        this.a = str;
+        this.f2449a = str;
     }
 
     @Override // com.baidu.mobads.interfaces.IXAdInstanceInfo
@@ -987,7 +989,7 @@ public class XAdInstanceInfo implements Parcelable, IXAdInstanceInfo, Cloneable 
         parcel.writeString(this.e);
         parcel.writeString(this.d);
         parcel.writeString(this.k);
-        parcel.writeString(this.a);
+        parcel.writeString(this.f2449a);
         parcel.writeString(this.z);
         parcel.writeString(this.j);
         parcel.writeString(this.i);
@@ -1049,7 +1051,7 @@ public class XAdInstanceInfo implements Parcelable, IXAdInstanceInfo, Cloneable 
         this.e = parcel.readString();
         this.d = parcel.readString();
         this.k = parcel.readString();
-        this.a = parcel.readString();
+        this.f2449a = parcel.readString();
         this.z = parcel.readString();
         this.j = parcel.readString();
         this.i = parcel.readString();

@@ -16,7 +16,7 @@ import com.baidu.swan.apps.setting.oauth.a.b;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes8.dex */
 public class h extends aa {
     public h(j jVar) {
         super(jVar, "/swanAPI/getPhoneContacts");
@@ -48,11 +48,11 @@ public class h extends aa {
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(201, "the callback is null");
             return false;
         }
-        eVar.aAD().b(activity, "mapp_i_read_contacts", new com.baidu.swan.apps.ap.e.b<com.baidu.swan.apps.setting.oauth.h<b.d>>() { // from class: com.baidu.swan.bdprivate.extensions.a.h.1
+        eVar.aDm().b(activity, "mapp_i_read_contacts", new com.baidu.swan.apps.ap.e.b<com.baidu.swan.apps.setting.oauth.h<b.d>>() { // from class: com.baidu.swan.bdprivate.extensions.a.h.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.swan.apps.ap.e.b
             /* renamed from: a */
-            public void J(com.baidu.swan.apps.setting.oauth.h<b.d> hVar) {
+            public void M(com.baidu.swan.apps.setting.oauth.h<b.d> hVar) {
                 if (!com.baidu.swan.apps.setting.oauth.c.b(hVar)) {
                     com.baidu.swan.apps.setting.oauth.c.a(hVar, callbackHandler, optString);
                     return;
@@ -69,13 +69,13 @@ public class h extends aa {
     public void a(final Activity activity, final CallbackHandler callbackHandler, final String str) {
         com.baidu.swan.apps.ab.a.a("android.permission.READ_CONTACTS", new String[]{"android.permission.READ_CONTACTS"}, 666, activity, new com.baidu.swan.apps.ab.b() { // from class: com.baidu.swan.bdprivate.extensions.a.h.2
             @Override // com.baidu.swan.apps.ab.b
-            public void iZ(String str2) {
+            public void jL(String str2) {
                 h.this.b(activity, callbackHandler, str);
                 com.baidu.swan.apps.console.c.e("ReadContacts", str2 + "");
             }
 
             @Override // com.baidu.swan.apps.ab.b
-            public void O(int i, String str2) {
+            public void Z(int i, String str2) {
                 com.baidu.swan.apps.setting.oauth.c.a(10005, callbackHandler, str);
                 com.baidu.swan.apps.console.c.e("ReadContacts", str2 + "");
             }
@@ -85,12 +85,12 @@ public class h extends aa {
     /* JADX INFO: Access modifiers changed from: private */
     public void b(Activity activity, CallbackHandler callbackHandler, String str) {
         try {
-            JSONObject di = di(activity);
+            JSONObject m34do = m34do(activity);
             if (DEBUG) {
-                Log.i("ReadContactsAction", "read contacts:" + di.toString());
+                Log.i("ReadContactsAction", "read contacts:" + m34do.toString());
             }
-            com.baidu.swan.apps.console.c.e("ReadContacts", "read contacts:" + di.toString());
-            a(callbackHandler, str, 0, di);
+            com.baidu.swan.apps.console.c.e("ReadContacts", "read contacts:" + m34do.toString());
+            a(callbackHandler, str, 0, m34do);
         } catch (JSONException e) {
             if (DEBUG) {
                 Log.e("ReadContactsAction", "read contacts error caused by JsonException");
@@ -110,7 +110,8 @@ public class h extends aa {
     }
 
     /* JADX WARN: Can't fix incorrect switch cases order, some code will duplicate */
-    private JSONObject di(Context context) throws JSONException {
+    /* renamed from: do  reason: not valid java name */
+    private JSONObject m34do(Context context) throws JSONException {
         char c;
         JSONArray jSONArray = null;
         JSONArray jSONArray2 = new JSONArray();

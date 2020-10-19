@@ -52,7 +52,7 @@ import java.util.ArrayList;
 import java.util.List;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes25.dex */
+/* loaded from: classes5.dex */
 public class BaseActivity extends TitleActivity {
     public static final String EXTRA_PARAM_BUSINESS_FROM = "extra_params_business_from";
     public static final int EXTRA_PARAM_FROM_ACCOUNT_CENTER = 2003;
@@ -69,7 +69,9 @@ public class BaseActivity extends TitleActivity {
     private static final int m = 1001;
     private static final int n = 1002;
     private static final int o = 1003;
-    private ValueCallback<Uri> a;
+
+    /* renamed from: a  reason: collision with root package name */
+    private ValueCallback<Uri> f3317a;
     private ValueCallback<Uri[]> b;
     private SapiWebView.PickPhotoResult c;
     private SapiWebView.BiometricsIdentifyResult d;
@@ -116,18 +118,18 @@ public class BaseActivity extends TitleActivity {
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.pass.biometrics.base.callback.PassBiometricCallback
             public void onFailure(PassFaceRecogResult passFaceRecogResult) {
-                JSONObject a = BaseActivity.this.a(passFaceRecogResult.getResultCode(), passFaceRecogResult.getResultMsg(), null, null);
+                JSONObject a2 = BaseActivity.this.a(passFaceRecogResult.getResultCode(), passFaceRecogResult.getResultMsg(), null, null);
                 if (BaseActivity.this.d != null) {
-                    BaseActivity.this.d.setIdentifyToken(a.toString());
+                    BaseActivity.this.d.setIdentifyToken(a2.toString());
                 }
             }
 
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.pass.biometrics.base.callback.PassBiometricCallback
             public void onSuccess(PassFaceRecogResult passFaceRecogResult) {
-                JSONObject a = BaseActivity.this.a(passFaceRecogResult.getResultCode(), passFaceRecogResult.getResultMsg(), passFaceRecogResult.callbackkey, passFaceRecogResult.authSid);
+                JSONObject a2 = BaseActivity.this.a(passFaceRecogResult.getResultCode(), passFaceRecogResult.getResultMsg(), passFaceRecogResult.callbackkey, passFaceRecogResult.authSid);
                 if (BaseActivity.this.d != null) {
-                    BaseActivity.this.d.setIdentifyToken(a.toString());
+                    BaseActivity.this.d.setIdentifyToken(a2.toString());
                 }
             }
         });
@@ -137,25 +139,25 @@ public class BaseActivity extends TitleActivity {
     @Override // android.app.Activity
     public void onActivityResult(int i, int i2, Intent intent) {
         ImageCropCallback b;
-        ActivityResultCallback a;
+        ActivityResultCallback a2;
         a aVar;
         super.onActivityResult(i, i2, intent);
         ImageCropCallback imageCropCallback = CoreViewRouter.getInstance().getImageCropCallback();
         ActivityResultCallback activityResultCallback = CoreViewRouter.getInstance().getActivityResultCallback();
         if (imageCropCallback == null || activityResultCallback == null) {
             b = b();
-            a = a();
+            a2 = a();
         } else {
             b = imageCropCallback;
-            a = activityResultCallback;
+            a2 = activityResultCallback;
         }
-        if (a != null) {
-            a.onActivityResult(i, i2, intent);
+        if (a2 != null) {
+            a2.onActivityResult(i, i2, intent);
         }
         if (i == 1010) {
-            if (this.a != null) {
-                this.a.onReceiveValue((intent == null || i2 != -1) ? null : intent.getData());
-                this.a = null;
+            if (this.f3317a != null) {
+                this.f3317a.onReceiveValue((intent == null || i2 != -1) ? null : intent.getData());
+                this.f3317a = null;
             }
         } else if (i == 1011) {
             if (this.b != null) {
@@ -486,7 +488,7 @@ public class BaseActivity extends TitleActivity {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void a(ValueCallback<Uri> valueCallback) {
-        this.a = valueCallback;
+        this.f3317a = valueCallback;
         Intent intent = new Intent("android.intent.action.GET_CONTENT");
         intent.addCategory("android.intent.category.OPENABLE");
         intent.setType("image/*");
@@ -577,10 +579,10 @@ public class BaseActivity extends TitleActivity {
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.pass.biometrics.base.callback.PassBiometricCallback
             public void onFailure(PassFaceRecogResult passFaceRecogResult) {
-                JSONObject a = BaseActivity.this.a(passFaceRecogResult.getResultCode(), passFaceRecogResult.getResultMsg(), null, null);
+                JSONObject a2 = BaseActivity.this.a(passFaceRecogResult.getResultCode(), passFaceRecogResult.getResultMsg(), null, null);
                 SapiWebView.BioScanFaceCallback.BioScanFaceResult bioScanFaceResult2 = bioScanFaceResult;
                 if (bioScanFaceResult2 != null) {
-                    bioScanFaceResult2.setScanFaceIdentifyResult(a.toString());
+                    bioScanFaceResult2.setScanFaceIdentifyResult(a2.toString());
                 }
             }
 

@@ -52,11 +52,11 @@ public class a {
     }
 
     public static final boolean b(String str, String str2, String str3, Integer num) {
-        String a;
-        if (TextUtils.isEmpty(str) || (a = a(str, str2, str3, num)) == null || !a.startsWith("tiebaclient://")) {
+        String a2;
+        if (TextUtils.isEmpty(str) || (a2 = a(str, str2, str3, num)) == null || !a2.startsWith("tiebaclient://")) {
             return false;
         }
-        MessageManager.getInstance().sendMessage(new CustomMessage(2921361, a));
+        MessageManager.getInstance().sendMessage(new CustomMessage(2921361, a2));
         return true;
     }
 }

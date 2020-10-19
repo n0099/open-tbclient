@@ -3,7 +3,7 @@ package com.sina.weibo.sdk.auth.sso;
 import android.app.Activity;
 import android.content.Intent;
 import com.sina.weibo.sdk.auth.BaseSsoHandler;
-/* loaded from: classes24.dex */
+/* loaded from: classes12.dex */
 public class SsoHandler extends BaseSsoHandler {
     private static final String EXTRA_REQUEST_CODE = "com.sina.weibo.intent.extra.REQUEST_CODE";
     private static final int REQUEST_CODE_GET_USER_INFO = 32974;

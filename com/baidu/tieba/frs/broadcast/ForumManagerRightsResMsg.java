@@ -2,7 +2,7 @@ package com.baidu.tieba.frs.broadcast;
 
 import com.baidu.tbadk.message.http.JsonHttpResponsedMessage;
 import org.json.JSONObject;
-/* loaded from: classes21.dex */
+/* loaded from: classes22.dex */
 public class ForumManagerRightsResMsg extends JsonHttpResponsedMessage {
     public int broadcastTotalCount;
     public int broadcastUsedCount;

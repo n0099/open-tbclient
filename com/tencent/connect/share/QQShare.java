@@ -25,7 +25,7 @@ import com.tencent.tauth.IUiListener;
 import com.tencent.tauth.UiError;
 import java.io.File;
 import java.util.ArrayList;
-/* loaded from: classes24.dex */
+/* loaded from: classes6.dex */
 public class QQShare extends BaseApi {
     public static final int QQ_SHARE_SUMMARY_MAX_LENGTH = 512;
     public static final int QQ_SHARE_TITLE_MAX_LENGTH = 128;
@@ -234,9 +234,9 @@ public class QQShare extends BaseApi {
         String string6 = bundle.getString(SHARE_TO_QQ_ARK_INFO);
         int i2 = bundle.getInt("cflag", 0);
         String string7 = bundle.getString("share_qq_ext_str");
-        String a = j.a(activity);
-        if (a == null) {
-            a = bundle.getString("appName");
+        String a2 = j.a(activity);
+        if (a2 == null) {
+            a2 = bundle.getString("appName");
         }
         String string8 = bundle.getString("imageLocalUrl");
         String appId = this.b.getAppId();
@@ -260,11 +260,11 @@ public class QQShare extends BaseApi {
         if (!TextUtils.isEmpty(string4)) {
             stringBuffer.append("&url=" + Base64.encodeToString(j.i(string4), 2));
         }
-        if (!TextUtils.isEmpty(a)) {
-            if (a.length() > 20) {
-                a = a.substring(0, 20) + StringHelper.STRING_MORE;
+        if (!TextUtils.isEmpty(a2)) {
+            if (a2.length() > 20) {
+                a2 = a2.substring(0, 20) + StringHelper.STRING_MORE;
             }
-            stringBuffer.append("&app_name=" + Base64.encodeToString(j.i(a), 2));
+            stringBuffer.append("&app_name=" + Base64.encodeToString(j.i(a2), 2));
         }
         if (!TextUtils.isEmpty(openId)) {
             stringBuffer.append("&open_id=" + Base64.encodeToString(j.i(openId), 2));

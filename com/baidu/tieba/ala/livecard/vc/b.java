@@ -5,106 +5,106 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes4.dex */
 public class b {
-    private int eAF;
-    private List<bw> eAL;
-    private List<bw> eAM;
-    private boolean eAN;
-    private boolean eAO;
-    private int eAP = 2;
-    private int eAQ = 1;
+    private int eMM;
+    private List<bw> eMS;
+    private List<bw> eMT;
+    private boolean eMU;
+    private boolean eMV;
+    private int eMW = 2;
+    private int eMX = 1;
 
     public b(List<bw> list, boolean z, int i) {
-        this.eAF = 2;
-        this.eAO = z;
-        this.eAF = i;
-        bX(list);
+        this.eMM = 2;
+        this.eMV = z;
+        this.eMM = i;
+        ca(list);
     }
 
-    public void bX(List<bw> list) {
+    public void ca(List<bw> list) {
         if (list != null) {
-            this.eAL = list;
-            if (list != null && list.size() >= this.eAP && list.size() <= this.eAF) {
-                this.eAN = true;
-            } else if (list.size() > this.eAF && this.eAO) {
-                this.eAN = true;
+            this.eMS = list;
+            if (list != null && list.size() >= this.eMW && list.size() <= this.eMM) {
+                this.eMU = true;
+            } else if (list.size() > this.eMM && this.eMV) {
+                this.eMU = true;
             } else {
-                this.eAN = false;
+                this.eMU = false;
             }
-            this.eAM = bmL();
+            this.eMT = bpv();
         }
     }
 
-    private List<bw> bmL() {
+    private List<bw> bpv() {
         ArrayList arrayList = new ArrayList();
-        if (this.eAL != null) {
-            if (this.eAN) {
-                if (this.eAL.size() > this.eAF && this.eAL.size() >= this.eAQ) {
-                    arrayList.addAll(this.eAL.subList(0, this.eAF));
-                    arrayList.addAll(0, this.eAL.subList(this.eAF - this.eAQ, this.eAF));
-                    arrayList.addAll(this.eAL.subList(0, this.eAQ));
+        if (this.eMS != null) {
+            if (this.eMU) {
+                if (this.eMS.size() > this.eMM && this.eMS.size() >= this.eMX) {
+                    arrayList.addAll(this.eMS.subList(0, this.eMM));
+                    arrayList.addAll(0, this.eMS.subList(this.eMM - this.eMX, this.eMM));
+                    arrayList.addAll(this.eMS.subList(0, this.eMX));
                 } else {
-                    arrayList.addAll(this.eAL);
-                    arrayList.addAll(0, this.eAL.subList(this.eAL.size() - this.eAQ, this.eAL.size()));
-                    arrayList.addAll(this.eAL.subList(0, this.eAQ));
+                    arrayList.addAll(this.eMS);
+                    arrayList.addAll(0, this.eMS.subList(this.eMS.size() - this.eMX, this.eMS.size()));
+                    arrayList.addAll(this.eMS.subList(0, this.eMX));
                 }
-            } else if (this.eAL != null && this.eAL.size() > 0 && this.eAL.size() >= this.eAQ) {
-                arrayList.addAll(this.eAL.subList(0, this.eAQ));
+            } else if (this.eMS != null && this.eMS.size() > 0 && this.eMS.size() >= this.eMX) {
+                arrayList.addAll(this.eMS.subList(0, this.eMX));
             }
         }
         return arrayList;
     }
 
-    public int pC(int i) {
-        if (this.eAN) {
-            int size = this.eAM.size();
+    public int qa(int i) {
+        if (this.eMU) {
+            int size = this.eMT.size();
             if (i == 0) {
-                return (size - 1) - this.eAQ;
+                return (size - 1) - this.eMX;
             }
-            if (i == size - this.eAQ) {
-                return this.eAQ;
+            if (i == size - this.eMX) {
+                return this.eMX;
             }
             return i;
         }
         return i;
     }
 
-    public int pD(int i) {
-        if (this.eAN) {
-            return i - this.eAQ;
+    public int qb(int i) {
+        if (this.eMU) {
+            return i - this.eMX;
         }
         return i;
     }
 
-    public int bmM() {
-        if (this.eAL == null) {
+    public int bpw() {
+        if (this.eMS == null) {
             return 0;
         }
-        return this.eAL.size();
+        return this.eMS.size();
     }
 
-    public int bmN() {
-        if (this.eAN) {
-            return this.eAQ;
+    public int bpx() {
+        if (this.eMU) {
+            return this.eMX;
         }
         return 0;
     }
 
-    public void pE(int i) {
-        this.eAF = i;
-        bX(this.eAL);
+    public void qc(int i) {
+        this.eMM = i;
+        ca(this.eMS);
     }
 
-    public void pF(int i) {
-        this.eAP = i;
-        bX(this.eAL);
+    public void qd(int i) {
+        this.eMW = i;
+        ca(this.eMS);
     }
 
-    public List<bw> bmO() {
-        return this.eAM;
+    public List<bw> bpy() {
+        return this.eMT;
     }
 
-    public void pG(int i) {
-        this.eAQ = i;
-        bX(this.eAL);
+    public void qe(int i) {
+        this.eMX = i;
+        ca(this.eMS);
     }
 }

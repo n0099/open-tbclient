@@ -6,7 +6,7 @@ import android.content.pm.PackageManager;
 import android.text.TextUtils;
 import com.baidu.live.tbadk.core.util.TbEnum;
 import com.baidu.live.tbadk.pagestayduration.PageStayDurationHelper;
-/* loaded from: classes10.dex */
+/* loaded from: classes14.dex */
 public class c {
     private static String xf = "pro";
     private static String xg = TbEnum.SystemMessage.EVENT_ID_GROUP_NAME_MODIFY;

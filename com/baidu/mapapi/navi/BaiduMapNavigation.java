@@ -15,9 +15,11 @@ import com.xiaomi.mipush.sdk.Constants;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes7.dex */
 public class BaiduMapNavigation {
-    private static boolean a = true;
+
+    /* renamed from: a  reason: collision with root package name */
+    private static boolean f2092a = true;
 
     private static String a(Context context) {
         PackageManager packageManager;
@@ -38,10 +40,10 @@ public class BaiduMapNavigation {
         if (naviParaOption == null || context == null) {
             throw new IllegalNaviArgumentException("BDMapSDKException: para or context can not be null.");
         }
-        if (naviParaOption.a == null || naviParaOption.c == null) {
+        if (naviParaOption.f2093a == null || naviParaOption.c == null) {
             throw new IllegalNaviArgumentException("BDMapSDKException: you must set start and end point.");
         }
-        GeoPoint ll2mc = CoordUtil.ll2mc(naviParaOption.a);
+        GeoPoint ll2mc = CoordUtil.ll2mc(naviParaOption.f2093a);
         GeoPoint ll2mc2 = CoordUtil.ll2mc(naviParaOption.c);
         StringBuilder sb = new StringBuilder();
         sb.append("http://app.navi.baidu.com/mobile/#navi/naving/");
@@ -101,7 +103,7 @@ public class BaiduMapNavigation {
         if (naviParaOption == null || context == null) {
             throw new IllegalNaviArgumentException("BDMapSDKException: para or context can not be null.");
         }
-        if (naviParaOption.c == null || naviParaOption.a == null) {
+        if (naviParaOption.c == null || naviParaOption.f2093a == null) {
             throw new IllegalNaviArgumentException("BDMapSDKException: start point or end point can not be null.");
         }
         int baiduMapVersion = OpenClientUtil.getBaiduMapVersion(context);
@@ -120,13 +122,13 @@ public class BaiduMapNavigation {
         if (naviParaOption == null || context == null) {
             throw new IllegalNaviArgumentException("BDMapSDKException: para or context can not be null.");
         }
-        if (naviParaOption.c == null || naviParaOption.a == null) {
+        if (naviParaOption.c == null || naviParaOption.f2093a == null) {
             throw new IllegalNaviArgumentException("BDMapSDKException: start point or end point can not be null.");
         }
         int baiduMapVersion = OpenClientUtil.getBaiduMapVersion(context);
         if (baiduMapVersion == 0) {
             Log.e("baidumapsdk", "BaiduMap app is not installed.");
-            if (a) {
+            if (f2092a) {
                 a(naviParaOption, context);
                 return true;
             }
@@ -135,7 +137,7 @@ public class BaiduMapNavigation {
             return b.a(naviParaOption, context, 5);
         } else {
             Log.e("baidumapsdk", "Baidumap app version is too lowl.Version is greater than 8.2");
-            if (a) {
+            if (f2092a) {
                 a(naviParaOption, context);
                 return true;
             }
@@ -147,7 +149,7 @@ public class BaiduMapNavigation {
         if (naviParaOption == null || context == null) {
             throw new IllegalNaviArgumentException("BDMapSDKException: para or context can not be null.");
         }
-        if (naviParaOption.c == null || naviParaOption.a == null) {
+        if (naviParaOption.c == null || naviParaOption.f2093a == null) {
             throw new IllegalNaviArgumentException("BDMapSDKException: start point or end point can not be null.");
         }
         int baiduMapVersion = OpenClientUtil.getBaiduMapVersion(context);
@@ -166,7 +168,7 @@ public class BaiduMapNavigation {
         if (naviParaOption == null || context == null) {
             throw new IllegalNaviArgumentException("BDMapSDKException: para or context can not be null.");
         }
-        if (naviParaOption.c == null || naviParaOption.a == null) {
+        if (naviParaOption.c == null || naviParaOption.f2093a == null) {
             throw new IllegalNaviArgumentException("BDMapSDKException: start point or end point can not be null.");
         }
         int baiduMapVersion = OpenClientUtil.getBaiduMapVersion(context);
@@ -186,7 +188,7 @@ public class BaiduMapNavigation {
         if (naviParaOption == null || context == null) {
             throw new IllegalNaviArgumentException("BDMapSDKException: para or context can not be null.");
         }
-        if (naviParaOption.a == null || naviParaOption.c == null) {
+        if (naviParaOption.f2093a == null || naviParaOption.c == null) {
             if (naviParaOption.b == null || naviParaOption.b.equals("") || naviParaOption.d == null || naviParaOption.d.equals("")) {
                 throw new IllegalNaviArgumentException("BDMapSDKException: you must set start and end point or set the start and end name.");
             }
@@ -197,7 +199,7 @@ public class BaiduMapNavigation {
             context.startActivity(intent);
             return;
         }
-        GeoPoint ll2mc = CoordUtil.ll2mc(naviParaOption.a);
+        GeoPoint ll2mc = CoordUtil.ll2mc(naviParaOption.f2093a);
         GeoPoint ll2mc2 = CoordUtil.ll2mc(naviParaOption.c);
         Uri parse2 = Uri.parse("http://daohang.map.baidu.com/mobile/#navi/naving/start=" + ll2mc.getLongitudeE6() + Constants.ACCEPT_TIME_SEPARATOR_SP + ll2mc.getLatitudeE6() + "&endp=" + ll2mc2.getLongitudeE6() + Constants.ACCEPT_TIME_SEPARATOR_SP + ll2mc2.getLatitudeE6() + "&fromprod=" + a(context) + "/vt=map&state=entry");
         Intent intent2 = new Intent();
@@ -208,6 +210,6 @@ public class BaiduMapNavigation {
     }
 
     public static void setSupportWebNavi(boolean z) {
-        a = z;
+        f2092a = z;
     }
 }

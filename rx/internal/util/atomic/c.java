@@ -3,7 +3,7 @@ package rx.internal.util.atomic;
 import java.util.Iterator;
 import java.util.concurrent.atomic.AtomicLong;
 import java.util.concurrent.atomic.AtomicReferenceArray;
-/* loaded from: classes7.dex */
+/* loaded from: classes16.dex */
 public final class c<E> extends a<E> {
     private static final Integer MAX_LOOK_AHEAD_STEP = Integer.getInteger("jctools.spsc.max.lookahead.step", 4096);
     final AtomicLong consumerIndex;
@@ -33,7 +33,7 @@ public final class c<E> extends a<E> {
         if (e == null) {
             throw new NullPointerException("Null is not a valid element");
         }
-        AtomicReferenceArray<E> atomicReferenceArray = this.oSR;
+        AtomicReferenceArray<E> atomicReferenceArray = this.pij;
         int i = this.mask;
         long j = this.producerIndex.get();
         int calcElementOffset = calcElementOffset(j, i);
@@ -54,7 +54,7 @@ public final class c<E> extends a<E> {
     public E poll() {
         long j = this.consumerIndex.get();
         int calcElementOffset = calcElementOffset(j);
-        AtomicReferenceArray<E> atomicReferenceArray = this.oSR;
+        AtomicReferenceArray<E> atomicReferenceArray = this.pij;
         E b = b(atomicReferenceArray, calcElementOffset);
         if (b == null) {
             return null;
@@ -71,20 +71,20 @@ public final class c<E> extends a<E> {
 
     @Override // java.util.AbstractCollection, java.util.Collection
     public int size() {
-        long ejq = ejq();
+        long enb = enb();
         while (true) {
-            long ejp = ejp();
-            long ejq2 = ejq();
-            if (ejq == ejq2) {
-                return (int) (ejp - ejq2);
+            long ena = ena();
+            long enb2 = enb();
+            if (enb == enb2) {
+                return (int) (ena - enb2);
             }
-            ejq = ejq2;
+            enb = enb2;
         }
     }
 
     @Override // java.util.AbstractCollection, java.util.Collection
     public boolean isEmpty() {
-        return ejp() == ejq();
+        return ena() == enb();
     }
 
     private void soProducerIndex(long j) {
@@ -95,11 +95,11 @@ public final class c<E> extends a<E> {
         this.consumerIndex.lazySet(j);
     }
 
-    private long ejq() {
+    private long enb() {
         return this.consumerIndex.get();
     }
 
-    private long ejp() {
+    private long ena() {
         return this.producerIndex.get();
     }
 }

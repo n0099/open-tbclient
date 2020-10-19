@@ -8,7 +8,7 @@ import java.lang.annotation.Target;
 @Target({ElementType.FIELD, ElementType.TYPE})
 @Documented
 @Retention(RetentionPolicy.RUNTIME)
-/* loaded from: classes23.dex */
+/* loaded from: classes17.dex */
 public @interface d {
-    double ebd();
+    double eeO();
 }

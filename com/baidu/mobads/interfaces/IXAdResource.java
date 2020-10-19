@@ -1,7 +1,7 @@
 package com.baidu.mobads.interfaces;
 
 import android.graphics.Bitmap;
-/* loaded from: classes3.dex */
+/* loaded from: classes7.dex */
 public interface IXAdResource {
     Bitmap getClaw();
 

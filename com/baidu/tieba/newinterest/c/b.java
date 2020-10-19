@@ -24,15 +24,15 @@ import java.net.URLEncoder;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
-/* loaded from: classes22.dex */
+/* loaded from: classes23.dex */
 public class b {
-    private InterfaceC0752b kBe;
-    private a kBf;
-    private List<com.baidu.tieba.newinterest.data.b> kBg;
+    private InterfaceC0770b kQp;
+    private a kQq;
+    private List<com.baidu.tieba.newinterest.data.b> kQr;
     private final BdUniqueId mBdUniqueId;
     private int mPageNum;
     private Gson gson = new Gson();
-    private com.baidu.adp.framework.listener.a kBh = new com.baidu.adp.framework.listener.a(CmdConfigHttp.CMD_GUIDE_INTERESTED_FORUM, 309654) { // from class: com.baidu.tieba.newinterest.c.b.1
+    private com.baidu.adp.framework.listener.a kQs = new com.baidu.adp.framework.listener.a(CmdConfigHttp.CMD_GUIDE_INTERESTED_FORUM, 309654) { // from class: com.baidu.tieba.newinterest.c.b.1
         @Override // com.baidu.adp.framework.listener.a
         public void onMessage(ResponsedMessage<?> responsedMessage) {
             if (responsedMessage != null) {
@@ -44,22 +44,22 @@ public class b {
                         cVar = ((InterestedForumSocketResMsg) responsedMessage).getPageData();
                     }
                     if (responsedMessage.getError() != 0) {
-                        if (b.this.kBe != null) {
-                            b.this.kBe.onError(responsedMessage.getError(), responsedMessage.getErrorString());
+                        if (b.this.kQp != null) {
+                            b.this.kQp.onError(responsedMessage.getError(), responsedMessage.getErrorString());
                         }
-                    } else if (cVar == null || y.isEmpty(cVar.kAO)) {
-                        if (b.this.kBe != null) {
-                            b.this.kBe.onError(-1, TbadkCoreApplication.getInst().getString(R.string.neterror));
+                    } else if (cVar == null || y.isEmpty(cVar.kPZ)) {
+                        if (b.this.kQp != null) {
+                            b.this.kQp.onError(-1, TbadkCoreApplication.getInst().getString(R.string.neterror));
                         }
-                    } else if (cVar != null && b.this.kBe != null) {
+                    } else if (cVar != null && b.this.kQp != null) {
                         b.c(b.this);
-                        b.this.kBe.a(cVar);
+                        b.this.kQp.a(cVar);
                     }
                 }
             }
         }
     };
-    private HttpMessageListener kBi = new HttpMessageListener(CmdConfigHttp.CMD_GUIDE_INTEREST_COMMIT) { // from class: com.baidu.tieba.newinterest.c.b.2
+    private HttpMessageListener kQt = new HttpMessageListener(CmdConfigHttp.CMD_GUIDE_INTEREST_COMMIT) { // from class: com.baidu.tieba.newinterest.c.b.2
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(HttpResponsedMessage httpResponsedMessage) {
@@ -67,25 +67,25 @@ public class b {
                 if ((httpResponsedMessage.getOrginalMessage() == null || httpResponsedMessage.getOrginalMessage().getTag() == b.this.mBdUniqueId) && (httpResponsedMessage instanceof InterestCommitHttpResMsg)) {
                     InterestCommitHttpResMsg interestCommitHttpResMsg = (InterestCommitHttpResMsg) httpResponsedMessage;
                     if (interestCommitHttpResMsg.hasError() || interestCommitHttpResMsg.getErrno() != 0) {
-                        if (b.this.kBe != null) {
-                            b.this.kBe.onError(httpResponsedMessage.getError(), httpResponsedMessage.getErrorString());
+                        if (b.this.kQp != null) {
+                            b.this.kQp.onError(httpResponsedMessage.getError(), httpResponsedMessage.getErrorString());
                         }
-                    } else if (b.this.kBf != null) {
-                        b.this.kBf.bIX();
+                    } else if (b.this.kQq != null) {
+                        b.this.kQq.bLH();
                     }
                 }
             }
         }
     };
 
-    /* loaded from: classes22.dex */
+    /* loaded from: classes23.dex */
     public interface a {
-        void bIX();
+        void bLH();
     }
 
     /* renamed from: com.baidu.tieba.newinterest.c.b$b  reason: collision with other inner class name */
-    /* loaded from: classes22.dex */
-    public interface InterfaceC0752b {
+    /* loaded from: classes23.dex */
+    public interface InterfaceC0770b {
         void a(c cVar);
 
         void onError(int i, String str);
@@ -99,16 +99,16 @@ public class b {
 
     public b(BdUniqueId bdUniqueId) {
         this.mBdUniqueId = bdUniqueId;
-        this.kBh.setTag(this.mBdUniqueId);
-        this.kBi.setTag(this.mBdUniqueId);
-        MessageManager.getInstance().registerListener(this.kBh);
-        MessageManager.getInstance().registerListener(this.kBi);
-        cXz();
-        cXy();
-        cXx();
+        this.kQs.setTag(this.mBdUniqueId);
+        this.kQt.setTag(this.mBdUniqueId);
+        MessageManager.getInstance().registerListener(this.kQs);
+        MessageManager.getInstance().registerListener(this.kQt);
+        dbi();
+        dbh();
+        dbg();
     }
 
-    private List<Integer> eD(List<com.baidu.tieba.newinterest.data.b> list) {
+    private List<Integer> eG(List<com.baidu.tieba.newinterest.data.b> list) {
         ArrayList arrayList = new ArrayList();
         if (list != null) {
             for (com.baidu.tieba.newinterest.data.b bVar : list) {
@@ -118,7 +118,7 @@ public class b {
         return arrayList;
     }
 
-    private void cXx() {
+    private void dbg() {
         TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_GUIDE_INTEREST_COMMIT, TbConfig.SERVER_ADDRESS + TbConfig.GUIDE_INTEREST_COMMIT_URL);
         tbHttpMessageTask.setIsNeedAddCommenParam(false);
         tbHttpMessageTask.setResponsedClass(InterestCommitHttpResMsg.class);
@@ -126,15 +126,15 @@ public class b {
         MessageManager.getInstance().registerTask(tbHttpMessageTask);
     }
 
-    private void cXy() {
-        TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_GUIDE_INTERESTED_FORUM, com.baidu.tieba.tbadkCore.a.a.bH(TbConfig.GUIDE_INTERESTED_FORUM_URL, 309654));
+    private void dbh() {
+        TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_GUIDE_INTERESTED_FORUM, com.baidu.tieba.tbadkCore.a.a.bI(TbConfig.GUIDE_INTERESTED_FORUM_URL, 309654));
         tbHttpMessageTask.setIsNeedAddCommenParam(false);
         tbHttpMessageTask.setResponsedClass(InterestedForumHttpResMsg.class);
         tbHttpMessageTask.setPriority(4);
         MessageManager.getInstance().registerTask(tbHttpMessageTask);
     }
 
-    private void cXz() {
+    private void dbi() {
         com.baidu.tbadk.task.b bVar = new com.baidu.tbadk.task.b(309654);
         bVar.setResponsedClass(InterestedForumSocketResMsg.class);
         bVar.setNeedAck(true);
@@ -142,20 +142,20 @@ public class b {
         MessageManager.getInstance().registerTask(bVar);
     }
 
-    public void eE(List<com.baidu.tieba.newinterest.data.a> list) throws UnsupportedEncodingException {
+    public void eH(List<com.baidu.tieba.newinterest.data.a> list) throws UnsupportedEncodingException {
         HttpMessage httpMessage = new HttpMessage(CmdConfigHttp.CMD_GUIDE_INTEREST_COMMIT);
-        httpMessage.addParam("interestList", URLEncoder.encode(eF(list), "utf-8"));
+        httpMessage.addParam("interestList", URLEncoder.encode(eI(list), "utf-8"));
         httpMessage.setTag(this.mBdUniqueId);
         MessageManager.getInstance().sendMessage(httpMessage);
     }
 
-    private String eF(List<com.baidu.tieba.newinterest.data.a> list) {
+    private String eI(List<com.baidu.tieba.newinterest.data.a> list) {
         HashMap hashMap = new HashMap();
         for (com.baidu.tieba.newinterest.data.a aVar : list) {
             HashMap hashMap2 = new HashMap();
             for (d dVar : aVar.forum_info) {
                 if (dVar.selected) {
-                    hashMap2.put(dVar.kAP.forum_id, dVar.kAP.forum_name);
+                    hashMap2.put(dVar.kQa.forum_id, dVar.kQa.forum_name);
                 }
             }
             hashMap.put(aVar.class_name, hashMap2);
@@ -163,27 +163,27 @@ public class b {
         return this.gson.toJson(hashMap);
     }
 
-    public void a(InterfaceC0752b interfaceC0752b) {
-        this.kBe = interfaceC0752b;
+    public void a(InterfaceC0770b interfaceC0770b) {
+        this.kQp = interfaceC0770b;
     }
 
     public void a(a aVar) {
-        this.kBf = aVar;
+        this.kQq = aVar;
     }
 
-    public void eG(List<com.baidu.tieba.newinterest.data.b> list) {
-        this.kBg = list;
+    public void eJ(List<com.baidu.tieba.newinterest.data.b> list) {
+        this.kQr = list;
         this.mPageNum = 1;
     }
 
-    public void cXA() {
+    public void dbj() {
         InterestedForumReqMsg interestedForumReqMsg = new InterestedForumReqMsg();
-        interestedForumReqMsg.classidList = eD(this.kBg.subList((this.mPageNum - 1) * 3, Math.min(this.kBg.size(), this.mPageNum * 3)));
+        interestedForumReqMsg.classidList = eG(this.kQr.subList((this.mPageNum - 1) * 3, Math.min(this.kQr.size(), this.mPageNum * 3)));
         interestedForumReqMsg.setTag(this.mBdUniqueId);
         MessageManager.getInstance().sendMessage(interestedForumReqMsg);
     }
 
     public boolean hasMore() {
-        return (this.mPageNum + (-1)) * 3 < this.kBg.size();
+        return (this.mPageNum + (-1)) * 3 < this.kQr.size();
     }
 }

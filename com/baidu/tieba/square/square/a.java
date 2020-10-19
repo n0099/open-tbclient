@@ -28,20 +28,20 @@ import com.baidu.tbadk.core.util.bg;
 import com.baidu.tbadk.core.view.NavigationBar;
 import com.baidu.tieba.R;
 import java.util.ArrayList;
-/* loaded from: classes22.dex */
+/* loaded from: classes23.dex */
 public class a extends ProxyAdkBaseActivity<a> {
-    public static String mjX = "st_type";
+    public static String mzy = "st_type";
     private NavigationBar mNavigationBar;
-    private ProgressBar mjT;
-    private b mjU;
-    private C0801a mjV;
-    protected ViewGroup mjW;
+    private ProgressBar mzu;
+    private b mzv;
+    private C0819a mzw;
+    protected ViewGroup mzx;
     protected ListView mList = null;
     private String stType = null;
 
     public static void g(Activity activity, String str) {
         Intent intent = new Intent(activity, a.class);
-        intent.putExtra(mjX, str);
+        intent.putExtra(mzy, str);
         activity.startActivity(intent);
     }
 
@@ -52,7 +52,7 @@ public class a extends ProxyAdkBaseActivity<a> {
         setContentView(R.layout.bar_folder_dir_activity);
         initUI();
         aI(bundle);
-        dzj();
+        dCU();
         TiebaStatic.eventStat(getPageContext().getContext(), "category_1", "enter");
     }
 
@@ -60,7 +60,7 @@ public class a extends ProxyAdkBaseActivity<a> {
     @Override // com.baidu.tbadk.ProxyAdkBaseActivity, com.baidu.adp.plugin.pluginBase.PluginAdpBaseActivity, com.baidu.adp.plugin.pluginBase.PluginBaseActivity
     public void onResume() {
         super.onResume();
-        this.mjU.notifyDataSetChanged();
+        this.mzv.notifyDataSetChanged();
     }
 
     protected void initUI() {
@@ -68,34 +68,34 @@ public class a extends ProxyAdkBaseActivity<a> {
         this.mNavigationBar.setTitleText(getResources().getString(R.string.bar_first_dir_name));
         this.mNavigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
         this.mList = (ListView) findViewById(R.id.list);
-        this.mjU = new b(getPageContext().getPageActivity(), new c(), true);
+        this.mzv = new b(getPageContext().getPageActivity(), new c(), true);
         TextView textView = new TextView(getActivity());
         textView.setLayoutParams(new AbsListView.LayoutParams(-1, UtilHelper.getLightStatusBarHeight() + l.getDimens(getActivity(), R.dimen.ds76)));
         this.mList.addHeaderView(textView);
-        this.mList.setAdapter((ListAdapter) this.mjU);
-        this.mjT = (ProgressBar) findViewById(R.id.progress);
-        this.mjW = (ViewGroup) findViewById(R.id.body_container);
-        bg.prepareNewView(this.mjW);
+        this.mList.setAdapter((ListAdapter) this.mzv);
+        this.mzu = (ProgressBar) findViewById(R.id.progress);
+        this.mzx = (ViewGroup) findViewById(R.id.body_container);
+        bg.be(this.mzx);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.ProxyAdkBaseActivity, com.baidu.adp.plugin.pluginBase.PluginAdpBaseActivity, com.baidu.adp.plugin.pluginBase.PluginBaseActivity
     public void onDestroy() {
         super.onDestroy();
-        if (this.mjV != null) {
-            this.mjV.cancel();
+        if (this.mzw != null) {
+            this.mzw.cancel();
         }
         a(null, true);
     }
 
-    protected void dzj() {
+    protected void dCU() {
         this.mList.setOnItemClickListener(new AdapterView.OnItemClickListener() { // from class: com.baidu.tieba.square.square.a.1
             @Override // android.widget.AdapterView.OnItemClickListener
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long j) {
                 e eVar;
-                ArrayList<e> dzk = a.this.mjU.dzk();
-                if (dzk != null && i < dzk.size() && (eVar = dzk.get(i)) != null) {
-                    MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.CMD_SQUARE_FORUM_LIST, new ForumListActivityConfig(a.this.getPageContext().getPageActivity(), eVar.mhZ, eVar.mia, eVar.mib)));
+                ArrayList<e> dCV = a.this.mzv.dCV();
+                if (dCV != null && i < dCV.size() && (eVar = dCV.get(i)) != null) {
+                    MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.CMD_SQUARE_FORUM_LIST, new ForumListActivityConfig(a.this.getPageContext().getPageActivity(), eVar.mxC, eVar.mxD, eVar.mxE)));
                 }
             }
         });
@@ -103,32 +103,32 @@ public class a extends ProxyAdkBaseActivity<a> {
 
     protected void aI(Bundle bundle) {
         if (bundle != null) {
-            this.stType = bundle.getString(mjX);
+            this.stType = bundle.getString(mzy);
         } else {
-            this.stType = getIntent().getStringExtra(mjX);
+            this.stType = getIntent().getStringExtra(mzy);
         }
-        this.mjT.setVisibility(0);
+        this.mzu.setVisibility(0);
         this.mList.setEnabled(false);
-        if (this.mjV != null) {
-            this.mjV.cancel();
+        if (this.mzw != null) {
+            this.mzw.cancel();
         }
-        this.mjV = new C0801a();
-        this.mjV.setPriority(3);
-        this.mjV.execute("");
+        this.mzw = new C0819a();
+        this.mzw.setPriority(3);
+        this.mzw.execute("");
     }
 
     protected void a(c cVar, boolean z) {
-        this.mjT.setVisibility(8);
+        this.mzu.setVisibility(8);
         this.mList.setEnabled(true);
-        this.mjV = null;
+        this.mzw = null;
         if (!z) {
             if (cVar.isFailed()) {
                 showToast(cVar.getErrorMsg());
                 return;
             }
-            this.mjU.bd(cVar.dzk());
+            this.mzv.bd(cVar.dCV());
             this.mList.setVisibility(4);
-            this.mjU.notifyDataSetChanged();
+            this.mzv.notifyDataSetChanged();
             this.mList.setVisibility(0);
         }
     }
@@ -141,19 +141,19 @@ public class a extends ProxyAdkBaseActivity<a> {
         if (this.mList != null) {
             this.mList.invalidateViews();
         }
-        if (this.mjW != null) {
-            bg.processSkin(this.mjW, i);
+        if (this.mzx != null) {
+            bg.g(this.mzx, i);
         }
         ap.setFrsPBBgColor(findViewById(R.id.root_view), i);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     /* renamed from: com.baidu.tieba.square.square.a$a  reason: collision with other inner class name */
-    /* loaded from: classes22.dex */
-    public class C0801a extends BdAsyncTask<Object, c, c> {
+    /* loaded from: classes23.dex */
+    public class C0819a extends BdAsyncTask<Object, c, c> {
         private aa mNetwork;
 
-        private C0801a() {
+        private C0819a() {
             this.mNetwork = null;
         }
 
@@ -188,8 +188,8 @@ public class a extends ProxyAdkBaseActivity<a> {
             boolean z = true;
             boolean z2 = false;
             c cVar = new c();
-            com.baidu.adp.lib.cache.l<String> zT = com.baidu.tbadk.core.c.a.bhV().zT("tb.first_dir");
-            String str = zT.get("first_dir_cache_key");
+            com.baidu.adp.lib.cache.l<String> AF = com.baidu.tbadk.core.c.a.bkE().AF("tb.first_dir");
+            String str = AF.get("first_dir_cache_key");
             if (str != null) {
                 if (!str.equals("")) {
                     cVar.parserJson(str);
@@ -197,17 +197,17 @@ public class a extends ProxyAdkBaseActivity<a> {
                     z2 = z;
                     this.mNetwork = new aa(TbConfig.SERVER_ADDRESS + Config.FORUM_FIRST_DIR);
                     if (a.this.stType != null) {
-                        this.mNetwork.addPostData(a.mjX, a.this.stType);
+                        this.mNetwork.addPostData(a.mzy, a.this.stType);
                     }
                     String postNetData = this.mNetwork.postNetData();
-                    if (!this.mNetwork.bjL().bkr().isRequestSuccess()) {
+                    if (!this.mNetwork.bmu().bnb().isRequestSuccess()) {
                         cVar.parserJson(postNetData);
                         if ((postNetData + "").trim().equals((str + "").trim())) {
                             if (z2) {
                                 return null;
                             }
                         } else {
-                            zT.set("first_dir_cache_key", postNetData, 86400000L);
+                            AF.set("first_dir_cache_key", postNetData, 86400000L);
                         }
                     } else {
                         cVar.setErrorMsg(this.mNetwork.getErrorString());
@@ -221,7 +221,7 @@ public class a extends ProxyAdkBaseActivity<a> {
             if (a.this.stType != null) {
             }
             String postNetData2 = this.mNetwork.postNetData();
-            if (!this.mNetwork.bjL().bkr().isRequestSuccess()) {
+            if (!this.mNetwork.bmu().bnb().isRequestSuccess()) {
             }
             return cVar;
         }

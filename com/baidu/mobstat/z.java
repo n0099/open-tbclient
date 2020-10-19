@@ -8,9 +8,11 @@ import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes15.dex */
+/* loaded from: classes17.dex */
 public class z {
-    public static final z a = new z();
+
+    /* renamed from: a  reason: collision with root package name */
+    public static final z f2634a = new z();
 
     public void a(Context context, JSONObject jSONObject) {
         bb.c().a("startDataAnynalyzed start");
@@ -52,7 +54,7 @@ public class z {
 
     private void a(JSONObject jSONObject) {
         ac acVar = new ac(jSONObject);
-        ab.b = acVar.a;
+        ab.b = acVar.f2517a;
         ab.c = acVar.b;
         ab.d = acVar.c;
     }

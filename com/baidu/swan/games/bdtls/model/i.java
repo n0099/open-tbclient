@@ -3,10 +3,10 @@ package com.baidu.swan.games.bdtls.model;
 import kotlin.jvm.internal.o;
 import kotlin.jvm.internal.q;
 @kotlin.h
-/* loaded from: classes3.dex */
+/* loaded from: classes10.dex */
 public final class i {
-    private String drK;
-    private Integer drL;
+    private String dDN;
+    private Integer dDO;
 
     public i() {
         this(null, null, 3, null);
@@ -16,7 +16,7 @@ public final class i {
         if (this != obj) {
             if (obj instanceof i) {
                 i iVar = (i) obj;
-                if (!q.l((Object) this.drK, (Object) iVar.drK) || !q.l(this.drL, iVar.drL)) {
+                if (!q.l(this.dDN, iVar.dDN) || !q.l(this.dDO, iVar.dDO)) {
                 }
             }
             return false;
@@ -25,19 +25,19 @@ public final class i {
     }
 
     public int hashCode() {
-        String str = this.drK;
+        String str = this.dDN;
         int hashCode = (str != null ? str.hashCode() : 0) * 31;
-        Integer num = this.drL;
+        Integer num = this.dDO;
         return hashCode + (num != null ? num.hashCode() : 0);
     }
 
     public String toString() {
-        return "ResponseParams(responseMessage=" + this.drK + ", responseStatusCode=" + this.drL + ")";
+        return "ResponseParams(responseMessage=" + this.dDN + ", responseStatusCode=" + this.dDO + ")";
     }
 
     public i(String str, Integer num) {
-        this.drK = str;
-        this.drL = num;
+        this.dDN = str;
+        this.dDO = num;
     }
 
     public /* synthetic */ i(String str, Integer num, int i, o oVar) {
@@ -45,18 +45,18 @@ public final class i {
     }
 
     public final String getResponseMessage() {
-        return this.drK;
+        return this.dDN;
     }
 
-    public final void vb(String str) {
-        this.drK = str;
+    public final void vN(String str) {
+        this.dDN = str;
     }
 
-    public final Integer aMW() {
-        return this.drL;
+    public final Integer aPF() {
+        return this.dDO;
     }
 
-    public final void d(Integer num) {
-        this.drL = num;
+    public final void f(Integer num) {
+        this.dDO = num;
     }
 }

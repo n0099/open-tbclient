@@ -8,11 +8,11 @@ import java.util.HashMap;
 import java.util.List;
 /* loaded from: classes.dex */
 public class c {
-    private static c eSb = new c();
+    private static c fej = new c();
     private final HashMap<String, Class<? extends b>> imageActions = new HashMap<>();
 
-    public static c bud() {
-        return eSb;
+    public static c bwN() {
+        return fej;
     }
 
     private c() {
@@ -29,10 +29,10 @@ public class c {
         if (bitmap != null && !y.isEmpty(list)) {
             int size = list.size();
             for (int i2 = 0; i2 < size; i2++) {
-                b a = a(list.get(i2));
-                if ((a instanceof g) && imageFileInfo != null) {
-                    ((g) a).setPath(imageFileInfo.getFilePath());
-                    return a.processImage(bitmap, z);
+                b a2 = a(list.get(i2));
+                if ((a2 instanceof g) && imageFileInfo != null) {
+                    ((g) a2).setPath(imageFileInfo.getFilePath());
+                    return a2.processImage(bitmap, z);
                 }
             }
             int i3 = 0;
@@ -56,13 +56,13 @@ public class c {
             if (list != null) {
                 int i4 = 0;
                 while (i4 < size) {
-                    b a2 = a(list.get(i4));
-                    if (a2 == null) {
+                    b a3 = a(list.get(i4));
+                    if (a3 == null) {
                         processImage = processImage2;
                     } else if (processImage2 == null) {
                         return null;
                     } else {
-                        processImage = a2.processImage(bitmap, z);
+                        processImage = a3.processImage(bitmap, z);
                     }
                     i4++;
                     processImage2 = processImage;
@@ -82,9 +82,9 @@ public class c {
         }
         int size = list.size();
         for (int i3 = 0; i3 < size; i3++) {
-            b a = a(list.get(i3));
-            if ((a instanceof g) && imageFileInfo != null) {
-                return a.processImage(imageFileInfo.getFilePath());
+            b a2 = a(list.get(i3));
+            if ((a2 instanceof g) && imageFileInfo != null) {
+                return a2.processImage(imageFileInfo.getFilePath());
             }
         }
         int i4 = 0;
@@ -111,13 +111,13 @@ public class c {
                 if (i2 >= list.size()) {
                     break;
                 }
-                b a2 = a(list.get(i2));
-                if (a2 == null) {
+                b a3 = a(list.get(i2));
+                if (a3 == null) {
                     processImage = bitmap;
                 } else if (bitmap == null) {
-                    processImage = a2.processImage(str);
+                    processImage = a3.processImage(str);
                 } else {
-                    processImage = a2.processImage(bitmap, true);
+                    processImage = a3.processImage(bitmap, true);
                 }
                 i2++;
             }

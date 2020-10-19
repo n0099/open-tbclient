@@ -4,10 +4,12 @@ import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Build;
-/* loaded from: classes6.dex */
+/* loaded from: classes9.dex */
 public class PassPermissions implements com.baidu.pass.a {
     public static final String TAG = "PassPermissions";
-    private static PassPermissions a;
+
+    /* renamed from: a  reason: collision with root package name */
+    private static PassPermissions f2794a;
     private PermissionsDTO b;
     private PermissionsCallback c;
 
@@ -33,10 +35,10 @@ public class PassPermissions implements com.baidu.pass.a {
     public static synchronized PassPermissions getInstance() {
         PassPermissions passPermissions;
         synchronized (PassPermissions.class) {
-            if (a == null) {
-                a = new PassPermissions();
+            if (f2794a == null) {
+                f2794a = new PassPermissions();
             }
-            passPermissions = a;
+            passPermissions = f2794a;
         }
         return passPermissions;
     }
@@ -101,6 +103,6 @@ public class PassPermissions implements com.baidu.pass.a {
     public void a() {
         this.b = null;
         this.c = null;
-        a = null;
+        f2794a = null;
     }
 }

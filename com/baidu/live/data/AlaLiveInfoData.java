@@ -4,11 +4,13 @@ import android.text.TextUtils;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.cyberplayer.sdk.statistics.DpStatConstants;
 import com.baidu.live.adp.lib.util.BdLog;
+import com.baidu.live.adp.lib.util.StringUtils;
 import com.baidu.live.data.s;
 import com.baidu.live.tbadk.TbConfig;
 import com.baidu.live.tbadk.core.TbadkCoreApplication;
 import com.baidu.live.tbadk.core.sharedpref.SharedPrefConfig;
 import com.baidu.live.tbadk.coreextra.data.AlaLiveSwitchData;
+import com.baidu.live.tbadk.coreextra.data.AlaVideoBBChatData;
 import com.baidu.live.tbadk.extraparams.ExtraParamsManager;
 import com.baidu.live.tbadk.ubc.UbcStatConstant;
 import com.baidu.tbadk.core.atomData.PbChosenActivityConfig;
@@ -88,6 +90,8 @@ public class AlaLiveInfoData implements Serializable {
     public long pkId;
     public String playUrl;
     public int play_count;
+    public String pubShowId;
+    public AlaLiveStreamSessionInfo pubShowInfo;
     public String qrcodeDownloadUrl;
     public String qrcodeUrl;
     public RedPacketCharmInfo redpacketCharmInfo;
@@ -107,7 +111,9 @@ public class AlaLiveInfoData implements Serializable {
     public String user_name;
     public String user_nickname;
     public String user_uk;
+    public AlaVideoBBChatData videoBBChatData;
     public int zan_count;
+    public boolean isPubShow = false;
     public s.a mCastIds = null;
     public int goodsList = 0;
     public int session_default = 0;
@@ -234,6 +240,15 @@ public class AlaLiveInfoData implements Serializable {
                 this.session_info_backup = new AlaLiveStreamSessionInfo();
                 this.session_info_backup.parseJson(optJSONObject2);
             }
+            this.isPubShow = jSONObject.optInt("pub_show") == 1;
+            this.pubShowId = jSONObject.optString("pub_show_id");
+            JSONObject optJSONObject3 = jSONObject.optJSONObject("pub_show_session_info");
+            if (optJSONObject3 != null) {
+                this.pubShowInfo = new AlaLiveStreamSessionInfo();
+                this.pubShowInfo.parseJson(optJSONObject3);
+            }
+            this.videoBBChatData = new AlaVideoBBChatData();
+            this.videoBBChatData.parserJson(jSONObject);
             this.thread_id = jSONObject.optLong("thread_id");
             this.comment_count = jSONObject.optInt("comment_count");
             this.screen_direction = jSONObject.optInt("screen_direction");
@@ -264,10 +279,10 @@ public class AlaLiveInfoData implements Serializable {
             this.pkId = jSONObject.optLong("pk_id", 0L);
             this.challengeId = jSONObject.optLong("challenge_id", 0L);
             this.broadGiftMsgId = jSONObject.optLong("gift_broad_msg_id", 0L);
-            JSONObject optJSONObject3 = jSONObject.optJSONObject("user_privilege");
-            if (optJSONObject3 != null) {
-                String optString = optJSONObject3.optString("bubble_effect");
-                String optString2 = optJSONObject3.optString("nickname_effect");
+            JSONObject optJSONObject4 = jSONObject.optJSONObject("user_privilege");
+            if (optJSONObject4 != null) {
+                String optString = optJSONObject4.optString("bubble_effect");
+                String optString2 = optJSONObject4.optString("nickname_effect");
                 this.imEffect = new String[2];
                 if (!TextUtils.isEmpty(optString2) && !TextUtils.isEmpty(optString)) {
                     this.imEffect[0] = optString;
@@ -282,34 +297,34 @@ public class AlaLiveInfoData implements Serializable {
                     this.imEffect = null;
                 }
             }
-            JSONObject optJSONObject4 = jSONObject.optJSONObject(Constants.EXTRA_CAST_IDS);
-            if (optJSONObject4 != null) {
-                this.mCastIds = new s.a();
-                this.mCastIds.parseJson(optJSONObject4);
-            }
-            JSONObject optJSONObject5 = jSONObject.optJSONObject("switch");
+            JSONObject optJSONObject5 = jSONObject.optJSONObject(Constants.EXTRA_CAST_IDS);
             if (optJSONObject5 != null) {
+                this.mCastIds = new s.a();
+                this.mCastIds.parseJson(optJSONObject5);
+            }
+            JSONObject optJSONObject6 = jSONObject.optJSONObject("switch");
+            if (optJSONObject6 != null) {
                 this.mAlaLiveSwitchData = new AlaLiveSwitchData();
-                this.mAlaLiveSwitchData.parserJson(optJSONObject5);
+                this.mAlaLiveSwitchData.parserJson(optJSONObject6);
                 TbadkCoreApplication.sAlaLiveSwitchData = this.mAlaLiveSwitchData;
             }
-            JSONObject optJSONObject6 = jSONObject.optJSONObject("close_data");
-            if (optJSONObject6 != null) {
+            JSONObject optJSONObject7 = jSONObject.optJSONObject("close_data");
+            if (optJSONObject7 != null) {
                 this.mLiveCloseData = new AlaLiveCloseData();
-                this.mLiveCloseData.parserJson(optJSONObject6);
+                this.mLiveCloseData.parserJson(optJSONObject7);
             } else {
                 this.mLiveCloseData = null;
             }
-            JSONObject optJSONObject7 = jSONObject.optJSONObject("live_redpacket");
-            if (optJSONObject7 != null) {
-                this.redpacketCharmInfo = new RedPacketCharmInfo(optJSONObject7);
+            JSONObject optJSONObject8 = jSONObject.optJSONObject("live_redpacket");
+            if (optJSONObject8 != null) {
+                this.redpacketCharmInfo = new RedPacketCharmInfo(optJSONObject8);
             }
             this.guardPortrait = jSONObject.optString("guard_portrait");
             this.chatId = jSONObject.optLong("chat_id", 0L);
             this.existChat = jSONObject.optInt("exist_chat", 0) == 1;
-            JSONObject optJSONObject8 = jSONObject.optJSONObject("third_special");
-            if (optJSONObject8 != null && !TextUtils.isEmpty(TbConfig.getSubappType())) {
-                this.extraLiveInfo = optJSONObject8.optJSONObject(TbConfig.getSubappType() + "_special");
+            JSONObject optJSONObject9 = jSONObject.optJSONObject("third_special");
+            if (optJSONObject9 != null && !TextUtils.isEmpty(TbConfig.getSubappType())) {
+                this.extraLiveInfo = optJSONObject9.optJSONObject(TbConfig.getSubappType() + "_special");
             }
             this.chat_count = jSONObject.optInt("chat_count", 0);
             this.mRecommendTabSwitch = jSONObject.optString("recommend_tab_switch", "0");
@@ -354,10 +369,14 @@ public class AlaLiveInfoData implements Serializable {
     }
 
     public String getPushUrl() {
-        if (this.session_info != null) {
+        String str = null;
+        if (this.isPubShow && this.pubShowInfo != null) {
+            str = this.pubShowInfo.getPushUrl();
+        }
+        if (StringUtils.isNull(str) && this.session_info != null) {
             return this.session_info.getPushUrl();
         }
-        return null;
+        return str;
     }
 
     public boolean isRecommendTabSwitchUnabled() {
@@ -420,6 +439,9 @@ public class AlaLiveInfoData implements Serializable {
             jSONObject.put("media_subtitle", this.media_subtitle);
             jSONObject.put("session_info", AlaLiveStreamSessionInfo.toJson(this.session_info));
             jSONObject.put("session_info_backup", AlaLiveStreamSessionInfo.toJson(this.session_info_backup));
+            jSONObject.put("pub_show", this.isPubShow ? 1 : 0);
+            jSONObject.put("pub_show_id", this.pubShowId);
+            jSONObject.put("pub_show_session_info", AlaLiveStreamSessionInfo.toJson(this.pubShowInfo));
             jSONObject.put("thread_id", this.thread_id);
             jSONObject.put("comment_count", this.comment_count);
             jSONObject.put(UbcStatConstant.KEY_LIVE_TYPE, this.live_type);

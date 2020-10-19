@@ -1,7 +1,7 @@
 package com.baidu.searchbox.widget;
 
 import java.util.ArrayList;
-/* loaded from: classes19.dex */
+/* loaded from: classes10.dex */
 public class RecyclePool<T> {
     private ArrayList<T> mPool = new ArrayList<>();
     private final int mPoolLimit;

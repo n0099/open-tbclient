@@ -18,10 +18,10 @@ public class AlaPersonTagView extends TextView {
 
     public AlaPersonTagView(Context context, @Nullable AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        dK(context);
+        dQ(context);
     }
 
-    private void dK(Context context) {
+    private void dQ(Context context) {
         setCompoundDrawablePadding(context.getResources().getDimensionPixelSize(a.e.sdk_ds4));
         setEllipsize(TextUtils.TruncateAt.END);
         setGravity(17);

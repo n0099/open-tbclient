@@ -8,30 +8,30 @@ import android.view.ViewParent;
 import com.baidu.adp.widget.SwipeBackLayout;
 import com.baidu.tbadk.TbSingleton;
 import com.baidu.tieba.frs.e.b;
-/* loaded from: classes21.dex */
+/* loaded from: classes22.dex */
 public class f {
-    private com.baidu.tbadk.n.a.a WJ;
-    private g izD;
-    private b izM;
+    private com.baidu.tbadk.n.a.a WZ;
+    private b iOF;
+    private g iOw;
     private Context mContext;
     private ViewGroup mParent;
-    private b.a izN = new b.a() { // from class: com.baidu.tieba.frs.e.f.1
+    private b.a iOG = new b.a() { // from class: com.baidu.tieba.frs.e.f.1
         @Override // com.baidu.tieba.frs.e.b.a
         public void onStateChanged(int i) {
             if (i == 1) {
                 if (TbSingleton.getInstance().isEnableBenchmark() && !TbSingleton.getInstance().isAnimFpsComputed("anim_switch_trans_frs")) {
-                    if (f.this.WJ == null) {
-                        f.this.WJ = new com.baidu.tbadk.n.a.a("anim_switch_trans_frs");
+                    if (f.this.WZ == null) {
+                        f.this.WZ = new com.baidu.tbadk.n.a.a("anim_switch_trans_frs");
                     }
-                    f.this.WJ.bvz();
+                    f.this.WZ.byj();
                 }
             } else if (i == 2) {
                 f.this.showContentView();
-                if (f.this.WJ != null && TbSingleton.getInstance().isEnableBenchmark() && !TbSingleton.getInstance().isAnimFpsComputed("anim_switch_trans_frs")) {
-                    f.this.WJ.bvA();
+                if (f.this.WZ != null && TbSingleton.getInstance().isEnableBenchmark() && !TbSingleton.getInstance().isAnimFpsComputed("anim_switch_trans_frs")) {
+                    f.this.WZ.byk();
                 }
             } else if (i == 0) {
-                f.this.cwc();
+                f.this.czz();
             }
         }
     };
@@ -45,21 +45,21 @@ public class f {
     public f(Context context, ViewGroup viewGroup, Intent intent) {
         this.mContext = context;
         this.mParent = viewGroup;
-        this.izD = new g(context);
-        this.izM = c.a(this.izD, intent);
-        this.izM.a(this.izN);
+        this.iOw = new g(context);
+        this.iOF = c.a(this.iOw, intent);
+        this.iOF.a(this.iOG);
     }
 
-    public void cwa() {
+    public void czx() {
         if (this.mParent != null) {
-            cwc();
-            this.mParent.addView(this.izD.mRootView);
-            cwb();
-            this.izM.cvQ();
+            czz();
+            this.mParent.addView(this.iOw.mRootView);
+            czy();
+            this.iOF.czn();
         }
     }
 
-    public void cou() {
+    public void crS() {
         if (this.mParent != null) {
             hide();
         }
@@ -67,16 +67,16 @@ public class f {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void hide() {
-        com.baidu.adp.lib.f.e.mX().removeCallbacks(this.mHideRunnable);
-        if (this.izM.getState() == 1) {
-            com.baidu.adp.lib.f.e.mX().postDelayed(this.mHideRunnable, 10L);
+        com.baidu.adp.lib.f.e.mY().removeCallbacks(this.mHideRunnable);
+        if (this.iOF.getState() == 1) {
+            com.baidu.adp.lib.f.e.mY().postDelayed(this.mHideRunnable, 10L);
             return;
         }
         showContentView();
-        this.izM.cvR();
+        this.iOF.czo();
     }
 
-    public static boolean V(Intent intent) {
+    public static boolean T(Intent intent) {
         return (intent == null || intent.getIntExtra("transition_type", 0) == 0) ? false : true;
     }
 
@@ -90,7 +90,7 @@ public class f {
         }
     }
 
-    private void cwb() {
+    private void czy() {
         View findViewById;
         if (this.mParent != null && (this.mParent.getChildAt(0) instanceof SwipeBackLayout)) {
             this.mParent.getChildAt(0).setVisibility(8);
@@ -101,11 +101,11 @@ public class f {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void cwc() {
-        ViewParent parent = this.izD.mRootView.getParent();
+    public void czz() {
+        ViewParent parent = this.iOw.mRootView.getParent();
         if (parent instanceof ViewGroup) {
-            ((ViewGroup) parent).removeView(this.izD.mRootView);
+            ((ViewGroup) parent).removeView(this.iOw.mRootView);
         }
-        com.baidu.adp.lib.f.e.mX().removeCallbacks(this.mHideRunnable);
+        com.baidu.adp.lib.f.e.mY().removeCallbacks(this.mHideRunnable);
     }
 }

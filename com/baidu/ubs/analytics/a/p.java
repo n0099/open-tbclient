@@ -1,31 +1,31 @@
 package com.baidu.ubs.analytics.a;
 
 import java.util.List;
-/* loaded from: classes7.dex */
+/* loaded from: classes10.dex */
 public final class p {
-    private o nql = new o();
+    private o nFF = new o();
 
     public final void c(n nVar) {
-        this.nql.a(nVar);
+        this.nFF.a(nVar);
     }
 
     public final void b(n nVar) {
-        this.nql.b(nVar);
+        this.nFF.b(nVar);
     }
 
-    public final List<n> dQq() {
-        return this.nql.dQq();
+    public final List<n> dUb() {
+        return this.nFF.dUb();
     }
 
-    public final void Ur(String str) {
-        this.nql.Ur(str);
+    public final void Vf(String str) {
+        this.nFF.Vf(str);
     }
 
     public final void D(String str) {
-        this.nql.Ur(str);
+        this.nFF.Vf(str);
     }
 
-    public final boolean Us(String str) {
-        return this.nql.Us(str);
+    public final boolean Vg(String str) {
+        return this.nFF.Vg(str);
     }
 }

@@ -12,7 +12,7 @@ import com.baidu.searchbox.ugc.webjs.UgcSchemeModel;
 public class f implements IUgcHostInterface<CookieManager> {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.searchbox.ugc.bridge.IUgcHostInterface
-    /* renamed from: aB */
+    /* renamed from: aA */
     public CookieManager newCookieManagerInstance(boolean z, boolean z2) {
         return new c(z, z2);
     }

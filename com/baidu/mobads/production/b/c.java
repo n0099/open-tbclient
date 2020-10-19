@@ -19,9 +19,11 @@ import com.baidu.webkit.internal.ETAG;
 import com.xiaomi.mipush.sdk.Constants;
 import java.util.HashSet;
 import java.util.Set;
-/* loaded from: classes3.dex */
+/* loaded from: classes7.dex */
 public class c {
-    private Set<String> a;
+
+    /* renamed from: a  reason: collision with root package name */
+    private Set<String> f2394a;
     private Set<String> b;
     private Set<String> c;
     private CookieManager d;
@@ -74,10 +76,10 @@ public class c {
     }
 
     private void c() {
-        this.a = new HashSet();
-        this.a.add("46000");
-        this.a.add("46002");
-        this.a.add("46007");
+        this.f2394a = new HashSet();
+        this.f2394a.add("46000");
+        this.f2394a.add("46002");
+        this.f2394a.add("46007");
         this.b = new HashSet();
         this.b.add("46001");
         this.b.add("46006");
@@ -91,7 +93,7 @@ public class c {
         int height = screenRect.height();
         int width = screenRect.width();
         boolean e = e();
-        String a = e ? a(h()) : null;
+        String a2 = e ? a(h()) : null;
         int f = e ? f() : 0;
         String g = e ? g() : null;
         int i = e ? 1 : 0;
@@ -106,7 +108,7 @@ public class c {
         a("src", 1);
         a("h", Integer.valueOf(height));
         a("w", Integer.valueOf(width));
-        a("apm", a);
+        a("apm", a2);
         a("rssi", Integer.valueOf(f));
         a("apn", g);
         a("isc", Integer.valueOf(i));
@@ -200,7 +202,7 @@ public class c {
         if (networkOperator == null) {
             return 0;
         }
-        if (this.a.contains(networkOperator)) {
+        if (this.f2394a.contains(networkOperator)) {
             return 1;
         }
         if (this.c.contains(networkOperator)) {

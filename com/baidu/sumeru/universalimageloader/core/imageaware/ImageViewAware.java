@@ -9,7 +9,7 @@ import com.baidu.sumeru.universalimageloader.utils.L;
 import java.lang.ref.Reference;
 import java.lang.ref.WeakReference;
 import java.lang.reflect.Field;
-/* loaded from: classes9.dex */
+/* loaded from: classes12.dex */
 public class ImageViewAware implements ImageAware {
     protected boolean checkActualViewSize;
     protected Reference<ImageView> imageViewRef;

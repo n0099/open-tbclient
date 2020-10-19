@@ -10,7 +10,7 @@ import com.baidu.swan.apps.b;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.pay.c;
 import com.baidu.tieba.R;
-/* loaded from: classes24.dex */
+/* loaded from: classes25.dex */
 public class a extends ActivityDelegation {
     private static final boolean DEBUG = b.DEBUG;
 
@@ -25,7 +25,7 @@ public class a extends ActivityDelegation {
                 Log.d("BaiFuBaoPayDelegation", "PAYMENT onExec");
             }
             Log.d("BaiFuBaoPayDelegation", "PAYMENT onExec");
-            if (!c.bvh().isWalletOk()) {
+            if (!c.bxR().isWalletOk()) {
                 l.showToast(TbadkCoreApplication.getInst(), R.string.plugin_pay_wallet_not_found);
             } else if (getAgent() instanceof Activity) {
                 com.baidu.tieba.aiapps.apps.f.a aVar = new com.baidu.tieba.aiapps.apps.f.a();
@@ -46,7 +46,7 @@ public class a extends ActivityDelegation {
         return false;
     }
 
-    public static Bundle Ew(String str) {
+    public static Bundle Fh(String str) {
         Bundle bundle = new Bundle();
         bundle.putString("order_info", str);
         return bundle;

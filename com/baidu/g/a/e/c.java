@@ -2,7 +2,7 @@ package com.baidu.g.a.e;
 
 import android.text.TextUtils;
 import org.json.JSONObject;
-/* loaded from: classes25.dex */
+/* loaded from: classes26.dex */
 public class c {
     public static String l(JSONObject jSONObject, String str) {
         if (jSONObject != null && !TextUtils.isEmpty(str) && jSONObject.has(str)) {

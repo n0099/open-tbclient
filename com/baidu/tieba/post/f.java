@@ -3,7 +3,7 @@ package com.baidu.tieba.post;
 import android.content.Context;
 import android.view.View;
 import com.baidu.tieba.R;
-/* loaded from: classes23.dex */
+/* loaded from: classes24.dex */
 public class f {
     public static void a(com.baidu.tbadk.k.h hVar, View.OnClickListener onClickListener, Context context, View view, String str, boolean z) {
         if (!a(hVar) && context != null && view != null) {

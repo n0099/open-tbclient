@@ -4,9 +4,11 @@ import android.text.TextUtils;
 import java.io.Serializable;
 import java.lang.reflect.Array;
 import java.util.Arrays;
-/* loaded from: classes3.dex */
+/* loaded from: classes7.dex */
 public final class j implements Serializable {
-    private String a;
+
+    /* renamed from: a  reason: collision with root package name */
+    private String f2920a;
     private String b;
     private String[] c;
     private int[] d;
@@ -15,7 +17,7 @@ public final class j implements Serializable {
     private String g;
 
     public j(String str, String str2, String[] strArr, int[] iArr, int i, int i2, String str3) {
-        this.a = str;
+        this.f2920a = str;
         this.b = str2;
         this.e = i;
         this.f = i2;
@@ -31,7 +33,7 @@ public final class j implements Serializable {
     }
 
     public boolean equals(Object obj) {
-        if (obj != null && (obj instanceof j) && TextUtils.equals(this.a, ((j) obj).a) && TextUtils.equals(this.b, ((j) obj).b) && Arrays.equals(this.c, ((j) obj).c)) {
+        if (obj != null && (obj instanceof j) && TextUtils.equals(this.f2920a, ((j) obj).f2920a) && TextUtils.equals(this.b, ((j) obj).b) && Arrays.equals(this.c, ((j) obj).c)) {
             return Arrays.equals(this.d, ((j) obj).d);
         }
         return false;
@@ -39,7 +41,7 @@ public final class j implements Serializable {
 
     public String toString() {
         StringBuilder sb = new StringBuilder();
-        sb.append("IndoorMapInfo:building_id:").append(this.a);
+        sb.append("IndoorMapInfo:building_id:").append(this.f2920a);
         sb.append(";floor_id:").append(this.b);
         sb.append(";indoor_type:").append(this.e);
         sb.append(";floor_list:").append(Arrays.toString(this.c));

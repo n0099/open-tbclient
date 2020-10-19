@@ -5,7 +5,7 @@ import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.adp.framework.task.CustomMessageTask;
 import com.baidu.tbadk.core.frameworkData.IntentConfig;
-/* loaded from: classes22.dex */
+/* loaded from: classes23.dex */
 public class InterestGuideActivityStatic {
     static {
         CustomMessageTask customMessageTask = new CustomMessageTask(2921454, new CustomMessageTask.CustomRunnable<IntentConfig>() { // from class: com.baidu.tieba.newinterest.activity.InterestGuideActivityStatic.1

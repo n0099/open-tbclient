@@ -133,7 +133,7 @@ public class BdSocketLinkService extends BdBaseService {
         i.debug(MODULE_NAME, 0, 0, "open", 0, str);
         BdLog.w("启动连接");
         mHandler.removeMessages(1);
-        mHandler.sendEmptyMessageDelayed(1, com.baidu.adp.framework.d.c.lE().lF().getTimeOutAuto());
+        mHandler.sendEmptyMessageDelayed(1, com.baidu.adp.framework.d.c.lF().lG().getTimeOutAuto());
         try {
             return h.oD().oE();
         } catch (Throwable th) {
@@ -260,9 +260,9 @@ public class BdSocketLinkService extends BdBaseService {
 
         @Override // android.content.BroadcastReceiver
         public void onReceive(Context context, Intent intent) {
-            com.baidu.adp.framework.client.socket.b lv;
-            if (intent != null && "android.intent.action.SCREEN_ON".equals(intent.getAction()) && (lv = MessageManager.getInstance().getSocketClient().lv()) != null) {
-                lv.Ping("Screen on");
+            com.baidu.adp.framework.client.socket.b lw;
+            if (intent != null && "android.intent.action.SCREEN_ON".equals(intent.getAction()) && (lw = MessageManager.getInstance().getSocketClient().lw()) != null) {
+                lw.Ping("Screen on");
             }
         }
     }

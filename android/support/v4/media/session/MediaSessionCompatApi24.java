@@ -8,11 +8,11 @@ import android.support.v4.media.session.MediaSessionCompatApi23;
 import android.util.Log;
 import java.lang.reflect.InvocationTargetException;
 @RequiresApi(24)
-/* loaded from: classes3.dex */
+/* loaded from: classes5.dex */
 class MediaSessionCompatApi24 {
     private static final String TAG = "MediaSessionCompatApi24";
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes5.dex */
     public interface Callback extends MediaSessionCompatApi23.Callback {
         void onPrepare();
 
@@ -40,7 +40,7 @@ class MediaSessionCompatApi24 {
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes5.dex */
     static class CallbackProxy<T extends Callback> extends MediaSessionCompatApi23.CallbackProxy<T> {
         public CallbackProxy(T t) {
             super(t);

@@ -22,18 +22,18 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Iterator;
 import java.util.List;
-/* loaded from: classes9.dex */
+/* loaded from: classes5.dex */
 public class GroupMessageDAOImpl {
     public static final String TAG = "GroupMessageDAOImpl";
     private static ChatMsgParse sGroupChatMsgParse = new ChatMsgParse();
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes5.dex */
     public enum MSGTYPEEXPLAN {
         EQUAL,
         UNEQUAL
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes5.dex */
     public enum MessageType {
         DRAFT2SENDING,
         SENDING2FAIL,
@@ -41,7 +41,7 @@ public class GroupMessageDAOImpl {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes9.dex */
+    /* loaded from: classes5.dex */
     public static class ChatMsgParse implements IResultParse<ChatMsg> {
         Context mContext;
 
@@ -63,7 +63,7 @@ public class GroupMessageDAOImpl {
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes5.dex */
     public static class LocalChatMsgParse implements IResultParse<ChatMsg> {
         Context mContext;
 
@@ -82,7 +82,7 @@ public class GroupMessageDAOImpl {
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes5.dex */
     public static class GroupChatMsgParse implements IResultParse<ChatMsg> {
         Context mContext;
 

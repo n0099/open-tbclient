@@ -5,7 +5,7 @@ import java.util.Iterator;
 import java.util.Map;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes12.dex */
+/* loaded from: classes15.dex */
 public final class m {
     public static Map<String, String> a(JSONObject jSONObject) throws JSONException {
         HashMap hashMap = new HashMap();

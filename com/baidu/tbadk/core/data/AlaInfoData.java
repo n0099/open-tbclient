@@ -2,6 +2,7 @@ package com.baidu.tbadk.core.data;
 
 import android.util.SparseArray;
 import com.baidu.adp.lib.util.BdLog;
+import com.baidu.cyberplayer.sdk.statistics.DpStatConstants;
 import com.baidu.live.tbadk.ubc.UbcStatConstant;
 import java.io.Serializable;
 import org.json.JSONArray;
@@ -21,6 +22,8 @@ public class AlaInfoData implements Serializable {
     public SparseArray<String> dislikeInfo;
     public double distance;
     public int duration;
+    public String friendRoomName;
+    public int friendRoomStatus;
     public int frsLiveStageType;
     public long group_id;
     public boolean haveRedpkg;
@@ -43,6 +46,7 @@ public class AlaInfoData implements Serializable {
     public int openRecomLocation;
     public int openRecomReason;
     public String recomReason;
+    public long roomId;
     public String routeType;
     public String rtmp_url;
     public int screen_direction;
@@ -125,6 +129,9 @@ public class AlaInfoData implements Serializable {
                 this.openRecomLocation = jSONObject.optInt("open_recom_location");
                 this.openRecomFans = jSONObject.optInt("open_recom_fans");
                 this.openRecomDuration = jSONObject.optInt("open_recom_duration");
+                this.roomId = jSONObject.optLong("room_id");
+                this.friendRoomStatus = jSONObject.optInt("room_status");
+                this.friendRoomName = jSONObject.optString(DpStatConstants.KEY_ROOM_NAME);
             } catch (Exception e) {
                 BdLog.e(e.getMessage());
             }
@@ -184,6 +191,9 @@ public class AlaInfoData implements Serializable {
                 this.openRecomLocation = alaLiveInfo.open_recom_location.intValue();
                 this.openRecomFans = alaLiveInfo.open_recom_fans.intValue();
                 this.openRecomDuration = alaLiveInfo.open_recom_duration.intValue();
+                this.roomId = alaLiveInfo.room_id.longValue();
+                this.friendRoomStatus = alaLiveInfo.room_status.intValue();
+                this.friendRoomName = alaLiveInfo.room_name;
             } catch (Exception e) {
                 BdLog.e(e.getMessage());
             }

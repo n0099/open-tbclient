@@ -5,23 +5,23 @@ import com.baidu.live.adp.framework.message.HttpMessage;
 import com.baidu.live.tbadk.core.TbadkCoreApplication;
 /* loaded from: classes4.dex */
 public class b {
-    private static volatile b bnc;
+    private static volatile b bqP;
 
-    public static b NR() {
-        if (bnc == null) {
+    public static b OW() {
+        if (bqP == null) {
             synchronized (b.class) {
-                if (bnc == null) {
-                    bnc = new b();
+                if (bqP == null) {
+                    bqP = new b();
                 }
             }
         }
-        return bnc;
+        return bqP;
     }
 
     private b() {
     }
 
-    public void d(long j, long j2, long j3, long j4) {
+    public void a(long j, long j2, long j3, long j4, String str) {
         HttpMessage httpMessage = new HttpMessage(1021122);
         int i = 0;
         if (TbadkCoreApplication.getInst().isHaokan()) {
@@ -32,12 +32,15 @@ public class b {
             i = 3;
         } else if (TbadkCoreApplication.getInst().isMobileBaidu()) {
             i = 4;
+        } else if (TbadkCoreApplication.getInst().isYinbo()) {
+            i = 6;
         }
         httpMessage.addParam("from", i);
         httpMessage.addParam("user_id", j);
         httpMessage.addParam("charm_user_id", j2);
         httpMessage.addParam("room_id", j3);
         httpMessage.addParam("live_id", j4);
+        httpMessage.addParam("pub_show_id", str);
         MessageManager.getInstance().sendMessage(httpMessage);
     }
 }

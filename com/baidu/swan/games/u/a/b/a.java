@@ -1,32 +1,32 @@
 package com.baidu.swan.games.u.a.b;
 
 import com.baidu.swan.menu.h;
-/* loaded from: classes3.dex */
+/* loaded from: classes10.dex */
 public class a {
-    private h dyK;
-    private boolean dyL = true;
+    private h dKL;
+    private boolean dKM = true;
 
-    private void gH(boolean z) {
-        this.dyL = z;
-        if (this.dyK != null) {
+    private void hd(boolean z) {
+        this.dKM = z;
+        if (this.dKL != null) {
             if (z) {
-                this.dyK.aB(4, 1);
+                this.dKL.aA(4, 1);
             } else {
-                this.dyK.lL(4);
+                this.dKL.mi(4);
             }
         }
     }
 
     public void b(h hVar) {
-        this.dyK = hVar;
-        gH(this.dyL);
+        this.dKL = hVar;
+        hd(this.dKM);
     }
 
-    public void aPR() {
-        gH(true);
+    public void aSA() {
+        hd(true);
     }
 
-    public void aPS() {
-        gH(false);
+    public void aSB() {
+        hd(false);
     }
 }

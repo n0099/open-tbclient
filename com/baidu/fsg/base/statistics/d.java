@@ -8,9 +8,11 @@ import java.io.StringWriter;
 import java.lang.Thread;
 import java.util.concurrent.ConcurrentHashMap;
 import org.json.JSONObject;
-/* loaded from: classes15.dex */
+/* loaded from: classes16.dex */
 class d implements Thread.UncaughtExceptionHandler {
-    private Thread.UncaughtExceptionHandler a;
+
+    /* renamed from: a  reason: collision with root package name */
+    private Thread.UncaughtExceptionHandler f1487a;
     private Context b;
     private JSONObject c;
     private ConcurrentHashMap<Thread, Throwable> d;
@@ -20,23 +22,25 @@ class d implements Thread.UncaughtExceptionHandler {
         this();
     }
 
-    /* loaded from: classes15.dex */
+    /* loaded from: classes16.dex */
     private static class a {
-        private static d a = new d(null);
+
+        /* renamed from: a  reason: collision with root package name */
+        private static d f1488a = new d(null);
 
         private a() {
         }
     }
 
     private d() {
-        this.a = null;
+        this.f1487a = null;
         this.b = null;
         this.c = null;
         this.d = new ConcurrentHashMap<>();
     }
 
     public static d a() {
-        return a.a;
+        return a.f1488a;
     }
 
     public void a(Context context) {
@@ -49,7 +53,7 @@ class d implements Thread.UncaughtExceptionHandler {
         }
         Thread.UncaughtExceptionHandler defaultUncaughtExceptionHandler = Thread.getDefaultUncaughtExceptionHandler();
         if (this != defaultUncaughtExceptionHandler) {
-            this.a = defaultUncaughtExceptionHandler;
+            this.f1487a = defaultUncaughtExceptionHandler;
             Thread.setDefaultUncaughtExceptionHandler(this);
         }
     }
@@ -85,8 +89,8 @@ class d implements Thread.UncaughtExceptionHandler {
             a(System.currentTimeMillis(), obj, th2);
             new Thread(new e(this)).start();
         }
-        if (this != this.a && this.a != null) {
-            this.a.uncaughtException(thread, th);
+        if (this != this.f1487a && this.f1487a != null) {
+            this.f1487a.uncaughtException(thread, th);
         }
     }
 
@@ -94,7 +98,7 @@ class d implements Thread.UncaughtExceptionHandler {
         if (this.b != null && str != null && !str.trim().equals("")) {
             try {
                 JSONObject jSONObject = new JSONObject();
-                jSONObject.put(c.a, j);
+                jSONObject.put(c.f1486a, j);
                 if (str.getBytes().length > 51200) {
                     byte[] bArr = new byte[b.c];
                     str.getBytes(0, b.c, bArr, 0);

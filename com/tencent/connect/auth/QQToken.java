@@ -9,20 +9,22 @@ import com.tencent.open.utils.d;
 import com.tencent.open.utils.e;
 import com.tencent.open.utils.j;
 import org.json.JSONObject;
-/* loaded from: classes24.dex */
+/* loaded from: classes6.dex */
 public class QQToken {
     public static final int AUTH_QQ = 2;
     public static final int AUTH_QZONE = 3;
     public static final int AUTH_WEB = 1;
     private static SharedPreferences f;
-    private String a;
+
+    /* renamed from: a  reason: collision with root package name */
+    private String f4533a;
     private String b;
     private String c;
     private int d = 1;
     private long e = -1;
 
     public QQToken(String str) {
-        this.a = str;
+        this.f4533a = str;
     }
 
     public boolean isSessionValid() {
@@ -30,11 +32,11 @@ public class QQToken {
     }
 
     public String getAppId() {
-        return this.a;
+        return this.f4533a;
     }
 
     public void setAppId(String str) {
-        this.a = str;
+        this.f4533a = str;
     }
 
     public String getAccessToken() {
@@ -71,7 +73,7 @@ public class QQToken {
 
     public void saveSession(JSONObject jSONObject) {
         try {
-            a(this.a, jSONObject);
+            a(this.f4533a, jSONObject);
         } catch (Exception e) {
             f.c("QQToken", "login saveSession" + e.toString());
         }
@@ -129,9 +131,9 @@ public class QQToken {
                     if (!TextUtils.isEmpty(string)) {
                         jSONObject.put("expires_time", System.currentTimeMillis() + (Long.parseLong(string) * 1000));
                         String encodeToString = Base64.encodeToString(j.i(str), 2);
-                        String a = d.a(jSONObject.toString(), "asdfghjk");
-                        if (encodeToString != null && a != null) {
-                            a().edit().putString(encodeToString, a).commit();
+                        String a2 = d.a(jSONObject.toString(), "asdfghjk");
+                        if (encodeToString != null && a2 != null) {
+                            a().edit().putString(encodeToString, a2).commit();
                         }
                     }
                 } catch (Exception e) {

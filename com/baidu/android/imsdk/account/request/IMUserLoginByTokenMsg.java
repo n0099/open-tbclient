@@ -20,7 +20,7 @@ import com.baidu.sapi2.SapiContext;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes9.dex */
+/* loaded from: classes5.dex */
 public class IMUserLoginByTokenMsg extends Message {
     public static int sRetrytimes = 0;
     private String cFrom;
@@ -164,7 +164,7 @@ public class IMUserLoginByTokenMsg extends Message {
                             }
                         }
                     }
-                    if (!a.ayR) {
+                    if (!a.azA) {
                         ChatMsgManagerImpl.getInstance(this.mContext).fetchConfigMsg(this.mContext, 0L, 20L);
                     }
                     str2 = optString;

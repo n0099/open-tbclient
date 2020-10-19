@@ -1,7 +1,7 @@
 package com.baidu.fsg.base.router;
 
 import java.util.HashMap;
-/* loaded from: classes15.dex */
+/* loaded from: classes16.dex */
 public interface RouterCallback {
     public static final int CODE_ERROR = 268435457;
     public static final int CODE_INVALID = 268435459;

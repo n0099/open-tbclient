@@ -6,7 +6,7 @@ import com.alibaba.fastjson.parser.JSONLexer;
 import com.alibaba.fastjson.util.TypeUtils;
 import java.lang.reflect.Type;
 import java.math.BigDecimal;
-/* loaded from: classes10.dex */
+/* loaded from: classes5.dex */
 public class NumberDeserializer implements ObjectDeserializer {
     public static final NumberDeserializer instance = new NumberDeserializer();
 

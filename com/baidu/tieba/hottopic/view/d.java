@@ -21,15 +21,15 @@ import com.baidu.tieba.hottopic.controller.RelateTopicForumActivity;
 import com.baidu.tieba.hottopic.data.RelateForumItemData;
 import com.baidu.tieba.hottopic.data.k;
 import java.util.List;
-/* loaded from: classes20.dex */
+/* loaded from: classes21.dex */
 public class d extends com.baidu.adp.base.c<RelateTopicForumActivity> {
-    private BdListView VG;
-    private NoNetworkView fFC;
-    private PbListView fHm;
-    private RelateTopicForumActivity jlt;
-    private l jlu;
-    private List<RelateForumItemData> jlv;
-    private AdapterView.OnItemClickListener jlw;
+    private BdListView VX;
+    private NoNetworkView fRL;
+    private PbListView fTv;
+    private RelateTopicForumActivity jAr;
+    private l jAs;
+    private List<RelateForumItemData> jAt;
+    private AdapterView.OnItemClickListener jAu;
     private NavigationBar mNavigationBar;
     private View mRootView;
 
@@ -37,75 +37,75 @@ public class d extends com.baidu.adp.base.c<RelateTopicForumActivity> {
         super(relateTopicForumActivity.getPageContext());
         this.mNavigationBar = null;
         this.mRootView = null;
-        this.VG = null;
-        this.jlv = null;
-        this.jlw = new AdapterView.OnItemClickListener() { // from class: com.baidu.tieba.hottopic.view.d.1
+        this.VX = null;
+        this.jAt = null;
+        this.jAu = new AdapterView.OnItemClickListener() { // from class: com.baidu.tieba.hottopic.view.d.1
             @Override // android.widget.AdapterView.OnItemClickListener
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long j) {
                 RelateForumItemData relateForumItemData;
-                if (i >= 0 && (relateForumItemData = (RelateForumItemData) d.this.jlv.get(i)) != null && at.isForumName(relateForumItemData.forumName)) {
+                if (i >= 0 && (relateForumItemData = (RelateForumItemData) d.this.jAt.get(i)) != null && at.isForumName(relateForumItemData.forumName)) {
                     if (relateForumItemData.forumId != 0) {
-                        TiebaStatic.log(new aq("c10371").dF("fid", String.valueOf(relateForumItemData.forumId)).ai("obj_type", k.jiA).dF("topic_id", d.this.jlt.getTopicId()));
+                        TiebaStatic.log(new aq("c10371").dK("fid", String.valueOf(relateForumItemData.forumId)).aj("obj_type", k.jxy).dK("topic_id", d.this.jAr.getTopicId()));
                     }
-                    MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.ACTIVITY_START_NORMAL, new FrsActivityConfig(d.this.jlt.getActivity()).createNormalCfg(relateForumItemData.forumName, FrsActivityConfig.FRS_FROM_ENTERFORUM_RECOMMEND)));
+                    MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.ACTIVITY_START_NORMAL, new FrsActivityConfig(d.this.jAr.getActivity()).createNormalCfg(relateForumItemData.forumName, FrsActivityConfig.FRS_FROM_ENTERFORUM_RECOMMEND)));
                 }
             }
         };
-        this.jlt = relateTopicForumActivity;
+        this.jAr = relateTopicForumActivity;
         if (list != null) {
             if (list.size() > 20) {
-                this.jlv = list.subList(0, 20);
+                this.jAt = list.subList(0, 20);
             } else {
-                this.jlv = list;
+                this.jAt = list;
             }
         }
         initView();
     }
 
     public void onChangeSkinType(int i) {
-        this.jlt.getLayoutMode().setNightMode(i == 1);
-        this.jlt.getLayoutMode().onModeChanged(this.mRootView);
-        this.mNavigationBar.onChangeSkinType(this.jlt.getPageContext(), i);
-        this.fFC.onChangeSkinType(this.jlt.getPageContext(), i);
-        this.fHm.changeSkin(i);
+        this.jAr.getLayoutMode().setNightMode(i == 1);
+        this.jAr.getLayoutMode().onModeChanged(this.mRootView);
+        this.mNavigationBar.onChangeSkinType(this.jAr.getPageContext(), i);
+        this.fRL.onChangeSkinType(this.jAr.getPageContext(), i);
+        this.fTv.changeSkin(i);
     }
 
     private void initView() {
-        if (this.jlt != null) {
-            this.jlt.setContentView(R.layout.hot_topic_more_activity);
-            this.mRootView = this.jlt.findViewById(R.id.topic_list_root_view);
+        if (this.jAr != null) {
+            this.jAr.setContentView(R.layout.hot_topic_more_activity);
+            this.mRootView = this.jAr.findViewById(R.id.topic_list_root_view);
             this.mNavigationBar = (NavigationBar) this.mRootView.findViewById(R.id.view_navigation_bar);
             this.mNavigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
             this.mNavigationBar.setTitleText(R.string.hot_topic_list_navigationbar_title);
-            this.fFC = (NoNetworkView) this.mRootView.findViewById(R.id.view_no_network);
-            this.VG = (BdListView) this.mRootView.findViewById(R.id.hot_topic_more_list);
-            BdListViewHelper.a(this.jlt.getActivity(), this.VG, BdListViewHelper.HeadType.DEFAULT);
-            this.jlu = new l(this.jlt);
-            this.fHm = new PbListView(this.jlt.getPageContext().getPageActivity());
-            this.fHm.createView();
-            this.fHm.setContainerBackgroundColorResId(R.color.cp_bg_line_d);
-            this.VG.setAdapter((ListAdapter) this.jlu);
-            this.jlu.b(this.jlv, this.jlt.getTopicId());
-            this.VG.setOnItemClickListener(this.jlw);
+            this.fRL = (NoNetworkView) this.mRootView.findViewById(R.id.view_no_network);
+            this.VX = (BdListView) this.mRootView.findViewById(R.id.hot_topic_more_list);
+            BdListViewHelper.a(this.jAr.getActivity(), this.VX, BdListViewHelper.HeadType.DEFAULT);
+            this.jAs = new l(this.jAr);
+            this.fTv = new PbListView(this.jAr.getPageContext().getPageActivity());
+            this.fTv.createView();
+            this.fTv.setContainerBackgroundColorResId(R.color.cp_bg_line_d);
+            this.VX.setAdapter((ListAdapter) this.jAs);
+            this.jAs.b(this.jAt, this.jAr.getTopicId());
+            this.VX.setOnItemClickListener(this.jAu);
         }
     }
 
-    public void bIj() {
-        if (this.VG != null && this.fHm != null) {
-            this.VG.setNextPage(this.fHm);
-            this.fHm.endLoadData();
-            this.fHm.setText(this.jlt.getResources().getString(R.string.list_no_more));
+    public void SJ() {
+        if (this.VX != null && this.fTv != null) {
+            this.VX.setNextPage(this.fTv);
+            this.fTv.endLoadData();
+            this.fTv.setText(this.jAr.getResources().getString(R.string.list_no_more));
         }
     }
 
-    public void bIk() {
-        if (this.VG != null && this.fHm != null) {
-            this.VG.setNextPage(null);
-            this.fHm.hideEmptyView();
+    public void bKU() {
+        if (this.VX != null && this.fTv != null) {
+            this.VX.setNextPage(null);
+            this.fTv.hideEmptyView();
         }
     }
 
-    public l cEn() {
-        return this.jlu;
+    public l cHW() {
+        return this.jAs;
     }
 }

@@ -2,11 +2,12 @@ package com.baidu.platform.comapi.wnplatform.p;
 
 import android.content.Context;
 import android.media.AudioManager;
-/* loaded from: classes3.dex */
+import org.webrtc.MediaStreamTrack;
+/* loaded from: classes7.dex */
 public class i {
     private static AudioManager b(Context context) {
         if (context != null) {
-            return (AudioManager) context.getSystemService("audio");
+            return (AudioManager) context.getSystemService(MediaStreamTrack.AUDIO_TRACK_KIND);
         }
         return null;
     }

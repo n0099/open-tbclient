@@ -117,4 +117,21 @@ public class UbcStatConstant {
         public static final String VOICE_ROOM = "voiceroom";
         public static final String VOICE_ROOM_END = "voiceroom_end";
     }
+
+    /* loaded from: classes4.dex */
+    public static class Value {
+        public static final String VALUE_CHAT_INVITE_TAB_SHOW = "invitetab_show";
+        public static final String VALUE_CHAT_LINK_CLICK = "chatlink_clk";
+        public static final String VALUE_CHAT_LINK_CLOSE_CAN = "linkclose_can";
+        public static final String VALUE_CHAT_LINK_CLOSE_CFM = "linkclose_cfm";
+        public static final String VALUE_CHAT_LINK_CLOSE_CLICK = "linkclose_clk";
+        public static final String VALUE_CHAT_LINK_CLS_TAB_SHOW = "linkclstab_show";
+        public static final String VALUE_CHAT_LINK_FAIL = "chatlink_fail";
+        public static final String VALUE_CHAT_LINK_INVITE_ACC = "linkinvite_acc";
+        public static final String VALUE_CHAT_LINK_INVITE_RFS = "linkinvite_rfs";
+        public static final String VALUE_CHAT_LINK_INVITE_SHOW = "linkinvite_show";
+        public static final String VALUE_CHAT_LINK_SUCCESS = "chatlink_succ";
+        public static final String VALUE_CHAT_LINK_TAB_SHOW = "linktab_show";
+        public static final String VALUE_INVITE_BTN_CLICK = "invitebtn_clk";
+    }
 }

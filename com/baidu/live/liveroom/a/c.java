@@ -4,11 +4,11 @@ import com.baidu.live.data.AlaLiveInfoData;
 import java.util.ArrayList;
 /* loaded from: classes4.dex */
 public interface c {
-    void bY(boolean z);
+    void cb(boolean z);
 
-    void bZ(boolean z);
+    void cc(boolean z);
 
-    void ca(boolean z);
+    void cd(boolean z);
 
     void e(boolean z, boolean z2);
 

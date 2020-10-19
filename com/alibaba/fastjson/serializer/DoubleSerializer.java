@@ -3,7 +3,7 @@ package com.alibaba.fastjson.serializer;
 import java.io.IOException;
 import java.lang.reflect.Type;
 import java.text.DecimalFormat;
-/* loaded from: classes10.dex */
+/* loaded from: classes5.dex */
 public class DoubleSerializer implements ObjectSerializer {
     public static final DoubleSerializer instance = new DoubleSerializer();
     private DecimalFormat decimalFormat;

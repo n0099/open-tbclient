@@ -1,18 +1,20 @@
 package com.baidu.cyberplayer.sdk.statistics;
-/* loaded from: classes10.dex */
+/* loaded from: classes12.dex */
 public class e {
-    private int a;
+
+    /* renamed from: a  reason: collision with root package name */
+    private int f1432a;
     private String b;
     private String c;
 
     public e(int i, String str, long j) {
-        this.a = i;
+        this.f1432a = i;
         this.b = str;
         this.c = Long.toString(j);
     }
 
     public e(int i, String str, String str2) {
-        this.a = i;
+        this.f1432a = i;
         this.b = str;
         this.c = str2;
     }

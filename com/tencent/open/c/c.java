@@ -6,9 +6,11 @@ import android.view.inputmethod.EditorInfo;
 import android.view.inputmethod.InputConnection;
 import com.tencent.open.a.f;
 import com.tencent.open.web.security.SecureJsInterface;
-/* loaded from: classes24.dex */
+/* loaded from: classes6.dex */
 public class c extends b {
-    public static boolean a;
+
+    /* renamed from: a  reason: collision with root package name */
+    public static boolean f4601a;
     private KeyEvent b;
     private com.tencent.open.web.security.a c;
 
@@ -19,8 +21,8 @@ public class c extends b {
     @Override // android.webkit.WebView, android.view.ViewGroup, android.view.View
     public boolean dispatchKeyEvent(KeyEvent keyEvent) {
         int unicodeChar;
-        f.b("openSDK_LOG.SecureWebView", "-->dispatchKeyEvent, is device support: " + a);
-        if (!a) {
+        f.b("openSDK_LOG.SecureWebView", "-->dispatchKeyEvent, is device support: " + f4601a);
+        if (!f4601a) {
             return super.dispatchKeyEvent(keyEvent);
         }
         if (keyEvent.getAction() == 0) {
@@ -49,8 +51,8 @@ public class c extends b {
     @Override // android.webkit.WebView, android.view.View, android.view.KeyEvent.Callback
     public boolean onKeyDown(int i, KeyEvent keyEvent) {
         int unicodeChar;
-        f.b("openSDK_LOG.SecureWebView", "-->onKeyDown, is device support: " + a);
-        if (!a) {
+        f.b("openSDK_LOG.SecureWebView", "-->onKeyDown, is device support: " + f4601a);
+        if (!f4601a) {
             return super.onKeyDown(i, keyEvent);
         }
         if (keyEvent.getAction() == 0) {
@@ -82,11 +84,11 @@ public class c extends b {
         InputConnection onCreateInputConnection = super.onCreateInputConnection(editorInfo);
         f.a("openSDK_LOG.SecureWebView", "-->onCreateInputConnection, inputConn is " + onCreateInputConnection);
         if (onCreateInputConnection != null) {
-            a = true;
+            f4601a = true;
             this.c = new com.tencent.open.web.security.a(super.onCreateInputConnection(editorInfo), false);
             return this.c;
         }
-        a = false;
+        f4601a = false;
         return onCreateInputConnection;
     }
 }

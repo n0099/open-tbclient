@@ -14,12 +14,14 @@ import java.util.concurrent.locks.Lock;
 import java.util.concurrent.locks.ReentrantLock;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes7.dex */
 public class a implements ICloudCenter {
     private int b;
     private CloudListener c;
     private String h;
-    protected final Lock a = new ReentrantLock();
+
+    /* renamed from: a  reason: collision with root package name */
+    protected final Lock f3180a = new ReentrantLock();
     private boolean d = true;
     private boolean e = true;
     private AsyncHttpClient f = new AsyncHttpClient();
@@ -30,7 +32,7 @@ public class a implements ICloudCenter {
         switch (this.b) {
             case 10001:
                 CloudSearchResult cloudSearchResult = new CloudSearchResult();
-                this.a.lock();
+                this.f3180a.lock();
                 try {
                     this.c.onGetSearchResult(cloudSearchResult, i);
                     return;
@@ -38,7 +40,7 @@ public class a implements ICloudCenter {
                 }
             case 10002:
                 DetailSearchResult detailSearchResult = new DetailSearchResult();
-                this.a.lock();
+                this.f3180a.lock();
                 try {
                     this.c.onGetDetailSearchResult(detailSearchResult, i);
                     return;
@@ -46,7 +48,7 @@ public class a implements ICloudCenter {
                 }
             case 10003:
                 CloudRgcResult cloudRgcResult = new CloudRgcResult();
-                this.a.lock();
+                this.f3180a.lock();
                 try {
                     this.c.onGetCloudRgcResult(cloudRgcResult, i);
                     return;
@@ -101,7 +103,7 @@ public class a implements ICloudCenter {
                     } catch (JSONException e) {
                         e.printStackTrace();
                     }
-                    this.a.lock();
+                    this.f3180a.lock();
                     try {
                         this.c.onGetSearchResult(cloudSearchResult, cloudSearchResult.status);
                         return;
@@ -114,7 +116,7 @@ public class a implements ICloudCenter {
                     } catch (JSONException e2) {
                         e2.printStackTrace();
                     }
-                    this.a.lock();
+                    this.f3180a.lock();
                     try {
                         this.c.onGetDetailSearchResult(detailSearchResult, detailSearchResult.status);
                         return;
@@ -127,7 +129,7 @@ public class a implements ICloudCenter {
                     } catch (JSONException e3) {
                         e3.printStackTrace();
                     }
-                    this.a.lock();
+                    this.f3180a.lock();
                     try {
                         this.c.onGetCloudRgcResult(cloudRgcResult, cloudRgcResult.status);
                         return;
@@ -143,9 +145,9 @@ public class a implements ICloudCenter {
 
     @Override // com.baidu.platform.comjni.map.cloud.ICloudCenter
     public void a(CloudListener cloudListener) {
-        this.a.lock();
+        this.f3180a.lock();
         this.c = cloudListener;
-        this.a.unlock();
+        this.f3180a.unlock();
     }
 
     @Override // com.baidu.platform.comjni.map.cloud.ICloudCenter

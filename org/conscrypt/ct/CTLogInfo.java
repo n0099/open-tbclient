@@ -8,7 +8,7 @@ import java.security.Signature;
 import java.security.SignatureException;
 import java.util.Arrays;
 import org.conscrypt.ct.VerifiedSCT;
-/* loaded from: classes8.dex */
+/* loaded from: classes5.dex */
 public class CTLogInfo {
     private final String description;
     private final byte[] logId;

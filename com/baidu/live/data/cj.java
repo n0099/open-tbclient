@@ -1,24 +1,29 @@
 package com.baidu.live.data;
 
+import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes4.dex */
 public class cj {
-    public int aNr;
-    public int aNs;
-    public int aNt;
-    public int aNu;
-    public String aNv;
+    public int aQB;
+    public int money;
+    public String new_props_id;
+    public int props_id;
+    public String wars_item;
+    public String wars_name;
 
-    public void fromJson(JSONObject jSONObject) {
-        if (jSONObject != null) {
-            JSONObject optJSONObject = jSONObject.optJSONObject("category_id");
-            if (optJSONObject != null) {
-                this.aNr = optJSONObject.optInt("android_tieba_type");
-                this.aNs = optJSONObject.optInt("android_haokan_type");
-                this.aNt = optJSONObject.optInt("android_quanmin_type");
-            }
-            this.aNu = jSONObject.optInt("display_limit", 3);
-            this.aNv = jSONObject.optString("client_wishlist_tips");
+    public String toJson() {
+        JSONObject jSONObject = new JSONObject();
+        try {
+            jSONObject.put("props_id", this.props_id);
+            jSONObject.put("money", this.money);
+            jSONObject.put("props_mon", this.aQB);
+            jSONObject.put("wars_name", this.wars_name);
+            jSONObject.put("wars_item", this.wars_item);
+            jSONObject.put("new_props_id", this.new_props_id);
+            return jSONObject.toString();
+        } catch (JSONException e) {
+            e.printStackTrace();
+            return null;
         }
     }
 }

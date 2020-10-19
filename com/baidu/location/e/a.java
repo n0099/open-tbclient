@@ -1,7 +1,9 @@
 package com.baidu.location.e;
-/* loaded from: classes3.dex */
+/* loaded from: classes7.dex */
 public class a {
-    public static String a = "baidu_location_service";
+
+    /* renamed from: a  reason: collision with root package name */
+    public static String f1942a = "baidu_location_service";
     public static int b = 12000;
     public static int c = 20000;
     public static int d = 1;

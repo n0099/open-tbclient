@@ -2,9 +2,11 @@ package com.baidu.mobads.openad.d;
 
 import android.net.Uri;
 import com.baidu.mobads.utils.XAdSDKFoundationFacade;
-/* loaded from: classes3.dex */
+/* loaded from: classes7.dex */
 public class c {
-    public String a;
+
+    /* renamed from: a  reason: collision with root package name */
+    public String f2385a;
     public String b;
     public long c = 0;
     public String d = "text/plain";
@@ -12,12 +14,12 @@ public class c {
     private Uri.Builder f;
 
     public c(String str, String str2) {
-        this.a = str;
+        this.f2385a = str;
         this.b = str2;
     }
 
     public String a() {
-        return XAdSDKFoundationFacade.getInstance().getURIUitls().getFixedString(this.a);
+        return XAdSDKFoundationFacade.getInstance().getURIUitls().getFixedString(this.f2385a);
     }
 
     public Uri.Builder b() {

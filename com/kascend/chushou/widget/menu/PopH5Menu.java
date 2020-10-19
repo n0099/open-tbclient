@@ -18,12 +18,14 @@ import com.kascend.chushou.view.h5.H5Options;
 import com.kascend.chushou.widget.cswebview.d;
 /* loaded from: classes6.dex */
 public class PopH5Menu extends FrameLayout implements View.OnClickListener {
-    private Context a;
+
+    /* renamed from: a  reason: collision with root package name */
+    private Context f4291a;
     private boolean b;
     private Animation d;
     private boolean f;
-    private com.kascend.chushou.view.h5.a omy;
-    private a omz;
+    private com.kascend.chushou.view.h5.a oBR;
+    private a oBS;
 
     public PopH5Menu(@NonNull Context context) {
         this(context, null, 0);
@@ -37,8 +39,8 @@ public class PopH5Menu extends FrameLayout implements View.OnClickListener {
         super(context, attributeSet, i);
         this.b = false;
         this.f = false;
-        this.a = context;
-        LayoutInflater.from(this.a).inflate(a.h.view_activity_h5, (ViewGroup) this, true);
+        this.f4291a = context;
+        LayoutInflater.from(this.f4291a).inflate(a.h.view_activity_h5, (ViewGroup) this, true);
         ((ImageView) findViewById(a.f.iv_activity_h5_close)).setOnClickListener(this);
     }
 
@@ -51,13 +53,13 @@ public class PopH5Menu extends FrameLayout implements View.OnClickListener {
 
     public void a(FragmentManager fragmentManager, H5Options h5Options, Animation animation, Animation animation2) {
         this.d = animation2;
-        if (this.omy != null) {
-            if (this.omy.isAdded()) {
-                fragmentManager.beginTransaction().remove(this.omy).commitAllowingStateLoss();
+        if (this.oBR != null) {
+            if (this.oBR.isAdded()) {
+                fragmentManager.beginTransaction().remove(this.oBR).commitAllowingStateLoss();
             }
-            this.omy = null;
+            this.oBR = null;
         }
-        this.omy = com.kascend.chushou.view.h5.a.a(h5Options, new com.kascend.chushou.widget.cswebview.a().a(new d() { // from class: com.kascend.chushou.widget.menu.PopH5Menu.1
+        this.oBR = com.kascend.chushou.view.h5.a.a(h5Options, new com.kascend.chushou.widget.cswebview.a().a(new d() { // from class: com.kascend.chushou.widget.menu.PopH5Menu.1
             @Override // com.kascend.chushou.widget.cswebview.d
             public void a(Object obj) {
                 if (ViewCompat.isAttachedToWindow(PopH5Menu.this)) {
@@ -69,11 +71,11 @@ public class PopH5Menu extends FrameLayout implements View.OnClickListener {
             public void a(String str) {
             }
         }));
-        fragmentManager.beginTransaction().add(a.f.activity_h5_container, this.omy).commitAllowingStateLoss();
+        fragmentManager.beginTransaction().add(a.f.activity_h5_container, this.oBR).commitAllowingStateLoss();
         setVisibility(0);
         if (!this.b) {
-            if (this.omz != null) {
-                this.omz.a();
+            if (this.oBS != null) {
+                this.oBS.a();
             }
             animation.setAnimationListener(new tv.chushou.zues.toolkit.c.a() { // from class: com.kascend.chushou.widget.menu.PopH5Menu.2
                 @Override // tv.chushou.zues.toolkit.c.a, android.view.animation.Animation.AnimationListener
@@ -89,8 +91,8 @@ public class PopH5Menu extends FrameLayout implements View.OnClickListener {
     public boolean a() {
         if (this.b && !this.f) {
             this.f = true;
-            if (this.omz != null) {
-                this.omz.b();
+            if (this.oBS != null) {
+                this.oBS.b();
             }
             this.d.setAnimationListener(new tv.chushou.zues.toolkit.c.a() { // from class: com.kascend.chushou.widget.menu.PopH5Menu.3
                 @Override // tv.chushou.zues.toolkit.c.a, android.view.animation.Animation.AnimationListener
@@ -112,7 +114,7 @@ public class PopH5Menu extends FrameLayout implements View.OnClickListener {
         if (!this.b) {
             return false;
         }
-        if (this.omy == null || !this.omy.a(i, keyEvent)) {
+        if (this.oBR == null || !this.oBR.a(i, keyEvent)) {
             a();
             return true;
         }
@@ -124,6 +126,6 @@ public class PopH5Menu extends FrameLayout implements View.OnClickListener {
     }
 
     public void setVisibilityListener(a aVar) {
-        this.omz = aVar;
+        this.oBS = aVar;
     }
 }

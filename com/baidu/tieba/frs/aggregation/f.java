@@ -11,28 +11,28 @@ import com.baidu.tbadk.core.util.y;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
-/* loaded from: classes21.dex */
+/* loaded from: classes22.dex */
 public class f implements a {
-    private TbPageContext ehG;
-    private BdTypeListView fGf;
-    private e ihB;
-    private boolean ihC;
+    private TbPageContext etO;
+    private BdTypeListView fSo;
+    private e iwy;
+    private boolean iwz;
     private List<q> mDatas = new ArrayList();
-    private final List<com.baidu.adp.widget.ListView.a> bdV = new ArrayList();
-    private int ihD = -1;
+    private final List<com.baidu.adp.widget.ListView.a> bhH = new ArrayList();
+    private int iwA = -1;
 
     public f(TbPageContext tbPageContext, BdTypeListView bdTypeListView, boolean z) {
-        this.ihC = false;
-        this.ehG = tbPageContext;
-        this.fGf = bdTypeListView;
-        this.ihC = z;
-        JZ();
+        this.iwz = false;
+        this.etO = tbPageContext;
+        this.fSo = bdTypeListView;
+        this.iwz = z;
+        Le();
     }
 
-    private void JZ() {
-        this.ihB = new e(this.ehG, this, this.ihC);
-        this.bdV.add(this.ihB);
-        this.fGf.addAdapters(this.bdV);
+    private void Le() {
+        this.iwy = new e(this.etO, this, this.iwz);
+        this.bhH.add(this.iwy);
+        this.fSo.addAdapters(this.bhH);
     }
 
     public void setData(List<g> list, boolean z) {
@@ -41,15 +41,15 @@ public class f implements a {
                 this.mDatas.clear();
             }
             this.mDatas.addAll(list);
-            this.fGf.setData(this.mDatas);
-            if (z && list.size() > 0 && this.ihC && j.isWifiNet()) {
-                csg();
+            this.fSo.setData(this.mDatas);
+            if (z && list.size() > 0 && this.iwz && j.isWifiNet()) {
+                cvD();
                 list.get(0).autoPlay = true;
             }
         }
     }
 
-    public void aI(String str, boolean z) {
+    public void aM(String str, boolean z) {
         boolean z2;
         if (!TextUtils.isEmpty(str)) {
             boolean z3 = false;
@@ -60,8 +60,8 @@ public class f implements a {
                     break;
                 }
                 q next = it.next();
-                if (next != null && (next instanceof g) && ((g) next).ihI != null && str.equals(((g) next).ihI.userId)) {
-                    ((g) next).ihI.hasFocus = z;
+                if (next != null && (next instanceof g) && ((g) next).iwF != null && str.equals(((g) next).iwF.userId)) {
+                    ((g) next).iwF.hasFocus = z;
                     z2 = true;
                 }
                 z3 = z2;
@@ -73,66 +73,66 @@ public class f implements a {
     }
 
     public void notifyDataSetChanged() {
-        if (this.fGf != null && this.fGf.getAdapter() != null && (this.fGf.getAdapter() instanceof BaseAdapter)) {
-            this.fGf.getAdapter().notifyDataSetChanged();
+        if (this.fSo != null && this.fSo.getAdapter() != null && (this.fSo.getAdapter() instanceof BaseAdapter)) {
+            this.fSo.getAdapter().notifyDataSetChanged();
         }
     }
 
     public void onDestroy() {
-        this.ihB.onDestroy();
+        this.iwy.onDestroy();
     }
 
     public boolean rx() {
-        return this.ihB.rx();
+        return this.iwy.rx();
     }
 
     public void rv() {
-        this.ihB.rv();
+        this.iwy.rv();
     }
 
     public void rw() {
-        this.ihB.rw();
+        this.iwy.rw();
     }
 
     public void onConfigurationChanged(Configuration configuration) {
-        this.ihB.onConfigurationChanged(configuration);
+        this.iwy.onConfigurationChanged(configuration);
     }
 
-    public boolean ya(int i) {
-        return this.ihB.ya(i);
+    public boolean yG(int i) {
+        return this.iwy.yG(i);
     }
 
     @Override // com.baidu.tieba.frs.aggregation.a
-    public void xZ(int i) {
-        this.ihD = i;
-        if (!y.isEmpty(this.mDatas) && this.fGf != null) {
+    public void yF(int i) {
+        this.iwA = i;
+        if (!y.isEmpty(this.mDatas) && this.fSo != null) {
             for (q qVar : this.mDatas) {
                 if (qVar instanceof g) {
                     ((g) qVar).autoPlay = false;
                 }
             }
             if (j.isWifiNet()) {
-                if (this.ihD < this.mDatas.size() - 1) {
+                if (this.iwA < this.mDatas.size() - 1) {
                     List<q> list = this.mDatas;
-                    int i2 = this.ihD + 1;
-                    this.ihD = i2;
+                    int i2 = this.iwA + 1;
+                    this.iwA = i2;
                     if (list.get(i2) instanceof g) {
-                        ((g) this.mDatas.get(this.ihD)).autoPlay = true;
-                        this.fGf.smoothScrollToPositionFromTop(this.fGf.getHeaderViewsCount() + i + 1, 0);
+                        ((g) this.mDatas.get(this.iwA)).autoPlay = true;
+                        this.fSo.smoothScrollToPositionFromTop(this.fSo.getHeaderViewsCount() + i + 1, 0);
                         notifyDataSetChanged();
                     }
-                } else if (this.ihD == this.mDatas.size() - 1 && (this.mDatas.get(this.ihD) instanceof g)) {
-                    ((g) this.mDatas.get(this.ihD)).autoPlay = false;
+                } else if (this.iwA == this.mDatas.size() - 1 && (this.mDatas.get(this.iwA) instanceof g)) {
+                    ((g) this.mDatas.get(this.iwA)).autoPlay = false;
                 }
             }
         }
     }
 
-    public int cse() {
-        return this.ihD;
+    public int cvB() {
+        return this.iwA;
     }
 
-    public void csf() {
+    public void cvC() {
         if (!y.isEmpty(this.mDatas)) {
             Iterator<q> it = this.mDatas.iterator();
             while (it.hasNext()) {
@@ -143,12 +143,12 @@ public class f implements a {
 
     @Override // com.baidu.tieba.frs.aggregation.a
     public void cancel() {
-        csg();
+        cvD();
     }
 
-    private void csg() {
-        csf();
-        this.ihD = 0;
+    private void cvD() {
+        cvC();
+        this.iwA = 0;
         rv();
     }
 }

@@ -2,9 +2,11 @@ package com.tencent.open.a;
 
 import com.baidu.live.adp.lib.stats.BdStatsConstant;
 import java.io.File;
-/* loaded from: classes24.dex */
+/* loaded from: classes6.dex */
 public class c {
-    public static int a = 62;
+
+    /* renamed from: a  reason: collision with root package name */
+    public static int f4577a = 62;
     public static int b = 60;
     public static String c = "OpenSDK.Client.File.Tracer";
     public static String d = "Tencent" + File.separator + "msflogs" + File.separator + "com" + File.separator + "tencent" + File.separator + "mobileqq" + File.separator;

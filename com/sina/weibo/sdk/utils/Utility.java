@@ -17,7 +17,7 @@ import java.net.URL;
 import java.net.URLDecoder;
 import java.util.Locale;
 import java.util.UUID;
-/* loaded from: classes24.dex */
+/* loaded from: classes12.dex */
 public class Utility {
     private static final String DEFAULT_CHARSET = "UTF-8";
 

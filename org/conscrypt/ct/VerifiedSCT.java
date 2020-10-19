@@ -1,10 +1,10 @@
 package org.conscrypt.ct;
-/* loaded from: classes8.dex */
+/* loaded from: classes5.dex */
 public final class VerifiedSCT {
     public final SignedCertificateTimestamp sct;
     public final Status status;
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes5.dex */
     public enum Status {
         VALID,
         INVALID_SIGNATURE,

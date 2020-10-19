@@ -3,13 +3,15 @@ package com.baidu.platform.comapi.walknavi.g.c;
 import android.content.Context;
 import com.baidu.platform.comapi.walknavi.g.c.c;
 import com.baidu.tieba.R;
-/* loaded from: classes3.dex */
+/* loaded from: classes7.dex */
 class u implements Runnable {
-    final /* synthetic */ t a;
+
+    /* renamed from: a  reason: collision with root package name */
+    final /* synthetic */ t f3045a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public u(t tVar) {
-        this.a = tVar;
+        this.f3045a = tVar;
     }
 
     @Override // java.lang.Runnable
@@ -17,18 +19,18 @@ class u implements Runnable {
         Context context;
         Context context2;
         Context context3;
-        context = this.a.b.l;
+        context = this.f3045a.b.l;
         if (!com.baidu.platform.comapi.walknavi.d.a.g.g.d(context)) {
-            context2 = this.a.b.l;
+            context2 = this.f3045a.b.l;
             if (context2 != null) {
-                c cVar = this.a.b;
-                String str = this.a.a;
-                context3 = this.a.b.l;
+                c cVar = this.f3045a.b;
+                String str = this.f3045a.f3044a;
+                context3 = this.f3045a.b.l;
                 cVar.a(str, com.baidu.platform.comapi.wnplatform.p.a.a.b(context3, R.raw.lottie_common_pull_refresh_2), 4);
                 return;
             }
             return;
         }
-        this.a.b.a(this.a.a, (c.d) null);
+        this.f3045a.b.a(this.f3045a.f3044a, (c.d) null);
     }
 }

@@ -3,7 +3,7 @@ package com.baidu.tieba.ala.b.a.b;
 import java.lang.reflect.Array;
 /* loaded from: classes4.dex */
 public class a {
-    public static Object a(Class cls, Object[] objArr, Object obj) {
+    public static Object b(Class cls, Object[] objArr, Object obj) {
         Object newInstance = Array.newInstance(cls, objArr.length + 1);
         Array.set(newInstance, 0, obj);
         for (int i = 1; i < objArr.length + 1; i++) {
@@ -12,11 +12,11 @@ public class a {
         return newInstance;
     }
 
-    public static <T> boolean a(T[] tArr, T t) {
-        return b(tArr, t) != -1;
+    public static <T> boolean b(T[] tArr, T t) {
+        return c(tArr, t) != -1;
     }
 
-    public static <T> int b(T[] tArr, T t) {
+    public static <T> int c(T[] tArr, T t) {
         if (tArr == null) {
             return -1;
         }

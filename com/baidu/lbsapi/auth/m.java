@@ -3,14 +3,16 @@ package com.baidu.lbsapi.auth;
 import android.os.Handler;
 import android.os.Looper;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes3.dex */
+/* loaded from: classes7.dex */
 public class m extends Thread {
-    Handler a;
+
+    /* renamed from: a  reason: collision with root package name */
+    Handler f1842a;
     private Object b;
     private boolean c;
 
     m() {
-        this.a = null;
+        this.f1842a = null;
         this.b = new Object();
         this.c = false;
     }
@@ -18,16 +20,16 @@ public class m extends Thread {
     /* JADX INFO: Access modifiers changed from: package-private */
     public m(String str) {
         super(str);
-        this.a = null;
+        this.f1842a = null;
         this.b = new Object();
         this.c = false;
     }
 
     public void a() {
-        if (a.a) {
+        if (a.f1831a) {
             a.a("Looper thread quit()");
         }
-        this.a.getLooper().quit();
+        this.f1842a.getLooper().quit();
     }
 
     public void b() {
@@ -52,12 +54,12 @@ public class m extends Thread {
     @Override // java.lang.Thread, java.lang.Runnable
     public void run() {
         Looper.prepare();
-        this.a = new Handler();
-        if (a.a) {
+        this.f1842a = new Handler();
+        if (a.f1831a) {
             a.a("new Handler() finish!!");
         }
         Looper.loop();
-        if (a.a) {
+        if (a.f1831a) {
             a.a("LooperThread run() thread id:" + String.valueOf(Thread.currentThread().getId()));
         }
     }

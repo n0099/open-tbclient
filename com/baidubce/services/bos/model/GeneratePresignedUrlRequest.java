@@ -5,7 +5,7 @@ import com.baidubce.http.HttpMethodName;
 import com.baidubce.model.AbstractBceRequest;
 import java.util.HashMap;
 import java.util.Map;
-/* loaded from: classes24.dex */
+/* loaded from: classes25.dex */
 public class GeneratePresignedUrlRequest extends AbstractBceRequest {
     private String bucketName;
     private String contentMd5;

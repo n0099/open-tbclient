@@ -16,8 +16,8 @@ public class c extends HttpMessage {
     }
 
     public void setParams() {
-        String Fz = p.Fz();
+        String Gv = p.Gv();
         addParam("live_id", this.liveId);
-        addParam("scene_from", Fz);
+        addParam("scene_from", Gv);
     }
 }

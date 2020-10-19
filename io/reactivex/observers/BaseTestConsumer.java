@@ -3,18 +3,18 @@ package io.reactivex.observers;
 import io.reactivex.observers.BaseTestConsumer;
 import java.util.List;
 import java.util.concurrent.CountDownLatch;
-/* loaded from: classes25.dex */
+/* loaded from: classes17.dex */
 public abstract class BaseTestConsumer<T, U extends BaseTestConsumer<T, U>> implements io.reactivex.disposables.b {
     protected final List<Throwable> errors;
-    protected final CountDownLatch oAs;
-    protected long oAt;
-    protected Thread oAu;
-    protected boolean oAv;
-    protected int oAw;
-    protected int oAx;
+    protected final CountDownLatch oPH;
+    protected long oPI;
+    protected Thread oPJ;
+    protected boolean oPK;
+    protected int oPL;
+    protected int oPM;
     protected final List<T> values;
 
-    /* loaded from: classes25.dex */
+    /* loaded from: classes17.dex */
     public enum TestWaitStrategy implements Runnable {
         SPIN { // from class: io.reactivex.observers.BaseTestConsumer.TestWaitStrategy.1
             @Override // io.reactivex.observers.BaseTestConsumer.TestWaitStrategy, java.lang.Runnable

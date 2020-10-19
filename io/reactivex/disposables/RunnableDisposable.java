@@ -1,5 +1,5 @@
 package io.reactivex.disposables;
-/* loaded from: classes25.dex */
+/* loaded from: classes17.dex */
 final class RunnableDisposable extends ReferenceDisposable<Runnable> {
     private static final long serialVersionUID = -8219729196779211169L;
 

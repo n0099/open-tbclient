@@ -11,7 +11,7 @@ import java.util.HashSet;
 import java.util.Set;
 import java.util.zip.ZipEntry;
 import java.util.zip.ZipFile;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public class NativeLibraryHelperCompat {
     private static final Class nativeLibraryHelperClass() throws ClassNotFoundException {
         return Class.forName("com.android.internal.content.NativeLibraryHelper");

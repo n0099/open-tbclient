@@ -3,14 +3,16 @@ package com.sdk.base.framework.a.c;
 import java.util.concurrent.Executor;
 import java.util.concurrent.FutureTask;
 import java.util.concurrent.atomic.AtomicBoolean;
-/* loaded from: classes5.dex */
+/* loaded from: classes16.dex */
 public abstract class c<Params, Progress, Result> {
     private static final g b = new g((byte) 0);
     private static Executor c = new i();
     private final AtomicBoolean f = new AtomicBoolean();
     private final AtomicBoolean g = new AtomicBoolean();
     private volatile boolean h = false;
-    protected Boolean a = Boolean.valueOf(com.sdk.base.framework.c.f.c);
+
+    /* renamed from: a  reason: collision with root package name */
+    protected Boolean f4464a = Boolean.valueOf(com.sdk.base.framework.c.f.c);
     private final h<Params, Result> d = new d(this);
     private final FutureTask<Result> e = new e(this, this.d);
 
@@ -54,7 +56,7 @@ public abstract class c<Params, Progress, Result> {
             throw new IllegalStateException("Cannot execute task: the task is already executed.");
         }
         this.h = true;
-        this.d.a = paramsArr;
+        this.d.f4467a = paramsArr;
         executor.execute(new n(0, this.e));
         return this;
     }

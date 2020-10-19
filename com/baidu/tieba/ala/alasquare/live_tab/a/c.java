@@ -7,32 +7,32 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tieba.ala.alasquare.live_tab.b.f;
 /* loaded from: classes4.dex */
 public class c extends com.baidu.adp.widget.ListView.a<f, com.baidu.tieba.ala.alasquare.live_tab.view.f> {
-    private com.baidu.tieba.ala.alasquare.live_tab.view.e fHI;
+    private com.baidu.tieba.ala.alasquare.live_tab.view.e fTS;
     private TbPageContext mPageContext;
 
     public c(TbPageContext tbPageContext) {
-        super(tbPageContext.getPageActivity(), f.fHR);
+        super(tbPageContext.getPageActivity(), f.fUb);
         this.mPageContext = tbPageContext;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.widget.ListView.a
-    /* renamed from: J */
+    /* renamed from: L */
     public com.baidu.tieba.ala.alasquare.live_tab.view.f c(ViewGroup viewGroup) {
-        this.fHI = new com.baidu.tieba.ala.alasquare.live_tab.view.e(this.mPageContext, viewGroup);
-        return new com.baidu.tieba.ala.alasquare.live_tab.view.f(this.fHI);
+        this.fTS = new com.baidu.tieba.ala.alasquare.live_tab.view.e(this.mPageContext, viewGroup);
+        return new com.baidu.tieba.ala.alasquare.live_tab.view.f(this.fTS);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.widget.ListView.a
     public View a(int i, View view, ViewGroup viewGroup, f fVar, com.baidu.tieba.ala.alasquare.live_tab.view.f fVar2) {
-        if (fVar2 == null || fVar2.fHI == null) {
+        if (fVar2 == null || fVar2.fTS == null) {
             return null;
         }
-        fVar2.fHI.a(fVar);
-        fVar2.fHI.onChangeSkinType(this.mPageContext, TbadkCoreApplication.getInst().getSkinType());
+        fVar2.fTS.a(fVar);
+        fVar2.fTS.onChangeSkinType(this.mPageContext, TbadkCoreApplication.getInst().getSkinType());
         return fVar2.getView();
     }
 }

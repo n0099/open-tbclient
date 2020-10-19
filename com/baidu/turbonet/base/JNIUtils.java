@@ -1,7 +1,7 @@
 package com.baidu.turbonet.base;
 
 import com.baidu.turbonet.base.annotations.CalledByNative;
-/* loaded from: classes15.dex */
+/* loaded from: classes17.dex */
 public class JNIUtils {
     @CalledByNative
     public static Object getClassLoader() {

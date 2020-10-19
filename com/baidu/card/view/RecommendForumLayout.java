@@ -26,22 +26,22 @@ import com.baidu.tbadk.widget.horizontalpullview.PullLeftRefreshLayout;
 import com.baidu.tbadk.widget.horizontalpullview.RefreshView;
 import com.baidu.tieba.R;
 import java.util.ArrayList;
-/* loaded from: classes20.dex */
+/* loaded from: classes21.dex */
 public class RecommendForumLayout extends LinearLayout implements q {
-    public boolean ais;
-    private PullLeftRefreshLayout akN;
-    private com.baidu.card.b.a akO;
-    private FrameLayout akP;
-    private View akQ;
-    private ImageView akR;
-    private ImageView akS;
-    private boolean akT;
-    private boolean akU;
-    private boolean akV;
-    private boolean akW;
-    private RefreshView akX;
-    private View.OnClickListener akY;
-    private PullLeftRefreshLayout.a akZ;
+    public boolean aiK;
+    private PullLeftRefreshLayout alf;
+    private com.baidu.card.b.a alg;
+    private FrameLayout alh;
+    private View ali;
+    private ImageView alj;
+    private ImageView alk;
+    private boolean alm;
+    private boolean aln;
+    private boolean alo;
+    private boolean alp;
+    private RefreshView alq;
+    private View.OnClickListener alr;
+    private PullLeftRefreshLayout.a als;
     public int mFrom;
     private TbPageContext<?> mPageContext;
     private RecyclerView mRecyclerView;
@@ -50,16 +50,16 @@ public class RecommendForumLayout extends LinearLayout implements q {
     private String tabName;
 
     public void setOnItemCoverListener(f<bi> fVar) {
-        this.akO.setOnItemCoverListener(fVar);
+        this.alg.setOnItemCoverListener(fVar);
     }
 
     public void setOnClickRightArrowListener(View.OnClickListener onClickListener) {
-        this.akY = onClickListener;
+        this.alr = onClickListener;
     }
 
     public void setOnRullOkCallbackr(PullLeftRefreshLayout.a aVar) {
-        this.akZ = aVar;
-        this.akN.setCallback(aVar);
+        this.als = aVar;
+        this.alf.setCallback(aVar);
     }
 
     public RecommendForumLayout(TbPageContext<?> tbPageContext) {
@@ -68,10 +68,10 @@ public class RecommendForumLayout extends LinearLayout implements q {
 
     public RecommendForumLayout(TbPageContext<?> tbPageContext, @Nullable AttributeSet attributeSet) {
         super(tbPageContext.getPageActivity(), attributeSet);
-        this.akT = true;
-        this.akU = true;
-        this.akV = true;
-        this.akW = false;
+        this.alm = true;
+        this.aln = true;
+        this.alo = true;
+        this.alp = false;
         this.mFrom = 0;
         this.mPageContext = tbPageContext;
         initUI();
@@ -81,46 +81,46 @@ public class RecommendForumLayout extends LinearLayout implements q {
         LayoutInflater.from(getContext()).inflate(R.layout.recommend_forum_horizontal_view, (ViewGroup) this, true);
         setOrientation(1);
         setLayoutParams(new ViewGroup.LayoutParams(-1, -2));
-        this.akP = (FrameLayout) findViewById(R.id.title_view);
+        this.alh = (FrameLayout) findViewById(R.id.title_view);
         this.mTitle = (TextView) findViewById(R.id.tv_title);
-        this.akQ = findViewById(R.id.layout_into);
-        this.akR = (ImageView) findViewById(R.id.iv_into);
-        this.akS = (ImageView) findViewById(R.id.iv_into_s);
-        this.akN = (PullLeftRefreshLayout) findViewById(R.id.refresh_layout);
+        this.ali = findViewById(R.id.layout_into);
+        this.alj = (ImageView) findViewById(R.id.iv_into);
+        this.alk = (ImageView) findViewById(R.id.iv_into_s);
+        this.alf = (PullLeftRefreshLayout) findViewById(R.id.refresh_layout);
         this.mRecyclerView = (RecyclerView) findViewById(R.id.recycler_view);
-        this.akO = new com.baidu.card.b.a(this.mPageContext, this.mFrom);
+        this.alg = new com.baidu.card.b.a(this.mPageContext, this.mFrom);
         if (this.mFrom == 0) {
-            this.akO.setHasLikeForum(this.ais);
+            this.alg.setHasLikeForum(this.aiK);
         } else if (this.mFrom == 1) {
-            this.akO.setTabName(this.tabName);
+            this.alg.setTabName(this.tabName);
         }
         this.mRecyclerView.setLayoutManager(new LinearLayoutManager(this.mPageContext.getPageActivity(), 0, false));
-        this.mRecyclerView.setAdapter(this.akO);
+        this.mRecyclerView.setAdapter(this.alg);
         this.mRecyclerView.setClipChildren(false);
-        this.akO.notifyDataSetChanged();
+        this.alg.notifyDataSetChanged();
         this.mTitle.setText(this.mPageContext.getPageActivity().getString(R.string.recommend_forum_title_horizontal));
-        this.akS.setClickable(false);
-        this.akX = new RefreshView(getContext());
-        this.akN.setRefreshViewAndListener(this.akX);
-        this.akN.setCallback(this.akZ);
+        this.alk.setClickable(false);
+        this.alq = new RefreshView(getContext());
+        this.alf.setRefreshViewAndListener(this.alq);
+        this.alf.setCallback(this.als);
     }
 
     public void setSquareEntranceAtStart(boolean z) {
-        this.akT = z;
+        this.alm = z;
     }
 
     public void setShowSquareEntrance(boolean z) {
-        this.akU = z;
+        this.aln = z;
     }
 
     public void setEnableShowInto(boolean z) {
-        this.akV = z;
+        this.alo = z;
     }
 
     public void setShowMore(boolean z) {
-        this.akW = z;
-        if (this.akN != null) {
-            this.akN.setEnablePull(z);
+        this.alp = z;
+        if (this.alf != null) {
+            this.alf.setEnablePull(z);
         }
     }
 
@@ -137,66 +137,66 @@ public class RecommendForumLayout extends LinearLayout implements q {
     }
 
     public void b(bj bjVar) {
-        this.akR.setOnClickListener(this.akY);
-        this.akQ.setOnClickListener(this.akY);
-        if (!TextUtils.isEmpty(bjVar.title) && bjVar.eci != 0) {
+        this.alj.setOnClickListener(this.alr);
+        this.ali.setOnClickListener(this.alr);
+        if (!TextUtils.isEmpty(bjVar.title) && bjVar.eon != 0) {
             this.mTitle.setTextSize(0, l.getDimens(getContext(), R.dimen.tbds37));
             this.mTitle.setText(bjVar.title);
-            this.mTitleColorId = bjVar.eci;
-            this.akQ.setVisibility(0);
-            this.akR.setVisibility(8);
-            if (this.akP.getLayoutParams() instanceof ViewGroup.MarginLayoutParams) {
-                ((ViewGroup.MarginLayoutParams) this.akP.getLayoutParams()).topMargin = 0;
-                this.akP.requestLayout();
+            this.mTitleColorId = bjVar.eon;
+            this.ali.setVisibility(0);
+            this.alj.setVisibility(8);
+            if (this.alh.getLayoutParams() instanceof ViewGroup.MarginLayoutParams) {
+                ((ViewGroup.MarginLayoutParams) this.alh.getLayoutParams()).topMargin = 0;
+                this.alh.requestLayout();
             }
         } else {
             this.mTitle.setTextSize(0, l.getDimens(getContext(), R.dimen.tbds46));
             this.mTitle.setText(R.string.recommend_forum_title_horizontal);
             this.mTitleColorId = R.color.cp_cont_b;
-            this.akQ.setVisibility(8);
-            this.akR.setVisibility(0);
-            if (this.akP.getLayoutParams() instanceof ViewGroup.MarginLayoutParams) {
-                ((ViewGroup.MarginLayoutParams) this.akP.getLayoutParams()).topMargin = l.getDimens(TbadkCoreApplication.getInst(), R.dimen.tbds38);
-                this.akP.requestLayout();
+            this.ali.setVisibility(8);
+            this.alj.setVisibility(0);
+            if (this.alh.getLayoutParams() instanceof ViewGroup.MarginLayoutParams) {
+                ((ViewGroup.MarginLayoutParams) this.alh.getLayoutParams()).topMargin = l.getDimens(TbadkCoreApplication.getInst(), R.dimen.tbds38);
+                this.alh.requestLayout();
             }
         }
-        if (!this.akV) {
-            this.akQ.setVisibility(8);
-            this.akR.setVisibility(8);
+        if (!this.alo) {
+            this.ali.setVisibility(8);
+            this.alj.setVisibility(8);
         }
-        if (bjVar != null && bjVar.beE() != null && bjVar.beE().size() > 0) {
+        if (bjVar != null && bjVar.bhn() != null && bjVar.bhn().size() > 0) {
             ArrayList<? extends com.baidu.tbadk.mvc.b.a> arrayList = new ArrayList<>();
-            ArrayList<bi> beE = bjVar.beE();
-            if (this.akT) {
-                if (this.akU) {
+            ArrayList<bi> bhn = bjVar.bhn();
+            if (this.alm) {
+                if (this.aln) {
                     arrayList.add(new com.baidu.tbadk.core.data.l());
                 }
-                if (beE != null) {
-                    arrayList.addAll(beE);
+                if (bhn != null) {
+                    arrayList.addAll(bhn);
                 }
             } else {
-                if (beE != null) {
-                    arrayList.addAll(beE);
+                if (bhn != null) {
+                    arrayList.addAll(bhn);
                 }
-                if (this.akU) {
+                if (this.aln) {
                     arrayList.add(new com.baidu.tbadk.core.data.l());
                 }
             }
-            this.akO.setData(arrayList);
+            this.alg.setData(arrayList);
         }
         onChangeSkinType();
     }
 
     public void onChangeSkinType() {
         ap.setViewTextColor(this.mTitle, this.mTitleColorId);
-        SvgManager.bkl().a(this.akR, R.drawable.ic_icon_mybar_pure_list_arrow16_right, R.color.cp_cont_j, SvgManager.SvgResourceStateType.NORMAL);
-        SvgManager.bkl().a(this.akS, R.drawable.icon_pure_list_arrow12_right_n_svg, R.color.cp_cont_j, SvgManager.SvgResourceStateType.NORMAL);
-        this.akX.onChangeSkinType();
-        this.akO.notifyDataSetChanged();
+        SvgManager.bmU().a(this.alj, R.drawable.ic_icon_mybar_pure_list_arrow16_right, R.color.cp_cont_j, SvgManager.SvgResourceStateType.NORMAL);
+        SvgManager.bmU().a(this.alk, R.drawable.icon_pure_list_arrow12_right_n_svg, R.color.cp_cont_j, SvgManager.SvgResourceStateType.NORMAL);
+        this.alq.onChangeSkinType();
+        this.alg.notifyDataSetChanged();
     }
 
     public void setHasLikeForum(boolean z) {
-        this.ais = z;
+        this.aiK = z;
     }
 
     public void setPageUniqueId(BdUniqueId bdUniqueId) {

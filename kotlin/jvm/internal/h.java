@@ -2,10 +2,10 @@ package kotlin.jvm.internal;
 
 import java.util.Iterator;
 @kotlin.h
-/* loaded from: classes5.dex */
+/* loaded from: classes10.dex */
 public final class h {
     public static final <T> Iterator<T> S(T[] tArr) {
-        q.m(tArr, com.baidu.fsg.base.statistics.b.j);
+        q.n(tArr, com.baidu.fsg.base.statistics.b.j);
         return new g(tArr);
     }
 }

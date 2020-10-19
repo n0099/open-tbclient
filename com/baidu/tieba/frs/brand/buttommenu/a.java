@@ -16,13 +16,13 @@ import com.baidu.tieba.frs.brand.buttommenu.BottomMenuView;
 import java.util.List;
 import tbclient.BottomMenu;
 import tbclient.SubBottomMenu;
-/* loaded from: classes21.dex */
+/* loaded from: classes22.dex */
 public class a implements BottomMenuView.a {
-    private ForumData ePP;
-    private ImageView iiu;
-    private BottomMenuView iiv;
-    private List<BottomMenu> iiw;
-    private int iix;
+    private ForumData fbW;
+    private ImageView ixr;
+    private BottomMenuView ixs;
+    private List<BottomMenu> ixt;
+    private int ixu;
     private int mMarginBottom;
     private int mMarginRight;
     private TbPageContext<?> mPageContext;
@@ -31,29 +31,29 @@ public class a implements BottomMenuView.a {
     public a(TbPageContext tbPageContext, View view) {
         this.mPageContext = tbPageContext;
         this.mRootView = view;
-        this.iiu = (ImageView) view.findViewById(R.id.normal_write_icon);
-        this.iiv = (BottomMenuView) view.findViewById(R.id.bottom_menu_view);
-        this.iiv.setOnMenuItemClickListener(this);
+        this.ixr = (ImageView) view.findViewById(R.id.normal_write_icon);
+        this.ixs = (BottomMenuView) view.findViewById(R.id.bottom_menu_view);
+        this.ixs.setOnMenuItemClickListener(this);
         this.mMarginBottom = l.getDimens(tbPageContext.getPageActivity(), R.dimen.tbds160);
         this.mMarginRight = l.getDimens(tbPageContext.getPageActivity(), R.dimen.tbds44);
-        this.iix = l.getDimens(tbPageContext.getPageActivity(), R.dimen.ds4);
+        this.ixu = l.getDimens(tbPageContext.getPageActivity(), R.dimen.ds4);
     }
 
     public void a(List<BottomMenu> list, ForumData forumData) {
-        this.iiw = list;
-        this.ePP = forumData;
+        this.ixt = list;
+        this.fbW = forumData;
         boolean z = y.getCount(list) > 0;
-        oP(z);
+        pu(z);
         if (z) {
-            this.iiv.setVisibility(0);
-            this.iiv.a(list, this.mPageContext);
+            this.ixs.setVisibility(0);
+            this.ixs.a(list, this.mPageContext);
             return;
         }
-        this.iiv.setVisibility(8);
+        this.ixs.setVisibility(8);
     }
 
-    private void oP(boolean z) {
-        RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) this.iiu.getLayoutParams();
+    private void pu(boolean z) {
+        RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) this.ixr.getLayoutParams();
         if (z) {
             layoutParams.addRule(11);
             layoutParams.addRule(12);
@@ -65,17 +65,17 @@ public class a implements BottomMenuView.a {
         layoutParams.addRule(11, 0);
         layoutParams.addRule(12);
         layoutParams.addRule(14);
-        layoutParams.bottomMargin = this.iix;
+        layoutParams.bottomMargin = this.ixu;
         layoutParams.rightMargin = 0;
     }
 
-    public void oQ(boolean z) {
-        this.iiv.setVisibility(z ? 0 : 8);
+    public void pv(boolean z) {
+        this.ixs.setVisibility(z ? 0 : 8);
     }
 
     public void onChangeSkinType(TbPageContext<?> tbPageContext, int i) {
-        if (this.iiv.getVisibility() == 0) {
-            this.iiv.onChangeSkinType(tbPageContext, i);
+        if (this.ixs.getVisibility() == 0) {
+            this.ixs.onChangeSkinType(tbPageContext, i);
         }
     }
 
@@ -83,8 +83,8 @@ public class a implements BottomMenuView.a {
     public void a(BottomMenuView.MenuItemView menuItemView, BottomMenu bottomMenu) {
         long currentAccountId = TbadkCoreApplication.getCurrentAccountId();
         if (bottomMenu != null && y.getCount(bottomMenu.submenu) == 0) {
-            be.bkp().b(this.mPageContext, new String[]{bottomMenu.url});
-            TiebaStatic.log(new aq("c13117").dF("fid", this.ePP != null ? this.ePP.getId() : "").dF("fname", this.ePP != null ? this.ePP.getName() : "").u("uid", currentAccountId).dF("obj_param1", bottomMenu.name));
+            be.bmY().b(this.mPageContext, new String[]{bottomMenu.url});
+            TiebaStatic.log(new aq("c13117").dK("fid", this.fbW != null ? this.fbW.getId() : "").dK("fname", this.fbW != null ? this.fbW.getName() : "").u("uid", currentAccountId).dK("obj_param1", bottomMenu.name));
             return;
         }
         TiebaStatic.log(new aq("c13118").u("uid", currentAccountId));
@@ -93,8 +93,8 @@ public class a implements BottomMenuView.a {
     @Override // com.baidu.tieba.frs.brand.buttommenu.BottomMenuView.a
     public void a(BottomMenuView.SubMenuItemView subMenuItemView, SubBottomMenu subBottomMenu) {
         if (subBottomMenu != null) {
-            be.bkp().b(this.mPageContext, new String[]{subBottomMenu.url});
-            TiebaStatic.log(new aq("c13117").dF("fid", this.ePP != null ? this.ePP.getId() : "").dF("fname", this.ePP != null ? this.ePP.getName() : "").u("uid", TbadkCoreApplication.getCurrentAccountId()).dF("obj_param1", subBottomMenu.name));
+            be.bmY().b(this.mPageContext, new String[]{subBottomMenu.url});
+            TiebaStatic.log(new aq("c13117").dK("fid", this.fbW != null ? this.fbW.getId() : "").dK("fname", this.fbW != null ? this.fbW.getName() : "").u("uid", TbadkCoreApplication.getCurrentAccountId()).dK("obj_param1", subBottomMenu.name));
         }
     }
 }

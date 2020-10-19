@@ -12,8 +12,8 @@ import android.widget.ImageView;
 import com.baidu.live.sdk.a;
 /* loaded from: classes4.dex */
 public class LiveFloatOperateView extends FrameLayout implements View.OnClickListener {
-    private a hLQ;
-    private ImageView hLR;
+    private a iaL;
+    private ImageView iaM;
 
     /* loaded from: classes4.dex */
     public interface a {
@@ -39,32 +39,32 @@ public class LiveFloatOperateView extends FrameLayout implements View.OnClickLis
 
     private void init(Context context) {
         LayoutInflater.from(context).inflate(a.h.ala_live_floating_operate_layout, (ViewGroup) this, true);
-        this.hLR = (ImageView) findViewById(a.g.scale_btn);
+        this.iaM = (ImageView) findViewById(a.g.scale_btn);
         findViewById(a.g.close_btn).setOnClickListener(this);
-        this.hLR.setOnClickListener(this);
+        this.iaM.setOnClickListener(this);
     }
 
     public void setScaleMode(boolean z) {
         if (z) {
-            this.hLR.setImageResource(a.f.ala_float_scale_small);
+            this.iaM.setImageResource(a.f.ala_float_scale_small);
         } else {
-            this.hLR.setImageResource(a.f.ala_float_scale_large);
+            this.iaM.setImageResource(a.f.ala_float_scale_large);
         }
     }
 
     public void setOnViewOperatorListener(a aVar) {
-        this.hLQ = aVar;
+        this.iaL = aVar;
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
         int id = view.getId();
         if (id == a.g.close_btn) {
-            if (this.hLQ != null) {
-                this.hLQ.onCloseClicked();
+            if (this.iaL != null) {
+                this.iaL.onCloseClicked();
             }
-        } else if (id == a.g.scale_btn && this.hLQ != null) {
-            this.hLQ.a(this);
+        } else if (id == a.g.scale_btn && this.iaL != null) {
+            this.iaL.a(this);
         }
     }
 }

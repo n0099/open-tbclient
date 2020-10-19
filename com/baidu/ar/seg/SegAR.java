@@ -19,7 +19,7 @@ import com.xiaomi.mipush.sdk.Constants;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
-/* loaded from: classes10.dex */
+/* loaded from: classes14.dex */
 public class SegAR extends c {
     private static final String TAG = SegAR.class.getSimpleName();
     private static final float[] uA = {0.0f, -1.0f, 1.0f, 0.0f};
@@ -197,33 +197,33 @@ public class SegAR extends c {
             this.oE = 2;
             this.uL = 11;
             this.bA = "ability_image_segmentation";
-            String a = com.baidu.ar.arplay.c.c.a(hashMap.get("node_name"), "");
-            if (TextUtils.isEmpty(a)) {
+            String a2 = com.baidu.ar.arplay.c.c.a(hashMap.get("node_name"), "");
+            if (TextUtils.isEmpty(a2)) {
                 return;
             }
-            this.un = a;
+            this.un = a2;
             return;
         }
-        String a2 = com.baidu.ar.arplay.c.c.a(hashMap.get(LuaMessageHelper.KEY_EVENT_NAME), (String) null);
-        if (a2 != null) {
-            if (a2.equals("start_hair_segmentation")) {
+        String a3 = com.baidu.ar.arplay.c.c.a(hashMap.get(LuaMessageHelper.KEY_EVENT_NAME), (String) null);
+        if (a3 != null) {
+            if (a3.equals("start_hair_segmentation")) {
                 StatisticApi.onEvent(StatisticConstants.MDL_HAIR_SEG_OPEN);
                 m(hashMap);
                 this.oE = 4;
                 this.bA = "ability_hair_segmentation";
-            } else if (a2.equals("start_sky_segmentation")) {
+            } else if (a3.equals("start_sky_segmentation")) {
                 StatisticApi.onEvent(StatisticConstants.MDL_SKY_SEG_OPEN);
-                String a3 = com.baidu.ar.arplay.c.c.a(hashMap.get("node_name"), "");
-                if (!TextUtils.isEmpty(a3)) {
-                    this.un = a3;
-                }
-                this.oE = 5;
-                this.bA = "ability_sky_segmentation";
-            } else if (a2.equals("start_image_segmentation")) {
-                StatisticApi.onEvent(StatisticConstants.MDL_IMG_SEG_OPEN);
                 String a4 = com.baidu.ar.arplay.c.c.a(hashMap.get("node_name"), "");
                 if (!TextUtils.isEmpty(a4)) {
                     this.un = a4;
+                }
+                this.oE = 5;
+                this.bA = "ability_sky_segmentation";
+            } else if (a3.equals("start_image_segmentation")) {
+                StatisticApi.onEvent(StatisticConstants.MDL_IMG_SEG_OPEN);
+                String a5 = com.baidu.ar.arplay.c.c.a(hashMap.get("node_name"), "");
+                if (!TextUtils.isEmpty(a5)) {
+                    this.un = a5;
                 }
                 this.oE = 2;
                 this.bA = "ability_image_segmentation";
@@ -246,7 +246,7 @@ public class SegAR extends c {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void m(HashMap<String, Object> hashMap) {
-        String a = com.baidu.ar.arplay.c.c.a(hashMap.get("node_name"), "");
+        String a2 = com.baidu.ar.arplay.c.c.a(hashMap.get("node_name"), "");
         this.up = com.baidu.ar.arplay.c.c.a(hashMap.get("hair_threshold"), 0.0f);
         this.uq = com.baidu.ar.arplay.c.c.a(hashMap.get("hair_blend_alpha"), 0.0f);
         this.ur = com.baidu.ar.arplay.c.c.a(hashMap.get("hair_blend_type"), 0);
@@ -256,8 +256,8 @@ public class SegAR extends c {
         this.uv = com.baidu.ar.arplay.c.c.a(hashMap.get("hair_top_color_r"), 0.0f);
         this.uw = com.baidu.ar.arplay.c.c.a(hashMap.get("hair_top_color_g"), 0.0f);
         this.ux = com.baidu.ar.arplay.c.c.a(hashMap.get("hair_top_color_b"), 0.0f);
-        if (!TextUtils.isEmpty(a)) {
-            this.un = a;
+        if (!TextUtils.isEmpty(a2)) {
+            this.un = a2;
         }
         if (this.ul != null) {
             this.ul.g(this.up);

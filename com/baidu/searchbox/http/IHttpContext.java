@@ -5,7 +5,7 @@ import com.baidu.searchbox.http.request.HttpRequest;
 import com.baidu.searchbox.http.statistics.NetworkInfoRecord;
 import com.baidu.searchbox.http.statistics.NetworkStat;
 import okhttp3.Request;
-/* loaded from: classes14.dex */
+/* loaded from: classes15.dex */
 public interface IHttpContext {
     public static final IHttpContext EMPTY = new IHttpContext() { // from class: com.baidu.searchbox.http.IHttpContext.1
         @Override // com.baidu.searchbox.http.IHttpContext

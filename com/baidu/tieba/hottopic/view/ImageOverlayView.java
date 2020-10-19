@@ -8,16 +8,16 @@ import com.baidu.tbadk.core.util.y;
 import com.baidu.tbadk.core.view.HeadImageView;
 import com.baidu.tieba.hottopic.data.l;
 import java.util.List;
-/* loaded from: classes20.dex */
+/* loaded from: classes21.dex */
 public class ImageOverlayView extends ViewGroup {
-    private int hJj;
-    private int hJm;
-    private a jln;
-    private List<l> jlo;
+    private int hYe;
+    private int hYh;
+    private a jAl;
+    private List<l> jAm;
     private int mImageHeight;
     private int mImageWidth;
 
-    /* loaded from: classes20.dex */
+    /* loaded from: classes21.dex */
     public interface a {
     }
 
@@ -35,7 +35,7 @@ public class ImageOverlayView extends ViewGroup {
 
     @Override // android.view.View
     protected void onMeasure(int i, int i2) {
-        setMeasuredDimension(resolveSize(((getPaddingLeft() + getPaddingRight()) + (this.hJj * this.mImageWidth)) - ((this.hJj - 1) * this.hJm), i), resolveSize(getPaddingTop() + getPaddingBottom() + this.mImageHeight, i2));
+        setMeasuredDimension(resolveSize(((getPaddingLeft() + getPaddingRight()) + (this.hYe * this.mImageWidth)) - ((this.hYe - 1) * this.hYh), i), resolveSize(getPaddingTop() + getPaddingBottom() + this.mImageHeight, i2));
     }
 
     @Override // android.view.ViewGroup, android.view.View
@@ -43,21 +43,21 @@ public class ImageOverlayView extends ViewGroup {
         View childAt;
         int paddingLeft = getPaddingLeft();
         int paddingTop = getPaddingTop();
-        for (int i5 = 0; i5 < this.hJj && i5 < getChildCount() && (childAt = getChildAt(i5)) != null; i5++) {
+        for (int i5 = 0; i5 < this.hYe && i5 < getChildCount() && (childAt = getChildAt(i5)) != null; i5++) {
             childAt.layout(paddingLeft, paddingTop, this.mImageWidth + paddingLeft, this.mImageHeight + paddingTop);
-            paddingLeft += this.mImageWidth - this.hJm;
+            paddingLeft += this.mImageWidth - this.hYh;
         }
     }
 
     public void setImageClickListener(a aVar) {
-        this.jln = aVar;
+        this.jAl = aVar;
     }
 
     public void setData(List<l> list) {
         HeadImageView headImageView;
         if (!y.isEmpty(list)) {
-            this.jlo = list;
-            for (int i = 0; i < this.hJj && (headImageView = (HeadImageView) getChildAt(i)) != null; i++) {
+            this.jAm = list;
+            for (int i = 0; i < this.hYe && (headImageView = (HeadImageView) getChildAt(i)) != null; i++) {
                 if (i >= list.size()) {
                     headImageView.setVisibility(8);
                 } else {

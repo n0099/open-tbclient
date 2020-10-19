@@ -4,7 +4,7 @@ import android.content.Context;
 import android.graphics.Typeface;
 import android.support.v4.util.LruCache;
 import android.text.TextUtils;
-/* loaded from: classes19.dex */
+/* loaded from: classes10.dex */
 public final class TypefaceCache {
     private static final LruCache<String, Typeface> sCache = new LruCache<>(10);
 

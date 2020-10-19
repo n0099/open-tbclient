@@ -1,7 +1,7 @@
 package com.baidu.tieba.forbidden.fans;
 
 import org.json.JSONObject;
-/* loaded from: classes22.dex */
+/* loaded from: classes23.dex */
 public class a {
     public long id;
     public String name;

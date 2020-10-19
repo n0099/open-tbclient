@@ -1,6 +1,8 @@
 package com.baidu.sofire.i;
-/* loaded from: classes12.dex */
+/* loaded from: classes15.dex */
 public final class t {
-    String a;
+
+    /* renamed from: a  reason: collision with root package name */
+    String f3644a;
     long b;
 }

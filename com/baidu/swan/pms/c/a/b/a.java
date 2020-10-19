@@ -3,9 +3,9 @@ package com.baidu.swan.pms.c.a.b;
 import android.util.Log;
 import com.baidu.swan.pms.d;
 import java.util.Map;
-/* loaded from: classes24.dex */
+/* loaded from: classes15.dex */
 public class a {
-    public Integer r(Map<String, Object> map) {
+    public Integer B(Map<String, Object> map) {
         if (map == null || map.isEmpty()) {
             return 100;
         }

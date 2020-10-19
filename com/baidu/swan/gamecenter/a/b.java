@@ -7,29 +7,29 @@ import com.baidu.swan.apps.adaptation.a.aw;
 import com.baidu.swan.apps.runtime.e;
 import java.util.HashMap;
 import org.json.JSONObject;
-/* loaded from: classes14.dex */
+/* loaded from: classes6.dex */
 public class b implements aw {
-    private HashMap<String, Boolean> dpJ = new HashMap<>();
-    private a dpK = new a();
+    private HashMap<String, Boolean> dBN = new HashMap<>();
+    private a dBO = new a();
 
     @Override // com.baidu.swan.apps.adaptation.a.aw
     @Nullable
     public com.baidu.swan.apps.api.c.b a(@NonNull String str, @NonNull JSONObject jSONObject, @NonNull com.baidu.swan.apps.o.b bVar) {
-        if (aLp()) {
-            bVar.ao(null);
+        if (aNY()) {
+            bVar.av(null);
             return null;
         }
-        return this.dpK.b(jSONObject, a(bVar));
+        return this.dBO.b(jSONObject, a(bVar));
     }
 
-    public boolean uO(String str) {
-        return TextUtils.equals(this.dpK.name, str);
+    public boolean vA(String str) {
+        return TextUtils.equals(this.dBO.name, str);
     }
 
-    public boolean aLp() {
+    public boolean aNY() {
         Boolean bool;
         String appKey = getAppKey();
-        if (!TextUtils.isEmpty(appKey) && (bool = this.dpJ.get(appKey)) != null) {
+        if (!TextUtils.isEmpty(appKey) && (bool = this.dBN.get(appKey)) != null) {
             return bool.booleanValue();
         }
         return false;
@@ -38,31 +38,31 @@ public class b implements aw {
     private com.baidu.swan.apps.o.b a(@NonNull final com.baidu.swan.apps.o.b bVar) {
         return new com.baidu.swan.apps.o.b() { // from class: com.baidu.swan.gamecenter.a.b.1
             @Override // com.baidu.swan.apps.o.b
-            public void ao(@Nullable JSONObject jSONObject) {
-                b.this.gw(true);
-                bVar.ao(jSONObject);
+            public void av(@Nullable JSONObject jSONObject) {
+                b.this.gS(true);
+                bVar.av(jSONObject);
             }
 
             @Override // com.baidu.swan.apps.o.b
             public void onFail(int i, @Nullable String str) {
-                b.this.gw(false);
+                b.this.gS(false);
                 bVar.onFail(i, str);
             }
         };
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void gw(boolean z) {
+    public void gS(boolean z) {
         String appKey = getAppKey();
         if (!TextUtils.isEmpty(appKey)) {
-            this.dpJ.put(appKey, Boolean.valueOf(z));
+            this.dBN.put(appKey, Boolean.valueOf(z));
         }
     }
 
     private String getAppKey() {
-        e aAs = e.aAs();
-        if (aAs != null) {
-            return aAs.getAppKey();
+        e aDb = e.aDb();
+        if (aDb != null) {
+            return aDb.getAppKey();
         }
         return null;
     }

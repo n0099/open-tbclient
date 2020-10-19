@@ -13,17 +13,17 @@ import com.meizu.cloud.pushsdk.constants.PushConstants;
 import java.util.Arrays;
 import java.util.UUID;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes7.dex */
 public final class e {
     public static c a(Context context, com.baidu.platform.comapi.walknavi.d.a.a.a aVar, f.a<JSONObject> aVar2) {
-        String a = a(context, aVar);
-        if (TextUtils.isEmpty(a)) {
+        String a2 = a(context, aVar);
+        if (TextUtils.isEmpty(a2)) {
             return null;
         }
-        String str = com.baidu.platform.comapi.walknavi.d.a.g.d.a + com.baidu.platform.comapi.walknavi.d.a.g.d.b + "/queryARResource";
+        String str = com.baidu.platform.comapi.walknavi.d.a.g.d.f2987a + com.baidu.platform.comapi.walknavi.d.a.g.d.b + "/queryARResource";
         com.baidu.platform.comapi.walknavi.d.a.g.a.a("doQueryArResource: " + str);
         d dVar = new d(str, aVar2);
-        dVar.execute(a);
+        dVar.execute(a2);
         return dVar;
     }
 
@@ -43,14 +43,14 @@ public final class e {
         } else {
             jSONObject = new JSONObject();
         }
-        UUID a = new com.baidu.platform.comapi.walknavi.d.a.g.e(context).a();
-        if (a != null) {
-            jSONObject.put("user_id", a.toString());
+        UUID a2 = new com.baidu.platform.comapi.walknavi.d.a.g.e(context).a();
+        if (a2 != null) {
+            jSONObject.put("user_id", a2.toString());
         }
         jSONObject2.put(HttpConstants.HTTP_AR_VALUE, jSONObject.toString());
-        String a2 = aVar.a();
-        if (!TextUtils.isEmpty(a2)) {
-            jSONObject2.put("ar_key", a2);
+        String a3 = aVar.a();
+        if (!TextUtils.isEmpty(a3)) {
+            jSONObject2.put("ar_key", a3);
         }
         String b = aVar.b();
         if (!TextUtils.isEmpty(b)) {
@@ -64,9 +64,9 @@ public final class e {
         jSONObject2.put("app_id", com.baidu.platform.comapi.walknavi.d.a.g.b.a(context));
         jSONObject2.put("device_id", Build.MODEL);
         jSONObject2.put(HttpConstants.HTTP_SYSTEM_VERSION, Build.VERSION.SDK_INT);
-        jSONObject2.put("user_id", a.toString());
+        jSONObject2.put("user_id", a2.toString());
         jSONObject2.put("publish_id", "6");
-        if (!com.baidu.platform.comapi.walknavi.d.a.b.a) {
+        if (!com.baidu.platform.comapi.walknavi.d.a.b.f2965a) {
             jSONObject2.put("update_check", 1);
         }
         a(context, jSONObject2);
@@ -85,7 +85,7 @@ public final class e {
             if (context == null) {
                 com.baidu.platform.comapi.walknavi.d.a.g.a.a("bdar: postSystemInfo context is null!!!");
             } else {
-                long[] a = h.a();
+                long[] a2 = h.a();
                 long[] b = h.b();
                 Sensor defaultSensor = ((SensorManager) context.getSystemService("sensor")).getDefaultSensor(4);
                 if (jSONObject != null) {
@@ -98,8 +98,8 @@ public final class e {
                     jSONObject.put(HttpConstants.OS_SCALE_PDI, context.getResources().getDisplayMetrics().densityDpi);
                     jSONObject.put(HttpConstants.OS_RAM_AVAIL_MEMORY, h.b(context));
                     jSONObject.put(HttpConstants.OS_RAM_MEMEORY, h.a(context));
-                    jSONObject.put(HttpConstants.OS_ROM_AVAIL_MEMORY, a[1]);
-                    jSONObject.put(HttpConstants.OS_ROM_MEMORY, a[0]);
+                    jSONObject.put(HttpConstants.OS_ROM_AVAIL_MEMORY, a2[1]);
+                    jSONObject.put(HttpConstants.OS_ROM_MEMORY, a2[0]);
                     jSONObject.put(HttpConstants.OS_ROM_SDCARD_AVAIL_MEMORY, b[1]);
                     jSONObject.put(HttpConstants.OS_SDCARD_MEMORY, b[0]);
                     jSONObject.put(HttpConstants.OS_CPU_NAME, h.c());

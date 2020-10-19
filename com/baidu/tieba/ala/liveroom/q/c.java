@@ -61,8 +61,8 @@ public class c extends BdBaseModel {
                 jSONObject3.putOpt("dropa", Long.valueOf(alaLiveRecorderPerfData.dropACount));
                 jSONObject.putOpt("stability", jSONObject3);
                 JSONObject jSONObject4 = new JSONObject();
-                jSONObject4.putOpt("mem", cf(alaLiveRecorderPerfData.memoryArray));
-                jSONObject4.putOpt(com.baidu.fsg.face.base.b.c.i, cf(alaLiveRecorderPerfData.cpuArray));
+                jSONObject4.putOpt("mem", ci(alaLiveRecorderPerfData.memoryArray));
+                jSONObject4.putOpt(com.baidu.fsg.face.base.b.c.i, ci(alaLiveRecorderPerfData.cpuArray));
                 jSONObject4.putOpt("bat", String.format("%.2f", Float.valueOf(alaLiveRecorderPerfData.energyUsage)));
                 jSONObject4.putOpt("charge", Boolean.valueOf(alaLiveRecorderPerfData.isCharging));
                 jSONObject.putOpt("perf", jSONObject4);
@@ -96,7 +96,7 @@ public class c extends BdBaseModel {
         MessageManager.getInstance().unRegisterTask(1021049);
     }
 
-    private String cf(List list) {
+    private String ci(List list) {
         if (list == null || list.size() == 0) {
             return "";
         }

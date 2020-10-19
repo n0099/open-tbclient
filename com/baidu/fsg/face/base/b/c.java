@@ -7,9 +7,11 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes16.dex */
+/* loaded from: classes17.dex */
 public class c {
-    public static final String a = "SdkConfigOptions";
+
+    /* renamed from: a  reason: collision with root package name */
+    public static final String f1568a = "SdkConfigOptions";
     public static final String b = "global-config";
     public static final String c = "host_version";
     public static final String d = "zip_version";
@@ -95,19 +97,21 @@ public class c {
         }
     }
 
-    /* loaded from: classes16.dex */
+    /* loaded from: classes17.dex */
     public static class a {
         private static final String d = "name";
         private static final String e = "url";
         private static final String f = "hash";
-        public String a = null;
+
+        /* renamed from: a  reason: collision with root package name */
+        public String f1569a = null;
         public String b = null;
         public String c = null;
 
         public static a a(JSONObject jSONObject) {
             a aVar = new a();
             if (jSONObject != null) {
-                aVar.a = jSONObject.optString("name");
+                aVar.f1569a = jSONObject.optString("name");
                 aVar.b = jSONObject.optString("url");
                 aVar.c = jSONObject.optString(f);
             }
@@ -117,7 +121,7 @@ public class c {
         public JSONObject a() {
             JSONObject jSONObject = new JSONObject();
             try {
-                jSONObject.put("name", this.a);
+                jSONObject.put("name", this.f1569a);
                 jSONObject.put("url", this.b);
                 jSONObject.put(f, this.c);
                 return jSONObject;

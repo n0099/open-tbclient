@@ -9,7 +9,7 @@ import android.support.annotation.Nullable;
 import android.support.v4.util.DebugUtils;
 import java.io.FileDescriptor;
 import java.io.PrintWriter;
-/* loaded from: classes7.dex */
+/* loaded from: classes10.dex */
 public class Loader<D> {
     Context mContext;
     int mId;
@@ -21,17 +21,17 @@ public class Loader<D> {
     boolean mContentChanged = false;
     boolean mProcessingChange = false;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes10.dex */
     public interface OnLoadCanceledListener<D> {
         void onLoadCanceled(@NonNull Loader<D> loader);
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes10.dex */
     public interface OnLoadCompleteListener<D> {
         void onLoadComplete(@NonNull Loader<D> loader, @Nullable D d);
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes10.dex */
     public final class ForceLoadContentObserver extends ContentObserver {
         public ForceLoadContentObserver() {
             super(new Handler());

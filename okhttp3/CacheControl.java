@@ -6,7 +6,7 @@ import java.util.concurrent.TimeUnit;
 import javax.annotation.Nullable;
 import okhttp3.internal.http.HttpHeaders;
 import org.apache.http.cookie.ClientCookie;
-/* loaded from: classes12.dex */
+/* loaded from: classes5.dex */
 public final class CacheControl {
     @Nullable
     String headerValue;
@@ -251,7 +251,7 @@ public final class CacheControl {
         return sb.toString();
     }
 
-    /* loaded from: classes12.dex */
+    /* loaded from: classes5.dex */
     public static final class Builder {
         boolean immutable;
         int maxAgeSeconds = -1;

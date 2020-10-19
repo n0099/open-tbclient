@@ -9,29 +9,29 @@ import com.baidu.live.sdk.a;
 import com.baidu.tieba.ala.floating.PlayDrawable;
 /* loaded from: classes4.dex */
 public class PlayDrawableImageView extends ImageView {
-    private PlayDrawable fZP;
+    private PlayDrawable gmh;
 
     public PlayDrawableImageView(Context context) {
         super(context);
-        this.fZP = null;
+        this.gmh = null;
         init();
     }
 
     public PlayDrawableImageView(Context context, @Nullable AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.fZP = null;
+        this.gmh = null;
         init();
     }
 
     public PlayDrawableImageView(Context context, @Nullable AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.fZP = null;
+        this.gmh = null;
         init();
     }
 
     private void init() {
-        this.fZP = new PlayDrawable();
-        setImageDrawable(this.fZP);
+        this.gmh = new PlayDrawable();
+        setImageDrawable(this.gmh);
         setBackgroundResource(a.f.video_player_playbtn_bg);
         setIconState(PlayDrawable.IconState.PLAY_STATE);
     }
@@ -39,16 +39,16 @@ public class PlayDrawableImageView extends ImageView {
     @Override // android.widget.ImageView, android.view.View
     protected void onMeasure(int i, int i2) {
         super.onMeasure(i, i2);
-        setMeasuredDimension(H(42.0f), H(42.0f));
+        setMeasuredDimension(J(42.0f), J(42.0f));
     }
 
     public void setIconState(PlayDrawable.IconState iconState) {
-        if (this.fZP != null) {
-            this.fZP.setIconState(iconState);
+        if (this.gmh != null) {
+            this.gmh.setIconState(iconState);
         }
     }
 
-    public static int H(float f) {
+    public static int J(float f) {
         return (int) (0.5f + (Resources.getSystem().getDisplayMetrics().density * f));
     }
 }

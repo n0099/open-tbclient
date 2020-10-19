@@ -5,10 +5,10 @@ import java.util.Collection;
 import java.util.Set;
 /* JADX INFO: Access modifiers changed from: package-private */
 @kotlin.h
-/* loaded from: classes5.dex */
+/* loaded from: classes10.dex */
 public class r extends q {
     public static final <T> int a(Iterable<? extends T> iterable, int i) {
-        kotlin.jvm.internal.q.m(iterable, "receiver$0");
+        kotlin.jvm.internal.q.n(iterable, "receiver$0");
         return iterable instanceof Collection ? ((Collection) iterable).size() : i;
     }
 
@@ -17,7 +17,7 @@ public class r extends q {
     }
 
     public static final <T> Collection<T> c(Iterable<? extends T> iterable) {
-        kotlin.jvm.internal.q.m(iterable, "receiver$0");
+        kotlin.jvm.internal.q.n(iterable, "receiver$0");
         if (iterable instanceof Set) {
             return (Collection) iterable;
         }

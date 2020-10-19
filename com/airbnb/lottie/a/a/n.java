@@ -7,14 +7,14 @@ import android.support.annotation.Nullable;
 import com.airbnb.lottie.a.b.a;
 import com.airbnb.lottie.model.content.ShapeTrimPath;
 import java.util.List;
-/* loaded from: classes6.dex */
-public class n implements j, l, a.InterfaceC0010a {
+/* loaded from: classes10.dex */
+public class n implements j, l, a.InterfaceC0011a {
     @Nullable
-    private r CC;
-    private final com.airbnb.lottie.a.b.a<?, PointF> CF;
-    private final com.airbnb.lottie.a.b.a<?, PointF> CG;
-    private boolean CI;
-    private final com.airbnb.lottie.a.b.a<?, Float> Dj;
+    private r CY;
+    private final com.airbnb.lottie.a.b.a<?, Float> DA;
+    private final com.airbnb.lottie.a.b.a<?, PointF> Db;
+    private final com.airbnb.lottie.a.b.a<?, PointF> Dc;
+    private boolean De;
     private final com.airbnb.lottie.g lottieDrawable;
     private final String name;
     private final Path path = new Path();
@@ -23,15 +23,15 @@ public class n implements j, l, a.InterfaceC0010a {
     public n(com.airbnb.lottie.g gVar, com.airbnb.lottie.model.layer.a aVar, com.airbnb.lottie.model.content.f fVar) {
         this.name = fVar.getName();
         this.lottieDrawable = gVar;
-        this.CG = fVar.jF().jC();
-        this.CF = fVar.jM().jC();
-        this.Dj = fVar.ki().jC();
-        aVar.a(this.CG);
-        aVar.a(this.CF);
-        aVar.a(this.Dj);
-        this.CG.b(this);
-        this.CF.b(this);
-        this.Dj.b(this);
+        this.Dc = fVar.jG().jD();
+        this.Db = fVar.jN().jD();
+        this.DA = fVar.kj().jD();
+        aVar.a(this.Dc);
+        aVar.a(this.Db);
+        aVar.a(this.DA);
+        this.Dc.b(this);
+        this.Db.b(this);
+        this.DA.b(this);
     }
 
     @Override // com.airbnb.lottie.a.a.b
@@ -39,13 +39,13 @@ public class n implements j, l, a.InterfaceC0010a {
         return this.name;
     }
 
-    @Override // com.airbnb.lottie.a.b.a.InterfaceC0010a
-    public void iS() {
+    @Override // com.airbnb.lottie.a.b.a.InterfaceC0011a
+    public void iT() {
         invalidate();
     }
 
     private void invalidate() {
-        this.CI = false;
+        this.De = false;
         this.lottieDrawable.invalidateSelf();
     }
 
@@ -56,9 +56,9 @@ public class n implements j, l, a.InterfaceC0010a {
             int i2 = i;
             if (i2 < list.size()) {
                 b bVar = list.get(i2);
-                if ((bVar instanceof r) && ((r) bVar).jc() == ShapeTrimPath.Type.Simultaneously) {
-                    this.CC = (r) bVar;
-                    this.CC.a(this);
+                if ((bVar instanceof r) && ((r) bVar).jd() == ShapeTrimPath.Type.Simultaneously) {
+                    this.CY = (r) bVar;
+                    this.CY.a(this);
                 }
                 i = i2 + 1;
             } else {
@@ -68,20 +68,20 @@ public class n implements j, l, a.InterfaceC0010a {
     }
 
     @Override // com.airbnb.lottie.a.a.l
-    public Path iV() {
-        if (this.CI) {
+    public Path iW() {
+        if (this.De) {
             return this.path;
         }
         this.path.reset();
-        PointF value = this.CF.getValue();
+        PointF value = this.Db.getValue();
         float f = value.x / 2.0f;
         float f2 = value.y / 2.0f;
-        float floatValue = this.Dj == null ? 0.0f : this.Dj.getValue().floatValue();
+        float floatValue = this.DA == null ? 0.0f : this.DA.getValue().floatValue();
         float min = Math.min(f, f2);
         if (floatValue <= min) {
             min = floatValue;
         }
-        PointF value2 = this.CG.getValue();
+        PointF value2 = this.Dc.getValue();
         this.path.moveTo(value2.x + f, (value2.y - f2) + min);
         this.path.lineTo(value2.x + f, (value2.y + f2) - min);
         if (min > 0.0f) {
@@ -104,8 +104,8 @@ public class n implements j, l, a.InterfaceC0010a {
             this.path.arcTo(this.rect, 270.0f, 90.0f, false);
         }
         this.path.close();
-        com.airbnb.lottie.d.f.a(this.path, this.CC);
-        this.CI = true;
+        com.airbnb.lottie.d.f.a(this.path, this.CY);
+        this.De = true;
         return this.path;
     }
 

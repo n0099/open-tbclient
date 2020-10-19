@@ -2,22 +2,24 @@ package com.xiaomi.push;
 
 import android.content.Context;
 import java.util.List;
-/* loaded from: classes9.dex */
+/* loaded from: classes12.dex */
 public abstract class dc {
-    private int a;
+
+    /* renamed from: a  reason: collision with root package name */
+    private int f4851a;
 
     public dc(int i) {
-        this.a = i;
+        this.f4851a = i;
     }
 
     public int a() {
-        return this.a;
+        return this.f4851a;
     }
 
     public abstract String a(Context context, String str, List<ay> list);
 
     /* renamed from: a  reason: collision with other method in class */
-    public boolean m225a(Context context, String str, List<ay> list) {
+    public boolean m226a(Context context, String str, List<ay> list) {
         return true;
     }
 }

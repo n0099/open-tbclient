@@ -1,31 +1,31 @@
 package com.faceunity.gles;
 
 import com.faceunity.gles.Drawable2d;
-/* loaded from: classes22.dex */
+/* loaded from: classes23.dex */
 public class c {
-    private final Drawable2d nLe = new Drawable2d(Drawable2d.Prefab.FULL_RECTANGLE);
-    private Texture2dProgram nLf;
+    private final Drawable2d oav = new Drawable2d(Drawable2d.Prefab.FULL_RECTANGLE);
+    private Texture2dProgram oaw;
 
     public c(Texture2dProgram texture2dProgram) {
-        this.nLf = texture2dProgram;
+        this.oaw = texture2dProgram;
     }
 
     public void release(boolean z) {
-        if (this.nLf != null) {
+        if (this.oaw != null) {
             if (z) {
-                this.nLf.release();
+                this.oaw.release();
             }
-            this.nLf = null;
+            this.oaw = null;
         }
     }
 
     public int createTextureObject() {
-        return this.nLf.createTextureObject();
+        return this.oaw.createTextureObject();
     }
 
     public void drawFrame(int i, float[] fArr) {
-        if (this.nLf != null) {
-            this.nLf.draw(d.IDENTITY_MATRIX, this.nLe.getVertexArray(), 0, this.nLe.getVertexCount(), this.nLe.getCoordsPerVertex(), this.nLe.getVertexStride(), fArr, this.nLe.getTexCoordArray(), i, this.nLe.getTexCoordStride());
+        if (this.oaw != null) {
+            this.oaw.draw(d.IDENTITY_MATRIX, this.oav.getVertexArray(), 0, this.oav.getVertexCount(), this.oav.getCoordsPerVertex(), this.oav.getVertexStride(), fArr, this.oav.getTexCoordArray(), i, this.oav.getTexCoordStride());
         }
     }
 }

@@ -3,23 +3,25 @@ package com.baidu.ufosdk.ui;
 import android.content.Context;
 import android.os.Handler;
 import com.baidu.ufosdk.UfoSDK;
-/* loaded from: classes21.dex */
+/* loaded from: classes22.dex */
 final class as implements Runnable {
-    final /* synthetic */ FeedbackFacePageActivity a;
+
+    /* renamed from: a  reason: collision with root package name */
+    final /* synthetic */ FeedbackFacePageActivity f3759a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public as(FeedbackFacePageActivity feedbackFacePageActivity) {
-        this.a = feedbackFacePageActivity;
+        this.f3759a = feedbackFacePageActivity;
     }
 
     @Override // java.lang.Runnable
     public final void run() {
         Handler handler;
-        Context applicationContext = this.a.getApplicationContext();
+        Context applicationContext = this.f3759a.getApplicationContext();
         String str = UfoSDK.clientid;
         String c = com.baidu.ufosdk.e.a.c(applicationContext);
         if (c != null) {
-            handler = this.a.v;
+            handler = this.f3759a.v;
             handler.obtainMessage(0, c).sendToTarget();
         }
     }

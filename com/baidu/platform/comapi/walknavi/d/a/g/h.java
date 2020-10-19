@@ -10,9 +10,11 @@ import java.io.File;
 import java.io.FileReader;
 import java.io.IOException;
 import java.io.InputStream;
-/* loaded from: classes3.dex */
+/* loaded from: classes7.dex */
 public class h {
-    public static String a = "";
+
+    /* renamed from: a  reason: collision with root package name */
+    public static String f2990a = "";
     public static String b = "";
     public static String c = "";
 

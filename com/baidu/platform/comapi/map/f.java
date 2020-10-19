@@ -18,28 +18,32 @@ import javax.microedition.khronos.egl.EGLDisplay;
 import javax.microedition.khronos.egl.EGLSurface;
 import javax.microedition.khronos.opengles.GL;
 import javax.microedition.khronos.opengles.GL10;
-/* loaded from: classes3.dex */
+/* loaded from: classes7.dex */
 public class f implements ad {
     private static final j b = new j();
-    private WeakReference<SurfaceView> a;
+
+    /* renamed from: a  reason: collision with root package name */
+    private WeakReference<SurfaceView> f2912a;
     private final WeakReference<f> c = new WeakReference<>(this);
     private i d;
     private ak e;
     private boolean f;
     private e g;
-    private InterfaceC0242f h;
+    private InterfaceC0257f h;
     private g i;
     private k j;
     private int k;
     private int l;
     private boolean m;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes7.dex */
     private abstract class a implements e {
-        protected int[] a;
+
+        /* renamed from: a  reason: collision with root package name */
+        protected int[] f2913a;
 
         public a(int[] iArr) {
-            this.a = a(iArr);
+            this.f2913a = a(iArr);
         }
 
         private int[] a(int[] iArr) {
@@ -62,18 +66,18 @@ public class f implements ad {
         @Override // com.baidu.platform.comapi.map.f.e
         public EGLConfig a(EGL10 egl10, EGLDisplay eGLDisplay) {
             int[] iArr = new int[1];
-            if (egl10.eglChooseConfig(eGLDisplay, this.a, null, 0, iArr)) {
+            if (egl10.eglChooseConfig(eGLDisplay, this.f2913a, null, 0, iArr)) {
                 int i = iArr[0];
                 if (i <= 0) {
                     throw new IllegalArgumentException("No configs match configSpec");
                 }
                 EGLConfig[] eGLConfigArr = new EGLConfig[i];
-                if (egl10.eglChooseConfig(eGLDisplay, this.a, eGLConfigArr, i, iArr)) {
-                    EGLConfig a = a(egl10, eGLDisplay, eGLConfigArr);
-                    if (a == null) {
+                if (egl10.eglChooseConfig(eGLDisplay, this.f2913a, eGLConfigArr, i, iArr)) {
+                    EGLConfig a2 = a(egl10, eGLDisplay, eGLConfigArr);
+                    if (a2 == null) {
                         throw new IllegalArgumentException("No config chosen");
                     }
-                    return a;
+                    return a2;
                 }
                 throw new IllegalArgumentException("eglChooseConfig#2 failed");
             }
@@ -83,7 +87,7 @@ public class f implements ad {
         abstract EGLConfig a(EGL10 egl10, EGLDisplay eGLDisplay, EGLConfig[] eGLConfigArr);
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes7.dex */
     private class b extends a {
         protected int c;
         protected int d;
@@ -111,14 +115,14 @@ public class f implements ad {
         @Override // com.baidu.platform.comapi.map.f.a
         public EGLConfig a(EGL10 egl10, EGLDisplay eGLDisplay, EGLConfig[] eGLConfigArr) {
             for (EGLConfig eGLConfig : eGLConfigArr) {
-                int a = a(egl10, eGLDisplay, eGLConfig, 12325, 0);
-                int a2 = a(egl10, eGLDisplay, eGLConfig, 12326, 0);
-                if (a >= this.g && a2 >= this.h) {
-                    int a3 = a(egl10, eGLDisplay, eGLConfig, 12324, 0);
-                    int a4 = a(egl10, eGLDisplay, eGLConfig, 12323, 0);
-                    int a5 = a(egl10, eGLDisplay, eGLConfig, 12322, 0);
-                    int a6 = a(egl10, eGLDisplay, eGLConfig, 12321, 0);
-                    if (a3 == this.c && a4 == this.d && a5 == this.e && a6 == this.f) {
+                int a2 = a(egl10, eGLDisplay, eGLConfig, 12325, 0);
+                int a3 = a(egl10, eGLDisplay, eGLConfig, 12326, 0);
+                if (a2 >= this.g && a3 >= this.h) {
+                    int a4 = a(egl10, eGLDisplay, eGLConfig, 12324, 0);
+                    int a5 = a(egl10, eGLDisplay, eGLConfig, 12323, 0);
+                    int a6 = a(egl10, eGLDisplay, eGLConfig, 12322, 0);
+                    int a7 = a(egl10, eGLDisplay, eGLConfig, 12321, 0);
+                    if (a4 == this.c && a5 == this.d && a6 == this.e && a7 == this.f) {
                         return eGLConfig;
                     }
                 }
@@ -127,15 +131,15 @@ public class f implements ad {
         }
     }
 
-    /* loaded from: classes3.dex */
-    private class c implements InterfaceC0242f {
+    /* loaded from: classes7.dex */
+    private class c implements InterfaceC0257f {
         private int b;
 
         private c() {
             this.b = 12440;
         }
 
-        @Override // com.baidu.platform.comapi.map.f.InterfaceC0242f
+        @Override // com.baidu.platform.comapi.map.f.InterfaceC0257f
         public EGLContext a(EGL10 egl10, EGLDisplay eGLDisplay, EGLConfig eGLConfig) {
             int[] iArr = {this.b, f.this.l, 12344};
             EGLContext eGLContext = EGL10.EGL_NO_CONTEXT;
@@ -145,7 +149,7 @@ public class f implements ad {
             return egl10.eglCreateContext(eGLDisplay, eGLConfig, eGLContext, iArr);
         }
 
-        @Override // com.baidu.platform.comapi.map.f.InterfaceC0242f
+        @Override // com.baidu.platform.comapi.map.f.InterfaceC0257f
         public void a(EGL10 egl10, EGLDisplay eGLDisplay, EGLContext eGLContext) {
             if (egl10.eglDestroyContext(eGLDisplay, eGLContext)) {
                 return;
@@ -155,7 +159,7 @@ public class f implements ad {
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes7.dex */
     private static class d implements g {
         private d() {
         }
@@ -176,20 +180,20 @@ public class f implements ad {
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes7.dex */
     public interface e {
         EGLConfig a(EGL10 egl10, EGLDisplay eGLDisplay);
     }
 
     /* renamed from: com.baidu.platform.comapi.map.f$f  reason: collision with other inner class name */
-    /* loaded from: classes3.dex */
-    public interface InterfaceC0242f {
+    /* loaded from: classes7.dex */
+    public interface InterfaceC0257f {
         EGLContext a(EGL10 egl10, EGLDisplay eGLDisplay, EGLConfig eGLConfig);
 
         void a(EGL10 egl10, EGLDisplay eGLDisplay, EGLContext eGLContext);
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes7.dex */
     public interface g {
         EGLSurface a(EGL10 egl10, EGLDisplay eGLDisplay, EGLConfig eGLConfig, Object obj);
 
@@ -197,9 +201,11 @@ public class f implements ad {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes3.dex */
+    /* loaded from: classes7.dex */
     public static class h {
-        EGL10 a;
+
+        /* renamed from: a  reason: collision with root package name */
+        EGL10 f2915a;
         EGLDisplay b;
         EGLSurface c;
         EGLConfig d;
@@ -248,7 +254,7 @@ public class f implements ad {
         }
 
         private void a(String str) {
-            a(str, this.a.eglGetError());
+            a(str, this.f2915a.eglGetError());
         }
 
         public static void a(String str, int i) {
@@ -271,21 +277,21 @@ public class f implements ad {
             if (this.c == null || this.c == EGL10.EGL_NO_SURFACE) {
                 return;
             }
-            this.a.eglMakeCurrent(this.b, EGL10.EGL_NO_SURFACE, EGL10.EGL_NO_SURFACE, EGL10.EGL_NO_CONTEXT);
+            this.f2915a.eglMakeCurrent(this.b, EGL10.EGL_NO_SURFACE, EGL10.EGL_NO_SURFACE, EGL10.EGL_NO_CONTEXT);
             f fVar = this.f.get();
             if (fVar != null) {
-                fVar.i.a(this.a, this.b, this.c);
+                fVar.i.a(this.f2915a, this.b, this.c);
             }
             this.c = null;
         }
 
         public void a() {
-            this.a = (EGL10) EGLContext.getEGL();
-            this.b = this.a.eglGetDisplay(EGL10.EGL_DEFAULT_DISPLAY);
+            this.f2915a = (EGL10) EGLContext.getEGL();
+            this.b = this.f2915a.eglGetDisplay(EGL10.EGL_DEFAULT_DISPLAY);
             if (this.b == EGL10.EGL_NO_DISPLAY) {
                 throw new RuntimeException("eglGetDisplay failed");
             }
-            if (!this.a.eglInitialize(this.b, new int[2])) {
+            if (!this.f2915a.eglInitialize(this.b, new int[2])) {
                 throw new RuntimeException("eglInitialize failed");
             }
             f fVar = this.f.get();
@@ -293,8 +299,8 @@ public class f implements ad {
                 this.d = null;
                 this.e = null;
             } else {
-                this.d = fVar.g.a(this.a, this.b);
-                this.e = fVar.h.a(this.a, this.b, this.d);
+                this.d = fVar.g.a(this.f2915a, this.b);
+                this.e = fVar.h.a(this.f2915a, this.b, this.d);
             }
             if (this.e == null || this.e == EGL10.EGL_NO_CONTEXT) {
                 this.e = null;
@@ -304,7 +310,7 @@ public class f implements ad {
         }
 
         public boolean b() {
-            if (this.a == null) {
+            if (this.f2915a == null) {
                 throw new RuntimeException("egl not initialized");
             }
             if (this.b == null) {
@@ -316,19 +322,19 @@ public class f implements ad {
             g();
             f fVar = this.f.get();
             if (fVar != null) {
-                this.c = fVar.i.a(this.a, this.b, this.d, fVar.a());
+                this.c = fVar.i.a(this.f2915a, this.b, this.d, fVar.a());
             } else {
                 this.c = null;
             }
             if (this.c == null || this.c == EGL10.EGL_NO_SURFACE) {
-                if (this.a.eglGetError() == 12299) {
+                if (this.f2915a.eglGetError() == 12299) {
                     Log.e("EglHelper", "createWindowSurface returned EGL_BAD_NATIVE_WINDOW.");
                 }
                 return false;
-            } else if (this.a.eglMakeCurrent(this.b, this.c, this.c, this.e)) {
+            } else if (this.f2915a.eglMakeCurrent(this.b, this.c, this.c, this.e)) {
                 return true;
             } else {
-                a("EGLHelper", "eglMakeCurrent", this.a.eglGetError());
+                a("EGLHelper", "eglMakeCurrent", this.f2915a.eglGetError());
                 return false;
             }
         }
@@ -349,7 +355,7 @@ public class f implements ad {
         }
 
         public int d() {
-            return !this.a.eglSwapBuffers(this.b, this.c) ? this.a.eglGetError() : CommandMessage.COMMAND_BASE;
+            return !this.f2915a.eglSwapBuffers(this.b, this.c) ? this.f2915a.eglGetError() : CommandMessage.COMMAND_BASE;
         }
 
         public void e() {
@@ -360,21 +366,23 @@ public class f implements ad {
             if (this.e != null) {
                 f fVar = this.f.get();
                 if (fVar != null) {
-                    fVar.h.a(this.a, this.b, this.e);
+                    fVar.h.a(this.f2915a, this.b, this.e);
                 }
                 this.e = null;
             }
             if (this.b != null) {
-                this.a.eglTerminate(this.b);
+                this.f2915a.eglTerminate(this.b);
                 this.b = null;
             }
         }
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes3.dex */
+    /* loaded from: classes7.dex */
     public static class i extends Thread {
-        private boolean a;
+
+        /* renamed from: a  reason: collision with root package name */
+        private boolean f2916a;
         private boolean b;
         private boolean c;
         private boolean d;
@@ -455,7 +463,7 @@ public class f implements ad {
             while (true) {
                 try {
                     synchronized (f.b) {
-                        while (!this.a) {
+                        while (!this.f2916a) {
                             if (this.r.isEmpty()) {
                                 boolean z19 = false;
                                 if (this.d != this.c) {
@@ -851,7 +859,7 @@ public class f implements ad {
 
         public void h() {
             synchronized (f.b) {
-                this.a = true;
+                this.f2916a = true;
                 f.b.notifyAll();
                 while (!this.b) {
                     try {
@@ -876,9 +884,11 @@ public class f implements ad {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes3.dex */
+    /* loaded from: classes7.dex */
     public static class j {
-        private static String a = "GLThreadManager";
+
+        /* renamed from: a  reason: collision with root package name */
+        private static String f2917a = "GLThreadManager";
 
         private j() {
         }
@@ -893,23 +903,25 @@ public class f implements ad {
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes7.dex */
     public interface k {
         GL a(GL gl);
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes3.dex */
+    /* loaded from: classes7.dex */
     public static class l extends Writer {
-        private StringBuilder a = new StringBuilder();
+
+        /* renamed from: a  reason: collision with root package name */
+        private StringBuilder f2918a = new StringBuilder();
 
         l() {
         }
 
         private void a() {
-            if (this.a.length() > 0) {
-                Log.v("GLSurfaceView26", this.a.toString());
-                this.a.delete(0, this.a.length());
+            if (this.f2918a.length() > 0) {
+                Log.v("GLSurfaceView26", this.f2918a.toString());
+                this.f2918a.delete(0, this.f2918a.length());
             }
         }
 
@@ -930,13 +942,13 @@ public class f implements ad {
                 if (c == '\n') {
                     a();
                 } else {
-                    this.a.append(c);
+                    this.f2918a.append(c);
                 }
             }
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes7.dex */
     private class m extends b {
         public m(boolean z) {
             super(8, 8, 8, 0, z ? 16 : 0, 0);
@@ -944,7 +956,7 @@ public class f implements ad {
     }
 
     public f(SurfaceView surfaceView) {
-        this.a = new WeakReference<>(surfaceView);
+        this.f2912a = new WeakReference<>(surfaceView);
     }
 
     private Bitmap a(int i2, int i3, int i4, int i5, GL10 gl10, Bitmap.Config config) {
@@ -980,7 +992,7 @@ public class f implements ad {
     }
 
     public SurfaceHolder a() {
-        SurfaceView surfaceView = this.a.get();
+        SurfaceView surfaceView = this.f2912a.get();
         if (surfaceView != null) {
             return surfaceView.getHolder();
         }
@@ -1018,9 +1030,9 @@ public class f implements ad {
         this.g = eVar;
     }
 
-    public void a(InterfaceC0242f interfaceC0242f) {
+    public void a(InterfaceC0257f interfaceC0257f) {
         l();
-        this.h = interfaceC0242f;
+        this.h = interfaceC0257f;
     }
 
     @Override // com.baidu.platform.comapi.map.ad
@@ -1033,7 +1045,7 @@ public class f implements ad {
     }
 
     public int b() {
-        SurfaceView surfaceView = this.a.get();
+        SurfaceView surfaceView = this.f2912a.get();
         if (surfaceView != null) {
             return surfaceView.getWidth();
         }
@@ -1050,7 +1062,7 @@ public class f implements ad {
     }
 
     public int c() {
-        SurfaceView surfaceView = this.a.get();
+        SurfaceView surfaceView = this.f2912a.get();
         if (surfaceView != null) {
             return surfaceView.getHeight();
         }

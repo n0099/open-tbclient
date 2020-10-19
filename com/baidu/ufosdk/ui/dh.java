@@ -7,13 +7,15 @@ import android.os.Handler;
 import android.view.View;
 import java.util.ArrayList;
 import java.util.concurrent.ExecutorService;
-/* loaded from: classes21.dex */
+/* loaded from: classes22.dex */
 final class dh extends BroadcastReceiver {
-    final /* synthetic */ FeedbackListActivity a;
+
+    /* renamed from: a  reason: collision with root package name */
+    final /* synthetic */ FeedbackListActivity f3828a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public dh(FeedbackListActivity feedbackListActivity) {
-        this.a = feedbackListActivity;
+        this.f3828a = feedbackListActivity;
     }
 
     @Override // android.content.BroadcastReceiver
@@ -26,28 +28,28 @@ final class dh extends BroadcastReceiver {
         View view3;
         Handler handler2;
         if (intent.getAction().equals("com.baidu.ufosdk.gethistorylist")) {
-            view3 = this.a.w;
+            view3 = this.f3828a.w;
             view3.setVisibility(8);
-            handler2 = this.a.A;
+            handler2 = this.f3828a.A;
             handler2.obtainMessage(0, (ArrayList) intent.getSerializableExtra("msgList")).sendToTarget();
-            FeedbackListActivity.k(this.a);
+            FeedbackListActivity.k(this.f3828a);
         }
         if (intent.getAction().equals("com.baidu.ufosdk.getnewhistoryflag")) {
-            executorService2 = this.a.y;
+            executorService2 = this.f3828a.y;
             executorService2.execute(new di(this));
         }
         if (intent.getAction().equals("com.baidu.ufosdk.getappkeysuccess_getnewhistoryflag")) {
-            executorService = this.a.y;
+            executorService = this.f3828a.y;
             executorService.execute(new dj(this));
         }
         if (intent.getAction().equals("com.baidu.ufosdk.deletemsg_dialogdismiss")) {
-            view = this.a.v;
+            view = this.f3828a.v;
             view.setVisibility(8);
-            view2 = this.a.w;
+            view2 = this.f3828a.w;
             view2.setVisibility(8);
         }
         if (intent.getAction().equals("com.baidu.ufosdk.reload")) {
-            handler = this.a.A;
+            handler = this.f3828a.A;
             handler.obtainMessage(1, null).sendToTarget();
         }
     }

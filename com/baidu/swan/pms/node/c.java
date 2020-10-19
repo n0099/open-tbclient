@@ -1,7 +1,7 @@
 package com.baidu.swan.pms.node;
 
 import android.support.annotation.NonNull;
-/* loaded from: classes24.dex */
+/* loaded from: classes15.dex */
 public interface c<T> {
-    void T(@NonNull T t);
+    void W(@NonNull T t);
 }

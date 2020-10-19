@@ -1,15 +1,17 @@
 package com.baidu.helios.bridge.multiprocess;
 
 import android.content.Context;
-/* loaded from: classes23.dex */
+/* loaded from: classes17.dex */
 public class g {
-    private Context a;
+
+    /* renamed from: a  reason: collision with root package name */
+    private Context f1794a;
 
     public g(Context context) {
-        this.a = context;
+        this.f1794a = context;
     }
 
-    public com.baidu.helios.bridge.a zY() {
-        return com.baidu.helios.a.af(this.a);
+    public com.baidu.helios.bridge.a Ag() {
+        return com.baidu.helios.a.ai(this.f1794a);
     }
 }

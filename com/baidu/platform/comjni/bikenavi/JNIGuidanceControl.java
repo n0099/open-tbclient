@@ -1,7 +1,7 @@
 package com.baidu.platform.comjni.bikenavi;
 
 import android.os.Bundle;
-/* loaded from: classes3.dex */
+/* loaded from: classes7.dex */
 public class JNIGuidanceControl {
     public native byte[] GetProtobufResult(long j, int i);
 

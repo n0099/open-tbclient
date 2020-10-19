@@ -4,15 +4,17 @@ import android.os.Bundle;
 import java.util.concurrent.TimeUnit;
 import java.util.concurrent.locks.ReadWriteLock;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes3.dex */
+/* loaded from: classes7.dex */
 public class o implements Runnable {
-    final /* synthetic */ Bundle a;
+
+    /* renamed from: a  reason: collision with root package name */
+    final /* synthetic */ Bundle f3179a;
     final /* synthetic */ NABaseMap b;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public o(NABaseMap nABaseMap, Bundle bundle) {
         this.b = nABaseMap;
-        this.a = bundle;
+        this.f3179a = bundle;
     }
 
     @Override // java.lang.Runnable
@@ -23,7 +25,7 @@ public class o implements Runnable {
         ReadWriteLock readWriteLock2;
         ReadWriteLock readWriteLock3;
         long j;
-        boolean a;
+        boolean a2;
         ReadWriteLock readWriteLock4;
         ReadWriteLock readWriteLock5;
         try {
@@ -32,9 +34,9 @@ public class o implements Runnable {
                 boolean tryLock = readWriteLock3.readLock().tryLock(2000L, TimeUnit.MILLISECONDS);
                 if (tryLock) {
                     try {
-                        if (this.a != null) {
-                            a = this.b.a(this.a.getLong("itemaddr", 0L));
-                            if (a) {
+                        if (this.f3179a != null) {
+                            a2 = this.b.a(this.f3179a.getLong("itemaddr", 0L));
+                            if (a2) {
                                 if (tryLock) {
                                     readWriteLock4 = this.b.c;
                                     readWriteLock4.readLock().unlock();
@@ -45,7 +47,7 @@ public class o implements Runnable {
                         }
                         NABaseMap nABaseMap = this.b;
                         j = this.b.b;
-                        nABaseMap.nativeAddItemData(j, this.a);
+                        nABaseMap.nativeAddItemData(j, this.f3179a);
                     } catch (Throwable th2) {
                         z = tryLock;
                         th = th2;

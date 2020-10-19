@@ -10,12 +10,12 @@ import com.baidu.live.tbadk.TbPageContext;
 import com.baidu.live.tbadk.core.TbadkCoreApplication;
 /* loaded from: classes4.dex */
 public class b extends com.baidu.tieba.ala.liveroom.a {
-    private int aFQ;
-    private String aVs;
-    private long fyR;
-    private c gLL;
-    private long gLM;
-    private String gLN;
+    private int aIU;
+    private String aYD;
+    private long fLa;
+    private c haI;
+    private long haJ;
+    private String haK;
     private boolean mIsHost;
     private String mPortrait;
     public String otherParams;
@@ -25,73 +25,73 @@ public class b extends com.baidu.tieba.ala.liveroom.a {
     }
 
     public void a(int i, long j, String str, boolean z, String str2, String str3, String str4, long j2) {
-        this.aFQ = i;
-        this.gLM = j;
-        this.gLN = str;
+        this.aIU = i;
+        this.haJ = j;
+        this.haK = str;
         this.mIsHost = z;
         this.mPortrait = str2;
-        this.aVs = str4;
-        this.fyR = j2;
+        this.aYD = str4;
+        this.fLa = j2;
         this.otherParams = str3;
     }
 
     @Override // com.baidu.tieba.ala.liveroom.a
-    public void at(ViewGroup viewGroup) {
-        super.at(viewGroup);
-        if (this.gLL == null) {
-            com.baidu.live.s.a aVar = new com.baidu.live.s.a(getPageContext().getPageActivity(), this.aFQ, this.gLM, this.mIsHost, this.mPortrait, this.otherParams, this.aVs, this.fyR);
-            aVar.userName = this.gLN;
+    public void av(ViewGroup viewGroup) {
+        super.av(viewGroup);
+        if (this.haI == null) {
+            com.baidu.live.s.a aVar = new com.baidu.live.s.a(getPageContext().getPageActivity(), this.aIU, this.haJ, this.mIsHost, this.mPortrait, this.otherParams, this.aYD, this.fLa);
+            aVar.userName = this.haK;
             CustomResponsedMessage runTask = MessageManager.getInstance().runTask(2913036, c.class, aVar);
             if (runTask != null && runTask.getData() != null) {
-                this.gLL = (c) runTask.getData();
+                this.haI = (c) runTask.getData();
             }
         }
         if (TbadkCoreApplication.sAlaLiveSwitchData == null || !TbadkCoreApplication.sAlaLiveSwitchData.isRankHourUnabled()) {
-            aB(viewGroup);
+            aD(viewGroup);
         }
     }
 
-    private void aB(ViewGroup viewGroup) {
-        if (this.gLL != null && this.gLL.Nc() != null && viewGroup.indexOfChild(this.gLL.Nc()) < 0) {
-            this.gLL.Nc().setId(a.g.ala_liveroom_ranklist);
+    private void aD(ViewGroup viewGroup) {
+        if (this.haI != null && this.haI.Oh() != null && viewGroup.indexOfChild(this.haI.Oh()) < 0) {
+            this.haI.Oh().setId(a.g.ala_liveroom_ranklist);
             RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(-2, -2);
             layoutParams.addRule(1, a.g.ala_rank_level_entry);
             layoutParams.addRule(3, a.g.ala_liveroom_hostheader);
             layoutParams.leftMargin = getPageContext().getPageActivity().getResources().getDimensionPixelSize(a.e.sdk_ds20);
             layoutParams.topMargin = getPageContext().getPageActivity().getResources().getDimensionPixelSize(a.e.sdk_ds16);
-            viewGroup.addView(this.gLL.Nc(), layoutParams);
+            viewGroup.addView(this.haI.Oh(), layoutParams);
         }
     }
 
     @Override // com.baidu.tieba.ala.liveroom.a
-    public void BQ() {
-        super.BQ();
-        if (this.gLL != null && this.gLL.Nc() != null && this.gLL.Nc().getParent() != null) {
-            ((ViewGroup) this.gLL.Nc().getParent()).removeView(this.gLL.Nc());
+    public void CN() {
+        super.CN();
+        if (this.haI != null && this.haI.Oh() != null && this.haI.Oh().getParent() != null) {
+            ((ViewGroup) this.haI.Oh().getParent()).removeView(this.haI.Oh());
         }
-        if (this.gLL != null) {
-            this.gLL.destory();
-            this.gLL = null;
+        if (this.haI != null) {
+            this.haI.destory();
+            this.haI = null;
         }
     }
 
     @Override // com.baidu.tieba.ala.liveroom.a
     public void onDestroy() {
-        if (this.gLL != null) {
-            this.gLL.destory();
-            this.gLL = null;
+        if (this.haI != null) {
+            this.haI.destory();
+            this.haI = null;
         }
     }
 
-    public void bXU() {
-        if (this.gLL != null) {
-            this.gLL.Nf();
+    public void cbu() {
+        if (this.haI != null) {
+            this.haI.Ok();
         }
     }
 
-    public void bXV() {
-        if (this.gLL != null) {
-            this.gLL.Ng();
+    public void cbv() {
+        if (this.haI != null) {
+            this.haI.Ol();
         }
     }
 }

@@ -4,13 +4,15 @@ import android.graphics.Color;
 import android.view.View;
 import android.widget.RelativeLayout;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes3.dex */
+/* loaded from: classes7.dex */
 public class c implements Runnable {
-    final /* synthetic */ b a;
+
+    /* renamed from: a  reason: collision with root package name */
+    final /* synthetic */ b f2400a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public c(b bVar) {
-        this.a = bVar;
+        this.f2400a = bVar;
     }
 
     @Override // java.lang.Runnable
@@ -20,20 +22,20 @@ public class c implements Runnable {
         View x;
         RelativeLayout.LayoutParams z;
         RelativeLayout relativeLayout2;
-        if (this.a.s()) {
-            relativeLayout2 = this.a.e;
+        if (this.f2400a.s()) {
+            relativeLayout2 = this.f2400a.e;
             relativeLayout2.setBackgroundColor(Color.argb(51, 0, 0, 0));
         }
-        if (this.a.h.getAdView() != null) {
-            this.a.h.getAdView().setVisibility(0);
+        if (this.f2400a.h.getAdView() != null) {
+            this.f2400a.h.getAdView().setVisibility(0);
         }
-        w = this.a.w();
+        w = this.f2400a.w();
         if (w) {
-            this.a.x.d("add countdown view");
-            this.a.y();
-            relativeLayout = this.a.e;
-            x = this.a.x();
-            z = this.a.z();
+            this.f2400a.x.d("add countdown view");
+            this.f2400a.y();
+            relativeLayout = this.f2400a.e;
+            x = this.f2400a.x();
+            z = this.f2400a.z();
             relativeLayout.addView(x, z);
         }
     }

@@ -42,7 +42,7 @@ public class e implements Cloneable {
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    /* renamed from: CG */
+    /* renamed from: DD */
     public e clone() {
         try {
             return (e) super.clone();
@@ -84,7 +84,7 @@ public class e implements Cloneable {
         this.mInLive = str;
     }
 
-    public BdUniqueId CH() {
+    public BdUniqueId DE() {
         return this.mPageId;
     }
 
@@ -100,7 +100,7 @@ public class e implements Cloneable {
         return this.from;
     }
 
-    public String CI() {
+    public String DF() {
         return this.metaKey;
     }
 }

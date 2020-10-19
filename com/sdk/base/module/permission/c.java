@@ -6,9 +6,11 @@ import android.content.Intent;
 import android.os.Build;
 import java.util.ArrayList;
 import java.util.Arrays;
-/* loaded from: classes5.dex */
+/* loaded from: classes16.dex */
 public final class c implements a {
-    private String[] a;
+
+    /* renamed from: a  reason: collision with root package name */
+    private String[] f4514a;
     private b b;
     private String[] c;
     private Context d;
@@ -19,7 +21,7 @@ public final class c implements a {
 
     private void b() {
         if (this.b != null) {
-            Arrays.asList(this.a);
+            Arrays.asList(this.f4514a);
         }
     }
 
@@ -27,7 +29,7 @@ public final class c implements a {
     public final void a() {
         if (Build.VERSION.SDK_INT >= 23) {
             Context context = this.d;
-            String[] strArr = this.a;
+            String[] strArr = this.f4514a;
             ArrayList arrayList = new ArrayList(1);
             for (String str : strArr) {
                 if (context.checkSelfPermission(str) != 0) {
@@ -52,7 +54,7 @@ public final class c implements a {
     }
 
     public final void a(String... strArr) {
-        this.a = strArr;
+        this.f4514a = strArr;
     }
 
     @Override // com.sdk.base.module.permission.a

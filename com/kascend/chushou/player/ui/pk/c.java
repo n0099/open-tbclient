@@ -8,7 +8,9 @@ import android.widget.ImageView;
 import java.lang.ref.SoftReference;
 /* loaded from: classes6.dex */
 public class c implements Runnable {
-    protected int[] a;
+
+    /* renamed from: a  reason: collision with root package name */
+    protected int[] f4213a;
     protected int b;
     protected long c;
     protected int d;
@@ -18,17 +20,17 @@ public class c implements Runnable {
     private boolean j;
     private int k;
     private boolean m;
-    private SoftReference<ImageView> ogG;
-    private BitmapFactory.Options ogH;
-    private d ogI;
+    private SoftReference<ImageView> ovZ;
+    private BitmapFactory.Options owa;
+    private d owb;
 
     public c(ImageView imageView, int[] iArr, int i, int i2, long j) {
         this.h = null;
         this.j = false;
         this.k = 0;
         this.m = false;
-        this.ogG = new SoftReference<>(imageView);
-        this.a = iArr;
+        this.ovZ = new SoftReference<>(imageView);
+        this.f4213a = iArr;
         if (i > 0) {
             this.b = i;
             this.c = 1000 / i;
@@ -41,10 +43,10 @@ public class c implements Runnable {
             imageView.setVisibility(4);
             Bitmap bitmap = ((BitmapDrawable) imageView.getDrawable()).getBitmap();
             this.h = Bitmap.createBitmap(bitmap.getWidth(), bitmap.getHeight(), bitmap.getConfig());
-            this.ogH = new BitmapFactory.Options();
-            this.ogH.inBitmap = this.h;
-            this.ogH.inMutable = true;
-            this.ogH.inSampleSize = 1;
+            this.owa = new BitmapFactory.Options();
+            this.owa.inBitmap = this.h;
+            this.owa.inMutable = true;
+            this.owa.inSampleSize = 1;
         }
     }
 
@@ -53,7 +55,7 @@ public class c implements Runnable {
     }
 
     public void a(d dVar) {
-        this.ogI = dVar;
+        this.owb = dVar;
     }
 
     public void a() {
@@ -66,25 +68,25 @@ public class c implements Runnable {
         Bitmap bitmap;
         if (!this.m) {
             this.m = true;
-            if (this.ogI != null) {
-                this.ogI.a(this);
+            if (this.owb != null) {
+                this.owb.a(this);
             }
         }
         if (this.j) {
             c();
             return;
         }
-        ImageView imageView = this.ogG.get();
+        ImageView imageView = this.ovZ.get();
         if (imageView == null) {
             c();
-        } else if (this.a == null || this.a.length <= 0 || this.k >= this.a.length) {
+        } else if (this.f4213a == null || this.f4213a.length <= 0 || this.k >= this.f4213a.length) {
             c();
         } else {
             imageView.setVisibility(0);
-            int i = this.a[this.k];
-            if (this.h != null && this.ogH != null) {
+            int i = this.f4213a[this.k];
+            if (this.h != null && this.owa != null) {
                 try {
-                    bitmap = BitmapFactory.decodeResource(imageView.getResources(), i, this.ogH);
+                    bitmap = BitmapFactory.decodeResource(imageView.getResources(), i, this.owa);
                 } catch (Exception e) {
                     e.printStackTrace();
                     bitmap = null;
@@ -102,29 +104,29 @@ public class c implements Runnable {
             this.k++;
             if (this.j) {
                 c();
-            } else if (this.k >= this.a.length && (this.d <= 0 || this.e >= this.d)) {
+            } else if (this.k >= this.f4213a.length && (this.d <= 0 || this.e >= this.d)) {
                 c();
-            } else if (this.k >= this.a.length) {
+            } else if (this.k >= this.f4213a.length) {
                 this.k = 0;
                 this.e++;
-                e.eew().b(this);
-                if (this.ogI != null) {
-                    this.ogI.b(this);
+                e.eih().b(this);
+                if (this.owb != null) {
+                    this.owb.b(this);
                 }
             } else {
-                e.eew().a(this);
+                e.eih().a(this);
             }
         }
     }
 
     private void c() {
-        if (this.ogI != null) {
-            this.ogI.c(this);
+        if (this.owb != null) {
+            this.owb.c(this);
         }
     }
 
     public void b() {
-        ImageView imageView = this.ogG.get();
+        ImageView imageView = this.ovZ.get();
         if (imageView != null) {
             imageView.setVisibility(8);
         }

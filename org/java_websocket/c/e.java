@@ -1,21 +1,21 @@
 package org.java_websocket.c;
-/* loaded from: classes17.dex */
+/* loaded from: classes11.dex */
 public class e extends g implements i {
-    private short oMS;
-    private String oMT;
+    private short pci;
+    private String pcj;
 
     @Override // org.java_websocket.c.h
-    public String enC() {
-        return this.oMT;
+    public String ero() {
+        return this.pcj;
     }
 
     @Override // org.java_websocket.c.i
-    public void WZ(String str) {
-        this.oMT = str;
+    public void XN(String str) {
+        this.pcj = str;
     }
 
     @Override // org.java_websocket.c.i
     public void l(short s) {
-        this.oMS = s;
+        this.pci = s;
     }
 }

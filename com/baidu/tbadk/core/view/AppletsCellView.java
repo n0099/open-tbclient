@@ -17,14 +17,14 @@ import com.baidu.tieba.R;
 import tbclient.SmartApp;
 /* loaded from: classes.dex */
 public class AppletsCellView extends LinearLayout implements View.OnClickListener {
-    private String alA;
-    private TextView clp;
-    private SmartApp egh;
-    private HeadImageView eqN;
-    private TextView eqO;
-    private TbImageView eqP;
-    private HeadImageView eqQ;
-    private TextView eqR;
+    private String alS;
+    private TextView cxH;
+    private HeadImageView eCZ;
+    private TextView eDa;
+    private TbImageView eDb;
+    private HeadImageView eDc;
+    private TextView eDd;
+    private SmartApp esn;
     private String mForumId;
     private String mFrom;
     private int mSkinType;
@@ -50,25 +50,25 @@ public class AppletsCellView extends LinearLayout implements View.OnClickListene
     private void init(Context context) {
         setOrientation(1);
         LayoutInflater.from(context).inflate(R.layout.applets_cell_layout, (ViewGroup) this, true);
-        this.eqN = (HeadImageView) findViewById(R.id.applets_app_icon);
-        this.eqO = (TextView) findViewById(R.id.applets_app_name);
-        this.clp = (TextView) findViewById(R.id.applets_app_content);
-        this.eqP = (TbImageView) findViewById(R.id.applets_app_img);
-        this.eqQ = (HeadImageView) findViewById(R.id.applets_app_type_icon);
-        this.eqR = (TextView) findViewById(R.id.applets_app_type_name);
-        this.eqN.setIsRound(true);
-        this.eqN.setIsPreDrawBorder(true);
-        this.eqN.setDrawBorder(true);
-        this.eqN.setBorderWidth(com.baidu.adp.lib.util.l.getDimens(context, R.dimen.tbds1));
-        this.eqN.setDefaultResource(R.color.cp_bg_line_e);
-        this.eqN.setRadius(com.baidu.adp.lib.util.l.getDimens(context, R.dimen.ds70));
-        ViewGroup.LayoutParams layoutParams = this.eqP.getLayoutParams();
+        this.eCZ = (HeadImageView) findViewById(R.id.applets_app_icon);
+        this.eDa = (TextView) findViewById(R.id.applets_app_name);
+        this.cxH = (TextView) findViewById(R.id.applets_app_content);
+        this.eDb = (TbImageView) findViewById(R.id.applets_app_img);
+        this.eDc = (HeadImageView) findViewById(R.id.applets_app_type_icon);
+        this.eDd = (TextView) findViewById(R.id.applets_app_type_name);
+        this.eCZ.setIsRound(true);
+        this.eCZ.setIsPreDrawBorder(true);
+        this.eCZ.setDrawBorder(true);
+        this.eCZ.setBorderWidth(com.baidu.adp.lib.util.l.getDimens(context, R.dimen.tbds1));
+        this.eCZ.setDefaultResource(R.color.cp_bg_line_e);
+        this.eCZ.setRadius(com.baidu.adp.lib.util.l.getDimens(context, R.dimen.ds70));
+        ViewGroup.LayoutParams layoutParams = this.eDb.getLayoutParams();
         layoutParams.height = ((com.baidu.adp.lib.util.l.getEquipmentWidth(getContext()) - com.baidu.adp.lib.util.l.getDimens(getContext(), R.dimen.tbds130)) * 9) / 16;
-        this.eqP.setLayoutParams(layoutParams);
-        this.eqP.setConrers(15);
+        this.eDb.setLayoutParams(layoutParams);
+        this.eDb.setConrers(15);
         setOnClickListener(this);
-        this.eqQ.setIsRound(true);
-        this.eqQ.setDrawBorder(false);
+        this.eDc.setIsRound(true);
+        this.eDc.setDrawBorder(false);
         onChangeSkinType();
     }
 
@@ -81,7 +81,7 @@ public class AppletsCellView extends LinearLayout implements View.OnClickListene
     }
 
     public void setThreadId(String str) {
-        this.alA = str;
+        this.alS = str;
     }
 
     public void setData(SmartApp smartApp) {
@@ -90,60 +90,60 @@ public class AppletsCellView extends LinearLayout implements View.OnClickListene
             return;
         }
         setVisibility(0);
-        this.egh = smartApp;
-        this.eqN.startLoad(smartApp.avatar, 10, false);
-        this.eqO.setText(smartApp.name);
+        this.esn = smartApp;
+        this.eCZ.startLoad(smartApp.avatar, 10, false);
+        this.eDa.setText(smartApp.name);
         if (StringUtils.isNull(smartApp._abstract, true)) {
-            this.clp.setVisibility(8);
+            this.cxH.setVisibility(8);
         } else {
-            this.clp.setVisibility(0);
-            this.clp.setText(smartApp._abstract);
+            this.cxH.setVisibility(0);
+            this.cxH.setText(smartApp._abstract);
         }
         if (StringUtils.isNull(smartApp.pic, true)) {
-            this.eqP.setDefaultBgResource(R.drawable.pic_share_default_applets);
+            this.eDb.setDefaultBgResource(R.drawable.pic_share_default_applets);
             return;
         }
-        this.eqP.setEvent(new TbImageView.a() { // from class: com.baidu.tbadk.core.view.AppletsCellView.1
+        this.eDb.setEvent(new TbImageView.a() { // from class: com.baidu.tbadk.core.view.AppletsCellView.1
             @Override // com.baidu.tbadk.widget.TbImageView.a
             public void onComplete(String str, boolean z) {
                 if (!z) {
-                    AppletsCellView.this.eqP.setDefaultBgResource(R.drawable.pic_share_default_applets);
+                    AppletsCellView.this.eDb.setDefaultBgResource(R.drawable.pic_share_default_applets);
                 }
             }
 
             @Override // com.baidu.tbadk.widget.TbImageView.a
             public void onCancel() {
-                AppletsCellView.this.eqP.setDefaultBgResource(R.drawable.pic_share_default_applets);
+                AppletsCellView.this.eDb.setDefaultBgResource(R.drawable.pic_share_default_applets);
             }
         });
-        this.eqP.startLoad(smartApp.pic, 10, false);
+        this.eDb.startLoad(smartApp.pic, 10, false);
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        if (this.egh != null) {
-            if (!com.baidu.tieba.aiapps.a.b(this.egh.id, this.egh.link, "1191003900000000", this.egh.is_game)) {
-                if (!StringUtils.isNull(this.egh.h5_url)) {
-                    com.baidu.tbadk.browser.a.startWebActivity(getContext(), this.egh.h5_url);
+        if (this.esn != null) {
+            if (!com.baidu.tieba.aiapps.a.b(this.esn.id, this.esn.link, "1191003900000000", this.esn.is_game)) {
+                if (!StringUtils.isNull(this.esn.h5_url)) {
+                    com.baidu.tbadk.browser.a.startWebActivity(getContext(), this.esn.h5_url);
                 } else {
                     return;
                 }
             }
-            TiebaStatic.log(new aq("c13274").dF("fid", this.mForumId).dF("tid", this.alA).dF("uid", TbadkCoreApplication.getCurrentAccount()).dF("obj_name", this.egh.name).u("obj_id", this.egh.swan_app_id.longValue()).dF("obj_source", this.mFrom).ai("obj_param1", this.egh.is_game.intValue()));
+            TiebaStatic.log(new aq("c13274").dK("fid", this.mForumId).dK("tid", this.alS).dK("uid", TbadkCoreApplication.getCurrentAccount()).dK("obj_name", this.esn.name).u("obj_id", this.esn.swan_app_id.longValue()).dK("obj_source", this.mFrom).aj("obj_param1", this.esn.is_game.intValue()));
         }
     }
 
     public void onChangeSkinType() {
         this.mSkinType = TbadkCoreApplication.getInst().getSkinType();
         ap.setBackgroundResource(this, R.drawable.applets_cell_bg);
-        this.eqN.setBorderColor(ap.getColor(R.color.cp_bg_line_d));
-        this.eqN.setIsNight(this.mSkinType == 1);
-        ap.setViewTextColor(this.eqO, R.color.cp_cont_b);
-        ap.setViewTextColor(this.clp, R.color.cp_cont_b);
-        this.eqP.setIsNight(this.mSkinType == 1);
-        this.eqQ.setImageDrawable(ap.getDrawable(R.drawable.icon_avatar_smallapp_tie));
-        this.eqQ.setBorderColor(ap.getColor(R.color.cp_bg_line_d));
-        this.eqQ.setIsNight(this.mSkinType == 1);
-        ap.setViewTextColor(this.eqR, R.color.cp_cont_d);
+        this.eCZ.setBorderColor(ap.getColor(R.color.cp_bg_line_d));
+        this.eCZ.setIsNight(this.mSkinType == 1);
+        ap.setViewTextColor(this.eDa, R.color.cp_cont_b);
+        ap.setViewTextColor(this.cxH, R.color.cp_cont_b);
+        this.eDb.setIsNight(this.mSkinType == 1);
+        this.eDc.setImageDrawable(ap.getDrawable(R.drawable.icon_avatar_smallapp_tie));
+        this.eDc.setBorderColor(ap.getColor(R.color.cp_bg_line_d));
+        this.eDc.setIsNight(this.mSkinType == 1);
+        ap.setViewTextColor(this.eDd, R.color.cp_cont_d);
     }
 }

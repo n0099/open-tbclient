@@ -5,64 +5,64 @@ import tbclient.FrsPage.Size;
 import tbclient.FrsPage.StarInfo;
 /* loaded from: classes.dex */
 public class n {
-    private int mmZ = 0;
-    private int eLA = 0;
-    private String mna = null;
-    private String mnb = null;
-    private int mnc = 0;
-    private int mnd = 0;
-    private int mne = 0;
-    private int mnf = 0;
-    private int mng = 0;
-    private int mnh = 0;
-    private long mni = 0;
-    private long mnj = 0;
-    private boolean mnk = false;
-    private long mnl = 0;
-    private String mnm = null;
-    private String mnn = null;
+    private int mCC = 0;
+    private int eXH = 0;
+    private String mCD = null;
+    private String mCE = null;
+    private int mCF = 0;
+    private int mCG = 0;
+    private int mCH = 0;
+    private int mCI = 0;
+    private int mCJ = 0;
+    private int mCK = 0;
+    private long mCL = 0;
+    private long mCM = 0;
+    private boolean mCN = false;
+    private long mCO = 0;
+    private String mCP = null;
+    private String mCQ = null;
 
-    public int dzQ() {
-        return this.mmZ;
+    public int dDB() {
+        return this.mCC;
     }
 
-    public String dzR() {
-        return this.mnn;
+    public String dDC() {
+        return this.mCQ;
     }
 
     public void a(StarInfo starInfo) {
         if (starInfo != null) {
-            this.mmZ = starInfo.has_frs_star.intValue();
-            if (this.mmZ == 1) {
-                this.mna = starInfo.top;
-                this.mnb = starInfo.head;
+            this.mCC = starInfo.has_frs_star.intValue();
+            if (this.mCC == 1) {
+                this.mCD = starInfo.top;
+                this.mCE = starInfo.head;
                 Fans fans = starInfo.fans;
                 if (fans != null) {
-                    this.mnc = fans.is_get.intValue();
-                    this.mnd = fans.num.intValue();
-                    this.eLA = fans.open.intValue();
-                    this.mni = fans.left_time.intValue();
+                    this.mCF = fans.is_get.intValue();
+                    this.mCG = fans.num.intValue();
+                    this.eXH = fans.open.intValue();
+                    this.mCL = fans.left_time.intValue();
                 }
-                this.mnj = this.mni;
+                this.mCM = this.mCL;
                 Size size = starInfo.top_size;
                 if (size != null) {
-                    this.mne = size.width.intValue();
-                    this.mnf = size.height.intValue();
+                    this.mCH = size.width.intValue();
+                    this.mCI = size.height.intValue();
                 }
                 Size size2 = starInfo.head_size;
                 if (size2 != null) {
-                    this.mng = size2.width.intValue();
-                    this.mnh = size2.height.intValue();
+                    this.mCJ = size2.width.intValue();
+                    this.mCK = size2.height.intValue();
                 }
             }
-            this.mnk = starInfo.trade != null;
-            if (this.mnk) {
+            this.mCN = starInfo.trade != null;
+            if (this.mCN) {
                 if (starInfo.trade.time != null) {
-                    this.mnl = starInfo.trade.time.intValue();
+                    this.mCO = starInfo.trade.time.intValue();
                 }
-                this.mnm = starInfo.trade.url;
+                this.mCP = starInfo.trade.url;
             }
-            this.mnn = starInfo.star_forum_headimg;
+            this.mCQ = starInfo.star_forum_headimg;
         }
     }
 }

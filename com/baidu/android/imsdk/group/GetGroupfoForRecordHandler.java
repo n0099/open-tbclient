@@ -7,7 +7,7 @@ import com.baidu.android.imsdk.GetChatObjectInfoForRecordHandler;
 import com.baidu.android.imsdk.internal.IMConfigInternal;
 import com.baidu.android.imsdk.utils.LogUtils;
 import java.util.ArrayList;
-/* loaded from: classes9.dex */
+/* loaded from: classes5.dex */
 public class GetGroupfoForRecordHandler extends GetChatObjectInfoForRecordHandler {
     public GetGroupfoForRecordHandler(Context context) {
         super(context);

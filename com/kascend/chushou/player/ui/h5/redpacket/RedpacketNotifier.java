@@ -17,11 +17,13 @@ import tv.chushou.zues.utils.g;
 import tv.chushou.zues.widget.fresco.FrescoThumbnailView;
 /* loaded from: classes6.dex */
 public class RedpacketNotifier extends FrameLayout implements View.OnClickListener {
-    private ImageView a;
+
+    /* renamed from: a  reason: collision with root package name */
+    private ImageView f4180a;
     private TextView b;
     private int d;
     private boolean e;
-    private FrescoThumbnailView odJ;
+    private FrescoThumbnailView otc;
 
     public RedpacketNotifier(@NonNull Context context) {
         this(context, null);
@@ -41,12 +43,12 @@ public class RedpacketNotifier extends FrameLayout implements View.OnClickListen
 
     private void a(Context context) {
         LayoutInflater.from(context).inflate(a.h.view_videoplayer_redpacket_notifier, (ViewGroup) this, true);
-        this.a = (ImageView) findViewById(a.f.red_packet_close_view);
-        this.a.setOnClickListener(this);
-        this.odJ = (FrescoThumbnailView) findViewById(a.f.iv_redpacket);
-        this.odJ.setAnim(true);
-        this.odJ.CL(a.e.open_red_packet);
-        this.odJ.setOnClickListener(this);
+        this.f4180a = (ImageView) findViewById(a.f.red_packet_close_view);
+        this.f4180a.setOnClickListener(this);
+        this.otc = (FrescoThumbnailView) findViewById(a.f.iv_redpacket);
+        this.otc.setAnim(true);
+        this.otc.Dr(a.e.open_red_packet);
+        this.otc.setOnClickListener(this);
         this.b = (TextView) findViewById(a.f.tv_redpacket_count);
     }
 
@@ -58,8 +60,8 @@ public class RedpacketNotifier extends FrameLayout implements View.OnClickListen
             } else if (!this.e) {
                 setVisibility(0);
                 String f = aVar.f();
-                if (this.odJ != null) {
-                    this.odJ.i(f, a.e.open_red_packet, -1, -1);
+                if (this.otc != null) {
+                    this.otc.i(f, a.e.open_red_packet, -1, -1);
                 }
                 a(size, z);
                 this.e = true;
@@ -68,7 +70,7 @@ public class RedpacketNotifier extends FrameLayout implements View.OnClickListen
     }
 
     public void a(int i, boolean z) {
-        this.a.setImageResource(a.e.ic_room_ad_close_circle);
+        this.f4180a.setImageResource(a.e.ic_room_ad_close_circle);
         if (i == 0) {
             setVisibility(8);
         } else if (i == 1) {
@@ -91,8 +93,8 @@ public class RedpacketNotifier extends FrameLayout implements View.OnClickListen
         if (id == a.f.red_packet_close_view) {
             setVisibility(8);
         } else if (id == a.f.iv_redpacket) {
-            if (!tv.chushou.zues.utils.a.eqo()) {
-                g.Pk(a.i.s_no_available_network);
+            if (!tv.chushou.zues.utils.a.etZ()) {
+                g.PQ(a.i.s_no_available_network);
             } else if (e.c(getContext(), null)) {
                 tv.chushou.zues.a.a.post(new com.kascend.chushou.player.ui.button.b(6, null));
             }

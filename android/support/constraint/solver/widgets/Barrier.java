@@ -4,7 +4,7 @@ import android.support.constraint.solver.LinearSystem;
 import android.support.constraint.solver.SolverVariable;
 import android.support.constraint.solver.widgets.ConstraintWidget;
 import java.util.ArrayList;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class Barrier extends Helper {
     public static final int BOTTOM = 3;
     public static final int LEFT = 0;

@@ -3,8 +3,10 @@ package com.kascend.chushou;
 import java.util.HashMap;
 /* loaded from: classes6.dex */
 public class b {
-    private static volatile b nRo;
-    public boolean a = false;
+    private static volatile b ogG;
+
+    /* renamed from: a  reason: collision with root package name */
+    public boolean f4066a = false;
     public boolean b = false;
     public HashMap<String, String> c = new HashMap<>();
     public int d = -1;
@@ -13,12 +15,12 @@ public class b {
     private b() {
     }
 
-    public static b ecq() {
-        if (nRo == null) {
+    public static b egb() {
+        if (ogG == null) {
             synchronized (b.class) {
-                nRo = new b();
+                ogG = new b();
             }
         }
-        return nRo;
+        return ogG;
     }
 }

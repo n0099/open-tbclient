@@ -1,5 +1,5 @@
 package com.baidu.searchbox.unitedscheme;
-/* loaded from: classes14.dex */
+/* loaded from: classes16.dex */
 public interface CallbackHandler {
     String getCurrentPageUrl();
 

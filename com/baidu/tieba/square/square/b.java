@@ -18,66 +18,66 @@ import com.baidu.tbadk.core.view.BarImageView;
 import com.baidu.tieba.R;
 import com.baidu.tieba.square.view.BestStringsFitTextView;
 import java.util.ArrayList;
-/* loaded from: classes22.dex */
+/* loaded from: classes23.dex */
 public class b extends BaseAdapter {
-    private Activity byQ;
-    private ArrayList<e> mjZ;
-    View.OnClickListener mka = new View.OnClickListener() { // from class: com.baidu.tieba.square.square.b.1
+    private Activity bFt;
+    private ArrayList<e> mzA;
+    View.OnClickListener mzB = new View.OnClickListener() { // from class: com.baidu.tieba.square.square.b.1
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             e eVar;
             Object tag = view.getTag();
-            if ((tag instanceof a) && (eVar = ((a) tag).mke) != null) {
-                if (eVar.mia == null) {
-                    com.baidu.tieba.square.square.a.g(b.this.dzl(), null);
+            if ((tag instanceof a) && (eVar = ((a) tag).mzF) != null) {
+                if (eVar.mxD == null) {
+                    com.baidu.tieba.square.square.a.g(b.this.dCW(), null);
                 } else {
-                    MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.CMD_SQUARE_FORUM_LIST, new ForumListActivityConfig(b.this.dzl(), eVar.mhZ, eVar.mia, eVar.mib)));
+                    MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.CMD_SQUARE_FORUM_LIST, new ForumListActivityConfig(b.this.dCW(), eVar.mxC, eVar.mxD, eVar.mxE)));
                 }
             }
         }
     };
 
     public b(Activity activity, c cVar, boolean z) {
-        this.byQ = activity;
-        this.mjZ = cVar.dzk();
+        this.bFt = activity;
+        this.mzA = cVar.dCV();
     }
 
-    public ArrayList<e> dzk() {
-        return this.mjZ;
+    public ArrayList<e> dCV() {
+        return this.mzA;
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    /* loaded from: classes22.dex */
+    /* loaded from: classes23.dex */
     public static class a {
-        public TextView dBn;
-        public BarImageView mkc;
-        public BestStringsFitTextView mkd;
-        public e mke;
+        public TextView dNo;
+        public BarImageView mzD;
+        public BestStringsFitTextView mzE;
+        public e mzF;
 
         protected a() {
         }
     }
 
     public void bd(ArrayList<e> arrayList) {
-        this.mjZ = arrayList;
+        this.mzA = arrayList;
     }
 
     @Override // android.widget.Adapter
     public int getCount() {
-        if (this.mjZ == null) {
+        if (this.mzA == null) {
             return 0;
         }
-        return (this.mjZ.size() * 2) + 1;
+        return (this.mzA.size() * 2) + 1;
     }
 
     @Override // android.widget.Adapter
     public View getView(int i, View view, ViewGroup viewGroup) {
         int itemViewType = getItemViewType(i);
         if (view == null) {
-            view = L(viewGroup, itemViewType);
-            bg.prepareNewView(view);
+            view = N(viewGroup, itemViewType);
+            bg.be(view);
         }
-        bg.processCurrentSkin(view);
+        bg.bd(view);
         if (itemViewType != 3) {
             TbadkCoreApplication.getInst().getSkinType();
             View findViewById = view.findViewById(R.id.container);
@@ -93,41 +93,41 @@ public class b extends BaseAdapter {
         return view;
     }
 
-    private View L(ViewGroup viewGroup, int i) {
+    private View N(ViewGroup viewGroup, int i) {
         if (i == 3) {
-            return LayoutInflater.from(this.byQ).inflate(R.layout.bar_home_list_line, viewGroup, false);
+            return LayoutInflater.from(this.bFt).inflate(R.layout.bar_home_list_line, viewGroup, false);
         }
         if (i == 2) {
-            return LayoutInflater.from(this.byQ).inflate(R.layout.bar_folder_first_dir_bottom_item, viewGroup, false);
+            return LayoutInflater.from(this.bFt).inflate(R.layout.bar_folder_first_dir_bottom_item, viewGroup, false);
         }
-        View inflate = LayoutInflater.from(this.byQ).inflate(R.layout.bar_folder_first_dir_item, viewGroup, false);
-        inflate.setOnClickListener(this.mka);
+        View inflate = LayoutInflater.from(this.bFt).inflate(R.layout.bar_folder_first_dir_item, viewGroup, false);
+        inflate.setOnClickListener(this.mzB);
         a aVar = new a();
-        aVar.mkc = (BarImageView) inflate.findViewById(R.id.portrait);
-        aVar.dBn = (TextView) inflate.findViewById(R.id.name);
-        aVar.mkd = (BestStringsFitTextView) inflate.findViewById(R.id.description);
+        aVar.mzD = (BarImageView) inflate.findViewById(R.id.portrait);
+        aVar.dNo = (TextView) inflate.findViewById(R.id.name);
+        aVar.mzE = (BestStringsFitTextView) inflate.findViewById(R.id.description);
         inflate.setTag(aVar);
         return inflate;
     }
 
     private void a(ViewGroup viewGroup, a aVar, int i) {
-        e eVar = this.mjZ.get(i / 2);
-        aVar.mke = eVar;
-        aVar.dBn.setText(eVar.mhZ);
-        if (eVar.mkh != null) {
-            aVar.mkd.setVisibility(0);
-            String[] strArr = new String[eVar.mkh.size()];
-            for (int i2 = 0; i2 < eVar.mkh.size(); i2++) {
-                strArr[i2] = eVar.mkh.get(i2).mhZ;
+        e eVar = this.mzA.get(i / 2);
+        aVar.mzF = eVar;
+        aVar.dNo.setText(eVar.mxC);
+        if (eVar.mzI != null) {
+            aVar.mzE.setVisibility(0);
+            String[] strArr = new String[eVar.mzI.size()];
+            for (int i2 = 0; i2 < eVar.mzI.size(); i2++) {
+                strArr[i2] = eVar.mzI.get(i2).mxC;
             }
-            aVar.mkd.setTextArray(strArr);
+            aVar.mzE.setTextArray(strArr);
         } else {
-            aVar.mkd.setVisibility(8);
+            aVar.mzE.setVisibility(8);
         }
         if (eVar.logoUrl != null) {
-            int dip2px = l.dip2px(this.byQ, 45.0f);
-            aVar.mkc.setTag(eVar.logoUrl);
-            aVar.mkc.a(eVar.logoUrl, 10, dip2px, dip2px, false);
+            int dip2px = l.dip2px(this.bFt, 45.0f);
+            aVar.mzD.setTag(eVar.logoUrl);
+            aVar.mzD.a(eVar.logoUrl, 10, dip2px, dip2px, false);
         }
     }
 
@@ -154,7 +154,7 @@ public class b extends BaseAdapter {
         return 2;
     }
 
-    protected Activity dzl() {
-        return this.byQ;
+    protected Activity dCW() {
+        return this.bFt;
     }
 }

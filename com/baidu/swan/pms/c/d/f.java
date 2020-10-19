@@ -1,63 +1,63 @@
 package com.baidu.swan.pms.c.d;
-/* loaded from: classes24.dex */
+/* loaded from: classes15.dex */
 public class f extends g {
-    private int dIB;
-    private String dIs;
-    private String dIv;
-    private String dIw;
-    private int dIx;
-    private String dIz;
+    private String dUA;
+    private int dUC;
+    private String dUt;
+    private String dUw;
+    private String dUx;
+    private int dUy;
 
     public f(String str, int i, String str2, int i2) {
         super(i2);
-        this.dIx = -1;
-        this.dIs = str;
-        this.dIz = str2;
-        this.dIB = i;
+        this.dUy = -1;
+        this.dUt = str;
+        this.dUA = str2;
+        this.dUC = i;
     }
 
     public f(String str, String str2, String str3, int i) {
         super(i);
-        this.dIx = -1;
-        this.dIs = str;
-        this.dIz = str3;
+        this.dUy = -1;
+        this.dUt = str;
+        this.dUA = str3;
         try {
-            this.dIB = Integer.valueOf(str2).intValue();
+            this.dUC = Integer.valueOf(str2).intValue();
         } catch (NumberFormatException e) {
-            this.dIB = 0;
+            this.dUC = 0;
         }
     }
 
-    public f xf(String str) {
-        this.dIv = str;
+    public f xR(String str) {
+        this.dUw = str;
         return this;
     }
 
-    public int aUY() {
-        return this.dIx;
+    public int aXH() {
+        return this.dUy;
     }
 
-    public void xg(String str) {
-        this.dIw = str;
+    public void xS(String str) {
+        this.dUx = str;
     }
 
     public String getBundleId() {
-        return this.dIs;
+        return this.dUt;
     }
 
-    public String aVd() {
-        return this.dIz;
+    public String aXM() {
+        return this.dUA;
     }
 
-    public int aVf() {
-        return this.dIB;
+    public int aXO() {
+        return this.dUC;
     }
 
-    public String aUZ() {
-        return this.dIv;
+    public String aXI() {
+        return this.dUw;
     }
 
-    public String aVa() {
-        return this.dIw;
+    public String aXJ() {
+        return this.dUx;
     }
 }

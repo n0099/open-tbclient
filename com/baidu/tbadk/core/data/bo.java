@@ -6,48 +6,48 @@ import java.util.List;
 import tbclient.User;
 /* loaded from: classes.dex */
 public class bo extends AbsThreadDataSupport {
-    public static final BdUniqueId dZT = BdUniqueId.gen();
-    public int eci;
-    private boolean ect;
+    public static final BdUniqueId elV = BdUniqueId.gen();
+    public int eon;
+    private boolean eoy;
     public String title;
-    public boolean ecv = true;
-    private List<MetaData> ecu = new ArrayList();
+    public boolean eoA = true;
+    private List<MetaData> eoz = new ArrayList();
 
-    public void aQ(List<User> list) {
+    public void aT(List<User> list) {
         if (list != null) {
-            int min = Math.min(list.size(), this.ecv ? 10 : list.size());
+            int min = Math.min(list.size(), this.eoA ? 10 : list.size());
             for (int i = 0; i < min; i++) {
                 MetaData metaData = new MetaData();
                 metaData.parserProtobuf(list.get(i));
-                this.ecu.add(metaData);
+                this.eoz.add(metaData);
             }
         }
     }
 
     @Override // com.baidu.tieba.card.data.b, com.baidu.adp.widget.ListView.q
     public BdUniqueId getType() {
-        return dZT;
+        return elV;
     }
 
     @Override // com.baidu.tbadk.core.data.AbsThreadDataSupport
-    public bw bcY() {
+    public bw bfG() {
         return null;
     }
 
     @Override // com.baidu.tbadk.core.data.AbsThreadDataSupport
-    public ar bda() {
+    public ar bfI() {
         return new ar();
     }
 
-    public List<MetaData> beL() {
-        return this.ecu;
+    public List<MetaData> bhu() {
+        return this.eoz;
     }
 
-    public boolean beM() {
-        return this.ect;
+    public boolean bhv() {
+        return this.eoy;
     }
 
-    public void hT(boolean z) {
-        this.ect = z;
+    public void ip(boolean z) {
+        this.eoy = z;
     }
 }

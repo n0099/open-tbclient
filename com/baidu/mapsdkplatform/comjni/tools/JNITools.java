@@ -1,5 +1,5 @@
 package com.baidu.mapsdkplatform.comjni.tools;
-/* loaded from: classes3.dex */
+/* loaded from: classes7.dex */
 public class JNITools {
     public static native boolean CoordinateEncryptEx(float f, float f2, String str, Object obj);
 

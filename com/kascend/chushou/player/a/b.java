@@ -5,12 +5,14 @@ import android.content.Context;
 import com.kascend.chushou.a;
 /* loaded from: classes6.dex */
 public class b extends Dialog {
-    protected boolean a;
+
+    /* renamed from: a  reason: collision with root package name */
+    protected boolean f4110a;
     protected boolean b;
 
     public b(Context context) {
         super(context, a.j.base_dialog);
-        this.a = true;
+        this.f4110a = true;
         this.b = false;
     }
 }

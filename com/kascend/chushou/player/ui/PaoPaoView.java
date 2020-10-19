@@ -30,7 +30,9 @@ import java.util.Queue;
 import java.util.Random;
 /* loaded from: classes6.dex */
 public class PaoPaoView extends FrameLayout implements b {
-    final Queue<WeakReference<ImageView>> a;
+
+    /* renamed from: a  reason: collision with root package name */
+    final Queue<WeakReference<ImageView>> f4142a;
     private final Object c;
     private boolean d;
     private ImageView e;
@@ -42,9 +44,9 @@ public class PaoPaoView extends FrameLayout implements b {
     private int m;
     private int n;
     private final int o;
-    final Queue<WeakReference<ImageView>> obW;
-    private Random obX;
-    private i<PaoPaoView> obY;
+    final Queue<WeakReference<ImageView>> orq;
+    private Random orr;
+    private i<PaoPaoView> ors;
     private final int p;
 
     public PaoPaoView(Context context) {
@@ -57,14 +59,14 @@ public class PaoPaoView extends FrameLayout implements b {
 
     public PaoPaoView(Context context, @Nullable AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.a = new ArrayDeque();
-        this.obW = new ArrayDeque();
+        this.f4142a = new ArrayDeque();
+        this.orq = new ArrayDeque();
         this.c = new Object();
         this.d = false;
         this.g = tv.chushou.zues.utils.a.dip2px(getContext(), 188.0f);
         this.h = tv.chushou.zues.utils.a.dip2px(getContext(), 220.0f);
-        this.obX = new Random();
-        this.obY = new i<>(this);
+        this.orr = new Random();
+        this.ors = new i<>(this);
         this.k = new ArrayList();
         this.l = new ArrayList();
         this.o = 0;
@@ -87,16 +89,16 @@ public class PaoPaoView extends FrameLayout implements b {
         if (this.l != null && this.l.size() > 0) {
             for (int i = 0; i < this.l.size(); i++) {
                 int randDelayTime = getRandDelayTime();
-                if (this.obY != null) {
+                if (this.ors != null) {
                     Message obtain = Message.obtain();
                     obtain.obj = Integer.valueOf(i);
                     obtain.what = 1;
-                    this.obY.sendMessageDelayed(obtain, randDelayTime);
+                    this.ors.sendMessageDelayed(obtain, randDelayTime);
                 }
             }
         }
-        if (this.obY != null) {
-            this.obY.sendEmptyMessageDelayed(0, 10000L);
+        if (this.ors != null) {
+            this.ors.sendEmptyMessageDelayed(0, 10000L);
         }
     }
 
@@ -121,74 +123,74 @@ public class PaoPaoView extends FrameLayout implements b {
         CustomCircle customCircle = new CustomCircle();
         CustomCircle customCircle2 = new CustomCircle();
         CustomCircle customCircle3 = new CustomCircle();
-        customCircle.a = tv.chushou.zues.utils.a.dip2px(getContext(), 39.5f);
+        customCircle.f4188a = tv.chushou.zues.utils.a.dip2px(getContext(), 39.5f);
         customCircle.b = tv.chushou.zues.utils.a.dip2px(getContext(), 249.5f);
-        customCircle2.a = tv.chushou.zues.utils.a.dip2px(getContext(), 72.5f);
+        customCircle2.f4188a = tv.chushou.zues.utils.a.dip2px(getContext(), 72.5f);
         customCircle2.b = tv.chushou.zues.utils.a.dip2px(getContext(), 268.5f);
-        customCircle3.a = tv.chushou.zues.utils.a.dip2px(getContext(), 40.0f);
+        customCircle3.f4188a = tv.chushou.zues.utils.a.dip2px(getContext(), 40.0f);
         customCircle3.b = tv.chushou.zues.utils.a.dip2px(getContext(), 188.0f);
         CustomCircle customCircle4 = new CustomCircle();
         CustomCircle customCircle5 = new CustomCircle();
         CustomCircle customCircle6 = new CustomCircle();
-        customCircle4.a = tv.chushou.zues.utils.a.dip2px(getContext(), 323.5f);
+        customCircle4.f4188a = tv.chushou.zues.utils.a.dip2px(getContext(), 323.5f);
         customCircle4.b = tv.chushou.zues.utils.a.dip2px(getContext(), 209.5f);
-        customCircle5.a = tv.chushou.zues.utils.a.dip2px(getContext(), 345.5f);
+        customCircle5.f4188a = tv.chushou.zues.utils.a.dip2px(getContext(), 345.5f);
         customCircle5.b = tv.chushou.zues.utils.a.dip2px(getContext(), 184.5f);
-        customCircle6.a = tv.chushou.zues.utils.a.dip2px(getContext(), 274.0f);
+        customCircle6.f4188a = tv.chushou.zues.utils.a.dip2px(getContext(), 274.0f);
         customCircle6.b = tv.chushou.zues.utils.a.dip2px(getContext(), 247.0f);
         CustomCircle customCircle7 = new CustomCircle();
         CustomCircle customCircle8 = new CustomCircle();
         CustomCircle customCircle9 = new CustomCircle();
-        customCircle7.a = tv.chushou.zues.utils.a.dip2px(getContext(), 275.5f);
+        customCircle7.f4188a = tv.chushou.zues.utils.a.dip2px(getContext(), 275.5f);
         customCircle7.b = tv.chushou.zues.utils.a.dip2px(getContext(), 161.5f);
-        customCircle8.a = tv.chushou.zues.utils.a.dip2px(getContext(), 286.0f);
+        customCircle8.f4188a = tv.chushou.zues.utils.a.dip2px(getContext(), 286.0f);
         customCircle8.b = tv.chushou.zues.utils.a.dip2px(getContext(), 121.0f);
-        customCircle9.a = tv.chushou.zues.utils.a.dip2px(getContext(), 241.5f);
+        customCircle9.f4188a = tv.chushou.zues.utils.a.dip2px(getContext(), 241.5f);
         customCircle9.b = tv.chushou.zues.utils.a.dip2px(getContext(), 83.0f);
         CustomCircle customCircle10 = new CustomCircle();
         CustomCircle customCircle11 = new CustomCircle();
         CustomCircle customCircle12 = new CustomCircle();
-        customCircle10.a = tv.chushou.zues.utils.a.dip2px(getContext(), 69.5f);
+        customCircle10.f4188a = tv.chushou.zues.utils.a.dip2px(getContext(), 69.5f);
         customCircle10.b = tv.chushou.zues.utils.a.dip2px(getContext(), 133.5f);
-        customCircle11.a = tv.chushou.zues.utils.a.dip2px(getContext(), 85.5f);
+        customCircle11.f4188a = tv.chushou.zues.utils.a.dip2px(getContext(), 85.5f);
         customCircle11.b = tv.chushou.zues.utils.a.dip2px(getContext(), 162.5f);
-        customCircle12.a = tv.chushou.zues.utils.a.dip2px(getContext(), 159.5f);
+        customCircle12.f4188a = tv.chushou.zues.utils.a.dip2px(getContext(), 159.5f);
         customCircle12.b = tv.chushou.zues.utils.a.dip2px(getContext(), 125.0f);
         CustomCircle customCircle13 = new CustomCircle();
         CustomCircle customCircle14 = new CustomCircle();
         CustomCircle customCircle15 = new CustomCircle();
-        customCircle13.a = tv.chushou.zues.utils.a.dip2px(getContext(), 183.5f);
+        customCircle13.f4188a = tv.chushou.zues.utils.a.dip2px(getContext(), 183.5f);
         customCircle13.b = tv.chushou.zues.utils.a.dip2px(getContext(), 135.5f);
-        customCircle14.a = tv.chushou.zues.utils.a.dip2px(getContext(), 161.5f);
+        customCircle14.f4188a = tv.chushou.zues.utils.a.dip2px(getContext(), 161.5f);
         customCircle14.b = tv.chushou.zues.utils.a.dip2px(getContext(), 120.5f);
-        customCircle15.a = tv.chushou.zues.utils.a.dip2px(getContext(), 205.0f);
+        customCircle15.f4188a = tv.chushou.zues.utils.a.dip2px(getContext(), 205.0f);
         customCircle15.b = tv.chushou.zues.utils.a.dip2px(getContext(), 180.0f);
         CustomCircle customCircle16 = new CustomCircle();
         CustomCircle customCircle17 = new CustomCircle();
         CustomCircle customCircle18 = new CustomCircle();
-        customCircle16.a = tv.chushou.zues.utils.a.dip2px(getContext(), 283.5f);
+        customCircle16.f4188a = tv.chushou.zues.utils.a.dip2px(getContext(), 283.5f);
         customCircle16.b = tv.chushou.zues.utils.a.dip2px(getContext(), 257.5f);
-        customCircle17.a = tv.chushou.zues.utils.a.dip2px(getContext(), 304.0f);
+        customCircle17.f4188a = tv.chushou.zues.utils.a.dip2px(getContext(), 304.0f);
         customCircle17.b = tv.chushou.zues.utils.a.dip2px(getContext(), 278.5f);
-        customCircle18.a = tv.chushou.zues.utils.a.dip2px(getContext(), 208.5f);
+        customCircle18.f4188a = tv.chushou.zues.utils.a.dip2px(getContext(), 208.5f);
         customCircle18.b = tv.chushou.zues.utils.a.dip2px(getContext(), 332.0f);
         CustomCircle customCircle19 = new CustomCircle();
         CustomCircle customCircle20 = new CustomCircle();
         CustomCircle customCircle21 = new CustomCircle();
-        customCircle19.a = tv.chushou.zues.utils.a.dip2px(getContext(), 237.5f);
+        customCircle19.f4188a = tv.chushou.zues.utils.a.dip2px(getContext(), 237.5f);
         customCircle19.b = tv.chushou.zues.utils.a.dip2px(getContext(), 337.5f);
-        customCircle20.a = tv.chushou.zues.utils.a.dip2px(getContext(), 244.5f);
+        customCircle20.f4188a = tv.chushou.zues.utils.a.dip2px(getContext(), 244.5f);
         customCircle20.b = tv.chushou.zues.utils.a.dip2px(getContext(), 316.5f);
-        customCircle21.a = tv.chushou.zues.utils.a.dip2px(getContext(), 333.0f);
+        customCircle21.f4188a = tv.chushou.zues.utils.a.dip2px(getContext(), 333.0f);
         customCircle21.b = tv.chushou.zues.utils.a.dip2px(getContext(), 293.5f);
         CustomCircle customCircle22 = new CustomCircle();
         CustomCircle customCircle23 = new CustomCircle();
         CustomCircle customCircle24 = new CustomCircle();
-        customCircle22.a = tv.chushou.zues.utils.a.dip2px(getContext(), 125.5f);
+        customCircle22.f4188a = tv.chushou.zues.utils.a.dip2px(getContext(), 125.5f);
         customCircle22.b = tv.chushou.zues.utils.a.dip2px(getContext(), 313.5f);
-        customCircle23.a = tv.chushou.zues.utils.a.dip2px(getContext(), 84.0f);
+        customCircle23.f4188a = tv.chushou.zues.utils.a.dip2px(getContext(), 84.0f);
         customCircle23.b = tv.chushou.zues.utils.a.dip2px(getContext(), 336.5f);
-        customCircle24.a = tv.chushou.zues.utils.a.dip2px(getContext(), 44.6f);
+        customCircle24.f4188a = tv.chushou.zues.utils.a.dip2px(getContext(), 44.6f);
         customCircle24.b = tv.chushou.zues.utils.a.dip2px(getContext(), 279.5f);
         arrayList.add(customCircle);
         arrayList.add(customCircle2);
@@ -222,11 +224,11 @@ public class PaoPaoView extends FrameLayout implements b {
         if (customCircle != null && customCircle2 != null) {
             setVisibility(0);
             while (true) {
-                if (this.a.isEmpty()) {
+                if (this.f4142a.isEmpty()) {
                     imageView = null;
                     break;
                 }
-                WeakReference<ImageView> poll = this.a.poll();
+                WeakReference<ImageView> poll = this.f4142a.poll();
                 if (poll != null && poll.get() != null) {
                     imageView = poll.get();
                     if (imageView.getParent() != null) {
@@ -240,18 +242,18 @@ public class PaoPaoView extends FrameLayout implements b {
                 imageView.setLayoutParams(new FrameLayout.LayoutParams(dip2px, dip2px));
             }
             imageView.setImageResource(a.e.icon_live_online_voice_live_animation_icon);
-            int i = (int) customCircle.a;
+            int i = (int) customCircle.f4188a;
             int i2 = (int) customCircle.b;
             tv.chushou.zues.toolkit.d.b.setX(imageView, i);
             tv.chushou.zues.toolkit.d.b.setY(imageView, i2);
             addView(imageView);
             PointF pointF = new PointF();
-            pointF.x = (int) customCircle.a;
+            pointF.x = (int) customCircle.f4188a;
             pointF.y = (int) customCircle.b;
             PointF pointF2 = new PointF();
-            pointF2.x = (int) customCircle2.a;
+            pointF2.x = (int) customCircle2.f4188a;
             pointF2.y = (int) customCircle2.b;
-            ValueAnimator ofObject = ValueAnimator.ofObject(new com.kascend.chushou.player.ui.pk.a(pointF, pointF2), new PointF(i, i2), new PointF((int) customCircle2.a, (int) customCircle2.b));
+            ValueAnimator ofObject = ValueAnimator.ofObject(new com.kascend.chushou.player.ui.pk.a(pointF, pointF2), new PointF(i, i2), new PointF((int) customCircle2.f4188a, (int) customCircle2.b));
             ofObject.addUpdateListener(new h(imageView) { // from class: com.kascend.chushou.player.ui.PaoPaoView.1
                 @Override // com.kascend.chushou.player.ui.pk.h, android.animation.ValueAnimator.AnimatorUpdateListener
                 public void onAnimationUpdate(ValueAnimator valueAnimator) {
@@ -282,7 +284,7 @@ public class PaoPaoView extends FrameLayout implements b {
                     if (this.e != null) {
                         ImageView imageView2 = (ImageView) this.e;
                         PaoPaoView.this.removeView(imageView2);
-                        PaoPaoView.this.a.offer(new WeakReference<>(imageView2));
+                        PaoPaoView.this.f4142a.offer(new WeakReference<>(imageView2));
                         if (PaoPaoView.this.e == imageView2) {
                             PaoPaoView.this.e = null;
                         }
@@ -310,11 +312,11 @@ public class PaoPaoView extends FrameLayout implements b {
         if (customCircle != null && customCircle2 != null && customCircle3 != null) {
             setVisibility(0);
             while (true) {
-                if (this.obW.isEmpty()) {
+                if (this.orq.isEmpty()) {
                     imageView = null;
                     break;
                 }
-                WeakReference<ImageView> poll = this.obW.poll();
+                WeakReference<ImageView> poll = this.orq.poll();
                 if (poll != null && poll.get() != null) {
                     imageView = poll.get();
                     if (imageView.getParent() != null) {
@@ -328,12 +330,12 @@ public class PaoPaoView extends FrameLayout implements b {
             }
             imageView.setImageResource(a.e.icon_live_online_voice_live_animation_small_icon);
             FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(dip2px, dip2px);
-            layoutParams.leftMargin = (int) customCircle.a;
+            layoutParams.leftMargin = (int) customCircle.f4188a;
             layoutParams.topMargin = (int) customCircle.b;
             addView(imageView, layoutParams);
-            int i = (int) (customCircle2.a - customCircle.a);
+            int i = (int) (customCircle2.f4188a - customCircle.f4188a);
             int i2 = (int) (customCircle2.b - customCircle.b);
-            ObjectAnimator ofFloat = ObjectAnimator.ofFloat(imageView, "translationX", 0.0f, i, (int) (customCircle3.a - customCircle.a), i, 0.0f);
+            ObjectAnimator ofFloat = ObjectAnimator.ofFloat(imageView, "translationX", 0.0f, i, (int) (customCircle3.f4188a - customCircle.f4188a), i, 0.0f);
             ObjectAnimator ofFloat2 = ObjectAnimator.ofFloat(imageView, "translationY", 0.0f, i2, (int) (customCircle3.b - customCircle.b), i2, 0.0f);
             ofFloat.setDuration(50000L);
             ofFloat2.setDuration(50000L);
@@ -354,7 +356,7 @@ public class PaoPaoView extends FrameLayout implements b {
                     if (this.e != null && PaoPaoView.this.getContext() != null) {
                         ImageView imageView2 = (ImageView) this.e;
                         PaoPaoView.this.removeView(imageView2);
-                        PaoPaoView.this.obW.offer(new WeakReference<>(imageView2));
+                        PaoPaoView.this.orq.offer(new WeakReference<>(imageView2));
                         if (PaoPaoView.this.f == imageView2) {
                             PaoPaoView.this.f = null;
                         }
@@ -388,9 +390,9 @@ public class PaoPaoView extends FrameLayout implements b {
     }
 
     public void b() {
-        if (this.obY != null) {
-            this.obY.removeMessages(1);
-            this.obY.removeMessages(0);
+        if (this.ors != null) {
+            this.ors.removeMessages(1);
+            this.ors.removeMessages(0);
         }
         synchronized (this.c) {
             if (this.d) {
@@ -400,11 +402,11 @@ public class PaoPaoView extends FrameLayout implements b {
     }
 
     public void c() {
-        if (this.a != null) {
-            this.a.clear();
+        if (this.f4142a != null) {
+            this.f4142a.clear();
         }
-        if (this.obW != null) {
-            this.obW.clear();
+        if (this.orq != null) {
+            this.orq.clear();
         }
         if (this.k != null) {
             this.k.clear();
@@ -428,19 +430,19 @@ public class PaoPaoView extends FrameLayout implements b {
     }
 
     public int getRandBubbleTotal() {
-        return this.obX.nextInt(3) + 6;
+        return this.orr.nextInt(3) + 6;
     }
 
     public int getRandOffsetAngle() {
-        return this.obX.nextInt(20) - 10;
+        return this.orr.nextInt(20) - 10;
     }
 
     public int getRandDelayTime() {
-        return this.obX.nextInt(2000);
+        return this.orr.nextInt(2000);
     }
 
     public float getRandScale() {
-        return (this.obX.nextFloat() / 2.0f) + 0.5f;
+        return (this.orr.nextFloat() / 2.0f) + 0.5f;
     }
 
     public float a(float f, float f2, float f3) {
@@ -463,13 +465,13 @@ public class PaoPaoView extends FrameLayout implements b {
             CustomCircle customCircle = new CustomCircle();
             customCircle.d = startRadius;
             customCircle.c = ((i * i2) + this.n) % EncoderTextureDrawer.X264_WIDTH;
-            customCircle.a = a(this.g, startRadius, customCircle.c);
+            customCircle.f4188a = a(this.g, startRadius, customCircle.c);
             customCircle.b = i(this.h, startRadius, customCircle.c);
             this.k.add(customCircle);
             CustomCircle customCircle2 = new CustomCircle();
             customCircle2.d = endRadius;
             customCircle2.c = ((i * i2) + this.n) % EncoderTextureDrawer.X264_WIDTH;
-            customCircle2.a = a(this.g, endRadius, customCircle2.c);
+            customCircle2.f4188a = a(this.g, endRadius, customCircle2.c);
             customCircle2.b = i(this.h, endRadius, customCircle2.c);
             this.l.add(customCircle2);
         }
@@ -477,7 +479,7 @@ public class PaoPaoView extends FrameLayout implements b {
 
     public float getEndRadius() {
         DisplayMetrics displayMetrics = new DisplayMetrics();
-        ((WindowManager) tv.chushou.basis.d.b.epQ().getSystemService("window")).getDefaultDisplay().getMetrics(displayMetrics);
+        ((WindowManager) tv.chushou.basis.d.b.etB().getSystemService("window")).getDefaultDisplay().getMetrics(displayMetrics);
         return displayMetrics.widthPixels / 2.0f;
     }
 

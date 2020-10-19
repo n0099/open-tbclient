@@ -3,9 +3,11 @@ package com.vivo.push;
 import android.content.Intent;
 import com.vivo.push.c.ab;
 import com.vivo.push.c.ai;
-/* loaded from: classes12.dex */
+/* loaded from: classes15.dex */
 public final class o implements IPushClientFactory {
-    private ai a = new ai();
+
+    /* renamed from: a  reason: collision with root package name */
+    private ai f4687a = new ai();
 
     @Override // com.vivo.push.IPushClientFactory
     public final y createReceiverCommand(Intent intent) {
@@ -55,11 +57,11 @@ public final class o implements IPushClientFactory {
                 break;
         }
         if (yVar != null) {
-            a a = a.a(intent);
-            if (a == null) {
+            a a2 = a.a(intent);
+            if (a2 == null) {
                 com.vivo.push.util.p.b("PushCommand", "bundleWapper is null");
             } else {
-                yVar.b(a);
+                yVar.b(a2);
             }
         }
         return yVar;

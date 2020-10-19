@@ -8,15 +8,15 @@ import java.util.NoSuchElementException;
 import java.util.Set;
 /* JADX INFO: Access modifiers changed from: package-private */
 @kotlin.h
-/* loaded from: classes5.dex */
+/* loaded from: classes10.dex */
 public class j extends i {
     public static final boolean a(byte[] bArr, byte b) {
-        kotlin.jvm.internal.q.m(bArr, "receiver$0");
+        kotlin.jvm.internal.q.n(bArr, "receiver$0");
         return f.b(bArr, b) >= 0;
     }
 
     public static final int b(byte[] bArr, byte b) {
-        kotlin.jvm.internal.q.m(bArr, "receiver$0");
+        kotlin.jvm.internal.q.n(bArr, "receiver$0");
         int length = bArr.length;
         for (int i = 0; i < length; i++) {
             if (b == bArr[i]) {
@@ -27,7 +27,7 @@ public class j extends i {
     }
 
     public static final int c(byte[] bArr, byte b) {
-        kotlin.jvm.internal.q.m(bArr, "receiver$0");
+        kotlin.jvm.internal.q.n(bArr, "receiver$0");
         for (Number number : o.e(f.aw(bArr))) {
             int intValue = number.intValue();
             if (b == bArr[intValue]) {
@@ -38,7 +38,7 @@ public class j extends i {
     }
 
     public static final char c(char[] cArr) {
-        kotlin.jvm.internal.q.m(cArr, "receiver$0");
+        kotlin.jvm.internal.q.n(cArr, "receiver$0");
         switch (cArr.length) {
             case 0:
                 throw new NoSuchElementException("Array is empty.");
@@ -50,24 +50,24 @@ public class j extends i {
     }
 
     public static final List<Byte> a(byte[] bArr, kotlin.b.h hVar) {
-        kotlin.jvm.internal.q.m(bArr, "receiver$0");
-        kotlin.jvm.internal.q.m(hVar, "indices");
-        return hVar.isEmpty() ? o.ejX() : f.av(f.q(bArr, hVar.ekB().intValue(), hVar.ekC().intValue() + 1));
+        kotlin.jvm.internal.q.n(bArr, "receiver$0");
+        kotlin.jvm.internal.q.n(hVar, "indices");
+        return hVar.isEmpty() ? o.enJ() : f.av(f.s(bArr, hVar.eoo().intValue(), hVar.eop().intValue() + 1));
     }
 
     public static final kotlin.b.h aw(byte[] bArr) {
-        kotlin.jvm.internal.q.m(bArr, "receiver$0");
+        kotlin.jvm.internal.q.n(bArr, "receiver$0");
         return new kotlin.b.h(0, f.ax(bArr));
     }
 
     public static final int ax(byte[] bArr) {
-        kotlin.jvm.internal.q.m(bArr, "receiver$0");
+        kotlin.jvm.internal.q.n(bArr, "receiver$0");
         return bArr.length - 1;
     }
 
     public static final <T, C extends Collection<? super T>> C a(T[] tArr, C c) {
-        kotlin.jvm.internal.q.m(tArr, "receiver$0");
-        kotlin.jvm.internal.q.m(c, "destination");
+        kotlin.jvm.internal.q.n(tArr, "receiver$0");
+        kotlin.jvm.internal.q.n(c, "destination");
         for (T t : tArr) {
             c.add(t);
         }
@@ -75,19 +75,19 @@ public class j extends i {
     }
 
     public static final <T> HashSet<T> P(T[] tArr) {
-        kotlin.jvm.internal.q.m(tArr, "receiver$0");
-        return (HashSet) f.a(tArr, new HashSet(af.OA(tArr.length)));
+        kotlin.jvm.internal.q.n(tArr, "receiver$0");
+        return (HashSet) f.a(tArr, new HashSet(af.Pg(tArr.length)));
     }
 
     public static final <T> Set<T> Q(T[] tArr) {
-        kotlin.jvm.internal.q.m(tArr, "receiver$0");
+        kotlin.jvm.internal.q.n(tArr, "receiver$0");
         switch (tArr.length) {
             case 0:
-                return al.eke();
+                return al.enQ();
             case 1:
-                return al.bO(tArr[0]);
+                return al.bR(tArr[0]);
             default:
-                return (Set) f.a(tArr, new LinkedHashSet(af.OA(tArr.length)));
+                return (Set) f.a(tArr, new LinkedHashSet(af.Pg(tArr.length)));
         }
     }
 }

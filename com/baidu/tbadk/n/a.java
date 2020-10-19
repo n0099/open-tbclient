@@ -8,53 +8,53 @@ import com.baidu.searchbox.v8engine.util.TimeUtils;
 public class a implements Choreographer.FrameCallback {
     private long mEndTime;
     private long mStartTime;
-    private long eUp = 0;
-    private int eUq = 0;
+    private long fgx = 0;
+    private int fgy = 0;
     private int mFps = -1;
-    private boolean eUr = false;
+    private boolean fgz = false;
 
     public void start() {
         this.mStartTime = System.currentTimeMillis();
         this.mEndTime = this.mStartTime + 1000;
-        this.eUp = 0L;
-        this.eUq = 0;
+        this.fgx = 0L;
+        this.fgy = 0;
         this.mFps = -1;
-        this.eUr = false;
+        this.fgz = false;
         Choreographer.getInstance().postFrameCallback(this);
     }
 
     public void stop() {
-        this.eUr = true;
+        this.fgz = true;
         Choreographer.getInstance().removeFrameCallback(this);
-        da(System.currentTimeMillis());
-        this.eUq = 0;
+        di(System.currentTimeMillis());
+        this.fgy = 0;
         this.mStartTime = 0L;
     }
 
     @Override // android.view.Choreographer.FrameCallback
     public void doFrame(long j) {
-        if (this.eUp != 0) {
-            long j2 = (j - this.eUp) / TimeUtils.NANOS_PER_MS;
+        if (this.fgx != 0) {
+            long j2 = (j - this.fgx) / TimeUtils.NANOS_PER_MS;
             if (j2 > 16 && j2 < 960) {
-                this.eUq = (int) ((j2 / 16) + this.eUq);
+                this.fgy = (int) ((j2 / 16) + this.fgy);
             }
         }
-        this.eUp = j;
+        this.fgx = j;
         long currentTimeMillis = System.currentTimeMillis();
-        if (currentTimeMillis < this.mEndTime && !this.eUr) {
+        if (currentTimeMillis < this.mEndTime && !this.fgz) {
             Choreographer.getInstance().postFrameCallback(this);
             return;
         }
-        da(currentTimeMillis);
-        this.eUq = 0;
+        di(currentTimeMillis);
+        this.fgy = 0;
         this.mStartTime = 0L;
     }
 
-    private void da(long j) {
+    private void di(long j) {
         if (this.mStartTime > 0) {
             long j2 = j - this.mStartTime;
             if (j2 > 0 && this.mFps <= 0) {
-                this.mFps = (int) (60 - ((this.eUq * 1000) / j2));
+                this.mFps = (int) (60 - ((this.fgy * 1000) / j2));
             }
         }
     }

@@ -7,21 +7,21 @@ import com.baidu.tieba.personCenter.a.d;
 import com.baidu.tieba.personCenter.c.h;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes23.dex */
+/* loaded from: classes24.dex */
 public class a {
-    private List<com.baidu.adp.widget.ListView.a> bdV = new ArrayList();
-    private BdTypeListView fGf;
-    private d lne;
+    private List<com.baidu.adp.widget.ListView.a> bhH = new ArrayList();
+    private BdTypeListView fSo;
+    private d lCw;
 
     public a(TbPageContext tbPageContext, BdTypeListView bdTypeListView, aa<h> aaVar) {
-        this.fGf = bdTypeListView;
-        this.lne = new d(tbPageContext, h.loq);
-        this.lne.c(aaVar);
-        this.bdV.add(this.lne);
-        this.fGf.addAdapters(this.bdV);
+        this.fSo = bdTypeListView;
+        this.lCw = new d(tbPageContext, h.lDE);
+        this.lCw.c(aaVar);
+        this.bhH.add(this.lCw);
+        this.fSo.addAdapters(this.bhH);
     }
 
     public void notifyDataSetChanged() {
-        this.lne.notifyDataSetChanged();
+        this.lCw.notifyDataSetChanged();
     }
 }

@@ -10,14 +10,14 @@ import android.view.ViewGroup;
 import android.view.accessibility.AccessibilityEvent;
 import android.view.accessibility.AccessibilityNodeInfo;
 import android.view.accessibility.AccessibilityNodeProvider;
-/* loaded from: classes23.dex */
+/* loaded from: classes5.dex */
 public class AccessibilityDelegateCompat {
     private static final View.AccessibilityDelegate DEFAULT_DELEGATE;
     private static final AccessibilityDelegateBaseImpl IMPL;
     final View.AccessibilityDelegate mBridge = IMPL.newAccessibilityDelegateBridge(this);
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes23.dex */
+    /* loaded from: classes5.dex */
     public static class AccessibilityDelegateBaseImpl {
         AccessibilityDelegateBaseImpl() {
         }
@@ -71,7 +71,7 @@ public class AccessibilityDelegateCompat {
     }
 
     @RequiresApi(16)
-    /* loaded from: classes23.dex */
+    /* loaded from: classes5.dex */
     static class AccessibilityDelegateApi16Impl extends AccessibilityDelegateBaseImpl {
         AccessibilityDelegateApi16Impl() {
         }

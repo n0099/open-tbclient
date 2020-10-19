@@ -1,7 +1,7 @@
 package com.baidu.swan.apps.media.image.a;
 
 import android.support.annotation.NonNull;
-/* loaded from: classes3.dex */
+/* loaded from: classes10.dex */
 public class a<T> implements b<T> {
     private Class<? extends T> clazz;
 

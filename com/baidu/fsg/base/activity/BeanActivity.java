@@ -6,9 +6,11 @@ import com.baidu.fsg.base.restnet.beans.IBeanResponseCallback;
 import com.baidu.fsg.base.utils.LogUtil;
 import com.baidu.fsg.base.utils.ResUtils;
 import com.baidu.fsg.base.utils.RimGlobalUtils;
-/* loaded from: classes15.dex */
+/* loaded from: classes16.dex */
 public abstract class BeanActivity extends BaseActivity implements IBeanResponseCallback {
-    private static final String a = "BaseActivity";
+
+    /* renamed from: a  reason: collision with root package name */
+    private static final String f1447a = "BaseActivity";
     private Handler b = null;
     public BeanActivity mAct;
 

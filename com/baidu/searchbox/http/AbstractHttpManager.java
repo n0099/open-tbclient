@@ -31,7 +31,7 @@ import okhttp3.Dns;
 import okhttp3.Interceptor;
 import okhttp3.OkHttpClient;
 import okhttp3.Request;
-/* loaded from: classes14.dex */
+/* loaded from: classes15.dex */
 public abstract class AbstractHttpManager {
     private static final String TAG = "HttpManager";
     private static String sClientIP;

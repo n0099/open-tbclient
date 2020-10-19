@@ -2,7 +2,7 @@ package com.baidu.searchbox.elasticthread.task;
 
 import android.os.SystemClock;
 import java.util.concurrent.locks.ReentrantLock;
-/* loaded from: classes10.dex */
+/* loaded from: classes17.dex */
 public class ElasticTask implements Runnable {
     private long id;
     private ElasticTaskCallback mCallback;
@@ -15,14 +15,14 @@ public class ElasticTask implements Runnable {
     public Status status = Status.WAITING;
     private ReentrantLock mCallbackLock = new ReentrantLock();
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes17.dex */
     public interface ElasticTaskCallback {
         void afterExecuteTask();
 
         void beforeExecuteTask();
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes17.dex */
     public enum Status {
         WAITING,
         RUNNING,

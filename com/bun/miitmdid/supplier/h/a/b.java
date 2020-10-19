@@ -9,13 +9,15 @@ import android.os.Message;
 import android.os.SystemClock;
 /* loaded from: classes11.dex */
 public class b {
-    private static Context a;
+
+    /* renamed from: a  reason: collision with root package name */
+    private static Context f3993a;
     private static boolean b = false;
-    private static b nsh = null;
-    private static a nsi = null;
-    private static c nsj = null;
-    private static c nsk = null;
-    private static c nsl = null;
+    private static b nHB = null;
+    private static a nHC = null;
+    private static c nHD = null;
+    private static c nHE = null;
+    private static c nHF = null;
     private static Object h = new Object();
     private static HandlerThread i = null;
     private static Handler j = null;
@@ -43,16 +45,16 @@ public class b {
     private static void a(Context context, int i2, String str) {
         switch (i2) {
             case 0:
-                nsj = new c(nsh, 0, null);
-                context.getContentResolver().registerContentObserver(Uri.parse("content://com.vivo.vms.IdProvider/IdentifierId/OAID"), true, nsj);
+                nHD = new c(nHB, 0, null);
+                context.getContentResolver().registerContentObserver(Uri.parse("content://com.vivo.vms.IdProvider/IdentifierId/OAID"), true, nHD);
                 return;
             case 1:
-                nsk = new c(nsh, 1, str);
-                context.getContentResolver().registerContentObserver(Uri.parse("content://com.vivo.vms.IdProvider/IdentifierId/VAID_" + str), false, nsk);
+                nHE = new c(nHB, 1, str);
+                context.getContentResolver().registerContentObserver(Uri.parse("content://com.vivo.vms.IdProvider/IdentifierId/VAID_" + str), false, nHE);
                 return;
             case 2:
-                nsl = new c(nsh, 2, str);
-                context.getContentResolver().registerContentObserver(Uri.parse("content://com.vivo.vms.IdProvider/IdentifierId/AAID_" + str), false, nsl);
+                nHF = new c(nHB, 2, str);
+                context.getContentResolver().registerContentObserver(Uri.parse("content://com.vivo.vms.IdProvider/IdentifierId/AAID_" + str), false, nHF);
                 return;
             default:
                 return;
@@ -86,7 +88,7 @@ public class b {
                     return;
                 }
                 try {
-                    String unused = b.k = b.nsi.a(message.getData().getInt("type"), message.getData().getString("appid"));
+                    String unused = b.k = b.nHC.a(message.getData().getInt("type"), message.getData().getString("appid"));
                 } catch (Exception e) {
                     String unused2 = b.k = "";
                     com.bun.miitmdid.utils.a.a("VMS_IDLG_SDK_Client", "exception", e);
@@ -98,15 +100,15 @@ public class b {
         };
     }
 
-    public static b gp(Context context) {
-        if (nsh == null) {
-            nsh = new b();
-            a = context;
+    public static b gw(Context context) {
+        if (nHB == null) {
+            nHB = new b();
+            f3993a = context;
             f();
-            nsi = new a(a);
+            nHC = new a(f3993a);
             c();
         }
-        return nsh;
+        return nHB;
     }
 
     public String a(String str) {
@@ -115,8 +117,8 @@ public class b {
                 return m;
             }
             a(1, str);
-            if (nsk == null && m != null) {
-                a(a, 1, str);
+            if (nHE == null && m != null) {
+                a(f3993a, 1, str);
             }
             return m;
         }
@@ -173,8 +175,8 @@ public class b {
                 return l;
             }
             a(0, (String) null);
-            if (nsj == null) {
-                a(a, 0, null);
+            if (nHD == null) {
+                a(f3993a, 0, null);
             }
             return l;
         }
@@ -187,8 +189,8 @@ public class b {
                 return n;
             }
             a(2, str);
-            if (nsl == null && n != null) {
-                a(a, 2, str);
+            if (nHF == null && n != null) {
+                a(f3993a, 2, str);
             }
             return n;
         }

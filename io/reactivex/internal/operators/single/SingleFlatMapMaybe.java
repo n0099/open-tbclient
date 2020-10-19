@@ -8,7 +8,7 @@ import io.reactivex.m;
 import io.reactivex.o;
 import io.reactivex.y;
 import java.util.concurrent.atomic.AtomicReference;
-/* loaded from: classes25.dex */
+/* loaded from: classes17.dex */
 public final class SingleFlatMapMaybe<T, R> extends k<R> {
     final h<? super T, ? extends o<? extends R>> mapper;
     final aa<? extends T> source;
@@ -18,7 +18,7 @@ public final class SingleFlatMapMaybe<T, R> extends k<R> {
         this.source.a(new FlatMapSingleObserver(mVar, this.mapper));
     }
 
-    /* loaded from: classes25.dex */
+    /* loaded from: classes17.dex */
     static final class FlatMapSingleObserver<T, R> extends AtomicReference<io.reactivex.disposables.b> implements io.reactivex.disposables.b, y<T> {
         private static final long serialVersionUID = -5843758257109742742L;
         final m<? super R> actual;
@@ -49,7 +49,7 @@ public final class SingleFlatMapMaybe<T, R> extends k<R> {
         @Override // io.reactivex.y
         public void onSuccess(T t) {
             try {
-                o oVar = (o) io.reactivex.internal.functions.a.k(this.mapper.apply(t), "The mapper returned a null MaybeSource");
+                o oVar = (o) io.reactivex.internal.functions.a.l(this.mapper.apply(t), "The mapper returned a null MaybeSource");
                 if (!isDisposed()) {
                     oVar.a(new a(this, this.actual));
                 }
@@ -65,19 +65,19 @@ public final class SingleFlatMapMaybe<T, R> extends k<R> {
         }
     }
 
-    /* loaded from: classes25.dex */
+    /* loaded from: classes17.dex */
     static final class a<R> implements m<R> {
         final m<? super R> actual;
-        final AtomicReference<io.reactivex.disposables.b> oww;
+        final AtomicReference<io.reactivex.disposables.b> oLL;
 
         a(AtomicReference<io.reactivex.disposables.b> atomicReference, m<? super R> mVar) {
-            this.oww = atomicReference;
+            this.oLL = atomicReference;
             this.actual = mVar;
         }
 
         @Override // io.reactivex.m
         public void onSubscribe(io.reactivex.disposables.b bVar) {
-            DisposableHelper.replace(this.oww, bVar);
+            DisposableHelper.replace(this.oLL, bVar);
         }
 
         @Override // io.reactivex.m

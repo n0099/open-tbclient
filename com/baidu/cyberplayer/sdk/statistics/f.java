@@ -5,18 +5,20 @@ import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes10.dex */
+/* loaded from: classes12.dex */
 public class f {
-    private final int a;
+
+    /* renamed from: a  reason: collision with root package name */
+    private final int f1433a;
     private c c = new c(DpStatConstants.SESSION_TYPE_PLAY_COMMON);
     private List<c> b = new ArrayList();
 
     public f(int i) {
-        this.a = i;
+        this.f1433a = i;
     }
 
     public int a() {
-        return this.a;
+        return this.f1433a;
     }
 
     public JSONObject a(JSONObject jSONObject) throws JSONException {

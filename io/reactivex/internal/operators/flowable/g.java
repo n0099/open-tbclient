@@ -4,7 +4,7 @@ import io.reactivex.c.h;
 import io.reactivex.internal.subscriptions.EmptySubscription;
 import io.reactivex.internal.subscriptions.ScalarSubscription;
 import java.util.concurrent.Callable;
-/* loaded from: classes25.dex */
+/* loaded from: classes17.dex */
 public final class g {
     public static <T, R> boolean a(org.a.b<T> bVar, org.a.c<? super R> cVar, h<? super T, ? extends org.a.b<? extends R>> hVar) {
         if (bVar instanceof Callable) {
@@ -15,7 +15,7 @@ public final class g {
                     return true;
                 }
                 try {
-                    org.a.b bVar2 = (org.a.b) io.reactivex.internal.functions.a.k(hVar.apply(obj), "The mapper returned a null Publisher");
+                    org.a.b bVar2 = (org.a.b) io.reactivex.internal.functions.a.l(hVar.apply(obj), "The mapper returned a null Publisher");
                     if (bVar2 instanceof Callable) {
                         try {
                             Object call = ((Callable) bVar2).call();

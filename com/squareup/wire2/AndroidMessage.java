@@ -7,7 +7,7 @@ import com.squareup.wire2.Message.a;
 import java.io.IOException;
 import java.lang.reflect.Array;
 import okio.ByteString;
-/* loaded from: classes24.dex */
+/* loaded from: classes6.dex */
 public abstract class AndroidMessage<M extends Message<M, B>, B extends Message.a<M, B>> extends Message<M, B> implements Parcelable {
     public static <E> Parcelable.Creator<E> newCreator(ProtoAdapter<E> protoAdapter) {
         return new a(protoAdapter);
@@ -27,7 +27,7 @@ public abstract class AndroidMessage<M extends Message<M, B>, B extends Message.
         return 0;
     }
 
-    /* loaded from: classes24.dex */
+    /* loaded from: classes6.dex */
     private static final class a<M> implements Parcelable.Creator<M> {
         private final ProtoAdapter<M> adapter;
 

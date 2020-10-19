@@ -4,78 +4,78 @@ import android.content.Context;
 import android.support.annotation.Nullable;
 import com.baidu.searchbox.http.request.HttpRequest;
 import java.util.Map;
-/* loaded from: classes3.dex */
+/* loaded from: classes10.dex */
 public interface r {
-    boolean ZX();
+    boolean acJ();
 
-    String ZY();
+    String acK();
 
-    String ZZ();
+    String acL();
 
-    void aaS();
+    String acM();
 
-    void aaT();
+    String acN();
 
-    String aaU();
+    String acO();
 
-    String aaV();
+    String acP();
 
-    boolean aaW();
+    String acQ();
 
-    int aaX();
+    String acR();
 
-    String aaY();
+    String acS();
 
-    String aaZ();
+    String acT();
 
-    String aaa();
+    String acU();
 
-    String aab();
+    String acV();
 
-    String aac();
+    String acW();
 
-    String aad();
+    String acX();
 
-    String aae();
+    String acY();
 
-    String aaf();
+    String acZ();
 
-    String aag();
+    void adE();
 
-    String aah();
+    void adF();
 
-    String aai();
+    String adG();
 
-    String aaj();
+    String adH();
 
-    String aak();
+    boolean adI();
 
-    String aal();
+    int adJ();
 
-    String aam();
+    String adK();
 
-    String aan();
+    String adL();
 
-    String aao();
+    String adM();
+
+    String adN();
+
+    String adO();
+
+    String ada();
 
     @Nullable
-    String aap();
+    String adb();
 
-    long aaq();
+    long adc();
 
-    String aar();
+    String add();
 
-    String aas();
+    String ade();
 
-    String aat();
+    String adf();
 
-    String aba();
-
-    String abb();
-
-    String abc();
-
-    String bm(Context context);
+    String bs(Context context);
 
     HttpRequest e(Context context, Map<String, String> map);
 
@@ -91,7 +91,7 @@ public interface r {
 
     HttpRequest j(Context context, Map<String, String> map);
 
-    String jb(String str);
+    String jN(String str);
 
     HttpRequest k(Context context, Map<String, String> map);
 }

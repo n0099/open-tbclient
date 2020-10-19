@@ -22,7 +22,7 @@ import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes9.dex */
+/* loaded from: classes5.dex */
 public class IMPaGetInfoListRequest extends PaBaseHttpRequest {
     private static final String TAG = IMPaGetInfoListRequest.class.getSimpleName();
     private long mAppid;
@@ -55,7 +55,7 @@ public class IMPaGetInfoListRequest extends PaBaseHttpRequest {
     public byte[] getRequestParameter() throws NoSuchAlgorithmException {
         String bduss = IMConfigInternal.getInstance().getIMConfig(this.mContext).getBduss(this.mContext);
         long currentTimeMillis = System.currentTimeMillis() / 1000;
-        Object md5 = getMd5("" + currentTimeMillis + bduss + this.mAppid);
+        String md5 = getMd5("" + currentTimeMillis + bduss + this.mAppid);
         JSONObject jSONObject = new JSONObject();
         try {
             jSONObject.put("appid", this.mAppid);
@@ -71,7 +71,7 @@ public class IMPaGetInfoListRequest extends PaBaseHttpRequest {
             }
             jSONObject.put("pa_uids", jSONArray);
             jSONObject.put("is_https", true);
-            jSONObject.put("sign", md5);
+            jSONObject.put("sign", getSignByMd5Error(bduss, currentTimeMillis, this.mAppid, md5));
             jSONObject.put("account_type", AccountManagerImpl.getInstance(this.mContext).getLoginType());
             jSONObject.put("app_version", AccountManagerImpl.getInstance(this.mContext).getAppVersion());
             jSONObject.put(SapiContext.KEY_SDK_VERSION, IMConfigInternal.getInstance().getSDKVersionValue(this.mContext));

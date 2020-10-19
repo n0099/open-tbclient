@@ -17,7 +17,7 @@ import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes7.dex */
 public class k extends com.baidu.platform.base.d {
     SuggestAddrInfo b = null;
     protected boolean c;
@@ -135,9 +135,9 @@ public class k extends com.baidu.platform.base.d {
             if (i2 >= optJSONArray.length()) {
                 return arrayList;
             }
-            List<CityInfo> a = a((JSONArray) optJSONArray.opt(i2));
-            if (a != null) {
-                arrayList.add(a);
+            List<CityInfo> a2 = a((JSONArray) optJSONArray.opt(i2));
+            if (a2 != null) {
+                arrayList.add(a2);
             }
             i = i2 + 1;
         }
@@ -155,9 +155,9 @@ public class k extends com.baidu.platform.base.d {
             if (i2 >= optJSONArray.length()) {
                 return arrayList;
             }
-            List<PoiInfo> a = a(((JSONObject) optJSONArray.opt(i2)).optJSONArray("way_ponits"), "");
-            if (a != null) {
-                arrayList.add(a);
+            List<PoiInfo> a2 = a(((JSONObject) optJSONArray.opt(i2)).optJSONArray("way_ponits"), "");
+            if (a2 != null) {
+                arrayList.add(a2);
             }
             i = i2 + 1;
         }
@@ -183,13 +183,13 @@ public class k extends com.baidu.platform.base.d {
 
     @Override // com.baidu.platform.base.d
     public SearchResult a(String str) {
-        SearchType a = a();
+        SearchType a2 = a();
         if (b(str)) {
             this.c = true;
         } else {
             this.c = false;
         }
-        switch (a) {
+        switch (a2) {
             case TRANSIT_ROUTE:
                 TransitRouteResult transitRouteResult = new TransitRouteResult();
                 if (!this.c) {

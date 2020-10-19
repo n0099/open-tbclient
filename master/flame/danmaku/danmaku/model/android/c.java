@@ -8,54 +8,54 @@ import master.flame.danmaku.danmaku.model.p;
 import master.flame.danmaku.danmaku.model.q;
 /* loaded from: classes6.dex */
 public class c {
-    public master.flame.danmaku.danmaku.model.g oHU;
-    public master.flame.danmaku.danmaku.model.g oHV;
-    public master.flame.danmaku.danmaku.model.g oHW;
-    public m oHY;
-    private DanmakuContext oHZ;
-    public int oHP = 0;
-    public int oHQ = 0;
-    private float oHR = 1.0f;
-    public long oHS = 10000;
-    public long oHT = 4000;
-    public l oHX = new d();
+    public master.flame.danmaku.danmaku.model.g oXj;
+    public master.flame.danmaku.danmaku.model.g oXk;
+    public master.flame.danmaku.danmaku.model.g oXl;
+    public m oXn;
+    private DanmakuContext oXo;
+    public int oXe = 0;
+    public int oXf = 0;
+    private float oXg = 1.0f;
+    public long oXh = 10000;
+    public long oXi = 4000;
+    public l oXm = new d();
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public static c ems() {
+    public static c eqf() {
         return new c();
     }
 
     protected c() {
     }
 
-    public void emt() {
-        this.oHY = null;
-        this.oHQ = 0;
-        this.oHP = 0;
-        this.oHX.clear();
-        this.oHU = null;
-        this.oHV = null;
-        this.oHW = null;
-        this.oHT = 4000L;
+    public void eqg() {
+        this.oXn = null;
+        this.oXf = 0;
+        this.oXe = 0;
+        this.oXm.clear();
+        this.oXj = null;
+        this.oXk = null;
+        this.oXl = null;
+        this.oXi = 4000L;
     }
 
     public void b(DanmakuContext danmakuContext) {
-        this.oHZ = danmakuContext;
-        this.oHY = danmakuContext.emm();
+        this.oXo = danmakuContext;
+        this.oXn = danmakuContext.epZ();
         a(1, danmakuContext);
     }
 
-    public master.flame.danmaku.danmaku.model.d OI(int i) {
-        return a(i, this.oHZ);
+    public master.flame.danmaku.danmaku.model.d Po(int i) {
+        return a(i, this.oXo);
     }
 
     public master.flame.danmaku.danmaku.model.d a(int i, DanmakuContext danmakuContext) {
         if (danmakuContext == null) {
             return null;
         }
-        this.oHZ = danmakuContext;
-        this.oHY = danmakuContext.emm();
-        return a(i, this.oHY.getWidth(), this.oHY.getHeight(), this.oHR, danmakuContext.oHx);
+        this.oXo = danmakuContext;
+        this.oXn = danmakuContext.epZ();
+        return a(i, this.oXn.getWidth(), this.oXn.getHeight(), this.oXg, danmakuContext.oWM);
     }
 
     public master.flame.danmaku.danmaku.model.d a(int i, int i2, int i3, float f, float f2) {
@@ -65,20 +65,20 @@ public class c {
     public master.flame.danmaku.danmaku.model.d b(int i, float f, float f2, float f3, float f4) {
         float f5;
         float f6 = 1.0f;
-        int i2 = this.oHP;
-        int i3 = this.oHQ;
+        int i2 = this.oXe;
+        int i3 = this.oXf;
         boolean j = j(f, f2, f3);
-        if (this.oHU == null) {
-            this.oHU = new master.flame.danmaku.danmaku.model.g(this.oHS);
-            this.oHU.aW(f4);
+        if (this.oXj == null) {
+            this.oXj = new master.flame.danmaku.danmaku.model.g(this.oXh);
+            this.oXj.bc(f4);
         } else if (j) {
-            this.oHU.setValue(this.oHS);
+            this.oXj.setValue(this.oXh);
         }
-        if (this.oHV == null) {
-            this.oHV = new master.flame.danmaku.danmaku.model.g(10000L);
+        if (this.oXk == null) {
+            this.oXk = new master.flame.danmaku.danmaku.model.g(10000L);
         }
         if (j && f > 0.0f) {
-            emu();
+            eqh();
             if (i2 <= 0 || i3 <= 0) {
                 f5 = 1.0f;
             } else {
@@ -86,57 +86,57 @@ public class c {
                 f6 = f2 / i3;
             }
             if (f2 > 0.0f) {
-                F(f5, f6);
+                G(f5, f6);
             }
         }
         switch (i) {
             case 1:
-                return new p(this.oHU);
+                return new p(this.oXj);
             case 2:
             case 3:
             default:
                 return null;
             case 4:
-                return new master.flame.danmaku.danmaku.model.h(this.oHV);
+                return new master.flame.danmaku.danmaku.model.h(this.oXk);
             case 5:
-                return new master.flame.danmaku.danmaku.model.i(this.oHV);
+                return new master.flame.danmaku.danmaku.model.i(this.oXk);
             case 6:
-                return new o(this.oHU);
+                return new o(this.oXj);
             case 7:
                 q qVar = new q();
-                this.oHX.k(qVar);
+                this.oXm.k(qVar);
                 return qVar;
         }
     }
 
     public boolean j(float f, float f2, float f3) {
-        if (this.oHP == ((int) f) && this.oHQ == ((int) f2) && this.oHR == f3) {
+        if (this.oXe == ((int) f) && this.oXf == ((int) f2) && this.oXg == f3) {
             return false;
         }
-        this.oHS = 10000.0f * ((f3 * f) / 682.0f);
-        this.oHS = Math.min(9000L, this.oHS);
-        this.oHS = Math.max(4000L, this.oHS);
-        this.oHP = (int) f;
-        this.oHQ = (int) f2;
-        this.oHR = f3;
+        this.oXh = 10000.0f * ((f3 * f) / 682.0f);
+        this.oXh = Math.min(9000L, this.oXh);
+        this.oXh = Math.max(4000L, this.oXh);
+        this.oXe = (int) f;
+        this.oXf = (int) f2;
+        this.oXg = f3;
         return true;
     }
 
-    private void F(final float f, final float f2) {
-        this.oHX.a(new l.c<master.flame.danmaku.danmaku.model.d>() { // from class: master.flame.danmaku.danmaku.model.android.c.1
+    private void G(final float f, final float f2) {
+        this.oXm.a(new l.c<master.flame.danmaku.danmaku.model.d>() { // from class: master.flame.danmaku.danmaku.model.android.c.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // master.flame.danmaku.danmaku.model.l.b
             /* renamed from: e */
-            public int bQ(master.flame.danmaku.danmaku.model.d dVar) {
+            public int bT(master.flame.danmaku.danmaku.model.d dVar) {
                 q qVar = (q) dVar;
-                c.this.a(qVar, qVar.oGt, qVar.oGu, qVar.kOS, qVar.kOT, qVar.oGv, qVar.oGw, f, f2);
-                q.a[] aVarArr = qVar.oGD;
+                c.this.a(qVar, qVar.oVI, qVar.oVJ, qVar.lee, qVar.lef, qVar.oVK, qVar.oVL, f, f2);
+                q.a[] aVarArr = qVar.oVS;
                 if (aVarArr != null && aVarArr.length > 0) {
                     int length = aVarArr.length;
                     float[][] fArr = (float[][]) Array.newInstance(Float.TYPE, length + 1, 2);
                     for (int i = 0; i < length; i++) {
-                        fArr[i] = aVarArr[i].emi();
-                        fArr[i + 1] = aVarArr[i].emj();
+                        fArr[i] = aVarArr[i].epV();
+                        fArr[i + 1] = aVarArr[i].epW();
                     }
                     c.a(qVar, fArr, f, f2);
                 }
@@ -145,14 +145,14 @@ public class c {
         });
     }
 
-    public void emu() {
-        long j = this.oHU == null ? 0L : this.oHU.value;
-        long j2 = this.oHV == null ? 0L : this.oHV.value;
-        long j3 = this.oHW != null ? this.oHW.value : 0L;
-        this.oHT = Math.max(j, j2);
-        this.oHT = Math.max(this.oHT, j3);
-        this.oHT = Math.max(10000L, this.oHT);
-        this.oHT = Math.max(this.oHS, this.oHT);
+    public void eqh() {
+        long j = this.oXj == null ? 0L : this.oXj.value;
+        long j2 = this.oXk == null ? 0L : this.oXk.value;
+        long j3 = this.oXl != null ? this.oXl.value : 0L;
+        this.oXi = Math.max(j, j2);
+        this.oXi = Math.max(this.oXi, j3);
+        this.oXi = Math.max(10000L, this.oXi);
+        this.oXi = Math.max(this.oXh, this.oXi);
     }
 
     public void a(master.flame.danmaku.danmaku.model.d dVar, float f, float f2, float f3, float f4, long j, long j2, float f5, float f6) {
@@ -175,9 +175,9 @@ public class c {
     }
 
     private void u(master.flame.danmaku.danmaku.model.d dVar) {
-        if (this.oHW == null || (dVar.oFO != null && dVar.oFO.value > this.oHW.value)) {
-            this.oHW = dVar.oFO;
-            emu();
+        if (this.oXl == null || (dVar.oVd != null && dVar.oVd.value > this.oXl.value)) {
+            this.oXl = dVar.oVd;
+            eqh();
         }
     }
 }

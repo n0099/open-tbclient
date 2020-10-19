@@ -3,7 +3,7 @@ package com.baidu.android.imsdk.chatmessage.messages;
 import android.text.TextUtils;
 import com.baidu.android.imsdk.utils.LogUtils;
 import org.json.JSONObject;
-/* loaded from: classes9.dex */
+/* loaded from: classes5.dex */
 public class DuzhanUpMsgCreator {
     private static final String TAG = "DuzhanUpMsgCreateor";
     private static int REQ_TYPE_BOX = 0;
@@ -32,14 +32,18 @@ public class DuzhanUpMsgCreator {
 
     private static JSONObject getImageContent(ChatMsg chatMsg) {
         try {
-            String optString = new JSONObject(chatMsg.getJsonContent()).optString("json");
-            JSONObject jSONObject = new JSONObject();
-            jSONObject.put("name", optString);
-            jSONObject.put("url", ((ImageMsg) chatMsg).getRemoteUrl());
-            jSONObject.put("thumbnail", ((ImageMsg) chatMsg).getThumbUrl());
-            jSONObject.put("w", ((ImageMsg) chatMsg).getWidth());
-            jSONObject.put("h", ((ImageMsg) chatMsg).getHeight());
-            return jSONObject;
+            JSONObject jSONObject = new JSONObject(chatMsg.getJsonContent());
+            String optString = jSONObject.optString("json");
+            JSONObject jSONObject2 = new JSONObject();
+            jSONObject2.put("name", optString);
+            jSONObject2.put("url", ((ImageMsg) chatMsg).getRemoteUrl());
+            jSONObject2.put("thumbnail", ((ImageMsg) chatMsg).getThumbUrl());
+            jSONObject2.put("w", ((ImageMsg) chatMsg).getWidth());
+            jSONObject2.put("h", ((ImageMsg) chatMsg).getHeight());
+            if (jSONObject.has("ext")) {
+                jSONObject2.put("ext", jSONObject.get("ext"));
+            }
+            return jSONObject2;
         } catch (Exception e) {
             LogUtils.e(TAG, "create json excepiton " + e.getMessage());
             return new JSONObject();

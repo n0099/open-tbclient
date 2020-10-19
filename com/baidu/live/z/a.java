@@ -4,9 +4,9 @@ import com.baidu.live.data.u;
 import org.json.JSONObject;
 /* loaded from: classes4.dex */
 public interface a {
-    void Q(JSONObject jSONObject);
+    void P(JSONObject jSONObject);
 
-    void cq(boolean z);
+    void ct(boolean z);
 
     void k(u uVar);
 

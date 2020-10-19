@@ -1,5 +1,5 @@
 package com.baidu.ar.arplay.c;
-/* loaded from: classes10.dex */
+/* loaded from: classes14.dex */
 public class c {
     public static float a(Object obj, float f) {
         if (obj != null) {

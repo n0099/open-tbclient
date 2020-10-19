@@ -8,26 +8,26 @@ import com.baidu.tbadk.TbPageContext;
 import com.baidu.tieba.advert.sdk.data.AdInfo;
 import com.baidu.tieba.advert.sdk.data.SplashHttpRequest;
 import com.baidu.tieba.advert.sdk.data.SplashHttpResponse;
-/* loaded from: classes22.dex */
+/* loaded from: classes23.dex */
 public class b {
-    private static b fvj = new b();
-    private a fvk;
-    private final HttpMessageListener fvl = new HttpMessageListener(1003192) { // from class: com.baidu.tieba.advert.sdk.b.b.1
+    private static b fHs = new b();
+    private a fHt;
+    private final HttpMessageListener fHu = new HttpMessageListener(1003192) { // from class: com.baidu.tieba.advert.sdk.b.b.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(HttpResponsedMessage httpResponsedMessage) {
             if (httpResponsedMessage instanceof SplashHttpResponse) {
                 SplashHttpResponse splashHttpResponse = (SplashHttpResponse) httpResponsedMessage;
                 if (!splashHttpResponse.hasError() && splashHttpResponse.getErrno() == 0) {
-                    if (b.this.fvk != null) {
-                        b.this.fvk.Eu(splashHttpResponse.getResultMsg());
+                    if (b.this.fHt != null) {
+                        b.this.fHt.Ff(splashHttpResponse.getResultMsg());
                         return;
                     }
                     return;
                 }
                 BdLog.e("Response of splash has error");
-                if (b.this.fvk != null) {
-                    b.this.fvk.Ev(splashHttpResponse.getResultMsg());
+                if (b.this.fHt != null) {
+                    b.this.fHt.Fg(splashHttpResponse.getResultMsg());
                     return;
                 }
                 return;
@@ -36,28 +36,28 @@ public class b {
         }
     };
 
-    /* loaded from: classes22.dex */
+    /* loaded from: classes23.dex */
     public interface a {
-        void Eu(String str);
+        void Ff(String str);
 
-        void Ev(String str);
+        void Fg(String str);
     }
 
     private b() {
     }
 
-    public static b bDq() {
-        return fvj;
+    public static b bGc() {
+        return fHs;
     }
 
     public void a(TbPageContext<?> tbPageContext, a aVar, AdInfo adInfo) {
-        this.fvk = aVar;
-        this.fvl.setTag(tbPageContext.getUniqueId());
-        MessageManager.getInstance().registerListener(this.fvl);
+        this.fHt = aVar;
+        this.fHu.setTag(tbPageContext.getUniqueId());
+        MessageManager.getInstance().registerListener(this.fHu);
         SplashHttpRequest.sendRequest(new SplashHttpRequest(tbPageContext.getPageActivity(), adInfo));
     }
 
-    public static String bDr() {
+    public static String bGd() {
         return "http://baichuan.baidu.com/rs/adpmobile/successdisplaystatistics";
     }
 

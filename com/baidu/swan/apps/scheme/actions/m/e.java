@@ -9,7 +9,7 @@ import com.baidu.swan.apps.scheme.j;
 import java.util.List;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes10.dex */
 public abstract class e extends aa {
     public e(j jVar, String str) {
         super(jVar, str);
@@ -19,7 +19,7 @@ public abstract class e extends aa {
     public void a(final CallbackHandler callbackHandler, SwanAppSlaveManager swanAppSlaveManager, final d dVar) {
         swanAppSlaveManager.b(new com.baidu.swan.apps.core.f.d() { // from class: com.baidu.swan.apps.scheme.actions.m.e.1
             @Override // com.baidu.swan.apps.core.f.d
-            public void hQ(String str) {
+            public void ir(String str) {
             }
 
             @Override // com.baidu.swan.apps.core.f.d
@@ -27,8 +27,8 @@ public abstract class e extends aa {
             }
 
             @Override // com.baidu.swan.apps.core.f.d
-            public boolean hR(String str) {
-                if (e.this.d(str, dVar.cWf)) {
+            public boolean is(String str) {
+                if (e.this.d(str, dVar.din)) {
                     e.this.a(str, callbackHandler, dVar.callback);
                     return true;
                 }
@@ -36,7 +36,7 @@ public abstract class e extends aa {
             }
 
             @Override // com.baidu.swan.apps.core.f.d
-            public void hp(String str) {
+            public void hG(String str) {
             }
 
             @Override // com.baidu.swan.apps.core.f.d

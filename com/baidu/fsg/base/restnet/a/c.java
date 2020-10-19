@@ -11,9 +11,11 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.nio.charset.Charset;
 import org.json.JSONException;
-/* loaded from: classes15.dex */
+/* loaded from: classes16.dex */
 public class c extends a<Object> {
-    public static final Charset a = Charset.forName("UTF-8");
+
+    /* renamed from: a  reason: collision with root package name */
+    public static final Charset f1460a = Charset.forName("UTF-8");
 
     @Override // com.baidu.fsg.base.restnet.a.a
     protected Object b(Class<?> cls, e eVar) throws IOException, RestRuntimeException {
@@ -35,6 +37,6 @@ public class c extends a<Object> {
     }
 
     private Charset a(com.baidu.fsg.base.restnet.http.a aVar) {
-        return (aVar == null || TextUtils.isEmpty(aVar.j())) ? a : Charset.forName(aVar.j());
+        return (aVar == null || TextUtils.isEmpty(aVar.j())) ? f1460a : Charset.forName(aVar.j());
     }
 }

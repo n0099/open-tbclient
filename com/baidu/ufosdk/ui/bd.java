@@ -4,13 +4,15 @@ import android.os.Handler;
 import android.os.Message;
 import java.util.Timer;
 import java.util.TimerTask;
-/* loaded from: classes21.dex */
+/* loaded from: classes22.dex */
 final class bd extends TimerTask {
-    final /* synthetic */ bc a;
+
+    /* renamed from: a  reason: collision with root package name */
+    final /* synthetic */ bc f3771a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public bd(bc bcVar) {
-        this.a = bcVar;
+        this.f3771a = bcVar;
     }
 
     @Override // java.util.TimerTask, java.lang.Runnable
@@ -20,11 +22,11 @@ final class bd extends TimerTask {
         Timer timer2;
         Message message = new Message();
         message.what = 3;
-        handler = this.a.a.r;
+        handler = this.f3771a.f3770a.r;
         handler.sendMessage(message);
-        timer = this.a.a.q;
+        timer = this.f3771a.f3770a.q;
         timer.cancel();
-        timer2 = this.a.a.q;
+        timer2 = this.f3771a.f3770a.q;
         timer2.purge();
     }
 }

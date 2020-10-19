@@ -15,12 +15,14 @@ import java.util.ArrayList;
 import tv.chushou.zues.utils.h;
 /* loaded from: classes6.dex */
 public class a extends PopupWindow implements View.OnClickListener {
-    private final TextView a;
-    private InterfaceC0913a omc;
+
+    /* renamed from: a  reason: collision with root package name */
+    private final TextView f4283a;
+    private InterfaceC0931a oBv;
 
     /* renamed from: com.kascend.chushou.widget.gifts.a$a  reason: collision with other inner class name */
     /* loaded from: classes6.dex */
-    public interface InterfaceC0913a {
+    public interface InterfaceC0931a {
         void a(int i);
 
         void b(int i);
@@ -30,7 +32,7 @@ public class a extends PopupWindow implements View.OnClickListener {
         super(context);
         View inflate = LayoutInflater.from(context).inflate(a.h.popup_customize_count, (ViewGroup) null, false);
         setContentView(inflate);
-        this.a = (TextView) inflate.findViewById(a.f.tv_num);
+        this.f4283a = (TextView) inflate.findViewById(a.f.tv_num);
         ImageView imageView = (ImageView) inflate.findViewById(a.f.iv_x);
         imageView.setOnClickListener(this);
         ArrayList<TextView> arrayList = new ArrayList();
@@ -49,7 +51,7 @@ public class a extends PopupWindow implements View.OnClickListener {
             textView.setOnClickListener(this);
         }
         if (z) {
-            setWidth(tv.chushou.zues.utils.a.hc(context).x);
+            setWidth(tv.chushou.zues.utils.a.hj(context).x);
         } else {
             inflate.findViewById(a.f.space_1).setVisibility(8);
             ((LinearLayout) inflate.findViewById(a.f.ll_keyboard)).setBackgroundColor(Color.parseColor("#4A4A4A"));
@@ -59,7 +61,7 @@ public class a extends PopupWindow implements View.OnClickListener {
             }
             imageView.setBackgroundColor(Color.parseColor("#3B3B3B"));
             imageView.setImageResource(a.e.icon_delete_white);
-            this.a.setVisibility(8);
+            this.f4283a.setVisibility(8);
             setWidth(tv.chushou.zues.utils.a.dip2px(context, 260.0f));
         }
         setHeight(-2);
@@ -99,40 +101,40 @@ public class a extends PopupWindow implements View.OnClickListener {
     }
 
     private void a() {
-        int parseInt = h.parseInt(this.a.getText().toString());
+        int parseInt = h.parseInt(this.f4283a.getText().toString());
         if (parseInt != 0) {
             dismiss();
-            if (this.omc != null) {
-                this.omc.a(parseInt);
+            if (this.oBv != null) {
+                this.oBv.a(parseInt);
             }
         }
     }
 
     private void a(int i) {
         int parseInt;
-        String charSequence = this.a.getText().toString();
+        String charSequence = this.f4283a.getText().toString();
         if (h.parseInt(charSequence) == 0) {
-            this.a.setText(String.valueOf(i));
+            this.f4283a.setText(String.valueOf(i));
         } else if (charSequence.length() < 4) {
-            this.a.setText(String.valueOf(charSequence + i));
+            this.f4283a.setText(String.valueOf(charSequence + i));
         }
-        if (this.omc != null && (parseInt = h.parseInt(this.a.getText().toString())) != 0) {
-            this.omc.b(parseInt);
+        if (this.oBv != null && (parseInt = h.parseInt(this.f4283a.getText().toString())) != 0) {
+            this.oBv.b(parseInt);
         }
     }
 
     private void b() {
         int parseInt;
-        String charSequence = this.a.getText().toString();
+        String charSequence = this.f4283a.getText().toString();
         if (charSequence.length() > 0) {
-            this.a.setText(charSequence.substring(0, charSequence.length() - 1));
+            this.f4283a.setText(charSequence.substring(0, charSequence.length() - 1));
         }
-        if (this.omc != null && (parseInt = h.parseInt(this.a.getText().toString())) != 0) {
-            this.omc.b(parseInt);
+        if (this.oBv != null && (parseInt = h.parseInt(this.f4283a.getText().toString())) != 0) {
+            this.oBv.b(parseInt);
         }
     }
 
-    public void a(InterfaceC0913a interfaceC0913a) {
-        this.omc = interfaceC0913a;
+    public void a(InterfaceC0931a interfaceC0931a) {
+        this.oBv = interfaceC0931a;
     }
 }

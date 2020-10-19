@@ -4,7 +4,7 @@ import android.graphics.Rect;
 import com.baidu.searchbox.ui.animview.base.IAnimatedElement;
 import com.baidu.searchbox.ui.animview.base.IResourceProvider;
 import java.util.Map;
-/* loaded from: classes11.dex */
+/* loaded from: classes9.dex */
 public interface ILayoutStrategy {
     public static final int ELEMENT_TYPE_ERUPTION = 4;
     public static final int ELEMENT_TYPE_PRAISE_LEVEL = 2;
@@ -15,7 +15,7 @@ public interface ILayoutStrategy {
     public static final int STRATEGY_MIDDLE = 1;
     public static final int STRATEGY_RIGHT = 2;
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes9.dex */
     public interface ICallback {
         void init(IAnimatedElement iAnimatedElement, int i, int i2, int i3, int i4, IResourceProvider iResourceProvider, Object... objArr);
     }
@@ -26,7 +26,7 @@ public interface ILayoutStrategy {
 
     void layout(int i, Map<Integer, IAnimatedElement> map, ICallback iCallback);
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes9.dex */
     public static class Factory {
         public static int calculateLayoutStrategy(Rect rect, int i, int i2) {
             if (rect == null) {

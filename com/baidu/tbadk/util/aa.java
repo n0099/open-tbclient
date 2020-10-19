@@ -7,19 +7,19 @@ import android.widget.AbsListView;
 import com.baidu.adp.widget.ListView.BdRecyclerView;
 /* loaded from: classes.dex */
 public class aa {
-    private View aSR;
-    private int eYv;
-    private boolean eYw;
+    private View aWc;
+    private int fkH;
+    private boolean fkI;
     private final Handler mHandler;
 
-    public void bwO() {
+    public void bzy() {
         this.mHandler.removeMessages(2);
         if (!this.mHandler.hasMessages(1)) {
             this.mHandler.sendEmptyMessageDelayed(1, 60L);
         }
     }
 
-    public void bwP() {
+    public void bzz() {
         this.mHandler.removeMessages(1);
         if (!this.mHandler.hasMessages(2)) {
             this.mHandler.sendEmptyMessageDelayed(2, 110L);
@@ -27,33 +27,33 @@ public class aa {
     }
 
     public void hideFloatingView(boolean z) {
-        if (this.aSR != null) {
-            if (z || this.aSR.getVisibility() != 8) {
-                bwP();
+        if (this.aWc != null) {
+            if (z || this.aWc.getVisibility() != 8) {
+                bzz();
             }
         }
     }
 
     public void showFloatingView(boolean z) {
-        if (this.aSR != null) {
-            if (z || this.aSR.getVisibility() != 0) {
-                bwO();
+        if (this.aWc != null) {
+            if (z || this.aWc.getVisibility() != 0) {
+                bzy();
             }
         }
     }
 
     public void onScroll(int i, int i2) {
-        if (this.aSR != null) {
-            if (i != 0 && i2 > i && this.aSR.getVisibility() != 8) {
+        if (this.aWc != null) {
+            if (i != 0 && i2 > i && this.aWc.getVisibility() != 8) {
                 hideFloatingView(false);
-            } else if ((i == 0 || i2 < i) && this.aSR.getVisibility() != 0) {
+            } else if ((i == 0 || i2 < i) && this.aWc.getVisibility() != 0) {
                 showFloatingView(false);
             }
-            this.eYv = i;
+            this.fkH = i;
         }
     }
 
-    public void k(ViewGroup viewGroup, int i) {
+    public void m(ViewGroup viewGroup, int i) {
         int firstVisiblePosition;
         if (viewGroup != null && i == 0) {
             if (viewGroup instanceof BdRecyclerView) {
@@ -63,12 +63,12 @@ public class aa {
             } else {
                 return;
             }
-            if (firstVisiblePosition > this.eYv) {
+            if (firstVisiblePosition > this.fkH) {
                 hideFloatingView(true);
-            } else if (firstVisiblePosition < this.eYv) {
+            } else if (firstVisiblePosition < this.fkH) {
                 showFloatingView(true);
-            } else if (firstVisiblePosition == this.eYv) {
-                if (firstVisiblePosition == 0 || !this.eYw) {
+            } else if (firstVisiblePosition == this.fkH) {
+                if (firstVisiblePosition == 0 || !this.fkI) {
                     showFloatingView(true);
                 } else {
                     hideFloatingView(true);

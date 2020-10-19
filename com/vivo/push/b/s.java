@@ -2,9 +2,11 @@ package com.vivo.push.b;
 
 import android.text.TextUtils;
 import com.vivo.push.model.InsideNotificationItem;
-/* loaded from: classes12.dex */
+/* loaded from: classes15.dex */
 public final class s extends x {
-    protected InsideNotificationItem a;
+
+    /* renamed from: a  reason: collision with root package name */
+    protected InsideNotificationItem f4649a;
     private String b;
 
     public s() {
@@ -12,14 +14,14 @@ public final class s extends x {
     }
 
     public final InsideNotificationItem d() {
-        return this.a;
+        return this.f4649a;
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.vivo.push.b.x, com.vivo.push.b.u, com.vivo.push.y
     public final void c(com.vivo.push.a aVar) {
         super.c(aVar);
-        this.b = com.vivo.push.util.q.b(this.a);
+        this.b = com.vivo.push.util.q.b(this.f4649a);
         aVar.a("notification_v1", this.b);
     }
 
@@ -29,19 +31,19 @@ public final class s extends x {
         super.d(aVar);
         this.b = aVar.a("notification_v1");
         if (!TextUtils.isEmpty(this.b)) {
-            this.a = com.vivo.push.util.q.a(this.b);
-            if (this.a != null) {
-                this.a.setMsgId(f());
+            this.f4649a = com.vivo.push.util.q.a(this.b);
+            if (this.f4649a != null) {
+                this.f4649a.setMsgId(f());
             }
         }
     }
 
     public final String e() {
         if (TextUtils.isEmpty(this.b)) {
-            if (this.a == null) {
+            if (this.f4649a == null) {
                 return null;
             }
-            return com.vivo.push.util.q.b(this.a);
+            return com.vivo.push.util.q.b(this.f4649a);
         }
         return this.b;
     }

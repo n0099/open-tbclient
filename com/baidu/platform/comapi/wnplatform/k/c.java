@@ -12,9 +12,11 @@ import android.view.WindowManager;
 import com.baidu.ala.recorder.video.drawer.EncoderTextureDrawer;
 import java.util.ArrayList;
 import java.util.Iterator;
-/* loaded from: classes3.dex */
+/* loaded from: classes7.dex */
 public class c extends a implements SensorEventListener {
-    public static int a = 0;
+
+    /* renamed from: a  reason: collision with root package name */
+    public static int f3123a = 0;
     private SensorManager f;
     private Sensor g;
     private boolean h;
@@ -171,7 +173,7 @@ public class c extends a implements SensorEventListener {
         SensorManager.getRotationMatrix(this.p, null, this.l, this.m);
         SensorManager.getOrientation(this.p, this.q);
         synchronized (this.o) {
-            this.o.a = this.l[0];
+            this.o.f3132a = this.l[0];
             this.o.b = this.l[1];
             this.o.c = this.l[2];
             float degrees = (float) Math.toDegrees(this.q[0]);
@@ -230,8 +232,8 @@ public class c extends a implements SensorEventListener {
                             message.obj = this.r;
                             this.j.sendMessage(message);
                         }
-                        a++;
-                        if (a % 50 == 0) {
+                        f3123a++;
+                        if (f3123a % 50 == 0) {
                             StringBuilder sb = new StringBuilder();
                             sb.append("head:" + this.r.d);
                             sb.append("pitch:" + this.r.e);

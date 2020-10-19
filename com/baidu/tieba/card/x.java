@@ -2,9 +2,9 @@ package com.baidu.tieba.card;
 
 import com.baidu.adp.BdUniqueId;
 import com.baidu.tbadk.TbPageContext;
-/* loaded from: classes20.dex */
+/* loaded from: classes21.dex */
 public interface x {
-    String VJ();
+    String XG();
 
     void a(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId);
 

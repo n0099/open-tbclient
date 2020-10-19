@@ -10,11 +10,11 @@ import com.baidu.swan.game.ad.entity.AdElementInfo;
 import java.util.HashSet;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes10.dex */
+/* loaded from: classes14.dex */
 public class c {
     public static void a(AdElementInfo adElementInfo, com.baidu.swan.game.ad.a.b bVar) {
         if (adElementInfo != null) {
-            for (String str : adElementInfo.aJG()) {
+            for (String str : adElementInfo.aMp()) {
                 a(m(str, 0, 0), bVar);
             }
             for (String str2 : adElementInfo.getThirdImpressionTrackingUrls()) {
@@ -30,9 +30,9 @@ public class c {
                 hashSet.add("da_page");
                 hashSet.add("da_type");
                 String deleteParam = ai.deleteParam(str, hashSet);
-                if (!TextUtils.isEmpty(adElementInfo.aJz())) {
+                if (!TextUtils.isEmpty(adElementInfo.aMi())) {
                     deleteParam = ai.addParam(deleteParam, "da_page", "NAVIDEO_TAIL_PLAYABLE");
-                } else if (!TextUtils.isEmpty(adElementInfo.aJF())) {
+                } else if (!TextUtils.isEmpty(adElementInfo.aMo())) {
                     deleteParam = ai.addParam(deleteParam, "da_page", "NAVIDEO_TAIL");
                 }
                 a(ai.addParam(deleteParam, "da_type", TbEnum.SystemMessage.EVENT_ID_INTRO_MODIFY).replaceAll("%25%25origin_time%25%25", "" + System.currentTimeMillis()), bVar);
@@ -48,7 +48,7 @@ public class c {
                 hashSet.add("da_type");
                 a(ai.addParam(ai.addParam(ai.deleteParam(str, hashSet), "da_page", "NAVIDEO_TAIL_PLAYABLE"), "da_type", TbEnum.SystemMessage.EVENT_ID_NOTICE_MODIFY).replaceAll("%25%25origin_time%25%25", "" + System.currentTimeMillis()), bVar);
             }
-            a(adElementInfo.aJB(), bVar);
+            a(adElementInfo.aMk(), bVar);
         }
     }
 
@@ -89,12 +89,12 @@ public class c {
     }
 
     private static void a(String str, com.baidu.swan.game.ad.a.b bVar) {
-        bVar.uk(str);
+        bVar.uW(str);
     }
 
     public static void a(String str, String str2, String str3, com.baidu.swan.game.ad.a.b bVar) {
-        if (!ak.aFX()) {
-            String hostName = com.baidu.swan.apps.t.a.aqg().getHostName();
+        if (!ak.aIG()) {
+            String hostName = com.baidu.swan.apps.t.a.asS().getHostName();
             JSONObject jSONObject = new JSONObject();
             try {
                 jSONObject.put("bizId", 10003);
@@ -107,11 +107,11 @@ public class c {
                 jSONObject2.put("media_id", str);
                 jSONObject2.put("PVID", str3);
                 jSONObject2.put("tuid", str2);
-                jSONObject2.put("time", e.aKa());
+                jSONObject2.put("time", e.aMJ());
                 jSONObject2.put("page_type", 1);
                 jSONObject2.put("traffic_type", 1);
                 jSONObject.put("content", jSONObject2);
-                bVar.ul(jSONObject.toString());
+                bVar.uX(jSONObject.toString());
             } catch (JSONException e) {
                 e.printStackTrace();
             }

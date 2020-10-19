@@ -1,7 +1,7 @@
 package com.baidu.searchbox.player.event;
 
 import com.baidu.cyberplayer.sdk.CyberPlayerManager;
-/* loaded from: classes8.dex */
+/* loaded from: classes15.dex */
 public class StatisticsEventTrigger extends SingleTargetTrigger {
     public static final int KEY_LOOP_COUNT = 1;
 

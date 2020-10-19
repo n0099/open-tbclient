@@ -13,16 +13,18 @@ import java.net.URL;
 import java.util.Map;
 import java.util.zip.GZIPInputStream;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes3.dex */
+/* loaded from: classes7.dex */
 public class h implements Runnable {
-    final /* synthetic */ String a;
+
+    /* renamed from: a  reason: collision with root package name */
+    final /* synthetic */ String f1951a;
     final /* synthetic */ boolean b;
     final /* synthetic */ f c;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public h(f fVar, String str, boolean z) {
         this.c = fVar;
-        this.a = str;
+        this.f1951a = str;
         this.b = z;
     }
 
@@ -82,8 +84,8 @@ public class h implements Runnable {
                     if (l.ax != null) {
                         httpURLConnection3.setRequestProperty("bd-loc-android", l.ax);
                     }
-                    if (!TextUtils.isEmpty(this.a)) {
-                        httpURLConnection3.setRequestProperty("Host", this.a);
+                    if (!TextUtils.isEmpty(this.f1951a)) {
+                        httpURLConnection3.setRequestProperty("Host", this.f1951a);
                     }
                     outputStream2 = httpURLConnection3.getOutputStream();
                     try {
@@ -125,27 +127,27 @@ public class h implements Runnable {
                                                 try {
                                                     outputStream3.close();
                                                 } catch (Exception e) {
-                                                    Log.d(a.a, "close os IOException!");
+                                                    Log.d(a.f1942a, "close os IOException!");
                                                 }
                                             }
                                             if (inputStream != null) {
                                                 try {
                                                     inputStream.close();
                                                 } catch (Exception e2) {
-                                                    Log.d(a.a, "close is IOException!");
+                                                    Log.d(a.f1942a, "close is IOException!");
                                                 }
                                             }
                                             if (byteArrayOutputStream != null) {
                                                 try {
                                                     byteArrayOutputStream.close();
                                                 } catch (Exception e3) {
-                                                    Log.d(a.a, "close baos IOException!");
+                                                    Log.d(a.f1942a, "close baos IOException!");
                                                 }
                                             }
                                             throw th;
                                         }
                                     } catch (Error e4) {
-                                        Log.d(a.a, "NetworkCommunicationError!");
+                                        Log.d(a.f1942a, "NetworkCommunicationError!");
                                         if (httpURLConnection3 != null) {
                                             httpURLConnection3.disconnect();
                                         }
@@ -153,21 +155,21 @@ public class h implements Runnable {
                                             try {
                                                 outputStream2.close();
                                             } catch (Exception e5) {
-                                                Log.d(a.a, "close os IOException!");
+                                                Log.d(a.f1942a, "close os IOException!");
                                             }
                                         }
                                         if (inputStream != null) {
                                             try {
                                                 inputStream.close();
                                             } catch (Exception e6) {
-                                                Log.d(a.a, "close is IOException!");
+                                                Log.d(a.f1942a, "close is IOException!");
                                             }
                                         }
                                         if (byteArrayOutputStream != null) {
                                             try {
                                                 byteArrayOutputStream.close();
                                             } catch (Exception e7) {
-                                                Log.d(a.a, "close baos IOException!");
+                                                Log.d(a.f1942a, "close baos IOException!");
                                                 httpURLConnection4 = httpURLConnection3;
                                                 z = false;
                                             }
@@ -182,7 +184,7 @@ public class h implements Runnable {
                                         httpURLConnection2 = httpURLConnection3;
                                         outputStream = outputStream2;
                                         try {
-                                            Log.d(a.a, "NetworkCommunicationException!");
+                                            Log.d(a.f1942a, "NetworkCommunicationException!");
                                             if (httpURLConnection2 != null) {
                                                 httpURLConnection2.disconnect();
                                             }
@@ -190,21 +192,21 @@ public class h implements Runnable {
                                                 try {
                                                     outputStream.close();
                                                 } catch (Exception e9) {
-                                                    Log.d(a.a, "close os IOException!");
+                                                    Log.d(a.f1942a, "close os IOException!");
                                                 }
                                             }
                                             if (inputStream2 != null) {
                                                 try {
                                                     inputStream2.close();
                                                 } catch (Exception e10) {
-                                                    Log.d(a.a, "close is IOException!");
+                                                    Log.d(a.f1942a, "close is IOException!");
                                                 }
                                             }
                                             if (byteArrayOutputStream2 != null) {
                                                 try {
                                                     byteArrayOutputStream2.close();
                                                 } catch (Exception e11) {
-                                                    Log.d(a.a, "close baos IOException!");
+                                                    Log.d(a.f1942a, "close baos IOException!");
                                                     z = false;
                                                     httpURLConnection4 = httpURLConnection2;
                                                 }
@@ -270,21 +272,21 @@ public class h implements Runnable {
                             try {
                                 outputStream2.close();
                             } catch (Exception e16) {
-                                Log.d(a.a, "close os IOException!");
+                                Log.d(a.f1942a, "close os IOException!");
                             }
                         }
                         if (inputStream3 != null) {
                             try {
                                 inputStream3.close();
                             } catch (Exception e17) {
-                                Log.d(a.a, "close is IOException!");
+                                Log.d(a.f1942a, "close is IOException!");
                             }
                         }
                         if (byteArrayOutputStream3 != null) {
                             try {
                                 byteArrayOutputStream3.close();
                             } catch (Exception e18) {
-                                Log.d(a.a, "close baos IOException!");
+                                Log.d(a.f1942a, "close baos IOException!");
                                 boolean z3 = z2;
                                 httpURLConnection4 = httpURLConnection3;
                                 z = z3;

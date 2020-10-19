@@ -4,7 +4,7 @@ import android.content.Context;
 import android.telephony.TelephonyManager;
 import android.text.TextUtils;
 import org.json.JSONObject;
-/* loaded from: classes15.dex */
+/* loaded from: classes17.dex */
 public class HeadObject {
     JSONObject A;
     JSONObject B;
@@ -30,7 +30,9 @@ public class HeadObject {
     String x;
     String y;
     String z;
-    boolean a = false;
+
+    /* renamed from: a  reason: collision with root package name */
+    boolean f2495a = false;
     String d = "0";
     String e = null;
     String f = null;
@@ -45,7 +47,7 @@ public class HeadObject {
     }
 
     private synchronized void a(Context context) {
-        if (!this.a) {
+        if (!this.f2495a) {
             bo.e(context, "android.permission.READ_PHONE_STATE");
             bo.e(context, "android.permission.INTERNET");
             bo.e(context, "android.permission.ACCESS_NETWORK_STATE");
@@ -122,7 +124,7 @@ public class HeadObject {
             this.x = android.os.Build.BOARD;
             this.y = android.os.Build.BRAND;
             this.C = CooperService.instance().getUserId(context);
-            this.a = true;
+            this.f2495a = true;
         }
     }
 

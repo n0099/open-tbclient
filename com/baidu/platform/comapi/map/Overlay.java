@@ -4,7 +4,7 @@ import android.os.Bundle;
 import com.baidu.live.tbadk.pagestayduration.PageStayDurationHelper;
 import com.baidu.platform.comapi.basestruct.GeoPoint;
 import java.util.List;
-/* loaded from: classes3.dex */
+/* loaded from: classes7.dex */
 public abstract class Overlay {
     public String id = System.currentTimeMillis() + PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS + hashCode();
     public long mLayerID;
@@ -24,9 +24,9 @@ public abstract class Overlay {
         double[] dArr = new double[size];
         double[] dArr2 = new double[size];
         for (int i = 0; i < size; i++) {
-            GeoPoint a = x.a(list.get(i));
-            dArr[i] = a.getLongitude();
-            dArr2[i] = a.getLatitude();
+            GeoPoint a2 = x.a(list.get(i));
+            dArr[i] = a2.getLongitude();
+            dArr2[i] = a2.getLatitude();
         }
         bundle.putDoubleArray("x_array", dArr);
         bundle.putDoubleArray("y_array", dArr2);

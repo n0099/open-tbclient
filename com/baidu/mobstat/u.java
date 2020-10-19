@@ -1,9 +1,11 @@
 package com.baidu.mobstat;
 
 import android.content.Context;
-/* loaded from: classes15.dex */
+/* loaded from: classes17.dex */
 public class u {
-    private static a a;
+
+    /* renamed from: a  reason: collision with root package name */
+    private static a f2628a;
 
     /* JADX WARN: Removed duplicated region for block: B:11:0x002f A[Catch: all -> 0x0059, TRY_ENTER, TryCatch #2 {, blocks: (B:4:0x0003, B:6:0x0011, B:8:0x001a, B:9:0x0023, B:11:0x002f, B:12:0x003e, B:16:0x0050), top: B:28:0x0003 }] */
     /*
@@ -14,7 +16,7 @@ public class u {
         Class<?> a2;
         synchronized (u.class) {
             bb.c().a("getBPStretegyController begin");
-            a aVar2 = a;
+            a aVar2 = f2628a;
             if (aVar2 == null) {
                 try {
                     a2 = x.a(context, "com.baidu.bottom.remote.BPStretegyController2");
@@ -32,7 +34,7 @@ public class u {
                         aVar = aVar2;
                         if (aVar == null) {
                         }
-                        a = aVar;
+                        f2628a = aVar;
                         x.a(context, aVar);
                         bb.c().a("getBPStretegyController end");
                         return aVar;
@@ -41,7 +43,7 @@ public class u {
                         aVar = new v();
                         bb.c().a("Get BPStretegyController load local class");
                     }
-                    a = aVar;
+                    f2628a = aVar;
                     x.a(context, aVar);
                     bb.c().a("getBPStretegyController end");
                 }
@@ -49,7 +51,7 @@ public class u {
             aVar = aVar2;
             if (aVar == null) {
             }
-            a = aVar;
+            f2628a = aVar;
             x.a(context, aVar);
             bb.c().a("getBPStretegyController end");
         }
@@ -58,7 +60,7 @@ public class u {
 
     public static synchronized void a() {
         synchronized (u.class) {
-            a = null;
+            f2628a = null;
         }
     }
 }

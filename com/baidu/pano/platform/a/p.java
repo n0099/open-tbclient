@@ -12,9 +12,11 @@ import java.util.Queue;
 import java.util.Set;
 import java.util.concurrent.PriorityBlockingQueue;
 import java.util.concurrent.atomic.AtomicInteger;
-/* loaded from: classes3.dex */
+/* loaded from: classes7.dex */
 public class p {
-    private AtomicInteger a;
+
+    /* renamed from: a  reason: collision with root package name */
+    private AtomicInteger f2659a;
     private final Map<String, Queue<n<?>>> b;
     private final Set<n<?>> c;
     private final PriorityBlockingQueue<n<?>> d;
@@ -26,13 +28,13 @@ public class p {
     private c j;
     private List<a> k;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes7.dex */
     public interface a<T> {
         void a(n<T> nVar);
     }
 
     public p(b bVar, i iVar, int i, r rVar) {
-        this.a = new AtomicInteger();
+        this.f2659a = new AtomicInteger();
         this.b = new HashMap();
         this.c = new HashSet();
         this.d = new PriorityBlockingQueue<>();
@@ -75,7 +77,7 @@ public class p {
     }
 
     public int c() {
-        return this.a.incrementAndGet();
+        return this.f2659a.incrementAndGet();
     }
 
     public <T> n<T> a(n<T> nVar) {

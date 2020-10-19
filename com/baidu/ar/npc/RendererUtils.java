@@ -7,14 +7,18 @@ import java.nio.Buffer;
 import java.nio.ByteBuffer;
 import java.nio.ByteOrder;
 import java.nio.FloatBuffer;
-/* loaded from: classes3.dex */
+/* loaded from: classes7.dex */
 public class RendererUtils {
-    private static final float[] a = {0.0f, 0.0f, 1.0f, 0.0f, 0.0f, 1.0f, 1.0f, 1.0f};
+
+    /* renamed from: a  reason: collision with root package name */
+    private static final float[] f1208a = {0.0f, 0.0f, 1.0f, 0.0f, 0.0f, 1.0f, 1.0f, 1.0f};
     private static final float[] b = {-1.0f, -1.0f, 1.0f, -1.0f, -1.0f, 1.0f, 1.0f, 1.0f};
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes7.dex */
     public static class a {
-        private int a;
+
+        /* renamed from: a  reason: collision with root package name */
+        private int f1209a;
         private int b;
         private int c;
         private int d;
@@ -68,7 +72,7 @@ public class RendererUtils {
         GLES20.glViewport(0, 0, i2, i3);
         GLES20.glClearColor(0.0f, 0.0f, 0.0f, 0.0f);
         GLES20.glClear(16384);
-        GLES20.glUseProgram(aVar.a);
+        GLES20.glUseProgram(aVar.f1209a);
         GLES20.glDisable(2929);
         GLES20.glDisable(3042);
         GLES20.glVertexAttribPointer(aVar.c, 2, 5126, false, 0, (Buffer) aVar.e);
@@ -104,9 +108,9 @@ public class RendererUtils {
         aVar.b = GLES20.glGetUniformLocation(glCreateProgram, "tex_sampler");
         aVar.c = GLES20.glGetAttribLocation(glCreateProgram, "a_texcoord");
         aVar.d = GLES20.glGetAttribLocation(glCreateProgram, "a_position");
-        aVar.e = a(a);
+        aVar.e = a(f1208a);
         aVar.f = a(b);
-        aVar.a = glCreateProgram;
+        aVar.f1209a = glCreateProgram;
         return aVar;
     }
 

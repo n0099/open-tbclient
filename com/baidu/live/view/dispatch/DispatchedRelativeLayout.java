@@ -9,38 +9,38 @@ import java.util.Iterator;
 import java.util.LinkedList;
 /* loaded from: classes4.dex */
 public class DispatchedRelativeLayout extends RelativeLayout {
-    private boolean bxQ;
-    private boolean bxR;
-    private a bxS;
+    private boolean bEt;
+    private boolean bEu;
+    private a bEv;
 
     public DispatchedRelativeLayout(Context context) {
         super(context);
-        this.bxQ = false;
-        this.bxR = false;
+        this.bEt = false;
+        this.bEu = false;
     }
 
     public DispatchedRelativeLayout(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.bxQ = false;
-        this.bxR = false;
+        this.bEt = false;
+        this.bEu = false;
     }
 
     public DispatchedRelativeLayout(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.bxQ = false;
-        this.bxR = false;
+        this.bEt = false;
+        this.bEu = false;
     }
 
     @Override // android.view.ViewGroup
     public void addView(View view, int i, ViewGroup.LayoutParams layoutParams) {
-        if (!this.bxQ || !b.a(view, this.bxS)) {
+        if (!this.bEt || !b.a(view, this.bEv)) {
             super.addView(view, i, layoutParams);
         }
     }
 
     @Override // android.view.ViewGroup, android.view.ViewManager
     public void removeView(View view) {
-        if (this.bxR || !this.bxQ || !b.b(view, this.bxS)) {
+        if (this.bEu || !this.bEt || !b.b(view, this.bEv)) {
             super.removeView(view);
         }
     }
@@ -48,55 +48,55 @@ public class DispatchedRelativeLayout extends RelativeLayout {
     @Override // android.view.ViewGroup
     public void removeAllViews() {
         super.removeAllViews();
-        if (!this.bxR && this.bxQ && this.bxS != null) {
-            this.bxS.Ry();
+        if (!this.bEu && this.bEt && this.bEv != null) {
+            this.bEv.Tr();
         }
     }
 
     @Override // android.view.ViewGroup
     public int indexOfChild(View view) {
-        if (!this.bxR && this.bxQ) {
-            if (this.bxS == null || !this.bxS.ad(view)) {
+        if (!this.bEu && this.bEt) {
+            if (this.bEv == null || !this.bEv.ae(view)) {
                 return super.indexOfChild(view);
             }
-            return this.bxS.indexOfChild(view);
+            return this.bEv.indexOfChild(view);
         }
         return super.indexOfChild(view);
     }
 
     public void setViewActionDispatched(boolean z) {
-        if (this.bxQ != z) {
-            this.bxQ = z;
+        if (this.bEt != z) {
+            this.bEt = z;
             if (z) {
-                Rx();
+                Tq();
             }
         }
     }
 
-    private void Rx() {
-        if (this.bxQ && getChildCount() > 0 && this.bxS != null) {
+    private void Tq() {
+        if (this.bEt && getChildCount() > 0 && this.bEv != null) {
             LinkedList linkedList = new LinkedList();
             for (int i = 0; i < getChildCount(); i++) {
                 View childAt = getChildAt(i);
-                if (this.bxS.ad(childAt)) {
+                if (this.bEv.ae(childAt)) {
                     linkedList.add(childAt);
                 }
             }
-            this.bxR = true;
+            this.bEu = true;
             if (!linkedList.isEmpty()) {
                 Iterator it = linkedList.iterator();
                 while (it.hasNext()) {
                     View view = (View) it.next();
                     super.removeView(view);
-                    this.bxS.onViewAdded(view);
+                    this.bEv.onViewAdded(view);
                 }
             }
-            this.bxR = false;
+            this.bEu = false;
         }
     }
 
     public void setViewActionDispatchListener(a aVar) {
-        this.bxS = aVar;
-        Rx();
+        this.bEv = aVar;
+        Tq();
     }
 }

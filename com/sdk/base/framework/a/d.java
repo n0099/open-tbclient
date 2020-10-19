@@ -4,17 +4,19 @@ import android.annotation.SuppressLint;
 import android.text.TextUtils;
 import com.baidu.live.adp.lib.stats.BdStatsConstant;
 import java.util.concurrent.ConcurrentHashMap;
-/* loaded from: classes5.dex */
+/* loaded from: classes16.dex */
 public final class d {
     private static long c = 60000;
     private static final ConcurrentHashMap<String, Boolean> d;
-    private final com.sdk.base.framework.a.a.c<String, String> a;
+
+    /* renamed from: a  reason: collision with root package name */
+    private final com.sdk.base.framework.a.a.c<String, String> f4473a;
     private int b;
 
     static {
         ConcurrentHashMap<String, Boolean> concurrentHashMap = new ConcurrentHashMap<>(10);
         d = concurrentHashMap;
-        concurrentHashMap.put(i.a.toString(), true);
+        concurrentHashMap.put(i.f4476a.toString(), true);
         new ConcurrentHashMap(10);
     }
 
@@ -26,7 +28,7 @@ public final class d {
         this.b = BdStatsConstant.MAX_WRITE_LOG_SIZE;
         this.b = BdStatsConstant.MAX_WRITE_LOG_SIZE;
         c = 60000L;
-        this.a = new e(this, this.b);
+        this.f4473a = new e(this, this.b);
     }
 
     public static long a() {
@@ -44,7 +46,7 @@ public final class d {
 
     public final String a(String str) {
         if (str != null) {
-            return this.a.a((com.sdk.base.framework.a.a.c<String, String>) str);
+            return this.f4473a.a((com.sdk.base.framework.a.a.c<String, String>) str);
         }
         return null;
     }
@@ -53,6 +55,6 @@ public final class d {
         if (str == null || str2 == null || j < 1) {
             return;
         }
-        this.a.a((com.sdk.base.framework.a.a.c<String, String>) str, str2, System.currentTimeMillis() + j);
+        this.f4473a.a((com.sdk.base.framework.a.a.c<String, String>) str, str2, System.currentTimeMillis() + j);
     }
 }

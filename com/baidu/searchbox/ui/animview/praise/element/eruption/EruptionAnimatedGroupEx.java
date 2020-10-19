@@ -4,7 +4,7 @@ import android.graphics.drawable.Drawable;
 import com.baidu.searchbox.ui.animview.base.BaseAnimatedElement;
 import com.baidu.searchbox.ui.animview.praise.element.IPraiseElementBuilder;
 import com.baidu.searchbox.ui.animview.praise.element.eruption.EruptionElementBuilder;
-/* loaded from: classes11.dex */
+/* loaded from: classes9.dex */
 public class EruptionAnimatedGroupEx extends EruptionAnimatedGroup {
     private static final boolean DEBUG = false;
     private IPraiseElementBuilder.FetchConfig mConfig;

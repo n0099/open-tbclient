@@ -2,17 +2,21 @@ package com.tencent.connect.auth;
 
 import com.tencent.tauth.IUiListener;
 import java.util.HashMap;
-/* loaded from: classes24.dex */
+/* loaded from: classes6.dex */
 public class b {
-    public static b a;
+
+    /* renamed from: a  reason: collision with root package name */
+    public static b f4545a;
     static final /* synthetic */ boolean d;
     private static int e;
     public HashMap<String, a> b = new HashMap<>();
     public final String c = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
 
-    /* loaded from: classes24.dex */
+    /* loaded from: classes6.dex */
     public static class a {
-        public IUiListener a;
+
+        /* renamed from: a  reason: collision with root package name */
+        public IUiListener f4546a;
         public com.tencent.connect.auth.a b;
         public String c;
     }
@@ -23,10 +27,10 @@ public class b {
     }
 
     public static b a() {
-        if (a == null) {
-            a = new b();
+        if (f4545a == null) {
+            f4545a = new b();
         }
-        return a;
+        return f4545a;
     }
 
     public static int b() {

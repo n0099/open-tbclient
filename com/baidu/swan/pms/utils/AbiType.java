@@ -13,7 +13,7 @@ import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-/* loaded from: classes24.dex */
+/* loaded from: classes15.dex */
 public enum AbiType {
     ARMEABI("armeabi", new AbiType[0]),
     ARMEABI_V7A("armeabi-v7a", ARMEABI),

@@ -13,16 +13,16 @@ import tv.chushou.basis.rxjava.RxExecutor;
 import tv.chushou.basis.rxjava.thread.EventThread;
 /* loaded from: classes6.dex */
 public class g {
-    public static void w(CharSequence charSequence) {
-        a.d(h.epQ(), charSequence);
+    public static void x(CharSequence charSequence) {
+        a.d(h.etB(), charSequence);
     }
 
     public static void c(Context context, CharSequence charSequence) {
         a.d(context, charSequence);
     }
 
-    public static void Pk(@StringRes int i) {
-        a.showToast(h.epQ(), i);
+    public static void PQ(@StringRes int i) {
+        a.showToast(h.etB(), i);
     }
 
     public static void K(Context context, @StringRes int i) {
@@ -67,41 +67,41 @@ public class g {
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes6.dex */
     public static class a {
-        private static CharSequence oWT;
-        private static Toast oWU = null;
-        private static long oWV = 0;
+        private static CharSequence pmn;
+        private static Toast pmo = null;
+        private static long pmp = 0;
 
         static void d(final Context context, final CharSequence charSequence) {
             if (charSequence != null && charSequence.length() != 0) {
                 if (context == null) {
-                    context = h.epQ();
+                    context = h.etB();
                 }
                 if (context != null) {
                     Runnable runnable = new Runnable() { // from class: tv.chushou.zues.utils.g.a.1
                         @Override // java.lang.Runnable
                         public void run() {
-                            if (a.oWU == null) {
-                                Toast unused = a.oWU = Toast.makeText(context.getApplicationContext(), (CharSequence) null, 0);
-                                g.c(a.oWU);
-                                a.oWU.setText(charSequence);
-                                a.oWU.show();
-                                CharSequence unused2 = a.oWT = charSequence;
-                                long unused3 = a.oWV = System.currentTimeMillis();
+                            if (a.pmo == null) {
+                                Toast unused = a.pmo = Toast.makeText(context.getApplicationContext(), (CharSequence) null, 0);
+                                g.c(a.pmo);
+                                a.pmo.setText(charSequence);
+                                a.pmo.show();
+                                CharSequence unused2 = a.pmn = charSequence;
+                                long unused3 = a.pmp = System.currentTimeMillis();
                                 return;
                             }
                             long currentTimeMillis = System.currentTimeMillis();
-                            if (charSequence.equals(a.oWT)) {
-                                if (currentTimeMillis - a.oWV > 2000) {
-                                    a.oWU.show();
-                                    long unused4 = a.oWV = currentTimeMillis;
+                            if (charSequence.equals(a.pmn)) {
+                                if (currentTimeMillis - a.pmp > 2000) {
+                                    a.pmo.show();
+                                    long unused4 = a.pmp = currentTimeMillis;
                                     return;
                                 }
                                 return;
                             }
-                            CharSequence unused5 = a.oWT = charSequence;
-                            a.oWU.setText(charSequence);
-                            a.oWU.show();
-                            long unused6 = a.oWV = currentTimeMillis;
+                            CharSequence unused5 = a.pmn = charSequence;
+                            a.pmo.setText(charSequence);
+                            a.pmo.show();
+                            long unused6 = a.pmp = currentTimeMillis;
                         }
                     };
                     if (Looper.myLooper() != Looper.getMainLooper()) {
@@ -115,7 +115,7 @@ public class g {
 
         static void showToast(Context context, @StringRes int i) {
             if (context != null) {
-                d(context, h.eqt().getString(i));
+                d(context, h.eue().getString(i));
             }
         }
     }

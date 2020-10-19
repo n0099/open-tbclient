@@ -4,90 +4,90 @@ import android.util.SparseArray;
 import java.util.ArrayList;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes14.dex */
+/* loaded from: classes9.dex */
 class v {
-    private boolean dMI = false;
-    private JSONArray cMG = new JSONArray();
-    private SparseArray<Integer> dME = new SparseArray<>();
-    private ArrayList<String> dMF = new ArrayList<>();
-    private long dMG = 0;
-    private long dMH = 0;
-    private String dLJ = "0";
+    private boolean dYJ = false;
+    private JSONArray cYJ = new JSONArray();
+    private SparseArray<Integer> dYF = new SparseArray<>();
+    private ArrayList<String> dYG = new ArrayList<>();
+    private long dYH = 0;
+    private long dYI = 0;
+    private String dXK = "0";
 
-    public final void cT(JSONObject jSONObject) {
-        this.cMG.put(jSONObject);
+    public final void da(JSONObject jSONObject) {
+        this.cYJ.put(jSONObject);
     }
 
-    public final SparseArray<Integer> aXb() {
-        return this.dME;
+    public final SparseArray<Integer> aZJ() {
+        return this.dYF;
     }
 
-    public final void aF(int i, int i2) {
-        this.dME.put(i, Integer.valueOf(i2));
+    public final void aE(int i, int i2) {
+        this.dYF.put(i, Integer.valueOf(i2));
     }
 
-    public final ArrayList aXc() {
-        return this.dMF;
+    public final ArrayList aZK() {
+        return this.dYG;
     }
 
-    public final void xK(String str) {
-        if (!this.dMF.contains(str)) {
-            this.dMF.add(str);
+    public final void yw(String str) {
+        if (!this.dYG.contains(str)) {
+            this.dYG.add(str);
         }
     }
 
     public final void q(long j, long j2) {
-        if ((j < this.dMG || this.dMG == 0) && j != 0) {
-            this.dMG = j;
+        if ((j < this.dYH || this.dYH == 0) && j != 0) {
+            this.dYH = j;
         }
-        if (j2 > this.dMH) {
-            this.dMH = j2;
+        if (j2 > this.dYI) {
+            this.dYI = j2;
         }
     }
 
-    public boolean mx(int i) {
-        return this.cMG.toString().getBytes().length >= i;
+    public boolean mU(int i) {
+        return this.cYJ.toString().getBytes().length >= i;
     }
 
     public boolean isEmpty() {
-        return this.cMG.length() == 0;
+        return this.cYJ.length() == 0;
     }
 
-    public JSONArray aXd() {
-        return this.cMG;
+    public JSONArray aZL() {
+        return this.cYJ;
     }
 
     public void clearData() {
-        this.dME.clear();
-        this.dMF.clear();
-        this.cMG = null;
+        this.dYF.clear();
+        this.dYG.clear();
+        this.cYJ = null;
     }
 
-    public void xL(String str) {
-        this.dLJ = str;
+    public void yx(String str) {
+        this.dXK = str;
     }
 
-    public String aXe() {
-        return this.dLJ;
+    public String aZM() {
+        return this.dXK;
     }
 
-    public long aXf() {
-        return this.dMG;
+    public long aZN() {
+        return this.dYH;
     }
 
     public long getMaxTime() {
-        return this.dMH;
+        return this.dYI;
     }
 
-    public JSONArray aXg() {
-        return this.cMG;
+    public JSONArray aZO() {
+        return this.cYJ;
     }
 
-    public boolean aXh() {
-        return this.dMI;
+    public boolean aZP() {
+        return this.dYJ;
     }
 
-    public void hi(boolean z) {
-        this.dMI = z;
+    public void hE(boolean z) {
+        this.dYJ = z;
     }
 }

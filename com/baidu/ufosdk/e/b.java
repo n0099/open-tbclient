@@ -8,9 +8,11 @@ import java.io.DataOutputStream;
 import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
 import java.net.URL;
-/* loaded from: classes21.dex */
+/* loaded from: classes22.dex */
 public final class b {
-    private static String a;
+
+    /* renamed from: a  reason: collision with root package name */
+    private static String f3710a;
 
     /* JADX WARN: Removed duplicated region for block: B:100:? A[RETURN, SYNTHETIC] */
     /* JADX WARN: Removed duplicated region for block: B:22:0x00fa A[Catch: Exception -> 0x0147, TryCatch #10 {Exception -> 0x0147, blocks: (B:20:0x00f5, B:22:0x00fa, B:24:0x00ff, B:26:0x0104), top: B:81:0x00f5 }] */
@@ -49,10 +51,10 @@ public final class b {
                 httpURLConnection2.setDoOutput(true);
                 httpURLConnection2.setUseCaches(false);
                 httpURLConnection2.setInstanceFollowRedirects(true);
-                if (a == null) {
-                    a = "UfoSDK/2.9.10 (" + e.a() + " " + e.b() + ")";
+                if (f3710a == null) {
+                    f3710a = "UfoSDK/2.9.10 (" + e.a() + " " + e.b() + ")";
                 }
-                httpURLConnection2.setRequestProperty("User-Agent", a);
+                httpURLConnection2.setRequestProperty("User-Agent", f3710a);
                 httpURLConnection2.setConnectTimeout(5000);
                 httpURLConnection2.setReadTimeout(5000);
                 httpURLConnection2.setChunkedStreamingMode(0);

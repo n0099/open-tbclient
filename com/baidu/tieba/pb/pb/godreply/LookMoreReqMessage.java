@@ -8,7 +8,7 @@ import com.baidu.tbadk.util.u;
 import java.util.List;
 import tbclient.GetPostList.DataReq;
 import tbclient.GetPostList.GetPostListReqIdl;
-/* loaded from: classes21.dex */
+/* loaded from: classes22.dex */
 public class LookMoreReqMessage extends NetMessage {
     public int is_comm_reverse;
     public Long kz;

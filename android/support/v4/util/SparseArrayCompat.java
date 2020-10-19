@@ -1,5 +1,5 @@
 package android.support.v4.util;
-/* loaded from: classes23.dex */
+/* loaded from: classes5.dex */
 public class SparseArrayCompat<E> implements Cloneable {
     private static final Object DELETED = new Object();
     private boolean mGarbage;

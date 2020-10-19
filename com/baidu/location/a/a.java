@@ -5,7 +5,7 @@ import android.util.Log;
 import com.baidu.lbsapi.auth.LBSAuthManager;
 import com.baidu.lbsapi.auth.LBSAuthManagerListener;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes7.dex */
 public class a implements LBSAuthManagerListener {
     private static Object b = new Object();
     private static a c = null;
@@ -13,7 +13,9 @@ public class a implements LBSAuthManagerListener {
     private Context e = null;
     private long f = 0;
     private String g = null;
-    public int a = 0;
+
+    /* renamed from: a  reason: collision with root package name */
+    public int f1859a = 0;
 
     public static a a() {
         a aVar;
@@ -74,9 +76,9 @@ public class a implements LBSAuthManagerListener {
     public void onAuthResult(int i, String str) {
         this.d = i;
         if (this.d == 0) {
-            Log.i(com.baidu.location.e.a.a, "LocationAuthManager Authentication AUTHENTICATE_SUCC");
+            Log.i(com.baidu.location.e.a.f1942a, "LocationAuthManager Authentication AUTHENTICATE_SUCC");
         } else {
-            Log.i(com.baidu.location.e.a.a, "LocationAuthManager Authentication Error errorcode = " + i + " , msg = " + str);
+            Log.i(com.baidu.location.e.a.f1942a, "LocationAuthManager Authentication Error errorcode = " + i + " , msg = " + str);
         }
         if (str != null) {
             try {
@@ -87,8 +89,8 @@ public class a implements LBSAuthManagerListener {
                 if (jSONObject == null || !jSONObject.has("ak_permission") || jSONObject.getInt("ak_permission") == 0) {
                     return;
                 }
-                this.a = jSONObject.getInt("ak_permission");
-                Log.i(com.baidu.location.e.a.a, "LocationAuthManager ak_permission = " + this.a);
+                this.f1859a = jSONObject.getInt("ak_permission");
+                Log.i(com.baidu.location.e.a.f1942a, "LocationAuthManager ak_permission = " + this.f1859a);
             } catch (Exception e) {
                 e.printStackTrace();
             }

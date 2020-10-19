@@ -15,9 +15,11 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 import com.baidu.tbadk.pay.PayConfig;
 import com.baidu.tieba.R;
-/* loaded from: classes21.dex */
+/* loaded from: classes22.dex */
 public final class er extends Dialog {
-    private final int a;
+
+    /* renamed from: a */
+    private final int f3864a;
     private final int b;
     private final int c;
     private final int d;
@@ -31,7 +33,7 @@ public final class er extends Dialog {
 
     public er(Context context, String str) {
         super(context);
-        this.a = R.xml.fileprovider_paths;
+        this.f3864a = R.xml.fileprovider_paths;
         this.b = R.xml.network_security_config;
         this.c = R.xml.nfc_tech_filter;
         this.d = R.xml.null_network_security_config;
@@ -81,12 +83,12 @@ public final class er extends Dialog {
         layoutParams2.addRule(14);
         layoutParams2.addRule(3, textView.getId());
         relativeLayout.addView(textView2, layoutParams2);
-        int a = com.baidu.ufosdk.f.i.a(this.h, 4.0f);
+        int a2 = com.baidu.ufosdk.f.i.a(this.h, 4.0f);
         int parseColor = Color.parseColor("#2E3135");
         int parseColor2 = Color.parseColor("#FFFFFF");
         GradientDrawable gradientDrawable2 = new GradientDrawable();
         gradientDrawable2.setColor(parseColor2);
-        gradientDrawable2.setCornerRadius(a);
+        gradientDrawable2.setCornerRadius(a2);
         gradientDrawable2.setStroke(1, parseColor);
         this.j = new EditText(this.h);
         this.j.setId(R.xml.nfc_tech_filter);

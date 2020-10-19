@@ -5,28 +5,28 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.Map;
-/* loaded from: classes3.dex */
+/* loaded from: classes10.dex */
 public class e {
-    private static volatile e cvW;
-    private Map<String, com.baidu.swan.apps.inlinewidget.rtcroom.c.b> cvX = new HashMap();
+    private static volatile e cId;
+    private Map<String, com.baidu.swan.apps.inlinewidget.rtcroom.c.b> cIe = new HashMap();
 
     private e() {
     }
 
-    public static e aoE() {
-        if (cvW == null) {
+    public static e arq() {
+        if (cId == null) {
             synchronized (e.class) {
-                if (cvW == null) {
-                    cvW = new e();
+                if (cId == null) {
+                    cId = new e();
                 }
             }
         }
-        return cvW;
+        return cId;
     }
 
-    public synchronized void nj(String str) {
+    public synchronized void nV(String str) {
         com.baidu.swan.apps.console.c.i("RtcRoomWidgetManager", "onWebViewDetach slaveId=" + str);
-        Iterator it = new ArrayList(this.cvX.values()).iterator();
+        Iterator it = new ArrayList(this.cIe.values()).iterator();
         while (it.hasNext()) {
             com.baidu.swan.apps.inlinewidget.rtcroom.c.b bVar = (com.baidu.swan.apps.inlinewidget.rtcroom.c.b) it.next();
             if (TextUtils.equals(bVar.getSlaveId(), str)) {
@@ -36,18 +36,18 @@ public class e {
     }
 
     public static void release() {
-        if (cvW != null) {
-            cvW.onRelease();
+        if (cId != null) {
+            cId.onRelease();
         }
-        cvW = null;
+        cId = null;
     }
 
     private synchronized void onRelease() {
         com.baidu.swan.apps.console.c.i("RtcRoomWidgetManager", "release");
-        Iterator it = new ArrayList(this.cvX.values()).iterator();
+        Iterator it = new ArrayList(this.cIe.values()).iterator();
         while (it.hasNext()) {
             ((com.baidu.swan.apps.inlinewidget.rtcroom.c.b) it.next()).onRelease();
         }
-        this.cvX.clear();
+        this.cIe.clear();
     }
 }

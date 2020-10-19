@@ -2,19 +2,21 @@ package com.baidu.mapapi.map;
 
 import android.graphics.Bitmap;
 import com.baidu.mapapi.map.BaiduMap;
-/* loaded from: classes3.dex */
+/* loaded from: classes7.dex */
 class j implements com.baidu.platform.comapi.map.c {
-    final /* synthetic */ BaiduMap a;
+
+    /* renamed from: a  reason: collision with root package name */
+    final /* synthetic */ BaiduMap f2073a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public j(BaiduMap baiduMap) {
-        this.a = baiduMap;
+        this.f2073a = baiduMap;
     }
 
     @Override // com.baidu.platform.comapi.map.c
     public void a(Bitmap bitmap) {
         BaiduMap.SnapshotReadyCallback snapshotReadyCallback;
-        snapshotReadyCallback = this.a.B;
+        snapshotReadyCallback = this.f2073a.B;
         snapshotReadyCallback.onSnapshotReady(bitmap);
     }
 }

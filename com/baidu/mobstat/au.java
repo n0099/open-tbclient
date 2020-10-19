@@ -7,9 +7,11 @@ import java.util.Comparator;
 import java.util.HashMap;
 import java.util.Map;
 import org.json.JSONObject;
-/* loaded from: classes15.dex */
+/* loaded from: classes17.dex */
 public class au {
-    private static final au a = new au();
+
+    /* renamed from: a  reason: collision with root package name */
+    private static final au f2559a = new au();
     private HashMap<String, String> b = new HashMap<>();
     private HashMap<Character, Integer> c = new HashMap<>();
     private HashMap<String, String> d = new HashMap<>();
@@ -17,22 +19,24 @@ public class au {
     private HashMap<String, String> f = new HashMap<>();
     private HashMap<Character, Integer> g = new HashMap<>();
 
-    /* loaded from: classes15.dex */
+    /* loaded from: classes17.dex */
     public static class a {
-        public static int a = 0;
+
+        /* renamed from: a  reason: collision with root package name */
+        public static int f2561a = 0;
         public static int b = 1;
         public static int c = 2;
     }
 
     public static au a() {
-        return a;
+        return f2559a;
     }
 
     public String a(String str, int i) {
         if (TextUtils.isEmpty(str)) {
             return null;
         }
-        if (i == a.a) {
+        if (i == a.f2561a) {
             String str2 = this.b.get(str);
             if (TextUtils.isEmpty(str2)) {
                 a(str, this.c, this.b);
@@ -66,7 +70,7 @@ public class au {
 
     public JSONObject a(int i) {
         HashMap<String, String> hashMap;
-        if (i == a.a) {
+        if (i == a.f2561a) {
             hashMap = this.b;
         } else if (i == a.c) {
             hashMap = this.f;
@@ -99,7 +103,7 @@ public class au {
     }
 
     public void b(int i) {
-        if (i == a.a) {
+        if (i == a.f2561a) {
             this.c.clear();
             this.b.clear();
         } else if (i == a.c) {
@@ -112,7 +116,7 @@ public class au {
     }
 
     public void b() {
-        b(a.a);
+        b(a.f2561a);
         b(a.c);
         b(a.b);
     }

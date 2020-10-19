@@ -4,13 +4,13 @@ import com.baidu.adp.lib.util.BdLog;
 import tbclient.Lbs;
 /* loaded from: classes.dex */
 public class f {
-    private String eLD;
+    private String eXK;
     private String lat;
     private String lng;
     private String name = null;
 
     public String getDistance() {
-        return this.eLD;
+        return this.eXK;
     }
 
     public String getName() {
@@ -23,7 +23,7 @@ public class f {
                 this.name = lbs.name;
                 this.lat = lbs.lat;
                 this.lng = lbs.lng;
-                this.eLD = lbs.distance;
+                this.eXK = lbs.distance;
             } catch (Exception e) {
                 BdLog.detailException(e);
             }

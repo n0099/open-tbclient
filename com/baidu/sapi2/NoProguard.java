@@ -1,4 +1,4 @@
 package com.baidu.sapi2;
-/* loaded from: classes25.dex */
+/* loaded from: classes5.dex */
 public interface NoProguard {
 }

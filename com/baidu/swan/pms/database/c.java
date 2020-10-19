@@ -1,6 +1,6 @@
 package com.baidu.swan.pms.database;
 
 import android.provider.BaseColumns;
-/* loaded from: classes24.dex */
+/* loaded from: classes15.dex */
 public interface c extends BaseColumns {
 }

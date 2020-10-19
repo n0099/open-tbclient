@@ -187,7 +187,7 @@ public class BaseActivity<T> extends BdBaseActivity<T> implements TbPageContextS
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.live.adp.base.BdBaseActivity, android.app.Activity
+    @Override // com.baidu.live.adp.base.BdBaseActivity, android.support.v4.app.FragmentActivity, android.support.v4.app.SupportActivity, android.app.Activity
     public void onCreate(Bundle bundle) {
         if (BdBaseApplication.getInst() == null && TbConfig.sdkInitCallback != null) {
             TbConfig.sdkInitCallback.initSdk();
@@ -356,7 +356,7 @@ public class BaseActivity<T> extends BdBaseActivity<T> implements TbPageContextS
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.live.adp.base.BdBaseActivity, android.app.Activity
+    @Override // com.baidu.live.adp.base.BdBaseActivity, android.support.v4.app.FragmentActivity, android.app.Activity
     public void onDestroy() {
         getWindow().getDecorView().getViewTreeObserver().removeGlobalOnLayoutListener(this.mGlobalLayoutListener);
         closeLoadingDialog();
@@ -588,7 +588,7 @@ public class BaseActivity<T> extends BdBaseActivity<T> implements TbPageContextS
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.live.adp.base.BdBaseActivity, android.app.Activity
+    @Override // com.baidu.live.adp.base.BdBaseActivity, android.support.v4.app.FragmentActivity, android.app.Activity
     public void onPause() {
         super.onPause();
         if (this.lastResumeTime != 0) {
@@ -607,7 +607,7 @@ public class BaseActivity<T> extends BdBaseActivity<T> implements TbPageContextS
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    @Override // android.app.Activity
+    @Override // android.support.v4.app.FragmentActivity, android.app.Activity
     public void onStart() {
         super.onStart();
     }
@@ -663,7 +663,7 @@ public class BaseActivity<T> extends BdBaseActivity<T> implements TbPageContextS
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.live.adp.base.BdBaseActivity, android.app.Activity
+    @Override // com.baidu.live.adp.base.BdBaseActivity, android.support.v4.app.FragmentActivity, android.app.Activity
     public void onResume() {
         MenuKeyUtils.hideSoftMenuKey(getWindow());
         super.onResume();
@@ -697,7 +697,7 @@ public class BaseActivity<T> extends BdBaseActivity<T> implements TbPageContextS
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.live.adp.base.BdBaseActivity, android.app.Activity
+    @Override // com.baidu.live.adp.base.BdBaseActivity, android.support.v4.app.FragmentActivity, android.app.Activity
     public void onStop() {
         super.onStop();
         onResourceRecycle();
@@ -1017,7 +1017,7 @@ public class BaseActivity<T> extends BdBaseActivity<T> implements TbPageContextS
     }
 
     public void setNetRefreshViewEmotionDefMarginTop() {
-        setNetRefreshViewEmotionMarginTop(BdUtilHelper.getDimens(getApplicationContext(), a.e.sdk_ds300));
+        setNetRefreshViewEmotionMarginTop(BdUtilHelper.getDimens(getActivity(), a.e.sdk_ds300));
     }
 
     protected void setNetRefreshViewEmotionMarginTop(int i) {
@@ -1165,7 +1165,7 @@ public class BaseActivity<T> extends BdBaseActivity<T> implements TbPageContextS
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    @Override // android.app.Activity
+    @Override // android.support.v4.app.FragmentActivity, android.app.Activity
     public void onActivityResult(int i, int i2, Intent intent) {
         super.onActivityResult(i, i2, intent);
         if (this.mPermissionCallback != null && Build.VERSION.SDK_INT >= 23 && i == 12016) {

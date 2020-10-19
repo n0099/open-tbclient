@@ -7,9 +7,9 @@ import java.util.ListIterator;
 import java.util.NoSuchElementException;
 import java.util.RandomAccess;
 @kotlin.h
-/* loaded from: classes5.dex */
+/* loaded from: classes10.dex */
 public abstract class d<E> extends kotlin.collections.a<E> implements List<E> {
-    public static final a oBP = new a(null);
+    public static final a oRe = new a(null);
 
     @Override // java.util.List
     public void add(int i, E e) {
@@ -50,36 +50,36 @@ public abstract class d<E> extends kotlin.collections.a<E> implements List<E> {
 
     @Override // java.util.List
     public List<E> subList(int i, int i2) {
-        return new C0967d(this, i, i2);
+        return new C0985d(this, i, i2);
     }
 
     @kotlin.h
     /* renamed from: kotlin.collections.d$d  reason: collision with other inner class name */
-    /* loaded from: classes5.dex */
-    private static final class C0967d<E> extends d<E> implements RandomAccess {
-        private int oBR;
-        private final d<E> oBS;
-        private final int oBT;
+    /* loaded from: classes10.dex */
+    private static final class C0985d<E> extends d<E> implements RandomAccess {
+        private int oRg;
+        private final d<E> oRh;
+        private final int oRi;
 
         /* JADX DEBUG: Multi-variable search result rejected for r4v0, resolved type: kotlin.collections.d<? extends E> */
         /* JADX WARN: Multi-variable type inference failed */
-        public C0967d(d<? extends E> dVar, int i, int i2) {
-            kotlin.jvm.internal.q.m(dVar, "list");
-            this.oBS = dVar;
-            this.oBT = i;
-            d.oBP.al(this.oBT, i2, this.oBS.size());
-            this.oBR = i2 - this.oBT;
+        public C0985d(d<? extends E> dVar, int i, int i2) {
+            kotlin.jvm.internal.q.n(dVar, "list");
+            this.oRh = dVar;
+            this.oRi = i;
+            d.oRe.al(this.oRi, i2, this.oRh.size());
+            this.oRg = i2 - this.oRi;
         }
 
         @Override // kotlin.collections.d, java.util.List
         public E get(int i) {
-            d.oBP.eb(i, this.oBR);
-            return this.oBS.get(this.oBT + i);
+            d.oRe.eb(i, this.oRg);
+            return this.oRh.get(this.oRi + i);
         }
 
         @Override // kotlin.collections.a
         public int getSize() {
-            return this.oBR;
+            return this.oRg;
         }
     }
 
@@ -89,19 +89,19 @@ public abstract class d<E> extends kotlin.collections.a<E> implements List<E> {
             return true;
         }
         if (obj instanceof List) {
-            return oBP.a(this, (Collection) obj);
+            return oRe.a(this, (Collection) obj);
         }
         return false;
     }
 
     @Override // java.util.Collection, java.util.List
     public int hashCode() {
-        return oBP.n(this);
+        return oRe.n(this);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     @kotlin.h
-    /* loaded from: classes5.dex */
+    /* loaded from: classes10.dex */
     public class b implements Iterator<E> {
         private int index;
 
@@ -140,7 +140,7 @@ public abstract class d<E> extends kotlin.collections.a<E> implements List<E> {
     }
 
     @kotlin.h
-    /* loaded from: classes5.dex */
+    /* loaded from: classes10.dex */
     private class c extends d<E>.b implements ListIterator<E> {
         @Override // java.util.ListIterator
         public void add(E e) {
@@ -154,7 +154,7 @@ public abstract class d<E> extends kotlin.collections.a<E> implements List<E> {
 
         public c(int i) {
             super();
-            d.oBP.ec(i, d.this.size());
+            d.oRe.ec(i, d.this.size());
             setIndex(i);
         }
 
@@ -185,7 +185,7 @@ public abstract class d<E> extends kotlin.collections.a<E> implements List<E> {
     }
 
     @kotlin.h
-    /* loaded from: classes5.dex */
+    /* loaded from: classes10.dex */
     public static final class a {
         private a() {
         }
@@ -216,7 +216,7 @@ public abstract class d<E> extends kotlin.collections.a<E> implements List<E> {
         }
 
         public final int n(Collection<?> collection) {
-            kotlin.jvm.internal.q.m(collection, "c");
+            kotlin.jvm.internal.q.n(collection, "c");
             int i = 1;
             Iterator<?> it = collection.iterator();
             while (it.hasNext()) {
@@ -227,8 +227,8 @@ public abstract class d<E> extends kotlin.collections.a<E> implements List<E> {
         }
 
         public final boolean a(Collection<?> collection, Collection<?> collection2) {
-            kotlin.jvm.internal.q.m(collection, "c");
-            kotlin.jvm.internal.q.m(collection2, "other");
+            kotlin.jvm.internal.q.n(collection, "c");
+            kotlin.jvm.internal.q.n(collection2, "other");
             if (collection.size() != collection2.size()) {
                 return false;
             }

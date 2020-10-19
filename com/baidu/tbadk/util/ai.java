@@ -5,15 +5,16 @@ import android.media.AudioManager;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.switchs.FrsHeadVideoAutoPlaySwitch;
 import java.lang.ref.WeakReference;
+import org.webrtc.MediaStreamTrack;
 /* loaded from: classes.dex */
 public class ai {
-    private static boolean eYF = false;
+    private static boolean fkR = false;
 
     public static boolean a(WeakReference<Context> weakReference, boolean z) {
         if (weakReference == null || weakReference.get() == null) {
             return false;
         }
-        AudioManager audioManager = (AudioManager) weakReference.get().getSystemService("audio");
+        AudioManager audioManager = (AudioManager) weakReference.get().getSystemService(MediaStreamTrack.AUDIO_TRACK_KIND);
         if (z) {
             return audioManager.requestAudioFocus(null, 3, 2) == 1;
         }
@@ -22,15 +23,15 @@ public class ai {
 
     public static void b(WeakReference<Context> weakReference) {
         if (weakReference != null && weakReference.get() != null) {
-            eYF = ((AudioManager) weakReference.get().getSystemService("audio")).isMusicActive();
+            fkR = ((AudioManager) weakReference.get().getSystemService(MediaStreamTrack.AUDIO_TRACK_KIND)).isMusicActive();
         }
     }
 
-    public static boolean bwY() {
-        return eYF;
+    public static boolean bzI() {
+        return fkR;
     }
 
-    public static boolean rc(int i) {
+    public static boolean rA(int i) {
         boolean z = false;
         switch (i) {
             case 2:
@@ -56,11 +57,11 @@ public class ai {
         }
     }
 
-    public static boolean at(int i, String str) {
-        return rc(i);
+    public static boolean aE(int i, String str) {
+        return rA(i);
     }
 
-    public static boolean bwZ() {
+    public static boolean bzJ() {
         if (!com.baidu.adp.lib.util.j.isWifiNet() || TbadkCoreApplication.getInst().getVideoAutoPlayReal() == 1) {
             return com.baidu.adp.lib.util.j.isMobileNet() && TbadkCoreApplication.getInst().getVideoAutoPlayReal() == 2;
         }

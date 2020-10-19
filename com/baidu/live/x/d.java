@@ -6,45 +6,45 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes4.dex */
 public class d {
-    private long bnh;
-    private l.a bni;
-    private List<String> bnj;
+    private long bqU;
+    private l.a bqV;
+    private List<String> bqW;
 
-    public static d NU() {
-        return a.bnk;
+    public static d OZ() {
+        return a.bqX;
     }
 
     public void b(l.a aVar) {
-        if (this.bnj != null) {
-            this.bnj.clear();
+        if (this.bqW != null) {
+            this.bqW.clear();
         }
-        ar(0L);
-        this.bni = aVar;
-        if (this.bni != null) {
-            List<String> list = aVar.aEw;
+        as(0L);
+        this.bqV = aVar;
+        if (this.bqV != null) {
+            List<String> list = aVar.aHA;
             if (list != null && !list.isEmpty()) {
-                if (this.bnj == null) {
-                    this.bnj = new ArrayList();
+                if (this.bqW == null) {
+                    this.bqW = new ArrayList();
                 }
-                this.bnj.addAll(list);
+                this.bqW.addAll(list);
             }
-            ar(aVar.endTime - aVar.currentTime);
+            as(aVar.endTime - aVar.currentTime);
         }
     }
 
     public double g(boolean z, String str) {
         double a2;
-        if (this.bni == null || this.bni.aEt != 1) {
+        if (this.bqV == null || this.bqV.aHx != 1) {
             return 0.0d;
         }
         if (z) {
-            if (NV()) {
-                a2 = Math.max(a(str, this.bni.aEv), a(str, this.bni.aEu));
+            if (Pa()) {
+                a2 = Math.max(a(str, this.bqV.aHz), a(str, this.bqV.aHy));
             } else {
-                a2 = a(str, this.bni.aEu);
+                a2 = a(str, this.bqV.aHy);
             }
         } else {
-            a2 = NV() ? a(str, this.bni.aEv) : 0.0d;
+            a2 = Pa() ? a(str, this.bqV.aHz) : 0.0d;
         }
         if (a2 == 1.0d || a2 < 0.0d) {
             return 0.0d;
@@ -53,9 +53,9 @@ public class d {
     }
 
     private double a(String str, double d) {
-        if (!TextUtils.isEmpty(str) && this.bni != null) {
-            if (this.bni.aEx != null && !this.bni.aEx.isEmpty()) {
-                for (String str2 : this.bni.aEx) {
+        if (!TextUtils.isEmpty(str) && this.bqV != null) {
+            if (this.bqV.aHB != null && !this.bqV.aHB.isEmpty()) {
+                for (String str2 : this.bqV.aHB) {
                     if (str.equals(str2)) {
                         return d;
                     }
@@ -67,31 +67,31 @@ public class d {
         return 0.0d;
     }
 
-    public boolean NV() {
-        return this.bnh > 0;
+    public boolean Pa() {
+        return this.bqU > 0;
     }
 
-    public void NW() {
-        this.bnh = 0L;
+    public void Pb() {
+        this.bqU = 0L;
     }
 
-    public void ar(long j) {
-        this.bnh = j;
+    public void as(long j) {
+        this.bqU = j;
     }
 
-    public boolean ht(String str) {
-        if (this.bnj == null || this.bnj.isEmpty()) {
+    public boolean hK(String str) {
+        if (this.bqW == null || this.bqW.isEmpty()) {
             return false;
         }
-        return this.bnj.contains(str);
+        return this.bqW.contains(str);
     }
 
     public void release() {
-        this.bnh = 0L;
-        if (this.bnj != null) {
-            this.bnj.clear();
+        this.bqU = 0L;
+        if (this.bqW != null) {
+            this.bqW.clear();
         }
-        this.bni = null;
+        this.bqV = null;
     }
 
     private d() {
@@ -99,6 +99,6 @@ public class d {
 
     /* loaded from: classes4.dex */
     private static class a {
-        private static final d bnk = new d();
+        private static final d bqX = new d();
     }
 }

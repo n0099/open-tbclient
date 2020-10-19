@@ -2,16 +2,18 @@ package com.baidu.mobads.production;
 
 import com.baidu.mobads.interfaces.IXAdContainer;
 import java.util.HashMap;
-/* loaded from: classes3.dex */
+/* loaded from: classes7.dex */
 class u implements Runnable {
-    final /* synthetic */ IXAdContainer a;
+
+    /* renamed from: a  reason: collision with root package name */
+    final /* synthetic */ IXAdContainer f2427a;
     final /* synthetic */ HashMap b;
     final /* synthetic */ q c;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public u(q qVar, IXAdContainer iXAdContainer, HashMap hashMap) {
         this.c = qVar;
-        this.a = iXAdContainer;
+        this.f2427a = iXAdContainer;
         this.b = hashMap;
     }
 
@@ -19,6 +21,6 @@ class u implements Runnable {
     public void run() {
         b bVar;
         bVar = this.c.b;
-        bVar.b(this.a, this.b);
+        bVar.b(this.f2427a, this.b);
     }
 }

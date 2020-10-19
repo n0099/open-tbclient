@@ -2,9 +2,11 @@ package com.baidu.fsg.base.utils;
 
 import android.content.Context;
 import android.util.DisplayMetrics;
-/* loaded from: classes15.dex */
+/* loaded from: classes16.dex */
 public final class DisplayUtils {
-    private static final float a = 0.5f;
+
+    /* renamed from: a  reason: collision with root package name */
+    private static final float f1509a = 0.5f;
     private static DisplayMetrics b;
 
     private DisplayUtils() {

@@ -16,7 +16,7 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Iterator;
 import java.util.List;
-/* loaded from: classes25.dex */
+/* loaded from: classes5.dex */
 public final class SapiConfiguration implements NoProguard {
     public static final int JOIN_LOGIN = 4;
     public static final int QUICK_LOGIN_VIEW_BTN_ACTION_CHINA_MOBILE_OAUTH = 5;
@@ -26,7 +26,9 @@ public final class SapiConfiguration implements NoProguard {
     public static final int QUICK_LOGIN_VIEW_BTN_ACTION_LOGIN = 0;
     public static final int QUICK_LOGIN_VIEW_BTN_ACTION_NAME_PHONE_EMAIL_LOGIN = 6;
     public static final int QUICK_LOGIN_VIEW_BTN_ACTION_SMS_LOGIN = 1;
-    private final LoginShareStrategy a;
+
+    /* renamed from: a  reason: collision with root package name */
+    private final LoginShareStrategy f3228a;
     public final boolean accountCenterRealAutnen;
     public int activityExitAnimId;
     public int activityOpenAnimId;
@@ -201,7 +203,7 @@ public final class SapiConfiguration implements NoProguard {
             if (sapiOptions.h() != null) {
                 return sapiOptions.h();
             }
-            return this.a;
+            return this.f3228a;
         }
         return loginShareStrategy;
     }
@@ -215,7 +217,7 @@ public final class SapiConfiguration implements NoProguard {
         }
     }
 
-    /* loaded from: classes25.dex */
+    /* loaded from: classes5.dex */
     public static class Builder implements NoProguard {
         private String A;
         private String B;
@@ -226,7 +228,9 @@ public final class SapiConfiguration implements NoProguard {
         private SmsLoginConfig P;
         private String W;
         private String X;
-        private Context a;
+
+        /* renamed from: a  reason: collision with root package name */
+        private Context f3229a;
         private String b;
         private String c;
         private String d;
@@ -281,7 +285,7 @@ public final class SapiConfiguration implements NoProguard {
         private boolean j0 = true;
 
         public Builder(Context context) {
-            this.a = context.getApplicationContext();
+            this.f3229a = context.getApplicationContext();
         }
 
         public Builder bdOauthAppId(String str) {
@@ -423,7 +427,7 @@ public final class SapiConfiguration implements NoProguard {
         public Builder setAgreeDangerousProtocol(boolean z) {
             this.y = z;
             try {
-                FH.setAgreePolicy(this.a, z);
+                FH.setAgreePolicy(this.f3229a, z);
             } catch (Exception e) {
                 Log.e(e);
             }
@@ -607,14 +611,14 @@ public final class SapiConfiguration implements NoProguard {
     }
 
     private SapiConfiguration(Builder builder) {
-        this.context = builder.a;
+        this.context = builder.f3229a;
         this.tpl = builder.b;
         this.appId = builder.c;
         this.appSignKey = builder.d;
         this.environment = builder.f;
         this.language = builder.h;
         this.socialBindType = builder.g;
-        this.a = builder.i;
+        this.f3228a = builder.i;
         this.fastLoginFeatureList = builder.j;
         this.wxAppID = builder.k;
         this.qqAppID = builder.l;
@@ -668,7 +672,7 @@ public final class SapiConfiguration implements NoProguard {
         this.supportMultipleAccounts = builder.j0;
     }
 
-    /* loaded from: classes25.dex */
+    /* loaded from: classes5.dex */
     public static class SmsLoginConfig implements NoProguard {
         public Switch flagHideExtraEntry;
         public Switch flagLoginBtnType;

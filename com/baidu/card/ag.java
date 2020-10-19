@@ -5,47 +5,47 @@ import android.view.View;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.data.AbsThreadDataSupport;
 import com.baidu.tbadk.core.view.SingleLinkCardView;
-/* loaded from: classes20.dex */
+/* loaded from: classes21.dex */
 public class ag extends i {
-    private SingleLinkCardView agK;
+    private SingleLinkCardView ahb;
 
     public ag(Context context) {
         super(context);
-        this.agK = new SingleLinkCardView(context);
+        this.ahb = new SingleLinkCardView(context);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.card.b
     public View getView() {
-        return this.agK;
+        return this.ahb;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.card.p
     /* renamed from: b */
-    public void G(AbsThreadDataSupport absThreadDataSupport) {
-        if (c(absThreadDataSupport) || absThreadDataSupport == null || absThreadDataSupport.bcY() == null || d(absThreadDataSupport) || ((com.baidu.tbadk.core.util.y.isEmpty(absThreadDataSupport.bcY().bhE()) && com.baidu.tbadk.core.util.y.getCount(absThreadDataSupport.bcY().bhF()) != 1) || ((com.baidu.tbadk.core.util.y.isEmpty(absThreadDataSupport.bcY().bhF()) && com.baidu.tbadk.core.util.y.getCount(absThreadDataSupport.bcY().bhE()) != 1) || com.baidu.tbadk.core.util.y.getCount(absThreadDataSupport.bcY().bhE()) + com.baidu.tbadk.core.util.y.getCount(absThreadDataSupport.bcY().bhF()) != 1))) {
-            this.agK.setVisibility(8);
+    public void H(AbsThreadDataSupport absThreadDataSupport) {
+        if (c(absThreadDataSupport) || absThreadDataSupport == null || absThreadDataSupport.bfG() == null || d(absThreadDataSupport) || ((com.baidu.tbadk.core.util.y.isEmpty(absThreadDataSupport.bfG().bkn()) && com.baidu.tbadk.core.util.y.getCount(absThreadDataSupport.bfG().bko()) != 1) || ((com.baidu.tbadk.core.util.y.isEmpty(absThreadDataSupport.bfG().bko()) && com.baidu.tbadk.core.util.y.getCount(absThreadDataSupport.bfG().bkn()) != 1) || com.baidu.tbadk.core.util.y.getCount(absThreadDataSupport.bfG().bkn()) + com.baidu.tbadk.core.util.y.getCount(absThreadDataSupport.bfG().bko()) != 1))) {
+            this.ahb.setVisibility(8);
             return;
         }
-        if (absThreadDataSupport.bcY().bhE().size() >= 1) {
-            this.agK.a((com.baidu.tieba.card.data.d) com.baidu.tbadk.core.util.y.getItem(absThreadDataSupport.bcY().bhE(), 0));
-        } else if (absThreadDataSupport.bcY().bhF().size() >= 1) {
-            this.agK.a((com.baidu.tieba.card.data.d) com.baidu.tbadk.core.util.y.getItem(absThreadDataSupport.bcY().bhF(), 0));
+        if (absThreadDataSupport.bfG().bkn().size() >= 1) {
+            this.ahb.a((com.baidu.tieba.card.data.d) com.baidu.tbadk.core.util.y.getItem(absThreadDataSupport.bfG().bkn(), 0));
+        } else if (absThreadDataSupport.bfG().bko().size() >= 1) {
+            this.ahb.a((com.baidu.tieba.card.data.d) com.baidu.tbadk.core.util.y.getItem(absThreadDataSupport.bfG().bko(), 0));
         }
-        this.agK.setVisibility(0);
+        this.ahb.setVisibility(0);
     }
 
     @Override // com.baidu.card.q
     public void onChangeSkinType(TbPageContext tbPageContext, int i) {
-        this.agK.onChangeSkinType();
+        this.ahb.onChangeSkinType();
     }
 
     private boolean c(AbsThreadDataSupport absThreadDataSupport) {
-        return (absThreadDataSupport == null || absThreadDataSupport.bcY() == null || absThreadDataSupport.bcY().bhD() == null || absThreadDataSupport.bcY().bhD().getOptions() == null || absThreadDataSupport.bcY().bhD().getOptions().size() <= 0) ? false : true;
+        return (absThreadDataSupport == null || absThreadDataSupport.bfG() == null || absThreadDataSupport.bfG().bkm() == null || absThreadDataSupport.bfG().bkm().getOptions() == null || absThreadDataSupport.bfG().bkm().getOptions().size() <= 0) ? false : true;
     }
 
     private boolean d(AbsThreadDataSupport absThreadDataSupport) {
-        return (absThreadDataSupport == null || absThreadDataSupport.bcY() == null || !absThreadDataSupport.bcY().bee() || absThreadDataSupport.bcY().bfQ() == null) ? false : true;
+        return (absThreadDataSupport == null || absThreadDataSupport.bfG() == null || !absThreadDataSupport.bfG().bgN() || absThreadDataSupport.bfG().biz() == null) ? false : true;
     }
 }

@@ -1,7 +1,9 @@
 package com.baidu.b.a;
-/* loaded from: classes3.dex */
+/* loaded from: classes7.dex */
 class k {
-    private final byte[] a;
+
+    /* renamed from: a  reason: collision with root package name */
+    private final byte[] f1246a;
     private final int[] b;
     private final byte[] c;
     private final int d;
@@ -14,7 +16,7 @@ class k {
     }
 
     protected k(int i) {
-        this.a = new byte[1];
+        this.f1246a = new byte[1];
         this.b = new int[4];
         this.c = new byte[16];
         this.d = i;
@@ -32,7 +34,7 @@ class k {
         this.b[3] = this.d - (-1640531535);
     }
 
-    private void e(byte[] bArr, int i) {
+    private void g(byte[] bArr, int i) {
         int i2 = this.b[0];
         int i3 = this.b[1];
         int i4 = this.b[2];
@@ -90,12 +92,12 @@ class k {
         if (this.f > 0) {
             int i4 = 16 - this.f;
             System.arraycopy(bArr, i, this.c, this.f, i4);
-            e(this.c, 0);
+            g(this.c, 0);
             i += i4;
         }
         int i5 = i3 - 16;
         while (i <= i5) {
-            e(bArr, i);
+            g(bArr, i);
             i += 16;
         }
         if (i < i3) {

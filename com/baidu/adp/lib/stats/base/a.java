@@ -8,42 +8,42 @@ import com.baidu.ar.arplay.core.engine.ARPScriptEnvironment;
 import com.baidu.live.adp.lib.stats.BdStatsConstant;
 /* loaded from: classes.dex */
 public class a {
-    private String NK;
-    protected String Oa;
-    protected String Od;
-    protected j Of;
-    private StringBuffer NL = new StringBuffer();
-    private StringBuffer NM = new StringBuffer();
-    private StringBuffer NN = new StringBuffer();
-    private int NP = 0;
-    private int NQ = 0;
-    private int NR = 0;
-    private long Nx = 0;
-    private long NT = 0;
-    private long NU = 0;
-    protected long NV = 0;
-    private long NW = 0;
-    private long NX = 0;
-    private long NY = 0;
-    protected int NZ = 50;
-    protected final String Ob = BdStatsConstant.StatsFile.LOG_FILE_SUFFIX;
+    private String Oc;
+    protected String Or;
+    protected String Ou;
+    protected j Ow;
+    private StringBuffer Od = new StringBuffer();
+    private StringBuffer Oe = new StringBuffer();
+    private StringBuffer Of = new StringBuffer();
+    private int Og = 0;
+    private int Oh = 0;
+    private int Oi = 0;
+    private long NP = 0;
+    private long Oj = 0;
+    private long Ok = 0;
+    protected long Ol = 0;
+    private long Om = 0;
+    private long Oo = 0;
+    private long Op = 0;
+    protected int Oq = 50;
+    protected final String Os = BdStatsConstant.StatsFile.LOG_FILE_SUFFIX;
     protected boolean mUseSdCard = false;
-    protected boolean Oc = false;
+    protected boolean Ot = false;
     protected boolean mMustSuccess = false;
     private boolean isUploading = false;
-    private boolean Oe = false;
+    private boolean Ov = false;
 
     public a(j jVar) {
-        this.Of = jVar;
+        this.Ow = jVar;
     }
 
     public synchronized void a(com.baidu.adp.lib.stats.a aVar) {
         if (aVar != null) {
             try {
                 try {
-                    this.NL.append(aVar.toString());
-                    this.NL.append("\r\n");
-                    this.NP++;
+                    this.Od.append(aVar.toString());
+                    this.Od.append("\r\n");
+                    this.Og++;
                 } catch (Exception e) {
                     BdLog.e(e);
                 }
@@ -51,19 +51,19 @@ public class a {
                 e2.printStackTrace();
             }
         }
-        if (this.Of != null) {
-            this.Of.o(this);
+        if (this.Ow != null) {
+            this.Ow.o(this);
         }
-        this.Nx = System.currentTimeMillis();
+        this.NP = System.currentTimeMillis();
     }
 
     public synchronized void b(com.baidu.adp.lib.stats.a aVar) {
         if (aVar != null) {
             try {
                 try {
-                    this.NM.append(aVar.toString());
-                    this.NM.append("\r\n");
-                    this.NQ++;
+                    this.Oe.append(aVar.toString());
+                    this.Oe.append("\r\n");
+                    this.Oh++;
                 } catch (Exception e) {
                     BdLog.e(e);
                 }
@@ -71,19 +71,19 @@ public class a {
                 e2.printStackTrace();
             }
         }
-        if (this.Of != null) {
-            this.Of.o(this);
+        if (this.Ow != null) {
+            this.Ow.o(this);
         }
-        this.NT = System.currentTimeMillis();
+        this.Oj = System.currentTimeMillis();
     }
 
     public synchronized void c(com.baidu.adp.lib.stats.a aVar) {
         if (aVar != null) {
             try {
-                if (aVar.na() != null) {
-                    this.NN.append(aVar.na().nn().toString());
-                    this.NN.append("\r\n");
-                    this.NR++;
+                if (aVar.nb() != null) {
+                    this.Of.append(aVar.nb().no().toString());
+                    this.Of.append("\r\n");
+                    this.Oi++;
                 }
             } catch (Exception e) {
                 BdLog.e(e);
@@ -91,59 +91,59 @@ public class a {
                 e2.printStackTrace();
             }
         }
-        if (this.Of != null) {
-            this.Of.o(this);
+        if (this.Ow != null) {
+            this.Ow.o(this);
         }
-        this.NU = System.currentTimeMillis();
-    }
-
-    public int np() {
-        return this.NP;
+        this.Ok = System.currentTimeMillis();
     }
 
     public int nq() {
-        return this.NQ;
+        return this.Og;
     }
 
     public int nr() {
-        return this.NR;
+        return this.Oh;
     }
 
-    public long ns() {
-        return this.NV;
-    }
-
-    public void J(long j) {
-        this.NV = j;
+    public int ns() {
+        return this.Oi;
     }
 
     public long nt() {
-        return this.Nx;
+        return this.Ol;
+    }
+
+    public void J(long j) {
+        this.Ol = j;
     }
 
     public long nu() {
-        return this.NT;
+        return this.NP;
     }
 
     public long nv() {
-        return this.NU;
+        return this.Oj;
     }
 
-    public String nw() {
-        if (TextUtils.isEmpty(this.Od)) {
-            StringBuilder sb = new StringBuilder(30);
-            sb.append(this.Oa);
-            sb.append(BdStatisticsManager.getInstance().getProcessName());
-            sb.append("Writing");
-            sb.append(BdStatsConstant.StatsFile.LOG_FILE_SUFFIX);
-            this.Od = sb.toString();
-        }
-        return this.Od;
+    public long nw() {
+        return this.Ok;
     }
 
     public String nx() {
+        if (TextUtils.isEmpty(this.Ou)) {
+            StringBuilder sb = new StringBuilder(30);
+            sb.append(this.Or);
+            sb.append(BdStatisticsManager.getInstance().getProcessName());
+            sb.append("Writing");
+            sb.append(BdStatsConstant.StatsFile.LOG_FILE_SUFFIX);
+            this.Ou = sb.toString();
+        }
+        return this.Ou;
+    }
+
+    public String ny() {
         StringBuilder sb = new StringBuilder(40);
-        sb.append(this.Oa);
+        sb.append(this.Or);
         sb.append(System.currentTimeMillis());
         sb.append(BdStatisticsManager.getInstance().getProcessName());
         sb.append("Uploading");
@@ -151,59 +151,59 @@ public class a {
         return sb.toString();
     }
 
-    public long ny() {
-        return this.NW;
-    }
-
     public long nz() {
-        return this.NX;
+        return this.Om;
     }
 
     public long nA() {
-        return this.NY;
+        return this.Oo;
+    }
+
+    public long nB() {
+        return this.Op;
     }
 
     public void K(long j) {
-        this.NW = j;
+        this.Om = j;
     }
 
     public void L(long j) {
-        this.NX = j;
+        this.Oo = j;
     }
 
     public void M(long j) {
-        this.NY = j;
-    }
-
-    public synchronized void nB() {
-        this.NL = new StringBuffer();
-        this.NP = 0;
-        this.NW = 0L;
+        this.Op = j;
     }
 
     public synchronized void nC() {
-        this.NM = new StringBuffer();
-        this.NQ = 0;
-        this.NX = 0L;
+        this.Od = new StringBuffer();
+        this.Og = 0;
+        this.Om = 0L;
     }
 
     public synchronized void nD() {
-        this.NN = new StringBuffer();
-        this.NR = 0;
-        this.NY = 0L;
+        this.Oe = new StringBuffer();
+        this.Oh = 0;
+        this.Oo = 0L;
+    }
+
+    public synchronized void nE() {
+        this.Of = new StringBuffer();
+        this.Oi = 0;
+        this.Op = 0L;
     }
 
     public void cb(String str) {
         if (!TextUtils.isEmpty(str)) {
-            this.NK = str;
+            this.Oc = str;
         }
     }
 
-    public String nE() {
-        return this.NK;
+    public String nF() {
+        return this.Oc;
     }
 
-    public boolean nF() {
+    public boolean nG() {
         return this.isUploading;
     }
 
@@ -211,48 +211,48 @@ public class a {
         this.isUploading = z;
     }
 
-    public boolean nG() {
-        return this.Oe;
+    public boolean nH() {
+        return this.Ov;
     }
 
     public void as(boolean z) {
-        this.Oe = z;
-    }
-
-    public String nH() {
-        return BdStatsConstant.FILE_OMP;
+        this.Ov = z;
     }
 
     public String nI() {
+        return BdStatsConstant.FILE_OMP;
+    }
+
+    public String nJ() {
         return ARPScriptEnvironment.KEY_DATA_PIP_TRACK;
     }
 
-    public StringBuffer nJ() {
-        return this.NL;
-    }
-
     public StringBuffer nK() {
-        return this.NM;
+        return this.Od;
     }
 
     public StringBuffer nL() {
-        return this.NN;
+        return this.Oe;
     }
 
-    public boolean nM() {
-        return this.mUseSdCard;
+    public StringBuffer nM() {
+        return this.Of;
     }
 
     public boolean nN() {
-        return this.Oc;
+        return this.mUseSdCard;
     }
 
     public boolean nO() {
+        return this.Ot;
+    }
+
+    public boolean nP() {
         return this.mMustSuccess;
     }
 
-    public String nP() {
-        return this.Oa;
+    public String nQ() {
+        return this.Or;
     }
 
     public static String cc(String str) {

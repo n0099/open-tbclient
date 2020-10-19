@@ -2,9 +2,11 @@ package com.vivo.push;
 
 import android.net.Uri;
 import com.baidu.mapapi.UIMsg;
-/* loaded from: classes12.dex */
+/* loaded from: classes15.dex */
 public final class z {
-    public static final Uri a = Uri.parse("content://com.vivo.push.sdk.service.SystemPushConfig/config");
+
+    /* renamed from: a  reason: collision with root package name */
+    public static final Uri f4717a = Uri.parse("content://com.vivo.push.sdk.service.SystemPushConfig/config");
     public static final Uri b = Uri.parse("content://com.vivo.push.sdk.service.SystemPushConfig/permission");
     public static final Uri c = Uri.parse("content://com.vivo.push.sdk.service.SystemPushConfig/clientState");
     public static final Uri d = Uri.parse("content://com.vivo.push.sdk.service.SystemPushConfig/debugInfo");

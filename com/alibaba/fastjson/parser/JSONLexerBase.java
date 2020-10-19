@@ -16,7 +16,7 @@ import java.util.HashSet;
 import java.util.Locale;
 import java.util.TimeZone;
 import java.util.UUID;
-/* loaded from: classes10.dex */
+/* loaded from: classes5.dex */
 public abstract class JSONLexerBase implements JSONLexer, Closeable {
     protected static final int INT_MULTMIN_RADIX_TEN = -214748364;
     protected static final long MULTMIN_RADIX_TEN = -922337203685477580L;

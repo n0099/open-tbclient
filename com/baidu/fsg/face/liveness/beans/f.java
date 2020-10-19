@@ -1,9 +1,11 @@
 package com.baidu.fsg.face.liveness.beans;
 
 import com.baidu.pass.biometrics.base.utils.PassBioEnv;
-/* loaded from: classes16.dex */
+/* loaded from: classes17.dex */
 public class f {
-    public static String a = PassBioEnv.PASSPORT_DOMAIN;
+
+    /* renamed from: a  reason: collision with root package name */
+    public static String f1711a = PassBioEnv.PASSPORT_DOMAIN;
     public static String b = PassBioEnv.PASSPORT_QA_DOMAIN;
     public static String c = PassBioEnv.PASSPORT_RD_DOMAIN;
     public static String d = "http://wappass.baidu.com";

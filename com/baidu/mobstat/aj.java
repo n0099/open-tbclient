@@ -10,13 +10,15 @@ import javax.net.ssl.SSLContext;
 import javax.net.ssl.SSLSocketFactory;
 import org.json.JSONObject;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes15.dex */
+/* loaded from: classes17.dex */
 public class aj {
     private static final ByteBuffer c = ByteBuffer.allocate(0);
-    private a a;
+
+    /* renamed from: a  reason: collision with root package name */
+    private a f2524a;
     private b b;
 
-    /* loaded from: classes15.dex */
+    /* loaded from: classes17.dex */
     public interface a {
         void a();
 
@@ -47,7 +49,7 @@ public class aj {
     }
 
     public aj(URI uri, a aVar) throws c {
-        this.a = aVar;
+        this.f2524a = aVar;
         try {
             this.b = new b(uri, 5000, uri.toString().startsWith("wss://") ? c() : null);
             this.b.c();
@@ -73,7 +75,7 @@ public class aj {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes15.dex */
+    /* loaded from: classes17.dex */
     public class b extends cc {
         public b(URI uri, int i, Socket socket) throws InterruptedException {
             super(uri, new cf(), null, i);
@@ -85,8 +87,8 @@ public class aj {
             if (bd.c().b()) {
                 bd.c().a("onOpen");
             }
-            if (aj.this.a != null) {
-                aj.this.a.a();
+            if (aj.this.f2524a != null) {
+                aj.this.f2524a.a();
             }
         }
 
@@ -112,7 +114,7 @@ public class aj {
                     if (!TextUtils.isEmpty(str2)) {
                         if (str2.equals("deploy")) {
                             try {
-                                aj.this.a.a(((JSONObject) jSONObject.get("data")).toString());
+                                aj.this.f2524a.a(((JSONObject) jSONObject.get("data")).toString());
                                 return;
                             } catch (Exception e3) {
                                 return;
@@ -139,8 +141,8 @@ public class aj {
                             case 801024:
                                 bc.c().a("autotrace: connect confirm");
                                 am.a().a(3);
-                                if (aj.this.a != null) {
-                                    aj.this.a.b();
+                                if (aj.this.f2524a != null) {
+                                    aj.this.f2524a.b();
                                     return;
                                 }
                                 return;
@@ -157,8 +159,8 @@ public class aj {
             }
             bc.c().a("autotrace: connect closed, server:" + z + " reason:" + str);
             am.a().a(5, "remote:" + z + "|reason:" + str);
-            if (aj.this.a != null) {
-                aj.this.a.a(z);
+            if (aj.this.f2524a != null) {
+                aj.this.f2524a.a(z);
             }
         }
 
@@ -170,7 +172,7 @@ public class aj {
         }
     }
 
-    /* loaded from: classes15.dex */
+    /* loaded from: classes17.dex */
     public class c extends IOException {
         public c(Throwable th) {
             super(th.getMessage());

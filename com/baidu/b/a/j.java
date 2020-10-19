@@ -1,8 +1,8 @@
 package com.baidu.b.a;
-/* loaded from: classes3.dex */
+/* loaded from: classes7.dex */
 final class j extends g {
     public j(int i, int i2) {
-        this.a = 4294967295L;
+        this.f1244a = 4294967295L;
         this.b = 4;
         this.c = 32;
         this.d = i;

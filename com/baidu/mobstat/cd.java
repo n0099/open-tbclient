@@ -6,22 +6,24 @@ import java.nio.ByteBuffer;
 import java.util.Collections;
 import java.util.Iterator;
 import java.util.List;
-/* loaded from: classes15.dex */
+/* loaded from: classes17.dex */
 public abstract class cd {
-    public static int a = 1000;
+
+    /* renamed from: a  reason: collision with root package name */
+    public static int f2599a = 1000;
     public static int b = 64;
     public static final byte[] c = dc.a("<policy-file-request/>\u0000");
     protected by.b d = null;
     protected cq.a e = null;
 
-    /* loaded from: classes15.dex */
+    /* loaded from: classes17.dex */
     public enum a {
         NONE,
         ONEWAY,
         TWOWAY
     }
 
-    /* loaded from: classes15.dex */
+    /* loaded from: classes17.dex */
     public enum b {
         MATCHED,
         NOT_MATCHED

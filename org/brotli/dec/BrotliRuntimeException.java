@@ -1,5 +1,5 @@
 package org.brotli.dec;
-/* loaded from: classes15.dex */
+/* loaded from: classes6.dex */
 class BrotliRuntimeException extends RuntimeException {
     /* JADX INFO: Access modifiers changed from: package-private */
     public BrotliRuntimeException(String str) {

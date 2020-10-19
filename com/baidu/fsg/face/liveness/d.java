@@ -1,5 +1,5 @@
 package com.baidu.fsg.face.liveness;
-/* loaded from: classes16.dex */
+/* loaded from: classes17.dex */
 public final class d {
     public static final String A = "ABTestEnd";
     public static final String B = "showLivenessConfirm";
@@ -27,7 +27,9 @@ public final class d {
     public static final String X = "videoUploadReloadConfirm";
     public static final String Y = "videoUploadRelodCancel";
     public static final String Z = "videoFileException";
-    public static final String a = "#startLiveness";
+
+    /* renamed from: a  reason: collision with root package name */
+    public static final String f1724a = "#startLiveness";
     public static final String aa = "videoFileTooLargeException";
     public static final String ab = "videoMediaRecordIdealBitrate";
     public static final String ac = "videoFileSize";

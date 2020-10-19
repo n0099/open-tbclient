@@ -2,9 +2,11 @@ package com.baidu.lbsapi.model;
 
 import android.text.TextUtils;
 import com.baidu.pano.platform.c.j;
-/* loaded from: classes3.dex */
+/* loaded from: classes7.dex */
 public class BaiduPanoData {
-    private String a;
+
+    /* renamed from: a  reason: collision with root package name */
+    private String f1843a;
     private String b;
     private int c = 0;
     private int d = 0;
@@ -35,11 +37,11 @@ public class BaiduPanoData {
     }
 
     public String getPid() {
-        return this.a;
+        return this.f1843a;
     }
 
     public void setPid(String str) {
-        this.a = str;
+        this.f1843a = str;
     }
 
     public String getName() {
@@ -63,10 +65,10 @@ public class BaiduPanoData {
     }
 
     public boolean hasStreetPano() {
-        return !TextUtils.isEmpty(this.a);
+        return !TextUtils.isEmpty(this.f1843a);
     }
 
     public String toString() {
-        return "BaiduPanoData [pid = " + this.a + ", name=" + this.b + ",x=" + this.c + ", y=" + this.d + ", sdkVersion=" + this.e + ", errorCode=" + this.f + ", hasStreetPano=" + hasStreetPano() + "]";
+        return "BaiduPanoData [pid = " + this.f1843a + ", name=" + this.b + ",x=" + this.c + ", y=" + this.d + ", sdkVersion=" + this.e + ", errorCode=" + this.f + ", hasStreetPano=" + hasStreetPano() + "]";
     }
 }

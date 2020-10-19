@@ -4,21 +4,23 @@ import android.os.Binder;
 import android.os.IBinder;
 import android.os.IInterface;
 import android.os.Parcel;
-/* loaded from: classes12.dex */
+/* loaded from: classes15.dex */
 public interface a extends IInterface {
 
     /* renamed from: com.baidu.sofire.l.a$a  reason: collision with other inner class name */
-    /* loaded from: classes12.dex */
-    public static abstract class AbstractBinderC0318a extends Binder implements a {
+    /* loaded from: classes15.dex */
+    public static abstract class AbstractBinderC0335a extends Binder implements a {
 
         /* JADX INFO: Access modifiers changed from: package-private */
         /* renamed from: com.baidu.sofire.l.a$a$a  reason: collision with other inner class name */
-        /* loaded from: classes12.dex */
-        public static class C0319a implements a {
-            public static a a;
+        /* loaded from: classes15.dex */
+        public static class C0336a implements a {
+
+            /* renamed from: a  reason: collision with root package name */
+            public static a f3654a;
             private IBinder b;
 
-            C0319a(IBinder iBinder) {
+            C0336a(IBinder iBinder) {
                 this.b = iBinder;
             }
 
@@ -32,11 +34,11 @@ public interface a extends IInterface {
                     obtain.writeString(str);
                     obtain.writeString(str2);
                     obtain.writeString(str3);
-                    if (this.b.transact(1, obtain, obtain2, 0) || AbstractBinderC0318a.a() == null) {
+                    if (this.b.transact(1, obtain, obtain2, 0) || AbstractBinderC0335a.a() == null) {
                         obtain2.readException();
                         readString = obtain2.readString();
                     } else {
-                        readString = AbstractBinderC0318a.a().a(str, str2, str3);
+                        readString = AbstractBinderC0335a.a().a(str, str2, str3);
                     }
                     return readString;
                 } finally {
@@ -52,7 +54,7 @@ public interface a extends IInterface {
         }
 
         public static a a() {
-            return C0319a.a;
+            return C0336a.f3654a;
         }
 
         public static a a(IBinder iBinder) {
@@ -60,7 +62,7 @@ public interface a extends IInterface {
                 return null;
             }
             IInterface queryLocalInterface = iBinder.queryLocalInterface("com.heytap.openid.IOpenID");
-            return (queryLocalInterface == null || !(queryLocalInterface instanceof a)) ? new C0319a(iBinder) : (a) queryLocalInterface;
+            return (queryLocalInterface == null || !(queryLocalInterface instanceof a)) ? new C0336a(iBinder) : (a) queryLocalInterface;
         }
 
         @Override // android.os.Binder
@@ -68,9 +70,9 @@ public interface a extends IInterface {
             switch (i) {
                 case 1:
                     parcel.enforceInterface("com.heytap.openid.IOpenID");
-                    String a = a(parcel.readString(), parcel.readString(), parcel.readString());
+                    String a2 = a(parcel.readString(), parcel.readString(), parcel.readString());
                     parcel2.writeNoException();
-                    parcel2.writeString(a);
+                    parcel2.writeString(a2);
                     return true;
                 case 1598968902:
                     parcel2.writeString("com.heytap.openid.IOpenID");

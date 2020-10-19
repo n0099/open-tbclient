@@ -4,10 +4,11 @@ import android.view.View;
 import android.view.ViewGroup;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomMessage;
-import com.baidu.ala.atomdata.AlaLoveFamilyActivityConfig;
+import com.baidu.ala.atomdata.AlaFansFamilyActivityConfig;
 import com.baidu.live.tbadk.core.frameworkdata.CmdConfigCustom;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tieba.R;
 /* loaded from: classes4.dex */
 public class g extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.ala.personcenter.c.j, com.baidu.tieba.card.a.a<com.baidu.tieba.ala.personcenter.e.a>> {
@@ -15,14 +16,14 @@ public class g extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.ala.perso
 
     /* JADX INFO: Access modifiers changed from: protected */
     public g(TbPageContext tbPageContext) {
-        super(tbPageContext.getPageActivity(), com.baidu.tieba.ala.personcenter.c.j.gXs);
+        super(tbPageContext.getPageActivity(), com.baidu.tieba.ala.personcenter.c.j.hms);
         this.mPageContext = tbPageContext;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.widget.ListView.a
-    /* renamed from: aL */
+    /* renamed from: aN */
     public com.baidu.tieba.card.a.a<com.baidu.tieba.ala.personcenter.e.a> c(ViewGroup viewGroup) {
         return new com.baidu.tieba.card.a.a<>(new com.baidu.tieba.ala.personcenter.e.a(this.mPageContext));
     }
@@ -31,23 +32,24 @@ public class g extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.ala.perso
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.widget.ListView.a
     public View a(int i, View view, ViewGroup viewGroup, final com.baidu.tieba.ala.personcenter.c.j jVar, com.baidu.tieba.card.a.a<com.baidu.tieba.ala.personcenter.e.a> aVar) {
-        if (aVar.cfU() == null) {
+        if (aVar.cjq() == null) {
             return null;
         }
-        a(jVar, aVar.cfU());
-        aVar.cfU().getView().setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.ala.personcenter.a.g.1
+        TiebaStatic.log("c13133");
+        a(jVar, aVar.cjq());
+        aVar.cjq().getView().setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.ala.personcenter.a.g.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view2) {
                 g.this.a(jVar);
             }
         });
-        return aVar.cfU().getView();
+        return aVar.cjq().getView();
     }
 
     private void a(com.baidu.tieba.ala.personcenter.c.j jVar, com.baidu.tieba.ala.personcenter.e.a aVar) {
         if (jVar.getPersonCenterData() != null) {
-            aVar.vn(8);
-            aVar.setTitle(this.mContext.getResources().getString(R.string.ala_person_live_my_love_family));
+            aVar.vT(8);
+            aVar.setTitle(this.mContext.getResources().getString(R.string.ala_person_live_my_fans_family));
             aVar.onChangeSkinType(this.mPageContext, TbadkCoreApplication.getInst().getSkinType());
         }
     }
@@ -55,7 +57,8 @@ public class g extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.ala.perso
     /* JADX INFO: Access modifiers changed from: private */
     public void a(com.baidu.tieba.ala.personcenter.c.j jVar) {
         if (jVar != null && jVar.getPersonCenterData() != null) {
-            MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new AlaLoveFamilyActivityConfig(this.mContext, jVar.getPersonCenterData().caA().user_id)));
+            TiebaStatic.log("c13134");
+            MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new AlaFansFamilyActivityConfig(this.mContext, jVar.getPersonCenterData().cdY().user_id, true, AlaFansFamilyActivityConfig.FROM_PERSON_CENTER)));
         }
     }
 }

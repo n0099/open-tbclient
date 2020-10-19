@@ -7,7 +7,7 @@ import java.security.interfaces.DSAPublicKey;
 import java.security.interfaces.ECPublicKey;
 import java.security.interfaces.RSAPublicKey;
 import java.util.List;
-/* loaded from: classes8.dex */
+/* loaded from: classes5.dex */
 public final class ChainStrengthAnalyzer {
     private static final int MIN_DSA_P_LEN_BITS = 1024;
     private static final int MIN_DSA_Q_LEN_BITS = 160;

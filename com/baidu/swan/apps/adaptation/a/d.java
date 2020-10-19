@@ -1,87 +1,87 @@
 package com.baidu.swan.apps.adaptation.a;
 
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes10.dex */
 public interface d {
-    boolean ZA();
+    String abT();
 
-    boolean ZB();
+    int abU();
 
-    boolean ZC();
+    int abV();
 
-    boolean ZD();
+    int abW();
 
-    long ZE();
+    int abX();
 
-    boolean ZF();
+    boolean abY();
 
-    boolean ZG();
+    boolean abZ();
 
-    int ZH();
+    boolean acA();
 
-    int ZI();
+    boolean acB();
 
-    double ZJ();
+    boolean acC();
 
-    boolean ZK();
+    boolean acD();
 
-    double ZL();
+    int acE();
 
-    double ZM();
+    boolean acF();
 
-    int ZN();
+    boolean aca();
 
-    boolean ZO();
+    boolean acb();
 
-    boolean ZP();
+    boolean acc();
 
-    boolean ZQ();
+    String acd();
 
-    boolean ZR();
+    boolean ace();
 
-    int ZS();
+    boolean acf();
 
-    boolean ZT();
+    boolean acg();
 
-    String Zh();
+    boolean ach();
 
-    int Zi();
+    long aci();
 
-    int Zj();
+    boolean acj();
 
-    int Zk();
+    boolean ack();
 
-    int Zl();
+    long acl();
 
-    boolean Zm();
+    boolean acm();
 
-    boolean Zn();
+    boolean acn();
 
-    boolean Zo();
+    boolean aco();
 
-    boolean Zp();
+    boolean acp();
 
-    boolean Zq();
+    long acq();
 
-    String Zr();
+    boolean acr();
 
-    boolean Zs();
+    boolean acs();
 
-    boolean Zt();
+    int act();
 
-    boolean Zu();
+    int acu();
 
-    boolean Zv();
+    double acv();
 
-    long Zw();
+    boolean acw();
 
-    boolean Zx();
+    double acx();
 
-    boolean Zy();
+    double acy();
 
-    long Zz();
+    int acz();
 
-    boolean gA(int i);
+    boolean gX(int i);
 
     JSONObject getRawSwitch();
 

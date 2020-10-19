@@ -9,29 +9,29 @@ import master.flame.danmaku.danmaku.model.m;
 public class b {
     public static boolean a(m mVar, d dVar, d dVar2, long j, long j2) {
         int type = dVar.getType();
-        if (type == dVar2.getType() && !dVar.elF()) {
-            long elO = dVar2.elO() - dVar.elO();
-            if (elO <= 0) {
+        if (type == dVar2.getType() && !dVar.eps()) {
+            long epB = dVar2.epB() - dVar.epB();
+            if (epB <= 0) {
                 return true;
             }
-            if (Math.abs(elO) >= j || dVar.elE() || dVar2.elE()) {
+            if (Math.abs(epB) >= j || dVar.epr() || dVar2.epr()) {
                 return false;
             }
             if (type == 5 || type == 4) {
                 return true;
             }
-            return a(mVar, dVar, dVar2, j2) || a(mVar, dVar, dVar2, dVar.elO() + dVar.getDuration());
+            return a(mVar, dVar, dVar2, j2) || a(mVar, dVar, dVar2, dVar.epB() + dVar.getDuration());
         }
         return false;
     }
 
     private static boolean a(m mVar, d dVar, d dVar2, long j) {
-        float[] a = dVar.a(mVar, j);
-        float[] a2 = dVar2.a(mVar, j);
-        if (a == null || a2 == null) {
+        float[] a2 = dVar.a(mVar, j);
+        float[] a3 = dVar2.a(mVar, j);
+        if (a2 == null || a3 == null) {
             return false;
         }
-        return a(dVar.getType(), dVar2.getType(), a, a2);
+        return a(dVar.getType(), dVar2.getType(), a2, a3);
     }
 
     private static boolean a(int i, int i2, float[] fArr, float[] fArr2) {
@@ -51,12 +51,12 @@ public class b {
         if (eVar == null) {
             eVar = new e();
         }
-        eVar.e((int) Math.ceil(dVar.oFM), (int) Math.ceil(dVar.oFN), mVar.getDensityDpi(), false);
+        eVar.e((int) Math.ceil(dVar.oVb), (int) Math.ceil(dVar.oVc), mVar.getDensityDpi(), false);
         f fVar = eVar.get();
         if (fVar != null) {
-            ((master.flame.danmaku.danmaku.model.b) mVar).a(dVar, fVar.oGL, 0.0f, 0.0f, true);
+            ((master.flame.danmaku.danmaku.model.b) mVar).a(dVar, fVar.oWa, 0.0f, 0.0f, true);
             if (mVar.isHardwareAccelerated()) {
-                fVar.K(mVar.getWidth(), mVar.getHeight(), mVar.emc(), mVar.emd());
+                fVar.K(mVar.getWidth(), mVar.getHeight(), mVar.epP(), mVar.epQ());
             }
         }
         return eVar;
@@ -123,7 +123,7 @@ public class b {
         if (!TextUtils.isEmpty(charSequence) && charSequence.toString().contains("/n")) {
             String[] split = String.valueOf(dVar.text).split("/n", -1);
             if (split.length > 1) {
-                dVar.oFI = split;
+                dVar.oUX = split;
             }
         }
     }

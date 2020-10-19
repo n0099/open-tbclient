@@ -5,9 +5,11 @@ import com.baidu.searchbox.v8engine.V8Engine;
 import com.baidubce.AbstractBceClient;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes15.dex */
+/* loaded from: classes17.dex */
 public class ExtraInfo {
-    String a = "";
+
+    /* renamed from: a  reason: collision with root package name */
+    String f2493a = "";
     String b = "";
     String c = "";
     String d = "";
@@ -42,11 +44,11 @@ public class ExtraInfo {
     }
 
     public String getV1() {
-        return this.a;
+        return this.f2493a;
     }
 
     public void setV1(String str) {
-        this.a = a(str);
+        this.f2493a = a(str);
     }
 
     public String getV2() {
@@ -124,8 +126,8 @@ public class ExtraInfo {
     public JSONObject dumpToJson() {
         JSONObject jSONObject = new JSONObject();
         try {
-            if (!TextUtils.isEmpty(this.a)) {
-                jSONObject.put(AbstractBceClient.URL_PREFIX, this.a);
+            if (!TextUtils.isEmpty(this.f2493a)) {
+                jSONObject.put(AbstractBceClient.URL_PREFIX, this.f2493a);
             }
             if (!TextUtils.isEmpty(this.b)) {
                 jSONObject.put("v2", this.b);

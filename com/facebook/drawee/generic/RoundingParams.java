@@ -4,89 +4,89 @@ import android.support.annotation.ColorInt;
 import com.facebook.common.internal.g;
 import java.util.Arrays;
 import javax.annotation.Nullable;
-/* loaded from: classes11.dex */
+/* loaded from: classes15.dex */
 public class RoundingParams {
-    private RoundingMethod nAl = RoundingMethod.BITMAP_ONLY;
-    private boolean nAm = false;
-    private float[] nAn = null;
-    private int nzg = 0;
+    private RoundingMethod nPE = RoundingMethod.BITMAP_ONLY;
+    private boolean nPF = false;
+    private float[] nPG = null;
+    private int nOz = 0;
     private float mBorderWidth = 0.0f;
     private int mBorderColor = 0;
     private float mPadding = 0.0f;
-    private boolean nza = false;
+    private boolean nOt = false;
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes15.dex */
     public enum RoundingMethod {
         OVERLAY_COLOR,
         BITMAP_ONLY
     }
 
-    public RoundingParams yk(boolean z) {
-        this.nAm = z;
+    public RoundingParams yR(boolean z) {
+        this.nPF = z;
         return this;
     }
 
-    public boolean dUV() {
-        return this.nAm;
+    public boolean dYG() {
+        return this.nPF;
     }
 
-    public RoundingParams aO(float f) {
-        Arrays.fill(dUZ(), f);
+    public RoundingParams aU(float f) {
+        Arrays.fill(dYK(), f);
         return this;
     }
 
     public RoundingParams h(float f, float f2, float f3, float f4) {
-        float[] dUZ = dUZ();
-        dUZ[1] = f;
-        dUZ[0] = f;
-        dUZ[3] = f2;
-        dUZ[2] = f2;
-        dUZ[5] = f3;
-        dUZ[4] = f3;
-        dUZ[7] = f4;
-        dUZ[6] = f4;
+        float[] dYK = dYK();
+        dYK[1] = f;
+        dYK[0] = f;
+        dYK[3] = f2;
+        dYK[2] = f2;
+        dYK[5] = f3;
+        dYK[4] = f3;
+        dYK[7] = f4;
+        dYK[6] = f4;
         return this;
     }
 
-    public float[] dUW() {
-        return this.nAn;
+    public float[] dYH() {
+        return this.nPG;
     }
 
     public RoundingParams a(RoundingMethod roundingMethod) {
-        this.nAl = roundingMethod;
+        this.nPE = roundingMethod;
         return this;
     }
 
-    public RoundingMethod dUX() {
-        return this.nAl;
+    public RoundingMethod dYI() {
+        return this.nPE;
     }
 
-    public RoundingParams LV(@ColorInt int i) {
-        this.nzg = i;
-        this.nAl = RoundingMethod.OVERLAY_COLOR;
+    public RoundingParams MB(@ColorInt int i) {
+        this.nOz = i;
+        this.nPE = RoundingMethod.OVERLAY_COLOR;
         return this;
     }
 
-    public int dUY() {
-        return this.nzg;
+    public int dYJ() {
+        return this.nOz;
     }
 
-    private float[] dUZ() {
-        if (this.nAn == null) {
-            this.nAn = new float[8];
+    private float[] dYK() {
+        if (this.nPG == null) {
+            this.nPG = new float[8];
         }
-        return this.nAn;
+        return this.nPG;
     }
 
-    public static RoundingParams dVa() {
-        return new RoundingParams().yk(true);
+    public static RoundingParams dYL() {
+        return new RoundingParams().yR(true);
     }
 
     public static RoundingParams i(float f, float f2, float f3, float f4) {
         return new RoundingParams().h(f, f2, f3, f4);
     }
 
-    public RoundingParams aP(float f) {
+    public RoundingParams aV(float f) {
         g.checkArgument(f >= 0.0f, "the border width cannot be < 0");
         this.mBorderWidth = f;
         return this;
@@ -96,7 +96,7 @@ public class RoundingParams {
         return this.mBorderWidth;
     }
 
-    public RoundingParams LW(@ColorInt int i) {
+    public RoundingParams MC(@ColorInt int i) {
         this.mBorderColor = i;
         return this;
     }
@@ -105,14 +105,14 @@ public class RoundingParams {
         return this.mBorderColor;
     }
 
-    public RoundingParams o(@ColorInt int i, float f) {
+    public RoundingParams p(@ColorInt int i, float f) {
         g.checkArgument(f >= 0.0f, "the border width cannot be < 0");
         this.mBorderWidth = f;
         this.mBorderColor = i;
         return this;
     }
 
-    public RoundingParams aQ(float f) {
+    public RoundingParams aW(float f) {
         g.checkArgument(f >= 0.0f, "the padding cannot be < 0");
         this.mPadding = f;
         return this;
@@ -122,8 +122,8 @@ public class RoundingParams {
         return this.mPadding;
     }
 
-    public boolean dVb() {
-        return this.nza;
+    public boolean dYM() {
+        return this.nOt;
     }
 
     public boolean equals(@Nullable Object obj) {
@@ -134,13 +134,13 @@ public class RoundingParams {
             return false;
         }
         RoundingParams roundingParams = (RoundingParams) obj;
-        if (this.nAm == roundingParams.nAm && this.nzg == roundingParams.nzg && Float.compare(roundingParams.mBorderWidth, this.mBorderWidth) == 0 && this.mBorderColor == roundingParams.mBorderColor && Float.compare(roundingParams.mPadding, this.mPadding) == 0 && this.nAl == roundingParams.nAl && this.nza == roundingParams.nza) {
-            return Arrays.equals(this.nAn, roundingParams.nAn);
+        if (this.nPF == roundingParams.nPF && this.nOz == roundingParams.nOz && Float.compare(roundingParams.mBorderWidth, this.mBorderWidth) == 0 && this.mBorderColor == roundingParams.mBorderColor && Float.compare(roundingParams.mPadding, this.mPadding) == 0 && this.nPE == roundingParams.nPE && this.nOt == roundingParams.nOt) {
+            return Arrays.equals(this.nPG, roundingParams.nPG);
         }
         return false;
     }
 
     public int hashCode() {
-        return (((this.mPadding != 0.0f ? Float.floatToIntBits(this.mPadding) : 0) + (((((this.mBorderWidth != 0.0f ? Float.floatToIntBits(this.mBorderWidth) : 0) + (((((this.nAn != null ? Arrays.hashCode(this.nAn) : 0) + (((this.nAm ? 1 : 0) + ((this.nAl != null ? this.nAl.hashCode() : 0) * 31)) * 31)) * 31) + this.nzg) * 31)) * 31) + this.mBorderColor) * 31)) * 31) + (this.nza ? 1 : 0);
+        return (((this.mPadding != 0.0f ? Float.floatToIntBits(this.mPadding) : 0) + (((((this.mBorderWidth != 0.0f ? Float.floatToIntBits(this.mBorderWidth) : 0) + (((((this.nPG != null ? Arrays.hashCode(this.nPG) : 0) + (((this.nPF ? 1 : 0) + ((this.nPE != null ? this.nPE.hashCode() : 0) * 31)) * 31)) * 31) + this.nOz) * 31)) * 31) + this.mBorderColor) * 31)) * 31) + (this.nOt ? 1 : 0);
     }
 }

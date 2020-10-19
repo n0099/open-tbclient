@@ -7,20 +7,20 @@ import com.baidu.swan.apps.network.SwanAppNetworkUtils;
 import com.baidu.swan.apps.statistic.a.f;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes14.dex */
+/* loaded from: classes6.dex */
 public class b extends f {
     public String packageName;
 
     @Override // com.baidu.swan.apps.statistic.a.f, com.baidu.swan.apps.statistic.a.e
     public JSONObject toJSONObject() {
-        this.cZF = com.baidu.swan.apps.swancore.b.jP(TextUtils.equals(this.mFrom, "swangame") ? 1 : 0);
-        this.cZH = SwanAppNetworkUtils.avC().type;
-        if (this.cZD == null) {
-            this.cZD = new JSONObject();
+        this.dlP = com.baidu.swan.apps.swancore.b.km(TextUtils.equals(this.mFrom, "swangame") ? 1 : 0);
+        this.dlR = SwanAppNetworkUtils.ayn().type;
+        if (this.dlN == null) {
+            this.dlN = new JSONObject();
         }
         try {
-            this.cZD.put("host", com.baidu.swan.apps.t.a.aqg().getHostName());
-            this.cZD.put("package", this.packageName);
+            this.dlN.put("host", com.baidu.swan.apps.t.a.asS().getHostName());
+            this.dlN.put("package", this.packageName);
         } catch (JSONException e) {
             if (DEBUG) {
                 e.printStackTrace();
@@ -38,18 +38,18 @@ public class b extends f {
             this.mFrom = aVar.mFrom;
             this.mAppId = aVar.mAppId;
             this.mSource = aVar.mSource;
-            this.cZI = aVar.cZI;
-            this.cZK = aVar.cZK;
+            this.dlS = aVar.dlS;
+            this.dlU = aVar.dlU;
             this.mScheme = aVar.mScheme;
-            this.cZN = aVar.cZN;
-            this.cSI = aVar.cSI;
+            this.dlX = aVar.dlX;
+            this.deQ = aVar.deQ;
             this.mAppVersion = aVar.mAppVersion;
-            this.cZG = aVar.cZG;
+            this.dlQ = aVar.dlQ;
         }
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public static String uN(String str) {
+    public static String vz(String str) {
         if (TextUtils.isEmpty(str)) {
             return null;
         }

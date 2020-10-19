@@ -2,7 +2,7 @@ package com.baidu.platform.comjni.map.dataengine;
 
 import android.os.Bundle;
 import com.baidu.platform.comjni.NativeComponent;
-/* loaded from: classes3.dex */
+/* loaded from: classes7.dex */
 public class NADataEngine extends NativeComponent {
     private native void nativeCancelThumbImageRequest(long j);
 

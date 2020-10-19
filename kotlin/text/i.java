@@ -1,8 +1,8 @@
 package kotlin.text;
 @kotlin.h
-/* loaded from: classes5.dex */
+/* loaded from: classes10.dex */
 public interface i {
-    kotlin.b.h ekK();
+    kotlin.b.h eox();
 
-    i ekL();
+    i eoy();
 }

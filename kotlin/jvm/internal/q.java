@@ -4,40 +4,40 @@ import java.util.Arrays;
 import java.util.List;
 import kotlin.KotlinNullPointerException;
 import kotlin.UninitializedPropertyAccessException;
-/* loaded from: classes5.dex */
+/* loaded from: classes10.dex */
 public class q {
     private q() {
     }
 
-    public static String O(String str, Object obj) {
+    public static String P(String str, Object obj) {
         return str + obj;
     }
 
-    public static void ekp() {
+    public static void eob() {
         throw ((KotlinNullPointerException) Q(new KotlinNullPointerException()));
     }
 
-    public static void WJ(String str) {
+    public static void Xx(String str) {
         throw ((UninitializedPropertyAccessException) Q(new UninitializedPropertyAccessException(str)));
     }
 
-    public static void WK(String str) {
-        WJ("lateinit property " + str + " has not been initialized");
+    public static void Xy(String str) {
+        Xx("lateinit property " + str + " has not been initialized");
     }
 
-    public static void l(Object obj, String str) {
+    public static void m(Object obj, String str) {
         if (obj == null) {
             throw ((IllegalStateException) Q(new IllegalStateException(str + " must not be null")));
         }
     }
 
-    public static void m(Object obj, String str) {
+    public static void n(Object obj, String str) {
         if (obj == null) {
-            WL(str);
+            Xz(str);
         }
     }
 
-    private static void WL(String str) {
+    private static void Xz(String str) {
         StackTraceElement stackTraceElement = Thread.currentThread().getStackTrace()[3];
         String className = stackTraceElement.getClassName();
         throw ((IllegalArgumentException) Q(new IllegalArgumentException("Parameter specified as non-null is null: method " + className + "." + stackTraceElement.getMethodName() + ", parameter " + str)));
@@ -47,16 +47,16 @@ public class q {
         return obj == null ? obj2 == null : obj.equals(obj2);
     }
 
-    public static void ekq() {
-        WM("This function has a reified type parameter and thus can only be inlined at compilation time, not called directly.");
+    public static void eoc() {
+        XA("This function has a reified type parameter and thus can only be inlined at compilation time, not called directly.");
     }
 
-    public static void WM(String str) {
+    public static void XA(String str) {
         throw new UnsupportedOperationException(str);
     }
 
-    public static void bN(int i, String str) {
-        ekq();
+    public static void bX(int i, String str) {
+        eoc();
     }
 
     private static <T extends Throwable> T Q(T t) {

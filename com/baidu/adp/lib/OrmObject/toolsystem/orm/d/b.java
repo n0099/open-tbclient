@@ -91,7 +91,7 @@ public class b {
             return null;
         }
         Class<?> fieldClass = cVar.getFieldClass();
-        Type[] lP = cVar.lP();
+        Type[] lQ = cVar.lQ();
         if (fieldClass.isArray()) {
             Object newInstance = Array.newInstance(fieldClass.getComponentType(), arrayList.size());
             Iterator<Object> it = arrayList.iterator();
@@ -104,24 +104,24 @@ public class b {
             }
             return newInstance;
         } else if (com.baidu.adp.lib.OrmObject.a.a.isClassIsSubClassForClazz(fieldClass, List.class)) {
-            List<Object> a = a.a(cVar, arrayList.size());
-            if (a != null) {
+            List<Object> a2 = a.a(cVar, arrayList.size());
+            if (a2 != null) {
                 Iterator<Object> it2 = arrayList.iterator();
                 while (it2.hasNext()) {
                     h w = g.w(it2.next());
-                    if (lP != null && lP.length >= 1 && (g4 = w.g(new c(lP[0]))) != null) {
-                        a.add(g4);
+                    if (lQ != null && lQ.length >= 1 && (g4 = w.g(new c(lQ[0]))) != null) {
+                        a2.add(g4);
                     }
                 }
             }
-            return a;
+            return a2;
         } else if (com.baidu.adp.lib.OrmObject.a.a.isClassIsSubClassForClazz(fieldClass, Queue.class)) {
             Queue<Object> c = a.c(cVar, arrayList.size());
             if (c != null) {
                 Iterator<Object> it3 = arrayList.iterator();
                 while (it3.hasNext()) {
                     h w2 = g.w(it3.next());
-                    if (lP != null && lP.length >= 1 && (g3 = w2.g(new c(lP[0]))) != null) {
+                    if (lQ != null && lQ.length >= 1 && (g3 = w2.g(new c(lQ[0]))) != null) {
                         c.add(g3);
                     }
                 }
@@ -133,7 +133,7 @@ public class b {
                 Iterator<Object> it4 = arrayList.iterator();
                 while (it4.hasNext()) {
                     h w3 = g.w(it4.next());
-                    if (lP != null && lP.length >= 1 && (g2 = w3.g(new c(lP[0]))) != null) {
+                    if (lQ != null && lQ.length >= 1 && (g2 = w3.g(new c(lQ[0]))) != null) {
                         b.add(g2);
                     }
                 }
@@ -145,8 +145,8 @@ public class b {
                 Iterator<Object> it5 = arrayList.iterator();
                 while (it5.hasNext()) {
                     h w4 = g.w(it5.next());
-                    if (lP != null && lP.length >= 2) {
-                        g = w4.g(new c(lP[1]));
+                    if (lQ != null && lQ.length >= 2) {
+                        g = w4.g(new c(lQ[1]));
                     } else {
                         g = w4.g(new c(String.class));
                     }
@@ -166,7 +166,7 @@ public class b {
             while (it6.hasNext()) {
                 Object next = it6.next();
                 h w5 = g.w(next);
-                if (lP != null && lP.length >= 1 && w5.g(new c(lP[0])) != null) {
+                if (lQ != null && lQ.length >= 1 && w5.g(new c(lQ[0])) != null) {
                     sparseArray.put(i2, next);
                 }
                 i2++;

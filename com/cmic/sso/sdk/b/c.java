@@ -12,26 +12,26 @@ import com.meizu.cloud.pushsdk.platform.message.BasicPushStatus;
 import java.util.UUID;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class c {
     @SuppressLint({"StaticFieldLeak"})
-    private static c nsG = null;
+    private static c nIa = null;
     private Context b;
-    private com.cmic.sso.sdk.c.c.a nsF = com.cmic.sso.sdk.c.c.a.dRq();
+    private com.cmic.sso.sdk.c.c.a nHZ = com.cmic.sso.sdk.c.c.a.dVb();
 
     private c(Context context) {
         this.b = context.getApplicationContext();
     }
 
-    public static c gt(Context context) {
-        if (nsG == null) {
+    public static c gB(Context context) {
+        if (nIa == null) {
             synchronized (c.class) {
-                if (nsG == null) {
-                    nsG = new c(context);
+                if (nIa == null) {
+                    nIa = new c(context);
                 }
             }
         }
-        return nsG;
+        return nIa;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -54,9 +54,9 @@ public class c {
     private void b(final com.cmic.sso.sdk.a aVar, final d dVar) {
         com.cmic.sso.sdk.e.c.b("AuthnBusiness", "getPrePhonescrip start");
         String packageName = this.b.getPackageName();
-        String a = com.cmic.sso.sdk.e.d.a(l.a(this.b, packageName));
+        String a2 = com.cmic.sso.sdk.e.d.a(l.a(this.b, packageName));
         aVar.a("apppackage", packageName);
-        aVar.a("appsign", a);
+        aVar.a("appsign", a2);
         byte[] bArr = new byte[0];
         if (aVar.b("use2048PublicKey", false)) {
             com.cmic.sso.sdk.e.c.a("AuthnBusiness", "使用2048公钥对应的对称秘钥生成方式");
@@ -69,9 +69,9 @@ public class c {
                 e.printStackTrace();
             }
         }
-        aVar.a(b.a.a, bArr);
+        aVar.a(b.a.f4005a, bArr);
         aVar.a("authtype", "3");
-        this.nsF.a(aVar, new com.cmic.sso.sdk.c.c.d() { // from class: com.cmic.sso.sdk.b.c.1
+        this.nHZ.a(aVar, new com.cmic.sso.sdk.c.c.d() { // from class: com.cmic.sso.sdk.b.c.1
             /* JADX WARN: Removed duplicated region for block: B:21:0x00ca  */
             /* JADX WARN: Removed duplicated region for block: B:32:0x0121  */
             @Override // com.cmic.sso.sdk.c.c.d
@@ -92,7 +92,7 @@ public class c {
                     if (TextUtils.isEmpty(optString)) {
                         f = jSONObject.toString();
                     } else {
-                        f = com.cmic.sso.sdk.e.a.f(aVar.a(b.a.a), optString);
+                        f = com.cmic.sso.sdk.e.a.f(aVar.a(b.a.f4005a), optString);
                     }
                     try {
                         jSONObject2 = new JSONObject(f);
@@ -105,10 +105,10 @@ public class c {
                                     str7 = aVar.b("imsi", "");
                                 }
                                 try {
-                                    k.a dRw = k.dRw();
+                                    k.a dVh = k.dVh();
                                     str5 = jSONObject2.optString("securityphone");
                                     try {
-                                        dRw.a("securityphone", str5);
+                                        dVh.a("securityphone", str5);
                                         str4 = jSONObject2.optString("openId");
                                         try {
                                             if (TextUtils.isEmpty(str4)) {
@@ -120,9 +120,9 @@ public class c {
                                             e2 = e3;
                                         }
                                         try {
-                                            dRw.a(UgcConstant.SOURCE_ID, str3);
-                                            dRw.a("allcapaids", jSONObject2.optString("capaids", "acd"));
-                                            dRw.b();
+                                            dVh.a(UgcConstant.SOURCE_ID, str3);
+                                            dVh.a("allcapaids", jSONObject2.optString("capaids", "acd"));
+                                            dVh.b();
                                         } catch (JSONException e4) {
                                             e2 = e4;
                                             e2.printStackTrace();
@@ -198,7 +198,7 @@ public class c {
         } else if (aVar.c("logintype") == 0) {
             aVar.a("userCapaid", "50");
         }
-        this.nsF.b(aVar, new com.cmic.sso.sdk.c.c.d() { // from class: com.cmic.sso.sdk.b.c.2
+        this.nHZ.b(aVar, new com.cmic.sso.sdk.c.c.d() { // from class: com.cmic.sso.sdk.b.c.2
             @Override // com.cmic.sso.sdk.c.c.d
             public void j(String str, String str2, JSONObject jSONObject) {
                 com.cmic.sso.sdk.e.c.c("AuthnBusiness", "获取平台token 》》》》" + jSONObject.toString());

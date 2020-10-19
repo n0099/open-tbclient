@@ -5,15 +5,15 @@ import android.util.Base64;
 import com.baidu.adp.lib.asyncTask.BdAsyncTask;
 import java.io.FileInputStream;
 import java.io.IOException;
-/* loaded from: classes20.dex */
+/* loaded from: classes21.dex */
 public class a extends BdAsyncTask<Void, String, String> {
-    private int hky;
-    private com.baidu.tieba.barselect.data.c hkz;
+    private int hzt;
+    private com.baidu.tieba.barselect.data.c hzu;
     private String imagePath;
 
     public a(String str, int i, com.baidu.tieba.barselect.data.c cVar) {
-        this.hky = i;
-        this.hkz = cVar;
+        this.hzt = i;
+        this.hzu = cVar;
         this.imagePath = str;
     }
 
@@ -24,7 +24,7 @@ public class a extends BdAsyncTask<Void, String, String> {
         if (this.imagePath == null) {
             return null;
         }
-        return Ht(this.imagePath);
+        return Ig(this.imagePath);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -32,13 +32,13 @@ public class a extends BdAsyncTask<Void, String, String> {
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
     public void onPostExecute(String str) {
         super.onPostExecute((a) str);
-        if (this.hkz != null && str != null) {
-            this.hkz.m("", this.hky, str);
+        if (this.hzu != null && str != null) {
+            this.hzu.o("", this.hzt, str);
         }
     }
 
     /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [70=4] */
-    public String Ht(String str) {
+    public String Ig(String str) {
         FileInputStream fileInputStream;
         String str2 = null;
         try {

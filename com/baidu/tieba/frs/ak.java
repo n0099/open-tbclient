@@ -2,20 +2,20 @@ package com.baidu.tieba.frs;
 
 import android.support.v4.util.LongSparseArray;
 import java.util.LinkedList;
-/* loaded from: classes21.dex */
+/* loaded from: classes22.dex */
 public class ak {
-    private static final ak ieH = new ak();
-    private LongSparseArray<LinkedList<String>> ieG = new LongSparseArray<>();
+    private static final ak itE = new ak();
+    private LongSparseArray<LinkedList<String>> itD = new LongSparseArray<>();
 
     private ak() {
     }
 
-    public static ak cro() {
-        return ieH;
+    public static ak cuM() {
+        return itE;
     }
 
-    public void eR(long j) {
-        LinkedList<String> linkedList = this.ieG.get(j);
+    public void fi(long j) {
+        LinkedList<String> linkedList = this.itD.get(j);
         if (linkedList != null) {
             linkedList.clear();
         }

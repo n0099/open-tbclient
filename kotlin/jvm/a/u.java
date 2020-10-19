@@ -1,5 +1,5 @@
 package kotlin.jvm.a;
 @kotlin.h
-/* loaded from: classes5.dex */
+/* loaded from: classes10.dex */
 public interface u<P1, P2, P3, P4, P5, P6, P7, R> extends kotlin.c<R> {
 }

@@ -10,7 +10,7 @@ import com.baidu.ar.vo.c.e;
 import com.baidu.ar.vo.c.f;
 import java.util.ArrayList;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes10.dex */
+/* loaded from: classes14.dex */
 public class b {
     private d xH;
     private c xI;
@@ -54,16 +54,16 @@ public class b {
     }
 
     public void a(com.baidu.ar.vo.b.f fVar, float[] fArr) {
-        float[] a;
+        float[] a2;
         if (!this.xL || this.xM) {
             return;
         }
         g hj = fVar.hj();
         if (this.xK) {
-            if (hj == null || (a = a(hj)) == null || a.length <= 0) {
+            if (hj == null || (a2 = a(hj)) == null || a2.length <= 0) {
                 return;
             }
-            this.xH.s(a);
+            this.xH.s(a2);
         } else if (this.xI != null) {
             this.xK = this.xI.r(fArr);
             if (this.xK) {

@@ -7,7 +7,7 @@ import java.security.KeyPairGeneratorSpi;
 import java.security.SecureRandom;
 import java.security.spec.AlgorithmParameterSpec;
 import java.security.spec.RSAKeyGenParameterSpec;
-/* loaded from: classes8.dex */
+/* loaded from: classes5.dex */
 public final class OpenSSLRSAKeyPairGenerator extends KeyPairGeneratorSpi {
     private byte[] publicExponent = {1, 0, 1};
     private int modulusBits = 2048;

@@ -5,22 +5,22 @@ import com.baidu.mapapi.search.share.OnGetShareUrlResultListener;
 import com.baidu.mapapi.search.share.PoiDetailShareURLOption;
 import com.baidu.mapapi.search.share.RouteShareURLOption;
 import com.baidu.platform.base.SearchType;
-/* loaded from: classes3.dex */
+/* loaded from: classes7.dex */
 public class h extends com.baidu.platform.base.a implements a {
     OnGetShareUrlResultListener b = null;
 
     @Override // com.baidu.platform.core.e.a
     public void a() {
-        this.a.lock();
+        this.f2810a.lock();
         this.b = null;
-        this.a.unlock();
+        this.f2810a.unlock();
     }
 
     @Override // com.baidu.platform.core.e.a
     public void a(OnGetShareUrlResultListener onGetShareUrlResultListener) {
-        this.a.lock();
+        this.f2810a.lock();
         this.b = onGetShareUrlResultListener;
-        this.a.unlock();
+        this.f2810a.unlock();
     }
 
     @Override // com.baidu.platform.core.e.a

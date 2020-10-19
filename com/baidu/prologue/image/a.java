@@ -5,11 +5,11 @@ import android.support.annotation.NonNull;
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.load.engine.bitmap_recycle.BitmapPool;
 import com.bumptech.glide.load.resource.bitmap.BitmapTransformation;
-/* loaded from: classes10.dex */
+/* loaded from: classes19.dex */
 public class a extends BitmapTransformation {
-    private BitmapPool bNY;
-    private int bNZ;
-    private int bOa;
+    private BitmapPool bUH;
+    private int bUI;
+    private int bUJ;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public a(@NonNull Context context) {
@@ -17,8 +17,8 @@ public class a extends BitmapTransformation {
     }
 
     a(@NonNull BitmapPool bitmapPool) {
-        this.bNZ = 0;
-        this.bOa = 0;
-        this.bNY = bitmapPool;
+        this.bUI = 0;
+        this.bUJ = 0;
+        this.bUH = bitmapPool;
     }
 }

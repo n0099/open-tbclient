@@ -28,74 +28,79 @@ import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes4.dex */
 public class ALaImMsgView extends RelativeLayout implements j {
-    private boolean bed;
-    private ALAImEnterView bgq;
-    private ALAImMsgListView bgr;
-    private ALAImMsgMoreChatView bgt;
-    private TextView bgu;
-    private boolean bgv;
-    private boolean bgw;
+    private boolean bhP;
+    private ALAImEnterView bkg;
+    private ALAImMsgListView bkh;
+    private ALAImMsgMoreChatView bki;
+    private TextView bkj;
+    private boolean bkk;
+    private boolean bkl;
+    private int bkm;
     private String mOtherParams;
     private TbPageContext mTbPageContext;
     private String mVid;
 
     public ALaImMsgView(Context context) {
         super(context);
-        this.bgv = false;
-        this.bgw = false;
+        this.bkk = false;
+        this.bkl = false;
+        this.bkm = 0;
         init(context);
     }
 
     public ALaImMsgView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.bgv = false;
-        this.bgw = false;
+        this.bkk = false;
+        this.bkl = false;
+        this.bkm = 0;
         init(context);
     }
 
     public ALaImMsgView(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.bgv = false;
-        this.bgw = false;
+        this.bkk = false;
+        this.bkl = false;
+        this.bkm = 0;
         init(context);
     }
 
     public void setPageContext(TbPageContext tbPageContext) {
         this.mTbPageContext = tbPageContext;
-        this.bgr.setPageContext(tbPageContext);
+        this.bkh.setPageContext(tbPageContext);
     }
 
     private void init(Context context) {
-        this.bgq = new ALAImEnterView(context);
+        this.bkg = new ALAImEnterView(context);
         RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(-2, getResources().getDimensionPixelSize(a.e.sdk_im_entereffect_height));
         layoutParams.leftMargin = context.getResources().getDimensionPixelSize(a.e.sdk_tbds26);
-        addView(this.bgq, layoutParams);
-        this.bgr = new ALAImMsgListView(context);
-        this.bgr.setOnUserMoveToBottomIMCallBack(new ALAImMsgListView.a() { // from class: com.baidu.live.im.view.ALaImMsgView.1
+        addView(this.bkg, layoutParams);
+        this.bkh = new ALAImMsgListView(context);
+        this.bkh.setOnUserMoveToBottomIMCallBack(new ALAImMsgListView.a() { // from class: com.baidu.live.im.view.ALaImMsgView.1
             @Override // com.baidu.live.im.view.ALAImMsgListView.a
-            public void KY() {
-                ALaImMsgView.this.bgt.setVisibility(8);
+            public void Md() {
+                ALaImMsgView.this.bkm = 0;
+                ALaImMsgView.this.bki.setVisibility(8);
             }
         });
-        this.bgr.setId(a.g.ala_im_normal_panel);
+        this.bkh.setId(a.g.ala_im_normal_panel);
         RelativeLayout.LayoutParams layoutParams2 = new RelativeLayout.LayoutParams(-1, -2);
         layoutParams2.topMargin = layoutParams.height + getResources().getDimensionPixelOffset(a.e.sdk_ds16);
         layoutParams2.leftMargin = context.getResources().getDimensionPixelSize(a.e.sdk_tbds26);
         layoutParams2.addRule(12);
-        addView(this.bgr, layoutParams2);
-        this.bgt = new ALAImMsgMoreChatView(context);
-        RelativeLayout.LayoutParams layoutParams3 = new RelativeLayout.LayoutParams(context.getResources().getDimensionPixelSize(a.e.sdk_ds236), context.getResources().getDimensionPixelSize(a.e.sdk_ds60));
+        addView(this.bkh, layoutParams2);
+        this.bki = new ALAImMsgMoreChatView(context);
+        RelativeLayout.LayoutParams layoutParams3 = new RelativeLayout.LayoutParams(-2, context.getResources().getDimensionPixelSize(a.e.sdk_ds48));
         layoutParams3.leftMargin = context.getResources().getDimensionPixelSize(a.e.sdk_ds20);
-        layoutParams3.addRule(8, this.bgr.getId());
-        addView(this.bgt, layoutParams3);
-        this.bgt.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.live.im.view.ALaImMsgView.2
+        layoutParams3.addRule(8, this.bkh.getId());
+        addView(this.bki, layoutParams3);
+        this.bki.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.live.im.view.ALaImMsgView.2
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                if (!ALaImMsgView.this.bgv) {
-                    if (!ALaImMsgView.this.bgw) {
-                        ALaImMsgView.this.bgw = false;
-                        ALaImMsgView.this.bgt.setVisibility(8);
-                        ALaImMsgView.this.bgr.KW();
+                if (!ALaImMsgView.this.bkk) {
+                    if (!ALaImMsgView.this.bkl) {
+                        ALaImMsgView.this.bkl = false;
+                        ALaImMsgView.this.bki.setVisibility(8);
+                        ALaImMsgView.this.bkh.Mb();
                         return;
                     }
                     return;
@@ -106,7 +111,7 @@ public class ALaImMsgView extends RelativeLayout implements j {
     }
 
     public void setMode(boolean z) {
-        this.bgr.setMode(z);
+        this.bkh.setMode(z);
     }
 
     @Override // android.view.View
@@ -114,9 +119,9 @@ public class ALaImMsgView extends RelativeLayout implements j {
         super.onConfigurationChanged(configuration);
         if (configuration != null) {
             if (configuration.orientation == 2) {
-                this.bgr.setMaxHeight(ActivityChooserView.ActivityChooserViewAdapter.MAX_ACTIVITY_COUNT_UNLIMITED);
+                this.bkh.setMaxHeight(ActivityChooserView.ActivityChooserViewAdapter.MAX_ACTIVITY_COUNT_UNLIMITED);
             } else if (configuration.orientation == 1) {
-                this.bgr.setMaxHeight(ActivityChooserView.ActivityChooserViewAdapter.MAX_ACTIVITY_COUNT_UNLIMITED);
+                this.bkh.setMaxHeight(ActivityChooserView.ActivityChooserViewAdapter.MAX_ACTIVITY_COUNT_UNLIMITED);
             }
         }
     }
@@ -128,87 +133,89 @@ public class ALaImMsgView extends RelativeLayout implements j {
 
     @Override // com.baidu.live.im.j
     public void setMsgData(List<com.baidu.live.im.data.a> list) {
-        this.bgr.setMsgData(list);
+        this.bkm += Math.max(list.size() - this.bkh.getData().size(), 0);
+        this.bkh.setMsgData(list);
     }
 
-    public boolean U(List<com.baidu.live.im.data.a> list) {
-        return (list.size() == this.bgr.getData().size() && list.get(list.size() + (-1)) == this.bgr.getData().get(this.bgr.getData().size() + (-1))) ? false : true;
+    public boolean W(List<com.baidu.live.im.data.a> list) {
+        return (list.size() == this.bkh.getData().size() && list.get(list.size() + (-1)) == this.bkh.getData().get(this.bkh.getData().size() + (-1))) ? false : true;
     }
 
     public void w(com.baidu.live.im.data.a aVar) {
-        this.bgq.v(aVar);
+        this.bkg.v(aVar);
     }
 
     @Override // com.baidu.live.im.j
-    public void JI() {
-        this.bgr.JI();
+    public void KO() {
+        this.bkh.KO();
     }
 
     public void JY() {
-        Lp();
-        this.bgq.JY();
-        this.bgr.JY();
+        Mu();
+        this.bkg.JY();
+        this.bkh.JY();
     }
 
-    public void KX() {
-        this.bgq.release();
-        this.bgr.KX();
-        this.bgt.setVisibility(8);
+    public void Mc() {
+        this.bkg.release();
+        this.bkh.Mc();
+        this.bki.setVisibility(8);
     }
 
     @Override // com.baidu.live.im.j
     public void b(String str, String str2, boolean z, String str3) {
-        this.bgr.b(str, str2, z, str3);
+        this.bkh.b(str, str2, z, str3);
     }
 
     @Override // com.baidu.live.im.j
     public void setNeedTopAlphaShade(boolean z) {
-        this.bgr.setNeedTopAlphaShade(z);
+        this.bkh.setNeedTopAlphaShade(z);
     }
 
     @Override // com.baidu.live.im.j
     public void onKeyboardVisibilityChanged(boolean z) {
-        this.bgv = z;
+        this.bkk = z;
     }
 
     public void setLogData(String str, String str2) {
         this.mVid = str != null ? str : "";
         this.mOtherParams = str2 != null ? str2 : "";
-        this.bgr.setLogData(str, str2);
+        this.bkh.setLogData(str, str2);
     }
 
     public void setFromMaster(boolean z) {
-        this.bed = z;
-        if (this.bgr != null) {
-            this.bgr.setFromMaster(this.bed);
+        this.bhP = z;
+        if (this.bkh != null) {
+            this.bkh.setFromMaster(this.bhP);
         }
     }
 
     @Override // android.view.ViewGroup, android.view.View
     public boolean dispatchTouchEvent(MotionEvent motionEvent) {
         if (motionEvent.getAction() == 0) {
-            if (this.bgv) {
-                this.bgw = true;
+            if (this.bkk) {
+                this.bkl = true;
                 BdUtilHelper.hideSoftKeyPad(getContext(), getRootView());
             } else {
-                this.bgw = false;
+                this.bkl = false;
             }
         }
         return super.dispatchTouchEvent(motionEvent);
     }
 
-    public void Ln() {
-        if (this.bgr.KU()) {
-            this.bgt.setVisibility(0);
+    public void Ms() {
+        if (this.bkh.LZ() && this.bkm > 0) {
+            this.bki.setVisibility(0);
+            this.bki.setNewMessageSize(this.bkm);
         }
     }
 
-    public void av(final String str, final String str2) {
+    public void ay(final String str, final String str2) {
         RelativeLayout.LayoutParams layoutParams;
-        if (this.bgu == null) {
-            this.bgu = new AlaImAddTagTextView(getContext());
-            this.bgu.setId(a.g.ala_im_add_tag);
-            this.bgu.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.live.im.view.ALaImMsgView.3
+        if (this.bkj == null) {
+            this.bkj = new AlaImAddTagTextView(getContext());
+            this.bkj.setId(a.g.ala_im_add_tag);
+            this.bkj.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.live.im.view.ALaImMsgView.3
                 @Override // android.view.View.OnClickListener
                 public void onClick(View view) {
                     JSONObject jSONObject = new JSONObject();
@@ -222,49 +229,49 @@ public class ALaImMsgView extends RelativeLayout implements j {
                     MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new AlaLiveTagActivityConfig(ALaImMsgView.this.mTbPageContext.getPageActivity(), str2, str)));
                 }
             });
-            addView(this.bgu);
+            addView(this.bkj);
         }
-        if (this.bgu.getLayoutParams() instanceof RelativeLayout.LayoutParams) {
-            layoutParams = (RelativeLayout.LayoutParams) this.bgu.getLayoutParams();
+        if (this.bkj.getLayoutParams() instanceof RelativeLayout.LayoutParams) {
+            layoutParams = (RelativeLayout.LayoutParams) this.bkj.getLayoutParams();
         } else {
             layoutParams = new RelativeLayout.LayoutParams(-2, -2);
         }
         layoutParams.addRule(12);
-        layoutParams.addRule(5, this.bgr.getId());
+        layoutParams.addRule(5, this.bkh.getId());
         layoutParams.topMargin = getResources().getDimensionPixelSize(a.e.sdk_ds8);
-        this.bgu.setLayoutParams(layoutParams);
-        RelativeLayout.LayoutParams layoutParams2 = (RelativeLayout.LayoutParams) this.bgr.getLayoutParams();
+        this.bkj.setLayoutParams(layoutParams);
+        RelativeLayout.LayoutParams layoutParams2 = (RelativeLayout.LayoutParams) this.bkh.getLayoutParams();
         if (Build.VERSION.SDK_INT >= 17) {
             layoutParams2.removeRule(12);
         } else {
             layoutParams2.addRule(12, 0);
         }
-        layoutParams2.addRule(2, this.bgu.getId());
-        this.bgr.setLayoutParams(layoutParams2);
-        this.bgu.setVisibility(0);
+        layoutParams2.addRule(2, this.bkj.getId());
+        this.bkh.setLayoutParams(layoutParams2);
+        this.bkj.setVisibility(0);
     }
 
-    public void Lo() {
-        if (this.bgu != null) {
-            this.bgu.setVisibility(8);
+    public void Mt() {
+        if (this.bkj != null) {
+            this.bkj.setVisibility(8);
         }
-        Lp();
+        Mu();
     }
 
     public int getImMsgListViewTop() {
-        return getTop() + this.bgr.getTop();
+        return getTop() + this.bkh.getTop();
     }
 
     public int getImMsgListViewHeight() {
-        return this.bgr.getHeight();
+        return this.bkh.getHeight();
     }
 
-    private void Lp() {
-        if (this.bgr != null) {
-            ViewGroup.LayoutParams layoutParams = this.bgr.getLayoutParams();
+    private void Mu() {
+        if (this.bkh != null) {
+            ViewGroup.LayoutParams layoutParams = this.bkh.getLayoutParams();
             if (layoutParams instanceof RelativeLayout.LayoutParams) {
                 ((RelativeLayout.LayoutParams) layoutParams).addRule(12);
-                this.bgr.setLayoutParams(layoutParams);
+                this.bkh.setLayoutParams(layoutParams);
             }
         }
     }

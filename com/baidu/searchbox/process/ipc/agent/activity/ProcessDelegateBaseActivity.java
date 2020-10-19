@@ -10,7 +10,7 @@ import com.baidu.searchbox.process.ipc.delegate.Delegation;
 import com.baidu.searchbox.process.ipc.delegate.activity.ActivityDelegation;
 import com.baidu.searchbox.process.ipc.util.OrientationUtils;
 import java.lang.reflect.Modifier;
-/* loaded from: classes16.dex */
+/* loaded from: classes12.dex */
 public class ProcessDelegateBaseActivity extends Activity implements Agent, DelegateDef {
     private static final boolean DEBUG = false;
     private static final String TAG = "DelegateBaseActivity";

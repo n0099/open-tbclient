@@ -3,7 +3,7 @@ package com.baidu.android.imsdk.chatmessage.messages;
 import android.os.Parcel;
 import android.os.Parcelable;
 import com.baidu.android.imsdk.utils.NoProGuard;
-/* loaded from: classes9.dex */
+/* loaded from: classes5.dex */
 public abstract class FlashMsg extends ChatMsg implements Parcelable, NoProGuard {
     public FlashMsg() {
         setCategory(3);

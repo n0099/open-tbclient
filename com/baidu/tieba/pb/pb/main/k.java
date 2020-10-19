@@ -5,7 +5,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.tieba.R;
-/* loaded from: classes21.dex */
+/* loaded from: classes22.dex */
 public class k extends o<com.baidu.tieba.pb.data.e, l> {
     public k(com.baidu.tieba.pb.videopb.b bVar, BdUniqueId bdUniqueId) {
         super(bVar, bdUniqueId);
@@ -14,7 +14,7 @@ public class k extends o<com.baidu.tieba.pb.data.e, l> {
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.widget.ListView.a
-    /* renamed from: cc */
+    /* renamed from: ce */
     public l c(ViewGroup viewGroup) {
         return new l(LayoutInflater.from(this.mContext).inflate(R.layout.pb_child_title, viewGroup, false));
     }

@@ -1,5 +1,6 @@
 package com.google.zxing.oned;
 
+import com.baidu.appsearch.update.patchupdate.GDiffPatcher;
 import com.baidu.fsg.base.activity.BaseActivity;
 import com.google.zxing.BarcodeFormat;
 import com.google.zxing.EncodeHintType;
@@ -7,7 +8,7 @@ import com.google.zxing.WriterException;
 import com.google.zxing.common.BitMatrix;
 import java.util.ArrayList;
 import java.util.Map;
-/* loaded from: classes3.dex */
+/* loaded from: classes7.dex */
 public final class Code128Writer extends OneDimensionalCodeWriter {
     private static final int CODE_CODE_B = 100;
     private static final int CODE_CODE_C = 99;
@@ -24,7 +25,7 @@ public final class Code128Writer extends OneDimensionalCodeWriter {
     private static final char ESCAPE_FNC_4 = 244;
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes3.dex */
+    /* loaded from: classes7.dex */
     public enum CType {
         UNCODABLE,
         ONE_DIGIT,
@@ -55,7 +56,7 @@ public final class Code128Writer extends OneDimensionalCodeWriter {
                     case BaseActivity.DIALOG_PROMPT /* 241 */:
                     case BaseActivity.DIALOG_LOADING /* 242 */:
                     case 243:
-                    case 244:
+                    case GDiffPatcher.COPY_UBYTE_UBYTE /* 244 */:
                         break;
                     default:
                         throw new IllegalArgumentException("Bad character in input: " + charAt);
@@ -80,7 +81,7 @@ public final class Code128Writer extends OneDimensionalCodeWriter {
                     case 243:
                         i = 96;
                         break;
-                    case 244:
+                    case GDiffPatcher.COPY_UBYTE_UBYTE /* 244 */:
                         i = 100;
                         break;
                     default:

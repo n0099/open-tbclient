@@ -11,13 +11,13 @@ import com.baidu.android.imsdk.utils.LogUtils;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
-/* loaded from: classes9.dex */
+/* loaded from: classes5.dex */
 public class DBBase {
     public static final String TAG = DBBase.class.getSimpleName();
     protected static Object mSyncLock = new Object();
     protected Context mContext = null;
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes5.dex */
     public class UpdateArgs {
         public String[] args;
         public String query;
@@ -40,10 +40,8 @@ public class DBBase {
     }
 
     public void setContext(Context context) {
-        synchronized (mSyncLock) {
-            if (context != null) {
-                this.mContext = context.getApplicationContext();
-            }
+        if (context != null) {
+            this.mContext = context.getApplicationContext();
         }
     }
 
@@ -166,7 +164,7 @@ public class DBBase {
         }
     }
 
-    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [171=5, 172=4] */
+    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [168=5, 169=4] */
     /* JADX INFO: Access modifiers changed from: protected */
     /* JADX WARN: Removed duplicated region for block: B:30:0x0063  */
     /*
@@ -238,7 +236,7 @@ public class DBBase {
         }
     }
 
-    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [209=5, 210=4] */
+    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [206=5, 207=4] */
     /* JADX WARN: Removed duplicated region for block: B:25:0x0057  */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
@@ -297,7 +295,7 @@ public class DBBase {
         }
     }
 
-    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [232=4] */
+    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [229=4] */
     /* JADX INFO: Access modifiers changed from: protected */
     /* JADX WARN: Removed duplicated region for block: B:18:0x0046  */
     /*
@@ -344,7 +342,7 @@ public class DBBase {
         }
     }
 
-    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [254=4] */
+    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [251=4] */
     /* JADX WARN: Removed duplicated region for block: B:18:0x0049  */
     /*
         Code decompiled incorrectly, please refer to instructions dump.

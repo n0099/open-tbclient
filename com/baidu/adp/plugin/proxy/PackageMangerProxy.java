@@ -384,7 +384,6 @@ public class PackageMangerProxy extends PackageManager {
 
     @Override // android.content.pm.PackageManager
     public void setInstallerPackageName(String str, String str2) {
-        this.mPm.setInstallerPackageName(str, str2);
     }
 
     @Override // android.content.pm.PackageManager
@@ -511,13 +510,11 @@ public class PackageMangerProxy extends PackageManager {
     }
 
     @Override // android.content.pm.PackageManager
-    @NonNull
     public List<SharedLibraryInfo> getSharedLibraries(int i) {
         return null;
     }
 
     @Override // android.content.pm.PackageManager
-    @Nullable
     public ChangedPackages getChangedPackages(int i) {
         return null;
     }

@@ -9,7 +9,7 @@ import com.baidu.swan.apps.scheme.actions.aa;
 import com.baidu.swan.apps.scheme.j;
 import com.baidu.swan.apps.setting.oauth.a.b;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes10.dex */
 public class e extends aa {
     public e(j jVar) {
         super(jVar, "/swanAPI/debug/setDebugConfig");
@@ -29,46 +29,46 @@ public class e extends aa {
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
             return false;
         }
-        if (com.baidu.swan.apps.runtime.d.aAn().Yy() == 0) {
-            eVar.aAD().b(context, "mapp_cts_debug", new com.baidu.swan.apps.ap.e.b<com.baidu.swan.apps.setting.oauth.h<b.d>>() { // from class: com.baidu.swan.apps.extcore.c.a.e.1
+        if (com.baidu.swan.apps.runtime.d.aCW().abk() == 0) {
+            eVar.aDm().b(context, "mapp_cts_debug", new com.baidu.swan.apps.ap.e.b<com.baidu.swan.apps.setting.oauth.h<b.d>>() { // from class: com.baidu.swan.apps.extcore.c.a.e.1
                 /* JADX DEBUG: Method merged with bridge method */
                 @Override // com.baidu.swan.apps.ap.e.b
                 /* renamed from: a */
-                public void J(com.baidu.swan.apps.setting.oauth.h<b.d> hVar) {
+                public void M(com.baidu.swan.apps.setting.oauth.h<b.d> hVar) {
                     if (!com.baidu.swan.apps.setting.oauth.c.b(hVar)) {
                         com.baidu.swan.apps.setting.oauth.c.a(hVar, callbackHandler, unitedSchemeEntity);
                         return;
                     }
                     if (optJSONObject.has("emitLive")) {
-                        com.baidu.swan.apps.ad.a.a.fe(com.baidu.swan.apps.extcore.c.a.hJ(optJSONObject.optInt("emitLive")));
+                        com.baidu.swan.apps.ad.a.a.fA(com.baidu.swan.apps.extcore.c.a.ig(optJSONObject.optInt("emitLive")));
                     }
                     if (optJSONObject.has("emitHttps")) {
-                        com.baidu.swan.apps.ad.a.a.ff(com.baidu.swan.apps.extcore.c.a.hJ(optJSONObject.optInt("emitHttps")));
+                        com.baidu.swan.apps.ad.a.a.fB(com.baidu.swan.apps.extcore.c.a.ig(optJSONObject.optInt("emitHttps")));
                     }
                     if (optJSONObject.has("emitDomain")) {
-                        com.baidu.swan.apps.ad.a.a.fc(!com.baidu.swan.apps.extcore.c.a.hJ(optJSONObject.optInt("emitDomain")));
-                        com.baidu.swan.apps.ad.a.a.fb(com.baidu.swan.apps.extcore.c.a.hJ(optJSONObject.optInt("emitDomain")) ? false : true);
+                        com.baidu.swan.apps.ad.a.a.fy(!com.baidu.swan.apps.extcore.c.a.ig(optJSONObject.optInt("emitDomain")));
+                        com.baidu.swan.apps.ad.a.a.fx(com.baidu.swan.apps.extcore.c.a.ig(optJSONObject.optInt("emitDomain")) ? false : true);
                     }
                     if (optJSONObject.has("emitWss")) {
-                        com.baidu.swan.apps.ad.a.a.fj(com.baidu.swan.apps.extcore.c.a.hJ(optJSONObject.optInt("emitWss")));
+                        com.baidu.swan.apps.ad.a.a.fF(com.baidu.swan.apps.extcore.c.a.ig(optJSONObject.optInt("emitWss")));
                     }
                     if (optJSONObject.has("emitLaunchMode")) {
-                        com.baidu.swan.apps.ad.a.a.fi(com.baidu.swan.apps.extcore.c.a.hJ(optJSONObject.optInt("emitLaunchMode")));
+                        com.baidu.swan.apps.ad.a.a.fE(com.baidu.swan.apps.extcore.c.a.ig(optJSONObject.optInt("emitLaunchMode")));
                     }
                     if (optJSONObject.has("debugEnvData")) {
-                        com.baidu.swan.apps.ad.a.a.pX(optJSONObject.optString("debugEnvData"));
+                        com.baidu.swan.apps.ad.a.a.qJ(optJSONObject.optString("debugEnvData"));
                     }
                     if (optJSONObject.has("emitReplaceJsNative")) {
-                        com.baidu.swan.apps.ad.a.a.fl(com.baidu.swan.apps.extcore.c.a.hJ(optJSONObject.optInt("emitReplaceJsNative")));
+                        com.baidu.swan.apps.ad.a.a.fH(com.baidu.swan.apps.extcore.c.a.ig(optJSONObject.optInt("emitReplaceJsNative")));
                     }
                     if (optJSONObject.has("emitReplaceV8Core")) {
-                        d.C0391d.mo(d.C0391d.hy(optJSONObject.optInt("emitReplaceV8Core")));
+                        d.C0408d.na(d.C0408d.hV(optJSONObject.optInt("emitReplaceV8Core")));
                     }
                     UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(0));
-                    com.baidu.swan.apps.ad.a.a.ahg();
+                    com.baidu.swan.apps.ad.a.a.ajR();
                 }
             });
-        } else if (com.baidu.swan.apps.runtime.d.aAn().Yy() == 1) {
+        } else if (com.baidu.swan.apps.runtime.d.aCW().abk() == 1) {
             if (!DEBUG) {
                 unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(302);
                 return false;
@@ -78,16 +78,16 @@ public class e extends aa {
                 return false;
             } else {
                 if (optJSONObject.has("emitHttps")) {
-                    com.baidu.swan.apps.ad.a.a.ff(com.baidu.swan.apps.extcore.c.a.hJ(optJSONObject.optInt("emitHttps")));
+                    com.baidu.swan.apps.ad.a.a.fB(com.baidu.swan.apps.extcore.c.a.ig(optJSONObject.optInt("emitHttps")));
                 }
                 if (optJSONObject.has("emitWss")) {
-                    com.baidu.swan.apps.ad.a.a.fj(com.baidu.swan.apps.extcore.c.a.hJ(optJSONObject.optInt("emitWss")));
+                    com.baidu.swan.apps.ad.a.a.fF(com.baidu.swan.apps.extcore.c.a.ig(optJSONObject.optInt("emitWss")));
                 }
                 if (optJSONObject.has("debugEnvData")) {
-                    com.baidu.swan.apps.ad.a.a.pX(optJSONObject.optString("debugEnvData"));
+                    com.baidu.swan.apps.ad.a.a.qJ(optJSONObject.optString("debugEnvData"));
                 }
                 UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(0));
-                com.baidu.swan.apps.ad.a.a.ahg();
+                com.baidu.swan.apps.ad.a.a.ajR();
             }
         } else {
             com.baidu.swan.apps.console.c.e("setDebugConfig", "frame type error");

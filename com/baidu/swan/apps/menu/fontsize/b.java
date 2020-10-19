@@ -8,35 +8,35 @@ import com.baidu.searchbox.process.ipc.delegate.DelegateUtils;
 import com.baidu.swan.apps.ap.ag;
 import com.baidu.swan.apps.runtime.config.SwanAppConfigData;
 import com.baidu.swan.apps.v.f;
-/* loaded from: classes3.dex */
+/* loaded from: classes10.dex */
 public class b {
-    public static void iE(int i) {
+    public static void jb(int i) {
         Bundle bundle = new Bundle();
         bundle.putInt(QuickPersistConfigConst.KEY_TEXT_SIZE, i);
-        com.baidu.swan.apps.process.messaging.a.ayb().a(new com.baidu.swan.apps.process.messaging.c(22, bundle));
+        com.baidu.swan.apps.process.messaging.a.aAK().a(new com.baidu.swan.apps.process.messaging.c(22, bundle));
     }
 
-    public static int auL() {
-        return auN() + 1;
+    public static int axw() {
+        return axy() + 1;
     }
 
-    public static boolean auM() {
-        SwanAppConfigData aso = f.asJ().aso();
-        if (aso == null) {
+    public static boolean axx() {
+        SwanAppConfigData auZ = f.avu().auZ();
+        if (auZ == null) {
             return false;
         }
-        return TextUtils.equals("none", aso.cSY.cTT);
+        return TextUtils.equals("none", auZ.dfg.dgb);
     }
 
-    public static int auN() {
-        DelegateResult callOnMainWithContentProvider = DelegateUtils.callOnMainWithContentProvider(com.baidu.swan.apps.t.a.apu(), d.class, null);
+    public static int axy() {
+        DelegateResult callOnMainWithContentProvider = DelegateUtils.callOnMainWithContentProvider(com.baidu.swan.apps.t.a.asf(), d.class, null);
         if (callOnMainWithContentProvider.isOk()) {
             return callOnMainWithContentProvider.mResult.getInt("font_size_level", 1);
         }
         return 1;
     }
 
-    public static int iF(int i) {
+    public static int jc(int i) {
         switch (i) {
             case 0:
                 return 82;
@@ -50,7 +50,7 @@ public class b {
         }
     }
 
-    public static boolean auO() {
-        return ag.sZ("3.200.101");
+    public static boolean axz() {
+        return ag.tL("3.200.101");
     }
 }

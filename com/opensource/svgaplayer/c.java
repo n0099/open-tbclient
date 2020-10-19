@@ -10,59 +10,59 @@ import kotlin.jvm.a.m;
 import kotlin.jvm.a.r;
 import kotlin.jvm.internal.q;
 @h
-/* loaded from: classes16.dex */
+/* loaded from: classes15.dex */
 public final class c {
-    private HashMap<String, Boolean> onc = new HashMap<>();
-    private HashMap<String, Bitmap> ond = new HashMap<>();
-    private HashMap<String, String> onf = new HashMap<>();
-    private HashMap<String, TextPaint> ong = new HashMap<>();
-    private HashMap<String, StaticLayout> onh = new HashMap<>();
-    private HashMap<String, m<Canvas, Integer, Boolean>> oni = new HashMap<>();
-    private HashMap<String, r<Canvas, Integer, Integer, Integer, Boolean>> onj = new HashMap<>();
-    private boolean onk;
+    private boolean oCC;
+    private HashMap<String, Boolean> oCv = new HashMap<>();
+    private HashMap<String, Bitmap> oCw = new HashMap<>();
+    private HashMap<String, String> oCx = new HashMap<>();
+    private HashMap<String, TextPaint> oCy = new HashMap<>();
+    private HashMap<String, StaticLayout> oCz = new HashMap<>();
+    private HashMap<String, m<Canvas, Integer, Boolean>> oCA = new HashMap<>();
+    private HashMap<String, r<Canvas, Integer, Integer, Integer, Boolean>> oCB = new HashMap<>();
 
-    public final HashMap<String, Boolean> efd() {
-        return this.onc;
+    public final HashMap<String, Boolean> eiO() {
+        return this.oCv;
     }
 
-    public final HashMap<String, Bitmap> efe() {
-        return this.ond;
+    public final HashMap<String, Bitmap> eiP() {
+        return this.oCw;
     }
 
-    public final HashMap<String, String> eff() {
-        return this.onf;
+    public final HashMap<String, String> eiQ() {
+        return this.oCx;
     }
 
-    public final HashMap<String, TextPaint> efg() {
-        return this.ong;
+    public final HashMap<String, TextPaint> eiR() {
+        return this.oCy;
     }
 
-    public final HashMap<String, StaticLayout> efh() {
-        return this.onh;
+    public final HashMap<String, StaticLayout> eiS() {
+        return this.oCz;
     }
 
-    public final HashMap<String, m<Canvas, Integer, Boolean>> efi() {
-        return this.oni;
+    public final HashMap<String, m<Canvas, Integer, Boolean>> eiT() {
+        return this.oCA;
     }
 
-    public final HashMap<String, r<Canvas, Integer, Integer, Integer, Boolean>> efj() {
-        return this.onj;
+    public final HashMap<String, r<Canvas, Integer, Integer, Integer, Boolean>> eiU() {
+        return this.oCB;
     }
 
-    public final boolean efk() {
-        return this.onk;
+    public final boolean eiV() {
+        return this.oCC;
     }
 
-    public final void yN(boolean z) {
-        this.onk = z;
+    public final void zu(boolean z) {
+        this.oCC = z;
     }
 
     public final void a(String str, TextPaint textPaint, String str2) {
-        q.m(str, "text");
-        q.m(textPaint, "textPaint");
-        q.m(str2, "forKey");
-        this.onk = true;
-        this.onf.put(str2, str);
-        this.ong.put(str2, textPaint);
+        q.n(str, "text");
+        q.n(textPaint, "textPaint");
+        q.n(str2, "forKey");
+        this.oCC = true;
+        this.oCx.put(str2, str);
+        this.oCy.put(str2, textPaint);
     }
 }

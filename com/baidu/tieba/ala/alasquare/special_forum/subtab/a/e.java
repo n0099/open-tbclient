@@ -10,17 +10,17 @@ import com.baidu.tbadk.core.util.ap;
 import com.baidu.tieba.R;
 /* loaded from: classes4.dex */
 public class e extends com.baidu.tieba.card.b<com.baidu.tieba.ala.alasquare.special_forum.data.g> {
-    private a fOZ;
+    private a gbr;
 
     public e(TbPageContext<?> tbPageContext, ViewGroup viewGroup) {
         super(tbPageContext, viewGroup);
-        this.fOZ = new a(getView());
+        this.gbr = new a(getView());
         onChangeSkinType(tbPageContext, TbadkCoreApplication.getInst().getSkinType());
     }
 
     @Override // com.baidu.tieba.card.b
     public void onChangeSkinType(TbPageContext<?> tbPageContext, int i) {
-        ap.setViewTextColor(this.fOZ.textView, R.color.cp_cont_d);
+        ap.setViewTextColor(this.gbr.textView, R.color.cp_cont_d);
     }
 
     @Override // com.baidu.tieba.card.b
@@ -31,11 +31,11 @@ public class e extends com.baidu.tieba.card.b<com.baidu.tieba.ala.alasquare.spec
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.tieba.card.b
     public void a(com.baidu.tieba.ala.alasquare.special_forum.data.g gVar) {
-        if (this.fOZ != null) {
-            if (gVar.fND) {
-                this.fOZ.devider.setVisibility(0);
+        if (this.gbr != null) {
+            if (gVar.fZU) {
+                this.gbr.devider.setVisibility(0);
             } else {
-                this.fOZ.devider.setVisibility(8);
+                this.gbr.devider.setVisibility(8);
             }
         }
     }
@@ -46,15 +46,15 @@ public class e extends com.baidu.tieba.card.b<com.baidu.tieba.ala.alasquare.spec
 
     /* loaded from: classes4.dex */
     public static class a extends af.a {
-        public View dBl;
+        public View dNm;
         public View devider;
         public TextView textView;
 
         public a(View view) {
             super(view);
-            this.dBl = view;
-            this.textView = (TextView) this.dBl.findViewById(R.id.title);
-            this.devider = this.dBl.findViewById(R.id.divider);
+            this.dNm = view;
+            this.textView = (TextView) this.dNm.findViewById(R.id.title);
+            this.devider = this.dNm.findViewById(R.id.divider);
         }
     }
 }

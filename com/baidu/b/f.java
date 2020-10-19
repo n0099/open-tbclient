@@ -4,9 +4,11 @@ import android.text.TextUtils;
 import java.util.Iterator;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes7.dex */
 public class f {
-    public String a;
+
+    /* renamed from: a  reason: collision with root package name */
+    public String f1267a;
     public String b;
     public int c = 2;
     private int d = 0;
@@ -16,7 +18,7 @@ public class f {
             return null;
         }
         f fVar = new f();
-        fVar.a = str;
+        fVar.f1267a = str;
         fVar.d = TextUtils.isEmpty(str2) ? 0 : str2.length();
         if (fVar.d < 14) {
             if (TextUtils.isEmpty(str2)) {
@@ -58,7 +60,7 @@ public class f {
             int length = TextUtils.isEmpty(str2) ? 0 : str2.length();
             if (!TextUtils.isEmpty(string)) {
                 f fVar = new f();
-                fVar.a = string;
+                fVar.f1267a = string;
                 fVar.c = i;
                 fVar.d = length;
                 if (fVar.d < 14) {
@@ -85,8 +87,8 @@ public class f {
             return null;
         }
         try {
-            byte[] a = com.baidu.b.c.a.g.a();
-            return new String(com.baidu.b.c.a.c.a(a, a, com.baidu.b.d.a.a(str.getBytes())));
+            byte[] a2 = com.baidu.b.c.a.g.a();
+            return new String(com.baidu.b.c.a.c.a(a2, a2, com.baidu.b.d.a.a(str.getBytes())));
         } catch (Exception e) {
             com.baidu.b.f.c.a(e);
             return "";

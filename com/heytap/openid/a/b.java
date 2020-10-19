@@ -3,10 +3,12 @@ package com.heytap.openid.a;
 import android.content.Context;
 /* loaded from: classes11.dex */
 public class b {
-    public static boolean a;
+
+    /* renamed from: a  reason: collision with root package name */
+    public static boolean f4060a;
     public static boolean b;
 
-    public static Context gH(Context context) {
+    public static Context gO(Context context) {
         return (context == null || context.getApplicationContext() == null) ? context : context.getApplicationContext();
     }
 }

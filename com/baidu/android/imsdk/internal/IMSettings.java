@@ -2,7 +2,7 @@ package com.baidu.android.imsdk.internal;
 
 import android.content.Context;
 import com.baidu.android.imsdk.utils.Utility;
-/* loaded from: classes9.dex */
+/* loaded from: classes5.dex */
 public class IMSettings {
     public static final int DEBUG_MODE = 1;
     public static final int INVALIDE_MODE = -1;

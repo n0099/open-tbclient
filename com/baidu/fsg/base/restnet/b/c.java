@@ -12,13 +12,15 @@ import javax.net.ssl.HostnameVerifier;
 import javax.net.ssl.SSLPeerUnverifiedException;
 import javax.net.ssl.SSLSession;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes15.dex */
+/* loaded from: classes16.dex */
 public class c implements HostnameVerifier {
-    final /* synthetic */ b a;
+
+    /* renamed from: a  reason: collision with root package name */
+    final /* synthetic */ b f1463a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public c(b bVar) {
-        this.a = bVar;
+        this.f1463a = bVar;
     }
 
     @Override // javax.net.ssl.HostnameVerifier
@@ -26,7 +28,7 @@ public class c implements HostnameVerifier {
         e eVar;
         try {
             Certificate[] peerCertificates = sSLSession.getPeerCertificates();
-            eVar = this.a.e;
+            eVar = this.f1463a.e;
             String v = eVar.b().v();
             if (!TextUtils.isEmpty(v) && peerCertificates != null && peerCertificates.length > 0) {
                 X509Certificate x509Certificate = (X509Certificate) peerCertificates[0];

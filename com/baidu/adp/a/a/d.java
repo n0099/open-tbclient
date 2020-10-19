@@ -6,22 +6,22 @@ import java.math.BigDecimal;
 /* loaded from: classes.dex */
 public class d {
     private static int mFps = 0;
-    private static String HG = null;
-    private static String HH = null;
-    private static int HI = 0;
-    private static int HJ = 0;
-    private static String HK = null;
-    private static e.a HL = null;
-    private static e.a HM = null;
+    private static String HX = null;
+    private static String HY = null;
+    private static int HZ = 0;
+    private static int Ia = 0;
+    private static String Ib = null;
+    private static e.a Ic = null;
+    private static e.a Id = null;
     public static Handler mHandler = null;
     @Deprecated
-    public static int HN = 0;
-    public static boolean HO = false;
-    public static boolean HP = false;
-    public static boolean HQ = false;
+    public static int Ie = 0;
+    public static boolean If = false;
+    public static boolean Ig = false;
+    public static boolean Ih = false;
 
     public static void a(e.a aVar) {
-        HL = aVar;
+        Ic = aVar;
         try {
             if (mHandler != null) {
                 mHandler.sendEmptyMessage(6);
@@ -31,8 +31,8 @@ public class d {
         }
     }
 
-    public static e.a lk() {
-        return HM;
+    public static e.a ll() {
+        return Id;
     }
 
     public static double g(double d) {

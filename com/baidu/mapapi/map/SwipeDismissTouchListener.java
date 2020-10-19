@@ -7,9 +7,11 @@ import android.view.VelocityTracker;
 import android.view.View;
 import android.view.ViewConfiguration;
 import android.view.ViewGroup;
-/* loaded from: classes3.dex */
+/* loaded from: classes7.dex */
 public class SwipeDismissTouchListener implements View.OnTouchListener {
-    private int a;
+
+    /* renamed from: a  reason: collision with root package name */
+    private int f2042a;
     private int b;
     private int c;
     private long d;
@@ -26,7 +28,7 @@ public class SwipeDismissTouchListener implements View.OnTouchListener {
     private boolean o;
     private boolean p;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes7.dex */
     public interface DismissCallbacks {
         boolean canDismiss(Object obj);
 
@@ -37,7 +39,7 @@ public class SwipeDismissTouchListener implements View.OnTouchListener {
 
     public SwipeDismissTouchListener(View view, Object obj, DismissCallbacks dismissCallbacks) {
         ViewConfiguration viewConfiguration = ViewConfiguration.get(view.getContext());
-        this.a = viewConfiguration.getScaledTouchSlop();
+        this.f2042a = viewConfiguration.getScaledTouchSlop();
         this.b = viewConfiguration.getScaledMinimumFlingVelocity();
         this.c = viewConfiguration.getScaledMaximumFlingVelocity();
         this.d = view.getContext().getResources().getInteger(17694720);
@@ -113,9 +115,9 @@ public class SwipeDismissTouchListener implements View.OnTouchListener {
                     this.m.addMovement(motionEvent);
                     float rawX2 = motionEvent.getRawX() - this.h;
                     float rawY = motionEvent.getRawY() - this.i;
-                    if (Math.abs(rawX2) > this.a && Math.abs(rawY) < Math.abs(rawX2) / 2.0f) {
+                    if (Math.abs(rawX2) > this.f2042a && Math.abs(rawY) < Math.abs(rawX2) / 2.0f) {
                         this.j = true;
-                        this.k = rawX2 > 0.0f ? this.a : -this.a;
+                        this.k = rawX2 > 0.0f ? this.f2042a : -this.f2042a;
                         this.e.getParent().requestDisallowInterceptTouchEvent(true);
                         if (!this.o) {
                             this.o = true;

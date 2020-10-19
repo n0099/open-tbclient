@@ -1,7 +1,7 @@
 package com.baidu.mapsdkplatform.comapi.map;
 
 import com.baidu.platform.comapi.map.MapController;
-/* loaded from: classes3.dex */
+/* loaded from: classes7.dex */
 public class a extends c {
     public a() {
         this.c = 10;

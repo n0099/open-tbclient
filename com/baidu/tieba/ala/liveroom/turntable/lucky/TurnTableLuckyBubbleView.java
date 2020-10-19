@@ -11,8 +11,8 @@ import android.widget.TextView;
 import com.baidu.live.sdk.a;
 /* loaded from: classes4.dex */
 public class TurnTableLuckyBubbleView extends LinearLayout {
-    private TextView aBe;
-    private String gMZ;
+    private TextView aEj;
+    private String hbW;
     private String mName;
 
     public TurnTableLuckyBubbleView(Context context) {
@@ -21,21 +21,21 @@ public class TurnTableLuckyBubbleView extends LinearLayout {
     }
 
     public void setContent(String str) {
-        this.aBe.setText(str);
+        this.aEj.setText(str);
     }
 
     public void setContent(String str, String str2) {
-        if (TextUtils.isEmpty(this.mName) || TextUtils.isEmpty(this.gMZ) || TextUtils.isEmpty(str) || TextUtils.isEmpty(str2) || !this.mName.equals(str) || !this.gMZ.equals(str2)) {
+        if (TextUtils.isEmpty(this.mName) || TextUtils.isEmpty(this.hbW) || TextUtils.isEmpty(str) || TextUtils.isEmpty(str2) || !this.mName.equals(str) || !this.hbW.equals(str2)) {
             this.mName = str;
-            this.gMZ = str2;
-            this.aBe.setText(!TextUtils.isEmpty(this.gMZ) ? this.mName + "x" + this.gMZ : this.mName);
+            this.hbW = str2;
+            this.aEj.setText(!TextUtils.isEmpty(this.hbW) ? this.mName + "x" + this.hbW : this.mName);
         }
     }
 
     private void init() {
         setOrientation(1);
         LayoutInflater.from(getContext()).inflate(a.h.turn_table_widget_lucky_bubble, (ViewGroup) this, true);
-        this.aBe = (TextView) findViewById(a.g.tv_content);
+        this.aEj = (TextView) findViewById(a.g.tv_content);
         GradientDrawable gradientDrawable = new GradientDrawable();
         gradientDrawable.setCornerRadius(getResources().getDimensionPixelOffset(a.e.sdk_ds40));
         gradientDrawable.setShape(0);
@@ -45,6 +45,6 @@ public class TurnTableLuckyBubbleView extends LinearLayout {
         } else {
             gradientDrawable.setColor(-2199);
         }
-        this.aBe.setBackgroundDrawable(gradientDrawable);
+        this.aEj.setBackgroundDrawable(gradientDrawable);
     }
 }

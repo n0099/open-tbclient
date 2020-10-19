@@ -14,7 +14,7 @@ import javax.net.ssl.HttpsURLConnection;
 import javax.net.ssl.SSLSocketFactory;
 import okio.BufferedSink;
 import okio.Okio;
-/* loaded from: classes14.dex */
+/* loaded from: classes15.dex */
 public class URLConnectionManager implements IConnect {
     private static final String TAG = URLConnectionManager.class.getSimpleName();
     private Connection connection;
@@ -92,7 +92,7 @@ public class URLConnectionManager implements IConnect {
         }
     }
 
-    /* loaded from: classes14.dex */
+    /* loaded from: classes15.dex */
     public static class Builder {
         private RequestClient requestClient;
 

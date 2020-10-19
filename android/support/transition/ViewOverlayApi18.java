@@ -6,7 +6,7 @@ import android.support.annotation.RequiresApi;
 import android.view.View;
 import android.view.ViewOverlay;
 @RequiresApi(18)
-/* loaded from: classes7.dex */
+/* loaded from: classes10.dex */
 class ViewOverlayApi18 implements ViewOverlayImpl {
     private final ViewOverlay mViewOverlay;
 

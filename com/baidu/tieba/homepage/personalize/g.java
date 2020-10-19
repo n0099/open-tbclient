@@ -2,19 +2,19 @@ package com.baidu.tieba.homepage.personalize;
 
 import android.text.TextUtils;
 import java.util.HashMap;
-/* loaded from: classes21.dex */
+/* loaded from: classes22.dex */
 public class g {
     private static boolean enabled = true;
-    private static HashMap<String, Integer> iWD = new HashMap<>();
+    private static HashMap<String, Integer> jlB = new HashMap<>();
 
-    public static void Kn(String str) {
+    public static void Lc(String str) {
         if (!TextUtils.isEmpty(str)) {
-            iWD.put(str, 0);
+            jlB.put(str, 0);
         }
     }
 
-    public static int cBQ() {
-        return iWD.size();
+    public static int cFz() {
+        return jlB.size();
     }
 
     public static boolean isEnabled() {
@@ -24,11 +24,11 @@ public class g {
     public static void setEnabled(boolean z) {
         enabled = z;
         if (!enabled) {
-            iWD.clear();
+            jlB.clear();
         }
     }
 
-    public static void cBR() {
-        iWD.clear();
+    public static void cFA() {
+        jlB.clear();
     }
 }

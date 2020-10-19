@@ -13,7 +13,7 @@ import java.util.HashMap;
 import java.util.Map;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes9.dex */
+/* loaded from: classes5.dex */
 public class IMGetTokenByCuidRequest extends BaseHttpRequest {
     private static final String TAG = "IMGenTokenByCuidRequest";
     private long mAppid;
@@ -69,7 +69,7 @@ public class IMGetTokenByCuidRequest extends BaseHttpRequest {
     public String getHost() {
         switch (Utility.readIntData(this.mContext, Constants.KEY_ENV, 0)) {
             case 0:
-                return (Utility.isPeakTime() ? Constants.URL_HTTP_ONLINE.replace(SapiUtils.COOKIE_HTTPS_URL_PREFIX, "http://") : Constants.URL_HTTP_ONLINE) + "rest/3.0/im/generate_token";
+                return (Utility.isPeakTime() ? "https://pim.baidu.com/".replace(SapiUtils.COOKIE_HTTPS_URL_PREFIX, "http://") : "https://pim.baidu.com/") + "rest/3.0/im/generate_token";
             case 1:
                 return "http://cp01-ocean-749.epc.baidu.com:8080/rest/3.0/im/generate_token";
             case 2:

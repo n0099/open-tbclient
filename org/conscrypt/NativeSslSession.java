@@ -19,7 +19,7 @@ import javax.net.ssl.SSLSessionContext;
 import org.conscrypt.NativeRef;
 import org.conscrypt.SSLUtils;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes8.dex */
+/* loaded from: classes5.dex */
 public abstract class NativeSslSession {
     private static final Logger logger = Logger.getLogger(NativeSslSession.class.getName());
 
@@ -152,7 +152,7 @@ public abstract class NativeSslSession {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes8.dex */
+    /* loaded from: classes5.dex */
     public static final class Impl extends NativeSslSession {
         private final String cipherSuite;
         private final AbstractSessionContext context;

@@ -11,7 +11,7 @@ import com.baidu.android.common.loading.R;
 import com.baidu.searchbox.skin.NightModeHelper;
 import com.baidu.searchbox.skin.callback.NightModeChangeListener;
 import com.baidu.searchbox.ui.SmoothProgressBar;
-/* loaded from: classes7.dex */
+/* loaded from: classes10.dex */
 public class LoadingView extends FrameLayout implements LoadingViewHolder<LoadingView> {
     private TextView mMsg;
     private SmoothProgressBar mProgressBar;

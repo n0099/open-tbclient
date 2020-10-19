@@ -26,22 +26,22 @@ public abstract class AbsThreadDataSupport extends com.baidu.tieba.card.data.b i
         EXTEND
     }
 
-    public abstract bw bcY();
+    public abstract bw bfG();
 
-    public abstract ar bda();
+    public abstract ar bfI();
 
-    public String bcZ() {
-        if (bcY() == null) {
+    public String bfH() {
+        if (bfG() == null) {
             return null;
         }
-        return bcY().bcZ();
+        return bfG().bfH();
     }
 
     public boolean isSelf() {
-        return com.baidu.tbadk.core.util.ay.x(bcY());
+        return com.baidu.tbadk.core.util.ay.x(bfG());
     }
 
-    public String bdb() {
+    public String bfJ() {
         return null;
     }
 
@@ -49,11 +49,11 @@ public abstract class AbsThreadDataSupport extends com.baidu.tieba.card.data.b i
         this.mSupportType = supportType;
     }
 
-    public boolean bdc() {
+    public boolean bfK() {
         return this.mSupportType == SupportType.TOP;
     }
 
-    public boolean bdd() {
+    public boolean bfL() {
         return this.mSupportType == SupportType.BOTTOM;
     }
 
@@ -64,47 +64,55 @@ public abstract class AbsThreadDataSupport extends com.baidu.tieba.card.data.b i
         }
     }
 
-    public boolean bde() {
-        bw bcY = bcY();
-        if (bcY == null) {
+    public boolean bfM() {
+        bw bfG = bfG();
+        if (bfG == null) {
             return false;
         }
-        return bcY.egu || bcY.egw;
+        return bfG.esA || bfG.esC;
     }
 
-    public boolean bdf() {
-        bw bcY = bcY();
-        if (bcY == null) {
+    public boolean bfN() {
+        bw bfG = bfG();
+        if (bfG == null) {
             return false;
         }
-        return bcY.egt || bcY.egu || bcY.egw || bcY.egv || bcY.egx;
+        return bfG.esA || bfG.esC || bfG.esz;
     }
 
-    public boolean bdg() {
-        bw bcY = bcY();
-        if (bcY == null) {
+    public boolean bfO() {
+        bw bfG = bfG();
+        if (bfG == null) {
             return false;
         }
-        return bcY.bdg();
+        return bfG.esz || bfG.esA || bfG.esC || bfG.esB || bfG.esD;
     }
 
-    public boolean bdh() {
+    public boolean bfP() {
+        bw bfG = bfG();
+        if (bfG == null) {
+            return false;
+        }
+        return bfG.bfP();
+    }
+
+    public boolean bfQ() {
         return false;
     }
 
-    public boolean bdi() {
+    public boolean bfR() {
         return true;
     }
 
-    public boolean bdj() {
-        bw bcY = bcY();
-        if (bcY == null || bcY.bfy() == null || com.baidu.tbadk.core.util.ay.x(bcY)) {
+    public boolean bfS() {
+        bw bfG = bfG();
+        if (bfG == null || bfG.bih() == null || com.baidu.tbadk.core.util.ay.x(bfG)) {
             return false;
         }
-        boolean z = bcY.bhs() || bcY.beg() || bcY.beh();
-        if (bcY.egt && z) {
+        boolean z = bfG.bkb() || bfG.bgP() || bfG.bgQ();
+        if (bfG.esz && z) {
             return true;
         }
-        return bcY.egv && z && !bcY.bfy().hadConcerned();
+        return bfG.esB && z && !bfG.bih().hadConcerned();
     }
 }

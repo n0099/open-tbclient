@@ -1,5 +1,5 @@
 package com.baidu.mapapi.cloud;
-/* loaded from: classes3.dex */
+/* loaded from: classes7.dex */
 public class VersionInfo {
     public static final String KIT_NAME = "BaiduMapSDK_cloud_v7_0_0";
     public static final String VERSION_DESC = "baidumapapi_cloud";

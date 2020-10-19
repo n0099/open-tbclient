@@ -10,7 +10,7 @@ import com.baidu.tieba.card.data.b;
 /* loaded from: classes.dex */
 public abstract class b<T extends com.baidu.tieba.card.data.b> implements View.OnClickListener {
     public int currentPageType;
-    public aa<T> hop;
+    public aa<T> hDj;
     public Context mContext;
     private String mFrom;
     public int mSkinType;
@@ -78,10 +78,10 @@ public abstract class b<T extends com.baidu.tieba.card.data.b> implements View.O
     }
 
     public void c(aa<T> aaVar) {
-        this.hop = aaVar;
+        this.hDj = aaVar;
     }
 
-    public aa<T> ceP() {
-        return this.hop;
+    public aa<T> cil() {
+        return this.hDj;
     }
 }

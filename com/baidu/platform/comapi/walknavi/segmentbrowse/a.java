@@ -1,9 +1,11 @@
 package com.baidu.platform.comapi.walknavi.segmentbrowse;
 
 import java.util.ArrayList;
-/* loaded from: classes3.dex */
+/* loaded from: classes7.dex */
 public class a {
-    private String a;
+
+    /* renamed from: a  reason: collision with root package name */
+    private String f3081a;
     private String b;
     private ArrayList<com.baidu.platform.comapi.walknavi.segmentbrowse.widget.b> c = new ArrayList<>();
     private ArrayList<com.baidu.platform.comapi.walknavi.segmentbrowse.widget.b> d = new ArrayList<>();
@@ -27,11 +29,11 @@ public class a {
     }
 
     public String c() {
-        return this.a;
+        return this.f3081a;
     }
 
     public void a(String str) {
-        this.a = str;
+        this.f3081a = str;
     }
 
     public void b(String str) {
@@ -55,6 +57,6 @@ public class a {
     }
 
     public String toString() {
-        return "WRouteMessageModel [iconName=" + this.a + ", guideText=" + this.b + ", stepLength=" + this.e + ", uid=" + this.f + "]";
+        return "WRouteMessageModel [iconName=" + this.f3081a + ", guideText=" + this.b + ", stepLength=" + this.e + ", uid=" + this.f + "]";
     }
 }

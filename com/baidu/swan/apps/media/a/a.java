@@ -6,24 +6,24 @@ import com.baidu.searchbox.ugc.transcoder.TranscoderPlugin;
 import com.baidu.searchbox.ui.CoolPraiseGuideLottieView;
 import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes10.dex */
 public class a {
     protected static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    public String cDG;
-    public int cDD = 60000;
-    public String cDE = TranscoderPlugin.AUDIO_CODEC;
+    public String cPK;
+    public int cPI = 60000;
+    public String cPJ = TranscoderPlugin.AUDIO_CODEC;
     public int channel = 1;
     public int sampleRate = CoolPraiseGuideLottieView.ANIM_DURATION;
     public int bitRate = 16000;
-    public int cDF = 1;
+    public int audioSource = 1;
 
     public static a a(JSONObject jSONObject, a aVar) {
         if (jSONObject != null && jSONObject.length() > 0) {
             aVar = new a();
-            aVar.cDD = jSONObject.optInt("duration", 60000);
-            aVar.cDE = jSONObject.optString("format");
-            if (TextUtils.isEmpty(aVar.cDE)) {
-                aVar.cDE = TranscoderPlugin.AUDIO_CODEC;
+            aVar.cPI = jSONObject.optInt("duration", 60000);
+            aVar.cPJ = jSONObject.optString("format");
+            if (TextUtils.isEmpty(aVar.cPJ)) {
+                aVar.cPJ = TranscoderPlugin.AUDIO_CODEC;
             }
             aVar.channel = jSONObject.optInt("numberOfChannels", 1);
             aVar.sampleRate = jSONObject.optInt("sampleRate", CoolPraiseGuideLottieView.ANIM_DURATION);
@@ -41,26 +41,26 @@ public class a {
                         break;
                 }
             }
-            aVar.cDF = oP(jSONObject.optString("audioSource", "auto"));
-            aVar.cDG = jSONObject.optString("cb");
+            aVar.audioSource = pB(jSONObject.optString("audioSource", "auto"));
+            aVar.cPK = jSONObject.optString("cb");
         }
         return aVar;
     }
 
-    public JSONObject aug() {
-        if (this.cDD > 600000 || this.cDD < 0) {
+    public JSONObject awR() {
+        if (this.cPI > 600000 || this.cPI < 0) {
             return UnitedSchemeUtility.wrapCallbackParams(202, "error duration");
         }
         if (this.channel != 1 && this.channel != 2) {
             return UnitedSchemeUtility.wrapCallbackParams(202, "error channels");
         }
-        if (!TextUtils.equals(this.cDE, TranscoderPlugin.AUDIO_CODEC) && !TextUtils.equals(this.cDE, "pcm")) {
+        if (!TextUtils.equals(this.cPJ, TranscoderPlugin.AUDIO_CODEC) && !TextUtils.equals(this.cPJ, "pcm")) {
             return UnitedSchemeUtility.wrapCallbackParams(202, "error format");
         }
         if (this.sampleRate != 8000 && this.sampleRate != 16000 && this.sampleRate != 44100) {
             return UnitedSchemeUtility.wrapCallbackParams(202, "error sampleRate");
         }
-        if (!TextUtils.equals(this.cDE, "pcm")) {
+        if (!TextUtils.equals(this.cPJ, "pcm")) {
             boolean z = false;
             switch (this.sampleRate) {
                 case CoolPraiseGuideLottieView.ANIM_DURATION /* 8000 */:
@@ -86,18 +86,18 @@ public class a {
                 return UnitedSchemeUtility.wrapCallbackParams(202, "error bitRate");
             }
         }
-        if (this.cDF < 0) {
+        if (this.audioSource < 0) {
             return UnitedSchemeUtility.wrapCallbackParams(202, "error audioSource");
         }
         return null;
     }
 
     public String toString() {
-        return "recordTime : " + this.cDD + "; channel : " + this.channel + "; audioFormat : " + this.cDE + "; sampleRate : " + this.sampleRate + "; bitRate : " + this.bitRate + "; callbacks : " + this.cDG;
+        return "recordTime : " + this.cPI + "; channel : " + this.channel + "; audioFormat : " + this.cPJ + "; sampleRate : " + this.sampleRate + "; bitRate : " + this.bitRate + "; callbacks : " + this.cPK;
     }
 
     /* JADX WARN: Can't fix incorrect switch cases order, some code will duplicate */
-    private static int oP(String str) {
+    private static int pB(String str) {
         char c;
         switch (str.hashCode()) {
             case -401509030:

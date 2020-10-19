@@ -1,5 +1,5 @@
 package org.a;
-/* loaded from: classes4.dex */
+/* loaded from: classes10.dex */
 public interface d {
     void cancel();
 

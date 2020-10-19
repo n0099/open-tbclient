@@ -16,7 +16,7 @@ import java.net.URL;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
-/* loaded from: classes15.dex */
+/* loaded from: classes16.dex */
 public class RestTemplate {
     public static final String TAG = "RestTemplate";
     private Context mContext;
@@ -152,11 +152,11 @@ public class RestTemplate {
             }
             LogUtil.d(TAG, sb.toString());
         }
-        d a = com.baidu.fsg.base.restnet.b.d.a().a(this.mContext, this.mRestType, this.mUserAgent, str, httpMethod, list, restMultipartEntity, str2, z);
+        d a2 = com.baidu.fsg.base.restnet.b.d.a().a(this.mContext, this.mRestType, this.mUserAgent, str, httpMethod, list, restMultipartEntity, str2, z);
         for (RestHttpRequestInterceptor restHttpRequestInterceptor : getRequestInterceptors()) {
-            restHttpRequestInterceptor.intercept(this.mContext, a);
+            restHttpRequestInterceptor.intercept(this.mContext, a2);
         }
-        return a;
+        return a2;
     }
 
     private e doExecuteForResponse(d dVar) throws RestRuntimeException {
@@ -193,15 +193,15 @@ public class RestTemplate {
             if (eVar != null) {
                 try {
                     if (eVar.e().series() != HttpStatus.Series.CLIENT_ERROR && eVar.e().series() != HttpStatus.Series.SERVER_ERROR) {
-                        T a = fVar.a(eVar);
-                        if (a != null) {
+                        T a2 = fVar.a(eVar);
+                        if (a2 != null) {
                             if (dVar != null) {
                                 dVar.g();
                             }
                             if (eVar != null) {
                                 eVar.f();
                             }
-                            return a;
+                            return a2;
                         }
                         if (dVar != null) {
                             dVar.g();
@@ -235,9 +235,9 @@ public class RestTemplate {
                 try {
                     try {
                         if (eVar.e().series() != HttpStatus.Series.CLIENT_ERROR && eVar.e().series() != HttpStatus.Series.SERVER_ERROR) {
-                            T a = fVar.a(eVar);
-                            if (a != null) {
-                                restResponseEntity = new RestResponseEntity<>(a, eVar.d(), eVar.e());
+                            T a2 = fVar.a(eVar);
+                            if (a2 != null) {
+                                restResponseEntity = new RestResponseEntity<>(a2, eVar.d(), eVar.e());
                                 if (dVar != null) {
                                     dVar.g();
                                 }
@@ -281,7 +281,7 @@ public class RestTemplate {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes15.dex */
+    /* loaded from: classes16.dex */
     public final class AcceptHeaderRequestInterceptor implements RestHttpRequestInterceptor {
         private final Class<?> responseType;
 

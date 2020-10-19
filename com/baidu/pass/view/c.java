@@ -3,15 +3,17 @@ package com.baidu.pass.view;
 import android.view.View;
 import com.baidu.pass.view.ConfirmDialog;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes6.dex */
+/* loaded from: classes9.dex */
 public class c implements View.OnClickListener {
-    final /* synthetic */ ConfirmDialog a;
+
+    /* renamed from: a  reason: collision with root package name */
+    final /* synthetic */ ConfirmDialog f2808a;
     final /* synthetic */ ConfirmDialog.Builder b;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public c(ConfirmDialog.Builder builder, ConfirmDialog confirmDialog) {
         this.b = builder;
-        this.a = confirmDialog;
+        this.f2808a = confirmDialog;
     }
 
     @Override // android.view.View.OnClickListener
@@ -19,6 +21,6 @@ public class c implements View.OnClickListener {
         View.OnClickListener onClickListener;
         onClickListener = this.b.k;
         onClickListener.onClick(view);
-        this.a.dismiss();
+        this.f2808a.dismiss();
     }
 }

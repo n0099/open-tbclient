@@ -4,6 +4,7 @@ import android.content.Context;
 import android.text.TextUtils;
 import android.util.Log;
 import android.util.Pair;
+import com.baidu.android.imsdk.account.AccountManager;
 import com.baidu.android.imsdk.account.AccountManagerImpl;
 import com.baidu.android.imsdk.db.TableDefine;
 import com.baidu.android.imsdk.internal.Constants;
@@ -24,7 +25,7 @@ import java.util.Iterator;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes9.dex */
+/* loaded from: classes5.dex */
 public class IMPaGetOneInfoRequest extends PaBaseHttpRequest {
     private static final String TAG = "IMPaGetOneInfoRequest";
     private long mAppid;
@@ -57,7 +58,7 @@ public class IMPaGetOneInfoRequest extends PaBaseHttpRequest {
     public byte[] getRequestParameter() throws NoSuchAlgorithmException {
         String bduss = IMConfigInternal.getInstance().getIMConfig(this.mContext).getBduss(this.mContext);
         long currentTimeMillis = System.currentTimeMillis() / 1000;
-        Object md5 = getMd5("" + currentTimeMillis + bduss + this.mAppid);
+        String md5 = getMd5("" + currentTimeMillis + bduss + this.mAppid);
         JSONObject jSONObject = new JSONObject();
         try {
             jSONObject.put("appid", this.mAppid);
@@ -75,11 +76,15 @@ public class IMPaGetOneInfoRequest extends PaBaseHttpRequest {
             }
             jSONObject.put("pa_uids", jSONArray);
             jSONObject.put("is_https", true);
-            jSONObject.put("sign", md5);
+            jSONObject.put("sign", getSignByMd5Error(bduss, currentTimeMillis, this.mAppid, md5));
             jSONObject.put("app_version", AccountManagerImpl.getInstance(this.mContext).getAppVersion());
             jSONObject.put(SapiContext.KEY_SDK_VERSION, IMConfigInternal.getInstance().getSDKVersionValue(this.mContext));
             jSONObject.put("cuid", Utility.getDeviceId(this.mContext));
             jSONObject.put(HttpConstants.DEVICE_TYPE, 2);
+            jSONObject.put("account_type", AccountManagerImpl.getInstance(this.mContext).getLoginType());
+            if (AccountManager.isCuidLogin(this.mContext)) {
+                jSONObject.put("token", AccountManager.getToken(this.mContext));
+            }
         } catch (JSONException e) {
             LogUtils.e(TAG, "Exception ", e);
             new IMTrack.CrashBuilder(this.mContext).exception(Log.getStackTraceString(e)).build();

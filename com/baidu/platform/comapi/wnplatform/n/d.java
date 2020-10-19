@@ -1,7 +1,9 @@
 package com.baidu.platform.comapi.wnplatform.n;
-/* loaded from: classes3.dex */
+/* loaded from: classes7.dex */
 public class d {
-    private static final String a = d.class.getSimpleName();
+
+    /* renamed from: a  reason: collision with root package name */
+    private static final String f3134a = d.class.getSimpleName();
     private static d b;
     private boolean c = false;
 
@@ -20,7 +22,7 @@ public class d {
     }
 
     public synchronized void a(boolean z) {
-        com.baidu.platform.comapi.wnplatform.d.a.b(a + "setBusy:" + z);
+        com.baidu.platform.comapi.wnplatform.d.a.b(f3134a + "setBusy:" + z);
         this.c = z;
     }
 }

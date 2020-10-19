@@ -20,10 +20,12 @@ import java.security.PublicKey;
 import java.security.spec.InvalidKeySpecException;
 import java.security.spec.X509EncodedKeySpec;
 import javax.crypto.Cipher;
-/* loaded from: classes3.dex */
+/* loaded from: classes7.dex */
 public class b extends File {
     private static DexClassLoader f = null;
-    private e a;
+
+    /* renamed from: a  reason: collision with root package name */
+    private e f2331a;
     private Class<?> b;
     private Context c;
     private PublicKey d;
@@ -39,7 +41,7 @@ public class b extends File {
         this.c = null;
         this.e = XAdSDKFoundationFacade.getInstance().getAdLogger();
         this.c = context;
-        this.a = eVar;
+        this.f2331a = eVar;
         if (eVar != null) {
             try {
                 this.d = c("MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQDBcp8gg3O7bjdnz+pSxg+JH/mbcKfm7dEjcRqVNAFwG7bTpLwDQh40bZJzrcBKQWbD6kArR6TPuQUCMQ09/y55Vk1P2Kq7vJGGisFpjlqv2qlg8drLdhXkLQUt/SeZVJgT+CNxVbuzxAF61EEf8M0MHi1I2dm6n6lOA6fomiCD9wIDAQAB");
@@ -51,11 +53,11 @@ public class b extends File {
 
     /* JADX INFO: Access modifiers changed from: protected */
     public void a() {
-        if (this.a != null) {
-            String a = a(new File(getAbsolutePath()));
-            String b = b(this.a.d());
-            if (!b.equalsIgnoreCase(a)) {
-                throw new g.a("doCheckApkIntegrity failed, md5sum: " + a + ", checksum in json info: " + b);
+        if (this.f2331a != null) {
+            String a2 = a(new File(getAbsolutePath()));
+            String b = b(this.f2331a.d());
+            if (!b.equalsIgnoreCase(a2)) {
+                throw new g.a("doCheckApkIntegrity failed, md5sum: " + a2 + ", checksum in json info: " + b);
             }
             return;
         }
@@ -82,10 +84,10 @@ public class b extends File {
 
     /* JADX INFO: Access modifiers changed from: protected */
     public double c() {
-        if (this.a == null) {
+        if (this.f2331a == null) {
             return 0.0d;
         }
-        return this.a.b();
+        return this.f2331a.b();
     }
 
     private String b(String str) {

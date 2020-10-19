@@ -23,8 +23,8 @@ import org.apache.http.message.BasicNameValuePair;
 /* loaded from: classes.dex */
 public class d implements com.baidu.adp.plugin.packageManager.pluginServerConfig.b {
     private static final String ADDRESS = TbConfig.SERVER_ADDRESS + TbConfig.PLUGIN_NET_CONFIGS_MIS;
-    private com.baidu.adp.plugin.packageManager.pluginServerConfig.a eWC;
-    private boolean eWD;
+    private com.baidu.adp.plugin.packageManager.pluginServerConfig.a fiO;
+    private boolean fiP;
 
     @Override // com.baidu.adp.plugin.packageManager.pluginServerConfig.b
     public void a(boolean z, com.baidu.adp.plugin.packageManager.pluginServerConfig.c cVar, com.baidu.adp.plugin.packageManager.pluginServerConfig.a aVar) {
@@ -35,9 +35,9 @@ public class d implements com.baidu.adp.plugin.packageManager.pluginServerConfig
             }
             return;
         }
-        this.eWC = aVar;
-        if (!this.eWD) {
-            this.eWD = true;
+        this.fiO = aVar;
+        if (!this.fiP) {
+            this.fiP = true;
             new b(cVar, z).execute(new Void[0]);
         }
         try {
@@ -63,14 +63,14 @@ public class d implements com.baidu.adp.plugin.packageManager.pluginServerConfig
 
     /* loaded from: classes.dex */
     private class b extends BdAsyncTask<Void, PluginNetConfigInfos, Void> {
-        private aa bGb;
-        private com.baidu.adp.plugin.packageManager.pluginServerConfig.c eWF;
-        private boolean eWG;
+        private aa bML;
+        private com.baidu.adp.plugin.packageManager.pluginServerConfig.c fiR;
+        private boolean fiS;
 
         public b(com.baidu.adp.plugin.packageManager.pluginServerConfig.c cVar, boolean z) {
-            this.eWG = false;
-            this.eWF = cVar;
-            this.eWG = z;
+            this.fiS = false;
+            this.fiR = cVar;
+            this.fiS = z;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -90,20 +90,20 @@ public class d implements com.baidu.adp.plugin.packageManager.pluginServerConfig
             boolean z2;
             String str2;
             PluginNetConfigInfos pluginNetConfigInfos;
-            if (this.eWF == null) {
+            if (this.fiR == null) {
                 publishProgress(null);
                 return null;
             }
-            if (this.eWF.qo() == null || this.eWF.qo().size() <= 0) {
+            if (this.fiR.qo() == null || this.fiR.qo().size() <= 0) {
                 str = "";
             } else {
                 StringBuilder sb = new StringBuilder(50);
-                int size = this.eWF.qo().size();
+                int size = this.fiR.qo().size();
                 for (int i = 0; i < size; i++) {
                     if (i != 0) {
                         sb.append(Constants.ACCEPT_TIME_SEPARATOR_SP);
                     }
-                    BasicNameValuePair basicNameValuePair = this.eWF.qo().get(i);
+                    BasicNameValuePair basicNameValuePair = this.fiR.qo().get(i);
                     if (basicNameValuePair != null && !TextUtils.isEmpty(basicNameValuePair.getName()) && !TextUtils.isEmpty(basicNameValuePair.getValue())) {
                         sb.append(basicNameValuePair.getName());
                         sb.append(":");
@@ -113,9 +113,9 @@ public class d implements com.baidu.adp.plugin.packageManager.pluginServerConfig
                 str = sb.toString();
             }
             BdCacheService bA = BdCacheService.bA("baidu_plugin.db");
-            l<String> a = bA.a("plugin.serverconfig", BdCacheService.CacheStorage.SQLite_CACHE_All_IN_ONE_TABLE, BdCacheService.CacheEvictPolicy.LRU_ON_INSERT, 2);
-            String str3 = a.get("time");
-            if (!this.eWG && str3 != null) {
+            l<String> a2 = bA.a("plugin.serverconfig", BdCacheService.CacheStorage.SQLite_CACHE_All_IN_ONE_TABLE, BdCacheService.CacheEvictPolicy.LRU_ON_INSERT, 2);
+            String str3 = a2.get("time");
+            if (!this.fiS && str3 != null) {
                 long j = com.baidu.adp.lib.f.b.toLong(str3, -1L);
                 if (j != -1 && System.currentTimeMillis() - j < 86400000) {
                     z = false;
@@ -126,29 +126,29 @@ public class d implements com.baidu.adp.plugin.packageManager.pluginServerConfig
                     }
                     String str5 = TbConfig.getVersion() + "." + TbConfig.BUILD_NUMBER + PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS + str4 + PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS + str;
                     if (!z) {
-                        String b = b(a, str);
+                        String b = b(a2, str);
                         pluginNetConfigInfos = PluginNetConfigInfos.parse(b);
                         z2 = z;
                         str2 = b;
                     } else {
-                        String a2 = a(a, str5);
-                        PluginNetConfigInfos parse = PluginNetConfigInfos.parse(a2);
+                        String a3 = a(a2, str5);
+                        PluginNetConfigInfos parse = PluginNetConfigInfos.parse(a3);
                         if (parse == null) {
-                            str2 = b(a, str);
+                            str2 = b(a2, str);
                             pluginNetConfigInfos = PluginNetConfigInfos.parse(str2);
                             z2 = true;
                         } else {
                             z2 = z;
-                            str2 = a2;
+                            str2 = a3;
                             pluginNetConfigInfos = parse;
                         }
                     }
                     publishProgress(pluginNetConfigInfos);
                     if (z2) {
-                        bA.a(a);
-                        l<String> a3 = bA.a("plugin.serverconfig", BdCacheService.CacheStorage.SQLite_CACHE_All_IN_ONE_TABLE, BdCacheService.CacheEvictPolicy.LRU_ON_INSERT, 2);
-                        a3.set("time", String.valueOf(System.currentTimeMillis()), 172800000L);
-                        a3.set(str5, str2, 172800000L);
+                        bA.a(a2);
+                        l<String> a4 = bA.a("plugin.serverconfig", BdCacheService.CacheStorage.SQLite_CACHE_All_IN_ONE_TABLE, BdCacheService.CacheEvictPolicy.LRU_ON_INSERT, 2);
+                        a4.set("time", String.valueOf(System.currentTimeMillis()), 172800000L);
+                        a4.set(str5, str2, 172800000L);
                     }
                     return null;
                 }
@@ -176,9 +176,9 @@ public class d implements com.baidu.adp.plugin.packageManager.pluginServerConfig
             if (TbadkCoreApplication.getInst().checkInterrupt() && checkNewUser) {
                 return null;
             }
-            this.bGb = new aa(d.ADDRESS);
-            this.bGb.addPostData("plugin_upload_config", str);
-            return this.bGb.postNetData();
+            this.bML = new aa(d.ADDRESS);
+            this.bML.addPostData("plugin_upload_config", str);
+            return this.bML.postNetData();
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -187,25 +187,25 @@ public class d implements com.baidu.adp.plugin.packageManager.pluginServerConfig
         /* renamed from: a */
         public void onProgressUpdate(PluginNetConfigInfos... pluginNetConfigInfosArr) {
             super.onProgressUpdate(pluginNetConfigInfosArr);
-            d.this.eWD = false;
+            d.this.fiP = false;
             boolean z = pluginNetConfigInfosArr[0] != null;
             String str = null;
-            if (this.bGb != null && !this.bGb.isNetSuccess()) {
-                str = this.bGb.bjM();
-                if (this.bGb.getServerErrorCode() != 0) {
-                    str = str + Constants.ACCEPT_TIME_SEPARATOR_SERVER + this.bGb.getErrorString();
+            if (this.bML != null && !this.bML.isNetSuccess()) {
+                str = this.bML.bmv();
+                if (this.bML.getServerErrorCode() != 0) {
+                    str = str + Constants.ACCEPT_TIME_SEPARATOR_SERVER + this.bML.getErrorString();
                 }
             }
-            d.this.eWC.a(z, this.eWF, pluginNetConfigInfosArr[0], str);
+            d.this.fiO.a(z, this.fiR, pluginNetConfigInfosArr[0], str);
             MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(CmdConfigCustom.CMD_PLUGIN_NETCONFIG_GET));
         }
 
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         public void cancel() {
             super.cancel();
-            d.this.eWD = false;
-            this.bGb.cancelNetConnect();
-            this.bGb = null;
+            d.this.fiP = false;
+            this.bML.cancelNetConnect();
+            this.bML = null;
         }
     }
 

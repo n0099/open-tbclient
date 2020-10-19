@@ -4,8 +4,10 @@ import tv.danmaku.ijk.media.player.b;
 import tv.danmaku.ijk.media.player.misc.IMediaDataSource;
 /* loaded from: classes16.dex */
 public abstract class a implements b {
-    private b.e a;
-    private b.InterfaceC1017b b;
+
+    /* renamed from: a  reason: collision with root package name */
+    private b.e f5403a;
+    private b.InterfaceC1035b b;
     private b.a c;
     private b.f d;
     private b.h e;
@@ -14,7 +16,7 @@ public abstract class a implements b {
     private b.g h;
 
     public void a() {
-        this.a = null;
+        this.f5403a = null;
         this.c = null;
         this.b = null;
         this.d = null;
@@ -42,8 +44,8 @@ public abstract class a implements b {
         this.c = aVar;
     }
 
-    public final void a(b.InterfaceC1017b interfaceC1017b) {
-        this.b = interfaceC1017b;
+    public final void a(b.InterfaceC1035b interfaceC1035b) {
+        this.b = interfaceC1035b;
     }
 
     public final void a(b.c cVar) {
@@ -55,7 +57,7 @@ public abstract class a implements b {
     }
 
     public final void a(b.e eVar) {
-        this.a = eVar;
+        this.f5403a = eVar;
     }
 
     public final void a(b.f fVar) {
@@ -80,8 +82,8 @@ public abstract class a implements b {
 
     /* JADX INFO: Access modifiers changed from: protected */
     public final void b() {
-        if (this.a != null) {
-            this.a.a(this);
+        if (this.f5403a != null) {
+            this.f5403a.a(this);
         }
     }
 

@@ -8,21 +8,21 @@ import java.util.Iterator;
 import java.util.Map;
 /* loaded from: classes.dex */
 public class a {
-    private static a icm;
-    private FrsLinkHashMap<String, Long> icn;
+    private static a irn;
+    private FrsLinkHashMap<String, Long> iro;
 
     private a() {
     }
 
-    public static a cpX() {
-        if (icm == null) {
+    public static a ctv() {
+        if (irn == null) {
             synchronized (a.class) {
-                if (icm == null) {
-                    icm = new a();
+                if (irn == null) {
+                    irn = new a();
                 }
             }
         }
-        return icm;
+        return irn;
     }
 
     private void B(String str, long j) {
@@ -32,11 +32,11 @@ public class a {
             @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
             public Void doInBackground(Void... voidArr) {
                 FrsHotTopicListData frsHotTopicListData;
-                l<String> dw = com.baidu.tbadk.core.c.a.bhV().dw("tb.frs_hottopic", "");
-                if (dw != null) {
-                    String str2 = dw.get("hot_topic_key");
+                l<String> dB = com.baidu.tbadk.core.c.a.bkE().dB("tb.frs_hottopic", "");
+                if (dB != null) {
+                    String str2 = dB.get("hot_topic_key");
                     if (!StringUtils.isNull(str2) && (frsHotTopicListData = (FrsHotTopicListData) OrmObject.objectWithJsonStr(str2, FrsHotTopicListData.class)) != null) {
-                        a.this.icn = frsHotTopicListData.mSceneMap;
+                        a.this.iro = frsHotTopicListData.mSceneMap;
                     }
                 }
                 return null;
@@ -48,14 +48,14 @@ public class a {
 
     public boolean C(String str, long j) {
         boolean z;
-        if (this.icn == null) {
-            this.icn = new FrsLinkHashMap<>();
+        if (this.iro == null) {
+            this.iro = new FrsLinkHashMap<>();
             B(str, j);
         }
-        if (StringUtils.isNull(str) || this.icn.isEmpty()) {
+        if (StringUtils.isNull(str) || this.iro.isEmpty()) {
             return false;
         }
-        Iterator<Map.Entry<String, Long>> it = this.icn.entrySet().iterator();
+        Iterator<Map.Entry<String, Long>> it = this.iro.entrySet().iterator();
         while (true) {
             if (!it.hasNext()) {
                 z = false;
@@ -67,27 +67,27 @@ public class a {
                 break;
             }
         }
-        if (z && this.icn.get(str).longValue() == j) {
+        if (z && this.iro.get(str).longValue() == j) {
             return false;
         }
-        this.icn.put(str, Long.valueOf(j));
-        cpY();
+        this.iro.put(str, Long.valueOf(j));
+        ctw();
         return true;
     }
 
-    private void cpY() {
+    private void ctw() {
         BdAsyncTask<Void, Void, Void> bdAsyncTask = new BdAsyncTask<Void, Void, Void>() { // from class: com.baidu.tieba.frs.FrsHotTopic.a.2
             /* JADX DEBUG: Method merged with bridge method */
             /* JADX INFO: Access modifiers changed from: protected */
             @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
             public Void doInBackground(Void... voidArr) {
-                l<String> dw = com.baidu.tbadk.core.c.a.bhV().dw("tb.frs_hottopic", "");
-                if (dw != null) {
+                l<String> dB = com.baidu.tbadk.core.c.a.bkE().dB("tb.frs_hottopic", "");
+                if (dB != null) {
                     FrsHotTopicListData frsHotTopicListData = new FrsHotTopicListData();
-                    frsHotTopicListData.mSceneMap = a.this.icn;
+                    frsHotTopicListData.mSceneMap = a.this.iro;
                     String jsonStrWithObject = OrmObject.jsonStrWithObject(frsHotTopicListData);
                     if (!StringUtils.isNull(jsonStrWithObject)) {
-                        dw.setForever("hot_topic_key", jsonStrWithObject);
+                        dB.setForever("hot_topic_key", jsonStrWithObject);
                     }
                 }
                 return null;

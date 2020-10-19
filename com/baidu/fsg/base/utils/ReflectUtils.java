@@ -12,17 +12,19 @@ import java.lang.reflect.Proxy;
 import java.util.Arrays;
 import java.util.LinkedHashMap;
 import java.util.Map;
-/* loaded from: classes15.dex */
+/* loaded from: classes16.dex */
 public final class ReflectUtils {
-    private final Object a;
+
+    /* renamed from: a  reason: collision with root package name */
+    private final Object f1520a;
     private final boolean b = true;
 
     private ReflectUtils(Class<?> cls) {
-        this.a = cls;
+        this.f1520a = cls;
     }
 
     private ReflectUtils(Object obj) {
-        this.a = obj;
+        this.f1520a = obj;
     }
 
     public static ReflectUtils on(String str) throws RuntimeException {
@@ -165,14 +167,14 @@ public final class ReflectUtils {
     }
 
     public <T> T get() {
-        return (T) this.a;
+        return (T) this.f1520a;
     }
 
     public ReflectUtils set(String str, Object obj) throws RuntimeException {
         try {
             Field d = d(str);
             d.setAccessible(true);
-            d.set(this.a, a(obj));
+            d.set(this.f1520a, a(obj));
             return this;
         } catch (Exception e) {
             throw new RuntimeException(e);
@@ -185,7 +187,7 @@ public final class ReflectUtils {
 
     public ReflectUtils field(String str) throws RuntimeException {
         try {
-            return on(d(str).get(this.a));
+            return on(d(str).get(this.f1520a));
         } catch (Exception e) {
             throw new RuntimeException(e);
         }
@@ -234,12 +236,12 @@ public final class ReflectUtils {
     }
 
     public ReflectUtils call(String str, Object... objArr) throws RuntimeException {
-        Class<?>[] a = a(objArr);
+        Class<?>[] a2 = a(objArr);
         try {
-            return a(a(str, a), this.a, objArr);
+            return a(a(str, a2), this.f1520a, objArr);
         } catch (NoSuchMethodException e) {
             try {
-                return a(b(str, a), this.a, objArr);
+                return a(b(str, a2), this.f1520a, objArr);
             } catch (NoSuchMethodException e2) {
                 throw new RuntimeException(e2);
             }
@@ -295,12 +297,12 @@ public final class ReflectUtils {
 
     public ReflectUtils create(Object... objArr) throws RuntimeException {
         Constructor<?>[] declaredConstructors;
-        Class<?>[] a = a(objArr);
+        Class<?>[] a2 = a(objArr);
         try {
-            return a(type().getDeclaredConstructor(a), objArr);
+            return a(type().getDeclaredConstructor(a2), objArr);
         } catch (NoSuchMethodException e) {
             for (Constructor<?> constructor : type().getDeclaredConstructors()) {
-                if (a(constructor.getParameterTypes(), a)) {
+                if (a(constructor.getParameterTypes(), a2)) {
                     return a(constructor, objArr);
                 }
             }
@@ -309,16 +311,16 @@ public final class ReflectUtils {
     }
 
     public <P> P as(Class<P> cls) {
-        final boolean z = this.a instanceof Map;
+        final boolean z = this.f1520a instanceof Map;
         return (P) Proxy.newProxyInstance(cls.getClassLoader(), new Class[]{cls}, new InvocationHandler() { // from class: com.baidu.fsg.base.utils.ReflectUtils.1
             @Override // java.lang.reflect.InvocationHandler
             public Object invoke(Object obj, Method method, Object[] objArr) throws Throwable {
                 String name = method.getName();
                 try {
-                    return ReflectUtils.on(ReflectUtils.this.a).call(name, objArr).get();
+                    return ReflectUtils.on(ReflectUtils.this.f1520a).call(name, objArr).get();
                 } catch (RuntimeException e) {
                     if (z) {
-                        Map map = (Map) ReflectUtils.this.a;
+                        Map map = (Map) ReflectUtils.this.f1520a;
                         int length = objArr == null ? 0 : objArr.length;
                         if (length == 0 && name.startsWith("get")) {
                             return map.get(ReflectUtils.b(name.substring(3)));
@@ -350,25 +352,25 @@ public final class ReflectUtils {
     }
 
     public int hashCode() {
-        return this.a.hashCode();
+        return this.f1520a.hashCode();
     }
 
     public boolean equals(Object obj) {
         if (obj instanceof ReflectUtils) {
-            return this.a.equals(((ReflectUtils) obj).get());
+            return this.f1520a.equals(((ReflectUtils) obj).get());
         }
         return false;
     }
 
     public String toString() {
-        return this.a.toString();
+        return this.f1520a.toString();
     }
 
     public Class<?> type() {
-        return this.b ? (Class) this.a : this.a.getClass();
+        return this.b ? (Class) this.f1520a : this.f1520a.getClass();
     }
 
-    /* loaded from: classes15.dex */
+    /* loaded from: classes16.dex */
     public class NULL {
         public NULL() {
         }

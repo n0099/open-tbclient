@@ -7,9 +7,17 @@ import com.baidu.live.tbadk.core.TbadkCoreApplication;
 import com.baidu.live.tbadk.core.util.UtilHelper;
 /* loaded from: classes4.dex */
 public class h {
-    public static final int btG = TbadkCoreApplication.getInst().getResources().getDimensionPixelOffset(a.e.sdk_ds32);
+    public static final int bxt = TbadkCoreApplication.getInst().getResources().getDimensionPixelOffset(a.e.sdk_ds32);
 
-    public static int ay(Context context) {
+    public static int aB(Context context) {
+        int aG = aG(context);
+        if (UtilHelper.canUseStyleImmersiveSticky()) {
+            return aG + UtilHelper.getStatusBarHeight();
+        }
+        return aG;
+    }
+
+    public static int aC(Context context) {
         int aD = aD(context);
         if (UtilHelper.canUseStyleImmersiveSticky()) {
             return aD + UtilHelper.getStatusBarHeight();
@@ -17,35 +25,27 @@ public class h {
         return aD;
     }
 
-    public static int az(Context context) {
-        int aA = aA(context);
-        if (UtilHelper.canUseStyleImmersiveSticky()) {
-            return aA + UtilHelper.getStatusBarHeight();
-        }
-        return aA;
+    public static int aD(Context context) {
+        return aG(context) + bxt;
     }
 
-    public static int aA(Context context) {
-        return aD(context) + btG;
+    public static int aE(Context context) {
+        return fP(BdUtilHelper.getScreenDimensions(context)[0] / 2);
     }
 
-    public static int aB(Context context) {
-        return fG(BdUtilHelper.getScreenDimensions(context)[0] / 2);
-    }
-
-    public static int aC(Context context) {
+    public static int aF(Context context) {
         return BdUtilHelper.getScreenDimensions(context)[0] / 2;
     }
 
-    public static int fG(int i) {
+    public static int fP(int i) {
         return (i * 16) / 10;
     }
 
     public static int j(Context context, boolean z) {
-        return aB(context) + az(context);
+        return aE(context) + aC(context);
     }
 
-    private static int aD(Context context) {
+    private static int aG(Context context) {
         if (context == null) {
             context = TbadkCoreApplication.getInst().getContext();
         }

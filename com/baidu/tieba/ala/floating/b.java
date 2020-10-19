@@ -3,60 +3,60 @@ package com.baidu.tieba.ala.floating;
 import android.content.Context;
 import com.baidu.live.data.AlaLiveInfoData;
 import com.baidu.tieba.ala.floating.a;
-import org.json.JSONObject;
 /* loaded from: classes4.dex */
 public class b {
     private static String TAG = "AlaFloatLiveControllerUtil";
-    private static a fZw;
+    private static a glO;
 
-    public static a eS(Context context) {
-        if (fZw == null) {
-            fZw = eT(context);
+    public static a eZ(Context context) {
+        if (glO == null) {
+            glO = fa(context);
         }
-        return fZw;
+        return glO;
     }
 
-    private static synchronized a eT(Context context) {
+    private static synchronized a fa(Context context) {
         a aVar;
         synchronized (b.class) {
-            if (fZw == null) {
-                fZw = new a(context);
+            if (glO == null) {
+                glO = new a(context);
             }
-            aVar = fZw;
+            aVar = glO;
         }
         return aVar;
     }
 
-    public static AlaLiveInfoData bKx() {
-        a aVar = fZw;
+    public static AlaLiveInfoData bNh() {
+        a aVar = glO;
         if (aVar != null) {
-            return aVar.bKx();
+            return aVar.bNh();
         }
         return null;
     }
 
-    public static void b(a.InterfaceC0595a interfaceC0595a) {
-        a aVar = fZw;
+    public static void b(a.InterfaceC0612a interfaceC0612a) {
+        a aVar = glO;
         if (aVar != null) {
-            aVar.a(interfaceC0595a);
-            aVar.bKC();
+            aVar.a(interfaceC0612a);
+            aVar.bNm();
         }
     }
 
-    public static boolean bKA() {
-        a aVar = fZw;
+    public static boolean bNk() {
+        a aVar = glO;
         if (aVar != null) {
-            return aVar.bKA();
+            return aVar.bNk();
         }
         return false;
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public static synchronized void dp(JSONObject jSONObject) {
+    public static synchronized void destroy() {
         synchronized (b.class) {
-            a aVar = fZw;
+            a aVar = glO;
+            glO = null;
             if (aVar != null) {
-                aVar.m40do(jSONObject);
+                aVar.onDestroy();
             }
         }
     }

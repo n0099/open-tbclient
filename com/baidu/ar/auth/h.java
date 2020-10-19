@@ -8,7 +8,7 @@ import android.graphics.Paint;
 import android.graphics.Path;
 import android.graphics.RectF;
 import android.util.TypedValue;
-/* loaded from: classes10.dex */
+/* loaded from: classes14.dex */
 class h {
     public static Bitmap n(Context context) {
         Paint paint = new Paint();

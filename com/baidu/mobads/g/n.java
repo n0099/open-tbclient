@@ -6,16 +6,18 @@ import android.os.Handler;
 import com.baidu.mobads.g.g;
 import com.baidu.mobads.interfaces.utils.IXAdLogger;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes3.dex */
+/* loaded from: classes7.dex */
 public class n implements Runnable {
-    final /* synthetic */ g.c a;
+
+    /* renamed from: a  reason: collision with root package name */
+    final /* synthetic */ g.c f2341a;
     final /* synthetic */ Handler b;
     final /* synthetic */ g c;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public n(g gVar, g.c cVar, Handler handler) {
         this.c = gVar;
-        this.a = cVar;
+        this.f2341a = cVar;
         this.b = handler;
     }
 
@@ -29,7 +31,7 @@ public class n implements Runnable {
         SharedPreferences l2;
         try {
             synchronized (g.class) {
-                this.c.b(this.a, this.b);
+                this.c.b(this.f2341a, this.b);
             }
         } catch (Throwable th) {
             try {

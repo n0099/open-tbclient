@@ -4,7 +4,7 @@ import java.io.Serializable;
 import java.util.HashSet;
 import java.util.Set;
 import rx.c.f;
-/* loaded from: classes7.dex */
+/* loaded from: classes16.dex */
 public final class OnErrorThrowable extends RuntimeException {
     private static final long serialVersionUID = -569558213262703934L;
     private final boolean hasValue;
@@ -56,17 +56,17 @@ public final class OnErrorThrowable extends RuntimeException {
         return th;
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes16.dex */
     public static class OnNextValue extends RuntimeException {
         private static final long serialVersionUID = -3454462756050397899L;
         private final Object value;
 
         /* JADX INFO: Access modifiers changed from: package-private */
-        /* loaded from: classes7.dex */
+        /* loaded from: classes16.dex */
         public static final class a {
-            static final Set<Class<?>> oNM = eoc();
+            static final Set<Class<?>> pdc = erO();
 
-            private static Set<Class<?>> eoc() {
+            private static Set<Class<?>> erO() {
                 HashSet hashSet = new HashSet();
                 hashSet.add(Boolean.class);
                 hashSet.add(Character.class);
@@ -100,7 +100,7 @@ public final class OnErrorThrowable extends RuntimeException {
             if (obj == null) {
                 return "null";
             }
-            if (a.oNM.contains(obj.getClass())) {
+            if (a.pdc.contains(obj.getClass())) {
                 return obj.toString();
             }
             if (obj instanceof String) {
@@ -109,8 +109,8 @@ public final class OnErrorThrowable extends RuntimeException {
             if (obj instanceof Enum) {
                 return ((Enum) obj).name();
             }
-            String ch = f.eoW().eoX().ch(obj);
-            return ch != null ? ch : obj.getClass().getName() + ".class";
+            String ck = f.esH().esI().ck(obj);
+            return ck != null ? ck : obj.getClass().getName() + ".class";
         }
     }
 }

@@ -8,7 +8,7 @@ import io.reactivex.v;
 import java.util.concurrent.TimeUnit;
 import java.util.concurrent.atomic.AtomicLong;
 import java.util.concurrent.atomic.AtomicReference;
-/* loaded from: classes25.dex */
+/* loaded from: classes17.dex */
 public final class FlowableInterval extends io.reactivex.g<Long> {
     final long initialDelay;
     final long period;
@@ -28,15 +28,15 @@ public final class FlowableInterval extends io.reactivex.g<Long> {
         cVar.onSubscribe(intervalSubscriber);
         v vVar = this.scheduler;
         if (vVar instanceof k) {
-            v.c eja = vVar.eja();
-            intervalSubscriber.setResource(eja);
-            eja.b(intervalSubscriber, this.initialDelay, this.period, this.unit);
+            v.c emL = vVar.emL();
+            intervalSubscriber.setResource(emL);
+            emL.b(intervalSubscriber, this.initialDelay, this.period, this.unit);
             return;
         }
         intervalSubscriber.setResource(vVar.a(intervalSubscriber, this.initialDelay, this.period, this.unit));
     }
 
-    /* loaded from: classes25.dex */
+    /* loaded from: classes17.dex */
     static final class IntervalSubscriber extends AtomicLong implements Runnable, org.a.d {
         private static final long serialVersionUID = -2809475196591179431L;
         final org.a.c<? super Long> actual;

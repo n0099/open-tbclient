@@ -12,14 +12,14 @@ public class a {
             aq aqVar = new aq(str);
             if (map != null) {
                 for (String str2 : map.keySet()) {
-                    aqVar.dF(str2, map.get(str2));
+                    aqVar.dK(str2, map.get(str2));
                 }
             }
             TiebaStatic.log(aqVar);
         }
     }
 
-    public static void u(Map<String, String> map) {
+    public static void E(Map<String, String> map) {
         if (map != null) {
             HashMap hashMap = new HashMap();
             String remove = map.remove("key");

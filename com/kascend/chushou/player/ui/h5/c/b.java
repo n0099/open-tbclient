@@ -1,7 +1,9 @@
 package com.kascend.chushou.player.ui.h5.c;
 /* loaded from: classes6.dex */
 public class b extends d {
-    public String a;
+
+    /* renamed from: a  reason: collision with root package name */
+    public String f4174a;
     public long b;
     public int c;
     public String d;

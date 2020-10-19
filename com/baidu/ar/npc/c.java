@@ -1,20 +1,22 @@
 package com.baidu.ar.npc;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes3.dex */
+/* loaded from: classes7.dex */
 public class c implements Runnable {
-    final /* synthetic */ float a;
+
+    /* renamed from: a  reason: collision with root package name */
+    final /* synthetic */ float f1217a;
     final /* synthetic */ float b;
     final /* synthetic */ ArBridge c;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public c(ArBridge arBridge, float f, float f2) {
         this.c = arBridge;
-        this.a = f;
+        this.f1217a = f;
         this.b = f2;
     }
 
     @Override // java.lang.Runnable
     public void run() {
-        this.c.nativeSetFrustum(this.a, this.b);
+        this.c.nativeSetFrustum(this.f1217a, this.b);
     }
 }

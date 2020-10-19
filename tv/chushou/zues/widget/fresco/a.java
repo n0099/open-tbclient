@@ -28,17 +28,17 @@ import tv.chushou.zues.utils.e;
 import tv.chushou.zues.utils.h;
 /* loaded from: classes6.dex */
 public class a {
-    private static volatile boolean ntH = false;
+    private static volatile boolean nJb = false;
 
     /* renamed from: tv.chushou.zues.widget.fresco.a$a  reason: collision with other inner class name */
     /* loaded from: classes6.dex */
-    public interface InterfaceC1013a {
+    public interface InterfaceC1031a {
         void onComplete(boolean z, String str);
     }
 
     /* loaded from: classes6.dex */
     public interface b {
-        void eer();
+        void eic();
 
         void finish();
     }
@@ -46,22 +46,22 @@ public class a {
     public static void b(Context context, OkHttpClient okHttpClient) {
         e.d("ImageLoader", "initialize imageloader---->");
         Context applicationContext = ((Context) c.checkNotNull(context)).getApplicationContext();
-        com.facebook.drawee.a.a.c.a(applicationContext, com.facebook.imagepipeline.a.a.a.a(applicationContext, (OkHttpClient) c.checkNotNull(okHttpClient)).d(Bitmap.Config.RGB_565).ym(true).yn(true).a(new com.facebook.common.memory.c() { // from class: tv.chushou.zues.widget.fresco.a.1
+        com.facebook.drawee.a.a.c.a(applicationContext, com.facebook.imagepipeline.a.a.a.a(applicationContext, (OkHttpClient) c.checkNotNull(okHttpClient)).d(Bitmap.Config.RGB_565).yT(true).yU(true).a(new com.facebook.common.memory.c() { // from class: tv.chushou.zues.widget.fresco.a.1
             @Override // com.facebook.common.memory.c
             public void a(com.facebook.common.memory.b bVar) {
                 bVar.a(MemoryTrimType.OnSystemLowMemoryWhileAppInForeground);
             }
-        }).dXg());
-        ntH = true;
+        }).eaR());
+        nJb = true;
         e.d("ImageLoader", "initialize imageloader");
     }
 
     public static void resume() {
-        com.facebook.drawee.a.a.c.dTw().resume();
+        com.facebook.drawee.a.a.c.dXh().resume();
     }
 
     public static void pause() {
-        com.facebook.drawee.a.a.c.dTw().pause();
+        com.facebook.drawee.a.a.c.dXh().pause();
     }
 
     public static File ah(Uri uri) {
@@ -69,13 +69,13 @@ public class a {
         if (uri == null) {
             return null;
         }
-        com.facebook.cache.common.b c = j.dVZ().c(ImageRequest.ab(uri), null);
-        if (com.facebook.imagepipeline.d.j.dXv().dXC().g(c)) {
-            com.facebook.a.a d2 = com.facebook.imagepipeline.d.j.dXv().dXC().d(c);
+        com.facebook.cache.common.b c = j.dZK().c(ImageRequest.ab(uri), null);
+        if (com.facebook.imagepipeline.d.j.ebg().ebn().g(c)) {
+            com.facebook.a.a d2 = com.facebook.imagepipeline.d.j.ebg().ebn().d(c);
             if (d2 != null) {
                 return ((com.facebook.a.b) d2).getFile();
             }
-        } else if (com.facebook.imagepipeline.d.j.dXv().dXH().g(c) && (d = com.facebook.imagepipeline.d.j.dXv().dXH().d(c)) != null) {
+        } else if (com.facebook.imagepipeline.d.j.ebg().ebs().g(c) && (d = com.facebook.imagepipeline.d.j.ebg().ebs().d(c)) != null) {
             return ((com.facebook.a.b) d).getFile();
         }
         return null;
@@ -83,7 +83,7 @@ public class a {
 
     /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [174=4] */
     @Nullable
-    public static Bitmap A(String str, int i, int i2) {
+    public static Bitmap B(String str, int i, int i2) {
         InputStream inputStream;
         HttpURLConnection httpURLConnection;
         try {
@@ -142,11 +142,11 @@ public class a {
     }
 
     @SuppressLint({"CheckResult"})
-    public static void a(final String str, final String str2, final InterfaceC1013a interfaceC1013a) {
+    public static void a(final String str, final String str2, final InterfaceC1031a interfaceC1031a) {
         String str3;
         if (h.isEmpty(str) || h.isEmpty(str2)) {
-            if (interfaceC1013a != null) {
-                interfaceC1013a.onComplete(false, null);
+            if (interfaceC1031a != null) {
+                interfaceC1031a.onComplete(false, null);
                 return;
             }
             return;
@@ -174,7 +174,7 @@ public class a {
                 }
                 File ah = a.ah(!h.isEmpty(str) ? Uri.parse(str) : null);
                 if (ah == null) {
-                    z = a.s(str, file);
+                    z = a.r(str, file);
                 } else {
                     try {
                         fileInputStream = new FileInputStream(ah);
@@ -212,20 +212,20 @@ public class a {
                 hVar.onNext(Boolean.valueOf(z));
                 hVar.onComplete();
             }
-        }, BackpressureStrategy.BUFFER).b(io.reactivex.f.a.ejG()).a(io.reactivex.a.b.a.ejb()).a(new io.reactivex.c.g<Boolean>() { // from class: tv.chushou.zues.widget.fresco.a.2
+        }, BackpressureStrategy.BUFFER).b(io.reactivex.f.a.ens()).a(io.reactivex.a.b.a.emM()).a(new io.reactivex.c.g<Boolean>() { // from class: tv.chushou.zues.widget.fresco.a.2
             /* JADX DEBUG: Method merged with bridge method */
             @Override // io.reactivex.c.g
-            /* renamed from: y */
+            /* renamed from: z */
             public void accept(Boolean bool) throws Exception {
                 if (bool.booleanValue()) {
                     Intent intent = new Intent("android.intent.action.MEDIA_SCANNER_SCAN_FILE");
                     intent.setData(Uri.fromFile(file));
-                    h.epQ().sendBroadcast(intent);
-                    if (interfaceC1013a != null) {
-                        interfaceC1013a.onComplete(true, file.getAbsolutePath());
+                    h.etB().sendBroadcast(intent);
+                    if (interfaceC1031a != null) {
+                        interfaceC1031a.onComplete(true, file.getAbsolutePath());
                     }
-                } else if (interfaceC1013a != null) {
-                    interfaceC1013a.onComplete(false, null);
+                } else if (interfaceC1031a != null) {
+                    interfaceC1031a.onComplete(false, null);
                 }
             }
         }, new io.reactivex.c.g<Throwable>() { // from class: tv.chushou.zues.widget.fresco.a.3
@@ -233,16 +233,16 @@ public class a {
             @Override // io.reactivex.c.g
             public void accept(Throwable th) throws Exception {
                 e.e("ImageLoader", "", th);
-                if (InterfaceC1013a.this != null) {
-                    InterfaceC1013a.this.onComplete(false, null);
+                if (InterfaceC1031a.this != null) {
+                    InterfaceC1031a.this.onComplete(false, null);
                 }
             }
         });
     }
 
     public static com.facebook.datasource.b<Void> a(String str, Context context, final b bVar) {
-        com.facebook.datasource.b<Void> a = com.facebook.drawee.a.a.c.dTw().a(ImageRequestBuilder.ad(Uri.parse(str)).eay(), context, Priority.HIGH);
-        a.a(new com.facebook.datasource.a<Void>() { // from class: tv.chushou.zues.widget.fresco.a.5
+        com.facebook.datasource.b<Void> a2 = com.facebook.drawee.a.a.c.dXh().a(ImageRequestBuilder.ad(Uri.parse(str)).eej(), context, Priority.HIGH);
+        a2.a(new com.facebook.datasource.a<Void>() { // from class: tv.chushou.zues.widget.fresco.a.5
             @Override // com.facebook.datasource.a
             protected void g(com.facebook.datasource.b<Void> bVar2) {
                 b.this.finish();
@@ -250,16 +250,16 @@ public class a {
 
             @Override // com.facebook.datasource.a
             protected void a(com.facebook.datasource.b<Void> bVar2) {
-                b.this.eer();
+                b.this.eic();
             }
-        }, com.facebook.common.b.a.dSx());
-        return a;
+        }, com.facebook.common.b.a.dWi());
+        return a2;
     }
 
     /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [323=4] */
     /* JADX WARN: Multi-variable type inference failed */
     /* JADX WARN: Type inference failed for: r0v13, types: [java.io.OutputStream, java.io.FileOutputStream] */
-    public static boolean s(String str, File file) {
+    public static boolean r(String str, File file) {
         InputStream inputStream;
         boolean z;
         Closeable closeable;

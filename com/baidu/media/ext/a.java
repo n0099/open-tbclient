@@ -7,42 +7,42 @@ import com.baidu.cyberplayer.sdk.rtc.CyberMediaExtProvider;
 import com.baidu.cyberplayer.sdk.rtc.RTCRoomProvider;
 /* loaded from: classes16.dex */
 public class a {
-    private static CyberMediaExtProvider bEk = null;
+    private static CyberMediaExtProvider bKM = null;
 
-    public static RTCRoomProvider TJ() {
-        RTCRoomProvider createRtcRoom = a() ? bEk.createRtcRoom() : null;
+    public static RTCRoomProvider VC() {
+        RTCRoomProvider createRtcRoom = a() ? bKM.createRtcRoom() : null;
         CyberLog.i("CyberExtRTCInvoker", "createRtcRoom provider = " + createRtcRoom + " isExtJarLoader = " + a());
         return createRtcRoom;
     }
 
     public static CaptureManagerProvider a(Context context, int i, int i2, int i3, int i4, int i5) {
-        CaptureManagerProvider createCaptureManagerProvider = a() ? bEk.createCaptureManagerProvider(context, i, i2, i3, i4, i5) : null;
+        CaptureManagerProvider createCaptureManagerProvider = a() ? bKM.createCaptureManagerProvider(context, i, i2, i3, i4, i5) : null;
         CyberLog.i("CyberExtRTCInvoker", "createCaptureManager provider = " + createCaptureManagerProvider + " isExtJarLoader = " + a());
         return createCaptureManagerProvider;
     }
 
     public static void a(boolean z) {
         if (a()) {
-            bEk.setRTCVerbose(z);
+            bKM.setRTCVerbose(z);
         }
     }
 
     public static boolean a() {
-        return bEk != null;
+        return bKM != null;
     }
 
     public static void b(boolean z) {
         if (a()) {
-            bEk.enableRTCCaptureDebug(z);
+            bKM.enableRTCCaptureDebug(z);
         }
     }
 
     public static boolean b(ClassLoader classLoader) {
         if (classLoader != null && !a()) {
             try {
-                bEk = (CyberMediaExtProvider) Class.forName("com.baidu.cybermedia.ext.rtc.CyberMediaExtProviderImpl", true, classLoader).newInstance();
+                bKM = (CyberMediaExtProvider) Class.forName("com.baidu.cybermedia.ext.rtc.CyberMediaExtProviderImpl", true, classLoader).newInstance();
             } catch (Exception e) {
-                bEk = null;
+                bKM = null;
                 e.printStackTrace();
             }
         }

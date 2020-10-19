@@ -14,29 +14,33 @@ import java.util.HashMap;
 import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
-/* loaded from: classes25.dex */
+/* loaded from: classes5.dex */
 public final class k {
-    public static final String a = "qrlogin_enter";
+
+    /* renamed from: a  reason: collision with root package name */
+    public static final String f3558a = "qrlogin_enter";
     private static final Map<String, String> b = new HashMap();
     private static List<String> c;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes25.dex */
+    /* loaded from: classes5.dex */
     public static class a implements Runnable {
-        final /* synthetic */ HttpHashMapWrap a;
+
+        /* renamed from: a  reason: collision with root package name */
+        final /* synthetic */ HttpHashMapWrap f3559a;
 
         a(HttpHashMapWrap httpHashMapWrap) {
-            this.a = httpHashMapWrap;
+            this.f3559a = httpHashMapWrap;
         }
 
         @Override // java.lang.Runnable
         public void run() {
-            k.b(this.a);
+            k.b(this.f3559a);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes25.dex */
+    /* loaded from: classes5.dex */
     public static class b extends HttpHandlerWrap {
         b(boolean z) {
             super(z);

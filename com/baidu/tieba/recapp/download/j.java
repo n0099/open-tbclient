@@ -12,7 +12,7 @@ import com.baidu.tbadk.core.util.NotificationHelper;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tbadk.download.DownloadData;
-/* loaded from: classes25.dex */
+/* loaded from: classes26.dex */
 public class j implements com.baidu.tbadk.download.c {
     @Override // com.baidu.tbadk.download.c
     public void onFileUpdateProgress(DownloadData downloadData) {
@@ -24,8 +24,8 @@ public class j implements com.baidu.tbadk.download.c {
                 edit.putLong(downloadData.getId(), downloadData.getSize());
                 edit.commit();
             }
-            i.drg().c(downloadData);
-            i.drg().b(downloadData);
+            i.duR().c(downloadData);
+            i.duR().b(downloadData);
         }
     }
 
@@ -55,9 +55,9 @@ public class j implements com.baidu.tbadk.download.c {
                 TiebaStatic.eventStat(TbadkCoreApplication.getInst().getApp(), "dl_game_success", "click", 1, "dev_id", downloadData.getId(), "ref_id", tag[0], "is_detail", tag[2], "ref_type", tag[1]);
             }
             NotificationHelper.cancelNotification(TbadkCoreApplication.getInst().getApp(), downloadData.getNotifyId());
-            i.drg().b(downloadData);
+            i.duR().b(downloadData);
             String path = downloadData.getPath();
-            com.baidu.tieba.ad.download.b.a.bMm.get().bCB().onSuccess(downloadData.getId(), TextUtils.isEmpty(path) ? i.drg().PR(downloadData.getId()) : path);
+            com.baidu.tieba.ad.download.b.a.bSV.get().bFn().onSuccess(downloadData.getId(), TextUtils.isEmpty(path) ? i.duR().QG(downloadData.getId()) : path);
             if (downloadData.isNeedInvokeApk()) {
                 UtilHelper.install_apk(TbadkCoreApplication.getInst().getApp(), downloadData.getId().replace(".", PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS) + ".apk");
             }
@@ -66,13 +66,13 @@ public class j implements com.baidu.tbadk.download.c {
 
     @Override // com.baidu.tbadk.download.c
     public void onFileDownloadFailed(DownloadData downloadData, int i, String str) {
-        i drg = i.drg();
+        i duR = i.duR();
         if (i == 3) {
-            drg.l(downloadData);
+            duR.l(downloadData);
             MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(CmdConfigCustom.CMD_APP_DOWNLOAD_MSG, downloadData));
         } else {
-            drg.m(downloadData);
+            duR.m(downloadData);
         }
-        i.drg().b(downloadData);
+        i.duR().b(downloadData);
     }
 }

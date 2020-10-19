@@ -7,16 +7,18 @@ import com.baidu.sofire.b;
 import com.baidu.sofire.i.e;
 import com.baidu.sofire.i.i;
 import org.json.JSONObject;
-/* loaded from: classes12.dex */
+/* loaded from: classes15.dex */
 public final class a {
-    private Context a;
+
+    /* renamed from: a  reason: collision with root package name */
+    private Context f3624a;
 
     public a(Context context) {
-        this.a = context;
+        this.f3624a = context;
     }
 
     public final boolean a(String str) {
-        String a;
+        String a2;
         if (TextUtils.isEmpty(str)) {
             return true;
         }
@@ -26,14 +28,14 @@ public final class a {
             String str2 = e.b() + "p/1/r";
             new StringBuilder().append(str2);
             b.a();
-            a = i.a(this.a, str2, str, false, false);
+            a2 = i.a(this.f3624a, str2, str, false, false);
         } catch (Throwable th) {
             e.a();
         }
-        if (TextUtils.isEmpty(a)) {
+        if (TextUtils.isEmpty(a2)) {
             return false;
         }
-        if (new JSONObject(a).getInt(IIntercepter.TYPE_RESPONSE) == 1) {
+        if (new JSONObject(a2).getInt(IIntercepter.TYPE_RESPONSE) == 1) {
             return true;
         }
         return false;

@@ -11,19 +11,19 @@ import java.util.Set;
 import java.util.concurrent.ConcurrentHashMap;
 /* loaded from: classes10.dex */
 public final class f {
-    private static ConcurrentHashMap<String, ConcurrentHashMap<String, Object>> aem = new ConcurrentHashMap<>();
-    private static volatile boolean aeo = false;
-    private static a aen = new a(com.baidu.browser.core.async.b.dj("PreferenceQueue").getLooper());
+    private static ConcurrentHashMap<String, ConcurrentHashMap<String, Object>> aeD = new ConcurrentHashMap<>();
+    private static volatile boolean aeF = false;
+    private static a aeE = new a(com.baidu.browser.core.async.b.dj("PreferenceQueue").getLooper());
 
     static {
-        aen.sendEmptyMessageDelayed(0, 15000L);
+        aeE.sendEmptyMessageDelayed(0, 15000L);
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public static void b(String str, String str2, Object obj) {
         if (str != null) {
-            if (aem.containsKey(str)) {
-                ConcurrentHashMap<String, Object> concurrentHashMap = aem.get(str);
+            if (aeD.containsKey(str)) {
+                ConcurrentHashMap<String, Object> concurrentHashMap = aeD.get(str);
                 if (concurrentHashMap != null) {
                     if (obj != null) {
                         concurrentHashMap.put(str2, obj);
@@ -33,12 +33,12 @@ public final class f {
                 } else if (obj != null && str2 != null) {
                     ConcurrentHashMap<String, Object> concurrentHashMap2 = new ConcurrentHashMap<>();
                     concurrentHashMap2.put(str2, obj);
-                    aem.put(str, concurrentHashMap2);
+                    aeD.put(str, concurrentHashMap2);
                 }
             } else if (obj != null && str2 != null) {
                 ConcurrentHashMap<String, Object> concurrentHashMap3 = new ConcurrentHashMap<>();
                 concurrentHashMap3.put(str2, obj);
-                aem.put(str, concurrentHashMap3);
+                aeD.put(str, concurrentHashMap3);
             }
         }
     }
@@ -46,7 +46,7 @@ public final class f {
     /* JADX INFO: Access modifiers changed from: package-private */
     public static void clear(String str) {
         ConcurrentHashMap<String, Object> concurrentHashMap;
-        if (str != null && (concurrentHashMap = aem.get(str)) != null) {
+        if (str != null && (concurrentHashMap = aeD.get(str)) != null) {
             concurrentHashMap.clear();
         }
     }
@@ -54,13 +54,13 @@ public final class f {
     /* JADX INFO: Access modifiers changed from: private */
     public static void apply() {
         int i;
-        if (!aeo) {
-            aeo = true;
+        if (!aeF) {
+            aeF = true;
             try {
                 Context baseContext = b.tf().getBaseContext();
-                BdLog.d("BdPreferenceQueueWorker", "pending work category: " + aem.size());
-                for (String str : aem.keySet()) {
-                    ConcurrentHashMap<String, Object> concurrentHashMap = aem.get(str);
+                BdLog.d("BdPreferenceQueueWorker", "pending work category: " + aeD.size());
+                for (String str : aeD.keySet()) {
+                    ConcurrentHashMap<String, Object> concurrentHashMap = aeD.get(str);
                     if (concurrentHashMap == null || concurrentHashMap.size() <= 0) {
                         i = 0;
                     } else {
@@ -96,21 +96,21 @@ public final class f {
             } catch (Exception e) {
                 e.printStackTrace();
             } finally {
-                aeo = false;
+                aeF = false;
             }
         }
     }
 
     public static void tj() {
         Log.d("BdPreferenceQueueWorker", "wait to finish");
-        aen.removeMessages(0);
+        aeE.removeMessages(0);
         apply();
         tk();
     }
 
     public static void tk() {
-        if (!aen.hasMessages(0)) {
-            aen.sendEmptyMessageDelayed(0, 15000L);
+        if (!aeE.hasMessages(0)) {
+            aeE.sendEmptyMessageDelayed(0, 15000L);
         }
     }
 
@@ -126,7 +126,7 @@ public final class f {
             switch (message.what) {
                 case 0:
                     f.apply();
-                    f.aen.sendEmptyMessageDelayed(0, 15000L);
+                    f.aeE.sendEmptyMessageDelayed(0, 15000L);
                     return;
                 default:
                     return;

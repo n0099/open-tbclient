@@ -18,15 +18,17 @@ import java.io.File;
 import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
-/* loaded from: classes3.dex */
+/* loaded from: classes7.dex */
 public class FileProvider extends ContentProvider {
-    private static final String[] a = {"_display_name", "_size"};
+
+    /* renamed from: a  reason: collision with root package name */
+    private static final String[] f2367a = {"_display_name", "_size"};
     private static final File b = new File("/");
     private static HashMap<String, a> c = new HashMap<>();
     private a d;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes3.dex */
+    /* loaded from: classes7.dex */
     public interface a {
         Uri a(File file);
 
@@ -66,7 +68,7 @@ public class FileProvider extends ContentProvider {
         }
         File a2 = this.d.a(uri);
         if (strArr == null) {
-            strArr = a;
+            strArr = f2367a;
         }
         String[] strArr3 = new String[strArr.length];
         Object[] objArr = new Object[strArr.length];
@@ -197,13 +199,15 @@ public class FileProvider extends ContentProvider {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes3.dex */
+    /* loaded from: classes7.dex */
     public static class b implements a {
-        private final String a;
+
+        /* renamed from: a  reason: collision with root package name */
+        private final String f2368a;
         private final HashMap<String, File> b = new HashMap<>();
 
         public b(String str) {
-            this.a = str;
+            this.f2368a = str;
         }
 
         public void a(String str, File file) {
@@ -239,7 +243,7 @@ public class FileProvider extends ContentProvider {
                 } else {
                     substring = canonicalPath.substring(path2.length() + 1);
                 }
-                return new Uri.Builder().scheme("content").authority(this.a).encodedPath(Uri.encode(entry.getKey()) + '/' + Uri.encode(substring, "/")).build();
+                return new Uri.Builder().scheme("content").authority(this.f2368a).encodedPath(Uri.encode(entry.getKey()) + '/' + Uri.encode(substring, "/")).build();
             } catch (IOException e) {
                 throw new IllegalArgumentException("Failed to resolve canonical path for " + file);
             }

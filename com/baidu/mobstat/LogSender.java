@@ -24,9 +24,11 @@ import java.util.TimerTask;
 import java.util.zip.GZIPOutputStream;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes15.dex */
+/* loaded from: classes17.dex */
 public class LogSender {
-    private static LogSender a = new LogSender();
+
+    /* renamed from: a  reason: collision with root package name */
+    private static LogSender f2497a = new LogSender();
     private boolean b = false;
     private int c = 0;
     private int d = 1;
@@ -35,7 +37,7 @@ public class LogSender {
     private Handler g;
 
     public static LogSender instance() {
-        return a;
+        return f2497a;
     }
 
     private LogSender() {

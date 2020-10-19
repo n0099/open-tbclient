@@ -6,7 +6,7 @@ import kotlin.jvm.a.m;
 import kotlin.jvm.internal.Lambda;
 import kotlin.jvm.internal.q;
 @kotlin.h
-/* loaded from: classes5.dex */
+/* loaded from: classes10.dex */
 final class SequencesKt___SequencesKt$filterIndexed$1 extends Lambda implements kotlin.jvm.a.b<ac<? extends T>, Boolean> {
     final /* synthetic */ m $predicate;
 
@@ -23,7 +23,7 @@ final class SequencesKt___SequencesKt$filterIndexed$1 extends Lambda implements 
     }
 
     public final boolean invoke(ac<? extends T> acVar) {
-        q.m(acVar, AdvanceSetting.NETWORK_TYPE);
+        q.n(acVar, AdvanceSetting.NETWORK_TYPE);
         return ((Boolean) this.$predicate.invoke(Integer.valueOf(acVar.getIndex()), acVar.getValue())).booleanValue();
     }
 }

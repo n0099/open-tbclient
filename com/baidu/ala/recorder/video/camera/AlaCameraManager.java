@@ -283,8 +283,8 @@ public class AlaCameraManager implements ICameraStatusHandler {
     }
 
     public void onExposure(float f) {
-        if (this.mCamera != null && this.mActivity != null) {
-            Camera.Parameters parameters = this.mCamera.getParameters();
+        Camera.Parameters parameters;
+        if (this.mCamera != null && this.mActivity != null && (parameters = this.mCamera.getParameters()) != null) {
             int maxExposureCompensation = parameters.getMaxExposureCompensation();
             int minExposureCompensation = parameters.getMinExposureCompensation();
             int round = Math.round((maxExposureCompensation - minExposureCompensation) * (1.0f - f)) + minExposureCompensation;
@@ -306,10 +306,10 @@ public class AlaCameraManager implements ICameraStatusHandler {
     }
 
     public float getExposure() {
-        if (this.mCamera == null || this.mActivity == null) {
+        Camera.Parameters parameters;
+        if (this.mCamera == null || this.mActivity == null || (parameters = this.mCamera.getParameters()) == null) {
             return -1.0f;
         }
-        Camera.Parameters parameters = this.mCamera.getParameters();
         int maxExposureCompensation = parameters.getMaxExposureCompensation();
         int minExposureCompensation = maxExposureCompensation - parameters.getMinExposureCompensation();
         int i = 0;

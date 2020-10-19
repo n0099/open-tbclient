@@ -47,7 +47,7 @@ public class ResponseCommitPersonalMessage extends ResponseCommitMessage {
         }
         long longValue = commitPersonalMsgResIdl.data.msgId.longValue();
         setToUserType(commitPersonalMsgResIdl.data.toUserType.intValue());
-        setMsgId(d.fE(longValue));
+        setMsgId(d.fW(longValue));
         setRecordId(commitPersonalMsgResIdl.data.recordId.longValue());
         setGroupId(String.valueOf(commitPersonalMsgResIdl.data.groupId));
         setToUserId(String.valueOf(commitPersonalMsgResIdl.data.toUid));

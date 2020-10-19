@@ -1,17 +1,19 @@
 package com.google.ar.core;
 
 import android.animation.ValueAnimator;
-/* loaded from: classes24.dex */
+/* loaded from: classes11.dex */
 final class t implements ValueAnimator.AnimatorUpdateListener {
-    private final /* synthetic */ int a;
+
+    /* renamed from: a  reason: collision with root package name */
+    private final /* synthetic */ int f4046a;
     private final /* synthetic */ int b;
     private final /* synthetic */ int c;
-    private final /* synthetic */ InstallActivity nMF;
+    private final /* synthetic */ InstallActivity obX;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public t(InstallActivity installActivity, int i, int i2, int i3) {
-        this.nMF = installActivity;
-        this.a = i;
+        this.obX = installActivity;
+        this.f4046a = i;
         this.b = i2;
         this.c = i3;
     }
@@ -20,7 +22,7 @@ final class t implements ValueAnimator.AnimatorUpdateListener {
     public final void onAnimationUpdate(ValueAnimator valueAnimator) {
         float animatedFraction = 1.0f - valueAnimator.getAnimatedFraction();
         float animatedFraction2 = valueAnimator.getAnimatedFraction();
-        this.nMF.getWindow().setLayout((int) ((this.a * animatedFraction) + (this.b * animatedFraction2)), (int) ((animatedFraction * this.c) + (animatedFraction2 * this.b)));
-        this.nMF.getWindow().getDecorView().refreshDrawableState();
+        this.obX.getWindow().setLayout((int) ((this.f4046a * animatedFraction) + (this.b * animatedFraction2)), (int) ((animatedFraction * this.c) + (animatedFraction2 * this.b)));
+        this.obX.getWindow().getDecorView().refreshDrawableState();
     }
 }

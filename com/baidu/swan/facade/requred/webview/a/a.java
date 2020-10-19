@@ -12,7 +12,7 @@ import com.baidu.swan.apps.view.SwanAppErrorDialog;
 import com.baidu.swan.facade.a;
 import com.baidu.swan.facade.requred.webview.LoadingActivity;
 import com.baidu.swan.facade.requred.webview.b;
-/* loaded from: classes3.dex */
+/* loaded from: classes16.dex */
 public class a implements b.a {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
     private boolean mIsLoading = false;
@@ -47,7 +47,7 @@ public class a implements b.a {
     }
 
     @Override // com.baidu.swan.facade.requred.webview.b.a
-    public com.baidu.swan.pms.e.b abp() {
+    public com.baidu.swan.pms.e.b aeb() {
         return new com.baidu.swan.d.c();
     }
 
@@ -57,11 +57,11 @@ public class a implements b.a {
         if (DEBUG) {
             Log.i("SailorSoDownloadAdapter", "startDownload: ");
         }
-        com.baidu.swan.apps.env.b.c.csd.a(new d().a("zeus", new com.baidu.swan.apps.ap.e.b<Boolean>() { // from class: com.baidu.swan.facade.requred.webview.a.a.2
+        com.baidu.swan.apps.env.b.c.cEo.a(new d().a("zeus", new com.baidu.swan.apps.ap.e.b<Boolean>() { // from class: com.baidu.swan.facade.requred.webview.a.a.2
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.swan.apps.ap.e.b
-            /* renamed from: e */
-            public void J(Boolean bool) {
+            /* renamed from: f */
+            public void M(Boolean bool) {
                 if (a.DEBUG) {
                     Log.i("SailorSoDownloadAdapter", "startDownload onCallback: " + bool);
                 }
@@ -77,7 +77,7 @@ public class a implements b.a {
     }
 
     private void a(DialogInterface.OnClickListener onClickListener) {
-        SwanAppErrorDialog.aGB().jc(a.e.aiapps_t7_download_tip_title).jd(a.e.aiapps_t7_download_tip_msg).b(a.e.aiapps_t7_download_tip_btn_cancel, onClickListener).a(a.e.aiapps_t7_download_tip_btn_ok, onClickListener).show();
+        SwanAppErrorDialog.aJk().jz(a.e.aiapps_t7_download_tip_title).jA(a.e.aiapps_t7_download_tip_msg).b(a.e.aiapps_t7_download_tip_btn_cancel, onClickListener).a(a.e.aiapps_t7_download_tip_btn_ok, onClickListener).show();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -99,7 +99,7 @@ public class a implements b.a {
         com.baidu.swan.apps.runtime.d.getMainHandler().post(new Runnable() { // from class: com.baidu.swan.facade.requred.webview.a.a.4
             @Override // java.lang.Runnable
             public void run() {
-                com.baidu.swan.apps.runtime.d.aAn().qA("loading_hide");
+                com.baidu.swan.apps.runtime.d.aCW().rm("loading_hide");
             }
         });
     }

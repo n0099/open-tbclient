@@ -8,9 +8,9 @@ import com.baidu.tbadk.core.util.ap;
 import com.baidu.tbadk.coreExtra.data.VersionData;
 import com.baidu.tbadk.coreExtra.view.TbSettingTextTipView;
 import com.baidu.tieba.R;
-/* loaded from: classes25.dex */
+/* loaded from: classes26.dex */
 public final class SettingTextVersionView extends TbSettingTextTipView {
-    public static String maU = "has_shown_funtion_intro";
+    public static String mqy = "has_shown_funtion_intro";
 
     public SettingTextVersionView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
@@ -24,12 +24,12 @@ public final class SettingTextVersionView extends TbSettingTextTipView {
             z = false;
         }
         if (z) {
-            ap.setBackgroundResource(this.eJH, R.drawable.icon_news_head_new);
-            this.eJH.setText((CharSequence) null);
+            ap.setBackgroundResource(this.eVO, R.drawable.icon_news_head_new);
+            this.eVO.setText((CharSequence) null);
             return;
         }
-        this.eJH.setText(TbConfig.getVersion());
-        this.eJH.setBackgroundDrawable(null);
-        this.eJH.setTextAppearance(this.mContext, z2 ? R.style.setting_version_text_1 : R.style.setting_version_text);
+        this.eVO.setText(TbConfig.getVersion());
+        this.eVO.setBackgroundDrawable(null);
+        this.eVO.setTextAppearance(this.mContext, z2 ? R.style.setting_version_text_1 : R.style.setting_version_text);
     }
 }

@@ -4,9 +4,11 @@ import android.content.Context;
 import android.os.Build;
 import android.util.DisplayMetrics;
 import com.baidu.vi.VIContext;
-/* loaded from: classes3.dex */
+/* loaded from: classes7.dex */
 public class a {
-    private int a = -1;
+
+    /* renamed from: a  reason: collision with root package name */
+    private int f2940a = -1;
     private int b = -1;
     private float c = -1.0f;
     private int d = -1;
@@ -15,15 +17,15 @@ public class a {
     private double g = -1.0d;
 
     public int a() {
-        if (this.a == -1) {
+        if (this.f2940a == -1) {
             a(VIContext.getContext());
         }
-        return this.a;
+        return this.f2940a;
     }
 
     public void a(Context context) {
         DisplayMetrics displayMetrics = context.getResources().getDisplayMetrics();
-        this.a = displayMetrics.widthPixels;
+        this.f2940a = displayMetrics.widthPixels;
         this.b = displayMetrics.heightPixels;
         this.c = displayMetrics.density;
         this.d = (int) displayMetrics.xdpi;

@@ -18,13 +18,13 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes4.dex */
 public class m extends BaseAdapter {
-    private String aVr;
-    private List<com.baidu.tieba.ala.guardclub.model.k> blZ;
-    private a gfk;
-    private int gfl;
-    private float gfm;
-    private float gfn;
-    private int gfo;
+    private String aYC;
+    private List<com.baidu.tieba.ala.guardclub.model.k> bpM;
+    private int grA;
+    private float grB;
+    private float grC;
+    private int grD;
+    private a grz;
     private int mType;
 
     /* loaded from: classes4.dex */
@@ -35,68 +35,68 @@ public class m extends BaseAdapter {
     }
 
     public m(Context context) {
-        this.gfm = context.getResources().getDimensionPixelOffset(a.e.sdk_fontsize36);
-        this.gfn = context.getResources().getDimensionPixelOffset(a.e.sdk_fontsize36);
+        this.grB = context.getResources().getDimensionPixelOffset(a.e.sdk_fontsize36);
+        this.grC = context.getResources().getDimensionPixelOffset(a.e.sdk_fontsize36);
     }
 
     public void setType(int i) {
         this.mType = i;
         switch (i) {
             case 0:
-                this.gfo = a.i.guard_club_rank_list_contribution_week;
+                this.grD = a.i.guard_club_rank_list_contribution_week;
                 return;
             case 1:
-                this.gfo = a.i.guard_club_rank_list_contribution_total;
+                this.grD = a.i.guard_club_rank_list_contribution_total;
                 return;
             default:
                 return;
         }
     }
 
-    public void fJ(String str) {
-        this.aVr = str;
+    public void fX(String str) {
+        this.aYC = str;
     }
 
     public void a(a aVar) {
-        this.gfk = aVar;
+        this.grz = aVar;
     }
 
     public List<com.baidu.tieba.ala.guardclub.model.k> getDatas() {
-        return this.blZ;
+        return this.bpM;
     }
 
     public void setData(List<com.baidu.tieba.ala.guardclub.model.k> list) {
-        if (this.blZ == null) {
-            this.blZ = new ArrayList();
+        if (this.bpM == null) {
+            this.bpM = new ArrayList();
         }
-        this.blZ.clear();
-        bV(list);
+        this.bpM.clear();
+        bY(list);
     }
 
-    public void bV(List<com.baidu.tieba.ala.guardclub.model.k> list) {
-        if (this.blZ == null) {
-            this.blZ = new ArrayList();
+    public void bY(List<com.baidu.tieba.ala.guardclub.model.k> list) {
+        if (this.bpM == null) {
+            this.bpM = new ArrayList();
         }
         if (list != null && !list.isEmpty()) {
-            this.blZ.addAll(list);
+            this.bpM.addAll(list);
         }
         notifyDataSetChanged();
     }
 
     @Override // android.widget.Adapter
     public int getCount() {
-        if (this.blZ != null) {
-            return this.blZ.size();
+        if (this.bpM != null) {
+            return this.bpM.size();
         }
         return 0;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // android.widget.Adapter
-    /* renamed from: tL */
+    /* renamed from: uj */
     public com.baidu.tieba.ala.guardclub.model.k getItem(int i) {
         if (getCount() > i) {
-            return this.blZ.get(i);
+            return this.bpM.get(i);
         }
         return null;
     }
@@ -112,18 +112,18 @@ public class m extends BaseAdapter {
         if (view == null) {
             view = LayoutInflater.from(viewGroup.getContext()).inflate(a.h.live_guard_club_rank_item, viewGroup, false);
             b bVar2 = new b();
-            bVar2.fVc = (TextView) view.findViewById(a.g.tv_rank);
-            bVar2.gfr = view.findViewById(a.g.layout_avatar);
-            bVar2.fVe = (HeadImageView) view.findViewById(a.g.iv_avatar);
-            bVar2.gfs = (TbImageView) view.findViewById(a.g.iv_level);
-            a(bVar2.fVe, bVar2.gfs);
-            bVar2.gft = (LottieAnimationView) view.findViewById(a.g.lottie_live);
-            bVar2.aBx = (TextView) view.findViewById(a.g.tv_name);
-            bVar2.gdW = (TextView) view.findViewById(a.g.tv_name_suffix);
-            bVar2.fVj = (TextView) view.findViewById(a.g.tv_content);
-            bVar2.gfv = view.findViewById(a.g.layout_action);
-            bVar2.gfw = (TextView) view.findViewById(a.g.tv_guard);
-            bVar2.gfx = (TextView) view.findViewById(a.g.tv_joined);
+            bVar2.ghv = (TextView) view.findViewById(a.g.tv_rank);
+            bVar2.grG = view.findViewById(a.g.layout_avatar);
+            bVar2.ghx = (HeadImageView) view.findViewById(a.g.iv_avatar);
+            bVar2.grH = (TbImageView) view.findViewById(a.g.iv_level);
+            a(bVar2.ghx, bVar2.grH);
+            bVar2.grI = (LottieAnimationView) view.findViewById(a.g.lottie_live);
+            bVar2.aEC = (TextView) view.findViewById(a.g.tv_name);
+            bVar2.gqm = (TextView) view.findViewById(a.g.tv_name_suffix);
+            bVar2.ghC = (TextView) view.findViewById(a.g.tv_content);
+            bVar2.grK = view.findViewById(a.g.layout_action);
+            bVar2.grL = (TextView) view.findViewById(a.g.tv_guard);
+            bVar2.grM = (TextView) view.findViewById(a.g.tv_joined);
             view.setTag(bVar2);
             bVar = bVar2;
         } else {
@@ -150,66 +150,66 @@ public class m extends BaseAdapter {
 
     private void a(b bVar, int i) {
         if (i + 4 >= 100) {
-            bVar.fVc.setText("99+");
-            bVar.fVc.setTextSize(0, this.gfn);
+            bVar.ghv.setText("99+");
+            bVar.ghv.setTextSize(0, this.grC);
             return;
         }
-        bVar.fVc.setText(String.valueOf(i + 4));
-        bVar.fVc.setTextSize(0, this.gfm);
+        bVar.ghv.setText(String.valueOf(i + 4));
+        bVar.ghv.setTextSize(0, this.grB);
     }
 
     private void a(b bVar, final com.baidu.tieba.ala.guardclub.model.k kVar) {
-        bVar.fVe.stopLoad();
-        bVar.fVe.startLoad(kVar.avatar, 12, false, false);
-        bVar.gfs.stopLoad();
+        bVar.ghx.stopLoad();
+        bVar.ghx.startLoad(kVar.avatar, 12, false, false);
+        bVar.grH.stopLoad();
         b(bVar);
-        bVar.fVe.setScaleX(1.0f);
-        bVar.fVe.setScaleY(1.0f);
+        bVar.ghx.setScaleX(1.0f);
+        bVar.ghx.setScaleY(1.0f);
         if (kVar.liveStatus != 1 || TextUtils.isEmpty(kVar.liveId)) {
-            bVar.gft.setVisibility(8);
+            bVar.grI.setVisibility(8);
         } else {
-            bVar.gft.setVisibility(0);
+            bVar.grI.setVisibility(0);
             a(bVar);
         }
-        String ex = com.baidu.live.guardclub.g.IP().ex(kVar.level);
-        if (!TextUtils.isEmpty(ex)) {
-            bVar.gfs.startLoad(ex, 10, false);
-            bVar.gfs.setVisibility(0);
+        String eC = com.baidu.live.guardclub.g.JM().eC(kVar.level);
+        if (!TextUtils.isEmpty(eC)) {
+            bVar.grH.startLoad(eC, 10, false);
+            bVar.grH.setVisibility(0);
         } else {
-            bVar.gfs.setVisibility(8);
+            bVar.grH.setVisibility(8);
         }
-        bVar.gfr.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.ala.guardclub.m.1
+        bVar.grG.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.ala.guardclub.m.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                if (m.this.gfk != null) {
-                    m.this.gfk.a(kVar);
+                if (m.this.grz != null) {
+                    m.this.grz.a(kVar);
                 }
             }
         });
     }
 
     private void a(b bVar, Context context, com.baidu.tieba.ala.guardclub.model.k kVar) {
-        if (this.gfl <= 0) {
-            this.gfl = bVar.gdW.getWidth();
-            if (this.gfl <= 0) {
-                bVar.gdW.measure(0, 0);
-                this.gfl = bVar.gdW.getMeasuredWidth();
+        if (this.grA <= 0) {
+            this.grA = bVar.gqm.getWidth();
+            if (this.grA <= 0) {
+                bVar.gqm.measure(0, 0);
+                this.grA = bVar.gqm.getMeasuredWidth();
             }
         }
         String str = kVar.name;
         if (str != null && str.endsWith("的真爱团")) {
             str = str.substring(0, str.lastIndexOf("的真爱团"));
-            bVar.aBx.setPadding(0, 0, this.gfl, 0);
-            bVar.gdW.setVisibility(0);
+            bVar.aEC.setPadding(0, 0, this.grA, 0);
+            bVar.gqm.setVisibility(0);
         } else {
-            bVar.aBx.setPadding(0, 0, 0, 0);
-            bVar.gdW.setVisibility(4);
+            bVar.aEC.setPadding(0, 0, 0, 0);
+            bVar.gqm.setVisibility(4);
         }
-        bVar.aBx.setText(str);
+        bVar.aEC.setText(str);
         String str2 = null;
         switch (this.mType) {
             case 0:
-                str2 = kVar.gfV;
+                str2 = kVar.gsk;
                 break;
             case 1:
                 str2 = kVar.score;
@@ -218,83 +218,83 @@ public class m extends BaseAdapter {
         if (str2 == null) {
             str2 = "";
         }
-        bVar.fVj.setText(String.format(context.getResources().getString(this.gfo), str2));
+        bVar.ghC.setText(String.format(context.getResources().getString(this.grD), str2));
     }
 
     private void b(b bVar, final com.baidu.tieba.ala.guardclub.model.k kVar) {
-        if (TextUtils.isEmpty(this.aVr) || TextUtils.isEmpty(kVar.aLM) || !this.aVr.equals(kVar.aLM)) {
-            bVar.gfv.setVisibility(0);
-            if (kVar.gfW) {
-                bVar.gfx.setVisibility(0);
-                bVar.gfw.setVisibility(8);
+        if (TextUtils.isEmpty(this.aYC) || TextUtils.isEmpty(kVar.aOR) || !this.aYC.equals(kVar.aOR)) {
+            bVar.grK.setVisibility(0);
+            if (kVar.gsl) {
+                bVar.grM.setVisibility(0);
+                bVar.grL.setVisibility(8);
                 return;
             }
-            bVar.gfx.setVisibility(8);
-            bVar.gfw.setVisibility(0);
-            bVar.gfw.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.ala.guardclub.m.2
+            bVar.grM.setVisibility(8);
+            bVar.grL.setVisibility(0);
+            bVar.grL.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.ala.guardclub.m.2
                 @Override // android.view.View.OnClickListener
                 public void onClick(View view) {
-                    if (m.this.gfk != null) {
-                        m.this.gfk.b(kVar);
+                    if (m.this.grz != null) {
+                        m.this.grz.b(kVar);
                     }
                 }
             });
             return;
         }
-        bVar.gfv.setVisibility(4);
+        bVar.grK.setVisibility(4);
     }
 
     private void a(b bVar) {
-        if (bVar.gfu == null) {
-            bVar.gfu = new AnimatorSet();
+        if (bVar.grJ == null) {
+            bVar.grJ = new AnimatorSet();
         }
-        bVar.gft.setAnimation("live_anim_guard_join.json");
-        bVar.gft.loop(true);
-        ObjectAnimator ofFloat = ObjectAnimator.ofFloat(bVar.fVe, "scaleX", 0.88f, 1.0f, 0.88f);
+        bVar.grI.setAnimation("live_anim_guard_join.json");
+        bVar.grI.loop(true);
+        ObjectAnimator ofFloat = ObjectAnimator.ofFloat(bVar.ghx, "scaleX", 0.88f, 1.0f, 0.88f);
         ofFloat.setRepeatCount(-1);
         ofFloat.setRepeatMode(2);
-        ObjectAnimator ofFloat2 = ObjectAnimator.ofFloat(bVar.fVe, "scaleY", 0.88f, 1.0f, 0.88f);
+        ObjectAnimator ofFloat2 = ObjectAnimator.ofFloat(bVar.ghx, "scaleY", 0.88f, 1.0f, 0.88f);
         ofFloat2.setRepeatCount(-1);
         ofFloat2.setRepeatMode(2);
-        bVar.gfu.setDuration(1000L);
-        bVar.gfu.setInterpolator(new AccelerateDecelerateInterpolator());
-        bVar.gfu.play(ofFloat).with(ofFloat2);
-        bVar.gft.playAnimation();
-        bVar.gfu.start();
+        bVar.grJ.setDuration(1000L);
+        bVar.grJ.setInterpolator(new AccelerateDecelerateInterpolator());
+        bVar.grJ.play(ofFloat).with(ofFloat2);
+        bVar.grI.playAnimation();
+        bVar.grJ.start();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void b(b bVar) {
-        bVar.gft.cancelAnimation();
-        if (bVar.gfu == null) {
+        bVar.grI.cancelAnimation();
+        if (bVar.grJ == null) {
             return;
         }
-        bVar.gfu.cancel();
+        bVar.grJ.cancel();
     }
 
     /* loaded from: classes4.dex */
     public class b {
-        private TextView aBx;
-        private TextView fVc;
-        private HeadImageView fVe;
-        private TextView fVj;
-        private TextView gdW;
-        private View gfr;
-        private TbImageView gfs;
-        private LottieAnimationView gft;
-        private AnimatorSet gfu;
-        private View gfv;
-        private TextView gfw;
-        private TextView gfx;
+        private TextView aEC;
+        private TextView ghC;
+        private TextView ghv;
+        private HeadImageView ghx;
+        private TextView gqm;
+        private View grG;
+        private TbImageView grH;
+        private LottieAnimationView grI;
+        private AnimatorSet grJ;
+        private View grK;
+        private TextView grL;
+        private TextView grM;
 
         public b() {
         }
 
         public void recycle() {
-            Rm();
+            Tf();
         }
 
-        public void Rm() {
+        public void Tf() {
             m.this.b(this);
         }
     }

@@ -4,9 +4,11 @@ import android.os.Parcel;
 import android.os.Parcelable;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes7.dex */
 public class e implements Parcelable {
-    public static final Parcelable.Creator<e> a = new f();
+
+    /* renamed from: a  reason: collision with root package name */
+    public static final Parcelable.Creator<e> f2334a = new f();
     private JSONObject b;
     private double c;
     private String d;

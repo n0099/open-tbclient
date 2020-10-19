@@ -1,15 +1,17 @@
 package com.baidu.ufosdk.ui;
-/* loaded from: classes21.dex */
+/* loaded from: classes22.dex */
 final class dg implements Runnable {
-    final /* synthetic */ df a;
+
+    /* renamed from: a  reason: collision with root package name */
+    final /* synthetic */ df f3827a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public dg(df dfVar) {
-        this.a = dfVar;
+        this.f3827a = dfVar;
     }
 
     @Override // java.lang.Runnable
     public final void run() {
-        com.baidu.ufosdk.e.a.e(this.a.a, this.a.b, this.a.c);
+        com.baidu.ufosdk.e.a.e(this.f3827a.f3826a, this.f3827a.b, this.f3827a.c);
     }
 }

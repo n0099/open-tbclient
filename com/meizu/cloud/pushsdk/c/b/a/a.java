@@ -12,7 +12,7 @@ import java.util.concurrent.ExecutionException;
 import java.util.concurrent.Future;
 import java.util.concurrent.TimeUnit;
 import java.util.concurrent.TimeoutException;
-/* loaded from: classes3.dex */
+/* loaded from: classes7.dex */
 public class a extends c {
     private final String u;
     private d v;
@@ -133,10 +133,10 @@ public class a extends c {
             c();
         } else {
             this.w = 0;
-            LinkedList<g> a = a(a(this.v.d()));
+            LinkedList<g> a2 = a(a(this.v.d()));
             com.meizu.cloud.pushsdk.c.f.c.c(this.u, "Processing emitter results.", new Object[0]);
             LinkedList<Long> linkedList = new LinkedList<>();
-            Iterator<g> it = a.iterator();
+            Iterator<g> it = a2.iterator();
             int i2 = 0;
             int i3 = 0;
             while (it.hasNext()) {

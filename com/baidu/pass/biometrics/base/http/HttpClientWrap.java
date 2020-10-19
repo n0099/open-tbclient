@@ -32,9 +32,11 @@ import java.util.Map;
 import java.util.UUID;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes6.dex */
+/* loaded from: classes11.dex */
 public class HttpClientWrap {
-    private static final String a = "encode";
+
+    /* renamed from: a  reason: collision with root package name */
+    private static final String f2704a = "encode";
     private static final String b = "ua";
     private static final String c = "cuid_2";
     private static final String d = "reqid";
@@ -60,7 +62,7 @@ public class HttpClientWrap {
 
     public static Map<String, String> appendCertification(Context context) {
         HashMap hashMap = new HashMap();
-        hashMap.put(a, "utf-8");
+        hashMap.put(f2704a, "utf-8");
         hashMap.put("ua", PassBiometricUtil.getUA(context, BeanConstants.tpl));
         hashMap.put("time", String.valueOf(System.currentTimeMillis() / 1000));
         hashMap.put("appid", BeanConstants.appid);

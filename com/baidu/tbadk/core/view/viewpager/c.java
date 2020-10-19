@@ -9,8 +9,8 @@ import com.baidu.tbadk.core.view.viewpager.BdBaseViewPagerAdapter;
 import com.baidu.tbadk.core.view.viewpager.BdBaseViewPagerAdapter.a;
 /* loaded from: classes.dex */
 public abstract class c<T extends q, V extends BdBaseViewPagerAdapter.a> {
-    protected BdUniqueId Vf;
-    protected a<T, V> eAK;
+    protected BdUniqueId Vv;
+    protected a<T, V> eMR;
     protected Context mContext;
 
     /* loaded from: classes.dex */
@@ -18,7 +18,7 @@ public abstract class c<T extends q, V extends BdBaseViewPagerAdapter.a> {
         void c(V v, T t);
     }
 
-    public abstract V D(ViewGroup viewGroup);
+    public abstract V F(ViewGroup viewGroup);
 
     /* JADX INFO: Access modifiers changed from: protected */
     public abstract View a(ViewGroup viewGroup, V v, T t);
@@ -26,21 +26,21 @@ public abstract class c<T extends q, V extends BdBaseViewPagerAdapter.a> {
     /* JADX INFO: Access modifiers changed from: protected */
     public c(Context context, BdUniqueId bdUniqueId) {
         this.mContext = context;
-        this.Vf = bdUniqueId;
+        this.Vv = bdUniqueId;
     }
 
     public BdUniqueId getType() {
-        return this.Vf;
+        return this.Vv;
     }
 
     public void b(V v, T t) {
     }
 
     public void setOnItemClickListener(a<T, V> aVar) {
-        this.eAK = aVar;
+        this.eMR = aVar;
     }
 
-    public a<T, V> bmK() {
-        return this.eAK;
+    public a<T, V> bpu() {
+        return this.eMR;
     }
 }

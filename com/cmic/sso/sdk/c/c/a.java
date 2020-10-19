@@ -16,22 +16,22 @@ import com.cmic.sso.sdk.e.q;
 import com.cmic.sso.sdk.e.r;
 import com.cmic.sso.sdk.e.s;
 import org.json.JSONObject;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class a {
-    private static a nsF = null;
+    private static a nHZ = null;
 
     private a() {
     }
 
-    public static a dRq() {
-        if (nsF == null) {
+    public static a dVb() {
+        if (nHZ == null) {
             synchronized (a.class) {
-                if (nsF == null) {
-                    nsF = new a();
+                if (nHZ == null) {
+                    nHZ = new a();
                 }
             }
         }
-        return nsF;
+        return nHZ;
     }
 
     public void a(boolean z, com.cmic.sso.sdk.a aVar, d dVar) {
@@ -47,7 +47,7 @@ public class a {
     }
 
     public void a(com.cmic.sso.sdk.a aVar, d dVar) {
-        String a;
+        String a2;
         int c = aVar.c("networktype");
         String b = aVar.b("authtype", "");
         e eVar = new e();
@@ -59,8 +59,8 @@ public class a {
         aVar2.i(aVar.b("smskey", ""));
         aVar2.j(aVar.b("imsi"));
         aVar2.k(aVar.b("imei"));
-        aVar2.c(j.dRv().c());
-        aVar2.d(j.dRv().d());
+        aVar2.c(j.dVg().c());
+        aVar2.d(j.dVg().d());
         aVar2.l(aVar.b("operatortype"));
         aVar2.m(c + "");
         aVar2.n(n.a());
@@ -72,15 +72,15 @@ public class a {
         aVar2.s(p.a());
         aVar2.t(aVar.b("apppackage"));
         aVar2.u(aVar.b("appsign"));
-        eVar.a(aVar.a(b.a.a));
+        eVar.a(aVar.a(b.a.f4005a));
         if (aVar.b("use2048PublicKey", false)) {
             com.cmic.sso.sdk.e.c.a("BaseRequest", "使用2对应的编码");
             eVar.a("2");
-            a = i.dRu().b(aVar.a(b.a.a));
+            a2 = i.dVf().b(aVar.a(b.a.f4005a));
         } else {
-            a = i.dRu().a(aVar.a(b.a.a));
+            a2 = i.dVf().a(aVar.a(b.a.f4005a));
         }
-        eVar.b(a);
+        eVar.b(a2);
         eVar.a(aVar2);
         aVar.a("interfaceVersion", "6.0");
         aVar.a("interfaceType", "getPrePhonescrip");
@@ -102,7 +102,7 @@ public class a {
     public void b(com.cmic.sso.sdk.a aVar, d dVar) {
         int c = aVar.c("networktype");
         com.cmic.sso.sdk.c.b.a aVar2 = new com.cmic.sso.sdk.c.b.a();
-        a.C0856a c0856a = new a.C0856a();
+        a.C0874a c0874a = new a.C0874a();
         aVar2.f("0.1");
         aVar2.i(aVar.b("phonescrip"));
         aVar2.h(aVar.b("appid"));
@@ -115,24 +115,24 @@ public class a {
         aVar2.b(aVar.b(UgcConstant.SOURCE_ID));
         aVar2.k(aVar.b("authenticated_appid"));
         aVar2.l(aVar.b("genTokenByAppid"));
-        aVar2.j(aVar2.UG(aVar.b("appkey")));
-        c0856a.b(n.c());
-        c0856a.a(k.b("AID", ""));
-        c0856a.c(n.b());
-        c0856a.d(n.a());
-        c0856a.e(aVar.b("operatortype", ""));
-        c0856a.f("0");
-        c0856a.g(c + "");
-        c0856a.h(r.a(false));
-        c0856a.i(r.aC(false, false));
-        c0856a.j(aVar.b("CLOSE_CERT_VERIFY", true) ? "0" : "1");
+        aVar2.j(aVar2.Vu(aVar.b("appkey")));
+        c0874a.b(n.c());
+        c0874a.a(k.b("AID", ""));
+        c0874a.c(n.b());
+        c0874a.d(n.a());
+        c0874a.e(aVar.b("operatortype", ""));
+        c0874a.f("0");
+        c0874a.g(c + "");
+        c0874a.h(r.a(false));
+        c0874a.i(r.aB(false, false));
+        c0874a.j(aVar.b("CLOSE_CERT_VERIFY", true) ? "0" : "1");
         String f = q.f();
         if (m.a()) {
-            c0856a.k("1");
+            c0874a.k("1");
         } else {
-            c0856a.k("0");
+            c0874a.k("0");
         }
-        aVar2.a(c0856a.a());
+        aVar2.a(c0874a.a());
         s.a(aVar, "getAuthToken");
         aVar.a("interfaceVersion", "6.0");
         a(new c(f + "/api/getAuthToken", aVar2, "POST", aVar.b("traceId")), dVar, aVar);
@@ -176,7 +176,7 @@ public class a {
                         s.b(aVar, string);
                         dVar.j(string, jSONObject.optString("desc"), jSONObject);
                     } catch (Exception e) {
-                        a(com.cmic.sso.sdk.c.d.a.Lr(102223));
+                        a(com.cmic.sso.sdk.c.d.a.LX(102223));
                     }
                 }
             }

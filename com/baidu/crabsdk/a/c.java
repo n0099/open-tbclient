@@ -6,33 +6,33 @@ import android.os.Looper;
 import java.util.ArrayList;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
-/* loaded from: classes8.dex */
+/* loaded from: classes11.dex */
 public class c {
     private static boolean an = false;
-    private static c and;
-    private static Context ane;
-    private static ExecutorService anf;
-    public l anb;
-    public p anc;
+    private static c anM;
+    private static Context anN;
+    private static ExecutorService anO;
+    public l anK;
+    public p anL;
 
     private c(Context context) {
-        ane = context;
-        this.anc = new p(Looper.getMainLooper().getThread(), a.W);
-        this.anb = new l(new d(this), context);
-        if (anf == null) {
-            anf = Executors.newSingleThreadExecutor();
+        anN = context;
+        this.anL = new p(Looper.getMainLooper().getThread(), a.W);
+        this.anK = new l(new d(this), context);
+        if (anO == null) {
+            anO = Executors.newSingleThreadExecutor();
         }
     }
 
-    public static c aa(Context context) {
-        if (and == null) {
+    public static c ad(Context context) {
+        if (anM == null) {
             synchronized (c.class) {
-                if (and == null) {
-                    and = new c(context);
+                if (anM == null) {
+                    anM = new c(context);
                 }
             }
         }
-        return and;
+        return anM;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -42,23 +42,23 @@ public class c {
         if (c.isEmpty()) {
             return;
         }
-        a uV = a.uV();
-        uV.amX = c;
-        uV.a(j, j2, j3, j4);
+        a ve = a.ve();
+        ve.anG = c;
+        ve.a(j, j2, j3, j4);
     }
 
     public static void start() {
         an = true;
         if (Build.VERSION.SDK_INT >= 16) {
-            e.anh.start();
-            com.baidu.crabsdk.c.a.dv("start FrameMonitor...");
+            e.anQ.start();
+            com.baidu.crabsdk.c.a.dA("start FrameMonitor...");
         }
     }
 
     public static void stop() {
         an = false;
         if (Build.VERSION.SDK_INT >= 16) {
-            e.anh.stop();
+            e.anQ.stop();
         }
     }
 }

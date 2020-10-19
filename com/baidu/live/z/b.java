@@ -5,13 +5,13 @@ import com.baidu.live.pendantview.PendantChildView;
 import org.json.JSONObject;
 /* loaded from: classes4.dex */
 public interface b {
-    PendantChildView Of();
+    void P(JSONObject jSONObject);
 
-    void Og();
+    PendantChildView Pk();
 
-    void Oh();
+    void Pl();
 
-    void Q(JSONObject jSONObject);
+    void Pm();
 
     void k(u uVar);
 

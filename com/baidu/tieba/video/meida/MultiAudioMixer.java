@@ -6,27 +6,27 @@ import java.io.FileInputStream;
 import java.io.IOException;
 import java.lang.reflect.Array;
 import java.util.Arrays;
-/* loaded from: classes22.dex */
+/* loaded from: classes23.dex */
 public abstract class MultiAudioMixer {
-    private b mJx;
+    private b mZe;
 
-    /* loaded from: classes22.dex */
+    /* loaded from: classes23.dex */
     public interface b {
-        void JA(int i);
+        void Kg(int i);
 
         void aj(byte[] bArr) throws IOException;
 
-        void dGL();
+        void dKx();
     }
 
     abstract byte[] c(byte[][] bArr);
 
-    public static MultiAudioMixer dGK() {
+    public static MultiAudioMixer dKw() {
         return new a();
     }
 
     public void a(b bVar) {
-        this.mJx = bVar;
+        this.mZe = bVar;
     }
 
     /* JADX DEBUG: Another duplicated slice has different insns count: {[]}, finally: {[ARITH, INVOKE, ARITH, IF, INVOKE, MOVE_EXCEPTION, AGET, IF, ARRAY_LENGTH, INVOKE, MOVE_EXCEPTION] complete} */
@@ -45,8 +45,8 @@ public abstract class MultiAudioMixer {
                     fileInputStreamArr[i2] = new FileInputStream(fileArr[i2]);
                 } catch (Exception e) {
                     e.printStackTrace();
-                    if (this.mJx != null) {
-                        this.mJx.JA(1);
+                    if (this.mZe != null) {
+                        this.mZe.Kg(1);
                     }
                     try {
                         int length2 = fileInputStreamArr.length;
@@ -89,8 +89,8 @@ public abstract class MultiAudioMixer {
                 }
             }
             byte[] c = c(bArr);
-            if (c != null && this.mJx != null) {
-                this.mJx.aj(c);
+            if (c != null && this.mZe != null) {
+                this.mZe.aj(c);
             }
             z = true;
             for (boolean z2 : zArr) {
@@ -99,12 +99,12 @@ public abstract class MultiAudioMixer {
                 }
             }
         } while (!z);
-        if (this.mJx != null) {
-            this.mJx.dGL();
+        if (this.mZe != null) {
+            this.mZe.dKx();
         }
     }
 
-    /* loaded from: classes22.dex */
+    /* loaded from: classes23.dex */
     public static class AudioMixException extends IOException {
         private static final long serialVersionUID = -1344782236320621800L;
 
@@ -113,7 +113,7 @@ public abstract class MultiAudioMixer {
         }
     }
 
-    /* loaded from: classes22.dex */
+    /* loaded from: classes23.dex */
     private static class a extends MultiAudioMixer {
         private a() {
         }

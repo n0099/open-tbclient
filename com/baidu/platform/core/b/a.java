@@ -4,22 +4,22 @@ import com.baidu.mapapi.search.geocode.GeoCodeOption;
 import com.baidu.mapapi.search.geocode.OnGetGeoCoderResultListener;
 import com.baidu.mapapi.search.geocode.ReverseGeoCodeOption;
 import com.baidu.platform.base.SearchType;
-/* loaded from: classes3.dex */
+/* loaded from: classes7.dex */
 public class a extends com.baidu.platform.base.a implements d {
     OnGetGeoCoderResultListener b = null;
 
     @Override // com.baidu.platform.core.b.d
     public void a() {
-        this.a.lock();
+        this.f2810a.lock();
         this.b = null;
-        this.a.unlock();
+        this.f2810a.unlock();
     }
 
     @Override // com.baidu.platform.core.b.d
     public void a(OnGetGeoCoderResultListener onGetGeoCoderResultListener) {
-        this.a.lock();
+        this.f2810a.lock();
         this.b = onGetGeoCoderResultListener;
-        this.a.unlock();
+        this.f2810a.unlock();
     }
 
     @Override // com.baidu.platform.core.b.d

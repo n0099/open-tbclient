@@ -1,7 +1,9 @@
 package com.heytap.mcssdk;
-/* loaded from: classes12.dex */
+/* loaded from: classes15.dex */
 public final class a {
-    public static final boolean a = false;
+
+    /* renamed from: a  reason: collision with root package name */
+    public static final boolean f4056a = false;
     public static final String b = "com.heytap.mcssdk";
     public static final String c = "release";
     public static final String d = "";

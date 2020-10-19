@@ -23,11 +23,11 @@ import com.baidu.tieba.enterForum.data.RecentlyVisitedForumData;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.LinkedList;
-/* loaded from: classes21.dex */
+/* loaded from: classes22.dex */
 public class LatelyView extends FrameLayout implements d<String> {
-    private LinearLayoutManager WN;
-    private g fQf;
-    private b hiP;
+    private LinearLayoutManager Xe;
+    private g gcx;
+    private b hxK;
     private RecyclerView mRecyclerView;
     private h mRefreshView;
     private int mSkinType;
@@ -49,11 +49,11 @@ public class LatelyView extends FrameLayout implements d<String> {
     private void init() {
         LayoutInflater.from(getContext()).inflate(R.layout.select_forum_lately_layout, (ViewGroup) this, true);
         this.mRecyclerView = (RecyclerView) findViewById(R.id.select_forum_list);
-        this.hiP = new b(this);
-        this.hiP.setType(1);
-        this.WN = new LinearLayoutManager(getContext());
-        this.mRecyclerView.setLayoutManager(this.WN);
-        this.mRecyclerView.setAdapter(this.hiP);
+        this.hxK = new b(this);
+        this.hxK.setType(1);
+        this.Xe = new LinearLayoutManager(getContext());
+        this.mRecyclerView.setLayoutManager(this.Xe);
+        this.mRecyclerView.setAdapter(this.hxK);
     }
 
     @Override // com.baidu.tieba.d
@@ -64,18 +64,18 @@ public class LatelyView extends FrameLayout implements d<String> {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.tieba.d
     /* renamed from: request */
-    public void aw(String str) {
-        RecentlyVisitedForumData cix = a.cis().cix();
-        if (cix == null) {
+    public void az(String str) {
+        RecentlyVisitedForumData clT = a.clO().clT();
+        if (clT == null) {
             R(false, false);
             return;
         }
-        LinkedList<VisitedForumData> forumData = cix.getForumData();
+        LinkedList<VisitedForumData> forumData = clT.getForumData();
         if (y.isEmpty(forumData)) {
             R(false, false);
             return;
         }
-        bHn();
+        SK();
         ArrayList arrayList = new ArrayList();
         ArrayList arrayList2 = new ArrayList();
         Iterator<VisitedForumData> it = forumData.iterator();
@@ -84,15 +84,15 @@ public class LatelyView extends FrameLayout implements d<String> {
             if (next != null) {
                 i iVar = new i();
                 iVar.forumId = next.getForumId();
-                iVar.baJ = next.brX();
+                iVar.bed = next.buH();
                 iVar.forumName = next.getForumName();
                 iVar.level = next.getLevel();
-                iVar.eLM = next.bsd();
-                iVar.eLN = next.bse();
-                iVar.eLO = next.bsf();
-                iVar.tabInfoList = next.bsg();
-                iVar.eLP = next.bsh();
-                if (iVar.eLM) {
+                iVar.eXT = next.buN();
+                iVar.eXU = next.buO();
+                iVar.eXV = next.buP();
+                iVar.tabInfoList = next.buQ();
+                iVar.eXW = next.buR();
+                if (iVar.eXT) {
                     arrayList2.add(iVar);
                 } else {
                     arrayList.add(iVar);
@@ -100,22 +100,22 @@ public class LatelyView extends FrameLayout implements d<String> {
             }
         }
         arrayList2.addAll(arrayList);
-        this.hiP.aO(arrayList2);
-        this.hiP.notifyDataSetChanged();
+        this.hxK.aR(arrayList2);
+        this.hxK.notifyDataSetChanged();
     }
 
     @Override // com.baidu.tieba.d
-    public void Dy(String str) {
+    public void Ej(String str) {
     }
 
     public void R(boolean z, boolean z2) {
-        if (!cdF()) {
+        if (!chb()) {
             if (this.mRefreshView == null) {
                 this.mRefreshView = new h(getContext(), new View.OnClickListener() { // from class: com.baidu.tieba.lately.LatelyView.1
                     @Override // android.view.View.OnClickListener
                     public void onClick(View view) {
                         if (j.isNetworkAvailableForImmediately()) {
-                            LatelyView.this.aw(null);
+                            LatelyView.this.az(null);
                         }
                     }
                 });
@@ -125,15 +125,15 @@ public class LatelyView extends FrameLayout implements d<String> {
             if (z2) {
                 this.mRefreshView.showRefreshButton();
             } else {
-                this.mRefreshView.qL(R.drawable.new_pic_emotion_01);
+                this.mRefreshView.rj(R.drawable.new_pic_emotion_01);
                 this.mRefreshView.hideRefreshButton();
             }
-            this.mRefreshView.CK(getContext().getString(R.string.activity_select_forum_recently_empty));
+            this.mRefreshView.Dw(getContext().getString(R.string.activity_select_forum_recently_empty));
             this.mRecyclerView.setVisibility(8);
         }
     }
 
-    public void bHn() {
+    public void SK() {
         if (this.mRefreshView != null) {
             this.mRefreshView.dettachView(this);
             this.mRefreshView = null;
@@ -141,7 +141,7 @@ public class LatelyView extends FrameLayout implements d<String> {
         this.mRecyclerView.setVisibility(0);
     }
 
-    public boolean cdF() {
+    public boolean chb() {
         if (this.mRefreshView != null) {
             return this.mRefreshView.isViewAttached();
         }
@@ -153,13 +153,13 @@ public class LatelyView extends FrameLayout implements d<String> {
         int skinType = TbadkCoreApplication.getInst().getSkinType();
         if (skinType != this.mSkinType) {
             this.mSkinType = skinType;
-            if (this.fQf != null) {
-                this.fQf.onChangeSkinType();
+            if (this.gcx != null) {
+                this.gcx.onChangeSkinType();
             }
             if (this.mRefreshView != null) {
                 this.mRefreshView.onChangeSkinType();
             }
-            this.hiP.notifyDataSetChanged();
+            this.hxK.notifyDataSetChanged();
         }
     }
 }

@@ -2,7 +2,7 @@ package kotlin.collections;
 
 import java.util.Iterator;
 @kotlin.h
-/* loaded from: classes5.dex */
+/* loaded from: classes10.dex */
 public abstract class ad implements Iterator<Integer> {
     public abstract int nextInt();
 
@@ -13,7 +13,7 @@ public abstract class ad implements Iterator<Integer> {
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // java.util.Iterator
-    /* renamed from: ekc */
+    /* renamed from: enO */
     public final Integer next() {
         return Integer.valueOf(nextInt());
     }

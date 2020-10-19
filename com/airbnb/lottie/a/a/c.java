@@ -8,12 +8,12 @@ import android.support.annotation.Nullable;
 import com.airbnb.lottie.a.b.a;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes6.dex */
-public class c implements d, l, a.InterfaceC0010a, com.airbnb.lottie.model.f {
+/* loaded from: classes10.dex */
+public class c implements d, l, a.InterfaceC0011a, com.airbnb.lottie.model.f {
     @Nullable
-    private List<l> CD;
+    private List<l> CZ;
     @Nullable
-    private com.airbnb.lottie.a.b.o CE;
+    private com.airbnb.lottie.a.b.o Da;
     private final List<b> contents;
     private final com.airbnb.lottie.g lottieDrawable;
     private final Matrix matrix;
@@ -27,9 +27,9 @@ public class c implements d, l, a.InterfaceC0010a, com.airbnb.lottie.model.f {
         while (true) {
             int i2 = i;
             if (i2 < list.size()) {
-                b a = list.get(i2).a(gVar, aVar);
-                if (a != null) {
-                    arrayList.add(a);
+                b a2 = list.get(i2).a(gVar, aVar);
+                if (a2 != null) {
+                    arrayList.add(a2);
                 }
                 i = i2 + 1;
             } else {
@@ -69,9 +69,9 @@ public class c implements d, l, a.InterfaceC0010a, com.airbnb.lottie.model.f {
         this.lottieDrawable = gVar;
         this.contents = list;
         if (lVar != null) {
-            this.CE = lVar.jL();
-            this.CE.a(aVar);
-            this.CE.a(this);
+            this.Da = lVar.jM();
+            this.Da.a(aVar);
+            this.Da.a(this);
         }
         ArrayList arrayList = new ArrayList();
         for (int size = list.size() - 1; size >= 0; size--) {
@@ -85,8 +85,8 @@ public class c implements d, l, a.InterfaceC0010a, com.airbnb.lottie.model.f {
         }
     }
 
-    @Override // com.airbnb.lottie.a.b.a.InterfaceC0010a
-    public void iS() {
+    @Override // com.airbnb.lottie.a.b.a.InterfaceC0011a
+    public void iT() {
         this.lottieDrawable.invalidateSelf();
     }
 
@@ -107,9 +107,9 @@ public class c implements d, l, a.InterfaceC0010a, com.airbnb.lottie.model.f {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public List<l> iT() {
-        if (this.CD == null) {
-            this.CD = new ArrayList();
+    public List<l> iU() {
+        if (this.CZ == null) {
+            this.CZ = new ArrayList();
             int i = 0;
             while (true) {
                 int i2 = i;
@@ -118,34 +118,34 @@ public class c implements d, l, a.InterfaceC0010a, com.airbnb.lottie.model.f {
                 }
                 b bVar = this.contents.get(i2);
                 if (bVar instanceof l) {
-                    this.CD.add((l) bVar);
+                    this.CZ.add((l) bVar);
                 }
                 i = i2 + 1;
             }
         }
-        return this.CD;
+        return this.CZ;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public Matrix iU() {
-        if (this.CE != null) {
-            return this.CE.getMatrix();
+    public Matrix iV() {
+        if (this.Da != null) {
+            return this.Da.getMatrix();
         }
         this.matrix.reset();
         return this.matrix;
     }
 
     @Override // com.airbnb.lottie.a.a.l
-    public Path iV() {
+    public Path iW() {
         this.matrix.reset();
-        if (this.CE != null) {
-            this.matrix.set(this.CE.getMatrix());
+        if (this.Da != null) {
+            this.matrix.set(this.Da.getMatrix());
         }
         this.path.reset();
         for (int size = this.contents.size() - 1; size >= 0; size--) {
             b bVar = this.contents.get(size);
             if (bVar instanceof l) {
-                this.path.addPath(((l) bVar).iV(), this.matrix);
+                this.path.addPath(((l) bVar).iW(), this.matrix);
             }
         }
         return this.path;
@@ -154,9 +154,9 @@ public class c implements d, l, a.InterfaceC0010a, com.airbnb.lottie.model.f {
     @Override // com.airbnb.lottie.a.a.d
     public void a(Canvas canvas, Matrix matrix, int i) {
         this.matrix.set(matrix);
-        if (this.CE != null) {
-            this.matrix.preConcat(this.CE.getMatrix());
-            i = (int) ((((this.CE.jq().getValue().intValue() / 100.0f) * i) / 255.0f) * 255.0f);
+        if (this.Da != null) {
+            this.matrix.preConcat(this.Da.getMatrix());
+            i = (int) ((((this.Da.jr().getValue().intValue() / 100.0f) * i) / 255.0f) * 255.0f);
         }
         for (int size = this.contents.size() - 1; size >= 0; size--) {
             b bVar = this.contents.get(size);
@@ -169,8 +169,8 @@ public class c implements d, l, a.InterfaceC0010a, com.airbnb.lottie.model.f {
     @Override // com.airbnb.lottie.a.a.d
     public void a(RectF rectF, Matrix matrix) {
         this.matrix.set(matrix);
-        if (this.CE != null) {
-            this.matrix.preConcat(this.CE.getMatrix());
+        if (this.Da != null) {
+            this.matrix.preConcat(this.Da.getMatrix());
         }
         this.rect.set(0.0f, 0.0f, 0.0f, 0.0f);
         for (int size = this.contents.size() - 1; size >= 0; size--) {
@@ -216,8 +216,8 @@ public class c implements d, l, a.InterfaceC0010a, com.airbnb.lottie.model.f {
 
     @Override // com.airbnb.lottie.model.f
     public <T> void a(T t, @Nullable com.airbnb.lottie.e.c<T> cVar) {
-        if (this.CE != null) {
-            this.CE.b(t, cVar);
+        if (this.Da != null) {
+            this.Da.b(t, cVar);
         }
     }
 }

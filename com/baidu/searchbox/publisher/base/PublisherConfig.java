@@ -1,5 +1,5 @@
 package com.baidu.searchbox.publisher.base;
-/* loaded from: classes24.dex */
+/* loaded from: classes17.dex */
 public class PublisherConfig {
     public static final int EXPORT_APP_VERSION = 2;
     public static final int MAIN_APP_VERSION = 1;

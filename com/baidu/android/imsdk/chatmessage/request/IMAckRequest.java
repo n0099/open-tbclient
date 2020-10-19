@@ -25,7 +25,7 @@ import org.apache.http.cookie.SM;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes9.dex */
+/* loaded from: classes5.dex */
 public class IMAckRequest extends BaseHttpRequest {
     private static final String TAG = "IMAckRequest";
     private JSONArray mAckList = new JSONArray();
@@ -134,8 +134,7 @@ public class IMAckRequest extends BaseHttpRequest {
     private void getShortAckMsgs(ArrayList<ChatMsg> arrayList) {
         LogUtils.d(TAG, "getShortAckMsgs begin~~~");
         new LinkedList();
-        MessageParser.setAcKType(0);
-        List<NewAckMessage.Tripule> handleAck = MessageParser.handleAck(this.mContext, arrayList, false);
+        List<NewAckMessage.Tripule> handleAck = MessageParser.handleAck(this.mContext, arrayList, false, false);
         if (handleAck != null && handleAck.size() > 0) {
             NewAckMessage newAckMessage = new NewAckMessage(this.mContext, IMSDK.getInstance(this.mContext).getUk(), this.mTriggerId, this.mIsReliable);
             newAckMessage.addTriples(handleAck);

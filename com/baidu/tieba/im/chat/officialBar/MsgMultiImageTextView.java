@@ -8,9 +8,9 @@ import com.baidu.tieba.im.chat.MsglistActivity;
 import com.baidu.tieba.im.message.chat.ChatMessage;
 import com.baidu.tieba.im.message.chat.a;
 import java.util.List;
-/* loaded from: classes25.dex */
+/* loaded from: classes26.dex */
 public class MsgMultiImageTextView extends com.baidu.tieba.im.chat.g {
-    private MultiContentView jpR;
+    private MultiContentView jEO;
 
     public MsgMultiImageTextView(TbPageContext<MsglistActivity<?>> tbPageContext) {
         super(tbPageContext, R.layout.msg_multi_pictext_view);
@@ -18,19 +18,19 @@ public class MsgMultiImageTextView extends com.baidu.tieba.im.chat.g {
     }
 
     private void init() {
-        this.fKk = (TextView) findViewById(R.id.tex_msgitem_time);
-        this.jpR = (MultiContentView) findViewById(R.id.msg_content);
+        this.fWB = (TextView) findViewById(R.id.tex_msgitem_time);
+        this.jEO = (MultiContentView) findViewById(R.id.msg_content);
     }
 
     public void a(TbPageContext<?> tbPageContext, ChatMessage chatMessage, View view) {
         if (chatMessage != null) {
             b(chatMessage);
-            List<a.C0716a> a = com.baidu.tieba.im.message.chat.a.a(chatMessage.getContent(), chatMessage.getUserInfo().getUserId(), chatMessage.getUserInfo(), chatMessage.getMsgId(), chatMessage.getStatTaskId(), chatMessage.getStatisticsServiceId());
-            this.jpR.setPosition(this.mPosition);
-            this.jpR.setOnItemViewLongClickListener(this.jon);
-            this.jpR.setNeedNightMode(true);
-            this.jpR.setType(1);
-            this.jpR.setData(tbPageContext, a, view);
+            List<a.C0734a> a2 = com.baidu.tieba.im.message.chat.a.a(chatMessage.getContent(), chatMessage.getUserInfo().getUserId(), chatMessage.getUserInfo(), chatMessage.getMsgId(), chatMessage.getStatTaskId(), chatMessage.getStatisticsServiceId());
+            this.jEO.setPosition(this.mPosition);
+            this.jEO.setOnItemViewLongClickListener(this.jDk);
+            this.jEO.setNeedNightMode(true);
+            this.jEO.setType(1);
+            this.jEO.setData(tbPageContext, a2, view);
         }
     }
 }

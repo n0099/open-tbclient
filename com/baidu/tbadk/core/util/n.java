@@ -36,7 +36,7 @@ public class n {
 
     /* loaded from: classes.dex */
     public interface b {
-        void B(HashMap<String, String> hashMap);
+        void D(HashMap<String, String> hashMap);
     }
 
     public static boolean checkSD() {
@@ -373,11 +373,11 @@ public class n {
         return ((float) imageFileWH[0]) * equipmentDensity >= 100.0f && f >= 3.0f && f <= 50.0f;
     }
 
-    public static boolean Am(String str) {
+    public static boolean AY(String str) {
         return str.endsWith(".heif") || str.endsWith(".heic");
     }
 
-    public static boolean An(String str) {
+    public static boolean AZ(String str) {
         return str != null && str.endsWith(".css");
     }
 
@@ -1382,7 +1382,7 @@ public class n {
         }
     }
 
-    public static boolean dD(String str, String str2) {
+    public static boolean dI(String str, String str2) {
         return u(str, str2, false);
     }
 
@@ -1835,7 +1835,7 @@ public class n {
                 str2 = ".gif";
             }
             if (com.baidu.adp.lib.util.l.isDataWebpFormat(bArr) && (decodeByteArray = BitmapFactory.decodeByteArray(bArr, 0, bArr.length)) != null) {
-                bArr = com.baidu.adp.lib.util.d.oh().Bitmap2Bytes(decodeByteArray, 100);
+                bArr = com.baidu.adp.lib.util.d.oi().Bitmap2Bytes(decodeByteArray, 100);
                 decodeByteArray.recycle();
             }
             String nameMd5FromUrl = av.getNameMd5FromUrl(str);
@@ -1861,7 +1861,7 @@ public class n {
     public static void a(String[] strArr, final b bVar) {
         if (strArr == null || strArr.length == 0) {
             if (bVar != null) {
-                bVar.B(null);
+                bVar.D(null);
                 return;
             }
             return;
@@ -1869,7 +1869,7 @@ public class n {
         for (String str : strArr) {
             if (TextUtils.isEmpty(str)) {
                 if (bVar != null) {
-                    bVar.B(null);
+                    bVar.D(null);
                     return;
                 } else {
                     return;
@@ -1882,20 +1882,20 @@ public class n {
         }
         final int length = strArr.length;
         MediaScannerConnection.scanFile(TbadkCoreApplication.getInst(), strArr, null, new MediaScannerConnection.OnScanCompletedListener() { // from class: com.baidu.tbadk.core.util.n.1
-            int els = 0;
+            int exB = 0;
 
             @Override // android.media.MediaScannerConnection.OnScanCompletedListener
             public void onScanCompleted(String str3, Uri uri) {
-                this.els++;
+                this.exB++;
                 if (uri != null) {
                     hashMap.put(str3, uri.toString());
                 }
-                if (this.els == length) {
-                    com.baidu.adp.lib.f.e.mX().post(new Runnable() { // from class: com.baidu.tbadk.core.util.n.1.1
+                if (this.exB == length) {
+                    com.baidu.adp.lib.f.e.mY().post(new Runnable() { // from class: com.baidu.tbadk.core.util.n.1.1
                         @Override // java.lang.Runnable
                         public void run() {
                             if (bVar != null) {
-                                bVar.B(hashMap);
+                                bVar.D(hashMap);
                             }
                         }
                     });
@@ -1994,7 +1994,7 @@ public class n {
         return str.toLowerCase().startsWith("content:") || str.toLowerCase().startsWith("file:");
     }
 
-    public static String Ao(String str) {
+    public static String Ba(String str) {
         Uri parse = Uri.parse(str);
         if (parse == null) {
             return null;
@@ -2002,7 +2002,7 @@ public class n {
         return parse.getLastPathSegment();
     }
 
-    public static String Ap(String str) {
+    public static String Bb(String str) {
         Uri parse = Uri.parse(str);
         if (parse == null) {
             return null;
@@ -2010,18 +2010,18 @@ public class n {
         return (TbadkCoreApplication.getInst().getCacheDir().getAbsolutePath() + "/") + parse.getLastPathSegment();
     }
 
-    public static void Aq(@NonNull String str) {
+    public static void Bc(@NonNull String str) {
         if (str != null) {
-            N(new File(CACHE_DIR + "/" + str));
+            Q(new File(CACHE_DIR + "/" + str));
         }
     }
 
-    private static void N(File file) {
+    private static void Q(File file) {
         File[] listFiles;
         if (file.exists() && file.isDirectory() && (listFiles = file.listFiles()) != null) {
             for (File file2 : listFiles) {
                 if (file2.isDirectory()) {
-                    N(file2);
+                    Q(file2);
                     file2.delete();
                 } else {
                     file2.delete();

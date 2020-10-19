@@ -8,11 +8,13 @@ import java.io.File;
 import java.io.IOException;
 import java.util.concurrent.CountDownLatch;
 import java.util.concurrent.TimeUnit;
-/* loaded from: classes16.dex */
+/* loaded from: classes17.dex */
 public class a extends h {
     public static volatile boolean b = false;
     public static volatile boolean c = false;
-    protected g a;
+
+    /* renamed from: a  reason: collision with root package name */
+    protected g f1728a;
     protected int d;
     protected CountDownLatch e;
     private String t;
@@ -25,9 +27,9 @@ public class a extends h {
     @Override // com.baidu.fsg.face.liveness.video.h
     @TargetApi(18)
     protected boolean a() {
-        int a = this.j.a();
+        int a2 = this.j.a();
         int b2 = this.j.b();
-        LogUtil.i("previewSize:" + a + Constants.ACCEPT_TIME_SEPARATOR_SP + b2);
+        LogUtil.i("previewSize:" + a2 + Constants.ACCEPT_TIME_SEPARATOR_SP + b2);
         b = false;
         c = false;
         int c2 = this.j.c();
@@ -35,11 +37,11 @@ public class a extends h {
             MediaMuxer mediaMuxer = new MediaMuxer(this.t, 0);
             mediaMuxer.setOrientationHint(c2);
             this.e = new CountDownLatch(1);
-            this.a = new g(a, b2, this.s, this.q, this.r, null, mediaMuxer, this.e);
-            this.a.a(this);
+            this.f1728a = new g(a2, b2, this.s, this.q, this.r, null, mediaMuxer, this.e);
+            this.f1728a.a(this);
             this.o.d(c2);
             this.o.a(this.t);
-            this.o.a(a);
+            this.o.a(a2);
             this.o.b(b2);
             return true;
         } catch (IOException e) {
@@ -53,8 +55,8 @@ public class a extends h {
         if (this.i) {
             i();
             this.i = false;
-            this.a.c();
-            this.d += this.a.e();
+            this.f1728a.c();
+            this.d += this.f1728a.e();
         }
     }
 
@@ -63,8 +65,8 @@ public class a extends h {
         if (this.i) {
             i();
             this.i = false;
-            this.a.c();
-            this.d += this.a.e();
+            this.f1728a.c();
+            this.d += this.f1728a.e();
         }
     }
 
@@ -98,14 +100,14 @@ public class a extends h {
                 if (this.p) {
                 }
                 return;
-            } else if (!this.a.isAlive()) {
-                if (!this.p && !this.a.b()) {
+            } else if (!this.f1728a.isAlive()) {
+                if (!this.p && !this.f1728a.b()) {
                     a(new RuntimeException("wait record stop" + (System.currentTimeMillis() - currentTimeMillis) + "ms,timeout"));
                     return;
                 }
                 return;
-            } else if (i != this.a.f()) {
-                i = this.a.f();
+            } else if (i != this.f1728a.f()) {
+                i = this.f1728a.f();
                 j = System.currentTimeMillis();
             } else if (System.currentTimeMillis() - j > 10000) {
                 String str = (System.currentTimeMillis() - j) + "ms cannot write finish, record fail";
@@ -119,7 +121,7 @@ public class a extends h {
     @Override // com.baidu.fsg.face.liveness.video.e
     public void a(byte[] bArr, long j) {
         if (this.i && bArr != null && !this.k) {
-            this.a.a(bArr, j);
+            this.f1728a.a(bArr, j);
         }
     }
 
@@ -152,7 +154,7 @@ public class a extends h {
         this.p = false;
         h();
         if (a()) {
-            this.a.start();
+            this.f1728a.start();
             this.m = System.currentTimeMillis();
             this.i = true;
         }

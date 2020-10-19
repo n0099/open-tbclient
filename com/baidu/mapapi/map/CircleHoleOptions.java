@@ -3,9 +3,11 @@ package com.baidu.mapapi.map;
 import android.util.Log;
 import com.baidu.mapapi.model.LatLng;
 import com.baidu.mobstat.Config;
-/* loaded from: classes3.dex */
+/* loaded from: classes7.dex */
 public class CircleHoleOptions extends HoleOptions {
-    private LatLng a;
+
+    /* renamed from: a  reason: collision with root package name */
+    private LatLng f2001a;
     private int b;
 
     public CircleHoleOptions() {
@@ -16,13 +18,13 @@ public class CircleHoleOptions extends HoleOptions {
         if (latLng == null) {
             Log.e("baidumapsdk", "CircleHole center can not be null");
         } else {
-            this.a = latLng;
+            this.f2001a = latLng;
         }
         return this;
     }
 
     public LatLng getHoleCenter() {
-        return this.a;
+        return this.f2001a;
     }
 
     public int getHoleRadius() {

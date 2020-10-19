@@ -9,52 +9,54 @@ import android.os.SystemClock;
 import com.xiaomi.push.fc;
 import com.xiaomi.push.service.XMJobService;
 @TargetApi(21)
-/* loaded from: classes9.dex */
+/* loaded from: classes12.dex */
 public class fe implements fc.a {
-    JobScheduler a;
+
+    /* renamed from: a  reason: collision with root package name */
+    JobScheduler f4899a;
 
     /* renamed from: a  reason: collision with other field name */
-    Context f316a;
+    Context f317a;
 
     /* renamed from: a  reason: collision with other field name */
-    private boolean f317a = false;
+    private boolean f318a = false;
 
     fe(Context context) {
-        this.f316a = context;
-        this.a = (JobScheduler) context.getSystemService("jobscheduler");
+        this.f317a = context;
+        this.f4899a = (JobScheduler) context.getSystemService("jobscheduler");
     }
 
     @Override // com.xiaomi.push.fc.a
     public void a() {
-        this.f317a = false;
-        this.a.cancel(1);
+        this.f318a = false;
+        this.f4899a.cancel(1);
     }
 
     void a(long j) {
-        JobInfo.Builder builder = new JobInfo.Builder(1, new ComponentName(this.f316a.getPackageName(), XMJobService.class.getName()));
+        JobInfo.Builder builder = new JobInfo.Builder(1, new ComponentName(this.f317a.getPackageName(), XMJobService.class.getName()));
         builder.setMinimumLatency(j);
         builder.setOverrideDeadline(j);
         builder.setRequiredNetworkType(1);
         builder.setPersisted(false);
         com.xiaomi.channel.commonutils.logger.b.c("schedule Job = " + builder.build().getId() + " in " + j);
-        this.a.schedule(builder.build());
+        this.f4899a.schedule(builder.build());
     }
 
     @Override // com.xiaomi.push.fc.a
     public void a(boolean z) {
-        if (z || this.f317a) {
+        if (z || this.f318a) {
             long b = fy.b();
             if (z) {
                 a();
                 b -= SystemClock.elapsedRealtime() % b;
             }
-            this.f317a = true;
+            this.f318a = true;
             a(b);
         }
     }
 
     @Override // com.xiaomi.push.fc.a
     public boolean a() {
-        return this.f317a;
+        return this.f318a;
     }
 }

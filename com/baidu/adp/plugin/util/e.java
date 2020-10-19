@@ -15,23 +15,23 @@ import java.util.jar.JarEntry;
 import java.util.jar.JarFile;
 /* loaded from: classes.dex */
 public final class e {
-    private static WeakReference<byte[]> Uv;
+    private static WeakReference<byte[]> UO;
     private static Object mSync = new Object();
 
     public static Signature[] a(String str, Util.a aVar) throws CertificateEncodingException, IOException {
         byte[] bArr;
         byte[] bArr2;
         WeakReference<byte[]> weakReference;
-        Certificate[] a;
+        Certificate[] a2;
         Certificate[] certificateArr;
         boolean z;
         if (TextUtils.isEmpty(str) || aVar == null) {
             return null;
         }
         synchronized (mSync) {
-            WeakReference<byte[]> weakReference2 = Uv;
+            WeakReference<byte[]> weakReference2 = UO;
             if (weakReference2 != null) {
-                Uv = null;
+                UO = null;
                 bArr = weakReference2.get();
             } else {
                 bArr = null;
@@ -65,37 +65,37 @@ public final class e {
                         aVar.error = sb.toString();
                         aVar.step = 2;
                         try {
-                            a = a(jarFile, nextElement, bArr2, aVar);
+                            a2 = a(jarFile, nextElement, bArr2, aVar);
                         } catch (Exception e) {
                             sb.append("-Exception_");
                             sb.append(e.toString());
                             aVar.error = sb.toString();
-                            a = a(jarFile, nextElement, bArr2, aVar);
+                            a2 = a(jarFile, nextElement, bArr2, aVar);
                         }
                         aVar.step = 5;
-                        if (a == null) {
+                        if (a2 == null) {
                             aVar.step = 6;
                             BdLog.e("Package " + str + " has no certificates at entry " + nextElement.getName() + "; ignoring!");
                             jarFile.close();
                             return null;
                         }
                         if (certificateArr2 == null) {
-                            certificateArr = a;
+                            certificateArr = a2;
                         } else {
                             for (int i = 0; i < certificateArr2.length; i++) {
                                 int i2 = 0;
                                 while (true) {
-                                    if (i2 >= a.length) {
+                                    if (i2 >= a2.length) {
                                         z = false;
                                         break;
-                                    } else if (certificateArr2[i] != null && certificateArr2[i].equals(a[i2])) {
+                                    } else if (certificateArr2[i] != null && certificateArr2[i].equals(a2[i2])) {
                                         z = true;
                                         break;
                                     } else {
                                         i2++;
                                     }
                                 }
-                                if (!z || certificateArr2.length != a.length) {
+                                if (!z || certificateArr2.length != a2.length) {
                                     aVar.step = 7;
                                     jarFile.close();
                                     return null;
@@ -110,7 +110,7 @@ public final class e {
             aVar.step = 8;
             jarFile.close();
             synchronized (mSync) {
-                Uv = weakReference;
+                UO = weakReference;
             }
             aVar.step = 9;
             if (certificateArr2 != null && certificateArr2.length > 0) {

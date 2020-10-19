@@ -4,17 +4,19 @@ import android.util.Pair;
 import android.view.MotionEvent;
 import com.baidu.platform.comapi.map.b.a;
 import com.baidu.platform.comapi.map.b.f;
-/* loaded from: classes3.dex */
+/* loaded from: classes7.dex */
 public class b {
-    public a.C0240a a;
-    public a.C0240a b;
-    public a.C0240a c;
+
+    /* renamed from: a  reason: collision with root package name */
+    public a.C0255a f2900a;
+    public a.C0255a b;
+    public a.C0255a c;
     public MotionEvent d;
     private a f;
     public f e = new f();
     private boolean g = false;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes7.dex */
     public interface a {
         boolean a(b bVar);
 
@@ -29,7 +31,7 @@ public class b {
 
     private void a() {
         this.e.a();
-        this.a = null;
+        this.f2900a = null;
         this.b = null;
         this.c = null;
         this.g = true;
@@ -46,7 +48,7 @@ public class b {
         this.e.a(motionEvent);
         Pair<a.d, a.d> c = this.e.c();
         if (motionEvent.getPointerCount() == 2) {
-            if (Math.abs(((a.d) c.first).a) > 0.0d || Math.abs(((a.d) c.first).b) > 0.0d || Math.abs(((a.d) c.second).a) > 0.0d || Math.abs(((a.d) c.second).b) > 0.0d) {
+            if (Math.abs(((a.d) c.first).f2903a) > 0.0d || Math.abs(((a.d) c.first).b) > 0.0d || Math.abs(((a.d) c.second).f2903a) > 0.0d || Math.abs(((a.d) c.second).b) > 0.0d) {
                 c(motionEvent);
                 this.f.b(this);
             }
@@ -54,11 +56,11 @@ public class b {
     }
 
     private void c(MotionEvent motionEvent) {
-        a.C0240a a2 = a.C0240a.a(motionEvent);
+        a.C0255a a2 = a.C0255a.a(motionEvent);
         this.b = this.c != null ? this.c : a2;
         this.c = a2;
-        if (this.a == null) {
-            this.a = a2;
+        if (this.f2900a == null) {
+            this.f2900a = a2;
         }
     }
 

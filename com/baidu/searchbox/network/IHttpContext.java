@@ -6,7 +6,7 @@ import com.baidu.searchbox.network.core.connect.IHttpDelegator;
 import com.baidu.searchbox.network.request.HttpRequest;
 import com.baidu.searchbox.network.statistics.NetworkInfoRecord;
 import com.baidu.searchbox.network.statistics.NetworkStat;
-/* loaded from: classes14.dex */
+/* loaded from: classes15.dex */
 public interface IHttpContext {
     public static final IHttpContext EMPTY = new IHttpContext() { // from class: com.baidu.searchbox.network.IHttpContext.1
         @Override // com.baidu.searchbox.network.IHttpContext

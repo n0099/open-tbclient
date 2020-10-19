@@ -7,18 +7,18 @@ import android.util.Pair;
 import com.baidu.swan.apps.ap.al;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes10.dex */
 public class c extends com.baidu.swan.apps.api.a.d {
     public c(@NonNull com.baidu.swan.apps.api.a.b bVar) {
         super(bVar);
     }
 
-    public com.baidu.swan.apps.api.c.b ko(String str) {
+    public com.baidu.swan.apps.api.c.b la(String str) {
         if (DEBUG) {
             Log.d("Api-ClipboardApi", "start set clipboard data");
         }
-        Pair<com.baidu.swan.apps.api.c.b, JSONObject> aX = com.baidu.swan.apps.api.d.b.aX("Api-ClipboardApi", str);
-        com.baidu.swan.apps.api.c.b bVar = (com.baidu.swan.apps.api.c.b) aX.first;
+        Pair<com.baidu.swan.apps.api.c.b, JSONObject> bc = com.baidu.swan.apps.api.d.b.bc("Api-ClipboardApi", str);
+        com.baidu.swan.apps.api.c.b bVar = (com.baidu.swan.apps.api.c.b) bc.first;
         if (!bVar.isSuccess()) {
             if (DEBUG) {
                 com.baidu.swan.apps.console.c.e("Api-ClipboardApi", "parse fail");
@@ -26,17 +26,17 @@ public class c extends com.baidu.swan.apps.api.a.d {
             }
             return bVar;
         }
-        al.cO(getContext()).setText(((JSONObject) aX.second).optString("data"));
+        al.cU(getContext()).setText(((JSONObject) bc.second).optString("data"));
         return new com.baidu.swan.apps.api.c.b(0);
     }
 
-    public com.baidu.swan.apps.api.c.b acS() {
+    public com.baidu.swan.apps.api.c.b afE() {
         if (DEBUG) {
             Log.d("Api-ClipboardApi", "start get clipboard data");
         }
         JSONObject jSONObject = new JSONObject();
         try {
-            CharSequence text = al.cO(getContext()).getText();
+            CharSequence text = al.cU(getContext()).getText();
             jSONObject.put("data", TextUtils.isEmpty(text) ? "" : text.toString());
             if (DEBUG) {
                 Log.i("Api-ClipboardApi", "getClipboardData:  " + jSONObject);

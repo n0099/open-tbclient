@@ -1,19 +1,19 @@
 package com.baidu.ubs.analytics.a;
 
 import java.util.List;
-/* loaded from: classes7.dex */
+/* loaded from: classes10.dex */
 public final class b {
-    private c nqc = new c();
+    private c nFw = new c();
 
     public final void a(a aVar) {
-        this.nqc.b(aVar);
+        this.nFw.b(aVar);
     }
 
-    public final List<a> dQq() {
-        return this.nqc.dQq();
+    public final List<a> dUb() {
+        return this.nFw.dUb();
     }
 
     public final void a(int i) {
-        this.nqc.a(i);
+        this.nFw.a(i);
     }
 }

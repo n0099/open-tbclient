@@ -1,19 +1,21 @@
 package com.baidu.bdhttpdns;
 
 import android.util.Log;
-/* loaded from: classes18.dex */
+/* loaded from: classes12.dex */
 final class l {
-    private static boolean a = false;
+
+    /* renamed from: a  reason: collision with root package name */
+    private static boolean f1278a = false;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public static void a(String str, Object... objArr) {
-        if (a) {
+        if (f1278a) {
             Log.v("BDHttpDns", String.format(str, objArr));
         }
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public static void a(boolean z) {
-        a = z;
+        f1278a = z;
     }
 }

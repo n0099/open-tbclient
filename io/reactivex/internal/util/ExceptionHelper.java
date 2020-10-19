@@ -2,7 +2,7 @@ package io.reactivex.internal.util;
 
 import io.reactivex.exceptions.CompositeException;
 import java.util.concurrent.atomic.AtomicReference;
-/* loaded from: classes25.dex */
+/* loaded from: classes17.dex */
 public final class ExceptionHelper {
     public static final Throwable TERMINATED = new Termination();
 
@@ -39,7 +39,7 @@ public final class ExceptionHelper {
         throw th;
     }
 
-    /* loaded from: classes25.dex */
+    /* loaded from: classes17.dex */
     static final class Termination extends Throwable {
         private static final long serialVersionUID = -4649703670690200604L;
 

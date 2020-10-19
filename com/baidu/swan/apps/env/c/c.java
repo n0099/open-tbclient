@@ -17,49 +17,49 @@ import java.util.Map;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes10.dex */
 public final class c implements b {
-    private final b.C0396b csO;
+    private final b.C0413b cEZ;
 
-    private c(b.C0396b c0396b) {
-        this.csO = c0396b == null ? new b.C0396b() : c0396b;
+    private c(b.C0413b c0413b) {
+        this.cEZ = c0413b == null ? new b.C0413b() : c0413b;
     }
 
-    public static c amG() {
-        return a((b.C0396b) null);
+    public static c aps() {
+        return a((b.C0413b) null);
     }
 
-    public static c a(b.C0396b c0396b) {
-        return new c(c0396b);
+    public static c a(b.C0413b c0413b) {
+        return new c(c0413b);
     }
 
-    public b.C0396b amH() {
-        return this.csO;
+    public b.C0413b apt() {
+        return this.cEZ;
     }
 
-    public c hD(int i) {
-        if (isValid() && i != this.csO.csN && (this.csO.csN == 0 || this.csO.csN == this.csO.csM)) {
-            this.csO.csN = i;
+    public c ia(int i) {
+        if (isValid() && i != this.cEZ.cEY && (this.cEZ.cEY == 0 || this.cEZ.cEY == this.cEZ.cEX)) {
+            this.cEZ.cEY = i;
         }
         return this;
     }
 
-    public c hE(int i) {
+    public c ib(int i) {
         if (isValid()) {
-            this.csO.csM = i;
+            this.cEZ.cEX = i;
         }
         return this;
     }
 
-    public int amI() {
-        return this.csO.csN == 0 ? this.csO.csM : this.csO.csN;
+    public int apu() {
+        return this.cEZ.cEY == 0 ? this.cEZ.cEX : this.cEZ.cEY;
     }
 
-    public c mP(@Nullable String str) {
-        if (isValid() && !TextUtils.isEmpty(str) && !a(this.csO.csL.get(str))) {
-            a mO = a.mO(str);
-            if (a(mO)) {
-                this.csO.csL.put(mO.amF(), mO);
+    public c nB(@Nullable String str) {
+        if (isValid() && !TextUtils.isEmpty(str) && !a(this.cEZ.cEW.get(str))) {
+            a nA = a.nA(str);
+            if (a(nA)) {
+                this.cEZ.cEW.put(nA.apr(), nA);
             }
         }
         return this;
@@ -67,8 +67,8 @@ public final class c implements b {
 
     public boolean isValid() {
         boolean z;
-        synchronized (this.csO) {
-            z = this.csO.mIsValid;
+        synchronized (this.cEZ) {
+            z = this.cEZ.mIsValid;
         }
         return z;
     }
@@ -78,31 +78,31 @@ public final class c implements b {
     }
 
     @NonNull
-    private JSONArray amJ() {
+    private JSONArray apv() {
         JSONArray jSONArray = new JSONArray();
         try {
-            Cursor N = com.baidu.swan.apps.database.a.b.N("", 400);
-            int count = N.getCount();
-            while (N.moveToNext()) {
-                String string = N.getString(N.getColumnIndex("app_id"));
+            Cursor O = com.baidu.swan.apps.database.a.b.O("", 400);
+            int count = O.getCount();
+            while (O.moveToNext()) {
+                String string = O.getString(O.getColumnIndex("app_id"));
                 if (!TextUtils.isEmpty(string)) {
                     JSONObject jSONObject = new JSONObject();
                     jSONObject.put("pkg_id", string);
                     jSONArray.put(jSONObject);
                 }
             }
-            if (csK) {
+            if (cEV) {
                 Log.i("PurgerStatistic", "queryHisList: cursor=" + count + " items=" + jSONArray.length());
             }
-            if (N != null) {
+            if (O != null) {
                 if (0 != 0) {
-                    N.close();
+                    O.close();
                 } else {
-                    N.close();
+                    O.close();
                 }
             }
         } catch (JSONException e) {
-            if (csK) {
+            if (cEV) {
                 e.printStackTrace();
                 Log.i("PurgerStatistic", "queryHisList: e=" + e);
             }
@@ -110,43 +110,43 @@ public final class c implements b {
         return jSONArray;
     }
 
-    public void amK() {
-        if (csK) {
-            Log.i("PurgerStatistic", "performReport: " + this.csO);
+    public void apw() {
+        if (cEV) {
+            Log.i("PurgerStatistic", "performReport: " + this.cEZ);
         }
         if (isValid()) {
             ExecutorUtilsExt.postOnElastic(new Runnable() { // from class: com.baidu.swan.apps.env.c.c.1
                 @Override // java.lang.Runnable
                 public void run() {
-                    c.this.amL();
+                    c.this.apx();
                 }
             }, "PurgerStatistic", 3);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void amL() {
+    public void apx() {
         String str;
         b.a value;
-        synchronized (this.csO) {
+        synchronized (this.cEZ) {
             if (isValid()) {
-                this.csO.mIsValid = false;
+                this.cEZ.mIsValid = false;
                 e eVar = new e();
                 eVar.mFrom = "swan";
                 eVar.mSource = "NA";
-                int amI = amI();
-                eVar.mType = String.valueOf(amI);
+                int apu = apu();
+                eVar.mType = String.valueOf(apu);
                 JSONArray jSONArray = new JSONArray();
-                for (Map.Entry<String, b.a> entry : this.csO.csL.entrySet()) {
+                for (Map.Entry<String, b.a> entry : this.cEZ.cEW.entrySet()) {
                     if (!TextUtils.isEmpty(entry.getKey()) && (value = entry.getValue()) != null && value.isValid()) {
                         jSONArray.put(value.toJSONObject());
                     }
                 }
                 eVar.u("purged_list", jSONArray);
-                if (7 == amI) {
-                    eVar.u("history_list", amJ());
+                if (7 == apu) {
+                    eVar.u("history_list", apv());
                 }
-                if (csK) {
+                if (cEV) {
                     JSONObject jSONObject = eVar.toJSONObject();
                     if (jSONObject == null) {
                         str = "null";

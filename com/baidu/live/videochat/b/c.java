@@ -4,12 +4,12 @@ import com.baidu.live.data.AlaLiveUserInfoData;
 import org.json.JSONObject;
 /* loaded from: classes4.dex */
 public class c {
-    public AlaLiveUserInfoData aJI;
+    public AlaLiveUserInfoData aMN;
 
     public void parserJson(JSONObject jSONObject) {
         if (jSONObject != null) {
-            this.aJI = new AlaLiveUserInfoData();
-            this.aJI.parserJson(jSONObject);
+            this.aMN = new AlaLiveUserInfoData();
+            this.aMN.parserJson(jSONObject);
         }
     }
 }

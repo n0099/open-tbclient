@@ -10,7 +10,7 @@ import java.util.Enumeration;
 import java.util.Properties;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
-/* loaded from: classes4.dex */
+/* loaded from: classes11.dex */
 public class PropertyBoxParserImpl extends AbstractBoxParser {
     static String[] EMPTY_STRING_ARRAY = new String[0];
     String clazzName;

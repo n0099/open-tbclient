@@ -11,7 +11,9 @@ import java.util.concurrent.ConcurrentHashMap;
 @Keep
 /* loaded from: classes16.dex */
 public class MediaInstanceManagerImpl extends MediaInstanceManagerProvider {
-    private Map<String, WeakReference<MediaInstanceManagerProvider.OnClientInstanceHandler>> a = new ConcurrentHashMap();
+
+    /* renamed from: a  reason: collision with root package name */
+    private Map<String, WeakReference<MediaInstanceManagerProvider.OnClientInstanceHandler>> f2253a = new ConcurrentHashMap();
     private List<Integer> b = new ArrayList();
     private int c = 0;
     private int d = CyberCfgManager.getInstance().getCfgIntValue(CyberCfgManager.KEY_INT_MEDIA_INSTANCE_CAP, 4);
@@ -45,23 +47,23 @@ public class MediaInstanceManagerImpl extends MediaInstanceManagerProvider {
         int activePlayer;
         if (this.e && (activePlayer = activePlayer(i)) > 0) {
             if (this.b.contains(Integer.valueOf(i))) {
-                WeakReference<MediaInstanceManagerProvider.OnClientInstanceHandler> weakReference = this.a.get(String.valueOf(i));
+                WeakReference<MediaInstanceManagerProvider.OnClientInstanceHandler> weakReference = this.f2253a.get(String.valueOf(i));
                 if (weakReference.get() != null) {
                     weakReference.get().onResumeInstance();
                 } else {
                     unRegisterPlayer(i);
-                    this.a.remove(String.valueOf(i));
+                    this.f2253a.remove(String.valueOf(i));
                 }
                 this.b.remove(Integer.valueOf(i));
             }
-            WeakReference<MediaInstanceManagerProvider.OnClientInstanceHandler> weakReference2 = this.a.get(String.valueOf(activePlayer));
+            WeakReference<MediaInstanceManagerProvider.OnClientInstanceHandler> weakReference2 = this.f2253a.get(String.valueOf(activePlayer));
             if (weakReference2.get() != null) {
                 weakReference2.get().onDestroyInstance();
                 this.b.add(Integer.valueOf(activePlayer));
                 return;
             }
             unRegisterPlayer(activePlayer);
-            this.a.remove(String.valueOf(activePlayer));
+            this.f2253a.remove(String.valueOf(activePlayer));
         }
     }
 
@@ -87,7 +89,7 @@ public class MediaInstanceManagerImpl extends MediaInstanceManagerProvider {
         if (this.e) {
             registerPlayer = registerPlayer();
             if (registerPlayer > 0 && onClientInstanceHandler != null) {
-                this.a.put(String.valueOf(registerPlayer), new WeakReference<>(onClientInstanceHandler));
+                this.f2253a.put(String.valueOf(registerPlayer), new WeakReference<>(onClientInstanceHandler));
                 if (this.c != this.d) {
                     setInstanceCapacity(this.d);
                     this.c = this.d;
@@ -107,11 +109,11 @@ public class MediaInstanceManagerImpl extends MediaInstanceManagerProvider {
                 this.b.remove(Integer.valueOf(i));
             }
             unRegisterPlayer(i);
-            this.a.remove(String.valueOf(i));
-            for (String str : this.a.keySet()) {
-                if (this.a.get(str).get() == null) {
+            this.f2253a.remove(String.valueOf(i));
+            for (String str : this.f2253a.keySet()) {
+                if (this.f2253a.get(str).get() == null) {
                     unRegisterPlayer(Integer.parseInt(str));
-                    this.a.remove(str);
+                    this.f2253a.remove(str);
                 }
             }
         }

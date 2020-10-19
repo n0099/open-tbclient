@@ -31,7 +31,7 @@ import io.flutter.plugin.common.MethodChannel;
 import java.util.HashMap;
 import java.util.Map;
 import org.json.JSONObject;
-/* loaded from: classes14.dex */
+/* loaded from: classes19.dex */
 public class NativeListeners {
     public MethodChannel mMethodChannel;
     private int mLastMainTabIndex = -1;
@@ -61,17 +61,18 @@ public class NativeListeners {
     private final String kTBCBroadcastPublishSuccess = "kTBCBroadcastPublishSuccess";
     private final String kTBCBroadcastEdditPageResume = "kTBCBroadcastEdditPageResume";
     private final String AutoRefreshBarEntry = "AutoRefreshBarEntry";
+    private final String AutoRefreshCategory = "AutoRefreshCategory";
     private final String AccountInfoUpdated = "AccountInfoUpdated";
     private final CustomMessageListener bookMarksGiftAndFansListener = new CustomMessageListener(CmdConfigCustom.CMD_MESSAGE_NOTIFY_LOCAL) { // from class: com.example.utility_plugin.NativeListeners.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             if (customResponsedMessage != null) {
-                if (a.dsD().dsz()) {
+                if (a.dwo().dwk()) {
                     HashMap hashMap = new HashMap();
                     hashMap.put("uniqueKey", "FansCountUpdate");
                     NativeListeners.this.mMethodChannel.invokeMethod("onNotification", hashMap);
-                } else if (a.dsD().dsA()) {
+                } else if (a.dwo().dwl()) {
                     HashMap hashMap2 = new HashMap();
                     hashMap2.put("uniqueKey", "BookMarkUpdate");
                     NativeListeners.this.mMethodChannel.invokeMethod("onNotification", hashMap2);
@@ -304,7 +305,7 @@ public class NativeListeners {
             NativeListeners.this.mMethodChannel.invokeMethod("onNotification", hashMap3);
         }
     };
-    private CustomMessageListener mEnterForumTabClickListener = new CustomMessageListener(CmdConfigCustom.CMD_MAIN_TAB_WIDGET_CLICK) { // from class: com.example.utility_plugin.NativeListeners.18
+    private CustomMessageListener mMainTabClickListener = new CustomMessageListener(CmdConfigCustom.CMD_MAIN_TAB_WIDGET_CLICK) { // from class: com.example.utility_plugin.NativeListeners.18
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
@@ -314,6 +315,10 @@ public class NativeListeners {
                     HashMap hashMap = new HashMap();
                     hashMap.put("uniqueKey", "AutoRefreshBarEntry");
                     NativeListeners.this.mMethodChannel.invokeMethod("onNotification", hashMap);
+                } else if (num.intValue() == 2 && NativeListeners.this.mLastMainTabIndex == 2) {
+                    HashMap hashMap2 = new HashMap();
+                    hashMap2.put("uniqueKey", "AutoRefreshCategory");
+                    NativeListeners.this.mMethodChannel.invokeMethod("onNotification", hashMap2);
                 }
                 NativeListeners.this.mLastMainTabIndex = num.intValue();
             }
@@ -485,6 +490,12 @@ public class NativeListeners {
     private MessageListener<?> getListererFromKey(String str) {
         char c = 65535;
         switch (str.hashCode()) {
+            case -2111678678:
+                if (str.equals("AutoRefreshCategory")) {
+                    c = 18;
+                    break;
+                }
+                break;
             case -1967337156:
                 if (str.equals("ChangeUserProfileBackground")) {
                     c = '\r';
@@ -637,9 +648,11 @@ public class NativeListeners {
             case 15:
                 return this.mThreadWriteReplyListener;
             case 16:
-                return this.mEnterForumTabClickListener;
+                return this.mMainTabClickListener;
             case 17:
                 return this.mAccountChangedListener;
+            case 18:
+                return this.mMainTabClickListener;
             default:
                 return null;
         }

@@ -5,8 +5,8 @@ import android.content.ContextWrapper;
 import android.content.SharedPreferences;
 /* loaded from: classes10.dex */
 public class b extends ContextWrapper {
-    private static b aeb;
-    private h aec;
+    private static b aes;
+    private h aet;
 
     public b() {
         super(null);
@@ -16,10 +16,10 @@ public class b extends ContextWrapper {
     @Override // android.content.ContextWrapper, android.content.Context
     /* renamed from: te */
     public h getResources() {
-        if (this.aec == null) {
-            this.aec = new h(super.getResources(), getAssets(), super.getResources().getDisplayMetrics(), super.getResources().getConfiguration());
+        if (this.aet == null) {
+            this.aet = new h(super.getResources(), getAssets(), super.getResources().getDisplayMetrics(), super.getResources().getConfiguration());
         }
-        return this.aec;
+        return this.aet;
     }
 
     @Override // android.content.ContextWrapper
@@ -30,10 +30,10 @@ public class b extends ContextWrapper {
     public static synchronized b tf() {
         b bVar;
         synchronized (b.class) {
-            if (aeb == null) {
-                aeb = new b();
+            if (aes == null) {
+                aes = new b();
             }
-            bVar = aeb;
+            bVar = aes;
         }
         return bVar;
     }

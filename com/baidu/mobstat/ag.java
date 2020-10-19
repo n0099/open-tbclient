@@ -5,17 +5,19 @@ import android.graphics.Canvas;
 import android.graphics.Paint;
 import android.graphics.PaintFlagsDrawFilter;
 import android.widget.TextView;
-/* loaded from: classes15.dex */
+/* loaded from: classes17.dex */
 class ag extends TextView {
-    private Paint a;
+
+    /* renamed from: a  reason: collision with root package name */
+    private Paint f2521a;
     private PaintFlagsDrawFilter b;
 
     public ag(Context context) {
         super(context);
-        this.a = new Paint();
+        this.f2521a = new Paint();
         this.b = new PaintFlagsDrawFilter(0, 3);
-        this.a.setColor(-1);
-        this.a.setAntiAlias(true);
+        this.f2521a.setColor(-1);
+        this.f2521a.setAntiAlias(true);
     }
 
     @Override // android.widget.TextView, android.view.View
@@ -27,13 +29,13 @@ class ag extends TextView {
 
     @Override // android.view.View
     public void setBackgroundColor(int i) {
-        this.a.setColor(i);
+        this.f2521a.setColor(i);
     }
 
     @Override // android.view.View
     public void draw(Canvas canvas) {
         canvas.setDrawFilter(this.b);
-        canvas.drawCircle(getWidth() / 2, getHeight() / 2, Math.max(getWidth(), getHeight()) / 2, this.a);
+        canvas.drawCircle(getWidth() / 2, getHeight() / 2, Math.max(getWidth(), getHeight()) / 2, this.f2521a);
         super.draw(canvas);
     }
 }

@@ -7,9 +7,11 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-/* loaded from: classes3.dex */
+/* loaded from: classes7.dex */
 public class TextureMapFragment extends Fragment {
-    private static final String a = TextureMapFragment.class.getSimpleName();
+
+    /* renamed from: a  reason: collision with root package name */
+    private static final String f2046a = TextureMapFragment.class.getSimpleName();
     private TextureMapView b;
     private BaiduMapOptions c;
 

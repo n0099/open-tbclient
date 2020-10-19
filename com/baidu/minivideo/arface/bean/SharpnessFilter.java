@@ -2,7 +2,7 @@ package com.baidu.minivideo.arface.bean;
 
 import com.baidu.ar.filter.FilterNode;
 import com.baidu.ar.filter.FilterParam;
-/* loaded from: classes11.dex */
+/* loaded from: classes15.dex */
 public enum SharpnessFilter implements FilterParam {
     sharpness("intensity_sharpness");
     

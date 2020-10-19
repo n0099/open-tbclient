@@ -11,20 +11,22 @@ import java.io.RandomAccessFile;
 import java.nio.channels.FileLock;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes9.dex */
+/* loaded from: classes12.dex */
 public class ei extends ai.a {
-    private Context a;
+
+    /* renamed from: a  reason: collision with root package name */
+    private Context f4876a;
 
     /* renamed from: a  reason: collision with other field name */
-    private SharedPreferences f232a;
+    private SharedPreferences f233a;
 
     /* renamed from: a  reason: collision with other field name */
-    private com.xiaomi.push.service.ak f233a;
+    private com.xiaomi.push.service.ak f234a;
 
     public ei(Context context) {
-        this.a = context;
-        this.f232a = context.getSharedPreferences("mipush_extra", 0);
-        this.f233a = com.xiaomi.push.service.ak.a(context);
+        this.f4876a = context;
+        this.f233a = context.getSharedPreferences("mipush_extra", 0);
+        this.f234a = com.xiaomi.push.service.ak.a(context);
     }
 
     private List<hu> a(File file) {
@@ -37,17 +39,17 @@ public class ei extends ai.a {
         r1 = null;
         fileInputStream2 = null;
         FileLock fileLock2 = null;
-        dp m232a = dq.a().m232a();
-        String a = m232a == null ? "" : m232a.a();
-        if (TextUtils.isEmpty(a)) {
+        dp m233a = dq.a().m233a();
+        String a2 = m233a == null ? "" : m233a.a();
+        if (TextUtils.isEmpty(a2)) {
             return null;
         }
         ArrayList arrayList = new ArrayList();
         byte[] bArr = new byte[4];
-        synchronized (dv.a) {
+        synchronized (dv.f4867a) {
             try {
-                File file2 = new File(this.a.getExternalFilesDir(null), "push_cdata.lock");
-                y.m590a(file2);
+                File file2 = new File(this.f4876a.getExternalFilesDir(null), "push_cdata.lock");
+                y.m591a(file2);
                 randomAccessFile = new RandomAccessFile(file2, "rw");
                 try {
                     fileLock = randomAccessFile.getChannel().lock();
@@ -55,15 +57,15 @@ public class ei extends ai.a {
                         FileInputStream fileInputStream3 = new FileInputStream(file);
                         while (fileInputStream3.read(bArr) == 4) {
                             try {
-                                int a2 = ac.a(bArr);
-                                byte[] bArr2 = new byte[a2];
-                                if (fileInputStream3.read(bArr2) != a2) {
+                                int a3 = ac.a(bArr);
+                                byte[] bArr2 = new byte[a3];
+                                if (fileInputStream3.read(bArr2) != a3) {
                                     break;
                                 }
-                                byte[] a3 = du.a(a, bArr2);
-                                if (a3 != null && a3.length != 0) {
+                                byte[] a4 = du.a(a2, bArr2);
+                                if (a4 != null && a4.length != 0) {
                                     hu huVar = new hu();
-                                    iw.a(huVar, a3);
+                                    iw.a(huVar, a4);
                                     arrayList.add(huVar);
                                 }
                             } catch (Exception e) {
@@ -128,66 +130,66 @@ public class ei extends ai.a {
     }
 
     private void a() {
-        SharedPreferences.Editor edit = this.f232a.edit();
+        SharedPreferences.Editor edit = this.f233a.edit();
         edit.putLong("last_upload_data_timestamp", System.currentTimeMillis() / 1000);
         edit.commit();
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    private boolean m237a() {
-        if (az.d(this.a)) {
+    private boolean m238a() {
+        if (az.d(this.f4876a)) {
             return false;
         }
-        if (!az.f(this.a) || c()) {
-            return (az.g(this.a) && !b()) || az.h(this.a);
+        if (!az.f(this.f4876a) || c()) {
+            return (az.g(this.f4876a) && !b()) || az.h(this.f4876a);
         }
         return true;
     }
 
     private boolean b() {
-        if (this.f233a.a(hr.Upload3GSwitch.a(), true)) {
-            return Math.abs((System.currentTimeMillis() / 1000) - this.f232a.getLong("last_upload_data_timestamp", -1L)) > ((long) Math.max(86400, this.f233a.a(hr.Upload3GFrequency.a(), 432000)));
+        if (this.f234a.a(hr.Upload3GSwitch.a(), true)) {
+            return Math.abs((System.currentTimeMillis() / 1000) - this.f233a.getLong("last_upload_data_timestamp", -1L)) > ((long) Math.max(86400, this.f234a.a(hr.Upload3GFrequency.a(), 432000)));
         }
         return false;
     }
 
     private boolean c() {
-        if (this.f233a.a(hr.Upload4GSwitch.a(), true)) {
-            return Math.abs((System.currentTimeMillis() / 1000) - this.f232a.getLong("last_upload_data_timestamp", -1L)) > ((long) Math.max(86400, this.f233a.a(hr.Upload4GFrequency.a(), 259200)));
+        if (this.f234a.a(hr.Upload4GSwitch.a(), true)) {
+            return Math.abs((System.currentTimeMillis() / 1000) - this.f233a.getLong("last_upload_data_timestamp", -1L)) > ((long) Math.max(86400, this.f234a.a(hr.Upload4GFrequency.a(), 259200)));
         }
         return false;
     }
 
     @Override // com.xiaomi.push.ai.a
     /* renamed from: a */
-    public int mo166a() {
+    public int mo167a() {
         return 1;
     }
 
     @Override // java.lang.Runnable
     public void run() {
-        File file = new File(this.a.getExternalFilesDir(null), "push_cdata.data");
-        if (!az.c(this.a)) {
+        File file = new File(this.f4876a.getExternalFilesDir(null), "push_cdata.data");
+        if (!az.c(this.f4876a)) {
             if (file.length() > 1863680) {
                 file.delete();
             }
-        } else if (m237a() || !file.exists()) {
+        } else if (m238a() || !file.exists()) {
         } else {
-            List<hu> a = a(file);
-            if (!ad.a(a)) {
-                int size = a.size();
+            List<hu> a2 = a(file);
+            if (!ad.a(a2)) {
+                int size = a2.size();
                 if (size > 4000) {
-                    a = a.subList(size - 4000, size);
+                    a2 = a2.subList(size - 4000, size);
                 }
                 Cif cif = new Cif();
-                cif.a(a);
-                byte[] a2 = y.a(iw.a(cif));
+                cif.a(a2);
+                byte[] a3 = y.a(iw.a(cif));
                 il ilVar = new il("-1", false);
-                ilVar.c(hw.DataCollection.f476a);
-                ilVar.a(a2);
-                dp m232a = dq.a().m232a();
-                if (m232a != null) {
-                    m232a.a(ilVar, hm.Notification, null);
+                ilVar.c(hw.DataCollection.f477a);
+                ilVar.a(a3);
+                dp m233a = dq.a().m233a();
+                if (m233a != null) {
+                    m233a.a(ilVar, hm.Notification, null);
                 }
                 a();
             }

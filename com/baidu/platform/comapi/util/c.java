@@ -1,16 +1,18 @@
 package com.baidu.platform.comapi.util;
 
 import java.util.concurrent.ThreadFactory;
-/* loaded from: classes3.dex */
+/* loaded from: classes7.dex */
 class c implements ThreadFactory {
-    private String a;
+
+    /* renamed from: a  reason: collision with root package name */
+    private String f2944a;
 
     public c(String str) {
-        this.a = "BaiduMapSDK-" + str;
+        this.f2944a = "BaiduMapSDK-" + str;
     }
 
     @Override // java.util.concurrent.ThreadFactory
     public Thread newThread(Runnable runnable) {
-        return new Thread(runnable, this.a);
+        return new Thread(runnable, this.f2944a);
     }
 }

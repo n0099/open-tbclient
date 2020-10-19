@@ -7,7 +7,7 @@ import com.baidu.ar.arplay.representation.Vector4f;
 import java.util.HashMap;
 import java.util.concurrent.locks.Lock;
 import java.util.concurrent.locks.ReentrantLock;
-/* loaded from: classes10.dex */
+/* loaded from: classes14.dex */
 public class ARPNode {
     protected long eg = -1;
     private HashMap<String, ARPNode> eh;

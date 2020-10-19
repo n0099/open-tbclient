@@ -12,79 +12,79 @@ import com.baidu.swan.pms.model.h;
 import java.util.List;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes24.dex */
+/* loaded from: classes15.dex */
 public abstract class d<T> implements f.a {
-    protected com.baidu.swan.pms.c.d.g csB;
-    protected com.baidu.swan.pms.a.g dHC;
+    protected com.baidu.swan.pms.c.d.g cEM;
+    protected com.baidu.swan.pms.a.g dTD;
     private String mRequestUrl;
 
-    protected abstract String aUu();
+    protected abstract String aXd();
 
-    protected abstract com.baidu.swan.pms.model.a ah(T t);
+    protected abstract com.baidu.swan.pms.model.a ak(T t);
 
-    protected abstract boolean ai(T t);
+    protected abstract boolean al(T t);
 
-    protected abstract T cu(JSONObject jSONObject);
+    protected abstract T cB(JSONObject jSONObject);
 
     public d(com.baidu.swan.pms.a.g gVar, com.baidu.swan.pms.c.d.g gVar2) {
-        this.dHC = gVar;
-        this.csB = gVar2;
+        this.dTD = gVar;
+        this.cEM = gVar2;
     }
 
     @Override // com.baidu.swan.pms.c.f.a
     public void b(String str, String str2, JSONObject jSONObject) {
-        if (this.dHC != null) {
-            this.dHC.b(str, str2, jSONObject);
+        if (this.dTD != null) {
+            this.dTD.b(str, str2, jSONObject);
         }
         this.mRequestUrl = str;
     }
 
     @Override // com.baidu.swan.pms.c.f.a
     public void onSuccess(String str, int i) {
-        if (this.dHC != null) {
-            this.dHC.M(str, i);
+        if (this.dTD != null) {
+            this.dTD.N(str, i);
         }
         if (i != 200) {
             com.baidu.swan.pms.model.a aVar = new com.baidu.swan.pms.model.a(RTCConst.RTC_STATE_STREAM_SLOW_LINK_LEVEL4, "metadata : network error. http code=" + i);
-            this.dHC.b(aVar);
+            this.dTD.b(aVar);
             a(aVar, str);
             return;
         }
-        c wY = c.wY(str);
-        if (wY == null) {
+        c xK = c.xK(str);
+        if (xK == null) {
             com.baidu.swan.pms.model.a aVar2 = new com.baidu.swan.pms.model.a(RTCConst.RTC_STATE_STREAM_SLOW_LINK_LEVEL3, "metadata : parse response error - ,errmsg:" + com.baidu.swan.pms.utils.e.parseString(str).toString());
-            this.dHC.b(aVar2);
+            this.dTD.b(aVar2);
             a(aVar2, str);
             return;
         }
-        int errorCode = wY.getErrorCode();
+        int errorCode = xK.getErrorCode();
         if (errorCode != 0) {
-            com.baidu.swan.pms.model.a aVar3 = new com.baidu.swan.pms.model.a(errorCode, PMSConstants.a.aj(errorCode, "response errorCode with errmsg:" + wY.getErrorMessage()), wY.aUt());
-            this.dHC.b(aVar3);
-            if (wY.getErrorCode() != 1010) {
+            com.baidu.swan.pms.model.a aVar3 = new com.baidu.swan.pms.model.a(errorCode, PMSConstants.a.au(errorCode, "response errorCode with errmsg:" + xK.getErrorMessage()), xK.aXc());
+            this.dTD.b(aVar3);
+            if (xK.getErrorCode() != 1010) {
                 a(aVar3, str);
                 return;
             }
             return;
         }
-        T cu = cu(wY.getData());
-        if (cu == null) {
+        T cB = cB(xK.getData());
+        if (cB == null) {
             com.baidu.swan.pms.model.a aVar4 = new com.baidu.swan.pms.model.a(RTCConst.RTC_STATE_STREAM_SLOW_LINK_LEVEL2, "response data empty");
-            this.dHC.b(aVar4);
+            this.dTD.b(aVar4);
             a(aVar4, str);
-        } else if (!ai(cu)) {
+        } else if (!al(cB)) {
             com.baidu.swan.pms.model.a aVar5 = new com.baidu.swan.pms.model.a(RTCConst.RTC_STATE_STREAM_SLOW_LINK_LEVEL3, str);
-            this.dHC.b(aVar5);
+            this.dTD.b(aVar5);
             a(aVar5, str);
         } else {
-            ah(cu);
+            ak(cB);
         }
     }
 
     @Override // com.baidu.swan.pms.c.f.a
     public void onFail(Exception exc) {
         com.baidu.swan.pms.model.a aVar = new com.baidu.swan.pms.model.a(RTCConst.RTC_STATE_STREAM_SLOW_LINK_LEVEL1, Log.getStackTraceString(exc));
-        this.dHC.b(aVar);
+        this.dTD.b(aVar);
         a(aVar, exc.getMessage());
     }
 
@@ -127,9 +127,9 @@ public abstract class d<T> implements f.a {
 
     /* JADX INFO: Access modifiers changed from: protected */
     public void v(PMSAppInfo pMSAppInfo) {
-        com.baidu.swan.pms.a.f ajo;
-        if (pMSAppInfo != null && (ajo = this.dHC.ajo()) != null) {
-            ajo.e(pMSAppInfo);
+        com.baidu.swan.pms.a.f alZ;
+        if (pMSAppInfo != null && (alZ = this.dTD.alZ()) != null) {
+            alZ.e(pMSAppInfo);
         }
     }
 
@@ -151,10 +151,10 @@ public abstract class d<T> implements f.a {
                 e.printStackTrace();
             }
         }
-        if (this.csB instanceof com.baidu.swan.pms.c.d.c) {
-            jSONObject.put("appId", ((com.baidu.swan.pms.c.d.c) this.csB).getBundleId());
+        if (this.cEM instanceof com.baidu.swan.pms.c.d.c) {
+            jSONObject.put("appId", ((com.baidu.swan.pms.c.d.c) this.cEM).getBundleId());
         }
         i = i2;
-        com.baidu.swan.pms.f.a.a(this.csB.getCategory(), "cs_protocol", aUu(), i, jSONObject);
+        com.baidu.swan.pms.f.a.a(this.cEM.getCategory(), "cs_protocol", aXd(), i, jSONObject);
     }
 }

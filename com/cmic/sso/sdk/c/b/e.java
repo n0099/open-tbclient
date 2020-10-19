@@ -5,13 +5,13 @@ import java.io.UnsupportedEncodingException;
 import java.net.URLEncoder;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class e extends g {
     private byte[] b;
     private String c;
     private String d;
     private boolean e = false;
-    private a nsV;
+    private a nIp;
 
     public void a(boolean z) {
         this.e = z;
@@ -30,16 +30,16 @@ public class e extends g {
     }
 
     public void a(a aVar) {
-        this.nsV = aVar;
+        this.nIp = aVar;
     }
 
-    public a dRp() {
-        return this.nsV;
+    public a dVa() {
+        return this.nIp;
     }
 
     @Override // com.cmic.sso.sdk.c.b.g
     public String a() {
-        return this.nsV.a();
+        return this.nIp.a();
     }
 
     @Override // com.cmic.sso.sdk.c.b.g
@@ -48,7 +48,7 @@ public class e extends g {
         if (this.e) {
             try {
                 jSONObject.put("encrypted", this.c);
-                jSONObject.put("reqdata", com.cmic.sso.sdk.e.a.a(this.b, this.nsV.toString()));
+                jSONObject.put("reqdata", com.cmic.sso.sdk.e.a.a(this.b, this.nIp.toString()));
                 jSONObject.put("securityreinforce", this.d);
             } catch (JSONException e) {
                 e.printStackTrace();
@@ -57,11 +57,13 @@ public class e extends g {
         return jSONObject;
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public static class a {
         private String E;
         private long q;
-        private String a = "";
+
+        /* renamed from: a  reason: collision with root package name */
+        private String f4012a = "";
         private String b = "";
         private String c = "";
         private String d = "";
@@ -112,11 +114,11 @@ public class e extends g {
         }
 
         public void e(String str) {
-            this.a = UI(str);
+            this.f4012a = Vw(str);
         }
 
         public void f(String str) {
-            this.b = UI(str);
+            this.b = Vw(str);
         }
 
         public String a() {
@@ -124,90 +126,90 @@ public class e extends g {
         }
 
         public void g(String str) {
-            this.c = UI(str);
+            this.c = Vw(str);
         }
 
         public void h(String str) {
-            this.d = UI(str);
+            this.d = Vw(str);
         }
 
         public void i(String str) {
-            this.e = UI(str);
+            this.e = Vw(str);
         }
 
         public void j(String str) {
-            this.f = UI(str);
+            this.f = Vw(str);
         }
 
         public void k(String str) {
-            this.g = UI(str);
+            this.g = Vw(str);
         }
 
         public void l(String str) {
-            this.h = UI(str);
+            this.h = Vw(str);
         }
 
         public void m(String str) {
-            this.i = UI(str);
+            this.i = Vw(str);
         }
 
         public void n(String str) {
-            String UI = UI(str);
+            String Vw = Vw(str);
             try {
-                this.j = URLEncoder.encode(UI, "utf-8");
+                this.j = URLEncoder.encode(Vw, "utf-8");
             } catch (UnsupportedEncodingException e) {
                 e.printStackTrace();
-                this.j = UI;
+                this.j = Vw;
             }
         }
 
         public void o(String str) {
-            String UI = UI(str);
+            String Vw = Vw(str);
             try {
-                this.k = URLEncoder.encode(UI, "utf-8");
+                this.k = URLEncoder.encode(Vw, "utf-8");
             } catch (UnsupportedEncodingException e) {
                 e.printStackTrace();
-                this.k = UI;
+                this.k = Vw;
             }
         }
 
         public void p(String str) {
-            this.l = UI(str);
+            this.l = Vw(str);
         }
 
         public void q(String str) {
-            this.m = UI(str);
+            this.m = Vw(str);
         }
 
         public void r(String str) {
-            this.o = UI(str);
+            this.o = Vw(str);
         }
 
         public void s(String str) {
-            this.p = UI(str);
+            this.p = Vw(str);
         }
 
         public void t(String str) {
-            this.A = UI(str);
+            this.A = Vw(str);
         }
 
         public void u(String str) {
-            this.B = UI(str);
+            this.B = Vw(str);
         }
 
         public void v(String str) {
-            this.E = UI(str);
+            this.E = Vw(str);
         }
 
-        public String UH(String str) {
+        public String Vv(String str) {
             return com.cmic.sso.sdk.e.d.a(this.b + this.c + this.d + this.e + this.f + this.g + this.h + this.i + this.j + this.k + this.l + this.m + this.o + this.p + str + this.r + this.s + this.t + this.u + this.v + this.w + this.x + this.y + this.z + this.A + this.B + this.C + this.D);
         }
 
         public String toString() {
-            return this.a + ETAG.ITEM_SEPARATOR + this.b + ETAG.ITEM_SEPARATOR + this.c + ETAG.ITEM_SEPARATOR + this.d + ETAG.ITEM_SEPARATOR + this.e + ETAG.ITEM_SEPARATOR + this.f + ETAG.ITEM_SEPARATOR + this.g + ETAG.ITEM_SEPARATOR + this.h + ETAG.ITEM_SEPARATOR + this.i + ETAG.ITEM_SEPARATOR + this.j + ETAG.ITEM_SEPARATOR + this.k + ETAG.ITEM_SEPARATOR + this.l + ETAG.ITEM_SEPARATOR + this.m + ETAG.ITEM_SEPARATOR + "6.0" + ETAG.ITEM_SEPARATOR + this.n + ETAG.ITEM_SEPARATOR + this.o + ETAG.ITEM_SEPARATOR + this.p + ETAG.ITEM_SEPARATOR + this.r + ETAG.ITEM_SEPARATOR + this.s + ETAG.ITEM_SEPARATOR + this.t + ETAG.ITEM_SEPARATOR + this.u + ETAG.ITEM_SEPARATOR + this.v + ETAG.ITEM_SEPARATOR + this.w + ETAG.ITEM_SEPARATOR + this.x + ETAG.ITEM_SEPARATOR + this.y + ETAG.ITEM_SEPARATOR + this.z + ETAG.ITEM_SEPARATOR + this.A + ETAG.ITEM_SEPARATOR + this.B + ETAG.ITEM_SEPARATOR + this.E + "&&" + this.C + ETAG.ITEM_SEPARATOR + this.D;
+            return this.f4012a + ETAG.ITEM_SEPARATOR + this.b + ETAG.ITEM_SEPARATOR + this.c + ETAG.ITEM_SEPARATOR + this.d + ETAG.ITEM_SEPARATOR + this.e + ETAG.ITEM_SEPARATOR + this.f + ETAG.ITEM_SEPARATOR + this.g + ETAG.ITEM_SEPARATOR + this.h + ETAG.ITEM_SEPARATOR + this.i + ETAG.ITEM_SEPARATOR + this.j + ETAG.ITEM_SEPARATOR + this.k + ETAG.ITEM_SEPARATOR + this.l + ETAG.ITEM_SEPARATOR + this.m + ETAG.ITEM_SEPARATOR + "6.0" + ETAG.ITEM_SEPARATOR + this.n + ETAG.ITEM_SEPARATOR + this.o + ETAG.ITEM_SEPARATOR + this.p + ETAG.ITEM_SEPARATOR + this.r + ETAG.ITEM_SEPARATOR + this.s + ETAG.ITEM_SEPARATOR + this.t + ETAG.ITEM_SEPARATOR + this.u + ETAG.ITEM_SEPARATOR + this.v + ETAG.ITEM_SEPARATOR + this.w + ETAG.ITEM_SEPARATOR + this.x + ETAG.ITEM_SEPARATOR + this.y + ETAG.ITEM_SEPARATOR + this.z + ETAG.ITEM_SEPARATOR + this.A + ETAG.ITEM_SEPARATOR + this.B + ETAG.ITEM_SEPARATOR + this.E + "&&" + this.C + ETAG.ITEM_SEPARATOR + this.D;
         }
 
-        private String UI(String str) {
+        private String Vw(String str) {
             return str == null ? "" : str;
         }
     }

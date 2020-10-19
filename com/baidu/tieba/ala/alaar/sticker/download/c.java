@@ -41,22 +41,22 @@ public class c {
         private CharSequence mName;
         private String mUri;
 
-        public a EA(String str) {
+        public a Fl(String str) {
             this.mUri = str;
             return this;
         }
 
-        public a U(File file) {
+        public a X(File file) {
             this.mFolder = file;
             return this;
         }
 
-        public a p(CharSequence charSequence) {
+        public a q(CharSequence charSequence) {
             this.mName = charSequence;
             return this;
         }
 
-        public c bFK() {
+        public c bIw() {
             return new c(this.mUri, this.mFolder, this.mName, this.mDescription);
         }
     }

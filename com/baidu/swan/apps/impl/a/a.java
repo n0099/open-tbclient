@@ -12,7 +12,7 @@ import com.baidu.swan.c.d;
 import com.baidu.swan.games.i.n;
 import java.io.File;
 import java.util.HashMap;
-/* loaded from: classes3.dex */
+/* loaded from: classes10.dex */
 public class a {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
 
@@ -21,74 +21,74 @@ public class a {
 
     /* JADX INFO: Access modifiers changed from: private */
     /* renamed from: com.baidu.swan.apps.impl.a.a$a  reason: collision with other inner class name */
-    /* loaded from: classes3.dex */
-    public static class C0400a {
-        private static final a cuZ = new a();
+    /* loaded from: classes10.dex */
+    public static class C0417a {
+        private static final a cHg = new a();
     }
 
-    public static a aoo() {
-        return C0400a.cuZ;
+    public static a ara() {
+        return C0417a.cHg;
     }
 
-    public void Y(Context context, String str) {
-        nf("cloneSwanApp: start");
-        c(Q(context, str), str);
-        nf("cloneSwanApp: end");
+    public void ab(Context context, String str) {
+        nR("cloneSwanApp: start");
+        c(T(context, str), str);
+        nR("cloneSwanApp: end");
     }
 
-    public File Q(Context context, String str) {
+    public File T(Context context, String str) {
         File file = null;
         if (TextUtils.isEmpty(str)) {
-            nf("appKey is empty");
+            nR("appKey is empty");
         } else {
-            nf("cloneFilesAndMakeZip start, appKey = " + str);
-            File file2 = new File(com.baidu.swan.apps.impl.a.a.a.cvh + str);
-            if (!t(file2)) {
-                nf("delete old tmp dir failed");
+            nR("cloneFilesAndMakeZip start, appKey = " + str);
+            File file2 = new File(com.baidu.swan.apps.impl.a.a.a.cHo + str);
+            if (!w(file2)) {
+                nR("delete old tmp dir failed");
             } else {
-                File aos = com.baidu.swan.apps.impl.a.a.a.aos();
-                if (aos == null) {
-                    nf("dest zip dir is null");
+                File are = com.baidu.swan.apps.impl.a.a.a.are();
+                if (are == null) {
+                    nR("dest zip dir is null");
                 } else {
-                    file = new File(aos, com.baidu.swan.apps.impl.a.a.a.cvn);
+                    file = new File(are, com.baidu.swan.apps.impl.a.a.a.cHu);
                     if (file.exists()) {
                         d.safeDeleteFile(file);
                     }
                     d.createNewFileSafely(file);
                     b(context, str, file2);
-                    h(file2.getParentFile(), file);
-                    nf("cloneFilesAndMakeZip end, appKey = " + str);
+                    i(file2.getParentFile(), file);
+                    nR("cloneFilesAndMakeZip end, appKey = " + str);
                 }
             }
         }
         return file;
     }
 
-    public boolean c(String str, File file) {
-        File a = a(str, file, com.baidu.swan.apps.impl.a.a.a.cvi);
-        if (a == null) {
+    public boolean b(String str, File file) {
+        File a2 = a(str, file, com.baidu.swan.apps.impl.a.a.a.cHp);
+        if (a2 == null) {
             return false;
         }
-        File file2 = new File(com.baidu.swan.apps.impl.a.a.a.cvc, str);
+        File file2 = new File(com.baidu.swan.apps.impl.a.a.a.cHj, str);
         if (file2.exists()) {
-            File file3 = new File(a, str);
+            File file3 = new File(a2, str);
             d.ensureDirectoryExist(file3);
-            d.k(file2, file3);
+            d.l(file2, file3);
             return true;
         }
         return false;
     }
 
-    public boolean d(String str, File file) {
-        File a = a(str, file, com.baidu.swan.apps.impl.a.a.a.cvj);
-        if (a == null) {
+    public boolean c(String str, File file) {
+        File a2 = a(str, file, com.baidu.swan.apps.impl.a.a.a.cHq);
+        if (a2 == null) {
             return false;
         }
-        File file2 = new File(com.baidu.swan.apps.impl.a.a.a.cvc, str);
+        File file2 = new File(com.baidu.swan.apps.impl.a.a.a.cHj, str);
         if (file2.exists()) {
-            File file3 = new File(a, str);
+            File file3 = new File(a2, str);
             d.ensureDirectoryExist(file3);
-            d.k(file2, file3);
+            d.l(file2, file3);
             return true;
         }
         return false;
@@ -105,33 +105,33 @@ public class a {
     }
 
     public boolean a(Context context, String str, File file) {
-        File a = a(str, file, com.baidu.swan.apps.impl.a.a.a.cvl);
-        if (context == null || a == null) {
+        File a2 = a(str, file, com.baidu.swan.apps.impl.a.a.a.cHs);
+        if (context == null || a2 == null) {
             return false;
         }
-        return a(context, str, a, new File(AppRuntime.getAppContext().getFilesDir(), "swan_prefs"), ".kv") | a(context, str, a, new File(AppRuntime.getAppContext().getApplicationInfo().dataDir, "shared_prefs/"), ".xml");
+        return a(context, str, a2, new File(AppRuntime.getAppContext().getFilesDir(), "swan_prefs"), ".kv") | a(context, str, a2, new File(AppRuntime.getAppContext().getApplicationInfo().dataDir, "shared_prefs/"), ".xml");
+    }
+
+    public boolean d(String str, File file) {
+        File a2 = a(str, file, com.baidu.swan.apps.impl.a.a.a.cHt);
+        if (a2 == null) {
+            return false;
+        }
+        f("ai_apps.db", a2);
+        f("ai_apps_pms.db", a2);
+        return true;
+    }
+
+    public boolean nQ(String str) {
+        return true;
     }
 
     public boolean e(String str, File file) {
-        File a = a(str, file, com.baidu.swan.apps.impl.a.a.a.cvm);
-        if (a == null) {
-            return false;
-        }
-        g("ai_apps.db", a);
-        g("ai_apps_pms.db", a);
-        return true;
-    }
-
-    public boolean ne(String str) {
-        return true;
-    }
-
-    public boolean f(String str, File file) {
-        File a = a(str, new File(file, com.baidu.swan.apps.impl.a.a.a.cvk), "swan_plugin_workspace");
-        if (a != null) {
-            File apm = com.baidu.swan.apps.r.d.apm();
-            if (apm.exists()) {
-                d.k(apm, a);
+        File a2 = a(str, new File(file, com.baidu.swan.apps.impl.a.a.a.cHr), "swan_plugin_workspace");
+        if (a2 != null) {
+            File arX = com.baidu.swan.apps.r.d.arX();
+            if (arX.exists()) {
+                d.l(arX, a2);
             }
         }
         return false;
@@ -140,26 +140,26 @@ public class a {
     public boolean c(final File file, String str) {
         String[] list;
         if (file == null || !file.exists()) {
-            nf("no zip file");
+            nR("no zip file");
             return false;
         }
-        File file2 = new File(com.baidu.swan.apps.impl.a.a.a.cvc, str);
+        File file2 = new File(com.baidu.swan.apps.impl.a.a.a.cHj, str);
         String str2 = "-1";
         if (file2.exists() && (list = file2.list()) != null && list.length > 0) {
             str2 = list[0];
         }
-        nf("upload file: ready");
-        w apD = com.baidu.swan.apps.t.a.apD();
+        nR("upload file: ready");
+        w asp = com.baidu.swan.apps.t.a.asp();
         HashMap<String, String> hashMap = new HashMap<>();
         hashMap.put("aiappid", str);
         hashMap.put("aiappversion", str2);
-        apD.a(hashMap, file, new w.a() { // from class: com.baidu.swan.apps.impl.a.a.1
+        asp.a(hashMap, file, new w.a() { // from class: com.baidu.swan.apps.impl.a.a.1
             @Override // com.baidu.swan.apps.adaptation.a.w.a
             public void onResult(String str3) {
                 if (!com.baidu.swan.apps.b.DEBUG) {
                     d.safeDeleteFile(file);
                 }
-                a.this.nf("upload file: done. feedback data = " + str3);
+                a.this.nR("upload file: done. feedback data = " + str3);
             }
         });
         return true;
@@ -176,7 +176,7 @@ public class a {
         return null;
     }
 
-    public boolean t(File file) {
+    public boolean w(File file) {
         if (file == null) {
             return false;
         }
@@ -194,13 +194,13 @@ public class a {
         }
     }
 
-    public void nf(String str) {
+    public void nR(String str) {
         if (!TextUtils.isEmpty(str) && DEBUG) {
             Log.d("SwanAppCloneModule", str);
         }
     }
 
-    private void g(String str, File file) {
+    private void f(String str, File file) {
         if (!TextUtils.isEmpty(str) && file != null && file.exists()) {
             File databasePath = AppRuntime.getApplication().getDatabasePath(str);
             if (databasePath.exists()) {
@@ -210,20 +210,20 @@ public class a {
     }
 
     private void b(Context context, String str, File file) {
-        boolean c = c(str, file);
-        boolean d = d(com.baidu.swan.apps.impl.a.a.a.cvd, file);
-        boolean d2 = d(com.baidu.swan.apps.impl.a.a.a.cve, file);
-        boolean a = a(context, str, file);
-        boolean e = e(str, file);
-        boolean ne = ne(str);
-        nf("cloneSwanPkg = " + c + " ; cloneSwanCore = " + d + " ; cloneExtensionCore = " + d2 + " ; cloneSp = " + a + " ; cloneDb = " + e + " ; cloneAbTest = " + ne + " ; cloneDynamicLib = " + f(str, file));
+        boolean b = b(str, file);
+        boolean c = c(com.baidu.swan.apps.impl.a.a.a.cHk, file);
+        boolean c2 = c(com.baidu.swan.apps.impl.a.a.a.cHl, file);
+        boolean a2 = a(context, str, file);
+        boolean d = d(str, file);
+        boolean nQ = nQ(str);
+        nR("cloneSwanPkg = " + b + " ; cloneSwanCore = " + c + " ; cloneExtensionCore = " + c2 + " ; cloneSp = " + a2 + " ; cloneDb = " + d + " ; cloneAbTest = " + nQ + " ; cloneDynamicLib = " + e(str, file));
     }
 
-    private void h(File file, File file2) {
-        boolean cQ = n.cQ(file.getAbsolutePath(), file2.getAbsolutePath());
-        if (cQ) {
+    private void i(File file, File file2) {
+        boolean cV = n.cV(file.getAbsolutePath(), file2.getAbsolutePath());
+        if (cV) {
             d.deleteFile(file);
         }
-        nf("zip file status = " + cQ);
+        nR("zip file status = " + cV);
     }
 }

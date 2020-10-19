@@ -12,11 +12,11 @@ import com.baidu.tbadk.core.data.ErrorData;
 import com.baidu.tieba.R;
 import com.baidu.tieba.im.forum.broadcast.data.ForumBroadcastMajorResidueData;
 import com.baidu.tieba.im.forum.broadcast.model.ForumBroadCastMajorHistoryModel;
-/* loaded from: classes25.dex */
+/* loaded from: classes26.dex */
 public class ForumBroadCastMajorHistoryActivity extends BaseActivity<ForumBroadCastMajorHistoryActivity> implements a {
-    private ForumBroadCastMajorHistoryModel jvg;
-    private com.baidu.tieba.im.forum.broadcast.view.a jvh;
-    private String jvi;
+    private ForumBroadCastMajorHistoryModel jKd;
+    private com.baidu.tieba.im.forum.broadcast.view.a jKe;
+    private String jKf;
     private String mForumId;
     private String mForumName;
     private View rootView;
@@ -26,11 +26,11 @@ public class ForumBroadCastMajorHistoryActivity extends BaseActivity<ForumBroadC
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
         as(bundle);
-        this.jvg = new ForumBroadCastMajorHistoryModel(getPageContext(), this, this.mForumId);
+        this.jKd = new ForumBroadCastMajorHistoryModel(getPageContext(), this, this.mForumId);
         this.rootView = LayoutInflater.from(this).inflate(R.layout.forum_broadcast_history_list, (ViewGroup) null);
-        this.jvh = new com.baidu.tieba.im.forum.broadcast.view.a(getPageContext(), this, this.rootView, this.mForumId, this.mForumName, this.jvi, bundle);
+        this.jKe = new com.baidu.tieba.im.forum.broadcast.view.a(getPageContext(), this, this.rootView, this.mForumId, this.mForumName, this.jKf, bundle);
         setContentView(this.rootView);
-        this.jvg.cIq();
+        this.jKd.cLZ();
         refresh();
     }
 
@@ -45,11 +45,11 @@ public class ForumBroadCastMajorHistoryActivity extends BaseActivity<ForumBroadC
         if (intent != null) {
             this.mForumId = intent.getStringExtra("forum_id");
             this.mForumName = intent.getStringExtra("forum_name");
-            this.jvi = intent.getStringExtra("from");
+            this.jKf = intent.getStringExtra("from");
         } else if (bundle != null) {
             this.mForumId = bundle.getString("forum_id");
             this.mForumName = bundle.getString("forum_name");
-            this.jvi = bundle.getString("from");
+            this.jKf = bundle.getString("from");
         }
     }
 
@@ -57,20 +57,20 @@ public class ForumBroadCastMajorHistoryActivity extends BaseActivity<ForumBroadC
     @Override // com.baidu.tbadk.BaseActivity
     public void onChangeSkinType(int i) {
         super.onChangeSkinType(i);
-        this.jvh.onChangeSkinType(i);
+        this.jKe.onChangeSkinType(i);
     }
 
     @Override // com.baidu.tieba.im.forum.broadcast.a
-    public void bGU() {
-        if (this.jvg != null) {
-            this.jvg.bGU();
+    public void bJG() {
+        if (this.jKd != null) {
+            this.jKd.bJG();
         }
     }
 
     @Override // com.baidu.tieba.im.forum.broadcast.a
     public void refresh() {
-        if (this.jvg != null) {
-            this.jvg.refresh();
+        if (this.jKd != null) {
+            this.jKd.refresh();
         }
     }
 
@@ -83,21 +83,21 @@ public class ForumBroadCastMajorHistoryActivity extends BaseActivity<ForumBroadC
                 showToast(R.string.im_error_default);
             }
         }
-        if (this.jvg != null && !this.jvg.hasData()) {
+        if (this.jKd != null && !this.jKd.hasData()) {
             String str = null;
             if (errorData != null) {
                 str = getString(R.string.net_error_text, new Object[]{errorData.error_msg, Integer.valueOf(errorData.error_code)});
             }
-            this.jvh.aK(str, false);
+            this.jKe.aO(str, false);
         }
     }
 
     @Override // com.baidu.tieba.im.forum.broadcast.a
     public void a(com.baidu.tieba.im.forum.broadcast.data.a aVar) {
-        if (this.jvg != null && !this.jvg.hasData()) {
-            this.jvh.aK(getString(R.string.im_error_default), false);
-        } else if (this.jvh != null) {
-            this.jvh.b(aVar);
+        if (this.jKd != null && !this.jKd.hasData()) {
+            this.jKe.aO(getString(R.string.im_error_default), false);
+        } else if (this.jKe != null) {
+            this.jKe.b(aVar);
         }
     }
 
@@ -105,14 +105,14 @@ public class ForumBroadCastMajorHistoryActivity extends BaseActivity<ForumBroadC
     protected void onNewIntent(Intent intent) {
         super.onNewIntent(intent);
         refresh();
-        if ("broadcast_publish_success".equals(intent.getStringExtra("from")) && this.jvh != null) {
-            this.jvh.cIt();
+        if ("broadcast_publish_success".equals(intent.getStringExtra("from")) && this.jKe != null) {
+            this.jKe.cMc();
         }
     }
 
     @Override // com.baidu.tieba.im.forum.broadcast.a
     public void a(ForumBroadcastMajorResidueData forumBroadcastMajorResidueData) {
-        this.jvh.b(forumBroadcastMajorResidueData);
+        this.jKe.b(forumBroadcastMajorResidueData);
     }
 
     @Override // com.baidu.tbadk.core.view.f.c
@@ -133,11 +133,11 @@ public class ForumBroadCastMajorHistoryActivity extends BaseActivity<ForumBroadC
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onDestroy() {
         super.onDestroy();
-        if (this.jvh != null) {
-            this.jvh.onDestory();
+        if (this.jKe != null) {
+            this.jKe.onDestory();
         }
-        if (this.jvg != null) {
-            this.jvg.onDestory();
+        if (this.jKd != null) {
+            this.jKd.onDestory();
         }
     }
 

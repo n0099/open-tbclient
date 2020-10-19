@@ -2,10 +2,12 @@ package com.baidu.mobstat;
 
 import android.text.TextUtils;
 import org.json.JSONObject;
-/* loaded from: classes15.dex */
+/* loaded from: classes17.dex */
 public class ax {
     private static final ax c = new ax();
-    private boolean a = false;
+
+    /* renamed from: a  reason: collision with root package name */
+    private boolean f2569a = false;
     private volatile boolean b;
 
     public static ax a() {
@@ -16,7 +18,7 @@ public class ax {
         if (!TextUtils.isEmpty(str)) {
             try {
                 JSONObject jSONObject = (JSONObject) new JSONObject(str).opt("full");
-                this.a = (jSONObject != null ? jSONObject.optInt("close") : 0) != 0;
+                this.f2569a = (jSONObject != null ? jSONObject.optInt("close") : 0) != 0;
             } catch (Exception e) {
             }
             this.b = true;
@@ -24,6 +26,6 @@ public class ax {
     }
 
     public boolean b() {
-        return this.a;
+        return this.f2569a;
     }
 }

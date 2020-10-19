@@ -4,9 +4,11 @@ import android.content.Context;
 import com.baidu.mapsdkplatform.comapi.util.g;
 import com.baidubce.services.bos.BosClientConfiguration;
 import java.io.File;
-/* loaded from: classes3.dex */
+/* loaded from: classes7.dex */
 public class EnvironmentUtilities {
-    static String a;
+
+    /* renamed from: a  reason: collision with root package name */
+    static String f1986a;
     static String b;
     static String c;
     static int d;
@@ -20,7 +22,7 @@ public class EnvironmentUtilities {
     }
 
     public static String getAppSDCardPath() {
-        String str = a + "/BaiduMapSDKNew";
+        String str = f1986a + "/BaiduMapSDKNew";
         if (str.length() != 0) {
             File file = new File(str);
             if (!file.exists()) {
@@ -47,7 +49,7 @@ public class EnvironmentUtilities {
     }
 
     public static String getSDCardPath() {
-        return a;
+        return f1986a;
     }
 
     public static int getSsgTmpStgMax() {
@@ -59,11 +61,11 @@ public class EnvironmentUtilities {
             h = g.a();
             h.a(context);
         }
-        if (a == null || a.length() <= 0) {
-            a = h.b().a();
+        if (f1986a == null || f1986a.length() <= 0) {
+            f1986a = h.b().a();
             b = h.b().c();
         } else {
-            b = a + File.separator + "BaiduMapSDKNew" + File.separator + "cache";
+            b = f1986a + File.separator + "BaiduMapSDKNew" + File.separator + "cache";
         }
         c = h.b().d();
         d = 52428800;
@@ -73,6 +75,6 @@ public class EnvironmentUtilities {
     }
 
     public static void setSDCardPath(String str) {
-        a = str;
+        f1986a = str;
     }
 }

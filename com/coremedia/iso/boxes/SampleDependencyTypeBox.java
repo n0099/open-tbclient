@@ -1,6 +1,7 @@
 package com.coremedia.iso.boxes;
 
 import com.alibaba.fastjson.asm.Opcodes;
+import com.baidu.appsearch.update.patchupdate.GDiffPatcher;
 import com.baidu.live.adp.lib.util.FieldUtil;
 import com.coremedia.iso.IsoTypeReader;
 import com.coremedia.iso.IsoTypeWriter;
@@ -12,12 +13,12 @@ import java.util.List;
 import org.apache.http.HttpStatus;
 import org.aspectj.a.b.b;
 import org.aspectj.lang.a;
-/* loaded from: classes4.dex */
+/* loaded from: classes11.dex */
 public class SampleDependencyTypeBox extends AbstractFullBox {
     public static final String TYPE = "sdtp";
-    private static final /* synthetic */ a.InterfaceC0979a ajc$tjp_0 = null;
-    private static final /* synthetic */ a.InterfaceC0979a ajc$tjp_1 = null;
-    private static final /* synthetic */ a.InterfaceC0979a ajc$tjp_2 = null;
+    private static final /* synthetic */ a.InterfaceC0997a ajc$tjp_0 = null;
+    private static final /* synthetic */ a.InterfaceC0997a ajc$tjp_1 = null;
+    private static final /* synthetic */ a.InterfaceC0997a ajc$tjp_2 = null;
     private List<Entry> entries;
 
     static {
@@ -31,7 +32,7 @@ public class SampleDependencyTypeBox extends AbstractFullBox {
         ajc$tjp_2 = bVar.a("method-execution", bVar.d("1", "toString", "com.coremedia.iso.boxes.SampleDependencyTypeBox", "", "", "", FieldUtil.TYPE_STRING), Opcodes.LCMP);
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes11.dex */
     public static class Entry {
         private int value;
 
@@ -68,7 +69,7 @@ public class SampleDependencyTypeBox extends AbstractFullBox {
         }
 
         public void setSampleHasRedundancy(int i) {
-            this.value = (i & 3) | (this.value & 252);
+            this.value = (i & 3) | (this.value & GDiffPatcher.COPY_INT_UBYTE);
         }
 
         public String toString() {

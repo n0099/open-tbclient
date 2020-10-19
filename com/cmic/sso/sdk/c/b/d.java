@@ -2,21 +2,23 @@ package com.cmic.sso.sdk.c.b;
 
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class d extends g {
-    private String a;
+
+    /* renamed from: a  reason: collision with root package name */
+    private String f4011a;
     private String b;
     private String c;
 
     public d(String str, String str2, String str3) {
-        this.a = str;
+        this.f4011a = str;
         this.b = str2;
         this.c = str3;
     }
 
     @Override // com.cmic.sso.sdk.c.b.g
     public String a() {
-        return this.a;
+        return this.f4011a;
     }
 
     @Override // com.cmic.sso.sdk.c.b.g

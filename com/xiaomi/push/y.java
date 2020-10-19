@@ -20,9 +20,11 @@ import java.util.Date;
 import java.util.zip.GZIPOutputStream;
 import java.util.zip.ZipEntry;
 import java.util.zip.ZipOutputStream;
-/* loaded from: classes9.dex */
+/* loaded from: classes12.dex */
 public class y {
-    public static final String[] a = {"jpg", "png", "bmp", "gif", WebpUtils.TYPE_IMG_WEBP};
+
+    /* renamed from: a  reason: collision with root package name */
+    public static final String[] f5129a = {"jpg", "png", "bmp", "gif", WebpUtils.TYPE_IMG_WEBP};
 
     public static String a(File file) {
         InputStreamReader inputStreamReader;
@@ -80,7 +82,7 @@ public class y {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public static void m589a(File file) {
+    public static void m590a(File file) {
         if (!file.isDirectory()) {
             if (file.exists()) {
                 file.delete();
@@ -89,7 +91,7 @@ public class y {
             return;
         }
         for (File file2 : file.listFiles()) {
-            m589a(file2);
+            m590a(file2);
         }
         file.delete();
     }
@@ -117,7 +119,7 @@ public class y {
         } catch (IOException e4) {
             zipOutputStream2 = zipOutputStream;
             e = e4;
-            com.xiaomi.channel.commonutils.logger.b.m54a("zip file failure + " + e.getMessage());
+            com.xiaomi.channel.commonutils.logger.b.m55a("zip file failure + " + e.getMessage());
             a(zipOutputStream2);
         } catch (Throwable th2) {
             zipOutputStream2 = zipOutputStream;
@@ -221,7 +223,7 @@ public class y {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public static boolean m590a(File file) {
+    public static boolean m591a(File file) {
         try {
             if (file.isDirectory()) {
                 return false;

@@ -1,9 +1,11 @@
 package com.baidu.mapapi.search.geocode;
 
 import com.baidu.mapapi.model.LatLng;
-/* loaded from: classes3.dex */
+/* loaded from: classes7.dex */
 public class ReverseGeoCodeOption {
-    private int a = 10;
+
+    /* renamed from: a  reason: collision with root package name */
+    private int f2115a = 10;
     private int b = 0;
     private LatLng c = null;
     private int d = 1;
@@ -22,7 +24,7 @@ public class ReverseGeoCodeOption {
     }
 
     public int getPageSize() {
-        return this.a;
+        return this.f2115a;
     }
 
     public int getRadius() {
@@ -49,11 +51,11 @@ public class ReverseGeoCodeOption {
 
     public ReverseGeoCodeOption pageSize(int i) {
         if (i <= 0) {
-            this.a = 10;
+            this.f2115a = 10;
         } else if (i > 100) {
-            this.a = 100;
+            this.f2115a = 100;
         } else {
-            this.a = i;
+            this.f2115a = i;
         }
         return this;
     }

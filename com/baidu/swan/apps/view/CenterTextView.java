@@ -7,10 +7,10 @@ import android.text.StaticLayout;
 import android.text.TextPaint;
 import android.util.AttributeSet;
 import android.widget.TextView;
-/* loaded from: classes3.dex */
+/* loaded from: classes10.dex */
 public class CenterTextView extends TextView {
-    private StaticLayout deO;
-    private TextPaint deP;
+    private StaticLayout dqU;
+    private TextPaint dqV;
 
     public CenterTextView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
@@ -23,16 +23,16 @@ public class CenterTextView extends TextView {
     }
 
     private void initView() {
-        this.deP = new TextPaint(1);
-        this.deP.setTextSize(getTextSize());
-        this.deP.setColor(getCurrentTextColor());
-        this.deO = new StaticLayout(getText(), this.deP, getWidth(), Layout.Alignment.ALIGN_CENTER, 1.0f, 0.0f, false);
+        this.dqV = new TextPaint(1);
+        this.dqV.setTextSize(getTextSize());
+        this.dqV.setColor(getCurrentTextColor());
+        this.dqU = new StaticLayout(getText(), this.dqV, getWidth(), Layout.Alignment.ALIGN_CENTER, 1.0f, 0.0f, false);
     }
 
     @Override // android.widget.TextView, android.view.View
     protected void onDraw(Canvas canvas) {
-        if (this.deO != null) {
-            this.deO.draw(canvas);
+        if (this.dqU != null) {
+            this.dqU.draw(canvas);
         }
     }
 }

@@ -25,19 +25,19 @@ import com.baidu.tieba.share.ImplicitShareMessage;
 import com.sina.weibo.sdk.WbSdk;
 import com.sina.weibo.sdk.auth.AuthInfo;
 import java.util.Iterator;
-/* loaded from: classes23.dex */
+/* loaded from: classes24.dex */
 public class ShareStatic {
     public static String Tag = "tag";
 
     static {
-        dwp();
-        dwr();
-        dwq();
-        dwo();
-        dws();
+        dAa();
+        dAc();
+        dAb();
+        dzZ();
+        dAd();
     }
 
-    private static void dwo() {
+    private static void dzZ() {
         MessageManager.getInstance().registerListener(new HttpMessageListener(CmdConfigHttp.CMD_SHARE_COMMAND_GENERATE) { // from class: com.baidu.tieba.sharesdk.ShareStatic.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.adp.framework.listener.MessageListener
@@ -47,21 +47,21 @@ public class ShareStatic {
                     Object extra = commandShareHttpResMsg.getOrginalMessage().getExtra();
                     if ((extra instanceof com.baidu.tbadk.core.atomData.a) && !TextUtils.isEmpty(commandShareHttpResMsg.token)) {
                         com.baidu.tbadk.core.atomData.a aVar = (com.baidu.tbadk.core.atomData.a) extra;
-                        aVar.dXo.eGY = aVar.dXo.eGY.replace("TOKEN", commandShareHttpResMsg.token);
+                        aVar.ejq.eTf = aVar.ejq.eTf.replace("TOKEN", commandShareHttpResMsg.token);
                         if (aVar.channel == 0) {
-                            ShareDialogConfig shareDialogConfig = new ShareDialogConfig(aVar.activity, aVar.dXo, false);
+                            ShareDialogConfig shareDialogConfig = new ShareDialogConfig(aVar.activity, aVar.ejq, false);
                             shareDialogConfig.onCancelListener = aVar.onCancelListener;
                             MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.CMD_SHARE_DIALOG_SHOW, shareDialogConfig));
                             return;
                         }
-                        com.baidu.tbadk.coreExtra.share.a.a(aVar.dXo, aVar.activity, aVar.channel, aVar.onCancelListener);
+                        com.baidu.tbadk.coreExtra.share.a.a(aVar.ejq, aVar.activity, aVar.channel, aVar.onCancelListener);
                     }
                 }
             }
         });
     }
 
-    private static void dwp() {
+    private static void dAa() {
         CustomMessageTask customMessageTask = new CustomMessageTask(CmdConfigCustom.CMD_CREATE_SHARE_DIALOG, new CustomMessageTask.CustomRunnable<e>() { // from class: com.baidu.tieba.sharesdk.ShareStatic.2
             /* JADX DEBUG: Method arguments types fixed to match base method, original types: [com.baidu.adp.framework.message.CustomMessage] */
             @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
@@ -73,7 +73,7 @@ public class ShareStatic {
         MessageManager.getInstance().registerTask(customMessageTask);
     }
 
-    private static void dwq() {
+    private static void dAb() {
         TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_SHARE_COMMAND_GENERATE, TbConfig.SERVER_ADDRESS + TbConfig.URL_SHARE_COMMAND_GENERATE);
         tbHttpMessageTask.setIsNeedAddCommenParam(false);
         tbHttpMessageTask.setResponsedClass(CommandShareHttpResMsg.class);
@@ -81,7 +81,7 @@ public class ShareStatic {
         MessageManager.getInstance().registerTask(tbHttpMessageTask);
     }
 
-    private static void dwr() {
+    private static void dAc() {
         CustomMessageTask customMessageTask = new CustomMessageTask(CmdConfigCustom.CMD_SHARE_DIALOG_SHOW, new CustomMessageTask.CustomRunnable<ShareDialogConfig>() { // from class: com.baidu.tieba.sharesdk.ShareStatic.3
             @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
             public CustomResponsedMessage<?> run(CustomMessage<ShareDialogConfig> customMessage) {
@@ -132,7 +132,7 @@ public class ShareStatic {
                             Iterator<Pair<Integer, Pair<Integer, View.OnClickListener>>> it = data.textViewList.iterator();
                             while (it.hasNext()) {
                                 Pair<Integer, Pair<Integer, View.OnClickListener>> next = it.next();
-                                cVar.a(cVar.dm(((Integer) next.first).intValue(), ((Integer) ((Pair) next.second).first).intValue()), cVar.dwK(), (View.OnClickListener) ((Pair) next.second).second);
+                                cVar.a(cVar.dm(((Integer) next.first).intValue(), ((Integer) ((Pair) next.second).first).intValue()), cVar.dAv(), (View.OnClickListener) ((Pair) next.second).second);
                             }
                         }
                         cVar.b(data.getFrom());
@@ -160,13 +160,13 @@ public class ShareStatic {
             Iterator<Pair<Integer, Pair<Integer, View.OnClickListener>>> it = shareDialogConfig.textViewList.iterator();
             while (it.hasNext()) {
                 Pair<Integer, Pair<Integer, View.OnClickListener>> next = it.next();
-                aVar.a(aVar.dm(((Integer) next.first).intValue(), ((Integer) ((Pair) next.second).first).intValue()), aVar.dwK(), (View.OnClickListener) ((Pair) next.second).second);
+                aVar.a(aVar.dm(((Integer) next.first).intValue(), ((Integer) ((Pair) next.second).first).intValue()), aVar.dAv(), (View.OnClickListener) ((Pair) next.second).second);
             }
         }
         aVar.show();
     }
 
-    private static void dws() {
+    private static void dAd() {
         CustomMessageTask customMessageTask = new CustomMessageTask(2016567, new CustomMessageTask.CustomRunnable<ShareItem>() { // from class: com.baidu.tieba.sharesdk.ShareStatic.4
             @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
             public CustomResponsedMessage<?> run(CustomMessage<ShareItem> customMessage) {
@@ -187,10 +187,10 @@ public class ShareStatic {
     public static void d(ShareDialogConfig shareDialogConfig) {
         if (shareDialogConfig != null && shareDialogConfig.shareItem != null) {
             com.baidu.tieba.transmitShare.c cVar = new com.baidu.tieba.transmitShare.c(shareDialogConfig.getContext());
-            cVar.wH((!TbadkCoreApplication.isLogin() || shareDialogConfig.mIsAlaLive || shareDialogConfig.shareItem.bqv()) ? false : true);
+            cVar.xo((!TbadkCoreApplication.isLogin() || shareDialogConfig.mIsAlaLive || shareDialogConfig.shareItem.btf()) ? false : true);
             cVar.g(shareDialogConfig);
             cVar.setOnDismissListener(shareDialogConfig.onDismissListener);
-            if (shareDialogConfig.shareItem != null && shareDialogConfig.shareItem.eGN) {
+            if (shareDialogConfig.shareItem != null && shareDialogConfig.shareItem.eSU) {
                 cVar.b(shareDialogConfig.getFrom());
             }
             cVar.show();

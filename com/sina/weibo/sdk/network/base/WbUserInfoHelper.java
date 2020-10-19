@@ -3,7 +3,7 @@ package com.sina.weibo.sdk.network.base;
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.text.TextUtils;
-/* loaded from: classes24.dex */
+/* loaded from: classes12.dex */
 public class WbUserInfoHelper {
     private static WbUserInfoHelper userInfoHelper;
     private WbUserInfo userInfo;

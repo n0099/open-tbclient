@@ -5,9 +5,11 @@ import android.content.Intent;
 import android.text.TextUtils;
 import android.util.Log;
 import com.baidu.android.pushservice.h.a.b;
-/* loaded from: classes7.dex */
+/* loaded from: classes10.dex */
 public class c {
-    private static final Object a = new Object();
+
+    /* renamed from: a  reason: collision with root package name */
+    private static final Object f1148a = new Object();
     private long b = System.currentTimeMillis();
     private a c;
     private Context d;
@@ -31,8 +33,8 @@ public class c {
             this.c.a(0, intent);
         }
         this.g = intent;
-        synchronized (a) {
-            a.notifyAll();
+        synchronized (f1148a) {
+            f1148a.notifyAll();
         }
     }
 
@@ -52,8 +54,8 @@ public class c {
             public void a() {
                 try {
                     Thread.sleep(1000L);
-                    synchronized (c.a) {
-                        c.a.notifyAll();
+                    synchronized (c.f1148a) {
+                        c.f1148a.notifyAll();
                     }
                 } catch (InterruptedException e2) {
                     new b.c(c.this.d).a(Log.getStackTraceString(e2)).a();
@@ -61,9 +63,9 @@ public class c {
             }
         });
         if (this.c == null) {
-            synchronized (a) {
+            synchronized (f1148a) {
                 try {
-                    a.wait();
+                    f1148a.wait();
                 } catch (Exception e2) {
                     new b.c(this.d).a(Log.getStackTraceString(e2)).a();
                 }

@@ -1,5 +1,5 @@
 package org.apache.commons.base;
-/* loaded from: classes24.dex */
+/* loaded from: classes15.dex */
 public interface StringEncoder extends Encoder {
     String encode(String str) throws EncoderException;
 }

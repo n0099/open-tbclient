@@ -81,58 +81,58 @@ public class PerformanceMonitorPlugin implements FlutterPlugin, MethodChannel.Me
             BdStatisticsManager.getInstance().performance(str2, statsItem);
             result.success(null);
         } else if (methodCall.method.equals("reportPageLoadPerformance")) {
-            if (m.bvs().bvt() && methodCall.arguments != null && (hashMap = (HashMap) methodCall.arguments) != null && hashMap.get("viewCreateTime") != null && ((Double) hashMap.get("viewCreateTime")).doubleValue() > 0.0d) {
+            if (m.byc().byd() && methodCall.arguments != null && (hashMap = (HashMap) methodCall.arguments) != null && hashMap.get("viewCreateTime") != null && ((Double) hashMap.get("viewCreateTime")).doubleValue() > 0.0d) {
                 String str3 = (String) hashMap.get("pageName");
                 if (OpenFlutter.ACTIVITY_SIGN_TOGETHER.equals(str3)) {
                     str = "sign_all_flt";
                 } else {
                     str = OpenFlutter.FRAGMENT_MYTAB.equals(str3) ? "user_center_flt" : str3;
                 }
-                a mS = l.mS();
-                mS.append("action", "time");
-                mS.append("ishttp", hashMap.get("isHttp"));
-                mS.append("issuccess", hashMap.get("errCode") == BasicPushStatus.SUCCESS_CODE ? "1" : "0");
-                mS.append("nettype", m.bvs().getNetType());
+                a mT = l.mT();
+                mT.append("action", "time");
+                mT.append("ishttp", hashMap.get("isHttp"));
+                mT.append("issuccess", hashMap.get("errCode") == BasicPushStatus.SUCCESS_CODE ? "1" : "0");
+                mT.append("nettype", m.byc().getNetType());
                 if (hashMap.containsKey("whiteTime") && (hashMap.get("whiteTime") instanceof Double)) {
-                    mS.append("wt", Double.valueOf(((Double) hashMap.get("whiteTime")).doubleValue() * 1000.0d));
+                    mT.append("wt", Double.valueOf(((Double) hashMap.get("whiteTime")).doubleValue() * 1000.0d));
                 }
-                mS.append("qt", hashMap.get("queneTime"));
-                mS.append("connt", hashMap.get("netConTime"));
-                mS.append("rwt", hashMap.get("netRWTime"));
-                mS.append("fbt", hashMap.get("firstByteReachTime"));
-                mS.append("abt", hashMap.get("allDataReadTime"));
-                mS.append("dect", hashMap.get("dataDeCompressTime"));
-                mS.append("tqt", hashMap.get("taskWaitTime"));
+                mT.append("qt", hashMap.get("queneTime"));
+                mT.append("connt", hashMap.get("netConTime"));
+                mT.append("rwt", hashMap.get("netRWTime"));
+                mT.append("fbt", hashMap.get("firstByteTime"));
+                mT.append("abt", hashMap.get("allDataReadTime"));
+                mT.append("dect", hashMap.get("dataDeCompressTime"));
+                mT.append("tqt", "0");
                 if (hashMap.containsKey("dataParseTime") && (hashMap.get("dataParseTime") instanceof Double)) {
-                    mS.append("parset", Double.valueOf(((Double) hashMap.get("dataParseTime")).doubleValue() * 1000.0d));
+                    mT.append("parset", Double.valueOf(((Double) hashMap.get("dataParseTime")).doubleValue() * 1000.0d));
                 }
                 if (hashMap.containsKey("drawTime") && (hashMap.get("drawTime") instanceof Double)) {
-                    mS.append("rendert", Double.valueOf(((Double) hashMap.get("drawTime")).doubleValue() * 1000.0d));
+                    mT.append("rendert", Double.valueOf(((Double) hashMap.get("drawTime")).doubleValue() * 1000.0d));
                 }
                 if (hashMap.get("isHttp") == "1") {
-                    mS.append("hrtn", hashMap.get("httpRetryNum"));
-                    mS.append("hrtt", hashMap.get("httpRetryCostTime"));
+                    mT.append("hrtn", hashMap.get("httpRetryNum"));
+                    mT.append("hrtt", hashMap.get("httpRetryCostTime"));
                 }
                 if (hashMap.get("errCode") != "0") {
-                    mS.append("errcode", hashMap.get("errCode"));
+                    mT.append("errcode", hashMap.get("errCode"));
                 }
                 if (hashMap.containsKey("viewCreateTime") && (hashMap.get("viewCreateTime") instanceof Double)) {
-                    mS.append(Config.EXCEPTION_CRASH_TYPE, Double.valueOf(((Double) hashMap.get("viewCreateTime")).doubleValue() * 1000.0d));
+                    mT.append(Config.EXCEPTION_CRASH_TYPE, Double.valueOf(((Double) hashMap.get("viewCreateTime")).doubleValue() * 1000.0d));
                 }
                 if (hashMap.containsKey("channelTransTime") && (hashMap.get("channelTransTime") instanceof Double)) {
-                    mS.append("transt", Double.valueOf(((Double) hashMap.get("channelTransTime")).doubleValue() * 1000.0d));
+                    mT.append("transt", Double.valueOf(((Double) hashMap.get("channelTransTime")).doubleValue() * 1000.0d));
                 }
                 if (hashMap.containsKey("dartItemParseTime") && (hashMap.get("dartItemParseTime") instanceof Double)) {
-                    mS.append("dpt", Double.valueOf(((Double) hashMap.get("dartItemParseTime")).doubleValue() * 1000.0d));
+                    mT.append("dpt", Double.valueOf(((Double) hashMap.get("dartItemParseTime")).doubleValue() * 1000.0d));
                 }
                 if (hashMap.containsKey("reqWaitTime") && (hashMap.get("reqWaitTime") instanceof Double)) {
-                    mS.append("rqwt", Double.valueOf(((Double) hashMap.get("reqWaitTime")).doubleValue() * 1000.0d));
+                    mT.append("rqwt", Double.valueOf(((Double) hashMap.get("reqWaitTime")).doubleValue() * 1000.0d));
                 }
                 if (hashMap.containsKey("renderTime") && (hashMap.get("renderTime") instanceof Double)) {
-                    mS.append("rdt", Double.valueOf(((Double) hashMap.get("renderTime")).doubleValue() * 1000.0d));
+                    mT.append("rdt", Double.valueOf(((Double) hashMap.get("renderTime")).doubleValue() * 1000.0d));
                 }
-                mS.append("hs", hashMap.get("httpSize"));
-                BdStatisticsManager.getInstance().performance(str, mS);
+                mT.append("hs", hashMap.get("httpSize"));
+                BdStatisticsManager.getInstance().performance(str, mT);
             }
         } else if (methodCall.method.equals("reportImageLoadPerformance")) {
             if (methodCall.arguments != null && (methodCall.arguments instanceof HashMap)) {

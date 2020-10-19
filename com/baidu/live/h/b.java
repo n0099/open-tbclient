@@ -7,7 +7,7 @@ import com.baidu.live.tbadk.TbPageContext;
 public interface b {
     void a(TbPageContext tbPageContext, String str, String str2, String str3, int i, boolean z);
 
-    void bL(boolean z);
+    void bO(boolean z);
 
     String getTitle();
 

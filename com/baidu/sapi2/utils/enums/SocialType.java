@@ -1,7 +1,7 @@
 package com.baidu.sapi2.utils.enums;
 
 import com.baidu.android.util.io.FileUtils;
-/* loaded from: classes25.dex */
+/* loaded from: classes5.dex */
 public enum SocialType {
     UNKNOWN(0, FileUtils.UNKNOW),
     SINA_WEIBO_SSO(2, "新浪微博SSO"),
@@ -15,11 +15,13 @@ public enum SocialType {
     TWITTER(56, "twitter"),
     GOOGLE(57, "google");
     
-    private int a;
+
+    /* renamed from: a  reason: collision with root package name */
+    private int f3549a;
     private String b;
 
     SocialType(int i, String str) {
-        this.a = i;
+        this.f3549a = i;
         this.b = str;
     }
 
@@ -56,6 +58,6 @@ public enum SocialType {
     }
 
     public int getType() {
-        return this.a;
+        return this.f3549a;
     }
 }

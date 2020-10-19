@@ -7,21 +7,23 @@ import com.baidu.ar.recg.IOnDeviceIR;
 import com.baidu.ar.track2d.ITrack2D;
 import java.util.HashMap;
 import java.util.Map;
-/* loaded from: classes10.dex */
+/* loaded from: classes14.dex */
 public class ARProxyManager {
-    private HashMap<String, d> a = new HashMap<>();
+
+    /* renamed from: a  reason: collision with root package name */
+    private HashMap<String, d> f1188a = new HashMap<>();
 
     private d a(String str) {
         if (b(str)) {
-            if (this.a == null) {
-                this.a = new HashMap<>();
+            if (this.f1188a == null) {
+                this.f1188a = new HashMap<>();
             }
-            d dVar = this.a.get(str);
+            d dVar = this.f1188a.get(str);
             if (dVar == null) {
                 dVar = c(str);
             }
             if (dVar != null) {
-                this.a.put(str, dVar);
+                this.f1188a.put(str, dVar);
                 return dVar;
             }
             return dVar;
@@ -50,9 +52,9 @@ public class ARProxyManager {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public void a(c cVar, String str) {
-        d a = a(str);
-        if (a != null) {
-            a.a(cVar);
+        d a2 = a(str);
+        if (a2 != null) {
+            a2.a(cVar);
         }
     }
 
@@ -63,8 +65,8 @@ public class ARProxyManager {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public void d() {
-        if (this.a != null) {
-            for (d dVar : this.a.values()) {
+        if (this.f1188a != null) {
+            for (d dVar : this.f1188a.values()) {
                 dVar.a(null);
             }
         }
@@ -73,7 +75,7 @@ public class ARProxyManager {
     /* JADX INFO: Access modifiers changed from: package-private */
     public void d(String str) {
         d dVar;
-        if (this.a == null || (dVar = this.a.get(str)) == null) {
+        if (this.f1188a == null || (dVar = this.f1188a.get(str)) == null) {
             return;
         }
         dVar.a(null);
@@ -102,12 +104,12 @@ public class ARProxyManager {
     /* JADX INFO: Access modifiers changed from: package-private */
     public void release() {
         d();
-        if (this.a != null) {
-            for (Map.Entry<String, d> entry : this.a.entrySet()) {
+        if (this.f1188a != null) {
+            for (Map.Entry<String, d> entry : this.f1188a.entrySet()) {
                 entry.getValue().release();
             }
-            this.a.clear();
-            this.a = null;
+            this.f1188a.clear();
+            this.f1188a = null;
         }
     }
 }

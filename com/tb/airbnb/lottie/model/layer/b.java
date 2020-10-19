@@ -10,51 +10,51 @@ import com.tb.airbnb.lottie.a.b.p;
 import com.tb.airbnb.lottie.j;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes17.dex */
+/* loaded from: classes16.dex */
 public class b extends a {
-    private final List<a> AW;
-    private final RectF FP;
+    private final List<a> Bn;
+    private final RectF Gh;
     @Nullable
-    private Boolean FQ;
+    private Boolean Gi;
     @Nullable
-    private Boolean FR;
+    private Boolean Gj;
     @Nullable
-    private com.tb.airbnb.lottie.a.b.a<Float, Float> otT;
+    private com.tb.airbnb.lottie.a.b.a<Float, Float> oJj;
     private final RectF rect;
 
     public b(com.tb.airbnb.lottie.f fVar, Layer layer, List<Layer> list, com.tb.airbnb.lottie.d dVar) {
         super(fVar, layer);
         a aVar;
         a aVar2;
-        this.AW = new ArrayList();
+        this.Bn = new ArrayList();
         this.rect = new RectF();
-        this.FP = new RectF();
-        com.tb.airbnb.lottie.model.a.b eia = layer.eia();
-        if (eia != null) {
-            this.otT = eia.ehl();
-            a(this.otT);
-            this.otT.b(this);
+        this.Gh = new RectF();
+        com.tb.airbnb.lottie.model.a.b elL = layer.elL();
+        if (elL != null) {
+            this.oJj = elL.ekW();
+            a(this.oJj);
+            this.oJj.b(this);
         } else {
-            this.otT = null;
+            this.oJj = null;
         }
-        LongSparseArray longSparseArray = new LongSparseArray(dVar.iy().size());
+        LongSparseArray longSparseArray = new LongSparseArray(dVar.iz().size());
         int size = list.size() - 1;
         a aVar3 = null;
         while (size >= 0) {
-            a a = a.a(list.get(size), fVar, dVar);
-            if (a == null) {
+            a a2 = a.a(list.get(size), fVar, dVar);
+            if (a2 == null) {
                 aVar2 = aVar3;
             } else {
-                longSparseArray.put(a.ehV().getId(), a);
+                longSparseArray.put(a2.elG().getId(), a2);
                 if (aVar3 != null) {
-                    aVar3.b(a);
+                    aVar3.b(a2);
                     aVar2 = null;
                 } else {
-                    this.AW.add(0, a);
-                    switch (r0.ehX()) {
+                    this.Bn.add(0, a2);
+                    switch (r0.elI()) {
                         case Add:
                         case Invert:
-                            aVar2 = a;
+                            aVar2 = a2;
                             continue;
                         default:
                             aVar2 = aVar3;
@@ -67,7 +67,7 @@ public class b extends a {
         }
         for (int i = 0; i < longSparseArray.size(); i++) {
             a aVar4 = (a) longSparseArray.get(longSparseArray.keyAt(i));
-            if (aVar4 != null && (aVar = (a) longSparseArray.get(aVar4.ehV().kE())) != null) {
+            if (aVar4 != null && (aVar = (a) longSparseArray.get(aVar4.elG().kF())) != null) {
                 aVar4.c(aVar);
             }
         }
@@ -77,15 +77,15 @@ public class b extends a {
     void b(Canvas canvas, Matrix matrix, int i) {
         com.tb.airbnb.lottie.c.beginSection("CompositionLayer#draw");
         canvas.save();
-        this.FP.set(0.0f, 0.0f, this.otN.kA(), this.otN.kB());
-        matrix.mapRect(this.FP);
-        for (int size = this.AW.size() - 1; size >= 0; size--) {
+        this.Gh.set(0.0f, 0.0f, this.oJd.kB(), this.oJd.kC());
+        matrix.mapRect(this.Gh);
+        for (int size = this.Bn.size() - 1; size >= 0; size--) {
             boolean z = true;
-            if (!this.FP.isEmpty()) {
-                z = canvas.clipRect(this.FP);
+            if (!this.Gh.isEmpty()) {
+                z = canvas.clipRect(this.Gh);
             }
             if (z) {
-                this.AW.get(size).a(canvas, matrix, i);
+                this.Bn.get(size).a(canvas, matrix, i);
             }
         }
         canvas.restore();
@@ -96,8 +96,8 @@ public class b extends a {
     public void a(RectF rectF, Matrix matrix) {
         super.a(rectF, matrix);
         this.rect.set(0.0f, 0.0f, 0.0f, 0.0f);
-        for (int size = this.AW.size() - 1; size >= 0; size--) {
-            this.AW.get(size).a(this.rect, this.FD);
+        for (int size = this.Bn.size() - 1; size >= 0; size--) {
+            this.Bn.get(size).a(this.rect, this.FV);
             if (rectF.isEmpty()) {
                 rectF.set(this.rect);
             } else {
@@ -109,52 +109,52 @@ public class b extends a {
     @Override // com.tb.airbnb.lottie.model.layer.a
     public void setProgress(@FloatRange(from = 0.0d, to = 1.0d) float f) {
         super.setProgress(f);
-        if (this.otT != null) {
-            f = (this.otT.getValue().floatValue() * 1000.0f) / this.lottieDrawable.getComposition().iu();
+        if (this.oJj != null) {
+            f = (this.oJj.getValue().floatValue() * 1000.0f) / this.lottieDrawable.getComposition().iv();
         }
-        if (this.otN.kx() != 0.0f) {
-            f /= this.otN.kx();
+        if (this.oJd.ky() != 0.0f) {
+            f /= this.oJd.ky();
         }
-        float ky = f - this.otN.ky();
-        for (int size = this.AW.size() - 1; size >= 0; size--) {
-            this.AW.get(size).setProgress(ky);
+        float kz = f - this.oJd.kz();
+        for (int size = this.Bn.size() - 1; size >= 0; size--) {
+            this.Bn.get(size).setProgress(kz);
         }
     }
 
     public boolean hasMasks() {
-        if (this.FR == null) {
-            for (int size = this.AW.size() - 1; size >= 0; size--) {
-                a aVar = this.AW.get(size);
+        if (this.Gj == null) {
+            for (int size = this.Bn.size() - 1; size >= 0; size--) {
+                a aVar = this.Bn.get(size);
                 if (aVar instanceof e) {
-                    if (aVar.kv()) {
-                        this.FR = true;
+                    if (aVar.kw()) {
+                        this.Gj = true;
                         return true;
                     }
                 } else if ((aVar instanceof b) && ((b) aVar).hasMasks()) {
-                    this.FR = true;
+                    this.Gj = true;
                     return true;
                 }
             }
-            this.FR = false;
+            this.Gj = false;
         }
-        return this.FR.booleanValue();
+        return this.Gj.booleanValue();
     }
 
     public boolean hasMatte() {
-        if (this.FQ == null) {
-            if (kt()) {
-                this.FQ = true;
+        if (this.Gi == null) {
+            if (ku()) {
+                this.Gi = true;
                 return true;
             }
-            for (int size = this.AW.size() - 1; size >= 0; size--) {
-                if (this.AW.get(size).kt()) {
-                    this.FQ = true;
+            for (int size = this.Bn.size() - 1; size >= 0; size--) {
+                if (this.Bn.get(size).ku()) {
+                    this.Gi = true;
                     return true;
                 }
             }
-            this.FQ = false;
+            this.Gi = false;
         }
-        return this.FQ.booleanValue();
+        return this.Gi.booleanValue();
     }
 
     @Override // com.tb.airbnb.lottie.model.layer.a
@@ -162,8 +162,8 @@ public class b extends a {
         int i2 = 0;
         while (true) {
             int i3 = i2;
-            if (i3 < this.AW.size()) {
-                this.AW.get(i3).a(eVar, i, list, eVar2);
+            if (i3 < this.Bn.size()) {
+                this.Bn.get(i3).a(eVar, i, list, eVar2);
                 i2 = i3 + 1;
             } else {
                 return;
@@ -174,13 +174,13 @@ public class b extends a {
     @Override // com.tb.airbnb.lottie.model.layer.a, com.tb.airbnb.lottie.model.f
     public <T> void a(T t, @Nullable com.tb.airbnb.lottie.e.c<T> cVar) {
         super.a((b) t, (com.tb.airbnb.lottie.e.c<b>) cVar);
-        if (t == j.Ca) {
+        if (t == j.Cr) {
             if (cVar == null) {
-                this.otT = null;
+                this.oJj = null;
                 return;
             }
-            this.otT = new p(cVar);
-            a(this.otT);
+            this.oJj = new p(cVar);
+            a(this.oJj);
         }
     }
 }

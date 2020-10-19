@@ -3,13 +3,14 @@ package org.apache.commons.codec.digest4util;
 import android.support.v4.internal.view.SupportMenu;
 import android.support.v4.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.appsearch.update.patchupdate.GDiffPatcher;
 import com.baidu.ar.arplay.core.message.ARPMessageType;
 import com.baidu.ar.constants.DebugConstants;
 import com.baidu.fsg.base.router.RouterCallback;
 import com.baidu.idl.authority.AuthorityState;
 import java.util.Random;
 import org.apache.commons.base.Charsets;
-/* loaded from: classes16.dex */
+/* loaded from: classes17.dex */
 public class UnixCrypt {
     private static final int[] CON_SALT = {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46, 47, 48, 49, 50, 51, 52, 53, 54, 55, 56, 57, 58, 59, 60, 61, 62, 63, 0, 0, 0, 0, 0};
     private static final int[] COV2CHAR = {46, 47, 48, 49, 50, 51, 52, 53, 54, 55, 56, 57, 65, 66, 67, 68, 69, 70, 71, 72, 73, 74, 75, 76, 77, 78, 79, 80, 81, 82, 83, 84, 85, 86, 87, 88, 89, 90, 97, 98, 99, 100, 101, 102, 103, 104, 105, 106, 107, 108, 109, 110, 111, 112, 113, 114, 115, 116, 117, 118, 119, 120, Constants.METHOD_IM_FRIEND_GROUP_DROP, 122};
@@ -114,7 +115,7 @@ public class UnixCrypt {
     }
 
     private static int byteToUnsigned(byte b) {
-        return b < 0 ? b + 256 : b;
+        return b < 0 ? b + GDiffPatcher.EOF : b;
     }
 
     private static int dEncrypt(int i, int i2, int i3, int i4, int i5, int[] iArr) {

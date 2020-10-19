@@ -1,22 +1,22 @@
 package com.tb.airbnb.lottie;
 
 import java.util.Map;
-/* loaded from: classes17.dex */
+/* loaded from: classes16.dex */
 public class p {
-    private final Map<String, String> Co;
-    private boolean Cp;
+    private final Map<String, String> CG;
+    private boolean CH;
 
     private String bg(String str) {
         return str;
     }
 
     public final String bh(String str) {
-        if (this.Cp && this.Co.containsKey(str)) {
-            return this.Co.get(str);
+        if (this.CH && this.CG.containsKey(str)) {
+            return this.CG.get(str);
         }
         String bg = bg(str);
-        if (this.Cp) {
-            this.Co.put(str, bg);
+        if (this.CH) {
+            this.CG.put(str, bg);
             return bg;
         }
         return bg;

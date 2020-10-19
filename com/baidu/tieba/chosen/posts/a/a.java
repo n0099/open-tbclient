@@ -17,43 +17,43 @@ import com.baidu.tbadk.mvc.core.ViewEventCenter;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
 import tbclient.HotThread.tinfo;
-/* loaded from: classes22.dex */
+/* loaded from: classes23.dex */
 public class a extends com.baidu.tbadk.mvc.f.a<tinfo, com.baidu.tbadk.mvc.d.b> {
-    private TbImageView fMp;
-    private TextView hvL;
-    private TextView hvM;
-    private TextView hvN;
-    private View hvO;
+    private TbImageView fYG;
+    private TextView hKG;
+    private TextView hKH;
+    private TextView hKI;
+    private View hKJ;
     private TextView title;
 
     public a(TbPageContext<?> tbPageContext, View view, ViewEventCenter viewEventCenter) {
         super(tbPageContext, view, viewEventCenter);
-        this.fMp = (TbImageView) view.findViewById(R.id.chosen_image_text_img);
+        this.fYG = (TbImageView) view.findViewById(R.id.chosen_image_text_img);
         this.title = (TextView) view.findViewById(R.id.chosen_image_text_title);
-        this.hvO = view.findViewById(R.id.chosen_image_text_divider);
-        this.hvL = (TextView) view.findViewById(R.id.chosen_image_text_forum);
-        this.hvM = (TextView) view.findViewById(R.id.chosen_image_text_praise);
-        this.hvN = (TextView) view.findViewById(R.id.chosen_image_text_comment);
+        this.hKJ = view.findViewById(R.id.chosen_image_text_divider);
+        this.hKG = (TextView) view.findViewById(R.id.chosen_image_text_forum);
+        this.hKH = (TextView) view.findViewById(R.id.chosen_image_text_praise);
+        this.hKI = (TextView) view.findViewById(R.id.chosen_image_text_comment);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.tbadk.mvc.f.e
     /* renamed from: a */
-    public void ar(final tinfo tinfoVar) {
-        super.ar(tinfoVar);
+    public void au(final tinfo tinfoVar) {
+        super.au(tinfoVar);
         if (tinfoVar != null) {
             String str = null;
             if (tinfoVar.pics != null && tinfoVar.pics.size() > 0) {
                 str = tinfoVar.pics.get(0).small_pic;
             }
-            this.fMp.startLoad(str, 10, false);
+            this.fYG.startLoad(str, 10, false);
             this.title.setText(tinfoVar.title);
             if (StringUtils.isNull(tinfoVar.forum_name)) {
-                this.hvL.setVisibility(8);
+                this.hKG.setVisibility(8);
             } else {
-                this.hvL.setVisibility(0);
-                this.hvL.setText(UtilHelper.getFixedText(getContext().getString(R.string.chosen_pb_original_bar, tinfoVar.forum_name), 7, false));
-                this.hvL.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.chosen.posts.a.a.1
+                this.hKG.setVisibility(0);
+                this.hKG.setText(UtilHelper.getFixedText(getContext().getString(R.string.chosen_pb_original_bar, tinfoVar.forum_name), 7, false));
+                this.hKG.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.chosen.posts.a.a.1
                     @Override // android.view.View.OnClickListener
                     public void onClick(View view) {
                         String str2 = tinfoVar.forum_name;
@@ -65,14 +65,14 @@ public class a extends com.baidu.tbadk.mvc.f.a<tinfo, com.baidu.tbadk.mvc.d.b> {
                 });
             }
             if (tinfoVar.zan_num != null) {
-                this.hvM.setText(String.valueOf(tinfoVar.zan_num));
+                this.hKH.setText(String.valueOf(tinfoVar.zan_num));
             }
             if (tinfoVar.reply_num != null) {
-                this.hvN.setText(String.valueOf(tinfoVar.reply_num));
+                this.hKI.setText(String.valueOf(tinfoVar.reply_num));
             }
-            this.hvO.setVisibility(0);
+            this.hKJ.setVisibility(0);
             com.baidu.tieba.tbadkCore.util.d readThreadHistory = TbadkCoreApplication.getInst().getReadThreadHistory();
-            if (readThreadHistory != null && readThreadHistory.Rx(String.valueOf(tinfoVar.forum_id))) {
+            if (readThreadHistory != null && readThreadHistory.Sl(String.valueOf(tinfoVar.forum_id))) {
                 ap.setViewTextColor(this.title, R.color.cp_cont_d, 1);
             } else {
                 ap.setViewTextColor(this.title, R.color.cp_cont_b, 1);

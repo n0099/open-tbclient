@@ -6,7 +6,7 @@ import java.util.concurrent.atomic.AtomicInteger;
 import java.util.concurrent.atomic.AtomicLong;
 import java.util.concurrent.atomic.AtomicReference;
 import org.a.d;
-/* loaded from: classes25.dex */
+/* loaded from: classes17.dex */
 public class SubscriptionArbiter extends AtomicInteger implements d {
     private static final long serialVersionUID = -2189523197179400958L;
     d actual;
@@ -22,7 +22,7 @@ public class SubscriptionArbiter extends AtomicInteger implements d {
             dVar.cancel();
             return;
         }
-        a.k(dVar, "s is null");
+        a.l(dVar, "s is null");
         if (get() == 0 && compareAndSet(0, 1)) {
             d dVar2 = this.actual;
             if (dVar2 != null) {

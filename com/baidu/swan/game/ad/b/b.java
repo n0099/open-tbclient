@@ -1,88 +1,88 @@
 package com.baidu.swan.game.ad.b;
 
 import com.baidu.swan.apps.ap.ah;
-/* loaded from: classes10.dex */
+/* loaded from: classes14.dex */
 public class b {
-    private int Za;
-    private String dmO;
-    private String dmP;
-    private String dmQ;
-    private int dmR;
-    private int dmS;
+    private int Zr;
+    private String dyU;
+    private String dyV;
+    private String dyW;
+    private int dyX;
+    private int dyY;
 
     private b(a aVar) {
-        this.dmP = aVar.dmP;
-        this.dmO = aVar.dmO;
-        this.dmR = aVar.dmR;
-        this.dmS = aVar.dmS;
-        this.dmQ = aVar.dmQ;
-        this.Za = aVar.Za;
+        this.dyV = aVar.dyV;
+        this.dyU = aVar.dyU;
+        this.dyX = aVar.dyX;
+        this.dyY = aVar.dyY;
+        this.dyW = aVar.dyW;
+        this.Zr = aVar.Zr;
     }
 
-    public int aJO() {
-        return this.dmR;
+    public int aMx() {
+        return this.dyX;
     }
 
-    public int aJP() {
-        return this.dmS;
+    public int aMy() {
+        return this.dyY;
     }
 
     public String getAppSid() {
-        return this.dmP;
+        return this.dyV;
     }
 
-    public String aJQ() {
-        return this.dmO;
+    public String aMz() {
+        return this.dyU;
     }
 
-    public String aJR() {
-        return this.dmQ;
+    public String aMA() {
+        return this.dyW;
     }
 
     public int rT() {
-        return this.Za;
+        return this.Zr;
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes14.dex */
     public static class a {
-        private int Za;
-        private String dmO;
-        private String dmP;
-        private String dmQ;
-        private int dmR;
-        private int dmS;
+        private int Zr;
+        private String dyU;
+        private String dyV;
+        private String dyW;
+        private int dyX;
+        private int dyY;
 
-        public a up(String str) {
-            this.dmP = str;
+        public a vb(String str) {
+            this.dyV = str;
             return this;
         }
 
-        public a uq(String str) {
-            this.dmO = str;
+        public a vc(String str) {
+            this.dyU = str;
             return this;
         }
 
-        public a ur(String str) {
-            this.dmQ = str;
+        public a vd(String str) {
+            this.dyW = str;
             return this;
         }
 
-        public a kX(int i) {
-            this.dmR = ah.H(i);
+        public a lu(int i) {
+            this.dyX = ah.J(i);
             return this;
         }
 
-        public a kY(int i) {
-            this.dmS = ah.H(i);
+        public a lv(int i) {
+            this.dyY = ah.J(i);
             return this;
         }
 
-        public a kZ(int i) {
-            this.Za = i;
+        public a lw(int i) {
+            this.Zr = i;
             return this;
         }
 
-        public b aJS() {
+        public b aMB() {
             return new b(this);
         }
     }

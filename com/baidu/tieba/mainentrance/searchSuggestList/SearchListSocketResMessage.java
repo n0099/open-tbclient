@@ -6,7 +6,7 @@ import com.squareup.wire.Wire;
 import java.util.List;
 import tbclient.SearchSug.ForumInfo;
 import tbclient.SearchSug.SearchSugResIdl;
-/* loaded from: classes23.dex */
+/* loaded from: classes24.dex */
 public class SearchListSocketResMessage extends SocketResponsedMessage {
     public List<ForumInfo> forums;
     public List<String> suggests;

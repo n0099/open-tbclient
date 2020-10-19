@@ -14,52 +14,52 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes4.dex */
 public class a extends BdBaseModel {
-    private long bhr;
-    private long fxY;
-    private long gta;
-    private boolean gup;
-    private InterfaceC0621a guq;
+    private long blh;
+    private long fKh;
+    private long gHv;
+    private boolean gIK;
+    private InterfaceC0639a gIL;
     private boolean mHasMore;
     private boolean mIsHost;
     private TbPageContext mTbPageContext;
     private int mType;
     private int mPn = 1;
     private List<com.baidu.tieba.ala.liveroom.challenge.a.a> mList = new ArrayList();
-    private final HttpMessageListener gur = new HttpMessageListener(1021198) { // from class: com.baidu.tieba.ala.liveroom.challenge.b.a.1
+    private final HttpMessageListener gIM = new HttpMessageListener(1021198) { // from class: com.baidu.tieba.ala.liveroom.challenge.b.a.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.live.adp.framework.listener.MessageListener
         public void onMessage(HttpResponsedMessage httpResponsedMessage) {
-            if (httpResponsedMessage != null && (httpResponsedMessage instanceof AlaChallengeShowAllJinzhuListResponse) && httpResponsedMessage.getOrginalMessage() != null && httpResponsedMessage.getOrginalMessage().getTag() == a.this.bhK) {
+            if (httpResponsedMessage != null && (httpResponsedMessage instanceof AlaChallengeShowAllJinzhuListResponse) && httpResponsedMessage.getOrginalMessage() != null && httpResponsedMessage.getOrginalMessage().getTag() == a.this.blA) {
                 AlaChallengeShowAllJinzhuListResponse alaChallengeShowAllJinzhuListResponse = (AlaChallengeShowAllJinzhuListResponse) httpResponsedMessage;
                 if (alaChallengeShowAllJinzhuListResponse.getError() != 0 || !alaChallengeShowAllJinzhuListResponse.isSuccess()) {
-                    if (a.this.guq != null) {
-                        a.this.guq.f(httpResponsedMessage.getError(), httpResponsedMessage.getErrorString(), a.this.gup);
+                    if (a.this.gIL != null) {
+                        a.this.gIL.h(httpResponsedMessage.getError(), httpResponsedMessage.getErrorString(), a.this.gIK);
                     }
                 } else {
-                    if (a.this.gup) {
+                    if (a.this.gIK) {
                         a.this.mList.addAll(alaChallengeShowAllJinzhuListResponse.getUserList());
                     } else {
                         a.this.mList.clear();
                         a.this.mList.addAll(alaChallengeShowAllJinzhuListResponse.getUserList());
                     }
                     a.this.mHasMore = alaChallengeShowAllJinzhuListResponse.isHasMore();
-                    a.this.mPn = alaChallengeShowAllJinzhuListResponse.bAN() + 1;
-                    if (a.this.guq != null) {
-                        a.this.guq.f(a.this.mHasMore, a.this.mList);
+                    a.this.mPn = alaChallengeShowAllJinzhuListResponse.bDz() + 1;
+                    if (a.this.gIL != null) {
+                        a.this.gIL.f(a.this.mHasMore, a.this.mList);
                     }
                 }
-                a.this.gup = false;
+                a.this.gIK = false;
             }
         }
     };
-    private BdUniqueId bhK = BdUniqueId.gen();
+    private BdUniqueId blA = BdUniqueId.gen();
 
     /* renamed from: com.baidu.tieba.ala.liveroom.challenge.b.a$a  reason: collision with other inner class name */
     /* loaded from: classes4.dex */
-    public interface InterfaceC0621a {
-        void f(int i, String str, boolean z);
-
+    public interface InterfaceC0639a {
         void f(boolean z, List<com.baidu.tieba.ala.liveroom.challenge.a.a> list);
+
+        void h(int i, String str, boolean z);
     }
 
     public a(TbPageContext tbPageContext, int i, boolean z) {
@@ -67,40 +67,40 @@ public class a extends BdBaseModel {
         this.mType = i;
         this.mIsHost = z;
         registerTask();
-        MessageManager.getInstance().registerListener(this.gur);
+        MessageManager.getInstance().registerListener(this.gIM);
     }
 
-    public void a(InterfaceC0621a interfaceC0621a) {
-        this.guq = interfaceC0621a;
+    public void a(InterfaceC0639a interfaceC0639a) {
+        this.gIL = interfaceC0639a;
     }
 
     public void c(long j, long j2, long j3) {
-        this.gta = j;
-        this.bhr = j2;
-        this.fxY = j3;
+        this.gHv = j;
+        this.blh = j2;
+        this.fKh = j3;
     }
 
     public void refresh() {
-        this.gup = false;
+        this.gIK = false;
         this.mPn = 1;
-        bvV();
+        byF();
     }
 
-    public void bGU() {
-        if (this.mHasMore && !this.gup) {
-            this.gup = true;
-            bvV();
+    public void bJG() {
+        if (this.mHasMore && !this.gIK) {
+            this.gIK = true;
+            byF();
         }
     }
 
-    private void bvV() {
+    private void byF() {
         HttpMessage httpMessage = new HttpMessage(1021198);
-        httpMessage.addParam("challenge_id", this.gta);
-        httpMessage.addParam("live_id", this.bhr);
-        httpMessage.addParam("anchor_id", this.fxY);
+        httpMessage.addParam("challenge_id", this.gHv);
+        httpMessage.addParam("live_id", this.blh);
+        httpMessage.addParam("anchor_id", this.fKh);
         httpMessage.addParam("type", this.mType);
         httpMessage.addParam("page", this.mPn);
-        httpMessage.setTag(this.bhK);
+        httpMessage.setTag(this.blA);
         MessageManager.getInstance().sendMessage(httpMessage);
     }
 
@@ -112,7 +112,7 @@ public class a extends BdBaseModel {
 
     public void onDestroy() {
         MessageManager.getInstance().unRegisterTask(1021198);
-        MessageManager.getInstance().unRegisterListener(this.gur);
+        MessageManager.getInstance().unRegisterListener(this.gIM);
     }
 
     @Override // com.baidu.live.adp.base.BdBaseModel

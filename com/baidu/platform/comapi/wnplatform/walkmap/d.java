@@ -10,11 +10,13 @@ import com.baidu.mapapi.map.MapStatus;
 import com.baidu.mapapi.map.MapView;
 import com.baidu.mapapi.model.inner.MapBound;
 import java.lang.ref.SoftReference;
-/* loaded from: classes3.dex */
+/* loaded from: classes7.dex */
 public class d extends com.baidu.platform.comapi.walknavi.a {
     private e b;
     private a c = null;
-    SoftReference<View> a = null;
+
+    /* renamed from: a  reason: collision with root package name */
+    SoftReference<View> f3157a = null;
 
     public d() {
         this.b = null;
@@ -22,10 +24,10 @@ public class d extends com.baidu.platform.comapi.walknavi.a {
     }
 
     public MapView a() {
-        if (this.a == null) {
+        if (this.f3157a == null) {
             return null;
         }
-        return (MapView) this.a.get();
+        return (MapView) this.f3157a.get();
     }
 
     @Override // com.baidu.platform.comapi.walknavi.a
@@ -48,7 +50,7 @@ public class d extends com.baidu.platform.comapi.walknavi.a {
     }
 
     public void a(Context context, MapView mapView) {
-        this.a = new SoftReference<>(mapView);
+        this.f3157a = new SoftReference<>(mapView);
         if (this.c == null) {
             this.c = new a(mapView);
         } else {

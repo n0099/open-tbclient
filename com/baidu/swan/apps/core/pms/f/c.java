@@ -9,10 +9,10 @@ import com.baidu.swan.apps.statistic.a.d;
 import com.baidu.swan.apps.statistic.h;
 import com.facebook.common.b.i;
 import com.facebook.imagepipeline.request.ImageRequestBuilder;
-/* loaded from: classes3.dex */
+/* loaded from: classes10.dex */
 public class c {
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes10.dex */
     public interface a {
         void k(Bitmap bitmap);
     }
@@ -23,7 +23,7 @@ public class c {
             a(i, aVar, "download icon fail: icon url is null");
             return;
         }
-        com.facebook.drawee.a.a.c.dTw().e(ImageRequestBuilder.ad(uri).eay(), AppRuntime.getAppContext()).a(new com.facebook.imagepipeline.e.b() { // from class: com.baidu.swan.apps.core.pms.f.c.1
+        com.facebook.drawee.a.a.c.dXh().e(ImageRequestBuilder.ad(uri).eej(), AppRuntime.getAppContext()).a(new com.facebook.imagepipeline.e.b() { // from class: com.baidu.swan.apps.core.pms.f.c.1
             @Override // com.facebook.imagepipeline.e.b
             protected void h(Bitmap bitmap) {
                 Bitmap copy;
@@ -55,14 +55,14 @@ public class c {
                 super.b(bVar);
                 c.a(i, a.this, "download icon fail: onCancellation");
             }
-        }, i.dSC());
+        }, i.dWn());
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public static void a(int i, a aVar, String str) {
-        com.baidu.swan.apps.am.a sH = new com.baidu.swan.apps.am.a().bP(4L).bQ(10L).sH(str);
-        e.aEQ().j(sH);
-        h.b(new d().i(sH).rO(h.jG(i)));
+        com.baidu.swan.apps.am.a tt = new com.baidu.swan.apps.am.a().bX(4L).bY(10L).tt(str);
+        e.aHz().j(tt);
+        h.b(new d().i(tt).sB(h.kd(i)));
         if (aVar != null) {
             aVar.k(null);
         }

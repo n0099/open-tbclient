@@ -31,7 +31,7 @@ import com.baidu.tieba.flutter.view.FlutterPageActivity;
 import com.idlefish.flutterboost.containers.BoostFlutterActivity;
 import java.util.HashMap;
 import java.util.Map;
-/* loaded from: classes24.dex */
+/* loaded from: classes25.dex */
 public class OpenFlutter {
     public static final String ACTIVITY_CONCERN_FORUM = "ConcernForum";
     public static final String ACTIVITY_FANS = "PersonFansList";
@@ -133,7 +133,7 @@ public class OpenFlutter {
 
     public static boolean checkSwitch(String str) {
         if (str.contains(ACTIVITY_SIGN_TOGETHER)) {
-            return !b.yt("flutter_page_test") && FlutterSignAllEnableSwitch.isOn();
+            return !b.zf("flutter_page_test") && FlutterSignAllEnableSwitch.isOn();
         } else if (str.contains(ACTIVITY_FANS)) {
             return FlutterPersonAttentionEnableSwitch.isOn();
         } else {
@@ -144,7 +144,7 @@ public class OpenFlutter {
                 return FlutterConcernForumEnableSwitch.isOn();
             }
             if (str.contains(ACTIVITY_PERSON_CENTER)) {
-                return FlutterPersonCenterEnableSwitch.isOn() && d.baN();
+                return FlutterPersonCenterEnableSwitch.isOn() && d.bdv();
             }
             return true;
         }

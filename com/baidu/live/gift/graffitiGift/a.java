@@ -24,127 +24,127 @@ import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes4.dex */
 public class a {
-    private k aRd;
-    private b aXG;
-    private AlaGiftGraffitiShowView aXH;
+    private k aUo;
+    private b bba;
+    private AlaGiftGraffitiShowView bbb;
     private Context mContext;
-    private boolean aXE = false;
-    private boolean aQk = false;
-    private b.a aXI = new b.a() { // from class: com.baidu.live.gift.graffitiGift.a.1
+    private boolean baY = false;
+    private boolean aTv = false;
+    private b.a bbc = new b.a() { // from class: com.baidu.live.gift.graffitiGift.a.1
         @Override // com.baidu.live.gift.graffitiGift.b.a
         public void onEnd() {
-            a.this.FM();
+            a.this.GI();
         }
     };
-    private ArrayList<c> aXF = new ArrayList<>();
+    private ArrayList<c> baZ = new ArrayList<>();
 
     public a(Context context, k kVar) {
         this.mContext = context;
-        this.aRd = kVar;
+        this.aUo = kVar;
         initView();
     }
 
     private void initView() {
-        this.aXH = new AlaGiftGraffitiShowView(this.mContext);
-        this.aXG = new b(this.aXH, this.mContext);
-        this.aXG.a(this.aXI);
+        this.bbb = new AlaGiftGraffitiShowView(this.mContext);
+        this.bba = new b(this.bbb, this.mContext);
+        this.bba.a(this.bbc);
         RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(-1, -1);
         int i = 0;
-        if (this.aRd.aOB && (this.mContext instanceof Activity) && UtilHelper.canUseStyleImmersiveSticky()) {
+        if (this.aUo.aRM && (this.mContext instanceof Activity) && UtilHelper.canUseStyleImmersiveSticky()) {
             i = BdUtilHelper.getStatusBarHeight((Activity) this.mContext) + ((int) this.mContext.getResources().getDimension(a.e.sdk_ds4));
         }
         layoutParams.topMargin = i + ((int) this.mContext.getResources().getDimension(a.e.sdk_ds112));
         layoutParams.addRule(10);
-        this.aXH.setLayoutParams(layoutParams);
-        this.aRd.M(this.aXH);
+        this.bbb.setLayoutParams(layoutParams);
+        this.aUo.M(this.bbb);
     }
 
-    public void ER() {
-        this.aXE = false;
-        this.aRd.M(this.aXH);
-        FM();
+    public void FN() {
+        this.baY = false;
+        this.aUo.M(this.bbb);
+        GI();
     }
 
     public void e(c cVar) {
         if (cVar != null && !StringUtils.isNull(cVar.userId) && !StringUtils.isNull(cVar.giftId)) {
             if (cVar.userId.equals(TbadkCoreApplication.getCurrentAccount())) {
-                this.aXF.add(0, cVar);
-            } else if (this.aXF.size() < com.baidu.live.x.a.NN().bhy.aIy) {
-                this.aXF.add(cVar);
+                this.baZ.add(0, cVar);
+            } else if (this.baZ.size() < com.baidu.live.x.a.OS().blo.aLC) {
+                this.baZ.add(cVar);
             }
-            if (cVar.aVk) {
-                LogManager.getLiveIMLogger().doGiftIMLog(LogConfig.GIFT_IM_ENTER_LIST, cVar.aEU, cVar.aEV, cVar.giftId, "");
+            if (cVar.aYv) {
+                LogManager.getLiveIMLogger().doGiftIMLog(LogConfig.GIFT_IM_ENTER_LIST, cVar.aHY, cVar.aHZ, cVar.giftId, "");
             }
-            FM();
+            GI();
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void FM() {
-        if (!this.aXF.isEmpty() && !this.aXE && this.aXG.isReady()) {
-            c remove = this.aXF.remove(0);
+    public void GI() {
+        if (!this.baZ.isEmpty() && !this.baY && this.bba.isReady()) {
+            c remove = this.baZ.remove(0);
             if (remove != null) {
-                remove.ad(System.currentTimeMillis());
+                remove.af(System.currentTimeMillis());
                 n(remove);
-                FM();
+                GI();
                 return;
             }
-            FM();
+            GI();
         }
     }
 
     private void c(c cVar, boolean z) {
         if (cVar != null) {
-            g gVar = cVar.aVd;
-            if (!cVar.aVn && !cVar.aVo) {
-                if (cVar.aVk || cVar.aVc) {
+            g gVar = cVar.aYo;
+            if (!cVar.aYy && !cVar.aYz) {
+                if (cVar.aYv || cVar.aYn) {
                     JSONObject jSONObject = new JSONObject();
                     try {
-                        jSONObject.putOpt(LogConfig.LOG_GIFT_ID, gVar.Eh());
-                        jSONObject.putOpt("gift_name", gVar.Ei());
+                        jSONObject.putOpt(LogConfig.LOG_GIFT_ID, gVar.Fd());
+                        jSONObject.putOpt("gift_name", gVar.Fe());
                         jSONObject.putOpt(LogConfig.LOG_GIFT_VALUE, gVar.getPrice());
-                        jSONObject.putOpt("gift_num", Long.valueOf(cVar.aVi));
+                        jSONObject.putOpt("gift_num", Long.valueOf(cVar.aYt));
                         jSONObject.putOpt("is_down", Integer.valueOf(z ? 1 : 0));
                     } catch (JSONException e) {
                         e.printStackTrace();
                     }
-                    UbcStatisticManager.getInstance().logEvent(new UbcStatisticItem(UbcStatisticLiveKey.KEY_ID_1394, "display", cVar.aVk ? UbcStatConstant.Page.AUTHOR_LIVE_ROOM : "liveroom", "giftplay_show").setContentExt(null, MapController.POPUP_LAYER_TAG, jSONObject));
+                    UbcStatisticManager.getInstance().logEvent(new UbcStatisticItem(UbcStatisticLiveKey.KEY_ID_1394, "display", cVar.aYv ? UbcStatConstant.Page.AUTHOR_LIVE_ROOM : "liveroom", "giftplay_show").setContentExt(null, MapController.POPUP_LAYER_TAG, jSONObject));
                 }
             }
         }
     }
 
     private void n(c cVar) {
-        if ((UtilHelper.getRealScreenOrientation(this.mContext) != 2 || !this.aQk) && this.aXG.isReady()) {
+        if ((UtilHelper.getRealScreenOrientation(this.mContext) != 2 || !this.aTv) && this.bba.isReady()) {
             c(cVar, true);
-            this.aXG.o(cVar);
+            this.bba.o(cVar);
         }
     }
 
-    public void EQ() {
-        this.aXE = true;
+    public void FM() {
+        this.baY = true;
     }
 
     public void onDestroy() {
-        if (this.aXG != null) {
-            this.aXG.destory();
+        if (this.bba != null) {
+            this.bba.destory();
         }
-        this.aXE = false;
+        this.baY = false;
     }
 
-    public void Ht() {
-        if (this.aXG != null) {
-            this.aXG.Ht();
+    public void Iq() {
+        if (this.bba != null) {
+            this.bba.Iq();
         }
     }
 
-    public void bk(boolean z) {
-        this.aQk = z;
+    public void bo(boolean z) {
+        this.aTv = z;
     }
 
-    public void EX() {
-        if (this.aXG != null) {
-            this.aXG.EX();
+    public void FT() {
+        if (this.bba != null) {
+            this.bba.FT();
         }
     }
 }

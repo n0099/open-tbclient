@@ -14,7 +14,7 @@ import android.util.AttributeSet;
 import android.view.inputmethod.EditorInfo;
 import android.view.inputmethod.InputConnection;
 import android.widget.TextView;
-/* loaded from: classes10.dex */
+/* loaded from: classes5.dex */
 public class AppCompatTextView extends TextView implements TintableBackgroundView, AutoSizeableTextView {
     private final AppCompatBackgroundHelper mBackgroundTintHelper;
     private final AppCompatTextHelper mTextHelper;

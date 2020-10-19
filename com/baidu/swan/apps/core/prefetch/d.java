@@ -4,19 +4,19 @@ import android.text.TextUtils;
 import android.util.Log;
 import com.baidu.swan.apps.core.prefetch.a;
 import com.baidu.swan.pms.model.PMSAppInfo;
-/* loaded from: classes3.dex */
+/* loaded from: classes10.dex */
 public final class d {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    private com.baidu.swan.apps.core.prefetch.a cnP;
-    private b cnQ;
+    private com.baidu.swan.apps.core.prefetch.a cAf;
+    private b cAg;
 
     private d() {
-        this.cnP = new com.baidu.swan.apps.core.prefetch.a();
-        this.cnQ = new b();
+        this.cAf = new com.baidu.swan.apps.core.prefetch.a();
+        this.cAg = new b();
     }
 
-    public static d ajJ() {
-        return a.cnS;
+    public static d amu() {
+        return a.cAi;
     }
 
     public void d(final PrefetchEvent prefetchEvent) {
@@ -28,14 +28,14 @@ public final class d {
                 Log.d("SwanAppPrefetchManager", "firePrefetchEvent event: " + prefetchEvent);
             }
             if (TextUtils.equals("show", prefetchEvent.state)) {
-                this.cnP.a(prefetchEvent, new a.b() { // from class: com.baidu.swan.apps.core.prefetch.d.1
+                this.cAf.a(prefetchEvent, new a.b() { // from class: com.baidu.swan.apps.core.prefetch.d.1
                     @Override // com.baidu.swan.apps.core.prefetch.a.b
                     public void a(com.baidu.swan.apps.process.messaging.service.c cVar, PMSAppInfo pMSAppInfo) {
-                        d.this.cnQ.a(prefetchEvent, cVar, pMSAppInfo);
+                        d.this.cAg.a(prefetchEvent, cVar, pMSAppInfo);
                     }
                 });
             } else {
-                this.cnQ.d(prefetchEvent);
+                this.cAg.d(prefetchEvent);
             }
         }
     }
@@ -44,8 +44,8 @@ public final class d {
         return (com.baidu.swan.apps.core.prefetch.a.a.isOn() && prefetchEvent != null && prefetchEvent.isValid()) ? false : true;
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes10.dex */
     private static class a {
-        private static final d cnS = new d();
+        private static final d cAi = new d();
     }
 }

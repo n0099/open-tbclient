@@ -3,10 +3,12 @@ package com.baidu.mapapi.search.core;
 import android.os.Parcel;
 import android.os.Parcelable;
 import com.baidu.mapapi.model.LatLng;
-/* loaded from: classes3.dex */
+/* loaded from: classes7.dex */
 public class PoiChildrenInfo implements Parcelable {
     public static final Parcelable.Creator<PoiChildrenInfo> CREATOR = new e();
-    private String a;
+
+    /* renamed from: a  reason: collision with root package name */
+    private String f2099a;
     private String b;
     private String c;
     private String d;
@@ -18,7 +20,7 @@ public class PoiChildrenInfo implements Parcelable {
 
     /* JADX INFO: Access modifiers changed from: protected */
     public PoiChildrenInfo(Parcel parcel) {
-        this.a = parcel.readString();
+        this.f2099a = parcel.readString();
         this.b = parcel.readString();
         this.c = parcel.readString();
         this.d = parcel.readString();
@@ -52,7 +54,7 @@ public class PoiChildrenInfo implements Parcelable {
     }
 
     public String getUid() {
-        return this.a;
+        return this.f2099a;
     }
 
     public void setAddress(String str) {
@@ -76,12 +78,12 @@ public class PoiChildrenInfo implements Parcelable {
     }
 
     public void setUid(String str) {
-        this.a = str;
+        this.f2099a = str;
     }
 
     public String toString() {
         StringBuffer stringBuffer = new StringBuffer("PoiChildrenInfo: ");
-        stringBuffer.append("uid = ").append(this.a);
+        stringBuffer.append("uid = ").append(this.f2099a);
         stringBuffer.append("; name = ").append(this.b);
         stringBuffer.append("; showName = ").append(this.c);
         stringBuffer.append("; tag = ").append(this.d);
@@ -97,7 +99,7 @@ public class PoiChildrenInfo implements Parcelable {
 
     @Override // android.os.Parcelable
     public void writeToParcel(Parcel parcel, int i) {
-        parcel.writeString(this.a);
+        parcel.writeString(this.f2099a);
         parcel.writeString(this.b);
         parcel.writeString(this.c);
         parcel.writeString(this.d);

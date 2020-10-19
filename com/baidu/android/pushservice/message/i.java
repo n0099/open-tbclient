@@ -7,9 +7,11 @@ import com.baidu.android.pushservice.h.a.b;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes7.dex */
+/* loaded from: classes10.dex */
 public class i {
-    public String a;
+
+    /* renamed from: a  reason: collision with root package name */
+    public String f1182a;
     public String b;
     public String c;
     public String d;
@@ -31,7 +33,7 @@ public class i {
             if (TextUtils.isEmpty(this.g) && TextUtils.isEmpty(this.h)) {
                 publicMsg.mTitle = this.e;
                 publicMsg.mDescription = this.f;
-                publicMsg.mUrl = this.a;
+                publicMsg.mUrl = this.f1182a;
                 publicMsg.mPkgContent = this.c;
             } else {
                 publicMsg.mTitle = this.g;

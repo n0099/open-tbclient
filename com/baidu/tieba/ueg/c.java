@@ -7,35 +7,35 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class c extends BdAsyncTask<String, String, Integer> {
-    private String mCU;
-    private a mCV;
+    private String mSH;
+    private a mSI;
 
     /* loaded from: classes.dex */
     public interface a {
-        void cOD();
+        void cSl();
 
-        void cOE();
+        void cSm();
 
-        void cOF();
+        void cSn();
 
         void onError(String str);
     }
 
     public c(String str, a aVar) {
-        this.mCU = "https://lookup.api.bsb.baidu.com/urlquery?url=" + str + "&ver=2.0&key=Gar7ku5AswED&cid=" + TbadkCoreApplication.getInst().getImei();
-        this.mCV = aVar;
+        this.mSH = "https://lookup.api.bsb.baidu.com/urlquery?url=" + str + "&ver=2.0&key=Gar7ku5AswED&cid=" + TbadkCoreApplication.getInst().getImei();
+        this.mSI = aVar;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    /* renamed from: R */
+    /* renamed from: U */
     public Integer doInBackground(String... strArr) {
         int i = -1;
         try {
-            aa aaVar = new aa(this.mCU);
-            aaVar.bjL().bkq().mIsNeedAddCommenParam = false;
-            aaVar.bjL().bkq().mIsUseCurrentBDUSS = false;
+            aa aaVar = new aa(this.mSH);
+            aaVar.bmu().bna().mIsNeedAddCommenParam = false;
+            aaVar.bmu().bna().mIsUseCurrentBDUSS = false;
             JSONArray optJSONArray = new JSONObject(new String(aaVar.getNetData())).optJSONArray("result");
             if (optJSONArray == null || optJSONArray.length() <= 0) {
                 return i;
@@ -57,15 +57,15 @@ public class c extends BdAsyncTask<String, String, Integer> {
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
     public void onPostExecute(Integer num) {
-        if (this.mCV != null && num != null) {
+        if (this.mSI != null && num != null) {
             if (num.intValue() == -1) {
-                this.mCV.onError(null);
+                this.mSI.onError(null);
             } else if (num.intValue() == 1) {
-                this.mCV.cOD();
+                this.mSI.cSl();
             } else if (num.intValue() == 2 || num.intValue() == 0) {
-                this.mCV.cOE();
+                this.mSI.cSm();
             } else {
-                this.mCV.cOF();
+                this.mSI.cSn();
             }
         }
     }

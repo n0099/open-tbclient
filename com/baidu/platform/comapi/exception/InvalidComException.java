@@ -1,5 +1,5 @@
 package com.baidu.platform.comapi.exception;
-/* loaded from: classes3.dex */
+/* loaded from: classes7.dex */
 public class InvalidComException extends Exception {
     public InvalidComException() {
     }

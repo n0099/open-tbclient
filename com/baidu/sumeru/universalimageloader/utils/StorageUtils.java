@@ -4,7 +4,7 @@ import android.content.Context;
 import android.os.Environment;
 import java.io.File;
 import java.io.IOException;
-/* loaded from: classes9.dex */
+/* loaded from: classes12.dex */
 public final class StorageUtils {
     private static final String EXTERNAL_STORAGE_PERMISSION = "android.permission.WRITE_EXTERNAL_STORAGE";
     private static final String INDIVIDUAL_DIR_NAME = "uil-images";

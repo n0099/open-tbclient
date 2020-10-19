@@ -4,22 +4,22 @@ import android.graphics.Path;
 import com.tb.airbnb.lottie.model.content.Mask;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes17.dex */
+/* loaded from: classes16.dex */
 public class g {
-    private final List<Mask> DA;
-    private final List<a<com.tb.airbnb.lottie.model.content.h, Path>> Dy;
-    private final List<a<Integer, Integer>> Dz;
+    private final List<a<com.tb.airbnb.lottie.model.content.h, Path>> DT;
+    private final List<a<Integer, Integer>> DU;
+    private final List<Mask> DV;
 
     public g(List<Mask> list) {
-        this.DA = list;
-        this.Dy = new ArrayList(list.size());
-        this.Dz = new ArrayList(list.size());
+        this.DV = list;
+        this.DT = new ArrayList(list.size());
+        this.DU = new ArrayList(list.size());
         int i = 0;
         while (true) {
             int i2 = i;
             if (i2 < list.size()) {
-                this.Dy.add(list.get(i2).ehF().ehl());
-                this.Dz.add(list.get(i2).ehr().ehl());
+                this.DT.add(list.get(i2).elq().ekW());
+                this.DU.add(list.get(i2).elc().ekW());
                 i = i2 + 1;
             } else {
                 return;
@@ -27,15 +27,15 @@ public class g {
         }
     }
 
-    public List<Mask> jm() {
-        return this.DA;
+    public List<Mask> jn() {
+        return this.DV;
     }
 
-    public List<a<com.tb.airbnb.lottie.model.content.h, Path>> jn() {
-        return this.Dy;
+    public List<a<com.tb.airbnb.lottie.model.content.h, Path>> jo() {
+        return this.DT;
     }
 
-    public List<a<Integer, Integer>> jo() {
-        return this.Dz;
+    public List<a<Integer, Integer>> jp() {
+        return this.DU;
     }
 }

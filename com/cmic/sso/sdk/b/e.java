@@ -5,7 +5,7 @@ import android.util.Log;
 import com.baidu.android.util.io.FileUtils;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class e {
     public static JSONObject a(String str, String str2) {
         JSONObject jSONObject = new JSONObject();

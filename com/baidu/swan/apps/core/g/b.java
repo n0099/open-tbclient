@@ -1,7 +1,7 @@
 package com.baidu.swan.apps.core.g;
 
 import android.content.Context;
-/* loaded from: classes3.dex */
+/* loaded from: classes10.dex */
 public class b {
     public a i(Context context, int i) {
         switch (i) {

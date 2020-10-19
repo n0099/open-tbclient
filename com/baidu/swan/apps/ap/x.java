@@ -4,9 +4,9 @@ import android.content.Context;
 import android.os.Build;
 import android.support.annotation.NonNull;
 import android.support.v4.app.NotificationManagerCompat;
-/* loaded from: classes3.dex */
+/* loaded from: classes10.dex */
 public class x {
-    public static boolean cw(@NonNull Context context) {
+    public static boolean cC(@NonNull Context context) {
         if (Build.VERSION.SDK_INT >= 19) {
             return NotificationManagerCompat.from(context).areNotificationsEnabled();
         }

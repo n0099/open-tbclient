@@ -16,21 +16,23 @@ import com.kascend.chushou.a;
 import tv.chushou.zues.utils.systemBar.b;
 /* loaded from: classes6.dex */
 public class a extends com.kascend.chushou.view.base.a implements View.OnClickListener {
-    public int a = 0;
+
+    /* renamed from: a  reason: collision with root package name */
+    public int f4226a = 0;
     private RelativeLayout d;
     private ImageView e;
     private View f;
     private TextView g;
     private TextView h;
-    private InterfaceC0903a ohE;
+    private InterfaceC0921a owX;
 
     /* renamed from: com.kascend.chushou.view.b.a.a$a  reason: collision with other inner class name */
     /* loaded from: classes6.dex */
-    public interface InterfaceC0903a {
+    public interface InterfaceC0921a {
         void a(int i);
     }
 
-    public static a eeH() {
+    public static a eis() {
         return new a();
     }
 
@@ -38,7 +40,7 @@ public class a extends com.kascend.chushou.view.base.a implements View.OnClickLi
     public void onCreate(@Nullable Bundle bundle) {
         super.onCreate(bundle);
         setStyle(0, 16973841);
-        this.a++;
+        this.f4226a++;
     }
 
     @Override // com.kascend.chushou.view.base.a, android.support.v4.app.DialogFragment
@@ -83,18 +85,18 @@ public class a extends com.kascend.chushou.view.base.a implements View.OnClickLi
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        if (this.ohE != null) {
-            this.ohE.a(view.getId());
+        if (this.owX != null) {
+            this.owX.a(view.getId());
         }
     }
 
     @Override // android.support.v4.app.Fragment
     public void onDestroy() {
         super.onDestroy();
-        this.a--;
+        this.f4226a--;
     }
 
-    public void a(InterfaceC0903a interfaceC0903a) {
-        this.ohE = interfaceC0903a;
+    public void a(InterfaceC0921a interfaceC0921a) {
+        this.owX = interfaceC0921a;
     }
 }

@@ -19,62 +19,62 @@ import com.baidu.tieba.ala.view.AlaChallengeHistoryHeaderView;
 import java.util.ArrayList;
 /* loaded from: classes4.dex */
 public class a {
-    private Activity byQ;
-    private BdListView giN;
-    private LinearLayout giO;
-    private LinearLayout giP;
-    private com.baidu.tieba.ala.adapter.a giQ;
-    private AlaChallengeHistoryHeaderView giR;
-    private TextView giS;
+    private Activity bFt;
+    private BdListView gva;
+    private LinearLayout gvb;
+    private LinearLayout gvc;
+    private com.baidu.tieba.ala.adapter.a gvd;
+    private AlaChallengeHistoryHeaderView gve;
+    private TextView gvf;
     private TbPageContext<BaseFragmentActivity> mTbPageContext;
     private View view;
 
     public a(TbPageContext<BaseFragmentActivity> tbPageContext) {
         this.mTbPageContext = tbPageContext;
-        this.byQ = this.mTbPageContext.getPageActivity();
+        this.bFt = this.mTbPageContext.getPageActivity();
         initView();
     }
 
     private void initView() {
-        this.view = LayoutInflater.from(this.byQ).inflate(a.h.ala_challenge_fragment_layout, (ViewGroup) null);
-        this.giN = (BdListView) this.view.findViewById(a.g.ala_challenge_list_view);
-        this.giN.setVisibility(4);
-        this.giO = (LinearLayout) this.view.findViewById(a.g.layout_ala_challenge_list_empty);
-        this.giP = (LinearLayout) this.view.findViewById(a.g.ala_challenge_list_no_network);
-        this.giS = (TextView) this.view.findViewById(a.g.ala_challenge_list_no_net_tip);
-        this.giQ = new com.baidu.tieba.ala.adapter.a(this.byQ);
-        this.giN.setAdapter((ListAdapter) this.giQ);
-        this.giR = new AlaChallengeHistoryHeaderView(this.mTbPageContext.getPageActivity());
-        this.giN.setEmptyView(this.giO);
+        this.view = LayoutInflater.from(this.bFt).inflate(a.h.ala_challenge_fragment_layout, (ViewGroup) null);
+        this.gva = (BdListView) this.view.findViewById(a.g.ala_challenge_list_view);
+        this.gva.setVisibility(4);
+        this.gvb = (LinearLayout) this.view.findViewById(a.g.layout_ala_challenge_list_empty);
+        this.gvc = (LinearLayout) this.view.findViewById(a.g.ala_challenge_list_no_network);
+        this.gvf = (TextView) this.view.findViewById(a.g.ala_challenge_list_no_net_tip);
+        this.gvd = new com.baidu.tieba.ala.adapter.a(this.bFt);
+        this.gva.setAdapter((ListAdapter) this.gvd);
+        this.gve = new AlaChallengeHistoryHeaderView(this.mTbPageContext.getPageActivity());
+        this.gva.setEmptyView(this.gvb);
     }
 
     public void a(ArrayList<com.baidu.tieba.ala.data.a> arrayList, l lVar) {
-        this.giN.setVisibility(0);
+        this.gva.setVisibility(0);
         if (!ListUtils.isEmpty(arrayList) && lVar != null) {
-            if (this.giR.getParent() == null) {
-                if (this.giR.getParent() != null) {
-                    ((ViewGroup) this.giR.getParent()).removeView(this.giR);
+            if (this.gve.getParent() == null) {
+                if (this.gve.getParent() != null) {
+                    ((ViewGroup) this.gve.getParent()).removeView(this.gve);
                 }
-                this.giN.addHeaderView(this.giR);
-                this.giR.setData(lVar);
+                this.gva.addHeaderView(this.gve);
+                this.gve.setData(lVar);
             }
-        } else if (this.giR.getParent() != null) {
-            ((ViewGroup) this.giR.getParent()).removeView(this.giR);
+        } else if (this.gve.getParent() != null) {
+            ((ViewGroup) this.gve.getParent()).removeView(this.gve);
         }
-        if (this.giQ != null && arrayList != null) {
-            this.giQ.setData(arrayList);
+        if (this.gvd != null && arrayList != null) {
+            this.gvd.setData(arrayList);
         }
     }
 
-    public void Ga(String str) {
+    public void GL(String str) {
         if (!StringUtils.isNull(str)) {
-            if (this.giQ != null && this.giQ.getCount() <= 0) {
-                this.giO.setVisibility(8);
-                this.giP.setVisibility(0);
-                this.giS.setText(str);
+            if (this.gvd != null && this.gvd.getCount() <= 0) {
+                this.gvb.setVisibility(8);
+                this.gvc.setVisibility(0);
+                this.gvf.setText(str);
                 return;
             }
-            BdUtilHelper.showToast(this.byQ, str, 1);
+            BdUtilHelper.showToast(this.bFt, str, 1);
         }
     }
 

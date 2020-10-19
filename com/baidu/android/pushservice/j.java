@@ -2,9 +2,11 @@ package com.baidu.android.pushservice;
 
 import android.content.Context;
 import android.text.TextUtils;
-/* loaded from: classes7.dex */
+/* loaded from: classes10.dex */
 public final class j {
-    private static j a;
+
+    /* renamed from: a  reason: collision with root package name */
+    private static j f1158a;
     private String b;
     private String c;
     private String d;
@@ -22,14 +24,14 @@ public final class j {
     }
 
     public static j a(Context context) {
-        if (a == null) {
+        if (f1158a == null) {
             synchronized (j.class) {
-                if (a == null) {
-                    a = new j(context);
+                if (f1158a == null) {
+                    f1158a = new j(context);
                 }
             }
         }
-        return a;
+        return f1158a;
     }
 
     public String a() {

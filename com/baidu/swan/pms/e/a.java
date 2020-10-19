@@ -9,46 +9,46 @@ import com.baidu.swan.pms.d;
 import com.baidu.swan.pms.utils.AbiType;
 import java.util.HashMap;
 import java.util.Map;
-/* loaded from: classes24.dex */
+/* loaded from: classes15.dex */
 public class a {
     private static final boolean DEBUG = d.DEBUG;
-    private static Map<String, a> dJf = new HashMap();
-    private static Map<String, Map<String, a>> dJg = new HashMap();
-    public final String crS;
-    public final String dHr;
-    public final AbiType dHx;
+    private static Map<String, a> dVg = new HashMap();
+    private static Map<String, Map<String, a>> dVh = new HashMap();
+    public final String cEd;
+    public final String dTs;
+    public final AbiType dTy;
 
     private a(@NonNull String str, @NonNull AbiType abiType) {
-        this.crS = TextUtils.isEmpty(str) ? "" : str;
-        this.dHx = abiType;
-        this.dHr = c(str, abiType);
+        this.cEd = TextUtils.isEmpty(str) ? "" : str;
+        this.dTy = abiType;
+        this.dTs = c(str, abiType);
         if (DEBUG) {
-            Log.i("SoBundleId", "SoBundleId: " + this.dHr + " libName=" + str + " abi=" + abiType);
+            Log.i("SoBundleId", "SoBundleId: " + this.dTs + " libName=" + str + " abi=" + abiType);
         }
     }
 
     @NonNull
     public String toString() {
-        return this.dHr;
+        return this.dTs;
     }
 
     @Nullable
     public static synchronized a b(String str, AbiType abiType) {
-        a dg;
+        a dl;
         synchronized (a.class) {
-            dg = dg(str, c(str, abiType));
+            dl = dl(str, c(str, abiType));
         }
-        return dg;
+        return dl;
     }
 
     /* JADX WARN: Code restructure failed: missing block: B:19:0x0078, code lost:
-        if (android.text.TextUtils.equals(r6, r0.crS) == false) goto L21;
+        if (android.text.TextUtils.equals(r6, r0.cEd) == false) goto L21;
      */
     @Nullable
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public static synchronized a dg(String str, String str2) {
+    public static synchronized a dl(String str, String str2) {
         a aVar;
         synchronized (a.class) {
             if (DEBUG) {
@@ -57,8 +57,8 @@ public class a {
             if (TextUtils.isEmpty(str) || TextUtils.isEmpty(str2)) {
                 aVar = null;
             } else {
-                xk(str);
-                aVar = dJf.get(str2);
+                xW(str);
+                aVar = dVg.get(str2);
                 if (DEBUG) {
                     Log.i("SoBundleId", "of: end libName=" + str + " soBundleId=" + aVar);
                 }
@@ -70,27 +70,27 @@ public class a {
         return aVar;
     }
 
-    public static synchronized Map<String, a> xj(@NonNull String str) {
+    public static synchronized Map<String, a> xV(@NonNull String str) {
         HashMap hashMap;
         synchronized (a.class) {
-            hashMap = new HashMap(xk(str));
+            hashMap = new HashMap(xW(str));
         }
         return hashMap;
     }
 
-    private static synchronized Map<String, a> xk(@NonNull String str) {
+    private static synchronized Map<String, a> xW(@NonNull String str) {
         Map<String, a> map;
         synchronized (a.class) {
-            map = dJg.get(str);
+            map = dVh.get(str);
             if (map == null) {
                 map = new HashMap<>();
                 if (!TextUtils.isEmpty(str)) {
                     for (AbiType abiType : AbiType.values()) {
                         a aVar = new a(str, abiType);
-                        map.put(aVar.dHr, aVar);
+                        map.put(aVar.dTs, aVar);
                     }
-                    dJf.putAll(map);
-                    dJg.put(str, map);
+                    dVg.putAll(map);
+                    dVh.put(str, map);
                 }
             }
         }

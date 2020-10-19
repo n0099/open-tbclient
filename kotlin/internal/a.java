@@ -7,8 +7,8 @@ import kotlin.jvm.internal.q;
 public class a extends b {
     @Override // kotlin.internal.b
     public void addSuppressed(Throwable th, Throwable th2) {
-        q.m(th, "cause");
-        q.m(th2, "exception");
+        q.n(th, "cause");
+        q.n(th2, "exception");
         th.addSuppressed(th2);
     }
 }

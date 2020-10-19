@@ -3,9 +3,11 @@ package com.baidu.platform.comapi.map;
 import android.os.Bundle;
 import com.baidu.platform.comjni.map.basemap.AppBaseMap;
 import java.util.HashMap;
-/* loaded from: classes3.dex */
+/* loaded from: classes7.dex */
 public final class ac implements com.baidu.platform.comjni.map.basemap.a {
-    static final String a = ac.class.getName();
+
+    /* renamed from: a  reason: collision with root package name */
+    static final String f2891a = ac.class.getName();
     HashMap<Long, InnerOverlay> b = new HashMap<>();
     AppBaseMap c;
 
@@ -16,7 +18,7 @@ public final class ac implements com.baidu.platform.comjni.map.basemap.a {
 
     @Override // com.baidu.platform.comjni.map.basemap.a
     public int a(Bundle bundle, long j, int i) {
-        long currentTimeMillis = w.a ? System.currentTimeMillis() : 0L;
+        long currentTimeMillis = w.f2932a ? System.currentTimeMillis() : 0L;
         InnerOverlay innerOverlay = this.b.get(Long.valueOf(j));
         if (innerOverlay != null) {
             String data = innerOverlay.getData();
@@ -29,8 +31,8 @@ public final class ac implements com.baidu.platform.comjni.map.basemap.a {
             } else {
                 bundle.putString("jsondata", null);
             }
-            if (w.a) {
-                w.a(a, "MapLayerDataReq:" + j + " tag:" + innerOverlay.getLayerTag() + " [" + (System.currentTimeMillis() - currentTimeMillis) + "ms] LayerData:" + data);
+            if (w.f2932a) {
+                w.a(f2891a, "MapLayerDataReq:" + j + " tag:" + innerOverlay.getLayerTag() + " [" + (System.currentTimeMillis() - currentTimeMillis) + "ms] LayerData:" + data);
             }
             return innerOverlay.getType();
         }

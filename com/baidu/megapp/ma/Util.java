@@ -3,7 +3,7 @@ package com.baidu.megapp.ma;
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
-/* loaded from: classes14.dex */
+/* loaded from: classes18.dex */
 public class Util {
     public static void remapStartServiceIntent(String str, Intent intent) {
     }

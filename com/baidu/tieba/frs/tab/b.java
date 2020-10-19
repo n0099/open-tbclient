@@ -1,7 +1,7 @@
 package com.baidu.tieba.frs.tab;
-/* loaded from: classes21.dex */
+/* loaded from: classes22.dex */
 public interface b {
-    void yX(int i);
+    void zD(int i);
 
-    void yY(int i);
+    void zE(int i);
 }

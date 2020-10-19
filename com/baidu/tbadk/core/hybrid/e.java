@@ -8,14 +8,14 @@ import com.baidu.tbadk.core.util.aq;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class e {
-    private static final b ejt = new a();
-    private static final b eju = new c();
-    private static final boolean ejv;
+    private static final b evB = new a();
+    private static final b evC = new c();
+    private static final boolean evD;
 
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes.dex */
     public interface b {
-        void Z(String str, String str2, String str3);
+        void aa(String str, String str2, String str3);
     }
 
     /* loaded from: classes.dex */
@@ -24,7 +24,7 @@ public class e {
         }
 
         @Override // com.baidu.tbadk.core.hybrid.e.b
-        public void Z(String str, String str2, String str3) {
+        public void aa(String str, String str2, String str3) {
             if (str2 != null) {
                 str3 = "code:" + str2 + " message:" + str3;
             }
@@ -38,35 +38,35 @@ public class e {
         }
 
         @Override // com.baidu.tbadk.core.hybrid.e.b
-        public void Z(String str, String str2, String str3) {
+        public void aa(String str, String str2, String str3) {
             aq aqVar = new aq("c10729");
-            aqVar.dF("obj_param1", str);
-            aqVar.dF(TiebaInitialize.Params.OBJ_PARAM2, str2);
-            aqVar.dF(TiebaInitialize.Params.OBJ_PARAM3, str3);
+            aqVar.dK("obj_param1", str);
+            aqVar.dK(TiebaInitialize.Params.OBJ_PARAM2, str2);
+            aqVar.dK(TiebaInitialize.Params.OBJ_PARAM3, str3);
             if (BdBaseApplication.getInst() != null) {
                 TiebaStatic.log(aqVar);
             }
         }
     }
 
-    public static void Z(String str, String str2, String str3) {
-        if (ejv) {
-            ejt.Z(str, str2, str3);
+    public static void aa(String str, String str2, String str3) {
+        if (evD) {
+            evB.aa(str, str2, str3);
         }
-        eju.Z(str, str2, str3);
+        evC.aa(str, str2, str3);
     }
 
     public static void debug(String str) {
-        if (ejv) {
-            ejt.Z(null, null, str);
+        if (evD) {
+            evB.aa(null, null, str);
         }
     }
 
-    public static void aa(String str, String str2, String str3) {
+    public static void ab(String str, String str2, String str3) {
         debug(str3);
     }
 
     static {
-        ejv = BdBaseApplication.getInst() == null || BdBaseApplication.getInst().isDebugMode();
+        evD = BdBaseApplication.getInst() == null || BdBaseApplication.getInst().isDebugMode();
     }
 }

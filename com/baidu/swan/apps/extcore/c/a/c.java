@@ -13,7 +13,7 @@ import com.baidu.swan.apps.scheme.j;
 import com.baidu.swan.apps.setting.oauth.a.b;
 import java.io.File;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes10.dex */
 public class c extends aa {
     public c(j jVar) {
         super(jVar, "/swanAPI/debug/replaceGameCore");
@@ -34,11 +34,11 @@ public class c extends aa {
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "game core url or cb is null");
             return false;
         }
-        eVar.aAD().b(context, "mapp_cts_debug", new com.baidu.swan.apps.ap.e.b<com.baidu.swan.apps.setting.oauth.h<b.d>>() { // from class: com.baidu.swan.apps.extcore.c.a.c.1
+        eVar.aDm().b(context, "mapp_cts_debug", new com.baidu.swan.apps.ap.e.b<com.baidu.swan.apps.setting.oauth.h<b.d>>() { // from class: com.baidu.swan.apps.extcore.c.a.c.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.swan.apps.ap.e.b
             /* renamed from: a */
-            public void J(com.baidu.swan.apps.setting.oauth.h<b.d> hVar) {
+            public void M(com.baidu.swan.apps.setting.oauth.h<b.d> hVar) {
                 if (com.baidu.swan.apps.setting.oauth.c.b(hVar)) {
                     c.this.a(context, optString, optString2, callbackHandler);
                 } else {
@@ -54,18 +54,18 @@ public class c extends aa {
     public void a(final Context context, String str, final String str2, final CallbackHandler callbackHandler) {
         com.baidu.swan.games.l.a.c(str, new d.b() { // from class: com.baidu.swan.apps.extcore.c.a.c.2
             @Override // com.baidu.swan.apps.r.d.b
-            public void eO(int i) {
+            public void eX(int i) {
             }
 
             @Override // com.baidu.swan.apps.r.d.b
             public void onSuccess() {
-                File ana = com.baidu.swan.games.k.a.b.ana();
-                File amY = com.baidu.swan.games.k.a.b.amY();
+                File apM = com.baidu.swan.games.k.a.b.apM();
+                File apK = com.baidu.swan.games.k.a.b.apK();
                 if (c.DEBUG) {
-                    Log.d("replaceGameCore", "gameCoreZipFile: " + ana + " gameCoreDir: " + amY);
+                    Log.d("replaceGameCore", "gameCoreZipFile: " + apM + " gameCoreDir: " + apK);
                 }
-                if (ana.exists() && com.baidu.swan.c.d.unzipFile(ana.getPath(), amY.getPath())) {
-                    com.baidu.swan.apps.ad.a.a.fh(true);
+                if (apM.exists() && com.baidu.swan.c.d.unzipFile(apM.getPath(), apK.getPath())) {
+                    com.baidu.swan.apps.ad.a.a.fD(true);
                     com.baidu.swan.apps.res.widget.b.d.k(context, a.h.aiapps_debug_game_core_download_success).showToast();
                     callbackHandler.handleSchemeDispatchCallback(str2, UnitedSchemeUtility.wrapCallbackParams(0).toString());
                     return;

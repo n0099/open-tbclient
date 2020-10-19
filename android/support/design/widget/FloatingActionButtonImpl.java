@@ -22,7 +22,7 @@ import android.view.ViewTreeObserver;
 import android.view.animation.Interpolator;
 /* JADX INFO: Access modifiers changed from: package-private */
 @RequiresApi(14)
-/* loaded from: classes5.dex */
+/* loaded from: classes16.dex */
 public class FloatingActionButtonImpl {
     static final int ANIM_STATE_HIDING = 1;
     static final int ANIM_STATE_NONE = 0;
@@ -50,7 +50,7 @@ public class FloatingActionButtonImpl {
     private final Rect mTmpRect = new Rect();
     private final StateListAnimator mStateListAnimator = new StateListAnimator();
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes16.dex */
     interface InternalVisibilityChangedListener {
         void onHidden();
 
@@ -338,7 +338,7 @@ public class FloatingActionButtonImpl {
         return valueAnimator;
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes16.dex */
     private abstract class ShadowAnimatorImpl extends AnimatorListenerAdapter implements ValueAnimator.AnimatorUpdateListener {
         private float mShadowSizeEnd;
         private float mShadowSizeStart;
@@ -366,7 +366,7 @@ public class FloatingActionButtonImpl {
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes16.dex */
     private class ResetElevationAnimation extends ShadowAnimatorImpl {
         ResetElevationAnimation() {
             super();
@@ -378,7 +378,7 @@ public class FloatingActionButtonImpl {
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes16.dex */
     private class ElevateToTranslationZAnimation extends ShadowAnimatorImpl {
         ElevateToTranslationZAnimation() {
             super();
@@ -390,7 +390,7 @@ public class FloatingActionButtonImpl {
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes16.dex */
     private class DisabledElevationAnimation extends ShadowAnimatorImpl {
         DisabledElevationAnimation() {
             super();

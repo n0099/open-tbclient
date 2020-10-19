@@ -1,5 +1,5 @@
 package com.vivo.push.c;
-/* loaded from: classes12.dex */
+/* loaded from: classes15.dex */
 public final class k extends ab {
     /* JADX INFO: Access modifiers changed from: package-private */
     public k(com.vivo.push.y yVar) {

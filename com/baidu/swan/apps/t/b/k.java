@@ -1,7 +1,7 @@
 package com.baidu.swan.apps.t.b;
 
 import android.content.Context;
-/* loaded from: classes3.dex */
+/* loaded from: classes10.dex */
 public interface k {
-    String ca(Context context);
+    String cg(Context context);
 }

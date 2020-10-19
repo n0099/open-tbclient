@@ -1,68 +1,68 @@
 package com.baidu.h.b;
 
 import android.content.Context;
-/* loaded from: classes23.dex */
+/* loaded from: classes15.dex */
 public class a {
-    private static volatile a bAQ;
-    private com.baidu.h.a.b.a.b bAR;
-    private com.baidu.h.a.a.a bAS;
-    private com.baidu.h.a.c.a bAT;
-    private com.baidu.h.a.d.a bAU;
-    private b bAV;
+    private static volatile a bHt;
+    private com.baidu.h.a.b.a.b bHu;
+    private com.baidu.h.a.a.a bHv;
+    private com.baidu.h.a.c.a bHw;
+    private com.baidu.h.a.d.a bHx;
+    private b bHy;
     private Context mContext;
 
     private a(Context context) {
         this.mContext = context.getApplicationContext();
     }
 
-    public static a aF(Context context) {
-        if (bAQ == null) {
+    public static a aJ(Context context) {
+        if (bHt == null) {
             synchronized (a.class) {
-                if (bAQ == null) {
-                    bAQ = new a(context);
+                if (bHt == null) {
+                    bHt = new a(context);
                 }
             }
         }
-        return bAQ;
+        return bHt;
     }
 
-    public com.baidu.h.a.b.a.b RZ() {
-        return this.bAR;
+    public com.baidu.h.a.b.a.b TS() {
+        return this.bHu;
     }
 
     public void a(com.baidu.h.a.b.a.b bVar) {
-        this.bAR = bVar;
+        this.bHu = bVar;
     }
 
-    public com.baidu.h.a.a.a Sa() {
-        return this.bAS;
+    public com.baidu.h.a.a.a TT() {
+        return this.bHv;
     }
 
     public void a(com.baidu.h.a.a.a aVar) {
-        this.bAS = aVar;
+        this.bHv = aVar;
     }
 
-    public com.baidu.h.a.c.a Sb() {
-        return this.bAT;
+    public com.baidu.h.a.c.a TU() {
+        return this.bHw;
     }
 
     public void a(com.baidu.h.a.c.a aVar) {
-        this.bAT = aVar;
+        this.bHw = aVar;
     }
 
-    public com.baidu.h.a.d.a Sc() {
-        return this.bAU;
+    public com.baidu.h.a.d.a TV() {
+        return this.bHx;
     }
 
     public void a(com.baidu.h.a.d.a aVar) {
-        this.bAU = aVar;
+        this.bHx = aVar;
     }
 
-    public b Sd() {
-        return this.bAV;
+    public b TW() {
+        return this.bHy;
     }
 
     public void a(b bVar) {
-        this.bAV = bVar;
+        this.bHy = bVar;
     }
 }

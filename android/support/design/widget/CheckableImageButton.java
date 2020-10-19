@@ -12,7 +12,7 @@ import android.view.View;
 import android.view.accessibility.AccessibilityEvent;
 import android.widget.Checkable;
 @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
-/* loaded from: classes5.dex */
+/* loaded from: classes16.dex */
 public class CheckableImageButton extends AppCompatImageButton implements Checkable {
     private static final int[] DRAWABLE_STATE_CHECKED = {16842912};
     private boolean mChecked;

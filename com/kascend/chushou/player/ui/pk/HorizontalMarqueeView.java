@@ -11,7 +11,9 @@ import android.widget.Scroller;
 import java.util.ArrayList;
 /* loaded from: classes6.dex */
 public class HorizontalMarqueeView extends HorizontalScrollView {
-    protected Context a;
+
+    /* renamed from: a  reason: collision with root package name */
+    protected Context f4189a;
     protected int b;
     protected LinearLayout c;
     protected int d;
@@ -25,9 +27,9 @@ public class HorizontalMarqueeView extends HorizontalScrollView {
     protected int l;
     protected boolean m;
     protected boolean n;
-    protected ArrayList<Integer> nTa;
     protected int o;
-    protected ArrayList<Integer> ofz;
+    protected ArrayList<Integer> ois;
+    protected ArrayList<Integer> ouS;
     protected int p;
     protected ArrayList<View> q;
     protected ArrayList<Integer> r;
@@ -51,9 +53,9 @@ public class HorizontalMarqueeView extends HorizontalScrollView {
         this.n = false;
         this.q = new ArrayList<>();
         this.r = new ArrayList<>();
-        this.nTa = new ArrayList<>();
-        this.ofz = new ArrayList<>();
-        this.a = context;
+        this.ois = new ArrayList<>();
+        this.ouS = new ArrayList<>();
+        this.f4189a = context;
         h();
     }
 
@@ -65,7 +67,7 @@ public class HorizontalMarqueeView extends HorizontalScrollView {
     }
 
     protected LinearLayout getContentLayout() {
-        LinearLayout linearLayout = new LinearLayout(this.a);
+        LinearLayout linearLayout = new LinearLayout(this.f4189a);
         linearLayout.setLayoutParams(new LinearLayout.LayoutParams(-2, -2));
         linearLayout.setOrientation(0);
         return linearLayout;
@@ -79,16 +81,16 @@ public class HorizontalMarqueeView extends HorizontalScrollView {
         this.q.add(view);
         view.measure(0, 0);
         this.r.add(Integer.valueOf(view.getMeasuredWidth()));
-        this.nTa.add(Integer.valueOf(i));
-        this.ofz.add(Integer.valueOf(i2));
+        this.ois.add(Integer.valueOf(i));
+        this.ouS.add(Integer.valueOf(i2));
     }
 
     public void a() {
         this.c.removeAllViews();
         this.q.clear();
         this.r.clear();
-        this.nTa.clear();
-        this.ofz.clear();
+        this.ois.clear();
+        this.ouS.clear();
     }
 
     public void setScrollDirection(int i) {

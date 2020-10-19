@@ -29,9 +29,9 @@ public class s {
         if (context == null || advertAppInfo == null) {
             return false;
         }
-        String str = advertAppInfo.dYu;
-        if (StringUtils.isNull(str) && advertAppInfo.dYC != null) {
-            str = advertAppInfo.dYC.userName;
+        String str = advertAppInfo.ekw;
+        if (StringUtils.isNull(str) && advertAppInfo.ekE != null) {
+            str = advertAppInfo.ekE.userName;
         }
         if (StringUtils.isNull(str)) {
             str = "";
@@ -43,20 +43,20 @@ public class s {
         if (context == null || advertAppInfo == null) {
             return false;
         }
-        com.baidu.tbadk.distribute.a.bsi().b(advertAppInfo);
-        String str2 = advertAppInfo.dYu;
+        com.baidu.tbadk.distribute.a.buS().b(advertAppInfo);
+        String str2 = advertAppInfo.ekw;
         if (StringUtils.isNull(str2)) {
             str2 = str;
         }
-        com.baidu.tieba.recapp.download.e.dra().a(advertAppInfo.dYw, advertAppInfo.apkUrl, str2, i, com.baidu.tieba.recapp.download.e.PQ(advertAppInfo.dYw).intValue(), null, true, false, true, advertAppInfo.dYC.userPortrait, downloadStaticsData, advertAppInfo.dYC.userName);
+        com.baidu.tieba.recapp.download.e.duL().a(advertAppInfo.eky, advertAppInfo.apkUrl, str2, i, com.baidu.tieba.recapp.download.e.QF(advertAppInfo.eky).intValue(), null, true, false, true, advertAppInfo.ekE.userPortrait, downloadStaticsData, advertAppInfo.ekE.userName);
         return true;
     }
 
     public static final void e(AdvertAppInfo advertAppInfo) {
-        com.baidu.tieba.recapp.download.e.dra().B(advertAppInfo.apkUrl, advertAppInfo.dYw, true);
+        com.baidu.tieba.recapp.download.e.duL().B(advertAppInfo.apkUrl, advertAppInfo.eky, true);
     }
 
-    public static final void aT(Context context, String str) {
+    public static final void aV(Context context, String str) {
         if (TextUtils.isEmpty(str)) {
             com.baidu.adp.lib.util.l.showToast(context, R.string.download_error);
             return;
@@ -96,7 +96,7 @@ public class s {
         return false;
     }
 
-    public static boolean aw(Activity activity) {
+    public static boolean ax(Activity activity) {
         if (Build.VERSION.SDK_INT < 23) {
             return true;
         }
@@ -165,15 +165,15 @@ public class s {
     }
 
     public static void sendFRS(boolean z, String str, String str2, String str3, List<a.b> list, String str4) {
-        r.dqU().sendFRS(z, str, str2, str3, list, str4);
+        r.duF().sendFRS(z, str, str2, str3, list, str4);
     }
 
     public static void sendPB(boolean z, String str, String str2, String str3, String str4, List<a.b> list, String str5) {
-        r.dqU().a(z, str, str2, str3, str4, list, str5);
+        r.duF().a(z, str, str2, str3, str4, list, str5);
     }
 
     public static int c(TbPageContext tbPageContext, String str, String str2) {
-        if (com.baidu.tieba.a.bAp().bAq() != 1) {
+        if (com.baidu.tieba.a.bDb().bDc() != 1) {
             return h(tbPageContext, str);
         }
         if (tbPageContext == null || TextUtils.isEmpty(str)) {
@@ -228,29 +228,29 @@ public class s {
 
     private static boolean i(TbPageContext tbPageContext, String str) {
         String[] strArr = {str};
-        g dqR = r.dqU().dqR();
-        if (dqR == null) {
+        g duC = r.duF().duC();
+        if (duC == null) {
             return false;
         }
-        if (dqR.DL(str)) {
-            dqR.a(tbPageContext.getPageActivity(), strArr, true);
+        if (duC.Ew(str)) {
+            duC.a(tbPageContext.getPageActivity(), strArr, true);
             return true;
         }
-        return dqR.c(tbPageContext.getPageActivity(), strArr);
+        return duC.c(tbPageContext.getPageActivity(), strArr);
     }
 
-    public static int aU(Context context, String str) {
+    public static int aW(Context context, String str) {
         if (context == null || TextUtils.isEmpty(str)) {
             return 0;
         }
         if (!str.startsWith("tieba://deeplink?")) {
-            return aW(context, str) ? 3 : 0;
+            return aY(context, str) ? 3 : 0;
         }
         Uri parse = Uri.parse(str);
         if (f(context, Uri.parse(parse.getQueryParameter(TableDefine.DRColumns.COLUMN_JUMP_TO_RECENT)))) {
             return 1;
         }
-        return aW(context, parse.getQueryParameter("wap")) ? 2 : 0;
+        return aY(context, parse.getQueryParameter("wap")) ? 2 : 0;
     }
 
     public static int a(Context context, String str, AdvertAppInfo advertAppInfo) {
@@ -260,38 +260,38 @@ public class s {
         if (str.startsWith("tieba://deeplink?") && f(context, Uri.parse(Uri.parse(str).getQueryParameter(TableDefine.DRColumns.COLUMN_JUMP_TO_RECENT)))) {
             return 1;
         }
-        r.dqU().a(advertAppInfo, context);
+        r.duF().a(advertAppInfo, context);
         return 2;
     }
 
-    public static boolean aV(Context context, String str) {
+    public static boolean aX(Context context, String str) {
         if (context == null || TextUtils.isEmpty(str) || !str.startsWith("tieba://deeplink?")) {
             return false;
         }
         return f(context, Uri.parse(Uri.parse(str).getQueryParameter(TableDefine.DRColumns.COLUMN_JUMP_TO_RECENT)));
     }
 
-    public static boolean PL(String str) {
+    public static boolean QA(String str) {
         return !TextUtils.isEmpty(str) && str.startsWith("tieba://deeplink?");
     }
 
-    public static String PM(String str) {
+    public static String QB(String str) {
         if (!TextUtils.isEmpty(str) && str.startsWith("tieba://deeplink?")) {
             return Uri.parse(str).getQueryParameter("wap");
         }
         return str;
     }
 
-    private static boolean aW(Context context, String str) {
+    private static boolean aY(Context context, String str) {
         String[] strArr = {str};
-        g dqR = r.dqU().dqR();
-        if (dqR == null) {
+        g duC = r.duF().duC();
+        if (duC == null) {
             return false;
         }
-        if (dqR.DL(str)) {
-            dqR.a(context, strArr, true);
+        if (duC.Ew(str)) {
+            duC.a(context, strArr, true);
             return true;
         }
-        return dqR.c(context, strArr);
+        return duC.c(context, strArr);
     }
 }

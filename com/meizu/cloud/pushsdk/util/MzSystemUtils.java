@@ -17,7 +17,7 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Locale;
-/* loaded from: classes3.dex */
+/* loaded from: classes7.dex */
 public class MzSystemUtils {
     private static final String TAG = "MzSystemUtils";
 
@@ -262,9 +262,9 @@ public class MzSystemUtils {
     }
 
     public static boolean isHuaWei() {
-        String a = j.a("ro.build.version.emui");
-        com.meizu.cloud.a.a.e(TAG, "huawei eui " + a);
-        return !TextUtils.isEmpty(a);
+        String a2 = j.a("ro.build.version.emui");
+        com.meizu.cloud.a.a.e(TAG, "huawei eui " + a2);
+        return !TextUtils.isEmpty(a2);
     }
 
     public static boolean isIndiaLocal() {
@@ -272,7 +272,7 @@ public class MzSystemUtils {
     }
 
     public static boolean isInternational() {
-        if (com.meizu.cloud.pushsdk.base.a.a().a) {
+        if (com.meizu.cloud.pushsdk.base.a.a().f4367a) {
             return com.meizu.cloud.pushsdk.base.a.a().b.booleanValue();
         }
         return false;

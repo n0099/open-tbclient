@@ -1,17 +1,19 @@
 package com.baidu.platform.comapi.wnplatform.p;
-/* loaded from: classes3.dex */
+/* loaded from: classes7.dex */
 public class p {
-    private static p a;
+
+    /* renamed from: a  reason: collision with root package name */
+    private static p f3153a;
     private String b;
     private String c;
 
     public static synchronized p a() {
         p pVar;
         synchronized (p.class) {
-            if (a == null) {
-                a = new p();
+            if (f3153a == null) {
+                f3153a = new p();
             }
-            pVar = a;
+            pVar = f3153a;
         }
         return pVar;
     }

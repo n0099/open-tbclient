@@ -1,5 +1,5 @@
 package com.baidu.sofire.o;
-/* loaded from: classes12.dex */
+/* loaded from: classes15.dex */
 public final class a {
     public static String a(String str, String str2) {
         try {

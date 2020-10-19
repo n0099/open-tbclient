@@ -6,13 +6,13 @@ import android.support.v7.widget.RecyclerView;
 import android.view.View;
 /* loaded from: classes.dex */
 public class p extends RecyclerView.ItemDecoration {
-    private int WT;
-    private int WU;
+    private int Xk;
+    private int Xl;
     private int mEnd;
 
     public p(int i, int i2, int i3) {
-        this.WT = i;
-        this.WU = i2;
+        this.Xk = i;
+        this.Xl = i2;
         this.mEnd = i3;
     }
 
@@ -21,11 +21,11 @@ public class p extends RecyclerView.ItemDecoration {
         GridLayoutManager.LayoutParams layoutParams = (GridLayoutManager.LayoutParams) view.getLayoutParams();
         if (layoutParams.getSpanIndex() != -1) {
             if (layoutParams.getSpanIndex() % 2 == 0) {
-                rect.left = this.WT;
-                rect.right = this.WU;
+                rect.left = this.Xk;
+                rect.right = this.Xl;
                 return;
             }
-            rect.left = this.WU;
+            rect.left = this.Xl;
             rect.right = this.mEnd;
         }
     }

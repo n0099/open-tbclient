@@ -2,7 +2,7 @@ package com.xiaomi.push;
 
 import android.content.Context;
 import java.util.HashMap;
-/* loaded from: classes9.dex */
+/* loaded from: classes12.dex */
 public interface eu {
     void a(Context context, HashMap<String, String> hashMap);
 

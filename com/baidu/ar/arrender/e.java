@@ -32,7 +32,7 @@ import java.util.Arrays;
 import java.util.HashMap;
 import org.json.JSONObject;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes10.dex */
+/* loaded from: classes14.dex */
 public abstract class e implements SurfaceTexture.OnFrameAvailableListener, View.OnTouchListener, OnRenderFinishedListener, OnRenderStartedListener, IRenderer {
     private f C;
     DuMixInput W;
@@ -437,9 +437,9 @@ public abstract class e implements SurfaceTexture.OnFrameAvailableListener, View
             this.hc.j(true);
         }
         if (this.ha != null && this.W != null && this.aa != null) {
-            Size a = a(this.W);
-            Size a2 = a(a);
-            this.ha.createEngine(a.getWidth(), a.getHeight(), a2.getWidth(), a2.getHeight(), p.y(this.mContext));
+            Size a2 = a(this.W);
+            Size a3 = a(a2);
+            this.ha.createEngine(a2.getWidth(), a2.getHeight(), a3.getWidth(), a3.getHeight(), p.y(this.mContext));
         }
         if (this.ha != null && this.W != null && this.W.isCameraInput()) {
             this.ha.setIsFrontCamera(this.W.isFrontCamera());
@@ -547,8 +547,8 @@ public abstract class e implements SurfaceTexture.OnFrameAvailableListener, View
             this.gZ.addOutputSurface(this.gR.getSurface(), i, i2);
         }
         if (this.ha != null) {
-            Size a = a(a(this.W));
-            this.ha.setWindowSize(a.getWidth(), a.getHeight());
+            Size a2 = a(a(this.W));
+            this.ha.setWindowSize(a2.getWidth(), a2.getHeight());
         }
         if (this.hc != null) {
             this.hc.d(i, i2);
@@ -662,10 +662,10 @@ public abstract class e implements SurfaceTexture.OnFrameAvailableListener, View
             return;
         }
         this.ho = null;
-        Size a = a(this.W);
-        Size a2 = a(a);
-        this.ha.setPreviewSize(a.getWidth(), a.getHeight());
-        this.ha.setWindowSize(a2.getWidth(), a2.getHeight());
+        Size a2 = a(this.W);
+        Size a3 = a(a2);
+        this.ha.setPreviewSize(a2.getWidth(), a2.getHeight());
+        this.ha.setWindowSize(a3.getWidth(), a3.getHeight());
     }
 
     public void release() {

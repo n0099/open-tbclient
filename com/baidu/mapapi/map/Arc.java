@@ -5,10 +5,12 @@ import com.baidu.mapapi.model.CoordUtil;
 import com.baidu.mapapi.model.LatLng;
 import com.baidu.platform.comapi.basestruct.GeoPoint;
 import java.util.ArrayList;
-/* loaded from: classes3.dex */
+/* loaded from: classes7.dex */
 public final class Arc extends Overlay {
     private static final String f = Arc.class.getSimpleName();
-    int a;
+
+    /* renamed from: a  reason: collision with root package name */
+    int f1993a;
     int b;
     LatLng c;
     LatLng d;
@@ -33,12 +35,12 @@ public final class Arc extends Overlay {
         bundle.putDouble("location_y", ll2mc.getLatitudeE6());
         bundle.putInt("width", this.b);
         Overlay.a(arrayList, bundle);
-        Overlay.a(this.a, bundle);
+        Overlay.a(this.f1993a, bundle);
         return bundle;
     }
 
     public int getColor() {
-        return this.a;
+        return this.f1993a;
     }
 
     public LatLng getEndPoint() {
@@ -58,7 +60,7 @@ public final class Arc extends Overlay {
     }
 
     public void setColor(int i) {
-        this.a = i;
+        this.f1993a = i;
         this.listener.b(this);
     }
 

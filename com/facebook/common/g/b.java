@@ -4,12 +4,12 @@ import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.Rect;
 import java.io.FileDescriptor;
-/* loaded from: classes17.dex */
+/* loaded from: classes6.dex */
 public interface b {
 
-    /* loaded from: classes17.dex */
+    /* loaded from: classes6.dex */
     public interface a {
-        void gz(String str, String str2);
+        void gG(String str, String str2);
     }
 
     Bitmap a(FileDescriptor fileDescriptor, Rect rect, BitmapFactory.Options options);

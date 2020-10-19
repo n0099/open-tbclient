@@ -16,80 +16,80 @@ import com.baidu.tieba.card.aa;
 import com.baidu.tieba.card.u;
 import com.baidu.tieba.hottopic.controller.HotTopicActivity;
 import com.baidu.tieba.hottopic.data.n;
-/* loaded from: classes20.dex */
+/* loaded from: classes21.dex */
 public class i extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.card.data.l, com.baidu.tieba.card.a.a<u>> {
-    private BdUniqueId eSq;
-    private aa<bx> hFx;
-    private com.baidu.tieba.card.data.l hqR;
-    private u jgg;
+    private BdUniqueId fey;
+    private com.baidu.tieba.card.data.l hFL;
+    private aa<bx> hUs;
+    private u jvf;
     private TbPageContext<HotTopicActivity> mPageContext;
 
     /* JADX INFO: Access modifiers changed from: protected */
     public i(TbPageContext<HotTopicActivity> tbPageContext, BdUniqueId bdUniqueId) {
         super(tbPageContext.getPageActivity(), bdUniqueId);
-        this.hFx = new aa<bx>() { // from class: com.baidu.tieba.hottopic.adapter.i.1
+        this.hUs = new aa<bx>() { // from class: com.baidu.tieba.hottopic.adapter.i.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.tieba.card.aa
             public void a(View view, bx bxVar) {
                 int i;
-                com.baidu.tieba.card.data.l lVar = i.this.hqR;
-                if (lVar != null && lVar.dXg != null && !StringUtils.isNull(lVar.dXg.getTid())) {
-                    if (i.this.jgg.getHeaderImg() != null && view.getId() == i.this.jgg.getHeaderImg().getId()) {
+                com.baidu.tieba.card.data.l lVar = i.this.hFL;
+                if (lVar != null && lVar.eji != null && !StringUtils.isNull(lVar.eji.getTid())) {
+                    if (i.this.jvf.getHeaderImg() != null && view.getId() == i.this.jvf.getHeaderImg().getId()) {
                         i = 1;
-                    } else if (i.this.jgg.ceT() != null && view.getId() == i.this.jgg.ceT().getId()) {
+                    } else if (i.this.jvf.cip() != null && view.getId() == i.this.jvf.cip().getId()) {
                         i = 1;
-                    } else if (i.this.jgg.hsh != null && view.getId() == i.this.jgg.hsh.getId()) {
+                    } else if (i.this.jvf.hHb != null && view.getId() == i.this.jvf.hHb.getId()) {
                         i = 3;
                     } else {
                         i = 2;
                     }
                     String topicName = ((HotTopicActivity) i.this.mPageContext.getOrignalPage()).getTopicName();
-                    String cDr = ((HotTopicActivity) i.this.mPageContext.getOrignalPage()).cDr();
-                    bw bcY = lVar.bcY();
-                    TiebaStatic.log(new aq("c12941").ai("obj_type", i).dF("tid", bcY.getId()));
-                    if ("c10814".equals(lVar.cfB())) {
+                    String cHa = ((HotTopicActivity) i.this.mPageContext.getOrignalPage()).cHa();
+                    bw bfG = lVar.bfG();
+                    TiebaStatic.log(new aq("c12941").aj("obj_type", i).dK("tid", bfG.getId()));
+                    if ("c10814".equals(lVar.ciX())) {
                         MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(CmdConfigCustom.PB_PAUSE_VIDEO));
-                        TiebaStatic.log(new aq("c10814").dF("tid", bcY.getId()).dF("obj_name", topicName).dF("topic_id", cDr));
-                    } else if ("c10816".equals(lVar.cfB())) {
+                        TiebaStatic.log(new aq("c10814").dK("tid", bfG.getId()).dK("obj_name", topicName).dK("topic_id", cHa));
+                    } else if ("c10816".equals(lVar.ciX())) {
                         MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(CmdConfigCustom.PB_PAUSE_VIDEO));
-                        TiebaStatic.log(new aq("c10816").dF("post_id", bcY.getTid()).dF("obj_name", topicName).dF("topic_id", cDr));
+                        TiebaStatic.log(new aq("c10816").dK("post_id", bfG.getTid()).dK("obj_name", topicName).dK("topic_id", cHa));
                     }
                 }
             }
         };
         this.mPageContext = tbPageContext;
-        this.eSq = tbPageContext.getUniqueId();
+        this.fey = tbPageContext.getUniqueId();
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.widget.ListView.a
-    /* renamed from: aL */
+    /* renamed from: aN */
     public com.baidu.tieba.card.a.a<u> c(ViewGroup viewGroup) {
-        this.jgg = new u(this.mPageContext);
-        this.jgg.o(this.eSq);
-        this.jgg.no(false);
-        this.jgg.currentPageType = 0;
-        if (this.jgg.gml != null) {
-            this.jgg.gml.ewe = 0;
+        this.jvf = new u(this.mPageContext);
+        this.jvf.o(this.fey);
+        this.jvf.nT(false);
+        this.jvf.currentPageType = 0;
+        if (this.jvf.gAE != null) {
+            this.jvf.gAE.eIo = 0;
         }
-        if (this.jgg.hsh != null) {
-            this.jgg.hsh.hsV = 0;
+        if (this.jvf.hHb != null) {
+            this.jvf.hHb.hHP = 0;
         }
-        return new com.baidu.tieba.card.a.a<>(this.jgg);
+        return new com.baidu.tieba.card.a.a<>(this.jvf);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.widget.ListView.a
     public View a(int i, View view, ViewGroup viewGroup, com.baidu.tieba.card.data.l lVar, com.baidu.tieba.card.a.a<u> aVar) {
-        if (lVar == null || aVar == null || aVar.cfU() == null) {
+        if (lVar == null || aVar == null || aVar.cjq() == null) {
             return null;
         }
-        this.hqR = lVar;
-        aVar.cfU().a(new bx(lVar.bcY()));
-        aVar.cfU().c(this.hFx);
-        ((u) ((com.baidu.tieba.card.a.a) this.Vh).cfU()).nt(!(getItem(i + 1) instanceof n));
+        this.hFL = lVar;
+        aVar.cjq().a(new bx(lVar.bfG()));
+        aVar.cjq().c(this.hUs);
+        ((u) ((com.baidu.tieba.card.a.a) this.Vx).cjq()).nY(!(getItem(i + 1) instanceof n));
         return aVar.getView();
     }
 }

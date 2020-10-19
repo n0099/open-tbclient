@@ -3,78 +3,78 @@ package org.java_websocket.framing;
 import java.nio.ByteBuffer;
 import org.java_websocket.exceptions.InvalidDataException;
 import org.java_websocket.framing.Framedata;
-/* loaded from: classes17.dex */
+/* loaded from: classes11.dex */
 public abstract class f implements Framedata {
-    private Framedata.Opcode oML;
-    private ByteBuffer oMM = org.java_websocket.e.b.enG();
-    private boolean oMK = true;
-    private boolean oMN = false;
-    private boolean oMO = false;
-    private boolean oMP = false;
-    private boolean oMQ = false;
+    private Framedata.Opcode pcb;
+    private ByteBuffer pcc = org.java_websocket.e.b.ers();
+    private boolean pca = true;
+    private boolean pcd = false;
+    private boolean pce = false;
+    private boolean pcf = false;
+    private boolean pcg = false;
 
-    public abstract void env() throws InvalidDataException;
+    public abstract void erh() throws InvalidDataException;
 
     public f(Framedata.Opcode opcode) {
-        this.oML = opcode;
+        this.pcb = opcode;
     }
 
     @Override // org.java_websocket.framing.Framedata
-    public boolean eny() {
-        return this.oMO;
+    public boolean erk() {
+        return this.pce;
     }
 
     @Override // org.java_websocket.framing.Framedata
-    public boolean enz() {
-        return this.oMP;
+    public boolean erl() {
+        return this.pcf;
     }
 
     @Override // org.java_websocket.framing.Framedata
-    public boolean enA() {
-        return this.oMQ;
+    public boolean erm() {
+        return this.pcg;
     }
 
     @Override // org.java_websocket.framing.Framedata
-    public boolean afm() {
-        return this.oMK;
+    public boolean ahX() {
+        return this.pca;
     }
 
     @Override // org.java_websocket.framing.Framedata
-    public Framedata.Opcode enB() {
-        return this.oML;
+    public Framedata.Opcode ern() {
+        return this.pcb;
     }
 
     @Override // org.java_websocket.framing.Framedata
-    public ByteBuffer enx() {
-        return this.oMM;
+    public ByteBuffer erj() {
+        return this.pcc;
     }
 
     public String toString() {
-        return "Framedata{ optcode:" + enB() + ", fin:" + afm() + ", rsv1:" + eny() + ", rsv2:" + enz() + ", rsv3:" + enA() + ", payloadlength:[pos:" + this.oMM.position() + ", len:" + this.oMM.remaining() + "], payload:" + (this.oMM.remaining() > 1000 ? "(too big to display)" : new String(this.oMM.array())) + '}';
+        return "Framedata{ optcode:" + ern() + ", fin:" + ahX() + ", rsv1:" + erk() + ", rsv2:" + erl() + ", rsv3:" + erm() + ", payloadlength:[pos:" + this.pcc.position() + ", len:" + this.pcc.remaining() + "], payload:" + (this.pcc.remaining() > 1000 ? "(too big to display)" : new String(this.pcc.array())) + '}';
     }
 
-    public void A(ByteBuffer byteBuffer) {
-        this.oMM = byteBuffer;
+    public void C(ByteBuffer byteBuffer) {
+        this.pcc = byteBuffer;
     }
 
-    public void dJ(boolean z) {
-        this.oMK = z;
+    public void ef(boolean z) {
+        this.pca = z;
     }
 
-    public void zj(boolean z) {
-        this.oMO = z;
+    public void zQ(boolean z) {
+        this.pce = z;
     }
 
-    public void zk(boolean z) {
-        this.oMP = z;
+    public void zR(boolean z) {
+        this.pcf = z;
     }
 
-    public void zl(boolean z) {
-        this.oMQ = z;
+    public void zS(boolean z) {
+        this.pcg = z;
     }
 
-    public void zm(boolean z) {
-        this.oMN = z;
+    public void zT(boolean z) {
+        this.pcd = z;
     }
 
     public static f b(Framedata.Opcode opcode) {
@@ -108,10 +108,10 @@ public abstract class f implements Framedata {
             return false;
         }
         f fVar = (f) obj;
-        if (this.oMK == fVar.oMK && this.oMN == fVar.oMN && this.oMO == fVar.oMO && this.oMP == fVar.oMP && this.oMQ == fVar.oMQ && this.oML == fVar.oML) {
-            if (this.oMM != null) {
-                z = this.oMM.equals(fVar.oMM);
-            } else if (fVar.oMM != null) {
+        if (this.pca == fVar.pca && this.pcd == fVar.pcd && this.pce == fVar.pce && this.pcf == fVar.pcf && this.pcg == fVar.pcg && this.pcb == fVar.pcb) {
+            if (this.pcc != null) {
+                z = this.pcc.equals(fVar.pcc);
+            } else if (fVar.pcc != null) {
                 z = false;
             }
             return z;
@@ -120,6 +120,6 @@ public abstract class f implements Framedata {
     }
 
     public int hashCode() {
-        return (((this.oMP ? 1 : 0) + (((this.oMO ? 1 : 0) + (((this.oMN ? 1 : 0) + (((this.oMM != null ? this.oMM.hashCode() : 0) + ((((this.oMK ? 1 : 0) * 31) + this.oML.hashCode()) * 31)) * 31)) * 31)) * 31)) * 31) + (this.oMQ ? 1 : 0);
+        return (((this.pcf ? 1 : 0) + (((this.pce ? 1 : 0) + (((this.pcd ? 1 : 0) + (((this.pcc != null ? this.pcc.hashCode() : 0) + ((((this.pca ? 1 : 0) * 31) + this.pcb.hashCode()) * 31)) * 31)) * 31)) * 31)) * 31) + (this.pcg ? 1 : 0);
     }
 }

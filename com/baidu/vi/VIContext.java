@@ -1,15 +1,17 @@
 package com.baidu.vi;
 
 import android.content.Context;
-/* loaded from: classes3.dex */
+/* loaded from: classes7.dex */
 public class VIContext {
-    static Context a;
+
+    /* renamed from: a  reason: collision with root package name */
+    static Context f3904a;
 
     public static Context getContext() {
-        return a;
+        return f3904a;
     }
 
     public static void init(Context context) {
-        a = context;
+        f3904a = context;
     }
 }

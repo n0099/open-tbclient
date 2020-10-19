@@ -1,5 +1,5 @@
 package com.baidu.platform.comapi.map;
-/* loaded from: classes3.dex */
+/* loaded from: classes7.dex */
 public class NodeType {
     public static final int BACKGMARK = 17;
     public static final int BUSLINE = 11;

@@ -9,12 +9,12 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes4.dex */
 public class a {
-    private BdTypeRecyclerView WM;
-    private List<com.baidu.adp.widget.ListView.a> bdV;
-    private e fHq;
-    private com.baidu.tieba.ala.alasquare.live_tab.a.c fHr;
-    private com.baidu.tieba.ala.alasquare.live_tab.a.b fHs;
-    private com.baidu.tieba.ala.alasquare.live_tab.a.a fHt;
+    private BdTypeRecyclerView Xc;
+    private List<com.baidu.adp.widget.ListView.a> bhH;
+    private com.baidu.tieba.ala.alasquare.live_tab.a.c fTA;
+    private com.baidu.tieba.ala.alasquare.live_tab.a.b fTB;
+    private com.baidu.tieba.ala.alasquare.live_tab.a.a fTC;
+    private e fTz;
     private Context mContext;
     private TbPageContext mPageContext;
     private int tabType;
@@ -22,31 +22,31 @@ public class a {
     public a(TbPageContext tbPageContext, BdTypeRecyclerView bdTypeRecyclerView, int i) {
         this.mPageContext = tbPageContext;
         this.mContext = tbPageContext.getPageActivity();
-        this.WM = bdTypeRecyclerView;
+        this.Xc = bdTypeRecyclerView;
         this.tabType = i;
-        JZ();
+        Le();
     }
 
-    private void JZ() {
-        this.bdV = new ArrayList();
-        this.fHq = new e(this.mPageContext, this.tabType);
-        this.fHr = new com.baidu.tieba.ala.alasquare.live_tab.a.c(this.mPageContext);
-        this.fHs = new com.baidu.tieba.ala.alasquare.live_tab.a.b(this.mPageContext);
-        this.fHt = new com.baidu.tieba.ala.alasquare.live_tab.a.a(this.mPageContext);
-        this.bdV.add(this.fHq);
-        this.bdV.add(this.fHr);
-        this.bdV.add(this.fHs);
-        this.bdV.add(this.fHt);
-        this.WM.addAdapters(this.bdV);
+    private void Le() {
+        this.bhH = new ArrayList();
+        this.fTz = new e(this.mPageContext, this.tabType);
+        this.fTA = new com.baidu.tieba.ala.alasquare.live_tab.a.c(this.mPageContext);
+        this.fTB = new com.baidu.tieba.ala.alasquare.live_tab.a.b(this.mPageContext);
+        this.fTC = new com.baidu.tieba.ala.alasquare.live_tab.a.a(this.mPageContext);
+        this.bhH.add(this.fTz);
+        this.bhH.add(this.fTA);
+        this.bhH.add(this.fTB);
+        this.bhH.add(this.fTC);
+        this.Xc.addAdapters(this.bhH);
     }
 
     public void setData(List<q> list) {
-        this.WM.setData(list);
+        this.Xc.setData(list);
     }
 
     public void notifyDataSetChanged() {
-        if (this.WM != null) {
-            this.WM.getListAdapter().notifyDataSetChanged();
+        if (this.Xc != null) {
+            this.Xc.getListAdapter().notifyDataSetChanged();
         }
     }
 }

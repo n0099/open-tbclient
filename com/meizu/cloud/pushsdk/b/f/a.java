@@ -1,13 +1,15 @@
 package com.meizu.cloud.pushsdk.b.f;
 
 import java.io.Serializable;
-/* loaded from: classes3.dex */
+/* loaded from: classes7.dex */
 public class a implements Serializable {
-    public long a;
+
+    /* renamed from: a  reason: collision with root package name */
+    public long f4345a;
     public long b;
 
     public a(long j, long j2) {
-        this.a = j;
+        this.f4345a = j;
         this.b = j2;
     }
 }

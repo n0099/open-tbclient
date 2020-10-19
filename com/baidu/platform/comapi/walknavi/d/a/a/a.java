@@ -1,7 +1,9 @@
 package com.baidu.platform.comapi.walknavi.d.a.a;
-/* loaded from: classes3.dex */
+/* loaded from: classes7.dex */
 public class a {
-    private String a;
+
+    /* renamed from: a  reason: collision with root package name */
+    private String f2963a;
     private String b;
     private int c;
     private boolean d = false;
@@ -16,7 +18,7 @@ public class a {
     }
 
     public String b() {
-        return this.a;
+        return this.f2963a;
     }
 
     public int c() {

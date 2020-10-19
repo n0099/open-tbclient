@@ -15,7 +15,7 @@ import com.baidu.ar.statistic.StatisticConstants;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
-/* loaded from: classes10.dex */
+/* loaded from: classes14.dex */
 public class ChildAR extends com.baidu.ar.c implements LuaMsgListener {
     private a lk;
     private com.baidu.ar.child.a.b ll;
@@ -224,7 +224,7 @@ public class ChildAR extends com.baidu.ar.c implements LuaMsgListener {
             this.bY = null;
         }
         if (this.lk != null && !this.ln) {
-            this.lk.a((a.InterfaceC0081a) null);
+            this.lk.a((a.InterfaceC0082a) null);
             this.lk.cR();
             this.lk = null;
         }
@@ -247,8 +247,8 @@ public class ChildAR extends com.baidu.ar.c implements LuaMsgListener {
         this.bA = (String) hashMap.get("ability_name");
         this.lk = new a(this.R, this.S);
         this.lm = new com.baidu.ar.child.b.b();
-        this.lk.a(new a.InterfaceC0081a() { // from class: com.baidu.ar.child.ChildAR.2
-            @Override // com.baidu.ar.child.a.InterfaceC0081a
+        this.lk.a(new a.InterfaceC0082a() { // from class: com.baidu.ar.child.ChildAR.2
+            @Override // com.baidu.ar.child.a.InterfaceC0082a
             public void a(final long j, byte[] bArr, int i) {
                 if (bArr == null || bArr.length <= 0) {
                     return;

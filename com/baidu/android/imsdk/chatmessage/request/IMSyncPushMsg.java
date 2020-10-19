@@ -13,7 +13,7 @@ import com.baidu.android.imsdk.utils.LogUtils;
 import com.baidu.android.imsdk.utils.Utility;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes9.dex */
+/* loaded from: classes5.dex */
 public class IMSyncPushMsg extends Message {
     public static final String TAG = IMSyncPushMsg.class.getSimpleName();
     private String mChannelId;

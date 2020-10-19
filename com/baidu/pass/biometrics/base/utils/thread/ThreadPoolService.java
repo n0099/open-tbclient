@@ -10,15 +10,19 @@ import java.util.concurrent.ThreadFactory;
 import java.util.concurrent.ThreadPoolExecutor;
 import java.util.concurrent.TimeUnit;
 import java.util.concurrent.atomic.AtomicInteger;
-/* loaded from: classes6.dex */
+/* loaded from: classes11.dex */
 public class ThreadPoolService {
-    private static final int a = Runtime.getRuntime().availableProcessors();
+
+    /* renamed from: a  reason: collision with root package name */
+    private static final int f2716a = Runtime.getRuntime().availableProcessors();
     private static final ThreadFactory b = new ThreadFactory() { // from class: com.baidu.pass.biometrics.base.utils.thread.ThreadPoolService.1
-        private final AtomicInteger a = new AtomicInteger(1);
+
+        /* renamed from: a  reason: collision with root package name */
+        private final AtomicInteger f2717a = new AtomicInteger(1);
 
         @Override // java.util.concurrent.ThreadFactory
         public Thread newThread(Runnable runnable) {
-            return new Thread(runnable, "pass_face_thread # " + this.a.getAndIncrement());
+            return new Thread(runnable, "pass_face_thread # " + this.f2717a.getAndIncrement());
         }
     };
     private static final int c = 0;
@@ -26,7 +30,7 @@ public class ThreadPoolService {
     private ThreadPoolExecutor e;
     private Handler f;
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes11.dex */
     private static class SingletonContainer {
         public static ThreadPoolService mSingleInstance = new ThreadPoolService();
 
@@ -58,7 +62,7 @@ public class ThreadPoolService {
                 }
             }
         };
-        this.e = new ThreadPoolExecutor(Math.max(2, Math.min(a - 1, 4)), (int) ActivityChooserView.ActivityChooserViewAdapter.MAX_ACTIVITY_COUNT_UNLIMITED, 60L, TimeUnit.SECONDS, new LinkedBlockingQueue(), b);
+        this.e = new ThreadPoolExecutor(Math.max(2, Math.min(f2716a - 1, 4)), (int) ActivityChooserView.ActivityChooserViewAdapter.MAX_ACTIVITY_COUNT_UNLIMITED, 60L, TimeUnit.SECONDS, new LinkedBlockingQueue(), b);
         if (Build.VERSION.SDK_INT >= 9) {
             this.e.allowCoreThreadTimeOut(true);
         }

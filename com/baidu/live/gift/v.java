@@ -6,7 +6,7 @@ import com.baidu.live.data.AlaLiveUserInfoData;
 import com.baidu.live.tbadk.core.data.AlaBroadcastGiftToastData;
 /* loaded from: classes4.dex */
 public interface v {
-    View Fp();
+    View Gl();
 
     void a(AlaLiveInfoData alaLiveInfoData, AlaLiveUserInfoData alaLiveUserInfoData);
 

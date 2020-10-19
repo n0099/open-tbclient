@@ -2,7 +2,7 @@ package android.support.transition;
 
 import android.graphics.Matrix;
 import android.graphics.RectF;
-/* loaded from: classes7.dex */
+/* loaded from: classes10.dex */
 class MatrixUtils {
     static final Matrix IDENTITY_MATRIX = new Matrix() { // from class: android.support.transition.MatrixUtils.1
         void oops() {

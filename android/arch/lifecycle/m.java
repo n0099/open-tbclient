@@ -12,10 +12,10 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
-/* loaded from: classes11.dex */
+/* loaded from: classes12.dex */
 public class m {
-    private static Map<Class, Integer> zk = new HashMap();
-    private static Map<Class, List<Constructor<? extends g>>> zl = new HashMap();
+    private static Map<Class, Integer> zB = new HashMap();
+    private static Map<Class, List<Constructor<? extends g>>> zC = new HashMap();
 
     /* JADX INFO: Access modifiers changed from: package-private */
     @NonNull
@@ -29,7 +29,7 @@ public class m {
         }
         Class<?> cls = obj.getClass();
         if (i(cls) == 2) {
-            List<Constructor<? extends g>> list = zl.get(cls);
+            List<Constructor<? extends g>> list = zC.get(cls);
             if (list.size() == 1) {
                 return new v(a(list.get(0), obj));
             }
@@ -87,11 +87,11 @@ public class m {
     }
 
     private static int i(Class<?> cls) {
-        if (zk.containsKey(cls)) {
-            return zk.get(cls).intValue();
+        if (zB.containsKey(cls)) {
+            return zB.get(cls).intValue();
         }
         int j = j(cls);
-        zk.put(cls, Integer.valueOf(j));
+        zB.put(cls, Integer.valueOf(j));
         return j;
     }
 
@@ -102,9 +102,9 @@ public class m {
         }
         Constructor<? extends g> h = h(cls);
         if (h != null) {
-            zl.put(cls, Collections.singletonList(h));
+            zC.put(cls, Collections.singletonList(h));
             return 2;
-        } else if (b.yJ.e(cls)) {
+        } else if (b.za.e(cls)) {
             return 1;
         } else {
             Class<? super Object> superclass = cls.getSuperclass();
@@ -113,7 +113,7 @@ public class m {
                 if (i(superclass) == 1) {
                     return 1;
                 }
-                arrayList = new ArrayList(zl.get(superclass));
+                arrayList = new ArrayList(zC.get(superclass));
             }
             for (Class<?> cls2 : cls.getInterfaces()) {
                 if (k(cls2)) {
@@ -121,12 +121,12 @@ public class m {
                         return 1;
                     }
                     ArrayList arrayList2 = arrayList == null ? new ArrayList() : arrayList;
-                    arrayList2.addAll(zl.get(cls2));
+                    arrayList2.addAll(zC.get(cls2));
                     arrayList = arrayList2;
                 }
             }
             if (arrayList != null) {
-                zl.put(cls, arrayList);
+                zC.put(cls, arrayList);
                 return 2;
             }
             return 1;

@@ -9,7 +9,7 @@ import com.baidu.android.imsdk.internal.Constants;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes17.dex */
+/* loaded from: classes16.dex */
 class p {
     /* JADX INFO: Access modifiers changed from: package-private */
     @ColorInt
@@ -40,21 +40,21 @@ class p {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* renamed from: com.tb.airbnb.lottie.c.p$1  reason: invalid class name */
-    /* loaded from: classes17.dex */
+    /* loaded from: classes16.dex */
     public static /* synthetic */ class AnonymousClass1 {
-        static final /* synthetic */ int[] GC = new int[JsonToken.values().length];
+        static final /* synthetic */ int[] GW = new int[JsonToken.values().length];
 
         static {
             try {
-                GC[JsonToken.NUMBER.ordinal()] = 1;
+                GW[JsonToken.NUMBER.ordinal()] = 1;
             } catch (NoSuchFieldError e) {
             }
             try {
-                GC[JsonToken.BEGIN_ARRAY.ordinal()] = 2;
+                GW[JsonToken.BEGIN_ARRAY.ordinal()] = 2;
             } catch (NoSuchFieldError e2) {
             }
             try {
-                GC[JsonToken.BEGIN_OBJECT.ordinal()] = 3;
+                GW[JsonToken.BEGIN_OBJECT.ordinal()] = 3;
             } catch (NoSuchFieldError e3) {
             }
         }
@@ -62,7 +62,7 @@ class p {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public static PointF g(JsonReader jsonReader, float f) throws IOException {
-        switch (AnonymousClass1.GC[jsonReader.peek().ordinal()]) {
+        switch (AnonymousClass1.GW[jsonReader.peek().ordinal()]) {
             case 1:
                 return h(jsonReader, f);
             case 2:
@@ -134,7 +134,7 @@ class p {
     /* JADX INFO: Access modifiers changed from: package-private */
     public static float c(JsonReader jsonReader) throws IOException {
         JsonToken peek = jsonReader.peek();
-        switch (AnonymousClass1.GC[peek.ordinal()]) {
+        switch (AnonymousClass1.GW[peek.ordinal()]) {
             case 1:
                 return (float) jsonReader.nextDouble();
             case 2:

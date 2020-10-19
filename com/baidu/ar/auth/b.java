@@ -1,5 +1,5 @@
 package com.baidu.ar.auth;
-/* loaded from: classes10.dex */
+/* loaded from: classes14.dex */
 public class b {
     public static IAuthenticator getAsyncAuthenticator(String str, String str2, String str3) {
         return com.baidu.ar.auth.a.a.b(str, str2, str3);

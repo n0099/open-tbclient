@@ -3,7 +3,7 @@ package android.support.v4.os;
 import android.content.Context;
 import android.os.Build;
 import android.os.UserManager;
-/* loaded from: classes23.dex */
+/* loaded from: classes5.dex */
 public class UserManagerCompat {
     private UserManagerCompat() {
     }

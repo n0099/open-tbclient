@@ -38,95 +38,95 @@ import com.baidu.tieba.qrcode.lib.core.QRCodeView;
 import com.baidu.tieba.qrcode.lib.zxing.ZXingView;
 import com.baidu.tieba.qrcode.view.ArrowView;
 import com.baidu.tieba.qrcode.view.ScanLoadingView;
-/* loaded from: classes22.dex */
+/* loaded from: classes23.dex */
 public class QRCodeScanActivity extends BaseActivity<QRCodeScanActivity> implements View.OnClickListener, a {
-    private View eXg;
-    private int jRc;
-    private QRCodeView lHR;
-    private TextView lHS;
-    private ImageView lHT;
-    private b lHU;
-    private PopupWindow lHV;
-    private ScanLoadingView lHW;
-    private boolean lHX;
+    private View fjs;
+    private int kgb;
+    private QRCodeView lXf;
+    private TextView lXg;
+    private ImageView lXh;
+    private b lXi;
+    private PopupWindow lXj;
+    private ScanLoadingView lXk;
+    private boolean lXl;
     private NavigationBar mNavigationBar;
     private PermissionJudgePolicy mPermissionJudgePolicy;
     private WriteImagesInfo writeImagesInfo = new WriteImagesInfo();
-    Runnable lHY = new Runnable() { // from class: com.baidu.tieba.qrcode.activity.QRCodeScanActivity.5
+    Runnable lXm = new Runnable() { // from class: com.baidu.tieba.qrcode.activity.QRCodeScanActivity.5
         @Override // java.lang.Runnable
         public void run() {
-            if (!QRCodeScanActivity.this.isFinishing() && QRCodeScanActivity.this.lHR.getScanBoxView() != null) {
-                QRCodeScanActivity.this.lHR.getScanBoxView().setQRCodeTipText(QRCodeScanActivity.this.getResources().getString(R.string.qr_code_scan_tip));
-                QRCodeScanActivity.this.lHR.getScanBoxView().setTipTextColor(QRCodeScanActivity.this.getResources().getColor(R.color.cp_bg_line_d));
-                QRCodeScanActivity.this.lHR.getScanBoxView().dqk();
+            if (!QRCodeScanActivity.this.isFinishing() && QRCodeScanActivity.this.lXf.getScanBoxView() != null) {
+                QRCodeScanActivity.this.lXf.getScanBoxView().setQRCodeTipText(QRCodeScanActivity.this.getResources().getString(R.string.qr_code_scan_tip));
+                QRCodeScanActivity.this.lXf.getScanBoxView().setTipTextColor(QRCodeScanActivity.this.getResources().getColor(R.color.cp_bg_line_d));
+                QRCodeScanActivity.this.lXf.getScanBoxView().dtV();
             }
         }
     };
 
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onCreate(Bundle bundle) {
-        this.jRc = TbadkCoreApplication.getInst().getSkinType();
+        this.kgb = TbadkCoreApplication.getInst().getSkinType();
         super.onCreate(bundle);
         setContentView(R.layout.activity_qr_code_scan);
         if (getIntent() != null) {
-            this.lHX = getIntent().getBooleanExtra(QRCodeScanActivityConfig.IS_AIAPP, false);
+            this.lXl = getIntent().getBooleanExtra(QRCodeScanActivityConfig.IS_AIAPP, false);
         }
-        this.lHW = (ScanLoadingView) findViewById(R.id.loading_view);
-        this.lHR = (ZXingView) findViewById(R.id.zxingview);
-        if (this.lHR.getScanBoxView() != null) {
-            this.lHR.getScanBoxView().setToolbarHeight(UtilHelper.getStatusBarHeight());
-            this.lHR.getScanBoxView().requestLayout();
+        this.lXk = (ScanLoadingView) findViewById(R.id.loading_view);
+        this.lXf = (ZXingView) findViewById(R.id.zxingview);
+        if (this.lXf.getScanBoxView() != null) {
+            this.lXf.getScanBoxView().setToolbarHeight(UtilHelper.getStatusBarHeight());
+            this.lXf.getScanBoxView().requestLayout();
         }
         this.mNavigationBar = (NavigationBar) findViewById(R.id.qrcode_navigation_bar);
-        this.lHS = this.mNavigationBar.setCenterTextTitle(getString(R.string.qrcode_title));
-        this.eXg = this.mNavigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
-        this.eXg.setOnClickListener(this);
-        this.lHT = new ImageView(this);
+        this.lXg = this.mNavigationBar.setCenterTextTitle(getString(R.string.qrcode_title));
+        this.fjs = this.mNavigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
+        this.fjs.setOnClickListener(this);
+        this.lXh = new ImageView(this);
         ViewGroup.MarginLayoutParams marginLayoutParams = new ViewGroup.MarginLayoutParams(-2, -2);
         marginLayoutParams.rightMargin = l.getDimens(this, R.dimen.tbds18);
-        this.lHT.setLayoutParams(marginLayoutParams);
-        SvgManager.bkl().a(this.lHT, R.drawable.icon_pure_topbar_image44_svg, R.color.white_alpha100, (SvgManager.SvgResourceStateType) null);
-        this.lHT.setScaleType(ImageView.ScaleType.FIT_XY);
-        this.mNavigationBar.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, this.lHT, this);
-        this.lHU = new b(this, getPageContext());
-        this.lHU.vt(this.lHX);
-        this.lHR.setDelegate(this.lHU);
-        this.lHU.dpU();
+        this.lXh.setLayoutParams(marginLayoutParams);
+        SvgManager.bmU().a(this.lXh, R.drawable.icon_pure_topbar_image44_svg, R.color.white_alpha100, (SvgManager.SvgResourceStateType) null);
+        this.lXh.setScaleType(ImageView.ScaleType.FIT_XY);
+        this.mNavigationBar.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, this.lXh, this);
+        this.lXi = new b(this, getPageContext());
+        this.lXi.wa(this.lXl);
+        this.lXf.setDelegate(this.lXi);
+        this.lXi.dtF();
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.BaseActivity, android.app.Activity
     public void onStart() {
         super.onStart();
-        this.lHR.dqd();
-        this.lHR.dqb();
-        this.lHR.dqe();
+        this.lXf.dtO();
+        this.lXf.dtM();
+        this.lXf.dtP();
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onPause() {
         super.onPause();
-        TbadkCoreApplication.getInst().setSkinTypeValue(this.jRc);
+        TbadkCoreApplication.getInst().setSkinTypeValue(this.kgb);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onStop() {
-        this.lHR.stopCamera();
+        this.lXf.stopCamera();
         super.onStop();
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onDestroy() {
-        if (this.lHV != null && this.lHV.isShowing()) {
-            g.dismissPopupWindow(this.lHV, this);
+        if (this.lXj != null && this.lXj.isShowing()) {
+            g.dismissPopupWindow(this.lXj, this);
         }
-        e.mX().removeCallbacks(this.lHY);
+        e.mY().removeCallbacks(this.lXm);
         TiebaStatic.log(new aq("c12707"));
-        this.lHR.onDestroy();
-        this.lHU.onDestroy();
+        this.lXf.onDestroy();
+        this.lXi.onDestroy();
         super.onDestroy();
     }
 
@@ -136,9 +136,9 @@ public class QRCodeScanActivity extends BaseActivity<QRCodeScanActivity> impleme
         super.onChangeSkinType(i);
         this.mNavigationBar.setBackgroundResource(R.drawable.transparent_bg);
         if (this.mNavigationBar.getBackImageView() != null) {
-            SvgManager.bkl().a(this.mNavigationBar.getBackImageView(), R.drawable.icon_pure_topbar_return44_svg, R.color.white_alpha100, SvgManager.SvgResourceStateType.NORMAL_PRESS);
+            SvgManager.bmU().a(this.mNavigationBar.getBackImageView(), R.drawable.icon_pure_topbar_return44_svg, R.color.white_alpha100, SvgManager.SvgResourceStateType.NORMAL_PRESS);
         }
-        this.lHS.setTextColor(getResources().getColor(R.color.cp_cont_a));
+        this.lXg.setTextColor(getResources().getColor(R.color.cp_cont_a));
         if (UtilHelper.isFlyMeOs() && !UtilHelper.isMeizuE3() && !UtilHelper.isMeizuPro7Plus()) {
             TbadkCoreApplication.getInst().setSkinTypeValue(1);
         }
@@ -146,85 +146,85 @@ public class QRCodeScanActivity extends BaseActivity<QRCodeScanActivity> impleme
     }
 
     @Override // com.baidu.tieba.qrcode.activity.a
-    public void fN(String str, String str2) {
-        b(this.lHT, str, str2);
+    public void fU(String str, String str2) {
+        b(this.lXh, str, str2);
     }
 
     @Override // com.baidu.tieba.qrcode.activity.a
-    public void dpP() {
-        dpR();
-        if (this.lHR.getScanBoxView() != null) {
-            this.lHR.getScanBoxView().setQRCodeTipText(getResources().getString(R.string.qrcode_error_not_found));
-            this.lHR.getScanBoxView().setTipTextColor(getResources().getColor(R.color.cp_cont_h));
-            this.lHR.getScanBoxView().dqk();
+    public void dtA() {
+        dtC();
+        if (this.lXf.getScanBoxView() != null) {
+            this.lXf.getScanBoxView().setQRCodeTipText(getResources().getString(R.string.qrcode_error_not_found));
+            this.lXf.getScanBoxView().setTipTextColor(getResources().getColor(R.color.cp_cont_h));
+            this.lXf.getScanBoxView().dtV();
         }
-        e.mX().removeCallbacks(this.lHY);
-        e.mX().postDelayed(this.lHY, IMConnection.RETRY_DELAY_TIMES);
-        if (this.lHR != null) {
-            this.lHR.dqe();
+        e.mY().removeCallbacks(this.lXm);
+        e.mY().postDelayed(this.lXm, IMConnection.RETRY_DELAY_TIMES);
+        if (this.lXf != null) {
+            this.lXf.dtP();
         }
     }
 
     @Override // com.baidu.tieba.qrcode.activity.a
-    public void dpQ() {
-        this.lHW.showLoading();
+    public void dtB() {
+        this.lXk.showLoading();
     }
 
     @Override // com.baidu.tieba.qrcode.activity.a
-    public void dpR() {
-        this.lHW.hideLoading();
+    public void dtC() {
+        this.lXk.hideLoading();
     }
 
     @Override // com.baidu.tieba.qrcode.activity.a
-    public void Pt(final String str) {
+    public void Qi(final String str) {
         com.baidu.tbadk.core.dialog.a aVar = new com.baidu.tbadk.core.dialog.a(getPageContext().getPageActivity());
         aVar.setTitleShowCenter(true);
-        aVar.zU(getString(R.string.qr_url_jump_external_title));
+        aVar.AG(getString(R.string.qr_url_jump_external_title));
         aVar.setMessageShowCenter(true);
-        aVar.zV(getString(R.string.qr_url_jump_external_message));
-        aVar.nG(R.color.cp_cont_b);
+        aVar.AH(getString(R.string.qr_url_jump_external_message));
+        aVar.od(R.color.cp_cont_b);
         aVar.a(getPageContext().getString(R.string.confirm), new a.b() { // from class: com.baidu.tieba.qrcode.activity.QRCodeScanActivity.1
             @Override // com.baidu.tbadk.core.dialog.a.b
             public void onClick(com.baidu.tbadk.core.dialog.a aVar2) {
                 aVar2.dismiss();
-                QRCodeScanActivity.this.lHU.openUrl(str);
+                QRCodeScanActivity.this.lXi.openUrl(str);
             }
         });
         aVar.b(getPageContext().getString(R.string.cancel), new a.b() { // from class: com.baidu.tieba.qrcode.activity.QRCodeScanActivity.2
             @Override // com.baidu.tbadk.core.dialog.a.b
             public void onClick(com.baidu.tbadk.core.dialog.a aVar2) {
-                QRCodeScanActivity.this.lHR.dqe();
+                QRCodeScanActivity.this.lXf.dtP();
                 aVar2.dismiss();
             }
         });
-        aVar.id(false);
-        aVar.ie(false);
-        aVar.b(getPageContext()).bia();
+        aVar.iz(false);
+        aVar.iA(false);
+        aVar.b(getPageContext()).bkJ();
     }
 
     @Override // com.baidu.tieba.qrcode.activity.a
-    public void dpS() {
+    public void dtD() {
         com.baidu.tbadk.core.dialog.a aVar = new com.baidu.tbadk.core.dialog.a(getPageContext().getPageActivity());
-        aVar.zU(null);
+        aVar.AG(null);
         aVar.setMessageShowCenter(true);
-        aVar.zV(getString(R.string.qr_url_risk_forbid));
+        aVar.AH(getString(R.string.qr_url_risk_forbid));
         aVar.a(getPageContext().getString(R.string.qr_url_risk_forbid_button), new a.b() { // from class: com.baidu.tieba.qrcode.activity.QRCodeScanActivity.3
             @Override // com.baidu.tbadk.core.dialog.a.b
             public void onClick(com.baidu.tbadk.core.dialog.a aVar2) {
-                QRCodeScanActivity.this.lHR.dqe();
+                QRCodeScanActivity.this.lXf.dtP();
                 aVar2.dismiss();
             }
         });
-        aVar.id(false);
-        aVar.ie(false);
-        aVar.b(getPageContext()).bia();
+        aVar.iz(false);
+        aVar.iA(false);
+        aVar.b(getPageContext()).bkJ();
     }
 
     @Override // com.baidu.adp.base.BdBaseActivity, android.view.View.OnClickListener
     public void onClick(View view) {
-        if (view == this.eXg) {
+        if (view == this.fjs) {
             finish();
-        } else if (view == this.lHT) {
+        } else if (view == this.lXh) {
             this.writeImagesInfo.setFromQRCode(true);
             AlbumActivityConfig albumActivityConfig = new AlbumActivityConfig(getPageContext().getPageActivity(), this.writeImagesInfo.toJsonString());
             albumActivityConfig.setRequestCode(RequestResponseCode.REQUEST_ALBUM_IMAGE);
@@ -258,7 +258,7 @@ public class QRCodeScanActivity extends BaseActivity<QRCodeScanActivity> impleme
             switch (i) {
                 case RequestResponseCode.REQUEST_ALBUM_IMAGE /* 12002 */:
                     if (intent != null) {
-                        aa(intent);
+                        Y(intent);
                         return;
                     }
                     return;
@@ -268,14 +268,14 @@ public class QRCodeScanActivity extends BaseActivity<QRCodeScanActivity> impleme
         }
     }
 
-    private void aa(Intent intent) {
+    private void Y(Intent intent) {
         ImageFileInfo imageFileInfo;
         String stringExtra = intent.getStringExtra("album_result");
         if (stringExtra != null) {
             WriteImagesInfo writeImagesInfo = new WriteImagesInfo();
             writeImagesInfo.parseJson(stringExtra);
             if (writeImagesInfo.getChosedFiles() != null && writeImagesInfo.getChosedFiles().size() > 0 && (imageFileInfo = writeImagesInfo.getChosedFiles().get(0)) != null) {
-                this.lHU.Pz(imageFileInfo.getFilePath());
+                this.lXi.Qo(imageFileInfo.getFilePath());
             }
             writeImagesInfo.clear();
         }
@@ -283,8 +283,8 @@ public class QRCodeScanActivity extends BaseActivity<QRCodeScanActivity> impleme
 
     public void b(final View view, String str, final String str2) {
         if (view != null && !TextUtils.isEmpty(str) && !TextUtils.isEmpty(str2)) {
-            if (this.lHV != null && this.lHV.isShowing()) {
-                this.lHV.dismiss();
+            if (this.lXj != null && this.lXj.isShowing()) {
+                this.lXj.dismiss();
             }
             View inflate = LayoutInflater.from(this).inflate(R.layout.popup_tip_image_layout, (ViewGroup) null);
             final ArrowView arrowView = (ArrowView) inflate.findViewById(R.id.tip_arrow);
@@ -299,22 +299,22 @@ public class QRCodeScanActivity extends BaseActivity<QRCodeScanActivity> impleme
             inflate.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.qrcode.activity.QRCodeScanActivity.6
                 @Override // android.view.View.OnClickListener
                 public void onClick(View view2) {
-                    g.dismissPopupWindow(QRCodeScanActivity.this.lHV, QRCodeScanActivity.this);
-                    if (QRCodeScanActivity.this.lHU != null) {
-                        QRCodeScanActivity.this.lHU.Pu(str2);
+                    g.dismissPopupWindow(QRCodeScanActivity.this.lXj, QRCodeScanActivity.this);
+                    if (QRCodeScanActivity.this.lXi != null) {
+                        QRCodeScanActivity.this.lXi.Qj(str2);
                     }
                 }
             });
             inflate.measure(0, 0);
-            this.lHV = new PopupWindow(getPageContext().getPageActivity());
-            this.lHV.setContentView(inflate);
-            this.lHV.setWidth(-2);
-            this.lHV.setHeight(-2);
-            this.lHV.setBackgroundDrawable(getPageContext().getResources().getDrawable(R.drawable.popup_window_transparent));
-            this.lHV.setOutsideTouchable(true);
-            this.lHV.setFocusable(false);
-            this.lHV.setTouchable(true);
-            e.mX().post(new Runnable() { // from class: com.baidu.tieba.qrcode.activity.QRCodeScanActivity.7
+            this.lXj = new PopupWindow(getPageContext().getPageActivity());
+            this.lXj.setContentView(inflate);
+            this.lXj.setWidth(-2);
+            this.lXj.setHeight(-2);
+            this.lXj.setBackgroundDrawable(getPageContext().getResources().getDrawable(R.drawable.popup_window_transparent));
+            this.lXj.setOutsideTouchable(true);
+            this.lXj.setFocusable(false);
+            this.lXj.setTouchable(true);
+            e.mY().post(new Runnable() { // from class: com.baidu.tieba.qrcode.activity.QRCodeScanActivity.7
                 @Override // java.lang.Runnable
                 public void run() {
                     int[] iArr = new int[2];
@@ -326,12 +326,12 @@ public class QRCodeScanActivity extends BaseActivity<QRCodeScanActivity> impleme
                         int abs = (((equipmentWidth - Math.abs(((View) view.getParent()).getLeft())) - (view.getMeasuredWidth() / 2)) - l.getDimens(QRCodeScanActivity.this, R.dimen.tbds17)) - (l.getDimens(QRCodeScanActivity.this, R.dimen.tbds26) / 2);
                         if (arrowView.getLayoutParams() != null && (arrowView.getLayoutParams() instanceof ViewGroup.MarginLayoutParams)) {
                             ((ViewGroup.MarginLayoutParams) arrowView.getLayoutParams()).rightMargin = abs;
-                            g.showPopupWindowAtLocation(QRCodeScanActivity.this.lHV, view, 0, i, measuredHeight);
-                            e.mX().postDelayed(new Runnable() { // from class: com.baidu.tieba.qrcode.activity.QRCodeScanActivity.7.1
+                            g.showPopupWindowAtLocation(QRCodeScanActivity.this.lXj, view, 0, i, measuredHeight);
+                            e.mY().postDelayed(new Runnable() { // from class: com.baidu.tieba.qrcode.activity.QRCodeScanActivity.7.1
                                 @Override // java.lang.Runnable
                                 public void run() {
-                                    if (QRCodeScanActivity.this.lHV != null && QRCodeScanActivity.this.lHV.isShowing()) {
-                                        g.dismissPopupWindow(QRCodeScanActivity.this.lHV, QRCodeScanActivity.this);
+                                    if (QRCodeScanActivity.this.lXj != null && QRCodeScanActivity.this.lXj.isShowing()) {
+                                        g.dismissPopupWindow(QRCodeScanActivity.this.lXj, QRCodeScanActivity.this);
                                     }
                                 }
                             }, IMConnection.RETRY_DELAY_TIMES);

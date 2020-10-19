@@ -6,7 +6,7 @@ import io.reactivex.v;
 import java.util.concurrent.TimeUnit;
 import java.util.concurrent.atomic.AtomicInteger;
 import java.util.concurrent.atomic.AtomicLong;
-/* loaded from: classes25.dex */
+/* loaded from: classes17.dex */
 public final class FlowableTakeLastTimed<T> extends a<T, T> {
     final int bufferSize;
     final long count;
@@ -17,10 +17,10 @@ public final class FlowableTakeLastTimed<T> extends a<T, T> {
 
     @Override // io.reactivex.g
     protected void a(org.a.c<? super T> cVar) {
-        this.owE.a((j) new TakeLastTimedSubscriber(cVar, this.count, this.time, this.unit, this.scheduler, this.bufferSize, this.delayError));
+        this.oLT.a((j) new TakeLastTimedSubscriber(cVar, this.count, this.time, this.unit, this.scheduler, this.bufferSize, this.delayError));
     }
 
-    /* loaded from: classes25.dex */
+    /* loaded from: classes17.dex */
     static final class TakeLastTimedSubscriber<T> extends AtomicInteger implements j<T>, org.a.d {
         private static final long serialVersionUID = -5677354903406201275L;
         final org.a.c<? super T> actual;
@@ -58,9 +58,9 @@ public final class FlowableTakeLastTimed<T> extends a<T, T> {
         @Override // org.a.c
         public void onNext(T t) {
             io.reactivex.internal.queue.a<Object> aVar = this.queue;
-            long a = this.scheduler.a(this.unit);
-            aVar.offer(Long.valueOf(a), t);
-            trim(a, aVar);
+            long a2 = this.scheduler.a(this.unit);
+            aVar.offer(Long.valueOf(a2), t);
+            trim(a2, aVar);
         }
 
         @Override // org.a.c

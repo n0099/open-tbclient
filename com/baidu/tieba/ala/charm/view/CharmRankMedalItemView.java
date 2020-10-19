@@ -18,12 +18,12 @@ import com.baidu.live.view.ALALevelView;
 import com.baidu.tieba.ala.charm.data.ALaCharmData;
 /* loaded from: classes4.dex */
 public class CharmRankMedalItemView extends LinearLayout {
-    public TextView aBx;
-    private View aSo;
-    public HeadImageView fVe;
-    public ALALevelView fVg;
-    public ImageView fVi;
-    public TextView fVj;
+    public TextView aEC;
+    private View aVz;
+    public ImageView ghB;
+    public TextView ghC;
+    public HeadImageView ghx;
+    public ALALevelView ghz;
 
     public CharmRankMedalItemView(Context context, @Nullable AttributeSet attributeSet) {
         super(context, attributeSet);
@@ -32,10 +32,10 @@ public class CharmRankMedalItemView extends LinearLayout {
 
     public void setData(ALaCharmData aLaCharmData) {
         if (aLaCharmData != null) {
-            l.a(this.fVe, aLaCharmData.portrait, true, false);
-            this.fVg.setupLevelIcon(aLaCharmData.level_id);
-            this.aBx.setText(aLaCharmData.user_name);
-            this.fVj.setText(String.format(getResources().getString(a.i.sdk_charm_rank_forward_diff), StringHelper.formatValue(aLaCharmData.forwardDiff)));
+            l.a(this.ghx, aLaCharmData.portrait, true, false);
+            this.ghz.setupLevelIcon(aLaCharmData.level_id);
+            this.aEC.setText(aLaCharmData.user_name);
+            this.ghC.setText(String.format(getResources().getString(a.i.sdk_charm_rank_forward_diff), StringHelper.formatValue(aLaCharmData.forwardDiff)));
         }
     }
 
@@ -48,31 +48,31 @@ public class CharmRankMedalItemView extends LinearLayout {
         setBackgroundColor(0);
         setOrientation(1);
         LayoutInflater.from(getContext()).inflate(a.h.sdk_charm_rank_medal_item, (ViewGroup) this, true);
-        this.fVe = (HeadImageView) findViewById(a.g.iv_avatar);
-        this.fVi = (ImageView) findViewById(a.g.iv_pendant);
-        this.aSo = findViewById(a.g.layout_name);
-        this.fVg = (ALALevelView) findViewById(a.g.level);
-        this.aBx = (TextView) findViewById(a.g.tv_name);
-        this.fVj = (TextView) findViewById(a.g.tv_content);
-        this.fVe.setIsRound(true);
-        this.fVe.setAutoChangeStyle(false);
-        this.fVe.setDrawBorder(false);
-        this.fVe.setDefaultBgResource(a.f.sdk_charm_rank_medal_avatar_default);
-        this.fVe.setDefaultErrorResource(a.f.sdk_charm_rank_medal_avatar_default);
+        this.ghx = (HeadImageView) findViewById(a.g.iv_avatar);
+        this.ghB = (ImageView) findViewById(a.g.iv_pendant);
+        this.aVz = findViewById(a.g.layout_name);
+        this.ghz = (ALALevelView) findViewById(a.g.level);
+        this.aEC = (TextView) findViewById(a.g.tv_name);
+        this.ghC = (TextView) findViewById(a.g.tv_content);
+        this.ghx.setIsRound(true);
+        this.ghx.setAutoChangeStyle(false);
+        this.ghx.setDrawBorder(false);
+        this.ghx.setDefaultBgResource(a.f.sdk_charm_rank_medal_avatar_default);
+        this.ghx.setDefaultErrorResource(a.f.sdk_charm_rank_medal_avatar_default);
         int dimensionPixelSize = getResources().getDimensionPixelSize(a.e.sdk_tbds7);
         int dimensionPixelSize2 = getResources().getDimensionPixelSize(a.e.sdk_tbds12);
-        this.fVg.setTextLayoutParams(dimensionPixelSize2, dimensionPixelSize, dimensionPixelSize2, dimensionPixelSize);
+        this.ghz.setTextLayoutParams(dimensionPixelSize2, dimensionPixelSize, dimensionPixelSize2, dimensionPixelSize);
     }
 
     private void initAttrs(AttributeSet attributeSet) {
         TypedArray obtainStyledAttributes = getContext().obtainStyledAttributes(attributeSet, a.k.sdk_CharmRankMedalItemView);
         int resourceId = obtainStyledAttributes.getResourceId(a.k.sdk_CharmRankMedalItemView_sdk_charm_rmi_pendant_src, -1);
         if (resourceId > 0) {
-            this.fVi.setImageResource(resourceId);
+            this.ghB.setImageResource(resourceId);
         }
         int resourceId2 = obtainStyledAttributes.getResourceId(a.k.sdk_CharmRankMedalItemView_sdk_charm_rmi_name_bg, -1);
         if (resourceId2 > 0) {
-            this.aSo.setBackgroundResource(resourceId2);
+            this.aVz.setBackgroundResource(resourceId2);
         }
         obtainStyledAttributes.recycle();
     }

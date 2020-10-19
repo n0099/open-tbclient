@@ -10,14 +10,14 @@ import com.google.gson.stream.MalformedJsonException;
 import java.io.EOFException;
 import java.io.IOException;
 import java.io.Writer;
-/* loaded from: classes23.dex */
+/* loaded from: classes17.dex */
 public final class h {
     public static JsonElement parse(com.google.gson.stream.a aVar) throws JsonParseException {
         boolean z = true;
         try {
-            aVar.ebw();
+            aVar.efh();
             z = false;
-            return TypeAdapters.nPy.read(aVar);
+            return TypeAdapters.oeQ.read(aVar);
         } catch (MalformedJsonException e) {
             throw new JsonSyntaxException(e);
         } catch (EOFException e2) {
@@ -33,31 +33,31 @@ public final class h {
     }
 
     public static void a(JsonElement jsonElement, com.google.gson.stream.b bVar) throws IOException {
-        TypeAdapters.nPy.write(bVar, jsonElement);
+        TypeAdapters.oeQ.write(bVar, jsonElement);
     }
 
     public static Writer a(Appendable appendable) {
         return appendable instanceof Writer ? (Writer) appendable : new a(appendable);
     }
 
-    /* loaded from: classes23.dex */
+    /* loaded from: classes17.dex */
     private static final class a extends Writer {
-        private final Appendable nNI;
-        private final C0875a nNJ = new C0875a();
+        private final Appendable oda;
+        private final C0893a odb = new C0893a();
 
         a(Appendable appendable) {
-            this.nNI = appendable;
+            this.oda = appendable;
         }
 
         @Override // java.io.Writer
         public void write(char[] cArr, int i, int i2) throws IOException {
-            this.nNJ.chars = cArr;
-            this.nNI.append(this.nNJ, i, i + i2);
+            this.odb.chars = cArr;
+            this.oda.append(this.odb, i, i + i2);
         }
 
         @Override // java.io.Writer
         public void write(int i) throws IOException {
-            this.nNI.append((char) i);
+            this.oda.append((char) i);
         }
 
         @Override // java.io.Writer, java.io.Flushable
@@ -69,11 +69,11 @@ public final class h {
         }
 
         /* renamed from: com.google.gson.internal.h$a$a  reason: collision with other inner class name */
-        /* loaded from: classes23.dex */
-        static class C0875a implements CharSequence {
+        /* loaded from: classes17.dex */
+        static class C0893a implements CharSequence {
             char[] chars;
 
-            C0875a() {
+            C0893a() {
             }
 
             @Override // java.lang.CharSequence

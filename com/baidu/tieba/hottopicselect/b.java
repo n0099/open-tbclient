@@ -12,9 +12,9 @@ import com.baidu.tbadk.core.util.at;
 import com.baidu.tieba.R;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes20.dex */
+/* loaded from: classes21.dex */
 public class b extends BaseAdapter {
-    private String hXJ;
+    private String imJ;
     private LayoutInflater mInflater;
     private final List<d> mList = new ArrayList();
 
@@ -23,7 +23,7 @@ public class b extends BaseAdapter {
     }
 
     public void j(String str, List<d> list) {
-        this.hXJ = str;
+        this.imJ = str;
         this.mList.clear();
         if (list != null) {
             this.mList.addAll(list);
@@ -47,7 +47,7 @@ public class b extends BaseAdapter {
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // android.widget.Adapter
-    /* renamed from: Bh */
+    /* renamed from: BN */
     public d getItem(int i) {
         return this.mList.get(i);
     }
@@ -65,41 +65,41 @@ public class b extends BaseAdapter {
             if (view == null || !(view.getTag() instanceof a)) {
                 view = this.mInflater.inflate(R.layout.hot_suggest_item, (ViewGroup) null);
                 a aVar2 = new a();
-                aVar2.dBn = (TextView) view.findViewById(R.id.name);
-                aVar2.jmy = view.findViewById(R.id.divider_line_top);
-                aVar2.jmz = view.findViewById(R.id.divider_line_bottom);
+                aVar2.dNo = (TextView) view.findViewById(R.id.name);
+                aVar2.jBv = view.findViewById(R.id.divider_line_top);
+                aVar2.jBw = view.findViewById(R.id.divider_line_bottom);
                 view.setTag(aVar2);
                 aVar = aVar2;
             } else {
                 aVar = (a) view.getTag();
             }
-            aVar.jmy.setVisibility(i == 0 ? 0 : 8);
-            aVar.dBn.setText(at.highLightText(com.baidu.tbadk.plugins.b.CW(at.cutStringWithEllipsisNew(item.getTopicName(), 18)), this.hXJ, R.color.cp_link_tip_a));
+            aVar.jBv.setVisibility(i == 0 ? 0 : 8);
+            aVar.dNo.setText(at.highLightText(com.baidu.tbadk.plugins.b.DI(at.cutStringWithEllipsisNew(item.getTopicName(), 18)), this.imJ, R.color.cp_link_tip_a));
             a(aVar, view, TbadkCoreApplication.getInst().getSkinType());
         }
         return view;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes20.dex */
+    /* loaded from: classes21.dex */
     public class a {
-        int aiX;
-        TextView dBn;
-        View jmy;
-        View jmz;
+        int ajp;
+        TextView dNo;
+        View jBv;
+        View jBw;
 
         private a() {
-            this.aiX = 3;
+            this.ajp = 3;
         }
     }
 
     private void a(a aVar, View view, int i) {
-        if (aVar != null && aVar.aiX != i) {
+        if (aVar != null && aVar.ajp != i) {
             ap.setBackgroundResource(view, R.drawable.addresslist_item_bg);
-            ap.setBackgroundColor(aVar.jmz, R.color.cp_bg_line_c);
-            ap.setBackgroundColor(aVar.jmy, R.color.cp_bg_line_c);
-            ap.setViewTextColor(aVar.dBn, R.color.cp_cont_b, 1);
-            aVar.aiX = i;
+            ap.setBackgroundColor(aVar.jBw, R.color.cp_bg_line_c);
+            ap.setBackgroundColor(aVar.jBv, R.color.cp_bg_line_c);
+            ap.setViewTextColor(aVar.dNo, R.color.cp_cont_b, 1);
+            aVar.ajp = i;
         }
     }
 }

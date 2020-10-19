@@ -4,7 +4,7 @@ import android.util.JsonReader;
 import com.airbnb.lottie.model.content.ShapeTrimPath;
 import com.baidu.mobstat.Config;
 import java.io.IOException;
-/* loaded from: classes6.dex */
+/* loaded from: classes10.dex */
 class ai {
     /* JADX INFO: Access modifiers changed from: package-private */
     public static ShapeTrimPath A(JsonReader jsonReader, com.airbnb.lottie.e eVar) throws IOException {

@@ -9,9 +9,11 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 import com.baidu.k.a.a;
 import com.baidu.sapi2.SapiAccountManager;
-/* loaded from: classes25.dex */
+/* loaded from: classes5.dex */
 public class a extends Dialog implements com.baidu.sapi2.g.b {
-    private LinearLayout a;
+
+    /* renamed from: a  reason: collision with root package name */
+    private LinearLayout f3575a;
     private TextView b;
     private TextView c;
     private TextView d;
@@ -22,37 +24,41 @@ public class a extends Dialog implements com.baidu.sapi2.g.b {
     private Context i;
 
     /* renamed from: com.baidu.sapi2.views.a$a  reason: collision with other inner class name */
-    /* loaded from: classes25.dex */
-    class View$OnClickListenerC0304a implements View.OnClickListener {
-        final /* synthetic */ View.OnClickListener a;
+    /* loaded from: classes5.dex */
+    class View$OnClickListenerC0321a implements View.OnClickListener {
 
-        View$OnClickListenerC0304a(View.OnClickListener onClickListener) {
-            this.a = onClickListener;
+        /* renamed from: a  reason: collision with root package name */
+        final /* synthetic */ View.OnClickListener f3576a;
+
+        View$OnClickListenerC0321a(View.OnClickListener onClickListener) {
+            this.f3576a = onClickListener;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             try {
                 ViewUtility.dismissDialog((Activity) a.this.i, a.this);
-                this.a.onClick(view);
+                this.f3576a.onClick(view);
             } catch (Exception e) {
             }
         }
     }
 
-    /* loaded from: classes25.dex */
+    /* loaded from: classes5.dex */
     class b implements View.OnClickListener {
-        final /* synthetic */ View.OnClickListener a;
+
+        /* renamed from: a  reason: collision with root package name */
+        final /* synthetic */ View.OnClickListener f3577a;
 
         b(View.OnClickListener onClickListener) {
-            this.a = onClickListener;
+            this.f3577a = onClickListener;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             try {
                 ViewUtility.dismissDialog((Activity) a.this.i, a.this);
-                this.a.onClick(view);
+                this.f3577a.onClick(view);
             } catch (Exception e) {
             }
         }
@@ -62,7 +68,7 @@ public class a extends Dialog implements com.baidu.sapi2.g.b {
         super(context, a.h.SapiSdkBeautyDialog);
         this.i = context;
         setContentView(a.f.layout_sapi_sdk_fingerprint_dialog);
-        this.a = (LinearLayout) findViewById(a.e.bg_layout);
+        this.f3575a = (LinearLayout) findViewById(a.e.bg_layout);
         this.b = (TextView) findViewById(a.e.title);
         this.c = (TextView) findViewById(a.e.sub_title);
         this.d = (TextView) findViewById(a.e.negative_btn);
@@ -79,7 +85,7 @@ public class a extends Dialog implements com.baidu.sapi2.g.b {
 
     private void c() {
         if (SapiAccountManager.getInstance().getConfignation().isDarkMode) {
-            this.a.setBackgroundResource(a.d.sapi_sdk_fingerprint_dialog_dark_mode);
+            this.f3575a.setBackgroundResource(a.d.sapi_sdk_fingerprint_dialog_dark_mode);
             this.f.setImageResource(a.d.sapi_sdk_fingerprint_dark_mode);
             this.b.setTextColor(this.i.getResources().getColor(a.b.sapi_sdk_dark_mode_edit_text_color));
             this.c.setTextColor(this.i.getResources().getColor(a.b.sapi_sdk_fingerprint_dialog_sub_tv_color));
@@ -129,7 +135,7 @@ public class a extends Dialog implements com.baidu.sapi2.g.b {
     @Override // com.baidu.sapi2.g.b
     public com.baidu.sapi2.g.b a(String str, View.OnClickListener onClickListener) {
         this.d.setText(str);
-        this.d.setOnClickListener(new View$OnClickListenerC0304a(onClickListener));
+        this.d.setOnClickListener(new View$OnClickListenerC0321a(onClickListener));
         return this;
     }
 

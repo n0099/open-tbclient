@@ -28,12 +28,12 @@ import com.baidu.swan.apps.storage.a.o;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
-/* loaded from: classes3.dex */
+/* loaded from: classes10.dex */
 public class j extends UnitedSchemeBaseDispatcher {
-    protected final Map<String, aa> cUl = new HashMap();
+    protected final Map<String, aa> dgt = new HashMap();
 
     public j() {
-        aBy();
+        aEh();
     }
 
     @Override // com.baidu.searchbox.unitedscheme.UnitedSchemeBaseDispatcher
@@ -66,7 +66,7 @@ public class j extends UnitedSchemeBaseDispatcher {
                     unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(302, "err path ：" + str2 + " @ " + str3);
                     return false;
                 }
-                aa aaVar = this.cUl.get(str2);
+                aa aaVar = this.dgt.get(str2);
                 if (aaVar != null) {
                     if (unitedSchemeEntity.isOnlyVerify()) {
                         return true;
@@ -85,8 +85,8 @@ public class j extends UnitedSchemeBaseDispatcher {
         return null;
     }
 
-    protected void aBy() {
-        this.cUl.clear();
+    protected void aEh() {
+        this.dgt.clear();
         a(new u(this));
         a(new com.baidu.swan.apps.network.i(this));
         a(new ad(this));
@@ -153,6 +153,6 @@ public class j extends UnitedSchemeBaseDispatcher {
     }
 
     public void a(aa aaVar) {
-        this.cUl.put(aaVar.name, aaVar);
+        this.dgt.put(aaVar.name, aaVar);
     }
 }

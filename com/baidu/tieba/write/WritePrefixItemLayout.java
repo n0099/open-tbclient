@@ -13,11 +13,11 @@ import com.baidu.tbadk.core.util.ap;
 import com.baidu.tieba.R;
 /* loaded from: classes.dex */
 public class WritePrefixItemLayout extends LinearLayout {
-    private TextView fFc;
+    private TextView fRl;
     private Context mContext;
-    private TextView mWS;
-    private ImageView mWT;
-    private View mWU;
+    private TextView nmq;
+    private ImageView nmr;
+    private View nms;
 
     public WritePrefixItemLayout(Context context) {
         this(context, null);
@@ -33,40 +33,40 @@ public class WritePrefixItemLayout extends LinearLayout {
         LayoutInflater.from(this.mContext).inflate(R.layout.prefix_item, this);
         setLayoutParams(new LinearLayout.LayoutParams(-1, -2));
         setOrientation(1);
-        this.fFc = (TextView) findViewById(R.id.prefix_text);
-        this.mWS = (TextView) findViewById(R.id.prefix_no_tip);
-        this.mWT = (ImageView) findViewById(R.id.prefix_checked);
-        this.mWU = findViewById(R.id.prefix_item_divider);
-        this.fFc.setEllipsize(TextUtils.TruncateAt.MIDDLE);
-        ap.setViewTextColor(this.mWS, R.color.cp_cont_d);
-        this.mWT.setBackgroundDrawable(ap.getDrawable(R.drawable.icon_set_list_ok_s));
-        ap.setBackgroundColor(this.mWU, R.color.cp_bg_line_c);
+        this.fRl = (TextView) findViewById(R.id.prefix_text);
+        this.nmq = (TextView) findViewById(R.id.prefix_no_tip);
+        this.nmr = (ImageView) findViewById(R.id.prefix_checked);
+        this.nms = findViewById(R.id.prefix_item_divider);
+        this.fRl.setEllipsize(TextUtils.TruncateAt.MIDDLE);
+        ap.setViewTextColor(this.nmq, R.color.cp_cont_d);
+        this.nmr.setBackgroundDrawable(ap.getDrawable(R.drawable.icon_set_list_ok_s));
+        ap.setBackgroundColor(this.nms, R.color.cp_bg_line_c);
         ap.setBackgroundResource(this, R.drawable.addresslist_item_bg);
     }
 
     public void setPrefixText(String str) {
-        this.fFc.setText(str);
+        this.fRl.setText(str);
     }
 
     public void setPrefixTextColor(int i) {
-        this.fFc.setTextColor(i);
+        this.fRl.setTextColor(i);
     }
 
-    public void xm(boolean z) {
-        this.mWS.setVisibility(z ? 0 : 8);
+    public void xT(boolean z) {
+        this.nmq.setVisibility(z ? 0 : 8);
     }
 
-    public void xn(boolean z) {
+    public void xU(boolean z) {
         if (z) {
-            this.mWT.setVisibility(0);
+            this.nmr.setVisibility(0);
         } else {
-            this.mWT.setVisibility(8);
+            this.nmr.setVisibility(8);
         }
     }
 
     public void setDividerStyle(boolean z) {
         if (!z) {
-            ((LinearLayout.LayoutParams) this.mWU.getLayoutParams()).setMargins(l.getDimens(this.mContext, R.dimen.ds30), 0, l.getDimens(this.mContext, R.dimen.ds30), 0);
+            ((LinearLayout.LayoutParams) this.nms.getLayoutParams()).setMargins(l.getDimens(this.mContext, R.dimen.ds30), 0, l.getDimens(this.mContext, R.dimen.ds30), 0);
         }
     }
 }

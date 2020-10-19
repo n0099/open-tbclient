@@ -5,22 +5,24 @@ import com.baidu.pass.biometrics.base.utils.ViewUtility;
 import com.baidu.pass.biometrics.face.liveness.callback.PassFaceRecogCallback;
 import com.baidu.pass.biometrics.face.liveness.result.PassFaceRecogResult;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes8.dex */
+/* loaded from: classes18.dex */
 public class o implements View.OnClickListener {
-    final /* synthetic */ com.baidu.pass.biometrics.face.liveness.view.b a;
+
+    /* renamed from: a  reason: collision with root package name */
+    final /* synthetic */ com.baidu.pass.biometrics.face.liveness.view.b f2742a;
     final /* synthetic */ LivenessRecogActivity b;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public o(LivenessRecogActivity livenessRecogActivity, com.baidu.pass.biometrics.face.liveness.view.b bVar) {
         this.b = livenessRecogActivity;
-        this.a = bVar;
+        this.f2742a = bVar;
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
         PassFaceRecogCallback passFaceRecogCallback;
         PassFaceRecogCallback passFaceRecogCallback2;
-        ViewUtility.dismissDialog(this.b, this.a);
+        ViewUtility.dismissDialog(this.b, this.f2742a);
         passFaceRecogCallback = this.b.t;
         if (passFaceRecogCallback != null) {
             PassFaceRecogResult passFaceRecogResult = new PassFaceRecogResult();

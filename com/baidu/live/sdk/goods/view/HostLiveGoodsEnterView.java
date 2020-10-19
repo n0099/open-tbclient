@@ -16,9 +16,9 @@ import com.baidu.live.tbadk.ubc.UbcStatisticLiveKey;
 import com.baidu.live.tbadk.ubc.UbcStatisticManager;
 /* loaded from: classes4.dex */
 public class HostLiveGoodsEnterView extends FrameLayout implements a {
-    private TextView bmF;
-    private View bmo;
-    private ImageView bmp;
+    private View bqb;
+    private ImageView bqc;
+    private TextView bqs;
     private View rootView;
 
     public HostLiveGoodsEnterView(@NonNull Context context) {
@@ -38,36 +38,36 @@ public class HostLiveGoodsEnterView extends FrameLayout implements a {
 
     public void init(Context context) {
         this.rootView = View.inflate(context, a.h.ala_master_live_goods_enter_view, this);
-        this.bmo = this.rootView.findViewById(a.g.host_goods_layout);
-        this.bmp = (ImageView) this.rootView.findViewById(a.g.host_goods_imageView);
-        this.bmF = (TextView) this.rootView.findViewById(a.g.host_goods_num_textView);
+        this.bqb = this.rootView.findViewById(a.g.host_goods_layout);
+        this.bqc = (ImageView) this.rootView.findViewById(a.g.host_goods_imageView);
+        this.bqs = (TextView) this.rootView.findViewById(a.g.host_goods_num_textView);
     }
 
     public void setOutClickListener(View.OnClickListener onClickListener) {
-        if (this.bmp != null) {
-            this.bmp.setOnClickListener(onClickListener);
+        if (this.bqc != null) {
+            this.bqc.setOnClickListener(onClickListener);
         }
     }
 
-    public void NL() {
-        if (this.bmo.getVisibility() == 8) {
+    public void OQ() {
+        if (this.bqb.getVisibility() == 8) {
             UbcStatisticManager.getInstance().logEvent(new UbcStatisticItem(UbcStatisticLiveKey.KEY_ID_1394, "display", UbcStatConstant.Page.AUTHOR_LIVE_ROOM, "shopcart_show"));
         }
-        this.bmo.setVisibility(0);
+        this.bqb.setVisibility(0);
     }
 
-    public void NM() {
-        this.bmo.setVisibility(8);
+    public void OR() {
+        this.bqb.setVisibility(8);
     }
 
-    public void eS(int i) {
+    public void fb(int i) {
         if (i <= 0) {
-            this.bmF.setVisibility(8);
-            this.bmF.setText("");
+            this.bqs.setVisibility(8);
+            this.bqs.setText("");
             return;
         }
-        this.bmF.setText(i + "");
-        this.bmF.setVisibility(0);
+        this.bqs.setText(i + "");
+        this.bqs.setVisibility(0);
     }
 
     @Override // com.baidu.live.core.a.a

@@ -36,7 +36,7 @@ public class c {
     }
 
     @Nullable
-    public static Bitmap z(String str, int i, int i2) {
+    public static Bitmap A(String str, int i, int i2) {
         if (h.isEmpty(str)) {
             return null;
         }
@@ -110,14 +110,14 @@ public class c {
         return null;
     }
 
-    public static com.facebook.c.c s(InputStream inputStream) {
+    public static com.facebook.c.c t(InputStream inputStream) {
         if (inputStream == null) {
-            return com.facebook.c.c.nCw;
+            return com.facebook.c.c.nRP;
         }
         try {
-            return com.facebook.c.d.s(inputStream);
+            return com.facebook.c.d.t(inputStream);
         } catch (IOException e) {
-            return com.facebook.c.c.nCw;
+            return com.facebook.c.c.nRP;
         }
     }
 }

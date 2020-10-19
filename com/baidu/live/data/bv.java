@@ -3,13 +3,13 @@ package com.baidu.live.data;
 import org.json.JSONObject;
 /* loaded from: classes4.dex */
 public class bv {
-    public int aLW;
-    public int aLX;
-    public int aLu;
+    public int aOz;
+    public int aPb;
+    public int aPc;
 
     public bv(JSONObject jSONObject) {
-        this.aLW = jSONObject.optInt("show_times_daily");
-        this.aLX = jSONObject.optInt("continue_show_times");
-        this.aLu = jSONObject.optInt("condition");
+        this.aPb = jSONObject.optInt("show_times_daily");
+        this.aPc = jSONObject.optInt("continue_show_times");
+        this.aOz = jSONObject.optInt("condition");
     }
 }

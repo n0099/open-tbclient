@@ -15,10 +15,10 @@ import com.baidu.live.data.bz;
 import com.baidu.live.sdk.a;
 /* loaded from: classes4.dex */
 public class ImBarrageTrackView extends FrameLayout {
-    private a aBH;
-    private int aBI;
-    private int aBJ;
-    private boolean aBK;
+    private a aEM;
+    private int aEN;
+    private int aEO;
+    private boolean aEP;
 
     /* loaded from: classes4.dex */
     public interface a {
@@ -33,20 +33,20 @@ public class ImBarrageTrackView extends FrameLayout {
     }
 
     public void setCallback(a aVar) {
-        this.aBH = aVar;
+        this.aEM = aVar;
     }
 
-    public boolean BH() {
-        return this.aBK;
+    public boolean CE() {
+        return this.aEP;
     }
 
     public void setCanAddNext() {
-        this.aBK = true;
+        this.aEP = true;
     }
 
     public void a(bz bzVar, com.baidu.live.data.a aVar, String str, String str2) {
-        this.aBK = false;
-        ba(false);
+        this.aEP = false;
+        be(false);
         View b = b(bzVar, aVar, str, str2);
         b.measure(View.MeasureSpec.makeMeasureSpec(0, 0), View.MeasureSpec.makeMeasureSpec(0, 0));
         addView(b, new ViewGroup.LayoutParams(b.getMeasuredWidth(), -1));
@@ -56,17 +56,17 @@ public class ImBarrageTrackView extends FrameLayout {
     }
 
     public void release() {
-        ba(true);
+        be(true);
         removeAllViews();
     }
 
     private void init() {
         setBackgroundColor(0);
-        this.aBI = getResources().getDimensionPixelOffset(a.e.sdk_ds110);
-        this.aBJ = getResources().getDimensionPixelOffset(a.e.sdk_ds120);
+        this.aEN = getResources().getDimensionPixelOffset(a.e.sdk_ds110);
+        this.aEO = getResources().getDimensionPixelOffset(a.e.sdk_ds120);
     }
 
-    private void ba(boolean z) {
+    private void be(boolean z) {
         if (getChildCount() > 0) {
             int i = 0;
             while (true) {
@@ -98,8 +98,8 @@ public class ImBarrageTrackView extends FrameLayout {
         imBarrageItemView.setCallback(new ImBarrageItemView.a() { // from class: com.baidu.live.barrage.view.ImBarrageTrackView.1
             @Override // com.baidu.live.barrage.view.ImBarrageItemView.a
             public void b(com.baidu.live.data.a aVar2) {
-                if (ImBarrageTrackView.this.aBH != null) {
-                    ImBarrageTrackView.this.aBH.b(aVar2);
+                if (ImBarrageTrackView.this.aEM != null) {
+                    ImBarrageTrackView.this.aEM.b(aVar2);
                 }
             }
         });
@@ -109,7 +109,7 @@ public class ImBarrageTrackView extends FrameLayout {
 
     private Animator K(final View view) {
         ObjectAnimator ofFloat = ObjectAnimator.ofFloat(view, "translationX", getWidth(), -view.getMeasuredWidth());
-        ofFloat.setDuration((((getWidth() + view.getMeasuredWidth()) * 1.0f) / this.aBI) * 1000.0f);
+        ofFloat.setDuration((((getWidth() + view.getMeasuredWidth()) * 1.0f) / this.aEN) * 1000.0f);
         ofFloat.setInterpolator(new LinearInterpolator());
         ofFloat.setRepeatCount(0);
         ofFloat.addListener(new AnimatorListenerAdapter() { // from class: com.baidu.live.barrage.view.ImBarrageTrackView.2
@@ -117,7 +117,7 @@ public class ImBarrageTrackView extends FrameLayout {
             public void onAnimationEnd(Animator animator) {
                 super.onAnimationEnd(animator);
                 if (ImBarrageTrackView.this.indexOfChild(view) == ImBarrageTrackView.this.getChildCount() - 1) {
-                    ImBarrageTrackView.this.BI();
+                    ImBarrageTrackView.this.CF();
                 }
                 ImBarrageTrackView.this.removeView(view);
             }
@@ -125,8 +125,8 @@ public class ImBarrageTrackView extends FrameLayout {
         ofFloat.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() { // from class: com.baidu.live.barrage.view.ImBarrageTrackView.3
             @Override // android.animation.ValueAnimator.AnimatorUpdateListener
             public void onAnimationUpdate(ValueAnimator valueAnimator) {
-                if (ImBarrageTrackView.this.indexOfChild(view) == ImBarrageTrackView.this.getChildCount() - 1 && ImBarrageTrackView.this.getWidth() - view.getTranslationX() > view.getMeasuredWidth() + ImBarrageTrackView.this.aBJ) {
-                    ImBarrageTrackView.this.BI();
+                if (ImBarrageTrackView.this.indexOfChild(view) == ImBarrageTrackView.this.getChildCount() - 1 && ImBarrageTrackView.this.getWidth() - view.getTranslationX() > view.getMeasuredWidth() + ImBarrageTrackView.this.aEO) {
+                    ImBarrageTrackView.this.CF();
                 }
             }
         });
@@ -134,11 +134,11 @@ public class ImBarrageTrackView extends FrameLayout {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void BI() {
-        if (!this.aBK) {
-            this.aBK = true;
-            if (this.aBH != null) {
-                this.aBH.onNext();
+    public void CF() {
+        if (!this.aEP) {
+            this.aEP = true;
+            if (this.aEM != null) {
+                this.aEM.onNext();
             }
         }
     }

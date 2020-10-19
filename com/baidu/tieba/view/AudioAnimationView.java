@@ -14,15 +14,15 @@ import com.baidu.tieba.R;
 import java.util.Random;
 /* loaded from: classes.dex */
 public class AudioAnimationView extends View {
-    private int abh;
-    private int abi;
-    private boolean abj;
-    private boolean abk;
-    private RectF[] abl;
-    private int[] abm;
-    private int abn;
-    private int abo;
-    private final Runnable abp;
+    private boolean abA;
+    private boolean abB;
+    private RectF[] abC;
+    private int[] abD;
+    private int abE;
+    private int abF;
+    private final Runnable abG;
+    private int aby;
+    private int abz;
     private int mCanvasHeight;
     private int mCanvasWidth;
     private Paint mPaint;
@@ -33,14 +33,14 @@ public class AudioAnimationView extends View {
         super(context);
         this.mSkinType = 3;
         this.random = new Random();
-        this.abh = 0;
-        this.abi = 8;
-        this.abj = false;
-        this.abk = true;
-        this.abm = new int[]{6, 3, 5, 10, 8, 6, 5, 3, 5, 10, 8, 6, 5, 3, 6, 3, 5, 10, 8, 6, 5, 3};
-        this.abn = l.getDimens(TbadkCoreApplication.getInst(), R.dimen.tbds5);
-        this.abo = R.color.cp_cont_a;
-        this.abp = new Runnable() { // from class: com.baidu.tieba.view.AudioAnimationView.1
+        this.aby = 0;
+        this.abz = 8;
+        this.abA = false;
+        this.abB = true;
+        this.abD = new int[]{6, 3, 5, 10, 8, 6, 5, 3, 5, 10, 8, 6, 5, 3, 6, 3, 5, 10, 8, 6, 5, 3};
+        this.abE = l.getDimens(TbadkCoreApplication.getInst(), R.dimen.tbds5);
+        this.abF = R.color.cp_cont_a;
+        this.abG = new Runnable() { // from class: com.baidu.tieba.view.AudioAnimationView.1
             @Override // java.lang.Runnable
             public void run() {
                 AudioAnimationView.this.sv();
@@ -54,14 +54,14 @@ public class AudioAnimationView extends View {
         super(context, attributeSet);
         this.mSkinType = 3;
         this.random = new Random();
-        this.abh = 0;
-        this.abi = 8;
-        this.abj = false;
-        this.abk = true;
-        this.abm = new int[]{6, 3, 5, 10, 8, 6, 5, 3, 5, 10, 8, 6, 5, 3, 6, 3, 5, 10, 8, 6, 5, 3};
-        this.abn = l.getDimens(TbadkCoreApplication.getInst(), R.dimen.tbds5);
-        this.abo = R.color.cp_cont_a;
-        this.abp = new Runnable() { // from class: com.baidu.tieba.view.AudioAnimationView.1
+        this.aby = 0;
+        this.abz = 8;
+        this.abA = false;
+        this.abB = true;
+        this.abD = new int[]{6, 3, 5, 10, 8, 6, 5, 3, 5, 10, 8, 6, 5, 3, 6, 3, 5, 10, 8, 6, 5, 3};
+        this.abE = l.getDimens(TbadkCoreApplication.getInst(), R.dimen.tbds5);
+        this.abF = R.color.cp_cont_a;
+        this.abG = new Runnable() { // from class: com.baidu.tieba.view.AudioAnimationView.1
             @Override // java.lang.Runnable
             public void run() {
                 AudioAnimationView.this.sv();
@@ -73,42 +73,42 @@ public class AudioAnimationView extends View {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void sv() {
-        if (this.abj) {
+        if (this.abA) {
             invalidate();
         }
-        com.baidu.adp.lib.f.e.mX().removeCallbacks(this.abp);
-        if (!this.abk) {
-            com.baidu.adp.lib.f.e.mX().postDelayed(this.abp, 250L);
+        com.baidu.adp.lib.f.e.mY().removeCallbacks(this.abG);
+        if (!this.abB) {
+            com.baidu.adp.lib.f.e.mY().postDelayed(this.abG, 250L);
         }
     }
 
     @Override // android.view.View
     @SuppressLint({"DrawAllocation"})
     protected void onMeasure(int i, int i2) {
-        if (this.abh > 0) {
+        if (this.aby > 0) {
             int mode = View.MeasureSpec.getMode(i);
-            this.mCanvasWidth = this.abn * ((this.abh * 2) - 1);
-            this.abi = this.abh;
+            this.mCanvasWidth = this.abE * ((this.aby * 2) - 1);
+            this.abz = this.aby;
             i = View.MeasureSpec.makeMeasureSpec(this.mCanvasWidth, mode);
         }
         super.onMeasure(i, i2);
         this.mCanvasHeight = getMeasuredHeight();
         this.mCanvasWidth = getMeasuredWidth();
-        if (this.abh <= 0) {
-            this.abi = (this.mCanvasWidth / this.abn) / 2;
+        if (this.aby <= 0) {
+            this.abz = (this.mCanvasWidth / this.abE) / 2;
         }
     }
 
     @Override // android.view.View
     protected void onDraw(Canvas canvas) {
         super.onDraw(canvas);
-        if (this.abj) {
-            for (int i = 0; i < this.abi; i++) {
+        if (this.abA) {
+            for (int i = 0; i < this.abz; i++) {
                 sx();
-                if (i < this.abl.length) {
+                if (i < this.abC.length) {
                     canvas.save();
-                    canvas.translate(0.0f, -(this.abl[i].top / 2.0f));
-                    canvas.drawRoundRect(this.abl[i], 10.0f, 10.0f, this.mPaint);
+                    canvas.translate(0.0f, -(this.abC[i].top / 2.0f));
+                    canvas.drawRoundRect(this.abC[i], 10.0f, 10.0f, this.mPaint);
                     canvas.restore();
                 }
             }
@@ -120,12 +120,12 @@ public class AudioAnimationView extends View {
         this.mPaint.setDither(true);
         this.mPaint.setAntiAlias(true);
         this.mPaint.setStyle(Paint.Style.FILL);
-        this.mPaint.setColor(ap.getColor(this.abo));
+        this.mPaint.setColor(ap.getColor(this.abF));
     }
 
     public void onChangeSkinType(int i) {
         if (i != this.mSkinType && this.mPaint != null) {
-            this.mPaint.setColor(ap.getColor(this.abo));
+            this.mPaint.setColor(ap.getColor(this.abF));
             invalidate();
             this.mSkinType = i;
         }
@@ -133,29 +133,29 @@ public class AudioAnimationView extends View {
 
     private void sx() {
         int nextInt;
-        if (this.abl == null || this.abl.length != this.abi) {
-            this.abl = new RectF[this.abi];
+        if (this.abC == null || this.abC.length != this.abz) {
+            this.abC = new RectF[this.abz];
         }
-        for (int i = 0; i < this.abi; i++) {
-            int i2 = this.abn * i * 2;
-            if (this.abk) {
-                nextInt = (int) ((1.0d - (this.abm[i % 22] / 10.0d)) * this.mCanvasHeight);
+        for (int i = 0; i < this.abz; i++) {
+            int i2 = this.abE * i * 2;
+            if (this.abB) {
+                nextInt = (int) ((1.0d - (this.abD[i % 22] / 10.0d)) * this.mCanvasHeight);
             } else {
                 nextInt = this.mCanvasHeight > 0 ? this.random.nextInt(this.mCanvasHeight) : 0;
             }
-            int i3 = this.abn + i2;
+            int i3 = this.abE + i2;
             int i4 = this.mCanvasHeight;
-            if (this.abl[i] == null) {
-                this.abl[i] = new RectF(i2, nextInt, i3, i4);
+            if (this.abC[i] == null) {
+                this.abC[i] = new RectF(i2, nextInt, i3, i4);
             } else {
-                this.abl[i].set(i2, nextInt, i3, i4);
+                this.abC[i].set(i2, nextInt, i3, i4);
             }
         }
     }
 
     public void setColumnWidth(int i) {
         if (i > 0) {
-            this.abn = i;
+            this.abE = i;
         }
     }
 
@@ -163,30 +163,30 @@ public class AudioAnimationView extends View {
         if (this.mPaint != null) {
             this.mPaint.setColor(ap.getColor(i));
         }
-        this.abo = i;
+        this.abF = i;
     }
 
     public void start() {
-        this.abj = true;
-        this.abk = false;
+        this.abA = true;
+        this.abB = false;
         sv();
     }
 
     public void setCertainColumnCount(int i) {
         if (i != 0) {
-            this.abh = i;
+            this.aby = i;
         }
     }
 
     public void sy() {
-        this.abj = true;
-        this.abk = true;
+        this.abA = true;
+        this.abB = true;
         sv();
     }
 
     @Override // android.view.View
     protected void onDetachedFromWindow() {
         super.onDetachedFromWindow();
-        com.baidu.adp.lib.f.e.mX().removeCallbacks(this.abp);
+        com.baidu.adp.lib.f.e.mY().removeCallbacks(this.abG);
     }
 }

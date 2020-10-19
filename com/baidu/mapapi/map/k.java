@@ -2,7 +2,7 @@ package com.baidu.mapapi.map;
 
 import android.os.Parcel;
 import android.os.Parcelable;
-/* loaded from: classes3.dex */
+/* loaded from: classes7.dex */
 final class k implements Parcelable.Creator<BaiduMapOptions> {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // android.os.Parcelable.Creator

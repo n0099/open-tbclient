@@ -2,9 +2,11 @@ package com.baidu.webkit.internal.utils;
 
 import java.io.File;
 import java.util.Stack;
-/* loaded from: classes8.dex */
+/* loaded from: classes11.dex */
 public final class a {
-    private static String a = "none";
+
+    /* renamed from: a  reason: collision with root package name */
+    private static String f3946a = "none";
 
     public static boolean a(File file) {
         return file.setReadable(true, false);
@@ -30,11 +32,11 @@ public final class a {
                         stack.push(str3 + list[i]);
                     }
                 } else if (!file.delete()) {
-                    a = "remove fail, can not delete file = " + file.getAbsolutePath();
+                    f3946a = "remove fail, can not delete file = " + file.getAbsolutePath();
                     return false;
                 }
             } else if (!file.delete()) {
-                a = "remove fail, can not delete file = " + file.getAbsolutePath();
+                f3946a = "remove fail, can not delete file = " + file.getAbsolutePath();
                 return false;
             }
         }

@@ -26,7 +26,7 @@ import java.net.URLEncoder;
 import java.util.HashMap;
 import java.util.Map;
 import org.json.JSONObject;
-/* loaded from: classes21.dex */
+/* loaded from: classes22.dex */
 public class UfoSDK {
     public static boolean localFirstCall;
     private static Context mApplication;
@@ -296,9 +296,9 @@ public class UfoSDK {
             hashMap.put("username", b.b);
             hashMap.put("output_style", 1);
             hashMap.put("interval", String.valueOf(b.ai));
-            String a = com.baidu.ufosdk.e.b.a("https://ufosdk.baidu.com/?m=Index&a=newmsgnotice", "sdk_encrypt=" + URLEncoder.encode(k.a(com.baidu.ufosdk.c.a.a(hashMap)), "UTF-8"));
-            if (!TextUtils.isEmpty(a)) {
-                JSONObject jSONObject = new JSONObject(k.b(a));
+            String a2 = com.baidu.ufosdk.e.b.a("https://ufosdk.baidu.com/?m=Index&a=newmsgnotice", "sdk_encrypt=" + URLEncoder.encode(k.a(com.baidu.ufosdk.c.a.a(hashMap)), "UTF-8"));
+            if (!TextUtils.isEmpty(a2)) {
+                JSONObject jSONObject = new JSONObject(k.b(a2));
                 if (((Integer) jSONObject.get(BaseJsonData.TAG_ERRNO)).intValue() == 0) {
                     return String.valueOf(jSONObject.get("newmsg"));
                 }
@@ -385,9 +385,9 @@ public class UfoSDK {
             hashMap.put(DpStatConstants.KEY_USER_ID, b.d);
             hashMap.put("username", b.b);
             hashMap.put("interval", String.valueOf(b.ai));
-            String a = com.baidu.ufosdk.e.b.a("https://ufosdk.baidu.com/?m=Index&a=getmsglistcount", "sdk_encrypt=" + URLEncoder.encode(k.a(com.baidu.ufosdk.c.a.a(hashMap)), "UTF-8"));
-            if (!TextUtils.isEmpty(a)) {
-                JSONObject jSONObject = new JSONObject(k.b(a));
+            String a2 = com.baidu.ufosdk.e.b.a("https://ufosdk.baidu.com/?m=Index&a=getmsglistcount", "sdk_encrypt=" + URLEncoder.encode(k.a(com.baidu.ufosdk.c.a.a(hashMap)), "UTF-8"));
+            if (!TextUtils.isEmpty(a2)) {
+                JSONObject jSONObject = new JSONObject(k.b(a2));
                 if (((Integer) jSONObject.get(BaseJsonData.TAG_ERRNO)).intValue() == 0) {
                     return String.valueOf(jSONObject.get("msgnum"));
                 }
@@ -435,9 +435,9 @@ public class UfoSDK {
             hashMap.put("username", b.b);
             hashMap.put("output_style", 1);
             hashMap.put("interval", String.valueOf(b.ai));
-            String a = com.baidu.ufosdk.e.b.a("https://ufosdk.baidu.com/?m=Index&a=newmsgnotice", "sdk_encrypt=" + URLEncoder.encode(k.a(com.baidu.ufosdk.c.a.a(hashMap)), "UTF-8"));
-            if (!TextUtils.isEmpty(a)) {
-                JSONObject jSONObject = new JSONObject(k.b(a));
+            String a2 = com.baidu.ufosdk.e.b.a("https://ufosdk.baidu.com/?m=Index&a=newmsgnotice", "sdk_encrypt=" + URLEncoder.encode(k.a(com.baidu.ufosdk.c.a.a(hashMap)), "UTF-8"));
+            if (!TextUtils.isEmpty(a2)) {
+                JSONObject jSONObject = new JSONObject(k.b(a2));
                 if (((Integer) jSONObject.get(BaseJsonData.TAG_ERRNO)).intValue() == 0) {
                     String valueOf = String.valueOf(jSONObject.get("newmsg"));
                     if (b.ae != null) {
@@ -567,7 +567,7 @@ public class UfoSDK {
     }
 
     public static void openLogcatSwitch() {
-        b.a = true;
+        b.f3700a = true;
     }
 
     public static void openRobotAnswer() {

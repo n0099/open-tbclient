@@ -37,10 +37,12 @@ import javax.net.ssl.TrustManager;
 import javax.net.ssl.TrustManagerFactory;
 import javax.net.ssl.X509TrustManager;
 @SuppressLint({"NewApi"})
-/* loaded from: classes12.dex */
+/* loaded from: classes15.dex */
 public final class n {
     private static SSLSocketFactory h;
-    Context a;
+
+    /* renamed from: a  reason: collision with root package name */
+    Context f3636a;
     private String c;
     private String d;
     byte[] b = new byte[8192];
@@ -49,7 +51,7 @@ public final class n {
     private boolean g = false;
 
     public n(Context context) {
-        this.a = context;
+        this.f3636a = context;
     }
 
     private void a(String str, String str2) {
@@ -68,7 +70,7 @@ public final class n {
             this.c = "POST";
         }
         URL url = new URL(this.d);
-        if (e.e(this.a)) {
+        if (e.e(this.f3636a)) {
             i = 0;
         } else if (Build.VERSION.SDK_INT >= 13) {
             str = System.getProperties().getProperty("http.proxyHost");
@@ -80,8 +82,8 @@ public final class n {
                 }
             }
         } else {
-            str = Proxy.getHost(this.a);
-            i = Proxy.getPort(this.a);
+            str = Proxy.getHost(this.f3636a);
+            i = Proxy.getPort(this.f3636a);
         }
         if (str != null && i > 0) {
             httpURLConnection = (HttpURLConnection) url.openConnection(new java.net.Proxy(Proxy.Type.HTTP, InetSocketAddress.createUnresolved(str, i)));
@@ -119,13 +121,13 @@ public final class n {
         httpURLConnection.setInstanceFollowRedirects(true);
         httpURLConnection.setConnectTimeout(this.e);
         httpURLConnection.setReadTimeout(this.f);
-        httpURLConnection.setRequestProperty("User-Agent", "eos/" + e.g(this.a)[0] + "/" + y.a(this.a) + "/3.4.4.1");
+        httpURLConnection.setRequestProperty("User-Agent", "eos/" + e.g(this.f3636a)[0] + "/" + y.a(this.f3636a) + "/3.4.4.1");
         httpURLConnection.setRequestProperty("Pragma", "no-cache");
         httpURLConnection.setRequestProperty("Accept", "*/*");
         httpURLConnection.setRequestProperty("Content-Type", "application/x-www-form-urlencoded");
         httpURLConnection.setRequestProperty(Headers.ACCEPT_ENCODING, "gzip,deflate");
         httpURLConnection.setRequestProperty("Accept-Language", Locale.getDefault().getLanguage() + Constants.ACCEPT_TIME_SEPARATOR_SERVER + Locale.getDefault().getCountry());
-        httpURLConnection.setRequestProperty("x-device-id", p.a(h.b(this.a)));
+        httpURLConnection.setRequestProperty("x-device-id", p.a(h.b(this.f3636a)));
         return httpURLConnection;
     }
 
@@ -212,7 +214,7 @@ public final class n {
 
     private InputStream a(HttpURLConnection httpURLConnection) {
         InputStream inputStream = null;
-        if (!e.f(this.a) || httpURLConnection == null || httpURLConnection == null) {
+        if (!e.f(this.f3636a) || httpURLConnection == null || httpURLConnection == null) {
             return null;
         }
         try {
@@ -317,7 +319,7 @@ public final class n {
         x.a();
         try {
             com.baidu.sofire.b.a();
-            if (e.f(this.a)) {
+            if (e.f(this.f3636a)) {
                 if (!TextUtils.isEmpty(str)) {
                     new StringBuilder("f= ").append(file);
                     com.baidu.sofire.b.a();
@@ -415,7 +417,7 @@ public final class n {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes12.dex */
+    /* loaded from: classes15.dex */
     public class a implements X509TrustManager {
         private X509TrustManager b;
 
@@ -443,7 +445,7 @@ public final class n {
                     if ((th2 instanceof CertificateExpiredException) || (th2 instanceof CertificateNotYetValidException)) {
                         HashMap hashMap = new HashMap();
                         hashMap.put("0", Long.valueOf(System.currentTimeMillis()));
-                        e.a(n.this.a.getApplicationContext(), "1003121", hashMap);
+                        e.a(n.this.f3636a.getApplicationContext(), "1003121", hashMap);
                         return;
                     }
                 }

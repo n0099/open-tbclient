@@ -10,33 +10,35 @@ import com.baidu.fsg.face.base.d.g;
 import java.util.HashMap;
 import java.util.Map;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes16.dex */
+/* loaded from: classes17.dex */
 public class a {
-    private Context a;
-    private C0123a b;
+
+    /* renamed from: a  reason: collision with root package name */
+    private Context f1564a;
+    private C0127a b;
 
     /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [66=4] */
     /* JADX INFO: Access modifiers changed from: package-private */
     public boolean a(Context context, int i, Bundle bundle) {
-        this.a = context;
-        this.b = new C0123a();
-        b.a a = b.a(i);
-        c a2 = b.a(context).a(context.getApplicationContext(), a.a);
-        this.b.j = a.a;
+        this.f1564a = context;
+        this.b = new C0127a();
+        b.a a2 = b.a(i);
+        c a3 = b.a(context).a(context.getApplicationContext(), a2.f1567a);
+        this.b.j = a2.f1567a;
         try {
-            if (!a2.q || !a2.r) {
-                this.b.i = a.b;
+            if (!a3.q || !a3.r) {
+                this.b.i = a2.b;
                 this.b.k = true;
-                a(a.d, a);
+                a(a2.d, a2);
                 return true;
             }
-            if (!a2.p) {
-                a(a, a2, a.d);
-            } else if (a.b.compareTo(a2.n) > 0) {
-                this.b.i = a.b;
-                a(a.d, a);
+            if (!a3.p) {
+                a(a2, a3, a2.d);
+            } else if (a2.b.compareTo(a3.n) > 0) {
+                this.b.i = a2.b;
+                a(a2.d, a2);
             } else {
-                a(a, a2, a.d);
+                a(a2, a3, a2.d);
             }
             this.b.k = true;
             return true;
@@ -54,7 +56,7 @@ public class a {
 
     private void a(String[] strArr, b.a aVar) {
         for (String str : strArr) {
-            String str2 = b.b(this.a, aVar) + "/lib" + str + PluginInstallerService.APK_LIB_SUFFIX;
+            String str2 = b.b(this.f1564a, aVar) + "/lib" + str + PluginInstallerService.APK_LIB_SUFFIX;
             if (g.a(str2)) {
                 g.b(str2);
             }
@@ -68,7 +70,7 @@ public class a {
         try {
             int length = strArr.length;
             for (int i = 0; i < length; i++) {
-                System.load(b.b(this.a, aVar) + "/lib" + strArr[i] + PluginInstallerService.APK_LIB_SUFFIX);
+                System.load(b.b(this.f1564a, aVar) + "/lib" + strArr[i] + PluginInstallerService.APK_LIB_SUFFIX);
             }
             this.b.i = cVar.n;
         } catch (Throwable th) {
@@ -85,8 +87,8 @@ public class a {
 
     /* JADX INFO: Access modifiers changed from: private */
     /* renamed from: com.baidu.fsg.face.base.b.a$a  reason: collision with other inner class name */
-    /* loaded from: classes16.dex */
-    public class C0123a {
+    /* loaded from: classes17.dex */
+    public class C0127a {
         private static final String b = "load_so_zip_version";
         private static final String c = "load_so_modle_name";
         private static final String d = "load_default_so";
@@ -102,7 +104,7 @@ public class a {
         private String n;
         private String o;
 
-        private C0123a() {
+        private C0127a() {
             this.l = false;
             this.m = true;
         }

@@ -26,7 +26,7 @@ import java.net.URLEncoder;
 import java.util.ArrayList;
 import java.util.Set;
 import org.json.JSONObject;
-/* loaded from: classes24.dex */
+/* loaded from: classes6.dex */
 public class QzonePublish extends BaseApi {
     public static final String HULIAN_CALL_BACK = "hulian_call_back";
     public static final String HULIAN_EXTRA_SCENE = "hulian_extra_scene";
@@ -58,14 +58,14 @@ public class QzonePublish extends BaseApi {
             d.a().a(1, "SHARE_CHECK_SDK", "1000", this.b.getAppId(), String.valueOf(4), Long.valueOf(SystemClock.elapsedRealtime()), 0, 1, "publicToQzone, this is not support below qq 5.9.5");
             new TDialog(activity, "", a(""), null, this.b).show();
         } else {
-            String a = j.a(activity);
-            if (a == null) {
-                a = bundle.getString("appName");
-            } else if (a.length() > 20) {
-                a = a.substring(0, 20) + StringHelper.STRING_MORE;
+            String a2 = j.a(activity);
+            if (a2 == null) {
+                a2 = bundle.getString("appName");
+            } else if (a2.length() > 20) {
+                a2 = a2.substring(0, 20) + StringHelper.STRING_MORE;
             }
-            if (!TextUtils.isEmpty(a)) {
-                bundle.putString("appName", a);
+            if (!TextUtils.isEmpty(a2)) {
+                bundle.putString("appName", a2);
             }
             int i2 = bundle.getInt("req_type");
             if (i2 == 3) {

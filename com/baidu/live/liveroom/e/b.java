@@ -3,13 +3,13 @@ package com.baidu.live.liveroom.e;
 import android.view.View;
 /* loaded from: classes4.dex */
 public interface b {
-    void LP();
+    void MU();
 
-    boolean LQ();
+    boolean MV();
 
-    boolean LR();
+    boolean MW();
 
     void a(d dVar, View view, String str, a aVar);
 
-    void cc(boolean z);
+    void cf(boolean z);
 }

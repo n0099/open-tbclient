@@ -17,27 +17,27 @@ import com.baidu.tbadk.core.util.aq;
 import com.baidu.tieba.card.data.c;
 import com.baidu.tieba.card.m;
 import com.baidu.tieba.frs.l;
-/* loaded from: classes21.dex */
+/* loaded from: classes22.dex */
 public class a {
     public static void a(AbsThreadDataSupport absThreadDataSupport, Context context, int i, boolean z, Rect rect) {
-        if (absThreadDataSupport != null && absThreadDataSupport.bcY() != null && context != null) {
-            bw bcY = absThreadDataSupport.bcY();
-            PbActivityConfig createFromThreadCfg = new PbActivityConfig(context).createFromThreadCfg(bcY, null, ImageViewerConfig.FROM_GAME_VIDEO, RequestResponseCode.REQUEST_FRS_TO_PB, true, false, false);
-            createFromThreadCfg.setForumId(String.valueOf(bcY.getFid()));
+        if (absThreadDataSupport != null && absThreadDataSupport.bfG() != null && context != null) {
+            bw bfG = absThreadDataSupport.bfG();
+            PbActivityConfig createFromThreadCfg = new PbActivityConfig(context).createFromThreadCfg(bfG, null, ImageViewerConfig.FROM_GAME_VIDEO, RequestResponseCode.REQUEST_FRS_TO_PB, true, false, false);
+            createFromThreadCfg.setForumId(String.valueOf(bfG.getFid()));
             createFromThreadCfg.setFrom(PbActivityConfig.KEY_FROM_GAME_VIDEO);
-            createFromThreadCfg.setForumName(bcY.bfC());
+            createFromThreadCfg.setForumName(bfG.bil());
             createFromThreadCfg.setStartFrom(i);
             createFromThreadCfg.setVideoOriginArea(rect);
-            if (absThreadDataSupport.bdb() != null) {
-                createFromThreadCfg.addLocateParam(absThreadDataSupport.bdb());
+            if (absThreadDataSupport.bfJ() != null) {
+                createFromThreadCfg.addLocateParam(absThreadDataSupport.bfJ());
             }
-            if (TbSingleton.getInstance().isPbPreloadSwitchOn() && w(bcY)) {
+            if (TbSingleton.getInstance().isPbPreloadSwitchOn() && w(bfG)) {
                 createFromThreadCfg.setNeedPreLoad(true);
-                l.al(bcY);
+                l.al(bfG);
             }
             createFromThreadCfg.setVideo_source(ImageViewerConfig.FROM_GAME_VIDEO);
             createFromThreadCfg.setJumpGodReply(z);
-            m.Hw(bcY.getTid());
+            m.Ij(bfG.getTid());
             MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_PB_ACTIVITY, createFromThreadCfg));
         }
     }
@@ -50,45 +50,45 @@ public class a {
         if (i == 0 || i == 11 || i == 40) {
             return true;
         }
-        return bwVar.bei();
+        return bwVar.bgR();
     }
 
     public static void a(c cVar, int i) {
-        aq aC;
-        if (cVar != null && cVar.bcY() != null && (aC = cVar.aC("c13496", true)) != null) {
-            aC.ai("obj_type", i);
-            TiebaStatic.log(aC);
+        aq aG;
+        if (cVar != null && cVar.bfG() != null && (aG = cVar.aG("c13496", true)) != null) {
+            aG.aj("obj_type", i);
+            TiebaStatic.log(aG);
         }
     }
 
     public static void b(c cVar, int i) {
-        aq aC;
-        if (cVar != null && cVar.bcY() != null && com.baidu.tieba.card.data.m.ab(cVar.dXg) && (aC = cVar.aC("c13494", true)) != null) {
-            aC.ai("obj_type", i);
-            TiebaStatic.log(aC);
+        aq aG;
+        if (cVar != null && cVar.bfG() != null && com.baidu.tieba.card.data.m.ab(cVar.eji) && (aG = cVar.aG("c13494", true)) != null) {
+            aG.aj("obj_type", i);
+            TiebaStatic.log(aG);
         }
     }
 
     public static void c(c cVar, int i) {
-        aq aC;
-        if (cVar != null && com.baidu.tieba.card.data.m.ab(cVar.dXg) && (aC = cVar.aC("c13495", true)) != null) {
-            aC.ai("obj_type", i);
-            TiebaStatic.log(aC);
+        aq aG;
+        if (cVar != null && com.baidu.tieba.card.data.m.ab(cVar.eji) && (aG = cVar.aG("c13495", true)) != null) {
+            aG.aj("obj_type", i);
+            TiebaStatic.log(aG);
         }
     }
 
     public static void d(c cVar, int i) {
-        aq aC;
-        if (cVar != null && (aC = cVar.aC("c13488", true)) != null) {
-            if (cVar.bcY() != null) {
-                bw bcY = cVar.bcY();
-                aC.ai("obj_name", bcY.bhb() != null && (bcY.bhb().dAF() != null || bcY.bhb().byO() != null) ? 1 : 0);
-                if (bcY.bfy() != null) {
-                    aC.ai(TiebaInitialize.Params.AB_TYPE, bcY.bfy().hadConcerned() ? 1 : 0);
+        aq aG;
+        if (cVar != null && (aG = cVar.aG("c13488", true)) != null) {
+            if (cVar.bfG() != null) {
+                bw bfG = cVar.bfG();
+                aG.aj("obj_name", bfG.bjK() != null && (bfG.bjK().dEr() != null || bfG.bjK().bBy() != null) ? 1 : 0);
+                if (bfG.bih() != null) {
+                    aG.aj(TiebaInitialize.Params.AB_TYPE, bfG.bih().hadConcerned() ? 1 : 0);
                 }
             }
-            aC.ai("obj_type", i);
-            TiebaStatic.log(aC);
+            aG.aj("obj_type", i);
+            TiebaStatic.log(aG);
         }
     }
 }

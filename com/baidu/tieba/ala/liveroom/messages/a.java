@@ -4,26 +4,26 @@ import android.text.TextUtils;
 import com.baidu.live.adp.framework.message.HttpMessage;
 /* loaded from: classes4.dex */
 public class a extends HttpMessage {
-    private String bhq;
-    private long bhr;
-    private double gIi;
-    private double gIj;
-    private String gIk;
+    private String blg;
+    private long blh;
+    private double gWI;
+    private double gWJ;
+    private String gWK;
     private String mForumName;
     private String roomId;
     private String uk;
 
     public void setLiveId(long j) {
-        this.bhr = j;
+        this.blh = j;
     }
 
     public void c(double d, double d2) {
-        this.gIi = d;
-        this.gIj = d2;
+        this.gWI = d;
+        this.gWJ = d2;
     }
 
-    public void zH(String str) {
-        this.bhq = str;
+    public void At(String str) {
+        this.blg = str;
     }
 
     public void setUk(String str) {
@@ -34,37 +34,37 @@ public class a extends HttpMessage {
         this.mForumName = str;
     }
 
-    public void hg(String str) {
+    public void hx(String str) {
         this.roomId = str;
     }
 
-    public void GK(String str) {
-        this.gIk = str;
+    public void Hw(String str) {
+        this.gWK = str;
     }
 
     public a() {
         super(1021005);
         this.roomId = "";
-        this.bhq = "";
+        this.blg = "";
         this.uk = "";
         this.mForumName = "";
-        this.gIk = "";
+        this.gWK = "";
     }
 
     public void setParams() {
-        if (this.bhr > 0) {
-            addParam("live_id", this.bhr);
+        if (this.blh > 0) {
+            addParam("live_id", this.blh);
         } else {
             addParam("live_id", "0");
         }
         addParam("room_id", this.roomId);
-        addParam("from_type", this.bhq);
+        addParam("from_type", this.blg);
         addParam("uk", this.uk);
         addParam("forum_name", this.mForumName);
-        addParam("lng", this.gIi);
-        addParam("lat", this.gIj);
-        if (!TextUtils.isEmpty(this.gIk)) {
-            addParam("fromishotswitch", this.gIk);
+        addParam("lng", this.gWI);
+        addParam("lat", this.gWJ);
+        if (!TextUtils.isEmpty(this.gWK)) {
+            addParam("fromishotswitch", this.gWK);
         }
     }
 }

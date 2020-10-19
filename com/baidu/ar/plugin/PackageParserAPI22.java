@@ -21,7 +21,7 @@ import java.lang.reflect.Method;
 import java.util.Collection;
 import java.util.HashSet;
 import java.util.List;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public class PackageParserAPI22 extends PackageParser {
     private static final String TAG = PackageParserAPI22.class.getSimpleName();
     protected Object mDefaultPackageUserState;

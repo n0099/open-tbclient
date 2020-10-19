@@ -7,9 +7,11 @@ import android.text.TextUtils;
 import com.baidu.pass.common.Log;
 import com.baidu.pass.common.SharedPreferencesUtil;
 import com.baidu.pass.view.ConfirmDialog;
-/* loaded from: classes6.dex */
+/* loaded from: classes9.dex */
 public class PermissionsHelperActivity extends Activity {
-    private static final int a = 8000;
+
+    /* renamed from: a  reason: collision with root package name */
+    private static final int f2796a = 8000;
     private static final int b = 8001;
     private PermissionsDTO c;
     private PermissionsCallback d;

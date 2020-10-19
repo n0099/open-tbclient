@@ -32,7 +32,7 @@ final class FormUploader {
         StringMap stringMap = new StringMap();
         PostArgs postArgs = new PostArgs();
         if (str != null) {
-            stringMap.N("key", str);
+            stringMap.O("key", str);
             postArgs.fileName = str;
         } else {
             postArgs.fileName = "?";
@@ -44,104 +44,104 @@ final class FormUploader {
         if (str2 != null && str2.length() > 0 && (lastIndexOf = str2.lastIndexOf(".")) > 0) {
             postArgs.fileName = String.valueOf(Math.abs((str2.substring(0, lastIndexOf) + System.currentTimeMillis()).hashCode())) + str2.substring(lastIndexOf);
         }
-        stringMap.N("token", upToken.token);
-        final UploadOptions egB = uploadOptions != null ? uploadOptions : UploadOptions.egB();
-        stringMap.A(egB.params);
+        stringMap.O("token", upToken.token);
+        final UploadOptions ekm = uploadOptions != null ? uploadOptions : UploadOptions.ekm();
+        stringMap.K(ekm.params);
         long j = 0;
         if (file != null) {
             try {
-                j = Crc32.ar(file);
+                j = Crc32.au(file);
             } catch (IOException e) {
                 e.printStackTrace();
             }
         } else {
             j = Crc32.au(bArr);
         }
-        stringMap.N("crc32", "" + j);
+        stringMap.O("crc32", "" + j);
         ProgressHandler progressHandler = new ProgressHandler() { // from class: com.qiniu.android.storage.FormUploader.1
             @Override // com.qiniu.android.http.ProgressHandler
             public void onProgress(long j2, long j3) {
                 double d = j2 / j3;
-                UploadOptions.this.oqU.d(str, d <= 0.95d ? d : 0.95d);
+                UploadOptions.this.oGl.d(str, d <= 0.95d ? d : 0.95d);
             }
         };
         postArgs.data = bArr;
         postArgs.file = file;
-        postArgs.mimeType = egB.mimeType;
-        postArgs.opM = stringMap;
-        String d = configuration.oqh.d(upToken.token, configuration.useHttps, null);
+        postArgs.mimeType = ekm.mimeType;
+        postArgs.oFd = stringMap;
+        String d = configuration.oFy.d(upToken.token, configuration.useHttps, null);
         Log.d("Qiniu.FormUploader", "upload use up host " + d);
-        client.a(d, postArgs, upToken, progressHandler, new AnonymousClass2(egB, upCompletionHandler, str, configuration, upToken, d, client, postArgs, progressHandler), egB.oqV);
+        client.a(d, postArgs, upToken, progressHandler, new AnonymousClass2(ekm, upCompletionHandler, str, configuration, upToken, d, client, postArgs, progressHandler), ekm.oGm);
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* renamed from: com.qiniu.android.storage.FormUploader$2  reason: invalid class name */
     /* loaded from: classes6.dex */
     public static class AnonymousClass2 implements CompletionHandler {
-        final /* synthetic */ UploadOptions oqj;
-        final /* synthetic */ UpCompletionHandler oqk;
-        final /* synthetic */ Configuration oql;
-        final /* synthetic */ UpToken oqm;
-        final /* synthetic */ String oqn;
-        final /* synthetic */ Client oqo;
-        final /* synthetic */ PostArgs oqp;
-        final /* synthetic */ ProgressHandler oqq;
+        final /* synthetic */ UploadOptions oFA;
+        final /* synthetic */ UpCompletionHandler oFB;
+        final /* synthetic */ Configuration oFC;
+        final /* synthetic */ UpToken oFD;
+        final /* synthetic */ String oFE;
+        final /* synthetic */ Client oFF;
+        final /* synthetic */ PostArgs oFG;
+        final /* synthetic */ ProgressHandler oFH;
         final /* synthetic */ String val$key;
 
         AnonymousClass2(UploadOptions uploadOptions, UpCompletionHandler upCompletionHandler, String str, Configuration configuration, UpToken upToken, String str2, Client client, PostArgs postArgs, ProgressHandler progressHandler) {
-            this.oqj = uploadOptions;
-            this.oqk = upCompletionHandler;
+            this.oFA = uploadOptions;
+            this.oFB = upCompletionHandler;
             this.val$key = str;
-            this.oql = configuration;
-            this.oqm = upToken;
-            this.oqn = str2;
-            this.oqo = client;
-            this.oqp = postArgs;
-            this.oqq = progressHandler;
+            this.oFC = configuration;
+            this.oFD = upToken;
+            this.oFE = str2;
+            this.oFF = client;
+            this.oFG = postArgs;
+            this.oFH = progressHandler;
         }
 
         @Override // com.qiniu.android.http.CompletionHandler
         public void a(ResponseInfo responseInfo, JSONObject jSONObject) {
-            if (responseInfo.egm() && !AndroidNetwork.egC()) {
-                this.oqj.oqW.egw();
-                if (!AndroidNetwork.egC()) {
-                    this.oqk.a(this.val$key, responseInfo, jSONObject);
+            if (responseInfo.ejX() && !AndroidNetwork.ekn()) {
+                this.oFA.oGn.ekh();
+                if (!AndroidNetwork.ekn()) {
+                    this.oFB.a(this.val$key, responseInfo, jSONObject);
                     return;
                 }
             }
-            if (responseInfo.egl()) {
-                this.oqj.oqU.d(this.val$key, 1.0d);
-                this.oqk.a(this.val$key, responseInfo, jSONObject);
-            } else if (responseInfo.egp()) {
-                final String d = this.oql.oqh.d(this.oqm.token, this.oql.useHttps, this.oqn);
+            if (responseInfo.ejW()) {
+                this.oFA.oGl.d(this.val$key, 1.0d);
+                this.oFB.a(this.val$key, responseInfo, jSONObject);
+            } else if (responseInfo.eka()) {
+                final String d = this.oFC.oFy.d(this.oFD.token, this.oFC.useHttps, this.oFE);
                 Log.d("Qiniu.FormUploader", "retry upload first time use up host " + d);
-                this.oqo.a(d, this.oqp, this.oqm, this.oqq, new CompletionHandler() { // from class: com.qiniu.android.storage.FormUploader.2.1
+                this.oFF.a(d, this.oFG, this.oFD, this.oFH, new CompletionHandler() { // from class: com.qiniu.android.storage.FormUploader.2.1
                     @Override // com.qiniu.android.http.CompletionHandler
                     public void a(ResponseInfo responseInfo2, JSONObject jSONObject2) {
-                        if (responseInfo2.egl()) {
-                            AnonymousClass2.this.oqj.oqU.d(AnonymousClass2.this.val$key, 1.0d);
-                            AnonymousClass2.this.oqk.a(AnonymousClass2.this.val$key, responseInfo2, jSONObject2);
-                        } else if (responseInfo2.egp()) {
-                            final String d2 = AnonymousClass2.this.oql.oqh.d(AnonymousClass2.this.oqm.token, AnonymousClass2.this.oql.useHttps, d);
+                        if (responseInfo2.ejW()) {
+                            AnonymousClass2.this.oFA.oGl.d(AnonymousClass2.this.val$key, 1.0d);
+                            AnonymousClass2.this.oFB.a(AnonymousClass2.this.val$key, responseInfo2, jSONObject2);
+                        } else if (responseInfo2.eka()) {
+                            final String d2 = AnonymousClass2.this.oFC.oFy.d(AnonymousClass2.this.oFD.token, AnonymousClass2.this.oFC.useHttps, d);
                             Log.d("Qiniu.FormUploader", "retry upload second time use up host " + d2);
-                            AnonymousClass2.this.oqo.a(d2, AnonymousClass2.this.oqp, AnonymousClass2.this.oqm, AnonymousClass2.this.oqq, new CompletionHandler() { // from class: com.qiniu.android.storage.FormUploader.2.1.1
+                            AnonymousClass2.this.oFF.a(d2, AnonymousClass2.this.oFG, AnonymousClass2.this.oFD, AnonymousClass2.this.oFH, new CompletionHandler() { // from class: com.qiniu.android.storage.FormUploader.2.1.1
                                 @Override // com.qiniu.android.http.CompletionHandler
                                 public void a(ResponseInfo responseInfo3, JSONObject jSONObject3) {
-                                    if (responseInfo3.egl()) {
-                                        AnonymousClass2.this.oqj.oqU.d(AnonymousClass2.this.val$key, 1.0d);
-                                    } else if (responseInfo3.egp()) {
-                                        AnonymousClass2.this.oql.oqh.VT(d2);
+                                    if (responseInfo3.ejW()) {
+                                        AnonymousClass2.this.oFA.oGl.d(AnonymousClass2.this.val$key, 1.0d);
+                                    } else if (responseInfo3.eka()) {
+                                        AnonymousClass2.this.oFC.oFy.WH(d2);
                                     }
-                                    AnonymousClass2.this.oqk.a(AnonymousClass2.this.val$key, responseInfo3, jSONObject3);
+                                    AnonymousClass2.this.oFB.a(AnonymousClass2.this.val$key, responseInfo3, jSONObject3);
                                 }
-                            }, AnonymousClass2.this.oqj.oqV);
+                            }, AnonymousClass2.this.oFA.oGm);
                         } else {
-                            AnonymousClass2.this.oqk.a(AnonymousClass2.this.val$key, responseInfo2, jSONObject2);
+                            AnonymousClass2.this.oFB.a(AnonymousClass2.this.val$key, responseInfo2, jSONObject2);
                         }
                     }
-                }, this.oqj.oqV);
+                }, this.oFA.oGm);
             } else {
-                this.oqk.a(this.val$key, responseInfo, jSONObject);
+                this.oFB.a(this.val$key, responseInfo, jSONObject);
             }
         }
     }

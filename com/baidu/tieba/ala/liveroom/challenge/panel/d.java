@@ -11,8 +11,8 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes4.dex */
 public class d extends BaseAdapter {
-    private List<com.baidu.live.challenge.d> blZ;
-    private a gvf;
+    private List<com.baidu.live.challenge.d> bpM;
+    private a gJA;
 
     /* loaded from: classes4.dex */
     public interface a {
@@ -21,20 +21,20 @@ public class d extends BaseAdapter {
         void f(com.baidu.live.challenge.d dVar);
     }
 
-    public a bRm() {
-        return this.gvf;
+    public a bUG() {
+        return this.gJA;
     }
 
     public void a(a aVar) {
-        this.gvf = aVar;
+        this.gJA = aVar;
     }
 
     public void setData(List<com.baidu.live.challenge.d> list) {
-        if (this.blZ == null) {
-            this.blZ = new ArrayList();
+        if (this.bpM == null) {
+            this.bpM = new ArrayList();
         }
-        this.blZ.clear();
-        this.blZ.addAll(list);
+        this.bpM.clear();
+        this.bpM.addAll(list);
         notifyDataSetChanged();
     }
 
@@ -54,42 +54,42 @@ public class d extends BaseAdapter {
                     i++;
                 } else {
                     item.liveStatus = dVar.liveStatus;
-                    item.aDg = dVar.aDg;
-                    item.aDh = dVar.aDh;
+                    item.aGk = dVar.aGk;
+                    item.aGl = dVar.aGl;
                     break;
                 }
             }
             if (i >= 0 && i >= (firstVisiblePosition = absListView.getFirstVisiblePosition()) && i <= absListView.getLastVisiblePosition() && (childAt = absListView.getChildAt(i - firstVisiblePosition)) != null) {
                 getView(i, childAt, absListView);
-                if (!(childAt.getTag() instanceof b) || ((b) childAt.getTag()).gvi == null) {
+                if (!(childAt.getTag() instanceof b) || ((b) childAt.getTag()).gJD == null) {
                     return;
                 }
-                ((b) childAt.getTag()).gvi.setActionEnabled(z);
+                ((b) childAt.getTag()).gJD.setActionEnabled(z);
             }
         }
     }
 
     public void clearData() {
-        if (this.blZ != null) {
-            this.blZ.clear();
+        if (this.bpM != null) {
+            this.bpM.clear();
             notifyDataSetChanged();
         }
     }
 
     @Override // android.widget.Adapter
     public int getCount() {
-        if (this.blZ != null) {
-            return this.blZ.size();
+        if (this.bpM != null) {
+            return this.bpM.size();
         }
         return 0;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // android.widget.Adapter
-    /* renamed from: un */
+    /* renamed from: uS */
     public com.baidu.live.challenge.d getItem(int i) {
-        if (this.blZ != null) {
-            return this.blZ.get(i);
+        if (this.bpM != null) {
+            return this.bpM.get(i);
         }
         return null;
     }
@@ -105,7 +105,7 @@ public class d extends BaseAdapter {
         if (view == null) {
             view = LayoutInflater.from(viewGroup.getContext()).inflate(a.h.ala_challenge_latest_list_item, viewGroup, false);
             b bVar2 = new b();
-            bVar2.gvi = (AlaChallengeTargetItemView) view.findViewById(a.g.item_challenge_latest_target);
+            bVar2.gJD = (AlaChallengeTargetItemView) view.findViewById(a.g.item_challenge_latest_target);
             view.setTag(bVar2);
             bVar = bVar2;
         } else {
@@ -113,23 +113,23 @@ public class d extends BaseAdapter {
         }
         final com.baidu.live.challenge.d item = getItem(i);
         if (item != null) {
-            bVar.gvi.setCallback(new AlaChallengeTargetItemView.a() { // from class: com.baidu.tieba.ala.liveroom.challenge.panel.d.1
+            bVar.gJD.setCallback(new AlaChallengeTargetItemView.a() { // from class: com.baidu.tieba.ala.liveroom.challenge.panel.d.1
                 @Override // com.baidu.tieba.ala.liveroom.challenge.view.AlaChallengeTargetItemView.a
-                public void bRn() {
-                    if (d.this.gvf != null) {
-                        d.this.gvf.e(item);
+                public void bUH() {
+                    if (d.this.gJA != null) {
+                        d.this.gJA.e(item);
                     }
                 }
 
                 @Override // com.baidu.tieba.ala.liveroom.challenge.view.AlaChallengeTargetItemView.a
-                public void bRo() {
-                    if (d.this.gvf != null && d.this.d(item)) {
-                        d.this.gvf.f(item);
+                public void bUI() {
+                    if (d.this.gJA != null && d.this.d(item)) {
+                        d.this.gJA.f(item);
                     }
                 }
             });
-            bVar.gvi.setActionEnabled(true);
-            bVar.gvi.setData(item);
+            bVar.gJD.setActionEnabled(true);
+            bVar.gJD.setData(item);
         }
         return view;
     }
@@ -140,7 +140,7 @@ public class d extends BaseAdapter {
         if (dVar == null) {
             return false;
         }
-        if (dVar.liveStatus != 1 || dVar.aDg == 2 || dVar.aDh == 1) {
+        if (dVar.liveStatus != 1 || dVar.aGk == 2 || dVar.aGl == 1) {
             z = false;
         }
         return z;
@@ -149,7 +149,7 @@ public class d extends BaseAdapter {
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes4.dex */
     public static class b {
-        private AlaChallengeTargetItemView gvi;
+        private AlaChallengeTargetItemView gJD;
 
         private b() {
         }

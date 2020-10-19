@@ -11,19 +11,19 @@ import java.util.concurrent.atomic.AtomicReference;
 import java.util.concurrent.locks.Condition;
 import java.util.concurrent.locks.Lock;
 import java.util.concurrent.locks.ReentrantLock;
-/* loaded from: classes25.dex */
+/* loaded from: classes17.dex */
 public final class BlockingFlowableIterable<T> implements Iterable<T> {
     final int bufferSize;
-    final io.reactivex.g<T> owE;
+    final io.reactivex.g<T> oLT;
 
     @Override // java.lang.Iterable
     public Iterator<T> iterator() {
         BlockingFlowableIterator blockingFlowableIterator = new BlockingFlowableIterator(this.bufferSize);
-        this.owE.a((j) blockingFlowableIterator);
+        this.oLT.a((j) blockingFlowableIterator);
         return blockingFlowableIterator;
     }
 
-    /* loaded from: classes25.dex */
+    /* loaded from: classes17.dex */
     static final class BlockingFlowableIterator<T> extends AtomicReference<org.a.d> implements io.reactivex.disposables.b, j<T>, Runnable, Iterator<T> {
         private static final long serialVersionUID = 6695226475494099826L;
         final long batchSize;
@@ -56,7 +56,7 @@ public final class BlockingFlowableIterable<T> implements Iterable<T> {
                     }
                 }
                 if (isEmpty) {
-                    io.reactivex.internal.util.c.ejy();
+                    io.reactivex.internal.util.c.enk();
                     this.lock.lock();
                     while (!this.done && this.queue.isEmpty()) {
                         try {

@@ -1,9 +1,11 @@
 package com.baidu.fsg.base.widget.textfilter;
 
 import android.text.TextUtils;
-/* loaded from: classes15.dex */
+/* loaded from: classes16.dex */
 public class BlankCharEditTextPasteFilter implements IEditTextPasteFilter {
-    private static final String a = BlankCharEditTextPasteFilter.class.getSimpleName();
+
+    /* renamed from: a  reason: collision with root package name */
+    private static final String f1558a = BlankCharEditTextPasteFilter.class.getSimpleName();
 
     @Override // com.baidu.fsg.base.widget.textfilter.IEditTextPasteFilter
     public String intercept(String str) {

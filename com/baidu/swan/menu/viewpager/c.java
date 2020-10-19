@@ -1,7 +1,7 @@
 package com.baidu.swan.menu.viewpager;
 
 import java.util.ArrayList;
-/* loaded from: classes23.dex */
+/* loaded from: classes14.dex */
 public class c<T> {
     private ArrayList<T> mPool = new ArrayList<>();
     private final int mPoolLimit;

@@ -1,7 +1,7 @@
 package com.baidu.swan.uuid.a;
-/* loaded from: classes24.dex */
+/* loaded from: classes5.dex */
 public interface b<T> {
-    boolean aXm();
+    boolean aZU();
 
     T get();
 

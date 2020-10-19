@@ -66,31 +66,40 @@ public class BeautyDataManager {
 
     public ConcurrentHashMap<BeautyType, Object> convertParams(ConcurrentHashMap<String, Object> concurrentHashMap) {
         BeautyType beautyType;
+        Object convertValue;
         ConcurrentHashMap<BeautyType, Object> concurrentHashMap2 = new ConcurrentHashMap<>();
         if (concurrentHashMap == null || concurrentHashMap.isEmpty()) {
             return concurrentHashMap2;
         }
         for (Map.Entry<String, Object> entry : concurrentHashMap.entrySet()) {
-            if (entry != null && entry.getKey() != null && entry.getValue() != null && (beautyType = ARNetKey2BeautyType.getBeautyType(entry.getKey())) != null) {
-                if (entry.getValue() instanceof JSONArray) {
-                    JSONArray jSONArray = (JSONArray) entry.getValue();
-                    if (jSONArray != null && jSONArray.length() > 0) {
-                        ArrayList arrayList = new ArrayList();
-                        for (int i = 0; i < jSONArray.length(); i++) {
-                            arrayList.add(jSONArray.opt(i));
-                        }
-                        entry.setValue(arrayList);
-                    }
-                } else if (entry.getValue() instanceof String) {
-                    try {
-                        entry.setValue(Float.valueOf((String) entry.getValue()));
-                    } catch (Exception e) {
-                    }
-                }
-                concurrentHashMap2.put(beautyType, entry.getValue());
+            if (entry != null && entry.getKey() != null && entry.getValue() != null && (beautyType = ARNetKey2BeautyType.getBeautyType(entry.getKey())) != null && (convertValue = convertValue(entry.getValue())) != null) {
+                entry.setValue(convertValue);
+                concurrentHashMap2.put(beautyType, convertValue);
             }
         }
         return concurrentHashMap2;
+    }
+
+    public Object convertValue(Object obj) {
+        if (!(obj instanceof JSONArray)) {
+            if (obj instanceof String) {
+                try {
+                    return Float.valueOf((String) obj);
+                } catch (Exception e) {
+                    return obj;
+                }
+            }
+            return obj;
+        }
+        JSONArray jSONArray = (JSONArray) obj;
+        if (jSONArray == null || jSONArray.length() <= 0) {
+            return null;
+        }
+        ArrayList arrayList = new ArrayList();
+        for (int i = 0; i < jSONArray.length(); i++) {
+            arrayList.add(jSONArray.opt(i));
+        }
+        return arrayList;
     }
 
     public void setDefaultBeautyParams(ConcurrentHashMap<String, Object> concurrentHashMap) {

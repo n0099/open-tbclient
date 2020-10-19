@@ -34,7 +34,7 @@ import java.util.HashMap;
 import java.util.UUID;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes21.dex */
+/* loaded from: classes22.dex */
 public final class a {
     public static void a(int i, int i2, Handler handler) {
         c.d("postUrl is https://ufosdk.baidu.com/?m=Index&a=getProductType");
@@ -51,11 +51,11 @@ public final class a {
             hashMap.put("extend_feedback_channel", Integer.valueOf(i2));
         }
         try {
-            String a = b.a("https://ufosdk.baidu.com/?m=Index&a=getProductType", "sdk_encrypt=" + URLEncoder.encode(k.a(com.baidu.ufosdk.c.a.a(hashMap)), "UTF-8"));
-            if (TextUtils.isEmpty(a)) {
+            String a2 = b.a("https://ufosdk.baidu.com/?m=Index&a=getProductType", "sdk_encrypt=" + URLEncoder.encode(k.a(com.baidu.ufosdk.c.a.a(hashMap)), "UTF-8"));
+            if (TextUtils.isEmpty(a2)) {
                 return;
             }
-            JSONObject jSONObject = new JSONObject(k.b(a));
+            JSONObject jSONObject = new JSONObject(k.b(a2));
             c.c("response is " + jSONObject.toString());
             if (((Integer) jSONObject.get(BaseJsonData.TAG_ERRNO)).intValue() == 0) {
                 c.d("getTitleAndHint   (*^o^*) success!! \n" + jSONObject.toString());
@@ -144,9 +144,9 @@ public final class a {
         hashMap.put("phonetime", String.valueOf(System.currentTimeMillis()));
         hashMap.put("sdkvn", "2.9.10");
         try {
-            String a = b.a("https://ufosdk.baidu.com/?m=Index&a=getProductType", "sdk_encrypt=" + URLEncoder.encode(k.a(com.baidu.ufosdk.c.a.a(hashMap)), "UTF-8"));
-            if (!TextUtils.isEmpty(a)) {
-                JSONObject jSONObject = new JSONObject(k.b(a));
+            String a2 = b.a("https://ufosdk.baidu.com/?m=Index&a=getProductType", "sdk_encrypt=" + URLEncoder.encode(k.a(com.baidu.ufosdk.c.a.a(hashMap)), "UTF-8"));
+            if (!TextUtils.isEmpty(a2)) {
+                JSONObject jSONObject = new JSONObject(k.b(a2));
                 c.c("response is " + jSONObject.toString());
                 if (((Integer) jSONObject.get(BaseJsonData.TAG_ERRNO)).intValue() == 0) {
                     JSONArray jSONArray = (JSONArray) jSONObject.get("data");
@@ -192,9 +192,9 @@ public final class a {
         hashMap.put("screensize", (i == 0 && i2 == 0) ? null : String.valueOf(i) + "*" + String.valueOf(i2));
         hashMap.put("sdkvn", "2.9.10");
         try {
-            String a = b.a("https://ufosdk.baidu.com/?m=Index&a=postclientinfo", "sdk_encrypt=" + URLEncoder.encode(k.a(com.baidu.ufosdk.c.a.a(hashMap)), "UTF-8"));
-            if (!TextUtils.isEmpty(a)) {
-                JSONObject jSONObject = new JSONObject(k.b(a));
+            String a2 = b.a("https://ufosdk.baidu.com/?m=Index&a=postclientinfo", "sdk_encrypt=" + URLEncoder.encode(k.a(com.baidu.ufosdk.c.a.a(hashMap)), "UTF-8"));
+            if (!TextUtils.isEmpty(a2)) {
+                JSONObject jSONObject = new JSONObject(k.b(a2));
                 c.a("getAPIKey response is " + jSONObject.toString());
                 if (((Integer) jSONObject.get(BaseJsonData.TAG_ERRNO)).intValue() == 0) {
                     String string = jSONObject.getString("clientid");
@@ -254,12 +254,12 @@ public final class a {
         }
         hashMap.put("interval", String.valueOf(com.baidu.ufosdk.b.ah));
         try {
-            String a = b.a("https://ufosdk.baidu.com/?m=Index&a=getmsgbyclient", "sdk_encrypt=" + URLEncoder.encode(k.a(com.baidu.ufosdk.c.a.a(hashMap)), "UTF-8"));
-            if (TextUtils.isEmpty(a)) {
+            String a2 = b.a("https://ufosdk.baidu.com/?m=Index&a=getmsgbyclient", "sdk_encrypt=" + URLEncoder.encode(k.a(com.baidu.ufosdk.c.a.a(hashMap)), "UTF-8"));
+            if (TextUtils.isEmpty(a2)) {
                 c.b("getFeedbackChatBack -> response is empty!");
                 context.sendBroadcast(new Intent("com.baidu.ufosdk.reload"));
             } else {
-                String b = k.b(a);
+                String b = k.b(a2);
                 c.c("-----------getFeedbackChatBack---------response is " + b);
                 JSONObject jSONObject = new JSONObject(b);
                 int intValue = ((Integer) jSONObject.get(BaseJsonData.TAG_ERRNO)).intValue();
@@ -380,7 +380,7 @@ public final class a {
     }
 
     public static boolean a(String str, int i) {
-        String a;
+        String a2;
         c.c("FeedbackChatSender --> sendSolvedResult:https://ufosdk.baidu.com/?m=Index&a=recordEvaluation");
         HashMap hashMap = new HashMap();
         hashMap.put("appid", UfoSDK.appid);
@@ -388,16 +388,16 @@ public final class a {
         hashMap.put("sdkvn", "2.9.10");
         hashMap.put("evaluation", Integer.valueOf(i));
         try {
-            a = b.a("https://ufosdk.baidu.com/?m=Index&a=recordEvaluation", "sdk_encrypt=" + URLEncoder.encode(k.a(com.baidu.ufosdk.c.a.a(hashMap)), "UTF-8"));
+            a2 = b.a("https://ufosdk.baidu.com/?m=Index&a=recordEvaluation", "sdk_encrypt=" + URLEncoder.encode(k.a(com.baidu.ufosdk.c.a.a(hashMap)), "UTF-8"));
         } catch (Exception e) {
             c.a("sendRecord fail.", e);
         } finally {
             c.d("finally");
         }
-        if (TextUtils.isEmpty(a)) {
+        if (TextUtils.isEmpty(a2)) {
             return false;
         }
-        String b = k.b(a);
+        String b = k.b(a2);
         c.c("^^ sendSolvedResult response is: \n" + b);
         if (((Integer) new JSONObject(b).get(BaseJsonData.TAG_ERRNO)).intValue() == 0) {
             c.d("finally");
@@ -419,12 +419,12 @@ public final class a {
         hashMap.put("sdkvn", "2.9.10");
         hashMap.put("output_style", 1);
         try {
-            String a = b.a("https://ufosdk.baidu.com/?m=Index&a=getHistory", "sdk_encrypt=" + URLEncoder.encode(k.a(com.baidu.ufosdk.c.a.a(hashMap)), "UTF-8"));
-            if (TextUtils.isEmpty(a)) {
+            String a2 = b.a("https://ufosdk.baidu.com/?m=Index&a=getHistory", "sdk_encrypt=" + URLEncoder.encode(k.a(com.baidu.ufosdk.c.a.a(hashMap)), "UTF-8"));
+            if (TextUtils.isEmpty(a2)) {
                 c.b("getHistoryChat -> response is empty!");
                 context.sendBroadcast(new Intent("com.baidu.ufosdk.reload"));
             } else {
-                String b = k.b(a);
+                String b = k.b(a2);
                 c.a("decode response is " + b);
                 JSONObject jSONObject = new JSONObject(b);
                 int intValue = ((Integer) jSONObject.get(BaseJsonData.TAG_ERRNO)).intValue();
@@ -509,9 +509,9 @@ public final class a {
         hashMap.put("output_style", 1);
         hashMap.put("interval", String.valueOf(com.baidu.ufosdk.b.ah));
         try {
-            String a = b.a("https://ufosdk.baidu.com/?m=Index&a=getmsgbyclient", "sdk_encrypt=" + URLEncoder.encode(k.a(com.baidu.ufosdk.c.a.a(hashMap)), "UTF-8"));
-            if (!TextUtils.isEmpty(a)) {
-                String b = k.b(a);
+            String a2 = b.a("https://ufosdk.baidu.com/?m=Index&a=getmsgbyclient", "sdk_encrypt=" + URLEncoder.encode(k.a(com.baidu.ufosdk.c.a.a(hashMap)), "UTF-8"));
+            if (!TextUtils.isEmpty(a2)) {
+                String b = k.b(a2);
                 c.c("---------getFeedbackChat-----------response is " + b);
                 JSONObject jSONObject = new JSONObject(b);
                 int intValue = ((Integer) jSONObject.get(BaseJsonData.TAG_ERRNO)).intValue();
@@ -622,9 +622,9 @@ public final class a {
         hashMap.put("output_style", 1);
         hashMap.put("interval", String.valueOf(com.baidu.ufosdk.b.ai));
         try {
-            String a = b.a("https://ufosdk.baidu.com/?m=Index&a=newmsgnotice", "sdk_encrypt=" + URLEncoder.encode(k.a(com.baidu.ufosdk.c.a.a(hashMap)), "UTF-8"));
-            if (!TextUtils.isEmpty(a)) {
-                String b = k.b(a);
+            String a2 = b.a("https://ufosdk.baidu.com/?m=Index&a=newmsgnotice", "sdk_encrypt=" + URLEncoder.encode(k.a(com.baidu.ufosdk.c.a.a(hashMap)), "UTF-8"));
+            if (!TextUtils.isEmpty(a2)) {
+                String b = k.b(a2);
                 c.a("response is " + b);
                 JSONObject jSONObject = new JSONObject(b);
                 c.a("response is " + jSONObject.toString());
@@ -679,9 +679,9 @@ public final class a {
         hashMap.put("username", com.baidu.ufosdk.b.b);
         hashMap.put("output_style", 1);
         try {
-            String a = b.a("https://ufosdk.baidu.com/?m=Index&a=getmsgbyclient", "sdk_encrypt=" + URLEncoder.encode(k.a(com.baidu.ufosdk.c.a.a(hashMap)), "UTF-8"));
-            if (!TextUtils.isEmpty(a)) {
-                String b = k.b(a);
+            String a2 = b.a("https://ufosdk.baidu.com/?m=Index&a=getmsgbyclient", "sdk_encrypt=" + URLEncoder.encode(k.a(com.baidu.ufosdk.c.a.a(hashMap)), "UTF-8"));
+            if (!TextUtils.isEmpty(a2)) {
+                String b = k.b(a2);
                 c.a("response is " + b);
                 JSONObject jSONObject = new JSONObject(b);
                 c.c("response is -- >  " + b);
@@ -830,9 +830,9 @@ public final class a {
         hashMap.put("sdkvn", "2.9.10");
         hashMap.put("output_style", 1);
         try {
-            String a = b.a("https://ufosdk.baidu.com/?m=Index&a=getallmsgbyclientid", "sdk_encrypt=" + URLEncoder.encode(k.a(com.baidu.ufosdk.c.a.a(hashMap)), "UTF-8"));
-            if (!TextUtils.isEmpty(a)) {
-                JSONObject jSONObject = new JSONObject(k.b(a));
+            String a2 = b.a("https://ufosdk.baidu.com/?m=Index&a=getallmsgbyclientid", "sdk_encrypt=" + URLEncoder.encode(k.a(com.baidu.ufosdk.c.a.a(hashMap)), "UTF-8"));
+            if (!TextUtils.isEmpty(a2)) {
+                JSONObject jSONObject = new JSONObject(k.b(a2));
                 c.a("response is " + jSONObject.toString());
                 int intValue = ((Integer) jSONObject.get(BaseJsonData.TAG_ERRNO)).intValue();
                 if (intValue == 0 && jSONObject.getInt("msgnum") > 0) {
@@ -866,9 +866,9 @@ public final class a {
         hashMap.put("sdkvn", "2.9.10");
         hashMap.put("id", str);
         try {
-            String a = b.a("https://ufosdk.baidu.com/?m=Index&a=delmsgbyid", "sdk_encrypt=" + URLEncoder.encode(k.a(com.baidu.ufosdk.c.a.a(hashMap)), "UTF-8"));
-            if (!TextUtils.isEmpty(a)) {
-                if (((Integer) new JSONObject(k.b(a)).get(BaseJsonData.TAG_ERRNO)).intValue() == 0) {
+            String a2 = b.a("https://ufosdk.baidu.com/?m=Index&a=delmsgbyid", "sdk_encrypt=" + URLEncoder.encode(k.a(com.baidu.ufosdk.c.a.a(hashMap)), "UTF-8"));
+            if (!TextUtils.isEmpty(a2)) {
+                if (((Integer) new JSONObject(k.b(a2)).get(BaseJsonData.TAG_ERRNO)).intValue() == 0) {
                     context.sendBroadcast(new Intent("com.baidu.ufosdk.getappkeysuccess_getnewhistoryflag"));
                     return true;
                 }

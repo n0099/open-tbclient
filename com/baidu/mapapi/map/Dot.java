@@ -4,9 +4,11 @@ import android.os.Bundle;
 import com.baidu.mapapi.model.CoordUtil;
 import com.baidu.mapapi.model.LatLng;
 import com.baidu.platform.comapi.basestruct.GeoPoint;
-/* loaded from: classes3.dex */
+/* loaded from: classes7.dex */
 public final class Dot extends Overlay {
-    LatLng a;
+
+    /* renamed from: a  reason: collision with root package name */
+    LatLng f2003a;
     int b;
     int c;
 
@@ -19,7 +21,7 @@ public final class Dot extends Overlay {
     @Override // com.baidu.mapapi.map.Overlay
     public Bundle a(Bundle bundle) {
         super.a(bundle);
-        GeoPoint ll2mc = CoordUtil.ll2mc(this.a);
+        GeoPoint ll2mc = CoordUtil.ll2mc(this.f2003a);
         bundle.putDouble("location_x", ll2mc.getLongitudeE6());
         bundle.putDouble("location_y", ll2mc.getLatitudeE6());
         bundle.putInt("radius", this.c);
@@ -28,7 +30,7 @@ public final class Dot extends Overlay {
     }
 
     public LatLng getCenter() {
-        return this.a;
+        return this.f2003a;
     }
 
     public int getColor() {
@@ -43,7 +45,7 @@ public final class Dot extends Overlay {
         if (latLng == null) {
             throw new IllegalArgumentException("BDMapSDKException: dot center can not be null");
         }
-        this.a = latLng;
+        this.f2003a = latLng;
         this.listener.b(this);
     }
 

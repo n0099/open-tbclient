@@ -4,7 +4,9 @@ import android.content.Context;
 import java.lang.reflect.Method;
 /* loaded from: classes16.dex */
 public class a {
-    private static Object a;
+
+    /* renamed from: a  reason: collision with root package name */
+    private static Object f2256a;
     private static Method b;
     private static Method c;
     private static Method d;
@@ -14,7 +16,7 @@ public class a {
     static {
         f = false;
         try {
-            a = Class.forName("com.baidu.crashpad.ZwCrashpad").getConstructor(new Class[0]).newInstance(new Object[0]);
+            f2256a = Class.forName("com.baidu.crashpad.ZwCrashpad").getConstructor(new Class[0]).newInstance(new Object[0]);
             Class<?> cls = Class.forName("com.baidu.crashpad.ZwCrashpad");
             b = com.baidu.media.duplayer.a.a.a(cls, "doInit", Context.class, String[].class);
             d = com.baidu.media.duplayer.a.a.a(cls, "setStatisticParam", String.class);
@@ -31,7 +33,7 @@ public class a {
     public static void a(Context context, String[] strArr) {
         try {
             if (f) {
-                b.invoke(a, context, strArr);
+                b.invoke(f2256a, context, strArr);
             }
         } catch (Exception e2) {
             e2.printStackTrace();
@@ -41,7 +43,7 @@ public class a {
     public static void a(String str) {
         try {
             if (f) {
-                d.invoke(a, str);
+                d.invoke(f2256a, str);
             }
         } catch (Exception e2) {
             e2.printStackTrace();
@@ -51,7 +53,7 @@ public class a {
     public static void a(String str, String str2) {
         try {
             if (f) {
-                e.invoke(a, str, str2);
+                e.invoke(f2256a, str, str2);
             }
         } catch (Exception e2) {
             e2.printStackTrace();
@@ -61,7 +63,7 @@ public class a {
     public static void a(boolean z) {
         try {
             if (f) {
-                c.invoke(a, Boolean.valueOf(z));
+                c.invoke(f2256a, Boolean.valueOf(z));
             }
         } catch (Exception e2) {
             e2.printStackTrace();

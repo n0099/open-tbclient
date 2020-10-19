@@ -2,13 +2,15 @@ package com.baidu.pano.platform.a.a;
 
 import com.baidu.pano.platform.a.q;
 import java.io.UnsupportedEncodingException;
-/* loaded from: classes3.dex */
+/* loaded from: classes7.dex */
 public class m extends com.baidu.pano.platform.a.n<String> {
-    private final q.b<String> a;
+
+    /* renamed from: a  reason: collision with root package name */
+    private final q.b<String> f2645a;
 
     public m(int i, String str, q.b<String> bVar, q.a aVar) {
         super(i, str, aVar);
-        this.a = bVar;
+        this.f2645a = bVar;
     }
 
     public m(String str, q.b<String> bVar, q.a aVar) {
@@ -20,7 +22,7 @@ public class m extends com.baidu.pano.platform.a.n<String> {
     @Override // com.baidu.pano.platform.a.n
     /* renamed from: d */
     public void a(String str) {
-        this.a.a(str);
+        this.f2645a.a(str);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */

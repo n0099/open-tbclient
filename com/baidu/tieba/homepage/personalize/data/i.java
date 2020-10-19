@@ -7,16 +7,16 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.squareup.wire.Wire;
 import java.io.IOException;
 import tbclient.Personalized.DataRes;
-/* loaded from: classes21.dex */
+/* loaded from: classes22.dex */
 public class i {
-    public static boolean iYI = false;
+    public static boolean jnH = false;
 
-    public static DataRes cCe() {
-        l<byte[]> dv = com.baidu.tbadk.core.c.a.bhV().dv("tb.rec_old_data", TbadkCoreApplication.getCurrentAccount());
-        if (dv == null) {
+    public static DataRes cFN() {
+        l<byte[]> dA = com.baidu.tbadk.core.c.a.bkE().dA("tb.rec_old_data", TbadkCoreApplication.getCurrentAccount());
+        if (dA == null) {
             return null;
         }
-        byte[] bArr = dv.get("0");
+        byte[] bArr = dA.get("0");
         if (bArr == null || bArr.length == 0) {
             return null;
         }
@@ -28,10 +28,10 @@ public class i {
         }
     }
 
-    public static void cCf() {
-        l<byte[]> dv = com.baidu.tbadk.core.c.a.bhV().dv("tb.rec_old_data", TbadkCoreApplication.getCurrentAccount());
-        if (dv != null) {
-            dv.set("0", new byte[0], 0L);
+    public static void cFO() {
+        l<byte[]> dA = com.baidu.tbadk.core.c.a.bkE().dA("tb.rec_old_data", TbadkCoreApplication.getCurrentAccount());
+        if (dA != null) {
+            dA.set("0", new byte[0], 0L);
         }
     }
 

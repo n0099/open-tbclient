@@ -56,7 +56,7 @@ public class PermissionJudgePolicy {
     }
 
     public boolean startRequestPermission(Activity activity, boolean z, boolean z2) {
-        if (!a.UA()) {
+        if (!a.Wx()) {
             onPermissionsGranted();
             return false;
         } else if (ListUtils.isEmpty(this.requestPermissionList)) {
@@ -202,6 +202,9 @@ public class PermissionJudgePolicy {
             }
             if (TbadkCoreApplication.getInst().isMobileBaidu()) {
                 return activity.getResources().getString(a.i.sdk_permission_app_type_bd_text);
+            }
+            if (TbadkCoreApplication.getInst().isYinbo()) {
+                return activity.getResources().getString(a.i.sdk_permission_app_type_yb_text);
             }
             if (TbadkCoreApplication.getInst().isOther() && !TextUtils.isEmpty(TbConfig.getSubappName())) {
                 return TbConfig.getSubappName();

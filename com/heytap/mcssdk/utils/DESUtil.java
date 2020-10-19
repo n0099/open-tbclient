@@ -7,7 +7,7 @@ import java.security.SecureRandom;
 import javax.crypto.Cipher;
 import javax.crypto.SecretKeyFactory;
 import javax.crypto.spec.DESKeySpec;
-/* loaded from: classes12.dex */
+/* loaded from: classes15.dex */
 public abstract class DESUtil {
     public static String decrypt(String str, String str2) {
         Cipher cipher = Cipher.getInstance("DES");

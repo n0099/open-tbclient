@@ -9,23 +9,23 @@ import io.reactivex.u;
 import java.util.Arrays;
 import java.util.concurrent.atomic.AtomicInteger;
 import java.util.concurrent.atomic.AtomicReference;
-/* loaded from: classes25.dex */
+/* loaded from: classes17.dex */
 public final class ObservableZip<T, R> extends q<R> {
     final int bufferSize;
     final boolean delayError;
-    final Iterable<? extends t<? extends T>> owF;
-    final t<? extends T>[] oxZ;
+    final Iterable<? extends t<? extends T>> oLU;
+    final t<? extends T>[] oNo;
     final h<? super Object[], ? extends R> zipper;
 
     @Override // io.reactivex.q
     public void a(u<? super R> uVar) {
         int length;
         t<? extends T>[] tVarArr;
-        t<? extends T>[] tVarArr2 = this.oxZ;
+        t<? extends T>[] tVarArr2 = this.oNo;
         if (tVarArr2 == null) {
             tVarArr2 = new q[8];
             length = 0;
-            for (t<? extends T> tVar : this.owF) {
+            for (t<? extends T> tVar : this.oLU) {
                 if (length == tVarArr2.length) {
                     tVarArr = new t[(length >> 2) + length];
                     System.arraycopy(tVarArr2, 0, tVarArr, 0, length);
@@ -46,7 +46,7 @@ public final class ObservableZip<T, R> extends q<R> {
         }
     }
 
-    /* loaded from: classes25.dex */
+    /* loaded from: classes17.dex */
     static final class ZipCoordinator<T, R> extends AtomicInteger implements io.reactivex.disposables.b {
         private static final long serialVersionUID = 2983708048395377667L;
         final u<? super R> actual;
@@ -151,7 +151,7 @@ public final class ObservableZip<T, R> extends q<R> {
                     }
                     if (i3 == 0) {
                         try {
-                            uVar.onNext((Object) io.reactivex.internal.functions.a.k(this.zipper.apply(tArr.clone()), "The zipper returned a null value"));
+                            uVar.onNext((Object) io.reactivex.internal.functions.a.l(this.zipper.apply(tArr.clone()), "The zipper returned a null value"));
                             Arrays.fill(tArr, (Object) null);
                         } catch (Throwable th2) {
                             io.reactivex.exceptions.a.J(th2);
@@ -205,16 +205,16 @@ public final class ObservableZip<T, R> extends q<R> {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes25.dex */
+    /* loaded from: classes17.dex */
     public static final class a<T, R> implements u<T> {
         volatile boolean done;
         Throwable error;
-        final ZipCoordinator<T, R> oyH;
+        final ZipCoordinator<T, R> oNW;
         final io.reactivex.internal.queue.a<T> queue;
         final AtomicReference<io.reactivex.disposables.b> s = new AtomicReference<>();
 
         a(ZipCoordinator<T, R> zipCoordinator, int i) {
-            this.oyH = zipCoordinator;
+            this.oNW = zipCoordinator;
             this.queue = new io.reactivex.internal.queue.a<>(i);
         }
 
@@ -226,20 +226,20 @@ public final class ObservableZip<T, R> extends q<R> {
         @Override // io.reactivex.u
         public void onNext(T t) {
             this.queue.offer(t);
-            this.oyH.drain();
+            this.oNW.drain();
         }
 
         @Override // io.reactivex.u
         public void onError(Throwable th) {
             this.error = th;
             this.done = true;
-            this.oyH.drain();
+            this.oNW.drain();
         }
 
         @Override // io.reactivex.u
         public void onComplete() {
             this.done = true;
-            this.oyH.drain();
+            this.oNW.drain();
         }
 
         public void dispose() {

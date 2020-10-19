@@ -10,9 +10,9 @@ import java.lang.reflect.Array;
 import java.lang.reflect.GenericArrayType;
 import java.lang.reflect.Type;
 import java.util.ArrayList;
-/* loaded from: classes23.dex */
+/* loaded from: classes17.dex */
 public final class ArrayTypeAdapter<E> extends TypeAdapter<Object> {
-    public static final TypeAdapterFactory nNO = new TypeAdapterFactory() { // from class: com.google.gson.internal.bind.ArrayTypeAdapter.1
+    public static final TypeAdapterFactory odg = new TypeAdapterFactory() { // from class: com.google.gson.internal.bind.ArrayTypeAdapter.1
         @Override // com.google.gson.TypeAdapterFactory
         public <T> TypeAdapter<T> create(Gson gson, com.google.gson.b.a<T> aVar) {
             Type type = aVar.getType();
@@ -24,23 +24,23 @@ public final class ArrayTypeAdapter<E> extends TypeAdapter<Object> {
         }
     };
     private final Class<E> componentType;
-    private final TypeAdapter<E> nNP;
+    private final TypeAdapter<E> odh;
 
     public ArrayTypeAdapter(Gson gson, TypeAdapter<E> typeAdapter, Class<E> cls) {
-        this.nNP = new TypeAdapterRuntimeTypeWrapper(gson, typeAdapter, cls);
+        this.odh = new TypeAdapterRuntimeTypeWrapper(gson, typeAdapter, cls);
         this.componentType = cls;
     }
 
     @Override // com.google.gson.TypeAdapter
     public Object read(com.google.gson.stream.a aVar) throws IOException {
-        if (aVar.ebw() == JsonToken.NULL) {
-            aVar.ebB();
+        if (aVar.efh() == JsonToken.NULL) {
+            aVar.efm();
             return null;
         }
         ArrayList arrayList = new ArrayList();
-        aVar.ebu();
+        aVar.eff();
         while (aVar.hasNext()) {
-            arrayList.add(this.nNP.read(aVar));
+            arrayList.add(this.odh.read(aVar));
         }
         aVar.endArray();
         int size = arrayList.size();
@@ -56,14 +56,14 @@ public final class ArrayTypeAdapter<E> extends TypeAdapter<Object> {
     @Override // com.google.gson.TypeAdapter
     public void write(com.google.gson.stream.b bVar, Object obj) throws IOException {
         if (obj == null) {
-            bVar.ebL();
+            bVar.efw();
             return;
         }
-        bVar.ebH();
+        bVar.efs();
         int length = Array.getLength(obj);
         for (int i = 0; i < length; i++) {
-            this.nNP.write(bVar, Array.get(obj, i));
+            this.odh.write(bVar, Array.get(obj, i));
         }
-        bVar.ebI();
+        bVar.eft();
     }
 }

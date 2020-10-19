@@ -1,11 +1,13 @@
 package com.baidu.fsg.base.statistics;
-/* loaded from: classes15.dex */
+/* loaded from: classes16.dex */
 class e implements Runnable {
-    final /* synthetic */ d a;
+
+    /* renamed from: a  reason: collision with root package name */
+    final /* synthetic */ d f1489a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public e(d dVar) {
-        this.a = dVar;
+        this.f1489a = dVar;
     }
 
     @Override // java.lang.Runnable

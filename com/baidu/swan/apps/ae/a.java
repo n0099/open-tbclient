@@ -1,9 +1,9 @@
 package com.baidu.swan.apps.ae;
 
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes10.dex */
 public interface a {
-    void ao(JSONObject jSONObject);
+    void av(JSONObject jSONObject);
 
     void onFail(String str);
 }

@@ -7,13 +7,13 @@ import com.baidu.tieba.ala.alasquare.special_forum.subtab.a.i;
 import com.baidu.tieba.ala.alasquare.special_forum.subtab.a.j;
 /* loaded from: classes4.dex */
 public class f extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.ala.alasquare.subtablist.b.b, j> {
-    private i fNs;
-    private com.baidu.tieba.ala.alasquare.subtablist.c.i fNt;
+    private i fZJ;
+    private com.baidu.tieba.ala.alasquare.subtablist.c.i fZK;
     private int mFrom;
     private TbPageContext<?> mPageContext;
 
     public f(TbPageContext<?> tbPageContext) {
-        super(tbPageContext.getPageActivity(), com.baidu.tieba.ala.alasquare.subtablist.b.b.fPx);
+        super(tbPageContext.getPageActivity(), com.baidu.tieba.ala.alasquare.subtablist.b.b.gbP);
         this.mPageContext = tbPageContext;
     }
 
@@ -24,27 +24,27 @@ public class f extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.ala.alasq
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.widget.ListView.a
-    /* renamed from: X */
+    /* renamed from: Z */
     public j c(ViewGroup viewGroup) {
-        this.fNs = new i(this.mPageContext, viewGroup);
-        if (this.fNt != null) {
-            this.fNs.d(this.fNt);
+        this.fZJ = new i(this.mPageContext, viewGroup);
+        if (this.fZK != null) {
+            this.fZJ.d(this.fZK);
         }
-        return new j(this.fNs);
+        return new j(this.fZJ);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.widget.ListView.a
     public View a(int i, View view, ViewGroup viewGroup, com.baidu.tieba.ala.alasquare.subtablist.b.b bVar, j jVar) {
-        jVar.fNs.a(bVar, this.mFrom);
+        jVar.fZJ.a(bVar, this.mFrom);
         return jVar.getView();
     }
 
     public void b(com.baidu.tieba.ala.alasquare.subtablist.c.i iVar) {
-        this.fNt = iVar;
-        if (this.fNs != null) {
-            this.fNs.d(this.fNt);
+        this.fZK = iVar;
+        if (this.fZJ != null) {
+            this.fZJ.d(this.fZK);
         }
     }
 }

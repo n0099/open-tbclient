@@ -12,16 +12,16 @@ import java.util.Arrays;
 import java.util.UUID;
 import org.aspectj.a.b.b;
 import org.aspectj.lang.a;
-/* loaded from: classes4.dex */
+/* loaded from: classes11.dex */
 public abstract class AbstractTrackEncryptionBox extends AbstractFullBox {
-    private static final /* synthetic */ a.InterfaceC0979a ajc$tjp_0 = null;
-    private static final /* synthetic */ a.InterfaceC0979a ajc$tjp_1 = null;
-    private static final /* synthetic */ a.InterfaceC0979a ajc$tjp_2 = null;
-    private static final /* synthetic */ a.InterfaceC0979a ajc$tjp_3 = null;
-    private static final /* synthetic */ a.InterfaceC0979a ajc$tjp_4 = null;
-    private static final /* synthetic */ a.InterfaceC0979a ajc$tjp_5 = null;
-    private static final /* synthetic */ a.InterfaceC0979a ajc$tjp_6 = null;
-    private static final /* synthetic */ a.InterfaceC0979a ajc$tjp_7 = null;
+    private static final /* synthetic */ a.InterfaceC0997a ajc$tjp_0 = null;
+    private static final /* synthetic */ a.InterfaceC0997a ajc$tjp_1 = null;
+    private static final /* synthetic */ a.InterfaceC0997a ajc$tjp_2 = null;
+    private static final /* synthetic */ a.InterfaceC0997a ajc$tjp_3 = null;
+    private static final /* synthetic */ a.InterfaceC0997a ajc$tjp_4 = null;
+    private static final /* synthetic */ a.InterfaceC0997a ajc$tjp_5 = null;
+    private static final /* synthetic */ a.InterfaceC0997a ajc$tjp_6 = null;
+    private static final /* synthetic */ a.InterfaceC0997a ajc$tjp_7 = null;
     int defaultAlgorithmId;
     int defaultIvSize;
     byte[] default_KID;
@@ -53,7 +53,7 @@ public abstract class AbstractTrackEncryptionBox extends AbstractFullBox {
     }
 
     public void setDefaultAlgorithmId(int i) {
-        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_1, this, this, org.aspectj.a.a.a.OL(i)));
+        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_1, this, this, org.aspectj.a.a.a.Pr(i)));
         this.defaultAlgorithmId = i;
     }
 
@@ -63,7 +63,7 @@ public abstract class AbstractTrackEncryptionBox extends AbstractFullBox {
     }
 
     public void setDefaultIvSize(int i) {
-        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_3, this, this, org.aspectj.a.a.a.OL(i)));
+        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_3, this, this, org.aspectj.a.a.a.Pr(i)));
         this.defaultIvSize = i;
     }
 

@@ -12,26 +12,26 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import com.baidu.searchbox.common.runtime.AppRuntime;
 import com.baidu.swan.apps.ap.ah;
-/* loaded from: classes24.dex */
+/* loaded from: classes25.dex */
 public class a {
     public static View a(final com.baidu.swan.impl.map.item.c cVar, final com.baidu.swan.apps.w.a.a.d dVar) {
         com.baidu.swan.apps.console.c.i("map", "creatCallout start");
         Paint paint = new Paint();
         paint.setAntiAlias(true);
         paint.setStyle(Paint.Style.FILL_AND_STROKE);
-        paint.setColor(dVar.cAd.color);
-        paint.setTextSize(dVar.cAd.atR);
-        float f = dVar.cAd.cAi;
-        float f2 = dVar.cAd.atL;
+        paint.setColor(dVar.cMi.color);
+        paint.setTextSize(dVar.cMi.auA);
+        float f = dVar.cMi.cMn;
+        float f2 = dVar.cMi.auu;
         Paint paint2 = new Paint();
         paint2.setAntiAlias(true);
         paint2.setStyle(Paint.Style.FILL_AND_STROKE);
-        paint2.setColor(dVar.cAd.bgColor);
-        String str = dVar.cAd.content;
-        int H = ah.H(6.0f);
+        paint2.setColor(dVar.cMi.bgColor);
+        String str = dVar.cMi.content;
+        int J = ah.J(6.0f);
         float measureText = paint.measureText(str) + (2.0f * f);
         float f3 = paint.getFontMetrics().bottom - paint.getFontMetrics().top;
-        float f4 = H + f3 + (2.0f * f);
+        float f4 = J + f3 + (2.0f * f);
         if (f4 <= 0.0f || measureText <= 0.0f) {
             com.baidu.swan.apps.console.c.w("map", "callout height or wodth is 0");
             return new ImageView(AppRuntime.getAppContext());
@@ -47,9 +47,9 @@ public class a {
         rectF.right = measureText;
         canvas.drawRoundRect(rectF, f2, f2, paint2);
         Path path = new Path();
-        path.moveTo((measureText / 2.0f) - (H / 2), (2.0f * f) + f3);
+        path.moveTo((measureText / 2.0f) - (J / 2), (2.0f * f) + f3);
         path.lineTo(measureText / 2.0f, f4);
-        path.lineTo((H / 2) + (measureText / 2.0f), (2.0f * f) + f3);
+        path.lineTo((J / 2) + (measureText / 2.0f), (2.0f * f) + f3);
         path.close();
         canvas.drawPath(path, paint2);
         canvas.drawText(str, f, (-paint.getFontMetrics().top) + f, paint);

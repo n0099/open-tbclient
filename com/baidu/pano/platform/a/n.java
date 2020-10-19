@@ -13,10 +13,12 @@ import java.io.UnsupportedEncodingException;
 import java.net.URLEncoder;
 import java.util.Collections;
 import java.util.Map;
-/* loaded from: classes3.dex */
+/* loaded from: classes7.dex */
 public abstract class n<T> implements Comparable<n<T>> {
     private static long p;
-    private final w.a a;
+
+    /* renamed from: a  reason: collision with root package name */
+    private final w.a f2656a;
     private final int b;
     private final String c;
     private String d;
@@ -32,7 +34,7 @@ public abstract class n<T> implements Comparable<n<T>> {
     private s n;
     private b.a o;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes7.dex */
     public enum a {
         LOW,
         NORMAL,
@@ -52,7 +54,7 @@ public abstract class n<T> implements Comparable<n<T>> {
     }
 
     public n(int i, String str, q.a aVar) {
-        this.a = w.a.a ? new w.a() : null;
+        this.f2656a = w.a.f2663a ? new w.a() : null;
         this.j = true;
         this.k = false;
         this.l = false;
@@ -91,8 +93,8 @@ public abstract class n<T> implements Comparable<n<T>> {
     }
 
     public void a(String str) {
-        if (w.a.a) {
-            this.a.a(str, Thread.currentThread().getId());
+        if (w.a.f2663a) {
+            this.f2656a.a(str, Thread.currentThread().getId());
         } else if (this.m == 0) {
             this.m = SystemClock.elapsedRealtime();
         }
@@ -103,14 +105,14 @@ public abstract class n<T> implements Comparable<n<T>> {
         if (this.i != null) {
             this.i.b(this);
         }
-        if (w.a.a) {
+        if (w.a.f2663a) {
             long id = Thread.currentThread().getId();
             if (Looper.myLooper() != Looper.getMainLooper()) {
                 new Handler(Looper.getMainLooper()).post(new o(this, str, id));
                 return;
             }
-            this.a.a(str, id);
-            this.a.a(toString());
+            this.f2656a.a(str, id);
+            this.f2656a.a(toString());
             return;
         }
         long elapsedRealtime = SystemClock.elapsedRealtime() - this.m;

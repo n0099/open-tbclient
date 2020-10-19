@@ -5,11 +5,11 @@ import com.baidu.webkit.sdk.plugin.ZeusPlugin;
 import java.util.ArrayList;
 import java.util.HashMap;
 import org.apache.http.cookie.SM;
-/* loaded from: classes3.dex */
+/* loaded from: classes10.dex */
 public class a extends com.baidu.swan.apps.inlinewidget.a<com.baidu.swan.apps.inlinewidget.b.a> {
     @Override // com.baidu.swan.apps.inlinewidget.a
     @NonNull
-    public String aot() {
+    public String arf() {
         return "extractMediaMetadata";
     }
 

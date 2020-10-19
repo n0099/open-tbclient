@@ -3,9 +3,11 @@ package com.sdk.base.framework.f.j;
 import com.sdk.base.framework.c.f;
 import java.nio.charset.Charset;
 import java.security.MessageDigest;
-/* loaded from: classes5.dex */
+/* loaded from: classes16.dex */
 public class e extends com.sdk.base.framework.f.a {
-    private static final String a = e.class.getName();
+
+    /* renamed from: a  reason: collision with root package name */
+    private static final String f4509a = e.class.getName();
     private static boolean b = f.b;
 
     static {
@@ -30,7 +32,7 @@ public class e extends com.sdk.base.framework.f.a {
             }
             return sb.toString();
         } catch (Exception e) {
-            a(a, "encrypt", e.getMessage(), b);
+            a(f4509a, "encrypt", e.getMessage(), b);
             return null;
         }
     }

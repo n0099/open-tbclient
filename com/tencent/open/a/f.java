@@ -5,23 +5,25 @@ import android.text.TextUtils;
 import com.tencent.connect.common.Constants;
 import com.tencent.open.a.d;
 import java.io.File;
-/* loaded from: classes24.dex */
+/* loaded from: classes6.dex */
 public class f {
     protected a b = new a(c);
-    public static f a = null;
+
+    /* renamed from: a  reason: collision with root package name */
+    public static f f4580a = null;
     private static boolean d = false;
     protected static final b c = new b(c(), c.m, c.g, c.h, c.c, c.i, 10, c.e, c.n);
 
     public static f a() {
-        if (a == null) {
+        if (f4580a == null) {
             synchronized (f.class) {
-                if (a == null) {
-                    a = new f();
+                if (f4580a == null) {
+                    f4580a = new f();
                     d = true;
                 }
             }
         }
-        return a;
+        return f4580a;
     }
 
     private f() {
@@ -33,7 +35,7 @@ public class f {
             if (!TextUtils.isEmpty(b)) {
                 String str3 = b + " SDK_VERSION:" + Constants.SDK_VERSION;
                 if (this.b != null) {
-                    e.a.b(32, Thread.currentThread(), System.currentTimeMillis(), "openSDK_LOG", str3, null);
+                    e.f4579a.b(32, Thread.currentThread(), System.currentTimeMillis(), "openSDK_LOG", str3, null);
                     this.b.b(32, Thread.currentThread(), System.currentTimeMillis(), "openSDK_LOG", str3, null);
                     d = false;
                 } else {
@@ -41,7 +43,7 @@ public class f {
                 }
             }
         }
-        e.a.b(i, Thread.currentThread(), System.currentTimeMillis(), str, str2, th);
+        e.f4579a.b(i, Thread.currentThread(), System.currentTimeMillis(), str, str2, th);
         if (d.a.a(c.b, i) && this.b != null) {
             this.b.b(i, Thread.currentThread(), System.currentTimeMillis(), str, str2, th);
         }
@@ -78,8 +80,8 @@ public class f {
     public static void b() {
         synchronized (f.class) {
             a().d();
-            if (a != null) {
-                a = null;
+            if (f4580a != null) {
+                f4580a = null;
             }
         }
     }

@@ -8,9 +8,11 @@ import com.baidu.mapapi.model.LatLng;
 import com.baidu.platform.comapi.basestruct.GeoPoint;
 import com.baidu.tbadk.core.atomData.AddFriendActivityConfig;
 import java.util.List;
-/* loaded from: classes3.dex */
+/* loaded from: classes7.dex */
 public final class Polyline extends Overlay {
-    int a;
+
+    /* renamed from: a  reason: collision with root package name */
+    int f2035a;
     List<LatLng> b;
     int[] c;
     int[] d;
@@ -95,7 +97,7 @@ public final class Polyline extends Overlay {
         bundle.putDouble("location_y", ll2mc.getLatitudeE6());
         bundle.putInt("width", this.e);
         Overlay.a(this.b, bundle);
-        Overlay.a(this.a, bundle);
+        Overlay.a(this.f2035a, bundle);
         a(this.c, bundle);
         b(this.d, bundle);
         if (this.c != null && this.c.length > 0 && this.c.length > this.b.size() - 1) {
@@ -144,7 +146,7 @@ public final class Polyline extends Overlay {
     }
 
     public int getColor() {
-        return this.a;
+        return this.f2035a;
     }
 
     public int[] getColorList() {
@@ -201,7 +203,7 @@ public final class Polyline extends Overlay {
     }
 
     public void setColor(int i) {
-        this.a = i;
+        this.f2035a = i;
         this.listener.b(this);
     }
 

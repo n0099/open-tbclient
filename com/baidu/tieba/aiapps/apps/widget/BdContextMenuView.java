@@ -19,10 +19,10 @@ import com.baidu.swan.apps.res.widget.a.a;
 import com.baidu.swan.apps.res.widget.a.b;
 import com.baidu.tieba.R;
 import java.util.List;
-/* loaded from: classes24.dex */
+/* loaded from: classes25.dex */
 public class BdContextMenuView extends FrameLayout implements a.b {
     private static final boolean DEBUG = b.DEBUG;
-    private a fxm;
+    private a fJv;
     private Context mContext;
     public boolean mLayoutInCenter;
     private ListView mListView;
@@ -62,7 +62,7 @@ public class BdContextMenuView extends FrameLayout implements a.b {
         this.mListView.setOnItemClickListener(new AdapterView.OnItemClickListener() { // from class: com.baidu.tieba.aiapps.apps.widget.BdContextMenuView.1
             @Override // android.widget.AdapterView.OnItemClickListener
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long j) {
-                BdContextMenuView.this.fxm.onItemClicked(i);
+                BdContextMenuView.this.fJv.onItemClicked(i);
             }
         });
     }
@@ -71,19 +71,19 @@ public class BdContextMenuView extends FrameLayout implements a.b {
         this.mLayoutInCenter = z;
     }
 
-    /* loaded from: classes24.dex */
+    /* loaded from: classes25.dex */
     private class a extends BaseAdapter {
-        final /* synthetic */ BdContextMenuView fxn;
+        final /* synthetic */ BdContextMenuView fJw;
         private Context mContext;
         private List<com.baidu.swan.apps.res.widget.a.b> mDataList;
 
         /* renamed from: com.baidu.tieba.aiapps.apps.widget.BdContextMenuView$a$a  reason: collision with other inner class name */
-        /* loaded from: classes24.dex */
-        public class C0577a {
+        /* loaded from: classes25.dex */
+        public class C0594a {
             public ImageView mListIcon;
             public TextView mListName;
 
-            public C0577a() {
+            public C0594a() {
             }
         }
 
@@ -105,44 +105,44 @@ public class BdContextMenuView extends FrameLayout implements a.b {
         @Override // android.widget.Adapter
         @SuppressLint({"InflateParams"})
         public View getView(int i, View view, ViewGroup viewGroup) {
-            C0577a c0577a;
+            C0594a c0594a;
             View view2;
             if (view == null) {
                 view2 = LayoutInflater.from(this.mContext).inflate(R.layout.aiapps_menu_item_view, (ViewGroup) null);
-                C0577a c0577a2 = new C0577a();
-                c0577a2.mListIcon = (ImageView) view2.findViewById(R.id.item_icon);
-                c0577a2.mListName = (TextView) view2.findViewById(R.id.item_title);
-                c0577a2.mListName.setTextColor(this.mContext.getResources().getColor(R.color.aiapps_context_menu_item_title_color));
+                C0594a c0594a2 = new C0594a();
+                c0594a2.mListIcon = (ImageView) view2.findViewById(R.id.item_icon);
+                c0594a2.mListName = (TextView) view2.findViewById(R.id.item_title);
+                c0594a2.mListName.setTextColor(this.mContext.getResources().getColor(R.color.aiapps_context_menu_item_title_color));
                 setBackgroundSelector(view2, i);
-                view2.setTag(c0577a2);
-                c0577a = c0577a2;
+                view2.setTag(c0594a2);
+                c0594a = c0594a2;
             } else {
-                c0577a = (C0577a) view.getTag();
+                c0594a = (C0594a) view.getTag();
                 view2 = view;
             }
             com.baidu.swan.apps.res.widget.a.b bVar = this.mDataList.get(i);
-            c0577a.mListName.setText(bVar.getTitle());
-            LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) c0577a.mListName.getLayoutParams();
-            LinearLayout.LayoutParams layoutParams2 = (LinearLayout.LayoutParams) c0577a.mListIcon.getLayoutParams();
+            c0594a.mListName.setText(bVar.getTitle());
+            LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) c0594a.mListName.getLayoutParams();
+            LinearLayout.LayoutParams layoutParams2 = (LinearLayout.LayoutParams) c0594a.mListIcon.getLayoutParams();
             if (bVar.getIcon() != null) {
-                c0577a.mListIcon.setVisibility(0);
-                c0577a.mListIcon.setImageDrawable(bVar.getIcon());
+                c0594a.mListIcon.setVisibility(0);
+                c0594a.mListIcon.setImageDrawable(bVar.getIcon());
                 layoutParams.setMarginStart(this.mContext.getResources().getDimensionPixelSize(R.dimen.aiapps_context_menu_item_title_left_margin));
-                c0577a.mListName.setLayoutParams(layoutParams);
+                c0594a.mListName.setLayoutParams(layoutParams);
             } else {
-                c0577a.mListIcon.setVisibility(8);
+                c0594a.mListIcon.setVisibility(8);
                 layoutParams.setMarginStart(this.mContext.getResources().getDimensionPixelSize(R.dimen.aiapps_context_menu_item_icon_left_margin));
-                c0577a.mListName.setLayoutParams(layoutParams);
+                c0594a.mListName.setLayoutParams(layoutParams);
             }
-            if (this.fxn.mLayoutInCenter) {
+            if (this.fJw.mLayoutInCenter) {
                 ((LinearLayout) view2).setGravity(17);
                 layoutParams.width = -2;
                 if (bVar.getIcon() != null) {
                     layoutParams2.setMarginStart(0);
-                    c0577a.mListIcon.setLayoutParams(layoutParams2);
+                    c0594a.mListIcon.setLayoutParams(layoutParams2);
                 } else {
                     layoutParams.setMarginStart(0);
-                    c0577a.mListName.setLayoutParams(layoutParams);
+                    c0594a.mListName.setLayoutParams(layoutParams);
                 }
             }
             return view2;
@@ -150,9 +150,9 @@ public class BdContextMenuView extends FrameLayout implements a.b {
 
         public void onItemClicked(int i) {
             com.baidu.swan.apps.res.widget.a.b bVar = this.mDataList.get(i);
-            b.a aAf = bVar.aAf();
-            if (aAf != null) {
-                aAf.b(bVar);
+            b.a aCO = bVar.aCO();
+            if (aCO != null) {
+                aCO.b(bVar);
             }
         }
 

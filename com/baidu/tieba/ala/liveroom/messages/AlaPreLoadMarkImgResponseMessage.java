@@ -8,7 +8,7 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 /* loaded from: classes4.dex */
 public class AlaPreLoadMarkImgResponseMessage extends JsonHttpResponsedMessage {
-    private List<String> gIx;
+    private List<String> gWX;
 
     public AlaPreLoadMarkImgResponseMessage() {
         super(1021117);
@@ -19,19 +19,19 @@ public class AlaPreLoadMarkImgResponseMessage extends JsonHttpResponsedMessage {
         JSONArray optJSONArray;
         super.decodeLogicInBackGround(i, jSONObject);
         if (jSONObject != null && (optJSONArray = jSONObject.optJSONArray("data")) != null && optJSONArray.length() > 0) {
-            if (this.gIx == null) {
-                this.gIx = new ArrayList();
+            if (this.gWX == null) {
+                this.gWX = new ArrayList();
             }
             for (int i2 = 0; i2 < optJSONArray.length(); i2++) {
                 String optString = optJSONArray.optString(i2);
                 if (!TextUtils.isEmpty(optString)) {
-                    this.gIx.add(optString);
+                    this.gWX.add(optString);
                 }
             }
         }
     }
 
-    public List<String> bWL() {
-        return this.gIx;
+    public List<String> cag() {
+        return this.gWX;
     }
 }

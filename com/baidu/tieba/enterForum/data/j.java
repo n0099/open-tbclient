@@ -4,19 +4,19 @@ import com.baidu.adp.lib.util.StringUtils;
 import java.util.ArrayList;
 import java.util.List;
 import tbclient.FrsTabInfo;
-/* loaded from: classes21.dex */
+/* loaded from: classes22.dex */
 public class j {
-    private ArrayList<i> hBD;
+    private ArrayList<i> hQy;
 
-    public void co(List<FrsTabInfo> list) {
-        if (this.hBD == null) {
-            this.hBD = new ArrayList<>();
+    public void cr(List<FrsTabInfo> list) {
+        if (this.hQy == null) {
+            this.hQy = new ArrayList<>();
         }
-        this.hBD.clear();
+        this.hQy.clear();
         if (list != null) {
             for (FrsTabInfo frsTabInfo : list) {
                 if (frsTabInfo != null && !StringUtils.isNull(frsTabInfo.tab_code) && !StringUtils.isNull(frsTabInfo.tab_name)) {
-                    this.hBD.add(new i(frsTabInfo));
+                    this.hQy.add(new i(frsTabInfo));
                 }
             }
         }

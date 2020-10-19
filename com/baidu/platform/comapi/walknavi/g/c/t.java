@@ -2,15 +2,17 @@ package com.baidu.platform.comapi.walknavi.g.c;
 
 import android.os.Handler;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes3.dex */
+/* loaded from: classes7.dex */
 public class t implements com.baidu.platform.comapi.walknavi.d.c {
-    final /* synthetic */ String a;
+
+    /* renamed from: a  reason: collision with root package name */
+    final /* synthetic */ String f3044a;
     final /* synthetic */ c b;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public t(c cVar, String str) {
         this.b = cVar;
-        this.a = str;
+        this.f3044a = str;
     }
 
     @Override // com.baidu.platform.comapi.walknavi.d.c
@@ -22,7 +24,7 @@ public class t implements com.baidu.platform.comapi.walknavi.d.c {
             handler.postDelayed(new u(this), 500L);
             return;
         }
-        com.baidu.platform.comapi.walknavi.d.e.c().a(this.a, true);
+        com.baidu.platform.comapi.walknavi.d.e.c().a(this.f3044a, true);
     }
 
     @Override // com.baidu.platform.comapi.walknavi.d.c

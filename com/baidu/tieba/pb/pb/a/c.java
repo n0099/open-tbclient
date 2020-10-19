@@ -11,27 +11,27 @@ import com.baidu.tbadk.core.util.ap;
 import com.baidu.tieba.R;
 import com.baidu.tieba.pb.pb.main.o;
 import com.baidu.tieba.tbadkCore.data.PostData;
-/* loaded from: classes21.dex */
+/* loaded from: classes22.dex */
 public class c extends o<PostData, a> {
-    private View.OnClickListener bnA;
+    private View.OnClickListener brn;
 
     public c(com.baidu.tieba.pb.videopb.b bVar, BdUniqueId bdUniqueId) {
         super(bVar, bdUniqueId);
     }
 
     public void setOnClickListener(View.OnClickListener onClickListener) {
-        this.bnA = onClickListener;
+        this.brn = onClickListener;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.widget.ListView.a
-    /* renamed from: ca */
+    /* renamed from: cc */
     public a c(ViewGroup viewGroup) {
         View inflate = LayoutInflater.from(this.mContext).inflate(R.layout.pb_reply_load_more_item, viewGroup, false);
-        inflate.findViewById(R.id.tv_pb_reply_more).setOnClickListener(this.bnA);
+        inflate.findViewById(R.id.tv_pb_reply_more).setOnClickListener(this.brn);
         a aVar = new a(inflate);
-        aVar.bqC();
+        aVar.btm();
         return aVar;
     }
 
@@ -43,31 +43,31 @@ public class c extends o<PostData, a> {
         return aVar.getView();
     }
 
-    /* loaded from: classes21.dex */
+    /* loaded from: classes22.dex */
     public static class a extends af.a {
-        private TextView kHp;
+        private TextView kWA;
 
         public a(View view) {
             super(view);
-            this.kHp = (TextView) view.findViewById(R.id.tv_pb_reply_more);
+            this.kWA = (TextView) view.findViewById(R.id.tv_pb_reply_more);
         }
 
         public void setData(PostData postData) {
             if (postData != null) {
-                if (postData.mpb) {
+                if (postData.mEH) {
                     Drawable drawable = ap.getDrawable(R.drawable.icon_emotion_smallarrow_n);
                     drawable.setBounds(0, 0, drawable.getMinimumWidth(), drawable.getMinimumHeight());
-                    this.kHp.setCompoundDrawables(null, null, drawable, null);
+                    this.kWA.setCompoundDrawables(null, null, drawable, null);
                     return;
                 }
                 Drawable drawable2 = ap.getDrawable(R.drawable.icon_emotion_smallarrow_down);
                 drawable2.setBounds(0, 0, drawable2.getMinimumWidth(), drawable2.getMinimumHeight());
-                this.kHp.setCompoundDrawables(null, null, drawable2, null);
+                this.kWA.setCompoundDrawables(null, null, drawable2, null);
             }
         }
 
-        public void bqC() {
-            ap.setViewTextColor(this.kHp, R.color.cp_cont_d);
+        public void btm() {
+            ap.setViewTextColor(this.kWA, R.color.cp_cont_d);
         }
     }
 }

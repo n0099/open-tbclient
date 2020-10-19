@@ -2,13 +2,15 @@ package com.baidu.location;
 
 import android.content.Context;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes3.dex */
+/* loaded from: classes7.dex */
 public class c extends Thread {
-    final /* synthetic */ LocationClient a;
+
+    /* renamed from: a  reason: collision with root package name */
+    final /* synthetic */ LocationClient f1918a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public c(LocationClient locationClient) {
-        this.a = locationClient;
+        this.f1918a = locationClient;
     }
 
     @Override // java.lang.Thread, java.lang.Runnable
@@ -20,18 +22,18 @@ public class c extends Thread {
         Context context;
         LocationClientOption locationClientOption;
         try {
-            dVar = this.a.C;
+            dVar = this.f1918a.C;
             if (dVar == null) {
-                LocationClient locationClient = this.a;
-                context = this.a.f;
-                locationClientOption = this.a.d;
-                locationClient.C = new com.baidu.location.b.d(context, locationClientOption, this.a);
+                LocationClient locationClient = this.f1918a;
+                context = this.f1918a.f;
+                locationClientOption = this.f1918a.d;
+                locationClient.C = new com.baidu.location.b.d(context, locationClientOption, this.f1918a);
             }
-            dVar2 = this.a.C;
+            dVar2 = this.f1918a.C;
             if (dVar2 != null) {
-                dVar3 = this.a.C;
+                dVar3 = this.f1918a.C;
                 dVar3.a();
-                dVar4 = this.a.C;
+                dVar4 = this.f1918a.C;
                 dVar4.c();
             }
         } catch (Exception e) {

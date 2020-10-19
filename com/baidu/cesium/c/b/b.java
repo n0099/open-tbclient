@@ -7,9 +7,9 @@ import java.nio.ByteOrder;
 import java.nio.IntBuffer;
 import java.security.GeneralSecurityException;
 import java.util.Random;
-/* loaded from: classes18.dex */
+/* loaded from: classes6.dex */
 public class b {
-    private static final int[] amb = s(new byte[]{Constants.SHORT_PING_CMD_TYPE, 120, 112, 97, 110, 100, 32, 51, 50, 45, 98, 121, 116, Constants.SHORT_PING_CMD_TYPE, 32, 107});
+    private static final int[] amt = s(new byte[]{Constants.SHORT_PING_CMD_TYPE, 120, 112, 97, 110, 100, 32, 51, 50, 45, 98, 121, 116, Constants.SHORT_PING_CMD_TYPE, 32, 107});
     private final int g;
 
     public b(int i) {
@@ -58,8 +58,8 @@ public class b {
     }
 
     static void d(int[] iArr, int[] iArr2) {
-        System.arraycopy(amb, 0, iArr, 0, amb.length);
-        System.arraycopy(iArr2, 0, iArr, amb.length, 8);
+        System.arraycopy(amt, 0, iArr, 0, amt.length);
+        System.arraycopy(iArr2, 0, iArr, amt.length, 8);
     }
 
     static int[] s(byte[] bArr) {
@@ -121,14 +121,14 @@ public class b {
     }
 
     ByteBuffer b(byte[] bArr, byte[] bArr2, int i) {
-        int[] a = a(s(bArr), s(bArr2), i);
-        int[] iArr = (int[]) a.clone();
+        int[] a2 = a(s(bArr), s(bArr2), i);
+        int[] iArr = (int[]) a2.clone();
         a(iArr);
-        for (int i2 = 0; i2 < a.length; i2++) {
-            a[i2] = a[i2] + iArr[i2];
+        for (int i2 = 0; i2 < a2.length; i2++) {
+            a2[i2] = a2[i2] + iArr[i2];
         }
         ByteBuffer order = ByteBuffer.allocate(64).order(ByteOrder.LITTLE_ENDIAN);
-        order.asIntBuffer().put(a, 0, 16);
+        order.asIntBuffer().put(a2, 0, 16);
         return order;
     }
 

@@ -8,13 +8,15 @@ import android.os.Build;
 import android.os.Bundle;
 import java.util.LinkedHashSet;
 import java.util.Set;
-/* loaded from: classes15.dex */
+/* loaded from: classes17.dex */
 public class ActivityLifeObserver {
     private static final ActivityLifeObserver b = new ActivityLifeObserver();
-    private boolean a;
+
+    /* renamed from: a  reason: collision with root package name */
+    private boolean f2456a;
     private Set<IActivityLifeCallback> c = new LinkedHashSet();
 
-    /* loaded from: classes15.dex */
+    /* loaded from: classes17.dex */
     public interface IActivityLifeCallback {
         void onActivityCreated(Activity activity, Bundle bundle);
 
@@ -54,9 +56,9 @@ public class ActivityLifeObserver {
     }
 
     public void registerActivityLifeCallback(Context context) {
-        if (!this.a && Build.VERSION.SDK_INT >= 14) {
+        if (!this.f2456a && Build.VERSION.SDK_INT >= 14) {
             doRegister(context);
-            this.a = true;
+            this.f2456a = true;
         }
     }
 

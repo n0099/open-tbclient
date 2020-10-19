@@ -2,7 +2,7 @@ package com.baidu.searchbox.dns.d;
 
 import android.text.TextUtils;
 import java.util.Map;
-/* loaded from: classes11.dex */
+/* loaded from: classes18.dex */
 public class a extends com.baidu.searchbox.dns.d.b.a {
     private boolean E;
     private String F;

@@ -10,21 +10,21 @@ import java.util.concurrent.atomic.AtomicInteger;
 import java.util.concurrent.atomic.AtomicLong;
 import java.util.concurrent.atomic.AtomicReference;
 import java.util.concurrent.atomic.AtomicReferenceArray;
-/* loaded from: classes25.dex */
+/* loaded from: classes17.dex */
 public final class FlowableWithLatestFromMany<T, R> extends io.reactivex.internal.operators.flowable.a<T, R> {
     final h<? super Object[], R> combiner;
-    final org.a.b<?>[] oxG;
-    final Iterable<? extends org.a.b<?>> oxH;
+    final org.a.b<?>[] oMV;
+    final Iterable<? extends org.a.b<?>> oMW;
 
     @Override // io.reactivex.g
     protected void a(org.a.c<? super R> cVar) {
         int length;
-        org.a.b<?>[] bVarArr = this.oxG;
+        org.a.b<?>[] bVarArr = this.oMV;
         int i = 0;
         if (bVarArr == null) {
             bVarArr = new org.a.b[8];
             try {
-                for (org.a.b<?> bVar : this.oxH) {
+                for (org.a.b<?> bVar : this.oMW) {
                     if (i == bVarArr.length) {
                         bVarArr = (org.a.b[]) Arrays.copyOf(bVarArr, (i >> 1) + i);
                     }
@@ -42,16 +42,16 @@ public final class FlowableWithLatestFromMany<T, R> extends io.reactivex.interna
             length = bVarArr.length;
         }
         if (length == 0) {
-            new f(this.owE, new a()).a(cVar);
+            new f(this.oLT, new a()).a(cVar);
             return;
         }
         WithLatestFromSubscriber withLatestFromSubscriber = new WithLatestFromSubscriber(cVar, this.combiner, length);
         cVar.onSubscribe(withLatestFromSubscriber);
         withLatestFromSubscriber.subscribe(bVarArr, length);
-        this.owE.a((j) withLatestFromSubscriber);
+        this.oLT.a((j) withLatestFromSubscriber);
     }
 
-    /* loaded from: classes25.dex */
+    /* loaded from: classes17.dex */
     static final class WithLatestFromSubscriber<T, R> extends AtomicInteger implements io.reactivex.internal.a.a<T>, org.a.d {
         private static final long serialVersionUID = 1577321883966341961L;
         final org.a.c<? super R> actual;
@@ -114,7 +114,7 @@ public final class FlowableWithLatestFromMany<T, R> extends io.reactivex.interna
                 objArr[i + 1] = obj;
             }
             try {
-                io.reactivex.internal.util.e.a(this.actual, io.reactivex.internal.functions.a.k(this.combiner.apply(objArr), "The combiner returned a null value"), this, this.error);
+                io.reactivex.internal.util.e.a(this.actual, io.reactivex.internal.functions.a.l(this.combiner.apply(objArr), "The combiner returned a null value"), this, this.error);
                 return true;
             } catch (Throwable th) {
                 io.reactivex.exceptions.a.J(th);
@@ -188,7 +188,7 @@ public final class FlowableWithLatestFromMany<T, R> extends io.reactivex.interna
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes25.dex */
+    /* loaded from: classes17.dex */
     public static final class WithLatestInnerSubscriber extends AtomicReference<org.a.d> implements j<Object> {
         private static final long serialVersionUID = 3256684027868224024L;
         boolean hasValue;
@@ -230,7 +230,7 @@ public final class FlowableWithLatestFromMany<T, R> extends io.reactivex.interna
         }
     }
 
-    /* loaded from: classes25.dex */
+    /* loaded from: classes17.dex */
     final class a implements h<T, R> {
         a() {
         }
@@ -238,7 +238,7 @@ public final class FlowableWithLatestFromMany<T, R> extends io.reactivex.interna
         /* JADX WARN: Type inference failed for: r1v1, types: [java.lang.Object[], java.lang.Object] */
         @Override // io.reactivex.c.h
         public R apply(T t) throws Exception {
-            return (R) io.reactivex.internal.functions.a.k(FlowableWithLatestFromMany.this.combiner.apply(new Object[]{t}), "The combiner returned a null value");
+            return (R) io.reactivex.internal.functions.a.l(FlowableWithLatestFromMany.this.combiner.apply(new Object[]{t}), "The combiner returned a null value");
         }
     }
 }

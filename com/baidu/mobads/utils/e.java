@@ -48,9 +48,11 @@ import java.util.concurrent.atomic.AtomicLong;
 import org.json.JSONArray;
 import org.json.JSONObject;
 @SuppressLint({"NewApi"})
-/* loaded from: classes3.dex */
+/* loaded from: classes7.dex */
 public class e implements IXAdCommonUtils {
-    private static String a;
+
+    /* renamed from: a  reason: collision with root package name */
+    private static String f2435a;
     private static String b;
     private static String c;
     private static String d;
@@ -259,10 +261,10 @@ public class e implements IXAdCommonUtils {
     @Override // com.baidu.mobads.interfaces.utils.IXAdCommonUtils
     public String getAppId(Context context) {
         try {
-            if (a == null) {
-                a = d(context, IXAdCommonUtils.APPSID);
+            if (f2435a == null) {
+                f2435a = d(context, IXAdCommonUtils.APPSID);
             }
-            return a;
+            return f2435a;
         } catch (Exception e) {
             return "";
         }
@@ -561,7 +563,7 @@ public class e implements IXAdCommonUtils {
 
     @Override // com.baidu.mobads.interfaces.utils.IXAdCommonUtils
     public void setAppId(String str) {
-        a = str;
+        f2435a = str;
     }
 
     /* JADX WARN: Unsupported multi-entry loop pattern (BACK_EDGE: B:51:0x010a -> B:13:0x004f). Please submit an issue!!! */

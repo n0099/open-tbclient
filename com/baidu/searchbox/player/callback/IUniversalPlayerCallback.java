@@ -1,5 +1,5 @@
 package com.baidu.searchbox.player.callback;
-/* loaded from: classes23.dex */
+/* loaded from: classes7.dex */
 public interface IUniversalPlayerCallback {
     void onBeforeSwitchToFull();
 

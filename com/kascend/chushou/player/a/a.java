@@ -12,8 +12,10 @@ import tv.chushou.zues.utils.h;
 public abstract class a {
     protected TextView b;
     protected Context c;
-    protected List<c> a = new ArrayList();
-    protected com.kascend.chushou.c.b nRE = new com.kascend.chushou.c.b() { // from class: com.kascend.chushou.player.a.a.1
+
+    /* renamed from: a  reason: collision with root package name */
+    protected List<c> f4109a = new ArrayList();
+    protected com.kascend.chushou.c.b ogW = new com.kascend.chushou.c.b() { // from class: com.kascend.chushou.player.a.a.1
         @Override // com.kascend.chushou.c.b
         public void a() {
         }
@@ -23,7 +25,7 @@ public abstract class a {
             int optInt = jSONObject.optInt("code", -1);
             String optString = jSONObject.optString("message", "");
             if (optInt == 0) {
-                g.Pk(a.i.report_success);
+                g.PQ(a.i.report_success);
             } else {
                 a(optInt, optString);
             }

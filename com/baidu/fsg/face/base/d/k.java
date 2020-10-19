@@ -1,20 +1,22 @@
 package com.baidu.fsg.face.base.d;
 
 import android.os.Looper;
-/* loaded from: classes16.dex */
+/* loaded from: classes17.dex */
 public class k implements Runnable {
-    public String a;
+
+    /* renamed from: a  reason: collision with root package name */
+    public String f1590a;
     public Runnable b;
 
     public k(Runnable runnable) {
-        this.a = "EmptyName";
-        this.a = "nullname";
+        this.f1590a = "EmptyName";
+        this.f1590a = "nullname";
         this.b = runnable;
     }
 
     public k(Runnable runnable, String str) {
-        this.a = "EmptyName";
-        this.a = str;
+        this.f1590a = "EmptyName";
+        this.f1590a = str;
         this.b = runnable;
     }
 

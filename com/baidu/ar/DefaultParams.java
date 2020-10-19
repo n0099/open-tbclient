@@ -2,7 +2,7 @@ package com.baidu.ar;
 
 import android.opengl.EGLContext;
 import org.json.JSONObject;
-/* loaded from: classes10.dex */
+/* loaded from: classes14.dex */
 public class DefaultParams {
     private String ax;
     private String ay;

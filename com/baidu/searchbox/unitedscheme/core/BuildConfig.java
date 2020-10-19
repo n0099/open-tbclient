@@ -1,5 +1,5 @@
 package com.baidu.searchbox.unitedscheme.core;
-/* loaded from: classes14.dex */
+/* loaded from: classes16.dex */
 public final class BuildConfig {
     public static final String APPLICATION_ID = "com.baidu.searchbox.unitedscheme.core";
     public static final String BUILD_TYPE = "release";

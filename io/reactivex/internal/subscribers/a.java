@@ -2,7 +2,7 @@ package io.reactivex.internal.subscribers;
 
 import io.reactivex.internal.a.d;
 import io.reactivex.internal.subscriptions.SubscriptionHelper;
-/* loaded from: classes25.dex */
+/* loaded from: classes17.dex */
 public abstract class a<T, R> implements io.reactivex.internal.a.a<T>, d<R> {
     protected final io.reactivex.internal.a.a<? super R> actual;
     protected boolean done;
@@ -21,18 +21,18 @@ public abstract class a<T, R> implements io.reactivex.internal.a.a<T>, d<R> {
             if (dVar instanceof d) {
                 this.qs = (d) dVar;
             }
-            if (ejg()) {
+            if (emR()) {
                 this.actual.onSubscribe(this);
-                ejh();
+                emS();
             }
         }
     }
 
-    protected boolean ejg() {
+    protected boolean emR() {
         return true;
     }
 
-    protected void ejh() {
+    protected void emS() {
     }
 
     @Override // org.a.c
@@ -61,7 +61,7 @@ public abstract class a<T, R> implements io.reactivex.internal.a.a<T>, d<R> {
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public final int Or(int i) {
+    public final int OX(int i) {
         d<T> dVar = this.qs;
         if (dVar == null || (i & 4) != 0) {
             return 0;

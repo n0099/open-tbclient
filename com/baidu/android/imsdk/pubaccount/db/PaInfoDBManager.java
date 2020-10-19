@@ -6,6 +6,7 @@ import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.support.annotation.NonNull;
 import android.util.Log;
+import android.util.SparseArray;
 import com.baidu.android.imsdk.chatmessage.ChatSession;
 import com.baidu.android.imsdk.chatmessage.db.ChatMessageDBManager;
 import com.baidu.android.imsdk.db.CursorParse;
@@ -18,11 +19,13 @@ import com.baidu.android.imsdk.shield.IGetUserShieldListener;
 import com.baidu.android.imsdk.task.TaskManager;
 import com.baidu.android.imsdk.upload.action.IMTrack;
 import com.baidu.android.imsdk.utils.LogUtils;
+import com.baidu.webkit.internal.ETAG;
+import com.xiaomi.mipush.sdk.Constants;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
-/* loaded from: classes9.dex */
+/* loaded from: classes5.dex */
 public class PaInfoDBManager extends DBBase {
     private static final String TAG = PaInfoDBManager.class.getSimpleName();
     private static PaInfoDBManager mInstance = null;
@@ -32,9 +35,11 @@ public class PaInfoDBManager extends DBBase {
     }
 
     public static PaInfoDBManager getInstance(Context context) {
-        synchronized (mSyncLock) {
-            if (mInstance == null) {
-                mInstance = new PaInfoDBManager(context);
+        if (mInstance == null) {
+            synchronized (PaInfoDBManager.class) {
+                if (mInstance == null) {
+                    mInstance = new PaInfoDBManager(context);
+                }
             }
         }
         return mInstance;
@@ -148,7 +153,7 @@ public class PaInfoDBManager extends DBBase {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes9.dex */
+    /* loaded from: classes5.dex */
     public class PaInfoParse implements CursorParse {
         PaInfo info = null;
 
@@ -172,7 +177,7 @@ public class PaInfoDBManager extends DBBase {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes9.dex */
+    /* loaded from: classes5.dex */
     public class PaInfoListParse implements CursorParse {
         List<PaInfo> paList = null;
 
@@ -197,7 +202,7 @@ public class PaInfoDBManager extends DBBase {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes9.dex */
+    /* loaded from: classes5.dex */
     public class PaidParse implements CursorParse {
         ArrayList<Long> paList = null;
 
@@ -354,7 +359,7 @@ public class PaInfoDBManager extends DBBase {
         }
     }
 
-    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [370=4] */
+    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [373=4] */
     /* JADX WARN: Removed duplicated region for block: B:14:0x0039 A[Catch: all -> 0x0064, TRY_ENTER, TryCatch #0 {, blocks: (B:4:0x0006, B:6:0x000c, B:14:0x0039, B:15:0x003c, B:31:0x006b, B:32:0x006e, B:22:0x005f, B:23:0x0062), top: B:37:0x0006 }] */
     /* JADX WARN: Removed duplicated region for block: B:31:0x006b A[Catch: all -> 0x0064, TRY_ENTER, TryCatch #0 {, blocks: (B:4:0x0006, B:6:0x000c, B:14:0x0039, B:15:0x003c, B:31:0x006b, B:32:0x006e, B:22:0x005f, B:23:0x0062), top: B:37:0x0006 }] */
     /*
@@ -465,7 +470,7 @@ public class PaInfoDBManager extends DBBase {
         }
     }
 
-    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [475=4] */
+    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [478=4] */
     /* JADX WARN: Removed duplicated region for block: B:38:0x00f3 A[Catch: all -> 0x00ed, TRY_ENTER, TryCatch #4 {, blocks: (B:4:0x000a, B:6:0x0010, B:28:0x00bb, B:32:0x00e9, B:27:0x00b8, B:38:0x00f3, B:39:0x00f6), top: B:47:0x000a }] */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
@@ -531,7 +536,7 @@ public class PaInfoDBManager extends DBBase {
         }
     }
 
-    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [546=4] */
+    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [549=4] */
     public void getShieldUserByPaId(@NonNull List<ChatSession> list, boolean z, @NonNull IGetUserShieldListener iGetUserShieldListener) {
         Cursor cursor;
         ChatSession chatSession;
@@ -716,6 +721,64 @@ public class PaInfoDBManager extends DBBase {
                     }
                 }
             });
+        }
+    }
+
+    public List<Long> getPaidListByPainfos(SparseArray<List<Integer>> sparseArray) {
+        Cursor cursor = null;
+        ArrayList arrayList = new ArrayList();
+        if (sparseArray == null || sparseArray.size() <= 0) {
+            return arrayList;
+        }
+        synchronized (mSyncLock) {
+            SQLiteDatabase openDatabase = openDatabase();
+            if (openDatabase == null) {
+                return arrayList;
+            }
+            StringBuilder sb = new StringBuilder();
+            for (int i = 0; i < sparseArray.size(); i++) {
+                int keyAt = sparseArray.keyAt(i);
+                List<Integer> list = sparseArray.get(keyAt);
+                sb.append("(");
+                sb.append(TableDefine.PaSubscribeColumns.COLUMN_SUBTYPE);
+                sb.append(ETAG.EQUAL);
+                sb.append(keyAt);
+                if (list != null && list.size() > 0) {
+                    sb.append(" AND ");
+                    sb.append(TableDefine.PaSubscribeColumns.COLUMN_SUBSET_TYPE);
+                    sb.append(" in ");
+                    sb.append("(");
+                    for (Integer num : list) {
+                        sb.append(num.intValue());
+                        sb.append(Constants.ACCEPT_TIME_SEPARATOR_SP);
+                    }
+                    sb.deleteCharAt(sb.length() - 1);
+                    sb.append(")");
+                }
+                sb.append(")");
+                sb.append(" OR ");
+            }
+            sb.delete(sb.length() - " OR ".length(), sb.length());
+            try {
+                cursor = openDatabase.rawQuery("select paid from paSubscribe where " + sb.toString(), null);
+                while (cursor != null) {
+                    if (!cursor.moveToNext()) {
+                        break;
+                    }
+                    arrayList.add(Long.valueOf(cursor.getLong(cursor.getColumnIndex("paid"))));
+                }
+                if (cursor != null) {
+                    cursor.close();
+                }
+                return arrayList;
+            } catch (Exception e) {
+                new IMTrack.CrashBuilder(this.mContext).exception(Log.getStackTraceString(e)).build();
+                LogUtils.e(TAG, "getUnreadSessionByChatTypes:", e);
+                if (cursor != null) {
+                    cursor.close();
+                }
+                return arrayList;
+            }
         }
     }
 }

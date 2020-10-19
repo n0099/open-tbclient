@@ -8,9 +8,11 @@ import com.heytap.mcssdk.mode.CommandMessage;
 import java.util.HashMap;
 import java.util.Map;
 import org.apache.http.protocol.HTTP;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class c {
-    String a;
+
+    /* renamed from: a  reason: collision with root package name */
+    String f4015a;
     private String b;
     private Map<String, String> c;
     private String d;
@@ -19,15 +21,15 @@ public class c {
     private long h;
     private String i;
     private int j;
-    private Network ntb;
-    private g ntc;
+    private Network nIv;
+    private g nIw;
 
     private c(String str, Map<String, String> map, g gVar, String str2, String str3) {
         this.e = false;
         this.b = str;
-        this.ntc = gVar;
+        this.nIw = gVar;
         this.c = map == null ? new HashMap<>() : map;
-        this.a = gVar == null ? "" : gVar.b().toString();
+        this.f4015a = gVar == null ? "" : gVar.b().toString();
         this.d = str2;
         this.f = str3;
         this.i = gVar == null ? "" : gVar.a();
@@ -68,7 +70,7 @@ public class c {
     }
 
     public String d() {
-        return this.a;
+        return this.f4015a;
     }
 
     public String e() {
@@ -83,12 +85,12 @@ public class c {
         return !e.a(this.f) || this.b.contains("logReport") || this.b.contains("uniConfig");
     }
 
-    public Network dRr() {
-        return this.ntb;
+    public Network dVc() {
+        return this.nIv;
     }
 
     public void f(Network network) {
-        this.ntb = network;
+        this.nIv = network;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -107,7 +109,7 @@ public class c {
         return i < 2;
     }
 
-    public g dRs() {
-        return this.ntc;
+    public g dVd() {
+        return this.nIw;
     }
 }

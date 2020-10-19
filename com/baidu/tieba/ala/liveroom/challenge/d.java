@@ -4,11 +4,11 @@ import com.baidu.live.data.au;
 import com.baidu.live.data.ay;
 /* loaded from: classes4.dex */
 public interface d {
-    void BV();
+    void CS();
 
     void a(au auVar, ay ayVar, ay ayVar2);
 
-    void bQA();
+    void bTS();
 
-    void bQz();
+    void bTT();
 }

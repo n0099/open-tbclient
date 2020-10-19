@@ -3,13 +3,15 @@ package com.baidu.mapsdkplatform.comapi.map;
 import android.os.Handler;
 import android.os.Message;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes3.dex */
+/* loaded from: classes7.dex */
 public class o extends Handler {
-    final /* synthetic */ n a;
+
+    /* renamed from: a  reason: collision with root package name */
+    final /* synthetic */ n f2233a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public o(n nVar) {
-        this.a = nVar;
+        this.f2233a = nVar;
     }
 
     @Override // android.os.Handler
@@ -19,7 +21,7 @@ public class o extends Handler {
         super.handleMessage(message);
         nVar = n.c;
         if (nVar != null) {
-            sVar = this.a.d;
+            sVar = this.f2233a.d;
             sVar.a(message);
         }
     }

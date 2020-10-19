@@ -2,7 +2,7 @@ package com.baidu.ar.http;
 
 import java.nio.charset.Charset;
 import java.nio.charset.StandardCharsets;
-/* loaded from: classes10.dex */
+/* loaded from: classes14.dex */
 class d {
     public static final Charset qy = StandardCharsets.UTF_8;
     public static String MULTIPART_BOUNDARY = "------baiduARFormBoundary--";

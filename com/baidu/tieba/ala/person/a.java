@@ -10,35 +10,35 @@ import com.baidu.live.sdk.a;
 /* loaded from: classes4.dex */
 public class a extends Dialog implements View.OnClickListener {
     private Context context;
-    private View gSZ;
-    private View gTa;
-    private InterfaceC0644a gTb;
-    private boolean gTc;
+    private View hhW;
+    private View hhX;
+    private InterfaceC0662a hhY;
+    private boolean hhZ;
 
     /* renamed from: com.baidu.tieba.ala.person.a$a  reason: collision with other inner class name */
     /* loaded from: classes4.dex */
-    public interface InterfaceC0644a {
-        void cag();
+    public interface InterfaceC0662a {
+        void cdE();
     }
 
     public a(Context context) {
         super(context, a.j.Theme_Report_Dialog);
-        this.gTc = false;
+        this.hhZ = false;
         this.context = context;
     }
 
     public a(Context context, boolean z) {
         super(context, a.j.Theme_Report_Dialog);
-        this.gTc = false;
+        this.hhZ = false;
         this.context = context;
-        this.gTc = z;
+        this.hhZ = z;
     }
 
     @Override // android.app.Dialog
     protected void onCreate(Bundle bundle) {
         super.onCreate(bundle);
         setContentView(a.h.ala_person_dialog_report);
-        if (this.gTc) {
+        if (this.hhZ) {
             resize();
         } else {
             int[] screenDimensions = BdUtilHelper.getScreenDimensions(this.context);
@@ -49,22 +49,22 @@ public class a extends Dialog implements View.OnClickListener {
         }
         setCanceledOnTouchOutside(true);
         setCancelable(true);
-        this.gSZ = findViewById(a.g.report);
-        this.gTa = findViewById(a.g.report_cancel);
-        this.gSZ.setOnClickListener(this);
-        this.gTa.setOnClickListener(this);
+        this.hhW = findViewById(a.g.report);
+        this.hhX = findViewById(a.g.report_cancel);
+        this.hhW.setOnClickListener(this);
+        this.hhX.setOnClickListener(this);
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        if (view.getId() == a.g.report && this.gTb != null) {
-            this.gTb.cag();
+        if (view.getId() == a.g.report && this.hhY != null) {
+            this.hhY.cdE();
         }
         dismiss();
     }
 
-    public void a(InterfaceC0644a interfaceC0644a) {
-        this.gTb = interfaceC0644a;
+    public void a(InterfaceC0662a interfaceC0662a) {
+        this.hhY = interfaceC0662a;
     }
 
     public void resize() {

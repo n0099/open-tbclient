@@ -3,23 +3,25 @@ package com.xiaomi.push.service;
 import com.xiaomi.push.gd;
 import com.xiaomi.push.service.XMPushService;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes9.dex */
+/* loaded from: classes12.dex */
 public class bm extends XMPushService.i {
-    final /* synthetic */ XMPushService a;
+
+    /* renamed from: a  reason: collision with root package name */
+    final /* synthetic */ XMPushService f5086a;
 
     /* renamed from: a  reason: collision with other field name */
-    final /* synthetic */ String f897a;
+    final /* synthetic */ String f898a;
 
     /* renamed from: a  reason: collision with other field name */
-    final /* synthetic */ byte[] f898a;
+    final /* synthetic */ byte[] f899a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public bm(XMPushService xMPushService, int i, String str, byte[] bArr) {
         super(i);
-        this.a = xMPushService;
-        this.f897a = str;
-        this.f898a = bArr;
+        this.f5086a = xMPushService;
+        this.f898a = str;
+        this.f899a = bArr;
     }
 
     @Override // com.xiaomi.push.service.XMPushService.i
@@ -30,10 +32,10 @@ public class bm extends XMPushService.i {
     @Override // com.xiaomi.push.service.XMPushService.i
     public void a() {
         try {
-            w.a(this.a, this.f897a, this.f898a);
+            w.a(this.f5086a, this.f898a, this.f899a);
         } catch (gd e) {
             com.xiaomi.channel.commonutils.logger.b.a(e);
-            this.a.a(10, e);
+            this.f5086a.a(10, e);
         }
     }
 }

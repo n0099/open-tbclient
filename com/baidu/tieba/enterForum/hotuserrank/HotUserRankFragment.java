@@ -16,41 +16,41 @@ import com.baidu.tbadk.core.util.at;
 import com.baidu.tbadk.core.util.y;
 import com.baidu.tieba.R;
 import com.baidu.tieba.enterForum.hotuserrank.model.a;
-/* loaded from: classes21.dex */
+/* loaded from: classes22.dex */
 public class HotUserRankFragment extends BaseFragment {
-    private com.baidu.tieba.enterForum.hotuserrank.model.a hDQ;
-    private c hDY;
+    private com.baidu.tieba.enterForum.hotuserrank.model.a hSM;
+    private c hSU;
     private boolean isGod;
     private String mCategory;
     private long mForumId;
     private View mRootView;
-    private BdListView.e Vz = new BdListView.e() { // from class: com.baidu.tieba.enterForum.hotuserrank.HotUserRankFragment.1
+    private BdListView.e VQ = new BdListView.e() { // from class: com.baidu.tieba.enterForum.hotuserrank.HotUserRankFragment.1
         @Override // com.baidu.adp.widget.ListView.BdListView.e
         public void onScrollToBottom() {
-            if (HotUserRankFragment.this.hDQ.hasMore()) {
-                HotUserRankFragment.this.cjj();
-                HotUserRankFragment.this.hDY.bIi();
+            if (HotUserRankFragment.this.hSM.hasMore()) {
+                HotUserRankFragment.this.cmF();
+                HotUserRankFragment.this.hSU.SI();
             }
         }
     };
-    private a.InterfaceC0667a hDW = new a.InterfaceC0667a() { // from class: com.baidu.tieba.enterForum.hotuserrank.HotUserRankFragment.2
-        @Override // com.baidu.tieba.enterForum.hotuserrank.model.a.InterfaceC0667a
+    private a.InterfaceC0685a hSS = new a.InterfaceC0685a() { // from class: com.baidu.tieba.enterForum.hotuserrank.HotUserRankFragment.2
+        @Override // com.baidu.tieba.enterForum.hotuserrank.model.a.InterfaceC0685a
         public void a(com.baidu.tieba.enterForum.hotuserrank.a.c cVar) {
             if (HotUserRankFragment.this.isLoadingViewAttached()) {
                 HotUserRankFragment.this.hideLoadingView(HotUserRankFragment.this.mRootView);
             }
             if (cVar != null) {
-                if (HotUserRankFragment.this.hDQ.cjm() == 2) {
+                if (HotUserRankFragment.this.hSM.cmI() == 2) {
                     if (HotUserRankFragment.this.mForumId > 0 || TextUtils.isEmpty(HotUserRankFragment.this.mCategory)) {
-                        cVar.hER.rankName = HotUserRankFragment.this.getResources().getString(R.string.forum_hot_user_rank);
-                    } else if (cVar.hER != null) {
+                        cVar.hTN.rankName = HotUserRankFragment.this.getResources().getString(R.string.forum_hot_user_rank);
+                    } else if (cVar.hTN != null) {
                         if (HotUserRankFragment.this.isGod) {
-                            cVar.hER.rankName = String.format(HotUserRankFragment.this.getResources().getString(R.string.god_rank_category_name), HotUserRankFragment.this.mCategory);
+                            cVar.hTN.rankName = String.format(HotUserRankFragment.this.getResources().getString(R.string.god_rank_category_name), HotUserRankFragment.this.mCategory);
                         } else {
-                            cVar.hER.rankName = String.format(HotUserRankFragment.this.getResources().getString(R.string.hot_user_rank_category_name), HotUserRankFragment.this.mCategory);
+                            cVar.hTN.rankName = String.format(HotUserRankFragment.this.getResources().getString(R.string.hot_user_rank_category_name), HotUserRankFragment.this.mCategory);
                         }
                     }
-                    HotUserRankFragment.this.hDY.b(cVar.hER, at.isEmpty(HotUserRankFragment.this.mCategory) ? false : true);
+                    HotUserRankFragment.this.hSU.b(cVar.hTN, at.isEmpty(HotUserRankFragment.this.mCategory) ? false : true);
                     if (HotUserRankFragment.this.isResumed() || HotUserRankFragment.this.getBaseFragmentActivity() != null) {
                         CustomMessage customMessage = new CustomMessage(2921447);
                         customMessage.setTag(HotUserRankFragment.this.getBaseFragmentActivity().getUniqueId());
@@ -59,16 +59,16 @@ public class HotUserRankFragment extends BaseFragment {
                         MessageManager.getInstance().dispatchResponsedMessage(customResponsedMessage);
                     }
                 }
-                if (HotUserRankFragment.this.hDQ.getPageData() != null) {
-                    HotUserRankFragment.this.hDY.cr(HotUserRankFragment.this.hDQ.getPageData().hES);
+                if (HotUserRankFragment.this.hSM.getPageData() != null) {
+                    HotUserRankFragment.this.hSU.cu(HotUserRankFragment.this.hSM.getPageData().hTO);
                 }
-                if (!HotUserRankFragment.this.hDQ.hasMore()) {
-                    HotUserRankFragment.this.hDY.HU(HotUserRankFragment.this.mCategory);
+                if (!HotUserRankFragment.this.hSM.hasMore()) {
+                    HotUserRankFragment.this.hSU.IH(HotUserRankFragment.this.mCategory);
                 }
             }
         }
 
-        @Override // com.baidu.tieba.enterForum.hotuserrank.model.a.InterfaceC0667a
+        @Override // com.baidu.tieba.enterForum.hotuserrank.model.a.InterfaceC0685a
         public void onError(int i, String str) {
             HotUserRankFragment.this.hideLoadingView(HotUserRankFragment.this.mRootView);
             HotUserRankFragment.this.showNetRefreshView(HotUserRankFragment.this.mRootView, str, false);
@@ -78,8 +78,8 @@ public class HotUserRankFragment extends BaseFragment {
     @Override // com.baidu.tbadk.core.BaseFragment, android.support.v4.app.Fragment
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
-        this.hDQ = new com.baidu.tieba.enterForum.hotuserrank.model.a(getUniqueId());
-        this.hDQ.a(this.hDW);
+        this.hSM = new com.baidu.tieba.enterForum.hotuserrank.model.a(getUniqueId());
+        this.hSM.a(this.hSS);
     }
 
     @Override // com.baidu.tbadk.core.BaseFragment, android.support.v4.app.Fragment
@@ -87,29 +87,29 @@ public class HotUserRankFragment extends BaseFragment {
     public View onCreateView(@NonNull LayoutInflater layoutInflater, @Nullable ViewGroup viewGroup, @Nullable Bundle bundle) {
         if (this.mRootView == null) {
             this.mRootView = layoutInflater.inflate(R.layout.fragment_hot_user_rank, (ViewGroup) null);
-            this.hDY = new c(this.mRootView.findViewById(R.id.rank_list), this.mCategory, this.mForumId);
-            this.hDY.setOnSrollToBottomListener(this.Vz);
+            this.hSU = new c(this.mRootView.findViewById(R.id.rank_list), this.mCategory, this.mForumId);
+            this.hSU.setOnSrollToBottomListener(this.VQ);
         }
-        if (this.hDQ.getPageData() == null || y.isEmpty(this.hDQ.getPageData().hES)) {
-            cjj();
+        if (this.hSM.getPageData() == null || y.isEmpty(this.hSM.getPageData().hTO)) {
+            cmF();
             showLoadingView(this.mRootView);
         }
         return this.mRootView;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void cjj() {
+    public void cmF() {
         if (!TextUtils.isEmpty(this.mCategory)) {
-            this.hDQ.HV(this.mCategory);
+            this.hSM.II(this.mCategory);
         } else if (this.mForumId > 0) {
-            this.hDQ.eJ(this.mForumId);
+            this.hSM.fa(this.mForumId);
         }
     }
 
     @Override // com.baidu.tbadk.core.BaseFragment
     public void onChangeSkinType(int i) {
         super.onChangeSkinType(i);
-        this.hDY.onChangeSkinType(i);
+        this.hSU.onChangeSkinType(i);
     }
 
     public void setCategory(String str) {
@@ -124,21 +124,21 @@ public class HotUserRankFragment extends BaseFragment {
         this.isGod = z;
     }
 
-    public com.baidu.tieba.enterForum.hotuserrank.model.a cjk() {
-        return this.hDQ;
+    public com.baidu.tieba.enterForum.hotuserrank.model.a cmG() {
+        return this.hSM;
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.core.BaseFragment
     public void onNetRefreshButtonClicked() {
         hideNetRefreshView(this.mRootView);
-        cjj();
+        cmF();
         showLoadingView(this.mRootView);
     }
 
     @Override // com.baidu.tbadk.core.BaseFragment, android.support.v4.app.Fragment
     public void onDestroy() {
         super.onDestroy();
-        this.hDQ.onDestroy();
+        this.hSM.onDestroy();
     }
 }

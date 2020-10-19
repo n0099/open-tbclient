@@ -9,7 +9,7 @@ import android.view.ViewConfiguration;
 import android.view.ViewGroup;
 import android.widget.Scroller;
 import java.util.ArrayList;
-/* loaded from: classes3.dex */
+/* loaded from: classes7.dex */
 public class e extends ViewGroup {
     private Context b;
     private int d;
@@ -28,7 +28,9 @@ public class e extends ViewGroup {
     private VelocityTracker q;
     private int r;
     private static String c = "MultiViewGroup";
-    public static int a = 20;
+
+    /* renamed from: a  reason: collision with root package name */
+    public static int f3088a = 20;
 
     public e(Context context, com.baidu.platform.comapi.walknavi.g.a aVar) {
         super(context);
@@ -131,14 +133,14 @@ public class e extends ViewGroup {
                     velocityTracker.computeCurrentVelocity(1000);
                     int xVelocity = (int) velocityTracker.getXVelocity();
                     com.baidu.platform.comapi.wnplatform.d.a.a(c, "---velocityX---" + xVelocity);
-                    if (xVelocity > a) {
+                    if (xVelocity > f3088a) {
                         com.baidu.platform.comapi.wnplatform.d.a.a(c, "snap left");
                         if (com.baidu.platform.comapi.walknavi.segmentbrowse.c.a() == com.baidu.platform.comapi.walknavi.segmentbrowse.c.e()) {
                             com.baidu.platform.comapi.wnplatform.d.a.a("yang13", "该点是起点，不能左滑");
                         } else {
                             a(this.d - 1);
                         }
-                    } else if (xVelocity < (-a)) {
+                    } else if (xVelocity < (-f3088a)) {
                         com.baidu.platform.comapi.wnplatform.d.a.a(c, "snap right");
                         if (com.baidu.platform.comapi.walknavi.segmentbrowse.c.a() == com.baidu.platform.comapi.walknavi.segmentbrowse.c.f()) {
                             com.baidu.platform.comapi.wnplatform.d.a.a("yang13", "该点是终点，不能右滑");
@@ -345,8 +347,8 @@ public class e extends ViewGroup {
         if (aVar != null && this.l != null) {
             int d = aVar.d();
             if (d >= 0 && d < 30) {
-                if (this.l.a != null) {
-                    cVar.setBackgroundDrawable(new BitmapDrawable(this.l.a));
+                if (this.l.f3013a != null) {
+                    cVar.setBackgroundDrawable(new BitmapDrawable(this.l.f3013a));
                 }
             } else if (d >= 30 && d < 150) {
                 if (this.l.b != null) {

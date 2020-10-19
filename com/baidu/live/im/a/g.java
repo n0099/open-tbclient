@@ -9,21 +9,21 @@ import com.baidu.live.sdk.a;
 public class g extends b {
     /* JADX INFO: Access modifiers changed from: protected */
     public g(Context context) {
-        super(context, com.baidu.live.im.a.baT);
+        super(context, com.baidu.live.im.a.beD);
     }
 
     @Override // com.baidu.live.im.a.b
-    protected void Kc() {
-        if (Kd()) {
-            Ke();
+    protected void Lh() {
+        if (Li()) {
+            Lj();
         } else {
-            Kf();
+            Lk();
         }
     }
 
     @Override // com.baidu.live.im.a.b
     protected int getColor() {
-        if (Kd()) {
+        if (Li()) {
             return -7479041;
         }
         return this.mContext.getResources().getColor(a.d.sdk_cp_cont_d);
@@ -32,7 +32,7 @@ public class g extends b {
     @Override // com.baidu.live.im.a.b
     protected SpannableStringBuilder a(com.baidu.live.im.data.a aVar, com.baidu.live.im.c cVar) {
         SpannableStringBuilder spannableStringBuilder = new SpannableStringBuilder();
-        a(spannableStringBuilder, aVar.Ko(), cVar, false, false);
+        a(spannableStringBuilder, aVar.Lt(), cVar, false, false);
         String string = this.mContext.getString(a.i.ala_zan_content);
         SpannableString valueOf = SpannableString.valueOf(string);
         if (string != null) {

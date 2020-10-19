@@ -3,7 +3,7 @@ package com.baidu.location;
 import android.content.Context;
 import android.content.Intent;
 import android.os.IBinder;
-/* loaded from: classes3.dex */
+/* loaded from: classes7.dex */
 public interface LLSInterface {
     double getVersion();
 

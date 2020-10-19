@@ -1,5 +1,5 @@
 package com.baidu.mobads.interfaces.error;
-/* loaded from: classes3.dex */
+/* loaded from: classes7.dex */
 public enum XAdErrorCode {
     INTERFACE_USE_PROBLEM(1010001, "接口使用问题"),
     WEBVIEW_LOAD_ERROR(1010002, "web载入异常"),
@@ -32,16 +32,18 @@ public enum XAdErrorCode {
     MONITOR_START_FAILED(4030001, "监控启动失败");
     
     public static final String ERROR_CODE_MESSAGE = "msg";
-    private int a;
+
+    /* renamed from: a  reason: collision with root package name */
+    private int f2359a;
     private String b;
 
     XAdErrorCode(int i, String str) {
-        this.a = i;
+        this.f2359a = i;
         this.b = str;
     }
 
     public int getCode() {
-        return this.a;
+        return this.f2359a;
     }
 
     public String getMessage() {

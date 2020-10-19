@@ -10,16 +10,18 @@ import com.vivo.push.model.UnvarnishedMessage;
 import java.util.ArrayList;
 import java.util.List;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes12.dex */
+/* loaded from: classes15.dex */
 public final class j implements Runnable {
-    final /* synthetic */ UnvarnishedMessage a;
+
+    /* renamed from: a  reason: collision with root package name */
+    final /* synthetic */ UnvarnishedMessage f4680a;
     final /* synthetic */ LocalAliasTagsManager.LocalMessageCallback b;
     final /* synthetic */ LocalAliasTagsManager c;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public j(LocalAliasTagsManager localAliasTagsManager, UnvarnishedMessage unvarnishedMessage, LocalAliasTagsManager.LocalMessageCallback localMessageCallback) {
         this.c = localAliasTagsManager;
-        this.a = unvarnishedMessage;
+        this.f4680a = unvarnishedMessage;
         this.b = localMessageCallback;
     }
 
@@ -28,8 +30,8 @@ public final class j implements Runnable {
         Handler handler;
         ISubscribeAppTagManager iSubscribeAppTagManager;
         ISubscribeAppAliasManager iSubscribeAppAliasManager;
-        int targetType = this.a.getTargetType();
-        String tragetContent = this.a.getTragetContent();
+        int targetType = this.f4680a.getTargetType();
+        String tragetContent = this.f4680a.getTragetContent();
         if (!TextUtils.isEmpty(tragetContent) && targetType != 0) {
             switch (targetType) {
                 case 3:

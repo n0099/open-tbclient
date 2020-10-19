@@ -1,5 +1,5 @@
 package com.baidu.searchbox.videoplayer.framework;
-/* loaded from: classes23.dex */
+/* loaded from: classes7.dex */
 public final class BuildConfig {
     public static final String APPLICATION_ID = "com.baidu.searchbox.videoplayer.framework";
     public static final String BUILD_TYPE = "release";

@@ -50,19 +50,19 @@ import java.io.File;
 import java.util.HashMap;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes10.dex */
 public class a extends c implements View.OnClickListener {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    private SwanAppRoundedImageView ciI;
-    private BdBaseImageView ciJ;
-    private TextView ciK;
-    private com.baidu.swan.apps.view.a ciL;
-    private long[] ciM = new long[5];
-    private String ciN;
-    private String ciO;
-    private String ciP;
-    private Button ciQ;
-    private RecyclerView ciR;
+    private SwanAppRoundedImageView cvb;
+    private BdBaseImageView cvc;
+    private TextView cvd;
+    private com.baidu.swan.apps.view.a cve;
+    private long[] cvf = new long[5];
+    private String cvg;
+    private String cvh;
+    private String cvi;
+    private Button cvj;
+    private RecyclerView cvk;
 
     @Override // com.baidu.swan.support.v4.app.Fragment
     public void onCreate(Bundle bundle) {
@@ -72,8 +72,8 @@ public class a extends c implements View.OnClickListener {
     @Override // com.baidu.swan.support.v4.app.Fragment
     public View onCreateView(LayoutInflater layoutInflater, ViewGroup viewGroup, Bundle bundle) {
         View inflate = layoutInflater.inflate(a.g.aiapps_about_fragment, viewGroup, false);
-        ak(inflate);
-        am(inflate);
+        al(inflate);
+        an(inflate);
         if (immersionEnabled()) {
             inflate = initImmersion(inflate);
         }
@@ -83,125 +83,125 @@ public class a extends c implements View.OnClickListener {
     @Override // com.baidu.swan.apps.core.d.c, com.baidu.swan.support.v4.app.Fragment
     public void onResume() {
         super.onResume();
-        if (this.ciL != null) {
-            this.ciL.aGu();
+        if (this.cve != null) {
+            this.cve.aJd();
         }
         setRequestedOrientation(1);
-        if (this.cjv != null && this.cjv.isShowing()) {
-            this.cjv.gY(com.baidu.swan.apps.t.a.apQ().getNightModeSwitcherState());
+        if (this.cvN != null && this.cvN.isShowing()) {
+            this.cvN.hu(com.baidu.swan.apps.t.a.asC().getNightModeSwitcherState());
         }
-        if (this.ciQ != null) {
-            agI();
+        if (this.cvj != null) {
+            ajt();
         }
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.swan.apps.core.d.c
-    public void ak(View view) {
-        an(view);
-        dQ(true);
-        he(-1);
-        hf(ViewCompat.MEASURED_STATE_MASK);
-        lA(null);
-        dU(true);
+    public void al(View view) {
+        ao(view);
+        em(true);
+        hB(-1);
+        hC(ViewCompat.MEASURED_STATE_MASK);
+        mm(null);
+        eq(true);
     }
 
-    private void am(View view) {
-        final com.baidu.swan.apps.runtime.e aAs = com.baidu.swan.apps.runtime.e.aAs();
-        if (aAs != null && aAs.aAv() != null) {
-            final b.a aAv = aAs.aAv();
-            this.ciI = (SwanAppRoundedImageView) view.findViewById(a.f.aiapps_icon);
+    private void an(View view) {
+        final com.baidu.swan.apps.runtime.e aDb = com.baidu.swan.apps.runtime.e.aDb();
+        if (aDb != null && aDb.aDe() != null) {
+            final b.a aDe = aDb.aDe();
+            this.cvb = (SwanAppRoundedImageView) view.findViewById(a.f.aiapps_icon);
             TextView textView = (TextView) view.findViewById(a.f.aiapps_title);
-            textView.setText(aAv.aly());
-            if (aAv.getAppFrameType() == 0) {
+            textView.setText(aDe.aoj());
+            if (aDe.getAppFrameType() == 0) {
                 com.baidu.swan.apps.view.d.a(textView, new Runnable() { // from class: com.baidu.swan.apps.core.d.a.1
                     @Override // java.lang.Runnable
                     public void run() {
-                        com.baidu.swan.apps.core.f.afP();
+                        com.baidu.swan.apps.core.f.aiA();
                     }
                 });
             }
-            com.baidu.swan.apps.performance.a.f.awK().awL().bindView(textView);
-            ((TextView) view.findViewById(a.f.aiapps_description)).setText(aAv.arh());
+            com.baidu.swan.apps.performance.a.f.azv().azw().bindView(textView);
+            ((TextView) view.findViewById(a.f.aiapps_description)).setText(aDe.atT());
             ((Button) view.findViewById(a.f.share_friends)).setOnClickListener(this);
-            this.ciQ = (Button) view.findViewById(a.f.add_favor);
-            this.ciQ.setOnClickListener(this);
-            agI();
-            ((TextView) view.findViewById(a.f.service_category_value)).setText(aAv.arm());
-            ((TextView) view.findViewById(a.f.subject_info_value)).setText(aAv.arn());
-            this.ciP = com.baidu.swan.apps.t.a.apG().aaY();
-            if (!TextUtils.isEmpty(this.ciP)) {
+            this.cvj = (Button) view.findViewById(a.f.add_favor);
+            this.cvj.setOnClickListener(this);
+            ajt();
+            ((TextView) view.findViewById(a.f.service_category_value)).setText(aDe.atY());
+            ((TextView) view.findViewById(a.f.subject_info_value)).setText(aDe.atZ());
+            this.cvi = com.baidu.swan.apps.t.a.ass().adK();
+            if (!TextUtils.isEmpty(this.cvi)) {
                 View findViewById = view.findViewById(a.f.agreement_layout);
                 findViewById.setVisibility(0);
                 findViewById.setOnClickListener(this);
             }
-            this.ciR = (RecyclerView) view.findViewById(a.f.related_swan_app_list);
-            PMSAppInfo arN = aAv.arN();
-            if (a(arN)) {
-                e(view, arN.brandsInfo);
+            this.cvk = (RecyclerView) view.findViewById(a.f.related_swan_app_list);
+            PMSAppInfo auz = aDe.auz();
+            if (a(auz)) {
+                e(view, auz.brandsInfo);
             }
-            this.ciK = (TextView) view.findViewById(a.f.aiapps_label_tv);
-            this.ciJ = (BdBaseImageView) view.findViewById(a.f.aiapps_label_bg);
-            this.ciI.setImageBitmap(ak.a((com.baidu.swan.apps.u.c.b) aAv, "SwanAppAboutFragment", false));
-            this.ciI.setOnClickListener(this);
-            SwanAppBearInfo aro = aAv.aro();
-            if (aro != null && aro.isValid()) {
-                this.ciL = new com.baidu.swan.apps.view.a(this.mActivity, view, aro, a.f.bear_layout);
+            this.cvd = (TextView) view.findViewById(a.f.aiapps_label_tv);
+            this.cvc = (BdBaseImageView) view.findViewById(a.f.aiapps_label_bg);
+            this.cvb.setImageBitmap(ak.a((com.baidu.swan.apps.u.c.b) aDe, "SwanAppAboutFragment", false));
+            this.cvb.setOnClickListener(this);
+            SwanAppBearInfo aua = aDe.aua();
+            if (aua != null && aua.isValid()) {
+                this.cve = new com.baidu.swan.apps.view.a(this.mActivity, view, aua, a.f.bear_layout);
             }
-            hc(aAv.getType());
+            hz(aDe.getType());
             ((Button) view.findViewById(a.f.open_app_button)).setVisibility(8);
-            if (DEBUG || com.baidu.swan.apps.v.f.asJ().asn()) {
+            if (DEBUG || com.baidu.swan.apps.v.f.avu().auY()) {
                 View inflate = ((ViewStub) view.findViewById(a.f.ai_app_console)).inflate();
-                if (ahq() && (inflate instanceof Button)) {
-                    ((Button) inflate).setText(aAv.arJ() ? a.h.aiapps_close_debug_mode : a.h.aiapps_open_debug_mode);
+                if (akb() && (inflate instanceof Button)) {
+                    ((Button) inflate).setText(aDe.auv() ? a.h.aiapps_close_debug_mode : a.h.aiapps_open_debug_mode);
                 }
                 inflate.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.swan.apps.core.d.a.8
-                    FullScreenFloatView cja;
+                    FullScreenFloatView cvt;
 
                     @Override // android.view.View.OnClickListener
                     public void onClick(View view2) {
                         if (a.this.mActivity != null) {
                             if (a.DEBUG) {
-                                if (this.cja == null) {
-                                    this.cja = com.baidu.swan.apps.v.f.asJ().I(a.this.mActivity);
+                                if (this.cvt == null) {
+                                    this.cvt = com.baidu.swan.apps.v.f.avu().J(a.this.mActivity);
                                 }
-                                if (a.this.ahq()) {
-                                    if (com.baidu.swan.apps.console.a.aeq()) {
+                                if (a.this.akb()) {
+                                    if (com.baidu.swan.apps.console.a.ahb()) {
                                         com.baidu.swan.apps.console.a.m(a.this.getContext(), false);
                                         return;
                                     } else {
-                                        com.baidu.swan.games.c.d.aNn().a(new d.a() { // from class: com.baidu.swan.apps.core.d.a.8.1
+                                        com.baidu.swan.games.c.d.aPW().a(new d.a() { // from class: com.baidu.swan.apps.core.d.a.8.1
                                             @Override // com.baidu.swan.games.c.d.a
-                                            public void dP(boolean z) {
+                                            public void el(boolean z) {
                                                 if (z) {
                                                     com.baidu.swan.apps.console.a.m(a.this.getContext(), true);
                                                 } else {
-                                                    com.baidu.swan.games.c.d.aNn().a(a.this.mActivity, (DialogInterface.OnClickListener) null);
+                                                    com.baidu.swan.games.c.d.aPW().a(a.this.mActivity, (DialogInterface.OnClickListener) null);
                                                 }
                                             }
                                         });
                                         return;
                                     }
                                 }
-                                this.cja.setVisibility(this.cja.getVisibility() == 0 ? 8 : 0);
-                            } else if (a.this.ahq()) {
-                                a.this.agJ();
+                                this.cvt.setVisibility(this.cvt.getVisibility() == 0 ? 8 : 0);
+                            } else if (a.this.akb()) {
+                                a.this.aju();
                             } else {
-                                com.baidu.swan.apps.console.a.bM(a.this.getContext());
+                                com.baidu.swan.apps.console.a.bS(a.this.getContext());
                             }
                         }
                     }
                 });
-                if (!ahq()) {
+                if (!akb()) {
                     ((ViewStub) view.findViewById(a.f.ai_app_property)).inflate().setOnClickListener(new View.OnClickListener() { // from class: com.baidu.swan.apps.core.d.a.9
-                        SwanAppPropertyWindow cjc;
+                        SwanAppPropertyWindow cvv;
 
                         @Override // android.view.View.OnClickListener
                         public void onClick(View view2) {
-                            if (this.cjc == null) {
-                                this.cjc = com.baidu.swan.apps.v.f.asJ().J(a.this.mActivity);
+                            if (this.cvv == null) {
+                                this.cvv = com.baidu.swan.apps.v.f.avu().K(a.this.mActivity);
                             }
-                            this.cjc.setVisibility(this.cjc.getVisibility() == 0 ? 8 : 0);
+                            this.cvv.setVisibility(this.cvv.getVisibility() == 0 ? 8 : 0);
                         }
                     });
                 }
@@ -210,31 +210,31 @@ public class a extends c implements View.OnClickListener {
                     public void onClick(View view2) {
                         if (a.this.mActivity != null) {
                             StringBuilder sb = new StringBuilder();
-                            sb.append("ENABLE CODE CACHE: ").append(com.baidu.swan.apps.t.a.apx().gA(a.this.Yy())).append("\n");
-                            sb.append("ENABLE V8: ").append(com.baidu.swan.apps.core.turbo.d.akC().aja()).append("\n");
-                            sb.append("APS VERSION: ").append(TextUtils.isEmpty(aAv.getVersion()) ? "" : aAv.getVersion()).append("\n");
-                            sb.append("APPID VERSION: ").append(com.baidu.swan.apps.f.a.kI(aAs.id)).append("\n");
-                            String formatFileSize = Formatter.formatFileSize(AppRuntime.getAppContext(), aAv.arq());
+                            sb.append("ENABLE CODE CACHE: ").append(com.baidu.swan.apps.t.a.asi().gX(a.this.abk())).append("\n");
+                            sb.append("ENABLE V8: ").append(com.baidu.swan.apps.core.turbo.d.ann().alL()).append("\n");
+                            sb.append("APS VERSION: ").append(TextUtils.isEmpty(aDe.getVersion()) ? "" : aDe.getVersion()).append("\n");
+                            sb.append("APPID VERSION: ").append(com.baidu.swan.apps.f.a.lu(aDb.id)).append("\n");
+                            String formatFileSize = Formatter.formatFileSize(AppRuntime.getAppContext(), aDe.auc());
                             StringBuilder append = sb.append("小程序包大小: ");
                             if (TextUtils.isEmpty(formatFileSize)) {
                                 formatFileSize = "";
                             }
-                            append.append(formatFileSize).append("(").append(aAv.arq()).append(")").append("\n");
+                            append.append(formatFileSize).append("(").append(aDe.auc()).append(")").append("\n");
                             g.a aVar = new g.a(a.this.mActivity);
-                            aVar.e(a.this.mActivity.getResources().getString(a.h.aiapps_show_ext_info_title)).qy(sb.toString()).a(new com.baidu.swan.apps.view.c.a()).fz(false);
+                            aVar.f(a.this.mActivity.getResources().getString(a.h.aiapps_show_ext_info_title)).rk(sb.toString()).a(new com.baidu.swan.apps.view.c.a()).fV(false);
                             aVar.c(a.h.aiapps_ok, new DialogInterface.OnClickListener() { // from class: com.baidu.swan.apps.core.d.a.10.1
                                 @Override // android.content.DialogInterface.OnClickListener
                                 public void onClick(DialogInterface dialogInterface, int i) {
                                 }
                             });
-                            aVar.azY();
+                            aVar.aCH();
                         }
                     }
                 });
                 View inflate2 = ((ViewStub) view.findViewById(a.f.ai_app_swan_core_history_info)).inflate();
                 if (inflate2 instanceof Button) {
                     Button button = (Button) inflate2;
-                    if (ahq()) {
+                    if (akb()) {
                         button.setText(a.h.ai_games_debug_game_core_version);
                     } else {
                         button.setText(a.h.aiapps_debug_swan_core_version);
@@ -242,29 +242,29 @@ public class a extends c implements View.OnClickListener {
                     button.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.swan.apps.core.d.a.11
                         @Override // android.view.View.OnClickListener
                         public void onClick(View view2) {
-                            String jJ;
+                            String kg;
                             String string;
                             if (a.this.mActivity != null) {
-                                if (a.this.ahq()) {
-                                    jJ = com.baidu.swan.apps.swancore.a.aDQ().jJ(1);
+                                if (a.this.akb()) {
+                                    kg = com.baidu.swan.apps.swancore.a.aGz().kg(1);
                                     string = a.this.mActivity.getResources().getString(a.h.ai_games_debug_game_core_version);
                                 } else {
-                                    jJ = com.baidu.swan.apps.swancore.a.aDQ().jJ(0);
+                                    kg = com.baidu.swan.apps.swancore.a.aGz().kg(0);
                                     string = a.this.mActivity.getResources().getString(a.h.aiapps_swan_core_history_title);
                                 }
                                 g.a aVar = new g.a(a.this.mActivity);
-                                aVar.e(string).qy(jJ).a(new com.baidu.swan.apps.view.c.a()).fz(false);
+                                aVar.f(string).rk(kg).a(new com.baidu.swan.apps.view.c.a()).fV(false);
                                 aVar.c(a.h.aiapps_ok, new DialogInterface.OnClickListener() { // from class: com.baidu.swan.apps.core.d.a.11.1
                                     @Override // android.content.DialogInterface.OnClickListener
                                     public void onClick(DialogInterface dialogInterface, int i) {
                                     }
                                 });
-                                aVar.azY();
+                                aVar.aCH();
                             }
                         }
                     });
                 }
-                if (k.awE().isAvailable()) {
+                if (k.azp().isAvailable()) {
                     View inflate3 = ((ViewStub) view.findViewById(a.f.ai_app_report_performance)).inflate();
                     if (inflate3 instanceof Button) {
                         Button button2 = (Button) inflate3;
@@ -278,22 +278,22 @@ public class a extends c implements View.OnClickListener {
                 }
                 inflate4.setOnClickListener(new AnonymousClass13());
             }
-            if (b(arN)) {
+            if (b(auz)) {
                 ImageView imageView = (ImageView) view.findViewById(a.f.apply_guarantee);
                 imageView.setVisibility(0);
                 imageView.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.swan.apps.core.d.a.14
                     @Override // android.view.View.OnClickListener
                     public void onClick(View view2) {
-                        ak.cK(a.this.getContext());
-                        a.this.bk("click", "baozhang");
+                        ak.cQ(a.this.getContext());
+                        a.this.bp("click", "baozhang");
                     }
                 });
             }
-            if (!ahq()) {
-                a(this.ciI, 2000L, new View.OnLongClickListener() { // from class: com.baidu.swan.apps.core.d.a.15
+            if (!akb()) {
+                a(this.cvb, 2000L, new View.OnLongClickListener() { // from class: com.baidu.swan.apps.core.d.a.15
                     @Override // android.view.View.OnLongClickListener
                     public boolean onLongClick(View view2) {
-                        a.this.agG();
+                        a.this.ajr();
                         return true;
                     }
                 });
@@ -303,7 +303,7 @@ public class a extends c implements View.OnClickListener {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* renamed from: com.baidu.swan.apps.core.d.a$12  reason: invalid class name */
-    /* loaded from: classes3.dex */
+    /* loaded from: classes10.dex */
     public class AnonymousClass12 implements View.OnClickListener {
         AnonymousClass12() {
         }
@@ -311,15 +311,15 @@ public class a extends c implements View.OnClickListener {
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             if (a.this.mActivity != null) {
-                k.awE().a(new k.a() { // from class: com.baidu.swan.apps.core.d.a.12.1
+                k.azp().a(new k.a() { // from class: com.baidu.swan.apps.core.d.a.12.1
                     @Override // com.baidu.swan.apps.performance.k.a
-                    public void lz(final String str) {
+                    public void ml(final String str) {
                         a.this.mActivity.runOnUiThread(new Runnable() { // from class: com.baidu.swan.apps.core.d.a.12.1.1
                             @Override // java.lang.Runnable
                             public void run() {
                                 g.a aVar = new g.a(a.this.mActivity);
-                                aVar.hn(a.h.aiapps_debug_report_performance).qy(str).a(new com.baidu.swan.apps.view.c.a()).fz(false).c(a.h.aiapps_ok, (DialogInterface.OnClickListener) null);
-                                aVar.azY();
+                                aVar.hK(a.h.aiapps_debug_report_performance).rk(str).a(new com.baidu.swan.apps.view.c.a()).fV(false).c(a.h.aiapps_ok, (DialogInterface.OnClickListener) null);
+                                aVar.aCH();
                             }
                         });
                     }
@@ -330,9 +330,9 @@ public class a extends c implements View.OnClickListener {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* renamed from: com.baidu.swan.apps.core.d.a$13  reason: invalid class name */
-    /* loaded from: classes3.dex */
+    /* loaded from: classes10.dex */
     public class AnonymousClass13 implements View.OnClickListener {
-        com.baidu.swan.apps.console.v8inspector.a cjj;
+        com.baidu.swan.apps.console.v8inspector.a cvC;
 
         AnonymousClass13() {
         }
@@ -340,14 +340,14 @@ public class a extends c implements View.OnClickListener {
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             g.a aVar = new g.a(a.this.mActivity);
-            aVar.hn(a.h.aiapps_debug_start_inspect).hm(a.h.aiapps_debug_inspect_message).a(new com.baidu.swan.apps.view.c.a()).fz(true);
+            aVar.hK(a.h.aiapps_debug_start_inspect).hJ(a.h.aiapps_debug_inspect_message).a(new com.baidu.swan.apps.view.c.a()).fV(true);
             if (com.baidu.swan.apps.console.v8inspector.a.getStatus() == 0) {
                 aVar.c(a.h.aiapps_debug_inspect_normal, new DialogInterface.OnClickListener() { // from class: com.baidu.swan.apps.core.d.a.13.1
                     @Override // android.content.DialogInterface.OnClickListener
                     public void onClick(DialogInterface dialogInterface, int i) {
                         com.baidu.swan.apps.console.v8inspector.a.setStatus(1);
-                        AnonymousClass13.this.cjj = new com.baidu.swan.apps.console.v8inspector.a(com.baidu.swan.apps.t.a.apu());
-                        AnonymousClass13.this.cjj.start();
+                        AnonymousClass13.this.cvC = new com.baidu.swan.apps.console.v8inspector.a(com.baidu.swan.apps.t.a.asf());
+                        AnonymousClass13.this.cvC.start();
                     }
                 });
             }
@@ -355,7 +355,7 @@ public class a extends c implements View.OnClickListener {
                 aVar.e(a.h.aiapps_debug_inspect_enhance, new DialogInterface.OnClickListener() { // from class: com.baidu.swan.apps.core.d.a.13.2
                     @Override // android.content.DialogInterface.OnClickListener
                     public void onClick(DialogInterface dialogInterface, int i) {
-                        AnonymousClass13.this.agW();
+                        AnonymousClass13.this.ajH();
                         com.baidu.swan.apps.console.v8inspector.a.setStatus(2);
                         System.exit(0);
                     }
@@ -365,19 +365,19 @@ public class a extends c implements View.OnClickListener {
                 aVar.d(a.h.aiapps_debug_inspect_close, new DialogInterface.OnClickListener() { // from class: com.baidu.swan.apps.core.d.a.13.3
                     @Override // android.content.DialogInterface.OnClickListener
                     public void onClick(DialogInterface dialogInterface, int i) {
-                        AnonymousClass13.this.agW();
+                        AnonymousClass13.this.ajH();
                         com.baidu.swan.apps.console.v8inspector.a.setStatus(0);
                     }
                 });
             }
-            aVar.azY();
+            aVar.aCH();
         }
 
         /* JADX INFO: Access modifiers changed from: private */
-        public void agW() {
-            if (this.cjj != null) {
-                this.cjj.stop();
-                this.cjj = null;
+        public void ajH() {
+            if (this.cvC != null) {
+                this.cvC.stop();
+                this.cvC = null;
             }
         }
     }
@@ -387,7 +387,7 @@ public class a extends c implements View.OnClickListener {
             final Runnable runnable = new Runnable() { // from class: com.baidu.swan.apps.core.d.a.2
                 @Override // java.lang.Runnable
                 public void run() {
-                    com.baidu.swan.apps.al.j.b.a.aEy().aEz();
+                    com.baidu.swan.apps.al.j.b.a.aHh().aHi();
                     onLongClickListener.onLongClick(view);
                 }
             };
@@ -412,28 +412,28 @@ public class a extends c implements View.OnClickListener {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void agG() {
+    public void ajr() {
         if (this.mActivity != null) {
-            String str = com.baidu.swan.apps.runtime.d.aAn().aAj().aAv().arN().webUrl;
+            String str = com.baidu.swan.apps.runtime.d.aCW().aCS().aDe().auz().webUrl;
             if (TextUtils.isEmpty(str)) {
-                al.cO(this.mActivity).setText("");
+                al.cU(this.mActivity).setText("");
                 com.baidu.swan.apps.res.widget.b.d.k(this.mActivity, a.h.swanapp_web_url_copy_fail).showToast();
                 return;
             }
-            String bj = bj(str, com.baidu.swan.apps.model.b.d(ak.aFZ()));
+            String bo = bo(str, com.baidu.swan.apps.model.b.d(ak.aII()));
             int i = a.h.swanapp_web_url_copy_success;
-            if (bj.length() > 4000) {
+            if (bo.length() > 4000) {
                 i = a.h.swanapp_web_url_param_to_long;
             } else {
-                str = bj;
+                str = bo;
             }
-            al.cO(this.mActivity).setText(str);
+            al.cU(this.mActivity).setText(str);
             com.baidu.swan.apps.res.widget.b.d.k(this.mActivity, i).showToast();
         }
     }
 
     @NonNull
-    private String bj(@NonNull String str, String str2) {
+    private String bo(@NonNull String str, String str2) {
         if (!TextUtils.isEmpty(str2)) {
             if (str.endsWith(File.separator)) {
                 str = str.substring(0, str.length() - 1);
@@ -447,28 +447,28 @@ public class a extends c implements View.OnClickListener {
     }
 
     private boolean a(PMSAppInfo pMSAppInfo) {
-        return (com.baidu.swan.apps.runtime.d.aAn().Yy() != 0 || pMSAppInfo == null || TextUtils.isEmpty(pMSAppInfo.brandsInfo)) ? false : true;
+        return (com.baidu.swan.apps.runtime.d.aCW().abk() != 0 || pMSAppInfo == null || TextUtils.isEmpty(pMSAppInfo.brandsInfo)) ? false : true;
     }
 
-    private void agH() {
+    private void ajs() {
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getContext());
         linearLayoutManager.setOrientation(1);
-        this.ciR.setLayoutManager(linearLayoutManager);
+        this.cvk.setLayoutManager(linearLayoutManager);
         final com.baidu.swan.apps.af.c cVar = new com.baidu.swan.apps.af.c(getContext());
-        this.ciR.setAdapter(cVar);
+        this.cvk.setAdapter(cVar);
         com.baidu.swan.apps.af.b.a(new b.a() { // from class: com.baidu.swan.apps.core.d.a.4
             @Override // com.baidu.swan.apps.af.b.a
             public void a(final com.baidu.swan.apps.af.a aVar) {
                 if (aVar != null) {
-                    if (!((aVar.cMd == null) | (aVar.cMd.size() <= 0))) {
+                    if (!((aVar.cYg == null) | (aVar.cYg.size() <= 0))) {
                         ak.runOnUiThread(new Runnable() { // from class: com.baidu.swan.apps.core.d.a.4.1
                             @Override // java.lang.Runnable
                             public void run() {
-                                a.this.ciR.setVisibility(0);
+                                a.this.cvk.setVisibility(0);
                                 cVar.b(aVar);
                             }
                         });
-                        com.baidu.swan.apps.af.c.H("aboutrelated", null, "show");
+                        com.baidu.swan.apps.af.c.I("aboutrelated", null, "show");
                     }
                 }
             }
@@ -476,39 +476,39 @@ public class a extends c implements View.OnClickListener {
     }
 
     private boolean b(PMSAppInfo pMSAppInfo) {
-        return (pMSAppInfo == null ? PMSConstants.PayProtected.NO_PAY_PROTECTED.type : pMSAppInfo.payProtected) == PMSConstants.PayProtected.PAY_PROTECTED.type && ak.aFX();
+        return (pMSAppInfo == null ? PMSConstants.PayProtected.NO_PAY_PROTECTED.type : pMSAppInfo.payProtected) == PMSConstants.PayProtected.PAY_PROTECTED.type && ak.aIG();
     }
 
-    private void agI() {
-        if (com.baidu.swan.apps.database.favorite.a.mv(com.baidu.swan.apps.runtime.d.aAn().getAppId())) {
-            this.ciQ.setText(a.h.swanapp_favored);
-            this.ciQ.setTextColor(getResources().getColorStateList(a.c.swan_app_about_attentation_text_selector));
-            this.ciQ.setBackgroundResource(a.e.swan_app_about_cancel_attention_selector);
+    private void ajt() {
+        if (com.baidu.swan.apps.database.favorite.a.nh(com.baidu.swan.apps.runtime.d.aCW().getAppId())) {
+            this.cvj.setText(a.h.swanapp_favored);
+            this.cvj.setTextColor(getResources().getColorStateList(a.c.swan_app_about_attentation_text_selector));
+            this.cvj.setBackgroundResource(a.e.swan_app_about_cancel_attention_selector);
             return;
         }
-        this.ciQ.setText(a.h.swanapp_add_favor);
-        this.ciQ.setTextColor(-1);
-        this.ciQ.setBackgroundResource(a.e.swan_app_about_attention_selector);
+        this.cvj.setText(a.h.swanapp_add_favor);
+        this.cvj.setTextColor(-1);
+        this.cvj.setBackgroundResource(a.e.swan_app_about_attention_selector);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void agJ() {
-        if (com.baidu.swan.apps.runtime.e.aAs() != null) {
-            com.baidu.swan.apps.core.c.c.a(com.baidu.swan.apps.runtime.e.aAs(), this.mActivity, new c.a() { // from class: com.baidu.swan.apps.core.d.a.5
+    public void aju() {
+        if (com.baidu.swan.apps.runtime.e.aDb() != null) {
+            com.baidu.swan.apps.core.c.c.a(com.baidu.swan.apps.runtime.e.aDb(), this.mActivity, new c.a() { // from class: com.baidu.swan.apps.core.d.a.5
                 @Override // com.baidu.swan.apps.core.c.c.a
                 public void h(boolean z, String str) {
                     if (!z) {
-                        com.baidu.swan.apps.core.c.c.X(a.this.mActivity, str);
-                    } else if (com.baidu.swan.apps.console.a.aeq()) {
-                        com.baidu.swan.apps.console.a.bM(a.this.getContext());
+                        com.baidu.swan.apps.core.c.c.aa(a.this.mActivity, str);
+                    } else if (com.baidu.swan.apps.console.a.ahb()) {
+                        com.baidu.swan.apps.console.a.bS(a.this.getContext());
                     } else {
-                        com.baidu.swan.games.c.d.aNn().a(new d.a() { // from class: com.baidu.swan.apps.core.d.a.5.1
+                        com.baidu.swan.games.c.d.aPW().a(new d.a() { // from class: com.baidu.swan.apps.core.d.a.5.1
                             @Override // com.baidu.swan.games.c.d.a
-                            public void dP(boolean z2) {
+                            public void el(boolean z2) {
                                 if (z2) {
-                                    com.baidu.swan.apps.console.a.bM(a.this.getContext());
+                                    com.baidu.swan.apps.console.a.bS(a.this.getContext());
                                 } else {
-                                    com.baidu.swan.games.c.d.aNn().a(a.this.mActivity, (DialogInterface.OnClickListener) null);
+                                    com.baidu.swan.games.c.d.aPW().a(a.this.mActivity, (DialogInterface.OnClickListener) null);
                                 }
                             }
                         });
@@ -518,46 +518,46 @@ public class a extends c implements View.OnClickListener {
         }
     }
 
-    private void hc(int i) {
-        ah.a(this.ciJ, this.ciK, String.valueOf(i));
+    private void hz(int i) {
+        ah.a(this.cvc, this.cvd, String.valueOf(i));
     }
 
     @Override // com.baidu.swan.apps.core.d.c
-    protected void acc() {
-        FragmentActivity aVF = aVF();
-        if (aVF != null && this.cjv == null) {
-            this.cjv = new com.baidu.swan.menu.h(aVF, this.cju, 13, com.baidu.swan.apps.t.a.apy(), new com.baidu.swan.apps.view.c.b());
-            if (!ahq()) {
-                this.cjv.lL(35);
-                this.cjv.lL(37);
+    protected void aeO() {
+        FragmentActivity aYo = aYo();
+        if (aYo != null && this.cvN == null) {
+            this.cvN = new com.baidu.swan.menu.h(aYo, this.cvM, 13, com.baidu.swan.apps.t.a.asj(), new com.baidu.swan.apps.view.c.b());
+            if (!akb()) {
+                this.cvN.mi(35);
+                this.cvN.mi(37);
             }
-            new com.baidu.swan.apps.menu.a(this.cjv, this).auy();
+            new com.baidu.swan.apps.menu.a(this.cvN, this).axj();
         }
     }
 
     @Override // com.baidu.swan.apps.core.d.c
-    protected void agK() {
-        acc();
-        this.cjv.show(com.baidu.swan.apps.t.a.apQ().getNightModeSwitcherState());
+    protected void ajv() {
+        aeO();
+        this.cvN.show(com.baidu.swan.apps.t.a.asC().getNightModeSwitcherState());
     }
 
     @Override // com.baidu.swan.apps.core.d.c
-    protected boolean abW() {
+    protected boolean aeI() {
         return false;
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.swan.apps.core.d.c
-    public boolean agL() {
+    public boolean ajw() {
         return false;
     }
 
     @Override // com.baidu.swan.apps.core.d.c
-    public boolean abv() {
+    public boolean aeh() {
         return false;
     }
 
-    public static a agM() {
+    public static a ajx() {
         return new a();
     }
 
@@ -565,114 +565,114 @@ public class a extends c implements View.OnClickListener {
     public void onClick(View view) {
         int id = view.getId();
         if (id == a.f.aiapps_icon) {
-            agP();
+            ajA();
         } else if (id == a.f.open_app_button) {
-            agQ();
+            ajB();
         } else if (id == a.f.brands_introduction_ll) {
-            SchemeRouter.invoke(getContext(), this.ciN);
-            bk("click", Constants.PHONE_BRAND);
+            SchemeRouter.invoke(getContext(), this.cvg);
+            bp("click", Constants.PHONE_BRAND);
         } else if (id == a.f.agreement_layout) {
-            agR();
+            ajC();
         } else if (id == a.f.share_friends) {
-            agO();
+            ajz();
         } else if (id == a.f.add_favor) {
-            agN();
+            ajy();
         }
     }
 
-    private void agN() {
-        String appId = com.baidu.swan.apps.runtime.d.aAn().getAppId();
+    private void ajy() {
+        String appId = com.baidu.swan.apps.runtime.d.aCW().getAppId();
         if (!TextUtils.isEmpty(appId)) {
-            if (com.baidu.swan.apps.database.favorite.a.mv(appId)) {
-                lx(appId);
+            if (com.baidu.swan.apps.database.favorite.a.nh(appId)) {
+                mj(appId);
             } else {
-                ly(appId);
+                mk(appId);
             }
-            agI();
+            ajt();
         }
     }
 
-    private void lx(String str) {
-        SwanFavorDataManager.ank().b(str, new com.baidu.swan.apps.favordata.a.b() { // from class: com.baidu.swan.apps.core.d.a.6
+    private void mj(String str) {
+        SwanFavorDataManager.apW().b(str, new com.baidu.swan.apps.favordata.a.b() { // from class: com.baidu.swan.apps.core.d.a.6
             @Override // com.baidu.swan.apps.favordata.a.b
-            public void agS() {
-                com.baidu.swan.apps.res.widget.b.d.k(a.this.getContext(), a.h.aiapps_cancel_fav_success).ju(2).showHighlightToast();
+            public void ajD() {
+                com.baidu.swan.apps.res.widget.b.d.k(a.this.getContext(), a.h.aiapps_cancel_fav_success).jR(2).showHighlightToast();
             }
 
             @Override // com.baidu.swan.apps.favordata.a.b
-            public void agT() {
-                com.baidu.swan.apps.res.widget.b.d.k(a.this.getContext(), a.h.aiapps_cancel_fav_fail).ju(2).showToast();
+            public void ajE() {
+                com.baidu.swan.apps.res.widget.b.d.k(a.this.getContext(), a.h.aiapps_cancel_fav_fail).jR(2).showToast();
             }
-        }, com.baidu.swan.apps.env.c.c.amG().hE(3).amH());
-        bk("click", "aboutmove");
+        }, com.baidu.swan.apps.env.c.c.aps().ib(3).apt());
+        bp("click", "aboutmove");
     }
 
-    private void ly(String str) {
-        if (com.baidu.swan.apps.ad.a.a.axM()) {
+    private void mk(String str) {
+        if (com.baidu.swan.apps.ad.a.a.aAx()) {
             if (DEBUG) {
                 Log.d("SwanAppAboutFragment", "in debug mode cannot add favor");
             }
             com.baidu.swan.apps.res.widget.b.d.k(getContext(), a.h.aiapps_debug_forbid_favor).showToast();
             return;
         }
-        com.baidu.swan.apps.api.module.favorite.a.bXj = null;
-        final String page = ak.aFZ().getPage();
-        SwanFavorDataManager.ank().b(str, 1, new com.baidu.swan.apps.favordata.a.a() { // from class: com.baidu.swan.apps.core.d.a.7
+        com.baidu.swan.apps.api.module.favorite.a.cjy = null;
+        final String page = ak.aII().getPage();
+        SwanFavorDataManager.apW().b(str, 1, new com.baidu.swan.apps.favordata.a.a() { // from class: com.baidu.swan.apps.core.d.a.7
             @Override // com.baidu.swan.apps.favordata.a.a
-            public void agU() {
-                com.baidu.swan.apps.database.favorite.a.alH();
-                if (com.baidu.swan.apps.menu.a.D(a.this.aVF())) {
-                    com.baidu.swan.apps.menu.a.bN("aboutconcern", page);
+            public void ajF() {
+                com.baidu.swan.apps.database.favorite.a.aos();
+                if (com.baidu.swan.apps.menu.a.E(a.this.aYo())) {
+                    com.baidu.swan.apps.menu.a.bS("aboutconcern", page);
                 } else {
-                    com.baidu.swan.apps.res.widget.b.d.k(a.this.getContext(), a.h.aiapps_fav_success).ju(2).jq(2).showToast();
+                    com.baidu.swan.apps.res.widget.b.d.k(a.this.getContext(), a.h.aiapps_fav_success).jR(2).jN(2).showToast();
                 }
             }
 
             @Override // com.baidu.swan.apps.favordata.a.a
-            public void agV() {
-                com.baidu.swan.apps.res.widget.b.d.k(a.this.getContext(), a.h.aiapps_fav_fail).ju(2).showToast();
+            public void ajG() {
+                com.baidu.swan.apps.res.widget.b.d.k(a.this.getContext(), a.h.aiapps_fav_fail).jR(2).showToast();
             }
         });
-        com.baidu.swan.apps.menu.a.bN("aboutconcern", page);
+        com.baidu.swan.apps.menu.a.bS("aboutconcern", page);
     }
 
     @Override // com.baidu.swan.apps.core.d.c
-    public void agO() {
+    public void ajz() {
         e eVar;
-        f YG = com.baidu.swan.apps.v.f.asJ().YG();
-        if (YG != null && (eVar = (e) YG.q(e.class)) != null) {
+        f abs = com.baidu.swan.apps.v.f.avu().abs();
+        if (abs != null && (eVar = (e) abs.q(e.class)) != null) {
             HashMap hashMap = new HashMap();
-            hashMap.put("wvID", eVar.ahG());
-            com.baidu.swan.apps.v.f.asJ().b(new com.baidu.swan.apps.event.a.b("sharebtn", hashMap));
-            bk("click", "aboutshare");
+            hashMap.put("wvID", eVar.akr());
+            com.baidu.swan.apps.v.f.avu().b(new com.baidu.swan.apps.event.a.b("sharebtn", hashMap));
+            bp("click", "aboutshare");
         }
     }
 
-    private void agP() {
-        System.arraycopy(this.ciM, 1, this.ciM, 0, this.ciM.length - 1);
-        this.ciM[this.ciM.length - 1] = SystemClock.uptimeMillis();
-        if (this.ciM[0] >= SystemClock.uptimeMillis() - 1000) {
-            Hd();
+    private void ajA() {
+        System.arraycopy(this.cvf, 1, this.cvf, 0, this.cvf.length - 1);
+        this.cvf[this.cvf.length - 1] = SystemClock.uptimeMillis();
+        if (this.cvf[0] >= SystemClock.uptimeMillis() - 1000) {
+            HZ();
         }
     }
 
-    private void agQ() {
-        com.baidu.swan.apps.runtime.e aAs = com.baidu.swan.apps.runtime.e.aAs();
-        if (aAs != null) {
-            b.a aAv = aAs.aAv();
-            String arG = aAv.arG();
-            String arH = aAv.arH();
-            if (TextUtils.isEmpty(arG) || TextUtils.isEmpty(arH)) {
+    private void ajB() {
+        com.baidu.swan.apps.runtime.e aDb = com.baidu.swan.apps.runtime.e.aDb();
+        if (aDb != null) {
+            b.a aDe = aDb.aDe();
+            String aus = aDe.aus();
+            String aut = aDe.aut();
+            if (TextUtils.isEmpty(aus) || TextUtils.isEmpty(aut)) {
                 if (DEBUG) {
                     Log.d("SwanAppAboutFragment", "appOpenUrl or appDownloadUrl is empty, click no response");
                     return;
                 }
                 return;
             }
-            String cx = ak.cx(arG, arH);
+            String cC = ak.cC(aus, aut);
             UnitedSchemeMainDispatcher unitedSchemeMainDispatcher = new UnitedSchemeMainDispatcher();
             unitedSchemeMainDispatcher.setDynamicDispatcher("swanAPI", new com.baidu.swan.apps.scheme.j());
-            UnitedSchemeEntity unitedSchemeEntity = new UnitedSchemeEntity(Uri.parse(cx), UnitedSchemeConstants.SCHEME_INVOKE_TYPE_INSIDE);
+            UnitedSchemeEntity unitedSchemeEntity = new UnitedSchemeEntity(Uri.parse(cC), UnitedSchemeConstants.SCHEME_INVOKE_TYPE_INSIDE);
             unitedSchemeEntity.setOnlyVerify(false);
             unitedSchemeMainDispatcher.dispatch(this.mActivity, unitedSchemeEntity);
             if (DEBUG) {
@@ -681,9 +681,9 @@ public class a extends c implements View.OnClickListener {
         }
     }
 
-    private void agR() {
-        i.lK(this.ciP).lL(getString(a.h.swan_app_service_agreement)).dZ(false).aim();
-        bk("click", "servicenote");
+    private void ajC() {
+        i.mw(this.cvi).mx(getString(a.h.swan_app_service_agreement)).ev(false).akX();
+        bp("click", "servicenote");
     }
 
     private void e(View view, String str) {
@@ -694,18 +694,18 @@ public class a extends c implements View.OnClickListener {
         if (!TextUtils.isEmpty(str) && view != null) {
             try {
                 JSONObject jSONObject = new JSONObject(str);
-                this.ciN = jSONObject.optString("scheme");
-                this.ciO = jSONObject.optString("description");
-                if (!TextUtils.isEmpty(this.ciN) && !TextUtils.isEmpty(this.ciO) && (length = this.ciO.length()) >= 20) {
+                this.cvg = jSONObject.optString("scheme");
+                this.cvh = jSONObject.optString("description");
+                if (!TextUtils.isEmpty(this.cvg) && !TextUtils.isEmpty(this.cvh) && (length = this.cvh.length()) >= 20) {
                     if (length > 100) {
-                        this.ciO = this.ciO.substring(0, 100);
+                        this.cvh = this.cvh.substring(0, 100);
                     }
                     LinearLayout linearLayout = (LinearLayout) view.findViewById(a.f.brands_introduction_ll);
                     linearLayout.setOnClickListener(this);
                     linearLayout.setVisibility(0);
-                    ((TextView) view.findViewById(a.f.brands_introduction_details)).setText(this.ciO);
-                    com.baidu.swan.apps.af.c.H(Constants.PHONE_BRAND, null, "show");
-                    agH();
+                    ((TextView) view.findViewById(a.f.brands_introduction_details)).setText(this.cvh);
+                    com.baidu.swan.apps.af.c.I(Constants.PHONE_BRAND, null, "show");
+                    ajs();
                 }
             } catch (JSONException e) {
                 if (DEBUG) {
@@ -715,15 +715,15 @@ public class a extends c implements View.OnClickListener {
         }
     }
 
-    private void Hd() {
-        String Q = o.Q(this.mActivity);
-        com.baidu.swan.apps.res.widget.b.d.a(AppRuntime.getAppContext(), Q).showMultiToast();
-        com.baidu.swan.apps.console.c.bb("SwanAppAboutFragment", "showExtraInfo\n" + Q);
-        this.ciM = new long[5];
+    private void HZ() {
+        String R = o.R(this.mActivity);
+        com.baidu.swan.apps.res.widget.b.d.a(AppRuntime.getAppContext(), R).showMultiToast();
+        com.baidu.swan.apps.console.c.bg("SwanAppAboutFragment", "showExtraInfo\n" + R);
+        this.cvf = new long[5];
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void bk(String str, String str2) {
+    public void bp(String str, String str2) {
         com.baidu.swan.apps.statistic.a.f fVar = new com.baidu.swan.apps.statistic.a.f();
         if (!TextUtils.isEmpty(str)) {
             fVar.mType = str;

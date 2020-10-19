@@ -7,17 +7,19 @@ import com.xiaomi.push.hr;
 import java.util.HashSet;
 import java.util.Iterator;
 import java.util.List;
-/* loaded from: classes9.dex */
+/* loaded from: classes12.dex */
 public class ak {
-    private static volatile ak a;
+
+    /* renamed from: a  reason: collision with root package name */
+    private static volatile ak f5054a;
 
     /* renamed from: a  reason: collision with other field name */
-    protected SharedPreferences f846a;
+    protected SharedPreferences f847a;
 
     /* renamed from: a  reason: collision with other field name */
-    private HashSet<a> f847a = new HashSet<>();
+    private HashSet<a> f848a = new HashSet<>();
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes12.dex */
     public static abstract class a implements Runnable {
         private String mDescription;
         private int mId;
@@ -44,18 +46,18 @@ public class ak {
     }
 
     private ak(Context context) {
-        this.f846a = context.getSharedPreferences("mipush_oc", 0);
+        this.f847a = context.getSharedPreferences("mipush_oc", 0);
     }
 
     public static ak a(Context context) {
-        if (a == null) {
+        if (f5054a == null) {
             synchronized (ak.class) {
-                if (a == null) {
-                    a = new ak(context);
+                if (f5054a == null) {
+                    f5054a = new ak(context);
                 }
             }
         }
-        return a;
+        return f5054a;
     }
 
     private String a(int i) {
@@ -87,29 +89,29 @@ public class ak {
 
     public int a(int i, int i2) {
         String b = b(i);
-        if (this.f846a.contains(b)) {
-            return this.f846a.getInt(b, 0);
+        if (this.f847a.contains(b)) {
+            return this.f847a.getInt(b, 0);
         }
         String a2 = a(i);
-        return this.f846a.contains(a2) ? this.f846a.getInt(a2, 0) : i2;
+        return this.f847a.contains(a2) ? this.f847a.getInt(a2, 0) : i2;
     }
 
     public String a(int i, String str) {
         String b = b(i);
-        if (this.f846a.contains(b)) {
-            return this.f846a.getString(b, null);
+        if (this.f847a.contains(b)) {
+            return this.f847a.getString(b, null);
         }
         String a2 = a(i);
-        return this.f846a.contains(a2) ? this.f846a.getString(a2, null) : str;
+        return this.f847a.contains(a2) ? this.f847a.getString(a2, null) : str;
     }
 
     public synchronized void a() {
-        this.f847a.clear();
+        this.f848a.clear();
     }
 
     public synchronized void a(a aVar) {
-        if (!this.f847a.contains(aVar)) {
-            this.f847a.add(aVar);
+        if (!this.f848a.contains(aVar)) {
+            this.f848a.add(aVar);
         }
     }
 
@@ -117,7 +119,7 @@ public class ak {
         if (com.xiaomi.push.ad.a(list)) {
             return;
         }
-        SharedPreferences.Editor edit = this.f846a.edit();
+        SharedPreferences.Editor edit = this.f847a.edit();
         for (Pair<Integer, Object> pair : list) {
             if (pair.first != null && pair.second != null) {
                 a(edit, pair, a(((Integer) pair.first).intValue()));
@@ -128,11 +130,11 @@ public class ak {
 
     public boolean a(int i, boolean z) {
         String b = b(i);
-        if (this.f846a.contains(b)) {
-            return this.f846a.getBoolean(b, false);
+        if (this.f847a.contains(b)) {
+            return this.f847a.getBoolean(b, false);
         }
         String a2 = a(i);
-        return this.f846a.contains(a2) ? this.f846a.getBoolean(a2, false) : z;
+        return this.f847a.contains(a2) ? this.f847a.getBoolean(a2, false) : z;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -140,7 +142,7 @@ public class ak {
         com.xiaomi.channel.commonutils.logger.b.c("OC_Callback : receive new oc data");
         HashSet hashSet = new HashSet();
         synchronized (this) {
-            hashSet.addAll(this.f847a);
+            hashSet.addAll(this.f848a);
         }
         Iterator it = hashSet.iterator();
         while (it.hasNext()) {
@@ -156,7 +158,7 @@ public class ak {
         if (com.xiaomi.push.ad.a(list)) {
             return;
         }
-        SharedPreferences.Editor edit = this.f846a.edit();
+        SharedPreferences.Editor edit = this.f847a.edit();
         for (Pair<Integer, Object> pair : list) {
             if (pair.first != null) {
                 String b = b(((Integer) pair.first).intValue());

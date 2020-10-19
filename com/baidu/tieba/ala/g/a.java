@@ -18,10 +18,10 @@ public class a extends BdBaseModel {
 
     /* renamed from: com.baidu.tieba.ala.g.a$a  reason: collision with other inner class name */
     /* loaded from: classes4.dex */
-    public interface InterfaceC0599a {
-        void aY(int i, String str);
+    public interface InterfaceC0616a {
+        void bi(int i, String str);
 
-        void ep(long j);
+        void eG(long j);
     }
 
     @Override // com.baidu.live.adp.base.BdBaseModel
@@ -41,12 +41,12 @@ public class a extends BdBaseModel {
         sendMessage(httpMessage);
     }
 
-    public void a(InterfaceC0599a interfaceC0599a) {
-        bZE();
-        b(interfaceC0599a);
+    public void a(InterfaceC0616a interfaceC0616a) {
+        cdc();
+        b(interfaceC0616a);
     }
 
-    private void b(final InterfaceC0599a interfaceC0599a) {
+    private void b(final InterfaceC0616a interfaceC0616a) {
         this.messageListener = new HttpMessageListener(1021211) { // from class: com.baidu.tieba.ala.g.a.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.live.adp.framework.listener.MessageListener
@@ -54,12 +54,12 @@ public class a extends BdBaseModel {
                 if (httpResponsedMessage != null && httpResponsedMessage.getCmd() == 1021211 && (httpResponsedMessage instanceof AcceptPkResponseMessage)) {
                     AcceptPkResponseMessage acceptPkResponseMessage = (AcceptPkResponseMessage) httpResponsedMessage;
                     if (acceptPkResponseMessage.getError() != 0 || !acceptPkResponseMessage.isSuccess()) {
-                        interfaceC0599a.aY(acceptPkResponseMessage.getError(), acceptPkResponseMessage.getErrorString());
+                        interfaceC0616a.bi(acceptPkResponseMessage.getError(), acceptPkResponseMessage.getErrorString());
                         return;
                     }
-                    interfaceC0599a.ep(acceptPkResponseMessage.bZA());
+                    interfaceC0616a.eG(acceptPkResponseMessage.ccY());
                     AlaStatsItem alaStatsItem = new AlaStatsItem();
-                    alaStatsItem.addValue("pkId", Long.valueOf(acceptPkResponseMessage.bZA()));
+                    alaStatsItem.addValue("pkId", Long.valueOf(acceptPkResponseMessage.ccY()));
                     alaStatsItem.addValue("lodId", Long.valueOf(acceptPkResponseMessage.getLogId()));
                     alaStatsItem.addValue(BaseJsonData.TAG_ERRNO, Integer.valueOf(acceptPkResponseMessage.getError()));
                     AlaStatManager.getInstance().debug("pk_competition_accept_pk", alaStatsItem);
@@ -69,7 +69,7 @@ public class a extends BdBaseModel {
         registerListener(this.messageListener);
     }
 
-    private void bZE() {
+    private void cdc() {
         TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(1021211, TbConfig.SERVER_ADDRESS + "ala/pksolo/acceptPk");
         tbHttpMessageTask.setIsNeedLogin(true);
         tbHttpMessageTask.setIsNeedTbs(true);
@@ -79,7 +79,7 @@ public class a extends BdBaseModel {
         MessageManager.getInstance().registerTask(tbHttpMessageTask);
     }
 
-    public void bZF() {
+    public void cdd() {
         MessageManager.getInstance().unRegisterListener(this.messageListener);
         MessageManager.getInstance().unRegisterTask(1021211);
     }

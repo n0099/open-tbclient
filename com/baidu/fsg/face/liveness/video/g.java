@@ -6,9 +6,11 @@ import java.lang.Thread;
 import java.util.LinkedList;
 import java.util.concurrent.CountDownLatch;
 import java.util.concurrent.LinkedBlockingQueue;
-/* loaded from: classes16.dex */
+/* loaded from: classes17.dex */
 public class g extends Thread implements Thread.UncaughtExceptionHandler {
-    protected LinkedBlockingQueue<a> a;
+
+    /* renamed from: a  reason: collision with root package name */
+    protected LinkedBlockingQueue<a> f1731a;
     protected f b;
     protected int d;
     protected int e;
@@ -30,7 +32,7 @@ public class g extends Thread implements Thread.UncaughtExceptionHandler {
         this.k = i2;
         setPriority(10);
         setName("VideoMediaEncoderThread");
-        this.a = new LinkedBlockingQueue<>();
+        this.f1731a = new LinkedBlockingQueue<>();
         this.e = i4;
         a(i, i2, i3, i4, i5, str, mediaMuxer);
     }
@@ -52,7 +54,7 @@ public class g extends Thread implements Thread.UncaughtExceptionHandler {
         while (true) {
             try {
                 LogUtil.i("+mQueue.take");
-                take = this.a.take();
+                take = this.f1731a.take();
                 LogUtil.i("-mQueue.take");
             } catch (InterruptedException e) {
                 e.printStackTrace();
@@ -61,7 +63,7 @@ public class g extends Thread implements Thread.UncaughtExceptionHandler {
             if (take.b != null) {
                 LogUtil.i("+encodeFrame");
                 long currentTimeMillis = System.currentTimeMillis();
-                this.b.a(take.b, take.a);
+                this.b.a(take.b, take.f1732a);
                 long currentTimeMillis2 = System.currentTimeMillis();
                 LogUtil.i("-encodeFrame");
                 synchronized (this.f) {
@@ -70,12 +72,12 @@ public class g extends Thread implements Thread.UncaughtExceptionHandler {
                 this.d++;
                 LogUtil.i("mRecorder.encodeFrame:" + (currentTimeMillis2 - currentTimeMillis) + "ms");
                 if (this.p < 0) {
-                    this.p = take.a / 1000;
+                    this.p = take.f1732a / 1000;
                 }
-                this.o = (take.a / 1000) - this.p;
+                this.o = (take.f1732a / 1000) - this.p;
             } else {
                 this.f.clear();
-                this.a.clear();
+                this.f1731a.clear();
                 this.b.b();
                 this.h = true;
                 return;
@@ -85,7 +87,7 @@ public class g extends Thread implements Thread.UncaughtExceptionHandler {
 
     public void a(byte[] bArr, long j) {
         byte[] bArr2;
-        if (!this.c && this.a != null) {
+        if (!this.c && this.f1731a != null) {
             if (this.f.size() > 0) {
                 synchronized (this.f) {
                     bArr2 = this.f.pop();
@@ -113,9 +115,9 @@ public class g extends Thread implements Thread.UncaughtExceptionHandler {
             this.l = bArr2;
             this.m = j;
             aVar.b = bArr2;
-            aVar.a = j;
-            if (this.a.size() < 50) {
-                this.a.add(aVar);
+            aVar.f1732a = j;
+            if (this.f1731a.size() < 50) {
+                this.f1731a.add(aVar);
             }
         }
     }
@@ -131,8 +133,8 @@ public class g extends Thread implements Thread.UncaughtExceptionHandler {
     public void c() {
         a aVar = new a();
         aVar.b = null;
-        aVar.a = 0L;
-        this.a.add(aVar);
+        aVar.f1732a = 0L;
+        this.f1731a.add(aVar);
         this.c = true;
         this.l = null;
         this.m = 0L;
@@ -142,9 +144,9 @@ public class g extends Thread implements Thread.UncaughtExceptionHandler {
     public void d() {
         a aVar = new a();
         aVar.b = null;
-        aVar.a = 0L;
-        this.a.clear();
-        this.a.add(aVar);
+        aVar.f1732a = 0L;
+        this.f1731a.clear();
+        this.f1731a.add(aVar);
         this.c = true;
     }
 
@@ -162,16 +164,18 @@ public class g extends Thread implements Thread.UncaughtExceptionHandler {
     }
 
     public int f() {
-        if (this.a == null) {
+        if (this.f1731a == null) {
             return 0;
         }
-        return this.a.size();
+        return this.f1731a.size();
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes16.dex */
+    /* loaded from: classes17.dex */
     public static class a {
-        long a;
+
+        /* renamed from: a  reason: collision with root package name */
+        long f1732a;
         byte[] b;
 
         a() {

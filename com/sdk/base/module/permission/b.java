@@ -1,4 +1,4 @@
 package com.sdk.base.module.permission;
-/* loaded from: classes5.dex */
+/* loaded from: classes16.dex */
 public interface b {
 }

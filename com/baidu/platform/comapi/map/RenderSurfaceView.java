@@ -7,7 +7,7 @@ import android.util.AttributeSet;
 import android.view.SurfaceHolder;
 import android.view.SurfaceView;
 import com.baidu.platform.comapi.map.ae;
-/* loaded from: classes3.dex */
+/* loaded from: classes7.dex */
 public class RenderSurfaceView extends SurfaceView implements SurfaceHolder.Callback2 {
     protected ad k;
 

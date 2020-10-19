@@ -5,22 +5,22 @@ import android.view.View;
 import android.view.ViewGroup;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.tieba.R;
-/* loaded from: classes21.dex */
+/* loaded from: classes22.dex */
 public class y extends o<z, aa> {
-    private BdUniqueId iUZ;
+    private BdUniqueId jjX;
     private com.baidu.tieba.pb.data.f pbData;
 
     public y(com.baidu.tieba.pb.videopb.b bVar, BdUniqueId bdUniqueId) {
-        super(bVar, z.kOv);
-        this.iUZ = bdUniqueId;
+        super(bVar, z.ldH);
+        this.jjX = bdUniqueId;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.widget.ListView.a
-    /* renamed from: cf */
+    /* renamed from: ch */
     public aa c(ViewGroup viewGroup) {
-        return new aa(LayoutInflater.from(this.mContext).inflate(R.layout.pb_image_ala_recomment_layout, viewGroup, false), this.kKB.getPageContext(), this.iUZ);
+        return new aa(LayoutInflater.from(this.mContext).inflate(R.layout.pb_image_ala_recomment_layout, viewGroup, false), this.kZM.getPageContext(), this.jjX);
     }
 
     /* JADX DEBUG: Method merged with bridge method */

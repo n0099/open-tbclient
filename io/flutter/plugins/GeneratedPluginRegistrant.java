@@ -17,7 +17,7 @@ import io.flutter.embedding.engine.FlutterEngine;
 import io.flutter.embedding.engine.plugins.shim.ShimPluginRegistry;
 import io.flutter.plugins.pathprovider.PathProviderPlugin;
 import io.flutter.plugins.webviewflutter.WebViewFlutterPlugin;
-/* loaded from: classes5.dex */
+/* loaded from: classes19.dex */
 public final class GeneratedPluginRegistrant {
     public static void registerWith(FlutterEngine flutterEngine) {
         ShimPluginRegistry shimPluginRegistry = new ShimPluginRegistry(flutterEngine);

@@ -1,8 +1,8 @@
 package com.baidu.live.data;
 /* loaded from: classes4.dex */
 public class bs {
-    public int aLN;
-    public int aLO;
-    public int aLP;
-    public int aLQ;
+    public int aOS;
+    public int aOT;
+    public int aOU;
+    public int aOV;
 }

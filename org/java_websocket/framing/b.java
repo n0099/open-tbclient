@@ -4,7 +4,7 @@ import java.nio.ByteBuffer;
 import org.java_websocket.exceptions.InvalidDataException;
 import org.java_websocket.exceptions.InvalidFrameException;
 import org.java_websocket.framing.Framedata;
-/* loaded from: classes17.dex */
+/* loaded from: classes11.dex */
 public class b extends d {
     private int code;
     private String reason;
@@ -21,7 +21,7 @@ public class b extends d {
             this.code = 1005;
             this.reason = "";
         }
-        enw();
+        eri();
     }
 
     public void setReason(String str) {
@@ -29,7 +29,7 @@ public class b extends d {
             str = "";
         }
         this.reason = str;
-        enw();
+        eri();
     }
 
     public int getCloseCode() {
@@ -46,8 +46,8 @@ public class b extends d {
     }
 
     @Override // org.java_websocket.framing.d, org.java_websocket.framing.f
-    public void env() throws InvalidDataException {
-        super.env();
+    public void erh() throws InvalidDataException {
+        super.erh();
         if (this.code == 1007 && this.reason == null) {
             throw new InvalidDataException(1007, "Received text is no valid utf8 string!");
         }
@@ -63,7 +63,7 @@ public class b extends d {
     }
 
     @Override // org.java_websocket.framing.f
-    public void A(ByteBuffer byteBuffer) {
+    public void C(ByteBuffer byteBuffer) {
         this.code = 1005;
         this.reason = "";
         byteBuffer.mark();
@@ -84,7 +84,7 @@ public class b extends d {
                 int position = byteBuffer.position();
                 try {
                     byteBuffer.position(byteBuffer.position() + 2);
-                    this.reason = org.java_websocket.e.c.B(byteBuffer);
+                    this.reason = org.java_websocket.e.c.D(byteBuffer);
                     byteBuffer.position(position);
                 } catch (IllegalArgumentException e) {
                     throw new InvalidDataException(1007);
@@ -96,20 +96,20 @@ public class b extends d {
         }
     }
 
-    private void enw() {
-        byte[] Xd = org.java_websocket.e.c.Xd(this.reason);
+    private void eri() {
+        byte[] XR = org.java_websocket.e.c.XR(this.reason);
         ByteBuffer allocate = ByteBuffer.allocate(4);
         allocate.putInt(this.code);
         allocate.position(2);
-        ByteBuffer allocate2 = ByteBuffer.allocate(Xd.length + 2);
+        ByteBuffer allocate2 = ByteBuffer.allocate(XR.length + 2);
         allocate2.put(allocate);
-        allocate2.put(Xd);
+        allocate2.put(XR);
         allocate2.rewind();
-        super.A(allocate2);
+        super.C(allocate2);
     }
 
     @Override // org.java_websocket.framing.f, org.java_websocket.framing.Framedata
-    public ByteBuffer enx() {
-        return this.code == 1005 ? org.java_websocket.e.b.enG() : super.enx();
+    public ByteBuffer erj() {
+        return this.code == 1005 ? org.java_websocket.e.b.ers() : super.erj();
     }
 }

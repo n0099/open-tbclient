@@ -6,16 +6,16 @@ import java.io.File;
 /* loaded from: classes4.dex */
 public class e implements a {
     @Override // com.baidu.tieba.ala.b.a.a.a
-    public void i(Context context, File file) {
+    public void j(Context context, File file) {
         PathClassLoader pathClassLoader = (PathClassLoader) context.getClassLoader();
         String[] strArr = (String[]) com.baidu.tieba.ala.b.a.b.b.getFieldValue(pathClassLoader, "mLibPaths");
         if (strArr != null) {
-            com.baidu.tieba.ala.b.a.b.b.a(pathClassLoader, "mLibPaths", com.baidu.tieba.ala.b.a.b.a.a(String.class, strArr, file.getAbsolutePath()));
+            com.baidu.tieba.ala.b.a.b.b.b(pathClassLoader, "mLibPaths", com.baidu.tieba.ala.b.a.b.a.b(String.class, strArr, file.getAbsolutePath()));
         }
     }
 
     @Override // com.baidu.tieba.ala.b.a.a.a
-    public boolean j(Context context, File file) {
-        return com.baidu.tieba.ala.b.a.b.a.a((String[]) com.baidu.tieba.ala.b.a.b.b.getFieldValue((PathClassLoader) context.getClassLoader(), "mLibPaths"), file.getAbsolutePath());
+    public boolean k(Context context, File file) {
+        return com.baidu.tieba.ala.b.a.b.a.b((String[]) com.baidu.tieba.ala.b.a.b.b.getFieldValue((PathClassLoader) context.getClassLoader(), "mLibPaths"), file.getAbsolutePath());
     }
 }

@@ -62,9 +62,10 @@ import android.view.WindowManager;
 import android.widget.FrameLayout;
 import android.widget.PopupWindow;
 import android.widget.TextView;
+import org.webrtc.MediaStreamTrack;
 import org.xmlpull.v1.XmlPullParser;
 @RequiresApi(14)
-/* loaded from: classes10.dex */
+/* loaded from: classes5.dex */
 class AppCompatDelegateImplV9 extends AppCompatDelegateImplBase implements MenuBuilder.Callback, LayoutInflater.Factory2 {
     private static final boolean IS_PRE_LOLLIPOP;
     private ActionMenuPresenterCallback mActionMenuPresenterCallback;
@@ -1137,7 +1138,7 @@ class AppCompatDelegateImplV9 extends AppCompatDelegateImplBase implements MenuB
             z2 = false;
         }
         if (z2) {
-            AudioManager audioManager = (AudioManager) this.mContext.getSystemService("audio");
+            AudioManager audioManager = (AudioManager) this.mContext.getSystemService(MediaStreamTrack.AUDIO_TRACK_KIND);
             if (audioManager != null) {
                 audioManager.playSoundEffect(0);
             } else {
@@ -1338,7 +1339,7 @@ class AppCompatDelegateImplV9 extends AppCompatDelegateImplBase implements MenuB
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes10.dex */
+    /* loaded from: classes5.dex */
     public class ActionModeCallbackWrapperV9 implements ActionMode.Callback {
         private ActionMode.Callback mWrapped;
 
@@ -1393,7 +1394,7 @@ class AppCompatDelegateImplV9 extends AppCompatDelegateImplBase implements MenuB
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes10.dex */
+    /* loaded from: classes5.dex */
     public final class PanelMenuPresenterCallback implements MenuPresenter.Callback {
         PanelMenuPresenterCallback() {
         }
@@ -1429,7 +1430,7 @@ class AppCompatDelegateImplV9 extends AppCompatDelegateImplBase implements MenuB
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes10.dex */
+    /* loaded from: classes5.dex */
     public final class ActionMenuPresenterCallback implements MenuPresenter.Callback {
         ActionMenuPresenterCallback() {
         }
@@ -1451,7 +1452,7 @@ class AppCompatDelegateImplV9 extends AppCompatDelegateImplBase implements MenuB
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    /* loaded from: classes10.dex */
+    /* loaded from: classes5.dex */
     public static final class PanelFeatureState {
         int background;
         View createdPanelView;
@@ -1569,7 +1570,7 @@ class AppCompatDelegateImplV9 extends AppCompatDelegateImplBase implements MenuB
         }
 
         /* JADX INFO: Access modifiers changed from: private */
-        /* loaded from: classes10.dex */
+        /* loaded from: classes5.dex */
         public static class SavedState implements Parcelable {
             public static final Parcelable.Creator<SavedState> CREATOR = new Parcelable.ClassLoaderCreator<SavedState>() { // from class: android.support.v7.app.AppCompatDelegateImplV9.PanelFeatureState.SavedState.1
                 /* JADX DEBUG: Method merged with bridge method */
@@ -1625,7 +1626,7 @@ class AppCompatDelegateImplV9 extends AppCompatDelegateImplBase implements MenuB
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes10.dex */
+    /* loaded from: classes5.dex */
     public class ListMenuDecorView extends ContentFrameLayout {
         public ListMenuDecorView(Context context) {
             super(context);

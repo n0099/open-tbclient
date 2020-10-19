@@ -10,21 +10,21 @@ import android.widget.TextView;
 import com.baidu.tbadk.core.util.ap;
 import com.baidu.tieba.R;
 import com.baidu.tieba.square.square.e;
-/* loaded from: classes22.dex */
+/* loaded from: classes23.dex */
 public class a extends BaseAdapter {
     Context mActivity;
-    private e mhR;
-    private int mhS = 0;
-    C0799a mhT;
+    private e mxu;
+    private int mxv = 0;
+    C0817a mxw;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* renamed from: com.baidu.tieba.square.flist.a$a  reason: collision with other inner class name */
-    /* loaded from: classes22.dex */
-    public class C0799a {
-        ImageView mhU;
-        TextView mhV;
+    /* loaded from: classes23.dex */
+    public class C0817a {
+        ImageView mxx;
+        TextView mxy;
 
-        C0799a() {
+        C0817a() {
         }
     }
 
@@ -34,18 +34,18 @@ public class a extends BaseAdapter {
 
     @Override // android.widget.Adapter
     public int getCount() {
-        if (this.mhR == null || this.mhR.mkh == null) {
+        if (this.mxu == null || this.mxu.mzI == null) {
             return 0;
         }
-        return this.mhR.mkh.size();
+        return this.mxu.mzI.size();
     }
 
     @Override // android.widget.Adapter
     public Object getItem(int i) {
-        if (this.mhR == null || this.mhR.mkh == null) {
+        if (this.mxu == null || this.mxu.mzI == null) {
             return null;
         }
-        return this.mhR.mkh.get(i);
+        return this.mxu.mzI.get(i);
     }
 
     @Override // android.widget.Adapter
@@ -56,55 +56,55 @@ public class a extends BaseAdapter {
     @Override // android.widget.Adapter
     public View getView(int i, View view, ViewGroup viewGroup) {
         if (view == null) {
-            view = dyV();
+            view = dCG();
         }
-        if (this.mhR != null) {
-            e eVar = this.mhR.mkh.get(i);
-            this.mhT = (C0799a) view.getTag();
+        if (this.mxu != null) {
+            e eVar = this.mxu.mzI.get(i);
+            this.mxw = (C0817a) view.getTag();
             if (eVar != null) {
-                a(this.mhT, eVar, view, i);
+                a(this.mxw, eVar, view, i);
             }
         }
         return view;
     }
 
-    public void Id(int i) {
-        this.mhS = i;
+    public void IJ(int i) {
+        this.mxv = i;
         notifyDataSetChanged();
     }
 
     public void a(e eVar) {
-        this.mhR = eVar;
+        this.mxu = eVar;
     }
 
-    public e dyU() {
-        return this.mhR;
+    public e dCF() {
+        return this.mxu;
     }
 
-    private View dyV() {
+    private View dCG() {
         View inflate = LayoutInflater.from(this.mActivity).inflate(R.layout.forum_list_dir_menu_item, (ViewGroup) null);
-        this.mhT = new C0799a();
-        this.mhT.mhU = (ImageView) inflate.findViewById(R.id.menu_choose);
-        this.mhT.mhV = (TextView) inflate.findViewById(R.id.menu_name);
-        inflate.setTag(this.mhT);
+        this.mxw = new C0817a();
+        this.mxw.mxx = (ImageView) inflate.findViewById(R.id.menu_choose);
+        this.mxw.mxy = (TextView) inflate.findViewById(R.id.menu_name);
+        inflate.setTag(this.mxw);
         return inflate;
     }
 
-    private void a(C0799a c0799a, e eVar, View view, int i) {
-        if (c0799a != null && eVar != null) {
-            c0799a.mhV.setText("");
+    private void a(C0817a c0817a, e eVar, View view, int i) {
+        if (c0817a != null && eVar != null) {
+            c0817a.mxy.setText("");
             if (i == 0) {
-                c0799a.mhV.setText(this.mActivity.getString(R.string.all) + eVar.mhZ);
+                c0817a.mxy.setText(this.mActivity.getString(R.string.all) + eVar.mxC);
             } else {
-                c0799a.mhV.setText(eVar.mhZ);
+                c0817a.mxy.setText(eVar.mxC);
             }
-            if (i != this.mhS) {
-                c0799a.mhU.setVisibility(4);
-                ap.setViewTextColor(c0799a.mhV, R.color.common_color_10200, 1);
+            if (i != this.mxv) {
+                c0817a.mxx.setVisibility(4);
+                ap.setViewTextColor(c0817a.mxy, R.color.common_color_10200, 1);
                 return;
             }
-            c0799a.mhU.setVisibility(0);
-            ap.setViewTextColor(c0799a.mhV, R.color.common_color_10013, 1);
+            c0817a.mxx.setVisibility(0);
+            ap.setViewTextColor(c0817a.mxy, R.color.common_color_10013, 1);
         }
     }
 }

@@ -84,14 +84,14 @@ public final class Util {
         if (inputStream.read(new byte[4]) == -1 || inputStream.read(bArr, 0, bArr.length) == -1) {
             return null;
         }
-        int d = d(bArr, 6);
-        int d2 = d(bArr, 8);
+        int f = f(bArr, 6);
+        int f2 = f(bArr, 8);
         f fVar = new f();
-        fVar.c(((d2 >> 9) & 127) + 1980, (d2 >> 5) & 15, d2 & 31, (d >> 11) & 31, (d >> 5) & 63, (d & 31) << 1);
+        fVar.c(((f2 >> 9) & 127) + 1980, (f2 >> 5) & 15, f2 & 31, (f >> 11) & 31, (f >> 5) & 63, (f & 31) << 1);
         return fVar;
     }
 
-    private static int d(byte[] bArr, int i) {
+    private static int f(byte[] bArr, int i) {
         if (bArr == null) {
             return 0;
         }

@@ -3,45 +3,45 @@ package com.airbnb.lottie.model;
 import android.graphics.PointF;
 import android.support.annotation.RestrictTo;
 @RestrictTo({RestrictTo.Scope.LIBRARY})
-/* loaded from: classes6.dex */
+/* loaded from: classes10.dex */
 public class a {
-    private final PointF Ee;
-    private final PointF Ef;
-    private final PointF Eg;
+    private final PointF Ev;
+    private final PointF Ew;
+    private final PointF Ex;
 
     public a() {
-        this.Ee = new PointF();
-        this.Ef = new PointF();
-        this.Eg = new PointF();
+        this.Ev = new PointF();
+        this.Ew = new PointF();
+        this.Ex = new PointF();
     }
 
     public a(PointF pointF, PointF pointF2, PointF pointF3) {
-        this.Ee = pointF;
-        this.Ef = pointF2;
-        this.Eg = pointF3;
+        this.Ev = pointF;
+        this.Ew = pointF2;
+        this.Ex = pointF3;
     }
 
     public void e(float f, float f2) {
-        this.Ee.set(f, f2);
-    }
-
-    public PointF jt() {
-        return this.Ee;
-    }
-
-    public void f(float f, float f2) {
-        this.Ef.set(f, f2);
+        this.Ev.set(f, f2);
     }
 
     public PointF ju() {
-        return this.Ef;
+        return this.Ev;
     }
 
-    public void g(float f, float f2) {
-        this.Eg.set(f, f2);
+    public void f(float f, float f2) {
+        this.Ew.set(f, f2);
     }
 
     public PointF jv() {
-        return this.Eg;
+        return this.Ew;
+    }
+
+    public void g(float f, float f2) {
+        this.Ex.set(f, f2);
+    }
+
+    public PointF jw() {
+        return this.Ex;
     }
 }

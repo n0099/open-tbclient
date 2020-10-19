@@ -5,15 +5,15 @@ import android.view.View;
 import com.baidu.tbadk.ActivityPendingTransitionFactory;
 import com.baidu.tbadk.BaseActivity;
 import com.baidu.tieba.R;
-/* loaded from: classes21.dex */
+/* loaded from: classes22.dex */
 public class AchievementActivity extends BaseActivity {
-    private c ift;
-    private a ifu;
-    private View.OnClickListener ifv = new View.OnClickListener() { // from class: com.baidu.tieba.frs.achievement.AchievementActivity.1
+    private c iuq;
+    private a iur;
+    private View.OnClickListener ius = new View.OnClickListener() { // from class: com.baidu.tieba.frs.achievement.AchievementActivity.1
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
-            AchievementActivity.this.ift.setDisplay(false);
-            AchievementActivity.this.ifu.setDisplay(true);
+            AchievementActivity.this.iuq.setDisplay(false);
+            AchievementActivity.this.iur.setDisplay(true);
         }
     };
 
@@ -23,11 +23,11 @@ public class AchievementActivity extends BaseActivity {
         setIsAddSwipeBackLayout(false);
         super.onCreate(bundle);
         setContentView(R.layout.activity_achievement);
-        this.ift = new c(getPageContext(), findViewById(R.id.layout_thanks_letter));
-        this.ift.setDisplay(true);
-        this.ift.z(this.ifv);
-        this.ifu = new a(getPageContext(), findViewById(R.id.layout_invite_letter));
-        this.ifu.setDisplay(false);
+        this.iuq = new c(getPageContext(), findViewById(R.id.layout_thanks_letter));
+        this.iuq.setDisplay(true);
+        this.iuq.z(this.ius);
+        this.iur = new a(getPageContext(), findViewById(R.id.layout_invite_letter));
+        this.iur.setDisplay(false);
     }
 
     @Override // com.baidu.tbadk.BaseActivity
@@ -44,7 +44,7 @@ public class AchievementActivity extends BaseActivity {
     @Override // com.baidu.tbadk.BaseActivity
     public void onChangeSkinType(int i) {
         super.onChangeSkinType(i);
-        this.ift.onChangeSkinType(i);
-        this.ifu.onChangeSkinType(i);
+        this.iuq.onChangeSkinType(i);
+        this.iur.onChangeSkinType(i);
     }
 }

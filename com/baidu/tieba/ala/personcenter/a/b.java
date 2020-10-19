@@ -4,64 +4,54 @@ import android.view.View;
 import android.view.ViewGroup;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomMessage;
-import com.baidu.ala.atomdata.AlaPersonCenterExpActivityConfig;
+import com.baidu.ala.atomdata.AlaForbiddenListActivityConfig;
 import com.baidu.live.tbadk.core.frameworkdata.CmdConfigCustom;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tieba.card.aa;
+import com.baidu.tieba.R;
 /* loaded from: classes4.dex */
-public class b extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.ala.personcenter.c.e, com.baidu.tieba.card.a.a<com.baidu.tieba.ala.personcenter.e.b>> {
+public class b extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.ala.personcenter.c.e, com.baidu.tieba.card.a.a<com.baidu.tieba.ala.personcenter.e.a>> {
     private TbPageContext mPageContext;
 
     /* JADX INFO: Access modifiers changed from: protected */
     public b(TbPageContext tbPageContext) {
-        super(tbPageContext.getPageActivity(), com.baidu.tieba.ala.personcenter.c.e.gXn);
+        super(tbPageContext.getPageActivity(), com.baidu.tieba.ala.personcenter.c.e.hmn);
         this.mPageContext = tbPageContext;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.widget.ListView.a
-    /* renamed from: aL */
-    public com.baidu.tieba.card.a.a<com.baidu.tieba.ala.personcenter.e.b> c(ViewGroup viewGroup) {
-        return new com.baidu.tieba.card.a.a<>(new com.baidu.tieba.ala.personcenter.e.b(this.mPageContext));
+    /* renamed from: aN */
+    public com.baidu.tieba.card.a.a<com.baidu.tieba.ala.personcenter.e.a> c(ViewGroup viewGroup) {
+        return new com.baidu.tieba.card.a.a<>(new com.baidu.tieba.ala.personcenter.e.a(this.mPageContext));
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.widget.ListView.a
-    public View a(int i, View view, ViewGroup viewGroup, com.baidu.tieba.ala.personcenter.c.e eVar, com.baidu.tieba.card.a.a<com.baidu.tieba.ala.personcenter.e.b> aVar) {
-        if (aVar.cfU() == null) {
+    public View a(int i, View view, ViewGroup viewGroup, com.baidu.tieba.ala.personcenter.c.e eVar, com.baidu.tieba.card.a.a<com.baidu.tieba.ala.personcenter.e.a> aVar) {
+        if (aVar.cjq() == null) {
             return null;
         }
-        aVar.cfU().a(eVar);
-        aVar.cfU().onChangeSkinType(this.mPageContext, TbadkCoreApplication.getInst().getSkinType());
-        aVar.cfU().c(new aa<com.baidu.tieba.ala.personcenter.c.e>() { // from class: com.baidu.tieba.ala.personcenter.a.b.1
-            /* JADX DEBUG: Method merged with bridge method */
-            @Override // com.baidu.tieba.card.aa
-            public void a(View view2, com.baidu.tieba.ala.personcenter.c.e eVar2) {
-                b.this.a(eVar2);
+        a(eVar, aVar.cjq());
+        aVar.cjq().getView().setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.ala.personcenter.a.b.1
+            @Override // android.view.View.OnClickListener
+            public void onClick(View view2) {
+                b.this.click();
             }
         });
-        return aVar.cfU().getView();
+        return aVar.cjq().getView();
+    }
+
+    private void a(com.baidu.tieba.ala.personcenter.c.e eVar, com.baidu.tieba.ala.personcenter.e.a aVar) {
+        aVar.vT(8);
+        aVar.setTitle(this.mContext.getResources().getString(R.string.ala_person_live_forbidden));
+        aVar.onChangeSkinType(this.mPageContext, TbadkCoreApplication.getInst().getSkinType());
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void a(com.baidu.tieba.ala.personcenter.c.e eVar) {
-        com.baidu.tieba.ala.personcenter.c.c personCenterData;
-        if (eVar != null && (personCenterData = eVar.getPersonCenterData()) != null && personCenterData.caA() != null) {
-            if (!personCenterData.isHost()) {
-                TiebaStatic.log("c11864");
-            } else {
-                TiebaStatic.log("c11857");
-            }
-            int i = personCenterData.caA().level_id;
-            if (i >= 40) {
-                i = 40;
-            }
-            int i2 = i + 1;
-            MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new AlaPersonCenterExpActivityConfig(this.mPageContext.getPageActivity(), personCenterData.caA().level_exp, i, personCenterData.caA().next_exp, i2 <= 40 ? i2 : 40, personCenterData.isHost())));
-        }
+    public void click() {
+        MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new AlaForbiddenListActivityConfig(this.mPageContext.getPageActivity())));
     }
 }

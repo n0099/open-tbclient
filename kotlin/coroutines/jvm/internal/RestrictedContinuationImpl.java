@@ -3,7 +3,7 @@ package kotlin.coroutines.jvm.internal;
 import kotlin.coroutines.EmptyCoroutineContext;
 import kotlin.h;
 @h
-/* loaded from: classes5.dex */
+/* loaded from: classes10.dex */
 public abstract class RestrictedContinuationImpl extends BaseContinuationImpl {
     public RestrictedContinuationImpl(kotlin.coroutines.a<Object> aVar) {
         super(aVar);

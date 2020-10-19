@@ -3,7 +3,7 @@ package com.baidu.android.imsdk.shield.model;
 import android.os.Parcel;
 import android.os.Parcelable;
 import com.baidu.android.imsdk.utils.HttpHelper;
-/* loaded from: classes9.dex */
+/* loaded from: classes5.dex */
 public class GetShieldAndTopResult extends HttpHelper.ResponseResult implements Parcelable {
     public static final Parcelable.Creator<GetShieldAndTopResult> CREATOR = new Parcelable.Creator<GetShieldAndTopResult>() { // from class: com.baidu.android.imsdk.shield.model.GetShieldAndTopResult.1
         /* JADX DEBUG: Method merged with bridge method */

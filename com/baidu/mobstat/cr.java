@@ -3,10 +3,12 @@ package com.baidu.mobstat;
 import com.baidu.mobstat.cq;
 import java.nio.ByteBuffer;
 import java.util.Arrays;
-/* loaded from: classes15.dex */
+/* loaded from: classes17.dex */
 public class cr implements cp {
     protected static byte[] b = new byte[0];
-    private ByteBuffer a;
+
+    /* renamed from: a  reason: collision with root package name */
+    private ByteBuffer f2607a;
     protected boolean c;
     protected cq.a d;
     protected boolean e;
@@ -16,13 +18,13 @@ public class cr implements cp {
 
     public cr(cq.a aVar) {
         this.d = aVar;
-        this.a = ByteBuffer.wrap(b);
+        this.f2607a = ByteBuffer.wrap(b);
     }
 
     public cr(cq cqVar) {
         this.c = cqVar.d();
         this.d = cqVar.f();
-        this.a = cqVar.c();
+        this.f2607a = cqVar.c();
         this.e = cqVar.e();
     }
 
@@ -43,7 +45,7 @@ public class cr implements cp {
 
     @Override // com.baidu.mobstat.cq
     public ByteBuffer c() {
-        return this.a;
+        return this.f2607a;
     }
 
     @Override // com.baidu.mobstat.cp
@@ -58,7 +60,7 @@ public class cr implements cp {
 
     @Override // com.baidu.mobstat.cp
     public void a(ByteBuffer byteBuffer) throws ch {
-        this.a = byteBuffer;
+        this.f2607a = byteBuffer;
     }
 
     @Override // com.baidu.mobstat.cp
@@ -69,31 +71,31 @@ public class cr implements cp {
     @Override // com.baidu.mobstat.cq
     public void a(cq cqVar) throws ci {
         ByteBuffer c = cqVar.c();
-        if (this.a == null) {
-            this.a = ByteBuffer.allocate(c.remaining());
+        if (this.f2607a == null) {
+            this.f2607a = ByteBuffer.allocate(c.remaining());
             c.mark();
-            this.a.put(c);
+            this.f2607a.put(c);
             c.reset();
         } else {
             c.mark();
-            this.a.position(this.a.limit());
-            this.a.limit(this.a.capacity());
-            if (c.remaining() > this.a.remaining()) {
-                ByteBuffer allocate = ByteBuffer.allocate(c.remaining() + this.a.capacity());
-                this.a.flip();
-                allocate.put(this.a);
+            this.f2607a.position(this.f2607a.limit());
+            this.f2607a.limit(this.f2607a.capacity());
+            if (c.remaining() > this.f2607a.remaining()) {
+                ByteBuffer allocate = ByteBuffer.allocate(c.remaining() + this.f2607a.capacity());
+                this.f2607a.flip();
+                allocate.put(this.f2607a);
                 allocate.put(c);
-                this.a = allocate;
+                this.f2607a = allocate;
             } else {
-                this.a.put(c);
+                this.f2607a.put(c);
             }
-            this.a.rewind();
+            this.f2607a.rewind();
             c.reset();
         }
         this.c = cqVar.d();
     }
 
     public String toString() {
-        return "Framedata{ optcode:" + f() + ", fin:" + d() + ", payloadlength:[pos:" + this.a.position() + ", len:" + this.a.remaining() + "], payload:" + Arrays.toString(dc.a(new String(this.a.array()))) + "}";
+        return "Framedata{ optcode:" + f() + ", fin:" + d() + ", payloadlength:[pos:" + this.f2607a.position() + ", len:" + this.f2607a.remaining() + "], payload:" + Arrays.toString(dc.a(new String(this.f2607a.array()))) + "}";
     }
 }

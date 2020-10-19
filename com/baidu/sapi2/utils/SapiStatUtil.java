@@ -19,7 +19,7 @@ import java.util.HashMap;
 import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
-/* loaded from: classes25.dex */
+/* loaded from: classes5.dex */
 public class SapiStatUtil {
     public static final int CLOUND_SHARE_ACCOUNT_STAT_INVOKE_START = 3;
     public static final int CLOUND_SHARE_ACCOUNT_STAT_LOGIN_FAIL = 5;
@@ -174,7 +174,7 @@ public class SapiStatUtil {
     public static void statShareV2Click(b.c cVar, List<PassNameValuePair> list) {
         HashMap hashMap = new HashMap();
         buildStatExtraMap(hashMap, list);
-        hashMap.put("index", cVar.a + "");
+        hashMap.put("index", cVar.f3513a + "");
         hashMap.put(b.c.f, cVar.b);
         hashMap.put(b.c.g, cVar.c);
         k.a("share_account_click", hashMap);

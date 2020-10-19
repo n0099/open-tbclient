@@ -15,13 +15,13 @@ import com.baidu.swan.pms.a.c;
 import com.baidu.swan.pms.model.g;
 import java.io.File;
 import java.util.Set;
-/* loaded from: classes3.dex */
+/* loaded from: classes10.dex */
 public class a extends j {
     private static final boolean DEBUG = b.DEBUG;
-    private String cnx;
-    private b.a dzr;
-    private String dzs;
-    private c<g> dzt = new com.baidu.swan.pms.a.b<g>() { // from class: com.baidu.swan.games.y.b.a.1
+    private String czN;
+    private b.a dLs;
+    private String dLt;
+    private c<g> dLu = new com.baidu.swan.pms.a.b<g>() { // from class: com.baidu.swan.games.y.b.a.1
         @Override // com.baidu.swan.pms.a.e
         @NonNull
         public Bundle a(@NonNull Bundle bundle, Set<String> set) {
@@ -31,15 +31,15 @@ public class a extends j {
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.swan.pms.a.c
         /* renamed from: e */
-        public String R(g gVar) {
-            return com.baidu.swan.apps.core.pms.f.b.ma(a.this.cnx);
+        public String U(g gVar) {
+            return com.baidu.swan.apps.core.pms.f.b.mM(a.this.czN);
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.swan.pms.a.b, com.baidu.swan.pms.a.c
         /* renamed from: d */
-        public void Q(g gVar) {
-            super.Q(gVar);
+        public void T(g gVar) {
+            super.T(gVar);
             if (a.DEBUG) {
                 Log.i("SwanGameSubPkgDownload", "onDownloading");
             }
@@ -53,15 +53,15 @@ public class a extends j {
             if (a.DEBUG) {
                 Log.e("SwanGameSubPkgDownload", "onDownloadError: " + aVar.toString());
             }
-            a.this.hv(RTCConst.RTC_STATE_STREAM_SLOW_LINK_LEVEL3);
-            com.baidu.swan.apps.core.pms.c.ajd().a(gVar, PMSDownloadType.ALONE_SUB, new com.baidu.swan.apps.am.a().bP(12L).bQ(aVar.errorNo).sF("分包下载失败").sH(aVar.toString()));
+            a.this.hS(RTCConst.RTC_STATE_STREAM_SLOW_LINK_LEVEL3);
+            com.baidu.swan.apps.core.pms.c.alO().a(gVar, PMSDownloadType.ALONE_SUB, new com.baidu.swan.apps.am.a().bX(12L).bY(aVar.errorNo).tr("分包下载失败").tt(aVar.toString()));
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.swan.pms.a.b, com.baidu.swan.pms.a.c
         /* renamed from: k */
-        public void O(g gVar) {
-            super.O(gVar);
+        public void R(g gVar) {
+            super.R(gVar);
             if (a.DEBUG) {
                 Log.i("SwanGameSubPkgDownload", "onDownloadProgress: " + gVar.size + ":" + gVar.currentSize);
             }
@@ -71,8 +71,8 @@ public class a extends j {
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.swan.pms.a.b, com.baidu.swan.pms.a.c
         /* renamed from: f */
-        public void N(g gVar) {
-            super.N(gVar);
+        public void Q(g gVar) {
+            super.Q(gVar);
             if (a.DEBUG) {
                 Log.i("SwanGameSubPkgDownload", "onDownloadFinish: " + gVar.toString());
             }
@@ -83,9 +83,9 @@ public class a extends j {
 
     public a(String str, String str2, String str3, b.a aVar) {
         this.mAppId = str;
-        this.dzs = str3;
-        this.dzr = aVar;
-        this.cnx = a.c.bB(str, str2).getPath();
+        this.dLt = str3;
+        this.dLs = aVar;
+        this.czN = a.c.bG(str, str2).getPath();
     }
 
     @Override // com.baidu.swan.pms.a.g
@@ -94,21 +94,21 @@ public class a extends j {
         if (DEBUG) {
             Log.e("SwanGameSubPkgDownload", "onFetchError: " + aVar.toString());
         }
-        hv(RTCConst.RTC_STATE_STREAM_SLOW_LINK_LEVEL3);
+        hS(RTCConst.RTC_STATE_STREAM_SLOW_LINK_LEVEL3);
     }
 
     @Override // com.baidu.swan.pms.a.g
-    public void agl() {
-        super.agl();
+    public void aiW() {
+        super.aiW();
         if (DEBUG) {
             Log.i("SwanGameSubPkgDownload", "onNoPackage");
         }
-        hv(RTCConst.RTC_STATE_STREAM_SLOW_LINK_LEVEL2);
+        hS(RTCConst.RTC_STATE_STREAM_SLOW_LINK_LEVEL2);
     }
 
     @Override // com.baidu.swan.pms.a.g
-    public c<g> aji() {
-        return this.dzt;
+    public c<g> alT() {
+        return this.dLu;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -117,59 +117,59 @@ public class a extends j {
             if (DEBUG) {
                 Log.e("SwanGameSubPkgDownload", "onDownloadFinish: 签名校验失败");
             }
-            hv(RTCConst.RTC_STATE_STREAM_SLOW_LINK_LEVEL4);
-            com.baidu.swan.apps.core.pms.c.ajd().a(gVar, PMSDownloadType.ALONE_SUB, new com.baidu.swan.apps.am.a().bP(12L).bQ(2300L).sF("分包签名校验"));
-        } else if (com.baidu.swan.apps.core.pms.f.b.g(new File(gVar.filePath), new File(this.cnx, this.dzs))) {
+            hS(RTCConst.RTC_STATE_STREAM_SLOW_LINK_LEVEL4);
+            com.baidu.swan.apps.core.pms.c.alO().a(gVar, PMSDownloadType.ALONE_SUB, new com.baidu.swan.apps.am.a().bX(12L).bY(2300L).tr("分包签名校验"));
+        } else if (com.baidu.swan.apps.core.pms.f.b.h(new File(gVar.filePath), new File(this.czN, this.dLt))) {
             if (DEBUG) {
                 Log.i("SwanGameSubPkgDownload", "onDownloadFinish: 解压成功");
             }
-            ajB();
+            amm();
             gVar.appId = this.mAppId;
-            com.baidu.swan.pms.database.a.aUf().c(gVar);
-            com.baidu.swan.apps.core.pms.c.ajd().a(gVar, PMSDownloadType.ALONE_SUB);
+            com.baidu.swan.pms.database.a.aWO().c(gVar);
+            com.baidu.swan.apps.core.pms.c.alO().a(gVar, PMSDownloadType.ALONE_SUB);
         } else {
             if (DEBUG) {
                 Log.e("SwanGameSubPkgDownload", "onDownloadFinish: 解压失败");
             }
-            hv(RTCConst.RTC_STATE_STREAM_SLOW_LINK_LEVEL5);
-            com.baidu.swan.apps.core.pms.c.ajd().a(gVar, PMSDownloadType.ALONE_SUB, new com.baidu.swan.apps.am.a().bP(12L).bQ(2320L).sF("分包解压失败"));
+            hS(RTCConst.RTC_STATE_STREAM_SLOW_LINK_LEVEL5);
+            com.baidu.swan.apps.core.pms.c.alO().a(gVar, PMSDownloadType.ALONE_SUB, new com.baidu.swan.apps.am.a().bX(12L).bY(2320L).tr("分包解压失败"));
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void i(g gVar) {
-        com.baidu.swan.apps.core.pms.c.ajd().a(gVar, new c.b() { // from class: com.baidu.swan.games.y.b.a.2
+        com.baidu.swan.apps.core.pms.c.alO().a(gVar, new c.b() { // from class: com.baidu.swan.games.y.b.a.2
             @Override // com.baidu.swan.apps.core.pms.c.b
             public void a(PMSDownloadType pMSDownloadType) {
-                a.this.ajB();
+                a.this.amm();
             }
 
             @Override // com.baidu.swan.apps.core.pms.c.b
             public void a(PMSDownloadType pMSDownloadType, com.baidu.swan.apps.am.a aVar) {
-                a.this.hv(RTCConst.RTC_STATE_STREAM_SLOW_LINK_LEVEL3);
+                a.this.hS(RTCConst.RTC_STATE_STREAM_SLOW_LINK_LEVEL3);
             }
         });
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void hv(int i) {
-        if (this.dzr != null) {
-            this.dzr.gE(i);
+    public void hS(int i) {
+        if (this.dLs != null) {
+            this.dLs.hb(i);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void ajB() {
-        if (this.dzr != null) {
-            this.dzr.aQm();
+    public void amm() {
+        if (this.dLs != null) {
+            this.dLs.aSV();
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void p(long j, long j2) {
-        if (this.dzr != null) {
+        if (this.dLs != null) {
             if (j2 <= 0 || j > j2) {
-                hv(2114);
+                hS(2114);
                 return;
             }
             int floor = (int) Math.floor((j * 100.0d) / j2);
@@ -177,7 +177,7 @@ public class a extends j {
                 if (DEBUG) {
                     Log.i("SwanGameSubPkgDownload", "callbackProgress: " + floor);
                 }
-                this.dzr.d(floor, j, j2);
+                this.dLs.d(floor, j, j2);
             }
         }
     }

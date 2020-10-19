@@ -27,7 +27,7 @@ import javax.net.ssl.SSLException;
 import javax.security.auth.x500.X500Principal;
 import org.conscrypt.NativeRef;
 import org.conscrypt.OpenSSLX509CertificateFactory;
-/* loaded from: classes8.dex */
+/* loaded from: classes5.dex */
 public final class NativeCrypto {
     static final String[] DEFAULT_PROTOCOLS;
     static final String[] DEFAULT_PSK_CIPHER_SUITES;
@@ -55,7 +55,7 @@ public final class NativeCrypto {
     private static final UnsatisfiedLinkError loadError;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes8.dex */
+    /* loaded from: classes5.dex */
     public interface SSLHandshakeCallbacks {
         void clientCertificateRequested(byte[] bArr, byte[][] bArr2) throws CertificateEncodingException, SSLException;
 

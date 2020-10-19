@@ -6,7 +6,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.ScrollView;
 import com.baidu.swan.apps.a;
-/* loaded from: classes3.dex */
+/* loaded from: classes10.dex */
 public class SwanAppScrollView extends ScrollView {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
     private int mMaxHeight;

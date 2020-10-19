@@ -1,6 +1,6 @@
 package com.google.zxing.datamatrix.encoder;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes3.dex */
+/* loaded from: classes7.dex */
 public final class TextEncoder extends C40Encoder {
     @Override // com.google.zxing.datamatrix.encoder.C40Encoder, com.google.zxing.datamatrix.encoder.Encoder
     public int getEncodingMode() {

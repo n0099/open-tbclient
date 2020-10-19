@@ -3,39 +3,39 @@ package com.baidu.tbadk.n;
 import android.os.Build;
 /* loaded from: classes.dex */
 public class b extends g {
-    private a eUs;
-    private boolean eUt;
-    private boolean eUu;
+    private a fgA;
+    private boolean fgB;
+    private boolean fgC;
 
-    public void bvi() {
-        if (!this.eUt && m.bvs().bvt()) {
-            this.eUt = true;
+    public void bxS() {
+        if (!this.fgB && m.byc().byd()) {
+            this.fgB = true;
             if (Build.VERSION.SDK_INT >= 16) {
-                if (this.eUs == null) {
-                    this.eUs = new a();
+                if (this.fgA == null) {
+                    this.fgA = new a();
                 }
-                this.eUs.start();
+                this.fgA.start();
             }
         }
     }
 
-    public void bvj() {
-        if (Build.VERSION.SDK_INT >= 16 && this.eUs != null) {
-            this.eUs.stop();
+    public void bxT() {
+        if (Build.VERSION.SDK_INT >= 16 && this.fgA != null) {
+            this.fgA.stop();
         }
     }
 
-    public void bvk() {
+    public void bxU() {
         o oVar;
-        if (!this.eUu && this.eUs != null && this.eUs.getFps() >= 0 && (oVar = (o) m.bvs().qT(this.mSubType)) != null) {
+        if (!this.fgC && this.fgA != null && this.fgA.getFps() >= 0 && (oVar = (o) m.byc().rr(this.mSubType)) != null) {
             oVar.a(this);
-            this.eUu = true;
+            this.fgC = true;
         }
     }
 
     public int getFps() {
-        if (this.eUs != null) {
-            return this.eUs.getFps();
+        if (this.fgA != null) {
+            return this.fgA.getFps();
         }
         return -1;
     }

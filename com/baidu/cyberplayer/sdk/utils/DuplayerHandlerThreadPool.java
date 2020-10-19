@@ -12,21 +12,25 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.concurrent.atomic.AtomicInteger;
 @Keep
-/* loaded from: classes10.dex */
+/* loaded from: classes12.dex */
 public class DuplayerHandlerThreadPool {
     public static final int MSG_CHECK_IDLE_LONG_TIME_OUT = 100;
     public static final int MSG_CHECK_IDLE_SHORT_TIME_OUT = 101;
     public static final String TAG = "DuplayerHandlerThreadPool";
     private static final Object b = new Object();
-    a a;
+
+    /* renamed from: a  reason: collision with root package name */
+    a f1437a;
     private ArrayList<DuplayerHandlerThread> c;
     private ArrayList<DuplayerHandlerThread> d;
     private c e;
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes10.dex */
+    /* loaded from: classes12.dex */
     public static class a {
-        private final AtomicInteger a = new AtomicInteger(1);
+
+        /* renamed from: a  reason: collision with root package name */
+        private final AtomicInteger f1438a = new AtomicInteger(1);
         private final String b;
         private int c;
 
@@ -37,19 +41,21 @@ public class DuplayerHandlerThreadPool {
         }
 
         public DuplayerHandlerThread a() {
-            DuplayerHandlerThread duplayerHandlerThread = new DuplayerHandlerThread(this.b + this.a.getAndIncrement());
+            DuplayerHandlerThread duplayerHandlerThread = new DuplayerHandlerThread(this.b + this.f1438a.getAndIncrement());
             duplayerHandlerThread.setPriority(this.c);
             return duplayerHandlerThread;
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes10.dex */
+    /* loaded from: classes12.dex */
     public static class b {
-        private static DuplayerHandlerThreadPool a = new DuplayerHandlerThreadPool();
+
+        /* renamed from: a  reason: collision with root package name */
+        private static DuplayerHandlerThreadPool f1439a = new DuplayerHandlerThreadPool();
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes12.dex */
     private static class c extends Handler {
         private c(Looper looper) {
             super(looper);
@@ -73,12 +79,12 @@ public class DuplayerHandlerThreadPool {
     private DuplayerHandlerThreadPool() {
         this.c = new ArrayList<>();
         this.d = new ArrayList<>();
-        this.a = new a("duplayer-t");
+        this.f1437a = new a("duplayer-t");
         this.e = new c(Looper.getMainLooper());
     }
 
     private DuplayerHandlerThread a() {
-        DuplayerHandlerThread a2 = this.a.a();
+        DuplayerHandlerThread a2 = this.f1437a.a();
         a2.start();
         return a2;
     }
@@ -129,7 +135,7 @@ public class DuplayerHandlerThreadPool {
     }
 
     public static DuplayerHandlerThreadPool getInstance() {
-        return b.a;
+        return b.f1439a;
     }
 
     public void checkIdlePoolLongTimeNoUse() {

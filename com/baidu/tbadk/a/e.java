@@ -1,9 +1,9 @@
 package com.baidu.tbadk.a;
 /* loaded from: classes.dex */
 public class e {
-    public String dTA;
+    public String efB;
 
     public e(String str) {
-        this.dTA = str;
+        this.efB = str;
     }
 }

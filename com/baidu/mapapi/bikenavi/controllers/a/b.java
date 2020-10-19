@@ -1,24 +1,26 @@
 package com.baidu.mapapi.bikenavi.controllers.a;
 
 import com.baidu.mapapi.bikenavi.adapter.IBEngineInitListener;
-/* loaded from: classes3.dex */
+/* loaded from: classes7.dex */
 class b implements com.baidu.platform.comapi.walknavi.c.a {
-    final /* synthetic */ IBEngineInitListener a;
+
+    /* renamed from: a  reason: collision with root package name */
+    final /* synthetic */ IBEngineInitListener f1973a;
     final /* synthetic */ a b;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public b(a aVar, IBEngineInitListener iBEngineInitListener) {
         this.b = aVar;
-        this.a = iBEngineInitListener;
+        this.f1973a = iBEngineInitListener;
     }
 
     @Override // com.baidu.platform.comapi.walknavi.c.a
     public void a() {
-        this.a.engineInitSuccess();
+        this.f1973a.engineInitSuccess();
     }
 
     @Override // com.baidu.platform.comapi.walknavi.c.a
     public void b() {
-        this.a.engineInitFail();
+        this.f1973a.engineInitFail();
     }
 }

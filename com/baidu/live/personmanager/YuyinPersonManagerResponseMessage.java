@@ -5,7 +5,7 @@ import com.baidu.live.tbadk.message.http.JsonHttpResponsedMessage;
 import org.json.JSONObject;
 /* loaded from: classes4.dex */
 public class YuyinPersonManagerResponseMessage extends JsonHttpResponsedMessage {
-    private String bjG;
+    private String bnt;
 
     public YuyinPersonManagerResponseMessage(int i) {
         super(i);
@@ -17,7 +17,7 @@ public class YuyinPersonManagerResponseMessage extends JsonHttpResponsedMessage 
         super.decodeLogicInBackGround(i, jSONObject);
         JSONObject optJSONObject = jSONObject.optJSONObject(BdStatsConstant.StatsType.ERROR);
         if (optJSONObject != null) {
-            this.bjG = optJSONObject.optString("usermsg");
+            this.bnt = optJSONObject.optString("usermsg");
         }
     }
 }

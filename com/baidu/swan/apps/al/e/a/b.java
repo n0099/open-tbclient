@@ -10,7 +10,7 @@ import com.baidu.swan.apps.console.c;
 import com.baidu.swan.apps.runtime.e;
 import com.baidu.swan.apps.scheme.actions.aa;
 import com.baidu.swan.apps.scheme.j;
-/* loaded from: classes3.dex */
+/* loaded from: classes10.dex */
 public class b extends aa {
     public b(j jVar) {
         super(jVar, "/swanAPI/stopCompass");
@@ -36,7 +36,7 @@ public class b extends aa {
             return false;
         } else {
             c.i(MapController.COMPASS_LAYER_TAG, "stop listen compass");
-            com.baidu.swan.apps.al.e.a.aEo().aEq();
+            com.baidu.swan.apps.al.e.a.aGX().aGZ();
             UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, 0);
             return true;
         }

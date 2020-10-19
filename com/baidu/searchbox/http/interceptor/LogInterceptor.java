@@ -19,14 +19,14 @@ import okhttp3.ResponseBody;
 import okhttp3.internal.http.HttpHeaders;
 import okio.Buffer;
 import okio.BufferedSource;
-/* loaded from: classes14.dex */
+/* loaded from: classes15.dex */
 public class LogInterceptor implements Interceptor {
     private static final String TAG = "http";
     private static final Charset UTF8 = Charset.forName("UTF-8");
     private volatile Level level;
     private final Logger logger;
 
-    /* loaded from: classes14.dex */
+    /* loaded from: classes15.dex */
     public enum Level {
         NONE,
         BASIC,
@@ -34,7 +34,7 @@ public class LogInterceptor implements Interceptor {
         BODY
     }
 
-    /* loaded from: classes14.dex */
+    /* loaded from: classes15.dex */
     public interface Logger {
         void log(String str);
     }
@@ -185,7 +185,7 @@ public class LogInterceptor implements Interceptor {
         return (str == null || str.equalsIgnoreCase("identity")) ? false : true;
     }
 
-    /* loaded from: classes14.dex */
+    /* loaded from: classes15.dex */
     public class DefaultLogger implements Logger {
         private String tag;
 

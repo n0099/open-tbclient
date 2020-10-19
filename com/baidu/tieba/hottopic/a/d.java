@@ -5,28 +5,28 @@ import android.widget.TextView;
 import com.baidu.adp.widget.ListView.af;
 import com.baidu.tieba.R;
 import com.baidu.tieba.hottopic.view.HotTopicPkView;
-/* loaded from: classes20.dex */
+/* loaded from: classes21.dex */
 public class d extends af.a {
-    public int aiX;
-    public TextView jjn;
-    public TextView jjo;
-    public HotTopicPkView jjp;
-    public TextView jjq;
-    public TextView jjr;
+    public int ajp;
+    public TextView jyl;
+    public TextView jym;
+    public HotTopicPkView jyn;
+    public TextView jyo;
+    public TextView jyp;
 
     public d(View view) {
         super(view);
-        this.aiX = 3;
-        cC(view);
+        this.ajp = 3;
+        cG(view);
     }
 
-    private void cC(View view) {
+    private void cG(View view) {
         if (view != null) {
-            this.jjn = (TextView) view.findViewById(R.id.pk_item_theme_title);
-            this.jjo = (TextView) view.findViewById(R.id.pk_topic_title);
-            this.jjp = (HotTopicPkView) view.findViewById(R.id.pk_topic_view);
-            this.jjq = (TextView) view.findViewById(R.id.pk_topic_positive);
-            this.jjr = (TextView) view.findViewById(R.id.pk_topic_opposing);
+            this.jyl = (TextView) view.findViewById(R.id.pk_item_theme_title);
+            this.jym = (TextView) view.findViewById(R.id.pk_topic_title);
+            this.jyn = (HotTopicPkView) view.findViewById(R.id.pk_topic_view);
+            this.jyo = (TextView) view.findViewById(R.id.pk_topic_positive);
+            this.jyp = (TextView) view.findViewById(R.id.pk_topic_opposing);
         }
     }
 }

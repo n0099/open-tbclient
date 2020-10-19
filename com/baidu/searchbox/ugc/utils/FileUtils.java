@@ -22,7 +22,7 @@ import java.io.InputStream;
 import java.util.List;
 import java.util.Map;
 import org.apache.commons.codec.digest4util.EncryptUtils;
-/* loaded from: classes6.dex */
+/* loaded from: classes8.dex */
 public class FileUtils {
     private static final boolean DEBUG = false;
     private static final String IMAGE_DIR = "imgDir";

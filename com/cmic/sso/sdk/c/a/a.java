@@ -13,7 +13,7 @@ import java.net.URL;
 import java.util.Map;
 import javax.net.ssl.HttpsURLConnection;
 import javax.net.ssl.SSLHandshakeException;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class a implements b {
     /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [120=4, 126=6] */
     /* JADX WARN: Multi-variable type inference failed */
@@ -52,9 +52,9 @@ public class a implements b {
         try {
             try {
                 URL url = new URL(cVar.a());
-                if (cVar.dRr() != null) {
+                if (cVar.dVc() != null) {
                     com.cmic.sso.sdk.e.c.b("ConnectionInterceptor", "开始wifi下取号");
-                    httpURLConnection = (HttpURLConnection) cVar.dRr().openConnection(url);
+                    httpURLConnection = (HttpURLConnection) cVar.dVc().openConnection(url);
                 } else {
                     com.cmic.sso.sdk.e.c.b("ConnectionInterceptor", "使用当前网络环境发送请求");
                     httpURLConnection = (HttpURLConnection) url.openConnection();
@@ -94,7 +94,7 @@ public class a implements b {
                             com.cmic.sso.sdk.e.c.a("ConnectionInterceptor", "请求失败: " + cVar.a());
                             if (e instanceof SSLHandshakeException) {
                             }
-                            com.cmic.sso.sdk.d.a.ntf.add(e);
+                            com.cmic.sso.sdk.d.a.nIz.add(e);
                             if (!(e instanceof EOFException)) {
                             }
                             a(outputStream);
@@ -128,7 +128,7 @@ public class a implements b {
                                     cVar2.a((com.cmic.sso.sdk.c.d.b) null);
                                     break;
                                 default:
-                                    cVar2.a(com.cmic.sso.sdk.c.d.a.Lr(i2));
+                                    cVar2.a(com.cmic.sso.sdk.c.d.a.LX(i2));
                                     break;
                             }
                             throw th;
@@ -205,7 +205,7 @@ public class a implements b {
                     if (e instanceof SSLHandshakeException) {
                         aVar.a("isNeedToGetCert", true);
                     }
-                    com.cmic.sso.sdk.d.a.ntf.add(e);
+                    com.cmic.sso.sdk.d.a.nIz.add(e);
                     i = !(e instanceof EOFException) ? 200050 : 102102;
                     a(outputStream);
                     a(inputStream);
@@ -221,7 +221,7 @@ public class a implements b {
                             cVar2.a((com.cmic.sso.sdk.c.d.b) null);
                             return;
                         default:
-                            cVar2.a(com.cmic.sso.sdk.c.d.a.Lr(i));
+                            cVar2.a(com.cmic.sso.sdk.c.d.a.LX(i));
                             return;
                     }
                 }
@@ -241,7 +241,7 @@ public class a implements b {
                     cVar2.a(bVar);
                     return;
                 default:
-                    cVar2.a(com.cmic.sso.sdk.c.d.a.Lr(responseCode));
+                    cVar2.a(com.cmic.sso.sdk.c.d.a.LX(responseCode));
                     return;
             }
         } catch (Exception e8) {
@@ -278,17 +278,17 @@ public class a implements b {
     }
 
     private void a(HttpURLConnection httpURLConnection, com.cmic.sso.sdk.a aVar, String str) {
-        String a;
+        String a2;
         if ((httpURLConnection instanceof HttpsURLConnection) && !aVar.b("CLOSE_CERT_VERIFY", true) && !str.contains("https://config.cmpassport.com/client/uniConfig")) {
             com.cmic.sso.sdk.e.c.b("ConnectionInterceptor", "开启证书校验");
             if (str.contains("getAuthToken")) {
-                a = q.a(q.f());
+                a2 = q.a(q.f());
             } else {
-                a = q.a(q.g());
+                a2 = q.a(q.g());
             }
-            com.cmic.sso.sdk.e.c.b("ConnectionInterceptor", "cer: " + a);
-            if (!TextUtils.isEmpty(a)) {
-                ((HttpsURLConnection) httpURLConnection).setSSLSocketFactory(new com.cmic.sso.sdk.c.e.a(a).dRt().getSocketFactory());
+            com.cmic.sso.sdk.e.c.b("ConnectionInterceptor", "cer: " + a2);
+            if (!TextUtils.isEmpty(a2)) {
+                ((HttpsURLConnection) httpURLConnection).setSSLSocketFactory(new com.cmic.sso.sdk.c.e.a(a2).dVe().getSocketFactory());
             }
         }
     }

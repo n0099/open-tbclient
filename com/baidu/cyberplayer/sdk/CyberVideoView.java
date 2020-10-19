@@ -23,13 +23,15 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 @Keep
-/* loaded from: classes10.dex */
+/* loaded from: classes12.dex */
 public class CyberVideoView extends FrameLayout implements CyberPlayerManager.OnBufferingUpdateListener, CyberPlayerManager.OnCompletionListener, CyberPlayerManager.OnErrorListener, CyberPlayerManager.OnInfoListener, CyberPlayerManager.OnPreparedListener, CyberPlayerManager.OnSeekCompleteListener, CyberPlayerManager.OnVideoSizeChangedListener, ICyberVideoView {
     private float A;
     private long B;
     private boolean C;
     private i.a D;
-    private Context a;
+
+    /* renamed from: a  reason: collision with root package name */
+    private Context f1347a;
     private CyberPlayer b;
     private Uri c;
     private Map<String, String> d;
@@ -85,11 +87,11 @@ public class CyberVideoView extends FrameLayout implements CyberPlayerManager.On
                         if (buffer != null) {
                             Bitmap createBitmap = Bitmap.createBitmap(i, i2, Bitmap.Config.ARGB_8888);
                             createBitmap.copyPixelsFromBuffer(buffer);
-                            Bitmap a = n.a(createBitmap);
+                            Bitmap a2 = n.a(createBitmap);
                             CyberLog.d("CyberVideoView", "onTakeSnapShot rotate bmp finished");
                             synchronized (CyberVideoView.this.v) {
                                 for (int i3 = 0; i3 < CyberVideoView.this.v.size(); i3++) {
-                                    ((ICyberVideoView.OnSnapShotCompleteListener) CyberVideoView.this.v.get(i3)).onSnapShotComplete(a);
+                                    ((ICyberVideoView.OnSnapShotCompleteListener) CyberVideoView.this.v.get(i3)).onSnapShotComplete(a2);
                                 }
                                 CyberVideoView.this.v.clear();
                             }
@@ -151,7 +153,7 @@ public class CyberVideoView extends FrameLayout implements CyberPlayerManager.On
         };
         this.t = 0;
         CyberLog.d("CyberVideoView", "CyberVideoView mRenderType:" + this.t);
-        this.a = context.getApplicationContext();
+        this.f1347a = context.getApplicationContext();
         this.u = new a();
         this.v = new ArrayList<>();
         reset();
@@ -179,11 +181,11 @@ public class CyberVideoView extends FrameLayout implements CyberPlayerManager.On
                         if (buffer != null) {
                             Bitmap createBitmap = Bitmap.createBitmap(i2, i22, Bitmap.Config.ARGB_8888);
                             createBitmap.copyPixelsFromBuffer(buffer);
-                            Bitmap a = n.a(createBitmap);
+                            Bitmap a2 = n.a(createBitmap);
                             CyberLog.d("CyberVideoView", "onTakeSnapShot rotate bmp finished");
                             synchronized (CyberVideoView.this.v) {
                                 for (int i3 = 0; i3 < CyberVideoView.this.v.size(); i3++) {
-                                    ((ICyberVideoView.OnSnapShotCompleteListener) CyberVideoView.this.v.get(i3)).onSnapShotComplete(a);
+                                    ((ICyberVideoView.OnSnapShotCompleteListener) CyberVideoView.this.v.get(i3)).onSnapShotComplete(a2);
                                 }
                                 CyberVideoView.this.v.clear();
                             }
@@ -244,7 +246,7 @@ public class CyberVideoView extends FrameLayout implements CyberPlayerManager.On
             }
         };
         this.t = a(i);
-        this.a = context.getApplicationContext();
+        this.f1347a = context.getApplicationContext();
         this.u = new a();
         this.v = new ArrayList<>();
         reset();
@@ -267,14 +269,14 @@ public class CyberVideoView extends FrameLayout implements CyberPlayerManager.On
         this.h = 0;
         this.i = 0;
         if (this.t == 0) {
-            this.s = new b(this.a);
+            this.s = new b(this.f1347a);
         } else if (this.t == 1) {
-            this.s = new h(this.a);
+            this.s = new h(this.f1347a);
             if (Build.VERSION.SDK_INT < 21) {
                 setDecodeMode(1);
             }
         } else if (this.t == 2) {
-            this.s = new g(this.a);
+            this.s = new g(this.f1347a);
         }
         FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(-2, -2, 17);
         this.s.setCyberSurfaceListener(this.D);
@@ -325,7 +327,7 @@ public class CyberVideoView extends FrameLayout implements CyberPlayerManager.On
             if (this.C) {
                 this.b.setOption("mediacodec-config-need-retry", 1L);
             }
-            this.b.setDataSource(this.a, this.c, this.d);
+            this.b.setDataSource(this.f1347a, this.c, this.d);
             this.b.prepareAsync();
             this.f = 1;
             if (this.s != null) {
@@ -353,15 +355,15 @@ public class CyberVideoView extends FrameLayout implements CyberPlayerManager.On
     }
 
     private void c() {
-        ArrayList<a.C0104a> b;
+        ArrayList<a.C0108a> b;
         if (this.b == null || (b = this.u.b()) == null) {
             return;
         }
         int size = b.size();
         for (int i = 0; i < size; i++) {
-            a.C0104a c0104a = b.get(i);
-            if (c0104a != null && c0104a.a() != null) {
-                this.b.setExternalInfo(c0104a.a(), c0104a.b());
+            a.C0108a c0108a = b.get(i);
+            if (c0108a != null && c0108a.a() != null) {
+                this.b.setExternalInfo(c0108a.a(), c0108a.b());
             }
         }
     }
@@ -889,9 +891,9 @@ public class CyberVideoView extends FrameLayout implements CyberPlayerManager.On
                     this.v.add(onSnapShotCompleteListener);
                 }
             } else {
-                Bitmap a = this.s.a(f, i, i2);
-                if (a != null && onSnapShotCompleteListener != null) {
-                    onSnapShotCompleteListener.onSnapShotComplete(a);
+                Bitmap a2 = this.s.a(f, i, i2);
+                if (a2 != null && onSnapShotCompleteListener != null) {
+                    onSnapShotCompleteListener.onSnapShotComplete(a2);
                 }
             }
             return true;

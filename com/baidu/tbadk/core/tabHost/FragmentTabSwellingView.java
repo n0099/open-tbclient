@@ -12,16 +12,16 @@ import com.baidu.tbadk.core.util.ap;
 import com.baidu.tieba.R;
 /* loaded from: classes.dex */
 public class FragmentTabSwellingView extends View {
-    private Paint ekY;
-    private Path ekZ;
-    private Path ela;
-    private int elb;
-    private int elc;
-    private int eld;
-    private int ele;
-    private int elf;
-    private int elg;
-    private int elh;
+    private Paint exg;
+    private Path exh;
+    private Path exi;
+    private int exj;
+    private int exk;
+    private int exl;
+    private int exm;
+    private int exn;
+    private int exo;
+    private int exp;
     private Paint mShadowPaint;
 
     public FragmentTabSwellingView(Context context) {
@@ -38,34 +38,34 @@ public class FragmentTabSwellingView extends View {
     }
 
     private void init() {
-        bjh();
-        bjj();
-        bji();
+        blQ();
+        blS();
+        blR();
         setLayerType(1, null);
     }
 
-    private void bjh() {
-        this.elb = l.getDimens(getContext().getApplicationContext(), R.dimen.tbds137);
-        this.elc = l.getDimens(getContext().getApplicationContext(), R.dimen.tbds204);
-        this.eld = l.getDimens(getContext().getApplicationContext(), R.dimen.tbds23);
-        this.ele = l.getDimens(getContext().getApplicationContext(), R.dimen.tbds51);
-        this.elf = l.getDimens(getContext().getApplicationContext(), R.dimen.tbds16);
-        this.elg = l.getDimens(getContext().getApplicationContext(), R.dimen.tbds52);
-        this.elh = l.getDimens(getContext().getApplicationContext(), R.dimen.tbds2);
+    private void blQ() {
+        this.exj = l.getDimens(getContext().getApplicationContext(), R.dimen.tbds137);
+        this.exk = l.getDimens(getContext().getApplicationContext(), R.dimen.tbds204);
+        this.exl = l.getDimens(getContext().getApplicationContext(), R.dimen.tbds23);
+        this.exm = l.getDimens(getContext().getApplicationContext(), R.dimen.tbds51);
+        this.exn = l.getDimens(getContext().getApplicationContext(), R.dimen.tbds16);
+        this.exo = l.getDimens(getContext().getApplicationContext(), R.dimen.tbds52);
+        this.exp = l.getDimens(getContext().getApplicationContext(), R.dimen.tbds2);
     }
 
-    private void bji() {
-        this.ekZ = new Path();
-        this.ela = new Path();
+    private void blR() {
+        this.exh = new Path();
+        this.exi = new Path();
     }
 
-    private void bjj() {
-        this.ekY = new Paint();
-        this.ekY.setColor(ap.getColor(R.color.cp_bg_line_e));
-        this.ekY.setAntiAlias(true);
-        this.ekY.setStrokeWidth(1.0f);
-        this.ekY.setDither(true);
-        this.ekY.setStyle(Paint.Style.FILL);
+    private void blS() {
+        this.exg = new Paint();
+        this.exg.setColor(ap.getColor(R.color.cp_bg_line_e));
+        this.exg.setAntiAlias(true);
+        this.exg.setStrokeWidth(1.0f);
+        this.exg.setDither(true);
+        this.exg.setStyle(Paint.Style.FILL);
         this.mShadowPaint = new Paint();
         this.mShadowPaint.setAntiAlias(true);
         this.mShadowPaint.setDither(true);
@@ -76,37 +76,37 @@ public class FragmentTabSwellingView extends View {
     protected void onDraw(Canvas canvas) {
         super.onDraw(canvas);
         if (getWidth() <= l.getEquipmentWidth(getContext())) {
-            this.ela.reset();
-            this.ekZ.reset();
-            this.ekZ.moveTo(0.0f, getHeight() - this.elb);
-            this.ekZ.lineTo((getWidth() / 2) - (this.elc / 2), getHeight() - this.elb);
-            this.ekZ.quadTo(((getWidth() / 2) - (this.elc / 2)) + this.eld, getHeight() - this.elb, ((getWidth() / 2) - (this.elc / 2)) + this.ele, (getHeight() - this.elb) - this.elf);
-            this.ekZ.quadTo(getWidth() / 2, (getHeight() - this.elb) - this.elg, ((getWidth() / 2) + (this.elc / 2)) - this.ele, (getHeight() - this.elb) - this.elf);
-            this.ekZ.quadTo(((getWidth() / 2) + (this.elc / 2)) - this.eld, getHeight() - this.elb, (getWidth() / 2) + (this.elc / 2), getHeight() - this.elb);
-            this.ekZ.lineTo(getWidth(), getHeight() - this.elb);
-            this.ekZ.lineTo(getWidth(), getHeight());
-            this.ekZ.lineTo(0.0f, getHeight());
-            this.ekZ.close();
-            this.ela.moveTo(0.0f, (getHeight() - this.elb) + this.elh);
-            this.ela.lineTo((getWidth() / 2) - (this.elc / 2), (getHeight() - this.elb) + this.elh);
-            this.ela.quadTo(((getWidth() / 2) - (this.elc / 2)) + this.eld, (getHeight() - this.elb) + this.elh, ((getWidth() / 2) - (this.elc / 2)) + this.ele, ((getHeight() - this.elb) - this.elf) + this.elh);
-            this.ela.quadTo(getWidth() / 2, ((getHeight() - this.elb) - this.elg) + this.elh, ((getWidth() / 2) + (this.elc / 2)) - this.ele, ((getHeight() - this.elb) - this.elf) + this.elh);
-            this.ela.quadTo(((getWidth() / 2) + (this.elc / 2)) - this.eld, (getHeight() - this.elb) + this.elh, (getWidth() / 2) + (this.elc / 2), (getHeight() - this.elb) + this.elh);
-            this.ela.lineTo(getWidth(), (getHeight() - this.elb) + this.elh);
-            this.ela.lineTo(getWidth(), getHeight());
-            this.ela.lineTo(0.0f, getHeight());
-            this.ela.close();
-            canvas.drawPath(this.ela, this.mShadowPaint);
-            canvas.drawPath(this.ekZ, this.ekY);
+            this.exi.reset();
+            this.exh.reset();
+            this.exh.moveTo(0.0f, getHeight() - this.exj);
+            this.exh.lineTo((getWidth() / 2) - (this.exk / 2), getHeight() - this.exj);
+            this.exh.quadTo(((getWidth() / 2) - (this.exk / 2)) + this.exl, getHeight() - this.exj, ((getWidth() / 2) - (this.exk / 2)) + this.exm, (getHeight() - this.exj) - this.exn);
+            this.exh.quadTo(getWidth() / 2, (getHeight() - this.exj) - this.exo, ((getWidth() / 2) + (this.exk / 2)) - this.exm, (getHeight() - this.exj) - this.exn);
+            this.exh.quadTo(((getWidth() / 2) + (this.exk / 2)) - this.exl, getHeight() - this.exj, (getWidth() / 2) + (this.exk / 2), getHeight() - this.exj);
+            this.exh.lineTo(getWidth(), getHeight() - this.exj);
+            this.exh.lineTo(getWidth(), getHeight());
+            this.exh.lineTo(0.0f, getHeight());
+            this.exh.close();
+            this.exi.moveTo(0.0f, (getHeight() - this.exj) + this.exp);
+            this.exi.lineTo((getWidth() / 2) - (this.exk / 2), (getHeight() - this.exj) + this.exp);
+            this.exi.quadTo(((getWidth() / 2) - (this.exk / 2)) + this.exl, (getHeight() - this.exj) + this.exp, ((getWidth() / 2) - (this.exk / 2)) + this.exm, ((getHeight() - this.exj) - this.exn) + this.exp);
+            this.exi.quadTo(getWidth() / 2, ((getHeight() - this.exj) - this.exo) + this.exp, ((getWidth() / 2) + (this.exk / 2)) - this.exm, ((getHeight() - this.exj) - this.exn) + this.exp);
+            this.exi.quadTo(((getWidth() / 2) + (this.exk / 2)) - this.exl, (getHeight() - this.exj) + this.exp, (getWidth() / 2) + (this.exk / 2), (getHeight() - this.exj) + this.exp);
+            this.exi.lineTo(getWidth(), (getHeight() - this.exj) + this.exp);
+            this.exi.lineTo(getWidth(), getHeight());
+            this.exi.lineTo(0.0f, getHeight());
+            this.exi.close();
+            canvas.drawPath(this.exi, this.mShadowPaint);
+            canvas.drawPath(this.exh, this.exg);
         }
     }
 
     public void onChangeSkinType(int i) {
         if (i == 1 || i == 4) {
-            this.ekY.setColor(ap.getColor(R.color.cp_bg_line_g_1));
+            this.exg.setColor(ap.getColor(R.color.cp_bg_line_g_1));
             this.mShadowPaint.setShadowLayer(20.0f, 0.0f, -2.0f, getResources().getColor(R.color.transparent));
         } else {
-            this.ekY.setColor(ap.getColor(R.color.cp_bg_line_e));
+            this.exg.setColor(ap.getColor(R.color.cp_bg_line_e));
             this.mShadowPaint.setShadowLayer(20.0f, 0.0f, -2.0f, getResources().getColor(R.color.cp_shadow_a_alpha33));
         }
         invalidate();

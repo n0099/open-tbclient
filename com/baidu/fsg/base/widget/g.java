@@ -4,28 +4,30 @@ import android.view.MotionEvent;
 import android.view.View;
 import android.widget.ImageButton;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes15.dex */
+/* loaded from: classes16.dex */
 public class g implements View.OnTouchListener {
-    final /* synthetic */ SafeKeyBoardPopupWindow a;
+
+    /* renamed from: a  reason: collision with root package name */
+    final /* synthetic */ SafeKeyBoardPopupWindow f1551a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public g(SafeKeyBoardPopupWindow safeKeyBoardPopupWindow) {
-        this.a = safeKeyBoardPopupWindow;
+        this.f1551a = safeKeyBoardPopupWindow;
     }
 
     @Override // android.view.View.OnTouchListener
     public boolean onTouch(View view, MotionEvent motionEvent) {
         ImageButton imageButton;
         if (motionEvent.getAction() == 0) {
-            this.a.d();
+            this.f1551a.d();
             return false;
         } else if (motionEvent.getAction() == 1) {
-            this.a.c();
+            this.f1551a.c();
             return false;
         } else if (motionEvent.getAction() == 2) {
-            imageButton = this.a.k;
+            imageButton = this.f1551a.k;
             if (!imageButton.isPressed()) {
-                this.a.c();
+                this.f1551a.c();
                 return false;
             }
             return false;

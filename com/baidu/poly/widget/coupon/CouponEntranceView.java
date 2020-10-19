@@ -14,15 +14,15 @@ import com.xiaomi.mipush.sdk.Constants;
 import java.text.DecimalFormat;
 import java.util.Iterator;
 import java.util.List;
-/* loaded from: classes9.dex */
+/* loaded from: classes6.dex */
 public class CouponEntranceView extends FrameLayout {
-    private ImageView bKh;
-    private TextView bKi;
-    private TextView bKj;
-    private TextView bKk;
-    private View bKl;
-    private a bKm;
-    private a.C0275a bKn;
+    private ImageView bQQ;
+    private TextView bQR;
+    private TextView bQS;
+    private TextView bQT;
+    private View bQU;
+    private a bQV;
+    private a.C0290a bQW;
 
     public CouponEntranceView(Context context) {
         this(context, null);
@@ -30,67 +30,67 @@ public class CouponEntranceView extends FrameLayout {
 
     private void c(Context context) {
         LayoutInflater.from(context).inflate(b.f.coupon_entrance, (ViewGroup) this, true);
-        this.bKh = (ImageView) findViewById(b.e.coupon_icon);
-        this.bKk = (TextView) findViewById(b.e.coupon_text);
-        this.bKi = (TextView) findViewById(b.e.coupon_title);
-        this.bKj = (TextView) findViewById(b.e.coupon_subtitle);
-        this.bKl = findViewById(b.e.icon_more);
+        this.bQQ = (ImageView) findViewById(b.e.coupon_icon);
+        this.bQT = (TextView) findViewById(b.e.coupon_text);
+        this.bQR = (TextView) findViewById(b.e.coupon_title);
+        this.bQS = (TextView) findViewById(b.e.coupon_subtitle);
+        this.bQU = findViewById(b.e.icon_more);
     }
 
     public void a(a aVar) {
-        this.bKm = aVar;
+        this.bQV = aVar;
         h();
     }
 
-    public a.C0275a getSelectedItem() {
-        return this.bKn;
+    public a.C0290a getSelectedItem() {
+        return this.bQW;
     }
 
     public void h() {
         String str;
-        List<a.C0275a> list;
-        this.bKn = null;
-        a aVar = this.bKm;
-        if (!((aVar == null || (list = aVar.bKp) == null || list.size() <= 0) ? false : true)) {
+        List<a.C0290a> list;
+        this.bQW = null;
+        a aVar = this.bQV;
+        if (!((aVar == null || (list = aVar.bQY) == null || list.size() <= 0) ? false : true)) {
             setVisibility(8);
             return;
         }
-        Iterator<a.C0275a> it = this.bKm.bKp.iterator();
+        Iterator<a.C0290a> it = this.bQV.bQY.iterator();
         while (true) {
             if (!it.hasNext()) {
                 break;
             }
-            a.C0275a next = it.next();
+            a.C0290a next = it.next();
             if (next.cf == 1) {
-                this.bKn = next;
+                this.bQW = next;
                 break;
             }
         }
-        if (this.bKn == null) {
+        if (this.bQW == null) {
             setVisibility(8);
             return;
         }
         setVisibility(0);
-        com.baidu.poly.a.d.b.UI().b(this.bKh, this.bKn.icon);
-        this.bKi.setText(this.bKn.bKq);
-        a.C0275a c0275a = this.bKn;
-        if (c0275a.type == -1) {
-            str = c0275a.bKr;
-            this.bKj.setVisibility(8);
+        com.baidu.poly.a.d.b.WF().b(this.bQQ, this.bQW.icon);
+        this.bQR.setText(this.bQW.bQZ);
+        a.C0290a c0290a = this.bQW;
+        if (c0290a.type == -1) {
+            str = c0290a.bRa;
+            this.bQS.setVisibility(8);
         } else {
-            str = Constants.ACCEPT_TIME_SEPARATOR_SERVER + a(this.bKn.bKs.longValue()) + "元";
-            this.bKj.setVisibility(0);
-            this.bKj.setText(this.bKn.bKr);
+            str = Constants.ACCEPT_TIME_SEPARATOR_SERVER + a(this.bQW.bRb.longValue()) + "元";
+            this.bQS.setVisibility(0);
+            this.bQS.setText(this.bQW.bRa);
         }
-        this.bKk.setText(str);
-        if (this.bKm.bKo) {
-            this.bKk.setTextColor(getResources().getColor(b.C0270b.coupon_description));
-            this.bKl.setVisibility(0);
+        this.bQT.setText(str);
+        if (this.bQV.bQX) {
+            this.bQT.setTextColor(getResources().getColor(b.C0285b.coupon_description));
+            this.bQU.setVisibility(0);
             setEnabled(true);
             return;
         }
-        this.bKk.setTextColor(getResources().getColor(b.C0270b.black));
-        this.bKl.setVisibility(8);
+        this.bQT.setTextColor(getResources().getColor(b.C0285b.black));
+        this.bQU.setVisibility(8);
         setEnabled(false);
     }
 

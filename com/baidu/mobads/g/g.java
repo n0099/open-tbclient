@@ -18,9 +18,11 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.lang.Thread;
 import java.util.jar.JarFile;
-/* loaded from: classes3.dex */
+/* loaded from: classes7.dex */
 public class g {
-    protected static Thread.UncaughtExceptionHandler a;
+
+    /* renamed from: a  reason: collision with root package name */
+    protected static Thread.UncaughtExceptionHandler f2335a;
     protected static volatile com.baidu.mobads.g.a b = null;
     protected static volatile com.baidu.mobads.g.a c = null;
     protected static volatile Class d = null;
@@ -37,7 +39,7 @@ public class g {
     @SuppressLint({"HandlerLeak"})
     protected final Handler h = new i(this, Looper.getMainLooper());
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes7.dex */
     public interface c {
         void a(boolean z);
     }
@@ -72,12 +74,12 @@ public class g {
         }
         this.l = context;
         c(context);
-        if (a == null) {
-            a = q.a(context);
+        if (f2335a == null) {
+            f2335a = q.a(context);
             q.a(context).a(new j(this));
         }
         if (!(Thread.getDefaultUncaughtExceptionHandler() instanceof q)) {
-            Thread.setDefaultUncaughtExceptionHandler(a);
+            Thread.setDefaultUncaughtExceptionHandler(f2335a);
         }
     }
 
@@ -102,7 +104,7 @@ public class g {
     public void a(String str) {
         if (b != null) {
             SharedPreferences.Editor edit = l().edit();
-            edit.putFloat("__badApkVersion__8.8146", (float) b.a);
+            edit.putFloat("__badApkVersion__8.8146", (float) b.f2330a);
             if (Build.VERSION.SDK_INT >= 9) {
                 edit.apply();
             } else {
@@ -169,7 +171,7 @@ public class g {
     public void a(com.baidu.mobads.g.b bVar) {
         Class<?> b2 = bVar.b();
         synchronized (this) {
-            c = new com.baidu.mobads.g.a(b2, this.l, com.baidu.mobads.a.b.a(), com.baidu.mobads.a.b.a);
+            c = new com.baidu.mobads.g.a(b2, this.l, com.baidu.mobads.a.b.a(), com.baidu.mobads.a.b.f2314a);
         }
     }
 
@@ -186,17 +188,17 @@ public class g {
             } catch (Exception e2) {
                 this.m.e(e2);
             }
-            b = new com.baidu.mobads.g.a(bVar2.b(), this.l, com.baidu.mobads.a.b.a(), com.baidu.mobads.a.b.a);
+            b = new com.baidu.mobads.g.a(bVar2.b(), this.l, com.baidu.mobads.a.b.a(), com.baidu.mobads.a.b.f2314a);
             try {
                 this.m.d("XAdApkLoader", "preloaded apk.version=" + b.a().getRemoteVersion());
                 return;
             } catch (a e3) {
-                this.m.w("XAdApkLoader", "preload local apk " + bVar.getAbsolutePath() + " failed, msg:" + e3.getMessage() + ", v=" + b.a);
+                this.m.w("XAdApkLoader", "preload local apk " + bVar.getAbsolutePath() + " failed, msg:" + e3.getMessage() + ", v=" + b.f2330a);
                 a(e3.getMessage());
                 throw e3;
             }
         }
-        this.m.w("XAdApkLoader", "mApkBuilder already initialized, version: " + b.a);
+        this.m.w("XAdApkLoader", "mApkBuilder already initialized, version: " + b.f2330a);
     }
 
     private boolean c(com.baidu.mobads.g.b bVar) {
@@ -365,7 +367,7 @@ public class g {
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes7.dex */
     public static final class a extends Exception {
         public a(String str) {
             XAdSDKFoundationFacade.getInstance().getAdLogger().e(str);
@@ -373,7 +375,7 @@ public class g {
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    /* loaded from: classes3.dex */
+    /* loaded from: classes7.dex */
     public static final class b extends Exception {
         public b(String str) {
             XAdSDKFoundationFacade.getInstance().getAdLogger().e(str);

@@ -19,16 +19,16 @@ import com.baidu.tieba.ala.data.o;
 import java.util.ArrayList;
 /* loaded from: classes4.dex */
 public class PkRankStartAnimView extends FrameLayout {
-    private com.baidu.live.alphavideo.c aWp;
-    private FrameLayout hhD;
-    private ImageView hhE;
-    private FrameLayout hhF;
-    private FrameLayout hhG;
-    private PkRankStartInfoView hhH;
-    private PkRankStartInfoView hhI;
-    private AnimatorSet hhJ;
-    private Runnable hhK;
-    private a hhL;
+    private com.baidu.live.alphavideo.c aZA;
+    private ImageView hwA;
+    private FrameLayout hwB;
+    private FrameLayout hwC;
+    private PkRankStartInfoView hwD;
+    private PkRankStartInfoView hwE;
+    private AnimatorSet hwF;
+    private Runnable hwG;
+    private a hwH;
+    private FrameLayout hwz;
 
     /* loaded from: classes4.dex */
     public interface a {
@@ -41,65 +41,65 @@ public class PkRankStartAnimView extends FrameLayout {
     }
 
     public void setCallback(a aVar) {
-        this.hhL = aVar;
+        this.hwH = aVar;
     }
 
     public void bT(int i, int i2) {
         bU(i, i2);
-        cdo();
-        cdp();
+        cgK();
+        cgL();
         int i3 = (int) (i * 0.5f);
         int i4 = (int) (i2 * 0.6183575f * 0.5f);
         int i5 = (int) ((i2 * 58.0f) / 414.0f);
         L(i3, i4, i5);
         M(i3, i4, i5);
-        cdq();
-        cdr();
+        cgM();
+        cgN();
     }
 
     public void setData(o oVar, o oVar2) {
-        if (this.hhH != null) {
-            this.hhH.setData(oVar);
-            this.hhH.setVisibility(8);
+        if (this.hwD != null) {
+            this.hwD.setData(oVar);
+            this.hwD.setVisibility(8);
         }
-        if (this.hhI != null) {
-            this.hhI.setData(oVar2);
-            this.hhI.setVisibility(8);
+        if (this.hwE != null) {
+            this.hwE.setData(oVar2);
+            this.hwE.setVisibility(8);
         }
     }
 
-    public void Ho(String str) {
+    public void Ib(String str) {
         Animator streakAnim;
         Animator streakAnim2;
-        if (this.aWp != null && !TextUtils.isEmpty(str)) {
-            this.hhE.setVisibility(8);
-            this.aWp.getView().setVisibility(0);
-            this.aWp.play(str);
+        if (this.aZA != null && !TextUtils.isEmpty(str)) {
+            this.hwA.setVisibility(8);
+            this.aZA.getView().setVisibility(0);
+            this.aZA.play(str);
         } else {
-            if (this.aWp != null) {
-                this.aWp.getView().setVisibility(8);
+            if (this.aZA != null) {
+                this.aZA.getView().setVisibility(8);
             }
-            this.hhE.setVisibility(0);
-            this.hhK = new Runnable() { // from class: com.baidu.tieba.ala.view.PkRankStartAnimView.1
+            this.hwA.setVisibility(0);
+            this.hwG = new Runnable() { // from class: com.baidu.tieba.ala.view.PkRankStartAnimView.1
                 @Override // java.lang.Runnable
                 public void run() {
-                    if (PkRankStartAnimView.this.hhL != null) {
-                        PkRankStartAnimView.this.hhL.onAnimEnd();
+                    if (PkRankStartAnimView.this.hwH != null) {
+                        PkRankStartAnimView.this.hwH.onAnimEnd();
                     }
                 }
             };
-            postDelayed(this.hhK, IMConnection.RETRY_DELAY_TIMES);
+            postDelayed(this.hwG, IMConnection.RETRY_DELAY_TIMES);
         }
-        if (this.hhJ != null) {
-            this.hhJ.cancel();
+        if (this.hwF != null) {
+            this.hwF.cancel();
         }
-        this.hhJ = new AnimatorSet();
+        this.hwF = new AnimatorSet();
         ArrayList arrayList = null;
-        if (this.hhH != null && (streakAnim2 = this.hhH.getStreakAnim()) != null) {
+        if (this.hwD != null && (streakAnim2 = this.hwD.getStreakAnim()) != null) {
             arrayList = new ArrayList();
             arrayList.add(streakAnim2);
         }
-        if (this.hhI != null && (streakAnim = this.hhI.getStreakAnim()) != null) {
+        if (this.hwE != null && (streakAnim = this.hwE.getStreakAnim()) != null) {
             if (arrayList == null) {
                 arrayList = new ArrayList();
             }
@@ -108,78 +108,78 @@ public class PkRankStartAnimView extends FrameLayout {
         if (arrayList != null && !arrayList.isEmpty()) {
             AnimatorSet animatorSet = new AnimatorSet();
             animatorSet.playTogether(arrayList);
-            this.hhJ.play(cds()).with(cdt()).before(animatorSet);
+            this.hwF.play(cgO()).with(cgP()).before(animatorSet);
             arrayList.clear();
         } else {
-            this.hhJ.playTogether(cds(), cdt());
+            this.hwF.playTogether(cgO(), cgP());
         }
-        this.hhJ.setStartDelay(800L);
-        this.hhJ.start();
+        this.hwF.setStartDelay(800L);
+        this.hwF.start();
     }
 
     public void stopAnim() {
-        if (this.hhK != null) {
-            removeCallbacks(this.hhK);
+        if (this.hwG != null) {
+            removeCallbacks(this.hwG);
         }
-        if (this.aWp != null) {
-            this.aWp.stop();
-            this.aWp.reset();
+        if (this.aZA != null) {
+            this.aZA.stop();
+            this.aZA.reset();
         }
-        if (this.hhJ != null) {
-            this.hhJ.cancel();
+        if (this.hwF != null) {
+            this.hwF.cancel();
         }
-        if (this.hhH != null) {
-            this.hhH.release();
+        if (this.hwD != null) {
+            this.hwD.release();
         }
-        if (this.hhI != null) {
-            this.hhI.release();
+        if (this.hwE != null) {
+            this.hwE.release();
         }
     }
 
     public void release() {
         stopAnim();
-        if (this.aWp != null) {
-            this.aWp.release();
+        if (this.aZA != null) {
+            this.aZA.release();
         }
         removeAllViews();
     }
 
     private void bU(int i, int i2) {
-        if (this.hhD == null) {
-            this.hhD = new FrameLayout(getContext());
+        if (this.hwz == null) {
+            this.hwz = new FrameLayout(getContext());
         }
-        if (indexOfChild(this.hhD) < 0) {
-            addView(this.hhD);
+        if (indexOfChild(this.hwz) < 0) {
+            addView(this.hwz);
         }
-        FrameLayout.LayoutParams layoutParams = (FrameLayout.LayoutParams) this.hhD.getLayoutParams();
+        FrameLayout.LayoutParams layoutParams = (FrameLayout.LayoutParams) this.hwz.getLayoutParams();
         layoutParams.width = i;
         layoutParams.height = i2;
         layoutParams.gravity = 16;
-        this.hhD.setLayoutParams(layoutParams);
+        this.hwz.setLayoutParams(layoutParams);
     }
 
-    private void cdo() {
-        if (this.aWp == null || this.aWp.isDestroyed()) {
+    private void cgK() {
+        if (this.aZA == null || this.aZA.isDestroyed()) {
             CustomResponsedMessage runTask = MessageManager.getInstance().runTask(2913181, com.baidu.live.alphavideo.c.class, getContext());
             if (runTask != null && runTask.getData() != null) {
-                this.aWp = (com.baidu.live.alphavideo.c) runTask.getData();
+                this.aZA = (com.baidu.live.alphavideo.c) runTask.getData();
             } else {
                 return;
             }
         }
-        if (this.aWp != null) {
-            if (this.hhD.indexOfChild(this.aWp.getView()) < 0) {
-                this.hhD.addView(this.aWp.getView(), new ViewGroup.LayoutParams(-1, -1));
+        if (this.aZA != null) {
+            if (this.hwz.indexOfChild(this.aZA.getView()) < 0) {
+                this.hwz.addView(this.aZA.getView(), new ViewGroup.LayoutParams(-1, -1));
             }
-            this.aWp.a(new c.a() { // from class: com.baidu.tieba.ala.view.PkRankStartAnimView.2
+            this.aZA.a(new c.a() { // from class: com.baidu.tieba.ala.view.PkRankStartAnimView.2
                 @Override // com.baidu.live.alphavideo.c.a
                 public void onStart() {
                 }
 
                 @Override // com.baidu.live.alphavideo.c.a
                 public void onEnd() {
-                    if (PkRankStartAnimView.this.hhL != null) {
-                        PkRankStartAnimView.this.hhL.onAnimEnd();
+                    if (PkRankStartAnimView.this.hwH != null) {
+                        PkRankStartAnimView.this.hwH.onAnimEnd();
                     }
                 }
 
@@ -188,81 +188,81 @@ public class PkRankStartAnimView extends FrameLayout {
                     onEnd();
                 }
             });
-            this.aWp.getView().setVisibility(8);
+            this.aZA.getView().setVisibility(8);
         }
     }
 
-    private void cdp() {
-        if (this.hhE == null) {
-            this.hhE = new ImageView(getContext());
-            this.hhE.setScaleType(ImageView.ScaleType.CENTER_CROP);
-            this.hhE.setImageResource(a.f.pk_rank_start_anim_default);
+    private void cgL() {
+        if (this.hwA == null) {
+            this.hwA = new ImageView(getContext());
+            this.hwA.setScaleType(ImageView.ScaleType.CENTER_CROP);
+            this.hwA.setImageResource(a.f.pk_rank_start_anim_default);
         }
-        if (this.hhD.indexOfChild(this.hhE) < 0) {
-            this.hhD.addView(this.hhE, new ViewGroup.LayoutParams(-1, -1));
+        if (this.hwz.indexOfChild(this.hwA) < 0) {
+            this.hwz.addView(this.hwA, new ViewGroup.LayoutParams(-1, -1));
         }
-        this.hhE.setVisibility(8);
+        this.hwA.setVisibility(8);
     }
 
     private void L(int i, int i2, int i3) {
-        if (this.hhF == null) {
-            this.hhF = new FrameLayout(getContext());
+        if (this.hwB == null) {
+            this.hwB = new FrameLayout(getContext());
         }
-        if (this.hhD.indexOfChild(this.hhF) < 0) {
-            this.hhD.addView(this.hhF);
+        if (this.hwz.indexOfChild(this.hwB) < 0) {
+            this.hwz.addView(this.hwB);
         }
-        FrameLayout.LayoutParams layoutParams = (FrameLayout.LayoutParams) this.hhF.getLayoutParams();
+        FrameLayout.LayoutParams layoutParams = (FrameLayout.LayoutParams) this.hwB.getLayoutParams();
         layoutParams.width = i;
         layoutParams.height = i2;
         layoutParams.gravity = 51;
         layoutParams.topMargin = i3;
-        this.hhF.setLayoutParams(layoutParams);
+        this.hwB.setLayoutParams(layoutParams);
     }
 
     private void M(int i, int i2, int i3) {
-        if (this.hhG == null) {
-            this.hhG = new FrameLayout(getContext());
+        if (this.hwC == null) {
+            this.hwC = new FrameLayout(getContext());
         }
-        if (this.hhD.indexOfChild(this.hhG) < 0) {
-            this.hhD.addView(this.hhG);
+        if (this.hwz.indexOfChild(this.hwC) < 0) {
+            this.hwz.addView(this.hwC);
         }
-        FrameLayout.LayoutParams layoutParams = (FrameLayout.LayoutParams) this.hhG.getLayoutParams();
+        FrameLayout.LayoutParams layoutParams = (FrameLayout.LayoutParams) this.hwC.getLayoutParams();
         layoutParams.width = i;
         layoutParams.height = i2;
         layoutParams.gravity = 85;
         layoutParams.bottomMargin = i3;
-        this.hhG.setLayoutParams(layoutParams);
+        this.hwC.setLayoutParams(layoutParams);
     }
 
-    private void cdq() {
-        if (this.hhF != null) {
-            if (this.hhH == null) {
-                this.hhH = new PkRankStartInfoView(getContext(), false);
+    private void cgM() {
+        if (this.hwB != null) {
+            if (this.hwD == null) {
+                this.hwD = new PkRankStartInfoView(getContext(), false);
             }
-            if (this.hhF.indexOfChild(this.hhH) < 0) {
+            if (this.hwB.indexOfChild(this.hwD) < 0) {
                 FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(-2, -2);
                 layoutParams.gravity = 21;
-                this.hhF.addView(this.hhH, layoutParams);
+                this.hwB.addView(this.hwD, layoutParams);
             }
         }
     }
 
-    private void cdr() {
-        if (this.hhG != null) {
-            if (this.hhI == null) {
-                this.hhI = new PkRankStartInfoView(getContext(), true);
+    private void cgN() {
+        if (this.hwC != null) {
+            if (this.hwE == null) {
+                this.hwE = new PkRankStartInfoView(getContext(), true);
             }
-            if (this.hhG.indexOfChild(this.hhI) < 0) {
+            if (this.hwC.indexOfChild(this.hwE) < 0) {
                 FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(-2, -2);
                 layoutParams.gravity = 19;
-                this.hhG.addView(this.hhI, layoutParams);
+                this.hwC.addView(this.hwE, layoutParams);
             }
         }
     }
 
-    private AnimatorSet cds() {
-        ObjectAnimator ofFloat = ObjectAnimator.ofFloat(this.hhH, "translationX", (-this.hhF.getLayoutParams().width) * 0.25f, 0.0f);
-        ObjectAnimator ofFloat2 = ObjectAnimator.ofFloat(this.hhH, "alpha", 0.0f, 1.0f);
+    private AnimatorSet cgO() {
+        ObjectAnimator ofFloat = ObjectAnimator.ofFloat(this.hwD, "translationX", (-this.hwB.getLayoutParams().width) * 0.25f, 0.0f);
+        ObjectAnimator ofFloat2 = ObjectAnimator.ofFloat(this.hwD, "alpha", 0.0f, 1.0f);
         AnimatorSet animatorSet = new AnimatorSet();
         animatorSet.setDuration(400L);
         animatorSet.setInterpolator(new AccelerateDecelerateInterpolator());
@@ -271,15 +271,15 @@ public class PkRankStartAnimView extends FrameLayout {
             @Override // android.animation.AnimatorListenerAdapter, android.animation.Animator.AnimatorListener
             public void onAnimationStart(Animator animator) {
                 super.onAnimationStart(animator);
-                PkRankStartAnimView.this.hhH.setVisibility(0);
+                PkRankStartAnimView.this.hwD.setVisibility(0);
             }
         });
         return animatorSet;
     }
 
-    private AnimatorSet cdt() {
-        ObjectAnimator ofFloat = ObjectAnimator.ofFloat(this.hhI, "translationX", this.hhG.getLayoutParams().width * 0.25f, 0.0f);
-        ObjectAnimator ofFloat2 = ObjectAnimator.ofFloat(this.hhI, "alpha", 0.0f, 1.0f);
+    private AnimatorSet cgP() {
+        ObjectAnimator ofFloat = ObjectAnimator.ofFloat(this.hwE, "translationX", this.hwC.getLayoutParams().width * 0.25f, 0.0f);
+        ObjectAnimator ofFloat2 = ObjectAnimator.ofFloat(this.hwE, "alpha", 0.0f, 1.0f);
         AnimatorSet animatorSet = new AnimatorSet();
         animatorSet.setDuration(400L);
         animatorSet.setInterpolator(new AccelerateDecelerateInterpolator());
@@ -288,7 +288,7 @@ public class PkRankStartAnimView extends FrameLayout {
             @Override // android.animation.AnimatorListenerAdapter, android.animation.Animator.AnimatorListener
             public void onAnimationStart(Animator animator) {
                 super.onAnimationStart(animator);
-                PkRankStartAnimView.this.hhI.setVisibility(0);
+                PkRankStartAnimView.this.hwE.setVisibility(0);
             }
         });
         return animatorSet;

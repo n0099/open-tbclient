@@ -15,10 +15,13 @@ import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.util.AttributeSet;
 import android.widget.FrameLayout;
+import com.baidu.appsearch.update.patchupdate.GDiffPatcher;
 import com.baidu.sapi2.biometrics.liveness.R;
-/* loaded from: classes16.dex */
+/* loaded from: classes17.dex */
 public class LivenessVideoXfordView extends FrameLayout {
-    private static final float a = 230.0f;
+
+    /* renamed from: a  reason: collision with root package name */
+    private static final float f1759a = 230.0f;
     private static final float b = 20.0f;
     private float c;
     private float d;
@@ -42,14 +45,14 @@ public class LivenessVideoXfordView extends FrameLayout {
     private int v;
     private a w;
 
-    /* loaded from: classes16.dex */
+    /* loaded from: classes17.dex */
     public enum VideoXfordViewState {
         FAILURE,
         SUCCESSING,
         SUCCESSED
     }
 
-    /* loaded from: classes16.dex */
+    /* loaded from: classes17.dex */
     public interface a {
         void a();
     }
@@ -62,14 +65,14 @@ public class LivenessVideoXfordView extends FrameLayout {
 
     public LivenessVideoXfordView(@NonNull Context context) {
         super(context);
-        this.c = a;
+        this.c = f1759a;
         this.d = b;
         a();
     }
 
     public LivenessVideoXfordView(@NonNull Context context, @Nullable AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.c = a;
+        this.c = f1759a;
         this.d = b;
         a();
     }
@@ -85,17 +88,17 @@ public class LivenessVideoXfordView extends FrameLayout {
         this.g.setStyle(Paint.Style.FILL);
         this.g.setAntiAlias(true);
         this.h = new Paint();
-        this.h.setColor(Color.rgb(103, 155, 252));
+        this.h.setColor(Color.rgb(103, 155, (int) GDiffPatcher.COPY_INT_UBYTE));
         this.h.setStyle(Paint.Style.STROKE);
         this.h.setStrokeWidth(12.0f);
         this.h.setAntiAlias(true);
         this.i = new Paint();
-        this.i.setColor(Color.rgb(251, 90, 92));
+        this.i.setColor(Color.rgb((int) GDiffPatcher.COPY_USHORT_INT, 90, 92));
         this.i.setStyle(Paint.Style.STROKE);
         this.i.setStrokeWidth(12.0f);
         this.i.setAntiAlias(true);
         this.j = new Paint();
-        this.j.setColor(Color.rgb(251, 90, 92));
+        this.j.setColor(Color.rgb((int) GDiffPatcher.COPY_USHORT_INT, 90, 92));
         this.j.setStyle(Paint.Style.STROKE);
         this.j.setStrokeWidth(4.0f);
         this.j.setAntiAlias(true);
@@ -132,7 +135,7 @@ public class LivenessVideoXfordView extends FrameLayout {
                 }
                 LivenessVideoXfordView.this.v += 2;
                 LivenessVideoXfordView.this.d = LivenessVideoXfordView.b + LivenessVideoXfordView.this.v;
-                LivenessVideoXfordView.this.c = (LivenessVideoXfordView.a + (LivenessVideoXfordView.this.v * 1)) % 360.0f;
+                LivenessVideoXfordView.this.c = (LivenessVideoXfordView.f1759a + (LivenessVideoXfordView.this.v * 1)) % 360.0f;
                 LivenessVideoXfordView.this.invalidate();
                 LivenessVideoXfordView.this.t.postDelayed(LivenessVideoXfordView.this.u, 3L);
             }

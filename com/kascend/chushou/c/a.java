@@ -23,7 +23,7 @@ import org.json.JSONObject;
 import tv.chushou.zues.utils.h;
 /* loaded from: classes6.dex */
 public class a {
-    public static ParserRet ep(JSONObject jSONObject) {
+    public static ParserRet et(JSONObject jSONObject) {
         int i = -1;
         String str = "";
         if (jSONObject != null) {
@@ -36,7 +36,7 @@ public class a {
         return parserRet;
     }
 
-    public static ShareInfo eq(JSONObject jSONObject) {
+    public static ShareInfo eu(JSONObject jSONObject) {
         ShareInfo shareInfo = new ShareInfo();
         shareInfo.mThumbnail = jSONObject.optString("thumbnail", "");
         shareInfo.mTitle = jSONObject.optString("title", "");
@@ -55,14 +55,14 @@ public class a {
     }
 
     @Nullable
-    public static ListItem er(JSONObject jSONObject) {
+    public static ListItem ev(JSONObject jSONObject) {
         if (jSONObject == null) {
             return null;
         }
-        return es(jSONObject);
+        return ew(jSONObject);
     }
 
-    public static ListItem es(JSONObject jSONObject) {
+    public static ListItem ew(JSONObject jSONObject) {
         ListItem listItem = new ListItem();
         listItem.mType = jSONObject.optString("type", "");
         listItem.mName = jSONObject.optString("name", "");
@@ -235,7 +235,7 @@ public class a {
     /* JADX INFO: Access modifiers changed from: package-private */
     public static ArrayList<PannelItem> ac(JSONArray jSONArray) {
         JSONArray optJSONArray;
-        ListItem er;
+        ListItem ev;
         ArrayList<PannelItem> arrayList = new ArrayList<>();
         if (jSONArray == null || jSONArray.length() == 0) {
             return arrayList;
@@ -250,14 +250,14 @@ public class a {
                 pannelItem.mPannelPos = i + 1;
                 for (int i2 = 0; i2 < optJSONArray.length(); i2++) {
                     JSONObject optJSONObject2 = optJSONArray.optJSONObject(i2);
-                    if (optJSONObject2 != null && (er = er(optJSONObject2)) != null && (!"12".equals(er.mDisplayStyle) || (!h.isEmpty(er.hornContent) && !h.isEmpty(er.hornFrontContent)))) {
-                        er.mPannelPos = i + 1;
-                        pannelItem.mNavItemList.add(er);
+                    if (optJSONObject2 != null && (ev = ev(optJSONObject2)) != null && (!"12".equals(ev.mDisplayStyle) || (!h.isEmpty(ev.hornContent) && !h.isEmpty(ev.hornFrontContent)))) {
+                        ev.mPannelPos = i + 1;
+                        pannelItem.mNavItemList.add(ev);
                     }
                 }
                 JSONObject optJSONObject3 = optJSONObject.optJSONObject("moreNav");
                 if (optJSONObject3 != null) {
-                    pannelItem.mMoreNav = er(optJSONObject3);
+                    pannelItem.mMoreNav = ev(optJSONObject3);
                 }
                 arrayList.add(pannelItem);
             }

@@ -6,7 +6,7 @@ import com.baidu.live.data.u;
 public interface a {
     void a(u uVar);
 
-    void ez(int i);
+    void eE(int i);
 
     View getView();
 

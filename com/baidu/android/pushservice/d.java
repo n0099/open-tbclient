@@ -10,9 +10,11 @@ import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
-/* loaded from: classes7.dex */
+/* loaded from: classes10.dex */
 public class d {
-    private static String a = "NotificationBuilderManager";
+
+    /* renamed from: a  reason: collision with root package name */
+    private static String f1055a = "NotificationBuilderManager";
     private static String b = "notification_builder_storage";
     private static Object c = new Object();
     private static int d = 0;

@@ -3,9 +3,11 @@ package com.baidu.mobstat;
 import android.content.Context;
 import android.text.TextUtils;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes15.dex */
+/* loaded from: classes17.dex */
 public class b {
-    static b a = new b();
+
+    /* renamed from: a  reason: collision with root package name */
+    static b f2574a = new b();
 
     b() {
     }

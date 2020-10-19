@@ -7,16 +7,16 @@ import android.view.View;
 import android.view.ViewGroup;
 /* loaded from: classes.dex */
 public class d {
-    public static boolean k(View view, int i) {
+    public static boolean l(View view, int i) {
         if (view.isInEditMode() || view.getHeight() == i || Math.abs(view.getHeight() - i) == c.getStatusBarHeight(view.getContext())) {
             return false;
         }
-        int ee = b.ee(view.getContext());
+        int el = b.el(view.getContext());
         ViewGroup.LayoutParams layoutParams = view.getLayoutParams();
         if (layoutParams == null) {
-            view.setLayoutParams(new ViewGroup.LayoutParams(-1, ee));
+            view.setLayoutParams(new ViewGroup.LayoutParams(-1, el));
         } else {
-            layoutParams.height = ee;
+            layoutParams.height = el;
             view.requestLayout();
         }
         return true;
@@ -27,7 +27,7 @@ public class d {
     }
 
     @TargetApi(19)
-    public static boolean B(Activity activity) {
+    public static boolean C(Activity activity) {
         return Build.VERSION.SDK_INT >= 19 && (activity.getWindow().getAttributes().flags & 67108864) != 0;
     }
 

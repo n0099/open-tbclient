@@ -4,7 +4,7 @@ import android.content.Context;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 import java.util.concurrent.Future;
-/* loaded from: classes9.dex */
+/* loaded from: classes5.dex */
 public class DBTaskManager {
     private static DBTaskManager mInstance;
     private ExecutorService writeService = Executors.newSingleThreadExecutor();

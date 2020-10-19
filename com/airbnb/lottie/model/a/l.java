@@ -3,63 +3,63 @@ package com.airbnb.lottie.model.a;
 import android.graphics.PointF;
 import android.support.annotation.Nullable;
 import com.airbnb.lottie.a.b.o;
-/* loaded from: classes6.dex */
+/* loaded from: classes10.dex */
 public class l implements com.airbnb.lottie.model.content.b {
-    private final e EB;
-    private final m<PointF, PointF> ED;
-    private final g EE;
-    private final b EF;
-    private final d EG;
+    private final e EU;
+    private final m<PointF, PointF> EV;
+    private final g EW;
+    private final b EX;
+    private final d EY;
     @Nullable
-    private final b EH;
+    private final b EZ;
     @Nullable
-    private final b EI;
+    private final b Fa;
 
     public l() {
         this(new e(), new e(), new g(), new b(), new d(), new b(), new b());
     }
 
     public l(e eVar, m<PointF, PointF> mVar, g gVar, b bVar, d dVar, @Nullable b bVar2, @Nullable b bVar3) {
-        this.EB = eVar;
-        this.ED = mVar;
-        this.EE = gVar;
-        this.EF = bVar;
-        this.EG = dVar;
-        this.EH = bVar2;
-        this.EI = bVar3;
+        this.EU = eVar;
+        this.EV = mVar;
+        this.EW = gVar;
+        this.EX = bVar;
+        this.EY = dVar;
+        this.EZ = bVar2;
+        this.Fa = bVar3;
     }
 
-    public e jE() {
-        return this.EB;
+    public e jF() {
+        return this.EU;
     }
 
-    public m<PointF, PointF> jF() {
-        return this.ED;
+    public m<PointF, PointF> jG() {
+        return this.EV;
     }
 
-    public g jG() {
-        return this.EE;
+    public g jH() {
+        return this.EW;
     }
 
-    public b jH() {
-        return this.EF;
+    public b jI() {
+        return this.EX;
     }
 
-    public d jI() {
-        return this.EG;
-    }
-
-    @Nullable
-    public b jJ() {
-        return this.EH;
+    public d jJ() {
+        return this.EY;
     }
 
     @Nullable
     public b jK() {
-        return this.EI;
+        return this.EZ;
     }
 
-    public o jL() {
+    @Nullable
+    public b jL() {
+        return this.Fa;
+    }
+
+    public o jM() {
         return new o(this);
     }
 

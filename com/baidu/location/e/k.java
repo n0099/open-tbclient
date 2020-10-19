@@ -1,6 +1,8 @@
 package com.baidu.location.e;
-/* loaded from: classes3.dex */
+/* loaded from: classes7.dex */
 public final class k {
     private static volatile k b = null;
-    public static String a = l.i();
+
+    /* renamed from: a  reason: collision with root package name */
+    public static String f1954a = l.i();
 }

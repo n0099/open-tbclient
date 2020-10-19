@@ -5,19 +5,21 @@ import com.baidu.webkit.internal.monitor.SessionMonitorEngine;
 import com.baidu.webkit.sdk.Log;
 import com.baidu.webkit.sdk.performance.ZeusPerformanceTiming;
 import org.json.JSONObject;
-/* loaded from: classes8.dex */
+/* loaded from: classes11.dex */
 public final class a {
-    public static int a = 12323;
+
+    /* renamed from: a  reason: collision with root package name */
+    public static int f1282a = 12323;
     public static int b = 12324;
-    public b afc;
-    private JSONObject afd;
+    public b aft;
+    private JSONObject afu;
     public JSONObject d;
     public boolean e = false;
 
     public final void a() {
-        if (this.afd != null) {
-            SessionMonitorEngine.getInstance().recordImmediately(ZeusPerformanceTiming.SERVER_TYPE_T7_INIT, this.afd.toString());
-            this.afd = null;
+        if (this.afu != null) {
+            SessionMonitorEngine.getInstance().recordImmediately(ZeusPerformanceTiming.SERVER_TYPE_T7_INIT, this.afu.toString());
+            this.afu = null;
         }
     }
 
@@ -25,7 +27,7 @@ public final class a {
         try {
             if (this.d == null) {
                 this.d = new JSONObject();
-                this.d.put("type", a);
+                this.d.put("type", f1282a);
             }
             if (TextUtils.isEmpty(str) || TextUtils.isEmpty(str2)) {
                 return;
@@ -38,14 +40,14 @@ public final class a {
 
     public final void b(String str, String str2) {
         try {
-            if (this.afd == null) {
-                this.afd = new JSONObject();
-                this.afd.put("type", b);
+            if (this.afu == null) {
+                this.afu = new JSONObject();
+                this.afu.put("type", b);
             }
             if (TextUtils.isEmpty(str) || TextUtils.isEmpty(str2)) {
                 return;
             }
-            this.afd.put(str, str2);
+            this.afu.put(str, str2);
         } catch (Exception e) {
             Log.e("mWebkitDownloadStatics JSON error");
         }

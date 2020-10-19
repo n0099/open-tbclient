@@ -1,5 +1,6 @@
 package com.baidu.card;
 
+import android.view.View;
 import android.widget.RelativeLayout;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.card.view.FollowUserDecorView;
@@ -9,16 +10,16 @@ import com.baidu.tbadk.core.data.AbsThreadDataSupport;
 import com.baidu.tbadk.core.data.bw;
 import com.baidu.tieba.R;
 import com.baidu.tieba.view.FollowUserButton;
-/* loaded from: classes20.dex */
+/* loaded from: classes21.dex */
 public class j extends d implements p<bw>, q {
-    private FollowUserDecorView afC;
-    private boolean afD = true;
+    private FollowUserDecorView afT;
+    private boolean afU = true;
     private int mWidth = com.baidu.adp.lib.util.l.getDimens(TbadkCoreApplication.getInst(), R.dimen.tbds166);
     private int mHeight = com.baidu.adp.lib.util.l.getDimens(TbadkCoreApplication.getInst(), R.dimen.tbds78);
 
     public j(TbPageContext tbPageContext, boolean z) {
-        this.afC = new FollowUserDecorView(tbPageContext.getPageActivity());
-        this.afC.setUseNewStyle(z);
+        this.afT = new FollowUserDecorView(tbPageContext.getPageActivity());
+        this.afT.setUseNewStyle(z);
         setInsertIndex(-1);
         aG(z);
     }
@@ -36,32 +37,32 @@ public class j extends d implements p<bw>, q {
             layoutParams.topMargin = aT(R.dimen.tbds52);
         }
         a(layoutParams);
-        H(this.afC);
+        H((View) this.afT);
     }
 
     public void setMarginRight(int i) {
         if (tD() != null) {
             tD().rightMargin = i;
         }
-        this.afC.setLayoutParams(tD());
+        this.afT.setLayoutParams(tD());
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.card.p
     /* renamed from: a */
-    public void G(bw bwVar) {
-        if (bwVar == null || bwVar.bfy() == null) {
-            this.afC.setVisibility(8);
+    public void H(bw bwVar) {
+        if (bwVar == null || bwVar.bih() == null) {
+            this.afT.setVisibility(8);
             return;
         }
-        setMarginRight(aT(this.afD ? R.dimen.tbds120 : R.dimen.tbds44));
-        this.afC.setVisibility(0);
-        this.afC.setData(bwVar);
-        this.afC.setTag(bwVar);
+        setMarginRight(aT(this.afU ? R.dimen.tbds120 : R.dimen.tbds44));
+        this.afT.setVisibility(0);
+        this.afT.setData(bwVar);
+        this.afT.setTag(bwVar);
     }
 
     public void a(AbsThreadDataSupport absThreadDataSupport, boolean z) {
-        this.afD = z;
+        this.afU = z;
         setSvgIconResId(0);
         setClickableUnLike(true);
     }
@@ -72,22 +73,22 @@ public class j extends d implements p<bw>, q {
 
     @Override // com.baidu.card.q
     public void onChangeSkinType(TbPageContext tbPageContext, int i) {
-        this.afC.onChangeSkinType(i);
+        this.afT.onChangeSkinType(i);
     }
 
     public void setPageUniqueId(BdUniqueId bdUniqueId) {
-        this.afC.setPageUniqueId(bdUniqueId);
+        this.afT.setPageUniqueId(bdUniqueId);
     }
 
     public void setOnClickEvent(FollowUserButton.a aVar) {
-        this.afC.setOnClickEvent(aVar);
+        this.afT.setOnClickEvent(aVar);
     }
 
     public void setSvgIconResId(int i) {
-        this.afC.setSvgIconResId(i);
+        this.afT.setSvgIconResId(i);
     }
 
     public void setClickableUnLike(boolean z) {
-        this.afC.setClickableUnLike(z);
+        this.afT.setClickableUnLike(z);
     }
 }

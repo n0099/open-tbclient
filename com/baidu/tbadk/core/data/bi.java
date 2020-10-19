@@ -4,7 +4,7 @@ import com.baidu.adp.lib.util.BdLog;
 import tbclient.RecommendForumInfo;
 /* loaded from: classes.dex */
 public class bi extends u implements com.baidu.tbadk.mvc.b.a {
-    private boolean ech;
+    private boolean eom;
     private String mAvatar;
     private long mForumId;
     private String mForumName;
@@ -13,7 +13,7 @@ public class bi extends u implements com.baidu.tbadk.mvc.b.a {
     private int thread_count;
 
     public bi() {
-        nb(8);
+        ny(8);
     }
 
     public String getAvatar() {
@@ -29,26 +29,26 @@ public class bi extends u implements com.baidu.tbadk.mvc.b.a {
     }
 
     public boolean isLike() {
-        return this.ech;
+        return this.eom;
     }
 
     public void setLike(boolean z) {
-        this.ech = z;
+        this.eom = z;
     }
 
-    public int beC() {
+    public int bhl() {
         return this.member_count;
     }
 
-    public void nm(int i) {
+    public void nJ(int i) {
         this.member_count = i;
     }
 
-    public int beD() {
+    public int bhm() {
         return this.thread_count;
     }
 
-    public void nn(int i) {
+    public void nK(int i) {
         this.thread_count = i;
     }
 
@@ -58,7 +58,7 @@ public class bi extends u implements com.baidu.tbadk.mvc.b.a {
                 this.mForumId = recommendForumInfo.forum_id.longValue();
                 this.mAvatar = recommendForumInfo.avatar;
                 this.mForumName = recommendForumInfo.forum_name;
-                this.ech = recommendForumInfo.is_like.intValue() == 1;
+                this.eom = recommendForumInfo.is_like.intValue() == 1;
                 this.member_count = recommendForumInfo.member_count.intValue();
                 this.thread_count = recommendForumInfo.thread_count.intValue();
                 this.recom_reason = recommendForumInfo.recom_reason;
@@ -68,24 +68,24 @@ public class bi extends u implements com.baidu.tbadk.mvc.b.a {
         }
     }
 
-    public void cz(long j) {
+    public void cH(long j) {
         this.mForumId = j;
     }
 
-    public void zB(String str) {
+    public void An(String str) {
         this.mAvatar = str;
     }
 
-    public void zC(String str) {
+    public void Ao(String str) {
         this.mForumName = str;
     }
 
     @Override // com.baidu.tbadk.core.data.AbsThreadDataSupport
-    public String bcZ() {
+    public String bfH() {
         return this.recom_reason;
     }
 
-    public void zD(String str) {
+    public void Ap(String str) {
         this.recom_reason = str;
     }
 }

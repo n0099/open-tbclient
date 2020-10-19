@@ -4,16 +4,18 @@ import android.content.Context;
 import android.content.SharedPreferences;
 import android.text.TextUtils;
 import android.util.Base64;
-/* loaded from: classes12.dex */
+/* loaded from: classes15.dex */
 public final class c {
-    public SharedPreferences.Editor a;
+
+    /* renamed from: a  reason: collision with root package name */
+    public SharedPreferences.Editor f3595a;
     private SharedPreferences b;
     private long c = 86400000;
 
     public c(Context context) {
         try {
             this.b = context.getSharedPreferences("leroadcfg", 4);
-            this.a = this.b.edit();
+            this.f3595a = this.b.edit();
         } catch (Throwable th) {
         }
     }

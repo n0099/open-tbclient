@@ -4,7 +4,7 @@ import android.content.Context;
 import android.content.DialogInterface;
 import com.baidu.swan.apps.res.widget.dialog.g;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes10.dex */
 public interface j {
     g.a a(Context context, com.baidu.swan.apps.runtime.e eVar, com.baidu.swan.apps.setting.oauth.e eVar2, JSONObject jSONObject, DialogInterface.OnClickListener onClickListener);
 }

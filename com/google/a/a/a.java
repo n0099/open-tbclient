@@ -4,20 +4,22 @@ import android.os.IBinder;
 import android.os.IInterface;
 import android.os.Parcel;
 import android.os.RemoteException;
-/* loaded from: classes24.dex */
+/* loaded from: classes11.dex */
 public class a implements IInterface {
-    private final IBinder a;
+
+    /* renamed from: a  reason: collision with root package name */
+    private final IBinder f4033a;
     private final String b;
 
     /* JADX INFO: Access modifiers changed from: protected */
     public a(IBinder iBinder, String str) {
-        this.a = iBinder;
+        this.f4033a = iBinder;
         this.b = str;
     }
 
     @Override // android.os.IInterface
     public IBinder asBinder() {
-        return this.a;
+        return this.f4033a;
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -32,7 +34,7 @@ public class a implements IInterface {
         Parcel obtain = Parcel.obtain();
         try {
             try {
-                this.a.transact(i, parcel, obtain, 0);
+                this.f4033a.transact(i, parcel, obtain, 0);
                 obtain.readException();
                 return obtain;
             } catch (RuntimeException e) {
@@ -47,7 +49,7 @@ public class a implements IInterface {
     /* JADX INFO: Access modifiers changed from: protected */
     public final void b(int i, Parcel parcel) throws RemoteException {
         try {
-            this.a.transact(i, parcel, null, 1);
+            this.f4033a.transact(i, parcel, null, 1);
         } finally {
             parcel.recycle();
         }

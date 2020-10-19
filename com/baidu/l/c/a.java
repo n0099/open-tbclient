@@ -4,9 +4,9 @@ import android.app.Activity;
 import android.content.Context;
 import android.os.Bundle;
 import org.json.JSONObject;
-/* loaded from: classes14.dex */
+/* loaded from: classes16.dex */
 public interface a {
-    boolean aK(Context context);
+    boolean aO(Context context);
 
     void b(Activity activity, JSONObject jSONObject, com.baidu.l.a.a aVar);
 
@@ -20,7 +20,7 @@ public interface a {
 
     String getZid(Context context);
 
-    void im(String str);
+    void iO(String str);
 
     void k(Bundle bundle);
 }

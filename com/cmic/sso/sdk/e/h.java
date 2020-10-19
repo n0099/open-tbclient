@@ -4,22 +4,24 @@ import android.content.Context;
 import android.text.TextUtils;
 import com.cmic.sso.sdk.e.k;
 import com.cmic.sso.sdk.e.o;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class h {
     private static String b;
     private static String c;
-    private static boolean a = m.a();
+
+    /* renamed from: a  reason: collision with root package name */
+    private static boolean f4021a = m.a();
     private static long d = 0;
 
     public static void a(boolean z, boolean z2) {
-        k.a dRw = k.dRw();
-        dRw.a("phonescripstarttime");
-        dRw.a("phonescripcache");
-        dRw.a("pre_sim_key");
+        k.a dVh = k.dVh();
+        dVh.a("phonescripstarttime");
+        dVh.a("phonescripcache");
+        dVh.a("pre_sim_key");
         if (z2) {
-            dRw.a();
+            dVh.a();
         } else {
-            dRw.b();
+            dVh.b();
         }
         if (z) {
             b = null;
@@ -29,7 +31,7 @@ public class h {
     }
 
     public static boolean a() {
-        return a;
+        return f4021a;
     }
 
     public static void a(final Context context, final String str, final long j, final String str2) {
@@ -37,7 +39,7 @@ public class h {
             b = str;
             d = j;
             c = str2;
-            if (!a) {
+            if (!f4021a) {
                 o.a(new o.a() { // from class: com.cmic.sso.sdk.e.h.1
                     @Override // com.cmic.sso.sdk.e.o.a
                     protected void a() {
@@ -53,11 +55,11 @@ public class h {
     public static void b(Context context, String str, long j, String str2) {
         String a2 = b.a(context, str);
         if (!TextUtils.isEmpty(a2)) {
-            k.a dRw = k.dRw();
-            dRw.a("phonescripcache", a2);
-            dRw.a("phonescripstarttime", j);
-            dRw.a("pre_sim_key", str2);
-            dRw.b();
+            k.a dVh = k.dVh();
+            dVh.a("phonescripcache", a2);
+            dVh.a("phonescripstarttime", j);
+            dVh.a("pre_sim_key", str2);
+            dVh.b();
         }
     }
 
@@ -122,7 +124,7 @@ public class h {
             }
             return false;
         }
-        if (a) {
+        if (f4021a) {
             c.b("PhoneScripUtils", "phone is root");
             a(false, false);
         }

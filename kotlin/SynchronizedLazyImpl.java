@@ -5,16 +5,16 @@ import kotlin.jvm.internal.o;
 import kotlin.jvm.internal.q;
 /* JADX INFO: Access modifiers changed from: package-private */
 @h
-/* loaded from: classes5.dex */
+/* loaded from: classes10.dex */
 public final class SynchronizedLazyImpl<T> implements Serializable, d<T> {
     private volatile Object _value;
     private kotlin.jvm.a.a<? extends T> initializer;
     private final Object lock;
 
     public SynchronizedLazyImpl(kotlin.jvm.a.a<? extends T> aVar, Object obj) {
-        q.m(aVar, "initializer");
+        q.n(aVar, "initializer");
         this.initializer = aVar;
-        this._value = k.oBL;
+        this._value = k.oRa;
         this.lock = obj == null ? this : obj;
     }
 
@@ -25,13 +25,13 @@ public final class SynchronizedLazyImpl<T> implements Serializable, d<T> {
     @Override // kotlin.d
     public T getValue() {
         T t = (T) this._value;
-        if (t == k.oBL) {
+        if (t == k.oRa) {
             synchronized (this.lock) {
                 t = this._value;
-                if (t == k.oBL) {
+                if (t == k.oRa) {
                     kotlin.jvm.a.a<? extends T> aVar = this.initializer;
                     if (aVar == null) {
-                        q.ekp();
+                        q.eob();
                     }
                     T invoke = aVar.invoke();
                     this._value = invoke;
@@ -44,7 +44,7 @@ public final class SynchronizedLazyImpl<T> implements Serializable, d<T> {
     }
 
     public boolean isInitialized() {
-        return this._value != k.oBL;
+        return this._value != k.oRa;
     }
 
     public String toString() {

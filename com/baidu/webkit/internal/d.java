@@ -7,14 +7,16 @@ import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.io.OutputStream;
 import java.util.zip.GZIPOutputStream;
-/* loaded from: classes8.dex */
+/* loaded from: classes11.dex */
 public final class d {
-    private byte[] a;
+
+    /* renamed from: a  reason: collision with root package name */
+    private byte[] f3936a;
     private int b;
     private int c;
     private byte[] d;
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes11.dex */
     static class a extends GZIPOutputStream {
         public a(OutputStream outputStream) throws IOException {
             super(outputStream);
@@ -56,19 +58,19 @@ public final class d {
         byte[] bArr = this.d;
         this.b = 0;
         this.c = 0;
-        if (this.a == null) {
-            this.a = new byte[256];
+        if (this.f3936a == null) {
+            this.f3936a = new byte[256];
         }
         for (int i = 0; i < 256; i++) {
-            this.a[i] = (byte) i;
+            this.f3936a[i] = (byte) i;
         }
         int i2 = 0;
         int i3 = 0;
         for (int i4 = 0; i4 < 256; i4++) {
-            i2 = (i2 + (bArr[i3] & 255) + this.a[i4]) & 255;
-            byte b = this.a[i4];
-            this.a[i4] = this.a[i2];
-            this.a[i2] = b;
+            i2 = (i2 + (bArr[i3] & 255) + this.f3936a[i4]) & 255;
+            byte b = this.f3936a[i4];
+            this.f3936a[i4] = this.f3936a[i2];
+            this.f3936a[i2] = b;
             i3 = (i3 + 1) % bArr.length;
         }
     }
@@ -82,11 +84,11 @@ public final class d {
         }
         for (int i2 = 0; i2 < i; i2++) {
             this.b = (this.b + 1) & 255;
-            this.c = (this.a[this.b] + this.c) & 255;
-            byte b = this.a[this.b];
-            this.a[this.b] = this.a[this.c];
-            this.a[this.c] = b;
-            bArr2[i2 + 0] = (byte) (bArr[i2 + 0] ^ this.a[(this.a[this.b] + this.a[this.c]) & 255]);
+            this.c = (this.f3936a[this.b] + this.c) & 255;
+            byte b = this.f3936a[this.b];
+            this.f3936a[this.b] = this.f3936a[this.c];
+            this.f3936a[this.c] = b;
+            bArr2[i2 + 0] = (byte) (bArr[i2 + 0] ^ this.f3936a[(this.f3936a[this.b] + this.f3936a[this.c]) & 255]);
         }
     }
 

@@ -6,19 +6,21 @@ import java.util.LinkedList;
 import java.util.List;
 /* loaded from: classes6.dex */
 public class a implements d<ParserRet> {
-    private final LinkedList<Integer> a = new LinkedList<>();
+
+    /* renamed from: a  reason: collision with root package name */
+    private final LinkedList<Integer> f4260a = new LinkedList<>();
     private long b = 1;
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.kascend.chushou.widget.a.d
     /* renamed from: c */
-    public long F(ParserRet parserRet) {
+    public long G(ParserRet parserRet) {
         boolean z;
         if (!d(parserRet)) {
             this.b = 1L;
             return this.b * 1000;
         }
-        Iterator<Integer> it = this.a.iterator();
+        Iterator<Integer> it = this.f4260a.iterator();
         while (true) {
             if (!it.hasNext()) {
                 z = false;
@@ -39,36 +41,36 @@ public class a implements d<ParserRet> {
 
     @Override // com.kascend.chushou.widget.a.d
     public long a() {
-        return F(null);
+        return G(null);
     }
 
     @Override // com.kascend.chushou.widget.a.d
     public void b() {
         this.b = 1L;
-        this.a.clear();
+        this.f4260a.clear();
     }
 
     @Override // com.kascend.chushou.widget.a.d
     public void c() {
-        if (this.a.size() < 3) {
-            this.a.add(1);
+        if (this.f4260a.size() < 3) {
+            this.f4260a.add(1);
             return;
         }
-        this.a.removeFirst();
-        this.a.addLast(1);
+        this.f4260a.removeFirst();
+        this.f4260a.addLast(1);
     }
 
     private boolean d(ParserRet parserRet) {
         if (parserRet == null || !(parserRet.mData instanceof List)) {
-            return this.a.size() >= 3;
+            return this.f4260a.size() >= 3;
         }
-        if (this.a.size() < 3) {
-            this.a.add(Integer.valueOf(e(parserRet)));
+        if (this.f4260a.size() < 3) {
+            this.f4260a.add(Integer.valueOf(e(parserRet)));
         } else {
-            this.a.removeFirst();
-            this.a.addLast(Integer.valueOf(e(parserRet)));
+            this.f4260a.removeFirst();
+            this.f4260a.addLast(Integer.valueOf(e(parserRet)));
         }
-        return this.a.size() >= 3;
+        return this.f4260a.size() >= 3;
     }
 
     private long a(long j) {

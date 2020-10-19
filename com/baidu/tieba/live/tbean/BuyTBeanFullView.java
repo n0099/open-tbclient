@@ -227,15 +227,17 @@ public class BuyTBeanFullView extends AbsBuyTBeanView {
                     });
                     bdRoundedImageView.setVisibility(0);
                 }
-                if (!TextUtils.isEmpty(optString3) && (TbadkCoreApplication.getInst().isHaokan() || TbadkCoreApplication.getInst().isQuanmin())) {
+                if (!TextUtils.isEmpty(optString3) && (TbadkCoreApplication.getInst().isHaokan() || TbadkCoreApplication.getInst().isQuanmin() || TbadkCoreApplication.getInst().isYinbo())) {
                     refreshExchangeView();
                     this.tvExchangeContent.setText("兑换T豆");
                     if (TbadkCoreApplication.getInst().isQuanmin()) {
                         str = TbadkCoreApplication.APP_ID_QUANMIN;
-                    } else if (!TbadkCoreApplication.getInst().isHaokan()) {
+                    } else if (TbadkCoreApplication.getInst().isHaokan()) {
+                        str = "haokan";
+                    } else if (!TbadkCoreApplication.getInst().isYinbo()) {
                         str = "";
                     } else {
-                        str = "haokan";
+                        str = TbadkCoreApplication.APP_ID_YINBO;
                     }
                     final String str2 = optString3 + (optString3.contains("?") ? ETAG.ITEM_SEPARATOR : "?") + "_client_type=2&subapp_type=" + str + "&from=" + (this.isFromLive ? "live" : "other");
                     this.layoutExchange.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.live.tbean.BuyTBeanFullView.5
@@ -284,7 +286,7 @@ public class BuyTBeanFullView extends AbsBuyTBeanView {
     }
 
     private void refreshExchangeView() {
-        if (!TextUtils.isEmpty(this.exchangeHomePageUrl) && (TbadkCoreApplication.getInst().isHaokan() || TbadkCoreApplication.getInst().isQuanmin())) {
+        if (!TextUtils.isEmpty(this.exchangeHomePageUrl) && (TbadkCoreApplication.getInst().isHaokan() || TbadkCoreApplication.getInst().isQuanmin() || TbadkCoreApplication.getInst().isYinbo())) {
             this.layoutExchange.setVisibility(0);
         } else {
             this.layoutExchange.setVisibility(8);

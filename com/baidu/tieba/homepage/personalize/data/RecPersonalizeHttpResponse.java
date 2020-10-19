@@ -4,7 +4,7 @@ import com.baidu.adp.framework.message.HttpResponsedMessage;
 import com.squareup.wire.Wire;
 import tbclient.Personalized.DataRes;
 import tbclient.Personalized.PersonalizedResIdl;
-/* loaded from: classes21.dex */
+/* loaded from: classes22.dex */
 public class RecPersonalizeHttpResponse extends HttpResponsedMessage {
     private DataRes resultData;
 
@@ -27,11 +27,11 @@ public class RecPersonalizeHttpResponse extends HttpResponsedMessage {
                 }
                 setErrorString(personalizedResIdl.error.usermsg);
             }
-            i.iYI = false;
+            i.jnH = false;
             if (i.g(this) && personalizedResIdl.data != null && personalizedResIdl.data.thread_list != null && personalizedResIdl.data.thread_list.size() == 0) {
-                this.resultData = i.cCe();
-                i.iYI = true;
-                i.cCf();
+                this.resultData = i.cFN();
+                i.jnH = true;
+                i.cFO();
                 return;
             }
             this.resultData = personalizedResIdl.data;

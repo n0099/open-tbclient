@@ -1,7 +1,7 @@
 package com.baidu.ar.vo.c;
 
 import com.xiaomi.mipush.sdk.Constants;
-/* loaded from: classes10.dex */
+/* loaded from: classes14.dex */
 public class e extends a implements c {
     private com.baidu.ar.vo.a.b ym;
 
@@ -13,7 +13,7 @@ public class e extends a implements c {
     @Override // com.baidu.ar.vo.c.a, com.baidu.ar.vo.c.c
     public boolean r(float[] fArr) {
         String[] split = this.ym.he().split(Constants.ACCEPT_TIME_SEPARATOR_SP);
-        String a = this.xH.a(this.ym);
+        String a2 = this.xH.a(this.ym);
         int i = this.mPreviewWidth / 2;
         int i2 = this.mPreviewHeight / 2;
         try {
@@ -23,7 +23,7 @@ public class e extends a implements c {
         } catch (NumberFormatException e) {
             com.baidu.ar.g.b.aP("model position is not number !!!");
         }
-        this.xH.a(a, i, i2, yj, this.ym.hf());
+        this.xH.a(a2, i, i2, yj, this.ym.hf());
         return true;
     }
 }

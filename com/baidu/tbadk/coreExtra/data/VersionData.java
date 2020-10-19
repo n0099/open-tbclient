@@ -68,20 +68,40 @@ public class VersionData implements Serializable {
         return (this.newVersionRemind != 1 || this.url == null || !URLUtil.isNetworkUrl(this.url) || TextUtils.isEmpty(this.apkMD5RSA) || this.newVer == null || TbConfig.getVersion().equalsIgnoreCase(this.newVer)) ? false : true;
     }
 
+    public void setNewVersionDesc(String str) {
+        this.newVersionDesc = str;
+    }
+
     public String getNewVersionDesc() {
         return this.newVersionDesc;
+    }
+
+    public void setForceUpdate(int i) {
+        this.forceUpdate = i;
     }
 
     public boolean forceUpdate() {
         return this.forceUpdate == 1;
     }
 
+    public void setNewVersion(String str) {
+        this.newVer = str;
+    }
+
     public String getNewVersion() {
         return this.newVer;
     }
 
+    public void setUrl(String str) {
+        this.url = str;
+    }
+
     public String getUrl() {
         return this.url;
+    }
+
+    public void setHasNewVer(int i) {
+        this.hasNewVer = i;
     }
 
     public boolean hasNewVer() {
@@ -92,24 +112,48 @@ public class VersionData implements Serializable {
         return this.clientId;
     }
 
+    public void setNewFile(String str) {
+        this.newFile = str;
+    }
+
     public String getNewFile() {
         return this.newFile;
+    }
+
+    public void setStrategy(int i) {
+        this.strategy = i;
     }
 
     public int getStrategy() {
         return this.strategy;
     }
 
+    public void setSize(String str) {
+        this.size = str;
+    }
+
     public String getSize() {
         return this.size;
+    }
+
+    public void setPatch(String str) {
+        this.patch = str;
     }
 
     public String getPatch() {
         return this.patch;
     }
 
+    public void setPatchSize(String str) {
+        this.patchSize = str;
+    }
+
     public String getPatchSize() {
         return this.patchSize;
+    }
+
+    public void setNewVersionCode(int i) {
+        this.newVersionCode = i;
     }
 
     public int getNewVersionCode() {
@@ -120,8 +164,16 @@ public class VersionData implements Serializable {
         return this.asDownloadUrl;
     }
 
+    public void setTiebaIconUrl(String str) {
+        this.tiebaIconUrl = str;
+    }
+
     public String getTiebaIconUrl() {
         return this.tiebaIconUrl;
+    }
+
+    public void setApkMD5RSA(String str) {
+        this.apkMD5RSA = str;
     }
 
     public String getApkMD5RSA() {

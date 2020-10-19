@@ -2,9 +2,11 @@ package com.xiaomi.push.service;
 
 import com.xiaomi.push.hs;
 import com.xiaomi.push.ht;
-/* loaded from: classes9.dex */
+/* loaded from: classes12.dex */
 /* synthetic */ class am {
-    static final /* synthetic */ int[] a;
+
+    /* renamed from: a  reason: collision with root package name */
+    static final /* synthetic */ int[] f5055a;
     static final /* synthetic */ int[] b = new int[ht.values().length];
 
     static {
@@ -24,13 +26,13 @@ import com.xiaomi.push.ht;
             b[ht.BOOLEAN.ordinal()] = 4;
         } catch (NoSuchFieldError e4) {
         }
-        a = new int[hs.values().length];
+        f5055a = new int[hs.values().length];
         try {
-            a[hs.MISC_CONFIG.ordinal()] = 1;
+            f5055a[hs.MISC_CONFIG.ordinal()] = 1;
         } catch (NoSuchFieldError e5) {
         }
         try {
-            a[hs.PLUGIN_CONFIG.ordinal()] = 2;
+            f5055a[hs.PLUGIN_CONFIG.ordinal()] = 2;
         } catch (NoSuchFieldError e6) {
         }
     }

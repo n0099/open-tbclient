@@ -1,19 +1,21 @@
 package com.baidu.platform.comapi.map;
-/* loaded from: classes3.dex */
+/* loaded from: classes7.dex */
 class n implements Runnable {
-    final /* synthetic */ MapSurfaceView a;
+
+    /* renamed from: a  reason: collision with root package name */
+    final /* synthetic */ MapSurfaceView f2924a;
     final /* synthetic */ m b;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public n(m mVar, MapSurfaceView mapSurfaceView) {
         this.b = mVar;
-        this.a = mapSurfaceView;
+        this.f2924a = mapSurfaceView;
     }
 
     @Override // java.lang.Runnable
     public void run() {
-        if (this.a != null) {
-            this.a.setBackgroundResource(0);
+        if (this.f2924a != null) {
+            this.f2924a.setBackgroundResource(0);
         }
     }
 }

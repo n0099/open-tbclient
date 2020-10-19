@@ -8,9 +8,9 @@ import java.util.Map;
 import java.util.Set;
 import kotlin.TypeCastException;
 @kotlin.h
-/* loaded from: classes5.dex */
+/* loaded from: classes10.dex */
 public abstract class e<K, V> implements Map<K, V> {
-    public static final a oBU = new a(null);
+    public static final a oRj = new a(null);
 
     public abstract Set getEntries();
 
@@ -103,7 +103,7 @@ public abstract class e<K, V> implements Map<K, V> {
     }
 
     @kotlin.h
-    /* loaded from: classes5.dex */
+    /* loaded from: classes10.dex */
     public static final class a {
         private a() {
         }

@@ -11,7 +11,7 @@ import android.opengl.EGLSurface;
 import android.util.Log;
 import android.view.Surface;
 @TargetApi(18)
-/* loaded from: classes22.dex */
+/* loaded from: classes23.dex */
 public final class a {
     private EGLConfig mEGLConfig;
     private EGLContext mEGLContext;

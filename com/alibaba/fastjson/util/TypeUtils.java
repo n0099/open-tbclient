@@ -69,7 +69,7 @@ import java.util.concurrent.ConcurrentMap;
 import java.util.concurrent.TimeUnit;
 import java.util.concurrent.atomic.AtomicInteger;
 import java.util.concurrent.atomic.AtomicLong;
-/* loaded from: classes10.dex */
+/* loaded from: classes5.dex */
 public class TypeUtils {
     public static boolean compatibleWithFieldName;
     public static boolean compatibleWithJavaBean;
@@ -2181,18 +2181,18 @@ public class TypeUtils {
     }
 
     public static <A extends Annotation> A getAnnotation(Class<?> cls, Class<A> cls2) {
-        A a = (A) cls.getAnnotation(cls2);
-        if (a == null) {
+        A a2 = (A) cls.getAnnotation(cls2);
+        if (a2 == null) {
             if (cls.getAnnotations().length > 0) {
                 for (Annotation annotation : cls.getAnnotations()) {
-                    A a2 = (A) annotation.annotationType().getAnnotation(cls2);
-                    if (a2 != null) {
-                        return a2;
+                    A a3 = (A) annotation.annotationType().getAnnotation(cls2);
+                    if (a3 != null) {
+                        return a3;
                     }
                 }
             }
             return null;
         }
-        return a;
+        return a2;
     }
 }

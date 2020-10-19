@@ -2,7 +2,7 @@ package com.baidu.android.pushservice.d;
 
 import android.content.Context;
 import android.text.TextUtils;
-/* loaded from: classes7.dex */
+/* loaded from: classes10.dex */
 public abstract class c extends a {
     public c(i iVar, Context context) {
         super(iVar, context);
@@ -10,11 +10,11 @@ public abstract class c extends a {
 
     @Override // com.baidu.android.pushservice.d.a
     public boolean c() {
-        String a = com.baidu.android.pushservice.j.a(this.a).a();
-        if (TextUtils.isEmpty(a)) {
-            a = "channel";
+        String a2 = com.baidu.android.pushservice.j.a(this.f1056a).a();
+        if (TextUtils.isEmpty(a2)) {
+            a2 = "channel";
         }
-        this.c += a;
+        this.c += a2;
         return super.c();
     }
 }

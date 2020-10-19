@@ -8,7 +8,7 @@ import android.util.Log;
 import com.baidu.android.pushservice.h.a.b;
 import com.baidu.android.pushservice.i.m;
 import com.baidu.android.pushservice.message.k;
-/* loaded from: classes7.dex */
+/* loaded from: classes10.dex */
 public class e extends b {
     public e(Context context) {
         super(context);
@@ -23,15 +23,15 @@ public class e extends b {
         byte[] h = kVar.h();
         String c = kVar.c();
         String str = new String(bArr);
-        com.baidu.android.pushservice.a.d a = com.baidu.android.pushservice.a.d.a(this.a, b);
-        if (TextUtils.isEmpty(c) || !m.b(this.a, c)) {
-            c = a.a() == com.baidu.android.pushservice.a.c.PUSH_CLIENT ? a.a.b() : null;
+        com.baidu.android.pushservice.a.d a2 = com.baidu.android.pushservice.a.d.a(this.f1169a, b);
+        if (TextUtils.isEmpty(c) || !m.b(this.f1169a, c)) {
+            c = a2.a() == com.baidu.android.pushservice.a.c.PUSH_CLIENT ? a2.f1013a.b() : null;
         }
-        switch (a.a()) {
+        switch (a2.a()) {
             case PUSH_CLIENT:
-                String a2 = a(c);
+                String a3 = a(c);
                 try {
-                    this.a.getPackageManager().getPackageInfo(a2, 128);
+                    this.f1169a.getPackageManager().getPackageInfo(a3, 128);
                     Intent intent = new Intent();
                     intent.putExtra("app_id", b);
                     intent.putExtra("msg_id", e);
@@ -41,17 +41,17 @@ public class e extends b {
                     intent.putExtra("baidu_message_type", f);
                     intent.putExtra("baidu_message_body", bArr);
                     intent.putExtra("baidu_message_secur_info", h);
-                    i = m.a(this.a, intent, "com.baidu.android.pushservice.action.MESSAGE", a2);
-                    m.a(">>> Deliver message to client: " + a.a.b() + " result: " + i, this.a);
+                    i = m.a(this.f1169a, intent, "com.baidu.android.pushservice.action.MESSAGE", a3);
+                    m.a(">>> Deliver message to client: " + a2.f1013a.b() + " result: " + i, this.f1169a);
                     break;
                 } catch (PackageManager.NameNotFoundException e2) {
-                    m.a(">>> NOT deliver to app: " + a.a.b() + ", package has been uninstalled.", this.a);
-                    new b.c(this.a).a(Log.getStackTraceString(e2)).a();
+                    m.a(">>> NOT deliver to app: " + a2.f1013a.b() + ", package has been uninstalled.", this.f1169a);
+                    new b.c(this.f1169a).a(Log.getStackTraceString(e2)).a();
                     i = 7;
                     break;
                 }
             default:
-                m.a(">>> Don't found app  in OldPrivateMessage " + str, this.a);
+                m.a(">>> Don't found app  in OldPrivateMessage " + str, this.f1169a);
                 i = 7;
                 break;
         }

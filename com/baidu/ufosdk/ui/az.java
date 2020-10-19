@@ -6,13 +6,15 @@ import android.webkit.WebView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import com.baidu.android.util.devices.RomUtils;
-/* loaded from: classes21.dex */
+/* loaded from: classes22.dex */
 final class az implements View.OnClickListener {
-    final /* synthetic */ FeedbackHotActivity a;
+
+    /* renamed from: a  reason: collision with root package name */
+    final /* synthetic */ FeedbackHotActivity f3766a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public az(FeedbackHotActivity feedbackHotActivity) {
-        this.a = feedbackHotActivity;
+        this.f3766a = feedbackHotActivity;
     }
 
     @Override // android.view.View.OnClickListener
@@ -27,24 +29,24 @@ final class az implements View.OnClickListener {
         if (com.baidu.ufosdk.f.h.a()) {
             return;
         }
-        view2 = this.a.l;
+        view2 = this.f3766a.l;
         view2.setVisibility(0);
-        linearLayout = this.a.h;
+        linearLayout = this.f3766a.h;
         linearLayout.setVisibility(8);
-        if (!com.baidu.ufosdk.b.d.b(this.a.getApplicationContext()).contains(RomUtils.UNKNOWN) && !com.baidu.ufosdk.b.d.b(this.a.getApplicationContext()).contains("NONE")) {
-            this.a.a();
-            linearLayout3 = this.a.h;
+        if (!com.baidu.ufosdk.b.d.b(this.f3766a.getApplicationContext()).contains(RomUtils.UNKNOWN) && !com.baidu.ufosdk.b.d.b(this.f3766a.getApplicationContext()).contains("NONE")) {
+            this.f3766a.a();
+            linearLayout3 = this.f3766a.h;
             linearLayout3.setVisibility(8);
-            webView = this.a.j;
+            webView = this.f3766a.j;
             webView.setVisibility(0);
             return;
         }
-        view3 = this.a.l;
+        view3 = this.f3766a.l;
         view3.setVisibility(8);
-        Context applicationContext = this.a.getApplicationContext();
-        textView = this.a.m;
+        Context applicationContext = this.f3766a.getApplicationContext();
+        textView = this.f3766a.m;
         com.baidu.ufosdk.f.i.a(applicationContext, textView);
-        linearLayout2 = this.a.h;
+        linearLayout2 = this.f3766a.h;
         linearLayout2.setVisibility(0);
     }
 }

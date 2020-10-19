@@ -18,7 +18,7 @@ import org.json.JSONObject;
 import tbclient.ThreadInfo;
 import tbclient.ThreadList.ThreadListResIdl;
 import tbclient.User;
-/* loaded from: classes21.dex */
+/* loaded from: classes22.dex */
 public class LoadMoreResponseSocketMessage extends SocketResponsedMessage {
     private BannerListData bannerListData;
     private ArrayList<q> threadList;
@@ -52,7 +52,7 @@ public class LoadMoreResponseSocketMessage extends SocketResponsedMessage {
                     }
                 }
             }
-            com.baidu.tieba.recapp.d.a.drI().Qa(threadListResIdl.data.asp_shown_info);
+            com.baidu.tieba.recapp.d.a.dvt().QO(threadListResIdl.data.asp_shown_info);
             Message<?> orginalMessage2 = getOrginalMessage();
             boolean isBrandForum = (orginalMessage2 == null || !(orginalMessage2.getExtra() instanceof LoadMoreRequestMessage)) ? false : ((LoadMoreRequestMessage) orginalMessage2.getExtra()).isBrandForum();
             this.threadList = new ArrayList<>();
@@ -64,11 +64,11 @@ public class LoadMoreResponseSocketMessage extends SocketResponsedMessage {
                     bw bwVar = new bw();
                     bwVar.setUserMap(this.userMap);
                     bwVar.a(threadInfo);
-                    bwVar.bgw();
-                    bwVar.ege = isBrandForum;
-                    if (!TextUtils.isEmpty(bwVar.bgI())) {
+                    bwVar.bjf();
+                    bwVar.esk = isBrandForum;
+                    if (!TextUtils.isEmpty(bwVar.bjr())) {
                         ak akVar = new ak();
-                        akVar.zx(bwVar.bgI());
+                        akVar.Aj(bwVar.bjr());
                         this.threadList.add(akVar);
                     } else {
                         this.threadList.add(bwVar);
@@ -78,7 +78,7 @@ public class LoadMoreResponseSocketMessage extends SocketResponsedMessage {
                         }
                     }
                 }
-                b.drP().ff(arrayList);
+                b.dvA().fi(arrayList);
             }
             this.bannerListData = null;
             if (threadListResIdl.data.banner_list != null && (orginalMessage = getOrginalMessage()) != null && orginalMessage.getExtra() != null && (orginalMessage.getExtra() instanceof LoadMoreRequestMessage)) {

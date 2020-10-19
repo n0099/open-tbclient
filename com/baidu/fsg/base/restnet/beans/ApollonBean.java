@@ -9,7 +9,7 @@ import com.baidu.fsg.base.utils.JsonUtils;
 import com.baidu.fsg.base.utils.NetworkUtils;
 import com.baidu.live.tbadk.pagestayduration.PageStayDurationHelper;
 import java.util.List;
-/* loaded from: classes15.dex */
+/* loaded from: classes16.dex */
 public abstract class ApollonBean {
     private static final String BEAN_TASK_MGR_KEY = "BeanTaskManager";
     private static final String BEAN_TASK_MGR_TASK_KEY = "ApollonBeanTask";
@@ -86,10 +86,10 @@ public abstract class ApollonBean {
             handleNetworkFailureError();
             return;
         }
-        a a = a.a(BEAN_TASK_MGR_KEY);
+        a a2 = a.a(BEAN_TASK_MGR_KEY);
         this.mTskKey = "BeanTask_" + getBeanId() + PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS + System.currentTimeMillis();
-        a.getClass();
-        a.a(new a.c(0L, 0L, false, this.mTskKey, runnable), BEAN_TASK_MGR_TASK_KEY);
+        a2.getClass();
+        a2.a(new a.c(0L, 0L, false, this.mTskKey, runnable), BEAN_TASK_MGR_TASK_KEY);
     }
 
     /* JADX DEBUG: Multi-variable search result rejected for r1v2, resolved type: com.baidu.fsg.base.restnet.RestTemplate */

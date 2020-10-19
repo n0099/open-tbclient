@@ -36,16 +36,16 @@ import com.baidu.tieba.tbadkCore.v;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
-/* loaded from: classes20.dex */
+/* loaded from: classes21.dex */
 public class RelateForumHorizonalListView extends MyHorizontalScrollView {
-    private LinearLayout fdn;
-    private final ArrayList<a> fdo;
-    private View.OnClickListener fdp;
-    private View fdq;
-    private CustomMessageListener fdt;
-    private CustomMessageListener fdu;
-    private View.OnClickListener fdv;
-    private View.OnClickListener fdw;
+    private LinearLayout fpA;
+    private final ArrayList<a> fpB;
+    private View.OnClickListener fpC;
+    private View fpD;
+    private CustomMessageListener fpG;
+    private CustomMessageListener fpH;
+    private View.OnClickListener fpI;
+    private View.OnClickListener fpJ;
     private String mFrom;
     private int mSkinType;
     private BdUniqueId mTag;
@@ -60,11 +60,11 @@ public class RelateForumHorizonalListView extends MyHorizontalScrollView {
     public void setTag(BdUniqueId bdUniqueId) {
         this.mTag = bdUniqueId;
         if (this.mTag != null) {
-            if (this.fdu != null) {
-                this.fdu.setTag(this.mTag);
+            if (this.fpH != null) {
+                this.fpH.setTag(this.mTag);
             }
-            if (this.fdt != null) {
-                this.fdt.setTag(this.mTag);
+            if (this.fpG != null) {
+                this.fpG.setTag(this.mTag);
             }
         }
     }
@@ -79,11 +79,11 @@ public class RelateForumHorizonalListView extends MyHorizontalScrollView {
 
     public RelateForumHorizonalListView(Context context) {
         super(context);
-        this.fdo = new ArrayList<>();
+        this.fpB = new ArrayList<>();
         this.mSkinType = 3;
-        this.fdp = null;
+        this.fpC = null;
         this.mTag = null;
-        this.fdt = new CustomMessageListener(CmdConfigCustom.CMD_UNLIKE_FORUM) { // from class: com.baidu.tieba.hottopic.view.RelateForumHorizonalListView.1
+        this.fpG = new CustomMessageListener(CmdConfigCustom.CMD_UNLIKE_FORUM) { // from class: com.baidu.tieba.hottopic.view.RelateForumHorizonalListView.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.adp.framework.listener.MessageListener
             public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
@@ -92,7 +92,7 @@ public class RelateForumHorizonalListView extends MyHorizontalScrollView {
                 }
             }
         };
-        this.fdu = new CustomMessageListener(CmdConfigCustom.CMD_LIKE_FORUM) { // from class: com.baidu.tieba.hottopic.view.RelateForumHorizonalListView.2
+        this.fpH = new CustomMessageListener(CmdConfigCustom.CMD_LIKE_FORUM) { // from class: com.baidu.tieba.hottopic.view.RelateForumHorizonalListView.2
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.adp.framework.listener.MessageListener
             public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
@@ -101,7 +101,7 @@ public class RelateForumHorizonalListView extends MyHorizontalScrollView {
                 }
             }
         };
-        this.fdv = new View.OnClickListener() { // from class: com.baidu.tieba.hottopic.view.RelateForumHorizonalListView.3
+        this.fpI = new View.OnClickListener() { // from class: com.baidu.tieba.hottopic.view.RelateForumHorizonalListView.3
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
                 String str;
@@ -119,10 +119,10 @@ public class RelateForumHorizonalListView extends MyHorizontalScrollView {
                         str = "";
                     } else {
                         String topicName = ((HotTopicActivity) orignalPage).getTopicName();
-                        str3 = ((HotTopicActivity) orignalPage).cDr();
+                        str3 = ((HotTopicActivity) orignalPage).cHa();
                         str = topicName;
                     }
-                    TiebaStatic.log(new aq("c10815").ai("obj_locate", 2).dF("obj_name", str).dF("topic_id", str3));
+                    TiebaStatic.log(new aq("c10815").aj("obj_locate", 2).dK("obj_name", str).dK("topic_id", str3));
                     final LikeModel likeModel = new LikeModel(RelateForumHorizonalListView.this.mTbPageContext);
                     likeModel.setLoadDataCallBack(new com.baidu.adp.base.d() { // from class: com.baidu.tieba.hottopic.view.RelateForumHorizonalListView.3.1
                         @Override // com.baidu.adp.base.d
@@ -131,18 +131,18 @@ public class RelateForumHorizonalListView extends MyHorizontalScrollView {
                                 v vVar = (v) obj;
                                 vVar.setLike(1);
                                 RelateForumHorizonalListView.this.d(textView, vVar.isLike() == 1);
-                            } else if (AntiHelper.bC(likeModel.getErrorCode(), likeModel.getErrorString())) {
-                                AntiHelper.bh(RelateForumHorizonalListView.this.mTbPageContext.getPageActivity(), likeModel.getErrorString());
+                            } else if (AntiHelper.bM(likeModel.getErrorCode(), likeModel.getErrorString())) {
+                                AntiHelper.bk(RelateForumHorizonalListView.this.mTbPageContext.getPageActivity(), likeModel.getErrorString());
                             } else {
                                 RelateForumHorizonalListView.this.mTbPageContext.showToast(likeModel.getErrorString());
                             }
                         }
                     });
-                    likeModel.gd(str2, valueOf);
+                    likeModel.gk(str2, valueOf);
                 }
             }
         };
-        this.fdw = new View.OnClickListener() { // from class: com.baidu.tieba.hottopic.view.RelateForumHorizonalListView.4
+        this.fpJ = new View.OnClickListener() { // from class: com.baidu.tieba.hottopic.view.RelateForumHorizonalListView.4
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
                 String str;
@@ -154,25 +154,25 @@ public class RelateForumHorizonalListView extends MyHorizontalScrollView {
                         str = "";
                     } else {
                         String topicName = ((HotTopicActivity) orignalPage).getTopicName();
-                        str3 = ((HotTopicActivity) orignalPage).cDr();
+                        str3 = ((HotTopicActivity) orignalPage).cHa();
                         str = topicName;
                     }
-                    TiebaStatic.log(new aq("c10815").ai("obj_locate", 1).dF("obj_name", str).dF("topic_id", str3));
+                    TiebaStatic.log(new aq("c10815").aj("obj_locate", 1).dK("obj_name", str).dK("topic_id", str3));
                     MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(CmdConfigCustom.PB_PAUSE_VIDEO));
                     MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.ACTIVITY_START_NORMAL, new FrsActivityConfig(RelateForumHorizonalListView.this.mTbPageContext.getPageActivity()).createNormalCfg(str2, RelateForumHorizonalListView.this.getFrom())));
                 }
             }
         };
-        dK(context);
+        dQ(context);
     }
 
     public RelateForumHorizonalListView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.fdo = new ArrayList<>();
+        this.fpB = new ArrayList<>();
         this.mSkinType = 3;
-        this.fdp = null;
+        this.fpC = null;
         this.mTag = null;
-        this.fdt = new CustomMessageListener(CmdConfigCustom.CMD_UNLIKE_FORUM) { // from class: com.baidu.tieba.hottopic.view.RelateForumHorizonalListView.1
+        this.fpG = new CustomMessageListener(CmdConfigCustom.CMD_UNLIKE_FORUM) { // from class: com.baidu.tieba.hottopic.view.RelateForumHorizonalListView.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.adp.framework.listener.MessageListener
             public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
@@ -181,7 +181,7 @@ public class RelateForumHorizonalListView extends MyHorizontalScrollView {
                 }
             }
         };
-        this.fdu = new CustomMessageListener(CmdConfigCustom.CMD_LIKE_FORUM) { // from class: com.baidu.tieba.hottopic.view.RelateForumHorizonalListView.2
+        this.fpH = new CustomMessageListener(CmdConfigCustom.CMD_LIKE_FORUM) { // from class: com.baidu.tieba.hottopic.view.RelateForumHorizonalListView.2
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.adp.framework.listener.MessageListener
             public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
@@ -190,7 +190,7 @@ public class RelateForumHorizonalListView extends MyHorizontalScrollView {
                 }
             }
         };
-        this.fdv = new View.OnClickListener() { // from class: com.baidu.tieba.hottopic.view.RelateForumHorizonalListView.3
+        this.fpI = new View.OnClickListener() { // from class: com.baidu.tieba.hottopic.view.RelateForumHorizonalListView.3
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
                 String str;
@@ -208,10 +208,10 @@ public class RelateForumHorizonalListView extends MyHorizontalScrollView {
                         str = "";
                     } else {
                         String topicName = ((HotTopicActivity) orignalPage).getTopicName();
-                        str3 = ((HotTopicActivity) orignalPage).cDr();
+                        str3 = ((HotTopicActivity) orignalPage).cHa();
                         str = topicName;
                     }
-                    TiebaStatic.log(new aq("c10815").ai("obj_locate", 2).dF("obj_name", str).dF("topic_id", str3));
+                    TiebaStatic.log(new aq("c10815").aj("obj_locate", 2).dK("obj_name", str).dK("topic_id", str3));
                     final LikeModel likeModel = new LikeModel(RelateForumHorizonalListView.this.mTbPageContext);
                     likeModel.setLoadDataCallBack(new com.baidu.adp.base.d() { // from class: com.baidu.tieba.hottopic.view.RelateForumHorizonalListView.3.1
                         @Override // com.baidu.adp.base.d
@@ -220,18 +220,18 @@ public class RelateForumHorizonalListView extends MyHorizontalScrollView {
                                 v vVar = (v) obj;
                                 vVar.setLike(1);
                                 RelateForumHorizonalListView.this.d(textView, vVar.isLike() == 1);
-                            } else if (AntiHelper.bC(likeModel.getErrorCode(), likeModel.getErrorString())) {
-                                AntiHelper.bh(RelateForumHorizonalListView.this.mTbPageContext.getPageActivity(), likeModel.getErrorString());
+                            } else if (AntiHelper.bM(likeModel.getErrorCode(), likeModel.getErrorString())) {
+                                AntiHelper.bk(RelateForumHorizonalListView.this.mTbPageContext.getPageActivity(), likeModel.getErrorString());
                             } else {
                                 RelateForumHorizonalListView.this.mTbPageContext.showToast(likeModel.getErrorString());
                             }
                         }
                     });
-                    likeModel.gd(str2, valueOf);
+                    likeModel.gk(str2, valueOf);
                 }
             }
         };
-        this.fdw = new View.OnClickListener() { // from class: com.baidu.tieba.hottopic.view.RelateForumHorizonalListView.4
+        this.fpJ = new View.OnClickListener() { // from class: com.baidu.tieba.hottopic.view.RelateForumHorizonalListView.4
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
                 String str;
@@ -243,25 +243,25 @@ public class RelateForumHorizonalListView extends MyHorizontalScrollView {
                         str = "";
                     } else {
                         String topicName = ((HotTopicActivity) orignalPage).getTopicName();
-                        str3 = ((HotTopicActivity) orignalPage).cDr();
+                        str3 = ((HotTopicActivity) orignalPage).cHa();
                         str = topicName;
                     }
-                    TiebaStatic.log(new aq("c10815").ai("obj_locate", 1).dF("obj_name", str).dF("topic_id", str3));
+                    TiebaStatic.log(new aq("c10815").aj("obj_locate", 1).dK("obj_name", str).dK("topic_id", str3));
                     MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(CmdConfigCustom.PB_PAUSE_VIDEO));
                     MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.ACTIVITY_START_NORMAL, new FrsActivityConfig(RelateForumHorizonalListView.this.mTbPageContext.getPageActivity()).createNormalCfg(str2, RelateForumHorizonalListView.this.getFrom())));
                 }
             }
         };
-        dK(context);
+        dQ(context);
     }
 
     public RelateForumHorizonalListView(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.fdo = new ArrayList<>();
+        this.fpB = new ArrayList<>();
         this.mSkinType = 3;
-        this.fdp = null;
+        this.fpC = null;
         this.mTag = null;
-        this.fdt = new CustomMessageListener(CmdConfigCustom.CMD_UNLIKE_FORUM) { // from class: com.baidu.tieba.hottopic.view.RelateForumHorizonalListView.1
+        this.fpG = new CustomMessageListener(CmdConfigCustom.CMD_UNLIKE_FORUM) { // from class: com.baidu.tieba.hottopic.view.RelateForumHorizonalListView.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.adp.framework.listener.MessageListener
             public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
@@ -270,7 +270,7 @@ public class RelateForumHorizonalListView extends MyHorizontalScrollView {
                 }
             }
         };
-        this.fdu = new CustomMessageListener(CmdConfigCustom.CMD_LIKE_FORUM) { // from class: com.baidu.tieba.hottopic.view.RelateForumHorizonalListView.2
+        this.fpH = new CustomMessageListener(CmdConfigCustom.CMD_LIKE_FORUM) { // from class: com.baidu.tieba.hottopic.view.RelateForumHorizonalListView.2
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.adp.framework.listener.MessageListener
             public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
@@ -279,7 +279,7 @@ public class RelateForumHorizonalListView extends MyHorizontalScrollView {
                 }
             }
         };
-        this.fdv = new View.OnClickListener() { // from class: com.baidu.tieba.hottopic.view.RelateForumHorizonalListView.3
+        this.fpI = new View.OnClickListener() { // from class: com.baidu.tieba.hottopic.view.RelateForumHorizonalListView.3
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
                 String str;
@@ -297,10 +297,10 @@ public class RelateForumHorizonalListView extends MyHorizontalScrollView {
                         str = "";
                     } else {
                         String topicName = ((HotTopicActivity) orignalPage).getTopicName();
-                        str3 = ((HotTopicActivity) orignalPage).cDr();
+                        str3 = ((HotTopicActivity) orignalPage).cHa();
                         str = topicName;
                     }
-                    TiebaStatic.log(new aq("c10815").ai("obj_locate", 2).dF("obj_name", str).dF("topic_id", str3));
+                    TiebaStatic.log(new aq("c10815").aj("obj_locate", 2).dK("obj_name", str).dK("topic_id", str3));
                     final LikeModel likeModel = new LikeModel(RelateForumHorizonalListView.this.mTbPageContext);
                     likeModel.setLoadDataCallBack(new com.baidu.adp.base.d() { // from class: com.baidu.tieba.hottopic.view.RelateForumHorizonalListView.3.1
                         @Override // com.baidu.adp.base.d
@@ -309,18 +309,18 @@ public class RelateForumHorizonalListView extends MyHorizontalScrollView {
                                 v vVar = (v) obj;
                                 vVar.setLike(1);
                                 RelateForumHorizonalListView.this.d(textView, vVar.isLike() == 1);
-                            } else if (AntiHelper.bC(likeModel.getErrorCode(), likeModel.getErrorString())) {
-                                AntiHelper.bh(RelateForumHorizonalListView.this.mTbPageContext.getPageActivity(), likeModel.getErrorString());
+                            } else if (AntiHelper.bM(likeModel.getErrorCode(), likeModel.getErrorString())) {
+                                AntiHelper.bk(RelateForumHorizonalListView.this.mTbPageContext.getPageActivity(), likeModel.getErrorString());
                             } else {
                                 RelateForumHorizonalListView.this.mTbPageContext.showToast(likeModel.getErrorString());
                             }
                         }
                     });
-                    likeModel.gd(str2, valueOf);
+                    likeModel.gk(str2, valueOf);
                 }
             }
         };
-        this.fdw = new View.OnClickListener() { // from class: com.baidu.tieba.hottopic.view.RelateForumHorizonalListView.4
+        this.fpJ = new View.OnClickListener() { // from class: com.baidu.tieba.hottopic.view.RelateForumHorizonalListView.4
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
                 String str;
@@ -332,27 +332,27 @@ public class RelateForumHorizonalListView extends MyHorizontalScrollView {
                         str = "";
                     } else {
                         String topicName = ((HotTopicActivity) orignalPage).getTopicName();
-                        str3 = ((HotTopicActivity) orignalPage).cDr();
+                        str3 = ((HotTopicActivity) orignalPage).cHa();
                         str = topicName;
                     }
-                    TiebaStatic.log(new aq("c10815").ai("obj_locate", 1).dF("obj_name", str).dF("topic_id", str3));
+                    TiebaStatic.log(new aq("c10815").aj("obj_locate", 1).dK("obj_name", str).dK("topic_id", str3));
                     MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(CmdConfigCustom.PB_PAUSE_VIDEO));
                     MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.ACTIVITY_START_NORMAL, new FrsActivityConfig(RelateForumHorizonalListView.this.mTbPageContext.getPageActivity()).createNormalCfg(str2, RelateForumHorizonalListView.this.getFrom())));
                 }
             }
         };
-        dK(context);
+        dQ(context);
     }
 
-    private void dK(Context context) {
+    private void dQ(Context context) {
         setHorizontalFadingEdgeEnabled(false);
         setVerticalFadingEdgeEnabled(false);
         setHorizontalScrollBarEnabled(false);
         setVerticalScrollBarEnabled(false);
-        this.fdn = new LinearLayout(context);
-        this.fdn.setLayoutParams(new FrameLayout.LayoutParams(-2, -2));
-        this.fdn.setOrientation(0);
-        addView(this.fdn);
+        this.fpA = new LinearLayout(context);
+        this.fpA.setLayoutParams(new FrameLayout.LayoutParams(-2, -2));
+        this.fpA.setOrientation(0);
+        addView(this.fpA);
     }
 
     public void setData(List<com.baidu.tbadk.widget.horizonalScrollListView.a> list, TbPageContext<?> tbPageContext, boolean z) {
@@ -361,40 +361,40 @@ public class RelateForumHorizonalListView extends MyHorizontalScrollView {
             if (z) {
                 list.add(new com.baidu.tbadk.widget.horizonalScrollListView.a());
             }
-            int count = y.getCount(this.fdo);
+            int count = y.getCount(this.fpB);
             int count2 = y.getCount(list);
             if (count > count2) {
                 for (int i = 0; i < count - count2; i++) {
-                    af.a aVar = (af.a) y.getItem(this.fdo, i);
+                    af.a aVar = (af.a) y.getItem(this.fpB, i);
                     if (aVar != null) {
-                        this.fdn.removeView(aVar.getView());
+                        this.fpA.removeView(aVar.getView());
                     }
-                    this.fdo.remove(aVar);
+                    this.fpB.remove(aVar);
                 }
             }
             for (int i2 = 0; i2 < count2; i2++) {
                 com.baidu.tbadk.widget.horizonalScrollListView.a aVar2 = (com.baidu.tbadk.widget.horizonalScrollListView.a) y.getItem(list, i2);
-                a aVar3 = (a) y.getItem(this.fdo, i2);
+                a aVar3 = (a) y.getItem(this.fpB, i2);
                 if (aVar3 != null) {
                     b(aVar3.getView(), aVar2);
                 } else {
                     View createView = createView();
                     if (createView != null) {
                         a aVar4 = new a(createView);
-                        this.fdo.add(aVar4);
+                        this.fpB.add(aVar4);
                         b(aVar4.getView(), aVar2);
-                        this.fdn.addView(createView);
+                        this.fpA.addView(createView);
                     }
                 }
                 if (i2 == count2 - 1 && z) {
-                    a(this.fdo.get(count2 - 1));
+                    a(this.fpB.get(count2 - 1));
                 }
             }
-            this.mTbPageContext.registerListener(this.fdt);
-            this.mTbPageContext.registerListener(this.fdu);
+            this.mTbPageContext.registerListener(this.fpG);
+            this.mTbPageContext.registerListener(this.fpH);
             if (getTag() != null) {
-                this.fdt.setTag(getTag());
-                this.fdu.setTag(getTag());
+                this.fpG.setTag(getTag());
+                this.fpH.setTag(getTag());
             }
             onSkinTypeChanged(this.mSkinType);
         }
@@ -403,33 +403,33 @@ public class RelateForumHorizonalListView extends MyHorizontalScrollView {
     @SuppressLint({"ResourceAsColor"})
     private void a(a aVar) {
         if (aVar != null) {
-            this.fdq = aVar.getView();
-            aVar.jls.setVisibility(8);
-            aVar.fdC.setText(this.mTbPageContext.getPageActivity().getResources().getString(R.string.recommend_frs_hot_thread_more));
-            aVar.fdB.setScaleType(ImageView.ScaleType.CENTER_INSIDE);
-            ap.setImageResource(aVar.fdB, R.drawable.icon_pic_more);
-            ap.setViewTextColor(aVar.fdC, R.color.cp_cont_b, 1);
-            ap.setBackgroundResource(aVar.fdB, R.drawable.selector_load_more_bg);
-            this.fdq.setClickable(true);
-            this.fdq.setOnClickListener(this.fdp);
+            this.fpD = aVar.getView();
+            aVar.jAq.setVisibility(8);
+            aVar.fpP.setText(this.mTbPageContext.getPageActivity().getResources().getString(R.string.recommend_frs_hot_thread_more));
+            aVar.fpO.setScaleType(ImageView.ScaleType.CENTER_INSIDE);
+            ap.setImageResource(aVar.fpO, R.drawable.icon_pic_more);
+            ap.setViewTextColor(aVar.fpP, R.color.cp_cont_b, 1);
+            ap.setBackgroundResource(aVar.fpO, R.drawable.selector_load_more_bg);
+            this.fpD.setClickable(true);
+            this.fpD.setOnClickListener(this.fpC);
         }
     }
 
     public void setLoadMoreClickListener(View.OnClickListener onClickListener) {
-        this.fdp = onClickListener;
+        this.fpC = onClickListener;
     }
 
     public View getLastItemView() {
-        return this.fdq;
+        return this.fpD;
     }
 
     private void a(View view, com.baidu.tbadk.widget.horizonalScrollListView.a aVar) {
         if (view != null && view.getTag() != null && aVar != null) {
             a aVar2 = (a) view.getTag();
-            aVar2.jls.setClickable(true);
-            aVar2.jls.setOnClickListener(this.fdv);
+            aVar2.jAq.setClickable(true);
+            aVar2.jAq.setOnClickListener(this.fpI);
             view.setClickable(true);
-            view.setOnClickListener(this.fdw);
+            view.setOnClickListener(this.fpJ);
         }
     }
 
@@ -440,15 +440,15 @@ public class RelateForumHorizonalListView extends MyHorizontalScrollView {
     private void b(View view, com.baidu.tbadk.widget.horizonalScrollListView.a aVar) {
         if (aVar != null && view != null && view.getTag() != null) {
             a aVar2 = (a) view.getTag();
-            aVar2.fdB.setTag(aVar.forumAvatar);
-            aVar2.fdB.startLoad(aVar.forumAvatar, 10, false);
-            aVar2.fdC.setText(aS(aVar.forumName, 8));
-            aVar2.fdC.setTag(R.id.tag_forum_id, Long.valueOf(aVar.forumId));
-            aVar2.jls.setTag(R.id.tag_forum_id, Long.valueOf(aVar.forumId));
-            aVar2.jls.setTag(R.id.tag_forum_name, aVar.forumName);
+            aVar2.fpO.setTag(aVar.forumAvatar);
+            aVar2.fpO.startLoad(aVar.forumAvatar, 10, false);
+            aVar2.fpP.setText(aT(aVar.forumName, 8));
+            aVar2.fpP.setTag(R.id.tag_forum_id, Long.valueOf(aVar.forumId));
+            aVar2.jAq.setTag(R.id.tag_forum_id, Long.valueOf(aVar.forumId));
+            aVar2.jAq.setTag(R.id.tag_forum_name, aVar.forumName);
             aVar2.getView().setTag(R.id.tag_forum_id, Long.valueOf(aVar.forumId));
             aVar2.getView().setTag(R.id.tag_forum_name, aVar.forumName);
-            d(aVar2.jls, aVar.isLiked);
+            d(aVar2.jAq, aVar.isLiked);
             a(view, aVar);
         }
     }
@@ -476,18 +476,18 @@ public class RelateForumHorizonalListView extends MyHorizontalScrollView {
     @SuppressLint({"ResourceAsColor"})
     public void onSkinTypeChanged(int i) {
         if (this.mSkinType != i) {
-            Iterator<a> it = this.fdo.iterator();
+            Iterator<a> it = this.fpB.iterator();
             while (it.hasNext()) {
                 a next = it.next();
                 if (next != null) {
                     a(next, i);
                 }
             }
-            if (this.fdq != null) {
-                BarImageView barImageView = (BarImageView) this.fdq.findViewById(R.id.forum_avatar);
+            if (this.fpD != null) {
+                BarImageView barImageView = (BarImageView) this.fpD.findViewById(R.id.forum_avatar);
                 ap.setBackgroundResource(barImageView, R.drawable.selector_load_more_bg);
                 ap.setImageResource(barImageView, R.drawable.icon_pic_more);
-                ap.setViewTextColor((TextView) this.fdq.findViewById(R.id.m_forum_name_textview), R.color.cp_cont_b, 1);
+                ap.setViewTextColor((TextView) this.fpD.findViewById(R.id.m_forum_name_textview), R.color.cp_cont_b, 1);
             }
             this.mSkinType = i;
         }
@@ -496,21 +496,21 @@ public class RelateForumHorizonalListView extends MyHorizontalScrollView {
     @SuppressLint({"ResourceAsColor"})
     private void a(a aVar, int i) {
         if (aVar != null && aVar.getView() != null) {
-            if (aVar.jls.getTag(R.id.forum_follow) != null && (aVar.jls.getTag(R.id.forum_follow) instanceof Boolean)) {
-                d(aVar.jls, ((Boolean) aVar.jls.getTag(R.id.forum_follow)).booleanValue());
+            if (aVar.jAq.getTag(R.id.forum_follow) != null && (aVar.jAq.getTag(R.id.forum_follow) instanceof Boolean)) {
+                d(aVar.jAq, ((Boolean) aVar.jAq.getTag(R.id.forum_follow)).booleanValue());
             }
-            ap.setViewTextColor(aVar.fdC, R.color.cp_cont_b, 1);
+            ap.setViewTextColor(aVar.fpP, R.color.cp_cont_b, 1);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void f(long j, boolean z) {
-        Iterator<a> it = this.fdo.iterator();
+        Iterator<a> it = this.fpB.iterator();
         while (it.hasNext()) {
             a next = it.next();
-            if (next != null && next.getView() != null && next.fdC.getTag(R.id.tag_forum_id) != null) {
-                TextView textView = next.jls;
-                if (((Long) next.fdC.getTag(R.id.tag_forum_id)).longValue() == j) {
+            if (next != null && next.getView() != null && next.fpP.getTag(R.id.tag_forum_id) != null) {
+                TextView textView = next.jAq;
+                if (((Long) next.fpP.getTag(R.id.tag_forum_id)).longValue() == j) {
                     d(textView, z);
                     return;
                 }
@@ -518,7 +518,7 @@ public class RelateForumHorizonalListView extends MyHorizontalScrollView {
         }
     }
 
-    private String aS(String str, int i) {
+    private String aT(String str, int i) {
         if (StringUtils.isNull(str)) {
             return "";
         }
@@ -532,21 +532,21 @@ public class RelateForumHorizonalListView extends MyHorizontalScrollView {
         return str;
     }
 
-    /* loaded from: classes20.dex */
+    /* loaded from: classes21.dex */
     public static class a extends af.a {
-        public BarImageView fdB;
-        public TextView fdC;
-        public TextView jls;
+        public BarImageView fpO;
+        public TextView fpP;
+        public TextView jAq;
 
         public a(View view) {
             super(view);
-            this.fdB = null;
-            this.fdC = null;
-            this.jls = null;
-            this.fdB = (BarImageView) view.findViewById(R.id.forum_avatar);
-            this.fdB.setGifIconSupport(false);
-            this.fdC = (TextView) view.findViewById(R.id.m_forum_name_textview);
-            this.jls = (TextView) view.findViewById(R.id.forum_add_love);
+            this.fpO = null;
+            this.fpP = null;
+            this.jAq = null;
+            this.fpO = (BarImageView) view.findViewById(R.id.forum_avatar);
+            this.fpO.setGifIconSupport(false);
+            this.fpP = (TextView) view.findViewById(R.id.m_forum_name_textview);
+            this.jAq = (TextView) view.findViewById(R.id.forum_add_love);
         }
     }
 }

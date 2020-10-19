@@ -1,5 +1,7 @@
 package com.baidu.sofire.i;
-/* loaded from: classes12.dex */
+/* loaded from: classes15.dex */
 public final class o {
-    public static final String a = "2s3neoRGrtMfJHEASAvJDkdImW3sImg0pRReW5cWEQQB2HfrzauSCia/ssvfdE6q";
+
+    /* renamed from: a  reason: collision with root package name */
+    public static final String f3638a = "2s3neoRGrtMfJHEASAvJDkdImW3sImg0pRReW5cWEQQB2HfrzauSCia/ssvfdE6q";
 }

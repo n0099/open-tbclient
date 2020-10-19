@@ -14,11 +14,11 @@ import io.flutter.plugin.common.MethodCall;
 import io.flutter.plugin.common.MethodChannel;
 import io.flutter.plugin.platform.PlatformView;
 import java.util.Map;
-/* loaded from: classes3.dex */
+/* loaded from: classes6.dex */
 public class a implements MethodChannel.MethodCallHandler, PlatformView {
-    private View amR;
-    private String amS;
-    private com.baidu.tieba.square.a amT;
+    private View anA;
+    private String anB;
+    private com.baidu.tieba.square.a anC;
     private final MethodChannel methodChannel;
     private int viewId;
 
@@ -49,19 +49,19 @@ public class a implements MethodChannel.MethodCallHandler, PlatformView {
             if (obj4 != null) {
                 Double.valueOf(obj4.toString()).doubleValue();
             }
-            this.amS = String.valueOf(map.get("persistentViewId"));
+            this.anB = String.valueOf(map.get("persistentViewId"));
             if ("BarSquare".equals(String.valueOf(map.get("nativeViewType")))) {
-                this.amT = new com.baidu.tieba.square.a(TbadkApplication.getInst().getCurrentActivity(), ((TbPageContextSupport) TbadkApplication.getInst().getCurrentActivity()).getPageContext());
-                this.amT.dyA();
-                this.amT.startLoadData();
-                this.amR = this.amT.mho.getRootLayout();
+                this.anC = new com.baidu.tieba.square.a(TbadkApplication.getInst().getCurrentActivity(), ((TbPageContextSupport) TbadkApplication.getInst().getCurrentActivity()).getPageContext());
+                this.anC.dCl();
+                this.anC.startLoadData();
+                this.anA = this.anC.mwR.getRootLayout();
             }
         }
     }
 
     @Override // io.flutter.plugin.platform.PlatformView
     public View getView() {
-        return this.amR;
+        return this.anA;
     }
 
     @Override // io.flutter.plugin.common.MethodChannel.MethodCallHandler
@@ -73,8 +73,8 @@ public class a implements MethodChannel.MethodCallHandler, PlatformView {
             result.success(true);
         } else if (methodCall.method.equals("selectForumCategory")) {
             String str = (String) methodCall.arguments;
-            if (this.amT != null && !TextUtils.isEmpty(str)) {
-                this.amT.QP(str);
+            if (this.anC != null && !TextUtils.isEmpty(str)) {
+                this.anC.RD(str);
             }
             result.success(null);
         } else {

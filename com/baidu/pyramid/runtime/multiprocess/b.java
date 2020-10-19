@@ -1,13 +1,13 @@
 package com.baidu.pyramid.runtime.multiprocess;
 
 import android.os.Bundle;
-/* loaded from: classes7.dex */
+/* loaded from: classes16.dex */
 public class b {
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes16.dex */
     public static class a {
-        public static Bundle WV() {
-            return IPCServiceManager.WV();
+        public static Bundle YS() {
+            return IPCServiceManager.YS();
         }
     }
 }

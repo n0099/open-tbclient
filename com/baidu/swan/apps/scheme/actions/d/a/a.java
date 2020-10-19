@@ -9,7 +9,7 @@ import com.baidu.swan.apps.res.ui.FloatButton;
 import com.baidu.swan.apps.runtime.e;
 import com.baidu.swan.apps.scheme.actions.aa;
 import com.baidu.swan.apps.scheme.j;
-/* loaded from: classes3.dex */
+/* loaded from: classes10.dex */
 public class a extends aa {
     public a(j jVar) {
         super(jVar, "/swanAPI/hideOpenAppGuide");
@@ -20,13 +20,13 @@ public class a extends aa {
         if (DEBUG) {
             Log.i("HideFloatButtonGuide", unitedSchemeEntity.toString());
         }
-        com.baidu.swan.apps.scheme.actions.d.a aBG = com.baidu.swan.apps.scheme.actions.d.a.aBG();
-        FloatButton aBI = aBG.aBI();
-        if (aBI == null) {
+        com.baidu.swan.apps.scheme.actions.d.a aEp = com.baidu.swan.apps.scheme.actions.d.a.aEp();
+        FloatButton aEr = aEp.aEr();
+        if (aEr == null) {
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(0);
         } else {
-            aBI.setVisibility(8);
-            aBG.a(null);
+            aEr.setVisibility(8);
+            aEp.a(null);
             unitedSchemeEntity.result = UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, 0);
         }
         return true;

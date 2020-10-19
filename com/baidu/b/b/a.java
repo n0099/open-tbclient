@@ -8,30 +8,32 @@ import com.baidu.b.h;
 import com.baidu.mobads.interfaces.IXAdRequestInfo;
 import java.util.Comparator;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes7.dex */
 public abstract class a {
-    public static Comparator<a> acE = new com.baidu.b.b.b();
-    protected C0089a acC;
-    protected a.C0091a acD;
+    public static Comparator<a> acU = new com.baidu.b.b.b();
+    protected C0090a acS;
+    protected a.C0092a acT;
     private final String d;
     private long e;
 
     /* renamed from: com.baidu.b.b.a$a  reason: collision with other inner class name */
-    /* loaded from: classes3.dex */
-    public static class C0089a {
-        public Context a;
-        public com.baidu.b.e.a acF;
+    /* loaded from: classes7.dex */
+    public static class C0090a {
+
+        /* renamed from: a  reason: collision with root package name */
+        public Context f1247a;
+        public com.baidu.b.e.a acV;
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes7.dex */
     public static abstract class b {
-        private a.C0091a acG;
+        private a.C0092a acW;
         private String b;
         private String c;
         private boolean d = true;
 
-        public b(a.C0091a c0091a, String str) {
-            this.acG = c0091a;
+        public b(a.C0092a c0092a, String str) {
+            this.acW = c0092a;
             this.b = str;
             this.c = "target-pkg-" + Base64.encodeToString(str.getBytes(), 3);
         }
@@ -43,10 +45,10 @@ public abstract class a {
         }
 
         public boolean a() {
-            String a = this.acG.a(this.c, true);
-            if (!TextUtils.isEmpty(a)) {
+            String a2 = this.acW.a(this.c, true);
+            if (!TextUtils.isEmpty(a2)) {
                 try {
-                    a(new JSONObject(a));
+                    a(new JSONObject(a2));
                     a(false);
                     return true;
                 } catch (Exception e) {
@@ -62,7 +64,7 @@ public abstract class a {
                 try {
                     JSONObject jSONObject = new JSONObject();
                     b(jSONObject);
-                    this.acG.c(this.c, jSONObject.toString(), true);
+                    this.acW.c(this.c, jSONObject.toString(), true);
                     a(false);
                     return true;
                 } catch (Exception e) {
@@ -72,25 +74,27 @@ public abstract class a {
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes7.dex */
     public static class c {
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes7.dex */
     public static class d {
-        public boolean a;
+
+        /* renamed from: a  reason: collision with root package name */
+        public boolean f1248a;
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes7.dex */
     public static class e {
-        public h.a acH;
-        public Exception acI;
+        public h.a acX;
+        public Exception acY;
         public int b;
 
         public e(int i, h.a aVar, Exception exc) {
             this.b = i;
-            this.acH = aVar;
-            this.acI = exc;
+            this.acX = aVar;
+            this.acY = exc;
         }
 
         public static e a(h.a aVar) {
@@ -121,9 +125,9 @@ public abstract class a {
         return this.d;
     }
 
-    public final void a(C0089a c0089a) {
-        this.acC = c0089a;
-        this.acD = c0089a.acF.sO().cX(IXAdRequestInfo.CS);
+    public final void a(C0090a c0090a) {
+        this.acS = c0090a;
+        this.acT = c0090a.acV.sO().cX(IXAdRequestInfo.CS);
     }
 
     public abstract void a(c cVar);

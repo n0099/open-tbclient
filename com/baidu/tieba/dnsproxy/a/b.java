@@ -7,10 +7,10 @@ import java.util.List;
 /* loaded from: classes13.dex */
 public class b {
     String address;
-    float hyp;
+    float hNk;
     private List<Integer> data = new ArrayList();
-    boolean hyq = false;
-    boolean hyr = false;
+    boolean hNl = false;
+    boolean hNm = false;
 
     public static final b a(DnsIpData dnsIpData) {
         if (dnsIpData == null) {
@@ -38,7 +38,7 @@ public class b {
         return builder.build(true);
     }
 
-    public void wh(int i) {
+    public void wN(int i) {
         this.data.add(0, Integer.valueOf(i));
         while (this.data.size() > 49) {
             this.data.remove(this.data.size() - 1);
@@ -53,9 +53,9 @@ public class b {
         float f2 = 0.0f;
         int size = this.data.size();
         if (size <= 0) {
-            this.hyp = 0.0f;
+            this.hNk = 0.0f;
         } else if (size == 1) {
-            this.hyp = this.data.get(0).intValue();
+            this.hNk = this.data.get(0).intValue();
         } else {
             Iterator<Integer> it = this.data.iterator();
             float f3 = 1.0f;
@@ -70,15 +70,15 @@ public class b {
                 f3 *= 0.5f;
                 f2 = (intValue * f3) + f;
             }
-            this.hyp = ((i * f3) / size) + f;
-            if (this.hyp < 0.05d) {
-                if (!this.hyq) {
-                    com.baidu.tieba.dnsproxy.d.cgR().ao("ip_weight_lower", this.address, String.valueOf(this.hyp));
-                    this.hyq = true;
+            this.hNk = ((i * f3) / size) + f;
+            if (this.hNk < 0.05d) {
+                if (!this.hNl) {
+                    com.baidu.tieba.dnsproxy.d.ckn().aq("ip_weight_lower", this.address, String.valueOf(this.hNk));
+                    this.hNl = true;
                 }
-            } else if (this.hyq && this.hyp > 0.5d && !this.hyr) {
-                com.baidu.tieba.dnsproxy.d.cgR().ao("ip_weight_lower_recover", this.address, String.valueOf(this.hyp));
-                this.hyr = true;
+            } else if (this.hNl && this.hNk > 0.5d && !this.hNm) {
+                com.baidu.tieba.dnsproxy.d.ckn().aq("ip_weight_lower_recover", this.address, String.valueOf(this.hNk));
+                this.hNm = true;
             }
         }
     }

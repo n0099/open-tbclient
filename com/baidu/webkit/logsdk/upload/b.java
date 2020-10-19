@@ -15,16 +15,18 @@ import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes8.dex */
+/* loaded from: classes11.dex */
 public final class b {
-    public String a;
+
+    /* renamed from: a  reason: collision with root package name */
+    public String f3966a;
     public ConcurrentHashMap<Long, a> b = new ConcurrentHashMap<>();
 
     public static JSONObject a(a aVar, long j) {
         JSONObject jSONObject = new JSONObject();
         try {
             jSONObject.putOpt("version", "1");
-            jSONObject.putOpt(ExtraParamsManager.PARAM_LOG_TYPE, aVar.e.a);
+            jSONObject.putOpt(ExtraParamsManager.PARAM_LOG_TYPE, aVar.e.f3955a);
             jSONObject.putOpt("file", Boolean.valueOf(aVar.c));
             jSONObject.putOpt("upload_time", Long.valueOf(j));
             jSONObject.putOpt(DownloadDataConstants.Columns.COLUMN_RETRY_COUNT, Integer.valueOf(aVar.b));
@@ -34,12 +36,12 @@ public final class b {
             jSONObject.putOpt("f3", com.baidu.webkit.logsdk.b.b.g());
             jSONObject.putOpt("log_level", Integer.valueOf(aVar.e.b));
             String str = aVar.i;
-            String a = (TextUtils.isEmpty(str) || "null".equals(str)) ? "full".equals(aVar.e.e) ? com.baidu.webkit.logsdk.a.b.a().g().a(com.baidu.webkit.logsdk.a.b.d()) : com.baidu.webkit.logsdk.a.b.a().g().b(com.baidu.webkit.logsdk.a.b.d(), aVar.e.e) : aVar.i;
-            if (!TextUtils.isEmpty(a)) {
+            String a2 = (TextUtils.isEmpty(str) || "null".equals(str)) ? "full".equals(aVar.e.e) ? com.baidu.webkit.logsdk.a.b.a().g().a(com.baidu.webkit.logsdk.a.b.d()) : com.baidu.webkit.logsdk.a.b.a().g().b(com.baidu.webkit.logsdk.a.b.d(), aVar.e.e) : aVar.i;
+            if (!TextUtils.isEmpty(a2)) {
                 jSONObject.putOpt("base_info", Integer.toString(aVar.b));
-                aVar.i = a;
+                aVar.i = a2;
             }
-            jSONObject.putOpt("content", aVar.a);
+            jSONObject.putOpt("content", aVar.f3965a);
         } catch (Throwable th) {
             com.baidu.webkit.logsdk.d.c.a(th);
         }
@@ -48,11 +50,11 @@ public final class b {
 
     public static void b(a aVar) {
         if (aVar.e.b == 1) {
-            com.baidu.webkit.logsdk.d.c.a("BdLogSDK", "real: content", com.baidu.webkit.logsdk.d.c.a(aVar.a, aVar.f));
+            com.baidu.webkit.logsdk.d.c.a("BdLogSDK", "real: content", com.baidu.webkit.logsdk.d.c.a(aVar.f3965a, aVar.f));
         }
         if (aVar.e.b == 2) {
             try {
-                JSONArray jSONArray = new JSONArray(aVar.a);
+                JSONArray jSONArray = new JSONArray(aVar.f3965a);
                 for (int i = 0; i < jSONArray.length(); i++) {
                     com.baidu.webkit.logsdk.d.c.a("BdLogSDK", "short: content", com.baidu.webkit.logsdk.d.c.a(jSONArray.getString(i), aVar.f));
                 }
@@ -62,7 +64,7 @@ public final class b {
         }
         if (aVar.e.b == 3) {
             try {
-                JSONObject jSONObject = new JSONObject(aVar.a);
+                JSONObject jSONObject = new JSONObject(aVar.f3965a);
                 JSONObject jSONObject2 = jSONObject.getJSONObject("user");
                 Iterator<String> keys = jSONObject2.keys();
                 while (keys.hasNext()) {
@@ -85,20 +87,20 @@ public final class b {
         String str;
         String str2;
         if ("full".equals(aVar.e)) {
-            com.baidu.webkit.logsdk.a.b a = com.baidu.webkit.logsdk.a.b.a();
-            str = a.g().a(a.d, this.a);
-            str2 = aVar.a;
-        } else {
             com.baidu.webkit.logsdk.a.b a2 = com.baidu.webkit.logsdk.a.b.a();
-            str = this.a;
+            str = a2.g().a(a2.d, this.f3966a);
+            str2 = aVar.f3955a;
+        } else {
+            com.baidu.webkit.logsdk.a.b a3 = com.baidu.webkit.logsdk.a.b.a();
+            str = this.f3966a;
             String str3 = aVar.e;
             if ("full".equals(str3)) {
-                str = a2.g().a(a2.d, str);
+                str = a3.g().a(a3.d, str);
             } else {
-                com.baidu.webkit.logsdk.a.a g = a2.g();
-                Context context = a2.d;
+                com.baidu.webkit.logsdk.a.a g = a3.g();
+                Context context = a3.d;
                 com.baidu.webkit.logsdk.b.c c = com.baidu.webkit.logsdk.a.b.a().e().c(str3);
-                if ("full".equals(c.a)) {
+                if ("full".equals(c.f3957a)) {
                     str = g.a(context, str);
                 } else {
                     HashSet<String> hashSet = c.b;
@@ -114,21 +116,21 @@ public final class b {
                         Iterator<String> it = hashSet.iterator();
                         while (it.hasNext()) {
                             String next = it.next();
-                            String a3 = g.a(next, context, c2);
+                            String a4 = g.a(next, context, c2);
                             if (j.c.equals(next)) {
-                                str4 = a3;
+                                str4 = a4;
                             } else if ("cuid".equals(next)) {
-                                str5 = a3;
+                                str5 = a4;
                             } else if ("uid".equals(next)) {
-                                str6 = a3;
+                                str6 = a4;
                             }
-                            if (TextUtils.isEmpty(a3)) {
-                                int a4 = g.a(next, context);
-                                if (a4 > 0) {
-                                    sb.append(ETAG.ITEM_SEPARATOR).append(next).append(ETAG.EQUAL).append(a4);
+                            if (TextUtils.isEmpty(a4)) {
+                                int a5 = g.a(next, context);
+                                if (a5 > 0) {
+                                    sb.append(ETAG.ITEM_SEPARATOR).append(next).append(ETAG.EQUAL).append(a5);
                                 }
                             } else {
-                                sb.append(ETAG.ITEM_SEPARATOR).append(next).append(ETAG.EQUAL).append(a3);
+                                sb.append(ETAG.ITEM_SEPARATOR).append(next).append(ETAG.EQUAL).append(a4);
                             }
                         }
                         String str7 = TextUtils.isEmpty(str4) ? "" : "" + j.c;
@@ -194,7 +196,7 @@ public final class b {
     public final boolean a() {
         com.baidu.webkit.logsdk.d.c.e("BdLogSDK", "isNetTaskAllComplete = " + this.b.isEmpty());
         try {
-            if (com.baidu.webkit.logsdk.a.a && !this.b.isEmpty()) {
+            if (com.baidu.webkit.logsdk.a.f3948a && !this.b.isEmpty()) {
                 Iterator<Map.Entry<Long, a>> it = this.b.entrySet().iterator();
                 while (it.hasNext()) {
                     com.baidu.webkit.logsdk.d.c.e("BdLogSDK", "inComplete NetTask = " + it.next());

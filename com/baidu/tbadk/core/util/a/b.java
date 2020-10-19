@@ -13,19 +13,19 @@ import com.baidu.tbadk.core.data.AccountData;
 import com.baidu.tbadk.core.util.s;
 /* loaded from: classes.dex */
 public class b {
-    public boolean emk;
-    private final g enR = new g();
+    public boolean eyv;
+    private final g eAe = new g();
     public boolean mIsNeedTbs = false;
     public boolean mNeedBackgroundLogin = true;
     public boolean mIsUseCurrentBDUSS = true;
     public boolean mIsNeedAddCommenParam = true;
-    public boolean LS = false;
+    public boolean Mj = false;
     public boolean mIsFromCDN = false;
     public boolean mIsRequestImage = false;
     public int mImageType = 0;
 
-    public g bku() {
-        return this.enR;
+    public g bne() {
+        return this.eAe;
     }
 
     public void a(s sVar) {
@@ -65,23 +65,23 @@ public class b {
         }
         int netType = j.netType();
         sVar.addPostData("net_type", String.valueOf(netType));
-        String bnh = com.baidu.tbadk.coreExtra.b.a.bne().bnh();
+        String bpR = com.baidu.tbadk.coreExtra.b.a.bpO().bpR();
         if (TbSingleton.getInstance().isVisitPreviewServer()) {
-            bnh = bnh + "pub_env=" + TbSingleton.getInstance().getPubEnvValue() + ContentProviderProxy.PROVIDER_AUTHOR_SEPARATOR;
+            bpR = bpR + "pub_env=" + TbSingleton.getInstance().getPubEnvValue() + ContentProviderProxy.PROVIDER_AUTHOR_SEPARATOR;
         }
         if (1 == netType) {
             if (TbadkCoreApplication.getInst().getKeepaliveWifi() == 1) {
-                str = bnh + "ka=open";
+                str = bpR + "ka=open";
                 z = true;
             }
-            str = bnh;
+            str = bpR;
             z = false;
         } else {
             if (TbadkCoreApplication.getInst().getKeepaliveNonWifi() == 1) {
-                str = bnh + "ka=open";
+                str = bpR + "ka=open";
                 z = true;
             }
-            str = bnh;
+            str = bpR;
             z = false;
         }
         com.baidu.adp.lib.network.a.a.setKeepAlive(z);
@@ -99,23 +99,23 @@ public class b {
         sVar.addPostData("cuid_gid", TbadkCoreApplication.getInst().getCuidGid());
         sVar.addPostData("timestamp", Long.toString(System.currentTimeMillis()));
         sVar.addPostData("model", Build.MODEL);
-        if (com.baidu.tbadk.core.sharedPref.b.bjf().getInt(SharedPrefConfig.ANDROID_SAFE_SDK_OPEN, 0) == 1) {
+        if (com.baidu.tbadk.core.sharedPref.b.blO().getInt(SharedPrefConfig.ANDROID_SAFE_SDK_OPEN, 0) == 1) {
             sVar.addPostData("z_id", TbadkCoreApplication.getInst().getZid());
         }
     }
 
     public String getApiName() {
-        if (this.enR.mUrl == null) {
+        if (this.eAe.mUrl == null) {
             return null;
         }
         String str = TbConfig.SERVER_ADDRESS;
-        if (this.enR.mUrl.startsWith(str)) {
-            int indexOf = this.enR.mUrl.indexOf(63);
+        if (this.eAe.mUrl.startsWith(str)) {
+            int indexOf = this.eAe.mUrl.indexOf(63);
             if (indexOf < 0) {
-                indexOf = this.enR.mUrl.length();
+                indexOf = this.eAe.mUrl.length();
             }
-            return this.enR.mUrl.substring(str.length(), indexOf);
+            return this.eAe.mUrl.substring(str.length(), indexOf);
         }
-        return this.enR.mUrl;
+        return this.eAe.mUrl;
     }
 }

@@ -1,7 +1,9 @@
 package com.baidu.mobstat;
-/* loaded from: classes15.dex */
+/* loaded from: classes17.dex */
 public class ab {
-    public static boolean a = true;
+
+    /* renamed from: a  reason: collision with root package name */
+    public static boolean f2516a = true;
     public static boolean b = false;
     public static String c = "M";
     public static boolean d = false;

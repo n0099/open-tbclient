@@ -2,34 +2,34 @@ package com.baidu.tieba.recapp.b;
 
 import android.view.View;
 import com.baidu.adp.widget.ListView.af;
-/* loaded from: classes25.dex */
+/* loaded from: classes26.dex */
 public class h extends af.a implements com.baidu.tieba.play.e {
-    private com.baidu.tieba.lego.card.view.e<?> iuZ;
-    private com.baidu.tieba.recapp.h lLQ;
+    private com.baidu.tieba.lego.card.view.e<?> iJS;
+    private com.baidu.tieba.recapp.h mbh;
 
     public h(com.baidu.tieba.lego.card.view.e<?> eVar) {
         super((View) eVar);
-        this.iuZ = eVar;
+        this.iJS = eVar;
     }
 
     public void a(com.baidu.tieba.recapp.h hVar) {
-        this.lLQ = hVar;
+        this.mbh = hVar;
     }
 
     @Override // com.baidu.tieba.play.e
     public boolean isPlayStarted() {
-        if (this.lLQ == null) {
+        if (this.mbh == null) {
             return false;
         }
-        return this.lLQ.isPlayStarted();
+        return this.mbh.isPlayStarted();
     }
 
     @Override // com.baidu.tieba.play.e
     public boolean isPlaying() {
-        if (this.lLQ == null) {
+        if (this.mbh == null) {
             return false;
         }
-        return this.lLQ.isPlaying();
+        return this.mbh.isPlaying();
     }
 
     @Override // com.baidu.tieba.play.e
@@ -39,42 +39,42 @@ public class h extends af.a implements com.baidu.tieba.play.e {
 
     @Override // com.baidu.tieba.play.e
     public void startPlay() {
-        if (this.lLQ != null) {
-            this.lLQ.startPlay();
+        if (this.mbh != null) {
+            this.mbh.startPlay();
         }
     }
 
     @Override // com.baidu.tieba.play.e
     public void stopPlay() {
-        if (this.lLQ != null) {
-            this.lLQ.stopPlay();
+        if (this.mbh != null) {
+            this.mbh.stopPlay();
         }
     }
 
     @Override // com.baidu.tieba.play.e
     public View getVideoContainer() {
-        if (this.lLQ == null) {
+        if (this.mbh == null) {
             return null;
         }
-        return this.lLQ.getVideoContainer();
+        return this.mbh.getVideoContainer();
     }
 
     @Override // com.baidu.tieba.play.e
     public String getPlayUrl() {
-        return this.lLQ == null ? "" : this.lLQ.getPlayUrl();
+        return this.mbh == null ? "" : this.mbh.getPlayUrl();
     }
 
     @Override // com.baidu.tieba.play.e
     public int getCurrentPosition() {
-        if (this.lLQ == null) {
+        if (this.mbh == null) {
             return 0;
         }
-        return (int) this.lLQ.getCurrentPosition();
+        return (int) this.mbh.getCurrentPosition();
     }
 
     public void release() {
-        if (this.lLQ != null) {
-            this.lLQ.release();
+        if (this.mbh != null) {
+            this.mbh.release();
         }
     }
 }

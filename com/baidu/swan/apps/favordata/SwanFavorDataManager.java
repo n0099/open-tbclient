@@ -23,25 +23,25 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.concurrent.TimeUnit;
-/* loaded from: classes3.dex */
+/* loaded from: classes10.dex */
 public class SwanFavorDataManager implements c {
     protected static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes10.dex */
     public interface a {
-        void al(List<SwanFavorItemData> list);
+        void ao(List<SwanFavorItemData> list);
 
-        void anp();
+        void aqb();
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes10.dex */
     public class FavorDataDBLoaderCB implements LoaderManager.LoaderCallbacks<Cursor> {
-        private a ctN;
+        private a cFW;
 
         @Override // android.support.v4.app.LoaderManager.LoaderCallbacks
         @NonNull
         public Loader<Cursor> onCreateLoader(int i, @Nullable Bundle bundle) {
-            return new CursorLoader(com.baidu.swan.apps.t.a.apu(), com.baidu.swan.apps.database.favorite.a.alK(), null, null, null, "sort_index");
+            return new CursorLoader(com.baidu.swan.apps.t.a.asf(), com.baidu.swan.apps.database.favorite.a.aov(), null, null, null, "sort_index");
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -54,8 +54,8 @@ public class SwanFavorDataManager implements c {
         */
         public void onLoadFinished(@NonNull Loader<Cursor> loader, Cursor cursor) {
             if (loader.getId() != 101) {
-                if (this.ctN != null) {
-                    this.ctN.anp();
+                if (this.cFW != null) {
+                    this.cFW.aqb();
                     return;
                 }
                 return;
@@ -68,50 +68,50 @@ public class SwanFavorDataManager implements c {
                         arrayList.add(c);
                     }
                 } while (cursor.moveToNext());
-                if (this.ctN == null) {
+                if (this.cFW == null) {
                 }
-            } else if (this.ctN == null) {
-                this.ctN.al(arrayList);
+            } else if (this.cFW == null) {
+                this.cFW.ao(arrayList);
             }
         }
 
         @Override // android.support.v4.app.LoaderManager.LoaderCallbacks
         public void onLoaderReset(@NonNull Loader<Cursor> loader) {
-            if (this.ctN != null) {
-                this.ctN.anp();
+            if (this.cFW != null) {
+                this.cFW.aqb();
             }
         }
     }
 
     private SwanFavorDataManager() {
-        SwanAppDbControl.bX(com.baidu.swan.apps.t.a.apu());
-        com.baidu.swan.apps.t.a.apz().a(this);
+        SwanAppDbControl.cd(com.baidu.swan.apps.t.a.asf());
+        com.baidu.swan.apps.t.a.ask().a(this);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes3.dex */
+    /* loaded from: classes10.dex */
     public static class b {
-        private static final SwanFavorDataManager ctO = new SwanFavorDataManager();
+        private static final SwanFavorDataManager cFX = new SwanFavorDataManager();
     }
 
-    public static SwanFavorDataManager ank() {
-        return b.ctO;
+    public static SwanFavorDataManager apW() {
+        return b.cFX;
     }
 
-    public List<SwanFavorItemData> anl() {
-        return com.baidu.swan.apps.database.favorite.a.alC();
+    public List<SwanFavorItemData> apX() {
+        return com.baidu.swan.apps.database.favorite.a.aon();
     }
 
-    private void anm() {
-        com.baidu.swan.apps.t.a.aqf().a(new com.baidu.swan.apps.commonsync.a.a() { // from class: com.baidu.swan.apps.favordata.SwanFavorDataManager.1
+    private void apY() {
+        com.baidu.swan.apps.t.a.asR().a(new com.baidu.swan.apps.commonsync.a.a() { // from class: com.baidu.swan.apps.favordata.SwanFavorDataManager.1
             @Override // com.baidu.swan.apps.commonsync.a.a
             public void onSuccess() {
-                SwanFavorDataManager.this.ann();
+                SwanFavorDataManager.this.apZ();
             }
         });
     }
 
-    public void ann() {
+    public void apZ() {
         a(new com.baidu.swan.apps.commonsync.a.b() { // from class: com.baidu.swan.apps.favordata.SwanFavorDataManager.2
             @Override // com.baidu.swan.apps.commonsync.a.b
             public void a(CommonSyncServerData commonSyncServerData) {
@@ -121,37 +121,37 @@ public class SwanFavorDataManager implements c {
     }
 
     public void a(com.baidu.swan.apps.commonsync.a.b bVar) {
-        com.baidu.swan.apps.t.a.aqf().a(bVar);
+        com.baidu.swan.apps.t.a.asR().a(bVar);
     }
 
-    private void D(String str, String str2, String str3) {
-        com.baidu.swan.apps.t.a.aqf().l(com.baidu.swan.apps.favordata.a.C(str, str2, str3));
+    private void E(String str, String str2, String str3) {
+        com.baidu.swan.apps.t.a.asR().v(com.baidu.swan.apps.favordata.a.D(str, str2, str3));
     }
 
-    private void ano() {
+    private void aqa() {
         p.a(new Runnable() { // from class: com.baidu.swan.apps.favordata.SwanFavorDataManager.3
             @Override // java.lang.Runnable
             public void run() {
-                List<SwanFavorItemData> anl = SwanFavorDataManager.this.anl();
-                if (anl != null && anl.size() > 0) {
+                List<SwanFavorItemData> apX = SwanFavorDataManager.this.apX();
+                if (apX != null && apX.size() > 0) {
                     StringBuilder sb = new StringBuilder();
                     StringBuilder sb2 = new StringBuilder();
                     int i = 0;
                     while (true) {
                         int i2 = i;
-                        if (i2 < anl.size()) {
-                            if (i2 == anl.size() - 1) {
-                                sb.append(anl.get(i2).getAppKey());
+                        if (i2 < apX.size()) {
+                            if (i2 == apX.size() - 1) {
+                                sb.append(apX.get(i2).getAppKey());
                                 sb2.append(i2 + 1);
                             } else {
-                                sb.append(anl.get(i2).getAppKey());
+                                sb.append(apX.get(i2).getAppKey());
                                 sb.append(Constants.ACCEPT_TIME_SEPARATOR_SP);
                                 sb2.append(i2 + 1);
                                 sb2.append(Constants.ACCEPT_TIME_SEPARATOR_SP);
                             }
                             i = i2 + 1;
                         } else {
-                            com.baidu.swan.apps.t.a.aqf().m(com.baidu.swan.apps.favordata.a.bu(sb.toString(), sb2.toString()));
+                            com.baidu.swan.apps.t.a.asR().w(com.baidu.swan.apps.favordata.a.bz(sb.toString(), sb2.toString()));
                             return;
                         }
                     }
@@ -168,55 +168,55 @@ public class SwanFavorDataManager implements c {
 
     public void b(SwanFavorItemData swanFavorItemData, int i, com.baidu.swan.apps.favordata.a.a aVar) {
         if (com.baidu.swan.apps.database.favorite.a.a(swanFavorItemData, i, aVar)) {
-            Q(swanFavorItemData.getAppKey(), true);
+            U(swanFavorItemData.getAppKey(), true);
         }
-        D(swanFavorItemData.getAppKey(), "add", String.valueOf(i));
+        E(swanFavorItemData.getAppKey(), "add", String.valueOf(i));
         if (i > 1) {
-            ano();
+            aqa();
         }
     }
 
     public void c(String str, int i, com.baidu.swan.apps.favordata.a.a aVar) {
         com.baidu.swan.apps.database.favorite.a.a(str, i, aVar);
-        ano();
+        aqa();
     }
 
-    public void b(String str, com.baidu.swan.apps.favordata.a.b bVar, b.C0396b c0396b) {
-        if (com.baidu.swan.apps.database.favorite.a.a(str, bVar, c0396b)) {
-            Q(str, false);
+    public void b(String str, com.baidu.swan.apps.favordata.a.b bVar, b.C0413b c0413b) {
+        if (com.baidu.swan.apps.database.favorite.a.a(str, bVar, c0413b)) {
+            U(str, false);
         }
-        D(str, "cancel", "-1");
+        E(str, "cancel", "-1");
     }
 
-    public void Q(String str, boolean z) {
+    public void U(String str, boolean z) {
         if (ProcessUtils.isMainProcess()) {
-            com.baidu.swan.apps.process.messaging.a.b.a(R(str, z), com.baidu.swan.apps.favordata.b.b.class);
+            com.baidu.swan.apps.process.messaging.a.b.a(V(str, z), com.baidu.swan.apps.favordata.b.b.class);
             return;
         }
-        e aAs = e.aAs();
-        if (aAs != null) {
-            if (TextUtils.equals(aAs.getAppId(), "sc9Tq1iKawTnj5GhG6i77vzeIt4Crt5u")) {
-                com.baidu.swan.apps.process.messaging.a.b.a(R(str, z), com.baidu.swan.apps.favordata.b.a.class, null);
-            } else if (TextUtils.equals(aAs.getAppId(), str)) {
-                en(z);
+        e aDb = e.aDb();
+        if (aDb != null) {
+            if (TextUtils.equals(aDb.getAppId(), "sc9Tq1iKawTnj5GhG6i77vzeIt4Crt5u")) {
+                com.baidu.swan.apps.process.messaging.a.b.a(V(str, z), com.baidu.swan.apps.favordata.b.a.class, null);
+            } else if (TextUtils.equals(aDb.getAppId(), str)) {
+                eJ(z);
             }
         }
     }
 
-    private Bundle R(String str, boolean z) {
+    private Bundle V(String str, boolean z) {
         Bundle bundle = new Bundle();
         bundle.putString("appKey", str);
         bundle.putBoolean("isFavor", z);
         return bundle;
     }
 
-    public static void en(boolean z) {
+    public static void eJ(boolean z) {
         if (DEBUG) {
             Log.d("SwanFavorDataManager", "sendFavorStatusMsg: isAddfavor = " + z);
         }
         HashMap hashMap = new HashMap();
         hashMap.put("status", z ? "1" : "0");
-        f.asJ().b(new com.baidu.swan.apps.event.a.b("favorStatusChange", hashMap));
+        f.avu().b(new com.baidu.swan.apps.event.a.b("favorStatusChange", hashMap));
     }
 
     public void b(CommonSyncServerData commonSyncServerData) {
@@ -224,10 +224,10 @@ public class SwanFavorDataManager implements c {
             List<CommonSyncServerData.MetaItemInfo> list = commonSyncServerData.metaItems;
             ArrayList arrayList = new ArrayList();
             if (list == null || list.size() <= 0) {
-                if (!h.aDP().getBoolean("upload_local_data_to_server", true)) {
-                    com.baidu.swan.apps.database.favorite.a.af(arrayList);
+                if (!h.aGy().getBoolean("upload_local_data_to_server", true)) {
+                    com.baidu.swan.apps.database.favorite.a.ai(arrayList);
                 }
-                anm();
+                apY();
                 return;
             }
             for (CommonSyncServerData.MetaItemInfo metaItemInfo : list) {
@@ -235,7 +235,7 @@ public class SwanFavorDataManager implements c {
                     SwanFavorItemData swanFavorItemData = new SwanFavorItemData();
                     String str = metaItemInfo.metaData.otherData.appKey;
                     swanFavorItemData.setAppKey(str);
-                    swanFavorItemData.setAppType(com.baidu.swan.apps.f.a.kG(str));
+                    swanFavorItemData.setAppType(com.baidu.swan.apps.f.a.ls(str));
                     swanFavorItemData.setIconUrl(metaItemInfo.metaData.logoUrl);
                     swanFavorItemData.setAppName(metaItemInfo.metaData.title);
                     if (metaItemInfo.metaData.platConf != null && metaItemInfo.metaData.platConf.platH5 != null && !TextUtils.isEmpty(metaItemInfo.metaData.platConf.platH5.url)) {
@@ -246,12 +246,12 @@ public class SwanFavorDataManager implements c {
                     arrayList.add(swanFavorItemData);
                 }
             }
-            com.baidu.swan.apps.database.favorite.a.af(arrayList);
+            com.baidu.swan.apps.database.favorite.a.ai(arrayList);
         }
     }
 
     @Override // com.baidu.swan.apps.a.c
-    public void dq(boolean z) {
-        ann();
+    public void dM(boolean z) {
+        apZ();
     }
 }

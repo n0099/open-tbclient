@@ -8,7 +8,7 @@ import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes17.dex */
+/* loaded from: classes9.dex */
 public final class BuilderAdapter<B extends Message.Builder> {
     private final List<Field> requiredFields = new ArrayList();
     private static final int SUFFIX_LENGTH = "$Builder".length();

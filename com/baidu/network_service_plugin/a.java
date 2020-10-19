@@ -8,21 +8,21 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.aa;
 import java.util.HashMap;
 import java.util.Map;
-/* loaded from: classes18.dex */
+/* loaded from: classes16.dex */
 public class a implements b.a {
-    private b bFQ;
-    private String bFR;
-    private HashMap<String, Object> bFS;
-    private Runnable bFU;
+    private b bMA;
+    private String bMB;
+    private HashMap<String, Object> bMC;
+    private Runnable bME;
     private String identifier;
-    private boolean bFT = true;
+    private boolean bMD = true;
     private int timeout = -1;
     private boolean isLoading = false;
-    private C0227a bFV = null;
-    private boolean bFW = false;
-    private long bFX = 0;
+    private C0242a bMF = null;
+    private boolean bMG = false;
+    private long bMH = 0;
 
-    /* loaded from: classes18.dex */
+    /* loaded from: classes16.dex */
     public interface b {
         void a(HashMap<String, String> hashMap, HashMap<String, String> hashMap2, int i, String str, Object obj, String str2);
     }
@@ -32,24 +32,25 @@ public class a implements b.a {
     }
 
     public boolean loadData() {
-        if (this.bFQ == null && TbadkCoreApplication.getInst().isDebugMode()) {
+        this.bMH = System.currentTimeMillis();
+        if (this.bMA == null && TbadkCoreApplication.getInst().isDebugMode()) {
             throw new RuntimeException("NetModel must have callback");
         }
-        this.bFT = l.isNetOk();
+        this.bMD = l.isNetOk();
         if (this.timeout >= 10) {
-            e.mX().postDelayed(Ui(), this.timeout * 1000);
+            e.mY().postDelayed(Wd(), this.timeout * 1000);
         }
-        if (!this.bFT) {
-            e.mX().post(new Runnable() { // from class: com.baidu.network_service_plugin.a.1
+        if (!this.bMD) {
+            e.mY().post(new Runnable() { // from class: com.baidu.network_service_plugin.a.1
                 @Override // java.lang.Runnable
                 public void run() {
-                    a.this.I(-1, "网络不可用");
+                    a.this.T(-1, "网络不可用");
                 }
             });
             return false;
-        } else if (this.bFV == null) {
-            this.bFV = new C0227a(this);
-            this.bFV.execute(new Object[0]);
+        } else if (this.bMF == null) {
+            this.bMF = new C0242a(this);
+            this.bMF.execute(new Object[0]);
             return true;
         } else {
             return false;
@@ -58,62 +59,57 @@ public class a implements b.a {
 
     @Override // com.baidu.network_service_plugin.b.a
     public boolean cancelLoadData() {
-        if (this.isLoading && this.bFV != null) {
-            this.bFV.cancel();
+        if (this.isLoading && this.bMF != null) {
+            this.bMF.cancel();
         }
         this.isLoading = false;
         return true;
     }
 
-    public String Ud() {
-        return this.bFR;
+    public String VY() {
+        return this.bMB;
     }
 
-    public void ik(String str) {
-        this.bFR = str;
+    public void iL(String str) {
+        this.bMB = str;
     }
 
-    public HashMap<String, Object> Ue() {
-        return this.bFS;
+    public HashMap<String, Object> VZ() {
+        return this.bMC;
     }
 
     public void setParams(HashMap<String, Object> hashMap) {
-        this.bFS = hashMap;
+        this.bMC = hashMap;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void Uf() {
-        this.bFV = null;
+    public void Wa() {
+        this.bMF = null;
     }
 
-    public void dd(boolean z) {
-        this.bFW = z;
+    public void dk(boolean z) {
+        this.bMG = z;
     }
 
-    public boolean Ug() {
-        return this.bFW;
+    public boolean Wb() {
+        return this.bMG;
     }
 
-    public long Uh() {
-        return this.bFX;
-    }
-
-    public void aK(long j) {
-        this.bFX = j;
+    public long Wc() {
+        return this.bMH;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     /* renamed from: com.baidu.network_service_plugin.a$a  reason: collision with other inner class name */
-    /* loaded from: classes18.dex */
-    public static class C0227a extends BdAsyncTask<Object, String, String> {
-        private a bFZ;
-        private com.baidu.tbadk.core.util.a.a bGa;
-        private aa bGb = null;
+    /* loaded from: classes16.dex */
+    public static class C0242a extends BdAsyncTask<Object, String, String> {
+        private a bMJ;
+        private com.baidu.tbadk.core.util.a.a bMK;
+        private aa bML = null;
         private boolean isCancle = false;
-        private long bGc = 0;
 
-        public C0227a(a aVar) {
-            this.bFZ = aVar;
+        public C0242a(a aVar) {
+            this.bMJ = aVar;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -122,21 +118,21 @@ public class a implements b.a {
         /* renamed from: k */
         public String doInBackground(Object... objArr) {
             String postNetData;
-            this.bGc = System.currentTimeMillis() - this.bFZ.Uh();
-            this.bFZ.isLoading = true;
-            this.bGb = new aa(this.bFZ.Ud());
-            HashMap<String, Object> Ue = this.bFZ.Ue();
-            if (Ue != null && !Ue.isEmpty()) {
-                for (Map.Entry<String, Object> entry : Ue.entrySet()) {
-                    this.bGb.addPostData(entry.getKey(), String.valueOf(entry.getValue()));
+            this.bMJ.isLoading = true;
+            this.bML = new aa(this.bMJ.VY());
+            HashMap<String, Object> VZ = this.bMJ.VZ();
+            if (VZ != null && !VZ.isEmpty()) {
+                for (Map.Entry<String, Object> entry : VZ.entrySet()) {
+                    this.bML.addPostData(entry.getKey(), String.valueOf(entry.getValue()));
                 }
             }
-            if (this.bFZ.Ug()) {
-                postNetData = this.bGb.postMultiNetData();
+            if (this.bMJ.Wb() && VZ != null) {
+                this.bML.addPostData("debugfile", (byte[]) VZ.get("debugfile"));
+                postNetData = this.bML.postMultiNetData();
             } else {
-                postNetData = this.bGb.postNetData();
+                postNetData = this.bML.postNetData();
             }
-            this.bGa = this.bGb.bjL();
+            this.bMK = this.bML.bmu();
             publishProgress(postNetData);
             return postNetData;
         }
@@ -145,11 +141,11 @@ public class a implements b.a {
         public void cancel() {
             this.isCancle = true;
             super.cancel(true);
-            if (this.bGb != null) {
-                this.bGb.cancelNetConnect();
+            if (this.bML != null) {
+                this.bML.cancelNetConnect();
             }
-            if (this.bFZ.bFQ != null) {
-                this.bFZ.bFQ.a(null, null, -1, "cancle", "", this.bFZ.identifier);
+            if (this.bMJ.bMA != null) {
+                this.bMJ.bMA.a(null, null, -1, "cancle", "", this.bMJ.identifier);
             }
         }
 
@@ -159,51 +155,48 @@ public class a implements b.a {
         public void onProgressUpdate(String... strArr) {
             super.onProgressUpdate((Object[]) strArr);
             if (strArr != null && strArr.length > 0) {
-                this.bFZ.isLoading = false;
-                if (this.bFZ.bFU != null) {
-                    e.mX().removeCallbacks(this.bFZ.bFU);
+                this.bMJ.isLoading = false;
+                if (this.bMJ.bME != null) {
+                    e.mY().removeCallbacks(this.bMJ.bME);
                 }
-                if (this.bGa != null && this.bGa.bkr() != null && !this.isCancle && this.bFZ.bFQ != null) {
+                if (this.bMK != null && this.bMK.bnb() != null && !this.isCancle && this.bMJ.bMA != null) {
                     HashMap<String, String> hashMap = new HashMap<>();
-                    hashMap.put("server", this.bFZ.Ud());
-                    hashMap.put("api", this.bFZ.Ud());
-                    hashMap.put("state", this.bGa.bks().enS.exception);
-                    if (this.bGa.bkt() != null && this.bFZ.Uh() > 0 && this.bGa.bkt().containsKey("startTime")) {
-                        long j = com.baidu.adp.lib.f.b.toLong(this.bGa.bkt().get("startTime"), 0L) - this.bFZ.Uh();
+                    hashMap.put("server", this.bMJ.VY());
+                    hashMap.put("api", this.bMJ.VY());
+                    hashMap.put("state", this.bMK.bnc().eAf.exception);
+                    if (this.bMK.bnd() != null && this.bMJ.Wc() > 0 && this.bMK.bnd().containsKey("startTime")) {
+                        long j = com.baidu.adp.lib.f.b.toLong(this.bMK.bnd().get("startTime"), 0L) - this.bMJ.Wc();
                         if (j > 0) {
-                            this.bGa.bkt().put("taskWaitTime", String.valueOf(j));
-                        }
-                        if (this.bGc < 20000) {
-                            this.bGa.bkt().put("queneTime", String.valueOf(this.bGc));
+                            this.bMK.bnd().put("queneTime", String.valueOf(j));
                         }
                     }
-                    this.bFZ.bFQ.a(hashMap, this.bGa.bkt(), this.bGa.bkr().mServerErrorCode, this.bGa.bkr().mErrorString, strArr[0], this.bFZ.identifier);
+                    this.bMJ.bMA.a(hashMap, this.bMK.bnd(), this.bMK.bnb().mServerErrorCode, this.bMK.bnb().mErrorString, strArr[0], this.bMJ.identifier);
                 }
-                this.bFZ.Uf();
+                this.bMJ.Wa();
             }
         }
     }
 
-    public Runnable Ui() {
-        if (this.bFU == null) {
-            this.bFU = new Runnable() { // from class: com.baidu.network_service_plugin.a.2
+    public Runnable Wd() {
+        if (this.bME == null) {
+            this.bME = new Runnable() { // from class: com.baidu.network_service_plugin.a.2
                 @Override // java.lang.Runnable
                 public void run() {
-                    a.this.I(-1, "请求超时");
+                    a.this.T(-1, "请求超时");
                 }
             };
         }
-        return this.bFU;
+        return this.bME;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void I(int i, String str) {
-        if (this.bFQ != null) {
-            this.bFQ.a(null, null, i, str, null, this.identifier);
+    public void T(int i, String str) {
+        if (this.bMA != null) {
+            this.bMA.a(null, null, i, str, null, this.identifier);
         }
     }
 
     public void a(b bVar) {
-        this.bFQ = bVar;
+        this.bMA = bVar;
     }
 }

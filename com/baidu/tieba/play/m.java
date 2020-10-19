@@ -7,64 +7,64 @@ import com.baidu.tieba.R;
 import com.baidu.tieba.play.VideoLoadingProgressView;
 /* loaded from: classes.dex */
 public class m {
-    private ViewGroup lBG;
-    private ImageView lBH;
-    private VideoLoadingProgressView lBI;
-    ObjectAnimator lBJ;
-    ObjectAnimator lBK;
-    ObjectAnimator lBL;
+    private ViewGroup lQV;
+    private ImageView lQW;
+    private VideoLoadingProgressView lQX;
+    ObjectAnimator lQY;
+    ObjectAnimator lQZ;
+    ObjectAnimator lRa;
 
     public m(ViewGroup viewGroup) {
-        this.lBG = viewGroup;
-        this.lBH = (ImageView) viewGroup.findViewById(R.id.auto_video_loading_image);
-        this.lBI = (VideoLoadingProgressView) viewGroup.findViewById(R.id.auto_video_loading_progress);
+        this.lQV = viewGroup;
+        this.lQW = (ImageView) viewGroup.findViewById(R.id.auto_video_loading_image);
+        this.lQX = (VideoLoadingProgressView) viewGroup.findViewById(R.id.auto_video_loading_progress);
         init();
     }
 
     private void init() {
-        this.lBJ = ObjectAnimator.ofFloat(this.lBH, "alpha", 1.0f, 0.5f);
-        this.lBK = ObjectAnimator.ofFloat(this.lBH, "alpha", 0.5f, 0.0f);
-        this.lBL = ObjectAnimator.ofFloat(this.lBI, "alpha", 1.0f, 0.0f);
-        this.lBJ.setDuration(50L);
-        this.lBK.setDuration(50L);
-        this.lBL.setDuration(50L);
+        this.lQY = ObjectAnimator.ofFloat(this.lQW, "alpha", 1.0f, 0.5f);
+        this.lQZ = ObjectAnimator.ofFloat(this.lQW, "alpha", 0.5f, 0.0f);
+        this.lRa = ObjectAnimator.ofFloat(this.lQX, "alpha", 1.0f, 0.0f);
+        this.lQY.setDuration(50L);
+        this.lQZ.setDuration(50L);
+        this.lRa.setDuration(50L);
     }
 
     public void startLoading() {
-        dnK();
-        this.lBH.setAlpha(1.0f);
-        this.lBI.setAlpha(1.0f);
-        this.lBG.setVisibility(0);
-        this.lBI.startLoading();
-        this.lBJ.start();
+        drv();
+        this.lQW.setAlpha(1.0f);
+        this.lQX.setAlpha(1.0f);
+        this.lQV.setVisibility(0);
+        this.lQX.startLoading();
+        this.lQY.start();
     }
 
-    public void dnH() {
-        dnK();
-        this.lBI.dnH();
+    public void drs() {
+        drv();
+        this.lQX.drs();
     }
 
-    public void dnI() {
-        dnK();
-        this.lBK.start();
-        this.lBL.start();
+    public void drt() {
+        drv();
+        this.lQZ.start();
+        this.lRa.start();
     }
 
-    public void dnJ() {
-        dnK();
-        this.lBG.setVisibility(8);
-        this.lBI.dnJ();
+    public void dru() {
+        drv();
+        this.lQV.setVisibility(8);
+        this.lQX.dru();
     }
 
-    private void dnK() {
-        this.lBJ.cancel();
-        this.lBK.cancel();
-        this.lBL.cancel();
+    private void drv() {
+        this.lQY.cancel();
+        this.lQZ.cancel();
+        this.lRa.cancel();
     }
 
     public void setLoadingAnimationListener(VideoLoadingProgressView.a aVar) {
-        if (this.lBI != null) {
-            this.lBI.setLoadingAnimationListener(aVar);
+        if (this.lQX != null) {
+            this.lQX.setLoadingAnimationListener(aVar);
         }
     }
 }

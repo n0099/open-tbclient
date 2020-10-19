@@ -3,10 +3,10 @@ package com.baidu.tieba.im;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tieba.im.db.pojo.ImMessageCenterPojo;
 import java.util.List;
-/* loaded from: classes25.dex */
+/* loaded from: classes26.dex */
 public class d {
     public static ImMessageCenterPojo b(ImMessageCenterPojo imMessageCenterPojo) {
-        return (imMessageCenterPojo == null || imMessageCenterPojo.getCustomGroupType() != -8 || imMessageCenterPojo.getUnread_count() <= 0) ? imMessageCenterPojo : a(imMessageCenterPojo, com.baidu.tieba.im.memorycache.b.cKt().cKz());
+        return (imMessageCenterPojo == null || imMessageCenterPojo.getCustomGroupType() != -8 || imMessageCenterPojo.getUnread_count() <= 0) ? imMessageCenterPojo : a(imMessageCenterPojo, com.baidu.tieba.im.memorycache.b.cOc().cOi());
     }
 
     private static ImMessageCenterPojo a(ImMessageCenterPojo imMessageCenterPojo, List<ImMessageCenterPojo> list) {
@@ -30,16 +30,16 @@ public class d {
         String currentAccount = TbadkCoreApplication.getCurrentAccount();
         for (ImMessageCenterPojo imMessageCenterPojo3 : list) {
             if (imMessageCenterPojo3 != null && imMessageCenterPojo3.getCustomGroupType() == 4) {
-                if (!com.baidu.tieba.im.settingcache.d.cLQ().fh(currentAccount, imMessageCenterPojo3.getGid())) {
+                if (!com.baidu.tieba.im.settingcache.d.cPy().fo(currentAccount, imMessageCenterPojo3.getGid())) {
                     imMessageCenterPojo2.setUnread_count(imMessageCenterPojo2.getUnread_count() - imMessageCenterPojo3.getUnread_count());
                 } else {
-                    com.baidu.tieba.im.settingcache.c.cLP().setAcceptNotify(true);
+                    com.baidu.tieba.im.settingcache.c.cPx().setAcceptNotify(true);
                 }
             }
         }
         if (imMessageCenterPojo2.getUnread_count() <= 0) {
             imMessageCenterPojo2.setUnread_count(1);
-            com.baidu.tieba.im.settingcache.c.cLP().setAcceptNotify(false);
+            com.baidu.tieba.im.settingcache.c.cPx().setAcceptNotify(false);
         }
         return imMessageCenterPojo2;
     }

@@ -5,13 +5,13 @@ import com.baidu.live.data.u;
 import org.json.JSONObject;
 /* loaded from: classes4.dex */
 public interface a {
-    boolean BP();
+    boolean CM();
 
-    void IT();
+    void JQ();
 
-    boolean MK();
+    boolean M(JSONObject jSONObject);
 
-    boolean N(JSONObject jSONObject);
+    boolean NP();
 
     void a(u uVar);
 

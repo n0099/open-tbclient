@@ -5,7 +5,7 @@ import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.telephony.TelephonyManager;
 import com.baidu.mapsdkplatform.comapi.util.SysUpdateObservable;
-/* loaded from: classes3.dex */
+/* loaded from: classes7.dex */
 public class NetworkUtil {
     public static NetworkInfo getActiveNetworkInfo(Context context) {
         try {

@@ -7,19 +7,21 @@ import android.database.sqlite.SQLiteDatabase;
 import com.baidu.android.imsdk.CmdQueueMsg;
 import com.baidu.android.imsdk.db.TableDefine;
 import com.baidu.android.imsdk.utils.LogUtils;
-/* loaded from: classes9.dex */
+/* loaded from: classes5.dex */
 public class DBManager extends DBBase {
     private static final String TAG = "DBManager";
-    private static DBManager mInstance = null;
+    private static volatile DBManager mInstance = null;
 
     private DBManager(Context context) {
         setContext(context);
     }
 
     public static DBManager getInstance(Context context) {
-        synchronized (mSyncLock) {
-            if (mInstance == null) {
-                mInstance = new DBManager(context);
+        if (mInstance == null) {
+            synchronized (DBManager.class) {
+                if (mInstance == null) {
+                    mInstance = new DBManager(context);
+                }
             }
         }
         return mInstance;
@@ -88,7 +90,7 @@ public class DBManager extends DBBase {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes9.dex */
+    /* loaded from: classes5.dex */
     public class CmdQueueMsgParse implements CursorParse {
         CmdQueueMsg msg = null;
 

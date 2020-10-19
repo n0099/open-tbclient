@@ -1,7 +1,9 @@
 package com.sdk.base.framework.a.c;
-/* loaded from: classes5.dex */
+/* loaded from: classes16.dex */
 final class a<T> {
-    a<T> a;
+
+    /* renamed from: a  reason: collision with root package name */
+    a<T> f4462a;
     private boolean b = false;
     private k<?> c;
 
@@ -11,14 +13,14 @@ final class a<T> {
     }
 
     public final int a() {
-        return this.c.a;
+        return this.c.f4470a;
     }
 
     public final void a(T t) {
         if (t == null) {
             this.c = null;
         } else if (!(t instanceof k)) {
-            this.c = new k<>(b.a, t);
+            this.c = new k<>(b.f4463a, t);
         } else {
             this.c = (k) t;
             this.b = true;

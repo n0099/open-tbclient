@@ -14,7 +14,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import java.util.concurrent.ArrayBlockingQueue;
-/* loaded from: classes25.dex */
+/* loaded from: classes10.dex */
 public final class AsyncLayoutInflater {
     private static final String TAG = "AsyncLayoutInflater";
     LayoutInflater mInflater;
@@ -33,7 +33,7 @@ public final class AsyncLayoutInflater {
     Handler mHandler = new Handler(this.mHandlerCallback);
     InflateThread mInflateThread = InflateThread.getInstance();
 
-    /* loaded from: classes25.dex */
+    /* loaded from: classes10.dex */
     public interface OnInflateFinishedListener {
         void onInflateFinished(@NonNull View view, @LayoutRes int i, @Nullable ViewGroup viewGroup);
     }
@@ -56,7 +56,7 @@ public final class AsyncLayoutInflater {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes25.dex */
+    /* loaded from: classes10.dex */
     public static class InflateRequest {
         OnInflateFinishedListener callback;
         AsyncLayoutInflater inflater;
@@ -68,7 +68,7 @@ public final class AsyncLayoutInflater {
         }
     }
 
-    /* loaded from: classes25.dex */
+    /* loaded from: classes10.dex */
     private static class BasicInflater extends LayoutInflater {
         private static final String[] sClassPrefixList = {"android.widget.", "android.webkit.", "android.app."};
 
@@ -97,7 +97,7 @@ public final class AsyncLayoutInflater {
         }
     }
 
-    /* loaded from: classes25.dex */
+    /* loaded from: classes10.dex */
     private static class InflateThread extends Thread {
         private static final InflateThread sInstance = new InflateThread();
         private ArrayBlockingQueue<InflateRequest> mQueue = new ArrayBlockingQueue<>(10);

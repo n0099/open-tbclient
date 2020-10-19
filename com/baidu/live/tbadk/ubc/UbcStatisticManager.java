@@ -118,6 +118,31 @@ public class UbcStatisticManager {
         }
     }
 
+    public void logLMSdkEvent(final UbcStatisticItem ubcStatisticItem) {
+        JSONObject contentExt;
+        if (!BdUtilHelper.isMainThread()) {
+            this.mHandler.post(new Runnable() { // from class: com.baidu.live.tbadk.ubc.UbcStatisticManager.2
+                @Override // java.lang.Runnable
+                public void run() {
+                    UbcStatisticManager.this.logLMSdkEvent(ubcStatisticItem);
+                }
+            });
+        } else if (ubcStatisticItem != null && !TextUtils.isEmpty(ubcStatisticItem.getId()) && this.mUbcManager != null) {
+            JSONObject genStatisticContent = genStatisticContent(ubcStatisticItem, "live");
+            try {
+                if (ubcStatisticItem.getContentExt() == null) {
+                    contentExt = new JSONObject();
+                } else {
+                    contentExt = ubcStatisticItem.getContentExt();
+                }
+                genStatisticContent.put("ext", contentExt);
+            } catch (JSONException e) {
+                BdLog.e(e);
+            }
+            this.mUbcManager.onEvent(ubcStatisticItem.getId(), genStatisticContent);
+        }
+    }
+
     public void logSendRequest(UbcStatisticItem ubcStatisticItem) {
         logSendRequest(ubcStatisticItem, true, true);
     }
@@ -125,7 +150,7 @@ public class UbcStatisticManager {
     public void logSendRequest(final UbcStatisticItem ubcStatisticItem, boolean z, boolean z2) {
         JSONObject contentExt;
         if (!BdUtilHelper.isMainThread()) {
-            this.mHandler.post(new Runnable() { // from class: com.baidu.live.tbadk.ubc.UbcStatisticManager.2
+            this.mHandler.post(new Runnable() { // from class: com.baidu.live.tbadk.ubc.UbcStatisticManager.3
                 @Override // java.lang.Runnable
                 public void run() {
                     UbcStatisticManager.this.logSendRequest(ubcStatisticItem);
@@ -164,7 +189,7 @@ public class UbcStatisticManager {
     public void logSendResponse(final UbcStatisticItem ubcStatisticItem, final HttpResponsedMessage httpResponsedMessage, final boolean z, final boolean z2) {
         JSONObject contentExt;
         if (!BdUtilHelper.isMainThread()) {
-            this.mHandler.post(new Runnable() { // from class: com.baidu.live.tbadk.ubc.UbcStatisticManager.3
+            this.mHandler.post(new Runnable() { // from class: com.baidu.live.tbadk.ubc.UbcStatisticManager.4
                 @Override // java.lang.Runnable
                 public void run() {
                     UbcStatisticManager.this.logSendResponse(ubcStatisticItem, httpResponsedMessage, z, z2);
@@ -240,6 +265,20 @@ public class UbcStatisticManager {
         JSONObject jSONObject = new JSONObject();
         try {
             jSONObject.put("from", UbcStatConstant.KEY_STATISTIC_FROM);
+            jSONObject.put("source", TbConfig.getSubappType());
+            jSONObject.put("type", ubcStatisticItem.getContentType());
+            jSONObject.put("value", ubcStatisticItem.getContentValue());
+            jSONObject.put("page", ubcStatisticItem.getContentPage());
+        } catch (JSONException e) {
+            BdLog.e(e);
+        }
+        return jSONObject;
+    }
+
+    private JSONObject genStatisticContent(UbcStatisticItem ubcStatisticItem, String str) {
+        JSONObject jSONObject = new JSONObject();
+        try {
+            jSONObject.put("from", str);
             jSONObject.put("source", TbConfig.getSubappType());
             jSONObject.put("type", ubcStatisticItem.getContentType());
             jSONObject.put("value", ubcStatisticItem.getContentValue());

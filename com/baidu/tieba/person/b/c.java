@@ -10,40 +10,40 @@ import com.baidu.tbadk.core.util.ap;
 import com.baidu.tbadk.data.n;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
-/* loaded from: classes23.dex */
+/* loaded from: classes24.dex */
 public class c extends af.a {
-    private q Wi;
-    public TbImageView ZF;
-    public View hQI;
-    public TextView lmP;
+    private q Wy;
+    public TbImageView ZV;
+    public View ifH;
+    public TextView lCh;
     private View.OnClickListener mClickListener;
     private int mSkinType;
 
     public c(View view) {
         super(view);
         this.mSkinType = 3;
-        this.ZF = (TbImageView) view.findViewById(R.id.photo_image_view);
-        this.ZF.setDefaultBgResource(R.color.cp_bg_line_e);
-        this.hQI = view.findViewById(R.id.normal_pic_click_bg);
-        this.lmP = (TextView) view.findViewById(R.id.tip_default_view);
+        this.ZV = (TbImageView) view.findViewById(R.id.photo_image_view);
+        this.ZV.setDefaultBgResource(R.color.cp_bg_line_e);
+        this.ifH = view.findViewById(R.id.normal_pic_click_bg);
+        this.lCh = (TextView) view.findViewById(R.id.tip_default_view);
     }
 
     public void h(q qVar) {
         if (qVar instanceof n) {
-            this.Wi = qVar;
+            this.Wy = qVar;
             n nVar = (n) qVar;
-            if (nVar.brW()) {
-                String As = com.baidu.tbadk.core.util.q.As(nVar.getSmallUrl());
-                this.lmP.setVisibility(0);
-                if (StringUtils.isNull(As)) {
-                    this.ZF.setDefaultResource(R.drawable.pic_mycenter_avatar_def_i);
+            if (nVar.buG()) {
+                String Be = com.baidu.tbadk.core.util.q.Be(nVar.getSmallUrl());
+                this.lCh.setVisibility(0);
+                if (StringUtils.isNull(Be)) {
+                    this.ZV.setDefaultResource(R.drawable.pic_mycenter_avatar_def_i);
                 } else {
-                    this.ZF.startLoad(As, 25, false);
+                    this.ZV.startLoad(Be, 25, false);
                 }
             } else {
-                this.ZF.setDefaultResource(R.drawable.img_default_100);
-                this.lmP.setVisibility(8);
-                this.ZF.startLoad(nVar.getSmallUrl(), 10, false);
+                this.ZV.setDefaultResource(R.drawable.img_default_100);
+                this.lCh.setVisibility(8);
+                this.ZV.startLoad(nVar.getSmallUrl(), 10, false);
             }
             getView().setOnClickListener(this.mClickListener);
             onChangeSkinType(TbadkCoreApplication.getInst().getSkinType());
@@ -52,14 +52,14 @@ public class c extends af.a {
 
     public void onChangeSkinType(int i) {
         if (this.mSkinType != i) {
-            ap.setViewTextColor(this.lmP, R.color.cp_cont_g, 1);
-            ap.setBackgroundColor(this.lmP, R.color.black_alpha50);
+            ap.setViewTextColor(this.lCh, R.color.cp_cont_g, 1);
+            ap.setBackgroundColor(this.lCh, R.color.black_alpha50);
             this.mSkinType = i;
         }
     }
 
     public q qT() {
-        return this.Wi;
+        return this.Wy;
     }
 
     public void F(View.OnClickListener onClickListener) {

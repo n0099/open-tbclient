@@ -1,5 +1,5 @@
 package android.support.v7.view;
-/* loaded from: classes10.dex */
+/* loaded from: classes5.dex */
 public interface CollapsibleActionView {
     void onActionViewCollapsed();
 

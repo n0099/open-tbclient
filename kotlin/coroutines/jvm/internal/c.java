@@ -8,11 +8,11 @@ import kotlin.h;
 @Target({ElementType.TYPE})
 @Retention(RetentionPolicy.RUNTIME)
 @h
-/* loaded from: classes5.dex */
+/* loaded from: classes10.dex */
 public @interface c {
     String c() default "";
 
-    int[] ekk() default {};
+    int[] enW() default {};
 
     String f() default "";
 

@@ -7,7 +7,7 @@ import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.core.util.aq;
 import com.baidu.tbadk.core.util.at;
 import com.baidu.tieba.sharesdk.bean.ShareEntity;
-/* loaded from: classes23.dex */
+/* loaded from: classes24.dex */
 public class b {
     public static void a(int i, ShareEntity shareEntity) {
         aq aqVar = new aq(TbadkCoreStatisticKey.KEY_SHARE_SUCCESS);
@@ -30,30 +30,30 @@ public class b {
                 break;
         }
         if (i2 != 0) {
-            aqVar.ai("obj_source", i2);
+            aqVar.aj("obj_source", i2);
         }
         if (shareEntity == null) {
             TiebaStatic.log(aqVar);
             return;
         }
-        Bundle bqr = shareEntity.bqr();
-        if (bqr != null) {
-            int i3 = bqr.getInt("obj_param1");
+        Bundle btb = shareEntity.btb();
+        if (btb != null) {
+            int i3 = btb.getInt("obj_param1");
             if (i3 != 0) {
-                aqVar.ai("obj_param1", i3);
+                aqVar.aj("obj_param1", i3);
                 if (i3 == 2) {
-                    aqVar.dF("fid", bqr.getString("fid"));
+                    aqVar.dK("fid", btb.getString("fid"));
                 } else if (i3 == 3) {
-                    int i4 = bqr.getInt("obj_type");
+                    int i4 = btb.getInt("obj_type");
                     if (i4 != 0) {
-                        aqVar.ai("obj_type", i4);
+                        aqVar.aj("obj_type", i4);
                     }
-                    aqVar.dF("tid", bqr.getString("tid")).dF("fid", bqr.getString("fid"));
+                    aqVar.dK("tid", btb.getString("tid")).dK("fid", btb.getString("fid"));
                 }
             }
-            String string = bqr.getString(TiebaInitialize.Params.OBJ_URL);
+            String string = btb.getString(TiebaInitialize.Params.OBJ_URL);
             if (!at.isEmpty(string)) {
-                aqVar.dF(TiebaInitialize.Params.OBJ_URL, string);
+                aqVar.dK(TiebaInitialize.Params.OBJ_URL, string);
             }
         }
         TiebaStatic.log(aqVar);
@@ -80,17 +80,17 @@ public class b {
                 break;
         }
         if (i2 != 0) {
-            aqVar.ai("obj_source", i2);
+            aqVar.aj("obj_source", i2);
         }
         if (shareEntity == null) {
             TiebaStatic.log(aqVar);
             return;
         }
-        Bundle bqr = shareEntity.bqr();
-        if (bqr != null) {
-            aqVar.dF("tid", bqr.getString("tid"));
-            aqVar.dF("uid", bqr.getString("uid"));
-            aqVar.dF("fid", bqr.getString("fid"));
+        Bundle btb = shareEntity.btb();
+        if (btb != null) {
+            aqVar.dK("tid", btb.getString("tid"));
+            aqVar.dK("uid", btb.getString("uid"));
+            aqVar.dK("fid", btb.getString("fid"));
         }
         TiebaStatic.log(aqVar);
     }

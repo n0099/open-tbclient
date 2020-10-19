@@ -1,20 +1,20 @@
 package com.baidu.tieba.homepage.framework;
 
 import android.util.SparseArray;
-/* loaded from: classes21.dex */
+/* loaded from: classes22.dex */
 public class a {
-    private static a iQH = new a();
+    private static a jfB = new a();
     private long creatTime = 0;
-    private SparseArray<Long> iQI = new SparseArray<>();
-    private SparseArray<Long> iQJ = new SparseArray<>();
-    private SparseArray<Long> iQK = new SparseArray<>();
-    private SparseArray<Long> iQL = new SparseArray<>();
+    private SparseArray<Long> jfC = new SparseArray<>();
+    private SparseArray<Long> jfD = new SparseArray<>();
+    private SparseArray<Long> jfE = new SparseArray<>();
+    private SparseArray<Long> jfF = new SparseArray<>();
 
     private a() {
     }
 
-    public static a czV() {
-        return iQH;
+    public static a cDz() {
+        return jfB;
     }
 
     public long getCreateTime() {
@@ -25,51 +25,51 @@ public class a {
         this.creatTime = j;
     }
 
-    public long Ac(int i) {
-        Long l = this.iQJ.get(i);
+    public long AI(int i) {
+        Long l = this.jfD.get(i);
         if (l == null) {
             return -1L;
         }
         return l.longValue();
     }
 
-    public void r(long j, int i) {
-        this.iQJ.put(i, Long.valueOf(j));
+    public void v(long j, int i) {
+        this.jfD.put(i, Long.valueOf(j));
     }
 
-    public long Ad(int i) {
-        Long l = this.iQI.get(i);
+    public long AJ(int i) {
+        Long l = this.jfC.get(i);
         if (l == null) {
             return -1L;
         }
         return l.longValue();
     }
 
-    public void s(long j, int i) {
-        this.iQI.put(i, Long.valueOf(j));
+    public void w(long j, int i) {
+        this.jfC.put(i, Long.valueOf(j));
     }
 
-    public long Ae(int i) {
-        Long l = this.iQK.get(i);
+    public long AK(int i) {
+        Long l = this.jfE.get(i);
         if (l == null) {
             return -1L;
         }
         return l.longValue();
     }
 
-    public void t(long j, int i) {
-        this.iQK.put(i, Long.valueOf(j));
+    public void x(long j, int i) {
+        this.jfE.put(i, Long.valueOf(j));
     }
 
-    public long Af(int i) {
-        Long l = this.iQL.get(i);
+    public long AL(int i) {
+        Long l = this.jfF.get(i);
         if (l == null) {
             return -1L;
         }
         return l.longValue();
     }
 
-    public void u(long j, int i) {
-        this.iQL.put(i, Long.valueOf(j));
+    public void y(long j, int i) {
+        this.jfF.put(i, Long.valueOf(j));
     }
 }

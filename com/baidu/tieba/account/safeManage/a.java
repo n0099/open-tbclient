@@ -12,17 +12,17 @@ import com.baidu.tieba.R;
 import com.baidu.tieba.setting.im.more.ResponsedPrivacyHttpMessage;
 import com.baidu.tieba.setting.im.more.ResponsedPrivacySocketMessage;
 import com.baidu.tieba.tbadkCore.util.AntiHelper;
-/* loaded from: classes21.dex */
+/* loaded from: classes22.dex */
 public class a implements View.OnClickListener {
-    private b fqX;
-    private AccountSafeModel fqY;
+    private b fDk;
+    private AccountSafeModel fDl;
     private final BaseActivity mActivity;
     private com.baidu.adp.framework.listener.a mNetMessagelistener = new com.baidu.adp.framework.listener.a(1002501, CmdConfigSocket.CMD_GET_PRIVATE_INFO) { // from class: com.baidu.tieba.account.safeManage.a.1
         @Override // com.baidu.adp.framework.listener.a
         public void onMessage(ResponsedMessage<?> responsedMessage) {
             String errorString;
-            if (a.this.fqY != null) {
-                a.this.fqY.setLoading(false);
+            if (a.this.fDl != null) {
+                a.this.fDl.setLoading(false);
             }
             a.this.mActivity.closeLoadingDialog();
             if (responsedMessage != null) {
@@ -42,11 +42,11 @@ public class a implements View.OnClickListener {
                 if (responsedMessage instanceof ResponsedPrivacySocketMessage) {
                     aVar = ((ResponsedPrivacySocketMessage) responsedMessage).getPrivacyData();
                 }
-                if (a.this.fqY != null) {
-                    a.this.fqY.a(aVar);
+                if (a.this.fDl != null) {
+                    a.this.fDl.a(aVar);
                 }
-                if (a.this.fqX != null && a.this.fqY != null && a.this.fqY.bCa() != null) {
-                    a.this.fqX.a(a.this.fqY.bCa().bCe());
+                if (a.this.fDk != null && a.this.fDl != null && a.this.fDl.bEM() != null) {
+                    a.this.fDk.a(a.this.fDl.bEM().bEQ());
                 }
             }
         }
@@ -55,38 +55,38 @@ public class a implements View.OnClickListener {
     public a(BaseActivity baseActivity) {
         this.mActivity = baseActivity;
         this.mActivity.registerListener(this.mNetMessagelistener);
-        this.fqX = new b(this.mActivity, this);
-        this.fqY = new AccountSafeModel(this.mActivity);
+        this.fDk = new b(this.mActivity, this);
+        this.fDl = new AccountSafeModel(this.mActivity);
         if (j.isNetWorkAvailable()) {
-            bCf();
+            bER();
         } else {
             this.mActivity.showToast(R.string.neterror);
         }
     }
 
     public View getRootView() {
-        return this.fqX.getView();
+        return this.fDk.getView();
     }
 
-    private void bCf() {
-        if (this.fqY != null && !this.fqY.isLoading()) {
-            this.fqY.bCc();
+    private void bER() {
+        if (this.fDl != null && !this.fDl.isLoading()) {
+            this.fDl.bEO();
         }
     }
 
     public void onDestroy() {
         this.mActivity.closeLoadingDialog();
-        if (this.fqY != null) {
-            this.fqY.cancelLoadData();
+        if (this.fDl != null) {
+            this.fDl.cancelLoadData();
         }
-        if (this.fqX != null) {
-            this.fqX.release();
+        if (this.fDk != null) {
+            this.fDk.release();
         }
     }
 
     public void onChangeSkinType(int i) {
-        if (this.fqX != null) {
-            this.fqX.qg(i);
+        if (this.fDk != null) {
+            this.fDk.qE(i);
         }
     }
 
@@ -97,10 +97,10 @@ public class a implements View.OnClickListener {
             if (!j.isNetWorkAvailable()) {
                 this.mActivity.showToast(R.string.neterror);
             } else {
-                be.bkp().b(this.mActivity.getPageContext(), new String[]{"http://tieba.baidu.com/mo/q/accountSecurity/accountOption"});
+                be.bmY().b(this.mActivity.getPageContext(), new String[]{"http://tieba.baidu.com/mo/q/accountSecurity/accountOption"});
             }
         } else if (view.getId() == R.id.account_status) {
-            AntiHelper.bi(this.mActivity, this.fqY != null ? this.fqY.CK() : "");
+            AntiHelper.bl(this.mActivity, this.fDl != null ? this.fDl.DH() : "");
         }
     }
 }

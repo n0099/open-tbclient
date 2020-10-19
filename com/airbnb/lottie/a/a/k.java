@@ -8,21 +8,21 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.ListIterator;
 @TargetApi(19)
-/* loaded from: classes6.dex */
+/* loaded from: classes10.dex */
 public class k implements i, l {
-    private final MergePaths CZ;
+    private final MergePaths Dq;
     private final String name;
-    private final Path CX = new Path();
-    private final Path CY = new Path();
+    private final Path Do = new Path();
+    private final Path Dp = new Path();
     private final Path path = new Path();
-    private final List<l> CD = new ArrayList();
+    private final List<l> CZ = new ArrayList();
 
     public k(MergePaths mergePaths) {
         if (Build.VERSION.SDK_INT < 19) {
             throw new IllegalStateException("Merge paths are not supported pre-KitKat.");
         }
         this.name = mergePaths.getName();
-        this.CZ = mergePaths;
+        this.Dq = mergePaths;
     }
 
     @Override // com.airbnb.lottie.a.a.i
@@ -32,7 +32,7 @@ public class k implements i, l {
         while (listIterator.hasPrevious()) {
             b previous = listIterator.previous();
             if (previous instanceof l) {
-                this.CD.add((l) previous);
+                this.CZ.add((l) previous);
                 listIterator.remove();
             }
         }
@@ -43,8 +43,8 @@ public class k implements i, l {
         int i = 0;
         while (true) {
             int i2 = i;
-            if (i2 < this.CD.size()) {
-                this.CD.get(i2).b(list, list2);
+            if (i2 < this.CZ.size()) {
+                this.CZ.get(i2).b(list, list2);
                 i = i2 + 1;
             } else {
                 return;
@@ -53,11 +53,11 @@ public class k implements i, l {
     }
 
     @Override // com.airbnb.lottie.a.a.l
-    public Path iV() {
+    public Path iW() {
         this.path.reset();
-        switch (this.CZ.kb()) {
+        switch (this.Dq.kc()) {
             case Merge:
-                iZ();
+                ja();
                 break;
             case Add:
                 a(Path.Op.UNION);
@@ -80,12 +80,12 @@ public class k implements i, l {
         return this.name;
     }
 
-    private void iZ() {
+    private void ja() {
         int i = 0;
         while (true) {
             int i2 = i;
-            if (i2 < this.CD.size()) {
-                this.path.addPath(this.CD.get(i2).iV());
+            if (i2 < this.CZ.size()) {
+                this.path.addPath(this.CZ.get(i2).iW());
                 i = i2 + 1;
             } else {
                 return;
@@ -95,38 +95,38 @@ public class k implements i, l {
 
     @TargetApi(19)
     private void a(Path.Op op) {
-        this.CY.reset();
-        this.CX.reset();
-        int size = this.CD.size() - 1;
+        this.Dp.reset();
+        this.Do.reset();
+        int size = this.CZ.size() - 1;
         while (true) {
             int i = size;
             if (i < 1) {
                 break;
             }
-            l lVar = this.CD.get(i);
+            l lVar = this.CZ.get(i);
             if (lVar instanceof c) {
-                List<l> iT = ((c) lVar).iT();
-                for (int size2 = iT.size() - 1; size2 >= 0; size2--) {
-                    Path iV = iT.get(size2).iV();
-                    iV.transform(((c) lVar).iU());
-                    this.CY.addPath(iV);
+                List<l> iU = ((c) lVar).iU();
+                for (int size2 = iU.size() - 1; size2 >= 0; size2--) {
+                    Path iW = iU.get(size2).iW();
+                    iW.transform(((c) lVar).iV());
+                    this.Dp.addPath(iW);
                 }
             } else {
-                this.CY.addPath(lVar.iV());
+                this.Dp.addPath(lVar.iW());
             }
             size = i - 1;
         }
-        l lVar2 = this.CD.get(0);
+        l lVar2 = this.CZ.get(0);
         if (lVar2 instanceof c) {
-            List<l> iT2 = ((c) lVar2).iT();
-            for (int i2 = 0; i2 < iT2.size(); i2++) {
-                Path iV2 = iT2.get(i2).iV();
-                iV2.transform(((c) lVar2).iU());
-                this.CX.addPath(iV2);
+            List<l> iU2 = ((c) lVar2).iU();
+            for (int i2 = 0; i2 < iU2.size(); i2++) {
+                Path iW2 = iU2.get(i2).iW();
+                iW2.transform(((c) lVar2).iV());
+                this.Do.addPath(iW2);
             }
         } else {
-            this.CX.set(lVar2.iV());
+            this.Do.set(lVar2.iW());
         }
-        this.path.op(this.CX, this.CY, op);
+        this.path.op(this.Do, this.Dp, op);
     }
 }

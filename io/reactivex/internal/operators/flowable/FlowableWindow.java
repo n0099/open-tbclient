@@ -8,7 +8,7 @@ import java.util.Iterator;
 import java.util.concurrent.atomic.AtomicBoolean;
 import java.util.concurrent.atomic.AtomicInteger;
 import java.util.concurrent.atomic.AtomicLong;
-/* loaded from: classes25.dex */
+/* loaded from: classes17.dex */
 public final class FlowableWindow<T> extends a<T, io.reactivex.g<T>> {
     final int bufferSize;
     final long size;
@@ -17,15 +17,15 @@ public final class FlowableWindow<T> extends a<T, io.reactivex.g<T>> {
     @Override // io.reactivex.g
     public void a(org.a.c<? super io.reactivex.g<T>> cVar) {
         if (this.skip == this.size) {
-            this.owE.a((j) new WindowExactSubscriber(cVar, this.size, this.bufferSize));
+            this.oLT.a((j) new WindowExactSubscriber(cVar, this.size, this.bufferSize));
         } else if (this.skip > this.size) {
-            this.owE.a((j) new WindowSkipSubscriber(cVar, this.size, this.skip, this.bufferSize));
+            this.oLT.a((j) new WindowSkipSubscriber(cVar, this.size, this.skip, this.bufferSize));
         } else {
-            this.owE.a((j) new WindowOverlapSubscriber(cVar, this.size, this.skip, this.bufferSize));
+            this.oLT.a((j) new WindowOverlapSubscriber(cVar, this.size, this.skip, this.bufferSize));
         }
     }
 
-    /* loaded from: classes25.dex */
+    /* loaded from: classes17.dex */
     static final class WindowExactSubscriber<T> extends AtomicInteger implements j<T>, Runnable, org.a.d {
         private static final long serialVersionUID = -2365647875069161133L;
         final org.a.c<? super io.reactivex.g<T>> actual;
@@ -58,7 +58,7 @@ public final class FlowableWindow<T> extends a<T, io.reactivex.g<T>> {
             UnicastProcessor<T> unicastProcessor = this.window;
             if (j == 0) {
                 getAndIncrement();
-                unicastProcessor = UnicastProcessor.b(this.bufferSize, this);
+                unicastProcessor = UnicastProcessor.c(this.bufferSize, this);
                 this.window = unicastProcessor;
                 this.actual.onNext(unicastProcessor);
             }
@@ -115,7 +115,7 @@ public final class FlowableWindow<T> extends a<T, io.reactivex.g<T>> {
         }
     }
 
-    /* loaded from: classes25.dex */
+    /* loaded from: classes17.dex */
     static final class WindowSkipSubscriber<T> extends AtomicInteger implements j<T>, Runnable, org.a.d {
         private static final long serialVersionUID = -8792836352386833856L;
         final org.a.c<? super io.reactivex.g<T>> actual;
@@ -152,7 +152,7 @@ public final class FlowableWindow<T> extends a<T, io.reactivex.g<T>> {
             UnicastProcessor<T> unicastProcessor = this.window;
             if (j == 0) {
                 getAndIncrement();
-                unicastProcessor = UnicastProcessor.b(this.bufferSize, this);
+                unicastProcessor = UnicastProcessor.c(this.bufferSize, this);
                 this.window = unicastProcessor;
                 this.actual.onNext(unicastProcessor);
             }
@@ -217,7 +217,7 @@ public final class FlowableWindow<T> extends a<T, io.reactivex.g<T>> {
         }
     }
 
-    /* loaded from: classes25.dex */
+    /* loaded from: classes17.dex */
     static final class WindowOverlapSubscriber<T> extends AtomicInteger implements j<T>, Runnable, org.a.d {
         private static final long serialVersionUID = 2428527070996323976L;
         final org.a.c<? super io.reactivex.g<T>> actual;
@@ -265,9 +265,9 @@ public final class FlowableWindow<T> extends a<T, io.reactivex.g<T>> {
                 long j = this.index;
                 if (j == 0 && !this.cancelled) {
                     getAndIncrement();
-                    UnicastProcessor<T> b = UnicastProcessor.b(this.bufferSize, this);
-                    this.windows.offer(b);
-                    this.queue.offer(b);
+                    UnicastProcessor<T> c = UnicastProcessor.c(this.bufferSize, this);
+                    this.windows.offer(c);
+                    this.queue.offer(c);
                     drain();
                 }
                 long j2 = j + 1;

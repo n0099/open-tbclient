@@ -1,5 +1,5 @@
 package com.baidu.tieba.homepage.personalize;
-/* loaded from: classes21.dex */
+/* loaded from: classes22.dex */
 public interface d {
-    void Ag(int i);
+    void AM(int i);
 }

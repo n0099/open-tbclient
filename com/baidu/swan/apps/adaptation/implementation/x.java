@@ -3,7 +3,7 @@ package com.baidu.swan.apps.adaptation.implementation;
 import com.baidu.swan.apps.adaptation.a.aq;
 import java.util.concurrent.ExecutorService;
 import org.json.JSONArray;
-/* loaded from: classes3.dex */
+/* loaded from: classes10.dex */
 public class x implements aq {
     @Override // com.baidu.swan.apps.adaptation.a.aq
     public void a(String str, String str2, int i, String str3, int i2) {
@@ -14,7 +14,7 @@ public class x implements aq {
     }
 
     @Override // com.baidu.swan.apps.adaptation.a.aq
-    public void f(String str, int i, String str2) {
+    public void h(String str, int i, String str2) {
     }
 
     @Override // com.baidu.swan.apps.adaptation.a.aq
@@ -22,11 +22,11 @@ public class x implements aq {
     }
 
     @Override // com.baidu.swan.apps.adaptation.a.aq
-    public void H(String str, int i) {
+    public void I(String str, int i) {
     }
 
     @Override // com.baidu.swan.apps.adaptation.a.aq
-    public ExecutorService aaL() {
+    public ExecutorService adx() {
         return null;
     }
 }

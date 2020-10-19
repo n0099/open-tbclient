@@ -1,55 +1,59 @@
 package com.xiaomi.push;
 
 import java.util.LinkedList;
-/* loaded from: classes9.dex */
+/* loaded from: classes12.dex */
 public class bb {
-    private LinkedList<a> a = new LinkedList<>();
 
-    /* loaded from: classes9.dex */
+    /* renamed from: a  reason: collision with root package name */
+    private LinkedList<a> f4809a = new LinkedList<>();
+
+    /* loaded from: classes12.dex */
     public static class a {
-        private static final bb a = new bb();
+
+        /* renamed from: a  reason: collision with root package name */
+        private static final bb f4810a = new bb();
 
         /* renamed from: a  reason: collision with other field name */
-        public int f121a;
+        public int f122a;
 
         /* renamed from: a  reason: collision with other field name */
-        public Object f122a;
+        public Object f123a;
 
         /* renamed from: a  reason: collision with other field name */
-        public String f123a;
+        public String f124a;
 
         a(int i, Object obj) {
-            this.f121a = i;
-            this.f122a = obj;
+            this.f122a = i;
+            this.f123a = obj;
         }
     }
 
     public static bb a() {
-        return a.a;
+        return a.f4810a;
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    private void m159a() {
-        if (this.a.size() > 100) {
-            this.a.removeFirst();
+    private void m160a() {
+        if (this.f4809a.size() > 100) {
+            this.f4809a.removeFirst();
         }
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public synchronized int m160a() {
-        return this.a.size();
+    public synchronized int m161a() {
+        return this.f4809a.size();
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public synchronized LinkedList<a> m161a() {
+    public synchronized LinkedList<a> m162a() {
         LinkedList<a> linkedList;
-        linkedList = this.a;
-        this.a = new LinkedList<>();
+        linkedList = this.f4809a;
+        this.f4809a = new LinkedList<>();
         return linkedList;
     }
 
     public synchronized void a(Object obj) {
-        this.a.add(new a(0, obj));
-        m159a();
+        this.f4809a.add(new a(0, obj));
+        m160a();
     }
 }

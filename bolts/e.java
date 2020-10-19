@@ -4,20 +4,19 @@ import java.io.Closeable;
 import java.util.List;
 import java.util.Locale;
 import java.util.concurrent.ScheduledFuture;
-/* loaded from: classes16.dex */
+/* loaded from: classes19.dex */
 public class e implements Closeable {
-    private final List<d> Af;
-    private ScheduledFuture<?> Ag;
-    private boolean Ah;
+    private final List<d> Aw;
+    private ScheduledFuture<?> Ax;
+    private boolean Ay;
     private boolean closed;
     private final Object lock;
 
-    /* renamed from: if  reason: not valid java name */
-    public boolean m8if() {
+    public boolean ig() {
         boolean z;
         synchronized (this.lock) {
-            ig();
-            z = this.Ah;
+            ih();
+            z = this.Ay;
         }
         return z;
     }
@@ -26,11 +25,11 @@ public class e implements Closeable {
     public void close() {
         synchronized (this.lock) {
             if (!this.closed) {
-                ih();
-                for (d dVar : this.Af) {
+                ii();
+                for (d dVar : this.Aw) {
                     dVar.close();
                 }
-                this.Af.clear();
+                this.Aw.clear();
                 this.closed = true;
             }
         }
@@ -39,25 +38,25 @@ public class e implements Closeable {
     /* JADX INFO: Access modifiers changed from: package-private */
     public void a(d dVar) {
         synchronized (this.lock) {
-            ig();
-            this.Af.remove(dVar);
+            ih();
+            this.Aw.remove(dVar);
         }
     }
 
     public String toString() {
-        return String.format(Locale.US, "%s@%s[cancellationRequested=%s]", getClass().getName(), Integer.toHexString(hashCode()), Boolean.toString(m8if()));
+        return String.format(Locale.US, "%s@%s[cancellationRequested=%s]", getClass().getName(), Integer.toHexString(hashCode()), Boolean.toString(ig()));
     }
 
-    private void ig() {
+    private void ih() {
         if (this.closed) {
             throw new IllegalStateException("Object already closed");
         }
     }
 
-    private void ih() {
-        if (this.Ag != null) {
-            this.Ag.cancel(true);
-            this.Ag = null;
+    private void ii() {
+        if (this.Ax != null) {
+            this.Ax.cancel(true);
+            this.Ax = null;
         }
     }
 }

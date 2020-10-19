@@ -7,10 +7,12 @@ import com.baidu.mapapi.search.core.RouteStep;
 import com.baidu.mapapi.search.core.SearchResult;
 import java.util.Date;
 import java.util.List;
-/* loaded from: classes3.dex */
+/* loaded from: classes7.dex */
 public class BusLineResult extends SearchResult implements Parcelable {
     public static final Parcelable.Creator<BusLineResult> CREATOR = new a();
-    private String a;
+
+    /* renamed from: a  reason: collision with root package name */
+    private String f2094a;
     private String b;
     private boolean c;
     private Date d;
@@ -22,16 +24,16 @@ public class BusLineResult extends SearchResult implements Parcelable {
     private float j;
     private String k;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes7.dex */
     public static class BusStation extends RouteNode {
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes7.dex */
     public static class BusStep extends RouteStep {
     }
 
     public BusLineResult() {
-        this.a = null;
+        this.f2094a = null;
         this.b = null;
         this.g = null;
         this.h = null;
@@ -40,12 +42,12 @@ public class BusLineResult extends SearchResult implements Parcelable {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public BusLineResult(Parcel parcel) {
-        this.a = null;
+        this.f2094a = null;
         this.b = null;
         this.g = null;
         this.h = null;
         this.k = null;
-        this.a = parcel.readString();
+        this.f2094a = parcel.readString();
         this.b = parcel.readString();
         this.c = ((Boolean) parcel.readValue(Boolean.class.getClassLoader())).booleanValue();
         this.d = (Date) parcel.readValue(Date.class.getClassLoader());
@@ -65,7 +67,7 @@ public class BusLineResult extends SearchResult implements Parcelable {
     }
 
     public String getBusCompany() {
-        return this.a;
+        return this.f2094a;
     }
 
     public String getBusLineName() {
@@ -146,7 +148,7 @@ public class BusLineResult extends SearchResult implements Parcelable {
 
     @Override // com.baidu.mapapi.search.core.SearchResult, android.os.Parcelable
     public void writeToParcel(Parcel parcel, int i) {
-        parcel.writeString(this.a);
+        parcel.writeString(this.f2094a);
         parcel.writeString(this.b);
         parcel.writeValue(Boolean.valueOf(this.c));
         parcel.writeValue(this.d);

@@ -8,9 +8,11 @@ import com.baidu.mapsdkplatform.comapi.NativeLoader;
 import com.baidu.mapsdkplatform.comapi.commonutils.SysUpdateUtil;
 import com.baidu.mapsdkplatform.comapi.util.SysUpdateObservable;
 import com.baidu.platform.comjni.engine.NAEngine;
-/* loaded from: classes3.dex */
+/* loaded from: classes7.dex */
 public class j {
-    private static int a;
+
+    /* renamed from: a  reason: collision with root package name */
+    private static int f2230a;
     private static Context b = BMapManager.getContext();
 
     static {
@@ -21,7 +23,7 @@ public class j {
     }
 
     public static void a() {
-        if (a == 0) {
+        if (f2230a == 0) {
             if (b == null) {
                 throw new IllegalStateException("BDMapSDKException: you have not supplyed the global app context info from SDKInitializer.initialize(Context) function.");
             }
@@ -34,7 +36,7 @@ public class j {
             SysUpdateObservable.getInstance().addObserver(new SysUpdateUtil());
             SysUpdateObservable.getInstance().init("");
         }
-        a++;
+        f2230a++;
     }
 
     public static void a(boolean z) {
@@ -42,8 +44,8 @@ public class j {
     }
 
     public static void b() {
-        a--;
-        if (a == 0) {
+        f2230a--;
+        if (f2230a == 0) {
             com.baidu.platform.comapi.b.d();
         }
     }

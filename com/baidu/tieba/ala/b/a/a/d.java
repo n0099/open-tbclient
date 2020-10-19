@@ -4,7 +4,7 @@ import java.io.File;
 /* loaded from: classes4.dex */
 public class d extends c {
     @Override // com.baidu.tieba.ala.b.a.a.c
-    protected Class bIT() {
+    protected Class bLD() {
         try {
             return Class.forName("dalvik.system.DexPathList$NativeLibraryElement");
         } catch (Exception e) {
@@ -14,7 +14,7 @@ public class d extends c {
     }
 
     @Override // com.baidu.tieba.ala.b.a.a.c
-    protected Object a(Class cls, File file) {
-        return com.baidu.tieba.ala.b.a.b.b.a(cls, new Class[]{File.class}, new Object[]{file});
+    protected Object b(Class cls, File file) {
+        return com.baidu.tieba.ala.b.a.b.b.b(cls, new Class[]{File.class}, new Object[]{file});
     }
 }

@@ -6,7 +6,7 @@ import com.google.zxing.FormatException;
 import com.google.zxing.WriterException;
 import com.google.zxing.common.BitMatrix;
 import java.util.Map;
-/* loaded from: classes3.dex */
+/* loaded from: classes7.dex */
 public final class EAN13Writer extends UPCEANWriter {
     private static final int CODE_WIDTH = 95;
 

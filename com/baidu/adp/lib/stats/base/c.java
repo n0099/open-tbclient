@@ -10,7 +10,7 @@ public class c {
         DiskFileOperate diskFileOperate = new DiskFileOperate(BdStatisticsManager.getInstance().getTrackLogWriteDir(), null, DiskFileOperate.Action.INFO);
         diskFileOperate.setSdCard(z);
         diskFileOperate.a(DiskFileOperate.OperateType.MUST_SUCCESS);
-        com.baidu.adp.lib.Disk.d.lK().b(diskFileOperate);
+        com.baidu.adp.lib.Disk.d.lL().b(diskFileOperate);
         if (diskFileOperate.getFileInfo() == null || diskFileOperate.getFileInfo().listFiles() == null) {
             return null;
         }
@@ -21,6 +21,6 @@ public class c {
         com.baidu.adp.lib.Disk.ops.e eVar = new com.baidu.adp.lib.Disk.ops.e(BdStatisticsManager.getInstance().getTrackLogWriteDir(), null, DiskFileOperate.Action.DELETE_FILES, arrayList);
         eVar.setSdCard(z);
         eVar.a(DiskFileOperate.OperateType.MUST_SUCCESS);
-        com.baidu.adp.lib.Disk.d.lK().c(eVar);
+        com.baidu.adp.lib.Disk.d.lL().c(eVar);
     }
 }

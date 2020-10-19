@@ -1,10 +1,10 @@
 package com.baidu.tieba.frs;
 
 import android.view.View;
-/* loaded from: classes21.dex */
+/* loaded from: classes22.dex */
 public class CubeOutViewPagerTransformer extends BaseViewPagerTransformer {
     @Override // com.baidu.tieba.frs.BaseViewPagerTransformer
-    protected void n(View view, float f) {
+    protected void o(View view, float f) {
         float mapValueFromRangeToRange = ((float) mapValueFromRangeToRange(f, -1.0d, 1.0d, -90.0d, 90.0d)) * 0.5f;
         view.setCameraDistance(5500 * 1.0f);
         if (f > 0.0f) {
@@ -26,7 +26,7 @@ public class CubeOutViewPagerTransformer extends BaseViewPagerTransformer {
     }
 
     @Override // com.baidu.tieba.frs.BaseViewPagerTransformer
-    public boolean coo() {
+    public boolean crM() {
         return true;
     }
 

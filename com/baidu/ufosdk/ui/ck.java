@@ -3,15 +3,17 @@ package com.baidu.ufosdk.ui;
 import android.view.View;
 import com.baidu.searchbox.ugc.utils.UgcUBCUtils;
 import java.util.Map;
-/* loaded from: classes21.dex */
+/* loaded from: classes22.dex */
 final class ck implements View.OnClickListener {
-    final /* synthetic */ int a;
+
+    /* renamed from: a  reason: collision with root package name */
+    final /* synthetic */ int f3805a;
     final /* synthetic */ cg b;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public ck(cg cgVar, int i) {
         this.b = cgVar;
-        this.a = i;
+        this.f3805a = i;
     }
 
     /* JADX DEBUG: TODO: convert one arg to string using `String.valueOf()`, args: [(wrap: java.lang.Object : 0x0059: INVOKE  (r0v25 java.lang.Object A[REMOVE]) = 
@@ -27,13 +29,13 @@ final class ck implements View.OnClickListener {
      type: INTERFACE call: java.util.Map.get(java.lang.Object):java.lang.Object)] */
     @Override // android.view.View.OnClickListener
     public final void onClick(View view) {
-        this.b.a.aF = this.a;
+        this.b.f3801a.aF = this.f3805a;
         com.baidu.ufosdk.f.c.a("点击未解决！！！");
-        ((Map) this.b.a.h.get(this.a)).put(UgcUBCUtils.UGC_TYPE_ASK, 3);
-        if (((Map) this.b.a.h.get(this.a)).containsKey("chatId")) {
-            this.b.a.f = new StringBuilder().append(((Map) this.b.a.h.get(this.a)).get("chatId")).toString();
+        ((Map) this.b.f3801a.h.get(this.f3805a)).put(UgcUBCUtils.UGC_TYPE_ASK, 3);
+        if (((Map) this.b.f3801a.h.get(this.f3805a)).containsKey("chatId")) {
+            this.b.f3801a.f = new StringBuilder().append(((Map) this.b.f3801a.h.get(this.f3805a)).get("chatId")).toString();
         }
-        this.b.a.l.execute(new cl(this));
-        FeedbackInputActivity.a(this.b.a, false, true);
+        this.b.f3801a.l.execute(new cl(this));
+        FeedbackInputActivity.a(this.b.f3801a, false, true);
     }
 }

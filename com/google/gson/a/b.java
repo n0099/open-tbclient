@@ -6,9 +6,9 @@ import java.lang.annotation.RetentionPolicy;
 import java.lang.annotation.Target;
 @Target({ElementType.TYPE, ElementType.FIELD})
 @Retention(RetentionPolicy.RUNTIME)
-/* loaded from: classes23.dex */
+/* loaded from: classes17.dex */
 public @interface b {
-    boolean ebb() default true;
+    boolean eeM() default true;
 
     Class<?> value();
 }

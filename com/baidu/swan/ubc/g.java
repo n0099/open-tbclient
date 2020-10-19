@@ -1,36 +1,36 @@
 package com.baidu.swan.ubc;
-/* loaded from: classes14.dex */
+/* loaded from: classes9.dex */
 class g {
-    private String dLE;
-    private String dLF;
-    private String dLG;
-    private String dLH;
-    private int dLI;
-    private String dLJ;
-    private int dLK;
-    private int dLL;
-    private String dLM;
-    private String dLN;
+    private String dXF;
+    private String dXG;
+    private String dXH;
+    private String dXI;
+    private int dXJ;
+    private String dXK;
+    private int dXL;
+    private int dXM;
+    private String dXN;
+    private String dXO;
     private String mCategory;
     private String mId;
     private int mRate;
     private String mType;
 
     public g(String str, String str2, String str3, int i, String str4, String str5) {
-        this.dLF = str;
+        this.dXG = str;
         this.mId = str;
-        this.dLG = str2;
-        this.dLH = str3;
-        this.dLI = i;
+        this.dXH = str2;
+        this.dXI = str3;
+        this.dXJ = i;
         this.mType = str4;
-        this.dLJ = str5;
+        this.dXK = str5;
     }
 
-    public void xC(String str) {
-        this.dLE = str;
+    public void yo(String str) {
+        this.dXF = str;
     }
 
-    public void mr(int i) {
+    public void mO(int i) {
         this.mRate = i;
     }
 
@@ -38,39 +38,39 @@ class g {
         this.mCategory = str;
     }
 
-    public void ms(int i) {
-        this.dLK = i;
+    public void mP(int i) {
+        this.dXL = i;
     }
 
-    public void mt(int i) {
-        this.dLL = i;
+    public void mQ(int i) {
+        this.dXM = i;
     }
 
     public String getId() {
         return this.mId;
     }
 
-    public String aWt() {
-        return this.dLG;
+    public String aZb() {
+        return this.dXH;
     }
 
-    public String aWu() {
-        return this.dLH;
+    public String aZc() {
+        return this.dXI;
     }
 
     public int getTimeout() {
-        return this.dLI;
+        return this.dXJ;
     }
 
     public String getType() {
         return this.mType;
     }
 
-    public String aWv() {
-        return this.dLJ;
+    public String aZd() {
+        return this.dXK;
     }
 
-    public int aWw() {
+    public int aZe() {
         return this.mRate;
     }
 
@@ -78,23 +78,23 @@ class g {
         return this.mCategory;
     }
 
-    public int aWx() {
-        return this.dLK;
+    public int aZf() {
+        return this.dXL;
     }
 
-    public int aWy() {
-        return this.dLL;
+    public int aZg() {
+        return this.dXM;
     }
 
-    public void xD(String str) {
-        this.dLM = str;
+    public void yp(String str) {
+        this.dXN = str;
     }
 
-    public String aWz() {
-        return this.dLM;
+    public String aZh() {
+        return this.dXN;
     }
 
-    public void xE(String str) {
-        this.dLN = str;
+    public void yq(String str) {
+        this.dXO = str;
     }
 }

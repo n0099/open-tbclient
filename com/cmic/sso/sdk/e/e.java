@@ -1,27 +1,29 @@
 package com.cmic.sso.sdk.e;
 
 import java.util.concurrent.ConcurrentHashMap;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class e {
-    private static ConcurrentHashMap<String, com.cmic.sso.sdk.b.b> a = new ConcurrentHashMap<>(16);
+
+    /* renamed from: a  reason: collision with root package name */
+    private static ConcurrentHashMap<String, com.cmic.sso.sdk.b.b> f4020a = new ConcurrentHashMap<>(16);
 
     public static boolean a(String str) {
-        return !a.containsKey(str);
+        return !f4020a.containsKey(str);
     }
 
     public static void a(String str, com.cmic.sso.sdk.b.b bVar) {
-        a.put(str, bVar);
+        f4020a.put(str, bVar);
     }
 
     public static void b(String str) {
-        a.remove(str);
+        f4020a.remove(str);
     }
 
-    public static com.cmic.sso.sdk.b.b UJ(String str) {
-        return a.get(str);
+    public static com.cmic.sso.sdk.b.b Vx(String str) {
+        return f4020a.get(str);
     }
 
     public static boolean a() {
-        return a.isEmpty();
+        return f4020a.isEmpty();
     }
 }

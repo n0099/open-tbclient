@@ -26,7 +26,7 @@ public final class a {
                     }
                 }
             } catch (IOException e) {
-                tv.chushou.a.a.c.a.eqb().e(null, "IOUtils:IOException thrown while closing Closeable.", e);
+                tv.chushou.a.a.c.a.etM().e(null, "IOUtils:IOException thrown while closing Closeable.", e);
             }
         }
     }
@@ -57,7 +57,7 @@ public final class a {
         return byteArrayOutputStream.toByteArray();
     }
 
-    public static String k(InputStream inputStream, String str) throws IOException {
+    public static String l(InputStream inputStream, String str) throws IOException {
         if (inputStream == null) {
             return "";
         }
@@ -129,11 +129,11 @@ public final class a {
             try {
                 fileInputStream = new FileInputStream(file);
                 try {
-                    str2 = k(fileInputStream, str);
+                    str2 = l(fileInputStream, str);
                     b(fileInputStream);
                 } catch (IOException e) {
                     e = e;
-                    tv.chushou.a.a.c.a.eqb().e(null, "IOUtils:read string from file=" + file + " failed", e);
+                    tv.chushou.a.a.c.a.etM().e(null, "IOUtils:read string from file=" + file + " failed", e);
                     b(fileInputStream);
                     return str2;
                 }
@@ -192,7 +192,7 @@ public final class a {
         r0 = 0;
         if (str != null && file != null) {
             File parentFile = file.getParentFile();
-            if (at(parentFile)) {
+            if (aw(parentFile)) {
                 String str3 = file.getName() + ".tmp";
                 File file2 = new File(parentFile, str3);
                 try {
@@ -205,14 +205,14 @@ public final class a {
                                 r0 = 1;
                                 str3 = r3;
                             } else {
-                                ?? eqb = tv.chushou.a.a.c.a.eqb();
-                                eqb.e(null, "IOUtils:rename file failed");
-                                i = eqb;
+                                ?? etM = tv.chushou.a.a.c.a.etM();
+                                etM.e(null, "IOUtils:rename file failed");
+                                i = etM;
                                 str3 = r3;
                             }
                         } catch (IOException e) {
                             e = e;
-                            tv.chushou.a.a.c.a.eqb().e(null, "IOUtils:write string to file=" + file.getAbsolutePath() + " failed", e);
+                            tv.chushou.a.a.c.a.etM().e(null, "IOUtils:write string to file=" + file.getAbsolutePath() + " failed", e);
                             ?? r1 = {r3};
                             b(r1);
                             i = r1;
@@ -258,7 +258,7 @@ public final class a {
         }
     }
 
-    public static boolean at(File file) {
+    public static boolean aw(File file) {
         boolean z = false;
         if (file != null) {
             try {

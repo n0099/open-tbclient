@@ -124,6 +124,12 @@ public class CommonEmptyView extends FrameLayout {
         }
     }
 
+    public void addToParent(LinearLayout linearLayout) {
+        if (linearLayout != null) {
+            linearLayout.addView(this, new LinearLayout.LayoutParams(-1, -1));
+        }
+    }
+
     public final void reset() {
         this.mImgView.setVisibility(8);
         this.mTitleView.setVisibility(8);

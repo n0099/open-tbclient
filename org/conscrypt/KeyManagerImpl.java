@@ -18,7 +18,7 @@ import java.util.Locale;
 import java.util.Map;
 import javax.net.ssl.SSLEngine;
 import javax.net.ssl.X509ExtendedKeyManager;
-/* loaded from: classes8.dex */
+/* loaded from: classes5.dex */
 class KeyManagerImpl extends X509ExtendedKeyManager {
     private final HashMap<String, KeyStore.PrivateKeyEntry> hash = new HashMap<>();
 

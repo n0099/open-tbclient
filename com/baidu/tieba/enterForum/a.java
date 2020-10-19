@@ -8,38 +8,38 @@ import com.baidu.tbadk.core.util.l;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
 import com.baidu.tieba.card.s;
-/* loaded from: classes21.dex */
+/* loaded from: classes22.dex */
 public class a {
     public static void a(View view, AbsThreadDataSupport absThreadDataSupport, String str) {
-        if (absThreadDataSupport != null && absThreadDataSupport.bcY() != null) {
-            bw bcY = absThreadDataSupport.bcY();
-            if (bcY.bee()) {
-                TiebaStatic.log(l.f(bcY, str));
+        if (absThreadDataSupport != null && absThreadDataSupport.bfG() != null) {
+            bw bfG = absThreadDataSupport.bfG();
+            if (bfG.bgN()) {
+                TiebaStatic.log(l.f(bfG, str));
                 return;
             }
             int id = view.getId();
             if (view.getId() == R.id.thread_card_root || id == R.id.thread_info_commont_container) {
-                TiebaStatic.log(l.d(bcY, str));
+                TiebaStatic.log(l.d(bfG, str));
             } else if (id == R.id.user_avatar) {
-                TiebaStatic.log(l.c(bcY, str));
+                TiebaStatic.log(l.c(bfG, str));
             } else if (id == R.id.user_name) {
-                TiebaStatic.log(l.c(bcY, str));
+                TiebaStatic.log(l.c(bfG, str));
             } else if (id == R.id.forum_name_text) {
-                TiebaStatic.log(l.g(bcY, str));
+                TiebaStatic.log(l.g(bfG, str));
             } else if (id == R.id.thread_info_commont_container) {
-                TiebaStatic.log(l.d(bcY, str));
+                TiebaStatic.log(l.d(bfG, str));
             } else if (view instanceof TbImageView) {
-                TiebaStatic.log(l.e(bcY, str));
+                TiebaStatic.log(l.e(bfG, str));
             }
         }
     }
 
     public static void a(AbsThreadDataSupport absThreadDataSupport, String str) {
-        if (absThreadDataSupport != null && absThreadDataSupport.bcY() != null) {
-            if (absThreadDataSupport.bcY().bee()) {
-                s.cfn().e(l.b(absThreadDataSupport.bcY(), str));
+        if (absThreadDataSupport != null && absThreadDataSupport.bfG() != null) {
+            if (absThreadDataSupport.bfG().bgN()) {
+                s.ciJ().e(l.b(absThreadDataSupport.bfG(), str));
             } else {
-                s.cfn().e(l.a(absThreadDataSupport.bcY(), str));
+                s.ciJ().e(l.a(absThreadDataSupport.bfG(), str));
             }
         }
     }

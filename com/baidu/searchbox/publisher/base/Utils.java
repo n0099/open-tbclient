@@ -5,7 +5,7 @@ import android.content.pm.PackageManager;
 import java.io.File;
 import java.io.FileInputStream;
 import java.text.DecimalFormat;
-/* loaded from: classes24.dex */
+/* loaded from: classes17.dex */
 public class Utils {
     private static final long BYTEBIT = 1024;
     private static final int MESCPREMINUTE = 60;

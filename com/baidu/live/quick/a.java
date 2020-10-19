@@ -30,19 +30,19 @@ import java.util.Collections;
 import java.util.List;
 /* loaded from: classes4.dex */
 public class a implements c {
-    private bz aBP;
-    private int aVt;
-    public CustomMessageListener aYi;
-    private CustomMessageListener beU;
-    private boolean bgd;
-    private int bge;
-    private AlaLiveInfoData bgj;
-    private c.a bjU;
-    private b bjV;
-    private String[] bjW;
-    private List<String> bjX;
-    private CustomMessageListener bjY;
-    private u bjZ;
+    private bz aEU;
+    private int aYE;
+    public CustomMessageListener bbC;
+    private CustomMessageListener biH;
+    private boolean bjT;
+    private int bjU;
+    private AlaLiveInfoData bjZ;
+    private c.a bnH;
+    private b bnI;
+    private String[] bnJ;
+    private List<String> bnK;
+    private CustomMessageListener bnL;
+    private u bnM;
     private BdAlertDialog mDialog;
     private String mOtherParams;
     private TbPageContext mPageContext;
@@ -50,38 +50,38 @@ public class a implements c {
     private String mText;
     private String mUserName;
     private String mVid;
-    private int bgg = 0;
-    public CustomMessageListener bgl = new CustomMessageListener(2913193) { // from class: com.baidu.live.quick.a.2
+    private int bjW = 0;
+    public CustomMessageListener bkb = new CustomMessageListener(2913193) { // from class: com.baidu.live.quick.a.2
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.live.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-            if (customResponsedMessage != null && a.this.bgg == 5) {
+            if (customResponsedMessage != null && a.this.bjW == 5) {
                 if (customResponsedMessage.getData() instanceof ImForbiddenStateData) {
                     ImForbiddenStateData imForbiddenStateData = (ImForbiddenStateData) customResponsedMessage.getData();
                     if (imForbiddenStateData.errno != 0) {
                         BdUtilHelper.showToast(a.this.mPageContext.getPageActivity(), a.this.mPageContext.getPageActivity().getResources().getString(a.i.ala_im_ban_no_net_tips));
                         return;
                     } else if (imForbiddenStateData.banState == 0) {
-                        a.this.a(a.this.mPos, a.this.mText, a.this.aBP);
+                        a.this.a(a.this.mPos, a.this.mText, a.this.aEU);
                     } else {
                         a.this.a(imForbiddenStateData);
                     }
                 }
-                a.this.bgg = 0;
+                a.this.bjW = 0;
             }
         }
     };
 
     @Override // com.baidu.live.view.input.c
     public void a(c.a aVar) {
-        this.bjU = aVar;
+        this.bnH = aVar;
     }
 
     @Override // com.baidu.live.view.input.c
     public void b(u uVar, String str) {
-        this.bjZ = uVar;
+        this.bnM = uVar;
         if (uVar != null) {
-            this.bgj = uVar.mLiveInfo;
+            this.bjZ = uVar.mLiveInfo;
         }
         this.mVid = "";
         if (uVar != null && uVar.mLiveInfo != null && uVar.mLiveInfo.feed_id != null) {
@@ -91,33 +91,33 @@ public class a implements c {
             str = "";
         }
         this.mOtherParams = str;
-        MU();
-        MV();
-        MessageManager.getInstance().registerListener(this.bgl);
-        HL();
+        NZ();
+        Oa();
+        MessageManager.getInstance().registerListener(this.bkb);
+        II();
     }
 
     @Override // com.baidu.live.view.input.c
     public void d(TbPageContext tbPageContext) {
         this.mPageContext = tbPageContext;
-        this.bjV = new b(this.mPageContext);
-        this.bjV.a(new b.a() { // from class: com.baidu.live.quick.a.1
+        this.bnI = new b(this.mPageContext);
+        this.bnI.a(new b.a() { // from class: com.baidu.live.quick.a.1
             @Override // com.baidu.live.quick.b.a
-            public boolean JM() {
-                return a.this.bjU != null && a.this.bjU.JM();
+            public boolean KS() {
+                return a.this.bnH != null && a.this.bnH.KS();
             }
 
             @Override // com.baidu.live.quick.b.a
-            public void MZ() {
-                if (a.this.bjU != null) {
-                    a.this.bjU.Rz();
+            public void Oe() {
+                if (a.this.bnH != null) {
+                    a.this.bnH.Ts();
                 }
             }
 
             @Override // com.baidu.live.quick.b.a
             public void onDismiss() {
-                if (a.this.bjU != null) {
-                    a.this.bjU.RA();
+                if (a.this.bnH != null) {
+                    a.this.bnH.Tt();
                 }
             }
 
@@ -125,47 +125,47 @@ public class a implements c {
             public void b(int i, String str, bz bzVar) {
                 a.this.mPos = i;
                 a.this.mText = str;
-                a.this.aBP = bzVar;
-                if (com.baidu.live.x.a.NN().bhy.aIG == 1 && !LoginManager.getInstance(a.this.mPageContext.getPageActivity()).isIMLogined()) {
+                a.this.aEU = bzVar;
+                if (com.baidu.live.x.a.OS().blo.aLK == 1 && !LoginManager.getInstance(a.this.mPageContext.getPageActivity()).isIMLogined()) {
                     BdUtilHelper.showToast(a.this.mPageContext.getPageActivity(), a.this.mPageContext.getPageActivity().getResources().getString(a.i.ala_forbidden_words_im_link_disconnect));
-                } else if (com.baidu.live.x.a.NN().bhy.aIF == 1) {
-                    if (!a.this.bgd) {
+                } else if (com.baidu.live.x.a.OS().blo.aLJ == 1) {
+                    if (!a.this.bjT) {
                         a.this.a(i, str, bzVar);
                         return;
                     }
                     MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2913192));
-                    a.this.bgg = 5;
+                    a.this.bjW = 5;
                 } else {
                     a.this.a(i, str, bzVar);
                 }
             }
 
             @Override // com.baidu.live.quick.b.a
-            public boolean Kn() {
-                return a.this.bjU != null && a.this.bjU.Kn();
+            public boolean Ls() {
+                return a.this.bnH != null && a.this.bnH.Ls();
             }
 
             @Override // com.baidu.live.quick.b.a
-            public int JR() {
-                if (a.this.bjU != null) {
-                    return a.this.bjU.JR();
+            public int KX() {
+                if (a.this.bnH != null) {
+                    return a.this.bnH.KX();
                 }
                 return 0;
             }
         });
         if (this.mPageContext != null && !this.mPageContext.getPageActivity().isFinishing()) {
-            this.bjV.a(MR(), Lj());
-            w.gx("quick_im");
+            this.bnI.a(NW(), Mo());
+            w.gL("quick_im");
         }
     }
 
-    private boolean Lj() {
-        return (this.bgj == null || this.bgj.mAlaLiveSwitchData == null || !this.bgj.mAlaLiveSwitchData.isPayBarrageUnabled()) ? false : true;
+    private boolean Mo() {
+        return (this.bjZ == null || this.bjZ.mAlaLiveSwitchData == null || !this.bjZ.mAlaLiveSwitchData.isPayBarrageUnabled()) ? false : true;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void a(int i, String str, bz bzVar) {
-        if (this.bjU != null && this.bjU.JM()) {
+        if (this.bnH != null && this.bnH.KS()) {
             ImSendMsgData imSendMsgData = new ImSendMsgData(str);
             if (bzVar != null) {
                 imSendMsgData.msgType = (short) 126;
@@ -175,16 +175,16 @@ public class a implements c {
             }
             MessageManager.getInstance().sendMessage(new CustomMessage(2913100, imSendMsgData));
         }
-        gH(str);
-        this.bjV.dismiss();
+        gV(str);
+        this.bnI.dismiss();
         LogManager.getCommonLogger().doClickQuickImListLog(this.mVid, String.valueOf(i), str, this.mOtherParams);
     }
 
     @Override // com.baidu.live.view.input.c
     public void b(boolean z, int i, int i2, String str) {
-        this.bgd = z;
-        this.bge = i;
-        this.aVt = i2;
+        this.bjT = z;
+        this.bjU = i;
+        this.aYE = i2;
         this.mUserName = str;
     }
 
@@ -194,10 +194,10 @@ public class a implements c {
         final Activity pageActivity = this.mPageContext.getPageActivity();
         if (pageActivity != null) {
             if (imForbiddenStateData.globalBan == 1) {
-                if (imForbiddenStateData.foreverInfo != null && imForbiddenStateData.foreverInfo.bfk == 1) {
+                if (imForbiddenStateData.foreverInfo != null && imForbiddenStateData.foreverInfo.biW == 1) {
                     format = pageActivity.getResources().getString(a.i.ala_forbidden_words_ueg_block);
                 } else {
-                    format = String.format(pageActivity.getResources().getString(a.i.ala_forbidden_words_ueg_forever), imForbiddenStateData.foreverInfo.bfl);
+                    format = String.format(pageActivity.getResources().getString(a.i.ala_forbidden_words_ueg_forever), imForbiddenStateData.foreverInfo.biX);
                 }
                 this.mDialog = new BdAlertDialog(this.mPageContext.getPageActivity());
                 this.mDialog.setMessage(format);
@@ -237,50 +237,50 @@ public class a implements c {
     }
 
     @Override // com.baidu.live.view.input.c
-    public void dD(int i) {
-        if (this.bjV != null && this.bjV.isShowing()) {
-            this.bjV.dD(i);
+    public void dI(int i) {
+        if (this.bnI != null && this.bnI.isShowing()) {
+            this.bnI.dI(i);
         }
     }
 
     @Override // com.baidu.live.view.input.c
-    public List<String> MQ() {
+    public List<String> NV() {
         ag agVar;
         QuickImInputData quickImInputData;
         List<String> list;
         List<String> list2;
-        if (this.bjX == null) {
-            this.bjX = new ArrayList();
+        if (this.bnK == null) {
+            this.bnK = new ArrayList();
         } else {
-            this.bjX.clear();
+            this.bnK.clear();
         }
-        if (this.bjZ != null && this.bjZ.aFt != null && (list2 = this.bjZ.aFt.sortedTexts) != null && !list2.isEmpty()) {
-            this.bjX.addAll(list2);
+        if (this.bnM != null && this.bnM.aIx != null && (list2 = this.bnM.aIx.sortedTexts) != null && !list2.isEmpty()) {
+            this.bnK.addAll(list2);
         }
-        if (this.bjX.isEmpty() && (agVar = com.baidu.live.x.a.NN().bhy) != null && (quickImInputData = agVar.aIk) != null && (list = quickImInputData.sortedTexts) != null && !list.isEmpty()) {
-            this.bjX.addAll(list);
+        if (this.bnK.isEmpty() && (agVar = com.baidu.live.x.a.OS().blo) != null && (quickImInputData = agVar.aLo) != null && (list = quickImInputData.sortedTexts) != null && !list.isEmpty()) {
+            this.bnK.addAll(list);
         }
-        if (this.bjX.isEmpty()) {
-            Collections.addAll(this.bjX, MR());
+        if (this.bnK.isEmpty()) {
+            Collections.addAll(this.bnK, NW());
         }
-        return this.bjX;
+        return this.bnK;
     }
 
     @Override // com.baidu.live.view.input.c
-    public void gH(String str) {
+    public void gV(String str) {
         List<String> list;
-        if (!TextUtils.isEmpty(str) && this.bjX != null && !this.bjX.isEmpty() && this.bjX.indexOf(str) > 1) {
-            if (this.bjX.remove(str)) {
-                this.bjX.add(1, str);
+        if (!TextUtils.isEmpty(str) && this.bnK != null && !this.bnK.isEmpty() && this.bnK.indexOf(str) > 1) {
+            if (this.bnK.remove(str)) {
+                this.bnK.add(1, str);
             }
-            if (this.bjZ != null && this.bjZ.aFt != null && (list = this.bjZ.aFt.sortedTexts) != null && !list.isEmpty()) {
+            if (this.bnM != null && this.bnM.aIx != null && (list = this.bnM.aIx.sortedTexts) != null && !list.isEmpty()) {
                 list.clear();
-                list.addAll(this.bjX);
+                list.addAll(this.bnK);
                 return;
             }
-            ag agVar = com.baidu.live.x.a.NN().bhy;
+            ag agVar = com.baidu.live.x.a.OS().blo;
             if (agVar != null) {
-                QuickImInputData quickImInputData = agVar.aIk;
+                QuickImInputData quickImInputData = agVar.aLo;
                 if (quickImInputData == null) {
                     quickImInputData = new QuickImInputData();
                 }
@@ -288,58 +288,58 @@ public class a implements c {
                     quickImInputData.sortedTexts = new ArrayList();
                 }
                 quickImInputData.sortedTexts.clear();
-                quickImInputData.sortedTexts.addAll(this.bjX);
+                quickImInputData.sortedTexts.addAll(this.bnK);
             }
         }
     }
 
     @Override // com.baidu.live.view.input.c
-    public void FB() {
-        if (this.bjV != null) {
-            if (this.bjX != null) {
-                this.bjX.clear();
+    public void Gx() {
+        if (this.bnI != null) {
+            if (this.bnK != null) {
+                this.bnK.clear();
             }
             if (this.mPageContext != null && !this.mPageContext.getPageActivity().isFinishing()) {
-                this.bjV.dismiss();
+                this.bnI.dismiss();
             }
-            this.bjV = null;
-            MW();
-            MX();
-            MessageManager.getInstance().unRegisterListener(this.bgl);
-            MY();
+            this.bnI = null;
+            Ob();
+            Oc();
+            MessageManager.getInstance().unRegisterListener(this.bkb);
+            Od();
         }
     }
 
     @Override // com.baidu.live.view.input.c
     public void release() {
-        FB();
+        Gx();
     }
 
-    private String[] MR() {
-        if (this.bjW == null || this.bjW.length == 0) {
-            List<String> MS = MS();
-            if (MS != null && !MS.isEmpty()) {
-                this.bjW = (String[]) MS.toArray(new String[MS.size()]);
+    private String[] NW() {
+        if (this.bnJ == null || this.bnJ.length == 0) {
+            List<String> NX = NX();
+            if (NX != null && !NX.isEmpty()) {
+                this.bnJ = (String[]) NX.toArray(new String[NX.size()]);
             } else {
-                this.bjW = MT();
+                this.bnJ = NY();
             }
         }
-        return this.bjW;
+        return this.bnJ;
     }
 
-    private List<String> MS() {
+    private List<String> NX() {
         List<String> list;
         List<String> list2;
         ArrayList arrayList = new ArrayList();
-        if (this.bjZ == null || this.bjZ.aFt == null || (list = this.bjZ.aFt.sortedTexts) == null || list.isEmpty()) {
+        if (this.bnM == null || this.bnM.aIx == null || (list = this.bnM.aIx.sortedTexts) == null || list.isEmpty()) {
             list = arrayList;
         }
         if (list == null || list.isEmpty()) {
-            ag agVar = com.baidu.live.x.a.NN().bhy;
+            ag agVar = com.baidu.live.x.a.OS().blo;
             if (agVar == null) {
                 return null;
             }
-            QuickImInputData quickImInputData = agVar.aIk;
+            QuickImInputData quickImInputData = agVar.aLo;
             if (quickImInputData == null || (list2 = quickImInputData.originTexts) == null || list2.isEmpty()) {
                 return null;
             }
@@ -348,28 +348,28 @@ public class a implements c {
         return list;
     }
 
-    private String[] MT() {
+    private String[] NY() {
         return new String[]{"66666", "牛批牛批", "赤道以北，主播最美", "全民女神", "哈哈哈哈哈哈", "扎心了", "老铁，走一个", "请开始你的表演"};
     }
 
-    private void MU() {
-        if (this.bjY == null) {
-            this.bjY = new CustomMessageListener(2913122) { // from class: com.baidu.live.quick.a.5
+    private void NZ() {
+        if (this.bnL == null) {
+            this.bnL = new CustomMessageListener(2913122) { // from class: com.baidu.live.quick.a.5
                 /* JADX DEBUG: Method merged with bridge method */
                 @Override // com.baidu.live.adp.framework.listener.MessageListener
                 public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-                    if (a.this.bjV != null && a.this.bjV.isShowing()) {
-                        a.this.bjV.Na();
+                    if (a.this.bnI != null && a.this.bnI.isShowing()) {
+                        a.this.bnI.Of();
                     }
                 }
             };
-            MessageManager.getInstance().registerListener(this.bjY);
+            MessageManager.getInstance().registerListener(this.bnL);
         }
     }
 
-    private void MV() {
-        if (this.beU == null) {
-            this.beU = new CustomMessageListener(2913095) { // from class: com.baidu.live.quick.a.6
+    private void Oa() {
+        if (this.biH == null) {
+            this.biH = new CustomMessageListener(2913095) { // from class: com.baidu.live.quick.a.6
                 /* JADX DEBUG: Method merged with bridge method */
                 @Override // com.baidu.live.adp.framework.listener.MessageListener
                 public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
@@ -382,32 +382,32 @@ public class a implements c {
                     }
                 }
             };
-            MessageManager.getInstance().registerListener(this.beU);
+            MessageManager.getInstance().registerListener(this.biH);
         }
     }
 
-    private void MW() {
-        if (this.bjY != null) {
-            MessageManager.getInstance().unRegisterListener(this.bjY);
-            this.bjY = null;
+    private void Ob() {
+        if (this.bnL != null) {
+            MessageManager.getInstance().unRegisterListener(this.bnL);
+            this.bnL = null;
         }
     }
 
-    private void MX() {
-        if (this.beU != null) {
-            MessageManager.getInstance().unRegisterListener(this.beU);
+    private void Oc() {
+        if (this.biH != null) {
+            MessageManager.getInstance().unRegisterListener(this.biH);
         }
     }
 
-    private void MY() {
-        if (this.aYi != null) {
-            MessageManager.getInstance().unRegisterListener(this.aYi);
+    private void Od() {
+        if (this.bbC != null) {
+            MessageManager.getInstance().unRegisterListener(this.bbC);
         }
     }
 
-    private void HL() {
-        if (this.aYi == null) {
-            this.aYi = new CustomMessageListener(2913097) { // from class: com.baidu.live.quick.a.7
+    private void II() {
+        if (this.bbC == null) {
+            this.bbC = new CustomMessageListener(2913097) { // from class: com.baidu.live.quick.a.7
                 /* JADX DEBUG: Method merged with bridge method */
                 @Override // com.baidu.live.adp.framework.listener.MessageListener
                 public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
@@ -416,7 +416,7 @@ public class a implements c {
                     }
                 }
             };
-            MessageManager.getInstance().registerListener(this.aYi);
+            MessageManager.getInstance().registerListener(this.bbC);
         }
     }
 }

@@ -5,9 +5,9 @@ import android.graphics.Bitmap;
 public interface c {
     boolean U(Bitmap bitmap);
 
-    void dLA();
+    void dPl();
 
-    void dLB();
+    void dPm();
 
-    void dLz();
+    void dPn();
 }

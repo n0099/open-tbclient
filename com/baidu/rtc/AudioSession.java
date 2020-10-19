@@ -5,18 +5,15 @@ import android.content.Context;
 import android.util.Log;
 import com.baidu.ala.helper.AlaLiveBaseInfo;
 import com.baidu.rtc.RtcConfig;
-import com.baidu.rtc.a.a;
 import com.baidu.rtc.ndk.AlaNDKPlayerAdapter;
 import com.baidu.rtc.ndk.AlaNDKRecorderAdapter;
 import com.baidu.rtc.utils.AlaLiveDebugInfo;
 import com.baidu.rtc.utils.NetworkManager;
 import com.baidu.rtc.utils.b;
-import com.baidu.rtc.utils.c;
-import com.baidu.rtc.utils.d;
 import java.util.Arrays;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
-/* loaded from: classes15.dex */
+/* loaded from: classes11.dex */
 public class AudioSession {
     private static final int NETWORK_UNAVAILABLE = 0;
     private static final int NETWORK_WWAN = 2;
@@ -27,12 +24,12 @@ public class AudioSession {
     private AlaNDKPlayerAdapter mNdkPlayer;
     private RtcConfig mRtcConfig;
     private RtcConfig.RtcHandler mRtcHandler;
-    private b mCallState = null;
+    private com.baidu.rtc.utils.b mCallState = null;
     private volatile boolean mIsEnablePlaySound = true;
-    private a mAudioDevices = null;
+    private com.baidu.rtc.a.a mAudioDevices = null;
     private ExecutorService mPlayerService = Executors.newFixedThreadPool(1);
     private ExecutorService mRecordService = Executors.newFixedThreadPool(1);
-    private c mBaseInfo = new c();
+    private com.baidu.rtc.utils.c mBaseInfo = new com.baidu.rtc.utils.c();
     private String mRtcUrl = null;
     private volatile boolean mIsStop = false;
     private volatile boolean mHasStart = false;
@@ -90,8 +87,8 @@ public class AudioSession {
         this.mNDKAdapter.setNDKCallback(this.mRecorderCallback);
         this.mNdkPlayer = new AlaNDKPlayerAdapter();
         this.mNdkPlayer.setNDKCallback(this.mPlayerCallback);
-        if (!NetworkManager.XW().XX()) {
-            NetworkManager.XW().init((Application) context.getApplicationContext());
+        if (!NetworkManager.aaI().aaJ()) {
+            NetworkManager.aaI().init((Application) context.getApplicationContext());
         }
         this.mPlayerService.submit(new Runnable() { // from class: com.baidu.rtc.AudioSession.4
             @Override // java.lang.Runnable
@@ -125,10 +122,10 @@ public class AudioSession {
             }
             return -1;
         } else {
-            this.mAudioDevices = new a(this.mContext, this.mNDKAdapter.getNativeObject());
+            this.mAudioDevices = new com.baidu.rtc.a.a(this.mContext, this.mNDKAdapter.getNativeObject());
             startAudioRecord();
             startAudioPlayer();
-            NetworkManager.XW().a(this.mNetworkChangeListener);
+            NetworkManager.aaI().a(this.mNetworkChangeListener);
             this.mHasStart = true;
             this.mIsStop = false;
             return 0;
@@ -144,7 +141,7 @@ public class AudioSession {
         if (stopNativeObject() != 0) {
             Log.e(TAG, "stopNativeObject failed");
         }
-        NetworkManager.XW().b(this.mNetworkChangeListener);
+        NetworkManager.aaI().b(this.mNetworkChangeListener);
         this.mIsStop = true;
         if (this.mHasStart && this.mRtcHandler != null && this.mRtcConfig != null) {
             this.mRtcHandler.onStop(this.mRtcConfig.roomId, this.mRtcConfig.lineId);
@@ -208,7 +205,7 @@ public class AudioSession {
             if (this.mNDKAdapter.startNative(this.mRtcUrl, getNetworkState(), this.mBaseInfo.toJsonString()) != 0) {
                 Log.e(TAG, "startNative failed");
                 return -1;
-            } else if (this.mNDKAdapter.initAudioEncoderNative(d.bRr, 1, 16) != 0) {
+            } else if (this.mNDKAdapter.initAudioEncoderNative(com.baidu.rtc.utils.d.cdF, 1, 16) != 0) {
                 Log.e(TAG, "initAudioEncoderNative failed");
                 return -1;
             } else if (this.mNDKAdapter.initPKPlayer(this.mNdkPlayer) != 0) {
@@ -242,10 +239,10 @@ public class AudioSession {
         this.mPlayerService.submit(new Runnable() { // from class: com.baidu.rtc.AudioSession.6
             @Override // java.lang.Runnable
             public void run() {
-                if (!AudioSession.this.mAudioDevices.Z(d.OUTPUT_SAMPLE_RATE, 4)) {
+                if (!AudioSession.this.mAudioDevices.Y(com.baidu.rtc.utils.d.OUTPUT_SAMPLE_RATE, 4)) {
                     Log.e(AudioSession.TAG, "initAudioPlayer failed");
                     AudioSession.this.mAudioDevices.stopAudioPlayer();
-                } else if (!d.useOpenSLES()) {
+                } else if (!com.baidu.rtc.utils.d.useOpenSLES()) {
                     byte[] bArr = new byte[4096];
                     while (!AudioSession.this.mIsStop && !AudioSession.this.mPlayerService.isShutdown()) {
                         int audioPCMNative = AudioSession.this.mNdkPlayer.getAudioPCMNative(bArr);
@@ -279,16 +276,16 @@ public class AudioSession {
         this.mRecordService.submit(new Runnable() { // from class: com.baidu.rtc.AudioSession.8
             @Override // java.lang.Runnable
             public void run() {
-                if (!AudioSession.this.mAudioDevices.aa(d.bRr, 16)) {
+                if (!AudioSession.this.mAudioDevices.Z(com.baidu.rtc.utils.d.cdF, 16)) {
                     Log.e(AudioSession.TAG, "initAudioRecord failed");
                     AudioSession.this.mAudioDevices.stopAudioRecord();
-                } else if (!d.useOpenSLES()) {
+                } else if (!com.baidu.rtc.utils.d.useOpenSLES()) {
                     while (!AudioSession.this.mIsStop && !AudioSession.this.mRecordService.isShutdown()) {
                         if (AudioSession.this.mIsEnablePlaySound) {
                             try {
-                                byte[] XP = AudioSession.this.mAudioDevices.XP();
-                                if (XP != null) {
-                                    AudioSession.this.mNDKAdapter.sendPCMDataNative2(XP, 2048);
+                                byte[] aag = AudioSession.this.mAudioDevices.aag();
+                                if (aag != null) {
+                                    AudioSession.this.mNDKAdapter.sendPCMDataNative2(aag, 2048);
                                 }
                             } catch (Exception e) {
                                 e.printStackTrace();
@@ -316,10 +313,10 @@ public class AudioSession {
     }
 
     private void updateStatInfo() {
-        c.getAppVersion(this.mContext);
+        com.baidu.rtc.utils.c.getAppVersion(this.mContext);
         this.mBaseInfo.mStreamType = AlaLiveBaseInfo.STREAM_TYPE_SEND;
         this.mBaseInfo.mUid = "" + this.mRtcConfig.userId;
-        this.mBaseInfo.mNetWork = NetworkManager.XW().XY().toString();
+        this.mBaseInfo.mNetWork = NetworkManager.aaI().aaK().toString();
         this.mBaseInfo.mCuid = this.mRtcConfig.cuid;
     }
 
@@ -361,12 +358,12 @@ public class AudioSession {
 
     /* JADX INFO: Access modifiers changed from: private */
     public int getNetworkState() {
-        int XZ = NetworkManager.XW().XZ();
-        if (XZ <= 0) {
+        int aaL = NetworkManager.aaI().aaL();
+        if (aaL <= 0) {
             return 0;
         }
-        if (XZ < 2) {
-            return XZ;
+        if (aaL < 2) {
+            return aaL;
         }
         return 2;
     }
@@ -380,11 +377,11 @@ public class AudioSession {
 
     private void registerCallState() {
         if (this.mCallState == null) {
-            this.mCallState = new b(new b.a() { // from class: com.baidu.rtc.AudioSession.10
+            this.mCallState = new com.baidu.rtc.utils.b(new b.a() { // from class: com.baidu.rtc.AudioSession.10
                 @Override // com.baidu.rtc.utils.b.a
                 public void onInterruptionBegin() {
                     AudioSession.this.mIsEnablePlaySound = false;
-                    if (d.useOpenSLES() && AudioSession.this.mHasStart) {
+                    if (com.baidu.rtc.utils.d.useOpenSLES() && AudioSession.this.mHasStart) {
                         AudioSession.this.mAudioDevices.pause();
                     }
                 }
@@ -392,7 +389,7 @@ public class AudioSession {
                 @Override // com.baidu.rtc.utils.b.a
                 public void onInterruptionEnd() {
                     AudioSession.this.mIsEnablePlaySound = true;
-                    if (d.useOpenSLES() && AudioSession.this.mHasStart) {
+                    if (com.baidu.rtc.utils.d.useOpenSLES() && AudioSession.this.mHasStart) {
                         AudioSession.this.mAudioDevices.resume();
                     }
                 }

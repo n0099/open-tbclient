@@ -5,9 +5,11 @@ import android.content.pm.PackageManager;
 import com.baidu.cyberplayer.sdk.CyberPlayerManager;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes10.dex */
+/* loaded from: classes12.dex */
 public class a {
-    private static a a;
+
+    /* renamed from: a  reason: collision with root package name */
+    private static a f1428a;
     private boolean c = false;
     private c b = new c(DpStatConstants.SESSION_TYPE_KERNEL);
 
@@ -17,10 +19,10 @@ public class a {
     public static synchronized a a() {
         a aVar;
         synchronized (a.class) {
-            if (a == null) {
-                a = new a();
+            if (f1428a == null) {
+                f1428a = new a();
             }
-            aVar = a;
+            aVar = f1428a;
         }
         return aVar;
     }

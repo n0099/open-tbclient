@@ -7,15 +7,17 @@ import android.os.Bundle;
 import java.nio.ByteBuffer;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
-/* loaded from: classes3.dex */
+/* loaded from: classes7.dex */
 public final class BitmapDescriptor {
-    Bitmap a;
+
+    /* renamed from: a  reason: collision with root package name */
+    Bitmap f1997a;
     private Bundle b;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public BitmapDescriptor(Bitmap bitmap) {
         if (bitmap != null) {
-            this.a = a(bitmap, bitmap.getWidth(), bitmap.getHeight());
+            this.f1997a = a(bitmap, bitmap.getWidth(), bitmap.getHeight());
         }
     }
 
@@ -30,23 +32,23 @@ public final class BitmapDescriptor {
     }
 
     byte[] a() {
-        ByteBuffer allocate = ByteBuffer.allocate(this.a.getWidth() * this.a.getHeight() * 4);
-        this.a.copyPixelsToBuffer(allocate);
+        ByteBuffer allocate = ByteBuffer.allocate(this.f1997a.getWidth() * this.f1997a.getHeight() * 4);
+        this.f1997a.copyPixelsToBuffer(allocate);
         return allocate.array();
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public Bundle b() {
         MessageDigest messageDigest;
-        if (this.a == null) {
+        if (this.f1997a == null) {
             throw new IllegalStateException("BDMapSDKException: the bitmap has been recycled! you can not use it again");
         }
         if (this.b == null) {
             Bundle bundle = new Bundle();
-            bundle.putInt("image_width", this.a.getWidth());
-            bundle.putInt("image_height", this.a.getHeight());
-            byte[] a = a();
-            bundle.putByteArray("image_data", a);
+            bundle.putInt("image_width", this.f1997a.getWidth());
+            bundle.putInt("image_height", this.f1997a.getHeight());
+            byte[] a2 = a();
+            bundle.putByteArray("image_data", a2);
             try {
                 messageDigest = MessageDigest.getInstance("MD5");
             } catch (NoSuchAlgorithmException e) {
@@ -54,7 +56,7 @@ public final class BitmapDescriptor {
                 messageDigest = null;
             }
             if (messageDigest != null) {
-                messageDigest.update(a, 0, a.length);
+                messageDigest.update(a2, 0, a2.length);
                 byte[] digest = messageDigest.digest();
                 StringBuilder sb = new StringBuilder("");
                 for (byte b : digest) {
@@ -75,14 +77,14 @@ public final class BitmapDescriptor {
     }
 
     public Bitmap getBitmap() {
-        return this.a;
+        return this.f1997a;
     }
 
     public void recycle() {
-        if (this.a == null || this.a.isRecycled()) {
+        if (this.f1997a == null || this.f1997a.isRecycled()) {
             return;
         }
-        this.a.recycle();
-        this.a = null;
+        this.f1997a.recycle();
+        this.f1997a = null;
     }
 }

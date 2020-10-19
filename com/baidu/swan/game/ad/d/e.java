@@ -4,18 +4,18 @@ import android.text.TextUtils;
 import com.baidu.swan.apps.ap.ak;
 import java.text.SimpleDateFormat;
 import java.util.Date;
-/* loaded from: classes10.dex */
+/* loaded from: classes14.dex */
 public class e {
-    public static String aJZ() {
+    public static String aMI() {
         String substring = new a().encode(String.valueOf(System.currentTimeMillis())).substring(4, 14);
-        String bk = com.baidu.swan.apps.t.a.apz().bk(com.baidu.swan.apps.t.a.apu());
-        if (TextUtils.isEmpty(bk)) {
-            bk = ak.aFW();
+        String bq = com.baidu.swan.apps.t.a.ask().bq(com.baidu.swan.apps.t.a.asf());
+        if (TextUtils.isEmpty(bq)) {
+            bq = ak.aIF();
         }
-        return "38" + substring + bk.substring(0, 4);
+        return "38" + substring + bq.substring(0, 4);
     }
 
-    public static String aKa() {
+    public static String aMJ() {
         return new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(new Date());
     }
 }

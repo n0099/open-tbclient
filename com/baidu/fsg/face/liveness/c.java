@@ -2,9 +2,11 @@ package com.baidu.fsg.face.liveness;
 
 import android.content.Context;
 import com.baidu.fsg.base.utils.ResUtils;
-/* loaded from: classes16.dex */
+/* loaded from: classes17.dex */
 public class c {
-    public static final int a = 1;
+
+    /* renamed from: a  reason: collision with root package name */
+    public static final int f1716a = 1;
     public static final int b = 2;
     public static final String c = ResUtils.string("error_msg_get_userinfo_failure");
     public static final String d = ResUtils.string("error_msg_upload_failure");
@@ -18,9 +20,11 @@ public class c {
     public void a() {
     }
 
-    /* loaded from: classes16.dex */
+    /* loaded from: classes17.dex */
     public class a extends com.baidu.fsg.face.base.c.a {
-        public static final int a = 1;
+
+        /* renamed from: a  reason: collision with root package name */
+        public static final int f1717a = 1;
         public static final int b = 2;
         public static final int c = 5;
         public static final int d = -306;

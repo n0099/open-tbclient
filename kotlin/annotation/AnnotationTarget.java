@@ -2,7 +2,7 @@ package kotlin.annotation;
 
 import kotlin.h;
 @h
-/* loaded from: classes5.dex */
+/* loaded from: classes10.dex */
 public enum AnnotationTarget {
     CLASS,
     ANNOTATION_CLASS,

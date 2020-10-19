@@ -2,7 +2,7 @@ package com.baidu.sapi2.utils;
 
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes25.dex */
+/* loaded from: classes5.dex */
 public class j {
     public static final String g = "t_open_login";
     public static final String h = "t_view_init_done";
@@ -10,7 +10,9 @@ public class j {
     public static final String j = "t_start_login";
     public static final String k = "t_load_login";
     public static final String l = "is_load_cache";
-    public long a;
+
+    /* renamed from: a  reason: collision with root package name */
+    public long f3557a;
     public long b;
     public long c;
     public long d;
@@ -20,7 +22,7 @@ public class j {
     public JSONObject a() {
         JSONObject jSONObject = new JSONObject();
         try {
-            jSONObject.put(g, this.a);
+            jSONObject.put(g, this.f3557a);
             jSONObject.put(h, this.b);
             jSONObject.put(i, this.c);
             jSONObject.put(j, this.d);
