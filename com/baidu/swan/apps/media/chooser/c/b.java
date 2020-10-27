@@ -5,5 +5,5 @@ import java.io.File;
 public interface b {
     void E(File file);
 
-    void pr(String str);
+    void pK(String str);
 }

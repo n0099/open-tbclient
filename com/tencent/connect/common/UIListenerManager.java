@@ -18,14 +18,14 @@ import org.json.JSONObject;
 public class UIListenerManager {
 
     /* renamed from: a  reason: collision with root package name */
-    private static UIListenerManager f4553a = null;
+    private static UIListenerManager f4551a = null;
     private Map<String, ApiTask> b;
 
     public static UIListenerManager getInstance() {
-        if (f4553a == null) {
-            f4553a = new UIListenerManager();
+        if (f4551a == null) {
+            f4551a = new UIListenerManager();
         }
-        return f4553a;
+        return f4551a;
     }
 
     private UIListenerManager() {

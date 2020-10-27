@@ -13,42 +13,42 @@ import java.util.Set;
 /* loaded from: classes10.dex */
 public final class a implements c {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    private ClassLoader dqk;
-    private final Object[] dqr;
-    private final Set<b<?>> dqi = new HashSet();
-    private final Set<Object> dqj = new HashSet();
-    private int dql = 0;
-    private int dqm = 0;
-    private int dqn = 0;
-    private int dqo = 0;
-    private int dqp = -1;
-    private int dqq = 0;
+    private ClassLoader dyK;
+    private final Object[] dyR;
+    private final Set<b<?>> dyI = new HashSet();
+    private final Set<Object> dyJ = new HashSet();
+    private int dyL = 0;
+    private int dyM = 0;
+    private int dyN = 0;
+    private int dyO = 0;
+    private int dyP = -1;
+    private int dyQ = 0;
 
     private a(ClassLoader classLoader, Object... objArr) {
-        this.dqk = classLoader;
-        this.dqr = objArr == null ? new Object[0] : objArr;
+        this.dyK = classLoader;
+        this.dyR = objArr == null ? new Object[0] : objArr;
     }
 
     public static a a(ClassLoader classLoader, Object... objArr) {
         return new a(classLoader, objArr);
     }
 
-    public boolean aIZ() {
-        return this.dqq > 0;
+    public boolean aKT() {
+        return this.dyQ > 0;
     }
 
     public a a(b<?>... bVarArr) {
         if (bVarArr != null) {
-            this.dqi.addAll(Arrays.asList(bVarArr));
+            this.dyI.addAll(Arrays.asList(bVarArr));
         }
         return this;
     }
 
-    public a kY(int i) {
+    public a lj(int i) {
         Object[] objArr;
-        if (!aIZ() && i > 0) {
-            this.dqq = i;
-            for (Object obj : this.dqr) {
+        if (!aKT() && i > 0) {
+            this.dyQ = i;
+            for (Object obj : this.dyR) {
                 if (obj instanceof Class) {
                     a(i, (Class) obj);
                 } else if (obj instanceof Annotation) {
@@ -64,50 +64,50 @@ public final class a implements c {
                 }
             }
         }
-        this.dqq = 0;
+        this.dyQ = 0;
         return this;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public a a(int i, @NonNull Class<?>... clsArr) {
-        return a(dqs, i, clsArr);
+        return a(dyS, i, clsArr);
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public a a(int i, @NonNull Package... packageArr) {
-        return a(dqt, i, packageArr);
+        return a(dyT, i, packageArr);
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public a a(int i, @NonNull Annotation... annotationArr) {
-        return a(dqu, i, annotationArr);
+        return a(dyU, i, annotationArr);
     }
 
     public a a(int i, @NonNull Method... methodArr) {
-        return a(dqw, i, methodArr);
+        return a(dyW, i, methodArr);
     }
 
     public a a(int i, @NonNull Field... fieldArr) {
-        return a(dqv, i, fieldArr);
+        return a(dyV, i, fieldArr);
     }
 
     public a a(int i, Constructor<?>... constructorArr) {
-        return a(dqx, i, constructorArr);
+        return a(dyX, i, constructorArr);
     }
 
     @RequiresApi(api = 26)
     public a a(int i, Parameter... parameterArr) {
-        return a(dqy, i, parameterArr);
+        return a(dyY, i, parameterArr);
     }
 
     @SafeVarargs
     private final <TargeT> a a(@NonNull b<TargeT> bVar, int i, TargeT... targetArr) {
-        if (!this.dqi.contains(bVar)) {
+        if (!this.dyI.contains(bVar)) {
             int i2 = i - 1;
             if (i > 0 && targetArr != null && targetArr.length > 0) {
                 for (TargeT target : targetArr) {
                     if (ab(target)) {
-                        bVar.a(this, this.dqk, i2, target);
+                        bVar.a(this, this.dyK, i2, target);
                     }
                 }
             }
@@ -116,15 +116,15 @@ public final class a implements c {
     }
 
     private <TargeT> boolean ab(TargeT target) {
-        this.dql++;
+        this.dyL++;
         if (target == null) {
-            this.dqn++;
+            this.dyN++;
             return false;
-        } else if (this.dqj.contains(target)) {
-            this.dqm++;
+        } else if (this.dyJ.contains(target)) {
+            this.dyM++;
             return false;
         } else {
-            this.dqj.add(target);
+            this.dyJ.add(target);
             return true;
         }
     }

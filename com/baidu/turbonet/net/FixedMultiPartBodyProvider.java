@@ -22,12 +22,12 @@ public class FixedMultiPartBodyProvider extends UploadDataProvider {
             byteBuffer.put(this.mContent.getBytes(), this.mOffset, byteBuffer.remaining());
             this.mOffset += byteBuffer.remaining();
         }
-        uploadDataSink.yq(false);
+        uploadDataSink.zg(false);
     }
 
     @Override // com.baidu.turbonet.net.UploadDataProvider
     public void a(UploadDataSink uploadDataSink) {
         this.mOffset = 0;
-        uploadDataSink.dRX();
+        uploadDataSink.dXP();
     }
 }

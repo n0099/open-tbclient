@@ -9,7 +9,7 @@ import java.util.ArrayList;
 public abstract class b {
 
     /* renamed from: a  reason: collision with root package name */
-    protected ViewGroup f4268a;
+    protected ViewGroup f4266a;
     protected View b;
     protected View c;
     protected int d;
@@ -27,11 +27,11 @@ public abstract class b {
 
     public abstract int c(int i, int i2);
 
-    public abstract int dY(int i, int i2);
+    public abstract int eg(int i, int i2);
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public void a(ViewGroup viewGroup, View view, View view2, int i, int i2) {
-        this.f4268a = viewGroup;
+        this.f4266a = viewGroup;
         this.b = view;
         this.c = view2;
         this.d = i;

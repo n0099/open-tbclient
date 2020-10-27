@@ -148,7 +148,7 @@ public class SwanAppNetworkUtils {
         return "unknown";
     }
 
-    public static NetType ayn() {
+    public static NetType aAh() {
         String networkClass = getNetworkClass();
         char c = 65535;
         switch (networkClass.hashCode()) {
@@ -222,12 +222,12 @@ public class SwanAppNetworkUtils {
         }
     }
 
-    public static String ayo() {
-        String tR = ak.tR(com.baidu.swan.apps.core.turbo.d.ann().anL());
-        if (TextUtils.isEmpty(tR)) {
+    public static String aAi() {
+        String uk = ak.uk(com.baidu.swan.apps.core.turbo.d.aph().apG());
+        if (TextUtils.isEmpty(uk)) {
             return "";
         }
-        return tR;
+        return uk;
     }
 
     public static <T> void a(String str, String str2, ResponseCallback<T> responseCallback) {
@@ -235,12 +235,12 @@ public class SwanAppNetworkUtils {
             Log.d("postJsonRequest", "url:" + str + "\nbody:" + str2);
         }
         if (!TextUtils.isEmpty(str)) {
-            com.baidu.swan.a.c.a.aWr().postStringRequest().url(str).cookieManager(com.baidu.swan.apps.t.a.asF().adP()).mediaType("application/json;charset=utf-8").content(str2).build().executeAsync(responseCallback);
+            com.baidu.swan.a.c.a.aYk().postStringRequest().url(str).cookieManager(com.baidu.swan.apps.t.a.auz().afJ()).mediaType("application/json;charset=utf-8").content(str2).build().executeAsync(responseCallback);
         }
     }
 
     public static void a(@NonNull final a aVar) {
-        com.baidu.swan.apps.process.messaging.client.a.aAU().b(null, com.baidu.swan.games.network.d.class, new com.baidu.swan.apps.process.a.b.c.b() { // from class: com.baidu.swan.apps.network.SwanAppNetworkUtils.1
+        com.baidu.swan.apps.process.messaging.client.a.aCO().b(null, com.baidu.swan.games.network.d.class, new com.baidu.swan.apps.process.a.b.c.b() { // from class: com.baidu.swan.apps.network.SwanAppNetworkUtils.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.swan.apps.process.a.b.c.a
             public void onEvent(@NonNull com.baidu.swan.apps.process.a.b.a.b bVar) {

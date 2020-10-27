@@ -7,11 +7,11 @@ import javax.annotation.Nullable;
 public interface d {
     d S(Uri uri);
 
-    d bl(Object obj);
+    d bp(Object obj);
 
     d c(Uri uri, Map<String, String> map);
 
     d c(@Nullable a aVar);
 
-    a dXW();
+    a ehU();
 }

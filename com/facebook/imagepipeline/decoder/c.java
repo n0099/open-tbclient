@@ -5,14 +5,14 @@ import java.util.List;
 import java.util.Map;
 /* loaded from: classes18.dex */
 public class c {
-    private final Map<com.facebook.c.c, b> nVU;
-    private final List<c.a> nVV;
+    private final Map<com.facebook.c.c, b> oNm;
+    private final List<c.a> oNn;
 
-    public Map<com.facebook.c.c, b> ebT() {
-        return this.nVU;
+    public Map<com.facebook.c.c, b> elR() {
+        return this.oNm;
     }
 
-    public List<c.a> ebU() {
-        return this.nVV;
+    public List<c.a> elS() {
+        return this.oNn;
     }
 }

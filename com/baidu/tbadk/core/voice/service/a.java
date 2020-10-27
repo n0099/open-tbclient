@@ -8,50 +8,50 @@ import java.io.IOException;
 import java.io.RandomAccessFile;
 /* loaded from: classes.dex */
 public class a implements d {
-    public static int eNc = CoolPraiseGuideLottieView.ANIM_DURATION;
-    public static int eNd = 2;
-    public static int eNe = 2;
-    public static int eNf = 1;
     private int channelConfiguration;
     private int dataSize;
-    private RandomAccessFile eNg;
-    private int eNh;
-    private int eNi;
-    private short eNj;
-    private short eNk;
+    private RandomAccessFile eVC;
+    private int eVD;
+    private int eVE;
+    private short eVF;
+    private short eVG;
     private String filePath;
+    public static int eVy = CoolPraiseGuideLottieView.ANIM_DURATION;
+    public static int eVz = 2;
+    public static int eVA = 2;
+    public static int eVB = 1;
     private int bufferSize = 0;
-    private boolean abl = false;
+    private boolean abm = false;
     private AudioRecord mAudioRecord = null;
     private File file = null;
 
     public boolean a(int i, int i2, int i3, int i4, String str) {
         this.bufferSize = AudioRecord.getMinBufferSize(i2, i3, i4) + 2048;
-        this.eNh = i2;
+        this.eVD = i2;
         this.channelConfiguration = i3;
-        this.eNi = i4;
+        this.eVE = i4;
         if (this.mAudioRecord != null) {
             this.mAudioRecord.release();
         }
-        this.mAudioRecord = new AudioRecord(i, this.eNh, this.channelConfiguration, this.eNi, this.bufferSize);
-        this.eNj = (short) (this.channelConfiguration == 12 ? 2 : 1);
-        this.eNk = (short) (this.eNi == 2 ? 16 : 8);
+        this.mAudioRecord = new AudioRecord(i, this.eVD, this.channelConfiguration, this.eVE, this.bufferSize);
+        this.eVF = (short) (this.channelConfiguration == 12 ? 2 : 1);
+        this.eVG = (short) (this.eVE == 2 ? 16 : 8);
         this.file = new File(str);
         if (this.file.exists()) {
             this.file.delete();
         }
         try {
             this.file.createNewFile();
-            if (this.eNg != null) {
+            if (this.eVC != null) {
                 try {
-                    this.eNg.close();
+                    this.eVC.close();
                 } catch (IOException e) {
                     e.printStackTrace();
                     return false;
                 }
             }
             try {
-                this.eNg = new RandomAccessFile(this.file, "rw");
+                this.eVC = new RandomAccessFile(this.file, "rw");
                 writeHeader();
                 setFilePath(this.file.getParent());
                 return true;
@@ -66,30 +66,30 @@ public class a implements d {
     }
 
     @Override // com.baidu.tbadk.core.voice.service.d
-    public boolean BX(String str) {
-        return a(eNf, eNc, eNd, eNe, str);
+    public boolean Cq(String str) {
+        return a(eVB, eVy, eVz, eVA, str);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void bpD() {
+    public void brw() {
         if (this.mAudioRecord != null && this.file != null) {
             try {
-                this.abl = true;
+                this.abm = true;
                 byte[] bArr = new byte[this.bufferSize];
                 this.mAudioRecord.startRecording();
-                while (this.abl) {
+                while (this.abm) {
                     this.mAudioRecord.read(bArr, 0, bArr.length);
-                    this.eNg.write(bArr);
+                    this.eVC.write(bArr);
                     this.dataSize += bArr.length;
                 }
-                this.eNg.seek(4L);
-                this.eNg.writeInt(Integer.reverseBytes(this.dataSize + 36));
-                this.eNg.seek(40L);
-                this.eNg.writeInt(Integer.reverseBytes(this.dataSize));
-                this.eNg.close();
+                this.eVC.seek(4L);
+                this.eVC.writeInt(Integer.reverseBytes(this.dataSize + 36));
+                this.eVC.seek(40L);
+                this.eVC.writeInt(Integer.reverseBytes(this.dataSize));
+                this.eVC.close();
                 this.mAudioRecord.stop();
                 this.mAudioRecord.release();
-                this.abl = false;
+                this.abm = false;
             } catch (Throwable th) {
                 if (this.file.exists()) {
                     this.file.delete();
@@ -99,11 +99,11 @@ public class a implements d {
     }
 
     @Override // com.baidu.tbadk.core.voice.service.d
-    public boolean bpE() {
+    public boolean brx() {
         Thread thread = new Thread(new Runnable() { // from class: com.baidu.tbadk.core.voice.service.a.1
             @Override // java.lang.Runnable
             public void run() {
-                a.this.bpD();
+                a.this.brw();
             }
         });
         thread.setPriority(10);
@@ -113,31 +113,31 @@ public class a implements d {
     }
 
     @Override // com.baidu.tbadk.core.voice.service.d
-    public void bpF() {
-        this.abl = false;
+    public void bry() {
+        this.abm = false;
     }
 
     @Override // com.baidu.tbadk.core.voice.service.d
-    public boolean bpG() {
-        return this.abl;
+    public boolean brz() {
+        return this.abm;
     }
 
     private void writeHeader() {
         try {
-            this.eNg.setLength(0L);
-            this.eNg.writeBytes("RIFF");
-            this.eNg.writeInt(0);
-            this.eNg.writeBytes("WAVE");
-            this.eNg.writeBytes("fmt ");
-            this.eNg.writeInt(Integer.reverseBytes(16));
-            this.eNg.writeShort(Short.reverseBytes((short) 1));
-            this.eNg.writeShort(Short.reverseBytes(this.eNj));
-            this.eNg.writeInt(Integer.reverseBytes(this.eNh));
-            this.eNg.writeInt(Integer.reverseBytes(((this.eNh * this.eNj) * this.eNk) / 8));
-            this.eNg.writeShort(Short.reverseBytes((short) ((this.eNj * this.eNk) / 8)));
-            this.eNg.writeShort(Short.reverseBytes(this.eNk));
-            this.eNg.writeBytes("data");
-            this.eNg.writeInt(0);
+            this.eVC.setLength(0L);
+            this.eVC.writeBytes("RIFF");
+            this.eVC.writeInt(0);
+            this.eVC.writeBytes("WAVE");
+            this.eVC.writeBytes("fmt ");
+            this.eVC.writeInt(Integer.reverseBytes(16));
+            this.eVC.writeShort(Short.reverseBytes((short) 1));
+            this.eVC.writeShort(Short.reverseBytes(this.eVF));
+            this.eVC.writeInt(Integer.reverseBytes(this.eVD));
+            this.eVC.writeInt(Integer.reverseBytes(((this.eVD * this.eVF) * this.eVG) / 8));
+            this.eVC.writeShort(Short.reverseBytes((short) ((this.eVF * this.eVG) / 8)));
+            this.eVC.writeShort(Short.reverseBytes(this.eVG));
+            this.eVC.writeBytes("data");
+            this.eVC.writeInt(0);
         } catch (IOException e) {
             if (this.file.exists()) {
                 this.file.delete();

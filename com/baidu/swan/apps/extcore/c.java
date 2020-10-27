@@ -11,18 +11,18 @@ import com.baidu.swan.apps.extcore.model.ExtensionCore;
 /* loaded from: classes10.dex */
 public class c extends com.baidu.swan.apps.extcore.b.b<com.baidu.swan.games.h.c.a, com.baidu.swan.games.h.d.a> {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    private static volatile c cFk;
+    private static volatile c cNG;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public static c apB() {
-        if (cFk == null) {
+    public static c arv() {
+        if (cNG == null) {
             synchronized (c.class) {
-                if (cFk == null) {
-                    cFk = new c();
+                if (cNG == null) {
+                    cNG = new c();
                 }
             }
         }
-        return cFk;
+        return cNG;
     }
 
     private c() {
@@ -31,9 +31,9 @@ public class c extends com.baidu.swan.apps.extcore.b.b<com.baidu.swan.games.h.c.
 
     @Override // com.baidu.swan.apps.extcore.b.b
     @Nullable
-    public ExtensionCore anJ() {
+    public ExtensionCore apE() {
         if (ProcessUtils.isMainProcess()) {
-            return apG();
+            return arA();
         }
         Bundle bundle = DelegateUtils.callOnMainWithContentProvider(AppRuntime.getAppContext(), a.class, null).mResult;
         bundle.setClassLoader(ExtensionCore.class.getClassLoader());
@@ -46,12 +46,12 @@ public class c extends com.baidu.swan.apps.extcore.b.b<com.baidu.swan.games.h.c.
     }
 
     /* loaded from: classes10.dex */
-    private static class a extends a.C0414a {
+    private static class a extends a.C0428a {
         private a() {
         }
 
-        @Override // com.baidu.swan.apps.extcore.a.C0414a
-        protected int abk() {
+        @Override // com.baidu.swan.apps.extcore.a.C0428a
+        protected int ade() {
             return 1;
         }
     }

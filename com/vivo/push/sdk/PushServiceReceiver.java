@@ -15,7 +15,7 @@ import com.xiaomi.mipush.sdk.Constants;
 public class PushServiceReceiver extends BroadcastReceiver {
 
     /* renamed from: a  reason: collision with root package name */
-    private static HandlerThread f4693a = null;
+    private static HandlerThread f4691a = null;
     private static Handler b = null;
     private static a c = new a();
 
@@ -23,11 +23,11 @@ public class PushServiceReceiver extends BroadcastReceiver {
     public void onReceive(Context context, Intent intent) {
         String action = intent.getAction();
         if ("android.net.conn.CONNECTIVITY_CHANGE".equals(action) || "android.intent.action.ACTION_POWER_CONNECTED".equals(action) || "android.intent.action.ACTION_POWER_DISCONNECTED".equals(action)) {
-            if (f4693a == null) {
+            if (f4691a == null) {
                 HandlerThread handlerThread = new HandlerThread("PushServiceReceiver");
-                f4693a = handlerThread;
+                f4691a = handlerThread;
                 handlerThread.start();
-                b = new Handler(f4693a.getLooper());
+                b = new Handler(f4691a.getLooper());
             }
             p.d("PushServiceReceiver", context.getPackageName() + ": start PushSerevice for by " + action + "  ; handler : " + b);
             a.a(c, context, action);
@@ -40,7 +40,7 @@ public class PushServiceReceiver extends BroadcastReceiver {
     static class a implements Runnable {
 
         /* renamed from: a  reason: collision with root package name */
-        private Context f4694a;
+        private Context f4692a;
         private String b;
 
         a() {
@@ -49,27 +49,27 @@ public class PushServiceReceiver extends BroadcastReceiver {
         @Override // java.lang.Runnable
         public final void run() {
             boolean z;
-            NetworkInfo activeNetworkInfo = ((ConnectivityManager) this.f4694a.getApplicationContext().getSystemService("connectivity")).getActiveNetworkInfo();
+            NetworkInfo activeNetworkInfo = ((ConnectivityManager) this.f4692a.getApplicationContext().getSystemService("connectivity")).getActiveNetworkInfo();
             if (activeNetworkInfo != null) {
                 z = activeNetworkInfo.isConnectedOrConnecting();
             } else {
                 z = false;
             }
             if (!z) {
-                p.d("PushServiceReceiver", this.f4694a.getPackageName() + ": 无网络  by " + this.b);
-                p.a(this.f4694a, "触发静态广播:无网络(" + this.b + Constants.ACCEPT_TIME_SEPARATOR_SP + this.f4694a.getPackageName() + ")");
+                p.d("PushServiceReceiver", this.f4692a.getPackageName() + ": 无网络  by " + this.b);
+                p.a(this.f4692a, "触发静态广播:无网络(" + this.b + Constants.ACCEPT_TIME_SEPARATOR_SP + this.f4692a.getPackageName() + ")");
                 return;
             }
-            p.d("PushServiceReceiver", this.f4694a.getPackageName() + ": 执行开始出发动作: " + this.b);
-            p.a(this.f4694a, "触发静态广播(" + this.b + Constants.ACCEPT_TIME_SEPARATOR_SP + this.f4694a.getPackageName() + ")");
-            com.vivo.push.p.a().a(this.f4694a);
-            if (!ClientConfigManagerImpl.getInstance(this.f4694a).isCancleBroadcastReceiver()) {
-                PushClient.getInstance(this.f4694a).initialize();
+            p.d("PushServiceReceiver", this.f4692a.getPackageName() + ": 执行开始出发动作: " + this.b);
+            p.a(this.f4692a, "触发静态广播(" + this.b + Constants.ACCEPT_TIME_SEPARATOR_SP + this.f4692a.getPackageName() + ")");
+            com.vivo.push.p.a().a(this.f4692a);
+            if (!ClientConfigManagerImpl.getInstance(this.f4692a).isCancleBroadcastReceiver()) {
+                PushClient.getInstance(this.f4692a).initialize();
             }
         }
 
         static /* synthetic */ void a(a aVar, Context context, String str) {
-            aVar.f4694a = context.getApplicationContext();
+            aVar.f4692a = context.getApplicationContext();
             aVar.b = str;
         }
     }

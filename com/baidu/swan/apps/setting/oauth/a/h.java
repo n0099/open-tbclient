@@ -15,29 +15,29 @@ import okhttp3.ResponseBody;
 import org.json.JSONObject;
 /* loaded from: classes10.dex */
 public abstract class h<ResultDataT> extends com.baidu.swan.apps.setting.oauth.b<ResultDataT> {
-    private final Map<String, String> cUQ = new HashMap();
-    private boolean dkA;
-    private String dkx;
-    private JSONObject dky;
-    private boolean dkz;
+    private final Map<String, String> ddp = new HashMap();
+    private String dsY;
+    private JSONObject dsZ;
+    private boolean dta;
+    private boolean dtb;
 
     protected abstract HttpRequest a(h hVar);
 
     @Override // com.baidu.swan.apps.setting.oauth.b
-    protected void aET() {
+    protected void aGN() {
         ExecutorUtilsExt.postOnElastic(new Runnable() { // from class: com.baidu.swan.apps.setting.oauth.a.h.1
             @Override // java.lang.Runnable
             public void run() {
                 if (com.baidu.swan.apps.setting.oauth.b.DEBUG) {
                     Log.d("OAuthRequest", "OAuthRequest.onExec in thread pool");
                 }
-                h.this.aFo();
+                h.this.aHi();
             }
         }, "OAuthRequest-onExec", 2);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void aFo() {
+    public void aHi() {
         HttpRequest a2 = a(this);
         if (a2 != null) {
             a2.executeAsync(new ResponseCallback() { // from class: com.baidu.swan.apps.setting.oauth.a.h.2
@@ -73,42 +73,42 @@ public abstract class h<ResultDataT> extends com.baidu.swan.apps.setting.oauth.b
             v(new OAuthException(10001));
             return;
         }
-        sg(body.string());
+        sA(body.string());
     }
 
     @NonNull
-    public com.baidu.swan.apps.runtime.e aFp() {
-        com.baidu.swan.apps.runtime.e aDa = com.baidu.swan.apps.runtime.e.aDa();
-        if (aDa == null) {
+    public com.baidu.swan.apps.runtime.e aHj() {
+        com.baidu.swan.apps.runtime.e aEU = com.baidu.swan.apps.runtime.e.aEU();
+        if (aEU == null) {
             throw new IllegalStateException("null SwanApp");
         }
-        return aDa;
+        return aEU;
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public h<ResultDataT> co(String str, String str2) {
-        this.cUQ.put(str, str2);
+    public h<ResultDataT> cv(String str, String str2) {
+        this.ddp.put(str, str2);
         return this;
     }
 
-    public Map<String, String> aFq() {
-        return this.cUQ;
+    public Map<String, String> aHk() {
+        return this.ddp;
     }
 
-    public void aFr() {
-        this.dkz = true;
+    public void aHl() {
+        this.dta = true;
     }
 
-    public void aFs() {
-        this.dkA = true;
+    public void aHm() {
+        this.dtb = true;
     }
 
-    protected void sg(String str) {
+    protected void sA(String str) {
         int optInt;
-        this.dkx = str;
+        this.dsY = str;
         try {
-            this.dky = new JSONObject(this.dkx);
-            optInt = this.dky.optInt(BaseJsonData.TAG_ERRNO);
+            this.dsZ = new JSONObject(this.dsY);
+            optInt = this.dsZ.optInt(BaseJsonData.TAG_ERRNO);
         } catch (OAuthException e) {
             v(e);
         } catch (Exception e2) {
@@ -116,50 +116,50 @@ public abstract class h<ResultDataT> extends com.baidu.swan.apps.setting.oauth.b
             v(new OAuthException(10005));
             com.baidu.swan.apps.statistic.h.b(10005, null);
         }
-        if ((this.dkz && optInt == 402) || (this.dkA && optInt == 401)) {
-            this.dkz = false;
-            this.dkA = false;
-            if (com.baidu.swan.apps.d.a.f.cim.aeV()) {
-                com.baidu.swan.apps.d.a.f.cim.aeU();
+        if ((this.dta && optInt == 402) || (this.dtb && optInt == 401)) {
+            this.dta = false;
+            this.dtb = false;
+            if (com.baidu.swan.apps.d.a.f.cqM.agP()) {
+                com.baidu.swan.apps.d.a.f.cqM.agO();
             }
-            sh(str);
-        } else if (jY(optInt)) {
-            if (com.baidu.swan.apps.d.a.f.cim.aeV()) {
-                com.baidu.swan.apps.d.a.f.cim.aeU();
-                sh(str);
+            sB(str);
+        } else if (kj(optInt)) {
+            if (com.baidu.swan.apps.d.a.f.cqM.agP()) {
+                com.baidu.swan.apps.d.a.f.cqM.agO();
+                sB(str);
             } else if (DEBUG) {
                 throw new RuntimeException("is not AllianceLogin, error number");
             }
         } else {
-            Z(bL(this.dky));
-            aFk();
+            Z(bO(this.dsZ));
+            aHe();
             finish();
         }
     }
 
-    private boolean jY(int i) {
+    private boolean kj(int i) {
         return i == 600101 || i == 600102 || i == 600103 || i == 402 || i == 401;
     }
 
-    private void sh(final String str) {
-        aFp().aDn().a(com.baidu.swan.apps.v.f.avu().ave(), null, new com.baidu.swan.apps.a.a() { // from class: com.baidu.swan.apps.setting.oauth.a.h.3
+    private void sB(final String str) {
+        aHj().aFh().a(com.baidu.swan.apps.v.f.axo().awY(), null, new com.baidu.swan.apps.a.a() { // from class: com.baidu.swan.apps.setting.oauth.a.h.3
             @Override // com.baidu.swan.apps.a.a
             public void onResult(int i) {
                 if (i == 0) {
                     h.this.rE();
-                    h.this.aER();
+                    h.this.aGL();
                     return;
                 }
-                h.this.sg(str);
+                h.this.sA(str);
             }
         });
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public void aFk() {
+    public void aHe() {
     }
 
     public String toString() {
-        return String.format("%s \n  status(%s) errorcode(%s)  \n  strResponse :: %s \n  joResponse ::  %s \n  Result :: %s \n  Exception :: %s", super.toString(), aES(), Integer.valueOf(this.djk.getErrorCode()), this.dkx, this.dky, this.djk.mData, this.djk.aFj());
+        return String.format("%s \n  status(%s) errorcode(%s)  \n  strResponse :: %s \n  joResponse ::  %s \n  Result :: %s \n  Exception :: %s", super.toString(), aGM(), Integer.valueOf(this.drK.getErrorCode()), this.dsY, this.dsZ, this.drK.mData, this.drK.aHd());
     }
 }

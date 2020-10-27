@@ -8,12 +8,12 @@ public class a implements com.baidu.tieba.r.a {
 
     /* renamed from: com.baidu.tieba.ad.statis.a$a  reason: collision with other inner class name */
     /* loaded from: classes21.dex */
-    private static class C0582a {
-        private static a fEK = new a();
+    private static class C0596a {
+        private static a fNf = new a();
     }
 
-    public static a bFq() {
-        return C0582a.fEK;
+    public static a bHj() {
+        return C0596a.fNf;
     }
 
     @Override // com.baidu.tieba.r.a
@@ -27,7 +27,7 @@ public class a implements com.baidu.tieba.r.a {
     }
 
     @Override // com.baidu.tieba.r.a
-    public void dW(String str, String str2) {
+    public void ed(String str, String str2) {
         CustomALSHttpMessage init = new CustomALSHttpMessage().init(PayHelper.STATUS_SUCC, "every_log");
         init.addParam("f1", "cardshow");
         init.addParam("f2", str2);
@@ -36,7 +36,7 @@ public class a implements com.baidu.tieba.r.a {
     }
 
     @Override // com.baidu.tieba.r.a
-    public void dX(String str, String str2) {
+    public void ee(String str, String str2) {
         CustomALSHttpMessage init = new CustomALSHttpMessage().init(PayHelper.STATUS_SUCC, "every_log");
         init.addParam("f1", "cardclick");
         init.addParam("f2", str2);
@@ -45,7 +45,7 @@ public class a implements com.baidu.tieba.r.a {
     }
 
     @Override // com.baidu.tieba.r.a
-    public void dY(String str, String str2) {
+    public void ef(String str, String str2) {
         CustomALSHttpMessage init = new CustomALSHttpMessage().init(PayHelper.STATUS_SUCC, "every_log");
         init.addParam("f1", "fullvideoshow");
         init.addParam("f2", str2);
@@ -65,7 +65,7 @@ public class a implements com.baidu.tieba.r.a {
     }
 
     @Override // com.baidu.tieba.r.a
-    public void ag(String str, String str2, String str3) {
+    public void an(String str, String str2, String str3) {
         CustomALSHttpMessage init = new CustomALSHttpMessage().init(PayHelper.STATUS_SUCC, "every_log");
         init.addParam("f1", "alert_click");
         init.addParam("f2", str);

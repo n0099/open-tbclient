@@ -14,7 +14,7 @@ import java.util.concurrent.ScheduledExecutorService;
 public class d extends c<SubAliasStatus> {
 
     /* renamed from: a  reason: collision with root package name */
-    private String f4445a;
+    private String f4443a;
     private int b;
     private String c;
     private Map<String, Boolean> m;
@@ -35,7 +35,7 @@ public class d extends c<SubAliasStatus> {
 
     public d(Context context, String str, String str2, String str3, com.meizu.cloud.pushsdk.platform.a.a aVar, ScheduledExecutorService scheduledExecutorService) {
         this(context, str, str2, aVar, scheduledExecutorService);
-        this.f4445a = str3;
+        this.f4443a = str3;
     }
 
     private void b(boolean z) {
@@ -79,7 +79,7 @@ public class d extends c<SubAliasStatus> {
 
     @Override // com.meizu.cloud.pushsdk.platform.b.c
     protected boolean a() {
-        return (TextUtils.isEmpty(this.f) || TextUtils.isEmpty(this.g) || TextUtils.isEmpty(this.f4445a)) ? false : true;
+        return (TextUtils.isEmpty(this.f) || TextUtils.isEmpty(this.g) || TextUtils.isEmpty(this.f4443a)) ? false : true;
     }
 
     @Override // com.meizu.cloud.pushsdk.platform.b.c
@@ -89,7 +89,7 @@ public class d extends c<SubAliasStatus> {
             intent.putExtra("app_id", this.f);
             intent.putExtra("app_key", this.g);
             intent.putExtra("strategy_package_name", this.e.getPackageName());
-            intent.putExtra("push_id", this.f4445a);
+            intent.putExtra("push_id", this.f4443a);
             intent.putExtra("strategy_type", g());
             intent.putExtra("strategy_child_type", this.b);
             intent.putExtra("strategy_params", this.c);
@@ -99,7 +99,7 @@ public class d extends c<SubAliasStatus> {
     }
 
     public void e(String str) {
-        this.f4445a = str;
+        this.f4443a = str;
     }
 
     @Override // com.meizu.cloud.pushsdk.platform.b.c
@@ -118,7 +118,7 @@ public class d extends c<SubAliasStatus> {
             subAliasStatus.setMessage("appId not empty");
         } else if (TextUtils.isEmpty(this.g)) {
             subAliasStatus.setMessage("appKey not empty");
-        } else if (TextUtils.isEmpty(this.f4445a)) {
+        } else if (TextUtils.isEmpty(this.f4443a)) {
             subAliasStatus.setMessage("pushId not empty");
         }
         return subAliasStatus;
@@ -131,7 +131,7 @@ public class d extends c<SubAliasStatus> {
     public SubAliasStatus e() {
         com.meizu.cloud.pushsdk.b.a.c d;
         SubAliasStatus subAliasStatus = new SubAliasStatus();
-        subAliasStatus.setPushId(this.f4445a);
+        subAliasStatus.setPushId(this.f4443a);
         subAliasStatus.setMessage("");
         switch (this.b) {
             case 0:
@@ -145,7 +145,7 @@ public class d extends c<SubAliasStatus> {
                     if (r()) {
                         f(this.c);
                     }
-                    d = this.j.c(this.f, this.g, this.f4445a, this.c);
+                    d = this.j.c(this.f, this.g, this.f4443a, this.c);
                     break;
                 }
                 break;
@@ -160,7 +160,7 @@ public class d extends c<SubAliasStatus> {
                     if (r()) {
                         f("");
                     }
-                    d = this.j.d(this.f, this.g, this.f4445a, this.c);
+                    d = this.j.d(this.f, this.g, this.f4443a, this.c);
                     break;
                 }
             case 2:
@@ -201,7 +201,7 @@ public class d extends c<SubAliasStatus> {
             case 2:
                 SubAliasStatus subAliasStatus = new SubAliasStatus();
                 subAliasStatus.setCode(BasicPushStatus.SUCCESS_CODE);
-                subAliasStatus.setPushId(this.f4445a);
+                subAliasStatus.setPushId(this.f4443a);
                 subAliasStatus.setAlias(p());
                 subAliasStatus.setMessage("check alias success");
                 return subAliasStatus;

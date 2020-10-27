@@ -12,7 +12,7 @@ import java.io.File;
 public final class DeviceId {
 
     /* renamed from: a  reason: collision with root package name */
-    private static final String f993a = "DeviceId";
+    private static final String f990a = "DeviceId";
     private static final boolean b = false;
     private static g.a d;
     private static volatile DeviceId g;

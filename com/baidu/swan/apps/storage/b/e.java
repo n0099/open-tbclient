@@ -6,93 +6,93 @@ import com.baidu.swan.apps.storage.PathType;
 import java.io.File;
 /* loaded from: classes10.dex */
 public class e implements c {
-    private d dmp;
+    private d duR;
 
     @Override // com.baidu.swan.apps.storage.b.c
-    public String sY(String str) {
-        com.baidu.swan.apps.runtime.e aDb = com.baidu.swan.apps.runtime.e.aDb();
-        return aDb == null ? str : com.baidu.swan.apps.storage.b.d(str, aDb);
+    public String tr(String str) {
+        com.baidu.swan.apps.runtime.e aEV = com.baidu.swan.apps.runtime.e.aEV();
+        return aEV == null ? str : com.baidu.swan.apps.storage.b.d(str, aEV);
     }
 
     @Override // com.baidu.swan.apps.storage.b.c
-    public String sZ(String str) {
-        com.baidu.swan.apps.runtime.e aDb = com.baidu.swan.apps.runtime.e.aDb();
-        if (aDb == null) {
+    public String ts(String str) {
+        com.baidu.swan.apps.runtime.e aEV = com.baidu.swan.apps.runtime.e.aEV();
+        if (aEV == null) {
             return null;
         }
-        return com.baidu.swan.apps.storage.b.a(str, aDb, aDb.getVersion());
+        return com.baidu.swan.apps.storage.b.a(str, aEV, aEV.getVersion());
     }
 
     @Override // com.baidu.swan.apps.storage.b.c
-    public String ta(String str) {
-        com.baidu.swan.apps.runtime.e aDb = com.baidu.swan.apps.runtime.e.aDb();
-        if (aDb == null) {
+    public String tt(String str) {
+        com.baidu.swan.apps.runtime.e aEV = com.baidu.swan.apps.runtime.e.aEV();
+        if (aEV == null) {
             return null;
         }
-        return com.baidu.swan.apps.storage.b.cs(str, aDb.id);
+        return com.baidu.swan.apps.storage.b.cz(str, aEV.id);
     }
 
     @Override // com.baidu.swan.apps.storage.b.c
-    public String tb(String str) {
-        com.baidu.swan.apps.runtime.e aDb = com.baidu.swan.apps.runtime.e.aDb();
-        return aDb == null ? str : com.baidu.swan.apps.storage.b.cu(str, aDb.id);
+    public String tu(String str) {
+        com.baidu.swan.apps.runtime.e aEV = com.baidu.swan.apps.runtime.e.aEV();
+        return aEV == null ? str : com.baidu.swan.apps.storage.b.cB(str, aEV.id);
     }
 
     @Override // com.baidu.swan.apps.storage.b.c
-    public String tc(String str) {
-        String yA = com.baidu.swan.c.d.yA(str);
-        return TextUtils.isEmpty(yA) ? tb(str) : tb(str) + "." + yA;
+    public String tv(String str) {
+        String yT = com.baidu.swan.c.d.yT(str);
+        return TextUtils.isEmpty(yT) ? tu(str) : tu(str) + "." + yT;
     }
 
     @Override // com.baidu.swan.apps.storage.b.c
-    public String td(String str) {
-        com.baidu.swan.apps.runtime.e aDb = com.baidu.swan.apps.runtime.e.aDb();
-        return aDb == null ? "" : com.baidu.swan.apps.storage.b.P(aDb.id, str, null);
+    public String tw(String str) {
+        com.baidu.swan.apps.runtime.e aEV = com.baidu.swan.apps.runtime.e.aEV();
+        return aEV == null ? "" : com.baidu.swan.apps.storage.b.W(aEV.id, str, null);
     }
 
     @Override // com.baidu.swan.apps.storage.b.c
-    public String aGs() {
-        com.baidu.swan.apps.runtime.e aDb = com.baidu.swan.apps.runtime.e.aDb();
-        return aDb == null ? "" : com.baidu.swan.apps.storage.b.sO(aDb.id);
+    public String aIm() {
+        com.baidu.swan.apps.runtime.e aEV = com.baidu.swan.apps.runtime.e.aEV();
+        return aEV == null ? "" : com.baidu.swan.apps.storage.b.th(aEV.id);
     }
 
     @Override // com.baidu.swan.apps.storage.b.c
-    public String aGt() {
-        com.baidu.swan.apps.runtime.e aDb = com.baidu.swan.apps.runtime.e.aDb();
-        return aDb == null ? "" : com.baidu.swan.apps.storage.b.sL(aDb.id);
+    public String aIn() {
+        com.baidu.swan.apps.runtime.e aEV = com.baidu.swan.apps.runtime.e.aEV();
+        return aEV == null ? "" : com.baidu.swan.apps.storage.b.te(aEV.id);
     }
 
     @Override // com.baidu.swan.apps.storage.b.c
-    public String sP(String str) {
-        return com.baidu.swan.apps.storage.b.sP(str);
+    public String ti(String str) {
+        return com.baidu.swan.apps.storage.b.ti(str);
     }
 
     @Override // com.baidu.swan.apps.storage.b.c
-    public boolean sJ(String str) {
-        return com.baidu.swan.apps.storage.b.sJ(str);
+    public boolean tc(String str) {
+        return com.baidu.swan.apps.storage.b.tc(str);
     }
 
     @Override // com.baidu.swan.apps.storage.b.c
-    public boolean sK(String str) {
-        return com.baidu.swan.apps.storage.b.sK(str);
+    public boolean td(String str) {
+        return com.baidu.swan.apps.storage.b.td(str);
     }
 
     @Override // com.baidu.swan.apps.storage.b.c
-    public boolean ae(String str, boolean z) {
+    public boolean ag(String str, boolean z) {
         if (TextUtils.isEmpty(str)) {
             return false;
         }
-        PathType sQ = com.baidu.swan.apps.storage.b.sQ(str);
+        PathType tj = com.baidu.swan.apps.storage.b.tj(str);
         if (z) {
-            sQ = a(str, sQ);
+            tj = a(str, tj);
         }
-        return sQ != PathType.ERROR;
+        return tj != PathType.ERROR;
     }
 
     private PathType a(String str, PathType pathType) {
         switch (pathType) {
             case RELATIVE:
-                if (te(str)) {
+                if (tx(str)) {
                     return PathType.ERROR;
                 }
                 return pathType;
@@ -110,14 +110,14 @@ public class e implements c {
 
     @Override // com.baidu.swan.apps.storage.b.c
     @NonNull
-    public synchronized d aGu() {
-        if (this.dmp == null) {
-            this.dmp = new f();
+    public synchronized d aIo() {
+        if (this.duR == null) {
+            this.duR = new f();
         }
-        return this.dmp;
+        return this.duR;
     }
 
-    private boolean te(String str) {
+    private boolean tx(String str) {
         if (TextUtils.isEmpty(str)) {
             return false;
         }

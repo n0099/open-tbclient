@@ -9,6 +9,6 @@ public class ac extends at {
 
     @Override // com.baidu.card.at
     protected com.baidu.tieba.play.operableVideoView.a tH() {
-        return new com.baidu.tieba.play.operableVideoView.d(this.mContext, this.aiv);
+        return new com.baidu.tieba.play.operableVideoView.d(this.mContext, this.aiw);
     }
 }

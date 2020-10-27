@@ -5,10 +5,10 @@ import kotlin.collections.ae;
 @kotlin.h
 /* loaded from: classes10.dex */
 public class i implements Iterable<Long> {
-    public static final a oSq = new a(null);
-    private final long oSn;
-    private final long oSo;
-    private final long oSp;
+    public static final a pJM = new a(null);
+    private final long pJJ;
+    private final long pJK;
+    private final long pJL;
 
     public i(long j, long j2, long j3) {
         if (j3 == 0) {
@@ -17,43 +17,43 @@ public class i implements Iterable<Long> {
         if (j3 == Long.MIN_VALUE) {
             throw new IllegalArgumentException("Step must be greater than Long.MIN_VALUE to avoid overflow on negation.");
         }
-        this.oSn = j;
-        this.oSo = kotlin.internal.d.j(j, j2, j3);
-        this.oSp = j3;
+        this.pJJ = j;
+        this.pJK = kotlin.internal.d.j(j, j2, j3);
+        this.pJL = j3;
     }
 
-    public final long eos() {
-        return this.oSn;
+    public final long eyq() {
+        return this.pJJ;
     }
 
-    public final long eot() {
-        return this.oSo;
+    public final long eyr() {
+        return this.pJK;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // java.lang.Iterable
-    /* renamed from: eou */
+    /* renamed from: eys */
     public ae iterator() {
-        return new j(this.oSn, this.oSo, this.oSp);
+        return new j(this.pJJ, this.pJK, this.pJL);
     }
 
     public boolean isEmpty() {
-        return this.oSp > 0 ? this.oSn > this.oSo : this.oSn < this.oSo;
+        return this.pJL > 0 ? this.pJJ > this.pJK : this.pJJ < this.pJK;
     }
 
     public boolean equals(Object obj) {
-        return (obj instanceof i) && ((isEmpty() && ((i) obj).isEmpty()) || (this.oSn == ((i) obj).oSn && this.oSo == ((i) obj).oSo && this.oSp == ((i) obj).oSp));
+        return (obj instanceof i) && ((isEmpty() && ((i) obj).isEmpty()) || (this.pJJ == ((i) obj).pJJ && this.pJK == ((i) obj).pJK && this.pJL == ((i) obj).pJL));
     }
 
     public int hashCode() {
         if (isEmpty()) {
             return -1;
         }
-        return (int) ((31 * ((31 * (this.oSn ^ (this.oSn >>> 32))) + (this.oSo ^ (this.oSo >>> 32)))) + (this.oSp ^ (this.oSp >>> 32)));
+        return (int) ((31 * ((31 * (this.pJJ ^ (this.pJJ >>> 32))) + (this.pJK ^ (this.pJK >>> 32)))) + (this.pJL ^ (this.pJL >>> 32)));
     }
 
     public String toString() {
-        return this.oSp > 0 ? this.oSn + IStringUtil.TOP_PATH + this.oSo + " step " + this.oSp : this.oSn + " downTo " + this.oSo + " step " + (-this.oSp);
+        return this.pJL > 0 ? this.pJJ + IStringUtil.TOP_PATH + this.pJK + " step " + this.pJL : this.pJJ + " downTo " + this.pJK + " step " + (-this.pJL);
     }
 
     @kotlin.h

@@ -12,10 +12,10 @@ public final class d {
         if (b == null) {
             return null;
         }
-        ee(1, b.v());
+        em(1, b.v());
         int c = c(baseContinuationImpl);
-        int i = c < 0 ? -1 : b.enW()[c];
-        String d = f.oRz.d(baseContinuationImpl);
+        int i = c < 0 ? -1 : b.exV()[c];
+        String d = f.pIW.d(baseContinuationImpl);
         return new StackTraceElement(d == null ? b.c() : d + '/' + b.c(), b.m(), b.f(), i);
     }
 
@@ -39,7 +39,7 @@ public final class d {
         }
     }
 
-    private static final void ee(int i, int i2) {
+    private static final void em(int i, int i2) {
         if (i2 > i) {
             throw new IllegalStateException(("Debug metadata version mismatch. Expected: " + i + ", got " + i2 + ". Please update the Kotlin standard library.").toString());
         }

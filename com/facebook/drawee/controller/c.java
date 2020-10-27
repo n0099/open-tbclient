@@ -10,9 +10,9 @@ public interface c<INFO> {
 
     void g(String str, Throwable th);
 
-    void gU(String str);
-
     void h(String str, @Nullable INFO info);
 
     void h(String str, Throwable th);
+
+    void hf(String str);
 }

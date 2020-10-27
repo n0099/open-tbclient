@@ -7,52 +7,52 @@ import java.util.List;
 /* loaded from: classes10.dex */
 public final class b {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    private String cKO;
-    public com.baidu.swan.apps.ap.e.b<b> cKP;
-    private final List<a> cKQ = new ArrayList();
-    private String cKR = b.class.getPackage().getName();
+    private String cTk;
+    public com.baidu.swan.apps.ap.e.b<b> cTl;
+    private final List<a> cTm = new ArrayList();
+    private String cTn = b.class.getPackage().getName();
 
-    public b pa(String str) {
-        this.cKO = str;
+    public b pt(String str) {
+        this.cTk = str;
         return this;
     }
 
-    public String auN() {
-        return this.cKO;
+    public String awH() {
+        return this.cTk;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public synchronized List<a> auO() {
-        return new ArrayList(this.cKQ);
+    public synchronized List<a> awI() {
+        return new ArrayList(this.cTm);
     }
 
-    public synchronized a auK() {
+    public synchronized a awE() {
         a aVar;
         aVar = new a();
-        this.cKQ.add(aVar);
+        this.cTm.add(aVar);
         return aVar;
     }
 
-    public synchronized a oZ(String str) {
-        return auK().pc(str);
+    public synchronized a ps(String str) {
+        return awE().pv(str);
     }
 
-    public synchronized a bP(String str, String str2) {
-        return oZ(str2).pb(str);
+    public synchronized a bW(String str, String str2) {
+        return ps(str2).pu(str);
     }
 
     public b q(com.baidu.swan.apps.ap.e.b<b> bVar) {
-        this.cKP = bVar;
+        this.cTl = bVar;
         return this;
     }
 
-    public synchronized b auP() {
-        return r(this.cKP);
+    public synchronized b awJ() {
+        return r(this.cTl);
     }
 
     public synchronized b r(com.baidu.swan.apps.ap.e.b<b> bVar) {
         if (bVar == null) {
-            bVar = new C0466b();
+            bVar = new C0480b();
         }
         bVar.M(this);
         return this;
@@ -60,33 +60,33 @@ public final class b {
 
     /* loaded from: classes10.dex */
     public class a {
-        final List<String> cKS;
-        private final List<StackTraceElement> cKT;
-        final /* synthetic */ b cKU;
+        final List<String> cTo;
+        private final List<StackTraceElement> cTp;
+        final /* synthetic */ b cTq;
         final List<String> msgs;
         String tag;
 
         private a(b bVar) {
             StackTraceElement[] stackTrace;
-            this.cKU = bVar;
+            this.cTq = bVar;
             this.msgs = new ArrayList();
-            this.cKS = new ArrayList();
-            this.cKT = new ArrayList();
+            this.cTo = new ArrayList();
+            this.cTp = new ArrayList();
             int i = 0;
             for (StackTraceElement stackTraceElement : Thread.currentThread().getStackTrace()) {
                 i++;
-                if (i > 2 && !stackTraceElement.getClassName().startsWith(bVar.cKR)) {
-                    this.cKT.add(stackTraceElement);
+                if (i > 2 && !stackTraceElement.getClassName().startsWith(bVar.cTn)) {
+                    this.cTp.add(stackTraceElement);
                 }
             }
         }
 
-        public a pb(String str) {
+        public a pu(String str) {
             this.tag = str;
             return this;
         }
 
-        public synchronized a pc(String str) {
+        public synchronized a pv(String str) {
             List<String> list = this.msgs;
             if (TextUtils.isEmpty(str)) {
                 str = "";
@@ -95,31 +95,31 @@ public final class b {
             return this;
         }
 
-        public synchronized a auQ() {
-            return iM(this.cKT.size());
+        public synchronized a awK() {
+            return iX(this.cTp.size());
         }
 
-        public synchronized a iM(int i) {
+        public synchronized a iX(int i) {
             synchronized (this) {
                 int i2 = i >= 1 ? i : 1;
-                int size = i2 > this.cKT.size() ? this.cKT.size() : i2;
+                int size = i2 > this.cTp.size() ? this.cTp.size() : i2;
                 for (int i3 = 0; i3 < size; i3++) {
-                    this.cKU.oZ("[Trace]==> " + this.cKT.get(i3).toString());
+                    this.cTq.ps("[Trace]==> " + this.cTp.get(i3).toString());
                 }
             }
             return this;
         }
 
-        public synchronized a auR() {
-            return iM(1);
+        public synchronized a awL() {
+            return iX(1);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     /* renamed from: com.baidu.swan.apps.u.e.b$b  reason: collision with other inner class name */
     /* loaded from: classes10.dex */
-    public class C0466b implements com.baidu.swan.apps.ap.e.b<b> {
-        private C0466b() {
+    public class C0480b implements com.baidu.swan.apps.ap.e.b<b> {
+        private C0480b() {
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -127,10 +127,10 @@ public final class b {
         /* renamed from: a */
         public void M(b bVar) {
             if (b.DEBUG) {
-                for (a aVar : bVar.cKQ) {
+                for (a aVar : bVar.cTm) {
                     for (String str : aVar.msgs) {
-                        String auN = bVar.auN();
-                        E(TextUtils.isEmpty(aVar.tag) ? auN : aVar.tag, auN + " >>> " + str);
+                        String awH = bVar.awH();
+                        E(TextUtils.isEmpty(aVar.tag) ? awH : aVar.tag, awH + " >>> " + str);
                     }
                 }
             }

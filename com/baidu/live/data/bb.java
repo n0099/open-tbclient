@@ -3,20 +3,27 @@ package com.baidu.live.data;
 import org.json.JSONObject;
 /* loaded from: classes4.dex */
 public class bb {
-    public int aNv;
-    public int aNw;
-    public int aNx;
-    public String aNy;
+    public AlaLiveInfoData aNG;
+    public aw aNH;
+    public AlaLiveUserInfoData aNs;
 
-    public static bb B(JSONObject jSONObject) {
-        if (jSONObject == null) {
-            return null;
+    public void parseJson(JSONObject jSONObject) {
+        if (jSONObject != null) {
+            JSONObject optJSONObject = jSONObject.optJSONObject("user_info");
+            if (optJSONObject != null) {
+                this.aNs = new AlaLiveUserInfoData();
+                this.aNs.parserJson(optJSONObject);
+            }
+            JSONObject optJSONObject2 = jSONObject.optJSONObject("live_info");
+            if (optJSONObject2 != null) {
+                this.aNG = new AlaLiveInfoData();
+                this.aNG.parserJson(optJSONObject2);
+            }
+            JSONObject optJSONObject3 = jSONObject.optJSONObject("rank_info");
+            if (optJSONObject3 != null) {
+                this.aNH = new aw();
+                this.aNH.parserJson(optJSONObject3);
+            }
         }
-        bb bbVar = new bb();
-        bbVar.aNv = jSONObject.optInt("supernatant_time") * 1000;
-        bbVar.aNw = jSONObject.optInt("suoernatant_shownum");
-        bbVar.aNx = jSONObject.optInt("pop_window_time") * 1000;
-        bbVar.aNy = jSONObject.optString("guide_follow_text");
-        return bbVar;
     }
 }

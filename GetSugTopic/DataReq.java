@@ -12,7 +12,7 @@ public final class DataReq extends Message {
     @ProtoField(tag = 1)
 
     /* renamed from: common  reason: collision with root package name */
-    public final CommonReq f948common;
+    public final CommonReq f945common;
     @ProtoField(tag = 3, type = Message.Datatype.INT64)
     public final Long fid;
     @ProtoField(tag = 4, type = Message.Datatype.STRING)
@@ -25,7 +25,7 @@ public final class DataReq extends Message {
     private DataReq(Builder builder, boolean z) {
         super(builder);
         if (z) {
-            this.f948common = builder.f949common;
+            this.f945common = builder.f946common;
             if (builder.prefix == null) {
                 this.prefix = "";
             } else {
@@ -49,7 +49,7 @@ public final class DataReq extends Message {
                 return;
             }
         }
-        this.f948common = builder.f949common;
+        this.f945common = builder.f946common;
         this.prefix = builder.prefix;
         this.fid = builder.fid;
         this.first_dir = builder.first_dir;
@@ -60,7 +60,7 @@ public final class DataReq extends Message {
     public static final class Builder extends Message.Builder<DataReq> {
 
         /* renamed from: common  reason: collision with root package name */
-        public CommonReq f949common;
+        public CommonReq f946common;
         public Long fid;
         public String first_dir;
         public String prefix;
@@ -72,7 +72,7 @@ public final class DataReq extends Message {
         public Builder(DataReq dataReq) {
             super(dataReq);
             if (dataReq != null) {
-                this.f949common = dataReq.f948common;
+                this.f946common = dataReq.f945common;
                 this.prefix = dataReq.prefix;
                 this.fid = dataReq.fid;
                 this.first_dir = dataReq.first_dir;

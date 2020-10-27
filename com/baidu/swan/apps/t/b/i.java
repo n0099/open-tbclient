@@ -8,9 +8,9 @@ public interface i {
 
     /* loaded from: classes10.dex */
     public interface a {
-        void atK();
+        void avE();
 
-        void atL();
+        void avF();
     }
 
     void a(Context context, String str, Uri uri);

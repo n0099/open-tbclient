@@ -11,6 +11,6 @@ public abstract class NetworkQualityListener {
         return this.mExecutor;
     }
 
-    public void Ux(String str) {
+    public void VL(String str) {
     }
 }

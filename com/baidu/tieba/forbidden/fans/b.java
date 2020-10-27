@@ -17,8 +17,8 @@ import java.util.Iterator;
 public class b extends RecyclerView.Adapter<a> {
     private ArrayList<com.baidu.tieba.forbidden.fans.a> fansList;
     private Context mContext;
-    private View.OnClickListener ijL = null;
-    private View.OnClickListener gzX = null;
+    private View.OnClickListener iwj = null;
+    private View.OnClickListener gLL = null;
 
     public b(Context context) {
         this.mContext = context;
@@ -35,14 +35,14 @@ public class b extends RecyclerView.Adapter<a> {
     @Override // android.support.v7.widget.RecyclerView.Adapter
     /* renamed from: a */
     public void onBindViewHolder(a aVar, int i) {
-        com.baidu.tieba.forbidden.fans.a xG;
-        if (aVar != null && (xG = xG(i)) != null) {
-            aVar.ijM.startLoad(xG.portrait, 12, false);
-            aVar.fET.setText(xG.nameShow);
-            aVar.ijN.setOnClickListener(this.ijL);
-            aVar.ijN.setTag(xG);
-            aVar.containerView.setOnClickListener(this.gzX);
-            aVar.containerView.setTag(xG);
+        com.baidu.tieba.forbidden.fans.a xZ;
+        if (aVar != null && (xZ = xZ(i)) != null) {
+            aVar.iwk.startLoad(xZ.portrait, 12, false);
+            aVar.fNo.setText(xZ.nameShow);
+            aVar.iwl.setOnClickListener(this.iwj);
+            aVar.iwl.setTag(xZ);
+            aVar.containerView.setOnClickListener(this.gLL);
+            aVar.containerView.setTag(xZ);
             a(aVar);
         }
     }
@@ -52,11 +52,11 @@ public class b extends RecyclerView.Adapter<a> {
         return y.getCount(this.fansList);
     }
 
-    private com.baidu.tieba.forbidden.fans.a xG(int i) {
+    private com.baidu.tieba.forbidden.fans.a xZ(int i) {
         return (com.baidu.tieba.forbidden.fans.a) y.getItem(this.fansList, i);
     }
 
-    public void at(ArrayList<com.baidu.tieba.forbidden.fans.a> arrayList) {
+    public void au(ArrayList<com.baidu.tieba.forbidden.fans.a> arrayList) {
         this.fansList = arrayList;
     }
 
@@ -64,7 +64,7 @@ public class b extends RecyclerView.Adapter<a> {
         return this.fansList;
     }
 
-    public boolean fd(long j) {
+    public boolean fe(long j) {
         if (j == 0 || y.isEmpty(this.fansList)) {
             return false;
         }
@@ -79,7 +79,7 @@ public class b extends RecyclerView.Adapter<a> {
         return false;
     }
 
-    public boolean cqK() {
+    public boolean ctR() {
         return y.isEmpty(this.fansList);
     }
 
@@ -87,35 +87,35 @@ public class b extends RecyclerView.Adapter<a> {
     public static class a extends RecyclerView.ViewHolder {
         public View containerView;
         public View dividerLine;
-        public TextView fET;
-        public ClickableHeaderImageView ijM;
-        public TextView ijN;
+        public TextView fNo;
+        public ClickableHeaderImageView iwk;
+        public TextView iwl;
 
         public a(View view) {
             super(view);
             this.containerView = view.findViewById(R.id.container_forbidden_item);
-            this.ijM = (ClickableHeaderImageView) view.findViewById(R.id.view_fans_photo);
-            this.ijM.setRadius(l.getDimens(view.getContext(), R.dimen.ds90));
-            this.ijM.setAutoChangeStyle(true);
-            this.ijM.setClickable(false);
-            this.fET = (TextView) view.findViewById(R.id.view_fans_name);
-            this.ijN = (TextView) view.findViewById(R.id.view_fans_remove);
+            this.iwk = (ClickableHeaderImageView) view.findViewById(R.id.view_fans_photo);
+            this.iwk.setRadius(l.getDimens(view.getContext(), R.dimen.ds90));
+            this.iwk.setAutoChangeStyle(true);
+            this.iwk.setClickable(false);
+            this.fNo = (TextView) view.findViewById(R.id.view_fans_name);
+            this.iwl = (TextView) view.findViewById(R.id.view_fans_remove);
             this.dividerLine = view.findViewById(R.id.line_divider);
         }
     }
 
     private void a(a aVar) {
-        ap.setViewTextColor(aVar.fET, R.color.cp_cont_b);
+        ap.setViewTextColor(aVar.fNo, R.color.cp_cont_b);
         ap.setBackgroundColor(aVar.dividerLine, R.color.cp_bg_line_c);
-        ap.setViewTextColor(aVar.ijN, R.color.btn_color_remove);
-        ap.setBackgroundResource(aVar.ijN, R.drawable.btn_transparent_focus_border_bg);
+        ap.setViewTextColor(aVar.iwl, R.color.btn_color_remove);
+        ap.setBackgroundResource(aVar.iwl, R.drawable.btn_transparent_focus_border_bg);
     }
 
     public void x(View.OnClickListener onClickListener) {
-        this.ijL = onClickListener;
+        this.iwj = onClickListener;
     }
 
     public void n(View.OnClickListener onClickListener) {
-        this.gzX = onClickListener;
+        this.gLL = onClickListener;
     }
 }

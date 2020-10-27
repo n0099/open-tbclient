@@ -42,19 +42,19 @@ public class a {
         }
     }
 
-    public static Point hj(Context context) {
+    public static Point hD(Context context) {
         Point point = new Point();
         ((WindowManager) context.getSystemService("window")).getDefaultDisplay().getSize(point);
         return point;
     }
 
-    public static Point hk(Context context) {
+    public static Point hE(Context context) {
         if (Build.VERSION.SDK_INT >= 17) {
             Point point = new Point();
             ((WindowManager) context.getSystemService("window")).getDefaultDisplay().getRealSize(point);
             return point;
         }
-        return hj(context);
+        return hD(context);
     }
 
     public static boolean isIntentAvailable(Context context, Intent intent) {
@@ -74,16 +74,16 @@ public class a {
         return packageInfo != null;
     }
 
-    public static boolean etZ() {
-        Application etB = h.etB();
-        if (etB == null) {
+    public static boolean eDX() {
+        Application eDz = h.eDz();
+        if (eDz == null) {
             return false;
         }
-        NetworkInfo activeNetworkInfo = ((ConnectivityManager) etB.getSystemService("connectivity")).getActiveNetworkInfo();
+        NetworkInfo activeNetworkInfo = ((ConnectivityManager) eDz.getSystemService("connectivity")).getActiveNetworkInfo();
         return activeNetworkInfo != null && activeNetworkInfo.isAvailable();
     }
 
-    public static boolean hl(Context context) {
+    public static boolean hF(Context context) {
         try {
             NetworkInfo networkInfo = ((ConnectivityManager) context.getSystemService("connectivity")).getNetworkInfo(1);
             if (networkInfo != null) {
@@ -95,12 +95,12 @@ public class a {
         }
     }
 
-    public static boolean hm(Context context) {
+    public static boolean hG(Context context) {
         NetworkInfo networkInfo = ((ConnectivityManager) context.getSystemService("connectivity")).getNetworkInfo(0);
         return networkInfo != null && networkInfo.getState() == NetworkInfo.State.CONNECTED;
     }
 
-    public static boolean eua() {
+    public static boolean eDY() {
         FileInputStream fileInputStream;
         boolean z = false;
         try {
@@ -137,7 +137,7 @@ public class a {
         return true;
     }
 
-    public static String PO(@ColorInt int i) {
+    public static String RF(@ColorInt int i) {
         int red = Color.red(i);
         int green = Color.green(i);
         int blue = Color.blue(i);

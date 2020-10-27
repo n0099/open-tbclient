@@ -17,7 +17,7 @@ import java.util.Properties;
 /* renamed from: com.google.gson.internal.$Gson$Types  reason: invalid class name */
 /* loaded from: classes17.dex */
 public final class C$Gson$Types {
-    static final Type[] ocf = new Type[0];
+    static final Type[] oTw = new Type[0];
 
     public static ParameterizedType a(Type type, Type type2, Type... typeArr) {
         return new ParameterizedTypeImpl(type, type2, typeArr);
@@ -28,7 +28,7 @@ public final class C$Gson$Types {
     }
 
     public static WildcardType c(Type type) {
-        return new WildcardTypeImpl(type instanceof WildcardType ? ((WildcardType) type).getUpperBounds() : new Type[]{type}, ocf);
+        return new WildcardTypeImpl(type instanceof WildcardType ? ((WildcardType) type).getUpperBounds() : new Type[]{type}, oTw);
     }
 
     public static WildcardType d(Type type) {
@@ -123,7 +123,7 @@ public final class C$Gson$Types {
         }
     }
 
-    static int bz(Object obj) {
+    static int bD(Object obj) {
         if (obj != null) {
             return obj.hashCode();
         }
@@ -353,7 +353,7 @@ public final class C$Gson$Types {
         }
 
         public int hashCode() {
-            return (Arrays.hashCode(this.typeArguments) ^ this.rawType.hashCode()) ^ C$Gson$Types.bz(this.ownerType);
+            return (Arrays.hashCode(this.typeArguments) ^ this.rawType.hashCode()) ^ C$Gson$Types.bD(this.ownerType);
         }
 
         public String toString() {
@@ -431,7 +431,7 @@ public final class C$Gson$Types {
 
         @Override // java.lang.reflect.WildcardType
         public Type[] getLowerBounds() {
-            return this.lowerBound != null ? new Type[]{this.lowerBound} : C$Gson$Types.ocf;
+            return this.lowerBound != null ? new Type[]{this.lowerBound} : C$Gson$Types.oTw;
         }
 
         public boolean equals(Object obj) {

@@ -44,51 +44,51 @@ import com.baidu.tieba.tbadkCore.util.AntiHelper;
 import com.baidu.tieba.tbadkCore.v;
 /* loaded from: classes22.dex */
 public class b {
-    private LikeModel eLp;
-    private f kXV;
-    private PbFragment kXi;
-    private com.baidu.tieba.pb.data.a lld;
-    private AlertDialog lle;
-    private com.baidu.adp.base.d iQl = new com.baidu.adp.base.d() { // from class: com.baidu.tieba.pb.pb.main.adapter.b.5
+    private LikeModel eTL;
+    private PbFragment ljH;
+    private f lku;
+    private com.baidu.tieba.pb.data.a lxG;
+    private AlertDialog lxH;
+    private com.baidu.adp.base.d jcH = new com.baidu.adp.base.d() { // from class: com.baidu.tieba.pb.pb.main.adapter.b.5
         @Override // com.baidu.adp.base.d
         public void callback(Object obj) {
             v vVar;
             boolean z = false;
-            if (b.this.kXV != null && b.this.kXV.getForum() != null && obj != null) {
-                if (!AntiHelper.bM(b.this.eLp.getErrorCode(), b.this.eLp.getErrorString())) {
-                    b.this.kXV.getForum().getName();
-                    String id = b.this.kXV.getForum().getId();
+            if (b.this.lku != null && b.this.lku.getForum() != null && obj != null) {
+                if (!AntiHelper.bN(b.this.eTL.getErrorCode(), b.this.eTL.getErrorString())) {
+                    b.this.lku.getForum().getName();
+                    String id = b.this.lku.getForum().getId();
                     if (!(obj instanceof v)) {
                         vVar = null;
                     } else {
                         vVar = (v) obj;
                     }
-                    boolean z2 = vVar != null && b.this.eLp.getErrorCode() == 0;
+                    boolean z2 = vVar != null && b.this.eTL.getErrorCode() == 0;
                     if (vVar == null || vVar.getErrorCode() != 3250013) {
                         z = z2;
                     } else {
-                        BdToast.a(TbadkCoreApplication.getInst().getContext(), vVar.getErrorMsg(), R.drawable.icon_pure_toast_mistake40_svg, 3000, true).bkP();
+                        BdToast.a(TbadkCoreApplication.getInst().getContext(), vVar.getErrorMsg(), R.drawable.icon_pure_toast_mistake40_svg, 3000, true).bmI();
                     }
                     if (vVar == null || !z) {
-                        if (b.this.eLp.getErrorCode() != 22) {
-                            b.this.kXi.showToast(b.this.eLp.getErrorString());
+                        if (b.this.eTL.getErrorCode() != 22) {
+                            b.this.ljH.showToast(b.this.eTL.getErrorString());
                             return;
                         } else {
-                            b.this.kXi.showToast(b.this.kXi.getPageContext().getPageActivity().getString(R.string.had_liked_forum));
+                            b.this.ljH.showToast(b.this.ljH.getPageContext().getPageActivity().getString(R.string.had_liked_forum));
                             return;
                         }
                     }
                     vVar.setLike(1);
-                    b.this.kXi.showToast(b.this.kXi.getPageContext().getPageActivity().getResources().getString(R.string.pb_ad_card_gift_fail_guide_attention_success));
-                    b.this.q(true, id);
+                    b.this.ljH.showToast(b.this.ljH.getPageContext().getPageActivity().getResources().getString(R.string.pb_ad_card_gift_fail_guide_attention_success));
+                    b.this.s(true, id);
                     MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(CmdConfigCustom.CMD_UPDATE_FRS_LIKE_STATUS, vVar));
-                } else if (AntiHelper.a(b.this.kXi.getContext(), b.this.eLp.getBlockPopInfoData(), b.this.iQk) != null) {
+                } else if (AntiHelper.a(b.this.ljH.getContext(), b.this.eTL.getBlockPopInfoData(), b.this.jcG) != null) {
                     TiebaStatic.log(new aq(TbadkCoreStatisticKey.KEY_ANTI_DIALOG_SHOW).aj("obj_locate", ax.a.LOCATE_LIKE_BAR));
                 }
             }
         }
     };
-    private AntiHelper.a iQk = new AntiHelper.a() { // from class: com.baidu.tieba.pb.pb.main.adapter.b.6
+    private AntiHelper.a jcG = new AntiHelper.a() { // from class: com.baidu.tieba.pb.pb.main.adapter.b.6
         @Override // com.baidu.tieba.tbadkCore.util.AntiHelper.a
         public void onPositiveButtonClick(com.baidu.tbadk.core.dialog.a aVar) {
             TiebaStatic.log(new aq(TbadkCoreStatisticKey.KEY_ANTI_DIALOG_POS_CLICK).aj("obj_locate", ax.a.LOCATE_LIKE_BAR));
@@ -101,13 +101,13 @@ public class b {
     };
 
     public b(PbFragment pbFragment) {
-        this.kXi = pbFragment;
+        this.ljH = pbFragment;
         registerListener();
         registerTask();
     }
 
     private void registerListener() {
-        this.kXi.registerListener(new HttpMessageListener(CmdConfigHttp.CMD_GET_CARD_GIFT_REQ) { // from class: com.baidu.tieba.pb.pb.main.adapter.b.1
+        this.ljH.registerListener(new HttpMessageListener(CmdConfigHttp.CMD_GET_CARD_GIFT_REQ) { // from class: com.baidu.tieba.pb.pb.main.adapter.b.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.adp.framework.listener.MessageListener
             public void onMessage(HttpResponsedMessage httpResponsedMessage) {
@@ -116,9 +116,9 @@ public class b {
                     if (pbAdCardGiftItemResponseMessage.getError() == 0 && pbAdCardGiftItemResponseMessage.getData() != null) {
                         b.this.b(pbAdCardGiftItemResponseMessage.getData());
                     } else if (pbAdCardGiftItemResponseMessage.getError() == 502014 || pbAdCardGiftItemResponseMessage.getError() == 502015) {
-                        b.this.bG(pbAdCardGiftItemResponseMessage.getError(), pbAdCardGiftItemResponseMessage.getErrorString());
+                        b.this.bH(pbAdCardGiftItemResponseMessage.getError(), pbAdCardGiftItemResponseMessage.getErrorString());
                     } else {
-                        b.this.kXi.showToast(pbAdCardGiftItemResponseMessage.getErrorString());
+                        b.this.ljH.showToast(pbAdCardGiftItemResponseMessage.getErrorString());
                     }
                 }
             }
@@ -136,48 +136,48 @@ public class b {
     }
 
     public void c(com.baidu.tieba.pb.data.a aVar) {
-        if (aVar != null && aVar.kUm != null && this.kXV != null && this.kXV.dcA() != null) {
-            this.lld = aVar;
+        if (aVar != null && aVar.lgL != null && this.lku != null && this.lku.dfI() != null) {
+            this.lxG = aVar;
             HttpMessage httpMessage = new HttpMessage(CmdConfigHttp.CMD_GET_CARD_GIFT_REQ);
-            httpMessage.addParam("tid", this.kXV.dcA().getTid());
-            httpMessage.addParam(CardBoxMemberPayActivityConfig.PACKET_ID, aVar.kUm.kUn);
+            httpMessage.addParam("tid", this.lku.dfI().getTid());
+            httpMessage.addParam(CardBoxMemberPayActivityConfig.PACKET_ID, aVar.lgL.lgM);
             MessageManager.getInstance().sendMessage(httpMessage);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void bG(final int i, String str) {
+    public void bH(final int i, String str) {
         int i2;
         int i3;
         String string;
         if (i == 502014) {
             i2 = R.string.pb_ad_card_gift_fail_guide_update_level;
             i3 = R.string.cancel;
-            string = this.kXi.getPageContext().getPageActivity().getResources().getString(R.string.pb_ad_card_gift_fail_guide_update_level_message);
+            string = this.ljH.getPageContext().getPageActivity().getResources().getString(R.string.pb_ad_card_gift_fail_guide_update_level_message);
         } else {
             i2 = R.string.pb_ad_card_gift_fail_guide_attention_bar;
             i3 = R.string.pb_ad_card_gift_fail_guide_attention_bar_cancel;
-            string = this.kXi.getPageContext().getPageActivity().getResources().getString(R.string.pb_ad_card_gift_fail_guide_attention_title, this.kXV.getForum().getName());
+            string = this.ljH.getPageContext().getPageActivity().getResources().getString(R.string.pb_ad_card_gift_fail_guide_attention_title, this.lku.getForum().getName());
             str = "";
         }
-        com.baidu.tbadk.core.dialog.a aVar = new com.baidu.tbadk.core.dialog.a(this.kXi.getPageContext().getPageActivity());
-        aVar.AG(str);
-        aVar.AH(string);
+        com.baidu.tbadk.core.dialog.a aVar = new com.baidu.tbadk.core.dialog.a(this.ljH.getPageContext().getPageActivity());
+        aVar.AZ(str);
+        aVar.Ba(string);
         aVar.a(i2, new a.b() { // from class: com.baidu.tieba.pb.pb.main.adapter.b.2
             @Override // com.baidu.tbadk.core.dialog.a.b
             public void onClick(com.baidu.tbadk.core.dialog.a aVar2) {
                 if (!l.isFastDoubleClick()) {
                     if (i == 502014) {
-                        FrsActivityConfig createNormalCfg = new FrsActivityConfig(b.this.kXi.getActivity()).createNormalCfg(b.this.kXV.getForum().getName(), FrsActivityConfig.FRS_PB_CARD_GIFT);
+                        FrsActivityConfig createNormalCfg = new FrsActivityConfig(b.this.ljH.getActivity()).createNormalCfg(b.this.lku.getForum().getName(), FrsActivityConfig.FRS_PB_CARD_GIFT);
                         createNormalCfg.setCallFrom(14);
                         MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.ACTIVITY_START_NORMAL, createNormalCfg));
-                    } else if (b.this.kXi.checkUpIsLogin()) {
-                        if (b.this.eLp == null) {
-                            b.this.eLp = new LikeModel(b.this.kXi.getPageContext());
-                            b.this.eLp.setLoadDataCallBack(b.this.iQl);
+                    } else if (b.this.ljH.checkUpIsLogin()) {
+                        if (b.this.eTL == null) {
+                            b.this.eTL = new LikeModel(b.this.ljH.getPageContext());
+                            b.this.eTL.setLoadDataCallBack(b.this.jcH);
                         }
-                        b.this.eLp.setFrom(FrsActivityConfig.FRS_PB_CARD_GIFT);
-                        b.this.eLp.gk(b.this.kXV.getForum().getName(), String.valueOf(b.this.kXV.getForum().getId()));
+                        b.this.eTL.setFrom(FrsActivityConfig.FRS_PB_CARD_GIFT);
+                        b.this.eTL.gp(b.this.lku.getForum().getName(), String.valueOf(b.this.lku.getForum().getId()));
                     } else {
                         return;
                     }
@@ -191,37 +191,37 @@ public class b {
                 aVar2.dismiss();
             }
         });
-        aVar.c(new DialogInterface.OnDismissListener() { // from class: com.baidu.tieba.pb.pb.main.adapter.b.4
+        aVar.d(new DialogInterface.OnDismissListener() { // from class: com.baidu.tieba.pb.pb.main.adapter.b.4
             @Override // android.content.DialogInterface.OnDismissListener
             public void onDismiss(DialogInterface dialogInterface) {
-                b.this.diX();
+                b.this.dme();
             }
         });
         aVar.setTitleShowCenter(true);
-        aVar.od(R.color.cp_cont_b);
-        aVar.iA(true);
-        aVar.b(this.kXi.getPageContext()).bkJ();
+        aVar.oo(R.color.cp_cont_b);
+        aVar.iN(true);
+        aVar.b(this.ljH.getPageContext()).bmC();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void q(boolean z, String str) {
-        com.baidu.tieba.im.settingcache.d.cPy().a(TbadkCoreApplication.getCurrentAccount(), str, z, null);
+    public void s(boolean z, String str) {
+        com.baidu.tieba.im.settingcache.d.cSF().a(TbadkCoreApplication.getCurrentAccount(), str, z, null);
         MessageManager.getInstance().dispatchResponsedMessage(new SettingChangeMessage(2));
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void b(com.baidu.tieba.pb.data.b bVar) {
-        if (this.lld != null) {
-            this.lld.kUm = bVar;
+        if (this.lxG != null) {
+            this.lxG.lgL = bVar;
         }
-        if (this.kXV != null && this.kXV.kUE != null) {
-            this.kXV.kUE.kUm = bVar;
+        if (this.lku != null && this.lku.lhd != null) {
+            this.lku.lhd.lgL = bVar;
         }
-        a(this.lld);
-        this.lle = new AlertDialog.Builder(this.kXi.getPageContext().getPageActivity()).create();
-        this.lle.setCanceledOnTouchOutside(false);
-        g.showDialog(this.lle, this.kXi.getPageContext().getPageActivity());
-        View inflate = LayoutInflater.from(this.kXi.getPageContext().getPageActivity()).inflate(R.layout.pb_ad_card_gift_success_dialog, (ViewGroup) null);
+        a(this.lxG);
+        this.lxH = new AlertDialog.Builder(this.ljH.getPageContext().getPageActivity()).create();
+        this.lxH.setCanceledOnTouchOutside(false);
+        g.showDialog(this.lxH, this.ljH.getPageContext().getPageActivity());
+        View inflate = LayoutInflater.from(this.ljH.getPageContext().getPageActivity()).inflate(R.layout.pb_ad_card_gift_success_dialog, (ViewGroup) null);
         TbImageView tbImageView = (TbImageView) inflate.findViewById(R.id.bg_ad_card_gift_success);
         tbImageView.setRadius(com.baidu.adp.lib.util.l.getDimens(TbadkCoreApplication.getInst(), R.dimen.tbds30));
         tbImageView.setConrers(3);
@@ -231,35 +231,35 @@ public class b {
         textView.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.pb.pb.main.adapter.b.7
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                b.this.lle.dismiss();
-                b.this.b(b.this.lld);
-                be.bmY().a((TbPageContext<?>) b.this.kXi.getPageContext(), new String[]{TbConfig.URL_JUMP_TAG_CARDBOX}, true);
+                b.this.lxH.dismiss();
+                b.this.b(b.this.lxG);
+                be.boR().a((TbPageContext<?>) b.this.ljH.getPageContext(), new String[]{TbConfig.URL_JUMP_TAG_CARDBOX}, true);
             }
         });
         ImageView imageView = (ImageView) inflate.findViewById(R.id.btn_ad_card_gift_success_close);
         imageView.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.pb.pb.main.adapter.b.8
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                b.this.lle.dismiss();
+                b.this.lxH.dismiss();
             }
         });
         TextView textView2 = (TextView) inflate.findViewById(R.id.txt_ad_card_gift_success_card_id);
         TextView textView3 = (TextView) inflate.findViewById(R.id.txt_ad_card_gift_success_title);
-        textView3.setText(this.kXi.getPageContext().getPageActivity().getString(R.string.pb_ad_card_gift_success_dialog_card_title, new Object[]{bVar.card_name}));
-        textView2.setText(this.kXi.getPageContext().getPageActivity().getString(R.string.pb_ad_card_gift_success_dialog_card_id, new Object[]{bVar.kUp}));
+        textView3.setText(this.ljH.getPageContext().getPageActivity().getString(R.string.pb_ad_card_gift_success_dialog_card_title, new Object[]{bVar.card_name}));
+        textView2.setText(this.ljH.getPageContext().getPageActivity().getString(R.string.pb_ad_card_gift_success_dialog_card_id, new Object[]{bVar.lgO}));
         ap.setImageResource(imageView, R.drawable.icon_use_close_n);
         ap.setViewTextColor(textView2, R.color.cp_cont_j);
         ap.setViewTextColor(textView3, R.color.cp_cont_b);
         ap.setViewTextColor((TextView) inflate.findViewById(R.id.txt_ad_card_gift_success_tip), R.color.cp_cont_j);
         ap.setBackgroundResource(textView, R.drawable.btn_pb_ad_card_gift_get);
         ap.setViewTextColor(textView, R.color.cp_cont_i);
-        this.lle.setOnDismissListener(new DialogInterface.OnDismissListener() { // from class: com.baidu.tieba.pb.pb.main.adapter.b.9
+        this.lxH.setOnDismissListener(new DialogInterface.OnDismissListener() { // from class: com.baidu.tieba.pb.pb.main.adapter.b.9
             @Override // android.content.DialogInterface.OnDismissListener
             public void onDismiss(DialogInterface dialogInterface) {
-                b.this.diX();
+                b.this.dme();
             }
         });
-        Window window = this.lle.getWindow();
+        Window window = this.lxH.getWindow();
         window.setWindowAnimations(R.style.share_dialog_style);
         window.setGravity(17);
         window.setLayout(-2, -2);
@@ -269,33 +269,33 @@ public class b {
     private void a(com.baidu.tieba.pb.data.a aVar) {
         String str;
         if (aVar != null) {
-            String tid = this.kXV.dcA().getTid();
-            com.baidu.tieba.s.c.dDn().a(this.kXi.getUniqueId(), com.baidu.tieba.s.a.a(tid, str, "", (BaijiahaoData) null) + "_dialog", com.baidu.tieba.s.a.a(this.kXV.dcA(), PageStayDurationConstants.PageName.PB, "common_exp", aVar.locate, true, aVar.kUm.kUn + "", "", 19));
+            String tid = this.lku.dfI().getTid();
+            com.baidu.tieba.s.c.dGv().a(this.ljH.getUniqueId(), com.baidu.tieba.s.a.a(tid, str, "", (BaijiahaoData) null) + "_dialog", com.baidu.tieba.s.a.a(this.lku.dfI(), PageStayDurationConstants.PageName.PB, "common_exp", aVar.locate, true, aVar.lgL.lgM + "", "", 19));
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void b(com.baidu.tieba.pb.data.a aVar) {
         if (aVar != null) {
-            com.baidu.tieba.s.c.dDn().b(this.kXi.getUniqueId(), com.baidu.tieba.s.a.a(this.kXV.dcA(), PageStayDurationConstants.PageName.PB, "common_click", 1, aVar.locate, true, aVar.kUm.kUn + "", "", 19));
+            com.baidu.tieba.s.c.dGv().b(this.ljH.getUniqueId(), com.baidu.tieba.s.a.a(this.lku.dfI(), PageStayDurationConstants.PageName.PB, "common_click", 1, aVar.locate, true, aVar.lgL.lgM + "", "", 19));
         }
     }
 
     public void setData(f fVar) {
-        this.kXV = fVar;
+        this.lku = fVar;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void diX() {
+    public void dme() {
         MessageManager.getInstance().dispatchResponsedMessageToUI(new CustomResponsedMessage(CmdConfigCustom.PB_ADAPTER_CHANGE_CMD));
     }
 
     public void onDestroy() {
-        if (this.eLp != null) {
-            this.eLp.dDI();
+        if (this.eTL != null) {
+            this.eTL.dGQ();
         }
-        if (this.lle != null) {
-            this.lle.dismiss();
+        if (this.lxH != null) {
+            this.lxH.dismiss();
         }
         MessageManager.getInstance().unRegisterTask(CmdConfigHttp.CMD_GET_CARD_GIFT_REQ);
     }

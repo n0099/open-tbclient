@@ -12,36 +12,36 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import java.util.ArrayList;
 /* loaded from: classes.dex */
 public class a {
-    private static Boolean mHd = true;
-    private static Boolean mHe = true;
+    private static Boolean mTN = true;
+    private static Boolean mTO = true;
 
-    public static void Se(String str) {
-        bN(13, str);
+    public static void SD(String str) {
+        bO(13, str);
     }
 
-    public static void dFd() {
-        Ji(2);
+    public static void dIl() {
+        JA(2);
     }
 
-    private static void Ji(int i) {
+    private static void JA(int i) {
         if (TbadkCoreApplication.getCurrentAccount() != null) {
             TiebaDatabase.getInstance().getMainDBDatabaseManager().execSQLNoException("delete from cash_data where type=? and account=?", new String[]{String.valueOf(i), TbadkCoreApplication.getCurrentAccount()});
         }
     }
 
-    private static void bN(int i, String str) {
+    private static void bO(int i, String str) {
         TiebaDatabase.getInstance().getMainDBDatabaseManager().execSQLNoException("delete from cash_data where type=? and account=?", new String[]{String.valueOf(i), (str == null || str.length() == 0) ? "0" : "0"});
     }
 
-    public static ArrayList<String> dFe() {
-        return Jj(0);
+    public static ArrayList<String> dIm() {
+        return JB(0);
     }
 
-    public static ArrayList<String> dFf() {
-        return Jj(1);
+    public static ArrayList<String> dIn() {
+        return JB(1);
     }
 
-    private static ArrayList<String> Jj(int i) {
+    private static ArrayList<String> JB(int i) {
         Cursor cursor = null;
         com.baidu.adp.base.a.b mainDBDatabaseManager = TiebaDatabase.getInstance().getMainDBDatabaseManager();
         ArrayList<String> arrayList = new ArrayList<>();
@@ -68,15 +68,15 @@ public class a {
         return arrayList;
     }
 
-    public static void Sf(String str) {
-        bO(0, str);
+    public static void SE(String str) {
+        bP(0, str);
     }
 
-    public static void Sg(String str) {
-        bO(1, str);
+    public static void SF(String str) {
+        bP(1, str);
     }
 
-    private static void bO(int i, String str) {
+    private static void bP(int i, String str) {
         com.baidu.adp.base.a.b mainDBDatabaseManager = TiebaDatabase.getInstance().getMainDBDatabaseManager();
         if (str != null) {
             switch (i) {
@@ -94,11 +94,11 @@ public class a {
         }
     }
 
-    public static void Sh(String str) {
-        bP(0, str);
+    public static void SG(String str) {
+        bQ(0, str);
     }
 
-    private static void bP(int i, String str) {
+    private static void bQ(int i, String str) {
         com.baidu.adp.base.a.b mainDBDatabaseManager = TiebaDatabase.getInstance().getMainDBDatabaseManager();
         if (str != null) {
             switch (i) {
@@ -114,15 +114,15 @@ public class a {
         }
     }
 
-    public static void dFg() {
-        Jk(0);
+    public static void dIo() {
+        JC(0);
     }
 
-    public static void dFh() {
-        Jk(1);
+    public static void dIp() {
+        JC(1);
     }
 
-    public static void Jk(int i) {
+    public static void JC(int i) {
         com.baidu.adp.base.a.b mainDBDatabaseManager = TiebaDatabase.getInstance().getMainDBDatabaseManager();
         switch (i) {
             case 0:
@@ -136,7 +136,7 @@ public class a {
         }
     }
 
-    public static ArrayList<MarkData> dFi() {
+    public static ArrayList<MarkData> dIq() {
         Cursor cursor;
         Throwable th;
         Exception e;
@@ -193,102 +193,102 @@ public class a {
     }
 
     public static void t(Boolean bool) {
-        mHd = bool;
+        mTN = bool;
     }
 
-    public static void bsd() {
+    public static void btW() {
         if (TbadkCoreApplication.getCurrentAccount() != null) {
             com.baidu.adp.base.a.b mainDBDatabaseManager = TiebaDatabase.getInstance().getMainDBDatabaseManager();
             mainDBDatabaseManager.execSQLNoException("delete from setting where account=?", new Object[]{TbadkCoreApplication.getCurrentAccount()});
             Object[] objArr = new Object[13];
             objArr[0] = TbadkCoreApplication.getCurrentAccount();
-            objArr[1] = Integer.valueOf(com.baidu.tbadk.coreExtra.messageCenter.d.bsc().bsf());
-            objArr[2] = Integer.valueOf(com.baidu.tbadk.coreExtra.messageCenter.d.bsc().bsi() ? 1 : 0);
-            objArr[3] = Integer.valueOf(com.baidu.tbadk.coreExtra.messageCenter.d.bsc().bsj() ? 1 : 0);
-            objArr[4] = Integer.valueOf(com.baidu.tbadk.coreExtra.messageCenter.d.bsc().bsh() ? 1 : 0);
-            objArr[5] = Integer.valueOf(com.baidu.tbadk.coreExtra.messageCenter.d.bsc().bsv());
-            objArr[6] = Integer.valueOf(com.baidu.tbadk.coreExtra.messageCenter.d.bsc().bsk() ? 1 : 0);
-            objArr[7] = Integer.valueOf(com.baidu.tbadk.coreExtra.messageCenter.d.bsc().bsn() ? 1 : 0);
-            objArr[8] = com.baidu.tbadk.coreExtra.messageCenter.d.bsc().bsp();
-            objArr[9] = com.baidu.tbadk.coreExtra.messageCenter.d.bsc().bsq();
-            objArr[10] = Integer.valueOf(com.baidu.tbadk.coreExtra.messageCenter.d.bsc().bsm() ? 1 : 0);
-            objArr[11] = Integer.valueOf(com.baidu.tbadk.coreExtra.messageCenter.d.bsc().bsg() ? 1 : 0);
-            objArr[12] = Integer.valueOf(com.baidu.tbadk.coreExtra.messageCenter.d.bsc().bst() ? 1 : 0);
+            objArr[1] = Integer.valueOf(com.baidu.tbadk.coreExtra.messageCenter.d.btV().btY());
+            objArr[2] = Integer.valueOf(com.baidu.tbadk.coreExtra.messageCenter.d.btV().bub() ? 1 : 0);
+            objArr[3] = Integer.valueOf(com.baidu.tbadk.coreExtra.messageCenter.d.btV().buc() ? 1 : 0);
+            objArr[4] = Integer.valueOf(com.baidu.tbadk.coreExtra.messageCenter.d.btV().bua() ? 1 : 0);
+            objArr[5] = Integer.valueOf(com.baidu.tbadk.coreExtra.messageCenter.d.btV().buo());
+            objArr[6] = Integer.valueOf(com.baidu.tbadk.coreExtra.messageCenter.d.btV().bud() ? 1 : 0);
+            objArr[7] = Integer.valueOf(com.baidu.tbadk.coreExtra.messageCenter.d.btV().bug() ? 1 : 0);
+            objArr[8] = com.baidu.tbadk.coreExtra.messageCenter.d.btV().bui();
+            objArr[9] = com.baidu.tbadk.coreExtra.messageCenter.d.btV().buj();
+            objArr[10] = Integer.valueOf(com.baidu.tbadk.coreExtra.messageCenter.d.btV().buf() ? 1 : 0);
+            objArr[11] = Integer.valueOf(com.baidu.tbadk.coreExtra.messageCenter.d.btV().btZ() ? 1 : 0);
+            objArr[12] = Integer.valueOf(com.baidu.tbadk.coreExtra.messageCenter.d.btV().bum() ? 1 : 0);
             mainDBDatabaseManager.execSQLNoException("Insert into setting(account,frequency,fans_switch,reply_me_switch,at_me_switch,remind_tone,msg_chat_switch,nodisturb_switch,nodisturb_start_time,nodisturb_end_time,remind_light,stranger_chat_switch,zan_me_switch) values(?,?,?,?,?,?,?,?,?,?,?,?,?)", objArr);
         }
     }
 
-    public static void dFj() {
+    public static void dIr() {
         if (TbadkCoreApplication.getCurrentAccount() != null && TbadkCoreApplication.getCurrentAccount().length() > 0 && TbadkCoreApplication.getCurrentAccountName() != null) {
             com.baidu.adp.base.a.b mainDBDatabaseManager = TiebaDatabase.getInstance().getMainDBDatabaseManager();
             try {
                 try {
                     Cursor rawQuery = mainDBDatabaseManager.rawQuery("select * from setting where account=?", new String[]{TbadkCoreApplication.getCurrentAccount()});
                     if (rawQuery != null && rawQuery.moveToFirst()) {
-                        com.baidu.tbadk.coreExtra.messageCenter.d.bsc().qp(rawQuery.getInt(rawQuery.getColumnIndex("frequency")));
-                        com.baidu.tbadk.coreExtra.messageCenter.d.bsc().jn(rawQuery.getInt(rawQuery.getColumnIndex("fans_switch")) == 1);
+                        com.baidu.tbadk.coreExtra.messageCenter.d.btV().qA(rawQuery.getInt(rawQuery.getColumnIndex("frequency")));
+                        com.baidu.tbadk.coreExtra.messageCenter.d.btV().jA(rawQuery.getInt(rawQuery.getColumnIndex("fans_switch")) == 1);
                         if (rawQuery.getInt(rawQuery.getColumnIndex("reply_me_switch")) == 0) {
-                            com.baidu.tbadk.coreExtra.messageCenter.d.bsc().jl(false);
+                            com.baidu.tbadk.coreExtra.messageCenter.d.btV().jy(false);
                         } else {
-                            com.baidu.tbadk.coreExtra.messageCenter.d.bsc().jl(true);
+                            com.baidu.tbadk.coreExtra.messageCenter.d.btV().jy(true);
                         }
                         if (rawQuery.getInt(rawQuery.getColumnIndex("at_me_switch")) == 0) {
-                            com.baidu.tbadk.coreExtra.messageCenter.d.bsc().jm(false);
+                            com.baidu.tbadk.coreExtra.messageCenter.d.btV().jz(false);
                         } else {
-                            com.baidu.tbadk.coreExtra.messageCenter.d.bsc().jm(true);
+                            com.baidu.tbadk.coreExtra.messageCenter.d.btV().jz(true);
                         }
                         if (rawQuery.getInt(rawQuery.getColumnIndex("zan_me_switch")) == 0) {
-                            com.baidu.tbadk.coreExtra.messageCenter.d.bsc().je(false);
+                            com.baidu.tbadk.coreExtra.messageCenter.d.btV().jr(false);
                         } else {
-                            com.baidu.tbadk.coreExtra.messageCenter.d.bsc().je(true);
+                            com.baidu.tbadk.coreExtra.messageCenter.d.btV().jr(true);
                         }
-                        com.baidu.tbadk.coreExtra.messageCenter.d.bsc().qq(rawQuery.getInt(rawQuery.getColumnIndex("remind_tone")));
+                        com.baidu.tbadk.coreExtra.messageCenter.d.btV().qB(rawQuery.getInt(rawQuery.getColumnIndex("remind_tone")));
                         if (rawQuery.getInt(rawQuery.getColumnIndex("msg_chat_switch")) == 0) {
-                            com.baidu.tbadk.coreExtra.messageCenter.d.bsc().jc(false);
+                            com.baidu.tbadk.coreExtra.messageCenter.d.btV().jp(false);
                         } else {
-                            com.baidu.tbadk.coreExtra.messageCenter.d.bsc().jc(true);
+                            com.baidu.tbadk.coreExtra.messageCenter.d.btV().jp(true);
                         }
                         if (rawQuery.getInt(rawQuery.getColumnIndex("nodisturb_switch")) == 0) {
-                            com.baidu.tbadk.coreExtra.messageCenter.d.bsc().jg(false);
+                            com.baidu.tbadk.coreExtra.messageCenter.d.btV().jt(false);
                         } else {
-                            com.baidu.tbadk.coreExtra.messageCenter.d.bsc().jg(true);
+                            com.baidu.tbadk.coreExtra.messageCenter.d.btV().jt(true);
                         }
                         String string = rawQuery.getString(rawQuery.getColumnIndex("nodisturb_start_time"));
                         if (TextUtils.isEmpty(string)) {
-                            com.baidu.tbadk.coreExtra.messageCenter.d.bsc().Cl(TbConfig.MSG_DEFAULT_NODISTURB_START_TIME);
+                            com.baidu.tbadk.coreExtra.messageCenter.d.btV().CE(TbConfig.MSG_DEFAULT_NODISTURB_START_TIME);
                         } else {
-                            com.baidu.tbadk.coreExtra.messageCenter.d.bsc().Cl(string);
+                            com.baidu.tbadk.coreExtra.messageCenter.d.btV().CE(string);
                         }
                         String string2 = rawQuery.getString(rawQuery.getColumnIndex("nodisturb_end_time"));
                         if (TextUtils.isEmpty(string2)) {
-                            com.baidu.tbadk.coreExtra.messageCenter.d.bsc().Cm(TbConfig.MSG_DEFAULT_NODISTURB_END_TIME);
+                            com.baidu.tbadk.coreExtra.messageCenter.d.btV().CF(TbConfig.MSG_DEFAULT_NODISTURB_END_TIME);
                         } else {
-                            com.baidu.tbadk.coreExtra.messageCenter.d.bsc().Cm(string2);
+                            com.baidu.tbadk.coreExtra.messageCenter.d.btV().CF(string2);
                         }
                         if (rawQuery.getInt(rawQuery.getColumnIndex("remind_light")) == 0) {
-                            com.baidu.tbadk.coreExtra.messageCenter.d.bsc().ji(false);
+                            com.baidu.tbadk.coreExtra.messageCenter.d.btV().jv(false);
                         } else {
-                            com.baidu.tbadk.coreExtra.messageCenter.d.bsc().ji(true);
+                            com.baidu.tbadk.coreExtra.messageCenter.d.btV().jv(true);
                         }
                         if (rawQuery.getInt(rawQuery.getColumnIndex("stranger_chat_switch")) == 0) {
-                            com.baidu.tbadk.coreExtra.messageCenter.d.bsc().jf(false);
+                            com.baidu.tbadk.coreExtra.messageCenter.d.btV().js(false);
                         } else {
-                            com.baidu.tbadk.coreExtra.messageCenter.d.bsc().jf(true);
+                            com.baidu.tbadk.coreExtra.messageCenter.d.btV().js(true);
                         }
                     } else {
-                        com.baidu.tbadk.coreExtra.messageCenter.d.bsc().qp(300);
-                        com.baidu.tbadk.coreExtra.messageCenter.d.bsc().jn(true);
-                        com.baidu.tbadk.coreExtra.messageCenter.d.bsc().jl(true);
-                        com.baidu.tbadk.coreExtra.messageCenter.d.bsc().jm(true);
-                        com.baidu.tbadk.coreExtra.messageCenter.d.bsc().je(true);
-                        com.baidu.tbadk.coreExtra.messageCenter.d.bsc().jj(true);
-                        com.baidu.tbadk.coreExtra.messageCenter.d.bsc().jh(false);
-                        com.baidu.tbadk.coreExtra.messageCenter.d.bsc().ji(true);
-                        com.baidu.tbadk.coreExtra.messageCenter.d.bsc().jf(false);
-                        com.baidu.tbadk.coreExtra.messageCenter.d.bsc().jc(true);
-                        com.baidu.tbadk.coreExtra.messageCenter.d.bsc().jg(false);
-                        com.baidu.tbadk.coreExtra.messageCenter.d.bsc().Cl(TbConfig.MSG_DEFAULT_NODISTURB_START_TIME);
-                        com.baidu.tbadk.coreExtra.messageCenter.d.bsc().Cm(TbConfig.MSG_DEFAULT_NODISTURB_END_TIME);
+                        com.baidu.tbadk.coreExtra.messageCenter.d.btV().qA(300);
+                        com.baidu.tbadk.coreExtra.messageCenter.d.btV().jA(true);
+                        com.baidu.tbadk.coreExtra.messageCenter.d.btV().jy(true);
+                        com.baidu.tbadk.coreExtra.messageCenter.d.btV().jz(true);
+                        com.baidu.tbadk.coreExtra.messageCenter.d.btV().jr(true);
+                        com.baidu.tbadk.coreExtra.messageCenter.d.btV().jw(true);
+                        com.baidu.tbadk.coreExtra.messageCenter.d.btV().ju(false);
+                        com.baidu.tbadk.coreExtra.messageCenter.d.btV().jv(true);
+                        com.baidu.tbadk.coreExtra.messageCenter.d.btV().js(false);
+                        com.baidu.tbadk.coreExtra.messageCenter.d.btV().jp(true);
+                        com.baidu.tbadk.coreExtra.messageCenter.d.btV().jt(false);
+                        com.baidu.tbadk.coreExtra.messageCenter.d.btV().CE(TbConfig.MSG_DEFAULT_NODISTURB_START_TIME);
+                        com.baidu.tbadk.coreExtra.messageCenter.d.btV().CF(TbConfig.MSG_DEFAULT_NODISTURB_END_TIME);
                     }
                     com.baidu.adp.lib.f.a.close(rawQuery);
                 } catch (Exception e) {

@@ -233,7 +233,7 @@ public class FlutterPageActivity<T> extends BoostFlutterActivity implements f<T>
             long currentTimeMillis = System.currentTimeMillis() - this.lastResumeTime;
             d pageStayDurationItem = getPageStayDurationItem();
             pageStayDurationItem.setStayDurationTime(currentTimeMillis);
-            e.bxO().a(getPageContext().getPageActivity(), pageStayDurationItem, null);
+            e.bzH().a(getPageContext().getPageActivity(), pageStayDurationItem, null);
         }
         TbadkCoreApplication.getInst().DelResumeNum();
         TbadkCoreApplication.getInst().setCurrentActivity(null);
@@ -337,7 +337,7 @@ public class FlutterPageActivity<T> extends BoostFlutterActivity implements f<T>
 
             @Override // com.baidu.tbadk.m.b
             public int getMaxCost() {
-                return e.bxO().getMaxCostFromServer();
+                return e.bzH().getMaxCostFromServer();
             }
 
             @Override // com.baidu.tbadk.m.b

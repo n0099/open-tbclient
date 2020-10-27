@@ -32,6 +32,7 @@ public class ExtraParamsManager {
     public static final String KEY_GO_USER_INFO = "go_user_info";
     public static final String KEY_ID = "id";
     public static final String KEY_PARAMS_JSON = "params_json";
+    public static final String KEY_PRE_DOWANLOAD_SWAN = "preDowanloadSwan";
     public static final String KEY_PROCESS_PLUGIN_ASYNC_CALLBACK = "process_plugin_async_callback";
     public static final String KEY_RESULT = "result";
     public static final String KEY_SHOW_MODIFY_NICKNAME_DIALOG = "showModifyNickNameDialog";

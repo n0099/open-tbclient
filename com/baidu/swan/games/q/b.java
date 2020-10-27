@@ -5,7 +5,7 @@ import kotlin.h;
 /* loaded from: classes10.dex */
 public final class b {
     /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [28=4] */
-    public static final Integer wI(String str) {
+    public static final Integer xb(String str) {
         if (str != null) {
             switch (str.hashCode()) {
                 case -1727084929:

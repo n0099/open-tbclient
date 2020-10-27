@@ -13,46 +13,46 @@ import java.util.concurrent.locks.ReentrantLock;
 /* loaded from: classes10.dex */
 public class a implements i {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    private volatile boolean cuU;
-    private volatile boolean cuV;
-    private int cuW;
-    private InterfaceC0394a cuX;
-    private WebKitFactory.IForceInitZeusListener cuY;
+    private volatile boolean cDq;
+    private volatile boolean cDr;
+    private int cDs;
+    private InterfaceC0408a cDt;
+    private WebKitFactory.IForceInitZeusListener cDu;
     private ArrayList<com.baidu.swan.apps.core.container.a.b> mListeners;
     private final Lock mLock;
 
     /* renamed from: com.baidu.swan.apps.core.container.a.a$a  reason: collision with other inner class name */
     /* loaded from: classes10.dex */
-    public interface InterfaceC0394a {
-        void abS();
+    public interface InterfaceC0408a {
+        void adM();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes10.dex */
     public static class b {
-        public static final a cva = new a();
+        public static final a cDw = new a();
     }
 
     private a() {
         this.mListeners = new ArrayList<>();
         this.mLock = new ReentrantLock();
-        this.cuU = false;
-        this.cuV = false;
-        this.cuW = -1;
-        this.cuX = new InterfaceC0394a() { // from class: com.baidu.swan.apps.core.container.a.a.1
-            @Override // com.baidu.swan.apps.core.container.a.a.InterfaceC0394a
-            public void abS() {
+        this.cDq = false;
+        this.cDr = false;
+        this.cDs = -1;
+        this.cDt = new InterfaceC0408a() { // from class: com.baidu.swan.apps.core.container.a.a.1
+            @Override // com.baidu.swan.apps.core.container.a.a.InterfaceC0408a
+            public void adM() {
                 try {
                     a.this.mLock.lock();
-                    a.this.cuV = true;
-                    a.this.ajn();
-                    a.this.ajq();
+                    a.this.cDr = true;
+                    a.this.alh();
+                    a.this.alk();
                 } finally {
                     a.this.mLock.unlock();
                 }
             }
         };
-        this.cuY = new WebKitFactory.IForceInitZeusListener() { // from class: com.baidu.swan.apps.core.container.a.a.2
+        this.cDu = new WebKitFactory.IForceInitZeusListener() { // from class: com.baidu.swan.apps.core.container.a.a.2
             @Override // com.baidu.webkit.sdk.WebKitFactory.IForceInitZeusListener
             public void onForceInitZeusStart() {
                 if (a.DEBUG) {
@@ -64,40 +64,40 @@ public class a implements i {
             public void onForceInitZeusFinish(boolean z) {
                 try {
                     a.this.mLock.lock();
-                    a.this.cuU = true;
-                    a.this.ajq();
+                    a.this.cDq = true;
+                    a.this.alk();
                     a.this.mLock.unlock();
-                    BdSailor.getInstance().removeForceInitListener(a.this.cuY);
+                    BdSailor.getInstance().removeForceInitListener(a.this.cDu);
                 } catch (Throwable th) {
                     a.this.mLock.unlock();
                     throw th;
                 }
             }
         };
-        BdSailor.addForceInitListener(this.cuY);
-        com.baidu.swan.apps.t.a.asD().a(this.cuX);
+        BdSailor.addForceInitListener(this.cDu);
+        com.baidu.swan.apps.t.a.aux().a(this.cDt);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public synchronized void ajn() {
-        if (this.cuW == -1) {
-            this.cuW = com.baidu.swan.apps.t.a.asi().getSwitch("swan_enable_file_in_io", 0);
+    public synchronized void alh() {
+        if (this.cDs == -1) {
+            this.cDs = com.baidu.swan.apps.t.a.aud().getSwitch("swan_enable_file_in_io", 0);
         }
-        if (!ProcessUtils.isMainProcess() && this.cuW == 1) {
+        if (!ProcessUtils.isMainProcess() && this.cDs == 1) {
             WebSettingsGlobalBlink.setFileInIOEnabled(true);
         }
     }
 
-    public static a ajo() {
-        return b.cva;
+    public static a ali() {
+        return b.cDw;
     }
 
-    public void ajp() {
-        ek(false);
+    public void alj() {
+        ex(false);
     }
 
-    public void ek(boolean z) {
-        com.baidu.swan.apps.t.a.asD().dN(z);
+    public void ex(boolean z) {
+        com.baidu.swan.apps.t.a.aux().ea(z);
     }
 
     @Override // com.baidu.swan.apps.adaptation.b.i
@@ -109,7 +109,7 @@ public class a implements i {
                     this.mListeners.add(bVar);
                 }
                 if (isLoaded()) {
-                    ajq();
+                    alk();
                 }
             }
         } finally {
@@ -130,7 +130,7 @@ public class a implements i {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void ajq() {
+    public void alk() {
         try {
             this.mLock.lock();
             if (isLoaded()) {
@@ -138,7 +138,7 @@ public class a implements i {
                 while (it.hasNext()) {
                     com.baidu.swan.apps.core.container.a.b next = it.next();
                     if (next != null) {
-                        next.abS();
+                        next.adM();
                     }
                 }
                 this.mListeners.clear();
@@ -159,11 +159,11 @@ public class a implements i {
         try {
             this.mLock.lock();
             if (DEBUG) {
-                Log.d("NgWebViewInitHelper", "isLoaded() mIsBlinkInited: " + this.cuV);
-                Log.d("NgWebViewInitHelper", "isLoaded() mIsZeusForceInited: " + this.cuU + " ,isZeusForceInited: " + isZeusForceInited());
+                Log.d("NgWebViewInitHelper", "isLoaded() mIsBlinkInited: " + this.cDr);
+                Log.d("NgWebViewInitHelper", "isLoaded() mIsZeusForceInited: " + this.cDq + " ,isZeusForceInited: " + isZeusForceInited());
             }
-            if (this.cuV) {
-                if (!this.cuU) {
+            if (this.cDr) {
+                if (!this.cDq) {
                 }
                 z = true;
                 return z;

@@ -10,16 +10,16 @@ import com.baidu.tieba.ext.bdplayer.floating.d;
 /* loaded from: classes4.dex */
 public class b implements com.baidu.live.liveroom.e.b {
     private static final String TAG = com.baidu.tieba.ext.bdplayer.a.d.class.getSimpleName();
-    private d iau;
-    private com.baidu.live.liveroom.e.a iav;
-    private com.baidu.tieba.ext.bdplayer.a.a iaw;
-    private String iax;
-    private f iay;
+    private d imV;
+    private com.baidu.live.liveroom.e.a imW;
+    private com.baidu.tieba.ext.bdplayer.a.a imX;
+    private String imY;
+    private f imZ;
     private Context mContext;
 
     public b(Context context, @NonNull f fVar) {
         this.mContext = context;
-        this.iay = fVar;
+        this.imZ = fVar;
     }
 
     @Override // com.baidu.live.liveroom.e.b
@@ -28,25 +28,25 @@ public class b implements com.baidu.live.liveroom.e.b {
             Log.d(TAG, "showFloatingPlayer " + dVar);
         }
         if (dVar != null && (dVar instanceof com.baidu.tieba.ext.bdplayer.a.d)) {
-            this.iaw = ((com.baidu.tieba.ext.bdplayer.a.d) dVar).coq();
-            this.iax = str;
-            this.iav = aVar;
-            if (this.iaw != null) {
-                if (this.iay != null) {
-                    this.iay.coo();
+            this.imX = ((com.baidu.tieba.ext.bdplayer.a.d) dVar).crx();
+            this.imY = str;
+            this.imW = aVar;
+            if (this.imX != null) {
+                if (this.imZ != null) {
+                    this.imZ.crv();
                 }
-                if (this.iau == null) {
-                    this.iau = new d(this.mContext);
+                if (this.imV == null) {
+                    this.imV = new d(this.mContext);
                 }
-                this.iau.setContentView(view);
-                this.iau.setPlayer(this.iaw);
-                this.iau.setContext(this.mContext);
-                this.iau.col();
-                this.iau.a(new d.b() { // from class: com.baidu.tieba.ext.bdplayer.floating.b.1
+                this.imV.setContentView(view);
+                this.imV.setPlayer(this.imX);
+                this.imV.setContext(this.mContext);
+                this.imV.crs();
+                this.imV.a(new d.b() { // from class: com.baidu.tieba.ext.bdplayer.floating.b.1
                     @Override // com.baidu.tieba.ext.bdplayer.floating.d.b
-                    public boolean coi() {
-                        if (b.this.iav != null) {
-                            return b.this.iav.MT();
+                    public boolean crp() {
+                        if (b.this.imW != null) {
+                            return b.this.imW.Nn();
                         }
                         return false;
                     }
@@ -56,34 +56,34 @@ public class b implements com.baidu.live.liveroom.e.b {
     }
 
     @Override // com.baidu.live.liveroom.e.b
-    public void cf(boolean z) {
+    public void ch(boolean z) {
         if (isDebug()) {
             Log.d(TAG, "hideFloatingPlayer");
         }
-        if (this.iau != null) {
+        if (this.imV != null) {
             if (!z) {
-                this.iaw.setPlayerMode(PlayerConstant.HALF_MODE);
+                this.imX.setPlayerMode(PlayerConstant.HALF_MODE);
             }
-            this.iau.dismiss(true);
+            this.imV.dismiss(true);
         }
     }
 
     @Override // com.baidu.live.liveroom.e.b
-    public void MU() {
-        if (this.iau != null) {
-            this.iau.RW();
+    public void No() {
+        if (this.imV != null) {
+            this.imV.SW();
         }
-        this.iay.IM(this.iax);
+        this.imZ.Jl(this.imY);
     }
 
     @Override // com.baidu.live.liveroom.e.b
-    public boolean MV() {
-        return d.MV();
+    public boolean Np() {
+        return d.Np();
     }
 
     @Override // com.baidu.live.liveroom.e.b
-    public boolean MW() {
-        return (this.iau != null && this.iau.con()) || (this.iaw != null && this.iaw.isFloatingMode());
+    public boolean Nq() {
+        return (this.imV != null && this.imV.cru()) || (this.imX != null && this.imX.isFloatingMode());
     }
 
     private boolean isDebug() {

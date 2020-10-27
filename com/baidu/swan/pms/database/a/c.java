@@ -5,39 +5,39 @@ import com.baidu.swan.pms.model.PMSAppInfo;
 import java.util.concurrent.ConcurrentHashMap;
 /* loaded from: classes15.dex */
 public class c {
-    private ConcurrentHashMap<Class<?>, b> dTe;
-    private ConcurrentHashMap<Class<?>, Uri> dTf;
+    private ConcurrentHashMap<Class<?>, b> ebA;
+    private ConcurrentHashMap<Class<?>, Uri> ebB;
 
-    private void aWR() {
-        this.dTe = new ConcurrentHashMap<>();
-        this.dTf = new ConcurrentHashMap<>();
-        this.dTe.put(com.baidu.swan.pms.model.f.class, new f());
-        this.dTe.put(com.baidu.swan.pms.model.g.class, new g());
-        this.dTe.put(com.baidu.swan.pms.model.d.class, new e());
-        this.dTe.put(com.baidu.swan.pms.model.b.class, new d());
-        this.dTe.put(PMSAppInfo.class, new a());
-        this.dTe.put(com.baidu.swan.pms.model.h.class, new h());
-        this.dTe.put(com.baidu.swan.pms.model.i.class, new i());
-        this.dTe.put(com.baidu.swan.pms.b.a.class, new com.baidu.swan.pms.b.a.b());
-        this.dTf.put(com.baidu.swan.pms.model.f.class, com.baidu.swan.pms.database.provider.b.dTk);
-        this.dTf.put(com.baidu.swan.pms.model.g.class, com.baidu.swan.pms.database.provider.b.dTl);
-        this.dTf.put(com.baidu.swan.pms.model.d.class, com.baidu.swan.pms.database.provider.b.dTi);
-        this.dTf.put(com.baidu.swan.pms.model.b.class, com.baidu.swan.pms.database.provider.b.dTm);
-        this.dTf.put(PMSAppInfo.class, com.baidu.swan.pms.database.provider.b.dTj);
-        this.dTf.put(com.baidu.swan.pms.model.h.class, com.baidu.swan.pms.database.provider.b.dTn);
-        this.dTf.put(com.baidu.swan.pms.model.i.class, com.baidu.swan.pms.database.provider.b.dTo);
-        this.dTf.put(com.baidu.swan.pms.b.a.class, com.baidu.swan.pms.database.provider.b.dTp);
+    private void aYK() {
+        this.ebA = new ConcurrentHashMap<>();
+        this.ebB = new ConcurrentHashMap<>();
+        this.ebA.put(com.baidu.swan.pms.model.f.class, new f());
+        this.ebA.put(com.baidu.swan.pms.model.g.class, new g());
+        this.ebA.put(com.baidu.swan.pms.model.d.class, new e());
+        this.ebA.put(com.baidu.swan.pms.model.b.class, new d());
+        this.ebA.put(PMSAppInfo.class, new a());
+        this.ebA.put(com.baidu.swan.pms.model.h.class, new h());
+        this.ebA.put(com.baidu.swan.pms.model.i.class, new i());
+        this.ebA.put(com.baidu.swan.pms.b.a.class, new com.baidu.swan.pms.b.a.b());
+        this.ebB.put(com.baidu.swan.pms.model.f.class, com.baidu.swan.pms.database.provider.b.ebG);
+        this.ebB.put(com.baidu.swan.pms.model.g.class, com.baidu.swan.pms.database.provider.b.ebH);
+        this.ebB.put(com.baidu.swan.pms.model.d.class, com.baidu.swan.pms.database.provider.b.ebE);
+        this.ebB.put(com.baidu.swan.pms.model.b.class, com.baidu.swan.pms.database.provider.b.ebI);
+        this.ebB.put(PMSAppInfo.class, com.baidu.swan.pms.database.provider.b.ebF);
+        this.ebB.put(com.baidu.swan.pms.model.h.class, com.baidu.swan.pms.database.provider.b.ebJ);
+        this.ebB.put(com.baidu.swan.pms.model.i.class, com.baidu.swan.pms.database.provider.b.ebK);
+        this.ebB.put(com.baidu.swan.pms.b.a.class, com.baidu.swan.pms.database.provider.b.ebL);
     }
 
     public c() {
-        aWR();
+        aYK();
     }
 
     public <T> b<T> r(Class<T> cls) {
-        return this.dTe.get(cls);
+        return this.ebA.get(cls);
     }
 
     public <T> Uri s(Class<T> cls) {
-        return this.dTf.get(cls);
+        return this.ebB.get(cls);
     }
 }

@@ -8,26 +8,26 @@ import com.baidu.swan.apps.ap.ak;
 import com.baidu.swan.apps.v.f;
 /* loaded from: classes10.dex */
 public class d {
-    private b dLB;
+    private b dTY;
 
     public d(JsObject jsObject) {
-        this.dLB = b.l(com.baidu.swan.games.binding.model.c.e(jsObject));
-        a.aSW().a(this);
+        this.dTY = b.l(com.baidu.swan.games.binding.model.c.e(jsObject));
+        a.aUQ().a(this);
     }
 
     @JavascriptInterface
     public boolean applyUpdate() {
-        final SwanAppActivity ave = f.avu().ave();
-        if (ave == null) {
+        final SwanAppActivity awY = f.axo().awY();
+        if (awY == null) {
             com.baidu.swan.apps.console.c.e("UpdateManagerApi", "applyUpdate activity is null");
             return false;
-        } else if (ave.isDestroyed() || ave.getIntent() == null) {
+        } else if (awY.isDestroyed() || awY.getIntent() == null) {
             return false;
         } else {
             ak.runOnUiThread(new Runnable() { // from class: com.baidu.swan.games.aa.d.1
                 @Override // java.lang.Runnable
                 public void run() {
-                    com.baidu.swan.games.utils.a.n(ave);
+                    com.baidu.swan.games.utils.a.n(awY);
                 }
             });
             return true;
@@ -43,7 +43,7 @@ public class d {
     */
     public void c(c cVar) {
         boolean z = false;
-        if (this.dLB != null && JSEvent.isValid(cVar)) {
+        if (this.dTY != null && JSEvent.isValid(cVar)) {
             com.baidu.swan.apps.console.c.i("UpdateManagerApi", String.format("dispatchEvent : eventType = %s; hasUpdate = %s", cVar.type, Boolean.valueOf(cVar.hasUpdate)));
             String str = cVar.type;
             switch (str.hashCode()) {
@@ -69,13 +69,13 @@ public class d {
             }
             switch (z) {
                 case false:
-                    this.dLB.b(cVar);
+                    this.dTY.b(cVar);
                     return;
                 case true:
-                    this.dLB.aSY();
+                    this.dTY.aUS();
                     return;
                 case true:
-                    this.dLB.aSZ();
+                    this.dTY.aUT();
                     return;
                 default:
                     return;

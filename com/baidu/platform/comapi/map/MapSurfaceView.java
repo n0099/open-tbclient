@@ -70,7 +70,7 @@ public class MapSurfaceView extends RenderSurfaceView implements View.OnKeyListe
     private int z;
 
     /* loaded from: classes7.dex */
-    private class a implements f.InterfaceC0257f {
+    private class a implements f.InterfaceC0271f {
         private int b;
 
         private a() {
@@ -122,7 +122,7 @@ public class MapSurfaceView extends RenderSurfaceView implements View.OnKeyListe
             return "0x" + Integer.toHexString(i);
         }
 
-        @Override // com.baidu.platform.comapi.map.f.InterfaceC0257f
+        @Override // com.baidu.platform.comapi.map.f.InterfaceC0271f
         public EGLContext a(EGL10 egl10, EGLDisplay eGLDisplay, EGLConfig eGLConfig) {
             return egl10.eglCreateContext(eGLDisplay, eGLConfig, EGL10.EGL_NO_CONTEXT, new int[]{this.b, 2, 12344});
         }
@@ -131,7 +131,7 @@ public class MapSurfaceView extends RenderSurfaceView implements View.OnKeyListe
             throw new RuntimeException(b(str, i));
         }
 
-        @Override // com.baidu.platform.comapi.map.f.InterfaceC0257f
+        @Override // com.baidu.platform.comapi.map.f.InterfaceC0271f
         public void a(EGL10 egl10, EGLDisplay eGLDisplay, EGLContext eGLContext) {
             if (!egl10.eglDestroyContext(eGLDisplay, eGLContext)) {
                 Log.e("MapContextFactory", "display:" + eGLDisplay + " context: " + eGLContext);

@@ -8,14 +8,14 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.ap;
 import com.baidu.tbadk.core.view.NavigationBar;
 import com.baidu.tieba.R;
-import com.baidu.tieba.card.aa;
+import com.baidu.tieba.card.ab;
 import com.baidu.tieba.personCenter.c.h;
 import java.util.List;
 /* loaded from: classes24.dex */
 public class c {
-    private BdTypeListView fSo;
-    private aa<h> iEZ;
-    private a lCA;
+    private BdTypeListView gcr;
+    private ab<h> iRv;
+    private a lOX;
     private NavigationBar mNavigationBar;
     private TbPageContext mPageContext;
 
@@ -23,14 +23,14 @@ public class c {
         this.mPageContext = tbPageContext;
     }
 
-    public void an(View view) {
+    public void ah(View view) {
         this.mNavigationBar = (NavigationBar) view.findViewById(R.id.person_more_navigation_bar);
-        this.fSo = (BdTypeListView) view.findViewById(R.id.person_more_listview);
-        this.lCA = new a(this.mPageContext, this.fSo, this.iEZ);
-        byD();
+        this.gcr = (BdTypeListView) view.findViewById(R.id.person_more_listview);
+        this.lOX = new a(this.mPageContext, this.gcr, this.iRv);
+        bAw();
     }
 
-    private void byD() {
+    private void bAw() {
         this.mNavigationBar.setCenterTextTitle(this.mPageContext.getString(R.string.person_center_more));
         this.mNavigationBar.showBottomLine();
         this.mNavigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON, new View.OnClickListener() { // from class: com.baidu.tieba.person.more.c.1
@@ -43,16 +43,16 @@ public class c {
     }
 
     public void setData(List<q> list) {
-        this.fSo.setData(list);
+        this.gcr.setData(list);
     }
 
     public void onChangeSkinType() {
-        this.lCA.notifyDataSetChanged();
-        ap.setBackgroundColor(this.fSo, R.color.cp_bg_line_d);
+        this.lOX.notifyDataSetChanged();
+        ap.setBackgroundColor(this.gcr, R.color.cp_bg_line_d);
         this.mNavigationBar.onChangeSkinType(this.mPageContext, TbadkCoreApplication.getInst().getSkinType());
     }
 
-    public void c(aa<h> aaVar) {
-        this.iEZ = aaVar;
+    public void c(ab<h> abVar) {
+        this.iRv = abVar;
     }
 }

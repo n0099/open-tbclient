@@ -19,125 +19,125 @@ import com.baidu.tieba.im.message.chat.a;
 import java.util.Date;
 /* loaded from: classes26.dex */
 public class b extends com.baidu.adp.base.b<OfficialBarFeedActivity> {
-    private LinearLayout eVN;
-    private TextView iTP;
-    private View jEQ;
-    private BarImageView jER;
-    private TextView jES;
-    private RelativeLayout jET;
-    private OfficialFeedItemImage jEU;
-    private OfficialFeedItemBottom jEV;
-    private d.c jEW;
-    private boolean jEX;
+    private LinearLayout fej;
+    private View jRp;
+    private BarImageView jRq;
+    private TextView jRr;
+    private RelativeLayout jRs;
+    private OfficialFeedItemImage jRt;
+    private OfficialFeedItemBottom jRu;
+    private d.c jRv;
+    private boolean jRw;
+    private TextView jgl;
 
     public b(TbPageContext<OfficialBarFeedActivity> tbPageContext, boolean z) {
         super(tbPageContext, R.layout.official_feed_item_container);
-        this.jEW = null;
-        this.jEX = z;
+        this.jRv = null;
+        this.jRw = z;
         init();
     }
 
     private void init() {
-        this.jER = (BarImageView) findViewById(R.id.bar_icon);
-        this.iTP = (TextView) findViewById(R.id.bar_name);
-        this.jES = (TextView) findViewById(R.id.message_time);
-        this.eVN = (LinearLayout) findViewById(R.id.item_container);
-        this.jET = (RelativeLayout) findViewById(R.id.official_bar_feed_item);
-        this.jEQ = findViewById(R.id.official_bar_feed_item_bg);
-        if (this.jEX) {
-            this.jEQ.setVisibility(8);
+        this.jRq = (BarImageView) findViewById(R.id.bar_icon);
+        this.jgl = (TextView) findViewById(R.id.bar_name);
+        this.jRr = (TextView) findViewById(R.id.message_time);
+        this.fej = (LinearLayout) findViewById(R.id.item_container);
+        this.jRs = (RelativeLayout) findViewById(R.id.official_bar_feed_item);
+        this.jRp = findViewById(R.id.official_bar_feed_item_bg);
+        if (this.jRw) {
+            this.jRp.setVisibility(8);
         }
     }
 
     public void onChangeSkinType() {
-        ap.setViewTextColor(this.jES, R.color.cp_cont_d);
-        ap.setViewTextColor(this.iTP, R.color.cp_cont_b);
-        if (this.jEU != null) {
-            this.jEU.cJJ();
+        ap.setViewTextColor(this.jRr, R.color.cp_cont_d);
+        ap.setViewTextColor(this.jgl, R.color.cp_cont_b);
+        if (this.jRt != null) {
+            this.jRt.cMQ();
         }
-        if (this.jEV != null) {
-            this.jEV.cJJ();
+        if (this.jRu != null) {
+            this.jRu.cMQ();
         }
-        if (this.jEX) {
-            com.baidu.tbadk.core.util.e.a.bnu().pe(R.color.cp_bg_line_e).oZ(l.getDimens(this.mContext.getPageActivity(), R.dimen.tbds31)).pa(R.color.cp_shadow_a_alpha16).oY(4369).pb(l.getDimens(this.mContext.getPageActivity(), R.dimen.tbds10)).pc(0).pd(l.getDimens(this.mContext.getPageActivity(), R.dimen.tbds5)).bf(this.eVN);
+        if (this.jRw) {
+            com.baidu.tbadk.core.util.e.a.bpn().pq(R.color.cp_bg_line_e).pk(l.getDimens(this.mContext.getPageActivity(), R.dimen.tbds31)).pl(R.color.cp_shadow_a_alpha16).pj(4369).pm(l.getDimens(this.mContext.getPageActivity(), R.dimen.tbds10)).po(0).pp(l.getDimens(this.mContext.getPageActivity(), R.dimen.tbds5)).bg(this.fej);
         } else {
-            com.baidu.tbadk.core.util.e.a.bnu().pe(R.color.cp_bg_line_e).oZ(l.getDimens(this.mContext.getPageActivity(), R.dimen.tbds31)).pa(R.color.cp_shadow_a_alpha16).oY(4369).pb(l.getDimens(this.mContext.getPageActivity(), R.dimen.tbds10)).pc(0).pd(l.getDimens(this.mContext.getPageActivity(), R.dimen.tbds5)).bf(this.jEQ);
+            com.baidu.tbadk.core.util.e.a.bpn().pq(R.color.cp_bg_line_e).pk(l.getDimens(this.mContext.getPageActivity(), R.dimen.tbds31)).pl(R.color.cp_shadow_a_alpha16).pj(4369).pm(l.getDimens(this.mContext.getPageActivity(), R.dimen.tbds10)).po(0).pp(l.getDimens(this.mContext.getPageActivity(), R.dimen.tbds5)).bg(this.jRp);
         }
     }
 
-    public void a(Context context, final a.C0734a c0734a, com.baidu.tieba.im.db.pojo.a aVar, com.baidu.tieba.im.forum.broadcast.data.b bVar, int i, boolean z, final int i2) {
-        String cV;
-        if (c0734a != null) {
-            if (this.jEX) {
-                this.jER.setVisibility(8);
-                this.iTP.setVisibility(8);
-                this.jES.setTextSize(0, l.getDimens(this.mContext.getPageActivity(), R.dimen.tbds40));
-                RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) this.jES.getLayoutParams();
+    public void a(Context context, final a.C0750a c0750a, com.baidu.tieba.im.db.pojo.a aVar, com.baidu.tieba.im.forum.broadcast.data.b bVar, int i, boolean z, final int i2) {
+        String cX;
+        if (c0750a != null) {
+            if (this.jRw) {
+                this.jRq.setVisibility(8);
+                this.jgl.setVisibility(8);
+                this.jRr.setTextSize(0, l.getDimens(this.mContext.getPageActivity(), R.dimen.tbds40));
+                RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) this.jRr.getLayoutParams();
                 layoutParams.removeRule(11);
                 layoutParams.addRule(14);
-                this.jES.setLayoutParams(layoutParams);
+                this.jRr.setLayoutParams(layoutParams);
                 int dimens = l.getDimens(this.mContext.getPageActivity(), R.dimen.tbds10);
                 int dimens2 = l.getDimens(this.mContext.getPageActivity(), R.dimen.tbds5);
                 int dimens3 = l.getDimens(this.mContext.getPageActivity(), R.dimen.tbds52);
-                this.jET.setPadding(0, l.getDimens(this.mContext.getPageActivity(), R.dimen.tbds31), 0, 0);
-                this.eVN.setPadding(dimens, dimens2, dimens, StringUtils.isNull(c0734a.text) ? 0 : dimens3 + dimens);
-                RelativeLayout.LayoutParams layoutParams2 = (RelativeLayout.LayoutParams) this.eVN.getLayoutParams();
+                this.jRs.setPadding(0, l.getDimens(this.mContext.getPageActivity(), R.dimen.tbds31), 0, 0);
+                this.fej.setPadding(dimens, dimens2, dimens, StringUtils.isNull(c0750a.text) ? 0 : dimens3 + dimens);
+                RelativeLayout.LayoutParams layoutParams2 = (RelativeLayout.LayoutParams) this.fej.getLayoutParams();
                 layoutParams2.topMargin = l.getDimens(this.mContext.getPageActivity(), R.dimen.tbds27);
-                this.eVN.setLayoutParams(layoutParams2);
+                this.fej.setLayoutParams(layoutParams2);
             } else {
-                this.jER.setShowOval(true);
-                this.jER.setAutoChangeStyle(true);
-                this.jER.setStrokeWith(l.getDimens(TbadkCoreApplication.getInst(), R.dimen.tbds1));
-                this.jER.setStrokeColorResId(R.color.cp_border_a);
-                this.jER.setPlaceHolder(1);
+                this.jRq.setShowOval(true);
+                this.jRq.setAutoChangeStyle(true);
+                this.jRq.setStrokeWith(l.getDimens(TbadkCoreApplication.getInst(), R.dimen.tbds1));
+                this.jRq.setStrokeColorResId(R.color.cp_border_a);
+                this.jRq.setPlaceHolder(1);
             }
-            if (!this.jEX && aVar != null) {
-                this.jER.startLoad(aVar.cLL(), 10, false);
-                this.iTP.setText(String.format("%s%s", aVar.getForumName(), context.getString(R.string.forum)));
+            if (!this.jRw && aVar != null) {
+                this.jRq.startLoad(aVar.cOS(), 10, false);
+                this.jgl.setText(String.format("%s%s", aVar.getForumName(), context.getString(R.string.forum)));
             }
-            long j = c0734a.createTime * 1000;
-            if (this.jEX) {
-                cV = k.getTimeStringNoYear(new Date(j));
+            long j = c0750a.createTime * 1000;
+            if (this.jRw) {
+                cX = k.getTimeStringNoYear(new Date(j));
             } else {
-                cV = at.cV(j);
-                if (at.Bp(cV)) {
-                    cV = at.getFormatTimeShort(j);
+                cX = at.cX(j);
+                if (at.BI(cX)) {
+                    cX = at.getFormatTimeShort(j);
                 }
             }
-            this.jES.setText(cV);
-            this.jEV = new OfficialFeedItemBottom(context);
-            if (this.jEX) {
+            this.jRr.setText(cX);
+            this.jRu = new OfficialFeedItemBottom(context);
+            if (this.jRw) {
                 int dimens4 = l.getDimens(this.mContext.getPageActivity(), R.dimen.tbds29);
-                this.jEV.setPadding(dimens4, 0, dimens4, 0);
+                this.jRu.setPadding(dimens4, 0, dimens4, 0);
             }
-            this.jEV.setData(c0734a, z);
-            this.eVN.removeAllViews();
-            this.jET.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.im.chat.officialBar.b.1
+            this.jRu.setData(c0750a, z);
+            this.fej.removeAllViews();
+            this.jRs.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.im.chat.officialBar.b.1
                 @Override // android.view.View.OnClickListener
                 public void onClick(View view) {
-                    if (b.this.jEW != null) {
-                        b.this.jEW.a(b.this.jET, c0734a, i2, 0L);
+                    if (b.this.jRv != null) {
+                        b.this.jRv.a(b.this.jRs, c0750a, i2, 0L);
                     }
                 }
             });
             if (z) {
-                this.jEU = new OfficialFeedItemImage(context, this.jEX);
-                if (this.jEX) {
-                    this.jEU.cJK();
-                    this.jEV.BW(l.getDimens(this.mContext.getPageActivity(), R.dimen.tbds29));
+                this.jRt = new OfficialFeedItemImage(context, this.jRw);
+                if (this.jRw) {
+                    this.jRt.cMR();
+                    this.jRu.Cp(l.getDimens(this.mContext.getPageActivity(), R.dimen.tbds29));
                 }
-                this.eVN.addView(this.jEU);
-                this.eVN.addView(this.jEV);
-                this.jEU.setData(c0734a, i, bVar);
+                this.fej.addView(this.jRt);
+                this.fej.addView(this.jRu);
+                this.jRt.setData(c0750a, i, bVar);
             } else {
-                if (this.jEX) {
+                if (this.jRw) {
                     int dimens5 = l.getDimens(this.mContext.getPageActivity(), R.dimen.tbds10);
                     int dimens6 = l.getDimens(this.mContext.getPageActivity(), R.dimen.tbds5);
                     int dimens7 = l.getDimens(this.mContext.getPageActivity(), R.dimen.tbds53);
-                    this.eVN.setPadding(dimens5, dimens6 + dimens7, dimens5, dimens7 + dimens5);
-                    this.jEV.BW(l.getDimens(this.mContext.getPageActivity(), R.dimen.tbds26));
+                    this.fej.setPadding(dimens5, dimens6 + dimens7, dimens5, dimens7 + dimens5);
+                    this.jRu.Cp(l.getDimens(this.mContext.getPageActivity(), R.dimen.tbds26));
                 }
-                this.eVN.addView(this.jEV);
+                this.fej.addView(this.jRu);
             }
             onChangeSkinType();
         }
@@ -145,6 +145,6 @@ public class b extends com.baidu.adp.base.b<OfficialBarFeedActivity> {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public void a(d.c cVar) {
-        this.jEW = cVar;
+        this.jRv = cVar;
     }
 }

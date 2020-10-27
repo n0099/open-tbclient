@@ -4,56 +4,56 @@ import android.graphics.Bitmap;
 import java.util.List;
 /* loaded from: classes12.dex */
 public class e {
-    private final b nRZ;
-    private int nSa;
-    private com.facebook.common.references.a<Bitmap> nSb;
-    private List<com.facebook.common.references.a<Bitmap>> nSc;
+    private final b oJr;
+    private int oJs;
+    private com.facebook.common.references.a<Bitmap> oJt;
+    private List<com.facebook.common.references.a<Bitmap>> oJu;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public e(b bVar) {
-        this.nRZ = bVar;
+        this.oJr = bVar;
     }
 
-    public b dZq() {
-        return this.nRZ;
+    public b ejo() {
+        return this.oJr;
     }
 
-    public com.facebook.common.references.a<Bitmap> dZr() {
-        return com.facebook.common.references.a.b(this.nSb);
+    public com.facebook.common.references.a<Bitmap> ejp() {
+        return com.facebook.common.references.a.b(this.oJt);
     }
 
     public e j(com.facebook.common.references.a<Bitmap> aVar) {
-        this.nSb = com.facebook.common.references.a.b(aVar);
+        this.oJt = com.facebook.common.references.a.b(aVar);
         return this;
     }
 
-    public int dZs() {
-        return this.nSa;
+    public int ejq() {
+        return this.oJs;
     }
 
-    public e MM(int i) {
-        this.nSa = i;
+    public e OD(int i) {
+        this.oJs = i;
         return this;
     }
 
-    public List<com.facebook.common.references.a<Bitmap>> dZt() {
-        return com.facebook.common.references.a.m(this.nSc);
+    public List<com.facebook.common.references.a<Bitmap>> ejr() {
+        return com.facebook.common.references.a.m(this.oJu);
     }
 
-    public e fV(List<com.facebook.common.references.a<Bitmap>> list) {
-        this.nSc = com.facebook.common.references.a.m(list);
+    public e gr(List<com.facebook.common.references.a<Bitmap>> list) {
+        this.oJu = com.facebook.common.references.a.m(list);
         return this;
     }
 
     /* JADX WARN: Type inference failed for: r2v0, types: [java.util.List<com.facebook.common.references.a<android.graphics.Bitmap>>, com.facebook.common.references.a<android.graphics.Bitmap>] */
-    public d dZu() {
+    public d ejs() {
         try {
             return new d(this);
         } finally {
-            com.facebook.common.references.a.c(this.nSb);
-            this.nSb = null;
-            com.facebook.common.references.a.b(this.nSc);
-            this.nSc = null;
+            com.facebook.common.references.a.c(this.oJt);
+            this.oJt = null;
+            com.facebook.common.references.a.b(this.oJu);
+            this.oJu = null;
         }
     }
 }

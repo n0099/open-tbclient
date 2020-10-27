@@ -85,7 +85,7 @@ public class ForumRankActivityStatic {
         customMessageTask5.setType(CustomMessageTask.TASK_TYPE.SYNCHRONIZED);
         MessageManager.getInstance().registerTask(customMessageTask5);
         com.baidu.tieba.tbadkCore.a.a.a(CmdConfigSocket.CMD_SQUARE_FORUM_LIST, SquareForumListResSocketMsg.class, false, false);
-        TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(1003060, com.baidu.tieba.tbadkCore.a.a.bI("c/f/forumsquare/getForumsFromForumClass", CmdConfigSocket.CMD_SQUARE_FORUM_LIST));
+        TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(1003060, com.baidu.tieba.tbadkCore.a.a.bJ("c/f/forumsquare/getForumsFromForumClass", CmdConfigSocket.CMD_SQUARE_FORUM_LIST));
         tbHttpMessageTask.setIsNeedLogin(false);
         tbHttpMessageTask.setIsNeedTbs(false);
         tbHttpMessageTask.setIsNeedAddCommenParam(false);
@@ -93,7 +93,7 @@ public class ForumRankActivityStatic {
         tbHttpMessageTask.setResponsedClass(SquareForumListResHttpMsg.class);
         tbHttpMessageTask.setIsImm(true);
         MessageManager.getInstance().registerTask(tbHttpMessageTask);
-        be.bmY().a(new be.a() { // from class: com.baidu.tieba.square.flist.ForumRankActivityStatic.6
+        be.boR().a(new be.a() { // from class: com.baidu.tieba.square.flist.ForumRankActivityStatic.6
             @Override // com.baidu.tbadk.core.util.be.a
             public int deal(TbPageContext<?> tbPageContext, String[] strArr) {
                 if (tbPageContext == null || strArr == null || strArr.length == 0) {
@@ -114,7 +114,7 @@ public class ForumRankActivityStatic {
                 return 3;
             }
         });
-        be.bmY().a(UrlSchemaHelper.SCHEMA_TYPE_SQUARE, new be.b() { // from class: com.baidu.tieba.square.flist.ForumRankActivityStatic.7
+        be.boR().a(UrlSchemaHelper.SCHEMA_TYPE_SQUARE, new be.b() { // from class: com.baidu.tieba.square.flist.ForumRankActivityStatic.7
             @Override // com.baidu.tbadk.core.util.be.b
             public void a(TbPageContext<?> tbPageContext, Map<String, String> map) {
                 if (tbPageContext != null) {

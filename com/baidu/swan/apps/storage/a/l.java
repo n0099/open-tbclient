@@ -24,29 +24,29 @@ public class l extends aa {
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(201, "empty joParams");
             return false;
         }
-        String aK = com.baidu.swan.apps.api.module.i.a.aK(optParamsAsJo);
-        if (aK == null) {
+        String aN = com.baidu.swan.apps.api.module.i.a.aN(optParamsAsJo);
+        if (aN == null) {
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202);
             return false;
-        } else if (com.baidu.swan.apps.storage.c.sW(aK)) {
+        } else if (com.baidu.swan.apps.storage.c.tp(aN)) {
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "exceed storage key max length");
             return false;
         } else {
-            String aJ = com.baidu.swan.apps.api.module.i.a.aJ(optParamsAsJo);
-            if (aJ == null) {
+            String aM = com.baidu.swan.apps.api.module.i.a.aM(optParamsAsJo);
+            if (aM == null) {
                 unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202);
                 return false;
-            } else if (com.baidu.swan.apps.storage.c.sX(aJ)) {
+            } else if (com.baidu.swan.apps.storage.c.tq(aM)) {
                 unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "exceed storage item max length");
                 return false;
             } else {
-                com.baidu.swan.apps.storage.c aDl = eVar.aDl();
-                if (aDl.cx(aK, aJ)) {
+                com.baidu.swan.apps.storage.c aFf = eVar.aFf();
+                if (aFf.cE(aN, aM)) {
                     unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1003, "exceed storage max length");
                     return false;
                 }
-                aDl.aGi().putString(aK, aJ);
-                com.baidu.swan.apps.am.e.doy.update();
+                aFf.aIc().putString(aN, aM);
+                com.baidu.swan.apps.am.e.dwY.update();
                 UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, 0);
                 return true;
             }

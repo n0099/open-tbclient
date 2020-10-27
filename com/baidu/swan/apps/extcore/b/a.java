@@ -7,18 +7,18 @@ import java.io.File;
 public abstract class a<T extends com.baidu.swan.apps.extcore.model.b.a> {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
     @NonNull
-    protected T cFn;
+    protected T cNJ;
 
     public a(@NonNull T t) {
-        this.cFn = t;
+        this.cNJ = t;
     }
 
-    public File apC() {
-        return this.cFn.apO();
+    public File arw() {
+        return this.cNJ.arI();
     }
 
     @NonNull
-    public File bf(long j) {
-        return new File(apC(), String.valueOf(j));
+    public File bh(long j) {
+        return new File(arw(), String.valueOf(j));
     }
 }

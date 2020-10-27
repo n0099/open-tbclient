@@ -1,74 +1,74 @@
 package com.baidu.swan.pms.c.d;
 /* loaded from: classes15.dex */
 public class c extends g {
-    private String dUt;
-    private long dUu;
-    private long dUv;
-    private String dUw;
-    private String dUx;
-    private int dUy;
+    private String ecP;
+    private long ecQ;
+    private long ecR;
+    private String ecS;
+    private String ecT;
+    private int ecU;
     private String mPath;
 
     public c(String str, int i) {
         super(i);
-        this.dUu = -1L;
-        this.dUv = -1L;
-        this.dUy = -1;
-        this.dUt = str;
+        this.ecQ = -1L;
+        this.ecR = -1L;
+        this.ecU = -1;
+        this.ecP = str;
     }
 
-    public c mB(int i) {
-        this.dUy = i;
+    public c mM(int i) {
+        this.ecU = i;
         return this;
     }
 
-    public int aXH() {
-        return this.dUy;
+    public int aZA() {
+        return this.ecU;
     }
 
-    public c xN(String str) {
-        this.dUw = str;
+    public c yg(String str) {
+        this.ecS = str;
         return this;
     }
 
-    public c cu(long j) {
-        this.dUu = j;
+    public c cw(long j) {
+        this.ecQ = j;
         return this;
     }
 
-    public c cv(long j) {
-        this.dUv = j;
+    public c cx(long j) {
+        this.ecR = j;
         return this;
     }
 
-    public c xO(String str) {
-        this.dUx = str;
+    public c yh(String str) {
+        this.ecT = str;
         return this;
     }
 
-    public c xP(String str) {
+    public c yi(String str) {
         this.mPath = str;
         return this;
     }
 
     public String getBundleId() {
-        return this.dUt;
+        return this.ecP;
     }
 
-    public long aXF() {
-        return this.dUu;
+    public long aZy() {
+        return this.ecQ;
     }
 
-    public long aXG() {
-        return this.dUv;
+    public long aZz() {
+        return this.ecR;
     }
 
-    public String aXI() {
-        return this.dUw;
+    public String aZB() {
+        return this.ecS;
     }
 
-    public String aXJ() {
-        return this.dUx;
+    public String aZC() {
+        return this.ecT;
     }
 
     public String getPath() {

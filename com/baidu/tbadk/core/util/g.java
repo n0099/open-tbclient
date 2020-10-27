@@ -10,7 +10,7 @@ import com.baidu.tbadk.switchs.IsFullScreenSwitch;
 import com.xiaomi.mipush.sdk.Constants;
 /* loaded from: classes.dex */
 public class g {
-    public static boolean blX() {
+    public static boolean bnQ() {
         boolean z = true;
         if (IsFullScreenSwitch.isOn()) {
             String trim = Build.MODEL.trim();
@@ -32,19 +32,19 @@ public class g {
         return false;
     }
 
-    public static boolean blY() {
+    public static boolean bnR() {
         return at.equals(Build.MODEL.trim(), "ANE-AL00");
     }
 
-    public static boolean blZ() {
+    public static boolean bnS() {
         return at.equals(Build.MODEL.trim(), "vivo X20A");
     }
 
-    public static boolean bma() {
+    public static boolean bnT() {
         return at.equals(Build.MODEL.trim(), "PCLM50");
     }
 
-    public static boolean bmb() {
+    public static boolean bnU() {
         return at.equals(Build.MODEL.trim(), "MI 5X");
     }
 
@@ -52,7 +52,7 @@ public class g {
         return RomUtils.MANUFACTURER_XIAOMI.equalsIgnoreCase(Build.MANUFACTURER);
     }
 
-    public static String agW() {
+    public static String aiQ() {
         String str = Build.MANUFACTURER;
         if (TextUtils.isEmpty(str)) {
             return "NUL";

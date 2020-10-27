@@ -58,32 +58,32 @@ import java.util.Iterator;
 import java.util.List;
 /* loaded from: classes22.dex */
 public class TopicDetailView extends RelativeLayout implements View.OnClickListener {
-    private BdListView.e VQ;
-    private NoNetworkView.a fRO;
-    private NoNetworkView fTu;
-    private PbListView fTv;
-    private com.baidu.tbadk.editortools.pb.b fbz;
-    private g gcx;
-    private BdTypeRecyclerView iSZ;
-    private View irv;
-    private ImageView jrA;
-    private TopicDetailHeadView jrB;
-    private com.baidu.tieba.homepage.topic.topicdetail.a.b jrC;
-    private View jrD;
-    private View jrE;
-    private TextView jrF;
-    private TextView jrG;
-    private a jrH;
-    private View jrI;
-    private com.baidu.tieba.write.c jrJ;
-    private EditText jrK;
-    private int jrL;
-    private com.baidu.tieba.homepage.topic.topicdetail.model.a jrM;
-    a.RunnableC0716a jrN;
-    private int jrO;
-    private int jrP;
-    private NewWriteModel.d jrQ;
-    private com.baidu.tieba.homepage.topic.topicdetail.a jrz;
+    private BdListView.e VR;
+    private com.baidu.tbadk.editortools.pb.b fjY;
+    private NoNetworkView.a gbR;
+    private NoNetworkView gdx;
+    private PbListView gdy;
+    private g gmB;
+    private View iDR;
+    private com.baidu.tieba.homepage.topic.topicdetail.a jDZ;
+    private ImageView jEa;
+    private TopicDetailHeadView jEb;
+    private com.baidu.tieba.homepage.topic.topicdetail.a.b jEc;
+    private View jEd;
+    private View jEe;
+    private TextView jEf;
+    private TextView jEg;
+    private a jEh;
+    private View jEi;
+    private com.baidu.tieba.write.c jEj;
+    private EditText jEk;
+    private int jEl;
+    private com.baidu.tieba.homepage.topic.topicdetail.model.a jEm;
+    a.RunnableC0732a jEn;
+    private int jEo;
+    private int jEp;
+    private NewWriteModel.d jEq;
+    private BdTypeRecyclerView jfv;
     private ImageView mBackImageView;
     private boolean mHasMore;
     private NavigationBar mNavigationBar;
@@ -96,54 +96,54 @@ public class TopicDetailView extends RelativeLayout implements View.OnClickListe
     public TopicDetailView(TbPageContext<?> tbPageContext, com.baidu.tieba.homepage.topic.topicdetail.a aVar, Bundle bundle) {
         super(tbPageContext.getPageActivity());
         this.mSkinType = 3;
-        this.jrE = null;
-        this.jrF = null;
-        this.jrG = null;
+        this.jEe = null;
+        this.jEf = null;
+        this.jEg = null;
         this.mHasMore = true;
-        this.jrO = 0;
-        this.jrP = 44;
-        this.fRO = new NoNetworkView.a() { // from class: com.baidu.tieba.homepage.topic.topicdetail.view.TopicDetailView.1
+        this.jEo = 0;
+        this.jEp = 44;
+        this.gbR = new NoNetworkView.a() { // from class: com.baidu.tieba.homepage.topic.topicdetail.view.TopicDetailView.1
             @Override // com.baidu.tbadk.core.view.NoNetworkView.a
             public void onNetworkChange(boolean z) {
-                if (z && TopicDetailView.this.mTopicDetailData == null && TopicDetailView.this.jrz != null) {
-                    TopicDetailView.this.jrz.loadData();
+                if (z && TopicDetailView.this.mTopicDetailData == null && TopicDetailView.this.jDZ != null) {
+                    TopicDetailView.this.jDZ.loadData();
                 }
             }
         };
-        this.fbz = new com.baidu.tbadk.editortools.pb.b() { // from class: com.baidu.tieba.homepage.topic.topicdetail.view.TopicDetailView.6
+        this.fjY = new com.baidu.tbadk.editortools.pb.b() { // from class: com.baidu.tieba.homepage.topic.topicdetail.view.TopicDetailView.6
             @Override // com.baidu.tbadk.editortools.pb.b
-            public boolean bvJ() {
-                if (TopicDetailView.this.jrJ.dNl()) {
-                    TopicDetailView.this.mPageContext.showToast(TopicDetailView.this.jrJ.dNn());
-                    TopicDetailView.this.qG(true);
+            public boolean bxC() {
+                if (TopicDetailView.this.jEj.dQt()) {
+                    TopicDetailView.this.mPageContext.showToast(TopicDetailView.this.jEj.dQv());
+                    TopicDetailView.this.qY(true);
                     return true;
                 }
                 return false;
             }
         };
-        this.jrQ = new NewWriteModel.d() { // from class: com.baidu.tieba.homepage.topic.topicdetail.view.TopicDetailView.7
+        this.jEq = new NewWriteModel.d() { // from class: com.baidu.tieba.homepage.topic.topicdetail.view.TopicDetailView.7
             @Override // com.baidu.tieba.tbadkCore.writeModel.NewWriteModel.d
             public void callback(boolean z, PostWriteCallBackData postWriteCallBackData, ah ahVar, WriteData writeData, AntiData antiData) {
-                if (z && TopicDetailView.this.jrH != null && TopicDetailView.this.jrH.bvf() != null) {
-                    TopicDetailView.this.jrH.bvf().hide();
+                if (z && TopicDetailView.this.jEh != null && TopicDetailView.this.jEh.bwY() != null) {
+                    TopicDetailView.this.jEh.bwY().hide();
                 }
                 if (z) {
-                    TopicDetailView.this.jrJ.TK(null);
-                    TopicDetailView.this.jrJ.bh(null);
-                    TopicDetailView.this.jrJ.xP(false);
+                    TopicDetailView.this.jEj.Uj(null);
+                    TopicDetailView.this.jEj.bk(null);
+                    TopicDetailView.this.jEj.yg(false);
                     if (postWriteCallBackData != null) {
                         long j = com.baidu.adp.lib.f.b.toLong(postWriteCallBackData.getPostId(), 0L);
                         long j2 = com.baidu.adp.lib.f.b.toLong(postWriteCallBackData.getThreadId(), 0L);
                         if (j != 0 && j2 != 0) {
-                            TopicDetailView.this.jrN = TopicDetailView.this.jrM.y(j, j2);
-                            com.baidu.adp.lib.f.e.mY().postDelayed(TopicDetailView.this.jrN, 500L);
+                            TopicDetailView.this.jEn = TopicDetailView.this.jEm.z(j, j2);
+                            com.baidu.adp.lib.f.e.mY().postDelayed(TopicDetailView.this.jEn, 500L);
                         }
                     }
                 } else if (postWriteCallBackData != null && postWriteCallBackData.isSensitiveError()) {
-                    TopicDetailView.this.jrJ.bh(postWriteCallBackData.getSensitiveWords());
-                    TopicDetailView.this.jrJ.TK(postWriteCallBackData.getErrorString());
-                    if (!y.isEmpty(TopicDetailView.this.jrJ.dNj())) {
-                        TopicDetailView.this.qG(true);
+                    TopicDetailView.this.jEj.bk(postWriteCallBackData.getSensitiveWords());
+                    TopicDetailView.this.jEj.Uj(postWriteCallBackData.getErrorString());
+                    if (!y.isEmpty(TopicDetailView.this.jEj.dQr())) {
+                        TopicDetailView.this.qY(true);
                     }
                 }
             }
@@ -151,37 +151,37 @@ public class TopicDetailView extends RelativeLayout implements View.OnClickListe
         this.mScrollListener = new RecyclerView.OnScrollListener() { // from class: com.baidu.tieba.homepage.topic.topicdetail.view.TopicDetailView.8
             @Override // android.support.v7.widget.RecyclerView.OnScrollListener
             public void onScrollStateChanged(RecyclerView recyclerView, int i) {
-                if (i != 0 && TopicDetailView.this.jrH != null) {
-                    TopicDetailView.this.jrH.bwn();
+                if (i != 0 && TopicDetailView.this.jEh != null) {
+                    TopicDetailView.this.jEh.byg();
                     TopicDetailView.this.setEditorTopViewAboveEditor();
                 }
-                super.onScrollStateChanged(TopicDetailView.this.iSZ, i);
+                super.onScrollStateChanged(TopicDetailView.this.jfv, i);
             }
 
             @Override // android.support.v7.widget.RecyclerView.OnScrollListener
             public void onScrolled(RecyclerView recyclerView, int i, int i2) {
                 super.onScrolled(recyclerView, i, i2);
-                TopicDetailView.this.jrO += i2;
-                TopicDetailView.this.cGv();
+                TopicDetailView.this.jEo += i2;
+                TopicDetailView.this.cJC();
             }
         };
-        this.VQ = new BdListView.e() { // from class: com.baidu.tieba.homepage.topic.topicdetail.view.TopicDetailView.9
+        this.VR = new BdListView.e() { // from class: com.baidu.tieba.homepage.topic.topicdetail.view.TopicDetailView.9
             @Override // com.baidu.adp.widget.ListView.BdListView.e
             public void onScrollToBottom() {
                 if (TopicDetailView.this.mHasMore) {
                     if (!l.isNetOk()) {
-                        TopicDetailView.this.bKU();
+                        TopicDetailView.this.bNw();
                         return;
                     }
                     int size = TopicDetailView.this.mTopicDetailData.mDataList.size();
                     if (TopicDetailView.this.mTopicDetailData.mDataList.get(size - 1) instanceof com.baidu.tieba.homepage.topic.topicdetail.b.c) {
-                        ((TopicDetailActivity) TopicDetailView.this.mPageContext.getPageActivity()).fx(((com.baidu.tieba.homepage.topic.topicdetail.b.c) TopicDetailView.this.mTopicDetailData.mDataList.get(size - 1)).jrb);
+                        ((TopicDetailActivity) TopicDetailView.this.mPageContext.getPageActivity()).fy(((com.baidu.tieba.homepage.topic.topicdetail.b.c) TopicDetailView.this.mTopicDetailData.mDataList.get(size - 1)).jDB);
                     }
                 }
             }
         };
         this.mPageContext = tbPageContext;
-        this.jrz = aVar;
+        this.jDZ = aVar;
         init(bundle);
         onChangeSkinType();
     }
@@ -189,81 +189,81 @@ public class TopicDetailView extends RelativeLayout implements View.OnClickListe
     private void init(Bundle bundle) {
         LayoutInflater.from(getContext()).inflate(R.layout.activity_topic_detail_layout, (ViewGroup) this, true);
         this.mNavigationBar = (NavigationBar) findViewById(R.id.activity_topic_detail_navigation);
-        if (this.irv == null) {
-            this.irv = this.mNavigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
-            this.irv.setOnClickListener(this);
-            this.mBackImageView = (ImageView) this.irv.findViewById(R.id.widget_navi_back_button);
+        if (this.iDR == null) {
+            this.iDR = this.mNavigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
+            this.iDR.setOnClickListener(this);
+            this.mBackImageView = (ImageView) this.iDR.findViewById(R.id.widget_navi_back_button);
         }
-        this.jrA = (ImageView) this.mNavigationBar.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, R.layout.topic_detail_share_layout, this);
-        SvgManager.bmU().a(this.jrA, R.drawable.icon_pure_topbar_share44_svg, R.color.white_alpha100, SvgManager.SvgResourceStateType.NORMAL_PRESS);
+        this.jEa = (ImageView) this.mNavigationBar.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, R.layout.topic_detail_share_layout, this);
+        SvgManager.boN().a(this.jEa, R.drawable.icon_pure_topbar_share44_svg, R.color.white_alpha100, SvgManager.SvgResourceStateType.NORMAL_PRESS);
         ap.setViewTextColor(this.mNavigationBar.mCenterText, R.color.cp_cont_a);
         this.mNavigationBar.mCenterText.setTextSize(0, getResources().getDimensionPixelSize(R.dimen.tbds52));
         this.mNavigationBar.mCenterText.setTypeface(Typeface.defaultFromStyle(1));
-        this.fTu = (NoNetworkView) findViewById(R.id.activity_topic_detail_no_network_view);
-        this.fTu.a(this.fRO);
-        this.jrE = findViewById(R.id.pb_editor_tool_comment);
-        this.jrF = (TextView) findViewById(R.id.topic_editor_tool_comment_reply_text);
-        this.jrF.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.homepage.topic.topicdetail.view.TopicDetailView.3
+        this.gdx = (NoNetworkView) findViewById(R.id.activity_topic_detail_no_network_view);
+        this.gdx.a(this.gbR);
+        this.jEe = findViewById(R.id.pb_editor_tool_comment);
+        this.jEf = (TextView) findViewById(R.id.topic_editor_tool_comment_reply_text);
+        this.jEf.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.homepage.topic.topicdetail.view.TopicDetailView.3
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                TopicDetailView.this.cGu();
+                TopicDetailView.this.cJB();
             }
         });
-        this.jrG = (TextView) findViewById(R.id.editor_tool_opinion_text_view);
-        this.jrD = findViewById(R.id.activity_topic_detail_editor);
+        this.jEg = (TextView) findViewById(R.id.editor_tool_opinion_text_view);
+        this.jEd = findViewById(R.id.activity_topic_detail_editor);
         ar(bundle);
         RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(-1, -2);
         layoutParams.addRule(12);
-        addView(this.jrH.bvf(), layoutParams);
-        this.jrJ = new com.baidu.tieba.write.c();
-        this.jrI = findViewById(R.id.activity_topic_detail_editor_top);
-        this.iSZ = (BdTypeRecyclerView) findViewById(R.id.activity_topic_detail_list);
-        this.iSZ.setLayoutManager(new LinearLayoutManager(getContext()));
-        this.iSZ.setFadingEdgeLength(0);
-        this.iSZ.setOverScrollMode(2);
-        this.iSZ.setOnSrollToBottomListener(this.VQ);
-        this.iSZ.addOnScrollListener(this.mScrollListener);
-        ap.setBackgroundColor(this.iSZ, R.color.cp_bg_line_d);
-        this.jrC = new com.baidu.tieba.homepage.topic.topicdetail.a.b(this.mPageContext, this.iSZ);
-        this.jrB = new TopicDetailHeadView(getContext());
-        this.jrB.jrx.setPkClickListener(new TopicPkView.b() { // from class: com.baidu.tieba.homepage.topic.topicdetail.view.TopicDetailView.4
+        addView(this.jEh.bwY(), layoutParams);
+        this.jEj = new com.baidu.tieba.write.c();
+        this.jEi = findViewById(R.id.activity_topic_detail_editor_top);
+        this.jfv = (BdTypeRecyclerView) findViewById(R.id.activity_topic_detail_list);
+        this.jfv.setLayoutManager(new LinearLayoutManager(getContext()));
+        this.jfv.setFadingEdgeLength(0);
+        this.jfv.setOverScrollMode(2);
+        this.jfv.setOnSrollToBottomListener(this.VR);
+        this.jfv.addOnScrollListener(this.mScrollListener);
+        ap.setBackgroundColor(this.jfv, R.color.cp_bg_line_d);
+        this.jEc = new com.baidu.tieba.homepage.topic.topicdetail.a.b(this.mPageContext, this.jfv);
+        this.jEb = new TopicDetailHeadView(getContext());
+        this.jEb.jDX.setPkClickListener(new TopicPkView.b() { // from class: com.baidu.tieba.homepage.topic.topicdetail.view.TopicDetailView.4
             @Override // com.baidu.tieba.homepage.topic.topictab.view.TopicPkView.b
-            public void Bm(int i) {
-                TopicDetailView.this.Bl(i);
+            public void BF(int i) {
+                TopicDetailView.this.BE(i);
             }
         });
-        if (this.gcx == null) {
-            this.fTv = new PbListView(this.mPageContext.getPageActivity());
-            this.fTv.getView();
+        if (this.gmB == null) {
+            this.gdy = new PbListView(this.mPageContext.getPageActivity());
+            this.gdy.getView();
         }
-        this.fTv.setContainerBackgroundColorResId(R.color.cp_bg_line_e);
-        this.fTv.setHeight(l.getDimens(this.mPageContext.getPageActivity(), R.dimen.tbds182));
-        this.fTv.setTextSize(R.dimen.tbfontsize33);
-        this.fTv.setNoMoreTextColorId(R.color.cp_cont_e);
-        this.fTv.setTextColor(ap.getColor(R.color.cp_cont_e));
-        this.fTv.setContainerBackgroundColorResId(ap.getColor(R.color.cp_bg_line_d));
-        this.fTv.setLineColorResource(ap.getColor(R.color.cp_bg_line_c));
-        this.fTv.setText(getResources().getString(R.string.list_has_no_more));
-        this.fTv.getView().setLayoutParams(new ViewGroup.LayoutParams(-1, -2));
-        if (this.jrM == null) {
-            this.jrM = new com.baidu.tieba.homepage.topic.topicdetail.model.a(this);
-            this.jrM.l(this.mPageContext.getUniqueId());
+        this.gdy.setContainerBackgroundColorResId(R.color.cp_bg_line_e);
+        this.gdy.setHeight(l.getDimens(this.mPageContext.getPageActivity(), R.dimen.tbds182));
+        this.gdy.setTextSize(R.dimen.tbfontsize33);
+        this.gdy.setNoMoreTextColorId(R.color.cp_cont_e);
+        this.gdy.setTextColor(ap.getColor(R.color.cp_cont_e));
+        this.gdy.setContainerBackgroundColorResId(ap.getColor(R.color.cp_bg_line_d));
+        this.gdy.setLineColorResource(ap.getColor(R.color.cp_bg_line_c));
+        this.gdy.setText(getResources().getString(R.string.list_has_no_more));
+        this.gdy.getView().setLayoutParams(new ViewGroup.LayoutParams(-1, -2));
+        if (this.jEm == null) {
+            this.jEm = new com.baidu.tieba.homepage.topic.topicdetail.model.a(this);
+            this.jEm.l(this.mPageContext.getUniqueId());
         }
     }
 
     private void ar(Bundle bundle) {
-        this.jrH = (a) new b().ei(getContext());
-        if (this.jrH != null) {
-            this.jrH.a(this.mPageContext);
-            this.jrH.b(this.jrQ);
-            this.jrH.a(this.fbz);
-            this.jrH.bvf().jF(true);
-            this.jrH.bvf().setBarBackgroundColorId(R.color.cp_bg_line_h);
-            this.jrH.a((BaseActivity) getContext(), bundle);
-            this.jrH.bwn();
-            this.jrH.bvf().setId(R.id.topic_editor);
-            this.jrK = this.jrH.cGt().getInputView();
-            this.jrK.addTextChangedListener(new TextWatcher() { // from class: com.baidu.tieba.homepage.topic.topicdetail.view.TopicDetailView.5
+        this.jEh = (a) new b().ei(getContext());
+        if (this.jEh != null) {
+            this.jEh.a(this.mPageContext);
+            this.jEh.b(this.jEq);
+            this.jEh.a(this.fjY);
+            this.jEh.bwY().jS(true);
+            this.jEh.bwY().setBarBackgroundColorId(R.color.cp_bg_line_h);
+            this.jEh.a((BaseActivity) getContext(), bundle);
+            this.jEh.byg();
+            this.jEh.bwY().setId(R.id.topic_editor);
+            this.jEk = this.jEh.cJA().getInputView();
+            this.jEk.addTextChangedListener(new TextWatcher() { // from class: com.baidu.tieba.homepage.topic.topicdetail.view.TopicDetailView.5
                 @Override // android.text.TextWatcher
                 public void beforeTextChanged(CharSequence charSequence, int i, int i2, int i3) {
                 }
@@ -274,63 +274,63 @@ public class TopicDetailView extends RelativeLayout implements View.OnClickListe
 
                 @Override // android.text.TextWatcher
                 public void afterTextChanged(Editable editable) {
-                    if (TopicDetailView.this.jrJ != null) {
-                        if (!TopicDetailView.this.jrJ.dNm()) {
-                            TopicDetailView.this.qG(false);
+                    if (TopicDetailView.this.jEj != null) {
+                        if (!TopicDetailView.this.jEj.dQu()) {
+                            TopicDetailView.this.qY(false);
                         }
-                        TopicDetailView.this.jrJ.xQ(false);
+                        TopicDetailView.this.jEj.yh(false);
                     }
                 }
             });
         }
     }
 
-    public void qG(boolean z) {
-        if (this.jrK != null && this.jrK.getText() != null) {
-            int selectionEnd = this.jrK.getSelectionEnd();
-            SpannableStringBuilder c = this.jrJ.c(this.jrK.getText());
+    public void qY(boolean z) {
+        if (this.jEk != null && this.jEk.getText() != null) {
+            int selectionEnd = this.jEk.getSelectionEnd();
+            SpannableStringBuilder c = this.jEj.c(this.jEk.getText());
             if (c != null) {
-                this.jrJ.xQ(true);
-                this.jrK.setText(c);
-                if (z && this.jrJ.dNk() >= 0) {
-                    this.jrK.requestFocus();
-                    this.jrK.setSelection(this.jrJ.dNk());
+                this.jEj.yh(true);
+                this.jEk.setText(c);
+                if (z && this.jEj.dQs() >= 0) {
+                    this.jEk.requestFocus();
+                    this.jEk.setSelection(this.jEj.dQs());
                 } else {
-                    this.jrK.setSelection(selectionEnd);
+                    this.jEk.setSelection(selectionEnd);
                 }
-                this.jrJ.xP(this.jrJ.dNk() >= 0);
+                this.jEj.yg(this.jEj.dQs() >= 0);
             }
         }
     }
 
-    public void cGu() {
+    public void cJB() {
         if (bg.checkUpIsLogin(getContext())) {
-            this.jrH.bwq();
+            this.jEh.byj();
             setEditorTopViewAboveEditor();
         }
         if (this.mTopicDetailData != null) {
-            TiebaStatic.log(new aq("c13359").dK("topic_id", String.valueOf(this.mTopicDetailData.topicId)));
+            TiebaStatic.log(new aq("c13359").dR("topic_id", String.valueOf(this.mTopicDetailData.topicId)));
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void Bl(int i) {
-        this.jrL = i;
-        this.jrG.setVisibility(0);
+    public void BE(int i) {
+        this.jEl = i;
+        this.jEg.setVisibility(0);
         if (i == 1) {
-            this.jrG.setText(R.string.topic_detail_pk_support);
-            ap.setBackgroundResource(this.jrG, R.drawable.topic_discuss_support_bg);
+            this.jEg.setText(R.string.topic_detail_pk_support);
+            ap.setBackgroundResource(this.jEg, R.drawable.topic_discuss_support_bg);
         } else if (i == 2) {
-            this.jrG.setText(R.string.topic_detail_pk_oppose);
-            ap.setBackgroundResource(this.jrG, R.drawable.topic_discuss_oppose_bg);
+            this.jEg.setText(R.string.topic_detail_pk_oppose);
+            ap.setBackgroundResource(this.jEg, R.drawable.topic_discuss_oppose_bg);
         } else {
-            this.jrG.setText(R.string.topic_detail_pk_chigua);
-            ap.setBackgroundResource(this.jrG, R.drawable.topic_discuss_opinion_bg);
+            this.jEg.setText(R.string.topic_detail_pk_chigua);
+            ap.setBackgroundResource(this.jEg, R.drawable.topic_discuss_opinion_bg);
         }
         if (this.mSkinType == 1 || this.mSkinType == 4) {
-            this.jrG.setTextColor(-2130706433);
+            this.jEg.setTextColor(-2130706433);
         } else {
-            ap.setViewTextColor(this.jrG, R.color.cp_cont_a);
+            ap.setViewTextColor(this.jEg, R.color.cp_cont_a);
         }
     }
 
@@ -341,96 +341,96 @@ public class TopicDetailView extends RelativeLayout implements View.OnClickListe
             this.mHasMore = this.mTopicDetailData.hasMore;
             if (this.mHasMore && this.mTopicDetailData.mDataList.size() <= 4) {
                 this.mHasMore = false;
-                SJ();
+                TJ();
             } else if (!this.mHasMore) {
-                SJ();
+                TJ();
             } else {
-                SI();
+                TI();
             }
-            if (!StringUtils.isNull(aVar.eou)) {
-                this.mNavigationBar.setCenterTextTitle(String.format(getContext().getString(R.string.daily_topic_name), at.cutChineseAndEnglishWithSuffix(aVar.eou, 14, StringHelper.STRING_MORE)));
+            if (!StringUtils.isNull(aVar.ewR)) {
+                this.mNavigationBar.setCenterTextTitle(String.format(getContext().getString(R.string.daily_topic_name), at.cutChineseAndEnglishWithSuffix(aVar.ewR, 14, StringHelper.STRING_MORE)));
             }
-            this.jrB.setData(aVar.jqT);
-            this.iSZ.addHeaderView(this.jrB);
-            this.jrC.setData(aVar.mDataList);
-            if (this.mTopicDetailData.jqT.jqY != null) {
-                if (this.mTopicDetailData.jqT.jqY.jss.jsy) {
-                    Bl(1);
-                } else if (this.mTopicDetailData.jqT.jqY.jst.jsy) {
-                    Bl(2);
+            this.jEb.setData(aVar.jDt);
+            this.jfv.addHeaderView(this.jEb);
+            this.jEc.setData(aVar.mDataList);
+            if (this.mTopicDetailData.jDt.jDy != null) {
+                if (this.mTopicDetailData.jDt.jDy.jES.jEY) {
+                    BE(1);
+                } else if (this.mTopicDetailData.jDt.jDy.jET.jEY) {
+                    BE(2);
                 } else {
-                    Bl(0);
+                    BE(0);
                 }
                 dimens = l.getDimens(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds140);
             } else {
                 dimens = l.getDimens(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds50);
-                this.jrG.setVisibility(8);
+                this.jEg.setVisibility(8);
             }
-            this.jrF.setPadding(dimens, 0, 0, 0);
-            cGv();
+            this.jEf.setPadding(dimens, 0, 0, 0);
+            cJC();
         }
     }
 
     public void setNextData(int i, boolean z, List<q> list) {
         this.mHasMore = z;
         if (!this.mHasMore) {
-            SJ();
+            TJ();
         } else {
-            SI();
+            TI();
         }
         if (i == 0 && list != null && !y.isEmpty(list)) {
             for (q qVar : list) {
                 if (qVar instanceof com.baidu.tieba.homepage.topic.topicdetail.b.c) {
-                    ((com.baidu.tieba.homepage.topic.topicdetail.b.c) qVar).jrd = this.mTopicDetailData.cGp();
+                    ((com.baidu.tieba.homepage.topic.topicdetail.b.c) qVar).jDD = this.mTopicDetailData.cJw();
                 }
             }
             this.mTopicDetailData.mDataList.addAll(list);
-            this.iSZ.setData(this.mTopicDetailData.mDataList);
+            this.jfv.setData(this.mTopicDetailData.mDataList);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void bKU() {
-        this.iSZ.setNextPage(null);
+    public void bNw() {
+        this.jfv.setNextPage(null);
     }
 
-    public void SI() {
+    public void TI() {
         this.mHasMore = true;
-        this.iSZ.setNextPage(this.fTv);
-        this.fTv.startLoadData();
+        this.jfv.setNextPage(this.gdy);
+        this.gdy.startLoadData();
     }
 
-    public void SJ() {
-        this.iSZ.setNextPage(this.fTv);
-        this.fTv.endLoadData();
+    public void TJ() {
+        this.jfv.setNextPage(this.gdy);
+        this.gdy.endLoadData();
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        if (view == this.irv) {
+        if (view == this.iDR) {
             this.mPageContext.getPageActivity().finish();
-        } else if (view == this.jrA && this.mTopicDetailData != null && this.mTopicDetailData.topicId > 0) {
-            boA();
-            TiebaStatic.log(new aq("c13364").dK("topic_id", String.valueOf(this.mTopicDetailData.topicId)));
+        } else if (view == this.jEa && this.mTopicDetailData != null && this.mTopicDetailData.topicId > 0) {
+            bqt();
+            TiebaStatic.log(new aq("c13364").dR("topic_id", String.valueOf(this.mTopicDetailData.topicId)));
         }
     }
 
-    private void boA() {
+    private void bqt() {
         if (this.mTopicDetailData != null && getContext() != null) {
             String valueOf = String.valueOf(this.mTopicDetailData.topicId);
-            String str = this.mTopicDetailData.eou;
+            String str = this.mTopicDetailData.ewR;
             String str2 = this.mTopicDetailData.shareTitle;
             if (TextUtils.isEmpty(valueOf) || TextUtils.isEmpty(str)) {
                 this.mPageContext.showToast(getContext().getString(R.string.no_hot_topic_data));
                 return;
             }
             String str3 = "http://tieba.baidu.com/mo/q/newtopic/detail?topic_id=" + valueOf + "/";
-            Uri parse = StringUtils.isNull(this.mTopicDetailData.jqS) ? null : Uri.parse(this.mTopicDetailData.jqS);
+            Uri parse = StringUtils.isNull(this.mTopicDetailData.jDs) ? null : Uri.parse(this.mTopicDetailData.jDs);
             final ShareItem shareItem = new ShareItem();
             shareItem.title = str;
             shareItem.content = str2;
             shareItem.linkUrl = str3;
-            shareItem.eSz = true;
+            shareItem.faV = true;
             shareItem.extData = valueOf;
             shareItem.imageUri = parse;
             ShareDialogConfig shareDialogConfig = new ShareDialogConfig(getContext(), shareItem, true, true);
@@ -450,76 +450,76 @@ public class TopicDetailView extends RelativeLayout implements View.OnClickListe
         int skinType = TbadkCoreApplication.getInst().getSkinType();
         if (skinType != this.mSkinType) {
             this.mSkinType = skinType;
-            cGv();
+            cJC();
             ap.setViewTextColor(this.mNavigationBar.mCenterText, R.color.cp_cont_a);
-            ap.setBackgroundResource(this.jrE, R.color.cp_bg_line_h);
-            ap.setViewTextColor(this.jrF, R.color.cp_cont_d);
-            this.jrF.setBackgroundDrawable(ap.aN(l.getDimens(this.mPageContext.getPageActivity(), R.dimen.tbds47), ap.getColor(R.color.cp_bg_line_j)));
-            Bl(this.jrL);
-            SvgManager.bmU().a(this.mBackImageView, R.drawable.icon_pure_topbar_return44_svg, R.color.white_alpha100, SvgManager.SvgResourceStateType.NORMAL_PRESS);
-            if (this.jrA != null) {
-                SvgManager.bmU().a(this.jrA, R.drawable.icon_pure_topbar_share44_svg, R.color.white_alpha100, SvgManager.SvgResourceStateType.NORMAL_PRESS);
+            ap.setBackgroundResource(this.jEe, R.color.cp_bg_line_h);
+            ap.setViewTextColor(this.jEf, R.color.cp_cont_d);
+            this.jEf.setBackgroundDrawable(ap.aO(l.getDimens(this.mPageContext.getPageActivity(), R.dimen.tbds47), ap.getColor(R.color.cp_bg_line_j)));
+            BE(this.jEl);
+            SvgManager.boN().a(this.mBackImageView, R.drawable.icon_pure_topbar_return44_svg, R.color.white_alpha100, SvgManager.SvgResourceStateType.NORMAL_PRESS);
+            if (this.jEa != null) {
+                SvgManager.boN().a(this.jEa, R.drawable.icon_pure_topbar_share44_svg, R.color.white_alpha100, SvgManager.SvgResourceStateType.NORMAL_PRESS);
             }
-            if (this.mPageContext != null && this.fTu != null) {
-                this.fTu.onChangeSkinType(this.mPageContext, this.mSkinType);
+            if (this.mPageContext != null && this.gdx != null) {
+                this.gdx.onChangeSkinType(this.mPageContext, this.mSkinType);
             }
-            if (this.gcx != null) {
-                this.gcx.onChangeSkinType();
+            if (this.gmB != null) {
+                this.gmB.onChangeSkinType();
             }
             if (this.mRefreshView != null) {
                 this.mRefreshView.onChangeSkinType();
             }
-            if (this.jrH != null && this.jrH.bvf() != null) {
-                this.jrH.bvf().onChangeSkinType(this.mSkinType);
+            if (this.jEh != null && this.jEh.bwY() != null) {
+                this.jEh.bwY().onChangeSkinType(this.mSkinType);
             }
-            if (this.fTv != null) {
-                this.fTv.setNoMoreTextColorId(R.color.cp_cont_e);
-                this.fTv.setTextColor(ap.getColor(R.color.cp_cont_e));
-                this.fTv.setContainerBackgroundColorResId(ap.getColor(R.color.cp_bg_line_d));
-                this.fTv.setLineColorResource(ap.getColor(R.color.cp_bg_line_c));
+            if (this.gdy != null) {
+                this.gdy.setNoMoreTextColorId(R.color.cp_cont_e);
+                this.gdy.setTextColor(ap.getColor(R.color.cp_cont_e));
+                this.gdy.setContainerBackgroundColorResId(ap.getColor(R.color.cp_bg_line_d));
+                this.gdy.setLineColorResource(ap.getColor(R.color.cp_bg_line_c));
             }
-            if (this.jrB != null) {
-                this.jrB.onChangeSkinType();
+            if (this.jEb != null) {
+                this.jEb.onChangeSkinType();
             }
-            if (this.jrC != null) {
-                this.jrC.notifyDataSetChanged();
+            if (this.jEc != null) {
+                this.jEc.notifyDataSetChanged();
             }
-            ap.setBackgroundColor(this.iSZ, R.color.cp_bg_line_e);
+            ap.setBackgroundColor(this.jfv, R.color.cp_bg_line_e);
         }
     }
 
-    public void hn(boolean z) {
-        if (!cha()) {
-            if (this.gcx == null) {
-                this.gcx = new g(getContext());
-                this.gcx.onChangeSkinType();
+    public void hA(boolean z) {
+        if (!ckh()) {
+            if (this.gmB == null) {
+                this.gmB = new g(getContext());
+                this.gmB.onChangeSkinType();
             }
-            this.gcx.attachView(this, z);
+            this.gmB.attachView(this, z);
         }
     }
 
     public void hideLoadingView() {
-        if (this.gcx != null) {
-            this.gcx.dettachView(this);
-            this.gcx = null;
+        if (this.gmB != null) {
+            this.gmB.dettachView(this);
+            this.gmB = null;
         }
     }
 
-    public boolean cha() {
-        if (this.gcx != null) {
-            return this.gcx.isViewAttached();
+    public boolean ckh() {
+        if (this.gmB != null) {
+            return this.gmB.isViewAttached();
         }
         return false;
     }
 
-    public void ox(boolean z) {
-        if (!chb()) {
+    public void oP(boolean z) {
+        if (!cki()) {
             if (this.mRefreshView == null) {
                 this.mRefreshView = new h(getContext(), new View.OnClickListener() { // from class: com.baidu.tieba.homepage.topic.topicdetail.view.TopicDetailView.2
                     @Override // android.view.View.OnClickListener
                     public void onClick(View view) {
-                        if (j.isNetworkAvailableForImmediately() && TopicDetailView.this.jrz != null) {
-                            TopicDetailView.this.jrz.loadData();
+                        if (j.isNetworkAvailableForImmediately() && TopicDetailView.this.jDZ != null) {
+                            TopicDetailView.this.jDZ.loadData();
                         }
                     }
                 });
@@ -527,21 +527,21 @@ public class TopicDetailView extends RelativeLayout implements View.OnClickListe
             this.mRefreshView.setLayoutMargin(this.mPageContext.getResources().getDimensionPixelSize(R.dimen.tbds506));
             this.mRefreshView.attachView(this, z);
             this.mRefreshView.showRefreshButton();
-            this.iSZ.setVisibility(8);
-            SvgManager.bmU().a(this.mBackImageView, R.drawable.icon_pure_topbar_return44_svg, R.color.cp_cont_f, SvgManager.SvgResourceStateType.NORMAL_PRESS);
+            this.jfv.setVisibility(8);
+            SvgManager.boN().a(this.mBackImageView, R.drawable.icon_pure_topbar_return44_svg, R.color.cp_cont_f, SvgManager.SvgResourceStateType.NORMAL_PRESS);
         }
     }
 
-    public void SK() {
+    public void TK() {
         if (this.mRefreshView != null) {
             this.mRefreshView.dettachView(this);
             this.mRefreshView = null;
         }
-        this.iSZ.setVisibility(0);
-        SvgManager.bmU().a(this.mBackImageView, R.drawable.icon_pure_topbar_return44_svg, R.color.white_alpha100, SvgManager.SvgResourceStateType.NORMAL_PRESS);
+        this.jfv.setVisibility(0);
+        SvgManager.boN().a(this.mBackImageView, R.drawable.icon_pure_topbar_return44_svg, R.color.white_alpha100, SvgManager.SvgResourceStateType.NORMAL_PRESS);
     }
 
-    public boolean chb() {
+    public boolean cki() {
         if (this.mRefreshView != null) {
             return this.mRefreshView.isViewAttached();
         }
@@ -555,35 +555,35 @@ public class TopicDetailView extends RelativeLayout implements View.OnClickListe
     }
 
     public void destroy() {
-        this.iSZ.setOnSrollToBottomListener(null);
-        if (this.fTu != null) {
-            this.fTu.b(this.fRO);
+        this.jfv.setOnSrollToBottomListener(null);
+        if (this.gdx != null) {
+            this.gdx.b(this.gbR);
         }
-        if (this.jrH != null) {
-            this.jrH.onDestory();
+        if (this.jEh != null) {
+            this.jEh.onDestory();
         }
-        if (this.jrN != null) {
-            com.baidu.adp.lib.f.e.mY().removeCallbacks(this.jrN);
+        if (this.jEn != null) {
+            com.baidu.adp.lib.f.e.mY().removeCallbacks(this.jEn);
         }
         hideLoadingView();
-        SK();
+        TK();
     }
 
     public a getEditor() {
-        return this.jrH;
+        return this.jEh;
     }
 
     public void setEditorTopViewAboveEditor() {
-        if (this.jrI != null) {
-            ViewGroup.LayoutParams layoutParams = this.jrI.getLayoutParams();
+        if (this.jEi != null) {
+            ViewGroup.LayoutParams layoutParams = this.jEi.getLayoutParams();
             if (layoutParams instanceof RelativeLayout.LayoutParams) {
                 RelativeLayout.LayoutParams layoutParams2 = (RelativeLayout.LayoutParams) layoutParams;
-                if (this.jrH.bvf().isVisible()) {
-                    layoutParams2.addRule(2, this.jrH.bvf().getId());
+                if (this.jEh.bwY().isVisible()) {
+                    layoutParams2.addRule(2, this.jEh.bwY().getId());
                 } else {
-                    layoutParams2.addRule(2, this.jrD.getId());
+                    layoutParams2.addRule(2, this.jEd.getId());
                 }
-                this.jrI.setLayoutParams(layoutParams2);
+                this.jEi.setLayoutParams(layoutParams2);
             }
         }
     }
@@ -608,23 +608,23 @@ public class TopicDetailView extends RelativeLayout implements View.OnClickListe
         }
         if (cVar != null) {
             com.baidu.tieba.homepage.topic.topicdetail.b.c cVar2 = new com.baidu.tieba.homepage.topic.topicdetail.b.c();
-            cVar2.jrb = cVar.jrb;
-            cVar2.eji = bwVar;
+            cVar2.jDB = cVar.jDB;
+            cVar2.erH = bwVar;
             cVar2.source = 2;
-            cVar2.jrc = this.jrL;
+            cVar2.jDC = this.jEl;
             cVar2.topicId = this.mTopicDetailData.topicId;
-            cVar2.jrd = this.mTopicDetailData.cGp();
+            cVar2.jDD = this.mTopicDetailData.cJw();
             this.mTopicDetailData.mDataList.add(i, cVar2);
-            this.jrC.setData(this.mTopicDetailData.mDataList);
+            this.jEc.setData(this.mTopicDetailData.mDataList);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void cGv() {
-        if (this.mTopicDetailData != null && this.jrB != null) {
-            if (this.jrO > this.jrP) {
+    public void cJC() {
+        if (this.mTopicDetailData != null && this.jEb != null) {
+            if (this.jEo > this.jEp) {
                 this.mNavigationBar.getBarBgView().setAlpha(1.0f);
-                this.mNavigationBar.getBarBgView().setBackgroundDrawable(new BitmapDrawable(cGw()));
+                this.mNavigationBar.getBarBgView().setBackgroundDrawable(new BitmapDrawable(cJD()));
                 return;
             }
             ap.setBackgroundColor(this.mNavigationBar.getBarBgView(), R.color.transparent);
@@ -632,13 +632,13 @@ public class TopicDetailView extends RelativeLayout implements View.OnClickListe
         }
     }
 
-    public Bitmap cGw() {
+    public Bitmap cJD() {
         Bitmap drawingCache;
-        com.baidu.adp.widget.ImageView.a bdImage = this.jrB.getmBgImg().getBdImage();
+        com.baidu.adp.widget.ImageView.a bdImage = this.jEb.getmBgImg().getBdImage();
         if (bdImage != null) {
             drawingCache = bdImage.getRawBitmap();
         } else {
-            drawingCache = this.jrB.getmBgImg().getDrawingCache();
+            drawingCache = this.jEb.getmBgImg().getDrawingCache();
         }
         int width = this.mPageContext.getPageActivity().getWindowManager().getDefaultDisplay().getWidth();
         int height = this.mNavigationBar.getHeight();

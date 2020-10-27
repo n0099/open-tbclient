@@ -3,205 +3,205 @@ package com.baidu.tbadk.n;
 import com.baidu.adp.lib.stats.BdStatisticsManager;
 /* loaded from: classes.dex */
 public class n extends l {
-    private static n fib = null;
-    private boolean fhz = false;
-    private boolean fhA = false;
-    private boolean fhB = false;
-    private boolean fhC = false;
-    private long fhD = -1;
-    private long fhE = -1;
-    private long fhF = -1;
-    private long fhG = -1;
-    private long fhH = -1;
-    private long fhI = -1;
-    private long fhJ = -1;
-    private long fhK = -1;
-    private long fhL = -1;
-    private long fhM = -1;
-    private long fhN = -1;
-    private long fhO = -1;
-    private long fhP = -1;
-    private long fhQ = -1;
-    private long fhR = -1;
-    private long fhS = -1;
-    private long fhT = -1;
-    private long fhU = -1;
-    private long fhV = -1;
-    private long fhW = -1;
-    private long fhX = -1;
-    private long fhY = -1;
-    private long fhZ = -1;
-    private long fia = -1;
+    private static n fqB = null;
+    private boolean fpZ = false;
+    private boolean fqa = false;
+    private boolean fqb = false;
+    private boolean fqc = false;
+    private long fqd = -1;
+    private long fqe = -1;
+    private long fqf = -1;
+    private long fqg = -1;
+    private long fqh = -1;
+    private long fqi = -1;
+    private long fqj = -1;
+    private long fqk = -1;
+    private long fql = -1;
+    private long fqm = -1;
+    private long fqn = -1;
+    private long fqo = -1;
+    private long fqp = -1;
+    private long fqq = -1;
+    private long fqr = -1;
+    private long fqs = -1;
+    private long fqt = -1;
+    private long fqu = -1;
+    private long fqv = -1;
+    private long fqw = -1;
+    private long fqx = -1;
+    private long fqy = -1;
+    private long fqz = -1;
+    private long fqA = -1;
 
-    public boolean byf() {
-        return this.fhA;
+    public boolean bzY() {
+        return this.fqa;
     }
 
-    public void kd(boolean z) {
-        this.fhz = z;
-    }
-
-    public void dk(long j) {
-        this.fhD = j;
-    }
-
-    public long byg() {
-        return this.fhD;
-    }
-
-    public void ke(boolean z) {
-        this.fhC = z;
-    }
-
-    public void dl(long j) {
-        this.fhE = j;
+    public void kq(boolean z) {
+        this.fpZ = z;
     }
 
     public void dm(long j) {
-        this.fhF = j;
+        this.fqd = j;
+    }
+
+    public long bzZ() {
+        return this.fqd;
+    }
+
+    public void kr(boolean z) {
+        this.fqc = z;
     }
 
     public void dn(long j) {
-        this.fhG = j;
+        this.fqe = j;
     }
 
     /* renamed from: do  reason: not valid java name */
-    public void m38do(long j) {
-        this.fhK = j;
+    public void m39do(long j) {
+        this.fqf = j;
     }
 
     public void dp(long j) {
-        this.fhJ = j;
+        this.fqg = j;
     }
 
     public void dq(long j) {
-        this.fhH = j;
+        this.fqk = j;
     }
 
     public void dr(long j) {
-        this.fhI = j;
+        this.fqj = j;
     }
 
     public void ds(long j) {
-        this.fhY = j;
+        this.fqh = j;
     }
 
     public void dt(long j) {
-        this.fhT = j;
+        this.fqi = j;
     }
 
     public void du(long j) {
-        this.fhU = j;
+        this.fqy = j;
     }
 
     public void dv(long j) {
-        this.fhV = j;
+        this.fqt = j;
     }
 
     public void dw(long j) {
-        this.fhW = j;
+        this.fqu = j;
     }
 
     public void dx(long j) {
-        this.fhZ = j;
+        this.fqv = j;
     }
 
     public void dy(long j) {
-        this.fia = j;
-        this.fhA = true;
+        this.fqw = j;
     }
 
     public void dz(long j) {
-        this.fhL = j;
+        this.fqz = j;
     }
 
     public void dA(long j) {
-        this.fhM = j;
+        this.fqA = j;
+        this.fqa = true;
     }
 
     public void dB(long j) {
-        this.fhO = j;
+        this.fql = j;
     }
 
     public void dC(long j) {
-        this.fhN = j;
+        this.fqm = j;
     }
 
     public void dD(long j) {
-        this.fhP = j;
+        this.fqo = j;
     }
 
     public void dE(long j) {
-        this.fhQ = j;
+        this.fqn = j;
     }
 
     public void dF(long j) {
-        this.fhR = j;
+        this.fqp = j;
     }
 
     public void dG(long j) {
-        this.fhS = j;
+        this.fqq = j;
     }
 
-    public static n byh() {
-        if (fib == null) {
+    public void dH(long j) {
+        this.fqr = j;
+    }
+
+    public void dI(long j) {
+        this.fqs = j;
+    }
+
+    public static n bAa() {
+        if (fqB == null) {
             synchronized (n.class) {
-                if (fib == null) {
-                    fib = new n();
+                if (fqB == null) {
+                    fqB = new n();
                 }
             }
         }
-        return fib;
+        return fqB;
     }
 
-    public void byi() {
-        if (this.fia - this.fhD > 0 && !this.fhB && this.fhX > 0 && m.byc().byd()) {
-            this.fhB = true;
-            long j = this.fhE - this.fhD;
+    public void bAb() {
+        if (this.fqA - this.fqd > 0 && !this.fqb && this.fqx > 0 && m.bzV().bzW()) {
+            this.fqb = true;
+            long j = this.fqe - this.fqd;
             long j2 = -1;
-            if (this.fhV > 0) {
-                j2 = this.fhW - this.fhV;
+            if (this.fqv > 0) {
+                j2 = this.fqw - this.fqv;
             }
-            long j3 = this.fia - this.fhZ;
+            long j3 = this.fqA - this.fqz;
             com.baidu.adp.lib.stats.a mT = mT();
             mT.append("procname", "main");
             mT.append("appc", String.valueOf(j));
-            mT.append("loadclass", String.valueOf(this.fhF));
-            mT.append("sapiinit", String.valueOf(this.fhG));
-            mT.append("acctinit", String.valueOf(this.fhH));
-            mT.append("iminit", String.valueOf(this.fhI));
-            mT.append("plugininit", String.valueOf(this.fhJ));
-            mT.append("patchloaded", String.valueOf(this.fhK));
-            mT.append("naslibinit", String.valueOf(this.fhL));
-            mT.append("websocketinit", String.valueOf(this.fhM));
-            mT.append("settinginit", String.valueOf(this.fhN));
-            mT.append("toastinit", String.valueOf(this.fhO));
-            mT.append("tiebastaticinit", String.valueOf(this.fhP));
-            mT.append("locationinit", String.valueOf(this.fhQ));
-            mT.append("cdninit", String.valueOf(this.fhR));
-            mT.append("messagesetinit", String.valueOf(this.fhS));
-            mT.append("logores", String.valueOf(this.fhY));
-            mT.append("opttest", String.valueOf(com.baidu.tbadk.core.frameworkData.d.evu ? 1 : 0));
-            if (this.fhT > 0 && this.fhV > 0 && j2 > 0) {
-                mT.append("adc", String.valueOf(this.fhT + this.fhU));
+            mT.append("loadclass", String.valueOf(this.fqf));
+            mT.append("sapiinit", String.valueOf(this.fqg));
+            mT.append("acctinit", String.valueOf(this.fqh));
+            mT.append("iminit", String.valueOf(this.fqi));
+            mT.append("plugininit", String.valueOf(this.fqj));
+            mT.append("patchloaded", String.valueOf(this.fqk));
+            mT.append("naslibinit", String.valueOf(this.fql));
+            mT.append("websocketinit", String.valueOf(this.fqm));
+            mT.append("settinginit", String.valueOf(this.fqn));
+            mT.append("toastinit", String.valueOf(this.fqo));
+            mT.append("tiebastaticinit", String.valueOf(this.fqp));
+            mT.append("locationinit", String.valueOf(this.fqq));
+            mT.append("cdninit", String.valueOf(this.fqr));
+            mT.append("messagesetinit", String.valueOf(this.fqs));
+            mT.append("logores", String.valueOf(this.fqy));
+            mT.append("opttest", String.valueOf(com.baidu.tbadk.core.frameworkData.d.eDT ? 1 : 0));
+            if (this.fqt > 0 && this.fqv > 0 && j2 > 0) {
+                mT.append("adc", String.valueOf(this.fqt + this.fqu));
                 mT.append("adshow", String.valueOf(j2));
-                mT.append("adrequest", String.valueOf(this.fhU));
+                mT.append("adrequest", String.valueOf(this.fqu));
                 mT.append("hasad", "1");
             } else {
                 mT.append("hasad", "0");
             }
             mT.append("tabc", String.valueOf(j3));
-            mT.append("costt", String.valueOf(j2 + j + this.fhT + this.fhU + j3 + this.fhX));
-            mT.append("newinst", this.fhz ? "1" : "0");
-            mT.append("pluginloadsync", Boolean.valueOf(this.fhC));
-            mT.append("hptotal", String.valueOf(this.fhX));
+            mT.append("costt", String.valueOf(j2 + j + this.fqt + this.fqu + j3 + this.fqx));
+            mT.append("newinst", this.fpZ ? "1" : "0");
+            mT.append("pluginloadsync", Boolean.valueOf(this.fqc));
+            mT.append("hptotal", String.valueOf(this.fqx));
             BdStatisticsManager.getInstance().performance("startt", mT);
-            bep();
+            bgi();
         }
     }
 
-    public void dH(long j) {
-        if (m.byc().byd() && j > 0) {
+    public void dJ(long j) {
+        if (m.bzV().bzW() && j > 0) {
             com.baidu.adp.lib.stats.a mT = mT();
             mT.append("procname", "remote");
             mT.append("costt", String.valueOf(j));
@@ -209,38 +209,38 @@ public class n extends l {
         }
     }
 
-    private void bep() {
-        this.fhz = false;
-        this.fhA = false;
-        this.fhD = -1L;
-        this.fhE = -1L;
-        this.fhF = -1L;
-        this.fhG = -1L;
-        this.fhH = -1L;
-        this.fhI = -1L;
-        this.fhJ = -1L;
-        this.fhK = -1L;
-        this.fhY = -1L;
-        this.fhV = -1L;
-        this.fhW = -1L;
-        this.fhT = -1L;
-        this.fhZ = -1L;
-        this.fia = -1L;
-        this.fhL = -1L;
-        this.fhM = -1L;
-        this.fhN = -1L;
-        this.fhO = -1L;
-        this.fhP = -1L;
-        this.fhQ = -1L;
-        this.fhR = -1L;
-        this.fhS = -1L;
-        this.fhU = -1L;
-        this.fhX = -1L;
+    private void bgi() {
+        this.fpZ = false;
+        this.fqa = false;
+        this.fqd = -1L;
+        this.fqe = -1L;
+        this.fqf = -1L;
+        this.fqg = -1L;
+        this.fqh = -1L;
+        this.fqi = -1L;
+        this.fqj = -1L;
+        this.fqk = -1L;
+        this.fqy = -1L;
+        this.fqv = -1L;
+        this.fqw = -1L;
+        this.fqt = -1L;
+        this.fqz = -1L;
+        this.fqA = -1L;
+        this.fql = -1L;
+        this.fqm = -1L;
+        this.fqn = -1L;
+        this.fqo = -1L;
+        this.fqp = -1L;
+        this.fqq = -1L;
+        this.fqr = -1L;
+        this.fqs = -1L;
+        this.fqu = -1L;
+        this.fqx = -1L;
     }
 
-    public void dI(long j) {
-        if (this.fhX <= 0) {
-            this.fhX = j;
+    public void dK(long j) {
+        if (this.fqx <= 0) {
+            this.fqx = j;
         }
     }
 }

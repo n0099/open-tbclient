@@ -20,34 +20,34 @@ class d {
         HashMap<String, Object> hashMap = new HashMap<>();
         a(hashMap, "_client_type", "2");
         a(hashMap, "_client_version", cVar.mAppVersion);
-        a(hashMap, "_phone_imei", cVar.Nw);
-        a(hashMap, "_client_id", cVar.Nt);
-        a(hashMap, "subapp_type", cVar.Nx);
+        a(hashMap, "_phone_imei", cVar.Nx);
+        a(hashMap, "_client_id", cVar.Nu);
+        a(hashMap, "subapp_type", cVar.Ny);
         a(hashMap, "from", cVar.mChannel);
-        a(hashMap, "net_type", cVar.NA);
+        a(hashMap, "net_type", cVar.NB);
         a(hashMap, "cuid", cVar.mCuid);
-        a(hashMap, "model", cVar.Ny);
+        a(hashMap, "model", cVar.Nz);
         if (TextUtils.isEmpty(cVar.mUid)) {
             cVar.mUid = "0";
         }
         a(hashMap, "uid", cVar.mUid);
-        a(hashMap, "un", cVar.Nz);
+        a(hashMap, "un", cVar.NA);
         a(hashMap, "BDUSS", cVar.mBduss);
         if (z) {
             a(hashMap, "find_bug", "2");
         } else {
             a(hashMap, "find_bug", "0");
         }
-        a(hashMap, "sz", cVar.NC);
-        a(hashMap, "cua", cVar.ND);
+        a(hashMap, "sz", cVar.ND);
+        a(hashMap, "cua", cVar.NF);
         a(hashMap, ETAG.KEY_BAIDU_ID, cVar.mBduss);
         a(hashMap, "cookie", cVar.mBduss);
-        a(hashMap, "oaid", cVar.NF);
-        a(hashMap, "mac", cVar.NG);
+        a(hashMap, "oaid", cVar.NG);
+        a(hashMap, "mac", cVar.NH);
         a(hashMap, "android_id", cVar.mAndroidId);
-        a(hashMap, "utbrand", cVar.NH);
-        a(hashMap, "baiduapppb_ut", cVar.NI);
-        a(hashMap, "user_agent", cVar.NJ);
+        a(hashMap, "utbrand", cVar.NI);
+        a(hashMap, "baiduapppb_ut", cVar.NJ);
+        a(hashMap, "user_agent", cVar.NK);
         return hashMap;
     }
 
@@ -65,11 +65,11 @@ class d {
         try {
             sb.append("product");
             sb.append(ETAG.EQUAL);
-            sb.append(URLEncoder.encode(cVar.Nq, "utf-8"));
+            sb.append(URLEncoder.encode(cVar.Nr, "utf-8"));
             sb.append(ETAG.ITEM_SEPARATOR);
             sb.append(BdStatsConstant.StatsKey.SUB_SYSTEM);
             sb.append(ETAG.EQUAL);
-            sb.append(URLEncoder.encode(cVar.Nr, "utf-8"));
+            sb.append(URLEncoder.encode(cVar.Ns, "utf-8"));
             sb.append(ETAG.ITEM_SEPARATOR);
             sb.append("version");
             sb.append(ETAG.EQUAL);
@@ -81,46 +81,46 @@ class d {
             sb.append(ETAG.ITEM_SEPARATOR);
             sb.append("os_version");
             sb.append(ETAG.EQUAL);
-            sb.append(URLEncoder.encode(cVar.NB, "utf-8"));
+            sb.append(URLEncoder.encode(cVar.NC, "utf-8"));
             if (!TextUtils.isEmpty(cVar.mChannel)) {
                 sb.append(ETAG.ITEM_SEPARATOR);
                 sb.append("from");
                 sb.append(ETAG.EQUAL);
                 sb.append(URLEncoder.encode(cVar.mChannel, "utf-8"));
             }
-            if (!TextUtils.isEmpty(cVar.Ns)) {
+            if (!TextUtils.isEmpty(cVar.Nt)) {
                 sb.append(ETAG.ITEM_SEPARATOR);
                 sb.append(BdStatsConstant.StatsKey.CURRENT_CHANNEL);
                 sb.append(ETAG.EQUAL);
-                sb.append(URLEncoder.encode(cVar.Ns, "utf-8"));
+                sb.append(URLEncoder.encode(cVar.Nt, "utf-8"));
             }
             sb.append(ETAG.ITEM_SEPARATOR);
             sb.append("phone");
             sb.append(ETAG.EQUAL);
-            sb.append(URLEncoder.encode(cVar.Ny, "utf-8"));
+            sb.append(URLEncoder.encode(cVar.Nz, "utf-8"));
             if (!TextUtils.isEmpty(cVar.mUid)) {
                 sb.append(ETAG.ITEM_SEPARATOR);
                 sb.append("uid");
                 sb.append(ETAG.EQUAL);
                 sb.append(URLEncoder.encode(cVar.mUid, "utf-8"));
             }
-            if (!TextUtils.isEmpty(cVar.Nt)) {
+            if (!TextUtils.isEmpty(cVar.Nu)) {
                 sb.append(ETAG.ITEM_SEPARATOR);
                 sb.append("client_id");
                 sb.append(ETAG.EQUAL);
-                sb.append(URLEncoder.encode(cVar.Nt, "utf-8"));
+                sb.append(URLEncoder.encode(cVar.Nu, "utf-8"));
             }
-            if (!TextUtils.isEmpty(cVar.Nw)) {
+            if (!TextUtils.isEmpty(cVar.Nx)) {
                 sb.append(ETAG.ITEM_SEPARATOR);
                 sb.append("imei");
                 sb.append(ETAG.EQUAL);
-                sb.append(URLEncoder.encode(cVar.Nw, "utf-8"));
+                sb.append(URLEncoder.encode(cVar.Nx, "utf-8"));
             }
-            if (!TextUtils.isEmpty(cVar.Nz)) {
+            if (!TextUtils.isEmpty(cVar.NA)) {
                 sb.append(ETAG.ITEM_SEPARATOR);
                 sb.append(BdStatsConstant.StatsKey.UNAME);
                 sb.append(ETAG.EQUAL);
-                sb.append(URLEncoder.encode(cVar.Nz, "utf-8"));
+                sb.append(URLEncoder.encode(cVar.NA, "utf-8"));
             }
             if (!TextUtils.isEmpty(cVar.mCuid)) {
                 sb.append(ETAG.ITEM_SEPARATOR);
@@ -160,21 +160,21 @@ class d {
         StringBuilder sb = new StringBuilder();
         sb.append("_client_type=2");
         a(sb, "_client_version", cVar.mAppVersion, z);
-        a(sb, "_phone_imei", cVar.Nw, z);
-        a(sb, "_client_id", cVar.Nt, z);
-        a(sb, "subapp_type", cVar.Nx, z);
-        a(sb, "os_version", cVar.NB, z);
+        a(sb, "_phone_imei", cVar.Nx, z);
+        a(sb, "_client_id", cVar.Nu, z);
+        a(sb, "subapp_type", cVar.Ny, z);
+        a(sb, "os_version", cVar.NC, z);
         a(sb, "from", cVar.mChannel, z);
-        a(sb, BdStatsConstant.StatsKey.CURRENT_CHANNEL, cVar.Ns, z);
-        a(sb, "net_type", cVar.NA, z);
+        a(sb, BdStatsConstant.StatsKey.CURRENT_CHANNEL, cVar.Nt, z);
+        a(sb, "net_type", cVar.NB, z);
         a(sb, "cuid", cVar.mCuid, z);
-        a(sb, "model", cVar.Ny, z);
+        a(sb, "model", cVar.Nz, z);
         if (TextUtils.isEmpty(cVar.mUid)) {
             a(sb, "uid", "0", z);
         } else {
             a(sb, "uid", cVar.mUid, z);
         }
-        a(sb, "un", cVar.Nz, z);
+        a(sb, "un", cVar.NA, z);
         return sb.toString();
     }
 }

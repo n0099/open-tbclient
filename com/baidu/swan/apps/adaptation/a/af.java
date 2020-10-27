@@ -4,14 +4,14 @@ import android.support.annotation.NonNull;
 import com.baidu.swan.apps.event.SwanJSVersionUpdateEvent;
 /* loaded from: classes10.dex */
 public interface af {
-    void J(String str, boolean z);
+    void L(String str, boolean z);
 
     void a(@NonNull SwanJSVersionUpdateEvent swanJSVersionUpdateEvent);
 
     /* loaded from: classes10.dex */
     public static class a implements af {
         @Override // com.baidu.swan.apps.adaptation.a.af
-        public void J(String str, boolean z) {
+        public void L(String str, boolean z) {
         }
 
         @Override // com.baidu.swan.apps.adaptation.a.af

@@ -9,7 +9,7 @@ public interface b {
 
     /* renamed from: tv.danmaku.ijk.media.player.b$b  reason: collision with other inner class name */
     /* loaded from: classes16.dex */
-    public interface InterfaceC1035b {
+    public interface InterfaceC1107b {
         void b(b bVar);
     }
 
@@ -25,21 +25,26 @@ public interface b {
 
     /* loaded from: classes16.dex */
     public interface e {
-        void a(b bVar);
+        boolean c(b bVar, int i, int i2, Object obj);
     }
 
     /* loaded from: classes16.dex */
     public interface f {
-        void c(b bVar);
+        void a(b bVar);
     }
 
     /* loaded from: classes16.dex */
     public interface g {
-        void a(b bVar, tv.danmaku.ijk.media.player.c cVar);
+        void c(b bVar);
     }
 
     /* loaded from: classes16.dex */
     public interface h {
+        void a(b bVar, tv.danmaku.ijk.media.player.c cVar);
+    }
+
+    /* loaded from: classes16.dex */
+    public interface i {
         void a(b bVar, int i, int i2, int i3, int i4);
     }
 }

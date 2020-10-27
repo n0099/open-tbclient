@@ -8,18 +8,18 @@ import android.os.RemoteException;
 public class a implements IInterface {
 
     /* renamed from: a  reason: collision with root package name */
-    private final IBinder f4033a;
+    private final IBinder f4031a;
     private final String b;
 
     /* JADX INFO: Access modifiers changed from: protected */
     public a(IBinder iBinder, String str) {
-        this.f4033a = iBinder;
+        this.f4031a = iBinder;
         this.b = str;
     }
 
     @Override // android.os.IInterface
     public IBinder asBinder() {
-        return this.f4033a;
+        return this.f4031a;
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -34,7 +34,7 @@ public class a implements IInterface {
         Parcel obtain = Parcel.obtain();
         try {
             try {
-                this.f4033a.transact(i, parcel, obtain, 0);
+                this.f4031a.transact(i, parcel, obtain, 0);
                 obtain.readException();
                 return obtain;
             } catch (RuntimeException e) {
@@ -49,7 +49,7 @@ public class a implements IInterface {
     /* JADX INFO: Access modifiers changed from: protected */
     public final void b(int i, Parcel parcel) throws RemoteException {
         try {
-            this.f4033a.transact(i, parcel, null, 1);
+            this.f4031a.transact(i, parcel, null, 1);
         } finally {
             parcel.recycle();
         }

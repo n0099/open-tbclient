@@ -3,5 +3,5 @@ package com.baidu.rtc.camera.engine.b;
 public interface a {
     void F(byte[] bArr);
 
-    void ZJ();
+    void abD();
 }

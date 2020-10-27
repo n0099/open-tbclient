@@ -7,81 +7,81 @@ import java.util.Map;
 import java.util.concurrent.atomic.AtomicLong;
 /* loaded from: classes17.dex */
 public final class UrlResponseInfo {
-    private final int nBN;
-    private final List<String> nDf;
-    private final String nDg;
-    private final boolean nDh;
-    private final String nDi;
-    private final String nDj;
-    private final AtomicLong nDk = new AtomicLong();
-    private final HeaderBlock nDl;
+    private final int oeo;
+    private final List<String> ofH;
+    private final String ofI;
+    private final boolean ofJ;
+    private final String ofK;
+    private final String ofL;
+    private final AtomicLong ofM = new AtomicLong();
+    private final HeaderBlock ofN;
 
     /* loaded from: classes17.dex */
     public static final class HeaderBlock {
-        private final List<Map.Entry<String, String>> nDm;
+        private final List<Map.Entry<String, String>> ofO;
 
         /* JADX INFO: Access modifiers changed from: package-private */
         public HeaderBlock(List<Map.Entry<String, String>> list) {
-            this.nDm = list;
+            this.ofO = list;
         }
 
-        public List<Map.Entry<String, String>> dTf() {
-            return this.nDm;
+        public List<Map.Entry<String, String>> dYX() {
+            return this.ofO;
         }
     }
 
     public UrlResponseInfo(List<String> list, int i, String str, List<Map.Entry<String, String>> list2, boolean z, String str2, String str3) {
-        this.nDf = Collections.unmodifiableList(list);
-        this.nBN = i;
-        this.nDg = str;
-        this.nDl = new HeaderBlock(Collections.unmodifiableList(list2));
-        this.nDh = z;
-        this.nDi = str2;
-        this.nDj = str3;
+        this.ofH = Collections.unmodifiableList(list);
+        this.oeo = i;
+        this.ofI = str;
+        this.ofN = new HeaderBlock(Collections.unmodifiableList(list2));
+        this.ofJ = z;
+        this.ofK = str2;
+        this.ofL = str3;
     }
 
     public String getUrl() {
-        return this.nDf.get(this.nDf.size() - 1);
+        return this.ofH.get(this.ofH.size() - 1);
     }
 
-    public List<String> dSZ() {
-        return this.nDf;
+    public List<String> dYR() {
+        return this.ofH;
     }
 
     public int getHttpStatusCode() {
-        return this.nBN;
+        return this.oeo;
     }
 
-    public String dTa() {
-        return this.nDg;
+    public String dYS() {
+        return this.ofI;
     }
 
-    public List<Map.Entry<String, String>> dTb() {
-        return this.nDl.dTf();
+    public List<Map.Entry<String, String>> dYT() {
+        return this.ofN.dYX();
     }
 
-    public boolean dTc() {
-        return this.nDh;
+    public boolean dYU() {
+        return this.ofJ;
     }
 
-    public String dTd() {
-        return this.nDi;
+    public String dYV() {
+        return this.ofK;
     }
 
-    public String dTe() {
-        return this.nDj;
+    public String dYW() {
+        return this.ofL;
     }
 
     public long getReceivedBytesCount() {
-        return this.nDk.get();
+        return this.ofM.get();
     }
 
     public String toString() {
-        return String.format(Locale.ROOT, "UrlResponseInfo@[%s][%s]: urlChain = %s, httpStatus = %d %s, headers = %s, wasCached = %b, negotiatedProtocol = %s, proxyServer= %s, receivedBytesCount = %d", Integer.toHexString(System.identityHashCode(this)), getUrl(), dSZ().toString(), Integer.valueOf(getHttpStatusCode()), dTa(), dTb().toString(), Boolean.valueOf(dTc()), dTd(), dTe(), Long.valueOf(getReceivedBytesCount()));
+        return String.format(Locale.ROOT, "UrlResponseInfo@[%s][%s]: urlChain = %s, httpStatus = %d %s, headers = %s, wasCached = %b, negotiatedProtocol = %s, proxyServer= %s, receivedBytesCount = %d", Integer.toHexString(System.identityHashCode(this)), getUrl(), dYR().toString(), Integer.valueOf(getHttpStatusCode()), dYS(), dYT().toString(), Boolean.valueOf(dYU()), dYV(), dYW(), Long.valueOf(getReceivedBytesCount()));
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public void gL(long j) {
-        this.nDk.set(j);
+    public void gS(long j) {
+        this.ofM.set(j);
     }
 }

@@ -3,16 +3,16 @@ package com.baidu.swan.a.a;
 import com.baidu.searchbox.http.AbstractHttpManager;
 import com.baidu.swan.a.d.a;
 /* loaded from: classes8.dex */
-public class a extends a.C0342a {
+public class a extends a.C0356a {
     public a(AbstractHttpManager abstractHttpManager) {
         super(abstractHttpManager);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.swan.a.d.a.C0342a, com.baidu.searchbox.http.request.HttpRequestBuilder
-    /* renamed from: aWo */
+    @Override // com.baidu.swan.a.d.a.C0356a, com.baidu.searchbox.http.request.HttpRequestBuilder
+    /* renamed from: aYh */
     public com.baidu.swan.a.d.a build() {
-        com.baidu.swan.a.b.aWn().a(this.httpUrl.toString(), this);
+        com.baidu.swan.a.b.aYg().a(this.httpUrl.toString(), this);
         return super.build();
     }
 }

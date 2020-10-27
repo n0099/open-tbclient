@@ -25,17 +25,17 @@ public final class a implements b {
 
     /* renamed from: com.baidu.swan.apps.core.a.a.a$a  reason: collision with other inner class name */
     /* loaded from: classes10.dex */
-    public interface InterfaceC0392a {
-        void aja();
+    public interface InterfaceC0406a {
+        void akU();
 
-        void ajb();
+        void akV();
 
-        void hx(int i);
+        void hI(int i);
     }
 
-    public static void e(@NonNull List<e.b> list, @Nullable String str) {
-        String[] aQM;
-        if (!md(h.aGy().getString("predownload_network_switch", "1"))) {
+    public static void f(@NonNull List<e.b> list, @Nullable String str) {
+        String[] aSG;
+        if (!mw(h.aIs().getString("predownload_network_switch", "1"))) {
             if (DEBUG) {
                 Log.e("SwanPreDownload", "pre download net invalid");
                 return;
@@ -46,8 +46,8 @@ public final class a implements b {
         ArrayList arrayList = new ArrayList();
         for (e.b bVar : list) {
             if (bVar != null) {
-                if (bVar.aQM() == null) {
-                    if (com.baidu.swan.apps.core.pms.d.a.mH(bVar.getBundleId())) {
+                if (bVar.aSG() == null) {
+                    if (com.baidu.swan.apps.core.pms.d.a.na(bVar.getBundleId())) {
                         arrayList.add(bVar);
                         hashMap.put(bVar.getBundleId(), null);
                     }
@@ -57,8 +57,8 @@ public final class a implements b {
                         set = new HashSet();
                     }
                     boolean z = false;
-                    for (String str2 : bVar.aQM()) {
-                        if (com.baidu.swan.apps.core.pms.d.a.bt(bVar.getBundleId(), str2) && !z) {
+                    for (String str2 : bVar.aSG()) {
+                        if (com.baidu.swan.apps.core.pms.d.a.bA(bVar.getBundleId(), str2) && !z) {
                             arrayList.add(bVar);
                             z = true;
                         }
@@ -75,104 +75,104 @@ public final class a implements b {
             }
             return;
         }
-        e eVar = new e(arrayList, am.aIK());
-        eVar.xU(str);
-        eVar.xT("1");
+        e eVar = new e(arrayList, am.aKE());
+        eVar.yn(str);
+        eVar.ym("1");
         c.a(eVar, new d(new com.baidu.swan.apps.core.pms.a() { // from class: com.baidu.swan.apps.core.a.a.a.1
             @Override // com.baidu.swan.apps.core.pms.a
-            public void a(@NonNull a.C0532a c0532a) {
-                super.a(c0532a);
-                me(c0532a.dTs);
-                com.baidu.swan.apps.core.pms.d.a.mI(c0532a.dTs);
+            public void a(@NonNull a.C0546a c0546a) {
+                super.a(c0546a);
+                mx(c0546a.ebO);
+                com.baidu.swan.apps.core.pms.d.a.nb(c0546a.ebO);
             }
 
             @Override // com.baidu.swan.apps.core.pms.a
             public void a(@NonNull g gVar) {
                 super.a(gVar);
-                me(gVar.appId);
+                mx(gVar.appId);
             }
 
             @Override // com.baidu.swan.apps.core.pms.a
-            public void aiW() {
-                aiX();
+            public void akQ() {
+                akR();
             }
 
-            private void aiX() {
+            private void akR() {
                 for (String str3 : hashMap.keySet()) {
-                    me(str3);
+                    mx(str3);
                 }
             }
 
-            private void me(@NonNull String str3) {
+            private void mx(@NonNull String str3) {
                 if (hashMap.containsKey(str3)) {
                     Set<String> set2 = (Set) hashMap.get(str3);
                     if (set2 != null && !set2.isEmpty()) {
                         for (String str4 : set2) {
-                            com.baidu.swan.apps.core.pms.d.a.bu(str3, str4);
+                            com.baidu.swan.apps.core.pms.d.a.bB(str3, str4);
                         }
                         return;
                     }
-                    com.baidu.swan.apps.core.pms.d.a.mI(str3);
+                    com.baidu.swan.apps.core.pms.d.a.nb(str3);
                 }
             }
-        }).hP("1".equals(str) ? 6 : 7));
+        }).ia("1".equals(str) ? 6 : 7));
     }
 
     public static void a(@NonNull List<b.a> list, @NonNull String str, @NonNull com.baidu.swan.apps.core.pms.a aVar) {
-        if (!md(h.aGy().getString("predownload_network_switch", "1"))) {
-            aVar.hM(6);
+        if (!mw(h.aIs().getString("predownload_network_switch", "1"))) {
+            aVar.hX(6);
             return;
         }
         List<b.a> h = com.baidu.swan.apps.core.pms.d.a.h(list);
         if (h.isEmpty()) {
-            aVar.aiW();
+            aVar.akQ();
             return;
         }
-        com.baidu.swan.pms.c.d.b bVar = new com.baidu.swan.pms.c.d.b((List<? extends b.a>) h, (com.baidu.swan.pms.utils.a) am.aIK());
-        bVar.xT("1");
-        bVar.xU(str);
+        com.baidu.swan.pms.c.d.b bVar = new com.baidu.swan.pms.c.d.b((List<? extends b.a>) h, (com.baidu.swan.pms.utils.a) am.aKE());
+        bVar.ym("1");
+        bVar.yn(str);
         c.a(bVar, new d(aVar));
     }
 
-    public static void a(boolean z, String str, final int i, InterfaceC0392a interfaceC0392a, final String str2, String str3) {
+    public static void a(boolean z, String str, final int i, InterfaceC0406a interfaceC0406a, final String str2, String str3) {
         if (DEBUG) {
             Log.d("SwanPreDownload", "AppId: " + str + ", scene: " + str2);
         }
         if (TextUtils.isEmpty(str)) {
-            if (interfaceC0392a != null) {
-                interfaceC0392a.aja();
+            if (interfaceC0406a != null) {
+                interfaceC0406a.akU();
             }
-        } else if (!md(h.aGy().getString("predownload_network_switch", "1"))) {
-            if (interfaceC0392a != null) {
-                interfaceC0392a.hx(6);
+        } else if (!mw(h.aIs().getString("predownload_network_switch", "1"))) {
+            if (interfaceC0406a != null) {
+                interfaceC0406a.hI(6);
             }
-        } else if (!com.baidu.swan.apps.core.pms.d.a.mH(str)) {
-            if (interfaceC0392a != null) {
-                interfaceC0392a.hx(2);
+        } else if (!com.baidu.swan.apps.core.pms.d.a.na(str)) {
+            if (interfaceC0406a != null) {
+                interfaceC0406a.hI(2);
             }
         } else {
             com.baidu.swan.pms.c.d.c cVar = new com.baidu.swan.pms.c.d.c(str, TextUtils.equals("swangame", str3) ? 1 : 0);
-            cVar.xT("1");
-            cVar.xU(str2);
+            cVar.ym("1");
+            cVar.yn(str2);
             if (!z) {
-                cVar.cu(0L);
+                cVar.cw(0L);
             }
-            c.a(cVar, new com.baidu.swan.apps.core.pms.d.b(str, interfaceC0392a) { // from class: com.baidu.swan.apps.core.a.a.a.2
+            c.a(cVar, new com.baidu.swan.apps.core.pms.d.b(str, interfaceC0406a) { // from class: com.baidu.swan.apps.core.a.a.a.2
                 @Override // com.baidu.swan.apps.core.pms.f, com.baidu.swan.pms.a.g
-                public void aiY() {
-                    this.cyP = str2;
+                public void akS() {
+                    this.cHl = str2;
                 }
 
                 @Override // com.baidu.swan.apps.core.pms.f
-                protected int aiZ() {
+                protected int akT() {
                     return i;
                 }
 
                 @Override // com.baidu.swan.pms.a.g, com.baidu.swan.pms.a.d
-                public void bk(String str4, String str5) {
-                    super.bk(str4, str5);
-                    if (!TextUtils.isEmpty(str5) && TextUtils.equals(str4, "770") && this.cyO != null) {
-                        this.cyO.add(new UbcFlowEvent(str5));
+                public void br(String str4, String str5) {
+                    super.br(str4, str5);
+                    if (!TextUtils.isEmpty(str5) && TextUtils.equals(str4, "770") && this.cHk != null) {
+                        this.cHk.add(new UbcFlowEvent(str5));
                     }
                 }
             });
@@ -185,7 +185,7 @@ public final class a implements b {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public static boolean md(String str) {
+    public static boolean mw(String str) {
         boolean z = true;
         if (!TextUtils.equals(str, "0")) {
             if (!TextUtils.equals(str, "1")) {

@@ -1,0 +1,19 @@
+package com.baidu.live.b;
+
+import android.content.Context;
+import com.baidu.ala.atomdata.AlaSDKShareEmptyActivityConfig;
+import com.baidu.live.tbadk.core.frameworkdata.IntentConfig;
+/* loaded from: classes4.dex */
+public class ae extends IntentConfig {
+    public ae(Context context, String str, String str2, String str3, boolean z, String str4, String str5, String str6, String str7) {
+        super(context);
+        getIntent().putExtra("uid", str);
+        getIntent().putExtra("nickname", str2);
+        getIntent().putExtra("msgType", str3);
+        getIntent().putExtra("isMediaRole", z);
+        getIntent().putExtra(AlaSDKShareEmptyActivityConfig.SHARE_ALA_SDK_LIVE_ID, str4);
+        getIntent().putExtra("groupid", str5);
+        getIntent().putExtra("paid", str6);
+        getIntent().putExtra("userIcon", str7);
+    }
+}

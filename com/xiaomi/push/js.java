@@ -11,10 +11,10 @@ public abstract class js {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public abstract void m496a(byte[] bArr, int i, int i2);
+    public abstract void m495a(byte[] bArr, int i, int i2);
 
     /* renamed from: a  reason: collision with other method in class */
-    public byte[] m497a() {
+    public byte[] m496a() {
         return null;
     }
 

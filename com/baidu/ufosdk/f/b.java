@@ -8,7 +8,7 @@ import java.util.HashMap;
 public final class b implements Runnable {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ String f3712a;
+    final /* synthetic */ String f3710a;
     final /* synthetic */ String b;
     final /* synthetic */ n c;
     final /* synthetic */ a d;
@@ -16,7 +16,7 @@ public final class b implements Runnable {
     /* JADX INFO: Access modifiers changed from: package-private */
     public b(a aVar, String str, String str2, n nVar) {
         this.d = aVar;
-        this.f3712a = str;
+        this.f3710a = str;
         this.b = str2;
         this.c = nVar;
     }
@@ -25,7 +25,7 @@ public final class b implements Runnable {
     public final void run() {
         HashMap hashMap;
         try {
-            Bitmap a2 = a.a(this.f3712a);
+            Bitmap a2 = a.a(this.f3710a);
             if (a2 != null) {
                 hashMap = a.b;
                 hashMap.put(this.b, new SoftReference(a2));

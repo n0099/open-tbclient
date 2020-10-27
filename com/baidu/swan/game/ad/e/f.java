@@ -7,7 +7,7 @@ import com.baidu.live.adp.widget.VerticalTranslateLayout;
 import com.baidu.searchbox.v8engine.V8JavascriptField;
 /* loaded from: classes14.dex */
 public class f {
-    private a dAx;
+    private a dIU;
     @V8JavascriptField
     public int height;
     @V8JavascriptField
@@ -23,7 +23,7 @@ public class f {
 
     /* loaded from: classes14.dex */
     public interface a {
-        void vf(String str);
+        void vy(String str);
     }
 
     public f(@NonNull com.baidu.swan.games.binding.model.c cVar) {
@@ -42,12 +42,12 @@ public class f {
         if (com.baidu.swan.apps.b.DEBUG) {
             Log.d("BannerAdStyle", "onFieldChangedCallback fieldName=" + str);
         }
-        if (this.dAx != null) {
-            this.dAx.vf(str);
+        if (this.dIU != null) {
+            this.dIU.vy(str);
         }
     }
 
     public void a(a aVar) {
-        this.dAx = aVar;
+        this.dIU = aVar;
     }
 }

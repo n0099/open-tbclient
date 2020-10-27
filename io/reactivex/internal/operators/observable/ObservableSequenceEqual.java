@@ -157,37 +157,37 @@ public final class ObservableSequenceEqual<T> extends q<Boolean> {
         volatile boolean done;
         Throwable error;
         final int index;
-        final EqualCoordinator<T> oNH;
+        final EqualCoordinator<T> pFe;
         final io.reactivex.internal.queue.a<T> queue;
 
         a(EqualCoordinator<T> equalCoordinator, int i, int i2) {
-            this.oNH = equalCoordinator;
+            this.pFe = equalCoordinator;
             this.index = i;
             this.queue = new io.reactivex.internal.queue.a<>(i2);
         }
 
         @Override // io.reactivex.u
         public void onSubscribe(io.reactivex.disposables.b bVar) {
-            this.oNH.setDisposable(bVar, this.index);
+            this.pFe.setDisposable(bVar, this.index);
         }
 
         @Override // io.reactivex.u
         public void onNext(T t) {
             this.queue.offer(t);
-            this.oNH.drain();
+            this.pFe.drain();
         }
 
         @Override // io.reactivex.u
         public void onError(Throwable th) {
             this.error = th;
             this.done = true;
-            this.oNH.drain();
+            this.pFe.drain();
         }
 
         @Override // io.reactivex.u
         public void onComplete() {
             this.done = true;
-            this.oNH.drain();
+            this.pFe.drain();
         }
     }
 }

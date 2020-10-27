@@ -28,7 +28,7 @@ public class SpecialColumnListData extends AbsThreadDataSupport implements Parce
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // android.os.Parcelable.Creator
-        /* renamed from: Bj */
+        /* renamed from: BC */
         public SpecialColumnListData[] newArray(int i) {
             return new SpecialColumnListData[i];
         }
@@ -79,16 +79,16 @@ public class SpecialColumnListData extends AbsThreadDataSupport implements Parce
     }
 
     @Override // com.baidu.tbadk.core.data.AbsThreadDataSupport
-    public bw bfG() {
+    public bw bhz() {
         return null;
     }
 
     @Override // com.baidu.tbadk.core.data.AbsThreadDataSupport
-    public ar bfI() {
+    public ar bhB() {
         return null;
     }
 
-    public List<SpecialColumnItemData> cGj() {
+    public List<SpecialColumnItemData> cJq() {
         return this.mListData;
     }
 
@@ -96,7 +96,7 @@ public class SpecialColumnListData extends AbsThreadDataSupport implements Parce
         return this.title;
     }
 
-    public List<SpecialColumnItemData> bKl() {
+    public List<SpecialColumnItemData> bMN() {
         return this.mResultListData;
     }
 

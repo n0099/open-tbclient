@@ -17,17 +17,17 @@ import tv.chushou.zues.widget.fresco.a;
 import tv.chushou.zues.widget.sweetalert.b;
 /* loaded from: classes6.dex */
 public class CSWebView extends SimpleWebview implements View.OnLongClickListener, DownloadListener {
-    private JSInterface ozX;
+    private JSInterface prs;
 
     @SuppressLint({"AddJavascriptInterface"})
     public static void a(CSWebView cSWebView, Context context, c cVar, a aVar) {
         if (cSWebView != null && context != null) {
-            JSInterface eiF = aVar != null ? aVar.eiF() : null;
-            JSInterface jSInterface = eiF == null ? new JSInterface(context) : eiF;
-            d eiD = aVar != null ? aVar.eiD() : null;
-            com.kascend.chushou.toolkit.b eiE = aVar != null ? aVar.eiE() : null;
-            jSInterface.setCloseListener(eiD);
-            jSInterface.setJsToNative(eiE);
+            JSInterface esF = aVar != null ? aVar.esF() : null;
+            JSInterface jSInterface = esF == null ? new JSInterface(context) : esF;
+            d esD = aVar != null ? aVar.esD() : null;
+            com.kascend.chushou.toolkit.b esE = aVar != null ? aVar.esE() : null;
+            jSInterface.setCloseListener(esD);
+            jSInterface.setJsToNative(esE);
             Object d = aVar != null ? aVar.d() : null;
             if (d != null) {
                 jSInterface.setExtraData(d);
@@ -52,7 +52,7 @@ public class CSWebView extends SimpleWebview implements View.OnLongClickListener
         String str;
         super.a();
         WebSettings settings = getSettings();
-        tv.chushou.basis.d.a.b.b bVar = (tv.chushou.basis.d.a.b.b) tv.chushou.basis.d.b.etD().S(tv.chushou.basis.d.a.b.b.class);
+        tv.chushou.basis.d.a.b.b bVar = (tv.chushou.basis.d.a.b.b) tv.chushou.basis.d.b.eDB().S(tv.chushou.basis.d.a.b.b.class);
         if (bVar == null) {
             str = "Android ChushouTV SDK/5.5.6";
         } else {
@@ -65,7 +65,7 @@ public class CSWebView extends SimpleWebview implements View.OnLongClickListener
     @Override // com.kascend.chushou.widget.cswebview.SimpleWebview
     public void b() {
         super.b();
-        if (Build.VERSION.SDK_INT >= 19 && tv.chushou.zues.utils.e.eub()) {
+        if (Build.VERSION.SDK_INT >= 19 && tv.chushou.zues.utils.e.eDZ()) {
             WebView.setWebContentsDebuggingEnabled(true);
         }
     }
@@ -93,34 +93,34 @@ public class CSWebView extends SimpleWebview implements View.OnLongClickListener
                 bVar.dismiss();
                 if (h.isEmpty(str)) {
                     if (ViewCompat.isAttachedToWindow(CSWebView.this)) {
-                        g.c(context, context.getString(a.i.str_download_fail));
+                        g.d(context, context.getString(a.i.str_download_fail));
                         return;
                     }
                     return;
                 }
-                tv.chushou.zues.widget.fresco.a.a(str, com.kascend.chushou.d.c.oha.egh().getAbsolutePath(), new a.InterfaceC1031a() { // from class: com.kascend.chushou.widget.cswebview.CSWebView.1.1
-                    @Override // tv.chushou.zues.widget.fresco.a.InterfaceC1031a
+                tv.chushou.zues.widget.fresco.a.a(str, com.kascend.chushou.d.c.oYp.eqh().getAbsolutePath(), new a.InterfaceC1103a() { // from class: com.kascend.chushou.widget.cswebview.CSWebView.1.1
+                    @Override // tv.chushou.zues.widget.fresco.a.InterfaceC1103a
                     public void onComplete(boolean z, String str2) {
                         if (ViewCompat.isAttachedToWindow(CSWebView.this)) {
                             if (z) {
-                                g.c(context, context.getString(a.i.str_img_already_download, str2));
+                                g.d(context, context.getString(a.i.str_img_already_download, str2));
                             } else {
-                                g.c(context, context.getString(a.i.str_download_fail));
+                                g.d(context, context.getString(a.i.str_download_fail));
                             }
                         }
                     }
                 });
             }
-        }).Yu(context.getString(a.i.alert_dialog_cancel)).Yw(context.getString(a.i.alert_dialog_ok)).A(context.getString(a.i.str_download_img)).show();
+        }).aah(context.getString(a.i.alert_dialog_cancel)).aaj(context.getString(a.i.alert_dialog_ok)).D(context.getString(a.i.str_download_img)).show();
     }
 
     @Override // android.view.View
     public boolean canScrollHorizontally(int i) {
-        return (this.ozX != null && this.ozX.isCanScrollHorizontally()) || super.canScrollHorizontally(i);
+        return (this.prs != null && this.prs.isCanScrollHorizontally()) || super.canScrollHorizontally(i);
     }
 
     public void setJSInterface(JSInterface jSInterface) {
-        this.ozX = jSInterface;
+        this.prs = jSInterface;
     }
 
     public void a(String str) {

@@ -17,109 +17,113 @@ import com.baidu.tieba.homepage.concern.adapter.n;
 import com.baidu.tieba.homepage.concern.adapter.o;
 import com.baidu.tieba.homepage.concern.adapter.p;
 import com.baidu.tieba.homepage.concern.adapter.q;
-import com.baidu.tieba.homepage.concern.adapter.s;
+import com.baidu.tieba.homepage.concern.adapter.r;
 import com.baidu.tieba.homepage.concern.adapter.t;
 import com.baidu.tieba.homepage.concern.adapter.u;
 import com.baidu.tieba.homepage.concern.adapter.v;
 import com.baidu.tieba.homepage.concern.adapter.w;
 import com.baidu.tieba.homepage.concern.adapter.x;
 import com.baidu.tieba.homepage.concern.adapter.y;
+import com.baidu.tieba.homepage.concern.adapter.z;
 import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes22.dex */
 public class a {
-    private s jcA;
-    private m jcB;
-    private q jcC;
-    private com.baidu.tieba.homepage.concern.adapter.b jcD;
-    private n jcE;
-    private com.baidu.tieba.homepage.concern.adapter.c jcF;
-    private o jcG;
-    private p jcH;
-    private y jcI;
-    private List<com.baidu.adp.widget.ListView.a> jcj = new ArrayList();
-    private BdTypeRecyclerView jck;
-    private u jcl;
-    private h jcm;
-    private com.baidu.tieba.homepage.concern.adapter.a jcn;
-    private v jco;
-    private w jcp;
-    private j jcq;
-    private t jcr;
-    private g jcs;
-    private f jct;
-    private e jcu;
-    private com.baidu.tieba.homepage.concern.adapter.d jcv;
-    private x jcw;
-    private i jcx;
-    private k jcy;
-    private l jcz;
+    private List<com.baidu.adp.widget.ListView.a> joE = new ArrayList();
+    private BdTypeRecyclerView joF;
+    private v joG;
+    private i joH;
+    private com.baidu.tieba.homepage.concern.adapter.b joI;
+    private com.baidu.tieba.homepage.concern.adapter.a joJ;
+    private w joK;
+    private x joL;
+    private k joM;
+    private u joN;
+    private h joO;
+    private g joP;
+    private f joQ;
+    private e joR;
+    private y joS;
+    private j joT;
+    private l joU;
+    private m joV;
+    private t joW;
+    private n joX;
+    private r joY;
+    private com.baidu.tieba.homepage.concern.adapter.c joZ;
+    private o jpa;
+    private com.baidu.tieba.homepage.concern.adapter.d jpb;
+    private p jpc;
+    private q jpd;
+    private z jpe;
     private List<com.baidu.adp.widget.ListView.q> mDataList;
     private TbPageContext<?> mPageContext;
 
     public a(Context context, BdTypeRecyclerView bdTypeRecyclerView) {
-        this.jck = bdTypeRecyclerView;
+        this.joF = bdTypeRecyclerView;
         this.mPageContext = (TbPageContext) com.baidu.adp.base.i.I(context);
-        fo(context);
+        fp(context);
         a(bdTypeRecyclerView);
-        bdTypeRecyclerView.addAdapters(this.jcj);
+        bdTypeRecyclerView.addAdapters(this.joE);
     }
 
-    private void fo(Context context) {
-        this.jcp = new w(this.mPageContext, com.baidu.tieba.card.data.l.hJf);
-        this.jcq = new j(this.mPageContext, com.baidu.tieba.card.data.l.epp);
-        this.jcx = new i(this.mPageContext, com.baidu.tieba.card.data.l.hJl);
-        this.jcy = new k(this.mPageContext, com.baidu.tieba.card.data.l.hJm);
-        this.jcr = new t(this.mPageContext, com.baidu.tieba.card.data.l.hJk);
-        this.jcs = new g(this.mPageContext, com.baidu.tieba.card.data.l.hJg);
-        this.jct = new f(this.mPageContext, com.baidu.tieba.card.data.l.hJh);
-        this.jcu = new e(this.mPageContext, com.baidu.tieba.card.data.l.hJi);
-        this.jcw = new x(this.mPageContext, com.baidu.tieba.card.data.m.epH);
-        this.jcD = new com.baidu.tieba.homepage.concern.adapter.b(this.mPageContext, com.baidu.tieba.card.data.f.hIF);
-        this.jcv = new com.baidu.tieba.homepage.concern.adapter.d(this.mPageContext, com.baidu.tieba.card.data.l.hJj);
-        this.jcC = new q(this.mPageContext, com.baidu.tieba.homepage.concern.a.b.elV);
-        this.jcz = new l(this.mPageContext, com.baidu.tieba.card.data.l.epB);
-        this.jcA = new s(this.mPageContext, com.baidu.tieba.card.data.l.epD);
-        this.jcB = new m(this.mPageContext, com.baidu.tieba.card.data.l.epE);
-        this.jcj.add(this.jcp);
-        this.jcj.add(this.jcq);
-        this.jcj.add(this.jcx);
-        this.jcj.add(this.jcy);
-        this.jcj.add(this.jcr);
-        this.jcj.add(this.jcs);
-        this.jcj.add(this.jct);
-        this.jcj.add(this.jcu);
-        this.jcj.add(this.jcw);
-        this.jcj.add(this.jcv);
-        this.jcj.add(this.jcC);
-        this.jcj.add(this.jcz);
-        this.jcj.add(this.jcA);
-        this.jcj.add(this.jcB);
-        this.jcl = new u(this.mPageContext.getContext());
-        this.jcm = new h(this.mPageContext.getContext());
-        this.jcn = new com.baidu.tieba.homepage.concern.adapter.a(this.mPageContext, com.baidu.tieba.card.data.k.TYPE);
-        this.jco = new v(this.mPageContext, com.baidu.tieba.card.data.l.epL);
-        this.jcE = new n(this.mPageContext, com.baidu.tieba.card.data.l.epM);
-        this.jcF = new com.baidu.tieba.homepage.concern.adapter.c(this.mPageContext, com.baidu.tieba.card.data.l.epN);
-        this.jcG = new o(this.mPageContext, com.baidu.tieba.card.data.l.epO);
-        this.jcH = new p(this.mPageContext, com.baidu.tieba.homepage.concern.a.a.jew);
-        this.jcI = new y(this.mPageContext, com.baidu.tieba.card.data.l.hJe, (byte) 4);
-        this.jcj.add(this.jcl);
-        this.jcj.add(this.jcm);
-        this.jcj.add(this.jcn);
-        this.jcj.add(this.jco);
-        this.jcj.add(this.jcE);
-        this.jcj.add(this.jcF);
-        this.jcj.add(this.jcG);
-        this.jcj.add(this.jcD);
-        this.jcj.add(this.jcH);
-        this.jcj.add(this.jcI);
-        Es("page_concern");
+    private void fp(Context context) {
+        this.joL = new x(this.mPageContext, com.baidu.tieba.card.data.l.hVC);
+        this.joM = new k(this.mPageContext, com.baidu.tieba.card.data.l.exN);
+        this.joT = new j(this.mPageContext, com.baidu.tieba.card.data.l.hVI);
+        this.joU = new l(this.mPageContext, com.baidu.tieba.card.data.l.hVJ);
+        this.joN = new u(this.mPageContext, com.baidu.tieba.card.data.l.hVH);
+        this.joO = new h(this.mPageContext, com.baidu.tieba.card.data.l.hVD);
+        this.joP = new g(this.mPageContext, com.baidu.tieba.card.data.l.hVE);
+        this.joQ = new f(this.mPageContext, com.baidu.tieba.card.data.l.hVF);
+        this.joS = new y(this.mPageContext, com.baidu.tieba.card.data.m.eyg);
+        this.joZ = new com.baidu.tieba.homepage.concern.adapter.c(this.mPageContext, com.baidu.tieba.card.data.f.hVc);
+        this.joR = new e(this.mPageContext, com.baidu.tieba.card.data.l.hVG);
+        this.joY = new r(this.mPageContext, com.baidu.tieba.homepage.concern.a.b.euv);
+        this.joV = new m(this.mPageContext, com.baidu.tieba.card.data.l.exZ);
+        this.joW = new t(this.mPageContext, com.baidu.tieba.card.data.l.eyb);
+        this.joX = new n(this.mPageContext, com.baidu.tieba.card.data.l.eyc);
+        this.joE.add(this.joL);
+        this.joE.add(this.joM);
+        this.joE.add(this.joT);
+        this.joE.add(this.joU);
+        this.joE.add(this.joN);
+        this.joE.add(this.joO);
+        this.joE.add(this.joP);
+        this.joE.add(this.joQ);
+        this.joE.add(this.joS);
+        this.joE.add(this.joR);
+        this.joE.add(this.joY);
+        this.joE.add(this.joV);
+        this.joE.add(this.joW);
+        this.joE.add(this.joX);
+        this.joG = new v(this.mPageContext.getContext());
+        this.joH = new i(this.mPageContext.getContext());
+        this.joI = new com.baidu.tieba.homepage.concern.adapter.b(this.mPageContext, com.baidu.tieba.card.data.k.TYPE);
+        this.joJ = new com.baidu.tieba.homepage.concern.adapter.a(this.mPageContext, com.baidu.tieba.card.data.k.hVh);
+        this.joK = new w(this.mPageContext, com.baidu.tieba.card.data.l.eyl);
+        this.jpa = new o(this.mPageContext, com.baidu.tieba.card.data.l.eyn);
+        this.jpb = new com.baidu.tieba.homepage.concern.adapter.d(this.mPageContext, com.baidu.tieba.card.data.l.eyo);
+        this.jpc = new p(this.mPageContext, com.baidu.tieba.card.data.l.eyp);
+        this.jpd = new q(this.mPageContext, com.baidu.tieba.homepage.concern.a.a.jqU);
+        this.jpe = new z(this.mPageContext, com.baidu.tieba.card.data.l.hVB, (byte) 4);
+        this.joE.add(this.joG);
+        this.joE.add(this.joH);
+        this.joE.add(this.joI);
+        this.joE.add(this.joJ);
+        this.joE.add(this.joK);
+        this.joE.add(this.jpa);
+        this.joE.add(this.jpb);
+        this.joE.add(this.jpc);
+        this.joE.add(this.joZ);
+        this.joE.add(this.jpd);
+        this.joE.add(this.jpe);
+        EL("page_concern");
     }
 
-    public void ca(List<com.baidu.adp.widget.ListView.q> list) {
+    public void ck(List<com.baidu.adp.widget.ListView.q> list) {
         this.mDataList = list;
-        this.jck.setData(list);
+        this.joF.setData(list);
     }
 
     public void onChangeSkinType(int i) {
@@ -127,53 +131,54 @@ public class a {
     }
 
     public void notifyDataSetChanged() {
-        if (this.jck != null) {
-            this.jck.getListAdapter().notifyDataSetChanged();
+        if (this.joF != null) {
+            this.joF.getListAdapter().notifyDataSetChanged();
         }
     }
 
     public void setPageUniqueId(BdUniqueId bdUniqueId) {
-        this.jcn.fey = bdUniqueId;
-        this.jco.fey = bdUniqueId;
-        this.jcG.fey = bdUniqueId;
-        this.jcE.fey = bdUniqueId;
-        this.jcF.fey = bdUniqueId;
-        this.jcD.fey = bdUniqueId;
-        this.jcv.fey = bdUniqueId;
-        this.jcC.fey = bdUniqueId;
-        this.jcI.fey = bdUniqueId;
+        this.joI.fmX = bdUniqueId;
+        this.joJ.fmX = bdUniqueId;
+        this.joK.fmX = bdUniqueId;
+        this.jpc.fmX = bdUniqueId;
+        this.jpa.fmX = bdUniqueId;
+        this.jpb.fmX = bdUniqueId;
+        this.joZ.fmX = bdUniqueId;
+        this.joR.fmX = bdUniqueId;
+        this.joY.fmX = bdUniqueId;
+        this.jpe.fmX = bdUniqueId;
     }
 
-    private void Es(String str) {
-        if (this.jcj != null) {
-            for (com.baidu.adp.widget.ListView.a aVar : this.jcj) {
+    private void EL(String str) {
+        if (this.joE != null) {
+            for (com.baidu.adp.widget.ListView.a aVar : this.joE) {
                 if (aVar instanceof com.baidu.tieba.a.f) {
-                    ((com.baidu.tieba.a.f) aVar).Es(str);
+                    ((com.baidu.tieba.a.f) aVar).EL(str);
                 }
             }
         }
     }
 
     private void a(com.baidu.adp.widget.ListView.v vVar) {
-        this.jcp.a(vVar);
-        this.jcq.a(vVar);
-        this.jcx.a(vVar);
-        this.jcy.a(vVar);
-        this.jcr.a(vVar);
-        this.jcC.a(vVar);
-        this.jcz.a(vVar);
-        this.jcA.a(vVar);
-        this.jcB.a(vVar);
-        this.jcs.a(vVar);
-        this.jct.a(vVar);
-        this.jcu.a(vVar);
-        this.jcw.a(vVar);
-        this.jcv.a(vVar);
-        this.jcD.a(vVar);
-        this.jcF.a(vVar);
-        this.jcE.a(vVar);
-        this.jcG.a(vVar);
-        this.jcI.a(vVar);
+        this.joL.a(vVar);
+        this.joM.a(vVar);
+        this.joT.a(vVar);
+        this.joU.a(vVar);
+        this.joN.a(vVar);
+        this.joY.a(vVar);
+        this.joV.a(vVar);
+        this.joW.a(vVar);
+        this.joX.a(vVar);
+        this.joO.a(vVar);
+        this.joP.a(vVar);
+        this.joQ.a(vVar);
+        this.joS.a(vVar);
+        this.joR.a(vVar);
+        this.joZ.a(vVar);
+        this.jpb.a(vVar);
+        this.jpa.a(vVar);
+        this.jpc.a(vVar);
+        this.jpe.a(vVar);
     }
 
     public List<com.baidu.adp.widget.ListView.q> getDataList() {

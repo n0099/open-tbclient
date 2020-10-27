@@ -6,10 +6,10 @@ import rx.internal.operators.NotificationLite;
 import rx.subjects.SubjectSubscriptionManager;
 /* loaded from: classes16.dex */
 public final class a<T> extends c<T, T> {
-    private static final Object[] oQj = new Object[0];
-    private final SubjectSubscriptionManager<T> pjt;
+    private static final Object[] pHG = new Object[0];
+    private final SubjectSubscriptionManager<T> qaJ;
 
-    public static <T> a<T> esZ() {
+    public static <T> a<T> eCX() {
         return e(null, false);
     }
 
@@ -23,7 +23,7 @@ public final class a<T> extends c<T, T> {
             @Override // rx.functions.b
             /* renamed from: a */
             public void call(SubjectSubscriptionManager.b<T> bVar) {
-                bVar.cn(SubjectSubscriptionManager.this.getLatest());
+                bVar.cr(SubjectSubscriptionManager.this.getLatest());
             }
         };
         subjectSubscriptionManager.onTerminated = subjectSubscriptionManager.onAdded;
@@ -32,27 +32,27 @@ public final class a<T> extends c<T, T> {
 
     protected a(d.a<T> aVar, SubjectSubscriptionManager<T> subjectSubscriptionManager) {
         super(aVar);
-        this.pjt = subjectSubscriptionManager;
+        this.qaJ = subjectSubscriptionManager;
     }
 
     @Override // rx.e
     public void onCompleted() {
-        if (this.pjt.getLatest() == null || this.pjt.active) {
-            Object erS = NotificationLite.erS();
-            for (SubjectSubscriptionManager.b<T> bVar : this.pjt.terminate(erS)) {
-                bVar.cm(erS);
+        if (this.qaJ.getLatest() == null || this.qaJ.active) {
+            Object eBQ = NotificationLite.eBQ();
+            for (SubjectSubscriptionManager.b<T> bVar : this.qaJ.terminate(eBQ)) {
+                bVar.cq(eBQ);
             }
         }
     }
 
     @Override // rx.e
     public void onError(Throwable th) {
-        if (this.pjt.getLatest() == null || this.pjt.active) {
+        if (this.qaJ.getLatest() == null || this.qaJ.active) {
             Object error = NotificationLite.error(th);
             ArrayList arrayList = null;
-            for (SubjectSubscriptionManager.b<T> bVar : this.pjt.terminate(error)) {
+            for (SubjectSubscriptionManager.b<T> bVar : this.qaJ.terminate(error)) {
                 try {
-                    bVar.cm(error);
+                    bVar.cq(error);
                 } catch (Throwable th2) {
                     if (arrayList == null) {
                         arrayList = new ArrayList();
@@ -60,16 +60,16 @@ public final class a<T> extends c<T, T> {
                     arrayList.add(th2);
                 }
             }
-            rx.exceptions.a.go(arrayList);
+            rx.exceptions.a.gK(arrayList);
         }
     }
 
     @Override // rx.e
     public void onNext(T t) {
-        if (this.pjt.getLatest() == null || this.pjt.active) {
+        if (this.qaJ.getLatest() == null || this.qaJ.active) {
             Object next = NotificationLite.next(t);
-            for (SubjectSubscriptionManager.b<T> bVar : this.pjt.next(next)) {
-                bVar.cm(next);
+            for (SubjectSubscriptionManager.b<T> bVar : this.qaJ.next(next)) {
+                bVar.cq(next);
             }
         }
     }

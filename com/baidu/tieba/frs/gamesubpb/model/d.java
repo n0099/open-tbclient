@@ -5,14 +5,14 @@ import com.baidu.adp.widget.ListView.q;
 import org.json.JSONObject;
 /* loaded from: classes22.dex */
 public class d implements q {
-    public static final BdUniqueId iHg = BdUniqueId.gen();
+    public static final BdUniqueId iTC = BdUniqueId.gen();
     public String content;
     public String createTime;
     public String forumId;
-    public String iHb;
-    public String iHh;
-    public String iHi;
-    public boolean iHj;
+    public String iTD;
+    public String iTE;
+    public boolean iTF;
+    public String iTx;
     public String id;
     public String userId;
     public String userName;
@@ -20,21 +20,21 @@ public class d implements q {
     public d(JSONObject jSONObject) {
         if (jSONObject != null) {
             this.id = jSONObject.optString("id");
-            this.iHh = jSONObject.optString("main_tower_id");
+            this.iTD = jSONObject.optString("main_tower_id");
             this.forumId = jSONObject.optString("forum_id");
             this.userId = jSONObject.optString("user_id");
             this.userName = jSONObject.optString("user_name");
             this.createTime = jSONObject.optString("create_time");
             this.content = jSONObject.optString("content");
-            this.iHi = jSONObject.optString("reply_user_id");
-            this.iHb = jSONObject.optString("time_passed");
-            this.iHj = jSONObject.optInt("is_main_tower_user", 0) == 1;
+            this.iTE = jSONObject.optString("reply_user_id");
+            this.iTx = jSONObject.optString("time_passed");
+            this.iTF = jSONObject.optInt("is_main_tower_user", 0) == 1;
         }
     }
 
     @Override // com.baidu.adp.widget.ListView.q
     public BdUniqueId getType() {
-        return iHg;
+        return iTC;
     }
 
     public boolean equals(Object obj) {

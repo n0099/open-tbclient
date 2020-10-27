@@ -14,6 +14,6 @@ public class f extends e {
 
     @Override // com.baidu.tieba.homepage.hotTopic.tab.b.e, com.baidu.adp.widget.ListView.q
     public BdUniqueId getType() {
-        return a.jjv;
+        return a.jvS;
     }
 }

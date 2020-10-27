@@ -11,16 +11,16 @@ import java.util.concurrent.atomic.AtomicLong;
 import java.util.concurrent.atomic.AtomicReference;
 /* loaded from: classes17.dex */
 public final class FlowableRepeatWhen<T> extends a<T, T> {
-    final h<? super io.reactivex.g<Object>, ? extends org.a.b<?>> oMF;
+    final h<? super io.reactivex.g<Object>, ? extends org.a.b<?>> pEc;
 
     @Override // io.reactivex.g
     public void a(org.a.c<? super T> cVar) {
         io.reactivex.subscribers.b bVar = new io.reactivex.subscribers.b(cVar);
-        io.reactivex.processors.a<T> enp = UnicastProcessor.Pe(8).enp();
+        io.reactivex.processors.a<T> exo = UnicastProcessor.QV(8).exo();
         try {
-            org.a.b bVar2 = (org.a.b) io.reactivex.internal.functions.a.l(this.oMF.apply(enp), "handler returned a null Publisher");
-            WhenReceiver whenReceiver = new WhenReceiver(this.oLT);
-            RepeatWhenSubscriber repeatWhenSubscriber = new RepeatWhenSubscriber(bVar, enp, whenReceiver);
+            org.a.b bVar2 = (org.a.b) io.reactivex.internal.functions.a.l(this.pEc.apply(exo), "handler returned a null Publisher");
+            WhenReceiver whenReceiver = new WhenReceiver(this.pDq);
+            RepeatWhenSubscriber repeatWhenSubscriber = new RepeatWhenSubscriber(bVar, exo, whenReceiver);
             whenReceiver.subscriber = repeatWhenSubscriber;
             cVar.onSubscribe(repeatWhenSubscriber);
             bVar2.subscribe(whenReceiver);

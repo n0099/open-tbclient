@@ -7,104 +7,104 @@ import android.widget.TextView;
 import java.lang.ref.WeakReference;
 /* loaded from: classes23.dex */
 public class CountDownTextView extends TextView {
-    private int cwb;
-    private b fHK;
-    private final Runnable fHL;
-    private boolean fHM;
+    private int cEx;
+    private b fQf;
+    private final Runnable fQg;
+    private boolean fQh;
     private Handler mHandler;
     private String mText;
 
     /* loaded from: classes23.dex */
     public interface b {
-        void bL(View view);
+        void bM(View view);
     }
 
     /* loaded from: classes23.dex */
     private static class a implements Runnable {
-        private final WeakReference<CountDownTextView> fHd;
+        private final WeakReference<CountDownTextView> fPy;
 
         private a(CountDownTextView countDownTextView) {
-            this.fHd = new WeakReference<>(countDownTextView);
+            this.fPy = new WeakReference<>(countDownTextView);
         }
 
         @Override // java.lang.Runnable
         public void run() {
-            CountDownTextView countDownTextView = this.fHd.get();
+            CountDownTextView countDownTextView = this.fPy.get();
             if (countDownTextView != null) {
-                countDownTextView.sZ(1);
+                countDownTextView.tk(1);
             }
         }
     }
 
     public CountDownTextView(Context context) {
         super(context);
-        this.cwb = 0;
+        this.cEx = 0;
         this.mText = "";
-        this.fHK = null;
+        this.fQf = null;
         this.mHandler = new Handler();
-        this.fHM = false;
-        this.fHL = new a();
+        this.fQh = false;
+        this.fQg = new a();
     }
 
     public void setNumTypeFromBes(boolean z) {
-        this.fHM = z;
+        this.fQh = z;
     }
 
     public void setTimeoutListener(b bVar) {
-        this.fHK = bVar;
+        this.fQf = bVar;
     }
 
     @Override // android.widget.TextView, android.view.View
     protected void onAttachedToWindow() {
         super.onAttachedToWindow();
-        sZ(0);
+        tk(0);
     }
 
     @Override // android.view.View
     protected void onDetachedFromWindow() {
         super.onDetachedFromWindow();
-        bGk();
+        bId();
     }
 
     @Override // android.view.View
     protected void onWindowVisibilityChanged(int i) {
         super.onWindowVisibilityChanged(i);
         if (i == 0) {
-            sZ(0);
+            tk(0);
         } else {
-            bGk();
+            bId();
         }
     }
 
     public void ay(String str, int i) {
         this.mText = str;
         if (i > 0) {
-            this.cwb = i;
+            this.cEx = i;
         }
     }
 
-    private void bGk() {
+    private void bId() {
         this.mHandler.removeCallbacksAndMessages(null);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void sZ(int i) {
-        this.cwb -= i;
-        if (this.cwb == 0) {
-            if (this.fHK != null) {
-                this.fHK.bL(this);
+    public void tk(int i) {
+        this.cEx -= i;
+        if (this.cEx == 0) {
+            if (this.fQf != null) {
+                this.fQf.bM(this);
             }
             this.mHandler.removeCallbacksAndMessages(null);
             return;
         }
-        if (this.cwb > 0) {
-            if (this.fHM) {
-                setText(String.format("%s 0%s", this.mText, Integer.valueOf(this.cwb)));
+        if (this.cEx > 0) {
+            if (this.fQh) {
+                setText(String.format("%s 0%s", this.mText, Integer.valueOf(this.cEx)));
             } else {
-                setText(String.format("%s %s", this.mText, Integer.valueOf(this.cwb)));
+                setText(String.format("%s %s", this.mText, Integer.valueOf(this.cEx)));
             }
         }
-        this.mHandler.removeCallbacks(this.fHL);
-        this.mHandler.postDelayed(this.fHL, 1000L);
+        this.mHandler.removeCallbacks(this.fQg);
+        this.mHandler.postDelayed(this.fQg, 1000L);
     }
 }

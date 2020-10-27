@@ -39,7 +39,7 @@ import java.util.concurrent.atomic.AtomicInteger;
 import java.util.concurrent.atomic.AtomicIntegerArray;
 /* loaded from: classes17.dex */
 public final class TypeAdapters {
-    public static final TypeAdapter<Class> odT = new TypeAdapter<Class>() { // from class: com.google.gson.internal.bind.TypeAdapters.1
+    public static final TypeAdapter<Class> oVj = new TypeAdapter<Class>() { // from class: com.google.gson.internal.bind.TypeAdapters.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.google.gson.TypeAdapter
         /* renamed from: a */
@@ -54,19 +54,19 @@ public final class TypeAdapters {
             throw new UnsupportedOperationException("Attempted to deserialize a java.lang.Class. Forgot to register a type adapter?");
         }
     }.nullSafe();
-    public static final TypeAdapterFactory odU = a(Class.class, odT);
-    public static final TypeAdapter<BitSet> odV = new TypeAdapter<BitSet>() { // from class: com.google.gson.internal.bind.TypeAdapters.2
+    public static final TypeAdapterFactory oVk = a(Class.class, oVj);
+    public static final TypeAdapter<BitSet> oVl = new TypeAdapter<BitSet>() { // from class: com.google.gson.internal.bind.TypeAdapters.2
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.google.gson.TypeAdapter
         /* renamed from: m */
         public BitSet read(com.google.gson.stream.a aVar) throws IOException {
             boolean z;
             BitSet bitSet = new BitSet();
-            aVar.eff();
-            JsonToken efh = aVar.efh();
+            aVar.epf();
+            JsonToken eph = aVar.eph();
             int i = 0;
-            while (efh != JsonToken.END_ARRAY) {
-                switch (AnonymousClass36.odx[efh.ordinal()]) {
+            while (eph != JsonToken.END_ARRAY) {
+                switch (AnonymousClass36.oUN[eph.ordinal()]) {
                     case 1:
                         if (aVar.nextInt() == 0) {
                             z = false;
@@ -79,9 +79,9 @@ public final class TypeAdapters {
                         z = aVar.nextBoolean();
                         break;
                     case 3:
-                        String efl = aVar.efl();
+                        String epl = aVar.epl();
                         try {
-                            if (Integer.parseInt(efl) == 0) {
+                            if (Integer.parseInt(epl) == 0) {
                                 z = false;
                                 break;
                             } else {
@@ -89,16 +89,16 @@ public final class TypeAdapters {
                                 break;
                             }
                         } catch (NumberFormatException e) {
-                            throw new JsonSyntaxException("Error: Expecting: bitset number value (1, 0), Found: " + efl);
+                            throw new JsonSyntaxException("Error: Expecting: bitset number value (1, 0), Found: " + epl);
                         }
                     default:
-                        throw new JsonSyntaxException("Invalid bitset value type: " + efh);
+                        throw new JsonSyntaxException("Invalid bitset value type: " + eph);
                 }
                 if (z) {
                     bitSet.set(i);
                 }
                 i++;
-                efh = aVar.efh();
+                eph = aVar.eph();
             }
             aVar.endArray();
             return bitSet;
@@ -108,26 +108,26 @@ public final class TypeAdapters {
         @Override // com.google.gson.TypeAdapter
         /* renamed from: a */
         public void write(com.google.gson.stream.b bVar, BitSet bitSet) throws IOException {
-            bVar.efs();
+            bVar.eps();
             int length = bitSet.length();
             for (int i = 0; i < length; i++) {
-                bVar.hh(bitSet.get(i) ? 1 : 0);
+                bVar.hx(bitSet.get(i) ? 1 : 0);
             }
-            bVar.eft();
+            bVar.ept();
         }
     }.nullSafe();
-    public static final TypeAdapterFactory odW = a(BitSet.class, odV);
-    public static final TypeAdapter<Boolean> odX = new TypeAdapter<Boolean>() { // from class: com.google.gson.internal.bind.TypeAdapters.3
+    public static final TypeAdapterFactory oVm = a(BitSet.class, oVl);
+    public static final TypeAdapter<Boolean> oVn = new TypeAdapter<Boolean>() { // from class: com.google.gson.internal.bind.TypeAdapters.3
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.google.gson.TypeAdapter
         /* renamed from: x */
         public Boolean read(com.google.gson.stream.a aVar) throws IOException {
-            JsonToken efh = aVar.efh();
-            if (efh == JsonToken.NULL) {
-                aVar.efm();
+            JsonToken eph = aVar.eph();
+            if (eph == JsonToken.NULL) {
+                aVar.epm();
                 return null;
-            } else if (efh == JsonToken.STRING) {
-                return Boolean.valueOf(Boolean.parseBoolean(aVar.efl()));
+            } else if (eph == JsonToken.STRING) {
+                return Boolean.valueOf(Boolean.parseBoolean(aVar.epl()));
             } else {
                 return Boolean.valueOf(aVar.nextBoolean());
             }
@@ -140,33 +140,33 @@ public final class TypeAdapters {
             bVar.v(bool);
         }
     };
-    public static final TypeAdapter<Boolean> odY = new TypeAdapter<Boolean>() { // from class: com.google.gson.internal.bind.TypeAdapters.4
+    public static final TypeAdapter<Boolean> oVo = new TypeAdapter<Boolean>() { // from class: com.google.gson.internal.bind.TypeAdapters.4
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.google.gson.TypeAdapter
         /* renamed from: x */
         public Boolean read(com.google.gson.stream.a aVar) throws IOException {
-            if (aVar.efh() == JsonToken.NULL) {
-                aVar.efm();
+            if (aVar.eph() == JsonToken.NULL) {
+                aVar.epm();
                 return null;
             }
-            return Boolean.valueOf(aVar.efl());
+            return Boolean.valueOf(aVar.epl());
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.google.gson.TypeAdapter
         /* renamed from: a */
         public void write(com.google.gson.stream.b bVar, Boolean bool) throws IOException {
-            bVar.Wj(bool == null ? "null" : bool.toString());
+            bVar.XW(bool == null ? "null" : bool.toString());
         }
     };
-    public static final TypeAdapterFactory odZ = a(Boolean.TYPE, Boolean.class, odX);
-    public static final TypeAdapter<Number> oea = new TypeAdapter<Number>() { // from class: com.google.gson.internal.bind.TypeAdapters.5
+    public static final TypeAdapterFactory oVp = a(Boolean.TYPE, Boolean.class, oVn);
+    public static final TypeAdapter<Number> oVq = new TypeAdapter<Number>() { // from class: com.google.gson.internal.bind.TypeAdapters.5
         /* JADX DEBUG: Method merged with bridge method */
         /* JADX WARN: Can't rename method to resolve collision */
         @Override // com.google.gson.TypeAdapter
         public Number read(com.google.gson.stream.a aVar) throws IOException {
-            if (aVar.efh() == JsonToken.NULL) {
-                aVar.efm();
+            if (aVar.eph() == JsonToken.NULL) {
+                aVar.epm();
                 return null;
             }
             try {
@@ -182,14 +182,14 @@ public final class TypeAdapters {
             bVar.a(number);
         }
     };
-    public static final TypeAdapterFactory oeb = a(Byte.TYPE, Byte.class, oea);
-    public static final TypeAdapter<Number> oec = new TypeAdapter<Number>() { // from class: com.google.gson.internal.bind.TypeAdapters.6
+    public static final TypeAdapterFactory oVr = a(Byte.TYPE, Byte.class, oVq);
+    public static final TypeAdapter<Number> oVs = new TypeAdapter<Number>() { // from class: com.google.gson.internal.bind.TypeAdapters.6
         /* JADX DEBUG: Method merged with bridge method */
         /* JADX WARN: Can't rename method to resolve collision */
         @Override // com.google.gson.TypeAdapter
         public Number read(com.google.gson.stream.a aVar) throws IOException {
-            if (aVar.efh() == JsonToken.NULL) {
-                aVar.efm();
+            if (aVar.eph() == JsonToken.NULL) {
+                aVar.epm();
                 return null;
             }
             try {
@@ -205,14 +205,14 @@ public final class TypeAdapters {
             bVar.a(number);
         }
     };
-    public static final TypeAdapterFactory oed = a(Short.TYPE, Short.class, oec);
-    public static final TypeAdapter<Number> oee = new TypeAdapter<Number>() { // from class: com.google.gson.internal.bind.TypeAdapters.7
+    public static final TypeAdapterFactory oVt = a(Short.TYPE, Short.class, oVs);
+    public static final TypeAdapter<Number> oVu = new TypeAdapter<Number>() { // from class: com.google.gson.internal.bind.TypeAdapters.7
         /* JADX DEBUG: Method merged with bridge method */
         /* JADX WARN: Can't rename method to resolve collision */
         @Override // com.google.gson.TypeAdapter
         public Number read(com.google.gson.stream.a aVar) throws IOException {
-            if (aVar.efh() == JsonToken.NULL) {
-                aVar.efm();
+            if (aVar.eph() == JsonToken.NULL) {
+                aVar.epm();
                 return null;
             }
             try {
@@ -228,8 +228,8 @@ public final class TypeAdapters {
             bVar.a(number);
         }
     };
-    public static final TypeAdapterFactory oef = a(Integer.TYPE, Integer.class, oee);
-    public static final TypeAdapter<AtomicInteger> oeg = new TypeAdapter<AtomicInteger>() { // from class: com.google.gson.internal.bind.TypeAdapters.8
+    public static final TypeAdapterFactory oVv = a(Integer.TYPE, Integer.class, oVu);
+    public static final TypeAdapter<AtomicInteger> oVw = new TypeAdapter<AtomicInteger>() { // from class: com.google.gson.internal.bind.TypeAdapters.8
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.google.gson.TypeAdapter
         /* renamed from: y */
@@ -245,11 +245,11 @@ public final class TypeAdapters {
         @Override // com.google.gson.TypeAdapter
         /* renamed from: a */
         public void write(com.google.gson.stream.b bVar, AtomicInteger atomicInteger) throws IOException {
-            bVar.hh(atomicInteger.get());
+            bVar.hx(atomicInteger.get());
         }
     }.nullSafe();
-    public static final TypeAdapterFactory oeh = a(AtomicInteger.class, oeg);
-    public static final TypeAdapter<AtomicBoolean> oei = new TypeAdapter<AtomicBoolean>() { // from class: com.google.gson.internal.bind.TypeAdapters.9
+    public static final TypeAdapterFactory oVx = a(AtomicInteger.class, oVw);
+    public static final TypeAdapter<AtomicBoolean> oVy = new TypeAdapter<AtomicBoolean>() { // from class: com.google.gson.internal.bind.TypeAdapters.9
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.google.gson.TypeAdapter
         /* renamed from: z */
@@ -261,17 +261,17 @@ public final class TypeAdapters {
         @Override // com.google.gson.TypeAdapter
         /* renamed from: a */
         public void write(com.google.gson.stream.b bVar, AtomicBoolean atomicBoolean) throws IOException {
-            bVar.zf(atomicBoolean.get());
+            bVar.An(atomicBoolean.get());
         }
     }.nullSafe();
-    public static final TypeAdapterFactory oej = a(AtomicBoolean.class, oei);
-    public static final TypeAdapter<AtomicIntegerArray> oek = new TypeAdapter<AtomicIntegerArray>() { // from class: com.google.gson.internal.bind.TypeAdapters.10
+    public static final TypeAdapterFactory oVz = a(AtomicBoolean.class, oVy);
+    public static final TypeAdapter<AtomicIntegerArray> oVA = new TypeAdapter<AtomicIntegerArray>() { // from class: com.google.gson.internal.bind.TypeAdapters.10
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.google.gson.TypeAdapter
         /* renamed from: g */
         public AtomicIntegerArray read(com.google.gson.stream.a aVar) throws IOException {
             ArrayList arrayList = new ArrayList();
-            aVar.eff();
+            aVar.epf();
             while (aVar.hasNext()) {
                 try {
                     arrayList.add(Integer.valueOf(aVar.nextInt()));
@@ -292,22 +292,22 @@ public final class TypeAdapters {
         @Override // com.google.gson.TypeAdapter
         /* renamed from: a */
         public void write(com.google.gson.stream.b bVar, AtomicIntegerArray atomicIntegerArray) throws IOException {
-            bVar.efs();
+            bVar.eps();
             int length = atomicIntegerArray.length();
             for (int i = 0; i < length; i++) {
-                bVar.hh(atomicIntegerArray.get(i));
+                bVar.hx(atomicIntegerArray.get(i));
             }
-            bVar.eft();
+            bVar.ept();
         }
     }.nullSafe();
-    public static final TypeAdapterFactory oel = a(AtomicIntegerArray.class, oek);
-    public static final TypeAdapter<Number> oem = new TypeAdapter<Number>() { // from class: com.google.gson.internal.bind.TypeAdapters.11
+    public static final TypeAdapterFactory oVB = a(AtomicIntegerArray.class, oVA);
+    public static final TypeAdapter<Number> oVC = new TypeAdapter<Number>() { // from class: com.google.gson.internal.bind.TypeAdapters.11
         /* JADX DEBUG: Method merged with bridge method */
         /* JADX WARN: Can't rename method to resolve collision */
         @Override // com.google.gson.TypeAdapter
         public Number read(com.google.gson.stream.a aVar) throws IOException {
-            if (aVar.efh() == JsonToken.NULL) {
-                aVar.efm();
+            if (aVar.eph() == JsonToken.NULL) {
+                aVar.epm();
                 return null;
             }
             try {
@@ -323,13 +323,13 @@ public final class TypeAdapters {
             bVar.a(number);
         }
     };
-    public static final TypeAdapter<Number> oen = new TypeAdapter<Number>() { // from class: com.google.gson.internal.bind.TypeAdapters.12
+    public static final TypeAdapter<Number> oVD = new TypeAdapter<Number>() { // from class: com.google.gson.internal.bind.TypeAdapters.12
         /* JADX DEBUG: Method merged with bridge method */
         /* JADX WARN: Can't rename method to resolve collision */
         @Override // com.google.gson.TypeAdapter
         public Number read(com.google.gson.stream.a aVar) throws IOException {
-            if (aVar.efh() == JsonToken.NULL) {
-                aVar.efm();
+            if (aVar.eph() == JsonToken.NULL) {
+                aVar.epm();
                 return null;
             }
             return Float.valueOf((float) aVar.nextDouble());
@@ -341,13 +341,13 @@ public final class TypeAdapters {
             bVar.a(number);
         }
     };
-    public static final TypeAdapter<Number> oeo = new TypeAdapter<Number>() { // from class: com.google.gson.internal.bind.TypeAdapters.13
+    public static final TypeAdapter<Number> oVE = new TypeAdapter<Number>() { // from class: com.google.gson.internal.bind.TypeAdapters.13
         /* JADX DEBUG: Method merged with bridge method */
         /* JADX WARN: Can't rename method to resolve collision */
         @Override // com.google.gson.TypeAdapter
         public Number read(com.google.gson.stream.a aVar) throws IOException {
-            if (aVar.efh() == JsonToken.NULL) {
-                aVar.efm();
+            if (aVar.eph() == JsonToken.NULL) {
+                aVar.epm();
                 return null;
             }
             return Double.valueOf(aVar.nextDouble());
@@ -359,21 +359,21 @@ public final class TypeAdapters {
             bVar.a(number);
         }
     };
-    public static final TypeAdapter<Number> oep = new TypeAdapter<Number>() { // from class: com.google.gson.internal.bind.TypeAdapters.14
+    public static final TypeAdapter<Number> oVF = new TypeAdapter<Number>() { // from class: com.google.gson.internal.bind.TypeAdapters.14
         /* JADX DEBUG: Method merged with bridge method */
         /* JADX WARN: Can't rename method to resolve collision */
         @Override // com.google.gson.TypeAdapter
         public Number read(com.google.gson.stream.a aVar) throws IOException {
-            JsonToken efh = aVar.efh();
-            switch (AnonymousClass36.odx[efh.ordinal()]) {
+            JsonToken eph = aVar.eph();
+            switch (AnonymousClass36.oUN[eph.ordinal()]) {
                 case 1:
                 case 3:
-                    return new LazilyParsedNumber(aVar.efl());
+                    return new LazilyParsedNumber(aVar.epl());
                 case 2:
                 default:
-                    throw new JsonSyntaxException("Expecting number, got: " + efh);
+                    throw new JsonSyntaxException("Expecting number, got: " + eph);
                 case 4:
-                    aVar.efm();
+                    aVar.epm();
                     return null;
             }
         }
@@ -384,44 +384,44 @@ public final class TypeAdapters {
             bVar.a(number);
         }
     };
-    public static final TypeAdapterFactory oeq = a(Number.class, oep);
-    public static final TypeAdapter<Character> oer = new TypeAdapter<Character>() { // from class: com.google.gson.internal.bind.TypeAdapters.15
+    public static final TypeAdapterFactory oVG = a(Number.class, oVF);
+    public static final TypeAdapter<Character> oVH = new TypeAdapter<Character>() { // from class: com.google.gson.internal.bind.TypeAdapters.15
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.google.gson.TypeAdapter
         /* renamed from: h */
         public Character read(com.google.gson.stream.a aVar) throws IOException {
-            if (aVar.efh() == JsonToken.NULL) {
-                aVar.efm();
+            if (aVar.eph() == JsonToken.NULL) {
+                aVar.epm();
                 return null;
             }
-            String efl = aVar.efl();
-            if (efl.length() != 1) {
-                throw new JsonSyntaxException("Expecting character, got: " + efl);
+            String epl = aVar.epl();
+            if (epl.length() != 1) {
+                throw new JsonSyntaxException("Expecting character, got: " + epl);
             }
-            return Character.valueOf(efl.charAt(0));
+            return Character.valueOf(epl.charAt(0));
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.google.gson.TypeAdapter
         /* renamed from: a */
         public void write(com.google.gson.stream.b bVar, Character ch) throws IOException {
-            bVar.Wj(ch == null ? null : String.valueOf(ch));
+            bVar.XW(ch == null ? null : String.valueOf(ch));
         }
     };
-    public static final TypeAdapterFactory oes = a(Character.TYPE, Character.class, oer);
-    public static final TypeAdapter<String> oet = new TypeAdapter<String>() { // from class: com.google.gson.internal.bind.TypeAdapters.16
+    public static final TypeAdapterFactory oVI = a(Character.TYPE, Character.class, oVH);
+    public static final TypeAdapter<String> oVJ = new TypeAdapter<String>() { // from class: com.google.gson.internal.bind.TypeAdapters.16
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.google.gson.TypeAdapter
         /* renamed from: i */
         public String read(com.google.gson.stream.a aVar) throws IOException {
-            JsonToken efh = aVar.efh();
-            if (efh == JsonToken.NULL) {
-                aVar.efm();
+            JsonToken eph = aVar.eph();
+            if (eph == JsonToken.NULL) {
+                aVar.epm();
                 return null;
-            } else if (efh == JsonToken.BOOLEAN) {
+            } else if (eph == JsonToken.BOOLEAN) {
                 return Boolean.toString(aVar.nextBoolean());
             } else {
-                return aVar.efl();
+                return aVar.epl();
             }
         }
 
@@ -429,20 +429,20 @@ public final class TypeAdapters {
         @Override // com.google.gson.TypeAdapter
         /* renamed from: a */
         public void write(com.google.gson.stream.b bVar, String str) throws IOException {
-            bVar.Wj(str);
+            bVar.XW(str);
         }
     };
-    public static final TypeAdapter<BigDecimal> oeu = new TypeAdapter<BigDecimal>() { // from class: com.google.gson.internal.bind.TypeAdapters.17
+    public static final TypeAdapter<BigDecimal> oVK = new TypeAdapter<BigDecimal>() { // from class: com.google.gson.internal.bind.TypeAdapters.17
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.google.gson.TypeAdapter
         /* renamed from: j */
         public BigDecimal read(com.google.gson.stream.a aVar) throws IOException {
-            if (aVar.efh() == JsonToken.NULL) {
-                aVar.efm();
+            if (aVar.eph() == JsonToken.NULL) {
+                aVar.epm();
                 return null;
             }
             try {
-                return new BigDecimal(aVar.efl());
+                return new BigDecimal(aVar.epl());
             } catch (NumberFormatException e) {
                 throw new JsonSyntaxException(e);
             }
@@ -455,17 +455,17 @@ public final class TypeAdapters {
             bVar.a(bigDecimal);
         }
     };
-    public static final TypeAdapter<BigInteger> oev = new TypeAdapter<BigInteger>() { // from class: com.google.gson.internal.bind.TypeAdapters.18
+    public static final TypeAdapter<BigInteger> oVL = new TypeAdapter<BigInteger>() { // from class: com.google.gson.internal.bind.TypeAdapters.18
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.google.gson.TypeAdapter
         /* renamed from: k */
         public BigInteger read(com.google.gson.stream.a aVar) throws IOException {
-            if (aVar.efh() == JsonToken.NULL) {
-                aVar.efm();
+            if (aVar.eph() == JsonToken.NULL) {
+                aVar.epm();
                 return null;
             }
             try {
-                return new BigInteger(aVar.efl());
+                return new BigInteger(aVar.epl());
             } catch (NumberFormatException e) {
                 throw new JsonSyntaxException(e);
             }
@@ -478,86 +478,86 @@ public final class TypeAdapters {
             bVar.a(bigInteger);
         }
     };
-    public static final TypeAdapterFactory oew = a(String.class, oet);
-    public static final TypeAdapter<StringBuilder> oex = new TypeAdapter<StringBuilder>() { // from class: com.google.gson.internal.bind.TypeAdapters.19
+    public static final TypeAdapterFactory oVM = a(String.class, oVJ);
+    public static final TypeAdapter<StringBuilder> oVN = new TypeAdapter<StringBuilder>() { // from class: com.google.gson.internal.bind.TypeAdapters.19
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.google.gson.TypeAdapter
         /* renamed from: l */
         public StringBuilder read(com.google.gson.stream.a aVar) throws IOException {
-            if (aVar.efh() == JsonToken.NULL) {
-                aVar.efm();
+            if (aVar.eph() == JsonToken.NULL) {
+                aVar.epm();
                 return null;
             }
-            return new StringBuilder(aVar.efl());
+            return new StringBuilder(aVar.epl());
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.google.gson.TypeAdapter
         /* renamed from: a */
         public void write(com.google.gson.stream.b bVar, StringBuilder sb) throws IOException {
-            bVar.Wj(sb == null ? null : sb.toString());
+            bVar.XW(sb == null ? null : sb.toString());
         }
     };
-    public static final TypeAdapterFactory oey = a(StringBuilder.class, oex);
-    public static final TypeAdapter<StringBuffer> oez = new TypeAdapter<StringBuffer>() { // from class: com.google.gson.internal.bind.TypeAdapters.20
+    public static final TypeAdapterFactory oVO = a(StringBuilder.class, oVN);
+    public static final TypeAdapter<StringBuffer> oVP = new TypeAdapter<StringBuffer>() { // from class: com.google.gson.internal.bind.TypeAdapters.20
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.google.gson.TypeAdapter
         /* renamed from: n */
         public StringBuffer read(com.google.gson.stream.a aVar) throws IOException {
-            if (aVar.efh() == JsonToken.NULL) {
-                aVar.efm();
+            if (aVar.eph() == JsonToken.NULL) {
+                aVar.epm();
                 return null;
             }
-            return new StringBuffer(aVar.efl());
+            return new StringBuffer(aVar.epl());
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.google.gson.TypeAdapter
         /* renamed from: a */
         public void write(com.google.gson.stream.b bVar, StringBuffer stringBuffer) throws IOException {
-            bVar.Wj(stringBuffer == null ? null : stringBuffer.toString());
+            bVar.XW(stringBuffer == null ? null : stringBuffer.toString());
         }
     };
-    public static final TypeAdapterFactory oeA = a(StringBuffer.class, oez);
-    public static final TypeAdapter<URL> oeB = new TypeAdapter<URL>() { // from class: com.google.gson.internal.bind.TypeAdapters.21
+    public static final TypeAdapterFactory oVQ = a(StringBuffer.class, oVP);
+    public static final TypeAdapter<URL> oVR = new TypeAdapter<URL>() { // from class: com.google.gson.internal.bind.TypeAdapters.21
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.google.gson.TypeAdapter
         /* renamed from: o */
         public URL read(com.google.gson.stream.a aVar) throws IOException {
-            if (aVar.efh() == JsonToken.NULL) {
-                aVar.efm();
+            if (aVar.eph() == JsonToken.NULL) {
+                aVar.epm();
                 return null;
             }
-            String efl = aVar.efl();
-            if ("null".equals(efl)) {
+            String epl = aVar.epl();
+            if ("null".equals(epl)) {
                 return null;
             }
-            return new URL(efl);
+            return new URL(epl);
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.google.gson.TypeAdapter
         /* renamed from: a */
         public void write(com.google.gson.stream.b bVar, URL url) throws IOException {
-            bVar.Wj(url == null ? null : url.toExternalForm());
+            bVar.XW(url == null ? null : url.toExternalForm());
         }
     };
-    public static final TypeAdapterFactory oeC = a(URL.class, oeB);
-    public static final TypeAdapter<URI> oeD = new TypeAdapter<URI>() { // from class: com.google.gson.internal.bind.TypeAdapters.22
+    public static final TypeAdapterFactory oVS = a(URL.class, oVR);
+    public static final TypeAdapter<URI> oVT = new TypeAdapter<URI>() { // from class: com.google.gson.internal.bind.TypeAdapters.22
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.google.gson.TypeAdapter
         /* renamed from: p */
         public URI read(com.google.gson.stream.a aVar) throws IOException {
-            if (aVar.efh() == JsonToken.NULL) {
-                aVar.efm();
+            if (aVar.eph() == JsonToken.NULL) {
+                aVar.epm();
                 return null;
             }
             try {
-                String efl = aVar.efl();
-                if ("null".equals(efl)) {
+                String epl = aVar.epl();
+                if ("null".equals(epl)) {
                     return null;
                 }
-                return new URI(efl);
+                return new URI(epl);
             } catch (URISyntaxException e) {
                 throw new JsonIOException(e);
             }
@@ -567,70 +567,70 @@ public final class TypeAdapters {
         @Override // com.google.gson.TypeAdapter
         /* renamed from: a */
         public void write(com.google.gson.stream.b bVar, URI uri) throws IOException {
-            bVar.Wj(uri == null ? null : uri.toASCIIString());
+            bVar.XW(uri == null ? null : uri.toASCIIString());
         }
     };
-    public static final TypeAdapterFactory oeE = a(URI.class, oeD);
-    public static final TypeAdapter<InetAddress> oeF = new TypeAdapter<InetAddress>() { // from class: com.google.gson.internal.bind.TypeAdapters.23
+    public static final TypeAdapterFactory oVU = a(URI.class, oVT);
+    public static final TypeAdapter<InetAddress> oVV = new TypeAdapter<InetAddress>() { // from class: com.google.gson.internal.bind.TypeAdapters.23
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.google.gson.TypeAdapter
         /* renamed from: q */
         public InetAddress read(com.google.gson.stream.a aVar) throws IOException {
-            if (aVar.efh() == JsonToken.NULL) {
-                aVar.efm();
+            if (aVar.eph() == JsonToken.NULL) {
+                aVar.epm();
                 return null;
             }
-            return InetAddress.getByName(aVar.efl());
+            return InetAddress.getByName(aVar.epl());
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.google.gson.TypeAdapter
         /* renamed from: a */
         public void write(com.google.gson.stream.b bVar, InetAddress inetAddress) throws IOException {
-            bVar.Wj(inetAddress == null ? null : inetAddress.getHostAddress());
+            bVar.XW(inetAddress == null ? null : inetAddress.getHostAddress());
         }
     };
-    public static final TypeAdapterFactory oeG = b(InetAddress.class, oeF);
-    public static final TypeAdapter<UUID> oeH = new TypeAdapter<UUID>() { // from class: com.google.gson.internal.bind.TypeAdapters.24
+    public static final TypeAdapterFactory oVW = b(InetAddress.class, oVV);
+    public static final TypeAdapter<UUID> oVX = new TypeAdapter<UUID>() { // from class: com.google.gson.internal.bind.TypeAdapters.24
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.google.gson.TypeAdapter
         /* renamed from: r */
         public UUID read(com.google.gson.stream.a aVar) throws IOException {
-            if (aVar.efh() == JsonToken.NULL) {
-                aVar.efm();
+            if (aVar.eph() == JsonToken.NULL) {
+                aVar.epm();
                 return null;
             }
-            return UUID.fromString(aVar.efl());
+            return UUID.fromString(aVar.epl());
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.google.gson.TypeAdapter
         /* renamed from: a */
         public void write(com.google.gson.stream.b bVar, UUID uuid) throws IOException {
-            bVar.Wj(uuid == null ? null : uuid.toString());
+            bVar.XW(uuid == null ? null : uuid.toString());
         }
     };
-    public static final TypeAdapterFactory oeI = a(UUID.class, oeH);
-    public static final TypeAdapter<Currency> oeJ = new TypeAdapter<Currency>() { // from class: com.google.gson.internal.bind.TypeAdapters.25
+    public static final TypeAdapterFactory oVY = a(UUID.class, oVX);
+    public static final TypeAdapter<Currency> oVZ = new TypeAdapter<Currency>() { // from class: com.google.gson.internal.bind.TypeAdapters.25
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.google.gson.TypeAdapter
         /* renamed from: s */
         public Currency read(com.google.gson.stream.a aVar) throws IOException {
-            return Currency.getInstance(aVar.efl());
+            return Currency.getInstance(aVar.epl());
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.google.gson.TypeAdapter
         /* renamed from: a */
         public void write(com.google.gson.stream.b bVar, Currency currency) throws IOException {
-            bVar.Wj(currency.getCurrencyCode());
+            bVar.XW(currency.getCurrencyCode());
         }
     }.nullSafe();
-    public static final TypeAdapterFactory oeK = a(Currency.class, oeJ);
-    public static final TypeAdapterFactory oeL = new TypeAdapterFactory() { // from class: com.google.gson.internal.bind.TypeAdapters.26
+    public static final TypeAdapterFactory oWa = a(Currency.class, oVZ);
+    public static final TypeAdapterFactory oWb = new TypeAdapterFactory() { // from class: com.google.gson.internal.bind.TypeAdapters.26
         @Override // com.google.gson.TypeAdapterFactory
         public <T> TypeAdapter<T> create(Gson gson, com.google.gson.b.a<T> aVar) {
-            if (aVar.efA() != Timestamp.class) {
+            if (aVar.epA() != Timestamp.class) {
                 return null;
             }
             final TypeAdapter<T> adapter = gson.getAdapter(Date.class);
@@ -655,36 +655,36 @@ public final class TypeAdapters {
             };
         }
     };
-    public static final TypeAdapter<Calendar> oeM = new TypeAdapter<Calendar>() { // from class: com.google.gson.internal.bind.TypeAdapters.27
+    public static final TypeAdapter<Calendar> oWc = new TypeAdapter<Calendar>() { // from class: com.google.gson.internal.bind.TypeAdapters.27
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.google.gson.TypeAdapter
         /* renamed from: u */
         public Calendar read(com.google.gson.stream.a aVar) throws IOException {
             int i = 0;
-            if (aVar.efh() == JsonToken.NULL) {
-                aVar.efm();
+            if (aVar.eph() == JsonToken.NULL) {
+                aVar.epm();
                 return null;
             }
-            aVar.efg();
+            aVar.epg();
             int i2 = 0;
             int i3 = 0;
             int i4 = 0;
             int i5 = 0;
             int i6 = 0;
-            while (aVar.efh() != JsonToken.END_OBJECT) {
-                String efk = aVar.efk();
+            while (aVar.eph() != JsonToken.END_OBJECT) {
+                String epk = aVar.epk();
                 int nextInt = aVar.nextInt();
-                if ("year".equals(efk)) {
+                if ("year".equals(epk)) {
                     i6 = nextInt;
-                } else if ("month".equals(efk)) {
+                } else if ("month".equals(epk)) {
                     i5 = nextInt;
-                } else if ("dayOfMonth".equals(efk)) {
+                } else if ("dayOfMonth".equals(epk)) {
                     i4 = nextInt;
-                } else if ("hourOfDay".equals(efk)) {
+                } else if ("hourOfDay".equals(epk)) {
                     i3 = nextInt;
-                } else if ("minute".equals(efk)) {
+                } else if ("minute".equals(epk)) {
                     i2 = nextInt;
-                } else if ("second".equals(efk)) {
+                } else if ("second".equals(epk)) {
                     i = nextInt;
                 }
             }
@@ -697,36 +697,36 @@ public final class TypeAdapters {
         /* renamed from: a */
         public void write(com.google.gson.stream.b bVar, Calendar calendar) throws IOException {
             if (calendar == null) {
-                bVar.efw();
+                bVar.epw();
                 return;
             }
-            bVar.efu();
-            bVar.Wi("year");
-            bVar.hh(calendar.get(1));
-            bVar.Wi("month");
-            bVar.hh(calendar.get(2));
-            bVar.Wi("dayOfMonth");
-            bVar.hh(calendar.get(5));
-            bVar.Wi("hourOfDay");
-            bVar.hh(calendar.get(11));
-            bVar.Wi("minute");
-            bVar.hh(calendar.get(12));
-            bVar.Wi("second");
-            bVar.hh(calendar.get(13));
-            bVar.efv();
+            bVar.epu();
+            bVar.XV("year");
+            bVar.hx(calendar.get(1));
+            bVar.XV("month");
+            bVar.hx(calendar.get(2));
+            bVar.XV("dayOfMonth");
+            bVar.hx(calendar.get(5));
+            bVar.XV("hourOfDay");
+            bVar.hx(calendar.get(11));
+            bVar.XV("minute");
+            bVar.hx(calendar.get(12));
+            bVar.XV("second");
+            bVar.hx(calendar.get(13));
+            bVar.epv();
         }
     };
-    public static final TypeAdapterFactory oeN = b(Calendar.class, GregorianCalendar.class, oeM);
-    public static final TypeAdapter<Locale> oeO = new TypeAdapter<Locale>() { // from class: com.google.gson.internal.bind.TypeAdapters.28
+    public static final TypeAdapterFactory oWd = b(Calendar.class, GregorianCalendar.class, oWc);
+    public static final TypeAdapter<Locale> oWe = new TypeAdapter<Locale>() { // from class: com.google.gson.internal.bind.TypeAdapters.28
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.google.gson.TypeAdapter
         /* renamed from: v */
         public Locale read(com.google.gson.stream.a aVar) throws IOException {
-            if (aVar.efh() == JsonToken.NULL) {
-                aVar.efm();
+            if (aVar.eph() == JsonToken.NULL) {
+                aVar.epm();
                 return null;
             }
-            StringTokenizer stringTokenizer = new StringTokenizer(aVar.efl(), PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS);
+            StringTokenizer stringTokenizer = new StringTokenizer(aVar.epl(), PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS);
             String nextToken = stringTokenizer.hasMoreElements() ? stringTokenizer.nextToken() : null;
             String nextToken2 = stringTokenizer.hasMoreElements() ? stringTokenizer.nextToken() : null;
             String nextToken3 = stringTokenizer.hasMoreElements() ? stringTokenizer.nextToken() : null;
@@ -743,28 +743,28 @@ public final class TypeAdapters {
         @Override // com.google.gson.TypeAdapter
         /* renamed from: a */
         public void write(com.google.gson.stream.b bVar, Locale locale) throws IOException {
-            bVar.Wj(locale == null ? null : locale.toString());
+            bVar.XW(locale == null ? null : locale.toString());
         }
     };
-    public static final TypeAdapterFactory oeP = a(Locale.class, oeO);
-    public static final TypeAdapter<JsonElement> oeQ = new TypeAdapter<JsonElement>() { // from class: com.google.gson.internal.bind.TypeAdapters.29
+    public static final TypeAdapterFactory oWf = a(Locale.class, oWe);
+    public static final TypeAdapter<JsonElement> oWg = new TypeAdapter<JsonElement>() { // from class: com.google.gson.internal.bind.TypeAdapters.29
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.google.gson.TypeAdapter
         /* renamed from: w */
         public JsonElement read(com.google.gson.stream.a aVar) throws IOException {
-            switch (AnonymousClass36.odx[aVar.efh().ordinal()]) {
+            switch (AnonymousClass36.oUN[aVar.eph().ordinal()]) {
                 case 1:
-                    return new JsonPrimitive((Number) new LazilyParsedNumber(aVar.efl()));
+                    return new JsonPrimitive((Number) new LazilyParsedNumber(aVar.epl()));
                 case 2:
                     return new JsonPrimitive(Boolean.valueOf(aVar.nextBoolean()));
                 case 3:
-                    return new JsonPrimitive(aVar.efl());
+                    return new JsonPrimitive(aVar.epl());
                 case 4:
-                    aVar.efm();
+                    aVar.epm();
                     return JsonNull.INSTANCE;
                 case 5:
                     JsonArray jsonArray = new JsonArray();
-                    aVar.eff();
+                    aVar.epf();
                     while (aVar.hasNext()) {
                         jsonArray.add(read(aVar));
                     }
@@ -772,9 +772,9 @@ public final class TypeAdapters {
                     return jsonArray;
                 case 6:
                     JsonObject jsonObject = new JsonObject();
-                    aVar.efg();
+                    aVar.epg();
                     while (aVar.hasNext()) {
-                        jsonObject.add(aVar.efk(), read(aVar));
+                        jsonObject.add(aVar.epk(), read(aVar));
                     }
                     aVar.endObject();
                     return jsonObject;
@@ -788,47 +788,47 @@ public final class TypeAdapters {
         /* renamed from: a */
         public void write(com.google.gson.stream.b bVar, JsonElement jsonElement) throws IOException {
             if (jsonElement == null || jsonElement.isJsonNull()) {
-                bVar.efw();
+                bVar.epw();
             } else if (jsonElement.isJsonPrimitive()) {
                 JsonPrimitive asJsonPrimitive = jsonElement.getAsJsonPrimitive();
                 if (asJsonPrimitive.isNumber()) {
                     bVar.a(asJsonPrimitive.getAsNumber());
                 } else if (asJsonPrimitive.isBoolean()) {
-                    bVar.zf(asJsonPrimitive.getAsBoolean());
+                    bVar.An(asJsonPrimitive.getAsBoolean());
                 } else {
-                    bVar.Wj(asJsonPrimitive.getAsString());
+                    bVar.XW(asJsonPrimitive.getAsString());
                 }
             } else if (jsonElement.isJsonArray()) {
-                bVar.efs();
+                bVar.eps();
                 Iterator<JsonElement> it = jsonElement.getAsJsonArray().iterator();
                 while (it.hasNext()) {
                     write(bVar, it.next());
                 }
-                bVar.eft();
+                bVar.ept();
             } else if (jsonElement.isJsonObject()) {
-                bVar.efu();
+                bVar.epu();
                 for (Map.Entry<String, JsonElement> entry : jsonElement.getAsJsonObject().entrySet()) {
-                    bVar.Wi(entry.getKey());
+                    bVar.XV(entry.getKey());
                     write(bVar, entry.getValue());
                 }
-                bVar.efv();
+                bVar.epv();
             } else {
                 throw new IllegalArgumentException("Couldn't write " + jsonElement.getClass());
             }
         }
     };
-    public static final TypeAdapterFactory oeR = b(JsonElement.class, oeQ);
-    public static final TypeAdapterFactory oeS = new TypeAdapterFactory() { // from class: com.google.gson.internal.bind.TypeAdapters.30
+    public static final TypeAdapterFactory oWh = b(JsonElement.class, oWg);
+    public static final TypeAdapterFactory oWi = new TypeAdapterFactory() { // from class: com.google.gson.internal.bind.TypeAdapters.30
         @Override // com.google.gson.TypeAdapterFactory
         public <T> TypeAdapter<T> create(Gson gson, com.google.gson.b.a<T> aVar) {
-            Class efA = aVar.efA();
-            if (!Enum.class.isAssignableFrom(efA) || efA == Enum.class) {
+            Class epA = aVar.epA();
+            if (!Enum.class.isAssignableFrom(epA) || epA == Enum.class) {
                 return null;
             }
-            if (!efA.isEnum()) {
-                efA = (Class<? super Object>) efA.getSuperclass();
+            if (!epA.isEnum()) {
+                epA = (Class<? super Object>) epA.getSuperclass();
             }
-            return new EnumTypeAdapter(efA);
+            return new EnumTypeAdapter(epA);
         }
     };
 
@@ -836,47 +836,47 @@ public final class TypeAdapters {
     /* renamed from: com.google.gson.internal.bind.TypeAdapters$36  reason: invalid class name */
     /* loaded from: classes17.dex */
     public static /* synthetic */ class AnonymousClass36 {
-        static final /* synthetic */ int[] odx = new int[JsonToken.values().length];
+        static final /* synthetic */ int[] oUN = new int[JsonToken.values().length];
 
         static {
             try {
-                odx[JsonToken.NUMBER.ordinal()] = 1;
+                oUN[JsonToken.NUMBER.ordinal()] = 1;
             } catch (NoSuchFieldError e) {
             }
             try {
-                odx[JsonToken.BOOLEAN.ordinal()] = 2;
+                oUN[JsonToken.BOOLEAN.ordinal()] = 2;
             } catch (NoSuchFieldError e2) {
             }
             try {
-                odx[JsonToken.STRING.ordinal()] = 3;
+                oUN[JsonToken.STRING.ordinal()] = 3;
             } catch (NoSuchFieldError e3) {
             }
             try {
-                odx[JsonToken.NULL.ordinal()] = 4;
+                oUN[JsonToken.NULL.ordinal()] = 4;
             } catch (NoSuchFieldError e4) {
             }
             try {
-                odx[JsonToken.BEGIN_ARRAY.ordinal()] = 5;
+                oUN[JsonToken.BEGIN_ARRAY.ordinal()] = 5;
             } catch (NoSuchFieldError e5) {
             }
             try {
-                odx[JsonToken.BEGIN_OBJECT.ordinal()] = 6;
+                oUN[JsonToken.BEGIN_OBJECT.ordinal()] = 6;
             } catch (NoSuchFieldError e6) {
             }
             try {
-                odx[JsonToken.END_DOCUMENT.ordinal()] = 7;
+                oUN[JsonToken.END_DOCUMENT.ordinal()] = 7;
             } catch (NoSuchFieldError e7) {
             }
             try {
-                odx[JsonToken.NAME.ordinal()] = 8;
+                oUN[JsonToken.NAME.ordinal()] = 8;
             } catch (NoSuchFieldError e8) {
             }
             try {
-                odx[JsonToken.END_OBJECT.ordinal()] = 9;
+                oUN[JsonToken.END_OBJECT.ordinal()] = 9;
             } catch (NoSuchFieldError e9) {
             }
             try {
-                odx[JsonToken.END_ARRAY.ordinal()] = 10;
+                oUN[JsonToken.END_ARRAY.ordinal()] = 10;
             } catch (NoSuchFieldError e10) {
             }
         }
@@ -884,8 +884,8 @@ public final class TypeAdapters {
 
     /* loaded from: classes17.dex */
     private static final class EnumTypeAdapter<T extends Enum<T>> extends TypeAdapter<T> {
-        private final Map<String, T> ofd = new HashMap();
-        private final Map<T, String> ofe = new HashMap();
+        private final Map<String, T> oWt = new HashMap();
+        private final Map<T, String> oWu = new HashMap();
 
         public EnumTypeAdapter(Class<T> cls) {
             T[] enumConstants;
@@ -895,14 +895,14 @@ public final class TypeAdapters {
                     c cVar = (c) cls.getField(name).getAnnotation(c.class);
                     if (cVar != null) {
                         name = cVar.value();
-                        String[] eeN = cVar.eeN();
-                        for (String str : eeN) {
-                            this.ofd.put(str, t);
+                        String[] eoN = cVar.eoN();
+                        for (String str : eoN) {
+                            this.oWt.put(str, t);
                         }
                     }
                     String str2 = name;
-                    this.ofd.put(str2, t);
-                    this.ofe.put(t, str2);
+                    this.oWt.put(str2, t);
+                    this.oWu.put(t, str2);
                 }
             } catch (NoSuchFieldException e) {
                 throw new AssertionError(e);
@@ -913,18 +913,18 @@ public final class TypeAdapters {
         @Override // com.google.gson.TypeAdapter
         /* renamed from: A */
         public T read(com.google.gson.stream.a aVar) throws IOException {
-            if (aVar.efh() == JsonToken.NULL) {
-                aVar.efm();
+            if (aVar.eph() == JsonToken.NULL) {
+                aVar.epm();
                 return null;
             }
-            return this.ofd.get(aVar.efl());
+            return this.oWt.get(aVar.epl());
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.google.gson.TypeAdapter
         /* renamed from: a */
         public void write(com.google.gson.stream.b bVar, T t) throws IOException {
-            bVar.Wj(t == null ? null : this.ofe.get(t));
+            bVar.XW(t == null ? null : this.oWu.get(t));
         }
     }
 
@@ -944,7 +944,7 @@ public final class TypeAdapters {
         return new TypeAdapterFactory() { // from class: com.google.gson.internal.bind.TypeAdapters.32
             @Override // com.google.gson.TypeAdapterFactory
             public <T> TypeAdapter<T> create(Gson gson, com.google.gson.b.a<T> aVar) {
-                if (aVar.efA() == cls) {
+                if (aVar.epA() == cls) {
                     return typeAdapter;
                 }
                 return null;
@@ -960,8 +960,8 @@ public final class TypeAdapters {
         return new TypeAdapterFactory() { // from class: com.google.gson.internal.bind.TypeAdapters.33
             @Override // com.google.gson.TypeAdapterFactory
             public <T> TypeAdapter<T> create(Gson gson, com.google.gson.b.a<T> aVar) {
-                Class<? super T> efA = aVar.efA();
-                if (efA == cls || efA == cls2) {
+                Class<? super T> epA = aVar.epA();
+                if (epA == cls || epA == cls2) {
                     return typeAdapter;
                 }
                 return null;
@@ -977,8 +977,8 @@ public final class TypeAdapters {
         return new TypeAdapterFactory() { // from class: com.google.gson.internal.bind.TypeAdapters.34
             @Override // com.google.gson.TypeAdapterFactory
             public <T> TypeAdapter<T> create(Gson gson, com.google.gson.b.a<T> aVar) {
-                Class<? super T> efA = aVar.efA();
-                if (efA == cls || efA == cls2) {
+                Class<? super T> epA = aVar.epA();
+                if (epA == cls || epA == cls2) {
                     return typeAdapter;
                 }
                 return null;
@@ -994,8 +994,8 @@ public final class TypeAdapters {
         return new TypeAdapterFactory() { // from class: com.google.gson.internal.bind.TypeAdapters.35
             @Override // com.google.gson.TypeAdapterFactory
             public <T2> TypeAdapter<T2> create(Gson gson, com.google.gson.b.a<T2> aVar) {
-                final Class<? super T2> efA = aVar.efA();
-                if (cls.isAssignableFrom(efA)) {
+                final Class<? super T2> epA = aVar.epA();
+                if (cls.isAssignableFrom(epA)) {
                     return (TypeAdapter<T2>) new TypeAdapter<T1>() { // from class: com.google.gson.internal.bind.TypeAdapters.35.1
                         @Override // com.google.gson.TypeAdapter
                         public void write(com.google.gson.stream.b bVar, T1 t1) throws IOException {
@@ -1008,8 +1008,8 @@ public final class TypeAdapters {
                         @Override // com.google.gson.TypeAdapter
                         public T1 read(com.google.gson.stream.a aVar2) throws IOException {
                             ?? read = typeAdapter.read(aVar2);
-                            if (read != 0 && !efA.isInstance(read)) {
-                                throw new JsonSyntaxException("Expected a " + efA.getName() + " but was " + read.getClass().getName());
+                            if (read != 0 && !epA.isInstance(read)) {
+                                throw new JsonSyntaxException("Expected a " + epA.getName() + " but was " + read.getClass().getName());
                             }
                             return read;
                         }

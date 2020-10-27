@@ -20,54 +20,54 @@ import com.baidu.tieba.square.view.BestStringsFitTextView;
 import java.util.ArrayList;
 /* loaded from: classes23.dex */
 public class b extends BaseAdapter {
-    private Activity bFt;
-    private ArrayList<e> mzA;
-    View.OnClickListener mzB = new View.OnClickListener() { // from class: com.baidu.tieba.square.square.b.1
+    private Activity bIs;
+    private ArrayList<e> mMk;
+    View.OnClickListener mMl = new View.OnClickListener() { // from class: com.baidu.tieba.square.square.b.1
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             e eVar;
             Object tag = view.getTag();
-            if ((tag instanceof a) && (eVar = ((a) tag).mzF) != null) {
-                if (eVar.mxD == null) {
-                    com.baidu.tieba.square.square.a.g(b.this.dCW(), null);
+            if ((tag instanceof a) && (eVar = ((a) tag).mMp) != null) {
+                if (eVar.mKn == null) {
+                    com.baidu.tieba.square.square.a.g(b.this.dGe(), null);
                 } else {
-                    MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.CMD_SQUARE_FORUM_LIST, new ForumListActivityConfig(b.this.dCW(), eVar.mxC, eVar.mxD, eVar.mxE)));
+                    MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.CMD_SQUARE_FORUM_LIST, new ForumListActivityConfig(b.this.dGe(), eVar.mKm, eVar.mKn, eVar.mKo)));
                 }
             }
         }
     };
 
     public b(Activity activity, c cVar, boolean z) {
-        this.bFt = activity;
-        this.mzA = cVar.dCV();
+        this.bIs = activity;
+        this.mMk = cVar.dGd();
     }
 
-    public ArrayList<e> dCV() {
-        return this.mzA;
+    public ArrayList<e> dGd() {
+        return this.mMk;
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     /* loaded from: classes23.dex */
     public static class a {
-        public TextView dNo;
-        public BarImageView mzD;
-        public BestStringsFitTextView mzE;
-        public e mzF;
+        public TextView dVL;
+        public BarImageView mMn;
+        public BestStringsFitTextView mMo;
+        public e mMp;
 
         protected a() {
         }
     }
 
-    public void bd(ArrayList<e> arrayList) {
-        this.mzA = arrayList;
+    public void bg(ArrayList<e> arrayList) {
+        this.mMk = arrayList;
     }
 
     @Override // android.widget.Adapter
     public int getCount() {
-        if (this.mzA == null) {
+        if (this.mMk == null) {
             return 0;
         }
-        return (this.mzA.size() * 2) + 1;
+        return (this.mMk.size() * 2) + 1;
     }
 
     @Override // android.widget.Adapter
@@ -75,9 +75,9 @@ public class b extends BaseAdapter {
         int itemViewType = getItemViewType(i);
         if (view == null) {
             view = N(viewGroup, itemViewType);
-            bg.be(view);
+            bg.bf(view);
         }
-        bg.bd(view);
+        bg.be(view);
         if (itemViewType != 3) {
             TbadkCoreApplication.getInst().getSkinType();
             View findViewById = view.findViewById(R.id.container);
@@ -95,39 +95,39 @@ public class b extends BaseAdapter {
 
     private View N(ViewGroup viewGroup, int i) {
         if (i == 3) {
-            return LayoutInflater.from(this.bFt).inflate(R.layout.bar_home_list_line, viewGroup, false);
+            return LayoutInflater.from(this.bIs).inflate(R.layout.bar_home_list_line, viewGroup, false);
         }
         if (i == 2) {
-            return LayoutInflater.from(this.bFt).inflate(R.layout.bar_folder_first_dir_bottom_item, viewGroup, false);
+            return LayoutInflater.from(this.bIs).inflate(R.layout.bar_folder_first_dir_bottom_item, viewGroup, false);
         }
-        View inflate = LayoutInflater.from(this.bFt).inflate(R.layout.bar_folder_first_dir_item, viewGroup, false);
-        inflate.setOnClickListener(this.mzB);
+        View inflate = LayoutInflater.from(this.bIs).inflate(R.layout.bar_folder_first_dir_item, viewGroup, false);
+        inflate.setOnClickListener(this.mMl);
         a aVar = new a();
-        aVar.mzD = (BarImageView) inflate.findViewById(R.id.portrait);
-        aVar.dNo = (TextView) inflate.findViewById(R.id.name);
-        aVar.mzE = (BestStringsFitTextView) inflate.findViewById(R.id.description);
+        aVar.mMn = (BarImageView) inflate.findViewById(R.id.portrait);
+        aVar.dVL = (TextView) inflate.findViewById(R.id.name);
+        aVar.mMo = (BestStringsFitTextView) inflate.findViewById(R.id.description);
         inflate.setTag(aVar);
         return inflate;
     }
 
     private void a(ViewGroup viewGroup, a aVar, int i) {
-        e eVar = this.mzA.get(i / 2);
-        aVar.mzF = eVar;
-        aVar.dNo.setText(eVar.mxC);
-        if (eVar.mzI != null) {
-            aVar.mzE.setVisibility(0);
-            String[] strArr = new String[eVar.mzI.size()];
-            for (int i2 = 0; i2 < eVar.mzI.size(); i2++) {
-                strArr[i2] = eVar.mzI.get(i2).mxC;
+        e eVar = this.mMk.get(i / 2);
+        aVar.mMp = eVar;
+        aVar.dVL.setText(eVar.mKm);
+        if (eVar.mMs != null) {
+            aVar.mMo.setVisibility(0);
+            String[] strArr = new String[eVar.mMs.size()];
+            for (int i2 = 0; i2 < eVar.mMs.size(); i2++) {
+                strArr[i2] = eVar.mMs.get(i2).mKm;
             }
-            aVar.mzE.setTextArray(strArr);
+            aVar.mMo.setTextArray(strArr);
         } else {
-            aVar.mzE.setVisibility(8);
+            aVar.mMo.setVisibility(8);
         }
         if (eVar.logoUrl != null) {
-            int dip2px = l.dip2px(this.bFt, 45.0f);
-            aVar.mzD.setTag(eVar.logoUrl);
-            aVar.mzD.a(eVar.logoUrl, 10, dip2px, dip2px, false);
+            int dip2px = l.dip2px(this.bIs, 45.0f);
+            aVar.mMn.setTag(eVar.logoUrl);
+            aVar.mMn.a(eVar.logoUrl, 10, dip2px, dip2px, false);
         }
     }
 
@@ -154,7 +154,7 @@ public class b extends BaseAdapter {
         return 2;
     }
 
-    protected Activity dCW() {
-        return this.bFt;
+    protected Activity dGe() {
+        return this.bIs;
     }
 }

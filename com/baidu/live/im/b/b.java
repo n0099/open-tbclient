@@ -2,7 +2,7 @@ package com.baidu.live.im.b;
 
 import android.support.annotation.NonNull;
 import android.view.View;
-import com.baidu.live.data.bz;
+import com.baidu.live.data.ce;
 /* loaded from: classes4.dex */
 public interface b {
     @NonNull
@@ -12,5 +12,5 @@ public interface b {
 
     void setPreview();
 
-    void setUIInfo(bz bzVar, boolean z);
+    void setUIInfo(ce ceVar, boolean z);
 }

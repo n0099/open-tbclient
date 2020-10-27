@@ -76,7 +76,7 @@ public final class h {
                     if (!jSONObject3.isNull("param")) {
                         JSONObject jSONObject4 = jSONObject3.getJSONObject("param");
                         if (!jSONObject4.isNull("url")) {
-                            iVar.f1182a = jSONObject4.getString("url");
+                            iVar.f1179a = jSONObject4.getString("url");
                         }
                         if (!jSONObject4.isNull("intentUri")) {
                             iVar.c = jSONObject4.getString("intentUri");
@@ -140,7 +140,7 @@ public final class h {
                 crossPushMessage.mPkgContent = jSONObject.getString("pkg_content");
             }
             if (!jSONObject.isNull("dest_pkg")) {
-                crossPushMessage.f1164a = jSONObject.getString("dest_pkg");
+                crossPushMessage.f1161a = jSONObject.getString("dest_pkg");
             }
             if (!jSONObject.isNull("dest_icon")) {
                 crossPushMessage.b = jSONObject.getString("dest_icon");

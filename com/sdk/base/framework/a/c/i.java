@@ -9,7 +9,7 @@ import java.util.concurrent.TimeUnit;
 public final class i implements Executor {
 
     /* renamed from: a  reason: collision with root package name */
-    private static final ThreadFactory f4468a = new j();
+    private static final ThreadFactory f4466a = new j();
     private final BlockingQueue<Runnable> b;
     private final ThreadPoolExecutor c;
 
@@ -19,7 +19,7 @@ public final class i implements Executor {
 
     private i(int i) {
         this.b = new l();
-        this.c = new ThreadPoolExecutor(5, 256, 1L, TimeUnit.SECONDS, this.b, f4468a);
+        this.c = new ThreadPoolExecutor(5, 256, 1L, TimeUnit.SECONDS, this.b, f4466a);
     }
 
     @Override // java.util.concurrent.Executor

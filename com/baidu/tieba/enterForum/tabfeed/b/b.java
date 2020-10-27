@@ -5,12 +5,12 @@ import com.baidu.tbadk.core.data.bj;
 import java.util.ArrayList;
 /* loaded from: classes22.dex */
 public class b {
-    public c hXu;
+    public c ijU;
     public boolean hasMore = true;
-    public boolean akj = true;
-    public int hXt = 0;
+    public boolean akk = true;
+    public int ijT = 0;
     public int refreshCount = 0;
-    public boolean fzJ = true;
-    public ArrayList<q> hXs = new ArrayList<>();
-    public bj hXr = new bj();
+    public boolean fIe = true;
+    public ArrayList<q> ijS = new ArrayList<>();
+    public bj ijR = new bj();
 }

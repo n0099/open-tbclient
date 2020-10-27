@@ -4,7 +4,7 @@ import com.baidu.platform.comapi.walknavi.g.a;
 import com.baidu.platform.comapi.walknavi.widget.a;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes7.dex */
-public class f implements a.InterfaceC0267a {
+public class f implements a.InterfaceC0281a {
 
     /* renamed from: a  reason: collision with root package name */
     final /* synthetic */ a f3059a;
@@ -14,17 +14,17 @@ public class f implements a.InterfaceC0267a {
         this.f3059a = aVar;
     }
 
-    @Override // com.baidu.platform.comapi.walknavi.widget.a.InterfaceC0267a
+    @Override // com.baidu.platform.comapi.walknavi.widget.a.InterfaceC0281a
     public void a() {
-        a.CountDownTimerC0264a countDownTimerC0264a;
-        a.CountDownTimerC0264a countDownTimerC0264a2;
-        a.CountDownTimerC0264a countDownTimerC0264a3;
-        countDownTimerC0264a = this.f3059a.o;
-        if (countDownTimerC0264a != null) {
-            countDownTimerC0264a2 = this.f3059a.o;
-            countDownTimerC0264a2.onFinish();
-            countDownTimerC0264a3 = this.f3059a.o;
-            countDownTimerC0264a3.cancel();
+        a.CountDownTimerC0278a countDownTimerC0278a;
+        a.CountDownTimerC0278a countDownTimerC0278a2;
+        a.CountDownTimerC0278a countDownTimerC0278a3;
+        countDownTimerC0278a = this.f3059a.o;
+        if (countDownTimerC0278a != null) {
+            countDownTimerC0278a2 = this.f3059a.o;
+            countDownTimerC0278a2.onFinish();
+            countDownTimerC0278a3 = this.f3059a.o;
+            countDownTimerC0278a3.cancel();
             return;
         }
         this.f3059a.q();

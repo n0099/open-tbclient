@@ -4,7 +4,7 @@ import java.util.Iterator;
 @kotlin.h
 /* loaded from: classes10.dex */
 public abstract class n implements Iterator<Character> {
-    public abstract char enI();
+    public abstract char exH();
 
     @Override // java.util.Iterator
     public void remove() {
@@ -13,8 +13,8 @@ public abstract class n implements Iterator<Character> {
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // java.util.Iterator
-    /* renamed from: enH */
+    /* renamed from: exG */
     public final Character next() {
-        return Character.valueOf(enI());
+        return Character.valueOf(exH());
     }
 }

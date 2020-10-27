@@ -17,85 +17,85 @@ import java.util.List;
 import tbclient.FrsTabInfo;
 /* loaded from: classes22.dex */
 public class b {
-    private String fkA;
-    private int iAA;
-    private FrsTabSortSwitchButton.a iAB = new FrsTabSortSwitchButton.a() { // from class: com.baidu.tieba.frs.entelechy.tabView.frsTabFollowPost.b.1
+    private String fsZ;
+    private FrsFragment iDN;
+    private View iMT;
+    private TextView iMU;
+    private FrsTabSortSwitchButton iMV;
+    private int iMW;
+    private FrsTabSortSwitchButton.a iMX = new FrsTabSortSwitchButton.a() { // from class: com.baidu.tieba.frs.entelechy.tabView.frsTabFollowPost.b.1
         @Override // com.baidu.tieba.frs.entelechy.tabView.frsTabFollowPost.view.FrsTabSortSwitchButton.a
-        public boolean yQ(int i) {
-            if (com.baidu.tieba.frs.b.crE().cry() || com.baidu.tieba.frs.a.crx().cry()) {
+        public boolean zj(int i) {
+            if (com.baidu.tieba.frs.b.cuL().cuF() || com.baidu.tieba.frs.a.cuE().cuF()) {
                 return false;
             }
             if (!j.isNetworkAvailableForImmediately()) {
-                b.this.irr.showToast(R.string.neterror);
+                b.this.iDN.showToast(R.string.neterror);
                 return false;
-            } else if (b.this.irr.csy() == null || b.this.irr.csD() == null) {
+            } else if (b.this.iDN.cvF() == null || b.this.iDN.cvK() == null) {
                 return false;
             } else {
-                if (b.this.iAA == i) {
+                if (b.this.iMW == i) {
                     return true;
                 }
-                b.this.irr.csy().zv(b.this.iAz.yT(b.this.iAA));
-                b.this.iAA = i;
-                if (b.this.iAA != 7) {
-                    ac.bzD();
-                    e.dFu();
+                b.this.iDN.cvF().zO(b.this.iMV.zm(b.this.iMW));
+                b.this.iMW = i;
+                if (b.this.iMW != 7) {
+                    ac.bBw();
+                    e.dIC();
                 } else {
-                    e.dFt();
+                    e.dIB();
                 }
-                b.this.irr.csy().zu(b.this.iAz.yT(b.this.iAA));
-                b.this.irr.csy().pL(true);
-                b.this.irr.csD().startPullRefresh();
-                b.this.irr.csy().pK(true);
-                b.this.cwD();
+                b.this.iDN.cvF().zN(b.this.iMV.zm(b.this.iMW));
+                b.this.iDN.cvF().qd(true);
+                b.this.iDN.cvK().startPullRefresh();
+                b.this.iDN.cvF().qc(true);
+                b.this.czK();
                 return true;
             }
         }
     };
-    private View iAx;
-    private TextView iAy;
-    private FrsTabSortSwitchButton iAz;
-    private FrsFragment irr;
 
     public void setFid(String str) {
-        this.fkA = str;
+        this.fsZ = str;
     }
 
-    public FrsTabSortSwitchButton cwE() {
-        return this.iAz;
+    public FrsTabSortSwitchButton czL() {
+        return this.iMV;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void cwD() {
+    public void czK() {
         aq aqVar = new aq("c11437");
-        aqVar.aj("obj_type", this.iAz.yT(this.iAA));
-        aqVar.dK("fid", this.fkA);
+        aqVar.aj("obj_type", this.iMV.zm(this.iMW));
+        aqVar.dR("fid", this.fsZ);
         TiebaStatic.log(aqVar);
     }
 
     public b(FrsFragment frsFragment, RelativeLayout relativeLayout) {
-        this.iAA = -1;
+        this.iMW = -1;
         if (frsFragment != null && relativeLayout != null) {
-            this.irr = frsFragment;
-            this.iAx = LayoutInflater.from(frsFragment.getContext()).inflate(R.layout.frs_sort_tab_layout, relativeLayout);
-            this.iAy = (TextView) this.iAx.findViewById(R.id.sort_tab_sort_name);
-            this.iAz = (FrsTabSortSwitchButton) this.iAx.findViewById(R.id.sort_tab_switch_btn);
-            this.iAz.setOnSwitchChangeListener(this.iAB);
-            this.iAA = this.iAz.getState();
+            this.iDN = frsFragment;
+            this.iMT = LayoutInflater.from(frsFragment.getContext()).inflate(R.layout.frs_sort_tab_layout, relativeLayout);
+            this.iMU = (TextView) this.iMT.findViewById(R.id.sort_tab_sort_name);
+            this.iMV = (FrsTabSortSwitchButton) this.iMT.findViewById(R.id.sort_tab_switch_btn);
+            this.iMV.setOnSwitchChangeListener(this.iMX);
+            this.iMW = this.iMV.getState();
             onChangeSkinType();
         }
     }
 
     public void onChangeSkinType() {
-        if (this.iAz != null) {
-            this.iAz.onChangeSkinType();
+        if (this.iMV != null) {
+            this.iMV.onChangeSkinType();
         }
-        ap.setViewTextColor(this.iAy, R.color.cp_cont_b);
-        ap.setBackgroundColor(this.iAx, R.color.cp_bg_line_d);
+        ap.setViewTextColor(this.iMU, R.color.cp_cont_b);
+        ap.setBackgroundColor(this.iMT, R.color.cp_bg_line_d);
     }
 
     public void setData(List<FrsTabInfo> list) {
-        if (this.iAz != null) {
-            this.iAz.setData(list);
+        if (this.iMV != null) {
+            this.iMV.setData(list);
         }
     }
 }

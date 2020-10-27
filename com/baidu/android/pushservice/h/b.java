@@ -30,7 +30,7 @@ public class b {
     private static b b;
 
     /* renamed from: a  reason: collision with root package name */
-    private OkHttpClient f1136a = a();
+    private OkHttpClient f1133a = a();
     private Context c;
 
     /* loaded from: classes10.dex */
@@ -100,9 +100,9 @@ public class b {
     public String[] a(byte[] bArr) {
         try {
             a.c a2 = a.c.a(bArr);
-            if (this.f1136a.pingIntervalMillis() != a2.i()) {
-                this.f1136a.newBuilder().pingInterval(a2.i(), TimeUnit.MILLISECONDS);
-                this.f1136a = this.f1136a.newBuilder().pingInterval(a2.i(), TimeUnit.MILLISECONDS).build();
+            if (this.f1133a.pingIntervalMillis() != a2.i()) {
+                this.f1133a.newBuilder().pingInterval(a2.i(), TimeUnit.MILLISECONDS);
+                this.f1133a = this.f1133a.newBuilder().pingInterval(a2.i(), TimeUnit.MILLISECONDS).build();
             }
             return new String[]{String.valueOf(a2.d()), a2.f()};
         } catch (InvalidProtocolBufferException e) {
@@ -122,10 +122,10 @@ public class b {
 
     public void a(Map<String, String> map, byte[] bArr, String str, final c cVar) {
         Request a2 = a(bArr, str, "" + ((int) ((Math.random() * 100000.0d) + 1000.0d)));
-        if (this.f1136a == null) {
-            this.f1136a = a();
+        if (this.f1133a == null) {
+            this.f1133a = a();
         }
-        this.f1136a.newCall(a2).enqueue(new Callback() { // from class: com.baidu.android.pushservice.h.b.1
+        this.f1133a.newCall(a2).enqueue(new Callback() { // from class: com.baidu.android.pushservice.h.b.1
             @Override // okhttp3.Callback
             public void onFailure(Call call, IOException iOException) {
                 String str2 = "Request error :" + iOException.toString();

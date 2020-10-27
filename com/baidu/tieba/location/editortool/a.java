@@ -9,23 +9,23 @@ import com.baidu.tieba.R;
 public class a extends m {
     public a(Context context) {
         super(context, (String) null, 8);
-        this.eZU = false;
-        this.eZT = 3;
-        this.eYZ = new PbLocationInfoContainer(context);
-        this.eZV = new int[]{20, 19};
+        this.fis = false;
+        this.fir = 3;
+        this.fhv = new PbLocationInfoContainer(context);
+        this.fit = new int[]{20, 19};
     }
 
     public a(Context context, boolean z) {
         super(context, (String) null, 8);
-        this.eZU = false;
-        this.eZT = 3;
-        this.eYZ = new PbLocationInfoContainer(context);
+        this.fis = false;
+        this.fir = 3;
+        this.fhv = new PbLocationInfoContainer(context);
         RawLayout.LayoutParams layoutParams = new RawLayout.LayoutParams(-2, l.getDimens(getContext(), R.dimen.ds48));
         layoutParams.leftMargin = l.getDimens(getContext(), R.dimen.ds32);
         layoutParams.rightMargin = l.getDimens(getContext(), R.dimen.ds32);
         layoutParams.bottomMargin = l.getDimens(getContext(), R.dimen.ds21);
         layoutParams.topMargin = l.getDimens(getContext(), R.dimen.ds21);
-        ((PbLocationInfoContainer) this.eYZ).setLayoutParams(layoutParams);
-        this.eZV = new int[]{20, 19};
+        ((PbLocationInfoContainer) this.fhv).setLayoutParams(layoutParams);
+        this.fit = new int[]{20, 19};
     }
 }

@@ -290,13 +290,13 @@ public class LottieAnimationView extends ImageView {
     public void setAnimation(int i) {
         this.animationResId = i;
         this.animationName = null;
-        setCompositionTask(e.I(getContext(), i));
+        setCompositionTask(e.L(getContext(), i));
     }
 
     public void setAnimation(String str) {
         this.animationName = str;
         this.animationResId = 0;
-        setCompositionTask(e.bq(getContext(), str));
+        setCompositionTask(e.bv(getContext(), str));
     }
 
     @Deprecated
@@ -313,7 +313,7 @@ public class LottieAnimationView extends ImageView {
     }
 
     public void setAnimationFromUrl(String str) {
-        setCompositionTask(e.bp(getContext(), str));
+        setCompositionTask(e.bu(getContext(), str));
     }
 
     private void setCompositionTask(l<d> lVar) {
@@ -584,14 +584,14 @@ public class LottieAnimationView extends ImageView {
         public static final Parcelable.Creator<SavedState> CREATOR = new Parcelable.Creator<SavedState>() { // from class: com.tb.airbnb.lottie.LottieAnimationView.SavedState.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // android.os.Parcelable.Creator
-            /* renamed from: as */
+            /* renamed from: au */
             public SavedState createFromParcel(Parcel parcel) {
                 return new SavedState(parcel);
             }
 
             /* JADX DEBUG: Method merged with bridge method */
             @Override // android.os.Parcelable.Creator
-            /* renamed from: OV */
+            /* renamed from: QM */
             public SavedState[] newArray(int i) {
                 return new SavedState[i];
             }

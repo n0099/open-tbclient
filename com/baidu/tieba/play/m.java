@@ -7,64 +7,64 @@ import com.baidu.tieba.R;
 import com.baidu.tieba.play.VideoLoadingProgressView;
 /* loaded from: classes.dex */
 public class m {
-    private ViewGroup lQV;
-    private ImageView lQW;
-    private VideoLoadingProgressView lQX;
-    ObjectAnimator lQY;
-    ObjectAnimator lQZ;
-    ObjectAnimator lRa;
+    private ViewGroup mdt;
+    private ImageView mdu;
+    private VideoLoadingProgressView mdv;
+    ObjectAnimator mdw;
+    ObjectAnimator mdx;
+    ObjectAnimator mdy;
 
     public m(ViewGroup viewGroup) {
-        this.lQV = viewGroup;
-        this.lQW = (ImageView) viewGroup.findViewById(R.id.auto_video_loading_image);
-        this.lQX = (VideoLoadingProgressView) viewGroup.findViewById(R.id.auto_video_loading_progress);
+        this.mdt = viewGroup;
+        this.mdu = (ImageView) viewGroup.findViewById(R.id.auto_video_loading_image);
+        this.mdv = (VideoLoadingProgressView) viewGroup.findViewById(R.id.auto_video_loading_progress);
         init();
     }
 
     private void init() {
-        this.lQY = ObjectAnimator.ofFloat(this.lQW, "alpha", 1.0f, 0.5f);
-        this.lQZ = ObjectAnimator.ofFloat(this.lQW, "alpha", 0.5f, 0.0f);
-        this.lRa = ObjectAnimator.ofFloat(this.lQX, "alpha", 1.0f, 0.0f);
-        this.lQY.setDuration(50L);
-        this.lQZ.setDuration(50L);
-        this.lRa.setDuration(50L);
+        this.mdw = ObjectAnimator.ofFloat(this.mdu, "alpha", 1.0f, 0.5f);
+        this.mdx = ObjectAnimator.ofFloat(this.mdu, "alpha", 0.5f, 0.0f);
+        this.mdy = ObjectAnimator.ofFloat(this.mdv, "alpha", 1.0f, 0.0f);
+        this.mdw.setDuration(50L);
+        this.mdx.setDuration(50L);
+        this.mdy.setDuration(50L);
     }
 
     public void startLoading() {
-        drv();
-        this.lQW.setAlpha(1.0f);
-        this.lQX.setAlpha(1.0f);
-        this.lQV.setVisibility(0);
-        this.lQX.startLoading();
-        this.lQY.start();
+        duC();
+        this.mdu.setAlpha(1.0f);
+        this.mdv.setAlpha(1.0f);
+        this.mdt.setVisibility(0);
+        this.mdv.startLoading();
+        this.mdw.start();
     }
 
-    public void drs() {
-        drv();
-        this.lQX.drs();
+    public void duz() {
+        duC();
+        this.mdv.duz();
     }
 
-    public void drt() {
-        drv();
-        this.lQZ.start();
-        this.lRa.start();
+    public void duA() {
+        duC();
+        this.mdx.start();
+        this.mdy.start();
     }
 
-    public void dru() {
-        drv();
-        this.lQV.setVisibility(8);
-        this.lQX.dru();
+    public void duB() {
+        duC();
+        this.mdt.setVisibility(8);
+        this.mdv.duB();
     }
 
-    private void drv() {
-        this.lQY.cancel();
-        this.lQZ.cancel();
-        this.lRa.cancel();
+    private void duC() {
+        this.mdw.cancel();
+        this.mdx.cancel();
+        this.mdy.cancel();
     }
 
     public void setLoadingAnimationListener(VideoLoadingProgressView.a aVar) {
-        if (this.lQX != null) {
-            this.lQX.setLoadingAnimationListener(aVar);
+        if (this.mdv != null) {
+            this.mdv.setLoadingAnimationListener(aVar);
         }
     }
 }

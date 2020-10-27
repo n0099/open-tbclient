@@ -7,11 +7,11 @@ import com.baidu.platform.comapi.walknavi.d.a.g.j;
 class d implements c.b {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ b.C0263b f2976a;
+    final /* synthetic */ b.C0277b f2976a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public d(b.C0263b c0263b) {
-        this.f2976a = c0263b;
+    public d(b.C0277b c0277b) {
+        this.f2976a = c0277b;
     }
 
     @Override // com.baidu.platform.comapi.walknavi.d.a.d.a.c.a
@@ -19,7 +19,7 @@ class d implements c.b {
         return this.f2976a.b();
     }
 
-    @Override // com.baidu.platform.comapi.walknavi.d.a.d.a.c.InterfaceC0262c
+    @Override // com.baidu.platform.comapi.walknavi.d.a.d.a.c.InterfaceC0276c
     public void a(long j, long j2) {
         j.a(new e(this, j, j2));
     }

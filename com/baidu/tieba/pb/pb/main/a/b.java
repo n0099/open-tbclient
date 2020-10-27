@@ -16,91 +16,91 @@ import com.baidu.tieba.pb.pb.main.PbFragment;
 import tbclient.SmartApp;
 /* loaded from: classes22.dex */
 public class b {
-    private View.OnClickListener irI;
-    private PbFragment kXi;
-    private RelativeLayout llA;
-    private HeadImageView llB;
-    private TextView llC;
-    private TextView llD;
-    private ImageView llE;
+    private View.OnClickListener iEe;
+    private PbFragment ljH;
+    private RelativeLayout lyd;
+    private HeadImageView lye;
+    private TextView lyf;
+    private TextView lyg;
+    private ImageView lyh;
 
     public b(PbFragment pbFragment, View.OnClickListener onClickListener) {
-        this.irI = null;
-        this.kXi = pbFragment;
-        this.irI = onClickListener;
+        this.iEe = null;
+        this.ljH = pbFragment;
+        this.iEe = onClickListener;
         initView();
     }
 
     public void initView() {
-        if (this.llA == null) {
-            this.llA = (RelativeLayout) LayoutInflater.from(this.kXi.getContext()).inflate(R.layout.pb_video_thread_smart_app_layout, (ViewGroup) null);
-            this.llB = (HeadImageView) this.llA.findViewById(R.id.iv_pb_video_smart_app_head);
-            this.llB.setIsRound(true);
-            this.llB.setPlaceHolder(1);
-            this.llC = (TextView) this.llA.findViewById(R.id.tv_pb_video_smart_app_title);
-            this.llD = (TextView) this.llA.findViewById(R.id.tv_pb_video_smart_app_abstract);
-            this.llE = (ImageView) this.llA.findViewById(R.id.iv_pb_video_smart_app_arrow);
-            this.llA.setOnClickListener(this.irI);
+        if (this.lyd == null) {
+            this.lyd = (RelativeLayout) LayoutInflater.from(this.ljH.getContext()).inflate(R.layout.pb_video_thread_smart_app_layout, (ViewGroup) null);
+            this.lye = (HeadImageView) this.lyd.findViewById(R.id.iv_pb_video_smart_app_head);
+            this.lye.setIsRound(true);
+            this.lye.setPlaceHolder(1);
+            this.lyf = (TextView) this.lyd.findViewById(R.id.tv_pb_video_smart_app_title);
+            this.lyg = (TextView) this.lyd.findViewById(R.id.tv_pb_video_smart_app_abstract);
+            this.lyh = (ImageView) this.lyd.findViewById(R.id.iv_pb_video_smart_app_arrow);
+            this.lyd.setOnClickListener(this.iEe);
         }
     }
 
     public void a(f fVar, BdTypeListView bdTypeListView) {
         String charSequence;
         if (fVar != null && bdTypeListView != null) {
-            if (fVar.dcA().bgN() && fVar.dcA().biW() != null) {
-                SmartApp biW = fVar.dcA().biW();
-                this.llA.setVisibility(0);
+            if (fVar.dfI().biG() && fVar.dfI().bkP() != null) {
+                SmartApp bkP = fVar.dfI().bkP();
+                this.lyd.setVisibility(0);
                 c(bdTypeListView);
                 a(bdTypeListView, 1);
-                if (!at.isEmpty(biW.avatar)) {
-                    this.llB.startLoad(biW.avatar, 10, false, false);
+                if (!at.isEmpty(bkP.avatar)) {
+                    this.lye.startLoad(bkP.avatar, 10, false, false);
                 }
-                if (!at.isEmpty(biW.name)) {
-                    charSequence = biW.name + " " + ((Object) this.kXi.getText(R.string.smart_app_suffix));
+                if (!at.isEmpty(bkP.name)) {
+                    charSequence = bkP.name + " " + ((Object) this.ljH.getText(R.string.smart_app_suffix));
                 } else {
-                    charSequence = this.kXi.getText(R.string.intelligent_smart_app).toString();
+                    charSequence = this.ljH.getText(R.string.intelligent_smart_app).toString();
                 }
-                this.llC.setText(charSequence);
-                if (!at.isEmpty(biW._abstract)) {
-                    this.llD.setText(biW._abstract);
+                this.lyf.setText(charSequence);
+                if (!at.isEmpty(bkP._abstract)) {
+                    this.lyg.setText(bkP._abstract);
                 } else {
-                    this.llD.setText(this.kXi.getText(R.string.smart_app_default_abstract));
+                    this.lyg.setText(this.ljH.getText(R.string.smart_app_default_abstract));
                 }
-                this.llA.setTag(biW);
+                this.lyd.setTag(bkP);
                 return;
             }
-            this.llA.setVisibility(8);
+            this.lyd.setVisibility(8);
             c(bdTypeListView);
         }
     }
 
     public void a(BdTypeListView bdTypeListView, int i) {
-        if (bdTypeListView != null && this.llA != null) {
-            bdTypeListView.addHeaderView(this.llA, i);
+        if (bdTypeListView != null && this.lyd != null) {
+            bdTypeListView.addHeaderView(this.lyd, i);
         }
     }
 
     public void c(BdTypeListView bdTypeListView) {
-        if (bdTypeListView != null && this.llA != null) {
-            bdTypeListView.removeHeaderView(this.llA);
+        if (bdTypeListView != null && this.lyd != null) {
+            bdTypeListView.removeHeaderView(this.lyd);
         }
     }
 
     public void onChangeSkinType(int i) {
-        if (this.llA != null) {
-            ap.setBackgroundColor(this.llA, R.color.cp_bg_line_c);
+        if (this.lyd != null) {
+            ap.setBackgroundColor(this.lyd, R.color.cp_bg_line_c);
         }
-        if (this.llB != null) {
-            this.llB.setIsNight(i == 1);
+        if (this.lye != null) {
+            this.lye.setIsNight(i == 1);
         }
-        if (this.llC != null) {
-            ap.setViewTextColor(this.llC, R.color.cp_cont_b);
+        if (this.lyf != null) {
+            ap.setViewTextColor(this.lyf, R.color.cp_cont_b);
         }
-        if (this.llD != null) {
-            ap.setViewTextColor(this.llD, R.color.cp_cont_j);
+        if (this.lyg != null) {
+            ap.setViewTextColor(this.lyg, R.color.cp_cont_j);
         }
-        if (this.llE != null) {
-            ap.setBackgroundResource(this.llE, R.drawable.icon_common_arrow16_right_n);
+        if (this.lyh != null) {
+            ap.setBackgroundResource(this.lyh, R.drawable.icon_common_arrow16_right_n);
         }
     }
 }

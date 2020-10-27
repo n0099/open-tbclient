@@ -12,7 +12,7 @@ import javax.annotation.concurrent.ThreadSafe;
 @d
 /* loaded from: classes10.dex */
 public class GifImage implements c, b {
-    private static volatile boolean nJb;
+    private static volatile boolean oAu;
     @d
     private long mNativeContext;
 
@@ -52,24 +52,24 @@ public class GifImage implements c, b {
     @d
     private native int nativeGetWidth();
 
-    private static synchronized void dVv() {
+    private static synchronized void eft() {
         synchronized (GifImage.class) {
-            if (!nJb) {
-                nJb = true;
+            if (!oAu) {
+                oAu = true;
                 a.loadLibrary("gifimage");
             }
         }
     }
 
-    public static GifImage F(long j, int i) {
-        dVv();
+    public static GifImage G(long j, int i) {
+        eft();
         g.checkArgument(j != 0);
         return nativeCreateFromNativeMemory(j, i);
     }
 
     @Override // com.facebook.imagepipeline.animated.a.c
-    public b G(long j, int i) {
-        return F(j, i);
+    public b H(long j, int i) {
+        return G(j, i);
     }
 
     @d
@@ -101,7 +101,7 @@ public class GifImage implements c, b {
     }
 
     @Override // com.facebook.imagepipeline.animated.base.b
-    public int[] dVw() {
+    public int[] efu() {
         return nativeGetFrameDurations();
     }
 
@@ -120,13 +120,13 @@ public class GifImage implements c, b {
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.facebook.imagepipeline.animated.base.b
-    /* renamed from: LY */
-    public GifFrame Mb(int i) {
+    /* renamed from: NP */
+    public GifFrame NS(int i) {
         return nativeGetFrame(i);
     }
 
     @Override // com.facebook.imagepipeline.animated.base.b
-    public boolean dVx() {
+    public boolean efv() {
         return false;
     }
 
@@ -136,16 +136,16 @@ public class GifImage implements c, b {
     }
 
     @Override // com.facebook.imagepipeline.animated.base.b
-    public AnimatedDrawableFrameInfo LZ(int i) {
-        GifFrame Mb = Mb(i);
+    public AnimatedDrawableFrameInfo NQ(int i) {
+        GifFrame NS = NS(i);
         try {
-            return new AnimatedDrawableFrameInfo(i, Mb.getXOffset(), Mb.getYOffset(), Mb.getWidth(), Mb.getHeight(), AnimatedDrawableFrameInfo.BlendOperation.BLEND_WITH_PREVIOUS, Ma(Mb.dVu()));
+            return new AnimatedDrawableFrameInfo(i, NS.getXOffset(), NS.getYOffset(), NS.getWidth(), NS.getHeight(), AnimatedDrawableFrameInfo.BlendOperation.BLEND_WITH_PREVIOUS, NR(NS.efs()));
         } finally {
-            Mb.dispose();
+            NS.dispose();
         }
     }
 
-    private static AnimatedDrawableFrameInfo.DisposalMethod Ma(int i) {
+    private static AnimatedDrawableFrameInfo.DisposalMethod NR(int i) {
         if (i == 0) {
             return AnimatedDrawableFrameInfo.DisposalMethod.DISPOSE_DO_NOT;
         }

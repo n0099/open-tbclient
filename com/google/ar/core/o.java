@@ -11,38 +11,38 @@ import com.google.ar.core.ArCoreApk;
 import com.google.ar.core.exceptions.FatalException;
 /* loaded from: classes11.dex */
 public final class o extends ArCoreApk {
-    private static final o obT = new o();
+    private static final o oTk = new o();
 
     /* renamed from: a */
-    Exception f4043a;
+    Exception f4041a;
     private boolean c;
     private int d;
     private boolean g;
     private boolean i;
     private boolean j;
     private int k;
-    private ArCoreApk.Availability obU;
-    private w obV;
+    private ArCoreApk.Availability oTl;
+    private w oTm;
 
     o() {
     }
 
-    public static o eeL() {
-        return obT;
+    public static o eoL() {
+        return oTk;
     }
 
     @Override // com.google.ar.core.ArCoreApk
-    public final ArCoreApk.Availability gK(Context context) {
+    public final ArCoreApk.Availability he(Context context) {
         if (!c()) {
             return ArCoreApk.Availability.UNSUPPORTED_DEVICE_NOT_CAPABLE;
         }
         try {
             if (b(context)) {
                 b();
-                return n.gL(context);
+                return n.hf(context);
             }
             synchronized (this) {
-                if ((this.obU == null || this.obU.isUnknown()) && !this.g) {
+                if ((this.oTl == null || this.oTl.isUnknown()) && !this.g) {
                     this.g = true;
                     n nVar = new n(this);
                     if (b(context)) {
@@ -52,11 +52,11 @@ public final class o extends ArCoreApk {
                     } else if (c(context)) {
                         nVar.a(ArCoreApk.Availability.SUPPORTED_NOT_INSTALLED);
                     } else {
-                        gN(context).a(context, nVar);
+                        hh(context).a(context, nVar);
                     }
                 }
-                if (this.obU != null) {
-                    return this.obU;
+                if (this.oTl != null) {
+                    return this.oTl;
                 } else if (this.g) {
                     return ArCoreApk.Availability.UNKNOWN_CHECKING;
                 } else {
@@ -70,23 +70,23 @@ public final class o extends ArCoreApk {
         }
     }
 
-    public final synchronized w gN(Context context) {
-        if (this.obV == null) {
+    public final synchronized w hh(Context context) {
+        if (this.oTm == null) {
             w wVar = new w((byte) 0);
             wVar.a(context.getApplicationContext());
-            this.obV = wVar;
+            this.oTm = wVar;
         }
-        return this.obV;
+        return this.oTm;
     }
 
     public final synchronized void b() {
-        if (this.f4043a == null) {
+        if (this.f4041a == null) {
             this.d = 0;
         }
         this.c = false;
-        if (this.obV != null) {
-            this.obV.a();
-            this.obV = null;
+        if (this.oTm != null) {
+            this.oTm.a();
+            this.oTm = null;
         }
     }
 

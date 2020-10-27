@@ -3,14 +3,14 @@ package com.baidu.helios.common.cc;
 class d {
     public static int c = 5;
     public static int d = 40;
-    private a axU = new a(d);
+    private a axV = new a(d);
 
     public d() {
-        this.axU.a(0, d, true);
+        this.axV.a(0, d, true);
     }
 
     public void a(a aVar, int i, int i2, int i3) {
-        a d2 = this.axU.d(i, i + i2);
+        a d2 = this.axV.d(i, i + i2);
         switch (i3) {
             case 0:
                 d2.b(aVar);
@@ -29,11 +29,11 @@ class d {
                 break;
         }
         for (int i4 = 0; i4 < i2; i4++) {
-            this.axU.a(i + i4, d2.d(i4));
+            this.axV.a(i + i4, d2.d(i4));
         }
     }
 
     public byte[] b() {
-        return this.axU.a();
+        return this.axV.a();
     }
 }

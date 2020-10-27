@@ -6,11 +6,11 @@ public class a extends HttpMessage {
     private String action;
     private int type;
 
-    public boolean Sq() {
+    public boolean Tq() {
         return this.type == 2;
     }
 
-    public boolean Sr() {
+    public boolean Tr() {
         return "ban".equals(this.action);
     }
 }

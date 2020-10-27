@@ -6,7 +6,7 @@ import java.io.File;
 public class c {
 
     /* renamed from: a  reason: collision with root package name */
-    public static int f4577a = 62;
+    public static int f4575a = 62;
     public static int b = 60;
     public static String c = "OpenSDK.Client.File.Tracer";
     public static String d = "Tencent" + File.separator + "msflogs" + File.separator + "com" + File.separator + "tencent" + File.separator + "mobileqq" + File.separator;

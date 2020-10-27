@@ -1,7 +1,7 @@
 package com.baidu.helios.channels.csc;
 /* loaded from: classes14.dex */
 public class a {
-    private static final byte[][] axm = {new byte[]{0, 0}, new byte[]{0, 1}, new byte[]{0, 2}, new byte[]{1, 0}, new byte[]{1, 1}, new byte[]{1, 2}, new byte[]{2, 0}, new byte[]{2, 1}};
+    private static final byte[][] axn = {new byte[]{0, 0}, new byte[]{0, 1}, new byte[]{0, 2}, new byte[]{1, 0}, new byte[]{1, 1}, new byte[]{1, 2}, new byte[]{2, 0}, new byte[]{2, 1}};
 
     /* renamed from: com.baidu.helios.channels.csc.a$a  reason: collision with other inner class name */
     /* loaded from: classes14.dex */
@@ -61,8 +61,8 @@ public class a {
             for (int i7 = 7; i7 >= 0; i7--) {
                 bArr2[i6] = (byte) ((bArr2[i6] << 1) | ((b2 >> i7) & 1));
                 if (i5 % 3 == 2) {
-                    bArr2[i6 + 1] = axm[bArr2[i6]][1];
-                    bArr2[i6] = axm[bArr2[i6]][0];
+                    bArr2[i6 + 1] = axn[bArr2[i6]][1];
+                    bArr2[i6] = axn[bArr2[i6]][0];
                     i6 += 2;
                 }
                 i5++;
@@ -76,8 +76,8 @@ public class a {
         }
         if (b > 0) {
             bArr2[i6] = (byte) (bArr2[i6] << b);
-            bArr2[i6 + 1] = axm[bArr2[i6]][1];
-            bArr2[i6] = axm[bArr2[i6]][0];
+            bArr2[i6 + 1] = axn[bArr2[i6]][1];
+            bArr2[i6] = axn[bArr2[i6]][0];
             bArr2[i6 + 2] = b;
         }
         return bArr2;

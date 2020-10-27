@@ -46,11 +46,11 @@ public class q implements com.baidu.g.a.b.c {
         }
         if (view instanceof CriusTbClipImageView) {
             float f = view.getResources().getDisplayMetrics().density;
-            if (aVar.auu > 0.0f) {
-                int D = D(aVar.auu, f);
-                ((CriusTbClipImageView) view).setRadius(D, D, D, D);
+            if (aVar.auv > 0.0f) {
+                int E = E(aVar.auv, f);
+                ((CriusTbClipImageView) view).setRadius(E, E, E, E);
             } else {
-                ((CriusTbClipImageView) view).setRadius(D(aVar.auv, f), D(aVar.auw, f), D(aVar.aux, f), D(aVar.auy, f));
+                ((CriusTbClipImageView) view).setRadius(E(aVar.auw, f), E(aVar.aux, f), E(aVar.auy, f), E(aVar.auz, f));
             }
             ((CriusTbClipImageView) view).startLoad(aVar.src, 30, false);
             return true;
@@ -109,7 +109,7 @@ public class q implements com.baidu.g.a.b.c {
         return true;
     }
 
-    private int D(float f, float f2) {
+    private int E(float f, float f2) {
         return (int) (Math.max(f, 0.0f) * f2);
     }
 }

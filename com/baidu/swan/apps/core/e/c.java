@@ -14,9 +14,9 @@ import com.baidu.swan.apps.res.widget.dialog.b;
 import com.baidu.swan.apps.res.widget.dialog.g;
 /* loaded from: classes10.dex */
 public class c extends com.baidu.swan.apps.res.widget.dialog.b {
-    private TextView cxH;
-    private SelectorTextView cxI;
-    private a cxJ;
+    private TextView cGd;
+    private SelectorTextView cGe;
+    private a cGf;
     private View mView;
 
     protected c(Context context) {
@@ -24,98 +24,98 @@ public class c extends com.baidu.swan.apps.res.widget.dialog.b {
     }
 
     public void a(a aVar) {
-        this.cxJ = aVar;
+        this.cGf = aVar;
     }
 
     @Override // com.baidu.swan.apps.res.widget.dialog.b
     protected View createContentView(ViewGroup viewGroup) {
         this.mView = LayoutInflater.from(this.mContext).inflate(a.g.aiapps_safe_dialog, viewGroup, false);
-        this.cxH = (TextView) this.mView.findViewById(a.f.safe_dialog_content);
-        this.cxH.setTextColor(getContext().getResources().getColor(a.c.aiapps_safe_dialog_message));
-        this.cxI = (SelectorTextView) this.mView.findViewById(a.f.safe_dialog_sub_content);
-        this.cxI.setTextColor(getContext().getResources().getColor(a.c.aiapps_safe_dialog_btn_blue));
-        alt();
+        this.cGd = (TextView) this.mView.findViewById(a.f.safe_dialog_content);
+        this.cGd.setTextColor(getContext().getResources().getColor(a.c.aiapps_safe_dialog_message));
+        this.cGe = (SelectorTextView) this.mView.findViewById(a.f.safe_dialog_sub_content);
+        this.cGe.setTextColor(getContext().getResources().getColor(a.c.aiapps_safe_dialog_btn_blue));
+        ann();
         return this.mView;
     }
 
-    private void alt() {
-        if (this.cxJ == null) {
+    private void ann() {
+        if (this.cGf == null) {
             return;
         }
-        this.cxH.setText(this.mContext.getText(this.cxJ.mMessageId));
-        this.cxH.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.swan.apps.core.e.c.1
+        this.cGd.setText(this.mContext.getText(this.cGf.mMessageId));
+        this.cGd.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.swan.apps.core.e.c.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                if (c.this.cxJ.cxO != null) {
-                    c.this.cxJ.cxO.onItemClick(view);
+                if (c.this.cGf.cGk != null) {
+                    c.this.cGf.cGk.onItemClick(view);
                 }
             }
         });
-        if (this.cxJ.cxL > 0) {
-            this.cxI.setVisibility(0);
-            this.cxI.setText(this.mContext.getText(this.cxJ.cxL));
-            this.cxI.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.swan.apps.core.e.c.2
+        if (this.cGf.cGh > 0) {
+            this.cGe.setVisibility(0);
+            this.cGe.setText(this.mContext.getText(this.cGf.cGh));
+            this.cGe.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.swan.apps.core.e.c.2
                 @Override // android.view.View.OnClickListener
                 public void onClick(View view) {
-                    if (c.this.cxJ.cxN != null) {
-                        c.this.cxJ.cxN.onItemClick(view);
+                    if (c.this.cGf.cGj != null) {
+                        c.this.cGf.cGj.onItemClick(view);
                     }
                 }
             });
         } else {
-            this.cxI.setVisibility(8);
+            this.cGe.setVisibility(8);
         }
-        if (this.cxJ.cxM <= 0) {
+        if (this.cGf.cGi <= 0) {
             return;
         }
-        Drawable drawable = this.mContext.getResources().getDrawable(this.cxJ.cxM);
+        Drawable drawable = this.mContext.getResources().getDrawable(this.cGf.cGi);
         z.decorateSrcATopMode(getContext(), drawable);
         drawable.setBounds(0, 0, ah.dip2px(this.mContext, 12.0f), ah.dip2px(this.mContext, 12.0f));
-        this.cxI.setCompoundDrawables(drawable, null, null, null);
+        this.cGe.setCompoundDrawables(drawable, null, null, null);
     }
 
     /* loaded from: classes10.dex */
-    public static class a extends b.C0443b {
-        private int cxL;
-        private int cxM;
-        public b.c cxN;
-        public b.c cxO;
+    public static class a extends b.C0457b {
+        private int cGh;
+        private int cGi;
+        public b.c cGj;
+        public b.c cGk;
         private int mMessageId;
 
         public a(Context context) {
             super(context);
         }
 
-        @Override // com.baidu.swan.apps.res.widget.dialog.b.C0443b, com.baidu.swan.apps.res.widget.dialog.g.a
+        @Override // com.baidu.swan.apps.res.widget.dialog.b.C0457b, com.baidu.swan.apps.res.widget.dialog.g.a
         protected g bX(Context context) {
             return new c(context);
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.swan.apps.res.widget.dialog.g.a
-        /* renamed from: hH */
-        public a hK(int i) {
-            super.hK(i);
+        /* renamed from: hS */
+        public a hV(int i) {
+            super.hV(i);
             return this;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.swan.apps.res.widget.dialog.g.a
-        /* renamed from: hI */
-        public a hJ(int i) {
+        /* renamed from: hT */
+        public a hU(int i) {
             this.mMessageId = i;
             return this;
         }
 
         public a a(int i, b.c cVar) {
             this.mMessageId = i;
-            this.cxO = cVar;
+            this.cGk = cVar;
             return this;
         }
 
-        @Override // com.baidu.swan.apps.res.widget.dialog.b.C0443b, com.baidu.swan.apps.res.widget.dialog.g.a
-        public g alu() {
-            c cVar = (c) super.alu();
+        @Override // com.baidu.swan.apps.res.widget.dialog.b.C0457b, com.baidu.swan.apps.res.widget.dialog.g.a
+        public g ano() {
+            c cVar = (c) super.ano();
             cVar.a(this);
             return cVar;
         }

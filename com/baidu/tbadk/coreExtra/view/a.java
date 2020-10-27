@@ -13,115 +13,115 @@ import com.baidu.tbadk.coreExtra.view.ImageViewerBottomLayout;
 import com.baidu.tieba.R;
 /* loaded from: classes21.dex */
 public class a {
-    private ImageViewerBottomLayout eUC;
-    private AbsFloorImageTextView eUD;
-    private LinearLayout eUE;
-    private boolean eUF = true;
-    private final ImageViewerBottomLayout.a eUG = new ImageViewerBottomLayout.a() { // from class: com.baidu.tbadk.coreExtra.view.a.1
+    private ImageViewerBottomLayout fcZ;
+    private AbsFloorImageTextView fda;
+    private LinearLayout fdb;
+    private boolean fdc = true;
+    private final ImageViewerBottomLayout.a fdd = new ImageViewerBottomLayout.a() { // from class: com.baidu.tbadk.coreExtra.view.a.1
         @Override // com.baidu.tbadk.coreExtra.view.ImageViewerBottomLayout.a
         public void a(ImageViewerBottomLayout imageViewerBottomLayout, boolean z) {
-            a.this.eUF = z;
-            MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2016496, Boolean.valueOf(a.this.eUF)));
-            a.this.jr(z);
+            a.this.fdc = z;
+            MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2016496, Boolean.valueOf(a.this.fdc)));
+            a.this.jE(z);
         }
     };
     private Context mContext;
 
     public a(@NonNull Context context, @NonNull RelativeLayout relativeLayout) {
         this.mContext = context;
-        this.eUE = new LinearLayout(context);
-        this.eUE.setOrientation(1);
-        this.eUE.setVisibility(8);
-        ap.a(this.eUE, R.color.cp_mask_b_alpha66, GradientDrawable.Orientation.BOTTOM_TOP);
+        this.fdb = new LinearLayout(context);
+        this.fdb.setOrientation(1);
+        this.fdb.setVisibility(8);
+        ap.a(this.fdb, R.color.cp_mask_b_alpha66, GradientDrawable.Orientation.BOTTOM_TOP);
         RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(-1, -2);
         layoutParams.addRule(12);
-        relativeLayout.addView(this.eUE, layoutParams);
-        btr();
-        btq();
+        relativeLayout.addView(this.fdb, layoutParams);
+        bvk();
+        bvj();
     }
 
-    private void btq() {
-        LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(-1, ImageViewerBottomLayout.eUI);
-        this.eUC = new ImageViewerBottomLayout(this.mContext);
-        this.eUE.addView(this.eUC, layoutParams);
-        this.eUC.setExpandButtonListener(this.eUG);
+    private void bvj() {
+        LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(-1, ImageViewerBottomLayout.fdf);
+        this.fcZ = new ImageViewerBottomLayout(this.mContext);
+        this.fdb.addView(this.fcZ, layoutParams);
+        this.fcZ.setExpandButtonListener(this.fdd);
     }
 
-    private void btr() {
+    private void bvk() {
         LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(-1, -2);
-        this.eUD = new FloorImageTextViewNew(this.mContext);
-        this.eUE.addView(this.eUD, layoutParams);
+        this.fda = new FloorImageTextViewNew(this.mContext);
+        this.fdb.addView(this.fda, layoutParams);
     }
 
-    public void jr(boolean z) {
-        if (this.eUD != null) {
-            this.eUD.jr(z);
+    public void jE(boolean z) {
+        if (this.fda != null) {
+            this.fda.jE(z);
         }
-        if (this.eUC != null) {
-            this.eUC.js(!z);
+        if (this.fcZ != null) {
+            this.fcZ.jF(!z);
         }
     }
 
     public void setUserId(String str) {
-        if (this.eUD != null) {
-            this.eUD.setUserId(str);
+        if (this.fda != null) {
+            this.fda.setUserId(str);
         }
-        if (this.eUC != null) {
-            this.eUC.setUserId(str);
+        if (this.fcZ != null) {
+            this.fcZ.setUserId(str);
         }
     }
 
     public void setAssistUrl(ImageUrlData imageUrlData) {
-        if (this.eUD != null) {
-            this.eUD.a(imageUrlData);
+        if (this.fda != null) {
+            this.fda.a(imageUrlData);
         }
-        if (this.eUC != null) {
-            this.eUC.b(imageUrlData);
+        if (this.fcZ != null) {
+            this.fcZ.b(imageUrlData);
         }
     }
 
-    private boolean bt(View view) {
+    private boolean bu(View view) {
         return view != null && view.getVisibility() == 0;
     }
 
     public boolean isShown() {
-        return bt(this.eUE);
+        return bu(this.fdb);
     }
 
-    public boolean bts() {
-        return this.eUF;
+    public boolean bvl() {
+        return this.fdc;
     }
 
     public void setVisibility(int i) {
-        if (this.eUE != null) {
-            this.eUE.clearAnimation();
-            this.eUE.setVisibility(i);
+        if (this.fdb != null) {
+            this.fdb.clearAnimation();
+            this.fdb.setVisibility(i);
         }
     }
 
-    public void bd(int i, int i2) {
+    public void be(int i, int i2) {
         if (i == 0) {
-            com.baidu.tieba.v.a.A(this.eUE, i2);
+            com.baidu.tieba.v.a.B(this.fdb, i2);
         } else {
-            com.baidu.tieba.v.a.z(this.eUE, i2);
+            com.baidu.tieba.v.a.A(this.fdb, i2);
         }
     }
 
     public void setOnShareImageListener(ImageViewerBottomLayout.c cVar) {
-        if (this.eUC != null) {
-            this.eUC.setOnShareImageListener(cVar);
+        if (this.fcZ != null) {
+            this.fcZ.setOnShareImageListener(cVar);
         }
     }
 
     public void setOnDownloadImageListener(ImageViewerBottomLayout.b bVar) {
-        if (this.eUC != null) {
-            this.eUC.setOnDownloadImageListener(bVar);
+        if (this.fcZ != null) {
+            this.fcZ.setOnDownloadImageListener(bVar);
         }
     }
 
     public void setOnReplyClickListener(View.OnClickListener onClickListener) {
-        if (this.eUC != null) {
-            this.eUC.setOnReplyClickListener(onClickListener);
+        if (this.fcZ != null) {
+            this.fcZ.setOnReplyClickListener(onClickListener);
         }
     }
 }

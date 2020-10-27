@@ -18,10 +18,10 @@ import java.util.Timer;
 final class bc extends WebViewClient {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ FeedbackHotActivity f3770a;
+    final /* synthetic */ FeedbackHotActivity f3768a;
 
     private bc(FeedbackHotActivity feedbackHotActivity) {
-        this.f3770a = feedbackHotActivity;
+        this.f3768a = feedbackHotActivity;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -41,14 +41,14 @@ final class bc extends WebViewClient {
         Timer timer2;
         Timer timer3;
         super.onPageFinished(webView, str);
-        view = this.f3770a.l;
+        view = this.f3768a.l;
         view.setVisibility(8);
         webView.requestFocus();
-        timer = this.f3770a.q;
+        timer = this.f3768a.q;
         if (timer != null) {
-            timer2 = this.f3770a.q;
+            timer2 = this.f3768a.q;
             timer2.cancel();
-            timer3 = this.f3770a.q;
+            timer3 = this.f3768a.q;
             timer3.purge();
         }
     }
@@ -59,11 +59,11 @@ final class bc extends WebViewClient {
         Timer timer;
         super.onPageStarted(webView, str, bitmap);
         webView.clearView();
-        view = this.f3770a.l;
+        view = this.f3768a.l;
         view.setVisibility(0);
-        this.f3770a.q = new Timer();
+        this.f3768a.q = new Timer();
         bd bdVar = new bd(this);
-        timer = this.f3770a.q;
+        timer = this.f3768a.q;
         timer.schedule(bdVar, 20000L);
     }
 
@@ -73,12 +73,12 @@ final class bc extends WebViewClient {
         LinearLayout linearLayout;
         WebView webView2;
         super.onReceivedError(webView, i, str, str2);
-        Context applicationContext = this.f3770a.getApplicationContext();
-        textView = this.f3770a.m;
+        Context applicationContext = this.f3768a.getApplicationContext();
+        textView = this.f3768a.m;
         com.baidu.ufosdk.f.i.a(applicationContext, textView);
-        linearLayout = this.f3770a.h;
+        linearLayout = this.f3768a.h;
         linearLayout.setVisibility(0);
-        webView2 = this.f3770a.j;
+        webView2 = this.f3768a.j;
         webView2.setVisibility(8);
     }
 
@@ -88,26 +88,26 @@ final class bc extends WebViewClient {
         com.baidu.ufosdk.f.c.a("webClick ==> click:url-->" + str);
         com.baidu.ufosdk.f.c.a("PluginInvoker.appid=" + UfoSDK.appid);
         if (str.startsWith("feedback://")) {
-            FeedbackHotActivity.a(this.f3770a, str);
+            FeedbackHotActivity.a(this.f3768a, str);
             return true;
         } else if (str.startsWith("solve://")) {
-            z = this.f3770a.s;
+            z = this.f3768a.s;
             if (z) {
                 return true;
             }
-            Toast.makeText(this.f3770a, com.baidu.ufosdk.f.s.a(SoUtils.SO_EVENT_ID_V8_SO), 0).show();
-            this.f3770a.s = true;
+            Toast.makeText(this.f3768a, com.baidu.ufosdk.f.s.a(SoUtils.SO_EVENT_ID_V8_SO), 0).show();
+            this.f3768a.s = true;
             return true;
         } else if (str.startsWith("backtoufo://")) {
-            this.f3770a.finish();
+            this.f3768a.finish();
             return true;
         } else if (str.startsWith("unsolved://")) {
-            this.f3770a.s = true;
+            this.f3768a.s = true;
             return true;
         } else if (str.startsWith(SapiUtils.COOKIE_HTTPS_URL_PREFIX) || str.startsWith("http://")) {
             try {
                 com.baidu.ufosdk.f.c.a(">>跳转链接：" + str);
-                this.f3770a.startActivity(new Intent("android.intent.action.VIEW", Uri.parse(str)));
+                this.f3768a.startActivity(new Intent("android.intent.action.VIEW", Uri.parse(str)));
                 return true;
             } catch (Exception e) {
                 e.printStackTrace();
@@ -119,11 +119,11 @@ final class bc extends WebViewClient {
                 Intent intent = new Intent();
                 intent.setAction("android.intent.action.VIEW");
                 intent.setData(Uri.parse(str));
-                this.f3770a.startActivity(intent);
+                this.f3768a.startActivity(intent);
                 return true;
             } catch (Exception e2) {
                 e2.printStackTrace();
-                Toast.makeText(this.f3770a.getApplicationContext(), "打开失败，未安装百度地图！", 0).show();
+                Toast.makeText(this.f3768a.getApplicationContext(), "打开失败，未安装百度地图！", 0).show();
                 return true;
             }
         } else {

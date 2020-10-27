@@ -9,89 +9,89 @@ import com.baidu.tieba.view.a;
 import java.util.ArrayList;
 /* loaded from: classes23.dex */
 public class e {
-    private com.baidu.tieba.person.e ehg;
-    private TbPageContext etO;
-    private al ijV;
-    private d ijW;
-    private com.baidu.tieba.view.a ijX;
-    private a ijY;
+    private TbPageContext eCn;
+    private com.baidu.tieba.person.e epE;
+    private al iwt;
+    private d iwu;
+    private com.baidu.tieba.view.a iwv;
+    private a iww;
 
     /* loaded from: classes23.dex */
     public interface a {
         void a(int i, String str, boolean z, int i2, long j);
 
-        void cqJ();
+        void ctQ();
     }
 
     public e(TbPageContext tbPageContext, BdUniqueId bdUniqueId) {
-        this.etO = tbPageContext;
-        this.ijW = new d(tbPageContext, bdUniqueId);
-        this.ijW.a(new d.a() { // from class: com.baidu.tieba.forbidden.fans.e.1
+        this.eCn = tbPageContext;
+        this.iwu = new d(tbPageContext, bdUniqueId);
+        this.iwu.a(new d.a() { // from class: com.baidu.tieba.forbidden.fans.e.1
             @Override // com.baidu.tieba.forbidden.fans.d.a
             public void l(int i, String str, boolean z) {
-                if (e.this.ijY != null) {
-                    e.this.ijY.a(i, str, z, 0, 0L);
+                if (e.this.iww != null) {
+                    e.this.iww.a(i, str, z, 0, 0L);
                 }
             }
         });
-        this.ijV = new al(tbPageContext, bdUniqueId);
-        this.ijV.a(new al.a() { // from class: com.baidu.tieba.forbidden.fans.e.2
+        this.iwt = new al(tbPageContext, bdUniqueId);
+        this.iwt.a(new al.a() { // from class: com.baidu.tieba.forbidden.fans.e.2
             @Override // com.baidu.tbadk.core.util.al.a
             public void a(int i, String str, long j, boolean z) {
-                if (e.this.ijY != null) {
-                    e.this.ijY.a(i, str, z, 1, j);
+                if (e.this.iww != null) {
+                    e.this.iww.a(i, str, z, 1, j);
                 }
             }
         });
     }
 
     public void removeAll() {
-        beZ();
+        bgS();
     }
 
-    public void fe(long j) {
-        this.ijV.cO(j);
+    public void ff(long j) {
+        this.iwt.cQ(j);
     }
 
-    private void beZ() {
-        if (this.ehg == null) {
-            this.ijX = new com.baidu.tieba.view.a(this.etO.getContext());
-            this.ijX.setTitleText(this.etO.getString(R.string.confirm_remove_all_forbidden_fans));
+    private void bgS() {
+        if (this.epE == null) {
+            this.iwv = new com.baidu.tieba.view.a(this.eCn.getContext());
+            this.iwv.setTitleText(this.eCn.getString(R.string.confirm_remove_all_forbidden_fans));
             ArrayList arrayList = new ArrayList();
-            a.C0840a c0840a = new a.C0840a(this.etO.getString(R.string.confirm), this.ijX);
-            c0840a.a(new a.c() { // from class: com.baidu.tieba.forbidden.fans.e.3
+            a.C0855a c0855a = new a.C0855a(this.eCn.getString(R.string.confirm), this.iwv);
+            c0855a.a(new a.c() { // from class: com.baidu.tieba.forbidden.fans.e.3
                 @Override // com.baidu.tieba.view.a.c
                 public void onClick() {
-                    e.this.ehg.dismiss();
-                    if (e.this.ijY != null) {
-                        e.this.ijY.cqJ();
+                    e.this.epE.dismiss();
+                    if (e.this.iww != null) {
+                        e.this.iww.ctQ();
                     }
-                    e.this.ijW.cqN();
+                    e.this.iwu.ctU();
                 }
             });
-            arrayList.add(c0840a);
-            this.ijX.a(new a.b() { // from class: com.baidu.tieba.forbidden.fans.e.4
+            arrayList.add(c0855a);
+            this.iwv.a(new a.b() { // from class: com.baidu.tieba.forbidden.fans.e.4
                 @Override // com.baidu.tieba.view.a.b
                 public void onClick() {
-                    if (e.this.ehg != null) {
-                        e.this.ehg.dismiss();
+                    if (e.this.epE != null) {
+                        e.this.epE.dismiss();
                     }
                 }
             });
-            this.ijX.ba(arrayList);
-            this.ehg = new com.baidu.tieba.person.e(this.etO.getPageActivity(), this.ijX.bkZ());
-            this.ehg.W(0.7f);
+            this.iwv.bk(arrayList);
+            this.epE = new com.baidu.tieba.person.e(this.eCn.getPageActivity(), this.iwv.bmS());
+            this.epE.Y(0.7f);
         }
-        this.ehg.show();
+        this.epE.show();
     }
 
     public void onChangeSkinType() {
-        if (this.ijX != null) {
-            this.ijX.onChangeSkinType();
+        if (this.iwv != null) {
+            this.iwv.onChangeSkinType();
         }
     }
 
     public void a(a aVar) {
-        this.ijY = aVar;
+        this.iww = aVar;
     }
 }

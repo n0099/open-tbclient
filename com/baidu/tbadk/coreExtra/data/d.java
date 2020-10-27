@@ -5,56 +5,56 @@ import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class d {
-    private int eNX;
-    private long eNY;
-    private long eNZ;
-    private String eOa;
-    public boolean eOk;
-    public String eOl;
-    public String eOm;
+    public boolean eWG;
+    public String eWH;
+    public String eWI;
+    private int eWt;
+    private long eWu;
+    private long eWv;
+    private String eWw;
     private String name;
     private String text_color;
     private String text_color_pressed;
     private String url;
-    private int eNU = 1;
-    private int eNW = 0;
-    private int eOb = 0;
-    private int eOc = 1;
-    private int eOd = 0;
-    private int eOe = 0;
-    private int eOf = 300;
-    private int eOg = 1;
-    public int eOh = 4;
-    public int eOi = 4;
-    public int eOj = 7;
-    private h eNV = new h();
+    private int eWq = 1;
+    private int eWs = 0;
+    private int eWx = 0;
+    private int eWy = 1;
+    private int eWz = 0;
+    private int eWA = 0;
+    private int eWB = 300;
+    private int eWC = 1;
+    public int eWD = 4;
+    public int eWE = 4;
+    public int eWF = 7;
+    private h eWr = new h();
 
     public void parserJson(JSONObject jSONObject) throws JSONException {
         if (jSONObject != null) {
-            this.eNU = jSONObject.optInt("als_control", 1);
-            this.eNW = jSONObject.optInt("not_use_lego_patch", 0);
-            this.eOc = jSONObject.optInt("ad_video_not_autoplay", 1);
-            this.eOe = jSONObject.optInt("lp_video_not_autoplay", 0);
-            this.eNV.parserJson(jSONObject);
+            this.eWq = jSONObject.optInt("als_control", 1);
+            this.eWs = jSONObject.optInt("not_use_lego_patch", 0);
+            this.eWy = jSONObject.optInt("ad_video_not_autoplay", 1);
+            this.eWA = jSONObject.optInt("lp_video_not_autoplay", 0);
+            this.eWr.parserJson(jSONObject);
             JSONObject optJSONObject = jSONObject.optJSONObject("log_feed_control");
             if (optJSONObject != null) {
-                this.eNX = optJSONObject.optInt("log_feed_switch", 0);
-                this.eNY = optJSONObject.optLong("start_time", -1L);
-                this.eNZ = optJSONObject.optLong("end_time", -1L);
-                this.eOa = optJSONObject.optString(UgcConstant.EXT_INFO);
+                this.eWt = optJSONObject.optInt("log_feed_switch", 0);
+                this.eWu = optJSONObject.optLong("start_time", -1L);
+                this.eWv = optJSONObject.optLong("end_time", -1L);
+                this.eWw = optJSONObject.optString(UgcConstant.EXT_INFO);
             }
-            this.eOb = jSONObject.optInt("ad_collect_switch", 0);
+            this.eWx = jSONObject.optInt("ad_collect_switch", 0);
             JSONObject optJSONObject2 = jSONObject.optJSONObject("splash");
             if (optJSONObject2 != null) {
-                this.eOf = optJSONObject2.optInt("interval", 300);
+                this.eWB = optJSONObject2.optInt("interval", 300);
             }
-            this.eOg = jSONObject.optInt("video_page_style", 1);
-            this.eOd = jSONObject.optInt("ad_download_lib", 0);
+            this.eWC = jSONObject.optInt("video_page_style", 1);
+            this.eWz = jSONObject.optInt("ad_download_lib", 0);
             JSONObject optJSONObject3 = jSONObject.optJSONObject("afd_sync_config");
             if (optJSONObject3 != null) {
-                this.eOh = optJSONObject3.optInt("first_floor");
-                this.eOi = optJSONObject3.optInt("prefetch_step");
-                this.eOj = optJSONObject3.optInt("step");
+                this.eWD = optJSONObject3.optInt("first_floor");
+                this.eWE = optJSONObject3.optInt("prefetch_step");
+                this.eWF = optJSONObject3.optInt("step");
             }
             JSONObject optJSONObject4 = jSONObject.optJSONObject("action_control");
             if (optJSONObject4 != null) {
@@ -63,60 +63,60 @@ public class d {
                 this.text_color = optJSONObject4.optString("text_color");
                 this.text_color_pressed = optJSONObject4.optString("text_color_pressed");
             }
-            this.eOk = jSONObject.optInt("afd_jump_pb") == 1;
-            this.eOl = jSONObject.optString("afd_eid");
+            this.eWG = jSONObject.optInt("afd_jump_pb") == 1;
+            this.eWH = jSONObject.optString("afd_eid");
             JSONObject optJSONObject5 = jSONObject.optJSONObject("iadex_sniff_list_url");
             if (optJSONObject5 != null) {
-                this.eOm = optJSONObject5.optString("os_type2_iadex_url");
-                com.baidu.tbadk.util.c.DN(this.eOm);
+                this.eWI = optJSONObject5.optString("os_type2_iadex_url");
+                com.baidu.tbadk.util.c.Eg(this.eWI);
                 return;
             }
-            com.baidu.tbadk.util.c.DN(null);
+            com.baidu.tbadk.util.c.Eg(null);
         }
     }
 
-    public h bpU() {
-        return this.eNV;
+    public h brN() {
+        return this.eWr;
     }
 
-    public boolean bpV() {
-        return this.eNU > 0;
+    public boolean brO() {
+        return this.eWq > 0;
     }
 
-    public boolean bpW() {
-        if (this.eNX == 1) {
+    public boolean brP() {
+        if (this.eWt == 1) {
             long currentTimeMillis = System.currentTimeMillis() / 1000;
-            return this.eNY < currentTimeMillis && currentTimeMillis < this.eNZ;
+            return this.eWu < currentTimeMillis && currentTimeMillis < this.eWv;
         }
         return false;
     }
 
-    public boolean bpX() {
-        return this.eOc == 1;
+    public boolean brQ() {
+        return this.eWy == 1;
     }
 
-    public boolean bpY() {
-        return this.eOe == 1;
+    public boolean brR() {
+        return this.eWA == 1;
     }
 
-    public String bpZ() {
-        return this.eOa;
+    public String brS() {
+        return this.eWw;
     }
 
-    public boolean bqa() {
-        return this.eOb == 1;
+    public boolean brT() {
+        return this.eWx == 1;
     }
 
-    public int bqb() {
-        return this.eOf;
+    public int brU() {
+        return this.eWB;
     }
 
-    public int bqc() {
-        return this.eOg;
+    public int brV() {
+        return this.eWC;
     }
 
-    public boolean bqd() {
-        return this.eOd == 0;
+    public boolean brW() {
+        return this.eWz == 0;
     }
 
     public String getUrl() {

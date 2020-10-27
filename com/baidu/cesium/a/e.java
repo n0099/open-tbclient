@@ -3,14 +3,14 @@ package com.baidu.cesium.a;
 class e {
     public static int c = 5;
     public static int d = 40;
-    private b alY = new b(d);
+    private b alZ = new b(d);
 
     public e() {
-        this.alY.a(0, d, true);
+        this.alZ.a(0, d, true);
     }
 
     public void a(b bVar, int i, int i2, int i3) {
-        b d2 = this.alY.d(i, i + i2);
+        b d2 = this.alZ.d(i, i + i2);
         switch (i3) {
             case 0:
                 d2.b(bVar);
@@ -29,11 +29,11 @@ class e {
                 break;
         }
         for (int i4 = 0; i4 < i2; i4++) {
-            this.alY.a(i + i4, d2.d(i4));
+            this.alZ.a(i + i4, d2.d(i4));
         }
     }
 
     public byte[] b() {
-        return this.alY.a();
+        return this.alZ.a();
     }
 }

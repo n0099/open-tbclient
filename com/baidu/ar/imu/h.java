@@ -14,7 +14,7 @@ public class h implements Observer {
     private g rR;
 
     /* renamed from: rx  reason: collision with root package name */
-    private i f1195rx;
+    private i f1192rx;
     private float[] rS = new float[16];
     private float rT = -1.0f;
     private float rU = 10000.0f;
@@ -31,8 +31,8 @@ public class h implements Observer {
     private j a(b bVar, SensorManager sensorManager) {
         j kVar;
         if (bVar != b.RELATIVE) {
-            kVar = this.f1195rx.fc() ? new k(sensorManager) : new d(sensorManager);
-        } else if (this.f1195rx.eZ()) {
+            kVar = this.f1192rx.fc() ? new k(sensorManager) : new d(sensorManager);
+        } else if (this.f1192rx.eZ()) {
             kVar = new e(sensorManager);
             if (!this.rV) {
                 kVar.sm = true;
@@ -108,14 +108,14 @@ public class h implements Observer {
         if (iVar == null) {
             return false;
         }
-        this.f1195rx = iVar;
+        this.f1192rx = iVar;
         this.rR = gVar;
-        if (this.f1195rx.eX() == b.RELATIVE && !this.f1195rx.eZ()) {
+        if (this.f1192rx.eX() == b.RELATIVE && !this.f1192rx.eZ()) {
             this.rV = true;
         }
         try {
             if (this.rQ == null) {
-                this.rQ = a(this.f1195rx.eX(), sensorManager);
+                this.rQ = a(this.f1192rx.eX(), sensorManager);
             }
             if (this.rQ.fd()) {
                 this.rQ.start();
@@ -130,14 +130,14 @@ public class h implements Observer {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public void stop() {
-        if (this.rQ != null && this.f1195rx != null && this.f1195rx.eX() == b.RELATIVE && !this.rW && this.f1195rx.eZ()) {
+        if (this.rQ != null && this.f1192rx != null && this.f1192rx.eX() == b.RELATIVE && !this.rW && this.f1192rx.eZ()) {
             this.hj = this.rQ.sn.matrix;
             this.rW = true;
         }
         try {
             eW();
             this.rR = null;
-            this.f1195rx = null;
+            this.f1192rx = null;
         } catch (Throwable th) {
             th.printStackTrace();
         }
@@ -146,22 +146,22 @@ public class h implements Observer {
     @Override // java.util.Observer
     public void update(Observable observable, Object obj) {
         try {
-            if (this.f1195rx == null || this.rR == null) {
+            if (this.f1192rx == null || this.rR == null) {
                 return;
             }
             float[] fArr = this.rQ.fe().matrix;
-            if (this.f1195rx.fb() || this.f1195rx.fa()) {
+            if (this.f1192rx.fb() || this.f1192rx.fa()) {
                 i(fArr);
             }
             float[] ff = this.rQ.ff();
             f fVar = new f();
-            if (this.f1195rx.fa()) {
+            if (this.f1192rx.fa()) {
                 fVar.setMatrix(this.rS);
             } else {
                 fVar.setMatrix(fArr);
             }
             fVar.f(this.rM);
-            fVar.K(this.f1195rx.eY());
+            fVar.K(this.f1192rx.eY());
             fVar.h(ff);
             this.rR.onImuUpdate(fVar);
         } catch (Throwable th) {

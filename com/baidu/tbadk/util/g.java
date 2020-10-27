@@ -14,13 +14,13 @@ public class g {
     private g() {
     }
 
-    public static g bzd() {
-        return a.fka;
+    public static g bAW() {
+        return a.fsz;
     }
 
     /* loaded from: classes.dex */
     private static class a {
-        private static g fka = new g();
+        private static g fsz = new g();
     }
 
     public String getLocalMacAddress(Context context) {
@@ -62,15 +62,15 @@ public class g {
         }
     }
 
-    public String bze() {
+    public String bAX() {
         return Build.VERSION.RELEASE;
     }
 
-    public String bzf() {
+    public String bAY() {
         return Build.MODEL;
     }
 
-    public String bzg() {
+    public String bAZ() {
         return Build.DEVICE;
     }
 

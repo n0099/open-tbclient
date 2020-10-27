@@ -10,9 +10,9 @@ import com.baidu.tieba.R;
 import tbclient.SimpleUser;
 /* loaded from: classes22.dex */
 public class b {
-    private LinearLayout fDn;
-    private TbSettingTextTipView fDo;
-    private TbSettingTextTipView fDp;
+    private LinearLayout fLI;
+    private TbSettingTextTipView fLJ;
+    private TbSettingTextTipView fLK;
     private BaseActivity mActivity;
     private final View.OnClickListener mOnClickListener;
     private LinearLayout mRootLayout;
@@ -20,28 +20,28 @@ public class b {
     public b(BaseActivity baseActivity, View.OnClickListener onClickListener) {
         this.mActivity = baseActivity;
         this.mOnClickListener = onClickListener;
-        btD();
+        bvw();
     }
 
-    private void btD() {
+    private void bvw() {
         this.mRootLayout = (LinearLayout) LayoutInflater.from(this.mActivity).inflate(R.layout.account_safe_activity, (ViewGroup) null);
-        this.fDn = (LinearLayout) this.mRootLayout.findViewById(R.id.content_container);
-        this.fDo = (TbSettingTextTipView) this.mRootLayout.findViewById(R.id.bar_record);
-        this.fDp = (TbSettingTextTipView) this.mRootLayout.findViewById(R.id.account_status);
-        this.fDo.btF();
-        this.fDp.btF();
-        this.fDo.setOnClickListener(this.mOnClickListener);
-        this.fDp.setOnClickListener(this.mOnClickListener);
+        this.fLI = (LinearLayout) this.mRootLayout.findViewById(R.id.content_container);
+        this.fLJ = (TbSettingTextTipView) this.mRootLayout.findViewById(R.id.bar_record);
+        this.fLK = (TbSettingTextTipView) this.mRootLayout.findViewById(R.id.account_status);
+        this.fLJ.bvy();
+        this.fLK.bvy();
+        this.fLJ.setOnClickListener(this.mOnClickListener);
+        this.fLK.setOnClickListener(this.mOnClickListener);
     }
 
-    public void qE(int i) {
+    public void qP(int i) {
         this.mActivity.getLayoutMode().setNightMode(i == 1);
         this.mActivity.getLayoutMode().onModeChanged(this.mRootLayout);
     }
 
     public void a(SimpleUser simpleUser) {
         if (simpleUser != null) {
-            this.fDp.setTip(simpleUser.block_msg);
+            this.fLK.setTip(simpleUser.block_msg);
         }
     }
 

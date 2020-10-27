@@ -26,7 +26,7 @@ public class x implements aq {
     }
 
     @Override // com.baidu.swan.apps.adaptation.a.aq
-    public ExecutorService adx() {
+    public ExecutorService afr() {
         return null;
     }
 }

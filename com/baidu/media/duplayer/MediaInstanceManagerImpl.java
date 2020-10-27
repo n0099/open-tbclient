@@ -43,27 +43,29 @@ public class MediaInstanceManagerImpl extends MediaInstanceManagerProvider {
     private native void updateTimestamp(int i, long j);
 
     @Override // com.baidu.cyberplayer.sdk.MediaInstanceManagerProvider
-    public void activeInstance(int i) {
+    public synchronized void activeInstance(int i) {
         int activePlayer;
+        MediaInstanceManagerProvider.OnClientInstanceHandler onClientInstanceHandler;
+        MediaInstanceManagerProvider.OnClientInstanceHandler onClientInstanceHandler2;
         if (this.e && (activePlayer = activePlayer(i)) > 0) {
             if (this.b.contains(Integer.valueOf(i))) {
                 WeakReference<MediaInstanceManagerProvider.OnClientInstanceHandler> weakReference = this.f2253a.get(String.valueOf(i));
-                if (weakReference.get() != null) {
-                    weakReference.get().onResumeInstance();
-                } else {
+                if (weakReference == null || (onClientInstanceHandler2 = weakReference.get()) == null) {
                     unRegisterPlayer(i);
                     this.f2253a.remove(String.valueOf(i));
+                } else {
+                    onClientInstanceHandler2.onResumeInstance();
                 }
                 this.b.remove(Integer.valueOf(i));
             }
             WeakReference<MediaInstanceManagerProvider.OnClientInstanceHandler> weakReference2 = this.f2253a.get(String.valueOf(activePlayer));
-            if (weakReference2.get() != null) {
-                weakReference2.get().onDestroyInstance();
+            if (weakReference2 == null || (onClientInstanceHandler = weakReference2.get()) == null) {
+                unRegisterPlayer(activePlayer);
+                this.f2253a.remove(String.valueOf(activePlayer));
+            } else {
+                onClientInstanceHandler.onDestroyInstance();
                 this.b.add(Integer.valueOf(activePlayer));
-                return;
             }
-            unRegisterPlayer(activePlayer);
-            this.f2253a.remove(String.valueOf(activePlayer));
         }
     }
 

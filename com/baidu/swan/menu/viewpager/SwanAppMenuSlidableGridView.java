@@ -52,29 +52,29 @@ public class SwanAppMenuSlidableGridView extends SlideableGridView {
 
     @Override // com.baidu.swan.menu.viewpager.SlideableGridView
     protected void dJ(Context context) {
-        this.dSQ = new com.baidu.swan.menu.viewpager.a(context).aC(g.c.menu_indicator_normal, g.c.menu_indicator_selected).mr((int) getResources().getDimension(g.b.common_grid_indicator_margin));
-        this.dSR[0] = (int) getResources().getDimension(g.b.aiapp_menu_gridview_indicator_height);
-        this.dSR[1] = (int) getResources().getDimension(g.b.aiapp_menu_gridview_indicator_height);
-        addView(this.dSQ, aWl());
+        this.ebm = new com.baidu.swan.menu.viewpager.a(context).aD(g.c.menu_indicator_normal, g.c.menu_indicator_selected).mC((int) getResources().getDimension(g.b.common_grid_indicator_margin));
+        this.ebn[0] = (int) getResources().getDimension(g.b.aiapp_menu_gridview_indicator_height);
+        this.ebn[1] = (int) getResources().getDimension(g.b.aiapp_menu_gridview_indicator_height);
+        addView(this.ebm, aYe());
     }
 
     @Override // com.baidu.swan.menu.viewpager.SlideableGridView
-    protected int aWk() {
+    protected int aYd() {
         return (int) getResources().getDimension(g.b.aiapp_menu_gridview_indicator_height);
     }
 
     @Override // com.baidu.swan.menu.viewpager.SlideableGridView
-    protected void aWm() {
+    protected void aYf() {
         SlideableGridView.a gridItemAdapter = getGridItemAdapter();
         int pageCount = gridItemAdapter == null ? 0 : gridItemAdapter.getPageCount();
         boolean z = pageCount > 1;
-        int i = !z ? this.dSR[0] : this.dSR[1];
+        int i = !z ? this.ebn[0] : this.ebn[1];
         if (!z) {
-            this.dSQ.setVisibility(8);
+            this.ebm.setVisibility(8);
             return;
         }
-        this.dSQ.setVisibility(0);
-        this.dSQ.mq(pageCount);
-        this.dSQ.getLayoutParams().height = i;
+        this.ebm.setVisibility(0);
+        this.ebm.mB(pageCount);
+        this.ebm.getLayoutParams().height = i;
     }
 }

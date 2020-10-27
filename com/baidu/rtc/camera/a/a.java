@@ -7,31 +7,31 @@ import com.baidu.rtc.camera.a.d;
 /* loaded from: classes11.dex */
 public class a {
     private static final String TAG = a.class.getSimpleName();
-    private com.baidu.rtc.camera.filter.a.a bYG;
+    private com.baidu.rtc.camera.filter.a.a che;
     private Context mContext;
-    private c bYF = null;
-    private volatile boolean bYH = false;
+    private c chd = null;
+    private volatile boolean chf = false;
 
     public a(Context context, com.baidu.rtc.camera.filter.a.a aVar) {
         this.mContext = context;
-        this.bYG = aVar;
-        ZF();
+        this.che = aVar;
+        abz();
     }
 
-    public void ZE() {
-        ZF();
+    public void aby() {
+        abz();
     }
 
-    private void ZF() {
-        this.bYH = false;
-        if (this.bYF != null) {
-            this.bYF.release();
-            this.bYF = new c(this.mContext);
+    private void abz() {
+        this.chf = false;
+        if (this.chd != null) {
+            this.chd.release();
+            this.chd = new c(this.mContext);
         }
-        if (this.bYF == null) {
-            this.bYF = new c(this.mContext);
+        if (this.chd == null) {
+            this.chd = new c(this.mContext);
         }
-        this.bYF.a(this.bYG.getEGLContext(), new d.a() { // from class: com.baidu.rtc.camera.a.a.1
+        this.chd.a(this.che.getEGLContext(), new d.a() { // from class: com.baidu.rtc.camera.a.a.1
             @Override // com.baidu.rtc.camera.a.d.a
             public void onFormatChanged(MediaFormat mediaFormat) {
             }
@@ -42,34 +42,34 @@ public class a {
 
             @Override // com.baidu.rtc.camera.a.d.a
             public void onCodecData(byte[] bArr, int i, int i2, int i3, long j) {
-                if (b.ZG().bYK != null) {
-                    b.ZG().bYK.a(bArr, i, i2, i3 == 2 ? 1 : 0, j);
+                if (b.abA().chi != null) {
+                    b.abA().chi.a(bArr, i, i2, i3 == 2 ? 1 : 0, j);
                 }
             }
 
             @Override // com.baidu.rtc.camera.a.d.a
             public void onCodecError(int i) {
                 Log.e(a.TAG, "setupTextureEncoder onCodecError -- " + i);
-                a.this.bYH = true;
-                if (b.ZG().bYK != null) {
-                    b.ZG().bYK.onError(i);
+                a.this.chf = true;
+                if (b.abA().chi != null) {
+                    b.abA().chi.onError(i);
                 }
             }
         });
     }
 
     public void g(int i, long j) {
-        if (this.bYH) {
-            ZF();
+        if (this.chf) {
+            abz();
         }
-        if (this.bYF != null) {
-            this.bYF.h(i, j);
+        if (this.chd != null) {
+            this.chd.h(i, j);
         }
     }
 
     public void release() {
-        if (this.bYF != null) {
-            this.bYF.release();
+        if (this.chd != null) {
+            this.chd.release();
         }
     }
 }

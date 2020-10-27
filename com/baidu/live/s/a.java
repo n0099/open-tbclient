@@ -1,35 +1,11 @@
 package com.baidu.live.s;
-
-import android.content.Context;
 /* loaded from: classes4.dex */
-public class a {
-    public String aTk;
-    public long boc;
-    public Context context;
-    public boolean isHost;
-    public int liveType;
-    public String otherParams;
-    public String portrait;
-    public long userId;
-    public String userName;
+public interface a {
+    void hM(String str);
 
-    public a(Context context, int i, long j, boolean z, String str) {
-        this.context = context;
-        this.liveType = i;
-        this.userId = j;
-        this.isHost = z;
-        this.portrait = str;
-        this.otherParams = "";
-    }
+    void pause();
 
-    public a(Context context, int i, long j, boolean z, String str, String str2, String str3, long j2) {
-        this.context = context;
-        this.liveType = i;
-        this.userId = j;
-        this.isHost = z;
-        this.portrait = str;
-        this.otherParams = str2;
-        this.aTk = str3;
-        this.boc = j2;
-    }
+    void release();
+
+    void resume();
 }

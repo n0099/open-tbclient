@@ -25,16 +25,16 @@ import com.baidu.tieba.NEGFeedBack.NEGFeedBackView;
 import java.util.ArrayList;
 /* loaded from: classes22.dex */
 public class b extends com.baidu.adp.widget.ListView.a<bo, am<bo>> implements com.baidu.tieba.a.f {
-    private String aht;
-    private com.baidu.tbadk.h.f aiL;
-    private v alC;
-    public BdUniqueId fey;
-    private NEGFeedBackView.a gAR;
+    private String ahu;
+    private com.baidu.tbadk.h.f aiM;
+    private v alD;
+    public BdUniqueId fmX;
+    private NEGFeedBackView.a gMF;
     private TbPageContext<?> mPageContext;
 
     public b(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId) {
         super(tbPageContext.getPageActivity(), bdUniqueId);
-        this.aiL = new com.baidu.tbadk.h.f<MetaData>() { // from class: com.baidu.tieba.homepage.tabfeed.a.b.1
+        this.aiM = new com.baidu.tbadk.h.f<MetaData>() { // from class: com.baidu.tieba.homepage.tabfeed.a.b.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.tbadk.h.f
             public void a(View view, MetaData metaData, int i, long j) {
@@ -51,7 +51,7 @@ public class b extends com.baidu.adp.widget.ListView.a<bo, am<bo>> implements co
                 }
             }
         };
-        this.gAR = new NEGFeedBackView.a() { // from class: com.baidu.tieba.homepage.tabfeed.a.b.2
+        this.gMF = new NEGFeedBackView.a() { // from class: com.baidu.tieba.homepage.tabfeed.a.b.2
             @Override // com.baidu.tieba.NEGFeedBack.NEGFeedBackView.a
             public void onNEGFeedbackWindowShow(ar arVar) {
             }
@@ -76,7 +76,7 @@ public class b extends com.baidu.adp.widget.ListView.a<bo, am<bo>> implements co
     }
 
     public void a(v vVar) {
-        this.alC = vVar;
+        this.alD = vVar;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -85,15 +85,15 @@ public class b extends com.baidu.adp.widget.ListView.a<bo, am<bo>> implements co
     /* renamed from: aT */
     public am c(ViewGroup viewGroup) {
         ak.a aVar = new ak.a(this.mPageContext.getPageActivity(), false);
-        com.baidu.tieba.homepage.concern.view.b bVar = new com.baidu.tieba.homepage.concern.view.b(this.mPageContext, this.fey);
-        bVar.setOnItemCoverListener(this.aiL);
+        com.baidu.tieba.homepage.concern.view.b bVar = new com.baidu.tieba.homepage.concern.view.b(this.mPageContext, this.fmX);
+        bVar.setOnItemCoverListener(this.aiM);
         aVar.c(bVar);
         aVar.tU().bz(0);
         aVar.tU().bB(0);
         aVar.tU().bA(0);
         aVar.tU().bv(0);
-        am amVar = new am(aVar.a(true, viewGroup, this.alC));
-        amVar.setPageId(this.fey);
+        am amVar = new am(aVar.a(true, viewGroup, this.alD));
+        amVar.setPageId(this.fmX);
         return amVar;
     }
 
@@ -106,7 +106,7 @@ public class b extends com.baidu.adp.widget.ListView.a<bo, am<bo>> implements co
         }
         amVar.tW().setPosition(i);
         if (amVar.tW() instanceof com.baidu.tieba.a.e) {
-            amVar.tW().setPage(this.aht);
+            amVar.tW().setPage(this.ahu);
         }
         amVar.b((am<bo>) boVar);
         amVar.tW().onChangeSkinType(this.mPageContext, TbadkCoreApplication.getInst().getSkinType());
@@ -130,7 +130,7 @@ public class b extends com.baidu.adp.widget.ListView.a<bo, am<bo>> implements co
                 this.mNetwork.setUrl(TbConfig.SERVER_ADDRESS + TbConfig.CONCERN_RECOMMEND_FEEDBACK);
                 this.mNetwork.addPostData("dislike_from", "concernpage");
                 this.mNetwork.addPostData("dislike_type", "1");
-                this.mNetwork.bmu().bna().mIsNeedTbs = true;
+                this.mNetwork.bon().boT().mIsNeedTbs = true;
                 return this.mNetwork.postNetData();
             } catch (Exception e) {
                 BdLog.e(e.getMessage());
@@ -156,7 +156,7 @@ public class b extends com.baidu.adp.widget.ListView.a<bo, am<bo>> implements co
     }
 
     @Override // com.baidu.tieba.a.f
-    public void Es(String str) {
-        this.aht = str;
+    public void EL(String str) {
+        this.ahu = str;
     }
 }

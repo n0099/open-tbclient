@@ -6,5 +6,5 @@ import java.util.List;
 /* loaded from: classes10.dex */
 public interface y {
     @Nullable
-    List<ContentValues> adg();
+    List<ContentValues> afa();
 }

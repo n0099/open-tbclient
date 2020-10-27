@@ -69,7 +69,7 @@ import java.util.regex.Pattern;
 public final class m {
 
     /* renamed from: a  reason: collision with root package name */
-    public static int f1155a = -1;
+    public static int f1152a = -1;
     private static final String[] b = {"android.permission.INTERNET", "android.permission.ACCESS_NETWORK_STATE"};
     private static int c = -1;
 
@@ -232,7 +232,7 @@ public final class m {
     public static synchronized void a(Context context, boolean z) {
         synchronized (m.class) {
             try {
-                f1155a = z ? 1 : 0;
+                f1152a = z ? 1 : 0;
                 SharedPreferences.Editor edit = context.getSharedPreferences("com.baidu.pushservice.BIND_CACHE", 0).edit();
                 edit.putBoolean("bind_status", z);
                 edit.commit();
@@ -1066,13 +1066,13 @@ public final class m {
     public static synchronized boolean j(Context context) {
         boolean z;
         synchronized (m.class) {
-            if (f1155a == -1) {
+            if (f1152a == -1) {
                 try {
-                    f1155a = context.getSharedPreferences("com.baidu.pushservice.BIND_CACHE", 0).getBoolean("bind_status", false) ? 1 : 0;
+                    f1152a = context.getSharedPreferences("com.baidu.pushservice.BIND_CACHE", 0).getBoolean("bind_status", false) ? 1 : 0;
                 } catch (Exception e) {
                 }
             }
-            z = f1155a == 1;
+            z = f1152a == 1;
         }
         return z;
     }

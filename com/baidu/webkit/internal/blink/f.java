@@ -6,16 +6,16 @@ import com.baidu.webkit.sdk.WebViewFactory;
 final class f implements Runnable {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ d.b f3932a;
+    final /* synthetic */ d.b f3930a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public f(d.b bVar) {
-        this.f3932a = bVar;
+        this.f3930a = bVar;
     }
 
     @Override // java.lang.Runnable
     public final void run() {
         WebViewFactory.getProvider();
-        this.f3932a.a();
+        this.f3930a.a();
     }
 }

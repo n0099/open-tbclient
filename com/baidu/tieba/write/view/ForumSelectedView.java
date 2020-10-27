@@ -18,8 +18,8 @@ import com.baidu.tbadk.core.util.ap;
 import com.baidu.tieba.R;
 /* loaded from: classes3.dex */
 public class ForumSelectedView extends RelativeLayout implements View.OnClickListener {
-    private ImageView eFB;
-    private TextView ixw;
+    private ImageView eNX;
+    private TextView iJS;
     private ImageView mIconView;
     private View mLineView;
     private int mSkinType;
@@ -42,9 +42,9 @@ public class ForumSelectedView extends RelativeLayout implements View.OnClickLis
     private void init() {
         LayoutInflater.from(getContext()).inflate(R.layout.cell_forum_selected_layout, (ViewGroup) this, true);
         this.mIconView = (ImageView) findViewById(R.id.cell_forum_selected_icon);
-        this.ixw = (TextView) findViewById(R.id.cell_forum_selected_name);
+        this.iJS = (TextView) findViewById(R.id.cell_forum_selected_name);
         this.mTipView = (TextView) findViewById(R.id.cell_forum_selected_tip);
-        this.eFB = (ImageView) findViewById(R.id.cell_forum_selected_arrow);
+        this.eNX = (ImageView) findViewById(R.id.cell_forum_selected_arrow);
         this.mLineView = findViewById(R.id.cell_forum_selected_line);
         setOnClickListener(this);
         onChangeSkinType();
@@ -52,7 +52,7 @@ public class ForumSelectedView extends RelativeLayout implements View.OnClickLis
 
     public void setSelectedForum(String str) {
         this.mTipView.setVisibility(8);
-        this.ixw.setText(str);
+        this.iJS.setText(str);
     }
 
     @Override // android.view.View.OnClickListener
@@ -65,11 +65,11 @@ public class ForumSelectedView extends RelativeLayout implements View.OnClickLis
         if (skinType != this.mSkinType) {
             this.mSkinType = skinType;
             ap.setBackgroundResource(this, R.drawable.forum_selected_view_bg);
-            SvgManager.bmU().a(this.mIconView, R.drawable.icon_pure_card_ba16_svg, R.color.cp_cont_b, SvgManager.SvgResourceStateType.NORMAL);
-            ap.setViewTextColor(this.ixw, R.color.cp_cont_b);
+            SvgManager.boN().a(this.mIconView, R.drawable.icon_pure_card_ba16_svg, R.color.cp_cont_b, SvgManager.SvgResourceStateType.NORMAL);
+            ap.setViewTextColor(this.iJS, R.color.cp_cont_b);
             ap.setBackgroundResource(this.mTipView, R.drawable.forum_selected_tip_bg);
             ap.setViewTextColor(this.mTipView, R.color.cp_cont_d);
-            SvgManager.bmU().a(this.eFB, R.drawable.icon_pure_list_arrow16_right_svg, R.color.cp_cont_j, SvgManager.SvgResourceStateType.NORMAL);
+            SvgManager.boN().a(this.eNX, R.drawable.icon_pure_list_arrow16_right_svg, R.color.cp_cont_j, SvgManager.SvgResourceStateType.NORMAL);
             ap.setBackgroundColor(this.mLineView, R.color.cp_bg_line_b);
         }
     }

@@ -33,7 +33,7 @@ public class d {
         return i2;
     }
 
-    public static float u(double d) {
+    public static float v(double d) {
         return (float) (ah.getDensity(AppRuntime.getAppContext()) * d);
     }
 }

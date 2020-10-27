@@ -7,39 +7,39 @@ import android.view.ViewGroup;
 import com.baidu.live.sdk.a;
 /* loaded from: classes4.dex */
 public class h {
-    private boolean bpm;
-    private View gQv;
-    private ViewGroup gQw;
+    private boolean bqZ;
+    private View hci;
+    private ViewGroup hcj;
     private Activity mActivity;
     private View mRootView;
 
     public h(Activity activity, View view) {
         this.mActivity = activity;
-        this.gQv = view;
-        this.gQw = (ViewGroup) view.getParent();
+        this.hci = view;
+        this.hcj = (ViewGroup) view.getParent();
         this.mRootView = LayoutInflater.from(this.mActivity).inflate(a.h.ala_sdk_scene_loading_view, (ViewGroup) null);
     }
 
     public void dismiss() {
-        this.bpm = false;
+        this.bqZ = false;
         if (this.mRootView != null && this.mRootView.getParent() != null) {
             ((ViewGroup) this.mRootView.getParent()).removeView(this.mRootView);
         }
     }
 
     public void show() {
-        if (!this.mActivity.isFinishing() && this.gQv != null && this.gQw != null && !this.bpm) {
-            this.bpm = true;
+        if (!this.mActivity.isFinishing() && this.hci != null && this.hcj != null && !this.bqZ) {
+            this.bqZ = true;
             if (this.mRootView.getParent() != null) {
                 ((ViewGroup) this.mRootView.getParent()).removeView(this.mRootView);
             }
-            this.gQw.addView(this.mRootView, this.gQw.indexOfChild(this.gQv) + 1, this.gQv.getLayoutParams());
+            this.hcj.addView(this.mRootView, this.hcj.indexOfChild(this.hci) + 1, this.hci.getLayoutParams());
         }
     }
 
     public void dI(int i) {
-        if (this.bpm && this.gQv != null && this.mRootView != null) {
-            this.mRootView.setLayoutParams(this.gQv.getLayoutParams());
+        if (this.bqZ && this.hci != null && this.mRootView != null) {
+            this.mRootView.setLayoutParams(this.hci.getLayoutParams());
         }
     }
 }

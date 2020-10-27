@@ -7,174 +7,174 @@ import java.util.HashSet;
 import java.util.List;
 /* loaded from: classes9.dex */
 public class d {
-    private static volatile d dXq;
-    private int dXA;
-    private int dXB;
-    private HashSet<String> dXr = new HashSet<>();
-    private HashSet<String> dXs = new HashSet<>();
-    private HashSet<String> dXt = new HashSet<>();
-    private HashSet<String> dXu = new HashSet<>();
-    private HashMap<String, String> dXv = new HashMap<>();
-    private HashMap<String, String> dXw = new HashMap<>();
-    private HashMap<String, h> dXx = new HashMap<>();
-    private HashSet<String> dXy = new HashSet<>();
-    private int dXz;
+    private static volatile d efM;
+    private HashSet<String> efN = new HashSet<>();
+    private HashSet<String> efO = new HashSet<>();
+    private HashSet<String> efP = new HashSet<>();
+    private HashSet<String> efQ = new HashSet<>();
+    private HashMap<String, String> efR = new HashMap<>();
+    private HashMap<String, String> efS = new HashMap<>();
+    private HashMap<String, h> efT = new HashMap<>();
+    private HashSet<String> efU = new HashSet<>();
+    private int efV;
+    private int efW;
+    private int efX;
     private Context mContext;
 
     private d() {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public static d aYV() {
-        if (dXq == null) {
+    public static d baO() {
+        if (efM == null) {
             synchronized (d.class) {
-                if (dXq == null) {
-                    dXq = new d();
+                if (efM == null) {
+                    efM = new d();
                 }
             }
         }
-        return dXq;
+        return efM;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public void a(c cVar, Context context) {
         this.mContext = context;
-        this.dXz = 360000;
-        u aZH = u.aZH();
-        this.dXA = aZH.getInt("ubc_data_expire_time", 259200000);
-        this.dXB = aZH.getInt("ubc_database_limit", 4000);
-        cVar.aYS().a(this.dXr, this.dXu, this.dXs, this.dXt, this.dXv, this.dXw, this.dXx, this.dXy);
+        this.efV = 360000;
+        u bbA = u.bbA();
+        this.efW = bbA.getInt("ubc_data_expire_time", 259200000);
+        this.efX = bbA.getInt("ubc_database_limit", 4000);
+        cVar.baL().a(this.efN, this.efQ, this.efO, this.efP, this.efR, this.efS, this.efT, this.efU);
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public void aI(List<g> list) {
+    public void aS(List<g> list) {
         for (g gVar : list) {
-            if ("0".equals(gVar.aZb())) {
-                this.dXr.add(gVar.getId());
+            if ("0".equals(gVar.baU())) {
+                this.efN.add(gVar.getId());
             } else {
-                this.dXr.remove(gVar.getId());
+                this.efN.remove(gVar.getId());
             }
-            if ("1".equals(gVar.aZc())) {
-                this.dXs.add(gVar.getId());
+            if ("1".equals(gVar.baV())) {
+                this.efO.add(gVar.getId());
             } else {
-                this.dXs.remove(gVar.getId());
+                this.efO.remove(gVar.getId());
             }
-            if ("1".equals(gVar.aZd())) {
-                this.dXt.add(gVar.getId());
+            if ("1".equals(gVar.baW())) {
+                this.efP.add(gVar.getId());
             } else {
-                this.dXt.remove(gVar.getId());
+                this.efP.remove(gVar.getId());
             }
-            if (gVar.aZe() >= 1 && gVar.aZe() <= 100) {
-                this.dXv.put(gVar.getId(), String.valueOf(gVar.aZe()));
+            if (gVar.baX() >= 1 && gVar.baX() <= 100) {
+                this.efR.put(gVar.getId(), String.valueOf(gVar.baX()));
             } else {
-                this.dXv.remove(gVar.getId());
+                this.efR.remove(gVar.getId());
             }
             if (!TextUtils.isEmpty(gVar.getCategory())) {
-                this.dXw.put(gVar.getId(), gVar.getCategory());
+                this.efS.put(gVar.getId(), gVar.getCategory());
             } else {
-                this.dXw.remove(gVar.getId());
+                this.efS.remove(gVar.getId());
             }
-            if (gVar.aZg() != 0 && gVar.aZf() != 0) {
-                h hVar = new h(gVar.getId(), gVar.aZg(), gVar.aZf());
-                this.dXx.put(hVar.getId(), hVar);
+            if (gVar.baZ() != 0 && gVar.baY() != 0) {
+                h hVar = new h(gVar.getId(), gVar.baZ(), gVar.baY());
+                this.efT.put(hVar.getId(), hVar);
             }
-            if (TextUtils.equals(gVar.aZh(), "1")) {
-                this.dXy.add(gVar.getId());
+            if (TextUtils.equals(gVar.bba(), "1")) {
+                this.efU.add(gVar.getId());
             } else {
-                this.dXy.remove(gVar.getId());
+                this.efU.remove(gVar.getId());
             }
         }
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public boolean ae(String str, int i) {
-        if (this.dXr.contains(str)) {
+        if (this.efN.contains(str)) {
             return false;
         }
         if ((i & 16) != 0 || (i & 32) != 0) {
-            return this.dXu.contains(str);
+            return this.efQ.contains(str);
         }
         return true;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public boolean yg(String str) {
-        if (e.aYZ().ayG()) {
+    public boolean yz(String str) {
+        if (e.baS().aAA()) {
             return true;
         }
-        return this.dXs.contains(str);
+        return this.efO.contains(str);
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public boolean yh(String str) {
-        return this.dXt.contains(str);
+    public boolean yA(String str) {
+        return this.efP.contains(str);
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public String yi(String str) {
-        return this.dXw.containsKey(str) ? this.dXw.get(str) : "";
+    public String yB(String str) {
+        return this.efS.containsKey(str) ? this.efS.get(str) : "";
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public int aYW() {
-        return this.dXz;
+    public int baP() {
+        return this.efV;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public void mL(int i) {
-        if (i * 60000 >= this.dXz) {
-            this.dXz = i * 60000;
+    public void mW(int i) {
+        if (i * 60000 >= this.efV) {
+            this.efV = i * 60000;
         }
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public int aYX() {
-        return this.dXA;
+    public int baQ() {
+        return this.efW;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public void mM(int i) {
-        if (i >= this.dXA) {
-            this.dXA = i;
-            u.aZH().putInt("ubc_data_expire_time", i);
+    public void mX(int i) {
+        if (i >= this.efW) {
+            this.efW = i;
+            u.bbA().putInt("ubc_data_expire_time", i);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public int aYY() {
-        return this.dXB;
+    public int baR() {
+        return this.efX;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public void mN(int i) {
-        if (i >= this.dXB) {
-            this.dXB = i;
-            u.aZH().putInt("ubc_database_limit", i);
+    public void mY(int i) {
+        if (i >= this.efX) {
+            this.efX = i;
+            u.bbA().putInt("ubc_database_limit", i);
         }
     }
 
-    public int yj(String str) {
-        if (e.aYZ().ayH() || TextUtils.isEmpty(str) || !this.dXv.containsKey(str)) {
+    public int yC(String str) {
+        if (e.baS().aAB() || TextUtils.isEmpty(str) || !this.efR.containsKey(str)) {
             return 0;
         }
-        return Integer.parseInt(this.dXv.get(str));
+        return Integer.parseInt(this.efR.get(str));
     }
 
-    public boolean yk(String str) {
-        if (this.dXx == null || !this.dXx.containsKey(str)) {
+    public boolean yD(String str) {
+        if (this.efT == null || !this.efT.containsKey(str)) {
             return false;
         }
-        return this.dXx.get(str).aZi();
+        return this.efT.get(str).bbb();
     }
 
-    public boolean yl(String str) {
-        if (this.dXx == null || !this.dXx.containsKey(str)) {
+    public boolean yE(String str) {
+        if (this.efT == null || !this.efT.containsKey(str)) {
             return false;
         }
-        return this.dXx.get(str).aZj();
+        return this.efT.get(str).bbc();
     }
 
-    public String ym(String str) {
-        return (TextUtils.isEmpty(str) || !this.dXy.contains(str)) ? "0" : "1";
+    public String yF(String str) {
+        return (TextUtils.isEmpty(str) || !this.efU.contains(str)) ? "0" : "1";
     }
 }

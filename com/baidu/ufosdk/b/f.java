@@ -11,20 +11,20 @@ import com.baidu.ufosdk.f.j;
 public final class f {
 
     /* renamed from: a  reason: collision with root package name */
-    private static Display f3704a;
+    private static Display f3702a;
     private static int b;
     private static int c;
 
     public static String a(Context context) {
         if (b == 0) {
-            if (f3704a == null) {
-                f3704a = ((WindowManager) context.getSystemService("window")).getDefaultDisplay();
+            if (f3702a == null) {
+                f3702a = ((WindowManager) context.getSystemService("window")).getDefaultDisplay();
             }
             Point point = new Point();
             if (j.a() < 13) {
-                point.set(f3704a.getWidth(), f3704a.getHeight());
+                point.set(f3702a.getWidth(), f3702a.getHeight());
             } else {
-                f3704a.getSize(point);
+                f3702a.getSize(point);
             }
             b = point.x;
             c = point.y;

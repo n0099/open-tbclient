@@ -23,7 +23,7 @@ public class QuickLoginInfo extends SwanAppIPCData {
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // android.os.Parcelable.Creator
-        /* renamed from: lk */
+        /* renamed from: lv */
         public QuickLoginInfo[] newArray(int i) {
             return new QuickLoginInfo[i];
         }
@@ -47,12 +47,12 @@ public class QuickLoginInfo extends SwanAppIPCData {
             return null;
         }
         QuickLoginInfo quickLoginInfo = new QuickLoginInfo();
-        quickLoginInfo.supportQuickLogin = aVar.aKe();
-        quickLoginInfo.encryptPhoneNum = aVar.aKf();
-        quickLoginInfo.serviceAgreement = aVar.aKh();
-        quickLoginInfo.hasHistory = aVar.aKg();
-        quickLoginInfo.loginMode = aVar.aKd();
-        quickLoginInfo.agreeText = aVar.aKi();
+        quickLoginInfo.supportQuickLogin = aVar.aLY();
+        quickLoginInfo.encryptPhoneNum = aVar.aLZ();
+        quickLoginInfo.serviceAgreement = aVar.aMb();
+        quickLoginInfo.hasHistory = aVar.aMa();
+        quickLoginInfo.loginMode = aVar.aLX();
+        quickLoginInfo.agreeText = aVar.aMc();
         return quickLoginInfo;
     }
 

@@ -159,7 +159,7 @@ public class a {
 
     /* renamed from: com.baidu.mapapi.walknavi.model.a$a  reason: collision with other inner class name */
     /* loaded from: classes7.dex */
-    public static class C0226a {
+    public static class C0240a {
 
         /* renamed from: a  reason: collision with root package name */
         private String f2176a;

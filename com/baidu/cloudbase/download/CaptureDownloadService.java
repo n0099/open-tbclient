@@ -26,7 +26,7 @@ public class CaptureDownloadService extends Service {
 
     /* loaded from: classes9.dex */
     public static class a extends com.baidu.cloudbase.download.a.a {
-        public a.a.a.b.a amW;
+        public a.a.a.b.a amX;
         public int mLastProgress;
         public long mLastTime;
         public LocalBroadcastManager mLocalBroadcastManager;
@@ -34,7 +34,7 @@ public class CaptureDownloadService extends Service {
 
         public a(int i, a.a.a.b.a aVar, Context context) {
             this.mPosition = i;
-            this.amW = aVar;
+            this.amX = aVar;
             this.mLocalBroadcastManager = LocalBroadcastManager.getInstance(context);
         }
 
@@ -59,14 +59,14 @@ public class CaptureDownloadService extends Service {
         @Override // com.baidu.cloudbase.download.a.a
         public void c(DownloadException downloadException) {
             downloadException.printStackTrace();
-            a.a.a.b.a aVar = this.amW;
+            a.a.a.b.a aVar = this.amX;
             aVar.g = 5;
             a(aVar);
         }
 
         @Override // com.baidu.cloudbase.download.a.a
         public void onCompleted(String str) {
-            a.a.a.b.a aVar = this.amW;
+            a.a.a.b.a aVar = this.amX;
             aVar.g = 6;
             aVar.e = 100;
             aVar.h = str;
@@ -75,7 +75,7 @@ public class CaptureDownloadService extends Service {
 
         @Override // com.baidu.cloudbase.download.a.a
         public void onDownloadCanceled() {
-            a.a.a.b.a aVar = this.amW;
+            a.a.a.b.a aVar = this.amX;
             aVar.g = 0;
             aVar.e = 0;
             aVar.f = "";
@@ -84,7 +84,7 @@ public class CaptureDownloadService extends Service {
 
         @Override // com.baidu.cloudbase.download.a.a
         public void onDownloadPaused() {
-            a.a.a.b.a aVar = this.amW;
+            a.a.a.b.a aVar = this.amX;
             aVar.g = 4;
             a(aVar);
         }
@@ -94,12 +94,12 @@ public class CaptureDownloadService extends Service {
             if (this.mLastTime == 0) {
                 this.mLastTime = System.currentTimeMillis();
             }
-            a.a.a.b.a aVar = this.amW;
+            a.a.a.b.a aVar = this.amX;
             aVar.g = 3;
             aVar.e = i;
             aVar.f = com.baidu.cloudbase.download.b.a.getDownloadPerSize(j, j2);
             if (checkSendBroadLimit(i)) {
-                a(this.amW);
+                a(this.amX);
             }
         }
     }
@@ -202,7 +202,7 @@ public class CaptureDownloadService extends Service {
             if (!TextUtils.isEmpty(stringExtra)) {
                 try {
                     JSONObject jSONObject = new JSONObject(stringExtra);
-                    aVar.f953a = jSONObject.optString("name");
+                    aVar.f950a = jSONObject.optString("name");
                     aVar.b = jSONObject.optString("id");
                     aVar.c = jSONObject.optString("image");
                     aVar.d = jSONObject.optString("url");

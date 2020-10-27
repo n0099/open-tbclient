@@ -7,26 +7,26 @@ import java.lang.ref.SoftReference;
 /* loaded from: classes11.dex */
 public final class d extends Thread {
     private static boolean bC = false;
-    private final Context anN;
-    private final SoftReference<Looper> apV;
-    private SoftReference<Handler> apW;
-    private final int apX;
-    private volatile int apY;
-    private a apZ;
-    private final Runnable aqa;
+    private final Context anO;
+    private final SoftReference<Looper> apW;
+    private SoftReference<Handler> apX;
+    private final int apY;
+    private volatile int apZ;
+    private a aqa;
+    private final Runnable aqb;
 
     private d(Context context, int i) {
-        this.apV = new SoftReference<>(Looper.getMainLooper());
-        this.apY = 0;
-        this.aqa = new e(this);
-        this.anN = context;
-        this.apX = 3000;
+        this.apW = new SoftReference<>(Looper.getMainLooper());
+        this.apZ = 0;
+        this.aqb = new e(this);
+        this.anO = context;
+        this.apY = 3000;
         switch (i) {
             case 1:
-                this.apZ = new b(context);
+                this.aqa = new b(context);
                 return;
             case 2:
-                this.apZ = new c(context);
+                this.aqa = new c(context);
                 return;
             default:
                 return;
@@ -51,17 +51,17 @@ public final class d extends Thread {
             if (isInterrupted()) {
                 break;
             }
-            i = this.apY;
-            if (this.apV.get() == null) {
+            i = this.apZ;
+            if (this.apW.get() == null) {
                 bC = false;
                 break;
             }
             try {
-                if (this.apW == null || this.apW.get() == null) {
-                    this.apW = new SoftReference<>(new Handler(this.apV.get()));
+                if (this.apX == null || this.apX.get() == null) {
+                    this.apX = new SoftReference<>(new Handler(this.apW.get()));
                 }
-                this.apW.get().post(this.aqa);
-                Thread.sleep(this.apX);
+                this.apX.get().post(this.aqb);
+                Thread.sleep(this.apY);
                 if (com.baidu.crabsdk.a.I == 0) {
                     bC = false;
                     com.baidu.crabsdk.c.a.dB("anr watch thread is breakdown!");
@@ -70,11 +70,11 @@ public final class d extends Thread {
             } catch (Exception e) {
                 com.baidu.crabsdk.c.a.w("AnrWatchThread Exception: " + e.getMessage());
             }
-        } while (this.apY != i);
-        if (this.anN != null && !com.baidu.crabsdk.a.J) {
+        } while (this.apZ != i);
+        if (this.anO != null && !com.baidu.crabsdk.a.J) {
             com.baidu.crabsdk.c.a.dA("onAppNotResponding!");
-            if (this.apZ != null) {
-                this.apZ.e("/data/anr/traces.txt");
+            if (this.aqa != null) {
+                this.aqa.e("/data/anr/traces.txt");
             }
         }
         bC = false;

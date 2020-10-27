@@ -10,16 +10,16 @@ import java.util.List;
 import tv.chushou.zues.utils.h;
 /* loaded from: classes6.dex */
 public class a {
-    private C0899a ohW = new C0899a();
+    private C0971a oZl = new C0971a();
 
     /* renamed from: a  reason: collision with root package name */
-    private LinkedList<ChatInfo> f4108a = new LinkedList<>();
+    private LinkedList<ChatInfo> f4106a = new LinkedList<>();
     private LinkedList<ChatInfo> b = new LinkedList<>();
 
     public void a() {
-        if (this.f4108a != null) {
-            this.f4108a.clear();
-            this.f4108a = null;
+        if (this.f4106a != null) {
+            this.f4106a.clear();
+            this.f4106a = null;
         }
         if (this.b != null) {
             this.b.clear();
@@ -28,19 +28,19 @@ public class a {
     }
 
     public void b() {
-        if (this.f4108a != null) {
-            synchronized (this.f4108a) {
-                this.f4108a.clear();
+        if (this.f4106a != null) {
+            synchronized (this.f4106a) {
+                this.f4106a.clear();
             }
         }
     }
 
     public void a(ArrayList<ChatInfo> arrayList) {
-        if (this.f4108a != null) {
-            synchronized (this.f4108a) {
+        if (this.f4106a != null) {
+            synchronized (this.f4106a) {
                 c(arrayList);
-                this.f4108a.addAll(arrayList);
-                Collections.sort(this.f4108a, this.ohW);
+                this.f4106a.addAll(arrayList);
+                Collections.sort(this.f4106a, this.oZl);
             }
         }
     }
@@ -54,7 +54,7 @@ public class a {
             }
             ChatInfo chatInfo = arrayList.get(i);
             if (chatInfo.mAnimationStage > 1 && !h.isEmpty(chatInfo.mUserID)) {
-                a(this.f4108a, chatInfo);
+                a(this.f4106a, chatInfo);
                 if (a(arrayList.subList(0, i), chatInfo)) {
                     z = true;
                     break;
@@ -67,11 +67,11 @@ public class a {
         }
     }
 
-    public ChatInfo egS() {
-        if (this.f4108a != null) {
-            synchronized (this.f4108a) {
-                if (this.f4108a.size() > 0) {
-                    return this.f4108a.removeFirst();
+    public ChatInfo eqS() {
+        if (this.f4106a != null) {
+            synchronized (this.f4106a) {
+                if (this.f4106a.size() > 0) {
+                    return this.f4106a.removeFirst();
                 }
             }
         }
@@ -79,9 +79,9 @@ public class a {
     }
 
     public boolean d() {
-        if (this.f4108a != null) {
-            synchronized (this.f4108a) {
-                r0 = this.f4108a.size() > 0;
+        if (this.f4106a != null) {
+            synchronized (this.f4106a) {
+                r0 = this.f4106a.size() > 0;
             }
         }
         return r0;
@@ -103,7 +103,7 @@ public class a {
         }
     }
 
-    public ChatInfo egT() {
+    public ChatInfo eqT() {
         if (this.b != null) {
             synchronized (this.b) {
                 if (this.b.size() > 0) {
@@ -150,8 +150,8 @@ public class a {
 
     /* renamed from: com.kascend.chushou.player.a$a  reason: collision with other inner class name */
     /* loaded from: classes6.dex */
-    private class C0899a implements Comparator<ChatInfo> {
-        private C0899a() {
+    private class C0971a implements Comparator<ChatInfo> {
+        private C0971a() {
         }
 
         /* JADX DEBUG: Method merged with bridge method */

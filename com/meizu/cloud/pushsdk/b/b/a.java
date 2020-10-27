@@ -5,7 +5,7 @@ import com.meizu.cloud.pushsdk.b.c.k;
 public class a extends Exception {
 
     /* renamed from: a  reason: collision with root package name */
-    private String f4319a;
+    private String f4317a;
     private int b;
     private String c;
     private k d;
@@ -41,10 +41,10 @@ public class a extends Exception {
     }
 
     public void b(String str) {
-        this.f4319a = str;
+        this.f4317a = str;
     }
 
     public String c() {
-        return this.f4319a;
+        return this.f4317a;
     }
 }

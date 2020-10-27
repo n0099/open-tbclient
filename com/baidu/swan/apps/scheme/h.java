@@ -44,27 +44,27 @@ public class h extends UnitedSchemeBaseDispatcher {
             String optString = optParamsAsJo.optString("orderInfo");
             String optString2 = optParamsAsJo.optString("version");
             String optString3 = optParamsAsJo.optString("cb");
-            com.baidu.swan.apps.runtime.e aDa = com.baidu.swan.apps.runtime.e.aDa();
-            if (aDa == null) {
+            com.baidu.swan.apps.runtime.e aEU = com.baidu.swan.apps.runtime.e.aEU();
+            if (aEU == null) {
                 unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
                 return false;
-            } else if (aDa.aCU() == null) {
+            } else if (aEU.aEO() == null) {
                 unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
                 return false;
             } else {
-                com.baidu.swan.apps.aa.b bVar = new com.baidu.swan.apps.aa.b(aDa, unitedSchemeEntity, callbackHandler, optString2, aDa.getAppKey(), optString3);
+                com.baidu.swan.apps.aa.b bVar = new com.baidu.swan.apps.aa.b(aEU, unitedSchemeEntity, callbackHandler, optString2, aEU.getAppKey(), optString3);
                 if ("requestPayment".equals(path)) {
                     com.baidu.swan.apps.console.c.i("SwanWalletDispatcher", "start PAYMENT");
-                    return bVar.bX("mapp_request_duxiaoman", optString);
+                    return bVar.ce("mapp_request_duxiaoman", optString);
                 } else if ("requestAliPayment".equals(path)) {
                     com.baidu.swan.apps.console.c.i("SwanWalletDispatcher", "start ALI PAYMENT");
-                    return bVar.bX("mapp_request_alipayment", optString);
+                    return bVar.ce("mapp_request_alipayment", optString);
                 } else if ("requestPolymerPayment".equals(path)) {
                     com.baidu.swan.apps.console.c.i("SwanWalletDispatcher", "start POLYMER PAYMENT");
                     return bVar.f(optString, optParamsAsJo);
                 } else if (TextUtils.equals("requestWeChatPayment", path)) {
                     com.baidu.swan.apps.console.c.i("SwanWalletDispatcher", "start WECHAT HTML5 PAYMENT");
-                    return bVar.bX("mapp_request_wechatpayment", optString);
+                    return bVar.ce("mapp_request_wechatpayment", optString);
                 } else {
                     unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
                     return false;

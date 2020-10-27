@@ -6,18 +6,18 @@ import com.baidu.adp.widget.ListView.af;
 import com.baidu.adp.widget.ListView.af.a;
 /* loaded from: classes21.dex */
 public abstract class a<T, V extends af.a> extends com.baidu.adp.widget.ListView.a<T, V> {
-    private boolean kJv;
+    private boolean kVS;
 
     /* JADX INFO: Access modifiers changed from: protected */
     public a(Context context, BdUniqueId bdUniqueId) {
         super(context, bdUniqueId);
     }
 
-    public void ta(boolean z) {
-        this.kJv = z;
+    public void tr(boolean z) {
+        this.kVS = z;
     }
 
-    public boolean cZP() {
-        return this.kJv;
+    public boolean dcX() {
+        return this.kVS;
     }
 }

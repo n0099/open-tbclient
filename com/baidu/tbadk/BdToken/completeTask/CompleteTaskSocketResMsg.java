@@ -23,11 +23,11 @@ public class CompleteTaskSocketResMsg extends SocketResponsedMessage {
             if (completeTaskResIdl.data != null) {
                 this.mData = new a();
                 this.mData.showType = completeTaskResIdl.data.show_type.intValue();
-                this.mData.efc = completeTaskResIdl.data.ahead_type.intValue();
+                this.mData.enA = completeTaskResIdl.data.ahead_type.intValue();
                 this.mData.message = completeTaskResIdl.data.message;
                 this.mData.btnText = completeTaskResIdl.data.btn_text;
-                this.mData.edP = completeTaskResIdl.data.btn_confirm;
-                this.mData.edQ = completeTaskResIdl.data.btn_cancel;
+                this.mData.eml = completeTaskResIdl.data.btn_confirm;
+                this.mData.emm = completeTaskResIdl.data.btn_cancel;
                 this.mData.duration = completeTaskResIdl.data.toast_duration.intValue();
                 this.mData.imgUrl = completeTaskResIdl.data.img_url;
                 this.mData.url = completeTaskResIdl.data.url;
@@ -38,9 +38,9 @@ public class CompleteTaskSocketResMsg extends SocketResponsedMessage {
                 this.mData.btn_color = completeTaskResIdl.data.btn_color;
                 this.mData.message_color = completeTaskResIdl.data.message_color;
                 this.mData.btn_text_color = completeTaskResIdl.data.btn_text_color;
-                this.mData.efd = completeTaskResIdl.data.interface_type.intValue();
+                this.mData.enB = completeTaskResIdl.data.interface_type.intValue();
                 this.mData.opacity = completeTaskResIdl.data.opacity.doubleValue();
-                this.mData.efi = completeTaskResIdl.data.is_not_complete.intValue();
+                this.mData.enG = completeTaskResIdl.data.is_not_complete.intValue();
             }
         }
     }

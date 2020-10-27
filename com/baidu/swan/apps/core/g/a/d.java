@@ -9,52 +9,52 @@ import java.util.List;
 /* loaded from: classes10.dex */
 public class d {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    private volatile boolean bbf;
-    private com.baidu.swan.apps.core.g.a cyf;
-    private final boolean cyg;
-    private volatile String cyh;
-    private long cyi;
-    private long cyj;
-    private boolean cyk;
+    private volatile boolean bcs;
+    private com.baidu.swan.apps.core.g.a cGB;
+    private final boolean cGC;
+    private volatile String cGD;
+    private long cGE;
+    private long cGF;
+    private boolean cGG;
     private final List<c> mCallbacks = new ArrayList();
 
     private d(boolean z, boolean z2) {
-        this.cyg = z;
-        this.cyk = z2;
+        this.cGC = z;
+        this.cGG = z2;
     }
 
     public boolean isLoaded() {
-        return !TextUtils.isEmpty(this.cyh);
+        return !TextUtils.isEmpty(this.cGD);
     }
 
-    public String alC() {
-        return this.cyh;
+    public String anw() {
+        return this.cGD;
     }
 
-    public void mC(String str) {
-        this.cyh = str;
+    public void mV(String str) {
+        this.cGD = str;
     }
 
     public boolean isReady() {
-        return this.bbf;
+        return this.bcs;
     }
 
     public boolean isDefault() {
-        return this.cyg;
+        return this.cGC;
     }
 
-    public com.baidu.swan.apps.core.g.a alD() {
-        return this.cyf;
+    public com.baidu.swan.apps.core.g.a anx() {
+        return this.cGB;
     }
 
-    public long alE() {
-        return this.cyj - this.cyi;
+    public long any() {
+        return this.cGF - this.cGE;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public synchronized void a(c cVar) {
         if (cVar != null) {
-            if (this.bbf) {
+            if (this.bcs) {
                 if (DEBUG) {
                     Log.d("PreloadMasterManager", "is Ready , call back immediately");
                 }
@@ -66,7 +66,7 @@ public class d {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public synchronized void alF() {
+    public synchronized void anz() {
         if (DEBUG) {
             Log.d("PreloadMasterManager", "notifyAllReady, callback size " + this.mCallbacks.size());
         }
@@ -88,15 +88,15 @@ public class d {
             if (DEBUG) {
                 Log.e("PreloadMasterManager", "prefetch appId is empty");
             }
-        } else if (this.cyf == null) {
+        } else if (this.cGB == null) {
             if (DEBUG) {
                 Log.i("PreloadMasterManager", "mMasterManager not create yet, can not prefetch");
             }
-        } else if (this.cyg && !isLoaded()) {
+        } else if (this.cGC && !isLoaded()) {
             if (DEBUG) {
                 Log.i("PreloadMasterManager", "default blank master can not use to prefetch");
             }
-        } else if (isLoaded() && !TextUtils.equals(str, this.cyh)) {
+        } else if (isLoaded() && !TextUtils.equals(str, this.cGD)) {
             if (DEBUG) {
                 Log.e("PreloadMasterManager", "one master can only prefetch one appId");
             }
@@ -105,12 +105,12 @@ public class d {
                 Log.i("PreloadMasterManager", "intercept for current prefetch event - " + str);
             }
         } else {
-            this.cyh = str;
+            this.cGD = str;
             a(new c() { // from class: com.baidu.swan.apps.core.g.a.d.1
                 @Override // com.baidu.swan.apps.core.g.a.c
                 public void onReady() {
-                    if (d.this.cyf != null && d.this.cyf.afd() != null && !d.this.cyf.afd().isDestroyed()) {
-                        com.baidu.swan.apps.event.a.a(d.this.cyf.afd(), bVar);
+                    if (d.this.cGB != null && d.this.cGB.agX() != null && !d.this.cGB.agX().isDestroyed()) {
+                        com.baidu.swan.apps.event.a.a(d.this.cGB.agX(), bVar);
                     }
                 }
             });
@@ -130,20 +130,20 @@ public class d {
             Log.d("PreloadMasterManager", "start create a blank preload master manager, is default - " + z + ",is v8 - " + z2);
         }
         d dVar = new d(z, z2);
-        dVar.cyi = System.currentTimeMillis();
+        dVar.cGE = System.currentTimeMillis();
         long currentTimeMillis = DEBUG ? System.currentTimeMillis() : 0L;
-        dVar.cyf = com.baidu.swan.apps.core.turbo.d.ann().a(z2, new g() { // from class: com.baidu.swan.apps.core.g.a.d.2
+        dVar.cGB = com.baidu.swan.apps.core.turbo.d.aph().a(z2, new g() { // from class: com.baidu.swan.apps.core.g.a.d.2
             @Override // com.baidu.swan.apps.core.g
-            public void hG(String str) {
-                super.hG(str);
+            public void hO(String str) {
+                super.hO(str);
                 if (d.DEBUG) {
                     Log.d("PreloadMasterManager", "prepareMaster finish. url: " + str);
                 }
-                d.this.bbf = true;
-                d.this.cyj = System.currentTimeMillis();
-                d.this.alF();
+                d.this.bcs = true;
+                d.this.cGF = System.currentTimeMillis();
+                d.this.anz();
                 if (d.DEBUG) {
-                    Log.d("PreloadMasterManager", "createBlankOne cost - " + d.this.alE() + "ms");
+                    Log.d("PreloadMasterManager", "createBlankOne cost - " + d.this.any() + "ms");
                 }
             }
         });

@@ -9,7 +9,7 @@ import java.util.HashMap;
 import java.util.Map;
 /* loaded from: classes6.dex */
 public final class b extends PlatformViewFactory {
-    private static HashMap<String, a> anD = new HashMap<>();
+    private static HashMap<String, a> anE = new HashMap<>();
     private final BinaryMessenger messenger;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -29,10 +29,10 @@ public final class b extends PlatformViewFactory {
         String valueOf = map == null ? "0" : String.valueOf(map.get("persistentViewId"));
         System.out.println("FLT========create args = " + String.valueOf(map));
         if (Integer.parseInt(valueOf) < 0) {
-            a aVar = anD.get(valueOf);
+            a aVar = anE.get(valueOf);
             if (aVar == null) {
                 a aVar2 = new a(context, this.messenger, i, map);
-                anD.put(valueOf, aVar2);
+                anE.put(valueOf, aVar2);
                 return aVar2;
             }
             return aVar;
@@ -41,8 +41,8 @@ public final class b extends PlatformViewFactory {
     }
 
     public static void bI(int i) {
-        if (anD.containsKey(String.valueOf(i))) {
-            anD.remove(Integer.valueOf(i));
+        if (anE.containsKey(String.valueOf(i))) {
+            anE.remove(Integer.valueOf(i));
         }
     }
 }

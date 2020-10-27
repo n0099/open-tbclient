@@ -12,9 +12,9 @@ public class c extends com.baidu.swan.pms.c.d<com.baidu.swan.pms.c.c.c> {
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.swan.pms.c.d
-    /* renamed from: cE */
-    public com.baidu.swan.pms.c.c.c cB(JSONObject jSONObject) {
-        return com.baidu.swan.pms.utils.e.cQ(jSONObject);
+    /* renamed from: cH */
+    public com.baidu.swan.pms.c.c.c cE(JSONObject jSONObject) {
+        return com.baidu.swan.pms.utils.e.cT(jSONObject);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -22,15 +22,15 @@ public class c extends com.baidu.swan.pms.c.d<com.baidu.swan.pms.c.c.c> {
     @Override // com.baidu.swan.pms.c.d
     /* renamed from: a */
     public com.baidu.swan.pms.model.a ak(com.baidu.swan.pms.c.c.c cVar) {
-        this.dTD.alR();
+        this.ebZ.anL();
         f fVar = new f();
-        a(cVar.dUr, fVar);
-        if (fVar.aYf() == 0) {
-            this.dTD.aiW();
+        a(cVar.ecN, fVar);
+        if (fVar.aZY() == 0) {
+            this.ebZ.akQ();
             return null;
         }
-        this.dTD.a(fVar);
-        com.baidu.swan.pms.c.a.a.a(cVar, this.dTD);
+        this.ebZ.a(fVar);
+        com.baidu.swan.pms.c.a.a.a(cVar, this.ebZ);
         return null;
     }
 
@@ -42,11 +42,11 @@ public class c extends com.baidu.swan.pms.c.d<com.baidu.swan.pms.c.c.c> {
         if (cVar == null) {
             return false;
         }
-        return cVar.dUr == null || cVar.dUr.amJ();
+        return cVar.ecN == null || cVar.ecN.aoD();
     }
 
     @Override // com.baidu.swan.pms.c.d
-    protected String aXd() {
+    protected String aYW() {
         return "getplugin";
     }
 }

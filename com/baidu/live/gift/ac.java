@@ -1,9 +1,21 @@
 package com.baidu.live.gift;
 
-import com.baidu.live.tbadk.TbPageContext;
+import android.view.View;
 /* loaded from: classes4.dex */
-public class ac {
-    public boolean aRM;
-    public String fromType;
-    public TbPageContext pageContext;
+public interface ac {
+    View Gf();
+
+    View Gg();
+
+    void Gh();
+
+    void Gi();
+
+    void bq(boolean z);
+
+    void dU(int i);
+
+    void dV(int i);
+
+    void onDestroy();
 }

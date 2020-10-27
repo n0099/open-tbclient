@@ -6,28 +6,28 @@ import android.content.SharedPreferences;
 public class eh extends ed {
 
     /* renamed from: a  reason: collision with root package name */
-    private SharedPreferences f4875a;
+    private SharedPreferences f4873a;
 
     public eh(Context context, int i) {
         super(context, i);
-        this.f4875a = context.getSharedPreferences("mipush_extra", 0);
+        this.f4873a = context.getSharedPreferences("mipush_extra", 0);
     }
 
     @Override // com.xiaomi.push.ed, com.xiaomi.push.ai.a
     /* renamed from: a */
-    public int mo167a() {
+    public int mo166a() {
         return 9;
     }
 
     @Override // com.xiaomi.push.ed, com.xiaomi.push.ai.a
     /* renamed from: a */
-    public ho mo167a() {
+    public ho mo166a() {
         return ho.TopApp;
     }
 
     @Override // com.xiaomi.push.ed, com.xiaomi.push.ai.a
     /* renamed from: a */
-    public String mo167a() {
+    public String mo166a() {
         return null;
     }
 }

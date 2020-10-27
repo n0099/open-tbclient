@@ -7,6 +7,6 @@ public interface f extends ILazyLoadFragmentController {
 
     /* loaded from: classes4.dex */
     public interface a {
-        l GY();
+        l Hu();
     }
 }

@@ -17,9 +17,9 @@ import java.util.SimpleTimeZone;
 /* loaded from: classes8.dex */
 public class y {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    public static String dtA = "cookieMap";
-    public static String dtB = "ptokenDomains";
-    public static String dtC = "bdussDomains";
+    public static String dBX = "cookieMap";
+    public static String dBY = "ptokenDomains";
+    public static String dBZ = "bdussDomains";
 
     public static void dm(Context context) {
         dn(context);
@@ -29,8 +29,8 @@ public class y {
         if (context != null) {
             String cY = a.cY(context);
             String df = a.df(context);
-            b(context, cY, aJJ());
-            c(context, df, aJJ());
+            b(context, cY, aLD());
+            c(context, df, aLD());
         }
     }
 
@@ -54,14 +54,14 @@ public class y {
     }
 
     private static String buildBDUSSCookie(String str, String str2) {
-        return S(str, "BDUSS", str2);
+        return Z(str, "BDUSS", str2);
     }
 
     private static String buildPtokenCookie(String str, String str2) {
-        return S(str, "PTOKEN", str2);
+        return Z(str, "PTOKEN", str2);
     }
 
-    private static String S(String str, String str2, String str3) {
+    private static String Z(String str, String str2, String str3) {
         Calendar calendar = Calendar.getInstance();
         calendar.setTime(new Date());
         calendar.add(1, TextUtils.isEmpty(str3) ? -8 : 8);
@@ -100,7 +100,7 @@ public class y {
         }
     }
 
-    private static List<String> aJJ() {
+    private static List<String> aLD() {
         ArrayList arrayList = new ArrayList();
         arrayList.add("baidu.com");
         arrayList.add("hao123.com");

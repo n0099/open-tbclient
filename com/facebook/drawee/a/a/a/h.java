@@ -4,61 +4,61 @@ import com.facebook.imagepipeline.request.ImageRequest;
 import javax.annotation.Nullable;
 /* loaded from: classes18.dex */
 public class h {
-    private boolean UM;
+    private boolean UN;
     private boolean mIsCanceled;
     @Nullable
     private String mRequestId;
     @Nullable
-    private String nMm;
+    private String oDF;
     @Nullable
-    private Object nMo;
+    private Object oDH;
     @Nullable
-    private ImageRequest nMp;
+    private ImageRequest oDI;
     @Nullable
-    private com.facebook.imagepipeline.g.f nMq;
-    private boolean nMz;
-    private long nMr = -1;
-    private long nMs = -1;
-    private long nMt = -1;
-    private long nMu = -1;
-    private long nMv = -1;
-    private long nMw = -1;
-    private long nMx = -1;
-    private int nMy = -1;
-    private int nMA = -1;
-    private int nMB = -1;
-    private int nMK = -1;
+    private com.facebook.imagepipeline.g.f oDJ;
+    private boolean oDS;
+    private long oDK = -1;
+    private long oDL = -1;
+    private long oDM = -1;
+    private long oDN = -1;
+    private long oDO = -1;
+    private long oDP = -1;
+    private long oDQ = -1;
+    private int oDR = -1;
+    private int oDT = -1;
+    private int oDU = -1;
+    private int oEd = -1;
 
     public void reset() {
         this.mRequestId = null;
-        this.nMp = null;
-        this.nMo = null;
-        this.nMq = null;
-        this.nMr = -1L;
-        this.nMt = -1L;
-        this.nMu = -1L;
-        this.nMv = -1L;
-        this.nMw = -1L;
-        this.nMx = -1L;
-        this.nMy = -1;
+        this.oDI = null;
+        this.oDH = null;
+        this.oDJ = null;
+        this.oDK = -1L;
+        this.oDM = -1L;
+        this.oDN = -1L;
+        this.oDO = -1L;
+        this.oDP = -1L;
+        this.oDQ = -1L;
+        this.oDR = -1;
         this.mIsCanceled = false;
-        this.UM = false;
-        this.nMz = false;
-        this.nMA = -1;
-        this.nMB = -1;
-        this.nMK = -1;
+        this.UN = false;
+        this.oDS = false;
+        this.oDT = -1;
+        this.oDU = -1;
+        this.oEd = -1;
     }
 
-    public void Mk(int i) {
-        this.nMK = i;
+    public void Ob(int i) {
+        this.oEd = i;
     }
 
-    public int dXx() {
-        return this.nMK;
+    public int ehv() {
+        return this.oEd;
     }
 
-    public void VP(@Nullable String str) {
-        this.nMm = str;
+    public void XC(@Nullable String str) {
+        this.oDF = str;
     }
 
     public void setRequestId(@Nullable String str) {
@@ -66,70 +66,70 @@ public class h {
     }
 
     public void setImageRequest(@Nullable ImageRequest imageRequest) {
-        this.nMp = imageRequest;
+        this.oDI = imageRequest;
     }
 
-    public void bg(@Nullable Object obj) {
-        this.nMo = obj;
+    public void bk(@Nullable Object obj) {
+        this.oDH = obj;
     }
 
-    public void gS(long j) {
-        this.nMr = j;
+    public void hi(long j) {
+        this.oDK = j;
     }
 
-    public void gT(long j) {
-        this.nMs = j;
+    public void hj(long j) {
+        this.oDL = j;
     }
 
-    public void gU(long j) {
-        this.nMt = j;
+    public void hk(long j) {
+        this.oDM = j;
     }
 
-    public void gV(long j) {
-        this.nMu = j;
+    public void hl(long j) {
+        this.oDN = j;
     }
 
-    public void gW(long j) {
-        this.nMv = j;
+    public void hm(long j) {
+        this.oDO = j;
     }
 
-    public void gX(long j) {
-        this.nMw = j;
+    public void hn(long j) {
+        this.oDP = j;
     }
 
-    public void gY(long j) {
-        this.nMx = j;
+    public void ho(long j) {
+        this.oDQ = j;
     }
 
-    public void Ml(int i) {
-        this.nMy = i;
+    public void Oc(int i) {
+        this.oDR = i;
     }
 
-    public void yG(boolean z) {
+    public void zO(boolean z) {
         this.mIsCanceled = z;
     }
 
-    public void yH(boolean z) {
-        this.UM = z;
+    public void zP(boolean z) {
+        this.UN = z;
     }
 
-    public void yI(boolean z) {
-        this.nMz = z;
+    public void zQ(boolean z) {
+        this.oDS = z;
     }
 
     public void a(@Nullable com.facebook.imagepipeline.g.f fVar) {
-        this.nMq = fVar;
+        this.oDJ = fVar;
     }
 
-    public void Mm(int i) {
-        this.nMA = i;
+    public void Od(int i) {
+        this.oDT = i;
     }
 
-    public void Mn(int i) {
-        this.nMB = i;
+    public void Oe(int i) {
+        this.oDU = i;
     }
 
-    public e dXy() {
-        return new e(this.nMm, this.mRequestId, this.nMp, this.nMo, this.nMq, this.nMr, this.nMs, this.nMt, this.nMu, this.nMv, this.nMw, this.nMx, this.nMy, this.mIsCanceled, this.UM, this.nMz, this.nMA, this.nMB);
+    public e ehw() {
+        return new e(this.oDF, this.mRequestId, this.oDI, this.oDH, this.oDJ, this.oDK, this.oDL, this.oDM, this.oDN, this.oDO, this.oDP, this.oDQ, this.oDR, this.mIsCanceled, this.UN, this.oDS, this.oDT, this.oDU);
     }
 }

@@ -5,16 +5,16 @@ import android.view.MotionEvent;
 import android.widget.ScrollView;
 /* loaded from: classes10.dex */
 public class CustomerAdScrollView extends ScrollView {
-    private boolean cic;
-    private boolean cie;
-    private float cif;
-    private a cig;
+    private boolean cqD;
+    private boolean cqE;
+    private float cqF;
+    private a cqG;
 
     public CustomerAdScrollView(Context context) {
         super(context);
-        this.cic = false;
-        this.cie = false;
-        this.cig = null;
+        this.cqD = false;
+        this.cqE = false;
+        this.cqG = null;
         setVerticalScrollBarEnabled(false);
     }
 
@@ -23,14 +23,14 @@ public class CustomerAdScrollView extends ScrollView {
         float y = motionEvent.getY();
         switch (motionEvent.getAction()) {
             case 0:
-                this.cif = y;
+                this.cqF = y;
                 break;
             case 2:
-                if (y - this.cif < 0.0f) {
-                    if (!this.cic || this.cie) {
+                if (y - this.cqF < 0.0f) {
+                    if (!this.cqD || this.cqE) {
                         return false;
                     }
-                } else if (!this.cie) {
+                } else if (!this.cqE) {
                     return false;
                 }
                 break;
@@ -41,20 +41,20 @@ public class CustomerAdScrollView extends ScrollView {
     @Override // android.view.View
     protected void onScrollChanged(int i, int i2, int i3, int i4) {
         super.onScrollChanged(i, i2, i3, i4);
-        if (this.cig != null) {
-            this.cig.onScrollChanged(i, i2, i3, i4);
+        if (this.cqG != null) {
+            this.cqG.onScrollChanged(i, i2, i3, i4);
         }
     }
 
     public void setScrollViewListener(a aVar) {
-        this.cig = aVar;
+        this.cqG = aVar;
     }
 
     public void setIsWebViewOnBottom(boolean z) {
-        this.cic = z;
+        this.cqD = z;
     }
 
     public void setIsFooterLayoutShow(boolean z) {
-        this.cie = z;
+        this.cqE = z;
     }
 }

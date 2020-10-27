@@ -4,21 +4,21 @@ import com.baidu.adp.BdUniqueId;
 import com.baidu.adp.widget.ListView.q;
 /* loaded from: classes22.dex */
 public class c implements q {
-    public static final BdUniqueId jey = BdUniqueId.gen();
-    public static final BdUniqueId jez = BdUniqueId.gen();
-    public int jeA;
-    public boolean jeB;
-    public boolean jeC;
+    public static final BdUniqueId jqW = BdUniqueId.gen();
+    public static final BdUniqueId jqX = BdUniqueId.gen();
+    public int jqY;
+    public boolean jqZ;
+    public boolean jra;
     public String tipString;
 
     @Override // com.baidu.adp.widget.ListView.q
     public BdUniqueId getType() {
-        switch (this.jeA) {
+        switch (this.jqY) {
             case 2:
             case 3:
-                return jez;
+                return jqX;
             default:
-                return jey;
+                return jqW;
         }
     }
 }

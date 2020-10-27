@@ -23,7 +23,7 @@ public class MutiTextHorizontalMarqueeView extends HorizontalMarqueeView {
 
     public void a(String str, int i, int i2, int i3, int i4, boolean z, int i5, int i6, int i7, int i8) {
         b();
-        TextView textView = new TextView(this.f4189a);
+        TextView textView = new TextView(this.f4187a);
         textView.setText(str);
         textView.setTextColor(i);
         textView.setTextSize(2, i2);
@@ -37,7 +37,7 @@ public class MutiTextHorizontalMarqueeView extends HorizontalMarqueeView {
         this.w = i4;
         int ceil = (int) Math.ceil((this.b + this.u) / ((this.u + this.v) + this.w));
         for (int i9 = 0; i9 < ceil; i9++) {
-            TextView textView2 = new TextView(this.f4189a);
+            TextView textView2 = new TextView(this.f4187a);
             textView2.setText(str);
             textView2.setTextColor(i);
             textView2.setTextSize(2, i2);

@@ -18,7 +18,7 @@ import org.json.JSONObject;
 /* loaded from: classes10.dex */
 public class a {
     private static final boolean DEBUG = b.DEBUG;
-    private final String dkZ;
+    private final String dtB;
 
     public a() {
         String str;
@@ -31,24 +31,24 @@ public class a {
             str = "";
         }
         if (!TextUtils.isEmpty(str)) {
-            this.dkZ = str + File.separator + "aiapps_folder/stability";
+            this.dtB = str + File.separator + "aiapps_folder/stability";
         } else {
-            this.dkZ = "";
+            this.dtB = "";
         }
     }
 
     public File G(JSONArray jSONArray) {
         long currentTimeMillis = System.currentTimeMillis();
         try {
-            kb(9);
+            km(9);
             JSONObject jSONObject = new JSONObject();
-            jSONObject.put("_app_id", e.aDc() == null ? "" : e.aDc());
+            jSONObject.put("_app_id", e.aEW() == null ? "" : e.aEW());
             jSONObject.put("_date", j.a(new Date(currentTimeMillis), "yyyy-MM-dd HH:mm:ss"));
             jSONArray.put(jSONObject);
-            File bQ = bQ(currentTimeMillis);
-            if (bQ != null) {
-                if (com.baidu.swan.apps.s.a.l(bQ.getPath(), jSONArray.toString(), false)) {
-                    return bQ;
+            File bS = bS(currentTimeMillis);
+            if (bS != null) {
+                if (com.baidu.swan.apps.s.a.l(bS.getPath(), jSONArray.toString(), false)) {
+                    return bS;
                 }
             }
             return null;
@@ -60,12 +60,12 @@ public class a {
         }
     }
 
-    public File[] aFG() {
-        if (TextUtils.isEmpty(this.dkZ)) {
+    public File[] aHA() {
+        if (TextUtils.isEmpty(this.dtB)) {
             return null;
         }
         try {
-            return new File(this.dkZ).listFiles();
+            return new File(this.dtB).listFiles();
         } catch (Exception e) {
             if (DEBUG) {
                 Log.e("SwanStabilityTraceCache", "TraceCache Exception:", e);
@@ -75,11 +75,11 @@ public class a {
         }
     }
 
-    private void kb(int i) {
-        File[] aFG = aFG();
-        if (aFG != null && aFG.length != 0) {
+    private void km(int i) {
+        File[] aHA = aHA();
+        if (aHA != null && aHA.length != 0) {
             long currentTimeMillis = System.currentTimeMillis();
-            Arrays.sort(aFG, new Comparator<File>() { // from class: com.baidu.swan.apps.ak.a.a.1
+            Arrays.sort(aHA, new Comparator<File>() { // from class: com.baidu.swan.apps.ak.a.a.1
                 /* JADX DEBUG: Method merged with bridge method */
                 @Override // java.util.Comparator
                 /* renamed from: c */
@@ -92,9 +92,9 @@ public class a {
                     return lastModified - lastModified2 > 0 ? 1 : -1;
                 }
             });
-            ArrayList<File> arrayList = new ArrayList(aFG.length);
+            ArrayList<File> arrayList = new ArrayList(aHA.length);
             int i2 = 0;
-            for (File file : aFG) {
+            for (File file : aHA) {
                 if (i2 < i) {
                     if (file.lastModified() - currentTimeMillis > 172800000) {
                         arrayList.add(file);
@@ -110,10 +110,10 @@ public class a {
         }
     }
 
-    private File bQ(long j) {
-        if (TextUtils.isEmpty(this.dkZ)) {
+    private File bS(long j) {
+        if (TextUtils.isEmpty(this.dtB)) {
             return null;
         }
-        return new File(this.dkZ + File.separator + (e.aDc() == null ? "" : e.aDc()) + PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS + j + "_swan_stability_traces.log");
+        return new File(this.dtB + File.separator + (e.aEW() == null ? "" : e.aEW()) + PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS + j + "_swan_stability_traces.log");
     }
 }

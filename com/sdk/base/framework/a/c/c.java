@@ -12,7 +12,7 @@ public abstract class c<Params, Progress, Result> {
     private volatile boolean h = false;
 
     /* renamed from: a  reason: collision with root package name */
-    protected Boolean f4464a = Boolean.valueOf(com.sdk.base.framework.c.f.c);
+    protected Boolean f4462a = Boolean.valueOf(com.sdk.base.framework.c.f.c);
     private final h<Params, Result> d = new d(this);
     private final FutureTask<Result> e = new e(this, this.d);
 
@@ -56,7 +56,7 @@ public abstract class c<Params, Progress, Result> {
             throw new IllegalStateException("Cannot execute task: the task is already executed.");
         }
         this.h = true;
-        this.d.f4467a = paramsArr;
+        this.d.f4465a = paramsArr;
         executor.execute(new n(0, this.e));
         return this;
     }

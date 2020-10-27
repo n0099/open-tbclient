@@ -11,15 +11,15 @@ import java.util.Map;
 public abstract class a {
     public abstract void a(com.baidu.tbadk.a.e eVar);
 
-    public abstract BdUniqueId bdL();
+    public abstract BdUniqueId bfE();
 
-    public abstract ArrayList<String> bdM();
+    public abstract ArrayList<String> bfF();
 
-    public abstract com.baidu.tbadk.a.e bdN();
+    public abstract com.baidu.tbadk.a.e bfG();
 
-    public static void aN(List<q> list) {
+    public static void aX(List<q> list) {
         if (list != null) {
-            HashMap hashMap = new HashMap(com.baidu.tbadk.a.d.bdl());
+            HashMap hashMap = new HashMap(com.baidu.tbadk.a.d.bfe());
             for (q qVar : list) {
                 if (qVar instanceof AbsThreadDataSupport) {
                     AbsThreadDataSupport absThreadDataSupport = (AbsThreadDataSupport) qVar;
@@ -33,7 +33,7 @@ public abstract class a {
 
     public static void a(g... gVarArr) {
         if (gVarArr != null) {
-            HashMap hashMap = new HashMap(com.baidu.tbadk.a.d.bdl());
+            HashMap hashMap = new HashMap(com.baidu.tbadk.a.d.bfe());
             for (g gVar : gVarArr) {
                 if (gVar != null) {
                     for (Map.Entry entry : hashMap.entrySet()) {

@@ -15,29 +15,29 @@ public class f extends i {
     }
 
     @Override // com.baidu.swan.apps.core.d.i
-    public com.baidu.swan.apps.adaptation.b.f aeg() {
-        return com.baidu.swan.apps.core.turbo.d.ann().ano().bx(getContext());
+    public com.baidu.swan.apps.adaptation.b.f aga() {
+        return com.baidu.swan.apps.core.turbo.d.aph().apj().bx(getContext());
     }
 
     @Override // com.baidu.swan.apps.core.d.i
-    protected com.baidu.swan.apps.core.f.d aeH() {
+    protected com.baidu.swan.apps.core.f.d agB() {
         return new com.baidu.swan.apps.core.f.a() { // from class: com.baidu.swan.apps.aa.f.1
             @Override // com.baidu.swan.apps.core.f.a, com.baidu.swan.apps.core.f.d
-            public boolean is(String str) {
+            public boolean iD(String str) {
                 if (str == null || !str.startsWith("weixin://wap/pay")) {
-                    return super.is(str);
+                    return super.iD(str);
                 }
                 com.baidu.swan.apps.console.c.i("SwanAppWxPayFragment", " weixin  url:   " + str);
-                i.akV();
+                i.amP();
                 return false;
             }
         };
     }
 
     @Override // com.baidu.swan.apps.core.d.i, com.baidu.swan.apps.core.d.c
-    protected void al(View view) {
-        super.al(view);
-        this.cvM.setTitle(getResources().getString(a.h.aiapps_wx_pay_title));
-        eq(false);
+    protected void an(View view) {
+        super.an(view);
+        this.cEi.setTitle(getResources().getString(a.h.aiapps_wx_pay_title));
+        eD(false);
     }
 }

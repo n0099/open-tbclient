@@ -18,7 +18,7 @@ public class g extends aa {
 
     @Override // com.baidu.swan.apps.scheme.actions.aa
     public boolean a(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, com.baidu.swan.apps.runtime.e eVar) {
-        if (eVar != null && eVar.afg()) {
+        if (eVar != null && eVar.aha()) {
             if (DEBUG) {
                 Log.d("LoginAction", "LoginAction does not supported when app is invisible.");
             }
@@ -42,7 +42,7 @@ public class g extends aa {
                 com.baidu.swan.games.v.c.e(callbackHandler, UnitedSchemeUtility.wrapCallbackParams(201, "empty cb").toString());
                 com.baidu.swan.apps.api.module.a.b.a(eVar, 1, 201, "empty cb");
                 return false;
-            } else if (!optParamsAsJo.optBoolean("force", true) && !eVar.aDn().isLogin(context)) {
+            } else if (!optParamsAsJo.optBoolean("force", true) && !eVar.aFh().isLogin(context)) {
                 UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, 0);
                 callbackHandler.handleSchemeDispatchCallback(optString, UnitedSchemeUtility.wrapCallbackParams(10004, "user not logged in").toString());
                 com.baidu.swan.games.v.c.e(callbackHandler, UnitedSchemeUtility.wrapCallbackParams(10004, "user not logged in").toString());

@@ -3,9 +3,9 @@ package com.baidu.swan.apps.adaptation.a;
 public interface az {
     void a(boolean z, com.baidu.swan.apps.core.k.c cVar);
 
-    boolean adZ();
+    boolean afT();
 
-    boolean aea();
+    boolean afU();
 
-    com.baidu.swan.pms.e.b aeb();
+    com.baidu.swan.pms.e.b afV();
 }

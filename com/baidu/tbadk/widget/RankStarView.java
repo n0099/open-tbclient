@@ -14,96 +14,96 @@ import com.baidu.tbadk.core.util.SvgManager;
 import com.baidu.tieba.R;
 /* loaded from: classes.dex */
 public class RankStarView extends View {
-    private int ajp;
-    private int flG;
-    private int flH;
-    private int flI;
-    private int flJ;
-    private int flK;
-    private int flL;
-    private int flM;
-    private int flN;
-    private int flO;
-    private Drawable flP;
-    private Drawable flQ;
+    private int ajq;
+    private int fuh;
+    private int fui;
+    private int fuj;
+    private int fuk;
+    private int ful;
+    private int fum;
+    private int fun;
+    private int fuo;
+    private int fup;
+    private Drawable fuq;
+    private Drawable fur;
 
     public RankStarView(Context context) {
         super(context);
-        this.flH = 5;
-        this.flL = R.drawable.icon_pure_evaluation_star24_n;
-        this.flM = R.color.cp_cont_i;
-        this.flN = R.drawable.icon_pure_evaluation_star24_n;
-        this.flO = R.color.cp_link_tip_d;
-        this.ajp = 3;
+        this.fui = 5;
+        this.fum = R.drawable.icon_pure_evaluation_star24_n;
+        this.fun = R.color.cp_cont_i;
+        this.fuo = R.drawable.icon_pure_evaluation_star24_n;
+        this.fup = R.color.cp_link_tip_d;
+        this.ajq = 3;
         init(context);
     }
 
     public RankStarView(Context context, @Nullable AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.flH = 5;
-        this.flL = R.drawable.icon_pure_evaluation_star24_n;
-        this.flM = R.color.cp_cont_i;
-        this.flN = R.drawable.icon_pure_evaluation_star24_n;
-        this.flO = R.color.cp_link_tip_d;
-        this.ajp = 3;
+        this.fui = 5;
+        this.fum = R.drawable.icon_pure_evaluation_star24_n;
+        this.fun = R.color.cp_cont_i;
+        this.fuo = R.drawable.icon_pure_evaluation_star24_n;
+        this.fup = R.color.cp_link_tip_d;
+        this.ajq = 3;
         init(context);
     }
 
     public RankStarView(Context context, @Nullable AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.flH = 5;
-        this.flL = R.drawable.icon_pure_evaluation_star24_n;
-        this.flM = R.color.cp_cont_i;
-        this.flN = R.drawable.icon_pure_evaluation_star24_n;
-        this.flO = R.color.cp_link_tip_d;
-        this.ajp = 3;
+        this.fui = 5;
+        this.fum = R.drawable.icon_pure_evaluation_star24_n;
+        this.fun = R.color.cp_cont_i;
+        this.fuo = R.drawable.icon_pure_evaluation_star24_n;
+        this.fup = R.color.cp_link_tip_d;
+        this.ajq = 3;
         init(context);
     }
 
     private void init(Context context) {
-        this.flJ = l.getDimens(context, R.dimen.tbds63);
-        boV();
+        this.fuk = l.getDimens(context, R.dimen.tbds63);
+        bqO();
     }
 
     public int getStarCount() {
-        return this.flG;
+        return this.fuh;
     }
 
     public void setStarCount(int i) {
         if (i < 0) {
             i = 0;
         }
-        if (i > this.flH) {
-            i = this.flH;
+        if (i > this.fui) {
+            i = this.fui;
         }
-        if (this.flG != i) {
-            this.flG = i;
+        if (this.fuh != i) {
+            this.fuh = i;
             invalidate();
         }
     }
 
     public void setStarSpacing(int i) {
-        this.flI = i;
+        this.fuj = i;
     }
 
     public void setStarResource(@DrawableRes int i, @ColorRes int i2, @DrawableRes int i3, @ColorRes int i4) {
-        this.flL = i;
-        this.flM = i2;
-        this.flN = i3;
-        this.flO = i4;
-        boV();
+        this.fum = i;
+        this.fun = i2;
+        this.fuo = i3;
+        this.fup = i4;
+        bqO();
     }
 
     public void onChangeSkinType(int i) {
-        if (this.ajp != i) {
-            this.ajp = i;
-            boV();
+        if (this.ajq != i) {
+            this.ajq = i;
+            bqO();
         }
     }
 
-    public void boV() {
-        this.flP = SvgManager.bmU().a(this.flL, this.flM, (SvgManager.SvgResourceStateType) null);
-        this.flQ = SvgManager.bmU().a(this.flN, this.flO, (SvgManager.SvgResourceStateType) null);
+    public void bqO() {
+        this.fuq = SvgManager.boN().a(this.fum, this.fun, (SvgManager.SvgResourceStateType) null);
+        this.fur = SvgManager.boN().a(this.fuo, this.fup, (SvgManager.SvgResourceStateType) null);
     }
 
     @Override // android.view.View
@@ -111,10 +111,10 @@ public class RankStarView extends View {
         boolean onTouchEvent = super.onTouchEvent(motionEvent);
         if (motionEvent != null && onTouchEvent) {
             int x = (int) motionEvent.getX();
-            if (x < getPaddingLeft() - 10 || x > this.flK + getPaddingLeft() + 10) {
+            if (x < getPaddingLeft() - 10 || x > this.ful + getPaddingLeft() + 10) {
                 return true;
             }
-            setStarCount(((int) ((((x - getPaddingLeft()) * 1.0f) / this.flK) * this.flH)) + 1);
+            setStarCount(((int) ((((x - getPaddingLeft()) * 1.0f) / this.ful) * this.fui)) + 1);
             return onTouchEvent;
         }
         return onTouchEvent;
@@ -128,32 +128,32 @@ public class RankStarView extends View {
         int size = View.MeasureSpec.getSize(i);
         int size2 = View.MeasureSpec.getSize(i2);
         if (mode2 == 1073741824) {
-            this.flJ = (size2 - getPaddingBottom()) - getPaddingTop();
+            this.fuk = (size2 - getPaddingBottom()) - getPaddingTop();
         } else {
-            size2 = this.flJ + getPaddingBottom() + getPaddingTop();
+            size2 = this.fuk + getPaddingBottom() + getPaddingTop();
         }
-        this.flK = (this.flJ * this.flH) + (this.flI * (this.flH - 1));
+        this.ful = (this.fuk * this.fui) + (this.fuj * (this.fui - 1));
         if (mode != 1073741824) {
-            size = this.flK + getPaddingLeft() + getPaddingRight();
-        } else if (size < this.flK) {
-            this.flK = (size - getPaddingLeft()) - getPaddingRight();
+            size = this.ful + getPaddingLeft() + getPaddingRight();
+        } else if (size < this.ful) {
+            this.ful = (size - getPaddingLeft()) - getPaddingRight();
         }
         setMeasuredDimension(size, size2);
     }
 
     @Override // android.view.View
     protected void onDraw(Canvas canvas) {
-        if (this.flP != null && this.flQ != null) {
+        if (this.fuq != null && this.fur != null) {
             int paddingLeft = getPaddingLeft();
-            for (int i = 0; i < this.flG; i++) {
-                this.flQ.setBounds(paddingLeft, getPaddingTop(), this.flJ + paddingLeft, this.flJ + getPaddingTop());
-                this.flQ.draw(canvas);
-                paddingLeft += this.flI + this.flJ;
+            for (int i = 0; i < this.fuh; i++) {
+                this.fur.setBounds(paddingLeft, getPaddingTop(), this.fuk + paddingLeft, this.fuk + getPaddingTop());
+                this.fur.draw(canvas);
+                paddingLeft += this.fuj + this.fuk;
             }
-            for (int i2 = this.flG; i2 < this.flH; i2++) {
-                this.flP.setBounds(paddingLeft, getPaddingTop(), this.flJ + paddingLeft, this.flJ + getPaddingTop());
-                this.flP.draw(canvas);
-                paddingLeft += this.flI + this.flJ;
+            for (int i2 = this.fuh; i2 < this.fui; i2++) {
+                this.fuq.setBounds(paddingLeft, getPaddingTop(), this.fuk + paddingLeft, this.fuk + getPaddingTop());
+                this.fuq.draw(canvas);
+                paddingLeft += this.fuj + this.fuk;
             }
         }
     }

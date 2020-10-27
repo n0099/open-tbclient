@@ -27,7 +27,7 @@ public class EmotionIntefaceStatic {
         TbadkCoreApplication.getInst().registerReceiver(new BroadcastReceiver() { // from class: com.baidu.tieba.emotion.editortool.EmotionIntefaceStatic.1
             @Override // android.content.BroadcastReceiver
             public void onReceive(Context context, Intent intent) {
-                e.cla().clb();
+                e.coh().coi();
             }
         }, intentFilter);
         CustomMessageListener customMessageListener = new CustomMessageListener(CmdConfigCustom.EDITOR_COLLECT_TOOL) { // from class: com.baidu.tieba.emotion.editortool.EmotionIntefaceStatic.2
@@ -38,7 +38,7 @@ public class EmotionIntefaceStatic {
                     EditorTools editorTools = (EditorTools) customResponsedMessage.getData();
                     int indexOf = editorTools.getCollectTools().indexOf(5);
                     if (indexOf != -1) {
-                        if (editorTools.bvm()) {
+                        if (editorTools.bxf()) {
                             editorTools.b(new a(editorTools.getContext(), indexOf + 1, false));
                         } else {
                             editorTools.b(new a(editorTools.getContext(), indexOf + 1));
@@ -54,9 +54,9 @@ public class EmotionIntefaceStatic {
                 MessageManager.getInstance().abortResponsedMessage(customResponsedMessage);
                 if (customResponsedMessage != null && (customResponsedMessage.getData() instanceof List)) {
                     for (com.baidu.tbadk.editortools.emotiontool.a aVar : (List) customResponsedMessage.getData()) {
-                        e.cla().b(aVar);
+                        e.coh().b(aVar);
                     }
-                    e.cla().clb();
+                    e.coh().coi();
                     MessageManager.getInstance().abortResponsedMessage(customResponsedMessage);
                 }
             }
@@ -64,7 +64,7 @@ public class EmotionIntefaceStatic {
         CustomMessageTask customMessageTask = new CustomMessageTask(CmdConfigCustom.EMOTION_RELOAD_EMOTION_GROUPS, new CustomMessageTask.CustomRunnable<Object>() { // from class: com.baidu.tieba.emotion.editortool.EmotionIntefaceStatic.4
             @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
             public CustomResponsedMessage<?> run(CustomMessage<Object> customMessage) {
-                e.cla().clb();
+                e.coh().coi();
                 return null;
             }
         });
@@ -75,7 +75,7 @@ public class EmotionIntefaceStatic {
                     return null;
                 }
                 RequestStaticEmotionMessage requestStaticEmotionMessage = (RequestStaticEmotionMessage) customMessage;
-                return new CustomResponsedMessage<>(customMessage.getCmd(), e.cla().eF(requestStaticEmotionMessage.getGroupID(), requestStaticEmotionMessage.getSharpText()));
+                return new CustomResponsedMessage<>(customMessage.getCmd(), e.coh().eK(requestStaticEmotionMessage.getGroupID(), requestStaticEmotionMessage.getSharpText()));
             }
         });
         CustomMessageTask customMessageTask3 = new CustomMessageTask(CmdConfigCustom.EMOTION_IS_VALID, new CustomMessageTask.CustomRunnable<String>() { // from class: com.baidu.tieba.emotion.editortool.EmotionIntefaceStatic.6
@@ -84,7 +84,7 @@ public class EmotionIntefaceStatic {
                 if (customMessage == null) {
                     return null;
                 }
-                return new CustomResponsedMessage<>(CmdConfigCustom.EMOTION_IS_VALID, Boolean.valueOf(e.cla().CZ(customMessage.getData())));
+                return new CustomResponsedMessage<>(CmdConfigCustom.EMOTION_IS_VALID, Boolean.valueOf(e.coh().Ds(customMessage.getData())));
             }
         });
         CustomMessageTask customMessageTask4 = new CustomMessageTask(CmdConfigCustom.EMOTION_IS_LOCAL, new CustomMessageTask.CustomRunnable<String>() { // from class: com.baidu.tieba.emotion.editortool.EmotionIntefaceStatic.7
@@ -93,7 +93,7 @@ public class EmotionIntefaceStatic {
                 if (customMessage == null) {
                     return null;
                 }
-                return new CustomResponsedMessage<>(CmdConfigCustom.EMOTION_IS_LOCAL, Boolean.valueOf(e.cla().Iz(customMessage.getData())));
+                return new CustomResponsedMessage<>(CmdConfigCustom.EMOTION_IS_LOCAL, Boolean.valueOf(e.coh().IY(customMessage.getData())));
             }
         });
         customMessageTask.setType(CustomMessageTask.TASK_TYPE.SYNCHRONIZED);
@@ -112,7 +112,7 @@ public class EmotionIntefaceStatic {
             @Override // com.baidu.adp.framework.listener.MessageListener
             public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
                 if (customResponsedMessage != null && customResponsedMessage.getData() != null && (customResponsedMessage.getData() instanceof List)) {
-                    ((List) customResponsedMessage.getData()).add(d.ckZ());
+                    ((List) customResponsedMessage.getData()).add(d.cog());
                 }
             }
         });

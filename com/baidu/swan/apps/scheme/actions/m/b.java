@@ -22,7 +22,7 @@ public class b extends e {
             com.baidu.swan.apps.console.c.e("removeWebView", "params is invalid");
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202);
         } else {
-            com.baidu.swan.apps.adaptation.b.c cVar = (com.baidu.swan.apps.adaptation.b.c) com.baidu.swan.apps.v.f.avu().mZ(p.cpq);
+            com.baidu.swan.apps.adaptation.b.c cVar = (com.baidu.swan.apps.adaptation.b.c) com.baidu.swan.apps.v.f.axo().ns(p.cxS);
             if (cVar == null) {
                 com.baidu.swan.apps.console.c.e("removeWebView", "viewManager is null");
                 unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);

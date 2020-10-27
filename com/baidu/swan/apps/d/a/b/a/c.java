@@ -13,66 +13,66 @@ import com.baidu.swan.support.v4.app.FragmentActivity;
 /* loaded from: classes10.dex */
 public class c extends i {
     @Override // com.baidu.swan.apps.core.d.i
-    public f aeg() {
-        return com.baidu.swan.apps.core.turbo.d.ann().ano().bz(getContext());
+    public f aga() {
+        return com.baidu.swan.apps.core.turbo.d.aph().apj().bz(getContext());
     }
 
     @Override // com.baidu.swan.apps.core.d.i
-    protected com.baidu.swan.apps.core.f.d aeH() {
+    protected com.baidu.swan.apps.core.f.d agB() {
         return new com.baidu.swan.apps.core.f.a() { // from class: com.baidu.swan.apps.d.a.b.a.c.1
             @Override // com.baidu.swan.apps.core.f.a, com.baidu.swan.apps.core.f.d
-            public boolean is(String str) {
-                return super.is(str);
+            public boolean iD(String str) {
+                return super.iD(str);
             }
         };
     }
 
     @Override // com.baidu.swan.apps.core.d.i, com.baidu.swan.apps.core.d.c
-    protected void al(View view) {
-        super.al(view);
-        this.cvM.setRightZoneVisibility(true);
+    protected void an(View view) {
+        super.an(view);
+        this.cEi.setRightZoneVisibility(true);
     }
 
     @Override // com.baidu.swan.apps.core.d.i, com.baidu.swan.apps.core.d.c
-    protected void aeO() {
-        FragmentActivity aYo = aYo();
-        if (aYo != null && this.cvN == null) {
-            this.cvN = new h(aYo, this.cvM, aeP(), com.baidu.swan.apps.t.a.asj(), new com.baidu.swan.apps.view.c.b());
-            new com.baidu.swan.apps.menu.a(this.cvN, this).axj();
+    protected void agI() {
+        FragmentActivity bah = bah();
+        if (bah != null && this.cEj == null) {
+            this.cEj = new h(bah, this.cEi, agJ(), com.baidu.swan.apps.t.a.aue(), new com.baidu.swan.apps.view.c.b());
+            new com.baidu.swan.apps.menu.a(this.cEj, this).azd();
         }
     }
 
-    private int aeP() {
-        return akf() ? 18 : 12;
+    private int agJ() {
+        return alZ() ? 18 : 12;
     }
 
     /* JADX WARN: Type inference failed for: r0v4, types: [com.baidu.swan.apps.adaptation.b.d] */
     @Override // com.baidu.swan.apps.core.d.i, com.baidu.swan.support.v4.app.Fragment
     public View onCreateView(LayoutInflater layoutInflater, ViewGroup viewGroup, Bundle bundle) {
         View inflate = layoutInflater.inflate(a.g.aiapps_webview_fragment, viewGroup, false);
-        al(inflate);
-        this.cwU = aeg();
-        this.cwU.a(aeH());
-        this.cgj = this.cwU.aen();
-        this.cwU.loadUrl(this.mUrl);
+        an(inflate);
+        this.cFq = aga();
+        this.cFq.a(agB());
+        this.coJ = this.cFq.agh();
+        this.cFq.loadUrl(this.mUrl);
         FrameLayout frameLayout = (FrameLayout) inflate.findViewById(a.f.aiapps_webView_container);
-        this.cwU.a(frameLayout, this.cgj.covertToView());
+        this.cFq.a(frameLayout, this.coJ.covertToView());
         b(frameLayout);
         return immersionEnabled() ? initImmersion(inflate) : inflate;
     }
 
     @Override // com.baidu.swan.apps.core.d.i, com.baidu.swan.apps.core.d.c
-    protected boolean aeI() {
+    protected boolean agC() {
         return true;
     }
 
     @Override // com.baidu.swan.apps.core.d.i, com.baidu.swan.apps.core.d.c
-    public boolean aeh() {
-        if (this.cgj != null && this.cgj.canGoBack()) {
-            this.cgj.goBack();
+    public boolean agb() {
+        if (this.coJ != null && this.coJ.canGoBack()) {
+            this.coJ.goBack();
             return true;
         }
-        d.aeZ().gV(1);
+        d.agT().hg(1);
         return false;
     }
 }

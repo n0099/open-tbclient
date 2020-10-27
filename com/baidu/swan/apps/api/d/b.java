@@ -11,7 +11,7 @@ public class b {
     public static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
 
     @NonNull
-    public static Pair<com.baidu.swan.apps.api.c.b, JSONObject> bc(String str, String str2) {
+    public static Pair<com.baidu.swan.apps.api.c.b, JSONObject> bj(String str, String str2) {
         if (TextUtils.isEmpty(str)) {
             str = "Api-Utils";
         }

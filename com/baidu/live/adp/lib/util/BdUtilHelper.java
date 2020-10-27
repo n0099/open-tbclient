@@ -496,7 +496,7 @@ public class BdUtilHelper {
     }
 
     public static void checkMainThread() {
-        if (BdBaseApplication.getInst().isDebugMode()) {
+        if (BdBaseApplication.getInst() != null && BdBaseApplication.getInst().isDebugMode()) {
             if (isMainThread() ? false : true) {
                 StringBuilder sb = new StringBuilder(100);
                 StackTraceElement[] stackTrace = Thread.currentThread().getStackTrace();

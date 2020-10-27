@@ -11,42 +11,42 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class b {
-    private static b efw;
+    private static b enU;
     private final HashMap<String, a> mSwitchs = new HashMap<>();
 
     public b() {
-        HashMap<String, a> bdi = bdi();
+        HashMap<String, a> bfb = bfb();
         this.mSwitchs.clear();
-        this.mSwitchs.putAll(bdi);
+        this.mSwitchs.putAll(bfb);
     }
 
-    public static b bdg() {
-        if (efw == null) {
+    public static b beZ() {
+        if (enU == null) {
             synchronized (b.class) {
-                if (efw == null) {
-                    efw = new b();
+                if (enU == null) {
+                    enU = new b();
                 }
             }
         }
-        return efw;
+        return enU;
     }
 
-    private static String bdh() {
+    private static String bfa() {
         return "pref_name_abtest_" + TbadkCoreApplication.getCurrentAccount();
     }
 
     private static SharedPreferences getSharedPreferences() {
-        return TbadkCoreApplication.getInst().getSharedPreferences(bdh(), 0);
+        return TbadkCoreApplication.getInst().getSharedPreferences(bfa(), 0);
     }
 
-    public synchronized a ze(String str) {
+    public synchronized a zx(String str) {
         return this.mSwitchs.get(str);
     }
 
-    private String dv(String str, String str2) {
-        a ze = ze(str);
-        if (ze != null && !TextUtils.isEmpty(ze.efu)) {
-            return ze.efu;
+    private String dC(String str, String str2) {
+        a zx = zx(str);
+        if (zx != null && !TextUtils.isEmpty(zx.enS)) {
+            return zx.enS;
         }
         return str2;
     }
@@ -87,13 +87,13 @@ public class b {
                 this.mSwitchs.putAll(hashMap);
             }
             EditorHelper.putString(getSharedPreferences(), "pref_key_abtest_switchs", jSONArray.toString());
-            com.baidu.tbadk.core.sharedPref.b.blO().putInt("static_opt_open", zf("static_opt_open_test") ? 1 : 0);
+            com.baidu.tbadk.core.sharedPref.b.bnH().putInt("static_opt_open", zy("static_opt_open_test") ? 1 : 0);
         } catch (Exception e) {
             e.printStackTrace();
         }
     }
 
-    private HashMap<String, a> bdi() {
+    private HashMap<String, a> bfb() {
         HashMap<String, a> hashMap = new HashMap<>();
         try {
             JSONArray jSONArray = new JSONArray(getSharedPreferences().getString("pref_key_abtest_switchs", "[]"));
@@ -110,7 +110,7 @@ public class b {
         return hashMap;
     }
 
-    public static boolean zf(String str) {
-        return "a".equalsIgnoreCase(bdg().dv(str, ""));
+    public static boolean zy(String str) {
+        return "a".equalsIgnoreCase(beZ().dC(str, ""));
     }
 }

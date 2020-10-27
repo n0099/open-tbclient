@@ -18,14 +18,14 @@ public class a extends Dialog {
     private TextView d;
     private LinearLayout e;
     private LinearLayout f;
-    private InterfaceC0267a g;
-    private InterfaceC0267a h;
+    private InterfaceC0281a g;
+    private InterfaceC0281a h;
     private boolean i;
     private boolean j;
 
     /* renamed from: com.baidu.platform.comapi.walknavi.widget.a$a  reason: collision with other inner class name */
     /* loaded from: classes7.dex */
-    public interface InterfaceC0267a {
+    public interface InterfaceC0281a {
         void a();
     }
 
@@ -120,13 +120,13 @@ public class a extends Dialog {
         return this;
     }
 
-    public a a(InterfaceC0267a interfaceC0267a) {
-        this.g = interfaceC0267a;
+    public a a(InterfaceC0281a interfaceC0281a) {
+        this.g = interfaceC0281a;
         return this;
     }
 
-    public a b(InterfaceC0267a interfaceC0267a) {
-        this.h = interfaceC0267a;
+    public a b(InterfaceC0281a interfaceC0281a) {
+        this.h = interfaceC0281a;
         return this;
     }
 

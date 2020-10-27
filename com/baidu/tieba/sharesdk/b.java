@@ -11,13 +11,13 @@ import com.baidu.tbadk.coreExtra.share.d;
 import com.baidu.tieba.sharesdk.bean.ShareEntity;
 /* loaded from: classes24.dex */
 public class b implements d {
-    private com.baidu.tbadk.coreExtra.share.c eTi;
+    private com.baidu.tbadk.coreExtra.share.c fbE;
     private Context mContext;
 
     public b(Context context, com.baidu.tbadk.coreExtra.share.c cVar) {
         this.mContext = null;
         this.mContext = context;
-        this.eTi = cVar;
+        this.fbE = cVar;
     }
 
     @Override // com.baidu.tbadk.coreExtra.share.d
@@ -31,31 +31,31 @@ public class b implements d {
             ShareEntity shareEntity = new ShareEntity();
             shareEntity.setTitle(shareItem.title);
             shareEntity.setContent(shareItem.content);
-            shareEntity.gA(shareItem.readCount);
-            shareEntity.wz(shareItem.eSO == 2 || shareItem.eSO == 6 || shareItem.eSO == 8);
+            shareEntity.gB(shareItem.readCount);
+            shareEntity.wQ(shareItem.fbk == 2 || shareItem.fbk == 6 || shareItem.fbk == 8);
             shareEntity.setImageUri(shareItem.imageUri);
             shareEntity.canShareBySmartApp = shareItem.canShareBySmartApp;
             String str = shareItem.linkUrl;
-            if (i == 6 && !StringUtils.isNull(shareItem.eSF)) {
-                str = shareItem.eSF;
+            if (i == 6 && !StringUtils.isNull(shareItem.fbb)) {
+                str = shareItem.fbb;
             }
             shareEntity.setLinkUrl(str);
-            shareEntity.Rm(shareItem.localFile);
+            shareEntity.RL(shareItem.localFile);
             shareEntity.setLocation(shareItem.location);
-            shareEntity.Ii(i);
-            shareEntity.ae(shareItem.btb());
-            shareEntity.Ik(shareItem.shareType);
+            shareEntity.IB(i);
+            shareEntity.ae(shareItem.buU());
+            shareEntity.ID(shareItem.shareType);
             shareEntity.setTid(shareItem.tid);
-            shareEntity.Ro(shareItem.fName);
-            shareEntity.Ij(shareItem.typeShareToSmallApp);
+            shareEntity.RN(shareItem.fName);
+            shareEntity.IC(shareItem.typeShareToSmallApp);
             shareEntity.topic = shareItem.topic;
-            if (i == 6 && !StringUtils.isNull(shareItem.eSQ)) {
-                shareEntity.topic = shareItem.eSP + shareItem.eSQ;
+            if (i == 6 && !StringUtils.isNull(shareItem.fbm)) {
+                shareEntity.topic = shareItem.fbl + shareItem.fbm;
                 shareEntity.setContent("");
             }
             shareEntity.taskCompleteId = shareItem.taskCompleteId;
             shareEntity.diskPicOperate = shareItem.diskPicOperate;
-            shareEntity.Rn(shareItem.extLiveInfo);
+            shareEntity.RM(shareItem.extLiveInfo);
             Bundle bundle = new Bundle();
             bundle.putParcelable("extra_share_data", shareEntity);
             bundle.putInt("extra_skin", TbadkCoreApplication.getInst().getSkinType());

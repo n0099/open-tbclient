@@ -2,10 +2,11 @@ package com.baidu.live.tbadk.coreextra.data;
 
 import android.text.TextUtils;
 import com.baidu.live.tbadk.core.data.BaseData;
+import java.io.Serializable;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes4.dex */
-public class AlaLiveSwitchData extends BaseData {
+public class AlaLiveSwitchData extends BaseData implements Serializable {
     public static final String SWITCH_DEFAULT_VALUE = "0";
     public static int isHotLive;
     public static String liveActivityType;

@@ -16,9 +16,9 @@ import io.flutter.plugin.platform.PlatformView;
 import java.util.Map;
 /* loaded from: classes6.dex */
 public class a implements MethodChannel.MethodCallHandler, PlatformView {
-    private View anA;
-    private String anB;
-    private com.baidu.tieba.square.a anC;
+    private View anB;
+    private String anC;
+    private com.baidu.tieba.square.a anD;
     private final MethodChannel methodChannel;
     private int viewId;
 
@@ -49,19 +49,19 @@ public class a implements MethodChannel.MethodCallHandler, PlatformView {
             if (obj4 != null) {
                 Double.valueOf(obj4.toString()).doubleValue();
             }
-            this.anB = String.valueOf(map.get("persistentViewId"));
+            this.anC = String.valueOf(map.get("persistentViewId"));
             if ("BarSquare".equals(String.valueOf(map.get("nativeViewType")))) {
-                this.anC = new com.baidu.tieba.square.a(TbadkApplication.getInst().getCurrentActivity(), ((TbPageContextSupport) TbadkApplication.getInst().getCurrentActivity()).getPageContext());
-                this.anC.dCl();
-                this.anC.startLoadData();
-                this.anA = this.anC.mwR.getRootLayout();
+                this.anD = new com.baidu.tieba.square.a(TbadkApplication.getInst().getCurrentActivity(), ((TbPageContextSupport) TbadkApplication.getInst().getCurrentActivity()).getPageContext());
+                this.anD.dFt();
+                this.anD.startLoadData();
+                this.anB = this.anD.mJB.getRootLayout();
             }
         }
     }
 
     @Override // io.flutter.plugin.platform.PlatformView
     public View getView() {
-        return this.anA;
+        return this.anB;
     }
 
     @Override // io.flutter.plugin.common.MethodChannel.MethodCallHandler
@@ -73,8 +73,8 @@ public class a implements MethodChannel.MethodCallHandler, PlatformView {
             result.success(true);
         } else if (methodCall.method.equals("selectForumCategory")) {
             String str = (String) methodCall.arguments;
-            if (this.anC != null && !TextUtils.isEmpty(str)) {
-                this.anC.RD(str);
+            if (this.anD != null && !TextUtils.isEmpty(str)) {
+                this.anD.Sc(str);
             }
             result.success(null);
         } else {

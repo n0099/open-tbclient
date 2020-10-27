@@ -9,11 +9,11 @@ import com.baidu.swan.apps.ap.ah;
 import com.baidu.tieba.R;
 /* loaded from: classes25.dex */
 public class OpenLocationMenuItem {
-    public static final int dPo = ah.J(45.0f);
-    private MenuItemType dPp;
-    private a dPq;
-    private TextView dPr;
-    private int mMarginBottom = ah.J(1.0f);
+    public static final int dXL = ah.L(45.0f);
+    private MenuItemType dXM;
+    private a dXN;
+    private TextView dXO;
+    private int mMarginBottom = ah.L(1.0f);
     private String mTitle;
 
     /* loaded from: classes25.dex */
@@ -34,45 +34,45 @@ public class OpenLocationMenuItem {
     }
 
     public OpenLocationMenuItem(Context context, String str, MenuItemType menuItemType) {
-        this.dPr = new TextView(context);
-        this.dPr.setText(str);
-        this.dPr.setTextSize(16.0f);
-        this.dPr.setBackground(context.getResources().getDrawable(R.drawable.openlocation_bottommenu_itemclick_selector));
-        this.dPr.setTextColor(ViewCompat.MEASURED_STATE_MASK);
-        this.dPr.setGravity(17);
-        LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(-1, dPo);
+        this.dXO = new TextView(context);
+        this.dXO.setText(str);
+        this.dXO.setTextSize(16.0f);
+        this.dXO.setBackground(context.getResources().getDrawable(R.drawable.openlocation_bottommenu_itemclick_selector));
+        this.dXO.setTextColor(ViewCompat.MEASURED_STATE_MASK);
+        this.dXO.setGravity(17);
+        LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(-1, dXL);
         layoutParams.bottomMargin = this.mMarginBottom;
         layoutParams.gravity = 17;
-        this.dPr.setLayoutParams(layoutParams);
+        this.dXO.setLayoutParams(layoutParams);
         setTitle(str);
         a(menuItemType);
-        this.dPr.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.swan.impl.map.item.OpenLocationMenuItem.1
+        this.dXO.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.swan.impl.map.item.OpenLocationMenuItem.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                if (OpenLocationMenuItem.this.dPq != null) {
-                    OpenLocationMenuItem.this.dPq.b(OpenLocationMenuItem.this);
+                if (OpenLocationMenuItem.this.dXN != null) {
+                    OpenLocationMenuItem.this.dXN.b(OpenLocationMenuItem.this);
                 }
             }
         });
     }
 
     public void a(a aVar) {
-        this.dPq = aVar;
+        this.dXN = aVar;
     }
 
-    public MenuItemType aVo() {
-        return this.dPp;
+    public MenuItemType aXi() {
+        return this.dXM;
     }
 
     public void a(MenuItemType menuItemType) {
-        this.dPp = menuItemType;
+        this.dXM = menuItemType;
     }
 
     public void setTitle(String str) {
         this.mTitle = str;
     }
 
-    public TextView aVp() {
-        return this.dPr;
+    public TextView aXj() {
+        return this.dXO;
     }
 }

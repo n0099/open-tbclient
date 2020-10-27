@@ -11,72 +11,72 @@ import com.baidu.tbadk.k.h;
 import com.baidu.tieba.R;
 /* loaded from: classes4.dex */
 public abstract class LiveTabBaseSubFragment extends BaseFragment {
-    protected LinearLayout fUp;
-    private h fUq;
-    protected String fUs;
-    protected String fkA;
+    protected String fsZ;
+    protected LinearLayout get;
+    private h geu;
+    protected String gew;
     protected Context mContext;
-    public final String fUo = "c13008";
-    protected boolean fTL = false;
-    protected boolean fUr = false;
-    protected CustomMessageListener fUt = new CustomMessageListener(2921442) { // from class: com.baidu.tieba.ala.alasquare.live_tab.fragment.LiveTabBaseSubFragment.1
+    public final String ges = "c13008";
+    protected boolean gdO = false;
+    protected boolean gev = false;
+    protected CustomMessageListener gex = new CustomMessageListener(2921442) { // from class: com.baidu.tieba.ala.alasquare.live_tab.fragment.LiveTabBaseSubFragment.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             Boolean bool = (Boolean) customResponsedMessage.getData();
             if (bool != null && bool.booleanValue()) {
-                LiveTabBaseSubFragment.this.fUr = false;
+                LiveTabBaseSubFragment.this.gev = false;
             }
         }
     };
 
-    public abstract void Qi();
+    public abstract void Rd();
 
-    public abstract void bKe();
+    public abstract void bMG();
 
     public abstract void loadData();
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public void bKc() {
-        this.fUp.setVisibility(0);
-        if (this.fUq == null) {
-            this.fUq = new h(this.mContext, null);
+    public void bME() {
+        this.get.setVisibility(0);
+        if (this.geu == null) {
+            this.geu = new h(this.mContext, null);
         }
-        this.fUq.hideRefreshButton();
-        this.fUq.ri(R.drawable.new_pic_emotion_03);
-        this.fUq.Dw(this.mContext.getResources().getString(R.string.no_data_common_txt));
-        this.fUq.onChangeSkinType();
+        this.geu.hideRefreshButton();
+        this.geu.rt(R.drawable.new_pic_emotion_03);
+        this.geu.DP(this.mContext.getResources().getString(R.string.no_data_common_txt));
+        this.geu.onChangeSkinType();
         LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(-1, -1);
-        if (this.fUq.getAttachedView() != null && this.fUq.getAttachedView().getParent() == null) {
-            this.fUp.addView(this.fUq.getAttachedView(), layoutParams);
+        if (this.geu.getAttachedView() != null && this.geu.getAttachedView().getParent() == null) {
+            this.get.addView(this.geu.getAttachedView(), layoutParams);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     public void hideEmptyView() {
-        this.fUp.setVisibility(8);
+        this.get.setVisibility(8);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public void bKd() {
+    public void bMF() {
         MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921441, false));
-        this.fUr = true;
+        this.gev = true;
     }
 
     @Override // com.baidu.tbadk.core.BaseFragment
     public void onChangeSkinType(int i) {
         super.onChangeSkinType(i);
-        if (this.fUq != null) {
-            this.fUq.onChangeSkinType();
+        if (this.geu != null) {
+            this.geu.onChangeSkinType();
         }
     }
 
-    public void eb(String str, String str2) {
-        this.fkA = str;
-        this.fUs = str2;
+    public void ei(String str, String str2) {
+        this.fsZ = str;
+        this.gew = str2;
     }
 
-    public boolean bfP() {
-        return (at.isEmpty(this.fkA) || at.isEmpty(this.fUs)) ? false : true;
+    public boolean bhI() {
+        return (at.isEmpty(this.fsZ) || at.isEmpty(this.gew)) ? false : true;
     }
 }

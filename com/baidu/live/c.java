@@ -1,26 +1,24 @@
 package com.baidu.live;
-
-import android.content.SharedPreferences;
-import com.baidu.ala.AlaSharedPrefConfig;
-import com.baidu.live.tbadk.core.TbadkCoreApplication;
-import com.baidu.live.tbadk.core.sharedpref.SharedPrefHelper;
 /* loaded from: classes4.dex */
-public class c extends SharedPrefHelper {
-    private static volatile c azY;
+public class c {
+    private static volatile c aAb;
+    private boolean aAc;
 
-    @Override // com.baidu.live.tbadk.core.sharedpref.SharedPrefHelper
-    public synchronized SharedPreferences getSharedPreferences() {
-        return TbadkCoreApplication.getInst().getSharedPreferences(AlaSharedPrefConfig.ALA_SHARED_PRE_FILE_NAME, 0);
+    private c() {
     }
 
-    public static c AZ() {
-        if (azY == null) {
-            synchronized (c.class) {
-                if (azY == null) {
-                    azY = new c();
+    public static c AY() {
+        if (aAb == null) {
+            synchronized (d.class) {
+                if (aAb == null) {
+                    aAb = new c();
                 }
             }
         }
-        return azY;
+        return aAb;
+    }
+
+    public void aX(boolean z) {
+        this.aAc = z;
     }
 }

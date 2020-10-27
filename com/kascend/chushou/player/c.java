@@ -1,33 +1,33 @@
 package com.kascend.chushou.player;
 /* loaded from: classes6.dex */
 public class c {
-    private static c ojg = null;
-    private tv.chushou.common.player.a ohj;
-    private tv.chushou.common.player.a ojf;
+    private static c paw = null;
+    private tv.chushou.common.player.a oYy;
+    private tv.chushou.common.player.a pav;
 
     public c() {
-        this.ojf = null;
-        this.ohj = null;
-        this.ojf = ((tv.chushou.basis.d.a.a.b) tv.chushou.basis.d.b.etD().S(tv.chushou.basis.d.a.a.b.class)).createPlayer();
-        this.ohj = ((tv.chushou.basis.d.a.a.b) tv.chushou.basis.d.b.etD().S(tv.chushou.basis.d.a.a.b.class)).createPlayer();
+        this.pav = null;
+        this.oYy = null;
+        this.pav = ((tv.chushou.basis.d.a.a.b) tv.chushou.basis.d.b.eDB().S(tv.chushou.basis.d.a.a.b.class)).createPlayer();
+        this.oYy = ((tv.chushou.basis.d.a.a.b) tv.chushou.basis.d.b.eDB().S(tv.chushou.basis.d.a.a.b.class)).createPlayer();
     }
 
-    public tv.chushou.common.player.a egZ() {
-        return this.ojf;
+    public tv.chushou.common.player.a eqZ() {
+        return this.pav;
     }
 
-    public tv.chushou.common.player.a eha() {
-        return this.ohj;
+    public tv.chushou.common.player.a era() {
+        return this.oYy;
     }
 
     public void c() {
-        if (this.ojf != null) {
-            this.ojf.release();
-            this.ojf = null;
+        if (this.pav != null) {
+            this.pav.release();
+            this.pav = null;
         }
-        if (this.ohj != null) {
-            this.ohj.release();
-            this.ohj = null;
+        if (this.oYy != null) {
+            this.oYy.release();
+            this.oYy = null;
         }
     }
 }

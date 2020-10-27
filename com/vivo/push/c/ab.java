@@ -35,7 +35,7 @@ public abstract class ab extends com.vivo.push.v {
                     com.vivo.push.util.p.d("OnVerifyCallBackCommand", "vertify id is success");
                 } else {
                     com.vivo.push.util.p.d("OnVerifyCallBackCommand", "vertify fail srcDigest is " + str);
-                    com.vivo.push.util.p.c(this.f4714a, "vertify fail srcDigest is " + str);
+                    com.vivo.push.util.p.c(this.f4712a, "vertify fail srcDigest is " + str);
                     z = false;
                 }
                 return z;

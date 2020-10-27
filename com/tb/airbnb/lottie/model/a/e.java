@@ -16,7 +16,7 @@ public class e implements m<PointF, PointF> {
     }
 
     @Override // com.tb.airbnb.lottie.model.a.m
-    public com.tb.airbnb.lottie.a.b.a<PointF, PointF> ekW() {
+    public com.tb.airbnb.lottie.a.b.a<PointF, PointF> euW() {
         return this.DO.get(0).lc() ? new com.tb.airbnb.lottie.a.b.j(this.DO) : new com.tb.airbnb.lottie.a.b.i(this.DO);
     }
 }

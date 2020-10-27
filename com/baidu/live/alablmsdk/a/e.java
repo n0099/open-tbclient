@@ -4,7 +4,7 @@ import android.content.Context;
 import android.content.SharedPreferences;
 /* loaded from: classes4.dex */
 public class e {
-    private static e aAs;
+    private static e aAx;
     private static boolean isInited = false;
     private static Context mContext;
 
@@ -12,14 +12,14 @@ public class e {
     }
 
     public static e Bj() {
-        if (aAs == null) {
+        if (aAx == null) {
             synchronized (e.class) {
-                if (aAs == null) {
-                    aAs = new e();
+                if (aAx == null) {
+                    aAx = new e();
                 }
             }
         }
-        return aAs;
+        return aAx;
     }
 
     public void init(Context context) {

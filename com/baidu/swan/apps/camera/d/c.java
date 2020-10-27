@@ -6,7 +6,7 @@ import org.json.JSONObject;
 /* loaded from: classes10.dex */
 public class c extends com.baidu.swan.apps.component.b.b {
     public String cameraId;
-    public String cnd;
+    public String cvH;
 
     public c(String str) {
         super(PixelReadParams.DEFAULT_FILTER_ID, "cameraId");
@@ -21,6 +21,6 @@ public class c extends com.baidu.swan.apps.component.b.b {
     public void parseFromJson(JSONObject jSONObject) throws JSONException {
         super.parseFromJson(jSONObject);
         this.cameraId = jSONObject.optString("cameraId");
-        this.cnd = jSONObject.optString("quality");
+        this.cvH = jSONObject.optString("quality");
     }
 }

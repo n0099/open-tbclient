@@ -10,6 +10,6 @@ public class b extends a {
 
     @Override // com.baidu.tbadk.core.util.d.a
     public Drawable getDrawable() {
-        return SvgManager.bmU().a(this.evn, this.eBz);
+        return SvgManager.boN().a(this.eDM, this.eJV);
     }
 }

@@ -10,13 +10,13 @@ import com.google.ar.core.exceptions.UnavailableDeviceNotCompatibleException;
 import com.google.ar.core.exceptions.UnavailableUserDeclinedInstallationException;
 /* loaded from: classes11.dex */
 class n implements ArCoreApk.a {
-    final /* synthetic */ o obS;
+    final /* synthetic */ o oTj;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public static ArCoreApk.Availability gL(Context context) {
+    public static ArCoreApk.Availability hf(Context context) {
         ArCoreApk.Availability availability;
         try {
-            if (gM(context) != null) {
+            if (hg(context) != null) {
                 availability = ArCoreApk.Availability.SUPPORTED_APK_TOO_OLD;
             } else {
                 availability = ArCoreApk.Availability.SUPPORTED_INSTALLED;
@@ -31,9 +31,9 @@ class n implements ArCoreApk.a {
         }
     }
 
-    static PendingIntent gM(Context context) throws UnavailableDeviceNotCompatibleException, UnavailableUserDeclinedInstallationException {
+    static PendingIntent hg(Context context) throws UnavailableDeviceNotCompatibleException, UnavailableUserDeclinedInstallationException {
         try {
-            Bundle call = context.getContentResolver().call(We(""), "getSetupIntent", context.getPackageName(), (Bundle) null);
+            Bundle call = context.getContentResolver().call(XR(""), "getSetupIntent", context.getPackageName(), (Bundle) null);
             if (call == null) {
                 return null;
             }
@@ -68,20 +68,20 @@ class n implements ArCoreApk.a {
         }
     }
 
-    public static Uri We(String str) {
+    public static Uri XR(String str) {
         return new Uri.Builder().scheme("content").authority("com.google.ar.core.services.arcorecontentprovider").path(str).build();
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public n(o oVar) {
-        this.obS = oVar;
+        this.oTj = oVar;
     }
 
     @Override // com.google.ar.core.ArCoreApk.a
     public void a(ArCoreApk.Availability availability) {
-        synchronized (this.obS) {
-            o.a(this.obS, availability);
-            o.a(this.obS, false);
+        synchronized (this.oTj) {
+            o.a(this.oTj, availability);
+            o.a(this.oTj, false);
         }
     }
 }

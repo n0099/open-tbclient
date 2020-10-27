@@ -6,19 +6,19 @@ import org.json.JSONObject;
 public class d extends g {
 
     /* renamed from: a  reason: collision with root package name */
-    private String f4011a;
+    private String f4009a;
     private String b;
     private String c;
 
     public d(String str, String str2, String str3) {
-        this.f4011a = str;
+        this.f4009a = str;
         this.b = str2;
         this.c = str3;
     }
 
     @Override // com.cmic.sso.sdk.c.b.g
     public String a() {
-        return this.f4011a;
+        return this.f4009a;
     }
 
     @Override // com.cmic.sso.sdk.c.b.g

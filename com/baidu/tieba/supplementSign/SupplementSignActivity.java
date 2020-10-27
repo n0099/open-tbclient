@@ -15,12 +15,12 @@ import org.json.JSONObject;
 /* loaded from: classes24.dex */
 public class SupplementSignActivity extends TbWebViewActivity {
     private int forumId;
-    private final String mBG = "signSuccess";
+    private final String mOp = "signSuccess";
     private final String INTERFACE_NAME = "SupplementSignInterface";
-    private int mBH = 0;
-    private int mBI = 0;
-    private int mBJ = 0;
-    private CustomMessageListener mBK = new CustomMessageListener(CmdConfigCustom.CMD_RESPONSE_MEM) { // from class: com.baidu.tieba.supplementSign.SupplementSignActivity.1
+    private int mOq = 0;
+    private int mOr = 0;
+    private int mOs = 0;
+    private CustomMessageListener mOt = new CustomMessageListener(CmdConfigCustom.CMD_RESPONSE_MEM) { // from class: com.baidu.tieba.supplementSign.SupplementSignActivity.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
@@ -29,16 +29,16 @@ public class SupplementSignActivity extends TbWebViewActivity {
             }
         }
     };
-    private b mBL = new b() { // from class: com.baidu.tieba.supplementSign.SupplementSignActivity.2
+    private b mOu = new b() { // from class: com.baidu.tieba.supplementSign.SupplementSignActivity.2
         @Override // com.baidu.tieba.tbadkCore.e.b
         public boolean dealJsInterface(String str, String str2, String str3, JsPromptResult jsPromptResult) {
             if ("SupplementSignInterface".equalsIgnoreCase(str) && "signSuccess".equalsIgnoreCase(str2)) {
                 if (!StringUtils.isNull(str3)) {
                     try {
                         JSONObject jSONObject = new JSONObject(str3);
-                        SupplementSignActivity.this.mBH = jSONObject.optInt("all");
-                        SupplementSignActivity.this.mBI += jSONObject.optInt("signed", 0);
-                        SupplementSignActivity.this.mBJ = jSONObject.optInt("bonus", 0) + SupplementSignActivity.this.mBJ;
+                        SupplementSignActivity.this.mOq = jSONObject.optInt("all");
+                        SupplementSignActivity.this.mOr += jSONObject.optInt("signed", 0);
+                        SupplementSignActivity.this.mOs = jSONObject.optInt("bonus", 0) + SupplementSignActivity.this.mOs;
                     } catch (Throwable th) {
                         BdLog.e(th);
                     }
@@ -57,24 +57,24 @@ public class SupplementSignActivity extends TbWebViewActivity {
         if (intent != null) {
             this.forumId = intent.getIntExtra(SupplementSignActivityConfig.FORUM_ID, 0);
         }
-        addJsPromptInterface(this.mBL);
-        this.mView.hY(false);
-        registerListener(this.mBK);
+        addJsPromptInterface(this.mOu);
+        this.mView.il(false);
+        registerListener(this.mOt);
     }
 
     @Override // com.baidu.tbadk.browser.TbWebViewActivity, com.baidu.tbadk.browser.BaseWebViewActivity, com.baidu.tbadk.BaseActivity
     public void onChangeSkinType(int i) {
         super.onChangeSkinType(i);
-        this.mView.beW();
+        this.mView.bgP();
     }
 
     @Override // com.baidu.tbadk.browser.TbWebViewActivity, com.baidu.tbadk.browser.BaseWebViewActivity, com.baidu.tbadk.BaseActivity, android.app.Activity
     public void finish() {
         Intent intent = new Intent();
         intent.putExtra(SupplementSignActivityConfig.FORUM_ID, this.forumId);
-        intent.putExtra(SupplementSignActivityConfig.CONTINUOUS_SIGN_ALL_DAYS, this.mBH);
-        intent.putExtra(SupplementSignActivityConfig.SUPPLEMENT_SIGN_DAYS, this.mBI);
-        intent.putExtra(SupplementSignActivityConfig.SIGN_BONUS_POINT, this.mBJ);
+        intent.putExtra(SupplementSignActivityConfig.CONTINUOUS_SIGN_ALL_DAYS, this.mOq);
+        intent.putExtra(SupplementSignActivityConfig.SUPPLEMENT_SIGN_DAYS, this.mOr);
+        intent.putExtra(SupplementSignActivityConfig.SIGN_BONUS_POINT, this.mOs);
         super.finish(-1, intent);
     }
 

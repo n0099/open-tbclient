@@ -10,41 +10,41 @@ import com.baidu.tbadk.core.view.commonBtn.TBSpecificationBtn;
 import com.baidu.tieba.R;
 /* loaded from: classes22.dex */
 public class a extends com.baidu.adp.widget.ListView.c {
-    private BaseFragment lxp;
-    private InterfaceC0792a lxq;
-    private TBSpecificationBtn lxr;
-    private View.OnClickListener lxs = new View.OnClickListener() { // from class: com.baidu.tieba.pb.view.a.1
+    private BaseFragment lJN;
+    private InterfaceC0807a lJO;
+    private TBSpecificationBtn lJP;
+    private View.OnClickListener lJQ = new View.OnClickListener() { // from class: com.baidu.tieba.pb.view.a.1
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
-            bg.skipToLoginActivity(a.this.lxp.getContext());
-            if (a.this.lxq != null) {
-                a.this.lxq.tM(true);
+            bg.skipToLoginActivity(a.this.lJN.getContext());
+            if (a.this.lJO != null) {
+                a.this.lJO.ud(true);
             }
         }
     };
 
     /* renamed from: com.baidu.tieba.pb.view.a$a  reason: collision with other inner class name */
     /* loaded from: classes22.dex */
-    public interface InterfaceC0792a {
-        void tM(boolean z);
+    public interface InterfaceC0807a {
+        void ud(boolean z);
     }
 
-    public a(BaseFragment baseFragment, InterfaceC0792a interfaceC0792a) {
-        this.lxp = baseFragment;
-        this.lxq = interfaceC0792a;
+    public a(BaseFragment baseFragment, InterfaceC0807a interfaceC0807a) {
+        this.lJN = baseFragment;
+        this.lJO = interfaceC0807a;
     }
 
     @Override // com.baidu.adp.widget.ListView.c
     public View createView() {
-        this.mView = LayoutInflater.from(this.lxp.getContext()).inflate(R.layout.login_see_more_layout, (ViewGroup) null);
-        this.lxr = (TBSpecificationBtn) this.mView.findViewById(R.id.login_button);
+        this.mView = LayoutInflater.from(this.lJN.getContext()).inflate(R.layout.login_see_more_layout, (ViewGroup) null);
+        this.lJP = (TBSpecificationBtn) this.mView.findViewById(R.id.login_button);
         com.baidu.tbadk.core.view.commonBtn.a aVar = new com.baidu.tbadk.core.view.commonBtn.a();
-        if (this.lxp != null && this.lxp.getContext() != null) {
-            this.lxr.setText(this.lxp.getContext().getResources().getString(R.string.login_see_more));
+        if (this.lJN != null && this.lJN.getContext() != null) {
+            this.lJP.setText(this.lJN.getContext().getResources().getString(R.string.login_see_more));
         }
-        this.lxr.setTextSize(R.dimen.tbds42);
-        this.lxr.setConfig(aVar);
-        this.lxr.setOnClickListener(this.lxs);
+        this.lJP.setTextSize(R.dimen.tbds42);
+        this.lJP.setConfig(aVar);
+        this.lJP.setOnClickListener(this.lJQ);
         changeSkin(TbadkCoreApplication.getInst().getSkinType());
         return this.mView;
     }
@@ -53,14 +53,14 @@ public class a extends com.baidu.adp.widget.ListView.c {
     public void onClick() {
     }
 
-    public void boa() {
+    public void bpT() {
         this.mView.setLayoutParams(new ViewGroup.LayoutParams(-1, -2));
     }
 
     public void changeSkin(int i) {
-        com.baidu.tbadk.r.a.a(this.lxp.getPageContext(), this.mView);
-        if (this.lxr != null) {
-            this.lxr.bok();
+        com.baidu.tbadk.r.a.a(this.lJN.getPageContext(), this.mView);
+        if (this.lJP != null) {
+            this.lJP.bqd();
         }
     }
 }

@@ -13,12 +13,12 @@ public class c extends a {
     }
 
     @Override // com.baidu.swan.videoplayer.b.a.a.a
-    public void bap() {
+    public void bci() {
         try {
-            JSONObject bar = bar();
-            bar.put("type", "first_frame");
-            bar.put("ext", bas().toString());
-            e.onEvent("322", bar);
+            JSONObject bck = bck();
+            bck.put("type", "first_frame");
+            bck.put("ext", bcl().toString());
+            e.onEvent("322", bck);
         } catch (Exception e) {
             if (DEBUG) {
                 e.printStackTrace();
@@ -27,15 +27,15 @@ public class c extends a {
     }
 
     @Override // com.baidu.swan.videoplayer.b.a.a.a
-    public void h(int i, int i2, String str) {
+    public void i(int i, int i2, String str) {
         try {
-            JSONObject bar = bar();
-            JSONObject bas = bas();
-            bas.put("errorNo", i);
-            bas.put("sub_errorNo", i2);
-            bas.put("errorInfo", str);
-            bar.put("ext", bas.toString());
-            e.onEvent("36", bar);
+            JSONObject bck = bck();
+            JSONObject bcl = bcl();
+            bcl.put("errorNo", i);
+            bcl.put("sub_errorNo", i2);
+            bcl.put("errorInfo", str);
+            bck.put("ext", bcl.toString());
+            e.onEvent("36", bck);
         } catch (Exception e) {
             if (DEBUG) {
                 e.printStackTrace();
@@ -44,7 +44,7 @@ public class c extends a {
     }
 
     @NonNull
-    private JSONObject bar() {
+    private JSONObject bck() {
         JSONObject jSONObject = new JSONObject();
         try {
             jSONObject.put("from", "video");
@@ -58,21 +58,21 @@ public class c extends a {
     }
 
     @NonNull
-    private JSONObject bas() {
+    private JSONObject bcl() {
         JSONObject jSONObject = new JSONObject();
         try {
             jSONObject.put("ext_from", "aiapp");
-            jSONObject.put("appid", com.baidu.swan.apps.runtime.e.aDc());
+            jSONObject.put("appid", com.baidu.swan.apps.runtime.e.aEW());
             jSONObject.put("url", this.mCurrentUrl);
             jSONObject.put("vid", this.mCurrentUrl);
             jSONObject.put("isInline", true);
             String str = "";
-            com.baidu.swan.apps.runtime.e aDa = com.baidu.swan.apps.runtime.e.aDa();
-            if (aDa != null) {
-                str = aDa.aDt() ? "swangame" : "swan";
-                b.a abu = aDa.abu();
-                if (abu != null && abu.aud() > 0) {
-                    jSONObject.put("ext_start", abu.aud());
+            com.baidu.swan.apps.runtime.e aEU = com.baidu.swan.apps.runtime.e.aEU();
+            if (aEU != null) {
+                str = aEU.aFn() ? "swangame" : "swan";
+                b.a ado = aEU.ado();
+                if (ado != null && ado.avX() > 0) {
+                    jSONObject.put("ext_start", ado.avX());
                 }
             }
             jSONObject.put("ext_page", str);
@@ -85,6 +85,6 @@ public class c extends a {
     }
 
     @Override // com.baidu.swan.apps.inlinewidget.f.c.a
-    public void ok(String str) {
+    public void oE(String str) {
     }
 }

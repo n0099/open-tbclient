@@ -5,14 +5,14 @@ import java.net.InetSocketAddress;
 public final class cx {
 
     /* renamed from: a  reason: collision with root package name */
-    private int f4847a;
+    private int f4845a;
 
     /* renamed from: a  reason: collision with other field name */
-    private String f187a;
+    private String f184a;
 
     public cx(String str, int i) {
-        this.f187a = str;
-        this.f4847a = i;
+        this.f184a = str;
+        this.f4845a = i;
     }
 
     public static cx a(String str, int i) {
@@ -33,21 +33,21 @@ public final class cx {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public static InetSocketAddress m214a(String str, int i) {
+    public static InetSocketAddress m213a(String str, int i) {
         cx a2 = a(str, i);
-        return new InetSocketAddress(a2.m215a(), a2.a());
+        return new InetSocketAddress(a2.m214a(), a2.a());
     }
 
     public int a() {
-        return this.f4847a;
+        return this.f4845a;
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public String m215a() {
-        return this.f187a;
+    public String m214a() {
+        return this.f184a;
     }
 
     public String toString() {
-        return this.f4847a > 0 ? this.f187a + ":" + this.f4847a : this.f187a;
+        return this.f4845a > 0 ? this.f184a + ":" + this.f4845a : this.f184a;
     }
 }

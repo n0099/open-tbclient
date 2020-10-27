@@ -28,7 +28,7 @@ public class b {
     public static void a(Context context, String str) {
         c = str;
         d = Utils.e(context);
-        e.VB().a(context, str);
+        e.Xv().a(context, str);
     }
 
     private static void a(Context context, Map<String, String> map) {
@@ -64,7 +64,7 @@ public class b {
     }
 
     public static boolean a(int i) {
-        int b2 = e.VB().b(i);
+        int b2 = e.Xv().b(i);
         return (f2257a & b2) == b2;
     }
 
@@ -87,7 +87,7 @@ public class b {
     }
 
     public static String[] a() {
-        return e.VB().b();
+        return e.Xv().b();
     }
 
     public static String b() {
@@ -99,19 +99,31 @@ public class b {
     }
 
     private static boolean c(int i, Map<String, String> map) {
-        int i2;
         String str;
+        int i2;
         String str2;
+        String str3 = null;
         if (CyberCfgManager.getInstance().getCfgBoolValue(CyberCfgManager.KEY_INT_ENABLE_CRASHPAD, true)) {
-            String str3 = map.get(CyberPlayerManager.INSTALL_OPT_CRASHPAD_INSTALL_TYPE);
-            if (TextUtils.isEmpty(str3)) {
-                i2 = 3;
-            } else {
-                try {
-                    i2 = Integer.parseInt(str3);
-                } catch (Exception e) {
+            if (map != null) {
+                String str4 = map.get(CyberPlayerManager.INSTALL_OPT_CRASHPAD_INSTALL_TYPE);
+                if (TextUtils.isEmpty(str4)) {
                     i2 = 3;
+                } else {
+                    try {
+                        i2 = Integer.parseInt(str4);
+                    } catch (Exception e) {
+                        i2 = 3;
+                    }
                 }
+                str = map.get("abtest_sid");
+                str2 = map.get(CyberPlayerManager.INSTALL_OPT_PROCESS_TYPE);
+                if (TextUtils.isEmpty(str2)) {
+                    str2 = "-1";
+                }
+            } else {
+                str = null;
+                i2 = 3;
+                str2 = "-1";
             }
             if (d) {
                 if ((i2 & 2) != 2) {
@@ -126,34 +138,25 @@ public class b {
                 }
                 try {
                     try {
-                        File file = new File(e.VB().gj(1).c());
-                        File file2 = new File(e.VB().gj(2).c());
+                        File file = new File(e.Xv().gv(1).c());
+                        File file2 = new File(e.Xv().gv(2).c());
                         String parent = file.getParent();
                         String parent2 = file2.getParent();
                         try {
-                            str = CyberPlayerManager.getApplicationContext().getExternalFilesDir("").getAbsolutePath();
+                            str3 = CyberPlayerManager.getApplicationContext().getExternalFilesDir("").getAbsolutePath();
                         } catch (Exception e2) {
-                            str = null;
                         }
                         if (d) {
                             str2 = "4";
-                        } else {
-                            str2 = map.get(CyberPlayerManager.INSTALL_OPT_PROCESS_TYPE);
-                            if (TextUtils.isEmpty(str2)) {
-                                str2 = "-1";
-                            }
                         }
                         if (!file2.canExecute()) {
                             file2.setExecutable(true);
                             CyberLog.d("CyberLibsLoader", "set " + file2.getAbsolutePath() + " executable");
                         }
-                        String[] strArr = {SDKVersion.VERSION, "neon", CyberPlayerManager.getClientID(), "unKnown", "0", "0", str2, "true", str, GlobalConstants.DEFAULT_VERSION, parent, parent2, ""};
+                        String[] strArr = {SDKVersion.VERSION, "neon", CyberPlayerManager.getClientID(), "unKnown", "0", "0", str2, "true", str3, GlobalConstants.DEFAULT_VERSION, parent, parent2, ""};
                         a.a(true);
                         a.a(CyberPlayerManager.getApplicationContext(), strArr);
-                        String str4 = map.get("abtest_sid");
-                        if (!TextUtils.isEmpty(str4)) {
-                            a.a("{searchbox_sid=" + str4 + "}");
-                        }
+                        a.a("{searchbox_sid=" + str + "}");
                         return true;
                     } catch (Error e3) {
                         CyberLog.e("CyberLibsLoader", "initCrashPad Error:" + e3.toString());
@@ -195,58 +198,58 @@ public class b {
     }
 
     public static void d(int i, Map<String, String> map) {
-        int b2 = e.VB().b(i);
+        int b2 = e.Xv().b(i);
         if ((f2257a & b2) == b2) {
             return;
         }
         for (int i2 = (f2257a ^ b2) & b2; i2 > 0 && e(1 << Integer.numberOfTrailingZeros(i2), map); i2 = (f2257a ^ b2) & b2) {
         }
-        e.VB().d();
+        e.Xv().d();
     }
 
     private static boolean e(int i, Map<String, String> map) {
         boolean a2;
-        d gj = e.VB().gj(i);
-        if (gj == null) {
+        d gv = e.Xv().gv(i);
+        if (gv == null) {
             CyberLog.e("CyberLibsLoader", "Unable to find (" + i + ") LibInfo");
             return false;
         }
-        String a3 = gj.a();
-        String b2 = gj.b();
-        String c2 = gj.c();
+        String a3 = gv.a();
+        String b2 = gv.b();
+        String c2 = gv.c();
         File file = new File(c2);
-        if (gj.VA() == d.a.LIB_TYPE_JAR) {
+        if (gv.Xu() == d.a.LIB_TYPE_JAR) {
             if (!"apk_internal_jar".equals(c2)) {
                 if (!file.exists()) {
-                    throw new FileNotFoundException(e.VB().du(i));
+                    throw new FileNotFoundException(e.Xv().du(i));
                 }
-                if (e.VB().h(i)) {
+                if (e.Xv().h(i)) {
                     a2 = CyberMediaExtLoader.init(CyberPlayerManager.getApplicationContext());
                 }
             }
             a2 = true;
         } else {
-            if (gj.VA() == d.a.LIB_TYPE_SO) {
+            if (gv.Xu() == d.a.LIB_TYPE_SO) {
                 if (!file.exists()) {
                     if (i == 8) {
                         i = 16;
                     }
-                    throw new FileNotFoundException(e.VB().du(i));
-                } else if (e.VB().d(i)) {
+                    throw new FileNotFoundException(e.Xv().du(i));
+                } else if (e.Xv().d(i)) {
                     System.load(c2);
                     if (i == 16) {
                         a(CyberPlayerManager.getApplicationContext(), map);
                         a2 = true;
                     }
-                } else if (e.VB().e(i)) {
+                } else if (e.Xv().e(i)) {
                     IjkMediaPlayer.nativeSetEnableFFmpegExtend(c2);
                     a2 = true;
-                } else if (e.VB().f(i)) {
+                } else if (e.Xv().f(i)) {
                     b = c2;
                     a2 = true;
-                } else if (e.VB().gl(i)) {
+                } else if (e.Xv().gx(i)) {
                     a2 = c(i, map);
-                } else if (e.VB().gk(i)) {
+                } else if (e.Xv().gw(i)) {
                     a2 = a(i, c2);
                 }
             }
@@ -254,7 +257,7 @@ public class b {
         }
         f2257a |= i;
         if (a2) {
-            CyberLog.d("CyberLibsLoader", "isMediaProcess:" + d + " abi:" + e.VB().c() + " lib:" + a3 + " ver:" + b2 + " load success");
+            CyberLog.d("CyberLibsLoader", "isMediaProcess:" + d + " abi:" + e.Xv().c() + " lib:" + a3 + " ver:" + b2 + " load success");
             return true;
         }
         return true;

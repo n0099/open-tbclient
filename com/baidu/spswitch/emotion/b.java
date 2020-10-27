@@ -16,20 +16,20 @@ import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes19.dex */
 public class b {
-    private static b ceO;
+    private static b cnm;
     private static Context mContext;
-    private HashMap<String, a> ceP = new HashMap<>();
-    private List<String> ceQ = new ArrayList();
+    private HashMap<String, a> cnn = new HashMap<>();
+    private List<String> cno = new ArrayList();
 
     public static b bd(Context context) {
-        if (ceO == null) {
+        if (cnm == null) {
             synchronized (c.class) {
-                if (ceO == null) {
-                    ceO = new b(context.getApplicationContext());
+                if (cnm == null) {
+                    cnm = new b(context.getApplicationContext());
                 }
             }
         }
-        return ceO;
+        return cnm;
     }
 
     private b(Context context) {
@@ -49,16 +49,16 @@ public class b {
                         JSONObject jSONObject = (JSONObject) optJSONArray2.get(i);
                         String optString = jSONObject.optString("id");
                         String optString2 = jSONObject.optString("text");
-                        this.ceP.put(optString2, new a(optString, optString2, Integer.valueOf(jC(jSONObject.optString(AlaStaticKeys.ALA_STATIC_VALUE_ICON)))));
+                        this.cnn.put(optString2, new a(optString, optString2, Integer.valueOf(jV(jSONObject.optString(AlaStaticKeys.ALA_STATIC_VALUE_ICON)))));
                     }
                 }
                 JSONArray optJSONArray3 = optJSONObject.optJSONArray("panel_emoticons");
                 if (optJSONArray3 != null) {
                     int length2 = optJSONArray3.length();
                     for (int i2 = 0; i2 < length2; i2++) {
-                        String jB = jB((String) optJSONArray3.get(i2));
-                        if (!TextUtils.isEmpty(jB)) {
-                            this.ceQ.add(jB);
+                        String jU = jU((String) optJSONArray3.get(i2));
+                        if (!TextUtils.isEmpty(jU)) {
+                            this.cno.add(jU);
                         }
                     }
                 }
@@ -68,9 +68,9 @@ public class b {
         }
     }
 
-    private String jB(String str) {
+    private String jU(String str) {
         String str2 = "";
-        for (Map.Entry<String, a> entry : this.ceP.entrySet()) {
+        for (Map.Entry<String, a> entry : this.cnn.entrySet()) {
             str2 = entry.getKey();
             if (str.equals(entry.getValue().id)) {
                 break;
@@ -79,7 +79,7 @@ public class b {
         return str2;
     }
 
-    private int jC(String str) {
+    private int jV(String str) {
         if (str == null) {
             return 0;
         }
@@ -150,9 +150,9 @@ public class b {
         Integer num;
         switch (emotionType) {
             case EMOTION_CLASSIC_TYPE:
-                a aVar = this.ceP.get(str);
+                a aVar = this.cnn.get(str);
                 if (aVar != null) {
-                    num = aVar.ceS;
+                    num = aVar.cnq;
                     break;
                 }
             default:
@@ -169,26 +169,26 @@ public class b {
         a aVar = null;
         switch (emotionType) {
             case EMOTION_CLASSIC_TYPE:
-                aVar = this.ceP.get(str);
+                aVar = this.cnn.get(str);
                 break;
         }
         return aVar == null ? "" : aVar.id;
     }
 
-    public List aba() {
-        return this.ceQ;
+    public List acU() {
+        return this.cno;
     }
 
     /* loaded from: classes19.dex */
     public static class a {
-        public Integer ceS;
+        public Integer cnq;
         public String id;
         public String text;
 
         public a(String str, String str2, Integer num) {
             this.id = str;
             this.text = str2;
-            this.ceS = num;
+            this.cnq = num;
         }
     }
 }

@@ -9,23 +9,23 @@ import android.widget.LinearLayout;
 import com.baidu.tieba.R;
 /* loaded from: classes24.dex */
 public class FloatRecordView implements com.baidu.tieba.im.chat.c {
-    private ImageView aaW = null;
-    private LinearLayout aaX = null;
+    private ImageView aaX = null;
     private LinearLayout aaY = null;
     private LinearLayout aaZ = null;
-    private int aba = 0;
-    private long abb = 0;
-    private int abd = 0;
+    private LinearLayout aba = null;
+    private int abb = 0;
+    private long abd = 0;
+    private int abe = 0;
 
     public FloatRecordView(Context context) {
         c(context, null);
     }
 
     private void c(Context context, ViewGroup viewGroup) {
-        this.aaX = (LinearLayout) LayoutInflater.from(context).inflate(R.layout.float_chat_recording_view, (ViewGroup) null);
-        this.aaW = (ImageView) this.aaX.findViewById(R.id.img_msgsend_recording);
-        this.aaY = (LinearLayout) LayoutInflater.from(context).inflate(R.layout.floating_chat_too_short_view, (ViewGroup) null);
-        this.aaZ = (LinearLayout) LayoutInflater.from(context).inflate(R.layout.floating_chat_cancel_view, (ViewGroup) null);
+        this.aaY = (LinearLayout) LayoutInflater.from(context).inflate(R.layout.float_chat_recording_view, (ViewGroup) null);
+        this.aaX = (ImageView) this.aaY.findViewById(R.id.img_msgsend_recording);
+        this.aaZ = (LinearLayout) LayoutInflater.from(context).inflate(R.layout.floating_chat_too_short_view, (ViewGroup) null);
+        this.aba = (LinearLayout) LayoutInflater.from(context).inflate(R.layout.floating_chat_cancel_view, (ViewGroup) null);
     }
 
     @Override // com.baidu.adp.lib.voice.f
@@ -53,72 +53,72 @@ public class FloatRecordView implements com.baidu.tieba.im.chat.c {
     }
 
     public LinearLayout sn() {
-        return this.aaX;
-    }
-
-    public LinearLayout so() {
         return this.aaY;
     }
 
-    public LinearLayout sp() {
+    public LinearLayout so() {
         return this.aaZ;
+    }
+
+    public LinearLayout sp() {
+        return this.aba;
     }
 
     @Override // com.baidu.adp.lib.voice.f
     public void onShowRecording(int i) {
-        this.aba = Math.max(i, this.aba);
+        this.abb = Math.max(i, this.abb);
         long uptimeMillis = SystemClock.uptimeMillis();
-        if (uptimeMillis - this.abb > 150) {
-            this.aba = 0;
-            this.abb = uptimeMillis;
+        if (uptimeMillis - this.abd > 150) {
+            this.abb = 0;
+            this.abd = uptimeMillis;
         }
-        this.abd++;
-        if (this.abd % 5 == 0) {
-            this.abd = 0;
-            if (this.aba < 2) {
-                this.aaW.setImageResource(R.drawable.icon_chat_talk_sound_up_zero);
-            } else if (this.aba < 10) {
-                this.aaW.setImageResource(R.drawable.icon_chat_talk_sound_up_one);
-            } else if (this.aba < 20) {
-                this.aaW.setImageResource(R.drawable.icon_chat_talk_sound_up_two);
-            } else if (this.aba < 30) {
-                this.aaW.setImageResource(R.drawable.icon_chat_talk_sound_up_three);
-            } else if (this.aba < 40) {
-                this.aaW.setImageResource(R.drawable.icon_chat_talk_sound_up_four);
-            } else if (this.aba < 50) {
-                this.aaW.setImageResource(R.drawable.icon_chat_talk_sound_up_five);
+        this.abe++;
+        if (this.abe % 5 == 0) {
+            this.abe = 0;
+            if (this.abb < 2) {
+                this.aaX.setImageResource(R.drawable.icon_chat_talk_sound_up_zero);
+            } else if (this.abb < 10) {
+                this.aaX.setImageResource(R.drawable.icon_chat_talk_sound_up_one);
+            } else if (this.abb < 20) {
+                this.aaX.setImageResource(R.drawable.icon_chat_talk_sound_up_two);
+            } else if (this.abb < 30) {
+                this.aaX.setImageResource(R.drawable.icon_chat_talk_sound_up_three);
+            } else if (this.abb < 40) {
+                this.aaX.setImageResource(R.drawable.icon_chat_talk_sound_up_four);
+            } else if (this.abb < 50) {
+                this.aaX.setImageResource(R.drawable.icon_chat_talk_sound_up_five);
             } else {
-                this.aaW.setImageResource(R.drawable.icon_chat_talk_sound_up_three);
+                this.aaX.setImageResource(R.drawable.icon_chat_talk_sound_up_three);
             }
         }
     }
 
     @Override // com.baidu.tieba.im.chat.c
     public void startRecordVoice() {
-        this.aaX.setVisibility(0);
-    }
-
-    @Override // com.baidu.tieba.im.chat.c
-    public void stopRecordVoice() {
-        this.aaX.setVisibility(8);
-    }
-
-    public void sq() {
         this.aaY.setVisibility(0);
     }
 
     @Override // com.baidu.tieba.im.chat.c
-    public void closeRecordTooShort() {
+    public void stopRecordVoice() {
         this.aaY.setVisibility(8);
     }
 
-    @Override // com.baidu.tieba.im.chat.c
-    public void showRecordCancel() {
+    public void sq() {
         this.aaZ.setVisibility(0);
     }
 
     @Override // com.baidu.tieba.im.chat.c
-    public void closeRecordCancel() {
+    public void closeRecordTooShort() {
         this.aaZ.setVisibility(8);
+    }
+
+    @Override // com.baidu.tieba.im.chat.c
+    public void showRecordCancel() {
+        this.aba.setVisibility(0);
+    }
+
+    @Override // com.baidu.tieba.im.chat.c
+    public void closeRecordCancel() {
+        this.aba.setVisibility(8);
     }
 }

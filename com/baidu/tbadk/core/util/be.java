@@ -22,10 +22,10 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 /* loaded from: classes.dex */
 public class be {
-    private static be ezO = new be() { // from class: com.baidu.tbadk.core.util.be.1
+    private static be eIk = new be() { // from class: com.baidu.tbadk.core.util.be.1
     };
     private static final Pattern pattern = Pattern.compile("(http://|ftp://|https://|www){1,1}[^一-龥\\s]*", 2);
-    private c ezP;
+    private c eIl;
     private final ConcurrentHashMap<String, b> mHandlers;
     private final List<a> mListeners;
 
@@ -51,10 +51,10 @@ public class be {
     private be() {
         this.mListeners = new LinkedList();
         this.mHandlers = new ConcurrentHashMap<>();
-        this.ezP = null;
+        this.eIl = null;
     }
 
-    public static SpannableString at(Context context, String str) {
+    public static SpannableString au(Context context, String str) {
         int start;
         Matcher matcher = pattern.matcher(str);
         SpannableString spannableString = new SpannableString(str);
@@ -70,8 +70,8 @@ public class be {
         return spannableString;
     }
 
-    public static be bmY() {
-        return ezO;
+    public static be boR() {
+        return eIk;
     }
 
     public void a(final a aVar) {
@@ -95,7 +95,7 @@ public class be {
     }
 
     public void a(c cVar) {
-        this.ezP = cVar;
+        this.eIl = cVar;
     }
 
     public boolean a(TbPageContext<?> tbPageContext, String[] strArr, boolean z, d dVar, boolean z2) {
@@ -161,7 +161,7 @@ public class be {
                 break;
             }
         }
-        if (!z3 && this.ezP != null) {
+        if (!z3 && this.eIl != null) {
             if (str2.contains("nohead:url") || str2.contains("booktown") || str2.contains("bookreader")) {
                 z4 = true;
             } else if (strArr.length > 1 && !StringUtils.isNull(strArr[1]) && "yun_push_tag".equals(strArr[1])) {
@@ -273,7 +273,7 @@ public class be {
 
     private void b(TbPageContext<?> tbPageContext, String str, String str2, boolean z, d dVar, boolean z2) {
         if (pattern.matcher(str2).find()) {
-            this.ezP.a(tbPageContext, str, str2, z, dVar, z2);
+            this.eIl.a(tbPageContext, str, str2, z, dVar, z2);
         }
     }
 
@@ -301,10 +301,10 @@ public class be {
         if (charSequence == null) {
             return false;
         }
-        return aw.ezK.matcher(charSequence).find();
+        return aw.eIg.matcher(charSequence).find();
     }
 
-    public String Bt(String str) {
+    public String BM(String str) {
         if (!l(str)) {
             return null;
         }
@@ -320,6 +320,6 @@ public class be {
         if (charSequence == null) {
             return false;
         }
-        return aw.ezJ.matcher(charSequence).find();
+        return aw.eIf.matcher(charSequence).find();
     }
 }

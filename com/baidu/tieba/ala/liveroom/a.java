@@ -17,7 +17,7 @@ public abstract class a {
     public void av(ViewGroup viewGroup) {
     }
 
-    public void CN() {
+    public void CT() {
     }
 
     public void onDestroy() {

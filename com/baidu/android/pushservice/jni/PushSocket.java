@@ -7,7 +7,7 @@ import com.baidu.android.pushservice.message.h;
 public class PushSocket {
 
     /* renamed from: a  reason: collision with root package name */
-    public static boolean f1159a;
+    public static boolean f1156a;
     private static byte[] b = null;
     private static int c = 0;
     private static String d = "PushSocket";
@@ -20,10 +20,10 @@ public class PushSocket {
     }
 
     static {
-        f1159a = false;
+        f1156a = false;
         try {
             System.loadLibrary("bdpush_V3_3");
-            f1159a = true;
+            f1156a = true;
         } catch (Throwable th) {
         }
     }
@@ -39,15 +39,15 @@ public class PushSocket {
     }
 
     public static boolean a() {
-        if (!f1159a) {
+        if (!f1156a) {
             try {
                 System.loadLibrary("bdpush_V3_3");
-                f1159a = true;
+                f1156a = true;
             } catch (Throwable th) {
                 Log.e("BDPushSDK-" + d, "Native library not found! Please copy libbdpush_V3_3.so into your project!");
             }
         }
-        return f1159a;
+        return f1156a;
     }
 
     /* JADX WARN: Code restructure failed: missing block: B:14:0x0031, code lost:

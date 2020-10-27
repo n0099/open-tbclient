@@ -5,11 +5,11 @@ import java.io.InputStream;
 public class a {
 
     /* renamed from: a  reason: collision with root package name */
-    private InputStream f1073a;
+    private InputStream f1070a;
     private int b;
 
     public InputStream a() {
-        return this.f1073a;
+        return this.f1070a;
     }
 
     public void a(int i) {
@@ -17,7 +17,7 @@ public class a {
     }
 
     public void a(InputStream inputStream) {
-        this.f1073a = inputStream;
+        this.f1070a = inputStream;
     }
 
     public int b() {

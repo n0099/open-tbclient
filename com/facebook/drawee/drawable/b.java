@@ -7,9 +7,9 @@ import android.os.SystemClock;
 /* loaded from: classes15.dex */
 public class b extends g implements Runnable {
     private int mInterval;
-    private boolean nNY;
-    float nNZ;
-    private boolean nOa;
+    private boolean oFr;
+    float oFs;
+    private boolean oFt;
 
     public b(Drawable drawable, int i) {
         this(drawable, i, true);
@@ -17,10 +17,10 @@ public class b extends g implements Runnable {
 
     public b(Drawable drawable, int i, boolean z) {
         super((Drawable) com.facebook.common.internal.g.checkNotNull(drawable));
-        this.nNZ = 0.0f;
-        this.nOa = false;
+        this.oFs = 0.0f;
+        this.oFt = false;
         this.mInterval = i;
-        this.nNY = z;
+        this.oFr = z;
     }
 
     @Override // com.facebook.drawee.drawable.g, android.graphics.drawable.Drawable
@@ -29,31 +29,31 @@ public class b extends g implements Runnable {
         Rect bounds = getBounds();
         int i = bounds.right - bounds.left;
         int i2 = bounds.bottom - bounds.top;
-        float f = this.nNZ;
-        if (!this.nNY) {
-            f = 360.0f - this.nNZ;
+        float f = this.oFs;
+        if (!this.oFr) {
+            f = 360.0f - this.oFs;
         }
         canvas.rotate(f, (i / 2) + bounds.left, bounds.top + (i2 / 2));
         super.draw(canvas);
         canvas.restoreToCount(save);
-        dYa();
+        ehY();
     }
 
     @Override // java.lang.Runnable
     public void run() {
-        this.nOa = false;
-        this.nNZ += dYb();
+        this.oFt = false;
+        this.oFs += ehZ();
         invalidateSelf();
     }
 
-    private void dYa() {
-        if (!this.nOa) {
-            this.nOa = true;
+    private void ehY() {
+        if (!this.oFt) {
+            this.oFt = true;
             scheduleSelf(this, SystemClock.uptimeMillis() + 20);
         }
     }
 
-    private int dYb() {
+    private int ehZ() {
         return (int) ((20.0f / this.mInterval) * 360.0f);
     }
 }

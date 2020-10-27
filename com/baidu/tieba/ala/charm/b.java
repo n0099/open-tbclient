@@ -15,11 +15,11 @@ import com.baidu.tieba.ala.charm.model.a;
 import java.util.ArrayList;
 /* loaded from: classes4.dex */
 public class b implements c {
-    private String aEr;
-    private boolean bhU;
-    private c.a gfJ;
-    private CustomMessageListener gfK;
-    private com.baidu.tieba.ala.charm.model.a gfu;
+    private String aEz;
+    private boolean bjr;
+    private c.a gpM;
+    private CustomMessageListener gpN;
+    private com.baidu.tieba.ala.charm.model.a gpx;
     private String mGroupId;
     private String mLiveId;
     private String mOtherParams;
@@ -35,77 +35,77 @@ public class b implements c {
         this.mUserId = str;
         this.mGroupId = str2;
         this.mLiveId = str3;
-        this.bhU = z;
-        this.aEr = str4;
+        this.bjr = z;
+        this.aEz = str4;
         this.mOtherParams = str5;
         registerListener();
     }
 
     @Override // com.baidu.tieba.ala.charm.c
     public void a(c.a aVar) {
-        this.gfJ = aVar;
+        this.gpM = aVar;
     }
 
     @Override // com.baidu.tieba.ala.charm.c
-    public void byF() {
-        if (this.gfu == null) {
-            this.gfu = new com.baidu.tieba.ala.charm.model.a(this.mPageContext, this.mUserId, new a.InterfaceC0610a() { // from class: com.baidu.tieba.ala.charm.b.1
-                @Override // com.baidu.tieba.ala.charm.model.a.InterfaceC0610a
+    public void bAy() {
+        if (this.gpx == null) {
+            this.gpx = new com.baidu.tieba.ala.charm.model.a(this.mPageContext, this.mUserId, new a.InterfaceC0626a() { // from class: com.baidu.tieba.ala.charm.b.1
+                @Override // com.baidu.tieba.ala.charm.model.a.InterfaceC0626a
                 public void a(ALaCharmDataList aLaCharmDataList) {
                     b.this.b(aLaCharmDataList);
                 }
 
-                @Override // com.baidu.tieba.ala.charm.model.a.InterfaceC0610a
-                public void aK(int i, String str) {
-                    if (b.this.gfJ != null) {
-                        b.this.gfJ.tZ(str);
+                @Override // com.baidu.tieba.ala.charm.model.a.InterfaceC0626a
+                public void t(int i, String str) {
+                    if (b.this.gpM != null) {
+                        b.this.gpM.us(str);
                     }
                 }
             });
         }
-        this.gfu.I(1, 20, 1);
+        this.gpx.K(1, 20, 1);
     }
 
     @Override // com.baidu.tieba.ala.charm.c
     public void a(ALaCharmData aLaCharmData) {
         if (aLaCharmData != null) {
             MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2913186));
-            if (this.gfJ != null) {
-                this.gfJ.onClose();
+            if (this.gpM != null) {
+                this.gpM.onClose();
             }
-            MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new AlaPersonCardActivityConfig(this.mPageContext.getPageActivity(), aLaCharmData.pay_userid, aLaCharmData.user_name, aLaCharmData.portrait, aLaCharmData.sex, aLaCharmData.level_id, null, null, 0L, aLaCharmData.fans_count, aLaCharmData.follow_count, aLaCharmData.user_status, this.mGroupId, this.mLiveId, this.bhU, this.aEr, null, aLaCharmData.user_name, this.mOtherParams)));
+            MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new AlaPersonCardActivityConfig(this.mPageContext.getPageActivity(), aLaCharmData.pay_userid, aLaCharmData.user_name, aLaCharmData.portrait, aLaCharmData.sex, aLaCharmData.level_id, null, null, 0L, aLaCharmData.fans_count, aLaCharmData.follow_count, aLaCharmData.user_status, this.mGroupId, this.mLiveId, this.bjr, this.aEz, null, aLaCharmData.user_name, this.mOtherParams)));
         }
     }
 
     @Override // com.baidu.tieba.ala.charm.c
     public void release() {
-        this.gfJ = null;
-        if (this.gfK != null) {
-            MessageManager.getInstance().unRegisterListener(this.gfK);
+        this.gpM = null;
+        if (this.gpN != null) {
+            MessageManager.getInstance().unRegisterListener(this.gpN);
         }
-        if (this.gfu != null) {
-            this.gfu.onDestroy();
+        if (this.gpx != null) {
+            this.gpx.onDestroy();
         }
     }
 
     private void registerListener() {
-        this.gfK = new CustomMessageListener(AlaCmdConfigCustom.CMD_ALA_IMAGE_FRAME_PLAYER_CONTROLLER) { // from class: com.baidu.tieba.ala.charm.b.2
+        this.gpN = new CustomMessageListener(AlaCmdConfigCustom.CMD_ALA_IMAGE_FRAME_PLAYER_CONTROLLER) { // from class: com.baidu.tieba.ala.charm.b.2
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.live.adp.framework.listener.MessageListener
             public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-                if (b.this.gfJ != null) {
-                    b.this.gfJ.onClose();
+                if (b.this.gpM != null) {
+                    b.this.gpM.onClose();
                 }
             }
         };
-        MessageManager.getInstance().registerListener(this.gfK);
+        MessageManager.getInstance().registerListener(this.gpN);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void b(ALaCharmDataList aLaCharmDataList) {
         ArrayList<ALaCharmData> arrayList;
         String str;
-        if (this.gfJ != null && aLaCharmDataList != null && (arrayList = aLaCharmDataList.data) != null) {
+        if (this.gpM != null && aLaCharmDataList != null && (arrayList = aLaCharmDataList.data) != null) {
             int size = arrayList.size();
             if (size > 3) {
                 if (size >= 20) {
@@ -113,10 +113,10 @@ public class b implements c {
                 } else {
                     str = "没有更多了哦";
                 }
-                this.gfJ.b(arrayList.subList(0, 3), arrayList.subList(3, size), str);
+                this.gpM.d(arrayList.subList(0, 3), arrayList.subList(3, size), str);
                 return;
             }
-            this.gfJ.b(arrayList.subList(0, size), null, null);
+            this.gpM.d(arrayList.subList(0, size), null, null);
         }
     }
 }

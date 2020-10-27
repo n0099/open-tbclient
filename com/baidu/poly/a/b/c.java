@@ -12,14 +12,14 @@ import org.apache.http.cookie.SM;
 import org.json.JSONObject;
 /* loaded from: classes6.dex */
 public final class c {
-    private static final String WB() {
-        Context WY = g.WY();
-        q.m(WY, "SdkRunTime.getAppContext()");
-        PackageManager packageManager = WY.getPackageManager();
+    private static final String Yv() {
+        Context YS = g.YS();
+        q.m(YS, "SdkRunTime.getAppContext()");
+        PackageManager packageManager = YS.getPackageManager();
         try {
-            Context WY2 = g.WY();
-            q.m(WY2, "SdkRunTime.getAppContext()");
-            String str = packageManager.getPackageInfo(WY2.getPackageName(), 0).versionName;
+            Context YS2 = g.YS();
+            q.m(YS2, "SdkRunTime.getAppContext()");
+            String str = packageManager.getPackageInfo(YS2.getPackageName(), 0).versionName;
             q.m(str, "packageInfo.versionName");
             return str;
         } catch (PackageManager.NameNotFoundException e) {
@@ -33,12 +33,12 @@ public final class c {
             cVar.g("channel", "cashiersdk");
             cVar.g(CashierData.DEVICE_TYPE, "ANDROID");
             cVar.g(CommandMessage.SDK_VERSION, "2.7.4");
-            cVar.g("appVersion", WB());
+            cVar.g("appVersion", Yv());
             cVar.g("timestamp", String.valueOf(System.currentTimeMillis() / 1000));
         }
     }
 
-    public static final com.baidu.poly.a.a.b aj(JSONObject jSONObject) {
+    public static final com.baidu.poly.a.a.b am(JSONObject jSONObject) {
         com.baidu.poly.a.a.b bVar = new com.baidu.poly.a.a.b();
         if (jSONObject != null) {
             Iterator<String> keys = jSONObject.keys();

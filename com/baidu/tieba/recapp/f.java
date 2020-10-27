@@ -5,61 +5,61 @@ import org.json.JSONObject;
 /* loaded from: classes26.dex */
 public class f {
     public String forumName;
-    public int maB;
-    public int maC;
-    public int maD;
+    public int mmZ;
+    public int mna;
+    public int mnb;
     public int refreshCount;
 
     public f() {
         this.refreshCount = 0;
-        this.maB = 0;
-        this.maC = 0;
-        this.maD = 0;
+        this.mmZ = 0;
+        this.mna = 0;
+        this.mnb = 0;
     }
 
     public f(JSONObject jSONObject) {
         this.refreshCount = 0;
-        this.maB = 0;
-        this.maC = 0;
-        this.maD = 0;
+        this.mmZ = 0;
+        this.mna = 0;
+        this.mnb = 0;
         if (jSONObject != null) {
             this.forumName = jSONObject.optString("forum_name");
             this.refreshCount = jSONObject.optInt("refresh_count");
-            this.maB = jSONObject.optInt("loadmore_count");
-            this.maC = jSONObject.optInt("loadmore_count_pb");
-            this.maD = jSONObject.optInt("refresh_count_pb");
+            this.mmZ = jSONObject.optInt("loadmore_count");
+            this.mna = jSONObject.optInt("loadmore_count_pb");
+            this.mnb = jSONObject.optInt("refresh_count_pb");
         }
     }
 
-    public JSONObject aeM() {
+    public JSONObject agG() {
         try {
             JSONObject jSONObject = new JSONObject();
             jSONObject.put("forum_name", this.forumName);
             jSONObject.put("refresh_count", this.refreshCount);
-            jSONObject.put("loadmore_count", this.maB);
-            jSONObject.put("loadmore_count_pb", this.maC);
-            jSONObject.put("refresh_count_pb", this.maD);
+            jSONObject.put("loadmore_count", this.mmZ);
+            jSONObject.put("loadmore_count_pb", this.mna);
+            jSONObject.put("refresh_count_pb", this.mnb);
             return jSONObject;
         } catch (JSONException e) {
             return null;
         }
     }
 
-    public int aw(boolean z, boolean z2) {
-        return z2 ? z ? this.maD : this.maC : z ? this.refreshCount : this.maB;
+    public int az(boolean z, boolean z2) {
+        return z2 ? z ? this.mnb : this.mna : z ? this.refreshCount : this.mmZ;
     }
 
-    public void ax(boolean z, boolean z2) {
+    public void aA(boolean z, boolean z2) {
         if (z2) {
             if (z) {
-                this.maD++;
+                this.mnb++;
             } else {
-                this.maC++;
+                this.mna++;
             }
         } else if (z) {
             this.refreshCount++;
         } else {
-            this.maB++;
+            this.mmZ++;
         }
     }
 }

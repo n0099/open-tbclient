@@ -8,14 +8,14 @@ import com.baidu.live.tbadk.TbPageContext;
 /* loaded from: classes4.dex */
 public class LiveBBVideoChatInitialize {
     static {
-        RA();
+        SA();
     }
 
-    private static void RA() {
-        CustomMessageTask customMessageTask = new CustomMessageTask(2913241, new CustomMessageTask.CustomRunnable<TbPageContext>() { // from class: com.baidu.live.videochat.LiveBBVideoChatInitialize.1
+    private static void SA() {
+        CustomMessageTask customMessageTask = new CustomMessageTask(2913249, new CustomMessageTask.CustomRunnable<TbPageContext>() { // from class: com.baidu.live.videochat.LiveBBVideoChatInitialize.1
             @Override // com.baidu.live.adp.framework.task.CustomMessageTask.CustomRunnable
-            public CustomResponsedMessage<com.baidu.live.ae.a> run(CustomMessage<TbPageContext> customMessage) {
-                return new CustomResponsedMessage<>(2913241, new c(customMessage.getData()));
+            public CustomResponsedMessage<com.baidu.live.ah.a> run(CustomMessage<TbPageContext> customMessage) {
+                return new CustomResponsedMessage<>(2913249, new c(customMessage.getData()));
             }
         });
         customMessageTask.setType(CustomMessageTask.TASK_TYPE.SYNCHRONIZED);

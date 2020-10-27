@@ -9,57 +9,57 @@ import org.json.JSONObject;
 /* loaded from: classes10.dex */
 public class d extends f {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    private static int cUK = 35;
-    private boolean cUM = false;
-    private JSONObject dlM;
+    private static int ddj = 35;
+    private boolean ddl = false;
+    private JSONObject duo;
 
     public d() {
         this.mSource = "NA";
     }
 
-    public d ke(int i) {
+    public d kp(int i) {
         this.mType = String.valueOf(i);
         return this;
     }
 
     public d i(@NonNull com.baidu.swan.apps.am.a aVar) {
-        this.mType = String.valueOf(aVar.aHv());
-        cr("detail", aVar.aHu().toString());
+        this.mType = String.valueOf(aVar.aJp());
+        cy("detail", aVar.aJo().toString());
         return this;
     }
 
-    public d go(boolean z) {
-        this.cUM = z;
+    public d gB(boolean z) {
+        this.ddl = z;
         return this;
     }
 
-    public d sB(String str) {
+    public d sU(String str) {
         this.mFrom = str;
         return this;
     }
 
-    public d sC(String str) {
+    public d sV(String str) {
         this.mAppId = str;
         return this;
     }
 
-    public d sD(String str) {
+    public d sW(String str) {
         this.mSource = str;
         return this;
     }
 
-    public d sE(String str) {
+    public d sX(String str) {
         this.mPage = str;
         return this;
     }
 
-    public d cr(String str, String str2) {
+    public d cy(String str, String str2) {
         if (str != null && str2 != null) {
-            if (this.dlM == null) {
-                this.dlM = new JSONObject();
+            if (this.duo == null) {
+                this.duo = new JSONObject();
             }
             try {
-                this.dlM.put(str, str2);
+                this.duo.put(str, str2);
             } catch (JSONException e) {
                 if (DEBUG) {
                     e.printStackTrace();
@@ -71,17 +71,17 @@ public class d extends f {
 
     public d a(com.baidu.swan.apps.u.c.e eVar) {
         if (eVar != null) {
-            if (!TextUtils.isEmpty(eVar.auj())) {
-                this.mSource = eVar.auj();
+            if (!TextUtils.isEmpty(eVar.awd())) {
+                this.mSource = eVar.awd();
             }
             if (!TextUtils.isEmpty(eVar.getAppId())) {
                 this.mAppId = eVar.getAppId();
             }
-            if (!TextUtils.isEmpty(eVar.aul())) {
-                this.mScheme = eVar.aul();
+            if (!TextUtils.isEmpty(eVar.awf())) {
+                this.mScheme = eVar.awf();
             }
             if (!TextUtils.isEmpty(eVar.getPage())) {
-                this.dlX = eVar.getPage();
+                this.duz = eVar.getPage();
             }
         }
         return this;
@@ -89,22 +89,22 @@ public class d extends f {
 
     @Override // com.baidu.swan.apps.statistic.a.f, com.baidu.swan.apps.statistic.a.e
     public JSONObject toJSONObject() {
-        if (this.dlN == null) {
-            this.dlN = new JSONObject();
+        if (this.dup == null) {
+            this.dup = new JSONObject();
         }
         try {
-            if (this.dlM != null) {
-                if (this.cUM) {
-                    String kV = ak.kV(cUK);
-                    if (!TextUtils.isEmpty(kV)) {
-                        this.dlM.put("stacktrace", kV);
+            if (this.duo != null) {
+                if (this.ddl) {
+                    String lg = ak.lg(ddj);
+                    if (!TextUtils.isEmpty(lg)) {
+                        this.duo.put("stacktrace", lg);
                     }
                 }
-                this.dlN.put("info", this.dlM);
+                this.dup.put("info", this.duo);
             }
-            ExtensionCore anJ = com.baidu.swan.apps.core.turbo.d.ann().anJ();
-            if (anJ != null) {
-                this.dlN.put("extension_ver", anJ.extensionCoreVersionName);
+            ExtensionCore apE = com.baidu.swan.apps.core.turbo.d.aph().apE();
+            if (apE != null) {
+                this.dup.put("extension_ver", apE.extensionCoreVersionName);
             }
         } catch (JSONException e) {
             if (DEBUG) {

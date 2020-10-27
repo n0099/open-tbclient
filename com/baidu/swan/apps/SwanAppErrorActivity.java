@@ -16,24 +16,24 @@ import com.baidu.swan.support.v4.app.m;
 /* loaded from: classes10.dex */
 public class SwanAppErrorActivity extends FragmentActivity {
     public static final boolean DEBUG = b.DEBUG;
-    private com.baidu.swan.apps.u.c.b cge;
-    private ForbiddenInfo cgf;
-    private String cgg;
-    private com.baidu.swan.apps.aj.b cgc = null;
+    private com.baidu.swan.apps.u.c.b coE;
+    private ForbiddenInfo coF;
+    private String coG;
+    private com.baidu.swan.apps.aj.b coC = null;
     private int mEnterAnimWhenFinishing = 0;
     private int mExitAnimWhenFinishing = 0;
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.swan.support.v4.app.FragmentActivity, com.baidu.swan.support.v4.app.f, android.app.Activity
     public void onCreate(Bundle bundle) {
-        ad(a.C0343a.aiapps_hold, a.C0343a.aiapps_slide_out_to_bottom);
+        ae(a.C0357a.aiapps_hold, a.C0357a.aiapps_slide_out_to_bottom);
         int releaseFixedOrientation = ak.releaseFixedOrientation(this);
         super.onCreate(bundle);
         ak.fixedOrientation(this, releaseFixedOrientation);
         setContentView(a.g.aiapps_error_activity);
         k(getIntent());
-        abF();
-        abH();
+        adz();
+        adB();
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -41,17 +41,17 @@ public class SwanAppErrorActivity extends FragmentActivity {
     public void onNewIntent(Intent intent) {
         super.onNewIntent(intent);
         k(intent);
-        abF();
+        adz();
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.swan.support.v4.app.FragmentActivity, android.app.Activity
     public void onResume() {
         super.onResume();
-        dL(com.baidu.swan.apps.t.a.asC().getNightModeSwitcherState());
+        dY(com.baidu.swan.apps.t.a.auw().getNightModeSwitcherState());
     }
 
-    public void dL(boolean z) {
+    public void dY(boolean z) {
         Window window = getWindow();
         if (window == null) {
             if (DEBUG) {
@@ -60,23 +60,23 @@ public class SwanAppErrorActivity extends FragmentActivity {
             }
             return;
         }
-        if (this.cgc == null) {
-            this.cgc = new com.baidu.swan.apps.aj.b();
+        if (this.coC == null) {
+            this.coC = new com.baidu.swan.apps.aj.b();
         }
         ViewGroup viewGroup = (ViewGroup) window.getDecorView();
         if (z) {
-            this.cgc.D(viewGroup);
+            this.coC.E(viewGroup);
         } else {
-            this.cgc.E(viewGroup);
+            this.coC.F(viewGroup);
         }
     }
 
-    private void abF() {
+    private void adz() {
         d dVar;
-        m aYt = aYq().aYt();
+        m bam = baj().bam();
         if (getIntent() != null) {
-            dVar = d.a(this.cgg, this.cgf);
-        } else if (this.cge == null) {
+            dVar = d.a(this.coG, this.coF);
+        } else if (this.coE == null) {
             if (DEBUG) {
                 Log.e("SwanAppErrorActivity", "launchInfo is null,error");
                 return;
@@ -85,26 +85,26 @@ public class SwanAppErrorActivity extends FragmentActivity {
         } else {
             dVar = new d();
         }
-        aYt.a(a.f.ai_apps_error_layout, dVar);
-        aYt.commit();
+        bam.a(a.f.ai_apps_error_layout, dVar);
+        bam.commit();
     }
 
     private void k(Intent intent) {
         if (intent != null) {
-            this.cge = com.baidu.swan.apps.u.c.b.t(intent);
-            this.cgf = (ForbiddenInfo) intent.getParcelableExtra("swan_error_forbidden_info");
-            if (TextUtils.isEmpty(this.cge.getAppId()) && this.cgf != null) {
-                this.cge.oJ(this.cgf.appId);
+            this.coE = com.baidu.swan.apps.u.c.b.t(intent);
+            this.coF = (ForbiddenInfo) intent.getParcelableExtra("swan_error_forbidden_info");
+            if (TextUtils.isEmpty(this.coE.getAppId()) && this.coF != null) {
+                this.coE.pc(this.coF.appId);
             }
-            this.cgg = intent.getStringExtra("swan_error_type");
+            this.coG = intent.getStringExtra("swan_error_type");
         }
     }
 
-    public com.baidu.swan.apps.u.c.b abG() {
-        return this.cge;
+    public com.baidu.swan.apps.u.c.b adA() {
+        return this.coE;
     }
 
-    private void ad(int i, int i2) {
+    private void ae(int i, int i2) {
         this.mEnterAnimWhenFinishing = i;
         this.mExitAnimWhenFinishing = i2;
     }
@@ -123,7 +123,7 @@ public class SwanAppErrorActivity extends FragmentActivity {
         startExitActivityAnim();
     }
 
-    private void abH() {
+    private void adB() {
         com.baidu.swan.apps.statistic.search.b.a(new SearchFlowEvent("nreach", System.currentTimeMillis(), "swan_error", "", SearchFlowEvent.EventType.END));
     }
 }

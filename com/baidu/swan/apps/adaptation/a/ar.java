@@ -7,7 +7,7 @@ public interface ar {
 
     void a(com.baidu.swan.apps.media.c.c cVar, boolean z);
 
-    ar ady();
+    ar afs();
 
     boolean isPlaying();
 

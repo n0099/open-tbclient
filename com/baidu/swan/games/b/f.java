@@ -6,7 +6,7 @@ public class f {
     public String msg;
     public int state;
 
-    public static f ci(JSONObject jSONObject) {
+    public static f cl(JSONObject jSONObject) {
         f fVar = new f();
         fVar.state = jSONObject.optInt("state");
         fVar.msg = jSONObject.optString("msg");

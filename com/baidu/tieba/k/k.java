@@ -5,36 +5,36 @@ import com.baidu.tieba.play.cyberPlayer.TbCyberVideoView;
 /* loaded from: classes.dex */
 public class k {
     private static final String TAG = k.class.getName();
-    private long kFH;
-    private long kFI;
-    private long kFJ;
-    private boolean kFK;
+    private long kSe;
+    private long kSf;
+    private long kSg;
+    private boolean kSh;
 
-    public void cYF() {
-        this.kFH = 0L;
-        this.kFI = 0L;
-        this.kFJ = 0L;
+    public void dbN() {
+        this.kSe = 0L;
+        this.kSf = 0L;
+        this.kSg = 0L;
     }
 
-    public void cYG() {
-        this.kFK = true;
-        this.kFH = SystemClock.elapsedRealtime();
+    public void dbO() {
+        this.kSh = true;
+        this.kSe = SystemClock.elapsedRealtime();
     }
 
-    public void cYH() {
-        this.kFI = SystemClock.elapsedRealtime();
+    public void dbP() {
+        this.kSf = SystemClock.elapsedRealtime();
     }
 
-    public void cYI() {
-        this.kFJ = SystemClock.elapsedRealtime();
+    public void dbQ() {
+        this.kSg = SystemClock.elapsedRealtime();
     }
 
     public void a(TbCyberVideoView tbCyberVideoView) {
-        if (this.kFK) {
-            this.kFK = false;
+        if (this.kSh) {
+            this.kSh = false;
             long elapsedRealtime = SystemClock.elapsedRealtime();
-            long j = this.kFI - this.kFH;
-            long j2 = elapsedRealtime - this.kFJ;
+            long j = this.kSf - this.kSe;
+            long j2 = elapsedRealtime - this.kSg;
             long j3 = j2 + j;
             if ((com.baidu.adp.lib.util.j.netType() == 2 || j <= 17500) && tbCyberVideoView != null) {
                 tbCyberVideoView.h(j, j2, j3);

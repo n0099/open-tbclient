@@ -5,16 +5,16 @@ import android.view.View;
 final class cr implements View.OnLongClickListener {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ cg f3812a;
+    final /* synthetic */ cg f3810a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public cr(cg cgVar) {
-        this.f3812a = cgVar;
+        this.f3810a = cgVar;
     }
 
     @Override // android.view.View.OnLongClickListener
     public final boolean onLongClick(View view) {
-        this.f3812a.f3801a.a(view);
+        this.f3810a.f3799a.a(view);
         return false;
     }
 }

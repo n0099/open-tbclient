@@ -4,16 +4,16 @@ import com.baidu.searchbox.config.AppConfig;
 /* loaded from: classes10.dex */
 public abstract class a<T> implements b<T> {
     public static final boolean DEBUG = AppConfig.isDebug();
-    private T bVP;
+    private T ceo;
 
-    protected abstract T Zh() throws ServiceNotFoundException;
+    protected abstract T aba() throws ServiceNotFoundException;
 
     @Override // com.baidu.pyramid.runtime.service.b
-    public final T Zg() {
+    public final T aaZ() {
         synchronized (this) {
-            if (this.bVP == null) {
+            if (this.ceo == null) {
                 try {
-                    this.bVP = Zh();
+                    this.ceo = aba();
                 } catch (ServiceNotFoundException e) {
                     if (DEBUG) {
                         e.printStackTrace();
@@ -22,6 +22,6 @@ public abstract class a<T> implements b<T> {
                 }
             }
         }
-        return this.bVP;
+        return this.ceo;
     }
 }

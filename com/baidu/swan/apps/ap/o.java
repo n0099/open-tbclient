@@ -22,76 +22,76 @@ public class o {
                 }
                 com.baidu.swan.apps.console.c.f("SwanAppEnvironmentUtils", "getExtraInfo error", e);
             }
-            com.baidu.swan.apps.console.c.bg("SwanAppEnvironmentUtils", "recordExtraInfoToLogSystem\n--------------------ExtraInfo list----------------------\n" + str + "--------------------ExtraInfo end-----------------------");
-            com.baidu.swan.apps.console.c.bg("SwanAppEnvironmentUtils", "sid = " + com.baidu.swan.apps.t.a.asi().abT());
+            com.baidu.swan.apps.console.c.bn("SwanAppEnvironmentUtils", "recordExtraInfoToLogSystem\n--------------------ExtraInfo list----------------------\n" + str + "--------------------ExtraInfo end-----------------------");
+            com.baidu.swan.apps.console.c.bn("SwanAppEnvironmentUtils", "sid = " + com.baidu.swan.apps.t.a.aud().adN());
         }
     }
 
     public static String R(Activity activity) {
-        com.baidu.swan.apps.runtime.e aDb = com.baidu.swan.apps.runtime.e.aDb();
-        if (activity == null || aDb == null) {
+        com.baidu.swan.apps.runtime.e aEV = com.baidu.swan.apps.runtime.e.aEV();
+        if (activity == null || aEV == null) {
             return "";
         }
         StringBuilder sb = new StringBuilder();
-        int abk = aDb.abk();
-        if (abk != -1) {
-            b.a aDe = aDb.aDe();
-            sb.append(kT(abk));
+        int ade = aEV.ade();
+        if (ade != -1) {
+            b.a aEY = aEV.aEY();
+            sb.append(le(ade));
             sb.append("\n");
-            if (abk == 0) {
-                sb.append(kU(abk));
+            if (ade == 0) {
+                sb.append(lf(ade));
                 sb.append("\n");
             }
             sb.append("host version : ").append(ak.getPackageVersion(AppRuntime.getAppContext(), AppRuntime.getAppContext().getPackageName()));
             sb.append("\n");
-            sb.append("enable code cache: ").append(com.baidu.swan.apps.t.a.asi().gX(abk)).append("\n");
-            sb.append("enable V8: ").append(com.baidu.swan.apps.core.turbo.d.ann().alL()).append("\n");
-            sb.append("aps version: ").append(TextUtils.isEmpty(aDe.getVersion()) ? "" : aDe.getVersion()).append("\n");
-            String formatFileSize = Formatter.formatFileSize(AppRuntime.getAppContext(), aDe.auc());
+            sb.append("enable code cache: ").append(com.baidu.swan.apps.t.a.aud().hi(ade)).append("\n");
+            sb.append("enable V8: ").append(com.baidu.swan.apps.core.turbo.d.aph().anF()).append("\n");
+            sb.append("aps version: ").append(TextUtils.isEmpty(aEY.getVersion()) ? "" : aEY.getVersion()).append("\n");
+            String formatFileSize = Formatter.formatFileSize(AppRuntime.getAppContext(), aEY.avW());
             StringBuilder append = sb.append("app bundle size: ");
             if (TextUtils.isEmpty(formatFileSize)) {
                 formatFileSize = "";
             }
             append.append(formatFileSize).append("\n");
-            sb.append("app bundle version: ").append(TextUtils.isEmpty(aDe.getVersionCode()) ? "" : aDe.getVersionCode()).append("\n");
-            String aQf = com.baidu.swan.games.c.d.aPW().aQf();
-            if (!TextUtils.isEmpty(aQf)) {
-                sb.append("app sconsole version: ").append(aQf).append("\n");
+            sb.append("app bundle version: ").append(TextUtils.isEmpty(aEY.getVersionCode()) ? "" : aEY.getVersionCode()).append("\n");
+            String aRZ = com.baidu.swan.games.c.d.aRQ().aRZ();
+            if (!TextUtils.isEmpty(aRZ)) {
+                sb.append("app sconsole version: ").append(aRZ).append("\n");
             }
-            if (aDb.aDt()) {
+            if (aEV.aFn()) {
                 sb.append("game engine version: ").append("1.3.1.15").append("\n");
             }
-            long adu = com.baidu.swan.games.utils.so.d.adu();
-            sb.append("v8 so version: ").append(adu).append(adu < 0 ? "(old)" : "(new)").append("\n");
-            if (!aDb.aDt()) {
-                sb.append("jsNativeEnble: ").append(!TextUtils.isEmpty(D(0, com.baidu.swan.apps.core.turbo.d.ann().alL()))).append("\n");
+            long afo = com.baidu.swan.games.utils.so.d.afo();
+            sb.append("v8 so version: ").append(afo).append(afo < 0 ? "(old)" : "(new)").append("\n");
+            if (!aEV.aFn()) {
+                sb.append("jsNativeEnble: ").append(!TextUtils.isEmpty(D(0, com.baidu.swan.apps.core.turbo.d.aph().anF()))).append("\n");
             }
         }
         return sb.toString();
     }
 
-    private static String kT(int i) {
+    private static String le(int i) {
         String str;
         StringBuilder sb = new StringBuilder();
-        SwanCoreVersion auW = com.baidu.swan.apps.v.f.avu().auW();
+        SwanCoreVersion awQ = com.baidu.swan.apps.v.f.axo().awQ();
         if (i == 1) {
             str = "game-core";
         } else {
             str = "swan-js";
         }
-        sb.append(str).append(" version : ").append(com.baidu.swan.apps.swancore.b.a(auW, i));
+        sb.append(str).append(" version : ").append(com.baidu.swan.apps.swancore.b.a(awQ, i));
         return sb.toString();
     }
 
-    private static String kU(int i) {
+    private static String lf(int i) {
         StringBuilder sb = new StringBuilder();
         if (i == 0) {
-            ExtensionCore anJ = com.baidu.swan.apps.core.turbo.d.ann().anJ();
+            ExtensionCore apE = com.baidu.swan.apps.core.turbo.d.aph().apE();
             String str = "";
             int i2 = -1;
-            if (anJ != null) {
-                str = anJ.extensionCoreVersionName;
-                i2 = anJ.extensionCoreType;
+            if (apE != null) {
+                str = apE.extensionCoreVersionName;
+                i2 = apE.extensionCoreType;
             }
             sb.append("extension-js version : ").append(str).append("   type：").append(i2);
         }
@@ -100,8 +100,8 @@ public class o {
 
     private static String D(int i, boolean z) {
         if (DEBUG) {
-            return com.baidu.swan.apps.ad.a.a.aAz() ? i.C(i, true) : "";
-        } else if (!i.aHT()) {
+            return com.baidu.swan.apps.ad.a.a.aCt() ? i.C(i, true) : "";
+        } else if (!i.aJN()) {
             return "";
         } else {
             return i.C(i, z);

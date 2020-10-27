@@ -9,21 +9,21 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import com.baidu.h.a.d.a;
-import com.baidu.live.aa.a;
+import com.baidu.live.ad.a;
 import com.baidu.live.tbadk.core.TbadkCoreApplication;
 import com.baidu.live.widget.HeartSurfaceView;
 import com.tb.airbnb.lottie.LottieAnimationView;
 import java.util.ArrayList;
 /* loaded from: classes4.dex */
 public class a implements com.baidu.h.a.d.a {
-    private int bGh;
-    private int bGi;
+    private int bJi;
+    private int bJj;
 
     @Override // com.baidu.h.a.d.a
     public void a(final Activity activity, a.InterfaceC0137a interfaceC0137a) {
         TbadkCoreApplication inst = TbadkCoreApplication.getInst();
-        this.bGh = inst.getResources().getDimensionPixelSize(a.C0168a.like_explosion_size);
-        this.bGi = inst.getResources().getDimensionPixelSize(a.C0168a.like_heart_size);
+        this.bJi = inst.getResources().getDimensionPixelSize(a.C0170a.like_explosion_size);
+        this.bJj = inst.getResources().getDimensionPixelSize(a.C0170a.like_heart_size);
         final HeartSurfaceView heartSurfaceView = new HeartSurfaceView(inst);
         heartSurfaceView.setZOrderOnTop(true);
         heartSurfaceView.getHolder().setFormat(-3);
@@ -80,12 +80,12 @@ public class a implements com.baidu.h.a.d.a {
 
     /* JADX INFO: Access modifiers changed from: private */
     public RelativeLayout.LayoutParams a(ViewGroup viewGroup, View view, int i, int i2) {
-        int i3 = (this.bGh - this.bGi) / 2;
+        int i3 = (this.bJi - this.bJj) / 2;
         int left = (view.getLeft() + i) - i3;
         int top = (view.getTop() + i2) - i3;
-        int width = viewGroup.getWidth() - (this.bGh + left);
-        int height = viewGroup.getHeight() - (this.bGh + top);
-        RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(this.bGh, this.bGh);
+        int width = viewGroup.getWidth() - (this.bJi + left);
+        int height = viewGroup.getHeight() - (this.bJi + top);
+        RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(this.bJi, this.bJi);
         layoutParams.setMargins(left, top, width, height);
         return layoutParams;
     }

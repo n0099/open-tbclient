@@ -1,15 +1,15 @@
 package master.flame.danmaku.danmaku.model;
 /* loaded from: classes6.dex */
 public abstract class a {
-    public abstract long epk();
+    public abstract long ezi();
 
-    public abstract int epl();
+    public abstract int ezj();
 
-    public long epm() {
+    public long ezk() {
         return 1500L;
     }
 
-    public boolean epn() {
+    public boolean ezl() {
         return false;
     }
 }

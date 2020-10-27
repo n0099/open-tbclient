@@ -8,11 +8,11 @@ import java.net.URL;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes11.dex */
 public final class q implements Runnable {
-    final /* synthetic */ Context aqk;
+    final /* synthetic */ Context aql;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public q(Context context) {
-        this.aqk = context;
+        this.aql = context;
     }
 
     /* JADX WARN: Removed duplicated region for block: B:36:0x00b9 A[Catch: Exception -> 0x00bd, TRY_LEAVE, TryCatch #3 {Exception -> 0x00bd, blocks: (B:34:0x00b4, B:36:0x00b9), top: B:51:0x00b4, outer: #7 }] */

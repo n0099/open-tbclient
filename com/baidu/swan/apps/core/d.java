@@ -7,7 +7,7 @@ import com.baidu.swan.apps.statistic.h;
 import com.baidu.tbadk.core.atomData.FrsActivityConfig;
 /* loaded from: classes10.dex */
 public class d {
-    public static void y(String str, @Nullable String str2, String str3) {
+    public static void F(String str, @Nullable String str2, String str3) {
         com.baidu.swan.apps.statistic.a.e eVar = new com.baidu.swan.apps.statistic.a.e();
         eVar.mFrom = "swan";
         eVar.mType = str;
@@ -15,17 +15,17 @@ public class d {
             str2 = "";
         }
         eVar.mValue = str2;
-        eVar.u("appid", com.baidu.swan.apps.runtime.d.aCW().getAppId());
+        eVar.u("appid", com.baidu.swan.apps.runtime.d.aEQ().getAppId());
         eVar.u(DpStatConstants.KEY_NETWORK_STATUS, str3);
-        eVar.u("isShow", c.aiy() ? "1" : "0");
+        eVar.u("isShow", c.aks() ? "1" : "0");
         h.a("1619", eVar);
     }
 
-    public static void bh(String str, String str2) {
-        y(str, null, str2);
+    public static void bo(String str, String str2) {
+        F(str, null, str2);
     }
 
-    public static void jm(final String str) {
+    public static void jF(final String str) {
         SwanAppNetworkUtils.a(new SwanAppNetworkUtils.a() { // from class: com.baidu.swan.apps.core.d.1
             @Override // com.baidu.swan.apps.network.SwanAppNetworkUtils.a
             public void onResult(int i) {
@@ -41,7 +41,7 @@ public class d {
                         str2 = "offline";
                         break;
                 }
-                d.y(str, null, str2);
+                d.F(str, null, str2);
             }
         });
     }

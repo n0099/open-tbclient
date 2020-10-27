@@ -14,9 +14,9 @@ import android.view.animation.LinearInterpolator;
 import com.baidu.live.sdk.a;
 /* loaded from: classes4.dex */
 public class DanceRectView extends View {
-    private RectF[] bDo;
-    private a[] bDp;
-    private float bDq;
+    private RectF[] bGk;
+    private a[] bGl;
+    private float bGm;
     private int mColor;
     private Paint mPaint;
     private float mRadius;
@@ -28,13 +28,13 @@ public class DanceRectView extends View {
     }
 
     public void startAnim() {
-        if (this.bDp != null && this.mValueAnimator != null) {
-            Ti();
+        if (this.bGl != null && this.mValueAnimator != null) {
+            Uh();
             this.mValueAnimator.start();
         }
     }
 
-    public void Tf() {
+    public void Ue() {
         if (this.mValueAnimator != null) {
             this.mValueAnimator.cancel();
         }
@@ -43,11 +43,11 @@ public class DanceRectView extends View {
     @Override // android.view.View
     protected void onSizeChanged(int i, int i2, int i3, int i4) {
         super.onSizeChanged(i, i2, i3, i4);
-        this.bDq = (i2 - getPaddingTop()) - getPaddingBottom();
+        this.bGm = (i2 - getPaddingTop()) - getPaddingBottom();
         float paddingLeft = (((i - getPaddingLeft()) - getPaddingRight()) * 1.0f) / 7.0f;
         int paddingLeft2 = getPaddingLeft();
         for (int i5 = 0; i5 < 4; i5++) {
-            this.bDo[i5].set(paddingLeft2, this.bDq * i5, paddingLeft2 + paddingLeft, i2 - getPaddingBottom());
+            this.bGk[i5].set(paddingLeft2, this.bGm * i5, paddingLeft2 + paddingLeft, i2 - getPaddingBottom());
             paddingLeft2 = (int) (paddingLeft2 + (2.0f * paddingLeft));
         }
     }
@@ -55,10 +55,10 @@ public class DanceRectView extends View {
     @Override // android.view.View
     protected void onDraw(Canvas canvas) {
         super.onDraw(canvas);
-        if (this.bDo != null && this.bDp != null) {
+        if (this.bGk != null && this.bGl != null) {
             for (int i = 0; i < 4; i++) {
-                this.bDo[i].top = getPaddingTop() + (this.bDq * this.bDp[i].bDu);
-                canvas.drawRoundRect(this.bDo[i], this.mRadius, this.mRadius, this.mPaint);
+                this.bGk[i].top = getPaddingTop() + (this.bGm * this.bGl[i].bGq);
+                canvas.drawRoundRect(this.bGk[i], this.mRadius, this.mRadius, this.mPaint);
             }
         }
     }
@@ -66,9 +66,9 @@ public class DanceRectView extends View {
     private void init(AttributeSet attributeSet) {
         initAttrs(attributeSet);
         sw();
-        Tg();
-        Th();
-        Tj();
+        Uf();
+        Ug();
+        Ui();
     }
 
     private void initAttrs(AttributeSet attributeSet) {
@@ -84,35 +84,35 @@ public class DanceRectView extends View {
         this.mPaint.setColor(this.mColor);
     }
 
-    private void Tg() {
-        this.bDo = new RectF[4];
+    private void Uf() {
+        this.bGk = new RectF[4];
         for (int i = 0; i < 4; i++) {
-            this.bDo[i] = new RectF();
+            this.bGk[i] = new RectF();
         }
     }
 
-    private void Th() {
-        this.bDp = new a[4];
+    private void Ug() {
+        this.bGl = new a[4];
         for (int i = 0; i < 4; i++) {
-            this.bDp[i] = new a();
-            this.bDp[i].bDs = 0.25f;
+            this.bGl[i] = new a();
+            this.bGl[i].bGo = 0.25f;
         }
-        Ti();
+        Uh();
     }
 
-    private void Ti() {
+    private void Uh() {
         int i = 0;
         while (i < 4) {
-            this.bDp[i].bDv = i != 0;
-            a aVar = this.bDp[i];
+            this.bGl[i].bGr = i != 0;
+            a aVar = this.bGl[i];
             float f = (i * 1.0f) / 4.0f;
-            this.bDp[i].bDu = f;
-            aVar.bDt = f;
+            this.bGl[i].bGq = f;
+            aVar.bGp = f;
             i++;
         }
     }
 
-    private void Tj() {
+    private void Ui() {
         this.mValueAnimator = ValueAnimator.ofFloat(0.0f, 0.25f);
         this.mValueAnimator.setDuration(150L);
         this.mValueAnimator.setInterpolator(new LinearInterpolator());
@@ -121,16 +121,16 @@ public class DanceRectView extends View {
             @Override // android.animation.AnimatorListenerAdapter, android.animation.Animator.AnimatorListener
             public void onAnimationStart(Animator animator) {
                 super.onAnimationStart(animator);
-                for (a aVar : DanceRectView.this.bDp) {
-                    aVar.Tk();
+                for (a aVar : DanceRectView.this.bGl) {
+                    aVar.Uj();
                 }
             }
 
             @Override // android.animation.AnimatorListenerAdapter, android.animation.Animator.AnimatorListener
             public void onAnimationRepeat(Animator animator) {
                 super.onAnimationRepeat(animator);
-                for (a aVar : DanceRectView.this.bDp) {
-                    aVar.Tl();
+                for (a aVar : DanceRectView.this.bGl) {
+                    aVar.Uk();
                 }
                 DanceRectView.this.invalidate();
             }
@@ -138,8 +138,8 @@ public class DanceRectView extends View {
         this.mValueAnimator.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() { // from class: com.baidu.live.view.DanceRectView.2
             @Override // android.animation.ValueAnimator.AnimatorUpdateListener
             public void onAnimationUpdate(ValueAnimator valueAnimator) {
-                for (a aVar : DanceRectView.this.bDp) {
-                    aVar.B(((Float) valueAnimator.getAnimatedValue()).floatValue());
+                for (a aVar : DanceRectView.this.bGl) {
+                    aVar.D(((Float) valueAnimator.getAnimatedValue()).floatValue());
                 }
                 DanceRectView.this.invalidate();
             }
@@ -149,56 +149,56 @@ public class DanceRectView extends View {
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes4.dex */
     public static class a {
-        float bDs;
-        float bDt;
-        float bDu;
-        boolean bDv;
+        float bGo;
+        float bGp;
+        float bGq;
+        boolean bGr;
 
         private a() {
         }
 
         /* JADX INFO: Access modifiers changed from: private */
-        public void Tk() {
-            if (this.bDu <= 0.0f) {
-                this.bDu = 0.0f;
-                this.bDt = 0.0f;
-                this.bDv = false;
-            } else if (this.bDu >= 1.0f - this.bDs) {
-                float f = 1.0f - this.bDs;
-                this.bDu = f;
-                this.bDt = f;
-                this.bDv = true;
+        public void Uj() {
+            if (this.bGq <= 0.0f) {
+                this.bGq = 0.0f;
+                this.bGp = 0.0f;
+                this.bGr = false;
+            } else if (this.bGq >= 1.0f - this.bGo) {
+                float f = 1.0f - this.bGo;
+                this.bGq = f;
+                this.bGp = f;
+                this.bGr = true;
             }
         }
 
         /* JADX INFO: Access modifiers changed from: private */
-        public void B(float f) {
+        public void D(float f) {
             float f2 = 0.0f;
-            if (f != 0.0f && f != this.bDs) {
-                if (this.bDv) {
-                    float f3 = this.bDt - f;
+            if (f != 0.0f && f != this.bGo) {
+                if (this.bGr) {
+                    float f3 = this.bGp - f;
                     if (f3 >= 0.0f) {
                         f2 = f3;
                     }
                 } else {
-                    f2 = this.bDt + f;
-                    if (f2 > 1.0f - this.bDs) {
-                        f2 = 1.0f - this.bDs;
+                    f2 = this.bGp + f;
+                    if (f2 > 1.0f - this.bGo) {
+                        f2 = 1.0f - this.bGo;
                     }
                 }
-                this.bDu = f2;
+                this.bGq = f2;
             }
         }
 
         /* JADX INFO: Access modifiers changed from: private */
-        public void Tl() {
-            if (this.bDv) {
-                this.bDu = this.bDt - this.bDs;
+        public void Uk() {
+            if (this.bGr) {
+                this.bGq = this.bGp - this.bGo;
             } else {
-                this.bDu = this.bDt + this.bDs;
+                this.bGq = this.bGp + this.bGo;
             }
-            this.bDt = this.bDu;
-            Tk();
+            this.bGp = this.bGq;
+            Uj();
         }
     }
 }

@@ -6,12 +6,12 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.TextView;
-import com.baidu.live.data.i;
+import com.baidu.live.data.j;
 import com.baidu.live.sdk.a;
 import java.util.List;
 /* loaded from: classes4.dex */
 public class b extends BaseAdapter {
-    private List<i> aVO;
+    private List<j> aXj;
     private Context mContext;
     private int mType;
 
@@ -20,26 +20,26 @@ public class b extends BaseAdapter {
         this.mType = i;
     }
 
-    public void I(List<i> list) {
-        this.aVO = list;
+    public void I(List<j> list) {
+        this.aXj = list;
     }
 
     @Override // android.widget.Adapter
     public int getCount() {
-        if (this.aVO == null) {
+        if (this.aXj == null) {
             return 1;
         }
-        return this.aVO.size() + 1;
+        return this.aXj.size() + 1;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // android.widget.Adapter
-    /* renamed from: ef */
-    public i getItem(int i) {
-        if (this.aVO == null || i < 0 || i >= getCount() - 1) {
+    /* renamed from: eg */
+    public j getItem(int i) {
+        if (this.aXj == null || i < 0 || i >= getCount() - 1) {
             return null;
         }
-        return this.aVO.get(i);
+        return this.aXj.get(i);
     }
 
     @Override // android.widget.Adapter
@@ -69,7 +69,7 @@ public class b extends BaseAdapter {
         } else {
             aVar = (a) view.getTag();
         }
-        i item = getItem(i);
+        j item = getItem(i);
         if (getItemViewType(i) == 1) {
             aVar.text.setText(a.i.ala_custom_num);
         } else if (item != null) {

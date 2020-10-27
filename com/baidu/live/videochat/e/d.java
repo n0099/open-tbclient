@@ -10,12 +10,12 @@ import com.baidu.live.videochat.message.LiveVideoChatSendBanUserResponseMessage;
 import com.baidu.live.videochat.message.LiveVideoChatSendRefuseResponseMessage;
 /* loaded from: classes4.dex */
 public class d extends b {
-    private HttpMessageListener bAU;
-    private e byj;
+    private e bBf;
+    private HttpMessageListener bDQ;
 
     public d(Context context, BdUniqueId bdUniqueId) {
         super(context, bdUniqueId);
-        this.bAU = new HttpMessageListener(0) { // from class: com.baidu.live.videochat.e.d.1
+        this.bDQ = new HttpMessageListener(0) { // from class: com.baidu.live.videochat.e.d.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.live.adp.framework.listener.MessageListener
             public void onMessage(HttpResponsedMessage httpResponsedMessage) {
@@ -39,64 +39,64 @@ public class d extends b {
     }
 
     private void registerListener() {
-        MessageManager.getInstance().registerListener(1021174, this.bAU);
-        MessageManager.getInstance().registerListener(1021175, this.bAU);
-        MessageManager.getInstance().registerListener(1021178, this.bAU);
+        MessageManager.getInstance().registerListener(1021174, this.bDQ);
+        MessageManager.getInstance().registerListener(1021175, this.bDQ);
+        MessageManager.getInstance().registerListener(1021178, this.bDQ);
     }
 
     public void a(e eVar) {
         a((c) eVar);
-        this.byj = eVar;
+        this.bBf = eVar;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void a(LiveVideoChatSendAcceptResponseMessage liveVideoChatSendAcceptResponseMessage) {
-        if (liveVideoChatSendAcceptResponseMessage != null && this.byj != null) {
+        if (liveVideoChatSendAcceptResponseMessage != null && this.bBf != null) {
             if (liveVideoChatSendAcceptResponseMessage.getError() == 0) {
-                this.byj.a(liveVideoChatSendAcceptResponseMessage.Ss());
+                this.bBf.a(liveVideoChatSendAcceptResponseMessage.Ts());
             } else {
-                this.byj.A(liveVideoChatSendAcceptResponseMessage.getError(), liveVideoChatSendAcceptResponseMessage.getErrorString());
+                this.bBf.C(liveVideoChatSendAcceptResponseMessage.getError(), liveVideoChatSendAcceptResponseMessage.getErrorString());
             }
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void a(LiveVideoChatSendRefuseResponseMessage liveVideoChatSendRefuseResponseMessage) {
-        if (liveVideoChatSendRefuseResponseMessage != null && this.byj != null) {
+        if (liveVideoChatSendRefuseResponseMessage != null && this.bBf != null) {
             if (liveVideoChatSendRefuseResponseMessage.getError() == 0) {
-                this.byj.RE();
+                this.bBf.SE();
             } else {
-                this.byj.B(liveVideoChatSendRefuseResponseMessage.getError(), liveVideoChatSendRefuseResponseMessage.getErrorString());
+                this.bBf.D(liveVideoChatSendRefuseResponseMessage.getError(), liveVideoChatSendRefuseResponseMessage.getErrorString());
             }
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void a(LiveVideoChatSendBanUserResponseMessage liveVideoChatSendBanUserResponseMessage) {
-        if (liveVideoChatSendBanUserResponseMessage != null && this.byj != null && (liveVideoChatSendBanUserResponseMessage.getOrginalMessage() instanceof com.baidu.live.videochat.message.a)) {
+        if (liveVideoChatSendBanUserResponseMessage != null && this.bBf != null && (liveVideoChatSendBanUserResponseMessage.getOrginalMessage() instanceof com.baidu.live.videochat.message.a)) {
             com.baidu.live.videochat.message.a aVar = (com.baidu.live.videochat.message.a) liveVideoChatSendBanUserResponseMessage.getOrginalMessage();
             if (liveVideoChatSendBanUserResponseMessage.getError() == 0) {
-                if (aVar.Sr()) {
-                    if (aVar.Sq()) {
-                        this.byj.RG();
+                if (aVar.Tr()) {
+                    if (aVar.Tq()) {
+                        this.bBf.SG();
                     } else {
-                        this.byj.RF();
+                        this.bBf.SF();
                     }
-                } else if (aVar.Sq()) {
-                    this.byj.RI();
+                } else if (aVar.Tq()) {
+                    this.bBf.SI();
                 } else {
-                    this.byj.RH();
+                    this.bBf.SH();
                 }
-            } else if (aVar.Sr()) {
-                if (aVar.Sq()) {
-                    this.byj.D(liveVideoChatSendBanUserResponseMessage.getError(), liveVideoChatSendBanUserResponseMessage.getErrorString());
+            } else if (aVar.Tr()) {
+                if (aVar.Tq()) {
+                    this.bBf.F(liveVideoChatSendBanUserResponseMessage.getError(), liveVideoChatSendBanUserResponseMessage.getErrorString());
                 } else {
-                    this.byj.C(liveVideoChatSendBanUserResponseMessage.getError(), liveVideoChatSendBanUserResponseMessage.getErrorString());
+                    this.bBf.E(liveVideoChatSendBanUserResponseMessage.getError(), liveVideoChatSendBanUserResponseMessage.getErrorString());
                 }
-            } else if (aVar.Sq()) {
-                this.byj.F(liveVideoChatSendBanUserResponseMessage.getError(), liveVideoChatSendBanUserResponseMessage.getErrorString());
+            } else if (aVar.Tq()) {
+                this.bBf.H(liveVideoChatSendBanUserResponseMessage.getError(), liveVideoChatSendBanUserResponseMessage.getErrorString());
             } else {
-                this.byj.E(liveVideoChatSendBanUserResponseMessage.getError(), liveVideoChatSendBanUserResponseMessage.getErrorString());
+                this.bBf.G(liveVideoChatSendBanUserResponseMessage.getError(), liveVideoChatSendBanUserResponseMessage.getErrorString());
             }
         }
     }

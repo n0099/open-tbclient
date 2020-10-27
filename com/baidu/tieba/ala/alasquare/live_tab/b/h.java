@@ -5,31 +5,31 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 /* loaded from: classes4.dex */
 public class h {
-    public boolean fUe = false;
-    public ArrayList<a> fUf;
-    public String fUg;
+    public boolean geh = false;
+    public ArrayList<a> gei;
+    public String gej;
 
     public void parserJson(JSONObject jSONObject) {
         if (jSONObject != null) {
             JSONObject optJSONObject = jSONObject.optJSONObject("user_follow");
             if (optJSONObject != null) {
-                this.fUe = optJSONObject.optInt("has_follow_live") == 1;
+                this.geh = optJSONObject.optInt("has_follow_live") == 1;
                 JSONArray optJSONArray = optJSONObject.optJSONArray("follow_live_list");
                 if (optJSONArray != null && optJSONArray.length() > 0) {
-                    this.fUf = new ArrayList<>(optJSONArray.length());
+                    this.gei = new ArrayList<>(optJSONArray.length());
                     for (int i = 0; i < optJSONArray.length(); i++) {
                         JSONObject optJSONObject2 = optJSONArray.optJSONObject(i);
                         if (optJSONObject2 != null) {
                             a aVar = new a();
                             aVar.parserJson(optJSONObject2);
-                            this.fUf.add(aVar);
+                            this.gei.add(aVar);
                         }
                     }
                 }
             }
             JSONObject optJSONObject3 = jSONObject.optJSONObject("live_rank");
             if (optJSONObject3 != null) {
-                this.fUg = optJSONObject3.optString("url");
+                this.gej = optJSONObject3.optString("url");
             }
         }
     }

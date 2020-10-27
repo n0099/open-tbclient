@@ -15,7 +15,7 @@ public class an extends o<com.baidu.tieba.pb.data.l, com.baidu.tieba.pb.pb.a.b> 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.widget.ListView.a
-    /* renamed from: ck */
+    /* renamed from: cl */
     public com.baidu.tieba.pb.pb.a.b c(ViewGroup viewGroup) {
         return new com.baidu.tieba.pb.pb.a.b(LayoutInflater.from(this.mContext).inflate(R.layout.pb_no_data_item_layout, viewGroup, false), this.mContext);
     }
@@ -26,23 +26,23 @@ public class an extends o<com.baidu.tieba.pb.data.l, com.baidu.tieba.pb.pb.a.b> 
     public View a(int i, View view, ViewGroup viewGroup, com.baidu.tieba.pb.data.l lVar, com.baidu.tieba.pb.pb.a.b bVar) {
         super.a(i, view, viewGroup, (ViewGroup) lVar, (com.baidu.tieba.pb.data.l) bVar);
         this.mSkinType = TbadkCoreApplication.getInst().getSkinType();
-        bVar.mTextView.setText(lVar.kVH);
-        if (lVar.kVG != 0) {
-            com.baidu.tbadk.core.util.ap.setImageResource(bVar.mImageView, lVar.kVG);
+        bVar.mTextView.setText(lVar.lig);
+        if (lVar.lif != 0) {
+            com.baidu.tbadk.core.util.ap.setImageResource(bVar.mImageView, lVar.lif);
         } else {
             com.baidu.tbadk.core.util.ap.setImageResource(bVar.mImageView, R.drawable.new_pic_emotion_06);
         }
         com.baidu.tbadk.core.util.ap.setViewTextColor(bVar.mTextView, R.color.cp_cont_d);
-        if (lVar.fTK != 0 && view.getLayoutParams() != null) {
-            view.getLayoutParams().height = lVar.fTK;
+        if (lVar.gdN != 0 && view.getLayoutParams() != null) {
+            view.getLayoutParams().height = lVar.gdN;
         }
-        if (lVar.kVI != 0) {
+        if (lVar.lih != 0) {
             ViewGroup.MarginLayoutParams marginLayoutParams = (ViewGroup.MarginLayoutParams) bVar.mImageView.getLayoutParams();
-            marginLayoutParams.setMargins(marginLayoutParams.leftMargin, lVar.kVI, marginLayoutParams.rightMargin, marginLayoutParams.bottomMargin);
+            marginLayoutParams.setMargins(marginLayoutParams.leftMargin, lVar.lih, marginLayoutParams.rightMargin, marginLayoutParams.bottomMargin);
         }
-        if (lVar.kVJ != 0) {
+        if (lVar.lii != 0) {
             ViewGroup.MarginLayoutParams marginLayoutParams2 = (ViewGroup.MarginLayoutParams) bVar.mTextView.getLayoutParams();
-            marginLayoutParams2.setMargins(marginLayoutParams2.leftMargin, marginLayoutParams2.leftMargin, marginLayoutParams2.rightMargin, lVar.kVJ);
+            marginLayoutParams2.setMargins(marginLayoutParams2.leftMargin, marginLayoutParams2.leftMargin, marginLayoutParams2.rightMargin, lVar.lii);
         }
         return view;
     }

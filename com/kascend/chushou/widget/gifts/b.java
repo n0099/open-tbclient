@@ -22,8 +22,8 @@ public class b extends PopupWindow implements View.OnClickListener {
     private static final int[] c = {a.i.str_gift_count_6666, a.i.str_gift_count_1314, a.i.str_gift_count_520, a.i.str_gift_count_188, a.i.str_gift_count_66, a.i.str_gift_count_10, a.i.str_gift_count_1};
 
     /* renamed from: a  reason: collision with root package name */
-    private List<Pair<String, String>> f4285a;
-    private a oBw;
+    private List<Pair<String, String>> f4283a;
+    private a psR;
 
     /* loaded from: classes6.dex */
     public interface a {
@@ -32,35 +32,35 @@ public class b extends PopupWindow implements View.OnClickListener {
 
     public b(Context context, a aVar) {
         super(context);
-        this.f4285a = new ArrayList();
+        this.f4283a = new ArrayList();
         View inflate = LayoutInflater.from(context).inflate(a.h.popup_gift_count, (ViewGroup) null, false);
         setContentView(inflate);
-        this.oBw = aVar;
+        this.psR = aVar;
         inflate.findViewById(a.f.tv_customize).setOnClickListener(this);
         for (int i = 0; i < b.length; i++) {
-            this.f4285a.add(new Pair<>(String.valueOf(b[i]), context.getString(c[i])));
+            this.f4283a.add(new Pair<>(String.valueOf(b[i]), context.getString(c[i])));
         }
         RecyclerView recyclerView = (RecyclerView) inflate.findViewById(a.f.rv);
         recyclerView.setLayoutManager(new LinearLayoutManager(context));
-        recyclerView.setAdapter(new tv.chushou.zues.widget.adapterview.recyclerview.a.a<Pair<String, String>>(this.f4285a, a.h.item_gift_count, new tv.chushou.zues.widget.adapterview.d() { // from class: com.kascend.chushou.widget.gifts.b.1
+        recyclerView.setAdapter(new tv.chushou.zues.widget.adapterview.recyclerview.a.a<Pair<String, String>>(this.f4283a, a.h.item_gift_count, new tv.chushou.zues.widget.adapterview.d() { // from class: com.kascend.chushou.widget.gifts.b.1
             @Override // tv.chushou.zues.widget.adapterview.d
-            public void E(View view, int i2) {
-                Pair pair = (Pair) b.this.f4285a.get(i2);
-                if (b.this.oBw != null) {
-                    b.this.oBw.a(false, Integer.parseInt((String) pair.first));
+            public void I(View view, int i2) {
+                Pair pair = (Pair) b.this.f4283a.get(i2);
+                if (b.this.psR != null) {
+                    b.this.psR.a(false, Integer.parseInt((String) pair.first));
                 }
                 b.this.dismiss();
             }
         }) { // from class: com.kascend.chushou.widget.gifts.b.2
             /* JADX DEBUG: Method merged with bridge method */
             @Override // tv.chushou.zues.widget.adapterview.recyclerview.a.a
-            public void a(a.View$OnLongClickListenerC1029a view$OnLongClickListenerC1029a, Pair<String, String> pair) {
-                view$OnLongClickListenerC1029a.a(a.f.tv_count, (CharSequence) pair.first);
-                ((TextView) view$OnLongClickListenerC1029a.rL(a.f.tv_desc)).setText((CharSequence) pair.second);
+            public void a(a.View$OnLongClickListenerC1101a view$OnLongClickListenerC1101a, Pair<String, String> pair) {
+                view$OnLongClickListenerC1101a.a(a.f.tv_count, (CharSequence) pair.first);
+                ((TextView) view$OnLongClickListenerC1101a.rW(a.f.tv_desc)).setText((CharSequence) pair.second);
             }
         });
         setWidth(tv.chushou.zues.utils.a.dip2px(context, 160.0f));
-        setHeight(tv.chushou.zues.utils.a.dip2px(context, ((this.f4285a.size() + 2) * 30) + 50));
+        setHeight(tv.chushou.zues.utils.a.dip2px(context, ((this.f4283a.size() + 2) * 30) + 50));
         setOutsideTouchable(true);
         setFocusable(true);
         setBackgroundDrawable(new ColorDrawable(0));
@@ -70,8 +70,8 @@ public class b extends PopupWindow implements View.OnClickListener {
     public void onClick(View view) {
         if (view.getId() == a.f.tv_customize) {
             dismiss();
-            if (this.oBw != null) {
-                this.oBw.a(true, -1);
+            if (this.psR != null) {
+                this.psR.a(true, -1);
             }
         }
     }

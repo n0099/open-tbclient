@@ -28,7 +28,7 @@ final class SequencesKt___SequencesKt$minus$1$iterator$1 extends Lambda implemen
     @Override // kotlin.jvm.a.b
     /* renamed from: invoke  reason: avoid collision after fix types in other method */
     public final Boolean invoke2(T t) {
-        if (this.$removed.element || !q.l(t, this.this$0.oSF)) {
+        if (this.$removed.element || !q.l(t, this.this$0.pKb)) {
             return 1;
         }
         this.$removed.element = true;

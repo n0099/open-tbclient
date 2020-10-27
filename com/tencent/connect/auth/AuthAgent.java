@@ -322,10 +322,10 @@ public class AuthAgent extends BaseApi {
     public class a implements IUiListener {
 
         /* renamed from: a  reason: collision with root package name */
-        IUiListener f4527a;
+        IUiListener f4525a;
 
         public a(IUiListener iUiListener) {
-            this.f4527a = iUiListener;
+            this.f4525a = iUiListener;
         }
 
         @Override // com.tencent.tauth.IUiListener
@@ -338,8 +338,8 @@ public class AuthAgent extends BaseApi {
             try {
                 int i = jSONObject.getInt("ret");
                 String string = i == 0 ? "success" : jSONObject.getString("msg");
-                if (this.f4527a != null) {
-                    this.f4527a.onComplete(new JSONObject().put("ret", i).put("msg", string));
+                if (this.f4525a != null) {
+                    this.f4525a.onComplete(new JSONObject().put("ret", i).put("msg", string));
                 }
             } catch (JSONException e) {
                 e.printStackTrace();
@@ -349,15 +349,15 @@ public class AuthAgent extends BaseApi {
 
         @Override // com.tencent.tauth.IUiListener
         public void onError(UiError uiError) {
-            if (this.f4527a != null) {
-                this.f4527a.onError(uiError);
+            if (this.f4525a != null) {
+                this.f4525a.onError(uiError);
             }
         }
 
         @Override // com.tencent.tauth.IUiListener
         public void onCancel() {
-            if (this.f4527a != null) {
-                this.f4527a.onCancel();
+            if (this.f4525a != null) {
+                this.f4525a.onCancel();
             }
         }
     }
@@ -367,13 +367,13 @@ public class AuthAgent extends BaseApi {
     public class b implements IUiListener {
 
         /* renamed from: a  reason: collision with root package name */
-        IUiListener f4528a;
+        IUiListener f4526a;
         private final String c = "sendinstall";
         private final String d = "installwording";
         private final String e = "http://appsupport.qq.com/cgi-bin/qzapps/mapp_addapp.cgi";
 
         public b(IUiListener iUiListener) {
-            this.f4528a = iUiListener;
+            this.f4526a = iUiListener;
         }
 
         @Override // com.tencent.tauth.IUiListener
@@ -390,12 +390,12 @@ public class AuthAgent extends BaseApi {
                 String decode = URLDecoder.decode(str);
                 f.a("openSDK_LOG.AuthAgent", " WORDING = " + decode + "xx");
                 if (r2 && !TextUtils.isEmpty(decode)) {
-                    a(decode, this.f4528a, obj);
-                } else if (this.f4528a != null) {
+                    a(decode, this.f4526a, obj);
+                } else if (this.f4526a != null) {
                     if (AuthAgent.this.b != null) {
                         AuthAgent.this.b.saveSession(jSONObject);
                     }
-                    this.f4528a.onComplete(obj);
+                    this.f4526a.onComplete(obj);
                 }
             }
         }
@@ -588,15 +588,15 @@ public class AuthAgent extends BaseApi {
 
         @Override // com.tencent.tauth.IUiListener
         public void onError(UiError uiError) {
-            if (this.f4528a != null) {
-                this.f4528a.onError(uiError);
+            if (this.f4526a != null) {
+                this.f4526a.onError(uiError);
             }
         }
 
         @Override // com.tencent.tauth.IUiListener
         public void onCancel() {
-            if (this.f4528a != null) {
-                this.f4528a.onCancel();
+            if (this.f4526a != null) {
+                this.f4526a.onCancel();
             }
         }
     }

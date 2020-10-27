@@ -21,48 +21,48 @@ import java.util.List;
 import org.json.JSONObject;
 /* loaded from: classes4.dex */
 public class c extends BdBaseModel {
-    private CustomMessageListener bel;
-    private AlaGuessQuesData bem;
-    private AlaGuessQuesData ben;
-    private InterfaceC0183c beo;
-    private b ber;
-    private a bes;
-    private String bep = "https://quanmin.baidu.com/pubshow/task/Getquizticket";
-    private String beq = "https://quanmin.baidu.com/pubshow/subject/answer";
-    private volatile int beu = -1;
+    private CustomMessageListener bfC;
+    private AlaGuessQuesData bfD;
+    private AlaGuessQuesData bfE;
+    private InterfaceC0184c bfF;
+    private b bfI;
+    private a bfJ;
+    private String bfG = "https://quanmin.baidu.com/pubshow/task/Getquizticket";
+    private String bfH = "https://quanmin.baidu.com/pubshow/subject/answer";
+    private volatile int bfK = -1;
     private final Object mLock = new Object();
-    private HttpMessageListener bev = new HttpMessageListener(1021215) { // from class: com.baidu.live.guess.c.1
+    private HttpMessageListener bfL = new HttpMessageListener(1021215) { // from class: com.baidu.live.guess.c.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.live.adp.framework.listener.MessageListener
         public void onMessage(HttpResponsedMessage httpResponsedMessage) {
             if (httpResponsedMessage != null && (httpResponsedMessage instanceof GuessVoucherHttpResponseMessage)) {
                 int error = httpResponsedMessage.getError();
                 if (httpResponsedMessage.getStatusCode() != 200 || error != 0) {
-                    if (c.this.ber != null) {
-                        c.this.ber.onFailure(httpResponsedMessage.getError());
+                    if (c.this.bfI != null) {
+                        c.this.bfI.onFailure(httpResponsedMessage.getError());
                         return;
                     }
                     return;
                 }
                 GuessVoucherHttpResponseMessage guessVoucherHttpResponseMessage = (GuessVoucherHttpResponseMessage) httpResponsedMessage;
-                if (c.this.ber != null) {
-                    c.this.ber.d(guessVoucherHttpResponseMessage.getVoucherNum(), guessVoucherHttpResponseMessage.getTaskUrl(), guessVoucherHttpResponseMessage.isFollow());
+                if (c.this.bfI != null) {
+                    c.this.bfI.d(guessVoucherHttpResponseMessage.getVoucherNum(), guessVoucherHttpResponseMessage.getTaskUrl(), guessVoucherHttpResponseMessage.isFollow());
                 }
             }
         }
     };
-    private HttpMessageListener bew = new HttpMessageListener(1021218) { // from class: com.baidu.live.guess.c.2
+    private HttpMessageListener bfM = new HttpMessageListener(1021218) { // from class: com.baidu.live.guess.c.2
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.live.adp.framework.listener.MessageListener
         public void onMessage(HttpResponsedMessage httpResponsedMessage) {
             GuessUploadAnswerResponseMessage guessUploadAnswerResponseMessage = (GuessUploadAnswerResponseMessage) httpResponsedMessage;
             if (guessUploadAnswerResponseMessage.getStatusCode() != 200 || c.this.getErrorCode() != 0) {
-                c.this.bes.onFailure(httpResponsedMessage.getStatusCode(), httpResponsedMessage.getErrorString());
-            } else if (c.this.bes != null) {
+                c.this.bfJ.onFailure(httpResponsedMessage.getStatusCode(), httpResponsedMessage.getErrorString());
+            } else if (c.this.bfJ != null) {
                 if (guessUploadAnswerResponseMessage.getStatus() == 0) {
-                    c.this.bes.Kc();
+                    c.this.bfJ.Kw();
                 } else {
-                    c.this.bes.onFailure(guessUploadAnswerResponseMessage.getStatus(), guessUploadAnswerResponseMessage.getMsg());
+                    c.this.bfJ.onFailure(guessUploadAnswerResponseMessage.getStatus(), guessUploadAnswerResponseMessage.getMsg());
                 }
             }
         }
@@ -70,7 +70,7 @@ public class c extends BdBaseModel {
 
     /* loaded from: classes4.dex */
     public interface a {
-        void Kc();
+        void Kw();
 
         void onFailure(int i, String str);
     }
@@ -84,26 +84,26 @@ public class c extends BdBaseModel {
 
     /* renamed from: com.baidu.live.guess.c$c  reason: collision with other inner class name */
     /* loaded from: classes4.dex */
-    public interface InterfaceC0183c {
+    public interface InterfaceC0184c {
         void a(AlaGuessQuesData alaGuessQuesData);
 
         void b(AlaGuessQuesData alaGuessQuesData);
     }
 
-    public c(InterfaceC0183c interfaceC0183c) {
-        this.beo = interfaceC0183c;
+    public c(InterfaceC0184c interfaceC0184c) {
+        this.bfF = interfaceC0184c;
     }
 
-    public void JY() {
-        if (this.bel == null) {
-            this.bel = new CustomMessageListener(2913246) { // from class: com.baidu.live.guess.c.3
+    public void Ks() {
+        if (this.bfC == null) {
+            this.bfC = new CustomMessageListener(2913251) { // from class: com.baidu.live.guess.c.3
                 /* JADX DEBUG: Method merged with bridge method */
                 @Override // com.baidu.live.adp.framework.listener.MessageListener
                 public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
                     JSONObject jSONObject;
                     if (customResponsedMessage != null && (customResponsedMessage.getData() instanceof List)) {
                         List<String> list = (List) customResponsedMessage.getData();
-                        if (list.size() != 0 && c.this.Kb() != -1 && c.this.Kb() != 2) {
+                        if (list.size() != 0 && c.this.Kv() != -1 && c.this.Kv() != 2) {
                             for (String str : list) {
                                 try {
                                     jSONObject = new JSONObject(str);
@@ -116,10 +116,10 @@ public class c extends BdBaseModel {
                                     String optString = jSONObject2.optString("content_type");
                                     if (TextUtils.equals(optString, AlaGuessQuesData.ANSWER_INFO)) {
                                         c.this.b(jSONObject2, parseLong);
-                                        c.this.beo.b(c.this.ben);
+                                        c.this.bfF.b(c.this.bfE);
                                     } else if (TextUtils.equals(optString, "subject_mi_info")) {
                                         c.this.a(jSONObject2, parseLong);
-                                        c.this.beo.a(c.this.bem);
+                                        c.this.bfF.a(c.this.bfD);
                                     }
                                 } else {
                                     return;
@@ -130,34 +130,34 @@ public class c extends BdBaseModel {
                 }
             };
         }
-        registerListener(this.bel);
-        registerListener(this.bev);
-        registerListener(this.bew);
-        Ka();
-        JZ();
+        registerListener(this.bfC);
+        registerListener(this.bfL);
+        registerListener(this.bfM);
+        Ku();
+        Kt();
     }
 
-    private void JZ() {
-        TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(1021218, this.beq);
+    private void Kt() {
+        TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(1021218, this.bfH);
         tbHttpMessageTask.setMethod(HttpMessageTask.HTTP_METHOD.POST);
         tbHttpMessageTask.setResponsedClass(GuessUploadAnswerResponseMessage.class);
         MessageManager.getInstance().registerTask(tbHttpMessageTask);
     }
 
-    private void Ka() {
-        TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(1021215, this.bep);
+    private void Ku() {
+        TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(1021215, this.bfG);
         tbHttpMessageTask.setMethod(HttpMessageTask.HTTP_METHOD.POST);
         tbHttpMessageTask.setResponsedClass(GuessVoucherHttpResponseMessage.class);
         tbHttpMessageTask.setRetry(2);
         MessageManager.getInstance().registerTask(tbHttpMessageTask);
     }
 
-    public void eH(int i) {
-        this.beu = i;
+    public void eI(int i) {
+        this.bfK = i;
     }
 
-    public int Kb() {
-        return this.beu;
+    public int Kv() {
+        return this.bfK;
     }
 
     @Override // com.baidu.live.adp.base.BdBaseModel
@@ -172,68 +172,68 @@ public class c extends BdBaseModel {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void a(JSONObject jSONObject, long j) {
-        if (this.bem == null) {
-            this.bem = new AlaGuessQuesData();
+        if (this.bfD == null) {
+            this.bfD = new AlaGuessQuesData();
         }
-        this.bem.setRoomId(j);
-        this.bem.setQuesContent(jSONObject.optString("ques_content"));
-        this.bem.setQuesId(jSONObject.optLong("ques_id"));
-        this.bem.setAnswerInfo(jSONObject.optString(UgcUBCUtils.QUESTION_REPLY_PAGE));
-        this.bem.setAnswerTime(jSONObject.optInt("answer_time"));
-        this.bem.setAmount(JavaTypesHelper.toInt(jSONObject.optString(LogConfig.LOG_AMOUNT), 0));
+        this.bfD.setRoomId(j);
+        this.bfD.setQuesContent(jSONObject.optString("ques_content"));
+        this.bfD.setQuesId(jSONObject.optLong("ques_id"));
+        this.bfD.setAnswerInfo(jSONObject.optString(UgcUBCUtils.QUESTION_REPLY_PAGE));
+        this.bfD.setAnswerTime(jSONObject.optInt("answer_time"));
+        this.bfD.setAmount(JavaTypesHelper.toInt(jSONObject.optString(LogConfig.LOG_AMOUNT), 0));
         String[] split = jSONObject.optString("answer_option").split(Constants.ACCEPT_TIME_SEPARATOR_SERVER);
-        this.bem.setFirstOpt(split[0]);
-        this.bem.setSecondOpt(split[1]);
-        this.bem.setAnchorId(JavaTypesHelper.toLong(jSONObject.optString("anchor_uid"), 0L));
-        this.bem.setContentType("subject_mi_info");
+        this.bfD.setFirstOpt(split[0]);
+        this.bfD.setSecondOpt(split[1]);
+        this.bfD.setAnchorId(JavaTypesHelper.toLong(jSONObject.optString("anchor_uid"), 0L));
+        this.bfD.setContentType("subject_mi_info");
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void b(JSONObject jSONObject, long j) {
-        if (this.ben == null) {
-            this.ben = new AlaGuessQuesData();
+        if (this.bfE == null) {
+            this.bfE = new AlaGuessQuesData();
         }
-        this.ben.setRoomId(j);
-        this.ben.setAnswer(jSONObject.optInt(UgcUBCUtils.QUESTION_REPLY_PAGE));
-        this.ben.setTotalNum(JavaTypesHelper.toLong(jSONObject.optString("total_number"), 0L));
-        this.ben.setCorrectNum(JavaTypesHelper.toLong(jSONObject.optString("currect_number"), 0L));
-        this.ben.setCorrectPercent(JavaTypesHelper.toDouble(jSONObject.optString("currect_percent"), 0.0d));
-        this.ben.setAmount(JavaTypesHelper.toLong(jSONObject.optString(LogConfig.LOG_AMOUNT), 0L));
-        this.ben.setAverage(JavaTypesHelper.toFloat(jSONObject.optString("average_amount"), 0.0f));
-        this.ben.setQuesContent(jSONObject.optString("ques_content"));
+        this.bfE.setRoomId(j);
+        this.bfE.setAnswer(jSONObject.optInt(UgcUBCUtils.QUESTION_REPLY_PAGE));
+        this.bfE.setTotalNum(JavaTypesHelper.toLong(jSONObject.optString("total_number"), 0L));
+        this.bfE.setCorrectNum(JavaTypesHelper.toLong(jSONObject.optString("currect_number"), 0L));
+        this.bfE.setCorrectPercent(JavaTypesHelper.toDouble(jSONObject.optString("currect_percent"), 0.0d));
+        this.bfE.setAmount(JavaTypesHelper.toLong(jSONObject.optString(LogConfig.LOG_AMOUNT), 0L));
+        this.bfE.setAverage(JavaTypesHelper.toFloat(jSONObject.optString("average_amount"), 0.0f));
+        this.bfE.setQuesContent(jSONObject.optString("ques_content"));
         String[] split = jSONObject.optString("answer_option").split(Constants.ACCEPT_TIME_SEPARATOR_SERVER);
-        this.ben.setFirstOpt(split[0]);
-        this.ben.setSecondOpt(split[1]);
-        this.ben.setQuesId(JavaTypesHelper.toLong(jSONObject.optString("ques_id"), 0L));
-        this.ben.setContentType(AlaGuessQuesData.ANSWER_INFO);
+        this.bfE.setFirstOpt(split[0]);
+        this.bfE.setSecondOpt(split[1]);
+        this.bfE.setQuesId(JavaTypesHelper.toLong(jSONObject.optString("ques_id"), 0L));
+        this.bfE.setContentType(AlaGuessQuesData.ANSWER_INFO);
     }
 
-    public void JT() {
-        this.beu = -1;
+    public void Kn() {
+        this.bfK = -1;
     }
 
     public void onDestroy() {
-        if (this.bem != null) {
-            this.bem.reset();
+        if (this.bfD != null) {
+            this.bfD.reset();
         }
-        if (this.ben != null) {
-            this.ben.reset();
+        if (this.bfE != null) {
+            this.bfE.reset();
         }
-        MessageManager.getInstance().unRegisterListener(this.bel);
-        MessageManager.getInstance().unRegisterListener(this.bev);
+        MessageManager.getInstance().unRegisterListener(this.bfC);
+        MessageManager.getInstance().unRegisterListener(this.bfL);
         MessageManager.getInstance().unRegisterTask(1021215);
     }
 
     public void a(long j, int i, b bVar) {
-        this.ber = bVar;
+        this.bfI = bVar;
         com.baidu.live.guess.http.b bVar2 = new com.baidu.live.guess.http.b();
         bVar2.setUserId(j);
-        bVar2.eI(i);
+        bVar2.eJ(i);
         MessageManager.getInstance().sendMessage(bVar2);
     }
 
     public void a(long j, long j2, int i, a aVar) {
-        this.bes = aVar;
+        this.bfJ = aVar;
         com.baidu.live.guess.http.a aVar2 = new com.baidu.live.guess.http.a();
         aVar2.setUserId(j);
         aVar2.setAnswer(i);

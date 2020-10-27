@@ -14,9 +14,9 @@ import com.baidu.tieba.R;
 import java.util.List;
 /* loaded from: classes22.dex */
 public class a extends BaseAdapter {
-    private List<com.baidu.tbadk.coreExtra.relationship.a> fFv;
-    private int fFy = R.color.cp_cont_b;
-    private int fFz = R.color.cp_cont_c;
+    private List<com.baidu.tbadk.coreExtra.relationship.a> fNQ;
+    private int fNT = R.color.cp_cont_b;
+    private int fNU = R.color.cp_cont_c;
     private Context mContext;
 
     public a(Context context) {
@@ -24,26 +24,26 @@ public class a extends BaseAdapter {
     }
 
     public void setContacts(List<com.baidu.tbadk.coreExtra.relationship.a> list) {
-        this.fFv = list;
+        this.fNQ = list;
         notifyDataSetChanged();
     }
 
     @Override // android.widget.Adapter
     public int getCount() {
-        if (this.fFv == null) {
+        if (this.fNQ == null) {
             return 0;
         }
-        return this.fFv.size();
+        return this.fNQ.size();
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // android.widget.Adapter
-    /* renamed from: sW */
+    /* renamed from: th */
     public com.baidu.tbadk.coreExtra.relationship.a getItem(int i) {
-        if (this.fFv == null || i < 0 || i >= this.fFv.size()) {
+        if (this.fNQ == null || i < 0 || i >= this.fNQ.size()) {
             return null;
         }
-        return this.fFv.get(i);
+        return this.fNQ.get(i);
     }
 
     @Override // android.widget.Adapter
@@ -62,7 +62,7 @@ public class a extends BaseAdapter {
         if (item == null) {
             return 2;
         }
-        if (!TextUtils.isEmpty(item.bsY()) && TextUtils.isEmpty(item.getUserName()) && TextUtils.isEmpty(item.bsX())) {
+        if (!TextUtils.isEmpty(item.buR()) && TextUtils.isEmpty(item.getUserName()) && TextUtils.isEmpty(item.buQ())) {
             return 0;
         }
         return 1;
@@ -70,7 +70,7 @@ public class a extends BaseAdapter {
 
     @Override // android.widget.Adapter
     public View getView(int i, View view, ViewGroup viewGroup) {
-        C0741a c0741a;
+        C0757a c0757a;
         b bVar;
         if (getItemViewType(i) == 2) {
             return null;
@@ -82,37 +82,37 @@ public class a extends BaseAdapter {
             if (view == null || view.getTag() == null || !(view.getTag() instanceof b)) {
                 view = LayoutInflater.from(this.mContext).inflate(R.layout.select_friend_group_item, (ViewGroup) null);
                 b bVar2 = new b();
-                bVar2.fFH = (TextView) view.findViewById(R.id.addresslist_group_item_key);
-                bVar2.euA = view.findViewById(R.id.addresslist_group_item_divider);
+                bVar2.fOc = (TextView) view.findViewById(R.id.addresslist_group_item_key);
+                bVar2.eCZ = view.findViewById(R.id.addresslist_group_item_divider);
                 view.setTag(bVar2);
                 bVar = bVar2;
             } else {
                 bVar = (b) view.getTag();
             }
-            if (item.bsY() != null) {
-                bVar.fFH.setText(item.bsY());
+            if (item.buR() != null) {
+                bVar.fOc.setText(item.buR());
             }
-            ap.setViewTextColor(bVar.fFH, this.fFz, 1);
-            ap.setBackgroundColor(bVar.euA, R.color.cp_bg_line_c);
+            ap.setViewTextColor(bVar.fOc, this.fNU, 1);
+            ap.setBackgroundColor(bVar.eCZ, R.color.cp_bg_line_c);
             return view;
         } else if (getItemViewType(i) == 1) {
-            if (view == null || view.getTag() == null || !(view.getTag() instanceof C0741a)) {
-                C0741a c0741a2 = new C0741a();
+            if (view == null || view.getTag() == null || !(view.getTag() instanceof C0757a)) {
+                C0757a c0757a2 = new C0757a();
                 view = LayoutInflater.from(this.mContext).inflate(R.layout.select_friend_child_item, (ViewGroup) null);
-                c0741a2.fFw = (HeadImageView) view.findViewById(R.id.addresslist_child_item_icon);
-                c0741a2.fFx = (TextView) view.findViewById(R.id.addresslist_child_item_name);
-                c0741a2.euA = view.findViewById(R.id.addresslist_child_item_divider);
-                view.setTag(c0741a2);
-                c0741a = c0741a2;
+                c0757a2.fNR = (HeadImageView) view.findViewById(R.id.addresslist_child_item_icon);
+                c0757a2.fNS = (TextView) view.findViewById(R.id.addresslist_child_item_name);
+                c0757a2.eCZ = view.findViewById(R.id.addresslist_child_item_divider);
+                view.setTag(c0757a2);
+                c0757a = c0757a2;
             } else {
-                c0741a = (C0741a) view.getTag();
+                c0757a = (C0757a) view.getTag();
             }
             if (item.getUserName() != null) {
-                c0741a.fFx.setText(item.getUserName());
-                c0741a.fFw.startLoad(item.bsX(), 12, false);
+                c0757a.fNS.setText(item.getUserName());
+                c0757a.fNR.startLoad(item.buQ(), 12, false);
             }
-            ap.setViewTextColor(c0741a.fFx, this.fFy, 1);
-            ap.setBackgroundResource(c0741a.euA, R.color.cp_bg_line_c);
+            ap.setViewTextColor(c0757a.fNS, this.fNT, 1);
+            ap.setBackgroundResource(c0757a.eCZ, R.color.cp_bg_line_c);
             ap.setBackgroundResource(view, R.drawable.select_friend_item_bg);
             return view;
         } else {
@@ -122,8 +122,8 @@ public class a extends BaseAdapter {
 
     /* loaded from: classes22.dex */
     private class b {
-        View euA;
-        TextView fFH;
+        View eCZ;
+        TextView fOc;
 
         private b() {
         }
@@ -131,12 +131,12 @@ public class a extends BaseAdapter {
 
     /* renamed from: com.baidu.tieba.imMessageCenter.im.selectfriend.a$a  reason: collision with other inner class name */
     /* loaded from: classes22.dex */
-    private class C0741a {
-        View euA;
-        HeadImageView fFw;
-        TextView fFx;
+    private class C0757a {
+        View eCZ;
+        HeadImageView fNR;
+        TextView fNS;
 
-        private C0741a() {
+        private C0757a() {
         }
     }
 }

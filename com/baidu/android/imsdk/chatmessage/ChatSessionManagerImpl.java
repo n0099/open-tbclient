@@ -37,6 +37,7 @@ import com.baidu.android.imsdk.upload.action.IMTrack;
 import com.baidu.android.imsdk.utils.HttpHelper;
 import com.baidu.android.imsdk.utils.LogUtils;
 import com.baidu.android.imsdk.utils.Utility;
+import com.baidu.cyberplayer.sdk.dlna.DlnaManager;
 import com.baidu.imsdk.a;
 import java.util.ArrayList;
 import java.util.Iterator;
@@ -412,10 +413,7 @@ public class ChatSessionManagerImpl extends ChatMsgManagerImpl {
     }
 
     public int hideAllChatSession() {
-        if (getPaid() == -2) {
-            return -1017;
-        }
-        return ChatMessageDBManager.getInstance(mContext).deleteChatSession(getPaid());
+        return getPaid() == -2 ? DlnaManager.DLNA_ERROR_CREATE_SSDP_THREAD_FIAL : ChatMessageDBManager.getInstance(mContext).deleteChatSession(getPaid());
     }
 
     public List<ChatSession> getGroupSession() {

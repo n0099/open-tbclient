@@ -13,23 +13,23 @@ public interface l {
 
     void a(String str, String str2, int i, String str3, long j, int i2);
 
-    int abk();
+    boolean aAA();
 
-    m adW();
+    boolean aAB();
 
-    ExecutorService adx();
+    boolean aAC();
 
-    String ats();
+    String aAz();
 
-    String att();
+    int ade();
 
-    String ayF();
+    m afQ();
 
-    boolean ayG();
+    ExecutorService afr();
 
-    boolean ayH();
+    String avm();
 
-    boolean ayI();
+    String avn();
 
     String cq(Context context);
 
@@ -45,5 +45,5 @@ public interface l {
 
     void h(String str, int i, String str2);
 
-    boolean pW(String str);
+    boolean qp(String str);
 }

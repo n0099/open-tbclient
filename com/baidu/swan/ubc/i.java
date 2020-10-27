@@ -6,12 +6,12 @@ import org.json.JSONObject;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes9.dex */
 public class i {
-    private String aaE;
-    private String dXQ;
-    private int dXR;
-    private JSONObject dXS;
-    private String dXT;
-    private boolean dXU;
+    private String aaF;
+    private String egn;
+    private int ego;
+    private JSONObject egp;
+    private String egq;
+    private boolean egr;
     private String mCategory;
     private String mContent;
     private String mId;
@@ -20,30 +20,30 @@ public class i {
 
     public i(String str, String str2, int i) {
         this.mContent = "";
-        this.dXU = false;
-        this.aaE = "";
+        this.egr = false;
+        this.aaF = "";
         this.mId = str;
-        this.dXQ = str;
-        this.dXR = -1;
+        this.egn = str;
+        this.ego = -1;
         this.mContent = str2;
         this.mOption = i;
         if ((this.mOption & 2) == 0) {
             this.mTime = System.currentTimeMillis();
         }
         try {
-            this.dXS = new JSONObject(this.mContent);
+            this.egp = new JSONObject(this.mContent);
         } catch (JSONException e) {
         }
     }
 
     public i(String str, JSONObject jSONObject, int i) {
         this.mContent = "";
-        this.dXU = false;
-        this.aaE = "";
+        this.egr = false;
+        this.aaF = "";
         this.mId = str;
-        this.dXQ = str;
-        this.dXR = -1;
-        this.dXS = jSONObject;
+        this.egn = str;
+        this.ego = -1;
+        this.egp = jSONObject;
         this.mOption = i;
         if ((this.mOption & 2) == 0) {
             this.mTime = System.currentTimeMillis();
@@ -52,29 +52,29 @@ public class i {
 
     public i(String str, String str2, int i, String str3, int i2) {
         this.mContent = "";
-        this.dXU = false;
-        this.aaE = "";
+        this.egr = false;
+        this.aaF = "";
         this.mId = str2;
-        this.dXQ = str;
-        this.dXR = i;
+        this.egn = str;
+        this.ego = i;
         this.mContent = str3;
         this.mOption = i2;
         if ((this.mOption & 2) == 0) {
             this.mTime = System.currentTimeMillis();
         }
         try {
-            this.dXS = new JSONObject(this.mContent);
+            this.egp = new JSONObject(this.mContent);
         } catch (JSONException e) {
         }
     }
 
     public i(String str, String str2, int i, String str3, long j, int i2) {
         this.mContent = "";
-        this.dXU = false;
-        this.aaE = "";
+        this.egr = false;
+        this.aaF = "";
         this.mId = str2;
-        this.dXQ = str;
-        this.dXR = i;
+        this.egn = str;
+        this.ego = i;
         this.mContent = str3;
         this.mOption = i2;
         if ((this.mOption & 2) == 0) {
@@ -86,7 +86,7 @@ public class i {
         }
         if (!TextUtils.isEmpty(this.mContent)) {
             try {
-                this.dXS = new JSONObject(this.mContent);
+                this.egp = new JSONObject(this.mContent);
             } catch (JSONException e) {
             }
         }
@@ -96,12 +96,12 @@ public class i {
         return this.mId;
     }
 
-    public String aZk() {
-        return this.dXQ;
+    public String bbd() {
+        return this.egn;
     }
 
-    public int aZl() {
-        return this.dXR;
+    public int bbe() {
+        return this.ego;
     }
 
     public String getContent() {
@@ -116,8 +116,8 @@ public class i {
         return this.mOption;
     }
 
-    public String aZm() {
-        return this.dXT;
+    public String bbf() {
+        return this.egq;
     }
 
     public void setCategory(String str) {
@@ -128,29 +128,29 @@ public class i {
         return this.mCategory;
     }
 
-    public JSONObject aZn() {
-        return this.dXS;
+    public JSONObject bbg() {
+        return this.egp;
     }
 
     public String getFileName() {
-        return this.aaE;
+        return this.aaF;
     }
 
-    public String aZo() {
-        return this.dXS != null ? this.dXS.optString("bizId") : "";
+    public String bbh() {
+        return this.egp != null ? this.egp.optString("bizId") : "";
     }
 
-    public void hC(boolean z) {
-        this.dXU = z;
+    public void hP(boolean z) {
+        this.egr = z;
     }
 
-    public boolean aZi() {
-        return this.dXU;
+    public boolean bbb() {
+        return this.egr;
     }
 
-    public void aZp() {
-        if (this.mId != null && this.mId.equals(this.dXQ) && d.aYV().yh(this.mId)) {
-            this.dXT = e.aYZ().ayF();
+    public void bbi() {
+        if (this.mId != null && this.mId.equals(this.egn) && d.baO().yA(this.mId)) {
+            this.egq = e.baS().aAz();
         }
     }
 }

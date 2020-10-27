@@ -10,7 +10,7 @@ import java.io.FileOutputStream;
 import java.util.ArrayList;
 /* loaded from: classes8.dex */
 public class a {
-    private C0153a ayh;
+    private C0153a ayi;
     private Context mContext;
 
     public a(Context context) {
@@ -27,10 +27,10 @@ public class a {
     }
 
     public synchronized C0153a AD() {
-        if (this.ayh == null) {
-            this.ayh = new C0153a(".helios", null);
+        if (this.ayi == null) {
+            this.ayi = new C0153a(".helios", null);
         }
-        return this.ayh;
+        return this.ayi;
     }
 
     public static void l(File file) {
@@ -127,23 +127,23 @@ public class a {
     /* renamed from: com.baidu.helios.common.c.a$a  reason: collision with other inner class name */
     /* loaded from: classes8.dex */
     public final class C0153a {
-        private File ayi;
-        private String ayj;
-        private C0153a ayk;
-        private boolean ayl;
+        private File ayj;
+        private String ayk;
+        private C0153a ayl;
+        private boolean aym;
 
         C0153a(String str, C0153a c0153a) {
-            this.ayl = false;
-            this.ayj = str;
-            this.ayk = c0153a;
-            this.ayl = false;
+            this.aym = false;
+            this.ayk = str;
+            this.ayl = c0153a;
+            this.aym = false;
         }
 
         C0153a(File file) {
-            this.ayl = false;
-            this.ayl = true;
-            this.ayi = file;
-            this.ayj = file.getName();
+            this.aym = false;
+            this.aym = true;
+            this.ayj = file;
+            this.ayk = file.getName();
         }
 
         public void AE() {
@@ -151,20 +151,20 @@ public class a {
         }
 
         public File AF() {
-            File file = this.ayi;
+            File file = this.ayj;
             if (file == null) {
-                if (this.ayk == null) {
-                    file = new File(a.this.AB(), this.ayj);
+                if (this.ayl == null) {
+                    file = new File(a.this.AB(), this.ayk);
                 } else {
-                    file = new File(this.ayk.AF(), this.ayj);
+                    file = new File(this.ayl.AF(), this.ayk);
                 }
-                this.ayi = file;
+                this.ayj = file;
             }
             return file;
         }
 
         public String AG() {
-            return this.ayj;
+            return this.ayk;
         }
 
         public C0153a fD(String str) {
@@ -172,11 +172,11 @@ public class a {
         }
 
         public File getFile(String str) {
-            return new File(this.ayi, str);
+            return new File(this.ayj, str);
         }
 
         public C0153a AH() {
-            return this.ayk;
+            return this.ayl;
         }
 
         public boolean d(String str, String str2, boolean z) {
@@ -188,7 +188,7 @@ public class a {
         }
 
         public C0153a m(File file) {
-            if (this.ayl) {
+            if (this.aym) {
                 throw new IllegalStateException("isolate session is not support");
             }
             ArrayList arrayList = new ArrayList();

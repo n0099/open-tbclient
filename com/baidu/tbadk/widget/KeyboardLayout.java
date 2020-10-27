@@ -5,7 +5,7 @@ import android.util.AttributeSet;
 import android.widget.RelativeLayout;
 /* loaded from: classes.dex */
 public class KeyboardLayout extends RelativeLayout {
-    private a flo;
+    private a ftP;
     private boolean mHasInit;
     private boolean mHasKeybord;
     private int mHeight;
@@ -31,7 +31,7 @@ public class KeyboardLayout extends RelativeLayout {
     }
 
     public void setOnkbdStateListener(a aVar) {
-        this.flo = aVar;
+        this.ftP = aVar;
     }
 
     @Override // android.widget.RelativeLayout, android.view.ViewGroup, android.view.View
@@ -40,22 +40,22 @@ public class KeyboardLayout extends RelativeLayout {
         if (!this.mHasInit) {
             this.mHasInit = true;
             this.mHeight = i4;
-            if (this.flo != null) {
-                this.flo.onKeyBoardStateChange(-1);
+            if (this.ftP != null) {
+                this.ftP.onKeyBoardStateChange(-1);
             }
         } else {
             this.mHeight = this.mHeight < i4 ? i4 : this.mHeight;
         }
         if (this.mHasInit && this.mHeight > i4) {
             this.mHasKeybord = true;
-            if (this.flo != null) {
-                this.flo.onKeyBoardStateChange(-3);
+            if (this.ftP != null) {
+                this.ftP.onKeyBoardStateChange(-3);
             }
         }
         if (this.mHasInit && this.mHasKeybord && this.mHeight == i4) {
             this.mHasKeybord = false;
-            if (this.flo != null) {
-                this.flo.onKeyBoardStateChange(-2);
+            if (this.ftP != null) {
+                this.ftP.onKeyBoardStateChange(-2);
             }
         }
     }

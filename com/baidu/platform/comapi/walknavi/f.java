@@ -5,7 +5,7 @@ import com.baidu.platform.comapi.walknavi.g.a;
 import com.baidu.platform.comapi.walknavi.widget.a;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes7.dex */
-public class f implements a.InterfaceC0267a {
+public class f implements a.InterfaceC0281a {
 
     /* renamed from: a  reason: collision with root package name */
     final /* synthetic */ WifiManager f3005a;
@@ -21,7 +21,7 @@ public class f implements a.InterfaceC0267a {
         this.c = i;
     }
 
-    @Override // com.baidu.platform.comapi.walknavi.widget.a.InterfaceC0267a
+    @Override // com.baidu.platform.comapi.walknavi.widget.a.InterfaceC0281a
     public void a() {
         this.f3005a.setWifiEnabled(true);
         if (this.b != null) {

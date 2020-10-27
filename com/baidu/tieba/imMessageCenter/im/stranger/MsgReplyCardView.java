@@ -13,11 +13,11 @@ import com.baidu.tieba.im.message.chat.ChatMessage;
 import com.baidu.tieba.imMessageCenter.im.stranger.a;
 /* loaded from: classes22.dex */
 public class MsgReplyCardView extends g {
-    private LinearLayout kaH;
-    private TextView kaI;
-    private TextView kaJ;
-    private TextView kaK;
-    private TextView kaL;
+    private LinearLayout kng;
+    private TextView knh;
+    private TextView kni;
+    private TextView knj;
+    private TextView knk;
 
     public MsgReplyCardView(TbPageContext<MsglistActivity<?>> tbPageContext) {
         super(tbPageContext, R.layout.msg_reply_card_view);
@@ -25,62 +25,62 @@ public class MsgReplyCardView extends g {
     }
 
     private void init() {
-        this.kaH = (LinearLayout) findViewById(R.id.reply_card);
-        this.kaI = (TextView) findViewById(R.id.reply_title);
-        this.kaJ = (TextView) findViewById(R.id.reply_content);
-        this.kaK = (TextView) findViewById(R.id.reply_quote_content);
-        this.kaL = (TextView) findViewById(R.id.reply_frs_name);
-        this.kaH.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.imMessageCenter.im.stranger.MsgReplyCardView.1
+        this.kng = (LinearLayout) findViewById(R.id.reply_card);
+        this.knh = (TextView) findViewById(R.id.reply_title);
+        this.kni = (TextView) findViewById(R.id.reply_content);
+        this.knj = (TextView) findViewById(R.id.reply_quote_content);
+        this.knk = (TextView) findViewById(R.id.reply_frs_name);
+        this.kng.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.imMessageCenter.im.stranger.MsgReplyCardView.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                MsgReplyCardView.this.jDj.onItemViewClick(view, 14, MsgReplyCardView.this.mPosition, 0L);
+                MsgReplyCardView.this.jPI.onItemViewClick(view, 14, MsgReplyCardView.this.mPosition, 0L);
             }
         });
     }
 
     public void a(TbPageContext<?> tbPageContext, ChatMessage chatMessage, View view) {
         if (chatMessage != null) {
-            a.C0742a MF = a.MF(chatMessage.getContent());
+            a.C0758a Nd = a.Nd(chatMessage.getContent());
             String valueOf = String.valueOf(chatMessage.getUserId());
-            this.kaI.setText(a(MF, valueOf));
-            this.kaJ.setText(MF.kaq);
-            this.kaK.setText(b(MF, valueOf));
-            this.kaL.setText(MF.fName + this.mContext.getString(R.string.forum));
+            this.knh.setText(a(Nd, valueOf));
+            this.kni.setText(Nd.kmQ);
+            this.knj.setText(b(Nd, valueOf));
+            this.knk.setText(Nd.fName + this.mContext.getString(R.string.forum));
         }
     }
 
-    private String a(a.C0742a c0742a, String str) {
+    private String a(a.C0758a c0758a, String str) {
         String string;
-        String CW;
+        String Dp;
         if (!TextUtils.isEmpty(str) && str.equals(TbadkCoreApplication.getCurrentAccount())) {
-            string = CW(c0742a.kaN);
-            CW = this.mContext.getString(R.string.you);
+            string = Dp(c0758a.knm);
+            Dp = this.mContext.getString(R.string.you);
         } else {
             string = this.mContext.getString(R.string.you);
-            CW = CW(c0742a.kaN);
+            Dp = Dp(c0758a.knm);
         }
-        return String.format(this.mContext.getString(R.string.add_friend_card_title), string, CX(c0742a.type), CW);
+        return String.format(this.mContext.getString(R.string.add_friend_card_title), string, Dq(c0758a.type), Dp);
     }
 
-    private String b(a.C0742a c0742a, String str) {
-        String CW;
+    private String b(a.C0758a c0758a, String str) {
+        String Dp;
         StringBuilder sb = new StringBuilder();
         if (!TextUtils.isEmpty(str) && str.equals(TbadkCoreApplication.getCurrentAccount())) {
-            CW = this.mContext.getString(R.string.me);
+            Dp = this.mContext.getString(R.string.me);
         } else {
-            CW = CW(c0742a.kaN);
+            Dp = Dp(c0758a.knm);
         }
-        if (c0742a.type == 1) {
-            sb.append(String.format(this.mContext.getString(R.string.add_friend_card_quote_comment), CW));
-            sb.append(c0742a.kaR);
+        if (c0758a.type == 1) {
+            sb.append(String.format(this.mContext.getString(R.string.add_friend_card_quote_comment), Dp));
+            sb.append(c0758a.knq);
         } else {
-            sb.append(String.format(this.mContext.getString(R.string.add_friend_card_quote_thread), CW));
-            sb.append(c0742a.title);
+            sb.append(String.format(this.mContext.getString(R.string.add_friend_card_quote_thread), Dp));
+            sb.append(c0758a.title);
         }
         return sb.toString();
     }
 
-    private String CW(int i) {
+    private String Dp(int i) {
         if (i == 1) {
             return this.mContext.getResources().getString(R.string.he);
         }
@@ -90,7 +90,7 @@ public class MsgReplyCardView extends g {
         return this.mContext.getResources().getString(R.string.ta);
     }
 
-    private String CX(int i) {
+    private String Dq(int i) {
         return i == 1 ? this.mContext.getResources().getString(R.string.add_friend_card_title_comment) : this.mContext.getResources().getString(R.string.topic_thread);
     }
 }

@@ -48,8 +48,8 @@ public class d {
 
         /* renamed from: com.baidu.sapi2.utils.d$a$a  reason: collision with other inner class name */
         /* loaded from: classes5.dex */
-        class C0319a implements ValueCallback<String> {
-            C0319a() {
+        class C0333a implements ValueCallback<String> {
+            C0333a() {
             }
 
             /* JADX DEBUG: Method merged with bridge method */
@@ -71,7 +71,7 @@ public class d {
         public void onPageFinished(WebView webView, String str) {
             super.onPageFinished(webView, str);
             if (Build.VERSION.SDK_INT >= 19) {
-                this.f3538a.evaluateJavascript(this.b, new C0319a());
+                this.f3538a.evaluateJavascript(this.b, new C0333a());
                 return;
             }
             this.c.a(null);

@@ -7,16 +7,16 @@ import kotlin.jvm.internal.q;
 @kotlin.h
 /* loaded from: classes10.dex */
 public final class j {
-    private long aSH;
-    private int dDP;
-    private volatile int dDQ;
-    private Integer dDR;
-    private Integer dDS;
-    private Integer dDT;
-    private Integer dDU;
-    private byte[] dDV;
-    private byte[] dDW;
-    private byte[] dDX;
+    private long aTD;
+    private int dMm;
+    private volatile int dMn;
+    private Integer dMo;
+    private Integer dMp;
+    private Integer dMq;
+    private Integer dMr;
+    private byte[] dMs;
+    private byte[] dMt;
+    private byte[] dMu;
 
     public j() {
         this(null, null, null, null, null, null, 0L, null, 255, null);
@@ -28,10 +28,10 @@ public final class j {
                 return false;
             }
             j jVar = (j) obj;
-            if (!q.l(this.dDR, jVar.dDR) || !q.l(this.dDS, jVar.dDS) || !q.l(this.dDT, jVar.dDT) || !q.l(this.dDU, jVar.dDU) || !q.l(this.dDV, jVar.dDV) || !q.l(this.dDW, jVar.dDW)) {
+            if (!q.l(this.dMo, jVar.dMo) || !q.l(this.dMp, jVar.dMp) || !q.l(this.dMq, jVar.dMq) || !q.l(this.dMr, jVar.dMr) || !q.l(this.dMs, jVar.dMs) || !q.l(this.dMt, jVar.dMt)) {
                 return false;
             }
-            if (!(this.aSH == jVar.aSH) || !q.l(this.dDX, jVar.dDX)) {
+            if (!(this.aTD == jVar.aTD) || !q.l(this.dMu, jVar.dMu)) {
                 return false;
             }
         }
@@ -39,136 +39,136 @@ public final class j {
     }
 
     public int hashCode() {
-        Integer num = this.dDR;
+        Integer num = this.dMo;
         int hashCode = (num != null ? num.hashCode() : 0) * 31;
-        Integer num2 = this.dDS;
+        Integer num2 = this.dMp;
         int hashCode2 = ((num2 != null ? num2.hashCode() : 0) + hashCode) * 31;
-        Integer num3 = this.dDT;
+        Integer num3 = this.dMq;
         int hashCode3 = ((num3 != null ? num3.hashCode() : 0) + hashCode2) * 31;
-        Integer num4 = this.dDU;
+        Integer num4 = this.dMr;
         int hashCode4 = ((num4 != null ? num4.hashCode() : 0) + hashCode3) * 31;
-        byte[] bArr = this.dDV;
+        byte[] bArr = this.dMs;
         int hashCode5 = ((bArr != null ? Arrays.hashCode(bArr) : 0) + hashCode4) * 31;
-        byte[] bArr2 = this.dDW;
+        byte[] bArr2 = this.dMt;
         int hashCode6 = bArr2 != null ? Arrays.hashCode(bArr2) : 0;
-        long j = this.aSH;
+        long j = this.aTD;
         int i = (((hashCode6 + hashCode5) * 31) + ((int) (j ^ (j >>> 32)))) * 31;
-        byte[] bArr3 = this.dDX;
+        byte[] bArr3 = this.dMu;
         return i + (bArr3 != null ? Arrays.hashCode(bArr3) : 0);
     }
 
     public String toString() {
-        return "SessionParams(dhGroupId=" + this.dDR + ", dhSecretKey=" + this.dDS + ", dhPublicKey=" + this.dDT + ", dhServerPublicKey=" + this.dDU + ", aesSecretKey=" + Arrays.toString(this.dDV) + ", sessionTicket=" + Arrays.toString(this.dDW) + ", expireTime=" + this.aSH + ", entryType=" + Arrays.toString(this.dDX) + ")";
+        return "SessionParams(dhGroupId=" + this.dMo + ", dhSecretKey=" + this.dMp + ", dhPublicKey=" + this.dMq + ", dhServerPublicKey=" + this.dMr + ", aesSecretKey=" + Arrays.toString(this.dMs) + ", sessionTicket=" + Arrays.toString(this.dMt) + ", expireTime=" + this.aTD + ", entryType=" + Arrays.toString(this.dMu) + ")";
     }
 
     public j(Integer num, Integer num2, Integer num3, Integer num4, byte[] bArr, byte[] bArr2, long j, byte[] bArr3) {
-        this.dDR = num;
-        this.dDS = num2;
-        this.dDT = num3;
-        this.dDU = num4;
-        this.dDV = bArr;
-        this.dDW = bArr2;
-        this.aSH = j;
-        this.dDX = bArr3;
+        this.dMo = num;
+        this.dMp = num2;
+        this.dMq = num3;
+        this.dMr = num4;
+        this.dMs = bArr;
+        this.dMt = bArr2;
+        this.aTD = j;
+        this.dMu = bArr3;
     }
 
     public /* synthetic */ j(Integer num, Integer num2, Integer num3, Integer num4, byte[] bArr, byte[] bArr2, long j, byte[] bArr3, int i, o oVar) {
         this((i & 1) != 0 ? null : num, (i & 2) != 0 ? null : num2, (i & 4) != 0 ? null : num3, (i & 8) != 0 ? null : num4, (i & 16) != 0 ? null : bArr, (i & 32) != 0 ? null : bArr2, (i & 64) != 0 ? 0L : j, (i & 128) != 0 ? null : bArr3);
     }
 
-    public final Integer aPL() {
-        return this.dDR;
+    public final Integer aRF() {
+        return this.dMo;
     }
 
     public final void g(Integer num) {
-        this.dDR = num;
+        this.dMo = num;
     }
 
-    public final Integer aPM() {
-        return this.dDS;
+    public final Integer aRG() {
+        return this.dMp;
     }
 
     public final void h(Integer num) {
-        this.dDS = num;
+        this.dMp = num;
     }
 
-    public final Integer aPN() {
-        return this.dDT;
+    public final Integer aRH() {
+        return this.dMq;
     }
 
     public final void i(Integer num) {
-        this.dDT = num;
+        this.dMq = num;
     }
 
-    public final Integer aPO() {
-        return this.dDU;
+    public final Integer aRI() {
+        return this.dMr;
     }
 
     public final void j(Integer num) {
-        this.dDU = num;
+        this.dMr = num;
     }
 
     public final void U(byte[] bArr) {
-        this.dDV = bArr;
+        this.dMs = bArr;
     }
 
-    public final byte[] aPP() {
-        return this.dDV;
+    public final byte[] aRJ() {
+        return this.dMs;
     }
 
     public final void V(byte[] bArr) {
-        this.dDW = bArr;
+        this.dMt = bArr;
     }
 
-    public final byte[] aPQ() {
-        return this.dDW;
+    public final byte[] aRK() {
+        return this.dMt;
     }
 
     public final void E(long j) {
-        this.aSH = j;
+        this.aTD = j;
     }
 
     public final void W(byte[] bArr) {
-        this.dDX = bArr;
+        this.dMu = bArr;
     }
 
-    public final int aPG() {
-        return this.dDP;
+    public final int aRA() {
+        return this.dMm;
     }
 
-    public final void lG(int i) {
-        this.dDP = i;
+    public final void lR(int i) {
+        this.dMm = i;
     }
 
-    public final void aPH() {
+    public final void aRB() {
         if (com.baidu.swan.apps.b.DEBUG) {
-            Log.d("BDTLS", "Recovery: add recoveryCount: " + this.dDQ);
+            Log.d("BDTLS", "Recovery: add recoveryCount: " + this.dMn);
         }
-        this.dDQ++;
+        this.dMn++;
     }
 
-    public final synchronized boolean aPI() {
+    public final synchronized boolean aRC() {
         boolean z = true;
         synchronized (this) {
             long currentTimeMillis = System.currentTimeMillis() / 1000;
-            if (this.dDV == null || this.dDW == null || this.aSH <= currentTimeMillis || this.dDP != 1) {
+            if (this.dMs == null || this.dMt == null || this.aTD <= currentTimeMillis || this.dMm != 1) {
                 z = false;
             }
             if (com.baidu.swan.games.bdtls.a.DEBUG) {
-                Log.d("BDTLS", "isSessionEnable " + this.dDV + ' ' + this.dDW + ' ' + this.aSH + ' ' + this.dDP);
+                Log.d("BDTLS", "isSessionEnable " + this.dMs + ' ' + this.dMt + ' ' + this.aTD + ' ' + this.dMm);
             }
         }
         return z;
     }
 
-    public final boolean aPJ() {
-        return this.dDQ < 3;
+    public final boolean aRD() {
+        return this.dMn < 3;
     }
 
-    public final void aPK() {
+    public final void aRE() {
         if (com.baidu.swan.apps.b.DEBUG) {
-            Log.d("BDTLS", "Downgrade: reset downgrade count " + this.dDQ);
+            Log.d("BDTLS", "Downgrade: reset downgrade count " + this.dMn);
         }
-        this.dDQ = 0;
+        this.dMn = 0;
     }
 }

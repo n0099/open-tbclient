@@ -22,25 +22,25 @@ import java.io.File;
 public class j implements i.a {
     private boolean isDownLoading;
     private Context mContext;
-    private com.baidu.tieba.k.h mFB;
     private MediaPlayer mMediaPlayer;
     private int mPosition;
-    private SelectMusicModel mUX;
-    private String mXS;
-    private boolean mXW;
-    private String mXX;
+    private com.baidu.tieba.k.h mSh;
+    private SelectMusicModel nhx;
+    private String nks;
+    private boolean nkw;
+    private String nkx;
 
     public j(Activity activity) {
         CustomResponsedMessage runTask = MessageManager.getInstance().runTask(CmdConfigCustom.CMD_GET_VIDEO_PLATFORM_FACTORY, com.baidu.tieba.k.l.class);
         com.baidu.tieba.k.l lVar = runTask != null ? (com.baidu.tieba.k.l) runTask.getData() : null;
         if (lVar != null) {
-            this.mFB = lVar.cYJ();
+            this.mSh = lVar.dbR();
         }
         this.mContext = activity;
     }
 
     public void b(SelectMusicModel selectMusicModel) {
-        this.mUX = selectMusicModel;
+        this.nhx = selectMusicModel;
     }
 
     public void a(MusicData musicData, Object obj) {
@@ -50,7 +50,7 @@ public class j implements i.a {
                     a(obj, musicData);
                     return;
                 case 1:
-                    bal();
+                    bce();
                     return;
                 case 2:
                     MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new CloudMusicActivityConfig(this.mContext, RequestResponseCode.REQUEST_CLOUDMUSIC_ACTIVITY_START)));
@@ -61,7 +61,7 @@ public class j implements i.a {
         }
     }
 
-    public void bal() {
+    public void bce() {
         if (this.mMediaPlayer != null) {
             if (this.mMediaPlayer.isPlaying()) {
                 this.mMediaPlayer.stop();
@@ -69,8 +69,8 @@ public class j implements i.a {
             this.mMediaPlayer.release();
             this.mMediaPlayer = null;
         }
-        this.mXS = null;
-        this.mXX = null;
+        this.nks = null;
+        this.nkx = null;
     }
 
     private void a(Object obj, final MusicData musicData) {
@@ -79,21 +79,21 @@ public class j implements i.a {
                 this.mMediaPlayer.stop();
             }
             this.isDownLoading = false;
-            this.mXX = musicData.id;
-            String SW = com.baidu.tieba.video.editvideo.model.a.dJz().SW(musicData.resource);
+            this.nkx = musicData.id;
+            String Tv = com.baidu.tieba.video.editvideo.model.a.dMH().Tv(musicData.resource);
             if (obj != null && (obj instanceof d.a)) {
                 this.mPosition = ((d.a) obj).position;
             }
-            if (TextUtils.isEmpty(SW)) {
+            if (TextUtils.isEmpty(Tv)) {
                 if (obj instanceof d.a) {
                     final d.a aVar = (d.a) obj;
                     aVar.mProgressBar.setVisibility(0);
-                    aVar.mVn.setDrawBorder(false);
-                    aVar.mVn.invalidate();
+                    aVar.nhN.setDrawBorder(false);
+                    aVar.nhN.invalidate();
                     this.isDownLoading = true;
-                    com.baidu.tieba.video.editvideo.model.a.dJz().a(musicData.id, musicData.resource, new a.InterfaceC0830a() { // from class: com.baidu.tieba.video.record.j.1
-                        @Override // com.baidu.tieba.video.editvideo.model.a.InterfaceC0830a
-                        public void gr(String str, String str2) {
+                    com.baidu.tieba.video.editvideo.model.a.dMH().a(musicData.id, musicData.resource, new a.InterfaceC0845a() { // from class: com.baidu.tieba.video.record.j.1
+                        @Override // com.baidu.tieba.video.editvideo.model.a.InterfaceC0845a
+                        public void gw(String str, String str2) {
                             if (aVar.position == j.this.mPosition) {
                                 j.this.isDownLoading = false;
                                 if (!TextUtils.isEmpty(str2)) {
@@ -101,77 +101,77 @@ public class j implements i.a {
                                 }
                                 j.this.a(str, musicData);
                                 aVar.mProgressBar.setVisibility(4);
-                                aVar.mVn.setDrawBorder(true);
-                                aVar.mVn.invalidate();
+                                aVar.nhN.setDrawBorder(true);
+                                aVar.nhN.invalidate();
                             }
                         }
 
-                        @Override // com.baidu.tieba.video.editvideo.model.a.InterfaceC0830a
-                        public void SQ(String str) {
+                        @Override // com.baidu.tieba.video.editvideo.model.a.InterfaceC0845a
+                        public void Tp(String str) {
                             if (aVar.position == j.this.mPosition) {
                                 j.this.isDownLoading = false;
                                 aVar.mProgressBar.setVisibility(4);
-                                aVar.mVn.setDrawBorder(true);
-                                aVar.mVn.invalidate();
+                                aVar.nhN.setDrawBorder(true);
+                                aVar.nhN.invalidate();
                                 com.baidu.adp.lib.util.l.showToast(TbadkCoreApplication.getInst(), str);
-                                if (j.this.mFB != null) {
-                                    j.this.mFB.bA(3, str);
+                                if (j.this.mSh != null) {
+                                    j.this.mSh.bB(3, str);
                                 }
                             }
                         }
 
-                        @Override // com.baidu.tieba.video.editvideo.model.a.InterfaceC0830a
-                        public void dIT() {
+                        @Override // com.baidu.tieba.video.editvideo.model.a.InterfaceC0845a
+                        public void dMb() {
                             if (aVar.position == j.this.mPosition) {
                                 j.this.isDownLoading = false;
-                                aVar.mVn.setDrawBorder(true);
-                                aVar.mVn.invalidate();
+                                aVar.nhN.setDrawBorder(true);
+                                aVar.nhN.invalidate();
                                 aVar.mProgressBar.setVisibility(4);
                             }
                         }
                     });
                     return;
                 }
-                com.baidu.tieba.video.editvideo.model.a.dJz().a(musicData.id, musicData.resource, new a.InterfaceC0830a() { // from class: com.baidu.tieba.video.record.j.2
-                    @Override // com.baidu.tieba.video.editvideo.model.a.InterfaceC0830a
-                    public void gr(String str, String str2) {
+                com.baidu.tieba.video.editvideo.model.a.dMH().a(musicData.id, musicData.resource, new a.InterfaceC0845a() { // from class: com.baidu.tieba.video.record.j.2
+                    @Override // com.baidu.tieba.video.editvideo.model.a.InterfaceC0845a
+                    public void gw(String str, String str2) {
                         if (!TextUtils.isEmpty(str2)) {
                             str = str2;
                         }
                         j.this.a(str, musicData);
                     }
 
-                    @Override // com.baidu.tieba.video.editvideo.model.a.InterfaceC0830a
-                    public void SQ(String str) {
+                    @Override // com.baidu.tieba.video.editvideo.model.a.InterfaceC0845a
+                    public void Tp(String str) {
                         com.baidu.adp.lib.util.l.showToast(TbadkCoreApplication.getInst(), str);
-                        if (j.this.mFB != null) {
-                            j.this.mFB.bA(3, str);
+                        if (j.this.mSh != null) {
+                            j.this.mSh.bB(3, str);
                         }
                     }
 
-                    @Override // com.baidu.tieba.video.editvideo.model.a.InterfaceC0830a
-                    public void dIT() {
+                    @Override // com.baidu.tieba.video.editvideo.model.a.InterfaceC0845a
+                    public void dMb() {
                     }
                 });
                 return;
             }
-            a(SW, musicData);
+            a(Tv, musicData);
         }
     }
 
-    public boolean dLf() {
+    public boolean dOn() {
         return this.isDownLoading;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void a(String str, MusicData musicData) {
-        if (!this.mXW) {
+        if (!this.nkw) {
             if (this.mMediaPlayer == null) {
                 this.mMediaPlayer = new MediaPlayer();
                 this.mMediaPlayer.setAudioStreamType(3);
             }
             try {
-                this.mXS = str;
+                this.nks = str;
                 this.mMediaPlayer.reset();
                 this.mMediaPlayer.setDataSource(str);
                 this.mMediaPlayer.prepare();
@@ -185,8 +185,8 @@ public class j implements i.a {
                 this.mMediaPlayer.setOnErrorListener(new MediaPlayer.OnErrorListener() { // from class: com.baidu.tieba.video.record.j.4
                     @Override // android.media.MediaPlayer.OnErrorListener
                     public boolean onError(MediaPlayer mediaPlayer, int i, int i2) {
-                        if (j.this.mFB != null) {
-                            j.this.mFB.bA(4, "what-->" + i + "  extra-->" + i2);
+                        if (j.this.mSh != null) {
+                            j.this.mSh.bB(4, "what-->" + i + "  extra-->" + i2);
                             return false;
                         }
                         return false;
@@ -200,38 +200,38 @@ public class j implements i.a {
     }
 
     private void b(String str, MusicData musicData) {
-        this.mXS = null;
-        bal();
+        this.nks = null;
+        bce();
         if (str.startsWith("/")) {
             File file = new File(str);
             if (file.exists()) {
                 file.delete();
             }
-            com.baidu.tieba.video.editvideo.model.a.dJz().dJA();
+            com.baidu.tieba.video.editvideo.model.a.dMH().dMI();
         }
         a((Object) null, musicData);
     }
 
-    public String dLl() {
-        return this.mXS;
+    public String dOt() {
+        return this.nks;
     }
 
     public void onPause() {
-        this.mXW = true;
+        this.nkw = true;
         if (this.mMediaPlayer != null && this.mMediaPlayer.isPlaying()) {
             this.mMediaPlayer.pause();
         }
     }
 
     public void onResume() {
-        this.mXW = false;
+        this.nkw = false;
         if (this.mMediaPlayer != null) {
             this.mMediaPlayer.start();
             this.mMediaPlayer.seekTo(0);
         }
     }
 
-    public void Kn(int i) {
+    public void KF(int i) {
         if (this.mMediaPlayer != null && this.mMediaPlayer.getDuration() > 0) {
             if (i < 0) {
                 i = 0;
@@ -244,26 +244,26 @@ public class j implements i.a {
         }
     }
 
-    public void dLm() {
+    public void dOu() {
         if (this.mMediaPlayer != null && this.mMediaPlayer.isPlaying()) {
             this.mMediaPlayer.pause();
         }
     }
 
-    public void gu(String str, String str2) {
-        this.mXW = false;
-        this.mXS = str;
-        this.mXX = str2;
+    public void gz(String str, String str2) {
+        this.nkw = false;
+        this.nks = str;
+        this.nkx = str2;
         a(str, (MusicData) null);
     }
 
     public void a(EditVideoActivityConfig editVideoActivityConfig) {
-        if (!TextUtils.isEmpty(this.mXS) && !TextUtils.isEmpty(this.mXX)) {
-            editVideoActivityConfig.addMusicInfo(this.mXS, this.mXX, this.mPosition);
+        if (!TextUtils.isEmpty(this.nks) && !TextUtils.isEmpty(this.nkx)) {
+            editVideoActivityConfig.addMusicInfo(this.nks, this.nkx, this.mPosition);
         }
     }
 
     @Override // com.baidu.tieba.video.record.i.a
-    public void Km(int i) {
+    public void KE(int i) {
     }
 }

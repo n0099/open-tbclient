@@ -79,7 +79,7 @@ public class OneKeyLoginSdkCall {
         }
         if ((TextUtils.isEmpty(sapiConfiguration.chinaMobileAppID) || TextUtils.isEmpty(sapiConfiguration.chinaMobileAppKey)) ? false : true) {
             try {
-                jSONObject = com.cmic.sso.sdk.b.a.bo(sapiConfiguration.context, "rsa2048").gA(sapiConfiguration.context);
+                jSONObject = com.cmic.sso.sdk.b.a.bt(sapiConfiguration.context, "rsa2048").gU(sapiConfiguration.context);
             } catch (Throwable th) {
                 Log.e(f3480a, th);
                 jSONObject = null;
@@ -164,7 +164,7 @@ public class OneKeyLoginSdkCall {
             JSONObject jSONObject2 = new JSONObject();
             try {
                 jSONObject2.put(BaseJsonData.TAG_ERRNO, "-1");
-                jSONObject = com.cmic.sso.sdk.b.a.bo(sapiConfiguration.context, "rsa2048").gA(sapiConfiguration.context);
+                jSONObject = com.cmic.sso.sdk.b.a.bt(sapiConfiguration.context, "rsa2048").gU(sapiConfiguration.context);
             } catch (Throwable th) {
                 Log.e(f3480a, th);
                 jSONObject = null;

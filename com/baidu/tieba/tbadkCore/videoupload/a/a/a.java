@@ -15,10 +15,10 @@ import org.json.JSONObject;
 public abstract class a {
     private final long mFileLength;
     protected final String mFileName;
-    private final String mHE;
-    private final int mHF;
-    private final int mHG;
-    private e mHH;
+    private final String mUp;
+    private final int mUq;
+    private final int mUr;
+    private e mUs;
 
     public abstract void cancel();
 
@@ -28,20 +28,20 @@ public abstract class a {
 
     public a(String str, int i, int i2, long j, String str2) {
         this.mFileName = str;
-        this.mHG = i2;
+        this.mUr = i2;
         this.mFileLength = j;
-        this.mHE = str2;
-        this.mHF = i;
+        this.mUp = str2;
+        this.mUq = i;
     }
 
     public void a(e eVar) {
-        this.mHH = eVar;
+        this.mUs = eVar;
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public void Jo(int i) {
-        if (this.mHH != null) {
-            this.mHH.aJ(i / 100.0f);
+    public void JG(int i) {
+        if (this.mUs != null) {
+            this.mUs.aL(i / 100.0f);
         }
     }
 
@@ -58,10 +58,10 @@ public abstract class a {
         } else {
             aa aaVar = new aa(TbConfig.SERVER_ADDRESS + TbConfig.URL_UPLOAD_VIDEO);
             aaVar.addPostData("chunk_no", String.valueOf(i));
-            aaVar.addPostData("chunk_sum", String.valueOf(this.mHG));
+            aaVar.addPostData("chunk_sum", String.valueOf(this.mUr));
             aaVar.addPostData("chunk_size", String.valueOf(b.length));
             aaVar.addPostData("video_size", String.valueOf(this.mFileLength));
-            aaVar.addPostData("video_md5", this.mHE);
+            aaVar.addPostData("video_md5", this.mUp);
             aaVar.addPostData("video_len", String.valueOf(j));
             aaVar.addPostData("tbs", TbadkCoreApplication.getInst().getTbs());
             aaVar.addPostData("video_chunk", b);
@@ -74,16 +74,16 @@ public abstract class a {
                 return null;
             }
             d dVar2 = new d();
-            if (aaVar.bmu().bnb().isRequestSuccess()) {
-                dVar2.videoUrl = Sp(postMultiNetData);
+            if (aaVar.bon().boU().isRequestSuccess()) {
+                dVar2.videoUrl = SO(postMultiNetData);
                 return dVar2;
             }
-            if (aaVar.bmu().bnb().isNetSuccess()) {
-                dVar2.errorNo = aaVar.bmu().bnb().mServerErrorCode;
+            if (aaVar.bon().boU().isNetSuccess()) {
+                dVar2.errorNo = aaVar.bon().boU().mServerErrorCode;
             } else {
-                dVar2.errorNo = aaVar.bmu().bnb().mNetErrorCode;
+                dVar2.errorNo = aaVar.bon().boU().mNetErrorCode;
             }
-            dVar2.errorMessage = aaVar.bmu().bnb().mErrorString;
+            dVar2.errorMessage = aaVar.bon().boU().mErrorString;
             return dVar2;
         }
     }
@@ -93,15 +93,15 @@ public abstract class a {
         if (randomAccessFile == null || i < 0) {
             return null;
         }
-        if (i == this.mHG) {
-            i2 = (int) (this.mFileLength - ((i - 1) * this.mHF));
+        if (i == this.mUr) {
+            i2 = (int) (this.mFileLength - ((i - 1) * this.mUq));
         } else {
-            i2 = this.mHF;
+            i2 = this.mUq;
         }
         byte[] bArr = new byte[i2];
         try {
             synchronized (randomAccessFile) {
-                randomAccessFile.seek((i - 1) * this.mHF);
+                randomAccessFile.seek((i - 1) * this.mUq);
                 r3 = randomAccessFile.read(bArr, 0, i2) != -1;
             }
         } catch (IOException e) {
@@ -113,7 +113,7 @@ public abstract class a {
         return null;
     }
 
-    private String Sp(String str) {
+    private String SO(String str) {
         if (StringUtils.isNull(str)) {
             return null;
         }

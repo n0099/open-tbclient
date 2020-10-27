@@ -1,6 +1,6 @@
 package com.baidu.tieba.sdk.login.message;
 
-import com.baidu.live.c;
+import com.baidu.live.d;
 import com.baidu.live.tbadk.core.TbadkCoreApplication;
 import com.baidu.live.tbadk.core.data.AccountData;
 import com.baidu.live.tbadk.message.http.JsonHttpResponsedMessage;
@@ -20,23 +20,23 @@ public class GetLoginTbsResponsedMessage extends JsonHttpResponsedMessage {
         int statusCode = getStatusCode();
         int error = getError();
         if (statusCode == 200 && error == 0) {
-            a dxd = com.baidu.tieba.sdk.login.a.dxa().dxd();
-            a.C0811a c0811a = new a.C0811a();
-            if (dxd != null) {
-                c0811a.Rh(dxd.bduss);
-                c0811a.Rf(dxd.userName);
-                c0811a.Rg(dxd.nickName);
-                c0811a.Re(dxd.userId);
-                c0811a.Rj(dxd.portrait);
-                c0811a.HM(dxd.sex);
+            a dAl = com.baidu.tieba.sdk.login.a.dAi().dAl();
+            a.C0826a c0826a = new a.C0826a();
+            if (dAl != null) {
+                c0826a.RG(dAl.bduss);
+                c0826a.RE(dAl.userName);
+                c0826a.RF(dAl.nickName);
+                c0826a.RD(dAl.userId);
+                c0826a.RI(dAl.portrait);
+                c0826a.If(dAl.sex);
             }
-            c0811a.HN(1);
+            c0826a.Ig(1);
             if (jSONObject != null && (optJSONObject = jSONObject.optJSONObject(SubPbActivityConfig.KEY_ANTI)) != null) {
-                c0811a.Ri(optJSONObject.optString("tbs"));
+                c0826a.RH(optJSONObject.optString("tbs"));
             }
-            AccountData dxi = c0811a.dxi();
-            TbadkCoreApplication.setCurrentAccount(dxi, TbadkCoreApplication.getInst().getApp().getApplicationContext());
-            c.AZ().putString("ala_account_user_tbs", dxi.getTbs());
+            AccountData dAq = c0826a.dAq();
+            TbadkCoreApplication.setCurrentAccount(dAq, TbadkCoreApplication.getInst().getApp().getApplicationContext());
+            d.AZ().putString("ala_account_user_tbs", dAq.getTbs());
         }
     }
 }

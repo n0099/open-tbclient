@@ -4,22 +4,22 @@ import com.baidu.swan.c.d;
 import java.io.File;
 /* loaded from: classes10.dex */
 public final class b {
-    public static File apK() {
+    public static File arE() {
         return new File(com.baidu.swan.apps.u.a.a.getStorageList().get(0).mPath, "/aiapps_debug_extension_core/");
     }
 
-    public static void apL() {
-        File apK = apK();
-        if (apK.exists()) {
-            d.deleteFile(apK);
+    public static void arF() {
+        File arE = arE();
+        if (arE.exists()) {
+            d.deleteFile(arE);
         }
     }
 
-    public static File apM() {
-        File apK = apK();
-        if (!apK.exists()) {
-            apK.mkdirs();
+    public static File arG() {
+        File arE = arE();
+        if (!arE.exists()) {
+            arE.mkdirs();
         }
-        return new File(apK, "debugExtensionCore.zip");
+        return new File(arE, "debugExtensionCore.zip");
     }
 }

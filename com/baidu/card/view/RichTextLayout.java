@@ -18,20 +18,20 @@ import com.baidu.tbadk.core.util.ay;
 import com.baidu.tieba.R;
 /* loaded from: classes21.dex */
 public class RichTextLayout extends LinearLayout implements View.OnClickListener, p<AbsThreadDataSupport> {
-    private View.OnClickListener afI;
-    public TextView agl;
-    private boolean aij;
-    private final int akY;
-    private boolean ala;
+    private View.OnClickListener afJ;
+    public TextView agm;
+    private boolean aik;
+    private final int akZ;
+    private boolean alb;
     private Context mContext;
     private String mFrom;
     public TextView mTitle;
 
     public RichTextLayout(Context context) {
         super(context);
-        this.akY = l.getEquipmentWidth(TbadkCoreApplication.getInst()) - (l.getDimens(TbadkCoreApplication.getInst(), R.dimen.tbds44) * 2);
-        this.ala = false;
-        this.aij = false;
+        this.akZ = l.getEquipmentWidth(TbadkCoreApplication.getInst()) - (l.getDimens(TbadkCoreApplication.getInst(), R.dimen.tbds44) * 2);
+        this.alb = false;
+        this.aik = false;
         this.mContext = context;
         initUI();
     }
@@ -40,7 +40,7 @@ public class RichTextLayout extends LinearLayout implements View.OnClickListener
         LayoutInflater.from(getContext()).inflate(R.layout.richtext_normal_layout, (ViewGroup) this, true);
         setOrientation(1);
         setLayoutParams(new ViewGroup.LayoutParams(-1, -2));
-        this.agl = (TextView) findViewById(R.id.thread_card_abstract);
+        this.agm = (TextView) findViewById(R.id.thread_card_abstract);
         this.mTitle = (TextView) findViewById(R.id.thread_card_title);
     }
 
@@ -48,68 +48,68 @@ public class RichTextLayout extends LinearLayout implements View.OnClickListener
     @Override // com.baidu.card.p
     /* renamed from: b */
     public void H(AbsThreadDataSupport absThreadDataSupport) {
-        if (absThreadDataSupport != null && absThreadDataSupport.bfG() != null) {
-            bw bfG = absThreadDataSupport.bfG();
-            OriginalThreadInfo originalThreadInfo = bfG.erY;
-            if (originalThreadInfo != null && this.ala) {
+        if (absThreadDataSupport != null && absThreadDataSupport.bhz() != null) {
+            bw bhz = absThreadDataSupport.bhz();
+            OriginalThreadInfo originalThreadInfo = bhz.eAy;
+            if (originalThreadInfo != null && this.alb) {
                 this.mTitle.setVisibility(8);
-                this.agl.setTextSize(0, l.getDimens(this.mContext, R.dimen.tbds40));
-                this.agl.setLineSpacing(l.getDimens(this.mContext, R.dimen.tbds15), 1.0f);
-                if (originalThreadInfo.emx) {
-                    ay.a(this.agl, this.mTitle, new SpannableString(originalThreadInfo.title), bfG, this.akY, this.ala, this.aij);
-                    ap.setViewTextColor(this.agl, R.color.cp_cont_c);
+                this.agm.setTextSize(0, l.getDimens(this.mContext, R.dimen.tbds40));
+                this.agm.setLineSpacing(l.getDimens(this.mContext, R.dimen.tbds15), 1.0f);
+                if (originalThreadInfo.euX) {
+                    ay.a(this.agm, this.mTitle, new SpannableString(originalThreadInfo.title), bhz, this.akZ, this.alb, this.aik);
+                    ap.setViewTextColor(this.agm, R.color.cp_cont_c);
                 } else {
-                    ay.a(this.agl, this.mTitle, originalThreadInfo.enz, bfG, this.akY, this.ala, this.aij);
+                    ay.a(this.agm, this.mTitle, originalThreadInfo.evX, bhz, this.akZ, this.alb, this.aik);
                 }
             } else {
-                ay.a(this.mTitle, bfG, this.aij);
-                this.agl.setTextSize(0, l.getDimens(this.mContext, R.dimen.tbds42));
-                this.agl.setLineSpacing(l.getDimens(this.mContext, R.dimen.tbds7), 1.0f);
-                ay.a(this.agl, this.mTitle, bfG.bhI(), bfG, this.akY, this.ala, this.aij);
+                ay.a(this.mTitle, bhz, this.aik);
+                this.agm.setTextSize(0, l.getDimens(this.mContext, R.dimen.tbds42));
+                this.agm.setLineSpacing(l.getDimens(this.mContext, R.dimen.tbds7), 1.0f);
+                ay.a(this.agm, this.mTitle, bhz.bjB(), bhz, this.akZ, this.alb, this.aik);
             }
-            if (!this.ala) {
-                this.agl.setClickable(false);
+            if (!this.alb) {
+                this.agm.setClickable(false);
                 this.mTitle.setClickable(false);
-            } else if (originalThreadInfo != null && originalThreadInfo.emx) {
+            } else if (originalThreadInfo != null && originalThreadInfo.euX) {
                 setOnClickListener(null);
                 setClickable(true);
             } else {
                 setOnClickListener(this);
-                this.agl.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.card.view.RichTextLayout.1
+                this.agm.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.card.view.RichTextLayout.1
                     @Override // android.view.View.OnClickListener
                     public void onClick(View view) {
-                        if (RichTextLayout.this.afI != null) {
-                            RichTextLayout.this.afI.onClick(view);
+                        if (RichTextLayout.this.afJ != null) {
+                            RichTextLayout.this.afJ.onClick(view);
                         }
                     }
                 });
                 this.mTitle.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.card.view.RichTextLayout.2
                     @Override // android.view.View.OnClickListener
                     public void onClick(View view) {
-                        if (RichTextLayout.this.afI != null) {
-                            RichTextLayout.this.afI.onClick(view);
+                        if (RichTextLayout.this.afJ != null) {
+                            RichTextLayout.this.afJ.onClick(view);
                         }
                     }
                 });
-                this.agl.setClickable(true);
+                this.agm.setClickable(true);
                 this.mTitle.setClickable(true);
             }
         }
     }
 
     public void setTransmit(boolean z) {
-        this.ala = z;
+        this.alb = z;
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        if (this.afI != null) {
-            this.afI.onClick(view);
+        if (this.afJ != null) {
+            this.afJ.onClick(view);
         }
     }
 
     public void setJumpToPbListener(View.OnClickListener onClickListener) {
-        this.afI = onClickListener;
+        this.afJ = onClickListener;
     }
 
     public void setFrom(String str) {
@@ -117,6 +117,6 @@ public class RichTextLayout extends LinearLayout implements View.OnClickListener
     }
 
     public void setNeedFrsTabName(boolean z) {
-        this.aij = z;
+        this.aik = z;
     }
 }

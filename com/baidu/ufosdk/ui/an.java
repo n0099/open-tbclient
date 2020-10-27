@@ -5,15 +5,15 @@ import android.view.View;
 final class an implements View.OnClickListener {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ FeedbackFacePageActivity f3754a;
+    final /* synthetic */ FeedbackFacePageActivity f3752a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public an(FeedbackFacePageActivity feedbackFacePageActivity) {
-        this.f3754a = feedbackFacePageActivity;
+        this.f3752a = feedbackFacePageActivity;
     }
 
     @Override // android.view.View.OnClickListener
     public final void onClick(View view) {
-        this.f3754a.a();
+        this.f3752a.a();
     }
 }

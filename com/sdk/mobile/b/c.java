@@ -4,20 +4,20 @@ package com.sdk.mobile.b;
 public final class c implements com.sdk.base.framework.b.a<T> {
 
     /* renamed from: a  reason: collision with root package name */
-    private /* synthetic */ a f4521a;
+    private /* synthetic */ a f4519a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public c(a aVar) {
-        this.f4521a = aVar;
+        this.f4519a = aVar;
     }
 
     @Override // com.sdk.base.framework.b.a
     public final void a(int i, int i2, String str) {
-        this.f4521a.a(i, i2, str);
+        this.f4519a.a(i, i2, str);
     }
 
     @Override // com.sdk.base.framework.b.a
     public final void a(int i, String str, int i2, T t, String str2) {
-        this.f4521a.a(i, str, i2, t, str2);
+        this.f4519a.a(i, str, i2, t, str2);
     }
 }

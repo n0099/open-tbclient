@@ -3,18 +3,18 @@ package com.baidu.tieba.enterForum.recommend.a;
 import android.view.View;
 import android.view.ViewGroup;
 import com.baidu.tbadk.TbPageContext;
-import com.baidu.tieba.card.aa;
+import com.baidu.tieba.card.ab;
 /* loaded from: classes22.dex */
 public class b extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.enterForum.recommend.b.c, com.baidu.tieba.card.a.a<com.baidu.tieba.enterForum.recommend.view.b>> {
-    private aa<com.baidu.tieba.enterForum.recommend.b.c> hUs;
+    private ab<com.baidu.tieba.enterForum.recommend.b.c> igS;
     private TbPageContext<?> mPageContext;
 
     /* JADX INFO: Access modifiers changed from: protected */
     public b(TbPageContext tbPageContext) {
-        super(tbPageContext.getPageActivity(), com.baidu.tieba.enterForum.recommend.b.c.hUG);
-        this.hUs = new aa<com.baidu.tieba.enterForum.recommend.b.c>() { // from class: com.baidu.tieba.enterForum.recommend.a.b.1
+        super(tbPageContext.getPageActivity(), com.baidu.tieba.enterForum.recommend.b.c.ihg);
+        this.igS = new ab<com.baidu.tieba.enterForum.recommend.b.c>() { // from class: com.baidu.tieba.enterForum.recommend.a.b.1
             /* JADX DEBUG: Method merged with bridge method */
-            @Override // com.baidu.tieba.card.aa
+            @Override // com.baidu.tieba.card.ab
             public void a(View view, com.baidu.tieba.enterForum.recommend.b.c cVar) {
                 if (cVar == null) {
                 }
@@ -37,11 +37,11 @@ public class b extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.enterForu
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.widget.ListView.a
     public View a(int i, View view, ViewGroup viewGroup, com.baidu.tieba.enterForum.recommend.b.c cVar, com.baidu.tieba.card.a.a<com.baidu.tieba.enterForum.recommend.view.b> aVar) {
-        if (cVar == null || aVar == null || aVar.cjq() == null) {
+        if (cVar == null || aVar == null || aVar.cmx() == null) {
             return null;
         }
-        aVar.cjq().a(cVar);
-        aVar.cjq().c(this.hUs);
+        aVar.cmx().a(cVar);
+        aVar.cmx().c(this.igS);
         return aVar.getView();
     }
 }

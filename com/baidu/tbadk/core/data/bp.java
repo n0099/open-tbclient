@@ -1,7 +1,7 @@
 package com.baidu.tbadk.core.data;
 /* loaded from: classes.dex */
 public class bp {
-    public String eoB;
-    public String eoC;
+    public String ewY;
+    public String ewZ;
     public String title;
 }

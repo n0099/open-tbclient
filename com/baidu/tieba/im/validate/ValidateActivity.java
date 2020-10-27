@@ -35,22 +35,22 @@ import java.util.List;
 /* loaded from: classes26.dex */
 public class ValidateActivity extends BaseActivity<ValidateActivity> implements BdListView.e {
     private boolean isLoading;
-    private m<LinkedList<GroupNewsPojo>> jRL;
-    private c jXg;
-    private m<Boolean> jXh;
-    private com.baidu.tbadk.core.dialog.b jXi;
-    private ValidateItemData jXj;
-    private m<Integer> jXm;
+    private m<LinkedList<GroupNewsPojo>> kek;
+    private c kjG;
+    private m<Boolean> kjH;
+    private com.baidu.tbadk.core.dialog.b kjI;
+    private ValidateItemData kjJ;
+    private m<Integer> kjM;
     private int offset;
     private int totalCount;
-    private boolean jXk = false;
-    private int jXl = 20;
-    private com.baidu.adp.framework.listener.c jCu = new com.baidu.adp.framework.listener.c(0) { // from class: com.baidu.tieba.im.validate.ValidateActivity.5
+    private boolean kjK = false;
+    private int kjL = 20;
+    private com.baidu.adp.framework.listener.c jOT = new com.baidu.adp.framework.listener.c(0) { // from class: com.baidu.tieba.im.validate.ValidateActivity.5
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(SocketResponsedMessage socketResponsedMessage) {
-            ValidateActivity.this.jXg.rD(false);
-            ValidateActivity.this.jXk = false;
+            ValidateActivity.this.kjG.rV(false);
+            ValidateActivity.this.kjK = false;
             if (socketResponsedMessage != null && (socketResponsedMessage instanceof ResponsedMessage)) {
                 int cmd = socketResponsedMessage.getCmd();
                 if (cmd == 103111) {
@@ -64,49 +64,49 @@ public class ValidateActivity extends BaseActivity<ValidateActivity> implements 
                             } else {
                                 ValidateActivity.this.showToast(errorString);
                             }
-                            ValidateItemData Mz = ValidateActivity.this.Mz(requestAddGroupUserMessage.getNotice_id());
-                            if (Mz != null) {
-                                Mz.setPass(false);
-                                Mz.setShown(true);
-                                ValidateModel.updateValidateData(ValidateActivity.this.jXh, Mz);
-                                ValidateActivity.this.jXg.cPP().notifyDataSetChanged();
+                            ValidateItemData MX = ValidateActivity.this.MX(requestAddGroupUserMessage.getNotice_id());
+                            if (MX != null) {
+                                MX.setPass(false);
+                                MX.setShown(true);
+                                ValidateModel.updateValidateData(ValidateActivity.this.kjH, MX);
+                                ValidateActivity.this.kjG.cSW().notifyDataSetChanged();
                                 return;
                             }
                             return;
                         }
                         return;
                     }
-                    ValidateItemData Mz2 = ValidateActivity.this.Mz(requestAddGroupUserMessage.getNotice_id());
-                    if (Mz2 != null) {
-                        Mz2.setPass(true);
-                        Mz2.setShown(true);
-                        ValidateModel.updateValidateData(ValidateActivity.this.jXh, Mz2);
+                    ValidateItemData MX2 = ValidateActivity.this.MX(requestAddGroupUserMessage.getNotice_id());
+                    if (MX2 != null) {
+                        MX2.setPass(true);
+                        MX2.setShown(true);
+                        ValidateModel.updateValidateData(ValidateActivity.this.kjH, MX2);
                         if (TextUtils.isEmpty(socketResponsedMessage.getErrorString())) {
                             ValidateActivity.this.showToast(R.string.validate_succ);
                         } else {
                             ValidateActivity.this.showToast(socketResponsedMessage.getErrorString());
                         }
-                        ValidateActivity.this.jXg.cPP().notifyDataSetChanged();
+                        ValidateActivity.this.kjG.cSW().notifyDataSetChanged();
                     }
                 } else if (202004 == cmd) {
                     ResponseDelSystemMessage responseDelSystemMessage = (ResponseDelSystemMessage) socketResponsedMessage;
                     RequestDelSystemMessage requestDelSystemMessage = (RequestDelSystemMessage) responseDelSystemMessage.getOrginalMessage();
                     if (responseDelSystemMessage.getError() == 0) {
-                        ValidateModel.deleteValidateData(ValidateActivity.this.jXj, ValidateActivity.this.jXh);
+                        ValidateModel.deleteValidateData(ValidateActivity.this.kjJ, ValidateActivity.this.kjH);
                         ValidateActivity.this.offset--;
                         ValidateActivity.this.totalCount--;
-                        a cPP = ValidateActivity.this.jXg.cPP();
-                        cPP.getDatas().remove(ValidateActivity.this.jXj);
+                        a cSW = ValidateActivity.this.kjG.cSW();
+                        cSW.getDatas().remove(ValidateActivity.this.kjJ);
                         ImMessageCenterPojo imMessageCenterPojo = null;
-                        if (cPP.getDatas().size() > 0) {
+                        if (cSW.getDatas().size() > 0) {
                             ImMessageCenterPojo imMessageCenterPojo2 = new ImMessageCenterPojo();
-                            imMessageCenterPojo2.setLast_content(cPP.getDatas().get(0).getUserName() + TbadkApplication.getInst().getApp().getApplicationContext().getString(R.string.validate_im_apply_prefix1) + cPP.getDatas().get(0).getGroupName());
-                            imMessageCenterPojo2.setLast_content_time(cPP.getDatas().get(0).getApplyTime());
+                            imMessageCenterPojo2.setLast_content(cSW.getDatas().get(0).getUserName() + TbadkApplication.getInst().getApp().getApplicationContext().getString(R.string.validate_im_apply_prefix1) + cSW.getDatas().get(0).getGroupName());
+                            imMessageCenterPojo2.setLast_content_time(cSW.getDatas().get(0).getApplyTime());
                             imMessageCenterPojo = imMessageCenterPojo2;
                         }
                         MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(CmdConfigCustom.CMD_DELETED_VALIDATE, imMessageCenterPojo));
-                        cPP.notifyDataSetChanged();
-                        if (cPP != null && cPP.getDatas() != null && cPP.getDatas().size() == 0) {
+                        cSW.notifyDataSetChanged();
+                        if (cSW != null && cSW.getDatas() != null && cSW.getDatas().size() == 0) {
                             ValidateActivity.this.finish();
                         }
                     }
@@ -122,8 +122,8 @@ public class ValidateActivity extends BaseActivity<ValidateActivity> implements 
                 GroupNewsPojo p = ((PushMessage) customResponsedMessage).getP();
                 ValidateActivity.this.offset++;
                 ValidateActivity.this.totalCount++;
-                ValidateActivity.this.jXg.cPP().getDatas().add(0, ValidateModel.convertToValidateItemData(p));
-                ValidateActivity.this.jXg.cPP().notifyDataSetChanged();
+                ValidateActivity.this.kjG.cSW().getDatas().add(0, ValidateModel.convertToValidateItemData(p));
+                ValidateActivity.this.kjG.cSW().notifyDataSetChanged();
             }
         }
     };
@@ -132,8 +132,8 @@ public class ValidateActivity extends BaseActivity<ValidateActivity> implements 
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
-        this.jXg = new c(this);
-        cNR();
+        this.kjG = new c(this);
+        cQY();
     }
 
     @Override // android.app.Activity
@@ -146,7 +146,7 @@ public class ValidateActivity extends BaseActivity<ValidateActivity> implements 
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onResume() {
         super.onResume();
-        com.baidu.tbadk.coreExtra.messageCenter.b.brz().qm(1);
+        com.baidu.tbadk.coreExtra.messageCenter.b.bts().qx(1);
         MessageManager.getInstance().dispatchResponsedMessage(new MemoryClearUnreadCountMessage(new MemoryClearUnreadCountMessage.a(TbEnum.CustomGroupId.GROUP_VALIDATION, -4)));
     }
 
@@ -160,11 +160,11 @@ public class ValidateActivity extends BaseActivity<ValidateActivity> implements 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onStop() {
-        a cPP;
+        a cSW;
         super.onStop();
         ChatStatusManager.getInst().setIsOpen(7, false);
-        if (this.jXg != null && (cPP = this.jXg.cPP()) != null) {
-            ValidateModel.markShown(cPP.getDatas());
+        if (this.kjG != null && (cSW = this.kjG.cSW()) != null) {
+            ValidateModel.markShown(cSW.getDatas());
         }
     }
 
@@ -174,32 +174,32 @@ public class ValidateActivity extends BaseActivity<ValidateActivity> implements 
         super.onPause();
     }
 
-    private void cNR() {
-        this.jXh = new m<Boolean>() { // from class: com.baidu.tieba.im.validate.ValidateActivity.1
+    private void cQY() {
+        this.kjH = new m<Boolean>() { // from class: com.baidu.tieba.im.validate.ValidateActivity.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.tbadk.util.m
             public void onReturnDataInUI(Boolean bool) {
-                if (!ValidateActivity.this.jXk) {
-                    ValidateActivity.this.jXg.rD(false);
+                if (!ValidateActivity.this.kjK) {
+                    ValidateActivity.this.kjG.rV(false);
                 }
             }
         };
-        this.jRL = new m<LinkedList<GroupNewsPojo>>() { // from class: com.baidu.tieba.im.validate.ValidateActivity.2
+        this.kek = new m<LinkedList<GroupNewsPojo>>() { // from class: com.baidu.tieba.im.validate.ValidateActivity.2
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.tbadk.util.m
             /* renamed from: o */
             public void onReturnDataInUI(LinkedList<GroupNewsPojo> linkedList) {
-                ValidateActivity.this.jXg.setData(ValidateModel.convertToValidateItemDataList(linkedList));
+                ValidateActivity.this.kjG.setData(ValidateModel.convertToValidateItemDataList(linkedList));
                 if (linkedList != null) {
                     ValidateActivity.this.offset += linkedList.size();
                 }
-                if (!ValidateActivity.this.jXk) {
-                    ValidateActivity.this.jXg.rD(false);
+                if (!ValidateActivity.this.kjK) {
+                    ValidateActivity.this.kjG.rV(false);
                 }
                 ValidateActivity.this.isLoading = false;
             }
         };
-        this.jXm = new m<Integer>() { // from class: com.baidu.tieba.im.validate.ValidateActivity.3
+        this.kjM = new m<Integer>() { // from class: com.baidu.tieba.im.validate.ValidateActivity.3
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.tbadk.util.m
             /* renamed from: p */
@@ -207,30 +207,30 @@ public class ValidateActivity extends BaseActivity<ValidateActivity> implements 
                 ValidateActivity.this.totalCount = num.intValue();
                 if (ValidateActivity.this.totalCount > 0) {
                     ValidateActivity.this.isLoading = true;
-                    ValidateModel.requestValidateDataFromDB(ValidateActivity.this.jXl, ValidateActivity.this.offset, ValidateActivity.this.jRL);
+                    ValidateModel.requestValidateDataFromDB(ValidateActivity.this.kjL, ValidateActivity.this.offset, ValidateActivity.this.kek);
                 }
             }
         };
-        registerListener(CmdConfigSocket.CMD_ADD_GROUP_USER, this.jCu);
-        registerListener(CmdConfigSocket.CMD_DELETE_GROUP_MSG, this.jCu);
+        registerListener(CmdConfigSocket.CMD_ADD_GROUP_USER, this.jOT);
+        registerListener(CmdConfigSocket.CMD_DELETE_GROUP_MSG, this.jOT);
         registerListener(this.mCustomListener);
-        this.jXg.rD(true);
-        ValidateModel.requestValidateDataCountFromDB(this.jXm);
+        this.kjG.rV(true);
+        ValidateModel.requestValidateDataCountFromDB(this.kjM);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onDestroy() {
         super.onDestroy();
-        if (this.jXg != null) {
-            this.jXg.destroy();
+        if (this.kjG != null) {
+            this.kjG.destroy();
         }
-        this.jXj = null;
+        this.kjJ = null;
     }
 
     @Override // com.baidu.adp.base.BdBaseActivity, android.view.View.OnClickListener
     public void onClick(View view) {
-        if (view != null && this.jXg != null && view.equals(this.jXg.cPO())) {
+        if (view != null && this.kjG != null && view.equals(this.kjG.cSV())) {
             finish();
         }
     }
@@ -239,8 +239,8 @@ public class ValidateActivity extends BaseActivity<ValidateActivity> implements 
     @Override // com.baidu.tbadk.BaseActivity
     public void onChangeSkinType(int i) {
         super.onChangeSkinType(i);
-        if (this.jXg != null) {
-            this.jXg.onChangeSkinType(i);
+        if (this.kjG != null) {
+            this.kjG.onChangeSkinType(i);
         }
     }
 
@@ -256,34 +256,34 @@ public class ValidateActivity extends BaseActivity<ValidateActivity> implements 
 
     public void b(View view, int i, int i2, long j, ValidateItemData validateItemData) {
         if (view != null && validateItemData != null && 200 == i) {
-            this.jXj = validateItemData;
-            if (this.jXi == null) {
-                cNS();
+            this.kjJ = validateItemData;
+            if (this.kjI == null) {
+                cQZ();
             }
-            this.jXi.bkL();
+            this.kjI.bmE();
         }
     }
 
-    private void cNS() {
+    private void cQZ() {
         String string = getPageContext().getString(R.string.delete_user_chat);
-        b.InterfaceC0550b interfaceC0550b = new b.InterfaceC0550b() { // from class: com.baidu.tieba.im.validate.ValidateActivity.4
-            @Override // com.baidu.tbadk.core.dialog.b.InterfaceC0550b
+        b.InterfaceC0564b interfaceC0564b = new b.InterfaceC0564b() { // from class: com.baidu.tieba.im.validate.ValidateActivity.4
+            @Override // com.baidu.tbadk.core.dialog.b.InterfaceC0564b
             public void a(com.baidu.tbadk.core.dialog.b bVar, int i, View view) {
                 bVar.dismiss();
                 switch (i) {
                     case 0:
-                        ValidateActivity.this.jXg.rD(true);
-                        ValidateActivity.this.d(ValidateActivity.this.jXj);
+                        ValidateActivity.this.kjG.rV(true);
+                        ValidateActivity.this.d(ValidateActivity.this.kjJ);
                         return;
                     default:
                         return;
                 }
             }
         };
-        this.jXi = new com.baidu.tbadk.core.dialog.b(getPageContext().getPageActivity());
-        this.jXi.og(R.string.operation);
-        this.jXi.a(new String[]{string}, interfaceC0550b);
-        this.jXi.d(getPageContext());
+        this.kjI = new com.baidu.tbadk.core.dialog.b(getPageContext().getPageActivity());
+        this.kjI.or(R.string.operation);
+        this.kjI.a(new String[]{string}, interfaceC0564b);
+        this.kjI.d(getPageContext());
     }
 
     private void b(ValidateItemData validateItemData) {
@@ -295,10 +295,10 @@ public class ValidateActivity extends BaseActivity<ValidateActivity> implements 
     private void c(ValidateItemData validateItemData) {
         if (!j.isNetWorkAvailable()) {
             showToast(R.string.neterror);
-        } else if (validateItemData != null && !validateItemData.isPass() && !this.jXk) {
+        } else if (validateItemData != null && !validateItemData.isPass() && !this.kjK) {
             try {
                 validateItemData.setShown(true);
-                this.jXg.rD(true);
+                this.kjG.rV(true);
                 RequestAddGroupUserMessage requestAddGroupUserMessage = new RequestAddGroupUserMessage();
                 requestAddGroupUserMessage.setInviterUserId(validateItemData.getInviterUserId());
                 requestAddGroupUserMessage.setJoinType(validateItemData.getJoinType());
@@ -306,12 +306,12 @@ public class ValidateActivity extends BaseActivity<ValidateActivity> implements 
                 requestAddGroupUserMessage.setGroupId(com.baidu.adp.lib.f.b.toLong(validateItemData.getGroupId(), 0L));
                 requestAddGroupUserMessage.setNotice_id(validateItemData.getNotice_id());
                 String notice_id = validateItemData.getNotice_id();
-                String cPh = com.baidu.tieba.im.pushNotify.b.cPf().cPh();
-                if (!TextUtils.isEmpty(notice_id) && !TextUtils.isEmpty(cPh) && TextUtils.isDigitsOnly(notice_id) && TextUtils.isDigitsOnly(cPh)) {
-                    requestAddGroupUserMessage.setSysGroupId(com.baidu.adp.lib.f.b.toInt(cPh, 0));
+                String cSo = com.baidu.tieba.im.pushNotify.b.cSm().cSo();
+                if (!TextUtils.isEmpty(notice_id) && !TextUtils.isEmpty(cSo) && TextUtils.isDigitsOnly(notice_id) && TextUtils.isDigitsOnly(cSo)) {
+                    requestAddGroupUserMessage.setSysGroupId(com.baidu.adp.lib.f.b.toInt(cSo, 0));
                     requestAddGroupUserMessage.setSysMsgId(String.valueOf(com.baidu.adp.lib.f.b.toLong(notice_id, 0L) / 100));
                     requestAddGroupUserMessage.setDecision(1);
-                    this.jXk = true;
+                    this.kjK = true;
                     MessageManager.getInstance().sendMessage(requestAddGroupUserMessage);
                 }
             } catch (Exception e) {
@@ -325,24 +325,24 @@ public class ValidateActivity extends BaseActivity<ValidateActivity> implements 
         if (!j.isNetWorkAvailable()) {
             showToast(R.string.neterror);
         } else if (validateItemData != null) {
-            long j = com.baidu.adp.lib.f.b.toLong(com.baidu.tieba.im.pushNotify.b.cPf().cPh(), 0L);
+            long j = com.baidu.adp.lib.f.b.toLong(com.baidu.tieba.im.pushNotify.b.cSm().cSo(), 0L);
             if (j != 0) {
-                this.jXg.rD(true);
+                this.kjG.rV(true);
                 RequestDelSystemMessage requestDelSystemMessage = new RequestDelSystemMessage();
                 requestDelSystemMessage.setGroupId(j);
                 requestDelSystemMessage.setMsgIds("" + (Long.parseLong(validateItemData.getNotice_id()) / 100));
-                this.jXk = true;
+                this.kjK = true;
                 MessageManager.getInstance().sendMessage(requestDelSystemMessage);
             }
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public ValidateItemData Mz(String str) {
+    public ValidateItemData MX(String str) {
         if (str == null) {
             return null;
         }
-        List<ValidateItemData> datas = this.jXg.cPP().getDatas();
+        List<ValidateItemData> datas = this.kjG.cSW().getDatas();
         if (datas != null) {
             for (ValidateItemData validateItemData : datas) {
                 if (str.equals(validateItemData.getNotice_id())) {
@@ -357,7 +357,7 @@ public class ValidateActivity extends BaseActivity<ValidateActivity> implements 
     public void onScrollToBottom() {
         if (!this.isLoading && this.offset < this.totalCount) {
             this.isLoading = true;
-            ValidateModel.requestValidateDataFromDB(this.jXl, this.offset, this.jRL);
+            ValidateModel.requestValidateDataFromDB(this.kjL, this.offset, this.kek);
         }
     }
 }

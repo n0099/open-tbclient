@@ -22,7 +22,7 @@ import com.baidu.tieba.imMessageCenter.mention.MessageCenterFragment;
 import com.vivo.push.PushClientConstants;
 /* loaded from: classes22.dex */
 public class ImMessageCenterDelegateStatic extends b {
-    private CustomMessageListener jYU;
+    private CustomMessageListener klu;
     private MessageRedDotView tipView;
 
     @Override // com.baidu.tbadk.mainTab.b
@@ -46,7 +46,7 @@ public class ImMessageCenterDelegateStatic extends b {
         this.mIndicator = (MaintabBottomIndicator) LayoutInflater.from(context).inflate(R.layout.maintab_bottom_indicator, (ViewGroup) null);
         this.tipView = new MessageRedDotView(context);
         TbFragmentTabIndicator.a aVar = new TbFragmentTabIndicator.a();
-        aVar.feT = this.mIndicator;
+        aVar.fns = this.mIndicator;
         aVar.view = this.tipView;
         aVar.isRight = true;
         this.mIndicator.b("msg", aVar);
@@ -73,7 +73,7 @@ public class ImMessageCenterDelegateStatic extends b {
 
     @Override // com.baidu.tbadk.mainTab.b
     public void onAdd() {
-        this.jYU = new CustomMessageListener(CmdConfigCustom.CMD_HOME_NOTIFY_MSG) { // from class: com.baidu.tieba.imMessageCenter.im.chat.notify.ImMessageCenterDelegateStatic.2
+        this.klu = new CustomMessageListener(CmdConfigCustom.CMD_HOME_NOTIFY_MSG) { // from class: com.baidu.tieba.imMessageCenter.im.chat.notify.ImMessageCenterDelegateStatic.2
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.adp.framework.listener.MessageListener
             public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
@@ -98,7 +98,7 @@ public class ImMessageCenterDelegateStatic extends b {
                 }
             }
         };
-        MessageManager.getInstance().registerListener(this.jYU);
+        MessageManager.getInstance().registerListener(this.klu);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -134,6 +134,6 @@ public class ImMessageCenterDelegateStatic extends b {
     @Override // com.baidu.tbadk.mainTab.b
     public void onRemove() {
         super.onRemove();
-        MessageManager.getInstance().unRegisterListener(this.jYU);
+        MessageManager.getInstance().unRegisterListener(this.klu);
     }
 }

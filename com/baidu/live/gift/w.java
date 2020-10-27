@@ -1,194 +1,88 @@
 package com.baidu.live.gift;
 
-import com.baidu.live.adp.base.BdPageContext;
+import android.text.TextUtils;
+import com.baidu.live.adp.framework.MessageManager;
+import com.baidu.live.adp.framework.message.CustomResponsedMessage;
+import com.baidu.live.sdk.a;
+import com.baidu.live.tbadk.core.TbadkCoreApplication;
+import com.baidu.live.tbadk.pagestayduration.PageStayDurationHelper;
+import com.baidu.media.duplayer.LibsInfoDef;
+import org.json.JSONException;
+import org.json.JSONObject;
 /* loaded from: classes4.dex */
-public abstract class w {
-    private static w aUc;
+public class w {
+    public static boolean aVd = false;
 
-    protected abstract com.baidu.live.data.u Gm();
-
-    protected abstract String Gn();
-
-    protected abstract void Go();
-
-    protected abstract String Gp();
-
-    protected abstract void Gq();
-
-    protected abstract void a(BdPageContext bdPageContext, boolean z);
-
-    protected abstract void a(g gVar, long j, String str, String str2, String str3, String str4, String str5, String str6, String str7, long j2);
-
-    protected abstract void a(String str, long j, String str2, String str3, String str4, String str5, String str6, String str7, String str8, boolean z, String str9, String str10, String str11, String str12, String str13, long j2, boolean z2, boolean z3);
-
-    protected abstract void a(String str, long j, String str2, String str3, String str4, String str5, String str6, String str7, String str8, boolean z, String str9, String str10, String str11, String str12, String str13, boolean z2, long j2);
-
-    protected abstract void a(String str, long j, String str2, String str3, String str4, String str5, String str6, String str7, String str8, boolean z, String str9, String str10, String str11, boolean z2, boolean z3, boolean z4, long j2);
-
-    protected abstract void a(String str, String str2, String str3, String str4, int i, int i2, String str5);
-
-    protected abstract void a(String str, String str2, String str3, String str4, String str5, String str6, boolean z, String str7, String str8, String str9, String str10, String str11, long j);
-
-    protected abstract void b(String str, long j, String str2, String str3, String str4, String str5, String str6, String str7, String str8, boolean z, String str9, String str10, String str11, boolean z2, boolean z3, boolean z4, long j2);
-
-    protected abstract void d(com.baidu.live.data.u uVar);
-
-    protected abstract g gE(String str);
-
-    protected abstract void gF(String str);
-
-    protected abstract String gG(String str);
-
-    protected abstract boolean gH(String str);
-
-    protected abstract boolean gI(String str);
-
-    protected abstract boolean gJ(String str);
-
-    protected abstract void gK(String str);
-
-    protected abstract void onDestroy();
-
-    public static final void b(String str, long j, String str2, String str3, String str4, String str5, String str6, String str7, String str8, boolean z, String str9, String str10, String str11, String str12, String str13, boolean z2, long j2) {
-        if (aUc != null) {
-            aUc.a(str, j, str2, str3, str4, str5, str6, str7, str8, z, str9, str10, str11, str12, str13, z2, j2);
+    public static void f(com.baidu.live.gift.a.c cVar) {
+        com.baidu.live.im.h hVar = new com.baidu.live.im.h();
+        hVar.count = cVar.aZP;
+        hVar.giftId = cVar.giftId;
+        if (cVar.aZJ.Fz()) {
+            hVar.giftName = TbadkCoreApplication.getInst().getString(a.i.text_gift_graffiti);
+        } else {
+            hVar.giftName = cVar.aZJ.Ft();
         }
-    }
-
-    public static final void a(String str, long j, String str2, String str3, String str4, String str5, String str6, String str7, String str8, boolean z, String str9, String str10, String str11, String str12, String str13, long j2, boolean z2, String str14) {
-        if (aUc != null) {
-            if (str14.equals("1")) {
-                aUc.a(str, j, str2, str3, str4, str5, str6, str7, str8, z, str9, str10, str11, str12, str13, j2, z2, true);
+        hVar.biC = cVar.aZJ.FC();
+        hVar.aUi = cVar.aUi;
+        hVar.biD = cVar.aZP;
+        hVar.biF.add(Long.valueOf(hVar.aUi));
+        if (aVd && !cVar.aZN) {
+            String Gy = Gy();
+            if (Gy != null) {
+                try {
+                    JSONObject jSONObject = new JSONObject(Gy);
+                    hVar.biG = jSONObject.optString("pk_honer_buff_multiple");
+                    hVar.text = jSONObject.optString("pk_honer_buff_text");
+                    hVar.fontColor = jSONObject.optString("pk_honer_buff_text_font_color");
+                    hVar.startColor = jSONObject.optString("pk_honer_buff_text_color_start");
+                    hVar.endColor = jSONObject.optString("pk_honer_buff_text_color_end");
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                }
             } else {
-                aUc.a(str, j, str2, str3, str4, str5, str6, str7, str8, z, str9, str10, str11, str12, str13, j2, z2, false);
+                hVar.biG = LibsInfoDef.CYBER_VIDEO_SR_MODEL_VERSION;
+                hVar.text = "荣耀值";
+                hVar.fontColor = "#FFFFFF";
+                hVar.startColor = "#F53DC7";
+                hVar.endColor = "#AF40FF";
             }
         }
+        MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2913185, hVar));
     }
 
-    public static final void b(String str, String str2, String str3, String str4, String str5, String str6, boolean z, String str7, String str8, String str9, String str10, String str11, long j) {
-        if (aUc != null) {
-            aUc.a(str, str2, str3, str4, str5, str6, z, str7, str8, str9, str10, str11, j);
+    public static void g(com.baidu.live.gift.a.c cVar) {
+        com.baidu.live.im.i iVar = new com.baidu.live.im.i();
+        iVar.aZK = cVar.aZK;
+        iVar.biH = cVar.msgId;
+        iVar.biI = cVar.aZP;
+        iVar.biJ = cVar.aUi;
+        MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2913184, iVar));
+    }
+
+    public static void a(com.baidu.live.gift.a.c cVar, com.baidu.live.gift.a.c cVar2) {
+        if (cVar != null && cVar2 != null && TextUtils.equals(cVar.Ib(), cVar2.Ib())) {
+            com.baidu.live.im.i iVar = new com.baidu.live.im.i();
+            iVar.aZK = cVar.aZK;
+            iVar.biH = cVar.msgId;
+            iVar.biI = cVar.aZP;
+            iVar.biJ = cVar.aUi;
+            iVar.biK = cVar2.msgId;
+            iVar.biL = cVar2.aZP;
+            iVar.biM = cVar2.aUi;
+            MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2913183, iVar));
         }
     }
 
-    public static void c(String str, long j, String str2, String str3, String str4, String str5, String str6, String str7, String str8, boolean z, String str9, String str10, String str11, boolean z2, boolean z3, boolean z4, long j2) {
-        if (aUc != null) {
-            aUc.a(str, j, str2, str3, str4, str5, str6, str7, str8, z, str9, str10, str11, z2, z3, z4, j2);
-        }
+    public static void a(long j, String str, String str2, String str3, long j2, long j3) {
+        com.baidu.live.im.i iVar = new com.baidu.live.im.i();
+        iVar.aZK = str2 + PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS + str + PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS + str3;
+        iVar.biH = j;
+        iVar.biN = j2;
+        iVar.biO = j3;
+        MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2913195, iVar));
     }
 
-    public static void d(String str, long j, String str2, String str3, String str4, String str5, String str6, String str7, String str8, boolean z, String str9, String str10, String str11, boolean z2, boolean z3, boolean z4, long j2) {
-        if (aUc != null) {
-            aUc.b(str, j, str2, str3, str4, str5, str6, str7, str8, z, str9, str10, str11, z2, z3, z4, j2);
-        }
-    }
-
-    public static void gL(String str) {
-        if (aUc != null) {
-            aUc.gK(str);
-        }
-    }
-
-    public static void b(String str, String str2, String str3, String str4, int i, int i2, String str5) {
-        if (aUc != null) {
-            aUc.a(str, str2, str3, str4, i, i2, str5);
-        }
-    }
-
-    public static final g gM(String str) {
-        if (aUc != null) {
-            return aUc.gE(str);
-        }
-        return null;
-    }
-
-    public static final com.baidu.live.data.u Gr() {
-        if (aUc != null) {
-            return aUc.Gm();
-        }
-        return null;
-    }
-
-    public static final void e(com.baidu.live.data.u uVar) {
-        if (aUc != null) {
-            aUc.d(uVar);
-        }
-    }
-
-    public static final String Gs() {
-        if (aUc != null) {
-            return aUc.Gn();
-        }
-        return null;
-    }
-
-    public static final void gN(String str) {
-        if (aUc != null) {
-            aUc.gF(str);
-        }
-    }
-
-    public static final void b(BdPageContext bdPageContext, boolean z) {
-        if (aUc != null) {
-            aUc.a(bdPageContext, z);
-        }
-    }
-
-    public static final void Gt() {
-        if (aUc != null) {
-            aUc.Go();
-        }
-    }
-
-    public static final void Gu() {
-        if (aUc != null) {
-            aUc.onDestroy();
-        }
-    }
-
-    /* JADX INFO: Access modifiers changed from: protected */
-    public static final void a(w wVar) {
-        aUc = wVar;
-    }
-
-    public static boolean gO(String str) {
-        if (aUc != null) {
-            return aUc.gH(str);
-        }
-        return false;
-    }
-
-    public static boolean gP(String str) {
-        if (aUc != null) {
-            return aUc.gI(str);
-        }
-        return false;
-    }
-
-    public static boolean gQ(String str) {
-        if (aUc != null) {
-            return aUc.gJ(str);
-        }
-        return false;
-    }
-
-    public static String Gv() {
-        return aUc != null ? aUc.Gp() : "";
-    }
-
-    public static void b(g gVar, long j, String str, String str2, String str3, String str4, String str5, String str6, String str7, long j2) {
-        if (aUc != null) {
-            aUc.a(gVar, j, str, str2, str3, str4, str5, str6, str7, j2);
-        }
-    }
-
-    public static void Gw() {
-        if (aUc != null) {
-            aUc.Gq();
-        }
-    }
-
-    public static String gR(String str) {
-        return aUc != null ? aUc.gG(str) : "";
+    private static String Gy() {
+        return com.baidu.live.z.a.Pq().bmJ.aJS;
     }
 }

@@ -16,7 +16,7 @@ import java.util.ArrayList;
 import java.util.Calendar;
 /* loaded from: classes3.dex */
 public class a {
-    private VoteView aiD;
+    private VoteView aiE;
     private TbPageContext<WriteActivity> mPageContext;
     private RelativeLayout mRootView;
     private WriteVoteData mWriteVoteData;
@@ -24,21 +24,21 @@ public class a {
     public a(TbPageContext<WriteActivity> tbPageContext, RelativeLayout relativeLayout) {
         this.mPageContext = tbPageContext;
         this.mRootView = relativeLayout;
-        this.aiD = new VoteView(this.mPageContext.getPageActivity());
-        this.aiD.setPageContext(this.mPageContext);
-        this.aiD.setDeleteOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.write.write.vote.a.1
+        this.aiE = new VoteView(this.mPageContext.getPageActivity());
+        this.aiE.setPageContext(this.mPageContext);
+        this.aiE.setDeleteOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.write.write.vote.a.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
                 com.baidu.tbadk.core.dialog.a aVar = new com.baidu.tbadk.core.dialog.a(a.this.mPageContext.getPageActivity());
-                aVar.AG(a.this.mPageContext.getString(R.string.vote_delete_dialog_title));
+                aVar.AZ(a.this.mPageContext.getString(R.string.vote_delete_dialog_title));
                 aVar.setTitleShowCenter(true);
-                aVar.AH(a.this.mPageContext.getString(R.string.vote_delete_dialog_message));
+                aVar.Ba(a.this.mPageContext.getString(R.string.vote_delete_dialog_message));
                 aVar.setMessageShowCenter(true);
                 aVar.a(R.string.delete, new a.b() { // from class: com.baidu.tieba.write.write.vote.a.1.1
                     @Override // com.baidu.tbadk.core.dialog.a.b
                     public void onClick(com.baidu.tbadk.core.dialog.a aVar2) {
                         a.this.mWriteVoteData = null;
-                        a.this.yn(false);
+                        a.this.yE(false);
                         aVar2.dismiss();
                     }
                 });
@@ -48,34 +48,34 @@ public class a {
                         aVar2.dismiss();
                     }
                 });
-                aVar.b(a.this.mPageContext).bkJ();
+                aVar.b(a.this.mPageContext).bmC();
             }
         });
-        this.aiD.setVoteViewDeleteVisibility(0);
-        this.mRootView.addView(this.aiD);
-        yn(false);
+        this.aiE.setVoteViewDeleteVisibility(0);
+        this.mRootView.addView(this.aiE);
+        yE(false);
     }
 
     public void ao(View.OnClickListener onClickListener) {
-        if (this.aiD != null && onClickListener != null) {
-            this.aiD.setOnClickListener(onClickListener);
+        if (this.aiE != null && onClickListener != null) {
+            this.aiE.setOnClickListener(onClickListener);
         }
     }
 
     public void setOnItemClickListener(View.OnClickListener onClickListener) {
-        if (this.aiD != null && onClickListener != null) {
-            this.aiD.setOnItemClickListener(onClickListener);
+        if (this.aiE != null && onClickListener != null) {
+            this.aiE.setOnItemClickListener(onClickListener);
         }
     }
 
-    public void yn(boolean z) {
+    public void yE(boolean z) {
         this.mRootView.setVisibility(z ? 0 : 8);
     }
 
     public void b(WriteVoteData writeVoteData) {
-        if (writeVoteData != null && this.aiD != null) {
+        if (writeVoteData != null && this.aiE != null) {
             this.mWriteVoteData = writeVoteData;
-            this.aiD.setVoteTitle(this.mWriteVoteData.getTitle());
+            this.aiE.setVoteTitle(this.mWriteVoteData.getTitle());
             String string = this.mWriteVoteData.getIsMulti() == 1 ? this.mPageContext.getString(R.string.vote_type_multiple) : this.mPageContext.getString(R.string.vote_type_single);
             int expireType = this.mWriteVoteData.getExpireType();
             String str = "";
@@ -85,9 +85,9 @@ public class a {
                 str = String.format(this.mPageContext.getString(R.string.write_vote_content_time), Integer.valueOf(calendar.get(2) + 1), Integer.valueOf(calendar.get(5)));
             }
             if (StringUtils.isNull(str)) {
-                this.aiD.setVoteSubContent(string);
+                this.aiE.setVoteSubContent(string);
             } else {
-                this.aiD.setVoteSubContent(string + " · " + str);
+                this.aiE.setVoteSubContent(string + " · " + str);
             }
             ArrayList arrayList = new ArrayList();
             for (WriteVoteItemData writeVoteItemData : this.mWriteVoteData.getOptions()) {
@@ -98,9 +98,9 @@ public class a {
             }
             if (!y.isEmpty(arrayList)) {
                 if (arrayList.size() > 3) {
-                    this.aiD.setData(arrayList.subList(0, 3));
+                    this.aiE.setData(arrayList.subList(0, 3));
                 } else {
-                    this.aiD.setData(arrayList);
+                    this.aiE.setData(arrayList);
                 }
             }
         }
@@ -111,6 +111,6 @@ public class a {
     }
 
     public void onChangeSkinType(int i) {
-        this.aiD.onChangeSkinType(i);
+        this.aiE.onChangeSkinType(i);
     }
 }

@@ -5,58 +5,58 @@ import com.baidu.searchbox.common.runtime.AppRuntime;
 /* loaded from: classes10.dex */
 public class c implements a {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    private b cVJ;
+    private b dej;
     private long mCostTime;
     private long mStartTime;
 
     public c() {
         if (isOn()) {
-            this.cVJ = new b();
+            this.dej = new b();
         }
     }
 
     @Override // com.baidu.swan.apps.performance.d.a
-    public void bD(long j) {
-        if (isOn() && this.cVJ != null) {
-            this.cVJ.bG(j - this.mStartTime);
+    public void bF(long j) {
+        if (isOn() && this.dej != null) {
+            this.dej.bI(j - this.mStartTime);
         }
     }
 
     @Override // com.baidu.swan.apps.performance.d.a
-    public void bc(long j) {
-        if (isOn() && this.cVJ != null) {
-            this.cVJ.bF(j - this.mStartTime);
+    public void be(long j) {
+        if (isOn() && this.dej != null) {
+            this.dej.bH(j - this.mStartTime);
         }
     }
 
     @Override // com.baidu.swan.apps.performance.d.a
-    public void bE(long j) {
-        if (isOn() && this.cVJ != null) {
-            this.cVJ.bH(j - this.mStartTime);
+    public void bG(long j) {
+        if (isOn() && this.dej != null) {
+            this.dej.bJ(j - this.mStartTime);
         }
     }
 
     @Override // com.baidu.swan.apps.performance.d.a
-    public void bb(long j) {
-        if (isOn() && this.cVJ != null) {
-            this.cVJ.bI(j - this.mStartTime);
+    public void bd(long j) {
+        if (isOn() && this.dej != null) {
+            this.dej.bK(j - this.mStartTime);
         }
     }
 
     @Override // com.baidu.swan.apps.performance.a.e
     public void start(long j) {
-        if (isOn() && this.cVJ != null) {
+        if (isOn() && this.dej != null) {
             this.mStartTime = j;
-            this.cVJ.reset();
+            this.dej.reset();
         }
     }
 
     @Override // com.baidu.swan.apps.performance.a.e
-    public void bz(long j) {
-        if (isOn() && this.cVJ != null) {
+    public void bB(long j) {
+        if (isOn() && this.dej != null) {
             this.mCostTime = j;
-            this.cVJ.i(this.mStartTime, this.mCostTime);
-            this.cVJ.done();
+            this.dej.i(this.mStartTime, this.mCostTime);
+            this.dej.done();
         }
     }
 
@@ -80,17 +80,17 @@ public class c implements a {
     /* JADX INFO: Access modifiers changed from: private */
     public void turnOn() {
         AppRuntime.getAppContext().getSharedPreferences("light_info_debug", 0).edit().putBoolean("light_info_switch", true).apply();
-        if (this.cVJ == null) {
-            this.cVJ = new b();
+        if (this.dej == null) {
+            this.dej = new b();
         }
-        this.cVJ.azS();
+        this.dej.aBM();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void turnOff() {
         AppRuntime.getAppContext().getSharedPreferences("light_info_debug", 0).edit().putBoolean("light_info_switch", false).apply();
-        if (this.cVJ != null) {
-            this.cVJ.azT();
+        if (this.dej != null) {
+            this.dej.aBN();
         }
     }
 

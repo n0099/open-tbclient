@@ -16,7 +16,7 @@ import java.util.Enumeration;
 public class g {
 
     /* renamed from: a  reason: collision with root package name */
-    private static ConnectivityManager f1152a = null;
+    private static ConnectivityManager f1149a = null;
     private static TelephonyManager b = null;
 
     public static boolean a(Context context) {
@@ -148,12 +148,12 @@ public class g {
 
     private static ConnectivityManager j(Context context) {
         if (context == null) {
-            return f1152a;
+            return f1149a;
         }
-        if (f1152a == null) {
-            f1152a = (ConnectivityManager) context.getSystemService("connectivity");
+        if (f1149a == null) {
+            f1149a = (ConnectivityManager) context.getSystemService("connectivity");
         }
-        return f1152a;
+        return f1149a;
     }
 
     private static TelephonyManager k(Context context) {

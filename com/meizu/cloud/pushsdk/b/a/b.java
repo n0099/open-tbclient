@@ -24,7 +24,7 @@ import org.json.JSONObject;
 public class b<T extends b> {
 
     /* renamed from: a  reason: collision with root package name */
-    private static final String f4309a = b.class.getSimpleName();
+    private static final String f4307a = b.class.getSimpleName();
     private static final g w = g.a(AbstractBceClient.DEFAULT_CONTENT_TYPE);
     private static final g x = g.a("text/x-markdown; charset=utf-8");
     private static final Object z = new Object();
@@ -73,7 +73,7 @@ public class b<T extends b> {
         private String k;
 
         /* renamed from: a  reason: collision with root package name */
-        private com.meizu.cloud.pushsdk.b.a.d f4312a = com.meizu.cloud.pushsdk.b.a.d.MEDIUM;
+        private com.meizu.cloud.pushsdk.b.a.d f4310a = com.meizu.cloud.pushsdk.b.a.d.MEDIUM;
         private HashMap<String, String> d = new HashMap<>();
         private HashMap<String, String> e = new HashMap<>();
         private HashMap<String, String> f = new HashMap<>();
@@ -92,7 +92,7 @@ public class b<T extends b> {
 
     /* renamed from: com.meizu.cloud.pushsdk.b.a.b$b  reason: collision with other inner class name */
     /* loaded from: classes7.dex */
-    public static class C0935b<T extends C0935b> {
+    public static class C1007b<T extends C1007b> {
         private int b;
         private String c;
         private Object d;
@@ -104,12 +104,12 @@ public class b<T extends b> {
         private String m;
 
         /* renamed from: a  reason: collision with root package name */
-        private com.meizu.cloud.pushsdk.b.a.d f4313a = com.meizu.cloud.pushsdk.b.a.d.MEDIUM;
+        private com.meizu.cloud.pushsdk.b.a.d f4311a = com.meizu.cloud.pushsdk.b.a.d.MEDIUM;
         private HashMap<String, String> i = new HashMap<>();
         private HashMap<String, String> j = new HashMap<>();
         private HashMap<String, String> k = new HashMap<>();
 
-        public C0935b(String str) {
+        public C1007b(String str) {
             this.b = 0;
             this.c = str;
             this.b = 0;
@@ -138,7 +138,7 @@ public class b<T extends b> {
         private String l;
 
         /* renamed from: a  reason: collision with root package name */
-        private com.meizu.cloud.pushsdk.b.a.d f4314a = com.meizu.cloud.pushsdk.b.a.d.MEDIUM;
+        private com.meizu.cloud.pushsdk.b.a.d f4312a = com.meizu.cloud.pushsdk.b.a.d.MEDIUM;
         private HashMap<String, String> d = new HashMap<>();
         private HashMap<String, String> e = new HashMap<>();
         private HashMap<String, String> f = new HashMap<>();
@@ -179,7 +179,7 @@ public class b<T extends b> {
         private String q;
 
         /* renamed from: a  reason: collision with root package name */
-        private com.meizu.cloud.pushsdk.b.a.d f4315a = com.meizu.cloud.pushsdk.b.a.d.MEDIUM;
+        private com.meizu.cloud.pushsdk.b.a.d f4313a = com.meizu.cloud.pushsdk.b.a.d.MEDIUM;
         private JSONObject e = null;
         private JSONArray f = null;
         private String g = null;
@@ -231,7 +231,7 @@ public class b<T extends b> {
         this.L = null;
         this.d = 1;
         this.b = 0;
-        this.c = aVar.f4312a;
+        this.c = aVar.f4310a;
         this.e = aVar.b;
         this.g = aVar.c;
         this.p = aVar.g;
@@ -244,7 +244,7 @@ public class b<T extends b> {
         this.K = aVar.k;
     }
 
-    public b(C0935b c0935b) {
+    public b(C1007b c1007b) {
         this.i = new HashMap<>();
         this.j = new HashMap<>();
         this.k = new HashMap<>();
@@ -263,19 +263,19 @@ public class b<T extends b> {
         this.K = null;
         this.L = null;
         this.d = 0;
-        this.b = c0935b.b;
-        this.c = c0935b.f4313a;
-        this.e = c0935b.c;
-        this.g = c0935b.d;
-        this.i = c0935b.i;
-        this.F = c0935b.e;
-        this.H = c0935b.g;
-        this.G = c0935b.f;
-        this.I = c0935b.h;
-        this.m = c0935b.j;
-        this.n = c0935b.k;
-        this.J = c0935b.l;
-        this.K = c0935b.m;
+        this.b = c1007b.b;
+        this.c = c1007b.f4311a;
+        this.e = c1007b.c;
+        this.g = c1007b.d;
+        this.i = c1007b.i;
+        this.F = c1007b.e;
+        this.H = c1007b.g;
+        this.G = c1007b.f;
+        this.I = c1007b.h;
+        this.m = c1007b.j;
+        this.n = c1007b.k;
+        this.J = c1007b.l;
+        this.K = c1007b.m;
     }
 
     public b(c cVar) {
@@ -298,7 +298,7 @@ public class b<T extends b> {
         this.L = null;
         this.d = 2;
         this.b = 1;
-        this.c = cVar.f4314a;
+        this.c = cVar.f4312a;
         this.e = cVar.b;
         this.g = cVar.c;
         this.i = cVar.d;
@@ -334,7 +334,7 @@ public class b<T extends b> {
         this.L = null;
         this.d = 0;
         this.b = dVar.b;
-        this.c = dVar.f4315a;
+        this.c = dVar.f4313a;
         this.e = dVar.c;
         this.g = dVar.d;
         this.i = dVar.j;

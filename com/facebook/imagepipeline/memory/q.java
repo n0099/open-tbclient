@@ -4,61 +4,61 @@ import javax.annotation.concurrent.NotThreadSafe;
 @NotThreadSafe
 /* loaded from: classes18.dex */
 public class q {
-    private c nSH;
-    private com.facebook.common.memory.g nSK;
-    private i nSM;
-    private com.facebook.common.memory.j nSZ;
-    private final p nWX;
-    private k nWY;
-    private com.facebook.common.memory.a nWZ;
+    private c oJZ;
+    private com.facebook.common.memory.g oKc;
+    private i oKe;
+    private com.facebook.common.memory.j oKr;
+    private final p oOp;
+    private k oOq;
+    private com.facebook.common.memory.a oOr;
 
     public q(p pVar) {
-        this.nWX = (p) com.facebook.common.internal.g.checkNotNull(pVar);
+        this.oOp = (p) com.facebook.common.internal.g.checkNotNull(pVar);
     }
 
-    public c ecW() {
-        if (this.nSH == null) {
-            this.nSH = new c(this.nWX.eaI(), this.nWX.ecN(), this.nWX.ecO());
+    public c emU() {
+        if (this.oJZ == null) {
+            this.oJZ = new c(this.oOp.ekG(), this.oOp.emL(), this.oOp.emM());
         }
-        return this.nSH;
+        return this.oJZ;
     }
 
-    public i ecX() {
-        if (this.nSM == null) {
-            this.nSM = new i(this.nWX.eaI(), this.nWX.ecR());
+    public i emV() {
+        if (this.oKe == null) {
+            this.oKe = new i(this.oOp.ekG(), this.oOp.emP());
         }
-        return this.nSM;
+        return this.oKe;
     }
 
-    public int ecY() {
-        return this.nWX.ecR().nXg;
+    public int emW() {
+        return this.oOp.emP().oOy;
     }
 
-    public k ecZ() {
-        if (this.nWY == null) {
-            this.nWY = new k(this.nWX.eaI(), this.nWX.ecP(), this.nWX.ecQ());
+    public k emX() {
+        if (this.oOq == null) {
+            this.oOq = new k(this.oOp.ekG(), this.oOp.emN(), this.oOp.emO());
         }
-        return this.nWY;
+        return this.oOq;
     }
 
-    public com.facebook.common.memory.g eda() {
-        if (this.nSK == null) {
-            this.nSK = new m(ecZ(), edb());
+    public com.facebook.common.memory.g emY() {
+        if (this.oKc == null) {
+            this.oKc = new m(emX(), emZ());
         }
-        return this.nSK;
+        return this.oKc;
     }
 
-    public com.facebook.common.memory.j edb() {
-        if (this.nSZ == null) {
-            this.nSZ = new com.facebook.common.memory.j(edc());
+    public com.facebook.common.memory.j emZ() {
+        if (this.oKr == null) {
+            this.oKr = new com.facebook.common.memory.j(ena());
         }
-        return this.nSZ;
+        return this.oKr;
     }
 
-    public com.facebook.common.memory.a edc() {
-        if (this.nWZ == null) {
-            this.nWZ = new j(this.nWX.eaI(), this.nWX.ecS(), this.nWX.ecT());
+    public com.facebook.common.memory.a ena() {
+        if (this.oOr == null) {
+            this.oOr = new j(this.oOp.ekG(), this.oOp.emQ(), this.oOp.emR());
         }
-        return this.nWZ;
+        return this.oOr;
     }
 }

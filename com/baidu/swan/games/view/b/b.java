@@ -11,45 +11,45 @@ import com.baidu.swan.games.utils.e;
 import com.baidu.swan.games.view.d;
 /* loaded from: classes10.dex */
 public class b {
-    private static final int dMO = e.J(42.0f);
-    private static volatile b dMU = null;
-    private int dMP;
-    private int dMQ;
-    private int dMR;
-    private boolean dMS;
-    private int dMT;
-    private ViewTreeObserver.OnGlobalLayoutListener dMV = null;
+    private static final int dVl = e.L(42.0f);
+    private static volatile b dVr = null;
+    private int dVm;
+    private int dVn;
+    private int dVo;
+    private boolean dVp;
+    private int dVq;
+    private ViewTreeObserver.OnGlobalLayoutListener dVs = null;
 
     private b() {
     }
 
-    public static b aUj() {
-        if (dMU == null) {
+    public static b aWd() {
+        if (dVr == null) {
             synchronized (b.class) {
-                if (dMU == null) {
-                    dMU = new b();
+                if (dVr == null) {
+                    dVr = new b();
                 }
             }
         }
-        return dMU;
+        return dVr;
     }
 
     public boolean f(a aVar) {
-        d avx = f.avu().avx();
-        boolean z = (avx == null || aJ(aVar.getContentView()) || !avx.a(aVar.getContentView(), aUk())) ? false : true;
+        d axr = f.axo().axr();
+        boolean z = (axr == null || aK(aVar.getContentView()) || !axr.a(aVar.getContentView(), aWe())) ? false : true;
         if (z) {
-            if (!aVar.aUh() || avx == null) {
+            if (!aVar.aWb() || axr == null) {
                 return false;
             }
-            a(avx.aTI(), aVar);
+            a(axr.aVC(), aVar);
         }
         return z;
     }
 
     private void a(final View view, final a aVar) {
         if (view != null && aVar != null) {
-            this.dMT = view.getHeight();
-            this.dMV = new ViewTreeObserver.OnGlobalLayoutListener() { // from class: com.baidu.swan.games.view.b.b.1
+            this.dVq = view.getHeight();
+            this.dVs = new ViewTreeObserver.OnGlobalLayoutListener() { // from class: com.baidu.swan.games.view.b.b.1
                 @Override // android.view.ViewTreeObserver.OnGlobalLayoutListener
                 public void onGlobalLayout() {
                     Rect rect = new Rect();
@@ -58,82 +58,82 @@ public class b {
                         int i = rect.bottom - rect.top;
                         int displayHeight = ah.getDisplayHeight(AppRuntime.getAppContext());
                         int statusBarHeight = ah.getStatusBarHeight();
-                        if (!b.this.dMS) {
-                            b.this.dMS = true;
-                            b.this.dMR = (displayHeight - i) - statusBarHeight;
-                            if (b.this.dMR < 0) {
-                                b.this.dMR = 0;
+                        if (!b.this.dVp) {
+                            b.this.dVp = true;
+                            b.this.dVo = (displayHeight - i) - statusBarHeight;
+                            if (b.this.dVo < 0) {
+                                b.this.dVo = 0;
                             }
                         }
                         if (i > 0) {
-                            if (i >= b.this.dMT || view.getHeight() - i <= 200) {
-                                if (i > b.this.dMT && view.getHeight() - i < 200) {
-                                    b.this.dMT = i;
+                            if (i >= b.this.dVq || view.getHeight() - i <= 200) {
+                                if (i > b.this.dVq && view.getHeight() - i < 200) {
+                                    b.this.dVq = i;
                                     b.this.g(aVar);
                                     return;
                                 }
                                 return;
                             }
-                            b.this.dMT = i;
-                            b.this.dMQ = i - b.dMO;
-                            b.this.dMP = ((displayHeight - i) - statusBarHeight) - b.this.dMR;
-                            if (b.this.dMP > 0 && !b.this.a(aVar, b.this.dMP, b.this.dMQ)) {
+                            b.this.dVq = i;
+                            b.this.dVn = i - b.dVl;
+                            b.this.dVm = ((displayHeight - i) - statusBarHeight) - b.this.dVo;
+                            if (b.this.dVm > 0 && !b.this.a(aVar, b.this.dVm, b.this.dVn)) {
                                 b.this.g(aVar);
                             }
                         }
                     }
                 }
             };
-            view.getViewTreeObserver().addOnGlobalLayoutListener(this.dMV);
+            view.getViewTreeObserver().addOnGlobalLayoutListener(this.dVs);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public boolean a(a aVar, int i, int i2) {
-        d avx = f.avu().avx();
-        boolean z = avx != null && avx.b(aVar.getContentView(), lV(i2));
+        d axr = f.axo().axr();
+        boolean z = axr != null && axr.b(aVar.getContentView(), mg(i2));
         if (z) {
-            aVar.lU(i);
+            aVar.mf(i);
         }
         return z;
     }
 
     public boolean g(a aVar) {
-        d avx = f.avu().avx();
-        if (avx == null) {
+        d axr = f.axo().axr();
+        if (axr == null) {
             return false;
         }
-        FrameLayout aTI = avx.aTI();
-        if (aTI != null && this.dMV != null) {
-            aTI.getViewTreeObserver().removeOnGlobalLayoutListener(this.dMV);
+        FrameLayout aVC = axr.aVC();
+        if (aVC != null && this.dVs != null) {
+            aVC.getViewTreeObserver().removeOnGlobalLayoutListener(this.dVs);
         }
         aVar.hideKeyboard();
-        this.dMV = null;
-        this.dMP = -1;
-        this.dMQ = -1;
-        this.dMR = -1;
-        this.dMS = false;
-        this.dMT = -1;
-        return avx.removeView(aVar.getContentView());
+        this.dVs = null;
+        this.dVm = -1;
+        this.dVn = -1;
+        this.dVo = -1;
+        this.dVp = false;
+        this.dVq = -1;
+        return axr.removeView(aVar.getContentView());
     }
 
-    private boolean aJ(View view) {
-        d avx = f.avu().avx();
-        return avx != null && avx.aH(view);
+    private boolean aK(View view) {
+        d axr = f.axo().axr();
+        return axr != null && axr.aI(view);
     }
 
-    private com.baidu.swan.apps.model.a.a.a aUk() {
+    private com.baidu.swan.apps.model.a.a.a aWe() {
         com.baidu.swan.apps.model.a.a.a aVar = new com.baidu.swan.apps.model.a.a.a();
-        aVar.fp(true);
+        aVar.fC(true);
         aVar.setWidth(-1);
         aVar.setHeight(-2);
         return aVar;
     }
 
-    private com.baidu.swan.apps.model.a.a.a lV(int i) {
+    private com.baidu.swan.apps.model.a.a.a mg(int i) {
         com.baidu.swan.apps.model.a.a.a aVar = new com.baidu.swan.apps.model.a.a.a();
-        aVar.fp(true);
-        aVar.jg(i);
+        aVar.fC(true);
+        aVar.jr(i);
         aVar.setWidth(-1);
         aVar.setHeight(-2);
         return aVar;

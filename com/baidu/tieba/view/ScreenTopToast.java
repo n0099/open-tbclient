@@ -17,14 +17,14 @@ import com.baidu.tbadk.core.view.commonBtn.TBSpecificationBtn;
 import com.baidu.tieba.R;
 /* loaded from: classes.dex */
 public class ScreenTopToast extends LinearLayout {
-    private Animation bBp;
-    private Animation bBq;
-    private TextView cxH;
-    private TBSpecificationBtn hUX;
+    private Animation bEl;
+    private Animation bEm;
+    private TextView cGd;
+    private TBSpecificationBtn ihx;
     private boolean isShow;
     private Runnable mHideRunnable;
     private TextView mTitleView;
-    private ShadowLinearLayout njs;
+    private ShadowLinearLayout nvT;
 
     public ScreenTopToast(Context context) {
         this(context, null);
@@ -45,19 +45,19 @@ public class ScreenTopToast extends LinearLayout {
             setPadding(0, UtilHelper.getStatusBarHeight(), 0, 0);
         }
         LayoutInflater.from(getContext()).inflate(R.layout.screen_top_toast_layout, this);
-        this.njs = (ShadowLinearLayout) findViewById(R.id.screen_top_toast_group);
+        this.nvT = (ShadowLinearLayout) findViewById(R.id.screen_top_toast_group);
         this.mTitleView = (TextView) findViewById(R.id.screen_top_toast_title);
-        this.cxH = (TextView) findViewById(R.id.screen_top_toast_content);
-        this.hUX = (TBSpecificationBtn) findViewById(R.id.screen_top_toast_btn);
-        this.hUX.setConfig(new com.baidu.tbadk.core.view.commonBtn.a());
+        this.cGd = (TextView) findViewById(R.id.screen_top_toast_content);
+        this.ihx = (TBSpecificationBtn) findViewById(R.id.screen_top_toast_btn);
+        this.ihx.setConfig(new com.baidu.tbadk.core.view.commonBtn.a());
         initAnimation();
         onChangeSkinType();
     }
 
     private void initAnimation() {
-        this.bBp = AnimationUtils.loadAnimation(getContext(), R.anim.in_from_top);
-        this.bBq = AnimationUtils.loadAnimation(getContext(), R.anim.out_to_top);
-        this.bBq.setAnimationListener(new Animation.AnimationListener() { // from class: com.baidu.tieba.view.ScreenTopToast.1
+        this.bEl = AnimationUtils.loadAnimation(getContext(), R.anim.in_from_top);
+        this.bEm = AnimationUtils.loadAnimation(getContext(), R.anim.out_to_top);
+        this.bEm.setAnimationListener(new Animation.AnimationListener() { // from class: com.baidu.tieba.view.ScreenTopToast.1
             @Override // android.view.animation.Animation.AnimationListener
             public void onAnimationStart(Animation animation) {
             }
@@ -83,23 +83,23 @@ public class ScreenTopToast extends LinearLayout {
         };
     }
 
-    public ScreenTopToast TH(String str) {
+    public ScreenTopToast Ug(String str) {
         this.mTitleView.setText(str);
         return this;
     }
 
-    public ScreenTopToast TI(String str) {
-        this.cxH.setText(str);
+    public ScreenTopToast Uh(String str) {
+        this.cGd.setText(str);
         return this;
     }
 
-    public ScreenTopToast TJ(String str) {
-        this.hUX.setText(str);
+    public ScreenTopToast Ui(String str) {
+        this.ihx.setText(str);
         return this;
     }
 
     public ScreenTopToast ak(View.OnClickListener onClickListener) {
-        this.hUX.setOnClickListener(onClickListener);
+        this.ihx.setOnClickListener(onClickListener);
         return this;
     }
 
@@ -109,12 +109,12 @@ public class ScreenTopToast extends LinearLayout {
                 ((ViewGroup) getParent()).removeView(this);
             }
             release();
-            if (TextUtils.isEmpty(this.cxH.getText())) {
-                this.cxH.setVisibility(8);
+            if (TextUtils.isEmpty(this.cGd.getText())) {
+                this.cGd.setVisibility(8);
             }
             viewGroup.addView(this, -1, -2);
             this.isShow = true;
-            startAnimation(this.bBp);
+            startAnimation(this.bEl);
             com.baidu.adp.lib.f.e.mY().postDelayed(this.mHideRunnable, 5000L);
         }
     }
@@ -122,7 +122,7 @@ public class ScreenTopToast extends LinearLayout {
     /* JADX INFO: Access modifiers changed from: private */
     public void hide() {
         release();
-        startAnimation(this.bBq);
+        startAnimation(this.bEm);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -133,9 +133,9 @@ public class ScreenTopToast extends LinearLayout {
 
     public void onChangeSkinType() {
         ap.setViewTextColor(this.mTitleView, R.color.cp_link_tip_a);
-        ap.setViewTextColor(this.cxH, R.color.cp_link_tip_a);
-        this.hUX.bok();
-        this.njs.onChangeSkinType();
+        ap.setViewTextColor(this.cGd, R.color.cp_link_tip_a);
+        this.ihx.bqd();
+        this.nvT.onChangeSkinType();
     }
 
     public boolean isShow() {

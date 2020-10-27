@@ -6,46 +6,46 @@ import com.baidu.tieba.ala.floating.a;
 /* loaded from: classes4.dex */
 public class b {
     private static String TAG = "AlaFloatLiveControllerUtil";
-    private static a glO;
+    private static a gvT;
 
-    public static a eZ(Context context) {
-        if (glO == null) {
-            glO = fa(context);
+    public static a fa(Context context) {
+        if (gvT == null) {
+            gvT = fb(context);
         }
-        return glO;
+        return gvT;
     }
 
-    private static synchronized a fa(Context context) {
+    private static synchronized a fb(Context context) {
         a aVar;
         synchronized (b.class) {
-            if (glO == null) {
-                glO = new a(context);
+            if (gvT == null) {
+                gvT = new a(context);
             }
-            aVar = glO;
+            aVar = gvT;
         }
         return aVar;
     }
 
-    public static AlaLiveInfoData bNh() {
-        a aVar = glO;
+    public static AlaLiveInfoData bPM() {
+        a aVar = gvT;
         if (aVar != null) {
-            return aVar.bNh();
+            return aVar.bPM();
         }
         return null;
     }
 
-    public static void b(a.InterfaceC0612a interfaceC0612a) {
-        a aVar = glO;
+    public static void b(a.InterfaceC0628a interfaceC0628a) {
+        a aVar = gvT;
         if (aVar != null) {
-            aVar.a(interfaceC0612a);
-            aVar.bNm();
+            aVar.a(interfaceC0628a);
+            aVar.bPR();
         }
     }
 
-    public static boolean bNk() {
-        a aVar = glO;
+    public static boolean bPP() {
+        a aVar = gvT;
         if (aVar != null) {
-            return aVar.bNk();
+            return aVar.bPP();
         }
         return false;
     }
@@ -53,8 +53,8 @@ public class b {
     /* JADX INFO: Access modifiers changed from: protected */
     public static synchronized void destroy() {
         synchronized (b.class) {
-            a aVar = glO;
-            glO = null;
+            a aVar = gvT;
+            gvT = null;
             if (aVar != null) {
                 aVar.onDestroy();
             }

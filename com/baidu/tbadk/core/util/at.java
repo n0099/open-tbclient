@@ -40,19 +40,19 @@ public class at extends com.baidu.adp.lib.util.k {
     private static String TIME_HOUR = TbadkCoreApplication.getInst().getApp().getString(R.string.time_hour);
     private static String TIME_MINUTE = TbadkCoreApplication.getInst().getApp().getString(R.string.time_minute);
     private static String TIME_SECOND = TbadkCoreApplication.getInst().getApp().getString(R.string.time_second);
-    private static String ezt = TbadkCoreApplication.getInst().getApp().getString(R.string.ala_card_create_day);
-    private static String ezu = TbadkCoreApplication.getInst().getApp().getString(R.string.ala_card_create_hour);
-    private static String ezv = TbadkCoreApplication.getInst().getApp().getString(R.string.ala_card_create_min);
+    private static String eHP = TbadkCoreApplication.getInst().getApp().getString(R.string.ala_card_create_day);
+    private static String eHQ = TbadkCoreApplication.getInst().getApp().getString(R.string.ala_card_create_hour);
+    private static String eHR = TbadkCoreApplication.getInst().getApp().getString(R.string.ala_card_create_min);
     private static final SimpleDateFormat FORMATE_DATE_SECOND = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
     private static final SimpleDateFormat FORMATE_DATE_SECOND_CHINESE = new SimpleDateFormat("yyyy年MM月dd HH时mm分ss秒");
-    private static final SimpleDateFormat ezw = new SimpleDateFormat("dd日HH:mm");
-    private static final SimpleDateFormat ezx = new SimpleDateFormat("HH:mm");
-    private static final SimpleDateFormat ezy = new SimpleDateFormat(ControlShowManager.DAY_TIME_FORMAT);
-    private static final SimpleDateFormat ezz = new SimpleDateFormat("MM-dd HH:mm");
-    private static final SimpleDateFormat ezA = new SimpleDateFormat("MM-dd");
-    private static final SimpleDateFormat ezB = new SimpleDateFormat("MM月dd日");
-    private static final SimpleDateFormat ezC = new SimpleDateFormat("yyyy-MM-dd HH:mm");
-    private static final SimpleDateFormat ezD = new SimpleDateFormat("MM-dd HH:mm");
+    private static final SimpleDateFormat eHS = new SimpleDateFormat("dd日HH:mm");
+    private static final SimpleDateFormat eHT = new SimpleDateFormat("HH:mm");
+    private static final SimpleDateFormat eHU = new SimpleDateFormat(ControlShowManager.DAY_TIME_FORMAT);
+    private static final SimpleDateFormat eHV = new SimpleDateFormat("MM-dd HH:mm");
+    private static final SimpleDateFormat eHW = new SimpleDateFormat("MM-dd");
+    private static final SimpleDateFormat eHX = new SimpleDateFormat("MM月dd日");
+    private static final SimpleDateFormat eHY = new SimpleDateFormat("yyyy-MM-dd HH:mm");
+    private static final SimpleDateFormat eHZ = new SimpleDateFormat("MM-dd HH:mm");
     private static Date date = new Date();
 
     static {
@@ -71,29 +71,11 @@ public class at extends com.baidu.adp.lib.util.k {
         }
     }
 
-    public static String cP(long j) {
-        String format;
-        Date date2 = new Date(j);
-        synchronized (ezD) {
-            format = ezD.format(date2);
-        }
-        return format;
-    }
-
-    public static String cQ(long j) {
-        String format;
-        Date date2 = new Date(j);
-        synchronized (ezC) {
-            format = ezC.format(date2);
-        }
-        return format;
-    }
-
     public static String cR(long j) {
         String format;
         Date date2 = new Date(j);
-        synchronized (ezz) {
-            format = ezz.format(date2);
+        synchronized (eHZ) {
+            format = eHZ.format(date2);
         }
         return format;
     }
@@ -101,8 +83,8 @@ public class at extends com.baidu.adp.lib.util.k {
     public static String cS(long j) {
         String format;
         Date date2 = new Date(j);
-        synchronized (ezA) {
-            format = ezA.format(date2);
+        synchronized (eHY) {
+            format = eHY.format(date2);
         }
         return format;
     }
@@ -110,8 +92,26 @@ public class at extends com.baidu.adp.lib.util.k {
     public static String cT(long j) {
         String format;
         Date date2 = new Date(j);
-        synchronized (ezB) {
-            format = ezB.format(date2);
+        synchronized (eHV) {
+            format = eHV.format(date2);
+        }
+        return format;
+    }
+
+    public static String cU(long j) {
+        String format;
+        Date date2 = new Date(j);
+        synchronized (eHW) {
+            format = eHW.format(date2);
+        }
+        return format;
+    }
+
+    public static String cV(long j) {
+        String format;
+        Date date2 = new Date(j);
+        synchronized (eHX) {
+            format = eHX.format(date2);
         }
         return format;
     }
@@ -133,7 +133,7 @@ public class at extends com.baidu.adp.lib.util.k {
         return (i + 1) + TIME_HOUR;
     }
 
-    public static String cU(long j) {
+    public static String cW(long j) {
         return (((j / BdKVCache.MILLS_1Hour) / 24) + 1) + TIME_DAY;
     }
 
@@ -334,7 +334,7 @@ public class at extends com.baidu.adp.lib.util.k {
         return formatTime;
     }
 
-    public static String cV(long j) {
+    public static String cX(long j) {
         String a2;
         synchronized (date) {
             date.setTime(j);
@@ -343,7 +343,7 @@ public class at extends com.baidu.adp.lib.util.k {
         return a2;
     }
 
-    public static String cW(long j) {
+    public static String cY(long j) {
         String m;
         synchronized (date) {
             date.setTime(j);
@@ -352,7 +352,7 @@ public class at extends com.baidu.adp.lib.util.k {
         return m;
     }
 
-    public static String cX(long j) {
+    public static String cZ(long j) {
         String n;
         synchronized (date) {
             date.setTime(j);
@@ -446,26 +446,26 @@ public class at extends com.baidu.adp.lib.util.k {
         if (time < MS_TO_DAY) {
             if (time < MS_TO_HOUR) {
                 if (time < MS_TO_MIN) {
-                    return "1" + ezv;
+                    return "1" + eHR;
                 }
-                return String.valueOf(time / MS_TO_MIN) + ezv;
+                return String.valueOf(time / MS_TO_MIN) + eHR;
             }
-            return String.valueOf(time / MS_TO_HOUR) + ezu;
+            return String.valueOf(time / MS_TO_HOUR) + eHQ;
         }
-        return String.valueOf(time / MS_TO_DAY) + ezt;
+        return String.valueOf(time / MS_TO_DAY) + eHP;
     }
 
-    public static boolean Bp(String str) {
+    public static boolean BI(String str) {
         if (str.length() != 10) {
             return false;
         }
-        return ezy.format(new Date()).substring(0, 4).equals(str.substring(0, 4));
+        return eHU.format(new Date()).substring(0, 4).equals(str.substring(0, 4));
     }
 
     public static String o(Date date2) {
         String format;
-        synchronized (ezy) {
-            format = ezy.format(date2);
+        synchronized (eHU) {
+            format = eHU.format(date2);
         }
         return format;
     }
@@ -598,7 +598,7 @@ public class at extends com.baidu.adp.lib.util.k {
         return f2 + "KW";
     }
 
-    public static String cY(long j) {
+    public static String da(long j) {
         if (j <= 0) {
             return "0";
         }
@@ -618,7 +618,7 @@ public class at extends com.baidu.adp.lib.util.k {
         return f + "KW";
     }
 
-    public static String cZ(long j) {
+    public static String db(long j) {
         if (j <= 0) {
             return "0";
         }
@@ -642,7 +642,7 @@ public class at extends com.baidu.adp.lib.util.k {
         }
     }
 
-    public static String da(long j) {
+    public static String dc(long j) {
         if (j <= 0) {
             return "0";
         }
@@ -670,7 +670,7 @@ public class at extends com.baidu.adp.lib.util.k {
         return f + "KW";
     }
 
-    public static String db(long j) {
+    public static String dd(long j) {
         if (j <= 0) {
             return "0";
         }
@@ -742,7 +742,7 @@ public class at extends com.baidu.adp.lib.util.k {
         return "" + j;
     }
 
-    public static String dc(long j) {
+    public static String de(long j) {
         if (j <= 0) {
             return "0";
         }
@@ -765,7 +765,7 @@ public class at extends com.baidu.adp.lib.util.k {
         return ((int) f) + "KW";
     }
 
-    public static String dd(long j) {
+    public static String df(long j) {
         if (j > 99990000) {
             return "9999W+";
         }
@@ -875,7 +875,7 @@ public class at extends com.baidu.adp.lib.util.k {
         return String.valueOf(j);
     }
 
-    public static String v(double d) {
+    public static String w(double d) {
         String format = String.format(Locale.getDefault(), "%.1f", Double.valueOf(d));
         if (format.endsWith(".0")) {
             format = format.substring(0, format.length() - 2);
@@ -1305,18 +1305,18 @@ public class at extends com.baidu.adp.lib.util.k {
         return sb.toString();
     }
 
-    public static boolean Bq(String str) {
+    public static boolean BJ(String str) {
         if (str == null || str.length() == 0) {
             return false;
         }
-        return Br(str) || tI(str);
+        return BK(str) || ub(str);
     }
 
-    public static boolean Br(String str) {
+    public static boolean BK(String str) {
         return str != null && str.length() > 6 && str.substring(0, 7).equalsIgnoreCase("http://");
     }
 
-    public static boolean tI(String str) {
+    public static boolean ub(String str) {
         return str != null && str.length() > 7 && str.substring(0, 8).equalsIgnoreCase(SapiUtils.COOKIE_HTTPS_URL_PREFIX);
     }
 }

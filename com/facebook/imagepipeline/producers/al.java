@@ -1,11 +1,11 @@
 package com.facebook.imagepipeline.producers;
 /* loaded from: classes18.dex */
 public interface al {
-    void dZy();
+    void ejw();
 
-    void edn();
+    void enm();
 
-    void edo();
+    void enn();
 
-    void edp();
+    void eno();
 }

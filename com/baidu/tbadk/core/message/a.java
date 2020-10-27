@@ -85,39 +85,39 @@ public class a {
             if (agreeData.baijiahaoData != null) {
                 i = agreeData.baijiahaoData.oriUgcType;
             }
-            aq dK = new aq("c13271").aj("obj_type", cVar.elf).aj("obj_locate", cVar.elg).aj("obj_id", cVar.elh).aj("obj_name", i).dK("post_id", agreeData.postId).dK("nid", agreeData.nid);
+            aq dR = new aq("c13271").aj("obj_type", cVar.etF).aj("obj_locate", cVar.etG).aj("obj_id", cVar.etH).aj("obj_name", i).dR("post_id", agreeData.postId).dR("nid", agreeData.nid);
             if (bwVar != null) {
-                dK.dK("tid", bwVar.getId()).dK("nid", bwVar.getNid()).u("fid", bwVar.getFid()).dK("ab_tag", bwVar.mRecomAbTag).dK(IntentConfig.RECOM_SOURCE, bwVar.mRecomSource).dK("weight", bwVar.mRecomWeight).dK("extra", bwVar.mRecomExtra);
+                dR.dR("tid", bwVar.getId()).dR("nid", bwVar.getNid()).w("fid", bwVar.getFid()).dR("ab_tag", bwVar.mRecomAbTag).dR(IntentConfig.RECOM_SOURCE, bwVar.mRecomSource).dR("weight", bwVar.mRecomWeight).dR("extra", bwVar.mRecomExtra);
                 if (bwVar.getBaijiahaoData() != null) {
-                    dK.dK("obj_param4", bwVar.getBaijiahaoData().oriUgcNid);
-                    if (bwVar.bgQ() || bwVar.bkd()) {
-                        dK.dK("obj_param6", bwVar.getBaijiahaoData().oriUgcVid);
+                    dR.dR("obj_param4", bwVar.getBaijiahaoData().oriUgcNid);
+                    if (bwVar.biJ() || bwVar.blW()) {
+                        dR.dR("obj_param6", bwVar.getBaijiahaoData().oriUgcVid);
                     }
                 }
-                if (bwVar.bkb()) {
-                    dK.aj("obj_param5", 2);
-                } else if (bwVar.bgP() || bwVar.bgQ()) {
-                    dK.aj("obj_param5", 3);
+                if (bwVar.blU()) {
+                    dR.aj("obj_param5", 2);
+                } else if (bwVar.biI() || bwVar.biJ()) {
+                    dR.aj("obj_param5", 3);
                 } else if (bwVar.threadType == 0 || bwVar.threadType == 40) {
-                    dK.aj("obj_param5", 1);
+                    dR.aj("obj_param5", 1);
                 }
             } else {
-                dK.dK("tid", agreeData.threadId);
-                dK.dK("nid", agreeData.nid);
-                dK.dK("fid", agreeData.forumId);
-                dK.aj(IntentConfig.CARD_TYPE, agreeData.cardType);
-                dK.dK("ab_tag", agreeData.recomAbTag);
-                dK.dK(IntentConfig.RECOM_SOURCE, agreeData.recomSource);
-                dK.dK("weight", agreeData.recomWeight);
-                dK.dK("extra", agreeData.recomExtra);
+                dR.dR("tid", agreeData.threadId);
+                dR.dR("nid", agreeData.nid);
+                dR.dR("fid", agreeData.forumId);
+                dR.aj(IntentConfig.CARD_TYPE, agreeData.cardType);
+                dR.dR("ab_tag", agreeData.recomAbTag);
+                dR.dR(IntentConfig.RECOM_SOURCE, agreeData.recomSource);
+                dR.dR("weight", agreeData.recomWeight);
+                dR.dR("extra", agreeData.recomExtra);
                 if (agreeData.baijiahaoData != null) {
-                    dK.dK("obj_param6", agreeData.baijiahaoData.oriUgcVid);
+                    dR.dR("obj_param6", agreeData.baijiahaoData.oriUgcVid);
                 }
             }
             if (context != null) {
-                com.baidu.tbadk.pageInfo.c.a(context, dK);
+                com.baidu.tbadk.pageInfo.c.a(context, dR);
             }
-            TiebaStatic.log(dK);
+            TiebaStatic.log(dR);
         }
     }
 }

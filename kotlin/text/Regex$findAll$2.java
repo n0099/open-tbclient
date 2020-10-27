@@ -31,6 +31,6 @@ final class Regex$findAll$2 extends FunctionReference implements kotlin.jvm.a.b<
     @Override // kotlin.jvm.a.b
     public final i invoke(i iVar) {
         kotlin.jvm.internal.q.n(iVar, ZeusPerformanceTiming.KEY_BROWSER_STARTUP);
-        return iVar.eoy();
+        return iVar.eyw();
     }
 }

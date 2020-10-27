@@ -1,25 +1,27 @@
 package master.flame.danmaku.danmaku.model;
 /* loaded from: classes6.dex */
 public interface m {
+    void AQ(boolean z);
+
     void a(float f, int i, float f2);
 
     void b(int i, float[] fArr);
 
     void b(d dVar, boolean z);
 
-    void bd(float f);
+    void bu(float f);
 
     void c(d dVar, boolean z);
 
-    float epN();
+    float ezL();
 
-    int epO();
+    int ezM();
 
-    int epP();
+    int ezN();
 
-    int epQ();
+    int ezO();
 
-    int epR();
+    int ezP();
 
     float getDensity();
 
@@ -38,6 +40,4 @@ public interface m {
     void o(d dVar);
 
     void setSize(int i, int i2);
-
-    void zI(boolean z);
 }

@@ -14,12 +14,12 @@ import java.util.concurrent.locks.ReentrantLock;
 /* loaded from: classes17.dex */
 public final class BlockingFlowableIterable<T> implements Iterable<T> {
     final int bufferSize;
-    final io.reactivex.g<T> oLT;
+    final io.reactivex.g<T> pDq;
 
     @Override // java.lang.Iterable
     public Iterator<T> iterator() {
         BlockingFlowableIterator blockingFlowableIterator = new BlockingFlowableIterator(this.bufferSize);
-        this.oLT.a((j) blockingFlowableIterator);
+        this.pDq.a((j) blockingFlowableIterator);
         return blockingFlowableIterator;
     }
 
@@ -56,7 +56,7 @@ public final class BlockingFlowableIterable<T> implements Iterable<T> {
                     }
                 }
                 if (isEmpty) {
-                    io.reactivex.internal.util.c.enk();
+                    io.reactivex.internal.util.c.exj();
                     this.lock.lock();
                     while (!this.done && this.queue.isEmpty()) {
                         try {

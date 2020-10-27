@@ -12,18 +12,18 @@ import java.util.List;
 /* loaded from: classes21.dex */
 public class HotTopicListActivity extends BaseActivity<HotTopicListActivity> implements b {
     private String callFrom = "";
-    private List<q> kQA;
-    private HotTopicListModel kQy;
-    private HotTopicListView kQz;
+    private HotTopicListModel lcW;
+    private HotTopicListView lcX;
+    private List<q> lcY;
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
         as(bundle);
-        this.kQy = new HotTopicListModel(getPageContext(), this);
-        this.kQz = new HotTopicListView(getPageContext(), this, bundle);
-        setContentView(this.kQz);
+        this.lcW = new HotTopicListModel(getPageContext(), this);
+        this.lcX = new HotTopicListView(getPageContext(), this, bundle);
+        setContentView(this.lcX);
         setIsAddSwipeBackLayout(false);
         addGlobalLayoutListener();
         adjustResizeForSoftInput();
@@ -34,7 +34,7 @@ public class HotTopicListActivity extends BaseActivity<HotTopicListActivity> imp
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onResume() {
         super.onResume();
-        TiebaStatic.log(new aq("c13741").dK("uid", TbadkCoreApplication.getCurrentAccount()));
+        TiebaStatic.log(new aq("c13741").dR("uid", TbadkCoreApplication.getCurrentAccount()));
     }
 
     private void as(Bundle bundle) {
@@ -48,42 +48,42 @@ public class HotTopicListActivity extends BaseActivity<HotTopicListActivity> imp
 
     @Override // com.baidu.tieba.newlist.b
     public void loadData() {
-        boolean LoadData = this.kQy.LoadData();
-        if (y.isEmpty(this.kQA)) {
+        boolean LoadData = this.lcW.LoadData();
+        if (y.isEmpty(this.lcY)) {
             if (LoadData) {
-                this.kQz.showLoadingView();
-                this.kQz.SK();
+                this.lcX.showLoadingView();
+                this.lcX.TK();
                 return;
             }
-            this.kQz.hideLoadingView();
-            this.kQz.ox(false);
+            this.lcX.hideLoadingView();
+            this.lcX.oP(false);
         } else if (!LoadData) {
-            this.kQz.hideLoadingView();
-            this.kQz.bKf();
+            this.lcX.hideLoadingView();
+            this.lcX.bMH();
         }
     }
 
     @Override // com.baidu.tieba.newlist.b
     public void o(int i, List<q> list) {
-        this.kQz.hideLoadingView();
-        this.kQz.bKf();
+        this.lcX.hideLoadingView();
+        this.lcX.bMH();
         if (i != 0 || y.isEmpty(list)) {
-            if (y.isEmpty(this.kQA)) {
-                this.kQz.ox(false);
+            if (y.isEmpty(this.lcY)) {
+                this.lcX.oP(false);
                 return;
             }
             return;
         }
-        this.kQz.setData(list);
-        this.kQz.SJ();
-        this.kQA = list;
+        this.lcX.setData(list);
+        this.lcX.TJ();
+        this.lcY = list;
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.BaseActivity
     public void onChangeSkinType(int i) {
         super.onChangeSkinType(i);
-        this.kQz.onChangeSkinType();
+        this.lcX.onChangeSkinType();
     }
 
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.tbadk.m.a

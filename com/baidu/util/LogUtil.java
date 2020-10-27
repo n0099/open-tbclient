@@ -6,7 +6,7 @@ import android.util.Log;
 public class LogUtil {
 
     /* renamed from: a  reason: collision with root package name */
-    private static LogUtil f3896a;
+    private static LogUtil f3894a;
     private static Boolean c = false;
     private Context b;
 
@@ -17,10 +17,10 @@ public class LogUtil {
     public static synchronized LogUtil getInstance(Context context) {
         LogUtil logUtil;
         synchronized (LogUtil.class) {
-            if (f3896a == null) {
-                f3896a = new LogUtil(context);
+            if (f3894a == null) {
+                f3894a = new LogUtil(context);
             }
-            logUtil = f3896a;
+            logUtil = f3894a;
         }
         return logUtil;
     }

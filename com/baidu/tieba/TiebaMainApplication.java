@@ -12,7 +12,7 @@ public class TiebaMainApplication extends TbadkApplication {
     public void attachBaseContext(Context context) {
         long currentTimeMillis = System.currentTimeMillis();
         super.attachBaseContext(context);
-        n.byh().dk(currentTimeMillis);
+        n.bAa().dm(currentTimeMillis);
     }
 
     @Override // com.baidu.tbadk.TbadkApplication, com.baidu.tbadk.core.TbadkCoreApplication, android.app.Application
@@ -27,6 +27,6 @@ public class TiebaMainApplication extends TbadkApplication {
         } else {
             TiebaStatic.log(new aq("c13616").aj("obj_type", 2));
         }
-        n.byh().dl(System.currentTimeMillis());
+        n.bAa().dn(System.currentTimeMillis());
     }
 }

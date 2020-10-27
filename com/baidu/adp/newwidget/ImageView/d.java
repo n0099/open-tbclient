@@ -3,7 +3,7 @@ package com.baidu.adp.newwidget.ImageView;
 import android.graphics.drawable.BitmapDrawable;
 /* loaded from: classes.dex */
 public class d {
-    public com.baidu.adp.widget.ImageView.a RC;
+    public com.baidu.adp.widget.ImageView.a RD;
     public BitmapDrawable drawable;
     public volatile boolean isDefault = true;
 
@@ -12,7 +12,7 @@ public class d {
     }
 
     public boolean isBdImgAvailable() {
-        return this.RC != null && this.RC.isValidNow();
+        return this.RD != null && this.RD.isValidNow();
     }
 
     public boolean isAvailable() {
@@ -24,7 +24,7 @@ public class d {
             return this.drawable.getIntrinsicWidth();
         }
         if (isBdImgAvailable()) {
-            return this.RC.getWidth();
+            return this.RD.getWidth();
         }
         return 0;
     }
@@ -34,13 +34,13 @@ public class d {
             return this.drawable.getIntrinsicHeight();
         }
         if (isBdImgAvailable()) {
-            return this.RC.getHeight();
+            return this.RD.getHeight();
         }
         return 0;
     }
 
     public void reset() {
-        this.RC = null;
+        this.RD = null;
         this.drawable = null;
     }
 }

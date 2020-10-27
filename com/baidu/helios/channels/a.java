@@ -9,7 +9,7 @@ import java.util.Comparator;
 import org.json.JSONObject;
 /* loaded from: classes8.dex */
 public abstract class a {
-    public static Comparator<a> axb = new Comparator<a>() { // from class: com.baidu.helios.channels.a.1
+    public static Comparator<a> axc = new Comparator<a>() { // from class: com.baidu.helios.channels.a.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // java.util.Comparator
         /* renamed from: a */
@@ -18,8 +18,8 @@ public abstract class a {
             return priority != 0 ? priority > 0 ? -1 : 1 : aVar.getName().compareTo(aVar2.getName());
         }
     };
-    protected C0148a awZ;
-    protected a.C0153a axa;
+    protected C0148a axa;
+    protected a.C0153a axb;
     private final String b;
     private long c;
 
@@ -27,25 +27,25 @@ public abstract class a {
     /* loaded from: classes8.dex */
     public static class C0148a {
         public Context applicationContext;
-        public com.baidu.helios.common.c.a axc;
-        public com.baidu.helios.ids.b axd;
+        public com.baidu.helios.common.c.a axd;
+        public com.baidu.helios.ids.b axe;
     }
 
     /* loaded from: classes8.dex */
     public static abstract class b {
-        private a.C0153a awJ;
+        private a.C0153a awK;
         private String b;
         private String c;
         private boolean d = true;
 
         public b(a.C0153a c0153a, String str) {
-            this.awJ = c0153a;
+            this.awK = c0153a;
             this.b = str;
             this.c = "target-pkg-" + Base64.encodeToString(str.getBytes(), 3);
         }
 
         public boolean Ah() {
-            String q = this.awJ.q(this.c, true);
+            String q = this.awK.q(this.c, true);
             if (!TextUtils.isEmpty(q)) {
                 try {
                     p(new JSONObject(q));
@@ -62,7 +62,7 @@ public abstract class a {
                 try {
                     JSONObject jSONObject = new JSONObject();
                     q(jSONObject);
-                    this.awJ.d(this.c, jSONObject.toString(), true);
+                    this.awK.d(this.c, jSONObject.toString(), true);
                     aW(false);
                     return true;
                 } catch (Exception e) {
@@ -167,8 +167,8 @@ public abstract class a {
     public abstract g a(String str, f fVar);
 
     public final void a(C0148a c0148a) {
-        this.awZ = c0148a;
-        this.axa = c0148a.axc.AD().fD(IXAdRequestInfo.CS);
+        this.axa = c0148a;
+        this.axb = c0148a.axd.AD().fD(IXAdRequestInfo.CS);
     }
 
     public abstract void a(c cVar);

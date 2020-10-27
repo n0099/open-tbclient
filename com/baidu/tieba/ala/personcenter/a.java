@@ -11,10 +11,10 @@ import com.baidu.tieba.R;
 import com.baidu.tieba.frs.am;
 /* loaded from: classes4.dex */
 public class a extends b {
-    private AlaPersonCenterFragment hlx = new AlaPersonCenterFragment();
+    private AlaPersonCenterFragment hxs = new AlaPersonCenterFragment();
 
     public a() {
-        getFragmentTabStructure().frag = this.hlx;
+        getFragmentTabStructure().frag = this.hxs;
     }
 
     @Override // com.baidu.tbadk.mainTab.b
@@ -32,7 +32,7 @@ public class a extends b {
     }
 
     public void a(am amVar) {
-        if (amVar != null && amVar.yC(5)) {
+        if (amVar != null && amVar.yV(5)) {
             amVar.b(this);
         }
     }
@@ -45,26 +45,26 @@ public class a extends b {
     }
 
     public void setForumId(String str) {
-        if (this.hlx != null) {
-            this.hlx.setForumId(str);
+        if (this.hxs != null) {
+            this.hxs.setForumId(str);
         }
     }
 
     public void setForumName(String str) {
-        if (this.hlx != null) {
-            this.hlx.setForumName(str);
+        if (this.hxs != null) {
+            this.hxs.setForumName(str);
         }
     }
 
     public void setForumGameLabel(String str) {
-        if (this.hlx != null) {
-            this.hlx.setForumGameLabel(str);
+        if (this.hxs != null) {
+            this.hxs.setForumGameLabel(str);
         }
     }
 
-    public void HQ(String str) {
-        if (this.hlx != null) {
-            this.hlx.HQ(str);
+    public void Ip(String str) {
+        if (this.hxs != null) {
+            this.hxs.Ip(str);
         }
     }
 }

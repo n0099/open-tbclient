@@ -11,19 +11,19 @@ import java.util.List;
 /* loaded from: classes17.dex */
 public class AndroidCertVerifyResult {
     private final int mStatus;
-    private final boolean nzL;
-    private final List<X509Certificate> nzM;
+    private final boolean ocl;
+    private final List<X509Certificate> ocm;
 
     public AndroidCertVerifyResult(int i, boolean z, List<X509Certificate> list) {
         this.mStatus = i;
-        this.nzL = z;
-        this.nzM = new ArrayList(list);
+        this.ocl = z;
+        this.ocm = new ArrayList(list);
     }
 
     public AndroidCertVerifyResult(int i) {
         this.mStatus = i;
-        this.nzL = false;
-        this.nzM = Collections.emptyList();
+        this.ocl = false;
+        this.ocm = Collections.emptyList();
     }
 
     @CalledByNative
@@ -33,15 +33,15 @@ public class AndroidCertVerifyResult {
 
     @CalledByNative
     public boolean isIssuedByKnownRoot() {
-        return this.nzL;
+        return this.ocl;
     }
 
     @CalledByNative
     public byte[][] getCertificateChainEncoded() {
-        byte[][] bArr = new byte[this.nzM.size()];
-        for (int i = 0; i < this.nzM.size(); i++) {
+        byte[][] bArr = new byte[this.ocm.size()];
+        for (int i = 0; i < this.ocm.size(); i++) {
             try {
-                bArr[i] = this.nzM.get(i).getEncoded();
+                bArr[i] = this.ocm.get(i).getEncoded();
             } catch (CertificateEncodingException e) {
                 return new byte[0];
             }

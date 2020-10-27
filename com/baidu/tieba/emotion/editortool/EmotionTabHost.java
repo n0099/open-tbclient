@@ -25,34 +25,34 @@ import java.util.ArrayList;
 import java.util.Iterator;
 /* loaded from: classes13.dex */
 public class EmotionTabHost extends NoPressedLinearLayout implements n, EmotionTabContentView.b, EmotionTabWidgetView.a {
-    private EditorTools abj;
-    private int abk;
-    private int ajp;
-    private CustomMessageListener eiR;
-    private EmotionTabContentView hOJ;
-    private EmotionTabWidgetView hOK;
-    private View hOL;
-    private ArrayList<com.baidu.tbadk.editortools.emotiontool.c> hOM;
-    private ArrayList<com.baidu.tbadk.editortools.emotiontool.c> hON;
-    private String hOO;
-    private boolean hOP;
-    private boolean hOQ;
-    private int hOR;
-    private CustomMessageListener hOS;
+    private EditorTools abk;
+    private int abl;
+    private int ajq;
+    private CustomMessageListener erp;
+    private EmotionTabContentView ibg;
+    private EmotionTabWidgetView ibh;
+    private View ibi;
+    private ArrayList<com.baidu.tbadk.editortools.emotiontool.c> ibj;
+    private ArrayList<com.baidu.tbadk.editortools.emotiontool.c> ibk;
+    private String ibl;
+    private boolean ibm;
+    private boolean ibn;
+    private int ibo;
+    private CustomMessageListener ibp;
     private int mCurrentIndex;
 
     public EmotionTabHost(Context context) {
         super(context);
-        this.hOM = new ArrayList<>();
-        this.hON = new ArrayList<>();
+        this.ibj = new ArrayList<>();
+        this.ibk = new ArrayList<>();
         this.mCurrentIndex = -1;
-        this.hOO = null;
-        this.ajp = -1;
-        this.hOP = true;
-        this.hOQ = true;
-        this.hOR = 0;
-        this.abk = 0;
-        this.eiR = new CustomMessageListener(CmdConfigCustom.CMD_EMOTIONS_GROUP_CHANGED) { // from class: com.baidu.tieba.emotion.editortool.EmotionTabHost.1
+        this.ibl = null;
+        this.ajq = -1;
+        this.ibm = true;
+        this.ibn = true;
+        this.ibo = 0;
+        this.abl = 0;
+        this.erp = new CustomMessageListener(CmdConfigCustom.CMD_EMOTIONS_GROUP_CHANGED) { // from class: com.baidu.tieba.emotion.editortool.EmotionTabHost.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.adp.framework.listener.MessageListener
             public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
@@ -66,16 +66,16 @@ public class EmotionTabHost extends NoPressedLinearLayout implements n, EmotionT
                 }
             }
         };
-        this.hOS = new CustomMessageListener(CmdConfigCustom.CMD_SHOW_EMOTION_USER_CONNECTION_TOOL) { // from class: com.baidu.tieba.emotion.editortool.EmotionTabHost.2
+        this.ibp = new CustomMessageListener(CmdConfigCustom.CMD_SHOW_EMOTION_USER_CONNECTION_TOOL) { // from class: com.baidu.tieba.emotion.editortool.EmotionTabHost.2
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.adp.framework.listener.MessageListener
             public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-                if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2921304 && EmotionTabHost.this.hOM.size() >= 0) {
+                if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2921304 && EmotionTabHost.this.ibj.size() >= 0) {
                     int i = 0;
                     while (true) {
                         int i2 = i;
-                        if (i2 < EmotionTabHost.this.hOM.size()) {
-                            if (((com.baidu.tbadk.editortools.emotiontool.c) EmotionTabHost.this.hOM.get(i2)).bvz() != EmotionGroupType.USER_COLLECT) {
+                        if (i2 < EmotionTabHost.this.ibj.size()) {
+                            if (((com.baidu.tbadk.editortools.emotiontool.c) EmotionTabHost.this.ibj.get(i2)).bxs() != EmotionGroupType.USER_COLLECT) {
                                 i = i2 + 1;
                             } else {
                                 EmotionTabHost.this.setCurrentEmotionGroup(i2);
@@ -93,16 +93,16 @@ public class EmotionTabHost extends NoPressedLinearLayout implements n, EmotionT
 
     public EmotionTabHost(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.hOM = new ArrayList<>();
-        this.hON = new ArrayList<>();
+        this.ibj = new ArrayList<>();
+        this.ibk = new ArrayList<>();
         this.mCurrentIndex = -1;
-        this.hOO = null;
-        this.ajp = -1;
-        this.hOP = true;
-        this.hOQ = true;
-        this.hOR = 0;
-        this.abk = 0;
-        this.eiR = new CustomMessageListener(CmdConfigCustom.CMD_EMOTIONS_GROUP_CHANGED) { // from class: com.baidu.tieba.emotion.editortool.EmotionTabHost.1
+        this.ibl = null;
+        this.ajq = -1;
+        this.ibm = true;
+        this.ibn = true;
+        this.ibo = 0;
+        this.abl = 0;
+        this.erp = new CustomMessageListener(CmdConfigCustom.CMD_EMOTIONS_GROUP_CHANGED) { // from class: com.baidu.tieba.emotion.editortool.EmotionTabHost.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.adp.framework.listener.MessageListener
             public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
@@ -116,16 +116,16 @@ public class EmotionTabHost extends NoPressedLinearLayout implements n, EmotionT
                 }
             }
         };
-        this.hOS = new CustomMessageListener(CmdConfigCustom.CMD_SHOW_EMOTION_USER_CONNECTION_TOOL) { // from class: com.baidu.tieba.emotion.editortool.EmotionTabHost.2
+        this.ibp = new CustomMessageListener(CmdConfigCustom.CMD_SHOW_EMOTION_USER_CONNECTION_TOOL) { // from class: com.baidu.tieba.emotion.editortool.EmotionTabHost.2
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.adp.framework.listener.MessageListener
             public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-                if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2921304 && EmotionTabHost.this.hOM.size() >= 0) {
+                if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2921304 && EmotionTabHost.this.ibj.size() >= 0) {
                     int i = 0;
                     while (true) {
                         int i2 = i;
-                        if (i2 < EmotionTabHost.this.hOM.size()) {
-                            if (((com.baidu.tbadk.editortools.emotiontool.c) EmotionTabHost.this.hOM.get(i2)).bvz() != EmotionGroupType.USER_COLLECT) {
+                        if (i2 < EmotionTabHost.this.ibj.size()) {
+                            if (((com.baidu.tbadk.editortools.emotiontool.c) EmotionTabHost.this.ibj.get(i2)).bxs() != EmotionGroupType.USER_COLLECT) {
                                 i = i2 + 1;
                             } else {
                                 EmotionTabHost.this.setCurrentEmotionGroup(i2);
@@ -144,14 +144,14 @@ public class EmotionTabHost extends NoPressedLinearLayout implements n, EmotionT
     private void init(Context context) {
         removeAllViews();
         LayoutInflater.from(context).inflate(R.layout.emotion_tab_host, (ViewGroup) this, true);
-        this.hOJ = (EmotionTabContentView) findViewById(R.id.face_tab_content);
-        this.hOK = (EmotionTabWidgetView) findViewById(R.id.face_tab_widget);
-        this.hOL = findViewById(R.id.emotion_tab_widget_div_line);
-        this.hOK.setOnTabSelectedListener(this);
-        this.hOJ.setOnEmotionSwitchedListener(this);
+        this.ibg = (EmotionTabContentView) findViewById(R.id.face_tab_content);
+        this.ibh = (EmotionTabWidgetView) findViewById(R.id.face_tab_widget);
+        this.ibi = findViewById(R.id.emotion_tab_widget_div_line);
+        this.ibh.setOnTabSelectedListener(this);
+        this.ibg.setOnEmotionSwitchedListener(this);
         setOrientation(1);
-        this.ajp = TbadkCoreApplication.getInst().getSkinType();
-        onChangeSkinType(this.ajp);
+        this.ajq = TbadkCoreApplication.getInst().getSkinType();
+        onChangeSkinType(this.ajq);
     }
 
     @Override // android.view.ViewGroup
@@ -161,22 +161,22 @@ public class EmotionTabHost extends NoPressedLinearLayout implements n, EmotionT
     }
 
     public void setFrom(int i) {
-        if (this.hOK != null) {
-            this.hOK.setFrom(i);
+        if (this.ibh != null) {
+            this.ibh.setFrom(i);
         }
     }
 
     public void setShowUserCollect(boolean z) {
-        this.hOQ = z;
+        this.ibn = z;
     }
 
-    private ArrayList<com.baidu.tbadk.editortools.emotiontool.c> ckQ() {
+    private ArrayList<com.baidu.tbadk.editortools.emotiontool.c> cnX() {
         ArrayList<com.baidu.tbadk.editortools.emotiontool.c> arrayList = new ArrayList<>();
-        Iterator<com.baidu.tbadk.editortools.emotiontool.c> it = e.cla().clc().iterator();
+        Iterator<com.baidu.tbadk.editortools.emotiontool.c> it = e.coh().coj().iterator();
         while (it.hasNext()) {
             com.baidu.tbadk.editortools.emotiontool.c next = it.next();
-            if (next.bvz() != EmotionGroupType.BIG_EMOTION || this.hOP) {
-                if (next.bvz() != EmotionGroupType.USER_COLLECT || this.hOQ) {
+            if (next.bxs() != EmotionGroupType.BIG_EMOTION || this.ibm) {
+                if (next.bxs() != EmotionGroupType.USER_COLLECT || this.ibn) {
                     arrayList.add(next);
                 }
             }
@@ -186,18 +186,18 @@ public class EmotionTabHost extends NoPressedLinearLayout implements n, EmotionT
 
     /* JADX INFO: Access modifiers changed from: private */
     public void setup() {
-        this.hOM = e.cla().clc();
-        if (!this.hOP || !this.hOQ) {
-            this.hON = ckQ();
-            if (!this.hOQ && this.hOM != null) {
-                this.hOM = new ArrayList<>(e.cla().clc());
+        this.ibj = e.coh().coj();
+        if (!this.ibm || !this.ibn) {
+            this.ibk = cnX();
+            if (!this.ibn && this.ibj != null) {
+                this.ibj = new ArrayList<>(e.coh().coj());
                 int i = 0;
                 while (true) {
-                    if (i < this.hOM.size()) {
-                        if (this.hOM.get(i).bvz() != EmotionGroupType.USER_COLLECT) {
+                    if (i < this.ibj.size()) {
+                        if (this.ibj.get(i).bxs() != EmotionGroupType.USER_COLLECT) {
                             i++;
                         } else {
-                            this.hOM.remove(i);
+                            this.ibj.remove(i);
                             break;
                         }
                     } else {
@@ -206,19 +206,19 @@ public class EmotionTabHost extends NoPressedLinearLayout implements n, EmotionT
                 }
             }
         } else {
-            this.hON = e.cla().clc();
+            this.ibk = e.coh().coj();
         }
-        if ((this.hOM == null || this.hOM.size() <= 0) && this.hOR < 3) {
-            this.hOR++;
-            e.cla().clb();
+        if ((this.ibj == null || this.ibj.size() <= 0) && this.ibo < 3) {
+            this.ibo++;
+            e.coh().coi();
             return;
         }
-        this.hOK.setDatas(this.hOM);
-        int size = this.hOM.size();
+        this.ibh.setDatas(this.ibj);
+        int size = this.ibj.size();
         int i2 = 0;
         for (int i3 = 0; i3 < size; i3++) {
-            com.baidu.tbadk.editortools.emotiontool.c cVar = this.hOM.get(i3);
-            if (this.hOO != null && this.hOO.equals(cVar.getGroupId())) {
+            com.baidu.tbadk.editortools.emotiontool.c cVar = this.ibj.get(i3);
+            if (this.ibl != null && this.ibl.equals(cVar.getGroupId())) {
                 i2 = i3;
             }
             d(cVar);
@@ -229,70 +229,70 @@ public class EmotionTabHost extends NoPressedLinearLayout implements n, EmotionT
     @Override // android.view.ViewGroup, android.view.View
     protected void onAttachedToWindow() {
         super.onAttachedToWindow();
-        MessageManager.getInstance().registerListener(this.eiR);
-        MessageManager.getInstance().registerListener(this.hOS);
+        MessageManager.getInstance().registerListener(this.erp);
+        MessageManager.getInstance().registerListener(this.ibp);
     }
 
     @Override // android.view.ViewGroup, android.view.View
     protected void onDetachedFromWindow() {
         super.onDetachedFromWindow();
-        MessageManager.getInstance().unRegisterListener(this.eiR);
-        MessageManager.getInstance().unRegisterListener(this.hOS);
+        MessageManager.getInstance().unRegisterListener(this.erp);
+        MessageManager.getInstance().unRegisterListener(this.ibp);
     }
 
     @Override // android.view.View
     public void setVisibility(int i) {
         super.setVisibility(i);
         int skinType = TbadkCoreApplication.getInst().getSkinType();
-        if (skinType != this.ajp) {
-            this.ajp = skinType;
-            onChangeSkinType(this.ajp);
+        if (skinType != this.ajq) {
+            this.ajq = skinType;
+            onChangeSkinType(this.ajq);
         }
     }
 
     private void d(com.baidu.tbadk.editortools.emotiontool.c cVar) {
-        this.hOK.c(cVar);
+        this.ibh.c(cVar);
     }
 
     public void setCurrentEmotionGroup(int i) {
-        if (i >= 0 && i < this.hON.size() && i != this.mCurrentIndex) {
-            this.hOJ.g(this.hON, i);
-            this.hOK.setCurrentTab(i);
+        if (i >= 0 && i < this.ibk.size() && i != this.mCurrentIndex) {
+            this.ibg.g(this.ibk, i);
+            this.ibh.setCurrentTab(i);
             this.mCurrentIndex = i;
-            this.hOO = this.hON.get(i).getGroupId();
+            this.ibl = this.ibk.get(i).getGroupId();
         }
     }
 
     public void reset() {
         this.mCurrentIndex = -1;
-        this.hOM.clear();
-        this.hOJ.reset();
-        this.hOK.reset();
+        this.ibj.clear();
+        this.ibg.reset();
+        this.ibh.reset();
     }
 
     public void setShowBigEmotion(boolean z) {
-        this.hOP = z;
+        this.ibm = z;
     }
 
     @Override // com.baidu.tieba.emotion.editortool.EmotionTabWidgetView.a
-    public void rd(int i) {
-        if (i >= 0 && i < this.hOM.size() && i != this.mCurrentIndex && this.hOJ != null) {
-            this.hOJ.wP(i);
+    public void ro(int i) {
+        if (i >= 0 && i < this.ibj.size() && i != this.mCurrentIndex && this.ibg != null) {
+            this.ibg.xi(i);
             this.mCurrentIndex = i;
         }
     }
 
     @Override // com.baidu.tbadk.editortools.n
     public void onChangeSkinType(int i) {
-        this.hOK.onChangeSkinType(i);
-        this.hOJ.onChangeSkinType(i);
-        ap.setBackgroundColor(this.hOL, R.color.common_color_10288, i);
+        this.ibh.onChangeSkinType(i);
+        this.ibg.onChangeSkinType(i);
+        ap.setBackgroundColor(this.ibi, R.color.common_color_10288, i);
     }
 
     @Override // com.baidu.tieba.emotion.editortool.EmotionTabContentView.b
-    public void wQ(int i) {
-        if (this.hOK != null && i != this.mCurrentIndex) {
-            this.hOK.setCurrentTab(i);
+    public void xj(int i) {
+        if (this.ibh != null && i != this.mCurrentIndex) {
+            this.ibh.setCurrentTab(i);
             this.mCurrentIndex = i;
         }
     }
@@ -316,14 +316,14 @@ public class EmotionTabHost extends NoPressedLinearLayout implements n, EmotionT
                         setShowBigEmotion(booleanValue);
                         if (!booleanValue) {
                             ArrayList arrayList = new ArrayList();
-                            Iterator<com.baidu.tbadk.editortools.emotiontool.c> it = this.hON.iterator();
+                            Iterator<com.baidu.tbadk.editortools.emotiontool.c> it = this.ibk.iterator();
                             while (it.hasNext()) {
                                 com.baidu.tbadk.editortools.emotiontool.c next = it.next();
-                                if (next != null && next.bvy()) {
+                                if (next != null && next.bxr()) {
                                     arrayList.add(next);
                                 }
                             }
-                            this.hOJ.g(arrayList, 0);
+                            this.ibg.g(arrayList, 0);
                             return;
                         }
                         return;
@@ -337,26 +337,26 @@ public class EmotionTabHost extends NoPressedLinearLayout implements n, EmotionT
 
     @Override // com.baidu.tbadk.editortools.n
     public void setEditorTools(EditorTools editorTools) {
-        this.abj = editorTools;
-        this.hOJ.setOnDataSelected(editorTools);
-        this.hOK.setOnDataSelected(editorTools);
+        this.abk = editorTools;
+        this.ibg.setOnDataSelected(editorTools);
+        this.ibh.setOnDataSelected(editorTools);
     }
 
     @Override // com.baidu.tbadk.editortools.n
     public void b(com.baidu.tbadk.editortools.a aVar) {
-        if (this.abj != null) {
-            this.abj.b(aVar);
+        if (this.abk != null) {
+            this.abk.b(aVar);
         }
     }
 
     @Override // com.baidu.tbadk.editortools.n
     public void setToolId(int i) {
-        this.abk = i;
+        this.abl = i;
     }
 
     @Override // com.baidu.tbadk.editortools.n
     public int getToolId() {
-        return this.abk;
+        return this.abl;
     }
 
     @Override // com.baidu.tbadk.editortools.n
@@ -366,12 +366,12 @@ public class EmotionTabHost extends NoPressedLinearLayout implements n, EmotionT
 
     @Override // com.baidu.tbadk.editortools.n
     public void display() {
-        if (this.hOK != null) {
-            int size = this.hOM.size();
+        if (this.ibh != null) {
+            int size = this.ibj.size();
             for (int i = 0; i < size; i++) {
-                this.hOK.setTabWidgetVisibility(i, this.hOP);
+                this.ibh.setTabWidgetVisibility(i, this.ibm);
             }
-            this.hOK.setTabWidgetBigEmontionVisibility(this.hOP);
+            this.ibh.setTabWidgetBigEmontionVisibility(this.ibm);
         }
         setVisibility(0);
     }

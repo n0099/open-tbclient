@@ -14,29 +14,29 @@ import org.json.JSONObject;
 public abstract class b implements com.baidu.swan.apps.component.b.a.a {
     protected static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
     @NonNull
-    public String cpo;
+    public String cxQ;
     @Nullable
-    public com.baidu.swan.apps.model.a.a.a cpt;
-    private String cpv;
-    public String cpp = "";
-    public String cpq = "";
-    public String cpr = "";
+    public com.baidu.swan.apps.model.a.a.a cxV;
+    private String cxW;
+    public String cxR = "";
+    public String cxS = "";
+    public String cxT = "";
     public String callback = "";
     public boolean hidden = false;
-    public boolean cps = false;
+    public boolean cxU = false;
 
     public b(@NonNull String str, @NonNull String str2) {
-        this.cpo = "unknown";
-        this.cpv = "id";
+        this.cxQ = "unknown";
+        this.cxW = "id";
         if (!TextUtils.isEmpty(str)) {
-            this.cpo = str;
+            this.cxQ = str;
         } else {
-            com.baidu.swan.apps.component.e.a.bf("Component-Model-Base", "component type is empty");
+            com.baidu.swan.apps.component.e.a.bm("Component-Model-Base", "component type is empty");
         }
         if (!TextUtils.isEmpty(str2)) {
-            this.cpv = str2;
+            this.cxW = str2;
         } else {
-            com.baidu.swan.apps.component.e.a.bf("Component-Model-Base", "component id key is empty");
+            com.baidu.swan.apps.component.e.a.bm("Component-Model-Base", "component id key is empty");
         }
     }
 
@@ -44,10 +44,10 @@ public abstract class b implements com.baidu.swan.apps.component.b.a.a {
     @CallSuper
     public Object clone() throws CloneNotSupportedException {
         b bVar = (b) super.clone();
-        if (this.cpt != null) {
-            bVar.cpt = (com.baidu.swan.apps.model.a.a.a) this.cpt.clone();
+        if (this.cxV != null) {
+            bVar.cxV = (com.baidu.swan.apps.model.a.a.a) this.cxV.clone();
         } else {
-            bVar.cpt = null;
+            bVar.cxV = null;
         }
         return bVar;
     }
@@ -56,90 +56,90 @@ public abstract class b implements com.baidu.swan.apps.component.b.a.a {
     @CallSuper
     public void parseFromJson(JSONObject jSONObject) throws JSONException {
         if (jSONObject != null) {
-            this.cpp = jSONObject.optString(this.cpv);
-            if (TextUtils.isEmpty(this.cpp)) {
-                com.baidu.swan.apps.console.c.e("Component-Model-Base", this.cpo + " component componentId is empty");
+            this.cxR = jSONObject.optString(this.cxW);
+            if (TextUtils.isEmpty(this.cxR)) {
+                com.baidu.swan.apps.console.c.e("Component-Model-Base", this.cxQ + " component componentId is empty");
             }
-            this.cpq = jSONObject.optString("slaveId");
-            if (TextUtils.isEmpty(this.cpq)) {
-                com.baidu.swan.apps.console.c.e("Component-Model-Base", this.cpo + " component slaveId is empty");
+            this.cxS = jSONObject.optString("slaveId");
+            if (TextUtils.isEmpty(this.cxS)) {
+                com.baidu.swan.apps.console.c.e("Component-Model-Base", this.cxQ + " component slaveId is empty");
             }
-            this.cpr = jSONObject.optString("parentId");
+            this.cxT = jSONObject.optString("parentId");
             this.callback = jSONObject.optString("cb");
             this.hidden = jSONObject.optBoolean("hide", false);
-            this.cps = TextUtils.equals(jSONObject.optString(AppFrameworkConstants.VALUE_GESTURE_BACK), "1");
-            aT(jSONObject);
+            this.cxU = TextUtils.equals(jSONObject.optString(AppFrameworkConstants.VALUE_GESTURE_BACK), "1");
+            aW(jSONObject);
         }
     }
 
     public final void a(JSONObject jSONObject, @NonNull b bVar) {
         if (jSONObject != null) {
-            this.cpp = jSONObject.optString(this.cpv, bVar.cpp);
-            if (TextUtils.isEmpty(this.cpp)) {
-                com.baidu.swan.apps.console.c.e("Component-Model-Base", this.cpo + " component componentId is empty");
+            this.cxR = jSONObject.optString(this.cxW, bVar.cxR);
+            if (TextUtils.isEmpty(this.cxR)) {
+                com.baidu.swan.apps.console.c.e("Component-Model-Base", this.cxQ + " component componentId is empty");
             }
-            this.cpq = jSONObject.optString("slaveId", bVar.cpq);
-            if (TextUtils.isEmpty(this.cpq)) {
-                com.baidu.swan.apps.console.c.e("Component-Model-Base", this.cpo + " component slaveId is empty");
+            this.cxS = jSONObject.optString("slaveId", bVar.cxS);
+            if (TextUtils.isEmpty(this.cxS)) {
+                com.baidu.swan.apps.console.c.e("Component-Model-Base", this.cxQ + " component slaveId is empty");
             }
-            this.cpr = jSONObject.optString("parentId", bVar.cpr);
+            this.cxT = jSONObject.optString("parentId", bVar.cxT);
             this.callback = jSONObject.optString("cb", bVar.callback);
             this.hidden = jSONObject.optBoolean("hide", bVar.hidden);
-            this.cps = TextUtils.equals(jSONObject.optString(AppFrameworkConstants.VALUE_GESTURE_BACK, bVar.cps ? "1" : "0"), "1");
-            this.cpt = bVar.cpt;
-            if (this.cpt == null) {
-                this.cpt = new com.baidu.swan.apps.model.a.a.a();
+            this.cxU = TextUtils.equals(jSONObject.optString(AppFrameworkConstants.VALUE_GESTURE_BACK, bVar.cxU ? "1" : "0"), "1");
+            this.cxV = bVar.cxV;
+            if (this.cxV == null) {
+                this.cxV = new com.baidu.swan.apps.model.a.a.a();
             }
-            aT(jSONObject);
+            aW(jSONObject);
         }
     }
 
-    public void aR(JSONObject jSONObject) {
-        this.cpp = jSONObject.optString(this.cpv, this.cpp);
-        if (TextUtils.isEmpty(this.cpp)) {
-            com.baidu.swan.apps.console.c.e("Component-Model-Base", this.cpo + " component componentId is empty");
+    public void aU(JSONObject jSONObject) {
+        this.cxR = jSONObject.optString(this.cxW, this.cxR);
+        if (TextUtils.isEmpty(this.cxR)) {
+            com.baidu.swan.apps.console.c.e("Component-Model-Base", this.cxQ + " component componentId is empty");
         }
-        this.cpq = jSONObject.optString("slaveId", this.cpq);
-        if (TextUtils.isEmpty(this.cpq)) {
-            com.baidu.swan.apps.console.c.e("Component-Model-Base", this.cpo + " component slaveId is empty");
+        this.cxS = jSONObject.optString("slaveId", this.cxS);
+        if (TextUtils.isEmpty(this.cxS)) {
+            com.baidu.swan.apps.console.c.e("Component-Model-Base", this.cxQ + " component slaveId is empty");
         }
-        this.cpr = jSONObject.optString("parentId", this.cpr);
+        this.cxT = jSONObject.optString("parentId", this.cxT);
         this.callback = jSONObject.optString("cb", this.callback);
         this.hidden = jSONObject.optBoolean("hide", this.hidden);
-        this.cps = TextUtils.equals(jSONObject.optString(AppFrameworkConstants.VALUE_GESTURE_BACK, this.cps ? "1" : "0"), "1");
-        aT(jSONObject);
+        this.cxU = TextUtils.equals(jSONObject.optString(AppFrameworkConstants.VALUE_GESTURE_BACK, this.cxU ? "1" : "0"), "1");
+        aW(jSONObject);
     }
 
-    private void aT(JSONObject jSONObject) {
+    private void aW(JSONObject jSONObject) {
         JSONObject optJSONObject = jSONObject.optJSONObject("position");
         if (optJSONObject != null) {
-            this.cpt = new com.baidu.swan.apps.model.a.a.a();
-            this.cpt.jf(ah.J(getFloat(optJSONObject, "left", 0.0f)));
-            this.cpt.jg(ah.J(getFloat(optJSONObject, VerticalTranslateLayout.TOP, 0.0f)));
-            this.cpt.setWidth(ah.J(getFloat(optJSONObject, "width", 0.0f)));
-            this.cpt.setHeight(ah.J(getFloat(optJSONObject, "height", 0.0f)));
+            this.cxV = new com.baidu.swan.apps.model.a.a.a();
+            this.cxV.jq(ah.L(getFloat(optJSONObject, "left", 0.0f)));
+            this.cxV.jr(ah.L(getFloat(optJSONObject, VerticalTranslateLayout.TOP, 0.0f)));
+            this.cxV.setWidth(ah.L(getFloat(optJSONObject, "width", 0.0f)));
+            this.cxV.setHeight(ah.L(getFloat(optJSONObject, "height", 0.0f)));
         }
     }
 
     @Override // com.baidu.swan.apps.model.a
     public boolean isValid() {
-        return (TextUtils.isEmpty(this.cpp) || TextUtils.isEmpty(this.cpq) || this.cpt == null || !this.cpt.isValid()) ? false : true;
+        return (TextUtils.isEmpty(this.cxR) || TextUtils.isEmpty(this.cxS) || this.cxV == null || !this.cxV.isValid()) ? false : true;
     }
 
     public String toString() {
-        return "SwanAppBaseComponentModel{componentType='" + this.cpo + "', componentId='" + this.cpp + "', slaveId='" + this.cpq + "', parentId='" + this.cpr + "', callback='" + this.callback + "', hidden=" + this.hidden + ", gesture=" + this.cps + ", position=" + this.cpt + ", mComponentIdKey='" + this.cpv + "'}";
+        return "SwanAppBaseComponentModel{componentType='" + this.cxQ + "', componentId='" + this.cxR + "', slaveId='" + this.cxS + "', parentId='" + this.cxT + "', callback='" + this.callback + "', hidden=" + this.hidden + ", gesture=" + this.cxU + ", position=" + this.cxV + ", mComponentIdKey='" + this.cxW + "'}";
     }
 
     @NonNull
     public final String getName() {
-        return "【" + this.cpo + "#" + (TextUtils.isEmpty(this.cpp) ? "" : this.cpp) + "】";
+        return "【" + this.cxQ + "#" + (TextUtils.isEmpty(this.cxR) ? "" : this.cxR) + "】";
     }
 
-    public final FrameLayout.LayoutParams agC() {
-        int width = this.cpt != null ? this.cpt.getWidth() : -1;
-        int height = this.cpt != null ? this.cpt.getHeight() : -1;
-        int left = this.cpt != null ? this.cpt.getLeft() : 0;
-        int top = this.cpt != null ? this.cpt.getTop() : 0;
+    public final FrameLayout.LayoutParams aiw() {
+        int width = this.cxV != null ? this.cxV.getWidth() : -1;
+        int height = this.cxV != null ? this.cxV.getHeight() : -1;
+        int left = this.cxV != null ? this.cxV.getLeft() : 0;
+        int top = this.cxV != null ? this.cxV.getTop() : 0;
         FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(width, height);
         layoutParams.setMargins(left, top, 0, 0);
         return layoutParams;

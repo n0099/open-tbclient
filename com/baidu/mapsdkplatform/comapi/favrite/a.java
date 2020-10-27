@@ -31,8 +31,8 @@ public class a {
     /* JADX INFO: Access modifiers changed from: package-private */
     /* renamed from: com.baidu.mapsdkplatform.comapi.favrite.a$a  reason: collision with other inner class name */
     /* loaded from: classes7.dex */
-    public class C0231a implements Comparator<String> {
-        C0231a() {
+    public class C0245a implements Comparator<String> {
+        C0245a() {
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -341,7 +341,7 @@ public class a {
                     }
                     if (this.f.size() > 0) {
                         try {
-                            Collections.sort(this.f, new C0231a());
+                            Collections.sort(this.f, new C0245a());
                         } catch (Exception e) {
                             e.printStackTrace();
                         }
@@ -381,7 +381,7 @@ public class a {
                     }
                     if (this.e.size() > 0) {
                         try {
-                            Collections.sort(this.e, new C0231a());
+                            Collections.sort(this.e, new C0245a());
                         } catch (Exception e) {
                             e.printStackTrace();
                         }

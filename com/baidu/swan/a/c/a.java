@@ -23,28 +23,28 @@ import okhttp3.Response;
 /* loaded from: classes8.dex */
 public class a extends HttpManager {
     private static final boolean DEBUG = com.baidu.swan.a.b.isDebug();
-    private static volatile a dTa;
+    private static volatile a ebw;
 
     private a() {
-        super(com.baidu.swan.a.b.aWn().getAppContext());
+        super(com.baidu.swan.a.b.aYg().getAppContext());
     }
 
-    public static a aWr() {
-        if (dTa == null) {
+    public static a aYk() {
+        if (ebw == null) {
             synchronized (a.class) {
-                if (dTa == null) {
-                    dTa = new a();
+                if (ebw == null) {
+                    ebw = new a();
                 }
             }
         }
-        return dTa;
+        return ebw;
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.searchbox.http.AbstractHttpManager
     public OkHttpClient initClient() {
         OkHttpClient initClient = super.initClient();
-        List<Interceptor> networkInterceptors = com.baidu.swan.a.b.aWn().networkInterceptors();
+        List<Interceptor> networkInterceptors = com.baidu.swan.a.b.aYg().networkInterceptors();
         if (networkInterceptors != null && networkInterceptors.size() > 0) {
             OkHttpClient.Builder newBuilder = initClient.newBuilder();
             for (Interceptor interceptor : networkInterceptors) {
@@ -56,7 +56,7 @@ public class a extends HttpManager {
     }
 
     public static a dL(Context context) {
-        return aWr();
+        return aYk();
     }
 
     public void a(com.baidu.swan.a.b.a aVar) {
@@ -70,79 +70,79 @@ public class a extends HttpManager {
     }
 
     public void c(@NonNull com.baidu.swan.a.b.a aVar) {
-        if (aVar.dSW == null) {
-            aVar.dSW = aWD();
+        if (aVar.ebs == null) {
+            aVar.ebs = aYw();
         }
-        if (xB(aVar.url)) {
-            aVar.dSW.onFail(new Exception("url is invalid"));
+        if (xU(aVar.url)) {
+            aVar.ebs.onFail(new Exception("url is invalid"));
             return;
         }
         HttpRequestBuilder d = b.d(aVar);
         a(d, aVar);
-        d.build().executeAsync(aVar.dSW);
+        d.build().executeAsync(aVar.ebs);
     }
 
-    public OkHttpClient.Builder aWs() {
+    public OkHttpClient.Builder aYl() {
         return getOkHttpClient().newBuilder();
     }
 
-    public e aWt() {
+    public e aYm() {
         return new e(this);
     }
 
-    public j aWu() {
+    public j aYn() {
         return new j(this);
     }
 
-    public com.baidu.swan.a.a.a aWv() {
+    public com.baidu.swan.a.a.a aYo() {
         return new com.baidu.swan.a.a.a(this);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.searchbox.http.AbstractHttpManager
-    /* renamed from: aWw */
+    /* renamed from: aYp */
     public c getRequest() {
         return new c(this);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.searchbox.http.AbstractHttpManager
-    /* renamed from: aWx */
+    /* renamed from: aYq */
     public d headerRequest() {
         return new d(this);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.searchbox.http.AbstractHttpManager
-    /* renamed from: aWy */
+    /* renamed from: aYr */
     public f postRequest() {
         return new f(this);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.searchbox.http.AbstractHttpManager
-    /* renamed from: aWz */
+    /* renamed from: aYs */
     public g postFormRequest() {
         return new g(this);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.searchbox.http.AbstractHttpManager
-    /* renamed from: aWA */
+    /* renamed from: aYt */
     public h postStringRequest() {
         return new h(this);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.searchbox.http.AbstractHttpManager
-    /* renamed from: aWB */
+    /* renamed from: aYu */
     public i putRequest() {
         return new i(this);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.searchbox.http.AbstractHttpManager
-    /* renamed from: aWC */
+    /* renamed from: aYv */
     public com.baidu.swan.a.a.b deleteRequest() {
         return new com.baidu.swan.a.a.b(this);
     }
@@ -159,13 +159,13 @@ public class a extends HttpManager {
         if (aVar.headers != null && aVar.headers.size() > 0) {
             httpRequestBuilder.headers(aVar.headers);
         }
-        if (aVar.dSX) {
-            httpRequestBuilder.userAgent(com.baidu.swan.a.b.aWn().getUserAgent());
+        if (aVar.ebt) {
+            httpRequestBuilder.userAgent(com.baidu.swan.a.b.aYg().getUserAgent());
         }
-        if (aVar.dSY) {
-            httpRequestBuilder.cookieManager(com.baidu.swan.a.b.aWn().atx());
+        if (aVar.ebu) {
+            httpRequestBuilder.cookieManager(com.baidu.swan.a.b.aYg().avr());
         }
-        if (aVar.dSZ) {
+        if (aVar.ebv) {
             a(httpRequestBuilder);
         }
         if (aVar.tag != null) {
@@ -174,36 +174,36 @@ public class a extends HttpManager {
     }
 
     public void a(HttpRequestBuilder httpRequestBuilder) {
-        int connectionTimeout = com.baidu.swan.a.b.aWn().getConnectionTimeout();
+        int connectionTimeout = com.baidu.swan.a.b.aYg().getConnectionTimeout();
         if (connectionTimeout > 0) {
             httpRequestBuilder.connectionTimeout(connectionTimeout);
         }
-        int readTimeout = com.baidu.swan.a.b.aWn().getReadTimeout();
+        int readTimeout = com.baidu.swan.a.b.aYg().getReadTimeout();
         if (readTimeout > 0) {
             httpRequestBuilder.readTimeout(readTimeout);
         }
-        int atC = com.baidu.swan.a.b.aWn().atC();
-        if (atC > 0) {
-            httpRequestBuilder.writeTimeout(atC);
+        int avw = com.baidu.swan.a.b.aYg().avw();
+        if (avw > 0) {
+            httpRequestBuilder.writeTimeout(avw);
         }
     }
 
     public void a(OkHttpClient.Builder builder) {
-        int connectionTimeout = com.baidu.swan.a.b.aWn().getConnectionTimeout();
+        int connectionTimeout = com.baidu.swan.a.b.aYg().getConnectionTimeout();
         if (connectionTimeout > 0) {
             builder.connectTimeout(connectionTimeout, TimeUnit.MILLISECONDS);
         }
-        int readTimeout = com.baidu.swan.a.b.aWn().getReadTimeout();
+        int readTimeout = com.baidu.swan.a.b.aYg().getReadTimeout();
         if (readTimeout > 0) {
             builder.readTimeout(readTimeout, TimeUnit.MILLISECONDS);
         }
-        int atC = com.baidu.swan.a.b.aWn().atC();
-        if (atC > 0) {
-            builder.writeTimeout(atC, TimeUnit.MILLISECONDS);
+        int avw = com.baidu.swan.a.b.aYg().avw();
+        if (avw > 0) {
+            builder.writeTimeout(avw, TimeUnit.MILLISECONDS);
         }
     }
 
-    private boolean xB(String str) {
+    private boolean xU(String str) {
         if (TextUtils.isEmpty(str)) {
             if (DEBUG) {
                 Log.e("SwanHttpManager", "url is empty");
@@ -213,7 +213,7 @@ public class a extends HttpManager {
         return false;
     }
 
-    private ResponseCallback aWD() {
+    private ResponseCallback aYw() {
         return new ResponseCallback() { // from class: com.baidu.swan.a.c.a.1
             @Override // com.baidu.searchbox.http.callback.ResponseCallback
             public Object parseResponse(Response response, int i) throws Exception {

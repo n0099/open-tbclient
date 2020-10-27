@@ -7,15 +7,15 @@ import java.util.HashSet;
 import java.util.Set;
 /* loaded from: classes19.dex */
 public final class c implements com.baidu.swan.pms.e.b {
-    private static boolean ebc = false;
-    private static final Set<b.a> ebd = new HashSet();
+    private static boolean ejy = false;
+    private static final Set<b.a> ejz = new HashSet();
 
     @Override // com.baidu.swan.pms.e.b
     public void a(String str, b.a aVar) {
-        synchronized (ebd) {
-            ebd.add(aVar);
-            if (!ebc) {
-                ebc = true;
+        synchronized (ejz) {
+            ejz.add(aVar);
+            if (!ejy) {
+                ejy = true;
                 WebKitFactory.installAsync("file://" + str, new WebKitFactory.WebkitInstallListener() { // from class: com.baidu.swan.d.c.1
                     @Override // com.baidu.webkit.sdk.WebKitFactory.WebkitInstallListener
                     public void onInstallStart() {
@@ -23,10 +23,10 @@ public final class c implements com.baidu.swan.pms.e.b {
 
                     @Override // com.baidu.webkit.sdk.WebKitFactory.WebkitInstallListener
                     public void onInstallFinish(int i, String str2) {
-                        synchronized (c.ebd) {
-                            a.hL(true);
-                            c.this.hM(new b(AppRuntime.getAppContext()).baT());
-                            boolean unused = c.ebc = false;
+                        synchronized (c.ejz) {
+                            a.hY(true);
+                            c.this.hZ(new b(AppRuntime.getAppContext()).bcM());
+                            boolean unused = c.ejy = false;
                         }
                     }
                 });
@@ -35,14 +35,14 @@ public final class c implements com.baidu.swan.pms.e.b {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void hM(boolean z) {
-        synchronized (ebd) {
-            for (b.a aVar : ebd) {
+    public void hZ(boolean z) {
+        synchronized (ejz) {
+            for (b.a aVar : ejz) {
                 if (aVar != null) {
-                    aVar.eH(z);
+                    aVar.eU(z);
                 }
             }
-            ebd.clear();
+            ejz.clear();
         }
     }
 }

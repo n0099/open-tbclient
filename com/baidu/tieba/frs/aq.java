@@ -1,13 +1,13 @@
 package com.baidu.tieba.frs;
 /* loaded from: classes21.dex */
 public interface aq {
-    void Qi();
+    void Rd();
 
-    void bKa();
+    void bMC();
 
-    void bKb();
+    void bMD();
 
-    void bok();
+    void bqd();
 
     void setRecommendFrsNavigationAnimDispatcher(com.baidu.tbadk.util.ab abVar);
 

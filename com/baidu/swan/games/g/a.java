@@ -12,16 +12,16 @@ public class a {
     public static void authorizeEval(JsObject jsObject) {
         final c e = c.e(jsObject);
         if (e != null) {
-            e aDb = e.aDb();
-            if (aDb == null) {
+            e aEV = e.aEV();
+            if (aEV == null) {
                 a(e, false, "authorize:fail internal error");
             } else {
-                aDb.aDm().e("mapp_enable_eval", new com.baidu.swan.apps.ap.e.b<com.baidu.swan.apps.setting.oauth.e>() { // from class: com.baidu.swan.games.g.a.1
+                aEV.aFg().e("mapp_enable_eval", new com.baidu.swan.apps.ap.e.b<com.baidu.swan.apps.setting.oauth.e>() { // from class: com.baidu.swan.games.g.a.1
                     /* JADX DEBUG: Method merged with bridge method */
                     @Override // com.baidu.swan.apps.ap.e.b
                     /* renamed from: c */
                     public void M(com.baidu.swan.apps.setting.oauth.e eVar) {
-                        if (eVar == null || eVar.forbidden || eVar.djy != 1) {
+                        if (eVar == null || eVar.forbidden || eVar.drY != 1) {
                             a.a(c.this, false, "system deny");
                         } else {
                             a.a(c.this, true, "authorize:ok");

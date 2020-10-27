@@ -29,8 +29,8 @@ public final class a {
     private static Map<String, String> b;
     private static int c;
     private static int d;
-    public static final a oBY = new a();
-    private static long[] oBX = new long[0];
+    public static final a ptu = new a();
+    private static long[] ptt = new long[0];
 
     private a() {
     }
@@ -54,8 +54,8 @@ public final class a {
     }
 
     private final void b(SdkConfig sdkConfig) {
-        tv.chushou.basis.d.b.a(new b.a((Application) tv.chushou.a.a.a.c.checkNotNull(sdkConfig.getApplication())).zX(sdkConfig.getDebug()));
-        tv.chushou.zues.utils.h.a(sdkConfig.getApplication(), com.kascend.chushou.d.c.oha.c(), sdkConfig.getResources());
+        tv.chushou.basis.d.b.a(new b.a((Application) tv.chushou.a.a.a.c.checkNotNull(sdkConfig.getApplication())).Bf(sdkConfig.getDebug()));
+        tv.chushou.zues.utils.h.a(sdkConfig.getApplication(), com.kascend.chushou.d.c.oYp.c(), sdkConfig.getResources());
         tv.chushou.widget.a.c.d(sdkConfig.getResources());
     }
 
@@ -68,7 +68,7 @@ public final class a {
         @Override // android.app.Application.ActivityLifecycleCallbacks
         public void onActivityCreated(Activity activity, Bundle bundle) {
             if (activity instanceof BaseActivity) {
-                a aVar = a.oBY;
+                a aVar = a.ptu;
                 a.c++;
             }
         }
@@ -98,27 +98,27 @@ public final class a {
         @Override // android.app.Application.ActivityLifecycleCallbacks
         public void onActivityDestroyed(Activity activity) {
             if (activity instanceof BaseActivity) {
-                a aVar = a.oBY;
+                a aVar = a.ptu;
                 a.c--;
             }
         }
     }
 
     private final void d() {
-        tv.chushou.basis.d.b.etB().registerActivityLifecycleCallbacks(new g());
+        tv.chushou.basis.d.b.eDz().registerActivityLifecycleCallbacks(new g());
     }
 
     private final void c(SdkConfig sdkConfig) {
         com.kascend.chushou.d.e.b(sdkConfig.getOkhttp(), sdkConfig.getServer());
         com.kascend.chushou.d.e.g();
-        tv.chushou.a.a.b.a.etL().K(f.oCa);
+        tv.chushou.a.a.b.a.eDJ().M(f.ptw);
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     @h
     /* loaded from: classes6.dex */
     public static final class f implements Runnable {
-        public static final f oCa = new f();
+        public static final f ptw = new f();
 
         f() {
         }
@@ -130,14 +130,14 @@ public final class a {
     }
 
     private final void d(SdkConfig sdkConfig) {
-        tv.chushou.basis.d.a.a.a aVar = (tv.chushou.basis.d.a.a.a) tv.chushou.basis.d.b.etD().S(tv.chushou.basis.d.a.a.a.class);
+        tv.chushou.basis.d.a.a.a aVar = (tv.chushou.basis.d.a.a.a) tv.chushou.basis.d.b.eDB().S(tv.chushou.basis.d.a.a.a.class);
         if (aVar != null) {
             aVar.putString("xappkey", (String) tv.chushou.a.a.a.c.checkNotNull(sdkConfig.getXappkey()));
         }
         if (aVar != null) {
             aVar.putString("xsecret", (String) tv.chushou.a.a.a.c.checkNotNull(sdkConfig.getXsecret()));
         }
-        tv.chushou.basis.d.b.etD().e(ThirdParty.class, (Class) tv.chushou.a.a.a.c.checkNotNull(sdkConfig.getThirdParty()));
+        tv.chushou.basis.d.b.eDB().e(ThirdParty.class, (Class) tv.chushou.a.a.a.c.checkNotNull(sdkConfig.getThirdParty()));
         HashMap hashMap = new HashMap();
         Map<String, String> sdkHostParams = sdkConfig.getSdkHostParams();
         if (sdkHostParams != null) {
@@ -153,22 +153,22 @@ public final class a {
     @h
     /* loaded from: classes6.dex */
     public static final class e implements Runnable {
-        public static final e oBZ = new e();
+        public static final e ptv = new e();
 
         e() {
         }
 
         @Override // java.lang.Runnable
         public final void run() {
-            com.kascend.chushou.b.egb().f4066a = tv.chushou.zues.utils.a.hl(tv.chushou.basis.d.b.etB());
-            com.kascend.chushou.b.egb().b = tv.chushou.zues.utils.a.hm(tv.chushou.basis.d.b.etB());
+            com.kascend.chushou.b.eqb().f4064a = tv.chushou.zues.utils.a.hF(tv.chushou.basis.d.b.eDz());
+            com.kascend.chushou.b.eqb().b = tv.chushou.zues.utils.a.hG(tv.chushou.basis.d.b.eDz());
             com.kascend.chushou.d.e.a();
         }
     }
 
     private final void e() {
-        tv.chushou.a.a.b.a.etL().K(e.oBZ);
-        com.kascend.chushou.toolkit.d.a.eir().b();
+        tv.chushou.a.a.b.a.eDJ().M(e.ptv);
+        com.kascend.chushou.toolkit.d.a.esr().b();
     }
 
     public final void a(Context context, String str, String str2) {
@@ -185,10 +185,10 @@ public final class a {
     }
 
     public final void a(Context context) {
-        ThirdParty thirdParty = (ThirdParty) tv.chushou.basis.d.b.etD().S(ThirdParty.class);
+        ThirdParty thirdParty = (ThirdParty) tv.chushou.basis.d.b.eDB().S(ThirdParty.class);
         if (thirdParty != null) {
             if (context == null) {
-                context = tv.chushou.basis.d.b.etB();
+                context = tv.chushou.basis.d.b.eDz();
             }
             if (thirdParty.isLogined()) {
                 b(context);
@@ -206,10 +206,10 @@ public final class a {
     public static final class c implements Callback<LoginResp> {
 
         /* renamed from: a  reason: collision with root package name */
-        final /* synthetic */ Context f4294a;
+        final /* synthetic */ Context f4292a;
 
         c(Context context) {
-            this.f4294a = context;
+            this.f4292a = context;
         }
 
         @Override // com.kascend.cstvsdk.interfaces.Callback
@@ -220,7 +220,7 @@ public final class a {
         @Override // com.kascend.cstvsdk.interfaces.Callback
         /* renamed from: a */
         public void onSuccess(LoginResp loginResp) {
-            a.oBY.b(this.f4294a);
+            a.ptu.b(this.f4292a);
         }
 
         @Override // com.kascend.cstvsdk.interfaces.Callback
@@ -230,13 +230,13 @@ public final class a {
 
     public final void c() {
         if (!LoginManager.Instance().islogined()) {
-            com.kascend.chushou.d.h egj = com.kascend.chushou.d.h.egj();
-            q.m(egj, "SP_Manager.Instance()");
-            String s = egj.s();
+            com.kascend.chushou.d.h eqj = com.kascend.chushou.d.h.eqj();
+            q.m(eqj, "SP_Manager.Instance()");
+            String s = eqj.s();
             if (!(s == null || s.length() == 0)) {
                 d++;
                 if (d <= 3) {
-                    LoginManager.Instance().autoLogin(new C0932a());
+                    LoginManager.Instance().autoLogin(new C1004a());
                 }
             }
         }
@@ -245,8 +245,8 @@ public final class a {
     @h
     /* renamed from: com.kascend.cstvsdk.utils.a$a  reason: collision with other inner class name */
     /* loaded from: classes6.dex */
-    public static final class C0932a implements SimpleCallback {
-        C0932a() {
+    public static final class C1004a implements SimpleCallback {
+        C1004a() {
         }
 
         @Override // com.kascend.cstvsdk.interfaces.SimpleCallback
@@ -259,17 +259,17 @@ public final class a {
 
         @Override // com.kascend.cstvsdk.interfaces.SimpleCallback
         public void onFailure(int i, String str, Object obj) {
-            a.oBY.c();
+            a.ptu.c();
         }
     }
 
     public final void b(Context context) {
         if (context == null) {
-            context = tv.chushou.basis.d.b.etB();
+            context = tv.chushou.basis.d.b.eDz();
         }
-        Activity gP = com.kascend.chushou.d.f.gP(context);
+        Activity hj = com.kascend.chushou.d.f.hj(context);
         Intent intent = new Intent(context, BaiduAuthActivity.class);
-        if (gP == null) {
+        if (hj == null) {
             intent.addFlags(268435456);
         }
         context.startActivity(intent);
@@ -277,11 +277,11 @@ public final class a {
 
     public final void c(Context context) {
         if (context == null) {
-            context = tv.chushou.basis.d.b.etB();
+            context = tv.chushou.basis.d.b.eDz();
         }
         if (com.kascend.chushou.d.e.c(context, null)) {
             tv.chushou.zues.utils.e.d("SdkUtils", "goToRecharge");
-            ThirdParty thirdParty = (ThirdParty) tv.chushou.basis.d.b.etD().S(ThirdParty.class);
+            ThirdParty thirdParty = (ThirdParty) tv.chushou.basis.d.b.eDB().S(ThirdParty.class);
             if (thirdParty != null) {
                 q.m(context, "c");
                 thirdParty.jumpToRecharge(context, new d());
@@ -334,8 +334,8 @@ public final class a {
                 for (int i = 0; i < length; i++) {
                     jArr[i] = optJSONArray.optLong(i, 0L);
                 }
-                a aVar = a.oBY;
-                a.oBX = jArr;
+                a aVar = a.ptu;
+                a.ptt = jArr;
             }
         }
 
@@ -345,12 +345,12 @@ public final class a {
     }
 
     public final boolean a(String str) {
-        if (oBX.length == 0) {
-            com.kascend.chushou.c.c.ege().a(new b());
+        if (ptt.length == 0) {
+            com.kascend.chushou.c.c.eqe().a(new b());
             return false;
         }
-        long Q = tv.chushou.zues.utils.h.Q(str, 0L);
-        return (Q == 0 || a(oBX, Q) == -1) ? false : true;
+        long T = tv.chushou.zues.utils.h.T(str, 0L);
+        return (T == 0 || a(ptt, T) == -1) ? false : true;
     }
 
     private final int a(long[] jArr, long j) {

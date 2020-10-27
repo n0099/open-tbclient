@@ -9,13 +9,13 @@ import java.util.concurrent.TimeUnit;
 /* loaded from: classes4.dex */
 public class d extends i {
     private static final String TAG = d.class.getSimpleName();
-    private i.a aBS = null;
+    private i.a aBW = null;
 
     @Override // com.baidu.rtc.i
     public void a(i.a aVar) {
         com.baidu.live.alablmsdk.a.c.d(" BLMRtcVideoCaptureProxy  initialize");
         com.baidu.live.alablmsdk.a.c.fJ(" BLMRtcVideoCaptureProxy  initialize");
-        this.aBS = aVar;
+        this.aBW = aVar;
     }
 
     @Override // com.baidu.rtc.i, org.webrtc.VideoCapturer
@@ -23,7 +23,7 @@ public class d extends i {
         super.dispose();
         com.baidu.live.alablmsdk.a.c.d(" BLMRtcVideoCaptureProxy  dispose");
         com.baidu.live.alablmsdk.a.c.fJ(" BLMRtcVideoCaptureProxy  dispose");
-        this.aBS = null;
+        this.aBW = null;
     }
 
     @Override // com.baidu.rtc.i, org.webrtc.VideoCapturer
@@ -51,8 +51,8 @@ public class d extends i {
             com.baidu.live.alablmsdk.a.c.fJ(" videoFrame == null ");
             return;
         }
-        if (this.aBS != null) {
-            this.aBS.a(o);
+        if (this.aBW != null) {
+            this.aBW.a(o);
         }
         o.release();
     }

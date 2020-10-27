@@ -16,8 +16,8 @@ import com.baidu.tieba.R;
 import com.baidu.tieba.view.FollowUserButton;
 /* loaded from: classes21.dex */
 public class FollowUserDecorView extends FollowUserButton {
-    private c ajV;
-    private boolean ajW;
+    private c ajW;
+    private boolean ajX;
     private BdUniqueId mBdUniqueId;
 
     public FollowUserDecorView(Context context) {
@@ -33,22 +33,22 @@ public class FollowUserDecorView extends FollowUserButton {
     }
 
     public void setData(bw bwVar) {
-        if (bwVar == null || bwVar.bih() == null) {
+        if (bwVar == null || bwVar.bka() == null) {
             setVisibility(8);
             return;
         }
-        if (this.ajV == null) {
-            this.ajV = new c(W(getContext()), this);
-            this.ajV.l(this.mBdUniqueId);
+        if (this.ajW == null) {
+            this.ajW = new c(W(getContext()), this);
+            this.ajW.l(this.mBdUniqueId);
         }
         setVisibility(0);
-        this.ajV.a(bwVar.bih());
+        this.ajW.a(bwVar.bka());
     }
 
     public void setPageUniqueId(BdUniqueId bdUniqueId) {
         this.mBdUniqueId = bdUniqueId;
-        if (this.ajV != null) {
-            this.ajV.l(this.mBdUniqueId);
+        if (this.ajW != null) {
+            this.ajW.l(this.mBdUniqueId);
         }
     }
 
@@ -65,16 +65,16 @@ public class FollowUserDecorView extends FollowUserButton {
     @Override // com.baidu.tieba.view.FollowUserButton
     public void aN(boolean z) {
         super.aN(z);
-        if (this.ajW && !z) {
+        if (this.ajX && !z) {
             b bVar = new b();
-            bVar.pN(R.color.cp_link_tip_a);
-            bVar.pI(UtilHelper.getDimenPixelSize(R.dimen.tbds24));
+            bVar.pY(R.color.cp_link_tip_a);
+            bVar.pT(UtilHelper.getDimenPixelSize(R.dimen.tbds24));
             bVar.a(R.drawable.icon_pure_add12_svg, 0, TBSpecificationButtonConfig.IconType.SVG);
             setConfig(bVar);
         }
     }
 
     public void setUseNewStyle(boolean z) {
-        this.ajW = z;
+        this.ajX = z;
     }
 }

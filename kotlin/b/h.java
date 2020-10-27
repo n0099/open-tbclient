@@ -4,18 +4,18 @@ import com.baidu.android.common.others.IStringUtil;
 @kotlin.h
 /* loaded from: classes10.dex */
 public final class h extends f {
-    public static final a oSm = new a(null);
-    private static final h oSl = new h(1, 0);
+    public static final a pJI = new a(null);
+    private static final h pJH = new h(1, 0);
 
     public h(int i, int i2) {
         super(i, i2, 1);
     }
 
-    public Integer eoo() {
+    public Integer eym() {
         return Integer.valueOf(getFirst());
     }
 
-    public Integer eop() {
+    public Integer eyn() {
         return Integer.valueOf(getLast());
     }
 
@@ -52,8 +52,8 @@ public final class h extends f {
             this();
         }
 
-        public final h eor() {
-            return h.oSl;
+        public final h eyp() {
+            return h.pJH;
         }
     }
 }

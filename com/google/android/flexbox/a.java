@@ -4,21 +4,21 @@ import android.view.View;
 import java.util.List;
 /* loaded from: classes9.dex */
 interface a {
-    View NJ(int i);
+    View PA(int i);
 
-    View NK(int i);
+    View PB(int i);
 
     void a(View view, int i, int i2, b bVar);
 
     void a(b bVar);
 
-    int ag(int i, int i2, int i3);
-
     int ah(int i, int i2, int i3);
 
-    int dI(View view);
+    int ai(int i, int i2, int i3);
 
-    boolean eeq();
+    int dQ(View view);
+
+    boolean eoq();
 
     int getAlignContent();
 
@@ -52,7 +52,7 @@ interface a {
 
     int j(View view, int i, int i2);
 
-    void l(int i, View view);
+    void n(int i, View view);
 
     void setFlexLines(List<b> list);
 }

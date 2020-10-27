@@ -5,19 +5,19 @@ import java.util.HashMap;
 import java.util.Map;
 /* loaded from: classes4.dex */
 public class h {
-    private static Boolean bkL;
+    private static Boolean bmg;
 
     public static boolean isDebug() {
-        if (bkL != null) {
-            return bkL.booleanValue();
+        if (bmg != null) {
+            return bmg.booleanValue();
         }
-        bkL = false;
+        bmg = false;
         HashMap hashMap = new HashMap();
-        hashMap.put("debug_LivePlayerDebugEnable", false);
+        hashMap.put("isDebugBuildType", false);
         Map<String, Object> process = ExtraParamsManager.getInstance().buildParamsExtra().process(hashMap);
-        if (process != null && process.containsKey("debug_LivePlayerDebugEnable")) {
-            bkL = Boolean.valueOf(((Boolean) process.get("debug_LivePlayerDebugEnable")).booleanValue());
+        if (process != null && process.containsKey("isDebugBuildType")) {
+            bmg = Boolean.valueOf(((Boolean) process.get("isDebugBuildType")).booleanValue());
         }
-        return bkL.booleanValue();
+        return bmg.booleanValue();
     }
 }

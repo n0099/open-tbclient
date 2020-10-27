@@ -17,7 +17,7 @@ public class a extends d {
         super(bVar);
     }
 
-    public com.baidu.swan.apps.api.c.b jY(String str) {
+    public com.baidu.swan.apps.api.c.b kr(String str) {
         if (DEBUG) {
             Log.d("Api-LoadSubPackage", "start pre load sub package");
         }
@@ -40,14 +40,14 @@ public class a extends d {
         ExecutorUtilsExt.postOnElastic(new Runnable() { // from class: com.baidu.swan.apps.api.module.b.a.2
             @Override // java.lang.Runnable
             public void run() {
-                if (eVar.rp(str) && eVar.rq(str)) {
+                if (eVar.rI(str) && eVar.rJ(str)) {
                     c.i("Api-LoadSubPackage", "subPackage have existed");
                     a.this.a(str2, new com.baidu.swan.apps.api.c.b(1001, "subPackage have existed"));
                     return;
                 }
-                String rr = eVar.rr(str);
-                if (!TextUtils.isEmpty(rr)) {
-                    a.this.a(eVar, str, rr, str2);
+                String rK = eVar.rK(str);
+                if (!TextUtils.isEmpty(rK)) {
+                    a.this.a(eVar, str, rK, str2);
                     return;
                 }
                 c.i("Api-LoadSubPackage", "subPackage cannot find aps key");
@@ -60,13 +60,13 @@ public class a extends d {
     public void a(e eVar, String str, String str2, @Nullable final String str3) {
         g.a(eVar.id, eVar.getVersion(), str, str2, null, new g.a() { // from class: com.baidu.swan.apps.api.module.b.a.3
             @Override // com.baidu.swan.apps.scheme.actions.k.g.a
-            public void jZ(String str4) {
+            public void ks(String str4) {
                 c.i("Api-LoadSubPackage", "preload subPackage success");
                 a.this.a(str3, new com.baidu.swan.apps.api.c.b(0, "preload subPackage success"));
             }
 
             @Override // com.baidu.swan.apps.scheme.actions.k.g.a
-            public void hb(int i) {
+            public void hm(int i) {
                 c.e("Api-LoadSubPackage", "preload subPackage failed");
                 a.this.a(str3, new com.baidu.swan.apps.api.c.b(202, "No SubPackage"));
             }

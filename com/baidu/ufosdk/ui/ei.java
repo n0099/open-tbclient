@@ -7,11 +7,11 @@ import android.view.inputmethod.InputMethodManager;
 public final class ei extends AsyncTask {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ FeedbackReportActivity f3856a;
+    final /* synthetic */ FeedbackReportActivity f3854a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public ei(FeedbackReportActivity feedbackReportActivity) {
-        this.f3856a = feedbackReportActivity;
+        this.f3854a = feedbackReportActivity;
     }
 
     private static Integer a() {
@@ -31,10 +31,10 @@ public final class ei extends AsyncTask {
 
     @Override // android.os.AsyncTask
     protected final /* synthetic */ void onPostExecute(Object obj) {
-        this.f3856a.finish();
+        this.f3854a.finish();
         try {
             com.baidu.ufosdk.f.c.d("执行动画...");
-            this.f3856a.overridePendingTransition(com.baidu.ufosdk.f.i.a(this.f3856a.getApplicationContext(), "ufo_slide_in_from_left"), com.baidu.ufosdk.f.i.a(this.f3856a.getApplicationContext(), "ufo_slide_out_to_right"));
+            this.f3854a.overridePendingTransition(com.baidu.ufosdk.f.i.a(this.f3854a.getApplicationContext(), "ufo_slide_in_from_left"), com.baidu.ufosdk.f.i.a(this.f3854a.getApplicationContext(), "ufo_slide_out_to_right"));
         } catch (Exception e) {
             com.baidu.ufosdk.f.c.d("执行动画失败！！");
         }
@@ -42,10 +42,10 @@ public final class ei extends AsyncTask {
 
     @Override // android.os.AsyncTask
     protected final void onPreExecute() {
-        if (this.f3856a.getCurrentFocus() == null || this.f3856a.getCurrentFocus().getWindowToken() == null) {
+        if (this.f3854a.getCurrentFocus() == null || this.f3854a.getCurrentFocus().getWindowToken() == null) {
             return;
         }
-        ((InputMethodManager) this.f3856a.getSystemService("input_method")).hideSoftInputFromWindow(this.f3856a.getCurrentFocus().getWindowToken(), 2);
+        ((InputMethodManager) this.f3854a.getSystemService("input_method")).hideSoftInputFromWindow(this.f3854a.getCurrentFocus().getWindowToken(), 2);
     }
 
     @Override // android.os.AsyncTask

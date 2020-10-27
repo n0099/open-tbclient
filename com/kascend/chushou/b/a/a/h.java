@@ -5,11 +5,11 @@ import java.util.HashMap;
 public class h {
 
     /* renamed from: a  reason: collision with root package name */
-    public final int f4072a;
+    public final int f4070a;
     private final HashMap<String, Object> b = new HashMap<>();
 
     public h(int i) {
-        this.f4072a = i;
+        this.f4070a = i;
     }
 
     public void a(String str, Object obj) {

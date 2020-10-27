@@ -22,7 +22,7 @@ public class d {
     private float Bq;
     private Rect bounds;
     private Map<String, g> images;
-    private final m oHa = new m();
+    private final m pyx = new m();
     private final HashSet<String> Bi = new HashSet<>();
 
     public void a(Rect rect, float f, float f2, float f3, List<Layer> list, LongSparseArray<Layer> longSparseArray, Map<String, List<Layer>> map, Map<String, g> map2, SparseArrayCompat<com.tb.airbnb.lottie.model.d> sparseArrayCompat, Map<String, com.tb.airbnb.lottie.model.c> map3) {
@@ -45,15 +45,15 @@ public class d {
     }
 
     public void setPerformanceTrackingEnabled(boolean z) {
-        this.oHa.setEnabled(z);
+        this.pyx.setEnabled(z);
     }
 
     public m getPerformanceTracker() {
-        return this.oHa;
+        return this.pyx;
     }
 
     @RestrictTo({RestrictTo.Scope.LIBRARY})
-    public Layer hq(long j) {
+    public Layer hG(long j) {
         return this.Bm.get(j);
     }
 

@@ -11,7 +11,7 @@ import java.util.zip.GZIPOutputStream;
 public final class d {
 
     /* renamed from: a  reason: collision with root package name */
-    private byte[] f3936a;
+    private byte[] f3934a;
     private int b;
     private int c;
     private byte[] d;
@@ -58,19 +58,19 @@ public final class d {
         byte[] bArr = this.d;
         this.b = 0;
         this.c = 0;
-        if (this.f3936a == null) {
-            this.f3936a = new byte[256];
+        if (this.f3934a == null) {
+            this.f3934a = new byte[256];
         }
         for (int i = 0; i < 256; i++) {
-            this.f3936a[i] = (byte) i;
+            this.f3934a[i] = (byte) i;
         }
         int i2 = 0;
         int i3 = 0;
         for (int i4 = 0; i4 < 256; i4++) {
-            i2 = (i2 + (bArr[i3] & 255) + this.f3936a[i4]) & 255;
-            byte b = this.f3936a[i4];
-            this.f3936a[i4] = this.f3936a[i2];
-            this.f3936a[i2] = b;
+            i2 = (i2 + (bArr[i3] & 255) + this.f3934a[i4]) & 255;
+            byte b = this.f3934a[i4];
+            this.f3934a[i4] = this.f3934a[i2];
+            this.f3934a[i2] = b;
             i3 = (i3 + 1) % bArr.length;
         }
     }
@@ -84,11 +84,11 @@ public final class d {
         }
         for (int i2 = 0; i2 < i; i2++) {
             this.b = (this.b + 1) & 255;
-            this.c = (this.f3936a[this.b] + this.c) & 255;
-            byte b = this.f3936a[this.b];
-            this.f3936a[this.b] = this.f3936a[this.c];
-            this.f3936a[this.c] = b;
-            bArr2[i2 + 0] = (byte) (bArr[i2 + 0] ^ this.f3936a[(this.f3936a[this.b] + this.f3936a[this.c]) & 255]);
+            this.c = (this.f3934a[this.b] + this.c) & 255;
+            byte b = this.f3934a[this.b];
+            this.f3934a[this.b] = this.f3934a[this.c];
+            this.f3934a[this.c] = b;
+            bArr2[i2 + 0] = (byte) (bArr[i2 + 0] ^ this.f3934a[(this.f3934a[this.b] + this.f3934a[this.c]) & 255]);
         }
     }
 

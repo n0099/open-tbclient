@@ -23,8 +23,8 @@ public class g extends com.baidu.tieba.frs.k<com.baidu.tieba.frs.n, h> {
     @Override // com.baidu.tieba.frs.k, com.baidu.adp.widget.ListView.a
     public View a(int i, View view, ViewGroup viewGroup, com.baidu.tieba.frs.n nVar, h hVar) {
         super.a(i, view, viewGroup, (ViewGroup) nVar, (com.baidu.tieba.frs.n) hVar);
-        hVar.xJ(nVar.getHeight());
-        hVar.setBackground(nVar.cst());
+        hVar.yc(nVar.getHeight());
+        hVar.setBackground(nVar.cvA());
         return view;
     }
 }

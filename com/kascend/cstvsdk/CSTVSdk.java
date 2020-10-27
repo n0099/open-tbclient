@@ -37,9 +37,9 @@ public final class CSTVSdk {
         q.n(sdkConfig, "config");
         if (!getInitialized()) {
             synchronized (this) {
-                com.kascend.cstvsdk.utils.a.oBY.a(sdkConfig);
+                com.kascend.cstvsdk.utils.a.ptu.a(sdkConfig);
                 inited = true;
-                l lVar = l.oRb;
+                l lVar = l.pIy;
             }
         }
     }
@@ -51,7 +51,7 @@ public final class CSTVSdk {
     }
 
     public final void onLoginStatusChanged(int i) {
-        tv.chushou.basis.d.b.etC().d(TAG, "onLoginStatusChanged: " + i);
+        tv.chushou.basis.d.b.eDA().d(TAG, "onLoginStatusChanged: " + i);
         if (i == 2) {
             LoginManager.Instance().openLogout(null);
         } else if (i == 1) {
@@ -72,16 +72,16 @@ public final class CSTVSdk {
         @Override // com.kascend.cstvsdk.interfaces.SimpleCallback
         public void onSuccess() {
             Application application;
-            if (com.kascend.cstvsdk.utils.a.oBY.b() && CSTVSdk.INSTANCE.getInitialized()) {
-                Activity egf = com.kascend.chushou.d.b.egf();
-                if (egf != null) {
-                    application = egf;
+            if (com.kascend.cstvsdk.utils.a.ptu.b() && CSTVSdk.INSTANCE.getInitialized()) {
+                Activity eqf = com.kascend.chushou.d.b.eqf();
+                if (eqf != null) {
+                    application = eqf;
                 } else {
-                    Application etB = tv.chushou.basis.d.b.etB();
-                    q.m(etB, "Router.application()");
-                    application = etB;
+                    Application eDz = tv.chushou.basis.d.b.eDz();
+                    q.m(eDz, "Router.application()");
+                    application = eDz;
                 }
-                com.kascend.cstvsdk.utils.a.oBY.b(application);
+                com.kascend.cstvsdk.utils.a.ptu.b(application);
             }
         }
 
@@ -98,7 +98,7 @@ public final class CSTVSdk {
             }
             String str4 = str2;
             if (!(str4 == null || str4.length() == 0)) {
-                com.kascend.cstvsdk.utils.a.oBY.a(context, str, str2);
+                com.kascend.cstvsdk.utils.a.ptu.a(context, str, str2);
             }
         }
     }
@@ -109,7 +109,7 @@ public final class CSTVSdk {
 
     public final void startH5(Context context, String str, String str2) {
         if (context == null) {
-            context = tv.chushou.basis.d.b.etB();
+            context = tv.chushou.basis.d.b.eDz();
         }
         com.kascend.chushou.d.a.a(context, str, str2);
     }

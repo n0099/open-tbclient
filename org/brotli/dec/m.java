@@ -2,7 +2,7 @@ package org.brotli.dec;
 /* loaded from: classes6.dex */
 final class m {
     /* JADX INFO: Access modifiers changed from: package-private */
-    public static int Px(int i) {
+    public static int Ro(int i) {
         if (i >= 12) {
             return (i - 12) + 1;
         }
@@ -10,7 +10,7 @@ final class m {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public static int Py(int i) {
+    public static int Rp(int i) {
         if (i <= 9) {
             return (i - 1) + 1;
         }

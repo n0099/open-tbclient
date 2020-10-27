@@ -1,15 +1,15 @@
 package com.baidu.tieba.q;
 /* loaded from: classes20.dex */
 public class j {
-    private static volatile i mup;
+    private static volatile i mGV;
 
-    public static synchronized i dBf() {
+    public static synchronized i dEn() {
         i iVar;
         synchronized (j.class) {
-            if (mup == null) {
-                mup = new i();
+            if (mGV == null) {
+                mGV = new i();
             }
-            iVar = mup;
+            iVar = mGV;
         }
         return iVar;
     }

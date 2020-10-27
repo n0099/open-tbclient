@@ -6,22 +6,22 @@ import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes8.dex */
 public class f extends g {
-    private b nIq;
-    private a nIr;
+    private b ozJ;
+    private a ozK;
 
     public void a(b bVar) {
-        this.nIq = bVar;
+        this.ozJ = bVar;
     }
 
     public void a(a aVar) {
-        this.nIr = aVar;
+        this.ozK = aVar;
     }
 
     /* loaded from: classes8.dex */
     public static class b {
 
         /* renamed from: a  reason: collision with root package name */
-        private String f4014a;
+        private String f4012a;
         private String b;
         private String c;
         private String d;
@@ -44,11 +44,11 @@ public class f extends g {
         }
 
         public String c() {
-            return this.f4014a;
+            return this.f4012a;
         }
 
         public void c(String str) {
-            this.f4014a = str;
+            this.f4012a = str;
         }
 
         public String d() {
@@ -76,20 +76,20 @@ public class f extends g {
     public static class a {
 
         /* renamed from: a  reason: collision with root package name */
-        private JSONObject f4013a;
+        private JSONObject f4011a;
 
         public JSONObject a() {
-            return this.f4013a;
+            return this.f4011a;
         }
 
         public void a(JSONObject jSONObject) {
-            this.f4013a = jSONObject;
+            this.f4011a = jSONObject;
         }
     }
 
     @Override // com.cmic.sso.sdk.c.b.g
     public String a() {
-        return this.nIq.d;
+        return this.ozJ.d;
     }
 
     @Override // com.cmic.sso.sdk.c.b.g
@@ -98,13 +98,13 @@ public class f extends g {
         JSONObject jSONObject2 = new JSONObject();
         JSONObject jSONObject3 = new JSONObject();
         try {
-            jSONObject2.put("sign", this.nIq.c());
-            jSONObject2.put("msgid", this.nIq.d());
-            jSONObject2.put("systemtime", this.nIq.e());
-            jSONObject2.put("appid", this.nIq.b());
-            jSONObject2.put("version", this.nIq.a());
+            jSONObject2.put("sign", this.ozJ.c());
+            jSONObject2.put("msgid", this.ozJ.d());
+            jSONObject2.put("systemtime", this.ozJ.e());
+            jSONObject2.put("appid", this.ozJ.b());
+            jSONObject2.put("version", this.ozJ.a());
             jSONObject.put(WebSocketRequest.PARAM_KEY_HEADER, jSONObject2);
-            jSONObject3.put(TbConfig.TMP_LOG_DIR_NAME, this.nIr.a());
+            jSONObject3.put(TbConfig.TMP_LOG_DIR_NAME, this.ozK.a());
             jSONObject.put("body", jSONObject3);
         } catch (JSONException e) {
             e.printStackTrace();

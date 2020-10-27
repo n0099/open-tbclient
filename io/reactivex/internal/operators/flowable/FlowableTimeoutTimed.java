@@ -11,7 +11,7 @@ import java.util.concurrent.atomic.AtomicLong;
 import java.util.concurrent.atomic.AtomicReference;
 /* loaded from: classes17.dex */
 public final class FlowableTimeoutTimed<T> extends io.reactivex.internal.operators.flowable.a<T, T> {
-    final org.a.b<? extends T> oMs;
+    final org.a.b<? extends T> pDP;
     final v scheduler;
     final long timeout;
     final TimeUnit unit;
@@ -24,17 +24,17 @@ public final class FlowableTimeoutTimed<T> extends io.reactivex.internal.operato
 
     @Override // io.reactivex.g
     protected void a(org.a.c<? super T> cVar) {
-        if (this.oMs == null) {
-            TimeoutSubscriber timeoutSubscriber = new TimeoutSubscriber(cVar, this.timeout, this.unit, this.scheduler.emL());
+        if (this.pDP == null) {
+            TimeoutSubscriber timeoutSubscriber = new TimeoutSubscriber(cVar, this.timeout, this.unit, this.scheduler.ewL());
             cVar.onSubscribe(timeoutSubscriber);
             timeoutSubscriber.startTimeout(0L);
-            this.oLT.a((j) timeoutSubscriber);
+            this.pDq.a((j) timeoutSubscriber);
             return;
         }
-        TimeoutFallbackSubscriber timeoutFallbackSubscriber = new TimeoutFallbackSubscriber(cVar, this.timeout, this.unit, this.scheduler.emL(), this.oMs);
+        TimeoutFallbackSubscriber timeoutFallbackSubscriber = new TimeoutFallbackSubscriber(cVar, this.timeout, this.unit, this.scheduler.ewL(), this.pDP);
         cVar.onSubscribe(timeoutFallbackSubscriber);
         timeoutFallbackSubscriber.startTimeout(0L);
-        this.oLT.a((j) timeoutFallbackSubscriber);
+        this.pDq.a((j) timeoutFallbackSubscriber);
     }
 
     /* loaded from: classes17.dex */
@@ -119,16 +119,16 @@ public final class FlowableTimeoutTimed<T> extends io.reactivex.internal.operato
     /* loaded from: classes17.dex */
     public static final class c implements Runnable {
         final long idx;
-        final b oMP;
+        final b pEm;
 
         c(long j, b bVar) {
             this.idx = j;
-            this.oMP = bVar;
+            this.pEm = bVar;
         }
 
         @Override // java.lang.Runnable
         public void run() {
-            this.oMP.onTimeout(this.idx);
+            this.pEm.onTimeout(this.idx);
         }
     }
 
@@ -220,17 +220,17 @@ public final class FlowableTimeoutTimed<T> extends io.reactivex.internal.operato
     /* loaded from: classes17.dex */
     static final class a<T> implements j<T> {
         final org.a.c<? super T> actual;
-        final SubscriptionArbiter oMO;
+        final SubscriptionArbiter pEl;
 
         /* JADX INFO: Access modifiers changed from: package-private */
         public a(org.a.c<? super T> cVar, SubscriptionArbiter subscriptionArbiter) {
             this.actual = cVar;
-            this.oMO = subscriptionArbiter;
+            this.pEl = subscriptionArbiter;
         }
 
         @Override // io.reactivex.j, org.a.c
         public void onSubscribe(org.a.d dVar) {
-            this.oMO.setSubscription(dVar);
+            this.pEl.setSubscription(dVar);
         }
 
         @Override // org.a.c

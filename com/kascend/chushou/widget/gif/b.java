@@ -17,7 +17,7 @@ import tv.chushou.basis.http.listener.DownloadListener;
 import tv.chushou.zues.widget.a.e;
 /* loaded from: classes6.dex */
 public class b extends e {
-    private static final tv.chushou.zues.toolkit.b.a owh = tv.chushou.zues.toolkit.b.a.pmi;
+    private static final tv.chushou.zues.toolkit.b.a pny = tv.chushou.zues.toolkit.b.a.qdx;
 
     private b(GifDrawable gifDrawable) {
         super(gifDrawable);
@@ -27,7 +27,7 @@ public class b extends e {
     public static class a {
 
         /* renamed from: a  reason: collision with root package name */
-        private String f4269a;
+        private String f4267a;
         @DrawableRes
         private int b;
         @Px
@@ -36,25 +36,25 @@ public class b extends e {
         private int d;
         private WeakReference<TextView> e;
         private boolean f = false;
-        private Drawable.Callback oAr;
+        private Drawable.Callback prM;
 
-        public a Wy(String str) {
+        public a Yl(String str) {
             f.a(str);
-            this.f4269a = str;
+            this.f4267a = str;
             return this;
         }
 
-        public a OG(@DrawableRes int i) {
+        public a Qx(@DrawableRes int i) {
             this.b = i;
             return this;
         }
 
-        public a OH(@Px int i) {
+        public a Qy(@Px int i) {
             this.c = i;
             return this;
         }
 
-        public a OI(@Px int i) {
+        public a Qz(@Px int i) {
             this.d = i;
             return this;
         }
@@ -64,25 +64,25 @@ public class b extends e {
             return this;
         }
 
-        public a zs(boolean z) {
+        public a AA(boolean z) {
             this.f = z;
             return this;
         }
 
         public a a(Drawable.Callback callback) {
-            this.oAr = callback;
+            this.prM = callback;
             return this;
         }
 
-        public ImageSpan eiI() {
+        public ImageSpan esI() {
             Drawable drawable;
-            f.a(this.f4269a);
+            f.a(this.f4267a);
             f.a(this.d != 0, "should set height");
-            String generate = b.owh.generate(this.f4269a);
-            File c = com.kascend.chushou.d.c.oha.c();
+            String generate = b.pny.generate(this.f4267a);
+            File c = com.kascend.chushou.d.c.oYp.c();
             final File file = new File(c, generate);
             if (!file.exists() || file.isDirectory()) {
-                com.kascend.chushou.c.c.ege().a(this.f4269a, new File(c, generate + HttpConsts.FILE_BACKUP_SUFFIX), new DownloadListener() { // from class: com.kascend.chushou.widget.gif.b.a.1
+                com.kascend.chushou.c.c.eqe().a(this.f4267a, new File(c, generate + HttpConsts.FILE_BACKUP_SUFFIX), new DownloadListener() { // from class: com.kascend.chushou.widget.gif.b.a.1
                     @Override // tv.chushou.basis.d.a.c.a
                     public void onStart() {
                     }
@@ -101,7 +101,7 @@ public class b extends e {
                             if (cVarArr != null && cVarArr.length != 0) {
                                 boolean z = false;
                                 for (c cVar : cVarArr) {
-                                    if (a.this.f4269a.equals(cVar.a())) {
+                                    if (a.this.f4267a.equals(cVar.a())) {
                                         try {
                                             gifDrawable = new GifDrawable(file);
                                         } catch (Throwable th) {
@@ -113,7 +113,7 @@ public class b extends e {
                                                 i = (gifDrawable.getIntrinsicWidth() * a.this.d) / gifDrawable.getIntrinsicHeight();
                                             }
                                             gifDrawable.setBounds(0, 0, i, a.this.d);
-                                            gifDrawable.setCallback(a.this.oAr);
+                                            gifDrawable.setCallback(a.this.prM);
                                             int spanStart = spannable.getSpanStart(cVar);
                                             int spanEnd = spannable.getSpanEnd(cVar);
                                             spannable.removeSpan(cVar);
@@ -146,7 +146,7 @@ public class b extends e {
                     i = (drawable2.getIntrinsicWidth() * this.d) / drawable2.getIntrinsicHeight();
                 }
                 drawable2.setBounds(0, 0, i, this.d);
-                return new c(drawable2, this.f4269a);
+                return new c(drawable2, this.f4267a);
             }
             try {
                 drawable = new GifDrawable(file);
@@ -160,7 +160,7 @@ public class b extends e {
             }
             drawable.setBounds(0, 0, i2, this.d);
             if (drawable instanceof GifDrawable) {
-                drawable.setCallback(this.oAr);
+                drawable.setCallback(this.prM);
                 return new b((GifDrawable) drawable);
             }
             return new e(drawable);

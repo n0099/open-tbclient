@@ -25,12 +25,12 @@ public class a extends Dialog implements com.baidu.sapi2.g.b {
 
     /* renamed from: com.baidu.sapi2.views.a$a  reason: collision with other inner class name */
     /* loaded from: classes5.dex */
-    class View$OnClickListenerC0321a implements View.OnClickListener {
+    class View$OnClickListenerC0335a implements View.OnClickListener {
 
         /* renamed from: a  reason: collision with root package name */
         final /* synthetic */ View.OnClickListener f3576a;
 
-        View$OnClickListenerC0321a(View.OnClickListener onClickListener) {
+        View$OnClickListenerC0335a(View.OnClickListener onClickListener) {
             this.f3576a = onClickListener;
         }
 
@@ -135,7 +135,7 @@ public class a extends Dialog implements com.baidu.sapi2.g.b {
     @Override // com.baidu.sapi2.g.b
     public com.baidu.sapi2.g.b a(String str, View.OnClickListener onClickListener) {
         this.d.setText(str);
-        this.d.setOnClickListener(new View$OnClickListenerC0321a(onClickListener));
+        this.d.setOnClickListener(new View$OnClickListenerC0335a(onClickListener));
         return this;
     }
 

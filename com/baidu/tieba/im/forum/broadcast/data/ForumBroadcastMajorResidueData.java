@@ -3,27 +3,27 @@ package com.baidu.tieba.im.forum.broadcast.data;
 import com.baidu.adp.lib.OrmObject.toolsystem.orm.object.OrmObject;
 /* loaded from: classes26.dex */
 public class ForumBroadcastMajorResidueData extends OrmObject {
-    private int jKL;
-    private int jKM;
-    private int jKN;
+    private int jXj;
+    private int jXk;
+    private int jXl;
 
-    public int cLX() {
-        return this.jKL;
+    public int cPe() {
+        return this.jXj;
     }
 
-    public void Ch(int i) {
-        this.jKL = i;
+    public void CA(int i) {
+        this.jXj = i;
     }
 
-    public int cLY() {
-        return this.jKM;
+    public int cPf() {
+        return this.jXk;
     }
 
-    public void Ci(int i) {
-        this.jKM = i;
+    public void CB(int i) {
+        this.jXk = i;
     }
 
-    public void Cj(int i) {
-        this.jKN = i;
+    public void CC(int i) {
+        this.jXl = i;
     }
 }

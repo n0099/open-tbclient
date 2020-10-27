@@ -7,8 +7,8 @@ import tbclient.NewTopicList.PkModule;
 /* loaded from: classes22.dex */
 public class b {
     public int from;
-    public a jss;
-    public a jst;
+    public a jES;
+    public a jET;
     public long pkId;
     public long topicId;
     public long userPkId;
@@ -17,22 +17,22 @@ public class b {
         if (pkModule != null && pkModule.agree != null && pkModule.disagree != null) {
             this.pkId = pkModule.pk_id.longValue();
             this.userPkId = pkModule.user_pk_id.longValue();
-            this.jss = new a();
-            this.jss.jsu = pkModule.agree.pk_num.longValue();
-            this.jss.jsv = StringUtils.isNull(pkModule.agree.pk_desc) ? TbadkCoreApplication.getInst().getString(R.string.topic_detail_pk_support) : pkModule.agree.pk_desc;
-            this.jss.jsw = pkModule.agree.last_username;
-            this.jss.jsx = pkModule.agree.pk_icon;
-            this.jss.jsy = pkModule.agree.has_clicked.longValue() == 1;
-            this.jss.jsz = pkModule.agree.pk_index.longValue();
-            this.jss.jsA = pkModule.agree.pk_icon_after;
-            this.jst = new a();
-            this.jst.jsu = pkModule.disagree.pk_num.longValue();
-            this.jst.jsv = StringUtils.isNull(pkModule.disagree.pk_desc) ? TbadkCoreApplication.getInst().getString(R.string.topic_detail_pk_oppose) : pkModule.disagree.pk_desc;
-            this.jst.jsw = pkModule.disagree.last_username;
-            this.jst.jsx = pkModule.disagree.pk_icon;
-            this.jst.jsy = pkModule.disagree.has_clicked.longValue() == 1;
-            this.jst.jsz = pkModule.disagree.pk_index.longValue();
-            this.jst.jsA = pkModule.disagree.pk_icon_after;
+            this.jES = new a();
+            this.jES.jEU = pkModule.agree.pk_num.longValue();
+            this.jES.jEV = StringUtils.isNull(pkModule.agree.pk_desc) ? TbadkCoreApplication.getInst().getString(R.string.topic_detail_pk_support) : pkModule.agree.pk_desc;
+            this.jES.jEW = pkModule.agree.last_username;
+            this.jES.jEX = pkModule.agree.pk_icon;
+            this.jES.jEY = pkModule.agree.has_clicked.longValue() == 1;
+            this.jES.jEZ = pkModule.agree.pk_index.longValue();
+            this.jES.jFa = pkModule.agree.pk_icon_after;
+            this.jET = new a();
+            this.jET.jEU = pkModule.disagree.pk_num.longValue();
+            this.jET.jEV = StringUtils.isNull(pkModule.disagree.pk_desc) ? TbadkCoreApplication.getInst().getString(R.string.topic_detail_pk_oppose) : pkModule.disagree.pk_desc;
+            this.jET.jEW = pkModule.disagree.last_username;
+            this.jET.jEX = pkModule.disagree.pk_icon;
+            this.jET.jEY = pkModule.disagree.has_clicked.longValue() == 1;
+            this.jET.jEZ = pkModule.disagree.pk_index.longValue();
+            this.jET.jFa = pkModule.disagree.pk_icon_after;
         }
     }
 
@@ -40,22 +40,22 @@ public class b {
         if (pkModule != null && pkModule.agree != null && pkModule.disagree != null) {
             this.pkId = pkModule.pk_id.longValue();
             this.userPkId = pkModule.user_pk_id.longValue();
-            this.jss = new a();
-            this.jss.jsu = pkModule.agree.pk_num.longValue();
-            this.jss.jsv = StringUtils.isNull(pkModule.agree.pk_desc) ? TbadkCoreApplication.getInst().getString(R.string.topic_detail_pk_support) : pkModule.agree.pk_desc;
-            this.jss.jsw = pkModule.agree.last_username;
-            this.jss.jsx = pkModule.agree.pk_icon;
-            this.jss.jsy = pkModule.agree.has_clicked.longValue() == 1;
-            this.jss.jsz = pkModule.agree.pk_index.longValue();
-            this.jss.jsA = pkModule.agree.pk_icon_after;
-            this.jst = new a();
-            this.jst.jsu = pkModule.disagree.pk_num.longValue();
-            this.jst.jsv = StringUtils.isNull(pkModule.disagree.pk_desc) ? TbadkCoreApplication.getInst().getString(R.string.topic_detail_pk_oppose) : pkModule.disagree.pk_desc;
-            this.jst.jsw = pkModule.disagree.last_username;
-            this.jst.jsx = pkModule.disagree.pk_icon;
-            this.jst.jsy = pkModule.disagree.has_clicked.longValue() == 1;
-            this.jst.jsz = pkModule.disagree.pk_index.longValue();
-            this.jst.jsA = pkModule.disagree.pk_icon_after;
+            this.jES = new a();
+            this.jES.jEU = pkModule.agree.pk_num.longValue();
+            this.jES.jEV = StringUtils.isNull(pkModule.agree.pk_desc) ? TbadkCoreApplication.getInst().getString(R.string.topic_detail_pk_support) : pkModule.agree.pk_desc;
+            this.jES.jEW = pkModule.agree.last_username;
+            this.jES.jEX = pkModule.agree.pk_icon;
+            this.jES.jEY = pkModule.agree.has_clicked.longValue() == 1;
+            this.jES.jEZ = pkModule.agree.pk_index.longValue();
+            this.jES.jFa = pkModule.agree.pk_icon_after;
+            this.jET = new a();
+            this.jET.jEU = pkModule.disagree.pk_num.longValue();
+            this.jET.jEV = StringUtils.isNull(pkModule.disagree.pk_desc) ? TbadkCoreApplication.getInst().getString(R.string.topic_detail_pk_oppose) : pkModule.disagree.pk_desc;
+            this.jET.jEW = pkModule.disagree.last_username;
+            this.jET.jEX = pkModule.disagree.pk_icon;
+            this.jET.jEY = pkModule.disagree.has_clicked.longValue() == 1;
+            this.jET.jEZ = pkModule.disagree.pk_index.longValue();
+            this.jET.jFa = pkModule.disagree.pk_icon_after;
         }
     }
 
@@ -63,34 +63,34 @@ public class b {
         if (pkModule != null && pkModule.agree != null && pkModule.disagree != null) {
             this.pkId = pkModule.pk_id.longValue();
             this.userPkId = pkModule.user_pk_id.longValue();
-            this.jss = new a();
-            this.jss.jsu = pkModule.agree.pk_num.longValue();
-            this.jss.jsv = StringUtils.isNull(pkModule.agree.pk_desc) ? TbadkCoreApplication.getInst().getString(R.string.topic_detail_pk_support) : pkModule.agree.pk_desc;
-            this.jss.jsw = pkModule.agree.last_username;
-            this.jss.jsx = pkModule.agree.pk_icon;
-            this.jss.jsy = pkModule.agree.has_clicked.longValue() == 1;
-            this.jss.jsz = pkModule.agree.pk_index.longValue();
-            this.jss.jsA = pkModule.agree.pk_icon_after;
-            this.jst = new a();
-            this.jst.jsu = pkModule.disagree.pk_num.longValue();
-            this.jst.jsv = StringUtils.isNull(pkModule.disagree.pk_desc) ? TbadkCoreApplication.getInst().getString(R.string.topic_detail_pk_oppose) : pkModule.disagree.pk_desc;
-            this.jst.jsw = pkModule.disagree.last_username;
-            this.jst.jsx = pkModule.disagree.pk_icon;
-            this.jst.jsy = pkModule.disagree.has_clicked.longValue() == 1;
-            this.jst.jsz = pkModule.disagree.pk_index.longValue();
-            this.jst.jsA = pkModule.disagree.pk_icon_after;
+            this.jES = new a();
+            this.jES.jEU = pkModule.agree.pk_num.longValue();
+            this.jES.jEV = StringUtils.isNull(pkModule.agree.pk_desc) ? TbadkCoreApplication.getInst().getString(R.string.topic_detail_pk_support) : pkModule.agree.pk_desc;
+            this.jES.jEW = pkModule.agree.last_username;
+            this.jES.jEX = pkModule.agree.pk_icon;
+            this.jES.jEY = pkModule.agree.has_clicked.longValue() == 1;
+            this.jES.jEZ = pkModule.agree.pk_index.longValue();
+            this.jES.jFa = pkModule.agree.pk_icon_after;
+            this.jET = new a();
+            this.jET.jEU = pkModule.disagree.pk_num.longValue();
+            this.jET.jEV = StringUtils.isNull(pkModule.disagree.pk_desc) ? TbadkCoreApplication.getInst().getString(R.string.topic_detail_pk_oppose) : pkModule.disagree.pk_desc;
+            this.jET.jEW = pkModule.disagree.last_username;
+            this.jET.jEX = pkModule.disagree.pk_icon;
+            this.jET.jEY = pkModule.disagree.has_clicked.longValue() == 1;
+            this.jET.jEZ = pkModule.disagree.pk_index.longValue();
+            this.jET.jFa = pkModule.disagree.pk_icon_after;
         }
     }
 
     /* loaded from: classes22.dex */
     public class a {
-        public String jsA;
-        public long jsu;
-        public String jsv;
-        public String jsw;
-        public String jsx;
-        public boolean jsy;
-        public long jsz;
+        public long jEU;
+        public String jEV;
+        public String jEW;
+        public String jEX;
+        public boolean jEY;
+        public long jEZ;
+        public String jFa;
 
         public a() {
         }

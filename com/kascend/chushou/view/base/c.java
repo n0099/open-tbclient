@@ -5,7 +5,7 @@ import android.support.annotation.NonNull;
 public abstract class c<T> {
 
     /* renamed from: a  reason: collision with root package name */
-    protected final String f4230a = getClass().getSimpleName();
+    protected final String f4228a = getClass().getSimpleName();
     protected T b;
 
     public void a(@NonNull T t) {

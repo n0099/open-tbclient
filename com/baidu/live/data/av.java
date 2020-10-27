@@ -1,22 +1,33 @@
 package com.baidu.live.data;
 
-import com.baidu.live.tbadk.core.atomdata.GuardClubInfoActivityConfig;
 import org.json.JSONObject;
 /* loaded from: classes4.dex */
 public class av {
-    public String aMV;
-    public String aMW;
-    public long aMX;
-    public String mNickName;
-    public String mPortrait;
+    public AlaLiveUserInfoData aNs;
+    public int rank;
+    public int type;
 
-    public void parseJson(JSONObject jSONObject) {
+    public void parserJson(JSONObject jSONObject) {
         if (jSONObject != null) {
-            this.mNickName = jSONObject.optString("nickname");
-            this.mPortrait = jSONObject.optString("mvp_user_portrait");
-            this.aMV = jSONObject.optString("anchor_nickname");
-            this.aMW = jSONObject.optString(GuardClubInfoActivityConfig.ANCHOR_PORTRAIT);
-            this.aMX = jSONObject.optLong("win_score");
+            this.type = jSONObject.optInt("type");
+            this.rank = jSONObject.optInt("rank");
+            JSONObject optJSONObject = jSONObject.optJSONObject("user_info");
+            if (optJSONObject != null) {
+                this.aNs = new AlaLiveUserInfoData();
+                this.aNs.parserJson(optJSONObject);
+            }
         }
+    }
+
+    public boolean Ep() {
+        return this.type == 1;
+    }
+
+    public boolean isFirst() {
+        return this.rank == 1;
+    }
+
+    public boolean a(av avVar) {
+        return avVar != null && avVar.type == this.type && avVar.rank == this.rank && this.aNs != null && avVar.aNs != null && avVar.aNs.userId == this.aNs.userId;
     }
 }

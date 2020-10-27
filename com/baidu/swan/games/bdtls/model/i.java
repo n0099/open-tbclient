@@ -5,8 +5,8 @@ import kotlin.jvm.internal.q;
 @kotlin.h
 /* loaded from: classes10.dex */
 public final class i {
-    private String dDN;
-    private Integer dDO;
+    private String dMk;
+    private Integer dMl;
 
     public i() {
         this(null, null, 3, null);
@@ -16,7 +16,7 @@ public final class i {
         if (this != obj) {
             if (obj instanceof i) {
                 i iVar = (i) obj;
-                if (!q.l(this.dDN, iVar.dDN) || !q.l(this.dDO, iVar.dDO)) {
+                if (!q.l(this.dMk, iVar.dMk) || !q.l(this.dMl, iVar.dMl)) {
                 }
             }
             return false;
@@ -25,19 +25,19 @@ public final class i {
     }
 
     public int hashCode() {
-        String str = this.dDN;
+        String str = this.dMk;
         int hashCode = (str != null ? str.hashCode() : 0) * 31;
-        Integer num = this.dDO;
+        Integer num = this.dMl;
         return hashCode + (num != null ? num.hashCode() : 0);
     }
 
     public String toString() {
-        return "ResponseParams(responseMessage=" + this.dDN + ", responseStatusCode=" + this.dDO + ")";
+        return "ResponseParams(responseMessage=" + this.dMk + ", responseStatusCode=" + this.dMl + ")";
     }
 
     public i(String str, Integer num) {
-        this.dDN = str;
-        this.dDO = num;
+        this.dMk = str;
+        this.dMl = num;
     }
 
     public /* synthetic */ i(String str, Integer num, int i, o oVar) {
@@ -45,18 +45,18 @@ public final class i {
     }
 
     public final String getResponseMessage() {
-        return this.dDN;
+        return this.dMk;
     }
 
-    public final void vN(String str) {
-        this.dDN = str;
+    public final void wg(String str) {
+        this.dMk = str;
     }
 
-    public final Integer aPF() {
-        return this.dDO;
+    public final Integer aRz() {
+        return this.dMl;
     }
 
     public final void f(Integer num) {
-        this.dDO = num;
+        this.dMl = num;
     }
 }

@@ -8,12 +8,12 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.h.f;
 import com.baidu.tieba.newdetail.view.HotTopicDetailSpecialItem;
 /* loaded from: classes21.dex */
-public class a extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.newdetail.a.b, C0767a> {
-    private f<com.baidu.tieba.newdetail.a.b> jiU;
+public class a extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.newdetail.a.b, C0782a> {
+    private f<com.baidu.tieba.newdetail.a.b> jvr;
 
     public a(TbPageContext tbPageContext) {
-        super(tbPageContext.getPageActivity(), com.baidu.tieba.newdetail.a.a.kJS);
-        this.jiU = new f<com.baidu.tieba.newdetail.a.b>() { // from class: com.baidu.tieba.newdetail.adapter.a.1
+        super(tbPageContext.getPageActivity(), com.baidu.tieba.newdetail.a.a.kWp);
+        this.jvr = new f<com.baidu.tieba.newdetail.a.b>() { // from class: com.baidu.tieba.newdetail.adapter.a.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.tbadk.h.f
             public void a(View view, com.baidu.tieba.newdetail.a.b bVar, int i, long j) {
@@ -32,49 +32,49 @@ public class a extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.newdetail
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.widget.ListView.a
-    /* renamed from: bZ */
-    public C0767a c(ViewGroup viewGroup) {
-        C0767a c0767a = new C0767a(new HotTopicDetailSpecialItem(viewGroup.getContext()));
-        c0767a.setOnItemCoverListener(this.jiU);
-        c0767a.onChangeSkinType(TbadkCoreApplication.getInst().getSkinType());
-        return c0767a;
+    /* renamed from: ca */
+    public C0782a c(ViewGroup viewGroup) {
+        C0782a c0782a = new C0782a(new HotTopicDetailSpecialItem(viewGroup.getContext()));
+        c0782a.setOnItemCoverListener(this.jvr);
+        c0782a.onChangeSkinType(TbadkCoreApplication.getInst().getSkinType());
+        return c0782a;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.widget.ListView.a
-    public View a(int i, View view, ViewGroup viewGroup, com.baidu.tieba.newdetail.a.b bVar, C0767a c0767a) {
-        if (bVar == null || c0767a == null) {
+    public View a(int i, View view, ViewGroup viewGroup, com.baidu.tieba.newdetail.a.b bVar, C0782a c0782a) {
+        if (bVar == null || c0782a == null) {
             return null;
         }
-        c0767a.a(bVar);
-        c0767a.onChangeSkinType(TbadkCoreApplication.getInst().getSkinType());
-        return c0767a.getView();
+        c0782a.a(bVar);
+        c0782a.onChangeSkinType(TbadkCoreApplication.getInst().getSkinType());
+        return c0782a.getView();
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* renamed from: com.baidu.tieba.newdetail.adapter.a$a  reason: collision with other inner class name */
     /* loaded from: classes21.dex */
-    public static class C0767a extends af.a {
-        private HotTopicDetailSpecialItem kJu;
+    public static class C0782a extends af.a {
+        private HotTopicDetailSpecialItem kVR;
 
-        C0767a(HotTopicDetailSpecialItem hotTopicDetailSpecialItem) {
+        C0782a(HotTopicDetailSpecialItem hotTopicDetailSpecialItem) {
             super(hotTopicDetailSpecialItem);
-            this.kJu = hotTopicDetailSpecialItem;
+            this.kVR = hotTopicDetailSpecialItem;
         }
 
         void a(com.baidu.tieba.newdetail.a.b bVar) {
             if (bVar != null) {
-                this.kJu.a(bVar);
+                this.kVR.a(bVar);
             }
         }
 
         public void setOnItemCoverListener(f<com.baidu.tieba.newdetail.a.b> fVar) {
-            this.kJu.setOnItemCoverListener(fVar);
+            this.kVR.setOnItemCoverListener(fVar);
         }
 
         void onChangeSkinType(int i) {
-            this.kJu.onChangeSkinType(i);
+            this.kVR.onChangeSkinType(i);
         }
     }
 }

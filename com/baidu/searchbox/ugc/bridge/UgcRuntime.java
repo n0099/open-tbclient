@@ -4,6 +4,6 @@ import com.baidu.tieba.write.b.a.g;
 /* loaded from: classes20.dex */
 public class UgcRuntime {
     public static IUgcHostInterface getUgcInterface() {
-        return g.dOj();
+        return g.dRr();
     }
 }

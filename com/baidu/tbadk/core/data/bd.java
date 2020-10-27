@@ -7,30 +7,30 @@ import tbclient.PrivateForumInfo;
 import tbclient.PrivatePopInfo;
 /* loaded from: classes.dex */
 public class bd {
-    private PrivateForumShareinfo enY = null;
-    private PrivatePopInfo enZ = null;
-    private PrivateForumInfo eoa = null;
-    private Integer eob = null;
+    private PrivateForumShareinfo eww = null;
+    private PrivatePopInfo ewx = null;
+    private PrivateForumInfo ewy = null;
+    private Integer ewz = null;
 
     public PrivatePopInfo getPrivatePopInfo() {
-        return this.enZ;
+        return this.ewx;
     }
 
-    public PrivateForumInfo bhe() {
-        return this.eoa;
+    public PrivateForumInfo biX() {
+        return this.ewy;
     }
 
-    public Integer bhf() {
-        return this.eob;
+    public Integer biY() {
+        return this.ewz;
     }
 
     public void a(PrivateForumTotalInfo privateForumTotalInfo) {
         if (privateForumTotalInfo != null) {
             try {
-                this.enY = privateForumTotalInfo.private_forum_shareinfo;
-                this.eoa = privateForumTotalInfo.private_forum_info;
-                this.eob = privateForumTotalInfo.private_forum_taskpercent;
-                this.enZ = privateForumTotalInfo.private_forum_popinfo;
+                this.eww = privateForumTotalInfo.private_forum_shareinfo;
+                this.ewy = privateForumTotalInfo.private_forum_info;
+                this.ewz = privateForumTotalInfo.private_forum_taskpercent;
+                this.ewx = privateForumTotalInfo.private_forum_popinfo;
             } catch (Exception e) {
                 BdLog.detailException(e);
             }

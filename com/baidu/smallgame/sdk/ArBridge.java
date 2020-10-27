@@ -59,7 +59,7 @@ public class ArBridge {
 
     /* loaded from: classes5.dex */
     public interface a {
-        void g(Bitmap bitmap);
+        void h(Bitmap bitmap);
     }
 
     /* loaded from: classes5.dex */
@@ -207,7 +207,7 @@ public class ArBridge {
 
     public void notifyFrameUpdated() {
         if (this.mGameRecorder != null) {
-            this.mGameRecorder.gh(getScreenTextureId());
+            this.mGameRecorder.gt(getScreenTextureId());
         }
     }
 
@@ -243,7 +243,7 @@ public class ArBridge {
     @Deprecated
     public void surfaceViewCapture(a aVar) {
         if (aVar != null) {
-            aVar.g(null);
+            aVar.h(null);
         }
     }
 

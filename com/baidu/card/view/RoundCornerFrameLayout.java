@@ -22,31 +22,31 @@ import com.baidu.tieba.R;
 /* loaded from: classes21.dex */
 public class RoundCornerFrameLayout extends FrameLayout {
     private RectF GD;
-    private float alu;
-    private Paint alv;
-    private ImageView alw;
-    private ColorFilter alx;
+    private float alv;
+    private Paint alw;
+    private ImageView alx;
     private ColorFilter aly;
+    private ColorFilter alz;
     private Bitmap mMaskBitmap;
     private int mSkinType;
 
     public RoundCornerFrameLayout(Context context) {
         super(context);
-        this.alw = null;
+        this.alx = null;
         this.mSkinType = 3;
         init();
     }
 
     public RoundCornerFrameLayout(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.alw = null;
+        this.alx = null;
         this.mSkinType = 3;
         init();
     }
 
     public RoundCornerFrameLayout(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.alw = null;
+        this.alx = null;
         this.mSkinType = 3;
         init();
     }
@@ -54,18 +54,18 @@ public class RoundCornerFrameLayout extends FrameLayout {
     private void init() {
         setWillNotDraw(false);
         this.GD = new RectF();
-        this.alu = getResources().getDimension(R.dimen.tbds10);
-        this.alv = new Paint();
-        this.alv.setStrokeWidth(0.0f);
-        this.alv.setStrokeCap(Paint.Cap.ROUND);
-        this.alv.setAntiAlias(true);
-        this.alv.setXfermode(new PorterDuffXfermode(PorterDuff.Mode.DST_OUT));
-        this.alw = new ImageView(getContext());
-        this.alw.setLayoutParams(new FrameLayout.LayoutParams(-1, -1));
+        this.alv = getResources().getDimension(R.dimen.tbds10);
+        this.alw = new Paint();
+        this.alw.setStrokeWidth(0.0f);
+        this.alw.setStrokeCap(Paint.Cap.ROUND);
+        this.alw.setAntiAlias(true);
+        this.alw.setXfermode(new PorterDuffXfermode(PorterDuff.Mode.DST_OUT));
+        this.alx = new ImageView(getContext());
+        this.alx.setLayoutParams(new FrameLayout.LayoutParams(-1, -1));
     }
 
     public void setCorner(float f) {
-        this.alu = f;
+        this.alv = f;
         if (this.mMaskBitmap != null) {
             this.mMaskBitmap.recycle();
             uq();
@@ -73,11 +73,11 @@ public class RoundCornerFrameLayout extends FrameLayout {
     }
 
     public void onChangeSkinType(int i) {
-        if (this.alw != null && this.mSkinType != i) {
+        if (this.alx != null && this.mSkinType != i) {
             this.mSkinType = i;
-            this.alx = new q(ap.getColor(R.color.cp_bg_line_d));
-            this.aly = new q(ap.getColor(R.color.cp_bg_line_e));
-            this.alw.setColorFilter(this.alx);
+            this.aly = new q(ap.getColor(R.color.cp_bg_line_d));
+            this.alz = new q(ap.getColor(R.color.cp_bg_line_e));
+            this.alx.setColorFilter(this.aly);
         }
     }
 
@@ -92,8 +92,8 @@ public class RoundCornerFrameLayout extends FrameLayout {
     }
 
     public void aO(boolean z) {
-        if (this.alw != null) {
-            this.alw.setColorFilter(z ? this.aly : this.alx);
+        if (this.alx != null) {
+            this.alx.setColorFilter(z ? this.alz : this.aly);
         }
     }
 
@@ -117,11 +117,11 @@ public class RoundCornerFrameLayout extends FrameLayout {
             }
             Canvas canvas = new Canvas(this.mMaskBitmap);
             canvas.drawColor(ViewCompat.MEASURED_STATE_MASK);
-            this.alv.setColor(-1);
-            canvas.drawRoundRect(this.GD, this.alu, this.alu, this.alv);
-            this.alw.setImageBitmap(this.mMaskBitmap);
-            if (this.alw.getParent() == null) {
-                addView(this.alw);
+            this.alw.setColor(-1);
+            canvas.drawRoundRect(this.GD, this.alv, this.alv, this.alw);
+            this.alx.setImageBitmap(this.mMaskBitmap);
+            if (this.alx.getParent() == null) {
+                addView(this.alx);
             }
         }
     }
@@ -129,22 +129,22 @@ public class RoundCornerFrameLayout extends FrameLayout {
     @Override // android.view.ViewGroup
     public void addView(View view) {
         super.addView(view);
-        if (this.alw != null && view != this.alw) {
-            if (this.alw.getParent() != null) {
-                ((ViewGroup) this.alw.getParent()).removeView(this.alw);
+        if (this.alx != null && view != this.alx) {
+            if (this.alx.getParent() != null) {
+                ((ViewGroup) this.alx.getParent()).removeView(this.alx);
             }
-            super.addView(this.alw);
+            super.addView(this.alx);
         }
     }
 
     @Override // android.view.ViewGroup
     public void removeAllViews() {
         super.removeAllViews();
-        if (this.alw != null) {
-            if (this.alw.getParent() != null) {
-                ((ViewGroup) this.alw.getParent()).removeView(this.alw);
+        if (this.alx != null) {
+            if (this.alx.getParent() != null) {
+                ((ViewGroup) this.alx.getParent()).removeView(this.alx);
             }
-            super.addView(this.alw);
+            super.addView(this.alx);
         }
     }
 }

@@ -26,20 +26,20 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes22.dex */
 public class AttentionView extends FrameLayout implements d<String> {
-    private LinearLayoutManager Xe;
-    private g gcx;
-    private int gzl;
-    private b hxK;
-    private List<i> hxL;
-    private HttpMessageListener hxM;
+    private LinearLayoutManager Xf;
+    private int gKZ;
+    private g gmB;
+    private b hKg;
+    private List<i> hKh;
+    private HttpMessageListener hKi;
     private boolean mHasMore;
     private RecyclerView mRecyclerView;
     private h mRefreshView;
     private int mSkinType;
 
     static /* synthetic */ int b(AttentionView attentionView) {
-        int i = attentionView.gzl;
-        attentionView.gzl = i + 1;
+        int i = attentionView.gKZ;
+        attentionView.gKZ = i + 1;
         return i;
     }
 
@@ -54,35 +54,35 @@ public class AttentionView extends FrameLayout implements d<String> {
     public AttentionView(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
         this.mSkinType = 3;
-        this.hxL = new ArrayList();
-        this.gzl = 1;
-        this.hxM = new HttpMessageListener(CmdConfigHttp.CMD_SELECT_FORUM_ATTENTION) { // from class: com.baidu.tieba.attention.AttentionView.1
+        this.hKh = new ArrayList();
+        this.gKZ = 1;
+        this.hKi = new HttpMessageListener(CmdConfigHttp.CMD_SELECT_FORUM_ATTENTION) { // from class: com.baidu.tieba.attention.AttentionView.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.adp.framework.listener.MessageListener
             public void onMessage(HttpResponsedMessage httpResponsedMessage) {
                 AttentionView.this.hideLoadingView();
                 if (httpResponsedMessage.getError() != 0) {
-                    if (y.isEmpty(AttentionView.this.hxL)) {
-                        AttentionView.this.R(false, true);
+                    if (y.isEmpty(AttentionView.this.hKh)) {
+                        AttentionView.this.U(false, true);
                     }
                 } else if (!(httpResponsedMessage instanceof AttentionResMsg)) {
-                    if (y.isEmpty(AttentionView.this.hxL)) {
-                        AttentionView.this.R(false, true);
+                    if (y.isEmpty(AttentionView.this.hKh)) {
+                        AttentionView.this.U(false, true);
                     }
                 } else {
                     List<i> selectForumDataList = ((AttentionResMsg) httpResponsedMessage).getSelectForumDataList();
                     if (y.isEmpty(selectForumDataList)) {
-                        if (y.isEmpty(AttentionView.this.hxL)) {
-                            AttentionView.this.R(false, false);
+                        if (y.isEmpty(AttentionView.this.hKh)) {
+                            AttentionView.this.U(false, false);
                             return;
                         }
                         return;
                     }
                     AttentionView.this.mHasMore = ((AttentionResMsg) httpResponsedMessage).getHasMore();
                     AttentionView.b(AttentionView.this);
-                    AttentionView.this.hxL.addAll(selectForumDataList);
-                    AttentionView.this.hxK.aR(AttentionView.this.hxL);
-                    AttentionView.this.hxK.notifyDataSetChanged();
+                    AttentionView.this.hKh.addAll(selectForumDataList);
+                    AttentionView.this.hKg.bb(AttentionView.this.hKh);
+                    AttentionView.this.hKg.notifyDataSetChanged();
                 }
             }
         };
@@ -92,20 +92,20 @@ public class AttentionView extends FrameLayout implements d<String> {
     private void init() {
         LayoutInflater.from(getContext()).inflate(R.layout.select_forum_lately_layout, (ViewGroup) this, true);
         this.mRecyclerView = (RecyclerView) findViewById(R.id.select_forum_list);
-        this.hxK = new b(this);
-        this.hxK.setType(2);
-        this.Xe = new LinearLayoutManager(getContext());
-        this.mRecyclerView.setLayoutManager(this.Xe);
-        this.mRecyclerView.setAdapter(this.hxK);
+        this.hKg = new b(this);
+        this.hKg.setType(2);
+        this.Xf = new LinearLayoutManager(getContext());
+        this.mRecyclerView.setLayoutManager(this.Xf);
+        this.mRecyclerView.setAdapter(this.hKg);
         this.mRecyclerView.addOnScrollListener(new RecyclerView.OnScrollListener() { // from class: com.baidu.tieba.attention.AttentionView.2
             @Override // android.support.v7.widget.RecyclerView.OnScrollListener
             public void onScrollStateChanged(RecyclerView recyclerView, int i) {
-                if (i == 0 && AttentionView.this.mHasMore && AttentionView.this.Xe.findLastVisibleItemPosition() == AttentionView.this.hxK.getItemCount() - 1) {
+                if (i == 0 && AttentionView.this.mHasMore && AttentionView.this.Xf.findLastVisibleItemPosition() == AttentionView.this.hKg.getItemCount() - 1) {
                     AttentionView.this.az(null);
                 }
             }
         });
-        MessageManager.getInstance().registerListener(this.hxM);
+        MessageManager.getInstance().registerListener(this.hKi);
     }
 
     @Override // com.baidu.tieba.d
@@ -117,53 +117,53 @@ public class AttentionView extends FrameLayout implements d<String> {
     @Override // com.baidu.tieba.d
     /* renamed from: request */
     public void az(String str) {
-        if (y.isEmpty(this.hxL)) {
+        if (y.isEmpty(this.hKh)) {
             if (!j.isNetworkAvailableForImmediately()) {
-                R(false, true);
+                U(false, true);
                 return;
             } else {
-                SK();
-                hn(false);
+                TK();
+                hA(false);
             }
         }
         HttpMessage httpMessage = new HttpMessage(CmdConfigHttp.CMD_SELECT_FORUM_ATTENTION);
         httpMessage.addParam("uid", TbadkCoreApplication.getCurrentAccount());
         httpMessage.addParam("from_index", 1);
         httpMessage.addParam("page_size", 50);
-        httpMessage.addParam("page_no", this.gzl);
+        httpMessage.addParam("page_no", this.gKZ);
         MessageManager.getInstance().sendMessage(httpMessage);
     }
 
     @Override // com.baidu.tieba.d
-    public void Ej(String str) {
+    public void EC(String str) {
     }
 
-    public void hn(boolean z) {
-        if (!cha()) {
-            if (this.gcx == null) {
-                this.gcx = new g(getContext());
-                this.gcx.onChangeSkinType();
+    public void hA(boolean z) {
+        if (!ckh()) {
+            if (this.gmB == null) {
+                this.gmB = new g(getContext());
+                this.gmB.onChangeSkinType();
             }
-            this.gcx.attachView(this, z);
+            this.gmB.attachView(this, z);
         }
     }
 
     public void hideLoadingView() {
-        if (this.gcx != null) {
-            this.gcx.dettachView(this);
-            this.gcx = null;
+        if (this.gmB != null) {
+            this.gmB.dettachView(this);
+            this.gmB = null;
         }
     }
 
-    public boolean cha() {
-        if (this.gcx != null) {
-            return this.gcx.isViewAttached();
+    public boolean ckh() {
+        if (this.gmB != null) {
+            return this.gmB.isViewAttached();
         }
         return false;
     }
 
-    public void R(boolean z, boolean z2) {
-        if (!chb()) {
+    public void U(boolean z, boolean z2) {
+        if (!cki()) {
             if (this.mRefreshView == null) {
                 this.mRefreshView = new h(getContext(), new View.OnClickListener() { // from class: com.baidu.tieba.attention.AttentionView.3
                     @Override // android.view.View.OnClickListener
@@ -179,15 +179,15 @@ public class AttentionView extends FrameLayout implements d<String> {
             if (z2) {
                 this.mRefreshView.showRefreshButton();
             } else {
-                this.mRefreshView.rj(R.drawable.new_pic_emotion_01);
+                this.mRefreshView.ru(R.drawable.new_pic_emotion_01);
                 this.mRefreshView.hideRefreshButton();
             }
-            this.mRefreshView.Dw(getContext().getString(R.string.activity_select_forum_attention_empty));
+            this.mRefreshView.DP(getContext().getString(R.string.activity_select_forum_attention_empty));
             this.mRecyclerView.setVisibility(8);
         }
     }
 
-    public void SK() {
+    public void TK() {
         if (this.mRefreshView != null) {
             this.mRefreshView.dettachView(this);
             this.mRefreshView = null;
@@ -195,7 +195,7 @@ public class AttentionView extends FrameLayout implements d<String> {
         this.mRecyclerView.setVisibility(0);
     }
 
-    public boolean chb() {
+    public boolean cki() {
         if (this.mRefreshView != null) {
             return this.mRefreshView.isViewAttached();
         }
@@ -207,13 +207,13 @@ public class AttentionView extends FrameLayout implements d<String> {
         int skinType = TbadkCoreApplication.getInst().getSkinType();
         if (skinType != this.mSkinType) {
             this.mSkinType = skinType;
-            if (this.gcx != null) {
-                this.gcx.onChangeSkinType();
+            if (this.gmB != null) {
+                this.gmB.onChangeSkinType();
             }
             if (this.mRefreshView != null) {
                 this.mRefreshView.onChangeSkinType();
             }
-            this.hxK.notifyDataSetChanged();
+            this.hKg.notifyDataSetChanged();
         }
     }
 }

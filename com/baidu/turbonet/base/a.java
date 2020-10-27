@@ -14,7 +14,7 @@ public class a {
         return str;
     }
 
-    public static String Ur(String str) {
+    public static String VF(String str) {
         if (!str.startsWith("cr_")) {
             int i = 0;
             if (str.startsWith("cr.")) {
@@ -26,16 +26,16 @@ public class a {
     }
 
     private static String h(String str, Object... objArr) {
-        return "[" + dRH() + "] " + g(str, objArr);
+        return "[" + dXz() + "] " + g(str, objArr);
     }
 
     private static void debug(String str, String str2, Object... objArr) {
         String h = h(str2, objArr);
         Throwable L = L(objArr);
         if (L != null) {
-            Log.d(Ur(str), h, L);
+            Log.d(VF(str), h, L);
         } else {
-            Log.d(Ur(str), h);
+            Log.d(VF(str), h);
         }
     }
 
@@ -47,9 +47,9 @@ public class a {
         String g = g(str2, objArr);
         Throwable L = L(objArr);
         if (L != null) {
-            Log.i(Ur(str), g, L);
+            Log.i(VF(str), g, L);
         } else {
-            Log.i(Ur(str), g);
+            Log.i(VF(str), g);
         }
     }
 
@@ -57,9 +57,9 @@ public class a {
         String g = g(str2, objArr);
         Throwable L = L(objArr);
         if (L != null) {
-            Log.e(Ur(str), g, L);
+            Log.e(VF(str), g, L);
         } else {
-            Log.e(Ur(str), g);
+            Log.e(VF(str), g);
         }
     }
 
@@ -74,7 +74,7 @@ public class a {
         return null;
     }
 
-    private static String dRH() {
+    private static String dXz() {
         StackTraceElement[] stackTrace = Thread.currentThread().getStackTrace();
         String name = a.class.getName();
         int i = 0;

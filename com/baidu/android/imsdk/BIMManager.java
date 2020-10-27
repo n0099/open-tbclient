@@ -113,7 +113,7 @@ public class BIMManager extends BaseManager implements NoProGuard {
         }
         Context applicationContext = context.getApplicationContext();
         sContext = applicationContext;
-        a.azA = false;
+        a.azB = false;
         Log.d("imsdk", "set env as " + i + "， appId:" + j + ", cuid :" + str);
         AccountManagerImpl.getInstance(applicationContext).setAppid(j);
         Utility.setDeviceId(applicationContext, str);
@@ -725,7 +725,7 @@ public class BIMManager extends BaseManager implements NoProGuard {
     }
 
     public static void tryConnection(Context context) {
-        if (!a.azA) {
+        if (!a.azB) {
             AccountManagerImpl.getInstance(context);
             AccountManagerImpl.tryConnection(context);
         }

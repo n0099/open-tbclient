@@ -8,7 +8,7 @@ import java.lang.ref.WeakReference;
 import org.webrtc.MediaStreamTrack;
 /* loaded from: classes.dex */
 public class ai {
-    private static boolean fkR = false;
+    private static boolean ftr = false;
 
     public static boolean a(WeakReference<Context> weakReference, boolean z) {
         if (weakReference == null || weakReference.get() == null) {
@@ -23,15 +23,15 @@ public class ai {
 
     public static void b(WeakReference<Context> weakReference) {
         if (weakReference != null && weakReference.get() != null) {
-            fkR = ((AudioManager) weakReference.get().getSystemService(MediaStreamTrack.AUDIO_TRACK_KIND)).isMusicActive();
+            ftr = ((AudioManager) weakReference.get().getSystemService(MediaStreamTrack.AUDIO_TRACK_KIND)).isMusicActive();
         }
     }
 
-    public static boolean bzI() {
-        return fkR;
+    public static boolean bBB() {
+        return ftr;
     }
 
-    public static boolean rA(int i) {
+    public static boolean rL(int i) {
         boolean z = false;
         switch (i) {
             case 2:
@@ -57,11 +57,11 @@ public class ai {
         }
     }
 
-    public static boolean aE(int i, String str) {
-        return rA(i);
+    public static boolean aG(int i, String str) {
+        return rL(i);
     }
 
-    public static boolean bzJ() {
+    public static boolean bBC() {
         if (!com.baidu.adp.lib.util.j.isWifiNet() || TbadkCoreApplication.getInst().getVideoAutoPlayReal() == 1) {
             return com.baidu.adp.lib.util.j.isMobileNet() && TbadkCoreApplication.getInst().getVideoAutoPlayReal() == 2;
         }

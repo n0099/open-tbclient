@@ -2,6 +2,7 @@ package com.google.zxing.oned;
 
 import com.baidu.ala.recorder.video.drawer.EncoderTextureDrawer;
 import com.baidu.ar.arplay.core.message.ARPMessageType;
+import com.baidu.cyberplayer.sdk.rtc.RTCConst;
 import com.google.zxing.BarcodeFormat;
 import com.google.zxing.ChecksumException;
 import com.google.zxing.DecodeHintType;
@@ -23,7 +24,7 @@ public final class Code93Reader extends OneDReader {
     private final int[] counters = new int[6];
 
     static {
-        int[] iArr = {276, 328, 324, 322, 296, 292, 290, 336, 274, 266, HttpStatus.SC_FAILED_DEPENDENCY, HttpStatus.SC_METHOD_FAILURE, 418, 404, 402, 394, EncoderTextureDrawer.X264_WIDTH, 356, 354, 308, 282, 344, 332, 326, 300, 278, 436, 434, 428, HttpStatus.SC_UNPROCESSABLE_ENTITY, 406, 410, 364, 358, 310, 314, 302, 468, 466, 458, 366, 374, 430, 294, 474, 470, ARPMessageType.MSG_TYPE_IMU_MIRROR_DATA, 350};
+        int[] iArr = {276, 328, 324, 322, 296, 292, 290, 336, 274, 266, HttpStatus.SC_FAILED_DEPENDENCY, HttpStatus.SC_METHOD_FAILURE, 418, 404, 402, 394, EncoderTextureDrawer.X264_WIDTH, 356, 354, 308, 282, 344, 332, 326, 300, 278, RTCConst.RTC_ROOM_USERID_ALREADY_EXIST_ERROR, 434, 428, HttpStatus.SC_UNPROCESSABLE_ENTITY, 406, 410, 364, 358, 310, 314, 302, 468, 466, 458, 366, 374, 430, 294, 474, 470, ARPMessageType.MSG_TYPE_IMU_MIRROR_DATA, 350};
         CHARACTER_ENCODINGS = iArr;
         ASTERISK_ENCODING = iArr[47];
     }

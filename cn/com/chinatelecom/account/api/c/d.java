@@ -10,7 +10,7 @@ import com.xiaomi.mipush.sdk.Constants;
 public class d {
 
     /* renamed from: a  reason: collision with root package name */
-    private static final String f984a = d.class.getCanonicalName();
+    private static final String f981a = d.class.getCanonicalName();
     private static String b = "";
     private static int c = 0;
     private static int d = 5;

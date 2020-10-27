@@ -6,7 +6,7 @@ import android.net.Uri;
 import com.baidu.swan.apps.scheme.actions.p;
 /* loaded from: classes10.dex */
 public interface u {
-    boolean S(Context context, String str);
+    boolean T(Context context, String str);
 
     boolean a(Activity activity, Uri uri, String str);
 

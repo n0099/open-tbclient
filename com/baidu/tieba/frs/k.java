@@ -17,17 +17,17 @@ import com.baidu.tieba.R;
 import com.baidu.tieba.tbadkCore.FrsViewData;
 /* loaded from: classes21.dex */
 public abstract class k<T, V extends af.a> extends com.baidu.adp.widget.ListView.a<T, V> {
-    protected static final int ior;
-    protected static final int ios;
-    protected static final int iot;
-    protected com.baidu.adp.widget.ListView.v hUo;
-    protected com.baidu.tieba.card.aa ioA;
-    protected FrsViewData iou;
-    protected f iov;
-    protected int iow;
-    protected i iox;
-    private boolean ioy;
-    private boolean ioz;
+    protected static final int iAN;
+    protected static final int iAO;
+    protected static final int iAP;
+    protected FrsViewData iAQ;
+    protected f iAR;
+    protected int iAS;
+    protected i iAT;
+    private boolean iAU;
+    private boolean iAV;
+    protected com.baidu.tieba.card.ab iAW;
+    protected com.baidu.adp.widget.ListView.v igO;
     protected boolean mIsFromCDN;
     protected TbPageContext<?> mPageContext;
     protected int mSkinType;
@@ -35,16 +35,16 @@ public abstract class k<T, V extends af.a> extends com.baidu.adp.widget.ListView
 
     static {
         Resources resources = TbadkCoreApplication.getInst().getContext().getResources();
-        ior = resources.getDimensionPixelSize(R.dimen.ds8);
-        ios = resources.getDimensionPixelSize(R.dimen.ds16);
-        iot = resources.getDimensionPixelSize(R.dimen.ds1);
+        iAN = resources.getDimensionPixelSize(R.dimen.ds8);
+        iAO = resources.getDimensionPixelSize(R.dimen.ds16);
+        iAP = resources.getDimensionPixelSize(R.dimen.ds1);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     public k(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId, BdUniqueId bdUniqueId2) {
         super(tbPageContext == null ? null : tbPageContext.getPageActivity(), bdUniqueId, bdUniqueId2);
         this.mIsFromCDN = false;
-        this.ioz = false;
+        this.iAV = false;
         this.mTbPageTag = null;
         a(tbPageContext, bdUniqueId2);
     }
@@ -53,7 +53,7 @@ public abstract class k<T, V extends af.a> extends com.baidu.adp.widget.ListView
     public k(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId) {
         super(tbPageContext == null ? null : tbPageContext.getPageActivity(), bdUniqueId);
         this.mIsFromCDN = false;
-        this.ioz = false;
+        this.iAV = false;
         this.mTbPageTag = null;
         a(tbPageContext, tbPageContext != null ? tbPageContext.getUniqueId() : null);
     }
@@ -69,26 +69,26 @@ public abstract class k<T, V extends af.a> extends com.baidu.adp.widget.ListView
     public void release() {
         this.mContext = null;
         this.mPageContext = null;
-        this.iov = null;
-        this.Vt = null;
+        this.iAR = null;
         this.Vu = null;
-        if (this.iox != null) {
-            this.iox.destory();
-            this.iox = null;
+        this.Vv = null;
+        if (this.iAT != null) {
+            this.iAT.destory();
+            this.iAT = null;
         }
     }
 
     public void b(com.baidu.adp.widget.ListView.v vVar) {
-        this.hUo = vVar;
+        this.igO = vVar;
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.widget.ListView.a
     public View a(int i, View view, ViewGroup viewGroup, T t, V v) {
         this.mSkinType = TbadkCoreApplication.getInst().getSkinType();
-        this.hUo = (com.baidu.adp.widget.ListView.v) viewGroup;
+        this.igO = (com.baidu.adp.widget.ListView.v) viewGroup;
         if (t instanceof bv) {
-            ((bv) t).eji.nN(2);
+            ((bv) t).erH.nY(2);
             return null;
         }
         return null;
@@ -99,23 +99,23 @@ public abstract class k<T, V extends af.a> extends com.baidu.adp.widget.ListView
     }
 
     public void b(FrsViewData frsViewData) {
-        this.iou = frsViewData;
+        this.iAQ = frsViewData;
     }
 
     public void a(f fVar) {
-        this.iov = fVar;
+        this.iAR = fVar;
     }
 
-    public void xU(int i) {
-        this.iow = i;
+    public void yn(int i) {
+        this.iAS = i;
     }
 
     public void a(i iVar) {
-        this.iox = iVar;
+        this.iAT = iVar;
     }
 
-    public boolean csq() {
-        return this.ioy;
+    public boolean cvx() {
+        return this.iAU;
     }
 
     public View x(ViewGroup viewGroup, int i) {

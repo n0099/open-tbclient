@@ -6,15 +6,15 @@ import com.baidu.searchbox.unitedscheme.UnitedSchemeMainDispatcher;
 import com.baidu.swan.apps.scheme.e;
 /* loaded from: classes10.dex */
 public final class a {
-    private com.baidu.swan.apps.jsbridge.a.a cuk = new com.baidu.swan.apps.jsbridge.a.a();
+    private com.baidu.swan.apps.jsbridge.a.a cCI = new com.baidu.swan.apps.jsbridge.a.a();
 
     public void a(com.baidu.swan.games.f.a aVar, Context context) {
         UnitedSchemeMainDispatcher unitedSchemeMainDispatcher = new UnitedSchemeMainDispatcher();
-        this.cuk.a(aVar, context, aVar, unitedSchemeMainDispatcher);
+        this.cCI.a(aVar, context, aVar, unitedSchemeMainDispatcher);
         e.a(unitedSchemeMainDispatcher);
     }
 
     public void W(Activity activity) {
-        this.cuk.G(activity);
+        this.cCI.G(activity);
     }
 }

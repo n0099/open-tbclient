@@ -23,7 +23,7 @@ public class a {
         if (bdUniqueId != null && fVar != null) {
             aq aqVar = new aq("common_exp");
             a(aqVar, fVar, postData, i, i2, false, str);
-            c.dDn().a(bdUniqueId, str2, aqVar);
+            c.dGv().a(bdUniqueId, str2, aqVar);
         }
     }
 
@@ -69,25 +69,25 @@ public class a {
     private static aq a(aq aqVar, f fVar, PostData postData, int i, int i2, boolean z, String str) {
         int i3 = 1;
         if (fVar != null) {
-            aqVar.dK("page_type", PageStayDurationConstants.PageName.PB).aj("obj_floor", i).aj("obj_isad", z ? 1 : 0).dK("fid", fVar.getForumId() + "").dK("tid", fVar.getThreadId() + "").dK("obj_id", str + "").aj("post_type", i2);
+            aqVar.dR("page_type", PageStayDurationConstants.PageName.PB).aj("obj_floor", i).aj("obj_isad", z ? 1 : 0).dR("fid", fVar.getForumId() + "").dR("tid", fVar.getThreadId() + "").dR("obj_id", str + "").aj("post_type", i2);
             if (postData != null) {
-                aqVar.dK("pid", postData.getId() + "");
+                aqVar.dR("pid", postData.getId() + "");
             }
-            if (fVar.dcA() != null) {
-                aqVar.aj("thread_type", fVar.dcA().threadType);
-                BaijiahaoData baijiahaoData = fVar.dcA().getBaijiahaoData();
+            if (fVar.dfI() != null) {
+                aqVar.aj("thread_type", fVar.dfI().threadType);
+                BaijiahaoData baijiahaoData = fVar.dfI().getBaijiahaoData();
                 if (baijiahaoData != null) {
-                    aqVar.dK("ugc_nid", baijiahaoData.oriUgcNid);
-                    aqVar.dK("ugc_vid", baijiahaoData.oriUgcVid);
+                    aqVar.dR("ugc_nid", baijiahaoData.oriUgcNid);
+                    aqVar.dR("ugc_vid", baijiahaoData.oriUgcVid);
                     aqVar.aj("ori_ugc_type", baijiahaoData.oriUgcType);
                 }
             }
             if (TbadkCoreApplication.getInst().getAdAdSense() != null) {
-                aqVar.dK("ab_tag", TbadkCoreApplication.getInst().getAdAdSense().eOl);
+                aqVar.dR("ab_tag", TbadkCoreApplication.getInst().getAdAdSense().eWH);
             }
-            if (!fVar.ddd()) {
-                if (fVar.kUz != 2) {
-                    i3 = fVar.kUz == 1 ? 3 : 2;
+            if (!fVar.dgl()) {
+                if (fVar.lgY != 2) {
+                    i3 = fVar.lgY == 1 ? 3 : 2;
                 }
                 aqVar.aj("list_order", i3);
             }

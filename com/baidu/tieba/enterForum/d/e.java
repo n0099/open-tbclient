@@ -15,8 +15,8 @@ import com.baidu.tbadk.core.util.aq;
 import com.baidu.tieba.R;
 /* loaded from: classes22.dex */
 public class e {
-    private boolean aiK;
-    private ImageView hZY;
+    private boolean aiL;
+    private ImageView imz;
     private TbPageContext<?> mPageContext;
     private TextView mTitleView;
     private View mView;
@@ -25,15 +25,15 @@ public class e {
         this.mPageContext = tbPageContext;
         this.mView = tbPageContext.getPageActivity().getLayoutInflater().inflate(R.layout.recommend_forum_title_item_view, (ViewGroup) null);
         this.mTitleView = (TextView) this.mView.findViewById(R.id.text_title);
-        this.hZY = (ImageView) this.mView.findViewById(R.id.icon_into);
-        this.hZY.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.enterForum.d.e.1
+        this.imz = (ImageView) this.mView.findViewById(R.id.icon_into);
+        this.imz.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.enterForum.d.e.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
                 com.baidu.tieba.enterForum.b.d(e.this.mPageContext, null);
                 aq aqVar = new aq("c13645");
-                aqVar.u("uid", TbadkApplication.getCurrentAccountId());
+                aqVar.w("uid", TbadkApplication.getCurrentAccountId());
                 aqVar.aj("obj_locate", 1);
-                aqVar.aj("obj_type", e.this.aiK ? 5 : 1);
+                aqVar.aj("obj_type", e.this.aiL ? 5 : 1);
                 aqVar.aj("obj_source", 2);
                 TiebaStatic.log(aqVar);
             }
@@ -50,10 +50,10 @@ public class e {
             this.mTitleView.setText(title);
         }
         ap.setViewTextColor(this.mTitleView, R.color.cp_cont_b);
-        SvgManager.bmU().a(this.hZY, R.drawable.icon_pure_list_arrow16_right_svg, R.color.cp_cont_j, SvgManager.SvgResourceStateType.NORMAL);
+        SvgManager.boN().a(this.imz, R.drawable.icon_pure_list_arrow16_right_svg, R.color.cp_cont_j, SvgManager.SvgResourceStateType.NORMAL);
     }
 
     public void setHasLikeForum(boolean z) {
-        this.aiK = z;
+        this.aiL = z;
     }
 }

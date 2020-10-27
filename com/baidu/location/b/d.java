@@ -70,7 +70,7 @@ public class d {
     private String p;
     private boolean q;
     private com.baidu.location.c.a f = new com.baidu.location.c.a();
-    private C0220d h = null;
+    private C0234d h = null;
     private String n = null;
     b c = new b();
     private int s = 16;
@@ -244,7 +244,7 @@ public class d {
     /* JADX INFO: Access modifiers changed from: protected */
     /* renamed from: com.baidu.location.b.d$d  reason: collision with other inner class name */
     /* loaded from: classes7.dex */
-    public class C0220d {
+    public class C0234d {
 
         /* renamed from: a  reason: collision with root package name */
         public List<ScanResult> f1879a;
@@ -252,7 +252,7 @@ public class d {
         public String b = null;
         private String e = null;
 
-        public C0220d(List<ScanResult> list) {
+        public C0234d(List<ScanResult> list) {
             this.f1879a = null;
             this.d = 0L;
             this.f1879a = list;
@@ -835,7 +835,7 @@ public class d {
         try {
             this.h = null;
             if (e()) {
-                this.h = new C0220d(this.g.getScanResults());
+                this.h = new C0234d(this.g.getScanResults());
                 str2 = this.h.a(i2, f());
                 try {
                     if (this.l != null && this.l.isOnceLocation()) {

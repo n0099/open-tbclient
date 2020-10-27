@@ -6,7 +6,7 @@ import java.util.List;
 import java.util.Map;
 /* loaded from: classes8.dex */
 public class b {
-    private a axe;
+    private a axf;
     private Map<String, com.baidu.helios.channels.a> b = new HashMap();
 
     /* loaded from: classes8.dex */
@@ -15,7 +15,7 @@ public class b {
     }
 
     public b(a aVar) {
-        this.axe = aVar;
+        this.axf = aVar;
         for (com.baidu.helios.channels.a aVar2 : aVar.Am()) {
             this.b.put(aVar2.getName(), aVar2);
         }

@@ -9,10 +9,10 @@ import org.webrtc.SurfaceEglRenderer;
 import org.webrtc.VideoFrame;
 /* loaded from: classes9.dex */
 public class k extends j implements RendererCommon.RendererEvents {
-    private Boolean bXC;
-    private SurfaceHolder bXD;
-    private boolean bXE;
-    private BaiduRtcRoom.a bXF;
+    private Boolean cgb;
+    private SurfaceHolder cgc;
+    private boolean cgd;
+    private BaiduRtcRoom.a cge;
     private SurfaceEglRenderer eglRenderer;
     private RendererCommon.RendererEvents rendererEvents;
     private Surface surface;
@@ -26,9 +26,9 @@ public class k extends j implements RendererCommon.RendererEvents {
         this.videoWidth = 0;
         this.videoHeight = 0;
         this.videoRotation = 0;
-        this.bXE = false;
-        this.bXC = false;
-        this.bXF = aVar;
+        this.cgd = false;
+        this.cgb = false;
+        this.cge = aVar;
         this.userId = j;
         this.eglRenderer = new SurfaceEglRenderer(String.valueOf(j));
     }
@@ -53,11 +53,11 @@ public class k extends j implements RendererCommon.RendererEvents {
     @Override // com.baidu.rtc.j, org.webrtc.VideoSink
     public void onFrame(VideoFrame videoFrame) {
         Logging.d("ExternalRenderImp", this.userId + " : onFrame time stamp:" + videoFrame.getTimestampNs());
-        if (!this.bXE) {
+        if (!this.cgd) {
             this.videoWidth = videoFrame.getBuffer().getWidth();
             this.videoHeight = videoFrame.getBuffer().getHeight();
             this.videoRotation = videoFrame.getRotation();
-            this.bXE = true;
+            this.cgd = true;
         }
         this.eglRenderer.onFrame(videoFrame);
     }
@@ -67,8 +67,8 @@ public class k extends j implements RendererCommon.RendererEvents {
         this.videoWidth = i;
         this.videoHeight = i2;
         this.videoRotation = i3;
-        if (this.bXF != null) {
-            this.bXF.onRoomEventUpdate(500, this.userId, null);
+        if (this.cge != null) {
+            this.cge.onRoomEventUpdate(500, this.userId, null);
         }
         if (this.rendererEvents != null) {
             this.rendererEvents.onFrameResolutionChanged(i, i2, i3);
@@ -83,8 +83,8 @@ public class k extends j implements RendererCommon.RendererEvents {
 
     @Override // com.baidu.rtc.j
     public void releaseSurface() {
-        this.eglRenderer.surfaceDestroyed(this.bXD);
-        this.bXC = false;
+        this.eglRenderer.surfaceDestroyed(this.cgc);
+        this.cgb = false;
         this.surface = null;
         Logging.d("ExternalRenderImp", this.userId + " : External renderer release surface " + this.surface);
     }

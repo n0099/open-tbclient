@@ -10,7 +10,7 @@ import tbclient.CommonReq;
 public class HotTopicSelectNetMessage extends NetMessage {
 
     /* renamed from: common  reason: collision with root package name */
-    private CommonReq f3690common;
+    private CommonReq f3688common;
     private long fid;
     private String firstDir;
     private String prefix;
@@ -52,11 +52,11 @@ public class HotTopicSelectNetMessage extends NetMessage {
     }
 
     public CommonReq getCommon() {
-        return this.f3690common;
+        return this.f3688common;
     }
 
     public void setCommon(CommonReq commonReq) {
-        this.f3690common = commonReq;
+        this.f3688common = commonReq;
     }
 
     public void setPrefix(String str) {
@@ -66,7 +66,7 @@ public class HotTopicSelectNetMessage extends NetMessage {
     @Override // com.baidu.adp.framework.message.NetMessage
     protected Object encode(boolean z) {
         DataReq.Builder builder = new DataReq.Builder();
-        builder.f949common = getCommon();
+        builder.f946common = getCommon();
         builder.fid = Long.valueOf(this.fid);
         if (this.prefix != null) {
             builder.prefix = this.prefix;

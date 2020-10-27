@@ -4,81 +4,81 @@ import android.text.TextUtils;
 import android.util.Log;
 /* loaded from: classes6.dex */
 public final class a implements b {
-    private static final a plu = new a();
-    private volatile boolean nFo = false;
-    private volatile boolean plv = false;
+    private static final a qcJ = new a();
+    private volatile boolean ohQ = false;
+    private volatile boolean qcK = false;
 
-    public static b etM() {
-        return plu;
+    public static b eDK() {
+        return qcJ;
     }
 
     @Override // tv.chushou.a.a.c.b
-    public boolean etN() {
-        return this.nFo;
+    public boolean eDL() {
+        return this.ohQ;
     }
 
     @Override // tv.chushou.a.a.c.b
     public void showLog(boolean z) {
-        this.nFo = z;
+        this.ohQ = z;
     }
 
     @Override // tv.chushou.a.a.c.b
-    public void zY(boolean z) {
-        this.plv = z;
+    public void Bg(boolean z) {
+        this.qcK = z;
     }
 
-    public String etO() {
+    public String eDM() {
         return "Router";
     }
 
     @Override // tv.chushou.a.a.c.b
     public void v(String str, String str2) {
-        if (this.nFo) {
-            Log.v(Yd(str), Ye(str2));
+        if (this.ohQ) {
+            Log.v(ZQ(str), ZR(str2));
         }
     }
 
     @Override // tv.chushou.a.a.c.b
     public void d(String str, String str2) {
-        if (this.nFo) {
-            Log.d(Yd(str), Ye(str2));
+        if (this.ohQ) {
+            Log.d(ZQ(str), ZR(str2));
         }
     }
 
     @Override // tv.chushou.a.a.c.b
     public void i(String str, String str2) {
-        if (this.nFo) {
-            Log.i(Yd(str), Ye(str2));
+        if (this.ohQ) {
+            Log.i(ZQ(str), ZR(str2));
         }
     }
 
     @Override // tv.chushou.a.a.c.b
     public void w(String str, String str2) {
-        if (this.nFo) {
-            Log.w(Yd(str), Ye(str2));
+        if (this.ohQ) {
+            Log.w(ZQ(str), ZR(str2));
         }
     }
 
     @Override // tv.chushou.a.a.c.b
     public void e(String str, String str2) {
-        if (this.nFo) {
-            Log.e(Yd(str), Ye(str2));
+        if (this.ohQ) {
+            Log.e(ZQ(str), ZR(str2));
         }
     }
 
     @Override // tv.chushou.a.a.c.b
     public void e(String str, String str2, Throwable th) {
-        if (this.nFo) {
-            Log.e(Yd(str), Ye(str2), th);
+        if (this.ohQ) {
+            Log.e(ZQ(str), ZR(str2), th);
         }
     }
 
-    private String Yd(String str) {
-        return TextUtils.isEmpty(str) ? etO() : str;
+    private String ZQ(String str) {
+        return TextUtils.isEmpty(str) ? eDM() : str;
     }
 
-    private String Ye(String str) {
-        if (this.plv) {
+    private String ZR(String str) {
+        if (this.qcK) {
             return str + a(Thread.currentThread().getStackTrace()[3]);
         }
         return str;

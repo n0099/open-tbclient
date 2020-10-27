@@ -5,14 +5,14 @@ import com.baidu.android.imsdk.internal.Constants;
 public class a {
 
     /* renamed from: a  reason: collision with root package name */
-    static final /* synthetic */ boolean f1283a;
+    static final /* synthetic */ boolean f1280a;
 
     /* renamed from: com.baidu.browser.sailor.util.a$a  reason: collision with other inner class name */
     /* loaded from: classes11.dex */
     static abstract class AbstractC0094a {
 
         /* renamed from: a  reason: collision with root package name */
-        public byte[] f1284a;
+        public byte[] f1281a;
         public int b;
 
         AbstractC0094a() {
@@ -39,7 +39,7 @@ public class a {
         }
 
         public b() {
-            this.f1284a = null;
+            this.f1281a = null;
             this.f = false;
             this.g = false;
             this.h = false;
@@ -51,7 +51,7 @@ public class a {
     }
 
     static {
-        f1283a = !a.class.desiredAssertionStatus();
+        f1280a = !a.class.desiredAssertionStatus();
     }
 
     private a() {
@@ -85,9 +85,9 @@ public class a {
         if (bVar.g && length > 0) {
             i6 += (bVar.h ? 2 : 1) * (((length - 1) / 57) + 1);
         }
-        bVar.f1284a = new byte[i6];
+        bVar.f1281a = new byte[i6];
         byte[] bArr2 = bVar.i;
-        byte[] bArr3 = bVar.f1284a;
+        byte[] bArr3 = bVar.f1281a;
         int i7 = 0;
         int i8 = bVar.e;
         int i9 = 0;
@@ -249,8 +249,8 @@ public class a {
             if (b.j || i9 == i10) {
                 bVar.b = i7;
                 bVar.e = i2;
-                if (f1283a || bVar.b == i6) {
-                    return bVar.f1284a;
+                if (f1280a || bVar.b == i6) {
+                    return bVar.f1281a;
                 }
                 throw new AssertionError();
             }

@@ -18,13 +18,13 @@ import java.io.UnsupportedEncodingException;
 import java.net.URLEncoder;
 /* loaded from: classes10.dex */
 public class c {
-    private static final String[] cqH = {"https://mbd.baidu.com", "https://ossapi.baidu.com", "https://ext.baidu.com"};
+    private static final String[] czi = {"https://mbd.baidu.com", "https://ossapi.baidu.com", "https://ext.baidu.com"};
 
-    public static boolean lI(String str) {
+    public static boolean mb(String str) {
         if (TextUtils.isEmpty(str)) {
             return false;
         }
-        for (String str2 : cqH) {
+        for (String str2 : czi) {
             if (str.startsWith(str2)) {
                 return true;
             }
@@ -33,31 +33,31 @@ public class c {
     }
 
     public static String processCommonParams(String str) {
-        return addParam(addParam(addParam(addParam(addParam(addParam(addParam(addParam(addParam(addParam(str, "uid", agR()), j.c, agS()), "ut", agQ()), "osbranch", agU()), "pkgname", getPkgName()), "network", agT()), "appname", getAppName()), "hostname", getAppName()), "swan_sdk_version", agY()), "mnpunion", String.valueOf(f.cim.aeV() ? 2 : 0));
+        return addParam(addParam(addParam(addParam(addParam(addParam(addParam(addParam(addParam(addParam(str, "uid", aiL()), j.c, aiM()), "ut", aiK()), "osbranch", aiO()), "pkgname", getPkgName()), "network", aiN()), "appname", getAppName()), "hostname", getAppName()), "swan_sdk_version", aiS()), "mnpunion", String.valueOf(f.cqM.agP() ? 2 : 0));
     }
 
-    public static String agQ() {
+    public static String aiK() {
         return dy(getDeviceInfo());
     }
 
-    public static String agR() {
+    public static String aiL() {
         return dy(getUid());
     }
 
-    public static String agS() {
+    public static String aiM() {
         return dy(vd());
     }
 
-    public static String agT() {
-        return aha() + PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS + agZ();
+    public static String aiN() {
+        return aiU() + PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS + aiT();
     }
 
-    public static String agU() {
+    public static String aiO() {
         return "a0";
     }
 
     public static String getUid() {
-        return com.baidu.swan.apps.t.a.ask().bq(AppRuntime.getAppContext());
+        return com.baidu.swan.apps.t.a.auf().bq(AppRuntime.getAppContext());
     }
 
     public static String vd() {
@@ -65,13 +65,13 @@ public class c {
         int displayWidth = ah.getDisplayWidth(appContext);
         int displayHeight = ah.getDisplayHeight(appContext);
         int densityDpi = ah.getDensityDpi(appContext);
-        String agV = agV();
+        String aiP = aiP();
         StringBuffer stringBuffer = new StringBuffer();
         stringBuffer.append(displayWidth);
         stringBuffer.append(PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS);
         stringBuffer.append(displayHeight);
         stringBuffer.append(PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS);
-        stringBuffer.append(agV);
+        stringBuffer.append(aiP);
         stringBuffer.append(PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS);
         stringBuffer.append(ak.getVersionName());
         stringBuffer.append(PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS);
@@ -79,7 +79,7 @@ public class c {
         return stringBuffer.toString();
     }
 
-    public static String agV() {
+    public static String aiP() {
         return "android";
     }
 
@@ -89,12 +89,12 @@ public class c {
 
     public static String getDeviceInfo() {
         String deviceModel = getDeviceModel();
-        String agX = agX();
+        String aiR = aiR();
         int i = Build.VERSION.SDK_INT;
-        return deviceModel + PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS + agX + PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS + i + PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS + agW();
+        return deviceModel + PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS + aiR + PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS + i + PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS + aiQ();
     }
 
-    public static String agW() {
+    public static String aiQ() {
         String str = Build.MANUFACTURER;
         if (TextUtils.isEmpty(str)) {
             return "NUL";
@@ -102,7 +102,7 @@ public class c {
         return str.replace(PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS, Constants.ACCEPT_TIME_SEPARATOR_SERVER);
     }
 
-    public static String agX() {
+    public static String aiR() {
         String str = Build.VERSION.RELEASE;
         if (TextUtils.isEmpty(str)) {
             return "0.0";
@@ -174,27 +174,27 @@ public class c {
         }
     }
 
-    private static String agY() {
+    private static String aiS() {
         return com.baidu.swan.apps.c.getVersion();
     }
 
     private static String getAppName() {
-        return com.baidu.swan.apps.t.a.asS().getHostName();
+        return com.baidu.swan.apps.t.a.auM().getHostName();
     }
 
-    private static int agZ() {
-        NetworkInfo activeNetworkInfo = SwanAppNetworkUtils.getActiveNetworkInfo(com.baidu.swan.apps.t.a.asf());
+    private static int aiT() {
+        NetworkInfo activeNetworkInfo = SwanAppNetworkUtils.getActiveNetworkInfo(com.baidu.swan.apps.t.a.aua());
         if (activeNetworkInfo == null) {
             return 0;
         }
         return activeNetworkInfo.getSubtype();
     }
 
-    private static int aha() {
+    private static int aiU() {
         NetworkInfo networkInfo;
         String str = null;
         try {
-            networkInfo = ((ConnectivityManager) com.baidu.swan.apps.t.a.asf().getSystemService("connectivity")).getActiveNetworkInfo();
+            networkInfo = ((ConnectivityManager) com.baidu.swan.apps.t.a.aua().getSystemService("connectivity")).getActiveNetworkInfo();
         } catch (NullPointerException e) {
             networkInfo = null;
         }

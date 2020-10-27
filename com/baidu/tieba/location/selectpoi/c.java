@@ -24,10 +24,10 @@ import com.baidu.tieba.tbadkCore.location.LocationData;
 import com.baidu.tieba.tbadkCore.location.ResponsedSelectLocation;
 /* loaded from: classes23.dex */
 public class c implements View.OnClickListener, AdapterView.OnItemClickListener, com.baidu.tbadk.suspended.a {
-    private BdListView VX;
-    private Intent fBA;
-    private ImageView fBx;
-    private b ktp;
+    private BdListView VY;
+    private ImageView fJS;
+    private Intent fJV;
+    private b kFM;
     private LinearLayout mContentView;
     private NavigationBar mNavigationBar;
     private TbPageContext<SelectLocationActivity> mPageContext;
@@ -36,37 +36,37 @@ public class c implements View.OnClickListener, AdapterView.OnItemClickListener,
         this.mPageContext = tbPageContext;
         this.mContentView = linearLayout;
         this.mNavigationBar = navigationBar;
-        byD();
-        Yn();
+        bAw();
+        Vr();
     }
 
-    private void byD() {
+    private void bAw() {
         this.mNavigationBar.setCenterTextTitle(this.mPageContext.getResources().getString(R.string.select_position_title));
-        this.fBx = (ImageView) this.mNavigationBar.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, R.layout.widget_nb_item_search, (View.OnClickListener) null);
-        LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.fBx.getLayoutParams();
+        this.fJS = (ImageView) this.mNavigationBar.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, R.layout.widget_nb_item_search, (View.OnClickListener) null);
+        LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.fJS.getLayoutParams();
         layoutParams.setMargins(0, 0, l.getDimens(this.mPageContext.getPageActivity(), R.dimen.ds10), 0);
-        this.fBx.setLayoutParams(layoutParams);
-        this.fBx.setOnClickListener(this);
+        this.fJS.setLayoutParams(layoutParams);
+        this.fJS.setOnClickListener(this);
     }
 
-    private void Yn() {
+    private void Vr() {
         LayoutInflater.from(this.mPageContext.getPageActivity()).inflate(R.layout.select_location_activity, (ViewGroup) this.mContentView, true);
-        this.VX = (BdListView) this.mContentView.findViewById(R.id.select_position_list);
-        this.ktp = new b(this.mPageContext);
-        this.VX.setAdapter((ListAdapter) this.ktp);
-        this.VX.setOnItemClickListener(this);
+        this.VY = (BdListView) this.mContentView.findViewById(R.id.select_position_list);
+        this.kFM = new b(this.mPageContext);
+        this.VY.setAdapter((ListAdapter) this.kFM);
+        this.VY.setOnItemClickListener(this);
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        if (view == this.fBx) {
+        if (view == this.fJS) {
             MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_SEARCH_LOCATION_PAGE, new SearchLocationActivityConfig(this.mPageContext.getPageActivity(), RequestResponseCode.REQUEST_CLOSE_SELECT_LOCATION_ACTIVITY)));
         }
     }
 
     @Override // android.widget.AdapterView.OnItemClickListener
     public void onItemClick(AdapterView<?> adapterView, View view, int i, long j) {
-        if (this.ktp != null) {
+        if (this.kFM != null) {
             MessageManager messageManager = MessageManager.getInstance();
             LocationEvent locationEvent = new LocationEvent();
             locationEvent.setType(1);
@@ -78,7 +78,7 @@ public class c implements View.OnClickListener, AdapterView.OnItemClickListener,
                 this.mPageContext.getOrignalPage().finish();
                 return;
             }
-            Object item = this.ktp.getItem(i);
+            Object item = this.kFM.getItem(i);
             if (item instanceof LocationData.NearByAddressData) {
                 LocationData.NearByAddressData nearByAddressData = (LocationData.NearByAddressData) item;
                 messageManager.dispatchResponsedMessage(new ResponsedSelectLocation(true, nearByAddressData.getName(), nearByAddressData.getAddr(), nearByAddressData.getSn()));
@@ -93,24 +93,24 @@ public class c implements View.OnClickListener, AdapterView.OnItemClickListener,
     }
 
     @Override // com.baidu.tbadk.suspended.a
-    public boolean byz() {
+    public boolean bAs() {
         View childAt;
-        return this.VX != null && this.VX.getFirstVisiblePosition() == 0 && (childAt = this.VX.getChildAt(0)) != null && childAt.getTop() == 0;
+        return this.VY != null && this.VY.getFirstVisiblePosition() == 0 && (childAt = this.VY.getChildAt(0)) != null && childAt.getTop() == 0;
     }
 
     @Override // com.baidu.tbadk.suspended.a
-    public boolean byA() {
+    public boolean bAt() {
         return true;
     }
 
     @Override // com.baidu.tbadk.suspended.a
-    public void rt(int i) {
-        SvgManager.bmU().a(this.fBx, R.drawable.icon_pure_topbar_search44_svg, R.color.cp_cont_b, SvgManager.SvgResourceStateType.NORMAL_PRESS);
-        this.ktp.notifyDataSetChanged();
+    public void rE(int i) {
+        SvgManager.boN().a(this.fJS, R.drawable.icon_pure_topbar_search44_svg, R.color.cp_cont_b, SvgManager.SvgResourceStateType.NORMAL_PRESS);
+        this.kFM.notifyDataSetChanged();
     }
 
     @Override // com.baidu.tbadk.suspended.a
-    public Intent byB() {
-        return this.fBA;
+    public Intent bAu() {
+        return this.fJV;
     }
 }

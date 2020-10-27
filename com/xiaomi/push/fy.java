@@ -13,19 +13,19 @@ import org.xmlpull.v1.XmlPullParserFactory;
 public final class fy {
 
     /* renamed from: a  reason: collision with root package name */
-    private static int f4914a;
+    private static int f4912a;
     private static int b;
     private static int c = UnitedSchemeMainDispatcher.SCHEME_TIME_LIMIT;
     private static int d = 330000;
 
     /* renamed from: a  reason: collision with other field name */
-    private static Vector<String> f378a = new Vector<>();
+    private static Vector<String> f375a = new Vector<>();
 
     static {
-        f4914a = 5000;
+        f4912a = 5000;
         b = 330000;
         try {
-            for (ClassLoader classLoader : m306a()) {
+            for (ClassLoader classLoader : m305a()) {
                 Enumeration<URL> resources = classLoader.getResources("META-INF/smack-config.xml");
                 while (resources.hasMoreElements()) {
                     InputStream inputStream = null;
@@ -40,11 +40,11 @@ public final class fy {
                                 if (newPullParser.getName().equals(PushClientConstants.TAG_CLASS_NAME)) {
                                     a(newPullParser);
                                 } else if (newPullParser.getName().equals("packetReplyTimeout")) {
-                                    f4914a = a(newPullParser, f4914a);
+                                    f4912a = a(newPullParser, f4912a);
                                 } else if (newPullParser.getName().equals("keepAliveInterval")) {
                                     b = a(newPullParser, b);
                                 } else if (newPullParser.getName().equals("mechName")) {
-                                    f378a.add(newPullParser.nextText());
+                                    f375a.add(newPullParser.nextText());
                                 }
                             }
                             eventType = newPullParser.next();
@@ -84,7 +84,7 @@ public final class fy {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public static String m305a() {
+    public static String m304a() {
         return "3.1.0";
     }
 
@@ -98,7 +98,7 @@ public final class fy {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    private static ClassLoader[] m306a() {
+    private static ClassLoader[] m305a() {
         ClassLoader[] classLoaderArr = {fy.class.getClassLoader(), Thread.currentThread().getContextClassLoader()};
         ArrayList arrayList = new ArrayList();
         for (ClassLoader classLoader : classLoaderArr) {

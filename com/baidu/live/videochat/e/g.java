@@ -3,13 +3,13 @@ package com.baidu.live.videochat.e;
 import com.baidu.live.data.AlaLiveInfoData;
 /* loaded from: classes4.dex */
 public interface g extends c {
-    void H(int i, String str);
+    void J(int i, String str);
 
-    void I(int i, String str);
+    void K(int i, String str);
 
-    void RN();
+    void SN();
 
-    void RO();
+    void SO();
 
     void a(AlaLiveInfoData alaLiveInfoData, com.baidu.live.videochat.b.a aVar, com.baidu.live.videochat.b.c cVar);
 }

@@ -9,6 +9,7 @@ public class UbcStatisticItem {
     private JSONObject mExtJson;
     private String mId;
     private String mLoc;
+    private String mStatus;
     private String mSubPage;
 
     public UbcStatisticItem(String str) {
@@ -52,6 +53,17 @@ public class UbcStatisticItem {
         return this;
     }
 
+    public UbcStatisticItem setContentExt(String str, String str2, String str3, JSONObject jSONObject) {
+        this.mExtJson = jSONObject;
+        this.mLoc = str;
+        this.mSubPage = str2;
+        this.mStatus = str3;
+        if (this.mExtJson == null) {
+            this.mExtJson = new JSONObject();
+        }
+        return this;
+    }
+
     /* JADX INFO: Access modifiers changed from: package-private */
     public String getId() {
         return this.mId;
@@ -80,6 +92,11 @@ public class UbcStatisticItem {
     /* JADX INFO: Access modifiers changed from: package-private */
     public String getSubPage() {
         return this.mSubPage;
+    }
+
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public String getStatus() {
+        return this.mStatus;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */

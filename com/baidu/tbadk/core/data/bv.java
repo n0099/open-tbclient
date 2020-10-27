@@ -3,139 +3,142 @@ package com.baidu.tbadk.core.data;
 import com.baidu.adp.BdUniqueId;
 /* loaded from: classes.dex */
 public class bv extends AbsThreadDataSupport implements com.baidu.adp.widget.ListView.q {
-    public bw eji;
-    public boolean eoR = false;
-    public boolean eoS = false;
-    public boolean eoT = false;
-    public boolean eoU = false;
-    public boolean eoV = false;
-    public boolean eoW = false;
-    public boolean eoX = false;
-    public boolean eoY = false;
-    public boolean eoZ = false;
-    public boolean epa = false;
-    public boolean epb = false;
-    public boolean epc = false;
-    public boolean epd = false;
-    public boolean epe = false;
-    public boolean epf = false;
-    public boolean epg = false;
-    public boolean eph = false;
-    public int epi = 0;
-    public int epj = 0;
+    public bw erH;
+    public boolean exo = false;
+    public boolean exp = false;
+    public boolean exq = false;
+    public boolean exr = false;
+    public boolean exs = false;
+    public boolean exu = false;
+    public boolean exv = false;
+    public boolean exw = false;
+    public boolean exx = false;
+    public boolean exy = false;
+    public boolean exz = false;
+    public boolean exA = false;
+    public boolean exB = false;
+    public boolean exC = false;
+    public boolean exD = false;
+    public boolean exE = false;
+    public boolean exF = false;
+    public int exG = 0;
+    public int exH = 0;
 
     @Override // com.baidu.tieba.card.data.b, com.baidu.adp.widget.ListView.q
     public BdUniqueId getType() {
-        if (this.eji == null) {
+        if (this.erH == null) {
             return null;
         }
-        if (this.eji.bjW()) {
-            if (this.eji.biz() != null) {
-                return bw.epH;
+        if (this.erH.blP()) {
+            if (this.erH.bks() != null) {
+                return bw.eyg;
             }
-            return bw.epl;
+            return bw.exJ;
         }
-        int bic = this.eji.bic();
-        if (this.eji.threadType == 63) {
-            bw bwVar = this.eji;
-            return bw.epS;
-        } else if (this.eji.threadType == 64) {
-            bw bwVar2 = this.eji;
-            return bw.epT;
-        } else if (this.eji.threadType == 65) {
-            bw bwVar3 = this.eji;
-            return bw.epz;
-        } else if (this.eji.biB() != null && this.eji.threadType == 60) {
-            return bw.epK;
+        int bjV = this.erH.bjV();
+        if (this.erH.threadType == 63) {
+            bw bwVar = this.erH;
+            return bw.eyt;
+        } else if (this.erH.threadType == 64) {
+            bw bwVar2 = this.erH;
+            return bw.eyu;
+        } else if (this.erH.threadType == 65) {
+            bw bwVar3 = this.erH;
+            return bw.exX;
+        } else if (this.erH.bku() != null && this.erH.threadType == 60) {
+            return bw.eyj;
         } else {
-            if (this.eji.biB() != null && this.eji.threadType == 49) {
-                return bw.epI;
+            if (this.erH.bku() != null && this.erH.threadType == 49) {
+                return bw.eyh;
             }
-            if (this.eji.threadType == 51) {
-                return bw.epJ;
+            if (this.erH.bku() != null && this.erH.threadType == 67) {
+                return bw.eyk;
             }
-            if (bic == 2 || bic == 1) {
-                return bw.epk;
+            if (this.erH.threadType == 51) {
+                return bw.eyi;
             }
-            if (this.eji.biz() != null && this.eji.bju() && !this.eji.bjm()) {
-                return bw.epY;
+            if (bjV == 2 || bjV == 1) {
+                return bw.exI;
             }
-            if (this.eji.isShareThread && this.eji.erY != null) {
-                if (this.eji.erY.enA) {
-                    if (this.eji.erY.videoInfo != null) {
-                        return bw.epO;
+            if (this.erH.bks() != null && this.erH.bln() && !this.erH.blf()) {
+                return bw.eyz;
+            }
+            if (this.erH.isShareThread && this.erH.eAy != null) {
+                if (this.erH.eAy.evY) {
+                    if (this.erH.eAy.videoInfo != null) {
+                        return bw.eyp;
                     }
-                    if (this.eji.erY.bgP()) {
-                        return bw.epN;
+                    if (this.erH.eAy.biI()) {
+                        return bw.eyo;
                     }
-                    return bw.epM;
+                    return bw.eyn;
                 }
-                return bw.epL;
-            } else if (this.eji.bjo()) {
-                bw bwVar4 = this.eji;
-                return bw.epV.get() ? bw.erk : bw.epl;
-            } else if (this.eji.biV() && this.eji.biU() == 1) {
-                bw bwVar5 = this.eji;
-                return bw.epV.get() ? bw.ert : bw.epl;
-            } else if (this.eji.isLinkThread()) {
-                return bw.epF;
+                return bw.eyl;
+            } else if (this.erH.blh()) {
+                bw bwVar4 = this.erH;
+                return bw.eyw.get() ? bw.ezL : bw.exJ;
+            } else if (this.erH.bkO() && this.erH.bkN() == 1) {
+                bw bwVar5 = this.erH;
+                return bw.eyw.get() ? bw.ezT : bw.exJ;
+            } else if (this.erH.isLinkThread()) {
+                return bw.eyd;
             } else {
-                if (this.eji.bjO()) {
-                    return this.eji.bhP() != null ? bw.epR : bw.epQ;
-                } else if (this.eph) {
-                    return bw.epp;
+                if (this.erH.blH()) {
+                    return this.erH.bjI() != null ? bw.eys : bw.eyr;
+                } else if (this.exF) {
+                    return bw.exN;
                 } else {
-                    if (this.eoR) {
-                        return bw.epq;
+                    if (this.exo) {
+                        return bw.exO;
                     }
-                    if (this.eoS) {
-                        return bw.epr;
+                    if (this.exp) {
+                        return bw.exP;
                     }
-                    if (this.eoT) {
-                        return bw.eps;
+                    if (this.exq) {
+                        return bw.exQ;
                     }
-                    if (this.eoU) {
-                        return bw.ept;
+                    if (this.exr) {
+                        return bw.exR;
                     }
-                    if (this.eoV) {
-                        return bw.epu;
+                    if (this.exs) {
+                        return bw.exS;
                     }
-                    if (this.eoW) {
-                        return bw.epv;
+                    if (this.exu) {
+                        return bw.exT;
                     }
-                    if (this.eoX) {
-                        return bw.epw;
+                    if (this.exv) {
+                        return bw.exU;
                     }
-                    if (this.eoY) {
-                        return bw.epx;
+                    if (this.exw) {
+                        return bw.exV;
                     }
-                    if (this.eoZ) {
-                        return bw.epH;
+                    if (this.exx) {
+                        return bw.eyg;
                     }
-                    if (this.eji.bik()) {
-                        if (this.epa) {
-                            return bw.epP;
+                    if (this.erH.bkd()) {
+                        if (this.exy) {
+                            return bw.eyq;
                         }
-                        return bw.epG;
-                    } else if (this.epb) {
-                        return bw.epU;
+                        return bw.eyf;
+                    } else if (this.exz) {
+                        return bw.eyv;
                     } else {
-                        if (this.epc) {
-                            return bw.epA;
+                        if (this.exA) {
+                            return bw.exY;
                         }
-                        if (this.epd) {
-                            return bw.epB;
+                        if (this.exB) {
+                            return bw.exZ;
                         }
-                        if (this.epe) {
-                            return bw.epC;
+                        if (this.exC) {
+                            return bw.eya;
                         }
-                        if (this.epf) {
-                            return bw.epD;
+                        if (this.exD) {
+                            return bw.eyb;
                         }
-                        if (this.epg) {
-                            return bw.epE;
+                        if (this.exE) {
+                            return bw.eyc;
                         }
-                        return bw.epl;
+                        return bw.exJ;
                     }
                 }
             }
@@ -143,32 +146,32 @@ public class bv extends AbsThreadDataSupport implements com.baidu.adp.widget.Lis
     }
 
     @Override // com.baidu.tbadk.core.data.AbsThreadDataSupport
-    public bw bfG() {
-        return this.eji;
+    public bw bhz() {
+        return this.erH;
     }
 
     @Override // com.baidu.tbadk.core.data.AbsThreadDataSupport
-    public ar bfI() {
-        if (this.eji == null || this.eji.feedBackReasonMap == null || this.eji.feedBackReasonMap.size() <= 0) {
+    public ar bhB() {
+        if (this.erH == null || this.erH.feedBackReasonMap == null || this.erH.feedBackReasonMap.size() <= 0) {
             return null;
         }
         ar arVar = new ar();
-        arVar.setTid(bfG().getTid());
-        arVar.setFid(bfG().getFid());
-        arVar.setNid(bfG().getNid());
-        arVar.setFeedBackReasonMap(this.eji.feedBackReasonMap);
-        arVar.eno = this.eji.eno;
-        arVar.abTag = this.eji.mRecomAbTag;
-        arVar.weight = this.eji.mRecomWeight;
-        arVar.extra = this.eji.mRecomExtra;
-        arVar.source = this.eji.mRecomSource;
-        arVar.ens = this.eji.ens;
-        arVar.cardType = this.eji.bkg();
+        arVar.setTid(bhz().getTid());
+        arVar.setFid(bhz().getFid());
+        arVar.setNid(bhz().getNid());
+        arVar.setFeedBackReasonMap(this.erH.feedBackReasonMap);
+        arVar.evN = this.erH.evN;
+        arVar.abTag = this.erH.mRecomAbTag;
+        arVar.weight = this.erH.mRecomWeight;
+        arVar.extra = this.erH.mRecomExtra;
+        arVar.source = this.erH.mRecomSource;
+        arVar.evR = this.erH.evR;
+        arVar.cardType = this.erH.blZ();
         return arVar;
     }
 
     @Override // com.baidu.tbadk.core.data.AbsThreadDataSupport
-    public String bfH() {
-        return this.eji.erE;
+    public String bhA() {
+        return this.erH.eAe;
     }
 }

@@ -16,11 +16,11 @@ public class d {
         return dir;
     }
 
-    public static String dm(String str, String str2) {
-        return Y(str, str2, File.separator);
+    public static String dt(String str, String str2) {
+        return af(str, str2, File.separator);
     }
 
-    public static String Y(String str, String str2, String str3) {
+    public static String af(String str, String str2, String str3) {
         if (!TextUtils.isEmpty(str)) {
             if (TextUtils.isEmpty(str2)) {
                 return str;
@@ -39,11 +39,11 @@ public class d {
         return str2;
     }
 
-    public static File dn(String str, String str2) {
+    public static File du(String str, String str2) {
         File file = new File(str);
         if (file.exists() || file.mkdirs()) {
-            String dm = dm(str, str2);
-            String str3 = dm;
+            String dt = dt(str, str2);
+            String str3 = dt;
             for (int i = 0; i < 1000; i++) {
                 File file2 = new File(str3);
                 try {
@@ -55,14 +55,14 @@ public class d {
                         e.printStackTrace();
                     }
                 }
-                str3 = dm + PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS + i;
+                str3 = dt + PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS + i;
             }
             return null;
         }
         return null;
     }
 
-    public static String C(String... strArr) {
+    public static String D(String... strArr) {
         JSONObject jSONObject = new JSONObject();
         if (strArr != null) {
             try {

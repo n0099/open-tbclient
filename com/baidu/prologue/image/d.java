@@ -12,16 +12,16 @@ public class d implements b<ImageView> {
 
     /* loaded from: classes19.dex */
     private static class a {
-        private static final d bUK = new d();
+        private static final d cdi = new d();
     }
 
-    public static b<ImageView> Yz() {
-        return a.bUK;
+    public static b<ImageView> aas() {
+        return a.cdi;
     }
 
     @Override // com.baidu.prologue.image.b
     public void a(String str, ImageView imageView) {
-        c.aT(com.baidu.prologue.a.b.a.bSV.get().Xq()).asBitmap().load(str).apply(new RequestOptions().placeholder(aU(imageView.getContext())).error(aV(imageView.getContext())).centerCrop()).transition(new BitmapTransitionOptions().crossFade(300)).into(imageView);
+        c.aT(com.baidu.prologue.a.b.a.cbs.get().Zk()).asBitmap().load(str).apply(new RequestOptions().placeholder(aU(imageView.getContext())).error(aV(imageView.getContext())).centerCrop()).transition(new BitmapTransitionOptions().crossFade(300)).into(imageView);
     }
 
     private Drawable aU(Context context) {

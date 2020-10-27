@@ -9,17 +9,17 @@ import java.util.List;
 import java.util.TimeZone;
 /* loaded from: classes23.dex */
 public class b extends BdAsyncTask<Void, Void, List<d>> {
-    private static long mYu = BdKVCache.MILLS_1Hour;
+    private static long nkU = BdKVCache.MILLS_1Hour;
     private Context context;
-    private a mYB;
     private int maxHeight;
     private int maxWidth;
-    private SimpleDateFormat mYw = new SimpleDateFormat("mm:ss");
-    private SimpleDateFormat mYv = new SimpleDateFormat("HH:mm:ss");
+    private a nlb;
+    private SimpleDateFormat nkW = new SimpleDateFormat("mm:ss");
+    private SimpleDateFormat nkV = new SimpleDateFormat("HH:mm:ss");
 
     /* loaded from: classes23.dex */
     public interface a {
-        void fB(List<d> list);
+        void fK(List<d> list);
     }
 
     public b(Context context) {
@@ -27,12 +27,12 @@ public class b extends BdAsyncTask<Void, Void, List<d>> {
         this.maxHeight = context.getResources().getDimensionPixelSize(R.dimen.ds220);
         this.maxWidth = this.maxHeight;
         TimeZone timeZone = TimeZone.getTimeZone("GMT+8");
-        this.mYw.setTimeZone(timeZone);
-        this.mYv.setTimeZone(timeZone);
+        this.nkW.setTimeZone(timeZone);
+        this.nkV.setTimeZone(timeZone);
     }
 
     public void b(a aVar) {
-        this.mYB = aVar;
+        this.nlb = aVar;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -40,11 +40,11 @@ public class b extends BdAsyncTask<Void, Void, List<d>> {
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
     /* renamed from: c */
     public List<d> doInBackground(Void... voidArr) {
-        List<d> fX = e.fX(this.context);
-        e.d("/sdcard", fX, false);
-        e.d("/sdcard/DCIM", fX, true);
-        e.fD(fX);
-        return fX;
+        List<d> fY = e.fY(this.context);
+        e.d("/sdcard", fY, false);
+        e.d("/sdcard/DCIM", fY, true);
+        e.fM(fY);
+        return fY;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -53,8 +53,8 @@ public class b extends BdAsyncTask<Void, Void, List<d>> {
     /* renamed from: A */
     public void onPostExecute(List<d> list) {
         super.onPostExecute(list);
-        if (this.mYB != null) {
-            this.mYB.fB(list);
+        if (this.nlb != null) {
+            this.nlb.fK(list);
         }
     }
 }

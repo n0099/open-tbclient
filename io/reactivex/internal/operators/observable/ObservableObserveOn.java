@@ -26,7 +26,7 @@ public final class ObservableObserveOn<T> extends a<T, T> {
             this.source.subscribe(uVar);
             return;
         }
-        this.source.subscribe(new ObserveOnObserver(uVar, this.scheduler.emL(), this.delayError, this.bufferSize));
+        this.source.subscribe(new ObserveOnObserver(uVar, this.scheduler.ewL(), this.delayError, this.bufferSize));
     }
 
     /* loaded from: classes17.dex */
@@ -125,7 +125,7 @@ public final class ObservableObserveOn<T> extends a<T, T> {
 
         void schedule() {
             if (getAndIncrement() == 0) {
-                this.worker.G(this);
+                this.worker.I(this);
             }
         }
 

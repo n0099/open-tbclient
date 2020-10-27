@@ -3,9 +3,9 @@ package com.baidu.afd;
 public class a {
     public static e M(String str, String str2) {
         e eVar = new e();
-        eVar.YP = true;
+        eVar.YQ = true;
         eVar.ext = str;
-        eVar.YQ = null;
+        eVar.YR = null;
         return eVar;
     }
 }

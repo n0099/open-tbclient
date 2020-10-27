@@ -10,8 +10,8 @@ import com.baidu.tbadk.core.view.ItemCardView;
 import com.baidu.tieba.R;
 /* loaded from: classes21.dex */
 public class ap extends i {
-    private ItemCardView agm;
-    private FrameLayout aih;
+    private ItemCardView agn;
+    private FrameLayout aii;
 
     public ap(Context context) {
         super(context);
@@ -21,45 +21,45 @@ public class ap extends i {
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.card.b
     public View getView() {
-        if (this.aih == null) {
-            this.aih = new FrameLayout(this.mContext);
-            com.baidu.tbadk.core.util.ap.setBackgroundColor(this.aih, R.color.cp_bg_line_g);
-            this.aih.setLayoutParams(new LinearLayout.LayoutParams(-1, -2));
+        if (this.aii == null) {
+            this.aii = new FrameLayout(this.mContext);
+            com.baidu.tbadk.core.util.ap.setBackgroundColor(this.aii, R.color.cp_bg_line_g);
+            this.aii.setLayoutParams(new LinearLayout.LayoutParams(-1, -2));
         }
-        this.aih.removeAllViews();
-        if (this.agm == null) {
-            this.agm = new ItemCardView(this.mContext);
-            this.agm.setBackGroundColor(R.color.cp_bg_line_e);
+        this.aii.removeAllViews();
+        if (this.agn == null) {
+            this.agn = new ItemCardView(this.mContext);
+            this.agn.setBackGroundColor(R.color.cp_bg_line_e);
         }
         FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(-2, -2);
         layoutParams.leftMargin = this.mContext.getResources().getDimensionPixelSize(R.dimen.tbds44);
         layoutParams.rightMargin = this.mContext.getResources().getDimensionPixelSize(R.dimen.tbds44);
         layoutParams.bottomMargin = this.mContext.getResources().getDimensionPixelSize(R.dimen.tbds42);
-        this.aih.addView(this.agm, layoutParams);
-        return this.aih;
+        this.aii.addView(this.agn, layoutParams);
+        return this.aii;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.card.p
     /* renamed from: b */
     public void H(AbsThreadDataSupport absThreadDataSupport) {
-        if (absThreadDataSupport != null && absThreadDataSupport.bfG() != null && absThreadDataSupport.bfG().erY != null && absThreadDataSupport.bfG().erY.item != null) {
-            if (absThreadDataSupport.bfG().erY.emx) {
-                this.aih.setVisibility(8);
+        if (absThreadDataSupport != null && absThreadDataSupport.bhz() != null && absThreadDataSupport.bhz().eAy != null && absThreadDataSupport.bhz().eAy.item != null) {
+            if (absThreadDataSupport.bhz().eAy.euX) {
+                this.aii.setVisibility(8);
                 return;
             }
-            this.aih.setVisibility(0);
-            this.agm.setData(absThreadDataSupport.bfG().erY.item, 13);
+            this.aii.setVisibility(0);
+            this.agn.setData(absThreadDataSupport.bhz().eAy.item, 13);
             return;
         }
-        this.aih.setVisibility(8);
+        this.aii.setVisibility(8);
     }
 
     @Override // com.baidu.card.q
     public void onChangeSkinType(TbPageContext tbPageContext, int i) {
-        com.baidu.tbadk.core.util.ap.setBackgroundColor(this.aih, R.color.cp_bg_line_g);
-        if (this.agm != null) {
-            this.agm.onChangeSkinType();
+        com.baidu.tbadk.core.util.ap.setBackgroundColor(this.aii, R.color.cp_bg_line_g);
+        if (this.agn != null) {
+            this.agn.onChangeSkinType();
         }
     }
 }

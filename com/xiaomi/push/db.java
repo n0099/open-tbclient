@@ -7,20 +7,20 @@ import java.util.Iterator;
 public class db extends cv {
 
     /* renamed from: a  reason: collision with root package name */
-    cv f4850a;
+    cv f4848a;
 
     /* renamed from: a  reason: collision with other field name */
-    final /* synthetic */ cz f199a;
+    final /* synthetic */ cz f196a;
     final /* synthetic */ cv b;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public db(cz czVar, String str, cv cvVar) {
         super(str);
-        this.f199a = czVar;
+        this.f196a = czVar;
         this.b = cvVar;
-        this.f4850a = this.b;
-        this.f185b = this.f185b;
+        this.f4848a = this.b;
+        this.f182b = this.f182b;
         if (this.b != null) {
             this.f = this.b.f;
         }
@@ -30,11 +30,11 @@ public class db extends cv {
     public synchronized ArrayList<String> a(boolean z) {
         ArrayList<String> arrayList;
         arrayList = new ArrayList<>();
-        if (this.f4850a != null) {
-            arrayList.addAll(this.f4850a.a(true));
+        if (this.f4848a != null) {
+            arrayList.addAll(this.f4848a.a(true));
         }
         synchronized (cz.b) {
-            cv cvVar = cz.b.get(this.f185b);
+            cv cvVar = cz.b.get(this.f182b);
             if (cvVar != null) {
                 Iterator<String> it = cvVar.a(true).iterator();
                 while (it.hasNext()) {
@@ -43,8 +43,8 @@ public class db extends cv {
                         arrayList.add(next);
                     }
                 }
-                arrayList.remove(this.f185b);
-                arrayList.add(this.f185b);
+                arrayList.remove(this.f182b);
+                arrayList.add(this.f182b);
             }
         }
         return arrayList;
@@ -52,8 +52,8 @@ public class db extends cv {
 
     @Override // com.xiaomi.push.cv
     public synchronized void a(String str, cu cuVar) {
-        if (this.f4850a != null) {
-            this.f4850a.a(str, cuVar);
+        if (this.f4848a != null) {
+            this.f4848a.a(str, cuVar);
         }
     }
 

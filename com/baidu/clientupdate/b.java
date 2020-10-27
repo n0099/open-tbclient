@@ -9,16 +9,16 @@ import com.baidu.util.LogUtil;
 public class b extends BroadcastReceiver {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ ClientUpdater f1321a;
+    final /* synthetic */ ClientUpdater f1318a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public b(ClientUpdater clientUpdater) {
-        this.f1321a = clientUpdater;
+        this.f1318a = clientUpdater;
     }
 
     @Override // android.content.BroadcastReceiver
     public void onReceive(Context context, Intent intent) {
         LogUtil.logE("ClientUpdater", "receive:android.net.conn.CONNECTIVITY_CHANGE");
-        this.f1321a.a();
+        this.f1318a.a();
     }
 }

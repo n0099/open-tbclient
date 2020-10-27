@@ -18,7 +18,7 @@ public final class StringUtils {
         return sb.toString();
     }
 
-    public static String Y(String[] strArr) {
+    public static String Z(String[] strArr) {
         int length = strArr.length;
         StringBuilder sb = new StringBuilder((strArr[0].length() + 3) * length);
         for (int i = 0; i < length; i++) {
@@ -32,11 +32,11 @@ public final class StringUtils {
         return sb.toString();
     }
 
-    public static boolean WQ(String str) {
+    public static boolean YD(String str) {
         return str == null || "".equals(str);
     }
 
-    public static String WR(String str) {
+    public static String YE(String str) {
         StringBuilder sb = new StringBuilder();
         int length = str.length();
         for (int i = 0; i < length; i++) {

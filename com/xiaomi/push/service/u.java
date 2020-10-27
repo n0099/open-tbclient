@@ -8,21 +8,21 @@ import com.xiaomi.push.service.XMPushService;
 final class u extends XMPushService.i {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ ii f5119a;
+    final /* synthetic */ ii f5117a;
 
     /* renamed from: a  reason: collision with other field name */
-    final /* synthetic */ XMPushService f932a;
+    final /* synthetic */ XMPushService f929a;
 
     /* renamed from: a  reason: collision with other field name */
-    final /* synthetic */ String f933a;
+    final /* synthetic */ String f930a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public u(int i, XMPushService xMPushService, ii iiVar, String str) {
         super(i);
-        this.f932a = xMPushService;
-        this.f5119a = iiVar;
-        this.f933a = str;
+        this.f929a = xMPushService;
+        this.f5117a = iiVar;
+        this.f930a = str;
     }
 
     @Override // com.xiaomi.push.service.XMPushService.i
@@ -33,12 +33,12 @@ final class u extends XMPushService.i {
     @Override // com.xiaomi.push.service.XMPushService.i
     public void a() {
         try {
-            ii a2 = p.a((Context) this.f932a, this.f5119a);
-            a2.m419a().a("absent_target_package", this.f933a);
-            w.a(this.f932a, a2);
+            ii a2 = p.a((Context) this.f929a, this.f5117a);
+            a2.m418a().a("absent_target_package", this.f930a);
+            w.a(this.f929a, a2);
         } catch (gd e) {
             com.xiaomi.channel.commonutils.logger.b.a(e);
-            this.f932a.a(10, e);
+            this.f929a.a(10, e);
         }
     }
 }

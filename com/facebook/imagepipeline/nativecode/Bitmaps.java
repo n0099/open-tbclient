@@ -23,7 +23,7 @@ public class Bitmaps {
         a.load();
     }
 
-    public static void af(Bitmap bitmap) {
+    public static void aj(Bitmap bitmap) {
         g.checkNotNull(bitmap);
         nativePinBitmap(bitmap);
     }

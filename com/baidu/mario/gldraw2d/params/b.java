@@ -3,8 +3,8 @@ package com.baidu.mario.gldraw2d.params;
 import android.opengl.Matrix;
 /* loaded from: classes5.dex */
 public class b implements Cloneable {
-    private boolean bIn;
-    private boolean bIo;
+    private boolean bQI;
+    private boolean bQJ;
     private float[] mMVPMatrix = new float[16];
     private float[] mTexMatrix;
     private long mTimestamp;
@@ -13,11 +13,11 @@ public class b implements Cloneable {
         Matrix.setIdentityM(this.mMVPMatrix, 0);
         this.mTexMatrix = new float[16];
         Matrix.setIdentityM(this.mTexMatrix, 0);
-        this.bIn = false;
-        this.bIo = false;
+        this.bQI = false;
+        this.bQJ = false;
     }
 
-    public float[] Us() {
+    public float[] Wm() {
         return this.mMVPMatrix;
     }
 
@@ -25,7 +25,7 @@ public class b implements Cloneable {
         this.mMVPMatrix = fArr;
     }
 
-    public float[] Ut() {
+    public float[] Wn() {
         return this.mTexMatrix;
     }
 
@@ -33,12 +33,12 @@ public class b implements Cloneable {
         this.mTexMatrix = fArr;
     }
 
-    public boolean Uu() {
-        return this.bIn;
+    public boolean Wo() {
+        return this.bQI;
     }
 
-    public boolean Uv() {
-        return this.bIo;
+    public boolean Wp() {
+        return this.bQJ;
     }
 
     public void setTimestamp(long j) {
@@ -46,7 +46,7 @@ public class b implements Cloneable {
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    /* renamed from: Uw */
+    /* renamed from: Wq */
     public b clone() {
         b bVar = null;
         try {

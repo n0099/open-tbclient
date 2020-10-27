@@ -12,8 +12,8 @@ import com.baidu.tieba.hottopic.message.ResponseHttpHotRanklistMessage;
 import com.baidu.tieba.hottopic.message.ResponseSocketHotRanklistMessage;
 /* loaded from: classes21.dex */
 public class HotRanklistModel extends BdBaseModel {
-    private j jvQ;
-    private a jvR;
+    private j jIp;
+    private a jIq;
     private com.baidu.adp.framework.listener.a netMessageListener;
 
     /* loaded from: classes21.dex */
@@ -23,8 +23,8 @@ public class HotRanklistModel extends BdBaseModel {
 
     public HotRanklistModel(TbPageContext tbPageContext) {
         super(tbPageContext);
-        this.jvQ = null;
-        this.jvR = null;
+        this.jIp = null;
+        this.jIq = null;
         this.netMessageListener = new com.baidu.adp.framework.listener.a(1003078, CmdConfigSocket.CMD_HOT_TOPIC_RANKLIST) { // from class: com.baidu.tieba.hottopic.controller.HotRanklistModel.1
             @Override // com.baidu.adp.framework.listener.a
             public void onMessage(ResponsedMessage<?> responsedMessage) {
@@ -33,14 +33,14 @@ public class HotRanklistModel extends BdBaseModel {
                         if (!responsedMessage.hasError()) {
                             HotRanklistModel.this.i(responsedMessage);
                         } else {
-                            HotRanklistModel.this.jvR.a(false, null, responsedMessage.getError(), responsedMessage.getErrorString());
+                            HotRanklistModel.this.jIq.a(false, null, responsedMessage.getError(), responsedMessage.getErrorString());
                         }
                     }
                 }
             }
         };
         registerListener(this.netMessageListener);
-        this.jvQ = new j();
+        this.jIp = new j();
     }
 
     public void f(String str, String str2, String str3, long j) {
@@ -76,12 +76,12 @@ public class HotRanklistModel extends BdBaseModel {
                     if ((responsedMessage instanceof ResponseSocketHotRanklistMessage) && ((ResponseSocketHotRanklistMessage) responsedMessage).getHotRanklistData() != null) {
                         jVar = ((ResponseSocketHotRanklistMessage) responsedMessage).getHotRanklistData();
                     }
-                    if (!StringUtils.isNull(str) && !y.isEmpty(jVar.jxt)) {
-                        jVar.type = jVar.jxt.get(0).guo;
+                    if (!StringUtils.isNull(str) && !y.isEmpty(jVar.jJS)) {
+                        jVar.type = jVar.jJS.get(0).gEs;
                     } else {
                         jVar.type = str;
                     }
-                    this.jvR.a(responsedMessage.hasError(), jVar, responsedMessage.getError(), responsedMessage.getErrorString());
+                    this.jIq.a(responsedMessage.hasError(), jVar, responsedMessage.getError(), responsedMessage.getErrorString());
                 }
             }
             str = null;
@@ -94,12 +94,12 @@ public class HotRanklistModel extends BdBaseModel {
             if (!StringUtils.isNull(str)) {
             }
             jVar.type = str;
-            this.jvR.a(responsedMessage.hasError(), jVar, responsedMessage.getError(), responsedMessage.getErrorString());
+            this.jIq.a(responsedMessage.hasError(), jVar, responsedMessage.getError(), responsedMessage.getErrorString());
         }
     }
 
     public void a(a aVar) {
-        this.jvR = aVar;
+        this.jIq = aVar;
     }
 
     @Override // com.baidu.adp.base.BdBaseModel

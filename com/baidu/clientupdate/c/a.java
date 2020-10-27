@@ -35,7 +35,7 @@ public final class a {
     private static StringBuilder A;
 
     /* renamed from: a  reason: collision with root package name */
-    private static a f1324a;
+    private static a f1321a;
     private static Context b;
     private static String c;
     private static String d;
@@ -72,10 +72,10 @@ public final class a {
     public static synchronized a a(Context context) {
         a aVar;
         synchronized (a.class) {
-            if (f1324a == null) {
-                f1324a = new a(context);
+            if (f1321a == null) {
+                f1321a = new a(context);
             }
-            aVar = f1324a;
+            aVar = f1321a;
         }
         return aVar;
     }

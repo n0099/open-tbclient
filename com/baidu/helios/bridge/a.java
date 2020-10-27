@@ -7,17 +7,17 @@ import com.baidu.helios.ids.b;
 import java.util.concurrent.ExecutorService;
 /* loaded from: classes18.dex */
 public abstract class a {
-    protected C0141a awr;
-    protected b aws;
+    protected C0141a aws;
+    protected b awt;
 
     /* renamed from: com.baidu.helios.bridge.a$a  reason: collision with other inner class name */
     /* loaded from: classes18.dex */
     public static class C0141a {
         public Context applicationContext;
-        public b.a awt;
         public b.a awu;
-        public ExecutorService awv;
+        public b.a awv;
         public ExecutorService aww;
+        public ExecutorService awx;
     }
 
     /* loaded from: classes18.dex */
@@ -66,11 +66,11 @@ public abstract class a {
     }
 
     public void a(C0141a c0141a) {
-        this.awr = c0141a;
+        this.aws = c0141a;
     }
 
     public void a(b bVar) {
-        this.aws = bVar;
+        this.awt = bVar;
         b(bVar);
     }
 

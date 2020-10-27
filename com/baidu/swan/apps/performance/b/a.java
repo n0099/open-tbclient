@@ -16,20 +16,20 @@ import org.json.JSONObject;
 /* loaded from: classes10.dex */
 public class a {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    private static final File cVk = AppRuntime.getAppContext().getExternalCacheDir();
+    private static final File ddK = AppRuntime.getAppContext().getExternalCacheDir();
 
-    public static void aw(List<UbcFlowEvent> list) {
-        e aDb;
+    public static void aG(List<UbcFlowEvent> list) {
+        e aEV;
         Map<String, String> stringToMap;
-        if (com.baidu.swan.apps.ad.a.a.aAA() && (aDb = e.aDb()) != null && (stringToMap = ai.stringToMap(ai.getParams(aDb.aDe().aul()))) != null && TextUtils.equals(stringToMap.get("_SwanStartupPerf_"), "1")) {
+        if (com.baidu.swan.apps.ad.a.a.aCu() && (aEV = e.aEV()) != null && (stringToMap = ai.stringToMap(ai.getParams(aEV.aEY().awf()))) != null && TextUtils.equals(stringToMap.get("_SwanStartupPerf_"), "1")) {
             ArrayList<UbcFlowEvent> arrayList = new ArrayList(list);
             JSONArray jSONArray = new JSONArray();
             for (UbcFlowEvent ubcFlowEvent : arrayList) {
-                if (!ubcFlowEvent.azs()) {
+                if (!ubcFlowEvent.aBm()) {
                     try {
                         JSONObject jSONObject = new JSONObject();
                         jSONObject.put("id", ubcFlowEvent.id);
-                        jSONObject.put("time", ubcFlowEvent.azq());
+                        jSONObject.put("time", ubcFlowEvent.aBk());
                         jSONObject.put("value", ubcFlowEvent.value());
                         jSONArray.put(jSONObject);
                     } catch (JSONException e) {
@@ -37,7 +37,7 @@ public class a {
                     }
                 }
             }
-            File file = new File(cVk, "swan_perf");
+            File file = new File(ddK, "swan_perf");
             if (!file.exists()) {
                 file.mkdirs();
             }

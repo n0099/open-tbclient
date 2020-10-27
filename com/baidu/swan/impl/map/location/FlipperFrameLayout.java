@@ -12,8 +12,8 @@ import android.widget.FrameLayout;
 import com.baidu.swan.impl.map.location.h;
 /* loaded from: classes25.dex */
 public class FlipperFrameLayout extends FrameLayout implements h.a {
-    private h dPL;
-    private boolean dPT;
+    private h dYi;
+    private boolean dYq;
     private float mLastY;
 
     public FlipperFrameLayout(@NonNull Context context) {
@@ -29,12 +29,12 @@ public class FlipperFrameLayout extends FrameLayout implements h.a {
     }
 
     public void setViewFlipper(h hVar) {
-        this.dPL = hVar;
+        this.dYi = hVar;
     }
 
     @Override // android.view.ViewGroup
     public boolean onInterceptTouchEvent(MotionEvent motionEvent) {
-        if (this.dPT || this.dPL == null) {
+        if (this.dYq || this.dYi == null) {
             this.mLastY = motionEvent.getRawY();
             return super.onInterceptTouchEvent(motionEvent);
         }
@@ -49,11 +49,11 @@ public class FlipperFrameLayout extends FrameLayout implements h.a {
             case 2:
                 float rawY = motionEvent.getRawY() - this.mLastY;
                 boolean z = rawY <= 0.0f;
-                if (z && !this.dPL.isFlipped() && V(rawY)) {
-                    this.dPL.hr(true);
+                if (z && !this.dYi.isFlipped() && X(rawY)) {
+                    this.dYi.hE(true);
                     return true;
-                } else if (!z && aVv() && this.dPL.isFlipped() && V(rawY)) {
-                    this.dPL.hr(false);
+                } else if (!z && aXp() && this.dYi.isFlipped() && X(rawY)) {
+                    this.dYi.hE(false);
                     return true;
                 }
                 break;
@@ -61,7 +61,7 @@ public class FlipperFrameLayout extends FrameLayout implements h.a {
         return super.onInterceptTouchEvent(motionEvent);
     }
 
-    private boolean aVv() {
+    private boolean aXp() {
         if (getChildCount() <= 0) {
             return true;
         }
@@ -69,17 +69,17 @@ public class FlipperFrameLayout extends FrameLayout implements h.a {
         return ((childAt instanceof ScrollingView) && childAt.canScrollVertically(-1)) ? false : true;
     }
 
-    private boolean V(float f) {
+    private boolean X(float f) {
         return Math.abs(f) >= ((float) ViewConfiguration.getTouchSlop());
     }
 
     @Override // com.baidu.swan.impl.map.location.h.a
-    public void hp(boolean z) {
-        this.dPT = false;
+    public void hC(boolean z) {
+        this.dYq = false;
     }
 
     @Override // com.baidu.swan.impl.map.location.h.a
-    public void hq(boolean z) {
-        this.dPT = true;
+    public void hD(boolean z) {
+        this.dYq = true;
     }
 }

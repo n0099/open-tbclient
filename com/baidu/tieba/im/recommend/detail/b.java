@@ -18,61 +18,61 @@ import com.baidu.tieba.R;
 import tbclient.Bigvip.UserInfoBigVip;
 /* loaded from: classes26.dex */
 public class b {
-    private TextView eig;
-    private NoNetworkView fTu;
-    private RecommendDetailActivity jVH;
-    private HeadImageView jVI;
-    private TextView jVJ;
-    private TextView jVK;
-    private LinearLayout jVL;
-    private SettingTextSwitchView jVM;
-    private View jVN;
+    private TextView eqE;
+    private NoNetworkView gdx;
+    private RecommendDetailActivity kii;
+    private HeadImageView kij;
+    private TextView kik;
+    private TextView kil;
+    private LinearLayout kim;
+    private SettingTextSwitchView kin;
+    private View kio;
     private LinearLayout mContentView;
     private NavigationBar mNavigationBar;
     private NoDataView mNoDataView;
     private View mRootView;
 
     public b(RecommendDetailActivity recommendDetailActivity) {
-        this.jVH = recommendDetailActivity;
+        this.kii = recommendDetailActivity;
         initView();
     }
 
     private void initView() {
-        if (this.jVH != null) {
-            this.jVH.setContentView(R.layout.recommend_detail_activity);
-            this.mRootView = this.jVH.findViewById(R.id.root_view);
-            this.mNavigationBar = (NavigationBar) this.jVH.findViewById(R.id.view_navigation_bar);
+        if (this.kii != null) {
+            this.kii.setContentView(R.layout.recommend_detail_activity);
+            this.mRootView = this.kii.findViewById(R.id.root_view);
+            this.mNavigationBar = (NavigationBar) this.kii.findViewById(R.id.view_navigation_bar);
             this.mNavigationBar.showBottomLine();
             this.mNavigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
-            Mp(this.jVH.getResources().getString(R.string.recommend_detail_activity_title));
-            this.fTu = (NoNetworkView) this.jVH.findViewById(R.id.view_no_network);
-            this.mContentView = (LinearLayout) this.jVH.findViewById(R.id.content_view);
-            this.jVI = (HeadImageView) this.jVH.findViewById(R.id.user_image);
-            this.jVI.setIsRound(true);
-            this.eig = (TextView) this.jVH.findViewById(R.id.user_name);
-            this.jVJ = (TextView) this.jVH.findViewById(R.id.user_type);
-            this.jVK = (TextView) this.jVH.findViewById(R.id.intro_content);
-            this.jVM = (SettingTextSwitchView) this.jVH.findViewById(R.id.switch_view);
-            this.jVM.setSwitchStateChangeListener(this.jVH);
-            this.jVM.setVisibility(8);
+            MN(this.kii.getResources().getString(R.string.recommend_detail_activity_title));
+            this.gdx = (NoNetworkView) this.kii.findViewById(R.id.view_no_network);
+            this.mContentView = (LinearLayout) this.kii.findViewById(R.id.content_view);
+            this.kij = (HeadImageView) this.kii.findViewById(R.id.user_image);
+            this.kij.setIsRound(true);
+            this.eqE = (TextView) this.kii.findViewById(R.id.user_name);
+            this.kik = (TextView) this.kii.findViewById(R.id.user_type);
+            this.kil = (TextView) this.kii.findViewById(R.id.intro_content);
+            this.kin = (SettingTextSwitchView) this.kii.findViewById(R.id.switch_view);
+            this.kin.setSwitchStateChangeListener(this.kii);
+            this.kin.setVisibility(8);
             this.mContentView.setVisibility(8);
-            this.jVL = (LinearLayout) this.jVH.findViewById(R.id.switch_ll);
-            this.jVN = this.jVH.findViewById(R.id.divider_1);
+            this.kim = (LinearLayout) this.kii.findViewById(R.id.switch_ll);
+            this.kio = this.kii.findViewById(R.id.divider_1);
         }
     }
 
-    public void Mp(String str) {
+    public void MN(String str) {
         if (this.mNavigationBar != null) {
             this.mNavigationBar.setCenterTextTitle(str);
         }
     }
 
     public void b(UserInfoBigVip userInfoBigVip, boolean z) {
-        if (userInfoBigVip != null && this.jVH != null) {
-            this.jVI.startLoad(userInfoBigVip.portraith, 12, false);
-            this.eig.setText(UtilHelper.getFixedText(userInfoBigVip.user_name, 7));
-            this.jVJ.setText(userInfoBigVip.user_type);
-            this.jVK.setText(userInfoBigVip.user_detail);
+        if (userInfoBigVip != null && this.kii != null) {
+            this.kij.startLoad(userInfoBigVip.portraith, 12, false);
+            this.eqE.setText(UtilHelper.getFixedText(userInfoBigVip.user_name, 7));
+            this.kik.setText(userInfoBigVip.user_type);
+            this.kil.setText(userInfoBigVip.user_detail);
             if (z) {
                 if (userInfoBigVip.message_accept.intValue() == 1) {
                     setSwitch(true);
@@ -86,37 +86,37 @@ public class b {
             } else {
                 setSwitch(false);
             }
-            this.jVM.setVisibility(0);
+            this.kin.setVisibility(0);
         }
     }
 
     public void setSwitch(boolean z) {
         if (z) {
-            this.jVM.getSwitchView().turnOnNoCallback();
+            this.kin.getSwitchView().turnOnNoCallback();
         } else {
-            this.jVM.getSwitchView().turnOffNoCallback();
+            this.kin.getSwitchView().turnOffNoCallback();
         }
     }
 
     public void onChangeSkinType(int i) {
-        if (this.jVH != null && this.jVH.getPageContext() != null && this.jVH.getPageContext().getLayoutMode() != null) {
+        if (this.kii != null && this.kii.getPageContext() != null && this.kii.getPageContext().getLayoutMode() != null) {
             if (this.mNavigationBar != null) {
-                this.mNavigationBar.onChangeSkinType(this.jVH.getPageContext(), i);
+                this.mNavigationBar.onChangeSkinType(this.kii.getPageContext(), i);
             }
-            if (this.fTu != null) {
-                this.fTu.onChangeSkinType(this.jVH.getPageContext(), i);
+            if (this.gdx != null) {
+                this.gdx.onChangeSkinType(this.kii.getPageContext(), i);
             }
             if (this.mNoDataView != null) {
-                this.mNoDataView.onChangeSkinType(this.jVH.getPageContext(), i);
+                this.mNoDataView.onChangeSkinType(this.kii.getPageContext(), i);
             }
-            if (this.jVM != null) {
-                this.jVM.qE(i);
+            if (this.kin != null) {
+                this.kin.qP(i);
             }
-            if (this.jVN != null) {
-                ap.setBackgroundColor(this.jVN, R.color.cp_bg_line_e);
+            if (this.kio != null) {
+                ap.setBackgroundColor(this.kio, R.color.cp_bg_line_e);
             }
-            this.jVH.getPageContext().getLayoutMode().setNightMode(i == 1);
-            this.jVH.getPageContext().getLayoutMode().onModeChanged(this.mRootView);
+            this.kii.getPageContext().getLayoutMode().setNightMode(i == 1);
+            this.kii.getPageContext().getLayoutMode().onModeChanged(this.mRootView);
         }
     }
 
@@ -127,25 +127,25 @@ public class b {
         this.mContentView.setVisibility(0);
     }
 
-    public void Ck(int i) {
+    public void CD(int i) {
         if (this.mNoDataView == null) {
-            this.mNoDataView = NoDataViewFactory.a(this.jVH.getPageContext().getPageActivity(), this.mRootView, NoDataViewFactory.c.a(NoDataViewFactory.ImgType.NODATA, l.getDimens(TbadkCoreApplication.getInst().getContext(), R.dimen.ds320)), NoDataViewFactory.d.pv(i), null);
+            this.mNoDataView = NoDataViewFactory.a(this.kii.getPageContext().getPageActivity(), this.mRootView, NoDataViewFactory.c.a(NoDataViewFactory.ImgType.NODATA, l.getDimens(TbadkCoreApplication.getInst().getContext(), R.dimen.ds320)), NoDataViewFactory.d.pG(i), null);
         }
-        this.mNoDataView.setTextOption(NoDataViewFactory.d.pv(i));
-        this.mNoDataView.onChangeSkinType(this.jVH.getPageContext(), TbadkApplication.getInst().getSkinType());
+        this.mNoDataView.setTextOption(NoDataViewFactory.d.pG(i));
+        this.mNoDataView.onChangeSkinType(this.kii.getPageContext(), TbadkApplication.getInst().getSkinType());
         this.mContentView.setVisibility(8);
         this.mNoDataView.setVisibility(0);
     }
 
-    public void cPm() {
-        if (this.jVL != null) {
-            this.jVL.setVisibility(0);
+    public void cSt() {
+        if (this.kim != null) {
+            this.kim.setVisibility(0);
         }
     }
 
-    public void cPn() {
-        if (this.jVL != null) {
-            this.jVL.setVisibility(8);
+    public void cSu() {
+        if (this.kim != null) {
+            this.kim.setVisibility(8);
         }
     }
 }

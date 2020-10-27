@@ -25,10 +25,14 @@ import com.baidu.tieba.sdk.util.b;
 import java.lang.ref.WeakReference;
 /* loaded from: classes4.dex */
 public class YuyinLivePlayerActivity extends MAActivity implements BdPageContextSupport, IScrollable {
-    private a mlu;
-    private d mlv;
+    private a mxV;
+    private d mxW;
     private boolean mReceiverTag = false;
-    com.baidu.live.c.a mlw = new com.baidu.live.c.a() { // from class: com.baidu.tieba.sdk.activity.YuyinLivePlayerActivity.1
+    com.baidu.live.c.a mxX = new com.baidu.live.c.a() { // from class: com.baidu.tieba.sdk.activity.YuyinLivePlayerActivity.1
+        @Override // com.baidu.live.c.a
+        public void a(boolean z, boolean z2, long j) {
+            YuyinLivePlayerActivity.this.finish();
+        }
     };
 
     @Override // android.app.Activity
@@ -36,7 +40,7 @@ public class YuyinLivePlayerActivity extends MAActivity implements BdPageContext
         g gVar;
         requestWindowFeature(1);
         if (BdBaseApplication.getInst() != null) {
-            gVar = com.baidu.tieba.sdk.d.a.dwM().dwT();
+            gVar = com.baidu.tieba.sdk.d.a.dzU().dAb();
             if (gVar != null) {
                 gVar.a(this);
             }
@@ -52,17 +56,17 @@ public class YuyinLivePlayerActivity extends MAActivity implements BdPageContext
             super.finish();
             return;
         }
-        com.baidu.tieba.sdk.a.dwI().dwK();
-        this.mlv = com.baidu.tieba.sdk.a.dwI().b(this);
-        this.mlv.a(this.mlw);
+        com.baidu.tieba.sdk.a.dzQ().dzS();
+        this.mxW = com.baidu.tieba.sdk.a.dzQ().b(this);
+        this.mxW.a(this.mxX);
         if (gVar != null) {
             gVar.b(this);
         }
         if (!this.mReceiverTag) {
-            this.mlu = new a(this);
+            this.mxV = new a(this);
             IntentFilter intentFilter = new IntentFilter();
-            intentFilter.addAction(b.dxk());
-            registerReceiver(this.mlu, intentFilter, WebViewBroadcastReceiver.BROADCAST_PERMISSION_CLOSE_WEBVIEW, null);
+            intentFilter.addAction(b.dAs());
+            registerReceiver(this.mxV, intentFilter, WebViewBroadcastReceiver.BROADCAST_PERMISSION_CLOSE_WEBVIEW, null);
             this.mReceiverTag = true;
         }
     }
@@ -75,54 +79,54 @@ public class YuyinLivePlayerActivity extends MAActivity implements BdPageContext
     @Override // android.app.Activity
     protected void onStart() {
         super.onStart();
-        this.mlv.onStart();
-        g dwT = com.baidu.tieba.sdk.d.a.dwM().dwT();
-        if (dwT != null) {
-            dwT.e(this);
+        this.mxW.onStart();
+        g dAb = com.baidu.tieba.sdk.d.a.dzU().dAb();
+        if (dAb != null) {
+            dAb.e(this);
         }
     }
 
     @Override // android.app.Activity
     protected void onResume() {
         super.onResume();
-        this.mlv.onResume();
-        g dwT = com.baidu.tieba.sdk.d.a.dwM().dwT();
-        if (dwT != null) {
-            dwT.c(this);
+        this.mxW.onResume();
+        g dAb = com.baidu.tieba.sdk.d.a.dzU().dAb();
+        if (dAb != null) {
+            dAb.c(this);
         }
     }
 
     @Override // android.app.Activity
     protected void onPause() {
         super.onPause();
-        this.mlv.onPause();
-        g dwT = com.baidu.tieba.sdk.d.a.dwM().dwT();
-        if (dwT != null) {
-            dwT.d(this);
+        this.mxW.onPause();
+        g dAb = com.baidu.tieba.sdk.d.a.dzU().dAb();
+        if (dAb != null) {
+            dAb.d(this);
         }
     }
 
     @Override // android.app.Activity
     protected void onStop() {
         super.onStop();
-        this.mlv.onStop();
-        g dwT = com.baidu.tieba.sdk.d.a.dwM().dwT();
-        if (dwT != null) {
-            dwT.f(this);
+        this.mxW.onStop();
+        g dAb = com.baidu.tieba.sdk.d.a.dzU().dAb();
+        if (dAb != null) {
+            dAb.f(this);
         }
     }
 
     @Override // android.app.Activity, android.view.Window.Callback
     public void onWindowFocusChanged(boolean z) {
         super.onWindowFocusChanged(z);
-        if (this.mlv != null) {
-            this.mlv.onWindowFocusChanged(z);
+        if (this.mxW != null) {
+            this.mxW.onWindowFocusChanged(z);
         }
     }
 
     @Override // android.app.Activity, android.view.KeyEvent.Callback
     public boolean onKeyDown(int i, KeyEvent keyEvent) {
-        if (this.mlv.onKeyDown(i, keyEvent)) {
+        if (this.mxW.onKeyDown(i, keyEvent)) {
             return true;
         }
         return super.onKeyDown(i, keyEvent);
@@ -131,39 +135,39 @@ public class YuyinLivePlayerActivity extends MAActivity implements BdPageContext
     @Override // android.app.Activity
     protected void onActivityResult(int i, int i2, Intent intent) {
         super.onActivityResult(i, i2, intent);
-        this.mlv.onActivityResult(i, i2, intent);
+        this.mxW.onActivityResult(i, i2, intent);
     }
 
     @Override // android.app.Activity, android.content.ComponentCallbacks
     public void onConfigurationChanged(Configuration configuration) {
         super.onConfigurationChanged(configuration);
-        if (this.mlv != null) {
-            this.mlv.onConfigurationChanged(configuration);
+        if (this.mxW != null) {
+            this.mxW.onConfigurationChanged(configuration);
         }
     }
 
     @Override // android.app.Activity
     protected void onDestroy() {
-        g dwT = com.baidu.tieba.sdk.d.a.dwM().dwT();
-        if (dwT != null) {
-            dwT.g(this);
+        g dAb = com.baidu.tieba.sdk.d.a.dzU().dAb();
+        if (dAb != null) {
+            dAb.g(this);
         }
         super.onDestroy();
-        if (this.mlv != null) {
-            this.mlv.onDestroy();
+        if (this.mxW != null) {
+            this.mxW.onDestroy();
         }
-        if (dwT != null) {
-            dwT.h(this);
+        if (dAb != null) {
+            dAb.h(this);
         }
-        if (this.mlu != null && this.mReceiverTag) {
-            unregisterReceiver(this.mlu);
+        if (this.mxV != null && this.mReceiverTag) {
+            unregisterReceiver(this.mxV);
             this.mReceiverTag = false;
         }
     }
 
     @Override // com.baidu.live.adp.base.BdPageContextSupport, com.baidu.live.tbadk.TbPageContextSupport
     public BdPageContext getPageContext() {
-        return this.mlv;
+        return this.mxW;
     }
 
     @Override // com.baidu.live.adp.base.IScrollable
@@ -194,7 +198,7 @@ public class YuyinLivePlayerActivity extends MAActivity implements BdPageContext
 
         @Override // android.content.BroadcastReceiver
         public void onReceive(Context context, Intent intent) {
-            if (intent != null && this.reference != null && this.reference.get() != null && TextUtils.equals(b.dxk(), intent.getAction()) && TextUtils.equals(intent.getStringExtra("DetailLifecycle"), MissionEvent.MESSAGE_START)) {
+            if (intent != null && this.reference != null && this.reference.get() != null && TextUtils.equals(b.dAs(), intent.getAction()) && TextUtils.equals(intent.getStringExtra("DetailLifecycle"), MissionEvent.MESSAGE_START)) {
                 this.reference.get().onStop();
             }
         }
@@ -202,8 +206,8 @@ public class YuyinLivePlayerActivity extends MAActivity implements BdPageContext
 
     @Override // android.app.Activity
     public void onRequestPermissionsResult(int i, @NonNull String[] strArr, @NonNull int[] iArr) {
-        if (this.mlv != null) {
-            this.mlv.onRequestPermissionsResult(i, strArr, iArr);
+        if (this.mxW != null) {
+            this.mxW.onRequestPermissionsResult(i, strArr, iArr);
         }
     }
 }

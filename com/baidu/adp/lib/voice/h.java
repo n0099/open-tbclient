@@ -6,9 +6,9 @@ import com.baidu.adp.base.BdBaseApplication;
 import com.baidu.android.util.devices.RomUtils;
 /* loaded from: classes.dex */
 public class h {
-    public static int PP;
-    public static int PQ = 3;
-    private static final String[] PR = {RomUtils.MANUFACTURER_MEIZU};
+    public static int PQ;
+    public static int PR = 3;
+    private static final String[] PT = {RomUtils.MANUFACTURER_MEIZU};
 
     public static String getString(int i) {
         Application app = BdBaseApplication.getInst().getApp();
@@ -21,8 +21,8 @@ public class h {
             return false;
         }
         String lowerCase = str.toLowerCase();
-        for (int i = 0; i < PR.length; i++) {
-            if (PR[i].equals(lowerCase)) {
+        for (int i = 0; i < PT.length; i++) {
+            if (PT[i].equals(lowerCase)) {
                 return true;
             }
         }

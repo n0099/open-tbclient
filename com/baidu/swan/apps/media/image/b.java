@@ -48,18 +48,18 @@ public final class b {
         this.tile = true;
     }
 
-    public static b iY(int i) {
+    public static b jj(int i) {
         return new b(i);
     }
 
-    public static b pz(String str) {
+    public static b pS(String str) {
         if (str == null) {
             throw new NullPointerException("Asset name must not be null");
         }
-        return pA("file:///android_asset/" + str);
+        return pT("file:///android_asset/" + str);
     }
 
-    public static b pA(String str) {
+    public static b pT(String str) {
         if (str == null) {
             throw new NullPointerException("Uri must not be null");
         }
@@ -79,15 +79,15 @@ public final class b {
         return new b(bitmap, true);
     }
 
-    public b awO() {
-        return fi(true);
+    public b ayI() {
+        return fv(true);
     }
 
-    public b awP() {
-        return fi(false);
+    public b ayJ() {
+        return fv(false);
     }
 
-    public b fi(boolean z) {
+    public b fv(boolean z) {
         this.tile = z;
         return this;
     }
@@ -128,7 +128,7 @@ public final class b {
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public final boolean awQ() {
+    public final boolean ayK() {
         return this.cached;
     }
 }

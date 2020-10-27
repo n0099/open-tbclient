@@ -3,7 +3,7 @@ package tv.chushou.zues.widget.kpswitch;
 public interface b {
     int getHeight();
 
-    void jK(boolean z);
+    void jX(boolean z);
 
-    void qV(int i);
+    void rg(int i);
 }

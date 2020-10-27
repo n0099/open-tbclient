@@ -8,13 +8,13 @@ import com.baidu.swan.apps.storage.c.h;
 /* loaded from: classes10.dex */
 public class a {
     private static int mStatus;
-    private InterfaceC0387a csd;
-    private b cse;
+    private InterfaceC0401a cAD;
+    private b cAE;
     private Context mContext;
 
     /* renamed from: com.baidu.swan.apps.console.v8inspector.a$a  reason: collision with other inner class name */
     /* loaded from: classes10.dex */
-    public interface InterfaceC0387a {
+    public interface InterfaceC0401a {
         void onConnected();
     }
 
@@ -26,7 +26,7 @@ public class a {
     }
 
     static {
-        mStatus = h.aGy().getBoolean("Inspector", false) ? 2 : 0;
+        mStatus = h.aIs().getBoolean("Inspector", false) ? 2 : 0;
     }
 
     public a(Context context) {
@@ -37,28 +37,28 @@ public class a {
         ExecutorUtilsExt.postOnSerial(new Runnable() { // from class: com.baidu.swan.apps.console.v8inspector.a.1
             @Override // java.lang.Runnable
             public void run() {
-                if (com.baidu.swan.apps.console.debugger.b.ahk() || a.getStatus() != 0) {
-                    a.this.cse = new c(String.format("v8in%s_devtools_remote", a.this.mContext.getPackageName()), a.this.csd);
-                } else if (com.baidu.swan.apps.console.debugger.b.ahl()) {
-                    a.this.cse = new com.baidu.swan.apps.console.v8inspector.a.b(d.ahI(), a.this.csd);
+                if (com.baidu.swan.apps.console.debugger.b.aje() || a.getStatus() != 0) {
+                    a.this.cAE = new c(String.format("v8in%s_devtools_remote", a.this.mContext.getPackageName()), a.this.cAD);
+                } else if (com.baidu.swan.apps.console.debugger.b.ajf()) {
+                    a.this.cAE = new com.baidu.swan.apps.console.v8inspector.a.b(d.ajC(), a.this.cAD);
                 } else {
                     com.baidu.swan.apps.console.c.e("V8Inspector", "Unknown inspect mode");
                     return;
                 }
-                a.this.cse.start();
+                a.this.cAE.start();
             }
         }, "V8Inspector");
     }
 
     public void stop() {
-        if (this.cse != null) {
-            this.cse.stop();
-            this.cse = null;
+        if (this.cAE != null) {
+            this.cAE.stop();
+            this.cAE = null;
         }
     }
 
-    public void a(InterfaceC0387a interfaceC0387a) {
-        this.csd = interfaceC0387a;
+    public void a(InterfaceC0401a interfaceC0401a) {
+        this.cAD = interfaceC0401a;
     }
 
     public static int getStatus() {
@@ -66,7 +66,7 @@ public class a {
     }
 
     public static void setStatus(int i) {
-        h.aGy().putBoolean("Inspector", i == 2);
+        h.aIs().putBoolean("Inspector", i == 2);
         mStatus = i;
     }
 }

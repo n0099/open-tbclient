@@ -8,11 +8,11 @@ import org.json.JSONArray;
 public final class ex implements Runnable {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ ev f3869a;
+    final /* synthetic */ ev f3867a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public ex(ev evVar) {
-        this.f3869a = evVar;
+        this.f3867a = evVar;
     }
 
     @Override // java.lang.Runnable
@@ -21,13 +21,13 @@ public final class ex implements Runnable {
         int i2;
         ArrayList arrayList;
         JSONArray jSONArray = null;
-        i = this.f3869a.i;
-        String trim = i != -1 ? this.f3869a.b.getText().toString().trim() : null;
-        i2 = this.f3869a.h;
+        i = this.f3867a.i;
+        String trim = i != -1 ? this.f3867a.b.getText().toString().trim() : null;
+        i2 = this.f3867a.h;
         if (i2 != -1) {
-            arrayList = this.f3869a.m;
+            arrayList = this.f3867a.m;
             jSONArray = new JSONArray((Collection) arrayList);
         }
-        ev.a(this.f3869a, trim, jSONArray);
+        ev.a(this.f3867a, trim, jSONArray);
     }
 }

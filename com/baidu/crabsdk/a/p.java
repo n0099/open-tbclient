@@ -4,14 +4,14 @@ import java.util.ArrayList;
 import java.util.LinkedHashMap;
 /* loaded from: classes11.dex */
 public final class p extends n {
-    private static final LinkedHashMap<Long, String> aoj = new LinkedHashMap<>();
+    private static final LinkedHashMap<Long, String> aok = new LinkedHashMap<>();
     private int X;
-    private Thread aok;
+    private Thread aol;
 
     private p(Thread thread, int i, long j) {
         super(j);
         this.X = a.X;
-        this.aok = thread;
+        this.aol = thread;
         this.X = i;
     }
 
@@ -21,10 +21,10 @@ public final class p extends n {
 
     public static ArrayList<String> c(long j, long j2) {
         ArrayList<String> arrayList = new ArrayList<>();
-        synchronized (aoj) {
-            for (Long l : aoj.keySet()) {
+        synchronized (aok) {
+            for (Long l : aok.keySet()) {
                 if (j < l.longValue() && l.longValue() < j2) {
-                    arrayList.add(aoj.get(l));
+                    arrayList.add(aok.get(l));
                 }
             }
         }
@@ -36,14 +36,14 @@ public final class p extends n {
     @Override // com.baidu.crabsdk.a.n
     public final void o() {
         StringBuilder sb = new StringBuilder();
-        for (StackTraceElement stackTraceElement : this.aok.getStackTrace()) {
+        for (StackTraceElement stackTraceElement : this.aol.getStackTrace()) {
             sb.append(stackTraceElement.toString()).append("\r\n");
         }
-        synchronized (aoj) {
-            if (aoj.size() == this.X && this.X > 0) {
-                aoj.remove(aoj.keySet().iterator().next());
+        synchronized (aok) {
+            if (aok.size() == this.X && this.X > 0) {
+                aok.remove(aok.keySet().iterator().next());
             }
-            aoj.put(Long.valueOf(System.currentTimeMillis()), sb.toString());
+            aok.put(Long.valueOf(System.currentTimeMillis()), sb.toString());
         }
     }
 }

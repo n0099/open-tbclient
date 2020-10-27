@@ -1,0 +1,159 @@
+package com.baidu.live.personmanager;
+
+import android.text.TextUtils;
+import com.baidu.live.adp.base.BdBaseModel;
+import com.baidu.live.adp.framework.MessageManager;
+import com.baidu.live.adp.framework.listener.HttpMessageListener;
+import com.baidu.live.adp.framework.message.HttpMessage;
+import com.baidu.live.adp.framework.message.HttpResponsedMessage;
+import com.baidu.live.adp.lib.util.BdNetTypeUtil;
+import com.baidu.live.sdk.a;
+import com.baidu.live.tbadk.TbPageContext;
+import com.baidu.live.tbadk.core.TbadkCoreApplication;
+import com.baidu.live.tbadk.extraparams.ExtraParamsManager;
+import com.baidu.live.tbadk.task.TbHttpMessageTask;
+/* loaded from: classes4.dex */
+public class h extends BdBaseModel {
+    private HttpMessageListener boY;
+    private HttpMessageListener boZ;
+    private HttpMessageListener bpa;
+    private a bpf;
+    private TbPageContext mPageContext;
+
+    /* loaded from: classes4.dex */
+    public interface a {
+    }
+
+    public h(TbPageContext tbPageContext) {
+        super(tbPageContext);
+        this.boY = new HttpMessageListener(1031049) { // from class: com.baidu.live.personmanager.h.1
+            /* JADX DEBUG: Method merged with bridge method */
+            @Override // com.baidu.live.adp.framework.listener.MessageListener
+            public void onMessage(HttpResponsedMessage httpResponsedMessage) {
+                if (httpResponsedMessage != null && httpResponsedMessage.getCmd() == 1031049 && httpResponsedMessage.getOrginalMessage().getTag() == h.this.getUniqueId()) {
+                    int statusCode = httpResponsedMessage.getStatusCode();
+                    if (httpResponsedMessage instanceof YuyinPersonManagerResponseMessage) {
+                        if (statusCode != 200 || !(httpResponsedMessage instanceof YuyinPersonManagerResponseMessage)) {
+                            h.this.mPageContext.showToast(((YuyinPersonManagerResponseMessage) httpResponsedMessage).getUserMsg());
+                        } else if (httpResponsedMessage.getError() == 0) {
+                            h.this.mPageContext.showToast(a.i.sdk_person_operation_success);
+                        } else {
+                            h.this.mPageContext.showToast(((YuyinPersonManagerResponseMessage) httpResponsedMessage).getUserMsg());
+                        }
+                    }
+                }
+            }
+        };
+        this.boZ = new HttpMessageListener(1031050) { // from class: com.baidu.live.personmanager.h.2
+            /* JADX DEBUG: Method merged with bridge method */
+            @Override // com.baidu.live.adp.framework.listener.MessageListener
+            public void onMessage(HttpResponsedMessage httpResponsedMessage) {
+                if (httpResponsedMessage != null && httpResponsedMessage.getCmd() == 1031050 && httpResponsedMessage.getOrginalMessage().getTag() == h.this.getUniqueId()) {
+                    if (httpResponsedMessage.getStatusCode() != 200 || !(httpResponsedMessage instanceof YuyinPersonManagerResponseMessage)) {
+                        h.this.mPageContext.showToast(((YuyinPersonManagerResponseMessage) httpResponsedMessage).getUserMsg());
+                    } else if (httpResponsedMessage.getError() == 0) {
+                        h.this.mPageContext.showToast(a.i.sdk_person_operation_success);
+                    } else {
+                        h.this.mPageContext.showToast(((YuyinPersonManagerResponseMessage) httpResponsedMessage).getUserMsg());
+                    }
+                }
+            }
+        };
+        this.bpa = new HttpMessageListener(1031051) { // from class: com.baidu.live.personmanager.h.3
+            /* JADX DEBUG: Method merged with bridge method */
+            @Override // com.baidu.live.adp.framework.listener.MessageListener
+            public void onMessage(HttpResponsedMessage httpResponsedMessage) {
+                if (httpResponsedMessage != null && httpResponsedMessage.getCmd() == 1031051 && httpResponsedMessage.getOrginalMessage().getTag() == h.this.getUniqueId()) {
+                    if (httpResponsedMessage.getStatusCode() != 200 || !(httpResponsedMessage instanceof YuyinPersonManagerResponseMessage)) {
+                        h.this.mPageContext.showToast(((YuyinPersonManagerResponseMessage) httpResponsedMessage).getUserMsg());
+                    } else if (httpResponsedMessage.getError() == 0) {
+                        h.this.mPageContext.showToast(a.i.sdk_person_operation_success);
+                    } else {
+                        h.this.mPageContext.showToast(((YuyinPersonManagerResponseMessage) httpResponsedMessage).getUserMsg());
+                    }
+                }
+            }
+        };
+        this.mPageContext = tbPageContext;
+        registerListener(this.boY);
+        registerListener(this.boZ);
+        registerListener(this.bpa);
+        TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(1031049, com.baidu.live.a.azM);
+        tbHttpMessageTask.setResponsedClass(YuyinPersonManagerResponseMessage.class);
+        MessageManager.getInstance().registerTask(tbHttpMessageTask);
+        TbHttpMessageTask tbHttpMessageTask2 = new TbHttpMessageTask(1031050, com.baidu.live.a.azN);
+        tbHttpMessageTask2.setResponsedClass(YuyinPersonManagerResponseMessage.class);
+        MessageManager.getInstance().registerTask(tbHttpMessageTask2);
+        TbHttpMessageTask tbHttpMessageTask3 = new TbHttpMessageTask(1031051, com.baidu.live.a.azO);
+        tbHttpMessageTask3.setResponsedClass(YuyinPersonManagerResponseMessage.class);
+        MessageManager.getInstance().registerTask(tbHttpMessageTask3);
+    }
+
+    public void q(String str, String str2, String str3) {
+        b(str, str2, str3, 1);
+    }
+
+    public void r(String str, String str2, String str3) {
+        b(str, str2, str3, 3);
+    }
+
+    public void s(String str, String str2, String str3) {
+        b(str, str2, str3, 8);
+    }
+
+    public void t(String str, String str2, String str3) {
+        b(str, str2, str3, 9);
+    }
+
+    private void b(String str, String str2, String str3, int i) {
+        if (!BdNetTypeUtil.isNetWorkAvailable() || TextUtils.isEmpty(str)) {
+            this.mPageContext.showToast(this.mPageContext.getResources().getString(a.i.sdk_no_network));
+            return;
+        }
+        g gVar = new g(i);
+        gVar.addParam("block_user_uk", ExtraParamsManager.getEncryptionUserId(str));
+        gVar.addParam("block_group_id", str2);
+        gVar.addParam("live_id", str3);
+        gVar.addParam("tbs", TbadkCoreApplication.getInst().getTbs());
+        this.mPageContext.sendMessage(gVar);
+    }
+
+    public void u(String str, String str2, String str3) {
+        if (!BdNetTypeUtil.isNetWorkAvailable() || TextUtils.isEmpty(str)) {
+            this.mPageContext.showToast(this.mPageContext.getResources().getString(a.i.sdk_no_network));
+            return;
+        }
+        HttpMessage httpMessage = new HttpMessage(1031050);
+        httpMessage.addParam("uk", ExtraParamsManager.getEncryptionUserId(str));
+        httpMessage.addParam("room_id", str2);
+        httpMessage.addParam("group_id", str3);
+        this.mPageContext.sendMessage(httpMessage);
+    }
+
+    public void x(String str, String str2, String str3) {
+        if (!BdNetTypeUtil.isNetWorkAvailable() || TextUtils.isEmpty(str)) {
+            this.mPageContext.showToast(this.mPageContext.getResources().getString(a.i.sdk_no_network));
+            return;
+        }
+        HttpMessage httpMessage = new HttpMessage(1031051);
+        httpMessage.addParam("uk", ExtraParamsManager.getEncryptionUserId(str));
+        httpMessage.addParam("room_id", str2);
+        httpMessage.addParam("group_id", str3);
+        this.mPageContext.sendMessage(httpMessage);
+    }
+
+    @Override // com.baidu.live.adp.base.BdBaseModel
+    protected boolean loadData() {
+        return false;
+    }
+
+    @Override // com.baidu.live.adp.base.BdBaseModel
+    public boolean cancelLoadData() {
+        cancelMessage();
+        return false;
+    }
+
+    public void a(a aVar) {
+        this.bpf = aVar;
+    }
+}

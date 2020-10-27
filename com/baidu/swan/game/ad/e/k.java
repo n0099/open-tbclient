@@ -4,36 +4,36 @@ import org.json.JSONObject;
 /* loaded from: classes14.dex */
 public final class k {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    public com.baidu.swan.games.binding.model.a dBd;
+    public com.baidu.swan.games.binding.model.a dJA;
 
     public static k d(com.baidu.swan.games.binding.model.c cVar) {
         if (cVar == null) {
             return null;
         }
         k kVar = new k();
-        kVar.dBd = com.baidu.swan.games.binding.model.a.f(cVar);
+        kVar.dJA = com.baidu.swan.games.binding.model.a.f(cVar);
         return kVar;
     }
 
-    public void aNt() {
-        if (this.dBd != null) {
-            this.dBd.onSuccess();
+    public void aPn() {
+        if (this.dJA != null) {
+            this.dJA.onSuccess();
         }
     }
 
-    public void vj(String str) {
-        JSONObject vg = vg(str);
-        if (this.dBd != null) {
-            this.dBd.ac(vg);
+    public void vC(String str) {
+        JSONObject vz = vz(str);
+        if (this.dJA != null) {
+            this.dJA.ac(vz);
         }
     }
 
-    private JSONObject vg(String str) {
+    private JSONObject vz(String str) {
         JSONObject jSONObject = new JSONObject();
         try {
             jSONObject.put("errCode", str);
             jSONObject.put("errMsg", "fail");
-            jSONObject.put("errDes", com.baidu.swan.game.ad.d.b.ve(str));
+            jSONObject.put("errDes", com.baidu.swan.game.ad.d.b.vx(str));
         } catch (Exception e) {
             if (DEBUG) {
                 e.printStackTrace();

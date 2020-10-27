@@ -45,7 +45,7 @@ public class ad implements aa {
     }
 
     public void onEvent(String str, String str2, int i) {
-        if (com.baidu.pyramid.runtime.multiprocess.a.YO()) {
+        if (com.baidu.pyramid.runtime.multiprocess.a.aaH()) {
             if (UBC.getUBCContext() == null && TextUtils.isEmpty(str)) {
                 if (DEBUG) {
                     throw new IllegalArgumentException("UBC onEvent#eventId must not be null.");
@@ -55,7 +55,7 @@ public class ad implements aa {
             if (DEBUG) {
                 Log.d("UBCServiceManager", "on event id:" + str + " value:" + str2);
             }
-            d.dTD().k(str, str2, i);
+            d.dZv().k(str, str2, i);
             return;
         }
         try {
@@ -66,12 +66,12 @@ public class ad implements aa {
     }
 
     public void onEvent(String str, JSONObject jSONObject, int i) {
-        if (com.baidu.pyramid.runtime.multiprocess.a.YO()) {
+        if (com.baidu.pyramid.runtime.multiprocess.a.aaH()) {
             if (UBC.getUBCContext() != null || !TextUtils.isEmpty(str)) {
                 if (DEBUG) {
                     Log.d("UBCServiceManager", "on event id:" + str + " value:" + jSONObject.toString());
                 }
-                d.dTD().a(str, jSONObject, i);
+                d.dZv().a(str, jSONObject, i);
                 return;
             }
             return;
@@ -108,7 +108,7 @@ public class ad implements aa {
     }
 
     public Flow beginFlow(String str, String str2, int i) {
-        if (com.baidu.pyramid.runtime.multiprocess.a.YO()) {
+        if (com.baidu.pyramid.runtime.multiprocess.a.aaH()) {
             if (TextUtils.isEmpty(str)) {
                 if (DEBUG) {
                     throw new IllegalArgumentException("UBC beginFlow#flowId must not be null.");
@@ -118,22 +118,22 @@ public class ad implements aa {
             if (DEBUG) {
                 Log.d("UBCServiceManager", "begin flow id:" + str + " value:" + str2);
             }
-            return d.dTD().beginFlow(str, str2, i);
+            return d.dZv().beginFlow(str, str2, i);
         }
-        return v(str, str2, i);
+        return w(str, str2, i);
     }
 
     public Flow beginFlow(String str, JSONObject jSONObject, int i) {
-        if (com.baidu.pyramid.runtime.multiprocess.a.YO()) {
+        if (com.baidu.pyramid.runtime.multiprocess.a.aaH()) {
             if (TextUtils.isEmpty(str)) {
                 return null;
             }
             if (DEBUG) {
                 Log.d("UBCServiceManager", "begin flow id:" + str + " value:" + jSONObject);
             }
-            return d.dTD().beginFlow(str, jSONObject, i);
+            return d.dZv().beginFlow(str, jSONObject, i);
         }
-        return v(str, jSONObject.toString(), i);
+        return w(str, jSONObject.toString(), i);
     }
 
     @Override // com.baidu.ubc.aa
@@ -142,21 +142,21 @@ public class ad implements aa {
             Log.d("UBCServiceManager", "end flow, mId:" + flow.getId() + " handle" + flow.getHandle() + " mValid:" + flow.getValid());
         }
         if (flow != null && flow.getValid()) {
-            if (com.baidu.pyramid.runtime.multiprocess.a.YO()) {
+            if (com.baidu.pyramid.runtime.multiprocess.a.aaH()) {
                 JSONArray jSONArray = new JSONArray();
                 if (flow.getSlotMaps() != null && (r3 = flow.getSlotMaps().entrySet().iterator()) != null) {
                     for (Map.Entry<String, Slot> entry : flow.getSlotMaps().entrySet()) {
                         Slot value = entry.getValue();
-                        if (value.aZE() && !value.aZF()) {
+                        if (value.bbx() && !value.bby()) {
                             value.setEnd(System.currentTimeMillis());
                         }
-                        JSONObject aZG = entry.getValue().aZG();
-                        if (aZG != null) {
-                            jSONArray.put(aZG);
+                        JSONObject bbz = entry.getValue().bbz();
+                        if (bbz != null) {
+                            jSONArray.put(bbz);
                         }
                     }
                 }
-                d.dTD().a(flow.getId(), flow.getHandle(), jSONArray);
+                d.dZv().a(flow.getId(), flow.getHandle(), jSONArray);
                 return;
             }
             try {
@@ -173,8 +173,8 @@ public class ad implements aa {
             Log.d("UBCServiceManager", " flow addEvent, mId:" + flow.getId() + " handle" + flow.getHandle() + " eventId:" + str + " value:" + str2 + " mValid:" + flow.getValid());
         }
         if (flow != null && flow.getValid()) {
-            if (com.baidu.pyramid.runtime.multiprocess.a.YO()) {
-                d.dTD().a(flow.getId(), str, flow.getHandle(), str2, flow.getOption());
+            if (com.baidu.pyramid.runtime.multiprocess.a.aaH()) {
+                d.dZv().a(flow.getId(), str, flow.getHandle(), str2, flow.getOption());
                 return;
             }
             try {
@@ -191,8 +191,8 @@ public class ad implements aa {
             Log.d("UBCServiceManager", " flow addEvent, mId:" + flow.getId() + " handle" + flow.getHandle() + " eventId:" + str + " value:" + str2 + " mValid:" + flow.getValid());
         }
         if (flow != null && flow.getValid()) {
-            if (com.baidu.pyramid.runtime.multiprocess.a.YO()) {
-                d.dTD().a(flow.getId(), str, flow.getHandle(), str2, j, flow.getOption());
+            if (com.baidu.pyramid.runtime.multiprocess.a.aaH()) {
+                d.dZv().a(flow.getId(), str, flow.getHandle(), str2, j, flow.getOption());
                 return;
             }
             try {
@@ -209,8 +209,8 @@ public class ad implements aa {
             Log.d("UBCServiceManager", " flow setValue, mId:" + flow.getId() + " handle" + flow.getHandle() + " value:" + str + " mValid:" + flow.getValid());
         }
         if (flow != null && flow.getValid()) {
-            if (com.baidu.pyramid.runtime.multiprocess.a.YO()) {
-                d.dTD().h(flow.getId(), flow.getHandle(), str);
+            if (com.baidu.pyramid.runtime.multiprocess.a.aaH()) {
+                d.dZv().h(flow.getId(), flow.getHandle(), str);
                 return;
             }
             try {
@@ -247,7 +247,7 @@ public class ad implements aa {
             Log.d("UBCServiceManager", " flow setValueWithDuration, mId:" + flow.getId() + " handle: " + flow.getHandle() + " value:" + str + " mValid:" + flow.getValid());
         }
         if (flow != null && flow.getValid()) {
-            if (com.baidu.pyramid.runtime.multiprocess.a.YO()) {
+            if (com.baidu.pyramid.runtime.multiprocess.a.aaH()) {
                 JSONObject jSONObject = new JSONObject();
                 try {
                     float currentTimeMillis = ((float) (System.currentTimeMillis() - flow.getStartTime())) / 1000.0f;
@@ -261,7 +261,7 @@ public class ad implements aa {
                 } catch (JSONException e) {
                     e.printStackTrace();
                 }
-                d.dTD().h(flow.getId(), flow.getHandle(), jSONObject.toString());
+                d.dZv().h(flow.getId(), flow.getHandle(), jSONObject.toString());
                 return;
             }
             try {
@@ -280,14 +280,14 @@ public class ad implements aa {
                 flow.getSlotMaps().put(str, new Slot(str, System.currentTimeMillis(), jSONObject));
                 return;
             }
-            slot.cX(jSONObject);
+            slot.da(jSONObject);
         }
     }
 
     @Override // com.baidu.ubc.aa
     public void flowEndSlot(Flow flow, String str) {
         Slot slot;
-        if (flow != null && flow.getValid() && !TextUtils.isEmpty(str) && (slot = flow.getSlotMaps().get(str)) != null && slot.aZE() && !slot.aZF()) {
+        if (flow != null && flow.getValid() && !TextUtils.isEmpty(str) && (slot = flow.getSlotMaps().get(str)) != null && slot.bbx() && !slot.bby()) {
             slot.setEnd(System.currentTimeMillis());
         }
     }
@@ -298,8 +298,8 @@ public class ad implements aa {
             Log.d("UBCServiceManager", "cancel flow, mId:" + flow.getId() + " handle" + flow.getHandle() + " mValid:" + flow.getValid());
         }
         if (flow != null && flow.getValid()) {
-            if (com.baidu.pyramid.runtime.multiprocess.a.YO()) {
-                d.dTD().I(flow.getId(), flow.getHandle());
+            if (com.baidu.pyramid.runtime.multiprocess.a.aaH()) {
+                d.dZv().I(flow.getId(), flow.getHandle());
                 return;
             }
             try {
@@ -311,8 +311,8 @@ public class ad implements aa {
     }
 
     public String getUploadType(String str) {
-        if (com.baidu.pyramid.runtime.multiprocess.a.YO()) {
-            return d.dTD().getUploadType(str);
+        if (com.baidu.pyramid.runtime.multiprocess.a.aaH()) {
+            return d.dZv().getUploadType(str);
         }
         try {
             return UBC.getProxy().getUploadType(str);
@@ -323,8 +323,8 @@ public class ad implements aa {
     }
 
     public void uploadLocalDatas() {
-        if (com.baidu.pyramid.runtime.multiprocess.a.YO()) {
-            d.dTD().uploadLocalDatas();
+        if (com.baidu.pyramid.runtime.multiprocess.a.aaH()) {
+            d.dZv().uploadLocalDatas();
             return;
         }
         try {
@@ -336,17 +336,17 @@ public class ad implements aa {
 
     @Override // com.baidu.ubc.aa
     public void b(v vVar, boolean z, s sVar) {
-        d.dTD().a(vVar, z, sVar);
+        d.dZv().a(vVar, z, sVar);
     }
 
-    public boolean dTS() {
+    public boolean dZK() {
         if (AppConfig.isDebug()) {
             return PreferenceManager.getDefaultSharedPreferences(AppRuntime.getAppContext()).getBoolean("KEY_UBC_SAMPLE", false);
         }
         return true;
     }
 
-    public boolean dTT() {
+    public boolean dZL() {
         if (AppConfig.isDebug()) {
             return PreferenceManager.getDefaultSharedPreferences(AppRuntime.getAppContext()).getBoolean("KEY_UBC_DEBUG", AppConfig.isDebug());
         }
@@ -357,7 +357,7 @@ public class ad implements aa {
         return UBC.getProxy();
     }
 
-    private Flow v(String str, String str2, int i) {
+    private Flow w(String str, String str2, int i) {
         Flow flow;
         Flow flow2 = null;
         try {

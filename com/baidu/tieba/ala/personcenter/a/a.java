@@ -12,7 +12,7 @@ public class a extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.ala.perso
 
     /* JADX INFO: Access modifiers changed from: protected */
     public a(TbPageContext tbPageContext) {
-        super(tbPageContext.getPageActivity(), com.baidu.tieba.ala.personcenter.c.d.hmm);
+        super(tbPageContext.getPageActivity(), com.baidu.tieba.ala.personcenter.c.d.hyh);
         this.mPageContext = tbPageContext;
     }
 
@@ -28,32 +28,32 @@ public class a extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.ala.perso
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.widget.ListView.a
     public View a(int i, View view, ViewGroup viewGroup, final com.baidu.tieba.ala.personcenter.c.d dVar, com.baidu.tieba.card.a.a<com.baidu.tieba.ala.personcenter.e.a> aVar) {
-        if (aVar.cjq() == null) {
+        if (aVar.cmx() == null) {
             return null;
         }
-        a(dVar, aVar.cjq());
-        aVar.cjq().getView().setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.ala.personcenter.a.a.1
+        a(dVar, aVar.cmx());
+        aVar.cmx().getView().setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.ala.personcenter.a.a.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view2) {
                 a.this.a(dVar);
             }
         });
-        return aVar.cjq().getView();
+        return aVar.cmx().getView();
     }
 
     private void a(com.baidu.tieba.ala.personcenter.c.d dVar, com.baidu.tieba.ala.personcenter.e.a aVar) {
         com.baidu.tieba.ala.personcenter.c.c personCenterData = dVar.getPersonCenterData();
-        if (personCenterData != null && personCenterData.hml != null) {
-            aVar.vT(8);
-            aVar.setTitle(personCenterData.hml.name);
+        if (personCenterData != null && personCenterData.hyg != null) {
+            aVar.wn(8);
+            aVar.setTitle(personCenterData.hyg.name);
             aVar.onChangeSkinType(this.mPageContext, TbadkCoreApplication.getInst().getSkinType());
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void a(com.baidu.tieba.ala.personcenter.c.d dVar) {
-        if (dVar != null && dVar.getPersonCenterData() != null && dVar.getPersonCenterData().hml != null) {
-            r rVar = dVar.getPersonCenterData().hml;
+        if (dVar != null && dVar.getPersonCenterData() != null && dVar.getPersonCenterData().hyg != null) {
+            r rVar = dVar.getPersonCenterData().hyg;
             com.baidu.tbadk.browser.a.startWebActivity((Context) this.mPageContext.getPageActivity(), true, rVar.url, rVar.name);
         }
     }

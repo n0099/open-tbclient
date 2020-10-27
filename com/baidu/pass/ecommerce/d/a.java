@@ -52,8 +52,8 @@ public class a extends View {
 
     /* renamed from: com.baidu.pass.ecommerce.d.a$a  reason: collision with other inner class name */
     /* loaded from: classes17.dex */
-    class C0249a implements ValueAnimator.AnimatorUpdateListener {
-        C0249a() {
+    class C0263a implements ValueAnimator.AnimatorUpdateListener {
+        C0263a() {
         }
 
         @Override // android.animation.ValueAnimator.AnimatorUpdateListener
@@ -83,8 +83,8 @@ public class a extends View {
 
         /* renamed from: com.baidu.pass.ecommerce.d.a$c$a  reason: collision with other inner class name */
         /* loaded from: classes17.dex */
-        class C0250a extends TimerTask {
-            C0250a() {
+        class C0264a extends TimerTask {
+            C0264a() {
             }
 
             @Override // java.util.TimerTask, java.lang.Runnable
@@ -99,7 +99,7 @@ public class a extends View {
         @Override // android.animation.AnimatorListenerAdapter, android.animation.Animator.AnimatorListener
         public void onAnimationEnd(Animator animator) {
             if (a.this.s != null) {
-                a.this.s.schedule(new C0250a(), 0L, 16L);
+                a.this.s.schedule(new C0264a(), 0L, 16L);
             }
         }
     }
@@ -193,18 +193,18 @@ public class a extends View {
     public void a() {
         if (!this.u) {
             this.u = true;
-            C0249a c0249a = new C0249a();
+            C0263a c0263a = new C0263a();
             float f = this.d;
             float f2 = f / 3.0f;
             float f3 = (f * 23.0f) / 21.0f;
             ValueAnimator ofFloat = ValueAnimator.ofFloat(f2, f3);
             ofFloat.setInterpolator(new LinearInterpolator());
             ofFloat.setDuration(this.o);
-            ofFloat.addUpdateListener(c0249a);
+            ofFloat.addUpdateListener(c0263a);
             ValueAnimator ofFloat2 = ValueAnimator.ofFloat(f3, this.d);
             ofFloat2.setInterpolator(new LinearInterpolator());
             ofFloat2.setDuration(this.p);
-            ofFloat2.addUpdateListener(c0249a);
+            ofFloat2.addUpdateListener(c0263a);
             ValueAnimator ofFloat3 = ValueAnimator.ofFloat(0.0f, 1.0f);
             ofFloat3.setInterpolator(new DecelerateInterpolator());
             ofFloat3.setDuration(this.q);

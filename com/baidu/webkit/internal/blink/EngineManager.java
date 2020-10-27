@@ -85,8 +85,8 @@ public class EngineManager implements INoProGuard {
             }
             Log.i(LOG_TAG, "BlinkEngineInstaller.installAsync");
             if (cVar.b == null || WebKitFactory.getContext() == null) {
-                if (cVar.f3926a != null) {
-                    cVar.f3926a.onInstallFinish(13, null);
+                if (cVar.f3924a != null) {
+                    cVar.f3924a.onInstallFinish(13, null);
                     return;
                 }
                 return;

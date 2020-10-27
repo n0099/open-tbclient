@@ -45,7 +45,7 @@ public class CloudSettings implements INoProGuard, INetListener {
     public class a {
 
         /* renamed from: a  reason: collision with root package name */
-        public long f3937a;
+        public long f3935a;
         public int b = -1;
         public boolean c;
 
@@ -59,7 +59,7 @@ public class CloudSettings implements INoProGuard, INetListener {
 
         final void a(long j) {
             Log.w(CloudSettings.LOG_TAG, "setNetTime " + j);
-            this.f3937a = j;
+            this.f3935a = j;
         }
 
         final void a(boolean z) {

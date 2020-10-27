@@ -9,30 +9,30 @@ import javax.annotation.concurrent.ThreadSafe;
 /* loaded from: classes18.dex */
 public class e extends f {
     private static final String TAG = e.class.getSimpleName();
-    private final b nSL;
-    private final com.facebook.imagepipeline.i.e nSN;
-    private boolean nSO;
+    private final b oKd;
+    private final com.facebook.imagepipeline.i.e oKf;
+    private boolean oKg;
 
     public e(b bVar, com.facebook.imagepipeline.i.e eVar) {
-        this.nSL = bVar;
-        this.nSN = eVar;
+        this.oKd = bVar;
+        this.oKf = eVar;
     }
 
     @Override // com.facebook.imagepipeline.b.f
     @TargetApi(12)
     public com.facebook.common.references.a<Bitmap> c(int i, int i2, Bitmap.Config config) {
         com.facebook.common.references.a<Bitmap> aVar;
-        if (this.nSO) {
+        if (this.oKg) {
             return d(i, i2, config);
         }
-        com.facebook.common.references.a<PooledByteBuffer> b = this.nSL.b((short) i, (short) i2);
+        com.facebook.common.references.a<PooledByteBuffer> b = this.oKd.b((short) i, (short) i2);
         try {
             com.facebook.imagepipeline.g.e eVar = new com.facebook.imagepipeline.g.e(b);
-            eVar.c(com.facebook.c.b.nRF);
-            com.facebook.common.references.a<Bitmap> a2 = this.nSN.a(eVar, config, null, b.get().size());
+            eVar.c(com.facebook.c.b.oIX);
+            com.facebook.common.references.a<Bitmap> a2 = this.oKf.a(eVar, config, null, b.get().size());
             if (!a2.get().isMutable()) {
                 com.facebook.common.references.a.c(a2);
-                this.nSO = true;
+                this.oKg = true;
                 com.facebook.common.c.a.wtf(TAG, "Immutable bitmap returned by decoder");
                 aVar = d(i, i2, config);
                 com.facebook.imagepipeline.g.e.e(eVar);
@@ -50,6 +50,6 @@ public class e extends f {
     }
 
     private static com.facebook.common.references.a<Bitmap> d(int i, int i2, Bitmap.Config config) {
-        return com.facebook.common.references.a.a(Bitmap.createBitmap(i, i2, config), g.dZz());
+        return com.facebook.common.references.a.a(Bitmap.createBitmap(i, i2, config), g.ejx());
     }
 }

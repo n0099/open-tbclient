@@ -4,14 +4,14 @@ import android.graphics.Color;
 import com.baidu.mapapi.map.BaiduMap;
 /* loaded from: classes25.dex */
 public class b extends a {
-    private static final int dRe = Color.parseColor("#26c56c");
+    private static final int dZA = Color.parseColor("#26c56c");
 
     public b(BaiduMap baiduMap) {
         super(baiduMap);
     }
 
     @Override // com.baidu.swan.impl.map.e.a
-    public int aVM() {
-        return dRe;
+    public int getLineColor() {
+        return dZA;
     }
 }

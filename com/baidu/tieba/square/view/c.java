@@ -26,173 +26,173 @@ import com.baidu.tieba.tbadkCore.LikeModel;
 import com.baidu.tieba.tbadkCore.ad;
 /* loaded from: classes22.dex */
 public class c extends com.baidu.tieba.card.b<com.baidu.tieba.square.data.b> {
-    private BarImageView aiM;
-    private TextView aiO;
+    private BarImageView aiN;
     private TextView aiP;
-    private LikeModel eLp;
-    private TextView iUa;
-    private TextView iUb;
-    private TBSpecificationBtn iam;
-    private ad iao;
+    private TextView aiQ;
+    private LikeModel eTL;
+    private TBSpecificationBtn imN;
+    private ad imP;
     private boolean isLoading;
-    private String mBt;
-    private String mBu;
-    private com.baidu.tieba.square.data.b mBv;
+    private TextView jgw;
+    private TextView jgx;
+    private String mOc;
+    private String mOd;
+    private com.baidu.tieba.square.data.b mOe;
     private View mRootView;
 
     public c(TbPageContext<?> tbPageContext) {
         super(tbPageContext);
         this.isLoading = false;
-        this.mBt = TbadkCoreApplication.getInst().getString(R.string.forum_member_num);
-        this.mBu = TbadkCoreApplication.getInst().getString(R.string.forum_post_num);
+        this.mOc = TbadkCoreApplication.getInst().getString(R.string.forum_member_num);
+        this.mOd = TbadkCoreApplication.getInst().getString(R.string.forum_post_num);
         View view = getView();
         this.mRootView = view;
-        this.aiM = (BarImageView) view.findViewById(R.id.bar_image);
-        this.aiO = (TextView) view.findViewById(R.id.bar_name);
-        this.aiP = (TextView) view.findViewById(R.id.desc);
-        this.iUa = (TextView) view.findViewById(R.id.member_text);
-        this.iUb = (TextView) view.findViewById(R.id.post_text);
-        this.iam = (TBSpecificationBtn) view.findViewById(R.id.forum_like_button);
+        this.aiN = (BarImageView) view.findViewById(R.id.bar_image);
+        this.aiP = (TextView) view.findViewById(R.id.bar_name);
+        this.aiQ = (TextView) view.findViewById(R.id.desc);
+        this.jgw = (TextView) view.findViewById(R.id.member_text);
+        this.jgx = (TextView) view.findViewById(R.id.post_text);
+        this.imN = (TBSpecificationBtn) view.findViewById(R.id.forum_like_button);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.tieba.card.b
     public void a(com.baidu.tieba.square.data.b bVar) {
         if (bVar != null) {
-            this.mBv = bVar;
-            this.aiM.setShowOval(true);
-            this.aiM.setShowOuterBorder(false);
-            this.aiM.setShowInnerBorder(true);
-            this.aiM.setStrokeWith(l.getDimens(TbadkCoreApplication.getInst(), R.dimen.tbds1));
-            this.aiM.setStrokeColorResId(R.color.cp_border_a);
-            this.aiM.startLoad(bVar.getAvatar(), 10, false);
+            this.mOe = bVar;
+            this.aiN.setShowOval(true);
+            this.aiN.setShowOuterBorder(false);
+            this.aiN.setShowInnerBorder(true);
+            this.aiN.setStrokeWith(l.getDimens(TbadkCoreApplication.getInst(), R.dimen.tbds1));
+            this.aiN.setStrokeColorResId(R.color.cp_border_a);
+            this.aiN.startLoad(bVar.getAvatar(), 10, false);
             String forumName = bVar.getForumName();
             if (at.isEmpty(forumName)) {
                 forumName = "";
             }
-            this.aiO.setText(forumName);
-            this.iUa.setText(this.mBt + " " + at.numberUniformFormatExtra(bVar.getMemberCount()));
-            this.iUb.setText(this.mBu + " " + at.numberUniformFormatExtra(bVar.dCB()));
-            RM(bVar.bfH());
-            ov(this.mBv.isLike());
+            this.aiP.setText(forumName);
+            this.jgw.setText(this.mOc + " " + at.numberUniformFormatExtra(bVar.getMemberCount()));
+            this.jgx.setText(this.mOd + " " + at.numberUniformFormatExtra(bVar.dFJ()));
+            Sl(bVar.bhA());
+            oN(this.mOe.isLike());
             this.mRootView.setOnClickListener(this);
-            this.iam.setOnClickListener(this);
+            this.imN.setOnClickListener(this);
             onChangeSkinType(this.mTbPageContext, TbadkCoreApplication.getInst().getSkinType());
         }
     }
 
-    private void RM(String str) {
+    private void Sl(String str) {
         if (at.isEmpty(str)) {
-            if (this.aiP.getVisibility() != 8) {
-                this.aiP.setVisibility(8);
-                if (this.aiO.getLayoutParams() instanceof ViewGroup.MarginLayoutParams) {
-                    ((ViewGroup.MarginLayoutParams) this.aiO.getLayoutParams()).topMargin = l.getDimens(this.mTbPageContext.getPageActivity(), R.dimen.tbds47);
-                    this.aiO.requestLayout();
+            if (this.aiQ.getVisibility() != 8) {
+                this.aiQ.setVisibility(8);
+                if (this.aiP.getLayoutParams() instanceof ViewGroup.MarginLayoutParams) {
+                    ((ViewGroup.MarginLayoutParams) this.aiP.getLayoutParams()).topMargin = l.getDimens(this.mTbPageContext.getPageActivity(), R.dimen.tbds47);
+                    this.aiP.requestLayout();
                     return;
                 }
                 return;
             }
             return;
         }
-        if (this.aiP.getVisibility() != 0) {
-            this.aiP.setVisibility(0);
-            if (this.aiO.getLayoutParams() instanceof ViewGroup.MarginLayoutParams) {
-                ((ViewGroup.MarginLayoutParams) this.aiO.getLayoutParams()).topMargin = l.getDimens(this.mTbPageContext.getPageActivity(), R.dimen.tbds24);
-                this.aiO.requestLayout();
+        if (this.aiQ.getVisibility() != 0) {
+            this.aiQ.setVisibility(0);
+            if (this.aiP.getLayoutParams() instanceof ViewGroup.MarginLayoutParams) {
+                ((ViewGroup.MarginLayoutParams) this.aiP.getLayoutParams()).topMargin = l.getDimens(this.mTbPageContext.getPageActivity(), R.dimen.tbds24);
+                this.aiP.requestLayout();
             }
         }
-        this.aiP.setText(str);
+        this.aiQ.setText(str);
     }
 
-    public void ov(boolean z) {
+    public void oN(boolean z) {
         if (!z) {
             com.baidu.tbadk.core.view.commonBtn.b bVar = new com.baidu.tbadk.core.view.commonBtn.b();
-            bVar.pN(R.color.cp_link_tip_a);
-            this.iam.setConfig(bVar);
-            this.iam.setText(TbadkCoreApplication.getInst().getString(R.string.forum_doLike));
+            bVar.pY(R.color.cp_link_tip_a);
+            this.imN.setConfig(bVar);
+            this.imN.setText(TbadkCoreApplication.getInst().getString(R.string.forum_doLike));
         } else {
             com.baidu.tbadk.core.view.commonBtn.b bVar2 = new com.baidu.tbadk.core.view.commonBtn.b();
-            bVar2.pP(R.color.cp_cont_d);
-            this.iam.setConfig(bVar2);
-            this.iam.setText(TbadkCoreApplication.getInst().getString(R.string.forum_isLiked));
+            bVar2.qa(R.color.cp_cont_d);
+            this.imN.setConfig(bVar2);
+            this.imN.setText(TbadkCoreApplication.getInst().getString(R.string.forum_isLiked));
         }
-        this.mBv.setLike(z);
+        this.mOe.setLike(z);
     }
 
-    private void cof() {
-        if (this.mBv != null) {
-            String forumName = this.mBv.getForumName();
+    private void crm() {
+        if (this.mOe != null) {
+            String forumName = this.mOe.getForumName();
             if (at.isForumName(forumName)) {
                 this.mTbPageContext.sendMessage(new CustomMessage((int) CmdConfigCustom.ACTIVITY_START_NORMAL, new FrsActivityConfig(this.mTbPageContext.getPageActivity()).createNormalCfg(forumName, FrsActivityConfig.FRS_FROM_SQUARE).setCallFrom(5)));
             }
         }
     }
 
-    private void cog() {
+    private void crn() {
         if (!this.isLoading) {
             if (!l.isNetOk()) {
                 UtilHelper.showToast(this.mTbPageContext.getPageActivity(), this.mTbPageContext.getString(R.string.neterror));
-            } else if (this.mBv != null && !StringUtils.isNull(this.mBv.getForumName()) && this.mBv.getForumId() > 0 && bg.checkUpIsLogin(this.mTbPageContext.getPageActivity())) {
-                if (this.eLp == null) {
-                    this.eLp = new LikeModel(this.mTbPageContext);
-                    this.eLp.setLoadDataCallBack(new d() { // from class: com.baidu.tieba.square.view.c.1
+            } else if (this.mOe != null && !StringUtils.isNull(this.mOe.getForumName()) && this.mOe.getForumId() > 0 && bg.checkUpIsLogin(this.mTbPageContext.getPageActivity())) {
+                if (this.eTL == null) {
+                    this.eTL = new LikeModel(this.mTbPageContext);
+                    this.eTL.setLoadDataCallBack(new d() { // from class: com.baidu.tieba.square.view.c.1
                         @Override // com.baidu.adp.base.d
                         public void callback(Object obj) {
                             c.this.isLoading = false;
-                            if (c.this.eLp.getErrorCode() == 22) {
+                            if (c.this.eTL.getErrorCode() == 22) {
                                 l.showToast(c.this.mTbPageContext.getPageActivity(), c.this.mTbPageContext.getString(R.string.had_liked_forum));
                             } else if (obj != null) {
-                                if (c.this.eLp.getErrorCode() != 0) {
-                                    l.showToast(c.this.mTbPageContext.getPageActivity(), c.this.eLp.getErrorString());
+                                if (c.this.eTL.getErrorCode() != 0) {
+                                    l.showToast(c.this.mTbPageContext.getPageActivity(), c.this.eTL.getErrorString());
                                 } else {
-                                    c.this.ov(true);
+                                    c.this.oN(true);
                                 }
                             }
                         }
                     });
                 }
-                if (at.isForumName(this.mBv.getForumName())) {
+                if (at.isForumName(this.mOe.getForumName())) {
                     this.isLoading = true;
-                    this.eLp.dDI();
-                    this.eLp.gk(this.mBv.getForumName(), String.valueOf(this.mBv.getForumId()));
+                    this.eTL.dGQ();
+                    this.eTL.gp(this.mOe.getForumName(), String.valueOf(this.mOe.getForumId()));
                 }
             }
         }
     }
 
-    private void coh() {
+    private void cro() {
         if (!this.isLoading) {
             if (!l.isNetOk()) {
                 UtilHelper.showToast(this.mTbPageContext.getPageActivity(), this.mTbPageContext.getString(R.string.neterror));
-            } else if (this.mBv != null && !StringUtils.isNull(this.mBv.getForumName()) && this.mBv.getForumId() > 0 && bg.checkUpIsLogin(this.mTbPageContext.getPageActivity())) {
-                if (this.iao == null) {
-                    this.iao = new ad();
-                    this.iao.a(new ad.a() { // from class: com.baidu.tieba.square.view.c.2
+            } else if (this.mOe != null && !StringUtils.isNull(this.mOe.getForumName()) && this.mOe.getForumId() > 0 && bg.checkUpIsLogin(this.mTbPageContext.getPageActivity())) {
+                if (this.imP == null) {
+                    this.imP = new ad();
+                    this.imP.a(new ad.a() { // from class: com.baidu.tieba.square.view.c.2
                         @Override // com.baidu.tieba.tbadkCore.ad.a
-                        public void z(String str, long j) {
+                        public void C(String str, long j) {
                             c.this.isLoading = false;
-                            c.this.ov(false);
+                            c.this.oN(false);
                         }
 
                         @Override // com.baidu.tieba.tbadkCore.ad.a
-                        public void A(String str, long j) {
+                        public void D(String str, long j) {
                             c.this.isLoading = false;
                         }
                     });
                 }
                 this.isLoading = true;
-                this.iao.L(this.mBv.getForumName(), this.mBv.getForumId());
+                this.imP.O(this.mOe.getForumName(), this.mOe.getForumId());
             }
         }
     }
 
     @Override // com.baidu.tieba.card.b
     public void onChangeSkinType(TbPageContext<?> tbPageContext, int i) {
-        ap.setViewTextColor(this.aiO, R.color.cp_cont_b);
-        ap.setViewTextColor(this.iUa, R.color.cp_cont_d);
-        ap.setViewTextColor(this.iUb, R.color.cp_cont_d);
-        ap.setViewTextColor(this.aiP, R.color.cp_cont_d);
-        this.iam.bok();
+        ap.setViewTextColor(this.aiP, R.color.cp_cont_b);
+        ap.setViewTextColor(this.jgw, R.color.cp_cont_d);
+        ap.setViewTextColor(this.jgx, R.color.cp_cont_d);
+        ap.setViewTextColor(this.aiQ, R.color.cp_cont_d);
+        this.imN.bqd();
         ap.setBackgroundColor(getView(), R.color.cp_bg_line_e);
     }
 
@@ -204,31 +204,31 @@ public class c extends com.baidu.tieba.card.b<com.baidu.tieba.square.data.b> {
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
         aq aqVar;
-        if (this.mBv != null) {
+        if (this.mOe != null) {
             if (this.mRootView == view) {
-                cof();
-                if (this.hDj != null) {
-                    this.hDj.a(view, this.mBv);
+                crm();
+                if (this.hPF != null) {
+                    this.hPF.a(view, this.mOe);
                 }
-            } else if (this.iam == view) {
+            } else if (this.imN == view) {
                 if (this.mTbPageContext.getPageActivity() instanceof ForumSquareActivity) {
-                    String className = ((ForumSquareActivity) this.mTbPageContext.getPageActivity()).dCk().getClassName();
+                    String className = ((ForumSquareActivity) this.mTbPageContext.getPageActivity()).dFs().getClassName();
                     if (!"推荐".equals(className)) {
                         aqVar = new aq("c13653");
-                        aqVar.dK("resource_id", className);
+                        aqVar.dR("resource_id", className);
                     } else {
                         aqVar = new aq("c13644");
                         aqVar.aj("obj_locate", 3);
                     }
-                    aqVar.u("uid", TbadkCoreApplication.getCurrentAccountId());
-                    aqVar.u("fid", this.mBv.forumId);
-                    aqVar.aj(TiebaInitialize.Params.OBJ_TO, this.mBv.isLike() ? 2 : 1);
+                    aqVar.w("uid", TbadkCoreApplication.getCurrentAccountId());
+                    aqVar.w("fid", this.mOe.forumId);
+                    aqVar.aj(TiebaInitialize.Params.OBJ_TO, this.mOe.isLike() ? 2 : 1);
                     TiebaStatic.log(aqVar);
                 }
-                if (this.mBv.isLike()) {
-                    coh();
+                if (this.mOe.isLike()) {
+                    cro();
                 } else {
-                    cog();
+                    crn();
                 }
             }
         }

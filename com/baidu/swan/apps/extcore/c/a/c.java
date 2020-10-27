@@ -34,7 +34,7 @@ public class c extends aa {
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "game core url or cb is null");
             return false;
         }
-        eVar.aDm().b(context, "mapp_cts_debug", new com.baidu.swan.apps.ap.e.b<com.baidu.swan.apps.setting.oauth.h<b.d>>() { // from class: com.baidu.swan.apps.extcore.c.a.c.1
+        eVar.aFg().b(context, "mapp_cts_debug", new com.baidu.swan.apps.ap.e.b<com.baidu.swan.apps.setting.oauth.h<b.d>>() { // from class: com.baidu.swan.apps.extcore.c.a.c.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.swan.apps.ap.e.b
             /* renamed from: a */
@@ -54,18 +54,18 @@ public class c extends aa {
     public void a(final Context context, String str, final String str2, final CallbackHandler callbackHandler) {
         com.baidu.swan.games.l.a.c(str, new d.b() { // from class: com.baidu.swan.apps.extcore.c.a.c.2
             @Override // com.baidu.swan.apps.r.d.b
-            public void eX(int i) {
+            public void fa(int i) {
             }
 
             @Override // com.baidu.swan.apps.r.d.b
             public void onSuccess() {
-                File apM = com.baidu.swan.games.k.a.b.apM();
-                File apK = com.baidu.swan.games.k.a.b.apK();
+                File arG = com.baidu.swan.games.k.a.b.arG();
+                File arE = com.baidu.swan.games.k.a.b.arE();
                 if (c.DEBUG) {
-                    Log.d("replaceGameCore", "gameCoreZipFile: " + apM + " gameCoreDir: " + apK);
+                    Log.d("replaceGameCore", "gameCoreZipFile: " + arG + " gameCoreDir: " + arE);
                 }
-                if (apM.exists() && com.baidu.swan.c.d.unzipFile(apM.getPath(), apK.getPath())) {
-                    com.baidu.swan.apps.ad.a.a.fD(true);
+                if (arG.exists() && com.baidu.swan.c.d.unzipFile(arG.getPath(), arE.getPath())) {
+                    com.baidu.swan.apps.ad.a.a.fQ(true);
                     com.baidu.swan.apps.res.widget.b.d.k(context, a.h.aiapps_debug_game_core_download_success).showToast();
                     callbackHandler.handleSchemeDispatchCallback(str2, UnitedSchemeUtility.wrapCallbackParams(0).toString());
                     return;

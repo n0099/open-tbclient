@@ -33,8 +33,8 @@ public class a extends com.kascend.chushou.view.base.a implements View.OnClickLi
     private JSONObject m;
     private String n;
     private String o;
-    private FrescoThumbnailView osS;
-    private EmojiGiftDetail owU;
+    private FrescoThumbnailView pkk;
+    private EmojiGiftDetail pom;
 
     public static a b(String str, JSONObject jSONObject, String str2) {
         a aVar = new a();
@@ -84,7 +84,7 @@ public class a extends com.kascend.chushou.view.base.a implements View.OnClickLi
     @Override // com.kascend.chushou.view.base.a
     public View a(LayoutInflater layoutInflater, @Nullable ViewGroup viewGroup, @Nullable Bundle bundle) {
         View inflate = layoutInflater.inflate(a.h.dialog_emoji_gift, viewGroup, false);
-        this.osS = (FrescoThumbnailView) inflate.findViewById(a.f.ftv);
+        this.pkk = (FrescoThumbnailView) inflate.findViewById(a.f.ftv);
         this.d = (TextView) inflate.findViewById(a.f.tv_name);
         this.e = (TextView) inflate.findViewById(a.f.tv_price);
         this.f = (TextView) inflate.findViewById(a.f.tv_desc);
@@ -100,10 +100,10 @@ public class a extends com.kascend.chushou.view.base.a implements View.OnClickLi
 
     @Override // com.kascend.chushou.view.base.a
     public void a(View view) {
-        if (!tv.chushou.zues.utils.a.etZ()) {
-            g.K(this.b, a.i.s_no_available_network);
+        if (!tv.chushou.zues.utils.a.eDX()) {
+            g.N(this.b, a.i.s_no_available_network);
         } else {
-            com.kascend.chushou.c.c.ege().b(this.n, new com.kascend.chushou.c.b() { // from class: com.kascend.chushou.view.b.a.1
+            com.kascend.chushou.c.c.eqe().b(this.n, new com.kascend.chushou.c.b() { // from class: com.kascend.chushou.view.b.a.1
                 @Override // com.kascend.chushou.c.b
                 public void a() {
                 }
@@ -111,9 +111,9 @@ public class a extends com.kascend.chushou.view.base.a implements View.OnClickLi
                 @Override // com.kascend.chushou.c.b
                 public void a(String str, JSONObject jSONObject) {
                     if (!a.this.b()) {
-                        ParserRet ey = f.ey(jSONObject);
-                        if (ey.mData != null && ((EmojiGiftDetail) ey.mData).generalGift != null) {
-                            a.this.a((EmojiGiftDetail) ey.mData);
+                        ParserRet eG = f.eG(jSONObject);
+                        if (eG.mData != null && ((EmojiGiftDetail) eG.mData).generalGift != null) {
+                            a.this.a((EmojiGiftDetail) eG.mData);
                         } else {
                             a(-1, "");
                         }
@@ -123,7 +123,7 @@ public class a extends com.kascend.chushou.view.base.a implements View.OnClickLi
                 @Override // com.kascend.chushou.c.b
                 public void a(int i, String str) {
                     if (!a.this.b()) {
-                        g.K(a.this.b, a.i.s_network_busy);
+                        g.N(a.this.b, a.i.s_network_busy);
                         a.this.dismiss();
                     }
                 }
@@ -133,8 +133,8 @@ public class a extends com.kascend.chushou.view.base.a implements View.OnClickLi
 
     /* JADX INFO: Access modifiers changed from: private */
     public void a(EmojiGiftDetail emojiGiftDetail) {
-        this.owU = emojiGiftDetail;
-        ViewGroup.LayoutParams layoutParams = this.osS.getLayoutParams();
+        this.pom = emojiGiftDetail;
+        ViewGroup.LayoutParams layoutParams = this.pkk.getLayoutParams();
         GeneralGift generalGift = emojiGiftDetail.generalGift;
         if (generalGift.mGiftDetailHeight > 0 && generalGift.mGiftDetailWidth > 0) {
             layoutParams.height = tv.chushou.zues.utils.a.dip2px(this.b, generalGift.mGiftDetailHeight);
@@ -143,9 +143,9 @@ public class a extends com.kascend.chushou.view.base.a implements View.OnClickLi
             layoutParams.height = tv.chushou.zues.utils.a.dip2px(this.b, 80.0f);
             layoutParams.width = tv.chushou.zues.utils.a.dip2px(this.b, 80.0f);
         }
-        this.osS.setLayoutParams(layoutParams);
-        this.osS.setAnim(true);
-        com.kascend.chushou.view.a.a(this.osS, generalGift.mIcon, b.C1032b.pnM, b.C1032b.pnM);
+        this.pkk.setLayoutParams(layoutParams);
+        this.pkk.setAnim(true);
+        com.kascend.chushou.view.a.a(this.pkk, generalGift.mIcon, b.C1104b.qfa, b.C1104b.qfa);
         this.d.setText(generalGift.mName);
         this.e.setText(generalGift.mWorthDesc);
         this.f.setText(generalGift.mDesc);
@@ -170,34 +170,34 @@ public class a extends com.kascend.chushou.view.base.a implements View.OnClickLi
     public void onClick(View view) {
         int id = view.getId();
         if (id == a.f.tv_go_to) {
-            if (this.owU != null) {
-                if (TextUtils.equals(this.o, this.owU.roomId)) {
+            if (this.pom != null) {
+                if (TextUtils.equals(this.o, this.pom.roomId)) {
                     dismiss();
                     return;
                 }
-                if (this.owU.online) {
+                if (this.pom.online) {
                     ListItem listItem = new ListItem();
                     listItem.mType = "1";
-                    listItem.mTargetKey = this.owU.roomId;
-                    listItem.mLiveType = this.owU.liveType;
+                    listItem.mTargetKey = this.pom.roomId;
+                    listItem.mLiveType = this.pom.liveType;
                     com.kascend.chushou.d.e.a(this.b, listItem, this.m);
                 } else {
                     ListItem listItem2 = new ListItem();
                     listItem2.mType = "5";
-                    listItem2.mTargetKey = this.owU.creatorUid;
+                    listItem2.mTargetKey = this.pom.creatorUid;
                     com.kascend.chushou.d.e.a(this.b, listItem2, (JSONObject) null);
                 }
                 dismiss();
             }
-        } else if (id == a.f.tv_subscribe && this.owU != null) {
-            a(this.owU.subscriber);
+        } else if (id == a.f.tv_subscribe && this.pom != null) {
+            a(this.pom.subscriber);
         }
     }
 
     private void a(final boolean z) {
         if (!z) {
-            if (!tv.chushou.zues.utils.a.etZ()) {
-                g.K(this.b, a.i.s_no_wifi);
+            if (!tv.chushou.zues.utils.a.eDX()) {
+                g.N(this.b, a.i.s_no_wifi);
             } else if (com.kascend.chushou.d.e.c(this.b, null) && !this.l) {
                 com.kascend.chushou.c.b bVar = new com.kascend.chushou.c.b() { // from class: com.kascend.chushou.view.b.a.2
                     @Override // com.kascend.chushou.c.b
@@ -213,13 +213,13 @@ public class a extends com.kascend.chushou.view.base.a implements View.OnClickLi
                             a.this.l = false;
                             int optInt = jSONObject.optInt("code", -1);
                             if (optInt == 0) {
-                                a.this.owU.subscriber = z ? false : true;
+                                a.this.pom.subscriber = z ? false : true;
                                 if (z) {
-                                    g.K(a.this.b, a.i.unsubscribe_success);
+                                    g.N(a.this.b, a.i.unsubscribe_success);
                                 } else {
-                                    g.K(a.this.b, a.i.subscribe_success);
+                                    g.N(a.this.b, a.i.subscribe_success);
                                 }
-                                a.this.b(a.this.owU);
+                                a.this.b(a.this.pom);
                             } else if (optInt == 401) {
                                 com.kascend.chushou.d.e.b(a.this.b, (String) null);
                             } else {
@@ -235,15 +235,15 @@ public class a extends com.kascend.chushou.view.base.a implements View.OnClickLi
                             if (h.isEmpty(str)) {
                                 str = a.this.b.getString(a.i.subscribe_failed);
                             }
-                            g.c(a.this.b, str);
+                            g.d(a.this.b, str);
                         }
                     }
                 };
                 String a2 = com.kascend.chushou.d.e.a("_fromView", "50");
                 if (z) {
-                    com.kascend.chushou.c.c.ege().b(bVar, (String) null, this.owU.creatorUid, a2);
+                    com.kascend.chushou.c.c.eqe().b(bVar, (String) null, this.pom.creatorUid, a2);
                 } else {
-                    com.kascend.chushou.c.c.ege().a(bVar, (String) null, this.owU.creatorUid, a2);
+                    com.kascend.chushou.c.c.eqe().a(bVar, (String) null, this.pom.creatorUid, a2);
                 }
             }
         }

@@ -31,7 +31,7 @@ public class aq {
         this.key = str;
     }
 
-    public aq dK(String str, String str2) {
+    public aq dR(String str, String str2) {
         this.params.add(str);
         this.params.add(str2);
         return this;
@@ -43,7 +43,7 @@ public class aq {
         return this;
     }
 
-    public aq u(String str, long j) {
+    public aq w(String str, long j) {
         this.params.add(str);
         this.params.add(Long.valueOf(j));
         return this;
@@ -55,7 +55,7 @@ public class aq {
         return this;
     }
 
-    private void bc(List<Object> list) {
+    private void bm(List<Object> list) {
         this.params = list;
     }
 
@@ -67,22 +67,22 @@ public class aq {
         }
     }
 
-    public boolean Bl(String str) {
+    public boolean BE(String str) {
         int indexOf;
         return !at.isEmpty(str) && (indexOf = this.params.indexOf(str)) >= 0 && this.params.size() > indexOf + 1;
     }
 
-    public aq bmQ() {
+    public aq boJ() {
         aq aqVar = new aq(getKey());
-        aqVar.bc(getParams());
+        aqVar.bm(getParams());
         return aqVar;
     }
 
-    public void bmR() {
+    public void boK() {
         TiebaStatic.log(this);
     }
 
-    public static aq Bm(String str) {
+    public static aq BF(String str) {
         return new aq(str);
     }
 

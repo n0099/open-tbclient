@@ -3,9 +3,9 @@ package com.baidu.prologue.business.c;
 import android.view.View;
 /* loaded from: classes19.dex */
 public interface a {
-    View Yk();
+    void Vr();
 
-    void Yn();
+    View aae();
 
     int getLayoutId();
 }

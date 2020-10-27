@@ -6,10 +6,10 @@ import com.baidu.webkit.sdk.plugin.ZeusPlugin;
 import com.baidu.webkit.sdk.plugin.ZeusPluginFactory;
 /* loaded from: classes10.dex */
 public class d implements ZeusPluginFactory {
-    private String cib;
+    private String cqC;
 
     public d(@NonNull String str) {
-        this.cib = str;
+        this.cqC = str;
     }
 
     @Override // com.baidu.webkit.sdk.plugin.ZeusPluginFactory
@@ -19,7 +19,7 @@ public class d implements ZeusPluginFactory {
 
     @Override // com.baidu.webkit.sdk.plugin.ZeusPluginFactory
     public ZeusPlugin create(ZeusPluginFactory.Invoker invoker) {
-        com.baidu.swan.apps.inlinewidget.f.c.a a2 = com.baidu.swan.apps.t.a.asU().a(invoker, this.cib);
+        com.baidu.swan.apps.inlinewidget.f.c.a a2 = com.baidu.swan.apps.t.a.auO().a(invoker, this.cqC);
         if (com.baidu.swan.apps.b.DEBUG) {
             Log.i("【InlineFactory】", "Factory 「Hash:" + hashCode() + "」 is creating inline video「Hash:" + a2.hashCode() + "」");
         }

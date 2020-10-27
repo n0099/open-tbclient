@@ -17,14 +17,14 @@ public class QQToken {
     private static SharedPreferences f;
 
     /* renamed from: a  reason: collision with root package name */
-    private String f4533a;
+    private String f4531a;
     private String b;
     private String c;
     private int d = 1;
     private long e = -1;
 
     public QQToken(String str) {
-        this.f4533a = str;
+        this.f4531a = str;
     }
 
     public boolean isSessionValid() {
@@ -32,11 +32,11 @@ public class QQToken {
     }
 
     public String getAppId() {
-        return this.f4533a;
+        return this.f4531a;
     }
 
     public void setAppId(String str) {
-        this.f4533a = str;
+        this.f4531a = str;
     }
 
     public String getAccessToken() {
@@ -73,7 +73,7 @@ public class QQToken {
 
     public void saveSession(JSONObject jSONObject) {
         try {
-            a(this.f4533a, jSONObject);
+            a(this.f4531a, jSONObject);
         } catch (Exception e) {
             f.c("QQToken", "login saveSession" + e.toString());
         }

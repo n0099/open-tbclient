@@ -9,17 +9,17 @@ import tbclient.AlaLiveInfo;
 import tbclient.DislikeInfo;
 /* loaded from: classes22.dex */
 public class ac implements com.baidu.adp.widget.ListView.q {
-    public static final BdUniqueId lev = BdUniqueId.gen();
+    public static final BdUniqueId lqX = BdUniqueId.gen();
     public String cover;
     public String description;
-    private boolean ena;
-    public MetaData equ;
+    private boolean evA;
+    public MetaData eyV;
     public boolean isChushou;
-    public int ldI;
-    public boolean ldJ = false;
-    public com.baidu.tbadk.core.data.ar ldL;
     public long liveId;
     public int liveStatus;
+    public int lql;
+    public boolean lqm = false;
+    public com.baidu.tbadk.core.data.ar lqo;
     public String routeType;
     public String thirdLiveType;
     public String thirdRoomId;
@@ -31,7 +31,7 @@ public class ac implements com.baidu.adp.widget.ListView.q {
         if (alaLiveInfo != null && alaLiveInfo.user_info != null && alaLiveInfo.pb_display_type.intValue() == 3 && alaLiveInfo.live_status.intValue() == 1) {
             this.userName = alaLiveInfo.user_info.user_name;
             this.liveStatus = alaLiveInfo.live_status.intValue();
-            this.ldI = alaLiveInfo.audience_count.intValue();
+            this.lql = alaLiveInfo.audience_count.intValue();
             this.description = alaLiveInfo.description;
             this.cover = alaLiveInfo.cover;
             this.liveId = alaLiveInfo.live_id.longValue();
@@ -40,7 +40,7 @@ public class ac implements com.baidu.adp.widget.ListView.q {
             this.thirdRoomId = alaLiveInfo.third_room_id;
             this.routeType = alaLiveInfo.router_type;
             if (alaLiveInfo.user_info.user_id != null && alaLiveInfo.user_info.user_id.longValue() > 0 && this.userMap != null && (metaData = this.userMap.get(alaLiveInfo.user_info.user_id.toString())) != null) {
-                this.equ = metaData;
+                this.eyV = metaData;
             }
             List<DislikeInfo> list = alaLiveInfo.dislike_info;
             if (com.baidu.tbadk.core.util.y.getCount(list) > 0) {
@@ -52,20 +52,20 @@ public class ac implements com.baidu.adp.widget.ListView.q {
                         sparseArray2.put(dislikeInfo.dislike_id.intValue(), dislikeInfo.extra);
                     }
                 }
-                this.ldL = new com.baidu.tbadk.core.data.ar();
-                this.ldL.setFeedBackReasonMap(sparseArray);
-                this.ldL.eno = sparseArray2;
+                this.lqo = new com.baidu.tbadk.core.data.ar();
+                this.lqo.setFeedBackReasonMap(sparseArray);
+                this.lqo.evN = sparseArray2;
             } else {
-                this.ldL = null;
+                this.lqo = null;
             }
-            this.ena = true;
+            this.evA = true;
             return;
         }
-        this.ena = false;
+        this.evA = false;
     }
 
     public boolean isValid() {
-        return this.ena;
+        return this.evA;
     }
 
     public void setUserMap(HashMap<String, MetaData> hashMap) {
@@ -74,6 +74,6 @@ public class ac implements com.baidu.adp.widget.ListView.q {
 
     @Override // com.baidu.adp.widget.ListView.q
     public BdUniqueId getType() {
-        return lev;
+        return lqX;
     }
 }

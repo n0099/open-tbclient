@@ -4,21 +4,21 @@ import android.os.Handler;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes11.dex */
 public final class o implements Runnable {
-    final /* synthetic */ n aoi;
+    final /* synthetic */ n aoj;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public o(n nVar) {
-        this.aoi = nVar;
+        this.aoj = nVar;
     }
 
     @Override // java.lang.Runnable
     public final void run() {
         Runnable runnable;
-        this.aoi.o();
-        if (this.aoi.aof.get()) {
+        this.aoj.o();
+        if (this.aoj.aog.get()) {
             Handler vj = j.vj();
-            runnable = this.aoi.aoh;
-            vj.postDelayed(runnable, this.aoi.aog);
+            runnable = this.aoj.aoi;
+            vj.postDelayed(runnable, this.aoj.aoh);
         }
     }
 }

@@ -33,10 +33,10 @@ public class j extends aa {
             return false;
         }
         JSONObject jSONObject = null;
-        if (com.baidu.swan.apps.storage.b.sQ(optString) == PathType.BD_FILE) {
-            jSONObject = cl(com.baidu.swan.apps.storage.b.cs(optString, eVar.id), optString);
-        } else if (com.baidu.swan.apps.storage.b.sQ(optString) == PathType.RELATIVE) {
-            jSONObject = cl(com.baidu.swan.apps.storage.b.a(optString, eVar, eVar.getVersion()), optString);
+        if (com.baidu.swan.apps.storage.b.tj(optString) == PathType.BD_FILE) {
+            jSONObject = cs(com.baidu.swan.apps.storage.b.cz(optString, eVar.id), optString);
+        } else if (com.baidu.swan.apps.storage.b.tj(optString) == PathType.RELATIVE) {
+            jSONObject = cs(com.baidu.swan.apps.storage.b.a(optString, eVar, eVar.getVersion()), optString);
         }
         if (jSONObject != null) {
             com.baidu.swan.apps.console.c.i("getImageInfo", "getImgInfo success");
@@ -47,7 +47,7 @@ public class j extends aa {
         return false;
     }
 
-    private JSONObject cl(String str, String str2) {
+    private JSONObject cs(String str, String str2) {
         int i = 1;
         com.baidu.swan.apps.console.c.i("getImageInfo", "getImgInfo start");
         if (TextUtils.isEmpty(str)) {
@@ -65,18 +65,18 @@ public class j extends aa {
             str4 = split[split.length - 1];
         }
         if (!TextUtils.equals("png", str4)) {
-            ExifInterface ky = ky(str);
-            if (ky == null) {
+            ExifInterface kR = kR(str);
+            if (kR == null) {
                 return null;
             }
-            i = ky.getAttributeInt(android.support.media.ExifInterface.TAG_ORIENTATION, 1);
+            i = kR.getAttributeInt(android.support.media.ExifInterface.TAG_ORIENTATION, 1);
         }
         JSONObject jSONObject = new JSONObject();
         try {
             jSONObject.put("width", i2);
             jSONObject.put("height", i3);
             jSONObject.put("path", str2);
-            jSONObject.put("orientation", jW(i));
+            jSONObject.put("orientation", kh(i));
             jSONObject.put("type", str4);
         } catch (JSONException e) {
             com.baidu.swan.apps.console.c.e("getImageInfo", "getImgInfo failed by json exception");
@@ -88,7 +88,7 @@ public class j extends aa {
         return jSONObject;
     }
 
-    private String jW(int i) {
+    private String kh(int i) {
         switch (i) {
             case 0:
             case 1:
@@ -112,7 +112,7 @@ public class j extends aa {
         }
     }
 
-    private ExifInterface ky(String str) {
+    private ExifInterface kR(String str) {
         if (TextUtils.isEmpty(str)) {
             return null;
         }

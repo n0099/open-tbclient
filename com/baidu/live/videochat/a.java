@@ -4,9 +4,9 @@ import android.view.View;
 import com.baidu.live.data.AlaLiveUserInfoData;
 /* loaded from: classes4.dex */
 public interface a {
-    void Rk();
+    void Sk();
 
-    void Rl();
+    void Sl();
 
     void a(long j, View view, View view2);
 
@@ -16,17 +16,17 @@ public interface a {
 
     void a(boolean z, int i, String str);
 
-    void aA(long j);
+    void aC(long j);
 
     void b(boolean z, int i, String str);
 
-    void cK(boolean z);
+    void cQ(boolean z);
 
-    void cL(boolean z);
-
-    void t(int i, String str);
-
-    void u(int i, String str);
+    void cR(boolean z);
 
     void v(int i, String str);
+
+    void w(int i, String str);
+
+    void x(int i, String str);
 }

@@ -18,8 +18,8 @@ import com.baidu.tieba.R;
 import java.util.List;
 /* loaded from: classes.dex */
 public class SpanGroupEditText extends AppCompatEditText {
-    private EDIT_TEXT_TYPE eLT;
-    private View.OnKeyListener eLU;
+    private EDIT_TEXT_TYPE eUp;
+    private View.OnKeyListener eUq;
     private long mForumId;
     private SpanGroupManager mSpanGroupManager;
 
@@ -30,7 +30,7 @@ public class SpanGroupEditText extends AppCompatEditText {
     }
 
     public EDIT_TEXT_TYPE getType() {
-        return this.eLT;
+        return this.eUp;
     }
 
     public SpanGroupEditText(Context context) {
@@ -43,24 +43,24 @@ public class SpanGroupEditText extends AppCompatEditText {
 
     public SpanGroupEditText(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.eLT = EDIT_TEXT_TYPE.TYPE_DEFAULT;
+        this.eUp = EDIT_TEXT_TYPE.TYPE_DEFAULT;
         this.mForumId = 0L;
         this.mSpanGroupManager = new SpanGroupManager(this, context instanceof h ? ((h) context).getUniqueId() : null);
     }
 
     public void setType(EDIT_TEXT_TYPE edit_text_type) {
-        this.eLT = edit_text_type;
+        this.eUp = edit_text_type;
     }
 
     @Override // android.widget.EditText, android.widget.TextView
     public void setText(CharSequence charSequence, TextView.BufferType bufferType) {
         if (this.mSpanGroupManager != null) {
-            this.mSpanGroupManager.bpb();
+            this.mSpanGroupManager.bqU();
         }
         super.setText(charSequence, bufferType);
     }
 
-    public void j(List<com.baidu.tieba.i.a> list, List<String> list2) {
+    public void l(List<com.baidu.tieba.i.a> list, List<String> list2) {
         if (!y.isEmpty(list)) {
             int i = 0;
             while (true) {
@@ -68,12 +68,12 @@ public class SpanGroupEditText extends AppCompatEditText {
                 if (i2 < list.size()) {
                     com.baidu.tieba.i.a aVar = list.get(i2);
                     String str = list2.get(i2);
-                    if (!this.mSpanGroupManager.BR(aVar.cCt())) {
+                    if (!this.mSpanGroupManager.Ck(aVar.cFA())) {
                         TbLinkSpanGroup tbLinkSpanGroup = new TbLinkSpanGroup(TbLinkSpanGroup.LINK_TYPE.PARSED_EXTERNAL_LINK);
                         tbLinkSpanGroup.a(getText(), getSelectionEnd(), getSelectionEnd(), (int) getTextSize());
                         t a2 = t.a(tbLinkSpanGroup, aVar);
-                        a2.elM = str;
-                        tbLinkSpanGroup.BS(a2.mContent);
+                        a2.eum = str;
+                        tbLinkSpanGroup.Cl(a2.mContent);
                         tbLinkSpanGroup.build();
                         this.mSpanGroupManager.a(tbLinkSpanGroup);
                     }
@@ -85,27 +85,27 @@ public class SpanGroupEditText extends AppCompatEditText {
         }
     }
 
-    public void pT(int i) {
-        com.baidu.tbadk.core.view.spanGroup.a pV = this.mSpanGroupManager.pV(i);
-        if (pV != null && getText() != null) {
-            this.mSpanGroupManager.bb(pV.getStart(), pV.getEnd());
+    public void qe(int i) {
+        com.baidu.tbadk.core.view.spanGroup.a qg = this.mSpanGroupManager.qg(i);
+        if (qg != null && getText() != null) {
+            this.mSpanGroupManager.bc(qg.getStart(), qg.getEnd());
         }
     }
 
-    public void boX() {
+    public void bqQ() {
         if (this.mSpanGroupManager != null) {
-            this.mSpanGroupManager.boX();
+            this.mSpanGroupManager.bqQ();
         }
     }
 
-    public void boY() {
+    public void bqR() {
         if (this.mSpanGroupManager != null) {
-            this.mSpanGroupManager.boY();
+            this.mSpanGroupManager.bqR();
         }
     }
 
-    public void setOnSpanGroupChangedListener(a.InterfaceC0556a interfaceC0556a) {
-        this.mSpanGroupManager.b(interfaceC0556a);
+    public void setOnSpanGroupChangedListener(a.InterfaceC0570a interfaceC0570a) {
+        this.mSpanGroupManager.b(interfaceC0570a);
     }
 
     public long getForumId() {
@@ -130,7 +130,7 @@ public class SpanGroupEditText extends AppCompatEditText {
     }
 
     public void setSoftKeyListener(View.OnKeyListener onKeyListener) {
-        this.eLU = onKeyListener;
+        this.eUq = onKeyListener;
     }
 
     /* loaded from: classes.dex */
@@ -141,7 +141,7 @@ public class SpanGroupEditText extends AppCompatEditText {
 
         @Override // android.view.inputmethod.InputConnectionWrapper, android.view.inputmethod.InputConnection
         public boolean sendKeyEvent(KeyEvent keyEvent) {
-            if (SpanGroupEditText.this.eLU == null || !SpanGroupEditText.this.eLU.onKey(SpanGroupEditText.this, keyEvent.getKeyCode(), keyEvent)) {
+            if (SpanGroupEditText.this.eUq == null || !SpanGroupEditText.this.eUq.onKey(SpanGroupEditText.this, keyEvent.getKeyCode(), keyEvent)) {
                 return super.sendKeyEvent(keyEvent);
             }
             return true;

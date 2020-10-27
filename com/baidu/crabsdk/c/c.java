@@ -15,14 +15,14 @@ import java.util.zip.DeflaterOutputStream;
 import org.json.JSONObject;
 /* loaded from: classes11.dex */
 public final class c {
-    private static SimpleDateFormat aoT;
-    private static PackageManager aoU;
+    private static SimpleDateFormat aoU;
+    private static PackageManager aoV;
 
     public static String a(Date date) {
-        if (aoT == null) {
-            aoT = new SimpleDateFormat("MM-dd HH:mm:ss");
+        if (aoU == null) {
+            aoU = new SimpleDateFormat("MM-dd HH:mm:ss");
         }
-        return aoT.format(date);
+        return aoU.format(date);
     }
 
     public static JSONObject a(JSONObject jSONObject, JSONObject jSONObject2) {
@@ -152,11 +152,11 @@ public final class c {
     }
 
     public static boolean g(Context context, String str) {
-        if (aoU == null) {
-            aoU = context.getPackageManager();
+        if (aoV == null) {
+            aoV = context.getPackageManager();
         }
         try {
-            return aoU.checkPermission(str, context.getPackageName()) == 0;
+            return aoV.checkPermission(str, context.getPackageName()) == 0;
         } catch (RuntimeException e) {
             return false;
         }

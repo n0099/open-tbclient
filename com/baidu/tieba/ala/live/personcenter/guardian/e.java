@@ -11,22 +11,22 @@ import com.baidu.live.tbadk.TbConfig;
 import com.baidu.live.tbadk.task.TbHttpMessageTask;
 /* loaded from: classes4.dex */
 public class e extends BdBaseModel<AlaGuardianListActivity> {
-    private a gzU;
-    private AlaGuardianListActivity gzW;
-    public HttpMessageListener gzq;
+    private a gLI;
+    private AlaGuardianListActivity gLK;
+    public HttpMessageListener gLe;
     private String mUserId;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* loaded from: classes4.dex */
     public interface a {
-        void GR(String str);
+        void Hp(String str);
 
         c b(c cVar);
     }
 
     public e(AlaGuardianListActivity alaGuardianListActivity, a aVar) {
         super(alaGuardianListActivity.getPageContext());
-        this.gzq = new HttpMessageListener(1021024) { // from class: com.baidu.tieba.ala.live.personcenter.guardian.e.1
+        this.gLe = new HttpMessageListener(1021024) { // from class: com.baidu.tieba.ala.live.personcenter.guardian.e.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.live.adp.framework.listener.MessageListener
             public void onMessage(HttpResponsedMessage httpResponsedMessage) {
@@ -35,35 +35,35 @@ public class e extends BdBaseModel<AlaGuardianListActivity> {
                     int statusCode = httpResponsedMessage.getStatusCode();
                     int error = httpResponsedMessage.getError();
                     if (statusCode != 200 || error != 0) {
-                        if (e.this.gzU != null) {
+                        if (e.this.gLI != null) {
                             if (StringUtils.isNull(httpResponsedMessage.getErrorString())) {
-                                errorString = e.this.gzW.getResources().getString(a.i.sdk_neterror);
+                                errorString = e.this.gLK.getResources().getString(a.i.sdk_neterror);
                             } else {
                                 errorString = httpResponsedMessage.getErrorString();
                             }
-                            e.this.gzU.GR(errorString);
+                            e.this.gLI.Hp(errorString);
                             return;
                         }
                         return;
                     }
                     AlaGuardianListHttpResponseMessage alaGuardianListHttpResponseMessage = (AlaGuardianListHttpResponseMessage) httpResponsedMessage;
-                    if (e.this.gzU != null) {
-                        e.this.gzU.b(alaGuardianListHttpResponseMessage.bQn());
+                    if (e.this.gLI != null) {
+                        e.this.gLI.b(alaGuardianListHttpResponseMessage.bTk());
                     }
                 }
             }
         };
-        this.gzW = alaGuardianListActivity;
-        this.gzU = aVar;
-        ble();
-        registerListener(this.gzq);
+        this.gLK = alaGuardianListActivity;
+        this.gLI = aVar;
+        bmX();
+        registerListener(this.gLe);
     }
 
-    public void GT(String str) {
+    public void Hr(String str) {
         this.mUserId = str;
     }
 
-    private void ble() {
+    private void bmX() {
         TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(1021024, TbConfig.SERVER_ADDRESS + "ala/relation/getGuardianShipList");
         tbHttpMessageTask.setIsNeedLogin(true);
         tbHttpMessageTask.setIsNeedTbs(true);
@@ -74,20 +74,20 @@ public class e extends BdBaseModel<AlaGuardianListActivity> {
 
     @Override // com.baidu.live.adp.base.BdBaseModel
     public boolean loadData() {
-        bQo();
+        bTl();
         return false;
     }
 
-    private void bQo() {
+    private void bTl() {
         HttpMessage httpMessage = new HttpMessage(1021024);
-        httpMessage.setTag(this.gzW.getUniqueId());
+        httpMessage.setTag(this.gLK.getUniqueId());
         httpMessage.addParam("benefit_userid", this.mUserId);
         sendMessage(httpMessage);
     }
 
     @Override // com.baidu.live.adp.base.BdBaseModel
     public boolean cancelLoadData() {
-        MessageManager.getInstance().unRegisterListener(this.gzq);
+        MessageManager.getInstance().unRegisterListener(this.gLe);
         return false;
     }
 

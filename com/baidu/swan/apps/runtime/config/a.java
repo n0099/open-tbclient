@@ -10,19 +10,19 @@ import java.util.TreeMap;
 /* loaded from: classes10.dex */
 public final class a {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    private Map<String, c> deY = null;
+    private Map<String, c> dny = null;
 
     public c a(String str, String str2, @NonNull c cVar) {
         if (TextUtils.isEmpty(str) || TextUtils.isEmpty(str2)) {
             return cVar;
         }
-        if (this.deY == null) {
-            this.deY = new TreeMap();
+        if (this.dny == null) {
+            this.dny = new TreeMap();
         }
-        c cVar2 = this.deY.get(str2);
+        c cVar2 = this.dny.get(str2);
         if (cVar2 == null) {
             c c = c(str, str2, cVar);
-            this.deY.put(str2, c);
+            this.dny.put(str2, c);
             return c;
         }
         return cVar2;
@@ -31,18 +31,18 @@ public final class a {
     public c b(String str, @NonNull String str2, @NonNull c cVar) {
         if (!TextUtils.isEmpty(str) && !TextUtils.isEmpty(str2)) {
             c c = c(str, str2, cVar);
-            this.deY.put(str2, c);
+            this.dny.put(str2, c);
             return c;
         }
         return cVar;
     }
 
     private c c(String str, String str2, @NonNull c cVar) {
-        String ck = ck(str, str2);
-        return TextUtils.isEmpty(ck) ? cVar : c.a(ck, cVar);
+        String cr = cr(str, str2);
+        return TextUtils.isEmpty(cr) ? cVar : c.a(cr, cVar);
     }
 
-    public static String ck(String str, String str2) {
+    public static String cr(String str, String str2) {
         String str3;
         if (str.endsWith(File.separator)) {
             str3 = str + str2 + ".json";

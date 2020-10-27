@@ -16,20 +16,20 @@ import org.json.JSONObject;
 /* loaded from: classes10.dex */
 public class c {
     public static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    protected static final Set<String> cls = i.N("localhost", "127.0.0.1");
+    protected static final Set<String> ctV = i.N("localhost", "127.0.0.1");
 
-    public static String kG(String str) {
+    public static String kZ(String str) {
         return str + PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS + System.currentTimeMillis();
     }
 
-    public static HttpUrl kH(String str) {
+    public static HttpUrl la(String str) {
         HttpUrl parse = HttpUrl.parse(str);
-        if (d.aCW().aCU() == null) {
+        if (d.aEQ().aEO() == null) {
             if (a(parse)) {
                 return parse;
             }
             return null;
-        } else if (com.baidu.swan.apps.ad.a.a.aAq() || a(parse)) {
+        } else if (com.baidu.swan.apps.ad.a.a.aCk() || a(parse)) {
             return parse;
         } else {
             return null;
@@ -37,12 +37,12 @@ public class c {
     }
 
     public static boolean a(@Nullable HttpUrl httpUrl) {
-        boolean aEe = com.baidu.swan.apps.ag.a.b.aEe();
-        if (!com.baidu.swan.apps.t.a.asi().acb()) {
-            aEe = false;
+        boolean aFY = com.baidu.swan.apps.ag.a.b.aFY();
+        if (!com.baidu.swan.apps.t.a.aud().adV()) {
+            aFY = false;
         }
         if (httpUrl != null) {
-            return (!aEe || HttpUrl.defaultPort(httpUrl.scheme()) == httpUrl.port()) && !cls.contains(httpUrl.host().toLowerCase());
+            return (!aFY || HttpUrl.defaultPort(httpUrl.scheme()) == httpUrl.port()) && !ctV.contains(httpUrl.host().toLowerCase());
         }
         return false;
     }
@@ -70,7 +70,7 @@ public class c {
         return jSONObject;
     }
 
-    public static JSONObject kI(String str) {
+    public static JSONObject lb(String str) {
         JSONObject jSONObject = new JSONObject();
         try {
             if (!TextUtils.isEmpty(str)) {
@@ -84,7 +84,7 @@ public class c {
         return jSONObject;
     }
 
-    public static String afw() {
-        return ab.aIo();
+    public static String ahq() {
+        return ab.aKi();
     }
 }

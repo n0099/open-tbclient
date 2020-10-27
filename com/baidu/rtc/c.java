@@ -5,14 +5,6 @@ import java.math.BigInteger;
 import org.json.JSONObject;
 /* loaded from: classes9.dex */
 public interface c {
-    void Zl();
-
-    void Zm();
-
-    void Zn();
-
-    void Zo();
-
     void a(BaiduRtcRoom.RtcLiveTransferMode rtcLiveTransferMode, String str);
 
     void a(BigInteger bigInteger, int i, boolean z);
@@ -25,11 +17,19 @@ public interface c {
 
     void a(BigInteger bigInteger, JSONObject jSONObject);
 
-    void aN(long j);
-
-    void aO(long j);
-
     void aP(long j);
+
+    void aQ(long j);
+
+    void aR(long j);
+
+    void abe();
+
+    void abf();
+
+    void abg();
+
+    void abh();
 
     void b(BaiduRtcRoom.RtcLiveTransferMode rtcLiveTransferMode, String str);
 
@@ -49,7 +49,7 @@ public interface c {
 
     void e(BigInteger bigInteger);
 
-    void gI(int i);
+    void gT(int i);
 
     void h(boolean z, int i);
 }

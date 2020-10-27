@@ -7,8 +7,8 @@ import com.baidu.ala.AlaCmdConfigHttp;
 import com.baidu.tbadk.TbPageContext;
 /* loaded from: classes4.dex */
 public class a {
-    private InterfaceC0667a hmQ;
-    private HttpMessageListener hmR = new HttpMessageListener(AlaCmdConfigHttp.CMD_ALA_ENTER_EFFECT_BUY_PROP) { // from class: com.baidu.tieba.ala.personcenter.privilege.a.1
+    private InterfaceC0683a hyL;
+    private HttpMessageListener hyM = new HttpMessageListener(AlaCmdConfigHttp.CMD_ALA_ENTER_EFFECT_BUY_PROP) { // from class: com.baidu.tieba.ala.personcenter.privilege.a.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(HttpResponsedMessage httpResponsedMessage) {
@@ -16,8 +16,8 @@ public class a {
                 AlaTDouBuyPrivilegeResponsedMessage alaTDouBuyPrivilegeResponsedMessage = (AlaTDouBuyPrivilegeResponsedMessage) httpResponsedMessage;
                 boolean z = alaTDouBuyPrivilegeResponsedMessage.getError() == 0;
                 String errorString = alaTDouBuyPrivilegeResponsedMessage.getErrorString();
-                if (a.this.hmQ != null) {
-                    a.this.hmQ.p(z, errorString);
+                if (a.this.hyL != null) {
+                    a.this.hyL.r(z, errorString);
                 }
             }
         }
@@ -26,17 +26,17 @@ public class a {
 
     /* renamed from: com.baidu.tieba.ala.personcenter.privilege.a$a  reason: collision with other inner class name */
     /* loaded from: classes4.dex */
-    public interface InterfaceC0667a {
-        void p(boolean z, String str);
+    public interface InterfaceC0683a {
+        void r(boolean z, String str);
     }
 
-    public a(TbPageContext tbPageContext, InterfaceC0667a interfaceC0667a) {
+    public a(TbPageContext tbPageContext, InterfaceC0683a interfaceC0683a) {
         this.mPageContext = tbPageContext;
-        this.hmQ = interfaceC0667a;
-        this.mPageContext.registerListener(this.hmR);
+        this.hyL = interfaceC0683a;
+        this.mPageContext.registerListener(this.hyM);
     }
 
-    public void aH(String str, int i) {
+    public void aI(String str, int i) {
         HttpMessage httpMessage = new HttpMessage(AlaCmdConfigHttp.CMD_ALA_ENTER_EFFECT_BUY_PROP);
         httpMessage.addParam("props_id", i);
         httpMessage.addParam("effect_id", str);

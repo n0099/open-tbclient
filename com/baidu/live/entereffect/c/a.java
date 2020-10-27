@@ -18,36 +18,43 @@ import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes4.dex */
 public class a implements b {
-    private b.a aRF;
-    private HttpMessageListener aRG;
+    private b.a aSA;
+    private HttpMessageListener aSB;
 
     public void a(b.a aVar) {
-        this.aRF = aVar;
+        this.aSA = aVar;
     }
 
-    public void bm(boolean z) {
-        this.aRG = new HttpMessageListener(AlaCmdConfigHttp.CMD_ALA_GET_TAB_LIVE_INFO) { // from class: com.baidu.live.entereffect.c.a.1
-            /* JADX DEBUG: Method merged with bridge method */
-            @Override // com.baidu.live.adp.framework.listener.MessageListener
-            public void onMessage(HttpResponsedMessage httpResponsedMessage) {
-                if (httpResponsedMessage instanceof EnterEffectDynamicListHttpResponsedMessage) {
-                    if (a.this.aRF != null) {
-                        a.this.aRF.b(httpResponsedMessage.getError() == 0, ((EnterEffectDynamicListHttpResponsedMessage) httpResponsedMessage).getDatas());
+    public void e(boolean z, String str) {
+        if (this.aSB == null) {
+            this.aSB = new HttpMessageListener(AlaCmdConfigHttp.CMD_ALA_GET_TAB_LIVE_INFO) { // from class: com.baidu.live.entereffect.c.a.1
+                /* JADX DEBUG: Method merged with bridge method */
+                @Override // com.baidu.live.adp.framework.listener.MessageListener
+                public void onMessage(HttpResponsedMessage httpResponsedMessage) {
+                    if (httpResponsedMessage instanceof EnterEffectDynamicListHttpResponsedMessage) {
+                        if (a.this.aSA != null) {
+                            EnterEffectDynamicListHttpResponsedMessage enterEffectDynamicListHttpResponsedMessage = (EnterEffectDynamicListHttpResponsedMessage) httpResponsedMessage;
+                            String str2 = null;
+                            if (enterEffectDynamicListHttpResponsedMessage.getOrginalMessage() instanceof com.baidu.live.entereffect.http.a) {
+                                str2 = ((com.baidu.live.entereffect.http.a) enterEffectDynamicListHttpResponsedMessage.getOrginalMessage()).getId();
+                            }
+                            a.this.aSA.a(httpResponsedMessage.getError() == 0, enterEffectDynamicListHttpResponsedMessage.getDatas(), str2);
+                        }
+                        a.this.a((EnterEffectDynamicListHttpResponsedMessage) httpResponsedMessage);
                     }
-                    a.this.a((EnterEffectDynamicListHttpResponsedMessage) httpResponsedMessage);
                 }
-            }
-        };
-        MessageManager.getInstance().registerListener(this.aRG);
-        com.baidu.live.entereffect.http.a aVar = new com.baidu.live.entereffect.http.a(z);
-        aVar.addParam("scene_from", p.Gv());
+            };
+        }
+        MessageManager.getInstance().registerListener(this.aSB);
+        com.baidu.live.entereffect.http.a aVar = new com.baidu.live.entereffect.http.a(z, str);
+        aVar.addParam("scene_from", p.GQ());
         MessageManager.getInstance().sendMessage(aVar);
         UbcStatisticManager.getInstance().logSendRequest(new UbcStatisticItem(UbcStatisticLiveKey.KEY_ID_GIFT_LIST_REQ, UbcStatConstant.ContentType.UBC_TYPE_ENTEREFFECT_DYNAMIC_LIST, z ? UbcStatConstant.Page.AUTHOR_LIVE_ROOM : "liveroom", ""));
     }
 
     public void release() {
-        this.aRF = null;
-        MessageManager.getInstance().unRegisterListener(this.aRG);
+        this.aSA = null;
+        MessageManager.getInstance().unRegisterListener(this.aSB);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -76,7 +83,7 @@ public class a implements b {
             }
         }
         if (jSONObject2 != null) {
-            UbcStatisticManager.getInstance().logSendResponse(new UbcStatisticItem(UbcStatisticLiveKey.KEY_ID_GIFT_LIST_RESP, UbcStatConstant.ContentType.UBC_TYPE_ENTEREFFECT_DYNAMIC_LIST, enterEffectDynamicListHttpResponsedMessage.EH() ? UbcStatConstant.Page.AUTHOR_LIVE_ROOM : "liveroom", "").setContentExt(jSONObject), enterEffectDynamicListHttpResponsedMessage, true);
+            UbcStatisticManager.getInstance().logSendResponse(new UbcStatisticItem(UbcStatisticLiveKey.KEY_ID_GIFT_LIST_RESP, UbcStatConstant.ContentType.UBC_TYPE_ENTEREFFECT_DYNAMIC_LIST, enterEffectDynamicListHttpResponsedMessage.EW() ? UbcStatConstant.Page.AUTHOR_LIVE_ROOM : "liveroom", "").setContentExt(jSONObject), enterEffectDynamicListHttpResponsedMessage, true);
         }
     }
 }

@@ -9,23 +9,23 @@ import com.baidu.tbadk.core.view.NoDataView;
 import com.baidu.tieba.R;
 /* loaded from: classes24.dex */
 public class h {
-    private com.baidu.tbadk.k.h fVg;
-    private NavigationBarShadowView kbI;
-    private d lVd;
-    BdTypeListView lVs;
+    private com.baidu.tbadk.k.h gfk;
+    private NavigationBarShadowView koh;
     private Context mContext;
     private View mRootView;
+    private d mhC;
+    BdTypeListView mhR;
     NoDataView mNoDataView = null;
-    private View.OnClickListener jOE = new View.OnClickListener() { // from class: com.baidu.tieba.post.h.1
+    private View.OnClickListener kbd = new View.OnClickListener() { // from class: com.baidu.tieba.post.h.1
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             if (com.baidu.adp.lib.util.j.isNetworkAvailableForImmediately()) {
-                if (h.this.fVg != null) {
-                    h.this.fVg.dettachView(h.this.mRootView);
-                    h.this.fVg = null;
+                if (h.this.gfk != null) {
+                    h.this.gfk.dettachView(h.this.mRootView);
+                    h.this.gfk = null;
                 }
-                if (h.this.lVd != null) {
-                    h.this.lVd.dsm();
+                if (h.this.mhC != null) {
+                    h.this.mhC.dvt();
                 }
             }
         }
@@ -34,7 +34,7 @@ public class h {
         @Override // android.widget.AbsListView.OnScrollListener
         public void onScrollStateChanged(AbsListView absListView, int i) {
             if (i == 1) {
-                h.this.kbI.show();
+                h.this.koh.show();
             }
         }
 
@@ -42,34 +42,34 @@ public class h {
         public void onScroll(AbsListView absListView, int i, int i2, int i3) {
             View childAt;
             if (i == 0 && (childAt = absListView.getChildAt(0)) != null && childAt.getTop() == 0) {
-                h.this.kbI.hide();
+                h.this.koh.hide();
             }
         }
     };
 
-    public BdTypeListView dsx() {
-        return this.lVs;
+    public BdTypeListView dvE() {
+        return this.mhR;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public h(Context context, View view) {
         this.mContext = context;
         this.mRootView = view;
-        this.lVs = (BdTypeListView) view.findViewById(R.id.list);
-        this.kbI = (NavigationBarShadowView) view.findViewById(R.id.navi_shadow_view_my_thread);
-        this.lVs.setOnScrollListener(this.mOnScrollListener);
+        this.mhR = (BdTypeListView) view.findViewById(R.id.list);
+        this.koh = (NavigationBarShadowView) view.findViewById(R.id.navi_shadow_view_my_thread);
+        this.mhR.setOnScrollListener(this.mOnScrollListener);
     }
 
-    public d dsy() {
-        return this.lVd;
+    public d dvF() {
+        return this.mhC;
     }
 
     public void b(d dVar) {
-        this.lVd = dVar;
+        this.mhC = dVar;
     }
 
-    public void aO(String str, boolean z) {
-        f.a(this.fVg, this.jOE, this.mContext, this.mRootView, str, z);
-        this.lVs.setVisibility(8);
+    public void aQ(String str, boolean z) {
+        f.a(this.gfk, this.kbd, this.mContext, this.mRootView, str, z);
+        this.mhR.setVisibility(8);
     }
 }

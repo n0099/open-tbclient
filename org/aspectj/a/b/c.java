@@ -5,50 +5,50 @@ import org.aspectj.lang.a;
 /* loaded from: classes7.dex */
 public class c implements org.aspectj.lang.b {
     Object[] args;
-    Object oZr;
-    a.InterfaceC0997a oZs;
+    Object pQM;
+    a.InterfaceC1069a pQN;
     Object target;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* loaded from: classes7.dex */
-    public static class a implements a.InterfaceC0997a {
+    public static class a implements a.InterfaceC1069a {
         private int id;
-        String oZt;
-        org.aspectj.lang.c oZu;
-        org.aspectj.lang.reflect.d oZv;
+        String pQO;
+        org.aspectj.lang.c pQP;
+        org.aspectj.lang.reflect.d pQQ;
 
         public a(int i, String str, org.aspectj.lang.c cVar, org.aspectj.lang.reflect.d dVar) {
-            this.oZt = str;
-            this.oZu = cVar;
-            this.oZv = dVar;
+            this.pQO = str;
+            this.pQP = cVar;
+            this.pQQ = dVar;
             this.id = i;
         }
 
-        public String eqI() {
-            return this.oZt;
+        public String eAG() {
+            return this.pQO;
         }
 
-        public org.aspectj.lang.c eqJ() {
-            return this.oZu;
+        public org.aspectj.lang.c eAH() {
+            return this.pQP;
         }
 
         String a(h hVar) {
             StringBuffer stringBuffer = new StringBuffer();
-            stringBuffer.append(hVar.XG(eqI()));
+            stringBuffer.append(hVar.Zt(eAG()));
             stringBuffer.append("(");
-            stringBuffer.append(((f) eqJ()).a(hVar));
+            stringBuffer.append(((f) eAH()).a(hVar));
             stringBuffer.append(")");
             return stringBuffer.toString();
         }
 
         public final String toString() {
-            return a(h.oZM);
+            return a(h.pRh);
         }
     }
 
-    public c(a.InterfaceC0997a interfaceC0997a, Object obj, Object obj2, Object[] objArr) {
-        this.oZs = interfaceC0997a;
-        this.oZr = obj;
+    public c(a.InterfaceC1069a interfaceC1069a, Object obj, Object obj2, Object[] objArr) {
+        this.pQN = interfaceC1069a;
+        this.pQM = obj;
         this.target = obj2;
         this.args = objArr;
     }
@@ -59,6 +59,6 @@ public class c implements org.aspectj.lang.b {
     }
 
     public final String toString() {
-        return this.oZs.toString();
+        return this.pQN.toString();
     }
 }

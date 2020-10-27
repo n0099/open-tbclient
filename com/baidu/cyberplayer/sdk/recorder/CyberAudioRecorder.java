@@ -52,9 +52,9 @@ public abstract class CyberAudioRecorder {
 
     public abstract ArrayList<String> getSupportEncoder();
 
-    public abstract void pause() throws IllegalArgumentException;
+    public abstract void pause();
 
-    public abstract void prepare() throws IllegalArgumentException;
+    public abstract void prepare();
 
     public abstract void release();
 
@@ -72,7 +72,7 @@ public abstract class CyberAudioRecorder {
 
     public abstract void setParameter(String str, String str2);
 
-    public abstract void start() throws IllegalArgumentException;
+    public abstract void start();
 
     public abstract void stop();
 }

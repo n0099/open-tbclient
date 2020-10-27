@@ -19,7 +19,7 @@ import java.util.List;
 public class c {
 
     /* renamed from: a  reason: collision with root package name */
-    private static volatile C0045c f1041a;
+    private static volatile C0045c f1038a;
     private static final Object b = new Object();
 
     /* loaded from: classes10.dex */
@@ -109,7 +109,7 @@ public class c {
     public static class C0045c extends SQLiteOpenHelper {
 
         /* renamed from: a  reason: collision with root package name */
-        private static final String f1043a = "CREATE TABLE PushShareInfo (" + e.PushInfoId.name() + " INTEGER PRIMARY KEY AUTOINCREMENT, " + e.PushPriority.name() + " LONG NOT NULL DEFAULT ((0)), " + e.PushVersion.name() + " INTEGER DEFAULT ((0)), " + e.PushChannelID.name() + " TEXT, " + e.PushNewChannelID.name() + " TEXT, " + e.PushChannelToken.name() + " TEXT, " + e.PushCurPkgName.name() + " TEXT, " + e.PushWebAppBindInfo.name() + " TEXT, " + e.PushLightAppBindInfo.name() + " TEXT, " + e.PushSDKClientBindInfo.name() + " TEXT, " + e.PushClientsBindInfo.name() + " TEXT, " + e.PushSelfBindInfo.name() + " TEXT);";
+        private static final String f1040a = "CREATE TABLE PushShareInfo (" + e.PushInfoId.name() + " INTEGER PRIMARY KEY AUTOINCREMENT, " + e.PushPriority.name() + " LONG NOT NULL DEFAULT ((0)), " + e.PushVersion.name() + " INTEGER DEFAULT ((0)), " + e.PushChannelID.name() + " TEXT, " + e.PushNewChannelID.name() + " TEXT, " + e.PushChannelToken.name() + " TEXT, " + e.PushCurPkgName.name() + " TEXT, " + e.PushWebAppBindInfo.name() + " TEXT, " + e.PushLightAppBindInfo.name() + " TEXT, " + e.PushSDKClientBindInfo.name() + " TEXT, " + e.PushClientsBindInfo.name() + " TEXT, " + e.PushSelfBindInfo.name() + " TEXT);";
         private static final String b = "CREATE TABLE PushVerifInfo (" + f.verifId.name() + " INTEGER PRIMARY KEY AUTOINCREMENT, " + f.msgId.name() + " TEXT NOT NULL, " + f.md5Infos.name() + " TEXT NOT NULL, " + f.appId.name() + " TEXT, " + f.time.name() + " TEXT);";
         private static final String c = "CREATE TABLE PushMsgInfos (" + d.MsgInfoId.name() + " INTEGER PRIMARY KEY AUTOINCREMENT, " + d.appId.name() + "  TEXT, " + d.msgType.name() + "  INTEGER NOT NULL, " + d.msgId.name() + " LONG NOT NULL, " + d.secureInfo.name() + " TEXT, " + d.msgBody.name() + "  TEXT, " + d.expireTime.name() + "  LONG, " + d.ackRet.name() + "  INTEGER, " + d.arriveTime.name() + " LONG NOT NULL);";
         private static final String d = "CREATE TABLE PushAppStatus (" + a.actionId.name() + " INTEGER PRIMARY KEY AUTOINCREMENT, " + a.actionName.name() + " TEXT NOT NULL, " + a.timeStamp.name() + " LONG NOT NULL, " + a.pkgName.name() + " TEXT, " + a.versionCode.name() + " INTEGER, " + a.versionName.name() + " TEXT, " + a.status.name() + " INTEGER);";
@@ -136,7 +136,7 @@ public class c {
         @Override // android.database.sqlite.SQLiteOpenHelper
         public void onCreate(SQLiteDatabase sQLiteDatabase) {
             try {
-                sQLiteDatabase.execSQL(f1043a);
+                sQLiteDatabase.execSQL(f1040a);
                 sQLiteDatabase.execSQL(b);
                 sQLiteDatabase.execSQL(c);
                 sQLiteDatabase.execSQL(d);
@@ -217,7 +217,7 @@ public class c {
                     j = -1;
                 } else {
                     ContentValues contentValues = new ContentValues();
-                    contentValues.put(e.PushPriority.name(), Long.valueOf(bVar.f1040a));
+                    contentValues.put(e.PushPriority.name(), Long.valueOf(bVar.f1037a));
                     contentValues.put(e.PushVersion.name(), Long.valueOf(bVar.b));
                     contentValues.put(e.PushChannelID.name(), bVar.c);
                     contentValues.put(e.PushNewChannelID.name(), bVar.d);
@@ -380,7 +380,7 @@ public class c {
                         }
                     }
                     com.baidu.android.pushservice.c.b bVar = new com.baidu.android.pushservice.c.b();
-                    bVar.f1040a = j;
+                    bVar.f1037a = j;
                     bVar.b = 0L;
                     bVar.c = null;
                     bVar.d = null;
@@ -441,7 +441,7 @@ public class c {
                         }
                     }
                     com.baidu.android.pushservice.c.b bVar = new com.baidu.android.pushservice.c.b();
-                    bVar.f1040a = 0L;
+                    bVar.f1037a = 0L;
                     bVar.b = 0L;
                     bVar.c = null;
                     bVar.d = null;
@@ -531,7 +531,7 @@ public class c {
                         }
                     }
                     com.baidu.android.pushservice.c.b bVar = new com.baidu.android.pushservice.c.b();
-                    bVar.f1040a = 0L;
+                    bVar.f1037a = 0L;
                     bVar.b = 0L;
                     bVar.c = str;
                     bVar.d = str2;
@@ -563,7 +563,7 @@ public class c {
                     z = false;
                 } else {
                     ContentValues contentValues = new ContentValues();
-                    contentValues.put(f.msgId.name(), fVar.f1054a);
+                    contentValues.put(f.msgId.name(), fVar.f1051a);
                     contentValues.put(f.md5Infos.name(), fVar.b);
                     contentValues.put(f.appId.name(), fVar.c);
                     contentValues.put(f.time.name(), System.currentTimeMillis() + "");
@@ -585,7 +585,7 @@ public class c {
                     }
                     try {
                         if (rawQuery.moveToFirst() && rawQuery.getInt(0) > 200) {
-                            a2.delete("PushVerifInfo", " msgId IS NOT ?", new String[]{fVar.f1054a});
+                            a2.delete("PushVerifInfo", " msgId IS NOT ?", new String[]{fVar.f1051a});
                         }
                         if (rawQuery != null && !rawQuery.isClosed()) {
                             rawQuery.close();
@@ -799,7 +799,7 @@ public class c {
                         }
                     }
                     com.baidu.android.pushservice.c.b bVar = new com.baidu.android.pushservice.c.b();
-                    bVar.f1040a = 0L;
+                    bVar.f1037a = 0L;
                     bVar.b = j;
                     bVar.c = null;
                     bVar.d = null;
@@ -860,7 +860,7 @@ public class c {
                         }
                     }
                     com.baidu.android.pushservice.c.b bVar = new com.baidu.android.pushservice.c.b();
-                    bVar.f1040a = 0L;
+                    bVar.f1037a = 0L;
                     bVar.b = 0L;
                     bVar.c = null;
                     bVar.d = null;
@@ -1072,7 +1072,7 @@ public class c {
                         }
                     }
                     com.baidu.android.pushservice.c.b bVar = new com.baidu.android.pushservice.c.b();
-                    bVar.f1040a = 0L;
+                    bVar.f1037a = 0L;
                     bVar.b = 0L;
                     bVar.c = null;
                     bVar.d = null;
@@ -1246,11 +1246,11 @@ public class c {
     private static com.baidu.android.pushservice.c.c.C0045c f(android.content.Context r9) {
         /*
             r0 = 0
-            com.baidu.android.pushservice.c.c$c r1 = com.baidu.android.pushservice.c.c.f1041a
+            com.baidu.android.pushservice.c.c$c r1 = com.baidu.android.pushservice.c.c.f1038a
             if (r1 != 0) goto Lb6
             java.lang.Object r2 = com.baidu.android.pushservice.c.c.b
             monitor-enter(r2)
-            com.baidu.android.pushservice.c.c$c r1 = com.baidu.android.pushservice.c.c.f1041a     // Catch: java.lang.Throwable -> Lc3
+            com.baidu.android.pushservice.c.c$c r1 = com.baidu.android.pushservice.c.c.f1038a     // Catch: java.lang.Throwable -> Lc3
             if (r1 != 0) goto Lb5
             java.io.File r1 = new java.io.File     // Catch: java.lang.Throwable -> Lc3
             java.lang.StringBuilder r3 = new java.lang.StringBuilder     // Catch: java.lang.Throwable -> Lc3
@@ -1290,9 +1290,9 @@ public class c {
             com.baidu.android.pushservice.c.c$c r4 = new com.baidu.android.pushservice.c.c$c     // Catch: java.lang.Throwable -> Lc3
             r5 = 6
             r4.<init>(r9, r1, r5, r3)     // Catch: java.lang.Throwable -> Lc3
-            com.baidu.android.pushservice.c.c.f1041a = r4     // Catch: java.lang.Throwable -> Lc3
+            com.baidu.android.pushservice.c.c.f1038a = r4     // Catch: java.lang.Throwable -> Lc3
         L7d:
-            com.baidu.android.pushservice.c.c$c r1 = com.baidu.android.pushservice.c.c.f1041a     // Catch: java.lang.Throwable -> Lc6
+            com.baidu.android.pushservice.c.c$c r1 = com.baidu.android.pushservice.c.c.f1038a     // Catch: java.lang.Throwable -> Lc6
             android.database.sqlite.SQLiteDatabase r0 = r1.getWritableDatabase()     // Catch: java.lang.Throwable -> Lc6
             java.lang.StringBuilder r1 = new java.lang.StringBuilder     // Catch: java.lang.Throwable -> Lc6
             r1.<init>()     // Catch: java.lang.Throwable -> Lc6
@@ -1314,14 +1314,14 @@ public class c {
         Lb5:
             monitor-exit(r2)     // Catch: java.lang.Throwable -> Lc3
         Lb6:
-            com.baidu.android.pushservice.c.c$c r0 = com.baidu.android.pushservice.c.c.f1041a
+            com.baidu.android.pushservice.c.c$c r0 = com.baidu.android.pushservice.c.c.f1038a
             return r0
         Lb9:
             com.baidu.android.pushservice.c.c$c r3 = new com.baidu.android.pushservice.c.c$c     // Catch: java.lang.Throwable -> Lc3
             r4 = 0
             r5 = 6
             r3.<init>(r9, r1, r4, r5)     // Catch: java.lang.Throwable -> Lc3
-            com.baidu.android.pushservice.c.c.f1041a = r3     // Catch: java.lang.Throwable -> Lc3
+            com.baidu.android.pushservice.c.c.f1038a = r3     // Catch: java.lang.Throwable -> Lc3
             goto L7d
         Lc3:
             r0 = move-exception

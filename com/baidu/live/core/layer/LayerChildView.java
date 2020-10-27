@@ -10,57 +10,57 @@ import android.widget.FrameLayout;
 import com.baidu.live.adp.lib.util.BdUtilHelper;
 /* loaded from: classes4.dex */
 public abstract class LayerChildView extends FrameLayout {
-    private ObjectAnimator aGr;
-    private ObjectAnimator aGs;
-    protected boolean aGt;
-    protected boolean aGu;
-    private a aGv;
-    protected boolean aGw;
-    private int[] aGx;
+    private ObjectAnimator aGA;
+    protected boolean aGB;
+    protected boolean aGC;
+    private a aGD;
+    protected boolean aGE;
+    private int[] aGF;
+    private ObjectAnimator aGz;
     protected boolean cancelableFlag;
 
-    public abstract void Dr();
+    public abstract void DA();
 
-    public abstract void Ds();
+    public abstract void DB();
 
-    public abstract void Dt();
+    public abstract void Dy();
 
-    public abstract void Du();
+    public abstract void Dz();
 
     public LayerChildView(@NonNull Context context) {
         super(context);
         this.cancelableFlag = false;
-        this.aGt = false;
-        this.aGu = false;
-        this.aGw = false;
+        this.aGB = false;
+        this.aGC = false;
+        this.aGE = false;
         initData(context);
     }
 
     public LayerChildView(@NonNull Context context, @Nullable AttributeSet attributeSet) {
         super(context, attributeSet);
         this.cancelableFlag = false;
-        this.aGt = false;
-        this.aGu = false;
-        this.aGw = false;
+        this.aGB = false;
+        this.aGC = false;
+        this.aGE = false;
         initData(context);
     }
 
     public LayerChildView(@NonNull Context context, @Nullable AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
         this.cancelableFlag = false;
-        this.aGt = false;
-        this.aGu = false;
-        this.aGw = false;
+        this.aGB = false;
+        this.aGC = false;
+        this.aGE = false;
         initData(context);
     }
 
     private void initData(Context context) {
-        this.aGx = BdUtilHelper.getScreenDimensions(context);
+        this.aGF = BdUtilHelper.getScreenDimensions(context);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     public void setLayerCallback(a aVar) {
-        this.aGv = aVar;
+        this.aGD = aVar;
     }
 
     public void setCanceledOnTouchOutside(boolean z) {
@@ -68,93 +68,93 @@ public abstract class LayerChildView extends FrameLayout {
     }
 
     public void setNeedShowAnim(boolean z) {
-        this.aGt = z;
+        this.aGB = z;
     }
 
     public void setNeedHideAnim(boolean z) {
-        this.aGu = z;
+        this.aGC = z;
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public void Dp() {
-        if (this.aGt) {
-            Dv();
+    public void Dw() {
+        if (this.aGB) {
+            DC();
         } else {
-            this.aGv.a(this);
+            this.aGD.a(this);
         }
-        Dr();
+        Dy();
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public void Dq() {
-        if (this.aGu) {
-            Dw();
+    public void Dx() {
+        if (this.aGC) {
+            DD();
         } else {
-            this.aGv.b(this);
+            this.aGD.b(this);
         }
-        Ds();
+        Dz();
     }
 
-    private void Dv() {
-        this.aGr = ObjectAnimator.ofFloat(this, "TranslationY", this.aGx[1], 0.0f);
-        this.aGr.setDuration(300L);
-        this.aGr.addListener(new Animator.AnimatorListener() { // from class: com.baidu.live.core.layer.LayerChildView.1
+    private void DC() {
+        this.aGz = ObjectAnimator.ofFloat(this, "TranslationY", this.aGF[1], 0.0f);
+        this.aGz.setDuration(300L);
+        this.aGz.addListener(new Animator.AnimatorListener() { // from class: com.baidu.live.core.layer.LayerChildView.1
             @Override // android.animation.Animator.AnimatorListener
             public void onAnimationStart(Animator animator) {
-                LayerChildView.this.aGw = true;
+                LayerChildView.this.aGE = true;
             }
 
             @Override // android.animation.Animator.AnimatorListener
             public void onAnimationEnd(Animator animator) {
-                LayerChildView.this.aGw = false;
-                if (LayerChildView.this.aGv != null) {
-                    LayerChildView.this.aGv.a(LayerChildView.this);
+                LayerChildView.this.aGE = false;
+                if (LayerChildView.this.aGD != null) {
+                    LayerChildView.this.aGD.a(LayerChildView.this);
                 }
-                LayerChildView.this.Dt();
+                LayerChildView.this.DA();
             }
 
             @Override // android.animation.Animator.AnimatorListener
             public void onAnimationCancel(Animator animator) {
-                LayerChildView.this.aGw = false;
+                LayerChildView.this.aGE = false;
             }
 
             @Override // android.animation.Animator.AnimatorListener
             public void onAnimationRepeat(Animator animator) {
             }
         });
-        this.aGw = true;
-        this.aGr.start();
+        this.aGE = true;
+        this.aGz.start();
     }
 
-    private void Dw() {
-        this.aGs = ObjectAnimator.ofFloat(this, "TranslationY", 0.0f, this.aGx[1]);
-        this.aGs.setDuration(300L);
-        this.aGs.addListener(new Animator.AnimatorListener() { // from class: com.baidu.live.core.layer.LayerChildView.2
+    private void DD() {
+        this.aGA = ObjectAnimator.ofFloat(this, "TranslationY", 0.0f, this.aGF[1]);
+        this.aGA.setDuration(300L);
+        this.aGA.addListener(new Animator.AnimatorListener() { // from class: com.baidu.live.core.layer.LayerChildView.2
             @Override // android.animation.Animator.AnimatorListener
             public void onAnimationStart(Animator animator) {
-                LayerChildView.this.aGw = true;
+                LayerChildView.this.aGE = true;
             }
 
             @Override // android.animation.Animator.AnimatorListener
             public void onAnimationEnd(Animator animator) {
-                LayerChildView.this.aGw = false;
-                if (LayerChildView.this.aGv != null) {
-                    LayerChildView.this.aGv.b(LayerChildView.this);
+                LayerChildView.this.aGE = false;
+                if (LayerChildView.this.aGD != null) {
+                    LayerChildView.this.aGD.b(LayerChildView.this);
                 }
-                LayerChildView.this.Du();
+                LayerChildView.this.DB();
             }
 
             @Override // android.animation.Animator.AnimatorListener
             public void onAnimationCancel(Animator animator) {
-                LayerChildView.this.aGw = false;
+                LayerChildView.this.aGE = false;
             }
 
             @Override // android.animation.Animator.AnimatorListener
             public void onAnimationRepeat(Animator animator) {
             }
         });
-        this.aGw = true;
-        this.aGs.start();
+        this.aGE = true;
+        this.aGA.start();
     }
 
     @Override // android.view.ViewGroup, android.view.View

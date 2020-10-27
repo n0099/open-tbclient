@@ -17,8 +17,8 @@ public class f extends a {
     }
 
     @Override // com.baidu.swan.apps.canvas.a.a
-    public /* bridge */ /* synthetic */ JSONObject hh(int i) {
-        return super.hh(i);
+    public /* bridge */ /* synthetic */ JSONObject hs(int i) {
+        return super.hs(i);
     }
 
     public f(j jVar) {
@@ -27,37 +27,37 @@ public class f extends a {
 
     @Override // com.baidu.swan.apps.scheme.actions.aa
     public boolean a(Context context, UnitedSchemeEntity unitedSchemeEntity, final CallbackHandler callbackHandler, com.baidu.swan.apps.runtime.e eVar) {
-        com.baidu.swan.apps.core.d.e akI;
+        com.baidu.swan.apps.core.d.e amC;
         final com.baidu.swan.apps.canvas.b.e d = d(unitedSchemeEntity);
         if (d == null) {
             com.baidu.swan.apps.console.c.e("SwanAppCanvas", "CanvasPutImageData action parse model is null");
-            unitedSchemeEntity.result = hh(201);
+            unitedSchemeEntity.result = hs(201);
             return false;
         }
-        if (TextUtils.isEmpty(d.cpq) && (akI = com.baidu.swan.apps.v.f.avu().akI()) != null) {
-            d.cpq = akI.akr();
+        if (TextUtils.isEmpty(d.cxS) && (amC = com.baidu.swan.apps.v.f.axo().amC()) != null) {
+            d.cxS = amC.aml();
         }
-        if (TextUtils.isEmpty(d.cpq) || TextUtils.isEmpty(d.cpp)) {
-            com.baidu.swan.apps.console.c.e("SwanAppCanvas", "CanvasPutImageData slave id = " + d.cpq + " ; canvas id = " + d.cpp);
-            unitedSchemeEntity.result = hh(201);
+        if (TextUtils.isEmpty(d.cxS) || TextUtils.isEmpty(d.cxR)) {
+            com.baidu.swan.apps.console.c.e("SwanAppCanvas", "CanvasPutImageData slave id = " + d.cxS + " ; canvas id = " + d.cxR);
+            unitedSchemeEntity.result = hs(201);
             return false;
         }
         final CanvasView a2 = com.baidu.swan.apps.component.components.d.a.a.a(d);
         if (a2 == null) {
             com.baidu.swan.apps.console.c.e("SwanAppCanvas", "CanvasPutImageData canvas view is null");
-            unitedSchemeEntity.result = hh(201);
+            unitedSchemeEntity.result = hs(201);
             return false;
         }
         p.postOnIO(new Runnable() { // from class: com.baidu.swan.apps.canvas.a.f.1
             @Override // java.lang.Runnable
             public void run() {
                 JSONObject wrapCallbackParams;
-                int agi = d.agi();
-                if (agi != 0) {
-                    wrapCallbackParams = UnitedSchemeUtility.wrapCallbackParams(agi, f.this.hi(agi));
+                int aic = d.aic();
+                if (aic != 0) {
+                    wrapCallbackParams = UnitedSchemeUtility.wrapCallbackParams(aic, f.this.ht(aic));
                 } else {
                     wrapCallbackParams = UnitedSchemeUtility.wrapCallbackParams(0);
-                    a2.h(d.agj(), d.agk());
+                    a2.i(d.aid(), d.aie());
                     a2.postInvalidate();
                 }
                 String str = d.callback;
@@ -71,7 +71,7 @@ public class f extends a {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public String hi(int i) {
+    public String ht(int i) {
         switch (i) {
             case 2001:
                 return "data length invalid";

@@ -12,9 +12,9 @@ import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
 /* loaded from: classes24.dex */
 public class a {
-    private com.baidu.tbadk.core.dialog.a abm;
-    private TbImageView ihS;
-    private TextView lMD;
+    private com.baidu.tbadk.core.dialog.a abn;
+    private TbImageView iuq;
+    private TextView lYZ;
     private View mRootView;
     private TbPageContext mTbPageContext;
     private TextView mTip;
@@ -22,43 +22,43 @@ public class a {
     private final View.OnClickListener mOnClickListener = new View.OnClickListener() { // from class: com.baidu.tieba.personPolymeric.tab.a.a.1
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
-            if (a.this.abm != null) {
-                a.this.abm.dismiss();
+            if (a.this.abn != null) {
+                a.this.abn.dismiss();
             }
         }
     };
-    private boolean lMC = com.baidu.tbadk.core.sharedPref.b.blO().getBoolean("key_person_dynamic_tab_guide_has_shown", false);
+    private boolean lYY = com.baidu.tbadk.core.sharedPref.b.bnH().getBoolean("key_person_dynamic_tab_guide_has_shown", false);
 
     public a(TbPageContext tbPageContext) {
         this.mTbPageContext = tbPageContext;
     }
 
-    public void dqA() {
-        if (!this.lMC) {
-            this.lMC = true;
-            com.baidu.tbadk.core.sharedPref.b.blO().putBoolean("key_person_dynamic_tab_guide_has_shown", true);
+    public void dtH() {
+        if (!this.lYY) {
+            this.lYY = true;
+            com.baidu.tbadk.core.sharedPref.b.bnH().putBoolean("key_person_dynamic_tab_guide_has_shown", true);
             initView();
-            this.abm = new com.baidu.tbadk.core.dialog.a(this.mTbPageContext.getPageActivity());
-            this.abm.oe(1);
-            this.abm.iz(true);
-            this.abm.iA(false);
-            this.abm.ba(this.mRootView);
-            this.abm.b(this.mTbPageContext).bkJ();
+            this.abn = new com.baidu.tbadk.core.dialog.a(this.mTbPageContext.getPageActivity());
+            this.abn.op(1);
+            this.abn.iM(true);
+            this.abn.iN(false);
+            this.abn.bb(this.mRootView);
+            this.abn.b(this.mTbPageContext).bmC();
         }
     }
 
     private void initView() {
         this.mRootView = LayoutInflater.from(this.mTbPageContext.getPageActivity()).inflate(R.layout.person_center_dynamic_tab_guide, (ViewGroup) null);
-        this.ihS = (TbImageView) this.mRootView.findViewById(R.id.id_person_center_dynamic_tab_guide_img);
-        j(this.ihS);
-        this.ihS.setAutoChangeStyle(true);
-        this.ihS.setRadius(l.getDimens(this.mTbPageContext.getPageActivity(), R.dimen.tbds24));
-        this.ihS.setConrers(3);
-        this.ihS.setIsBitmapPic(true);
+        this.iuq = (TbImageView) this.mRootView.findViewById(R.id.id_person_center_dynamic_tab_guide_img);
+        j(this.iuq);
+        this.iuq.setAutoChangeStyle(true);
+        this.iuq.setRadius(l.getDimens(this.mTbPageContext.getPageActivity(), R.dimen.tbds24));
+        this.iuq.setConrers(3);
+        this.iuq.setIsBitmapPic(true);
         this.mTip = (TextView) this.mRootView.findViewById(R.id.id_person_center_dynamic_tab_guide_tip);
         this.mTitle = (TextView) this.mRootView.findViewById(R.id.id_person_center_dynamic_tab_guide_title);
-        this.lMD = (TextView) this.mRootView.findViewById(R.id.id_person_center_dynamic_tab_guide_close);
-        this.lMD.setOnClickListener(this.mOnClickListener);
+        this.lYZ = (TextView) this.mRootView.findViewById(R.id.id_person_center_dynamic_tab_guide_close);
+        this.lYZ.setOnClickListener(this.mOnClickListener);
         onChangeSkinType();
     }
 
@@ -72,14 +72,14 @@ public class a {
         }
     }
 
-    public boolean dqB() {
-        return this.lMC;
+    public boolean dtI() {
+        return this.lYY;
     }
 
     private void onChangeSkinType() {
-        ap.setImageResource(this.ihS, R.drawable.pic_person_center_dynamic_guide);
+        ap.setImageResource(this.iuq, R.drawable.pic_person_center_dynamic_guide);
         ap.setViewTextColor(this.mTip, R.color.cp_cont_j);
         ap.setViewTextColor(this.mTitle, R.color.cp_cont_b);
-        ap.setViewTextColor(this.lMD, R.color.cp_link_tip_a);
+        ap.setViewTextColor(this.lYZ, R.color.cp_link_tip_a);
     }
 }

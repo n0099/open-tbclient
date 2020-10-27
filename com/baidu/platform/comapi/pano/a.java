@@ -18,7 +18,7 @@ public class a {
 
     /* renamed from: com.baidu.platform.comapi.pano.a$a  reason: collision with other inner class name */
     /* loaded from: classes7.dex */
-    public interface InterfaceC0258a<T> {
+    public interface InterfaceC0272a<T> {
         void a(HttpClient.HttpStateError httpStateError);
 
         void a(T t);
@@ -71,7 +71,7 @@ public class a {
         builder.appendQueryParameter(str, str2);
     }
 
-    public void a(String str, InterfaceC0258a<c> interfaceC0258a) {
+    public void a(String str, InterfaceC0272a<c> interfaceC0272a) {
         Uri.Builder builder = new Uri.Builder();
         if (HttpClient.isHttpsEnable) {
             builder.scheme("https");
@@ -85,10 +85,10 @@ public class a {
         a(builder, "action", "0");
         String authToken = HttpClient.getAuthToken();
         if (authToken == null) {
-            interfaceC0258a.a((InterfaceC0258a<c>) new c(PanoStateError.PANO_NO_TOKEN));
+            interfaceC0272a.a((InterfaceC0272a<c>) new c(PanoStateError.PANO_NO_TOKEN));
             return;
         }
         a(builder, "token", authToken);
-        this.f2934a.get(a(builder), new b(this, interfaceC0258a));
+        this.f2934a.get(a(builder), new b(this, interfaceC0272a));
     }
 }

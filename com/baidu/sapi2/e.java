@@ -77,7 +77,7 @@ public final class e {
     public static class a {
         private static final String d = ".BD_SAPI_CACHE";
         private String b;
-        private List<C0309a> c = new ArrayList();
+        private List<C0323a> c = new ArrayList();
 
         /* renamed from: a  reason: collision with root package name */
         private boolean f3448a = true;
@@ -96,8 +96,8 @@ public final class e {
                 jSONObject.put(e.E, this.f3448a);
                 jSONObject.put("version", this.b);
                 JSONArray jSONArray = new JSONArray();
-                for (C0309a c0309a : a()) {
-                    jSONArray.put(c0309a.a());
+                for (C0323a c0323a : a()) {
+                    jSONArray.put(c0323a.a());
                 }
                 jSONObject.put(e.G, jSONArray);
                 return jSONObject;
@@ -106,7 +106,7 @@ public final class e {
             }
         }
 
-        public List<C0309a> a() {
+        public List<C0323a> a() {
             return this.c;
         }
 
@@ -118,7 +118,7 @@ public final class e {
                     aVar.b = jSONObject.optLong("version") + "";
                     JSONArray optJSONArray = jSONObject.optJSONArray(e.G);
                     for (int i = 0; i < optJSONArray.length(); i++) {
-                        aVar.a().add(C0309a.a(optJSONArray.getJSONObject(i)));
+                        aVar.a().add(C0323a.a(optJSONArray.getJSONObject(i)));
                     }
                 } catch (Throwable th) {
                 }
@@ -128,7 +128,7 @@ public final class e {
 
         /* renamed from: com.baidu.sapi2.e$a$a  reason: collision with other inner class name */
         /* loaded from: classes5.dex */
-        public static class C0309a {
+        public static class C0323a {
 
             /* renamed from: a  reason: collision with root package name */
             public String f3449a;
@@ -163,18 +163,18 @@ public final class e {
                 if (this == obj) {
                     return true;
                 }
-                if (obj != null && C0309a.class == obj.getClass()) {
-                    return this.f3449a.equals(((C0309a) obj).f3449a);
+                if (obj != null && C0323a.class == obj.getClass()) {
+                    return this.f3449a.equals(((C0323a) obj).f3449a);
                 }
                 return false;
             }
 
-            static C0309a a(JSONObject jSONObject) {
-                C0309a c0309a = new C0309a();
-                c0309a.f3449a = jSONObject.optString("id");
-                c0309a.b = jSONObject.optString(e.I);
-                c0309a.c = jSONObject.optString(e.J);
-                return c0309a;
+            static C0323a a(JSONObject jSONObject) {
+                C0323a c0323a = new C0323a();
+                c0323a.f3449a = jSONObject.optString("id");
+                c0323a.b = jSONObject.optString(e.I);
+                c0323a.c = jSONObject.optString(e.J);
+                return c0323a;
             }
 
             public static String a(String str) {
@@ -188,13 +188,13 @@ public final class e {
 
         /* renamed from: a  reason: collision with root package name */
         String f3450a;
-        private List<a.C0309a> b = new ArrayList();
+        private List<a.C0323a> b = new ArrayList();
 
         public String b() {
             return this.f3450a;
         }
 
-        public List<a.C0309a> a() {
+        public List<a.C0323a> a() {
             return this.b;
         }
 
@@ -205,7 +205,7 @@ public final class e {
                     bVar.f3450a = jSONObject.optString(e.D);
                     JSONArray optJSONArray = jSONObject.optJSONArray(e.G);
                     for (int i = 0; i < optJSONArray.length(); i++) {
-                        bVar.a().add(a.C0309a.a(optJSONArray.getJSONObject(i)));
+                        bVar.a().add(a.C0323a.a(optJSONArray.getJSONObject(i)));
                     }
                 } catch (Throwable th) {
                 }

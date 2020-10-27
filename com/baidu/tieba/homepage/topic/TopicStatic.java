@@ -19,34 +19,34 @@ public class TopicStatic {
     public static String Tag = "tag";
 
     static {
-        cGl();
-        cGm();
-        cGn();
-        cGk();
-        cGo();
+        cJs();
+        cJt();
+        cJu();
+        cJr();
+        cJv();
     }
 
-    private static void cGk() {
+    private static void cJr() {
         a.a(309661, HotTopicTabSocketResponse.class, false, false);
         a.a(309661, CmdConfigHttp.CMD_HOT_TOPIC_TAB, TbConfig.URL_GET_HOT_TOPIC_TAB, HotTopicTabHttpResponse.class, false, false, true, false);
     }
 
-    private static void cGl() {
+    private static void cJs() {
         a.a(309628, ResponseSocketGetTopicListMessage.class, false, false);
         a.a(309628, CmdConfigHttp.CMD_TOPIC_LIST, TbConfig.URL_GET_TAB_TOPIC_LIST, ResponseHttpGetTopicListMessage.class, false, false, true, false);
     }
 
-    private static void cGm() {
+    private static void cJt() {
         a.a(309629, ResponseSocketGetTopicDetailMessage.class, false, false);
         a.a(309629, CmdConfigHttp.CMD_TOPIC_DETAIL, TbConfig.URL_GET_TOPIC_DETAIL, ResponseHttpGetTopicDetailMessage.class, false, false, true, false);
     }
 
-    private static void cGn() {
+    private static void cJu() {
         a.a(309631, ResponseSocketGetTopicThreadMessage.class, false, false);
         a.a(309631, CmdConfigHttp.CMD_TOPIC_THREAD, TbConfig.URL_GET_TOPIC_THREAD, ResponseHttpGetTopicThreadMessage.class, false, false, true, false);
     }
 
-    private static void cGo() {
+    private static void cJv() {
         a.a(CmdConfigSocket.CMD_TOPIC_BLESS, BlessSocketResponseMessage.class, false, false);
         a.a(CmdConfigSocket.CMD_TOPIC_BLESS, 1003065, TbConfig.URL_TOPIC_USER_PK, BlessHttpResponseMessage.class, false, false, true, false);
     }

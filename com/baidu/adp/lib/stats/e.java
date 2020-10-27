@@ -7,9 +7,9 @@ import com.baidu.live.adp.lib.stats.BdStatsConstant;
 import java.util.HashMap;
 /* loaded from: classes.dex */
 public class e {
-    private static e NM;
-    private HashMap<String, a> NK = new HashMap<>();
-    private HashMap<String, b> NL = new HashMap<>();
+    private static e NN;
+    private HashMap<String, a> NL = new HashMap<>();
+    private HashMap<String, b> NM = new HashMap<>();
     private Handler mHandler = new Handler(Looper.getMainLooper()) { // from class: com.baidu.adp.lib.stats.e.1
         @Override // android.os.Handler
         public void handleMessage(Message message) {
@@ -31,14 +31,14 @@ public class e {
     };
 
     public static e nc() {
-        if (NM == null) {
+        if (NN == null) {
             synchronized (e.class) {
-                if (NM == null) {
-                    NM = new e();
+                if (NN == null) {
+                    NN = new e();
                 }
             }
         }
-        return NM;
+        return NN;
     }
 
     public e() {
@@ -46,42 +46,42 @@ public class e {
         bVar.aw(3000);
         bVar.ax(BdStatisticsManager.UPLOAD_TIMER_INTERVAL);
         bVar.ay(500);
-        this.NL.put("net", bVar);
-        this.NL.put("op", bVar);
-        this.NL.put("stat", bVar);
-        this.NL.put("crash", bVar);
-        this.NL.put(BdStatsConstant.StatsType.PERFORMANCE, bVar);
+        this.NM.put("net", bVar);
+        this.NM.put("op", bVar);
+        this.NM.put("stat", bVar);
+        this.NM.put("crash", bVar);
+        this.NM.put(BdStatsConstant.StatsType.PERFORMANCE, bVar);
         b bVar2 = new b();
         bVar2.aw(3000);
         bVar2.ax(BdStatisticsManager.UPLOAD_TIMER_INTERVAL);
         bVar2.ay(1500);
-        this.NL.put("file", bVar2);
-        this.NL.put(BdStatsConstant.OpSubType.DB, bVar2);
-        this.NL.put("img", bVar2);
-        this.NL.put("voice", bVar2);
-        this.NL.put(BdStatsConstant.StatsType.ERROR, bVar2);
+        this.NM.put("file", bVar2);
+        this.NM.put(BdStatsConstant.OpSubType.DB, bVar2);
+        this.NM.put("img", bVar2);
+        this.NM.put("voice", bVar2);
+        this.NM.put(BdStatsConstant.StatsType.ERROR, bVar2);
         b bVar3 = new b();
         bVar3.aw(3000);
         bVar3.ax(BdStatisticsManager.UPLOAD_TIMER_INTERVAL);
         bVar3.ay(1500);
-        this.NL.put("dbg", bVar3);
+        this.NM.put("dbg", bVar3);
     }
 
     public synchronized boolean bW(String str) {
         a aVar;
         boolean z;
-        b bVar = this.NL.get(str);
+        b bVar = this.NM.get(str);
         if (bVar == null) {
             z = false;
         } else {
-            a aVar2 = this.NK.get(str);
+            a aVar2 = this.NL.get(str);
             long currentTimeMillis = System.currentTimeMillis();
             if (aVar2 == null) {
                 a aVar3 = new a();
                 aVar3.ap(false);
                 aVar3.ao(false);
                 aVar3.I(currentTimeMillis);
-                this.NK.put(str, aVar3);
+                this.NL.put(str, aVar3);
                 aVar = aVar3;
             } else {
                 aVar = aVar2;
@@ -126,32 +126,32 @@ public class e {
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes.dex */
     public class a {
-        private long NP;
         private long NQ;
-        private boolean NR;
+        private long NR;
+        private boolean NT;
         private int mCount;
         private boolean mIsRunning;
 
         private a() {
             this.mIsRunning = false;
             this.mCount = 0;
-            this.NR = false;
+            this.NT = false;
         }
 
         public boolean nd() {
-            return this.NR;
+            return this.NT;
         }
 
         public void ao(boolean z) {
-            this.NR = z;
+            this.NT = z;
         }
 
         public long ne() {
-            return this.NQ;
+            return this.NR;
         }
 
         public void H(long j) {
-            this.NQ = j;
+            this.NR = j;
         }
 
         public int nf() {
@@ -163,11 +163,11 @@ public class e {
         }
 
         public long ng() {
-            return this.NP;
+            return this.NQ;
         }
 
         public void I(long j) {
-            this.NP = j;
+            this.NQ = j;
         }
 
         public boolean nh() {
@@ -182,8 +182,8 @@ public class e {
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes.dex */
     public class b {
-        private int NT;
         private int NU;
+        private int NV;
         private int mInterval;
 
         private b() {
@@ -198,19 +198,19 @@ public class e {
         }
 
         public int nj() {
-            return this.NT;
-        }
-
-        public void ax(int i) {
-            this.NT = i;
-        }
-
-        public int nk() {
             return this.NU;
         }
 
-        public void ay(int i) {
+        public void ax(int i) {
             this.NU = i;
+        }
+
+        public int nk() {
+            return this.NV;
+        }
+
+        public void ay(int i) {
+            this.NV = i;
         }
     }
 }

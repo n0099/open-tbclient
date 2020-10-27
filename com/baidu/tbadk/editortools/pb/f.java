@@ -8,53 +8,53 @@ import com.baidu.tbadk.editortools.m;
 import com.baidu.tieba.R;
 /* loaded from: classes.dex */
 public class f extends m {
-    private EditText fbI;
+    private EditText fkh;
 
     public f(Context context, boolean z, boolean z2) {
         super(context, (String) null, 27);
-        this.eZU = false;
-        this.eZT = 3;
-        this.eYZ = new PbNewInputContainer(context);
-        ((PbNewInputContainer) this.eYZ).setTransLink(z ? false : true);
-        this.fbI = ((PbNewInputContainer) this.eYZ).getInputView();
-        ((PbNewInputContainer) this.eYZ).setHint(context.getString(R.string.say_your_point));
-        ((PbNewInputContainer) this.eYZ).jR(z2);
-        this.eZV = new int[]{4, 17, 24, 3, 9, 6, 44, 12, 10, 13, 11, 28, 29, 39, 45};
+        this.fis = false;
+        this.fir = 3;
+        this.fhv = new PbNewInputContainer(context);
+        ((PbNewInputContainer) this.fhv).setTransLink(z ? false : true);
+        this.fkh = ((PbNewInputContainer) this.fhv).getInputView();
+        ((PbNewInputContainer) this.fhv).setHint(context.getString(R.string.say_your_point));
+        ((PbNewInputContainer) this.fhv).ke(z2);
+        this.fit = new int[]{4, 17, 24, 3, 9, 6, 44, 12, 10, 13, 11, 28, 29, 39, 45};
     }
 
     public void b(TextWatcher textWatcher) {
-        this.fbI.addTextChangedListener(textWatcher);
+        this.fkh.addTextChangedListener(textWatcher);
     }
 
     public void c(TextWatcher textWatcher) {
-        this.fbI.removeTextChangedListener(textWatcher);
+        this.fkh.removeTextChangedListener(textWatcher);
     }
 
     public void setHint(String str) {
-        if (this.eYZ != null && !StringUtils.isNull(str)) {
-            ((PbNewInputContainer) this.eYZ).setHint(str);
+        if (this.fhv != null && !StringUtils.isNull(str)) {
+            ((PbNewInputContainer) this.fhv).setHint(str);
         }
     }
 
     public void setDefaultHint(String str) {
-        if (this.eYZ != null && !StringUtils.isNull(str)) {
-            ((PbNewInputContainer) this.eYZ).setDefaultHint(str);
+        if (this.fhv != null && !StringUtils.isNull(str)) {
+            ((PbNewInputContainer) this.fhv).setDefaultHint(str);
         }
     }
 
     public EditText getInputView() {
-        return this.fbI;
+        return this.fkh;
     }
 
     public void setType(int i) {
-        if (this.eYZ != null) {
-            ((PbNewInputContainer) this.eYZ).setType(i);
+        if (this.fhv != null) {
+            ((PbNewInputContainer) this.fhv).setType(i);
         }
     }
 
-    public void rb(int i) {
-        if (this.eYZ != null) {
-            ((PbNewInputContainer) this.eYZ).rb(i);
+    public void rm(int i) {
+        if (this.fhv != null) {
+            ((PbNewInputContainer) this.fhv).rm(i);
         }
     }
 }

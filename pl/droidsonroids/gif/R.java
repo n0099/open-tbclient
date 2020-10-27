@@ -4,9 +4,9 @@ public final class R {
 
     /* loaded from: classes.dex */
     public static final class attr {
-        public static final int freezesAnimation = 0x7f010262;
-        public static final int gifSource = 0x7f010260;
-        public static final int isOpaque = 0x7f010261;
+        public static final int freezesAnimation = 0x7f01026a;
+        public static final int gifSource = 0x7f010268;
+        public static final int isOpaque = 0x7f010269;
     }
 
     /* loaded from: classes.dex */

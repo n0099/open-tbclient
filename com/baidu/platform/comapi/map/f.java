@@ -29,7 +29,7 @@ public class f implements ad {
     private ak e;
     private boolean f;
     private e g;
-    private InterfaceC0257f h;
+    private InterfaceC0271f h;
     private g i;
     private k j;
     private int k;
@@ -132,14 +132,14 @@ public class f implements ad {
     }
 
     /* loaded from: classes7.dex */
-    private class c implements InterfaceC0257f {
+    private class c implements InterfaceC0271f {
         private int b;
 
         private c() {
             this.b = 12440;
         }
 
-        @Override // com.baidu.platform.comapi.map.f.InterfaceC0257f
+        @Override // com.baidu.platform.comapi.map.f.InterfaceC0271f
         public EGLContext a(EGL10 egl10, EGLDisplay eGLDisplay, EGLConfig eGLConfig) {
             int[] iArr = {this.b, f.this.l, 12344};
             EGLContext eGLContext = EGL10.EGL_NO_CONTEXT;
@@ -149,7 +149,7 @@ public class f implements ad {
             return egl10.eglCreateContext(eGLDisplay, eGLConfig, eGLContext, iArr);
         }
 
-        @Override // com.baidu.platform.comapi.map.f.InterfaceC0257f
+        @Override // com.baidu.platform.comapi.map.f.InterfaceC0271f
         public void a(EGL10 egl10, EGLDisplay eGLDisplay, EGLContext eGLContext) {
             if (egl10.eglDestroyContext(eGLDisplay, eGLContext)) {
                 return;
@@ -187,7 +187,7 @@ public class f implements ad {
 
     /* renamed from: com.baidu.platform.comapi.map.f$f  reason: collision with other inner class name */
     /* loaded from: classes7.dex */
-    public interface InterfaceC0257f {
+    public interface InterfaceC0271f {
         EGLContext a(EGL10 egl10, EGLDisplay eGLDisplay, EGLConfig eGLConfig);
 
         void a(EGL10 egl10, EGLDisplay eGLDisplay, EGLContext eGLContext);
@@ -1030,9 +1030,9 @@ public class f implements ad {
         this.g = eVar;
     }
 
-    public void a(InterfaceC0257f interfaceC0257f) {
+    public void a(InterfaceC0271f interfaceC0271f) {
         l();
-        this.h = interfaceC0257f;
+        this.h = interfaceC0271f;
     }
 
     @Override // com.baidu.platform.comapi.map.ad

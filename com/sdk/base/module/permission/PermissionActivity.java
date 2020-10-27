@@ -7,10 +7,10 @@ import android.os.Bundle;
 public class PermissionActivity extends Activity {
 
     /* renamed from: a  reason: collision with root package name */
-    private static a f4513a;
+    private static a f4511a;
 
     public static void a(a aVar) {
-        f4513a = aVar;
+        f4511a = aVar;
     }
 
     @Override // android.app.Activity
@@ -20,17 +20,17 @@ public class PermissionActivity extends Activity {
         String[] stringArrayExtra = getIntent().getStringArrayExtra("KEY_INPUT_PERMISSIONS");
         if (stringArrayExtra == null) {
             finish();
-        } else if (f4513a != null) {
+        } else if (f4511a != null) {
             requestPermissions(stringArrayExtra, 1);
         }
     }
 
     @Override // android.app.Activity
     public void onRequestPermissionsResult(int i, String[] strArr, int[] iArr) {
-        if (f4513a != null) {
-            f4513a.a(strArr, iArr);
+        if (f4511a != null) {
+            f4511a.a(strArr, iArr);
         }
-        f4513a = null;
+        f4511a = null;
         finish();
     }
 }

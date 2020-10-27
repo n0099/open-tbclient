@@ -16,23 +16,23 @@ import java.util.HashSet;
 import java.util.Iterator;
 /* loaded from: classes26.dex */
 public class a {
-    private static a jWN = new a();
-    private HashSet<String> jWO = new HashSet<>();
-    private StringBuilder jWP = new StringBuilder();
+    private static a kjn = new a();
+    private HashSet<String> kjo = new HashSet<>();
+    private StringBuilder kjp = new StringBuilder();
 
     private a() {
     }
 
-    public static a cPB() {
-        return jWN;
+    public static a cSI() {
+        return kjn;
     }
 
-    public void cPC() {
+    public void cSJ() {
         String str;
         String str2 = null;
-        if (this.jWO != null) {
+        if (this.kjo != null) {
             StringBuilder sb = new StringBuilder();
-            Iterator<String> it = this.jWO.iterator();
+            Iterator<String> it = this.kjo.iterator();
             while (it.hasNext()) {
                 String next = it.next();
                 if (next != null && next.length() > 0) {
@@ -43,37 +43,37 @@ public class a {
                 sb.deleteCharAt(sb.length() - 1);
                 if (sb.length() > 0) {
                     str = sb.toString();
-                    if (this.jWP != null && this.jWP.length() > 0) {
-                        this.jWP.deleteCharAt(this.jWP.length() - 1);
-                        str2 = this.jWP.toString();
+                    if (this.kjp != null && this.kjp.length() > 0) {
+                        this.kjp.deleteCharAt(this.kjp.length() - 1);
+                        str2 = this.kjp.toString();
                     }
                     new AddMsgRecordModel().reqViewAndClick(str, str2);
                 }
             }
         }
         str = null;
-        if (this.jWP != null) {
-            this.jWP.deleteCharAt(this.jWP.length() - 1);
-            str2 = this.jWP.toString();
+        if (this.kjp != null) {
+            this.kjp.deleteCharAt(this.kjp.length() - 1);
+            str2 = this.kjp.toString();
         }
         new AddMsgRecordModel().reqViewAndClick(str, str2);
     }
 
-    public void cPD() {
-        if (this.jWP != null && this.jWP.length() > 0) {
-            this.jWP.delete(0, this.jWP.length());
+    public void cSK() {
+        if (this.kjp != null && this.kjp.length() > 0) {
+            this.kjp.delete(0, this.kjp.length());
         }
-        if (this.jWO != null) {
-            this.jWO.clear();
+        if (this.kjo != null) {
+            this.kjo.clear();
         }
     }
 
     public void a(ChatMessage chatMessage, Context context) {
         UserData userInfo;
-        d Mx;
+        d MV;
         if (chatMessage != null && !StringUtils.isNull(chatMessage.getContent()) && (userInfo = chatMessage.getUserInfo()) != null) {
-            if ((userInfo.getUserType() == 1 || userInfo.getUserType() == 3) && (Mx = e.Mx(chatMessage.getContent())) != null && !TextUtils.isEmpty(Mx.taskId) && this.jWO.add(Mx.taskId)) {
-                TiebaStatic.eventStat(context, "message_open", "click", 1, "task_type", Mx.jJA, "task_id", Mx.taskId);
+            if ((userInfo.getUserType() == 1 || userInfo.getUserType() == 3) && (MV = e.MV(chatMessage.getContent())) != null && !TextUtils.isEmpty(MV.taskId) && this.kjo.add(MV.taskId)) {
+                TiebaStatic.eventStat(context, "message_open", "click", 1, "task_type", MV.jVZ, "task_id", MV.taskId);
             }
         }
     }
@@ -82,16 +82,16 @@ public class a {
         UserData userInfo;
         if (chatMessage != null && !StringUtils.isNull(chatMessage.getContent()) && (userInfo = chatMessage.getUserInfo()) != null && userInfo.getUserType() == 4) {
             aq aqVar = new aq("c13989");
-            aqVar.u(com.baidu.android.imsdk.internal.Constants.EXTRA_SERVICE, chatMessage.getStatisticsServiceId());
-            aqVar.u("task_id", chatMessage.getStatTaskId());
-            aqVar.u("uid", TbadkApplication.getCurrentAccountId());
+            aqVar.w(com.baidu.android.imsdk.internal.Constants.EXTRA_SERVICE, chatMessage.getStatisticsServiceId());
+            aqVar.w("task_id", chatMessage.getStatTaskId());
+            aqVar.w("uid", TbadkApplication.getCurrentAccountId());
             TiebaStatic.log(aqVar);
         }
     }
 
-    public void Ms(String str) {
+    public void MQ(String str) {
         if (str != null && str.length() > 0) {
-            this.jWP.append(str).append(Constants.ACCEPT_TIME_SEPARATOR_SP);
+            this.kjp.append(str).append(Constants.ACCEPT_TIME_SEPARATOR_SP);
         }
     }
 }

@@ -21,9 +21,9 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 /* loaded from: classes6.dex */
-public class e extends Fragment implements a.InterfaceC0907a, a.InterfaceC0910a, b.a, a.InterfaceC0912a, a.InterfaceC0913a {
+public class e extends Fragment implements a.InterfaceC0979a, a.InterfaceC0982a, b.a, a.InterfaceC0984a, a.InterfaceC0985a {
     public boolean H = false;
-    public tv.chushou.common.player.a omi = null;
+    public tv.chushou.common.player.a pdz = null;
     public float J = 1.0f;
     protected boolean K = false;
 
@@ -173,7 +173,7 @@ public class e extends Fragment implements a.InterfaceC0907a, a.InterfaceC0910a,
     public void b(long j) {
     }
 
-    @Override // com.kascend.chushou.player.ui.h5.d.a.InterfaceC0912a
+    @Override // com.kascend.chushou.player.ui.h5.d.a.InterfaceC0984a
     public void b(com.kascend.chushou.player.ui.h5.c.a aVar) {
     }
 

@@ -7,87 +7,87 @@ import org.json.JSONObject;
 /* loaded from: classes10.dex */
 public class c extends f {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    private String blf;
-    private int dlH;
-    private String dlI;
-    private String dlJ;
-    private long dlK;
-    private long dlL;
+    private String bmA;
+    private int duj;
+    private String duk;
+    private String dul;
+    private long dum;
+    private long dun;
     private int mErrCode;
     private String mMsg;
     private String mRequestUrl;
 
     public c(String str, int i) {
         this.mRequestUrl = str;
-        this.dlH = i;
-        this.blf = "0";
+        this.duj = i;
+        this.bmA = "0";
     }
 
     public c(int i, String str, String str2, int i2) {
         this.mErrCode = i;
         this.mRequestUrl = str;
         this.mMsg = str2;
-        this.dlH = i2;
-        this.blf = "1";
+        this.duj = i2;
+        this.bmA = "1";
     }
 
     public c(int i, String str, String str2, int i2, long j, long j2) {
         this.mErrCode = i;
         this.mRequestUrl = str;
         this.mMsg = str2;
-        this.dlH = i2;
-        this.dlK = j;
-        this.dlL = j2;
+        this.duj = i2;
+        this.dum = j;
+        this.dun = j2;
         if (i == 200 && j2 - j >= 5000) {
-            this.blf = "2";
+            this.bmA = "2";
         } else {
-            this.blf = "1";
+            this.bmA = "1";
         }
     }
 
-    public void sz(String str) {
-        this.dlI = str;
+    public void sS(String str) {
+        this.duk = str;
     }
 
     public String getRequestUrl() {
         return this.mRequestUrl;
     }
 
-    public String aGa() {
-        return this.blf;
+    public String aHU() {
+        return this.bmA;
     }
 
-    public void sA(String str) {
-        this.dlJ = str;
+    public void sT(String str) {
+        this.dul = str;
     }
 
     @Override // com.baidu.swan.apps.statistic.a.f, com.baidu.swan.apps.statistic.a.e
     public JSONObject toJSONObject() {
-        if (this.dlN == null) {
-            this.dlN = new JSONObject();
+        if (this.dup == null) {
+            this.dup = new JSONObject();
         }
         try {
-            if (TextUtils.equals(this.blf, "1") || TextUtils.equals(this.blf, "2")) {
-                this.dlN.put("errorno", this.mErrCode);
+            if (TextUtils.equals(this.bmA, "1") || TextUtils.equals(this.bmA, "2")) {
+                this.dup.put("errorno", this.mErrCode);
             }
-            this.mRequestUrl = com.baidu.swan.apps.statistic.g.st(this.mRequestUrl);
-            this.dlN.put("url", this.mRequestUrl);
-            this.dlN.put("netStatus", this.dlH);
+            this.mRequestUrl = com.baidu.swan.apps.statistic.g.sM(this.mRequestUrl);
+            this.dup.put("url", this.mRequestUrl);
+            this.dup.put("netStatus", this.duj);
             if (!TextUtils.isEmpty(this.mMsg)) {
-                this.dlN.put("msg", this.mMsg);
+                this.dup.put("msg", this.mMsg);
             }
-            if (!TextUtils.isEmpty(this.dlI)) {
-                this.dlN.put("pagetype", this.dlI);
+            if (!TextUtils.isEmpty(this.duk)) {
+                this.dup.put("pagetype", this.duk);
             }
-            if (!TextUtils.isEmpty(this.dlJ)) {
-                this.dlN.put("curpage", this.dlJ);
+            if (!TextUtils.isEmpty(this.dul)) {
+                this.dup.put("curpage", this.dul);
             }
-            if (!TextUtils.isEmpty(this.blf)) {
-                this.dlN.put("requesttype", this.blf);
+            if (!TextUtils.isEmpty(this.bmA)) {
+                this.dup.put("requesttype", this.bmA);
             }
-            if (this.dlL - this.dlK > 0) {
-                this.dlN.put("startTime", this.dlK);
-                this.dlN.put("endTime", this.dlL);
+            if (this.dun - this.dum > 0) {
+                this.dup.put("startTime", this.dum);
+                this.dup.put("endTime", this.dun);
             }
         } catch (JSONException e) {
             if (DEBUG) {

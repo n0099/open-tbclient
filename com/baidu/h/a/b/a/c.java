@@ -1,18 +1,18 @@
 package com.baidu.h.a.b.a;
 /* loaded from: classes15.dex */
 public class c {
-    public String aQI;
-    public String bGG;
-    public String bGH;
-    public String bGK;
-    public C0136c bGM;
-    public String bGN;
-    public String bGP;
-    public String bGS;
-    public String bGT;
-    public C0136c bGU;
-    public a bGV;
-    public String bGW;
+    public String aRy;
+    public String bPb;
+    public String bPc;
+    public String bPf;
+    public C0136c bPh;
+    public String bPi;
+    public String bPk;
+    public String bPn;
+    public String bPo;
+    public C0136c bPp;
+    public a bPq;
+    public String bPr;
     public String content;
     public long msgId;
     public String name;
@@ -20,31 +20,31 @@ public class c {
     public long time;
     public String uid;
     public String type = "0";
-    public String bGI = "0";
-    public String bGJ = "1005";
-    public String bGL = "0";
-    public String bGO = "0";
-    public String bGQ = "0";
-    public String bGR = "1005";
+    public String bPd = "0";
+    public String bPe = "1005";
+    public String bPg = "0";
+    public String bPj = "0";
+    public String bPl = "0";
+    public String bPm = "1005";
 
     /* loaded from: classes15.dex */
     public static class a {
-        public int bHe;
-        public int bHf;
-        public c bHg;
-        public long[] bHh;
-        public int bHi;
-        public String bHj;
-        public String bHk;
+        public int bPA;
+        public c bPB;
+        public long[] bPC;
+        public int bPD;
+        public String bPE;
+        public String bPF;
+        public int bPz;
         public int feedback = 0;
-        public String bGX = "";
-        public int bGY = 0;
+        public String bPs = "";
+        public int bPt = 0;
         public String duration = "";
-        public String bGZ = "";
-        public String bHa = "";
-        public String bHb = "";
-        public String bHc = "";
-        public String bHd = "";
+        public String bPu = "";
+        public String bPv = "";
+        public String bPw = "";
+        public String bPx = "";
+        public String bPy = "";
     }
 
     /* loaded from: classes15.dex */
@@ -56,16 +56,16 @@ public class c {
     /* renamed from: com.baidu.h.a.b.a.c$c  reason: collision with other inner class name */
     /* loaded from: classes15.dex */
     public static class C0136c {
-        public e bHl;
-        public d bHm;
-        public f bHn;
-        public b bHo;
+        public e bPG;
+        public d bPH;
+        public f bPI;
+        public b bPJ;
     }
 
     /* loaded from: classes15.dex */
     public static class d {
-        public a bHp;
-        public a bHq;
+        public a bPK;
+        public a bPL;
 
         /* loaded from: classes15.dex */
         public static class a {
@@ -89,6 +89,6 @@ public class c {
     }
 
     public String toString() {
-        return "LiveMessageBean:{" + this.bGG + "}";
+        return "LiveMessageBean:{" + this.bPb + "}";
     }
 }

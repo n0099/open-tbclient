@@ -10,78 +10,78 @@ import java.util.LinkedList;
 import java.util.List;
 /* loaded from: classes21.dex */
 public class l {
-    private List<com.baidu.adp.widget.ListView.a> bhH = new LinkedList();
-    private BdTypeRecyclerView hWB;
-    private TbPageContext<?> iGI;
-    private j kJG;
-    private c kJH;
-    private e kJI;
-    private d kJJ;
-    private f kJK;
-    private k kJL;
-    private g kJM;
-    private h kJN;
-    private b kJO;
-    private m kJP;
-    private i kJQ;
+    private List<com.baidu.adp.widget.ListView.a> bje = new LinkedList();
+    private TbPageContext<?> iTe;
+    private BdTypeRecyclerView ijb;
+    private j kWd;
+    private c kWe;
+    private e kWf;
+    private d kWg;
+    private f kWh;
+    private k kWi;
+    private g kWj;
+    private h kWk;
+    private b kWl;
+    private m kWm;
+    private i kWn;
     private BdUniqueId pageId;
 
     public l(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId, BdTypeRecyclerView bdTypeRecyclerView) {
-        this.iGI = tbPageContext;
+        this.iTe = tbPageContext;
         this.pageId = bdUniqueId;
-        this.hWB = bdTypeRecyclerView;
-        Le();
+        this.ijb = bdTypeRecyclerView;
+        Ly();
     }
 
-    private void Le() {
-        this.kJG = new j(this.iGI, bw.epq, this.pageId);
-        this.kJG.a(this.hWB);
-        this.bhH.add(this.kJG);
-        this.kJH = new c(this.iGI, bw.epv, this.pageId);
-        this.kJH.a(this.hWB);
-        this.bhH.add(this.kJH);
-        this.kJI = new e(this.iGI, bw.ept, this.pageId);
-        this.kJI.a(this.hWB);
-        this.bhH.add(this.kJI);
-        this.kJJ = new d(this.iGI, bw.epu, this.pageId);
-        this.kJJ.a(this.hWB);
-        this.bhH.add(this.kJJ);
-        this.kJK = new f(this.iGI, bw.epr, this.pageId);
-        this.kJK.a(this.hWB);
-        this.bhH.add(this.kJK);
-        this.kJL = new k(this.iGI, bw.epH, this.pageId);
-        this.kJL.a(this.hWB);
-        this.bhH.add(this.kJL);
-        this.kJM = new g(this.iGI, bw.epA, this.pageId);
-        this.kJM.a(this.hWB);
-        this.bhH.add(this.kJM);
-        this.kJN = new h(this.iGI, bw.epw, this.pageId);
-        this.kJN.a(this.hWB);
-        this.bhH.add(this.kJN);
-        this.kJO = new b(this.iGI, bw.epz, this.pageId);
-        this.kJO.a(this.hWB);
-        this.bhH.add(this.kJO);
-        this.kJP = new m(this.iGI, bj.elV);
-        this.kJP.a(this.hWB);
-        this.bhH.add(this.kJP);
-        this.kJQ = new i(this.iGI, com.baidu.tieba.card.data.l.epL);
-        this.bhH.add(this.kJQ);
-        this.hWB.addAdapters(this.bhH);
+    private void Ly() {
+        this.kWd = new j(this.iTe, bw.exO, this.pageId);
+        this.kWd.a(this.ijb);
+        this.bje.add(this.kWd);
+        this.kWe = new c(this.iTe, bw.exT, this.pageId);
+        this.kWe.a(this.ijb);
+        this.bje.add(this.kWe);
+        this.kWf = new e(this.iTe, bw.exR, this.pageId);
+        this.kWf.a(this.ijb);
+        this.bje.add(this.kWf);
+        this.kWg = new d(this.iTe, bw.exS, this.pageId);
+        this.kWg.a(this.ijb);
+        this.bje.add(this.kWg);
+        this.kWh = new f(this.iTe, bw.exP, this.pageId);
+        this.kWh.a(this.ijb);
+        this.bje.add(this.kWh);
+        this.kWi = new k(this.iTe, bw.eyg, this.pageId);
+        this.kWi.a(this.ijb);
+        this.bje.add(this.kWi);
+        this.kWj = new g(this.iTe, bw.exY, this.pageId);
+        this.kWj.a(this.ijb);
+        this.bje.add(this.kWj);
+        this.kWk = new h(this.iTe, bw.exU, this.pageId);
+        this.kWk.a(this.ijb);
+        this.bje.add(this.kWk);
+        this.kWl = new b(this.iTe, bw.exX, this.pageId);
+        this.kWl.a(this.ijb);
+        this.bje.add(this.kWl);
+        this.kWm = new m(this.iTe, bj.euv);
+        this.kWm.a(this.ijb);
+        this.bje.add(this.kWm);
+        this.kWn = new i(this.iTe, com.baidu.tieba.card.data.l.eyl);
+        this.bje.add(this.kWn);
+        this.ijb.addAdapters(this.bje);
     }
 
-    public void tb(boolean z) {
-        for (com.baidu.adp.widget.ListView.a aVar : this.bhH) {
+    public void ts(boolean z) {
+        for (com.baidu.adp.widget.ListView.a aVar : this.bje) {
             if (aVar instanceof a) {
-                ((a) aVar).ta(z);
+                ((a) aVar).tr(z);
             }
         }
     }
 
     public void notifyDataSetChanged() {
-        this.hWB.getAdapter().notifyDataSetChanged();
+        this.ijb.getAdapter().notifyDataSetChanged();
     }
 
     public void setData(List<? extends q> list) {
-        this.hWB.setData(list);
+        this.ijb.setData(list);
     }
 }

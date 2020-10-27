@@ -19,8 +19,8 @@ public class d extends a {
     }
 
     @Override // com.baidu.swan.apps.canvas.a.a
-    public /* bridge */ /* synthetic */ JSONObject hh(int i) {
-        return super.hh(i);
+    public /* bridge */ /* synthetic */ JSONObject hs(int i) {
+        return super.hs(i);
     }
 
     public d(j jVar) {
@@ -32,22 +32,22 @@ public class d extends a {
         boolean z = false;
         com.baidu.swan.apps.canvas.b.a d = d(unitedSchemeEntity);
         if (d == null) {
-            unitedSchemeEntity.result = hh(201);
+            unitedSchemeEntity.result = hs(201);
             com.baidu.swan.apps.console.c.e("SwanAppCanvas", "insert action parse model is null");
         } else if (context == null) {
             com.baidu.swan.apps.console.c.e("SwanAppCanvas", "context is null");
-            unitedSchemeEntity.result = hh(1001);
+            unitedSchemeEntity.result = hs(1001);
         } else {
-            String str = d.cpp;
-            com.baidu.swan.apps.model.a.a.a aVar = d.cpt;
+            String str = d.cxR;
+            com.baidu.swan.apps.model.a.a.a aVar = d.cxV;
             if (TextUtils.isEmpty(str) || aVar == null || !aVar.isValid()) {
                 com.baidu.swan.apps.console.c.e("SwanAppCanvas", "canvas id is empty or position is null");
-                unitedSchemeEntity.result = hh(202);
+                unitedSchemeEntity.result = hs(202);
             } else {
-                com.baidu.swan.apps.component.b.c agt = new com.baidu.swan.apps.component.components.d.a(context, d).agt();
-                z = agt.isSuccess();
+                com.baidu.swan.apps.component.b.c ain = new com.baidu.swan.apps.component.components.d.a(context, d).ain();
+                z = ain.isSuccess();
                 if (!z) {
-                    com.baidu.swan.apps.console.c.e("SwanAppCanvas", "insert canvas fail: " + agt.msg);
+                    com.baidu.swan.apps.console.c.e("SwanAppCanvas", "insert canvas fail: " + ain.msg);
                 }
                 a(unitedSchemeEntity, callbackHandler, z);
             }

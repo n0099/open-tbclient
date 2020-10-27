@@ -59,8 +59,8 @@ public class b extends Dialog {
 
     /* renamed from: com.baidu.pass.ecommerce.d.b$b  reason: collision with other inner class name */
     /* loaded from: classes17.dex */
-    class View$OnClickListenerC0251b implements View.OnClickListener {
-        View$OnClickListenerC0251b() {
+    class View$OnClickListenerC0265b implements View.OnClickListener {
+        View$OnClickListenerC0265b() {
         }
 
         @Override // android.view.View.OnClickListener
@@ -221,7 +221,7 @@ public class b extends Dialog {
         this.l.a(this.e);
         this.l.b();
         this.d.setOnClickListener(new a());
-        this.c.setOnClickListener(new View$OnClickListenerC0251b());
+        this.c.setOnClickListener(new View$OnClickListenerC0265b());
     }
 
     public void a(int i) {

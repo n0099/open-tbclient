@@ -28,8 +28,8 @@ public class g {
 
         /* renamed from: com.baidu.sapi2.utils.g$a$a  reason: collision with other inner class name */
         /* loaded from: classes5.dex */
-        class RunnableC0320a implements Runnable {
-            RunnableC0320a() {
+        class RunnableC0334a implements Runnable {
+            RunnableC0334a() {
             }
 
             @Override // java.lang.Runnable
@@ -46,7 +46,7 @@ public class g {
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
-            this.f3553a.post(new RunnableC0320a());
+            this.f3553a.post(new RunnableC0334a());
         }
     }
 

@@ -18,7 +18,7 @@ public class b {
         }
     }
 
-    public static boolean Du(int i) {
+    public static boolean DN(int i) {
         if (i == Integer.MAX_VALUE) {
             return true;
         }

@@ -9,14 +9,15 @@ public abstract class a implements IAdapterData, Cloneable {
     private b barrageCardInfo;
     private String barrageId;
     private int barrageType;
-    private com.baidu.live.data.a biM;
-    private List<Long> biN;
-    private long biP;
-    private double biQ;
-    private long biR;
-    public String biS;
-    private boolean biT;
-    private com.baidu.live.data.a bic;
+    public String bja;
+    private com.baidu.live.data.a bjz;
+    private com.baidu.live.data.a bkh;
+    private List<Long> bki;
+    private long bkk;
+    private double bkl;
+    private long bkm;
+    public String bkn;
+    private boolean bko;
     private long bornTime;
     private String content;
     private boolean hasRead;
@@ -37,7 +38,7 @@ public abstract class a implements IAdapterData, Cloneable {
     private int progressValue = 0;
     private long statisticsTaskId = -1;
     private boolean mIsPushForOperateAccount = false;
-    private boolean biO = false;
+    private boolean bkj = false;
     private boolean isGifLoadSuccess = true;
     private boolean isUploading = false;
 
@@ -129,20 +130,20 @@ public abstract class a implements IAdapterData, Cloneable {
         this.objContent = obj;
     }
 
-    public com.baidu.live.data.a Lt() {
-        return this.bic;
+    public com.baidu.live.data.a LO() {
+        return this.bjz;
     }
 
     public void e(com.baidu.live.data.a aVar) {
-        this.bic = aVar;
+        this.bjz = aVar;
     }
 
-    public com.baidu.live.data.a Lu() {
-        return this.biM;
+    public com.baidu.live.data.a LP() {
+        return this.bkh;
     }
 
     public void f(com.baidu.live.data.a aVar) {
-        this.biM = aVar;
+        this.bkh = aVar;
     }
 
     public int getMsgType() {
@@ -219,47 +220,47 @@ public abstract class a implements IAdapterData, Cloneable {
 
     public void l(JSONArray jSONArray) {
         if (jSONArray != null && jSONArray.length() > 0) {
-            if (this.biN == null) {
-                this.biN = new ArrayList();
+            if (this.bki == null) {
+                this.bki = new ArrayList();
             }
             for (int i = 0; i < jSONArray.length(); i++) {
                 long optLong = jSONArray.optLong(i);
                 if (optLong > 0) {
-                    this.biN.add(Long.valueOf(optLong));
+                    this.bki.add(Long.valueOf(optLong));
                 }
             }
         }
     }
 
-    public List<Long> Lv() {
-        return this.biN;
+    public List<Long> LQ() {
+        return this.bki;
     }
 
-    public boolean Lw() {
-        return this.biO;
+    public boolean LR() {
+        return this.bkj;
     }
 
-    public void bW(boolean z) {
-        this.biO = z;
+    public void bY(boolean z) {
+        this.bkj = z;
     }
 
-    public int Lx() {
+    public int LS() {
         return this.barrageType;
     }
 
-    public void eJ(int i) {
+    public void eL(int i) {
         this.barrageType = i;
     }
 
-    public String Ly() {
+    public String LT() {
         return this.barrageId;
     }
 
-    public void hw(String str) {
+    public void hE(String str) {
         this.barrageId = str;
     }
 
-    public b Lz() {
+    public b LU() {
         return this.barrageCardInfo;
     }
 
@@ -267,48 +268,48 @@ public abstract class a implements IAdapterData, Cloneable {
         this.barrageCardInfo = bVar;
     }
 
-    public String[] LA() {
+    public String[] LV() {
         return this.imEffect;
     }
 
-    public void k(String[] strArr) {
+    public void l(String[] strArr) {
         this.imEffect = strArr;
     }
 
-    public long LB() {
-        return this.biP;
-    }
-
-    public void aj(long j) {
-        this.biP = j;
-    }
-
-    public double LC() {
-        return this.biQ;
-    }
-
-    public void o(double d) {
-        this.biQ = d;
-    }
-
-    public long LD() {
-        return this.biR;
+    public long LW() {
+        return this.bkk;
     }
 
     public void ak(long j) {
-        this.biR = j;
+        this.bkk = j;
     }
 
-    public boolean LE() {
-        return this.biT;
+    public double LX() {
+        return this.bkl;
     }
 
-    public void LF() {
-        this.biT = true;
+    public void o(double d) {
+        this.bkl = d;
+    }
+
+    public long LY() {
+        return this.bkm;
+    }
+
+    public void al(long j) {
+        this.bkm = j;
+    }
+
+    public boolean LZ() {
+        return this.bko;
+    }
+
+    public void Ma() {
+        this.bko = true;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    /* renamed from: LG */
+    /* renamed from: Mb */
     public a clone() {
         try {
             return (a) super.clone();

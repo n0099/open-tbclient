@@ -10,7 +10,7 @@ public class c {
     public String NH;
     public String NI;
     public String NJ;
-    public String Nq;
+    public String NK;
     public String Nr;
     public String Ns;
     public String Nt;

@@ -4,41 +4,41 @@ import com.baidu.adp.BdUniqueId;
 import com.baidu.adp.lib.util.StringUtils;
 /* loaded from: classes23.dex */
 public class s implements com.baidu.adp.widget.ListView.q {
-    public static final BdUniqueId ilT = BdUniqueId.gen();
-    private String ilM;
-    private int ilK = -1;
-    private int ilU = -1;
+    public static final BdUniqueId iyr = BdUniqueId.gen();
+    private String iyk;
+    private int iyi = -1;
+    private int iys = -1;
 
     @Override // com.baidu.adp.widget.ListView.q
     public BdUniqueId getType() {
-        return ilT;
+        return iyr;
     }
 
-    public int crc() {
-        return this.ilU;
+    public int cuj() {
+        return this.iys;
     }
 
-    public void xO(int i) {
-        this.ilU = i;
+    public void yh(int i) {
+        this.iys = i;
     }
 
-    public int cra() {
-        return this.ilK;
+    public int cuh() {
+        return this.iyi;
     }
 
-    public void xN(int i) {
-        this.ilK = i;
+    public void yg(int i) {
+        this.iyi = i;
     }
 
-    public String crb() {
-        return this.ilM;
+    public String cui() {
+        return this.iyk;
     }
 
-    public void Ju(String str) {
-        this.ilM = str;
+    public void JT(String str) {
+        this.iyk = str;
     }
 
     public boolean isEmpty() {
-        return StringUtils.isNull(this.ilM) || this.ilK < 0;
+        return StringUtils.isNull(this.iyk) || this.iyi < 0;
     }
 }

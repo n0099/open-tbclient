@@ -6,34 +6,37 @@ import com.baidu.tbadk.core.util.aq;
 /* loaded from: classes21.dex */
 public class k extends l {
     public static final BdUniqueId TYPE = BdUniqueId.gen();
-    public static final BdUniqueId hIK = BdUniqueId.gen();
+    public static final BdUniqueId hVh = BdUniqueId.gen();
 
     @Override // com.baidu.tieba.card.data.l, com.baidu.tieba.card.data.b, com.baidu.adp.widget.ListView.q
     public BdUniqueId getType() {
-        return (this.eji == null || this.eji.getThreadType() != 67) ? TYPE : hIK;
+        return (this.erH == null || this.erH.getThreadType() != 67) ? TYPE : hVh;
     }
 
     public k(bw bwVar) {
-        this.eji = bwVar;
+        this.erH = bwVar;
     }
 
     public static boolean ab(bw bwVar) {
         if (bwVar == null) {
             return false;
         }
-        return bwVar.getThreadType() == 49 || bwVar.getThreadType() == 67;
+        if (bwVar.getThreadType() == 49) {
+            return true;
+        }
+        return bwVar.getThreadType() == 67 && bwVar.bku() != null && bwVar.bku().friendRoomStatus == 2;
     }
 
-    public aq Io(String str) {
-        aq Ip = Ip(str);
-        Ip.delete("obj_type");
-        Ip.delete("obj_type");
-        Ip.aj("obj_type", 3);
-        return Ip;
+    public aq IN(String str) {
+        aq IO = IO(str);
+        IO.delete("obj_type");
+        IO.delete("obj_type");
+        IO.aj("obj_type", 3);
+        return IO;
     }
 
     @Override // com.baidu.tieba.card.data.l, com.baidu.tieba.card.data.c, com.baidu.tbadk.core.data.AbsThreadDataSupport
-    public bw bfG() {
-        return this.eji;
+    public bw bhz() {
+        return this.erH;
     }
 }

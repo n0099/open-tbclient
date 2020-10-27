@@ -6,7 +6,7 @@ import java.util.HashMap;
 import java.util.List;
 /* loaded from: classes6.dex */
 public class b {
-    private volatile HashMap<String, List<com.baidu.swan.gamecenter.appmanager.b.b>> dBo = new HashMap<>();
+    private volatile HashMap<String, List<com.baidu.swan.gamecenter.appmanager.b.b>> dJL = new HashMap<>();
 
     public synchronized void a(String str, com.baidu.swan.gamecenter.appmanager.c.b bVar) {
         for (com.baidu.swan.gamecenter.appmanager.b.b bVar2 : new ArrayList(getEventListeners(str))) {
@@ -22,8 +22,8 @@ public class b {
             if (!eventListeners.contains(bVar)) {
                 eventListeners.add(bVar);
             }
-            if (!this.dBo.containsKey(str)) {
-                this.dBo.put(str, eventListeners);
+            if (!this.dJL.containsKey(str)) {
+                this.dJL.put(str, eventListeners);
             }
         }
     }
@@ -35,13 +35,13 @@ public class b {
     public synchronized void g(String str, com.baidu.swan.gamecenter.appmanager.b.b bVar) {
         if (!TextUtils.isEmpty(str)) {
             if (bVar == null) {
-                this.dBo.remove(str);
+                this.dJL.remove(str);
             } else {
                 List<com.baidu.swan.gamecenter.appmanager.b.b> eventListeners = getEventListeners(str);
                 if (eventListeners.contains(bVar)) {
                     eventListeners.remove(bVar);
                     if (eventListeners.isEmpty()) {
-                        this.dBo.remove(str);
+                        this.dJL.remove(str);
                     }
                 }
             }
@@ -53,7 +53,7 @@ public class b {
         boolean z2 = false;
         synchronized (this) {
             if (!TextUtils.isEmpty(str)) {
-                List<com.baidu.swan.gamecenter.appmanager.b.b> list = this.dBo.get(str);
+                List<com.baidu.swan.gamecenter.appmanager.b.b> list = this.dJL.get(str);
                 if (list != null) {
                     if (!list.isEmpty()) {
                         z = true;
@@ -75,7 +75,7 @@ public class b {
         if (TextUtils.isEmpty(str)) {
             return new ArrayList();
         }
-        List<com.baidu.swan.gamecenter.appmanager.b.b> list = this.dBo.get(str);
+        List<com.baidu.swan.gamecenter.appmanager.b.b> list = this.dJL.get(str);
         return list == null ? new ArrayList() : list;
     }
 }

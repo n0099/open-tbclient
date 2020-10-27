@@ -6,7 +6,7 @@ import io.reactivex.u;
 public abstract class a<T, R> implements io.reactivex.internal.a.b<R>, u<T> {
     protected final u<? super R> actual;
     protected boolean done;
-    protected io.reactivex.internal.a.b<T> oLK;
+    protected io.reactivex.internal.a.b<T> pDh;
     protected io.reactivex.disposables.b s;
     protected int sourceMode;
 
@@ -19,20 +19,20 @@ public abstract class a<T, R> implements io.reactivex.internal.a.b<R>, u<T> {
         if (DisposableHelper.validate(this.s, bVar)) {
             this.s = bVar;
             if (bVar instanceof io.reactivex.internal.a.b) {
-                this.oLK = (io.reactivex.internal.a.b) bVar;
+                this.pDh = (io.reactivex.internal.a.b) bVar;
             }
-            if (emR()) {
+            if (ewR()) {
                 this.actual.onSubscribe(this);
-                emS();
+                ewS();
             }
         }
     }
 
-    protected boolean emR() {
+    protected boolean ewR() {
         return true;
     }
 
-    protected void emS() {
+    protected void ewS() {
     }
 
     @Override // io.reactivex.u
@@ -61,8 +61,8 @@ public abstract class a<T, R> implements io.reactivex.internal.a.b<R>, u<T> {
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public final int OX(int i) {
-        io.reactivex.internal.a.b<T> bVar = this.oLK;
+    public final int QO(int i) {
+        io.reactivex.internal.a.b<T> bVar = this.pDh;
         if (bVar == null || (i & 4) != 0) {
             return 0;
         }
@@ -86,12 +86,12 @@ public abstract class a<T, R> implements io.reactivex.internal.a.b<R>, u<T> {
 
     @Override // io.reactivex.internal.a.g
     public boolean isEmpty() {
-        return this.oLK.isEmpty();
+        return this.pDh.isEmpty();
     }
 
     @Override // io.reactivex.internal.a.g
     public void clear() {
-        this.oLK.clear();
+        this.pDh.clear();
     }
 
     @Override // io.reactivex.internal.a.g

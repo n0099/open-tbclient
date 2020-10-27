@@ -29,7 +29,7 @@ public final class IntrinsicsKt__IntrinsicsJvmKt$createCoroutineUnintercepted$$i
         switch (this.label) {
             case 0:
                 this.label = 1;
-                i.bO(obj);
+                i.bS(obj);
                 IntrinsicsKt__IntrinsicsJvmKt$createCoroutineUnintercepted$$inlined$createCoroutineFromSuspendFunction$IntrinsicsKt__IntrinsicsJvmKt$4 intrinsicsKt__IntrinsicsJvmKt$createCoroutineUnintercepted$$inlined$createCoroutineFromSuspendFunction$IntrinsicsKt__IntrinsicsJvmKt$4 = this;
                 m mVar = this.$this_createCoroutineUnintercepted$inlined;
                 if (mVar == null) {
@@ -38,7 +38,7 @@ public final class IntrinsicsKt__IntrinsicsJvmKt$createCoroutineUnintercepted$$i
                 return ((m) w.k(mVar, 2)).invoke(this.$receiver$inlined, intrinsicsKt__IntrinsicsJvmKt$createCoroutineUnintercepted$$inlined$createCoroutineFromSuspendFunction$IntrinsicsKt__IntrinsicsJvmKt$4);
             case 1:
                 this.label = 2;
-                i.bO(obj);
+                i.bS(obj);
                 return obj;
             default:
                 throw new IllegalStateException("This coroutine had already completed".toString());

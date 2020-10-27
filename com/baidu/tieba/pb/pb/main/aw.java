@@ -10,32 +10,32 @@ import com.baidu.tbadk.core.data.ForumData;
 import com.baidu.tbadk.core.frameworkData.IntentConfig;
 /* loaded from: classes22.dex */
 public class aw {
-    private TbPageContext etO;
-    private boolean lip;
-    private com.baidu.tbadk.core.data.ba liq;
+    private TbPageContext eCn;
+    private boolean luS;
+    private com.baidu.tbadk.core.data.ba luT;
 
     public aw(TbPageContext tbPageContext) {
         Uri uri;
-        this.lip = false;
-        this.etO = tbPageContext;
-        if (this.etO.getPageActivity() != null && this.etO.getPageActivity().getIntent() != null && (uri = (Uri) this.etO.getPageActivity().getIntent().getParcelableExtra(IntentConfig.KEY_URI)) != null) {
+        this.luS = false;
+        this.eCn = tbPageContext;
+        if (this.eCn.getPageActivity() != null && this.eCn.getPageActivity().getIntent() != null && (uri = (Uri) this.eCn.getPageActivity().getIntent().getParcelableExtra(IntentConfig.KEY_URI)) != null) {
             String queryParameter = uri.getQueryParameter("tid");
             uri.getQueryParameter("eqid");
-            this.liq = new com.baidu.tbadk.core.data.ba();
-            this.liq.tid = uri.getQueryParameter("tid");
-            this.liq.enQ = uri.getQueryParameter("eqid");
+            this.luT = new com.baidu.tbadk.core.data.ba();
+            this.luT.tid = uri.getQueryParameter("tid");
+            this.luT.ewo = uri.getQueryParameter("eqid");
             if (!TextUtils.isEmpty(queryParameter) && com.baidu.adp.base.a.lg().getSize() <= 3) {
-                this.lip = true;
+                this.luS = true;
             }
         }
     }
 
     public void h(PbModel pbModel) {
-        if (this.lip && this.liq != null && pbModel != null && pbModel.getPbData() != null && pbModel.getPbData().getForum() != null) {
+        if (this.luS && this.luT != null && pbModel != null && pbModel.getPbData() != null && pbModel.getPbData().getForum() != null) {
             ForumData forum = pbModel.getPbData().getForum();
-            this.liq.firstDir = forum.getFirst_class();
-            this.liq.secondDir = forum.getSecond_class();
-            TbSingleton.getInstance().setPbToHomeUpdateData(this.liq);
+            this.luT.firstDir = forum.getFirst_class();
+            this.luT.secondDir = forum.getSecond_class();
+            TbSingleton.getInstance().setPbToHomeUpdateData(this.luT);
             if (com.baidu.adp.base.a.lg().bq("MainTabActivity")) {
                 MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921455));
             } else {

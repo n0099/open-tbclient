@@ -1,13 +1,13 @@
 package tv.chushou.zues.widget.kpswitch;
 /* loaded from: classes6.dex */
 public interface a {
-    void aaW();
+    void acQ();
 
-    void aaX();
+    void acR();
 
-    boolean bvE();
+    boolean bxx();
 
-    boolean eux();
+    boolean eEv();
 
     boolean isVisible();
 }

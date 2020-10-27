@@ -37,9 +37,9 @@ public class ImmersiveStickySwitch extends a {
     @Override // com.baidu.adp.lib.featureSwitch.a
     protected void changeSettingByType(int i) {
         if (i == 1) {
-            b.blO().putBoolean(SharedPrefConfig.SWITCH_IMMERSIVE_STICKY_STATUS, true);
+            b.bnH().putBoolean(SharedPrefConfig.SWITCH_IMMERSIVE_STICKY_STATUS, true);
         } else {
-            b.blO().putBoolean(SharedPrefConfig.SWITCH_IMMERSIVE_STICKY_STATUS, false);
+            b.bnH().putBoolean(SharedPrefConfig.SWITCH_IMMERSIVE_STICKY_STATUS, false);
         }
     }
 }

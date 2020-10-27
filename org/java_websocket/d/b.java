@@ -3,19 +3,19 @@ package org.java_websocket.d;
 import com.xiaomi.mipush.sdk.Constants;
 /* loaded from: classes11.dex */
 public class b implements a {
-    private final String pcl;
+    private final String pTE;
 
     public b(String str) {
         if (str == null) {
             throw new IllegalArgumentException();
         }
-        this.pcl = str;
+        this.pTE = str;
     }
 
     @Override // org.java_websocket.d.a
-    public boolean XQ(String str) {
+    public boolean ZD(String str) {
         for (String str2 : str.replaceAll(" ", "").split(Constants.ACCEPT_TIME_SEPARATOR_SP)) {
-            if (this.pcl.equals(str2)) {
+            if (this.pTE.equals(str2)) {
                 return true;
             }
         }
@@ -23,18 +23,18 @@ public class b implements a {
     }
 
     @Override // org.java_websocket.d.a
-    public String erq() {
-        return this.pcl;
+    public String eBo() {
+        return this.pTE;
     }
 
     @Override // org.java_websocket.d.a
-    public a err() {
-        return new b(erq());
+    public a eBp() {
+        return new b(eBo());
     }
 
     @Override // org.java_websocket.d.a
     public String toString() {
-        return erq();
+        return eBo();
     }
 
     public boolean equals(Object obj) {
@@ -44,10 +44,10 @@ public class b implements a {
         if (obj == null || getClass() != obj.getClass()) {
             return false;
         }
-        return this.pcl.equals(((b) obj).pcl);
+        return this.pTE.equals(((b) obj).pTE);
     }
 
     public int hashCode() {
-        return this.pcl.hashCode();
+        return this.pTE.hashCode();
     }
 }

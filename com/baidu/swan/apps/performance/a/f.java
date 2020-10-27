@@ -5,19 +5,19 @@ import android.util.Log;
 /* loaded from: classes10.dex */
 public class f implements e {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    private static volatile f cVh;
-    private volatile d cVi;
-    private volatile com.baidu.swan.apps.performance.d.a cVj;
+    private static volatile f ddH;
+    private volatile d ddI;
+    private volatile com.baidu.swan.apps.performance.d.a ddJ;
 
-    public static f azv() {
-        if (cVh == null) {
+    public static f aBp() {
+        if (ddH == null) {
             synchronized (f.class) {
-                if (cVh == null) {
-                    cVh = new f();
+                if (ddH == null) {
+                    ddH = new f();
                 }
             }
         }
-        return cVh;
+        return ddH;
     }
 
     private f() {
@@ -25,16 +25,16 @@ public class f implements e {
     }
 
     private void init() {
-        if (this.cVi == null) {
-            this.cVi = new b();
+        if (this.ddI == null) {
+            this.ddI = new b();
         }
-        if (this.cVj == null) {
-            this.cVj = new com.baidu.swan.apps.performance.d.c();
+        if (this.ddJ == null) {
+            this.ddJ = new com.baidu.swan.apps.performance.d.c();
         }
     }
 
-    public com.baidu.swan.apps.performance.d.a azw() {
-        return this.cVj;
+    public com.baidu.swan.apps.performance.d.a aBq() {
+        return this.ddJ;
     }
 
     @Override // com.baidu.swan.apps.performance.a.e
@@ -43,40 +43,40 @@ public class f implements e {
             if (DEBUG) {
                 Log.d("StartUpInfoMarker", "aiapp start at - " + j);
             }
-            this.cVi.start(j);
-            this.cVj.start(j);
+            this.ddI.start(j);
+            this.ddJ.start(j);
         }
     }
 
     @Override // com.baidu.swan.apps.performance.a.e
-    public void bz(long j) {
+    public void bB(long j) {
         if (isOn()) {
             if (DEBUG) {
                 Log.d("StartUpInfoMarker", "aiapp start cost at - " + j);
             }
-            this.cVi.bz(j);
-            this.cVj.bz(j);
-            bC(j);
+            this.ddI.bB(j);
+            this.ddJ.bB(j);
+            bE(j);
         }
     }
 
-    private void bC(long j) {
-        com.baidu.swan.apps.am.e.doz.aa(Long.valueOf(j));
+    private void bE(long j) {
+        com.baidu.swan.apps.am.e.dwZ.aa(Long.valueOf(j));
     }
 
     public boolean isOn() {
-        return azx();
+        return aBr();
     }
 
-    private boolean azx() {
+    private boolean aBr() {
         if (DEBUG) {
             return true;
         }
-        com.baidu.swan.apps.runtime.e aDb = com.baidu.swan.apps.runtime.e.aDb();
-        if (aDb == null) {
+        com.baidu.swan.apps.runtime.e aEV = com.baidu.swan.apps.runtime.e.aEV();
+        if (aEV == null) {
             return false;
         }
-        String appId = aDb.getAppId();
-        return (TextUtils.isEmpty(appId) || com.baidu.swan.apps.f.a.ls(appId) == 0) ? false : true;
+        String appId = aEV.getAppId();
+        return (TextUtils.isEmpty(appId) || com.baidu.swan.apps.f.a.lL(appId) == 0) ? false : true;
     }
 }

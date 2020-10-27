@@ -6,15 +6,15 @@ import org.webrtc.VideoFrame;
 import org.webrtc.VideoSink;
 /* loaded from: classes9.dex */
 public abstract class j implements VideoSink {
-    public boolean bXA = false;
-    private BaiduRtcRoom.b bXB;
+    public boolean cfZ = false;
+    private BaiduRtcRoom.b cga;
     protected long mUserId;
 
     public j(BaiduRtcRoom.b bVar, long j) {
         this.mUserId = 0L;
-        this.bXB = null;
+        this.cga = null;
         this.mUserId = j;
-        this.bXB = bVar;
+        this.cga = bVar;
     }
 
     public abstract void clearImage();
@@ -23,8 +23,8 @@ public abstract class j implements VideoSink {
 
     @Override // org.webrtc.VideoSink
     public void onFrame(VideoFrame videoFrame) {
-        if (this.bXB != null) {
-            this.bXB.a(l.a(videoFrame), this.mUserId);
+        if (this.cga != null) {
+            this.cga.a(l.a(videoFrame), this.mUserId);
         }
     }
 

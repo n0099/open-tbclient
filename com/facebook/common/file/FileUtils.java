@@ -6,7 +6,7 @@ import java.io.FileNotFoundException;
 import java.io.IOException;
 /* loaded from: classes6.dex */
 public class FileUtils {
-    public static void as(File file) throws CreateDirectoryException {
+    public static void at(File file) throws CreateDirectoryException {
         if (file.exists()) {
             if (!file.isDirectory()) {
                 if (!file.delete()) {

@@ -17,12 +17,12 @@ import tbclient.User;
 /* loaded from: classes22.dex */
 public class d implements j {
     public boolean hasMore;
+    public int iKI;
+    public String iKJ;
+    public String iKK;
+    public boolean iKL;
+    public SportScheduleInfo iKM;
     public ItemInfo itemInfo;
-    public int iym;
-    public String iyn;
-    public String iyo;
-    public boolean iyp;
-    public SportScheduleInfo iyq;
     public HashMap<String, MetaData> userMap = new HashMap<>();
     public ArrayList<q> threadList = new ArrayList<>();
     public int sortType = 1;
@@ -47,22 +47,22 @@ public class d implements j {
                     if (threadInfo != null) {
                         bw bwVar = new bw();
                         bwVar.setUserMap(this.userMap);
-                        bwVar.esX = true;
+                        bwVar.eBx = true;
                         bwVar.a(threadInfo);
-                        bwVar.bjf();
-                        bwVar.bhJ();
+                        bwVar.bkY();
+                        bwVar.bjC();
                         this.threadList.add(bwVar);
                     }
                 }
             }
-            com.baidu.tbadk.a.a.a.aN(this.threadList);
-            this.iym = dataRes.new_thread_num.intValue();
+            com.baidu.tbadk.a.a.a.aX(this.threadList);
+            this.iKI = dataRes.new_thread_num.intValue();
             if (dataRes.sport_head_info != null) {
-                this.iyn = dataRes.sport_head_info.head_url;
-                this.iyo = dataRes.sport_head_info.jump_url;
-                this.iyp = dataRes.sport_head_info.is_ad.intValue() == 1;
+                this.iKJ = dataRes.sport_head_info.head_url;
+                this.iKK = dataRes.sport_head_info.jump_url;
+                this.iKL = dataRes.sport_head_info.is_ad.intValue() == 1;
             }
-            this.iyq = dataRes.sport_schedule_info;
+            this.iKM = dataRes.sport_schedule_info;
             this.sortType = dataRes.sort_type.intValue();
             this.itemInfo = dataRes.item_info;
         }

@@ -59,91 +59,91 @@ import org.webrtc.VideoSink;
 import org.webrtc.audio.JavaAudioDeviceModule;
 /* loaded from: classes9.dex */
 public class a extends BaiduRtcRoom implements PeerConnectionClient.b, c {
-    public static boolean bWy = false;
-    public static int caA = 30;
-    private static ConcurrentHashMap<String, String> caB = new ConcurrentHashMap<>();
-    public static int caC = 1;
-    static int caz = -1;
-    String bYn;
-    private int caD;
-    private Boolean caH;
-    private com.baidu.cloudbase.a.a caI;
-    com.baidu.rtc.c.a caL;
-    C0299a caQ;
-    private boolean caY;
-    private VideoSink cbB;
-    private o cbC;
-    private EglBase cbI;
-    d cbJ;
-    BaiduRtcRoom.RtcLiveTransferMode cbd;
-    private Context cbv;
+    public static boolean ceX = false;
+    static int ciY = -1;
+    public static int ciZ = 30;
+    private static ConcurrentHashMap<String, String> cja = new ConcurrentHashMap<>();
+    public static int cjb = 1;
+    BaiduRtcRoom.RtcLiveTransferMode cjC;
+    private Context cjU;
+    private int cjc;
+    private Boolean cjg;
+    private com.baidu.cloudbase.a.a cjh;
+    com.baidu.rtc.c.a cjk;
+    C0313a cjp;
+    private boolean cjx;
+    private VideoSink cka;
+    private o ckb;
+    private EglBase ckh;
+    d cki;
     String mAppId;
     private WeakReference<Context> mContext;
     private String mCpuType;
     String mDisplayName;
+    String mRoomName;
     long mUserId;
-    private boolean caV = false;
-    private boolean caU = false;
-    private boolean caM = false;
-    private volatile PeerConnectionClient cbG = null;
-    private PeerConnectionClient.c bWC = null;
-    private RTCVideoView cbf = null;
-    private RTCVideoView[] cbn = null;
-    private VideoCapturer bWL = null;
-    private String cba = "wss://rtc2.exp.bcelive.com/janus";
-    private int cbr = 0;
-    private boolean cbz = true;
-    private boolean[] caP = new boolean[caA];
+    private boolean cju = false;
+    private boolean cjt = false;
+    private boolean cjl = false;
+    private volatile PeerConnectionClient ckf = null;
+    private PeerConnectionClient.c cfb = null;
+    private RTCVideoView cjE = null;
+    private RTCVideoView[] cjM = null;
+    private VideoCapturer cfk = null;
+    private String cjz = "wss://rtc2.exp.bcelive.com/janus";
+    private int cjQ = 0;
+    private boolean cjY = true;
+    private boolean[] cjo = new boolean[ciZ];
     private AudioManager audioManager = null;
-    private int cbm = -1;
-    BaiduRtcRoom.a caJ = null;
-    g.d cbs = null;
-    g.c cbo = null;
-    g.b cbg = null;
-    private ConcurrentHashMap<Long, j> cby = new ConcurrentHashMap<>();
-    private IdentityHashMap<Long, j> cbj = new IdentityHashMap<>();
-    private boolean cbA = false;
-    int caK = caz;
-    private RtcParameterSettings cbi = new RtcParameterSettings();
+    private int cjL = -1;
+    BaiduRtcRoom.a cji = null;
+    g.d cjR = null;
+    g.c cjN = null;
+    g.b cjF = null;
+    private ConcurrentHashMap<Long, j> cjX = new ConcurrentHashMap<>();
+    private IdentityHashMap<Long, j> cjI = new IdentityHashMap<>();
+    private boolean cjZ = false;
+    int cjj = ciY;
+    private RtcParameterSettings cjH = new RtcParameterSettings();
     private Handler mHandler = new Handler(Looper.getMainLooper());
-    BigInteger cbk = null;
-    volatile long cbc = 0;
-    volatile long cbb = 0;
-    ConcurrentHashMap<BigInteger, BigInteger> caN = new ConcurrentHashMap<>();
-    boolean cbD = true;
-    double cbF = 200.0d;
-    boolean caX = true;
-    boolean caW = false;
-    String cbl = "online";
-    private ConcurrentHashMap<BigInteger, com.baidu.rtc.c.b> caO = new ConcurrentHashMap<>();
-    boolean cbE = false;
-    boolean caR = true;
-    boolean caS = true;
-    boolean caT = false;
-    Boolean caE = false;
-    Boolean caF = false;
-    String cbe = "";
-    private ConcurrentHashMap<BigInteger, b> cbq = new ConcurrentHashMap<>();
-    private Thread cbw = null;
-    private boolean caZ = false;
-    private String cbx = "";
-    private com.baidu.cloudbase.b.c cbu = new c.a() { // from class: com.baidu.rtc.b.a.1
+    BigInteger cjJ = null;
+    volatile long cjB = 0;
+    volatile long cjA = 0;
+    ConcurrentHashMap<BigInteger, BigInteger> cjm = new ConcurrentHashMap<>();
+    boolean ckc = true;
+    double cke = 200.0d;
+    boolean cjw = true;
+    boolean cjv = false;
+    String cjK = "online";
+    private ConcurrentHashMap<BigInteger, com.baidu.rtc.c.b> cjn = new ConcurrentHashMap<>();
+    boolean ckd = false;
+    boolean cjq = true;
+    boolean cjr = true;
+    boolean cjs = false;
+    Boolean cjd = false;
+    Boolean cje = false;
+    String cjD = "";
+    private ConcurrentHashMap<BigInteger, b> cjP = new ConcurrentHashMap<>();
+    private Thread cjV = null;
+    private boolean cjy = false;
+    private String cjW = "";
+    private com.baidu.cloudbase.b.c cjT = new c.a() { // from class: com.baidu.rtc.b.a.1
         @Override // com.baidu.cloudbase.b.c
         public void V(String str, String str2) {
             Log.d("BaiduRtcRoomImp", "Be successful to download so!");
-            String str3 = com.baidu.cloudbase.b.b.Z(a.this.cbv) + File.separator + "libjingle_peerconnection_so.so";
+            String str3 = com.baidu.cloudbase.b.b.Z(a.this.cjU) + File.separator + "libjingle_peerconnection_so.so";
             Log.d("BaiduRtcRoomImp", "RTC so path is: " + str3);
-            a.this.caZ = true;
-            if (com.baidu.cloudbase.b.a.aa(a.this.cbv).dv(com.baidu.cloudbase.b.b.Z(a.this.cbv))) {
+            a.this.cjy = true;
+            if (com.baidu.cloudbase.b.a.aa(a.this.cjU).dv(com.baidu.cloudbase.b.b.Z(a.this.cjU))) {
                 try {
                     System.load(str3);
                     Log.d("BaiduRtcRoomImp", "loaded so, and start to login room.");
-                    a.this.loginRtcRoomWithRoomName(a.this.bYn, a.this.mUserId, a.this.mDisplayName, a.this.caS, a.this.caR);
+                    a.this.loginRtcRoomWithRoomName(a.this.mRoomName, a.this.mUserId, a.this.mDisplayName, a.this.cjr, a.this.cjq);
                     return;
                 } catch (Throwable th) {
                     Log.d("BaiduRtcRoomImp", "Failed call System.load to load so! Error: " + th);
-                    if (a.this.caJ != null) {
-                        a.this.caJ.onErrorInfoUpdate(401);
+                    if (a.this.cji != null) {
+                        a.this.cji.onErrorInfoUpdate(401);
                         return;
                     }
                     return;
@@ -154,11 +154,11 @@ public class a extends BaiduRtcRoom implements PeerConnectionClient.b, c {
             try {
                 System.load(str3);
                 Log.d("BaiduRtcRoomImp", "loaded so with full path, and start to login room.");
-                a.this.loginRtcRoomWithRoomName(a.this.bYn, a.this.mUserId, a.this.mDisplayName, a.this.caS, a.this.caR);
+                a.this.loginRtcRoomWithRoomName(a.this.mRoomName, a.this.mUserId, a.this.mDisplayName, a.this.cjr, a.this.cjq);
             } catch (Throwable th2) {
                 Log.d("BaiduRtcRoomImp", "Failed to load so with full path! Error: " + th2);
-                if (a.this.caJ != null) {
-                    a.this.caJ.onErrorInfoUpdate(401);
+                if (a.this.cji != null) {
+                    a.this.cji.onErrorInfoUpdate(401);
                 }
             }
         }
@@ -166,72 +166,72 @@ public class a extends BaiduRtcRoom implements PeerConnectionClient.b, c {
         @Override // com.baidu.cloudbase.b.c
         public void b(String str, int i, String str2) {
             Log.d("BaiduRtcRoomImp", "Failed to download so.");
-            if (a.this.caJ != null) {
-                a.this.caJ.onErrorInfoUpdate(400);
+            if (a.this.cji != null) {
+                a.this.cji.onErrorInfoUpdate(400);
             }
         }
     };
-    JavaAudioDeviceModule.SamplesReadyCallback cbt = new JavaAudioDeviceModule.SamplesReadyCallback() { // from class: com.baidu.rtc.b.a.17
+    JavaAudioDeviceModule.SamplesReadyCallback cjS = new JavaAudioDeviceModule.SamplesReadyCallback() { // from class: com.baidu.rtc.b.a.17
         @Override // org.webrtc.audio.JavaAudioDeviceModule.SamplesReadyCallback
         public void onWebRtcAudioRecordSamplesReady(JavaAudioDeviceModule.AudioSamples audioSamples) {
             if (audioSamples == null || audioSamples.getData() == null || audioSamples.getData().length <= 0) {
                 return;
             }
-            if (a.this.cbs != null) {
-                a.this.cbs.a(new g(audioSamples.getAudioFormat(), audioSamples.getChannelCount(), audioSamples.getSampleRate(), audioSamples.getData()));
+            if (a.this.cjR != null) {
+                a.this.cjR.a(new g(audioSamples.getAudioFormat(), audioSamples.getChannelCount(), audioSamples.getSampleRate(), audioSamples.getData()));
             }
-            if (!a.this.caM || a.this.caU) {
+            if (!a.this.cjl || a.this.cjt) {
                 return;
             }
             MediaCodec.BufferInfo bufferInfo = new MediaCodec.BufferInfo();
             bufferInfo.size = audioSamples.getData().length;
             bufferInfo.offset = 0;
-            a.this.caI.a(ByteBuffer.wrap(audioSamples.getData()), bufferInfo);
+            a.this.cjh.a(ByteBuffer.wrap(audioSamples.getData()), bufferInfo);
         }
     };
-    JavaAudioDeviceModule.RemoteSamplesReadyCallback cbp = new JavaAudioDeviceModule.RemoteSamplesReadyCallback() { // from class: com.baidu.rtc.b.a.18
+    JavaAudioDeviceModule.RemoteSamplesReadyCallback cjO = new JavaAudioDeviceModule.RemoteSamplesReadyCallback() { // from class: com.baidu.rtc.b.a.18
         @Override // org.webrtc.audio.JavaAudioDeviceModule.RemoteSamplesReadyCallback
         public void onWebRtcAudioRemoteSamplesReady(JavaAudioDeviceModule.AudioSamples audioSamples) {
             if (audioSamples == null) {
                 return;
             }
-            if (a.this.cbo != null) {
-                a.this.cbo.c(new g(audioSamples.getAudioFormat(), audioSamples.getChannelCount(), audioSamples.getSampleRate(), audioSamples.getData()));
+            if (a.this.cjN != null) {
+                a.this.cjN.c(new g(audioSamples.getAudioFormat(), audioSamples.getChannelCount(), audioSamples.getSampleRate(), audioSamples.getData()));
             }
-            if (!a.this.caM || a.this.cbm < 0) {
+            if (!a.this.cjl || a.this.cjL < 0) {
                 return;
             }
             MediaCodec.BufferInfo bufferInfo = new MediaCodec.BufferInfo();
             bufferInfo.size = audioSamples.getData().length;
             bufferInfo.offset = 0;
-            a.this.caI.a(ByteBuffer.wrap(audioSamples.getData()), bufferInfo, a.this.cbm);
+            a.this.cjh.a(ByteBuffer.wrap(audioSamples.getData()), bufferInfo, a.this.cjL);
         }
     };
-    g.a caG = new g.a() { // from class: com.baidu.rtc.b.a.19
+    g.a cjf = new g.a() { // from class: com.baidu.rtc.b.a.19
     };
-    private com.baidu.cloudbase.c.a cbh = new com.baidu.cloudbase.c.a() { // from class: com.baidu.rtc.b.a.20
+    private com.baidu.cloudbase.c.a cjG = new com.baidu.cloudbase.c.a() { // from class: com.baidu.rtc.b.a.20
         @Override // com.baidu.cloudbase.c.a
         public void onFilteredFrameUpdate(byte[] bArr, MediaCodec.BufferInfo bufferInfo) {
-            if (a.this.cbg != null) {
-                a.this.cbg.b(new g(2, a.this.cbi.AudioChannel, a.this.cbi.AudioFrequency, bArr));
+            if (a.this.cjF != null) {
+                a.this.cjF.b(new g(2, a.this.cjH.AudioChannel, a.this.cjH.AudioFrequency, bArr));
             }
         }
     };
-    private Runnable cbH = new Runnable() { // from class: com.baidu.rtc.b.a.14
+    private Runnable ckg = new Runnable() { // from class: com.baidu.rtc.b.a.14
         @Override // java.lang.Runnable
         public void run() {
-            if (a.this.cbJ != null && (a.this.caX || a.this.caW)) {
-                a.this.aap();
+            if (a.this.cki != null && (a.this.cjw || a.this.cjv)) {
+                a.this.acj();
             }
-            a.this.mHandler.postDelayed(a.this.cbH, 300000L);
+            a.this.mHandler.postDelayed(a.this.ckg, 300000L);
         }
     };
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* renamed from: com.baidu.rtc.b.a$a  reason: collision with other inner class name */
     /* loaded from: classes9.dex */
-    public class C0299a extends BroadcastReceiver {
-        C0299a() {
+    public class C0313a extends BroadcastReceiver {
+        C0313a() {
         }
 
         @Override // android.content.BroadcastReceiver
@@ -248,7 +248,7 @@ public class a extends BaiduRtcRoom implements PeerConnectionClient.b, c {
                         a.this.mHandler.postDelayed(new Runnable() { // from class: com.baidu.rtc.b.a.a.1
                             @Override // java.lang.Runnable
                             public void run() {
-                                if (s == a.this.caD) {
+                                if (s == a.this.cjc) {
                                     a.this.c((Boolean) true);
                                     a.this.a(BaiduRtcRoom.RtcSoundMode.RTC_SOUND_MODE_EAR);
                                 }
@@ -287,55 +287,55 @@ public class a extends BaiduRtcRoom implements PeerConnectionClient.b, c {
 
     /* loaded from: classes9.dex */
     public static class b {
-        public BigInteger bVT;
-        public Boolean cbT;
-        public Boolean cbU;
+        public BigInteger ces;
+        public Boolean cks;
+        public Boolean ckt;
         public String nickName;
         public long userId;
         public int volume = -1;
 
         public b(BigInteger bigInteger, long j, Boolean bool, Boolean bool2, String str) {
             this.nickName = "";
-            this.bVT = bigInteger;
+            this.ces = bigInteger;
             this.userId = j;
-            this.cbT = bool2;
-            this.cbU = bool;
+            this.cks = bool2;
+            this.ckt = bool;
             this.nickName = str;
         }
     }
 
     public a(Context context, String str, String str2, String str3, boolean z) {
         this.mContext = null;
-        this.cbC = null;
-        this.cbI = null;
-        this.caQ = null;
-        this.caY = false;
+        this.ckb = null;
+        this.ckh = null;
+        this.cjp = null;
+        this.cjx = false;
         this.mCpuType = "armeabi-v7a";
-        this.cbv = null;
-        this.caY = z;
-        this.cbv = context;
+        this.cjU = null;
+        this.cjx = z;
+        this.cjU = context;
         this.mContext = new WeakReference<>(context);
         this.mCpuType = str3;
-        this.cbC = new o();
-        this.cbC.setAppId(str);
-        this.cbC.jt(str2);
-        this.cbC.js("BRTC.Android.SDK V" + version());
+        this.ckb = new o();
+        this.ckb.setAppId(str);
+        this.ckb.jM(str2);
+        this.ckb.jL("BRTC.Android.SDK V" + version());
         this.mAppId = str;
-        this.cbC.a(this);
-        this.cbI = EglBase_CC.create();
-        for (int i = 0; i < this.caP.length; i++) {
-            this.caP[i] = false;
+        this.ckb.a(this);
+        this.ckh = EglBase_CC.create();
+        for (int i = 0; i < this.cjo.length; i++) {
+            this.cjo[i] = false;
         }
         AudioManager audioManager = (AudioManager) this.mContext.get().getSystemService(MediaStreamTrack.AUDIO_TRACK_KIND);
         audioManager.setSpeakerphoneOn(false);
-        if (this.caX || this.caW) {
-            this.caL = new com.baidu.rtc.c.a(context);
-            this.cbJ = d.aaE();
+        if (this.cjw || this.cjv) {
+            this.cjk = new com.baidu.rtc.c.a(context);
+            this.cki = d.acy();
         }
-        this.caD = 0;
-        this.caH = false;
+        this.cjc = 0;
+        this.cjg = false;
         audioManager = audioManager == null ? (AudioManager) this.mContext.get().getSystemService(MediaStreamTrack.AUDIO_TRACK_KIND) : audioManager;
-        this.caQ = new C0299a();
+        this.cjp = new C0313a();
         IntentFilter intentFilter = new IntentFilter();
         intentFilter.addAction("android.intent.action.HEADSET_PLUG");
         intentFilter.addAction("android.bluetooth.headset.profile.action.CONNECTION_STATE_CHANGED");
@@ -351,11 +351,11 @@ public class a extends BaiduRtcRoom implements PeerConnectionClient.b, c {
         } catch (Exception e) {
             e.printStackTrace();
         }
-        this.mContext.get().registerReceiver(this.caQ, intentFilter);
+        this.mContext.get().registerReceiver(this.cjp, intentFilter);
         if (isHeadsetOn(this.mContext.get())) {
             return;
         }
-        dJ(true);
+        presetLoudSpeaker(true);
         Log.i("BaiduRtcRoomImp", "Headset No");
     }
 
@@ -364,16 +364,16 @@ public class a extends BaiduRtcRoom implements PeerConnectionClient.b, c {
         CameraVideoCapturer createCapturer2;
         CameraVideoCapturer createCapturer3;
         String[] deviceNames = cameraEnumerator.getDeviceNames();
-        if (this.caK == caz || this.caK >= deviceNames.length || (createCapturer3 = cameraEnumerator.createCapturer(deviceNames[this.caK], null)) == null) {
+        if (this.cjj == ciY || this.cjj >= deviceNames.length || (createCapturer3 = cameraEnumerator.createCapturer(deviceNames[this.cjj], null)) == null) {
             Log.d("BaiduRtcRoomImp", "Looking for front facing cameras.");
             for (String str : deviceNames) {
                 if (cameraEnumerator.isFrontFacing(str)) {
                     Log.d("BaiduRtcRoomImp", "Creating front facing camera capturer.");
-                    if (!caB.containsValue(str) && (createCapturer2 = cameraEnumerator.createCapturer(str, null)) != null) {
-                        caB.put(toString(), str);
-                        this.cbA = true;
-                        if (this.cbf != null) {
-                            this.cbf.setMirror(true);
+                    if (!cja.containsValue(str) && (createCapturer2 = cameraEnumerator.createCapturer(str, null)) != null) {
+                        cja.put(toString(), str);
+                        this.cjZ = true;
+                        if (this.cjE != null) {
+                            this.cjE.setMirror(true);
                             return createCapturer2;
                         }
                         return createCapturer2;
@@ -384,9 +384,9 @@ public class a extends BaiduRtcRoom implements PeerConnectionClient.b, c {
             for (String str2 : deviceNames) {
                 if (!cameraEnumerator.isFrontFacing(str2)) {
                     Log.d("BaiduRtcRoomImp", "Creating other camera capturer.");
-                    if (!caB.containsValue(str2) && (createCapturer = cameraEnumerator.createCapturer(str2, null)) != null) {
-                        caB.put(toString(), str2);
-                        this.cbA = false;
+                    if (!cja.containsValue(str2) && (createCapturer = cameraEnumerator.createCapturer(str2, null)) != null) {
+                        cja.put(toString(), str2);
+                        this.cjZ = false;
                         return createCapturer;
                     }
                 }
@@ -401,24 +401,24 @@ public class a extends BaiduRtcRoom implements PeerConnectionClient.b, c {
         BigInteger i;
         StatsReport.Value[] valueArr;
         StatsReport.Value[] valueArr2;
-        if (this.cbC == null) {
+        if (this.ckb == null) {
             return;
         }
-        if (bigInteger == this.cbk) {
+        if (bigInteger == this.cjJ) {
             i = BigInteger.valueOf(this.mUserId);
         } else {
-            i = this.cbC.i(bigInteger);
+            i = this.ckb.i(bigInteger);
             if (i == null) {
                 return;
             }
         }
-        b bVar = this.cbq.get(i);
-        if (bVar == null && this.cbG != null) {
-            this.cbG.a(false, 0, bigInteger, PeerConnectionClient.StatsEventsType.GET_AUDIOLEVEL_EVENT);
+        b bVar = this.cjP.get(i);
+        if (bVar == null && this.ckf != null) {
+            this.ckf.a(false, 0, bigInteger, PeerConnectionClient.StatsEventsType.GET_AUDIOLEVEL_EVENT);
             return;
         }
         for (StatsReport statsReport : statsReportArr) {
-            if (bigInteger == this.cbk) {
+            if (bigInteger == this.cjJ) {
                 if (statsReport.type.equals("ssrc") && statsReport.id.contains("ssrc") && statsReport.id.contains(UbcStatConstant.ContentType.UBC_TYPE_IM_SEND)) {
                     for (StatsReport.Value value : statsReport.values) {
                         if (value.name.contains("audioInputLevel")) {
@@ -444,31 +444,31 @@ public class a extends BaiduRtcRoom implements PeerConnectionClient.b, c {
         }
     }
 
-    private void aQ(long j) {
+    private void aS(long j) {
         synchronized (this) {
-            if (this.cby.containsKey(Long.valueOf(j))) {
-                this.cbj.put(Long.valueOf(j), this.cby.get(Long.valueOf(j)));
-                this.cby.remove(Long.valueOf(j));
+            if (this.cjX.containsKey(Long.valueOf(j))) {
+                this.cjI.put(Long.valueOf(j), this.cjX.get(Long.valueOf(j)));
+                this.cjX.remove(Long.valueOf(j));
             }
         }
     }
 
-    private boolean aak() {
+    private boolean ace() {
         return !Build.MODEL.contains("SABRESD-MX6DQ");
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public VideoCapturer aal() {
+    public VideoCapturer acf() {
         VideoCapturer a2;
-        if (this.bWL != null) {
-            return this.bWL;
+        if (this.cfk != null) {
+            return this.cfk;
         }
-        if (aaq()) {
+        if (ack()) {
             Log.d("BaiduRtcRoomImp", "Creating capturer using camera2 API.");
             a2 = a(new Camera2Enumerator(this.mContext.get()));
         } else {
             Log.d("BaiduRtcRoomImp", "Creating capturer using camera1 API.");
-            a2 = a(new Camera1Enumerator(aak()));
+            a2 = a(new Camera1Enumerator(ace()));
         }
         if (a2 == null) {
             Log.e("BaiduRtcRoomImp", "Failed to open camera");
@@ -477,28 +477,28 @@ public class a extends BaiduRtcRoom implements PeerConnectionClient.b, c {
         return a2;
     }
 
-    private void aam() {
-        if (this.cby.isEmpty()) {
+    private void acg() {
+        if (this.cjX.isEmpty()) {
             return;
         }
-        for (Long l : this.cby.keySet()) {
-            j jVar = this.cby.get(l);
+        for (Long l : this.cjX.keySet()) {
+            j jVar = this.cjX.get(l);
             if (jVar != null) {
                 if (jVar.getSurface() != null) {
                     jVar.releaseSurface();
                 }
                 jVar.release();
             }
-            this.cby.remove(l);
+            this.cjX.remove(l);
         }
     }
 
-    private void aan() {
+    private void ach() {
         synchronized (this) {
-            if (this.cbj.isEmpty()) {
+            if (this.cjI.isEmpty()) {
                 return;
             }
-            for (j jVar : this.cbj.values()) {
+            for (j jVar : this.cjI.values()) {
                 if (jVar != null) {
                     if (jVar.getSurface() != null) {
                         jVar.releaseSurface();
@@ -506,19 +506,19 @@ public class a extends BaiduRtcRoom implements PeerConnectionClient.b, c {
                     jVar.release();
                 }
             }
-            this.cbj.clear();
+            this.cjI.clear();
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void aao() {
+    public void aci() {
         com.baidu.rtc.c.b bVar;
-        if (this.cbC == null) {
+        if (this.ckb == null) {
             return;
         }
         HashMap hashMap = new HashMap();
         boolean z = true;
-        com.baidu.rtc.c.b bVar2 = this.caO.get(this.cbk);
+        com.baidu.rtc.c.b bVar2 = this.cjn.get(this.cjJ);
         if (bVar2 == null) {
             z = false;
         } else {
@@ -530,12 +530,12 @@ public class a extends BaiduRtcRoom implements PeerConnectionClient.b, c {
             JSONObject jSONObject2 = new JSONObject();
             jSONObject2.put("duration", 2);
             JSONObject jSONObject3 = new JSONObject();
-            if (this.caL != null) {
-                jSONObject3.put("sysCpuUsage", this.caL.aay());
+            if (this.cjk != null) {
+                jSONObject3.put("sysCpuUsage", this.cjk.acs());
             }
             jSONObject3.put("appCpuUsage", 0);
             jSONObject2.put("resourceUsageInfo", jSONObject3);
-            if (this.caX) {
+            if (this.cjw) {
                 JSONObject jSONObject4 = new JSONObject();
                 if (z2) {
                     jSONObject4.put("bitrate", hashMap.get("bitrate_s"));
@@ -544,7 +544,7 @@ public class a extends BaiduRtcRoom implements PeerConnectionClient.b, c {
                     if (bVar2 == null) {
                         jSONObject4.put("resolution", "");
                     } else {
-                        jSONObject4.put("resolution", bVar2.aaC());
+                        jSONObject4.put("resolution", bVar2.acw());
                     }
                 } else {
                     jSONObject4.put("bitrate", 0);
@@ -554,19 +554,19 @@ public class a extends BaiduRtcRoom implements PeerConnectionClient.b, c {
                 }
                 jSONObject2.put("senderQualityInfo", jSONObject4);
             }
-            if (this.caW) {
+            if (this.cjv) {
                 JSONArray jSONArray = new JSONArray();
-                for (BigInteger bigInteger : this.caO.keySet()) {
-                    if (bigInteger != this.cbk && (bVar = this.caO.get(bigInteger)) != null) {
+                for (BigInteger bigInteger : this.cjn.keySet()) {
+                    if (bigInteger != this.cjJ && (bVar = this.cjn.get(bigInteger)) != null) {
                         HashMap hashMap2 = new HashMap();
                         bVar.t(hashMap2);
                         if (hashMap2.size() != 0) {
                             JSONObject jSONObject5 = new JSONObject();
-                            jSONObject5.put("feedId", this.cbC.i(bigInteger));
+                            jSONObject5.put("feedId", this.ckb.i(bigInteger));
                             jSONObject5.put("bitrate", hashMap2.get("bitrate_r"));
                             jSONObject5.put("packetloss", hashMap2.get("packetloss_r"));
                             jSONObject5.put("fps", hashMap2.get("fps_r"));
-                            jSONObject5.put("resolution", bVar.aaB());
+                            jSONObject5.put("resolution", bVar.acv());
                             jSONArray.put(jSONObject5);
                         }
                     }
@@ -575,21 +575,21 @@ public class a extends BaiduRtcRoom implements PeerConnectionClient.b, c {
             }
             JSONObject jSONObject6 = new JSONObject();
             jSONObject6.put("communicationQualityInfo", jSONObject2);
-            jSONObject.put("env", this.cbl);
+            jSONObject.put("env", this.cjK);
             jSONObject.put("appId", this.mAppId);
-            jSONObject.put("roomId", this.cbC.getRoomId());
+            jSONObject.put("roomId", this.ckb.getRoomId());
             jSONObject.put("timestamp", System.currentTimeMillis());
             jSONObject.put(TbEnum.SystemMessage.KEY_USER_ID, this.mUserId);
             jSONObject.put("message", jSONObject6);
         } catch (JSONException e) {
             Log.e("BaiduRtcRoomImp", "Caught error on reportCommunicationQualityInfo: " + e);
         }
-        this.cbJ.H(jSONObject.toString(), 2);
+        this.cki.H(jSONObject.toString(), 2);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void aap() {
-        if (this.cbC == null) {
+    public void acj() {
+        if (this.ckb == null) {
             return;
         }
         JSONObject jSONObject = new JSONObject();
@@ -600,26 +600,26 @@ public class a extends BaiduRtcRoom implements PeerConnectionClient.b, c {
             jSONObject2.put(Config.DEVICE_PART, d.getDeviceModel());
             JSONObject jSONObject3 = new JSONObject();
             jSONObject3.put("deviceInfo", jSONObject2);
-            jSONObject.put("env", this.cbl);
+            jSONObject.put("env", this.cjK);
             jSONObject.put("appId", this.mAppId);
-            jSONObject.put("roomId", this.cbC.getRoomId());
+            jSONObject.put("roomId", this.ckb.getRoomId());
             jSONObject.put("timestamp", System.currentTimeMillis());
             jSONObject.put(TbEnum.SystemMessage.KEY_USER_ID, this.mUserId);
             jSONObject.put("message", jSONObject3);
         } catch (JSONException e) {
             Log.e("BaiduRtcRoomImp", "Caught error on reportDeviceInfo: " + e);
         }
-        this.cbJ.H(jSONObject.toString(), 0);
+        this.cki.H(jSONObject.toString(), 0);
     }
 
-    private boolean aaq() {
-        Camera2Enumerator.disableExtraCamera(this.cbi.bXK);
+    private boolean ack() {
+        Camera2Enumerator.disableExtraCamera(this.cjH.cgj);
         return Camera2Enumerator.isSupported(this.mContext.get());
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public int c(Boolean bool) {
-        if (this.caH == bool) {
+        if (this.cjg == bool) {
             return 0;
         }
         if (this.audioManager == null) {
@@ -635,7 +635,7 @@ public class a extends BaiduRtcRoom implements PeerConnectionClient.b, c {
             }
             this.audioManager.setBluetoothScoOn(bool.booleanValue());
             this.audioManager.stopBluetoothSco();
-            this.caH = bool;
+            this.cjg = bool;
             return 0;
         } catch (Exception e) {
             Log.e("BaiduRtcRoomImp", "set bluetooth sco fail: " + e.getMessage());
@@ -643,8 +643,8 @@ public class a extends BaiduRtcRoom implements PeerConnectionClient.b, c {
         }
     }
 
-    public static void du(boolean z) {
-        bWy = z;
+    public static void dI(boolean z) {
+        ceX = z;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -668,8 +668,8 @@ public class a extends BaiduRtcRoom implements PeerConnectionClient.b, c {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void ju(String str) {
-        if ((this.caX || this.caW) && this.cbC != null) {
+    public void jN(String str) {
+        if ((this.cjw || this.cjv) && this.ckb != null) {
             JSONObject jSONObject = new JSONObject();
             try {
                 JSONObject jSONObject2 = new JSONObject();
@@ -677,16 +677,16 @@ public class a extends BaiduRtcRoom implements PeerConnectionClient.b, c {
                 jSONObject2.put("eventDescription", str);
                 JSONObject jSONObject3 = new JSONObject();
                 jSONObject3.put("roomEvent", jSONObject2);
-                jSONObject.put("env", this.cbl);
+                jSONObject.put("env", this.cjK);
                 jSONObject.put("appId", this.mAppId);
-                jSONObject.put("roomId", this.cbC.getRoomId());
+                jSONObject.put("roomId", this.ckb.getRoomId());
                 jSONObject.put("timestamp", System.currentTimeMillis());
                 jSONObject.put(TbEnum.SystemMessage.KEY_USER_ID, this.mUserId);
                 jSONObject.put("message", jSONObject3);
             } catch (JSONException e) {
                 Log.e("BaiduRtcRoomImp", "Caught error on reportRoomEventInfo: " + e);
             }
-            this.cbJ.H(jSONObject.toString(), 1);
+            this.cki.H(jSONObject.toString(), 1);
         }
     }
 
@@ -694,28 +694,28 @@ public class a extends BaiduRtcRoom implements PeerConnectionClient.b, c {
         this.mHandler.post(new Runnable() { // from class: com.baidu.rtc.b.a.12
             @Override // java.lang.Runnable
             public void run() {
-                if (a.this.cbi.HasVideo) {
-                    a.this.bWL = a.this.aal();
+                if (a.this.cjH.HasVideo) {
+                    a.this.cfk = a.this.acf();
                 }
-                if (a.this.caV) {
-                    a.this.cbG.a(a.this.cbI.getEglBaseContext(), a.this.cbB, a.this.bWL, bigInteger);
+                if (a.this.cju) {
+                    a.this.ckf.a(a.this.ckh.getEglBaseContext(), a.this.cka, a.this.cfk, bigInteger);
                 } else {
-                    a.this.cbG.a(a.this.cbI.getEglBaseContext(), a.this.cbf, a.this.bWL, bigInteger);
+                    a.this.ckf.a(a.this.ckh.getEglBaseContext(), a.this.cjE, a.this.cfk, bigInteger);
                 }
-                a.this.cbG.g(bigInteger);
+                a.this.ckf.g(bigInteger);
             }
         });
     }
 
     static /* synthetic */ int s(a aVar) {
-        int i = aVar.caD + 1;
-        aVar.caD = i;
+        int i = aVar.cjc + 1;
+        aVar.cjc = i;
         return i;
     }
 
     static /* synthetic */ int t(a aVar) {
-        int i = aVar.caD;
-        aVar.caD = i + 1;
+        int i = aVar.cjc;
+        aVar.cjc = i + 1;
         return i;
     }
 
@@ -723,99 +723,12 @@ public class a extends BaiduRtcRoom implements PeerConnectionClient.b, c {
         return "1.2.10";
     }
 
-    @Override // com.baidu.rtc.BaiduRtcRoom
-    public void Zj() {
-        if (this.cbC != null) {
-            this.cbC.Zj();
-        }
-    }
-
-    @Override // com.baidu.rtc.BaiduRtcRoom
-    public BaiduRtcRoom.c[] Zk() {
-        int i = 0;
-        int i2 = 0;
-        for (BigInteger bigInteger : this.cbq.keySet()) {
-            b bVar = this.cbq.get(bigInteger);
-            if (bVar.cbT.booleanValue() && bVar.volume != -1) {
-                i2++;
-            }
-        }
-        BaiduRtcRoom.c[] cVarArr = new BaiduRtcRoom.c[i2];
-        for (BigInteger bigInteger2 : this.cbq.keySet()) {
-            b bVar2 = this.cbq.get(bigInteger2);
-            if (bVar2.volume != -1 && bVar2.cbT.booleanValue()) {
-                if (i >= i2) {
-                    break;
-                }
-                cVarArr[i] = new BaiduRtcRoom.c();
-                cVarArr[i].userId = bVar2.userId;
-                cVarArr[i].volumeLevel = bVar2.volume;
-                cVarArr[i].nicName = bVar2.nickName;
-                i++;
-            }
-        }
-        return cVarArr;
-    }
-
-    @Override // com.baidu.rtc.c
-    public void Zl() {
-        if (this.caJ == null) {
-            return;
-        }
-        this.caJ.onRoomEventUpdate(103, 0L, "coennection Error");
-        ju("CONNECTION_LOST");
-    }
-
-    @Override // com.baidu.rtc.c
-    public void Zm() {
-        if (this.caJ == null) {
-            return;
-        }
-        this.caJ.onRoomEventUpdate(102, 0L, BdStatsConstant.StatsType.ERROR);
-        ju("LOGIN_ERROR");
-    }
-
-    @Override // com.baidu.rtc.c
-    public void Zn() {
-        if (this.caJ == null) {
-            return;
-        }
-        this.caJ.onRoomEventUpdate(101, 0L, "time out");
-    }
-
-    @Override // com.baidu.rtc.c
-    public void Zo() {
-        if (this.caJ == null) {
-            return;
-        }
-        this.caJ.onRoomEventUpdate(112, 0L, "");
-    }
-
-    @Override // com.baidu.rtc.PeerConnectionClient.b
-    public void Zv() {
-    }
-
-    @Override // com.baidu.rtc.PeerConnectionClient.b
-    public void Zw() {
-    }
-
-    @Override // com.baidu.rtc.PeerConnectionClient.b
-    public void Zx() {
-        if (this.caJ != null) {
-            this.caJ.onPeerConnectStateUpdate(2003);
-        }
-    }
-
-    @Override // com.baidu.rtc.PeerConnectionClient.b
-    public void Zy() {
-    }
-
     @Override // com.baidu.rtc.c
     public void a(BaiduRtcRoom.RtcLiveTransferMode rtcLiveTransferMode, String str) {
-        if (this.caJ == null) {
+        if (this.cji == null) {
             return;
         }
-        this.caJ.onRoomEventUpdate(117, rtcLiveTransferMode.ordinal(), str);
+        this.cji.onRoomEventUpdate(117, rtcLiveTransferMode.ordinal(), str);
     }
 
     public void a(BaiduRtcRoom.RtcSoundMode rtcSoundMode) {
@@ -832,29 +745,29 @@ public class a extends BaiduRtcRoom implements PeerConnectionClient.b, c {
         switch (rtcParamSettingType) {
             case RTC_PARAM_SETTINGS_ALL:
                 if (rtcParameterSettings != null) {
-                    this.cbi = rtcParameterSettings;
-                    caC = this.cbi.AudioContentType;
+                    this.cjH = rtcParameterSettings;
+                    cjb = this.cjH.AudioContentType;
                     return;
                 }
                 return;
             case RTC_VIDEO_PARAM_SETTINGS_BITRATE:
-                this.cbi.VideoMaxkbps = rtcParameterSettings.VideoMaxkbps;
-                if (this.cbG == null || this.mHandler == null) {
+                this.cjH.VideoMaxkbps = rtcParameterSettings.VideoMaxkbps;
+                if (this.ckf == null || this.mHandler == null) {
                     return;
                 }
                 this.mHandler.post(new Runnable() { // from class: com.baidu.rtc.b.a.11
                     @Override // java.lang.Runnable
                     public void run() {
-                        if (a.this.cbG == null || a.this.cbi.VideoMaxkbps <= 0) {
+                        if (a.this.ckf == null || a.this.cjH.VideoMaxkbps <= 0) {
                             return;
                         }
-                        Log.d("BaiduRtcRoomImp", "Set video maximum bitrate: " + a.this.cbi.VideoMaxkbps);
-                        a.this.cbG.b(Integer.valueOf(a.this.cbi.VideoMaxkbps));
+                        Log.d("BaiduRtcRoomImp", "Set video maximum bitrate: " + a.this.cjH.VideoMaxkbps);
+                        a.this.ckf.b(Integer.valueOf(a.this.cjH.VideoMaxkbps));
                     }
                 });
                 return;
             case RTC_VIDEO_PARAM_SETTINGS_RENDER_MODE:
-                this.cbi.bXP = rtcParameterSettings.bXP;
+                this.cjH.cgo = rtcParameterSettings.cgo;
                 return;
             default:
                 return;
@@ -863,12 +776,12 @@ public class a extends BaiduRtcRoom implements PeerConnectionClient.b, c {
 
     @Override // com.baidu.rtc.BaiduRtcRoom
     public void a(g.d dVar) {
-        this.cbs = dVar;
+        this.cjR = dVar;
     }
 
     @Override // com.baidu.rtc.BaiduRtcRoom
     public void a(i iVar) {
-        this.bWL = iVar;
+        this.cfk = iVar;
     }
 
     @Override // com.baidu.rtc.PeerConnectionClient.b
@@ -876,51 +789,51 @@ public class a extends BaiduRtcRoom implements PeerConnectionClient.b, c {
         this.mHandler.post(new Runnable() { // from class: com.baidu.rtc.b.a.8
             @Override // java.lang.Runnable
             public void run() {
-                if (a.this.cbC == null) {
+                if (a.this.ckb == null) {
                     return;
                 }
-                BigInteger i = a.this.cbC.i(bigInteger);
-                String j = a.this.cbC.j(i);
-                b bVar = (b) a.this.cbq.get(i);
+                BigInteger i = a.this.ckb.i(bigInteger);
+                String j = a.this.ckb.j(i);
+                b bVar = (b) a.this.cjP.get(i);
                 if (bVar == null) {
                     bVar = new b(bigInteger, i.longValue(), bool, bool2, j);
-                    a.this.cbq.put(i, bVar);
+                    a.this.cjP.put(i, bVar);
                 } else {
-                    bVar.cbU = bool;
-                    bVar.cbT = bool2;
-                    bVar.bVT = bigInteger;
+                    bVar.ckt = bool;
+                    bVar.cks = bool2;
+                    bVar.ces = bigInteger;
                     bVar.nickName = j;
                 }
-                if (!bool2.booleanValue() || a.this.cbG == null) {
+                if (!bool2.booleanValue() || a.this.ckf == null) {
                     return;
                 }
-                a.this.cbG.a(true, 200, bVar.bVT, PeerConnectionClient.StatsEventsType.GET_AUDIOLEVEL_EVENT);
+                a.this.ckf.a(true, 200, bVar.ces, PeerConnectionClient.StatsEventsType.GET_AUDIOLEVEL_EVENT);
             }
         });
     }
 
     @Override // com.baidu.rtc.c
     public void a(BigInteger bigInteger, int i, boolean z) {
-        if (this.caJ == null) {
+        if (this.cji == null) {
             return;
         }
-        this.caJ.onPeerConnectStateUpdate(z ? 2001 : 2002);
+        this.cji.onPeerConnectStateUpdate(z ? 2001 : 2002);
     }
 
     @Override // com.baidu.rtc.c
     public void a(BigInteger bigInteger, String str) {
-        if (this.caJ == null) {
+        if (this.cji == null) {
             return;
         }
-        this.caJ.onRoomEventUpdate(303, bigInteger.longValue(), str);
+        this.cji.onRoomEventUpdate(303, bigInteger.longValue(), str);
     }
 
     @Override // com.baidu.rtc.c
     public void a(BigInteger bigInteger, String str, String str2) {
-        if (this.caJ == null) {
+        if (this.cji == null) {
             return;
         }
-        this.caJ.onRoomEventUpdate(300, bigInteger.longValue(), str);
+        this.cji.onRoomEventUpdate(300, bigInteger.longValue(), str);
     }
 
     @Override // com.baidu.rtc.c
@@ -930,113 +843,113 @@ public class a extends BaiduRtcRoom implements PeerConnectionClient.b, c {
         this.mHandler.post(new Runnable() { // from class: com.baidu.rtc.b.a.5
             @Override // java.lang.Runnable
             public void run() {
-                a.this.cbq.remove(bigInteger2);
-                if (a.this.caO.get(bigInteger) != null) {
-                    a.this.caO.remove(bigInteger);
-                    if (a.this.cbG != null) {
-                        a.this.cbG.a(false, 0, bigInteger, PeerConnectionClient.StatsEventsType.GET_QUALITY_MONITOR_EVENT);
+                a.this.cjP.remove(bigInteger2);
+                if (a.this.cjn.get(bigInteger) != null) {
+                    a.this.cjn.remove(bigInteger);
+                    if (a.this.ckf != null) {
+                        a.this.ckf.a(false, 0, bigInteger, PeerConnectionClient.StatsEventsType.GET_QUALITY_MONITOR_EVENT);
                     }
                 }
             }
         });
-        com.baidu.rtc.a h = this.cbG.h(bigInteger);
-        if (this.cbi.bXP == RtcParameterSettings.RtcVideoRenderMode.RTC_VIDEO_RENDER_MODE_EXTERNAL) {
-            j jVar = this.cby.get(Long.valueOf(bigInteger2.longValue()));
+        com.baidu.rtc.a h = this.ckf.h(bigInteger);
+        if (this.cjH.cgo == RtcParameterSettings.RtcVideoRenderMode.RTC_VIDEO_RENDER_MODE_EXTERNAL) {
+            j jVar = this.cjX.get(Long.valueOf(bigInteger2.longValue()));
             if (jVar == null || h == null) {
                 Log.d("BaiduRtcRoomImp", "No external render has found!");
             } else {
                 Log.d("BaiduRtcRoomImp", "remove external video sink of user " + bigInteger2);
                 jVar.clearImage();
-                if (h.bVX != null) {
-                    h.bVX.removeSink(jVar);
+                if (h.cew != null) {
+                    h.cew.removeSink(jVar);
                 }
-                aQ(bigInteger2.longValue());
-                if (this.caJ != null) {
-                    if (this.cbb == bigInteger2.longValue()) {
+                aS(bigInteger2.longValue());
+                if (this.cji != null) {
+                    if (this.cjA == bigInteger2.longValue()) {
                         return;
                     }
-                    this.caJ.onRoomEventUpdate(107, bigInteger2.longValue(), "gone");
-                    this.cbb = bigInteger2.longValue();
+                    this.cji.onRoomEventUpdate(107, bigInteger2.longValue(), "gone");
+                    this.cjA = bigInteger2.longValue();
                     return;
                 }
             }
         }
-        if (h != null && (i = h.bVY) >= 0 && i < this.caP.length) {
-            this.caP[i] = false;
-            this.cbr--;
-            if (this.cbn[i] != null) {
-                this.cbn[i].clearImage();
-                if (h.bVX != null) {
-                    h.bVX.removeSink(this.cbn[i]);
+        if (h != null && (i = h.cex) >= 0 && i < this.cjo.length) {
+            this.cjo[i] = false;
+            this.cjQ--;
+            if (this.cjM[i] != null) {
+                this.cjM[i].clearImage();
+                if (h.cew != null) {
+                    h.cew.removeSink(this.cjM[i]);
                 }
-                if (this.caJ != null) {
-                    if (this.cbb != bigInteger2.longValue()) {
-                        this.caJ.onRoomEventUpdate(107, bigInteger2.longValue(), "gone");
-                        this.cbb = bigInteger2.longValue();
+                if (this.cji != null) {
+                    if (this.cjA != bigInteger2.longValue()) {
+                        this.cji.onRoomEventUpdate(107, bigInteger2.longValue(), "gone");
+                        this.cjA = bigInteger2.longValue();
                         return;
                     }
                     return;
                 }
             }
         }
-        if (this.caJ != null) {
-            if (this.cbc == bigInteger2.longValue()) {
+        if (this.cji != null) {
+            if (this.cjB == bigInteger2.longValue()) {
                 return;
             }
-            this.caN.remove(bigInteger2);
-            this.caJ.onRoomEventUpdate(105, bigInteger2.longValue(), "leaving");
+            this.cjm.remove(bigInteger2);
+            this.cji.onRoomEventUpdate(105, bigInteger2.longValue(), "leaving");
         }
-        this.cbc = bigInteger2.longValue();
-        ju("REMOTE_LEAVING_" + bigInteger2 + PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS + bigInteger);
+        this.cjB = bigInteger2.longValue();
+        jN("REMOTE_LEAVING_" + bigInteger2 + PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS + bigInteger);
     }
 
     @Override // com.baidu.rtc.c
     public void a(BigInteger bigInteger, JSONObject jSONObject) {
-        this.cbG.a(bigInteger, new SessionDescription(SessionDescription.Type.fromCanonicalForm(jSONObject.optString("type")), jSONObject.optString("sdp")));
+        this.ckf.a(bigInteger, new SessionDescription(SessionDescription.Type.fromCanonicalForm(jSONObject.optString("type")), jSONObject.optString("sdp")));
     }
 
     @Override // com.baidu.rtc.PeerConnectionClient.b
     public void a(IceCandidate iceCandidate, BigInteger bigInteger) {
         Log.e("BaiduRtcRoomImp", "=========onIceCandidate========");
         if (iceCandidate != null) {
-            this.cbC.a(bigInteger, iceCandidate);
+            this.ckb.a(bigInteger, iceCandidate);
         } else {
-            this.cbC.k(bigInteger);
+            this.ckb.k(bigInteger);
         }
     }
 
     @Override // com.baidu.rtc.PeerConnectionClient.b
     public void a(SessionDescription sessionDescription, BigInteger bigInteger) {
         Log.e("BaiduRtcRoomImp", sessionDescription.type.toString());
-        if (this.cbC == null) {
+        if (this.ckb == null) {
             return;
         }
-        this.cbC.c(bigInteger, sessionDescription);
+        this.ckb.c(bigInteger, sessionDescription);
         this.mHandler.post(new Runnable() { // from class: com.baidu.rtc.b.a.6
             @Override // java.lang.Runnable
             public void run() {
-                if (a.this.cbG == null || a.this.bWC.bXt <= 0) {
+                if (a.this.ckf == null || a.this.cfb.cfS <= 0) {
                     return;
                 }
-                Log.d("BaiduRtcRoomImp", "Set video maximum bitrate: " + a.this.bWC.bXt);
-                a.this.cbG.b(Integer.valueOf(a.this.bWC.bXt));
+                Log.d("BaiduRtcRoomImp", "Set video maximum bitrate: " + a.this.cfb.cfS);
+                a.this.ckf.b(Integer.valueOf(a.this.cfb.cfS));
             }
         });
     }
 
     @Override // com.baidu.rtc.BaiduRtcRoom
     public void a(RTCVideoView[] rTCVideoViewArr) {
-        this.cbn = rTCVideoViewArr;
+        this.cjM = rTCVideoViewArr;
         this.mHandler.post(new Runnable() { // from class: com.baidu.rtc.b.a.2
             @Override // java.lang.Runnable
             public void run() {
-                for (int i = 0; i < a.this.cbn.length; i++) {
-                    if (a.this.cbn[i] != null) {
+                for (int i = 0; i < a.this.cjM.length; i++) {
+                    if (a.this.cjM[i] != null) {
                         try {
-                            a.this.cbn[i].init(a.this.cbI.getEglBaseContext(), null);
+                            a.this.cjM[i].init(a.this.ckh.getEglBaseContext(), null);
                         } catch (Exception e) {
                         }
-                        a.this.cbn[i].setEnableHardwareScaler(true);
+                        a.this.cjM[i].setEnableHardwareScaler(true);
                     }
                 }
             }
@@ -1045,16 +958,16 @@ public class a extends BaiduRtcRoom implements PeerConnectionClient.b, c {
 
     public void a(StatsReport[] statsReportArr) {
         StatsReport.Value[] valueArr;
-        if (this.caJ == null) {
+        if (this.cji == null) {
             return;
         }
         for (StatsReport statsReport : statsReportArr) {
             if (statsReport.id.equals("bweforvideo")) {
                 for (StatsReport.Value value : statsReport.values) {
                     if (value.name.equals("googAvailableSendBandwidth")) {
-                        this.cbF = Double.parseDouble(value.value);
-                        if (this.cbF > 100.0d) {
-                            this.caJ.onRoomEventUpdate(200, (long) this.cbF, statsReport.toString());
+                        this.cke = Double.parseDouble(value.value);
+                        if (this.cke > 100.0d) {
+                            this.cji.onRoomEventUpdate(200, (long) this.cke, statsReport.toString());
                         }
                     }
                 }
@@ -1065,7 +978,7 @@ public class a extends BaiduRtcRoom implements PeerConnectionClient.b, c {
 
     @Override // com.baidu.rtc.PeerConnectionClient.b
     public void a(final StatsReport[] statsReportArr, final BigInteger bigInteger, final PeerConnectionClient.StatsEventsType statsEventsType) {
-        if (bigInteger == this.cbk && statsEventsType == PeerConnectionClient.StatsEventsType.GET_BWE_EVENT && this.cbD) {
+        if (bigInteger == this.cjJ && statsEventsType == PeerConnectionClient.StatsEventsType.GET_BWE_EVENT && this.ckc) {
             a(statsReportArr);
         }
         this.mHandler.post(new Runnable() { // from class: com.baidu.rtc.b.a.7
@@ -1074,15 +987,15 @@ public class a extends BaiduRtcRoom implements PeerConnectionClient.b, c {
                 if (statsEventsType == PeerConnectionClient.StatsEventsType.GET_AUDIOLEVEL_EVENT) {
                     a.this.a(statsReportArr, bigInteger);
                 }
-                if ((a.this.caX || a.this.caW) && statsEventsType == PeerConnectionClient.StatsEventsType.GET_QUALITY_MONITOR_EVENT) {
-                    com.baidu.rtc.c.b bVar = (com.baidu.rtc.c.b) a.this.caO.get(bigInteger);
+                if ((a.this.cjw || a.this.cjv) && statsEventsType == PeerConnectionClient.StatsEventsType.GET_QUALITY_MONITOR_EVENT) {
+                    com.baidu.rtc.c.b bVar = (com.baidu.rtc.c.b) a.this.cjn.get(bigInteger);
                     if (bVar != null) {
                         bVar.b(statsReportArr);
                     }
-                    if (bigInteger != a.this.cbk || a.this.cbJ == null) {
+                    if (bigInteger != a.this.cjJ || a.this.cki == null) {
                         return;
                     }
-                    a.this.aao();
+                    a.this.aci();
                 }
             }
         });
@@ -1090,186 +1003,267 @@ public class a extends BaiduRtcRoom implements PeerConnectionClient.b, c {
 
     @Override // com.baidu.rtc.BaiduRtcRoom
     public boolean a(BaiduRtcRoom.a aVar) {
-        this.caJ = aVar;
+        this.cji = aVar;
         return true;
-    }
-
-    @Override // com.baidu.rtc.BaiduRtcRoom
-    public boolean a(String str, long j, String str2, boolean z) {
-        Log.i("BaiduRtcRoomImp", "enable force login");
-        this.caT = z;
-        return loginRtcRoomWithRoomName(str, j, str2, true, true);
     }
 
     @Override // com.baidu.rtc.BaiduRtcRoom
     public boolean a(String str, boolean z, boolean z2, String str2, BaiduRtcRoom.RtcLiveTransferMode rtcLiveTransferMode) {
-        if (this.cbe.isEmpty() || this.cbd == rtcLiveTransferMode) {
-            this.cbe = str;
-            this.cbd = rtcLiveTransferMode;
-            this.cbC.dH(z2);
-            this.cbC.jq(str);
-            this.cbC.dG(z);
-            this.cbC.jp(str2);
-            this.cbC.a(rtcLiveTransferMode);
+        if (this.cjD.isEmpty() || this.cjC == rtcLiveTransferMode) {
+            this.cjD = str;
+            this.cjC = rtcLiveTransferMode;
+            this.ckb.dV(z2);
+            this.ckb.jJ(str);
+            this.ckb.dU(z);
+            this.ckb.jI(str2);
+            this.ckb.a(rtcLiveTransferMode);
         } else {
-            this.cbC.b(str, z, z2, str2, rtcLiveTransferMode);
+            this.ckb.b(str, z, z2, str2, rtcLiveTransferMode);
         }
         return true;
     }
 
     @Override // com.baidu.rtc.BaiduRtcRoom
-    public void aM(long j) {
-        if (this.cbC != null) {
-            this.cbC.aM(j);
-        }
-    }
-
-    @Override // com.baidu.rtc.c
-    public void aN(long j) {
-        if (this.caJ == null) {
-            return;
-        }
-        this.caJ.onRoomEventUpdate(114, j, "");
-    }
-
-    @Override // com.baidu.rtc.c
     public void aO(long j) {
-        if (this.caJ == null) {
-            return;
+        if (this.ckb != null) {
+            this.ckb.aO(j);
         }
-        this.caJ.onRoomEventUpdate(115, j, "");
     }
 
     @Override // com.baidu.rtc.c
     public void aP(long j) {
-        if (this.caJ == null) {
+        if (this.cji == null) {
             return;
         }
-        this.caJ.onRoomEventUpdate(113, j, "");
+        this.cji.onRoomEventUpdate(114, j, "");
     }
 
-    public j aR(long j) {
-        if (this.cby.containsKey(Long.valueOf(j))) {
-            return this.cby.get(Long.valueOf(j));
+    @Override // com.baidu.rtc.c
+    public void aQ(long j) {
+        if (this.cji == null) {
+            return;
         }
-        k kVar = new k(this.caJ, j);
-        this.cby.put(Long.valueOf(j), kVar);
+        this.cji.onRoomEventUpdate(115, j, "");
+    }
+
+    @Override // com.baidu.rtc.c
+    public void aR(long j) {
+        if (this.cji == null) {
+            return;
+        }
+        this.cji.onRoomEventUpdate(113, j, "");
+    }
+
+    public j aT(long j) {
+        if (this.cjX.containsKey(Long.valueOf(j))) {
+            return this.cjX.get(Long.valueOf(j));
+        }
+        k kVar = new k(this.cji, j);
+        this.cjX.put(Long.valueOf(j), kVar);
         return kVar;
+    }
+
+    @Override // com.baidu.rtc.BaiduRtcRoom
+    public BaiduRtcRoom.c[] abc() {
+        int i = 0;
+        int i2 = 0;
+        for (BigInteger bigInteger : this.cjP.keySet()) {
+            b bVar = this.cjP.get(bigInteger);
+            if (bVar.cks.booleanValue() && bVar.volume != -1) {
+                i2++;
+            }
+        }
+        BaiduRtcRoom.c[] cVarArr = new BaiduRtcRoom.c[i2];
+        for (BigInteger bigInteger2 : this.cjP.keySet()) {
+            b bVar2 = this.cjP.get(bigInteger2);
+            if (bVar2.volume != -1 && bVar2.cks.booleanValue()) {
+                if (i >= i2) {
+                    break;
+                }
+                cVarArr[i] = new BaiduRtcRoom.c();
+                cVarArr[i].userId = bVar2.userId;
+                cVarArr[i].volumeLevel = bVar2.volume;
+                cVarArr[i].nicName = bVar2.nickName;
+                i++;
+            }
+        }
+        return cVarArr;
+    }
+
+    @Override // com.baidu.rtc.BaiduRtcRoom
+    public BaiduRtcRoom.d[] abd() {
+        if (this.ckb == null) {
+            return null;
+        }
+        return this.ckb.abx();
+    }
+
+    @Override // com.baidu.rtc.c
+    public void abe() {
+        if (this.cji == null) {
+            return;
+        }
+        this.cji.onRoomEventUpdate(103, 0L, "coennection Error");
+        jN("CONNECTION_LOST");
+    }
+
+    @Override // com.baidu.rtc.c
+    public void abf() {
+        if (this.cji == null) {
+            return;
+        }
+        this.cji.onRoomEventUpdate(102, 0L, BdStatsConstant.StatsType.ERROR);
+        jN("LOGIN_ERROR");
+    }
+
+    @Override // com.baidu.rtc.c
+    public void abg() {
+        if (this.cji == null) {
+            return;
+        }
+        this.cji.onRoomEventUpdate(101, 0L, "time out");
+    }
+
+    @Override // com.baidu.rtc.c
+    public void abh() {
+        if (this.cji == null) {
+            return;
+        }
+        this.cji.onRoomEventUpdate(112, 0L, "");
+    }
+
+    @Override // com.baidu.rtc.PeerConnectionClient.b
+    public void abo() {
+    }
+
+    @Override // com.baidu.rtc.PeerConnectionClient.b
+    public void abp() {
+    }
+
+    @Override // com.baidu.rtc.PeerConnectionClient.b
+    public void abq() {
+        if (this.cji != null) {
+            this.cji.onPeerConnectStateUpdate(2003);
+        }
+    }
+
+    @Override // com.baidu.rtc.PeerConnectionClient.b
+    public void abr() {
     }
 
     @Override // com.baidu.rtc.c
     public void b(BaiduRtcRoom.RtcLiveTransferMode rtcLiveTransferMode, String str) {
-        if (this.caJ == null) {
+        if (this.cji == null) {
             return;
         }
-        this.caJ.onRoomEventUpdate(118, rtcLiveTransferMode.ordinal(), str);
+        this.cji.onRoomEventUpdate(118, rtcLiveTransferMode.ordinal(), str);
     }
 
     @Override // com.baidu.rtc.PeerConnectionClient.b
     public void b(com.baidu.rtc.a aVar) {
         int i;
-        Log.e("BaiduRtcRoomImp", "=========onRemoteRender========" + aVar.bVX);
-        final BigInteger i2 = this.cbC.i(aVar.bVT);
+        Log.e("BaiduRtcRoomImp", "=========onRemoteRender========" + aVar.cew);
+        final BigInteger i2 = this.ckb.i(aVar.ces);
         if (i2.longValue() == 0) {
             Log.e("BaiduRtcRoomImp", "onRemoteRender Userid is 0.");
-        } else if (this.cbi.bXP == RtcParameterSettings.RtcVideoRenderMode.RTC_VIDEO_RENDER_MODE_EXTERNAL) {
-            this.caJ.onRoomEventUpdate(106, i2.longValue(), "");
+        } else if (this.cjH.cgo == RtcParameterSettings.RtcVideoRenderMode.RTC_VIDEO_RENDER_MODE_EXTERNAL) {
+            this.cji.onRoomEventUpdate(106, i2.longValue(), "");
             Log.d("BaiduRtcRoomImp", "enable external video render mode.");
-            j aR = aR(i2.longValue());
-            if (aR != null) {
-                aVar.bVX.addSink(aR);
+            j aT = aT(i2.longValue());
+            if (aT != null) {
+                aVar.cew.addSink(aT);
                 return;
             }
             Log.d("BaiduRtcRoomImp", "Not found external render for user " + i2);
         } else {
             Log.d("BaiduRtcRoomImp", "it is internal video render mode");
             try {
-                i = this.caN.get(this.cbC.i(aVar.bVT)).intValue();
+                i = this.cjm.get(this.ckb.i(aVar.ces)).intValue();
             } catch (Exception e) {
                 i = -1;
             }
-            if (i >= 0 && i < caA && this.cbn != null) {
-                if (this.cbn[i] != null) {
-                    this.cbn[i].setFirstFrameEventListener(new Runnable() { // from class: com.baidu.rtc.b.a.9
+            if (i >= 0 && i < ciZ && this.cjM != null) {
+                if (this.cjM[i] != null) {
+                    this.cjM[i].setFirstFrameEventListener(new Runnable() { // from class: com.baidu.rtc.b.a.9
                         @Override // java.lang.Runnable
                         public void run() {
-                            if (a.this.caJ != null) {
-                                a.this.caJ.onRoomEventUpdate(106, i2.longValue(), "");
+                            if (a.this.cji != null) {
+                                a.this.cji.onRoomEventUpdate(106, i2.longValue(), "");
                             }
                         }
                     });
-                    aVar.bVX.addSink(this.cbn[i]);
+                    aVar.cew.addSink(this.cjM[i]);
                 }
-                aVar.bVY = i;
-            } else if (this.cbn != null) {
+                aVar.cex = i;
+            } else if (this.cjM != null) {
                 int i3 = 0;
                 while (true) {
-                    if (i3 >= this.caP.length) {
+                    if (i3 >= this.cjo.length) {
                         i3 = -1;
                         break;
-                    } else if (!this.caP[i3]) {
-                        this.caP[i3] = true;
+                    } else if (!this.cjo[i3]) {
+                        this.cjo[i3] = true;
                         break;
                     } else {
                         i3++;
                     }
                 }
                 if (i3 >= 0) {
-                    if (this.cbn[i3] != null) {
-                        this.cbn[i3].setFirstFrameEventListener(new Runnable() { // from class: com.baidu.rtc.b.a.10
+                    if (this.cjM[i3] != null) {
+                        this.cjM[i3].setFirstFrameEventListener(new Runnable() { // from class: com.baidu.rtc.b.a.10
                             @Override // java.lang.Runnable
                             public void run() {
-                                if (a.this.caJ != null) {
-                                    a.this.caJ.onRoomEventUpdate(106, i2.longValue(), "");
+                                if (a.this.cji != null) {
+                                    a.this.cji.onRoomEventUpdate(106, i2.longValue(), "");
                                 }
                             }
                         });
-                        aVar.bVX.addSink(this.cbn[i3]);
+                        aVar.cew.addSink(this.cjM[i3]);
                     }
-                    aVar.bVY = i3;
+                    aVar.cex = i3;
                 }
-                this.cbr++;
+                this.cjQ++;
             }
         }
     }
 
     @Override // com.baidu.rtc.c
     public void b(BigInteger bigInteger) {
-        if (this.caJ == null) {
+        if (this.cji == null) {
             return;
         }
-        this.caJ.onPeerConnectStateUpdate(2003);
+        this.cji.onPeerConnectStateUpdate(2003);
     }
 
     @Override // com.baidu.rtc.c
     public void b(BigInteger bigInteger, String str) {
-        if (this.cbc == bigInteger.longValue()) {
-            this.cbc = 0L;
+        if (this.cjB == bigInteger.longValue()) {
+            this.cjB = 0L;
         }
-        if (this.cbb == bigInteger.longValue()) {
-            this.cbb = 0L;
+        if (this.cjA == bigInteger.longValue()) {
+            this.cjA = 0L;
         }
-        if (this.caJ == null) {
+        if (this.cji == null) {
             return;
         }
-        this.caJ.onRoomEventUpdate(104, bigInteger.longValue(), str);
+        this.cji.onRoomEventUpdate(104, bigInteger.longValue(), str);
     }
 
     @Override // com.baidu.rtc.c
     public void b(final BigInteger bigInteger, JSONObject jSONObject) {
-        this.cbG.b(bigInteger, new SessionDescription(SessionDescription.Type.fromCanonicalForm(jSONObject.optString("type")), jSONObject.optString("sdp")));
+        this.ckf.b(bigInteger, new SessionDescription(SessionDescription.Type.fromCanonicalForm(jSONObject.optString("type")), jSONObject.optString("sdp")));
         this.mHandler.post(new Runnable() { // from class: com.baidu.rtc.b.a.4
             @Override // java.lang.Runnable
             public void run() {
-                if (!a.this.caW || bigInteger == a.this.cbk || a.this.cbG == null) {
+                if (!a.this.cjv || bigInteger == a.this.cjJ || a.this.ckf == null) {
                     return;
                 }
-                if (a.this.caO.get(bigInteger) != null) {
-                    a.this.cbG.a(false, 0, bigInteger, PeerConnectionClient.StatsEventsType.GET_QUALITY_MONITOR_EVENT);
-                    a.this.caO.remove(bigInteger);
+                if (a.this.cjn.get(bigInteger) != null) {
+                    a.this.ckf.a(false, 0, bigInteger, PeerConnectionClient.StatsEventsType.GET_QUALITY_MONITOR_EVENT);
+                    a.this.cjn.remove(bigInteger);
                 }
-                a.this.cbG.a(a.this.caW, 2000, bigInteger, PeerConnectionClient.StatsEventsType.GET_QUALITY_MONITOR_EVENT);
-                a.this.caO.put(bigInteger, new com.baidu.rtc.c.b());
+                a.this.ckf.a(a.this.cjv, 2000, bigInteger, PeerConnectionClient.StatsEventsType.GET_QUALITY_MONITOR_EVENT);
+                a.this.cjn.put(bigInteger, new com.baidu.rtc.c.b());
             }
         });
     }
@@ -1277,71 +1271,71 @@ public class a extends BaiduRtcRoom implements PeerConnectionClient.b, c {
     @Override // com.baidu.rtc.PeerConnectionClient.b
     public void b(SessionDescription sessionDescription, BigInteger bigInteger) {
         Log.e("BaiduRtcRoomImp", sessionDescription.type.toString());
-        this.cbC.d(bigInteger, sessionDescription);
+        this.ckb.d(bigInteger, sessionDescription);
     }
 
     public void bb(Context context) {
         Log.d("BaiduRtcRoomImp", "setup so later loading feature, and cpu type: " + this.mCpuType);
         com.baidu.cloudbase.b.a.aa(context).dw(this.mCpuType);
-        if (this.cbx.isEmpty()) {
-            com.baidu.cloudbase.b.a.aa(context).a(com.baidu.cloudbase.b.b.uI(), true, this.cbu);
+        if (this.cjW.isEmpty()) {
+            com.baidu.cloudbase.b.a.aa(context).a(com.baidu.cloudbase.b.b.uI(), true, this.cjT);
             return;
         }
-        Log.d("BaiduRtcRoomImp", "setup so later load url: " + this.cbx);
-        com.baidu.cloudbase.b.a.aa(context).a(this.cbx, true, this.cbu);
+        Log.d("BaiduRtcRoomImp", "setup so later load url: " + this.cjW);
+        com.baidu.cloudbase.b.a.aa(context).a(this.cjW, true, this.cjT);
     }
 
     @Override // com.baidu.rtc.c
     public void c(BaiduRtcRoom.RtcLiveTransferMode rtcLiveTransferMode, String str) {
-        if (this.caJ == null) {
+        if (this.cji == null) {
             return;
         }
-        this.caJ.onRoomEventUpdate(116, rtcLiveTransferMode.ordinal(), str);
+        this.cji.onRoomEventUpdate(116, rtcLiveTransferMode.ordinal(), str);
     }
 
     @Override // com.baidu.rtc.c
     public void c(final BigInteger bigInteger) {
-        if (this.caJ != null) {
-            this.caJ.onRoomEventUpdate(100, 0L, "ok");
+        if (this.cji != null) {
+            this.cji.onRoomEventUpdate(100, 0L, "ok");
         }
-        this.cbk = bigInteger;
-        if (this.cbi.AutoPublish) {
+        this.cjJ = bigInteger;
+        if (this.cjH.AutoPublish) {
             l(bigInteger);
         }
-        if (this.cbD && this.cbG != null) {
-            this.cbG.a(this.cbD, 5000, this.cbk, PeerConnectionClient.StatsEventsType.GET_BWE_EVENT);
+        if (this.ckc && this.ckf != null) {
+            this.ckf.a(this.ckc, 5000, this.cjJ, PeerConnectionClient.StatsEventsType.GET_BWE_EVENT);
         }
         this.mHandler.post(new Runnable() { // from class: com.baidu.rtc.b.a.3
             @Override // java.lang.Runnable
             public void run() {
-                if ((a.this.caX || a.this.caW) && a.this.cbG != null) {
-                    if (a.this.caO.get(bigInteger) != null) {
-                        a.this.cbG.a(false, 0, bigInteger, PeerConnectionClient.StatsEventsType.GET_QUALITY_MONITOR_EVENT);
-                        a.this.caO.remove(bigInteger);
+                if ((a.this.cjw || a.this.cjv) && a.this.ckf != null) {
+                    if (a.this.cjn.get(bigInteger) != null) {
+                        a.this.ckf.a(false, 0, bigInteger, PeerConnectionClient.StatsEventsType.GET_QUALITY_MONITOR_EVENT);
+                        a.this.cjn.remove(bigInteger);
                     }
-                    a.this.cbG.a(a.this.caX || a.this.caW, 2000, bigInteger, PeerConnectionClient.StatsEventsType.GET_QUALITY_MONITOR_EVENT);
-                    a.this.caO.put(bigInteger, new com.baidu.rtc.c.b());
-                    if (a.this.cbJ != null && !a.this.cbE) {
-                        a.this.cbE = true;
-                        a.this.mHandler.post(a.this.cbH);
+                    a.this.ckf.a(a.this.cjw || a.this.cjv, 2000, bigInteger, PeerConnectionClient.StatsEventsType.GET_QUALITY_MONITOR_EVENT);
+                    a.this.cjn.put(bigInteger, new com.baidu.rtc.c.b());
+                    if (a.this.cki != null && !a.this.ckd) {
+                        a.this.ckd = true;
+                        a.this.mHandler.post(a.this.ckg);
                     }
                     a aVar = a.this;
-                    aVar.ju("RTCROOM_LOGIN_OK_" + a.this.mUserId);
+                    aVar.jN("RTCROOM_LOGIN_OK_" + a.this.mUserId);
                 }
-                b bVar = (b) a.this.cbq.get(BigInteger.valueOf(a.this.mUserId));
+                b bVar = (b) a.this.cjP.get(BigInteger.valueOf(a.this.mUserId));
                 if (bVar != null) {
-                    if (a.this.cbG != null) {
-                        a.this.cbG.a(false, 0, bVar.bVT, PeerConnectionClient.StatsEventsType.GET_AUDIOLEVEL_EVENT);
+                    if (a.this.ckf != null) {
+                        a.this.ckf.a(false, 0, bVar.ces, PeerConnectionClient.StatsEventsType.GET_AUDIOLEVEL_EVENT);
                     }
-                    bVar.cbU = Boolean.valueOf(a.this.cbi.HasVideo);
-                    bVar.cbT = Boolean.valueOf(a.this.cbi.HasAudio);
-                    bVar.bVT = bigInteger;
+                    bVar.ckt = Boolean.valueOf(a.this.cjH.HasVideo);
+                    bVar.cks = Boolean.valueOf(a.this.cjH.HasAudio);
+                    bVar.ces = bigInteger;
                     bVar.nickName = a.this.mDisplayName;
                 } else {
-                    a.this.cbq.put(BigInteger.valueOf(a.this.mUserId), new b(bigInteger, a.this.mUserId, Boolean.valueOf(a.this.cbi.HasVideo), Boolean.valueOf(a.this.cbi.HasAudio), a.this.mDisplayName));
+                    a.this.cjP.put(BigInteger.valueOf(a.this.mUserId), new b(bigInteger, a.this.mUserId, Boolean.valueOf(a.this.cjH.HasVideo), Boolean.valueOf(a.this.cjH.HasAudio), a.this.mDisplayName));
                 }
-                if (a.this.cbG != null) {
-                    a.this.cbG.a(true, 200, bigInteger, PeerConnectionClient.StatsEventsType.GET_AUDIOLEVEL_EVENT);
+                if (a.this.ckf != null) {
+                    a.this.ckf.a(true, 200, bigInteger, PeerConnectionClient.StatsEventsType.GET_AUDIOLEVEL_EVENT);
                 }
             }
         });
@@ -1349,69 +1343,117 @@ public class a extends BaiduRtcRoom implements PeerConnectionClient.b, c {
 
     @Override // com.baidu.rtc.c
     public void c(BigInteger bigInteger, String str) {
-        if (this.caJ == null) {
+        if (this.cji == null) {
             return;
         }
-        this.caJ.onRoomEventUpdate(302, bigInteger.longValue(), str);
+        this.cji.onRoomEventUpdate(302, bigInteger.longValue(), str);
+    }
+
+    public void c(boolean z, boolean z2, String str) {
+        this.cjw = z;
+        this.cjv = z2;
+        this.cjK = str;
+        if (!z && !z2) {
+            if (this.cjk != null) {
+                this.cjk.pause();
+                return;
+            }
+            return;
+        }
+        if (this.cjk == null) {
+            this.cjk = new com.baidu.rtc.c.a(this.cjU);
+        }
+        if (this.cki == null) {
+            this.cki = d.acy();
+        }
+    }
+
+    @Override // com.baidu.rtc.BaiduRtcRoom
+    public void d(long j, boolean z) {
+        if (this.ckb != null) {
+            this.ckb.d(j, z);
+        }
     }
 
     @Override // com.baidu.rtc.c
     public void d(BigInteger bigInteger) {
-        if (this.caJ == null) {
+        if (this.cji == null) {
             return;
         }
-        this.caJ.onRoomEventUpdate(301, bigInteger.longValue(), "");
+        this.cji.onRoomEventUpdate(301, bigInteger.longValue(), "");
     }
 
-    public void dJ(boolean z) {
-        ((AudioManager) this.mContext.get().getSystemService(MediaStreamTrack.AUDIO_TRACK_KIND)).setSpeakerphoneOn(z);
-        ju("PRESETLOUDSPEAKER");
+    @Override // com.baidu.rtc.BaiduRtcRoom
+    public void disbandRoom() {
+        if (this.ckb != null) {
+            this.ckb.disbandRoom();
+        }
     }
 
     public void doDestroy() {
         logoutRtcRoom();
-        caB.remove(toString());
+        cja.remove(toString());
     }
 
     @Override // com.baidu.rtc.c
     public void e(BigInteger bigInteger) {
-        if (this.caJ == null) {
+        if (this.cji == null) {
             return;
         }
-        this.caJ.onPeerConnectStateUpdate(2000);
-        ju("WEBRTC_UP_" + bigInteger.longValue());
+        this.cji.onPeerConnectStateUpdate(2000);
+        jN("WEBRTC_UP_" + bigInteger.longValue());
     }
 
     @Override // com.baidu.rtc.BaiduRtcRoom
     public void enableExternalVideoCapturer(boolean z) {
-        this.caV = z;
-        this.cbB = new VideoSink() { // from class: com.baidu.rtc.b.a.13
+        this.cju = z;
+        this.cka = new VideoSink() { // from class: com.baidu.rtc.b.a.13
             @Override // org.webrtc.VideoSink
             public void onFrame(VideoFrame videoFrame) {
             }
         };
     }
 
+    @Override // com.baidu.rtc.BaiduRtcRoom
+    public void enableStatsToServer(boolean z, String str) {
+        c(z, z, str);
+    }
+
     @Override // com.baidu.rtc.c
-    public void gI(int i) {
-        if (this.caJ != null && i == 436) {
-            this.caJ.onErrorInfoUpdate(436);
+    public void gT(int i) {
+        if (this.cji != null && i == 436) {
+            this.cji.onErrorInfoUpdate(RTCConst.RTC_ROOM_USERID_ALREADY_EXIST_ERROR);
         }
     }
 
     @Override // com.baidu.rtc.c
     public void h(boolean z, int i) {
-        if (this.caJ == null) {
+        if (this.cji == null) {
             return;
         }
-        this.caJ.onPeerConnectStateUpdate(i < 10 ? 2100 : i < 15 ? RTCConst.RTC_STATE_STREAM_SLOW_LINK_LEVEL1 : i < 25 ? RTCConst.RTC_STATE_STREAM_SLOW_LINK_LEVEL2 : i < 40 ? RTCConst.RTC_STATE_STREAM_SLOW_LINK_LEVEL3 : i < 60 ? RTCConst.RTC_STATE_STREAM_SLOW_LINK_LEVEL4 : i < 90 ? RTCConst.RTC_STATE_STREAM_SLOW_LINK_LEVEL5 : i < 120 ? RTCConst.RTC_STATE_STREAM_SLOW_LINK_LEVEL6 : i < 180 ? RTCConst.RTC_STATE_STREAM_SLOW_LINK_LEVEL7 : i < 250 ? RTCConst.RTC_STATE_STREAM_SLOW_LINK_LEVEL8 : RTCConst.RTC_STATE_STREAM_SLOW_LINK_LEVEL9);
+        this.cji.onPeerConnectStateUpdate(i < 10 ? 2100 : i < 15 ? RTCConst.RTC_STATE_STREAM_SLOW_LINK_LEVEL1 : i < 25 ? RTCConst.RTC_STATE_STREAM_SLOW_LINK_LEVEL2 : i < 40 ? RTCConst.RTC_STATE_STREAM_SLOW_LINK_LEVEL3 : i < 60 ? RTCConst.RTC_STATE_STREAM_SLOW_LINK_LEVEL4 : i < 90 ? RTCConst.RTC_STATE_STREAM_SLOW_LINK_LEVEL5 : i < 120 ? RTCConst.RTC_STATE_STREAM_SLOW_LINK_LEVEL6 : i < 180 ? RTCConst.RTC_STATE_STREAM_SLOW_LINK_LEVEL7 : i < 250 ? RTCConst.RTC_STATE_STREAM_SLOW_LINK_LEVEL8 : RTCConst.RTC_STATE_STREAM_SLOW_LINK_LEVEL9);
     }
 
     @Override // com.baidu.rtc.PeerConnectionClient.b
-    public void jo(String str) {
-        if (this.caJ != null) {
-            this.caJ.onErrorInfoUpdate(10000);
+    public void jH(String str) {
+        if (this.cji != null) {
+            this.cji.onErrorInfoUpdate(10000);
         }
+    }
+
+    @Override // com.baidu.rtc.PeerConnectionClient.b
+    public void l(ByteBuffer byteBuffer) {
+        if (this.cji == null) {
+            return;
+        }
+        this.cji.onRoomDataMessage(byteBuffer);
+    }
+
+    @Override // com.baidu.rtc.BaiduRtcRoom
+    public boolean loginRtcRoomWithRoomName(String str, long j, String str2, boolean z) {
+        Log.i("BaiduRtcRoomImp", "enable force login");
+        this.cjs = z;
+        return loginRtcRoomWithRoomName(str, j, str2, true, true);
     }
 
     @Override // com.baidu.rtc.BaiduRtcRoom
@@ -1421,34 +1463,34 @@ public class a extends BaiduRtcRoom implements PeerConnectionClient.b, c {
         int i3;
         int i4;
         this.mDisplayName = str2;
-        this.bYn = str;
+        this.mRoomName = str;
         this.mUserId = j;
-        this.caS = z;
-        this.caR = z2;
-        if (this.caY && !this.caZ) {
-            this.cbw = new Thread(new Runnable() { // from class: com.baidu.rtc.b.a.16
+        this.cjr = z;
+        this.cjq = z2;
+        if (this.cjx && !this.cjy) {
+            this.cjV = new Thread(new Runnable() { // from class: com.baidu.rtc.b.a.16
                 @Override // java.lang.Runnable
                 public void run() {
                     Log.d("BaiduRtcRoomImp", "setup downloading thread ......");
-                    a.this.bb(a.this.cbv);
+                    a.this.bb(a.this.cjU);
                 }
             });
-            this.cbw.start();
+            this.cjV.start();
             return true;
         } else if (j == 0) {
             throw new InvalidParameterException("loginRtcRoomWithRoomName: Param Error,userId cann't be zero. zero is reserved.");
         } else {
-            this.cbC.jr(str);
-            this.cbC.setUserId(j);
+            this.ckb.jK(str);
+            this.ckb.setUserId(j);
             if (str2 != null && !str2.isEmpty()) {
-                this.cbC.setDisplayName(str2);
+                this.ckb.setDisplayName(str2);
             }
-            this.cbC.setVideoCodec(this.cbi.VideoCodec);
-            this.cbC.dD(z);
-            this.cbC.dC(z2);
-            int i5 = this.cbi.VideoWidth;
-            int i6 = this.cbi.VideoHeight;
-            String lowerCase = this.cbi.VideoResolution.toLowerCase();
+            this.ckb.setVideoCodec(this.cjH.VideoCodec);
+            this.ckb.dR(z);
+            this.ckb.dQ(z2);
+            int i5 = this.cjH.VideoWidth;
+            int i6 = this.cjH.VideoHeight;
+            String lowerCase = this.cjH.VideoResolution.toLowerCase();
             if (lowerCase.contains("192x144")) {
                 i6 = 144;
                 i = 192;
@@ -1504,45 +1546,45 @@ public class a extends BaiduRtcRoom implements PeerConnectionClient.b, c {
                 i = 8192;
                 i6 = 4320;
             }
-            this.bWC = new PeerConnectionClient.c(false, i, i6, this.cbi.VideoFps, this.cbi.VideoCodec.toUpperCase(), true, 0, "opus", false, false, false, this.caE.booleanValue(), this.caF.booleanValue(), this.cbi.VideoMaxkbps, this.cbi.VideoMinkbps, this.cbi.bXO, this.cbi.bXJ, true, this.cbi.bXL, this.cbi.bXN, this.cbi.bXM);
-            this.cbG = PeerConnectionClient.Zs();
-            if (this.caM) {
-                if (this.caI == null) {
-                    this.caI = new com.baidu.cloudbase.a.a();
+            this.cfb = new PeerConnectionClient.c(false, i, i6, this.cjH.VideoFps, this.cjH.VideoCodec.toUpperCase(), true, 0, "opus", false, false, false, this.cjd.booleanValue(), this.cje.booleanValue(), this.cjH.VideoMaxkbps, this.cjH.VideoMinkbps, this.cjH.cgn, this.cjH.cgi, true, this.cjH.cgk, this.cjH.cgm, this.cjH.cgl);
+            this.ckf = PeerConnectionClient.abl();
+            if (this.cjl) {
+                if (this.cjh == null) {
+                    this.cjh = new com.baidu.cloudbase.a.a();
                 }
-                this.caI.aR(false);
-                if (this.cbm < 0) {
-                    this.cbm = this.caI.uB();
+                this.cjh.aR(false);
+                if (this.cjL < 0) {
+                    this.cjL = this.cjh.uB();
                 }
-                this.caI.uC();
-                this.caI.aQ(false);
-                this.caI.aP(false);
-                this.caI.a(this.cbh);
+                this.cjh.uC();
+                this.cjh.aQ(false);
+                this.cjh.aP(false);
+                this.cjh.a(this.cjG);
             }
-            if (this.cbs != null || this.caM) {
-                this.cbG.a(this.cbt);
+            if (this.cjR != null || this.cjl) {
+                this.ckf.a(this.cjS);
             }
-            if (this.cbo != null || this.caM) {
-                this.cbG.a(this.cbp);
+            if (this.cjN != null || this.cjl) {
+                this.ckf.a(this.cjO);
             }
-            if (this.cbi != null) {
-                this.cbC.dy(this.cbi.HasAudio);
-                this.cbG.dy(this.cbi.HasAudio);
-                this.cbC.dA(this.cbi.HasVideo);
-                this.cbG.dA(this.cbi.HasVideo);
-                this.cbC.dz(this.cbi.HasData);
-                this.cbG.dz(this.cbi.HasData);
-                this.cbG.gJ(this.cbi.AudioFrequency);
-                this.cbG.setAudioChannel(this.cbi.AudioChannel);
-                this.cbC.gK(this.cbi.ConnectionTimeoutMs);
-                this.cbC.gL(this.cbi.ReadTimeoutMs);
-                this.cbC.dE(this.cbi.AutoPublish);
-                this.cbC.dF(this.cbi.AutoSubScribe);
+            if (this.cjH != null) {
+                this.ckb.dM(this.cjH.HasAudio);
+                this.ckf.dM(this.cjH.HasAudio);
+                this.ckb.dO(this.cjH.HasVideo);
+                this.ckf.dO(this.cjH.HasVideo);
+                this.ckb.dN(this.cjH.HasData);
+                this.ckf.dN(this.cjH.HasData);
+                this.ckf.gU(this.cjH.AudioFrequency);
+                this.ckf.setAudioChannel(this.cjH.AudioChannel);
+                this.ckb.gV(this.cjH.ConnectionTimeoutMs);
+                this.ckb.gW(this.cjH.ReadTimeoutMs);
+                this.ckb.dS(this.cjH.AutoPublish);
+                this.ckb.dT(this.cjH.AutoSubScribe);
             }
-            this.cbG.dx(this.caU);
-            this.cbG.dw(bWy);
-            this.cbG.a(this.mContext.get(), this.bWC, this);
-            this.cbC.I(this.cba, this.caT);
+            this.ckf.dL(this.cjt);
+            this.ckf.dK(ceX);
+            this.ckf.a(this.mContext.get(), this.cfb, this);
+            this.ckb.K(this.cjz, this.cjs);
             Log.i("BRTC", "loginRtcRoomWithRoomName: this " + this + " version: " + version());
             return true;
         }
@@ -1550,69 +1592,78 @@ public class a extends BaiduRtcRoom implements PeerConnectionClient.b, c {
 
     @Override // com.baidu.rtc.BaiduRtcRoom
     public boolean logoutRtcRoom() {
-        if (this.cbG != null) {
-            this.cbG.dv(false);
-            this.cbG.dB(false);
-            this.cbG.Zu();
-            this.cbC.BP();
-            this.cbC.finalize();
-            this.cbG.close();
-            if (this.caL != null) {
-                this.caL.pause();
+        if (this.ckf != null) {
+            this.ckf.dJ(false);
+            this.ckf.dP(false);
+            this.ckf.abn();
+            this.ckb.BP();
+            this.ckb.finalize();
+            this.ckf.close();
+            if (this.cjk != null) {
+                this.cjk.pause();
             }
-            this.caO.clear();
-            this.cbG = null;
-            this.cbC = null;
-            if (this.caI != null) {
-                this.caI.a(null);
-                this.caI.release();
+            this.cjn.clear();
+            this.ckf = null;
+            this.ckb = null;
+            if (this.cjh != null) {
+                this.cjh.a(null);
+                this.cjh.release();
             }
-            if (this.cbf != null) {
-                this.cbf.release();
-                this.cbf = null;
+            if (this.cjE != null) {
+                this.cjE.release();
+                this.cjE = null;
             }
-            if (this.cbn != null) {
-                for (int i = 0; i < this.cbn.length; i++) {
-                    if (this.cbn[i] != null) {
-                        this.cbn[i].release();
-                        this.cbn[i] = null;
+            if (this.cjM != null) {
+                for (int i = 0; i < this.cjM.length; i++) {
+                    if (this.cjM[i] != null) {
+                        this.cjM[i].release();
+                        this.cjM[i] = null;
                     }
                 }
             }
-            aam();
-            aan();
-            if (this.cbI != null) {
-                this.cbI.release();
+            acg();
+            ach();
+            if (this.ckh != null) {
+                this.ckh.release();
             }
             if (this.audioManager != null && this.audioManager.isBluetoothScoOn()) {
                 c((Boolean) false);
             }
-            if (this.caQ != null) {
-                this.mContext.get().unregisterReceiver(this.caQ);
-                this.caQ = null;
+            if (this.cjp != null) {
+                this.mContext.get().unregisterReceiver(this.cjp);
+                this.cjp = null;
             }
             System.gc();
         }
         return true;
     }
 
-    @Override // com.baidu.rtc.PeerConnectionClient.b
-    public void m(ByteBuffer byteBuffer) {
-        if (this.caJ == null) {
-            return;
-        }
-        this.caJ.l(byteBuffer);
-    }
-
     @Override // com.baidu.rtc.BaiduRtcRoom
     public void muteMicphone(boolean z) {
-        if (this.cbG != null) {
-            this.cbG.dv(!z);
+        if (this.ckf != null) {
+            this.ckf.dJ(!z);
         }
-        ju("MUTE_MICPHONE");
+        jN("MUTE_MICPHONE");
     }
 
     @Override // com.baidu.rtc.PeerConnectionClient.b
     public void onIceCandidatesRemoved(IceCandidate[] iceCandidateArr) {
+    }
+
+    public void presetLoudSpeaker(boolean z) {
+        ((AudioManager) this.mContext.get().getSystemService(MediaStreamTrack.AUDIO_TRACK_KIND)).setSpeakerphoneOn(z);
+        jN("PRESETLOUDSPEAKER");
+    }
+
+    @Override // com.baidu.rtc.BaiduRtcRoom
+    public void sendMessageToUser(String str, long j) {
+        if (this.ckb == null) {
+            return;
+        }
+        this.ckb.sendMessageToUser(str, j);
+        try {
+            Thread.sleep(10L);
+        } catch (InterruptedException e) {
+        }
     }
 }

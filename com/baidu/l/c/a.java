@@ -20,7 +20,7 @@ public interface a {
 
     String getZid(Context context);
 
-    void iO(String str);
+    void jh(String str);
 
     void k(Bundle bundle);
 }

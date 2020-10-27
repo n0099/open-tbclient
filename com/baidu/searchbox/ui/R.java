@@ -4,12 +4,12 @@ public final class R {
 
     /* loaded from: classes2.dex */
     public static final class drawable {
-        public static final int loading_progress = 0x7f021694;
-        public static final int loading_progress_animation = 0x7f021695;
+        public static final int loading_progress = 0x7f021867;
+        public static final int loading_progress_animation = 0x7f021868;
     }
 
     /* loaded from: classes2.dex */
     public static final class string {
-        public static final int app_name = 0x7f090482;
+        public static final int app_name = 0x7f090490;
     }
 }

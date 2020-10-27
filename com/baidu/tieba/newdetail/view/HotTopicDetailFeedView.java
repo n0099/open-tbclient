@@ -24,14 +24,14 @@ import com.baidu.tieba.play.i;
 import java.util.List;
 /* loaded from: classes21.dex */
 public class HotTopicDetailFeedView extends FrameLayout {
-    private PbListView fTv;
-    private g gcx;
-    private i hXO;
-    private RecyclerView.OnScrollListener hyx;
-    private BdTypeRecyclerView iuX;
-    private l kJU;
-    private a kJV;
-    private RecyclerView.OnScrollListener kJo;
+    private PbListView gdy;
+    private g gmB;
+    private RecyclerView.OnScrollListener hKT;
+    private BdTypeRecyclerView iHt;
+    private i iko;
+    private RecyclerView.OnScrollListener kVL;
+    private l kWr;
+    private a kWs;
     private h mRefreshView;
     private TbPageContext<HotTopicDetailActivity> pageContext;
     public int sortType;
@@ -39,25 +39,25 @@ public class HotTopicDetailFeedView extends FrameLayout {
     public HotTopicDetailFeedView(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
         this.sortType = 1;
-        this.hyx = new RecyclerView.OnScrollListener() { // from class: com.baidu.tieba.newdetail.view.HotTopicDetailFeedView.1
-            private boolean hXT;
+        this.hKT = new RecyclerView.OnScrollListener() { // from class: com.baidu.tieba.newdetail.view.HotTopicDetailFeedView.1
+            private boolean ikt;
 
             @Override // android.support.v7.widget.RecyclerView.OnScrollListener
             public void onScrollStateChanged(RecyclerView recyclerView, int i2) {
-                if (i2 == 0 && HotTopicDetailFeedView.this.hXO != null) {
-                    HotTopicDetailFeedView.this.hXO.a(HotTopicDetailFeedView.this.iuX.getFirstVisiblePosition(), HotTopicDetailFeedView.this.iuX.getLastVisiblePosition(), this.hXT, true);
+                if (i2 == 0 && HotTopicDetailFeedView.this.iko != null) {
+                    HotTopicDetailFeedView.this.iko.a(HotTopicDetailFeedView.this.iHt.getFirstVisiblePosition(), HotTopicDetailFeedView.this.iHt.getLastVisiblePosition(), this.ikt, true);
                 }
-                if (HotTopicDetailFeedView.this.kJo != null) {
-                    HotTopicDetailFeedView.this.kJo.onScrollStateChanged(recyclerView, i2);
+                if (HotTopicDetailFeedView.this.kVL != null) {
+                    HotTopicDetailFeedView.this.kVL.onScrollStateChanged(recyclerView, i2);
                 }
             }
 
             @Override // android.support.v7.widget.RecyclerView.OnScrollListener
             public void onScrolled(RecyclerView recyclerView, int i2, int i3) {
                 super.onScrolled(recyclerView, i2, i3);
-                this.hXT = i3 <= 0;
-                if (HotTopicDetailFeedView.this.kJo != null) {
-                    HotTopicDetailFeedView.this.kJo.onScrolled(recyclerView, i2, i3);
+                this.ikt = i3 <= 0;
+                if (HotTopicDetailFeedView.this.kVL != null) {
+                    HotTopicDetailFeedView.this.kVL.onScrolled(recyclerView, i2, i3);
                 }
             }
         };
@@ -67,25 +67,25 @@ public class HotTopicDetailFeedView extends FrameLayout {
     public HotTopicDetailFeedView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
         this.sortType = 1;
-        this.hyx = new RecyclerView.OnScrollListener() { // from class: com.baidu.tieba.newdetail.view.HotTopicDetailFeedView.1
-            private boolean hXT;
+        this.hKT = new RecyclerView.OnScrollListener() { // from class: com.baidu.tieba.newdetail.view.HotTopicDetailFeedView.1
+            private boolean ikt;
 
             @Override // android.support.v7.widget.RecyclerView.OnScrollListener
             public void onScrollStateChanged(RecyclerView recyclerView, int i2) {
-                if (i2 == 0 && HotTopicDetailFeedView.this.hXO != null) {
-                    HotTopicDetailFeedView.this.hXO.a(HotTopicDetailFeedView.this.iuX.getFirstVisiblePosition(), HotTopicDetailFeedView.this.iuX.getLastVisiblePosition(), this.hXT, true);
+                if (i2 == 0 && HotTopicDetailFeedView.this.iko != null) {
+                    HotTopicDetailFeedView.this.iko.a(HotTopicDetailFeedView.this.iHt.getFirstVisiblePosition(), HotTopicDetailFeedView.this.iHt.getLastVisiblePosition(), this.ikt, true);
                 }
-                if (HotTopicDetailFeedView.this.kJo != null) {
-                    HotTopicDetailFeedView.this.kJo.onScrollStateChanged(recyclerView, i2);
+                if (HotTopicDetailFeedView.this.kVL != null) {
+                    HotTopicDetailFeedView.this.kVL.onScrollStateChanged(recyclerView, i2);
                 }
             }
 
             @Override // android.support.v7.widget.RecyclerView.OnScrollListener
             public void onScrolled(RecyclerView recyclerView, int i2, int i3) {
                 super.onScrolled(recyclerView, i2, i3);
-                this.hXT = i3 <= 0;
-                if (HotTopicDetailFeedView.this.kJo != null) {
-                    HotTopicDetailFeedView.this.kJo.onScrolled(recyclerView, i2, i3);
+                this.ikt = i3 <= 0;
+                if (HotTopicDetailFeedView.this.kVL != null) {
+                    HotTopicDetailFeedView.this.kVL.onScrolled(recyclerView, i2, i3);
                 }
             }
         };
@@ -95,34 +95,34 @@ public class HotTopicDetailFeedView extends FrameLayout {
     public HotTopicDetailFeedView(Context context) {
         super(context);
         this.sortType = 1;
-        this.hyx = new RecyclerView.OnScrollListener() { // from class: com.baidu.tieba.newdetail.view.HotTopicDetailFeedView.1
-            private boolean hXT;
+        this.hKT = new RecyclerView.OnScrollListener() { // from class: com.baidu.tieba.newdetail.view.HotTopicDetailFeedView.1
+            private boolean ikt;
 
             @Override // android.support.v7.widget.RecyclerView.OnScrollListener
             public void onScrollStateChanged(RecyclerView recyclerView, int i2) {
-                if (i2 == 0 && HotTopicDetailFeedView.this.hXO != null) {
-                    HotTopicDetailFeedView.this.hXO.a(HotTopicDetailFeedView.this.iuX.getFirstVisiblePosition(), HotTopicDetailFeedView.this.iuX.getLastVisiblePosition(), this.hXT, true);
+                if (i2 == 0 && HotTopicDetailFeedView.this.iko != null) {
+                    HotTopicDetailFeedView.this.iko.a(HotTopicDetailFeedView.this.iHt.getFirstVisiblePosition(), HotTopicDetailFeedView.this.iHt.getLastVisiblePosition(), this.ikt, true);
                 }
-                if (HotTopicDetailFeedView.this.kJo != null) {
-                    HotTopicDetailFeedView.this.kJo.onScrollStateChanged(recyclerView, i2);
+                if (HotTopicDetailFeedView.this.kVL != null) {
+                    HotTopicDetailFeedView.this.kVL.onScrollStateChanged(recyclerView, i2);
                 }
             }
 
             @Override // android.support.v7.widget.RecyclerView.OnScrollListener
             public void onScrolled(RecyclerView recyclerView, int i2, int i3) {
                 super.onScrolled(recyclerView, i2, i3);
-                this.hXT = i3 <= 0;
-                if (HotTopicDetailFeedView.this.kJo != null) {
-                    HotTopicDetailFeedView.this.kJo.onScrolled(recyclerView, i2, i3);
+                this.ikt = i3 <= 0;
+                if (HotTopicDetailFeedView.this.kVL != null) {
+                    HotTopicDetailFeedView.this.kVL.onScrolled(recyclerView, i2, i3);
                 }
             }
         };
         init(context);
     }
 
-    public HotTopicDetailFeedView EF(int i) {
+    public HotTopicDetailFeedView EY(int i) {
         this.sortType = i;
-        this.kJU.tb(i == 0);
+        this.kWr.ts(i == 0);
         return this;
     }
 
@@ -132,73 +132,73 @@ public class HotTopicDetailFeedView extends FrameLayout {
             this.pageContext = (TbPageContext) I;
         }
         if (this.pageContext != null) {
-            this.iuX = new BdTypeRecyclerView(context);
-            this.iuX.setFadingEdgeLength(0);
-            this.iuX.setOverScrollMode(2);
-            this.iuX.setVerticalScrollBarEnabled(false);
-            this.iuX.setLayoutManager(new LinearLayoutManager(context));
-            this.iuX.addOnScrollListener(this.hyx);
-            this.iuX.setOnSrollToBottomListener(new BdListView.e() { // from class: com.baidu.tieba.newdetail.view.HotTopicDetailFeedView.2
+            this.iHt = new BdTypeRecyclerView(context);
+            this.iHt.setFadingEdgeLength(0);
+            this.iHt.setOverScrollMode(2);
+            this.iHt.setVerticalScrollBarEnabled(false);
+            this.iHt.setLayoutManager(new LinearLayoutManager(context));
+            this.iHt.addOnScrollListener(this.hKT);
+            this.iHt.setOnSrollToBottomListener(new BdListView.e() { // from class: com.baidu.tieba.newdetail.view.HotTopicDetailFeedView.2
                 @Override // com.baidu.adp.widget.ListView.BdListView.e
                 public void onScrollToBottom() {
-                    if (HotTopicDetailFeedView.this.iuX != null) {
-                        HotTopicDetailFeedView.this.iuX.stopScroll();
+                    if (HotTopicDetailFeedView.this.iHt != null) {
+                        HotTopicDetailFeedView.this.iHt.stopScroll();
                     }
                     ((HotTopicDetailActivity) HotTopicDetailFeedView.this.pageContext.getOrignalPage()).onScrollToBottom();
                 }
             });
-            this.kJU = new l(this.pageContext, this.pageContext.getUniqueId(), this.iuX);
-            addView(this.iuX);
-            ((FrameLayout.LayoutParams) this.iuX.getLayoutParams()).topMargin = getResources().getDimensionPixelOffset(R.dimen.line_magin_bottom);
-            if (this.hXO == null) {
-                this.hXO = new i(this.pageContext, this.iuX);
-                this.hXO.GO(1);
-                this.hXO.setUniqueId(this.pageContext.getUniqueId());
+            this.kWr = new l(this.pageContext, this.pageContext.getUniqueId(), this.iHt);
+            addView(this.iHt);
+            ((FrameLayout.LayoutParams) this.iHt.getLayoutParams()).topMargin = getResources().getDimensionPixelOffset(R.dimen.line_magin_bottom);
+            if (this.iko == null) {
+                this.iko = new i(this.pageContext, this.iHt);
+                this.iko.Hh(1);
+                this.iko.setUniqueId(this.pageContext.getUniqueId());
             }
-            this.iuX.setRecyclerListener(new RecyclerView.RecyclerListener() { // from class: com.baidu.tieba.newdetail.view.HotTopicDetailFeedView.3
+            this.iHt.setRecyclerListener(new RecyclerView.RecyclerListener() { // from class: com.baidu.tieba.newdetail.view.HotTopicDetailFeedView.3
                 @Override // android.support.v7.widget.RecyclerView.RecyclerListener
                 public void onViewRecycled(RecyclerView.ViewHolder viewHolder) {
                     View view = viewHolder.itemView;
-                    if (view != null && HotTopicDetailFeedView.this.hXO != null) {
-                        HotTopicDetailFeedView.this.hXO.cR(view);
+                    if (view != null && HotTopicDetailFeedView.this.iko != null) {
+                        HotTopicDetailFeedView.this.iko.cV(view);
                     }
                 }
             });
-            this.fTv = new PbListView(context);
-            this.fTv.createView();
-            this.fTv.setContainerBackgroundColorResId(R.color.cp_bg_line_e);
-            this.fTv.setLineGone();
-            this.fTv.setTextColor(ap.getColor(R.color.cp_cont_d));
-            this.fTv.setNoMoreTextColorId(R.color.cp_cont_e);
-            this.iuX.setVisibility(0);
+            this.gdy = new PbListView(context);
+            this.gdy.createView();
+            this.gdy.setContainerBackgroundColorResId(R.color.cp_bg_line_e);
+            this.gdy.setLineGone();
+            this.gdy.setTextColor(ap.getColor(R.color.cp_cont_d));
+            this.gdy.setNoMoreTextColorId(R.color.cp_cont_e);
+            this.iHt.setVisibility(0);
             setFocusableInTouchMode(true);
         }
     }
 
-    public void hn(boolean z) {
-        if (this.gcx == null) {
-            this.gcx = new g(getContext());
-            this.gcx.bwO();
-            this.gcx.onChangeSkinType();
-            this.gcx.setWrapStyle(true);
+    public void hA(boolean z) {
+        if (this.gmB == null) {
+            this.gmB = new g(getContext());
+            this.gmB.byH();
+            this.gmB.onChangeSkinType();
+            this.gmB.setWrapStyle(true);
         }
-        this.gcx.attachView(this, z);
+        this.gmB.attachView(this, z);
     }
 
     public void hideLoadingView() {
-        if (this.gcx != null) {
-            this.gcx.dettachView(this);
-            this.gcx = null;
+        if (this.gmB != null) {
+            this.gmB.dettachView(this);
+            this.gmB = null;
         }
     }
 
-    public void ox(boolean z) {
+    public void oP(boolean z) {
         if (this.mRefreshView == null) {
             this.mRefreshView = new h(getContext(), new View.OnClickListener() { // from class: com.baidu.tieba.newdetail.view.HotTopicDetailFeedView.4
                 @Override // android.view.View.OnClickListener
                 public void onClick(View view) {
                     if (j.isNetworkAvailableForImmediately()) {
-                        ((HotTopicDetailActivity) HotTopicDetailFeedView.this.pageContext.getOrignalPage()).Ev(HotTopicDetailFeedView.this.sortType);
+                        ((HotTopicDetailActivity) HotTopicDetailFeedView.this.pageContext.getOrignalPage()).EO(HotTopicDetailFeedView.this.sortType);
                     }
                 }
             });
@@ -214,7 +214,7 @@ public class HotTopicDetailFeedView extends FrameLayout {
         this.mRefreshView.getAttachedView().setClickable(false);
     }
 
-    public void SK() {
+    public void TK() {
         if (this.mRefreshView != null) {
             this.mRefreshView.dettachView(this);
             this.mRefreshView = null;
@@ -222,18 +222,18 @@ public class HotTopicDetailFeedView extends FrameLayout {
     }
 
     public void onChangeSkinType(int i) {
-        if (this.gcx != null) {
-            this.gcx.onChangeSkinType();
+        if (this.gmB != null) {
+            this.gmB.onChangeSkinType();
         }
         if (this.mRefreshView != null) {
             this.mRefreshView.onChangeSkinType();
         }
-        if (this.fTv != null) {
-            this.fTv.setTextColor(ap.getColor(R.color.cp_cont_d));
-            this.fTv.changeSkin(i);
+        if (this.gdy != null) {
+            this.gdy.setTextColor(ap.getColor(R.color.cp_cont_d));
+            this.gdy.changeSkin(i);
         }
-        if (this.kJU != null) {
-            this.kJU.notifyDataSetChanged();
+        if (this.kWr != null) {
+            this.kWr.notifyDataSetChanged();
         }
         ap.setBackgroundColor(this, R.color.cp_bg_line_d);
     }
@@ -245,74 +245,74 @@ public class HotTopicDetailFeedView extends FrameLayout {
     }
 
     public void destroy() {
-        if (this.hXO != null) {
-            this.hXO.destroy();
+        if (this.iko != null) {
+            this.iko.destroy();
         }
-        com.baidu.adp.lib.f.e.mY().removeCallbacks(this.kJV);
+        com.baidu.adp.lib.f.e.mY().removeCallbacks(this.kWs);
     }
 
     public void resume() {
-        if (this.hXO != null) {
-            this.hXO.sw(true);
-            if (this.iuX != null) {
-                this.hXO.a(this.iuX.getFirstVisiblePosition(), this.iuX.getLastVisiblePosition(), false, true);
+        if (this.iko != null) {
+            this.iko.sO(true);
+            if (this.iHt != null) {
+                this.iko.a(this.iHt.getFirstVisiblePosition(), this.iHt.getLastVisiblePosition(), false, true);
             }
         }
     }
 
     public void pause() {
-        if (this.hXO != null) {
-            this.hXO.cUt();
-            this.hXO.sw(false);
+        if (this.iko != null) {
+            this.iko.cXA();
+            this.iko.sO(false);
         }
     }
 
-    public void SI() {
-        if (this.iuX != null && this.fTv != null) {
-            this.iuX.setNextPage(this.fTv);
-            this.fTv.setTextSize(R.dimen.tbfontsize33);
-            this.fTv.showEmptyView(0);
-            this.fTv.setHeight(com.baidu.adp.lib.util.l.getDimens(getContext(), R.dimen.tbds182));
-            this.fTv.startLoadData();
+    public void TI() {
+        if (this.iHt != null && this.gdy != null) {
+            this.iHt.setNextPage(this.gdy);
+            this.gdy.setTextSize(R.dimen.tbfontsize33);
+            this.gdy.showEmptyView(0);
+            this.gdy.setHeight(com.baidu.adp.lib.util.l.getDimens(getContext(), R.dimen.tbds182));
+            this.gdy.startLoadData();
         }
     }
 
-    public void SJ() {
-        if (this.iuX != null && this.fTv != null) {
-            this.iuX.setNextPage(this.fTv);
-            this.fTv.endLoadData();
-            this.fTv.showEmptyView(0);
-            this.fTv.setText(getContext().getResources().getString(R.string.list_no_more));
+    public void TJ() {
+        if (this.iHt != null && this.gdy != null) {
+            this.iHt.setNextPage(this.gdy);
+            this.gdy.endLoadData();
+            this.gdy.showEmptyView(0);
+            this.gdy.setText(getContext().getResources().getString(R.string.list_no_more));
         }
     }
 
-    public void bKU() {
-        if (this.iuX != null && this.fTv != null) {
-            this.iuX.setNextPage(null);
-            this.fTv.hideEmptyView();
+    public void bNw() {
+        if (this.iHt != null && this.gdy != null) {
+            this.iHt.setNextPage(null);
+            this.gdy.hideEmptyView();
         }
     }
 
     public void setData(@NonNull List<q> list) {
-        this.kJU.setData(list);
-        if (this.hXO != null) {
-            this.hXO.a(this.iuX.getFirstVisiblePosition(), this.iuX.getLastVisiblePosition(), false, true);
+        this.kWr.setData(list);
+        if (this.iko != null) {
+            this.iko.a(this.iHt.getFirstVisiblePosition(), this.iHt.getLastVisiblePosition(), false, true);
         }
     }
 
     public void setScrollListener(RecyclerView.OnScrollListener onScrollListener) {
-        this.kJo = onScrollListener;
+        this.kVL = onScrollListener;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes21.dex */
     public class a implements Runnable {
-        int jAk;
-        final /* synthetic */ HotTopicDetailFeedView kJW;
+        int jMJ;
+        final /* synthetic */ HotTopicDetailFeedView kWt;
 
         @Override // java.lang.Runnable
         public void run() {
-            this.kJW.iuX.smoothScrollBy(Math.abs(this.jAk), 1);
+            this.kWt.iHt.smoothScrollBy(Math.abs(this.jMJ), 1);
         }
     }
 }

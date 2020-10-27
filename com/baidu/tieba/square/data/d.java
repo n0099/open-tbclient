@@ -8,14 +8,14 @@ import tbclient.RecommendForumInfo;
 public class d {
     public String className;
     public List<RecommendForumInfo> forumList;
-    public List<String> mxs;
+    public List<String> mKc;
     public Page page;
 
     public void a(DataRes dataRes) {
         if (dataRes != null) {
             this.className = dataRes.class_name;
             this.page = dataRes.page;
-            this.mxs = dataRes.page_structure;
+            this.mKc = dataRes.page_structure;
             this.forumList = dataRes.forum_info;
         }
     }

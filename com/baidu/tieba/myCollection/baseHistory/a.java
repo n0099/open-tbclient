@@ -22,7 +22,7 @@ public class a implements f {
     private String liveId = "";
     private String userName = "";
     private String description = "";
-    private boolean kIy = true;
+    private boolean kUV = true;
 
     public boolean equals(Object obj) {
         if (obj == null || !(obj instanceof a)) {
@@ -80,7 +80,7 @@ public class a implements f {
         return (((this.isHostOnly ? 1 : 0) + (hashCode6 * 7)) * 7) + (this.isSquence ? 1 : 0);
     }
 
-    public boolean ei(JSONObject jSONObject) {
+    public boolean eo(JSONObject jSONObject) {
         String optString = jSONObject.optString("forum_name");
         String optString2 = jSONObject.optString("thread_id");
         String optString3 = jSONObject.optString("thread_name");
@@ -178,7 +178,7 @@ public class a implements f {
         return this.threadId;
     }
 
-    public String cZu() {
+    public String dcC() {
         return this.threadName;
     }
 
@@ -202,27 +202,27 @@ public class a implements f {
         this.forumName = str;
     }
 
-    public String bvH() {
+    public String bxA() {
         return this.postID;
     }
 
-    public void Oh(String str) {
+    public void OF(String str) {
         this.postID = str;
     }
 
-    public boolean cZv() {
+    public boolean dcD() {
         return this.isHostOnly;
     }
 
-    public void sW(boolean z) {
+    public void tn(boolean z) {
         this.isHostOnly = z;
     }
 
-    public boolean cZw() {
+    public boolean dcE() {
         return this.isSquence;
     }
 
-    public void sX(boolean z) {
+    public void to(boolean z) {
         this.isSquence = z;
     }
 
@@ -230,7 +230,7 @@ public class a implements f {
         return this.liveId;
     }
 
-    public void gx(String str) {
+    public void setLiveId(String str) {
         this.liveId = str;
     }
 
@@ -250,12 +250,12 @@ public class a implements f {
         this.description = str;
     }
 
-    public boolean cZx() {
-        return this.kIy;
+    public boolean dcF() {
+        return this.kUV;
     }
 
-    public void sY(boolean z) {
-        this.kIy = z;
+    public void tp(boolean z) {
+        this.kUV = z;
     }
 
     @Override // com.baidu.tbadk.mvc.b.d
@@ -264,15 +264,15 @@ public class a implements f {
     }
 
     @Override // com.baidu.tbadk.mvc.b.f
-    public String bxf() {
+    public String byY() {
         return toJsonObject().toString();
     }
 
     @Override // com.baidu.tbadk.mvc.b.f
-    public boolean Dy(String str) {
+    public boolean DR(String str) {
         if (str != null) {
             try {
-                return ei(new JSONObject(str));
+                return eo(new JSONObject(str));
             } catch (JSONException e) {
                 e.printStackTrace();
             }

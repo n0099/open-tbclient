@@ -1,71 +1,49 @@
 package com.baidu.tieba.ala.alaar.sticker.a;
 
-import android.os.Handler;
-import android.os.Looper;
-import android.text.TextUtils;
-import com.baidu.tieba.ala.alaar.sticker.model.DuFileFaceItem;
-import com.baidu.tieba.ala.alaar.sticker.model.FuFaceItem;
-import java.io.File;
+import com.baidu.live.adp.BdUniqueId;
+import com.baidu.live.adp.framework.MessageManager;
+import com.baidu.live.data.AlaLiveStickerInfo;
+import com.baidu.live.tbadk.core.TbadkCoreApplication;
 /* loaded from: classes4.dex */
 public class g {
+    private static int fWZ = 0;
+    private static volatile boolean fXa = false;
 
-    /* loaded from: classes4.dex */
-    public interface a<T> {
-        void a(T t, int i, int i2, String str);
-
-        void aC(T t);
-
-        void aD(T t);
+    public static void a(BdUniqueId bdUniqueId, String str, int i, int i2) {
+        com.baidu.tieba.ala.alaar.messages.c cVar = new com.baidu.tieba.ala.alaar.messages.c(bdUniqueId, str, i, i2);
+        cVar.setParams();
+        MessageManager.getInstance().sendMessage(cVar);
     }
 
-    public static final void a(FuFaceItem fuFaceItem, a<FuFaceItem> aVar) {
-        if (fuFaceItem instanceof DuFileFaceItem) {
-            a((DuFileFaceItem) fuFaceItem, aVar);
-        } else {
-            fuFaceItem.download(aVar);
-        }
+    public static void PK() {
+        com.baidu.tieba.ala.alaar.messages.b bVar = new com.baidu.tieba.ala.alaar.messages.b("");
+        bVar.setParams();
+        MessageManager.getInstance().sendMessage(bVar);
     }
 
-    /* JADX WARN: Type inference failed for: r0v3, types: [com.baidu.tieba.ala.alaar.sticker.a.g$1] */
-    private static final void a(final DuFileFaceItem duFileFaceItem, final a<FuFaceItem> aVar) {
-        try {
-            String loadingFile = duFileFaceItem.getLoadingFile();
-            if (!TextUtils.isEmpty(loadingFile)) {
-                final File file = new File(loadingFile);
-                if (file.exists()) {
-                    if (aVar != null) {
-                        aVar.aC(duFileFaceItem);
-                    }
-                    new Thread() { // from class: com.baidu.tieba.ala.alaar.sticker.a.g.1
-                        @Override // java.lang.Thread, java.lang.Runnable
-                        public void run() {
-                            final boolean z = false;
-                            try {
-                                if (!DuFileFaceItem.this.onResLoaded(file.getAbsolutePath())) {
-                                    new Throwable("unzip failed");
-                                }
-                                z = true;
-                            } catch (Exception e) {
-                                e.printStackTrace();
-                            }
-                            if (aVar != null) {
-                                new Handler(Looper.getMainLooper()).post(new Runnable() { // from class: com.baidu.tieba.ala.alaar.sticker.a.g.1.1
-                                    @Override // java.lang.Runnable
-                                    public void run() {
-                                        if (z) {
-                                            aVar.aD(DuFileFaceItem.this);
-                                        } else {
-                                            aVar.a(DuFileFaceItem.this, 0, 0, "本地贴纸独立文件解压导出失败");
-                                        }
-                                    }
-                                });
-                            }
-                        }
-                    }.start();
-                }
-            }
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
+    public static void eh(String str, String str2) {
+        com.baidu.tieba.ala.alaar.messages.a aVar = new com.baidu.tieba.ala.alaar.messages.a();
+        aVar.setParams();
+        aVar.addParam("user_id", TbadkCoreApplication.getCurrentAccountId());
+        aVar.addParam("nickname", TbadkCoreApplication.getCurrentAccountInfo().getAccountNameShow());
+        aVar.addParam("content", str);
+        aVar.addParam("title", str2);
+        MessageManager.getInstance().sendMessage(aVar);
+    }
+
+    public static void a(long j, int i, AlaLiveStickerInfo alaLiveStickerInfo) {
+        fWZ = i;
+        fXa = true;
+        com.baidu.tieba.ala.alaar.messages.d dVar = new com.baidu.tieba.ala.alaar.messages.d(j, i, alaLiveStickerInfo);
+        dVar.setParams();
+        MessageManager.getInstance().sendMessage(dVar);
+    }
+
+    public static void bLi() {
+        fXa = false;
+    }
+
+    public static boolean bLj() {
+        return fXa;
     }
 }

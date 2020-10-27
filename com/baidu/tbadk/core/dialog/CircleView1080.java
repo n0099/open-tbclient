@@ -10,11 +10,11 @@ import com.baidu.ala.recorder.video.drawer.EncoderTextureDrawer;
 import com.baidu.tieba.R;
 /* loaded from: classes.dex */
 public class CircleView1080 extends View {
-    private static int etQ = EncoderTextureDrawer.X264_WIDTH;
-    private static int etR = 100;
-    private int but;
-    private Paint etT;
-    private RectF etV;
+    private static int eCp = EncoderTextureDrawer.X264_WIDTH;
+    private static int eCq = 100;
+    private int bwz;
+    private Paint eCs;
+    private RectF eCu;
     private int mValue;
     private int mWidth;
 
@@ -43,18 +43,18 @@ public class CircleView1080 extends View {
 
     public void init() {
         this.mWidth = getResources().getDimensionPixelSize(R.dimen.tbds122);
-        this.but = getResources().getDimensionPixelSize(R.dimen.tbds6);
-        this.etT = new Paint();
-        this.etT.setStrokeWidth(this.but);
-        this.etT.setColor(getResources().getColor(R.color.cp_cont_g));
-        this.etT.setStyle(Paint.Style.STROKE);
-        this.etT.setAntiAlias(true);
-        this.etT.setStrokeCap(Paint.Cap.ROUND);
-        this.etV = new RectF(this.but / 2, this.but / 2, this.mWidth + (this.but / 2), this.mWidth + (this.but / 2));
+        this.bwz = getResources().getDimensionPixelSize(R.dimen.tbds6);
+        this.eCs = new Paint();
+        this.eCs.setStrokeWidth(this.bwz);
+        this.eCs.setColor(getResources().getColor(R.color.cp_cont_g));
+        this.eCs.setStyle(Paint.Style.STROKE);
+        this.eCs.setAntiAlias(true);
+        this.eCs.setStrokeCap(Paint.Cap.ROUND);
+        this.eCu = new RectF(this.bwz / 2, this.bwz / 2, this.mWidth + (this.bwz / 2), this.mWidth + (this.bwz / 2));
     }
 
     @Override // android.view.View
     protected void onDraw(Canvas canvas) {
-        canvas.drawArc(this.etV, 270.0f, (etQ * this.mValue) / etR, false, this.etT);
+        canvas.drawArc(this.eCu, 270.0f, (eCp * this.mValue) / eCq, false, this.eCs);
     }
 }

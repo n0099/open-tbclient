@@ -5,8 +5,8 @@ import com.baidu.live.adp.framework.message.CustomMessage;
 import com.baidu.live.adp.framework.message.CustomResponsedMessage;
 import com.baidu.live.adp.framework.task.CustomMessageTask;
 import com.baidu.live.adp.lib.util.StringUtils;
-import com.baidu.live.data.u;
-import com.baidu.live.data.v;
+import com.baidu.live.data.w;
+import com.baidu.live.data.x;
 import com.baidu.live.tbadk.data.ShareEntity;
 import com.baidu.live.tbadk.data.ShareEntityWrapperData;
 import com.baidu.live.tbadk.share.single.ShareSingleManager;
@@ -17,20 +17,20 @@ import com.baidu.tieba.sdk.b.e;
 public class a implements CustomMessageTask.CustomRunnable {
     @Override // com.baidu.live.adp.framework.task.CustomMessageTask.CustomRunnable
     public CustomResponsedMessage<?> run(CustomMessage customMessage) {
-        e dwU = com.baidu.tieba.sdk.d.a.dwM().dwU();
-        if (dwU != null) {
-            if (customMessage.getData() instanceof v) {
-                v vVar = (v) customMessage.getData();
+        e dAc = com.baidu.tieba.sdk.d.a.dzU().dAc();
+        if (dAc != null) {
+            if (customMessage.getData() instanceof x) {
+                x xVar = (x) customMessage.getData();
                 ShareEntity shareEntity = new ShareEntity();
-                a(vVar.alaLiveShowData, shareEntity);
+                a(xVar.alaLiveShowData, shareEntity);
                 f(shareEntity);
-                dwU.a(vVar.activity, shareEntity);
+                dAc.a(xVar.activity, shareEntity);
             } else if (customMessage.getData() instanceof ShareEntityWrapperData) {
                 ShareEntityWrapperData shareEntityWrapperData = (ShareEntityWrapperData) customMessage.getData();
                 f(shareEntityWrapperData.shareEntity);
                 ShareEntity shareEntity2 = shareEntityWrapperData.shareEntity;
                 if (shareEntity2.sharePanel()) {
-                    dwU.a(shareEntityWrapperData.activity, shareEntityWrapperData.shareEntity);
+                    dAc.a(shareEntityWrapperData.activity, shareEntityWrapperData.shareEntity);
                 } else {
                     try {
                         IShareChannel buildShareChannel = ShareSingleManager.getInstance().buildShareChannel();
@@ -46,7 +46,7 @@ public class a implements CustomMessageTask.CustomRunnable {
                             }
                         }
                     } catch (Exception e) {
-                        dwU.a(shareEntityWrapperData.activity, shareEntityWrapperData.shareEntity);
+                        dAc.a(shareEntityWrapperData.activity, shareEntityWrapperData.shareEntity);
                     }
                 }
             }
@@ -54,27 +54,27 @@ public class a implements CustomMessageTask.CustomRunnable {
         return null;
     }
 
-    private void a(u uVar, ShareEntity shareEntity) {
-        if (uVar != null && shareEntity != null) {
-            shareEntity.userId = uVar.aHD.userId;
-            shareEntity.userName = uVar.aHD.userName;
-            if (uVar.aIg != null && !TextUtils.isEmpty(uVar.aIg.aIe)) {
-                shareEntity.title = uVar.aIg.aIe;
+    private void a(w wVar, ShareEntity shareEntity) {
+        if (wVar != null && shareEntity != null) {
+            shareEntity.userId = wVar.aIe.userId;
+            shareEntity.userName = wVar.aIe.userName;
+            if (wVar.aIB != null && !TextUtils.isEmpty(wVar.aIB.aIz)) {
+                shareEntity.title = wVar.aIB.aIz;
             } else {
                 shareEntity.title = StringUtils.isNull(shareEntity.userName) ? "" : shareEntity.userName + "的直播";
             }
-            if (uVar.aIg != null && !TextUtils.isEmpty(uVar.aIg.subTitle)) {
-                shareEntity.content = uVar.aIg.subTitle;
+            if (wVar.aIB != null && !TextUtils.isEmpty(wVar.aIB.subTitle)) {
+                shareEntity.content = wVar.aIB.subTitle;
             } else {
                 shareEntity.content = "精彩直播正在进行，邀请你速来围观。";
             }
-            if (uVar.aIg != null && !TextUtils.isEmpty(uVar.aIg.imgUrl)) {
-                shareEntity.imageUrl = uVar.aIg.imgUrl;
+            if (wVar.aIB != null && !TextUtils.isEmpty(wVar.aIB.imgUrl)) {
+                shareEntity.imageUrl = wVar.aIB.imgUrl;
             } else {
-                shareEntity.imageUrl = uVar.mLiveInfo.cover;
+                shareEntity.imageUrl = wVar.mLiveInfo.cover;
             }
-            shareEntity.linkUrl = uVar.mLiveInfo.share_url;
-            shareEntity.liveId = uVar.mLiveInfo.live_id;
+            shareEntity.linkUrl = wVar.mLiveInfo.share_url;
+            shareEntity.liveId = wVar.mLiveInfo.live_id;
         }
     }
 

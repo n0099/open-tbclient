@@ -6,7 +6,7 @@ public class a extends u {
     private boolean isTop;
 
     public a(boolean z) {
-        ny(10);
+        nJ(10);
         this.isTop = z;
     }
 

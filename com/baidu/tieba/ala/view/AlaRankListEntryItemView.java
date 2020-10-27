@@ -8,9 +8,9 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 import com.baidu.live.sdk.a;
 /* loaded from: classes4.dex */
-public class AlaRankListEntryItemView extends LinearLayout implements com.baidu.live.s.b {
-    private TextView htH;
-    private TextView htI;
+public class AlaRankListEntryItemView extends LinearLayout implements com.baidu.live.t.b {
+    private TextView hFy;
+    private TextView hFz;
 
     public AlaRankListEntryItemView(Context context) {
         super(context);
@@ -29,33 +29,33 @@ public class AlaRankListEntryItemView extends LinearLayout implements com.baidu.
 
     private void initView() {
         LayoutInflater.from(getContext()).inflate(a.h.ala_rank_list_entry_item_layout, this);
-        this.htH = (TextView) findViewById(a.g.ala_rank_list_type);
-        this.htI = (TextView) findViewById(a.g.ala_rank_list_level);
+        this.hFy = (TextView) findViewById(a.g.ala_rank_list_type);
+        this.hFz = (TextView) findViewById(a.g.ala_rank_list_level);
     }
 
     public void setRankListName(String str) {
-        this.htH.setText(str);
+        this.hFy.setText(str);
     }
 
     public void setRankListLevel(String str) {
-        this.htI.setText(str);
+        this.hFz.setText(str);
     }
 
     public void setRankListLevelVisible(boolean z) {
-        this.htI.setVisibility(z ? 0 : 8);
+        this.hFz.setVisibility(z ? 0 : 8);
     }
 
-    @Override // com.baidu.live.s.b
+    @Override // com.baidu.live.t.b
     public TextView getRankNameView() {
-        return this.htH;
+        return this.hFy;
     }
 
-    @Override // com.baidu.live.s.b
+    @Override // com.baidu.live.t.b
     public TextView getRankLevelView() {
-        return this.htI;
+        return this.hFz;
     }
 
-    @Override // com.baidu.live.s.b
+    @Override // com.baidu.live.t.b
     public View getRankItemRootView() {
         return this;
     }

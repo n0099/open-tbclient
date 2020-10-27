@@ -11,16 +11,16 @@ import java.util.List;
 public class a {
 
     /* renamed from: a  reason: collision with root package name */
-    protected final List<com.meizu.cloud.pushsdk.c.a.b> f4394a;
+    protected final List<com.meizu.cloud.pushsdk.c.a.b> f4392a;
     protected final long b;
     protected final String c;
 
     /* renamed from: com.meizu.cloud.pushsdk.c.c.a$a  reason: collision with other inner class name */
     /* loaded from: classes7.dex */
-    public static abstract class AbstractC0937a<T extends AbstractC0937a<T>> {
+    public static abstract class AbstractC1009a<T extends AbstractC1009a<T>> {
 
         /* renamed from: a  reason: collision with root package name */
-        private List<com.meizu.cloud.pushsdk.c.a.b> f4395a = new LinkedList();
+        private List<com.meizu.cloud.pushsdk.c.a.b> f4393a = new LinkedList();
         private long b = System.currentTimeMillis();
         private String c = e.b();
 
@@ -34,13 +34,13 @@ public class a {
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public a(AbstractC0937a<?> abstractC0937a) {
-        d.a(((AbstractC0937a) abstractC0937a).f4395a);
-        d.a(((AbstractC0937a) abstractC0937a).c);
-        d.a(!((AbstractC0937a) abstractC0937a).c.isEmpty(), "eventId cannot be empty");
-        this.f4394a = ((AbstractC0937a) abstractC0937a).f4395a;
-        this.b = ((AbstractC0937a) abstractC0937a).b;
-        this.c = ((AbstractC0937a) abstractC0937a).c;
+    public a(AbstractC1009a<?> abstractC1009a) {
+        d.a(((AbstractC1009a) abstractC1009a).f4393a);
+        d.a(((AbstractC1009a) abstractC1009a).c);
+        d.a(!((AbstractC1009a) abstractC1009a).c.isEmpty(), "eventId cannot be empty");
+        this.f4392a = ((AbstractC1009a) abstractC1009a).f4393a;
+        this.b = ((AbstractC1009a) abstractC1009a).b;
+        this.c = ((AbstractC1009a) abstractC1009a).c;
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -51,7 +51,7 @@ public class a {
     }
 
     public List<com.meizu.cloud.pushsdk.c.a.b> a() {
-        return new ArrayList(this.f4394a);
+        return new ArrayList(this.f4392a);
     }
 
     public long b() {

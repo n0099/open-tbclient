@@ -6,29 +6,29 @@ import com.baidu.live.adp.framework.listener.NetMessageListener;
 import com.baidu.live.adp.framework.message.HttpMessage;
 import com.baidu.live.adp.framework.message.ResponsedMessage;
 import com.baidu.live.data.AlaLiveUserInfoData;
-import com.baidu.live.data.n;
+import com.baidu.live.data.q;
 import com.baidu.live.tbadk.TbPageContext;
 import com.baidu.mobstat.Config;
 import com.baidu.tieba.ala.charm.ALaCharmCardActivity;
 /* loaded from: classes4.dex */
 public class b extends BdBaseModel<ALaCharmCardActivity> {
-    private n ggP;
-    private a ggQ;
-    private NetMessageListener ggR;
+    private q gqS;
+    private a gqT;
+    private NetMessageListener gqU;
 
     /* loaded from: classes4.dex */
     public interface a {
-        void a(long j, n nVar, AlaLiveUserInfoData alaLiveUserInfoData, long j2);
+        void a(long j, q qVar, AlaLiveUserInfoData alaLiveUserInfoData, long j2);
 
-        void aK(int i, String str);
+        void t(int i, String str);
     }
 
     public b(TbPageContext<ALaCharmCardActivity> tbPageContext, a aVar) {
         super(tbPageContext);
-        this.ggR = new NetMessageListener(1021008, 602004) { // from class: com.baidu.tieba.ala.charm.model.b.1
+        this.gqU = new NetMessageListener(1021008, 602004) { // from class: com.baidu.tieba.ala.charm.model.b.1
             @Override // com.baidu.live.adp.framework.listener.NetMessageListener
             public void onMessage(ResponsedMessage<?> responsedMessage) {
-                n nVar;
+                q qVar;
                 long j;
                 long j2 = 0;
                 AlaLiveUserInfoData alaLiveUserInfoData = null;
@@ -36,37 +36,29 @@ public class b extends BdBaseModel<ALaCharmCardActivity> {
                     int error = responsedMessage.getError();
                     if (responsedMessage instanceof OnlineListHttpResponseMessage) {
                         OnlineListHttpResponseMessage onlineListHttpResponseMessage = (OnlineListHttpResponseMessage) responsedMessage;
-                        j = onlineListHttpResponseMessage.bMn();
-                        n bMo = onlineListHttpResponseMessage.bMo();
-                        alaLiveUserInfoData = onlineListHttpResponseMessage.bMp();
-                        j2 = onlineListHttpResponseMessage.bMq();
-                        nVar = bMo;
+                        j = onlineListHttpResponseMessage.bOP();
+                        q bOQ = onlineListHttpResponseMessage.bOQ();
+                        alaLiveUserInfoData = onlineListHttpResponseMessage.bOR();
+                        j2 = onlineListHttpResponseMessage.bOS();
+                        qVar = bOQ;
                     } else {
-                        nVar = null;
+                        qVar = null;
                         j = 0;
                     }
                     if (error == 0) {
-                        b.this.ggP = nVar;
-                        if (b.this.ggQ != null) {
-                            b.this.ggQ.a(j, b.this.ggP, alaLiveUserInfoData, j2);
+                        b.this.gqS = qVar;
+                        if (b.this.gqT != null) {
+                            b.this.gqT.a(j, b.this.gqS, alaLiveUserInfoData, j2);
                         }
-                    } else if (b.this.ggQ != null) {
-                        b.this.ggQ.aK(responsedMessage.getError(), responsedMessage.getErrorString());
+                    } else if (b.this.gqT != null) {
+                        b.this.gqT.t(responsedMessage.getError(), responsedMessage.getErrorString());
                     }
                 }
             }
         };
-        this.ggQ = aVar;
-        MessageManager.getInstance().registerListener(this.ggR);
+        this.gqT = aVar;
+        MessageManager.getInstance().registerListener(this.gqU);
         com.baidu.live.tieba.f.a.a.a(1021008, "ala/live/getAudienceInfo", OnlineListHttpResponseMessage.class, false, true, true, true);
-    }
-
-    public void t(String str, int i, int i2) {
-        HttpMessage httpMessage = new HttpMessage(1021008);
-        httpMessage.addParam("live_id", str);
-        httpMessage.addParam(Config.PACKAGE_NAME, i);
-        httpMessage.addParam("ps", i2);
-        MessageManager.getInstance().sendMessage(httpMessage);
     }
 
     public void u(String str, int i, int i2) {
@@ -77,8 +69,16 @@ public class b extends BdBaseModel<ALaCharmCardActivity> {
         MessageManager.getInstance().sendMessage(httpMessage);
     }
 
+    public void v(String str, int i, int i2) {
+        HttpMessage httpMessage = new HttpMessage(1021008);
+        httpMessage.addParam("live_id", str);
+        httpMessage.addParam(Config.PACKAGE_NAME, i);
+        httpMessage.addParam("ps", i2);
+        MessageManager.getInstance().sendMessage(httpMessage);
+    }
+
     public void onDestroy() {
-        MessageManager.getInstance().unRegisterListener(this.ggR);
+        MessageManager.getInstance().unRegisterListener(this.gqU);
         MessageManager.getInstance().unRegisterTask(1021008);
         cancelMessage();
     }

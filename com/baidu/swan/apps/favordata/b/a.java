@@ -7,6 +7,6 @@ import com.baidu.swan.apps.favordata.SwanFavorDataManager;
 public class a extends com.baidu.swan.apps.process.a.a.a {
     @Override // com.baidu.swan.apps.process.a.a.a
     public void y(@NonNull Bundle bundle) {
-        SwanFavorDataManager.apW().U(bundle.getString("appKey"), bundle.getBoolean("isFavor"));
+        SwanFavorDataManager.arQ().W(bundle.getString("appKey"), bundle.getBoolean("isFavor"));
     }
 }

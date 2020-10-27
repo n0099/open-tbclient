@@ -10,19 +10,19 @@ public interface e<T extends d> extends TypedCallbackHandler {
 
     void a(com.baidu.swan.apps.core.g gVar);
 
-    T aen();
+    T agh();
 
-    String aeo();
+    String agi();
 
-    String aep();
+    String agj();
 
-    void aeq();
-
-    @UiThread
-    void aer();
+    void agk();
 
     @UiThread
-    void aes();
+    void agl();
+
+    @UiThread
+    void agm();
 
     void attachActivity(Activity activity);
 

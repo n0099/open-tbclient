@@ -4,85 +4,85 @@ import android.view.View;
 import com.baidu.tbadk.core.data.AbsThreadDataSupport;
 /* loaded from: classes21.dex */
 public class a<T extends AbsThreadDataSupport> extends am<T> implements com.baidu.tieba.play.e {
-    private at afB;
+    private at afC;
 
     public a(ak<T> akVar) {
         super(akVar);
-        this.afB = null;
+        this.afC = null;
         if (akVar.tP() instanceof at) {
-            this.afB = (at) akVar.tP();
+            this.afC = (at) akVar.tP();
         }
     }
 
     public void setVideoStatsData(com.baidu.tieba.play.o oVar) {
-        if (this.afB != null) {
-            this.afB.setVideoStatData(oVar);
+        if (this.afC != null) {
+            this.afC.setVideoStatData(oVar);
         }
     }
 
     public at tz() {
-        return this.afB;
+        return this.afC;
     }
 
     @Override // com.baidu.tieba.play.e
     public boolean isPlayStarted() {
-        if (this.afB == null) {
+        if (this.afC == null) {
             return false;
         }
-        return this.afB.isPlayStarted();
+        return this.afC.isPlayStarted();
     }
 
     @Override // com.baidu.tieba.play.e
     public boolean isPlaying() {
-        if (this.afB == null) {
+        if (this.afC == null) {
             return false;
         }
-        return this.afB.isPlaying();
+        return this.afC.isPlaying();
     }
 
     @Override // com.baidu.tieba.play.e
     public boolean isFullScreen() {
-        if (this.afB == null) {
+        if (this.afC == null) {
             return false;
         }
-        return this.afB.isFullScreen();
+        return this.afC.isFullScreen();
     }
 
     @Override // com.baidu.tieba.play.e
     public void startPlay() {
-        if (this.afB != null) {
-            this.afB.startPlay();
+        if (this.afC != null) {
+            this.afC.startPlay();
         }
     }
 
     @Override // com.baidu.tieba.play.e
     public void stopPlay() {
-        if (this.afB != null) {
-            this.afB.stopPlay();
+        if (this.afC != null) {
+            this.afC.stopPlay();
         }
     }
 
     @Override // com.baidu.tieba.play.e
     public View getVideoContainer() {
-        if (this.afB == null) {
+        if (this.afC == null) {
             return null;
         }
-        return this.afB.getVideoContainer();
+        return this.afC.getVideoContainer();
     }
 
     @Override // com.baidu.tieba.play.e
     public String getPlayUrl() {
-        if (this.afB == null) {
+        if (this.afC == null) {
             return null;
         }
-        return this.afB.getPlayUrl();
+        return this.afC.getPlayUrl();
     }
 
     @Override // com.baidu.tieba.play.e
     public int getCurrentPosition() {
-        if (this.afB == null) {
+        if (this.afC == null) {
             return 0;
         }
-        return this.afB.getCurrentPosition();
+        return this.afC.getCurrentPosition();
     }
 }

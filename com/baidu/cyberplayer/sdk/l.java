@@ -6,7 +6,7 @@ import com.baidu.cyberplayer.sdk.config.CyberCfgManager;
 public class l {
 
     /* renamed from: a  reason: collision with root package name */
-    private static l f1396a = null;
+    private static l f1393a = null;
 
     private l() {
     }
@@ -15,10 +15,10 @@ public class l {
     public static synchronized l a() {
         l lVar;
         synchronized (l.class) {
-            if (f1396a == null) {
-                f1396a = new l();
+            if (f1393a == null) {
+                f1393a = new l();
             }
-            lVar = f1396a;
+            lVar = f1393a;
         }
         return lVar;
     }
@@ -31,7 +31,7 @@ public class l {
         if (playerProvider == null) {
             playerProvider = d.a(i, httpDNS);
         }
-        if (playerProvider == null && CyberCfgManager.getInstance().getCfgBoolValue("enable_mediaplayer_sub_thread", true)) {
+        if (playerProvider == null && CyberCfgManager.getInstance().getCfgBoolValue("enable_mediaplayer_sub_thread", false)) {
             playerProvider = j.a();
         }
         return playerProvider == null ? new k() : playerProvider;

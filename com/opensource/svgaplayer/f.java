@@ -38,103 +38,103 @@ import org.webrtc.MediaStreamTrack;
 public final class f {
     private List<com.opensource.svgaplayer.entities.a> audios;
     private File cacheDir;
-    private boolean oDf;
-    private com.opensource.svgaplayer.b.c oDg;
-    private int oDh;
-    private int oDi;
-    private SoundPool oDj;
-    private HashMap<String, Bitmap> oDk;
-    private MovieEntity oDl;
+    private boolean puB;
+    private com.opensource.svgaplayer.b.c puC;
+    private int puD;
+    private int puE;
+    private SoundPool puF;
+    private HashMap<String, Bitmap> puG;
+    private MovieEntity puH;
     private List<com.opensource.svgaplayer.entities.f> sprites;
 
     protected final void finalize() {
-        SoundPool soundPool = this.oDj;
+        SoundPool soundPool = this.puF;
         if (soundPool != null) {
             soundPool.release();
         }
-        this.oDj = null;
-        this.oDk.clear();
+        this.puF = null;
+        this.puG.clear();
     }
 
-    public final boolean ejb() {
-        return this.oDf;
+    public final boolean etb() {
+        return this.puB;
     }
 
     public final void setAntiAlias(boolean z) {
-        this.oDf = z;
+        this.puB = z;
     }
 
-    public final com.opensource.svgaplayer.b.c ejc() {
-        return this.oDg;
+    public final com.opensource.svgaplayer.b.c etc() {
+        return this.puC;
     }
 
     public final int getFPS() {
-        return this.oDh;
+        return this.puD;
     }
 
-    public final int ejd() {
-        return this.oDi;
+    public final int etd() {
+        return this.puE;
     }
 
-    public final List<com.opensource.svgaplayer.entities.f> eje() {
+    public final List<com.opensource.svgaplayer.entities.f> ete() {
         return this.sprites;
     }
 
-    public final List<com.opensource.svgaplayer.entities.a> ejf() {
+    public final List<com.opensource.svgaplayer.entities.a> etf() {
         return this.audios;
     }
 
-    public final SoundPool ejg() {
-        return this.oDj;
+    public final SoundPool etg() {
+        return this.puF;
     }
 
-    public final HashMap<String, Bitmap> ejh() {
-        return this.oDk;
+    public final HashMap<String, Bitmap> eth() {
+        return this.puG;
     }
 
     public f(JSONObject jSONObject, File file) {
         q.n(jSONObject, MapBundleKey.MapObjKey.OBJ_SL_OBJ);
         q.n(file, "cacheDir");
-        this.oDf = true;
-        this.oDg = new com.opensource.svgaplayer.b.c(0.0d, 0.0d, 0.0d, 0.0d);
-        this.oDh = 15;
-        this.sprites = o.enJ();
-        this.audios = o.enJ();
-        this.oDk = new HashMap<>();
+        this.puB = true;
+        this.puC = new com.opensource.svgaplayer.b.c(0.0d, 0.0d, 0.0d, 0.0d);
+        this.puD = 15;
+        this.sprites = o.exI();
+        this.audios = o.exI();
+        this.puG = new HashMap<>();
         this.cacheDir = file;
         JSONObject optJSONObject = jSONObject.optJSONObject("movie");
         if (optJSONObject != null) {
             JSONObject optJSONObject2 = optJSONObject.optJSONObject("viewBox");
             if (optJSONObject2 != null) {
-                this.oDg = new com.opensource.svgaplayer.b.c(0.0d, 0.0d, optJSONObject2.optDouble("width", 0.0d), optJSONObject2.optDouble("height", 0.0d));
+                this.puC = new com.opensource.svgaplayer.b.c(0.0d, 0.0d, optJSONObject2.optDouble("width", 0.0d), optJSONObject2.optDouble("height", 0.0d));
             }
-            this.oDh = optJSONObject.optInt("fps", 20);
-            this.oDi = optJSONObject.optInt("frames", 0);
+            this.puD = optJSONObject.optInt("fps", 20);
+            this.puE = optJSONObject.optInt("frames", 0);
         }
-        eM(jSONObject);
-        eN(jSONObject);
+        eU(jSONObject);
+        eV(jSONObject);
     }
 
     public f(MovieEntity movieEntity, File file) {
         Float f;
         q.n(movieEntity, MapBundleKey.MapObjKey.OBJ_SL_OBJ);
         q.n(file, "cacheDir");
-        this.oDf = true;
-        this.oDg = new com.opensource.svgaplayer.b.c(0.0d, 0.0d, 0.0d, 0.0d);
-        this.oDh = 15;
-        this.sprites = o.enJ();
-        this.audios = o.enJ();
-        this.oDk = new HashMap<>();
-        this.oDl = movieEntity;
+        this.puB = true;
+        this.puC = new com.opensource.svgaplayer.b.c(0.0d, 0.0d, 0.0d, 0.0d);
+        this.puD = 15;
+        this.sprites = o.exI();
+        this.audios = o.exI();
+        this.puG = new HashMap<>();
+        this.puH = movieEntity;
         this.cacheDir = file;
         MovieParams movieParams = movieEntity.params;
         if (movieParams != null) {
             Float f2 = movieParams.viewBoxWidth;
-            this.oDg = new com.opensource.svgaplayer.b.c(0.0d, 0.0d, f2 != null ? f2.floatValue() : 0.0f, movieParams.viewBoxHeight != null ? f.floatValue() : 0.0f);
+            this.puC = new com.opensource.svgaplayer.b.c(0.0d, 0.0d, f2 != null ? f2.floatValue() : 0.0f, movieParams.viewBoxHeight != null ? f.floatValue() : 0.0f);
             Integer num = movieParams.fps;
-            this.oDh = num != null ? num.intValue() : 20;
+            this.puD = num != null ? num.intValue() : 20;
             Integer num2 = movieParams.frames;
-            this.oDi = num2 != null ? num2.intValue() : 0;
+            this.puE = num2 != null ? num2.intValue() : 0;
         }
         try {
             a(movieEntity);
@@ -146,7 +146,7 @@ public final class f {
 
     public final void a(kotlin.jvm.a.a<l> aVar) {
         q.n(aVar, BuyTBeanActivityConfig.CALLBACK);
-        MovieEntity movieEntity = this.oDl;
+        MovieEntity movieEntity = this.puH;
         if (movieEntity != null) {
             a(movieEntity, new SVGAVideoEntity$prepare$$inlined$let$lambda$1(this, aVar));
         } else {
@@ -154,7 +154,7 @@ public final class f {
         }
     }
 
-    private final void eM(JSONObject jSONObject) {
+    private final void eU(JSONObject jSONObject) {
         BitmapFactory.Options options;
         Bitmap bitmap;
         BitmapFactory.Options options2;
@@ -165,27 +165,27 @@ public final class f {
             q.m(keys, "imgObjects.keys()");
             while (keys.hasNext()) {
                 String next = keys.next();
-                options = g.oDq;
+                options = g.puM;
                 options.inPreferredConfig = Bitmap.Config.RGB_565;
                 String str = this.cacheDir.getAbsolutePath() + "/" + optJSONObject.get(next);
                 if (new File(str).exists()) {
-                    options3 = g.oDq;
+                    options3 = g.puM;
                     bitmap = BitmapFactory.decodeFile(str, options3);
                 } else {
                     bitmap = null;
                 }
                 if (bitmap != null) {
-                    this.oDk.put(next, bitmap);
+                    this.puG.put(next, bitmap);
                 } else {
                     String str2 = this.cacheDir.getAbsolutePath() + "/" + next + ComboPraiseProvider.RES_NAME_PRAISE_NUMBER_SUFFIX;
                     if (!new File(str2).exists()) {
                         str2 = null;
                     }
                     if (str2 != null) {
-                        options2 = g.oDq;
+                        options2 = g.puM;
                         Bitmap decodeFile = BitmapFactory.decodeFile(str2, options2);
                         if (decodeFile != null) {
-                            this.oDk.put(next, decodeFile);
+                            this.puG.put(next, decodeFile);
                         }
                     }
                 }
@@ -208,7 +208,7 @@ public final class f {
         while (it.hasNext()) {
             Map.Entry entry = (Map.Entry) it.next();
             String str = (String) entry.getKey();
-            options = g.oDq;
+            options = g.puM;
             options.inPreferredConfig = Bitmap.Config.RGB_565;
             byte[] byteArray = ((ByteString) entry.getValue()).toByteArray();
             q.m(byteArray, "byteArray");
@@ -216,33 +216,33 @@ public final class f {
                 List<Byte> a2 = kotlin.collections.f.a(byteArray, new kotlin.b.h(0, 3));
                 if (a2.get(0).byteValue() != 73 || a2.get(1).byteValue() != 68 || a2.get(2).byteValue() != 51 || a2.get(3).byteValue() != 3) {
                     int length = byteArray.length;
-                    options2 = g.oDq;
+                    options2 = g.puM;
                     Bitmap decodeByteArray = BitmapFactory.decodeByteArray(byteArray, 0, length, options2);
                     if (decodeByteArray != null) {
                         q.m(str, "imageKey");
-                        this.oDk.put(str, decodeByteArray);
+                        this.puG.put(str, decodeByteArray);
                     } else {
                         String utf8 = ((ByteString) entry.getValue()).utf8();
                         if (utf8 != null) {
                             String str2 = this.cacheDir.getAbsolutePath() + "/" + utf8;
                             if (new File(str2).exists()) {
-                                options4 = g.oDq;
+                                options4 = g.puM;
                                 bitmap = BitmapFactory.decodeFile(str2, options4);
                             } else {
                                 bitmap = null;
                             }
                             if (bitmap != null) {
-                                this.oDk.put(str, bitmap);
+                                this.puG.put(str, bitmap);
                             } else {
                                 String str3 = this.cacheDir.getAbsolutePath() + "/" + str + ComboPraiseProvider.RES_NAME_PRAISE_NUMBER_SUFFIX;
                                 if (!new File(str3).exists()) {
                                     str3 = null;
                                 }
                                 if (str3 != null) {
-                                    options3 = g.oDq;
+                                    options3 = g.puM;
                                     Bitmap decodeFile = BitmapFactory.decodeFile(str3, options3);
                                     if (decodeFile != null) {
-                                        this.oDk.put(str, decodeFile);
+                                        this.puG.put(str, decodeFile);
                                     }
                                 }
                             }
@@ -253,7 +253,7 @@ public final class f {
         }
     }
 
-    private final void eN(JSONObject jSONObject) {
+    private final void eV(JSONObject jSONObject) {
         ArrayList arrayList = new ArrayList();
         JSONArray optJSONArray = jSONObject.optJSONArray("sprites");
         if (optJSONArray != null) {
@@ -269,10 +269,10 @@ public final class f {
     }
 
     private final void b(MovieEntity movieEntity) {
-        ArrayList enJ;
+        ArrayList exI;
         List<SpriteEntity> list = movieEntity.sprites;
         if (list == null) {
-            enJ = o.enJ();
+            exI = o.exI();
         } else {
             List<SpriteEntity> list2 = list;
             ArrayList arrayList = new ArrayList(o.a(list2, 10));
@@ -280,9 +280,9 @@ public final class f {
                 q.m(spriteEntity, AdvanceSetting.NETWORK_TYPE);
                 arrayList.add(new com.opensource.svgaplayer.entities.f(spriteEntity));
             }
-            enJ = arrayList;
+            exI = arrayList;
         }
-        this.sprites = enJ;
+        this.sprites = exI;
     }
 
     /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [203=4] */
@@ -344,7 +344,7 @@ public final class f {
                     arrayList.add(aVar2);
                 }
                 this.audios = arrayList;
-                this.oDj = build;
+                this.puF = build;
                 return;
             }
         }
@@ -355,25 +355,25 @@ public final class f {
     @h
     /* loaded from: classes15.dex */
     public static final class a implements SoundPool.OnLoadCompleteListener {
-        final /* synthetic */ Ref.IntRef oDm;
-        final /* synthetic */ List oDn;
-        final /* synthetic */ kotlin.jvm.a.a oDo;
-        final /* synthetic */ MovieEntity oDp;
+        final /* synthetic */ Ref.IntRef puI;
+        final /* synthetic */ List puJ;
+        final /* synthetic */ kotlin.jvm.a.a puK;
+        final /* synthetic */ MovieEntity puL;
         final /* synthetic */ f this$0;
 
         a(Ref.IntRef intRef, List list, f fVar, kotlin.jvm.a.a aVar, MovieEntity movieEntity) {
-            this.oDm = intRef;
-            this.oDn = list;
+            this.puI = intRef;
+            this.puJ = list;
             this.this$0 = fVar;
-            this.oDo = aVar;
-            this.oDp = movieEntity;
+            this.puK = aVar;
+            this.puL = movieEntity;
         }
 
         @Override // android.media.SoundPool.OnLoadCompleteListener
         public final void onLoadComplete(SoundPool soundPool, int i, int i2) {
-            this.oDm.element++;
-            if (this.oDm.element >= this.oDn.size()) {
-                this.oDo.invoke();
+            this.puI.element++;
+            if (this.puI.element >= this.puJ.size()) {
+                this.puK.invoke();
             }
         }
     }

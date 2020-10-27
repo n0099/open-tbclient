@@ -31,9 +31,9 @@ public class FrsRequestData extends OrmObject implements com.baidu.tbadk.mvc.b.e
     private String kw;
     private String lastId;
     private int loadCount;
-    private String mCy;
-    private String mCz;
     private long mLastClickTid;
+    private String mPf;
+    private String mPg;
     private boolean needCache;
     private int netError;
     private int pn;
@@ -47,14 +47,14 @@ public class FrsRequestData extends OrmObject implements com.baidu.tbadk.mvc.b.e
     private int updateType;
     private int withGroup;
     private int rn = 90;
-    private int mCx = 30;
-    private String eIq = "";
+    private int mPe = 30;
+    private String eQM = "";
     private int mSortType = -1;
-    private int frH = 1;
-    private int mCA = 0;
+    private int fAe = 1;
+    private int mPh = 0;
     private int callFrom = 0;
     private HashMap<String, String> headers = null;
-    private long mCB = 0;
+    private long mPi = 0;
     private int isDefaultNavTab = 0;
     private String mSchemeUrl = "";
 
@@ -135,11 +135,11 @@ public class FrsRequestData extends OrmObject implements com.baidu.tbadk.mvc.b.e
     }
 
     public int getLoadType() {
-        return this.frH;
+        return this.fAe;
     }
 
     public void setLoadType(int i) {
-        this.frH = i;
+        this.fAe = i;
     }
 
     public boolean isNeedCache() {
@@ -159,7 +159,7 @@ public class FrsRequestData extends OrmObject implements com.baidu.tbadk.mvc.b.e
     }
 
     public void setYuelaouLocate(String str) {
-        this.eIq = str;
+        this.eQM = str;
     }
 
     public void setLastId(String str) {
@@ -186,23 +186,23 @@ public class FrsRequestData extends OrmObject implements com.baidu.tbadk.mvc.b.e
         this.refreshCount = i;
     }
 
-    public void RR(String str) {
-        this.mCy = str;
+    public void Sq(String str) {
+        this.mPf = str;
     }
 
     public void setObjSource(String str) {
-        this.mCz = str;
+        this.mPg = str;
     }
 
-    public void IS(int i) {
-        this.mCA = i;
+    public void Jk(int i) {
+        this.mPh = i;
     }
 
     public void setCallFrom(int i) {
         this.callFrom = i;
     }
 
-    public void IT(int i) {
+    public void Jl(int i) {
         this.isDefaultNavTab = i;
     }
 
@@ -211,16 +211,16 @@ public class FrsRequestData extends OrmObject implements com.baidu.tbadk.mvc.b.e
     }
 
     @Override // com.baidu.tbadk.mvc.b.g
-    public HashMap<String, Object> bxg() {
+    public HashMap<String, Object> byZ() {
         return null;
     }
 
     @Override // com.baidu.tbadk.mvc.b.g
-    public HashMap<String, String> bxh() {
+    public HashMap<String, String> bza() {
         return this.headers;
     }
 
-    public void gj(String str, String str2) {
+    public void go(String str, String str2) {
         if (this.headers == null) {
             this.headers = new HashMap<>();
         }
@@ -230,12 +230,12 @@ public class FrsRequestData extends OrmObject implements com.baidu.tbadk.mvc.b.e
     }
 
     @Override // com.baidu.tbadk.mvc.b.l
-    public Object jV(boolean z) {
+    public Object ki(boolean z) {
         DataReq.Builder builder = new DataReq.Builder();
         builder.kw = this.kw;
         builder.pn = Integer.valueOf(this.pn);
         builder.rn = Integer.valueOf(this.rn);
-        builder.rn_need = Integer.valueOf(this.mCx);
+        builder.rn_need = Integer.valueOf(this.mPe);
         builder.with_group = Integer.valueOf(this.withGroup);
         builder.is_good = Integer.valueOf(this.isGood);
         builder.cid = Integer.valueOf(this.cid);
@@ -250,25 +250,25 @@ public class FrsRequestData extends OrmObject implements com.baidu.tbadk.mvc.b.e
         builder.net_error = Integer.valueOf(this.netError);
         builder.lastids = this.lastId;
         builder.category_id = Integer.valueOf(this.categoryId);
-        builder.yuelaou_locate = this.eIq;
+        builder.yuelaou_locate = this.eQM;
         builder.sort_type = Integer.valueOf(this.mSortType);
         builder.last_click_tid = Long.valueOf(this.mLastClickTid);
-        builder.app_pos = com.baidu.tieba.recapp.d.a.dvt().dvx();
-        builder.load_type = Integer.valueOf(this.frH);
-        builder.obj_locate = this.mCy;
-        builder.obj_source = this.mCz;
-        builder.is_selection = Integer.valueOf(this.mCA);
+        builder.app_pos = com.baidu.tieba.recapp.d.a.dyA().dyE();
+        builder.load_type = Integer.valueOf(this.fAe);
+        builder.obj_locate = this.mPf;
+        builder.obj_source = this.mPg;
+        builder.is_selection = Integer.valueOf(this.mPh);
         builder.call_from = Integer.valueOf(this.callFrom);
-        builder.hot_thread_id = Long.valueOf(this.mCB);
+        builder.hot_thread_id = Long.valueOf(this.mPi);
         AdParam.Builder builder2 = new AdParam.Builder();
         builder2.refresh_count = Integer.valueOf(this.refreshCount);
         builder2.load_count = Integer.valueOf(this.loadCount);
         builder2.yoga_lib_version = TbConfig.getCriusLibVersion();
         builder.ad_param = builder2.build(false);
         builder.is_default_navtab = Integer.valueOf(this.isDefaultNavTab);
-        builder.ad_context_list = com.baidu.tieba.recapp.report.b.dvA().dvC();
+        builder.ad_context_list = com.baidu.tieba.recapp.report.b.dyH().dyJ();
         builder.up_schema = this.mSchemeUrl;
-        builder.ad_ext_params = AdExtParam.a.byL().byM();
+        builder.ad_ext_params = AdExtParam.a.bAE().bAF();
         com.baidu.tbadk.util.u.a(builder, true, false, true);
         FrsPageReqIdl.Builder builder3 = new FrsPageReqIdl.Builder();
         builder3.data = builder.build(false);
@@ -276,16 +276,16 @@ public class FrsRequestData extends OrmObject implements com.baidu.tbadk.mvc.b.e
     }
 
     @Override // com.baidu.tbadk.mvc.b.e
-    public String bxd() {
+    public String byW() {
         return null;
     }
 
-    public void gB(long j) {
-        this.mCB = j;
+    public void gC(long j) {
+        this.mPi = j;
     }
 
     @Override // com.baidu.tbadk.mvc.b.e
-    public boolean bxe() {
+    public boolean byX() {
         return false;
     }
 

@@ -8,39 +8,39 @@ import android.widget.BaseAdapter;
 import android.widget.TextView;
 import com.baidu.live.adp.framework.MessageManager;
 import com.baidu.live.adp.framework.message.CustomMessage;
-import com.baidu.live.b.l;
+import com.baidu.live.b.n;
 import com.baidu.live.sdk.a;
 import com.baidu.live.tbadk.TbPageContext;
 import com.baidu.live.tbadk.core.frameworkdata.CmdConfigCustom;
 import com.baidu.live.tbadk.widget.TbImageView;
-import com.baidu.tieba.ala.data.m;
+import com.baidu.tieba.ala.data.o;
 import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes4.dex */
 public class g extends BaseAdapter {
-    private ArrayList<m> euy = new ArrayList<>();
+    private ArrayList<o> eCX = new ArrayList<>();
     private TbPageContext mPageContext;
 
     public g(TbPageContext tbPageContext) {
         this.mPageContext = tbPageContext;
     }
 
-    public void setData(List<m> list) {
+    public void setData(List<o> list) {
         if (list != null) {
-            this.euy.clear();
-            this.euy.addAll(list);
+            this.eCX.clear();
+            this.eCX.addAll(list);
         }
         notifyDataSetChanged();
     }
 
     @Override // android.widget.Adapter
     public int getCount() {
-        return this.euy.size();
+        return this.eCX.size();
     }
 
     @Override // android.widget.Adapter
     public Object getItem(int i) {
-        return this.euy.get(i);
+        return this.eCX.get(i);
     }
 
     @Override // android.widget.Adapter
@@ -55,7 +55,7 @@ public class g extends BaseAdapter {
 
     @Override // android.widget.BaseAdapter, android.widget.Adapter
     public int getItemViewType(int i) {
-        return ((m) getItem(i)).bMO();
+        return ((o) getItem(i)).bPt();
     }
 
     @Override // android.widget.Adapter
@@ -96,15 +96,15 @@ public class g extends BaseAdapter {
                     break;
             }
         }
-        final m mVar = (m) getItem(i);
-        if (mVar != null) {
-            switch (mVar.bMO()) {
+        final o oVar = (o) getItem(i);
+        if (oVar != null) {
+            switch (oVar.bPt()) {
                 case 0:
                     if (aVar != null && aVar.rootView != null) {
                         aVar.rootView.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.ala.g.1
                             @Override // android.view.View.OnClickListener
                             public void onClick(View view2) {
-                                MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new l(g.this.mPageContext.getPageActivity(), 1002, g.this.getCount())));
+                                MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new n(g.this.mPageContext.getPageActivity(), 1002, g.this.getCount())));
                             }
                         });
                         break;
@@ -112,22 +112,22 @@ public class g extends BaseAdapter {
                     break;
                 case 1:
                     if (bVar != null) {
-                        bVar.aVA.setText(mVar.getmName());
-                        bVar.fMw.setText(mVar.bMP() + "个");
-                        bVar.fMx.setText(mVar.bMR() + "小时");
+                        bVar.aWV.setText(oVar.getmName());
+                        bVar.fUN.setText(oVar.bPu() + "个");
+                        bVar.fUO.setText(oVar.bPw() + "小时");
                         String string = this.mPageContext.getResources().getString(a.i.add_wish_thank_way_txt);
-                        if (!TextUtils.isEmpty(mVar.bMS())) {
-                            string = mVar.bMS();
+                        if (!TextUtils.isEmpty(oVar.bPx())) {
+                            string = oVar.bPx();
                         }
-                        bVar.fMy.setText(string);
-                        bVar.fMz.startLoad(mVar.bMQ(), 10, false);
-                        if (mVar.bMO() == 1) {
+                        bVar.fUP.setText(string);
+                        bVar.fUQ.startLoad(oVar.bPv(), 10, false);
+                        if (oVar.bPt() == 1) {
                             if (getItemId(i) == 0) {
-                                bVar.fMB.setImageResource(a.f.ala_wish_list_item_num_icon_no1);
+                                bVar.fUS.setImageResource(a.f.ala_wish_list_item_num_icon_no1);
                             } else if (getItemId(i) == 1) {
-                                bVar.fMB.setImageResource(a.f.ala_wish_list_item_num_icon_no2);
+                                bVar.fUS.setImageResource(a.f.ala_wish_list_item_num_icon_no2);
                             } else if (getItemId(i) == 2) {
-                                bVar.fMB.setImageResource(a.f.ala_wish_list_item_num_icon_no3);
+                                bVar.fUS.setImageResource(a.f.ala_wish_list_item_num_icon_no3);
                             }
                         }
                         if (bVar != null && bVar.rootView != null) {
@@ -137,10 +137,10 @@ public class g extends BaseAdapter {
                                 }
                             });
                         }
-                        bVar.fMA.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.ala.g.3
+                        bVar.fUR.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.ala.g.3
                             @Override // android.view.View.OnClickListener
                             public void onClick(View view2) {
-                                MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new com.baidu.live.b.e(g.this.mPageContext.getPageActivity(), mVar.bMT(), 1001, g.this.getItemId(i))));
+                                MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new com.baidu.live.b.f(g.this.mPageContext.getPageActivity(), oVar.bPy(), 1001, g.this.getItemId(i))));
                             }
                         });
                         break;
@@ -162,25 +162,25 @@ public class g extends BaseAdapter {
 
     /* loaded from: classes4.dex */
     public static class b {
-        public TextView aVA;
-        public TbImageView fMA;
-        public TbImageView fMB;
-        public TextView fMw;
-        public TextView fMx;
-        public TextView fMy;
-        public TbImageView fMz;
+        public TextView aWV;
+        public TextView fUN;
+        public TextView fUO;
+        public TextView fUP;
+        public TbImageView fUQ;
+        public TbImageView fUR;
+        public TbImageView fUS;
         public View rootView;
 
         public b(View view) {
             this.rootView = view;
-            this.aVA = (TextView) view.findViewById(a.g.ala_wish_list_item_center_content_first_name);
-            this.fMw = (TextView) view.findViewById(a.g.ala_wish_list_item_center_content_first_num);
-            this.fMx = (TextView) view.findViewById(a.g.ala_wish_list_item_center_content_deadline_num);
-            this.fMy = (TextView) view.findViewById(a.g.ala_wish_list_item_center_content_thank_way);
-            this.fMz = (TbImageView) view.findViewById(a.g.ala_wish_list_item_icon);
-            this.fMz.setDefaultBgResource(a.f.sdk_shape_transparent);
-            this.fMA = (TbImageView) view.findViewById(a.g.ala_wish_list_item_top_delete);
-            this.fMB = (TbImageView) view.findViewById(a.g.ala_wish_list_item_num_icon);
+            this.aWV = (TextView) view.findViewById(a.g.ala_wish_list_item_center_content_first_name);
+            this.fUN = (TextView) view.findViewById(a.g.ala_wish_list_item_center_content_first_num);
+            this.fUO = (TextView) view.findViewById(a.g.ala_wish_list_item_center_content_deadline_num);
+            this.fUP = (TextView) view.findViewById(a.g.ala_wish_list_item_center_content_thank_way);
+            this.fUQ = (TbImageView) view.findViewById(a.g.ala_wish_list_item_icon);
+            this.fUQ.setDefaultBgResource(a.f.sdk_shape_transparent);
+            this.fUR = (TbImageView) view.findViewById(a.g.ala_wish_list_item_top_delete);
+            this.fUS = (TbImageView) view.findViewById(a.g.ala_wish_list_item_num_icon);
         }
     }
 }

@@ -3,8 +3,8 @@ package com.baidu.tieba.ala.data;
 import org.json.JSONObject;
 /* loaded from: classes4.dex */
 public class i {
-    public long gkv;
-    public long gkw;
+    public long guA;
+    public long guz;
     public String id;
     public String portrait;
     public long startTime;
@@ -13,9 +13,9 @@ public class i {
 
     public void parserJson(JSONObject jSONObject) {
         this.id = jSONObject.optString("id");
-        this.gkv = jSONObject.optLong("sys_time");
+        this.guz = jSONObject.optLong("sys_time");
         this.startTime = jSONObject.optLong("start_time");
-        this.gkw = jSONObject.optLong("balance");
+        this.guA = jSONObject.optLong("balance");
         this.status = jSONObject.optInt("status");
         this.userName = jSONObject.optString("user_name");
         this.portrait = jSONObject.optString("bd_portrait");

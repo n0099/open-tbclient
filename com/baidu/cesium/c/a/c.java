@@ -3,12 +3,12 @@ package com.baidu.cesium.c.a;
 import java.security.SecureRandom;
 /* loaded from: classes6.dex */
 public class c {
-    public static final SecureRandom adv = new SecureRandom();
-    private e amw;
+    public static final SecureRandom adw = new SecureRandom();
+    private e amx;
 
     public c() {
-        this.amw = null;
-        this.amw = new e(new b(), 16);
+        this.amx = null;
+        this.amx = new e(new b(), 16);
     }
 
     public static byte[] a(byte[] bArr, byte[] bArr2, byte[] bArr3) {
@@ -24,13 +24,13 @@ public class c {
     }
 
     public void a(int i, byte[] bArr, byte[] bArr2) {
-        this.amw.a(i, bArr, bArr2, adv);
+        this.amx.a(i, bArr, bArr2, adw);
     }
 
     public final byte[] a(byte[] bArr) {
         if (bArr == null) {
             throw new IllegalArgumentException("Null input buffer");
         }
-        return this.amw.m(bArr, 0, bArr.length);
+        return this.amx.m(bArr, 0, bArr.length);
     }
 }

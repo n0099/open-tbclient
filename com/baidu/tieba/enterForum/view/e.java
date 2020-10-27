@@ -6,10 +6,10 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes22.dex */
 public class e implements AbsListView.OnScrollListener {
-    private b hZB;
-    private a hZz;
+    private a ilZ;
+    private b imb;
     private int mScrollState = -1;
-    private int hZA = 0;
+    private int ima = 0;
 
     /* loaded from: classes22.dex */
     public interface b {
@@ -28,34 +28,34 @@ public class e implements AbsListView.OnScrollListener {
         View childAt;
         if (absListView != null && i >= 0 && absListView.getChildCount() > 0 && (childAt = absListView.getChildAt(0)) != null) {
             if (i == 0 && childAt.getTop() == absListView.getPaddingTop()) {
-                if (this.hZA != 0 && this.hZB != null) {
-                    this.hZB.a(absListView, 0, -this.hZA);
+                if (this.ima != 0 && this.imb != null) {
+                    this.imb.a(absListView, 0, -this.ima);
                 }
-                this.hZA = 0;
-                this.hZz = null;
+                this.ima = 0;
+                this.ilZ = null;
                 return;
             }
             a aVar = new a(absListView, i);
-            if (this.hZz == null) {
-                this.hZz = aVar;
-                this.hZA = absListView.getPaddingTop() - childAt.getTop();
-                if (this.hZB != null) {
-                    this.hZB.a(absListView, this.hZA, 0);
+            if (this.ilZ == null) {
+                this.ilZ = aVar;
+                this.ima = absListView.getPaddingTop() - childAt.getTop();
+                if (this.imb != null) {
+                    this.imb.a(absListView, this.ima, 0);
                     return;
                 }
                 return;
             }
-            int a2 = this.hZz.a(aVar);
-            this.hZz = aVar;
-            this.hZA += a2;
-            if (this.hZB != null) {
-                this.hZB.a(absListView, this.hZA, a2);
+            int a2 = this.ilZ.a(aVar);
+            this.ilZ = aVar;
+            this.ima += a2;
+            if (this.imb != null) {
+                this.imb.a(absListView, this.ima, a2);
             }
         }
     }
 
     public void a(b bVar) {
-        this.hZB = bVar;
+        this.imb = bVar;
     }
 
     /* loaded from: classes22.dex */

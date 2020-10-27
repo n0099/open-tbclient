@@ -19,30 +19,30 @@ import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes25.dex */
 public class d implements i {
-    i.a fJe;
-    private CustomMessageListener fJf = new CustomMessageListener(2921366) { // from class: com.baidu.tieba.aiapps.apps.share.d.1
+    private CustomMessageListener fRA = new CustomMessageListener(2921366) { // from class: com.baidu.tieba.aiapps.apps.share.d.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-            if (d.this.fJe != null && (customResponsedMessage.getData() instanceof Boolean)) {
+            if (d.this.fRz != null && (customResponsedMessage.getData() instanceof Boolean)) {
                 if (((Boolean) customResponsedMessage.getData()).booleanValue()) {
-                    d.this.fJe.atK();
+                    d.this.fRz.avE();
                 } else {
-                    d.this.fJe.atL();
+                    d.this.fRz.avF();
                 }
             }
         }
     };
+    i.a fRz;
 
     public d() {
         TbadkCoreApplication.getInst().setSkinType(0);
-        MessageManager.getInstance().registerListener(this.fJf);
+        MessageManager.getInstance().registerListener(this.fRA);
     }
 
     @Override // com.baidu.swan.apps.t.b.i
     public void a(Context context, JSONObject jSONObject, final i.a aVar) {
         if (context instanceof Activity) {
-            this.fJe = aVar;
+            this.fRz = aVar;
             Bundle bundle = new Bundle();
             try {
                 String optString = jSONObject.optString("shareUrl");
@@ -67,9 +67,9 @@ public class d implements i {
                 public void onDelegateCallBack(@NonNull DelegateResult delegateResult) {
                     if (delegateResult.isOk()) {
                         if (delegateResult.mResult.getBoolean("share_result")) {
-                            aVar.atK();
+                            aVar.avE();
                         } else {
-                            aVar.atL();
+                            aVar.avF();
                         }
                     }
                 }

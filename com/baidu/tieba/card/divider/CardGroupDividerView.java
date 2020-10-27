@@ -11,11 +11,11 @@ import com.baidu.tbadk.core.util.ap;
 import com.baidu.tieba.R;
 /* loaded from: classes21.dex */
 public class CardGroupDividerView extends LinearLayout {
-    private static final int hKj = R.color.cp_bg_line_c;
-    private static final int hKk = R.color.cp_bg_line_c;
-    private View hKh;
-    private View hKi;
-    private int hKl;
+    private static final int hWG = R.color.cp_bg_line_c;
+    private static final int hWH = R.color.cp_bg_line_c;
+    private View hWE;
+    private View hWF;
+    private int hWI;
     private TextView mTitle;
 
     public void setTitleClickListener(View.OnClickListener onClickListener) {
@@ -26,35 +26,35 @@ public class CardGroupDividerView extends LinearLayout {
 
     public CardGroupDividerView(Context context) {
         super(context);
-        this.hKl = hKk;
+        this.hWI = hWH;
         init();
     }
 
     public CardGroupDividerView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.hKl = hKk;
+        this.hWI = hWH;
         init();
     }
 
     public CardGroupDividerView(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.hKl = hKk;
+        this.hWI = hWH;
         init();
     }
 
     private void init() {
         LayoutInflater.from(getContext()).inflate(R.layout.card_divider_view, (ViewGroup) this, true);
-        this.hKh = findViewById(R.id.card_divider_top_margin);
+        this.hWE = findViewById(R.id.card_divider_top_margin);
         this.mTitle = (TextView) findViewById(R.id.card_divider_tv);
-        this.hKi = findViewById(R.id.bottom_line);
+        this.hWF = findViewById(R.id.bottom_line);
         onChangeSkinType();
     }
 
     public void onChangeSkinType() {
         ap.setBackgroundColor(this, R.color.cp_bg_line_d);
-        ap.setBackgroundColor(this.hKh, R.color.cp_bg_line_c);
+        ap.setBackgroundColor(this.hWE, R.color.cp_bg_line_c);
         ap.setViewTextColor(this.mTitle, R.color.cp_cont_d);
-        ap.setBackgroundColor(this.hKi, this.hKl);
+        ap.setBackgroundColor(this.hWF, this.hWI);
     }
 
     public void setTitleText(String str) {
@@ -66,11 +66,11 @@ public class CardGroupDividerView extends LinearLayout {
     }
 
     private void setDividerColor(int i) {
-        this.hKl = i;
-        ap.setBackgroundColor(this.hKi, this.hKl);
+        this.hWI = i;
+        ap.setBackgroundColor(this.hWF, this.hWI);
     }
 
     public View getBotttomLine() {
-        return this.hKi;
+        return this.hWF;
     }
 }

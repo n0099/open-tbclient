@@ -8,12 +8,12 @@ import javax.annotation.Nullable;
 /* loaded from: classes18.dex */
 public class f implements j<e> {
     private final Context mContext;
-    private final g nLQ;
-    private final com.facebook.imagepipeline.d.g nMe;
-    private final Set<com.facebook.drawee.controller.c> nMh;
+    private final Set<com.facebook.drawee.controller.c> oDA;
+    private final g oDj;
+    private final com.facebook.imagepipeline.d.g oDx;
 
     public f(Context context, @Nullable b bVar) {
-        this(context, com.facebook.imagepipeline.d.j.ebg(), bVar);
+        this(context, com.facebook.imagepipeline.d.j.ele(), bVar);
     }
 
     public f(Context context, com.facebook.imagepipeline.d.j jVar, @Nullable b bVar) {
@@ -22,20 +22,20 @@ public class f implements j<e> {
 
     public f(Context context, com.facebook.imagepipeline.d.j jVar, Set<com.facebook.drawee.controller.c> set, @Nullable b bVar) {
         this.mContext = context;
-        this.nMe = jVar.dXh();
-        if (bVar != null && bVar.dXd() != null) {
-            this.nLQ = bVar.dXd();
+        this.oDx = jVar.ehf();
+        if (bVar != null && bVar.ehb() != null) {
+            this.oDj = bVar.ehb();
         } else {
-            this.nLQ = new g();
+            this.oDj = new g();
         }
-        this.nLQ.a(context.getResources(), com.facebook.drawee.components.a.dXz(), jVar.gG(context), i.dWn(), this.nMe.eau(), bVar != null ? bVar.dXc() : null, bVar != null ? bVar.dXe() : null);
-        this.nMh = set;
+        this.oDj.a(context.getResources(), com.facebook.drawee.components.a.ehx(), jVar.ha(context), i.egl(), this.oDx.eks(), bVar != null ? bVar.eha() : null, bVar != null ? bVar.ehc() : null);
+        this.oDA = set;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.facebook.common.internal.j
-    /* renamed from: dXs */
+    /* renamed from: ehq */
     public e get() {
-        return new e(this.mContext, this.nLQ, this.nMe, this.nMh);
+        return new e(this.mContext, this.oDj, this.oDx, this.oDA);
     }
 }

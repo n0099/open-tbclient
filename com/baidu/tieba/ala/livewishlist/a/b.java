@@ -14,13 +14,13 @@ import com.baidu.tieba.ala.data.d;
 import java.util.ArrayList;
 /* loaded from: classes4.dex */
 public class b extends BaseAdapter {
-    private ArrayList<AlaLiveWishListData> fMj;
-    private long fMk;
-    private boolean hfW;
+    private ArrayList<AlaLiveWishListData> fUA;
+    private long fUB;
+    private boolean hrV;
     private Context mContext;
     private LayoutInflater mInflater;
-    private ArrayList<d> aiJ = new ArrayList<>();
-    private SparseArray<CountDownTimer> hfV = new SparseArray<>();
+    private ArrayList<d> aiK = new ArrayList<>();
+    private SparseArray<CountDownTimer> hrU = new SparseArray<>();
 
     public b(Context context) {
         this.mContext = context;
@@ -28,35 +28,35 @@ public class b extends BaseAdapter {
     }
 
     public void setData(ArrayList<d> arrayList) {
-        this.aiJ = arrayList;
+        this.aiK = arrayList;
         notifyDataSetChanged();
     }
 
-    public void ns(boolean z) {
-        this.hfW = z;
+    public void nJ(boolean z) {
+        this.hrV = z;
     }
 
-    public void ah(ArrayList<AlaLiveWishListData> arrayList) {
-        this.fMj = arrayList;
+    public void ai(ArrayList<AlaLiveWishListData> arrayList) {
+        this.fUA = arrayList;
         notifyDataSetChanged();
     }
 
-    public void eF(long j) {
-        this.fMk = j;
+    public void eH(long j) {
+        this.fUB = j;
     }
 
     public ArrayList<d> getData() {
-        return this.aiJ;
+        return this.aiK;
     }
 
     @Override // android.widget.Adapter
     public int getCount() {
-        return this.aiJ.size();
+        return this.aiK.size();
     }
 
     @Override // android.widget.Adapter
     public Object getItem(int i) {
-        return this.aiJ.get(i);
+        return this.aiK.get(i);
     }
 
     @Override // android.widget.Adapter
@@ -75,32 +75,32 @@ public class b extends BaseAdapter {
         } else {
             aVar = (com.baidu.tieba.ala.livewishlist.b.a) view.getTag();
         }
-        d dVar = this.aiJ.get(i);
-        if (!ListUtils.isEmpty(this.fMj)) {
+        d dVar = this.aiK.get(i);
+        if (!ListUtils.isEmpty(this.fUA)) {
             int i2 = 0;
             while (true) {
                 int i3 = i2;
-                if (i3 >= this.fMj.size()) {
+                if (i3 >= this.fUA.size()) {
                     break;
-                } else if (!this.fMj.get(i3).wish_id.equals(dVar.gkb)) {
+                } else if (!this.fUA.get(i3).wish_id.equals(dVar.guf)) {
                     i2 = i3 + 1;
                 } else {
-                    aVar.a(this.fMj.get(i3));
+                    aVar.a(this.fUA.get(i3));
                     break;
                 }
             }
         }
-        aVar.ns(this.hfW);
-        aVar.eF(this.fMk);
-        aVar.a(i, this.hfV, dVar);
+        aVar.nJ(this.hrV);
+        aVar.eH(this.fUB);
+        aVar.a(i, this.hrU, dVar);
         return view;
     }
 
-    public void ccR() {
-        if (this.hfV != null) {
-            int size = this.hfV.size();
+    public void cfX() {
+        if (this.hrU != null) {
+            int size = this.hrU.size();
             for (int i = 0; i < size; i++) {
-                CountDownTimer countDownTimer = this.hfV.get(this.hfV.keyAt(i));
+                CountDownTimer countDownTimer = this.hrU.get(this.hrU.keyAt(i));
                 if (countDownTimer != null) {
                     countDownTimer.cancel();
                 }

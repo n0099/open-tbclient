@@ -22,9 +22,10 @@ import com.baidu.live.tbadk.log.LogManager;
 import com.baidu.live.tbadk.statics.SdkStaticKeys;
 import com.baidu.tieba.ala.data.HourRankItemData;
 import com.baidu.tieba.ala.data.h;
-import com.baidu.tieba.ala.data.n;
 import com.baidu.tieba.ala.data.p;
+import com.baidu.tieba.ala.data.r;
 import com.baidu.tieba.ala.g.f;
+import com.baidu.tieba.ala.g.n;
 import com.baidu.tieba.ala.message.AlaGetHourRankListResponseMessage;
 import com.baidu.tieba.ala.message.AlaGetRankListResponseMessage;
 import com.baidu.tieba.ala.message.AlaGetUserRankInfoResponseMessage;
@@ -35,44 +36,44 @@ import java.util.HashSet;
 import java.util.Set;
 /* loaded from: classes4.dex */
 public class a implements d, AlaRankListHeaderView.a, AlaRankListHeaderView.b {
-    private static Set<String> gmz = new HashSet();
-    private String Nz;
-    private int aIU;
-    private String aYD;
-    private BaseActivity bEO;
-    private long fLa;
-    private String fLc;
-    private boolean fLd;
-    private String gkE;
-    private String gmq;
-    private f gmr;
-    private g gms;
-    private int gmt;
-    private BdUniqueId gmv;
-    private BdUniqueId gmw;
-    private n gmx;
-    private n gmy;
+    private static Set<String> gwE = new HashSet();
+    private String NA;
+    private int aJw;
+    private BaseActivity bHN;
+    private String baa;
+    private long fTr;
+    private String fTt;
+    private boolean fTu;
+    private String guL;
+    private BdUniqueId gwA;
+    private BdUniqueId gwB;
+    private p gwC;
+    private p gwD;
+    private String gwv;
+    private f gww;
+    private g gwx;
+    private int gwy;
     private String mPortrait;
     private long mUserId;
     private String otherParams;
-    private boolean gmu = true;
-    private com.baidu.tieba.ala.g.n gmA = new com.baidu.tieba.ala.g.n() { // from class: com.baidu.tieba.ala.fragment.a.2
+    private boolean gwz = true;
+    private n gwF = new n() { // from class: com.baidu.tieba.ala.fragment.a.2
         @Override // com.baidu.tieba.ala.g.n
         public void a(int i, String str, Object obj) {
             if (obj != null) {
-                if (((obj instanceof AlaGetRankListResponseMessage) || (obj instanceof AlaGetUserRankInfoResponseMessage)) && "charm_day".equals(a.this.fLc)) {
+                if (((obj instanceof AlaGetRankListResponseMessage) || (obj instanceof AlaGetUserRankInfoResponseMessage)) && "charm_day".equals(a.this.fTt)) {
                     if (i != 0 && !StringUtils.isNull(str)) {
                         a.c(a.this);
-                        if (a.this.gms != null) {
-                            a.this.gms.lw(false);
-                            if (a.this.gmt == 0) {
-                                a.this.gms.cgi();
+                        if (a.this.gwx != null) {
+                            a.this.gwx.dj(false);
+                            if (a.this.gwy == 0) {
+                                a.this.gwx.cji();
                             }
-                            a.this.gms.SK();
-                            a.this.gms.l(new View.OnClickListener() { // from class: com.baidu.tieba.ala.fragment.a.2.1
+                            a.this.gwx.TK();
+                            a.this.gwx.l(new View.OnClickListener() { // from class: com.baidu.tieba.ala.fragment.a.2.1
                                 @Override // android.view.View.OnClickListener
                                 public void onClick(View view) {
-                                    a.this.lJ(a.this.gmu);
+                                    a.this.lZ(a.this.gwz);
                                 }
                             });
                             return;
@@ -80,21 +81,21 @@ public class a implements d, AlaRankListHeaderView.a, AlaRankListHeaderView.b {
                         return;
                     }
                     a.c(a.this);
-                    if (a.this.gmt == 0) {
-                        a.this.gms.SK();
+                    if (a.this.gwy == 0) {
+                        a.this.gwx.TK();
                     }
                     if (obj instanceof AlaGetRankListResponseMessage) {
                         AlaGetRankListResponseMessage alaGetRankListResponseMessage = (AlaGetRankListResponseMessage) obj;
-                        if (alaGetRankListResponseMessage.fMR == null || alaGetRankListResponseMessage.fMR.size() <= 0) {
-                            if (a.this.gms != null) {
-                                a.this.gms.cgi();
+                        if (alaGetRankListResponseMessage.fVg == null || alaGetRankListResponseMessage.fVg.size() <= 0) {
+                            if (a.this.gwx != null) {
+                                a.this.gwx.cji();
                                 return;
                             }
                             return;
-                        } else if (a.this.gms != null) {
-                            a.this.gms.a(alaGetRankListResponseMessage.fMR, alaGetRankListResponseMessage.hgr, a.this);
-                            if (a.this.gms.cgh() != null && (a.this.gms.cgh() instanceof h)) {
-                                a.this.gms.c(a.this.a((h) a.this.gms.cgh(), alaGetRankListResponseMessage.fMR));
+                        } else if (a.this.gwx != null) {
+                            a.this.gwx.a(alaGetRankListResponseMessage.fVg, alaGetRankListResponseMessage.hsq, a.this);
+                            if (a.this.gwx.cjh() != null && (a.this.gwx.cjh() instanceof h)) {
+                                a.this.gwx.c(a.this.a((h) a.this.gwx.cjh(), alaGetRankListResponseMessage.fVg));
                                 return;
                             }
                             return;
@@ -103,41 +104,41 @@ public class a implements d, AlaRankListHeaderView.a, AlaRankListHeaderView.b {
                         }
                     }
                     AlaGetUserRankInfoResponseMessage alaGetUserRankInfoResponseMessage = (AlaGetUserRankInfoResponseMessage) obj;
-                    if (alaGetUserRankInfoResponseMessage.hgt == null) {
-                        if (a.this.gms != null) {
-                            a.this.gms.cgi();
+                    if (alaGetUserRankInfoResponseMessage.hss == null) {
+                        if (a.this.gwx != null) {
+                            a.this.gwx.cji();
                         }
-                    } else if (a.this.gms != null) {
-                        a.this.gms.c(a.this.a(alaGetUserRankInfoResponseMessage.hgt, a.this.gms.bBq()));
+                    } else if (a.this.gwx != null) {
+                        a.this.gwx.c(a.this.a(alaGetUserRankInfoResponseMessage.hss, a.this.gwx.bDj()));
                     }
-                } else if ((obj instanceof AlaGetHourRankListResponseMessage) && "hour".equals(a.this.fLc)) {
+                } else if ((obj instanceof AlaGetHourRankListResponseMessage) && "hour".equals(a.this.fTt)) {
                     AlaGetHourRankListResponseMessage alaGetHourRankListResponseMessage = (AlaGetHourRankListResponseMessage) obj;
-                    n ccT = alaGetHourRankListResponseMessage.ccT();
+                    p cfY = alaGetHourRankListResponseMessage.cfY();
                     if (alaGetHourRankListResponseMessage.getOrginalMessage() != null && alaGetHourRankListResponseMessage.getOrginalMessage().getTag() != null) {
-                        if ((a.this.gmv != null && alaGetHourRankListResponseMessage.getOrginalMessage().getTag().getId() == a.this.gmv.getId()) || (a.this.gmw != null && alaGetHourRankListResponseMessage.getOrginalMessage().getTag().getId() == a.this.gmw.getId())) {
-                            if (!((a.this.gmv != null && alaGetHourRankListResponseMessage.getOrginalMessage().getTag().getId() == a.this.gmv.getId()) == a.this.gmu) || i == 0 || StringUtils.isNull(str)) {
-                                if (alaGetHourRankListResponseMessage.getOrginalMessage().getTag().getId() == a.this.gmv.getId()) {
-                                    a.this.gmx = ccT;
-                                    if (a.this.gmu) {
-                                        a.this.gms.SK();
-                                        a.this.a(a.this.gmx);
+                        if ((a.this.gwA != null && alaGetHourRankListResponseMessage.getOrginalMessage().getTag().getId() == a.this.gwA.getId()) || (a.this.gwB != null && alaGetHourRankListResponseMessage.getOrginalMessage().getTag().getId() == a.this.gwB.getId())) {
+                            if (!((a.this.gwA != null && alaGetHourRankListResponseMessage.getOrginalMessage().getTag().getId() == a.this.gwA.getId()) == a.this.gwz) || i == 0 || StringUtils.isNull(str)) {
+                                if (alaGetHourRankListResponseMessage.getOrginalMessage().getTag().getId() == a.this.gwA.getId()) {
+                                    a.this.gwC = cfY;
+                                    if (a.this.gwz) {
+                                        a.this.gwx.TK();
+                                        a.this.a(a.this.gwC);
                                     }
-                                    a.this.lJ(false);
-                                } else if (alaGetHourRankListResponseMessage.getOrginalMessage().getTag().getId() == a.this.gmw.getId()) {
-                                    a.this.gmy = ccT;
-                                    if (!a.this.gmu) {
-                                        a.this.gms.SK();
-                                        a.this.a(a.this.gmy);
+                                    a.this.lZ(false);
+                                } else if (alaGetHourRankListResponseMessage.getOrginalMessage().getTag().getId() == a.this.gwB.getId()) {
+                                    a.this.gwD = cfY;
+                                    if (!a.this.gwz) {
+                                        a.this.gwx.TK();
+                                        a.this.a(a.this.gwD);
                                     }
                                 }
-                            } else if (a.this.gms != null) {
-                                a.this.gms.lw(false);
-                                a.this.gms.cgi();
-                                a.this.gms.SK();
-                                a.this.gms.l(new View.OnClickListener() { // from class: com.baidu.tieba.ala.fragment.a.2.2
+                            } else if (a.this.gwx != null) {
+                                a.this.gwx.dj(false);
+                                a.this.gwx.cji();
+                                a.this.gwx.TK();
+                                a.this.gwx.l(new View.OnClickListener() { // from class: com.baidu.tieba.ala.fragment.a.2.2
                                     @Override // android.view.View.OnClickListener
                                     public void onClick(View view) {
-                                        a.this.lJ(a.this.gmu);
+                                        a.this.lZ(a.this.gwz);
                                     }
                                 });
                             }
@@ -147,120 +148,120 @@ public class a implements d, AlaRankListHeaderView.a, AlaRankListHeaderView.b {
             }
         }
     };
-    private g.a gmB = new g.a() { // from class: com.baidu.tieba.ala.fragment.a.4
+    private g.a gwG = new g.a() { // from class: com.baidu.tieba.ala.fragment.a.4
         @Override // com.baidu.tieba.ala.view.g.a
         public void g(View view, String str) {
             if (!TbadkCoreApplication.isLogin()) {
-                ViewHelper.skipToLoginActivity(a.this.bEO);
+                ViewHelper.skipToLoginActivity(a.this.bHN);
                 return;
             }
             Intent intent = new Intent();
-            if (SdkStaticKeys.RANK_TYPE_FLOWER.equals(a.this.fLc) || SdkStaticKeys.RANK_TYPE_CHARM.equals(a.this.fLc)) {
+            if (SdkStaticKeys.RANK_TYPE_FLOWER.equals(a.this.fTt) || SdkStaticKeys.RANK_TYPE_CHARM.equals(a.this.fTt)) {
                 TiebaInitialize.log(new StatisticItem("c12962"));
                 intent.putExtra("ala_live_room_show_panel_key", "ala_live_room_show_gift_panel");
-                int i = com.baidu.live.x.a.OS().blo.aKZ;
+                int i = com.baidu.live.z.a.Pq().bmJ.aLD;
                 intent.putExtra("ala_live_room_gift_panel_category_id", i);
                 intent.putExtra("ala_live_room_gift_panel_gift_id", i > 0 ? 10185 : -1);
-                a.this.bNz();
-            } else if ("hour".equals(a.this.fLc) || "charm_day".equals(a.this.fLc)) {
+                a.this.bQe();
+            } else if ("hour".equals(a.this.fTt) || "charm_day".equals(a.this.fTt)) {
                 intent.putExtra("ala_live_room_show_panel_key", "ala_live_room_show_gift_panel");
-                a.this.bNz();
+                a.this.bQe();
             }
-            if ("hot".equals(a.this.fLc)) {
+            if ("hot".equals(a.this.fTt)) {
                 intent.putExtra("ala_live_room_show_panel_key", "ala_live_room_show_share_panel");
                 TiebaInitialize.log(new StatisticItem("c12486"));
             }
-            a.this.bEO.setResult(-1, intent);
-            a.this.bEO.finish();
+            a.this.bHN.setResult(-1, intent);
+            a.this.bHN.finish();
         }
     };
-    CustomMessageListener gmC = new CustomMessageListener(2913104) { // from class: com.baidu.tieba.ala.fragment.a.5
+    CustomMessageListener gwH = new CustomMessageListener(2913104) { // from class: com.baidu.tieba.ala.fragment.a.5
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.live.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-            if (customResponsedMessage.getData() != null && (customResponsedMessage.getData() instanceof HourRankItemData) && "hour".equals(a.this.fLc)) {
+            if (customResponsedMessage.getData() != null && (customResponsedMessage.getData() instanceof HourRankItemData) && "hour".equals(a.this.fTt)) {
                 HourRankItemData hourRankItemData = (HourRankItemData) customResponsedMessage.getData();
-                LogManager.getCommonLogger().doClickHourRankItemLog(a.this.aYD, hourRankItemData.type, a.this.gmu ? "hour" : "last_hour", hourRankItemData.position + "", a.this.otherParams);
+                LogManager.getCommonLogger().doClickHourRankItemLog(a.this.baa, hourRankItemData.type, a.this.gwz ? "hour" : "last_hour", hourRankItemData.position + "", a.this.otherParams);
             }
         }
     };
 
     static /* synthetic */ int c(a aVar) {
-        int i = aVar.gmt;
-        aVar.gmt = i - 1;
+        int i = aVar.gwy;
+        aVar.gwy = i - 1;
         return i;
     }
 
     public a(BaseActivity baseActivity, String str, int i, long j, String str2, boolean z, String str3, String str4, String str5, long j2, String str6, String str7) {
-        this.bEO = baseActivity;
-        this.fLc = str;
+        this.bHN = baseActivity;
+        this.fTt = str;
         this.mUserId = j;
-        this.Nz = str2;
-        this.fLd = z;
-        this.aIU = i;
+        this.NA = str2;
+        this.fTu = z;
+        this.aJw = i;
         this.mPortrait = str3;
-        this.aYD = str5;
-        this.fLa = j2;
-        this.gkE = str6;
+        this.baa = str5;
+        this.fTr = j2;
+        this.guL = str6;
         this.otherParams = str4;
-        this.gmq = str7;
-        if ("hour".equals(this.fLc)) {
-            MessageManager.getInstance().registerListener(this.gmC);
+        this.gwv = str7;
+        if ("hour".equals(this.fTt)) {
+            MessageManager.getInstance().registerListener(this.gwH);
         }
-        bNy();
+        bQd();
     }
 
-    public View bNy() {
-        this.gms = new g(this.bEO.getPageContext(), this.fLc, this.aIU, this.gmB, this.fLd, this.mUserId, this.Nz, this.mPortrait, this.fLa);
-        lJ(true);
-        if ("hour".equals(this.fLc)) {
-            this.gms.a(this);
+    public View bQd() {
+        this.gwx = new g(this.bHN.getPageContext(), this.fTt, this.aJw, this.gwG, this.fTu, this.mUserId, this.NA, this.mPortrait, this.fTr);
+        lZ(true);
+        if ("hour".equals(this.fTt)) {
+            this.gwx.a(this);
         }
-        return this.gms.getView();
+        return this.gwx.getView();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void lJ(final boolean z) {
-        if (this.gmr == null) {
-            this.gmr = new f(this.bEO.getUniqueId(), this.gmA);
+    public void lZ(final boolean z) {
+        if (this.gww == null) {
+            this.gww = new f(this.bHN.getUniqueId(), this.gwF);
         }
         if (BdNetTypeUtil.isNetWorkAvailable()) {
             if (TbadkCoreApplication.sAlaLiveSwitchData == null || !TbadkCoreApplication.sAlaLiveSwitchData.isRankHourUnabled()) {
-                if (TextUtils.equals(this.fLc, "charm_day")) {
-                    this.gmt = 2;
+                if (TextUtils.equals(this.fTt, "charm_day")) {
+                    this.gwy = 2;
                     if (this.mUserId != 0) {
-                        this.gmr.x(SdkStaticKeys.RANK_TYPE_CHARM, this.mUserId);
+                        this.gww.A(SdkStaticKeys.RANK_TYPE_CHARM, this.mUserId);
                     } else {
-                        this.gmt--;
-                        this.gms.cgi();
+                        this.gwy--;
+                        this.gwx.cji();
                     }
-                    this.gmr.e(this.fLc, this.mUserId, "");
-                } else if (TextUtils.equals(this.fLc, "hour")) {
+                    this.gww.e(this.fTt, this.mUserId, "");
+                } else if (TextUtils.equals(this.fTt, "hour")) {
                     if (this.mUserId == 0) {
-                        this.gms.cgi();
+                        this.gwx.cji();
                     }
                     if (z) {
-                        this.gmv = BdUniqueId.gen();
-                        this.gmr.a(this.fLc, this.mUserId, "", this.gmv);
+                        this.gwA = BdUniqueId.gen();
+                        this.gww.a(this.fTt, this.mUserId, "", this.gwA);
                         return;
                     }
-                    this.gmw = BdUniqueId.gen();
-                    if (this.gmx != null && !TextUtils.isEmpty(this.gmx.QP())) {
-                        this.gmr.a(this.fLc, this.mUserId, StringHelper.getHourRankPreHourString(this.gmx.QP(), -1), this.gmw);
+                    this.gwB = BdUniqueId.gen();
+                    if (this.gwC != null && !TextUtils.isEmpty(this.gwC.RV())) {
+                        this.gww.a(this.fTt, this.mUserId, StringHelper.getHourRankPreHourString(this.gwC.RV(), -1), this.gwB);
                     }
                 }
             }
-        } else if (this.gms != null) {
-            this.gms.SK();
-            this.gms.lw(false);
-            this.gms.cgi();
-            this.gms.l(new View.OnClickListener() { // from class: com.baidu.tieba.ala.fragment.a.1
+        } else if (this.gwx != null) {
+            this.gwx.TK();
+            this.gwx.dj(false);
+            this.gwx.cji();
+            this.gwx.l(new View.OnClickListener() { // from class: com.baidu.tieba.ala.fragment.a.1
                 @Override // android.view.View.OnClickListener
                 public void onClick(View view) {
                     if (BdNetTypeUtil.isNetWorkAvailable()) {
-                        a.this.lJ(z);
+                        a.this.lZ(z);
                     } else {
-                        a.this.bEO.getPageContext().showToast(a.this.bEO.getResources().getString(a.i.sdk_no_network_guide));
+                        a.this.bHN.getPageContext().showToast(a.this.bHN.getResources().getString(a.i.sdk_no_network_guide));
                     }
                 }
             });
@@ -268,62 +269,62 @@ public class a implements d, AlaRankListHeaderView.a, AlaRankListHeaderView.b {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void a(n nVar) {
-        if (nVar == null) {
-            if (this.gms != null) {
-                this.gms.cgi();
-                this.gms.SK();
-                this.gms.a(new ArrayList<>(), this.gmx == null ? 0L : this.gmx.bMW(), this);
-                this.gms.wd(0);
-                this.gms.lw(false);
-                this.gms.wb(8);
-                this.gms.wc(8);
-                this.gms.l(new View.OnClickListener() { // from class: com.baidu.tieba.ala.fragment.a.3
+    public void a(p pVar) {
+        if (pVar == null) {
+            if (this.gwx != null) {
+                this.gwx.cji();
+                this.gwx.TK();
+                this.gwx.a(new ArrayList<>(), this.gwC == null ? 0L : this.gwC.bPB(), this);
+                this.gwx.ww(0);
+                this.gwx.dj(false);
+                this.gwx.wv(8);
+                this.gwx.gr(8);
+                this.gwx.l(new View.OnClickListener() { // from class: com.baidu.tieba.ala.fragment.a.3
                     @Override // android.view.View.OnClickListener
                     public void onClick(View view) {
-                        a.this.lJ(a.this.gmu);
+                        a.this.lZ(a.this.gwz);
                     }
                 });
             }
-        } else if (nVar.getList() == null || nVar.getList().size() <= 0) {
-            this.gms.SK();
-            this.gms.wc(0);
-            this.gms.a(new ArrayList<>(), nVar.bMW(), this);
-            this.gms.wd(0);
-            this.gms.lw(true);
-            this.gms.wb(8);
-            if (this.gms != null) {
-                nVar.bMY().lE(this.gmu ? false : true);
-                this.gms.c(nVar.bMY());
+        } else if (pVar.getList() == null || pVar.getList().size() <= 0) {
+            this.gwx.TK();
+            this.gwx.gr(0);
+            this.gwx.a(new ArrayList<>(), pVar.bPB(), this);
+            this.gwx.ww(0);
+            this.gwx.dj(true);
+            this.gwx.wv(8);
+            if (this.gwx != null) {
+                pVar.bPD().lU(this.gwz ? false : true);
+                this.gwx.c(pVar.bPD());
             }
-        } else if (nVar.getList() != null && nVar.getList().size() > 0) {
-            this.gms.wc(0);
-            this.gms.SK();
-            if (this.gms != null) {
-                this.gms.c(nVar);
-                p bMY = nVar.bMY();
-                if (nVar.getList().size() == 1) {
-                    this.gms.a(new ArrayList<>(), nVar.bMW(), this);
-                    this.gms.lw(false);
-                    if (bMY != null) {
-                        bMY.lD(true);
+        } else if (pVar.getList() != null && pVar.getList().size() > 0) {
+            this.gwx.gr(0);
+            this.gwx.TK();
+            if (this.gwx != null) {
+                this.gwx.c(pVar);
+                r bPD = pVar.bPD();
+                if (pVar.getList().size() == 1) {
+                    this.gwx.a(new ArrayList<>(), pVar.bPB(), this);
+                    this.gwx.dj(false);
+                    if (bPD != null) {
+                        bPD.bn(true);
                     }
-                } else if (nVar.getList().size() > 1) {
-                    int size = nVar.getList().size();
+                } else if (pVar.getList().size() > 1) {
+                    int size = pVar.getList().size();
                     ArrayList<h> arrayList = new ArrayList<>();
                     for (int i = 1; i < size; i++) {
-                        arrayList.add(nVar.getList().get(i));
+                        arrayList.add(pVar.getList().get(i));
                     }
-                    this.gms.a(arrayList, nVar.bMW(), this);
-                    if (bMY != null) {
-                        bMY.lD(false);
+                    this.gwx.a(arrayList, pVar.bPB(), this);
+                    if (bPD != null) {
+                        bPD.bn(false);
                     }
                 }
-                this.gms.wd(0);
-                this.gms.wb(0);
-                if (this.gms != null) {
-                    nVar.bMY().lE(this.gmu ? false : true);
-                    this.gms.c(bMY);
+                this.gwx.ww(0);
+                this.gwx.wv(0);
+                if (this.gwx != null) {
+                    pVar.bPD().lU(this.gwz ? false : true);
+                    this.gwx.c(bPD);
                 }
             }
         }
@@ -333,65 +334,65 @@ public class a implements d, AlaRankListHeaderView.a, AlaRankListHeaderView.b {
     public h a(h hVar, ArrayList<h> arrayList) {
         hVar.a(hVar);
         if (arrayList != null && arrayList.size() > 0) {
-            if (hVar.aHa >= 2 && hVar.aHa < arrayList.size() + 2) {
-                hVar.ee(JavaTypesHelper.toLong(arrayList.get(hVar.aHa - 2).point, 0L));
+            if (hVar.aHl >= 2 && hVar.aHl < arrayList.size() + 2) {
+                hVar.eg(JavaTypesHelper.toLong(arrayList.get(hVar.aHl - 2).point, 0L));
             }
-            if (hVar.aHa < arrayList.size() && hVar.aHa >= 0) {
-                hVar.ef(JavaTypesHelper.toLong(arrayList.get(hVar.aHa).point, 0L));
+            if (hVar.aHl < arrayList.size() && hVar.aHl >= 0) {
+                hVar.eh(JavaTypesHelper.toLong(arrayList.get(hVar.aHl).point, 0L));
             }
-            hVar.eg(JavaTypesHelper.toLong(arrayList.get(arrayList.size() - 1).point, 0L));
+            hVar.ab(JavaTypesHelper.toLong(arrayList.get(arrayList.size() - 1).point, 0L));
         }
         return hVar;
     }
 
-    public void bNz() {
-        if (!this.fLd && "hour".equals(this.fLc)) {
-            LogManager.getCommonLogger().doClickLiveAuthorRankSupportLog(this.aYD, "hour", this.otherParams);
+    public void bQe() {
+        if (!this.fTu && "hour".equals(this.fTt)) {
+            LogManager.getCommonLogger().doClickLiveAuthorRankSupportLog(this.baa, "hour", this.otherParams);
         }
     }
 
     @Override // com.baidu.tieba.ala.view.AlaRankListHeaderView.a
-    public void bNA() {
+    public void bQf() {
     }
 
     @Override // com.baidu.tieba.ala.view.AlaRankListHeaderView.b
-    public void lK(boolean z) {
-        this.gmu = z;
+    public void ma(boolean z) {
+        this.gwz = z;
         if (z) {
-            a(this.gmx);
+            a(this.gwC);
         } else {
-            a(this.gmy);
+            a(this.gwD);
         }
-        lL(z);
+        mb(z);
     }
 
-    private void lL(boolean z) {
-        if ("hour".equals(this.fLc)) {
+    private void mb(boolean z) {
+        if ("hour".equals(this.fTt)) {
             String str = z ? "hour" : "last_hour";
-            if (!gmz.contains(str)) {
-                gmz.add(str);
-                LogManager.getCommonLogger().doDisplayHourRankLog(this.aYD, str, this.otherParams);
+            if (!gwE.contains(str)) {
+                gwE.add(str);
+                LogManager.getCommonLogger().doDisplayHourRankLog(this.baa, str, this.otherParams);
             }
         }
     }
 
     @Override // com.baidu.live.liveroom.d.d
     public View getPanelView() {
-        return this.gms.getView();
+        return this.gwx.getView();
     }
 
     @Override // com.baidu.live.liveroom.d.d
     public String getTitle() {
-        return this.gmq;
+        return this.gwv;
     }
 
     @Override // com.baidu.live.liveroom.d.d
-    public String Kx() {
+    public String KR() {
         return null;
     }
 
     @Override // com.baidu.live.liveroom.d.d
-    public short Ky() {
+    public short KS() {
         return (short) 0;
     }
 
@@ -405,14 +406,14 @@ public class a implements d, AlaRankListHeaderView.a, AlaRankListHeaderView.b {
 
     @Override // com.baidu.live.liveroom.d.d
     public void onDestroy() {
-        if (this.gmr != null) {
-            this.gmr.destory();
+        if (this.gww != null) {
+            this.gww.destory();
         }
-        if (this.gms != null) {
-            this.gms.release();
+        if (this.gwx != null) {
+            this.gwx.release();
         }
-        if ("hour".equals(this.fLc)) {
-            MessageManager.getInstance().unRegisterListener(this.gmC);
+        if ("hour".equals(this.fTt)) {
+            MessageManager.getInstance().unRegisterListener(this.gwH);
         }
     }
 

@@ -6,13 +6,13 @@ import android.os.SystemClock;
 public class d {
 
     /* renamed from: a  reason: collision with root package name */
-    private final long f4218a;
+    private final long f4216a;
     private final Runnable d;
     private long e;
     private long f;
     private int g;
-    private final tv.chushou.zues.c owy;
-    private final a owz;
+    private final tv.chushou.zues.c pnP;
+    private final a pnQ;
 
     /* loaded from: classes6.dex */
     public interface a {
@@ -20,13 +20,13 @@ public class d {
     }
 
     public d(long j, a aVar, tv.chushou.zues.c cVar) {
-        this.f4218a = j;
+        this.f4216a = j;
         this.e = j;
-        this.owz = aVar;
+        this.pnQ = aVar;
         if (cVar == null) {
-            this.owy = new tv.chushou.zues.c(Looper.getMainLooper());
+            this.pnP = new tv.chushou.zues.c(Looper.getMainLooper());
         } else {
-            this.owy = cVar;
+            this.pnP = cVar;
         }
         this.d = new Runnable() { // from class: com.kascend.chushou.toolkit.d.1
             @Override // java.lang.Runnable
@@ -39,13 +39,13 @@ public class d {
 
     public void a() {
         this.f = SystemClock.uptimeMillis();
-        this.owy.e(this.d, this.e);
+        this.pnP.f(this.d, this.e);
         this.g = 1;
     }
 
     public void b() {
         if (this.g != 3) {
-            this.owy.L(this.d);
+            this.pnP.N(this.d);
             this.e -= SystemClock.uptimeMillis() - this.f;
             this.f = 0L;
             this.g = 2;
@@ -60,16 +60,16 @@ public class d {
     }
 
     public void d() {
-        this.owy.L(this.d);
+        this.pnP.N(this.d);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void e() {
-        this.owy.L(this.d);
-        this.e = this.f4218a;
+        this.pnP.N(this.d);
+        this.e = this.f4216a;
         this.g = 3;
-        if (this.owz != null) {
-            this.owz.a();
+        if (this.pnQ != null) {
+            this.pnQ.a();
         }
     }
 }

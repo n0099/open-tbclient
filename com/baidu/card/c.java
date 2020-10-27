@@ -11,34 +11,34 @@ import com.baidu.tbadk.core.util.ay;
 import com.baidu.tieba.R;
 /* loaded from: classes21.dex */
 public class c extends b<AbsThreadDataSupport> {
-    private BjhArticleLayout afG;
-    private AbsThreadDataSupport afH;
-    private View.OnClickListener afI;
+    private BjhArticleLayout afH;
+    private AbsThreadDataSupport afI;
+    private View.OnClickListener afJ;
 
     public c(Context context) {
         super(context);
-        this.afI = new View.OnClickListener() { // from class: com.baidu.card.c.1
+        this.afJ = new View.OnClickListener() { // from class: com.baidu.card.c.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                c.this.a(c.this.afC.getView(), c.this.afH);
+                c.this.a(c.this.afD.getView(), c.this.afI);
             }
         };
-        this.afG = new BjhArticleLayout(context);
-        this.afG.setJumpToPbListener(this.afI);
+        this.afH = new BjhArticleLayout(context);
+        this.afH.setJumpToPbListener(this.afJ);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.card.b
     public View getView() {
-        return this.afG;
+        return this.afH;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.card.p
     /* renamed from: b */
     public void H(AbsThreadDataSupport absThreadDataSupport) {
-        this.afH = absThreadDataSupport;
-        this.afG.H(absThreadDataSupport);
+        this.afI = absThreadDataSupport;
+        this.afH.H(absThreadDataSupport);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -48,9 +48,9 @@ public class c extends b<AbsThreadDataSupport> {
         a(1, new a.b() { // from class: com.baidu.card.c.2
             @Override // com.baidu.card.a.a.b
             public boolean a(a.C0097a c0097a) {
-                if (c.this.afH != null && c.this.afH.bfG() != null) {
-                    com.baidu.tieba.card.m.Ij(c.this.afH.bfG().getId());
-                    com.baidu.tieba.card.m.a(c.this.afG.getTitle(), c.this.afH.bfG().getId(), R.color.cp_cont_a, R.color.cp_cont_d);
+                if (c.this.afI != null && c.this.afI.bhz() != null) {
+                    com.baidu.tieba.card.n.II(c.this.afI.bhz().getId());
+                    com.baidu.tieba.card.n.a(c.this.afH.getTitle(), c.this.afI.bhz().getId(), R.color.cp_cont_a, R.color.cp_cont_d);
                 }
                 return false;
             }
@@ -58,22 +58,22 @@ public class c extends b<AbsThreadDataSupport> {
     }
 
     @Override // com.baidu.card.b
-    public void setOnCardSubClickListener(com.baidu.tieba.card.aa<AbsThreadDataSupport> aaVar) {
-        super.setOnCardSubClickListener(aaVar);
-        this.afG.setSubClickListener(aaVar);
+    public void setOnCardSubClickListener(com.baidu.tieba.card.ab<AbsThreadDataSupport> abVar) {
+        super.setOnCardSubClickListener(abVar);
+        this.afH.setSubClickListener(abVar);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void a(View view, com.baidu.adp.widget.ListView.q qVar) {
-        if (((this.afH instanceof com.baidu.tieba.card.data.f) || (this.afH instanceof bw)) && (view.getTag() instanceof am)) {
+        if (((this.afI instanceof com.baidu.tieba.card.data.f) || (this.afI instanceof bw)) && (view.getTag() instanceof am)) {
             am amVar = (am) view.getTag();
             if (qVar instanceof com.baidu.tieba.card.data.f) {
-                com.baidu.tieba.card.data.f fVar = (com.baidu.tieba.card.data.f) this.afH;
+                com.baidu.tieba.card.data.f fVar = (com.baidu.tieba.card.data.f) this.afI;
                 fVar.objType = 1;
-                ay.a((AbsThreadDataSupport) fVar, view.getContext(), fVar.eji.esz ? 2 : 1, false);
+                ay.a((AbsThreadDataSupport) fVar, view.getContext(), fVar.erH.eAZ ? 2 : 1, false);
                 amVar.tW().b(new a.C0097a(1));
             } else if (qVar instanceof bw) {
-                bw bwVar = (bw) this.afH;
+                bw bwVar = (bw) this.afI;
                 bwVar.objType = 1;
                 ay.a((AbsThreadDataSupport) bwVar, view.getContext(), 3, false);
                 amVar.tW().b(new a.C0097a(1));
@@ -83,6 +83,6 @@ public class c extends b<AbsThreadDataSupport> {
 
     @Override // com.baidu.card.q
     public void onChangeSkinType(TbPageContext tbPageContext, int i) {
-        this.afG.onChangeSkinType(tbPageContext, i);
+        this.afH.onChangeSkinType(tbPageContext, i);
     }
 }

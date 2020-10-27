@@ -9,25 +9,25 @@ import kotlin.jvm.internal.q;
 @h
 /* loaded from: classes15.dex */
 public final class b extends Drawable {
-    private boolean oCq;
-    private int oCr;
-    private final com.opensource.svgaplayer.a.b oCs;
-    private final f oCt;
-    private final c oCu;
+    private boolean ptM;
+    private int ptN;
+    private final com.opensource.svgaplayer.a.b ptO;
+    private final f ptP;
+    private final c ptQ;
     private ImageView.ScaleType scaleType;
 
     public b(f fVar, c cVar) {
         q.n(fVar, "videoItem");
         q.n(cVar, "dynamicItem");
-        this.oCt = fVar;
-        this.oCu = cVar;
-        this.oCq = true;
+        this.ptP = fVar;
+        this.ptQ = cVar;
+        this.ptM = true;
         this.scaleType = ImageView.ScaleType.MATRIX;
-        this.oCs = new com.opensource.svgaplayer.a.b(this.oCt, this.oCu);
+        this.ptO = new com.opensource.svgaplayer.a.b(this.ptP, this.ptQ);
     }
 
-    public final f eiN() {
-        return this.oCt;
+    public final f esN() {
+        return this.ptP;
     }
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
@@ -36,20 +36,20 @@ public final class b extends Drawable {
         q.n(fVar, "videoItem");
     }
 
-    public final void zt(boolean z) {
-        if (this.oCq != z) {
-            this.oCq = z;
+    public final void AB(boolean z) {
+        if (this.ptM != z) {
+            this.ptM = z;
             invalidateSelf();
         }
     }
 
-    public final int eiM() {
-        return this.oCr;
+    public final int esM() {
+        return this.ptN;
     }
 
-    public final void OK(int i) {
-        if (this.oCr != i) {
-            this.oCr = i;
+    public final void QB(int i) {
+        if (this.ptN != i) {
+            this.ptN = i;
             invalidateSelf();
         }
     }
@@ -61,8 +61,8 @@ public final class b extends Drawable {
 
     @Override // android.graphics.drawable.Drawable
     public void draw(Canvas canvas) {
-        if (!this.oCq && canvas != null) {
-            this.oCs.a(canvas, this.oCr, this.scaleType);
+        if (!this.ptM && canvas != null) {
+            this.ptO.a(canvas, this.ptN, this.scaleType);
         }
     }
 

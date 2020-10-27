@@ -7,7 +7,7 @@ import android.widget.TextView;
 final class cz {
 
     /* renamed from: a  reason: collision with root package name */
-    public TextView f3820a;
+    public TextView f3818a;
     public ImageView b;
     public ImageView c;
     public RelativeLayout d;

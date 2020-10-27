@@ -4,19 +4,19 @@ import java.io.IOException;
 import java.io.OutputStream;
 /* loaded from: classes17.dex */
 public class PipedOutputStreamAndroid25 extends OutputStream {
-    private PipedInputStreamAndroid25 nCz;
+    private PipedInputStreamAndroid25 ofa;
 
     @Override // java.io.OutputStream
     public void write(int i) throws IOException {
-        if (this.nCz == null) {
+        if (this.ofa == null) {
             throw new IOException("Pipe not connected");
         }
-        this.nCz.LC(i);
+        this.ofa.ME(i);
     }
 
     @Override // java.io.OutputStream
     public void write(byte[] bArr, int i, int i2) throws IOException {
-        if (this.nCz == null) {
+        if (this.ofa == null) {
             throw new IOException("Pipe not connected");
         }
         if (bArr == null) {
@@ -26,23 +26,23 @@ public class PipedOutputStreamAndroid25 extends OutputStream {
             throw new IndexOutOfBoundsException();
         }
         if (i2 != 0) {
-            this.nCz.v(bArr, i, i2);
+            this.ofa.v(bArr, i, i2);
         }
     }
 
     @Override // java.io.OutputStream, java.io.Flushable
     public synchronized void flush() throws IOException {
-        if (this.nCz != null) {
-            synchronized (this.nCz) {
-                this.nCz.notifyAll();
+        if (this.ofa != null) {
+            synchronized (this.ofa) {
+                this.ofa.notifyAll();
             }
         }
     }
 
     @Override // java.io.OutputStream, java.io.Closeable, java.lang.AutoCloseable
     public void close() throws IOException {
-        if (this.nCz != null) {
-            this.nCz.dSF();
+        if (this.ofa != null) {
+            this.ofa.dYx();
         }
     }
 }

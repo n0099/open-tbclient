@@ -83,7 +83,7 @@ public class VideoRGBA2NV21Filter extends VideoFilter {
         GLES20.glBindFramebuffer(36160, this.mGLYUVFrameBufferId);
         GLES20.glClearColor(0.0f, 0.0f, 0.0f, 0.0f);
         GLES20.glUseProgram(getProgram());
-        if (this.mUniformInputTexWidth > 0) {
+        if (this.mUniformInputTexWidth >= 0) {
             GLES20.glUniform1f(this.mUniformInputTexWidth, this.mOutputWidth);
         }
         if (this.mUniformMVPMatrix >= 0) {

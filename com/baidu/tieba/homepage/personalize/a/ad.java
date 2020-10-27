@@ -2,41 +2,59 @@ package com.baidu.tieba.homepage.personalize.a;
 
 import android.view.View;
 import android.view.ViewGroup;
+import com.baidu.adp.BdUniqueId;
+import com.baidu.card.ak;
+import com.baidu.card.am;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.core.util.aq;
+import com.baidu.tieba.NEGFeedBack.NEGFeedBackView;
 /* loaded from: classes22.dex */
-public class ad extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.card.data.p, com.baidu.tieba.card.a.a<com.baidu.tieba.card.r>> {
-    private TbPageContext<?> mPageContext;
-
-    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [int, android.view.View, android.view.ViewGroup, java.lang.Object, com.baidu.adp.widget.ListView.af$a] */
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.adp.widget.ListView.a
-    public /* bridge */ /* synthetic */ View a(int i, View view, ViewGroup viewGroup, com.baidu.tieba.card.data.p pVar, com.baidu.tieba.card.a.a<com.baidu.tieba.card.r> aVar) {
-        return a2(i, view, viewGroup, pVar, (com.baidu.tieba.card.a.a) aVar);
-    }
+public class ad extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.homepage.personalize.data.g, am<com.baidu.tieba.homepage.personalize.data.g>> {
+    public BdUniqueId fmX;
+    private TbPageContext mPageContext;
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public ad(TbPageContext<?> tbPageContext) {
-        super(tbPageContext.getPageActivity(), com.baidu.tieba.card.data.p.hJW);
+    public ad(TbPageContext tbPageContext, BdUniqueId bdUniqueId) {
+        super(tbPageContext.getPageActivity(), bdUniqueId);
         this.mPageContext = tbPageContext;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.widget.ListView.a
-    /* renamed from: aN */
-    public com.baidu.tieba.card.a.a c(ViewGroup viewGroup) {
-        com.baidu.tieba.card.r rVar = new com.baidu.tieba.card.r(this.mPageContext);
-        rVar.ap("c10718", "c10719", "c10742");
-        return new com.baidu.tieba.card.a.a(rVar);
+    /* renamed from: aT */
+    public am<com.baidu.tieba.homepage.personalize.data.g> c(ViewGroup viewGroup) {
+        ak.a aVar = new ak.a(this.mPageContext.getPageActivity(), false);
+        com.baidu.tieba.homepage.personalize.view.d dVar = new com.baidu.tieba.homepage.personalize.view.d(this.mPageContext.getPageActivity(), this.mPageContext);
+        dVar.setTag(this.mPageId);
+        aVar.c(dVar);
+        aVar.tU().bz(0);
+        aVar.tU().bA(0);
+        aVar.tU().bB(0);
+        aVar.tU().by(0);
+        aVar.tU().bv(0);
+        ak tV = aVar.tV();
+        tV.setSourceForPb(2);
+        am<com.baidu.tieba.homepage.personalize.data.g> amVar = new am<>(tV);
+        amVar.setPageId(this.fmX);
+        return amVar;
     }
 
-    /* renamed from: a  reason: avoid collision after fix types in other method */
-    protected View a2(int i, View view, ViewGroup viewGroup, com.baidu.tieba.card.data.p pVar, com.baidu.tieba.card.a.a aVar) {
-        aVar.cjq().a(pVar);
-        aVar.cjq().onChangeSkinType(this.mPageContext, TbadkCoreApplication.getInst().getSkinType());
-        com.baidu.tieba.card.s.ciJ().e(new aq("c10718").dK("obj_id", String.valueOf(pVar.hJX)));
-        return aVar.getView();
+    /* JADX DEBUG: Method merged with bridge method */
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.adp.widget.ListView.a
+    public View a(int i, View view, ViewGroup viewGroup, com.baidu.tieba.homepage.personalize.data.g gVar, am<com.baidu.tieba.homepage.personalize.data.g> amVar) {
+        if (gVar == null || amVar == null || amVar.getView() == null) {
+            return null;
+        }
+        TiebaStatic.log(new aq("c13742").aj("obj_source", 3).aj("obj_type", 1));
+        amVar.b((am<com.baidu.tieba.homepage.personalize.data.g>) gVar);
+        amVar.tW().onChangeSkinType(this.mPageContext, TbadkCoreApplication.getInst().getSkinType());
+        return amVar.getView();
+    }
+
+    public void setEventCallback(NEGFeedBackView.a aVar) {
     }
 }

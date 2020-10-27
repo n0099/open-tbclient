@@ -6,7 +6,7 @@ import java.lang.reflect.Method;
 final class b implements Runnable {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ Method f4695a;
+    final /* synthetic */ Method f4693a;
     final /* synthetic */ Object b;
     final /* synthetic */ Object[] c;
     final /* synthetic */ a d;
@@ -14,7 +14,7 @@ final class b implements Runnable {
     /* JADX INFO: Access modifiers changed from: package-private */
     public b(a aVar, Method method, Object obj, Object[] objArr) {
         this.d = aVar;
-        this.f4695a = method;
+        this.f4693a = method;
         this.b = obj;
         this.c = objArr;
     }
@@ -22,7 +22,7 @@ final class b implements Runnable {
     @Override // java.lang.Runnable
     public final void run() {
         try {
-            this.f4695a.invoke(this.b, this.c);
+            this.f4693a.invoke(this.b, this.c);
         } catch (Exception e) {
             p.b("CommandWorker", "reflect e: ", e);
         }

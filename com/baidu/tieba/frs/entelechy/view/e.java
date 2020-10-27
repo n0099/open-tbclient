@@ -23,11 +23,11 @@ public class e extends af.a {
     public void a(w wVar) {
         if (wVar != null) {
             this.mTipView.setText(R.string.read_here);
-            bok();
+            bqd();
         }
     }
 
-    public void bok() {
+    public void bqd() {
         ap.setViewTextColor(this.mTipView, R.color.cp_link_tip_a);
         ap.setBackgroundResource(this.mRoot, R.color.cp_bg_line_e);
     }

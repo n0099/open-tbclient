@@ -43,15 +43,15 @@ public class NetworkChangeNotifierAutoDetect extends BroadcastReceiver {
 
     /* loaded from: classes17.dex */
     public interface Observer {
-        void LA(int i);
+        void MA(int i);
 
-        void Ly(int i);
+        void MB(int i);
 
-        void Lz(int i);
+        void MC(int i);
 
-        void M(double d);
+        void N(double d);
 
-        void dF(int i, int i2);
+        void dJ(int i, int i2);
 
         void l(int[] iArr);
     }
@@ -60,17 +60,17 @@ public class NetworkChangeNotifierAutoDetect extends BroadcastReceiver {
     /* loaded from: classes17.dex */
     public static class c {
         private final int mType;
-        private final boolean nCg;
-        private final int nCh;
+        private final boolean oeH;
+        private final int oeI;
 
         public c(boolean z, int i, int i2) {
-            this.nCg = z;
+            this.oeH = z;
             this.mType = i;
-            this.nCh = i2;
+            this.oeI = i2;
         }
 
         public boolean isConnected() {
-            return this.nCg;
+            return this.oeH;
         }
 
         public int getNetworkType() {
@@ -78,7 +78,7 @@ public class NetworkChangeNotifierAutoDetect extends BroadcastReceiver {
         }
 
         public int getNetworkSubType() {
-            return this.nCh;
+            return this.oeI;
         }
     }
 
@@ -100,7 +100,7 @@ public class NetworkChangeNotifierAutoDetect extends BroadcastReceiver {
             this.mConnectivityManager = null;
         }
 
-        c dSu() {
+        c dYm() {
             return a(this.mConnectivityManager.getActiveNetworkInfo());
         }
 
@@ -119,7 +119,7 @@ public class NetworkChangeNotifierAutoDetect extends BroadcastReceiver {
         @TargetApi(21)
         c b(Network network) {
             NetworkInfo a2 = a(network);
-            return (a2 == null || a2.getType() != 17) ? a(a2) : dSu();
+            return (a2 == null || a2.getType() != 17) ? a(a2) : dYm();
         }
 
         c a(NetworkInfo networkInfo) {
@@ -127,7 +127,7 @@ public class NetworkChangeNotifierAutoDetect extends BroadcastReceiver {
         }
 
         @TargetApi(21)
-        protected Network[] dSv() {
+        protected Network[] dYn() {
             return this.mConnectivityManager.getAllNetworks();
         }
 
@@ -181,19 +181,19 @@ public class NetworkChangeNotifierAutoDetect extends BroadcastReceiver {
     /* loaded from: classes17.dex */
     public static class d {
         private final Context mContext;
-        private final WifiManager nCj;
-        private final boolean nCk;
+        private final WifiManager oeK;
+        private final boolean oeL;
 
         d(Context context) {
             this.mContext = context;
-            this.nCk = this.mContext.getPackageManager().checkPermission("android.permission.ACCESS_WIFI_STATE", this.mContext.getPackageName()) == 0;
-            this.nCj = this.nCk ? (WifiManager) this.mContext.getSystemService("wifi") : null;
+            this.oeL = this.mContext.getPackageManager().checkPermission("android.permission.ACCESS_WIFI_STATE", this.mContext.getPackageName()) == 0;
+            this.oeK = this.oeL ? (WifiManager) this.mContext.getSystemService("wifi") : null;
         }
 
         d() {
             this.mContext = null;
-            this.nCj = null;
-            this.nCk = false;
+            this.oeK = null;
+            this.oeL = false;
         }
 
         String getWifiSSID() {
@@ -203,28 +203,28 @@ public class NetworkChangeNotifierAutoDetect extends BroadcastReceiver {
             return (registerReceiver == null || (wifiInfo = (WifiInfo) registerReceiver.getParcelableExtra("wifiInfo")) == null || (ssid = wifiInfo.getSSID()) == null) ? "" : ssid;
         }
 
-        private WifiInfo dSx() {
+        private WifiInfo dYp() {
             try {
-                return this.nCj.getConnectionInfo();
+                return this.oeK.getConnectionInfo();
             } catch (NullPointerException e) {
                 try {
-                    return this.nCj.getConnectionInfo();
+                    return this.oeK.getConnectionInfo();
                 } catch (NullPointerException e2) {
                     return null;
                 }
             }
         }
 
-        int dSy() {
-            WifiInfo dSx;
-            if (!this.nCk || this.nCj == null || (dSx = dSx()) == null) {
+        int dYq() {
+            WifiInfo dYp;
+            if (!this.oeL || this.oeK == null || (dYp = dYp()) == null) {
                 return -1;
             }
-            return dSx.getLinkSpeed();
+            return dYp.getLinkSpeed();
         }
 
-        boolean dSz() {
-            return this.nCk;
+        boolean dYr() {
+            return this.oeL;
         }
     }
 
@@ -233,27 +233,27 @@ public class NetworkChangeNotifierAutoDetect extends BroadcastReceiver {
     /* loaded from: classes17.dex */
     public class b extends ConnectivityManager.NetworkCallback {
         static final /* synthetic */ boolean $assertionsDisabled;
-        private Network nBZ;
+        private Network oeA;
 
         static {
             $assertionsDisabled = !NetworkChangeNotifierAutoDetect.class.desiredAssertionStatus();
         }
 
         private b() {
-            this.nBZ = null;
+            this.oeA = null;
         }
 
-        void dSw() {
+        void dYo() {
             NetworkCapabilities d;
             Network[] allNetworksFiltered = NetworkChangeNotifierAutoDetect.getAllNetworksFiltered(NetworkChangeNotifierAutoDetect.this.mConnectivityManagerDelegate, null);
-            this.nBZ = null;
+            this.oeA = null;
             if (allNetworksFiltered.length == 1 && (d = NetworkChangeNotifierAutoDetect.this.mConnectivityManagerDelegate.d(allNetworksFiltered[0])) != null && d.hasTransport(4)) {
-                this.nBZ = allNetworksFiltered[0];
+                this.oeA = allNetworksFiltered[0];
             }
         }
 
         private boolean e(Network network) {
-            return (this.nBZ == null || this.nBZ.equals(network)) ? false : true;
+            return (this.oeA == null || this.oeA.equals(network)) ? false : true;
         }
 
         private boolean a(Network network, NetworkCapabilities networkCapabilities) {
@@ -273,16 +273,16 @@ public class NetworkChangeNotifierAutoDetect extends BroadcastReceiver {
             if (!b(network, d)) {
                 final boolean hasTransport = d.hasTransport(4);
                 if (hasTransport) {
-                    this.nBZ = network;
+                    this.oeA = network;
                 }
                 final int networkToNetId = NetworkChangeNotifierAutoDetect.networkToNetId(network);
                 final int currentConnectionType = NetworkChangeNotifierAutoDetect.this.getCurrentConnectionType(NetworkChangeNotifierAutoDetect.this.mConnectivityManagerDelegate.b(network));
                 NetworkChangeNotifierAutoDetect.this.runOnThread(new Runnable() { // from class: com.baidu.turbonet.net.NetworkChangeNotifierAutoDetect.b.1
                     @Override // java.lang.Runnable
                     public void run() {
-                        NetworkChangeNotifierAutoDetect.this.mObserver.dF(networkToNetId, currentConnectionType);
+                        NetworkChangeNotifierAutoDetect.this.mObserver.dJ(networkToNetId, currentConnectionType);
                         if (hasTransport) {
-                            NetworkChangeNotifierAutoDetect.this.mObserver.Ly(currentConnectionType);
+                            NetworkChangeNotifierAutoDetect.this.mObserver.MA(currentConnectionType);
                             NetworkChangeNotifierAutoDetect.this.mObserver.l(new int[]{networkToNetId});
                         }
                     }
@@ -298,7 +298,7 @@ public class NetworkChangeNotifierAutoDetect extends BroadcastReceiver {
                 NetworkChangeNotifierAutoDetect.this.runOnThread(new Runnable() { // from class: com.baidu.turbonet.net.NetworkChangeNotifierAutoDetect.b.2
                     @Override // java.lang.Runnable
                     public void run() {
-                        NetworkChangeNotifierAutoDetect.this.mObserver.dF(networkToNetId, currentConnectionType);
+                        NetworkChangeNotifierAutoDetect.this.mObserver.dJ(networkToNetId, currentConnectionType);
                     }
                 });
             }
@@ -311,7 +311,7 @@ public class NetworkChangeNotifierAutoDetect extends BroadcastReceiver {
                 NetworkChangeNotifierAutoDetect.this.runOnThread(new Runnable() { // from class: com.baidu.turbonet.net.NetworkChangeNotifierAutoDetect.b.3
                     @Override // java.lang.Runnable
                     public void run() {
-                        NetworkChangeNotifierAutoDetect.this.mObserver.Lz(networkToNetId);
+                        NetworkChangeNotifierAutoDetect.this.mObserver.MB(networkToNetId);
                     }
                 });
             }
@@ -323,22 +323,22 @@ public class NetworkChangeNotifierAutoDetect extends BroadcastReceiver {
                 NetworkChangeNotifierAutoDetect.this.runOnThread(new Runnable() { // from class: com.baidu.turbonet.net.NetworkChangeNotifierAutoDetect.b.4
                     @Override // java.lang.Runnable
                     public void run() {
-                        NetworkChangeNotifierAutoDetect.this.mObserver.LA(NetworkChangeNotifierAutoDetect.networkToNetId(network));
+                        NetworkChangeNotifierAutoDetect.this.mObserver.MC(NetworkChangeNotifierAutoDetect.networkToNetId(network));
                     }
                 });
-                if (this.nBZ != null) {
-                    if (!$assertionsDisabled && !network.equals(this.nBZ)) {
+                if (this.oeA != null) {
+                    if (!$assertionsDisabled && !network.equals(this.oeA)) {
                         throw new AssertionError();
                     }
-                    this.nBZ = null;
+                    this.oeA = null;
                     for (Network network2 : NetworkChangeNotifierAutoDetect.getAllNetworksFiltered(NetworkChangeNotifierAutoDetect.this.mConnectivityManagerDelegate, network)) {
                         onAvailable(network2);
                     }
-                    final int currentConnectionType = NetworkChangeNotifierAutoDetect.this.getCurrentConnectionType(NetworkChangeNotifierAutoDetect.this.mConnectivityManagerDelegate.dSu());
+                    final int currentConnectionType = NetworkChangeNotifierAutoDetect.this.getCurrentConnectionType(NetworkChangeNotifierAutoDetect.this.mConnectivityManagerDelegate.dYm());
                     NetworkChangeNotifierAutoDetect.this.runOnThread(new Runnable() { // from class: com.baidu.turbonet.net.NetworkChangeNotifierAutoDetect.b.5
                         @Override // java.lang.Runnable
                         public void run() {
-                            NetworkChangeNotifierAutoDetect.this.mObserver.Ly(currentConnectionType);
+                            NetworkChangeNotifierAutoDetect.this.mObserver.MA(currentConnectionType);
                         }
                     });
                 }
@@ -349,7 +349,7 @@ public class NetworkChangeNotifierAutoDetect extends BroadcastReceiver {
     /* loaded from: classes17.dex */
     public static abstract class RegistrationPolicy {
         static final /* synthetic */ boolean $assertionsDisabled;
-        private NetworkChangeNotifierAutoDetect nCi;
+        private NetworkChangeNotifierAutoDetect oeJ;
 
         protected abstract void destroy();
 
@@ -359,15 +359,15 @@ public class NetworkChangeNotifierAutoDetect extends BroadcastReceiver {
 
         /* JADX INFO: Access modifiers changed from: protected */
         public final void register() {
-            if (!$assertionsDisabled && this.nCi == null) {
+            if (!$assertionsDisabled && this.oeJ == null) {
                 throw new AssertionError();
             }
-            this.nCi.register();
+            this.oeJ.register();
         }
 
         /* JADX INFO: Access modifiers changed from: protected */
         public void a(NetworkChangeNotifierAutoDetect networkChangeNotifierAutoDetect) {
-            this.nCi = networkChangeNotifierAutoDetect;
+            this.oeJ = networkChangeNotifierAutoDetect;
         }
     }
 
@@ -384,12 +384,12 @@ public class NetworkChangeNotifierAutoDetect extends BroadcastReceiver {
             this.mNetworkCallback = null;
             this.mNetworkRequest = null;
         }
-        c dSu = this.mConnectivityManagerDelegate.dSu();
-        this.mConnectionType = getCurrentConnectionType(dSu);
-        this.mWifiSSID = getCurrentWifiSSID(dSu);
-        this.mMaxBandwidthMbps = getCurrentMaxBandwidthInMbps(dSu);
+        c dYm = this.mConnectivityManagerDelegate.dYm();
+        this.mConnectionType = getCurrentConnectionType(dYm);
+        this.mWifiSSID = getCurrentWifiSSID(dYm);
+        this.mMaxBandwidthMbps = getCurrentMaxBandwidthInMbps(dYm);
         this.mMaxBandwidthConnectionType = this.mConnectionType;
-        this.mIntentFilter = new NetworkConnectivityIntentFilter(this.mWifiManagerDelegate.dSz());
+        this.mIntentFilter = new NetworkConnectivityIntentFilter(this.mWifiManagerDelegate.dYr());
         this.mIgnoreNextBroadcast = false;
         this.mShouldSignalObserver = false;
         this.mRegistrationPolicy = registrationPolicy;
@@ -449,7 +449,7 @@ public class NetworkChangeNotifierAutoDetect extends BroadcastReceiver {
             this.mIgnoreNextBroadcast = this.mContext.registerReceiver(this, this.mIntentFilter) != null;
             this.mRegistered = true;
             if (this.mNetworkCallback != null) {
-                this.mNetworkCallback.dSw();
+                this.mNetworkCallback.dYo();
                 this.mConnectivityManagerDelegate.a(this.mNetworkRequest, this.mNetworkCallback);
                 if (this.mShouldSignalObserver) {
                     Network[] allNetworksFiltered = getAllNetworksFiltered(this.mConnectivityManagerDelegate, null);
@@ -475,28 +475,28 @@ public class NetworkChangeNotifierAutoDetect extends BroadcastReceiver {
     }
 
     public c getCurrentNetworkState() {
-        return this.mConnectivityManagerDelegate.dSu();
+        return this.mConnectivityManagerDelegate.dYm();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     @TargetApi(21)
     public static Network[] getAllNetworksFiltered(a aVar, Network network) {
         NetworkCapabilities d2;
-        Network[] dSv = aVar.dSv();
+        Network[] dYn = aVar.dYn();
         int i = 0;
-        for (Network network2 : dSv) {
+        for (Network network2 : dYn) {
             if (!network2.equals(network) && (d2 = aVar.d(network2)) != null && d2.hasCapability(12)) {
                 if (d2.hasTransport(4)) {
                     if (aVar.c(network2)) {
                         return new Network[]{network2};
                     }
                 } else {
-                    dSv[i] = network2;
+                    dYn[i] = network2;
                     i++;
                 }
             }
         }
-        return (Network[]) Arrays.copyOf(dSv, i);
+        return (Network[]) Arrays.copyOf(dYn, i);
     }
 
     public int[] getNetworksAndTypes() {
@@ -623,11 +623,11 @@ public class NetworkChangeNotifierAutoDetect extends BroadcastReceiver {
     }
 
     public double getCurrentMaxBandwidthInMbps(c cVar) {
-        int dSy;
-        if (getCurrentConnectionType(cVar) == 2 && (dSy = this.mWifiManagerDelegate.dSy()) != -1) {
-            return dSy;
+        int dYq;
+        if (getCurrentConnectionType(cVar) == 2 && (dYq = this.mWifiManagerDelegate.dYq()) != -1) {
+            return dYq;
         }
-        return NetworkChangeNotifier.Lt(getCurrentConnectionSubtype(cVar));
+        return NetworkChangeNotifier.Mv(getCurrentConnectionSubtype(cVar));
     }
 
     private String getCurrentWifiSSID(c cVar) {
@@ -660,7 +660,7 @@ public class NetworkChangeNotifierAutoDetect extends BroadcastReceiver {
             this.mConnectionType = currentConnectionType;
             this.mWifiSSID = currentWifiSSID;
             Log.d(TAG, "Network connectivity changed, type is: " + this.mConnectionType);
-            this.mObserver.Ly(currentConnectionType);
+            this.mObserver.MA(currentConnectionType);
         }
     }
 
@@ -670,7 +670,7 @@ public class NetworkChangeNotifierAutoDetect extends BroadcastReceiver {
         if (currentMaxBandwidthInMbps != this.mMaxBandwidthMbps || this.mConnectionType != this.mMaxBandwidthConnectionType) {
             this.mMaxBandwidthMbps = currentMaxBandwidthInMbps;
             this.mMaxBandwidthConnectionType = this.mConnectionType;
-            this.mObserver.M(currentMaxBandwidthInMbps);
+            this.mObserver.N(currentMaxBandwidthInMbps);
         }
     }
 

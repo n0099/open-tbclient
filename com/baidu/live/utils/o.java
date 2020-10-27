@@ -7,7 +7,7 @@ import com.baidu.live.tbadk.util.ScreenHelper;
 /* loaded from: classes4.dex */
 public class o {
     public static int aH(Context context) {
-        return context.getResources().getDimensionPixelOffset(a.e.sdk_ds176);
+        return context.getResources().getDimensionPixelOffset(a.e.sdk_ds248);
     }
 
     public static int u(Activity activity) {

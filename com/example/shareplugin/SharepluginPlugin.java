@@ -77,21 +77,21 @@ public class SharepluginPlugin implements FlutterPlugin, MethodChannel.MethodCal
             shareItem.linkUrl = hashMap.get("url");
             shareItem.extData = hashMap.get("itemId");
             shareItem.title = hashMap.get("itemName");
-            shareItem.eSB = true;
+            shareItem.faX = true;
             shareItem.imageUrl = hashMap.get(AlaStaticKeys.ALA_STATIC_VALUE_ICON);
             shareItem.imageUri = Uri.parse(hashMap.get(AlaStaticKeys.ALA_STATIC_VALUE_ICON));
             shareItem.content = hashMap.get("content");
             TbadkCoreApplication.getInst().setShareItem(shareItem);
             Bundle bundle = new Bundle();
-            bundle.putInt("obj_param1", shareItem.eSK);
-            bundle.putInt("obj_type", shareItem.eSO);
+            bundle.putInt("obj_param1", shareItem.fbg);
+            bundle.putInt("obj_type", shareItem.fbk);
             bundle.putString("fid", shareItem.fid);
             bundle.putString("tid", shareItem.tid);
-            bundle.putInt("obj_source", shareItem.esZ);
+            bundle.putInt("obj_source", shareItem.eBz);
             shareItem.ae(bundle);
             ShareDialogConfig shareDialogConfig = new ShareDialogConfig(TbadkCoreApplication.getInst().getCurrentActivity(), shareItem, true);
             if (z) {
-                f.cjN().b(shareDialogConfig);
+                f.cmU().b(shareDialogConfig);
                 return;
             }
             shareDialogConfig.isCopyLink = true;
@@ -106,16 +106,16 @@ public class SharepluginPlugin implements FlutterPlugin, MethodChannel.MethodCal
         String str2;
         if (bwVar != null) {
             String valueOf = String.valueOf(bwVar.getFid());
-            String bil = bwVar.bil();
-            if (bwVar.esj != null) {
-                valueOf = bwVar.esj.id;
-                bil = bwVar.esj.ori_fname;
+            String bke = bwVar.bke();
+            if (bwVar.eAJ != null) {
+                valueOf = bwVar.eAJ.id;
+                bke = bwVar.eAJ.ori_fname;
             }
             String title = bwVar.getTitle();
             if (TextUtils.isEmpty(title)) {
                 title = bwVar.getAbstract();
             }
-            if (bwVar.bgR()) {
+            if (bwVar.biK()) {
                 tid = bwVar.getBaijiahaoData().oriUgcTid;
                 str = "?share=9105&fr=dshare&dtype=" + bwVar.getBaijiahaoData().oriUgcType + "&dvid=" + bwVar.getBaijiahaoData().oriUgcVid + "&nid=" + bwVar.getBaijiahaoData().oriUgcNid;
             } else {
@@ -124,12 +124,12 @@ public class SharepluginPlugin implements FlutterPlugin, MethodChannel.MethodCal
             }
             String str3 = "http://tieba.baidu.com/p/" + tid + str;
             boolean z = true;
-            if (bwVar.biB() != null && bwVar.biB().user_info != null) {
+            if (bwVar.bku() != null && bwVar.bku().user_info != null) {
                 try {
                     if (TbConfig.HTTPS_LIVE_SHARE_PREFIX.contains("?")) {
-                        str2 = "https://tieba.baidu.com/ala/share&uname=" + URLEncoder.encode(bwVar.biB().user_info.user_name, "utf-8");
+                        str2 = "https://tieba.baidu.com/ala/share&uname=" + URLEncoder.encode(bwVar.bku().user_info.user_name, "utf-8");
                     } else {
-                        str2 = "https://tieba.baidu.com/ala/share?uname=" + URLEncoder.encode(bwVar.biB().user_info.user_name, "utf-8");
+                        str2 = "https://tieba.baidu.com/ala/share?uname=" + URLEncoder.encode(bwVar.bku().user_info.user_name, "utf-8");
                     }
                     str3 = str2;
                     z = false;
@@ -142,10 +142,10 @@ public class SharepluginPlugin implements FlutterPlugin, MethodChannel.MethodCal
             String str4 = bwVar.getAbstract();
             String string = TbadkApplication.getInst().getResources().getString(R.string.share_content_tpl);
             String string2 = TbadkApplication.getInst().getResources().getString(R.string.default_share_content_tpl);
-            if (!bwVar.bgR() || bwVar.bih() == null) {
+            if (!bwVar.biK() || bwVar.bka() == null) {
                 format = MessageFormat.format(string, title, str4);
             } else {
-                format = (TextUtils.isEmpty(bwVar.getTitle()) || TextUtils.isEmpty(str4)) ? MessageFormat.format(string2, bwVar.bih().getName_show(), TbadkApplication.getInst().getResources().getString(R.string.default_share_content_tpl_suffix)) : str4;
+                format = (TextUtils.isEmpty(bwVar.getTitle()) || TextUtils.isEmpty(str4)) ? MessageFormat.format(string2, bwVar.bka().getName_show(), TbadkApplication.getInst().getResources().getString(R.string.default_share_content_tpl_suffix)) : str4;
             }
             String cutString = at.cutString(title, 100);
             String cutString2 = at.cutString(format, 100);
@@ -153,78 +153,78 @@ public class SharepluginPlugin implements FlutterPlugin, MethodChannel.MethodCal
             shareItem.title = cutString;
             shareItem.content = cutString2;
             int stateThreadType = getStateThreadType(bwVar);
-            if (bwVar.bgR()) {
+            if (bwVar.biK()) {
                 shareItem.readCount = -1L;
-                shareItem.eSH = cutString2;
+                shareItem.fbd = cutString2;
             } else {
-                if (stateThreadType == 2 && bwVar.biz() != null) {
-                    shareItem.readCount = bwVar.biz().play_count.intValue();
+                if (stateThreadType == 2 && bwVar.bks() != null) {
+                    shareItem.readCount = bwVar.bks().play_count.intValue();
                 } else if (stateThreadType == 1) {
-                    shareItem.readCount = bwVar.bhZ();
+                    shareItem.readCount = bwVar.bjS();
                 }
-                shareItem.eSH = str4;
+                shareItem.fbd = str4;
             }
             shareItem.linkUrl = str3;
             shareItem.extData = tid;
             shareItem.fid = valueOf;
-            shareItem.fName = bil;
+            shareItem.fName = bke;
             shareItem.tid = tid;
-            shareItem.eSw = true;
-            shareItem.esZ = 6;
-            shareItem.eSJ = 8;
-            shareItem.eSO = stateThreadType;
-            shareItem.eSK = 3;
-            shareItem.eSL = getShareObjParam2(bwVar);
+            shareItem.faS = true;
+            shareItem.eBz = 6;
+            shareItem.fbf = 8;
+            shareItem.fbk = stateThreadType;
+            shareItem.fbg = 3;
+            shareItem.fbh = getShareObjParam2(bwVar);
             if (parse != null) {
                 shareItem.imageUri = parse;
             }
-            if (bwVar.bgR()) {
+            if (bwVar.biK()) {
                 z = false;
             }
             shareItem.canShareBySmartApp = z;
             if (z) {
-                shareItem.eSY = bwVar.getShareImageUrl();
+                shareItem.fbu = bwVar.getShareImageUrl();
             }
-            shareItem.eSR = OriginalThreadInfo.ShareInfo.generateShareInfo(bwVar);
-            shareItem.eSS = ShareItem.ForwardInfo.generateForwardInfo(bwVar);
+            shareItem.fbn = OriginalThreadInfo.ShareInfo.generateShareInfo(bwVar);
+            shareItem.fbo = ShareItem.ForwardInfo.generateForwardInfo(bwVar);
             TbadkCoreApplication.getInst().setShareItem(shareItem);
             Bundle bundle = new Bundle();
-            bundle.putInt("obj_param1", shareItem.eSK);
-            bundle.putInt("obj_type", shareItem.eSO);
+            bundle.putInt("obj_param1", shareItem.fbg);
+            bundle.putInt("obj_type", shareItem.fbk);
             bundle.putString("fid", shareItem.fid);
             bundle.putString("tid", shareItem.tid);
-            bundle.putInt("obj_source", shareItem.esZ);
+            bundle.putInt("obj_source", shareItem.eBz);
             shareItem.ae(bundle);
             ShareDialogConfig shareDialogConfig = new ShareDialogConfig(TbadkCoreApplication.getInst().getCurrentActivity(), shareItem, true);
             boolean z2 = false;
             shareDialogConfig.setIsAlaLive((bwVar.getThreadType() == 49 || bwVar.getThreadType() == 60) ? true : true);
             shareDialogConfig.setFrom(ShareDialogConfig.From.PersonPolymeric);
-            f.cjN().b(shareDialogConfig);
+            f.cmU().b(shareDialogConfig);
         }
     }
 
     private int getStateThreadType(bw bwVar) {
         if (bwVar != null) {
-            if (bwVar.bij()) {
+            if (bwVar.bkc()) {
                 return 4;
             }
-            if (bwVar.bie() == 1) {
+            if (bwVar.bjX() == 1) {
                 return 3;
             }
-            if (bwVar.bgP()) {
+            if (bwVar.biI()) {
                 return 5;
             }
-            if (bwVar.bgQ()) {
+            if (bwVar.biJ()) {
                 return 6;
             }
-            if (bwVar.bkc()) {
+            if (bwVar.blV()) {
                 return 7;
             }
-            if (bwVar.bkd()) {
+            if (bwVar.blW()) {
                 return 8;
             }
-            if (!bwVar.isShareThread || bwVar.erY == null) {
-                return bwVar.bjz() ? 2 : 1;
+            if (!bwVar.isShareThread || bwVar.eAy == null) {
+                return bwVar.bls() ? 2 : 1;
             }
             return 9;
         }
@@ -235,16 +235,16 @@ public class SharepluginPlugin implements FlutterPlugin, MethodChannel.MethodCal
         if (bwVar == null) {
             return 0;
         }
-        if (bwVar.bgP()) {
+        if (bwVar.biI()) {
             return 10;
         }
-        if (bwVar.bgQ()) {
+        if (bwVar.biJ()) {
             return 9;
         }
-        if (bwVar.bkd()) {
+        if (bwVar.blW()) {
             return 8;
         }
-        if (bwVar.bkc()) {
+        if (bwVar.blV()) {
             return 7;
         }
         if (bwVar.isShareThread) {
@@ -270,21 +270,21 @@ public class SharepluginPlugin implements FlutterPlugin, MethodChannel.MethodCal
         if (bwVar == null) {
             return null;
         }
-        if (bwVar.biB() != null && !TextUtils.isEmpty(bwVar.biB().cover)) {
-            return bwVar.biB().cover;
+        if (bwVar.bku() != null && !TextUtils.isEmpty(bwVar.bku().cover)) {
+            return bwVar.bku().cover;
         }
-        if (bwVar.biq() == null) {
+        if (bwVar.bkj() == null) {
             return null;
         }
-        ArrayList<MediaData> biq = bwVar.biq();
-        int size = biq.size();
+        ArrayList<MediaData> bkj = bwVar.bkj();
+        int size = bkj.size();
         int i = 0;
         while (true) {
             if (i >= size) {
                 str = null;
                 break;
             }
-            MediaData mediaData = biq.get(i);
+            MediaData mediaData = bkj.get(i);
             if (mediaData != null && (mediaData.getType() == 3 || mediaData.getType() == 5)) {
                 if (!StringUtils.isNull(mediaData.getThumbnails_url())) {
                     str = mediaData.getThumbnails_url();
@@ -296,8 +296,8 @@ public class SharepluginPlugin implements FlutterPlugin, MethodChannel.MethodCal
             }
             i++;
         }
-        if (str == null && bwVar.biz() != null && !TextUtils.isEmpty(bwVar.biz().thumbnail_url)) {
-            return bwVar.biz().thumbnail_url;
+        if (str == null && bwVar.bks() != null && !TextUtils.isEmpty(bwVar.bks().thumbnail_url)) {
+            return bwVar.bks().thumbnail_url;
         }
         return str;
     }

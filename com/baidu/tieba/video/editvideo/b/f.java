@@ -25,23 +25,23 @@ class f extends Thread {
     private Context mContext;
     private String mFilterName;
     private String mSourcePath;
-    private b.a mVu;
-    private e mVx;
+    private b.a nhU;
+    private e nhX;
 
     public f(Context context, String str, String str2, e eVar, b.a aVar) {
         super("FilterVideoThread");
         this.mContext = context;
         this.mSourcePath = str;
         this.mFilterName = str2;
-        this.mVx = eVar;
-        this.mVu = aVar;
+        this.nhX = eVar;
+        this.nhU = aVar;
     }
 
     @Override // java.lang.Thread, java.lang.Runnable
     public void run() {
         try {
-            dJt();
-            if (dJv()) {
+            dMB();
+            if (dMD()) {
                 com.baidu.adp.lib.f.e.mY().post(new Runnable() { // from class: com.baidu.tieba.video.editvideo.b.f.1
                     @Override // java.lang.Runnable
                     public void run() {
@@ -72,7 +72,7 @@ class f extends Thread {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    private void dJt() throws Exception {
+    private void dMB() throws Exception {
         MediaExtractor mediaExtractor;
         MediaExtractor mediaExtractor2;
         MediaCodec mediaCodec;
@@ -92,7 +92,7 @@ class f extends Thread {
         try {
             if (selectCodec != null) {
                 try {
-                    mediaExtractor3 = dJu();
+                    mediaExtractor3 = dMC();
                     try {
                         MediaFormat trackFormat = mediaExtractor3.getTrackFormat(getAndSelectVideoTrackIndex(mediaExtractor3));
                         int integer = trackFormat.getInteger("width");
@@ -150,8 +150,8 @@ class f extends Thread {
                                         mediaExtractor3.release();
                                     } catch (Exception e3) {
                                         exc3 = 0 == 0 ? e3 : null;
-                                        if (this.mVu != null) {
-                                            this.mVu.bT(225, com.baidu.tieba.k.a.r(e3));
+                                        if (this.nhU != null) {
+                                            this.nhU.bU(225, com.baidu.tieba.k.a.r(e3));
                                         }
                                     }
                                 }
@@ -164,8 +164,8 @@ class f extends Thread {
                                         if (exc3 == null) {
                                             exc3 = e4;
                                         }
-                                        if (this.mVu != null) {
-                                            this.mVu.bT(Constants.METHOD_MEDIA_NOTIFY, com.baidu.tieba.k.a.r(e4));
+                                        if (this.nhU != null) {
+                                            this.nhU.bU(Constants.METHOD_MEDIA_NOTIFY, com.baidu.tieba.k.a.r(e4));
                                         }
                                     }
                                 }
@@ -176,8 +176,8 @@ class f extends Thread {
                                         if (exc3 == null) {
                                             exc3 = e5;
                                         }
-                                        if (this.mVu != null) {
-                                            this.mVu.bT(227, com.baidu.tieba.k.a.r(e5));
+                                        if (this.nhU != null) {
+                                            this.nhU.bU(227, com.baidu.tieba.k.a.r(e5));
                                         }
                                     }
                                 }
@@ -189,8 +189,8 @@ class f extends Thread {
                                         if (exc3 == null) {
                                             exc3 = e6;
                                         }
-                                        if (this.mVu != null) {
-                                            this.mVu.bT(228, com.baidu.tieba.k.a.r(e6));
+                                        if (this.nhU != null) {
+                                            this.nhU.bU(228, com.baidu.tieba.k.a.r(e6));
                                         }
                                     }
                                 }
@@ -201,24 +201,24 @@ class f extends Thread {
                                         if (exc3 == null) {
                                             exc3 = e7;
                                         }
-                                        if (this.mVu != null) {
-                                            this.mVu.bT(229, com.baidu.tieba.k.a.r(e7));
+                                        if (this.nhU != null) {
+                                            this.nhU.bU(229, com.baidu.tieba.k.a.r(e7));
                                         }
                                     }
                                 }
                             } catch (Exception e8) {
                                 e = e8;
                                 e.printStackTrace();
-                                if ((Build.VERSION.SDK_INT < 21 || !(e instanceof MediaCodec.CodecException) || at.isEmpty(e.getMessage()) || !e.getMessage().contains("0xfffffff3")) && this.mVu != null) {
-                                    this.mVu.bT(224, com.baidu.tieba.k.a.r(e));
+                                if ((Build.VERSION.SDK_INT < 21 || !(e instanceof MediaCodec.CodecException) || at.isEmpty(e.getMessage()) || !e.getMessage().contains("0xfffffff3")) && this.nhU != null) {
+                                    this.nhU.bU(224, com.baidu.tieba.k.a.r(e));
                                 }
                                 if (mediaExtractor3 != null) {
                                     try {
                                         mediaExtractor3.release();
                                     } catch (Exception e9) {
                                         exc = 0 == 0 ? e9 : null;
-                                        if (this.mVu != null) {
-                                            this.mVu.bT(225, com.baidu.tieba.k.a.r(e9));
+                                        if (this.nhU != null) {
+                                            this.nhU.bU(225, com.baidu.tieba.k.a.r(e9));
                                         }
                                         exc3 = exc;
                                         if (mediaCodec5 != null) {
@@ -229,8 +229,8 @@ class f extends Thread {
                                                 if (exc3 == null) {
                                                     exc3 = e10;
                                                 }
-                                                if (this.mVu != null) {
-                                                    this.mVu.bT(Constants.METHOD_MEDIA_NOTIFY, com.baidu.tieba.k.a.r(e10));
+                                                if (this.nhU != null) {
+                                                    this.nhU.bU(Constants.METHOD_MEDIA_NOTIFY, com.baidu.tieba.k.a.r(e10));
                                                 }
                                             }
                                         }
@@ -241,8 +241,8 @@ class f extends Thread {
                                                 if (exc3 == null) {
                                                     exc3 = e11;
                                                 }
-                                                if (this.mVu != null) {
-                                                    this.mVu.bT(227, com.baidu.tieba.k.a.r(e11));
+                                                if (this.nhU != null) {
+                                                    this.nhU.bU(227, com.baidu.tieba.k.a.r(e11));
                                                 }
                                             }
                                         }
@@ -254,8 +254,8 @@ class f extends Thread {
                                                 if (exc3 == null) {
                                                     exc3 = e12;
                                                 }
-                                                if (this.mVu != null) {
-                                                    this.mVu.bT(228, com.baidu.tieba.k.a.r(e12));
+                                                if (this.nhU != null) {
+                                                    this.nhU.bU(228, com.baidu.tieba.k.a.r(e12));
                                                 }
                                             }
                                         }
@@ -266,8 +266,8 @@ class f extends Thread {
                                                 if (exc3 == null) {
                                                     exc3 = e13;
                                                 }
-                                                if (this.mVu != null) {
-                                                    this.mVu.bT(229, com.baidu.tieba.k.a.r(e13));
+                                                if (this.nhU != null) {
+                                                    this.nhU.bU(229, com.baidu.tieba.k.a.r(e13));
                                                 }
                                             }
                                         }
@@ -300,8 +300,8 @@ class f extends Thread {
                                     mediaExtractor2.release();
                                 } catch (Exception e15) {
                                     exc = 0 == 0 ? e15 : null;
-                                    if (this.mVu != null) {
-                                        this.mVu.bT(225, com.baidu.tieba.k.a.r(e15));
+                                    if (this.nhU != null) {
+                                        this.nhU.bU(225, com.baidu.tieba.k.a.r(e15));
                                     }
                                     exc2 = exc;
                                     if (mediaCodec2 != null) {
@@ -312,8 +312,8 @@ class f extends Thread {
                                             if (exc2 == null) {
                                                 exc2 = e16;
                                             }
-                                            if (this.mVu != null) {
-                                                this.mVu.bT(Constants.METHOD_MEDIA_NOTIFY, com.baidu.tieba.k.a.r(e16));
+                                            if (this.nhU != null) {
+                                                this.nhU.bU(Constants.METHOD_MEDIA_NOTIFY, com.baidu.tieba.k.a.r(e16));
                                             }
                                         }
                                     }
@@ -324,8 +324,8 @@ class f extends Thread {
                                             if (exc2 == null) {
                                                 exc2 = e17;
                                             }
-                                            if (this.mVu != null) {
-                                                this.mVu.bT(227, com.baidu.tieba.k.a.r(e17));
+                                            if (this.nhU != null) {
+                                                this.nhU.bU(227, com.baidu.tieba.k.a.r(e17));
                                             }
                                         }
                                     }
@@ -337,8 +337,8 @@ class f extends Thread {
                                             if (exc2 == null) {
                                                 exc2 = e18;
                                             }
-                                            if (this.mVu != null) {
-                                                this.mVu.bT(228, com.baidu.tieba.k.a.r(e18));
+                                            if (this.nhU != null) {
+                                                this.nhU.bU(228, com.baidu.tieba.k.a.r(e18));
                                             }
                                         }
                                     }
@@ -348,8 +348,8 @@ class f extends Thread {
                                         } catch (Exception e19) {
                                             if (exc2 == null) {
                                             }
-                                            if (this.mVu != null) {
-                                                this.mVu.bT(229, com.baidu.tieba.k.a.r(e19));
+                                            if (this.nhU != null) {
+                                                this.nhU.bU(229, com.baidu.tieba.k.a.r(e19));
                                             }
                                         }
                                     }
@@ -408,7 +408,7 @@ class f extends Thread {
         }
     }
 
-    private MediaExtractor dJu() throws IOException {
+    private MediaExtractor dMC() throws IOException {
         MediaExtractor mediaExtractor = new MediaExtractor();
         mediaExtractor.setDataSource(this.mSourcePath);
         return mediaExtractor;
@@ -464,8 +464,8 @@ class f extends Thread {
         MediaFormat mediaFormat2 = null;
         ByteBuffer[] byteBufferArr3 = outputBuffers2;
         boolean z7 = false;
-        while (!z4 && dJv()) {
-            if (z7 || !((mediaFormat2 == null || this.mVx.isStarted()) && dJv())) {
+        while (!z4 && dMD()) {
+            if (z7 || !((mediaFormat2 == null || this.nhX.isStarted()) && dMD())) {
                 z = z7;
             } else {
                 int dequeueInputBuffer = mediaCodec.dequeueInputBuffer(10000L);
@@ -486,7 +486,7 @@ class f extends Thread {
                     }
                 }
             }
-            if (!z6 && ((mediaFormat2 == null || this.mVx.isStarted()) && dJv())) {
+            if (!z6 && ((mediaFormat2 == null || this.nhX.isStarted()) && dMD())) {
                 int dequeueOutputBuffer = mediaCodec.dequeueOutputBuffer(bufferInfo, 10000L);
                 if (dequeueOutputBuffer == -1) {
                     z2 = z6;
@@ -520,7 +520,7 @@ class f extends Thread {
                         }
                     }
                 }
-                if (z4 && ((mediaFormat2 == null || this.mVx.isStarted()) && dJv())) {
+                if (z4 && ((mediaFormat2 == null || this.nhX.isStarted()) && dMD())) {
                     int dequeueOutputBuffer2 = mediaCodec2.dequeueOutputBuffer(bufferInfo2, 10000L);
                     if (dequeueOutputBuffer2 == -1) {
                         mediaFormat = mediaFormat2;
@@ -543,7 +543,7 @@ class f extends Thread {
                             byteBufferArr2 = byteBufferArr3;
                         } else {
                             if (bufferInfo2.size != 0) {
-                                this.mVx.c(i2, byteBuffer2, bufferInfo2);
+                                this.nhX.c(i2, byteBuffer2, bufferInfo2);
                             }
                             boolean z10 = (bufferInfo2.flags & 4) != 0 ? true : z4;
                             mediaCodec2.releaseOutputBuffer(dequeueOutputBuffer2, false);
@@ -561,16 +561,16 @@ class f extends Thread {
                     i = i2;
                 } else {
                     E("InnerVideoProcessor", "muxer: adding video track.");
-                    i = this.mVx.c(mediaFormat);
+                    i = this.nhX.c(mediaFormat);
                     z3 = true;
                 }
-                if (!this.mVx.isStarted() && z3) {
-                    this.mVx.dJw();
-                    if (this.mVx.start()) {
-                        synchronized (this.mVx) {
-                            while (!this.mVx.isStarted()) {
+                if (!this.nhX.isStarted() && z3) {
+                    this.nhX.dME();
+                    if (this.nhX.start()) {
+                        synchronized (this.nhX) {
+                            while (!this.nhX.isStarted()) {
                                 try {
-                                    this.mVx.wait(100L);
+                                    this.nhX.wait(100L);
                                 } catch (InterruptedException e) {
                                     e.printStackTrace();
                                 }
@@ -603,9 +603,9 @@ class f extends Thread {
             }
             z3 = z5;
             i = i2;
-            if (!this.mVx.isStarted()) {
-                this.mVx.dJw();
-                if (this.mVx.start()) {
+            if (!this.nhX.isStarted()) {
+                this.nhX.dME();
+                if (this.nhX.start()) {
                 }
             }
             z5 = z3;
@@ -618,7 +618,7 @@ class f extends Thread {
         }
     }
 
-    private boolean dJv() {
+    private boolean dMD() {
         return !Thread.currentThread().isInterrupted();
     }
 

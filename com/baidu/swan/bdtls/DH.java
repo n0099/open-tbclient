@@ -9,19 +9,19 @@ public class DH {
 
     private static native byte[] getSecretKey(int i, int i2, int i3);
 
-    public static int aKq() {
+    public static int aMk() {
         return getSecret();
     }
 
-    public static int aKr() {
+    public static int aMl() {
         return getGroupId();
     }
 
-    public static int at(int i, int i2) {
+    public static int au(int i, int i2) {
         return getPublicKey(i, i2);
     }
 
-    public static byte[] u(int i, int i2, int i3) {
+    public static byte[] v(int i, int i2, int i3) {
         return getSecretKey(i, i2, i3);
     }
 

@@ -6,7 +6,7 @@ import java.util.Set;
 @kotlin.h
 /* loaded from: classes10.dex */
 public class am {
-    public static final <T> Set<T> bR(T t) {
+    public static final <T> Set<T> bV(T t) {
         Set<T> singleton = Collections.singleton(t);
         kotlin.jvm.internal.q.m(singleton, "java.util.Collections.singleton(element)");
         return singleton;

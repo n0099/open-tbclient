@@ -14,33 +14,33 @@ import java.util.List;
 public class bb {
 
     /* renamed from: a  reason: collision with root package name */
-    private static bb f5074a;
+    private static bb f5072a;
 
     /* renamed from: a  reason: collision with other field name */
-    private static String f878a = null;
+    private static String f875a = null;
 
     /* renamed from: a  reason: collision with other field name */
-    private Context f879a;
+    private Context f876a;
 
     /* renamed from: a  reason: collision with other field name */
-    private boolean f882a;
+    private boolean f879a;
     private Messenger b;
 
     /* renamed from: a  reason: collision with other field name */
-    private List<Message> f881a = new ArrayList();
+    private List<Message> f878a = new ArrayList();
 
     /* renamed from: b  reason: collision with other field name */
-    private boolean f883b = false;
+    private boolean f880b = false;
 
     /* renamed from: a  reason: collision with other field name */
-    private Messenger f880a = new Messenger(new bc(this, Looper.getMainLooper()));
+    private Messenger f877a = new Messenger(new bc(this, Looper.getMainLooper()));
 
     private bb(Context context) {
-        this.f882a = false;
-        this.f879a = context.getApplicationContext();
+        this.f879a = false;
+        this.f876a = context.getApplicationContext();
         if (a()) {
             com.xiaomi.channel.commonutils.logger.b.c("use miui push service");
-            this.f882a = true;
+            this.f879a = true;
         }
     }
 
@@ -52,34 +52,34 @@ public class bb {
     }
 
     public static bb a(Context context) {
-        if (f5074a == null) {
-            f5074a = new bb(context);
+        if (f5072a == null) {
+            f5072a = new bb(context);
         }
-        return f5074a;
+        return f5072a;
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    private synchronized void m558a(Intent intent) {
-        if (this.f883b) {
+    private synchronized void m557a(Intent intent) {
+        if (this.f880b) {
             Message a2 = a(intent);
-            if (this.f881a.size() >= 50) {
-                this.f881a.remove(0);
+            if (this.f878a.size() >= 50) {
+                this.f878a.remove(0);
             }
-            this.f881a.add(a2);
+            this.f878a.add(a2);
         } else if (this.b == null) {
-            Context context = this.f879a;
+            Context context = this.f876a;
             bd bdVar = new bd(this);
-            Context context2 = this.f879a;
+            Context context2 = this.f876a;
             context.bindService(intent, bdVar, 1);
-            this.f883b = true;
-            this.f881a.clear();
-            this.f881a.add(a(intent));
+            this.f880b = true;
+            this.f878a.clear();
+            this.f878a.add(a(intent));
         } else {
             try {
                 this.b.send(a(intent));
             } catch (RemoteException e) {
                 this.b = null;
-                this.f883b = false;
+                this.f880b = false;
             }
         }
     }
@@ -89,7 +89,7 @@ public class bb {
             return false;
         }
         try {
-            PackageInfo packageInfo = this.f879a.getPackageManager().getPackageInfo("com.xiaomi.xmsf", 4);
+            PackageInfo packageInfo = this.f876a.getPackageManager().getPackageInfo("com.xiaomi.xmsf", 4);
             if (packageInfo != null) {
                 return packageInfo.versionCode >= 104;
             }
@@ -100,12 +100,12 @@ public class bb {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public boolean m559a(Intent intent) {
+    public boolean m558a(Intent intent) {
         try {
-            if (com.xiaomi.push.l.m501a() || Build.VERSION.SDK_INT < 26) {
-                this.f879a.startService(intent);
+            if (com.xiaomi.push.l.m500a() || Build.VERSION.SDK_INT < 26) {
+                this.f876a.startService(intent);
             } else {
-                m558a(intent);
+                m557a(intent);
             }
             return true;
         } catch (Exception e) {

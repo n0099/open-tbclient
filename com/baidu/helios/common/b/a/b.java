@@ -3,14 +3,14 @@ package com.baidu.helios.common.b.a;
 import java.io.ByteArrayOutputStream;
 /* loaded from: classes8.dex */
 public class b {
-    private String ayd;
-    private boolean aye;
+    private String aye;
     private boolean ayf;
+    private boolean ayg;
 
     public b(String str, boolean z, boolean z2) {
-        this.ayd = str;
-        this.aye = z;
-        this.ayf = z2;
+        this.aye = str;
+        this.ayf = z;
+        this.ayg = z2;
     }
 
     private static int dt(int i) {
@@ -54,13 +54,13 @@ public class b {
             iArr[6] = (byte) (((sArr[3] & 3) << 3) | ((sArr[4] >> 5) & 7));
             iArr[7] = (byte) (sArr[4] & 31);
             for (int i4 = 0; i4 < iArr.length - dt; i4++) {
-                char charAt = this.ayd.charAt(iArr[i4]);
-                if (this.ayf) {
+                char charAt = this.aye.charAt(iArr[i4]);
+                if (this.ayg) {
                     charAt = Character.toLowerCase(charAt);
                 }
                 byteArrayOutputStream.write(charAt);
             }
-            if (this.aye) {
+            if (this.ayf) {
                 for (int length = iArr.length - dt; length < iArr.length; length++) {
                     byteArrayOutputStream.write(61);
                 }

@@ -2,32 +2,32 @@ package com.baidu.tieba.frs.mc;
 
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.adp.widget.ListView.q;
 import com.baidu.tbadk.core.util.y;
 import com.baidu.tieba.frs.FrsFragment;
 import com.baidu.tieba.frs.loadmore.FrsLoadMoreModel;
+import com.baidu.tieba.frs.q;
 import com.baidu.tieba.frs.smartsort.FrsSmartLoadMoreModel;
 import com.baidu.tieba.tbadkCore.FrsViewData;
 import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes22.dex */
 public class c {
-    private final FrsFragment iKB;
-    private final FrsLoadMoreModel iKC;
-    private final FrsSmartLoadMoreModel iKD;
-    private final a iKE = new a() { // from class: com.baidu.tieba.frs.mc.c.1
+    private final FrsModelController iBL;
+    private final q iBs;
+    private final FrsFragment iWX;
+    private final FrsLoadMoreModel iWY;
+    private final FrsSmartLoadMoreModel iWZ;
+    private final a iXa = new a() { // from class: com.baidu.tieba.frs.mc.c.1
         @Override // com.baidu.tieba.frs.mc.c.a
         public void removeItem(int i) {
-            if (c.this.ioW != null && c.this.ioW.getListView() != null) {
-                List<q> data = c.this.ioW.getListView().getData();
-                if (!y.isEmpty(data) && c.this.ioW.getListView().getAdapter() != null && ((q) y.remove(data, i)) != null) {
-                    c.this.ioW.getListView().getAdapter().notifyItemRemoved(i);
+            if (c.this.iBs != null && c.this.iBs.getListView() != null) {
+                List<com.baidu.adp.widget.ListView.q> data = c.this.iBs.getListView().getData();
+                if (!y.isEmpty(data) && c.this.iBs.getListView().getAdapter() != null && ((com.baidu.adp.widget.ListView.q) y.remove(data, i)) != null) {
+                    c.this.iBs.getListView().getAdapter().notifyItemRemoved(i);
                 }
             }
         }
     };
-    private final com.baidu.tieba.frs.q ioW;
-    private final FrsModelController ipp;
 
     /* loaded from: classes22.dex */
     public interface a {
@@ -38,136 +38,136 @@ public class c {
         if (frsFragment == null) {
             throw new NullPointerException("FrsFragment is NullPointerException");
         }
-        this.iKB = frsFragment;
-        this.iKC = new FrsLoadMoreModel(frsFragment, kVar);
-        this.iKD = new FrsSmartLoadMoreModel(frsFragment, kVar);
-        this.iKD.a(this.iKE);
-        this.iKC.a(this.iKE);
-        this.ioW = frsFragment.csD();
-        this.ipp = frsFragment.csy();
-        this.iKD.setSortType(this.ipp.getSortType());
-        this.iKC.setSortType(this.ipp.getSortType());
+        this.iWX = frsFragment;
+        this.iWY = new FrsLoadMoreModel(frsFragment, kVar);
+        this.iWZ = new FrsSmartLoadMoreModel(frsFragment, kVar);
+        this.iWZ.a(this.iXa);
+        this.iWY.a(this.iXa);
+        this.iBs = frsFragment.cvK();
+        this.iBL = frsFragment.cvF();
+        this.iWZ.setSortType(this.iBL.getSortType());
+        this.iWY.setSortType(this.iBL.getSortType());
     }
 
-    public ArrayList<q> a(boolean z, boolean z2, ArrayList<q> arrayList, com.baidu.tieba.tbadkCore.data.f fVar, boolean z3) {
+    public ArrayList<com.baidu.adp.widget.ListView.q> a(boolean z, boolean z2, ArrayList<com.baidu.adp.widget.ListView.q> arrayList, com.baidu.tieba.tbadkCore.data.f fVar, boolean z3) {
         return a(z, z2, arrayList, fVar, false, z3);
     }
 
-    public ArrayList<q> a(boolean z, boolean z2, ArrayList<q> arrayList, com.baidu.tieba.tbadkCore.data.f fVar, boolean z3, boolean z4) {
-        if (this.ipp != null) {
-            boolean cyN = this.iKB.csy().cyN();
-            if (this.ipp.cyO()) {
-                return this.iKD.a(z, cyN, arrayList, z3, z4);
+    public ArrayList<com.baidu.adp.widget.ListView.q> a(boolean z, boolean z2, ArrayList<com.baidu.adp.widget.ListView.q> arrayList, com.baidu.tieba.tbadkCore.data.f fVar, boolean z3, boolean z4) {
+        if (this.iBL != null) {
+            boolean cBU = this.iWX.cvF().cBU();
+            if (this.iBL.cBV()) {
+                return this.iWZ.a(z, cBU, arrayList, z3, z4);
             }
-            return this.iKC.a(z, cyN, z2, arrayList, fVar);
+            return this.iWY.a(z, cBU, z2, arrayList, fVar);
         }
         return arrayList;
     }
 
     public void resetData() {
-        if (this.ipp != null) {
-            if (this.ipp.cyO()) {
-                this.iKD.resetData();
+        if (this.iBL != null) {
+            if (this.iBL.cBV()) {
+                this.iWZ.resetData();
             } else {
-                this.iKC.resetData();
+                this.iWY.resetData();
             }
         }
     }
 
-    public boolean cX(List<Long> list) {
-        if (this.ipp == null || this.ipp.cyO()) {
+    public boolean dg(List<Long> list) {
+        if (this.iBL == null || this.iBL.cBV()) {
             return false;
         }
-        return this.iKC.cX(list);
+        return this.iWY.dg(list);
     }
 
     public void a(String str, String str2, FrsViewData frsViewData) {
         MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921462, 0));
-        if (this.ipp != null && this.ioW != null && frsViewData != null) {
-            this.iKB.ipc = System.currentTimeMillis();
-            if (this.ipp.cyO()) {
-                if (this.iKD.csE() == 1 && !this.ipp.isLoading()) {
-                    this.iKD.setSortType(this.ipp.getSortType());
-                    this.iKD.cyt();
-                    int pn = this.iKD.getPn();
-                    this.iKD.setPn(pn);
-                    this.ipp.zp(pn + 1);
+        if (this.iBL != null && this.iBs != null && frsViewData != null) {
+            this.iWX.iBy = System.currentTimeMillis();
+            if (this.iBL.cBV()) {
+                if (this.iWZ.cvL() == 1 && !this.iBL.isLoading()) {
+                    this.iWZ.setSortType(this.iBL.getSortType());
+                    this.iWZ.cBA();
+                    int pn = this.iWZ.getPn();
+                    this.iWZ.setPn(pn);
+                    this.iBL.zI(pn + 1);
                 }
-            } else if (this.ipp.cyE() == 1) {
-                if (!this.iKC.isLoading && !this.ipp.isLoading()) {
-                    int pn2 = this.iKC.getPn();
-                    if (this.iKC.cX(frsViewData.getThreadListIds())) {
-                        this.iKC.cyt();
-                        this.iKC.setSortType(this.ipp.getSortType());
-                        this.iKC.a(com.baidu.adp.lib.f.b.toLong(str2, 0L), frsViewData.getThreadListIds(), str, pn2, frsViewData.isBrandForum);
-                    } else if (this.iKC.csE() == 1) {
-                        this.iKC.cyt();
-                        this.iKC.setPn(pn2);
-                        this.ipp.zp(pn2 + 1);
-                        this.iKC.loadingDone = false;
-                        this.iKC.loadIndex = 0;
+            } else if (this.iBL.cBL() == 1) {
+                if (!this.iWY.isLoading && !this.iBL.isLoading()) {
+                    int pn2 = this.iWY.getPn();
+                    if (this.iWY.dg(frsViewData.getThreadListIds())) {
+                        this.iWY.cBA();
+                        this.iWY.setSortType(this.iBL.getSortType());
+                        this.iWY.a(com.baidu.adp.lib.f.b.toLong(str2, 0L), frsViewData.getThreadListIds(), str, pn2, frsViewData.isBrandForum);
+                    } else if (this.iWY.cvL() == 1) {
+                        this.iWY.cBA();
+                        this.iWY.setPn(pn2);
+                        this.iBL.zI(pn2 + 1);
+                        this.iWY.loadingDone = false;
+                        this.iWY.loadIndex = 0;
                     }
                 }
-            } else if (!this.ipp.cyG()) {
-                this.ipp.cju();
+            } else if (!this.iBL.cBN()) {
+                this.iBL.cmB();
             }
         }
     }
 
-    public int csE() {
-        if (this.ipp == null) {
+    public int cvL() {
+        if (this.iBL == null) {
             return -1;
         }
-        if (this.ipp.cyO()) {
-            return this.iKD.csE();
+        if (this.iBL.cBV()) {
+            return this.iWZ.cvL();
         }
-        return this.iKC.csE();
+        return this.iWY.cvL();
     }
 
     public void setHasMore(int i) {
-        if (this.ipp != null) {
-            if (this.ipp.cyO()) {
-                this.iKD.setHasMore(i);
+        if (this.iBL != null) {
+            if (this.iBL.cBV()) {
+                this.iWZ.setHasMore(i);
             } else {
-                this.iKC.setHasMore(i);
+                this.iWY.setHasMore(i);
             }
         }
     }
 
     public int getPn() {
-        if (this.ipp == null) {
+        if (this.iBL == null) {
             return 1;
         }
-        if (this.ipp.cyO()) {
-            return this.iKD.getPn();
+        if (this.iBL.cBV()) {
+            return this.iWZ.getPn();
         }
-        return this.iKC.getPn();
+        return this.iWY.getPn();
     }
 
     public void setPn(int i) {
-        if (this.ipp != null) {
-            if (this.ipp.cyO()) {
-                this.iKD.setPn(i);
+        if (this.iBL != null) {
+            if (this.iBL.cBV()) {
+                this.iWZ.setPn(i);
             } else {
-                this.iKC.setPn(i);
+                this.iWY.setPn(i);
             }
         }
     }
 
-    public ArrayList<q> getDataList() {
-        return this.ipp.cyO() ? this.iKD.getDataList() : this.ipp.cyI();
+    public ArrayList<com.baidu.adp.widget.ListView.q> getDataList() {
+        return this.iBL.cBV() ? this.iWZ.getDataList() : this.iBL.cBP();
     }
 
-    public FrsSmartLoadMoreModel cyw() {
-        return this.iKD;
+    public FrsSmartLoadMoreModel cBD() {
+        return this.iWZ;
     }
 
-    public void d(q qVar) {
+    public void d(com.baidu.adp.widget.ListView.q qVar) {
         if (qVar != null) {
-            if (this.ipp.cyO()) {
-                this.iKD.d(qVar);
+            if (this.iBL.cBV()) {
+                this.iWZ.d(qVar);
             } else {
-                this.iKC.d(qVar);
+                this.iWY.d(qVar);
             }
         }
     }

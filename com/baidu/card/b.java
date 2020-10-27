@@ -8,10 +8,10 @@ import com.baidu.card.a.a;
 import com.baidu.tbadk.core.data.AbsThreadDataSupport;
 /* loaded from: classes21.dex */
 public abstract class b<T extends AbsThreadDataSupport> implements p<T>, q {
-    protected ak afC;
-    private Boolean afD = false;
-    private com.baidu.tieba.card.aa<T> afE;
-    public a afF;
+    protected ak afD;
+    private Boolean afE = false;
+    private com.baidu.tieba.card.ab<T> afF;
+    public a afG;
     protected Context mContext;
 
     /* loaded from: classes21.dex */
@@ -27,7 +27,7 @@ public abstract class b<T extends AbsThreadDataSupport> implements p<T>, q {
     }
 
     public void a(ak akVar) {
-        this.afC = akVar;
+        this.afD = akVar;
     }
 
     public void bo(int i) {
@@ -40,16 +40,16 @@ public abstract class b<T extends AbsThreadDataSupport> implements p<T>, q {
     public void tA() {
     }
 
-    public com.baidu.tieba.card.aa<T> tB() {
-        return this.afE;
+    public com.baidu.tieba.card.ab<T> tB() {
+        return this.afF;
     }
 
-    public void setOnCardSubClickListener(com.baidu.tieba.card.aa<T> aaVar) {
-        this.afE = aaVar;
+    public void setOnCardSubClickListener(com.baidu.tieba.card.ab<T> abVar) {
+        this.afF = abVar;
     }
 
     public void a(int i, a.b bVar) {
-        this.afC.a(i, bVar);
+        this.afD.a(i, bVar);
     }
 
     public void bq(int i) {
@@ -69,10 +69,10 @@ public abstract class b<T extends AbsThreadDataSupport> implements p<T>, q {
     }
 
     public Boolean tC() {
-        return this.afD;
+        return this.afE;
     }
 
     public void b(Boolean bool) {
-        this.afD = bool;
+        this.afE = bool;
     }
 }

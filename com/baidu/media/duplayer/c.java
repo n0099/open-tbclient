@@ -7,6 +7,7 @@ import android.os.Build;
 import android.text.TextUtils;
 import com.baidu.cyberplayer.sdk.CyberLog;
 import com.baidu.cyberplayer.sdk.CyberPlayerManager;
+import com.baidu.cyberplayer.sdk.config.CyberCfgManager;
 import com.baidu.fsg.face.liveness.video.f;
 import com.xiaomi.mipush.sdk.Constants;
 import java.util.ArrayList;
@@ -17,11 +18,11 @@ import java.util.Map;
 import java.util.TreeMap;
 /* loaded from: classes16.dex */
 public class c {
-    private static MediaCodecInfo[] bKI;
+    private static MediaCodecInfo[] bTe;
     private static Map<String, Integer> d = new TreeMap(String.CASE_INSENSITIVE_ORDER);
     private static Map<String, MediaCodecInfo> f = new HashMap();
     public int b = 0;
-    public MediaCodecInfo bKH;
+    public MediaCodecInfo bTd;
     public String c;
 
     static {
@@ -83,7 +84,7 @@ public class c {
         String lowerCase = name.toLowerCase(Locale.US);
         if (!lowerCase.startsWith("omx.")) {
             i = 100;
-        } else if (!lowerCase.startsWith("omx.pv") && !lowerCase.startsWith("omx.google.") && !lowerCase.startsWith("omx.ffmpeg.") && !lowerCase.startsWith("omx.k3.ffmpeg.") && !lowerCase.startsWith("omx.avcodec.")) {
+        } else if (!lowerCase.startsWith("omx.pv") && ((!lowerCase.startsWith("omx.google.") || lowerCase.equals("omx.google.hevc.decoder")) && !lowerCase.startsWith("omx.ffmpeg.") && !lowerCase.startsWith("omx.k3.ffmpeg.") && !lowerCase.startsWith("omx.avcodec."))) {
             if (lowerCase.startsWith("omx.ittiam.")) {
                 i = 0;
             } else if (lowerCase.startsWith("omx.mtk.")) {
@@ -102,7 +103,7 @@ public class c {
             }
         }
         c cVar = new c();
-        cVar.bKH = mediaCodecInfo;
+        cVar.bTd = mediaCodecInfo;
         cVar.b = i;
         cVar.c = str;
         return cVar;
@@ -118,18 +119,18 @@ public class c {
 
     private static String a(String str, int i, int i2, double d2) {
         a();
-        MediaCodecInfo iI = iI(str);
-        if (iI != null) {
+        MediaCodecInfo jb = jb(str);
+        if (jb != null) {
             boolean z = true;
             if (Build.VERSION.SDK_INT >= 21 && i > 0 && i2 > 0) {
-                MediaCodecInfo.CodecCapabilities capabilitiesForType = iI.getCapabilitiesForType(str);
+                MediaCodecInfo.CodecCapabilities capabilitiesForType = jb.getCapabilitiesForType(str);
                 z = d2 > 0.0d ? capabilitiesForType.getVideoCapabilities().areSizeAndRateSupported(i, i2, d2) : capabilitiesForType.getVideoCapabilities().isSizeSupported(i, i2);
             }
             if (z) {
-                CyberLog.d("CyberMediaCodecInfo", "mineType:" + str + " decoder:" + iI.getName());
-                return iI.getName();
+                CyberLog.d("CyberMediaCodecInfo", "mineType:" + str + " decoder:" + jb.getName());
+                return jb.getName();
             }
-            CyberLog.d("CyberMediaCodecInfo", "decoder not support [" + iI.getName() + Constants.ACCEPT_TIME_SEPARATOR_SP + i + Constants.ACCEPT_TIME_SEPARATOR_SP + i2 + Constants.ACCEPT_TIME_SEPARATOR_SP + d2 + "]");
+            CyberLog.d("CyberMediaCodecInfo", "decoder not support [" + jb.getName() + Constants.ACCEPT_TIME_SEPARATOR_SP + i + Constants.ACCEPT_TIME_SEPARATOR_SP + i2 + Constants.ACCEPT_TIME_SEPARATOR_SP + d2 + "]");
         }
         return null;
     }
@@ -137,26 +138,32 @@ public class c {
     public static synchronized void a() {
         synchronized (c.class) {
             try {
-                if (bKI == null && Build.VERSION.SDK_INT >= 16) {
+                if (bTe == null && Build.VERSION.SDK_INT >= 16) {
                     if (Build.VERSION.SDK_INT < 21) {
                         ArrayList arrayList = new ArrayList();
                         int codecCount = MediaCodecList.getCodecCount();
                         for (int i = 0; i < codecCount; i++) {
                             arrayList.add(MediaCodecList.getCodecInfoAt(i));
                         }
-                        bKI = (MediaCodecInfo[]) arrayList.toArray(new MediaCodecInfo[arrayList.size()]);
+                        bTe = (MediaCodecInfo[]) arrayList.toArray(new MediaCodecInfo[arrayList.size()]);
                     } else {
-                        bKI = new MediaCodecList(0).getCodecInfos();
+                        bTe = new MediaCodecList(0).getCodecInfos();
                     }
-                    iI(f.b);
-                    iI("video/hevc");
+                    if (CyberCfgManager.getInstance().getCfgBoolValue("enable_mc_google_hevc_decoder", true)) {
+                        d.put("OMX.google.hevc.decoder", 601);
+                        CyberLog.i("CyberMediaCodecInfo", "enable_mc_google_hevc_decoder add");
+                    } else {
+                        d.put("OMX.google.hevc.decoder", 200);
+                    }
+                    jb(f.b);
+                    jb("video/hevc");
                 }
             } catch (Exception e) {
             }
         }
     }
 
-    private static MediaCodecInfo iI(String str) {
+    private static MediaCodecInfo jb(String str) {
         c cVar;
         String[] supportedTypes;
         c a2;
@@ -165,8 +172,8 @@ public class c {
             return mediaCodecInfo;
         }
         ArrayList arrayList = new ArrayList();
-        for (int i = 0; i < bKI.length; i++) {
-            MediaCodecInfo mediaCodecInfo2 = bKI[i];
+        for (int i = 0; i < bTe.length; i++) {
+            MediaCodecInfo mediaCodecInfo2 = bTe[i];
             if (!mediaCodecInfo2.isEncoder() && (supportedTypes = mediaCodecInfo2.getSupportedTypes()) != null) {
                 for (String str2 : supportedTypes) {
                     if (!TextUtils.isEmpty(str2) && str2.equalsIgnoreCase(str) && (a2 = a(mediaCodecInfo2, str)) != null) {
@@ -193,7 +200,7 @@ public class c {
         if (cVar.b < 600) {
             return null;
         }
-        f.put(str, cVar.bKH);
-        return cVar.bKH;
+        f.put(str, cVar.bTd);
+        return cVar.bTd;
     }
 }

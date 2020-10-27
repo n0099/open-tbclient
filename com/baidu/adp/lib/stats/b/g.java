@@ -21,20 +21,20 @@ import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 /* loaded from: classes.dex */
 public class g {
-    private static volatile g Pe;
-    private i Pg;
-    private a Ph;
+    private static volatile g Pf;
+    private i Ph;
+    private a Pi;
     private com.baidu.adp.lib.stats.b mBdLogSetting;
     private com.baidu.adp.lib.stats.c mCommonData;
     private String uid;
     private final SimpleDateFormat mDateFormat = new SimpleDateFormat("yy-MM-dd_HH-mm-ss_SSS", Locale.getDefault());
-    private final ConcurrentHashMap<String, com.baidu.adp.lib.stats.base.a> Pf = new ConcurrentHashMap<>();
+    private final ConcurrentHashMap<String, com.baidu.adp.lib.stats.base.a> Pg = new ConcurrentHashMap<>();
     private Handler mHandler = new Handler(Looper.getMainLooper()) { // from class: com.baidu.adp.lib.stats.b.g.1
         @Override // android.os.Handler
         public void handleMessage(Message message) {
             switch (message.what) {
                 case 6:
-                    for (Map.Entry entry : g.this.Pf.entrySet()) {
+                    for (Map.Entry entry : g.this.Pg.entrySet()) {
                         com.baidu.adp.lib.stats.base.a aVar = (com.baidu.adp.lib.stats.base.a) entry.getValue();
                         if (aVar.nA() > 0) {
                             g.this.a(aVar, true, true);
@@ -49,7 +49,7 @@ public class g {
             }
         }
     };
-    private j Ow = new j() { // from class: com.baidu.adp.lib.stats.b.g.5
+    private j Ox = new j() { // from class: com.baidu.adp.lib.stats.b.g.5
         @Override // com.baidu.adp.lib.stats.b.j
         public void o(com.baidu.adp.lib.stats.base.a aVar) {
             if (g.this.i(aVar)) {
@@ -65,22 +65,22 @@ public class g {
     };
 
     public static g nZ() {
-        if (Pe == null) {
+        if (Pf == null) {
             synchronized (g.class) {
-                if (Pe == null) {
-                    Pe = new g();
+                if (Pf == null) {
+                    Pf = new g();
                 }
             }
         }
-        return Pe;
+        return Pf;
     }
 
     public void d(com.baidu.adp.lib.stats.c cVar) {
-        if (this.Ph == null) {
-            this.Ph = new a();
+        if (this.Pi == null) {
+            this.Pi = new a();
             IntentFilter intentFilter = new IntentFilter();
             intentFilter.addAction(BdStatsConstant.BROADCAST_ACCOUNT_CHANGED);
-            BdBaseApplication.getInst().registerReceiver(this.Ph, intentFilter);
+            BdBaseApplication.getInst().registerReceiver(this.Pi, intentFilter);
         }
         this.mBdLogSetting = BdStatisticsManager.getInstance().getBdLogSetting();
         this.mCommonData = cVar;
@@ -105,23 +105,23 @@ public class g {
         String cc;
         com.baidu.adp.lib.stats.base.a aVar = null;
         synchronized (this) {
-            if (!TextUtils.isEmpty(str) && (aVar = this.Pf.get((cc = com.baidu.adp.lib.stats.base.a.cc(str)))) == null) {
+            if (!TextUtils.isEmpty(str) && (aVar = this.Pg.get((cc = com.baidu.adp.lib.stats.base.a.cc(str)))) == null) {
                 if ("alert".equals(cc)) {
                     aVar = new com.baidu.adp.lib.stats.b.a(null);
                 } else if (BdStatsConstant.StatsType.ERROR.equals(cc)) {
-                    aVar = new c(this.Ow);
+                    aVar = new c(this.Ox);
                 } else if ("dbg".equals(cc)) {
-                    aVar = new b(this.Ow);
+                    aVar = new b(this.Ox);
                 } else if ("stat".equals(cc)) {
-                    aVar = new f(this.Ow);
+                    aVar = new f(this.Ox);
                 } else if (BdStatsConstant.StatsType.PERFORMANCE.equals(cc)) {
-                    aVar = new e(this.Ow);
+                    aVar = new e(this.Ox);
                 } else {
-                    aVar = new c(this.Ow);
+                    aVar = new c(this.Ox);
                 }
                 if (aVar != null) {
                     aVar.cb(cc);
-                    this.Pf.put(cc, aVar);
+                    this.Pg.put(cc, aVar);
                 }
             }
         }
@@ -219,7 +219,7 @@ public class g {
     }
 
     public void oa() {
-        for (Map.Entry<String, com.baidu.adp.lib.stats.base.a> entry : this.Pf.entrySet()) {
+        for (Map.Entry<String, com.baidu.adp.lib.stats.base.a> entry : this.Pg.entrySet()) {
             com.baidu.adp.lib.stats.base.a value = entry.getValue();
             n(value);
             l(value);
@@ -227,7 +227,7 @@ public class g {
     }
 
     public void ob() {
-        for (Map.Entry<String, com.baidu.adp.lib.stats.base.a> entry : this.Pf.entrySet()) {
+        for (Map.Entry<String, com.baidu.adp.lib.stats.base.a> entry : this.Pg.entrySet()) {
             com.baidu.adp.lib.stats.base.a value = entry.getValue();
             k(value);
             j(value);
@@ -235,7 +235,7 @@ public class g {
     }
 
     public void oc() {
-        for (Map.Entry<String, com.baidu.adp.lib.stats.base.a> entry : this.Pf.entrySet()) {
+        for (Map.Entry<String, com.baidu.adp.lib.stats.base.a> entry : this.Pg.entrySet()) {
             com.baidu.adp.lib.stats.base.a value = entry.getValue();
             k(value);
             a(value, false, false);
@@ -251,7 +251,7 @@ public class g {
     }
 
     public void od() {
-        for (Map.Entry<String, com.baidu.adp.lib.stats.base.a> entry : this.Pf.entrySet()) {
+        for (Map.Entry<String, com.baidu.adp.lib.stats.base.a> entry : this.Pg.entrySet()) {
             com.baidu.adp.lib.stats.base.a value = entry.getValue();
             n(value);
             l(value);
@@ -306,7 +306,7 @@ public class g {
     }
 
     public void og() {
-        for (Map.Entry<String, com.baidu.adp.lib.stats.base.a> entry : this.Pf.entrySet()) {
+        for (Map.Entry<String, com.baidu.adp.lib.stats.base.a> entry : this.Pg.entrySet()) {
             com.baidu.adp.lib.stats.base.a value = entry.getValue();
             if (this.mBdLogSetting != null) {
                 long bV = this.mBdLogSetting.bV(value.nF());
@@ -401,9 +401,9 @@ public class g {
     }
 
     public void oh() {
-        if (this.Pg == null) {
-            this.Pg = new i();
+        if (this.Ph == null) {
+            this.Ph = new i();
         }
-        this.Pg.oh();
+        this.Ph.oh();
     }
 }

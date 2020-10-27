@@ -1,13 +1,13 @@
 package com.baidu.live.videochat.d;
 /* loaded from: classes4.dex */
 public interface f {
-    void A(String str, boolean z);
-
     void B(String str, boolean z);
 
-    void Ru();
+    void C(String str, boolean z);
 
-    void Rv();
+    void Su();
+
+    void Sv();
 
     void a(int i, boolean z, int i2, String str, String str2, String str3);
 

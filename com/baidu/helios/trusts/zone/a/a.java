@@ -25,10 +25,10 @@ import java.util.zip.ZipFile;
 import org.json.JSONObject;
 /* loaded from: classes11.dex */
 public class a {
-    private static final String[] azt = {"f0fb772cce0da4ed791213b800defea286494ab98d00e1101cbf78a35e70ec4b"};
-    private a.C0153a azq;
-    private ZipFile azr;
-    private PackageManager azs;
+    private static final String[] azu = {"f0fb772cce0da4ed791213b800defea286494ab98d00e1101cbf78a35e70ec4b"};
+    private a.C0153a azr;
+    private ZipFile azs;
+    private PackageManager azt;
     private String k;
     private Context l;
 
@@ -59,12 +59,12 @@ public class a {
     }
 
     private File AU() {
-        return this.azq.getFile("c.dat");
+        return this.azr.getFile("c.dat");
     }
 
     private InputStream fG(String str) {
         try {
-            return this.azr.getInputStream(new ZipEntry(str));
+            return this.azs.getInputStream(new ZipEntry(str));
         } catch (Exception e) {
             throw new TrustSubject.ConfigNotFoundException(e);
         }
@@ -72,7 +72,7 @@ public class a {
 
     public long a() {
         try {
-            Bundle bundle = this.azs.getPackageInfo(this.k, 128).applicationInfo.metaData;
+            Bundle bundle = this.azt.getPackageInfo(this.k, 128).applicationInfo.metaData;
             if (bundle != null) {
                 String string = bundle.getString("com.baidu.helios.tc.qver");
                 if (!TextUtils.isEmpty(string) && string.startsWith("v")) {
@@ -101,8 +101,8 @@ public class a {
     public void a(String str, Context context, a.C0153a c0153a) {
         this.k = str;
         this.l = context;
-        this.azq = c0153a;
-        this.azs = context.getPackageManager();
+        this.azr = c0153a;
+        this.azt = context.getPackageManager();
     }
 
     public int b() {
@@ -115,7 +115,7 @@ public class a {
         InputStream inputStream2;
         try {
             AssetManager assets = this.l.createPackageContext(this.k, 0).getAssets();
-            this.azq.AE();
+            this.azr.AE();
             File AU = AU();
             try {
                 AU.delete();
@@ -152,7 +152,7 @@ public class a {
                                         }
                                     }
                                     HashSet hashSet2 = new HashSet();
-                                    Collections.addAll(hashSet2, azt);
+                                    Collections.addAll(hashSet2, azu);
                                     if (!hashSet2.equals(hashSet)) {
                                         c.b(inputStream);
                                         c.b(fileOutputStream);
@@ -293,7 +293,7 @@ public class a {
 
     public boolean d() {
         boolean z = false;
-        File[] listFiles = this.azq.AF().listFiles(new FilenameFilter() { // from class: com.baidu.helios.trusts.zone.a.a.1
+        File[] listFiles = this.azr.AF().listFiles(new FilenameFilter() { // from class: com.baidu.helios.trusts.zone.a.a.1
             @Override // java.io.FilenameFilter
             public boolean accept(File file, String str) {
                 return str.endsWith(".cfgtmp");
@@ -312,13 +312,13 @@ public class a {
     }
 
     public boolean e() {
-        if (this.azr != null) {
+        if (this.azs != null) {
             return true;
         }
         File AU = AU();
         if (AU.exists()) {
             try {
-                this.azr = new ZipFile(AU);
+                this.azs = new ZipFile(AU);
                 return true;
             } catch (IOException e) {
                 e.printStackTrace();
@@ -328,9 +328,9 @@ public class a {
     }
 
     public boolean f() {
-        if (this.azr != null) {
-            c.a(this.azr);
-            this.azr = null;
+        if (this.azs != null) {
+            c.a(this.azs);
+            this.azs = null;
             return true;
         }
         return false;

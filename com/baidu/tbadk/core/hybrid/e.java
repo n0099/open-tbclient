@@ -8,14 +8,14 @@ import com.baidu.tbadk.core.util.aq;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class e {
-    private static final b evB = new a();
-    private static final b evC = new c();
-    private static final boolean evD;
+    private static final b eEa = new a();
+    private static final b eEb = new c();
+    private static final boolean eEc;
 
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes.dex */
     public interface b {
-        void aa(String str, String str2, String str3);
+        void ah(String str, String str2, String str3);
     }
 
     /* loaded from: classes.dex */
@@ -24,7 +24,7 @@ public class e {
         }
 
         @Override // com.baidu.tbadk.core.hybrid.e.b
-        public void aa(String str, String str2, String str3) {
+        public void ah(String str, String str2, String str3) {
             if (str2 != null) {
                 str3 = "code:" + str2 + " message:" + str3;
             }
@@ -38,35 +38,35 @@ public class e {
         }
 
         @Override // com.baidu.tbadk.core.hybrid.e.b
-        public void aa(String str, String str2, String str3) {
+        public void ah(String str, String str2, String str3) {
             aq aqVar = new aq("c10729");
-            aqVar.dK("obj_param1", str);
-            aqVar.dK(TiebaInitialize.Params.OBJ_PARAM2, str2);
-            aqVar.dK(TiebaInitialize.Params.OBJ_PARAM3, str3);
+            aqVar.dR("obj_param1", str);
+            aqVar.dR(TiebaInitialize.Params.OBJ_PARAM2, str2);
+            aqVar.dR(TiebaInitialize.Params.OBJ_PARAM3, str3);
             if (BdBaseApplication.getInst() != null) {
                 TiebaStatic.log(aqVar);
             }
         }
     }
 
-    public static void aa(String str, String str2, String str3) {
-        if (evD) {
-            evB.aa(str, str2, str3);
+    public static void ah(String str, String str2, String str3) {
+        if (eEc) {
+            eEa.ah(str, str2, str3);
         }
-        evC.aa(str, str2, str3);
+        eEb.ah(str, str2, str3);
     }
 
     public static void debug(String str) {
-        if (evD) {
-            evB.aa(null, null, str);
+        if (eEc) {
+            eEa.ah(null, null, str);
         }
     }
 
-    public static void ab(String str, String str2, String str3) {
+    public static void ai(String str, String str2, String str3) {
         debug(str3);
     }
 
     static {
-        evD = BdBaseApplication.getInst() == null || BdBaseApplication.getInst().isDebugMode();
+        eEc = BdBaseApplication.getInst() == null || BdBaseApplication.getInst().isDebugMode();
     }
 }

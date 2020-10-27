@@ -179,14 +179,14 @@ public final class c {
     /* JADX INFO: Access modifiers changed from: package-private */
     /* renamed from: com.baidu.sapi2.c$c  reason: collision with other inner class name */
     /* loaded from: classes5.dex */
-    public class C0307c extends HttpHandlerWrap {
+    public class C0321c extends HttpHandlerWrap {
 
         /* renamed from: a  reason: collision with root package name */
         final /* synthetic */ SapiCallback f3420a;
         final /* synthetic */ CheckUserFaceIdResult b;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        C0307c(Looper looper, SapiCallback sapiCallback, CheckUserFaceIdResult checkUserFaceIdResult) {
+        C0321c(Looper looper, SapiCallback sapiCallback, CheckUserFaceIdResult checkUserFaceIdResult) {
             super(looper);
             this.f3420a = sapiCallback;
             this.b = checkUserFaceIdResult;
@@ -1741,7 +1741,7 @@ public final class c {
         if (map != null && !map.isEmpty()) {
             a2.putAll(map);
         }
-        new HttpClientWrap().post(com.baidu.sapi2.utils.e.C, a2, null, w(), new C0307c(Looper.getMainLooper(), sapiCallback, new CheckUserFaceIdResult()));
+        new HttpClientWrap().post(com.baidu.sapi2.utils.e.C, a2, null, w(), new C0321c(Looper.getMainLooper(), sapiCallback, new CheckUserFaceIdResult()));
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */

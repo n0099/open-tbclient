@@ -25,41 +25,41 @@ import tbclient.GetHotGod.DataRes;
 import tbclient.User;
 /* loaded from: classes24.dex */
 public class b {
-    private a jaO;
-    private boolean jaP;
-    private LongSparseArray<MetaData> jaR;
+    private a jnj;
+    private boolean jnk;
+    private LongSparseArray<MetaData> jnm;
     private BaseActivity mActivity;
     private int pn = 0;
-    public List<q> ikU = new ArrayList();
-    public int jaQ = 1;
-    private com.baidu.adp.framework.listener.a iks = new com.baidu.adp.framework.listener.a(1003099, CmdConfigSocket.CMD_GET_HOT_GOD) { // from class: com.baidu.tieba.godSquare.model.b.1
+    public List<q> ixs = new ArrayList();
+    public int jnl = 1;
+    private com.baidu.adp.framework.listener.a iwQ = new com.baidu.adp.framework.listener.a(1003099, CmdConfigSocket.CMD_GET_HOT_GOD) { // from class: com.baidu.tieba.godSquare.model.b.1
         @Override // com.baidu.adp.framework.listener.a
         public void onMessage(ResponsedMessage<?> responsedMessage) {
-            if (b.this.jaO != null) {
+            if (b.this.jnj != null) {
                 if (responsedMessage instanceof GodSquareHttpResponsedMsg) {
                     GodSquareHttpResponsedMsg godSquareHttpResponsedMsg = (GodSquareHttpResponsedMsg) responsedMessage;
-                    b.this.jaO.a(b.this.a(godSquareHttpResponsedMsg.getResult()), b.this.jaP, godSquareHttpResponsedMsg.getHasMore(), godSquareHttpResponsedMsg.getErrorString());
+                    b.this.jnj.a(b.this.a(godSquareHttpResponsedMsg.getResult()), b.this.jnk, godSquareHttpResponsedMsg.getHasMore(), godSquareHttpResponsedMsg.getErrorString());
                 } else if (responsedMessage instanceof GodSquareSocketResponsedMsg) {
                     GodSquareSocketResponsedMsg godSquareSocketResponsedMsg = (GodSquareSocketResponsedMsg) responsedMessage;
-                    b.this.jaO.a(b.this.a(godSquareSocketResponsedMsg.getResult()), b.this.jaP, godSquareSocketResponsedMsg.getHasMore(), godSquareSocketResponsedMsg.getErrorString());
+                    b.this.jnj.a(b.this.a(godSquareSocketResponsedMsg.getResult()), b.this.jnk, godSquareSocketResponsedMsg.getHasMore(), godSquareSocketResponsedMsg.getErrorString());
                 }
             }
         }
     };
-    private CustomMessageListener ikt = new CustomMessageListener(CmdConfigCustom.CMD_GET_HOT_GOD_CACHE) { // from class: com.baidu.tieba.godSquare.model.b.2
+    private CustomMessageListener iwR = new CustomMessageListener(CmdConfigCustom.CMD_GET_HOT_GOD_CACHE) { // from class: com.baidu.tieba.godSquare.model.b.2
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-            if (b.this.jaO != null) {
+            if (b.this.jnj != null) {
                 if (!(customResponsedMessage instanceof GodSquareCacheResponsedMsg)) {
-                    b.this.AB(1);
+                    b.this.AU(1);
                     return;
                 }
                 GodSquareCacheResponsedMsg godSquareCacheResponsedMsg = (GodSquareCacheResponsedMsg) customResponsedMessage;
                 if (godSquareCacheResponsedMsg.getResult() == null || y.isEmpty(godSquareCacheResponsedMsg.getResult().user_list)) {
-                    b.this.AB(1);
+                    b.this.AU(1);
                 } else {
-                    b.this.jaO.a(b.this.a(godSquareCacheResponsedMsg.getResult()), b.this.jaP, true, godSquareCacheResponsedMsg.getErrorString());
+                    b.this.jnj.a(b.this.a(godSquareCacheResponsedMsg.getResult()), b.this.jnk, true, godSquareCacheResponsedMsg.getErrorString());
                 }
             }
         }
@@ -71,28 +71,28 @@ public class b {
     }
 
     public b(a aVar, BaseActivity baseActivity) {
-        this.jaO = aVar;
+        this.jnj = aVar;
         this.mActivity = baseActivity;
         registerListener();
     }
 
     public void update() {
-        this.jaQ = 1;
-        this.jaP = true;
+        this.jnl = 1;
+        this.jnk = true;
         if (j.isNetworkAvailableForImmediately()) {
-            AB(1);
+            AU(1);
         } else {
-            AC(1);
+            AV(1);
         }
     }
 
-    public void bJG() {
-        this.jaP = false;
-        AB(this.pn + 1);
+    public void bMi() {
+        this.jnk = false;
+        AU(this.pn + 1);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void AB(int i) {
+    public void AU(int i) {
         if (this.mActivity != null) {
             this.pn = i;
             GodSquareRequestMsg godSquareRequestMsg = new GodSquareRequestMsg();
@@ -101,7 +101,7 @@ public class b {
         }
     }
 
-    private void AC(int i) {
+    private void AV(int i) {
         if (this.mActivity != null) {
             GodSquareCacheRequestMsg godSquareCacheRequestMsg = new GodSquareCacheRequestMsg();
             godSquareCacheRequestMsg.cacheKey = i + "";
@@ -111,8 +111,8 @@ public class b {
 
     private void registerListener() {
         if (this.mActivity != null) {
-            this.mActivity.registerListener(this.ikt);
-            this.mActivity.registerListener(this.iks);
+            this.mActivity.registerListener(this.iwR);
+            this.mActivity.registerListener(this.iwQ);
         }
     }
 
@@ -124,14 +124,14 @@ public class b {
             return null;
         }
         ArrayList arrayList = new ArrayList();
-        di(dataRes.user_list);
+        dr(dataRes.user_list);
         ArrayList arrayList2 = new ArrayList();
         ArrayList arrayList3 = new ArrayList();
-        if (!y.isEmpty(dataRes.recommend_uid_list) && this.jaP) {
+        if (!y.isEmpty(dataRes.recommend_uid_list) && this.jnk) {
             for (Long l : dataRes.recommend_uid_list) {
-                if (l != null && (metaData2 = this.jaR.get(l.longValue())) != null) {
+                if (l != null && (metaData2 = this.jnm.get(l.longValue())) != null) {
                     i iVar = new i();
-                    iVar.equ = metaData2;
+                    iVar.eyV = metaData2;
                     iVar.type = 1;
                     arrayList2.add(iVar);
                 }
@@ -146,16 +146,16 @@ public class b {
         }
         if (!y.isEmpty(dataRes.hot_uid_list)) {
             for (Long l2 : dataRes.hot_uid_list) {
-                if (l2 != null && (metaData = this.jaR.get(l2.longValue())) != null) {
+                if (l2 != null && (metaData = this.jnm.get(l2.longValue())) != null) {
                     i iVar2 = new i();
-                    iVar2.equ = metaData;
+                    iVar2.eyV = metaData;
                     iVar2.type = 0;
-                    iVar2.rank = this.jaQ;
+                    iVar2.rank = this.jnl;
                     arrayList3.add(iVar2);
-                    this.jaQ++;
+                    this.jnl++;
                 }
             }
-            if (this.mActivity != null && !y.isEmpty(arrayList3) && this.jaP) {
+            if (this.mActivity != null && !y.isEmpty(arrayList3) && this.jnk) {
                 e eVar2 = new e();
                 eVar2.title = this.mActivity.getResources().getString(R.string.hot_god);
                 if (y.isEmpty(arrayList2)) {
@@ -170,19 +170,19 @@ public class b {
         return arrayList;
     }
 
-    private void di(List<User> list) {
-        if (this.jaR == null) {
-            this.jaR = new LongSparseArray<>();
+    private void dr(List<User> list) {
+        if (this.jnm == null) {
+            this.jnm = new LongSparseArray<>();
         }
         for (User user : list) {
             i iVar = new i();
-            iVar.equ = new MetaData();
-            iVar.equ.parserProtobuf(user);
-            this.jaR.put(user.id.longValue(), iVar.equ);
+            iVar.eyV = new MetaData();
+            iVar.eyV.parserProtobuf(user);
+            this.jnm.put(user.id.longValue(), iVar.eyV);
         }
     }
 
-    public boolean fr(long j) {
-        return (this.jaR == null || this.jaR.get(j) == null) ? false : true;
+    public boolean fs(long j) {
+        return (this.jnm == null || this.jnm.get(j) == null) ? false : true;
     }
 }

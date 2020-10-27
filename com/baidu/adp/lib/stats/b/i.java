@@ -35,7 +35,7 @@ public class i {
                     if (!it.hasNext()) {
                         break;
                     }
-                    i2 = (int) (it.next().Ox + i);
+                    i2 = (int) (it.next().Oy + i);
                 }
                 int i3 = i - BdStatsConstant.MAX_STATISTICS_SIZE;
                 ArrayList arrayList = new ArrayList();
@@ -49,7 +49,7 @@ public class i {
                         }
                         com.baidu.adp.lib.stats.base.d next = it2.next();
                         arrayList.add(next.mFileName);
-                        i3 = (int) (i4 - next.Ox);
+                        i3 = (int) (i4 - next.Oy);
                         if (i3 <= 0) {
                             break;
                         }
@@ -60,7 +60,7 @@ public class i {
                 while (it3.hasNext()) {
                     com.baidu.adp.lib.stats.base.d next2 = it3.next();
                     if (next2 != null) {
-                        long j = next2.Oy;
+                        long j = next2.Oz;
                         if (j != 0 && j + 604800000 < currentTimeMillis && !arrayList.contains(next2.mFileName)) {
                             arrayList.add(next2.mFileName);
                         }

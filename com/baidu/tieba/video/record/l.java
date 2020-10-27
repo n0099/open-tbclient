@@ -12,12 +12,12 @@ import java.util.HashMap;
 import java.util.List;
 /* loaded from: classes23.dex */
 public class l {
-    public static final String ncc;
-    private HashMap<String, String> mVN;
-    private List<DownloadData> ncd;
-    private a nce;
-    private String ncf;
-    private com.baidu.tbadk.download.c ncg = new com.baidu.tbadk.download.c() { // from class: com.baidu.tieba.video.record.l.1
+    public static final String noE;
+    private HashMap<String, String> nio;
+    private List<DownloadData> noF;
+    private a noG;
+    private String noH;
+    private com.baidu.tbadk.download.c noI = new com.baidu.tbadk.download.c() { // from class: com.baidu.tieba.video.record.l.1
         @Override // com.baidu.tbadk.download.c
         public void onFileUpdateProgress(DownloadData downloadData) {
             if (downloadData.getStatus() == 4) {
@@ -26,8 +26,8 @@ public class l {
                     file.delete();
                 }
                 l.this.w(downloadData);
-                if (l.this.nce != null && l.this.ncf.equals(downloadData.getUrl())) {
-                    l.this.nce.dIT();
+                if (l.this.noG != null && l.this.noH.equals(downloadData.getUrl())) {
+                    l.this.noG.dMb();
                 }
             }
         }
@@ -44,11 +44,11 @@ public class l {
 
         @Override // com.baidu.tbadk.download.c
         public void onFileDownloadSucceed(DownloadData downloadData) {
-            if (downloadData != null && !StringUtils.isNull(downloadData.getPath()) && !StringUtils.isNull(l.ncc)) {
+            if (downloadData != null && !StringUtils.isNull(downloadData.getPath()) && !StringUtils.isNull(l.noE)) {
                 l.this.w(downloadData);
-                if (l.this.nce != null && l.this.ncf.equals(downloadData.getUrl())) {
-                    l.this.mVN.put(downloadData.getPath().substring(l.ncc.length() + 1, downloadData.getPath().lastIndexOf(".")), downloadData.getPath());
-                    l.this.nce.gr(l.this.ncf, downloadData.getPath());
+                if (l.this.noG != null && l.this.noH.equals(downloadData.getUrl())) {
+                    l.this.nio.put(downloadData.getPath().substring(l.noE.length() + 1, downloadData.getPath().lastIndexOf(".")), downloadData.getPath());
+                    l.this.noG.gw(l.this.noH, downloadData.getPath());
                 }
             }
         }
@@ -60,91 +60,91 @@ public class l {
                 file.delete();
             }
             l.this.w(downloadData);
-            if (l.this.nce != null && l.this.ncf.equals(downloadData.getUrl())) {
-                l.this.nce.SQ(str);
+            if (l.this.noG != null && l.this.noH.equals(downloadData.getUrl())) {
+                l.this.noG.Tp(str);
             }
         }
     };
 
     /* loaded from: classes23.dex */
     public interface a {
-        void SQ(String str);
+        void Tp(String str);
 
-        void dIT();
+        void dMb();
 
-        void gr(String str, String str2);
+        void gw(String str, String str2);
     }
 
     static {
-        ncc = TbadkCoreApplication.getInst().getApp().getExternalFilesDir("stickers") != null ? TbadkCoreApplication.getInst().getApp().getExternalFilesDir("stickers").getPath() : "";
+        noE = TbadkCoreApplication.getInst().getApp().getExternalFilesDir("stickers") != null ? TbadkCoreApplication.getInst().getApp().getExternalFilesDir("stickers").getPath() : "";
     }
 
-    public String To(String str) {
+    public String TN(String str) {
         String nameMd5FromUrl = av.getNameMd5FromUrl(str);
         if (nameMd5FromUrl == null) {
             return null;
         }
-        if (this.mVN == null) {
-            this.mVN = new HashMap<>();
-            dLH();
+        if (this.nio == null) {
+            this.nio = new HashMap<>();
+            dOP();
         }
-        return this.mVN.get(nameMd5FromUrl);
+        return this.nio.get(nameMd5FromUrl);
     }
 
-    public void dLH() {
-        if (!StringUtils.isNull(ncc)) {
-            if (this.mVN == null) {
-                this.mVN = new HashMap<>();
+    public void dOP() {
+        if (!StringUtils.isNull(noE)) {
+            if (this.nio == null) {
+                this.nio = new HashMap<>();
             } else {
-                this.mVN.clear();
+                this.nio.clear();
             }
-            File file = new File(ncc);
+            File file = new File(noE);
             if (file.exists()) {
                 File[] listFiles = file.listFiles();
                 for (File file2 : listFiles) {
                     if (file2.isFile()) {
-                        this.mVN.put(file2.getName().substring(0, file2.getName().lastIndexOf(".")), file2.getAbsolutePath());
+                        this.nio.put(file2.getName().substring(0, file2.getName().lastIndexOf(".")), file2.getAbsolutePath());
                     }
                 }
             }
         }
     }
 
-    public void Tp(String str) {
-        if (TextUtils.isEmpty(str) || StringUtils.isNull(ncc)) {
-            if (this.nce != null) {
-                this.nce.SQ("");
+    public void TO(String str) {
+        if (TextUtils.isEmpty(str) || StringUtils.isNull(noE)) {
+            if (this.noG != null) {
+                this.noG.Tp("");
                 return;
             }
             return;
         }
         String nameMd5FromUrl = av.getNameMd5FromUrl(str);
         if (nameMd5FromUrl != null) {
-            File file = new File(ncc);
+            File file = new File(noE);
             if (!file.exists()) {
                 file.mkdirs();
             }
             String str2 = "." + str.substring(str.lastIndexOf(".") + 1);
-            if (this.ncd == null) {
-                this.ncd = new ArrayList();
+            if (this.noF == null) {
+                this.noF = new ArrayList();
             }
-            if (!Tq(str)) {
+            if (!TP(str)) {
                 DownloadData downloadData = new DownloadData();
                 downloadData.setType(10);
                 downloadData.setUrl(str);
-                downloadData.setPath(ncc + "/" + nameMd5FromUrl + str2);
-                downloadData.setCallback(this.ncg);
-                this.ncd.add(downloadData);
-                com.baidu.tbadk.download.d.bvb().f(downloadData);
+                downloadData.setPath(noE + "/" + nameMd5FromUrl + str2);
+                downloadData.setCallback(this.noI);
+                this.noF.add(downloadData);
+                com.baidu.tbadk.download.d.bwU().f(downloadData);
             }
         }
     }
 
-    private boolean Tq(String str) {
-        if (y.isEmpty(this.ncd) || str == null) {
+    private boolean TP(String str) {
+        if (y.isEmpty(this.noF) || str == null) {
             return false;
         }
-        for (DownloadData downloadData : this.ncd) {
+        for (DownloadData downloadData : this.noF) {
             if (downloadData != null && str.equals(downloadData.getUrl())) {
                 return true;
             }
@@ -155,32 +155,32 @@ public class l {
     /* JADX INFO: Access modifiers changed from: private */
     public void w(DownloadData downloadData) {
         int i;
-        if (!y.isEmpty(this.ncd) && downloadData != null) {
+        if (!y.isEmpty(this.noF) && downloadData != null) {
             int i2 = 0;
             while (true) {
                 i = i2;
-                if (i >= this.ncd.size()) {
+                if (i >= this.noF.size()) {
                     i = -1;
                     break;
-                } else if (this.ncd.get(i) != null && this.ncd.get(i).getUrl() != null && this.ncd.get(i).getUrl().equals(downloadData.getUrl())) {
+                } else if (this.noF.get(i) != null && this.noF.get(i).getUrl() != null && this.noF.get(i).getUrl().equals(downloadData.getUrl())) {
                     break;
                 } else {
                     i2 = i + 1;
                 }
             }
-            this.ncd.remove(i);
+            this.noF.remove(i);
         }
     }
 
     public void a(a aVar) {
-        this.nce = aVar;
+        this.noG = aVar;
     }
 
-    public void Tr(String str) {
+    public void TQ(String str) {
         if (str == null) {
-            this.ncf = "";
+            this.noH = "";
         } else {
-            this.ncf = str;
+            this.noH = str;
         }
     }
 }

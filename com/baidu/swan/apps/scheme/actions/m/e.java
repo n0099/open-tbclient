@@ -19,7 +19,7 @@ public abstract class e extends aa {
     public void a(final CallbackHandler callbackHandler, SwanAppSlaveManager swanAppSlaveManager, final d dVar) {
         swanAppSlaveManager.b(new com.baidu.swan.apps.core.f.d() { // from class: com.baidu.swan.apps.scheme.actions.m.e.1
             @Override // com.baidu.swan.apps.core.f.d
-            public void ir(String str) {
+            public void iC(String str) {
             }
 
             @Override // com.baidu.swan.apps.core.f.d
@@ -27,8 +27,8 @@ public abstract class e extends aa {
             }
 
             @Override // com.baidu.swan.apps.core.f.d
-            public boolean is(String str) {
-                if (e.this.d(str, dVar.din)) {
+            public boolean iD(String str) {
+                if (e.this.d(str, dVar.dqO)) {
                     e.this.a(str, callbackHandler, dVar.callback);
                     return true;
                 }
@@ -36,11 +36,11 @@ public abstract class e extends aa {
             }
 
             @Override // com.baidu.swan.apps.core.f.d
-            public void hG(String str) {
+            public void hO(String str) {
             }
 
             @Override // com.baidu.swan.apps.core.f.d
-            public void d(int i, String str, String str2) {
+            public void e(int i, String str, String str2) {
             }
         });
     }

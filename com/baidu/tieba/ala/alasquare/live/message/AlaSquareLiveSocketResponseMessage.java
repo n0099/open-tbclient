@@ -35,7 +35,7 @@ public class AlaSquareLiveSocketResponseMessage extends SocketResponsedMessage {
         if (!hasError()) {
             this.functionList = new LinkedList<>();
             this.categoryList = new LinkedList<>();
-            this.categoryList.addAll(b.bE(liveSquareResIdl.data.live_with_category));
+            this.categoryList.addAll(b.bO(liveSquareResIdl.data.live_with_category));
             this.functionList.addAll(liveSquareResIdl.data.function_list_info);
             this.headLiveInfo = liveSquareResIdl.data.head_live_info;
             this.isSmallFollow = liveSquareResIdl.data.is_small_follow.intValue();

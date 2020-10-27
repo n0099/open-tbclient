@@ -22,33 +22,33 @@ import com.baidu.live.adp.framework.message.CustomResponsedMessage;
 import com.baidu.live.sdk.a;
 /* loaded from: classes4.dex */
 public class GiftPanelTabView extends LinearLayout {
-    private static final String[] bcT = {"礼物", "背包"};
-    private static boolean bdb = false;
-    private a bcU;
-    private int bcV;
-    private int bcW;
-    private int bcX;
-    private int bcY;
-    private int bcZ;
-    private b bda;
-    private CustomMessageListener bdc;
+    private static final String[] bei = {"礼物", "背包"};
+    private static boolean beq = false;
+    private a bej;
+    private int bek;
+    private int bel;
+    private int bem;
+    private int ben;
+    private int beo;
+    private b bep;
+    private CustomMessageListener ber;
     private MotionEvent mMotionEvent;
 
     /* loaded from: classes4.dex */
     public interface a {
-        void eh(int i);
+        void ei(int i);
     }
 
     public GiftPanelTabView(Context context, @Nullable AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.bda = new b();
-        this.bdc = new CustomMessageListener(2913228) { // from class: com.baidu.live.gift.widget.panel.GiftPanelTabView.1
+        this.bep = new b();
+        this.ber = new CustomMessageListener(2913228) { // from class: com.baidu.live.gift.widget.panel.GiftPanelTabView.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.live.adp.framework.listener.MessageListener
             public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
                 if (GiftPanelTabView.this.getChildCount() >= 2) {
                     ImageView imageView = (ImageView) ((FrameLayout) GiftPanelTabView.this.getChildAt(1)).findViewById(a.g.icon_new_unlock_gift);
-                    GiftPanelTabView.this.bda.sendMessage((customResponsedMessage.getData() != null && (customResponsedMessage.getData() instanceof Boolean) && ((Boolean) customResponsedMessage.getData()).booleanValue()) ? Message.obtain(GiftPanelTabView.this.bda, 1, imageView) : Message.obtain(GiftPanelTabView.this.bda, 0, imageView));
+                    GiftPanelTabView.this.bep.sendMessage((customResponsedMessage.getData() != null && (customResponsedMessage.getData() instanceof Boolean) && ((Boolean) customResponsedMessage.getData()).booleanValue()) ? Message.obtain(GiftPanelTabView.this.bep, 1, imageView) : Message.obtain(GiftPanelTabView.this.bep, 0, imageView));
                 }
             }
         };
@@ -56,24 +56,24 @@ public class GiftPanelTabView extends LinearLayout {
     }
 
     public void setCallback(a aVar) {
-        this.bcU = aVar;
+        this.bej = aVar;
     }
 
     public void setColors(int i, int i2, int i3, int i4) {
-        this.bcV = i;
-        this.bcW = i2;
-        this.bcX = i3;
-        this.bcY = i4;
+        this.bek = i;
+        this.bel = i2;
+        this.bem = i3;
+        this.ben = i4;
         refreshUI();
     }
 
     public int getSelect() {
-        return this.bcZ;
+        return this.beo;
     }
 
     public void setSelect(int i) {
         if (i >= 0 && i < getChildCount()) {
-            this.bcZ = i;
+            this.beo = i;
             refreshUI();
         }
     }
@@ -97,10 +97,10 @@ public class GiftPanelTabView extends LinearLayout {
             int findPosByView = findPosByView(findChild);
             if (findPosByView == 1) {
                 ((ImageView) ((FrameLayout) getChildAt(1)).findViewById(a.g.icon_new_unlock_gift)).setVisibility(8);
-                bdb = false;
+                beq = false;
             }
-            if (findPosByView != -1 && findPosByView != this.bcZ && this.bcU != null) {
-                this.bcU.eh(findPosByView);
+            if (findPosByView != -1 && findPosByView != this.beo && this.bej != null) {
+                this.bej.ei(findPosByView);
             }
         }
         return true;
@@ -108,38 +108,38 @@ public class GiftPanelTabView extends LinearLayout {
 
     private void init() {
         setClickable(true);
-        JC();
+        JV();
         setOrientation(0);
-        MessageManager.getInstance().registerListener(this.bdc);
-        JD();
-        JE();
-        JB();
+        MessageManager.getInstance().registerListener(this.ber);
+        JW();
+        JX();
+        JU();
     }
 
-    private void JB() {
+    private void JU() {
         ImageView imageView = (ImageView) ((FrameLayout) getChildAt(1)).findViewById(a.g.icon_new_unlock_gift);
-        if (bdb) {
+        if (beq) {
             imageView.setVisibility(0);
         } else {
             imageView.setVisibility(8);
         }
     }
 
-    private void JC() {
+    private void JV() {
         GradientDrawable gradientDrawable = new GradientDrawable();
         gradientDrawable.setColor(0);
         gradientDrawable.setCornerRadius(getResources().getDimensionPixelOffset(a.e.sdk_ds26));
         setBackgroundDrawable(gradientDrawable);
     }
 
-    private void JD() {
-        this.bcV = -13815746;
-        this.bcW = -15987436;
-        this.bcX = -1;
-        this.bcY = -13289398;
+    private void JW() {
+        this.bek = -13815746;
+        this.bel = -15987436;
+        this.bem = -1;
+        this.ben = -13289398;
     }
 
-    private void JE() {
+    private void JX() {
         int dimensionPixelOffset = getResources().getDimensionPixelOffset(a.e.sdk_ds20);
         for (int i = 0; i <= 1; i++) {
             addView(C(i, dimensionPixelOffset), new LinearLayout.LayoutParams(-2, -1));
@@ -151,7 +151,7 @@ public class GiftPanelTabView extends LinearLayout {
         TextView textView = (TextView) frameLayout.findViewById(a.g.text_view);
         textView.setPadding(i2, 0, i2, 0);
         textView.setSelected(false);
-        textView.setText(bcT[i]);
+        textView.setText(bei[i]);
         textView.setTextSize(0, getResources().getDimensionPixelOffset(a.e.sdk_fontsize28));
         ((ImageView) frameLayout.findViewById(a.g.icon_new_unlock_gift)).setVisibility(8);
         float dimensionPixelOffset = getResources().getDimensionPixelOffset(a.e.sdk_ds26);
@@ -178,11 +178,11 @@ public class GiftPanelTabView extends LinearLayout {
                 if (childAt != null) {
                     Drawable background = childAt.getBackground();
                     if (background instanceof GradientDrawable) {
-                        ((GradientDrawable) background).setColor(i2 == this.bcZ ? this.bcV : this.bcW);
+                        ((GradientDrawable) background).setColor(i2 == this.beo ? this.bek : this.bel);
                         childAt.setBackgroundDrawable(background);
                     }
                     if (childAt instanceof FrameLayout) {
-                        ((TextView) childAt.findViewById(a.g.text_view)).setTextColor(i2 == this.bcZ ? this.bcX : this.bcY);
+                        ((TextView) childAt.findViewById(a.g.text_view)).setTextColor(i2 == this.beo ? this.bem : this.ben);
                     }
                 }
                 i = i2 + 1;
@@ -218,9 +218,9 @@ public class GiftPanelTabView extends LinearLayout {
     }
 
     public void onDestroy() {
-        MessageManager.getInstance().unRegisterListener(this.bdc);
-        if (this.bda != null) {
-            this.bda.removeCallbacksAndMessages(null);
+        MessageManager.getInstance().unRegisterListener(this.ber);
+        if (this.bep != null) {
+            this.bep.removeCallbacksAndMessages(null);
         }
     }
 
@@ -235,11 +235,11 @@ public class GiftPanelTabView extends LinearLayout {
             ImageView imageView = (ImageView) message.obj;
             if (message.what == 1) {
                 imageView.setVisibility(0);
-                boolean unused = GiftPanelTabView.bdb = true;
+                boolean unused = GiftPanelTabView.beq = true;
                 return;
             }
             imageView.setVisibility(8);
-            boolean unused2 = GiftPanelTabView.bdb = false;
+            boolean unused2 = GiftPanelTabView.beq = false;
         }
     }
 }

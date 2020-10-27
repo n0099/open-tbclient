@@ -33,8 +33,8 @@ import org.apache.http.client.methods.HttpTrace;
 import org.json.JSONException;
 /* loaded from: classes10.dex */
 public class c extends com.baidu.swan.games.network.a {
-    private static final Set<String> clg = i.N("text", "arraybuffer");
-    private static final Set<String> cle = i.N(HttpOptions.METHOD_NAME, "GET", HttpHead.METHOD_NAME, "POST", HttpPut.METHOD_NAME, HttpDelete.METHOD_NAME, HttpTrace.METHOD_NAME, "CONNECT");
+    private static final Set<String> ctJ = i.N("text", "arraybuffer");
+    private static final Set<String> ctH = i.N(HttpOptions.METHOD_NAME, "GET", HttpHead.METHOD_NAME, "POST", HttpPut.METHOD_NAME, HttpDelete.METHOD_NAME, HttpTrace.METHOD_NAME, "CONNECT");
 
     public c(com.baidu.swan.games.f.b bVar, com.baidu.swan.games.binding.model.c cVar) {
         super(bVar, cVar);
@@ -43,24 +43,24 @@ public class c extends com.baidu.swan.games.network.a {
 
     @Override // com.baidu.swan.games.network.a
     public void start() {
-        Request aSb;
-        if (this.dIU != null && (aSb = aSb()) != null) {
-            d(aSb);
+        Request aTV;
+        if (this.dRr != null && (aTV = aTV()) != null) {
+            d(aTV);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     public void d(Request request) {
-        final String k = k(this.dIU);
+        final String k = k(this.dRr);
         final String httpUrl = request.url().toString();
-        if (com.baidu.swan.apps.runtime.e.aDa() == null) {
+        if (com.baidu.swan.apps.runtime.e.aEU() == null) {
             k("", -1, "request:swanApp is null");
             return;
         }
         final long currentTimeMillis = System.currentTimeMillis();
         h.a(httpUrl, 1, (NetworkStatRecord) null);
-        final com.baidu.swan.games.network.b aDp = com.baidu.swan.apps.runtime.e.aDa().aDp();
-        aDp.a(request, new Callback() { // from class: com.baidu.swan.games.network.c.c.1
+        final com.baidu.swan.games.network.b aFj = com.baidu.swan.apps.runtime.e.aEU().aFj();
+        aFj.a(request, new Callback() { // from class: com.baidu.swan.games.network.c.c.1
             @Override // okhttp3.Callback
             public void onResponse(Call call, Response response) {
                 if (!response.isSuccessful()) {
@@ -110,7 +110,7 @@ public class c extends com.baidu.swan.games.network.a {
 
             @Override // okhttp3.Callback
             public void onFailure(Call call, IOException iOException) {
-                aDp.cancelTag(c.this.mTaskId);
+                aFj.cancelTag(c.this.mTaskId);
                 c.this.a(httpUrl, 0, iOException.getMessage(), currentTimeMillis);
             }
         });
@@ -177,53 +177,53 @@ public class c extends com.baidu.swan.games.network.a {
     @NonNull
     private static String k(@NonNull com.baidu.swan.games.binding.model.c cVar) {
         String lowerCase = cVar.optString("responseType").toLowerCase();
-        if (!clg.contains(lowerCase)) {
+        if (!ctJ.contains(lowerCase)) {
             return "text";
         }
         return lowerCase;
     }
 
-    private Request aSb() {
-        String aRU = aRU();
-        if (TextUtils.isEmpty(aRU)) {
+    private Request aTV() {
+        String aTO = aTO();
+        if (TextUtils.isEmpty(aTO)) {
             if (DEBUG) {
-                Log.d("RequestTask", "buildRequest url =" + aRU);
+                Log.d("RequestTask", "buildRequest url =" + aTO);
                 return null;
             }
             return null;
         }
-        String optString = this.dIU.optString("method");
+        String optString = this.dRr.optString("method");
         if (TextUtils.isEmpty(optString)) {
             optString = "GET";
         }
         String upperCase = optString.toUpperCase();
-        if (!cle.contains(upperCase)) {
-            k(aRU, -1, "request:method is invalid");
+        if (!ctH.contains(upperCase)) {
+            k(aTO, -1, "request:method is invalid");
             return null;
         }
         HashMap hashMap = new HashMap();
         Request.Builder builder = new Request.Builder();
-        a(builder, this.dIU.vY(WebSocketRequest.PARAM_KEY_HEADER), (Map<String, String>) hashMap, true);
+        a(builder, this.dRr.wr(WebSocketRequest.PARAM_KEY_HEADER), (Map<String, String>) hashMap, true);
         if (DEBUG) {
             Log.d("RequestTask", "lowerCaseHeaderMap =" + hashMap);
         }
-        String optString2 = this.dIU.optString("data", null);
-        JsArrayBuffer a2 = optString2 == null ? this.dIU.a("data", (JsArrayBuffer) null) : optString2;
+        String optString2 = this.dRr.optString("data", null);
+        JsArrayBuffer a2 = optString2 == null ? this.dRr.a("data", (JsArrayBuffer) null) : optString2;
         boolean z = a2 != null;
         if (z && !HttpMethod.permitsRequestBody(upperCase)) {
-            return builder.url(aRU).method(upperCase, null).tag(this.mTaskId).build();
+            return builder.url(aTO).method(upperCase, null).tag(this.mTaskId).build();
         }
         RequestBody c = (z || HttpMethod.requiresRequestBody(upperCase)) ? c(a2, hashMap) : null;
         if (HttpMethod.requiresRequestBody(upperCase) && c == null) {
             return null;
         }
-        return builder.url(aRU).method(upperCase, c).tag(this.mTaskId).build();
+        return builder.url(aTO).method(upperCase, c).tag(this.mTaskId).build();
     }
 
     @Nullable
     private RequestBody c(Object obj, Map<String, String> map) {
         String str = map.get(Headers.CONTENT_TYPE);
-        MediaType parse = !TextUtils.isEmpty(str) ? MediaType.parse(str) : f.a.cSI;
+        MediaType parse = !TextUtils.isEmpty(str) ? MediaType.parse(str) : f.a.dbg;
         if (obj instanceof JsArrayBuffer) {
             byte[] buffer = ((JsArrayBuffer) obj).buffer();
             if (buffer == null) {

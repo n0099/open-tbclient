@@ -105,7 +105,7 @@ public class FeedbackReportActivity extends Activity {
     private boolean T = false;
 
     /* renamed from: a  reason: collision with root package name */
-    protected int f3739a = -1;
+    protected int f3737a = -1;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public static /* synthetic */ void D(FeedbackReportActivity feedbackReportActivity) {
@@ -115,13 +115,13 @@ public class FeedbackReportActivity extends Activity {
         Intent intent = new Intent("android.intent.action.GET_CONTENT");
         intent.addCategory("android.intent.category.OPENABLE");
         intent.setType("image/*");
-        if (feedbackReportActivity.f3739a == feedbackReportActivity.x.size() - 1) {
+        if (feedbackReportActivity.f3737a == feedbackReportActivity.x.size() - 1) {
             if (feedbackReportActivity.getCurrentFocus() != null && feedbackReportActivity.getCurrentFocus().getWindowToken() != null) {
                 ((InputMethodManager) feedbackReportActivity.getSystemService("input_method")).hideSoftInputFromWindow(feedbackReportActivity.getCurrentFocus().getWindowToken(), 2);
             }
             try {
                 feedbackReportActivity.D = true;
-                feedbackReportActivity.startActivityForResult(intent, feedbackReportActivity.f3739a);
+                feedbackReportActivity.startActivityForResult(intent, feedbackReportActivity.f3737a);
                 try {
                     feedbackReportActivity.overridePendingTransition(com.baidu.ufosdk.f.i.a(feedbackReportActivity.getApplicationContext(), "ufo_slide_in_from_bottom"), 0);
                 } catch (Exception e) {
@@ -417,7 +417,7 @@ public class FeedbackReportActivity extends Activity {
             hashMap.put("nettype", "N/A");
         }
         hashMap.put("screenSize", com.baidu.ufosdk.b.f.a(context));
-        if (com.baidu.ufosdk.b.f3700a) {
+        if (com.baidu.ufosdk.b.f3698a) {
             hashMap.put("logcat", com.baidu.ufosdk.b.b.a());
         }
         if (!TextUtils.isEmpty(com.baidu.ufosdk.b.h)) {

@@ -15,7 +15,7 @@ import org.json.JSONObject;
 /* loaded from: classes10.dex */
 public class WebSocketEventTarget extends EventTargetImpl implements IWebSocketListener {
     protected static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    protected SocketTaskState dJw;
+    protected SocketTaskState dRT;
 
     /* loaded from: classes10.dex */
     protected enum SocketTaskState {
@@ -27,7 +27,7 @@ public class WebSocketEventTarget extends EventTargetImpl implements IWebSocketL
     /* JADX INFO: Access modifiers changed from: package-private */
     public WebSocketEventTarget(JSRuntime jSRuntime) {
         super(jSRuntime);
-        this.dJw = SocketTaskState.IDLE;
+        this.dRT = SocketTaskState.IDLE;
     }
 
     private void v(String str, Object obj) {
@@ -39,8 +39,8 @@ public class WebSocketEventTarget extends EventTargetImpl implements IWebSocketL
 
     @Override // com.baidu.searchbox.websocket.IWebSocketListener
     public void onOpen(Map<String, String> map) {
-        this.dJw = SocketTaskState.OPEN;
-        v("open", new e.C0511e(new JSONObject(map)));
+        this.dRT = SocketTaskState.OPEN;
+        v("open", new e.C0525e(new JSONObject(map)));
     }
 
     @Override // com.baidu.searchbox.websocket.IWebSocketListener
@@ -57,13 +57,13 @@ public class WebSocketEventTarget extends EventTargetImpl implements IWebSocketL
 
     @Override // com.baidu.searchbox.websocket.IWebSocketListener
     public void onClose(JSONObject jSONObject) {
-        this.dJw = SocketTaskState.CLOSE;
+        this.dRT = SocketTaskState.CLOSE;
         v("close", new e.a(jSONObject == null ? 0 : jSONObject.optInt("code", 0), jSONObject == null ? "" : jSONObject.optString(TiebaInitialize.LogFields.REASON)));
     }
 
     @Override // com.baidu.searchbox.websocket.IWebSocketListener
     public void onError(Throwable th, JSONObject jSONObject) {
-        if (this.dJw == SocketTaskState.IDLE) {
+        if (this.dRT == SocketTaskState.IDLE) {
             v(BdStatsConstant.StatsType.ERROR, new e.b(th.getMessage()));
         }
     }

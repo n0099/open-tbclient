@@ -10,14 +10,14 @@ public class a {
     }
 
     public void log(String str) {
-        aq(1, str);
+        as(1, str);
     }
 
     public void error(String str) {
-        aq(4, str);
+        as(4, str);
     }
 
-    private void aq(int i, String str) {
+    private void as(int i, String str) {
         this.mEngine.onConsoleCallBack(i, str);
     }
 }

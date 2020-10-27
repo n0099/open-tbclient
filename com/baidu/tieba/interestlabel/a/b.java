@@ -16,43 +16,43 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes23.dex */
 public class b extends BaseAdapter {
-    private LabelSettingView kiF;
-    private List<com.baidu.tieba.interestlabel.b.a> kiH;
-    private List<Integer> kiI = new ArrayList();
+    private LabelSettingView kvc;
+    private List<com.baidu.tieba.interestlabel.b.a> kve;
+    private List<Integer> kvf = new ArrayList();
     private com.baidu.tieba.interestlabel.b.b mLabelDataSet;
 
     public b(LabelSettingView labelSettingView) {
-        this.kiF = labelSettingView;
+        this.kvc = labelSettingView;
     }
 
     public void setData(com.baidu.tieba.interestlabel.b.b bVar) {
-        if (bVar != null && !y.isEmpty(bVar.cSz())) {
+        if (bVar != null && !y.isEmpty(bVar.cVG())) {
             this.mLabelDataSet = bVar;
-            this.kiH = bVar.cSz();
-            if (!y.isEmpty(bVar.cSA())) {
-                this.kiI = new ArrayList(bVar.cSA());
+            this.kve = bVar.cVG();
+            if (!y.isEmpty(bVar.cVH())) {
+                this.kvf = new ArrayList(bVar.cVH());
             }
         }
     }
 
-    public List<Integer> cSw() {
-        return this.mLabelDataSet == null ? new ArrayList() : this.mLabelDataSet.cSA();
+    public List<Integer> cVD() {
+        return this.mLabelDataSet == null ? new ArrayList() : this.mLabelDataSet.cVH();
     }
 
-    public List<Integer> cSx() {
-        return this.kiI;
+    public List<Integer> cVE() {
+        return this.kvf;
     }
 
     @Override // android.widget.Adapter
     public int getCount() {
-        return y.getCount(this.kiH);
+        return y.getCount(this.kve);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // android.widget.Adapter
-    /* renamed from: Dn */
+    /* renamed from: DG */
     public com.baidu.tieba.interestlabel.b.a getItem(int i) {
-        return (com.baidu.tieba.interestlabel.b.a) y.getItem(this.kiH, i);
+        return (com.baidu.tieba.interestlabel.b.a) y.getItem(this.kve, i);
     }
 
     @Override // android.widget.Adapter
@@ -66,20 +66,20 @@ public class b extends BaseAdapter {
 
     @Override // android.widget.Adapter
     public View getView(int i, View view, ViewGroup viewGroup) {
-        C0745b c0745b;
+        C0761b c0761b;
         View view2;
         if (view == null) {
-            view2 = LayoutInflater.from(this.kiF.getContext()).inflate(R.layout.item_label_layout, (ViewGroup) null);
-            C0745b c0745b2 = new C0745b();
-            c0745b2.kiK = (TextView) view2;
-            view2.setTag(c0745b2);
-            c0745b = c0745b2;
+            view2 = LayoutInflater.from(this.kvc.getContext()).inflate(R.layout.item_label_layout, (ViewGroup) null);
+            C0761b c0761b2 = new C0761b();
+            c0761b2.kvh = (TextView) view2;
+            view2.setTag(c0761b2);
+            c0761b = c0761b2;
         } else {
-            c0745b = (C0745b) view.getTag();
+            c0761b = (C0761b) view.getTag();
             view2 = view;
         }
-        c0745b.kiK.setOnClickListener(new a(i));
-        a(c0745b.kiK, getItem(i));
+        c0761b.kvh.setOnClickListener(new a(i));
+        a(c0761b.kvh, getItem(i));
         return view2;
     }
 
@@ -105,10 +105,10 @@ public class b extends BaseAdapter {
 
     /* renamed from: com.baidu.tieba.interestlabel.a.b$b  reason: collision with other inner class name */
     /* loaded from: classes23.dex */
-    class C0745b {
-        TextView kiK;
+    class C0761b {
+        TextView kvh;
 
-        C0745b() {
+        C0761b() {
         }
     }
 
@@ -129,12 +129,12 @@ public class b extends BaseAdapter {
                     b.this.a((TextView) view, item);
                 }
                 if (item.isFollow) {
-                    b.this.kiI.add(Integer.valueOf(item.labelId));
+                    b.this.kvf.add(Integer.valueOf(item.labelId));
                 } else {
-                    b.this.kiI.remove(Integer.valueOf(item.labelId));
+                    b.this.kvf.remove(Integer.valueOf(item.labelId));
                 }
-                if (b.this.kiF != null) {
-                    b.this.kiF.sk(y.getCount(b.this.kiI) > 0);
+                if (b.this.kvc != null) {
+                    b.this.kvc.sC(y.getCount(b.this.kvf) > 0);
                 }
             }
         }

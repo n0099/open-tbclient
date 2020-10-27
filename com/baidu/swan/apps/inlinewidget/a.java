@@ -14,7 +14,7 @@ public abstract class a<W extends d> {
     public abstract void a(@NonNull ZeusPlugin.Command command, @NonNull W w);
 
     @NonNull
-    public abstract String arf();
+    public abstract String ata();
 
     public void a(@NonNull ZeusPlugin.Command command) {
     }
@@ -22,7 +22,7 @@ public abstract class a<W extends d> {
     /* JADX INFO: Access modifiers changed from: protected */
     public void a(@NonNull W w, @Nullable String str, @Nullable String str2, boolean z) {
         if (DEBUG) {
-            String str3 = ("【" + w.arh() + Constants.ACCEPT_TIME_SEPARATOR_SERVER + w.hashCode() + "】\t") + "【" + str + "】";
+            String str3 = ("【" + w.atc() + Constants.ACCEPT_TIME_SEPARATOR_SERVER + w.hashCode() + "】\t") + "【" + str + "】";
             if (!TextUtils.isEmpty(str2)) {
                 str3 = str3 + "\t【" + str2 + "】";
             }

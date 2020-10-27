@@ -14,11 +14,11 @@ public class a extends Thread {
     @Override // java.lang.Thread, java.lang.Runnable
     public void run() {
         synchronized (this) {
-            beq();
+            bgj();
         }
     }
 
-    private void beq() {
+    private void bgj() {
         float f = 10.0f;
         double nanoTime = System.nanoTime();
         for (int i = 0; i < 1000000; i++) {
@@ -29,7 +29,7 @@ public class a extends Thread {
         b.log();
     }
 
-    public static void ber() {
+    public static void bgk() {
         Looper.myQueue().addIdleHandler(new MessageQueue.IdleHandler() { // from class: com.baidu.tbadk.f.a.1
             @Override // android.os.MessageQueue.IdleHandler
             public boolean queueIdle() {

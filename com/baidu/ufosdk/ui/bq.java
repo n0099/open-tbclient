@@ -7,11 +7,11 @@ import java.util.List;
 public final class bq implements View.OnClickListener {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ FeedbackInputActivity f3784a;
+    final /* synthetic */ FeedbackInputActivity f3782a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public bq(FeedbackInputActivity feedbackInputActivity) {
-        this.f3784a = feedbackInputActivity;
+        this.f3782a = feedbackInputActivity;
     }
 
     @Override // android.view.View.OnClickListener
@@ -19,20 +19,20 @@ public final class bq implements View.OnClickListener {
         List list;
         List list2;
         List list3;
-        if (this.f3784a.D) {
+        if (this.f3782a.D) {
             return;
         }
-        list = this.f3784a.at;
+        list = this.f3782a.at;
         list.remove(((Integer) view.getTag()).intValue());
-        list2 = this.f3784a.at;
+        list2 = this.f3782a.at;
         if (list2.size() == 1) {
-            byte[] a2 = com.baidu.ufosdk.f.m.a(this.f3784a.getApplicationContext());
+            byte[] a2 = com.baidu.ufosdk.f.m.a(this.f3782a.getApplicationContext());
             if (a2 == null) {
                 return;
             }
-            list3 = this.f3784a.at;
+            list3 = this.f3782a.at;
             list3.set(0, a2);
         }
-        this.f3784a.a(false);
+        this.f3782a.a(false);
     }
 }

@@ -27,22 +27,22 @@ import com.baidu.swan.bdprivate.extensions.loginauthmobile.SwanAppLoginAndGetMob
 import com.baidu.swan.bdprivate.extensions.quicklogin.f;
 /* loaded from: classes8.dex */
 public class SwanAppQuickLoginDialog extends SwanAppLoginAndGetMobileDialog implements View.OnClickListener {
-    private BdBaseImageView duC;
-    private CheckBox duG;
-    private TextView duK;
-    private TextView duN;
-    private Button duO;
-    private TextView duP;
+    private BdBaseImageView dCZ;
+    private CheckBox dDd;
+    private TextView dDh;
+    private TextView dDk;
+    private Button dDl;
+    private TextView dDm;
     private TextView mTitle;
 
     @Override // android.support.v4.app.DialogFragment
     @NonNull
     public Dialog onCreateDialog(Bundle bundle) {
-        return new Dialog(this.duz, getTheme()) { // from class: com.baidu.swan.bdprivate.extensions.loginauthmobile.SwanAppQuickLoginDialog.1
+        return new Dialog(this.dCW, getTheme()) { // from class: com.baidu.swan.bdprivate.extensions.loginauthmobile.SwanAppQuickLoginDialog.1
             @Override // android.app.Dialog
             public void onBackPressed() {
-                SwanAppQuickLoginDialog.this.gG(true);
-                SwanAppQuickLoginDialog.this.aJX();
+                SwanAppQuickLoginDialog.this.gT(true);
+                SwanAppQuickLoginDialog.this.aLR();
             }
         };
     }
@@ -50,87 +50,87 @@ public class SwanAppQuickLoginDialog extends SwanAppLoginAndGetMobileDialog impl
     @Override // com.baidu.swan.bdprivate.extensions.loginauthmobile.SwanAppLoginAndGetMobileDialog
     protected void a(LayoutInflater layoutInflater, @Nullable ViewGroup viewGroup) {
         this.mRootView = (LinearLayout) layoutInflater.inflate(b.f.swan_app_quick_login_dialog_layout, viewGroup, false);
-        this.duC = (BdBaseImageView) this.mRootView.findViewById(b.e.close);
+        this.dCZ = (BdBaseImageView) this.mRootView.findViewById(b.e.close);
         this.mTitle = (TextView) this.mRootView.findViewById(b.e.title);
-        this.duG = (CheckBox) this.mRootView.findViewById(b.e.phonenum_autho_switch);
-        this.duN = (TextView) this.mRootView.findViewById(b.e.user_phone_number);
-        this.duO = (Button) this.mRootView.findViewById(b.e.user_quick_login);
-        this.duP = (TextView) this.mRootView.findViewById(b.e.user_login_with_other_phone);
-        this.duK = (TextView) this.mRootView.findViewById(b.e.user_service_agreement);
-        aJZ();
-        aKa();
-        if (this.dur != null) {
-            this.duN.setText(this.dur.encryptPhoneNum);
+        this.dDd = (CheckBox) this.mRootView.findViewById(b.e.phonenum_autho_switch);
+        this.dDk = (TextView) this.mRootView.findViewById(b.e.user_phone_number);
+        this.dDl = (Button) this.mRootView.findViewById(b.e.user_quick_login);
+        this.dDm = (TextView) this.mRootView.findViewById(b.e.user_login_with_other_phone);
+        this.dDh = (TextView) this.mRootView.findViewById(b.e.user_service_agreement);
+        aLT();
+        aLU();
+        if (this.dCO != null) {
+            this.dDk.setText(this.dCO.encryptPhoneNum);
         }
-        this.duP.setOnClickListener(this);
-        this.duO.setOnClickListener(this);
-        this.duC.setOnClickListener(this);
-        this.duG.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() { // from class: com.baidu.swan.bdprivate.extensions.loginauthmobile.SwanAppQuickLoginDialog.2
+        this.dDm.setOnClickListener(this);
+        this.dDl.setOnClickListener(this);
+        this.dCZ.setOnClickListener(this);
+        this.dDd.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() { // from class: com.baidu.swan.bdprivate.extensions.loginauthmobile.SwanAppQuickLoginDialog.2
             @Override // android.widget.CompoundButton.OnCheckedChangeListener
             public void onCheckedChanged(CompoundButton compoundButton, boolean z) {
                 if (z) {
-                    SwanAppQuickLoginDialog.this.duO.setClickable(true);
-                    SwanAppQuickLoginDialog.this.duO.setBackgroundResource(b.d.swan_reply_editor_publish_selector);
+                    SwanAppQuickLoginDialog.this.dDl.setClickable(true);
+                    SwanAppQuickLoginDialog.this.dDl.setBackgroundResource(b.d.swan_reply_editor_publish_selector);
                     return;
                 }
-                SwanAppQuickLoginDialog.this.duO.setClickable(false);
-                com.baidu.swan.apps.res.widget.b.d.k(SwanAppQuickLoginDialog.this.duz, b.g.swanapp_unchecked_auth_tip).showToast(true);
-                SwanAppQuickLoginDialog.this.duO.setBackgroundResource(b.d.swan_reply_editor_publish_disabled);
+                SwanAppQuickLoginDialog.this.dDl.setClickable(false);
+                com.baidu.swan.apps.res.widget.b.d.k(SwanAppQuickLoginDialog.this.dCW, b.g.swanapp_unchecked_auth_tip).showToast(true);
+                SwanAppQuickLoginDialog.this.dDl.setBackgroundResource(b.d.swan_reply_editor_publish_disabled);
             }
         });
     }
 
-    private void aKa() {
+    private void aLU() {
         String string = getContext().getString(b.g.swanapp_phonenum_checkbox_tip);
-        CheckBox checkBox = this.duG;
-        if (!TextUtils.isEmpty(this.dup)) {
-            string = String.format(getString(b.g.swanapp_auth_switch_tip), this.dup);
+        CheckBox checkBox = this.dDd;
+        if (!TextUtils.isEmpty(this.dCM)) {
+            string = String.format(getString(b.g.swanapp_auth_switch_tip), this.dCM);
         }
         checkBox.setText(string);
     }
 
     @Override // com.baidu.swan.bdprivate.extensions.loginauthmobile.SwanAppLoginAndGetMobileDialog
-    protected void aJW() {
+    protected void aLQ() {
     }
 
     @Override // com.baidu.swan.bdprivate.extensions.loginauthmobile.SwanAppLoginAndGetMobileDialog
     protected void updateUI() {
         Resources resources = getContext().getResources();
-        this.duC.setImageDrawable(resources.getDrawable(b.d.swanapp_login_dialog_close));
-        this.mTitle.setTextColor(resources.getColor(this.daQ ? b.C0477b.aiapps_login_dialog_title_dark : b.C0477b.aiapps_login_dialog_title));
-        this.duN.setTextColor(resources.getColor(this.daQ ? b.C0477b.aiapps_login_dialog_title_dark : b.C0477b.swan_app_color_000000));
-        this.duG.setTextColor(resources.getColor(this.daQ ? b.C0477b.aiapps_login_dialog_title_dark : b.C0477b.aiapps_login_dialog_title));
-        this.duG.setCompoundDrawablesWithIntrinsicBounds(resources.getDrawable(this.daQ ? b.d.aiapp_login_and_phonenum_autho_selector_dark : b.d.aiapp_login_and_phonenum_autho_selector), (Drawable) null, (Drawable) null, (Drawable) null);
+        this.dCZ.setImageDrawable(resources.getDrawable(b.d.swanapp_login_dialog_close));
+        this.mTitle.setTextColor(resources.getColor(this.djs ? b.C0491b.aiapps_login_dialog_title_dark : b.C0491b.aiapps_login_dialog_title));
+        this.dDk.setTextColor(resources.getColor(this.djs ? b.C0491b.aiapps_login_dialog_title_dark : b.C0491b.swan_app_color_000000));
+        this.dDd.setTextColor(resources.getColor(this.djs ? b.C0491b.aiapps_login_dialog_title_dark : b.C0491b.aiapps_login_dialog_title));
+        this.dDd.setCompoundDrawablesWithIntrinsicBounds(resources.getDrawable(this.djs ? b.d.aiapp_login_and_phonenum_autho_selector_dark : b.d.aiapp_login_and_phonenum_autho_selector), (Drawable) null, (Drawable) null, (Drawable) null);
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
         int id = view.getId();
         if (id == b.e.user_login_with_other_phone) {
-            aKb();
+            aLV();
         } else if (id == b.e.user_quick_login) {
-            aKc();
+            aLW();
         } else if (id == b.e.close) {
-            gG(true);
-            aJX();
+            gT(true);
+            aLR();
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void aKb() {
+    public void aLV() {
         FragmentManager fragmentManager = getFragmentManager();
         if (fragmentManager != null) {
             FragmentTransaction beginTransaction = fragmentManager.beginTransaction();
             beginTransaction.remove(this);
             beginTransaction.addToBackStack(null);
             beginTransaction.commit();
-            gG(false);
-            SwanAppPhoneLoginDialog swanAppPhoneLoginDialog = (SwanAppPhoneLoginDialog) e.a(this.dup, this.daQ, null, this.dus, this.mAppId);
+            gT(false);
+            SwanAppPhoneLoginDialog swanAppPhoneLoginDialog = (SwanAppPhoneLoginDialog) e.a(this.dCM, this.djs, null, this.dCP, this.mAppId);
             swanAppPhoneLoginDialog.d(getActivity());
-            swanAppPhoneLoginDialog.gI(true);
-            swanAppPhoneLoginDialog.a((SwanAppLoginAndGetMobileDialog.a) this.duz);
+            swanAppPhoneLoginDialog.gV(true);
+            swanAppPhoneLoginDialog.a((SwanAppLoginAndGetMobileDialog.a) this.dCW);
             swanAppPhoneLoginDialog.show(fragmentManager, "swan_phone_login");
-            d.g("show", "telLogin", null, this.dus, this.mAppId);
+            d.g("show", "telLogin", null, this.dCP, this.mAppId);
         }
     }
 
@@ -139,39 +139,39 @@ public class SwanAppQuickLoginDialog extends SwanAppLoginAndGetMobileDialog impl
         super.onDismiss(dialogInterface);
     }
 
-    private void aKc() {
-        if (!SwanAppNetworkUtils.isNetworkConnected(this.duz)) {
-            com.baidu.swan.apps.res.widget.b.d.k(this.duz, b.g.swanapp_login_not_internet).showToast(true);
-        } else if (this.dur != null) {
-            f.a(this.duz, this.dur.loginMode, new com.baidu.swan.bdprivate.extensions.quicklogin.e() { // from class: com.baidu.swan.bdprivate.extensions.loginauthmobile.SwanAppQuickLoginDialog.3
+    private void aLW() {
+        if (!SwanAppNetworkUtils.isNetworkConnected(this.dCW)) {
+            com.baidu.swan.apps.res.widget.b.d.k(this.dCW, b.g.swanapp_login_not_internet).showToast(true);
+        } else if (this.dCO != null) {
+            f.a(this.dCW, this.dCO.loginMode, new com.baidu.swan.bdprivate.extensions.quicklogin.e() { // from class: com.baidu.swan.bdprivate.extensions.loginauthmobile.SwanAppQuickLoginDialog.3
                 @Override // com.baidu.swan.bdprivate.extensions.quicklogin.e
                 public void onResult(int i) {
                     String str;
-                    SwanAppQuickLoginDialog.this.duy.li(i);
+                    SwanAppQuickLoginDialog.this.dCV.lt(i);
                     if (i != 0) {
-                        SwanAppQuickLoginDialog.this.aKb();
+                        SwanAppQuickLoginDialog.this.aLV();
                         str = "fail";
                     } else {
                         str = "succ_agree";
                     }
-                    d.g("click", "quickLogin", str, SwanAppQuickLoginDialog.this.dus, SwanAppQuickLoginDialog.this.mAppId);
+                    d.g("click", "quickLogin", str, SwanAppQuickLoginDialog.this.dCP, SwanAppQuickLoginDialog.this.mAppId);
                 }
             });
         }
     }
 
-    private void aJZ() {
+    private void aLT() {
         SpannableStringBuilder spannableStringBuilder = new SpannableStringBuilder("");
         spannableStringBuilder.append((CharSequence) getString(b.g.swanapp_service_agreement_tip));
-        if (this.dur != null) {
-            a(spannableStringBuilder, spannableStringBuilder.length(), this.dur.agreeText, this.dur.serviceAgreement);
+        if (this.dCO != null) {
+            a(spannableStringBuilder, spannableStringBuilder.length(), this.dCO.agreeText, this.dCO.serviceAgreement);
             spannableStringBuilder.append((CharSequence) getString(b.g.swanapp_service_agreement_comma));
         }
-        a(spannableStringBuilder, spannableStringBuilder.length(), getString(b.g.swanapp_service_agreement_swan), com.baidu.swan.apps.t.a.ass().adK());
+        a(spannableStringBuilder, spannableStringBuilder.length(), getString(b.g.swanapp_service_agreement_swan), com.baidu.swan.apps.t.a.aum().afE());
         spannableStringBuilder.append((CharSequence) getString(b.g.swanapp_service_agreement_comma));
         a(spannableStringBuilder, spannableStringBuilder.length(), getString(b.g.swanapp_service_agreement_baidu), "https://passport.baidu.com/static/passpc-account/html/protocal.html");
         spannableStringBuilder.append((CharSequence) getString(b.g.swanapp_service_agreement_register_tip));
-        this.duK.setMovementMethod(LinkMovementMethod.getInstance());
-        this.duK.setText(spannableStringBuilder);
+        this.dDh.setMovementMethod(LinkMovementMethod.getInstance());
+        this.dDh.setText(spannableStringBuilder);
     }
 }

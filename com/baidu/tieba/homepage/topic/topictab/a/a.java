@@ -6,21 +6,21 @@ import com.baidu.adp.widget.ListView.v;
 import java.util.List;
 /* loaded from: classes22.dex */
 public class a {
-    private List<com.baidu.adp.widget.ListView.a> bhH;
-    private v hUo;
+    private List<com.baidu.adp.widget.ListView.a> bje;
+    private v igO;
 
     public void notifyDataSetChanged() {
-        if (this.hUo != null) {
-            this.hUo.getListAdapter().notifyDataSetChanged();
+        if (this.igO != null) {
+            this.igO.getListAdapter().notifyDataSetChanged();
         }
     }
 
     public void setData(List<q> list) {
-        this.hUo.setData(list);
+        this.igO.setData(list);
     }
 
     public void setPageUniqueId(BdUniqueId bdUniqueId) {
-        for (com.baidu.adp.widget.ListView.a aVar : this.bhH) {
+        for (com.baidu.adp.widget.ListView.a aVar : this.bje) {
             aVar.setPageId(bdUniqueId);
         }
     }

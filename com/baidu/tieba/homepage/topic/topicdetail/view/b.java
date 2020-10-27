@@ -20,7 +20,7 @@ import com.baidu.tieba.R;
 import java.util.ArrayList;
 /* loaded from: classes22.dex */
 public class b extends com.baidu.tbadk.editortools.c {
-    private boolean fbX = false;
+    private boolean fkw = false;
 
     @Override // com.baidu.tbadk.editortools.c
     protected com.baidu.tbadk.editortools.e ej(Context context) {
@@ -30,14 +30,14 @@ public class b extends com.baidu.tbadk.editortools.c {
         editorTools.setBackgroundColorId(0);
         editorTools.setBarLauncherType(2);
         editorTools.setBarBackgroundColorId(R.color.cp_bg_line_h);
-        editorTools.jG(false);
+        editorTools.jT(false);
         return new a(editorTools);
     }
 
     @Override // com.baidu.tbadk.editortools.c
     protected void b(com.baidu.tbadk.editortools.e eVar) {
         if (eVar != null) {
-            EditorTools bvf = eVar.bvf();
+            EditorTools bwY = eVar.bwY();
             final a aVar = (a) eVar;
             com.baidu.tbadk.editortools.b bVar = new com.baidu.tbadk.editortools.b() { // from class: com.baidu.tieba.homepage.topic.topicdetail.view.b.1
                 @Override // com.baidu.tbadk.editortools.b
@@ -47,8 +47,8 @@ public class b extends com.baidu.tbadk.editortools.c {
                         switch (aVar2.code) {
                             case 4:
                             case 6:
-                                aVar.Di((String) aVar2.data);
-                                b.this.fbX = false;
+                                aVar.DB((String) aVar2.data);
+                                b.this.fkw = false;
                                 return;
                             case 5:
                             case 9:
@@ -59,20 +59,20 @@ public class b extends com.baidu.tbadk.editortools.c {
                             default:
                                 return;
                             case 7:
-                                aVar.bqj().showToast(R.string.over_limit_tip);
-                                b.this.fbX = true;
+                                aVar.bsc().showToast(R.string.over_limit_tip);
+                                b.this.fkw = true;
                                 return;
                             case 8:
-                                if (b.this.a(aVar.bqj(), (int) RequestResponseCode.REQUEST_LOGIN_WRITE)) {
-                                    aVar.bwj();
-                                    TiebaStatic.log(new aq("c13363").dK("topic_id", String.valueOf(aVar.cGs())));
+                                if (b.this.a(aVar.bsc(), (int) RequestResponseCode.REQUEST_LOGIN_WRITE)) {
+                                    aVar.byc();
+                                    TiebaStatic.log(new aq("c13363").dR("topic_id", String.valueOf(aVar.cJz())));
                                     return;
                                 }
                                 return;
                             case 14:
-                                AlbumActivityConfig albumActivityConfig = new AlbumActivityConfig((Context) aVar.bqj().getPageActivity(), aVar.getWriteImagesInfo().toJsonString(), true, true);
+                                AlbumActivityConfig albumActivityConfig = new AlbumActivityConfig((Context) aVar.bsc().getPageActivity(), aVar.getWriteImagesInfo().toJsonString(), true, true);
                                 albumActivityConfig.setRequestCode(RequestResponseCode.REQUEST_ALBUM_IMAGE);
-                                if (com.baidu.tbadk.editortools.pb.a.bvI().getStatus() == 1) {
+                                if (com.baidu.tbadk.editortools.pb.a.bxB().getStatus() == 1) {
                                     albumActivityConfig.setRequestFrom(4);
                                     if (aVar.getWriteImagesInfo() != null) {
                                         aVar.getWriteImagesInfo().setMaxImagesAllowed(1);
@@ -80,13 +80,13 @@ public class b extends com.baidu.tbadk.editortools.c {
                                 } else if (aVar.getWriteImagesInfo() != null) {
                                     aVar.getWriteImagesInfo().setMaxImagesAllowed(10);
                                 }
-                                l.hideSoftKeyPad(aVar.bqj().getPageActivity(), aVar.bqj().getPageActivity().getCurrentFocus());
+                                l.hideSoftKeyPad(aVar.bsc().getPageActivity(), aVar.bsc().getPageActivity().getCurrentFocus());
                                 MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, albumActivityConfig));
                                 return;
                             case 15:
                                 int intValue = ((Integer) aVar2.data).intValue();
                                 if (aVar.getWriteImagesInfo() != null && aVar.getWriteImagesInfo().getChosedFiles() != null && (size = aVar.getWriteImagesInfo().getChosedFiles().size()) >= 1 && intValue >= 0 && intValue < size) {
-                                    MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new WriteMulitImageActivityConfig(aVar.bqj().getPageActivity(), RequestResponseCode.REQUEST_MOTU_IMAGE, aVar.getWriteImagesInfo(), intValue)));
+                                    MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new WriteMulitImageActivityConfig(aVar.bsc().getPageActivity(), RequestResponseCode.REQUEST_MOTU_IMAGE, aVar.getWriteImagesInfo(), intValue)));
                                     return;
                                 }
                                 return;
@@ -94,39 +94,39 @@ public class b extends com.baidu.tbadk.editortools.c {
                     }
                 }
             };
-            bvf.setActionListener(5, bVar);
-            bvf.setActionListener(4, bVar);
-            bvf.setActionListener(6, bVar);
-            bvf.setActionListener(7, bVar);
-            bvf.setActionListener(16, bVar);
-            bvf.setActionListener(14, bVar);
-            bvf.setActionListener(15, bVar);
-            bvf.setActionListener(8, bVar);
-            bvf.setActionListener(32, bVar);
-            bvf.setActionListener(45, bVar);
+            bwY.setActionListener(5, bVar);
+            bwY.setActionListener(4, bVar);
+            bwY.setActionListener(6, bVar);
+            bwY.setActionListener(7, bVar);
+            bwY.setActionListener(16, bVar);
+            bwY.setActionListener(14, bVar);
+            bwY.setActionListener(15, bVar);
+            bwY.setActionListener(8, bVar);
+            bwY.setActionListener(32, bVar);
+            bwY.setActionListener(45, bVar);
         }
     }
 
     @Override // com.baidu.tbadk.editortools.c
     protected void a(com.baidu.tbadk.editortools.e eVar) {
-        EditorTools bvf = eVar.bvf();
+        EditorTools bwY = eVar.bwY();
         ArrayList arrayList = new ArrayList();
         arrayList.add(5);
-        bvf.bj(arrayList);
-        m qP = bvf.qP(5);
-        if (qP != null) {
-            qP.jI(false);
-            qP.eZS = 1;
+        bwY.bt(arrayList);
+        m ra = bwY.ra(5);
+        if (ra != null) {
+            ra.jV(false);
+            ra.fiq = 1;
         }
-        bvf.b(new com.baidu.tbadk.editortools.imagetool.d(bvf.getContext(), 3));
-        c cVar = new c(bvf.getContext());
+        bwY.b(new com.baidu.tbadk.editortools.imagetool.d(bwY.getContext(), 3));
+        c cVar = new c(bwY.getContext());
         if (cVar.getInputView() != null) {
             cVar.getInputView().setFilters(new InputFilter[]{new InputFilter.LengthFilter(14000)});
         }
-        bvf.b(cVar);
-        bvf.build();
-        bvf.b(new com.baidu.tbadk.editortools.a(35, 5, false));
-        bvf.btC();
+        bwY.b(cVar);
+        bwY.build();
+        bwY.b(new com.baidu.tbadk.editortools.a(35, 5, false));
+        bwY.bvv();
     }
 
     /* JADX INFO: Access modifiers changed from: private */

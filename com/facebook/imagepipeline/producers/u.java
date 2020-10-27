@@ -14,7 +14,7 @@ import java.util.concurrent.Future;
 /* loaded from: classes18.dex */
 public class u extends c<t> {
     private final ExecutorService mExecutorService;
-    private int nUT;
+    private int oMl;
 
     public u() {
         this(Executors.newFixedThreadPool(3));
@@ -22,7 +22,7 @@ public class u extends c<t> {
 
     public u(int i) {
         this(Executors.newFixedThreadPool(3));
-        this.nUT = i;
+        this.oMl = i;
     }
 
     u(ExecutorService executorService) {
@@ -42,11 +42,11 @@ public class u extends c<t> {
                 u.this.b(tVar, aVar);
             }
         });
-        tVar.edt().a(new e() { // from class: com.facebook.imagepipeline.producers.u.2
+        tVar.ens().a(new e() { // from class: com.facebook.imagepipeline.producers.u.2
             @Override // com.facebook.imagepipeline.producers.e, com.facebook.imagepipeline.producers.al
-            public void dZy() {
+            public void ejw() {
                 if (submit.cancel(false)) {
-                    aVar.dWm();
+                    aVar.egk();
                 }
             }
         });
@@ -133,10 +133,10 @@ public class u extends c<t> {
 
     private HttpURLConnection c(Uri uri, int i) throws IOException {
         HttpURLConnection Y = Y(uri);
-        Y.setConnectTimeout(this.nUT);
+        Y.setConnectTimeout(this.oMl);
         int responseCode = Y.getResponseCode();
-        if (!Nz(responseCode)) {
-            if (NA(responseCode)) {
+        if (!Pq(responseCode)) {
+            if (Pr(responseCode)) {
                 String headerField = Y.getHeaderField(Headers.LOCATION);
                 Y.disconnect();
                 Uri parse = headerField == null ? null : Uri.parse(headerField);
@@ -156,11 +156,11 @@ public class u extends c<t> {
         return (HttpURLConnection) com.facebook.common.util.d.J(uri).openConnection();
     }
 
-    private static boolean Nz(int i) {
+    private static boolean Pq(int i) {
         return i >= 200 && i < 300;
     }
 
-    private static boolean NA(int i) {
+    private static boolean Pr(int i) {
         switch (i) {
             case 300:
             case 301:

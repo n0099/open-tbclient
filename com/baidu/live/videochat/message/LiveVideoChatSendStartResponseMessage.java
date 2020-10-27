@@ -5,7 +5,7 @@ import com.baidu.live.videochat.b.e;
 import org.json.JSONObject;
 /* loaded from: classes4.dex */
 public class LiveVideoChatSendStartResponseMessage extends JsonHttpResponsedMessage {
-    private e bAJ;
+    private e bDF;
 
     public LiveVideoChatSendStartResponseMessage() {
         super(1021177);
@@ -16,13 +16,13 @@ public class LiveVideoChatSendStartResponseMessage extends JsonHttpResponsedMess
         JSONObject optJSONObject;
         super.decodeLogicInBackGround(i, jSONObject);
         if (jSONObject != null && (optJSONObject = jSONObject.optJSONObject("data")) != null) {
-            this.bAJ = new e();
-            this.bAJ.byV = optJSONObject.optInt("start_status");
-            this.bAJ.byW = optJSONObject.optString("start_text");
+            this.bDF = new e();
+            this.bDF.bBR = optJSONObject.optInt("start_status");
+            this.bDF.bBS = optJSONObject.optString("start_text");
         }
     }
 
-    public e SC() {
-        return this.bAJ;
+    public e TC() {
+        return this.bDF;
     }
 }

@@ -14,14 +14,14 @@ public final class a<M extends Message<M, B>, B extends Message.a<M, B>> {
     private ProtoAdapter<Object> adapter;
     private final Field messageField;
     public final String name;
-    public final WireField.Label oGI;
-    private final String oGJ;
-    private final String oGK;
-    public final boolean oGL;
-    private final Field oGM;
-    private final Method oGN;
-    private ProtoAdapter<?> oGO;
-    private ProtoAdapter<?> oGP;
+    public final WireField.Label pyf;
+    private final String pyg;
+    private final String pyh;
+    public final boolean pyi;
+    private final Field pyj;
+    private final Method pyk;
+    private ProtoAdapter<?> pyl;
+    private ProtoAdapter<?> pym;
     public final int tag;
 
     private static Field i(Class<?> cls, String str) {
@@ -42,40 +42,40 @@ public final class a<M extends Message<M, B>, B extends Message.a<M, B>> {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public a(WireField wireField, Field field, Class<B> cls) {
-        this.oGI = wireField.ekE();
+        this.pyf = wireField.euE();
         this.name = field.getName();
         this.tag = wireField.tag();
-        this.oGJ = wireField.ekC();
-        this.oGK = wireField.ekD();
-        this.oGL = wireField.ekF();
+        this.pyg = wireField.euC();
+        this.pyh = wireField.euD();
+        this.pyi = wireField.euF();
         this.messageField = field;
-        this.oGM = i(cls, this.name);
-        this.oGN = a(cls, this.name, field.getType());
+        this.pyj = i(cls, this.name);
+        this.pyk = a(cls, this.name, field.getType());
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public boolean eks() {
-        return !this.oGJ.isEmpty();
+    public boolean eus() {
+        return !this.pyg.isEmpty();
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public ProtoAdapter<?> ekt() {
-        ProtoAdapter<?> protoAdapter = this.oGO;
+    public ProtoAdapter<?> eut() {
+        ProtoAdapter<?> protoAdapter = this.pyl;
         if (protoAdapter != null) {
             return protoAdapter;
         }
-        ProtoAdapter<?> protoAdapter2 = ProtoAdapter.get(this.oGK);
-        this.oGO = protoAdapter2;
+        ProtoAdapter<?> protoAdapter2 = ProtoAdapter.get(this.pyh);
+        this.pyl = protoAdapter2;
         return protoAdapter2;
     }
 
-    ProtoAdapter<?> eku() {
-        ProtoAdapter<?> protoAdapter = this.oGP;
+    ProtoAdapter<?> euu() {
+        ProtoAdapter<?> protoAdapter = this.pym;
         if (protoAdapter != null) {
             return protoAdapter;
         }
-        ProtoAdapter<?> protoAdapter2 = ProtoAdapter.get(this.oGJ);
-        this.oGP = protoAdapter2;
+        ProtoAdapter<?> protoAdapter2 = ProtoAdapter.get(this.pyg);
+        this.pym = protoAdapter2;
         return protoAdapter2;
     }
 
@@ -83,12 +83,12 @@ public final class a<M extends Message<M, B>, B extends Message.a<M, B>> {
     public ProtoAdapter<Object> adapter() {
         ProtoAdapter<Object> protoAdapter = this.adapter;
         if (protoAdapter == null) {
-            if (eks()) {
-                ProtoAdapter<Object> newMapAdapter = ProtoAdapter.newMapAdapter(eku(), ekt());
+            if (eus()) {
+                ProtoAdapter<Object> newMapAdapter = ProtoAdapter.newMapAdapter(euu(), eut());
                 this.adapter = newMapAdapter;
                 return newMapAdapter;
             }
-            ProtoAdapter<?> withLabel = ekt().withLabel(this.oGI);
+            ProtoAdapter<?> withLabel = eut().withLabel(this.pyf);
             this.adapter = withLabel;
             return withLabel;
         }
@@ -97,9 +97,9 @@ public final class a<M extends Message<M, B>, B extends Message.a<M, B>> {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public void a(B b, Object obj) {
-        if (this.oGI.isRepeated()) {
+        if (this.pyf.isRepeated()) {
             ((List) a((a<M, B>) b)).add(obj);
-        } else if (!this.oGJ.isEmpty()) {
+        } else if (!this.pyg.isEmpty()) {
             ((Map) a((a<M, B>) b)).putAll((Map) obj);
         } else {
             b(b, obj);
@@ -109,10 +109,10 @@ public final class a<M extends Message<M, B>, B extends Message.a<M, B>> {
     /* JADX INFO: Access modifiers changed from: package-private */
     public void b(B b, Object obj) {
         try {
-            if (this.oGI.isOneOf()) {
-                this.oGN.invoke(b, obj);
+            if (this.pyf.isOneOf()) {
+                this.pyk.invoke(b, obj);
             } else {
-                this.oGM.set(b, obj);
+                this.pyj.set(b, obj);
             }
         } catch (IllegalAccessException | InvocationTargetException e) {
             throw new AssertionError(e);
@@ -131,7 +131,7 @@ public final class a<M extends Message<M, B>, B extends Message.a<M, B>> {
     /* JADX INFO: Access modifiers changed from: package-private */
     public Object a(B b) {
         try {
-            return this.oGM.get(b);
+            return this.pyj.get(b);
         } catch (IllegalAccessException e) {
             throw new AssertionError(e);
         }

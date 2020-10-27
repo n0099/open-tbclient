@@ -10,6 +10,6 @@ public class ey extends com.xiaomi.clientreport.processor.a {
 
     @Override // com.xiaomi.clientreport.processor.a
     public void a(List<String> list) {
-        fa.a(this.f4729a, list);
+        fa.a(this.f4727a, list);
     }
 }

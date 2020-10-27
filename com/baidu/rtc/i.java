@@ -6,11 +6,11 @@ import org.webrtc.SurfaceTextureHelper;
 import org.webrtc.VideoCapturer;
 /* loaded from: classes9.dex */
 public abstract class i implements VideoCapturer {
-    private CapturerObserver bXx = null;
-    private a bXy = new a() { // from class: com.baidu.rtc.i.1
+    private CapturerObserver cfW = null;
+    private a cfX = new a() { // from class: com.baidu.rtc.i.1
         @Override // com.baidu.rtc.i.a
         public void a(l lVar) {
-            i.this.bXx.onFrameCaptured(lVar);
+            i.this.cfW.onFrameCaptured(lVar);
         }
     };
 
@@ -31,8 +31,8 @@ public abstract class i implements VideoCapturer {
 
     @Override // org.webrtc.VideoCapturer
     public void initialize(SurfaceTextureHelper surfaceTextureHelper, Context context, CapturerObserver capturerObserver) {
-        this.bXx = capturerObserver;
-        a(this.bXy);
+        this.cfW = capturerObserver;
+        a(this.cfX);
     }
 
     @Override // org.webrtc.VideoCapturer

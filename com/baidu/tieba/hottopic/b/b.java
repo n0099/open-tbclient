@@ -8,7 +8,7 @@ import com.baidu.tbadk.core.util.aq;
 public class b {
     public static void a(bw bwVar, String str, String str2, int i) {
         if (bwVar != null && !TextUtils.isEmpty(str)) {
-            TiebaStatic.log(new aq("c13022").dK("obj_name", str).dK("tid", bwVar.getTid()).u("fid", bwVar.getFid()).dK("obj_source", bwVar.mRecomSource).dK("obj_locate", str2).aj("obj_type", i).dK("ab_tag", bwVar.mRecomAbTag));
+            TiebaStatic.log(new aq("c13022").dR("obj_name", str).dR("tid", bwVar.getTid()).w("fid", bwVar.getFid()).dR("obj_source", bwVar.mRecomSource).dR("obj_locate", str2).aj("obj_type", i).dR("ab_tag", bwVar.mRecomAbTag));
         }
     }
 }

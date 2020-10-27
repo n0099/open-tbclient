@@ -5,11 +5,11 @@ import com.baidu.pass.common.a;
 /* loaded from: classes9.dex */
 public class SecurityUtil implements com.baidu.pass.a {
     public static byte[] aesDecrypt(byte[] bArr, String str, String str2) throws Exception {
-        return new a.C0247a().a(bArr, str, str2);
+        return new a.C0261a().a(bArr, str, str2);
     }
 
     public static byte[] aesEncrypt(String str, String str2, String str3) throws Exception {
-        return new a.C0247a().a(str, str2, str3);
+        return new a.C0261a().a(str, str2, str3);
     }
 
     public static byte[] base64Decode(byte[] bArr) {

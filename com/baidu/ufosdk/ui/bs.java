@@ -7,11 +7,11 @@ import com.baidu.ufosdk.UfoSDK;
 final class bs implements Runnable {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ FeedbackInputActivity f3786a;
+    final /* synthetic */ FeedbackInputActivity f3784a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public bs(FeedbackInputActivity feedbackInputActivity) {
-        this.f3786a = feedbackInputActivity;
+        this.f3784a = feedbackInputActivity;
     }
 
     @Override // java.lang.Runnable
@@ -19,19 +19,19 @@ final class bs implements Runnable {
         Handler handler;
         Handler handler2;
         Handler handler3;
-        com.baidu.ufosdk.e.a.a(this.f3786a.getApplicationContext());
+        com.baidu.ufosdk.e.a.a(this.f3784a.getApplicationContext());
         if (UfoSDK.clientid.length() != 0) {
-            handler3 = this.f3786a.aK;
+            handler3 = this.f3784a.aK;
             handler3.obtainMessage(1, null).sendToTarget();
         } else {
-            handler = this.f3786a.aK;
+            handler = this.f3784a.aK;
             handler.obtainMessage(4, null).sendToTarget();
         }
-        Context applicationContext = this.f3786a.getApplicationContext();
+        Context applicationContext = this.f3784a.getApplicationContext();
         String str = UfoSDK.clientid;
         String c = com.baidu.ufosdk.e.a.c(applicationContext);
         if (c != null) {
-            handler2 = this.f3786a.aK;
+            handler2 = this.f3784a.aK;
             handler2.obtainMessage(0, c).sendToTarget();
         }
     }

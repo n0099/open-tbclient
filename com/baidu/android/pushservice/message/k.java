@@ -5,7 +5,7 @@ import java.io.Serializable;
 public class k implements Serializable {
 
     /* renamed from: a  reason: collision with root package name */
-    private String f1183a;
+    private String f1180a;
     private String b;
     private long c;
     private int d;
@@ -27,7 +27,7 @@ public class k implements Serializable {
     }
 
     public void a(String str) {
-        this.f1183a = str;
+        this.f1180a = str;
     }
 
     public void a(boolean z) {
@@ -39,7 +39,7 @@ public class k implements Serializable {
     }
 
     public String b() {
-        return this.f1183a;
+        return this.f1180a;
     }
 
     public void b(long j) {
@@ -79,6 +79,6 @@ public class k implements Serializable {
     }
 
     public String toString() {
-        return "type:" + this.d + " appid:" + this.f1183a + " msgId:" + this.c + " isAlarm:  " + this.h + " pkgName:  " + this.b;
+        return "type:" + this.d + " appid:" + this.f1180a + " msgId:" + this.c + " isAlarm:  " + this.h + " pkgName:  " + this.b;
     }
 }

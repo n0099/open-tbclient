@@ -4,7 +4,7 @@ public final class b {
     private int c;
 
     /* renamed from: a  reason: collision with root package name */
-    private long f4483a = System.currentTimeMillis();
+    private long f4481a = System.currentTimeMillis();
     private c b = new c();
     private String d = "";
 
@@ -29,6 +29,6 @@ public final class b {
     }
 
     public final String toString() {
-        return "MobileLog{time=" + this.f4483a + ", status=" + this.b + '}';
+        return "MobileLog{time=" + this.f4481a + ", status=" + this.b + '}';
     }
 }

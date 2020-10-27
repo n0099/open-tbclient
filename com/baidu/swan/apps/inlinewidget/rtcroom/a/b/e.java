@@ -7,7 +7,7 @@ import com.baidu.webkit.sdk.plugin.ZeusPlugin;
 public class e extends com.baidu.swan.apps.inlinewidget.a<com.baidu.swan.apps.inlinewidget.rtcroom.c.b> {
     @Override // com.baidu.swan.apps.inlinewidget.a
     @NonNull
-    public String arf() {
+    public String ata() {
         return "enableLocalMirror";
     }
 
@@ -18,11 +18,11 @@ public class e extends com.baidu.swan.apps.inlinewidget.a<com.baidu.swan.apps.in
         if (command.obj instanceof String) {
             String str = (String) command.obj;
             if (TextUtils.equals("auto", str)) {
-                bVar.nY(str);
+                bVar.ot(str);
             } else if (TextUtils.equals(com.baidu.fsg.face.base.b.c.l, str)) {
-                bVar.nY(str);
+                bVar.ot(str);
             } else if (TextUtils.equals("disable", str)) {
-                bVar.nY(str);
+                bVar.ot(str);
             }
         }
     }

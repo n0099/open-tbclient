@@ -21,19 +21,19 @@ import org.json.JSONObject;
 /* loaded from: classes4.dex */
 public class b {
     public static String PROFILE_LOG_ACTION = "com.baidu.open.profile.log";
-    private JSONArray gPI;
-    private Handler gPJ;
-    private int gPK;
+    private JSONArray hbw;
+    private Handler hbx;
+    private int hby;
     private long mLastTime;
-    private String gPF = "http://10.101.44.50:8899/live-profile/analy";
-    private StringBuffer gPG = new StringBuffer();
-    private SimpleDateFormat aVp = new SimpleDateFormat("MM-dd HH:mm:ss:SSS");
-    private Date gPH = new Date();
+    private String hbt = "http://10.101.44.50:8899/live-profile/analy";
+    private StringBuffer hbu = new StringBuffer();
+    private SimpleDateFormat aWK = new SimpleDateFormat("MM-dd HH:mm:ss:SSS");
+    private Date hbv = new Date();
     private HandlerThread mHandlerThread = new HandlerThread("handlerThread");
 
     public b() {
         this.mHandlerThread.start();
-        this.gPJ = new Handler(this.mHandlerThread.getLooper()) { // from class: com.baidu.tieba.ala.liveroom.i.b.1
+        this.hbx = new Handler(this.mHandlerThread.getLooper()) { // from class: com.baidu.tieba.ala.liveroom.i.b.1
             @Override // android.os.Handler
             public void handleMessage(Message message) {
                 super.handleMessage(message);
@@ -49,41 +49,41 @@ public class b {
     }
 
     public void report(long j, long j2) {
-        this.gPK++;
+        this.hby++;
         long currentTimeMillis = System.currentTimeMillis();
         JSONObject jSONObject = new JSONObject();
-        if (this.gPI == null) {
-            this.gPI = new JSONArray();
+        if (this.hbw == null) {
+            this.hbw = new JSONArray();
         }
         try {
             jSONObject.put("frame_interval", j2);
             jSONObject.put("frame_time", j);
-            this.gPH.setTime(System.currentTimeMillis());
-            jSONObject.put("time", this.aVp.format(this.gPH));
+            this.hbv.setTime(System.currentTimeMillis());
+            jSONObject.put("time", this.aWK.format(this.hbv));
         } catch (JSONException e) {
             e.printStackTrace();
         }
-        if (this.gPK % 15 == 0) {
+        if (this.hby % 15 == 0) {
             this.mLastTime = currentTimeMillis;
             try {
-                jSONObject.put("memory", a.bVU().bVX());
-                jSONObject.put(c.i, a.bVU().bVV());
+                jSONObject.put("memory", a.bYT().bYW());
+                jSONObject.put(c.i, a.bYT().bYU());
             } catch (JSONException e2) {
                 e2.printStackTrace();
             }
         }
-        this.gPI.put(jSONObject);
-        if (this.gPK >= 75) {
-            this.gPK = 0;
+        this.hbw.put(jSONObject);
+        if (this.hby >= 75) {
+            this.hby = 0;
             try {
-                this.gPG.setLength(0);
-                this.gPG.append(this.gPF).append("?extra=").append(this.gPI.toString()).append("&type=profile").append("&profile_id=" + GUIDTool.guid());
+                this.hbu.setLength(0);
+                this.hbu.append(this.hbt).append("?extra=").append(this.hbw.toString()).append("&type=profile").append("&profile_id=" + GUIDTool.guid());
                 addCommonParams();
-                String stringBuffer = this.gPG.toString();
+                String stringBuffer = this.hbu.toString();
                 Message obtain = Message.obtain();
                 obtain.obj = stringBuffer;
-                this.gPJ.sendMessage(obtain);
-                this.gPI = null;
+                this.hbx.sendMessage(obtain);
+                this.hbw = null;
             } catch (Exception e3) {
                 e3.printStackTrace();
             }
@@ -91,36 +91,36 @@ public class b {
     }
 
     private void addCommonParams() {
-        this.gPG.append("&_client_type=2");
-        this.gPG.append("&_client_version=" + TbConfig.getVersion());
+        this.hbu.append("&_client_type=2");
+        this.hbu.append("&_client_version=" + TbConfig.getVersion());
         if (TbadkCoreApplication.getInst().getImei() != null) {
-            this.gPG.append("&_phone_imei=" + TbadkCoreApplication.getInst().getImei());
+            this.hbu.append("&_phone_imei=" + TbadkCoreApplication.getInst().getImei());
         }
         if (!TextUtils.isEmpty(TbConfig.getSubappType())) {
-            this.gPG.append("&subapp_type=" + TbConfig.getSubappType());
+            this.hbu.append("&subapp_type=" + TbConfig.getSubappType());
         }
-        this.gPG.append("&subapp_version=" + TbConfig.getSubappVersionCode());
-        this.gPG.append("&subapp_version_name=" + TbConfig.getSubappVersionName());
-        this.gPG.append("&_sdk_version=4.0.3");
+        this.hbu.append("&subapp_version=" + TbConfig.getSubappVersionCode());
+        this.hbu.append("&subapp_version_name=" + TbConfig.getSubappVersionName());
+        this.hbu.append("&_sdk_version=4.0.5");
         if (AlaLiveSwitchData.isHotLive == 1) {
-            this.gPG.append("&ishot=1");
+            this.hbu.append("&ishot=1");
         }
         if (!TextUtils.isEmpty(AlaLiveSwitchData.liveActivityType)) {
-            this.gPG.append("&live_activity_type=" + AlaLiveSwitchData.liveActivityType);
+            this.hbu.append("&live_activity_type=" + AlaLiveSwitchData.liveActivityType);
         }
         if (!TextUtils.isEmpty(TbConfig.getLiveEnterFrom())) {
-            this.gPG.append("&live_enter_type=" + TbConfig.getLiveEnterFrom());
+            this.hbu.append("&live_enter_type=" + TbConfig.getLiveEnterFrom());
         }
         String from = TbadkCoreApplication.getFrom();
         if (from != null && from.length() > 0) {
-            this.gPG.append("&from=" + from);
+            this.hbu.append("&from=" + from);
         }
-        this.gPG.append("&net_type=" + String.valueOf(BdNetTypeUtil.netType()));
-        this.gPG.append("&tbs=" + TbadkCoreApplication.getInst().getTbs());
-        this.gPG.append("&cuid=" + TbadkCoreApplication.getInst().getCuid());
-        this.gPG.append("&timestamp=" + Long.toString(System.currentTimeMillis()));
-        this.gPG.append("&model=" + Build.MODEL);
-        this.gPG.append("&brand=" + Build.BRAND);
-        this.gPG.append("&_os_version=" + Build.VERSION.RELEASE);
+        this.hbu.append("&net_type=" + String.valueOf(BdNetTypeUtil.netType()));
+        this.hbu.append("&tbs=" + TbadkCoreApplication.getInst().getTbs());
+        this.hbu.append("&cuid=" + TbadkCoreApplication.getInst().getCuid());
+        this.hbu.append("&timestamp=" + Long.toString(System.currentTimeMillis()));
+        this.hbu.append("&model=" + Build.MODEL);
+        this.hbu.append("&brand=" + Build.BRAND);
+        this.hbu.append("&_os_version=" + Build.VERSION.RELEASE);
     }
 }

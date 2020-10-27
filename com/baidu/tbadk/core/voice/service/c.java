@@ -1,15 +1,15 @@
 package com.baidu.tbadk.core.voice.service;
 /* loaded from: classes.dex */
 public interface c {
-    boolean Ca(String str);
+    boolean Ct(String str);
 
-    void bpF();
+    void brC();
 
-    void bpJ();
+    void brD();
 
-    void bpK();
+    void brE();
 
-    void bpL();
+    void bry();
 
     int getErrorNo();
 

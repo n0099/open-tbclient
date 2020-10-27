@@ -2,31 +2,31 @@ package com.baidu.live.d;
 
 import android.view.View;
 import android.view.ViewGroup;
-import com.baidu.live.data.u;
+import com.baidu.live.data.w;
 import com.baidu.live.im.d;
 /* loaded from: classes4.dex */
 public interface a {
 
     /* renamed from: com.baidu.live.d.a$a  reason: collision with other inner class name */
     /* loaded from: classes4.dex */
-    public interface InterfaceC0175a {
+    public interface InterfaceC0176a {
     }
 
-    boolean CM();
+    boolean CS();
 
-    void CN();
+    void CT();
 
-    void CO();
+    void CU();
 
-    void a(ViewGroup viewGroup, u uVar);
+    void a(ViewGroup viewGroup, w wVar);
 
-    void a(InterfaceC0175a interfaceC0175a);
+    void a(InterfaceC0176a interfaceC0176a);
 
     void a(d dVar, boolean z, boolean z2);
 
-    void b(u uVar);
+    void b(w wVar);
 
-    void bf(boolean z);
+    void bg(boolean z);
 
     void dL(int i);
 

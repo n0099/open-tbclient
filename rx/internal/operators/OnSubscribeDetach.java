@@ -5,7 +5,7 @@ import java.util.concurrent.atomic.AtomicReference;
 import rx.d;
 /* loaded from: classes16.dex */
 public final class OnSubscribeDetach<T> implements d.a<T> {
-    final rx.d<T> pdi;
+    final rx.d<T> pUB;
 
     @Override // rx.functions.b
     public /* bridge */ /* synthetic */ void call(Object obj) {
@@ -17,14 +17,14 @@ public final class OnSubscribeDetach<T> implements d.a<T> {
         a aVar = new a(bVar);
         jVar.add(aVar);
         jVar.setProducer(aVar);
-        this.pdi.a((rx.j) bVar);
+        this.pUB.a((rx.j) bVar);
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* loaded from: classes16.dex */
     public static final class b<T> extends rx.j<T> {
         final AtomicReference<rx.j<? super T>> actual;
-        final AtomicReference<rx.f> pdI = new AtomicReference<>();
+        final AtomicReference<rx.f> pVb = new AtomicReference<>();
         final AtomicLong requested = new AtomicLong();
 
         public b(rx.j<? super T> jVar) {
@@ -41,7 +41,7 @@ public final class OnSubscribeDetach<T> implements d.a<T> {
 
         @Override // rx.e
         public void onError(Throwable th) {
-            this.pdI.lazySet(TerminatedProducer.INSTANCE);
+            this.pVb.lazySet(TerminatedProducer.INSTANCE);
             rx.j<? super T> andSet = this.actual.getAndSet(null);
             if (andSet != null) {
                 andSet.onError(th);
@@ -52,24 +52,24 @@ public final class OnSubscribeDetach<T> implements d.a<T> {
 
         @Override // rx.e
         public void onCompleted() {
-            this.pdI.lazySet(TerminatedProducer.INSTANCE);
+            this.pVb.lazySet(TerminatedProducer.INSTANCE);
             rx.j<? super T> andSet = this.actual.getAndSet(null);
             if (andSet != null) {
                 andSet.onCompleted();
             }
         }
 
-        void hI(long j) {
+        void hY(long j) {
             if (j < 0) {
                 throw new IllegalArgumentException("n >= 0 required but it was " + j);
             }
-            rx.f fVar = this.pdI.get();
+            rx.f fVar = this.pVb.get();
             if (fVar != null) {
                 fVar.request(j);
                 return;
             }
             rx.internal.operators.a.e(this.requested, j);
-            rx.f fVar2 = this.pdI.get();
+            rx.f fVar2 = this.pVb.get();
             if (fVar2 != null && fVar2 != TerminatedProducer.INSTANCE) {
                 fVar2.request(this.requested.getAndSet(0L));
             }
@@ -77,15 +77,15 @@ public final class OnSubscribeDetach<T> implements d.a<T> {
 
         @Override // rx.j
         public void setProducer(rx.f fVar) {
-            if (this.pdI.compareAndSet(null, fVar)) {
+            if (this.pVb.compareAndSet(null, fVar)) {
                 fVar.request(this.requested.getAndSet(0L));
-            } else if (this.pdI.get() != TerminatedProducer.INSTANCE) {
+            } else if (this.pVb.get() != TerminatedProducer.INSTANCE) {
                 throw new IllegalStateException("Producer already set!");
             }
         }
 
-        void erT() {
-            this.pdI.lazySet(TerminatedProducer.INSTANCE);
+        void eBR() {
+            this.pVb.lazySet(TerminatedProducer.INSTANCE);
             this.actual.lazySet(null);
             unsubscribe();
         }
@@ -94,25 +94,25 @@ public final class OnSubscribeDetach<T> implements d.a<T> {
     /* JADX INFO: Access modifiers changed from: package-private */
     /* loaded from: classes16.dex */
     public static final class a<T> implements rx.f, rx.k {
-        final b<T> pdH;
+        final b<T> pVa;
 
         public a(b<T> bVar) {
-            this.pdH = bVar;
+            this.pVa = bVar;
         }
 
         @Override // rx.f
         public void request(long j) {
-            this.pdH.hI(j);
+            this.pVa.hY(j);
         }
 
         @Override // rx.k
         public boolean isUnsubscribed() {
-            return this.pdH.isUnsubscribed();
+            return this.pVa.isUnsubscribed();
         }
 
         @Override // rx.k
         public void unsubscribe() {
-            this.pdH.erT();
+            this.pVa.eBR();
         }
     }
 

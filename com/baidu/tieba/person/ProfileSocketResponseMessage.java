@@ -236,17 +236,17 @@ public class ProfileSocketResponseMessage extends SocketResponsedMessage impleme
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.adp.framework.message.ResponsedMessage
     public void beforeDispatchInBackGround(int i, byte[] bArr) {
-        l<String> dB;
+        l<String> dI;
         super.beforeDispatchInBackGround(i, (int) bArr);
-        if (this.ucCardData != null && (dB = com.baidu.tbadk.core.c.a.bkE().dB("tb.person_wallet_new", TbadkCoreApplication.getCurrentAccount())) != null && this.isSelf) {
-            List<g.a> list = this.ucCardData.lBG;
+        if (this.ucCardData != null && (dI = com.baidu.tbadk.core.c.a.bmx().dI("tb.person_wallet_new", TbadkCoreApplication.getCurrentAccount())) != null && this.isSelf) {
+            List<g.a> list = this.ucCardData.lOd;
             if (y.getCount(list) > 4) {
                 list.get(4).timeStamp = 8L;
                 for (g.a aVar : list) {
-                    if (aVar.timeStamp > com.baidu.adp.lib.f.b.toLong(dB.get(aVar.title), 0L)) {
-                        aVar.lBH = true;
+                    if (aVar.timeStamp > com.baidu.adp.lib.f.b.toLong(dI.get(aVar.title), 0L)) {
+                        aVar.lOe = true;
                     } else {
-                        aVar.lBH = false;
+                        aVar.lOe = false;
                     }
                 }
             }
@@ -256,9 +256,9 @@ public class ProfileSocketResponseMessage extends SocketResponsedMessage impleme
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.adp.framework.message.ResponsedMessage
     public void afterDispatchInBackGround(int i, byte[] bArr) {
-        l<byte[]> dA = com.baidu.tbadk.core.c.a.bkE().dA("tb_user_profile", TbadkCoreApplication.getCurrentAccountName());
+        l<byte[]> dH = com.baidu.tbadk.core.c.a.bmx().dH("tb_user_profile", TbadkCoreApplication.getCurrentAccountName());
         if (bArr != null && this.isSelf) {
-            dA.setForever(PROFILE_CACHE_KEY, bArr);
+            dH.setForever(PROFILE_CACHE_KEY, bArr);
         }
     }
 

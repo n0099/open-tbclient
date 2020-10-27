@@ -114,7 +114,7 @@ public class n {
 
     @CheckResult
     @NonNull
-    public static String Q(@NonNull String str, @NonNull String str2, @NonNull String str3) {
+    public static String X(@NonNull String str, @NonNull String str2, @NonNull String str3) {
         try {
             PublicKey generatePublic = KeyFactory.getInstance(RSAUtil.ALGORITHM_RSA).generatePublic(new X509EncodedKeySpec(Base64.decode(str.getBytes("utf-8"), 0)));
             Cipher cipher = Cipher.getInstance(str3);
@@ -130,7 +130,7 @@ public class n {
 
     @CheckResult
     @NonNull
-    public static String s(@NonNull String str, @NonNull String str2, @NonNull String str3, @NonNull String str4) {
+    public static String t(@NonNull String str, @NonNull String str2, @NonNull String str3, @NonNull String str4) {
         try {
             Cipher cipher = Cipher.getInstance(str3);
             cipher.init(1, new SecretKeySpec(str.getBytes("utf-8"), com.baidu.sapi2.utils.e.q), new IvParameterSpec(str4.getBytes("utf-8")));

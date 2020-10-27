@@ -12,11 +12,11 @@ import java.util.List;
 public class at implements ServiceConnection {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ aq f4758a;
+    final /* synthetic */ aq f4756a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public at(aq aqVar) {
-        this.f4758a = aqVar;
+        this.f4756a = aqVar;
     }
 
     @Override // android.content.ServiceConnection
@@ -24,26 +24,26 @@ public class at implements ServiceConnection {
         List<Message> list;
         List list2;
         Messenger messenger;
-        synchronized (this.f4758a) {
-            this.f4758a.f54a = new Messenger(iBinder);
-            this.f4758a.c = false;
-            list = this.f4758a.f57a;
+        synchronized (this.f4756a) {
+            this.f4756a.f51a = new Messenger(iBinder);
+            this.f4756a.c = false;
+            list = this.f4756a.f54a;
             for (Message message : list) {
                 try {
-                    messenger = this.f4758a.f54a;
+                    messenger = this.f4756a.f51a;
                     messenger.send(message);
                 } catch (RemoteException e) {
                     com.xiaomi.channel.commonutils.logger.b.a(e);
                 }
             }
-            list2 = this.f4758a.f57a;
+            list2 = this.f4756a.f54a;
             list2.clear();
         }
     }
 
     @Override // android.content.ServiceConnection
     public void onServiceDisconnected(ComponentName componentName) {
-        this.f4758a.f54a = null;
-        this.f4758a.c = false;
+        this.f4756a.f51a = null;
+        this.f4756a.c = false;
     }
 }

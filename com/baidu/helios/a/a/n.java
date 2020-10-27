@@ -17,7 +17,7 @@ class n implements j {
 
     /* loaded from: classes7.dex */
     private static class a {
-        private static a axQ;
+        private static a axR;
         private static HashMap<String, Integer> b = new HashMap<>();
 
         /* JADX INFO: Access modifiers changed from: private */
@@ -118,14 +118,14 @@ class n implements j {
             b.put("CMWAP", 41);
             b.put("UNIWAP", 42);
             b.put("CTWAP", 43);
-            axQ = new a();
+            axR = new a();
         }
 
         private a() {
         }
 
         public static a Aw() {
-            return axQ;
+            return axR;
         }
 
         public String a(Context context) {
@@ -145,7 +145,7 @@ class n implements j {
 
     /* loaded from: classes7.dex */
     private static class b {
-        private static b axR = new b();
+        private static b axS = new b();
         private String b;
         private DisplayMetrics c;
 
@@ -153,7 +153,7 @@ class n implements j {
         }
 
         public static b Ax() {
-            return axR;
+            return axS;
         }
 
         private String b(Context context) {
@@ -225,7 +225,7 @@ class n implements j {
 
     /* loaded from: classes7.dex */
     private static class c {
-        private static c axS = new c();
+        private static c axT = new c();
 
         /* renamed from: a  reason: collision with root package name */
         private String f1784a;
@@ -238,7 +238,7 @@ class n implements j {
         }
 
         public static c Ay() {
-            return axS;
+            return axT;
         }
 
         private void c() {

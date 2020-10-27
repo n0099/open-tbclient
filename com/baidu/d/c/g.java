@@ -8,7 +8,7 @@ import com.baidu.searchbox.common.runtime.AppRuntime;
 import com.baidu.util.Base64Encoder;
 /* loaded from: classes9.dex */
 public class g {
-    private String any;
+    private String anA;
     private String anz;
     private String mVersionName;
 
@@ -19,8 +19,8 @@ public class g {
     private void init() {
         Context appContext = AppRuntime.getAppContext();
         this.mVersionName = getVersionName(appContext);
-        this.any = getUA(appContext);
-        this.anz = new String(Base64Encoder.B64Encode(this.any.getBytes()));
+        this.anz = getUA(appContext);
+        this.anA = new String(Base64Encoder.B64Encode(this.anz.getBytes()));
     }
 
     private String getUA(Context context) {
@@ -41,7 +41,7 @@ public class g {
     }
 
     public String vd() {
-        return this.any;
+        return this.anz;
     }
 
     public String getVersionName(Context context) {

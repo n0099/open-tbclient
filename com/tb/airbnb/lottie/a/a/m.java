@@ -8,61 +8,61 @@ import com.tb.airbnb.lottie.model.content.PolystarShape;
 import com.tb.airbnb.lottie.model.content.ShapeTrimPath;
 import java.util.List;
 /* loaded from: classes16.dex */
-public class m implements j, l, a.InterfaceC0947a {
+public class m implements j, l, a.InterfaceC1019a {
     private boolean De;
     private final com.tb.airbnb.lottie.f lottieDrawable;
     private final String name;
-    private final PolystarShape.Type oHF;
-    private final com.tb.airbnb.lottie.a.b.a<?, Float> oHG;
-    private final com.tb.airbnb.lottie.a.b.a<?, Float> oHH;
-    @Nullable
-    private final com.tb.airbnb.lottie.a.b.a<?, Float> oHI;
-    private final com.tb.airbnb.lottie.a.b.a<?, Float> oHJ;
-    @Nullable
-    private final com.tb.airbnb.lottie.a.b.a<?, Float> oHK;
-    private final com.tb.airbnb.lottie.a.b.a<?, Float> oHL;
-    @Nullable
-    private r oHv;
-    private final com.tb.airbnb.lottie.a.b.a<?, PointF> oHy;
     private final Path path = new Path();
+    @Nullable
+    private r pyS;
+    private final com.tb.airbnb.lottie.a.b.a<?, PointF> pyV;
+    private final PolystarShape.Type pzc;
+    private final com.tb.airbnb.lottie.a.b.a<?, Float> pzd;
+    private final com.tb.airbnb.lottie.a.b.a<?, Float> pze;
+    @Nullable
+    private final com.tb.airbnb.lottie.a.b.a<?, Float> pzf;
+    private final com.tb.airbnb.lottie.a.b.a<?, Float> pzg;
+    @Nullable
+    private final com.tb.airbnb.lottie.a.b.a<?, Float> pzh;
+    private final com.tb.airbnb.lottie.a.b.a<?, Float> pzi;
 
     public m(com.tb.airbnb.lottie.f fVar, com.tb.airbnb.lottie.model.layer.a aVar, PolystarShape polystarShape) {
         this.lottieDrawable = fVar;
         this.name = polystarShape.getName();
-        this.oHF = polystarShape.els();
-        this.oHG = polystarShape.elt().ekW();
-        this.oHy = polystarShape.ekZ().ekW();
-        this.oHH = polystarShape.elb().ekW();
-        this.oHJ = polystarShape.elv().ekW();
-        this.oHL = polystarShape.elx().ekW();
-        if (this.oHF == PolystarShape.Type.Star) {
-            this.oHI = polystarShape.elu().ekW();
-            this.oHK = polystarShape.elw().ekW();
+        this.pzc = polystarShape.evs();
+        this.pzd = polystarShape.evt().euW();
+        this.pyV = polystarShape.euZ().euW();
+        this.pze = polystarShape.evb().euW();
+        this.pzg = polystarShape.evv().euW();
+        this.pzi = polystarShape.evx().euW();
+        if (this.pzc == PolystarShape.Type.Star) {
+            this.pzf = polystarShape.evu().euW();
+            this.pzh = polystarShape.evw().euW();
         } else {
-            this.oHI = null;
-            this.oHK = null;
+            this.pzf = null;
+            this.pzh = null;
         }
-        aVar.a(this.oHG);
-        aVar.a(this.oHy);
-        aVar.a(this.oHH);
-        aVar.a(this.oHJ);
-        aVar.a(this.oHL);
-        if (this.oHF == PolystarShape.Type.Star) {
-            aVar.a(this.oHI);
-            aVar.a(this.oHK);
+        aVar.a(this.pzd);
+        aVar.a(this.pyV);
+        aVar.a(this.pze);
+        aVar.a(this.pzg);
+        aVar.a(this.pzi);
+        if (this.pzc == PolystarShape.Type.Star) {
+            aVar.a(this.pzf);
+            aVar.a(this.pzh);
         }
-        this.oHG.b(this);
-        this.oHy.b(this);
-        this.oHH.b(this);
-        this.oHJ.b(this);
-        this.oHL.b(this);
-        if (this.oHF == PolystarShape.Type.Star) {
-            this.oHI.b(this);
-            this.oHK.b(this);
+        this.pzd.b(this);
+        this.pyV.b(this);
+        this.pze.b(this);
+        this.pzg.b(this);
+        this.pzi.b(this);
+        if (this.pzc == PolystarShape.Type.Star) {
+            this.pzf.b(this);
+            this.pzh.b(this);
         }
     }
 
-    @Override // com.tb.airbnb.lottie.a.b.a.InterfaceC0947a
+    @Override // com.tb.airbnb.lottie.a.b.a.InterfaceC1019a
     public void iT() {
         invalidate();
     }
@@ -79,9 +79,9 @@ public class m implements j, l, a.InterfaceC0947a {
             int i2 = i;
             if (i2 < list.size()) {
                 b bVar = list.get(i2);
-                if ((bVar instanceof r) && ((r) bVar).ekM() == ShapeTrimPath.Type.Simultaneously) {
-                    this.oHv = (r) bVar;
-                    this.oHv.a(this);
+                if ((bVar instanceof r) && ((r) bVar).euM() == ShapeTrimPath.Type.Simultaneously) {
+                    this.pyS = (r) bVar;
+                    this.pyS.a(this);
                 }
                 i = i2 + 1;
             } else {
@@ -96,7 +96,7 @@ public class m implements j, l, a.InterfaceC0947a {
             return this.path;
         }
         this.path.reset();
-        switch (this.oHF) {
+        switch (this.pzc) {
             case Star:
                 jb();
                 break;
@@ -105,7 +105,7 @@ public class m implements j, l, a.InterfaceC0947a {
                 break;
         }
         this.path.close();
-        com.tb.airbnb.lottie.d.f.a(this.path, this.oHv);
+        com.tb.airbnb.lottie.d.f.a(this.path, this.pyS);
         this.De = true;
         return this.path;
     }
@@ -124,22 +124,22 @@ public class m implements j, l, a.InterfaceC0947a {
         float f3;
         float f4;
         float f5;
-        float floatValue = this.oHG.getValue().floatValue();
-        double radians = Math.toRadians((this.oHH == null ? 0.0d : this.oHH.getValue().floatValue()) - 90.0d);
+        float floatValue = this.pzd.getValue().floatValue();
+        double radians = Math.toRadians((this.pze == null ? 0.0d : this.pze.getValue().floatValue()) - 90.0d);
         float f6 = (float) (6.283185307179586d / floatValue);
         float f7 = f6 / 2.0f;
         float f8 = floatValue - ((int) floatValue);
         double d2 = f8 != 0.0f ? radians + ((1.0f - f8) * f7) : radians;
-        float floatValue2 = this.oHJ.getValue().floatValue();
-        float floatValue3 = this.oHI.getValue().floatValue();
-        if (this.oHK == null) {
+        float floatValue2 = this.pzg.getValue().floatValue();
+        float floatValue3 = this.pzf.getValue().floatValue();
+        if (this.pzh == null) {
             f = 0.0f;
         } else {
-            f = this.oHK.getValue().floatValue() / 100.0f;
+            f = this.pzh.getValue().floatValue() / 100.0f;
         }
         float f9 = 0.0f;
-        if (this.oHL != null) {
-            f9 = this.oHL.getValue().floatValue() / 100.0f;
+        if (this.pzi != null) {
+            f9 = this.pzi.getValue().floatValue() / 100.0f;
         }
         if (f8 != 0.0f) {
             float f10 = floatValue3 + ((floatValue2 - floatValue3) * f8);
@@ -212,7 +212,7 @@ public class m implements j, l, a.InterfaceC0947a {
                 f11 = sin2;
                 f12 = cos2;
             } else {
-                PointF value = this.oHy.getValue();
+                PointF value = this.pyV.getValue();
                 this.path.offset(value.x, value.y);
                 this.path.close();
                 return;
@@ -221,11 +221,11 @@ public class m implements j, l, a.InterfaceC0947a {
     }
 
     private void jc() {
-        int floor = (int) Math.floor(this.oHG.getValue().floatValue());
-        double radians = Math.toRadians((this.oHH == null ? 0.0d : this.oHH.getValue().floatValue()) - 90.0d);
+        int floor = (int) Math.floor(this.pzd.getValue().floatValue());
+        double radians = Math.toRadians((this.pze == null ? 0.0d : this.pze.getValue().floatValue()) - 90.0d);
         float f = (float) (6.283185307179586d / floor);
-        float floatValue = this.oHL.getValue().floatValue() / 100.0f;
-        float floatValue2 = this.oHJ.getValue().floatValue();
+        float floatValue = this.pzi.getValue().floatValue() / 100.0f;
+        float floatValue2 = this.pzg.getValue().floatValue();
         float cos = (float) (floatValue2 * Math.cos(radians));
         float sin = (float) (floatValue2 * Math.sin(radians));
         this.path.moveTo(cos, sin);
@@ -252,7 +252,7 @@ public class m implements j, l, a.InterfaceC0947a {
                 d = d2 + f;
                 i = i2 + 1;
             } else {
-                PointF value = this.oHy.getValue();
+                PointF value = this.pyV.getValue();
                 this.path.offset(value.x, value.y);
                 this.path.close();
                 return;
@@ -268,19 +268,19 @@ public class m implements j, l, a.InterfaceC0947a {
     @Override // com.tb.airbnb.lottie.model.f
     public <T> void a(T t, @Nullable com.tb.airbnb.lottie.e.c<T> cVar) {
         if (t == com.tb.airbnb.lottie.j.Cj) {
-            this.oHG.a(cVar);
+            this.pzd.a(cVar);
         } else if (t == com.tb.airbnb.lottie.j.Ck) {
-            this.oHH.a(cVar);
+            this.pze.a(cVar);
         } else if (t == com.tb.airbnb.lottie.j.Cc) {
-            this.oHy.a(cVar);
-        } else if (t == com.tb.airbnb.lottie.j.Cl && this.oHI != null) {
-            this.oHI.a(cVar);
+            this.pyV.a(cVar);
+        } else if (t == com.tb.airbnb.lottie.j.Cl && this.pzf != null) {
+            this.pzf.a(cVar);
         } else if (t == com.tb.airbnb.lottie.j.Cm) {
-            this.oHJ.a(cVar);
-        } else if (t == com.tb.airbnb.lottie.j.Cn && this.oHK != null) {
-            this.oHK.a(cVar);
+            this.pzg.a(cVar);
+        } else if (t == com.tb.airbnb.lottie.j.Cn && this.pzh != null) {
+            this.pzh.a(cVar);
         } else if (t == com.tb.airbnb.lottie.j.Co) {
-            this.oHL.a(cVar);
+            this.pzi.a(cVar);
         }
     }
 }

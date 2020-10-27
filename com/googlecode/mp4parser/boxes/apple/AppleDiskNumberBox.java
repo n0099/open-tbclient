@@ -6,13 +6,13 @@ import org.aspectj.a.b.b;
 import org.aspectj.lang.a;
 /* loaded from: classes11.dex */
 public class AppleDiskNumberBox extends AppleDataBox {
-    private static final /* synthetic */ a.InterfaceC0997a ajc$tjp_0 = null;
-    private static final /* synthetic */ a.InterfaceC0997a ajc$tjp_1 = null;
-    private static final /* synthetic */ a.InterfaceC0997a ajc$tjp_2 = null;
-    private static final /* synthetic */ a.InterfaceC0997a ajc$tjp_3 = null;
+    private static final /* synthetic */ a.InterfaceC1069a ajc$tjp_0 = null;
+    private static final /* synthetic */ a.InterfaceC1069a ajc$tjp_1 = null;
+    private static final /* synthetic */ a.InterfaceC1069a ajc$tjp_2 = null;
+    private static final /* synthetic */ a.InterfaceC1069a ajc$tjp_3 = null;
 
     /* renamed from: a  reason: collision with root package name */
-    int f4053a;
+    int f4051a;
     short b;
 
     static {
@@ -33,12 +33,12 @@ public class AppleDiskNumberBox extends AppleDataBox {
 
     public int getA() {
         RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_0, this, this));
-        return this.f4053a;
+        return this.f4051a;
     }
 
     public void setA(int i) {
-        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_1, this, this, org.aspectj.a.a.a.Pr(i)));
-        this.f4053a = i;
+        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_1, this, this, org.aspectj.a.a.a.Ri(i)));
+        this.f4051a = i;
     }
 
     public short getB() {
@@ -47,21 +47,21 @@ public class AppleDiskNumberBox extends AppleDataBox {
     }
 
     public void setB(short s) {
-        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_3, this, this, org.aspectj.a.a.a.k(s)));
+        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_3, this, this, org.aspectj.a.a.a.l(s)));
         this.b = s;
     }
 
     @Override // com.googlecode.mp4parser.boxes.apple.AppleDataBox
     protected byte[] writeData() {
         ByteBuffer allocate = ByteBuffer.allocate(6);
-        allocate.putInt(this.f4053a);
+        allocate.putInt(this.f4051a);
         allocate.putShort(this.b);
         return allocate.array();
     }
 
     @Override // com.googlecode.mp4parser.boxes.apple.AppleDataBox
     protected void parseData(ByteBuffer byteBuffer) {
-        this.f4053a = byteBuffer.getInt();
+        this.f4051a = byteBuffer.getInt();
         this.b = byteBuffer.getShort();
     }
 

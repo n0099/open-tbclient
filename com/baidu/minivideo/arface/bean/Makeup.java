@@ -30,6 +30,6 @@ public class Makeup extends BaseBeautyItem {
     }
 
     public String getInfo() {
-        return "type: " + this.mType + "\nvalue: " + this.mValue + "\nRes: " + this.mResPath;
+        return "type: " + this.mType + ", value: " + this.mValue + ", Res: " + this.mResPath;
     }
 }

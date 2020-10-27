@@ -16,7 +16,7 @@ public class OfficialBarTipListAdapter extends com.baidu.tieba.im.chat.a.c {
     @Override // com.baidu.tieba.im.chat.a.c
     protected BasicNameValuePair a(ImMessageCenterShowItemData imMessageCenterShowItemData, int i, String str) {
         int i2 = 0;
-        if (!com.baidu.tbadk.coreExtra.messageCenter.d.bsc().bsw()) {
+        if (!com.baidu.tbadk.coreExtra.messageCenter.d.btV().bup()) {
             str = "";
             i = 0;
         }
@@ -30,17 +30,17 @@ public class OfficialBarTipListAdapter extends com.baidu.tieba.im.chat.a.c {
 
     @Override // com.baidu.tieba.im.chat.a.c
     protected void g(c.a aVar, ImMessageCenterShowItemData imMessageCenterShowItemData) {
-        aVar.jEz.setVisibility(8);
-        aVar.jEB.setVisibility(0);
-        aVar.jEB.setShowOval(true);
-        aVar.jEB.setAutoChangeStyle(true);
-        aVar.jEB.setStrokeWith(l.getDimens(this.mContext, R.dimen.tbds1));
-        aVar.jEB.setStrokeColorResId(R.color.cp_border_a);
-        aVar.jEB.setTag(null);
-        aVar.jEB.setPlaceHolder(1);
+        aVar.jQY.setVisibility(8);
+        aVar.jRa.setVisibility(0);
+        aVar.jRa.setShowOval(true);
+        aVar.jRa.setAutoChangeStyle(true);
+        aVar.jRa.setStrokeWith(l.getDimens(this.mContext, R.dimen.tbds1));
+        aVar.jRa.setStrokeColorResId(R.color.cp_border_a);
+        aVar.jRa.setTag(null);
+        aVar.jRa.setPlaceHolder(1);
         if (!TextUtils.isEmpty(imMessageCenterShowItemData.getFriendPortrait())) {
-            aVar.jEB.setTag(imMessageCenterShowItemData.getFriendPortrait());
-            aVar.jEB.startLoad(imMessageCenterShowItemData.getFriendPortrait(), 10, false);
+            aVar.jRa.setTag(imMessageCenterShowItemData.getFriendPortrait());
+            aVar.jRa.startLoad(imMessageCenterShowItemData.getFriendPortrait(), 10, false);
         }
     }
 
@@ -56,14 +56,14 @@ public class OfficialBarTipListAdapter extends com.baidu.tieba.im.chat.a.c {
 
     @Override // com.baidu.tieba.im.chat.a.c
     protected void a(c.a aVar, ImMessageCenterShowItemData imMessageCenterShowItemData) {
-        aVar.jEC.setText(this.mContext.getString(R.string.chosen_pb_original_bar, imMessageCenterShowItemData.getFriendName()));
+        aVar.jRb.setText(this.mContext.getString(R.string.chosen_pb_original_bar, imMessageCenterShowItemData.getFriendName()));
     }
 
     @Override // com.baidu.tieba.im.chat.a.c
     protected void f(c.a aVar, ImMessageCenterShowItemData imMessageCenterShowItemData) {
-        aVar.jEF.setVisibility(8);
-        ap.setViewTextColor(aVar.jEC, R.color.cp_cont_b, 1);
-        ap.setViewTextColor(aVar.jED, R.color.cp_cont_d, 1);
-        ap.setViewTextColor(aVar.jEE, R.color.cp_cont_d, 1);
+        aVar.jRe.setVisibility(8);
+        ap.setViewTextColor(aVar.jRb, R.color.cp_cont_b, 1);
+        ap.setViewTextColor(aVar.jRc, R.color.cp_cont_d, 1);
+        ap.setViewTextColor(aVar.jRd, R.color.cp_cont_d, 1);
     }
 }

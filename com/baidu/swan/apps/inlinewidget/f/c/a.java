@@ -9,45 +9,45 @@ public interface a extends d {
 
     /* renamed from: com.baidu.swan.apps.inlinewidget.f.c.a$a  reason: collision with other inner class name */
     /* loaded from: classes10.dex */
-    public interface InterfaceC0421a {
-        void arC();
+    public interface InterfaceC0435a {
+        void atx();
 
-        void gU(String str);
+        void hf(String str);
 
-        void iA(int i);
+        void iL(int i);
 
-        void iB(int i);
-
-        void oc(String str);
-
-        void od(String str);
-
-        void oe(@NonNull String str);
+        void iM(int i);
 
         void onEnded();
 
         void onError(int i);
 
         void onPrepared();
+
+        void ox(String str);
+
+        void oy(String str);
+
+        void oz(@NonNull String str);
     }
 
-    void a(@NonNull InterfaceC0421a interfaceC0421a);
+    void a(@NonNull InterfaceC0435a interfaceC0435a);
 
-    String arL();
+    String atG();
 
-    void arM();
+    void atH();
 
-    void arN();
+    void atI();
 
-    InterfaceC0421a arO();
+    InterfaceC0435a atJ();
 
-    boolean arP();
+    boolean atK();
 
-    int arQ();
+    int atL();
 
     boolean c(String str, String str2, String str3, boolean z);
 
-    void eS(boolean z);
+    void ff(boolean z);
 
     Context getContext();
 
@@ -59,15 +59,15 @@ public interface a extends d {
 
     int getVideoWidth();
 
-    void iC(int i);
+    void iN(int i);
 
-    void iD(int i);
+    void iO(int i);
 
     boolean isPlaying();
 
     void l(int i, int i2, int i3, int i4);
 
-    void ok(String str);
+    void oE(String str);
 
     void pause();
 

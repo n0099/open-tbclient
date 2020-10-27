@@ -1,32 +1,24 @@
 package com.baidu.live.data;
 
+import com.baidu.live.tbadk.ubc.UbcStatConstant;
 import org.json.JSONObject;
 /* loaded from: classes4.dex */
 public class ah {
-    private int aLW;
-    private int aLX;
-    private int aLY;
+    public int aJw;
+    public int aJx;
+    public String mAppid;
+    public int mOpenType;
 
-    public void parseJson(JSONObject jSONObject) {
-        if (jSONObject != null) {
-            this.aLW = jSONObject.optInt("category_select_switch", 0);
-            this.aLX = jSONObject.optInt("im_audience_watch_switch", 0);
-            this.aLY = jSONObject.optInt("im_audience_watch_time", 60);
+    public String toJsonString() {
+        JSONObject jSONObject = new JSONObject();
+        try {
+            jSONObject.putOpt(UbcStatConstant.KEY_LIVE_TYPE, Integer.valueOf(this.aJw));
+            jSONObject.putOpt("open_type", Integer.valueOf(this.mOpenType));
+            jSONObject.putOpt("screen_direction", Integer.valueOf(this.aJx));
+            jSONObject.putOpt("appid", this.mAppid);
+            return jSONObject.toString();
+        } catch (Exception e) {
+            return "";
         }
-    }
-
-    public static boolean DW() {
-        return (com.baidu.live.x.a.OS().blo == null || com.baidu.live.x.a.OS().blo.aLQ == null || com.baidu.live.x.a.OS().blo.aLQ.aLW != 1) ? false : true;
-    }
-
-    public static boolean DX() {
-        return (com.baidu.live.x.a.OS().blo == null || com.baidu.live.x.a.OS().blo.aLQ == null || com.baidu.live.x.a.OS().blo.aLQ.aLX != 1) ? false : true;
-    }
-
-    public static int DY() {
-        if (com.baidu.live.x.a.OS().blo == null || com.baidu.live.x.a.OS().blo.aLQ == null) {
-            return 0;
-        }
-        return com.baidu.live.x.a.OS().blo.aLQ.aLY;
     }
 }

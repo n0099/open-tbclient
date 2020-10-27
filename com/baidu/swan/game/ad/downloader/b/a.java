@@ -9,19 +9,19 @@ import com.baidu.swan.apps.adlanding.download.model.SwanAdDownloadState;
 import com.baidu.swan.game.ad.downloader.model.DownloadInfo;
 /* loaded from: classes14.dex */
 public final class a implements com.baidu.swan.game.ad.downloader.c.a {
-    private final b dyr;
-    private final SQLiteDatabase dys;
-    private final SQLiteDatabase dyt;
+    private final b dGO;
+    private final SQLiteDatabase dGP;
+    private final SQLiteDatabase dGQ;
     private final Context mContext;
-    public static final String[] dyq = {IMConstants.MSG_ROW_ID, "createAt", DownloadDataConstants.Columns.COLUMN_URI, "packagename", "path", "size", "progress", "status"};
+    public static final String[] dGN = {IMConstants.MSG_ROW_ID, "createAt", DownloadDataConstants.Columns.COLUMN_URI, "packagename", "path", "size", "progress", "status"};
     public static final int STATUS_COMPLETED = SwanAdDownloadState.DOWNLOADED.value();
     public static final int STATUS_PAUSED = SwanAdDownloadState.DOWNLOAD_PAUSED.value();
 
     public a(Context context, com.baidu.swan.game.ad.downloader.a.a aVar) {
         this.mContext = context;
-        this.dyr = new b(context, aVar);
-        this.dys = this.dyr.getWritableDatabase();
-        this.dyt = this.dyr.getReadableDatabase();
+        this.dGO = new b(context, aVar);
+        this.dGP = this.dGO.getWritableDatabase();
+        this.dGQ = this.dGO.getReadableDatabase();
     }
 
     private void a(Cursor cursor, DownloadInfo downloadInfo) {
@@ -44,8 +44,8 @@ public final class a implements com.baidu.swan.game.ad.downloader.c.a {
     }
 
     @Override // com.baidu.swan.game.ad.downloader.c.a
-    public DownloadInfo uM(String str) {
-        Cursor query = this.dyt.query("ad_download", dyq, "_id=?", new String[]{str}, null, null, "createAt desc");
+    public DownloadInfo vf(String str) {
+        Cursor query = this.dGQ.query("ad_download", dGN, "_id=?", new String[]{str}, null, null, "createAt desc");
         if (query.moveToNext()) {
             DownloadInfo downloadInfo = new DownloadInfo();
             a(query, downloadInfo);
@@ -57,17 +57,17 @@ public final class a implements com.baidu.swan.game.ad.downloader.c.a {
     }
 
     @Override // com.baidu.swan.game.ad.downloader.c.a
-    public void aLZ() {
-        this.dys.execSQL("UPDATE ad_download SET status=? WHERE status!=?;", new Object[]{Integer.valueOf(STATUS_PAUSED), Integer.valueOf(STATUS_COMPLETED)});
+    public void aNT() {
+        this.dGP.execSQL("UPDATE ad_download SET status=? WHERE status!=?;", new Object[]{Integer.valueOf(STATUS_PAUSED), Integer.valueOf(STATUS_COMPLETED)});
     }
 
     @Override // com.baidu.swan.game.ad.downloader.c.a
     public void m(DownloadInfo downloadInfo) {
-        this.dys.execSQL("REPLACE INTO ad_download(_id,createAt,uri,packagename,path,size,progress,status)VALUES(?,?,?,?,?,?,?,?);", new Object[]{downloadInfo.getId(), Long.valueOf(downloadInfo.getCreateAt()), downloadInfo.getUri(), downloadInfo.getPackageName(), downloadInfo.getPath(), Long.valueOf(downloadInfo.getSize()), Long.valueOf(downloadInfo.getProgress()), Integer.valueOf(downloadInfo.getStatus())});
+        this.dGP.execSQL("REPLACE INTO ad_download(_id,createAt,uri,packagename,path,size,progress,status)VALUES(?,?,?,?,?,?,?,?);", new Object[]{downloadInfo.getId(), Long.valueOf(downloadInfo.getCreateAt()), downloadInfo.getUri(), downloadInfo.getPackageName(), downloadInfo.getPath(), Long.valueOf(downloadInfo.getSize()), Long.valueOf(downloadInfo.getProgress()), Integer.valueOf(downloadInfo.getStatus())});
     }
 
     @Override // com.baidu.swan.game.ad.downloader.c.a
     public void n(DownloadInfo downloadInfo) {
-        this.dys.delete("ad_download", "_id=?", new String[]{String.valueOf(downloadInfo.getId())});
+        this.dGP.delete("ad_download", "_id=?", new String[]{String.valueOf(downloadInfo.getId())});
     }
 }

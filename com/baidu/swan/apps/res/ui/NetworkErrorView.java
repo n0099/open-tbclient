@@ -60,12 +60,12 @@ public class NetworkErrorView extends CommonEmptyView {
     @Override // android.view.View
     public void setVisibility(int i) {
         if (i == 0) {
-            au(this);
+            av(this);
         }
         super.setVisibility(i);
     }
 
-    public static void au(View view) {
+    public static void av(View view) {
         a aVar = new a(1);
         aVar.arg0 = 1;
         aVar.obj = view;

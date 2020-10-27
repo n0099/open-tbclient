@@ -3,7 +3,7 @@ package io.reactivex.internal.functions;
 import io.reactivex.c.d;
 /* loaded from: classes17.dex */
 public final class a {
-    static final d<Object, Object> oLJ = new C0977a();
+    static final d<Object, Object> pDg = new C1049a();
 
     public static <T> T l(T t, String str) {
         if (t == null) {
@@ -23,14 +23,14 @@ public final class a {
         return i > i2 ? 1 : 0;
     }
 
-    public static int L(long j, long j2) {
+    public static int M(long j, long j2) {
         if (j < j2) {
             return -1;
         }
         return j > j2 ? 1 : 0;
     }
 
-    public static int bW(int i, String str) {
+    public static int bX(int i, String str) {
         if (i <= 0) {
             throw new IllegalArgumentException(str + " > 0 required but it was " + i);
         }
@@ -46,8 +46,8 @@ public final class a {
 
     /* renamed from: io.reactivex.internal.functions.a$a  reason: collision with other inner class name */
     /* loaded from: classes17.dex */
-    static final class C0977a implements d<Object, Object> {
-        C0977a() {
+    static final class C1049a implements d<Object, Object> {
+        C1049a() {
         }
 
         @Override // io.reactivex.c.d

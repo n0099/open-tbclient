@@ -6,9 +6,9 @@ public interface b {
 
     /* loaded from: classes4.dex */
     public interface a {
-        void JW();
+        void Kq();
 
-        void JX();
+        void Kr();
 
         void a(b bVar);
 
@@ -19,21 +19,21 @@ public interface b {
         void onExit();
     }
 
-    void JU();
+    void Ko();
 
-    void JV();
+    void Kp();
 
     void a(DialogInterface.OnKeyListener onKeyListener);
 
     void dismiss();
 
-    void eG(int i);
+    void eH(int i);
 
-    void hm(String str);
+    void hu(String str);
 
-    void hn(String str);
+    void hv(String str);
 
-    void ho(String str);
+    void hw(String str);
 
     boolean isShowing();
 

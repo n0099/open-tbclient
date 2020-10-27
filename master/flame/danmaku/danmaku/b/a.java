@@ -10,11 +10,15 @@ public interface a {
 
     /* renamed from: master.flame.danmaku.danmaku.b.a$a  reason: collision with other inner class name */
     /* loaded from: classes6.dex */
-    public interface InterfaceC0992a {
+    public interface InterfaceC1064a {
         void i(d dVar);
     }
 
-    void a(InterfaceC0992a interfaceC0992a);
+    void AU(boolean z);
+
+    void AV(boolean z);
+
+    void a(InterfaceC1064a interfaceC1064a);
 
     void a(k kVar);
 
@@ -22,118 +26,114 @@ public interface a {
 
     void clear();
 
-    void eqv();
+    void eAt();
 
     void release();
-
-    void zM(boolean z);
-
-    void zN(boolean z);
 
     /* loaded from: classes6.dex */
     public static class b {
         public long beginTime;
         public long endTime;
-        public long gkv;
-        public boolean oXR;
-        public int oXS;
-        public int oXT;
-        public d oXU;
-        public int oXV;
-        public int oXW;
-        public int oXX;
-        public int oXY;
-        public int oXZ;
-        public int oYa;
-        public int oYb;
-        public long oYc;
-        public boolean oYd;
-        public long oYe;
-        public long oYf;
-        private boolean oYh;
-        public f oTY = new f();
-        private l oYg = new master.flame.danmaku.danmaku.model.android.d(4);
+        public long guz;
+        public long pPA;
+        public long pPB;
+        private boolean pPD;
+        public boolean pPn;
+        public int pPo;
+        public int pPp;
+        public d pPq;
+        public int pPr;
+        public int pPs;
+        public int pPt;
+        public int pPu;
+        public int pPv;
+        public int pPw;
+        public int pPx;
+        public long pPy;
+        public boolean pPz;
+        public f pLu = new f();
+        private l pPC = new master.flame.danmaku.danmaku.model.android.d(4);
 
-        public int Pp(int i) {
-            this.oYa += i;
-            return this.oYa;
+        public int Rg(int i) {
+            this.pPw += i;
+            return this.pPw;
         }
 
-        public int ep(int i, int i2) {
+        public int ex(int i, int i2) {
             switch (i) {
                 case 1:
-                    this.oXV += i2;
-                    return this.oXV;
+                    this.pPr += i2;
+                    return this.pPr;
                 case 2:
                 case 3:
                 default:
                     return 0;
                 case 4:
-                    this.oXY += i2;
-                    return this.oXY;
+                    this.pPu += i2;
+                    return this.pPu;
                 case 5:
-                    this.oXX += i2;
-                    return this.oXX;
+                    this.pPt += i2;
+                    return this.pPt;
                 case 6:
-                    this.oXW += i2;
-                    return this.oXW;
+                    this.pPs += i2;
+                    return this.pPs;
                 case 7:
-                    this.oXZ += i2;
-                    return this.oXZ;
+                    this.pPv += i2;
+                    return this.pPv;
             }
         }
 
         public void reset() {
-            this.oYb = this.oYa;
-            this.oYa = 0;
-            this.oXZ = 0;
-            this.oXY = 0;
-            this.oXX = 0;
-            this.oXW = 0;
-            this.oXV = 0;
-            this.oYc = 0L;
+            this.pPx = this.pPw;
+            this.pPw = 0;
+            this.pPv = 0;
+            this.pPu = 0;
+            this.pPt = 0;
+            this.pPs = 0;
+            this.pPr = 0;
+            this.pPy = 0L;
             this.endTime = 0L;
             this.beginTime = 0L;
-            this.gkv = 0L;
-            this.oYd = false;
+            this.guz = 0L;
+            this.pPz = false;
             synchronized (this) {
-                this.oYg.clear();
+                this.pPC.clear();
             }
         }
 
         public void b(b bVar) {
             if (bVar != null) {
-                this.oYb = bVar.oYb;
-                this.oXV = bVar.oXV;
-                this.oXW = bVar.oXW;
-                this.oXX = bVar.oXX;
-                this.oXY = bVar.oXY;
-                this.oXZ = bVar.oXZ;
-                this.oYa = bVar.oYa;
-                this.oYc = bVar.oYc;
+                this.pPx = bVar.pPx;
+                this.pPr = bVar.pPr;
+                this.pPs = bVar.pPs;
+                this.pPt = bVar.pPt;
+                this.pPu = bVar.pPu;
+                this.pPv = bVar.pPv;
+                this.pPw = bVar.pPw;
+                this.pPy = bVar.pPy;
                 this.beginTime = bVar.beginTime;
                 this.endTime = bVar.endTime;
-                this.oYd = bVar.oYd;
-                this.gkv = bVar.gkv;
-                this.oYe = bVar.oYe;
-                this.oYf = bVar.oYf;
+                this.pPz = bVar.pPz;
+                this.guz = bVar.guz;
+                this.pPA = bVar.pPA;
+                this.pPB = bVar.pPB;
             }
         }
 
         public void v(d dVar) {
-            if (!this.oYh) {
-                this.oYg.k(dVar);
+            if (!this.pPD) {
+                this.pPC.k(dVar);
             }
         }
 
-        public l eqw() {
+        public l eAu() {
             l lVar;
-            this.oYh = true;
+            this.pPD = true;
             synchronized (this) {
-                lVar = this.oYg;
-                this.oYg = new master.flame.danmaku.danmaku.model.android.d(4);
+                lVar = this.pPC;
+                this.pPC = new master.flame.danmaku.danmaku.model.android.d(4);
             }
-            this.oYh = false;
+            this.pPD = false;
             return lVar;
         }
     }

@@ -8,7 +8,7 @@ import java.util.List;
 public class a implements d<ParserRet> {
 
     /* renamed from: a  reason: collision with root package name */
-    private final LinkedList<Integer> f4260a = new LinkedList<>();
+    private final LinkedList<Integer> f4258a = new LinkedList<>();
     private long b = 1;
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -20,7 +20,7 @@ public class a implements d<ParserRet> {
             this.b = 1L;
             return this.b * 1000;
         }
-        Iterator<Integer> it = this.f4260a.iterator();
+        Iterator<Integer> it = this.f4258a.iterator();
         while (true) {
             if (!it.hasNext()) {
                 z = false;
@@ -47,30 +47,30 @@ public class a implements d<ParserRet> {
     @Override // com.kascend.chushou.widget.a.d
     public void b() {
         this.b = 1L;
-        this.f4260a.clear();
+        this.f4258a.clear();
     }
 
     @Override // com.kascend.chushou.widget.a.d
     public void c() {
-        if (this.f4260a.size() < 3) {
-            this.f4260a.add(1);
+        if (this.f4258a.size() < 3) {
+            this.f4258a.add(1);
             return;
         }
-        this.f4260a.removeFirst();
-        this.f4260a.addLast(1);
+        this.f4258a.removeFirst();
+        this.f4258a.addLast(1);
     }
 
     private boolean d(ParserRet parserRet) {
         if (parserRet == null || !(parserRet.mData instanceof List)) {
-            return this.f4260a.size() >= 3;
+            return this.f4258a.size() >= 3;
         }
-        if (this.f4260a.size() < 3) {
-            this.f4260a.add(Integer.valueOf(e(parserRet)));
+        if (this.f4258a.size() < 3) {
+            this.f4258a.add(Integer.valueOf(e(parserRet)));
         } else {
-            this.f4260a.removeFirst();
-            this.f4260a.addLast(Integer.valueOf(e(parserRet)));
+            this.f4258a.removeFirst();
+            this.f4258a.addLast(Integer.valueOf(e(parserRet)));
         }
-        return this.f4260a.size() >= 3;
+        return this.f4258a.size() >= 3;
     }
 
     private long a(long j) {

@@ -10,16 +10,16 @@ import java.lang.ref.WeakReference;
 public abstract class BaseService extends Service {
 
     /* renamed from: a  reason: collision with root package name */
-    private a f4731a;
+    private a f4729a;
 
     /* loaded from: classes12.dex */
     public static class a extends Handler {
 
         /* renamed from: a  reason: collision with root package name */
-        private WeakReference<BaseService> f4732a;
+        private WeakReference<BaseService> f4730a;
 
         public a(WeakReference<BaseService> weakReference) {
-            this.f4732a = weakReference;
+            this.f4730a = weakReference;
         }
 
         public void a() {
@@ -34,11 +34,11 @@ public abstract class BaseService extends Service {
             BaseService baseService;
             switch (message.what) {
                 case 1001:
-                    if (this.f4732a == null || (baseService = this.f4732a.get()) == null) {
+                    if (this.f4730a == null || (baseService = this.f4730a.get()) == null) {
                         return;
                     }
                     com.xiaomi.channel.commonutils.logger.b.c("TimeoutHandler" + baseService.toString() + "  kill self");
-                    if (!baseService.mo73a()) {
+                    if (!baseService.mo72a()) {
                         baseService.stopSelf();
                         return;
                     }
@@ -52,7 +52,7 @@ public abstract class BaseService extends Service {
     }
 
     /* renamed from: a */
-    protected abstract boolean mo73a();
+    protected abstract boolean mo72a();
 
     @Override // android.app.Service
     public IBinder onBind(Intent intent) {
@@ -62,9 +62,9 @@ public abstract class BaseService extends Service {
     @Override // android.app.Service
     public void onStart(Intent intent, int i) {
         super.onStart(intent, i);
-        if (this.f4731a == null) {
-            this.f4731a = new a(new WeakReference(this));
+        if (this.f4729a == null) {
+            this.f4729a = new a(new WeakReference(this));
         }
-        this.f4731a.a();
+        this.f4729a.a();
     }
 }

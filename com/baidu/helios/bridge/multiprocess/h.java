@@ -15,13 +15,13 @@ import com.baidu.helios.bridge.multiprocess.e;
 import com.baidu.helios.bridge.multiprocess.f;
 /* loaded from: classes17.dex */
 public class h extends com.baidu.helios.bridge.a implements IBinder.DeathRecipient {
-    private ContentProviderClient awW;
-    private e awX;
-    private c awY;
+    private ContentProviderClient awX;
+    private e awY;
+    private c awZ;
     private String i;
 
     public h(c cVar, String str) {
-        this.awY = cVar;
+        this.awZ = cVar;
         this.i = str;
     }
 
@@ -76,7 +76,7 @@ public class h extends com.baidu.helios.bridge.a implements IBinder.DeathRecipie
                 bundle = a(acquireContentProviderClient, uri);
             }
             if (bundle != null) {
-                this.awW = acquireContentProviderClient;
+                this.awX = acquireContentProviderClient;
                 break;
             }
             try {
@@ -139,7 +139,7 @@ public class h extends com.baidu.helios.bridge.a implements IBinder.DeathRecipie
     @Override // com.baidu.helios.bridge.a
     public void a(String str, Bundle bundle, final a.c<String> cVar) {
         try {
-            this.awX.a(str, bundle, new f.a() { // from class: com.baidu.helios.bridge.multiprocess.g.1
+            this.awY.a(str, bundle, new f.a() { // from class: com.baidu.helios.bridge.multiprocess.g.1
                 @Override // com.baidu.helios.bridge.multiprocess.f
                 public void a(int i, Bundle bundle2) {
                     cVar.a(i, null, bundle2);
@@ -156,23 +156,23 @@ public class h extends com.baidu.helios.bridge.a implements IBinder.DeathRecipie
     }
 
     public boolean a() {
-        return this.awX != null;
+        return this.awY != null;
     }
 
     @Override // com.baidu.helios.bridge.a
     public void b(a.b bVar) {
-        this.awX = ak(this.awr.applicationContext);
+        this.awY = ak(this.aws.applicationContext);
     }
 
     @Override // android.os.IBinder.DeathRecipient
     public void binderDied() {
-        this.awY.a();
+        this.awZ.a();
     }
 
     @Override // com.baidu.helios.bridge.a
     public a.d c(String str, Bundle bundle) {
         try {
-            Bundle a2 = this.awX.a(str, bundle);
+            Bundle a2 = this.awY.a(str, bundle);
             if (a2 != null) {
                 return i(a2);
             }
@@ -184,7 +184,7 @@ public class h extends com.baidu.helios.bridge.a implements IBinder.DeathRecipie
     @Override // com.baidu.helios.bridge.a
     public boolean fx(String str) {
         try {
-            return this.awX.a(str);
+            return this.awY.a(str);
         } catch (RemoteException e) {
             return false;
         }

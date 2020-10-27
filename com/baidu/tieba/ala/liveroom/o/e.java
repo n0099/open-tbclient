@@ -10,16 +10,16 @@ import android.view.animation.TranslateAnimation;
 import android.widget.ImageView;
 import android.widget.TextView;
 import com.baidu.live.adp.lib.util.BdUtilHelper;
-import com.baidu.live.data.bb;
+import com.baidu.live.data.be;
 import com.baidu.live.sdk.a;
 import com.baidu.live.tbadk.core.TbadkCoreApplication;
 import com.baidu.live.tbadk.core.view.HeadImageView;
 /* loaded from: classes4.dex */
 public class e extends a {
-    private HeadImageView aEh;
-    private TextView aUf;
-    private View cfu;
-    private TextView gSq;
+    private HeadImageView aEp;
+    private TextView aVA;
+    private View cnT;
+    private TextView hed;
 
     public e(@NonNull Context context) {
         super(context);
@@ -28,34 +28,34 @@ public class e extends a {
     @Override // com.baidu.tieba.ala.liveroom.o.a
     public void init() {
         super.init();
-        FL();
+        Ga();
     }
 
     @Override // com.baidu.tieba.ala.liveroom.o.a
     public void initView() {
         setContentView(a.h.ala_hor_guide_follow_float);
-        this.cfu = findViewById(a.g.layout_root);
-        this.cfu.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.ala.liveroom.o.e.1
+        this.cnT = findViewById(a.g.layout_root);
+        this.cnT.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.ala.liveroom.o.e.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
                 e.this.dismiss();
             }
         });
-        this.aUf = (TextView) findViewById(a.g.tv_guide_folllow_tip);
-        this.gSq = (TextView) findViewById(a.g.ala_live_name);
-        this.aEh = (HeadImageView) findViewById(a.g.iv_avatar);
+        this.aVA = (TextView) findViewById(a.g.tv_guide_folllow_tip);
+        this.hed = (TextView) findViewById(a.g.ala_live_name);
+        this.aEp = (HeadImageView) findViewById(a.g.iv_avatar);
         if (TbadkCoreApplication.getInst().isHaokan()) {
-            this.aEh.setDefaultResource(a.f.sdk_pic_mycenter_avatar_def_hk);
-            this.aEh.setDefaultErrorResource(a.f.sdk_pic_mycenter_avatar_def_hk);
+            this.aEp.setDefaultResource(a.f.sdk_pic_mycenter_avatar_def_hk);
+            this.aEp.setDefaultErrorResource(a.f.sdk_pic_mycenter_avatar_def_hk);
         } else {
-            this.aEh.setDefaultResource(a.f.sdk_pic_mycenter_avatar_def);
-            this.aEh.setDefaultErrorResource(a.f.sdk_pic_mycenter_avatar_def);
+            this.aEp.setDefaultResource(a.f.sdk_pic_mycenter_avatar_def);
+            this.aEp.setDefaultErrorResource(a.f.sdk_pic_mycenter_avatar_def);
         }
-        this.aEh.setIsRound(true);
-        this.aEh.setAutoChangeStyle(false);
-        this.aEh.setBorderWidth(BdUtilHelper.getDimens(getContext(), a.e.sdk_ds4));
-        this.aEh.setBorderColor(872415231);
-        this.aEh.setScaleType(ImageView.ScaleType.CENTER_CROP);
+        this.aEp.setIsRound(true);
+        this.aEp.setAutoChangeStyle(false);
+        this.aEp.setBorderWidth(BdUtilHelper.getDimens(getContext(), a.e.sdk_ds4));
+        this.aEp.setBorderColor(872415231);
+        this.aEp.setScaleType(ImageView.ScaleType.CENTER_CROP);
         TextView textView = (TextView) findViewById(a.g.tv_confirm);
         if (TbadkCoreApplication.getInst().isHaokan()) {
             textView.setBackgroundResource(a.f.ala_live_follow_btn_radius_16_selector_hk);
@@ -67,51 +67,51 @@ public class e extends a {
         textView.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.ala.liveroom.o.e.2
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                if (e.this.gSb != null) {
-                    e.this.gSb.onConfirm();
+                if (e.this.hdO != null) {
+                    e.this.hdO.onConfirm();
                 }
             }
         });
-        this.gSc = textView.getText().toString();
-        bXs();
+        this.hdP = textView.getText().toString();
+        car();
     }
 
     @Override // com.baidu.tieba.ala.liveroom.o.a
-    public void en(String str, String str2) {
-        bXr();
-        this.aEh.startLoad(str, 25, false, false);
-        this.gSq.setText(str2);
-        LX();
+    public void eu(String str, String str2) {
+        caq();
+        this.aEp.startLoad(str, 25, false, false);
+        this.hed.setText(str2);
+        Mr();
         show();
     }
 
-    private void bXs() {
-        bb bbVar;
-        if (com.baidu.live.x.a.OS().blo != null && (bbVar = com.baidu.live.x.a.OS().blo.aLr) != null && !TextUtils.isEmpty(bbVar.aNy)) {
-            this.aUf.setText(bbVar.aNy);
+    private void car() {
+        be beVar;
+        if (com.baidu.live.z.a.Pq().bmJ != null && (beVar = com.baidu.live.z.a.Pq().bmJ.aLV) != null && !TextUtils.isEmpty(beVar.aOd)) {
+            this.aVA.setText(beVar.aOd);
         }
     }
 
-    private void FL() {
+    private void Ga() {
         setOnDismissListener(new DialogInterface.OnDismissListener() { // from class: com.baidu.tieba.ala.liveroom.o.e.3
             @Override // android.content.DialogInterface.OnDismissListener
             public void onDismiss(DialogInterface dialogInterface) {
-                e.this.bXr();
+                e.this.caq();
             }
         });
     }
 
-    private void LX() {
+    private void Mr() {
         TranslateAnimation translateAnimation = new TranslateAnimation(1, 0.0f, 1, 0.0f, 1, 1.0f, 1, 0.0f);
         translateAnimation.setDuration(400L);
         translateAnimation.setInterpolator(new LinearInterpolator());
-        this.cfu.startAnimation(translateAnimation);
+        this.cnT.startAnimation(translateAnimation);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void bXr() {
-        if (this.aEh != null) {
-            this.aEh.stopLoad();
+    public void caq() {
+        if (this.aEp != null) {
+            this.aEp.stopLoad();
         }
     }
 }

@@ -63,7 +63,7 @@ public class a extends com.baidu.platform.comapi.wnplatform.o.a {
     private com.baidu.platform.comapi.walknavi.g.c.a l = null;
     private Handler m = new Handler();
     private boolean n = true;
-    private CountDownTimerC0264a o = null;
+    private CountDownTimerC0278a o = null;
     private int r = 0;
     private boolean s = false;
     private boolean v = false;
@@ -464,7 +464,7 @@ public class a extends com.baidu.platform.comapi.wnplatform.o.a {
             }
             this.j = b3.a(b2).d(com.baidu.platform.comapi.wnplatform.p.a.a.b(this.g, R.raw.ad_refresh_load)).b().b(new f(this)).c(com.baidu.platform.comapi.wnplatform.p.a.a.b(this.g, R.raw.bottom_bar_bg)).a(new e(this));
             if (z) {
-                this.o = new CountDownTimerC0264a(6000L, 1000L, this.g, this.j);
+                this.o = new CountDownTimerC0278a(6000L, 1000L, this.g, this.j);
                 this.o.start();
             }
             if (!this.j.isShowing() && this.g != null && !this.g.isFinishing()) {
@@ -923,13 +923,13 @@ public class a extends com.baidu.platform.comapi.wnplatform.o.a {
 
     /* renamed from: com.baidu.platform.comapi.walknavi.g.a$a  reason: collision with other inner class name */
     /* loaded from: classes7.dex */
-    public class CountDownTimerC0264a extends CountDownTimer {
+    public class CountDownTimerC0278a extends CountDownTimer {
 
         /* renamed from: a  reason: collision with root package name */
         Activity f3015a;
         com.baidu.platform.comapi.walknavi.widget.a b;
 
-        public CountDownTimerC0264a(long j, long j2, Activity activity, com.baidu.platform.comapi.walknavi.widget.a aVar) {
+        public CountDownTimerC0278a(long j, long j2, Activity activity, com.baidu.platform.comapi.walknavi.widget.a aVar) {
             super(j, j2);
             this.f3015a = activity;
             this.b = aVar;

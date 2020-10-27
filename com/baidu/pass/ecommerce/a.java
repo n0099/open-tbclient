@@ -17,12 +17,12 @@ public class a {
 
     /* renamed from: com.baidu.pass.ecommerce.a$a  reason: collision with other inner class name */
     /* loaded from: classes17.dex */
-    class C0248a implements com.baidu.pass.ecommerce.b.a {
+    class C0262a implements com.baidu.pass.ecommerce.b.a {
 
         /* renamed from: a  reason: collision with root package name */
         final /* synthetic */ com.baidu.pass.ecommerce.b.a f2760a;
 
-        C0248a(com.baidu.pass.ecommerce.b.a aVar) {
+        C0262a(com.baidu.pass.ecommerce.b.a aVar) {
             this.f2760a = aVar;
         }
 
@@ -83,7 +83,7 @@ public class a {
     }
 
     public void a(Context context, com.baidu.pass.ecommerce.b.a aVar) {
-        this.f2759a = new C0248a(aVar);
+        this.f2759a = new C0262a(aVar);
         PermissionsDTO permissionsDTO = new PermissionsDTO();
         permissionsDTO.context = context;
         permissionsDTO.permissions = new String[]{"android.permission.READ_CONTACTS"};

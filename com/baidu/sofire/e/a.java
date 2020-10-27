@@ -18,14 +18,14 @@ public final class a {
 
     /* renamed from: a  reason: collision with root package name */
     private static a f3619a;
-    private C0332a b;
+    private C0346a b;
     private e c;
     private SQLiteDatabase d;
     private Context e;
 
     private a(Context context) {
         this.e = context;
-        this.b = new C0332a(context);
+        this.b = new C0346a(context);
         this.c = new e(context);
         try {
             this.d = this.b.getWritableDatabase();
@@ -578,8 +578,8 @@ public final class a {
 
     /* renamed from: com.baidu.sofire.e.a$a  reason: collision with other inner class name */
     /* loaded from: classes15.dex */
-    class C0332a extends SQLiteOpenHelper {
-        public C0332a(Context context) {
+    class C0346a extends SQLiteOpenHelper {
+        public C0346a(Context context) {
             super(context, "d.db", (SQLiteDatabase.CursorFactory) null, 3);
         }
 

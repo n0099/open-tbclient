@@ -5,7 +5,7 @@ import java.util.List;
 public class al {
     private List<HotTopicBussinessData> dataList;
 
-    public void aR(List<HotTopicBussinessData> list) {
+    public void bb(List<HotTopicBussinessData> list) {
         this.dataList = list;
     }
 }

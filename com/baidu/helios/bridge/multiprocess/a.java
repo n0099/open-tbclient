@@ -14,7 +14,7 @@ import java.io.IOException;
 import java.util.List;
 /* loaded from: classes17.dex */
 public class a extends com.baidu.helios.bridge.a {
-    private com.baidu.helios.bridge.a awP;
+    private com.baidu.helios.bridge.a awQ;
     private boolean f;
 
     public a(boolean z) {
@@ -43,7 +43,7 @@ public class a extends com.baidu.helios.bridge.a {
         } catch (IOException e2) {
             bufferedReader = bufferedReader2;
             com.baidu.helios.common.b.a.c.b(bufferedReader);
-            runningAppProcesses = ((ActivityManager) this.awr.applicationContext.getSystemService(PushConstants.INTENT_ACTIVITY_NAME)).getRunningAppProcesses();
+            runningAppProcesses = ((ActivityManager) this.aws.applicationContext.getSystemService(PushConstants.INTENT_ACTIVITY_NAME)).getRunningAppProcesses();
             if (runningAppProcesses != null) {
             }
             return null;
@@ -58,7 +58,7 @@ public class a extends com.baidu.helios.bridge.a {
             return readLine;
         }
         com.baidu.helios.common.b.a.c.b(bufferedReader2);
-        runningAppProcesses = ((ActivityManager) this.awr.applicationContext.getSystemService(PushConstants.INTENT_ACTIVITY_NAME)).getRunningAppProcesses();
+        runningAppProcesses = ((ActivityManager) this.aws.applicationContext.getSystemService(PushConstants.INTENT_ACTIVITY_NAME)).getRunningAppProcesses();
         if (runningAppProcesses != null) {
             for (ActivityManager.RunningAppProcessInfo runningAppProcessInfo : runningAppProcesses) {
                 if (runningAppProcessInfo.pid == Process.myPid()) {
@@ -79,7 +79,7 @@ public class a extends com.baidu.helios.bridge.a {
         if (a2 == null) {
             return true;
         }
-        Context context = this.awr.applicationContext;
+        Context context = this.aws.applicationContext;
         String str = context.getApplicationInfo().processName;
         if (TextUtils.isEmpty(str)) {
             str = context.getPackageName();
@@ -89,7 +89,7 @@ public class a extends com.baidu.helios.bridge.a {
 
     @Override // com.baidu.helios.bridge.a
     public void a(String str, Bundle bundle, a.c<String> cVar) {
-        this.awP.a(str, bundle, cVar);
+        this.awQ.a(str, bundle, cVar);
     }
 
     @Override // com.baidu.helios.bridge.a
@@ -100,18 +100,18 @@ public class a extends com.baidu.helios.bridge.a {
         } else {
             cVar = new c(this.f ? ".helios.ipc.default" : ".helios.ipc.isolate");
         }
-        this.awP = cVar;
-        this.awP.a(this.awr);
-        this.awP.a(bVar);
+        this.awQ = cVar;
+        this.awQ.a(this.aws);
+        this.awQ.a(bVar);
     }
 
     @Override // com.baidu.helios.bridge.a
     public a.d c(String str, Bundle bundle) {
-        return this.awP.c(str, bundle);
+        return this.awQ.c(str, bundle);
     }
 
     @Override // com.baidu.helios.bridge.a
     public boolean fx(String str) {
-        return this.awP.fx(str);
+        return this.awQ.fx(str);
     }
 }

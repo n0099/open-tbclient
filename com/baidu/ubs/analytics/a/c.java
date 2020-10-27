@@ -7,16 +7,16 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes10.dex */
 final class c {
-    private SQLiteDatabase nFx = f.dUc().aoh();
+    private SQLiteDatabase ohZ = f.dZU().aqc();
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public final void b(a aVar) {
-        this.nFx.execSQL("INSERT INTO tb_ab_click_log(_eventId,_parameter,_sessionId,_timeStamp,_pagerName,_productLine) VALUES (?,?,?,?,?,?);", new String[]{aVar.G(), aVar.H(), aVar.I(), aVar.F(), aVar.E(), aVar.D()});
+        this.ohZ.execSQL("INSERT INTO tb_ab_click_log(_eventId,_parameter,_sessionId,_timeStamp,_pagerName,_productLine) VALUES (?,?,?,?,?,?);", new String[]{aVar.G(), aVar.H(), aVar.I(), aVar.F(), aVar.E(), aVar.D()});
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public final List<a> dUb() {
-        Cursor rawQuery = this.nFx.rawQuery("SELECT * FROM tb_ab_click_log order by _id ", null);
+    public final List<a> dZT() {
+        Cursor rawQuery = this.ohZ.rawQuery("SELECT * FROM tb_ab_click_log order by _id ", null);
         ArrayList arrayList = new ArrayList();
         while (rawQuery.moveToNext()) {
             a aVar = new a();
@@ -35,6 +35,6 @@ final class c {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public final void a(int i) {
-        this.nFx.execSQL("delete from tb_ab_click_log where _id <= " + i);
+        this.ohZ.execSQL("delete from tb_ab_click_log where _id <= " + i);
     }
 }

@@ -7,32 +7,32 @@ import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.data.AbsThreadDataSupport;
 /* loaded from: classes21.dex */
 public class ah extends i {
-    private SmartAppBottomLayout ahc;
+    private SmartAppBottomLayout ahd;
 
     public ah(Context context) {
         super(context);
-        this.ahc = new SmartAppBottomLayout(context);
+        this.ahd = new SmartAppBottomLayout(context);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.card.b
     public View getView() {
-        return this.ahc;
+        return this.ahd;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.card.p
     /* renamed from: b */
     public void H(AbsThreadDataSupport absThreadDataSupport) {
-        if (this.ahc != null) {
-            this.ahc.H(absThreadDataSupport);
+        if (this.ahd != null) {
+            this.ahd.H(absThreadDataSupport);
         }
     }
 
     @Override // com.baidu.card.q
     public void onChangeSkinType(TbPageContext tbPageContext, int i) {
-        if (this.ahc != null) {
-            this.ahc.onChangeSkinType();
+        if (this.ahd != null) {
+            this.ahd.onChangeSkinType();
         }
     }
 }

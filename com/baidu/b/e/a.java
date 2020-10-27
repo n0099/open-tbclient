@@ -11,13 +11,13 @@ import java.util.ArrayList;
 public class a {
 
     /* renamed from: a  reason: collision with root package name */
-    private Context f1266a;
-    private C0092a acT;
+    private Context f1263a;
+    private C0092a acU;
 
     /* renamed from: com.baidu.b.e.a$a  reason: collision with other inner class name */
     /* loaded from: classes7.dex */
     public final class C0092a {
-        private C0092a ada;
+        private C0092a adb;
         private File b;
         private String c;
         private boolean e;
@@ -32,7 +32,7 @@ public class a {
         C0092a(String str, C0092a c0092a) {
             this.e = false;
             this.c = str;
-            this.ada = c0092a;
+            this.adb = c0092a;
             this.e = false;
         }
 
@@ -47,7 +47,7 @@ public class a {
         public File b() {
             File file = this.b;
             if (file == null) {
-                file = this.ada == null ? new File(a.this.a(), this.c) : new File(this.ada.b(), this.c);
+                file = this.adb == null ? new File(a.this.a(), this.c) : new File(this.adb.b(), this.c);
                 this.b = file;
             }
             return file;
@@ -85,12 +85,12 @@ public class a {
         }
 
         public C0092a sP() {
-            return this.ada;
+            return this.adb;
         }
     }
 
     public a(Context context) {
-        this.f1266a = context;
+        this.f1263a = context;
         c().mkdirs();
     }
 
@@ -188,13 +188,13 @@ public class a {
     }
 
     public File a() {
-        return new File(this.f1266a.getApplicationInfo().dataDir);
+        return new File(this.f1263a.getApplicationInfo().dataDir);
     }
 
     public synchronized C0092a sO() {
-        if (this.acT == null) {
-            this.acT = new C0092a(".cesium", null);
+        if (this.acU == null) {
+            this.acU = new C0092a(".cesium", null);
         }
-        return this.acT;
+        return this.acU;
     }
 }

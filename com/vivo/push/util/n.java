@@ -7,11 +7,11 @@ import android.util.Log;
 public final class n implements o {
 
     /* renamed from: a  reason: collision with root package name */
-    private static final String f4705a = "(" + Process.myPid() + ")";
+    private static final String f4703a = "(" + Process.myPid() + ")";
 
     @Override // com.vivo.push.util.o
     public final int a(String str, String str2) {
-        return Log.e("VivoPush." + str, f4705a + str2);
+        return Log.e("VivoPush." + str, f4703a + str2);
     }
 
     @Override // com.vivo.push.util.o
@@ -21,23 +21,23 @@ public final class n implements o {
 
     @Override // com.vivo.push.util.o
     public final int a(String str, String str2, Throwable th) {
-        return Log.e("VivoPush." + str, f4705a + str2, th);
+        return Log.e("VivoPush." + str, f4703a + str2, th);
     }
 
     @Override // com.vivo.push.util.o
     public final int b(String str, String str2) {
-        return Log.w("VivoPush." + str, f4705a + str2);
+        return Log.w("VivoPush." + str, f4703a + str2);
     }
 
     @Override // com.vivo.push.util.o
     public final int c(String str, String str2) {
-        return Log.d("VivoPush." + str, f4705a + str2);
+        return Log.d("VivoPush." + str, f4703a + str2);
     }
 
     @Override // com.vivo.push.util.o
     public final int d(String str, String str2) {
         if (p.a()) {
-            return Log.i("VivoPush." + str, f4705a + str2);
+            return Log.i("VivoPush." + str, f4703a + str2);
         }
         return -1;
     }
@@ -45,7 +45,7 @@ public final class n implements o {
     @Override // com.vivo.push.util.o
     public final int b(String str, String str2, Throwable th) {
         if (p.a()) {
-            return Log.i("VivoPush." + str, f4705a + str2, th);
+            return Log.i("VivoPush." + str, f4703a + str2, th);
         }
         return -1;
     }
@@ -53,7 +53,7 @@ public final class n implements o {
     @Override // com.vivo.push.util.o
     public final int e(String str, String str2) {
         if (p.a()) {
-            return Log.v("VivoPush." + str, f4705a + str2);
+            return Log.v("VivoPush." + str, f4703a + str2);
         }
         return -1;
     }

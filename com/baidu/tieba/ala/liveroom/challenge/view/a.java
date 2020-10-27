@@ -11,34 +11,34 @@ import com.baidu.live.tbadk.core.util.ViewCommonUtil;
 import com.baidu.live.utils.h;
 /* loaded from: classes4.dex */
 public class a {
-    private int gME;
-    private InterfaceC0641a gMM;
-    private AnimatorSet gMN;
-    private ValueAnimator gMO;
-    private ValueAnimator gMP;
-    private int gMQ;
-    private int gMR;
+    private InterfaceC0657a gYA;
+    private AnimatorSet gYB;
+    private ValueAnimator gYC;
+    private ValueAnimator gYD;
+    private int gYE;
+    private int gYF;
+    private int gYs;
 
     /* renamed from: com.baidu.tieba.ala.liveroom.challenge.view.a$a  reason: collision with other inner class name */
     /* loaded from: classes4.dex */
-    public interface InterfaceC0641a {
-        void bVn();
+    public interface InterfaceC0657a {
+        void bYm();
 
-        void bVo();
+        void bYn();
 
-        void bVp();
+        void bYo();
 
-        void bVq();
+        void bYp();
     }
 
     public a(Context context) {
-        this.gME = 0;
-        this.gME = h.aC(context);
+        this.gYs = 0;
+        this.gYs = h.aC(context);
     }
 
-    public void bO(int i, int i2) {
-        this.gMQ = i;
-        this.gMR = i2;
+    public void bQ(int i, int i2) {
+        this.gYE = i;
+        this.gYF = i2;
     }
 
     private void a(AlaChallengeLiveView alaChallengeLiveView, int i, int i2, int i3) {
@@ -74,7 +74,7 @@ public class a {
 
     private ValueAnimator d(AlaChallengeLiveView alaChallengeLiveView) {
         final View leftTimeView = alaChallengeLiveView.getLeftTimeView();
-        int i = this.gME;
+        int i = this.gYs;
         leftTimeView.setVisibility(0);
         RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) leftTimeView.getLayoutParams();
         layoutParams.topMargin = i;
@@ -93,7 +93,7 @@ public class a {
 
     private void e(AlaChallengeLiveView alaChallengeLiveView) {
         View leftTimeView = alaChallengeLiveView.getLeftTimeView();
-        int i = this.gME;
+        int i = this.gYs;
         int height = leftTimeView.getHeight();
         RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) leftTimeView.getLayoutParams();
         layoutParams.topMargin = i - height;
@@ -146,25 +146,25 @@ public class a {
     public void j(AlaChallengeLiveView alaChallengeLiveView) {
         final View rivalAnimLiveLayout;
         if (alaChallengeLiveView != null && (rivalAnimLiveLayout = alaChallengeLiveView.getRivalAnimLiveLayout()) != null && rivalAnimLiveLayout.getAlpha() != 0.0f) {
-            if (this.gMP != null) {
-                this.gMP.cancel();
+            if (this.gYD != null) {
+                this.gYD.cancel();
             }
-            this.gMP = ValueAnimator.ofFloat(1.0f, 0.0f);
-            this.gMP.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() { // from class: com.baidu.tieba.ala.liveroom.challenge.view.a.4
+            this.gYD = ValueAnimator.ofFloat(1.0f, 0.0f);
+            this.gYD.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() { // from class: com.baidu.tieba.ala.liveroom.challenge.view.a.4
                 @Override // android.animation.ValueAnimator.AnimatorUpdateListener
                 public void onAnimationUpdate(ValueAnimator valueAnimator) {
                     rivalAnimLiveLayout.setAlpha(((Float) valueAnimator.getAnimatedValue()).floatValue());
                 }
             });
-            this.gMP.addListener(new Animator.AnimatorListener() { // from class: com.baidu.tieba.ala.liveroom.challenge.view.a.5
+            this.gYD.addListener(new Animator.AnimatorListener() { // from class: com.baidu.tieba.ala.liveroom.challenge.view.a.5
                 @Override // android.animation.Animator.AnimatorListener
                 public void onAnimationStart(Animator animator) {
                 }
 
                 @Override // android.animation.Animator.AnimatorListener
                 public void onAnimationEnd(Animator animator) {
-                    if (a.this.gMM != null) {
-                        a.this.gMM.bVq();
+                    if (a.this.gYA != null) {
+                        a.this.gYA.bYp();
                     }
                 }
 
@@ -176,8 +176,8 @@ public class a {
                 public void onAnimationRepeat(Animator animator) {
                 }
             });
-            this.gMP.setDuration(300L);
-            this.gMP.start();
+            this.gYD.setDuration(300L);
+            this.gYD.start();
         }
     }
 
@@ -185,48 +185,48 @@ public class a {
         View anchorAnimLiveLayout;
         if (alaChallengeLiveView != null && (anchorAnimLiveLayout = alaChallengeLiveView.getAnchorAnimLiveLayout()) != null && anchorAnimLiveLayout.getAlpha() != 0.0f) {
             anchorAnimLiveLayout.setAlpha(0.0f);
-            if (this.gMM != null) {
-                this.gMM.bVp();
+            if (this.gYA != null) {
+                this.gYA.bYo();
             }
         }
     }
 
-    public void GS() {
-        if (this.gMN != null) {
-            this.gMN.cancel();
+    public void Ho() {
+        if (this.gYB != null) {
+            this.gYB.cancel();
         }
-        if (this.gMO != null) {
-            this.gMO.cancel();
+        if (this.gYC != null) {
+            this.gYC.cancel();
         }
-        if (this.gMP != null) {
-            this.gMP.cancel();
+        if (this.gYD != null) {
+            this.gYD.cancel();
         }
     }
 
     public void a(Activity activity, AlaChallengeLiveView alaChallengeLiveView) {
         int[] screenFullSize = ViewCommonUtil.getScreenFullSize(activity);
         int i = screenFullSize[0] / 2;
-        a(alaChallengeLiveView, i, h.fP(i), this.gME);
+        a(alaChallengeLiveView, i, h.fU(i), this.gYs);
         a(alaChallengeLiveView, screenFullSize[0] / 2);
         ValueAnimator h = h(alaChallengeLiveView);
         ValueAnimator d = d(alaChallengeLiveView);
         ValueAnimator f = f(alaChallengeLiveView);
-        if (this.gMN != null) {
-            this.gMN.cancel();
+        if (this.gYB != null) {
+            this.gYB.cancel();
         }
-        this.gMN = new AnimatorSet();
-        this.gMN.setDuration(500L);
-        this.gMN.playTogether(h, d, f);
-        this.gMN.setStartDelay(200L);
-        this.gMN.addListener(new Animator.AnimatorListener() { // from class: com.baidu.tieba.ala.liveroom.challenge.view.a.6
+        this.gYB = new AnimatorSet();
+        this.gYB.setDuration(500L);
+        this.gYB.playTogether(h, d, f);
+        this.gYB.setStartDelay(200L);
+        this.gYB.addListener(new Animator.AnimatorListener() { // from class: com.baidu.tieba.ala.liveroom.challenge.view.a.6
             @Override // android.animation.Animator.AnimatorListener
             public void onAnimationStart(Animator animator) {
             }
 
             @Override // android.animation.Animator.AnimatorListener
             public void onAnimationEnd(Animator animator) {
-                if (a.this.gMM != null) {
-                    a.this.gMM.bVn();
+                if (a.this.gYA != null) {
+                    a.this.gYA.bYm();
                 }
             }
 
@@ -238,8 +238,8 @@ public class a {
             public void onAnimationRepeat(Animator animator) {
             }
         });
-        this.gMN.start();
-        alaChallengeLiveView.bVj();
+        this.gYB.start();
+        alaChallengeLiveView.bYi();
     }
 
     public void b(Activity activity, AlaChallengeLiveView alaChallengeLiveView) {
@@ -247,15 +247,15 @@ public class a {
         e(alaChallengeLiveView);
         g(alaChallengeLiveView);
         i(alaChallengeLiveView);
-        alaChallengeLiveView.bVk();
+        alaChallengeLiveView.bYj();
         c(alaChallengeLiveView);
         b(alaChallengeLiveView, screenFullSize[0], screenFullSize[1], 0);
-        if (this.gMM != null) {
-            this.gMM.bVo();
+        if (this.gYA != null) {
+            this.gYA.bYn();
         }
     }
 
-    public void a(InterfaceC0641a interfaceC0641a) {
-        this.gMM = interfaceC0641a;
+    public void a(InterfaceC0657a interfaceC0657a) {
+        this.gYA = interfaceC0657a;
     }
 }

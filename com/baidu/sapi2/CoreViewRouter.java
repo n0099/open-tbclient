@@ -165,11 +165,11 @@ public class CoreViewRouter implements NoProguard {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* loaded from: classes5.dex */
-    public class b extends b.AbstractC0317b {
+    public class b extends b.AbstractC0331b {
         b() {
         }
 
-        @Override // com.baidu.sapi2.share.b.AbstractC0317b
+        @Override // com.baidu.sapi2.share.b.AbstractC0331b
         public void onFailed(int i, String str) {
             super.onFailed(i, str);
             WebAuthResult webAuthResult = new WebAuthResult();
@@ -181,7 +181,7 @@ public class CoreViewRouter implements NoProguard {
             CoreViewRouter.getInstance().release();
         }
 
-        @Override // com.baidu.sapi2.share.b.AbstractC0317b
+        @Override // com.baidu.sapi2.share.b.AbstractC0331b
         public void onSuccess() {
             WebAuthResult webAuthResult = new WebAuthResult();
             webAuthResult.accountType = AccountType.NORMAL;

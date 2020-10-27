@@ -8,7 +8,7 @@ import org.json.JSONObject;
 public class f {
 
     /* renamed from: a  reason: collision with root package name */
-    public String f1267a;
+    public String f1264a;
     public String b;
     public int c = 2;
     private int d = 0;
@@ -18,7 +18,7 @@ public class f {
             return null;
         }
         f fVar = new f();
-        fVar.f1267a = str;
+        fVar.f1264a = str;
         fVar.d = TextUtils.isEmpty(str2) ? 0 : str2.length();
         if (fVar.d < 14) {
             if (TextUtils.isEmpty(str2)) {
@@ -60,7 +60,7 @@ public class f {
             int length = TextUtils.isEmpty(str2) ? 0 : str2.length();
             if (!TextUtils.isEmpty(string)) {
                 f fVar = new f();
-                fVar.f1267a = string;
+                fVar.f1264a = string;
                 fVar.c = i;
                 fVar.d = length;
                 if (fVar.d < 14) {

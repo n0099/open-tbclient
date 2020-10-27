@@ -6,7 +6,8 @@ import com.baidu.live.adp.framework.message.CustomMessage;
 import com.baidu.live.adp.framework.message.CustomResponsedMessage;
 import com.baidu.live.adp.framework.task.CustomMessageTask;
 import com.baidu.live.adp.lib.util.StringUtils;
-import com.baidu.live.b.m;
+import com.baidu.live.b.o;
+import com.baidu.live.d;
 import com.baidu.live.f.c;
 import com.baidu.live.tbadk.TbPageContext;
 import com.baidu.live.tbadk.core.TbadkCoreApplication;
@@ -17,18 +18,18 @@ import java.util.Map;
 /* loaded from: classes4.dex */
 public class AlaLiveRoomActivityInitialize {
     static {
-        bQy();
-        bQz();
-        bQC();
-        bQB();
-        bQD();
-        bQA();
+        bTv();
+        bTw();
+        bTz();
+        bTy();
+        bTA();
+        bTx();
     }
 
-    private static void bQy() {
+    private static void bTv() {
     }
 
-    public static void bQz() {
+    public static void bTw() {
         UrlManager.getInstance().addListener(new UrlManager.UrlDealListener() { // from class: com.baidu.tieba.ala.liveroom.AlaLiveRoomActivityInitialize.1
             /* JADX WARN: Code restructure failed: missing block: B:20:0x0053, code lost:
                 if (com.baidu.live.adp.lib.util.StringUtils.isNull(r0) == false) goto L21;
@@ -60,7 +61,7 @@ public class AlaLiveRoomActivityInitialize {
         });
     }
 
-    private static void bQA() {
+    private static void bTx() {
         CustomMessageTask customMessageTask = new CustomMessageTask(2913078, new CustomMessageTask.CustomRunnable<c>() { // from class: com.baidu.tieba.ala.liveroom.AlaLiveRoomActivityInitialize.2
             @Override // com.baidu.live.adp.framework.task.CustomMessageTask.CustomRunnable
             public CustomResponsedMessage<c> run(CustomMessage<c> customMessage) {
@@ -71,27 +72,27 @@ public class AlaLiveRoomActivityInitialize {
         MessageManager.getInstance().registerTask(customMessageTask);
     }
 
-    private static void bQB() {
+    private static void bTy() {
     }
 
-    private static void bQC() {
-        TbadkCoreApplication.getInst().RegisterIntent(m.class, AlaLiveFloatWindowActivity.class);
+    private static void bTz() {
+        TbadkCoreApplication.getInst().RegisterIntent(o.class, AlaLiveFloatWindowActivity.class);
     }
 
-    private static void bQD() {
+    private static void bTA() {
         MessageManager.getInstance().registerListener(new CustomMessageListener(CmdConfigCustom.CMD_PERSON_ALA_ENTRANCE_LIVE_ID) { // from class: com.baidu.tieba.ala.liveroom.AlaLiveRoomActivityInitialize.3
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.live.adp.framework.listener.MessageListener
             public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
                 if (customResponsedMessage != null && (customResponsedMessage.getData() instanceof Long)) {
                     long longValue = ((Long) customResponsedMessage.getData()).longValue();
-                    long j = com.baidu.live.c.AZ().getLong("ala_live_room_last_live_id", -1L);
+                    long j = d.AZ().getLong("ala_live_room_last_live_id", -1L);
                     if (j > 0 && longValue > 0 && j == longValue) {
-                        com.baidu.live.c.AZ().putBoolean("ala_person_ala_entrance_same_live_room", true);
+                        d.AZ().putBoolean("ala_person_ala_entrance_same_live_room", true);
                     } else {
-                        com.baidu.live.c.AZ().putBoolean("ala_person_ala_entrance_same_live_room", false);
+                        d.AZ().putBoolean("ala_person_ala_entrance_same_live_room", false);
                     }
-                    com.baidu.live.c.AZ().remove("ala_live_room_last_live_id");
+                    d.AZ().remove("ala_live_room_last_live_id");
                 }
             }
         });

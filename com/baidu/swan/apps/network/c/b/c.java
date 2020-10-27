@@ -12,19 +12,19 @@ public final class c extends b {
 
     @Override // com.baidu.swan.apps.network.c.b.b
     public void u(JSONObject jSONObject, String str) {
-        e aDb;
-        com.baidu.swan.apps.setting.a aDm;
+        e aEV;
+        com.baidu.swan.apps.setting.a aFg;
         if (this.DEBUG) {
             Log.d(this.TAG, "onUpdate: ");
         }
-        if (jSONObject == null || (aDb = e.aDb()) == null || (aDm = aDb.aDm()) == null) {
+        if (jSONObject == null || (aEV = e.aEV()) == null || (aFg = aEV.aFg()) == null) {
             return;
         }
-        aDm.putString("note_data_pay_check_list", jSONObject.toString());
+        aFg.putString("note_data_pay_check_list", jSONObject.toString());
     }
 
     @Override // com.baidu.swan.apps.network.c.b.b
-    public void ayy() {
+    public void aAs() {
         if (this.DEBUG) {
             Log.d(this.TAG, "onFiltered: ");
         }

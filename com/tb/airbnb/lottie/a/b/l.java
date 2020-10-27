@@ -5,11 +5,11 @@ import java.util.List;
 /* loaded from: classes16.dex */
 public class l extends a<com.tb.airbnb.lottie.model.content.h, Path> {
     private final Path Eb;
-    private final com.tb.airbnb.lottie.model.content.h oIa;
+    private final com.tb.airbnb.lottie.model.content.h pzx;
 
     public l(List<com.tb.airbnb.lottie.e.a<com.tb.airbnb.lottie.model.content.h>> list) {
         super(list);
-        this.oIa = new com.tb.airbnb.lottie.model.content.h();
+        this.pzx = new com.tb.airbnb.lottie.model.content.h();
         this.Eb = new Path();
     }
 
@@ -17,8 +17,8 @@ public class l extends a<com.tb.airbnb.lottie.model.content.h, Path> {
     @Override // com.tb.airbnb.lottie.a.b.a
     /* renamed from: g */
     public Path a(com.tb.airbnb.lottie.e.a<com.tb.airbnb.lottie.model.content.h> aVar, float f) {
-        this.oIa.a(aVar.Hn, aVar.Ho, f);
-        com.tb.airbnb.lottie.d.e.a(this.oIa, this.Eb);
+        this.pzx.a(aVar.Hn, aVar.Ho, f);
+        com.tb.airbnb.lottie.d.e.a(this.pzx, this.Eb);
         return this.Eb;
     }
 }

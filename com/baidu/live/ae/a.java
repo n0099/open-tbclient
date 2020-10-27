@@ -1,34 +1,44 @@
 package com.baidu.live.ae;
 
-import android.view.KeyEvent;
-import android.view.ViewGroup;
-import android.widget.FrameLayout;
-import com.baidu.live.data.u;
+import com.baidu.live.tbadk.ubc.IUbcManager;
+import com.baidu.pyramid.runtime.service.c;
+import com.baidu.ubc.Flow;
+import com.baidu.ubc.aa;
+import org.json.JSONObject;
 /* loaded from: classes4.dex */
-public interface a {
-    void L(Object obj);
+public class a implements IUbcManager {
+    @Override // com.baidu.live.tbadk.ubc.IUbcManager
+    public void onEvent(String str, JSONObject jSONObject) {
+        ((aa) c.a(aa.SERVICE_REFERENCE)).onEvent(str, jSONObject);
+    }
 
-    void Re();
+    @Override // com.baidu.live.tbadk.ubc.IUbcManager
+    public Object flowBegin(String str, JSONObject jSONObject) {
+        return ((aa) c.a(aa.SERVICE_REFERENCE)).beginFlow(str, jSONObject);
+    }
 
-    boolean Rf();
+    @Override // com.baidu.live.tbadk.ubc.IUbcManager
+    public void flowSetValueWithDuration(Object obj, JSONObject jSONObject) {
+        aa aaVar = (aa) c.a(aa.SERVICE_REFERENCE);
+        if (jSONObject != null) {
+            aaVar.flowSetValueWithDuration((Flow) obj, jSONObject.toString());
+        } else {
+            aaVar.flowSetValueWithDuration((Flow) obj, null);
+        }
+    }
 
-    boolean Rg();
+    @Override // com.baidu.live.tbadk.ubc.IUbcManager
+    public void flowStartSlot(Object obj, String str, JSONObject jSONObject) {
+        ((aa) c.a(aa.SERVICE_REFERENCE)).a((Flow) obj, str, jSONObject);
+    }
 
-    void Rh();
+    @Override // com.baidu.live.tbadk.ubc.IUbcManager
+    public void flowEndSlot(Object obj, String str) {
+        ((aa) c.a(aa.SERVICE_REFERENCE)).flowEndSlot((Flow) obj, str);
+    }
 
-    void a(FrameLayout frameLayout);
-
-    void a(b bVar);
-
-    void onDestroy();
-
-    boolean onKeyDown(int i, KeyEvent keyEvent);
-
-    void s(u uVar);
-
-    void setMute(boolean z);
-
-    void w(ViewGroup viewGroup);
-
-    void x(ViewGroup viewGroup);
+    @Override // com.baidu.live.tbadk.ubc.IUbcManager
+    public void flowEnd(Object obj) {
+        ((aa) c.a(aa.SERVICE_REFERENCE)).flowEnd((Flow) obj);
+    }
 }

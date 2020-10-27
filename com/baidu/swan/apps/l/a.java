@@ -29,10 +29,10 @@ public class a {
                 a.this.a(bVar, 1, 0);
             }
         });
-        aVar.dSX = false;
-        aVar.dSY = false;
-        aVar.dSZ = false;
-        com.baidu.swan.a.c.a.aWr().a(aVar);
+        aVar.ebt = false;
+        aVar.ebu = false;
+        aVar.ebv = false;
+        com.baidu.swan.a.c.a.aYk().a(aVar);
     }
 
     /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [117=4] */
@@ -139,7 +139,7 @@ public class a {
                     runnable = new Runnable() { // from class: com.baidu.swan.apps.l.a.4
                         @Override // java.lang.Runnable
                         public void run() {
-                            bVar.eX(i2);
+                            bVar.fa(i2);
                         }
                     };
                     break;

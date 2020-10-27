@@ -7,27 +7,27 @@ public class e extends d {
     @Override // com.baidu.swan.apps.storage.c.d
     protected Bundle a(c cVar) {
         Bundle bundle = new Bundle();
-        b tg = h.tg(cVar.dmA);
-        if (tg == null) {
+        b tz = h.tz(cVar.dvc);
+        if (tz == null) {
             if (DEBUG) {
                 throw new IllegalArgumentException("illegal sp.");
             }
         } else {
             switch (cVar.mDataType) {
                 case 1:
-                    bundle.putInt("result_value", tg.getInt(cVar.dmB, Integer.parseInt(cVar.dmC)));
+                    bundle.putInt("result_value", tz.getInt(cVar.dvd, Integer.parseInt(cVar.dve)));
                     break;
                 case 2:
-                    bundle.putLong("result_value", tg.getLong(cVar.dmB, Long.parseLong(cVar.dmC)));
+                    bundle.putLong("result_value", tz.getLong(cVar.dvd, Long.parseLong(cVar.dve)));
                     break;
                 case 3:
-                    bundle.putBoolean("result_value", tg.getBoolean(cVar.dmB, Boolean.parseBoolean(cVar.dmC)));
+                    bundle.putBoolean("result_value", tz.getBoolean(cVar.dvd, Boolean.parseBoolean(cVar.dve)));
                     break;
                 case 4:
-                    bundle.putString("result_value", tg.getString(cVar.dmB, cVar.dmC));
+                    bundle.putString("result_value", tz.getString(cVar.dvd, cVar.dve));
                     break;
                 case 5:
-                    bundle.putFloat("result_value", tg.getFloat(cVar.dmB, Float.parseFloat(cVar.dmC)));
+                    bundle.putFloat("result_value", tz.getFloat(cVar.dvd, Float.parseFloat(cVar.dve)));
                     break;
                 default:
                     if (DEBUG) {

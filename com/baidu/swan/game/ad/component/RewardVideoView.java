@@ -11,7 +11,7 @@ import com.baidu.swan.apps.media.b.c;
 import com.baidu.swan.apps.runtime.e;
 /* loaded from: classes14.dex */
 public class RewardVideoView extends RelativeLayout {
-    private a chu;
+    private a cpV;
     private Context mContext;
     private boolean mIsMute;
 
@@ -30,16 +30,16 @@ public class RewardVideoView extends RelativeLayout {
     }
 
     public void bs(String str) {
-        c aLH = aLH();
-        aLH.mSrc = str;
-        this.chu.d(aLH);
-        this.chu.eW(false);
+        c aNB = aNB();
+        aNB.mSrc = str;
+        this.cpV.d(aNB);
+        this.cpV.fj(false);
     }
 
     public void mute(boolean z) {
-        if (this.chu != null) {
+        if (this.cpV != null) {
             this.mIsMute = z;
-            this.chu.mute(z);
+            this.cpV.mute(z);
         }
     }
 
@@ -48,16 +48,16 @@ public class RewardVideoView extends RelativeLayout {
     }
 
     public a getPlayer() {
-        return this.chu;
+        return this.cpV;
     }
 
     private void initPlayer() {
-        e aDa = e.aDa();
-        if (aDa != null) {
-            this.chu = new a(aDa.aCU(), aLH());
+        e aEU = e.aEU();
+        if (aEU != null) {
+            this.cpV = new a(aEU.aEO(), aNB());
             FrameLayout frameLayout = new FrameLayout(this.mContext);
             addView(frameLayout, new RelativeLayout.LayoutParams(-1, -1));
-            this.chu.c(frameLayout);
+            this.cpV.c(frameLayout);
         }
     }
 
@@ -67,15 +67,15 @@ public class RewardVideoView extends RelativeLayout {
     }
 
     @NonNull
-    private c aLH() {
+    private c aNB() {
         c cVar = new c();
-        cVar.cMu = "SwanAdPlayer";
-        cVar.cpp = "SwanAdPlayer";
-        cVar.cMD = true;
-        cVar.cQt = this.mIsMute;
-        cVar.cQB = false;
-        cVar.cQK = false;
-        cVar.cQH = false;
+        cVar.cUQ = "SwanAdPlayer";
+        cVar.cxR = "SwanAdPlayer";
+        cVar.cUZ = true;
+        cVar.cYP = this.mIsMute;
+        cVar.cYX = false;
+        cVar.cZg = false;
+        cVar.cZd = false;
         return cVar;
     }
 }

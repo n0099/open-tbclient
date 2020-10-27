@@ -33,56 +33,56 @@ import java.util.LinkedList;
 import org.json.JSONObject;
 /* loaded from: classes4.dex */
 public class a {
-    private static volatile a bCE;
+    private static volatile a bFA;
     private String mUserId;
-    private HashMap<String, LinkedList<com.baidu.live.data.e>> mUserAttentionRequestMap = new HashMap<>();
-    private HashMap<String, C0213a> mAttentionTaskMap = new HashMap<>();
+    private HashMap<String, LinkedList<com.baidu.live.data.f>> mUserAttentionRequestMap = new HashMap<>();
+    private HashMap<String, C0219a> mAttentionTaskMap = new HashMap<>();
 
     private a() {
     }
 
-    public static a SY() {
-        if (bCE == null) {
+    public static a TX() {
+        if (bFA == null) {
             synchronized (a.class) {
-                if (bCE == null) {
-                    bCE = new a();
+                if (bFA == null) {
+                    bFA = new a();
                 }
             }
         }
-        return bCE;
+        return bFA;
     }
 
-    public void a(String str, com.baidu.live.data.e eVar) {
-        if (!StringUtils.isNull(str) && eVar != null && eVar.getPortrait() != null) {
-            LinkedList<com.baidu.live.data.e> linkedList = this.mUserAttentionRequestMap.get(str);
+    public void a(String str, com.baidu.live.data.f fVar) {
+        if (!StringUtils.isNull(str) && fVar != null && fVar.getPortrait() != null) {
+            LinkedList<com.baidu.live.data.f> linkedList = this.mUserAttentionRequestMap.get(str);
             if (linkedList == null) {
                 linkedList = new LinkedList<>();
                 this.mUserAttentionRequestMap.put(str, linkedList);
             }
-            a(linkedList, eVar);
+            a(linkedList, fVar);
             executeAttentionTask(str);
         }
     }
 
-    public void b(String str, com.baidu.live.data.e eVar) {
-        if (!StringUtils.isNull(str) && eVar != null) {
-            LinkedList<com.baidu.live.data.e> linkedList = this.mUserAttentionRequestMap.get(str);
+    public void b(String str, com.baidu.live.data.f fVar) {
+        if (!StringUtils.isNull(str) && fVar != null) {
+            LinkedList<com.baidu.live.data.f> linkedList = this.mUserAttentionRequestMap.get(str);
             if (linkedList == null) {
                 linkedList = new LinkedList<>();
                 this.mUserAttentionRequestMap.put(str, linkedList);
             }
-            a(linkedList, eVar);
+            a(linkedList, fVar);
             executeAttentionTask(str);
         }
     }
 
-    private void a(LinkedList<com.baidu.live.data.e> linkedList, com.baidu.live.data.e eVar) {
+    private void a(LinkedList<com.baidu.live.data.f> linkedList, com.baidu.live.data.f fVar) {
         if (linkedList.size() < 1) {
-            b(linkedList, eVar);
+            b(linkedList, fVar);
             return;
         }
-        com.baidu.live.data.e last = linkedList.getLast();
-        if (last.getPortrait().equals(eVar.getPortrait()) && last.isAttention() == eVar.isAttention()) {
+        com.baidu.live.data.f last = linkedList.getLast();
+        if (last.getPortrait().equals(fVar.getPortrait()) && last.isAttention() == fVar.isAttention()) {
             if (BdLog.isDebugMode()) {
                 try {
                     throw new IllegalArgumentException("new attention data is the same as the nearest attention data");
@@ -91,35 +91,35 @@ public class a {
                 }
             }
         } else if (linkedList.size() < 3) {
-            b(linkedList, eVar);
-        } else if (linkedList.get(1).equals(eVar)) {
+            b(linkedList, fVar);
+        } else if (linkedList.get(1).equals(fVar)) {
             linkedList.removeLast();
         }
     }
 
-    private void b(LinkedList<com.baidu.live.data.e> linkedList, com.baidu.live.data.e eVar) {
-        if (eVar != null) {
-            linkedList.add(eVar.clone());
+    private void b(LinkedList<com.baidu.live.data.f> linkedList, com.baidu.live.data.f fVar) {
+        if (fVar != null) {
+            linkedList.add(fVar.clone());
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void executeAttentionTask(String str) {
-        LinkedList<com.baidu.live.data.e> linkedList;
+        LinkedList<com.baidu.live.data.f> linkedList;
         if (!StringUtils.isNull(str) && this.mAttentionTaskMap.get(str) == null && (linkedList = this.mUserAttentionRequestMap.get(str)) != null && linkedList.size() > 0) {
-            C0213a c0213a = new C0213a();
-            this.mAttentionTaskMap.put(str, c0213a);
-            c0213a.setPriority(2);
-            c0213a.a(linkedList.getFirst());
-            c0213a.execute(new Integer[0]);
+            C0219a c0219a = new C0219a();
+            this.mAttentionTaskMap.put(str, c0219a);
+            c0219a.setPriority(2);
+            c0219a.a(linkedList.getFirst());
+            c0219a.execute(new Integer[0]);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     /* renamed from: com.baidu.live.view.a$a  reason: collision with other inner class name */
     /* loaded from: classes4.dex */
-    public class C0213a extends BdAsyncTask<Integer, Integer, String> {
-        private BdUniqueId bCJ;
+    public class C0219a extends BdAsyncTask<Integer, Integer, String> {
+        private BdUniqueId bFF;
         private String forumId;
         private String from;
         private String inLive;
@@ -130,7 +130,7 @@ public class a {
         private boolean showToastAfterAttentionSuc;
         private String toUid;
 
-        private C0213a() {
+        private C0219a() {
             this.mNetwork = null;
             this.metaKey = "";
             this.isGod = false;
@@ -140,13 +140,13 @@ public class a {
             this.showToastAfterAttentionSuc = false;
         }
 
-        public void a(com.baidu.live.data.e eVar) {
-            this.isAttention = eVar.isAttention();
-            this.toUid = eVar.getUserId();
-            this.inLive = eVar.getInLive();
-            this.bCJ = eVar.DE();
-            this.from = eVar.getFrom();
-            this.metaKey = eVar.DF();
+        public void a(com.baidu.live.data.f fVar) {
+            this.isAttention = fVar.isAttention();
+            this.toUid = fVar.getUserId();
+            this.inLive = fVar.getInLive();
+            this.bFF = fVar.DL();
+            this.from = fVar.getFrom();
+            this.metaKey = fVar.DM();
             if (this.forumId != null) {
                 this.showToastAfterAttentionSuc = true;
             }
@@ -183,7 +183,7 @@ public class a {
         /* JADX INFO: Access modifiers changed from: protected */
         @Override // com.baidu.live.adp.lib.asynctask.BdAsyncTask
         public void onPostExecute(String str) {
-            super.onPostExecute((C0213a) str);
+            super.onPostExecute((C0219a) str);
             if (this.mNetwork != null) {
                 UpdateAttentionMessage.UpdateAttentionData updateAttentionData = new UpdateAttentionMessage.UpdateAttentionData();
                 updateAttentionData.isSucc = this.mNetwork.isRequestSuccess();
@@ -198,7 +198,7 @@ public class a {
                     updateAttentionData.isSucc = updateAttentionData.response.mServerErrorCode == 0;
                 }
                 UpdateAttentionMessage updateAttentionMessage = new UpdateAttentionMessage(updateAttentionData);
-                updateAttentionMessage.setOrginalMessage(new CustomMessage((int) MessageConfig.BASE_CUSTOM_CMD, this.bCJ));
+                updateAttentionMessage.setOrginalMessage(new CustomMessage((int) MessageConfig.BASE_CUSTOM_CMD, this.bFF));
                 MessageManager.getInstance().dispatchResponsedMessage(updateAttentionMessage);
                 a.this.a(updateAttentionData, this.from);
             }
@@ -237,7 +237,7 @@ public class a {
     }
 
     public void removeRequestListFirstByUid(String str) {
-        LinkedList<com.baidu.live.data.e> linkedList = this.mUserAttentionRequestMap.get(str);
+        LinkedList<com.baidu.live.data.f> linkedList = this.mUserAttentionRequestMap.get(str);
         if (linkedList != null && linkedList.size() > 0) {
             try {
                 linkedList.removeFirst();
@@ -327,14 +327,14 @@ public class a {
         return false;
     }
 
-    public void n(String[] strArr) {
+    public void o(String[] strArr) {
         for (String str : strArr) {
-            if (SZ() != null && SZ().equals(str)) {
+            if (TY() != null && TY().equals(str)) {
                 UpdateAttentionMessage.UpdateAttentionData updateAttentionData = new UpdateAttentionMessage.UpdateAttentionData();
                 updateAttentionData.isSucc = true;
                 updateAttentionData.errorString = null;
                 updateAttentionData.isAttention = true;
-                updateAttentionData.toUid = SZ();
+                updateAttentionData.toUid = TY();
                 updateAttentionData.isGod = false;
                 updateAttentionData.isShowMessage = false;
                 UpdateAttentionMessage updateAttentionMessage = new UpdateAttentionMessage(updateAttentionData);
@@ -345,11 +345,11 @@ public class a {
         }
     }
 
-    public String SZ() {
+    public String TY() {
         return this.mUserId;
     }
 
-    public void io(String str) {
+    public void iz(String str) {
         this.mUserId = str;
     }
 }

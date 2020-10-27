@@ -21,7 +21,7 @@ public class j extends com.baidu.live.view.web.a {
     }
 
     @Override // com.baidu.live.view.web.a
-    public void iq(String str) {
+    public void iB(String str) {
         Log.d("JsInterface", "@@ JsInterface-impl ShareBridgeJsInterface params = " + str);
         try {
             JSONObject jSONObject = new JSONObject(str);

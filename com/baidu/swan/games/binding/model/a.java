@@ -3,59 +3,59 @@ package com.baidu.swan.games.binding.model;
 import com.baidu.searchbox.v8engine.JsFunction;
 /* loaded from: classes10.dex */
 public final class a {
-    public JsFunction dEG;
-    public JsFunction dEH;
-    public JsFunction dEI;
+    public JsFunction dNd;
+    public JsFunction dNe;
+    public JsFunction dNf;
 
     public static a f(c cVar) {
         if (cVar == null) {
             return null;
         }
         a aVar = new a();
-        aVar.dEG = cVar.vX("success");
-        aVar.dEH = cVar.vX("fail");
-        aVar.dEI = cVar.vX(com.baidu.mobads.openad.c.b.COMPLETE);
+        aVar.dNd = cVar.wq("success");
+        aVar.dNe = cVar.wq("fail");
+        aVar.dNf = cVar.wq(com.baidu.mobads.openad.c.b.COMPLETE);
         return aVar;
     }
 
     public void onSuccess(Object obj) {
-        if (this.dEG != null) {
-            this.dEG.call(obj);
+        if (this.dNd != null) {
+            this.dNd.call(obj);
         }
-        if (this.dEI != null) {
-            this.dEI.call(obj);
+        if (this.dNf != null) {
+            this.dNf.call(obj);
         }
-        a(this.dEH);
+        a(this.dNe);
     }
 
     public void ac(Object obj) {
-        if (this.dEH != null) {
-            this.dEH.call(obj);
+        if (this.dNe != null) {
+            this.dNe.call(obj);
         }
-        if (this.dEI != null) {
-            this.dEI.call(obj);
+        if (this.dNf != null) {
+            this.dNf.call(obj);
         }
-        a(this.dEG);
+        a(this.dNd);
     }
 
     public void onSuccess() {
-        if (this.dEG != null) {
-            this.dEG.call();
+        if (this.dNd != null) {
+            this.dNd.call();
         }
-        if (this.dEI != null) {
-            this.dEI.call();
+        if (this.dNf != null) {
+            this.dNf.call();
         }
-        a(this.dEH);
+        a(this.dNe);
     }
 
     public void onFail() {
-        if (this.dEH != null) {
-            this.dEH.call();
+        if (this.dNe != null) {
+            this.dNe.call();
         }
-        if (this.dEI != null) {
-            this.dEI.call();
+        if (this.dNf != null) {
+            this.dNf.call();
         }
-        a(this.dEG);
+        a(this.dNd);
     }
 
     private void a(JsFunction jsFunction) {

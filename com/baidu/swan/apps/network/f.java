@@ -7,7 +7,7 @@ public interface f {
 
     /* loaded from: classes10.dex */
     public interface a {
-        public static final MediaType cSI = MediaType.parse(HttpHelper.CONTENT_JSON);
-        public static final MediaType cSJ = MediaType.parse("application/x-www-form-urlencoded");
+        public static final MediaType dbg = MediaType.parse(HttpHelper.CONTENT_JSON);
+        public static final MediaType dbh = MediaType.parse("application/x-www-form-urlencoded");
     }
 }

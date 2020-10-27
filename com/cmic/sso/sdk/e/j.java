@@ -8,27 +8,27 @@ import com.cmic.sso.sdk.a.b;
 /* loaded from: classes8.dex */
 public class j {
     @SuppressLint({"StaticFieldLeak"})
-    private static j nIG;
+    private static j ozZ;
 
     /* renamed from: a  reason: collision with root package name */
-    private Context f4024a;
+    private Context f4022a;
 
     public static void a(Context context) {
-        nIG = new j(context);
+        ozZ = new j(context);
     }
 
     private j(Context context) {
-        this.f4024a = context;
+        this.f4022a = context;
     }
 
-    public static j dVg() {
-        return nIG;
+    public static j efe() {
+        return ozZ;
     }
 
     public String b() {
         try {
-            b.C0871b dUY = com.cmic.sso.sdk.a.b.dUX().dUY();
-            return dUY.LU(dUY.f());
+            b.C0943b eeW = com.cmic.sso.sdk.a.b.eeV().eeW();
+            return eeW.NL(eeW.f());
         } catch (Exception e) {
             e.printStackTrace();
             return "";
@@ -40,11 +40,11 @@ public class j {
         String str;
         TelephonyManager telephonyManager;
         String str2;
-        b.C0871b dUY = com.cmic.sso.sdk.a.b.dUX().dUY();
-        String LW = dUY.LW(dUY.f());
-        if (TextUtils.isEmpty(LW) && n.a(this.f4024a) && (telephonyManager = (TelephonyManager) this.f4024a.getSystemService("phone")) != null) {
+        b.C0943b eeW = com.cmic.sso.sdk.a.b.eeV().eeW();
+        String NN = eeW.NN(eeW.f());
+        if (TextUtils.isEmpty(NN) && n.a(this.f4022a) && (telephonyManager = (TelephonyManager) this.f4022a.getSystemService("phone")) != null) {
             String simOperator = telephonyManager.getSimOperator();
-            if (TextUtils.isEmpty(simOperator) && g.a(this.f4024a, "android.permission.READ_PHONE_STATE") && n.d()) {
+            if (TextUtils.isEmpty(simOperator) && g.a(this.f4022a, "android.permission.READ_PHONE_STATE") && n.d()) {
                 try {
                     str2 = telephonyManager.getSubscriberId();
                 } catch (Exception e) {
@@ -57,7 +57,7 @@ public class j {
             }
             str = simOperator;
         } else {
-            str = LW;
+            str = NN;
         }
         c.b("SIMUtils", "operator: " + str);
         if (TextUtils.isEmpty(str)) {
@@ -156,19 +156,19 @@ public class j {
     }
 
     @SuppressLint({"MissingPermission"})
-    public String yE(boolean z) {
+    public String zM(boolean z) {
         try {
             if (n.d()) {
-                b.C0871b dUY = com.cmic.sso.sdk.a.b.dUX().dUY();
-                String LV = dUY.LV(dUY.f());
-                if (TextUtils.isEmpty(LV) && z) {
-                    LV = ((TelephonyManager) this.f4024a.getSystemService("phone")).getDeviceId();
+                b.C0943b eeW = com.cmic.sso.sdk.a.b.eeV().eeW();
+                String NM = eeW.NM(eeW.f());
+                if (TextUtils.isEmpty(NM) && z) {
+                    NM = ((TelephonyManager) this.f4022a.getSystemService("phone")).getDeviceId();
                 }
-                c.b("SIMUtils", "imei is " + LV);
-                if (TextUtils.isEmpty(LV)) {
+                c.b("SIMUtils", "imei is " + NM);
+                if (TextUtils.isEmpty(NM)) {
                     return "none";
                 }
-                return LV;
+                return NM;
             }
         } catch (Exception e) {
             c.a("SIMUtils", e.getMessage());
@@ -178,12 +178,12 @@ public class j {
 
     public String c() {
         try {
-            b.C0871b dUY = com.cmic.sso.sdk.a.b.dUX().dUY();
-            String LU = dUY.LU((dUY.f() + 1) % 2);
-            if (LU == null) {
+            b.C0943b eeW = com.cmic.sso.sdk.a.b.eeV().eeW();
+            String NL = eeW.NL((eeW.f() + 1) % 2);
+            if (NL == null) {
                 return "";
             }
-            return LU;
+            return NL;
         } catch (Exception e) {
             return "";
         }
@@ -191,12 +191,12 @@ public class j {
 
     public String d() {
         try {
-            b.C0871b dUY = com.cmic.sso.sdk.a.b.dUX().dUY();
-            String LV = dUY.LV((dUY.f() + 1) % 2);
-            if (LV == null) {
+            b.C0943b eeW = com.cmic.sso.sdk.a.b.eeV().eeW();
+            String NM = eeW.NM((eeW.f() + 1) % 2);
+            if (NM == null) {
                 return "";
             }
-            return LV;
+            return NM;
         } catch (Exception e) {
             return "";
         }
@@ -204,12 +204,12 @@ public class j {
 
     @SuppressLint({"MissingPermission"})
     public static String e() {
-        b.C0871b dUY = com.cmic.sso.sdk.a.b.dUX().dUY();
-        return dUY.a(dUY.f());
+        b.C0943b eeW = com.cmic.sso.sdk.a.b.eeV().eeW();
+        return eeW.a(eeW.f());
     }
 
     public String f() {
-        TelephonyManager telephonyManager = (TelephonyManager) this.f4024a.getSystemService("phone");
+        TelephonyManager telephonyManager = (TelephonyManager) this.f4022a.getSystemService("phone");
         if (telephonyManager != null) {
             String simOperator = telephonyManager.getSimOperator();
             c.b("SIMUtils", "SysOperType = " + simOperator);

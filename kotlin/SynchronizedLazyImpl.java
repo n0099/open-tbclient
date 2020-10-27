@@ -14,7 +14,7 @@ public final class SynchronizedLazyImpl<T> implements Serializable, d<T> {
     public SynchronizedLazyImpl(kotlin.jvm.a.a<? extends T> aVar, Object obj) {
         q.n(aVar, "initializer");
         this.initializer = aVar;
-        this._value = k.oRa;
+        this._value = k.pIx;
         this.lock = obj == null ? this : obj;
     }
 
@@ -25,13 +25,13 @@ public final class SynchronizedLazyImpl<T> implements Serializable, d<T> {
     @Override // kotlin.d
     public T getValue() {
         T t = (T) this._value;
-        if (t == k.oRa) {
+        if (t == k.pIx) {
             synchronized (this.lock) {
                 t = this._value;
-                if (t == k.oRa) {
+                if (t == k.pIx) {
                     kotlin.jvm.a.a<? extends T> aVar = this.initializer;
                     if (aVar == null) {
-                        q.eob();
+                        q.eya();
                     }
                     T invoke = aVar.invoke();
                     this._value = invoke;
@@ -44,7 +44,7 @@ public final class SynchronizedLazyImpl<T> implements Serializable, d<T> {
     }
 
     public boolean isInitialized() {
-        return this._value != k.oRa;
+        return this._value != k.pIx;
     }
 
     public String toString() {

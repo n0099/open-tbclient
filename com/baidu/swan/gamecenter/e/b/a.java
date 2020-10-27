@@ -14,16 +14,16 @@ public class a extends com.baidu.swan.gamecenter.c.a {
 
     @Override // com.baidu.swan.gamecenter.c.a
     public com.baidu.swan.apps.api.c.b b(JSONObject jSONObject, com.baidu.swan.apps.o.b bVar) {
-        String abT = com.baidu.swan.apps.t.a.asi().abT();
+        String adN = com.baidu.swan.apps.t.a.aud().adN();
         JSONObject jSONObject2 = new JSONObject();
         try {
-            jSONObject2.put(UbcStatConstant.KEY_CONTENT_EXT_SID, abT);
+            jSONObject2.put(UbcStatConstant.KEY_CONTENT_EXT_SID, adN);
         } catch (JSONException e) {
             if (DEBUG) {
                 e.printStackTrace();
             }
         }
-        bVar.av(jSONObject2);
+        bVar.ay(jSONObject2);
         return null;
     }
 }

@@ -13,7 +13,7 @@ public class AlaLivePersonData implements Serializable {
     public AlaAvtsData mChatAvtsData;
     public long mChatId;
     public AlaLiveInfoData mLiveInfo;
-    public s mLiveSdkInfo;
+    public AlaLiveSdkInfo mLiveSdkInfo;
     public AlaLocationData mLocationData;
     public AlaPersonPkData mPkData;
     public AlaRelationData mRelationData;
@@ -63,7 +63,7 @@ public class AlaLivePersonData implements Serializable {
             }
             JSONObject jSONObject2 = (JSONObject) jSONObject.opt(CashierData.SDK);
             if (jSONObject2 != null) {
-                this.mLiveSdkInfo = new s();
+                this.mLiveSdkInfo = new AlaLiveSdkInfo();
                 this.mLiveSdkInfo.parseJson(jSONObject2);
             }
             JSONObject optJSONObject9 = jSONObject.optJSONObject("chat_info");

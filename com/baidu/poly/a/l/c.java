@@ -12,16 +12,16 @@ import android.widget.TextView;
 import com.baidu.poly.b;
 /* loaded from: classes6.dex */
 public class c extends FrameLayout {
-    private ImageView bPk;
-    private TextView bPl;
-    private Animation bPm;
-    private boolean bPn;
+    private ImageView bXH;
+    private TextView bXI;
+    private Animation bXJ;
+    private boolean bXK;
 
     public c(Context context) {
         this(context, null);
     }
 
-    private void WT() {
+    private void YN() {
         ViewGroup.LayoutParams layoutParams = getLayoutParams();
         if (layoutParams == null) {
             setLayoutParams(new ViewGroup.LayoutParams(-1, -1));
@@ -33,30 +33,30 @@ public class c extends FrameLayout {
 
     private void c(Context context) {
         LayoutInflater.from(context).inflate(b.f.view_toast_loading, (ViewGroup) this, true);
-        this.bPk = (ImageView) findViewById(b.e.toast_loading_view);
-        this.bPl = (TextView) findViewById(b.e.toast_text_view);
-        this.bPm = AnimationUtils.loadAnimation(context, b.a.loading_rotate);
+        this.bXH = (ImageView) findViewById(b.e.toast_loading_view);
+        this.bXI = (TextView) findViewById(b.e.toast_text_view);
+        this.bXJ = AnimationUtils.loadAnimation(context, b.a.loading_rotate);
         setClickable(true);
     }
 
     public boolean getIsLoading() {
-        return this.bPn;
+        return this.bXK;
     }
 
     public void setLoading(boolean z) {
-        WT();
-        this.bPn = z;
+        YN();
+        this.bXK = z;
         if (z) {
             setVisibility(0);
-            this.bPk.startAnimation(this.bPm);
+            this.bXH.startAnimation(this.bXJ);
             return;
         }
-        this.bPk.clearAnimation();
+        this.bXH.clearAnimation();
         setVisibility(8);
     }
 
     public void setText(String str) {
-        this.bPl.setText(str);
+        this.bXI.setText(str);
     }
 
     public c(Context context, AttributeSet attributeSet) {

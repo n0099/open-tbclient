@@ -1,7 +1,7 @@
 package com.baidu.tieba.sdk.b;
 /* loaded from: classes4.dex */
 public interface a {
-    com.baidu.tieba.sdk.c.a cVe();
+    com.baidu.tieba.sdk.c.a cYm();
 
-    void cVf();
+    void cYn();
 }

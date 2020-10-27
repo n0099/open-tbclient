@@ -44,9 +44,9 @@ public class AddMsgRecordModel extends BdBaseModel {
 
     private List<MsgRecord> getMsgRecords() {
         ArrayList arrayList = null;
-        List<ImMessageCenterPojo> cOi = b.cOc().cOi();
-        if (cOi != null && cOi.size() != 0) {
-            for (ImMessageCenterPojo imMessageCenterPojo : cOi) {
+        List<ImMessageCenterPojo> cRp = b.cRj().cRp();
+        if (cRp != null && cRp.size() != 0) {
+            for (ImMessageCenterPojo imMessageCenterPojo : cRp) {
                 String taskId = imMessageCenterPojo.getTaskId();
                 if (taskId != null && taskId.length() != 0 && !"0".equals(taskId)) {
                     ArrayList arrayList2 = arrayList == null ? new ArrayList() : arrayList;

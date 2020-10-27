@@ -1,6 +1,6 @@
 package com.baidu.live.view.input;
 
-import com.baidu.live.data.u;
+import com.baidu.live.data.w;
 import com.baidu.live.tbadk.TbPageContext;
 import java.util.List;
 /* loaded from: classes4.dex */
@@ -8,24 +8,24 @@ public interface c {
 
     /* loaded from: classes4.dex */
     public interface a {
-        boolean KS();
+        boolean LN();
 
-        int KX();
+        boolean Lm();
 
-        boolean Ls();
+        int Lr();
 
-        void Ts();
+        void Us();
 
-        void Tt();
+        void Ut();
     }
 
-    void Gx();
+    void GS();
 
-    List<String> NV();
+    List<String> Ot();
 
     void a(a aVar);
 
-    void b(u uVar, String str);
+    void b(w wVar, String str);
 
     void b(boolean z, int i, int i2, String str);
 
@@ -33,7 +33,7 @@ public interface c {
 
     void dI(int i);
 
-    void gV(String str);
+    void hg(String str);
 
     void release();
 }

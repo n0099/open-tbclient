@@ -8,8 +8,8 @@ public class h implements com.baidu.adp.widget.ListView.q {
     public static BdUniqueId TYPE = BdUniqueId.gen();
     public String fid;
     public String forumName;
-    public String kVt;
-    public boolean kVu = false;
+    public String lhS;
+    public boolean lhT = false;
     public int memberNum;
     public int postNum;
     public String tid;
@@ -17,7 +17,7 @@ public class h implements com.baidu.adp.widget.ListView.q {
     public h(ForumData forumData) {
         if (forumData != null) {
             this.forumName = forumData.getName();
-            this.kVt = forumData.getImage_url();
+            this.lhS = forumData.getImage_url();
             this.postNum = forumData.getPost_num();
             this.memberNum = forumData.getMember_num();
             this.fid = forumData.getId();
@@ -27,7 +27,7 @@ public class h implements com.baidu.adp.widget.ListView.q {
     public h(bs bsVar) {
         if (bsVar != null) {
             this.forumName = bsVar.forumName;
-            this.kVt = bsVar.avatar;
+            this.lhS = bsVar.avatar;
             this.postNum = bsVar.postNum;
             this.memberNum = bsVar.memberNum;
             this.fid = bsVar.forumId;

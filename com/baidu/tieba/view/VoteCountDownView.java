@@ -13,17 +13,17 @@ import com.baidu.tbadk.core.util.ap;
 import com.baidu.tieba.R;
 /* loaded from: classes.dex */
 public class VoteCountDownView extends LinearLayout {
-    private CountDownTimer gLf;
-    private a loD;
+    private CountDownTimer gWU;
+    private a lBc;
     private Context mContext;
-    private View niH;
-    private View niI;
-    private TextView niK;
-    private TextView niL;
+    private View nvi;
+    private View nvj;
+    private TextView nvl;
+    private TextView nvm;
 
     /* loaded from: classes.dex */
     public interface a {
-        void abg();
+        void ada();
     }
 
     public VoteCountDownView(Context context) {
@@ -45,9 +45,9 @@ public class VoteCountDownView extends LinearLayout {
         ul();
     }
 
-    private void ea(long j) {
-        if (this.gLf == null) {
-            this.gLf = new CountDownTimer(j, 1000L) { // from class: com.baidu.tieba.view.VoteCountDownView.1
+    private void ec(long j) {
+        if (this.gWU == null) {
+            this.gWU = new CountDownTimer(j, 1000L) { // from class: com.baidu.tieba.view.VoteCountDownView.1
                 @Override // android.os.CountDownTimer
                 public void onTick(long j2) {
                     long j3 = j2 + 60000;
@@ -57,46 +57,46 @@ public class VoteCountDownView extends LinearLayout {
                 @Override // android.os.CountDownTimer
                 public void onFinish() {
                     VoteCountDownView.this.setContent(0L, 0L);
-                    VoteCountDownView.this.bHT();
+                    VoteCountDownView.this.bJL();
                 }
             };
-            this.gLf.start();
+            this.gWU.start();
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void bHT() {
-        if (this.loD != null) {
-            this.loD.abg();
+    public void bJL() {
+        if (this.lBc != null) {
+            this.lBc.ada();
         }
     }
 
     private void ul() {
-        this.niH = findViewById(R.id.hour_num_container);
-        this.niI = findViewById(R.id.minute_num_container);
-        this.niK = (TextView) findViewById(R.id.hour_num_count_down_view);
-        this.niL = (TextView) findViewById(R.id.minute_num_count_down_view);
+        this.nvi = findViewById(R.id.hour_num_container);
+        this.nvj = findViewById(R.id.minute_num_container);
+        this.nvl = (TextView) findViewById(R.id.hour_num_count_down_view);
+        this.nvm = (TextView) findViewById(R.id.minute_num_count_down_view);
     }
 
     public void setContent(long j, long j2) {
-        this.niL.setText(String.valueOf(j2));
-        this.niK.setText(String.valueOf(j));
+        this.nvm.setText(String.valueOf(j2));
+        this.nvl.setText(String.valueOf(j));
     }
 
-    public void uc(int i) {
-        ap.setBackgroundResource(this.niH, R.drawable.bg_gradient_round, i);
-        ap.setBackgroundResource(this.niI, R.drawable.bg_gradient_round, i);
-        ap.setViewTextColor(this.niK, R.color.cp_cont_a, 1, i);
-        ap.setViewTextColor(this.niK, R.color.cp_cont_a, 1, i);
+    public void uu(int i) {
+        ap.setBackgroundResource(this.nvi, R.drawable.bg_gradient_round, i);
+        ap.setBackgroundResource(this.nvj, R.drawable.bg_gradient_round, i);
+        ap.setViewTextColor(this.nvl, R.color.cp_cont_a, 1, i);
+        ap.setViewTextColor(this.nvl, R.color.cp_cont_a, 1, i);
     }
 
     public void setData(long j) {
         long j2 = j + 60000;
         setContent(j2 / BdKVCache.MILLS_1Hour, (j2 % BdKVCache.MILLS_1Hour) / 60000);
-        ea(j);
+        ec(j);
     }
 
     public void setOnCountDownFinished(a aVar) {
-        this.loD = aVar;
+        this.lBc = aVar;
     }
 }

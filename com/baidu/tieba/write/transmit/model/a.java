@@ -9,7 +9,7 @@ import tbclient.SimpleForum;
 /* loaded from: classes3.dex */
 public class a {
     private String forumId;
-    private List<SimpleForum> iTM;
+    private List<SimpleForum> jgi;
     private BdUniqueId mBdUniqueId;
     private BdUniqueId mRequestId;
     private com.baidu.adp.framework.listener.a netMessageListener = new com.baidu.adp.framework.listener.a(1003323, CmdConfigSocket.CMD_GET_REPOST_RECOMMEND_FORUM) { // from class: com.baidu.tieba.write.transmit.model.a.1
@@ -19,31 +19,31 @@ public class a {
                 if ((responsedMessage instanceof GetRepostForumHttpResMessage) || (responsedMessage instanceof GetRepostForumSocketResMessage)) {
                     if (responsedMessage.getOrginalMessage() == null || !(responsedMessage.getOrginalMessage().getExtra() instanceof GetRepostForumReqMessage) || a.this.mRequestId == ((GetRepostForumReqMessage) responsedMessage.getOrginalMessage().getExtra()).getRequestId()) {
                         if (responsedMessage.hasError()) {
-                            if (a.this.nly != null) {
-                                a.this.nly.onError();
+                            if (a.this.nxZ != null) {
+                                a.this.nxZ.onError();
                                 return;
                             }
                             return;
                         }
                         if (responsedMessage instanceof GetRepostForumHttpResMessage) {
-                            a.this.iTM = ((GetRepostForumHttpResMessage) responsedMessage).getForumList();
+                            a.this.jgi = ((GetRepostForumHttpResMessage) responsedMessage).getForumList();
                             a.this.recommendExt = ((GetRepostForumHttpResMessage) responsedMessage).getRecommendExtension();
                             a.this.privateThread = ((GetRepostForumHttpResMessage) responsedMessage).getPrivateThread();
                         }
                         if (responsedMessage instanceof GetRepostForumSocketResMessage) {
-                            a.this.iTM = ((GetRepostForumSocketResMessage) responsedMessage).getForumList();
+                            a.this.jgi = ((GetRepostForumSocketResMessage) responsedMessage).getForumList();
                             a.this.recommendExt = ((GetRepostForumSocketResMessage) responsedMessage).getRecommendExtension();
                             a.this.privateThread = ((GetRepostForumSocketResMessage) responsedMessage).getPrivateThread();
                         }
-                        if (a.this.nly != null) {
-                            a.this.nly.s(a.this.iTM, a.this.privateThread);
+                        if (a.this.nxZ != null) {
+                            a.this.nxZ.t(a.this.jgi, a.this.privateThread);
                         }
                     }
                 }
             }
         }
     };
-    private InterfaceC0850a nly;
+    private InterfaceC0865a nxZ;
     private int privateThread;
     private String recommendExt;
     private String threadContent;
@@ -51,10 +51,10 @@ public class a {
 
     /* renamed from: com.baidu.tieba.write.transmit.model.a$a  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
-    public interface InterfaceC0850a {
+    public interface InterfaceC0865a {
         void onError();
 
-        void s(List<SimpleForum> list, int i);
+        void t(List<SimpleForum> list, int i);
     }
 
     public a(BdUniqueId bdUniqueId) {
@@ -79,7 +79,7 @@ public class a {
         MessageManager.getInstance().sendMessage(getRepostForumReqMessage);
     }
 
-    public void cvF() {
+    public void cyM() {
         MessageManager.getInstance().removeMessage(1003323, this.mBdUniqueId);
         MessageManager.getInstance().removeMessage(CmdConfigSocket.CMD_GET_REPOST_RECOMMEND_FORUM, this.mBdUniqueId);
     }
@@ -100,8 +100,8 @@ public class a {
         return this.recommendExt;
     }
 
-    public void a(InterfaceC0850a interfaceC0850a) {
-        this.nly = interfaceC0850a;
+    public void a(InterfaceC0865a interfaceC0865a) {
+        this.nxZ = interfaceC0865a;
     }
 
     public void destroy() {

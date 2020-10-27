@@ -12,7 +12,7 @@ import java.util.ArrayList;
 public final class a {
 
     /* renamed from: a  reason: collision with root package name */
-    private static boolean f4482a = false;
+    private static boolean f4480a = false;
     private static String b = "";
     private static String c = "";
 

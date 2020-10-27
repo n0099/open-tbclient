@@ -17,8 +17,8 @@ public final class w extends a {
     }
 
     public final void a(Context context) {
-        if (this.f4698a == null) {
-            this.f4698a = context;
+        if (this.f4696a == null) {
+            this.f4696a = context;
             a(context, "com.vivo.push_preferences");
         }
     }

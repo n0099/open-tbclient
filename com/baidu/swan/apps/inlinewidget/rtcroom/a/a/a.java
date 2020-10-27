@@ -7,7 +7,7 @@ import org.json.JSONObject;
 public class a extends com.baidu.swan.apps.inlinewidget.a<com.baidu.swan.apps.inlinewidget.rtcroom.c.a> {
     @Override // com.baidu.swan.apps.inlinewidget.a
     @NonNull
-    public String arf() {
+    public String ata() {
         return "onFocus";
     }
 

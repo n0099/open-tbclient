@@ -1,21 +1,21 @@
 package com.baidu.tieba.k;
 /* loaded from: classes.dex */
 public interface f {
-    void NS(String str);
+    void Oq(String str);
 
-    void NT(String str);
+    void Or(String str);
 
-    boolean NU(String str);
+    boolean Os(String str);
 
-    boolean NV(String str);
+    boolean Ot(String str);
 
     void e(String str, int i, int i2, String str2);
 
-    void fD(String str, String str2);
+    void fI(String str, String str2);
 
-    void fE(String str, String str2);
+    void fJ(String str, String str2);
 
-    void jm(String str);
+    void jF(String str);
 
     void p(String str, int i, String str2);
 

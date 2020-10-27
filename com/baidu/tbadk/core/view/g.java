@@ -11,8 +11,8 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.ai;
 /* loaded from: classes.dex */
 public class g extends f {
-    private boolean eHG;
-    private CustomMessageListener eHH;
+    private boolean eQc;
+    private CustomMessageListener eQd;
     protected boolean isDone;
     private CustomMessageListener listener;
     protected boolean mApplyImage;
@@ -20,7 +20,7 @@ public class g extends f {
     public g(TbPageContext<?> tbPageContext) {
         super(tbPageContext.getPageActivity());
         this.isDone = true;
-        this.eHG = false;
+        this.eQc = false;
         this.listener = new CustomMessageListener(CmdConfigCustom.CMD_PULL_IMAGE_CHANGE) { // from class: com.baidu.tbadk.core.view.g.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.adp.framework.listener.MessageListener
@@ -30,11 +30,11 @@ public class g extends f {
                 }
             }
         };
-        this.eHH = new CustomMessageListener(CmdConfigCustom.CMD_PULL_BGCOLOR_CHANGE) { // from class: com.baidu.tbadk.core.view.g.2
+        this.eQd = new CustomMessageListener(CmdConfigCustom.CMD_PULL_BGCOLOR_CHANGE) { // from class: com.baidu.tbadk.core.view.g.2
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.adp.framework.listener.MessageListener
             public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-                g.this.mPullRoot.setBackgroundColor(ai.bmF().getPullViewBackgroundColor(TbadkCoreApplication.getInst().getSkinType()));
+                g.this.mPullRoot.setBackgroundColor(ai.boy().getPullViewBackgroundColor(TbadkCoreApplication.getInst().getSkinType()));
             }
         };
         h(tbPageContext);
@@ -71,21 +71,21 @@ public class g extends f {
         super.changeSkin(i);
         if (this.mPullRoot != null && this.mPullImage != null) {
             this.mApplyImage = false;
-            if (!bmG()) {
-                this.mAnimImage = ai.bmF().getAnimationDrawable(i);
+            if (!boz()) {
+                this.mAnimImage = ai.boy().getAnimationDrawable(i);
                 if (this.mAnimImage != null) {
                     this.mApplyImage = true;
                 } else {
                     this.mAnimImage = new AnimationDrawable();
                 }
-                this.mPullRoot.setBackgroundColor(ai.bmF().getPullViewBackgroundColor(i));
+                this.mPullRoot.setBackgroundColor(ai.boy().getPullViewBackgroundColor(i));
                 if (!this.mApplyImage) {
-                    this.mAnimImage = ai.bmF().getDefaultAnimationDrawable(i);
+                    this.mAnimImage = ai.boy().getDefaultAnimationDrawable(i);
                 }
                 this.mAnimImage.setOneShot(false);
                 this.mPullImage.setBackgroundDrawable(this.mAnimImage);
             }
-            if (this.eHG) {
+            if (this.eQc) {
                 this.mPullRoot.setBackgroundColor(0);
             }
         }
@@ -93,28 +93,28 @@ public class g extends f {
 
     private void h(TbPageContext<?> tbPageContext) {
         this.listener.setTag(tbPageContext.getUniqueId());
-        this.eHH.setTag(tbPageContext.getUniqueId());
+        this.eQd.setTag(tbPageContext.getUniqueId());
         tbPageContext.registerListener(this.listener);
-        tbPageContext.registerListener(this.eHH);
+        tbPageContext.registerListener(this.eQd);
     }
 
     public void setTag(BdUniqueId bdUniqueId) {
         if (this.listener != null) {
             this.listener.setTag(bdUniqueId);
         }
-        if (this.eHH != null) {
-            this.eHH.setTag(bdUniqueId);
+        if (this.eQd != null) {
+            this.eQd.setTag(bdUniqueId);
         }
         MessageManager.getInstance().registerListener(this.listener);
-        MessageManager.getInstance().registerListener(this.eHH);
+        MessageManager.getInstance().registerListener(this.eQd);
     }
 
     public void release() {
         MessageManager.getInstance().unRegisterListener(this.listener);
-        MessageManager.getInstance().unRegisterListener(this.eHH);
+        MessageManager.getInstance().unRegisterListener(this.eQd);
     }
 
-    public void iR(boolean z) {
-        this.eHG = z;
+    public void je(boolean z) {
+        this.eQc = z;
     }
 }

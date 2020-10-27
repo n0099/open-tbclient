@@ -17,11 +17,11 @@ import com.baidu.live.tbadk.widget.TbImageView;
 import com.tb.airbnb.lottie.LottieAnimationView;
 /* loaded from: classes4.dex */
 public class GuardClubRankHeaderAvatarItemView extends FrameLayout {
-    private HeadImageView aEh;
-    private TbImageView gtm;
-    private LottieAnimationView gtn;
-    private AnimatorSet gto;
-    private boolean gtp;
+    private HeadImageView aEp;
+    private TbImageView gDq;
+    private LottieAnimationView gDr;
+    private AnimatorSet gDs;
+    private boolean gDt;
 
     public GuardClubRankHeaderAvatarItemView(@NonNull Context context, @Nullable AttributeSet attributeSet) {
         super(context, attributeSet);
@@ -29,75 +29,75 @@ public class GuardClubRankHeaderAvatarItemView extends FrameLayout {
     }
 
     public void setData(String str, String str2, boolean z) {
-        if (this.aEh != null) {
-            this.aEh.startLoad(str, 12, false);
+        if (this.aEp != null) {
+            this.aEp.startLoad(str, 12, false);
         }
-        if (this.gtm != null) {
-            this.gtm.startLoad(str2, 10, false);
+        if (this.gDq != null) {
+            this.gDq.startLoad(str2, 10, false);
         }
-        this.gtp = z;
+        this.gDt = z;
         if (z) {
-            this.gtn.setVisibility(0);
-            bOE();
+            this.gDr.setVisibility(0);
+            bRj();
             return;
         }
-        bOF();
-        this.gtn.setVisibility(8);
+        bRk();
+        this.gDr.setVisibility(8);
     }
 
-    public void bOE() {
-        if (this.gtp) {
-            bOG();
-            this.gtn.playAnimation();
-            this.gto.start();
+    public void bRj() {
+        if (this.gDt) {
+            bRl();
+            this.gDr.playAnimation();
+            this.gDs.start();
         }
     }
 
-    public void bOF() {
-        if (this.gtn != null) {
-            this.gtn.cancelAnimation();
+    public void bRk() {
+        if (this.gDr != null) {
+            this.gDr.cancelAnimation();
         }
-        if (this.gto != null) {
-            this.gto.cancel();
+        if (this.gDs != null) {
+            this.gDs.cancel();
         }
     }
 
     public void release() {
-        if (this.aEh != null) {
-            this.aEh.stopLoad();
+        if (this.aEp != null) {
+            this.aEp.stopLoad();
         }
-        if (this.gtm != null) {
-            this.gtm.stopLoad();
+        if (this.gDq != null) {
+            this.gDq.stopLoad();
         }
-        bOF();
+        bRk();
     }
 
     private void init() {
         LayoutInflater.from(getContext()).inflate(a.h.live_guard_club_widget_avatar_item, (ViewGroup) this, true);
-        this.aEh = (HeadImageView) findViewById(a.g.iv_avatar);
-        this.gtm = (TbImageView) findViewById(a.g.iv_level);
-        this.gtn = (LottieAnimationView) findViewById(a.g.lottie_live);
-        this.aEh.setIsRound(true);
-        this.aEh.setAutoChangeStyle(false);
-        this.aEh.setDrawBorder(false);
-        this.aEh.setDefaultScaleType(ImageView.ScaleType.CENTER_CROP);
-        this.aEh.setDefaultBgResource(a.f.sdk_default_avatar);
-        this.gtm.setDefaultBgResource(a.d.sdk_transparent);
-        this.gtm.setDefaultErrorResource(a.f.sdk_shape_transparent);
+        this.aEp = (HeadImageView) findViewById(a.g.iv_avatar);
+        this.gDq = (TbImageView) findViewById(a.g.iv_level);
+        this.gDr = (LottieAnimationView) findViewById(a.g.lottie_live);
+        this.aEp.setIsRound(true);
+        this.aEp.setAutoChangeStyle(false);
+        this.aEp.setDrawBorder(false);
+        this.aEp.setDefaultScaleType(ImageView.ScaleType.CENTER_CROP);
+        this.aEp.setDefaultBgResource(a.f.sdk_default_avatar);
+        this.gDq.setDefaultBgResource(a.d.sdk_transparent);
+        this.gDq.setDefaultErrorResource(a.f.sdk_shape_transparent);
     }
 
-    private void bOG() {
-        this.gtn.setAnimation("live_anim_guard_join.json");
-        this.gtn.loop(true);
-        ObjectAnimator ofFloat = ObjectAnimator.ofFloat(this.aEh, "scaleX", 0.92f, 1.0f, 0.92f);
+    private void bRl() {
+        this.gDr.setAnimation("live_anim_guard_join.json");
+        this.gDr.loop(true);
+        ObjectAnimator ofFloat = ObjectAnimator.ofFloat(this.aEp, "scaleX", 0.92f, 1.0f, 0.92f);
         ofFloat.setRepeatCount(-1);
         ofFloat.setRepeatMode(2);
-        ObjectAnimator ofFloat2 = ObjectAnimator.ofFloat(this.aEh, "scaleY", 0.92f, 1.0f, 0.92f);
+        ObjectAnimator ofFloat2 = ObjectAnimator.ofFloat(this.aEp, "scaleY", 0.92f, 1.0f, 0.92f);
         ofFloat2.setRepeatCount(-1);
         ofFloat2.setRepeatMode(2);
-        this.gto = new AnimatorSet();
-        this.gto.setDuration(1000L);
-        this.gto.setInterpolator(new AccelerateDecelerateInterpolator());
-        this.gto.play(ofFloat).with(ofFloat2);
+        this.gDs = new AnimatorSet();
+        this.gDs.setDuration(1000L);
+        this.gDs.setInterpolator(new AccelerateDecelerateInterpolator());
+        this.gDs.play(ofFloat).with(ofFloat2);
     }
 }

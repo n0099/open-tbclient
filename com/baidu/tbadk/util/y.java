@@ -7,20 +7,20 @@ import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class y {
-    public static final String bzx() {
-        com.baidu.q.a dUF = com.baidu.q.c.go(TbadkCoreApplication.getInst()).dUF();
-        if (dUF == null) {
+    public static final String bBq() {
+        com.baidu.q.a eax = com.baidu.q.c.gq(TbadkCoreApplication.getInst()).eax();
+        if (eax == null) {
             return null;
         }
         try {
             JSONObject jSONObject = new JSONObject();
-            String dUE = dUF.dUE();
-            if (!TextUtils.isEmpty(dUE)) {
-                jSONObject.put("v", dUE);
+            String eaw = eax.eaw();
+            if (!TextUtils.isEmpty(eaw)) {
+                jSONObject.put("v", eaw);
             }
-            jSONObject.put(Config.STAT_SDK_CHANNEL, dUF.getStatusCode());
-            jSONObject.put("sup", dUF.isSupport() ? 1 : 0);
-            jSONObject.put("tl", dUF.dUD() ? 1 : 0);
+            jSONObject.put(Config.STAT_SDK_CHANNEL, eax.getStatusCode());
+            jSONObject.put("sup", eax.isSupport() ? 1 : 0);
+            jSONObject.put("tl", eax.eav() ? 1 : 0);
             return jSONObject.toString();
         } catch (JSONException e) {
             if (TbadkCoreApplication.getInst().isDebugMode()) {

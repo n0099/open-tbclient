@@ -8,14 +8,14 @@ import com.baidu.tbadk.task.TbHttpMessageTask;
 import com.baidu.tbadk.task.b;
 /* loaded from: classes21.dex */
 public class a {
-    private TbPageContext etO;
+    private TbPageContext eCn;
 
     public a(TbPageContext tbPageContext) {
-        this.etO = tbPageContext;
+        this.eCn = tbPageContext;
         b bVar = new b(309641);
         bVar.setResponsedClass(CandidateSearchSocketResMsg.class);
         MessageManager.getInstance().registerTask(bVar);
-        TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_CANDIDATE_SEARCH, com.baidu.tieba.tbadkCore.a.a.bI(TbConfig.URL_CANDIDATE_SEARCH, 309641));
+        TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_CANDIDATE_SEARCH, com.baidu.tieba.tbadkCore.a.a.bJ(TbConfig.URL_CANDIDATE_SEARCH, 309641));
         tbHttpMessageTask.setResponsedClass(CandidateSearchHttpResMsg.class);
         MessageManager.getInstance().registerTask(tbHttpMessageTask);
     }
@@ -24,7 +24,7 @@ public class a {
         CandidateSearchReqMsg candidateSearchReqMsg = new CandidateSearchReqMsg();
         candidateSearchReqMsg.applyId = i;
         candidateSearchReqMsg.fid = j;
-        candidateSearchReqMsg.setTag(this.etO.getUniqueId());
+        candidateSearchReqMsg.setTag(this.eCn.getUniqueId());
         MessageManager.getInstance().sendMessage(candidateSearchReqMsg);
     }
 }

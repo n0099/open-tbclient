@@ -12,13 +12,13 @@ import java.io.File;
 public abstract class a {
 
     /* renamed from: a  reason: collision with root package name */
-    WebKitFactory.WebkitInstallListener f3926a;
+    WebKitFactory.WebkitInstallListener f3924a;
     EngineManager b;
     private int c = 13;
 
     public a(EngineManager engineManager, WebKitFactory.WebkitInstallListener webkitInstallListener) {
         this.b = engineManager;
-        this.f3926a = webkitInstallListener;
+        this.f3924a = webkitInstallListener;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -28,8 +28,8 @@ public abstract class a {
         if (this.b != null) {
             this.b.onInstallStart();
         }
-        if (this.f3926a != null) {
-            this.f3926a.onInstallStart();
+        if (this.f3924a != null) {
+            this.f3924a.onInstallStart();
         }
         if (!b()) {
             Log.i(EngineManager.LOG_TAG, "BlinkEngineInstaller.install init failed");
@@ -66,11 +66,11 @@ public abstract class a {
             this.c = 0;
             ZeusWebViewPreloadClass.getInstance().deleteSavingClassesFile();
         }
-        if (this.f3926a != null) {
+        if (this.f3924a != null) {
             if (this.c == 0) {
-                this.f3926a.onInstallFinish(this.c, UtilsBlink.getDownloadLibPath(WebKitFactory.getContext()));
+                this.f3924a.onInstallFinish(this.c, UtilsBlink.getDownloadLibPath(WebKitFactory.getContext()));
             } else {
-                this.f3926a.onInstallFinish(this.c, null);
+                this.f3924a.onInstallFinish(this.c, null);
             }
         }
         if (this.b != null) {

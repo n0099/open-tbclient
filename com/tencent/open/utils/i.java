@@ -18,7 +18,7 @@ public final class i {
     private static Object b = new Object();
 
     /* renamed from: a  reason: collision with root package name */
-    public static final Executor f4618a = c();
+    public static final Executor f4616a = c();
 
     private static Executor c() {
         Executor threadPoolExecutor;
@@ -64,16 +64,16 @@ public final class i {
     private static class a implements Executor {
 
         /* renamed from: a  reason: collision with root package name */
-        final Queue<Runnable> f4619a;
+        final Queue<Runnable> f4617a;
         Runnable b;
 
         private a() {
-            this.f4619a = new LinkedList();
+            this.f4617a = new LinkedList();
         }
 
         @Override // java.util.concurrent.Executor
         public synchronized void execute(final Runnable runnable) {
-            this.f4619a.offer(new Runnable() { // from class: com.tencent.open.utils.i.a.1
+            this.f4617a.offer(new Runnable() { // from class: com.tencent.open.utils.i.a.1
                 @Override // java.lang.Runnable
                 public void run() {
                     try {
@@ -89,10 +89,10 @@ public final class i {
         }
 
         protected synchronized void a() {
-            Runnable poll = this.f4619a.poll();
+            Runnable poll = this.f4617a.poll();
             this.b = poll;
             if (poll != null) {
-                i.f4618a.execute(this.b);
+                i.f4616a.execute(this.b);
             }
         }
     }

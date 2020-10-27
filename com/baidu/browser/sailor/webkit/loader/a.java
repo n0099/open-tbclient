@@ -13,7 +13,7 @@ import com.baidu.webkit.sdk.WebKitFactory;
 public class a implements WebKitFactory.WebkitInstallListener {
 
     /* renamed from: a  reason: collision with root package name */
-    static final String f1288a = a.class.getSimpleName();
+    static final String f1285a = a.class.getSimpleName();
     byte b;
     long c;
 
@@ -23,10 +23,10 @@ public class a implements WebKitFactory.WebkitInstallListener {
         WebKitFactory.setApkLibLoadType(z);
         if (BdWebkitManager.a.c == i || BdWebkitManager.a.b == i) {
             WebKitFactory.setEngine(1);
-            Log.d(f1288a, "zeus version =" + WebKitFactory.getZeusVersionName());
+            Log.d(f1285a, "zeus version =" + WebKitFactory.getZeusVersionName());
         } else {
             WebKitFactory.setEngine(0);
-            Log.d(f1288a, "zeus version =" + WebKitFactory.getZeusVersionName());
+            Log.d(f1285a, "zeus version =" + WebKitFactory.getZeusVersionName());
         }
         Log.i(EngineManager.LOG_TAG, "so in=" + WebKitFactory.getZeusVersionName());
         Log.i(EngineManager.LOG_TAG, "so out=" + WebKitFactory.getSdkVersionName());
@@ -55,15 +55,15 @@ public class a implements WebKitFactory.WebkitInstallListener {
                     BdSailorPlatform.getWebkitManager().onLoadZeusSDKSuccess();
                 }
             }
-            Log.d(f1288a, "install success!");
+            Log.d(f1285a, "install success!");
             BdSailorPlatform.getWebkitManager().onInstallZeusPluginSuccess(BdSailorPlatform.getInstance().getAppContext(), str, this.b);
         } else {
-            Log.d(f1288a, "install failed!");
+            Log.d(f1285a, "install failed!");
             BdSailorPlatform.getWebkitManager().onInstallZeusPluginFailed(this.b, WebKitFactory.getLoadErrorCode());
         }
         BdZeusDownloadHelper.a();
         BdSailorPlatform.getWebkitManager().enableBdWebkit();
-        Log.i(f1288a, "total timecost: " + String.valueOf(System.currentTimeMillis() - this.c));
+        Log.i(f1285a, "total timecost: " + String.valueOf(System.currentTimeMillis() - this.c));
     }
 
     @Override // com.baidu.webkit.sdk.WebKitFactory.WebkitInstallListener

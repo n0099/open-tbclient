@@ -6,28 +6,28 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import java.util.Set;
 /* loaded from: classes22.dex */
 public class e {
-    private final SharedPreferences fzc = TbadkCoreApplication.getInst().getSharedPreferences("frs_guide_sp", 0);
+    private final SharedPreferences fHx = TbadkCoreApplication.getInst().getSharedPreferences("frs_guide_sp", 0);
 
-    public boolean eV(String str, String str2) {
-        if (dV(str, str2)) {
-            return this.fzc.getBoolean(str + '_' + str2 + "_show", false);
+    public boolean fa(String str, String str2) {
+        if (ec(str, str2)) {
+            return this.fHx.getBoolean(str + '_' + str2 + "_show", false);
         }
         return false;
     }
 
-    public long eW(String str, String str2) {
-        if (dV(str, str2)) {
-            return this.fzc.getLong(str + '_' + str2 + "_show_time", 0L);
+    public long fb(String str, String str2) {
+        if (ec(str, str2)) {
+            return this.fHx.getLong(str + '_' + str2 + "_show_time", 0L);
         }
         return 0L;
     }
 
     public void a(String str, String str2, long j, boolean z) {
-        if (dV(str, str2)) {
+        if (ec(str, str2)) {
             String str3 = str + '_' + str2 + "_show_time";
             String str4 = str + '_' + str2 + "_show_cnt";
-            int i = this.fzc.getInt(str4, 0);
-            SharedPreferences.Editor edit = this.fzc.edit();
+            int i = this.fHx.getInt(str4, 0);
+            SharedPreferences.Editor edit = this.fHx.edit();
             if (i > 3) {
                 edit.putInt(str4, i + 1);
             }
@@ -39,33 +39,33 @@ public class e {
         }
     }
 
-    public int eX(String str, String str2) {
-        if (dV(str, str2)) {
-            return this.fzc.getInt(str + '_' + str2 + "_show_cnt", 0);
+    public int fc(String str, String str2) {
+        if (ec(str, str2)) {
+            return this.fHx.getInt(str + '_' + str2 + "_show_cnt", 0);
         }
         return 0;
     }
 
     public void i(String str, String str2, long j) {
-        if (dV(str, str2)) {
-            SharedPreferences.Editor edit = this.fzc.edit();
+        if (ec(str, str2)) {
+            SharedPreferences.Editor edit = this.fHx.edit();
             edit.putLong(str + '_' + str2 + "_visit_time", j);
             edit.apply();
         }
     }
 
-    public long eY(String str, String str2) {
-        if (dV(str, str2)) {
-            return this.fzc.getLong(str + '_' + str2 + "_visit_time", 0L);
+    public long fd(String str, String str2) {
+        if (ec(str, str2)) {
+            return this.fHx.getLong(str + '_' + str2 + "_visit_time", 0L);
         }
         return 0L;
     }
 
-    public void eZ(String str, String str2) {
-        if (dV(str, str2)) {
+    public void fe(String str, String str2) {
+        if (ec(str, str2)) {
             String str3 = str + '_' + str2;
-            Set<String> keySet = this.fzc.getAll().keySet();
-            SharedPreferences.Editor edit = this.fzc.edit();
+            Set<String> keySet = this.fHx.getAll().keySet();
+            SharedPreferences.Editor edit = this.fHx.edit();
             for (String str4 : keySet) {
                 if (str4.startsWith(str3)) {
                     edit.remove(str4);
@@ -75,7 +75,7 @@ public class e {
         }
     }
 
-    private boolean dV(String str, String str2) {
+    private boolean ec(String str, String str2) {
         return (StringUtils.isNull(str) || StringUtils.isNull(str2) || "0".equals(str) || "0".equals(str2)) ? false : true;
     }
 }

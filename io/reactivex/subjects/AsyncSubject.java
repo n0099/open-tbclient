@@ -5,15 +5,15 @@ import io.reactivex.u;
 import java.util.concurrent.atomic.AtomicReference;
 /* loaded from: classes17.dex */
 public final class AsyncSubject<T> extends b<T> {
-    static final AsyncDisposable[] oQD = new AsyncDisposable[0];
-    static final AsyncDisposable[] oQE = new AsyncDisposable[0];
+    static final AsyncDisposable[] pIa = new AsyncDisposable[0];
+    static final AsyncDisposable[] pIb = new AsyncDisposable[0];
     Throwable error;
     final AtomicReference<AsyncDisposable<T>[]> subscribers;
     T value;
 
     @Override // io.reactivex.u
     public void onSubscribe(io.reactivex.disposables.b bVar) {
-        if (this.subscribers.get() == oQE) {
+        if (this.subscribers.get() == pIb) {
             bVar.dispose();
         }
     }
@@ -21,7 +21,7 @@ public final class AsyncSubject<T> extends b<T> {
     @Override // io.reactivex.u
     public void onNext(T t) {
         io.reactivex.internal.functions.a.l(t, "onNext called with null. Null values are generally not allowed in 2.x operators and sources.");
-        if (this.subscribers.get() != oQE) {
+        if (this.subscribers.get() != pIb) {
             this.value = t;
         }
     }
@@ -29,13 +29,13 @@ public final class AsyncSubject<T> extends b<T> {
     @Override // io.reactivex.u
     public void onError(Throwable th) {
         io.reactivex.internal.functions.a.l(th, "onError called with null. Null values are generally not allowed in 2.x operators and sources.");
-        if (this.subscribers.get() == oQE) {
+        if (this.subscribers.get() == pIb) {
             io.reactivex.e.a.onError(th);
             return;
         }
         this.value = null;
         this.error = th;
-        for (AsyncDisposable<T> asyncDisposable : this.subscribers.getAndSet(oQE)) {
+        for (AsyncDisposable<T> asyncDisposable : this.subscribers.getAndSet(pIb)) {
             asyncDisposable.onError(th);
         }
     }
@@ -43,9 +43,9 @@ public final class AsyncSubject<T> extends b<T> {
     @Override // io.reactivex.u
     public void onComplete() {
         int i = 0;
-        if (this.subscribers.get() != oQE) {
+        if (this.subscribers.get() != pIb) {
             T t = this.value;
-            AsyncDisposable<T>[] andSet = this.subscribers.getAndSet(oQE);
+            AsyncDisposable<T>[] andSet = this.subscribers.getAndSet(pIb);
             if (t == null) {
                 int length = andSet.length;
                 while (i < length) {
@@ -91,7 +91,7 @@ public final class AsyncSubject<T> extends b<T> {
         AsyncDisposable<T>[] asyncDisposableArr2;
         do {
             asyncDisposableArr = this.subscribers.get();
-            if (asyncDisposableArr == oQE) {
+            if (asyncDisposableArr == pIb) {
                 return false;
             }
             int length = asyncDisposableArr.length;
@@ -123,7 +123,7 @@ public final class AsyncSubject<T> extends b<T> {
                 }
                 if (i >= 0) {
                     if (length == 1) {
-                        asyncDisposableArr2 = oQD;
+                        asyncDisposableArr2 = pIa;
                     } else {
                         asyncDisposableArr2 = new AsyncDisposable[length - 1];
                         System.arraycopy(asyncDisposableArr, 0, asyncDisposableArr2, 0, i);

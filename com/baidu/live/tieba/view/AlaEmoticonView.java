@@ -1,22 +1,44 @@
 package com.baidu.live.tieba.view;
 
 import android.content.Context;
+import android.graphics.Bitmap;
+import android.graphics.drawable.Animatable;
+import android.net.Uri;
+import android.support.annotation.Nullable;
+import android.text.TextUtils;
 import android.util.AttributeSet;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.FrameLayout;
+import com.baidu.live.adp.lib.resourceloader.BdResourceCallback;
+import com.baidu.live.adp.lib.resourceloader.BdResourceLoader;
+import com.baidu.live.adp.lib.safe.SafeHandler;
+import com.baidu.live.adp.lib.util.StringUtils;
+import com.baidu.live.adp.widget.imageview.BdImage;
 import com.baidu.live.sdk.a;
 import com.baidu.live.tbadk.widget.TbImageView;
+import com.facebook.drawee.a.a.c;
 import com.facebook.drawee.view.SimpleDraweeView;
+import com.facebook.imagepipeline.g.f;
+import com.facebook.imagepipeline.request.ImageRequest;
+import com.facebook.imagepipeline.request.ImageRequestBuilder;
 /* loaded from: classes4.dex */
 public class AlaEmoticonView extends FrameLayout {
-    private SimpleDraweeView buI;
-    private TbImageView buJ;
-    private a buK;
+    private SimpleDraweeView bwO;
+    private TbImageView bwP;
+    private a bwQ;
 
     /* loaded from: classes4.dex */
     public interface a {
+        void QN();
+    }
+
+    /* loaded from: classes4.dex */
+    public interface b {
+        void QO();
+
+        void onFail();
     }
 
     public AlaEmoticonView(Context context) {
@@ -34,23 +56,142 @@ public class AlaEmoticonView extends FrameLayout {
 
     private void init(Context context) {
         View inflate = LayoutInflater.from(context).inflate(a.h.ala_emoticon_view, (ViewGroup) this, true);
-        this.buI = (SimpleDraweeView) inflate.findViewById(a.g.emoticon_iv);
-        this.buJ = (TbImageView) inflate.findViewById(a.g.emoticon_result_iv);
+        this.bwO = (SimpleDraweeView) inflate.findViewById(a.g.emoticon_iv);
+        this.bwP = (TbImageView) inflate.findViewById(a.g.emoticon_result_iv);
+    }
+
+    public void aM(String str, String str2) {
+        this.bwO.setVisibility(StringUtils.isNull(str, true) ? 8 : 0);
+        aN(str, str2);
+        this.bwP.setVisibility(StringUtils.isNull(str2, true) ? 8 : 0);
+        d(str2, StringUtils.isNull(str, true) ? 1.0f : 0.0f);
     }
 
     public void stopLoad() {
-        if (this.buI != null && this.buI.getController() != null && this.buI.getController().dXL() != null && this.buI.getController().dXL().isRunning()) {
-            this.buI.getController().dXL().stop();
+        if (this.bwO != null) {
+            this.bwO.clearAnimation();
+            if (this.bwO.getController() != null && this.bwO.getController().ehJ() != null && this.bwO.getController().ehJ().isRunning()) {
+                this.bwO.getController().ehJ().stop();
+            }
         }
     }
 
     public void setEmoticonListener(a aVar) {
-        this.buK = aVar;
+        this.bwQ = aVar;
+    }
+
+    private void aN(String str, final String str2) {
+        if (!TextUtils.isEmpty(str)) {
+            this.bwO.setVisibility(0);
+            this.bwO.setController(c.ehd().bn(ImageRequest.XN(str)).c(this.bwO.getController()).zU(true).c(new com.facebook.drawee.controller.b<f>() { // from class: com.baidu.live.tieba.view.AlaEmoticonView.1
+                /* JADX DEBUG: Method merged with bridge method */
+                @Override // com.facebook.drawee.controller.b, com.facebook.drawee.controller.c
+                public void a(String str3, f fVar, Animatable animatable) {
+                    if (animatable instanceof com.facebook.fresco.animation.c.a) {
+                        ((com.facebook.fresco.animation.c.a) animatable).a(new com.facebook.fresco.animation.c.c() { // from class: com.baidu.live.tieba.view.AlaEmoticonView.1.1
+                            @Override // com.facebook.fresco.animation.c.c, com.facebook.fresco.animation.c.b
+                            public void a(com.facebook.fresco.animation.c.a aVar) {
+                                AlaEmoticonView.this.a(aVar, str2);
+                            }
+
+                            @Override // com.facebook.fresco.animation.c.c, com.facebook.fresco.animation.c.b
+                            public void b(com.facebook.fresco.animation.c.a aVar) {
+                                AlaEmoticonView.this.a(aVar, str2);
+                            }
+                        });
+                    }
+                }
+            }).ehU());
+        }
+    }
+
+    private void d(String str, float f) {
+        this.bwP.setAlpha(f);
+        this.bwP.setDefaultBgResource(a.f.sdk_transparent_bg);
+        this.bwP.startLoad(str, 10, false);
+    }
+
+    /* JADX INFO: Access modifiers changed from: private */
+    public void a(com.facebook.fresco.animation.c.a aVar, String str) {
+        aVar.stop();
+        if (!TextUtils.isEmpty(str)) {
+            this.bwP.setAlpha(1.0f);
+            this.bwO.setVisibility(8);
+        }
+        if (this.bwQ != null) {
+            this.bwQ.QN();
+        }
     }
 
     @Override // android.view.ViewGroup, android.view.View
     protected void onDetachedFromWindow() {
         super.onDetachedFromWindow();
         stopLoad();
+    }
+
+    public static void a(String str, final String str2, final b bVar, Object obj) {
+        if (!StringUtils.isNull(str, true)) {
+            c.ehf().e(ImageRequestBuilder.ad(Uri.parse(str)).Ah(true).eoj(), obj).a(new com.facebook.imagepipeline.e.b() { // from class: com.baidu.live.tieba.view.AlaEmoticonView.2
+                @Override // com.facebook.imagepipeline.e.b
+                public void e(@Nullable Bitmap bitmap) {
+                    SafeHandler.getInst().post(new Runnable() { // from class: com.baidu.live.tieba.view.AlaEmoticonView.2.1
+                        @Override // java.lang.Runnable
+                        public void run() {
+                            if (!StringUtils.isNull(str2, true)) {
+                                AlaEmoticonView.a(str2, bVar);
+                            } else if (bVar != null) {
+                                bVar.QO();
+                            }
+                        }
+                    });
+                }
+
+                /* JADX DEBUG: Method arguments types fixed to match base method, original types: [com.facebook.datasource.b] */
+                @Override // com.facebook.datasource.a
+                public void a(com.facebook.datasource.b<com.facebook.common.references.a<com.facebook.imagepipeline.g.c>> bVar2) {
+                    if (bVar != null) {
+                        bVar.onFail();
+                    }
+                }
+            }, com.facebook.common.b.a.egg());
+        }
+    }
+
+    /* JADX INFO: Access modifiers changed from: package-private */
+    /* renamed from: com.baidu.live.tieba.view.AlaEmoticonView$3  reason: invalid class name */
+    /* loaded from: classes4.dex */
+    public static class AnonymousClass3 implements Runnable {
+        final /* synthetic */ b bwU;
+        final /* synthetic */ String val$url;
+
+        AnonymousClass3(String str, b bVar) {
+            this.val$url = str;
+            this.bwU = bVar;
+        }
+
+        @Override // java.lang.Runnable
+        public void run() {
+            BdResourceLoader.getInstance().loadResource(this.val$url, 10, new BdResourceCallback<BdImage>() { // from class: com.baidu.live.tieba.view.AlaEmoticonView.3.1
+                /* JADX DEBUG: Method merged with bridge method */
+                /* JADX INFO: Access modifiers changed from: protected */
+                @Override // com.baidu.live.adp.lib.resourceloader.BdResourceCallback
+                public void onLoaded(final BdImage bdImage, final String str, int i) {
+                    super.onLoaded((AnonymousClass1) bdImage, str, i);
+                    SafeHandler.getInst().post(new Runnable() { // from class: com.baidu.live.tieba.view.AlaEmoticonView.3.1.1
+                        @Override // java.lang.Runnable
+                        public void run() {
+                            if (bdImage != null && bdImage.getRawBitmap() != null && str != null && str.equals(AnonymousClass3.this.val$url) && AnonymousClass3.this.bwU != null) {
+                                AnonymousClass3.this.bwU.QO();
+                            }
+                        }
+                    });
+                }
+            }, null);
+        }
+    }
+
+    /* JADX INFO: Access modifiers changed from: private */
+    public static void a(String str, b bVar) {
+        SafeHandler.getInst().post(new AnonymousClass3(str, bVar));
     }
 }

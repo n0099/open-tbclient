@@ -6,16 +6,16 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 /* loaded from: classes14.dex */
 public class e {
-    public static String aMI() {
+    public static String aOC() {
         String substring = new a().encode(String.valueOf(System.currentTimeMillis())).substring(4, 14);
-        String bq = com.baidu.swan.apps.t.a.ask().bq(com.baidu.swan.apps.t.a.asf());
+        String bq = com.baidu.swan.apps.t.a.auf().bq(com.baidu.swan.apps.t.a.aua());
         if (TextUtils.isEmpty(bq)) {
-            bq = ak.aIF();
+            bq = ak.aKz();
         }
         return "38" + substring + bq.substring(0, 4);
     }
 
-    public static String aMJ() {
+    public static String aOD() {
         return new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(new Date());
     }
 }

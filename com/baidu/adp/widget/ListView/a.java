@@ -13,12 +13,12 @@ import com.baidu.adp.widget.ListView.af;
 import com.baidu.adp.widget.ListView.af.a;
 /* loaded from: classes.dex */
 public abstract class a<T, V extends af.a> {
-    protected ab Vt;
-    protected ac Vu;
-    protected BdUniqueId Vv;
-    private u<q> Vw;
-    protected V Vx;
-    private com.baidu.adp.widget.a.a Vy = new com.baidu.adp.widget.a.a();
+    protected ab Vu;
+    protected ac Vv;
+    protected BdUniqueId Vw;
+    private u<q> Vx;
+    protected V Vy;
+    private com.baidu.adp.widget.a.a Vz = new com.baidu.adp.widget.a.a();
     protected Context mContext;
     protected BdUniqueId mPageId;
 
@@ -31,13 +31,13 @@ public abstract class a<T, V extends af.a> {
     /* JADX INFO: Access modifiers changed from: protected */
     public a(Context context, BdUniqueId bdUniqueId) {
         this.mContext = context;
-        this.Vv = bdUniqueId;
+        this.Vw = bdUniqueId;
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     public a(Context context, BdUniqueId bdUniqueId, BdUniqueId bdUniqueId2) {
         this.mContext = context;
-        this.Vv = bdUniqueId;
+        this.Vw = bdUniqueId;
         this.mPageId = bdUniqueId2;
     }
 
@@ -46,10 +46,10 @@ public abstract class a<T, V extends af.a> {
     public View getView(int i, View view, ViewGroup viewGroup, T t) {
         View view2;
         if (needCreateNewHolder(view)) {
-            this.Vx = (V) c(viewGroup);
-            view2 = this.Vx.getView();
+            this.Vy = (V) c(viewGroup);
+            view2 = this.Vy.getView();
             if (BdBaseApplication.getInst().isDebugMode()) {
-                BdLog.i("convertView is creating" + this.Vx.getClass().getName());
+                BdLog.i("convertView is creating" + this.Vy.getClass().getName());
             }
         } else {
             view2 = view;
@@ -58,7 +58,7 @@ public abstract class a<T, V extends af.a> {
     }
 
     private boolean needCreateNewHolder(View view) {
-        return view == null || view.getTag() == null || this.Vx == null || !this.Vx.getClass().isAssignableFrom(view.getTag().getClass()) || !view.getTag().getClass().isAssignableFrom(this.Vx.getClass());
+        return view == null || view.getTag() == null || this.Vy == null || !this.Vy.getClass().isAssignableFrom(view.getTag().getClass()) || !view.getTag().getClass().isAssignableFrom(this.Vy.getClass());
     }
 
     public V a(ViewGroup viewGroup, T t) {
@@ -118,23 +118,23 @@ public abstract class a<T, V extends af.a> {
     }
 
     public void a(ab abVar) {
-        this.Vt = abVar;
+        this.Vu = abVar;
     }
 
     public ab qN() {
-        return this.Vt;
-    }
-
-    public void a(ac acVar) {
-        this.Vu = acVar;
-    }
-
-    public ac qO() {
         return this.Vu;
     }
 
-    public BdUniqueId getType() {
+    public void a(ac acVar) {
+        this.Vv = acVar;
+    }
+
+    public ac qO() {
         return this.Vv;
+    }
+
+    public BdUniqueId getType() {
+        return this.Vw;
     }
 
     public void setPageId(BdUniqueId bdUniqueId) {
@@ -143,27 +143,27 @@ public abstract class a<T, V extends af.a> {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public void a(u<q> uVar) {
-        this.Vw = uVar;
+        this.Vx = uVar;
     }
 
     public void notifyDataSetChanged() {
-        if (this.Vw != null) {
-            this.Vw.notifyDataSetChanged();
+        if (this.Vx != null) {
+            this.Vx.notifyDataSetChanged();
         }
     }
 
     public q getItem(int i) {
-        if (this.Vw != null) {
-            return this.Vw.getItem(i);
+        if (this.Vx != null) {
+            return this.Vx.getItem(i);
         }
         return null;
     }
 
     public int getPositionByType(int i) {
-        if (this.Vw == null || this.Vv == null) {
+        if (this.Vx == null || this.Vw == null) {
             return -1;
         }
-        return this.Vw.getPositionByType(i, this.Vv.getId());
+        return this.Vx.getPositionByType(i, this.Vw.getId());
     }
 
     public ViewGroup.LayoutParams generateLayoutParamsByParent(ViewGroup viewGroup) {
@@ -177,10 +177,10 @@ public abstract class a<T, V extends af.a> {
     }
 
     public boolean h(int i, int i2, int i3) {
-        return this.Vy.h(i, i2, i3);
+        return this.Vz.h(i, i2, i3);
     }
 
     public boolean aI(int i) {
-        return this.Vy.aI(i);
+        return this.Vz.aI(i);
     }
 }

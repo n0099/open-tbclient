@@ -8,43 +8,43 @@ import com.baidu.tieba.ala.alasquare.live_tab.my_concern.c.m;
 import com.baidu.tieba.ala.alasquare.live_tab.my_concern.c.o;
 /* loaded from: classes4.dex */
 public class f extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.ala.alasquare.live_tab.my_concern.data.c, l> {
-    private m fVB;
-    private o fVw;
+    private o gfA;
+    private m gfF;
     private TbPageContext mPageContext;
 
     /* JADX INFO: Access modifiers changed from: protected */
     public f(TbPageContext tbPageContext) {
-        super(tbPageContext.getPageActivity(), com.baidu.tieba.ala.alasquare.live_tab.my_concern.data.c.fVF);
+        super(tbPageContext.getPageActivity(), com.baidu.tieba.ala.alasquare.live_tab.my_concern.data.c.gfJ);
         this.mPageContext = tbPageContext;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.widget.ListView.a
-    /* renamed from: S */
+    /* renamed from: T */
     public l c(ViewGroup viewGroup) {
-        this.fVB = new m(this.mPageContext, viewGroup);
-        if (this.fVw != null) {
-            this.fVB.a(this.fVw);
+        this.gfF = new m(this.mPageContext, viewGroup);
+        if (this.gfA != null) {
+            this.gfF.a(this.gfA);
         }
-        return new l(this.fVB);
+        return new l(this.gfF);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.widget.ListView.a
     public View a(int i, View view, ViewGroup viewGroup, com.baidu.tieba.ala.alasquare.live_tab.my_concern.data.c cVar, l lVar) {
-        if (lVar == null || lVar.fVB == null) {
+        if (lVar == null || lVar.gfF == null) {
             return null;
         }
-        lVar.fVB.a(cVar);
+        lVar.gfF.a(cVar);
         return lVar.getView();
     }
 
     public void a(o oVar) {
-        this.fVw = oVar;
-        if (this.fVB != null) {
-            this.fVB.a(this.fVw);
+        this.gfA = oVar;
+        if (this.gfF != null) {
+            this.gfF.a(this.gfA);
         }
     }
 }

@@ -5,10 +5,10 @@ import com.baidu.adp.widget.ListView.af;
 import com.baidu.tieba.lego.card.view.e;
 /* loaded from: classes22.dex */
 public class b extends af.a {
-    e<?> iJS;
+    e<?> iWo;
 
     public b(e<?> eVar) {
         super((View) eVar);
-        this.iJS = eVar;
+        this.iWo = eVar;
     }
 }

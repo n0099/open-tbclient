@@ -7,7 +7,7 @@ public class e {
         if (eVar == null || !eVar.available()) {
             return null;
         }
-        switch (eVar.abk()) {
+        switch (eVar.ade()) {
             case 0:
                 return new com.baidu.swan.apps.framework.a.a(swanAppActivity, eVar.id);
             case 1:

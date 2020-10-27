@@ -65,11 +65,11 @@ public class OfficialBarFeedMsglistModel extends BdBaseModel<OfficialBarFeedActi
                         data = responsedMessage instanceof ResponseSocketMajorHistoryMessage ? ((ResponseSocketMajorHistoryMessage) responsedMessage).getData() : null;
                     }
                     if (data != null) {
-                        List<com.baidu.tieba.im.forum.broadcast.data.b> cLN = data.cLN();
-                        if (cLN != null && cLN.size() > 0) {
-                            LongSparseArray<com.baidu.tieba.im.forum.broadcast.data.b> longSparseArray2 = new LongSparseArray<>(cLN.size());
-                            for (com.baidu.tieba.im.forum.broadcast.data.b bVar : cLN) {
-                                longSparseArray2.put(bVar.cLT(), bVar);
+                        List<com.baidu.tieba.im.forum.broadcast.data.b> cOU = data.cOU();
+                        if (cOU != null && cOU.size() > 0) {
+                            LongSparseArray<com.baidu.tieba.im.forum.broadcast.data.b> longSparseArray2 = new LongSparseArray<>(cOU.size());
+                            for (com.baidu.tieba.im.forum.broadcast.data.b bVar : cOU) {
+                                longSparseArray2.put(bVar.cPa(), bVar);
                             }
                             longSparseArray = longSparseArray2;
                         }
@@ -143,19 +143,19 @@ public class OfficialBarFeedMsglistModel extends BdBaseModel<OfficialBarFeedActi
         if (customResponsedMessage != null && (customResponsedMessage instanceof OfficialFeedHeadResponsedMessage)) {
             OfficialFeedHeadResponsedMessage officialFeedHeadResponsedMessage = (OfficialFeedHeadResponsedMessage) customResponsedMessage;
             if (officialFeedHeadResponsedMessage.getData() != null) {
-                List<ChatMessage> list = officialFeedHeadResponsedMessage.getData().jTG;
+                List<ChatMessage> list = officialFeedHeadResponsedMessage.getData().kgg;
                 ArrayList arrayList = new ArrayList();
                 loop0: for (ChatMessage chatMessage : list) {
-                    List<a.C0734a> a2 = com.baidu.tieba.im.message.chat.a.a(chatMessage.getContent(), chatMessage.getUserInfo().getUserId(), chatMessage.getUserInfo(), chatMessage.getMsgId(), chatMessage.getStatTaskId(), chatMessage.getStatisticsServiceId());
+                    List<a.C0750a> a2 = com.baidu.tieba.im.message.chat.a.a(chatMessage.getContent(), chatMessage.getUserInfo().getUserId(), chatMessage.getUserInfo(), chatMessage.getMsgId(), chatMessage.getStatTaskId(), chatMessage.getStatisticsServiceId());
                     if (a2 != null && a2.size() > 0 && (chatMessage instanceof OfficialChatMessage)) {
                         int i = 0;
                         while (i < a2.size()) {
                             if (arrayList.size() >= 80) {
                                 break loop0;
                             }
-                            a.C0734a c0734a = a2.get(i);
-                            b a3 = b.a(chatMessage, c0734a);
-                            a3.rK(i == 0 && !StringUtils.isNull(c0734a.src));
+                            a.C0750a c0750a = a2.get(i);
+                            b a3 = b.a(chatMessage, c0750a);
+                            a3.sc(i == 0 && !StringUtils.isNull(c0750a.src));
                             arrayList.add(a3);
                             i++;
                         }
@@ -174,8 +174,8 @@ public class OfficialBarFeedMsglistModel extends BdBaseModel<OfficialBarFeedActi
         if (list != null && list.size() > 0) {
             ArrayList arrayList = new ArrayList(list.size());
             for (b bVar : list) {
-                if (bVar.cOz()) {
-                    arrayList.add(Long.valueOf(bVar.cOA().jTT));
+                if (bVar.cRG()) {
+                    arrayList.add(Long.valueOf(bVar.cRH().kgt));
                 }
             }
             BroadcastMajorHistoryRequestMessage broadcastMajorHistoryRequestMessage = new BroadcastMajorHistoryRequestMessage();

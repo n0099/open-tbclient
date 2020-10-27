@@ -5,15 +5,15 @@ import android.content.Intent;
 import com.baidu.m.a.a;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes11.dex */
-public final class b implements a.InterfaceC0224a {
-    final /* synthetic */ BdUploadHandler afr;
+public final class b implements a.InterfaceC0238a {
+    final /* synthetic */ BdUploadHandler afs;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public b(BdUploadHandler bdUploadHandler) {
-        this.afr = bdUploadHandler;
+        this.afs = bdUploadHandler;
     }
 
-    @Override // com.baidu.m.a.a.InterfaceC0224a
+    @Override // com.baidu.m.a.a.InterfaceC0238a
     public final void onRequestPermissionsResult(int i, String[] strArr, int[] iArr) {
         Activity activity;
         Intent createCamcorderIntent;
@@ -25,9 +25,9 @@ public final class b implements a.InterfaceC0224a {
                 }
             }
             if (z) {
-                this.afr.mCanHandleResult = true;
-                activity = this.afr.mActivity;
-                createCamcorderIntent = this.afr.createCamcorderIntent();
+                this.afs.mCanHandleResult = true;
+                activity = this.afs.mActivity;
+                createCamcorderIntent = this.afs.createCamcorderIntent();
                 activity.startActivityForResult(createCamcorderIntent, 11);
             }
             com.baidu.browser.core.permission.a.tv().bm(4099);

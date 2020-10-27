@@ -8,7 +8,7 @@ import com.baidu.adp.widget.ListView.af;
 import com.baidu.adp.widget.ListView.af.a;
 /* loaded from: classes.dex */
 public class j<V extends af.a> extends a<i, V> {
-    private a<q, V> Wz;
+    private a<q, V> WA;
 
     /* JADX DEBUG: Method arguments types fixed to match base method, original types: [int, android.view.View, android.view.ViewGroup, java.lang.Object, com.baidu.adp.widget.ListView.af$a] */
     /* JADX DEBUG: Multi-variable search result rejected for r11v0, resolved type: com.baidu.adp.widget.ListView.af$a */
@@ -23,46 +23,46 @@ public class j<V extends af.a> extends a<i, V> {
     }
 
     public void a(a aVar) {
-        this.Wz = aVar;
+        this.WA = aVar;
     }
 
     @Override // com.baidu.adp.widget.ListView.a
     public V c(ViewGroup viewGroup) {
-        if (this.Wz == null) {
+        if (this.WA == null) {
             return null;
         }
-        if (this.Vv == this.Wz.qJ()) {
-            return this.Wz.d(viewGroup);
+        if (this.Vw == this.WA.qJ()) {
+            return this.WA.d(viewGroup);
         }
-        if (this.Vv == this.Wz.qK()) {
-            return this.Wz.e(viewGroup);
+        if (this.Vw == this.WA.qK()) {
+            return this.WA.e(viewGroup);
         }
-        if (this.Vv == this.Wz.qL()) {
-            return this.Wz.f(viewGroup);
+        if (this.Vw == this.WA.qL()) {
+            return this.WA.f(viewGroup);
         }
-        if (this.Vv == this.Wz.qM()) {
-            return this.Wz.g(viewGroup);
+        if (this.Vw == this.WA.qM()) {
+            return this.WA.g(viewGroup);
         }
-        return this.Wz.c(viewGroup);
+        return this.WA.c(viewGroup);
     }
 
     /* renamed from: a  reason: avoid collision after fix types in other method */
     public View a2(int i, View view, ViewGroup viewGroup, i iVar, V v) {
-        if (this.Wz == null) {
+        if (this.WA == null) {
             return null;
         }
-        if (this.Vv == this.Wz.qJ()) {
-            return this.Wz.b(i, view, viewGroup, iVar.qT(), v);
+        if (this.Vw == this.WA.qJ()) {
+            return this.WA.b(i, view, viewGroup, iVar.qT(), v);
         }
-        if (this.Vv == this.Wz.qK()) {
-            return this.Wz.c(i, view, viewGroup, iVar.qT(), v);
+        if (this.Vw == this.WA.qK()) {
+            return this.WA.c(i, view, viewGroup, iVar.qT(), v);
         }
-        if (this.Vv == this.Wz.qL()) {
-            return this.Wz.d(i, view, viewGroup, iVar.qT(), v);
+        if (this.Vw == this.WA.qL()) {
+            return this.WA.d(i, view, viewGroup, iVar.qT(), v);
         }
-        if (this.Vv == this.Wz.qM()) {
-            return this.Wz.e(i, view, viewGroup, iVar.qT(), v);
+        if (this.Vw == this.WA.qM()) {
+            return this.WA.e(i, view, viewGroup, iVar.qT(), v);
         }
-        return this.Wz.a(i, view, viewGroup, iVar.qT(), v);
+        return this.WA.a(i, view, viewGroup, iVar.qT(), v);
     }
 }

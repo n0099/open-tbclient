@@ -7,19 +7,19 @@ import org.json.JSONObject;
 /* loaded from: classes16.dex */
 public class c {
     private static final String TAG = c.class.getSimpleName();
-    private static volatile c bNk;
+    private static volatile c bVH;
 
-    public static synchronized c Wu() {
+    public static synchronized c Yo() {
         c cVar;
         synchronized (c.class) {
-            if (bNk == null) {
+            if (bVH == null) {
                 synchronized (c.class) {
-                    if (bNk == null) {
-                        bNk = new c();
+                    if (bVH == null) {
+                        bVH = new c();
                     }
                 }
             }
-            cVar = bNk;
+            cVar = bVH;
         }
         return cVar;
     }
@@ -31,7 +31,7 @@ public class c {
         if (TextUtils.isEmpty(str)) {
             return false;
         }
-        b.Wt().e(activity, str, aVar);
+        b.Yn().e(activity, str, aVar);
         return true;
     }
 
@@ -39,7 +39,7 @@ public class c {
         if (TextUtils.isEmpty(str)) {
             return false;
         }
-        b.Wt().f(activity, str, aVar);
+        b.Yn().f(activity, str, aVar);
         return true;
     }
 
@@ -47,7 +47,7 @@ public class c {
         if (jSONObject == null) {
             return false;
         }
-        b.Wt().b(context, jSONObject, aVar);
+        b.Yn().b(context, jSONObject, aVar);
         return true;
     }
 
@@ -55,7 +55,7 @@ public class c {
         if (jSONObject == null) {
             return false;
         }
-        b.Wt().g(context, jSONObject);
+        b.Yn().g(context, jSONObject);
         return true;
     }
 
@@ -63,7 +63,7 @@ public class c {
         if (jSONObject == null) {
             return false;
         }
-        b.Wt().b(activity, jSONObject, aVar);
+        b.Yn().b(activity, jSONObject, aVar);
         return true;
     }
 }

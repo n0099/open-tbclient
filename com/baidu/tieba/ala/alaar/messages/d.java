@@ -6,28 +6,28 @@ import com.baidu.live.adp.framework.message.HttpMessage;
 import com.baidu.live.data.AlaLiveStickerInfo;
 /* loaded from: classes4.dex */
 public class d extends HttpMessage {
-    private long blh;
-    public AlaLiveStickerInfo fNd;
+    private long bmB;
+    public AlaLiveStickerInfo fWo;
     @IntRange(from = 1, to = MediaDescriptionCompat.BT_FOLDER_TYPE_ARTISTS)
     public int mRequestType;
 
     public d(long j, int i, AlaLiveStickerInfo alaLiveStickerInfo) {
         super(1021206);
-        this.blh = j;
+        this.bmB = j;
         this.mRequestType = i;
-        this.fNd = alaLiveStickerInfo;
+        this.fWo = alaLiveStickerInfo;
     }
 
     public void setParams() {
-        addParam("live_id", this.blh);
+        addParam("live_id", this.bmB);
         addParam("type", this.mRequestType);
         if (1 != this.mRequestType) {
-            addParam(AlaLiveStickerInfo.STICKER_ID, String.valueOf(this.fNd.id));
+            addParam(AlaLiveStickerInfo.STICKER_ID, String.valueOf(this.fWo.id));
         }
-        addParam(AlaLiveStickerInfo.STICKER_TYPE, this.fNd.type);
-        addParam(AlaLiveStickerInfo.STICKER_LINK, this.fNd.link);
-        addParam(AlaLiveStickerInfo.STICKER_TEXT, this.fNd.text);
-        addParam(AlaLiveStickerInfo.STICKER_CENTERX, this.fNd.centerX);
-        addParam(AlaLiveStickerInfo.STICKER_CENTERY, this.fNd.centerY);
+        addParam(AlaLiveStickerInfo.STICKER_TYPE, this.fWo.type);
+        addParam(AlaLiveStickerInfo.STICKER_LINK, this.fWo.link);
+        addParam(AlaLiveStickerInfo.STICKER_TEXT, this.fWo.text);
+        addParam(AlaLiveStickerInfo.STICKER_CENTERX, this.fWo.centerX);
+        addParam(AlaLiveStickerInfo.STICKER_CENTERY, this.fWo.centerY);
     }
 }

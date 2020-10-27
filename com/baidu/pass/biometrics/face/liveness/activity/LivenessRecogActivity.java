@@ -729,7 +729,7 @@ public class LivenessRecogActivity extends LivenessBaseActivity implements Handl
         if (!a2) {
             u();
         } else {
-            a.C0246a c2 = this.U.c();
+            a.C0260a c2 = this.U.c();
             a(c2);
             this.U.a(this.va);
             this.C.a();
@@ -932,9 +932,9 @@ public class LivenessRecogActivity extends LivenessBaseActivity implements Handl
         }
     }
 
-    private a.C0246a f() {
+    private a.C0260a f() {
         Display defaultDisplay = ((WindowManager) getSystemService("window")).getDefaultDisplay();
-        return new a.C0246a(defaultDisplay.getWidth(), defaultDisplay.getHeight() + PassBioDisplayUtil.getNavigationBarHeight(this));
+        return new a.C0260a(defaultDisplay.getWidth(), defaultDisplay.getHeight() + PassBioDisplayUtil.getNavigationBarHeight(this));
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -1097,7 +1097,7 @@ public class LivenessRecogActivity extends LivenessBaseActivity implements Handl
 
     /* JADX INFO: Access modifiers changed from: private */
     public String a(int[] iArr) {
-        a.C0246a c2 = this.U.c();
+        a.C0260a c2 = this.U.c();
         Bitmap createBitmap = Bitmap.createBitmap(iArr, c2.b, c2.f2747a, Bitmap.Config.ARGB_8888);
         ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
         createBitmap.compress(Bitmap.CompressFormat.PNG, 100, byteArrayOutputStream);
@@ -1110,26 +1110,26 @@ public class LivenessRecogActivity extends LivenessBaseActivity implements Handl
         return new String(Base64Utils.encode(byteArray));
     }
 
-    private a.C0246a b(a.C0246a c0246a) {
-        if (c0246a == null) {
+    private a.C0260a b(a.C0260a c0260a) {
+        if (c0260a == null) {
             return null;
         }
-        a.C0246a f2 = f();
-        a.C0246a c0246a2 = new a.C0246a(c0246a.f2747a, c0246a.b);
-        float f3 = c0246a.f2747a / c0246a.b;
+        a.C0260a f2 = f();
+        a.C0260a c0260a2 = new a.C0260a(c0260a.f2747a, c0260a.b);
+        float f3 = c0260a.f2747a / c0260a.b;
         float f4 = f2.b / f2.f2747a;
         if (Math.abs(f3 - f4) > 0.02d) {
             if (f3 < f4) {
                 int i2 = f2.b;
-                c0246a2.f2747a = (c0246a.b * i2) / c0246a.f2747a;
-                c0246a2.b = i2;
-                return c0246a2;
+                c0260a2.f2747a = (c0260a.b * i2) / c0260a.f2747a;
+                c0260a2.b = i2;
+                return c0260a2;
             }
-            c0246a2.f2747a = f2.f2747a;
-            c0246a2.b = (f2.f2747a * c0246a.f2747a) / c0246a.b;
-            return c0246a2;
+            c0260a2.f2747a = f2.f2747a;
+            c0260a2.b = (f2.f2747a * c0260a.f2747a) / c0260a.b;
+            return c0260a2;
         }
-        return c0246a2;
+        return c0260a2;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -1430,10 +1430,10 @@ public class LivenessRecogActivity extends LivenessBaseActivity implements Handl
         d();
     }
 
-    private void a(a.C0246a c0246a) {
+    private void a(a.C0260a c0260a) {
         FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(this.C.getLayoutParams());
-        a.C0246a b2 = b(c0246a);
-        if (b2 != null && (b2.f2747a != c0246a.f2747a || b2.b != c0246a.b)) {
+        a.C0260a b2 = b(c0260a);
+        if (b2 != null && (b2.f2747a != c0260a.f2747a || b2.b != c0260a.b)) {
             layoutParams.width = b2.f2747a;
             layoutParams.height = b2.b;
         } else {

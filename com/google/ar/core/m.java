@@ -4,15 +4,15 @@ import com.google.ar.core.ArCoreApk;
 import java.util.concurrent.atomic.AtomicReference;
 /* loaded from: classes11.dex */
 class m implements ArCoreApk.a {
-    final /* synthetic */ AtomicReference obR;
+    final /* synthetic */ AtomicReference oTi;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public m(AtomicReference atomicReference) {
-        this.obR = atomicReference;
+        this.oTi = atomicReference;
     }
 
     @Override // com.google.ar.core.ArCoreApk.a
     public void a(ArCoreApk.Availability availability) {
-        this.obR.set(availability);
+        this.oTi.set(availability);
     }
 }

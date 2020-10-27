@@ -21,46 +21,46 @@ import com.baidu.tieba.majorsearch.a.a;
 import java.util.List;
 /* loaded from: classes24.dex */
 public class a {
-    private ImageView goV;
-    private EditText hyE;
-    private SearchMajorActivity kvm;
-    private RelativeLayout kvn;
-    private ImageView kvo;
-    private RecyclerView kvp;
-    private LinearLayoutManager kvq;
-    private com.baidu.tieba.majorsearch.a.a kvr;
-    private LinearLayout kvs;
+    private ImageView gza;
+    private EditText hLa;
+    private SearchMajorActivity kHJ;
+    private RelativeLayout kHK;
+    private ImageView kHL;
+    private RecyclerView kHM;
+    private LinearLayoutManager kHN;
+    private com.baidu.tieba.majorsearch.a.a kHO;
+    private LinearLayout kHP;
     private NavigationBar mNavigationBar;
     private View mRootView;
 
     public a(View view, SearchMajorActivity searchMajorActivity) {
         this.mRootView = view;
-        this.kvm = searchMajorActivity;
+        this.kHJ = searchMajorActivity;
         initView();
     }
 
     private void initView() {
-        byD();
-        cWv();
-        cWw();
+        bAw();
+        cZD();
+        cZE();
     }
 
-    private void byD() {
+    private void bAw() {
         this.mNavigationBar = (NavigationBar) this.mRootView.findViewById(R.id.navigation_bar);
         this.mNavigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
-        this.mNavigationBar.setCenterTextTitle(this.kvm.getResources().getString(R.string.search_major));
+        this.mNavigationBar.setCenterTextTitle(this.kHJ.getResources().getString(R.string.search_major));
     }
 
-    private void cWv() {
-        this.kvn = (RelativeLayout) this.mRootView.findViewById(R.id.search_container);
-        this.kvn.setOnTouchListener(new View.OnTouchListener() { // from class: com.baidu.tieba.majorsearch.a.1
+    private void cZD() {
+        this.kHK = (RelativeLayout) this.mRootView.findViewById(R.id.search_container);
+        this.kHK.setOnTouchListener(new View.OnTouchListener() { // from class: com.baidu.tieba.majorsearch.a.1
             @Override // android.view.View.OnTouchListener
             public boolean onTouch(View view, MotionEvent motionEvent) {
                 if (motionEvent.getAction() == 0) {
-                    a.this.kvn.setFocusable(true);
-                    a.this.kvn.setFocusableInTouchMode(true);
-                    if (a.this.hyE.hasFocus()) {
-                        l.hideSoftKeyPad(a.this.kvm, a.this.hyE);
+                    a.this.kHK.setFocusable(true);
+                    a.this.kHK.setFocusableInTouchMode(true);
+                    if (a.this.hLa.hasFocus()) {
+                        l.hideSoftKeyPad(a.this.kHJ, a.this.hLa);
                         return false;
                     }
                     return false;
@@ -68,90 +68,90 @@ public class a {
                 return false;
             }
         });
-        this.goV = (ImageView) this.mRootView.findViewById(R.id.search_icon);
-        this.hyE = (EditText) this.mRootView.findViewById(R.id.search_box);
-        this.kvo = (ImageView) this.mRootView.findViewById(R.id.search_del);
-        this.kvo.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.majorsearch.a.2
+        this.gza = (ImageView) this.mRootView.findViewById(R.id.search_icon);
+        this.hLa = (EditText) this.mRootView.findViewById(R.id.search_box);
+        this.kHL = (ImageView) this.mRootView.findViewById(R.id.search_del);
+        this.kHL.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.majorsearch.a.2
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                a.this.hyE.setText("");
+                a.this.hLa.setText("");
             }
         });
-        nK(false);
-        this.hyE.setText("");
-        this.hyE.requestFocus();
+        oc(false);
+        this.hLa.setText("");
+        this.hLa.requestFocus();
     }
 
-    private void cWw() {
-        this.kvs = (LinearLayout) this.mRootView.findViewById(R.id.layout_container);
-        this.kvp = (RecyclerView) this.mRootView.findViewById(R.id.rv_major_list);
-        this.kvq = new LinearLayoutManager(this.kvm);
-        this.kvp.setLayoutManager(this.kvq);
-        this.kvr = new com.baidu.tieba.majorsearch.a.a(this.kvm);
-        this.kvp.setAdapter(this.kvr);
+    private void cZE() {
+        this.kHP = (LinearLayout) this.mRootView.findViewById(R.id.layout_container);
+        this.kHM = (RecyclerView) this.mRootView.findViewById(R.id.rv_major_list);
+        this.kHN = new LinearLayoutManager(this.kHJ);
+        this.kHM.setLayoutManager(this.kHN);
+        this.kHO = new com.baidu.tieba.majorsearch.a.a(this.kHJ);
+        this.kHM.setAdapter(this.kHO);
     }
 
     public void onResume() {
-        if (!StringUtils.isNull(this.hyE.getText().toString())) {
-            this.kvn.setFocusable(true);
-            this.kvn.setFocusableInTouchMode(true);
-            this.kvn.requestFocus();
+        if (!StringUtils.isNull(this.hLa.getText().toString())) {
+            this.kHK.setFocusable(true);
+            this.kHK.setFocusableInTouchMode(true);
+            this.kHK.requestFocus();
         }
     }
 
     public void a(View.OnFocusChangeListener onFocusChangeListener) {
-        this.hyE.setOnFocusChangeListener(onFocusChangeListener);
+        this.hLa.setOnFocusChangeListener(onFocusChangeListener);
     }
 
     public void a(TextView.OnEditorActionListener onEditorActionListener) {
-        this.hyE.setOnEditorActionListener(onEditorActionListener);
+        this.hLa.setOnEditorActionListener(onEditorActionListener);
     }
 
     public void d(TextWatcher textWatcher) {
-        this.hyE.addTextChangedListener(textWatcher);
+        this.hLa.addTextChangedListener(textWatcher);
     }
 
-    public void a(a.InterfaceC0761a interfaceC0761a) {
-        this.kvr.b(interfaceC0761a);
+    public void a(a.InterfaceC0776a interfaceC0776a) {
+        this.kHO.b(interfaceC0776a);
     }
 
     public void a(RecyclerView.OnScrollListener onScrollListener) {
-        this.kvp.addOnScrollListener(onScrollListener);
+        this.kHM.addOnScrollListener(onScrollListener);
     }
 
-    public LinearLayout cWx() {
-        return this.kvs;
+    public LinearLayout cZF() {
+        return this.kHP;
     }
 
-    public void nK(boolean z) {
-        this.kvo.setVisibility(z ? 0 : 8);
+    public void oc(boolean z) {
+        this.kHL.setVisibility(z ? 0 : 8);
     }
 
     public void onChangeSkinType(int i) {
-        if (this.kvr != null) {
-            this.kvr.notifyDataSetChanged();
+        if (this.kHO != null) {
+            this.kHO.notifyDataSetChanged();
         }
-        this.mNavigationBar.onChangeSkinType(this.kvm.getPageContext(), i);
-        this.hyE.setHintTextColor(ap.getColor(R.color.cp_cont_d));
-        this.hyE.setTextColor(ap.getColor(R.color.cp_cont_b));
-        SvgManager.bmU().a(this.goV, R.drawable.icon_pure_search_import16_svg, R.color.cp_cont_d, (SvgManager.SvgResourceStateType) null);
-        ap.setBackgroundResource(this.kvn, R.drawable.search_major_bg);
-        SvgManager.bmU().a(this.kvo, R.drawable.icon_pure_search_empty16_svg, R.color.cp_cont_d, SvgManager.SvgResourceStateType.NORMAL_PRESS);
+        this.mNavigationBar.onChangeSkinType(this.kHJ.getPageContext(), i);
+        this.hLa.setHintTextColor(ap.getColor(R.color.cp_cont_d));
+        this.hLa.setTextColor(ap.getColor(R.color.cp_cont_b));
+        SvgManager.boN().a(this.gza, R.drawable.icon_pure_search_import16_svg, R.color.cp_cont_d, (SvgManager.SvgResourceStateType) null);
+        ap.setBackgroundResource(this.kHK, R.drawable.search_major_bg);
+        SvgManager.boN().a(this.kHL, R.drawable.icon_pure_search_empty16_svg, R.color.cp_cont_d, SvgManager.SvgResourceStateType.NORMAL_PRESS);
     }
 
-    public void m(List<String> list, String str) {
-        this.kvp.setVisibility(0);
-        if (this.kvr != null) {
-            this.kvr.Nh(str);
-            this.kvr.setData(list);
-            this.kvp.setAdapter(this.kvr);
+    public void o(List<String> list, String str) {
+        this.kHM.setVisibility(0);
+        if (this.kHO != null) {
+            this.kHO.NF(str);
+            this.kHO.setData(list);
+            this.kHM.setAdapter(this.kHO);
         }
     }
 
     public void c(ErrorData errorData) {
-        this.kvp.setVisibility(8);
-        if (this.kvr != null) {
-            this.kvr.cWz();
+        this.kHM.setVisibility(8);
+        if (this.kHO != null) {
+            this.kHO.cZH();
         }
     }
 }

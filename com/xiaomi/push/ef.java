@@ -11,7 +11,7 @@ import com.xiaomi.mipush.sdk.Constants;
 public class ef extends ed {
 
     /* renamed from: a  reason: collision with root package name */
-    private boolean f4874a;
+    private boolean f4872a;
     private boolean b;
     private boolean c;
     private boolean d;
@@ -19,7 +19,7 @@ public class ef extends ed {
 
     public ef(Context context, int i, boolean z, boolean z2, boolean z3, boolean z4, boolean z5) {
         super(context, i);
-        this.f4874a = z;
+        this.f4872a = z;
         this.b = z2;
         this.c = z3;
         this.d = z4;
@@ -27,10 +27,10 @@ public class ef extends ed {
     }
 
     private String b() {
-        if (this.f4874a) {
+        if (this.f4872a) {
             try {
                 DisplayMetrics displayMetrics = new DisplayMetrics();
-                ((WindowManager) this.f232a.getSystemService("window")).getDefaultDisplay().getMetrics(displayMetrics);
+                ((WindowManager) this.f229a.getSystemService("window")).getDefaultDisplay().getMetrics(displayMetrics);
                 return displayMetrics.heightPixels + Constants.ACCEPT_TIME_SEPARATOR_SP + displayMetrics.widthPixels;
             } catch (Throwable th) {
                 return "";
@@ -64,7 +64,7 @@ public class ef extends ed {
     private String e() {
         if (this.d) {
             try {
-                return Settings.Secure.getString(this.f232a.getContentResolver(), "android_id");
+                return Settings.Secure.getString(this.f229a.getContentResolver(), "android_id");
             } catch (Throwable th) {
                 return "";
             }
@@ -75,7 +75,7 @@ public class ef extends ed {
     private String f() {
         if (this.e) {
             try {
-                return ((TelephonyManager) this.f232a.getSystemService("phone")).getSimOperator();
+                return ((TelephonyManager) this.f229a.getSystemService("phone")).getSimOperator();
             } catch (Throwable th) {
                 return "";
             }
@@ -85,19 +85,19 @@ public class ef extends ed {
 
     @Override // com.xiaomi.push.ed, com.xiaomi.push.ai.a
     /* renamed from: a */
-    public int mo167a() {
+    public int mo166a() {
         return 3;
     }
 
     @Override // com.xiaomi.push.ed, com.xiaomi.push.ai.a
     /* renamed from: a */
-    public ho mo167a() {
+    public ho mo166a() {
         return ho.DeviceInfoV2;
     }
 
     @Override // com.xiaomi.push.ed, com.xiaomi.push.ai.a
     /* renamed from: a */
-    public String mo167a() {
+    public String mo166a() {
         return b() + "|" + c() + "|" + d() + "|" + e() + "|" + f();
     }
 }

@@ -18,21 +18,21 @@ import okhttp3.Request;
 import okhttp3.Response;
 /* loaded from: classes9.dex */
 public class d {
-    private static d cdo;
+    private static d clL;
     private OkHttpClient mOkHttpClient = new OkHttpClient().newBuilder().connectTimeout(10, TimeUnit.SECONDS).readTimeout(10, TimeUnit.SECONDS).writeTimeout(10, TimeUnit.SECONDS).build();
     private ScheduledExecutorService executor = Executors.newSingleThreadScheduledExecutor();
 
     private d() {
     }
 
-    public static d aaE() {
+    public static d acy() {
         d dVar;
         synchronized (d.class) {
             try {
-                if (cdo == null) {
-                    cdo = new d();
+                if (clL == null) {
+                    clL = new d();
                 }
-                dVar = cdo;
+                dVar = clL;
             } catch (Throwable th) {
                 throw th;
             }
@@ -80,7 +80,7 @@ public class d {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void jx(String str) {
+    public void jQ(String str) {
         String encodeToString = Base64.encodeToString(("[RTC_QUALITY_CONTROL]" + str).getBytes(), 2);
         Request.Builder builder = new Request.Builder();
         this.mOkHttpClient.newCall(builder.url("https://rtc-log.cdn.bcebos.com/collect?message=" + encodeToString).build()).enqueue(new Callback() { // from class: com.baidu.rtc.c.d.2
@@ -100,7 +100,7 @@ public class d {
             this.executor.execute(new Runnable() { // from class: com.baidu.rtc.c.d.1
                 @Override // java.lang.Runnable
                 public void run() {
-                    d.this.jx(str);
+                    d.this.jQ(str);
                 }
             });
         }

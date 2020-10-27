@@ -15,17 +15,17 @@ import com.baidu.tbadk.core.view.NoNetworkView;
 import com.baidu.tieba.R;
 /* loaded from: classes.dex */
 public abstract class SuspendedActivity extends BaseFragmentActivity {
-    protected TextView dQH;
-    private TranView fje;
-    private SusPendedView fjk;
-    private NoNetworkView fjl;
-    private LinearLayout fjm;
-    private a fjn;
-    private NoNetworkView.a fjo = new NoNetworkView.a() { // from class: com.baidu.tbadk.suspended.SuspendedActivity.1
+    protected TextView bKf;
+    private TranView frD;
+    private SusPendedView frJ;
+    private NoNetworkView frK;
+    private LinearLayout frL;
+    private a frM;
+    private NoNetworkView.a frN = new NoNetworkView.a() { // from class: com.baidu.tbadk.suspended.SuspendedActivity.1
         @Override // com.baidu.tbadk.core.view.NoNetworkView.a
         public void onNetworkChange(boolean z) {
             if (z) {
-                SuspendedActivity.this.byF();
+                SuspendedActivity.this.bAy();
             }
         }
     };
@@ -34,7 +34,7 @@ public abstract class SuspendedActivity extends BaseFragmentActivity {
 
     protected abstract a a(LinearLayout linearLayout, NavigationBar navigationBar);
 
-    protected abstract void byF();
+    protected abstract void bAy();
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.core.BaseFragmentActivity, com.baidu.adp.base.BdBaseFragmentActivity, android.support.v4.app.FragmentActivity, android.support.v4.app.SupportActivity, android.app.Activity
@@ -46,49 +46,49 @@ public abstract class SuspendedActivity extends BaseFragmentActivity {
     }
 
     private void init() {
-        this.fjk = (SusPendedView) findViewById(R.id.root_view);
-        byC();
-        byD();
-        byE();
-        Yn();
-        this.fjk.setNavigationBar(this.fjm);
-        this.fjk.setTranView(this.fje);
-        this.fjk.setContentView(this.mContentView);
-        this.fjk.show();
+        this.frJ = (SusPendedView) findViewById(R.id.root_view);
+        bAv();
+        bAw();
+        bAx();
+        Vr();
+        this.frJ.setNavigationBar(this.frL);
+        this.frJ.setTranView(this.frD);
+        this.frJ.setContentView(this.mContentView);
+        this.frJ.show();
     }
 
-    private void byC() {
-        this.fje = new TranView(getPageContext().getPageActivity());
-        this.fje.setVisibility(0);
+    private void bAv() {
+        this.frD = new TranView(getPageContext().getPageActivity());
+        this.frD.setVisibility(0);
     }
 
-    private void byD() {
+    private void bAw() {
         this.mNavigationBar = (NavigationBar) findViewById(R.id.view_navigation_bar);
         this.mNavigationBar.mCenterText.setTextSize(0, l.getDimens(getPageContext().getPageActivity(), R.dimen.tbds44));
-        this.dQH = this.mNavigationBar.addTextButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, getResources().getString(R.string.dialog_cancel), new View.OnClickListener() { // from class: com.baidu.tbadk.suspended.SuspendedActivity.2
+        this.bKf = this.mNavigationBar.addTextButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, getResources().getString(R.string.dialog_cancel), new View.OnClickListener() { // from class: com.baidu.tbadk.suspended.SuspendedActivity.2
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
                 SuspendedActivity.this.close();
             }
         });
-        this.dQH.setTextSize(0, l.getDimens(getPageContext().getPageActivity(), R.dimen.tbds44));
+        this.bKf.setTextSize(0, l.getDimens(getPageContext().getPageActivity(), R.dimen.tbds44));
         this.mNavigationBar.setIsCorner(true);
         this.mNavigationBar.setStatusBarVisibility(8);
         this.mNavigationBar.hideBottomLine();
-        this.fjm = (LinearLayout) findViewById(R.id.navigation_bar_group);
-        this.fjm.addView(this.fje, 0, new LinearLayout.LayoutParams(-1, l.getDimens(TbadkCoreApplication.getInst(), R.dimen.tbds153)));
+        this.frL = (LinearLayout) findViewById(R.id.navigation_bar_group);
+        this.frL.addView(this.frD, 0, new LinearLayout.LayoutParams(-1, l.getDimens(TbadkCoreApplication.getInst(), R.dimen.tbds153)));
     }
 
-    private void byE() {
-        this.fjl = (NoNetworkView) findViewById(R.id.view_no_network);
-        this.fjl.a(this.fjo);
+    private void bAx() {
+        this.frK = (NoNetworkView) findViewById(R.id.view_no_network);
+        this.frK.a(this.frN);
     }
 
-    private void Yn() {
+    private void Vr() {
         this.mContentView = (LinearLayout) findViewById(R.id.content_view);
-        this.fjn = a(this.mContentView, this.mNavigationBar);
-        if (this.fjn != null) {
-            this.fjk.setContentViewTop(this.fjn);
+        this.frM = a(this.mContentView, this.mNavigationBar);
+        if (this.frM != null) {
+            this.frJ.setContentViewTop(this.frM);
         }
     }
 
@@ -96,13 +96,13 @@ public abstract class SuspendedActivity extends BaseFragmentActivity {
     @Override // com.baidu.tbadk.core.BaseFragmentActivity
     public void onChangeSkinType(int i) {
         this.mNavigationBar.onChangeSkinType(getPageContext(), i);
-        this.fjl.onChangeSkinType(getPageContext(), i);
-        this.fjk.onChangeSkinType(i);
-        ap.setBackgroundColor(this.fjk, R.color.cp_mask_b_alpha66);
+        this.frK.onChangeSkinType(getPageContext(), i);
+        this.frJ.onChangeSkinType(i);
+        ap.setBackgroundColor(this.frJ, R.color.cp_mask_b_alpha66);
         ap.setBackgroundColor(this.mContentView, R.color.cp_bg_line_d);
-        ap.setViewTextColor(this.dQH, R.color.cp_cont_b);
-        if (this.fjn != null) {
-            this.fjn.rt(i);
+        ap.setViewTextColor(this.bKf, R.color.cp_cont_b);
+        if (this.frM != null) {
+            this.frM.rE(i);
         }
     }
 
@@ -117,9 +117,9 @@ public abstract class SuspendedActivity extends BaseFragmentActivity {
     }
 
     protected void close() {
-        if (this.fjn == null || this.fjn.byA()) {
-            if (this.fje != null) {
-                this.fjk.onFinish();
+        if (this.frM == null || this.frM.bAt()) {
+            if (this.frD != null) {
+                this.frJ.onFinish();
             } else {
                 finish();
             }
@@ -128,13 +128,13 @@ public abstract class SuspendedActivity extends BaseFragmentActivity {
 
     @Override // com.baidu.tbadk.core.BaseFragmentActivity, android.app.Activity
     public void finish() {
-        if (this.fjn != null) {
-            Intent byB = this.fjn.byB();
-            if (byB != null) {
-                setResult(-1, byB);
+        if (this.frM != null) {
+            Intent bAu = this.frM.bAu();
+            if (bAu != null) {
+                setResult(-1, bAu);
             }
-            if (this.fje != null && !this.fjk.getIsFinish()) {
-                this.fjk.onFinish();
+            if (this.frD != null && !this.frJ.getIsFinish()) {
+                this.frJ.onFinish();
                 return;
             } else {
                 super.finish();
@@ -148,8 +148,8 @@ public abstract class SuspendedActivity extends BaseFragmentActivity {
     @Override // com.baidu.tbadk.core.BaseFragmentActivity, com.baidu.adp.base.BdBaseFragmentActivity, android.support.v4.app.FragmentActivity, android.app.Activity
     public void onDestroy() {
         super.onDestroy();
-        if (this.fjk != null) {
-            this.fjk.onDestroy();
+        if (this.frJ != null) {
+            this.frJ.onDestroy();
         }
     }
 }

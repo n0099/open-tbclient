@@ -13,11 +13,11 @@ import java.util.List;
 /* loaded from: classes17.dex */
 class CronetLibraryLoader {
     static final /* synthetic */ boolean $assertionsDisabled;
-    private static final Object nAh;
-    private static final HandlerThread nAi;
-    private static volatile boolean nAj;
-    private static boolean nAk;
-    private static List<Runnable> nAl;
+    private static final Object ocI;
+    private static final HandlerThread ocJ;
+    private static volatile boolean ocK;
+    private static boolean ocL;
+    private static List<Runnable> ocM;
 
     private static native void nativeCronetInitOnInitThread();
 
@@ -29,19 +29,19 @@ class CronetLibraryLoader {
 
     static {
         $assertionsDisabled = !CronetLibraryLoader.class.desiredAssertionStatus();
-        nAh = new Object();
-        nAi = new HandlerThread("TurboNetInit");
-        nAj = false;
-        nAk = false;
-        nAl = new ArrayList();
+        ocI = new Object();
+        ocJ = new HandlerThread("TurboNetInit");
+        ocK = false;
+        ocL = false;
+        ocM = new ArrayList();
     }
 
     CronetLibraryLoader() {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public static long dRV() {
-        if (nAk) {
+    public static long dXN() {
+        if (ocL) {
             return nativeGetTurboNetHandler();
         }
         return 0L;
@@ -49,57 +49,57 @@ class CronetLibraryLoader {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public static void a(final Context context, TurbonetEngine.Builder builder) {
-        synchronized (nAh) {
-            if (!nAj) {
-                nAj = true;
-                ContextUtils.gg(context.getApplicationContext());
-                builder.dSM();
-                ContextUtils.dRG();
+        synchronized (ocI) {
+            if (!ocK) {
+                ocK = true;
+                ContextUtils.gi(context.getApplicationContext());
+                builder.dYE();
+                ContextUtils.dXy();
                 com.baidu.turbonet.base.a.f("TurboNetLibraryLoader", "TurboNet version: %s, arch: %s", nativeGetTurboNetVersion(), System.getProperty("os.arch"));
-                ContextUtils.gg(context.getApplicationContext());
-                if (!nAi.isAlive()) {
-                    nAi.start();
+                ContextUtils.gi(context.getApplicationContext());
+                if (!ocJ.isAlive()) {
+                    ocJ.start();
                 }
-                z(new Runnable() { // from class: com.baidu.turbonet.net.CronetLibraryLoader.1
+                A(new Runnable() { // from class: com.baidu.turbonet.net.CronetLibraryLoader.1
                     @Override // java.lang.Runnable
                     public void run() {
-                        CronetLibraryLoader.gj(context);
+                        CronetLibraryLoader.gl(context);
                     }
                 });
             }
         }
     }
 
-    private static boolean dRW() {
-        return nAi.getLooper() == Looper.myLooper();
+    private static boolean dXO() {
+        return ocJ.getLooper() == Looper.myLooper();
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public static void gj(Context context) {
-        if (!$assertionsDisabled && !nAj) {
+    public static void gl(Context context) {
+        if (!$assertionsDisabled && !ocK) {
             throw new AssertionError();
         }
-        if (!$assertionsDisabled && !dRW()) {
+        if (!$assertionsDisabled && !dXO()) {
             throw new AssertionError();
         }
-        if (!nAk) {
+        if (!ocL) {
             NetworkChangeNotifier.init(context);
-            NetworkChangeNotifier.dSs();
+            NetworkChangeNotifier.dYk();
             nativeCronetInitOnInitThread();
-            for (Runnable runnable : nAl) {
+            for (Runnable runnable : ocM) {
                 runnable.run();
             }
-            nAl.clear();
-            nAk = true;
+            ocM.clear();
+            ocL = true;
         }
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public static void z(Runnable runnable) {
-        if (dRW()) {
+    public static void A(Runnable runnable) {
+        if (dXO()) {
             runnable.run();
         } else {
-            new Handler(nAi.getLooper()).post(runnable);
+            new Handler(ocJ.getLooper()).post(runnable);
         }
     }
 }

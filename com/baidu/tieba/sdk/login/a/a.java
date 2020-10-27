@@ -12,12 +12,12 @@ public class a extends HttpResponsedRule {
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.live.adp.framework.controller.ResponsedMessageRule
-    /* renamed from: e */
+    /* renamed from: f */
     public HttpResponsedMessage process(HttpResponsedMessage httpResponsedMessage) {
         if ((httpResponsedMessage == null || httpResponsedMessage.getCmd() != 1001536) && (httpResponsedMessage instanceof JsonHttpResponsedMessage)) {
-            com.baidu.tieba.sdk.login.a dxa = com.baidu.tieba.sdk.login.a.dxa();
+            com.baidu.tieba.sdk.login.a dAi = com.baidu.tieba.sdk.login.a.dAi();
             if (((JsonHttpResponsedMessage) httpResponsedMessage).getError() == 1 && !(httpResponsedMessage instanceof ALAGroupCommitHttpResponsedMessage)) {
-                dxa.cVf();
+                dAi.cYn();
                 return null;
             }
             return httpResponsedMessage;

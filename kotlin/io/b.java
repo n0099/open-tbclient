@@ -7,5 +7,5 @@ import kotlin.reflect.j;
 /* loaded from: classes10.dex */
 public final class b {
     static final /* synthetic */ j[] $$delegatedProperties = {t.a(new PropertyReference0Impl(t.j(b.class, "kotlin-stdlib"), "decoder", "getDecoder()Ljava/nio/charset/CharsetDecoder;"))};
-    private static final kotlin.d oRE = kotlin.e.b(ConsoleKt$decoder$2.INSTANCE);
+    private static final kotlin.d pJb = kotlin.e.b(ConsoleKt$decoder$2.INSTANCE);
 }

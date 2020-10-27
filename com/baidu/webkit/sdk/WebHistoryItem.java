@@ -6,7 +6,7 @@ import android.graphics.Picture;
 public abstract class WebHistoryItem implements Cloneable {
     /* JADX DEBUG: Method merged with bridge method */
     /* renamed from: clone */
-    public abstract WebHistoryItem m46clone();
+    public abstract WebHistoryItem m45clone();
 
     public abstract Bitmap getFavicon();
 

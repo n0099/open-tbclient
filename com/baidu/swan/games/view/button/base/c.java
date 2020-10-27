@@ -11,7 +11,7 @@ import java.io.File;
 public class c {
     public static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
 
-    public static PathType sQ(String str) {
+    public static PathType tj(String str) {
         if (TextUtils.isEmpty(str)) {
             return PathType.ERROR;
         }
@@ -21,11 +21,11 @@ public class c {
         return PathType.RELATIVE;
     }
 
-    public static String aUe() {
-        File bG;
-        e aCS = d.aCW().aCS();
-        if (aCS.available() && aCS.getVersion() != null && (bG = a.c.bG(aCS.getAppId(), aCS.getVersion())) != null && bG.exists()) {
-            return "file://" + bG.getAbsolutePath();
+    public static String aVY() {
+        File bN;
+        e aEM = d.aEQ().aEM();
+        if (aEM.available() && aEM.getVersion() != null && (bN = a.c.bN(aEM.getAppId(), aEM.getVersion())) != null && bN.exists()) {
+            return "file://" + bN.getAbsolutePath();
         }
         return null;
     }

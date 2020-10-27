@@ -7,72 +7,72 @@ import com.baidu.tbadk.core.util.ap;
 import com.baidu.tieba.R;
 /* loaded from: classes.dex */
 public class b extends TBSpecificationButtonConfig {
-    private boolean eLi;
+    private boolean eTE;
 
     public b() {
-        this.eKT = R.color.cp_link_tip_a;
-        this.eLi = true;
+        this.eTp = R.color.cp_link_tip_a;
+        this.eTE = true;
     }
 
-    public void pN(@ColorRes int i) {
-        this.eKT = i;
-        this.eLi = true;
-        this.eLf = true;
-        if (this.eLh != null) {
-            this.eLh.boQ();
+    public void pY(@ColorRes int i) {
+        this.eTp = i;
+        this.eTE = true;
+        this.eTB = true;
+        if (this.eTD != null) {
+            this.eTD.bqJ();
         }
     }
 
-    public void pO(@ColorRes int i) {
-        this.eKT = i;
-        this.eKV = R.color.cp_btn_a;
-        this.eLi = false;
-        this.eLf = true;
-        if (this.eLh != null) {
-            this.eLh.boQ();
+    public void pZ(@ColorRes int i) {
+        this.eTp = i;
+        this.eTr = R.color.cp_btn_a;
+        this.eTE = false;
+        this.eTB = true;
+        if (this.eTD != null) {
+            this.eTD.bqJ();
         }
     }
 
-    public void boT() {
-        this.eKT = R.color.cp_cont_a;
-        this.eKV = R.color.cp_btn_j;
-        this.eLi = false;
-        this.eLf = true;
-        if (this.eLh != null) {
-            this.eLh.boQ();
+    public void bqM() {
+        this.eTp = R.color.cp_cont_a;
+        this.eTr = R.color.cp_btn_j;
+        this.eTE = false;
+        this.eTB = true;
+        if (this.eTD != null) {
+            this.eTD.bqJ();
         }
     }
 
-    public void pP(@ColorRes int i) {
-        this.eKT = i;
-        this.eKV = R.color.cp_btn_c;
-        this.eLi = false;
-        if (this.eLh != null) {
-            this.eLh.boQ();
+    public void qa(@ColorRes int i) {
+        this.eTp = i;
+        this.eTr = R.color.cp_btn_c;
+        this.eTE = false;
+        if (this.eTD != null) {
+            this.eTD.bqJ();
         }
     }
 
-    public void ba(@ColorRes int i, @ColorRes int i2) {
-        this.eKV = i;
-        this.eKT = i2;
-        this.eLi = false;
-        if (this.eLh != null) {
-            this.eLh.boQ();
+    public void bb(@ColorRes int i, @ColorRes int i2) {
+        this.eTr = i;
+        this.eTp = i2;
+        this.eTE = false;
+        if (this.eTD != null) {
+            this.eTD.bqJ();
         }
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     @Override // com.baidu.tbadk.core.view.commonBtn.TBSpecificationButtonConfig
-    public Drawable ac(float f) {
-        return ae(f);
+    public Drawable ae(float f) {
+        return ag(f);
     }
 
-    private Drawable ae(float f) {
+    private Drawable ag(float f) {
         GradientDrawable gradientDrawable = new GradientDrawable();
-        if (this.eLi) {
-            gradientDrawable.setColor(com.baidu.tieba.tbadkCore.c.m(this.eLf ? ap.getColor(this.ajp, this.eKT) : this.eKT, 0.08f));
+        if (this.eTE) {
+            gradientDrawable.setColor(com.baidu.tieba.tbadkCore.c.m(this.eTB ? ap.getColor(this.ajq, this.eTp) : this.eTp, 0.08f));
         } else {
-            gradientDrawable.setColor(ap.getColor(this.ajp, this.eKV));
+            gradientDrawable.setColor(ap.getColor(this.ajq, this.eTr));
         }
         gradientDrawable.setShape(0);
         gradientDrawable.setCornerRadius(f);

@@ -3,13 +3,13 @@ package com.baidu.b.f;
 public class b {
 
     /* renamed from: a  reason: collision with root package name */
-    private long f1269a;
+    private long f1266a;
 
     public b() {
         this(0L);
     }
 
     public b(long j) {
-        this.f1269a = j;
+        this.f1266a = j;
     }
 }

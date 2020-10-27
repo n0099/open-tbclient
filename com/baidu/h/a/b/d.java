@@ -3,7 +3,7 @@ package com.baidu.h.a.b;
 import android.content.Context;
 /* loaded from: classes15.dex */
 public interface d {
-    void TN();
+    void VH();
 
     void a(a aVar);
 

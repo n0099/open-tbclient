@@ -1,26 +1,29 @@
 package com.baidu.live.data;
 
-import com.baidu.tbadk.core.atomData.FrsActivityConfig;
+import java.util.ArrayList;
+import java.util.List;
+import org.json.JSONArray;
 import org.json.JSONObject;
 /* loaded from: classes4.dex */
 public class aw {
-    public String aMY;
-    public String aMZ;
-    public long endTime;
-    public int flag;
-    public long serverTime;
-    public long startTime;
-    public int type;
+    public List<av> aNt;
+    public String liveId;
 
-    public void parseJson(JSONObject jSONObject) {
+    public void parserJson(JSONObject jSONObject) {
         if (jSONObject != null) {
-            this.type = jSONObject.optInt("type");
-            this.aMY = jSONObject.optString(AlaLiveStickerInfo.STICKER_ID);
-            this.startTime = jSONObject.optLong("start_time");
-            this.endTime = jSONObject.optLong("end_time");
-            this.serverTime = jSONObject.optLong("server_time");
-            this.aMZ = jSONObject.optString("punish_key");
-            this.flag = jSONObject.optInt(FrsActivityConfig.FLAG);
+            this.liveId = jSONObject.optString("live_id");
+            JSONArray optJSONArray = jSONObject.optJSONArray("list");
+            if (optJSONArray != null && optJSONArray.length() > 0) {
+                this.aNt = new ArrayList();
+                for (int i = 0; i < optJSONArray.length(); i++) {
+                    JSONObject optJSONObject = optJSONArray.optJSONObject(i);
+                    if (optJSONObject != null) {
+                        av avVar = new av();
+                        avVar.parserJson(optJSONObject);
+                        this.aNt.add(avVar);
+                    }
+                }
+            }
         }
     }
 }

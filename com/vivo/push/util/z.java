@@ -26,7 +26,7 @@ public final class z {
     private static Boolean c;
 
     /* renamed from: a  reason: collision with root package name */
-    private static String[] f4713a = {"com.vivo.push.sdk.RegistrationReceiver", "com.vivo.push.sdk.service.PushService", "com.vivo.push.sdk.service.CommonJobService"};
+    private static String[] f4711a = {"com.vivo.push.sdk.RegistrationReceiver", "com.vivo.push.sdk.service.PushService", "com.vivo.push.sdk.service.CommonJobService"};
     private static String[] b = {"android.permission.INTERNET", "android.permission.READ_PHONE_STATE", "android.permission.ACCESS_NETWORK_STATE", "android.permission.WRITE_SETTINGS", "android.permission.VIBRATE", "android.permission.WRITE_EXTERNAL_STORAGE", "android.permission.ACCESS_WIFI_STATE", "android.permission.WAKE_LOCK", "android.permission.GET_ACCOUNTS", "com.bbk.account.permission.READ_ACCOUNTINFO", "android.permission.AUTHENTICATE_ACCOUNTS", "android.permission.MOUNT_UNMOUNT_FILESYSTEMS", "android.permission.GET_TASKS"};
     private static String[] d = {"com.vivo.push.sdk.service.CommandService", "com.vivo.push.sdk.service.CommonJobService"};
     private static String[] e = {"com.vivo.push.sdk.RegistrationReceiver"};
@@ -146,7 +146,7 @@ public final class z {
         boolean d2 = s.d(context, context.getPackageName());
         boolean b3 = s.b(context, context.getPackageName());
         if (d2) {
-            f4713a = new String[]{"com.vivo.push.sdk.RegistrationReceiver", "com.vivo.push.sdk.service.PushService", "com.vivo.push.sdk.service.CommonJobService"};
+            f4711a = new String[]{"com.vivo.push.sdk.RegistrationReceiver", "com.vivo.push.sdk.service.PushService", "com.vivo.push.sdk.service.CommonJobService"};
             b = new String[]{"android.permission.INTERNET", "android.permission.READ_PHONE_STATE", "android.permission.ACCESS_NETWORK_STATE", "android.permission.WRITE_SETTINGS", "android.permission.VIBRATE", "android.permission.WRITE_EXTERNAL_STORAGE", "android.permission.ACCESS_WIFI_STATE", "android.permission.WAKE_LOCK", "android.permission.GET_ACCOUNTS", "com.bbk.account.permission.READ_ACCOUNTINFO", "android.permission.AUTHENTICATE_ACCOUNTS", "android.permission.MOUNT_UNMOUNT_FILESYSTEMS", "android.permission.GET_TASKS"};
             d = new String[]{"com.vivo.push.sdk.service.CommandService", "com.vivo.push.sdk.service.CommonJobService"};
             e = new String[]{"com.vivo.push.sdk.RegistrationReceiver"};
@@ -159,7 +159,7 @@ public final class z {
                 d = new String[]{"com.vivo.push.sdk.service.CommandService"};
             }
             e = new String[0];
-            f4713a = new String[0];
+            f4711a = new String[0];
             if (c2) {
                 b = new String[]{"android.permission.INTERNET", "android.permission.WRITE_SETTINGS"};
             } else {
@@ -293,7 +293,7 @@ public final class z {
 
     private static void a(ComponentInfo componentInfo, String str) throws VivoPushException {
         if (!componentInfo.applicationInfo.packageName.equals(str)) {
-            for (String str2 : f4713a) {
+            for (String str2 : f4711a) {
                 if (str2.equals(componentInfo.name) && !componentInfo.processName.contains(":pushservice")) {
                     throw new VivoPushException("module : " + componentInfo.name + " process :" + componentInfo.processName + "  check process fail");
                 }
@@ -379,7 +379,7 @@ public final class z {
     */
     public static PublicKey d(Context context) {
         PublicKey publicKey = null;
-        Cursor query = context.getContentResolver().query(com.vivo.push.z.f4717a, null, null, null, null);
+        Cursor query = context.getContentResolver().query(com.vivo.push.z.f4715a, null, null, null, null);
         if (query != null) {
             while (true) {
                 try {

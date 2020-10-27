@@ -8,11 +8,11 @@ import javax.crypto.spec.SecretKeySpec;
 public class d {
 
     /* renamed from: a  reason: collision with root package name */
-    private static byte[] f4613a = {1, 2, 3, 4, 5, 6, 7, 8};
+    private static byte[] f4611a = {1, 2, 3, 4, 5, 6, 7, 8};
 
     public static String a(String str, String str2) {
         try {
-            IvParameterSpec ivParameterSpec = new IvParameterSpec(f4613a);
+            IvParameterSpec ivParameterSpec = new IvParameterSpec(f4611a);
             SecretKeySpec secretKeySpec = new SecretKeySpec(str2.getBytes(), "DES");
             Cipher cipher = Cipher.getInstance("DES/CBC/PKCS5Padding");
             cipher.init(1, secretKeySpec, ivParameterSpec);
@@ -26,7 +26,7 @@ public class d {
     public static String b(String str, String str2) {
         try {
             byte[] decode = Base64.decode(str, 0);
-            IvParameterSpec ivParameterSpec = new IvParameterSpec(f4613a);
+            IvParameterSpec ivParameterSpec = new IvParameterSpec(f4611a);
             SecretKeySpec secretKeySpec = new SecretKeySpec(str2.getBytes(), "DES");
             Cipher cipher = Cipher.getInstance("DES/CBC/PKCS5Padding");
             cipher.init(2, secretKeySpec, ivParameterSpec);

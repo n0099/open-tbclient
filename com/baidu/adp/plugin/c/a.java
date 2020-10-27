@@ -15,22 +15,22 @@ import java.util.HashMap;
 import java.util.Iterator;
 /* loaded from: classes.dex */
 public class a {
-    private static volatile a Tf = null;
-    private HashMap<String, ArrayList<Message<?>>> Te = null;
+    private static volatile a Tg = null;
+    private HashMap<String, ArrayList<Message<?>>> Tf = null;
 
     public static a pJ() {
-        if (Tf == null) {
+        if (Tg == null) {
             synchronized (a.class) {
-                if (Tf == null) {
-                    Tf = new a();
+                if (Tg == null) {
+                    Tg = new a();
                 }
             }
         }
-        return Tf;
+        return Tg;
     }
 
     public void init() {
-        this.Te = new HashMap<>();
+        this.Tf = new HashMap<>();
         pL();
         pK();
     }
@@ -44,13 +44,13 @@ public class a {
                 ArrayList arrayList;
                 if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2000997 && (data = customResponsedMessage.getData()) != null && (data instanceof PluginLoadedMessage.a)) {
                     PluginLoadedMessage.a aVar = (PluginLoadedMessage.a) data;
-                    if (aVar.Td == 0 && a.this.Te.size() > 0 && (arrayList = (ArrayList) a.this.Te.get(aVar.Tc)) != null && arrayList.size() > 0) {
+                    if (aVar.Te == 0 && a.this.Tf.size() > 0 && (arrayList = (ArrayList) a.this.Tf.get(aVar.Td)) != null && arrayList.size() > 0) {
                         Iterator it = arrayList.iterator();
                         while (it.hasNext()) {
                             MessageManager.getInstance().sendMessage((Message) it.next());
                         }
                     }
-                    a.this.Te.remove(aVar.Tc);
+                    a.this.Tf.remove(aVar.Td);
                 }
             }
         });
@@ -83,10 +83,10 @@ public class a {
     /* JADX INFO: Access modifiers changed from: private */
     public void a(String str, Message<?> message) {
         if (!TextUtils.isEmpty(str) && message != null) {
-            ArrayList<Message<?>> arrayList = this.Te.get(str);
+            ArrayList<Message<?>> arrayList = this.Tf.get(str);
             if (arrayList == null) {
                 arrayList = new ArrayList<>();
-                this.Te.put(str, arrayList);
+                this.Tf.put(str, arrayList);
             }
             arrayList.add(message);
         }

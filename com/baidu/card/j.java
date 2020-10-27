@@ -12,14 +12,14 @@ import com.baidu.tieba.R;
 import com.baidu.tieba.view.FollowUserButton;
 /* loaded from: classes21.dex */
 public class j extends d implements p<bw>, q {
-    private FollowUserDecorView afT;
-    private boolean afU = true;
+    private FollowUserDecorView afU;
+    private boolean afV = true;
     private int mWidth = com.baidu.adp.lib.util.l.getDimens(TbadkCoreApplication.getInst(), R.dimen.tbds166);
     private int mHeight = com.baidu.adp.lib.util.l.getDimens(TbadkCoreApplication.getInst(), R.dimen.tbds78);
 
     public j(TbPageContext tbPageContext, boolean z) {
-        this.afT = new FollowUserDecorView(tbPageContext.getPageActivity());
-        this.afT.setUseNewStyle(z);
+        this.afU = new FollowUserDecorView(tbPageContext.getPageActivity());
+        this.afU.setUseNewStyle(z);
         setInsertIndex(-1);
         aG(z);
     }
@@ -37,32 +37,32 @@ public class j extends d implements p<bw>, q {
             layoutParams.topMargin = aT(R.dimen.tbds52);
         }
         a(layoutParams);
-        H((View) this.afT);
+        H((View) this.afU);
     }
 
     public void setMarginRight(int i) {
         if (tD() != null) {
             tD().rightMargin = i;
         }
-        this.afT.setLayoutParams(tD());
+        this.afU.setLayoutParams(tD());
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.card.p
     /* renamed from: a */
     public void H(bw bwVar) {
-        if (bwVar == null || bwVar.bih() == null) {
-            this.afT.setVisibility(8);
+        if (bwVar == null || bwVar.bka() == null) {
+            this.afU.setVisibility(8);
             return;
         }
-        setMarginRight(aT(this.afU ? R.dimen.tbds120 : R.dimen.tbds44));
-        this.afT.setVisibility(0);
-        this.afT.setData(bwVar);
-        this.afT.setTag(bwVar);
+        setMarginRight(aT(this.afV ? R.dimen.tbds120 : R.dimen.tbds44));
+        this.afU.setVisibility(0);
+        this.afU.setData(bwVar);
+        this.afU.setTag(bwVar);
     }
 
     public void a(AbsThreadDataSupport absThreadDataSupport, boolean z) {
-        this.afU = z;
+        this.afV = z;
         setSvgIconResId(0);
         setClickableUnLike(true);
     }
@@ -73,22 +73,22 @@ public class j extends d implements p<bw>, q {
 
     @Override // com.baidu.card.q
     public void onChangeSkinType(TbPageContext tbPageContext, int i) {
-        this.afT.onChangeSkinType(i);
+        this.afU.onChangeSkinType(i);
     }
 
     public void setPageUniqueId(BdUniqueId bdUniqueId) {
-        this.afT.setPageUniqueId(bdUniqueId);
+        this.afU.setPageUniqueId(bdUniqueId);
     }
 
     public void setOnClickEvent(FollowUserButton.a aVar) {
-        this.afT.setOnClickEvent(aVar);
+        this.afU.setOnClickEvent(aVar);
     }
 
     public void setSvgIconResId(int i) {
-        this.afT.setSvgIconResId(i);
+        this.afU.setSvgIconResId(i);
     }
 
     public void setClickableUnLike(boolean z) {
-        this.afT.setClickableUnLike(z);
+        this.afU.setClickableUnLike(z);
     }
 }

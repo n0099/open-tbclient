@@ -5,53 +5,53 @@ import java.util.List;
 /* loaded from: classes16.dex */
 public class c {
     final int capacityHint;
-    Object[] oPD;
-    Object[] oPE;
-    int oPF;
+    Object[] pHa;
+    Object[] pHb;
+    int pHc;
     volatile int size;
 
     public void add(Object obj) {
         if (this.size == 0) {
-            this.oPD = new Object[this.capacityHint + 1];
-            this.oPE = this.oPD;
-            this.oPD[0] = obj;
-            this.oPF = 1;
+            this.pHa = new Object[this.capacityHint + 1];
+            this.pHb = this.pHa;
+            this.pHa[0] = obj;
+            this.pHc = 1;
             this.size = 1;
-        } else if (this.oPF == this.capacityHint) {
+        } else if (this.pHc == this.capacityHint) {
             Object[] objArr = new Object[this.capacityHint + 1];
             objArr[0] = obj;
-            this.oPE[this.capacityHint] = objArr;
-            this.oPE = objArr;
-            this.oPF = 1;
+            this.pHb[this.capacityHint] = objArr;
+            this.pHb = objArr;
+            this.pHc = 1;
             this.size++;
         } else {
-            this.oPE[this.oPF] = obj;
-            this.oPF++;
+            this.pHb[this.pHc] = obj;
+            this.pHc++;
             this.size++;
         }
     }
 
-    public Object[] enl() {
-        return this.oPD;
+    public Object[] exk() {
+        return this.pHa;
     }
 
     public int size() {
         return this.size;
     }
 
-    List<Object> esl() {
+    List<Object> eCj() {
         int i = this.capacityHint;
         int i2 = this.size;
         ArrayList arrayList = new ArrayList(i2 + 1);
         int i3 = 0;
-        Object[] enl = enl();
+        Object[] exk = exk();
         int i4 = 0;
         while (i3 < i2) {
-            arrayList.add(enl[i4]);
+            arrayList.add(exk[i4]);
             i3++;
             i4++;
             if (i4 == i) {
-                enl = (Object[]) enl[i];
+                exk = (Object[]) exk[i];
                 i4 = 0;
             }
         }
@@ -59,6 +59,6 @@ public class c {
     }
 
     public String toString() {
-        return esl().toString();
+        return eCj().toString();
     }
 }

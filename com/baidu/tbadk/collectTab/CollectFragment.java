@@ -11,45 +11,45 @@ import com.baidu.live.tbadk.core.frameworkdata.CmdConfigCustom;
 import com.baidu.tbadk.core.BaseFragment;
 /* loaded from: classes24.dex */
 public abstract class CollectFragment extends BaseFragment {
-    protected boolean eiJ = false;
-    private final CustomMessageListener eiK = new CustomMessageListener(MessageConfig.CMD_NETWORK_CHANGED) { // from class: com.baidu.tbadk.collectTab.CollectFragment.1
+    protected boolean erh = false;
+    private final CustomMessageListener eri = new CustomMessageListener(MessageConfig.CMD_NETWORK_CHANGED) { // from class: com.baidu.tbadk.collectTab.CollectFragment.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             if (customResponsedMessage.getCmd() == 2000994 && (customResponsedMessage instanceof NetWorkChangedMessage)) {
-                CollectFragment.this.nq(CollectFragment.this.getType());
-                if (!CollectFragment.this.eiJ) {
+                CollectFragment.this.nB(CollectFragment.this.getType());
+                if (!CollectFragment.this.erh) {
                     CollectFragment.this.q(false, CollectFragment.this.getType());
                 }
             }
         }
     };
 
-    public abstract boolean bfl();
+    public abstract boolean bhe();
 
     public abstract int getType();
 
-    public boolean bfk() {
-        return this.eiJ;
+    public boolean bhd() {
+        return this.erh;
     }
 
     @Override // android.support.v4.app.Fragment
     public void onStart() {
         super.onStart();
-        registerListener(this.eiK);
+        registerListener(this.eri);
     }
 
     @Override // android.support.v4.app.Fragment
     public void onStop() {
         super.onStop();
-        MessageManager.getInstance().unRegisterListener(this.eiK);
+        MessageManager.getInstance().unRegisterListener(this.eri);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public void nq(int i) {
+    public void nB(int i) {
         Bundle bundle = new Bundle();
-        this.eiJ = !bfl() && j.isNetWorkAvailable();
-        bundle.putBoolean("is_enable_edit", this.eiJ);
+        this.erh = !bhe() && j.isNetWorkAvailable();
+        bundle.putBoolean("is_enable_edit", this.erh);
         bundle.putInt("fragment_type", i);
         MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(CmdConfigCustom.COLLECT_TAB_NAVI_EDIT_ENABLE, bundle));
     }

@@ -18,20 +18,20 @@ import com.baidu.tieba.barselect.data.f;
 import com.baidu.tieba.view.NewVoteCountDownView;
 /* loaded from: classes21.dex */
 public class VoteStatusCard extends LinearLayout {
-    private TextView hCG;
-    private VoteStatusView hCH;
-    private TextView hCI;
-    private TextView hCJ;
-    private TextView hCK;
-    private TextView hCL;
-    private TextView hCM;
-    private TextView hCN;
-    private NewVoteCountDownView hCO;
-    private View hCP;
-    private NewVoteCountDownView.a hCQ;
-    private f hxT;
-    private a hyw;
-    private e hzp;
+    private a hKS;
+    private f hKp;
+    private e hLL;
+    private TextView hPc;
+    private VoteStatusView hPd;
+    private TextView hPe;
+    private TextView hPf;
+    private TextView hPg;
+    private TextView hPh;
+    private TextView hPi;
+    private TextView hPj;
+    private NewVoteCountDownView hPk;
+    private View hPl;
+    private NewVoteCountDownView.a hPm;
     private Context mContext;
     private Path mPath;
     private int status;
@@ -47,12 +47,12 @@ public class VoteStatusCard extends LinearLayout {
 
     public VoteStatusCard(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.status = d.hCa;
-        this.hCQ = new NewVoteCountDownView.a() { // from class: com.baidu.tieba.barselect.view.VoteStatusCard.1
+        this.status = d.hOw;
+        this.hPm = new NewVoteCountDownView.a() { // from class: com.baidu.tieba.barselect.view.VoteStatusCard.1
             @Override // com.baidu.tieba.view.NewVoteCountDownView.a
-            public void abg() {
-                if (VoteStatusCard.this.hyw != null) {
-                    VoteStatusCard.this.hyw.onRefresh();
+            public void ada() {
+                if (VoteStatusCard.this.hKS != null) {
+                    VoteStatusCard.this.hKS.onRefresh();
                 }
             }
         };
@@ -70,23 +70,23 @@ public class VoteStatusCard extends LinearLayout {
         setPadding(dimens, dimens2, dimens, dimens2);
         LayoutInflater.from(getContext()).inflate(R.layout.vote_status_card, (ViewGroup) this, true);
         ul();
-        cie();
+        cll();
     }
 
     private void ul() {
-        this.hCG = (TextView) findViewById(R.id.bar_maneger_apply_title);
-        this.hCH = (VoteStatusView) findViewById(R.id.vote_status_view);
-        this.hCI = (TextView) findViewById(R.id.apply_title);
-        this.hCJ = (TextView) findViewById(R.id.apply_start_time);
-        this.hCK = (TextView) findViewById(R.id.vote_title);
-        this.hCL = (TextView) findViewById(R.id.vote_start_time);
-        this.hCM = (TextView) findViewById(R.id.publicity_title);
-        this.hCN = (TextView) findViewById(R.id.publicity_start_time);
-        this.hCP = findViewById(R.id.vote_count_down_container);
-        this.hCO = (NewVoteCountDownView) findViewById(R.id.vote_count_down_view);
+        this.hPc = (TextView) findViewById(R.id.bar_maneger_apply_title);
+        this.hPd = (VoteStatusView) findViewById(R.id.vote_status_view);
+        this.hPe = (TextView) findViewById(R.id.apply_title);
+        this.hPf = (TextView) findViewById(R.id.apply_start_time);
+        this.hPg = (TextView) findViewById(R.id.vote_title);
+        this.hPh = (TextView) findViewById(R.id.vote_start_time);
+        this.hPi = (TextView) findViewById(R.id.publicity_title);
+        this.hPj = (TextView) findViewById(R.id.publicity_start_time);
+        this.hPl = findViewById(R.id.vote_count_down_container);
+        this.hPk = (NewVoteCountDownView) findViewById(R.id.vote_count_down_view);
     }
 
-    private void cie() {
+    private void cll() {
         this.mPath = new Path();
         this.mPath.moveTo(0.0f, 15.0f);
         this.mPath.lineTo(440.0f, 15.0f);
@@ -100,69 +100,69 @@ public class VoteStatusCard extends LinearLayout {
     }
 
     public void setData(f fVar) {
-        this.hxT = fVar;
-        if (this.hxT == null || this.hxT.chE() == null) {
+        this.hKp = fVar;
+        if (this.hKp == null || this.hKp.ckL() == null) {
             setVisibility(8);
             return;
         }
-        this.hzp = this.hxT.chE();
-        this.status = this.hzp.getStatus();
-        this.hCH.setStatus(this.status);
-        long chy = this.hzp.chy() * 1000;
-        this.hCJ.setText(at.cS(this.hzp.chw() * 1000));
-        this.hCL.setText(at.cR(this.hzp.chz() * 1000));
-        this.hCN.setText(at.cR(this.hzp.chx() * 1000));
-        if (this.status == d.hCa) {
-            this.hCP.setVisibility(0);
-            if (this.hCQ != null) {
-                this.hCO.setOnCountDownFinished(this.hCQ);
+        this.hLL = this.hKp.ckL();
+        this.status = this.hLL.getStatus();
+        this.hPd.setStatus(this.status);
+        long ckF = this.hLL.ckF() * 1000;
+        this.hPf.setText(at.cU(this.hLL.ckD() * 1000));
+        this.hPh.setText(at.cT(this.hLL.ckG() * 1000));
+        this.hPj.setText(at.cT(this.hLL.ckE() * 1000));
+        if (this.status == d.hOw) {
+            this.hPl.setVisibility(0);
+            if (this.hPm != null) {
+                this.hPk.setOnCountDownFinished(this.hPm);
             }
-            this.hCO.setData(chy);
+            this.hPk.setData(ckF);
             return;
         }
-        this.hCP.setVisibility(8);
+        this.hPl.setVisibility(8);
     }
 
-    public void uc(int i) {
+    public void uu(int i) {
         int color = ap.getColor(i, R.color.cp_cont_b);
         int color2 = ap.getColor(i, R.color.cp_cont_d);
-        if (this.hCI != null) {
-            this.hCI.setTextColor(color);
+        if (this.hPe != null) {
+            this.hPe.setTextColor(color);
         }
-        if (this.hCK != null) {
-            this.hCK.setTextColor(this.status > d.hBZ ? color : color2);
+        if (this.hPg != null) {
+            this.hPg.setTextColor(this.status > d.hOv ? color : color2);
         }
-        if (this.hCM != null) {
-            TextView textView = this.hCM;
-            if (this.status <= d.hCa) {
+        if (this.hPi != null) {
+            TextView textView = this.hPi;
+            if (this.status <= d.hOw) {
                 color = color2;
             }
             textView.setTextColor(color);
         }
-        if (this.hCH != null) {
-            this.hCH.uc(i);
+        if (this.hPd != null) {
+            this.hPd.uu(i);
         }
-        ap.setViewTextColor(this.hCG, R.color.cp_cont_b, 1, i);
-        ap.setViewTextColor(this.hCJ, R.color.cp_cont_d, 1, i);
-        ap.setViewTextColor(this.hCL, R.color.cp_cont_d, 1, i);
-        ap.setViewTextColor(this.hCN, R.color.cp_cont_d, 1, i);
+        ap.setViewTextColor(this.hPc, R.color.cp_cont_b, 1, i);
+        ap.setViewTextColor(this.hPf, R.color.cp_cont_d, 1, i);
+        ap.setViewTextColor(this.hPh, R.color.cp_cont_d, 1, i);
+        ap.setViewTextColor(this.hPj, R.color.cp_cont_d, 1, i);
         ap.setBackgroundResource(this, R.drawable.bar_select_bg_shadow_and_radius, i);
-        if (this.hCO != null) {
-            this.hCO.uc(i);
+        if (this.hPk != null) {
+            this.hPk.uu(i);
         }
         int color3 = ap.getColor(R.color.cp_bg_line_g);
         com.baidu.tieba.view.e eVar = new com.baidu.tieba.view.e(this.mPath, 902.0f, 224.0f);
         eVar.setColor(color3);
-        this.hCP.setBackground(eVar);
+        this.hPl.setBackground(eVar);
     }
 
     public void setOnRefreshListener(a aVar) {
-        this.hyw = aVar;
+        this.hKS = aVar;
     }
 
     public void onDestroy() {
-        if (this.hCO != null) {
-            this.hCO.onDestroy();
+        if (this.hPk != null) {
+            this.hPk.onDestroy();
         }
     }
 }

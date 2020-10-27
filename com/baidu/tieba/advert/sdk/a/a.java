@@ -1,13 +1,13 @@
 package com.baidu.tieba.advert.sdk.a;
 /* loaded from: classes23.dex */
 public interface a {
-    void Fb(String str);
+    void Fu(String str);
 
     void a(com.baidu.tieba.advert.sdk.data.a aVar);
 
-    void bFW();
+    void bHP();
 
-    void bFX();
+    void bHQ();
 
-    void bFY();
+    void bHR();
 }

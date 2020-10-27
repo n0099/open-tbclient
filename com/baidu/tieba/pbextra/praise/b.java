@@ -11,11 +11,11 @@ import com.baidu.tbadk.core.view.HeadImageView;
 import com.baidu.tieba.R;
 /* loaded from: classes22.dex */
 public class b {
-    private View lAT;
-    private HeadImageView lAU;
-    private TextView lAV;
-    private TextView lAW;
-    private ImageView lAX;
+    private View lNq;
+    private HeadImageView lNr;
+    private TextView lNs;
+    private TextView lNt;
+    private ImageView lNu;
 
     public static b b(Context context, View view) {
         if (view == null || view.getTag() == null || !(view.getTag() instanceof b)) {
@@ -25,28 +25,28 @@ public class b {
     }
 
     private b(Context context) {
-        this.lAT = null;
-        this.lAU = null;
-        this.lAV = null;
-        this.lAW = null;
-        this.lAX = null;
-        this.lAT = LayoutInflater.from(context).inflate(R.layout.zan_list_item, (ViewGroup) null);
-        this.lAU = (HeadImageView) this.lAT.findViewById(R.id.zan_list_item_head);
-        this.lAV = (TextView) this.lAT.findViewById(R.id.zan_list_item_name);
-        this.lAW = (TextView) this.lAT.findViewById(R.id.zan_list_item_time);
-        this.lAX = (ImageView) this.lAT.findViewById(R.id.zan_list_item_line_bottom);
-        this.lAX.setVisibility(0);
-        this.lAT.setTag(this);
+        this.lNq = null;
+        this.lNr = null;
+        this.lNs = null;
+        this.lNt = null;
+        this.lNu = null;
+        this.lNq = LayoutInflater.from(context).inflate(R.layout.zan_list_item, (ViewGroup) null);
+        this.lNr = (HeadImageView) this.lNq.findViewById(R.id.zan_list_item_head);
+        this.lNs = (TextView) this.lNq.findViewById(R.id.zan_list_item_name);
+        this.lNt = (TextView) this.lNq.findViewById(R.id.zan_list_item_time);
+        this.lNu = (ImageView) this.lNq.findViewById(R.id.zan_list_item_line_bottom);
+        this.lNu.setVisibility(0);
+        this.lNq.setTag(this);
     }
 
     public View getView() {
-        return this.lAT;
+        return this.lNq;
     }
 
     public void b(String str, String str2, long j, boolean z) {
-        this.lAV.setText(str);
-        this.lAU.setImageDrawable(null);
-        this.lAW.setText(at.getFormatTime(j));
-        this.lAU.startLoad(str2, 28, false);
+        this.lNs.setText(str);
+        this.lNr.setImageDrawable(null);
+        this.lNt.setText(at.getFormatTime(j));
+        this.lNr.startLoad(str2, 28, false);
     }
 }

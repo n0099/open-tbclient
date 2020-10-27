@@ -12,7 +12,7 @@ import java.util.TreeMap;
 public class j<T> implements Serializable {
 
     /* renamed from: a  reason: collision with root package name */
-    private static final String f4477a = j.class.getName();
+    private static final String f4475a = j.class.getName();
     private static final Boolean b = Boolean.valueOf(com.sdk.base.framework.c.f.b);
     private String d;
     private TreeMap<String, Object> e;
@@ -20,7 +20,7 @@ public class j<T> implements Serializable {
     private HashMap<String, Object> g;
     private com.sdk.base.framework.b.b<T> i;
     private com.sdk.base.framework.f.h.g j;
-    private String c = i.f4476a.toString();
+    private String c = i.f4474a.toString();
     private int h = 0;
 
     public static String b(TreeMap<String, Object> treeMap) {
@@ -40,7 +40,7 @@ public class j<T> implements Serializable {
                 sb2.deleteCharAt(sb2.length() - 1);
                 sb = sb2;
             } catch (Exception e) {
-                com.sdk.base.framework.a.a.c.b(f4477a, e.getMessage(), b);
+                com.sdk.base.framework.a.a.c.b(f4475a, e.getMessage(), b);
                 throw new Exception("http请求参数出错");
             }
         } else {

@@ -36,7 +36,7 @@ public class b implements d {
     }
 
     @Override // com.baidu.h.a.b.d
-    public void TN() {
+    public void VH() {
         BIMManager.tryConnection(this.mContext);
     }
 }

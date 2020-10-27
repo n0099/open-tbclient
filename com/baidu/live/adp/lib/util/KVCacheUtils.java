@@ -11,7 +11,6 @@ import java.util.LinkedList;
 import java.util.List;
 /* loaded from: classes4.dex */
 public class KVCacheUtils {
-    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [62=4] */
     /* JADX WARN: Type inference failed for: r4v11, types: [T, java.lang.String] */
     public static List<BdKVCache.CacheElement<String>> listAllTextItemsInDBCache(BdKVCache<String> bdKVCache) {
         Cursor cursor;
@@ -49,8 +48,7 @@ public class KVCacheUtils {
         return linkedList;
     }
 
-    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [107=4] */
-    /* JADX WARN: Type inference failed for: r4v11, types: [T, byte[]] */
+    /* JADX WARN: Type inference failed for: r4v11, types: [byte[], T] */
     public static List<BdKVCache.CacheElement<byte[]>> listAllBytesItemsInDBCache(BdKVCache<byte[]> bdKVCache) {
         Cursor cursor;
         LinkedList linkedList = new LinkedList();

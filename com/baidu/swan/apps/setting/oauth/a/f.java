@@ -20,73 +20,73 @@ import org.json.JSONObject;
 /* loaded from: classes10.dex */
 public class f extends h<c> {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    protected String dke;
-    public b.a dkq;
-    public b dkr = new b(Looper.getMainLooper(), this);
-    public Bundle dks;
-    protected JSONObject dkt;
+    protected String dsF;
+    public b.a dsR;
+    public b dsS = new b(Looper.getMainLooper(), this);
+    public Bundle dsT;
+    protected JSONObject dsU;
     protected final Activity mActivity;
 
     public f(Activity activity, b.a aVar, Bundle bundle) {
         this.mActivity = activity;
-        this.dkq = aVar;
+        this.dsR = aVar;
         if (bundle != null && bundle.containsKey("__plugin__")) {
-            this.dke = bundle.getString("__plugin__");
+            this.dsF = bundle.getString("__plugin__");
             bundle.remove("__plugin__");
         }
-        this.dks = bundle;
+        this.dsT = bundle;
     }
 
     @Override // com.baidu.swan.apps.setting.oauth.b
-    protected boolean aEP() {
+    protected boolean aGJ() {
         JSONObject jSONObject = new JSONObject();
         try {
-            boolean isEmpty = TextUtils.isEmpty(this.dke);
-            jSONObject.put("ma_id", isEmpty ? aFp().id : this.dke);
+            boolean isEmpty = TextUtils.isEmpty(this.dsF);
+            jSONObject.put("ma_id", isEmpty ? aHj().id : this.dsF);
             JSONObject jSONObject2 = new JSONObject();
-            jSONObject2.put("app_key", isEmpty ? aFp().getAppKey() : this.dke);
+            jSONObject2.put("app_key", isEmpty ? aHj().getAppKey() : this.dsF);
             jSONObject2.put("host_pkgname", AppRuntime.getApplication().getPackageName());
             jSONObject2.put("host_key_hash", com.baidu.swan.apps.setting.oauth.c.getKeyHash());
-            String adG = com.baidu.swan.apps.t.a.ass().adG();
-            if (!TextUtils.isEmpty(adG)) {
-                jSONObject2.put("host_api_key", adG);
+            String afA = com.baidu.swan.apps.t.a.aum().afA();
+            if (!TextUtils.isEmpty(afA)) {
+                jSONObject2.put("host_api_key", afA);
             }
             jSONObject.put("open", jSONObject2);
         } catch (JSONException e) {
             e.printStackTrace();
         }
-        co("data", jSONObject.toString());
+        cv("data", jSONObject.toString());
         return true;
     }
 
     @Override // com.baidu.swan.apps.setting.oauth.a.h
     protected HttpRequest a(h hVar) {
-        return com.baidu.swan.apps.t.a.ass().e(this.mActivity, hVar.aFq());
+        return com.baidu.swan.apps.t.a.aum().e(this.mActivity, hVar.aHk());
     }
 
     @Override // com.baidu.swan.apps.setting.oauth.b
-    protected boolean aEO() {
-        a(aFm());
-        return super.aEO();
+    protected boolean aGI() {
+        a(aHg());
+        return super.aGI();
     }
 
     @NonNull
-    protected com.baidu.swan.apps.setting.oauth.d aFm() {
+    protected com.baidu.swan.apps.setting.oauth.d aHg() {
         return new a();
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.swan.apps.setting.oauth.b
-    /* renamed from: bT */
-    public c bL(JSONObject jSONObject) throws JSONException {
-        JSONObject bN = com.baidu.swan.apps.setting.oauth.c.bN(jSONObject);
-        int optInt = bN.optInt(BaseJsonData.TAG_ERRNO, 10001);
+    /* renamed from: bW */
+    public c bO(JSONObject jSONObject) throws JSONException {
+        JSONObject bQ = com.baidu.swan.apps.setting.oauth.c.bQ(jSONObject);
+        int optInt = bQ.optInt(BaseJsonData.TAG_ERRNO, 10001);
         if (optInt != 0) {
-            throw new OAuthException(bN.optString(BaseJsonData.TAG_ERRMSG), optInt);
+            throw new OAuthException(bQ.optString(BaseJsonData.TAG_ERRMSG), optInt);
         }
         String str = "";
-        JSONObject jSONObject2 = bN.getJSONObject("data");
+        JSONObject jSONObject2 = bQ.getJSONObject("data");
         if (jSONObject2 != null) {
             str = jSONObject2.optString("code", "");
         }
@@ -100,7 +100,7 @@ public class f extends h<c> {
         if (DEBUG) {
             Log.d("LoginRequest", "finish: remove timeout msg");
         }
-        this.dkr.removeMessages(1);
+        this.dsS.removeMessages(1);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -110,20 +110,20 @@ public class f extends h<c> {
         }
 
         @Override // com.baidu.swan.apps.setting.oauth.d
-        protected boolean aEU() throws Exception {
-            com.baidu.swan.apps.a.b aDn = f.this.aFp().aDn();
-            boolean isLogin = aDn.isLogin(f.this.mActivity);
+        protected boolean aGO() throws Exception {
+            com.baidu.swan.apps.a.b aFh = f.this.aHj().aFh();
+            boolean isLogin = aFh.isLogin(f.this.mActivity);
             if (f.DEBUG) {
                 Log.d("LoginRequest", "LoginPreparation isLogin : " + isLogin + " call stack:" + Log.getStackTraceString(new Exception()));
             }
             if (!isLogin) {
-                aDn.a(f.this.mActivity, f.this.dks, this);
-            } else if (f.this.dkq != null && f.this.dkq.cjv) {
-                long j = f.this.dkq.cjw;
+                aFh.a(f.this.mActivity, f.this.dsT, this);
+            } else if (f.this.dsR != null && f.this.dsR.crW) {
+                long j = f.this.dsR.crX;
                 if (f.DEBUG) {
                     Log.d("LoginRequest", "send timeout " + j + "ms msg");
                 }
-                f.this.dkr.sendEmptyMessageDelayed(1, j >= 0 ? j : 0L);
+                f.this.dsS.sendEmptyMessageDelayed(1, j >= 0 ? j : 0L);
             }
             return isLogin;
         }
@@ -143,7 +143,7 @@ public class f extends h<c> {
                     return;
                 case 0:
                     com.baidu.swan.apps.setting.oauth.c.c("Login Preparation ok, is already login", false);
-                    aEW();
+                    aGQ();
                     return;
             }
         }
@@ -164,16 +164,16 @@ public class f extends h<c> {
 
     /* loaded from: classes10.dex */
     public static class b extends Handler {
-        private WeakReference<f> dkv;
+        private WeakReference<f> dsW;
 
         private b(Looper looper, f fVar) {
             super(looper);
-            this.dkv = new WeakReference<>(fVar);
+            this.dsW = new WeakReference<>(fVar);
         }
 
         @Override // android.os.Handler
         public void handleMessage(Message message) {
-            f fVar = this.dkv.get();
+            f fVar = this.dsW.get();
             if (fVar != null) {
                 switch (message.what) {
                     case 1:

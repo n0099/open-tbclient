@@ -23,17 +23,17 @@ import com.baidu.tbadk.core.util.at;
 import com.baidu.tbadk.core.view.commonLike.forum.ForumLikeBotton;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.card.m;
+import com.baidu.tieba.card.n;
 /* loaded from: classes.dex */
 public class ThreadForumUserInfoLayout extends RelativeLayout {
-    private bw agw;
-    private TbImageView eIJ;
-    private TextView eIK;
-    private TextView eIL;
-    private ForumLikeBotton eIM;
-    private com.baidu.tbadk.core.view.commonLike.forum.a eIN;
-    private View.OnClickListener eIO;
-    private View.OnClickListener eIr;
+    private bw agx;
+    private View.OnClickListener eQN;
+    private TbImageView eRf;
+    private TextView eRg;
+    private TextView eRh;
+    private ForumLikeBotton eRi;
+    private com.baidu.tbadk.core.view.commonLike.forum.a eRj;
+    private View.OnClickListener eRk;
     private int mSkinType;
 
     public ThreadForumUserInfoLayout(Context context) {
@@ -47,13 +47,13 @@ public class ThreadForumUserInfoLayout extends RelativeLayout {
     public ThreadForumUserInfoLayout(Context context, @Nullable AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
         this.mSkinType = 3;
-        this.eIO = new View.OnClickListener() { // from class: com.baidu.tbadk.core.view.ThreadForumUserInfoLayout.1
+        this.eRk = new View.OnClickListener() { // from class: com.baidu.tbadk.core.view.ThreadForumUserInfoLayout.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                if (ThreadForumUserInfoLayout.this.agw != null) {
-                    MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.ACTIVITY_START_NORMAL, new FrsActivityConfig(ThreadForumUserInfoLayout.this.getContext()).createNormalCfg(ThreadForumUserInfoLayout.this.agw.bjV() != null ? ThreadForumUserInfoLayout.this.agw.bjV().getForumName() : ThreadForumUserInfoLayout.this.agw.bil(), m.bhT())));
-                    if (ThreadForumUserInfoLayout.this.eIr != null) {
-                        ThreadForumUserInfoLayout.this.eIr.onClick(view);
+                if (ThreadForumUserInfoLayout.this.agx != null) {
+                    MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.ACTIVITY_START_NORMAL, new FrsActivityConfig(ThreadForumUserInfoLayout.this.getContext()).createNormalCfg(ThreadForumUserInfoLayout.this.agx.blO() != null ? ThreadForumUserInfoLayout.this.agx.blO().getForumName() : ThreadForumUserInfoLayout.this.agx.bke(), n.bjM())));
+                    if (ThreadForumUserInfoLayout.this.eQN != null) {
+                        ThreadForumUserInfoLayout.this.eQN.onClick(view);
                     }
                 }
             }
@@ -63,107 +63,107 @@ public class ThreadForumUserInfoLayout extends RelativeLayout {
 
     private void init(Context context) {
         View inflate = LayoutInflater.from(context).inflate(R.layout.thread_forum_user_info_layout, (ViewGroup) this, true);
-        this.eIJ = (TbImageView) inflate.findViewById(R.id.forum_avatar);
-        this.eIK = (TextView) inflate.findViewById(R.id.forum_name);
-        this.eIK.setOnClickListener(this.eIO);
-        this.eIL = (TextView) inflate.findViewById(R.id.user_name_and_reply_time);
-        this.eIM = (ForumLikeBotton) inflate.findViewById(R.id.like_button);
+        this.eRf = (TbImageView) inflate.findViewById(R.id.forum_avatar);
+        this.eRg = (TextView) inflate.findViewById(R.id.forum_name);
+        this.eRg.setOnClickListener(this.eRk);
+        this.eRh = (TextView) inflate.findViewById(R.id.user_name_and_reply_time);
+        this.eRi = (ForumLikeBotton) inflate.findViewById(R.id.like_button);
         if (context instanceof TbPageContextSupport) {
-            this.eIN = new com.baidu.tbadk.core.view.commonLike.forum.a(((TbPageContextSupport) context).getPageContext(), this.eIM);
+            this.eRj = new com.baidu.tbadk.core.view.commonLike.forum.a(((TbPageContextSupport) context).getPageContext(), this.eRi);
         }
         setGravity(16);
         initHeaderImg();
     }
 
     private void initHeaderImg() {
-        if (this.eIJ != null) {
-            this.eIJ.setDefaultBgResource(R.color.cp_bg_line_e);
-            this.eIJ.setOnClickListener(this.eIO);
+        if (this.eRf != null) {
+            this.eRf.setDefaultBgResource(R.color.cp_bg_line_e);
+            this.eRf.setOnClickListener(this.eRk);
         }
     }
 
     public void setData(bw bwVar) {
         if (bwVar != null) {
-            this.agw = bwVar;
-            a(bwVar.bjV());
-            b(bwVar.bjV());
+            this.agx = bwVar;
+            a(bwVar.blO());
+            b(bwVar.blO());
             F(bwVar);
-            c(bwVar.bjV());
+            c(bwVar.blO());
         }
     }
 
     private void a(bs bsVar) {
         if (bsVar == null || StringUtils.isNull(bsVar.getAvatar())) {
-            this.eIJ.setVisibility(4);
+            this.eRf.setVisibility(4);
             return;
         }
-        this.eIJ.setVisibility(0);
-        this.eIJ.startLoad(bsVar.getAvatar(), 10, false);
-        this.eIJ.setBorderColor(ap.getColor(R.color.black_alpha15));
+        this.eRf.setVisibility(0);
+        this.eRf.startLoad(bsVar.getAvatar(), 10, false);
+        this.eRf.setBorderColor(ap.getColor(R.color.black_alpha15));
     }
 
     public void b(bs bsVar) {
         if (bsVar == null || StringUtils.isNull(bsVar.getForumName())) {
-            this.eIK.setVisibility(4);
+            this.eRg.setVisibility(4);
             return;
         }
-        this.eIK.setText(at.cutChineseAndEnglishWithSuffix(bsVar.getForumName(), 14, StringHelper.STRING_MORE) + getResources().getString(R.string.forum));
-        this.eIK.setVisibility(0);
+        this.eRg.setText(at.cutChineseAndEnglishWithSuffix(bsVar.getForumName(), 14, StringHelper.STRING_MORE) + getResources().getString(R.string.forum));
+        this.eRg.setVisibility(0);
     }
 
     public void F(bw bwVar) {
-        if (bwVar != null && !StringUtils.isNull(this.agw.bih().getName_show())) {
-            this.eIL.setText(getContext().getString(R.string.user_name_and_publish, BO(this.agw.bih().getName_show())));
-            this.eIL.setVisibility(0);
+        if (bwVar != null && !StringUtils.isNull(this.agx.bka().getName_show())) {
+            this.eRh.setText(getContext().getString(R.string.user_name_and_publish, Ch(this.agx.bka().getName_show())));
+            this.eRh.setVisibility(0);
         }
     }
 
     public void c(bs bsVar) {
         int i = 8;
         if (bsVar == null) {
-            this.eIM.setVisibility(8);
+            this.eRi.setVisibility(8);
             return;
         }
-        this.eIN.a(bsVar);
-        this.eIM.setVisibility((!bsVar.getIsLike() || bsVar.bhw()) ? 0 : 0);
+        this.eRj.a(bsVar);
+        this.eRi.setVisibility((!bsVar.getIsLike() || bsVar.bjp()) ? 0 : 0);
     }
 
     public void setForumAfterClickListener(View.OnClickListener onClickListener) {
-        this.eIr = onClickListener;
+        this.eQN = onClickListener;
     }
 
     public void setLikeButtonAfterClickListener(View.OnClickListener onClickListener) {
-        if (this.eIN != null) {
-            this.eIN.setLikeButtonAfterClickListener(onClickListener);
+        if (this.eRj != null) {
+            this.eRj.setLikeButtonAfterClickListener(onClickListener);
         }
     }
 
     public void setPageUniqueId(BdUniqueId bdUniqueId) {
-        if (this.eIJ != null) {
-            this.eIJ.setPageId(bdUniqueId);
+        if (this.eRf != null) {
+            this.eRf.setPageId(bdUniqueId);
         }
-        if (this.eIN != null) {
-            this.eIN.setPageUniqueId(bdUniqueId);
+        if (this.eRj != null) {
+            this.eRj.setPageUniqueId(bdUniqueId);
         }
     }
 
-    protected String BO(String str) {
+    protected String Ch(String str) {
         return at.cutChineseAndEnglishWithSuffix(str, 14, StringHelper.STRING_MORE);
     }
 
     public TbImageView getHeaderImg() {
-        return this.eIJ;
+        return this.eRf;
     }
 
     public TextView getUserName() {
-        return this.eIL;
+        return this.eRh;
     }
 
     public TextView getForumName() {
-        return this.eIK;
+        return this.eRg;
     }
 
     public ForumLikeBotton getLikeButton() {
-        return this.eIM;
+        return this.eRi;
     }
 }

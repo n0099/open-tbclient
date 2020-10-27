@@ -33,7 +33,7 @@ public class MovieRecorder implements b {
     private MovieRecorderCallback tk;
 
     /* renamed from: tv  reason: collision with root package name */
-    private HandlerThread f1241tv;
+    private HandlerThread f1238tv;
     private a ty;
     private com.baidu.ar.recorder.a tz;
     private static final String TAG = MovieRecorder.class.getSimpleName();
@@ -199,14 +199,14 @@ public class MovieRecorder implements b {
         }
         this.tG = new com.baidu.ar.recorder.a.b();
         this.tt = 0;
-        if (!this.tu && this.f1241tv == null) {
-            this.f1241tv = new HandlerThread(TAG);
-            this.f1241tv.start();
+        if (!this.tu && this.f1238tv == null) {
+            this.f1238tv = new HandlerThread(TAG);
+            this.f1238tv.start();
         }
         if (this.ty != null) {
             this.ty.removeCallbacksAndMessages(null);
-        } else if (this.f1241tv != null) {
-            this.ty = new a(this.f1241tv.getLooper());
+        } else if (this.f1238tv != null) {
+            this.ty = new a(this.f1238tv.getLooper());
         } else {
             this.ty = new a(this.mContext.getMainLooper());
         }
@@ -375,9 +375,9 @@ public class MovieRecorder implements b {
             this.ty.removeCallbacksAndMessages(null);
             this.ty = null;
         }
-        if (this.f1241tv != null) {
-            this.f1241tv.quit();
-            this.f1241tv = null;
+        if (this.f1238tv != null) {
+            this.f1238tv.quit();
+            this.f1238tv = null;
         }
     }
 

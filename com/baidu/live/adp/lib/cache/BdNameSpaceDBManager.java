@@ -14,7 +14,6 @@ public class BdNameSpaceDBManager {
         this.dbService = databaseManager;
     }
 
-    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [50=4] */
     public BdCacheNSItem get(String str) {
         Cursor cursor;
         try {

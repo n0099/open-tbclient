@@ -3,7 +3,7 @@ package com.baidu.live.alablmsdk.a;
 import android.os.CountDownTimer;
 /* loaded from: classes4.dex */
 public class b {
-    private long aAm;
+    private long aAr;
     private CountDownTimer mTimer;
     private Object object;
 
@@ -16,7 +16,7 @@ public class b {
 
     public void a(final int i, long j, long j2, final a aVar) {
         cancelTimer();
-        this.aAm = j;
+        this.aAr = j;
         this.mTimer = new CountDownTimer(j, j2) { // from class: com.baidu.live.alablmsdk.a.b.1
             @Override // android.os.CountDownTimer
             public void onTick(long j3) {
@@ -36,7 +36,7 @@ public class b {
     }
 
     public long Bf() {
-        return this.aAm / 1000;
+        return this.aAr / 1000;
     }
 
     public void I(Object obj) {

@@ -17,7 +17,7 @@ public class a extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.person.d,
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.widget.ListView.a
-    /* renamed from: cy */
+    /* renamed from: cz */
     public com.baidu.tieba.person.b.a c(ViewGroup viewGroup) {
         return new com.baidu.tieba.person.b.a(LayoutInflater.from(this.mContext).inflate(R.layout.item_person_center_list_interval, viewGroup, false));
     }
@@ -28,19 +28,19 @@ public class a extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.person.d,
     public View a(int i, View view, ViewGroup viewGroup, com.baidu.tieba.person.d dVar, com.baidu.tieba.person.b.a aVar) {
         if (dVar != null && aVar != null) {
             int skinType = TbadkCoreApplication.getInst().getSkinType();
-            if (aVar.ajp != skinType) {
-                aVar.ajp = skinType;
-                ap.setBackgroundResource(aVar.lCe, dVar.backgroundId);
+            if (aVar.ajq != skinType) {
+                aVar.ajq = skinType;
+                ap.setBackgroundResource(aVar.lOB, dVar.backgroundId);
             }
-            ViewGroup.LayoutParams layoutParams = aVar.lCe.getLayoutParams();
-            if (dVar.lyC > 0) {
-                layoutParams.height = dVar.lyC;
+            ViewGroup.LayoutParams layoutParams = aVar.lOB.getLayoutParams();
+            if (dVar.lKZ > 0) {
+                layoutParams.height = dVar.lKZ;
             }
-            if (dVar.lyB > 0) {
-                layoutParams.width = dVar.lyB;
+            if (dVar.lKY > 0) {
+                layoutParams.width = dVar.lKY;
             }
-            aVar.lCe.setLayoutParams(layoutParams);
-            aVar.lCe.setOnClickListener(null);
+            aVar.lOB.setLayoutParams(layoutParams);
+            aVar.lOB.setOnClickListener(null);
         }
         return view;
     }

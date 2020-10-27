@@ -4,7 +4,7 @@ public class g<T> extends AbstractDataSource<T> {
     private g() {
     }
 
-    public static <T> g<T> dXa() {
+    public static <T> g<T> egY() {
         return new g<>();
     }
 
@@ -17,7 +17,7 @@ public class g<T> extends AbstractDataSource<T> {
 
     /* JADX DEBUG: Multi-variable search result rejected for r2v0, resolved type: com.facebook.datasource.g<T> */
     /* JADX WARN: Multi-variable type inference failed */
-    public boolean bb(T t) {
+    public boolean bf(T t) {
         return super.b(com.facebook.common.internal.g.checkNotNull(t), true);
     }
 
@@ -27,7 +27,7 @@ public class g<T> extends AbstractDataSource<T> {
     }
 
     @Override // com.facebook.datasource.AbstractDataSource
-    public boolean aP(float f) {
-        return super.aP(f);
+    public boolean bg(float f) {
+        return super.bg(f);
     }
 }

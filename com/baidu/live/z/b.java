@@ -1,23 +1,25 @@
 package com.baidu.live.z;
-
-import com.baidu.live.data.u;
-import com.baidu.live.pendantview.PendantChildView;
-import org.json.JSONObject;
 /* loaded from: classes4.dex */
-public interface b {
-    void P(JSONObject jSONObject);
+public class b {
+    private static b bsE;
+    private boolean bsF = true;
 
-    PendantChildView Pk();
+    public static b Pz() {
+        if (bsE == null) {
+            synchronized (b.class) {
+                if (bsE == null) {
+                    bsE = new b();
+                }
+            }
+        }
+        return bsE;
+    }
 
-    void Pl();
+    public boolean PA() {
+        return this.bsF;
+    }
 
-    void Pm();
-
-    void k(u uVar);
-
-    void onDestroy();
-
-    void setCanVisible(boolean z);
-
-    void setOtherParams(String str);
+    public void cv(boolean z) {
+        this.bsF = z;
+    }
 }

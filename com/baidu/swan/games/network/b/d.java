@@ -8,28 +8,28 @@ import okhttp3.HttpUrl;
 /* loaded from: classes10.dex */
 public class d {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    private static volatile d dJg;
-    private HashMap<String, com.baidu.swan.games.network.a> dJh = new HashMap<>();
+    private static volatile d dRD;
+    private HashMap<String, com.baidu.swan.games.network.a> dRE = new HashMap<>();
 
     private d() {
     }
 
-    public static d aRY() {
-        if (dJg == null) {
+    public static d aTS() {
+        if (dRD == null) {
             synchronized (d.class) {
-                if (dJg == null) {
-                    dJg = new d();
+                if (dRD == null) {
+                    dRD = new d();
                 }
             }
         }
-        return dJg;
+        return dRD;
     }
 
     public void a(com.baidu.swan.games.f.b bVar, a.b bVar2) {
-        if (bVar != null && bVar2 != null && bVar2.dIk != null && bVar2.dIk.dKd != null) {
+        if (bVar != null && bVar2 != null && bVar2.dQH != null && bVar2.dQH.dSA != null) {
             release();
-            if (com.baidu.swan.apps.t.a.asi().getSwitch("swan_game_resource_preload", 0) == 1) {
-                bVar2.dIk.dKd.b(bVar);
+            if (com.baidu.swan.apps.t.a.aud().getSwitch("swan_game_resource_preload", 0) == 1) {
+                bVar2.dQH.dSA.b(bVar);
             }
         }
     }
@@ -38,7 +38,7 @@ public class d {
         if (aVar != null) {
             String Z = Z(str, aVar.requestType);
             if (!TextUtils.isEmpty(Z)) {
-                this.dJh.put(Z, aVar);
+                this.dRE.put(Z, aVar);
                 if (DEBUG) {
                     Log.d("SwanGamePreloadManager", "addRequestTask url:" + str);
                 }
@@ -53,7 +53,7 @@ public class d {
                 String optString = cVar.optString("url");
                 String Z = Z(optString, i);
                 if (!TextUtils.isEmpty(Z)) {
-                    aVar = this.dJh.remove(Z);
+                    aVar = this.dRE.remove(Z);
                     if (aVar != null) {
                         a(bVar, "preload used, url = " + optString);
                     }
@@ -67,7 +67,7 @@ public class d {
     }
 
     public synchronized void release() {
-        this.dJh.clear();
+        this.dRE.clear();
     }
 
     private String Z(String str, int i) {
@@ -79,8 +79,8 @@ public class d {
     }
 
     private static void a(com.baidu.swan.games.f.b bVar, String str) {
-        if (bVar != null && bVar.aQx() != null && !TextUtils.isEmpty(str)) {
-            bVar.aQx().log(str);
+        if (bVar != null && bVar.aSr() != null && !TextUtils.isEmpty(str)) {
+            bVar.aSr().log(str);
         }
     }
 }

@@ -1,63 +1,63 @@
 package com.baidu.swan.pms.c.d;
 /* loaded from: classes15.dex */
 public class f extends g {
-    private String dUA;
-    private int dUC;
-    private String dUt;
-    private String dUw;
-    private String dUx;
-    private int dUy;
+    private String ecP;
+    private String ecS;
+    private String ecT;
+    private int ecU;
+    private String ecW;
+    private int ecY;
 
     public f(String str, int i, String str2, int i2) {
         super(i2);
-        this.dUy = -1;
-        this.dUt = str;
-        this.dUA = str2;
-        this.dUC = i;
+        this.ecU = -1;
+        this.ecP = str;
+        this.ecW = str2;
+        this.ecY = i;
     }
 
     public f(String str, String str2, String str3, int i) {
         super(i);
-        this.dUy = -1;
-        this.dUt = str;
-        this.dUA = str3;
+        this.ecU = -1;
+        this.ecP = str;
+        this.ecW = str3;
         try {
-            this.dUC = Integer.valueOf(str2).intValue();
+            this.ecY = Integer.valueOf(str2).intValue();
         } catch (NumberFormatException e) {
-            this.dUC = 0;
+            this.ecY = 0;
         }
     }
 
-    public f xR(String str) {
-        this.dUw = str;
+    public f yk(String str) {
+        this.ecS = str;
         return this;
     }
 
-    public int aXH() {
-        return this.dUy;
+    public int aZA() {
+        return this.ecU;
     }
 
-    public void xS(String str) {
-        this.dUx = str;
+    public void yl(String str) {
+        this.ecT = str;
     }
 
     public String getBundleId() {
-        return this.dUt;
+        return this.ecP;
     }
 
-    public String aXM() {
-        return this.dUA;
+    public String aZF() {
+        return this.ecW;
     }
 
-    public int aXO() {
-        return this.dUC;
+    public int aZH() {
+        return this.ecY;
     }
 
-    public String aXI() {
-        return this.dUw;
+    public String aZB() {
+        return this.ecS;
     }
 
-    public String aXJ() {
-        return this.dUx;
+    public String aZC() {
+        return this.ecT;
     }
 }

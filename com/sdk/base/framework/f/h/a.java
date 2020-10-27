@@ -11,7 +11,7 @@ import java.util.ArrayList;
 public class a {
 
     /* renamed from: a  reason: collision with root package name */
-    private static final String f4500a = a.class.getName();
+    private static final String f4498a = a.class.getName();
     private static final Boolean b = Boolean.valueOf(com.sdk.base.framework.c.f.b);
 
     public static c a(Context context, ArrayList<String> arrayList, boolean z) {
@@ -32,14 +32,14 @@ public class a {
             }
             activeNetworkInfo = connectivityManager.getActiveNetworkInfo();
         } catch (Throwable th) {
-            com.sdk.base.framework.a.a.c.b(f4500a, th.getMessage(), b);
+            com.sdk.base.framework.a.a.c.b(f4498a, th.getMessage(), b);
         }
         if (activeNetworkInfo != null && activeNetworkInfo.isConnected()) {
             String typeName = activeNetworkInfo.getTypeName();
             if ("MOBILE".equalsIgnoreCase(typeName)) {
                 cVar = c.b;
             } else if ("WIFI".equalsIgnoreCase(typeName)) {
-                cVar = c.f4501a;
+                cVar = c.f4499a;
             }
             return cVar;
         }
@@ -62,7 +62,7 @@ public class a {
                     } catch (Throwable th) {
                         arrayList2 = arrayList3;
                         th = th;
-                        com.sdk.base.framework.a.a.c.b(f4500a, th.getMessage(), b);
+                        com.sdk.base.framework.a.a.c.b(f4498a, th.getMessage(), b);
                         return arrayList2;
                     }
                 }
@@ -105,7 +105,7 @@ public class a {
             th = th2;
         }
         if (connectivityManager == null) {
-            com.sdk.base.framework.a.a.c.a(f4500a, "ConnectivityManager 为null", b);
+            com.sdk.base.framework.a.a.c.a(f4498a, "ConnectivityManager 为null", b);
             return false;
         }
         NetworkInfo.State state = connectivityManager.getNetworkInfo(0).getState();
@@ -127,7 +127,7 @@ public class a {
                 } catch (Throwable th3) {
                     th = th3;
                     z = z2;
-                    com.sdk.base.framework.a.a.c.b(f4500a, th.getMessage(), b);
+                    com.sdk.base.framework.a.a.c.b(f4498a, th.getMessage(), b);
                     boolean z3 = com.sdk.base.framework.c.f.f;
                     if (!z) {
                     }

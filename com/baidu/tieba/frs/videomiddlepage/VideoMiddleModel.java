@@ -29,10 +29,10 @@ public class VideoMiddleModel extends BdBaseModel {
     public static final String TYPE_CALL_FROM_FRS = "client_frs";
     public static final String TYPE_CALL_FROM_INDEX = "client_index";
     public static final String TYPE_CALL_FROM_OTHER = "client_other";
-    private VideoSerializeVideoThreadInfo iSH;
-    private a iSI;
-    private String iSJ;
-    private final HttpMessageListener iwZ;
+    private final HttpMessageListener iJv;
+    private VideoSerializeVideoThreadInfo jfd;
+    private a jfe;
+    private String jff;
     private String mFrom;
     private String mId;
     private boolean mIsLoading;
@@ -43,9 +43,9 @@ public class VideoMiddleModel extends BdBaseModel {
 
     /* loaded from: classes.dex */
     public interface a {
-        void m(List<com.baidu.tieba.card.data.b> list, boolean z);
+        void n(List<com.baidu.tieba.card.data.b> list, boolean z);
 
-        void vj(String str);
+        void vC(String str);
     }
 
     static /* synthetic */ int b(VideoMiddleModel videoMiddleModel) {
@@ -56,14 +56,14 @@ public class VideoMiddleModel extends BdBaseModel {
 
     public VideoMiddleModel(TbPageContext tbPageContext, a aVar) {
         super(tbPageContext);
-        this.iSJ = "client_other";
-        this.iwZ = new HttpMessageListener(1003378) { // from class: com.baidu.tieba.frs.videomiddlepage.VideoMiddleModel.1
+        this.jff = "client_other";
+        this.iJv = new HttpMessageListener(1003378) { // from class: com.baidu.tieba.frs.videomiddlepage.VideoMiddleModel.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.adp.framework.listener.MessageListener
             public void onMessage(HttpResponsedMessage httpResponsedMessage) {
                 if (httpResponsedMessage == null || httpResponsedMessage.getCmd() != 1003378 || !(httpResponsedMessage instanceof VideoMiddleDataResponseMessage)) {
-                    if (VideoMiddleModel.this.iSI != null) {
-                        VideoMiddleModel.this.iSI.vj(BdStatsConstant.StatsType.ERROR);
+                    if (VideoMiddleModel.this.jfe != null) {
+                        VideoMiddleModel.this.jfe.vC(BdStatsConstant.StatsType.ERROR);
                         return;
                     }
                     return;
@@ -75,31 +75,31 @@ public class VideoMiddleModel extends BdBaseModel {
                     if (TextUtils.isEmpty(errorString)) {
                         errorString = TbadkCoreApplication.getInst().getResources().getString(R.string.error_unkown_try_again);
                     }
-                    if (VideoMiddleModel.this.iSI != null) {
-                        VideoMiddleModel.this.iSI.vj(errorString);
+                    if (VideoMiddleModel.this.jfe != null) {
+                        VideoMiddleModel.this.jfe.vC(errorString);
                         return;
                     }
                     return;
                 }
                 TbSingleton.getInstance().clearVideoRecord();
-                if (VideoMiddleModel.this.iSI != null) {
-                    VideoMiddleModel.this.iSI.m(((VideoMiddleDataResponseMessage) httpResponsedMessage).mDataList, ((VideoMiddleDataResponseMessage) httpResponsedMessage).mHasMore);
+                if (VideoMiddleModel.this.jfe != null) {
+                    VideoMiddleModel.this.jfe.n(((VideoMiddleDataResponseMessage) httpResponsedMessage).mDataList, ((VideoMiddleDataResponseMessage) httpResponsedMessage).mHasMore);
                 }
             }
         };
         this.mPageContext = tbPageContext;
-        this.iSI = aVar;
+        this.jfe = aVar;
         registerTask();
-        this.iwZ.setTag(getUniqueId());
-        this.iwZ.setSelfListener(true);
-        registerListener(this.iwZ);
+        this.iJv.setTag(getUniqueId());
+        this.iJv.setSelfListener(true);
+        registerListener(this.iJv);
     }
 
     public void setId(String str) {
         this.mId = str;
     }
 
-    public void JH(String str) {
+    public void Kg(String str) {
         this.st_type = str;
     }
 
@@ -108,7 +108,7 @@ public class VideoMiddleModel extends BdBaseModel {
     }
 
     public void a(VideoSerializeVideoThreadInfo videoSerializeVideoThreadInfo) {
-        this.iSH = videoSerializeVideoThreadInfo;
+        this.jfd = videoSerializeVideoThreadInfo;
     }
 
     private void registerTask() {
@@ -139,7 +139,7 @@ public class VideoMiddleModel extends BdBaseModel {
                     for (int i2 = 0; i2 < jSONArray.length(); i2++) {
                         com.baidu.tieba.frs.aggregation.g gVar = new com.baidu.tieba.frs.aggregation.g();
                         gVar.parseJson(jSONArray.optString(i2));
-                        if (gVar.iwG != null) {
+                        if (gVar.iJc != null) {
                             this.mDataList.add(gVar);
                         }
                     }
@@ -161,27 +161,27 @@ public class VideoMiddleModel extends BdBaseModel {
         int i = this.mPn + 1;
         this.mPn = i;
         httpMessage.addParam(com.baidu.mobstat.Config.PACKAGE_NAME, i);
-        httpMessage.addParam("user_view_data", cBi());
+        httpMessage.addParam("user_view_data", cEp());
         if ("frs".equals(this.mFrom)) {
-            this.iSJ = "client_frs";
+            this.jff = "client_frs";
         } else if ("index".equals(this.mFrom)) {
-            this.iSJ = "client_index";
+            this.jff = "client_index";
         } else {
-            this.iSJ = "client_other";
+            this.jff = "client_other";
         }
-        httpMessage.addParam("call_from", this.iSJ);
-        this.iSJ = "client_index";
-        if (this.iSH != null && this.iSH.mBaijiahaoData != null) {
-            httpMessage.addParam("ori_ugc_nid", this.iSH.mBaijiahaoData.oriUgcNid);
-            httpMessage.addParam("ori_ugc_type", this.iSH.mBaijiahaoData.oriUgcType);
-            httpMessage.addParam("ori_ugc_vid", this.iSH.mBaijiahaoData.oriUgcVid);
-            httpMessage.addParam("ori_ugc_tid", this.iSH.mBaijiahaoData.oriUgcTid);
+        httpMessage.addParam("call_from", this.jff);
+        this.jff = "client_index";
+        if (this.jfd != null && this.jfd.mBaijiahaoData != null) {
+            httpMessage.addParam("ori_ugc_nid", this.jfd.mBaijiahaoData.oriUgcNid);
+            httpMessage.addParam("ori_ugc_type", this.jfd.mBaijiahaoData.oriUgcType);
+            httpMessage.addParam("ori_ugc_vid", this.jfd.mBaijiahaoData.oriUgcVid);
+            httpMessage.addParam("ori_ugc_tid", this.jfd.mBaijiahaoData.oriUgcTid);
         }
         sendMessage(httpMessage);
         return true;
     }
 
-    private String cBi() {
+    private String cEp() {
         JSONArray jSONArray = new JSONArray();
         LinkedList<com.baidu.tbadk.d.a> videoRecordList = TbSingleton.getInstance().getVideoRecordList();
         if (videoRecordList != null) {

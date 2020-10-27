@@ -7,38 +7,38 @@ import tbclient.SearchPostForum.DataRes;
 import tbclient.SearchPostForum.SearchForum;
 /* loaded from: classes24.dex */
 public class c {
-    private String imJ;
-    private SearchForum inj;
-    private List<SearchForum> ink;
-    private ArrayList<q> inl;
+    private SearchForum izG;
+    private List<SearchForum> izH;
+    private ArrayList<q> izI;
+    private String izg;
 
     public c(String str) {
-        this.imJ = str;
+        this.izg = str;
     }
 
     public void a(DataRes dataRes) {
         if (dataRes != null) {
-            this.inj = dataRes.exact_match;
-            this.ink = dataRes.fuzzy_match;
-            this.inl = new ArrayList<>();
-            b bVar = new b(this.imJ);
-            if (this.inj != null) {
-                bVar.a(this.inj);
-                this.inl.add(bVar);
+            this.izG = dataRes.exact_match;
+            this.izH = dataRes.fuzzy_match;
+            this.izI = new ArrayList<>();
+            b bVar = new b(this.izg);
+            if (this.izG != null) {
+                bVar.a(this.izG);
+                this.izI.add(bVar);
             }
-            if (this.ink != null) {
-                for (SearchForum searchForum : this.ink) {
+            if (this.izH != null) {
+                for (SearchForum searchForum : this.izH) {
                     if (searchForum != null) {
-                        b bVar2 = new b(this.imJ);
+                        b bVar2 = new b(this.izg);
                         bVar2.a(searchForum);
-                        this.inl.add(bVar2);
+                        this.izI.add(bVar2);
                     }
                 }
             }
         }
     }
 
-    public ArrayList<q> crv() {
-        return this.inl;
+    public ArrayList<q> cuC() {
+        return this.izI;
     }
 }

@@ -17,7 +17,7 @@ public class df {
     }
 
     public static int a(ix ixVar, hm hmVar) {
-        switch (dg.f4853a[hmVar.ordinal()]) {
+        switch (dg.f4851a[hmVar.ordinal()]) {
             case 1:
             case 2:
             case 3:
@@ -34,17 +34,17 @@ public class df {
                 if (ixVar != null) {
                     try {
                         if (ixVar instanceof id) {
-                            String str = ((id) ixVar).f564d;
-                            return (TextUtils.isEmpty(str) || fa.a(fa.m271a(str)) == -1) ? a2 : fa.a(fa.m271a(str));
+                            String str = ((id) ixVar).f561d;
+                            return (TextUtils.isEmpty(str) || fa.a(fa.m270a(str)) == -1) ? a2 : fa.a(fa.m270a(str));
                         } else if (ixVar instanceof il) {
-                            String str2 = ((il) ixVar).f623d;
+                            String str2 = ((il) ixVar).f620d;
                             if (TextUtils.isEmpty(str2)) {
                                 return a2;
                             }
-                            if (fa.a(fa.m271a(str2)) != -1) {
-                                a2 = fa.a(fa.m271a(str2));
+                            if (fa.a(fa.m270a(str2)) != -1) {
+                                a2 = fa.a(fa.m270a(str2));
                             }
-                            if (hw.UploadTinyData.equals(fa.m271a(str2))) {
+                            if (hw.UploadTinyData.equals(fa.m270a(str2))) {
                                 return -1;
                             }
                             return a2;
@@ -125,7 +125,7 @@ public class df {
             iw.a(iiVar, bArr);
             a(str, context, iiVar, bArr.length);
         } catch (jc e) {
-            com.xiaomi.channel.commonutils.logger.b.m55a("fail to convert bytes to container");
+            com.xiaomi.channel.commonutils.logger.b.m54a("fail to convert bytes to container");
         }
     }
 }

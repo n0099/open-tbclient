@@ -9,20 +9,20 @@ import android.util.SparseIntArray;
 import android.view.View;
 /* loaded from: classes.dex */
 public class k {
-    private l WA;
-    private float WC;
+    private l WB;
     private float WD;
+    private float WE;
     private int mCurrentPosition;
     private int mOrientation;
     private RecyclerView mRecyclerView;
     private int mScrollState;
-    private boolean WE = false;
-    private SparseIntArray WB = new SparseIntArray();
-    private SparseArray<ValueAnimator> WF = new SparseArray<>();
-    private SparseIntArray WG = new SparseIntArray();
+    private boolean WF = false;
+    private SparseIntArray WC = new SparseIntArray();
+    private SparseArray<ValueAnimator> WG = new SparseArray<>();
+    private SparseIntArray WH = new SparseIntArray();
 
     public k(l lVar) {
-        this.WA = lVar;
+        this.WB = lVar;
     }
 
     public void a(RecyclerView recyclerView, int i) {
@@ -37,22 +37,22 @@ public class k {
             if (this.mOrientation != 2) {
                 f2 = f;
             }
-            if (Math.abs(f2) < this.WA.rf()) {
-                this.WE = true;
+            if (Math.abs(f2) < this.WB.rf()) {
+                this.WF = true;
                 qU();
                 return;
             }
             this.mCurrentPosition = i;
-            this.WE = false;
-            if (Math.abs(f2) > this.WA.rb()) {
-                f3 = f2 > 0.0f ? this.WA.rb() : -this.WA.rb();
+            this.WF = false;
+            if (Math.abs(f2) > this.WB.rb()) {
+                f3 = f2 > 0.0f ? this.WB.rb() : -this.WB.rb();
             } else {
                 f3 = f2;
             }
-            this.WB.clear();
-            float qX = f3 * this.WA.qX();
+            this.WC.clear();
+            float qX = f3 * this.WB.qX();
             if (f3 < 0.0f) {
-                float qY = this.WA.qY();
+                float qY = this.WB.qY();
                 int i3 = 1;
                 while (true) {
                     int i4 = i - i3;
@@ -61,25 +61,25 @@ public class k {
                     if (f4 > 0.0f) {
                         break;
                     }
-                    float qW = (f4 / this.WA.qW()) + this.WB.get(i4);
-                    if (Math.abs(qW) > this.WA.ra()) {
-                        qW = -this.WA.ra();
+                    float qW = (f4 / this.WB.qW()) + this.WC.get(i4);
+                    if (Math.abs(qW) > this.WB.ra()) {
+                        qW = -this.WB.ra();
                     }
-                    this.WB.append(i4, (int) qW);
+                    this.WC.append(i4, (int) qW);
                     i3++;
                     qY = f5;
                 }
-                float qY2 = this.WA.qY();
+                float qY2 = this.WB.qY();
                 while (true) {
                     int i5 = i + i2;
                     float f6 = qX + (i2 * qY2);
                     float f7 = qY2 * 1.4f;
                     if (f6 <= 0.0f) {
-                        float qV = (f6 / this.WA.qV()) + this.WB.get(i5);
-                        if (Math.abs(qV) > this.WA.qZ()) {
-                            qV = -this.WA.qZ();
+                        float qV = (f6 / this.WB.qV()) + this.WC.get(i5);
+                        if (Math.abs(qV) > this.WB.qZ()) {
+                            qV = -this.WB.qZ();
                         }
-                        this.WB.append(i5, (int) qV);
+                        this.WC.append(i5, (int) qV);
                         i2++;
                         qY2 = f7;
                     } else {
@@ -87,7 +87,7 @@ public class k {
                     }
                 }
             } else {
-                float qY3 = this.WA.qY();
+                float qY3 = this.WB.qY();
                 int i6 = 1;
                 while (true) {
                     int i7 = i - i6;
@@ -96,25 +96,25 @@ public class k {
                     if (f8 < 0.0f) {
                         break;
                     }
-                    float qV2 = (f8 / this.WA.qV()) + this.WB.get(i7);
-                    if (Math.abs(qV2) > this.WA.qZ()) {
-                        qV2 = this.WA.qZ();
+                    float qV2 = (f8 / this.WB.qV()) + this.WC.get(i7);
+                    if (Math.abs(qV2) > this.WB.qZ()) {
+                        qV2 = this.WB.qZ();
                     }
-                    this.WB.append(i7, (int) qV2);
+                    this.WC.append(i7, (int) qV2);
                     i6++;
                     qY3 = f9;
                 }
-                float qY4 = this.WA.qY();
+                float qY4 = this.WB.qY();
                 while (true) {
                     int i8 = i + i2;
                     float f10 = qX - (i2 * qY4);
                     float f11 = qY4 * 1.4f;
                     if (f10 >= 0.0f) {
-                        float qW2 = (f10 / this.WA.qW()) + this.WB.get(i8);
-                        if (Math.abs(qW2) > this.WA.ra()) {
-                            qW2 = this.WA.ra();
+                        float qW2 = (f10 / this.WB.qW()) + this.WC.get(i8);
+                        if (Math.abs(qW2) > this.WB.ra()) {
+                            qW2 = this.WB.ra();
                         }
-                        this.WB.append(i8, (int) qW2);
+                        this.WC.append(i8, (int) qW2);
                         i2++;
                         qY4 = f11;
                     } else {
@@ -129,19 +129,19 @@ public class k {
         if (this.mRecyclerView != null) {
             this.mScrollState = i;
             if (this.mScrollState == 0) {
-                this.WB.clear();
+                this.WC.clear();
                 qU();
             } else if (this.mScrollState == 2) {
                 qU();
             } else if (this.mScrollState == 1) {
-                this.WB.clear();
+                this.WC.clear();
                 qU();
             }
         }
     }
 
     public void j(int i, int i2, int i3) {
-        if (this.mRecyclerView != null && this.mScrollState == 1 && !this.WE) {
+        if (this.mRecyclerView != null && this.mScrollState == 1 && !this.WF) {
             if (this.mOrientation != 2) {
                 i2 = i;
             }
@@ -188,30 +188,30 @@ public class k {
         if (view != null) {
             if (f < 0.0f) {
                 if (i < i2) {
-                    float B = B(view) + (this.WA.rd() * f);
-                    if (B > (-this.WB.get(i)) + B(this.mRecyclerView.getChildAt(i3 + 1))) {
+                    float B = B(view) + (this.WB.rd() * f);
+                    if (B > (-this.WC.get(i)) + B(this.mRecyclerView.getChildAt(i3 + 1))) {
                         m(view, B);
                     } else {
                         c(view, i);
                     }
                 } else if (i > i2) {
-                    float B2 = B(view) + (this.WA.rc() * f);
-                    if (B2 > (-this.WB.get(i)) + B(this.mRecyclerView.getChildAt(i3 - 1))) {
+                    float B2 = B(view) + (this.WB.rc() * f);
+                    if (B2 > (-this.WC.get(i)) + B(this.mRecyclerView.getChildAt(i3 - 1))) {
                         m(view, B2);
                     } else {
                         c(view, i);
                     }
                 }
             } else if (i > i2) {
-                float B3 = B(view) + (this.WA.rd() * f);
-                if (B3 < (-this.WB.get(i)) + B(this.mRecyclerView.getChildAt(i3 - 1))) {
+                float B3 = B(view) + (this.WB.rd() * f);
+                if (B3 < (-this.WC.get(i)) + B(this.mRecyclerView.getChildAt(i3 - 1))) {
                     m(view, B3);
                 } else {
                     c(view, i);
                 }
             } else if (i < i2) {
-                float B4 = B(view) + (this.WA.rc() * f);
-                if (B4 < (-this.WB.get(i)) + B(this.mRecyclerView.getChildAt(i3 + 1))) {
+                float B4 = B(view) + (this.WB.rc() * f);
+                if (B4 < (-this.WC.get(i)) + B(this.mRecyclerView.getChildAt(i3 + 1))) {
                     m(view, B4);
                 } else {
                     c(view, i);
@@ -226,19 +226,19 @@ public class k {
             RecyclerView.LayoutManager layoutManager = this.mRecyclerView.getLayoutManager();
             if (layoutManager instanceof LinearLayoutManager) {
                 if (childAdapterPosition <= ((LinearLayoutManager) layoutManager).findFirstVisibleItemPosition()) {
-                    float f = -this.WB.get(childAdapterPosition, 0);
+                    float f = -this.WC.get(childAdapterPosition, 0);
                     if (f != 0.0f) {
-                        this.WC = f;
+                        this.WD = f;
                     } else {
-                        f = this.WC;
+                        f = this.WD;
                     }
                     m(view, f + (this.mRecyclerView.getChildAt(1) != null ? B(this.mRecyclerView.getChildAt(1)) : 0.0f));
                 } else {
-                    float f2 = -this.WB.get(childAdapterPosition, 0);
+                    float f2 = -this.WC.get(childAdapterPosition, 0);
                     if (f2 != 0.0f) {
-                        this.WD = f2;
+                        this.WE = f2;
                     } else {
-                        f2 = this.WD;
+                        f2 = this.WE;
                     }
                     m(view, f2 + (this.mRecyclerView.getChildAt(this.mRecyclerView.getChildCount() + (-2)) != null ? B(this.mRecyclerView.getChildAt(this.mRecyclerView.getChildCount() - 2)) : 0.0f));
                 }
@@ -251,12 +251,12 @@ public class k {
         if (this.mRecyclerView != null) {
             m(view, 0.0f);
             int childAdapterPosition = this.mRecyclerView.getChildAdapterPosition(view);
-            this.WB.delete(childAdapterPosition);
-            if (this.WF.get(childAdapterPosition) != null) {
-                this.WF.get(childAdapterPosition).cancel();
+            this.WC.delete(childAdapterPosition);
+            if (this.WG.get(childAdapterPosition) != null) {
+                this.WG.get(childAdapterPosition).cancel();
             }
-            this.WF.delete(childAdapterPosition);
             this.WG.delete(childAdapterPosition);
+            this.WH.delete(childAdapterPosition);
         }
     }
 
@@ -270,7 +270,7 @@ public class k {
 
     private void c(final View view, final int i) {
         if (view != null) {
-            ValueAnimator valueAnimator = this.WF.get(i);
+            ValueAnimator valueAnimator = this.WG.get(i);
             if (valueAnimator == null) {
                 if (Math.abs(B(view)) < 0.1f) {
                     m(view, 0.0f);
@@ -278,7 +278,7 @@ public class k {
                 }
                 ValueAnimator ofFloat = ValueAnimator.ofFloat(B(view), 0.0f);
                 ofFloat.setInterpolator(new m(1.0f));
-                ofFloat.setDuration(this.WA.rg());
+                ofFloat.setDuration(this.WB.rg());
                 ofFloat.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() { // from class: com.baidu.adp.widget.ListView.k.1
                     @Override // android.animation.ValueAnimator.AnimatorUpdateListener
                     public void onAnimationUpdate(ValueAnimator valueAnimator2) {
@@ -292,16 +292,16 @@ public class k {
 
                     @Override // android.animation.Animator.AnimatorListener
                     public void onAnimationEnd(Animator animator) {
-                        k.this.WF.delete(i);
                         k.this.WG.delete(i);
-                        k.this.WB.delete(i);
+                        k.this.WH.delete(i);
+                        k.this.WC.delete(i);
                         k.this.m(view, 0.0f);
                     }
 
                     @Override // android.animation.Animator.AnimatorListener
                     public void onAnimationCancel(Animator animator) {
-                        k.this.WF.delete(i);
                         k.this.WG.delete(i);
+                        k.this.WH.delete(i);
                         k.this.m(view, 0.0f);
                     }
 
@@ -309,8 +309,8 @@ public class k {
                     public void onAnimationRepeat(Animator animator) {
                     }
                 });
-                this.WF.append(i, ofFloat);
-                this.WG.append(i, (int) B(view));
+                this.WG.append(i, ofFloat);
+                this.WH.append(i, (int) B(view));
                 ofFloat.start();
                 return;
             }
@@ -318,8 +318,8 @@ public class k {
                 valueAnimator.start();
             }
             float B = B(view);
-            if (Math.abs(B) > Math.abs(this.WG.get(i)) + this.WA.re()) {
-                this.WG.append(i, (int) B);
+            if (Math.abs(B) > Math.abs(this.WH.get(i)) + this.WB.re()) {
+                this.WH.append(i, (int) B);
                 valueAnimator.setFloatValues(B, 0.0f);
                 valueAnimator.cancel();
                 valueAnimator.start();

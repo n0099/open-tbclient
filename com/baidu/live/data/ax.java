@@ -1,21 +1,44 @@
 package com.baidu.live.data;
 
-import java.util.ArrayList;
-import java.util.List;
-import org.json.JSONArray;
 import org.json.JSONObject;
 /* loaded from: classes4.dex */
 public class ax {
-    public List<Long> aNa;
+    public int aNu;
+    public int aNv;
+    public int aNw;
+    public int aNx;
+    public String aNy;
+    public bu aNz;
+    public long anchorScore;
+    public long challengeId;
+    public int challengeResult;
+    public long endTime;
+    public long nowTime;
+    public long rivalScore;
+    public long stageEndTime;
+    public long stageStartTime;
+    public long startTime;
 
     public void parseJson(JSONObject jSONObject) {
         if (jSONObject != null) {
-            this.aNa = new ArrayList();
-            JSONArray optJSONArray = jSONObject.optJSONArray("id");
-            if (optJSONArray != null) {
-                for (int i = 0; i < optJSONArray.length(); i++) {
-                    this.aNa.add(Long.valueOf(optJSONArray.optLong(i)));
-                }
+            this.challengeId = jSONObject.optLong("challenge_id");
+            this.aNu = jSONObject.optInt("challenge_status");
+            this.challengeResult = jSONObject.optInt("challenge_ret");
+            this.aNv = jSONObject.optInt("challenge_ret_type");
+            this.startTime = jSONObject.optLong("start_time");
+            this.endTime = jSONObject.optLong("end_time");
+            this.stageStartTime = jSONObject.optLong("stage_start_time");
+            this.stageEndTime = jSONObject.optLong("stage_end_time");
+            this.nowTime = jSONObject.optLong("now_time");
+            this.anchorScore = jSONObject.optLong("anchor_score");
+            this.rivalScore = jSONObject.optLong("rival_score");
+            this.aNw = jSONObject.optInt("winning_num");
+            this.aNx = jSONObject.optInt("anchor_rank");
+            this.aNy = jSONObject.optString("rank_url");
+            this.aNz = new bu();
+            JSONObject optJSONObject = jSONObject.optJSONObject("punish_stage_close_info");
+            if (optJSONObject != null) {
+                this.aNz.parseJson(optJSONObject);
             }
         }
     }

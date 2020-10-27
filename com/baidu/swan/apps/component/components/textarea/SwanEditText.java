@@ -5,11 +5,11 @@ import android.support.v7.widget.AppCompatEditText;
 import android.util.AttributeSet;
 /* loaded from: classes10.dex */
 public class SwanEditText extends AppCompatEditText {
-    private a cqu;
+    private a cyV;
 
     /* loaded from: classes10.dex */
     public interface a {
-        void ag(int i, int i2);
+        void ah(int i, int i2);
     }
 
     public SwanEditText(Context context) {
@@ -30,12 +30,12 @@ public class SwanEditText extends AppCompatEditText {
     @Override // android.widget.TextView
     protected void onSelectionChanged(int i, int i2) {
         super.onSelectionChanged(i, i2);
-        if (this.cqu != null) {
-            this.cqu.ag(i, i2);
+        if (this.cyV != null) {
+            this.cyV.ah(i, i2);
         }
     }
 
     public void setSelectListener(a aVar) {
-        this.cqu = aVar;
+        this.cyV = aVar;
     }
 }

@@ -4,38 +4,38 @@ import com.baidu.swan.c.i;
 import org.json.JSONObject;
 /* loaded from: classes15.dex */
 public class g {
-    private static volatile g dUT;
-    private a dUU = new a();
+    private static volatile g edp;
+    private a edq = new a();
 
-    public static g aYb() {
-        if (dUT == null) {
+    public static g aZU() {
+        if (edp == null) {
             synchronized (g.class) {
-                if (dUT == null) {
-                    dUT = new g();
+                if (edp == null) {
+                    edp = new g();
                 }
             }
         }
-        return dUT;
+        return edp;
     }
 
     private g() {
     }
 
     public String getVersion() {
-        return this.dUU.getString("version", "0");
+        return this.edq.getString("version", "0");
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public void cJ(JSONObject jSONObject) {
-        f cK;
-        if (jSONObject != null && (cK = f.cK(jSONObject)) != null) {
-            com.baidu.swan.pms.d.aWI().a(cK);
+    public void cM(JSONObject jSONObject) {
+        f cN;
+        if (jSONObject != null && (cN = f.cN(jSONObject)) != null) {
+            com.baidu.swan.pms.d.aYB().a(cN);
         }
     }
 
     public void b(f fVar) {
         if (fVar != null) {
-            this.dUU.edit().putString("version", fVar.getVersion()).apply();
+            this.edq.edit().putString("version", fVar.getVersion()).apply();
         }
     }
 

@@ -4,16 +4,16 @@ import java.util.HashSet;
 import java.util.Set;
 /* loaded from: classes4.dex */
 public class h {
-    public long aTm;
-    public com.baidu.live.im.data.a bhh;
-    public long bhi;
-    public long bhj;
-    public double bhk;
-    public boolean bhl;
-    public long bhm;
-    public boolean bhn = false;
-    public Set<Long> bho = new HashSet();
-    public String bhp;
+    public long aUi;
+    public long biA;
+    public double biB;
+    public boolean biC;
+    public long biD;
+    public boolean biE = false;
+    public Set<Long> biF = new HashSet();
+    public String biG;
+    public com.baidu.live.im.data.a biy;
+    public long biz;
     public long count;
     public String endColor;
     public String fontColor;

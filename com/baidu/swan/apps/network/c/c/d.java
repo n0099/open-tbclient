@@ -8,40 +8,40 @@ import org.json.JSONObject;
 /* loaded from: classes10.dex */
 public class d {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    private final String cTI;
-    private long cTJ;
-    private long cTK;
+    private final String dcg;
+    private long dch;
+    private long dci;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public d(String str) {
-        this.cTI = str;
+        this.dcg = str;
         if (DEBUG) {
             Log.d(ExifInterface.TAG_MODEL, "new model, scope id - " + str);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public void by(long j) {
-        this.cTJ = j;
+    public void bA(long j) {
+        this.dch = j;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public void bz(long j) {
-        this.cTK = j;
+    public void bB(long j) {
+        this.dci = j;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public long ayE() {
-        return this.cTJ;
+    public long aAy() {
+        return this.dch;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public JSONObject toJson() {
         JSONObject jSONObject = new JSONObject();
         try {
-            jSONObject.put("scope_id", this.cTI);
-            jSONObject.put("begin_ts", this.cTJ);
-            jSONObject.put("end_ts", this.cTK);
+            jSONObject.put("scope_id", this.dcg);
+            jSONObject.put("begin_ts", this.dch);
+            jSONObject.put("end_ts", this.dci);
         } catch (JSONException e) {
             if (DEBUG) {
                 e.printStackTrace();

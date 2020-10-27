@@ -8,7 +8,7 @@ import org.json.JSONObject;
 public final class c {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
     private static String TAG = "SwanAppParam";
-    private boolean cRL;
+    private boolean dah;
     private String mBaseUrl;
     private String mPage;
     private String mParams;
@@ -21,12 +21,12 @@ public final class c {
         return this.mParams;
     }
 
-    public String avb() {
+    public String awV() {
         return this.mBaseUrl;
     }
 
-    public void akE() {
-        this.cRL = false;
+    public void amy() {
+        this.dah = false;
     }
 
     public String toJSONString() {
@@ -35,7 +35,7 @@ public final class c {
             jSONObject.put("page", this.mPage);
             jSONObject.put("params", this.mParams);
             jSONObject.put("baseUrl", this.mBaseUrl);
-            jSONObject.put("isFirstPage", this.cRL);
+            jSONObject.put("isFirstPage", this.dah);
         } catch (JSONException e) {
             if (DEBUG) {
                 Log.e(TAG, "toJSONString error: " + Log.getStackTraceString(e));
@@ -44,7 +44,7 @@ public final class c {
         return jSONObject.toString();
     }
 
-    public static c pH(String str) {
+    public static c qa(String str) {
         if (TextUtils.isEmpty(str)) {
             return null;
         }
@@ -54,7 +54,7 @@ public final class c {
             cVar.mPage = jSONObject.optString("page");
             cVar.mParams = jSONObject.optString("params");
             cVar.mBaseUrl = jSONObject.optString("baseUrl");
-            cVar.cRL = jSONObject.optBoolean("isFirstPage");
+            cVar.dah = jSONObject.optBoolean("isFirstPage");
             return cVar;
         } catch (JSONException e) {
             if (DEBUG) {
@@ -67,30 +67,30 @@ public final class c {
 
     /* loaded from: classes10.dex */
     public static class a {
-        private c cvK = new c();
+        private c cEg = new c();
 
-        public a pI(String str) {
-            this.cvK.mPage = str;
+        public a qb(String str) {
+            this.cEg.mPage = str;
             return this;
         }
 
-        public a pJ(String str) {
-            this.cvK.mParams = str;
+        public a qc(String str) {
+            this.cEg.mParams = str;
             return this;
         }
 
-        public a pK(String str) {
-            this.cvK.mBaseUrl = str;
+        public a qd(String str) {
+            this.cEg.mBaseUrl = str;
             return this;
         }
 
-        public a fn(boolean z) {
-            this.cvK.cRL = z;
+        public a fA(boolean z) {
+            this.cEg.dah = z;
             return this;
         }
 
-        public c axF() {
-            return this.cvK;
+        public c azz() {
+            return this.cEg;
         }
     }
 }

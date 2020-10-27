@@ -11,19 +11,19 @@ import java.util.Map;
 public class ARProxyManager {
 
     /* renamed from: a  reason: collision with root package name */
-    private HashMap<String, d> f1188a = new HashMap<>();
+    private HashMap<String, d> f1185a = new HashMap<>();
 
     private d a(String str) {
         if (b(str)) {
-            if (this.f1188a == null) {
-                this.f1188a = new HashMap<>();
+            if (this.f1185a == null) {
+                this.f1185a = new HashMap<>();
             }
-            d dVar = this.f1188a.get(str);
+            d dVar = this.f1185a.get(str);
             if (dVar == null) {
                 dVar = c(str);
             }
             if (dVar != null) {
-                this.f1188a.put(str, dVar);
+                this.f1185a.put(str, dVar);
                 return dVar;
             }
             return dVar;
@@ -65,8 +65,8 @@ public class ARProxyManager {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public void d() {
-        if (this.f1188a != null) {
-            for (d dVar : this.f1188a.values()) {
+        if (this.f1185a != null) {
+            for (d dVar : this.f1185a.values()) {
                 dVar.a(null);
             }
         }
@@ -75,7 +75,7 @@ public class ARProxyManager {
     /* JADX INFO: Access modifiers changed from: package-private */
     public void d(String str) {
         d dVar;
-        if (this.f1188a == null || (dVar = this.f1188a.get(str)) == null) {
+        if (this.f1185a == null || (dVar = this.f1185a.get(str)) == null) {
             return;
         }
         dVar.a(null);
@@ -104,12 +104,12 @@ public class ARProxyManager {
     /* JADX INFO: Access modifiers changed from: package-private */
     public void release() {
         d();
-        if (this.f1188a != null) {
-            for (Map.Entry<String, d> entry : this.f1188a.entrySet()) {
+        if (this.f1185a != null) {
+            for (Map.Entry<String, d> entry : this.f1185a.entrySet()) {
                 entry.getValue().release();
             }
-            this.f1188a.clear();
-            this.f1188a = null;
+            this.f1185a.clear();
+            this.f1185a = null;
         }
     }
 }

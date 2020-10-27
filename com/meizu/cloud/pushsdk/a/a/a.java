@@ -45,7 +45,7 @@ public class a {
     private long l = 0;
 
     /* renamed from: a  reason: collision with root package name */
-    String f4302a = "88&*5a9*4&a122ek";
+    String f4300a = "88&*5a9*4&a122ek";
 
     private a(Context context) {
         this.m = context;

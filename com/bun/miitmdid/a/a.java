@@ -9,16 +9,16 @@ import org.json.JSONObject;
 import org.json.JSONTokener;
 /* loaded from: classes11.dex */
 public class a implements b {
-    public C0868a nHg = new C0868a();
+    public C0940a oyz = new C0940a();
 
     /* renamed from: com.bun.miitmdid.a.a$a  reason: collision with other inner class name */
     /* loaded from: classes11.dex */
-    public class C0868a {
-        public com.bun.miitmdid.a.a.a nHh;
-        public com.bun.miitmdid.a.a.b nHi;
-        public c nHj;
+    public class C0940a {
+        public com.bun.miitmdid.a.a.a oyA;
+        public com.bun.miitmdid.a.a.b oyB;
+        public c oyC;
 
-        public C0868a() {
+        public C0940a() {
         }
     }
 
@@ -30,9 +30,9 @@ public class a implements b {
             return false;
         }
         if (jSONObject.optJSONObject(RomUtils.MANUFACTURER_HUAWEI) != null) {
-            aVar.nHg.nHh = new com.bun.miitmdid.a.a.a();
+            aVar.oyz.oyA = new com.bun.miitmdid.a.a.a();
         }
-        return aVar.nHg.nHh != null;
+        return aVar.oyz.oyA != null;
     }
 
     private static boolean b(a aVar, JSONObject jSONObject) {
@@ -40,9 +40,9 @@ public class a implements b {
             return false;
         }
         if (jSONObject.optJSONObject(RomUtils.MANUFACTURER_XIAOMI) != null) {
-            aVar.nHg.nHj = new c();
+            aVar.oyz.oyC = new c();
         }
-        return aVar.nHg.nHj != null;
+        return aVar.oyz.oyC != null;
     }
 
     private static boolean c(a aVar, JSONObject jSONObject) {
@@ -52,13 +52,13 @@ public class a implements b {
         JSONObject optJSONObject = jSONObject.optJSONObject(RomUtils.MANUFACTURER_VIVO);
         com.bun.miitmdid.a.a.b bVar = new com.bun.miitmdid.a.a.b();
         if (optJSONObject != null) {
-            bVar.f3975a = optJSONObject.optString("appid");
-            aVar.nHg.nHi = bVar;
+            bVar.f3973a = optJSONObject.optString("appid");
+            aVar.oyz.oyB = bVar;
         }
-        return aVar.nHg.nHi != null;
+        return aVar.oyz.oyB != null;
     }
 
-    public static a gu(Context context) {
+    public static a gP(Context context) {
         boolean z;
         JSONObject jSONObject;
         JSONObject optJSONObject;
@@ -82,6 +82,6 @@ public class a implements b {
 
     @Override // com.bun.miitmdid.a.b
     public String a() {
-        return (this.nHg == null || this.nHg.nHi == null || this.nHg.nHi.f3975a == null) ? "" : this.nHg.nHi.f3975a;
+        return (this.oyz == null || this.oyz.oyB == null || this.oyz.oyB.f3973a == null) ? "" : this.oyz.oyB.f3973a;
     }
 }

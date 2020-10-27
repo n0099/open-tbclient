@@ -4,8 +4,8 @@ import com.baidu.android.common.others.IStringUtil;
 @kotlin.h
 /* loaded from: classes10.dex */
 public final class k extends i {
-    public static final a oSu = new a(null);
-    private static final k oSt = new k(1, 0);
+    public static final a pJQ = new a(null);
+    private static final k pJP = new k(1, 0);
 
     public k(long j, long j2) {
         super(j, j2, 1L);
@@ -13,12 +13,12 @@ public final class k extends i {
 
     @Override // kotlin.b.i
     public boolean isEmpty() {
-        return eos() > eot();
+        return eyq() > eyr();
     }
 
     @Override // kotlin.b.i
     public boolean equals(Object obj) {
-        return (obj instanceof k) && ((isEmpty() && ((k) obj).isEmpty()) || (eos() == ((k) obj).eos() && eot() == ((k) obj).eot()));
+        return (obj instanceof k) && ((isEmpty() && ((k) obj).isEmpty()) || (eyq() == ((k) obj).eyq() && eyr() == ((k) obj).eyr()));
     }
 
     @Override // kotlin.b.i
@@ -26,12 +26,12 @@ public final class k extends i {
         if (isEmpty()) {
             return -1;
         }
-        return (int) ((31 * (eos() ^ (eos() >>> 32))) + (eot() ^ (eot() >>> 32)));
+        return (int) ((31 * (eyq() ^ (eyq() >>> 32))) + (eyr() ^ (eyr() >>> 32)));
     }
 
     @Override // kotlin.b.i
     public String toString() {
-        return eos() + IStringUtil.TOP_PATH + eot();
+        return eyq() + IStringUtil.TOP_PATH + eyr();
     }
 
     @kotlin.h

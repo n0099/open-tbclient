@@ -10,6 +10,7 @@ import android.system.Os;
 import android.text.TextUtils;
 import android.util.Log;
 import com.baidu.android.common.util.DeviceId;
+import com.baidu.cyberplayer.sdk.rtc.RTCConst;
 import com.baidu.webkit.internal.ETAG;
 import java.io.BufferedReader;
 import java.io.File;
@@ -22,7 +23,7 @@ import java.util.List;
 import java.util.Random;
 /* loaded from: classes6.dex */
 public class f {
-    private c amM;
+    private c amN;
     private Context l;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -43,14 +44,14 @@ public class f {
 
     public f(Context context, c cVar) {
         this.l = context;
-        this.amM = cVar;
+        this.amN = cVar;
     }
 
     private e X(Context context) {
         String str;
         e eVar;
         e eVar2 = null;
-        List<b> N = this.amM.N(context);
+        List<b> N = this.amN.N(context);
         if (N != null) {
             File filesDir = context.getFilesDir();
             if (com.baidu.fsg.face.base.b.c.g.equals(filesDir.getName())) {
@@ -61,7 +62,7 @@ public class f {
             }
             for (b bVar : N) {
                 if (!bVar.d) {
-                    File file = new File(new File(bVar.acR.dataDir, str), "libcuid.so");
+                    File file = new File(new File(bVar.acS.dataDir, str), "libcuid.so");
                     if (file.exists()) {
                         eVar = e.dp(com.baidu.cesium.f.c.a(file));
                         if (eVar != null) {
@@ -160,7 +161,7 @@ public class f {
             }
             if (Build.VERSION.SDK_INT >= 21) {
                 if (i == 0 && DeviceId.sDataCuidInfoShable) {
-                    return a.a(new File(this.l.getFilesDir(), "libcuid.so").getAbsolutePath(), 436);
+                    return a.a(new File(this.l.getFilesDir(), "libcuid.so").getAbsolutePath(), RTCConst.RTC_ROOM_USERID_ALREADY_EXIST_ERROR);
                 }
                 if (DeviceId.sDataCuidInfoShable) {
                     return true;

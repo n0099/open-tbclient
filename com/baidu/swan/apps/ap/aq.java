@@ -4,12 +4,12 @@ import java.util.ArrayDeque;
 import java.util.Queue;
 /* loaded from: classes10.dex */
 public class aq {
-    private final Queue<Runnable> deh = new ArrayDeque();
-    private Runnable dpP = null;
-    private boolean dpQ = false;
+    private final Queue<Runnable> dmH = new ArrayDeque();
+    private Runnable dyp = null;
+    private boolean dyq = false;
 
     /* JADX WARN: Code restructure failed: missing block: B:10:0x0013, code lost:
-        if (aIV() != false) goto L9;
+        if (aKP() != false) goto L9;
      */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
@@ -19,7 +19,7 @@ public class aq {
         synchronized (this) {
             boolean z2 = runnable == null;
             if (!z2) {
-                this.deh.offer(runnable);
+                this.dmH.offer(runnable);
             }
             if (!z2) {
             }
@@ -28,34 +28,34 @@ public class aq {
         return z;
     }
 
-    public synchronized boolean aIS() {
-        boolean aIU;
-        aIU = aIU();
-        this.dpQ = true;
-        return aIU;
+    public synchronized boolean aKM() {
+        boolean aKO;
+        aKO = aKO();
+        this.dyq = true;
+        return aKO;
     }
 
-    public synchronized void aIT() {
-        this.dpQ = false;
-        aIV();
+    public synchronized void aKN() {
+        this.dyq = false;
+        aKP();
     }
 
-    private boolean aIU() {
-        return !this.dpQ && this.dpP == null;
+    private boolean aKO() {
+        return !this.dyq && this.dyp == null;
     }
 
-    private synchronized boolean aIV() {
-        boolean aIU;
-        aIU = aIU();
-        if (aIU) {
-            while (!this.deh.isEmpty()) {
-                this.dpP = this.deh.poll();
-                if (this.dpP != null) {
-                    this.dpP.run();
+    private synchronized boolean aKP() {
+        boolean aKO;
+        aKO = aKO();
+        if (aKO) {
+            while (!this.dmH.isEmpty()) {
+                this.dyp = this.dmH.poll();
+                if (this.dyp != null) {
+                    this.dyp.run();
                 }
             }
-            this.dpP = null;
+            this.dyp = null;
         }
-        return aIU;
+        return aKO;
     }
 }

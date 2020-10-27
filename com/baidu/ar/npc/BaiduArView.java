@@ -33,7 +33,7 @@ public class BaiduArView extends GLSurfaceView {
     private GestureDetector.OnGestureListener H;
 
     /* renamed from: a  reason: collision with root package name */
-    ArBridge.d f1200a;
+    ArBridge.d f1197a;
     private GestureDetector e;
     private h f;
     private boolean g;
@@ -131,7 +131,7 @@ public class BaiduArView extends GLSurfaceView {
         this.F = null;
         this.mNeedDestroy = false;
         this.mUpdating = false;
-        this.f1200a = new z(this);
+        this.f1197a = new z(this);
         this.H = new aa(this);
         a(true, 16, 0);
     }
@@ -165,7 +165,7 @@ public class BaiduArView extends GLSurfaceView {
         this.F = null;
         this.mNeedDestroy = false;
         this.mUpdating = false;
-        this.f1200a = new z(this);
+        this.f1197a = new z(this);
         this.H = new aa(this);
         a(true, 16, 0);
     }
@@ -199,14 +199,14 @@ public class BaiduArView extends GLSurfaceView {
         this.F = null;
         this.mNeedDestroy = false;
         this.mUpdating = false;
-        this.f1200a = new z(this);
+        this.f1197a = new z(this);
         this.H = new aa(this);
         a(z, i2, i3);
     }
 
     @Override // android.opengl.GLSurfaceView
     public void onResume() {
-        ArBridge.getInstance().registerMessageHandler(11, this.f1200a);
+        ArBridge.getInstance().registerMessageHandler(11, this.f1197a);
         super.onResume();
         Log.d(b, MissionEvent.MESSAGE_RESUME);
         Log.d("callseq", "BaiduArView::resume()");
@@ -215,7 +215,7 @@ public class BaiduArView extends GLSurfaceView {
 
     @Override // android.opengl.GLSurfaceView
     public void onPause() {
-        ArBridge.getInstance().removeMessageHandeler(this.f1200a);
+        ArBridge.getInstance().removeMessageHandeler(this.f1197a);
         Log.d(b, MissionEvent.MESSAGE_PAUSE);
         Log.d("callseq", "BaiduArView::pause()");
         ArBridge.getInstance().a();
@@ -330,7 +330,7 @@ public class BaiduArView extends GLSurfaceView {
             this.u.removeMessages(2);
             if (this.F != null) {
                 if (!this.z) {
-                    ArBridge.getInstance().a(i.EClick.ordinal(), this.F.f1201a, this.F.b, this.F.c, -1.0f, -1.0f, -1, -1.0f, -1.0f, -1.0f, -1.0f, this.F.d);
+                    ArBridge.getInstance().a(i.EClick.ordinal(), this.F.f1198a, this.F.b, this.F.c, -1.0f, -1.0f, -1, -1.0f, -1.0f, -1.0f, -1.0f, this.F.d);
                 }
                 ArBridge.getInstance().a(i.EClear.ordinal(), -1, -1.0f, -1.0f, -1.0f, -1.0f, -1, -1.0f, -1.0f, -1.0f, -1.0f, -1L);
                 this.F = null;
@@ -342,8 +342,8 @@ public class BaiduArView extends GLSurfaceView {
     public boolean onTouchEvent(MotionEvent motionEvent) {
         boolean onTouchEvent = super.onTouchEvent(motionEvent);
         if (this.E) {
-            switch (ae.f1215a[this.f.ordinal()]) {
-                case 1:
+            switch (this.f) {
+                case EStatSingleFingerCandidate:
                     if (motionEvent.getActionMasked() == 0) {
                         Log.d(b, "touchinv Action Down when EStatSingleFingerCandidate");
                         this.h = motionEvent.getPointerId(motionEvent.getActionIndex());
@@ -396,7 +396,7 @@ public class BaiduArView extends GLSurfaceView {
                                 Message obtain = Message.obtain();
                                 obtain.what = 2;
                                 c cVar = new c(null);
-                                cVar.f1201a = motionEvent.getPointerId(0);
+                                cVar.f1198a = motionEvent.getPointerId(0);
                                 cVar.b = motionEvent.getX();
                                 cVar.c = motionEvent.getY();
                                 cVar.d = motionEvent.getDownTime();
@@ -423,7 +423,7 @@ public class BaiduArView extends GLSurfaceView {
                         break;
                     }
                     break;
-                case 2:
+                case EStatTwoFingersCandidate:
                     if (5 == motionEvent.getActionMasked()) {
                         this.f = h.EStatUnknown;
                         break;
@@ -463,7 +463,7 @@ public class BaiduArView extends GLSurfaceView {
                         break;
                     }
                     break;
-                case 3:
+                case EStatScroll:
                     if (5 == motionEvent.getActionMasked()) {
                         this.f = h.EStatUnknown;
                         break;
@@ -490,7 +490,7 @@ public class BaiduArView extends GLSurfaceView {
                         break;
                     }
                     break;
-                case 4:
+                case EStatTwoFingersScroll:
                     if (5 == motionEvent.getActionMasked()) {
                         this.f = h.EStatUnknown;
                         break;
@@ -519,7 +519,7 @@ public class BaiduArView extends GLSurfaceView {
                         break;
                     }
                     break;
-                case 5:
+                case EStatPinchAndUnpinch:
                     if (5 == motionEvent.getActionMasked()) {
                         this.f = h.EStatUnknown;
                         break;
@@ -554,7 +554,7 @@ public class BaiduArView extends GLSurfaceView {
                         break;
                     }
                     break;
-                case 6:
+                case EStatLongPresss:
                     if (2 == motionEvent.getActionMasked()) {
                         if (a(this.i, this.j, motionEvent.getX(), motionEvent.getY()) > 80.0d) {
                             this.f = h.EScrollAfterLongPress;
@@ -574,7 +574,7 @@ public class BaiduArView extends GLSurfaceView {
                         break;
                     }
                     break;
-                case 7:
+                case EScrollAfterLongPress:
                     if (2 == motionEvent.getActionMasked()) {
                         if (!this.x && !this.B) {
                             ArBridge.getInstance().a(i.EScrollAfterLongPress.ordinal(), this.h, motionEvent.getX(), motionEvent.getY(), a(motionEvent), b(motionEvent), -1, -1.0f, -1.0f, -1.0f, -1.0f, motionEvent.getEventTime());
@@ -591,9 +591,9 @@ public class BaiduArView extends GLSurfaceView {
                         break;
                     }
                     break;
-                case 8:
-                case 9:
-                case 10:
+                case EStatPinch:
+                case EStatUnPinch:
+                case EStatUnknown:
                     if (1 == motionEvent.getActionMasked()) {
                         c();
                         break;
@@ -610,7 +610,7 @@ public class BaiduArView extends GLSurfaceView {
     public static class e implements GLSurfaceView.EGLContextFactory {
 
         /* renamed from: a  reason: collision with root package name */
-        private static int f1203a = 12440;
+        private static int f1200a = 12440;
 
         private e() {
         }
@@ -624,7 +624,7 @@ public class BaiduArView extends GLSurfaceView {
             Log.w(BaiduArView.b, "onSurface creating OpenGL ES 2.0 context");
             Log.w("callseq", "onSurface creating OpenGL ES 2.0 context");
             BaiduArView.b("Before eglCreateContext", egl10);
-            EGLContext eglCreateContext = egl10.eglCreateContext(eGLDisplay, eGLConfig, EGL10.EGL_NO_CONTEXT, new int[]{f1203a, 2, 12344});
+            EGLContext eglCreateContext = egl10.eglCreateContext(eGLDisplay, eGLConfig, EGL10.EGL_NO_CONTEXT, new int[]{f1200a, 2, 12344});
             BaiduArView.b("After eglCreateContext", egl10);
             Log.d(BaiduArView.b, "createContext");
             ArBridge.getInstance().setGLThreadID(Thread.currentThread().getId());
@@ -659,7 +659,7 @@ public class BaiduArView extends GLSurfaceView {
         private static int[] h = {12324, 4, 12323, 4, 12322, 4, 12352, g, 12338, 1, 12337, 4, 12344};
 
         /* renamed from: a  reason: collision with root package name */
-        protected int f1202a;
+        protected int f1199a;
         protected int b;
         protected int c;
         protected int d;
@@ -668,7 +668,7 @@ public class BaiduArView extends GLSurfaceView {
         private int[] i = new int[1];
 
         public d(int i, int i2, int i3, int i4, int i5, int i6) {
-            this.f1202a = i;
+            this.f1199a = i;
             this.b = i2;
             this.c = i3;
             this.d = i4;
@@ -721,7 +721,7 @@ public class BaiduArView extends GLSurfaceView {
                     int a5 = a(egl10, eGLDisplay, eGLConfig, 12323, 0);
                     int a6 = a(egl10, eGLDisplay, eGLConfig, 12322, 0);
                     int a7 = a(egl10, eGLDisplay, eGLConfig, 12321, 0);
-                    if (a4 == this.f1202a && a5 == this.b && a6 == this.c && a7 == this.d && a2 >= this.e) {
+                    if (a4 == this.f1199a && a5 == this.b && a6 == this.c && a7 == this.d && a2 >= this.e) {
                         Log.d(BaiduArView.b, "get the config");
                         return eGLConfig;
                     }
@@ -878,10 +878,10 @@ public class BaiduArView extends GLSurfaceView {
     public static class f extends Handler {
 
         /* renamed from: a  reason: collision with root package name */
-        WeakReference<BaiduArView> f1204a;
+        WeakReference<BaiduArView> f1201a;
 
         public f(BaiduArView baiduArView) {
-            this.f1204a = new WeakReference<>(baiduArView);
+            this.f1201a = new WeakReference<>(baiduArView);
         }
 
         @Override // android.os.Handler
@@ -889,21 +889,21 @@ public class BaiduArView extends GLSurfaceView {
             super.handleMessage(message);
             switch (message.what) {
                 case 1:
-                    if (this.f1204a.get() != null && this.f1204a.get().f == h.EStatSingleFingerCandidate && this.f1204a.get().g) {
-                        this.f1204a.get().f = h.EStatLongPresss;
-                        if (!this.f1204a.get().x && !this.f1204a.get().D) {
-                            ArBridge.getInstance().a(i.ELongPress.ordinal(), this.f1204a.get().h, this.f1204a.get().k, this.f1204a.get().l, -1.0f, -1.0f, -1, -1.0f, -1.0f, -1.0f, -1.0f, Calendar.getInstance().getTimeInMillis());
+                    if (this.f1201a.get() != null && this.f1201a.get().f == h.EStatSingleFingerCandidate && this.f1201a.get().g) {
+                        this.f1201a.get().f = h.EStatLongPresss;
+                        if (!this.f1201a.get().x && !this.f1201a.get().D) {
+                            ArBridge.getInstance().a(i.ELongPress.ordinal(), this.f1201a.get().h, this.f1201a.get().k, this.f1201a.get().l, -1.0f, -1.0f, -1, -1.0f, -1.0f, -1.0f, -1.0f, Calendar.getInstance().getTimeInMillis());
                             return;
                         }
                         return;
                     }
                     return;
                 case 2:
-                    BaiduArView baiduArView = this.f1204a.get();
+                    BaiduArView baiduArView = this.f1201a.get();
                     if (baiduArView != null && message.obj != null) {
                         c cVar = (c) message.obj;
                         if (!baiduArView.z) {
-                            ArBridge.getInstance().a(i.EClick.ordinal(), cVar.f1201a, cVar.b, cVar.c, -1.0f, -1.0f, -1, -1.0f, -1.0f, -1.0f, -1.0f, cVar.d);
+                            ArBridge.getInstance().a(i.EClick.ordinal(), cVar.f1198a, cVar.b, cVar.c, -1.0f, -1.0f, -1, -1.0f, -1.0f, -1.0f, -1.0f, cVar.d);
                         }
                         ArBridge.getInstance().a(i.EClear.ordinal(), -1, -1.0f, -1.0f, -1.0f, -1.0f, -1, -1.0f, -1.0f, -1.0f, -1.0f, -1L);
                         return;
@@ -920,7 +920,7 @@ public class BaiduArView extends GLSurfaceView {
     public static class c {
 
         /* renamed from: a  reason: collision with root package name */
-        public int f1201a;
+        public int f1198a;
         public float b;
         public float c;
         public long d;

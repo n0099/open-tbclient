@@ -6,7 +6,7 @@ import org.json.JSONObject;
 /* loaded from: classes15.dex */
 public class a {
     String appVersion;
-    int bHU;
+    int bQp;
     String cuid;
     long num;
     long roomId;
@@ -22,7 +22,7 @@ public class a {
         jSONObject.put("number", this.num);
         jSONObject.put("app_version", this.appVersion);
         jSONObject.put(UgcConstant.SOURCE_TYPE, this.sourceType);
-        jSONObject.put("caller_flag", this.bHU);
+        jSONObject.put("caller_flag", this.bQp);
         jSONObject.put("version", this.version);
         jSONObject.put("device_id", this.cuid);
         return jSONObject.toString();

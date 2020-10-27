@@ -8,57 +8,57 @@ class c<T> implements com.baidu.helios.c<T> {
 
     /* renamed from: a  reason: collision with root package name */
     private volatile boolean f1781a = false;
-    private final CountDownLatch axC = new CountDownLatch(1);
-    private b<T> axD = null;
-    private a axE = null;
+    private final CountDownLatch axD = new CountDownLatch(1);
+    private b<T> axE = null;
+    private a axF = null;
 
     /* loaded from: classes7.dex */
     public static class a {
-        public boolean axF;
-        public Throwable axG;
-        public Bundle axH;
+        public boolean axG;
+        public Throwable axH;
+        public Bundle axI;
         public int errorCode;
     }
 
     /* loaded from: classes7.dex */
     public static class b<T> {
-        public Bundle axH;
+        public Bundle axI;
         public T result;
     }
 
     public b<T> At() {
-        return this.axD;
+        return this.axE;
     }
 
     public a Au() {
-        return this.axE;
+        return this.axF;
     }
 
     @Override // com.baidu.helios.c
     public void a(int i, Throwable th, Bundle bundle) {
-        this.axE = new a();
-        this.axE.errorCode = i;
-        this.axE.axG = th;
-        this.axE.axH = bundle;
+        this.axF = new a();
+        this.axF.errorCode = i;
+        this.axF.axH = th;
+        this.axF.axI = bundle;
         this.f1781a = false;
-        this.axC.countDown();
+        this.axD.countDown();
     }
 
     @Override // com.baidu.helios.c
     public void a(T t, Bundle bundle) {
-        this.axD = new b<>();
-        this.axD.result = t;
-        this.axD.axH = bundle;
+        this.axE = new b<>();
+        this.axE.result = t;
+        this.axE.axI = bundle;
         this.f1781a = true;
-        this.axC.countDown();
+        this.axD.countDown();
     }
 
     public boolean a(int i) {
         try {
-            this.axC.await(i, TimeUnit.MILLISECONDS);
-            if (this.axE == null) {
-                this.axE = new a();
-                this.axE.axF = true;
+            this.axD.await(i, TimeUnit.MILLISECONDS);
+            if (this.axF == null) {
+                this.axF = new a();
+                this.axF.axG = true;
             }
         } catch (InterruptedException e) {
             e.printStackTrace();

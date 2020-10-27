@@ -2,7 +2,7 @@ package com.facebook.drawee.a.a.a;
 /* loaded from: classes18.dex */
 public class d {
     /* JADX WARN: Can't fix incorrect switch cases order, some code will duplicate */
-    public static int VO(String str) {
+    public static int XB(String str) {
         char c;
         switch (str.hashCode()) {
             case -1914072202:

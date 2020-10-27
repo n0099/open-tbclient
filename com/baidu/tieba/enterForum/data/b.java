@@ -5,25 +5,25 @@ import com.baidu.searchbox.ugc.utils.UgcUBCUtils;
 import org.json.JSONObject;
 /* loaded from: classes22.dex */
 public class b {
-    public String aHf;
-    public int hPS;
-    public int hPT;
-    public String hPU;
-    public String hPV;
+    public String aHs;
+    public int icp;
+    public int icq;
+    public String icr;
+    public String ics;
     public String picUrl;
 
-    public void dK(JSONObject jSONObject) {
+    public void dQ(JSONObject jSONObject) {
         if (jSONObject != null) {
             this.picUrl = jSONObject.optString(UgcUBCUtils.UGC_TYPE_PIC_BTN);
-            this.aHf = jSONObject.optString("url");
-            this.hPS = jSONObject.optInt("server_time");
-            this.hPT = jSONObject.optInt("adid");
-            this.hPU = jSONObject.optString("big_pic");
-            this.hPV = jSONObject.optString("small_pic");
+            this.aHs = jSONObject.optString("url");
+            this.icp = jSONObject.optInt("server_time");
+            this.icq = jSONObject.optInt("adid");
+            this.icr = jSONObject.optString("big_pic");
+            this.ics = jSONObject.optString("small_pic");
         }
     }
 
     public boolean isValid() {
-        return !TextUtils.isEmpty(this.hPU);
+        return !TextUtils.isEmpty(this.icr);
     }
 }

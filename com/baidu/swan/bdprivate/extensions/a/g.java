@@ -19,17 +19,17 @@ import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes8.dex */
 public class g extends aa {
-    private int dtX;
+    private int dCu;
 
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes8.dex */
     public interface a {
-        void cb(JSONObject jSONObject);
+        void ce(JSONObject jSONObject);
     }
 
     public g(j jVar) {
         super(jVar, "/swanAPI/privateGetUserInfo");
-        this.dtX = -1;
+        this.dCu = -1;
     }
 
     @Override // com.baidu.swan.apps.scheme.actions.aa
@@ -66,18 +66,18 @@ public class g extends aa {
         final JSONObject jSONObject = new JSONObject();
         com.baidu.swan.bdprivate.a.aa di = com.baidu.swan.bdprivate.a.a.di(context);
         jSONObject.put(SapiAccountManager.SESSION_DISPLAYNAME, di.displayName);
-        jSONObject.put("portrait", di.bed);
-        if (this.dtX != -1) {
+        jSONObject.put("portrait", di.bfv);
+        if (this.dCu != -1) {
             a(callbackHandler, str, jSONObject);
         } else {
             a(new a() { // from class: com.baidu.swan.bdprivate.extensions.a.g.1
                 @Override // com.baidu.swan.bdprivate.extensions.a.g.a
-                public void cb(JSONObject jSONObject2) {
+                public void ce(JSONObject jSONObject2) {
                     if (jSONObject2 == null) {
                         g.this.a(callbackHandler, str, jSONObject);
                         return;
                     }
-                    g.this.dtX = g.this.ca(jSONObject2);
+                    g.this.dCu = g.this.cd(jSONObject2);
                     g.this.a(callbackHandler, str, jSONObject);
                 }
             });
@@ -86,9 +86,9 @@ public class g extends aa {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void a(CallbackHandler callbackHandler, String str, JSONObject jSONObject) {
-        if (this.dtX != -1) {
+        if (this.dCu != -1) {
             try {
-                jSONObject.put("gender", String.valueOf(this.dtX));
+                jSONObject.put("gender", String.valueOf(this.dCu));
             } catch (JSONException e) {
                 e.printStackTrace();
             }
@@ -97,7 +97,7 @@ public class g extends aa {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public int ca(JSONObject jSONObject) {
+    public int cd(JSONObject jSONObject) {
         JSONObject jSONObject2;
         JSONObject jSONObject3;
         JSONObject jSONObject4;
@@ -131,21 +131,21 @@ public class g extends aa {
             } catch (JSONException e) {
                 e.printStackTrace();
             }
-            ((PostFormRequest.PostFormRequestBuilder) ((PostFormRequest.PostFormRequestBuilder) HttpManager.getDefault(AppRuntime.getAppContext()).postFormRequest().url(com.baidu.swan.apps.i.c.processCommonParams(com.baidu.swan.apps.i.a.agO()))).addParam("data", jSONObject.toString()).cookieManager(com.baidu.swan.apps.t.a.asF().adP())).build().executeAsync(new StringResponseCallback() { // from class: com.baidu.swan.bdprivate.extensions.a.g.2
+            ((PostFormRequest.PostFormRequestBuilder) ((PostFormRequest.PostFormRequestBuilder) HttpManager.getDefault(AppRuntime.getAppContext()).postFormRequest().url(com.baidu.swan.apps.i.c.processCommonParams(com.baidu.swan.apps.i.a.aiI()))).addParam("data", jSONObject.toString()).cookieManager(com.baidu.swan.apps.t.a.auz().afJ())).build().executeAsync(new StringResponseCallback() { // from class: com.baidu.swan.bdprivate.extensions.a.g.2
                 /* JADX DEBUG: Method merged with bridge method */
                 @Override // com.baidu.searchbox.http.callback.ResponseCallback
                 public void onSuccess(String str, int i) {
                     try {
-                        aVar.cb(new JSONObject(str));
+                        aVar.ce(new JSONObject(str));
                     } catch (JSONException e2) {
                         e2.printStackTrace();
-                        aVar.cb(null);
+                        aVar.ce(null);
                     }
                 }
 
                 @Override // com.baidu.searchbox.http.callback.ResponseCallback
                 public void onFail(Exception exc) {
-                    aVar.cb(null);
+                    aVar.ce(null);
                 }
             });
         }

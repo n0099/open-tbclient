@@ -55,14 +55,14 @@ public class a extends aa {
         ak.runOnUiThread(new Runnable() { // from class: com.baidu.swan.apps.scheme.actions.l.a.1
             @Override // java.lang.Runnable
             public void run() {
-                final Bitmap aIu = ah.aIu();
-                if (aIu == null) {
+                final Bitmap aKo = ah.aKo();
+                if (aKo == null) {
                     a.this.d(unitedSchemeEntity, callbackHandler, "can't get screenshot");
                 } else {
                     p.postOnIO(new Runnable() { // from class: com.baidu.swan.apps.scheme.actions.l.a.1.1
                         @Override // java.lang.Runnable
                         public void run() {
-                            a.this.a(aIu, unitedSchemeEntity, callbackHandler, eVar);
+                            a.this.a(aKo, unitedSchemeEntity, callbackHandler, eVar);
                         }
                     }, "savescreenshot");
                 }
@@ -93,9 +93,9 @@ public class a extends aa {
     */
     public void a(@NonNull Bitmap bitmap, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, @NonNull e eVar) {
         FileOutputStream fileOutputStream;
-        String sO = b.sO(eVar.id);
-        if (sO != null) {
-            String str = sO + File.separator + StatisticConstants.SCREENSHOT;
+        String th = b.th(eVar.id);
+        if (th != null) {
+            String str = th + File.separator + StatisticConstants.SCREENSHOT;
             File file = new File(str);
             if (!file.exists() || !file.isDirectory()) {
                 file.delete();
@@ -113,7 +113,7 @@ public class a extends aa {
                     try {
                         bitmap.compress(Bitmap.CompressFormat.PNG, 100, fileOutputStream);
                         c.i("Screenshot", "save screenshot to " + sb);
-                        UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(a(true, b.cv(sb, eVar.id), "success"), 0));
+                        UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(a(true, b.cC(sb, eVar.id), "success"), 0));
                         r1 = fileOutputStream;
                         if (fileOutputStream != null) {
                             try {
@@ -141,8 +141,8 @@ public class a extends aa {
                             }
                         }
                     }
-                } catch (Throwable th) {
-                    th = th;
+                } catch (Throwable th2) {
+                    th = th2;
                     if (r1 != 0) {
                         try {
                             r1.close();
@@ -156,8 +156,8 @@ public class a extends aa {
             } catch (FileNotFoundException e5) {
                 e = e5;
                 fileOutputStream = null;
-            } catch (Throwable th2) {
-                th = th2;
+            } catch (Throwable th3) {
+                th = th3;
                 r1 = 0;
                 if (r1 != 0) {
                 }

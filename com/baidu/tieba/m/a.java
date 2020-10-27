@@ -56,12 +56,12 @@ public final class a {
                                 clearOldDexDir(context);
                                 File file = new File(applicationInfo.dataDir, SECONDARY_FOLDER_NAME);
                                 List<File> a2 = com.baidu.tieba.m.b.a(context, applicationInfo, file, false);
-                                if (eu(a2)) {
+                                if (eD(a2)) {
                                     installSecondaryDexes(classLoader, file, a2);
                                 } else {
                                     Log.w("MultiDex", "Files were not valid zip files.  Forcing a reload.");
                                     List<File> a3 = com.baidu.tieba.m.b.a(context, applicationInfo, file, true);
-                                    if (!eu(a3)) {
+                                    if (!eD(a3)) {
                                         throw new RuntimeException("Zip files were not valid.");
                                     }
                                     installSecondaryDexes(classLoader, file, a3);
@@ -120,7 +120,7 @@ public final class a {
                     c.install(classLoader, list);
                     return;
                 } else {
-                    C0757a.install(classLoader, list, file);
+                    C0772a.install(classLoader, list, file);
                     return;
                 }
             }
@@ -128,9 +128,9 @@ public final class a {
         }
     }
 
-    private static boolean eu(List<File> list) {
+    private static boolean eD(List<File> list) {
         for (File file : list) {
-            if (!com.baidu.tieba.m.b.ab(file)) {
+            if (!com.baidu.tieba.m.b.ac(file)) {
                 return false;
             }
         }
@@ -236,7 +236,7 @@ public final class a {
     /* JADX INFO: Access modifiers changed from: private */
     /* renamed from: com.baidu.tieba.m.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    public static final class C0757a {
+    public static final class C0772a {
         /* JADX INFO: Access modifiers changed from: private */
         public static void install(ClassLoader classLoader, List<File> list, File file) throws IllegalArgumentException, IllegalAccessException, NoSuchFieldException, InvocationTargetException, NoSuchMethodException {
             Object obj = a.findField(classLoader, "pathList").get(classLoader);

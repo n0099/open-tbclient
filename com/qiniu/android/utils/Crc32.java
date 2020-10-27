@@ -16,7 +16,7 @@ public final class Crc32 {
         return y(bArr, 0, bArr.length);
     }
 
-    public static long au(File file) throws IOException {
+    public static long av(File file) throws IOException {
         FileInputStream fileInputStream = new FileInputStream(file);
         byte[] bArr = new byte[65536];
         CRC32 crc32 = new CRC32();

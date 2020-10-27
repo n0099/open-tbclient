@@ -20,7 +20,7 @@ import tbclient.PbContent;
 import tbclient.RecommendForumInfo;
 /* loaded from: classes26.dex */
 public class ItemInfoView extends LinearLayout {
-    private TextView jMd;
+    private TextView jYB;
 
     public ItemInfoView(Context context) {
         super(context);
@@ -36,19 +36,19 @@ public class ItemInfoView extends LinearLayout {
         setOrientation(1);
         LayoutInflater.from(context).inflate(R.layout.forum_detail_info, (ViewGroup) this, true);
         setVisibility(8);
-        this.jMd = (TextView) findViewById(R.id.info_brief_content);
+        this.jYB = (TextView) findViewById(R.id.info_brief_content);
     }
 
     public void setData(RecommendForumInfo recommendForumInfo) {
         if ((recommendForumInfo != null && recommendForumInfo.content != null && recommendForumInfo.content.size() > 0) || (recommendForumInfo != null && !at.isEmpty(recommendForumInfo.slogan))) {
-            this.jMd.setText(i(recommendForumInfo.content, recommendForumInfo.slogan));
+            this.jYB.setText(k(recommendForumInfo.content, recommendForumInfo.slogan));
         } else {
-            this.jMd.setText(getResources().getString(R.string.forum_detail_info_no_brief));
+            this.jYB.setText(getResources().getString(R.string.forum_detail_info_no_brief));
         }
         setVisibility(0);
     }
 
-    private SpannableStringBuilder i(List<PbContent> list, String str) {
+    private SpannableStringBuilder k(List<PbContent> list, String str) {
         b bVar = new b();
         SpannableStringBuilder spannableStringBuilder = new SpannableStringBuilder(str + "\n");
         int size = list.size();
@@ -56,7 +56,7 @@ public class ItemInfoView extends LinearLayout {
             PbContent pbContent = list.get(i);
             if (pbContent != null) {
                 if (pbContent.type.intValue() == 2) {
-                    Bitmap cashBitmap = BitmapHelper.getCashBitmap(bVar.CW(pbContent.text));
+                    Bitmap cashBitmap = BitmapHelper.getCashBitmap(bVar.Dp(pbContent.text));
                     if (cashBitmap != null) {
                         BitmapDrawable bitmapDrawable = new BitmapDrawable(cashBitmap);
                         bitmapDrawable.setBounds(0, 0, cashBitmap.getWidth(), cashBitmap.getHeight());
@@ -73,7 +73,7 @@ public class ItemInfoView extends LinearLayout {
     }
 
     public void a(ForumDetailActivity forumDetailActivity, int i) {
-        ap.setViewTextColor(this.jMd, R.color.common_color_10177, 1);
+        ap.setViewTextColor(this.jYB, R.color.common_color_10177, 1);
         forumDetailActivity.getLayoutMode().setNightMode(i == 1);
         forumDetailActivity.getLayoutMode().onModeChanged(this);
     }

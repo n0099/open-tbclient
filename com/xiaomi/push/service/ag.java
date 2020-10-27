@@ -22,18 +22,18 @@ import java.util.Map;
 public class ag {
 
     /* renamed from: a  reason: collision with root package name */
-    private static ag f5047a = new ag();
+    private static ag f5045a = new ag();
 
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes12.dex */
     public class a {
 
         /* renamed from: a  reason: collision with other field name */
-        List<b> f841a;
+        List<b> f838a;
         List<b> b;
 
         private a() {
-            this.f841a = new ArrayList();
+            this.f838a = new ArrayList();
             this.b = new ArrayList();
         }
     }
@@ -43,18 +43,18 @@ public class ag {
     public class b {
 
         /* renamed from: a  reason: collision with root package name */
-        int f5049a;
+        int f5047a;
 
         /* renamed from: a  reason: collision with other field name */
-        Notification f842a;
+        Notification f839a;
 
         public b(int i, Notification notification) {
-            this.f5049a = i;
-            this.f842a = notification;
+            this.f5047a = i;
+            this.f839a = notification;
         }
 
         public String toString() {
-            return "id:" + this.f5049a;
+            return "id:" + this.f5047a;
         }
     }
 
@@ -70,7 +70,7 @@ public class ag {
     }
 
     public static ag a() {
-        return f5047a;
+        return f5045a;
     }
 
     private String a(Notification notification) {
@@ -89,12 +89,12 @@ public class ag {
         NotificationManager a2 = a(context);
         StatusBarNotification[] a3 = a(a2);
         if (a3 == null) {
-            com.xiaomi.channel.commonutils.logger.b.m55a("group auto not get notifications");
+            com.xiaomi.channel.commonutils.logger.b.m54a("group auto not get notifications");
             return;
         }
         String a4 = aj.a(notification);
         if (TextUtils.isEmpty(a4)) {
-            com.xiaomi.channel.commonutils.logger.b.m55a("group auto not extract pkg from notification:" + i);
+            com.xiaomi.channel.commonutils.logger.b.m54a("group auto not extract pkg from notification:" + i);
             return;
         }
         String b2 = b(notification);
@@ -109,26 +109,26 @@ public class ag {
             String key = entry.getKey();
             if (!TextUtils.isEmpty(key)) {
                 a value = entry.getValue();
-                if (z && key.equals(b2) && !m543b(notification)) {
+                if (z && key.equals(b2) && !m542b(notification)) {
                     b bVar = new b(i, notification);
-                    if (m541a(notification)) {
+                    if (m540a(notification)) {
                         value.b.add(bVar);
                     } else {
-                        value.f841a.add(bVar);
+                        value.f838a.add(bVar);
                     }
                 }
-                int size = value.f841a.size();
+                int size = value.f838a.size();
                 if (value.b.size() <= 0) {
                     if (size >= 2) {
                         a(context, a2, a4, key);
                     }
                 } else if (size <= 0) {
                     a(a2, a4, key);
-                } else if (size >= 2 && !m542a(context)) {
+                } else if (size >= 2 && !m541a(context)) {
                     b bVar2 = value.b.get(0);
                     com.xiaomi.channel.commonutils.logger.b.b("group refresh:" + bVar2);
-                    bVar2.f842a.when = System.currentTimeMillis();
-                    a2.notify(bVar2.f5049a, bVar2.f842a);
+                    bVar2.f839a.when = System.currentTimeMillis();
+                    a2.notify(bVar2.f5047a, bVar2.f839a);
                 }
             }
         }
@@ -138,12 +138,12 @@ public class ag {
         Notification.Builder defaults;
         try {
             if (TextUtils.isEmpty(str2)) {
-                com.xiaomi.channel.commonutils.logger.b.m55a("group show summary group is null");
+                com.xiaomi.channel.commonutils.logger.b.m54a("group show summary group is null");
                 return;
             }
             int a2 = aj.a(context, str);
             if (a2 == 0) {
-                com.xiaomi.channel.commonutils.logger.b.m55a("group show summary not get icon from " + str);
+                com.xiaomi.channel.commonutils.logger.b.m54a("group show summary not get icon from " + str);
                 return;
             }
             if (Build.VERSION.SDK_INT >= 26) {
@@ -162,7 +162,7 @@ public class ag {
             notificationManager.notify(a3, build);
             com.xiaomi.channel.commonutils.logger.b.b("group show summary notify:" + a3);
         } catch (Exception e) {
-            com.xiaomi.channel.commonutils.logger.b.m55a("group show summary error " + e);
+            com.xiaomi.channel.commonutils.logger.b.m54a("group show summary error " + e);
         }
     }
 
@@ -174,20 +174,20 @@ public class ag {
             map.put(b2, aVar);
         }
         b bVar = new b(statusBarNotification.getId(), statusBarNotification.getNotification());
-        if (m541a(statusBarNotification.getNotification())) {
+        if (m540a(statusBarNotification.getNotification())) {
             aVar.b.add(bVar);
         } else {
-            aVar.f841a.add(bVar);
+            aVar.f838a.add(bVar);
         }
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    private boolean m540a() {
+    private boolean m539a() {
         return Build.VERSION.SDK_INT >= 24;
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    private boolean m541a(Notification notification) {
+    private boolean m540a(Notification notification) {
         if (notification != null) {
             Object a2 = com.xiaomi.push.ba.a(notification, "isGroupSummary", (Object[]) null);
             if (a2 instanceof Boolean) {
@@ -198,7 +198,7 @@ public class ag {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    private boolean m542a(Context context) {
+    private boolean m541a(Context context) {
         if (!b(context)) {
         }
         return false;
@@ -216,25 +216,25 @@ public class ag {
         if (notification == null) {
             return null;
         }
-        return m543b(notification) ? a(notification) : notification.getGroup();
+        return m542b(notification) ? a(notification) : notification.getGroup();
     }
 
     private void b(Context context, int i, Notification notification) {
         NotificationManager a2 = a(context);
         StatusBarNotification[] a3 = a(a2);
         if (a3 == null) {
-            com.xiaomi.channel.commonutils.logger.b.m55a("group restore not get notifications");
+            com.xiaomi.channel.commonutils.logger.b.m54a("group restore not get notifications");
             return;
         }
         String a4 = aj.a(notification);
         if (TextUtils.isEmpty(a4)) {
-            com.xiaomi.channel.commonutils.logger.b.m55a("group restore not extract pkg from notification:" + i);
+            com.xiaomi.channel.commonutils.logger.b.m54a("group restore not extract pkg from notification:" + i);
             return;
         }
         String b2 = b(notification);
         for (StatusBarNotification statusBarNotification : a3) {
             Notification notification2 = statusBarNotification.getNotification();
-            if (notification2 != null && a4.equals(aj.a(notification2)) && m543b(notification2) && statusBarNotification.getId() != i) {
+            if (notification2 != null && a4.equals(aj.a(notification2)) && m542b(notification2) && statusBarNotification.getId() != i) {
                 Notification.Builder recoverBuilder = Notification.Builder.recoverBuilder(context, statusBarNotification.getNotification());
                 recoverBuilder.setGroup(b2);
                 a2.notify(statusBarNotification.getId(), recoverBuilder.build());
@@ -244,7 +244,7 @@ public class ag {
     }
 
     /* renamed from: b  reason: collision with other method in class */
-    private boolean m543b(Notification notification) {
+    private boolean m542b(Notification notification) {
         if (notification == null || notification.getGroup() == null || notification.extras == null) {
             return false;
         }
@@ -257,7 +257,7 @@ public class ag {
     }
 
     public String a(Context context, Notification.Builder builder, String str) {
-        if (m540a() && m542a(context)) {
+        if (m539a() && m541a(context)) {
             long currentTimeMillis = System.currentTimeMillis();
             Bundle extras = builder.getExtras();
             extras.putString("push_src_group_name", str);
@@ -268,19 +268,19 @@ public class ag {
     }
 
     public void a(Context context, int i, Notification notification) {
-        if (m540a()) {
-            if (m542a(context)) {
+        if (m539a()) {
+            if (m541a(context)) {
                 try {
                     b(context, i, notification);
                 } catch (Exception e) {
-                    com.xiaomi.channel.commonutils.logger.b.m55a("group notify handle restore error " + e);
+                    com.xiaomi.channel.commonutils.logger.b.m54a("group notify handle restore error " + e);
                 }
             }
             if (b(context)) {
                 try {
                     a(context, i, notification, true);
                 } catch (Exception e2) {
-                    com.xiaomi.channel.commonutils.logger.b.m55a("group notify handle auto error " + e2);
+                    com.xiaomi.channel.commonutils.logger.b.m54a("group notify handle auto error " + e2);
                 }
             }
         }

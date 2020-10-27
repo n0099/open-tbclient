@@ -1,52 +1,22 @@
 package com.baidu.live.data;
 
-import com.baidu.live.adp.lib.util.BdLog;
-import com.baidu.live.data.l;
-import com.baidu.live.tbadk.core.data.BaseData;
-import java.util.ArrayList;
-import org.json.JSONArray;
 import org.json.JSONObject;
 /* loaded from: classes4.dex */
-public class be extends BaseData {
-    public int aIW;
-    public ArrayList<l> aNB = new ArrayList<>();
+public class be {
+    public int aOa;
+    public int aOb;
+    public int aOc;
+    public String aOd;
 
-    @Override // com.baidu.live.tbadk.core.data.BaseData
-    public void parserJson(JSONObject jSONObject) {
-        l.a aVar;
-        JSONArray optJSONArray;
-        if (jSONObject != null) {
-            try {
-                JSONObject optJSONObject = jSONObject.optJSONObject("data");
-                if (optJSONObject != null) {
-                    this.aIW = optJSONObject.optInt("interval");
-                }
-                if (this.aIW <= 0) {
-                    this.aIW = 5;
-                }
-                JSONObject optJSONObject2 = jSONObject.optJSONObject("im_rate");
-                if (optJSONObject2 == null) {
-                    aVar = null;
-                } else {
-                    aVar = new l.a(optJSONObject2);
-                }
-                JSONObject optJSONObject3 = jSONObject.optJSONObject("live_activity_new");
-                long optLong = jSONObject.optLong("time", 0L);
-                if (optJSONObject3 != null && (optJSONArray = optJSONObject3.optJSONArray("activity_info")) != null && optJSONArray.length() > 0) {
-                    for (int i = 0; i < optJSONArray.length(); i++) {
-                        JSONObject optJSONObject4 = optJSONArray.optJSONObject(i);
-                        if (optJSONObject4 != null) {
-                            l lVar = new l();
-                            lVar.a(aVar);
-                            lVar.parseJson(optJSONObject4);
-                            lVar.serverTime = optLong;
-                            this.aNB.add(lVar);
-                        }
-                    }
-                }
-            } catch (Exception e) {
-                BdLog.e(e.getMessage());
-            }
+    public static be B(JSONObject jSONObject) {
+        if (jSONObject == null) {
+            return null;
         }
+        be beVar = new be();
+        beVar.aOa = jSONObject.optInt("supernatant_time") * 1000;
+        beVar.aOb = jSONObject.optInt("suoernatant_shownum");
+        beVar.aOc = jSONObject.optInt("pop_window_time") * 1000;
+        beVar.aOd = jSONObject.optString("guide_follow_text");
+        return beVar;
     }
 }

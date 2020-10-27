@@ -9,8 +9,8 @@ import com.xiaomi.push.il;
 public class MiPushClient4VR {
     public static void uploadData(Context context, String str) {
         il ilVar = new il();
-        ilVar.c(hw.VRUpload.f477a);
-        ilVar.b(b.m95a(context).m96a());
+        ilVar.c(hw.VRUpload.f474a);
+        ilVar.b(b.m94a(context).m95a());
         ilVar.d(context.getPackageName());
         ilVar.a("data", str);
         ilVar.a(com.xiaomi.push.service.an.a());

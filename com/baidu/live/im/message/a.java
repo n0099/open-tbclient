@@ -8,8 +8,8 @@ public class a extends HttpMessage {
     private com.baidu.live.im.data.b barrageCardInfo;
     private String barrageId;
     private int barrageType;
-    private int biY;
-    private boolean biZ;
+    private int bkt;
+    private boolean bku;
     private String content;
     private String customRoomId;
     private int groupId;
@@ -22,7 +22,7 @@ public class a extends HttpMessage {
 
     public a(String str, short s, int i, String str2) {
         super(1021013);
-        this.biZ = false;
+        this.bku = false;
         this.content = str;
         this.msgType = s;
         this.groupId = i;
@@ -37,19 +37,19 @@ public class a extends HttpMessage {
         return this.content;
     }
 
-    public short LH() {
+    public short Mc() {
         return this.msgType;
     }
 
-    public void gx(String str) {
+    public void setLiveId(String str) {
         this.liveId = str;
     }
 
-    public void hx(String str) {
+    public void setRoomId(String str) {
         this.roomId = str;
     }
 
-    public String LI() {
+    public String Md() {
         return this.otherParams;
     }
 
@@ -57,31 +57,31 @@ public class a extends HttpMessage {
         this.otherParams = str;
     }
 
-    public long LJ() {
+    public long Me() {
         return this.price;
     }
 
-    public void al(long j) {
+    public void am(long j) {
         this.price = j;
     }
 
-    public int Lx() {
+    public int LS() {
         return this.barrageType;
     }
 
-    public void eJ(int i) {
+    public void eL(int i) {
         this.barrageType = i;
     }
 
-    public String Ly() {
+    public String LT() {
         return this.barrageId;
     }
 
-    public void hw(String str) {
+    public void hE(String str) {
         this.barrageId = str;
     }
 
-    public com.baidu.live.im.data.b Lz() {
+    public com.baidu.live.im.data.b LU() {
         return this.barrageCardInfo;
     }
 
@@ -89,27 +89,35 @@ public class a extends HttpMessage {
         this.barrageCardInfo = bVar;
     }
 
-    public String[] LA() {
+    public String[] LV() {
         return this.imEffect;
     }
 
-    public void k(String[] strArr) {
+    public void l(String[] strArr) {
         this.imEffect = strArr;
     }
 
-    public void bX(boolean z) {
-        this.biZ = z;
+    public void bZ(boolean z) {
+        this.bku = z;
     }
 
-    public boolean LK() {
-        return this.biZ;
+    public boolean Mf() {
+        return this.bku;
     }
 
-    public boolean LL() {
-        return this.biY == 1;
+    public void eM(int i) {
+        this.bkt = i;
     }
 
-    public String LM() {
+    public boolean Mg() {
+        return this.bkt == 1;
+    }
+
+    public String getCustomRoomId() {
         return this.customRoomId;
+    }
+
+    public void setCustomRoomId(String str) {
+        this.customRoomId = str;
     }
 }

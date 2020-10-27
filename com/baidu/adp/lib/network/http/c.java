@@ -21,7 +21,7 @@ public class c {
     private b LC;
     private int LD = 0;
     private long Lp = 0;
-    private boolean LG = true;
+    private boolean LH = true;
 
     public c(e eVar) {
         this.Iv = eVar;
@@ -58,14 +58,14 @@ public class c {
                 z3 = this.LC.a(str, hVar, timeOutAuto, timeOutAuto2, z, dVar, z2);
                 if (!z3) {
                     try {
-                        if (this.Iv.my().Mn) {
+                        if (this.Iv.my().Mo) {
                             this.Iv.my().mNetErrorCode = -14;
                         }
                     } catch (FileNotFoundException e) {
                         e = e;
                         dVar.exception = "responseCode:" + String.valueOf(this.Iv.my().responseCode) + "|retryCount:" + i5 + "|" + e.getClass().getName() + "|" + e.getMessage();
                         this.Iv.my().mNetErrorCode = -100;
-                        com.baidu.adp.lib.a.a.mc().a(this.Iv.mx().getUrl(), this.Iv.mx().bJ("Host"), TextUtils.isEmpty(dVar.exception), dVar.LO != null);
+                        com.baidu.adp.lib.a.a.mc().a(this.Iv.mx().getUrl(), this.Iv.mx().bJ("Host"), TextUtils.isEmpty(dVar.exception), dVar.LQ != null);
                         if (!z3 && i5 == i - 1) {
                             dVar.exception += "|" + com.baidu.adp.lib.network.http.a.d.mN();
                             dVar.exception += "|netAvailable:" + j.isNetworkAvailableForImmediately();
@@ -81,7 +81,7 @@ public class c {
                         e = e2;
                         dVar.exception = "responseCode:" + String.valueOf(this.Iv.my().responseCode) + "|retryCount:" + i5 + "|" + e.getClass().getName() + "|" + e.getMessage() + "|getcontent_illegal_error";
                         this.Iv.my().mNetErrorCode = -19;
-                        com.baidu.adp.lib.a.a.mc().a(this.Iv.mx().getUrl(), this.Iv.mx().bJ("Host"), TextUtils.isEmpty(dVar.exception), dVar.LO != null);
+                        com.baidu.adp.lib.a.a.mc().a(this.Iv.mx().getUrl(), this.Iv.mx().bJ("Host"), TextUtils.isEmpty(dVar.exception), dVar.LQ != null);
                         if (!z3 && i5 == i - 1) {
                             dVar.exception += "|" + com.baidu.adp.lib.network.http.a.d.mN();
                             dVar.exception += "|netAvailable:" + j.isNetworkAvailableForImmediately();
@@ -97,7 +97,7 @@ public class c {
                         e = e3;
                         dVar.exception = "responseCode:" + String.valueOf(this.Iv.my().responseCode) + "|retryCount:" + i5 + "|" + e.getClass().getName() + "|" + e.getMessage();
                         this.Iv.my().mNetErrorCode = -22;
-                        com.baidu.adp.lib.a.a.mc().a(this.Iv.mx().getUrl(), this.Iv.mx().bJ("Host"), TextUtils.isEmpty(dVar.exception), dVar.LO != null);
+                        com.baidu.adp.lib.a.a.mc().a(this.Iv.mx().getUrl(), this.Iv.mx().bJ("Host"), TextUtils.isEmpty(dVar.exception), dVar.LQ != null);
                         if (!z3 && i5 == i - 1) {
                             dVar.exception += "|" + com.baidu.adp.lib.network.http.a.d.mN();
                             dVar.exception += "|netAvailable:" + j.isNetworkAvailableForImmediately();
@@ -113,7 +113,7 @@ public class c {
                         e = e4;
                         dVar.exception = "responseCode:" + String.valueOf(this.Iv.my().responseCode) + "|retryCount:" + i5 + "|" + e.getClass().getName() + "|" + e.getMessage();
                         this.Iv.my().mNetErrorCode = -12;
-                        com.baidu.adp.lib.a.a.mc().a(this.Iv.mx().getUrl(), this.Iv.mx().bJ("Host"), TextUtils.isEmpty(dVar.exception), dVar.LO != null);
+                        com.baidu.adp.lib.a.a.mc().a(this.Iv.mx().getUrl(), this.Iv.mx().bJ("Host"), TextUtils.isEmpty(dVar.exception), dVar.LQ != null);
                         if (!z3 && i5 == i - 1) {
                             dVar.exception += "|" + com.baidu.adp.lib.network.http.a.d.mN();
                             dVar.exception += "|netAvailable:" + j.isNetworkAvailableForImmediately();
@@ -129,7 +129,7 @@ public class c {
                         e = e5;
                         dVar.exception = "responseCode:" + String.valueOf(this.Iv.my().responseCode) + "|retryCount:" + i5 + "|" + e.getClass().getName() + "|" + e.getMessage();
                         this.Iv.my().mNetErrorCode = -13;
-                        com.baidu.adp.lib.a.a.mc().a(this.Iv.mx().getUrl(), this.Iv.mx().bJ("Host"), TextUtils.isEmpty(dVar.exception), dVar.LO != null);
+                        com.baidu.adp.lib.a.a.mc().a(this.Iv.mx().getUrl(), this.Iv.mx().bJ("Host"), TextUtils.isEmpty(dVar.exception), dVar.LQ != null);
                         if (!z3 && i5 == i - 1) {
                             dVar.exception += "|" + com.baidu.adp.lib.network.http.a.d.mN();
                             dVar.exception += "|netAvailable:" + j.isNetworkAvailableForImmediately();
@@ -145,7 +145,7 @@ public class c {
                         e = e6;
                         dVar.exception = "errorCode:" + String.valueOf(this.Iv.my().responseCode) + "|retryCount:" + i5 + "|" + e.getClass().getName() + "|" + e.getMessage();
                         this.Iv.my().mNetErrorCode = -21;
-                        com.baidu.adp.lib.a.a.mc().a(this.Iv.mx().getUrl(), this.Iv.mx().bJ("Host"), TextUtils.isEmpty(dVar.exception), dVar.LO != null);
+                        com.baidu.adp.lib.a.a.mc().a(this.Iv.mx().getUrl(), this.Iv.mx().bJ("Host"), TextUtils.isEmpty(dVar.exception), dVar.LQ != null);
                         if (!z3 && i5 == i - 1) {
                             dVar.exception += "|" + com.baidu.adp.lib.network.http.a.d.mN();
                             dVar.exception += "|netAvailable:" + j.isNetworkAvailableForImmediately();
@@ -169,7 +169,7 @@ public class c {
                             }
                             BdStatisticsManager.getInstance().eventStat(null, "c13429", "", 1, "obj_type", "1");
                         }
-                        com.baidu.adp.lib.a.a.mc().a(this.Iv.mx().getUrl(), this.Iv.mx().bJ("Host"), TextUtils.isEmpty(dVar.exception), dVar.LO != null);
+                        com.baidu.adp.lib.a.a.mc().a(this.Iv.mx().getUrl(), this.Iv.mx().bJ("Host"), TextUtils.isEmpty(dVar.exception), dVar.LQ != null);
                         if (!z3 && i5 == i - 1) {
                             dVar.exception += "|" + com.baidu.adp.lib.network.http.a.d.mN();
                             dVar.exception += "|netAvailable:" + j.isNetworkAvailableForImmediately();
@@ -185,7 +185,7 @@ public class c {
                         e = e8;
                         dVar.exception = "errorCode:" + String.valueOf(this.Iv.my().responseCode) + "|retryCount:" + i5 + "|" + e.getClass().getName() + "|" + e.getMessage();
                         this.Iv.my().mNetErrorCode = -19;
-                        com.baidu.adp.lib.a.a.mc().a(this.Iv.mx().getUrl(), this.Iv.mx().bJ("Host"), TextUtils.isEmpty(dVar.exception), dVar.LO != null);
+                        com.baidu.adp.lib.a.a.mc().a(this.Iv.mx().getUrl(), this.Iv.mx().bJ("Host"), TextUtils.isEmpty(dVar.exception), dVar.LQ != null);
                         if (!z3 && i5 == i - 1) {
                             dVar.exception += "|" + com.baidu.adp.lib.network.http.a.d.mN();
                             dVar.exception += "|netAvailable:" + j.isNetworkAvailableForImmediately();
@@ -203,7 +203,7 @@ public class c {
                             dVar.exception = "errorCode:" + String.valueOf(this.Iv.my().responseCode) + "|retryCount:" + i5 + "|" + e.getClass().getName() + "|" + e.getMessage();
                             this.Iv.my().mNetErrorCode = -10;
                             BdLog.e(e.getMessage());
-                            com.baidu.adp.lib.a.a.mc().a(this.Iv.mx().getUrl(), this.Iv.mx().bJ("Host"), TextUtils.isEmpty(dVar.exception), dVar.LO != null);
+                            com.baidu.adp.lib.a.a.mc().a(this.Iv.mx().getUrl(), this.Iv.mx().bJ("Host"), TextUtils.isEmpty(dVar.exception), dVar.LQ != null);
                             if (!z3 && i5 == i - 1) {
                                 dVar.exception += "|" + com.baidu.adp.lib.network.http.a.d.mN();
                                 dVar.exception += "|netAvailable:" + j.isNetworkAvailableForImmediately();
@@ -218,7 +218,7 @@ public class c {
                         } catch (Throwable th2) {
                             z4 = z3;
                             th = th2;
-                            com.baidu.adp.lib.a.a.mc().a(this.Iv.mx().getUrl(), this.Iv.mx().bJ("Host"), TextUtils.isEmpty(dVar.exception), dVar.LO == null);
+                            com.baidu.adp.lib.a.a.mc().a(this.Iv.mx().getUrl(), this.Iv.mx().bJ("Host"), TextUtils.isEmpty(dVar.exception), dVar.LQ == null);
                             if (!z4 && i5 == i - 1) {
                                 dVar.exception += "|" + com.baidu.adp.lib.network.http.a.d.mN();
                                 dVar.exception += "|netAvailable:" + j.isNetworkAvailableForImmediately();
@@ -233,7 +233,7 @@ public class c {
                     } catch (Throwable th3) {
                         z4 = z3;
                         th = th3;
-                        com.baidu.adp.lib.a.a.mc().a(this.Iv.mx().getUrl(), this.Iv.mx().bJ("Host"), TextUtils.isEmpty(dVar.exception), dVar.LO == null);
+                        com.baidu.adp.lib.a.a.mc().a(this.Iv.mx().getUrl(), this.Iv.mx().bJ("Host"), TextUtils.isEmpty(dVar.exception), dVar.LQ == null);
                         if (!z4) {
                             dVar.exception += "|" + com.baidu.adp.lib.network.http.a.d.mN();
                             dVar.exception += "|netAvailable:" + j.isNetworkAvailableForImmediately();
@@ -245,7 +245,7 @@ public class c {
                         throw th;
                     }
                 }
-                com.baidu.adp.lib.a.a.mc().a(this.Iv.mx().getUrl(), this.Iv.mx().bJ("Host"), TextUtils.isEmpty(dVar.exception), dVar.LO != null);
+                com.baidu.adp.lib.a.a.mc().a(this.Iv.mx().getUrl(), this.Iv.mx().bJ("Host"), TextUtils.isEmpty(dVar.exception), dVar.LQ != null);
                 if (!z3 && i5 == i - 1) {
                     dVar.exception += "|" + com.baidu.adp.lib.network.http.a.d.mN();
                     dVar.exception += "|netAvailable:" + j.isNetworkAvailableForImmediately();
@@ -308,7 +308,7 @@ public class c {
         }
         boolean z = true;
         long currentTimeMillis = System.currentTimeMillis();
-        for (int i4 = 0; !this.Iv.my().Mn && z && i4 < i; i4++) {
+        for (int i4 = 0; !this.Iv.my().Mo && z && i4 < i; i4++) {
             d dVar = new d();
             this.Iv.a(dVar);
             try {
@@ -318,7 +318,7 @@ public class c {
                             try {
                                 this.LD = i4;
                                 dVar.retry = i4 + 1;
-                                dVar.LX = 1;
+                                dVar.LY = 1;
                                 aq(i4);
                                 this.LC = new b(this.Iv);
                                 this.LC.ao(i4);
@@ -330,8 +330,8 @@ public class c {
                                 if (this.Lp <= 0 && this.LC != null) {
                                     this.Lp = this.LC.mo();
                                 }
-                                dVar.LJ = System.currentTimeMillis() - currentTimeMillis;
-                                com.baidu.adp.lib.a.a.mc().a(this.Iv.mx().getUrl(), this.Iv.mx().bJ("Host"), TextUtils.isEmpty(dVar.exception), dVar.LO != null);
+                                dVar.LK = System.currentTimeMillis() - currentTimeMillis;
+                                com.baidu.adp.lib.a.a.mc().a(this.Iv.mx().getUrl(), this.Iv.mx().bJ("Host"), TextUtils.isEmpty(dVar.exception), dVar.LQ != null);
                                 this.Iv.b(dVar);
                                 a ml = a.ml();
                                 if (ml != null) {
@@ -345,8 +345,8 @@ public class c {
                             if (this.Lp <= 0 && this.LC != null) {
                                 this.Lp = this.LC.mo();
                             }
-                            dVar.LJ = System.currentTimeMillis() - currentTimeMillis;
-                            com.baidu.adp.lib.a.a.mc().a(this.Iv.mx().getUrl(), this.Iv.mx().bJ("Host"), TextUtils.isEmpty(dVar.exception), dVar.LO != null);
+                            dVar.LK = System.currentTimeMillis() - currentTimeMillis;
+                            com.baidu.adp.lib.a.a.mc().a(this.Iv.mx().getUrl(), this.Iv.mx().bJ("Host"), TextUtils.isEmpty(dVar.exception), dVar.LQ != null);
                             this.Iv.b(dVar);
                             a ml2 = a.ml();
                             if (ml2 != null) {
@@ -361,8 +361,8 @@ public class c {
                         if (this.Lp <= 0 && this.LC != null) {
                             this.Lp = this.LC.mo();
                         }
-                        dVar.LJ = System.currentTimeMillis() - currentTimeMillis;
-                        com.baidu.adp.lib.a.a.mc().a(this.Iv.mx().getUrl(), this.Iv.mx().bJ("Host"), TextUtils.isEmpty(dVar.exception), dVar.LO != null);
+                        dVar.LK = System.currentTimeMillis() - currentTimeMillis;
+                        com.baidu.adp.lib.a.a.mc().a(this.Iv.mx().getUrl(), this.Iv.mx().bJ("Host"), TextUtils.isEmpty(dVar.exception), dVar.LQ != null);
                         this.Iv.b(dVar);
                         a ml3 = a.ml();
                         if (ml3 != null) {
@@ -376,8 +376,8 @@ public class c {
                     if (this.Lp <= 0 && this.LC != null) {
                         this.Lp = this.LC.mo();
                     }
-                    dVar.LJ = System.currentTimeMillis() - currentTimeMillis;
-                    com.baidu.adp.lib.a.a.mc().a(this.Iv.mx().getUrl(), this.Iv.mx().bJ("Host"), TextUtils.isEmpty(dVar.exception), dVar.LO != null);
+                    dVar.LK = System.currentTimeMillis() - currentTimeMillis;
+                    com.baidu.adp.lib.a.a.mc().a(this.Iv.mx().getUrl(), this.Iv.mx().bJ("Host"), TextUtils.isEmpty(dVar.exception), dVar.LQ != null);
                     this.Iv.b(dVar);
                     a ml4 = a.ml();
                     if (ml4 != null) {
@@ -390,8 +390,8 @@ public class c {
                     if (this.Lp <= 0 && this.LC != null) {
                         this.Lp = this.LC.mo();
                     }
-                    dVar.LJ = System.currentTimeMillis() - currentTimeMillis;
-                    com.baidu.adp.lib.a.a.mc().a(this.Iv.mx().getUrl(), this.Iv.mx().bJ("Host"), TextUtils.isEmpty(dVar.exception), dVar.LO != null);
+                    dVar.LK = System.currentTimeMillis() - currentTimeMillis;
+                    com.baidu.adp.lib.a.a.mc().a(this.Iv.mx().getUrl(), this.Iv.mx().bJ("Host"), TextUtils.isEmpty(dVar.exception), dVar.LQ != null);
                     this.Iv.b(dVar);
                     a ml5 = a.ml();
                     if (ml5 != null) {
@@ -405,8 +405,8 @@ public class c {
                 if (this.Lp <= 0 && this.LC != null) {
                     this.Lp = this.LC.mo();
                 }
-                dVar.LJ = System.currentTimeMillis() - currentTimeMillis;
-                com.baidu.adp.lib.a.a.mc().a(this.Iv.mx().getUrl(), this.Iv.mx().bJ("Host"), TextUtils.isEmpty(dVar.exception), dVar.LO != null);
+                dVar.LK = System.currentTimeMillis() - currentTimeMillis;
+                com.baidu.adp.lib.a.a.mc().a(this.Iv.mx().getUrl(), this.Iv.mx().bJ("Host"), TextUtils.isEmpty(dVar.exception), dVar.LQ != null);
                 this.Iv.b(dVar);
                 a ml6 = a.ml();
                 if (ml6 != null) {
@@ -417,8 +417,8 @@ public class c {
                 if (this.Lp <= 0 && this.LC != null) {
                     this.Lp = this.LC.mo();
                 }
-                dVar.LJ = System.currentTimeMillis() - currentTimeMillis;
-                com.baidu.adp.lib.a.a.mc().a(this.Iv.mx().getUrl(), this.Iv.mx().bJ("Host"), TextUtils.isEmpty(dVar.exception), dVar.LO != null);
+                dVar.LK = System.currentTimeMillis() - currentTimeMillis;
+                com.baidu.adp.lib.a.a.mc().a(this.Iv.mx().getUrl(), this.Iv.mx().bJ("Host"), TextUtils.isEmpty(dVar.exception), dVar.LQ != null);
                 this.Iv.b(dVar);
                 a ml7 = a.ml();
                 if (ml7 != null) {
@@ -447,7 +447,7 @@ public class c {
         }
         long currentTimeMillis = System.currentTimeMillis();
         boolean z2 = true;
-        for (int i4 = 0; !this.Iv.my().Mn && z2 && i4 < i; i4++) {
+        for (int i4 = 0; !this.Iv.my().Mo && z2 && i4 < i; i4++) {
             d dVar = new d();
             dVar.retry = i4 + 1;
             this.LD = i4;
@@ -467,8 +467,8 @@ public class c {
                         if (this.Lp <= 0 && this.LC != null) {
                             this.Lp = this.LC.mo();
                         }
-                        dVar.LJ = System.currentTimeMillis() - currentTimeMillis;
-                        com.baidu.adp.lib.a.a.mc().a(this.Iv.mx().getUrl(), this.Iv.mx().bJ("Host"), TextUtils.isEmpty(dVar.exception), dVar.LO != null);
+                        dVar.LK = System.currentTimeMillis() - currentTimeMillis;
+                        com.baidu.adp.lib.a.a.mc().a(this.Iv.mx().getUrl(), this.Iv.mx().bJ("Host"), TextUtils.isEmpty(dVar.exception), dVar.LQ != null);
                         this.Iv.a(dVar);
                         a ml2 = a.ml();
                         if (ml2 != null && this.LC != null && this.LC.mr()) {
@@ -484,8 +484,8 @@ public class c {
                     if (this.Lp <= 0 && this.LC != null) {
                         this.Lp = this.LC.mo();
                     }
-                    dVar.LJ = System.currentTimeMillis() - currentTimeMillis;
-                    com.baidu.adp.lib.a.a.mc().a(this.Iv.mx().getUrl(), this.Iv.mx().bJ("Host"), TextUtils.isEmpty(dVar.exception), dVar.LO != null);
+                    dVar.LK = System.currentTimeMillis() - currentTimeMillis;
+                    com.baidu.adp.lib.a.a.mc().a(this.Iv.mx().getUrl(), this.Iv.mx().bJ("Host"), TextUtils.isEmpty(dVar.exception), dVar.LQ != null);
                     this.Iv.a(dVar);
                     a ml3 = a.ml();
                     if (ml3 != null && this.LC != null && this.LC.mr()) {
@@ -500,8 +500,8 @@ public class c {
                     if (this.Lp <= 0 && this.LC != null) {
                         this.Lp = this.LC.mo();
                     }
-                    dVar.LJ = System.currentTimeMillis() - currentTimeMillis;
-                    com.baidu.adp.lib.a.a.mc().a(this.Iv.mx().getUrl(), this.Iv.mx().bJ("Host"), TextUtils.isEmpty(dVar.exception), dVar.LO != null);
+                    dVar.LK = System.currentTimeMillis() - currentTimeMillis;
+                    com.baidu.adp.lib.a.a.mc().a(this.Iv.mx().getUrl(), this.Iv.mx().bJ("Host"), TextUtils.isEmpty(dVar.exception), dVar.LQ != null);
                     this.Iv.a(dVar);
                     a ml4 = a.ml();
                     if (ml4 != null && this.LC != null && this.LC.mr()) {
@@ -526,8 +526,8 @@ public class c {
                 if (this.Lp <= 0 && this.LC != null) {
                     this.Lp = this.LC.mo();
                 }
-                dVar.LJ = System.currentTimeMillis() - currentTimeMillis;
-                com.baidu.adp.lib.a.a.mc().a(this.Iv.mx().getUrl(), this.Iv.mx().bJ("Host"), TextUtils.isEmpty(dVar.exception), dVar.LO != null);
+                dVar.LK = System.currentTimeMillis() - currentTimeMillis;
+                com.baidu.adp.lib.a.a.mc().a(this.Iv.mx().getUrl(), this.Iv.mx().bJ("Host"), TextUtils.isEmpty(dVar.exception), dVar.LQ != null);
                 this.Iv.a(dVar);
                 a ml5 = a.ml();
                 if (ml5 != null && this.LC != null && this.LC.mr()) {
@@ -538,8 +538,8 @@ public class c {
                 if (this.Lp <= 0 && this.LC != null) {
                     this.Lp = this.LC.mo();
                 }
-                dVar.LJ = System.currentTimeMillis() - currentTimeMillis;
-                com.baidu.adp.lib.a.a.mc().a(this.Iv.mx().getUrl(), this.Iv.mx().bJ("Host"), TextUtils.isEmpty(dVar.exception), dVar.LO != null);
+                dVar.LK = System.currentTimeMillis() - currentTimeMillis;
+                com.baidu.adp.lib.a.a.mc().a(this.Iv.mx().getUrl(), this.Iv.mx().bJ("Host"), TextUtils.isEmpty(dVar.exception), dVar.LQ != null);
                 this.Iv.a(dVar);
                 ml = a.ml();
                 if (ml != null && this.LC != null && this.LC.mr()) {
@@ -579,7 +579,7 @@ public class c {
         }
         long currentTimeMillis = System.currentTimeMillis();
         boolean z2 = true;
-        for (int i4 = 0; !this.Iv.my().Mn && z2 && i4 < i; i4++) {
+        for (int i4 = 0; !this.Iv.my().Mo && z2 && i4 < i; i4++) {
             d dVar = new d();
             this.LD = i4;
             dVar.retry = i4 + 1;
@@ -590,7 +590,7 @@ public class c {
                         this.LC = new b(this.Iv);
                         this.LC.ao(i4);
                         this.LC.ah(Lv);
-                        this.LC.ai(this.LG);
+                        this.LC.ai(this.LH);
                         this.LC.c(i2, i3, dVar);
                     } catch (UnsupportedOperationException e) {
                         z = false;
@@ -600,8 +600,8 @@ public class c {
                         if (this.Lp <= 0 && this.LC != null) {
                             this.Lp = this.LC.mo();
                         }
-                        dVar.LJ = System.currentTimeMillis() - currentTimeMillis;
-                        com.baidu.adp.lib.a.a.mc().a(this.Iv.mx().getUrl(), this.Iv.mx().bJ("Host"), TextUtils.isEmpty(dVar.exception), dVar.LO != null);
+                        dVar.LK = System.currentTimeMillis() - currentTimeMillis;
+                        com.baidu.adp.lib.a.a.mc().a(this.Iv.mx().getUrl(), this.Iv.mx().bJ("Host"), TextUtils.isEmpty(dVar.exception), dVar.LQ != null);
                         this.Iv.a(dVar);
                         a ml = a.ml();
                         if (ml != null) {
@@ -616,8 +616,8 @@ public class c {
                         if (this.Lp <= 0 && this.LC != null) {
                             this.Lp = this.LC.mo();
                         }
-                        dVar.LJ = System.currentTimeMillis() - currentTimeMillis;
-                        com.baidu.adp.lib.a.a.mc().a(this.Iv.mx().getUrl(), this.Iv.mx().bJ("Host"), TextUtils.isEmpty(dVar.exception), dVar.LO != null);
+                        dVar.LK = System.currentTimeMillis() - currentTimeMillis;
+                        com.baidu.adp.lib.a.a.mc().a(this.Iv.mx().getUrl(), this.Iv.mx().bJ("Host"), TextUtils.isEmpty(dVar.exception), dVar.LQ != null);
                         this.Iv.a(dVar);
                         a ml2 = a.ml();
                         if (ml2 != null) {
@@ -633,8 +633,8 @@ public class c {
                     if (this.Lp <= 0 && this.LC != null) {
                         this.Lp = this.LC.mo();
                     }
-                    dVar.LJ = System.currentTimeMillis() - currentTimeMillis;
-                    com.baidu.adp.lib.a.a.mc().a(this.Iv.mx().getUrl(), this.Iv.mx().bJ("Host"), TextUtils.isEmpty(dVar.exception), dVar.LO != null);
+                    dVar.LK = System.currentTimeMillis() - currentTimeMillis;
+                    com.baidu.adp.lib.a.a.mc().a(this.Iv.mx().getUrl(), this.Iv.mx().bJ("Host"), TextUtils.isEmpty(dVar.exception), dVar.LQ != null);
                     this.Iv.a(dVar);
                     a ml3 = a.ml();
                     if (ml3 != null) {
@@ -649,8 +649,8 @@ public class c {
                     if (this.Lp <= 0 && this.LC != null) {
                         this.Lp = this.LC.mo();
                     }
-                    dVar.LJ = System.currentTimeMillis() - currentTimeMillis;
-                    com.baidu.adp.lib.a.a.mc().a(this.Iv.mx().getUrl(), this.Iv.mx().bJ("Host"), TextUtils.isEmpty(dVar.exception), dVar.LO != null);
+                    dVar.LK = System.currentTimeMillis() - currentTimeMillis;
+                    com.baidu.adp.lib.a.a.mc().a(this.Iv.mx().getUrl(), this.Iv.mx().bJ("Host"), TextUtils.isEmpty(dVar.exception), dVar.LQ != null);
                     this.Iv.a(dVar);
                     a ml4 = a.ml();
                     if (ml4 != null) {
@@ -661,8 +661,8 @@ public class c {
                     if (this.Lp <= 0 && this.LC != null) {
                         this.Lp = this.LC.mo();
                     }
-                    dVar.LJ = System.currentTimeMillis() - currentTimeMillis;
-                    com.baidu.adp.lib.a.a.mc().a(this.Iv.mx().getUrl(), this.Iv.mx().bJ("Host"), TextUtils.isEmpty(dVar.exception), dVar.LO != null);
+                    dVar.LK = System.currentTimeMillis() - currentTimeMillis;
+                    com.baidu.adp.lib.a.a.mc().a(this.Iv.mx().getUrl(), this.Iv.mx().bJ("Host"), TextUtils.isEmpty(dVar.exception), dVar.LQ != null);
                     this.Iv.a(dVar);
                     a ml5 = a.ml();
                     if (ml5 != null) {
@@ -677,8 +677,8 @@ public class c {
                 if (this.Lp <= 0 && this.LC != null) {
                     this.Lp = this.LC.mo();
                 }
-                dVar.LJ = System.currentTimeMillis() - currentTimeMillis;
-                com.baidu.adp.lib.a.a.mc().a(this.Iv.mx().getUrl(), this.Iv.mx().bJ("Host"), TextUtils.isEmpty(dVar.exception), dVar.LO != null);
+                dVar.LK = System.currentTimeMillis() - currentTimeMillis;
+                com.baidu.adp.lib.a.a.mc().a(this.Iv.mx().getUrl(), this.Iv.mx().bJ("Host"), TextUtils.isEmpty(dVar.exception), dVar.LQ != null);
                 this.Iv.a(dVar);
                 a ml6 = a.ml();
                 if (ml6 != null) {
@@ -689,8 +689,8 @@ public class c {
                 if (this.Lp <= 0 && this.LC != null) {
                     this.Lp = this.LC.mo();
                 }
-                dVar.LJ = System.currentTimeMillis() - currentTimeMillis;
-                com.baidu.adp.lib.a.a.mc().a(this.Iv.mx().getUrl(), this.Iv.mx().bJ("Host"), TextUtils.isEmpty(dVar.exception), dVar.LO != null);
+                dVar.LK = System.currentTimeMillis() - currentTimeMillis;
+                com.baidu.adp.lib.a.a.mc().a(this.Iv.mx().getUrl(), this.Iv.mx().bJ("Host"), TextUtils.isEmpty(dVar.exception), dVar.LQ != null);
                 this.Iv.a(dVar);
                 a ml7 = a.ml();
                 if (ml7 != null) {
@@ -711,17 +711,17 @@ public class c {
         if (this.Iv == null) {
             return false;
         }
-        return this.Iv.my().Mn;
+        return this.Iv.my().Mo;
     }
 
     public void setCancel() {
         if (this.Iv != null) {
-            this.Iv.my().Mn = true;
+            this.Iv.my().Mo = true;
         }
     }
 
     public void aj(boolean z) {
-        this.LG = z;
+        this.LH = z;
     }
 
     public long ms() {

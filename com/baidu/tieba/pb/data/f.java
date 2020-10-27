@@ -49,80 +49,80 @@ import tbclient.ThreadInfo;
 import tbclient.User;
 /* loaded from: classes22.dex */
 public class f {
-    public k kUA;
-    public a kUE;
-    private String kUJ;
-    private int kUK;
-    private List<bw> kUQ;
-    private AlaLiveInfoCoreData kUR;
-    private TwzhiboAnti kUU;
-    private List<bs> kUV;
-    private List<bs> kUW;
-    private PostData kUY;
-    private i kUZ;
-    public AppealInfo kUs;
-    public String kUt;
-    public CardHListViewData kUu;
-    public String kUv;
-    public int kUw;
-    public int kUx;
-    public List<PbSortType> kUy;
-    public int kUz;
-    private long kVa;
-    private o kVb;
-    private String kVc;
-    private String kVd;
-    private List<com.baidu.tbadk.core.data.n> kVg;
-    private com.baidu.tieba.pb.videopb.c.a kVi;
-    private PostData kVj;
-    private PostData kVl;
-    public boolean kVn;
-    private ac kVq;
-    public String kVr;
-    public String kVs;
-    public boolean kUB = false;
-    public boolean kUC = false;
-    public boolean kUD = false;
-    public boolean kUF = false;
-    private boolean kUO = true;
-    private ArrayList<com.baidu.tieba.tbadkCore.data.n> kUS = new ArrayList<>();
-    private com.baidu.tieba.tbadkCore.data.n kUT = null;
-    private int kVh = 0;
-    public boolean kVk = true;
-    public int kVm = 0;
-    public int YG = 0;
-    private List<com.baidu.tieba.tbadkCore.data.n> kVo = new ArrayList();
+    public AppealInfo lgR;
+    public String lgS;
+    public CardHListViewData lgT;
+    public String lgU;
+    public int lgV;
+    public int lgW;
+    public List<PbSortType> lgX;
+    public int lgY;
+    public k lgZ;
+    private o lhA;
+    private String lhB;
+    private String lhC;
+    private List<com.baidu.tbadk.core.data.n> lhF;
+    private com.baidu.tieba.pb.videopb.c.a lhH;
+    private PostData lhI;
+    private PostData lhK;
+    public boolean lhM;
+    private ac lhP;
+    public String lhQ;
+    public String lhR;
+    public a lhd;
+    private String lhi;
+    private int lhj;
+    private List<bw> lhp;
+    private AlaLiveInfoCoreData lhq;
+    private TwzhiboAnti lht;
+    private List<bs> lhu;
+    private List<bs> lhv;
+    private PostData lhx;
+    private i lhy;
+    private long lhz;
+    public boolean lha = false;
+    public boolean lhb = false;
+    public boolean lhc = false;
+    public boolean lhe = false;
+    private boolean lhn = true;
+    private ArrayList<com.baidu.tieba.tbadkCore.data.n> lhr = new ArrayList<>();
+    private com.baidu.tieba.tbadkCore.data.n lhs = null;
+    private int lhG = 0;
+    public boolean lhJ = true;
+    public int lhL = 0;
+    public int YH = 0;
+    private List<com.baidu.tieba.tbadkCore.data.n> lhN = new ArrayList();
     private ForumData forum = new ForumData();
-    private bs kUG = new bs();
-    private bw fRW = new bw();
-    private ArrayList<PostData> kUH = new ArrayList<>();
+    private bs lhf = new bs();
+    private bw gbZ = new bw();
+    private ArrayList<PostData> lhg = new ArrayList<>();
     private HashMap<String, MetaData> userMap = new HashMap<>();
     private av page = new av();
     private AntiData anti = new AntiData();
-    private com.baidu.tbadk.data.f kUI = new com.baidu.tbadk.data.f();
+    private com.baidu.tbadk.data.f lhh = new com.baidu.tbadk.data.f();
     private int userIdentity = 0;
     private final UserData userData = new UserData();
-    private List<MuteUser> kUN = new ArrayList();
-    private ay kUL = new ay();
-    private az kUP = new az();
-    private am kUM = new am();
-    private r kUX = new r();
-    private z kVp = new z();
-    private List<bm.a> kVe = new ArrayList();
-    private HashSet<String> kVf = new HashSet<>();
+    private List<MuteUser> lhm = new ArrayList();
+    private ay lhk = new ay();
+    private az lho = new az();
+    private am lhl = new am();
+    private r lhw = new r();
+    private z lhO = new z();
+    private List<bm.a> lhD = new ArrayList();
+    private HashSet<String> lhE = new HashSet<>();
 
     public f() {
-        this.kUK = 0;
-        this.kUU = null;
-        this.kUK = 0;
-        this.kUU = new TwzhiboAnti();
+        this.lhj = 0;
+        this.lht = null;
+        this.lhj = 0;
+        this.lht = new TwzhiboAnti();
     }
 
     public boolean isValid() {
-        return this.kUH != null && this.kUH.size() > 0;
+        return this.lhg != null && this.lhg.size() > 0;
     }
 
-    public String[] fI(Context context) {
+    public String[] fJ(Context context) {
         return r(context, true);
     }
 
@@ -135,26 +135,26 @@ public class f {
         if (!isValid()) {
             str = "";
         } else {
-            int size = this.kUH.size() > 30 ? 30 : this.kUH.size();
-            if (dcA() == null || dcA().bih() == null || at.isEmpty(dcA().bih().getUserId())) {
+            int size = this.lhg.size() > 30 ? 30 : this.lhg.size();
+            if (dfI() == null || dfI().bka() == null || at.isEmpty(dfI().bka().getUserId())) {
                 return new String[]{null, ""};
             }
-            String userId = dcA().bih().getUserId();
-            PostData dcK = dcK();
-            if (dcK == null || dcK.bih() == null || at.isEmpty(dcK.bih().getUserId())) {
+            String userId = dfI().bka().getUserId();
+            PostData dfS = dfS();
+            if (dfS == null || dfS.bka() == null || at.isEmpty(dfS.bka().getUserId())) {
                 str2 = "";
             } else {
-                if (!at.equals(userId, dcK.bih().getUserId())) {
+                if (!at.equals(userId, dfS.bka().getUserId())) {
                     str4 = null;
                 } else {
-                    str4 = dcK.dEw();
+                    str4 = dfS.dHE();
                 }
                 if (!at.isEmpty("")) {
                     str5 = str4;
                     str2 = "";
                 } else {
                     str5 = str4;
-                    str2 = dcK.dEu();
+                    str2 = dfS.dHC();
                 }
             }
             if (at.isEmpty(str2) && at.isEmpty(str5)) {
@@ -166,18 +166,18 @@ public class f {
                         str3 = str5;
                         break;
                     }
-                    PostData postData = (PostData) y.getItem(this.kUH, i);
-                    if (postData != null && postData.bih() != null && !at.isEmpty(postData.bih().getUserId()) && at.equals(userId, postData.bih().getUserId())) {
+                    PostData postData = (PostData) y.getItem(this.lhg, i);
+                    if (postData != null && postData.bka() != null && !at.isEmpty(postData.bka().getUserId()) && at.equals(userId, postData.bka().getUserId())) {
                         if (at.isEmpty(str5)) {
-                            str5 = postData.dEw();
+                            str5 = postData.dHE();
                         }
-                        String dEu = at.isEmpty(str6) ? postData.dEu() : str6;
-                        if (!at.isEmpty(str5) && !at.isEmpty(dEu)) {
-                            str = dEu;
+                        String dHC = at.isEmpty(str6) ? postData.dHC() : str6;
+                        if (!at.isEmpty(str5) && !at.isEmpty(dHC)) {
+                            str = dHC;
                             str3 = str5;
                             break;
                         }
-                        str6 = dEu;
+                        str6 = dHC;
                     }
                     i++;
                 }
@@ -188,12 +188,12 @@ public class f {
             if (z && at.isEmpty(str3)) {
                 str3 = "http://imgsrc.baidu.com/forum/w%3D580/sign=c2b802eddc62853592e0d229a0ee76f2/7fe6706134a85edfd459863c40540923dc547534.jpg";
             }
-            if (this.fRW != null && this.fRW.bjh() != null && this.fRW.bjh().getGroup_id() != 0) {
+            if (this.gbZ != null && this.gbZ.bla() != null && this.gbZ.bla().getGroup_id() != 0) {
                 str = "[" + context.getString(R.string.photo_live_tips) + "] " + str;
             }
-            str5 = (this.fRW == null || this.fRW.biz() == null || at.isEmpty(this.fRW.biz().thumbnail_url)) ? str3 : this.fRW.biz().thumbnail_url;
-            if (this.fRW != null && !this.fRW.isShareThread && str5 == null && this.fRW.erY != null && this.fRW.erY.ent != null) {
-                ArrayList<MediaData> arrayList = this.fRW.erY.ent;
+            str5 = (this.gbZ == null || this.gbZ.bks() == null || at.isEmpty(this.gbZ.bks().thumbnail_url)) ? str3 : this.gbZ.bks().thumbnail_url;
+            if (this.gbZ != null && !this.gbZ.isShareThread && str5 == null && this.gbZ.eAy != null && this.gbZ.eAy.evS != null) {
+                ArrayList<MediaData> arrayList = this.gbZ.eAy.evS;
                 int size2 = arrayList.size();
                 int i2 = 0;
                 while (true) {
@@ -221,12 +221,12 @@ public class f {
         return this.forum;
     }
 
-    public bs dcz() {
-        return this.kUG;
+    public bs dfH() {
+        return this.lhf;
     }
 
     public void d(bs bsVar) {
-        this.kUG = bsVar;
+        this.lhf = bsVar;
     }
 
     public String getForumId() {
@@ -243,67 +243,67 @@ public class f {
         return this.forum.getName();
     }
 
-    public bw dcA() {
-        return this.fRW;
+    public bw dfI() {
+        return this.gbZ;
     }
 
     public void aF(bw bwVar) {
-        this.fRW = bwVar;
+        this.gbZ = bwVar;
     }
 
-    public List<bw> dcB() {
-        return this.kUQ;
+    public List<bw> dfJ() {
+        return this.lhp;
     }
 
     public String getThreadId() {
-        if (this.fRW == null) {
+        if (this.gbZ == null) {
             return "";
         }
-        return this.fRW.getId();
+        return this.gbZ.getId();
     }
 
-    public ArrayList<PostData> dcC() {
-        return this.kUH;
+    public ArrayList<PostData> dfK() {
+        return this.lhg;
     }
 
     public av getPage() {
         return this.page;
     }
 
-    public am dcD() {
-        return this.kUM;
+    public am dfL() {
+        return this.lhl;
     }
 
-    public az dcE() {
-        return this.kUP;
+    public az dfM() {
+        return this.lho;
     }
 
-    public z dcF() {
-        if (this.kVp == null || !this.kVp.isValid()) {
+    public z dfN() {
+        if (this.lhO == null || !this.lhO.isValid()) {
             return null;
         }
-        return this.kVp;
+        return this.lhO;
     }
 
-    public ac dcG() {
-        if (this.kVq == null || !this.kVq.isValid()) {
+    public ac dfO() {
+        if (this.lhP == null || !this.lhP.isValid()) {
             return null;
         }
-        return this.kVq;
+        return this.lhP;
     }
 
     public void a(av avVar, int i) {
-        this.page.nF(avVar.bgV());
-        this.page.nD(avVar.bfW());
-        this.page.nC(avVar.bgS());
-        this.page.nG(avVar.bgW());
-        this.page.nE(avVar.bgU());
+        this.page.nQ(avVar.biO());
+        this.page.nO(avVar.bhP());
+        this.page.nN(avVar.biL());
+        this.page.nR(avVar.biP());
+        this.page.nP(avVar.biN());
         if (i == 0) {
             this.page = avVar;
         } else if (i == 1) {
-            this.page.nH(avVar.bgX());
+            this.page.nS(avVar.biQ());
         } else if (i == 2) {
-            this.page.nI(avVar.bgY());
+            this.page.nT(avVar.biR());
         }
     }
 
@@ -315,63 +315,63 @@ public class f {
         return this.userData;
     }
 
-    public boolean bec() {
-        return this.fRW.bio() != 0;
+    public boolean bfV() {
+        return this.gbZ.bkh() != 0;
     }
 
-    public void hU(boolean z) {
-        if (this.fRW != null) {
+    public void ih(boolean z) {
+        if (this.gbZ != null) {
             if (z) {
-                this.fRW.nS(1);
+                this.gbZ.od(1);
             } else {
-                this.fRW.nS(0);
+                this.gbZ.od(0);
             }
         }
     }
 
-    public String beb() {
-        if (this.fRW != null) {
-            return this.fRW.bip();
+    public String bfU() {
+        if (this.gbZ != null) {
+            return this.gbZ.bki();
         }
         return null;
     }
 
-    public void OC(String str) {
-        if (this.fRW != null) {
-            this.fRW.Aw(str);
+    public void Pa(String str) {
+        if (this.gbZ != null) {
+            this.gbZ.AP(str);
         }
     }
 
-    public String dcH() {
-        return this.kVd;
+    public String dfP() {
+        return this.lhC;
     }
 
-    public boolean dcI() {
-        return (this.fRW == null || this.fRW.bir() == null || this.fRW.bir().size() <= 0 || this.fRW.bir().get(0) == null || !this.fRW.bir().get(0).bfX()) ? false : true;
+    public boolean dfQ() {
+        return (this.gbZ == null || this.gbZ.bkk() == null || this.gbZ.bkk().size() <= 0 || this.gbZ.bkk().get(0) == null || !this.gbZ.bkk().get(0).bhQ()) ? false : true;
     }
 
-    public PostData dcJ() {
-        return this.kVj;
+    public PostData dfR() {
+        return this.lhI;
     }
 
     public void d(PostData postData) {
-        this.kVj = postData;
-        this.kVl = postData;
-        this.kVk = false;
+        this.lhI = postData;
+        this.lhK = postData;
+        this.lhJ = false;
     }
 
-    public PostData dcK() {
-        return this.kVl;
+    public PostData dfS() {
+        return this.lhK;
     }
 
     public void e(PostData postData) {
-        this.kVl = postData;
+        this.lhK = postData;
     }
 
     public void a(DataRes dataRes, Context context) {
         if (dataRes != null) {
             try {
-                com.baidu.tieba.recapp.d.a.dvt().QO(dataRes.asp_shown_info);
+                com.baidu.tieba.recapp.d.a.dyA().Rm(dataRes.asp_shown_info);
                 List<User> list = dataRes.user_list;
                 if (list != null) {
                     for (int i = 0; i < list.size(); i++) {
@@ -385,44 +385,44 @@ public class f {
                 }
                 setIsNewUrl(dataRes.is_new_url.intValue());
                 this.forum.parserProtobuf(dataRes.forum);
-                this.kUG.parserProtobuf(dataRes.display_forum);
-                this.fRW.setUserMap(this.userMap);
-                this.fRW.a(dataRes.thread);
-                this.kUL.a(dataRes.news_info);
-                switch (this.kUL.dSm) {
+                this.lhf.parserProtobuf(dataRes.display_forum);
+                this.gbZ.setUserMap(this.userMap);
+                this.gbZ.a(dataRes.thread);
+                this.lhk.a(dataRes.news_info);
+                switch (this.lhk.eaI) {
                     case 1:
-                        this.kUM.lgU = this.kUL;
+                        this.lhl.ltx = this.lhk;
                         break;
                     case 2:
-                        this.kUM.lgV = this.kUL;
+                        this.lhl.lty = this.lhk;
                         break;
                     case 3:
-                        this.kUM.lgW = this.kUL;
+                        this.lhl.ltz = this.lhk;
                         break;
                     default:
-                        this.kUM.lgV = this.kUL;
+                        this.lhl.lty = this.lhk;
                         break;
                 }
-                this.kUP.a(dataRes.recommend_book);
+                this.lho.a(dataRes.recommend_book);
                 b(dataRes, context);
-                this.kVj = new PostData();
-                this.kVj.IY(1);
-                this.kVj.setUserMap(this.userMap);
-                this.kVj.wQ(this.forum.isBrandForum);
-                this.kVj.setTime(this.fRW.getCreateTime());
+                this.lhI = new PostData();
+                this.lhI.Jq(1);
+                this.lhI.setUserMap(this.userMap);
+                this.lhI.xh(this.forum.isBrandForum);
+                this.lhI.setTime(this.gbZ.getCreateTime());
                 if (dataRes.first_floor_post != null) {
-                    this.kVj.a(dataRes.first_floor_post, context);
+                    this.lhI.a(dataRes.first_floor_post, context);
                 }
-                if (this.fRW != null && this.fRW.isShareThread) {
-                    this.kVj.h(this.fRW.erY);
+                if (this.gbZ != null && this.gbZ.isShareThread) {
+                    this.lhI.h(this.gbZ.eAy);
                 }
-                if (this.kVl == null) {
-                    this.kVl = this.kVj;
-                    this.kVk = true;
+                if (this.lhK == null) {
+                    this.lhK = this.lhI;
+                    this.lhJ = true;
                 }
                 this.page.a(dataRes.page);
                 this.anti.parserProtobuf(dataRes.anti);
-                this.kUI.a(dataRes.location);
+                this.lhh.a(dataRes.location);
                 if (dataRes.user != null) {
                     this.userIdentity = dataRes.user.is_manager.intValue();
                 }
@@ -432,79 +432,79 @@ public class f {
                         if (simpleUser != null) {
                             MuteUser muteUser = new MuteUser();
                             muteUser.parserProtobuf(simpleUser);
-                            this.kUN.add(muteUser);
+                            this.lhm.add(muteUser);
                         }
                     }
                 }
-                this.fRW.nO(this.fRW.bhY() > 0 ? this.fRW.bhY() - 1 : 0);
-                List<AppData> duD = com.baidu.tieba.recapp.r.duF().duD();
-                if (duD != null) {
-                    duD.clear();
+                this.gbZ.nZ(this.gbZ.bjR() > 0 ? this.gbZ.bjR() - 1 : 0);
+                List<AppData> dxK = com.baidu.tieba.recapp.r.dxM().dxK();
+                if (dxK != null) {
+                    dxK.clear();
                 }
-                this.kUT = null;
+                this.lhs = null;
                 if (dataRes.banner_list != null) {
                     for (App app : dataRes.banner_list.app) {
                         com.baidu.tieba.tbadkCore.data.n nVar = new com.baidu.tieba.tbadkCore.data.n();
                         nVar.d(app);
-                        AppData dEd = nVar.dEd();
-                        if (!this.kUS.contains(nVar) && dEd.goods != null && (!StringUtils.isNull(dEd.goods.user_name) || !StringUtils.isNull(dEd.goods.lego_card))) {
-                            nVar.ljW = dda();
-                            this.kUS.add(nVar);
-                            if (duD != null) {
-                                duD.add(nVar.dEd());
+                        AppData dHl = nVar.dHl();
+                        if (!this.lhr.contains(nVar) && dHl.goods != null && (!StringUtils.isNull(dHl.goods.user_name) || !StringUtils.isNull(dHl.goods.lego_card))) {
+                            nVar.lwz = dgi();
+                            this.lhr.add(nVar);
+                            if (dxK != null) {
+                                dxK.add(nVar.dHl());
                             }
                         }
                     }
                     c(dataRes);
                     d(dataRes);
                 }
-                com.baidu.tieba.recapp.r.duF().duE();
+                com.baidu.tieba.recapp.r.dxM().dxL();
                 AccountData currentAccountObj = TbadkCoreApplication.getCurrentAccountObj();
                 if (currentAccountObj != null) {
                     currentAccountObj.setIsSelectTail(this.userData.getIsSelectTail());
                 }
-                this.kUU.parserProtobuf(dataRes.twzhibo_anti);
-                this.kUs = dataRes.appeal_info;
+                this.lht.parserProtobuf(dataRes.twzhibo_anti);
+                this.lgR = dataRes.appeal_info;
                 if (dataRes.forum_headline_img_info != null) {
-                    this.kUZ = new i();
-                    this.kUZ.a(dataRes.forum_headline_img_info);
+                    this.lhy = new i();
+                    this.lhy.a(dataRes.forum_headline_img_info);
                 }
                 if (dataRes.guess_like != null) {
-                    this.kUu = new CardHListViewData();
-                    this.kUu.parseProtobuf(dataRes.guess_like);
+                    this.lgT = new CardHListViewData();
+                    this.lgT.parseProtobuf(dataRes.guess_like);
                 }
                 b(dataRes);
                 if (y.getCount(dataRes.repost_recommend_forum_list) > 0) {
-                    if (this.kUV == null) {
-                        this.kUV = new ArrayList();
+                    if (this.lhu == null) {
+                        this.lhu = new ArrayList();
                     }
                     for (SimpleForum simpleForum : dataRes.repost_recommend_forum_list) {
                         bs bsVar = new bs();
                         bsVar.parserProtobuf(simpleForum);
-                        this.kUV.add(bsVar);
+                        this.lhu.add(bsVar);
                     }
                 }
                 if (y.getCount(dataRes.from_forum_list) > 0) {
-                    if (this.kUW == null) {
-                        this.kUW = new ArrayList();
+                    if (this.lhv == null) {
+                        this.lhv = new ArrayList();
                     }
                     for (SimpleForum simpleForum2 : dataRes.from_forum_list) {
                         if (simpleForum2 != null) {
                             bs bsVar2 = new bs();
                             bsVar2.parserProtobuf(simpleForum2);
-                            this.kUW.add(bsVar2);
+                            this.lhv.add(bsVar2);
                         }
                     }
                 }
-                this.kVd = dataRes.multi_forum_text;
-                if (this.kVa >= 0) {
-                    this.kVa = dataRes.thread_freq_num.longValue();
+                this.lhC = dataRes.multi_forum_text;
+                if (this.lhz >= 0) {
+                    this.lhz = dataRes.thread_freq_num.longValue();
                 }
                 a(dataRes);
-                if (this.kVg == null) {
-                    this.kVg = new ArrayList();
+                if (this.lhF == null) {
+                    this.lhF = new ArrayList();
                 }
-                this.kVg.clear();
+                this.lhF.clear();
                 if (dataRes.bjh_recommend != null) {
                     int i2 = 1;
                     for (ThreadInfo threadInfo : dataRes.bjh_recommend) {
@@ -512,50 +512,50 @@ public class f {
                             com.baidu.tbadk.core.data.n nVar2 = new com.baidu.tbadk.core.data.n();
                             nVar2.setFloorNum(i2);
                             nVar2.a(threadInfo);
-                            this.kVg.add(nVar2);
+                            this.lhF.add(nVar2);
                             i2++;
                         }
                     }
                 }
-                if (this.kVi != null && this.kVi.dms()) {
-                    this.kVi = null;
+                if (this.lhH != null && this.lhH.dpA()) {
+                    this.lhH = null;
                 }
                 if (dataRes.recom_ala_info != null && dataRes.recom_ala_info.live_status.intValue() == 1 && dataRes.recom_ala_info.pb_display_type.intValue() == 2) {
-                    if (this.kVi == null) {
-                        this.kVi = new com.baidu.tieba.pb.videopb.c.a();
-                        this.kVi.parserProtoBuf(dataRes.recom_ala_info);
+                    if (this.lhH == null) {
+                        this.lhH = new com.baidu.tieba.pb.videopb.c.a();
+                        this.lhH.parserProtoBuf(dataRes.recom_ala_info);
                     }
-                } else if (this.kVi == null && dataRes.promotion != null) {
-                    this.kVi = new com.baidu.tieba.pb.videopb.c.a();
-                    this.kVi.a(dataRes.promotion);
+                } else if (this.lhH == null && dataRes.promotion != null) {
+                    this.lhH = new com.baidu.tieba.pb.videopb.c.a();
+                    this.lhH.a(dataRes.promotion);
                 }
                 if (dataRes.business_promot_info != null) {
-                    this.kUB = dataRes.business_promot_info.is_promot.longValue() == 1;
-                    this.kUC = dataRes.business_promot_info.is_headlinepost.intValue() == 1;
-                    this.kUD = dataRes.business_promot_info.is_s_card.intValue() == 1;
+                    this.lha = dataRes.business_promot_info.is_promot.longValue() == 1;
+                    this.lhb = dataRes.business_promot_info.is_headlinepost.intValue() == 1;
+                    this.lhc = dataRes.business_promot_info.is_s_card.intValue() == 1;
                     if (dataRes.business_promot_info.send_card_info != null) {
                         b bVar = new b();
                         bVar.a(dataRes.business_promot_info.send_card_info);
-                        if (this.kUE == null) {
-                            this.kUE = new a();
+                        if (this.lhd == null) {
+                            this.lhd = new a();
                         }
-                        this.kUE.a(bVar);
+                        this.lhd.a(bVar);
                     }
                 }
-                this.kVp.reset();
-                this.kVp.setUserMap(this.userMap);
-                this.kVp.a(dataRes.recom_ala_info);
-                if (this.kVp.ldL != null) {
-                    this.kVp.ldL.setTid(getThreadId());
+                this.lhO.reset();
+                this.lhO.setUserMap(this.userMap);
+                this.lhO.a(dataRes.recom_ala_info);
+                if (this.lhO.lqo != null) {
+                    this.lhO.lqo.setTid(getThreadId());
                 }
-                this.kVq = new ac();
-                this.kVq.setUserMap(this.userMap);
-                this.kVq.a(dataRes.recom_ala_info);
-                if (this.kVq.ldL != null) {
-                    this.kVq.ldL.setTid(getThreadId());
+                this.lhP = new ac();
+                this.lhP.setUserMap(this.userMap);
+                this.lhP.a(dataRes.recom_ala_info);
+                if (this.lhP.lqo != null) {
+                    this.lhP.lqo.setTid(getThreadId());
                 }
-                this.kVr = dataRes.jumptotab1 == null ? null : dataRes.jumptotab1.toString();
-                this.kVs = dataRes.jumptotab2;
+                this.lhQ = dataRes.jumptotab1 == null ? null : dataRes.jumptotab1.toString();
+                this.lhR = dataRes.jumptotab2;
             } catch (Exception e) {
                 BdLog.detailException(e);
             }
@@ -566,28 +566,28 @@ public class f {
         List<Post> list = dataRes.post_list;
         if (list != null && list.size() > 0) {
             for (Post post : dataRes.post_list) {
-                if (!this.kVf.contains(String.valueOf(post.id))) {
+                if (!this.lhE.contains(String.valueOf(post.id))) {
                     PostData postData = new PostData();
                     postData.setUserMap(this.userMap);
-                    postData.wQ(this.forum.isBrandForum);
+                    postData.xh(this.forum.isBrandForum);
                     postData.a(post, context);
-                    postData.a(dcA().bhS());
-                    if (postData.bjY() != null && postData.bjY().baijiahaoData == null && dcA() != null && dcA().getBaijiahaoData() != null) {
-                        postData.bjY().baijiahaoData = dcA().getBaijiahaoData();
+                    postData.a(dfI().bjL());
+                    if (postData.blR() != null && postData.blR().baijiahaoData == null && dfI() != null && dfI().getBaijiahaoData() != null) {
+                        postData.blR().baijiahaoData = dfI().getBaijiahaoData();
                     }
-                    this.kVf.add(postData.getId());
-                    if (postData.dEp() == 1 && this.fRW.biV()) {
-                        if (dcI()) {
+                    this.lhE.add(postData.getId());
+                    if (postData.dHx() == 1 && this.gbZ.bkO()) {
+                        if (dfQ()) {
                             postData.setPostType(0);
                         } else {
-                            postData.setPostType(this.fRW.biU());
+                            postData.setPostType(this.gbZ.bkN());
                         }
-                    } else if (postData.dEp() == 1 && this.fRW.bjp()) {
+                    } else if (postData.dHx() == 1 && this.gbZ.bli()) {
                         postData.setPostType(41);
-                    } else if (postData.dEp() == 1 && this.fRW != null && this.fRW.bgN()) {
+                    } else if (postData.dHx() == 1 && this.gbZ != null && this.gbZ.biG()) {
                         postData.setPostType(0);
-                        postData.bBA();
-                        if (this.fRW.bif() == null || this.fRW.bif().size() == 0) {
+                        postData.bDt();
+                        if (this.gbZ.bjY() == null || this.gbZ.bjY().size() == 0) {
                             JSONArray jSONArray = new JSONArray();
                             JSONObject jSONObject = new JSONObject();
                             try {
@@ -599,36 +599,36 @@ public class f {
                             }
                             postData.c(TbRichTextView.a(context, jSONArray, false));
                         } else {
-                            postData.c(new TbRichText((Context) TbadkCoreApplication.getInst(), this.fRW.bif(), true));
+                            postData.c(new TbRichText((Context) TbadkCoreApplication.getInst(), this.gbZ.bjY(), true));
                         }
-                        this.kUY = postData;
+                        this.lhx = postData;
                     }
-                    if (postData.dEp() == 1 && this.fRW != null && this.fRW.isShareThread) {
-                        postData.h(this.fRW.erY);
+                    if (postData.dHx() == 1 && this.gbZ != null && this.gbZ.isShareThread) {
+                        postData.h(this.gbZ.eAy);
                     }
-                    if (postData.dEp() == 1) {
-                        this.kVl = postData;
-                        this.kVk = false;
+                    if (postData.dHx() == 1) {
+                        this.lhK = postData;
+                        this.lhJ = false;
                     }
-                    this.kUH.add(postData);
+                    this.lhg.add(postData);
                 }
             }
         }
     }
 
     private void a(DataRes dataRes) {
-        this.kVb = new o(this.fRW, this.anti);
-        this.kUv = dataRes.partial_visible_toast;
+        this.lhA = new o(this.gbZ, this.anti);
+        this.lgU = dataRes.partial_visible_toast;
         if (dataRes.follow_tip != null && dataRes.follow_tip.is_toast_tip.intValue() == 1) {
-            this.kUJ = dataRes.follow_tip.tip_text;
+            this.lhi = dataRes.follow_tip.tip_text;
         }
-        this.kUR = new AlaLiveInfoCoreData();
+        this.lhq = new AlaLiveInfoCoreData();
         if (dataRes.ala_info != null) {
-            this.kUR.parserProtoBuf(dataRes.ala_info);
+            this.lhq.parserProtoBuf(dataRes.ala_info);
         }
-        this.kVc = dataRes.fold_tip;
-        this.kUw = dataRes.exp_news_today.intValue();
-        this.kUx = dataRes.exp_guide_today.intValue();
+        this.lhB = dataRes.fold_tip;
+        this.lgV = dataRes.exp_news_today.intValue();
+        this.lgW = dataRes.exp_guide_today.intValue();
         if (!y.isEmpty(dataRes.thread_topic)) {
             int i = 0;
             while (true) {
@@ -638,204 +638,204 @@ public class f {
                 }
                 bm.a aVar = new bm.a();
                 aVar.a(dataRes.thread_topic.get(i2));
-                this.kVe.add(aVar);
+                this.lhD.add(aVar);
                 i = i2 + 1;
             }
         }
-        this.kUy = dataRes.pb_sort_info;
-        this.kUz = dataRes.sort_type.intValue();
+        this.lgX = dataRes.pb_sort_info;
+        this.lgY = dataRes.sort_type.intValue();
         if (dataRes.manager_election != null) {
-            this.kUA = k.b(dataRes.manager_election);
+            this.lgZ = k.b(dataRes.manager_election);
         }
     }
 
     private void b(DataRes dataRes) {
         if (dataRes.feed_thread_list != null && dataRes.feed_thread_list.size() > 0) {
             List<ThreadInfo> list = dataRes.feed_thread_list;
-            if (this.kUQ == null) {
-                this.kUQ = new ArrayList();
+            if (this.lhp == null) {
+                this.lhp = new ArrayList();
             }
-            this.kUQ.clear();
+            this.lhp.clear();
             for (ThreadInfo threadInfo : list) {
                 if (threadInfo != null) {
                     bw bwVar = new bw();
                     bwVar.a(threadInfo);
-                    this.kUQ.add(bwVar);
+                    this.lhp.add(bwVar);
                 }
             }
-            if (this.kUQ != null && this.kUQ.size() > 15) {
-                this.kUQ = y.subList(this.kUQ, 0, 15);
+            if (this.lhp != null && this.lhp.size() > 15) {
+                this.lhp = y.subList(this.lhp, 0, 15);
             }
         }
     }
 
     private void c(DataRes dataRes) {
-        List<String> Ag;
+        List<String> Az;
         App app = dataRes.banner_list.pb_banner_ad;
         com.baidu.tieba.tbadkCore.data.n nVar = new com.baidu.tieba.tbadkCore.data.n();
-        nVar.mEe = true;
+        nVar.mQK = true;
         nVar.d(app);
-        AppData dEd = nVar.dEd();
-        if (dEd.goods != null) {
-            if (y.isEmpty(dEd.goods.thread_pic_list) && (Ag = AdvertAppInfo.a.Ag(dEd.goods.lego_card)) != null && dEd.goods.thread_pic_list != null) {
-                dEd.goods.thread_pic_list.addAll(Ag);
+        AppData dHl = nVar.dHl();
+        if (dHl.goods != null) {
+            if (y.isEmpty(dHl.goods.thread_pic_list) && (Az = AdvertAppInfo.a.Az(dHl.goods.lego_card)) != null && dHl.goods.thread_pic_list != null) {
+                dHl.goods.thread_pic_list.addAll(Az);
             }
-            this.kUT = nVar;
+            this.lhs = nVar;
         }
     }
 
     private void d(DataRes dataRes) {
         List<App> list = dataRes.banner_list.video_recommend_ad;
-        this.kVo.clear();
+        this.lhN.clear();
         if (list != null && !list.isEmpty()) {
             for (App app : list) {
                 com.baidu.tieba.tbadkCore.data.n nVar = new com.baidu.tieba.tbadkCore.data.n();
                 nVar.d(app);
-                AppData dEd = nVar.dEd();
-                if (!this.kVo.contains(nVar) && dEd.goods != null && (!StringUtils.isNull(dEd.goods.user_name) || !StringUtils.isNull(dEd.goods.lego_card))) {
-                    nVar.ljW = dda();
-                    this.kVo.add(nVar);
+                AppData dHl = nVar.dHl();
+                if (!this.lhN.contains(nVar) && dHl.goods != null && (!StringUtils.isNull(dHl.goods.user_name) || !StringUtils.isNull(dHl.goods.lego_card))) {
+                    nVar.lwz = dgi();
+                    this.lhN.add(nVar);
                 }
             }
         }
     }
 
-    public String dcL() {
-        return this.kVc;
+    public String dfT() {
+        return this.lhB;
     }
 
-    public CardHListViewData dcM() {
-        return this.kUu;
+    public CardHListViewData dfU() {
+        return this.lgT;
     }
 
-    public PostData dcN() {
-        return this.kUY;
+    public PostData dfV() {
+        return this.lhx;
     }
 
     public PostData f(PostData postData) {
-        this.kUY = postData;
+        this.lhx = postData;
         return postData;
     }
 
-    public r dcO() {
-        return this.kUX;
+    public r dfW() {
+        return this.lhw;
     }
 
-    public int dcP() {
+    public int dfX() {
         return this.userIdentity;
     }
 
     public int getIsNewUrl() {
-        return this.kUK;
+        return this.lhj;
     }
 
     public void setIsNewUrl(int i) {
-        this.kUK = i;
+        this.lhj = i;
     }
 
-    public List<MuteUser> dcQ() {
-        return this.kUN;
+    public List<MuteUser> dfY() {
+        return this.lhm;
     }
 
-    public ArrayList<com.baidu.tieba.tbadkCore.data.n> dcR() {
-        return this.kUS;
+    public ArrayList<com.baidu.tieba.tbadkCore.data.n> dfZ() {
+        return this.lhr;
     }
 
-    public com.baidu.tieba.tbadkCore.data.n dcS() {
-        return this.kUT;
+    public com.baidu.tieba.tbadkCore.data.n dga() {
+        return this.lhs;
     }
 
     public void b(com.baidu.tieba.tbadkCore.data.n nVar) {
-        this.kUT = nVar;
+        this.lhs = nVar;
     }
 
-    public void dcT() {
-        if (this.kUT.dEd() != null) {
-            this.kUT.dEd().legoCard = null;
+    public void dgb() {
+        if (this.lhs.dHl() != null) {
+            this.lhs.dHl().legoCard = null;
         }
-        this.kUT = null;
+        this.lhs = null;
     }
 
-    public void dcU() {
-        this.kVp = null;
-        this.kVq = null;
+    public void dgc() {
+        this.lhO = null;
+        this.lhP = null;
     }
 
-    public String dcV() {
-        return this.kUt;
+    public String dgd() {
+        return this.lgS;
     }
 
-    public void OD(String str) {
-        this.kUt = str;
+    public void Pb(String str) {
+        this.lgS = str;
     }
 
-    public i dcW() {
-        return this.kUZ;
+    public i dge() {
+        return this.lhy;
     }
 
-    public List<bs> dcX() {
-        return this.kUW;
+    public List<bs> dgf() {
+        return this.lhv;
     }
 
-    public long dcY() {
-        return this.kVa;
+    public long dgg() {
+        return this.lhz;
     }
 
-    public o dcZ() {
-        return this.kVb;
+    public o dgh() {
+        return this.lhA;
     }
 
     public void a(o oVar) {
-        this.kVb = oVar;
+        this.lhA = oVar;
     }
 
-    public boolean dda() {
-        return (dcA() == null || !dcA().bgN() || dcA().biz() == null) ? false : true;
+    public boolean dgi() {
+        return (dfI() == null || !dfI().biG() || dfI().bks() == null) ? false : true;
     }
 
-    public AlaLiveInfoCoreData ddb() {
-        return this.kUR;
+    public AlaLiveInfoCoreData dgj() {
+        return this.lhq;
     }
 
-    public List<com.baidu.tbadk.core.data.n> ddc() {
-        return this.kVg;
+    public List<com.baidu.tbadk.core.data.n> dgk() {
+        return this.lhF;
     }
 
-    public boolean ddd() {
-        return dcA() != null && dcA().bgR();
+    public boolean dgl() {
+        return dfI() != null && dfI().biK();
     }
 
-    public String dde() {
-        if (this.kUy != null && this.kUy.size() > this.kUz) {
+    public String dgm() {
+        if (this.lgX != null && this.lgX.size() > this.lgY) {
             int i = 0;
             while (true) {
                 int i2 = i;
-                if (i2 >= this.kUy.size()) {
+                if (i2 >= this.lgX.size()) {
                     break;
-                } else if (this.kUy.get(i2).sort_type.intValue() != this.kUz) {
+                } else if (this.lgX.get(i2).sort_type.intValue() != this.lgY) {
                     i = i2 + 1;
                 } else {
-                    return this.kUy.get(i2).sort_name;
+                    return this.lgX.get(i2).sort_name;
                 }
             }
         }
         return "";
     }
 
-    public com.baidu.tieba.pb.videopb.c.a ddf() {
-        return this.kVi;
+    public com.baidu.tieba.pb.videopb.c.a dgn() {
+        return this.lhH;
     }
 
-    public int ddg() {
-        return this.kVh;
+    public int dgo() {
+        return this.lhG;
     }
 
-    public void EW(int i) {
-        this.kVh = i;
+    public void Fp(int i) {
+        this.lhG = i;
     }
 
-    public List<com.baidu.tieba.tbadkCore.data.n> ddh() {
-        return this.kVo;
+    public List<com.baidu.tieba.tbadkCore.data.n> dgp() {
+        return this.lhN;
     }
 
     private boolean d(ThreadInfo threadInfo) {
@@ -846,9 +846,9 @@ public class f {
     }
 
     private boolean e(ThreadInfo threadInfo) {
-        if (threadInfo == null || threadInfo.baijiahao == null || threadInfo.baijiahao.ori_ugc_nid == null || this.fRW == null || this.fRW.getBaijiahaoData() == null || this.fRW.getBaijiahaoData().oriUgcNid == null || "0".equals(threadInfo.baijiahao.ori_ugc_nid)) {
+        if (threadInfo == null || threadInfo.baijiahao == null || threadInfo.baijiahao.ori_ugc_nid == null || this.gbZ == null || this.gbZ.getBaijiahaoData() == null || this.gbZ.getBaijiahaoData().oriUgcNid == null || "0".equals(threadInfo.baijiahao.ori_ugc_nid)) {
             return false;
         }
-        return threadInfo.baijiahao.ori_ugc_nid.equals(this.fRW.getBaijiahaoData().oriUgcNid);
+        return threadInfo.baijiahao.ori_ugc_nid.equals(this.gbZ.getBaijiahaoData().oriUgcNid);
     }
 }

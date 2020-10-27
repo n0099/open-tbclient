@@ -3,25 +3,25 @@ package com.baidu.clientupdate.b;
 public final class a {
 
     /* renamed from: a  reason: collision with root package name */
-    private static final byte[] f1322a = new byte[128];
+    private static final byte[] f1319a = new byte[128];
     private static final char[] b = new char[64];
 
     static {
         int i = 0;
         for (int i2 = 0; i2 < 128; i2++) {
-            f1322a[i2] = -1;
+            f1319a[i2] = -1;
         }
         for (int i3 = 90; i3 >= 65; i3--) {
-            f1322a[i3] = (byte) (i3 - 65);
+            f1319a[i3] = (byte) (i3 - 65);
         }
         for (int i4 = 122; i4 >= 97; i4--) {
-            f1322a[i4] = (byte) ((i4 - 97) + 26);
+            f1319a[i4] = (byte) ((i4 - 97) + 26);
         }
         for (int i5 = 57; i5 >= 48; i5--) {
-            f1322a[i5] = (byte) ((i5 - 48) + 52);
+            f1319a[i5] = (byte) ((i5 - 48) + 52);
         }
-        f1322a[43] = 62;
-        f1322a[47] = 63;
+        f1319a[43] = 62;
+        f1319a[47] = 63;
         for (int i6 = 0; i6 <= 25; i6++) {
             b[i6] = (char) (i6 + 65);
         }
@@ -102,10 +102,10 @@ public final class a {
                 if (!c(c4)) {
                     return null;
                 }
-                byte b2 = f1322a[c];
-                byte b3 = f1322a[c2];
-                byte b4 = f1322a[c3];
-                byte b5 = f1322a[c4];
+                byte b2 = f1319a[c];
+                byte b3 = f1319a[c2];
+                byte b4 = f1319a[c3];
+                byte b5 = f1319a[c4];
                 int i8 = i3 + 1;
                 bArr[i3] = (byte) ((b2 << 2) | (b3 >> 4));
                 int i9 = i8 + 1;
@@ -120,15 +120,15 @@ public final class a {
                 int i11 = i10 + 1;
                 char c6 = charArray[i10];
                 if (c(c6)) {
-                    byte b6 = f1322a[c5];
-                    byte b7 = f1322a[c6];
+                    byte b6 = f1319a[c5];
+                    byte b7 = f1319a[c6];
                     int i12 = i11 + 1;
                     char c7 = charArray[i11];
                     int i13 = i12 + 1;
                     char c8 = charArray[i12];
                     if (c(c7) && c(c8)) {
-                        byte b8 = f1322a[c7];
-                        byte b9 = f1322a[c8];
+                        byte b8 = f1319a[c7];
+                        byte b9 = f1319a[c8];
                         int i14 = i3 + 1;
                         bArr[i3] = (byte) ((b6 << 2) | (b7 >> 4));
                         int i15 = i14 + 1;
@@ -147,7 +147,7 @@ public final class a {
                     } else if (b(c7) || !b(c8)) {
                         return null;
                     } else {
-                        byte b10 = f1322a[c7];
+                        byte b10 = f1319a[c7];
                         if ((b10 & 3) == 0) {
                             byte[] bArr3 = new byte[(i4 * 3) + 2];
                             System.arraycopy(bArr, 0, bArr3, 0, i4 * 3);
@@ -170,6 +170,6 @@ public final class a {
     }
 
     private static boolean c(char c) {
-        return c < 128 && f1322a[c] != -1;
+        return c < 128 && f1319a[c] != -1;
     }
 }

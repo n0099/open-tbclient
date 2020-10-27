@@ -36,7 +36,7 @@ public class b extends aa {
             return false;
         } else {
             c.i(MapController.COMPASS_LAYER_TAG, "stop listen compass");
-            com.baidu.swan.apps.al.e.a.aGX().aGZ();
+            com.baidu.swan.apps.al.e.a.aIR().aIT();
             UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, 0);
             return true;
         }

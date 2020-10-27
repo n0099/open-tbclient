@@ -11,35 +11,35 @@ public class c implements com.baidu.swan.apps.ap.e.b<HybridUbcFlow> {
     @Override // com.baidu.swan.apps.ap.e.b
     /* renamed from: a */
     public void M(HybridUbcFlow hybridUbcFlow) {
-        hybridUbcFlow.qg("670").cb("preload_scene", "1").r("from", "swan").d("component_reporter", new com.baidu.swan.apps.performance.d()).d("component_reporter", new com.baidu.swan.apps.network.c.c.c()).d("component_reporter", new com.baidu.swan.apps.performance.a()).d("component_reporter", new g()).d("callback_on_submit", new b.a()).d("fmp_callback", new e("fmp_callback")).d("callback_on_submit", new e("callback_on_submit")).d("callback_on_submit", new com.baidu.swan.apps.ap.e.b<HybridUbcFlow>() { // from class: com.baidu.swan.apps.performance.c.c.1
+        hybridUbcFlow.qz("670").ci("preload_scene", "1").r("from", "swan").d("component_reporter", new com.baidu.swan.apps.performance.d()).d("component_reporter", new com.baidu.swan.apps.network.c.c.c()).d("component_reporter", new com.baidu.swan.apps.performance.a()).d("component_reporter", new g()).d("callback_on_submit", new b.a()).d("fmp_callback", new e("fmp_callback")).d("callback_on_submit", new e("callback_on_submit")).d("callback_on_submit", new com.baidu.swan.apps.ap.e.b<HybridUbcFlow>() { // from class: com.baidu.swan.apps.performance.c.c.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.swan.apps.ap.e.b
             /* renamed from: a */
             public void M(HybridUbcFlow hybridUbcFlow2) {
                 if (!c.this.g(hybridUbcFlow2)) {
-                    long t = hybridUbcFlow2.t("na_first_meaningful_paint", "naStart");
-                    if (t <= 0) {
-                        t = hybridUbcFlow2.t("na_first_paint", "naStart");
+                    long u = hybridUbcFlow2.u("na_first_meaningful_paint", "naStart");
+                    if (u <= 0) {
+                        u = hybridUbcFlow2.u("na_first_paint", "naStart");
                     }
-                    if (t <= 0) {
-                        t = hybridUbcFlow2.t("slave_first_rendered", "naStart");
+                    if (u <= 0) {
+                        u = hybridUbcFlow2.u("slave_first_rendered", "naStart");
                     }
-                    if (t <= 0) {
-                        t = hybridUbcFlow2.t("fe_page_show", "naStart");
+                    if (u <= 0) {
+                        u = hybridUbcFlow2.u("fe_page_show", "naStart");
                     }
-                    if (t <= 0) {
-                        t = hybridUbcFlow2.t("na_page_show", "naStart");
+                    if (u <= 0) {
+                        u = hybridUbcFlow2.u("na_page_show", "naStart");
                     }
-                    if (t <= 0) {
-                        t = hybridUbcFlow2.t("na_receive_intent", "naStart");
+                    if (u <= 0) {
+                        u = hybridUbcFlow2.u("na_receive_intent", "naStart");
                     }
-                    if (t <= 0) {
-                        t = System.currentTimeMillis();
+                    if (u <= 0) {
+                        u = System.currentTimeMillis();
                     }
                     Bundle bundle = new Bundle();
-                    bundle.putLong("property_launch_cost", t);
-                    com.baidu.swan.apps.process.messaging.a.aAK().a(new com.baidu.swan.apps.process.messaging.c(20, bundle).fK(true));
-                    f.azv().bz(t);
+                    bundle.putLong("property_launch_cost", u);
+                    com.baidu.swan.apps.process.messaging.a.aCE().a(new com.baidu.swan.apps.process.messaging.c(20, bundle).fX(true));
+                    f.aBp().bB(u);
                 }
             }
         });
@@ -47,6 +47,6 @@ public class c implements com.baidu.swan.apps.ap.e.b<HybridUbcFlow> {
 
     /* JADX INFO: Access modifiers changed from: private */
     public boolean g(HybridUbcFlow hybridUbcFlow) {
-        return hybridUbcFlow.oh("performanceEnd") && !hybridUbcFlow.oh("na_first_meaningful_paint");
+        return hybridUbcFlow.oB("performanceEnd") && !hybridUbcFlow.oB("na_first_meaningful_paint");
     }
 }

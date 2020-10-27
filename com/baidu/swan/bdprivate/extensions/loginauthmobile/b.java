@@ -18,10 +18,10 @@ public class b extends ActivityDelegation implements com.baidu.swan.apps.a.a {
     @Override // com.baidu.swan.apps.a.a
     public void onResult(int i) {
         this.mResult.putInt("loginStatusCode", i);
-        aJU();
+        aLO();
     }
 
-    private void aJU() {
+    private void aLO() {
         c.release();
         finish();
     }

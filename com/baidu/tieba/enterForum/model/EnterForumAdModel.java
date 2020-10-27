@@ -13,30 +13,30 @@ import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tieba.s.c;
 /* loaded from: classes22.dex */
 public class EnterForumAdModel extends BdBaseModel {
-    private com.baidu.tieba.enterForum.data.b hTW;
-    private boolean hTX = false;
-    private HttpMessageListener gbX = new HttpMessageListener(CmdConfigHttp.CMD_ENTER_FORUM_AD_REQUEST) { // from class: com.baidu.tieba.enterForum.model.EnterForumAdModel.1
+    private com.baidu.tieba.enterForum.data.b igw;
+    private boolean igx = false;
+    private HttpMessageListener gmb = new HttpMessageListener(CmdConfigHttp.CMD_ENTER_FORUM_AD_REQUEST) { // from class: com.baidu.tieba.enterForum.model.EnterForumAdModel.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(HttpResponsedMessage httpResponsedMessage) {
             if (httpResponsedMessage instanceof EnterForumAdResponsedMessage) {
                 EnterForumAdResponsedMessage enterForumAdResponsedMessage = (EnterForumAdResponsedMessage) httpResponsedMessage;
                 if (enterForumAdResponsedMessage.hasError()) {
-                    EnterForumAdModel.this.hTW = null;
+                    EnterForumAdModel.this.igw = null;
                 } else {
-                    EnterForumAdModel.this.hTW = enterForumAdResponsedMessage.getAdData();
+                    EnterForumAdModel.this.igw = enterForumAdResponsedMessage.getAdData();
                     if (EnterForumAdModel.this.mLoadDataCallBack != null) {
-                        EnterForumAdModel.this.mLoadDataCallBack.callback(EnterForumAdModel.this.hTW);
+                        EnterForumAdModel.this.mLoadDataCallBack.callback(EnterForumAdModel.this.igw);
                     }
                 }
-                EnterForumAdModel.this.hTX = false;
+                EnterForumAdModel.this.igx = false;
             }
         }
     };
 
     public EnterForumAdModel() {
         this.unique_id = BdUniqueId.gen();
-        MessageManager.getInstance().registerListener(this.gbX);
+        MessageManager.getInstance().registerListener(this.gmb);
     }
 
     @Override // com.baidu.adp.base.BdBaseModel
@@ -53,16 +53,16 @@ public class EnterForumAdModel extends BdBaseModel {
         MessageManager.getInstance().sendMessage(new HttpMessage(CmdConfigHttp.CMD_ENTER_FORUM_AD_REQUEST));
     }
 
-    public com.baidu.tieba.enterForum.data.b cmK() {
-        return this.hTW;
+    public com.baidu.tieba.enterForum.data.b cpR() {
+        return this.igw;
     }
 
-    public void fj(Context context) {
-        if (!this.hTX) {
-            com.baidu.tieba.enterForum.data.b bVar = this.hTW;
-            if (this.hTW != null && bVar.isValid()) {
-                c.dDn().b(i.I(context).getUniqueId(), com.baidu.tieba.s.a.a(PageStayDurationConstants.PageName.ENTER_FORUM, "common_fill", true, 1, 5));
-                this.hTX = true;
+    public void fk(Context context) {
+        if (!this.igx) {
+            com.baidu.tieba.enterForum.data.b bVar = this.igw;
+            if (this.igw != null && bVar.isValid()) {
+                c.dGv().b(i.I(context).getUniqueId(), com.baidu.tieba.s.a.a(PageStayDurationConstants.PageName.ENTER_FORUM, "common_fill", true, 1, 5));
+                this.igx = true;
             }
         }
     }

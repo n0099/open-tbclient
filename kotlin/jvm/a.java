@@ -11,7 +11,7 @@ public final class a {
     /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [61=10] */
     public static final <T> Class<T> a(c<T> cVar) {
         q.n(cVar, "receiver$0");
-        Class<T> cls = (Class<T>) ((l) cVar).enZ();
+        Class<T> cls = (Class<T>) ((l) cVar).exY();
         if (cls.isPrimitive()) {
             String name = cls.getName();
             if (name != null) {

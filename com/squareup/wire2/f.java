@@ -14,7 +14,7 @@ import java.util.Map;
 final class f<M extends Message<M, B>, B extends Message.a<M, B>> extends ProtoAdapter<M> {
     private final Class<B> builderType;
     private final Class<M> messageType;
-    private final Map<Integer, a<M, B>> oGX;
+    private final Map<Integer, a<M, B>> pyu;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public static <M extends Message<M, B>, B extends Message.a<M, B>> f<M, B> K(Class<M> cls) {
@@ -34,7 +34,7 @@ final class f<M extends Message<M, B>, B extends Message.a<M, B>> extends ProtoA
         super(FieldEncoding.LENGTH_DELIMITED, cls);
         this.messageType = cls;
         this.builderType = cls2;
-        this.oGX = map;
+        this.pyu = map;
     }
 
     B newBuilder() {
@@ -60,7 +60,7 @@ final class f<M extends Message<M, B>, B extends Message.a<M, B>> extends ProtoA
         int i = m.cachedSerializedSize;
         if (i == 0) {
             int i2 = 0;
-            for (a<M, B> aVar : this.oGX.values()) {
+            for (a<M, B> aVar : this.pyu.values()) {
                 Object a2 = aVar.a((a<M, B>) m);
                 if (a2 != null) {
                     i2 = aVar.adapter().encodedSizeWithTag(aVar.tag, a2) + i2;
@@ -77,7 +77,7 @@ final class f<M extends Message<M, B>, B extends Message.a<M, B>> extends ProtoA
     @Override // com.squareup.wire2.ProtoAdapter
     /* renamed from: a */
     public void encode(d dVar, M m) throws IOException {
-        for (a<M, B> aVar : this.oGX.values()) {
+        for (a<M, B> aVar : this.pyu.values()) {
             Object a2 = aVar.a((a<M, B>) m);
             if (a2 != null) {
                 aVar.adapter().encodeWithTag(dVar, aVar.tag, a2);
@@ -91,18 +91,18 @@ final class f<M extends Message<M, B>, B extends Message.a<M, B>> extends ProtoA
     /* renamed from: c */
     public M redact(M m) {
         Message.a<M, B> newBuilder = m.newBuilder();
-        for (a<M, B> aVar : this.oGX.values()) {
-            if (aVar.oGL && aVar.oGI == WireField.Label.REQUIRED) {
+        for (a<M, B> aVar : this.pyu.values()) {
+            if (aVar.pyi && aVar.pyf == WireField.Label.REQUIRED) {
                 throw new UnsupportedOperationException(String.format("Field '%s' in %s is required and cannot be redacted.", aVar.name, this.javaType.getName()));
             }
-            boolean isAssignableFrom = Message.class.isAssignableFrom(aVar.ekt().javaType);
-            if (aVar.oGL || (isAssignableFrom && !aVar.oGI.isRepeated())) {
+            boolean isAssignableFrom = Message.class.isAssignableFrom(aVar.eut().javaType);
+            if (aVar.pyi || (isAssignableFrom && !aVar.pyf.isRepeated())) {
                 Object a2 = aVar.a((a<M, B>) newBuilder);
                 if (a2 != null) {
                     aVar.b(newBuilder, aVar.adapter().redact(a2));
                 }
-            } else if (isAssignableFrom && aVar.oGI.isRepeated()) {
-                com.squareup.wire2.internal.a.a((List) aVar.a((a<M, B>) newBuilder), aVar.ekt());
+            } else if (isAssignableFrom && aVar.pyf.isRepeated()) {
+                com.squareup.wire2.internal.a.a((List) aVar.a((a<M, B>) newBuilder), aVar.eut());
             }
         }
         newBuilder.clearUnknownFields();
@@ -122,10 +122,10 @@ final class f<M extends Message<M, B>, B extends Message.a<M, B>> extends ProtoA
     /* renamed from: d */
     public String toString(M m) {
         StringBuilder sb = new StringBuilder();
-        for (a<M, B> aVar : this.oGX.values()) {
+        for (a<M, B> aVar : this.pyu.values()) {
             Object a2 = aVar.a((a<M, B>) m);
             if (a2 != null) {
-                sb.append(", ").append(aVar.name).append('=').append(aVar.oGL ? "██" : a2);
+                sb.append(", ").append(aVar.name).append('=').append(aVar.pyi ? "██" : a2);
             }
         }
         sb.replace(0, 2, this.messageType.getSimpleName() + '{');
@@ -136,30 +136,30 @@ final class f<M extends Message<M, B>, B extends Message.a<M, B>> extends ProtoA
     @Override // com.squareup.wire2.ProtoAdapter
     /* renamed from: l */
     public M decode(c cVar) throws IOException {
-        ProtoAdapter<?> ekt;
+        ProtoAdapter<?> eut;
         B newBuilder = newBuilder();
-        long ekv = cVar.ekv();
+        long euv = cVar.euv();
         while (true) {
-            int ekw = cVar.ekw();
-            if (ekw != -1) {
-                a<M, B> aVar = this.oGX.get(Integer.valueOf(ekw));
+            int euw = cVar.euw();
+            if (euw != -1) {
+                a<M, B> aVar = this.pyu.get(Integer.valueOf(euw));
                 if (aVar != null) {
                     try {
-                        if (aVar.eks()) {
-                            ekt = aVar.adapter();
+                        if (aVar.eus()) {
+                            eut = aVar.adapter();
                         } else {
-                            ekt = aVar.ekt();
+                            eut = aVar.eut();
                         }
-                        aVar.a(newBuilder, ekt.decode(cVar));
+                        aVar.a(newBuilder, eut.decode(cVar));
                     } catch (ProtoAdapter.EnumConstantNotFoundException e) {
-                        newBuilder.addUnknownField(ekw, FieldEncoding.VARINT, Long.valueOf(e.value));
+                        newBuilder.addUnknownField(euw, FieldEncoding.VARINT, Long.valueOf(e.value));
                     }
                 } else {
-                    FieldEncoding ekx = cVar.ekx();
-                    newBuilder.addUnknownField(ekw, ekx, ekx.rawProtoAdapter().decode(cVar));
+                    FieldEncoding eux = cVar.eux();
+                    newBuilder.addUnknownField(euw, eux, eux.rawProtoAdapter().decode(cVar));
                 }
             } else {
-                cVar.hp(ekv);
+                cVar.hF(euv);
                 return (M) newBuilder.build();
             }
         }

@@ -22,11 +22,12 @@ import com.baidu.live.adp.framework.message.HttpResponsedMessage;
 import com.baidu.live.adp.framework.task.HttpMessageTask;
 import com.baidu.live.adp.lib.stats.BdStatsConstant;
 import com.baidu.live.adp.lib.util.BdUtilHelper;
-import com.baidu.live.c;
-import com.baidu.live.data.bj;
-import com.baidu.live.data.cb;
-import com.baidu.live.data.u;
-import com.baidu.live.gift.ab;
+import com.baidu.live.d;
+import com.baidu.live.data.bm;
+import com.baidu.live.data.cg;
+import com.baidu.live.data.w;
+import com.baidu.live.gift.a.c;
+import com.baidu.live.gift.ah;
 import com.baidu.live.gift.b.b;
 import com.baidu.live.gift.dynamicGift.AlaDynamicGiftLayout;
 import com.baidu.live.gift.g;
@@ -53,7 +54,6 @@ import com.baidu.live.tbadk.ubc.UbcStatisticLiveKey;
 import com.baidu.live.tbadk.ubc.UbcStatisticManager;
 import com.baidu.live.tbadk.util.PageDialogHelper;
 import com.baidu.live.tbadk.widget.TbImageView;
-import com.baidu.live.utils.d;
 import com.baidu.live.utils.k;
 import com.baidu.live.utils.p;
 import com.baidu.platform.comapi.map.MapController;
@@ -66,25 +66,25 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes4.dex */
-public class a implements ab {
-    private static volatile a bdj = null;
-    private AlaDynamicGiftLayout bdk;
-    private CashGiftHttpResponseMessage bdl;
-    private boolean bdm;
-    private String bdn;
-    private WeakReference<Context> bdo;
-    private String bdp;
-    private Dialog bdq;
-    private long bdr;
-    private boolean bds;
-    HttpMessageListener bdt = new HttpMessageListener(AlaCmdConfigHttp.CMD_ALA_TAB_SUB_MY_CONCERN_LIST) { // from class: com.baidu.live.gift.yuangift.a.8
+public class a implements ah {
+    private static volatile a bez = null;
+    private AlaDynamicGiftLayout beA;
+    private CashGiftHttpResponseMessage beB;
+    private boolean beC;
+    private String beD;
+    private WeakReference<Context> beE;
+    private String beF;
+    private Dialog beG;
+    private long beH;
+    private boolean beI;
+    HttpMessageListener beJ = new HttpMessageListener(AlaCmdConfigHttp.CMD_ALA_TAB_SUB_MY_CONCERN_LIST) { // from class: com.baidu.live.gift.yuangift.a.8
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.live.adp.framework.listener.MessageListener
         public void onMessage(HttpResponsedMessage httpResponsedMessage) {
             if (httpResponsedMessage != null && httpResponsedMessage.getCmd() == 1021140 && (httpResponsedMessage instanceof CashGiftHttpResponseMessage) && !httpResponsedMessage.hasError()) {
-                a.this.bdl = (CashGiftHttpResponseMessage) httpResponsedMessage;
-                a.this.bdr = a.this.bdl.dubi / 100;
-                a.this.ag(a.this.currLiveId);
+                a.this.beB = (CashGiftHttpResponseMessage) httpResponsedMessage;
+                a.this.beH = a.this.beB.dubi / 100;
+                a.this.ah(a.this.currLiveId);
             }
         }
     };
@@ -93,29 +93,29 @@ public class a implements ab {
     private long mRoomId;
     private String mVid;
 
-    @Override // com.baidu.live.gift.ab
-    public void br(boolean z) {
-        this.bds = z;
-        if (this.bds) {
-            Gz();
+    @Override // com.baidu.live.gift.ah
+    public void bt(boolean z) {
+        this.beI = z;
+        if (this.beI) {
+            GU();
         }
     }
 
-    public static a JF() {
-        if (bdj == null) {
+    public static a JY() {
+        if (bez == null) {
             synchronized (a.class) {
-                if (bdj == null) {
-                    bdj = new a();
+                if (bez == null) {
+                    bez = new a();
                 }
             }
         }
-        return bdj;
+        return bez;
     }
 
-    @Override // com.baidu.live.gift.ab
-    public void Gz() {
-        if (this.bdq != null && this.bdq.isShowing()) {
-            Context context = this.bdq.getContext();
+    @Override // com.baidu.live.gift.ah
+    public void GU() {
+        if (this.beG != null && this.beG.isShowing()) {
+            Context context = this.beG.getContext();
             if (context != null && (context instanceof Activity)) {
                 Activity activity = (Activity) context;
                 if (Build.VERSION.SDK_INT >= 17) {
@@ -127,38 +127,38 @@ public class a implements ab {
                 }
             }
             try {
-                this.bdq.dismiss();
+                this.beG.dismiss();
             } catch (Exception e) {
                 e.printStackTrace();
             }
         }
-        if (this.bdk != null) {
-            this.bdk.onDestroy();
+        if (this.beA != null) {
+            this.beA.onDestroy();
         }
-        this.bdk = null;
-        this.bdq = null;
-        JH();
+        this.beA = null;
+        this.beG = null;
+        Ka();
     }
 
-    @Override // com.baidu.live.gift.ab
+    @Override // com.baidu.live.gift.ah
     public void a(Context context, long j, String str, long j2, String str2, String str3) {
-        cb cbVar;
-        if ((TbadkCoreApplication.sAlaLiveSwitchData == null || !TbadkCoreApplication.sAlaLiveSwitchData.isPopupWindowUnabled()) && !TbadkCoreApplication.getInst().isMobileBaidu() && !this.bds) {
-            this.bdo = new WeakReference<>(context);
-            this.bdp = str;
+        cg cgVar;
+        if ((TbadkCoreApplication.sAlaLiveSwitchData == null || !TbadkCoreApplication.sAlaLiveSwitchData.isPopupWindowUnabled()) && !TbadkCoreApplication.getInst().isMobileBaidu() && !this.beI) {
+            this.beE = new WeakReference<>(context);
+            this.beF = str;
             this.mRoomId = j2;
             this.mVid = str2;
             this.mOtherParams = str3;
             this.currLiveId = j;
-            bj bjVar = com.baidu.live.x.a.OS().bqJ;
-            if (bjVar != null && (cbVar = bjVar.aNY) != null && cbVar.aQb) {
-                this.bdn = "no_show_trace_cash_gift_today_" + k.b(new Date());
-                if (!c.AZ().getBoolean(this.bdn, false)) {
-                    if (this.bdq != null && this.bdq.isShowing()) {
-                        if (this.bdl != null && this.bdl.bde != null && b.Ik().gH(this.bdl.previewGiftId + "") && b.Ik().gH(this.bdl.bde.Fd())) {
+            bm bmVar = com.baidu.live.z.a.Pq().bsy;
+            if (bmVar != null && (cgVar = bmVar.aOD) != null && cgVar.aQL) {
+                this.beD = "no_show_trace_cash_gift_today_" + k.b(new Date());
+                if (!d.AZ().getBoolean(this.beD, false)) {
+                    if (this.beG != null && this.beG.isShowing()) {
+                        if (this.beB != null && this.beB.beu != null && b.ID().gQ(this.beB.previewGiftId + "") && b.ID().gQ(this.beB.beu.Fs())) {
                             try {
                                 if (as(context)) {
-                                    this.bdq.show();
+                                    this.beG.show();
                                     return;
                                 }
                                 return;
@@ -169,7 +169,7 @@ public class a implements ab {
                         }
                         return;
                     }
-                    JG();
+                    JZ();
                 }
             }
         }
@@ -178,7 +178,7 @@ public class a implements ab {
     public void aw(String str, String str2) {
         JSONArray jSONArray;
         try {
-            String string = c.AZ().getString("show_trace_cash_gift", "");
+            String string = d.AZ().getString("show_trace_cash_gift", "");
             if (!TextUtils.isEmpty(string)) {
                 jSONArray = new JSONArray(string);
             } else {
@@ -188,7 +188,7 @@ public class a implements ab {
             jSONObject.put(str2, str);
             jSONObject.put(str, str2);
             jSONArray.put(jSONObject);
-            c.AZ().putString("show_trace_cash_gift", jSONArray.toString());
+            d.AZ().putString("show_trace_cash_gift", jSONArray.toString());
         } catch (JSONException e) {
             e.printStackTrace();
         }
@@ -196,7 +196,7 @@ public class a implements ab {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void a(final Context context, final long j, final long j2, final String str, final String str2) {
-        if (context != null && this.bdl != null) {
+        if (context != null && this.beB != null) {
             if (context instanceof Activity) {
                 Activity activity = (Activity) context;
                 if (Build.VERSION.SDK_INT >= 17) {
@@ -207,27 +207,27 @@ public class a implements ab {
                     return;
                 }
             }
-            if (this.bdq != null && this.bdq.isShowing()) {
+            if (this.beG != null && this.beG.isShowing()) {
                 try {
-                    this.bdq.dismiss();
+                    this.beG.dismiss();
                 } catch (Exception e) {
                     e.printStackTrace();
                 }
             }
             View inflate = LayoutInflater.from(context).inflate(a.h.dialog_oneyuan_gift, (ViewGroup) null);
-            this.bdq = new Dialog(context, a.j.FlowerGuideDialogStyle);
-            this.bdq.requestWindowFeature(1);
-            this.bdq.setCancelable(true);
-            this.bdq.setContentView(inflate);
-            this.bdq.setCanceledOnTouchOutside(false);
+            this.beG = new Dialog(context, a.j.FlowerGuideDialogStyle);
+            this.beG.requestWindowFeature(1);
+            this.beG.setCancelable(true);
+            this.beG.setContentView(inflate);
+            this.beG.setCanceledOnTouchOutside(false);
             TbImageView tbImageView = (TbImageView) inflate.findViewById(a.g.img_gift_bg);
             final ImageView imageView = (ImageView) inflate.findViewById(a.g.img_gift_switch_show);
             imageView.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.live.gift.yuangift.a.1
                 @Override // android.view.View.OnClickListener
                 public void onClick(View view) {
-                    a.this.bdm = !a.this.bdm;
-                    c.AZ().putBoolean(a.this.bdn, a.this.bdm);
-                    if (a.this.bdm) {
+                    a.this.beC = !a.this.beC;
+                    d.AZ().putBoolean(a.this.beD, a.this.beC);
+                    if (a.this.beC) {
                         imageView.setImageResource(a.f.icon_live_operatechoose_s);
                     } else {
                         imageView.setImageResource(a.f.icon_live_operatechoose_n);
@@ -235,43 +235,43 @@ public class a implements ab {
                 }
             });
             float dimensionPixelSize = (BdUtilHelper.getScreenDimensions(context)[0] * 1.0f) / context.getResources().getDimensionPixelSize(a.e.sdk_ds750);
-            a(context, this.bdl.previewGiftId, (FrameLayout) inflate.findViewById(a.g.giftAnim_layout), dimensionPixelSize);
+            a(context, this.beB.previewGiftId, (FrameLayout) inflate.findViewById(a.g.giftAnim_layout), dimensionPixelSize);
             inflate.findViewById(a.g.main_layout).setOnClickListener(new View.OnClickListener() { // from class: com.baidu.live.gift.yuangift.a.2
                 @Override // android.view.View.OnClickListener
                 public void onClick(View view) {
                     IntentConfig payWalletActivityConfig;
-                    LogManager.getYuanPackageLogger().doClickOneGiftBagLog(j + "", j2 + "", str, str2, a.this.bdr);
+                    LogManager.getYuanPackageLogger().doClickOneGiftBagLog(j + "", j2 + "", str, str2, a.this.beH);
                     UbcStatisticManager.getInstance().logEvent(new UbcStatisticItem(UbcStatisticLiveKey.KEY_ID_1396, "click", "liveroom", "oneyuanbag_clk").setContentExt(null, MapController.POPUP_LAYER_TAG, null));
                     if (ViewHelper.checkUpIsLogin(context)) {
-                        String str3 = a.this.bdl.iconId;
-                        String str4 = a.this.bdl.nonMemberT + "";
-                        String str5 = (a.this.bdl.dubi / 100) + "";
-                        String str6 = (a.this.bdl.nonMemberT / 1000) + "";
-                        if (Build.VERSION.SDK_INT >= 28 && !d.aA(context)) {
+                        String str3 = a.this.beB.iconId;
+                        String str4 = a.this.beB.nonMemberT + "";
+                        String str5 = (a.this.beB.dubi / 100) + "";
+                        String str6 = (a.this.beB.nonMemberT / 1000) + "";
+                        if (Build.VERSION.SDK_INT >= 28 && !com.baidu.live.utils.d.aA(context)) {
                             payWalletActivityConfig = new PayWalletActivityOpaqueConfig(context, 2, "0", str3, str5, str6, true, str4, false, PageDialogHelper.PayForm.NOT_SET, null, null, RequestResponseCode.REQUEST_DO_YUANPACKAGE_PAY);
                         } else {
                             payWalletActivityConfig = new PayWalletActivityConfig(context, 2, "0", str3, str5, str6, true, str4, false, PageDialogHelper.PayForm.NOT_SET, null, null, RequestResponseCode.REQUEST_DO_YUANPACKAGE_PAY);
                         }
                         PayManager.getInstance().doPayByWallet(payWalletActivityConfig);
-                        a.this.Gz();
+                        a.this.GU();
                     }
                 }
             });
-            this.bdq.setOnDismissListener(new DialogInterface.OnDismissListener() { // from class: com.baidu.live.gift.yuangift.a.3
+            this.beG.setOnDismissListener(new DialogInterface.OnDismissListener() { // from class: com.baidu.live.gift.yuangift.a.3
                 @Override // android.content.DialogInterface.OnDismissListener
                 public void onDismiss(DialogInterface dialogInterface) {
                     Log.i("YuanGiftHelper", "@@ onDismiss");
-                    if (a.this.bdk != null) {
-                        a.this.bdk.onDestroy();
+                    if (a.this.beA != null) {
+                        a.this.beA.onDestroy();
                     }
                 }
             });
-            this.bdq.setOnShowListener(new DialogInterface.OnShowListener() { // from class: com.baidu.live.gift.yuangift.a.4
+            this.beG.setOnShowListener(new DialogInterface.OnShowListener() { // from class: com.baidu.live.gift.yuangift.a.4
                 @Override // android.content.DialogInterface.OnShowListener
                 public void onShow(DialogInterface dialogInterface) {
                     Log.i("YuanGiftHelper", "@@ onShow");
-                    if (a.this.bdk != null) {
-                        a.this.bdk.startAnim();
+                    if (a.this.beA != null) {
+                        a.this.beA.startAnim();
                     }
                 }
             });
@@ -279,8 +279,8 @@ public class a implements ab {
                 @Override // android.view.View.OnClickListener
                 public void onClick(View view) {
                     Log.i("YuanGiftHelper", "@@ doClose");
-                    a.this.Gz();
-                    LogManager.getYuanPackageLogger().doCloseClickOneGiftBagLog(j + "", j2 + "", str, str2, a.this.bdr);
+                    a.this.GU();
+                    LogManager.getYuanPackageLogger().doCloseClickOneGiftBagLog(j + "", j2 + "", str, str2, a.this.beH);
                 }
             });
             tbImageView.setEvent(new TbImageView.ImageViewEvent() { // from class: com.baidu.live.gift.yuangift.a.6
@@ -296,10 +296,10 @@ public class a implements ab {
                             return;
                         }
                         MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2913097, "YuanGiftDialog"));
-                        LogManager.getYuanPackageLogger().doDisplayOneGiftBagLog(j + "", j2 + "", str, str2, a.this.bdr);
+                        LogManager.getYuanPackageLogger().doDisplayOneGiftBagLog(j + "", j2 + "", str, str2, a.this.beH);
                         UbcStatisticManager.getInstance().logEvent(new UbcStatisticItem(UbcStatisticLiveKey.KEY_ID_1394, "display", "liveroom", "oneyuanbag_show").setContentExt(null, MapController.POPUP_LAYER_TAG, null));
-                        if (a.this.bdq != null && !a.this.bdq.isShowing()) {
-                            a.this.bdq.show();
+                        if (a.this.beG != null && !a.this.beG.isShowing()) {
+                            a.this.beG.show();
                         }
                     }
                 }
@@ -308,8 +308,8 @@ public class a implements ab {
                 public void onCancel() {
                 }
             });
-            if (!TextUtils.isEmpty(this.bdl.bdf)) {
-                tbImageView.startLoad(this.bdl.bdf, 12, false);
+            if (!TextUtils.isEmpty(this.beB.bev)) {
+                tbImageView.startLoad(this.beB.bev, 12, false);
             }
         }
     }
@@ -317,19 +317,19 @@ public class a implements ab {
     private void a(Context context, int i, ViewGroup viewGroup, float f) {
         int i2;
         try {
-            com.baidu.live.gift.a.c cVar = new com.baidu.live.gift.a.c(i + "", 1L, null, "", "", "", "", "", false, "", "", -1L);
-            cVar.bK(false);
-            com.baidu.live.gift.c hf = b.Ik().hf(i + "");
-            if (hf != null && !ListUtils.isEmpty(hf.getDynamicGiftPicPathList())) {
-                int i3 = hf.aRQ.aRP.repeatCount;
-                hf.aRQ.aRP.repeatCount = BdStatsConstant.ErrorCode.ERR_LOG_FAST;
-                if (this.bdk != null) {
-                    this.bdk.onDestroy();
+            c cVar = new c(i + "", 1L, null, "", "", "", "", "", false, "", "", -1L);
+            cVar.bM(false);
+            com.baidu.live.gift.c hq = b.ID().hq(i + "");
+            if (hq != null && !ListUtils.isEmpty(hq.getDynamicGiftPicPathList())) {
+                int i3 = hq.aSL.aSK.repeatCount;
+                hq.aSL.aSK.repeatCount = BdStatsConstant.ErrorCode.ERR_LOG_FAST;
+                if (this.beA != null) {
+                    this.beA.onDestroy();
                 }
-                this.bdk = new AlaDynamicGiftLayout(context);
+                this.beA = new AlaDynamicGiftLayout(context);
                 int dimensionPixelSize = (int) (context.getResources().getDimensionPixelSize(a.e.sdk_ds480) * f);
-                int i4 = hf.aRQ.aRP.width;
-                int i5 = hf.aRQ.aRP.height;
+                int i4 = hq.aSL.aSK.width;
+                int i5 = hq.aSL.aSK.height;
                 if (i5 > 0) {
                     float f2 = (dimensionPixelSize * 1.0f) / i5;
                     if (i4 >= i5) {
@@ -340,32 +340,32 @@ public class a implements ab {
                     viewGroup.getLayoutParams().width = (i4 * dimensionPixelSize) / i5;
                     viewGroup.getLayoutParams().height = dimensionPixelSize;
                     viewGroup.setLayoutParams(viewGroup.getLayoutParams());
-                    viewGroup.addView(this.bdk, new ViewGroup.LayoutParams(-1, -1));
-                    this.bdk.setData(hf, cVar, i2, dimensionPixelSize);
-                    this.bdk.setBigGiftCallBack(new com.baidu.live.gift.biggift.b() { // from class: com.baidu.live.gift.yuangift.a.7
+                    viewGroup.addView(this.beA, new ViewGroup.LayoutParams(-1, -1));
+                    this.beA.setData(hq, cVar, i2, dimensionPixelSize);
+                    this.beA.setBigGiftCallBack(new com.baidu.live.gift.biggift.b() { // from class: com.baidu.live.gift.yuangift.a.7
                         @Override // com.baidu.live.gift.biggift.b
-                        public void l(com.baidu.live.gift.a.c cVar2) {
+                        public void l(c cVar2) {
                         }
 
                         @Override // com.baidu.live.gift.biggift.b
-                        public void dZ(int i6) {
+                        public void ea(int i6) {
                         }
 
                         @Override // com.baidu.live.gift.biggift.b
-                        public void m(com.baidu.live.gift.a.c cVar2) {
-                            if (a.this.bdq != null && a.this.bdq.isShowing() && a.this.bdk != null) {
-                                a.this.bdk.post(new Runnable() { // from class: com.baidu.live.gift.yuangift.a.7.1
+                        public void m(c cVar2) {
+                            if (a.this.beG != null && a.this.beG.isShowing() && a.this.beA != null) {
+                                a.this.beA.post(new Runnable() { // from class: com.baidu.live.gift.yuangift.a.7.1
                                     @Override // java.lang.Runnable
                                     public void run() {
-                                        if (a.this.bdk != null) {
-                                            a.this.bdk.startAnim();
+                                        if (a.this.beA != null) {
+                                            a.this.beA.startAnim();
                                         }
                                     }
                                 });
                             }
                         }
                     });
-                    hf.aRQ.aRP.repeatCount = i3;
+                    hq.aSL.aSK.repeatCount = i3;
                 }
             }
         } catch (OutOfMemoryError e) {
@@ -374,7 +374,7 @@ public class a implements ab {
         }
     }
 
-    private void JG() {
+    private void JZ() {
         TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(AlaCmdConfigHttp.CMD_ALA_TAB_SUB_MY_CONCERN_LIST, TbConfig.SERVER_HOST + "liveserver/liveActivity/cashgift");
         tbHttpMessageTask.setIsNeedLogin(false);
         tbHttpMessageTask.setIsNeedTbs(true);
@@ -382,12 +382,12 @@ public class a implements ab {
         tbHttpMessageTask.setMethod(HttpMessageTask.HTTP_METHOD.GET);
         tbHttpMessageTask.setResponsedClass(CashGiftHttpResponseMessage.class);
         MessageManager.getInstance().registerTask(tbHttpMessageTask);
-        MessageManager.getInstance().registerListener(this.bdt);
+        MessageManager.getInstance().registerListener(this.beJ);
         MessageManager.getInstance().sendMessage(new HttpMessage(AlaCmdConfigHttp.CMD_ALA_TAB_SUB_MY_CONCERN_LIST));
     }
 
-    private void JH() {
-        MessageManager.getInstance().unRegisterListener(this.bdt);
+    private void Ka() {
+        MessageManager.getInstance().unRegisterListener(this.beJ);
         MessageManager.getInstance().unRegisterTask(1021130);
         MessageManager.getInstance().unRegisterTask(AlaCmdConfigHttp.CMD_ALA_TAB_SUB_MY_CONCERN_LIST);
     }
@@ -401,18 +401,18 @@ public class a implements ab {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public void ag(final long j) {
+    public void ah(final long j) {
         JSONArray jSONArray;
         JSONArray jSONArray2;
         long j2;
-        if (this.bdl != null) {
+        if (this.beB != null) {
             final String b = k.b(new Date());
-            final String str = "date_" + this.bdl.bdi;
+            final String str = "date_" + this.beB.bey;
             HashMap hashMap = new HashMap();
             hashMap.put("test_yuan_package", false);
             Map<String, Object> process = ExtraParamsManager.getInstance().buildParamsExtra().process(hashMap);
             boolean booleanValue = process.containsKey("test_yuan_package") ? ((Boolean) process.get("test_yuan_package")).booleanValue() : false;
-            String string = c.AZ().getString("show_trace_cash_gift", "");
+            String string = d.AZ().getString("show_trace_cash_gift", "");
             if (!TextUtils.isEmpty(string)) {
                 try {
                     jSONArray = new JSONArray(string);
@@ -429,7 +429,7 @@ public class a implements ab {
                             if (!TextUtils.isEmpty(optJSONObject.optString(b))) {
                                 i++;
                             }
-                            if (this.bdl.aPb == -1 || i < this.bdl.aPb) {
+                            if (this.beB.aPL == -1 || i < this.beB.aPL) {
                                 String optString = optJSONObject.optString(str);
                                 if (!TextUtils.isEmpty(optString)) {
                                     hashSet.add(optString);
@@ -439,9 +439,9 @@ public class a implements ab {
                             }
                         }
                     }
-                    if (this.bdl.aPc != -1) {
-                        if (hashSet.size() <= this.bdl.aPc) {
-                            if (hashSet.size() == this.bdl.aPc && i == 0) {
+                    if (this.beB.aPM != -1) {
+                        if (hashSet.size() <= this.beB.aPM) {
+                            if (hashSet.size() == this.beB.aPM && i == 0) {
                                 return;
                             }
                         } else {
@@ -449,18 +449,18 @@ public class a implements ab {
                         }
                     }
                 }
-                j2 = (!booleanValue ? 5 : this.bdl.aOz) * 1000;
+                j2 = (!booleanValue ? 5 : this.beB.aPe) * 1000;
                 if (j2 <= 0) {
                     j2 = 180000;
                 }
-                LiveTimerManager.getInstance().addLiveTimerTask(this.bdp, j, new OnLiveTimerListener() { // from class: com.baidu.live.gift.yuangift.a.9
+                LiveTimerManager.getInstance().addLiveTimerTask(this.beF, j, new OnLiveTimerListener() { // from class: com.baidu.live.gift.yuangift.a.9
                     @Override // com.baidu.live.tbadk.timer.OnLiveTimerListener
                     public void onComplete(boolean z) {
-                        if (a.this.bdl != null && a.this.bdl.bde != null && j == a.this.currLiveId) {
-                            boolean gH = b.Ik().gH(a.this.bdl.previewGiftId + "");
-                            boolean gH2 = b.Ik().gH(a.this.bdl.bde.Fd());
-                            if (gH && gH2 && a.this.bdo != null && a.this.bdo.get() != null) {
-                                Context context = (Context) a.this.bdo.get();
+                        if (a.this.beB != null && a.this.beB.beu != null && j == a.this.currLiveId) {
+                            boolean gQ = b.ID().gQ(a.this.beB.previewGiftId + "");
+                            boolean gQ2 = b.ID().gQ(a.this.beB.beu.Fs());
+                            if (gQ && gQ2 && a.this.beE != null && a.this.beE.get() != null) {
+                                Context context = (Context) a.this.beE.get();
                                 if (a.this.as(context)) {
                                     a.this.a(context, j, a.this.mRoomId, a.this.mVid, a.this.mOtherParams);
                                     a.this.aw(b, str);
@@ -479,17 +479,17 @@ public class a implements ab {
             }
             if (jSONArray2 != null) {
             }
-            j2 = (!booleanValue ? 5 : this.bdl.aOz) * 1000;
+            j2 = (!booleanValue ? 5 : this.beB.aPe) * 1000;
             if (j2 <= 0) {
             }
-            LiveTimerManager.getInstance().addLiveTimerTask(this.bdp, j, new OnLiveTimerListener() { // from class: com.baidu.live.gift.yuangift.a.9
+            LiveTimerManager.getInstance().addLiveTimerTask(this.beF, j, new OnLiveTimerListener() { // from class: com.baidu.live.gift.yuangift.a.9
                 @Override // com.baidu.live.tbadk.timer.OnLiveTimerListener
                 public void onComplete(boolean z) {
-                    if (a.this.bdl != null && a.this.bdl.bde != null && j == a.this.currLiveId) {
-                        boolean gH = b.Ik().gH(a.this.bdl.previewGiftId + "");
-                        boolean gH2 = b.Ik().gH(a.this.bdl.bde.Fd());
-                        if (gH && gH2 && a.this.bdo != null && a.this.bdo.get() != null) {
-                            Context context = (Context) a.this.bdo.get();
+                    if (a.this.beB != null && a.this.beB.beu != null && j == a.this.currLiveId) {
+                        boolean gQ = b.ID().gQ(a.this.beB.previewGiftId + "");
+                        boolean gQ2 = b.ID().gQ(a.this.beB.beu.Fs());
+                        if (gQ && gQ2 && a.this.beE != null && a.this.beE.get() != null) {
+                            Context context = (Context) a.this.beE.get();
                             if (a.this.as(context)) {
                                 a.this.a(context, j, a.this.mRoomId, a.this.mVid, a.this.mOtherParams);
                                 a.this.aw(b, str);
@@ -505,18 +505,18 @@ public class a implements ab {
         }
     }
 
-    @Override // com.baidu.live.gift.ab
-    public void a(int i, int i2, Intent intent, u uVar, String str) {
-        if (25042 == i && intent != null && uVar != null && this.bdl != null) {
-            a(intent.getIntExtra("result_code", -1), intent.getIntExtra("result_payinfo_status", -1), intent.getStringExtra("result_tbean_num"), this.bdl.bde, uVar, str);
+    @Override // com.baidu.live.gift.ah
+    public void a(int i, int i2, Intent intent, w wVar, String str) {
+        if (25042 == i && intent != null && wVar != null && this.beB != null) {
+            a(intent.getIntExtra("result_code", -1), intent.getIntExtra("result_payinfo_status", -1), intent.getStringExtra("result_tbean_num"), this.beB.beu, wVar, str);
         }
     }
 
-    private void a(int i, int i2, String str, g gVar, u uVar, String str2) {
+    private void a(int i, int i2, String str, g gVar, w wVar, String str2) {
         switch (i) {
             case 0:
                 Log.i("LiveViewController", "@@ handlePayResult 成功");
-                a(true, i2, str, gVar, uVar, str2);
+                a(true, i2, str, gVar, wVar, str2);
                 return;
             case 1:
                 Log.i("LiveViewController", "@@ handlePayResult 取消");
@@ -524,10 +524,10 @@ public class a implements ab {
                 hashMap.put("test_yuan_package_paysucc", false);
                 Map<String, Object> process = ExtraParamsManager.getInstance().buildParamsExtra().process(hashMap);
                 if (process.containsKey("test_yuan_package_paysucc")) {
-                    a(((Boolean) process.get("test_yuan_package_paysucc")).booleanValue(), i2, str, gVar, uVar, str2);
+                    a(((Boolean) process.get("test_yuan_package_paysucc")).booleanValue(), i2, str, gVar, wVar, str2);
                     return;
                 } else {
-                    a(false, i2, str, gVar, uVar, str2);
+                    a(false, i2, str, gVar, wVar, str2);
                     return;
                 }
             case 2:
@@ -536,46 +536,46 @@ public class a implements ab {
             case 5:
             case 6:
                 Log.i("LiveViewController", "@@ handlePayResult 其他");
-                a(false, i2, str, gVar, uVar, str2);
+                a(false, i2, str, gVar, wVar, str2);
                 return;
             default:
                 return;
         }
     }
 
-    private void a(boolean z, int i, String str, g gVar, u uVar, String str2) {
+    private void a(boolean z, int i, String str, g gVar, w wVar, String str2) {
         if (z) {
             BuyYinjiInfo buyYinjiInfo = new BuyYinjiInfo();
             buyYinjiInfo.setTBeanNum(str);
             buyYinjiInfo.setStatus(i);
             MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(CmdConfigCustom.CMD_BUY_YINJI_SUCCESS, buyYinjiInfo));
             BdUtilHelper.getCustomToast().showToast("购买成功", 0);
-            if (uVar.mLiveInfo.live_id == this.currLiveId && gVar != null) {
-                gVar.setSceneFrom(p.QW());
-                a(gVar, 1L, uVar, str2);
+            if (wVar.mLiveInfo.live_id == this.currLiveId && gVar != null) {
+                gVar.setSceneFrom(p.Sc());
+                a(gVar, 1L, wVar, str2);
                 MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2913098));
                 return;
             }
             return;
         }
         BdUtilHelper.getCustomToast().showToast("购买失败", 0);
-        Gz();
+        GU();
     }
 
-    private void a(g gVar, long j, u uVar, String str) {
-        b.Ik();
-        b.b(gVar, j, uVar.aHD.userId + "", uVar.aHD.userName, uVar.mLiveInfo.live_id + "", uVar.mLiveInfo.room_id + "", uVar.mLiveInfo.appId + "", uVar.mLiveInfo.feed_id + "", str, 0L);
+    private void a(g gVar, long j, w wVar, String str) {
+        b.ID();
+        b.b(gVar, j, wVar.aIe.userId + "", wVar.aIe.userName, wVar.mLiveInfo.live_id + "", wVar.mLiveInfo.room_id + "", wVar.mLiveInfo.appId + "", wVar.mLiveInfo.feed_id + "", str, 0L);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public boolean as(Context context) {
-        return (UtilHelper.getRealScreenOrientation(context) == 2 || this.bds) ? false : true;
+        return (UtilHelper.getRealScreenOrientation(context) == 2 || this.beI) ? false : true;
     }
 
-    @Override // com.baidu.live.gift.ab
-    public void FS() {
-        if (this.bdq != null && this.bdq.isShowing() && UtilHelper.getRealScreenOrientation(this.bdq.getContext()) == 2) {
-            Gz();
+    @Override // com.baidu.live.gift.ah
+    public void Gh() {
+        if (this.beG != null && this.beG.isShowing() && UtilHelper.getRealScreenOrientation(this.beG.getContext()) == 2) {
+            GU();
         }
     }
 }

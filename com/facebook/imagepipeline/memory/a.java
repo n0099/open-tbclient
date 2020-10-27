@@ -4,26 +4,26 @@ import android.graphics.Bitmap;
 import javax.annotation.concurrent.GuardedBy;
 /* loaded from: classes18.dex */
 public class a {
-    private final int jZH;
+    private final int kmh;
     @GuardedBy("this")
     private int mCount;
     private final int mMaxSize;
     @GuardedBy("this")
     private long mSize;
-    private final com.facebook.common.references.c<Bitmap> nWz;
+    private final com.facebook.common.references.c<Bitmap> oNR;
 
     public a(int i, int i2) {
         com.facebook.common.internal.g.checkArgument(i > 0);
         com.facebook.common.internal.g.checkArgument(i2 > 0);
-        this.jZH = i;
+        this.kmh = i;
         this.mMaxSize = i2;
-        this.nWz = new com.facebook.common.references.c<Bitmap>() { // from class: com.facebook.imagepipeline.memory.a.1
+        this.oNR = new com.facebook.common.references.c<Bitmap>() { // from class: com.facebook.imagepipeline.memory.a.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.facebook.common.references.c
-            /* renamed from: X */
+            /* renamed from: ab */
             public void release(Bitmap bitmap) {
                 try {
-                    a.this.ab(bitmap);
+                    a.this.af(bitmap);
                 } finally {
                     bitmap.recycle();
                 }
@@ -31,13 +31,13 @@ public class a {
         };
     }
 
-    public synchronized boolean aa(Bitmap bitmap) {
+    public synchronized boolean ae(Bitmap bitmap) {
         boolean z;
-        int ai = com.facebook.d.a.ai(bitmap);
-        if (this.mCount < this.jZH) {
-            if (this.mSize + ai <= this.mMaxSize) {
+        int am = com.facebook.d.a.am(bitmap);
+        if (this.mCount < this.kmh) {
+            if (this.mSize + am <= this.mMaxSize) {
                 this.mCount++;
-                this.mSize = ai + this.mSize;
+                this.mSize = am + this.mSize;
                 z = true;
             }
         }
@@ -45,12 +45,12 @@ public class a {
         return z;
     }
 
-    public synchronized void ab(Bitmap bitmap) {
+    public synchronized void af(Bitmap bitmap) {
         synchronized (this) {
-            int ai = com.facebook.d.a.ai(bitmap);
+            int am = com.facebook.d.a.am(bitmap);
             com.facebook.common.internal.g.checkArgument(this.mCount > 0, "No bitmaps registered.");
-            com.facebook.common.internal.g.checkArgument(((long) ai) <= this.mSize, "Bitmap size bigger than the total registered size: %d, %d", Integer.valueOf(ai), Long.valueOf(this.mSize));
-            this.mSize -= ai;
+            com.facebook.common.internal.g.checkArgument(((long) am) <= this.mSize, "Bitmap size bigger than the total registered size: %d, %d", Integer.valueOf(am), Long.valueOf(this.mSize));
+            this.mSize -= am;
             this.mCount--;
         }
     }
@@ -63,15 +63,15 @@ public class a {
         return this.mSize;
     }
 
-    public synchronized int bPR() {
-        return this.jZH;
+    public synchronized int bSO() {
+        return this.kmh;
     }
 
     public synchronized int getMaxSize() {
         return this.mMaxSize;
     }
 
-    public com.facebook.common.references.c<Bitmap> ecy() {
-        return this.nWz;
+    public com.facebook.common.references.c<Bitmap> emw() {
+        return this.oNR;
     }
 }

@@ -16,7 +16,7 @@ import java.util.concurrent.Executors;
 public final class a {
 
     /* renamed from: a  reason: collision with root package name */
-    public static a f3711a;
+    public static a f3709a;
     private static HashMap b;
     private static ExecutorService c;
 
@@ -130,13 +130,13 @@ public final class a {
     public static synchronized a a() {
         a aVar;
         synchronized (a.class) {
-            if (f3711a == null) {
-                f3711a = new a();
+            if (f3709a == null) {
+                f3709a = new a();
                 if (c == null) {
                     c = Executors.newFixedThreadPool(1);
                 }
             }
-            aVar = f3711a;
+            aVar = f3709a;
         }
         return aVar;
     }

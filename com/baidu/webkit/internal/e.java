@@ -16,7 +16,7 @@ import org.json.JSONException;
 public final class e {
 
     /* renamed from: a  reason: collision with root package name */
-    protected static final String f3938a = "BdboxApp:".toLowerCase();
+    protected static final String f3936a = "BdboxApp:".toLowerCase();
     public HashMap<String, Object> b;
     public WebView c;
     public String d;
@@ -55,7 +55,7 @@ public final class e {
                     if (method.getReturnType() != Void.TYPE) {
                         sb.append("return ");
                     }
-                    sb.append("prompt('").append(f3938a).append("'+");
+                    sb.append("prompt('").append(f3936a).append("'+");
                     sb.append("JSON.stringify({");
                     sb.append("obj:'").append(str).append("',");
                     sb.append("func:'").append(name).append("',");

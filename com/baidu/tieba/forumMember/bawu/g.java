@@ -17,13 +17,13 @@ import com.baidu.tieba.forumMember.member.p;
 import java.util.ArrayList;
 /* loaded from: classes23.dex */
 public class g {
-    private BdListView VX;
-    private com.baidu.tbadk.coreExtra.view.b eNM;
-    private NoNetworkView fjl;
-    private BawuTeamInfoActivity ikv;
-    private h ikw;
-    private boolean ikx = false;
-    private h.b iky;
+    private BdListView VY;
+    private com.baidu.tbadk.coreExtra.view.b eWi;
+    private NoNetworkView frK;
+    private BawuTeamInfoActivity iwT;
+    private h iwU;
+    private boolean iwV = false;
+    private h.b iwW;
     private NavigationBar mNavigationBar;
     private View mParent;
     private View mRoot;
@@ -33,88 +33,88 @@ public class g {
     }
 
     public g(BawuTeamInfoActivity bawuTeamInfoActivity) {
-        this.ikv = bawuTeamInfoActivity;
-        this.mRoot = LayoutInflater.from(this.ikv.getPageContext().getPageActivity()).inflate(R.layout.bawu_team_info_activity_layout, (ViewGroup) null);
-        this.ikv.setContentView(this.mRoot);
+        this.iwT = bawuTeamInfoActivity;
+        this.mRoot = LayoutInflater.from(this.iwT.getPageContext().getPageActivity()).inflate(R.layout.bawu_team_info_activity_layout, (ViewGroup) null);
+        this.iwT.setContentView(this.mRoot);
         this.mParent = this.mRoot.findViewById(R.id.root_bawu_team_info);
         this.mNavigationBar = (NavigationBar) this.mRoot.findViewById(R.id.view_navigation_bar);
-        this.mNavigationBar.setCenterTextTitle(this.ikv.getString(R.string.bawu_manager_team));
+        this.mNavigationBar.setCenterTextTitle(this.iwT.getString(R.string.bawu_manager_team));
         this.mNavigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
         this.mNavigationBar.showBottomLine();
-        this.fjl = (NoNetworkView) this.mRoot.findViewById(R.id.view_no_network);
-        this.VX = (BdListView) this.mRoot.findViewById(R.id.listview_bawu_team_info);
-        this.ikw = new h(this.ikv.getPageContext());
-        this.VX.setAdapter((ListAdapter) this.ikw);
-        this.iky = new h.b() { // from class: com.baidu.tieba.forumMember.bawu.g.1
+        this.frK = (NoNetworkView) this.mRoot.findViewById(R.id.view_no_network);
+        this.VY = (BdListView) this.mRoot.findViewById(R.id.listview_bawu_team_info);
+        this.iwU = new h(this.iwT.getPageContext());
+        this.VY.setAdapter((ListAdapter) this.iwU);
+        this.iwW = new h.b() { // from class: com.baidu.tieba.forumMember.bawu.g.1
             /* JADX DEBUG: Multi-variable search result rejected for r1v1, resolved type: com.baidu.tieba.forumMember.bawu.BawuTeamInfoActivity */
             /* JADX WARN: Multi-variable type inference failed */
             @Override // com.baidu.tieba.forumMember.bawu.h.b
-            public void Jr(String str) {
+            public void JQ(String str) {
                 if (!TbadkCoreApplication.isLogin() || !StringUtils.isNull(TbadkCoreApplication.getCurrentAccountName())) {
-                    be.bmY().b(g.this.ikv.getPageContext(), new String[]{str});
+                    be.boR().b(g.this.iwT.getPageContext(), new String[]{str});
                 } else {
                     g.this.i(TbadkCoreApplication.getCurrentAccountInfo());
                 }
             }
         };
-        this.ikw.a(this.iky);
+        this.iwU.a(this.iwW);
     }
 
     public void a(ArrayList<i> arrayList, p pVar, boolean z) {
         if (arrayList == null || arrayList.size() <= 0) {
-            this.ikx = true;
+            this.iwV = true;
         } else {
-            this.ikx = false;
+            this.iwV = false;
         }
-        if (z && this.ikx) {
-            cqT();
+        if (z && this.iwV) {
+            cua();
             return;
         }
-        cqU();
-        this.ikw.av(arrayList);
-        this.ikw.a(pVar);
-        this.ikw.notifyDataSetChanged();
+        cub();
+        this.iwU.aw(arrayList);
+        this.iwU.a(pVar);
+        this.iwU.notifyDataSetChanged();
     }
 
-    public boolean cqS() {
-        return this.ikx;
+    public boolean ctZ() {
+        return this.iwV;
     }
 
     public void onChangeSkinType(int i) {
-        this.ikv.getLayoutMode().setNightMode(i == 1);
-        this.ikv.getLayoutMode().onModeChanged(this.mRoot);
-        this.mNavigationBar.onChangeSkinType(this.ikv.getPageContext(), i);
-        this.fjl.onChangeSkinType(this.ikv.getPageContext(), i);
-        this.ikw.notifyDataSetChanged();
+        this.iwT.getLayoutMode().setNightMode(i == 1);
+        this.iwT.getLayoutMode().onModeChanged(this.mRoot);
+        this.mNavigationBar.onChangeSkinType(this.iwT.getPageContext(), i);
+        this.frK.onChangeSkinType(this.iwT.getPageContext(), i);
+        this.iwU.notifyDataSetChanged();
     }
 
-    public void cqT() {
-        this.VX.setVisibility(8);
-        this.ikv.showNetRefreshView(this.mRoot, this.ikv.getPageContext().getResources().getString(R.string.no_data_text), true);
+    public void cua() {
+        this.VY.setVisibility(8);
+        this.iwT.showNetRefreshView(this.mRoot, this.iwT.getPageContext().getResources().getString(R.string.no_data_text), true);
     }
 
-    public void cqU() {
-        this.ikv.hideNetRefreshView(this.mRoot);
-        this.VX.setVisibility(0);
+    public void cub() {
+        this.iwT.hideNetRefreshView(this.mRoot);
+        this.VY.setVisibility(0);
     }
 
     public void e(NoNetworkView.a aVar) {
-        this.fjl.a(aVar);
+        this.frK.a(aVar);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void i(AccountData accountData) {
-        if (this.eNM == null) {
-            this.eNM = new com.baidu.tbadk.coreExtra.view.b(this.ikv);
+        if (this.eWi == null) {
+            this.eWi = new com.baidu.tbadk.coreExtra.view.b(this.iwT);
         }
-        this.eNM.btz();
-        this.eNM.setAccountData(accountData);
-        this.eNM.qy(1);
+        this.eWi.bvs();
+        this.eWi.setAccountData(accountData);
+        this.eWi.qJ(1);
     }
 
     public void onDestroy() {
-        if (this.eNM != null) {
-            this.eNM.onDestroy();
+        if (this.eWi != null) {
+            this.eWi.onDestroy();
         }
     }
 }

@@ -4,7 +4,7 @@ import android.content.Context;
 import android.text.TextUtils;
 import com.baidu.live.adp.framework.MessageManager;
 import com.baidu.live.adp.framework.message.CustomResponsedMessage;
-import com.baidu.live.data.ba;
+import com.baidu.live.data.bd;
 import com.baidu.live.tbadk.core.TbadkCoreApplication;
 import com.baidu.live.tbadk.extraparams.ExtraParamsManager;
 import com.baidu.live.tbadk.timer.LiveTimerManager;
@@ -18,18 +18,18 @@ import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes4.dex */
 public class b implements com.baidu.live.guardclub.i {
-    private static volatile b gpl = null;
+    private static volatile b gzq = null;
     private long currLiveId;
 
-    public static b bNS() {
-        if (gpl == null) {
+    public static b bQx() {
+        if (gzq == null) {
             synchronized (b.class) {
-                if (gpl == null) {
-                    gpl = new b();
+                if (gzq == null) {
+                    gzq = new b();
                 }
             }
         }
-        return gpl;
+        return gzq;
     }
 
     /* JADX WARN: Removed duplicated region for block: B:21:0x0058  */
@@ -42,16 +42,16 @@ public class b implements com.baidu.live.guardclub.i {
         Code decompiled incorrectly, please refer to instructions dump.
     */
     public void b(Context context, final long j, long j2, String str, String str2) {
-        ba JO;
+        bd Kh;
         JSONArray jSONArray;
         int i;
         Map<String, Object> process;
-        if ((TbadkCoreApplication.sAlaLiveSwitchData == null || !TbadkCoreApplication.sAlaLiveSwitchData.isGuardFansUnabled()) && (JO = com.baidu.live.guardclub.g.JM().JO()) != null) {
+        if ((TbadkCoreApplication.sAlaLiveSwitchData == null || !TbadkCoreApplication.sAlaLiveSwitchData.isGuardFansUnabled()) && (Kh = com.baidu.live.guardclub.g.Kf().Kh()) != null) {
             this.currLiveId = j;
-            int i2 = JO.aNp;
-            int i3 = JO.aNq;
+            int i2 = Kh.aNU;
+            int i3 = Kh.aNV;
             String b = com.baidu.live.utils.k.b(new Date());
-            String string = com.baidu.live.c.AZ().getString("guardclub_im_entry_show_trace", "");
+            String string = com.baidu.live.d.AZ().getString("guardclub_im_entry_show_trace", "");
             if (!TextUtils.isEmpty(string)) {
                 try {
                     jSONArray = new JSONArray(string);
@@ -86,7 +86,7 @@ public class b implements com.baidu.live.guardclub.i {
                         }
                     }
                     this.currLiveId = j;
-                    int i5 = JO.aNr;
+                    int i5 = Kh.aNW;
                     boolean z = false;
                     HashMap hashMap = new HashMap();
                     hashMap.put("test_guardClub_im_entry", false);
@@ -94,7 +94,7 @@ public class b implements com.baidu.live.guardclub.i {
                     if (process.containsKey("test_guardClub_im_entry")) {
                         z = ((Boolean) process.get("test_guardClub_im_entry")).booleanValue();
                     }
-                    LiveTimerManager.getInstance().addLiveTimerTask(ah(j), j, new OnLiveTimerListener() { // from class: com.baidu.tieba.ala.guardclub.b.1
+                    LiveTimerManager.getInstance().addLiveTimerTask(ai(j), j, new OnLiveTimerListener() { // from class: com.baidu.tieba.ala.guardclub.b.1
                         @Override // com.baidu.live.tbadk.timer.OnLiveTimerListener
                         public void onComplete(boolean z2) {
                             if (j == b.this.currLiveId) {
@@ -121,14 +121,14 @@ public class b implements com.baidu.live.guardclub.i {
             if (i3 >= 0) {
             }
             this.currLiveId = j;
-            int i52 = JO.aNr;
+            int i52 = Kh.aNW;
             boolean z2 = false;
             HashMap hashMap2 = new HashMap();
             hashMap2.put("test_guardClub_im_entry", false);
             process = ExtraParamsManager.getInstance().buildParamsExtra().process(hashMap2);
             if (process.containsKey("test_guardClub_im_entry")) {
             }
-            LiveTimerManager.getInstance().addLiveTimerTask(ah(j), j, new OnLiveTimerListener() { // from class: com.baidu.tieba.ala.guardclub.b.1
+            LiveTimerManager.getInstance().addLiveTimerTask(ai(j), j, new OnLiveTimerListener() { // from class: com.baidu.tieba.ala.guardclub.b.1
                 @Override // com.baidu.live.tbadk.timer.OnLiveTimerListener
                 public void onComplete(boolean z22) {
                     if (j == b.this.currLiveId) {
@@ -144,21 +144,21 @@ public class b implements com.baidu.live.guardclub.i {
     }
 
     @Override // com.baidu.live.guardclub.i
-    public void JR() {
+    public void Kk() {
         int i;
         JSONArray jSONArray;
         int i2 = 0;
         try {
-            ba JO = com.baidu.live.guardclub.g.JM().JO();
-            if (JO != null) {
-                i = JO.aNp;
-                i2 = JO.aNq;
+            bd Kh = com.baidu.live.guardclub.g.Kf().Kh();
+            if (Kh != null) {
+                i = Kh.aNU;
+                i2 = Kh.aNV;
             } else {
                 i = 0;
             }
             if (i >= 0 || i2 >= 0) {
                 String b = com.baidu.live.utils.k.b(new Date());
-                String string = com.baidu.live.c.AZ().getString("guardclub_im_entry_show_trace", "");
+                String string = com.baidu.live.d.AZ().getString("guardclub_im_entry_show_trace", "");
                 if (!TextUtils.isEmpty(string)) {
                     jSONArray = new JSONArray(string);
                 } else {
@@ -167,7 +167,7 @@ public class b implements com.baidu.live.guardclub.i {
                 JSONObject jSONObject = new JSONObject();
                 jSONObject.put("date", b);
                 jSONArray.put(jSONObject);
-                com.baidu.live.c.AZ().putString("guardclub_im_entry_show_trace", jSONArray.toString());
+                com.baidu.live.d.AZ().putString("guardclub_im_entry_show_trace", jSONArray.toString());
             }
         } catch (JSONException e) {
             e.printStackTrace();
@@ -175,7 +175,7 @@ public class b implements com.baidu.live.guardclub.i {
     }
 
     @Override // com.baidu.live.guardclub.i
-    public String ah(long j) {
+    public String ai(long j) {
         return "guardClub_im_" + j;
     }
 }

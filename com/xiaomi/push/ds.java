@@ -41,10 +41,10 @@ final class ds implements dw {
                 if (du.a(context, String.valueOf(12), 1L) || !a2) {
                     return;
                 }
-                if (TextUtils.isEmpty(ec.f4871a)) {
-                    ec.f4871a += dv.f230a + ":";
+                if (TextUtils.isEmpty(ec.f4869a)) {
+                    ec.f4869a += dv.f227a + ":";
                 }
-                ec.f4871a += str + "(" + currentTimeMillis + ")" + Constants.ACCEPT_TIME_SEPARATOR_SP;
+                ec.f4869a += str + "(" + currentTimeMillis + ")" + Constants.ACCEPT_TIME_SEPARATOR_SP;
             } else if (TextUtils.equals("android.intent.action.PACKAGE_CHANGED", intent.getAction())) {
                 if (du.a(context, String.valueOf(12), 1L) || !a2) {
                     return;

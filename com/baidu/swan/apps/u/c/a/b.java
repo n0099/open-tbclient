@@ -6,7 +6,7 @@ import com.baidu.swan.apps.ap.aq;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes10.dex */
 public abstract class b<ValueT> {
-    private final ValueT cKG;
+    private final ValueT cTc;
 
     protected abstract ValueT a(Bundle bundle, String str, ValueT valuet);
 
@@ -17,30 +17,30 @@ public abstract class b<ValueT> {
     }
 
     public b(ValueT valuet) {
-        this.cKG = valuet;
+        this.cTc = valuet;
     }
 
     public ValueT a(c cVar, String str) {
-        return a(cVar, str, (String) this.cKG);
+        return a(cVar, str, (String) this.cTc);
     }
 
     public ValueT a(c cVar, String str, ValueT valuet) {
-        return a(cVar.auG(), str, (String) valuet);
+        return a(cVar.awA(), str, (String) valuet);
     }
 
     public void b(@NonNull final c cVar, final String str, final ValueT valuet) {
-        aq auH = cVar.auH();
-        if (auH.aIS()) {
-            b(cVar.auG(), str, (String) valuet);
-            auH.aIT();
+        aq awB = cVar.awB();
+        if (awB.aKM()) {
+            b(cVar.awA(), str, (String) valuet);
+            awB.aKN();
             return;
         }
-        auH.n(new Runnable() { // from class: com.baidu.swan.apps.u.c.a.b.1
+        awB.n(new Runnable() { // from class: com.baidu.swan.apps.u.c.a.b.1
             /* JADX DEBUG: Multi-variable search result rejected for r0v0, resolved type: com.baidu.swan.apps.u.c.a.b */
             /* JADX WARN: Multi-variable type inference failed */
             @Override // java.lang.Runnable
             public void run() {
-                b.this.b(cVar.auG(), str, (String) valuet);
+                b.this.b(cVar.awA(), str, (String) valuet);
             }
         });
     }

@@ -4,22 +4,22 @@ import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes4.dex */
 public class c {
-    private JSONObject glK;
-    private JSONObject glP;
+    private JSONObject gvP;
+    private JSONObject gvU;
 
-    public void du(JSONObject jSONObject) {
-        this.glK = jSONObject;
+    public void dz(JSONObject jSONObject) {
+        this.gvP = jSONObject;
     }
 
-    public void dv(JSONObject jSONObject) {
-        this.glP = jSONObject;
+    public void dA(JSONObject jSONObject) {
+        this.gvU = jSONObject;
     }
 
     public JSONObject toJson() {
         JSONObject jSONObject = new JSONObject();
         try {
-            jSONObject.put("extra", this.glK);
-            jSONObject.put("src", this.glP);
+            jSONObject.put("extra", this.gvP);
+            jSONObject.put("src", this.gvU);
         } catch (JSONException e) {
             e.printStackTrace();
         }

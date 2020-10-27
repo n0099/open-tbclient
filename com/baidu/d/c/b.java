@@ -8,47 +8,47 @@ import com.baidu.live.tbadk.ubc.UbcStatConstant;
 import com.baidu.util.Base64Encoder;
 /* loaded from: classes9.dex */
 public final class b {
-    private static b anm;
-    private c ann;
-    private e ano;
-    private g anp;
-    private String anq;
-    private volatile String anr = null;
+    private static b ann;
+    private c ano;
+    private e anp;
+    private g anq;
+    private String anr;
+    private volatile String ans = null;
 
     private b() {
         init();
     }
 
     public static b uV() {
-        if (anm == null) {
+        if (ann == null) {
             synchronized (b.class) {
-                if (anm == null) {
-                    anm = new b();
+                if (ann == null) {
+                    ann = new b();
                 }
             }
         }
-        return anm;
+        return ann;
     }
 
     private void init() {
-        this.ano = new e();
-        this.ann = new c();
-        this.anp = new g();
+        this.anp = new e();
+        this.ano = new c();
+        this.anq = new g();
         String deviceId = a.uU().getDeviceId();
         if (!TextUtils.isEmpty(deviceId)) {
-            this.anq = new String(Base64Encoder.B64Encode(deviceId.getBytes()));
+            this.anr = new String(Base64Encoder.B64Encode(deviceId.getBytes()));
         }
     }
 
     public String processUrl(String str) {
         d uU = a.uU();
-        String vd = this.anp.vd();
+        String vd = this.anq.vd();
         String appName = com.baidu.d.b.a.uS().getAppName();
         String zid = uU.getZid();
         String uX = uU.uX();
         String uY = uU.uY();
-        String deviceInfo = this.ann.getDeviceInfo();
-        String str2 = this.anq;
+        String deviceInfo = this.ano.getDeviceInfo();
+        String str2 = this.anr;
         String from = uU.getFrom();
         String uZ = uU.uZ();
         String vb = uU.vb();
@@ -58,12 +58,12 @@ public final class b {
         if (TextUtils.isEmpty(uZ)) {
             uZ = com.baidu.d.a.a.uK().uL();
         }
-        String k = uU.k(this.ano.l(addParam(addParam(addParam(addParam(addParam(addParam(addParam(addParam(addParam(addParam(str, "appname", appName), UbcStatConstant.KEY_CONTENT_EXT_SID, uY), "ut", deviceInfo), j.c, vd), "bdvc", uX), "zid", zid), "uid", str2), BdStatsConstant.StatsKey.CURRENT_CHANNEL, uZ), "from", from), "scheme", vb), true), true);
-        if (TextUtils.isEmpty(this.anr)) {
-            this.anr = uU.va();
+        String k = uU.k(this.anp.l(addParam(addParam(addParam(addParam(addParam(addParam(addParam(addParam(addParam(addParam(str, "appname", appName), UbcStatConstant.KEY_CONTENT_EXT_SID, uY), "ut", deviceInfo), j.c, vd), "bdvc", uX), "zid", zid), "uid", str2), BdStatsConstant.StatsKey.CURRENT_CHANNEL, uZ), "from", from), "scheme", vb), true), true);
+        if (TextUtils.isEmpty(this.ans)) {
+            this.ans = uU.va();
         }
-        if (!TextUtils.isEmpty(this.anr)) {
-            return addParam(k, "c3_aid", this.anr);
+        if (!TextUtils.isEmpty(this.ans)) {
+            return addParam(k, "c3_aid", this.ans);
         }
         return k;
     }

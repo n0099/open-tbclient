@@ -11,16 +11,16 @@ import tbclient.HistoryForumInfo;
 import tbclient.ThemeColorInfo;
 /* loaded from: classes.dex */
 public class VisitedForumData extends OrmObject {
-    private boolean eYc;
-    private int eYd;
-    private String eYe;
-    private int eYf;
-    private boolean eYg;
-    private boolean eYh;
-    private boolean eYi;
-    private String eYj;
-    private List<FrsTabItemData> eYk;
-    private PostPrefixData eYl;
+    private String fgA;
+    private int fgB;
+    private boolean fgC;
+    private boolean fgD;
+    private boolean fgE;
+    private String fgF;
+    private List<FrsTabItemData> fgG;
+    private PostPrefixData fgH;
+    private boolean fgy;
+    private int fgz;
     private String mForumId;
     private String mForumImageUrl;
     private String mForumName;
@@ -29,28 +29,28 @@ public class VisitedForumData extends OrmObject {
 
     public VisitedForumData() {
         this.mForumImageUrl = "";
-        this.eYc = false;
-        this.eYd = 0;
+        this.fgy = false;
+        this.fgz = 0;
         this.mForumName = "";
         this.mForumId = "";
-        this.eYe = "";
+        this.fgA = "";
         this.mThemeColorInfo = null;
-        this.eYf = 0;
-        this.eYg = false;
-        this.eYh = false;
-        this.eYi = false;
-        this.eYj = "";
+        this.fgB = 0;
+        this.fgC = false;
+        this.fgD = false;
+        this.fgE = false;
+        this.fgF = "";
     }
 
     public VisitedForumData(String str, String str2, String str3, String str4, boolean z, ThemeColorInfo themeColorInfo, int i) {
         this.mForumImageUrl = str3;
-        this.eYc = z;
+        this.fgy = z;
         this.mForumName = str2;
         this.mForumId = str;
-        this.eYe = str4;
-        this.eYd = 0;
+        this.fgA = str4;
+        this.fgz = 0;
         this.mThemeColorInfo = themeColorInfo;
-        this.eYf = i;
+        this.fgB = i;
     }
 
     public void a(HistoryForumInfo historyForumInfo) {
@@ -58,42 +58,42 @@ public class VisitedForumData extends OrmObject {
             this.mForumImageUrl = historyForumInfo.avatar;
             this.mForumId = String.valueOf(historyForumInfo.forum_id);
             this.mForumName = historyForumInfo.forum_name;
-            this.eYc = historyForumInfo.is_liveforum.intValue() == 1;
-            this.eYd = historyForumInfo.unread_num.intValue();
-            this.eYe = historyForumInfo.visit_time;
+            this.fgy = historyForumInfo.is_liveforum.intValue() == 1;
+            this.fgz = historyForumInfo.unread_num.intValue();
+            this.fgA = historyForumInfo.visit_time;
             this.mThemeColorInfo = historyForumInfo.theme_color;
-            this.eYf = historyForumInfo.follow_num.intValue();
-            this.eYg = historyForumInfo.need_trans.booleanValue();
+            this.fgB = historyForumInfo.follow_num.intValue();
+            this.fgC = historyForumInfo.need_trans.booleanValue();
             this.mLevel = historyForumInfo.level_id.intValue();
             if (historyForumInfo.block_pop_info != null) {
-                this.eYi = historyForumInfo.block_pop_info.can_post.intValue() == 1;
-                this.eYj = historyForumInfo.block_pop_info.block_info;
+                this.fgE = historyForumInfo.block_pop_info.can_post.intValue() == 1;
+                this.fgF = historyForumInfo.block_pop_info.block_info;
             }
             if (!y.isEmpty(historyForumInfo.tab_info)) {
-                this.eYk = new ArrayList();
+                this.fgG = new ArrayList();
                 for (FrsTabInfo frsTabInfo : historyForumInfo.tab_info) {
                     if (frsTabInfo != null) {
-                        this.eYk.add(new FrsTabItemData(frsTabInfo));
+                        this.fgG.add(new FrsTabItemData(frsTabInfo));
                     }
                 }
             }
             if (historyForumInfo.has_postpre.booleanValue()) {
-                this.eYl = new PostPrefixData();
-                this.eYl.parserProtobuf(historyForumInfo.post_prefix);
+                this.fgH = new PostPrefixData();
+                this.fgH.parserProtobuf(historyForumInfo.post_prefix);
             }
         }
     }
 
-    public String buH() {
+    public String bwA() {
         return this.mForumImageUrl;
     }
 
-    public boolean buI() {
-        return this.eYc;
+    public boolean bwB() {
+        return this.fgy;
     }
 
-    public int buJ() {
-        return this.eYd;
+    public int bwC() {
+        return this.fgz;
     }
 
     public String getForumName() {
@@ -104,47 +104,47 @@ public class VisitedForumData extends OrmObject {
         return this.mForumId;
     }
 
-    public String buK() {
-        return this.eYe;
+    public String bwD() {
+        return this.fgA;
     }
 
-    public int buL() {
-        return this.eYf;
+    public int bwE() {
+        return this.fgB;
     }
 
     public ThemeColorInfo getThemeColorInfo() {
         return this.mThemeColorInfo;
     }
 
-    public boolean buM() {
-        return this.eYg;
+    public boolean bwF() {
+        return this.fgC;
     }
 
-    public void jy(boolean z) {
-        this.eYh = z;
+    public void jL(boolean z) {
+        this.fgD = z;
     }
 
-    public boolean buN() {
-        return this.eYh;
+    public boolean bwG() {
+        return this.fgD;
     }
 
     public int getLevel() {
         return this.mLevel;
     }
 
-    public boolean buO() {
-        return this.eYi;
+    public boolean bwH() {
+        return this.fgE;
     }
 
-    public String buP() {
-        return this.eYj;
+    public String bwI() {
+        return this.fgF;
     }
 
-    public List<FrsTabItemData> buQ() {
-        return this.eYk;
+    public List<FrsTabItemData> bwJ() {
+        return this.fgG;
     }
 
-    public PostPrefixData buR() {
-        return this.eYl;
+    public PostPrefixData bwK() {
+        return this.fgH;
     }
 }

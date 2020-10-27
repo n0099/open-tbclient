@@ -1,75 +1,80 @@
 package com.baidu.tieba.ala.data;
 
 import com.baidu.live.adp.lib.safe.JavaTypesHelper;
-import com.baidu.live.tbadk.core.util.StringHelper;
+import com.baidu.live.tbadk.core.data.BaseData;
+import java.util.ArrayList;
+import org.json.JSONArray;
 import org.json.JSONObject;
 /* loaded from: classes4.dex */
-public class p {
-    public int aHa;
-    public long aHb;
-    public long aHc;
-    public long aHd;
-    public String bdPortrait;
-    public long gkO;
-    public boolean gkP;
-    public boolean gkQ;
-    public long userId;
-    public String userName;
-    public String userNickname;
+public class p extends BaseData {
+    private long fUB;
+    private ArrayList<h> fVg;
+    private String guL;
+    private long guM;
+    private long guN = 5000;
+    private long guO = 15;
+    private long guP;
+    private r guQ;
 
+    public long bPz() {
+        return this.guN;
+    }
+
+    public long bPA() {
+        return this.guO;
+    }
+
+    public long bPB() {
+        return this.guM;
+    }
+
+    public String RV() {
+        return this.guL;
+    }
+
+    public long bPC() {
+        return this.guP;
+    }
+
+    public ArrayList<h> getList() {
+        return this.fVg;
+    }
+
+    public r bPD() {
+        return this.guQ;
+    }
+
+    @Override // com.baidu.live.tbadk.core.data.BaseData
     public void parserJson(JSONObject jSONObject) {
+        JSONObject optJSONObject;
         if (jSONObject != null) {
-            this.aHa = jSONObject.optInt("current_rank");
-            this.aHb = jSONObject.optInt("current_charm_value");
-            this.aHc = jSONObject.optInt("up_charm_value");
-            this.aHd = jSONObject.optInt("down_charm_value");
-            this.userId = JavaTypesHelper.toLong(jSONObject.optString("user_id"), 0L);
-            this.userName = jSONObject.optString("user_name");
-            this.userNickname = jSONObject.optString("user_nickname");
-            this.bdPortrait = jSONObject.optString("bd_portrait");
+            JSONObject optJSONObject2 = jSONObject.optJSONObject("rank_conf");
+            if (optJSONObject2 != null && (optJSONObject = optJSONObject2.optJSONObject("hour")) != null) {
+                this.fUB = optJSONObject.optLong("current_time", 0L);
+                this.guL = optJSONObject.optString("current_hour", "");
+                this.guM = optJSONObject.optLong("hour_rank_left_time", 0L);
+                this.guN = optJSONObject.optLong("pull_interval", 5L) * 1000;
+                this.guO = optJSONObject.optLong("verify_notice_interval", 15L);
+                this.guP = optJSONObject.optLong("show_champion_time", 0L);
+            }
+            JSONArray optJSONArray = jSONObject.optJSONArray("rank_list");
+            if (optJSONArray != null) {
+                this.fVg = new ArrayList<>();
+                for (int i = 0; i < optJSONArray.length(); i++) {
+                    JSONObject optJSONObject3 = optJSONArray.optJSONObject(i);
+                    h hVar = new h();
+                    hVar.parserJson(optJSONObject3);
+                    this.fVg.add(hVar);
+                }
+            }
+            this.guQ = new r();
+            JSONObject optJSONObject4 = jSONObject.optJSONObject("charm_data");
+            if (optJSONObject4 != null) {
+                this.guQ.parserJson(optJSONObject4);
+                if (this.fVg != null && this.fVg.size() > 0) {
+                    this.guQ.aHq = JavaTypesHelper.toLong(this.fVg.get(this.fVg.size() - 1).point, 0L);
+                }
+            }
         }
-    }
-
-    public void a(h hVar) {
-        if (hVar != null) {
-            this.aHa = hVar.rank;
-            this.aHb = JavaTypesHelper.toLong(hVar.point, 0L);
-            this.userId = hVar.user_id;
-            this.userName = hVar.user_name;
-            this.userNickname = hVar.user_nickname;
-            this.bdPortrait = hVar.avatar;
-        }
-    }
-
-    public void ee(long j) {
-        this.aHc = j;
-    }
-
-    public void ef(long j) {
-        this.aHd = j;
-    }
-
-    public void lD(boolean z) {
-        this.gkP = z;
-    }
-
-    public boolean bMZ() {
-        return this.gkP;
-    }
-
-    public void lE(boolean z) {
-        this.gkQ = z;
-    }
-
-    public void eg(long j) {
-        this.gkO = j;
-    }
-
-    public String getNameShow() {
-        return !StringHelper.isEmpty(this.userNickname) ? this.userNickname : this.userName;
-    }
-
-    public boolean isValid() {
-        return (StringHelper.isEmpty(getNameShow()) || StringHelper.isEmpty(this.bdPortrait)) ? false : true;
     }
 }

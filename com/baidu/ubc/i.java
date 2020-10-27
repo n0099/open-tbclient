@@ -1,15 +1,15 @@
 package com.baidu.ubc;
 /* loaded from: classes20.dex */
 public class i {
-    private static volatile h nEX;
+    private static volatile h ohz;
 
-    public static synchronized h dTG() {
+    public static synchronized h dZy() {
         h hVar;
         synchronized (i.class) {
-            if (nEX == null) {
-                nEX = new h();
+            if (ohz == null) {
+                ohz = new h();
             }
-            hVar = nEX;
+            hVar = ohz;
         }
         return hVar;
     }

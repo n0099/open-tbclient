@@ -41,7 +41,7 @@ public class d extends Handler {
                     fVar.surfaceDestroyed();
                     return;
                 case 4:
-                    fVar.ZX();
+                    fVar.abR();
                     return;
                 case 5:
                 case 7:
@@ -71,7 +71,7 @@ public class d extends Handler {
                     fVar.F((byte[]) message.obj);
                     return;
                 case 19:
-                    fVar.ZY();
+                    fVar.abS();
                     return;
             }
         }

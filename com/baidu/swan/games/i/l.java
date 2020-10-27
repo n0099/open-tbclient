@@ -6,85 +6,85 @@ import com.baidu.swan.apps.storage.PathType;
 import java.io.File;
 /* loaded from: classes10.dex */
 public class l implements com.baidu.swan.apps.storage.b.c {
-    private com.baidu.swan.apps.storage.b.d dmp;
+    private com.baidu.swan.apps.storage.b.d duR;
 
     public l() {
-        n.cS(n.getBasePath(), n.aQU());
+        n.cZ(n.getBasePath(), n.aSO());
     }
 
     @Override // com.baidu.swan.apps.storage.b.c
-    public String sY(String str) {
-        return n.sY(str);
+    public String tr(String str) {
+        return n.tr(str);
     }
 
     @Override // com.baidu.swan.apps.storage.b.c
-    public String sZ(String str) {
-        if (com.baidu.swan.apps.storage.b.sQ(str) == PathType.RELATIVE) {
-            return n.sY(str);
+    public String ts(String str) {
+        if (com.baidu.swan.apps.storage.b.tj(str) == PathType.RELATIVE) {
+            return n.tr(str);
         }
         return null;
     }
 
     @Override // com.baidu.swan.apps.storage.b.c
-    public String ta(String str) {
-        String wf = n.wf(str);
-        if (TextUtils.isEmpty(wf)) {
+    public String tt(String str) {
+        String wy = n.wy(str);
+        if (TextUtils.isEmpty(wy)) {
             return null;
         }
-        return wf;
+        return wy;
     }
 
     @Override // com.baidu.swan.apps.storage.b.c
-    public String tb(String str) {
-        return n.ww(str);
+    public String tu(String str) {
+        return n.wP(str);
     }
 
     @Override // com.baidu.swan.apps.storage.b.c
-    public String tc(String str) {
-        return tb(str);
+    public String tv(String str) {
+        return tu(str);
     }
 
     @Override // com.baidu.swan.apps.storage.b.c
-    public String td(String str) {
-        return n.wr("bdfile://tmp" + File.separator + str);
+    public String tw(String str) {
+        return n.wK("bdfile://tmp" + File.separator + str);
     }
 
     @Override // com.baidu.swan.apps.storage.b.c
-    public String aGs() {
-        return n.wr("bdfile://tmp");
+    public String aIm() {
+        return n.wK("bdfile://tmp");
     }
 
     @Override // com.baidu.swan.apps.storage.b.c
-    public String aGt() {
-        return n.wq(a.USER_DATA_PATH);
+    public String aIn() {
+        return n.wJ(a.USER_DATA_PATH);
     }
 
     @Override // com.baidu.swan.apps.storage.b.c
-    public String sP(String str) {
-        return sZ(str);
+    public String ti(String str) {
+        return ts(str);
     }
 
     @Override // com.baidu.swan.apps.storage.b.c
-    public boolean sJ(String str) {
+    public boolean tc(String str) {
         return !TextUtils.isEmpty(str) && (a.USER_DATA_PATH.equals(str) || str.startsWith(new StringBuilder().append(a.USER_DATA_PATH).append(File.separator).toString()));
     }
 
     @Override // com.baidu.swan.apps.storage.b.c
-    public boolean sK(String str) {
+    public boolean td(String str) {
         return !TextUtils.isEmpty(str) && (str.startsWith(new StringBuilder().append("bdfile://tmp").append(File.separator).toString()) || "bdfile://tmp".equals(str));
     }
 
     @Override // com.baidu.swan.apps.storage.b.c
-    public boolean ae(String str, boolean z) {
-        return n.wl(str);
+    public boolean ag(String str, boolean z) {
+        return n.wE(str);
     }
 
     @Override // com.baidu.swan.apps.storage.b.c
     @NonNull
-    public synchronized com.baidu.swan.apps.storage.b.d aGu() {
-        if (this.dmp == null) {
-            this.dmp = new m();
+    public synchronized com.baidu.swan.apps.storage.b.d aIo() {
+        if (this.duR == null) {
+            this.duR = new m();
         }
-        return this.dmp;
+        return this.duR;
     }
 }

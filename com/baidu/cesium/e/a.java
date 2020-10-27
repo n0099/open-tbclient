@@ -9,13 +9,13 @@ import java.io.FileOutputStream;
 import java.util.ArrayList;
 /* loaded from: classes6.dex */
 public class a {
-    private C0102a amg;
+    private C0102a amh;
     private Context d;
 
     /* renamed from: com.baidu.cesium.e.a$a  reason: collision with other inner class name */
     /* loaded from: classes6.dex */
     public final class C0102a {
-        private C0102a amK;
+        private C0102a amL;
         private File b;
         private String c;
         private boolean e;
@@ -30,7 +30,7 @@ public class a {
         C0102a(String str, C0102a c0102a) {
             this.e = false;
             this.c = str;
-            this.amK = c0102a;
+            this.amL = c0102a;
             this.e = false;
         }
 
@@ -45,7 +45,7 @@ public class a {
         public File b() {
             File file = this.b;
             if (file == null) {
-                file = this.amK == null ? new File(a.this.a(), this.c) : new File(this.amK.b(), this.c);
+                file = this.amL == null ? new File(a.this.a(), this.c) : new File(this.amL.b(), this.c);
                 this.b = file;
             }
             return file;
@@ -88,7 +88,7 @@ public class a {
         }
 
         public C0102a ux() {
-            return this.amK;
+            return this.amL;
         }
     }
 
@@ -195,9 +195,9 @@ public class a {
     }
 
     public synchronized C0102a uw() {
-        if (this.amg == null) {
-            this.amg = new C0102a(".cesium", null);
+        if (this.amh == null) {
+            this.amh = new C0102a(".cesium", null);
         }
-        return this.amg;
+        return this.amh;
     }
 }

@@ -10,7 +10,7 @@ public class VNetworkInfo {
     public VNetworkInfo(NetworkInfo networkInfo) {
         this.typename = networkInfo.getTypeName();
         this.type = networkInfo.getType();
-        switch (i.f3909a[networkInfo.getState().ordinal()]) {
+        switch (i.f3907a[networkInfo.getState().ordinal()]) {
             case 1:
                 this.state = 2;
                 return;

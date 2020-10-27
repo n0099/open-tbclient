@@ -49,15 +49,15 @@ import java.util.ArrayList;
 /* loaded from: classes25.dex */
 public class a extends c implements IWNaviStatusListener, IWTTSPlayer {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    private FrameLayout aih;
-    private WalkNavigateHelper dQP;
-    private BaseNpcModel dQQ;
-    private boolean dQR;
+    private FrameLayout aii;
+    private WalkNavigateHelper dZl;
+    private BaseNpcModel dZm;
+    private boolean dZn;
 
     /* JADX INFO: Access modifiers changed from: private */
     /* renamed from: com.baidu.swan.impl.map.location.b.a$a  reason: collision with other inner class name */
     /* loaded from: classes25.dex */
-    public interface InterfaceC0530a {
+    public interface InterfaceC0544a {
         void s(Bitmap bitmap);
     }
 
@@ -69,27 +69,27 @@ public class a extends c implements IWNaviStatusListener, IWTTSPlayer {
         return aVar;
     }
 
-    public void aVg() {
-        f abs = com.baidu.swan.apps.v.f.avu().abs();
-        if (abs != null) {
-            abs.mt("navigateTo").ak(f.cwD, f.cwF).f(this).akS();
+    public void aXa() {
+        f adm = com.baidu.swan.apps.v.f.axo().adm();
+        if (adm != null) {
+            adm.mM("navigateTo").al(f.cEZ, f.cFb).f(this).amM();
         }
     }
 
-    private void aVI() {
+    private void aXC() {
         SDKInitializer.setCoordType(CoordType.BD09LL);
         try {
-            this.dQP = WalkNavigateHelper.getInstance();
-            View onCreate = this.dQP.onCreate(com.baidu.swan.apps.v.f.avu().ave());
+            this.dZl = WalkNavigateHelper.getInstance();
+            View onCreate = this.dZl.onCreate(com.baidu.swan.apps.v.f.axo().awY());
             if (onCreate != null) {
-                this.aih.addView(onCreate);
+                this.aii.addView(onCreate);
             }
         } catch (Exception e) {
             e.printStackTrace();
         }
         WalkNaviDisplayOption walkNaviDisplayOption = new WalkNaviDisplayOption();
         walkNaviDisplayOption.runInFragment(true);
-        this.dQP.setWalkNaviDisplayOption(walkNaviDisplayOption);
+        this.dZl.setWalkNaviDisplayOption(walkNaviDisplayOption);
         final Bundle arguments = getArguments();
         String str = "";
         if (arguments != null) {
@@ -99,8 +99,8 @@ public class a extends c implements IWNaviStatusListener, IWTTSPlayer {
             Log.e("WalkARNavFragment", "guideIconPath = " + str);
         }
         final Context context = getContext();
-        a(context, str, new InterfaceC0530a() { // from class: com.baidu.swan.impl.map.location.b.a.1
-            @Override // com.baidu.swan.impl.map.location.b.a.InterfaceC0530a
+        a(context, str, new InterfaceC0544a() { // from class: com.baidu.swan.impl.map.location.b.a.1
+            @Override // com.baidu.swan.impl.map.location.b.a.InterfaceC0544a
             public void s(Bitmap bitmap) {
                 String str2 = "";
                 if (arguments != null) {
@@ -119,27 +119,27 @@ public class a extends c implements IWNaviStatusListener, IWTTSPlayer {
                     baseNpcModel.setIcon(bitmap);
                     ArrayList<BaseNpcModel> arrayList = new ArrayList<>();
                     arrayList.add(baseNpcModel);
-                    a.this.dQQ = baseNpcModel;
-                    a.this.dQP.addMoreNPCModelOnClickListener(new IWMoreNPCModelOnClickListener() { // from class: com.baidu.swan.impl.map.location.b.a.1.1
+                    a.this.dZm = baseNpcModel;
+                    a.this.dZl.addMoreNPCModelOnClickListener(new IWMoreNPCModelOnClickListener() { // from class: com.baidu.swan.impl.map.location.b.a.1.1
                         @Override // com.baidu.mapapi.walknavi.adapter.IWMoreNPCModelOnClickListener
                         public void onMoreNPCModelOnClick(View view) {
                             if (a.DEBUG) {
                                 Log.e("WalkARNavFragment", "npc model onMoreNPCModelOnClick");
                             }
-                            ArrayList<BaseNpcModel> walkNpcModelInfoList = a.this.dQP.getWalkNpcModelInfoList();
+                            ArrayList<BaseNpcModel> walkNpcModelInfoList = a.this.dZl.getWalkNpcModelInfoList();
                             if (walkNpcModelInfoList != null && walkNpcModelInfoList.size() > 0) {
                                 if (a.DEBUG) {
                                     Log.e("WalkARNavFragment", "models size :" + walkNpcModelInfoList.size());
                                 }
-                                a.this.dQP.switchNPCModel(walkNpcModelInfoList.get(walkNpcModelInfoList.size() - 1));
+                                a.this.dZl.switchNPCModel(walkNpcModelInfoList.get(walkNpcModelInfoList.size() - 1));
                             }
                         }
                     });
-                    a.this.dQP.setWalkNpcModelInfoList(arrayList);
+                    a.this.dZl.setWalkNpcModelInfoList(arrayList);
                 }
-                a.this.dQP.setWalkNaviStatusListener(a.this);
-                a.this.dQP.setTTsPlayer(a.this);
-                a.this.dQP.startWalkNavi(com.baidu.swan.apps.v.f.avu().ave());
+                a.this.dZl.setWalkNaviStatusListener(a.this);
+                a.this.dZl.setTTsPlayer(a.this);
+                a.this.dZl.startWalkNavi(com.baidu.swan.apps.v.f.axo().awY());
             }
         });
     }
@@ -149,18 +149,18 @@ public class a extends c implements IWNaviStatusListener, IWTTSPlayer {
     /* JADX WARN: Type inference failed for: r1v2, types: [boolean] */
     /* JADX WARN: Type inference failed for: r1v3, types: [java.io.Closeable] */
     /* JADX WARN: Type inference failed for: r1v4 */
-    private void a(Context context, String str, final InterfaceC0530a interfaceC0530a) {
+    private void a(Context context, String str, final InterfaceC0544a interfaceC0544a) {
         FileInputStream fileInputStream;
         if (context == null || TextUtils.isEmpty(str)) {
-            interfaceC0530a.s(null);
-        } else if (com.baidu.swan.apps.storage.b.sQ(str) == PathType.NETWORK) {
-            com.facebook.drawee.a.a.c.dXh().e(ImageRequestBuilder.ad(ak.getUri(str)).eej(), AppRuntime.getAppContext()).a(new com.facebook.imagepipeline.e.b() { // from class: com.baidu.swan.impl.map.location.b.a.2
+            interfaceC0544a.s(null);
+        } else if (com.baidu.swan.apps.storage.b.tj(str) == PathType.NETWORK) {
+            com.facebook.drawee.a.a.c.ehf().e(ImageRequestBuilder.ad(ak.getUri(str)).eoj(), AppRuntime.getAppContext()).a(new com.facebook.imagepipeline.e.b() { // from class: com.baidu.swan.impl.map.location.b.a.2
                 @Override // com.facebook.imagepipeline.e.b
-                protected void h(@Nullable Bitmap bitmap) {
+                protected void e(@Nullable Bitmap bitmap) {
                     if (a.DEBUG) {
                         Log.e("WalkARNavFragment", "onNewResultImpl");
                     }
-                    interfaceC0530a.s(bitmap.copy(bitmap.getConfig() == null ? Bitmap.Config.ARGB_8888 : bitmap.getConfig(), true));
+                    interfaceC0544a.s(bitmap.copy(bitmap.getConfig() == null ? Bitmap.Config.ARGB_8888 : bitmap.getConfig(), true));
                 }
 
                 @Override // com.facebook.datasource.a
@@ -168,9 +168,9 @@ public class a extends c implements IWNaviStatusListener, IWTTSPlayer {
                     if (a.DEBUG) {
                         Log.e("WalkARNavFragment", "onFailureImpl");
                     }
-                    interfaceC0530a.s(null);
+                    interfaceC0544a.s(null);
                 }
-            }, i.dWn());
+            }, i.egl());
         } else {
             File file = new File(str);
             if (file.exists()) {
@@ -180,12 +180,12 @@ public class a extends c implements IWNaviStatusListener, IWTTSPlayer {
                         try {
                             fileInputStream = new FileInputStream(file);
                             try {
-                                interfaceC0530a.s(BitmapFactory.decodeStream(fileInputStream));
+                                interfaceC0544a.s(BitmapFactory.decodeStream(fileInputStream));
                                 d.closeSafely(fileInputStream);
                                 return;
                             } catch (FileNotFoundException e) {
                                 e = e;
-                                interfaceC0530a.s(null);
+                                interfaceC0544a.s(null);
                                 if (DEBUG) {
                                     e.printStackTrace();
                                 }
@@ -206,7 +206,7 @@ public class a extends c implements IWNaviStatusListener, IWTTSPlayer {
                     th = th2;
                 }
             }
-            interfaceC0530a.s(null);
+            interfaceC0544a.s(null);
         }
     }
 
@@ -230,10 +230,10 @@ public class a extends c implements IWNaviStatusListener, IWTTSPlayer {
         if (bundle != null) {
             return null;
         }
-        com.baidu.swan.impl.map.a.aUI();
+        com.baidu.swan.impl.map.a.aWC();
         View inflate = layoutInflater.inflate(R.layout.walk_arnav_fragment, viewGroup, false);
-        this.aih = (FrameLayout) inflate;
-        aVI();
+        this.aii = (FrameLayout) inflate;
+        aXC();
         if (immersionEnabled()) {
             inflate = initImmersion(inflate);
         }
@@ -243,21 +243,21 @@ public class a extends c implements IWNaviStatusListener, IWTTSPlayer {
     @Override // com.baidu.swan.support.v4.app.Fragment
     public void onDestroy() {
         super.onDestroy();
-        if (this.dQP != null) {
-            aVJ();
-            this.dQP.quit();
+        if (this.dZl != null) {
+            aXD();
+            this.dZl.quit();
         }
         SDKInitializer.setCoordType(CoordType.GCJ02);
         abandonAudioFocus();
-        SwanAppActivity ave = com.baidu.swan.apps.v.f.avu().ave();
-        if (ave != null && ave.getWindow() != null) {
-            ave.getWindow().clearFlags(128);
+        SwanAppActivity awY = com.baidu.swan.apps.v.f.axo().awY();
+        if (awY != null && awY.getWindow() != null) {
+            awY.getWindow().clearFlags(128);
         }
-        com.baidu.swan.apps.v.f.avu().auV();
+        com.baidu.swan.apps.v.f.axo().awP();
     }
 
     @TargetApi(19)
-    private void aVJ() {
+    private void aXD() {
         if (Build.VERSION.SDK_INT <= 19) {
             try {
                 Field declaredField = WalkNavigateHelper.class.getDeclaredField("a");
@@ -275,55 +275,55 @@ public class a extends c implements IWNaviStatusListener, IWTTSPlayer {
     @Override // com.baidu.swan.apps.core.d.c, com.baidu.swan.support.v4.app.Fragment
     public void onResume() {
         super.onResume();
-        if (this.dQP != null) {
-            this.dQP.resume();
+        if (this.dZl != null) {
+            this.dZl.resume();
         }
     }
 
     @Override // com.baidu.swan.support.v4.app.Fragment
     public void onPause() {
         super.onPause();
-        if (this.dQP != null) {
-            this.dQP.pause();
+        if (this.dZl != null) {
+            this.dZl.pause();
         }
-        com.baidu.swan.apps.v.f.avu().auU();
+        com.baidu.swan.apps.v.f.axo().awO();
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.swan.apps.core.d.c
-    public void al(View view) {
+    public void an(View view) {
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.swan.apps.core.d.c
-    public boolean ajw() {
+    public boolean alq() {
         return false;
     }
 
     @Override // com.baidu.swan.apps.core.d.c
-    public boolean aeh() {
+    public boolean agb() {
         return false;
     }
 
     @Override // com.baidu.swan.apps.core.d.c
-    protected void aeO() {
+    protected void agI() {
     }
 
     @Override // com.baidu.swan.apps.core.d.c
-    protected void ajv() {
+    protected void alp() {
     }
 
     @Override // com.baidu.swan.apps.core.d.c
-    protected boolean aeI() {
+    protected boolean agC() {
         return false;
     }
 
     @Override // com.baidu.mapapi.walknavi.adapter.IWNaviStatusListener
     public void onWalkNaviModeChange(int i, WalkNaviModeSwitchListener walkNaviModeSwitchListener) {
-        this.dQP.switchWalkNaviMode(com.baidu.swan.apps.v.f.avu().ave(), i, walkNaviModeSwitchListener);
-        if (i == 2 && !this.dQR && this.dQP != null && this.dQQ != null && !aa.getBoolean("switch_npc_mode", false)) {
-            this.dQP.switchNPCModel(this.dQQ);
-            this.dQR = true;
+        this.dZl.switchWalkNaviMode(com.baidu.swan.apps.v.f.axo().awY(), i, walkNaviModeSwitchListener);
+        if (i == 2 && !this.dZn && this.dZl != null && this.dZm != null && !aa.getBoolean("switch_npc_mode", false)) {
+            this.dZl.switchNPCModel(this.dZm);
+            this.dZn = true;
             aa.setBoolean("switch_npc_mode", true);
         }
     }
@@ -333,8 +333,8 @@ public class a extends c implements IWNaviStatusListener, IWTTSPlayer {
         if (DEBUG) {
             Log.e("WalkARNavFragment", "nav exit,exit fragment");
         }
-        if (aYo() != null) {
-            aYo().onBackPressed();
+        if (bah() != null) {
+            bah().onBackPressed();
         }
     }
 

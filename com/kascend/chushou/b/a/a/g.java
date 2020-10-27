@@ -3,6 +3,6 @@ package com.kascend.chushou.b.a.a;
 public class g {
 
     /* renamed from: a  reason: collision with root package name */
-    public boolean f4071a;
+    public boolean f4069a;
     public int b;
 }

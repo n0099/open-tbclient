@@ -1,10 +1,10 @@
 package com.baidu.h.a.b.a;
 /* loaded from: classes15.dex */
 public class a {
-    public int bGC;
-    public int bGD;
-    public int bGE;
-    public int bGF;
+    public int bOX;
+    public int bOY;
+    public int bOZ;
+    public int bPa;
     public String thumbUrl;
     public int type;
     public String url;
@@ -14,12 +14,12 @@ public class a {
         return this.thumbUrl;
     }
 
-    public int TO() {
-        return this.bGE;
+    public int VI() {
+        return this.bOZ;
     }
 
-    public int TP() {
-        return this.bGF;
+    public int VJ() {
+        return this.bPa;
     }
 
     public int getType() {
@@ -34,11 +34,11 @@ public class a {
         return this.width;
     }
 
-    public int TQ() {
-        return this.bGC;
+    public int VK() {
+        return this.bOX;
     }
 
-    public int TR() {
-        return this.bGD;
+    public int VL() {
+        return this.bOY;
     }
 }

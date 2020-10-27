@@ -3,7 +3,7 @@ package com.baidu.tieba.personPolymeric.c;
 import com.baidu.adp.BdUniqueId;
 /* loaded from: classes24.dex */
 public class k extends com.baidu.tieba.card.data.b {
-    public static final BdUniqueId lLf = BdUniqueId.gen();
+    public static final BdUniqueId lXB = BdUniqueId.gen();
     public int paddingBottom;
     public int paddingLeft;
     public int paddingTop;
@@ -11,6 +11,6 @@ public class k extends com.baidu.tieba.card.data.b {
 
     @Override // com.baidu.tieba.card.data.b, com.baidu.adp.widget.ListView.q
     public BdUniqueId getType() {
-        return lLf;
+        return lXB;
     }
 }

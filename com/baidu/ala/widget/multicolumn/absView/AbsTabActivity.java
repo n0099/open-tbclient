@@ -120,7 +120,7 @@ public abstract class AbsTabActivity extends BaseFragmentActivity {
             fragmentTabIndicator.setTextSize(0, getResources().getDimension(R.dimen.fontsize32));
             fragmentTabIndicator.setIsSupportNight(this.isSupportNight);
             fragmentTabIndicator.setContentWidthWrapContent();
-            bVar.exe = fragmentTabIndicator;
+            bVar.eFD = fragmentTabIndicator;
             this.mTabHost.a(bVar);
         }
     }

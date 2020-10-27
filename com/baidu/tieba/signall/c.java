@@ -16,141 +16,141 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 /* loaded from: classes24.dex */
 public class c {
-    private String aND;
+    private String aOi;
     private BlockPopInfoData blockPopInfoData;
     private String content;
     private int level;
-    private boolean muA;
-    private int muB;
-    private int muC;
-    private int muD;
-    private int muE;
-    private String muF;
-    private String muG;
-    private String muH;
-    private String muI;
-    private int muJ;
-    private String muK;
-    private int muL;
-    private boolean muM;
-    private int muN;
-    private int muO;
-    private int muU;
-    private String muu;
-    private String muv;
-    private String muw;
-    private String mux;
-    private int muy;
-    private String muz;
+    private int mHA;
+    private String mHa;
+    private String mHb;
+    private String mHc;
+    private String mHd;
+    private int mHe;
+    private String mHf;
+    private boolean mHg;
+    private int mHh;
+    private int mHi;
+    private int mHj;
+    private int mHk;
+    private String mHl;
+    private String mHm;
+    private String mHn;
+    private String mHo;
+    private int mHp;
+    private String mHq;
+    private int mHr;
+    private boolean mHs;
+    private int mHt;
+    private int mHu;
     private String title;
     private int valid;
-    private String mut = "0";
-    private ArrayList<d> muP = new ArrayList<>();
-    private ArrayList<d> muQ = new ArrayList<>();
-    private ArrayList<d> muR = new ArrayList<>();
-    private HashMap<String, d> muS = new HashMap<>();
-    private a muT = new a();
-    private f muV = new f();
-    private k muW = new k();
+    private String mGZ = "0";
+    private ArrayList<d> mHv = new ArrayList<>();
+    private ArrayList<d> mHw = new ArrayList<>();
+    private ArrayList<d> mHx = new ArrayList<>();
+    private HashMap<String, d> mHy = new HashMap<>();
+    private a mHz = new a();
+    private f mHB = new f();
+    private k mHC = new k();
 
-    public boolean dBg() {
-        return (this.muV == null || StringUtils.isNull(this.muV.mvo)) ? false : true;
+    public boolean dEo() {
+        return (this.mHB == null || StringUtils.isNull(this.mHB.mHU)) ? false : true;
     }
 
-    public String byP() {
-        return this.muV.ekx;
+    public String bAI() {
+        return this.mHB.esW;
     }
 
-    public String dBh() {
-        return this.muV.mvo;
+    public String dEp() {
+        return this.mHB.mHU;
     }
 
-    public String dBi() {
-        return this.muW.mwL;
+    public String dEq() {
+        return this.mHC.mJv;
     }
 
-    public String dBj() {
-        return this.muW.link;
+    public String dEr() {
+        return this.mHC.link;
     }
 
     public int getLevel() {
         return this.level;
     }
 
-    public boolean dBk() {
-        return !StringUtils.isNull(this.mut) && this.mut.equals("1");
+    public boolean dEs() {
+        return !StringUtils.isNull(this.mGZ) && this.mGZ.equals("1");
     }
 
-    public String dBl() {
-        return this.muu;
+    public String dEt() {
+        return this.mHa;
     }
 
-    public String dkI() {
-        return this.aND;
+    public String dnQ() {
+        return this.aOi;
     }
 
-    public String dBm() {
-        return this.muv;
+    public String dEu() {
+        return this.mHb;
     }
 
-    public String dBn() {
-        return this.muw;
+    public String dEv() {
+        return this.mHc;
     }
 
-    public String dBo() {
-        return this.mux;
+    public String dEw() {
+        return this.mHd;
     }
 
-    public int dBp() {
-        return this.muy;
+    public int dEx() {
+        return this.mHe;
     }
 
-    public String dBq() {
-        return this.muz;
+    public String dEy() {
+        return this.mHf;
     }
 
-    public ArrayList<d> dBr() {
-        return this.muP;
+    public ArrayList<d> dEz() {
+        return this.mHv;
     }
 
-    public a dBs() {
-        return this.muT;
+    public a dEA() {
+        return this.mHz;
     }
 
-    public ArrayList<d> dBt() {
-        return this.muQ;
+    public ArrayList<d> dEB() {
+        return this.mHw;
     }
 
-    public ArrayList<d> dBu() {
-        return this.muR;
+    public ArrayList<d> dEC() {
+        return this.mHx;
     }
 
-    public boolean dBv() {
-        return this.muA;
+    public boolean dED() {
+        return this.mHg;
     }
 
-    public String dBw() {
-        return this.muK;
+    public String dEE() {
+        return this.mHq;
     }
 
     public String getContent() {
         return this.content;
     }
 
-    public int dBx() {
-        return this.muL;
+    public int dEF() {
+        return this.mHr;
     }
 
-    public boolean dBy() {
-        return this.muM;
+    public boolean dEG() {
+        return this.mHs;
     }
 
-    public int dBz() {
-        return this.muN;
+    public int dEH() {
+        return this.mHt;
     }
 
-    public int dBA() {
-        return this.muO;
+    public int dEI() {
+        return this.mHu;
     }
 
     public BlockPopInfoData getBlockPopInfoData() {
@@ -159,104 +159,104 @@ public class c {
 
     public void b(SignData signData) {
         d dVar;
-        if (signData != null && (dVar = this.muS.get(signData.forumId)) != null) {
-            dVar.IC(1);
-            dVar.ID(signData.count_sign_num);
-            dVar.IF(signData.sign_bonus_point);
-            dVar.wD(true);
-            dVar.wE(false);
-            dVar.wF(false);
+        if (signData != null && (dVar = this.mHy.get(signData.forumId)) != null) {
+            dVar.IV(1);
+            dVar.IW(signData.count_sign_num);
+            dVar.IY(signData.sign_bonus_point);
+            dVar.wU(true);
+            dVar.wV(false);
+            dVar.wW(false);
             a(dVar);
-            dBB();
-            wC(true);
+            dEJ();
+            wT(true);
         }
     }
 
     private void a(d dVar) {
-        if (dVar.dBE() >= this.level) {
-            this.muD++;
-            this.muE--;
+        if (dVar.dEM() >= this.level) {
+            this.mHj++;
+            this.mHk--;
         } else {
-            this.muB++;
-            this.muC--;
+            this.mHh++;
+            this.mHi--;
         }
-        this.muS.remove(String.valueOf(dVar.getForumId()));
-        this.muR.remove(dVar);
-        if (dVar.dBF() + dVar.dBJ() >= dVar.dBG()) {
-            dVar.IE(dVar.dBE() + 1);
-            dVar.wG(true);
-            if (dVar.dBE() == this.level) {
-                this.muD++;
-                this.muB--;
+        this.mHy.remove(String.valueOf(dVar.getForumId()));
+        this.mHx.remove(dVar);
+        if (dVar.dEN() + dVar.dER() >= dVar.dEO()) {
+            dVar.IX(dVar.dEM() + 1);
+            dVar.wX(true);
+            if (dVar.dEM() == this.level) {
+                this.mHj++;
+                this.mHh--;
             }
         }
-        this.muQ.add(dVar);
-        TbadkApplication.getInst().addSignedForum(dVar.getForumName(), dVar.dBJ(), -1);
+        this.mHw.add(dVar);
+        TbadkApplication.getInst().addSignedForum(dVar.getForumName(), dVar.dER(), -1);
     }
 
-    private void dBB() {
-        if (this.muA) {
-            if (this.muE + this.muC <= 0) {
-                this.muM = true;
+    private void dEJ() {
+        if (this.mHg) {
+            if (this.mHk + this.mHi <= 0) {
+                this.mHs = true;
             } else {
-                this.muM = false;
+                this.mHs = false;
             }
-        } else if (this.muE <= 0) {
-            this.muM = true;
+        } else if (this.mHk <= 0) {
+            this.mHs = true;
         } else {
-            this.muM = false;
+            this.mHs = false;
         }
     }
 
     public void a(h hVar) {
-        this.muN = 0;
-        this.muO = 0;
-        ArrayList<i> dBT = hVar.dBT();
-        int size = dBT.size();
+        this.mHt = 0;
+        this.mHu = 0;
+        ArrayList<i> dFb = hVar.dFb();
+        int size = dFb.size();
         for (int i = 0; i < size; i++) {
-            i iVar = dBT.get(i);
-            d dVar = this.muS.get(iVar.getForumId() + "");
+            i iVar = dFb.get(i);
+            d dVar = this.mHy.get(iVar.getForumId() + "");
             if (dVar != null) {
-                if (iVar.dBW() != 0) {
-                    this.muN++;
-                    dVar.IC(1);
-                    dVar.ID(iVar.dBX());
-                    dVar.IF(iVar.getCurScore());
-                    dVar.wD(true);
-                    dVar.wE(false);
-                    dVar.wF(false);
+                if (iVar.dFe() != 0) {
+                    this.mHt++;
+                    dVar.IV(1);
+                    dVar.IW(iVar.dFf());
+                    dVar.IY(iVar.getCurScore());
+                    dVar.wU(true);
+                    dVar.wV(false);
+                    dVar.wW(false);
                     a(dVar);
                 } else {
-                    this.muO++;
-                    dVar.wD(false);
-                    dVar.wE(true);
-                    dVar.wF(false);
-                    dVar.setErrorMsg(iVar.dBs().getUserMsg());
+                    this.mHu++;
+                    dVar.wU(false);
+                    dVar.wV(true);
+                    dVar.wW(false);
+                    dVar.setErrorMsg(iVar.dEA().getUserMsg());
                 }
             }
         }
-        dBB();
-        wC(true);
+        dEJ();
+        wT(true);
     }
 
     public void parserJson(JSONObject jSONObject) throws Exception {
         if (jSONObject != null) {
-            this.muT.parserJson(jSONObject.optJSONObject(BdStatsConstant.StatsType.ERROR));
+            this.mHz.parserJson(jSONObject.optJSONObject(BdStatsConstant.StatsType.ERROR));
             this.level = jSONObject.optInt("level", 7);
-            this.mut = jSONObject.optString("sign_new");
+            this.mGZ = jSONObject.optString("sign_new");
             this.title = jSONObject.optString("title");
-            this.muu = jSONObject.optString("text_pre");
-            this.aND = jSONObject.optString("text_color");
-            this.muv = jSONObject.optString("text_mid");
-            this.muw = jSONObject.optString("text_suf");
-            this.mux = jSONObject.optString("num_notice");
-            this.muy = jSONObject.optInt("show_dialog");
-            this.muz = jSONObject.optString("sign_notice");
+            this.mHa = jSONObject.optString("text_pre");
+            this.aOi = jSONObject.optString("text_color");
+            this.mHb = jSONObject.optString("text_mid");
+            this.mHc = jSONObject.optString("text_suf");
+            this.mHd = jSONObject.optString("num_notice");
+            this.mHe = jSONObject.optInt("show_dialog");
+            this.mHf = jSONObject.optString("sign_notice");
             this.valid = jSONObject.optInt(CloudControlUBCUtils.KEY_VALID, 0);
-            this.muU = jSONObject.optInt("sign_max_num", 50);
-            this.muJ = jSONObject.optInt("can_use", 0);
+            this.mHA = jSONObject.optInt("sign_max_num", 50);
+            this.mHp = jSONObject.optInt("can_use", 0);
             this.content = jSONObject.optString("content");
-            this.muK = jSONObject.optString("button_content");
+            this.mHq = jSONObject.optString("button_content");
             JSONObject optJSONObject = jSONObject.optJSONObject("anti_info");
             if (optJSONObject != null) {
                 this.blockPopInfoData = new BlockPopInfoData();
@@ -267,122 +267,122 @@ public class c {
                 this.blockPopInfoData.appeal_status = optJSONObject.optInt("appeal_status");
                 this.blockPopInfoData.appeal_msg = optJSONObject.optString("appeal_msg");
             }
-            if (this.muJ == 1) {
-                this.muA = true;
+            if (this.mHp == 1) {
+                this.mHg = true;
             } else {
-                this.muA = false;
+                this.mHg = false;
             }
-            this.muG = this.level + this.title;
-            this.muF = "1-" + (this.level - 1) + TbadkApplication.getInst().getContext().getString(R.string.sign_all_forum_tip);
-            j.mwB = this.muU;
+            this.mHm = this.level + this.title;
+            this.mHl = "1-" + (this.level - 1) + TbadkApplication.getInst().getContext().getString(R.string.sign_all_forum_tip);
+            j.mJl = this.mHA;
             JSONArray optJSONArray = jSONObject.optJSONArray("forum_info");
             if (optJSONArray != null) {
-                int min = Math.min(optJSONArray.length(), j.mwB);
+                int min = Math.min(optJSONArray.length(), j.mJl);
                 for (int i = 0; i < min; i++) {
                     JSONObject jSONObject2 = optJSONArray.getJSONObject(i);
                     if (jSONObject2 != null) {
                         d dVar = new d();
                         dVar.parserJson(jSONObject2);
-                        if (dVar.dBC() == 0) {
+                        if (dVar.dEK() == 0) {
                             if (this.valid == 0) {
-                                if (this.muA) {
-                                    dVar.wE(true);
-                                } else if (dVar.dBE() > this.level) {
-                                    dVar.wE(true);
+                                if (this.mHg) {
+                                    dVar.wV(true);
+                                } else if (dVar.dEM() > this.level) {
+                                    dVar.wV(true);
                                 }
                             }
-                            if (dVar.dBE() >= this.level) {
-                                this.muE++;
+                            if (dVar.dEM() >= this.level) {
+                                this.mHk++;
                             } else {
-                                this.muC++;
+                                this.mHi++;
                             }
-                            this.muR.add(dVar);
-                            this.muS.put(dVar.getForumId() + "", dVar);
+                            this.mHx.add(dVar);
+                            this.mHy.put(dVar.getForumId() + "", dVar);
                         } else {
-                            if (dVar.dBE() >= this.level) {
-                                this.muD++;
+                            if (dVar.dEM() >= this.level) {
+                                this.mHj++;
                             } else {
-                                this.muB++;
+                                this.mHh++;
                             }
-                            this.muQ.add(dVar);
-                            TbadkApplication.getInst().addSignedForum(dVar.getForumName(), dVar.dBJ(), -1);
+                            this.mHw.add(dVar);
+                            TbadkApplication.getInst().addSignedForum(dVar.getForumName(), dVar.dER(), -1);
                         }
-                        this.muP.add(dVar);
-                        Collections.sort(this.muP, new Comparator<d>() { // from class: com.baidu.tieba.signall.c.1
+                        this.mHv.add(dVar);
+                        Collections.sort(this.mHv, new Comparator<d>() { // from class: com.baidu.tieba.signall.c.1
                             /* JADX DEBUG: Method merged with bridge method */
                             @Override // java.util.Comparator
                             /* renamed from: a */
                             public int compare(d dVar2, d dVar3) {
-                                return dVar3.dBE() - dVar2.dBE();
+                                return dVar3.dEM() - dVar2.dEM();
                             }
                         });
                     }
                 }
             }
             JSONObject optJSONObject2 = jSONObject.optJSONObject("advert");
-            if (this.muV == null) {
-                this.muV = new f();
+            if (this.mHB == null) {
+                this.mHB = new f();
             }
-            this.muV.parserJson(optJSONObject2);
+            this.mHB.parserJson(optJSONObject2);
             JSONObject optJSONObject3 = jSONObject.optJSONObject("wefan");
-            if (this.muW == null) {
-                this.muW = new k();
+            if (this.mHC == null) {
+                this.mHC = new k();
             }
-            this.muW.parserJson(optJSONObject3);
-            wC(false);
+            this.mHC.parserJson(optJSONObject3);
+            wT(false);
         }
     }
 
-    private void wC(boolean z) {
+    private void wT(boolean z) {
         if (z) {
             ArrayList arrayList = new ArrayList();
-            Iterator<d> it = this.muP.iterator();
+            Iterator<d> it = this.mHv.iterator();
             while (it.hasNext()) {
                 d next = it.next();
                 if (next instanceof b) {
                     arrayList.add(next);
                 }
             }
-            this.muP.removeAll(arrayList);
+            this.mHv.removeAll(arrayList);
         }
-        if (this.muE + this.muD > 0) {
-            if (this.muD > 0) {
-                this.muI = TbadkApplication.getInst().getContext().getString(R.string.signallforum_res, Integer.valueOf(this.muD), Integer.valueOf(this.muE));
+        if (this.mHk + this.mHj > 0) {
+            if (this.mHj > 0) {
+                this.mHo = TbadkApplication.getInst().getContext().getString(R.string.signallforum_res, Integer.valueOf(this.mHj), Integer.valueOf(this.mHk));
             } else {
-                this.muI = TbadkApplication.getInst().getContext().getString(R.string.signallforum_count, Integer.valueOf(this.muE + this.muD));
+                this.mHo = TbadkApplication.getInst().getContext().getString(R.string.signallforum_count, Integer.valueOf(this.mHk + this.mHj));
             }
-            if (this.muP.size() > 0) {
-                this.muP.add(0, new b(this.muG, this.muI));
+            if (this.mHv.size() > 0) {
+                this.mHv.add(0, new b(this.mHm, this.mHo));
             }
         }
-        if (this.muC + this.muB > 0) {
-            if (this.muB > 0) {
-                this.muH = TbadkApplication.getInst().getContext().getString(R.string.signallforum_res, Integer.valueOf(this.muB), Integer.valueOf(this.muC));
+        if (this.mHi + this.mHh > 0) {
+            if (this.mHh > 0) {
+                this.mHn = TbadkApplication.getInst().getContext().getString(R.string.signallforum_res, Integer.valueOf(this.mHh), Integer.valueOf(this.mHi));
             } else {
-                this.muH = TbadkApplication.getInst().getContext().getString(R.string.signallforum_count, Integer.valueOf(this.muC + this.muB));
+                this.mHn = TbadkApplication.getInst().getContext().getString(R.string.signallforum_count, Integer.valueOf(this.mHi + this.mHh));
             }
-            if (this.muE + this.muD > 0) {
-                if (this.muP.size() > this.muE + this.muD + 1) {
-                    this.muP.add(this.muE + this.muD + 1, new b(this.muF, this.muH));
+            if (this.mHk + this.mHj > 0) {
+                if (this.mHv.size() > this.mHk + this.mHj + 1) {
+                    this.mHv.add(this.mHk + this.mHj + 1, new b(this.mHl, this.mHn));
                 }
-            } else if (this.muP.size() > 0) {
-                this.muP.add(0, new b(this.muF, this.muH));
+            } else if (this.mHv.size() > 0) {
+                this.mHv.add(0, new b(this.mHl, this.mHn));
             }
         }
-        if (this.muP.size() <= 0) {
-            this.muL = 3;
-        } else if (this.muA) {
-            if (this.valid == 1 && this.muR.size() > 0) {
-                this.muL = 0;
+        if (this.mHv.size() <= 0) {
+            this.mHr = 3;
+        } else if (this.mHg) {
+            if (this.valid == 1 && this.mHx.size() > 0) {
+                this.mHr = 0;
             } else {
-                this.muL = 2;
+                this.mHr = 2;
             }
-        } else if (this.valid == 1 && this.muE > 0) {
-            this.muL = 0;
-        } else if (this.muE + this.muD > 0) {
-            this.muL = 2;
-        } else if (this.muE + this.muD <= 0) {
-            this.muL = 3;
+        } else if (this.valid == 1 && this.mHk > 0) {
+            this.mHr = 0;
+        } else if (this.mHk + this.mHj > 0) {
+            this.mHr = 2;
+        } else if (this.mHk + this.mHj <= 0) {
+            this.mHr = 3;
         }
     }
 }

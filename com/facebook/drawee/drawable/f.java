@@ -6,102 +6,102 @@ import android.os.SystemClock;
 import java.util.Arrays;
 /* loaded from: classes15.dex */
 public class f extends a {
-    private static boolean nOk = true;
+    private static boolean oFD = true;
     int mAlpha;
     long mStartTimeMs;
-    private final Drawable[] nNS;
-    int nOe;
-    int nOf;
-    int[] nOg;
-    int[] nOh;
-    boolean[] nOi;
-    int nOj;
+    int[] oFA;
+    boolean[] oFB;
+    int oFC;
+    private final Drawable[] oFl;
+    int oFx;
+    int oFy;
+    int[] oFz;
 
     public f(Drawable[] drawableArr) {
         super(drawableArr);
         com.facebook.common.internal.g.d(drawableArr.length >= 1, "At least one layer required!");
-        this.nNS = drawableArr;
-        this.nOg = new int[drawableArr.length];
-        this.nOh = new int[drawableArr.length];
+        this.oFl = drawableArr;
+        this.oFz = new int[drawableArr.length];
+        this.oFA = new int[drawableArr.length];
         this.mAlpha = 255;
-        this.nOi = new boolean[drawableArr.length];
-        this.nOj = 0;
+        this.oFB = new boolean[drawableArr.length];
+        this.oFC = 0;
         resetInternal();
     }
 
     @Override // android.graphics.drawable.Drawable
     public void invalidateSelf() {
-        if (this.nOj == 0) {
+        if (this.oFC == 0) {
             super.invalidateSelf();
         }
     }
 
-    public void dYc() {
-        this.nOj++;
+    public void eia() {
+        this.oFC++;
     }
 
-    public void dYd() {
-        this.nOj--;
+    public void eib() {
+        this.oFC--;
         invalidateSelf();
     }
 
-    public void Ms(int i) {
-        this.nOf = i;
-        if (this.nOe == 1) {
-            this.nOe = 0;
+    public void Oj(int i) {
+        this.oFy = i;
+        if (this.oFx == 1) {
+            this.oFx = 0;
         }
     }
 
     private void resetInternal() {
-        this.nOe = 2;
-        Arrays.fill(this.nOg, 0);
-        this.nOg[0] = 255;
-        Arrays.fill(this.nOh, 0);
-        this.nOh[0] = 255;
-        Arrays.fill(this.nOi, false);
-        this.nOi[0] = true;
+        this.oFx = 2;
+        Arrays.fill(this.oFz, 0);
+        this.oFz[0] = 255;
+        Arrays.fill(this.oFA, 0);
+        this.oFA[0] = 255;
+        Arrays.fill(this.oFB, false);
+        this.oFB[0] = true;
     }
 
-    public void Mt(int i) {
-        this.nOe = 0;
-        this.nOi[i] = true;
+    public void Ok(int i) {
+        this.oFx = 0;
+        this.oFB[i] = true;
         invalidateSelf();
     }
 
-    public void Mu(int i) {
-        this.nOe = 0;
-        this.nOi[i] = false;
+    public void Ol(int i) {
+        this.oFx = 0;
+        this.oFB[i] = false;
         invalidateSelf();
     }
 
-    public void dYe() {
-        this.nOe = 0;
-        Arrays.fill(this.nOi, true);
+    public void eic() {
+        this.oFx = 0;
+        Arrays.fill(this.oFB, true);
         invalidateSelf();
     }
 
-    public void dYf() {
-        this.nOe = 2;
-        for (int i = 0; i < this.nNS.length; i++) {
-            this.nOh[i] = this.nOi[i] ? 255 : 0;
+    public void eid() {
+        this.oFx = 2;
+        for (int i = 0; i < this.oFl.length; i++) {
+            this.oFA[i] = this.oFB[i] ? 255 : 0;
         }
         invalidateSelf();
     }
 
-    private boolean aR(float f) {
+    private boolean bi(float f) {
         boolean z = true;
-        for (int i = 0; i < this.nNS.length; i++) {
-            this.nOh[i] = (int) (((this.nOi[i] ? 1 : -1) * 255 * f) + this.nOg[i]);
-            if (this.nOh[i] < 0) {
-                this.nOh[i] = 0;
+        for (int i = 0; i < this.oFl.length; i++) {
+            this.oFA[i] = (int) (((this.oFB[i] ? 1 : -1) * 255 * f) + this.oFz[i]);
+            if (this.oFA[i] < 0) {
+                this.oFA[i] = 0;
             }
-            if (this.nOh[i] > 255) {
-                this.nOh[i] = 255;
+            if (this.oFA[i] > 255) {
+                this.oFA[i] = 255;
             }
-            if (this.nOi[i] && this.nOh[i] < 255) {
+            if (this.oFB[i] && this.oFA[i] < 255) {
                 z = false;
             }
-            if (!this.nOi[i] && this.nOh[i] > 0) {
+            if (!this.oFB[i] && this.oFA[i] > 0) {
                 z = false;
             }
         }
@@ -111,26 +111,26 @@ public class f extends a {
     @Override // com.facebook.drawee.drawable.a, android.graphics.drawable.Drawable
     public void draw(Canvas canvas) {
         boolean z = true;
-        switch (this.nOe) {
+        switch (this.oFx) {
             case 0:
-                System.arraycopy(this.nOh, 0, this.nOg, 0, this.nNS.length);
-                this.mStartTimeMs = dYg();
-                if (nOk && this.nOf != 0) {
+                System.arraycopy(this.oFA, 0, this.oFz, 0, this.oFl.length);
+                this.mStartTimeMs = eie();
+                if (oFD && this.oFy != 0) {
                     r0 = 0.0f;
                 }
-                boolean aR = aR(r0);
-                this.nOe = aR ? 2 : 1;
-                z = aR;
+                boolean bi = bi(r0);
+                this.oFx = bi ? 2 : 1;
+                z = bi;
                 break;
             case 1:
-                com.facebook.common.internal.g.checkState(this.nOf > 0);
-                boolean aR2 = aR(nOk ? ((float) (dYg() - this.mStartTimeMs)) / this.nOf : 1.0f);
-                this.nOe = aR2 ? 2 : 1;
-                z = aR2;
+                com.facebook.common.internal.g.checkState(this.oFy > 0);
+                boolean bi2 = bi(oFD ? ((float) (eie() - this.mStartTimeMs)) / this.oFy : 1.0f);
+                this.oFx = bi2 ? 2 : 1;
+                z = bi2;
                 break;
         }
-        for (int i = 0; i < this.nNS.length; i++) {
-            a(canvas, this.nNS[i], (this.nOh[i] * this.mAlpha) / 255);
+        for (int i = 0; i < this.oFl.length; i++) {
+            a(canvas, this.oFl[i], (this.oFA[i] * this.mAlpha) / 255);
         }
         if (!z) {
             invalidateSelf();
@@ -139,9 +139,9 @@ public class f extends a {
 
     private void a(Canvas canvas, Drawable drawable, int i) {
         if (drawable != null && i > 0) {
-            this.nOj++;
+            this.oFC++;
             drawable.mutate().setAlpha(i);
-            this.nOj--;
+            this.oFC--;
             drawable.draw(canvas);
         }
     }
@@ -159,7 +159,7 @@ public class f extends a {
         return this.mAlpha;
     }
 
-    protected long dYg() {
+    protected long eie() {
         return SystemClock.uptimeMillis();
     }
 }

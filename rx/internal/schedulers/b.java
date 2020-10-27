@@ -8,11 +8,11 @@ import rx.internal.util.RxThreadFactory;
 import rx.k;
 /* loaded from: classes16.dex */
 public final class b extends rx.g implements h {
-    static final int oOw;
-    static final c pgW;
-    static final C1015b pgX;
-    final ThreadFactory oOy;
-    final AtomicReference<C1015b> oOz = new AtomicReference<>(pgX);
+    static final int pFT;
+    static final c pYp;
+    static final C1087b pYq;
+    final ThreadFactory pFV;
+    final AtomicReference<C1087b> pFW = new AtomicReference<>(pYq);
 
     static {
         int intValue = Integer.getInteger("rx.scheduler.max-computation-threads", 0).intValue();
@@ -20,123 +20,123 @@ public final class b extends rx.g implements h {
         if (intValue <= 0 || intValue > availableProcessors) {
             intValue = availableProcessors;
         }
-        oOw = intValue;
-        pgW = new c(RxThreadFactory.NONE);
-        pgW.unsubscribe();
-        pgX = new C1015b(null, 0);
+        pFT = intValue;
+        pYp = new c(RxThreadFactory.NONE);
+        pYp.unsubscribe();
+        pYq = new C1087b(null, 0);
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* renamed from: rx.internal.schedulers.b$b  reason: collision with other inner class name */
     /* loaded from: classes16.dex */
-    public static final class C1015b {
+    public static final class C1087b {
         long n;
-        final int oOE;
-        final c[] phd;
+        final int pGb;
+        final c[] pYw;
 
-        C1015b(ThreadFactory threadFactory, int i) {
-            this.oOE = i;
-            this.phd = new c[i];
+        C1087b(ThreadFactory threadFactory, int i) {
+            this.pGb = i;
+            this.pYw = new c[i];
             for (int i2 = 0; i2 < i; i2++) {
-                this.phd[i2] = new c(threadFactory);
+                this.pYw[i2] = new c(threadFactory);
             }
         }
 
-        public c esh() {
-            int i = this.oOE;
+        public c eCf() {
+            int i = this.pGb;
             if (i == 0) {
-                return b.pgW;
+                return b.pYp;
             }
-            c[] cVarArr = this.phd;
+            c[] cVarArr = this.pYw;
             long j = this.n;
             this.n = 1 + j;
             return cVarArr[(int) (j % i)];
         }
 
         public void shutdown() {
-            for (c cVar : this.phd) {
+            for (c cVar : this.pYw) {
                 cVar.unsubscribe();
             }
         }
     }
 
     public b(ThreadFactory threadFactory) {
-        this.oOy = threadFactory;
+        this.pFV = threadFactory;
         start();
     }
 
     @Override // rx.g
     public g.a createWorker() {
-        return new a(this.oOz.get().esh());
+        return new a(this.pFW.get().eCf());
     }
 
     @Override // rx.internal.schedulers.h
     public void start() {
-        C1015b c1015b = new C1015b(this.oOy, oOw);
-        if (!this.oOz.compareAndSet(pgX, c1015b)) {
-            c1015b.shutdown();
+        C1087b c1087b = new C1087b(this.pFV, pFT);
+        if (!this.pFW.compareAndSet(pYq, c1087b)) {
+            c1087b.shutdown();
         }
     }
 
     @Override // rx.internal.schedulers.h
     public void shutdown() {
-        C1015b c1015b;
+        C1087b c1087b;
         do {
-            c1015b = this.oOz.get();
-            if (c1015b == pgX) {
+            c1087b = this.pFW.get();
+            if (c1087b == pYq) {
                 return;
             }
-        } while (!this.oOz.compareAndSet(c1015b, pgX));
-        c1015b.shutdown();
+        } while (!this.pFW.compareAndSet(c1087b, pYq));
+        c1087b.shutdown();
     }
 
     public k g(rx.functions.a aVar) {
-        return this.oOz.get().esh().b(aVar, -1L, TimeUnit.NANOSECONDS);
+        return this.pFW.get().eCf().b(aVar, -1L, TimeUnit.NANOSECONDS);
     }
 
     /* loaded from: classes16.dex */
     static final class a extends g.a {
-        private final rx.internal.util.i pgY = new rx.internal.util.i();
-        private final rx.subscriptions.b pgZ = new rx.subscriptions.b();
-        private final rx.internal.util.i pha = new rx.internal.util.i(this.pgY, this.pgZ);
-        private final c phb;
+        private final rx.internal.util.i pYr = new rx.internal.util.i();
+        private final rx.subscriptions.b pYs = new rx.subscriptions.b();
+        private final rx.internal.util.i pYt = new rx.internal.util.i(this.pYr, this.pYs);
+        private final c pYu;
 
         a(c cVar) {
-            this.phb = cVar;
+            this.pYu = cVar;
         }
 
         @Override // rx.k
         public void unsubscribe() {
-            this.pha.unsubscribe();
+            this.pYt.unsubscribe();
         }
 
         @Override // rx.k
         public boolean isUnsubscribed() {
-            return this.pha.isUnsubscribed();
+            return this.pYt.isUnsubscribed();
         }
 
         @Override // rx.g.a
         public k c(final rx.functions.a aVar) {
-            return isUnsubscribed() ? rx.subscriptions.e.etl() : this.phb.a(new rx.functions.a() { // from class: rx.internal.schedulers.b.a.1
+            return isUnsubscribed() ? rx.subscriptions.e.eDj() : this.pYu.a(new rx.functions.a() { // from class: rx.internal.schedulers.b.a.1
                 @Override // rx.functions.a
                 public void call() {
                     if (!a.this.isUnsubscribed()) {
                         aVar.call();
                     }
                 }
-            }, 0L, (TimeUnit) null, this.pgY);
+            }, 0L, (TimeUnit) null, this.pYr);
         }
 
         @Override // rx.g.a
         public k a(final rx.functions.a aVar, long j, TimeUnit timeUnit) {
-            return isUnsubscribed() ? rx.subscriptions.e.etl() : this.phb.a(new rx.functions.a() { // from class: rx.internal.schedulers.b.a.2
+            return isUnsubscribed() ? rx.subscriptions.e.eDj() : this.pYu.a(new rx.functions.a() { // from class: rx.internal.schedulers.b.a.2
                 @Override // rx.functions.a
                 public void call() {
                     if (!a.this.isUnsubscribed()) {
                         aVar.call();
                     }
                 }
-            }, j, timeUnit, this.pgZ);
+            }, j, timeUnit, this.pYs);
         }
     }
 

@@ -10,15 +10,15 @@ import org.json.JSONObject;
 /* loaded from: classes10.dex */
 public class a {
     private static final boolean DEBUG = b.DEBUG;
-    private CallbackHandler cFY;
-    public JSONObject cNm;
+    private CallbackHandler cOu;
+    public JSONObject cVI;
 
     public a(CallbackHandler callbackHandler, JSONObject jSONObject) {
-        this.cFY = callbackHandler;
-        this.cNm = jSONObject;
+        this.cOu = callbackHandler;
+        this.cVI = jSONObject;
     }
 
-    public void po(String str) {
+    public void pH(String str) {
         if (TextUtils.isEmpty(str)) {
             if (DEBUG) {
                 Log.d("AudioStatusCallBack", "Audio Callback is Null");
@@ -27,7 +27,7 @@ public class a {
             return;
         }
         try {
-            this.cNm = new JSONObject(str);
+            this.cVI = new JSONObject(str);
         } catch (JSONException e) {
             if (DEBUG) {
                 Log.d("AudioStatusCallBack", "Audio Callback is not jsonObject");
@@ -35,21 +35,21 @@ public class a {
         }
     }
 
-    public void pp(String str) {
+    public void pI(String str) {
         e(str, null);
     }
 
     public void e(String str, JSONObject jSONObject) {
-        if (this.cNm != null) {
+        if (this.cVI != null) {
             JSONObject wrapCallbackParamsWithEncode = UnitedSchemeUtility.wrapCallbackParamsWithEncode(jSONObject, 0);
-            this.cFY.handleSchemeDispatchCallback(this.cNm.optString(str), wrapCallbackParamsWithEncode.toString());
+            this.cOu.handleSchemeDispatchCallback(this.cVI.optString(str), wrapCallbackParamsWithEncode.toString());
             if (DEBUG) {
                 Log.d("AudioStatusCallBack", "Audio callback type is : " + str + " , data is : " + wrapCallbackParamsWithEncode.toString());
             }
         }
     }
 
-    public boolean awc() {
-        return UnitedSchemeUtility.isInvokedFromSwanGame(this.cFY);
+    public boolean axW() {
+        return UnitedSchemeUtility.isInvokedFromSwanGame(this.cOu);
     }
 }

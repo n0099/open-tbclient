@@ -27,7 +27,7 @@ public final class d {
     private static d e;
 
     /* renamed from: a  reason: collision with root package name */
-    private List f1319a = new ArrayList();
+    private List f1316a = new ArrayList();
     private List b = new ArrayList();
     private com.baidu.clientupdate.download.a c;
     private b d;
@@ -56,10 +56,10 @@ public final class d {
             if (activeNetworkInfo != null && activeNetworkInfo.isConnectedOrConnecting() && this.c.g()) {
                 LogUtil.logE("LogUtils", "符合wifi下、有a6动作的上报时机");
                 b();
-                if (this.f1319a == null || this.f1319a.size() == 0) {
+                if (this.f1316a == null || this.f1316a.size() == 0) {
                     return;
                 }
-                String a6 = a(this.f1319a);
+                String a6 = a(this.f1316a);
                 if (TextUtils.isEmpty(a6)) {
                     return;
                 }
@@ -83,7 +83,7 @@ public final class d {
         try {
             aVar.b = cursor.getString(cursor.getColumnIndex("ug"));
             aVar.c = cursor.getString(cursor.getColumnIndex("nm"));
-            aVar.f1316a = cursor.getString(cursor.getColumnIndex("sessioninfo"));
+            aVar.f1313a = cursor.getString(cursor.getColumnIndex("sessioninfo"));
             aVar.d = cursor.getString(cursor.getColumnIndex(FrsActivityConfig.FLAG));
             aVar.e = new JSONArray(cursor.getString(cursor.getColumnIndex("stm")));
             aVar.f = new JSONArray(cursor.getString(cursor.getColumnIndex(Config.STAT_SDK_CHANNEL)));
@@ -168,9 +168,9 @@ public final class d {
                                 this.b.add(a(cursor));
                                 cursor.moveToNext();
                             }
-                            this.f1319a.addAll(this.b);
+                            this.f1316a.addAll(this.b);
                             this.b = null;
-                            list = this.f1319a;
+                            list = this.f1316a;
                             if (cursor != null) {
                                 cursor.close();
                             }

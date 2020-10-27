@@ -6,24 +6,24 @@ import javax.annotation.Nullable;
 public class c implements com.facebook.fresco.animation.b.b {
     @Override // com.facebook.fresco.animation.b.b
     @Nullable
-    public com.facebook.common.references.a<Bitmap> MG(int i) {
+    public com.facebook.common.references.a<Bitmap> Ox(int i) {
         return null;
     }
 
     @Override // com.facebook.fresco.animation.b.b
     @Nullable
-    public com.facebook.common.references.a<Bitmap> MH(int i) {
+    public com.facebook.common.references.a<Bitmap> Oy(int i) {
         return null;
     }
 
     @Override // com.facebook.fresco.animation.b.b
     @Nullable
-    public com.facebook.common.references.a<Bitmap> ae(int i, int i2, int i3) {
+    public com.facebook.common.references.a<Bitmap> af(int i, int i2, int i3) {
         return null;
     }
 
     @Override // com.facebook.fresco.animation.b.b
-    public boolean MI(int i) {
+    public boolean Oz(int i) {
         return false;
     }
 

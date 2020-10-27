@@ -14,85 +14,85 @@ import java.util.concurrent.atomic.AtomicBoolean;
 import java.util.concurrent.atomic.AtomicReference;
 /* loaded from: classes17.dex */
 public final class d extends v {
-    static final RxThreadFactory oOR;
-    static final RxThreadFactory oOS;
-    private static final TimeUnit oOT = TimeUnit.SECONDS;
-    static final c oOU = new c(new RxThreadFactory("RxCachedThreadSchedulerShutdown"));
-    static final a oOV;
-    final ThreadFactory oOy;
-    final AtomicReference<a> oOz;
+    static final RxThreadFactory pGo;
+    static final RxThreadFactory pGp;
+    private static final TimeUnit pGq = TimeUnit.SECONDS;
+    static final c pGr = new c(new RxThreadFactory("RxCachedThreadSchedulerShutdown"));
+    static final a pGs;
+    final ThreadFactory pFV;
+    final AtomicReference<a> pFW;
 
     static {
-        oOU.dispose();
+        pGr.dispose();
         int max = Math.max(1, Math.min(10, Integer.getInteger("rx2.io-priority", 5).intValue()));
-        oOR = new RxThreadFactory("RxCachedThreadScheduler", max);
-        oOS = new RxThreadFactory("RxCachedWorkerPoolEvictor", max);
-        oOV = new a(0L, null, oOR);
-        oOV.shutdown();
+        pGo = new RxThreadFactory("RxCachedThreadScheduler", max);
+        pGp = new RxThreadFactory("RxCachedWorkerPoolEvictor", max);
+        pGs = new a(0L, null, pGo);
+        pGs.shutdown();
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* loaded from: classes17.dex */
     public static final class a implements Runnable {
-        private final long oOW;
-        private final ConcurrentLinkedQueue<c> oOX;
-        final io.reactivex.disposables.a oOY;
-        private final ScheduledExecutorService oOZ;
-        private final ThreadFactory oOy;
-        private final Future<?> oPa;
+        private final ThreadFactory pFV;
+        private final long pGt;
+        private final ConcurrentLinkedQueue<c> pGu;
+        final io.reactivex.disposables.a pGv;
+        private final ScheduledExecutorService pGw;
+        private final Future<?> pGx;
 
         a(long j, TimeUnit timeUnit, ThreadFactory threadFactory) {
             ScheduledFuture<?> scheduledFuture;
             ScheduledExecutorService scheduledExecutorService = null;
-            this.oOW = timeUnit != null ? timeUnit.toNanos(j) : 0L;
-            this.oOX = new ConcurrentLinkedQueue<>();
-            this.oOY = new io.reactivex.disposables.a();
-            this.oOy = threadFactory;
+            this.pGt = timeUnit != null ? timeUnit.toNanos(j) : 0L;
+            this.pGu = new ConcurrentLinkedQueue<>();
+            this.pGv = new io.reactivex.disposables.a();
+            this.pFV = threadFactory;
             if (timeUnit != null) {
-                ScheduledExecutorService newScheduledThreadPool = Executors.newScheduledThreadPool(1, d.oOS);
+                ScheduledExecutorService newScheduledThreadPool = Executors.newScheduledThreadPool(1, d.pGp);
                 scheduledExecutorService = newScheduledThreadPool;
-                scheduledFuture = newScheduledThreadPool.scheduleWithFixedDelay(this, this.oOW, this.oOW, TimeUnit.NANOSECONDS);
+                scheduledFuture = newScheduledThreadPool.scheduleWithFixedDelay(this, this.pGt, this.pGt, TimeUnit.NANOSECONDS);
             } else {
                 scheduledFuture = null;
             }
-            this.oOZ = scheduledExecutorService;
-            this.oPa = scheduledFuture;
+            this.pGw = scheduledExecutorService;
+            this.pGx = scheduledFuture;
         }
 
         @Override // java.lang.Runnable
         public void run() {
-            enh();
+            exg();
         }
 
-        c eng() {
-            if (this.oOY.isDisposed()) {
-                return d.oOU;
+        c exf() {
+            if (this.pGv.isDisposed()) {
+                return d.pGr;
             }
-            while (!this.oOX.isEmpty()) {
-                c poll = this.oOX.poll();
+            while (!this.pGu.isEmpty()) {
+                c poll = this.pGu.poll();
                 if (poll != null) {
                     return poll;
                 }
             }
-            c cVar = new c(this.oOy);
-            this.oOY.a(cVar);
+            c cVar = new c(this.pFV);
+            this.pGv.a(cVar);
             return cVar;
         }
 
         void a(c cVar) {
-            cVar.ht(now() + this.oOW);
-            this.oOX.offer(cVar);
+            cVar.hJ(now() + this.pGt);
+            this.pGu.offer(cVar);
         }
 
-        void enh() {
-            if (!this.oOX.isEmpty()) {
+        void exg() {
+            if (!this.pGu.isEmpty()) {
                 long now = now();
-                Iterator<c> it = this.oOX.iterator();
+                Iterator<c> it = this.pGu.iterator();
                 while (it.hasNext()) {
                     c next = it.next();
-                    if (next.eni() <= now) {
-                        if (this.oOX.remove(next)) {
-                            this.oOY.b(next);
+                    if (next.exh() <= now) {
+                        if (this.pGu.remove(next)) {
+                            this.pGv.b(next);
                         }
                     } else {
                         return;
@@ -106,56 +106,56 @@ public final class d extends v {
         }
 
         void shutdown() {
-            this.oOY.dispose();
-            if (this.oPa != null) {
-                this.oPa.cancel(true);
+            this.pGv.dispose();
+            if (this.pGx != null) {
+                this.pGx.cancel(true);
             }
-            if (this.oOZ != null) {
-                this.oOZ.shutdownNow();
+            if (this.pGw != null) {
+                this.pGw.shutdownNow();
             }
         }
     }
 
     public d() {
-        this(oOR);
+        this(pGo);
     }
 
     public d(ThreadFactory threadFactory) {
-        this.oOy = threadFactory;
-        this.oOz = new AtomicReference<>(oOV);
+        this.pFV = threadFactory;
+        this.pFW = new AtomicReference<>(pGs);
         start();
     }
 
     @Override // io.reactivex.v
     public void start() {
-        a aVar = new a(60L, oOT, this.oOy);
-        if (!this.oOz.compareAndSet(oOV, aVar)) {
+        a aVar = new a(60L, pGq, this.pFV);
+        if (!this.pFW.compareAndSet(pGs, aVar)) {
             aVar.shutdown();
         }
     }
 
     @Override // io.reactivex.v
-    public v.c emL() {
-        return new b(this.oOz.get());
+    public v.c ewL() {
+        return new b(this.pFW.get());
     }
 
     /* loaded from: classes17.dex */
     static final class b extends v.c {
-        private final a oPb;
-        private final c oPc;
         final AtomicBoolean once = new AtomicBoolean();
-        private final io.reactivex.disposables.a oOK = new io.reactivex.disposables.a();
+        private final io.reactivex.disposables.a pGh = new io.reactivex.disposables.a();
+        private final a pGy;
+        private final c pGz;
 
         b(a aVar) {
-            this.oPb = aVar;
-            this.oPc = aVar.eng();
+            this.pGy = aVar;
+            this.pGz = aVar.exf();
         }
 
         @Override // io.reactivex.disposables.b
         public void dispose() {
             if (this.once.compareAndSet(false, true)) {
-                this.oOK.dispose();
-                this.oPb.a(this.oPc);
+                this.pGh.dispose();
+                this.pGy.a(this.pGz);
             }
         }
 
@@ -166,26 +166,26 @@ public final class d extends v {
 
         @Override // io.reactivex.v.c
         public io.reactivex.disposables.b c(Runnable runnable, long j, TimeUnit timeUnit) {
-            return this.oOK.isDisposed() ? EmptyDisposable.INSTANCE : this.oPc.a(runnable, j, timeUnit, this.oOK);
+            return this.pGh.isDisposed() ? EmptyDisposable.INSTANCE : this.pGz.a(runnable, j, timeUnit, this.pGh);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* loaded from: classes17.dex */
     public static final class c extends f {
-        private long oPd;
+        private long pGA;
 
         c(ThreadFactory threadFactory) {
             super(threadFactory);
-            this.oPd = 0L;
+            this.pGA = 0L;
         }
 
-        public long eni() {
-            return this.oPd;
+        public long exh() {
+            return this.pGA;
         }
 
-        public void ht(long j) {
-            this.oPd = j;
+        public void hJ(long j) {
+            this.pGA = j;
         }
     }
 }

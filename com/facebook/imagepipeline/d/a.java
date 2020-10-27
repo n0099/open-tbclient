@@ -4,38 +4,38 @@ import java.util.concurrent.Executor;
 import java.util.concurrent.Executors;
 /* loaded from: classes12.dex */
 public class a implements e {
-    private final Executor nUg;
-    private final Executor nUh;
-    private final Executor nUf = Executors.newFixedThreadPool(2, new k(10, "FrescoIoBoundExecutor", true));
-    private final Executor nUi = Executors.newFixedThreadPool(1, new k(10, "FrescoLightWeightBackgroundExecutor", true));
+    private final Executor oLy;
+    private final Executor oLz;
+    private final Executor oLx = Executors.newFixedThreadPool(2, new k(10, "FrescoIoBoundExecutor", true));
+    private final Executor oLA = Executors.newFixedThreadPool(1, new k(10, "FrescoLightWeightBackgroundExecutor", true));
 
     public a(int i) {
-        this.nUg = Executors.newFixedThreadPool(i, new k(10, "FrescoDecodeExecutor", true));
-        this.nUh = Executors.newFixedThreadPool(i, new k(10, "FrescoBackgroundExecutor", true));
+        this.oLy = Executors.newFixedThreadPool(i, new k(10, "FrescoDecodeExecutor", true));
+        this.oLz = Executors.newFixedThreadPool(i, new k(10, "FrescoBackgroundExecutor", true));
     }
 
     @Override // com.facebook.imagepipeline.d.e
-    public Executor eao() {
-        return this.nUf;
+    public Executor ekm() {
+        return this.oLx;
     }
 
     @Override // com.facebook.imagepipeline.d.e
-    public Executor eap() {
-        return this.nUf;
+    public Executor ekn() {
+        return this.oLx;
     }
 
     @Override // com.facebook.imagepipeline.d.e
-    public Executor eaq() {
-        return this.nUg;
+    public Executor eko() {
+        return this.oLy;
     }
 
     @Override // com.facebook.imagepipeline.d.e
-    public Executor ear() {
-        return this.nUh;
+    public Executor ekp() {
+        return this.oLz;
     }
 
     @Override // com.facebook.imagepipeline.d.e
-    public Executor eas() {
-        return this.nUi;
+    public Executor ekq() {
+        return this.oLA;
     }
 }

@@ -10,40 +10,40 @@ import java.util.List;
 import tbclient.RecomTopicList;
 /* loaded from: classes22.dex */
 public class d extends AbsThreadDataSupport {
-    private List<c> jjz;
+    private List<c> jvW;
 
     public d() {
     }
 
     public d(@NonNull List<RecomTopicList> list) {
-        this.jjz = new ArrayList();
+        this.jvW = new ArrayList();
         int size = list.size();
         for (int i = 0; i < size; i++) {
-            this.jjz.add(new c(list.get(i), i));
+            this.jvW.add(new c(list.get(i), i));
         }
-        this.jjz.add(new c());
+        this.jvW.add(new c());
     }
 
-    public List<c> cEU() {
-        return this.jjz;
+    public List<c> cIb() {
+        return this.jvW;
     }
 
-    public void dt(List<c> list) {
-        this.jjz = list;
+    public void dC(List<c> list) {
+        this.jvW = list;
     }
 
     @Override // com.baidu.tieba.card.data.b, com.baidu.adp.widget.ListView.q
     public BdUniqueId getType() {
-        return a.jjt;
+        return a.jvQ;
     }
 
     @Override // com.baidu.tbadk.core.data.AbsThreadDataSupport
-    public bw bfG() {
+    public bw bhz() {
         return null;
     }
 
     @Override // com.baidu.tbadk.core.data.AbsThreadDataSupport
-    public ar bfI() {
+    public ar bhB() {
         return null;
     }
 }

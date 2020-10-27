@@ -22,15 +22,15 @@ public class ConcernPageRequestMessage extends NetMessage {
         try {
             DataReq.Builder builder = new DataReq.Builder();
             builder.page_tag = this.pageTag;
-            if (d.cDh()) {
-                if (!d.cDl()) {
-                    builder.page_tag = d.cDj();
+            if (d.cGo()) {
+                if (!d.cGs()) {
+                    builder.page_tag = d.cGq();
                 } else {
-                    builder.page_tag = d.cDi();
+                    builder.page_tag = d.cGp();
                 }
             }
-            builder.last_req_unix = Long.valueOf(b.blO().getLong(b.getSharedPrefKeyWithAccount(SharedPrefConfig.CONCERN_DATA_RES_REQUEST_TIME), 0L));
-            builder.follow_type = Integer.valueOf(com.baidu.tbadk.a.d.bdK() ? b.blO().getInt("key_home_concern_all_status", 0) : 1);
+            builder.last_req_unix = Long.valueOf(b.bnH().getLong(b.getSharedPrefKeyWithAccount(SharedPrefConfig.CONCERN_DATA_RES_REQUEST_TIME), 0L));
+            builder.follow_type = Integer.valueOf(com.baidu.tbadk.a.d.bfD() ? b.bnH().getInt("key_home_concern_all_status", 0) : 1);
             if (z) {
                 u.a(builder, true);
             }

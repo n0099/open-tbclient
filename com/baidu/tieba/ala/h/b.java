@@ -1,39 +1,39 @@
 package com.baidu.tieba.ala.h;
 
 import android.text.TextUtils;
-import com.baidu.live.data.bo;
+import com.baidu.live.data.bs;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes4.dex */
 public class b {
-    public static bo HX(String str) {
+    public static bs Iw(String str) {
         if (TextUtils.isEmpty(str)) {
             return null;
         }
         try {
             JSONObject jSONObject = new JSONObject(str);
-            bo boVar = new bo();
-            boVar.downloadUrl = jSONObject.optString("download_url");
-            boVar.aOO = jSONObject.optString("download_md5");
-            boVar.videoPath = jSONObject.optString("video_path");
-            boVar.videoMd5 = jSONObject.optString("video_md5");
-            return boVar;
+            bs bsVar = new bs();
+            bsVar.downloadUrl = jSONObject.optString("download_url");
+            bsVar.aPt = jSONObject.optString("download_md5");
+            bsVar.videoPath = jSONObject.optString("video_path");
+            bsVar.videoMd5 = jSONObject.optString("video_md5");
+            return bsVar;
         } catch (JSONException e) {
             e.printStackTrace();
             return null;
         }
     }
 
-    public static String a(bo boVar) {
-        if (boVar == null) {
+    public static String a(bs bsVar) {
+        if (bsVar == null) {
             return null;
         }
         try {
             JSONObject jSONObject = new JSONObject();
-            jSONObject.put("download_url", boVar.downloadUrl);
-            jSONObject.put("download_md5", boVar.aOO);
-            jSONObject.put("video_path", boVar.videoPath);
-            jSONObject.put("video_md5", boVar.videoMd5);
+            jSONObject.put("download_url", bsVar.downloadUrl);
+            jSONObject.put("download_md5", bsVar.aPt);
+            jSONObject.put("video_path", bsVar.videoPath);
+            jSONObject.put("video_md5", bsVar.videoMd5);
             return jSONObject.toString();
         } catch (JSONException e) {
             e.printStackTrace();

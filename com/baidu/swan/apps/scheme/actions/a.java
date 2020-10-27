@@ -24,9 +24,9 @@ public class a extends aa {
             }
             JSONObject optJSONObject = b.optJSONObject("abtest");
             if (optJSONObject != null) {
-                Toast.makeText(context, bG(optJSONObject) ? a.h.swanapp_debug_abtest_config_success : a.h.swanapp_debug_abtest_config_fail, 1).show();
+                Toast.makeText(context, bJ(optJSONObject) ? a.h.swanapp_debug_abtest_config_success : a.h.swanapp_debug_abtest_config_fail, 1).show();
             } else {
-                aEi();
+                aGc();
                 Toast.makeText(context, a.h.swanapp_delete_debug_abtest_config, 1).show();
             }
             return true;
@@ -34,33 +34,33 @@ public class a extends aa {
         return false;
     }
 
-    private boolean bG(JSONObject jSONObject) {
+    private boolean bJ(JSONObject jSONObject) {
         if (jSONObject == null) {
             return false;
         }
-        String aEj = aEj();
-        if (TextUtils.isEmpty(aEj)) {
+        String aGd = aGd();
+        if (TextUtils.isEmpty(aGd)) {
             return false;
         }
-        return com.baidu.swan.apps.s.a.l(aEj, jSONObject.toString(), false);
+        return com.baidu.swan.apps.s.a.l(aGd, jSONObject.toString(), false);
     }
 
-    private void aEi() {
-        String aEj = aEj();
-        if (!TextUtils.isEmpty(aEj)) {
-            File file = new File(aEj);
+    private void aGc() {
+        String aGd = aGd();
+        if (!TextUtils.isEmpty(aGd)) {
+            File file = new File(aGd);
             if (file.exists()) {
                 file.delete();
             }
         }
     }
 
-    public static String aEj() {
-        File aIc = com.baidu.swan.apps.ap.k.aIc();
-        if (aIc == null) {
+    public static String aGd() {
+        File aJW = com.baidu.swan.apps.ap.k.aJW();
+        if (aJW == null) {
             return null;
         }
-        String path = aIc.getPath();
+        String path = aJW.getPath();
         if (TextUtils.isEmpty(path)) {
             return null;
         }

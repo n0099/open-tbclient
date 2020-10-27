@@ -12,7 +12,7 @@ public final class d {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public static int OU(int i) {
+    public static int QL(int i) {
         return varint32Size(a(i, FieldEncoding.VARINT));
     }
 

@@ -6,32 +6,32 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes4.dex */
 public class b {
-    private static b aBi;
-    public List<a> aBj = new ArrayList();
+    private static b aBn;
+    public List<a> aBo = new ArrayList();
 
     private b() {
     }
 
     public static b BE() {
-        if (aBi == null) {
+        if (aBn == null) {
             synchronized (b.class) {
-                if (aBi == null) {
-                    aBi = new b();
+                if (aBn == null) {
+                    aBn = new b();
                 }
             }
         }
-        return aBi;
+        return aBn;
     }
 
     public void b(a aVar) {
         if (aVar != null && !TextUtils.isEmpty(aVar.roomId)) {
-            synchronized (this.aBj) {
-                com.baidu.live.alablmsdk.a.c.d(" chat info list size =  " + this.aBj.size());
-                com.baidu.live.alablmsdk.a.c.fJ("hat info list size " + this.aBj.size());
+            synchronized (this.aBo) {
+                com.baidu.live.alablmsdk.a.c.d(" chat info list size =  " + this.aBo.size());
+                com.baidu.live.alablmsdk.a.c.fJ("hat info list size " + this.aBo.size());
                 if (!contains(aVar.roomId)) {
-                    this.aBj.add(aVar);
-                    com.baidu.live.alablmsdk.a.c.d(" chat info list add 之后， size =  " + this.aBj.size());
-                    com.baidu.live.alablmsdk.a.c.fJ(" chat info list added size " + this.aBj.size());
+                    this.aBo.add(aVar);
+                    com.baidu.live.alablmsdk.a.c.d(" chat info list add 之后， size =  " + this.aBo.size());
+                    com.baidu.live.alablmsdk.a.c.fJ(" chat info list added size " + this.aBo.size());
                 }
             }
         }
@@ -42,16 +42,16 @@ public class b {
         if (TextUtils.isEmpty(str)) {
             return null;
         }
-        synchronized (this.aBj) {
-            if (!com.baidu.live.alablmsdk.a.a.isEmpty(this.aBj)) {
+        synchronized (this.aBo) {
+            if (!com.baidu.live.alablmsdk.a.a.isEmpty(this.aBo)) {
                 int i = 0;
                 while (true) {
                     int i2 = i;
-                    if (i2 >= this.aBj.size()) {
+                    if (i2 >= this.aBo.size()) {
                         aVar = null;
                         break;
                     }
-                    aVar = this.aBj.get(i2);
+                    aVar = this.aBo.get(i2);
                     if (aVar != null && !TextUtils.isEmpty(aVar.roomId) && str.equals(aVar.roomId)) {
                         break;
                     }
@@ -69,15 +69,15 @@ public class b {
         if (TextUtils.isEmpty(str)) {
             return false;
         }
-        synchronized (this.aBj) {
-            if (!com.baidu.live.alablmsdk.a.a.isEmpty(this.aBj)) {
+        synchronized (this.aBo) {
+            if (!com.baidu.live.alablmsdk.a.a.isEmpty(this.aBo)) {
                 int i = 0;
                 while (true) {
-                    if (i >= this.aBj.size()) {
+                    if (i >= this.aBo.size()) {
                         z = false;
                         break;
                     }
-                    a aVar = this.aBj.get(i);
+                    a aVar = this.aBo.get(i);
                     if (aVar == null || TextUtils.isEmpty(aVar.roomId) || !str.equals(aVar.roomId)) {
                         i++;
                     } else {
@@ -93,7 +93,7 @@ public class b {
     }
 
     public void a(String str, LinkUserStatus linkUserStatus) {
-        synchronized (this.aBj) {
+        synchronized (this.aBo) {
             a fL = fL(str);
             if (fL != null) {
                 fL.a(linkUserStatus);
@@ -104,9 +104,9 @@ public class b {
     public void clearAll() {
         com.baidu.live.alablmsdk.a.c.d(" BLMChatInfoManager  clearAll method");
         com.baidu.live.alablmsdk.a.c.fJ(" BLMChatInfoManager clearAll method");
-        if (this.aBj != null) {
-            synchronized (this.aBj) {
-                this.aBj.clear();
+        if (this.aBo != null) {
+            synchronized (this.aBo) {
+                this.aBo.clear();
                 com.baidu.live.alablmsdk.a.c.d(" mChatInfoList.clear() ");
                 com.baidu.live.alablmsdk.a.c.fJ(" mChatInfoList clear ");
             }

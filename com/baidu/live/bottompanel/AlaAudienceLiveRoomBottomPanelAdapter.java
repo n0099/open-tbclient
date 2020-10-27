@@ -9,27 +9,27 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes4.dex */
 public class AlaAudienceLiveRoomBottomPanelAdapter extends PagerAdapter {
-    private d aFd;
+    private d aFl;
     private int mSkinType = 0;
     private int mPrimaryPosition = -1;
-    private final List<d> aFc = new ArrayList();
+    private final List<d> aFk = new ArrayList();
 
     public void setData(List<d> list) {
-        this.aFc.clear();
+        this.aFk.clear();
         if (!ListUtils.isEmpty(list)) {
-            this.aFc.addAll(list);
+            this.aFk.addAll(list);
         }
         notifyDataSetChanged();
     }
 
     @Override // android.support.v4.view.PagerAdapter
     public int getCount() {
-        return this.aFc.size();
+        return this.aFk.size();
     }
 
     @Override // android.support.v4.view.PagerAdapter
     public Object instantiateItem(ViewGroup viewGroup, int i) {
-        d dVar = (d) ListUtils.getItem(this.aFc, i);
+        d dVar = (d) ListUtils.getItem(this.aFk, i);
         if (dVar != null && dVar.getPanelView() != null) {
             View panelView = dVar.getPanelView();
             if (panelView.getParent() != null) {
@@ -52,12 +52,12 @@ public class AlaAudienceLiveRoomBottomPanelAdapter extends PagerAdapter {
             this.mPrimaryPosition = i;
             if (obj instanceof d) {
                 d dVar = (d) obj;
-                if (this.aFd != viewGroup) {
-                    if (this.aFd != null) {
-                        this.aFd.enterBackground();
+                if (this.aFl != viewGroup) {
+                    if (this.aFl != null) {
+                        this.aFl.enterBackground();
                     }
                     dVar.enterForeground();
-                    this.aFd = dVar;
+                    this.aFl = dVar;
                 }
             }
         }
@@ -68,9 +68,9 @@ public class AlaAudienceLiveRoomBottomPanelAdapter extends PagerAdapter {
         return (obj instanceof d) && ((d) obj).getPanelView() == view;
     }
 
-    public void CH() {
-        if (this.aFd != null) {
-            this.aFd.enterForeground();
+    public void CN() {
+        if (this.aFl != null) {
+            this.aFl.enterForeground();
         }
     }
 

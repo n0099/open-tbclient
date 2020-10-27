@@ -7,7 +7,7 @@ import android.util.Log;
 public class b extends a {
     /* JADX INFO: Access modifiers changed from: package-private */
     public b(double d) {
-        this.cSC = d;
+        this.dba = d;
     }
 
     @Override // com.baidu.swan.apps.y.b.a
@@ -26,7 +26,7 @@ public class b extends a {
         int height = rect.height() - 2;
         int i2 = width / 3;
         int i3 = height / i2;
-        int ceil = (int) Math.ceil(i3 * 3 * this.cSC);
+        int ceil = (int) Math.ceil(i3 * 3 * this.dba);
         int i4 = 0;
         int i5 = 0;
         while (true) {

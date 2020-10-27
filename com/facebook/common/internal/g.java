@@ -47,18 +47,18 @@ public final class g {
         return t;
     }
 
-    public static int dG(int i, int i2) {
-        return p(i, i2, "index");
+    public static int dP(int i, int i2) {
+        return s(i, i2, "index");
     }
 
-    public static int p(int i, int i2, @Nullable String str) {
+    public static int s(int i, int i2, @Nullable String str) {
         if (i < 0 || i >= i2) {
-            throw new IndexOutOfBoundsException(q(i, i2, str));
+            throw new IndexOutOfBoundsException(t(i, i2, str));
         }
         return i;
     }
 
-    private static String q(int i, int i2, @Nullable String str) {
+    private static String t(int i, int i2, @Nullable String str) {
         if (i < 0) {
             return format("%s (%s) must not be negative", str, Integer.valueOf(i));
         }

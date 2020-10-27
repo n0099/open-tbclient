@@ -5,10 +5,10 @@ import com.baidu.webkit.sdk.plugin.ZeusPlugin;
 import com.baidu.webkit.sdk.plugin.ZeusPluginFactory;
 /* loaded from: classes10.dex */
 public class c implements ZeusPluginFactory {
-    private String cib;
+    private String cqC;
 
     public c(@NonNull String str) {
-        this.cib = str;
+        this.cqC = str;
     }
 
     @Override // com.baidu.webkit.sdk.plugin.ZeusPluginFactory
@@ -18,6 +18,6 @@ public class c implements ZeusPluginFactory {
 
     @Override // com.baidu.webkit.sdk.plugin.ZeusPluginFactory
     public ZeusPlugin create(ZeusPluginFactory.Invoker invoker) {
-        return new b(com.baidu.swan.apps.t.a.asU().e(invoker, this.cib));
+        return new b(com.baidu.swan.apps.t.a.auO().e(invoker, this.cqC));
     }
 }

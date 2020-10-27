@@ -3,16 +3,16 @@ package com.baidu.b.a;
 class f {
 
     /* renamed from: a  reason: collision with root package name */
-    public static int f1243a = 5;
+    public static int f1240a = 5;
     public static int b = 40;
-    private b acP = new b(b);
+    private b acQ = new b(b);
 
     public f() {
-        this.acP.a(0, b, true);
+        this.acQ.a(0, b, true);
     }
 
     public void a(b bVar, int i, int i2, int i3) {
-        b c = this.acP.c(i, i + i2);
+        b c = this.acQ.c(i, i + i2);
         switch (i3) {
             case 0:
                 c.a(bVar);
@@ -31,11 +31,11 @@ class f {
                 break;
         }
         for (int i4 = 0; i4 < i2; i4++) {
-            this.acP.a(i + i4, c.c(i4));
+            this.acQ.a(i + i4, c.c(i4));
         }
     }
 
     public byte[] a() {
-        return this.acP.a();
+        return this.acQ.a();
     }
 }

@@ -76,12 +76,12 @@ public class a extends UnitedSchemeBaseDispatcher {
     private boolean a(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler) {
         JSONObject jSONObject;
         String str = null;
-        e aDa = e.aDa();
-        if (aDa == null) {
+        e aEU = e.aEU();
+        if (aEU == null) {
             c.e(TAG, "swan app is null");
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202);
             return false;
-        } else if (TextUtils.isEmpty(aDa.id)) {
+        } else if (TextUtils.isEmpty(aEU.id)) {
             c.e(TAG, "aiapp id is invalid");
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202);
             return false;

@@ -14,28 +14,28 @@ import com.baidu.tbadk.core.util.ap;
 import com.baidu.tieba.R;
 /* loaded from: classes3.dex */
 public class TitleTipView extends RelativeLayout {
-    private TextView abi;
-    private int brg;
-    private Runnable brq;
+    private TextView abj;
+    private int btl;
+    private Runnable btw;
     private boolean isShowing;
-    private int jjB;
-    private ImageView kMK;
+    private int jvY;
+    private ImageView kZh;
     private View mBgView;
     private View.OnClickListener mOnClickListener;
-    private ImageView nsi;
-    private View nsj;
+    private ImageView nEH;
+    private View nEI;
 
     public TitleTipView(Context context) {
         super(context);
-        this.jjB = 3;
-        this.brg = 5000;
+        this.jvY = 3;
+        this.btl = 5000;
         this.mOnClickListener = new View.OnClickListener() { // from class: com.baidu.tieba.write.view.TitleTipView.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
                 TitleTipView.this.dismiss();
             }
         };
-        this.brq = new Runnable() { // from class: com.baidu.tieba.write.view.TitleTipView.2
+        this.btw = new Runnable() { // from class: com.baidu.tieba.write.view.TitleTipView.2
             @Override // java.lang.Runnable
             public void run() {
                 TitleTipView.this.dismiss();
@@ -46,15 +46,15 @@ public class TitleTipView extends RelativeLayout {
 
     public TitleTipView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.jjB = 3;
-        this.brg = 5000;
+        this.jvY = 3;
+        this.btl = 5000;
         this.mOnClickListener = new View.OnClickListener() { // from class: com.baidu.tieba.write.view.TitleTipView.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
                 TitleTipView.this.dismiss();
             }
         };
-        this.brq = new Runnable() { // from class: com.baidu.tieba.write.view.TitleTipView.2
+        this.btw = new Runnable() { // from class: com.baidu.tieba.write.view.TitleTipView.2
             @Override // java.lang.Runnable
             public void run() {
                 TitleTipView.this.dismiss();
@@ -65,15 +65,15 @@ public class TitleTipView extends RelativeLayout {
 
     public TitleTipView(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.jjB = 3;
-        this.brg = 5000;
+        this.jvY = 3;
+        this.btl = 5000;
         this.mOnClickListener = new View.OnClickListener() { // from class: com.baidu.tieba.write.view.TitleTipView.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
                 TitleTipView.this.dismiss();
             }
         };
-        this.brq = new Runnable() { // from class: com.baidu.tieba.write.view.TitleTipView.2
+        this.btw = new Runnable() { // from class: com.baidu.tieba.write.view.TitleTipView.2
             @Override // java.lang.Runnable
             public void run() {
                 TitleTipView.this.dismiss();
@@ -85,37 +85,37 @@ public class TitleTipView extends RelativeLayout {
     private void init() {
         View.inflate(getContext(), R.layout.title_tip_layout, this);
         this.mBgView = findViewById(R.id.tip_bg);
-        this.nsi = (ImageView) findViewById(R.id.img_icon);
-        this.kMK = (ImageView) findViewById(R.id.img_close);
-        this.abi = (TextView) findViewById(R.id.tv_tip);
-        this.nsj = findViewById(R.id.tv_line);
-        this.abi.setText(R.string.add_title_tip);
-        this.kMK.setOnClickListener(this.mOnClickListener);
+        this.nEH = (ImageView) findViewById(R.id.img_icon);
+        this.kZh = (ImageView) findViewById(R.id.img_close);
+        this.abj = (TextView) findViewById(R.id.tv_tip);
+        this.nEI = findViewById(R.id.tv_line);
+        this.abj.setText(R.string.add_title_tip);
+        this.kZh.setOnClickListener(this.mOnClickListener);
         onChangeSkinType(TbadkCoreApplication.getInst().getSkinType());
     }
 
-    public void dOW() {
+    public void dSe() {
         setVisibility(0);
         this.isShowing = true;
-        e.mY().postDelayed(this.brq, this.brg);
+        e.mY().postDelayed(this.btw, this.btl);
     }
 
     public void dismiss() {
         setVisibility(8);
-        e.mY().removeCallbacks(this.brq);
+        e.mY().removeCallbacks(this.btw);
         this.isShowing = false;
     }
 
     public void onChangeSkinType(int i) {
-        if (this.jjB != i) {
+        if (this.jvY != i) {
             ap.setBackgroundResource(this.mBgView, R.drawable.pic_post_tip_white_up_left);
-            ap.setBackgroundColor(this.nsj, R.color.cp_bg_line_b);
-            ap.setViewTextColor(this.abi, R.color.cp_cont_j);
-            SvgManager.bmU().a(this.kMK, R.drawable.icon_pure_close_administration24_svg, R.color.cp_cont_d, (SvgManager.SvgResourceStateType) null);
-            if (this.nsi != null) {
-                this.nsi.setImageDrawable(WebPManager.a(R.drawable.icon_pure_post_fatiemijue, ap.getColor(R.color.cp_link_tip_a), null));
+            ap.setBackgroundColor(this.nEI, R.color.cp_bg_line_b);
+            ap.setViewTextColor(this.abj, R.color.cp_cont_j);
+            SvgManager.boN().a(this.kZh, R.drawable.icon_pure_close_administration24_svg, R.color.cp_cont_d, (SvgManager.SvgResourceStateType) null);
+            if (this.nEH != null) {
+                this.nEH.setImageDrawable(WebPManager.a(R.drawable.icon_pure_post_fatiemijue, ap.getColor(R.color.cp_link_tip_a), null));
             }
         }
-        this.jjB = i;
+        this.jvY = i;
     }
 }

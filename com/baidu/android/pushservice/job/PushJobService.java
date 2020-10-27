@@ -18,17 +18,17 @@ import com.baidu.android.pushservice.i.m;
 public class PushJobService extends JobService {
 
     /* renamed from: a  reason: collision with root package name */
-    private Handler f1160a;
+    private Handler f1157a;
 
     /* loaded from: classes10.dex */
     private static class a extends Handler {
 
         /* renamed from: a  reason: collision with root package name */
-        private final JobService f1161a;
+        private final JobService f1158a;
 
         a(JobService jobService) {
             super(jobService.getMainLooper());
-            this.f1161a = jobService;
+            this.f1158a = jobService;
         }
 
         @Override // android.os.Handler
@@ -36,12 +36,12 @@ public class PushJobService extends JobService {
             if (message.what == 1) {
                 JobParameters jobParameters = (JobParameters) message.obj;
                 try {
-                    this.f1161a.jobFinished(jobParameters, true);
+                    this.f1158a.jobFinished(jobParameters, true);
                     if (jobParameters.getJobId() == 1) {
-                        com.baidu.android.pushservice.job.a.a(this.f1161a, false);
+                        com.baidu.android.pushservice.job.a.a(this.f1158a, false);
                     }
                 } catch (Throwable th) {
-                    new b.c(this.f1161a.getApplicationContext()).a(Log.getStackTraceString(th)).a();
+                    new b.c(this.f1158a.getApplicationContext()).a(Log.getStackTraceString(th)).a();
                 }
             }
         }
@@ -69,10 +69,10 @@ public class PushJobService extends JobService {
             } catch (Exception e) {
             }
         }
-        if (this.f1160a == null) {
-            this.f1160a = new a(this);
+        if (this.f1157a == null) {
+            this.f1157a = new a(this);
         }
-        this.f1160a.sendMessageDelayed(Message.obtain(this.f1160a, 1, jobParameters), 2000L);
+        this.f1157a.sendMessageDelayed(Message.obtain(this.f1157a, 1, jobParameters), 2000L);
         return true;
     }
 

@@ -38,7 +38,7 @@ public class c extends b {
         JSONObject jSONObject = new JSONObject();
         if (download != null) {
             try {
-                jSONObject.put("apkId", new com.baidu.swan.gamecenter.appmanager.download.a(download).aNE());
+                jSONObject.put("apkId", new com.baidu.swan.gamecenter.appmanager.download.a(download).aPy());
                 jSONObject.put("downloadId", download.getId());
                 jSONObject.put("packageName", download.getKeyByUser());
                 jSONObject.put("url", download.getUrl());

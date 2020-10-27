@@ -108,7 +108,7 @@ public final class AdDownloadData implements IDownloadModel, Serializable {
         }
 
         @NonNull
-        public AdDownloadData bFd() {
+        public AdDownloadData bGW() {
             return new AdDownloadData(this);
         }
     }

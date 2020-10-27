@@ -3,7 +3,7 @@ package com.baidu.tieba.hottopic.b;
 import com.baidu.tbadk.core.util.at;
 /* loaded from: classes21.dex */
 public class a {
-    public static String aS(String str, int i) {
-        return com.baidu.tbadk.plugins.b.DI(at.cutStringWithEllipsisNew(str, i));
+    public static String aT(String str, int i) {
+        return com.baidu.tbadk.plugins.b.Eb(at.cutStringWithEllipsisNew(str, i));
     }
 }

@@ -7,14 +7,14 @@ import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
 import com.baidu.swan.apps.scheme.actions.aa;
 /* loaded from: classes10.dex */
 public class f extends aa {
-    private c cQN;
-    private k cQO;
-    private e cQP;
-    private d cQQ;
-    private i cQR;
-    private b cQS;
-    private j cQT;
-    private h cQU;
+    private c cZj;
+    private k cZk;
+    private e cZl;
+    private d cZm;
+    private i cZn;
+    private b cZo;
+    private j cZp;
+    private h cZq;
 
     public f(com.baidu.swan.apps.scheme.j jVar) {
         super(jVar, "/swanAPI/video");
@@ -86,52 +86,52 @@ public class f extends aa {
         }
         switch (c) {
             case 0:
-                if (this.cQN == null) {
-                    this.cQN = new c("/swanAPI/video/open");
+                if (this.cZj == null) {
+                    this.cZj = new c("/swanAPI/video/open");
                 }
-                a2 = this.cQN.a(context, unitedSchemeEntity, callbackHandler, eVar);
+                a2 = this.cZj.a(context, unitedSchemeEntity, callbackHandler, eVar);
                 break;
             case 1:
-                if (this.cQO == null) {
-                    this.cQO = new k("/swanAPI/video/update");
+                if (this.cZk == null) {
+                    this.cZk = new k("/swanAPI/video/update");
                 }
-                a2 = this.cQO.a(context, unitedSchemeEntity, callbackHandler, eVar);
+                a2 = this.cZk.a(context, unitedSchemeEntity, callbackHandler, eVar);
                 break;
             case 2:
-                if (this.cQU == null) {
-                    this.cQU = new h("/swanAPI/video/remove");
+                if (this.cZq == null) {
+                    this.cZq = new h("/swanAPI/video/remove");
                 }
-                a2 = this.cQU.a(context, unitedSchemeEntity, callbackHandler, eVar);
+                a2 = this.cZq.a(context, unitedSchemeEntity, callbackHandler, eVar);
                 break;
             case 3:
-                if (this.cQP == null) {
-                    this.cQP = new e("/swanAPI/video/play");
+                if (this.cZl == null) {
+                    this.cZl = new e("/swanAPI/video/play");
                 }
-                a2 = this.cQP.a(context, unitedSchemeEntity, callbackHandler, eVar);
+                a2 = this.cZl.a(context, unitedSchemeEntity, callbackHandler, eVar);
                 break;
             case 4:
-                if (this.cQQ == null) {
-                    this.cQQ = new d("/swanAPI/video/pause");
+                if (this.cZm == null) {
+                    this.cZm = new d("/swanAPI/video/pause");
                 }
-                a2 = this.cQQ.a(context, unitedSchemeEntity, callbackHandler, eVar);
+                a2 = this.cZm.a(context, unitedSchemeEntity, callbackHandler, eVar);
                 break;
             case 5:
-                if (this.cQR == null) {
-                    this.cQR = new i("/swanAPI/video/seek");
+                if (this.cZn == null) {
+                    this.cZn = new i("/swanAPI/video/seek");
                 }
-                a2 = this.cQR.a(context, unitedSchemeEntity, callbackHandler, eVar);
+                a2 = this.cZn.a(context, unitedSchemeEntity, callbackHandler, eVar);
                 break;
             case 6:
-                if (this.cQS == null) {
-                    this.cQS = new b("/swanAPI/video/fullScreen");
+                if (this.cZo == null) {
+                    this.cZo = new b("/swanAPI/video/fullScreen");
                 }
-                a2 = this.cQS.a(context, unitedSchemeEntity, callbackHandler, eVar);
+                a2 = this.cZo.a(context, unitedSchemeEntity, callbackHandler, eVar);
                 break;
             case 7:
-                if (this.cQT == null) {
-                    this.cQT = new j("/swanAPI/video/sendDanmu");
+                if (this.cZp == null) {
+                    this.cZp = new j("/swanAPI/video/sendDanmu");
                 }
-                a2 = this.cQT.a(context, unitedSchemeEntity, callbackHandler, eVar);
+                a2 = this.cZp.a(context, unitedSchemeEntity, callbackHandler, eVar);
                 break;
             default:
                 a2 = false;

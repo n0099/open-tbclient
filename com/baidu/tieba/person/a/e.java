@@ -10,43 +10,43 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes24.dex */
 public class e {
-    private List<com.baidu.adp.widget.ListView.a> bhH = new ArrayList();
-    private HTypeListView lBJ;
-    private c lBK;
-    private b lBL;
-    private a lBM;
+    private List<com.baidu.adp.widget.ListView.a> bje = new ArrayList();
+    private HTypeListView lOg;
+    private c lOh;
+    private b lOi;
+    private a lOj;
     private TbPageContext mTbPageContext;
 
     public e(TbPageContext tbPageContext, HTypeListView hTypeListView) {
         this.mTbPageContext = tbPageContext;
-        this.lBJ = hTypeListView;
-        Le();
+        this.lOg = hTypeListView;
+        Ly();
     }
 
-    private void Le() {
-        this.lBK = new c(this.mTbPageContext, n.aiy);
-        this.lBL = new b(this.mTbPageContext, com.baidu.tieba.person.data.c.lBU);
-        this.lBM = new a(this.mTbPageContext.getPageActivity(), com.baidu.tieba.person.d.lBz);
-        this.bhH.add(this.lBK);
-        this.bhH.add(this.lBL);
-        this.bhH.add(this.lBM);
-        this.lBJ.addAdapters(this.bhH);
+    private void Ly() {
+        this.lOh = new c(this.mTbPageContext, n.aiz);
+        this.lOi = new b(this.mTbPageContext, com.baidu.tieba.person.data.c.lOr);
+        this.lOj = new a(this.mTbPageContext.getPageActivity(), com.baidu.tieba.person.d.lNW);
+        this.bje.add(this.lOh);
+        this.bje.add(this.lOi);
+        this.bje.add(this.lOj);
+        this.lOg.addAdapters(this.bje);
     }
 
     public void setDatas(List<q> list) {
-        if (this.lBJ != null) {
-            this.lBJ.setData(list);
+        if (this.lOg != null) {
+            this.lOg.setData(list);
         }
     }
 
     public void notifyDataSetChanged() {
-        if (this.lBJ != null && (this.lBJ.getAdapter() instanceof af)) {
-            ((af) this.lBJ.getAdapter()).notifyDataSetChanged();
+        if (this.lOg != null && (this.lOg.getAdapter() instanceof af)) {
+            ((af) this.lOg.getAdapter()).notifyDataSetChanged();
         }
     }
 
     public void setItemOnclickListener(View.OnClickListener onClickListener) {
-        this.lBK.F(onClickListener);
-        this.lBL.F(onClickListener);
+        this.lOh.F(onClickListener);
+        this.lOi.F(onClickListener);
     }
 }

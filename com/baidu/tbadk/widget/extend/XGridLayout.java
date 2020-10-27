@@ -8,10 +8,10 @@ import com.baidu.tieba.R;
 import java.util.List;
 /* loaded from: classes.dex */
 public class XGridLayout extends AdapterLayout {
-    private int fpn;
-    private int fpo;
-    private int fpp;
-    private int fpq;
+    private int fxN;
+    private int fxO;
+    private int fxP;
+    private int fxQ;
 
     public XGridLayout(Context context) {
         this(context, null);
@@ -23,15 +23,15 @@ public class XGridLayout extends AdapterLayout {
 
     public XGridLayout(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.fpn = 1;
-        this.fpo = 0;
-        this.fpp = 0;
-        this.fpq = 9;
+        this.fxN = 1;
+        this.fxO = 0;
+        this.fxP = 0;
+        this.fxQ = 9;
         TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, R.styleable.XGridLayout);
-        this.fpn = obtainStyledAttributes.getInteger(R.styleable.XGridLayout_gridSpan, this.fpn);
-        this.fpo = (int) obtainStyledAttributes.getDimension(R.styleable.XGridLayout_gridHorizontalSpace, this.fpo);
-        this.fpp = (int) obtainStyledAttributes.getDimension(R.styleable.XGridLayout_gridVerticalSpace, this.fpp);
-        this.fpq = obtainStyledAttributes.getInteger(R.styleable.XGridLayout_gridMaxItem, this.fpq);
+        this.fxN = obtainStyledAttributes.getInteger(R.styleable.XGridLayout_gridSpan, this.fxN);
+        this.fxO = (int) obtainStyledAttributes.getDimension(R.styleable.XGridLayout_gridHorizontalSpace, this.fxO);
+        this.fxP = (int) obtainStyledAttributes.getDimension(R.styleable.XGridLayout_gridVerticalSpace, this.fxP);
+        this.fxQ = obtainStyledAttributes.getInteger(R.styleable.XGridLayout_gridMaxItem, this.fxQ);
         obtainStyledAttributes.recycle();
     }
 
@@ -40,8 +40,8 @@ public class XGridLayout extends AdapterLayout {
         int i3 = 0;
         super.onMeasure(i, i2);
         int size = View.MeasureSpec.getSize(i);
-        int paddingLeft = (((size - getPaddingLeft()) - getPaddingRight()) - (this.fpo * (this.fpn - 1))) / this.fpn;
-        int min = Math.min(getChildCount(), this.fpq);
+        int paddingLeft = (((size - getPaddingLeft()) - getPaddingRight()) - (this.fxO * (this.fxN - 1))) / this.fxN;
+        int min = Math.min(getChildCount(), this.fxQ);
         if (min <= 0) {
             setMeasuredDimension(0, 0);
             return;
@@ -50,8 +50,8 @@ public class XGridLayout extends AdapterLayout {
             View childAt = getChildAt(i4);
             measureChild(childAt, View.MeasureSpec.makeMeasureSpec(paddingLeft, 1073741824), i2);
             if (i4 != 0) {
-                if (i4 % this.fpn == 0) {
-                    i3 += childAt.getMeasuredHeight() + this.fpp;
+                if (i4 % this.fxN == 0) {
+                    i3 += childAt.getMeasuredHeight() + this.fxP;
                 }
             } else {
                 i3 += childAt.getMeasuredHeight();
@@ -62,7 +62,7 @@ public class XGridLayout extends AdapterLayout {
 
     @Override // android.view.ViewGroup, android.view.View
     protected void onLayout(boolean z, int i, int i2, int i3, int i4) {
-        int min = Math.min(getChildCount(), this.fpq);
+        int min = Math.min(getChildCount(), this.fxQ);
         if (min > 0) {
             int paddingLeft = getPaddingLeft();
             int paddingTop = getPaddingTop();
@@ -73,10 +73,10 @@ public class XGridLayout extends AdapterLayout {
                     int measuredWidth = childAt.getMeasuredWidth();
                     int measuredHeight = childAt.getMeasuredHeight();
                     childAt.layout(i5, paddingTop, i5 + measuredWidth, paddingTop + measuredHeight);
-                    i5 += this.fpo + measuredWidth;
-                    if ((i6 + 1) % this.fpn == 0) {
+                    i5 += this.fxO + measuredWidth;
+                    if ((i6 + 1) % this.fxN == 0) {
                         i5 = getPaddingLeft();
-                        paddingTop += this.fpp + measuredHeight;
+                        paddingTop += this.fxP + measuredHeight;
                     }
                 }
             }
@@ -84,42 +84,42 @@ public class XGridLayout extends AdapterLayout {
     }
 
     @Override // com.baidu.tbadk.widget.extend.AdapterLayout
-    protected void bAG() {
-        if (this.fpk != null) {
+    protected void bCz() {
+        if (this.fxK != null) {
             removeAllViews();
-            int min = Math.min(this.fpk.getCount(), this.fpq);
+            int min = Math.min(this.fxK.getCount(), this.fxQ);
             for (int i = 0; i < min; i++) {
-                addView(this.fpk.getView(i, this));
+                addView(this.fxK.getView(i, this));
             }
         }
     }
 
     public void setMaxItem(int i) {
-        this.fpq = i;
+        this.fxQ = i;
     }
 
     public void setGridSpan(int i) {
-        this.fpn = i;
+        this.fxN = i;
     }
 
     public void setAutoGridSpan(List<?> list, int i) {
         if (list.size() < i) {
             i = list.size() % i;
         }
-        this.fpn = i;
+        this.fxN = i;
     }
 
     public void setVerticalSpace(int i) {
-        this.fpp = i;
+        this.fxP = i;
     }
 
     public void setHorizontalSpace(int i) {
-        this.fpo = i;
+        this.fxO = i;
     }
 
     public void onChangeSkinType() {
-        if (this.fpk != null) {
-            this.fpk.notifyDataSetChanged();
+        if (this.fxK != null) {
+            this.fxK.notifyDataSetChanged();
         }
     }
 }

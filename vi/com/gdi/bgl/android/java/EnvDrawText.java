@@ -620,7 +620,7 @@ public class EnvDrawText {
                 a aVar = fontCache.get(i);
                 if (aVar == null) {
                     a aVar2 = new a();
-                    aVar2.f5405a = typeface;
+                    aVar2.f5403a = typeface;
                     aVar2.b++;
                     fontCache.put(i, aVar2);
                 } else {

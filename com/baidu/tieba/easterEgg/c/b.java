@@ -16,31 +16,31 @@ import java.util.ArrayList;
 import java.util.HashMap;
 /* loaded from: classes24.dex */
 public class b extends k {
-    private Gson ehZ;
-    private d hNW;
-    private HashMap<String, String> hNX;
-    private SparseArray<String> hNY;
+    private Gson eqx;
+    private d iat;
+    private HashMap<String, String> iau;
+    private SparseArray<String> iav;
 
     public b(int i) {
         super(i);
-        this.ehZ = new Gson();
-        ckL();
+        this.eqx = new Gson();
+        cnS();
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.adp.framework.b.f
     /* renamed from: d */
     public SocketMessage process(SocketMessage socketMessage, SocketMessageTask socketMessageTask) {
-        String str = this.hNY.get(socketMessage.getCmd());
-        if (str != null && this.hNX != null && this.hNX.get(str) != null && this.hNW != null) {
-            this.hNW.ar(str, this.ehZ.toJson(this.hNX.get(str)), this.ehZ.toJson(this.ehZ.toJson(socketMessage.getData())));
+        String str = this.iav.get(socketMessage.getCmd());
+        if (str != null && this.iau != null && this.iau.get(str) != null && this.iat != null) {
+            this.iat.ay(str, this.eqx.toJson(this.iau.get(str)), this.eqx.toJson(this.eqx.toJson(socketMessage.getData())));
         }
         return socketMessage;
     }
 
-    private void ckL() {
+    private void cnS() {
         int i;
-        this.hNY = new SparseArray<>();
+        this.iav = new SparseArray<>();
         ArrayList<HttpMessageTask> findHttpTasks = MessageManager.getInstance().findHttpTasks();
         if (!y.isEmpty(findHttpTasks)) {
             for (int i2 = 0; i2 < findHttpTasks.size(); i2++) {
@@ -50,7 +50,7 @@ public class b extends k {
                     String str = split[1];
                     String str2 = split[0];
                     if (!at.isEmpty(str) && str.contains(ETAG.EQUAL) && (i = com.baidu.adp.lib.f.b.toInt(str.split("[=]")[1], 0)) != 0) {
-                        this.hNY.put(i, str2.replace(TbConfig.SERVER_ADDRESS, ""));
+                        this.iav.put(i, str2.replace(TbConfig.SERVER_ADDRESS, ""));
                     }
                 }
             }
@@ -58,10 +58,10 @@ public class b extends k {
     }
 
     public void G(HashMap<String, String> hashMap) {
-        this.hNX = hashMap;
+        this.iau = hashMap;
     }
 
     public void a(d dVar) {
-        this.hNW = dVar;
+        this.iat = dVar;
     }
 }

@@ -18,15 +18,15 @@ import com.baidu.tbadk.core.data.bw;
 import com.baidu.tbadk.core.util.ay;
 /* loaded from: classes22.dex */
 public class h extends com.baidu.adp.widget.ListView.a<bv, am<bw>> {
-    private v alC;
-    public BdUniqueId fey;
+    private v alD;
+    public BdUniqueId fmX;
     private TbPageContext<?> mPageContext;
     private String mTabName;
 
     public h(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId, BdUniqueId bdUniqueId2, String str) {
         super(tbPageContext.getPageActivity(), bdUniqueId);
         this.mPageContext = tbPageContext;
-        this.fey = bdUniqueId2;
+        this.fmX = bdUniqueId2;
         this.mTabName = str;
     }
 
@@ -37,10 +37,10 @@ public class h extends com.baidu.adp.widget.ListView.a<bv, am<bw>> {
     public am<bw> c(ViewGroup viewGroup) {
         ak.a aVar = new ak.a(this.mPageContext.getPageActivity(), false);
         aVar.a((com.baidu.card.i) new aa(this.mPageContext.getPageActivity()));
-        ak a2 = aVar.a(false, viewGroup, this.alC);
+        ak a2 = aVar.a(false, viewGroup, this.alD);
         a2.setSourceForPb(2);
         am<bw> amVar = new am<>(a2);
-        amVar.setPageId(this.fey);
+        amVar.setPageId(this.fmX);
         a(new ab() { // from class: com.baidu.tieba.enterForum.tabfeed.a.h.1
             @Override // com.baidu.adp.widget.ListView.ab
             public void a(View view, q qVar, BdUniqueId bdUniqueId, ViewGroup viewGroup2, int i, long j) {
@@ -57,17 +57,17 @@ public class h extends com.baidu.adp.widget.ListView.a<bv, am<bw>> {
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.widget.ListView.a
     public View a(int i, View view, ViewGroup viewGroup, bv bvVar, am<bw> amVar) {
-        if (bvVar == null || amVar == null || amVar.getView() == null || bvVar.eji == null) {
+        if (bvVar == null || amVar == null || amVar.getView() == null || bvVar.erH == null) {
             return null;
         }
-        bvVar.eji.ens = getPositionByType(i) + 1;
+        bvVar.erH.evR = getPositionByType(i) + 1;
         amVar.tW().setPosition(i);
-        amVar.b((am<bw>) bvVar.eji);
+        amVar.b((am<bw>) bvVar.erH);
         amVar.tW().onChangeSkinType(this.mPageContext, TbadkCoreApplication.getInst().getSkinType());
         return amVar.getView();
     }
 
     public void a(v vVar) {
-        this.alC = vVar;
+        this.alD = vVar;
     }
 }

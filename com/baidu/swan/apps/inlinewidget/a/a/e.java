@@ -6,7 +6,7 @@ import com.baidu.webkit.sdk.plugin.ZeusPlugin;
 public class e extends com.baidu.swan.apps.inlinewidget.a<com.baidu.swan.apps.inlinewidget.a.c> {
     @Override // com.baidu.swan.apps.inlinewidget.a
     @NonNull
-    public String arf() {
+    public String ata() {
         return "showsoftkeyboard";
     }
 
@@ -15,6 +15,6 @@ public class e extends com.baidu.swan.apps.inlinewidget.a<com.baidu.swan.apps.in
     public void a(@NonNull ZeusPlugin.Command command, @NonNull com.baidu.swan.apps.inlinewidget.a.c cVar) {
         int i = command.arg1;
         a(cVar, command.what, "Type:" + i, false);
-        cVar.im(i);
+        cVar.ix(i);
     }
 }

@@ -10,7 +10,7 @@ import tv.chushou.zues.widget.gift.view.GiftFrameLayout;
 public class GiftAnimationLayout extends LinearLayout {
 
     /* renamed from: a  reason: collision with root package name */
-    private int f4247a;
+    private int f4245a;
     private int b;
 
     public GiftAnimationLayout(Context context) {
@@ -19,13 +19,13 @@ public class GiftAnimationLayout extends LinearLayout {
 
     public GiftAnimationLayout(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.f4247a = 2;
+        this.f4245a = 2;
         this.b = 1;
         if (attributeSet != null) {
             TypedArray typedArray = null;
             try {
                 typedArray = context.obtainStyledAttributes(attributeSet, a.k.GiftAnimationLayout);
-                this.f4247a = typedArray.getInteger(a.k.GiftAnimationLayout_layoutCount, 2);
+                this.f4245a = typedArray.getInteger(a.k.GiftAnimationLayout_layoutCount, 2);
                 this.b = typedArray.getInteger(a.k.GiftAnimationLayout_viewtype, 1);
             } finally {
                 if (typedArray != null) {
@@ -39,7 +39,7 @@ public class GiftAnimationLayout extends LinearLayout {
     private void a(Context context) {
         setBackgroundColor(0);
         setOrientation(1);
-        for (int i = 0; i < this.f4247a; i++) {
+        for (int i = 0; i < this.f4245a; i++) {
             GiftFrameLayout giftFrameLayout = new GiftFrameLayout(context, null, this.b);
             giftFrameLayout.setVisibility(4);
             addView(giftFrameLayout);

@@ -49,7 +49,7 @@ public class a extends aa {
             }
             return false;
         }
-        if (eVar.afg()) {
+        if (eVar.aha()) {
             if (DEBUG) {
                 Log.d("AudioRecordAction", "AudioRecordAction does not supported when app is invisible.");
             }
@@ -84,30 +84,30 @@ public class a extends aa {
                 Log.d("AudioRecordAction", "record --- none swanApp id");
             }
             return false;
-        } else if (!com.baidu.swan.apps.media.a.c.a.awS().pD(str)) {
+        } else if (!com.baidu.swan.apps.media.a.c.a.ayM().pW(str)) {
             return false;
         } else {
-            JSONObject pm = pm(unitedSchemeEntity.getParam("params"));
-            if (TextUtils.equals(str, "/swanAPI/recorder/start") && pm == null) {
+            JSONObject pF = pF(unitedSchemeEntity.getParam("params"));
+            if (TextUtils.equals(str, "/swanAPI/recorder/start") && pF == null) {
                 c.e("record", "none params");
                 unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202, "none params");
                 return false;
             }
-            final com.baidu.swan.apps.media.a.a a2 = com.baidu.swan.apps.media.a.a.a(pm, com.baidu.swan.apps.media.a.c.a.awS().awX());
+            final com.baidu.swan.apps.media.a.a a2 = com.baidu.swan.apps.media.a.a.a(pF, com.baidu.swan.apps.media.a.c.a.ayM().ayR());
             if (a2 == null) {
                 c.e("record", "error params");
                 unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202, "error cb");
                 return false;
             }
-            JSONObject awR = a2.awR();
-            if (awR != null) {
+            JSONObject ayL = a2.ayL();
+            if (ayL != null) {
                 c.e("record", "error params");
-                unitedSchemeEntity.result = awR;
+                unitedSchemeEntity.result = ayL;
                 return false;
             }
-            final b a3 = b.a(callbackHandler, unitedSchemeEntity, a2.cPK, com.baidu.swan.apps.media.a.c.a.awS().awY());
-            final String sO = com.baidu.swan.apps.storage.b.sO(eVar.id);
-            if (TextUtils.isEmpty(sO)) {
+            final b a3 = b.a(callbackHandler, unitedSchemeEntity, a2.cYg, com.baidu.swan.apps.media.a.c.a.ayM().ayS());
+            final String th = com.baidu.swan.apps.storage.b.th(eVar.id);
+            if (TextUtils.isEmpty(th)) {
                 c.e("record", "none tmp path");
                 unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
                 return false;
@@ -116,7 +116,7 @@ public class a extends aa {
                 c.e("record", "handle action, but context is not Activity");
                 return false;
             } else {
-                eVar.aDm().b(context, PermissionProxy.SCOPE_ID_RECORD, new com.baidu.swan.apps.ap.e.b<h<b.d>>() { // from class: com.baidu.swan.apps.media.a.a.a.1
+                eVar.aFg().b(context, PermissionProxy.SCOPE_ID_RECORD, new com.baidu.swan.apps.ap.e.b<h<b.d>>() { // from class: com.baidu.swan.apps.media.a.a.a.1
                     /* JADX DEBUG: Method merged with bridge method */
                     @Override // com.baidu.swan.apps.ap.e.b
                     /* renamed from: a */
@@ -124,12 +124,12 @@ public class a extends aa {
                         if (!com.baidu.swan.apps.setting.oauth.c.b(hVar)) {
                             com.baidu.swan.apps.setting.oauth.c.a(hVar, callbackHandler, unitedSchemeEntity);
                             int errorCode = hVar == null ? 10001 : hVar.getErrorCode();
-                            a.this.a(a3, errorCode, com.baidu.swan.apps.setting.oauth.c.hi(errorCode));
-                        } else if (com.baidu.swan.apps.media.a.c.a.awS().pE(str)) {
+                            a.this.a(a3, errorCode, com.baidu.swan.apps.setting.oauth.c.ht(errorCode));
+                        } else if (com.baidu.swan.apps.media.a.c.a.ayM().pX(str)) {
                             a.this.a(a3, 2001, "error execute time");
                             c.e("record", "error execute time");
                         } else {
-                            a.this.a(context, unitedSchemeEntity, callbackHandler, str, a2, a3, sO, eVar.id);
+                            a.this.a(context, unitedSchemeEntity, callbackHandler, str, a2, a3, th, eVar.id);
                         }
                     }
                 });
@@ -146,7 +146,7 @@ public class a extends aa {
     public void a(final Context context, final UnitedSchemeEntity unitedSchemeEntity, final CallbackHandler callbackHandler, final String str, final com.baidu.swan.apps.media.a.a aVar, final com.baidu.swan.apps.media.a.b bVar, final String str2, final String str3) {
         com.baidu.swan.apps.ab.a.a(new String[]{PermissionRequest.RESOURCE_AUDIO_CAPTURE}, 2, context, new com.baidu.swan.apps.ab.b() { // from class: com.baidu.swan.apps.media.a.a.a.2
             @Override // com.baidu.swan.apps.ab.b
-            public void jL(String str4) {
+            public void ke(String str4) {
                 if (a.DEBUG) {
                     Log.d("AudioRecordAction", str4 + "");
                 }
@@ -154,7 +154,7 @@ public class a extends aa {
             }
 
             @Override // com.baidu.swan.apps.ab.b
-            public void Z(int i, String str4) {
+            public void ab(int i, String str4) {
                 if (a.DEBUG) {
                     Log.d("AudioRecordAction", str4 + "");
                 }
@@ -216,25 +216,25 @@ public class a extends aa {
 
     private void a(Context context, com.baidu.swan.apps.media.a.a aVar, com.baidu.swan.apps.media.a.b bVar, String str, String str2) {
         c.i("record", OneKeyLoginSdkCall.l);
-        com.baidu.swan.apps.media.a.c.a.awS().a(str, aVar, context, bVar, str2);
+        com.baidu.swan.apps.media.a.c.a.ayM().a(str, aVar, context, bVar, str2);
         c.i("record", "start");
-        com.baidu.swan.apps.media.a.c.a.awS().fj(true);
+        com.baidu.swan.apps.media.a.c.a.ayM().fw(true);
     }
 
     private void pauseRecord() {
-        com.baidu.swan.apps.media.a.c.a.awS().pauseRecord();
+        com.baidu.swan.apps.media.a.c.a.ayM().pauseRecord();
     }
 
     private void resumeRecord() {
-        com.baidu.swan.apps.media.a.c.a.awS().resumeRecord();
+        com.baidu.swan.apps.media.a.c.a.ayM().resumeRecord();
     }
 
     private void stopRecord() {
-        com.baidu.swan.apps.media.a.c.a.awS().stopRecord();
+        com.baidu.swan.apps.media.a.c.a.ayM().stopRecord();
         com.baidu.swan.apps.media.a.c.a.release();
     }
 
-    private JSONObject pm(String str) {
+    private JSONObject pF(String str) {
         if (!TextUtils.isEmpty(str)) {
             try {
                 return new JSONObject(str);
@@ -249,20 +249,20 @@ public class a extends aa {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void a(com.baidu.swan.apps.media.a.b bVar, int i, String str) {
-        if (bVar == null || TextUtils.isEmpty(com.baidu.swan.apps.media.a.b.cPP)) {
+        if (bVar == null || TextUtils.isEmpty(com.baidu.swan.apps.media.a.b.cYl)) {
             JSONObject jSONObject = new JSONObject();
             try {
                 jSONObject.put("errCode", i);
                 jSONObject.put("errMsg", str);
                 HashMap hashMap = new HashMap();
                 hashMap.put("data", jSONObject.toString());
-                f.avu().b(new com.baidu.swan.apps.event.a.b("recorderError", hashMap));
+                f.axo().b(new com.baidu.swan.apps.event.a.b("recorderError", hashMap));
                 return;
             } catch (JSONException e) {
                 c.e("record", "json error", e);
                 return;
             }
         }
-        bVar.ae(i, str);
+        bVar.ag(i, str);
     }
 }

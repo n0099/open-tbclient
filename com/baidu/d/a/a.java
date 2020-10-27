@@ -12,20 +12,20 @@ import java.io.InputStreamReader;
 /* loaded from: classes9.dex */
 public class a {
     private static boolean DEBUG = AppConfig.isDebug();
-    private static a ani;
-    private String anj;
-    private SharedPreferences ank;
+    private static a anj;
+    private String ank;
+    private SharedPreferences anl;
     private String mChannel;
 
     public static a uK() {
-        if (ani == null) {
+        if (anj == null) {
             synchronized (a.class) {
-                if (ani == null) {
-                    ani = new a();
+                if (anj == null) {
+                    anj = new a();
                 }
             }
         }
-        return ani;
+        return anj;
     }
 
     private a() {
@@ -33,7 +33,7 @@ public class a {
     }
 
     private void init() {
-        this.ank = AppRuntime.getAppContext().getSharedPreferences("com.baidu.common.pubparam", 0);
+        this.anl = AppRuntime.getAppContext().getSharedPreferences("com.baidu.common.pubparam", 0);
         uM();
         uN();
     }
@@ -43,30 +43,30 @@ public class a {
     }
 
     public String uL() {
-        return this.anj;
+        return this.ank;
     }
 
     private void uM() {
-        this.anj = uQ();
-        if (TextUtils.isEmpty(this.anj)) {
-            this.anj = uR();
+        this.ank = uQ();
+        if (TextUtils.isEmpty(this.ank)) {
+            this.ank = uR();
         }
     }
 
     private void uN() {
         this.mChannel = uO();
-        if (TextUtils.isEmpty(this.mChannel) && !TextUtils.isEmpty(this.anj)) {
-            this.mChannel = this.anj;
+        if (TextUtils.isEmpty(this.mChannel) && !TextUtils.isEmpty(this.ank)) {
+            this.mChannel = this.ank;
             uP();
         }
     }
 
     private String uO() {
-        return this.ank.getString("channel", null);
+        return this.anl.getString("channel", null);
     }
 
     private void uP() {
-        this.ank.edit().putString("channel", this.mChannel).apply();
+        this.anl.edit().putString("channel", this.mChannel).apply();
     }
 
     /* JADX DEBUG: Another duplicated slice has different insns count: {[]}, finally: {[CONST_STR, CONST_STR, INVOKE, IF, SGET, MOVE_EXCEPTION, INVOKE, INVOKE, CONST_STR, CONST_STR, INVOKE, IF, SGET, MOVE_EXCEPTION] complete} */

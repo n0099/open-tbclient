@@ -9,7 +9,7 @@ import org.json.JSONObject;
 /* loaded from: classes10.dex */
 public class a {
     /* JADX WARN: Type inference failed for: r2v0, types: [org.json.JSONObject, T] */
-    public static void bT(String str, String str2) {
+    public static void ca(String str, String str2) {
         g gVar = new g();
         ?? jSONObject = new JSONObject();
         try {
@@ -19,12 +19,12 @@ public class a {
             com.baidu.swan.apps.ac.d.a.print(Log.getStackTraceString(e));
         }
         gVar.mData = jSONObject;
-        f.avu().a(str, gVar);
+        f.axo().a(str, gVar);
     }
 
     public static void e(Integer num) {
         HashMap hashMap = new HashMap();
         hashMap.put("level", String.valueOf(num));
-        f.avu().b(new com.baidu.swan.apps.event.a.b("text-size-adjust", hashMap));
+        f.axo().b(new com.baidu.swan.apps.event.a.b("text-size-adjust", hashMap));
     }
 }

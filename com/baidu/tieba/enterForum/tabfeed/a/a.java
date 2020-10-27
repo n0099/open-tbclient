@@ -3,7 +3,6 @@ package com.baidu.tieba.enterForum.tabfeed.a;
 import android.view.View;
 import android.view.ViewGroup;
 import com.baidu.adp.BdUniqueId;
-import com.baidu.adp.widget.ListView.ab;
 import com.baidu.adp.widget.ListView.q;
 import com.baidu.adp.widget.ListView.v;
 import com.baidu.card.Align;
@@ -18,30 +17,30 @@ import com.baidu.tbadk.core.data.bw;
 import com.baidu.tbadk.core.util.ay;
 import com.baidu.tieba.NEGFeedBack.NEGFeedBackView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.card.aa;
-import com.baidu.tieba.card.s;
+import com.baidu.tieba.card.ab;
+import com.baidu.tieba.card.t;
 /* loaded from: classes22.dex */
 public class a extends com.baidu.adp.widget.ListView.a<bw, am<bw>> {
-    private aa<bw> afE;
-    private v alC;
-    private NEGFeedBackView.a fAU;
-    public BdUniqueId fey;
+    private ab<bw> afF;
+    private v alD;
+    private NEGFeedBackView.a fJp;
+    public BdUniqueId fmX;
     private TbPageContext<?> mPageContext;
     private String mTabName;
 
     public a(TbPageContext tbPageContext, BdUniqueId bdUniqueId, BdUniqueId bdUniqueId2, String str) {
         super(tbPageContext.getPageActivity(), bdUniqueId);
-        this.afE = new aa<bw>() { // from class: com.baidu.tieba.enterForum.tabfeed.a.a.1
+        this.afF = new ab<bw>() { // from class: com.baidu.tieba.enterForum.tabfeed.a.a.1
             /* JADX DEBUG: Method merged with bridge method */
-            @Override // com.baidu.tieba.card.aa
+            @Override // com.baidu.tieba.card.ab
             /* renamed from: b */
             public void a(View view, bw bwVar) {
-                s.ciJ().lm(true);
+                t.clQ().lE(true);
                 com.baidu.tieba.enterForum.a.a(view, bwVar, a.this.mTabName);
             }
         };
         this.mPageContext = tbPageContext;
-        this.fey = bdUniqueId2;
+        this.fmX = bdUniqueId2;
         this.mTabName = str;
     }
 
@@ -52,15 +51,15 @@ public class a extends com.baidu.adp.widget.ListView.a<bw, am<bw>> {
     public am<bw> c(ViewGroup viewGroup) {
         ak.a aVar = new ak.a(this.mPageContext.getPageActivity());
         com.baidu.card.e eVar = new com.baidu.card.e(this.mPageContext.getPageActivity());
-        eVar.setPageUniqueId(this.fey);
+        eVar.setPageUniqueId(this.fmX);
         eVar.b(this.mPageContext);
         aVar.a(eVar);
         aVar.c(new com.baidu.card.c(this.mPageContext.getPageActivity()));
         aVar.a((com.baidu.card.i) new com.baidu.card.k(this.mPageContext.getPageActivity()));
         an anVar = new an(this.mPageContext.getPageActivity());
         com.baidu.tbadk.core.data.c cVar = new com.baidu.tbadk.core.data.c();
-        cVar.ela = 1;
-        cVar.elg = 1;
+        cVar.etA = 1;
+        cVar.etG = 1;
         anVar.setAgreeStatisticData(cVar);
         anVar.setFrom(1);
         anVar.setShareReportFrom(3);
@@ -69,11 +68,11 @@ public class a extends com.baidu.adp.widget.ListView.a<bw, am<bw>> {
         aVar.tU().bv(com.baidu.adp.lib.util.l.getDimens(TbadkCoreApplication.getInst(), R.dimen.tbds35));
         aVar.tU().setBackgroundResource(R.drawable.addresslist_item_bg);
         aVar.tU().bw(com.baidu.adp.lib.util.l.getDimens(this.mPageContext.getPageActivity(), R.dimen.tbds17));
-        ak a2 = aVar.a(true, viewGroup, this.alC);
+        ak a2 = aVar.a(true, viewGroup, this.alD);
         a2.setSourceForPb(2);
         am<bw> amVar = new am<>(a2);
-        amVar.setPageId(this.fey);
-        a(new ab() { // from class: com.baidu.tieba.enterForum.tabfeed.a.a.2
+        amVar.setPageId(this.fmX);
+        a(new com.baidu.adp.widget.ListView.ab() { // from class: com.baidu.tieba.enterForum.tabfeed.a.a.2
             @Override // com.baidu.adp.widget.ListView.ab
             public void a(View view, q qVar, BdUniqueId bdUniqueId, ViewGroup viewGroup2, int i, long j) {
                 a.this.a(view, qVar);
@@ -89,12 +88,12 @@ public class a extends com.baidu.adp.widget.ListView.a<bw, am<bw>> {
         if (bwVar == null || amVar == null || amVar.getView() == null) {
             return null;
         }
-        bwVar.ens = getPositionByType(i) + 1;
+        bwVar.evR = getPositionByType(i) + 1;
         amVar.tW().setPosition(i);
-        amVar.aL(true).a(this.fAU);
+        amVar.aL(true).a(this.fJp);
         amVar.a(true, Align.ALIGN_RIGHT_BOTTOM);
         amVar.b((am<bw>) bwVar);
-        amVar.tW().a(this.afE);
+        amVar.tW().a(this.afF);
         amVar.tW().onChangeSkinType(this.mPageContext, TbadkCoreApplication.getInst().getSkinType());
         com.baidu.tieba.enterForum.a.a(bwVar, this.mTabName);
         return amVar.getView();
@@ -111,6 +110,6 @@ public class a extends com.baidu.adp.widget.ListView.a<bw, am<bw>> {
     }
 
     public void a(v vVar) {
-        this.alC = vVar;
+        this.alD = vVar;
     }
 }

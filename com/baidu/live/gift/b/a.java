@@ -1,48 +1,53 @@
 package com.baidu.live.gift.b;
 
-import android.text.TextUtils;
 import com.baidu.ala.gift.AlaDynamicGiftLocalInfoConfig;
+import com.baidu.live.gift.ad;
 import com.baidu.live.tbadk.TbConfig;
 import com.baidu.live.tbadk.core.TbadkCoreApplication;
 /* loaded from: classes4.dex */
 public class a {
-    public static final String aZV = TbadkCoreApplication.getInst().getFilesDir() + "/" + TbConfig.getTempDirName() + "/.dynamicvideo/";
-    public static final String aZW = TbadkCoreApplication.getInst().getFilesDir() + "/" + TbConfig.getTempDirName() + "/" + AlaDynamicGiftLocalInfoConfig.DIR_NAME + "/";
-    private f aZX;
+    public static final String aVp = TbadkCoreApplication.getInst().getFilesDir() + "/" + TbConfig.getTempDirName() + "/.dynamicvideo/";
+    public static final String aVq = TbadkCoreApplication.getInst().getFilesDir() + "/" + TbConfig.getTempDirName() + "/" + AlaDynamicGiftLocalInfoConfig.DIR_NAME + "/";
+    private ad aVr;
 
     /* renamed from: com.baidu.live.gift.b.a$a  reason: collision with other inner class name */
     /* loaded from: classes4.dex */
-    private static class C0179a {
-        public static a aZY = new a();
+    private static class C0180a {
+        public static a bbs = new a();
     }
 
     private a() {
-        this.aZX = new d();
+        this.aVr = new d();
     }
 
-    public static a Ih() {
-        return C0179a.aZY;
+    public static a IC() {
+        return C0180a.bbs;
     }
 
-    public void he(String str) {
-        this.aZX.he(str);
+    public void gG(String str) {
+        this.aVr.gG(str);
     }
 
-    public void Ii() {
-        this.aZX.Ii();
+    public void Gv() {
+        this.aVr.Gv();
     }
 
     public void a(com.baidu.live.gift.b bVar, boolean z) {
-        if (bVar != null && !TextUtils.isEmpty(bVar.giftId) && bVar.aRO != null) {
-            this.aZX.a(bVar.giftId, bVar.giftName, bVar.aRO.zipName, bVar.aRO.videoUrl, bVar.aRO.videoMd5, z);
+        a(bVar, z, false);
+    }
+
+    public void a(com.baidu.live.gift.b bVar, boolean z, boolean z2) {
+        if (bVar != null && bVar.aSJ != null) {
+            boolean z3 = com.baidu.live.alphavideo.a.BT().BU() && bVar.Fa();
+            this.aVr.a(bVar.giftId, bVar.giftName, bVar.aSJ.zipName, z3 ? bVar.aSJ.videoUrl : bVar.aSJ.zipDownloadUrl, z3 ? bVar.aSJ.videoMd5 : bVar.aSJ.zipMD5, z3, z, z2);
         }
     }
 
-    public boolean at(String str, String str2) {
-        return this.aZX.at(str, str2);
+    public boolean ar(String str, String str2) {
+        return this.aVr.ar(str, str2);
     }
 
-    public void Ij() {
-        this.aZX.Ij();
+    public void Gw() {
+        this.aVr.Gw();
     }
 }

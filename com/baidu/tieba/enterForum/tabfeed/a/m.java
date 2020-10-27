@@ -19,20 +19,20 @@ import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
 /* loaded from: classes22.dex */
 public class m extends com.baidu.adp.widget.ListView.a<bq, com.baidu.tieba.card.a.a<a>> {
-    private v alC;
-    public BdUniqueId fey;
+    private v alD;
+    public BdUniqueId fmX;
     private TbPageContext<?> mPageContext;
     private String mTabName;
 
     public m(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId, BdUniqueId bdUniqueId2, String str) {
         super(tbPageContext.getPageActivity(), bdUniqueId, bdUniqueId2);
         this.mPageContext = tbPageContext;
-        this.fey = bdUniqueId2;
+        this.fmX = bdUniqueId2;
         this.mTabName = str;
     }
 
     public void a(v vVar) {
-        this.alC = vVar;
+        this.alD = vVar;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -44,11 +44,11 @@ public class m extends com.baidu.adp.widget.ListView.a<bq, com.baidu.tieba.card.
         a(new ab() { // from class: com.baidu.tieba.enterForum.tabfeed.a.m.1
             @Override // com.baidu.adp.widget.ListView.ab
             public void a(View view, q qVar, BdUniqueId bdUniqueId, ViewGroup viewGroup2, int i, long j) {
-                aVar.cnl();
+                aVar.cqs();
                 aq aqVar = new aq("c13647");
-                aqVar.u("uid", TbadkApplication.getCurrentAccountId());
+                aqVar.w("uid", TbadkApplication.getCurrentAccountId());
                 aqVar.aj("obj_id", m.this.getPositionByType(i) + 1);
-                aqVar.dK("resource_id", m.this.mTabName);
+                aqVar.dR("resource_id", m.this.mTabName);
                 TiebaStatic.log(aqVar);
             }
         });
@@ -59,35 +59,35 @@ public class m extends com.baidu.adp.widget.ListView.a<bq, com.baidu.tieba.card.
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.widget.ListView.a
     public View a(int i, View view, ViewGroup viewGroup, bq bqVar, com.baidu.tieba.card.a.a<a> aVar) {
-        if (bqVar == null || aVar == null || aVar.cjq() == null) {
+        if (bqVar == null || aVar == null || aVar.cmx() == null) {
             return null;
         }
-        aVar.cjq().a(bqVar);
+        aVar.cmx().a(bqVar);
         aq aqVar = new aq("c13646");
-        aqVar.u("uid", TbadkApplication.getCurrentAccountId());
+        aqVar.w("uid", TbadkApplication.getCurrentAccountId());
         aqVar.aj("obj_id", getPositionByType(i) + 1);
-        aqVar.dK("resource_id", this.mTabName);
+        aqVar.dR("resource_id", this.mTabName);
         TiebaStatic.log(aqVar);
-        return aVar.cjq().getView();
+        return aVar.cmx().getView();
     }
 
     /* loaded from: classes22.dex */
     public static class a extends com.baidu.tieba.card.b<bq> {
-        private TbImageView hXk;
-        private String hXl;
+        private TbImageView ijK;
+        private String ijL;
         private TbPageContext<?> mPageContext;
 
         public a(TbPageContext<?> tbPageContext, ViewGroup viewGroup) {
             super(tbPageContext, viewGroup);
             this.mPageContext = tbPageContext;
-            this.hXk = (TbImageView) getView().findViewById(R.id.image);
-            this.hXk.setOnClickListener(this);
-            this.hXk.setConrers(15);
-            this.hXk.setScaleType(ImageView.ScaleType.FIT_XY);
-            this.hXk.setRadius(com.baidu.adp.lib.util.l.getDimens(TbadkCoreApplication.getInst(), R.dimen.tbds10));
-            this.hXk.setDrawCorner(true);
-            this.hXk.setAutoChangeStyle(true);
-            this.hXk.setPlaceHolder(2);
+            this.ijK = (TbImageView) getView().findViewById(R.id.image);
+            this.ijK.setOnClickListener(this);
+            this.ijK.setConrers(15);
+            this.ijK.setScaleType(ImageView.ScaleType.FIT_XY);
+            this.ijK.setRadius(com.baidu.adp.lib.util.l.getDimens(TbadkCoreApplication.getInst(), R.dimen.tbds10));
+            this.ijK.setDrawCorner(true);
+            this.ijK.setAutoChangeStyle(true);
+            this.ijK.setPlaceHolder(2);
         }
 
         @Override // com.baidu.tieba.card.b
@@ -103,24 +103,24 @@ public class m extends com.baidu.adp.widget.ListView.a<bq, com.baidu.tieba.card.
         @Override // com.baidu.tieba.card.b
         public void a(bq bqVar) {
             if (bqVar != null) {
-                this.hXl = bqVar.res_link;
-                this.hXk.setScaleType(ImageView.ScaleType.FIT_XY);
-                this.hXk.setPlaceHolder(2);
-                this.hXk.startLoad(bqVar.res_image, 10, false);
+                this.ijL = bqVar.res_link;
+                this.ijK.setScaleType(ImageView.ScaleType.FIT_XY);
+                this.ijK.setPlaceHolder(2);
+                this.ijK.startLoad(bqVar.res_image, 10, false);
             }
             onChangeSkinType(this.mPageContext, TbadkCoreApplication.getInst().getSkinType());
         }
 
-        public void cnl() {
-            if (!TextUtils.isEmpty(this.hXl)) {
-                be.bmY().b(this.mPageContext, new String[]{this.hXl});
+        public void cqs() {
+            if (!TextUtils.isEmpty(this.ijL)) {
+                be.boR().b(this.mPageContext, new String[]{this.ijL});
             }
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
-            if (view == this.hXk) {
-                cnl();
+            if (view == this.ijK) {
+                cqs();
             }
         }
     }

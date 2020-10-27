@@ -22,11 +22,11 @@ public final class FlowableObserveOn<T> extends a<T, T> {
 
     @Override // io.reactivex.g
     public void a(org.a.c<? super T> cVar) {
-        v.c emL = this.scheduler.emL();
+        v.c ewL = this.scheduler.ewL();
         if (cVar instanceof io.reactivex.internal.a.a) {
-            this.oLT.a((j) new ObserveOnConditionalSubscriber((io.reactivex.internal.a.a) cVar, emL, this.delayError, this.prefetch));
+            this.pDq.a((j) new ObserveOnConditionalSubscriber((io.reactivex.internal.a.a) cVar, ewL, this.delayError, this.prefetch));
         } else {
-            this.oLT.a((j) new ObserveOnSubscriber(cVar, emL, this.delayError, this.prefetch));
+            this.pDq.a((j) new ObserveOnSubscriber(cVar, ewL, this.delayError, this.prefetch));
         }
     }
 
@@ -117,7 +117,7 @@ public final class FlowableObserveOn<T> extends a<T, T> {
 
         final void trySchedule() {
             if (getAndIncrement() == 0) {
-                this.worker.G(this);
+                this.worker.I(this);
             }
         }
 

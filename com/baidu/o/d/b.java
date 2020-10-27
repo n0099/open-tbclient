@@ -9,101 +9,101 @@ import com.baidu.swan.apps.ap.c;
 import com.baidu.webkit.sdk.PermissionRequest;
 /* loaded from: classes19.dex */
 public class b {
-    private String ebf;
-    private com.baidu.o.b ebp;
+    private String ejB;
+    private com.baidu.o.b ejL;
 
     private b() {
-        this.ebp = null;
-        this.ebf = "";
+        this.ejL = null;
+        this.ejB = "";
     }
 
     /* loaded from: classes19.dex */
     private static class a {
-        private static final b ebq = new b();
+        private static final b ejM = new b();
     }
 
-    public static b bbg() {
-        return a.ebq;
+    public static b bcZ() {
+        return a.ejM;
     }
 
     public void a(Context context, RtcConfig rtcConfig, String str, String str2) {
-        if (this.ebp != null) {
-            this.ebp.stop();
-            this.ebp = null;
+        if (this.ejL != null) {
+            this.ejL.stop();
+            this.ejL = null;
         }
         if (context != null && rtcConfig != null && str != null && str2 != null) {
-            this.ebf = str;
-            this.ebp = new com.baidu.o.b(context, rtcConfig, str, str2);
+            this.ejB = str;
+            this.ejL = new com.baidu.o.b(context, rtcConfig, str, str2);
         }
     }
 
-    public void yK(String str) {
-        if (this.ebf.equals(str) && this.ebp != null) {
-            this.ebp.stop();
-            this.ebp = null;
+    public void zd(String str) {
+        if (this.ejB.equals(str) && this.ejL != null) {
+            this.ejL.stop();
+            this.ejL = null;
         }
     }
 
-    public boolean yL(String str) {
-        return (this.ebf == null || str == null || !this.ebf.equals(str)) ? false : true;
+    public boolean ze(String str) {
+        return (this.ejB == null || str == null || !this.ejB.equals(str)) ? false : true;
     }
 
     public void bs(String str) {
-        if (this.ebp != null) {
-            this.ebp.bs(str);
+        if (this.ejL != null) {
+            this.ejL.bs(str);
         }
     }
 
     public void stop() {
-        if (this.ebp.getPlayerView() != null && this.ebp.getPlayerView().getParent() != null) {
-            ((ViewGroup) this.ebp.getPlayerView().getParent()).removeView(this.ebp.getPlayerView());
+        if (this.ejL.getPlayerView() != null && this.ejL.getPlayerView().getParent() != null) {
+            ((ViewGroup) this.ejL.getPlayerView().getParent()).removeView(this.ejL.getPlayerView());
         }
-        if (this.ebp != null) {
-            this.ebp.stop();
+        if (this.ejL != null) {
+            this.ejL.stop();
         }
     }
 
     public void mute() {
-        if (this.ebp != null) {
-            this.ebp.mute();
+        if (this.ejL != null) {
+            this.ejL.mute();
         }
     }
 
     public void unMute() {
-        if (this.ebp != null) {
-            this.ebp.unMute();
+        if (this.ejL != null) {
+            this.ejL.unMute();
         }
     }
 
     public void switchCamera() {
-        if (this.ebp != null) {
-            this.ebp.switchCamera();
+        if (this.ejL != null) {
+            this.ejL.switchCamera();
         }
     }
 
     public boolean updateRTCConfig(RtcConfig rtcConfig) {
-        if (this.ebp != null) {
-            return this.ebp.updateRTCConfig(rtcConfig);
+        if (this.ejL != null) {
+            return this.ejL.updateRTCConfig(rtcConfig);
         }
         return false;
     }
 
     public void resetPreview() {
-        if (this.ebp != null) {
-            this.ebp.resetPreview();
+        if (this.ejL != null) {
+            this.ejL.resetPreview();
         }
     }
 
     public View getRecorderView() {
-        if (this.ebp != null) {
-            return this.ebp.getRecorderView();
+        if (this.ejL != null) {
+            return this.ejL.getRecorderView();
         }
         return null;
     }
 
     public View getPlayerView() {
-        if (this.ebp != null) {
-            return this.ebp.getPlayerView();
+        if (this.ejL != null) {
+            return this.ejL.getPlayerView();
         }
         return null;
     }

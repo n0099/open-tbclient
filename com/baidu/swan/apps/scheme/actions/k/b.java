@@ -12,7 +12,7 @@ public class b extends aa {
 
     @Override // com.baidu.swan.apps.scheme.actions.aa
     public boolean a(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, com.baidu.swan.apps.runtime.e eVar) {
-        com.baidu.swan.apps.v.f.avu().exit();
+        com.baidu.swan.apps.v.f.axo().exit();
         return true;
     }
 }

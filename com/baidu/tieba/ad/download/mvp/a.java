@@ -10,26 +10,26 @@ import com.baidu.tieba.ad.download.state.DownloadStatus;
 /* loaded from: classes21.dex */
 public abstract class a<VIEW extends b, MODEL extends IDownloadModel> {
     private static final String TAG = a.class.getSimpleName();
-    private final VIEW fEr;
-    private MODEL fEs;
+    private final VIEW fMM;
+    private MODEL fMN;
     private final String mPage;
 
     protected abstract void a(MODEL model);
 
     public a(@NonNull VIEW view, @NonNull MODEL model, @NonNull String str) {
-        this.fEr = view;
-        this.fEs = model;
+        this.fMM = view;
+        this.fMN = model;
         this.mPage = str;
-        View actionBar = this.fEr.getActionBar();
+        View actionBar = this.fMM.getActionBar();
         if (actionBar != null) {
             actionBar.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.ad.download.mvp.a.1
                 /* JADX DEBUG: Multi-variable search result rejected for r0v4, resolved type: com.baidu.tieba.ad.download.mvp.a */
                 /* JADX WARN: Multi-variable type inference failed */
                 @Override // android.view.View.OnClickListener
                 public void onClick(View view2) {
-                    if (!a.this.fEr.bK(view2)) {
-                        a.this.bFh();
-                        a.this.a((a) a.this.fEs);
+                    if (!a.this.fMM.bL(view2)) {
+                        a.this.bHa();
+                        a.this.a((a) a.this.fMN);
                     }
                 }
             });
@@ -37,40 +37,40 @@ public abstract class a<VIEW extends b, MODEL extends IDownloadModel> {
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public VIEW bFg() {
-        return this.fEr;
+    public VIEW bGZ() {
+        return this.fMM;
     }
 
     @CallSuper
     public void b(@NonNull MODEL model) {
-        this.fEs = model;
-        if (this.fEr != null) {
-            bFi();
-            this.fEr.a(model.getCurrentState(), model.getPercent());
+        this.fMN = model;
+        if (this.fMM != null) {
+            bHb();
+            this.fMM.a(model.getCurrentState(), model.getPercent());
         }
     }
 
     @CallSuper
     public void c(@NonNull DownloadStatus downloadStatus) {
-        if (this.fEs != null) {
-            this.fEr.a(downloadStatus);
+        if (this.fMN != null) {
+            this.fMM.a(downloadStatus);
             if (downloadStatus != DownloadStatus.STATUS_NONE) {
-                bFi();
+                bHb();
             }
         }
     }
 
     @CallSuper
-    public void eX(int i) {
-        this.fEr.eX(i);
-        if ((this.fEs != null ? this.fEs.getCurrentState() : null) != DownloadStatus.STATUS_NONE) {
-            bFi();
+    public void fa(int i) {
+        this.fMM.fa(i);
+        if ((this.fMN != null ? this.fMN.getCurrentState() : null) != DownloadStatus.STATUS_NONE) {
+            bHb();
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void bFh() {
-        MODEL model = this.fEs;
+    public void bHa() {
+        MODEL model = this.fMN;
         if (model != null) {
             DownloadStatus currentState = model.getCurrentState();
             switch (currentState) {
@@ -79,7 +79,7 @@ public abstract class a<VIEW extends b, MODEL extends IDownloadModel> {
                 case STATUS_PAUSED:
                 case STATUS_SUCCESS:
                 case STATUS_INSTALL_SUCCESS:
-                    d.bFe().a(model.adId(), this.mPage, currentState, model.getPkgName(), model.getExtInfo());
+                    d.bGX().a(model.adId(), this.mPage, currentState, model.getPkgName(), model.getExtInfo());
                     return;
                 default:
                     return;
@@ -87,9 +87,9 @@ public abstract class a<VIEW extends b, MODEL extends IDownloadModel> {
         }
     }
 
-    private void bFi() {
-        if (this.fEr.getRealView().getVisibility() != 0) {
-            this.fEr.getRealView().setVisibility(0);
+    private void bHb() {
+        if (this.fMM.getRealView().getVisibility() != 0) {
+            this.fMM.getRealView().setVisibility(0);
         }
     }
 }

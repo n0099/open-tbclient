@@ -67,11 +67,11 @@ public class LoadMoreHttpResponseMessage extends HttpResponsedMessage {
                             bw bwVar = new bw();
                             bwVar.setUserMap(this.userMap);
                             bwVar.a(threadInfo);
-                            bwVar.bjf();
-                            bwVar.esk = isBrandForum;
-                            if (!TextUtils.isEmpty(bwVar.bjr())) {
+                            bwVar.bkY();
+                            bwVar.eAK = isBrandForum;
+                            if (!TextUtils.isEmpty(bwVar.blk())) {
                                 ak akVar = new ak();
-                                akVar.Aj(bwVar.bjr());
+                                akVar.AC(bwVar.blk());
                                 this.threadList.add(akVar);
                             } else {
                                 this.threadList.add(bwVar);
@@ -81,7 +81,7 @@ public class LoadMoreHttpResponseMessage extends HttpResponsedMessage {
                                 }
                             }
                         }
-                        b.dvA().fi(arrayList);
+                        b.dyH().fr(arrayList);
                     }
                 }
                 this.bannerListData = null;

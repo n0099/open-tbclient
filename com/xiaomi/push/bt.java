@@ -5,11 +5,11 @@ import com.baidu.mobstat.Config;
 public class bt {
 
     /* renamed from: a  reason: collision with other field name */
-    public static String f143a = "MessageInfo.db";
+    public static String f140a = "MessageInfo.db";
 
     /* renamed from: a  reason: collision with other field name */
-    public static long f142a = Config.RAVEN_LOG_LIMIT;
+    public static long f139a = Config.RAVEN_LOG_LIMIT;
 
     /* renamed from: a  reason: collision with root package name */
-    public static int f4823a = 200;
+    public static int f4821a = 200;
 }

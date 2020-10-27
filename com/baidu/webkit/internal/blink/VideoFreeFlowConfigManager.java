@@ -29,14 +29,14 @@ public class VideoFreeFlowConfigManager implements INoProGuard {
     public static class a {
 
         /* renamed from: a  reason: collision with root package name */
-        String f3925a;
+        String f3923a;
         String b;
         String c;
         int d;
         String e;
 
         public a(String str) {
-            this.f3925a = null;
+            this.f3923a = null;
             this.b = null;
             this.c = null;
             this.d = 2;
@@ -49,7 +49,7 @@ public class VideoFreeFlowConfigManager implements INoProGuard {
             for (int i = 0; i < length; i++) {
                 if (!TextUtils.isEmpty(split[i])) {
                     if (i == 0) {
-                        this.f3925a = split[i];
+                        this.f3923a = split[i];
                     } else if (i == 1) {
                         this.b = split[i];
                     } else if (i == 2) {
@@ -114,23 +114,23 @@ public class VideoFreeFlowConfigManager implements INoProGuard {
                 for (int i = 0; i < size; i++) {
                     a aVar = this.mPacRulesList.get(i);
                     if (!TextUtils.isEmpty(str)) {
-                        if (TextUtils.isEmpty(aVar.f3925a) || TextUtils.isEmpty(aVar.b) || TextUtils.isEmpty(aVar.c)) {
+                        if (TextUtils.isEmpty(aVar.f3923a) || TextUtils.isEmpty(aVar.b) || TextUtils.isEmpty(aVar.c)) {
                             z = false;
                         } else if (aVar.b.equals("*")) {
                             z = true;
-                        } else if (aVar.f3925a.equals(HOST_MATCH)) {
+                        } else if (aVar.f3923a.equals(HOST_MATCH)) {
                             if (!TextUtils.isEmpty(host) && host.length() >= aVar.b.length() && host.substring(host.length() - aVar.b.length()).equals(aVar.b)) {
                                 z = true;
                             }
-                        } else if (aVar.f3925a.equals(HOST_STR)) {
+                        } else if (aVar.f3923a.equals(HOST_STR)) {
                             if (host.indexOf(aVar.b) != -1) {
                                 z = true;
                             }
-                        } else if (aVar.f3925a.equals(HOST_STR_MATCH)) {
+                        } else if (aVar.f3923a.equals(HOST_STR_MATCH)) {
                             if (host.equals(aVar.b)) {
                                 z = true;
                             }
-                        } else if (aVar.f3925a.equals(URL_MATCH) && str.indexOf(aVar.b) != -1) {
+                        } else if (aVar.f3923a.equals(URL_MATCH) && str.indexOf(aVar.b) != -1) {
                             z = true;
                         }
                         if (z) {

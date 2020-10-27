@@ -14,7 +14,7 @@ import java.util.concurrent.ScheduledExecutorService;
 public class f extends c<PushSwitchStatus> {
 
     /* renamed from: a  reason: collision with root package name */
-    boolean f4447a;
+    boolean f4445a;
     private String b;
     private int c;
     private Map<String, Boolean> m;
@@ -100,7 +100,7 @@ public class f extends c<PushSwitchStatus> {
     }
 
     public void b(boolean z) {
-        this.f4447a = z;
+        this.f4445a = z;
     }
 
     @Override // com.meizu.cloud.pushsdk.platform.b.c
@@ -112,7 +112,7 @@ public class f extends c<PushSwitchStatus> {
         intent.putExtra("push_id", this.b);
         intent.putExtra("strategy_type", g());
         intent.putExtra("strategy_child_type", this.c);
-        intent.putExtra("strategy_params", this.f4447a ? "1" : "0");
+        intent.putExtra("strategy_params", this.f4445a ? "1" : "0");
         return intent;
     }
 
@@ -150,27 +150,27 @@ public class f extends c<PushSwitchStatus> {
         switch (this.c) {
             case 0:
                 pushSwitchStatus.setMessage("SWITCH_NOTIFICATION");
-                if (p() == this.f4447a && !t()) {
-                    pushSwitchStatus.setSwitchNotificationMessage(this.f4447a);
+                if (p() == this.f4445a && !t()) {
+                    pushSwitchStatus.setSwitchNotificationMessage(this.f4445a);
                     pushSwitchStatus.setSwitchThroughMessage(r());
                     break;
                 } else {
                     f(true);
-                    c(this.f4447a);
-                    cVar = this.j.a(this.f, this.g, this.b, this.c, this.f4447a);
+                    c(this.f4445a);
+                    cVar = this.j.a(this.f, this.g, this.b, this.c, this.f4445a);
                     break;
                 }
                 break;
             case 1:
                 pushSwitchStatus.setMessage("SWITCH_THROUGH_MESSAGE");
-                if (r() == this.f4447a && !t()) {
+                if (r() == this.f4445a && !t()) {
                     pushSwitchStatus.setSwitchNotificationMessage(p());
-                    pushSwitchStatus.setSwitchThroughMessage(this.f4447a);
+                    pushSwitchStatus.setSwitchThroughMessage(this.f4445a);
                     break;
                 } else {
                     f(true);
-                    d(this.f4447a);
-                    cVar = this.j.a(this.f, this.g, this.b, this.c, this.f4447a);
+                    d(this.f4445a);
+                    cVar = this.j.a(this.f, this.g, this.b, this.c, this.f4445a);
                     break;
                 }
                 break;
@@ -187,14 +187,14 @@ public class f extends c<PushSwitchStatus> {
                 }
             case 3:
                 pushSwitchStatus.setMessage("SWITCH_ALL");
-                if (p() != this.f4447a || r() != this.f4447a || t()) {
+                if (p() != this.f4445a || r() != this.f4445a || t()) {
                     f(true);
-                    e(this.f4447a);
-                    cVar = this.j.a(this.f, this.g, this.b, this.f4447a);
+                    e(this.f4445a);
+                    cVar = this.j.a(this.f, this.g, this.b, this.f4445a);
                     break;
                 } else {
-                    pushSwitchStatus.setSwitchNotificationMessage(this.f4447a);
-                    pushSwitchStatus.setSwitchThroughMessage(this.f4447a);
+                    pushSwitchStatus.setSwitchNotificationMessage(this.f4445a);
+                    pushSwitchStatus.setSwitchThroughMessage(this.f4445a);
                     break;
                 }
                 break;
@@ -226,11 +226,11 @@ public class f extends c<PushSwitchStatus> {
             switch (this.c) {
                 case 0:
                 case 1:
-                    PlatformMessageSender.a(this.e, this.c, this.f4447a, this.h);
+                    PlatformMessageSender.a(this.e, this.c, this.f4445a, this.h);
                     break;
                 case 3:
-                    PlatformMessageSender.a(this.e, 0, this.f4447a, this.h);
-                    PlatformMessageSender.a(this.e, 1, this.f4447a, this.h);
+                    PlatformMessageSender.a(this.e, 0, this.f4445a, this.h);
+                    PlatformMessageSender.a(this.e, 1, this.f4445a, this.h);
                     break;
             }
         }
@@ -244,13 +244,13 @@ public class f extends c<PushSwitchStatus> {
     public PushSwitchStatus f() {
         switch (this.c) {
             case 0:
-                c(this.f4447a);
+                c(this.f4445a);
                 break;
             case 1:
-                d(this.f4447a);
+                d(this.f4445a);
                 break;
             case 3:
-                e(this.f4447a);
+                e(this.f4445a);
                 break;
         }
         return null;

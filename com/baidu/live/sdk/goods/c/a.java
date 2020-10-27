@@ -1,13 +1,13 @@
 package com.baidu.live.sdk.goods.c;
 
-import com.baidu.live.data.u;
+import com.baidu.live.data.w;
 /* loaded from: classes4.dex */
 public interface a {
-    void Gx();
+    void GS();
 
-    void OE();
+    void Pc();
 
-    void a(u uVar);
+    void a(w wVar);
 
     void dI(int i);
 

@@ -12,7 +12,7 @@ public class f extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.ala.perso
 
     /* JADX INFO: Access modifiers changed from: protected */
     public f(TbPageContext tbPageContext) {
-        super(tbPageContext.getPageActivity(), com.baidu.tieba.ala.personcenter.c.h.hmq);
+        super(tbPageContext.getPageActivity(), com.baidu.tieba.ala.personcenter.c.h.hyl);
         this.mPageContext = tbPageContext;
     }
 
@@ -28,27 +28,27 @@ public class f extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.ala.perso
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.widget.ListView.a
     public View a(int i, View view, ViewGroup viewGroup, com.baidu.tieba.ala.personcenter.c.h hVar, com.baidu.tieba.card.a.a<com.baidu.tieba.ala.personcenter.e.a> aVar) {
-        if (aVar.cjq() == null) {
+        if (aVar.cmx() == null) {
             return null;
         }
-        a(hVar, aVar.cjq());
-        aVar.cjq().getView().setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.ala.personcenter.a.f.1
+        a(hVar, aVar.cmx());
+        aVar.cmx().getView().setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.ala.personcenter.a.f.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view2) {
                 f.this.click();
             }
         });
-        return aVar.cjq().getView();
+        return aVar.cmx().getView();
     }
 
     private void a(com.baidu.tieba.ala.personcenter.c.h hVar, com.baidu.tieba.ala.personcenter.e.a aVar) {
-        aVar.vT(8);
+        aVar.wn(8);
         aVar.setTitle(this.mContext.getResources().getString(R.string.ala_income_value));
         aVar.onChangeSkinType(this.mPageContext, TbadkCoreApplication.getInst().getSkinType());
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void click() {
-        com.baidu.tbadk.browser.a.startWebActivity((Context) this.mPageContext.getPageActivity(), true, com.baidu.tbadk.core.sharedPref.b.blO().getString("ala_personal_income_detail_url", "https://tieba.baidu.com/mo/q/ala/getUserLives"), this.mContext.getResources().getString(R.string.ala_income_value));
+        com.baidu.tbadk.browser.a.startWebActivity((Context) this.mPageContext.getPageActivity(), true, com.baidu.tbadk.core.sharedPref.b.bnH().getString("ala_personal_income_detail_url", "https://tieba.baidu.com/mo/q/ala/getUserLives"), this.mContext.getResources().getString(R.string.ala_income_value));
     }
 }

@@ -4,55 +4,55 @@ import android.text.TextUtils;
 import android.util.Log;
 /* loaded from: classes10.dex */
 public final class j {
-    private static int nGu = 1000;
-    private static boolean nGv = true;
+    private static int oiW = 1000;
+    private static boolean oiX = true;
 
     public static void c(boolean z) {
-        nGv = z;
+        oiX = z;
     }
 
     public static void I(String str) {
-        if (nGv) {
+        if (oiX) {
             a(5, "BaiDuAbSDK", str, null);
         }
     }
 
     public static void b(Throwable th) {
-        if (nGv) {
+        if (oiX) {
             a(4, "BaiDuAbSDK", "", th);
         }
     }
 
     public static void G(String str) {
-        if (nGv) {
+        if (oiX) {
             a(2, "BaiDuAbSDK", str, null);
         }
     }
 
     public static void a(Throwable th) {
-        if (nGv) {
+        if (oiX) {
             a(2, "BaiDuAbSDK", "", th);
         }
     }
 
     private static void a(int i, String str, String str2, Throwable th) {
         if (!TextUtils.isEmpty(str2)) {
-            if (str2.length() >= nGu) {
+            if (str2.length() >= oiW) {
                 switch (i) {
                     case 1:
-                        Log.v(str, str2.substring(0, nGu));
+                        Log.v(str, str2.substring(0, oiW));
                         break;
                     case 2:
-                        Log.d(str, str2.substring(0, nGu));
+                        Log.d(str, str2.substring(0, oiW));
                         break;
                     case 3:
-                        Log.i(str, str2.substring(0, nGu));
+                        Log.i(str, str2.substring(0, oiW));
                         break;
                     case 4:
-                        Log.w(str, str2.substring(0, nGu));
+                        Log.w(str, str2.substring(0, oiW));
                         break;
                     case 5:
-                        Log.e(str, str2.substring(0, nGu));
+                        Log.e(str, str2.substring(0, oiW));
                         break;
                 }
             } else {

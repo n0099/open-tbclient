@@ -8,16 +8,16 @@ import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.task.TbHttpMessageTask;
 /* loaded from: classes22.dex */
 public class c {
-    private a iKb;
-    private HttpMessageListener iKg = new HttpMessageListener(1001713) { // from class: com.baidu.tieba.frs.live.c.1
+    private HttpMessageListener iWC = new HttpMessageListener(1001713) { // from class: com.baidu.tieba.frs.live.c.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(HttpResponsedMessage httpResponsedMessage) {
-            if (httpResponsedMessage != null && (httpResponsedMessage instanceof FrsLiveTipResponseMessage) && httpResponsedMessage.getError() == 0 && c.this.iKb != null) {
-                c.this.iKb.a((FrsLiveTipResponseMessage) httpResponsedMessage);
+            if (httpResponsedMessage != null && (httpResponsedMessage instanceof FrsLiveTipResponseMessage) && httpResponsedMessage.getError() == 0 && c.this.iWx != null) {
+                c.this.iWx.a((FrsLiveTipResponseMessage) httpResponsedMessage);
             }
         }
     };
+    private a iWx;
 
     /* loaded from: classes22.dex */
     public interface a {
@@ -25,9 +25,9 @@ public class c {
     }
 
     public c(a aVar) {
-        this.iKb = aVar;
+        this.iWx = aVar;
         registerTask();
-        MessageManager.getInstance().registerListener(this.iKg);
+        MessageManager.getInstance().registerListener(this.iWC);
     }
 
     private void registerTask() {
@@ -39,7 +39,7 @@ public class c {
         MessageManager.getInstance().registerTask(tbHttpMessageTask);
     }
 
-    public void zr(int i) {
+    public void zK(int i) {
         HttpMessage httpMessage = new HttpMessage(1001713);
         httpMessage.addParam("forum_id", i);
         MessageManager.getInstance().sendMessage(httpMessage);
@@ -47,6 +47,6 @@ public class c {
 
     public void onDestory() {
         MessageManager.getInstance().unRegisterTask(1001713);
-        MessageManager.getInstance().unRegisterListener(this.iKg);
+        MessageManager.getInstance().unRegisterListener(this.iWC);
     }
 }

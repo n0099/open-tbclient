@@ -21,7 +21,7 @@ import java.util.Set;
 public class LivePKResultView extends LinearLayout {
 
     /* renamed from: a  reason: collision with root package name */
-    private FrameLayout f4207a;
+    private FrameLayout f4205a;
     private ImageView b;
     private View c;
     private ImageView d;
@@ -35,11 +35,11 @@ public class LivePKResultView extends LinearLayout {
     private ImageView m;
     private LinearLayout n;
     private float o;
-    private FrameLayout ovK;
-    private Set<AnimatorSet> ovL;
-    private Set<c> ovM;
-    private a ovN;
     private float p;
+    private FrameLayout pnb;
+    private Set<AnimatorSet> pnc;
+    private Set<c> pnd;
+    private a pne;
     private float q;
     private float r;
 
@@ -54,8 +54,8 @@ public class LivePKResultView extends LinearLayout {
         this.p = -1.0f;
         this.q = -1.0f;
         this.r = -1.0f;
-        this.ovL = new HashSet();
-        this.ovM = new HashSet();
+        this.pnc = new HashSet();
+        this.pnd = new HashSet();
         a(context);
     }
 
@@ -65,8 +65,8 @@ public class LivePKResultView extends LinearLayout {
         this.p = -1.0f;
         this.q = -1.0f;
         this.r = -1.0f;
-        this.ovL = new HashSet();
-        this.ovM = new HashSet();
+        this.pnc = new HashSet();
+        this.pnd = new HashSet();
         a(context);
     }
 
@@ -76,8 +76,8 @@ public class LivePKResultView extends LinearLayout {
         this.p = -1.0f;
         this.q = -1.0f;
         this.r = -1.0f;
-        this.ovL = new HashSet();
-        this.ovM = new HashSet();
+        this.pnc = new HashSet();
+        this.pnd = new HashSet();
         a(context);
     }
 
@@ -89,8 +89,8 @@ public class LivePKResultView extends LinearLayout {
 
     private void a(Context context) {
         inflate(context, a.h.layout_live_view_online_live_pk_result, this);
-        this.f4207a = (FrameLayout) findViewById(a.f.fl_live_pk_result_left);
-        this.ovK = (FrameLayout) findViewById(a.f.fl_live_pk_result_right);
+        this.f4205a = (FrameLayout) findViewById(a.f.fl_live_pk_result_left);
+        this.pnb = (FrameLayout) findViewById(a.f.fl_live_pk_result_right);
         this.k = (FrameLayout) findViewById(a.f.fl_live_pk_result_mid);
         this.b = (ImageView) findViewById(a.f.iv_pk_left_icon);
         this.c = findViewById(a.f.iv_pk_left_anchor);
@@ -112,8 +112,8 @@ public class LivePKResultView extends LinearLayout {
     public void a(final boolean z, final boolean z2) {
         Animator animator;
         setVisibility(0);
-        this.f4207a.setVisibility(0);
-        this.ovK.setVisibility(0);
+        this.f4205a.setVisibility(0);
+        this.pnb.setVisibility(0);
         this.k.setVisibility(8);
         c();
         if (getWidth() <= 0) {
@@ -142,21 +142,21 @@ public class LivePKResultView extends LinearLayout {
                 @Override // com.kascend.chushou.player.ui.pk.g, android.animation.Animator.AnimatorListener
                 public void onAnimationEnd(Animator animator2) {
                     super.onAnimationEnd(animator2);
-                    if (LivePKResultView.this.ovN != null) {
-                        LivePKResultView.this.ovN.a();
+                    if (LivePKResultView.this.pne != null) {
+                        LivePKResultView.this.pne.a();
                     }
                 }
 
                 @Override // com.kascend.chushou.player.ui.pk.g, android.animation.Animator.AnimatorListener
                 public void onAnimationCancel(Animator animator2) {
                     super.onAnimationCancel(animator2);
-                    if (LivePKResultView.this.ovN != null) {
-                        LivePKResultView.this.ovN.a();
+                    if (LivePKResultView.this.pne != null) {
+                        LivePKResultView.this.pne.a();
                     }
                 }
             });
-        } else if (this.ovN != null) {
-            this.ovN.a();
+        } else if (this.pne != null) {
+            this.pne.a();
         }
     }
 
@@ -166,8 +166,8 @@ public class LivePKResultView extends LinearLayout {
 
     public void b(final boolean z) {
         setVisibility(0);
-        this.f4207a.setVisibility(0);
-        this.ovK.setVisibility(0);
+        this.f4205a.setVisibility(0);
+        this.pnb.setVisibility(0);
         this.k.setVisibility(8);
         c();
         if (getWidth() <= 0) {
@@ -189,28 +189,28 @@ public class LivePKResultView extends LinearLayout {
                 @Override // com.kascend.chushou.player.ui.pk.g, android.animation.Animator.AnimatorListener
                 public void onAnimationEnd(Animator animator) {
                     super.onAnimationEnd(animator);
-                    if (LivePKResultView.this.ovN != null) {
-                        LivePKResultView.this.ovN.a();
+                    if (LivePKResultView.this.pne != null) {
+                        LivePKResultView.this.pne.a();
                     }
                 }
 
                 @Override // com.kascend.chushou.player.ui.pk.g, android.animation.Animator.AnimatorListener
                 public void onAnimationCancel(Animator animator) {
                     super.onAnimationCancel(animator);
-                    if (LivePKResultView.this.ovN != null) {
-                        LivePKResultView.this.ovN.a();
+                    if (LivePKResultView.this.pne != null) {
+                        LivePKResultView.this.pne.a();
                     }
                 }
             });
-        } else if (this.ovN != null) {
-            this.ovN.a();
+        } else if (this.pne != null) {
+            this.pne.a();
         }
     }
 
     public void b() {
         c();
-        this.f4207a.setVisibility(8);
-        this.ovK.setVisibility(8);
+        this.f4205a.setVisibility(8);
+        this.pnb.setVisibility(8);
         this.k.setVisibility(8);
         setVisibility(8);
     }
@@ -240,8 +240,8 @@ public class LivePKResultView extends LinearLayout {
                     cVar2.b();
                 }
             });
-            e.eih().a(cVar, 840L);
-            this.ovM.add(cVar);
+            e.esh().a(cVar, 840L);
+            this.pnd.add(cVar);
         }
         return a2;
     }
@@ -301,14 +301,14 @@ public class LivePKResultView extends LinearLayout {
     @Override // android.view.View
     public void clearAnimation() {
         super.clearAnimation();
-        for (c cVar : this.ovM) {
-            e.eih().c(cVar);
+        for (c cVar : this.pnd) {
+            e.esh().c(cVar);
         }
-        this.ovM.clear();
-        for (AnimatorSet animatorSet : this.ovL) {
+        this.pnd.clear();
+        for (AnimatorSet animatorSet : this.pnc) {
             animatorSet.cancel();
         }
-        this.ovL.clear();
+        this.pnc.clear();
     }
 
     private Animator a(ImageView imageView, View view, boolean z) {
@@ -331,7 +331,7 @@ public class LivePKResultView extends LinearLayout {
             AnimatorSet animatorSet = new AnimatorSet();
             animatorSet.playSequentially(ofPropertyValuesHolder, ofPropertyValuesHolder2, ofPropertyValuesHolder3, ofPropertyValuesHolder4);
             animatorSet.start();
-            this.ovL.add(animatorSet);
+            this.pnc.add(animatorSet);
             return animatorSet;
         }
         tv.chushou.zues.toolkit.d.b.setScaleX(imageView, 0.5f);
@@ -373,7 +373,7 @@ public class LivePKResultView extends LinearLayout {
         AnimatorSet animatorSet = new AnimatorSet();
         animatorSet.playSequentially(ofPropertyValuesHolder, ofFloat, ofFloat2);
         animatorSet.start();
-        this.ovL.add(animatorSet);
+        this.pnc.add(animatorSet);
         return animatorSet;
     }
 
@@ -388,8 +388,8 @@ public class LivePKResultView extends LinearLayout {
     /* JADX INFO: Access modifiers changed from: private */
     public void a(final int i) {
         setVisibility(0);
-        this.f4207a.setVisibility(8);
-        this.ovK.setVisibility(8);
+        this.f4205a.setVisibility(8);
+        this.pnb.setVisibility(8);
         this.k.setVisibility(0);
         e();
         if (getWidth() <= 0) {
@@ -424,7 +424,7 @@ public class LivePKResultView extends LinearLayout {
             }
             linearLayout.setVisibility(4);
             imageView2.setVisibility(4);
-            d(imageView);
+            h(imageView);
             c cVar = new c(imageView2, new int[]{a.e.icon_live_view_pk_result_victory_star_bg_0, a.e.icon_live_view_pk_result_victory_star_bg_1, a.e.icon_live_view_pk_result_victory_star_bg_2, a.e.icon_live_view_pk_result_victory_star_bg_3, a.e.icon_live_view_pk_result_victory_star_bg_4, a.e.icon_live_view_pk_result_victory_star_bg_5, a.e.icon_live_view_pk_result_victory_star_bg_6, a.e.icon_live_view_pk_result_victory_star_bg_7, a.e.icon_live_view_pk_result_victory_star_bg_8, a.e.icon_live_view_pk_result_victory_star_bg_9, a.e.icon_live_view_pk_result_victory_star_bg_10, a.e.icon_live_view_pk_result_victory_star_bg_11, a.e.icon_live_view_pk_result_victory_star_bg_12}, 1, 240L);
             cVar.a(new d() { // from class: com.kascend.chushou.player.ui.pk.LivePKResultView.7
                 @Override // com.kascend.chushou.player.ui.pk.d
@@ -439,19 +439,19 @@ public class LivePKResultView extends LinearLayout {
                 public void c(c cVar2) {
                     cVar2.b();
                     LivePKResultView.this.setVisibility(8);
-                    if (LivePKResultView.this.ovN != null) {
-                        LivePKResultView.this.ovN.a();
+                    if (LivePKResultView.this.pne != null) {
+                        LivePKResultView.this.pne.a();
                     }
                 }
             });
-            e.eih().a(cVar, 840L);
-            this.ovM.add(cVar);
+            e.esh().a(cVar, 840L);
+            this.pnd.add(cVar);
             return;
         }
         imageView.setImageResource(a.e.icon_live_view_pk_result_defeat);
         linearLayout.setVisibility(4);
         imageView2.setVisibility(4);
-        d(imageView);
+        h(imageView);
         linearLayout.setVisibility(0);
         int childCount = linearLayout.getChildCount();
         ArrayList arrayList = new ArrayList();
@@ -475,16 +475,16 @@ public class LivePKResultView extends LinearLayout {
                 @Override // android.animation.Animator.AnimatorListener
                 public void onAnimationEnd(Animator animator) {
                     LivePKResultView.this.setVisibility(8);
-                    if (LivePKResultView.this.ovN != null) {
-                        LivePKResultView.this.ovN.a();
+                    if (LivePKResultView.this.pne != null) {
+                        LivePKResultView.this.pne.a();
                     }
                 }
 
                 @Override // android.animation.Animator.AnimatorListener
                 public void onAnimationCancel(Animator animator) {
                     LivePKResultView.this.setVisibility(8);
-                    if (LivePKResultView.this.ovN != null) {
-                        LivePKResultView.this.ovN.a();
+                    if (LivePKResultView.this.pne != null) {
+                        LivePKResultView.this.pne.a();
                     }
                 }
 
@@ -492,12 +492,12 @@ public class LivePKResultView extends LinearLayout {
                 public void onAnimationRepeat(Animator animator) {
                 }
             });
-        } else if (this.ovN != null) {
-            this.ovN.a();
+        } else if (this.pne != null) {
+            this.pne.a();
         }
     }
 
-    private Animator d(ImageView imageView) {
+    private Animator h(ImageView imageView) {
         ObjectAnimator ofPropertyValuesHolder = ObjectAnimator.ofPropertyValuesHolder(imageView, PropertyValuesHolder.ofFloat("scaleX", 0.3f, 1.2f), PropertyValuesHolder.ofFloat("scaleY", 0.3f, 1.2f), PropertyValuesHolder.ofFloat("alpha", 0.0f, 1.0f));
         ofPropertyValuesHolder.setInterpolator(new LinearInterpolator());
         ofPropertyValuesHolder.setDuration(400L);
@@ -507,11 +507,11 @@ public class LivePKResultView extends LinearLayout {
         AnimatorSet animatorSet = new AnimatorSet();
         animatorSet.playSequentially(ofPropertyValuesHolder, ofPropertyValuesHolder2);
         animatorSet.start();
-        this.ovL.add(animatorSet);
+        this.pnc.add(animatorSet);
         return animatorSet;
     }
 
     public void setCallback(a aVar) {
-        this.ovN = aVar;
+        this.pne = aVar;
     }
 }

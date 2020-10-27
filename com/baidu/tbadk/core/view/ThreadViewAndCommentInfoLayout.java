@@ -13,40 +13,40 @@ import com.baidu.tbadk.core.util.at;
 import com.baidu.tieba.R;
 /* loaded from: classes.dex */
 public class ThreadViewAndCommentInfoLayout extends LinearLayout {
-    public int eIo;
-    private TextView eJB;
-    private boolean eJC;
-    private boolean eJD;
-    private boolean eJE;
-    private boolean eJF;
-    private boolean eJG;
-    private TextView ehV;
+    public int eQK;
+    private TextView eRX;
+    private boolean eRY;
+    private boolean eRZ;
+    private boolean eSa;
+    private boolean eSb;
+    private boolean eSc;
+    private TextView eqt;
     private Context mContext;
 
     public ThreadViewAndCommentInfoLayout(Context context) {
         super(context);
-        this.eJC = false;
-        this.eJD = false;
-        this.eJE = false;
-        this.eJF = false;
-        this.eJG = false;
+        this.eRY = false;
+        this.eRZ = false;
+        this.eSa = false;
+        this.eSb = false;
+        this.eSc = false;
         init(context);
     }
 
     public ThreadViewAndCommentInfoLayout(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.eJC = false;
-        this.eJD = false;
-        this.eJE = false;
-        this.eJF = false;
-        this.eJG = false;
+        this.eRY = false;
+        this.eRZ = false;
+        this.eSa = false;
+        this.eSb = false;
+        this.eSc = false;
         init(context);
     }
 
     private void init(Context context) {
         View inflate = LayoutInflater.from(context).inflate(R.layout.thread_comment_and_view_info_layout, (ViewGroup) this, true);
-        this.eJB = (TextView) inflate.findViewById(R.id.thread_view_num);
-        this.ehV = (TextView) inflate.findViewById(R.id.thread_comment_num);
+        this.eRX = (TextView) inflate.findViewById(R.id.thread_view_num);
+        this.eqt = (TextView) inflate.findViewById(R.id.thread_comment_num);
         this.mContext = context;
     }
 
@@ -64,70 +64,70 @@ public class ThreadViewAndCommentInfoLayout extends LinearLayout {
     }
 
     private void K(bw bwVar) {
-        if (this.eJB != null && bwVar != null && this.eJE && bwVar.biB() != null && bwVar.bjB()) {
-            this.eJB.setVisibility(0);
-            this.eJB.setText(String.format(this.mContext.getString(R.string.person_view_item_live_watch_num), at.numberUniformFormat(bwVar.biB().audience_count)));
+        if (this.eRX != null && bwVar != null && this.eSa && bwVar.bku() != null && bwVar.blu()) {
+            this.eRX.setVisibility(0);
+            this.eRX.setText(String.format(this.mContext.getString(R.string.person_view_item_live_watch_num), at.numberUniformFormat(bwVar.bku().audience_count)));
         }
     }
 
     private void L(bw bwVar) {
-        if (this.eJB != null && bwVar != null && this.eJC) {
-            if (bwVar.bhZ() >= 0) {
-                this.eJB.setVisibility(0);
-                this.eJB.setText(String.format(this.mContext.getString(R.string.person_view_num), at.numberUniformFormat(bwVar.bhZ())));
+        if (this.eRX != null && bwVar != null && this.eRY) {
+            if (bwVar.bjS() >= 0) {
+                this.eRX.setVisibility(0);
+                this.eRX.setText(String.format(this.mContext.getString(R.string.person_view_num), at.numberUniformFormat(bwVar.bjS())));
                 return;
             }
-            this.eJB.setVisibility(8);
+            this.eRX.setVisibility(8);
         }
     }
 
     private void M(bw bwVar) {
-        if (this.ehV != null && bwVar != null && this.eJD) {
-            if (bwVar.bhY() >= 0) {
-                this.ehV.setVisibility(0);
-                this.ehV.setText(String.format(this.mContext.getString(R.string.comment_num_tip), at.numberUniformFormat(bwVar.bhY())));
+        if (this.eqt != null && bwVar != null && this.eRZ) {
+            if (bwVar.bjR() >= 0) {
+                this.eqt.setVisibility(0);
+                this.eqt.setText(String.format(this.mContext.getString(R.string.comment_num_tip), at.numberUniformFormat(bwVar.bjR())));
                 return;
             }
-            this.ehV.setVisibility(8);
+            this.eqt.setVisibility(8);
         }
     }
 
     private void N(bw bwVar) {
-        if (this.ehV != null && bwVar != null && this.eJF && bwVar.bjB()) {
-            this.ehV.setVisibility(0);
-            this.ehV.setText(String.format(this.mContext.getString(R.string.person_view_item_live_zan_num), at.numberUniformFormat(bwVar.bjF())));
+        if (this.eqt != null && bwVar != null && this.eSb && bwVar.blu()) {
+            this.eqt.setVisibility(0);
+            this.eqt.setText(String.format(this.mContext.getString(R.string.person_view_item_live_zan_num), at.numberUniformFormat(bwVar.bly())));
         }
     }
 
     private void z(bw bwVar) {
-        if (this.ehV != null && bwVar != null && this.eJG && bwVar.bjB()) {
-            this.ehV.setVisibility(0);
-            this.ehV.setText(String.format(this.mContext.getString(R.string.person_view_item_live_share_num), at.numberUniformFormat((bwVar.biB() == null || bwVar.biB().share_info == null) ? 0 : bwVar.biB().share_info.share_count)));
+        if (this.eqt != null && bwVar != null && this.eSc && bwVar.blu()) {
+            this.eqt.setVisibility(0);
+            this.eqt.setText(String.format(this.mContext.getString(R.string.person_view_item_live_share_num), at.numberUniformFormat((bwVar.bku() == null || bwVar.bku().share_info == null) ? 0 : bwVar.bku().share_info.share_count)));
         }
     }
 
     public void setIsShowReadNum(boolean z) {
-        this.eJC = z;
+        this.eRY = z;
     }
 
     public void setIsShowReplayNum(boolean z) {
-        this.eJD = z;
+        this.eRZ = z;
     }
 
     public void setIsShowAudienceNum(boolean z) {
-        this.eJE = z;
+        this.eSa = z;
     }
 
     public void setIsShowZanNum(boolean z) {
-        this.eJF = z;
+        this.eSb = z;
     }
 
     public void setIsShowShareNum(boolean z) {
-        this.eJG = z;
+        this.eSc = z;
     }
 
     public void onChangeSkinType() {
-        ap.setViewTextColor(this.eJB, R.color.cp_cont_d);
-        ap.setViewTextColor(this.ehV, R.color.cp_cont_d);
+        ap.setViewTextColor(this.eRX, R.color.cp_cont_d);
+        ap.setViewTextColor(this.eqt, R.color.cp_cont_d);
     }
 }

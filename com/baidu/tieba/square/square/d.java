@@ -3,19 +3,19 @@ package com.baidu.tieba.square.square;
 import org.json.JSONObject;
 /* loaded from: classes23.dex */
 public class d extends com.baidu.tieba.square.data.a {
-    private e mzH;
+    private e mMr;
 
-    public e dCX() {
-        return this.mzH;
+    public e dGf() {
+        return this.mMr;
     }
 
     public void b(e eVar) {
-        this.mzH = eVar;
+        this.mMr = eVar;
         setErrorMsg(null);
     }
 
     @Override // com.baidu.tieba.square.data.a
-    protected void en(JSONObject jSONObject) throws Exception {
+    protected void et(JSONObject jSONObject) throws Exception {
         JSONObject optJSONObject = jSONObject.optJSONObject("forum_dir");
         if (optJSONObject != null) {
             e eVar = new e();

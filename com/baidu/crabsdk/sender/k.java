@@ -17,17 +17,17 @@ import java.util.concurrent.TimeUnit;
 import org.json.JSONObject;
 /* loaded from: classes11.dex */
 public final class k {
-    private static SharedPreferences aqh = null;
-    private static final ScheduledThreadPoolExecutor aqi = new ScheduledThreadPoolExecutor(1);
+    private static SharedPreferences aqi = null;
     private static final ScheduledThreadPoolExecutor aqj = new ScheduledThreadPoolExecutor(1);
+    private static final ScheduledThreadPoolExecutor aqk = new ScheduledThreadPoolExecutor(1);
 
     private static long B(Context context, String str) {
         try {
-            if (aqh == null && context != null) {
-                aqh = context.getSharedPreferences("last_init_crab", 4);
+            if (aqi == null && context != null) {
+                aqi = context.getSharedPreferences("last_init_crab", 4);
             }
-            if (aqh != null) {
-                return aqh.getLong(str, 0L);
+            if (aqi != null) {
+                return aqi.getLong(str, 0L);
             }
             return 0L;
         } catch (Exception e) {
@@ -37,7 +37,7 @@ public final class k {
     }
 
     public static void a(Context context, Throwable th) {
-        aqi.execute(new m(th, context));
+        aqj.execute(new m(th, context));
     }
 
     public static synchronized void a(boolean z, Context context) {
@@ -47,13 +47,13 @@ public final class k {
                 long currentTimeMillis = System.currentTimeMillis() - B(context, "time_upload_crash");
                 com.baidu.crabsdk.c.a.v("uploadCrash 距离初始化上次上传的间隔是：" + currentTimeMillis);
                 if (currentTimeMillis < 10000) {
-                    aqi.schedule(pVar, 10L, TimeUnit.SECONDS);
+                    aqj.schedule(pVar, 10L, TimeUnit.SECONDS);
                 } else {
-                    aqi.execute(pVar);
+                    aqj.execute(pVar);
                 }
                 e(context, "time_upload_crash");
             } else {
-                aqi.execute(pVar);
+                aqj.execute(pVar);
             }
         }
     }
@@ -63,15 +63,15 @@ public final class k {
     }
 
     public static void ag(Context context) {
-        aqi.execute(new q(context));
+        aqj.execute(new q(context));
     }
 
     public static Future b(String str, OnUploadFilesCallback onUploadFilesCallback, String str2, String str3, String str4) {
-        return aqj.submit(new o(onUploadFilesCallback, str, str2, str3, str4));
+        return aqk.submit(new o(onUploadFilesCallback, str, str2, str3, str4));
     }
 
     public static void b(Context context, Throwable th) {
-        aqi.execute(new n(context, th));
+        aqj.execute(new n(context, th));
     }
 
     private static String dW(String str) {
@@ -81,11 +81,11 @@ public final class k {
     private static void e(Context context, String str) {
         long currentTimeMillis = System.currentTimeMillis();
         try {
-            if (aqh == null && context != null) {
-                aqh = context.getSharedPreferences("last_init_crab", 4);
+            if (aqi == null && context != null) {
+                aqi = context.getSharedPreferences("last_init_crab", 4);
             }
-            if (aqh != null) {
-                aqh.edit().putLong(str, System.currentTimeMillis()).commit();
+            if (aqi != null) {
+                aqi.edit().putLong(str, System.currentTimeMillis()).commit();
             }
         } catch (Exception e) {
             e.printStackTrace();
@@ -98,9 +98,9 @@ public final class k {
         long currentTimeMillis = System.currentTimeMillis() - B(context, "time_upload_native");
         com.baidu.crabsdk.c.a.v("uploadNativeCrash 距离初始化上次上传的间隔是：" + currentTimeMillis);
         if (currentTimeMillis < 10000) {
-            aqi.schedule(lVar, 10L, TimeUnit.SECONDS);
+            aqj.schedule(lVar, 10L, TimeUnit.SECONDS);
         } else {
-            aqi.execute(lVar);
+            aqj.execute(lVar);
         }
         e(context, "time_upload_native");
     }
@@ -435,7 +435,7 @@ public final class k {
                         } else {
                             com.baidu.crabsdk.c.a.dB("not connected to server!");
                         }
-                        f.aqc = true;
+                        f.aqd = true;
                     } else {
                         i.deleteFile(str2);
                         h.k(str2);

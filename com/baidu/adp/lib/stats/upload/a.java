@@ -25,7 +25,7 @@ public class a {
             long j = 0;
             while (i < size) {
                 com.baidu.adp.lib.stats.base.d dVar = b.get(i);
-                j += dVar.Ox;
+                j += dVar.Oy;
                 arrayList2.add(dVar);
                 if (j >= ConfigSpeedStat.CFG_MIN_SIZE_DEFAULT) {
                     bdUploadingLogInfo.add(arrayList2);
@@ -70,7 +70,7 @@ public class a {
             while (it.hasNext()) {
                 com.baidu.adp.lib.stats.base.d next = it.next();
                 if (next != null) {
-                    long j = next.Oy;
+                    long j = next.Oz;
                     if (j != 0 && j + 604800000 < currentTimeMillis) {
                         arrayList4.add(next.mFileName);
                     } else {

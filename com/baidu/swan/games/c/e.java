@@ -28,9 +28,9 @@ public class e extends aa {
                 if (TextUtils.isEmpty(optString)) {
                     Toast.makeText(context, a.h.aiapps_debug_swan_core_url_empty, 1).show();
                 } else {
-                    d.aPW().a(optString, new d.a() { // from class: com.baidu.swan.games.c.e.1
+                    d.aRQ().a(optString, new d.a() { // from class: com.baidu.swan.games.c.e.1
                         @Override // com.baidu.swan.games.c.d.a
-                        public void el(boolean z) {
+                        public void ey(boolean z) {
                             Context appContext = AppRuntime.getAppContext();
                             if (z) {
                                 Toast.makeText(appContext, a.h.aiapps_debug_game_sconsole_download_success, 1).show();

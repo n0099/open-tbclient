@@ -4,15 +4,15 @@ package com.baidu.ufosdk.ui;
 public final class s implements Runnable {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ FeedbackEditActivity f3888a;
+    final /* synthetic */ FeedbackEditActivity f3886a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public s(FeedbackEditActivity feedbackEditActivity) {
-        this.f3888a = feedbackEditActivity;
+        this.f3886a = feedbackEditActivity;
     }
 
     @Override // java.lang.Runnable
     public final void run() {
-        com.baidu.ufosdk.e.a.a(this.f3888a.getApplicationContext());
+        com.baidu.ufosdk.e.a.a(this.f3886a.getApplicationContext());
     }
 }

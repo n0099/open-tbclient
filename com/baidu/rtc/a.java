@@ -6,10 +6,10 @@ import org.webrtc.PeerConnection;
 import org.webrtc.VideoTrack;
 /* loaded from: classes9.dex */
 public class a {
-    public BigInteger bVT;
-    public PeerConnection bVU;
-    public PeerConnectionClient.d bVV;
-    public boolean bVW;
-    public VideoTrack bVX;
-    public int bVY;
+    public BigInteger ces;
+    public PeerConnection cet;
+    public PeerConnectionClient.d ceu;
+    public boolean cev;
+    public VideoTrack cew;
+    public int cex;
 }

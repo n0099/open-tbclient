@@ -4,35 +4,35 @@ import android.os.AsyncTask;
 import android.support.annotation.Nullable;
 /* loaded from: classes10.dex */
 public abstract class d {
-    private Exception QK;
-    private b djr;
+    private Exception QL;
+    private b drR;
 
-    protected abstract boolean aEU() throws Exception;
+    protected abstract boolean aGO() throws Exception;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public Exception getException() {
-        return this.QK;
+        return this.QL;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public d a(b bVar) {
-        this.djr = bVar;
+        this.drR = bVar;
         return this;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public boolean isOk() {
-        return this.QK == null;
+        return this.QL == null;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public d aEV() {
+    public d aGP() {
         AsyncTask.execute(new Runnable() { // from class: com.baidu.swan.apps.setting.oauth.d.1
             @Override // java.lang.Runnable
             public void run() {
                 try {
-                    if (d.this.aEU()) {
-                        d.this.aEW();
+                    if (d.this.aGO()) {
+                        d.this.aGQ();
                     }
                 } catch (Exception e) {
                     e.printStackTrace();
@@ -43,16 +43,16 @@ public abstract class d {
         return this;
     }
 
-    public void aEW() {
+    public void aGQ() {
         w(null);
     }
 
     public void w(@Nullable Exception exc) {
-        this.QK = exc;
+        this.QL = exc;
         c.h(new Runnable() { // from class: com.baidu.swan.apps.setting.oauth.d.2
             @Override // java.lang.Runnable
             public void run() {
-                d.this.djr.b(d.this);
+                d.this.drR.b(d.this);
             }
         });
     }

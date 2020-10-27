@@ -1,5 +1,6 @@
 package com.baidu.tieba.ala.alaar.view;
 
+import android.content.Context;
 import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -7,7 +8,6 @@ import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import com.baidu.live.adp.lib.util.BdNetTypeUtil;
 import com.baidu.live.adp.lib.util.BdUtilHelper;
-import com.baidu.live.ar.f;
 import com.baidu.live.sdk.a;
 import com.baidu.live.tbadk.core.util.ListUtils;
 import com.baidu.tieba.ala.alaar.sticker.a.e;
@@ -15,40 +15,40 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes4.dex */
 public class a extends BaseAdapter {
-    private ViewGroup fRe;
-    private InterfaceC0600a fRf;
-    public List<f> aDn = new ArrayList();
-    private int fPm = -1;
-    private int fPn = -1;
-    private int fRg = 0;
+    private InterfaceC0616a gad;
+    private Context mContext;
+    public List<com.baidu.live.ar.g> aDr = new ArrayList();
+    private int fYF = -1;
+    private int fYG = -1;
+    private int gae = 0;
 
     /* renamed from: com.baidu.tieba.ala.alaar.view.a$a  reason: collision with other inner class name */
     /* loaded from: classes4.dex */
-    public interface InterfaceC0600a {
-        void b(int i, int[] iArr);
+    public interface InterfaceC0616a {
+        void a(int i, int[] iArr, boolean z);
     }
 
-    public a(ViewGroup viewGroup) {
-        this.fRe = viewGroup;
+    public a(Context context) {
+        this.mContext = context;
     }
 
-    public void a(InterfaceC0600a interfaceC0600a) {
-        this.fRf = interfaceC0600a;
+    public void a(InterfaceC0616a interfaceC0616a) {
+        this.gad = interfaceC0616a;
     }
 
     @Override // android.widget.Adapter
     public int getCount() {
-        if (this.aDn == null) {
+        if (this.aDr == null) {
             return 0;
         }
-        return this.aDn.size();
+        return this.aDr.size();
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // android.widget.Adapter
-    /* renamed from: tm */
-    public f getItem(int i) {
-        return (f) ListUtils.getItem(this.aDn, i);
+    /* renamed from: tx */
+    public com.baidu.live.ar.g getItem(int i) {
+        return (com.baidu.live.ar.g) ListUtils.getItem(this.aDr, i);
     }
 
     @Override // android.widget.Adapter
@@ -56,48 +56,48 @@ public class a extends BaseAdapter {
         return i;
     }
 
-    public void setDatas(List<f> list) {
+    public void setDatas(List<com.baidu.live.ar.g> list) {
         if (!ListUtils.isEmpty(list)) {
-            this.aDn.clear();
-            this.aDn.addAll(list);
+            this.aDr.clear();
+            this.aDr.addAll(list);
             notifyDataSetChanged();
         }
     }
 
-    public List<f> getDatas() {
-        return this.aDn;
+    public List<com.baidu.live.ar.g> getDatas() {
+        return this.aDr;
     }
 
     @Override // android.widget.Adapter
     public View getView(final int i, View view, ViewGroup viewGroup) {
-        final e eVar;
+        final g gVar;
         if (view == null) {
-            view = LayoutInflater.from(this.fRe.getContext()).inflate(a.h.filter_ar_item_layout, (ViewGroup) null);
-            eVar = new e(view);
-            view.setTag(eVar);
+            view = LayoutInflater.from(this.mContext).inflate(a.h.filter_ar_item_layout, (ViewGroup) null);
+            gVar = new g(view);
+            view.setTag(gVar);
         } else {
-            eVar = (e) view.getTag();
+            gVar = (g) view.getTag();
         }
         view.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.ala.alaar.view.a.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view2) {
                 int[] iArr = new int[2];
-                if (eVar != null && eVar.mRootView != null) {
-                    eVar.mRootView.getLocationOnScreen(iArr);
+                if (gVar != null && gVar.mRootView != null) {
+                    gVar.mRootView.getLocationOnScreen(iArr);
                 }
-                a.this.a(a.this.getItem(i), i, eVar, iArr);
+                a.this.a(a.this.getItem(i), i, gVar, iArr, true);
             }
         });
-        if (eVar != null) {
-            eVar.b(getItem(i));
-            if (this.fPm == i) {
-                eVar.bJr();
+        if (gVar != null) {
+            gVar.b(getItem(i));
+            if (this.fYF == i) {
+                gVar.bLR();
             } else {
-                eVar.bJq();
+                gVar.bLQ();
             }
         }
-        if (i == 0 && this.fRg != 0) {
-            view.setPadding(this.fRg, 0, 0, 0);
+        if (i == 0 && this.gae != 0) {
+            view.setPadding(this.gae, 0, 0, 0);
         } else {
             view.setPadding(0, 0, 0, 0);
         }
@@ -105,30 +105,30 @@ public class a extends BaseAdapter {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void a(f fVar, int i, e eVar, int[] iArr) {
-        if (fVar != null) {
-            this.fPn = i;
-            if (com.baidu.tieba.ala.alaar.sticker.a.e.Fo(fVar.Cb())) {
-                if (this.fRf != null) {
-                    this.fRf.b(i, iArr);
+    public void a(com.baidu.live.ar.g gVar, int i, g gVar2, int[] iArr, boolean z) {
+        if (gVar != null) {
+            this.fYG = i;
+            if (com.baidu.tieba.ala.alaar.sticker.a.e.FM(gVar.Cc())) {
+                if (this.gad != null) {
+                    this.gad.a(i, iArr, z);
                 }
-                this.fPm = i;
+                this.fYF = i;
                 notifyDataSetChanged();
-            } else if (TextUtils.isEmpty(fVar.Cb()) || !com.baidu.tieba.ala.alaar.sticker.a.e.cG(fVar.Cb())) {
-                a(fVar, eVar, i, iArr);
+            } else if (TextUtils.isEmpty(gVar.Cc()) || !com.baidu.tieba.ala.alaar.sticker.a.e.cG(gVar.Cc())) {
+                a(gVar, gVar2, i, iArr);
             }
         }
     }
 
-    private void a(f fVar, final e eVar, final int i, final int[] iArr) {
+    private void a(com.baidu.live.ar.g gVar, final g gVar2, final int i, final int[] iArr) {
         if (!BdNetTypeUtil.isNetWorkAvailable()) {
-            BdUtilHelper.showToast(this.fRe.getContext(), a.i.sdk_network_not_available);
-        } else if (fVar != null && !TextUtils.isEmpty(fVar.Cb())) {
-            com.baidu.tieba.ala.alaar.sticker.a.e.a(fVar.Cb(), new e.a() { // from class: com.baidu.tieba.ala.alaar.view.a.2
+            BdUtilHelper.showToast(this.mContext, a.i.sdk_network_not_available);
+        } else if (gVar != null && !TextUtils.isEmpty(gVar.Cc())) {
+            com.baidu.tieba.ala.alaar.sticker.a.e.a(gVar.Cc(), new e.a() { // from class: com.baidu.tieba.ala.alaar.view.a.2
                 @Override // com.baidu.tieba.ala.alaar.sticker.a.e.a
                 public void onStarted() {
-                    if (eVar != null) {
-                        eVar.bJe();
+                    if (gVar2 != null) {
+                        gVar2.bLE();
                     }
                 }
 
@@ -138,14 +138,14 @@ public class a extends BaseAdapter {
 
                 @Override // com.baidu.tieba.ala.alaar.sticker.a.e.a
                 public void onCompleted(String str) {
-                    if (a.this.fPn != i) {
+                    if (a.this.fYG != i) {
                         a.this.notifyDataSetChanged();
                         return;
                     }
-                    a.this.fPm = i;
+                    a.this.fYF = i;
                     a.this.notifyDataSetChanged();
-                    if (a.this.fRf != null) {
-                        a.this.fRf.b(i, iArr);
+                    if (a.this.gad != null) {
+                        a.this.gad.a(i, iArr, false);
                     }
                 }
 
@@ -157,48 +157,17 @@ public class a extends BaseAdapter {
         }
     }
 
-    public void FB(String str) {
-        String Fn;
-        if (this.aDn != null && this.aDn.size() > 0 && !TextUtils.isEmpty(str)) {
-            int i = 0;
-            int i2 = -1;
-            while (true) {
-                int i3 = i;
-                if (i3 < this.aDn.size()) {
-                    if (this.fRe.getContext().getString(a.i.beauty_yuantu).equals(this.aDn.get(i3).getName())) {
-                        com.baidu.minivideo.arface.b.VI();
-                        Fn = com.baidu.minivideo.arface.c.VN();
-                        i2 = i3;
-                    } else {
-                        Fn = com.baidu.tieba.ala.alaar.sticker.a.e.Fn(this.aDn.get(i3).Cb());
-                    }
-                    if (!str.equals(Fn)) {
-                        i = i3 + 1;
-                    } else {
-                        this.fPm = i3;
-                        notifyDataSetChanged();
-                        if (this.fRf != null) {
-                            this.fRf.b(i3, null);
-                            return;
-                        }
-                        return;
-                    }
-                } else if (i2 >= 0) {
-                    this.fPm = i2;
-                    notifyDataSetChanged();
-                    if (this.fRf != null) {
-                        this.fRf.b(i2, null);
-                        return;
-                    }
-                    return;
-                } else {
-                    return;
-                }
+    public void setSelect(int i) {
+        if (this.aDr != null && this.aDr.size() > 0 && i >= 0 && i < getCount()) {
+            this.fYF = i;
+            notifyDataSetChanged();
+            if (this.gad != null) {
+                this.gad.a(this.fYF, null, false);
             }
         }
     }
 
-    public void tn(int i) {
-        this.fRg = i;
+    public void ty(int i) {
+        this.gae = i;
     }
 }

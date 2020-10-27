@@ -249,9 +249,9 @@ public class SquareForumListActivity extends ProxyAdkBaseActivity<SquareForumLis
     private void showNoDataView() {
         int a2 = BdListViewHelper.a(BdListViewHelper.HeadType.DEFAULT);
         if (this.mNoDataView == null) {
-            this.mNoDataView = NoDataViewFactory.a(getPageContext().getPageActivity(), this.mRootView, NoDataViewFactory.c.a(NoDataViewFactory.ImgType.NODATA, a2), NoDataViewFactory.d.dL(null, getPageContext().getString(R.string.no_data_text)), null);
+            this.mNoDataView = NoDataViewFactory.a(getPageContext().getPageActivity(), this.mRootView, NoDataViewFactory.c.a(NoDataViewFactory.ImgType.NODATA, a2), NoDataViewFactory.d.dS(null, getPageContext().getString(R.string.no_data_text)), null);
         }
-        this.mNoDataView.setTextOption(NoDataViewFactory.d.dL(null, getPageContext().getString(R.string.no_data_text)));
+        this.mNoDataView.setTextOption(NoDataViewFactory.d.dS(null, getPageContext().getString(R.string.no_data_text)));
         this.mNoDataView.onChangeSkinType(getPageContext(), TbadkCoreApplication.getInst().getSkinType());
         this.mNoDataView.setVisibility(0);
     }
@@ -260,9 +260,9 @@ public class SquareForumListActivity extends ProxyAdkBaseActivity<SquareForumLis
     public void showNoNetworkView() {
         int a2 = BdListViewHelper.a(BdListViewHelper.HeadType.DEFAULT);
         if (this.mNoDataView == null) {
-            this.mNoDataView = NoDataViewFactory.a(getPageContext().getPageActivity(), this.mRootView, NoDataViewFactory.c.a(NoDataViewFactory.ImgType.NODATA, a2), NoDataViewFactory.d.dL(null, getPageContext().getString(R.string.network_not_available)), null);
+            this.mNoDataView = NoDataViewFactory.a(getPageContext().getPageActivity(), this.mRootView, NoDataViewFactory.c.a(NoDataViewFactory.ImgType.NODATA, a2), NoDataViewFactory.d.dS(null, getPageContext().getString(R.string.network_not_available)), null);
         }
-        this.mNoDataView.setTextOption(NoDataViewFactory.d.dL(null, getPageContext().getString(R.string.game_index_no_network_text)));
+        this.mNoDataView.setTextOption(NoDataViewFactory.d.dS(null, getPageContext().getString(R.string.game_index_no_network_text)));
         this.mNoDataView.onChangeSkinType(getPageContext(), TbadkCoreApplication.getInst().getSkinType());
         this.mNoDataView.setVisibility(0);
     }

@@ -4,16 +4,16 @@ import android.widget.ExpandableListView;
 import java.util.ArrayList;
 /* loaded from: classes4.dex */
 class a {
-    private static ArrayList<a> bsL = new ArrayList<>(5);
-    public int bsP;
-    public int bsQ;
-    int bsR;
+    private static ArrayList<a> buT = new ArrayList<>(5);
+    public int buX;
+    public int buY;
+    int buZ;
     public int type;
 
     private void resetState() {
-        this.bsP = 0;
-        this.bsQ = 0;
-        this.bsR = 0;
+        this.buX = 0;
+        this.buY = 0;
+        this.buZ = 0;
         this.type = 0;
     }
 
@@ -21,30 +21,30 @@ class a {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public long PF() {
-        return this.type == 1 ? ExpandableListView.getPackedPositionForChild(this.bsP, this.bsQ) : ExpandableListView.getPackedPositionForGroup(this.bsP);
+    public long Qy() {
+        return this.type == 1 ? ExpandableListView.getPackedPositionForChild(this.buX, this.buY) : ExpandableListView.getPackedPositionForGroup(this.buX);
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public static a fs(int i) {
+    public static a fu(int i) {
         return g(2, i, 0, 0);
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public static a g(int i, int i2, int i3, int i4) {
-        a PG = PG();
-        PG.type = i;
-        PG.bsP = i2;
-        PG.bsQ = i3;
-        PG.bsR = i4;
-        return PG;
+        a Qz = Qz();
+        Qz.type = i;
+        Qz.buX = i2;
+        Qz.buY = i3;
+        Qz.buZ = i4;
+        return Qz;
     }
 
-    private static a PG() {
+    private static a Qz() {
         a aVar;
-        synchronized (bsL) {
-            if (bsL.size() > 0) {
-                aVar = bsL.remove(0);
+        synchronized (buT) {
+            if (buT.size() > 0) {
+                aVar = buT.remove(0);
                 aVar.resetState();
             } else {
                 aVar = new a();
@@ -54,9 +54,9 @@ class a {
     }
 
     public void recycle() {
-        synchronized (bsL) {
-            if (bsL.size() < 5) {
-                bsL.add(this);
+        synchronized (buT) {
+            if (buT.size() < 5) {
+                buT.add(this);
             }
         }
     }

@@ -14,10 +14,10 @@ import com.baidu.live.sdk.a;
 import com.baidu.live.tbadk.core.TbadkCoreApplication;
 /* loaded from: classes4.dex */
 public class PersonPageIndicator extends LinearLayout {
-    private View hlj;
-    private FrameLayout hlk;
-    private ViewPager.OnPageChangeListener hll;
-    private LinearLayout hlm;
+    private View hxe;
+    private FrameLayout hxf;
+    private ViewPager.OnPageChangeListener hxg;
+    private LinearLayout hxh;
     private ViewPager mViewPager;
 
     public PersonPageIndicator(Context context) {
@@ -38,29 +38,29 @@ public class PersonPageIndicator extends LinearLayout {
     private void init() {
         setOrientation(1);
         LayoutInflater.from(getContext()).inflate(a.h.ala_person_page_indicator, this);
-        this.hlj = findViewById(a.g.indicator);
-        this.hlk = (FrameLayout) findViewById(a.g.indicator_wrapper);
-        this.hlm = (LinearLayout) findViewById(a.g.tab_view_layout);
+        this.hxe = findViewById(a.g.indicator);
+        this.hxf = (FrameLayout) findViewById(a.g.indicator_wrapper);
+        this.hxh = (LinearLayout) findViewById(a.g.tab_view_layout);
         if (TbadkCoreApplication.getInst().isHaokan()) {
-            this.hlj.setBackgroundResource(a.f.ala_person_indicator_bg_hk);
+            this.hxe.setBackgroundResource(a.f.ala_person_indicator_bg_hk);
         } else {
-            this.hlj.setBackgroundResource(a.f.ala_person_indicator_bg_qm);
+            this.hxe.setBackgroundResource(a.f.ala_person_indicator_bg_qm);
         }
     }
 
     public void setIndicatorMargin(int i) {
-        LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.hlk.getLayoutParams();
+        LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.hxf.getLayoutParams();
         layoutParams.leftMargin = i;
         layoutParams.rightMargin = i;
-        this.hlk.setLayoutParams(layoutParams);
+        this.hxf.setLayoutParams(layoutParams);
     }
 
-    public void HP(String str) {
+    public void Io(String str) {
         if (!StringUtils.isNull(str)) {
             TextView textView = new TextView(getContext());
             textView.setTextSize(0, BdUtilHelper.getDimens(getContext(), a.e.sdk_fontsize24));
             textView.setText(str);
-            this.hlm.addView(textView);
+            this.hxh.addView(textView);
         }
     }
 
@@ -69,38 +69,38 @@ public class PersonPageIndicator extends LinearLayout {
         viewPager.setOnPageChangeListener(new ViewPager.OnPageChangeListener() { // from class: com.baidu.tieba.ala.person.view.PersonPageIndicator.1
             @Override // android.support.v4.view.ViewPager.OnPageChangeListener
             public void onPageScrolled(int i2, float f, int i3) {
-                if (f <= 0.0f || i2 >= PersonPageIndicator.this.hlm.getChildCount() - 1) {
-                    PersonPageIndicator.this.hlj.getLayoutParams().width = PersonPageIndicator.this.hlm.getChildAt(i2).getMeasuredWidth();
+                if (f <= 0.0f || i2 >= PersonPageIndicator.this.hxh.getChildCount() - 1) {
+                    PersonPageIndicator.this.hxe.getLayoutParams().width = PersonPageIndicator.this.hxh.getChildAt(i2).getMeasuredWidth();
                 } else {
-                    View childAt = PersonPageIndicator.this.hlm.getChildAt(i2);
-                    View childAt2 = PersonPageIndicator.this.hlm.getChildAt(i2 + 1);
-                    PersonPageIndicator.this.hlj.getLayoutParams().width = (int) (((childAt2.getWidth() - childAt.getWidth()) * f) + childAt.getWidth());
+                    View childAt = PersonPageIndicator.this.hxh.getChildAt(i2);
+                    View childAt2 = PersonPageIndicator.this.hxh.getChildAt(i2 + 1);
+                    PersonPageIndicator.this.hxe.getLayoutParams().width = (int) (((childAt2.getWidth() - childAt.getWidth()) * f) + childAt.getWidth());
                 }
-                FrameLayout.LayoutParams layoutParams = (FrameLayout.LayoutParams) PersonPageIndicator.this.hlj.getLayoutParams();
-                layoutParams.leftMargin = (int) ((((i * i2) + (i / 2)) - (PersonPageIndicator.this.hlj.getLayoutParams().width / 2)) + (i * f));
-                PersonPageIndicator.this.hlj.setLayoutParams(layoutParams);
-                if (PersonPageIndicator.this.hll != null) {
-                    PersonPageIndicator.this.hll.onPageScrolled(i2, f, i3);
+                FrameLayout.LayoutParams layoutParams = (FrameLayout.LayoutParams) PersonPageIndicator.this.hxe.getLayoutParams();
+                layoutParams.leftMargin = (int) ((((i * i2) + (i / 2)) - (PersonPageIndicator.this.hxe.getLayoutParams().width / 2)) + (i * f));
+                PersonPageIndicator.this.hxe.setLayoutParams(layoutParams);
+                if (PersonPageIndicator.this.hxg != null) {
+                    PersonPageIndicator.this.hxg.onPageScrolled(i2, f, i3);
                 }
             }
 
             @Override // android.support.v4.view.ViewPager.OnPageChangeListener
             public void onPageSelected(int i2) {
-                if (PersonPageIndicator.this.hll != null) {
-                    PersonPageIndicator.this.hll.onPageSelected(i2);
+                if (PersonPageIndicator.this.hxg != null) {
+                    PersonPageIndicator.this.hxg.onPageSelected(i2);
                 }
             }
 
             @Override // android.support.v4.view.ViewPager.OnPageChangeListener
             public void onPageScrollStateChanged(int i2) {
-                if (PersonPageIndicator.this.hll != null) {
-                    PersonPageIndicator.this.hll.onPageScrollStateChanged(i2);
+                if (PersonPageIndicator.this.hxg != null) {
+                    PersonPageIndicator.this.hxg.onPageScrollStateChanged(i2);
                 }
             }
         });
     }
 
     public void setOnPageChangeListener(ViewPager.OnPageChangeListener onPageChangeListener) {
-        this.hll = onPageChangeListener;
+        this.hxg = onPageChangeListener;
     }
 }

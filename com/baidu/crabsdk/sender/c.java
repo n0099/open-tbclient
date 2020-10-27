@@ -13,14 +13,14 @@ import java.util.List;
 import java.util.Map;
 /* loaded from: classes11.dex */
 public final class c extends a {
-    private ActivityManager apU;
+    private ActivityManager apV;
     private int bB;
 
     public c(Context context) {
         super(context);
-        this.apU = null;
+        this.apV = null;
         this.bB = -100;
-        this.apU = (ActivityManager) context.getSystemService(PushConstants.INTENT_ACTIVITY_NAME);
+        this.apV = (ActivityManager) context.getSystemService(PushConstants.INTENT_ACTIVITY_NAME);
     }
 
     private static Map<String, Object> a(ActivityManager.ProcessErrorStateInfo processErrorStateInfo, String str) {
@@ -82,18 +82,18 @@ public final class c extends a {
                 if (com.baidu.crabsdk.a.P != null) {
                     com.baidu.crabsdk.a.P.onAnrStarted(a2);
                 }
-                Map<String, Object> a3 = g.a(this.apR, (Throwable) null, false);
+                Map<String, Object> a3 = g.a(this.apS, (Throwable) null, false);
                 if (a3 == null) {
                     com.baidu.crabsdk.c.a.dB("info map is null!");
                     return true;
                 }
                 a3.putAll(a2);
                 g.b(a3);
-                i.a(this.apR, i.e(a3));
+                i.a(this.apS, i.e(a3));
                 h.vC();
                 if (h.vy()) {
                     com.baidu.crabsdk.c.a.dA("begin to upload anr info...");
-                    k.a(false, this.apR);
+                    k.a(false, this.apS);
                 }
             } else {
                 com.baidu.crabsdk.c.a.dA("Anr occur! But not the current pid!" + Process.myPid());
@@ -111,7 +111,7 @@ public final class c extends a {
 
     private ActivityManager.ProcessErrorStateInfo vv() {
         try {
-            List<ActivityManager.ProcessErrorStateInfo> processesInErrorState = this.apU.getProcessesInErrorState();
+            List<ActivityManager.ProcessErrorStateInfo> processesInErrorState = this.apV.getProcessesInErrorState();
             if (processesInErrorState != null) {
                 for (ActivityManager.ProcessErrorStateInfo processErrorStateInfo : processesInErrorState) {
                     if (processErrorStateInfo.condition == 2) {

@@ -18,9 +18,9 @@ import com.baidu.tieba.R;
 public final class a {
     public static void a(View view, AbsThreadDataSupport absThreadDataSupport) {
         if (view != null) {
-            boolean bdB = d.bdB();
+            boolean bfu = d.bfu();
             ViewGroup.MarginLayoutParams marginLayoutParams = (ViewGroup.MarginLayoutParams) view.getLayoutParams();
-            if (bdB) {
+            if (bfu) {
                 marginLayoutParams.leftMargin = 0;
                 marginLayoutParams.rightMargin = 0;
                 marginLayoutParams.height = l.getDimens(view.getContext(), R.dimen.tbds17);
@@ -33,7 +33,7 @@ public final class a {
         }
     }
 
-    public static void aZ(View view) {
+    public static void ba(View view) {
         if (view != null) {
             if (((ViewGroup.MarginLayoutParams) view.getLayoutParams()).leftMargin > 0) {
                 ap.setBackgroundResource(view, R.color.cp_bg_line_b);
@@ -44,11 +44,11 @@ public final class a {
     }
 
     public static void a(bw bwVar, int[] iArr) {
-        if (iArr != null && iArr.length == 2 && bwVar != null && d.bdB()) {
+        if (iArr != null && iArr.length == 2 && bwVar != null && d.bfu()) {
             int size = View.MeasureSpec.getSize(l.getScreenDimensions(TbadkCoreApplication.getInst().getContext())[0]) - (TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.tbds44) * 2);
             int dimensionPixelSize = TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.tbds10);
             int i = dimensionPixelSize + (((int) ((size - (dimensionPixelSize * 2)) / 3.0f)) * 2);
-            MediaData mediaData = (MediaData) y.getItem(bwVar.biq(), 0);
+            MediaData mediaData = (MediaData) y.getItem(bwVar.bkj(), 0);
             if (mediaData != null && mediaData.picWidth > 0 && mediaData.picHeight > 0) {
                 if (mediaData.picWidth == mediaData.picHeight) {
                     iArr[0] = i;
@@ -66,7 +66,7 @@ public final class a {
 
     public static int[] c(MediaData mediaData) {
         int[] iArr = new int[2];
-        if (mediaData != null && d.bdB()) {
+        if (mediaData != null && d.bfu()) {
             int size = View.MeasureSpec.getSize(l.getScreenDimensions(TbadkCoreApplication.getInst().getContext())[0]) - (TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.tbds44) * 2);
             int dimensionPixelSize = TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.tbds10);
             int i = (((int) ((size - (dimensionPixelSize * 2)) / 3.0f)) * 2) + dimensionPixelSize;
@@ -88,7 +88,7 @@ public final class a {
 
     public static void a(TextView textView) {
         if (textView != null) {
-            if (d.bdB()) {
+            if (d.bfu()) {
                 textView.setTypeface(Typeface.DEFAULT);
                 textView.setTextSize(0, textView.getResources().getDimension(R.dimen.tbds39));
                 return;
@@ -100,7 +100,7 @@ public final class a {
 
     public static void b(TextView textView) {
         if (textView != null) {
-            if (d.bdB()) {
+            if (d.bfu()) {
                 ap.setViewTextColor(textView, R.color.cp_cont_b);
             } else {
                 ap.setViewTextColor(textView, R.color.cp_cont_f);
@@ -110,7 +110,7 @@ public final class a {
 
     public static void h(View view, int i) {
         if (view != null) {
-            if (d.bdB()) {
+            if (d.bfu()) {
                 view.setBackgroundResource(R.drawable.bg_img_mask);
             } else if (i > 0) {
                 view.setBackgroundResource(i);
@@ -123,7 +123,7 @@ public final class a {
     public static void d(View view, int i, int i2) {
         if (view != null) {
             ViewGroup.MarginLayoutParams marginLayoutParams = (ViewGroup.MarginLayoutParams) view.getLayoutParams();
-            if (d.bdB()) {
+            if (d.bfu()) {
                 marginLayoutParams.topMargin = l.getDimens(TbadkCoreApplication.getInst(), i2);
             } else {
                 marginLayoutParams.topMargin = l.getDimens(TbadkCoreApplication.getInst(), i);
@@ -132,13 +132,13 @@ public final class a {
         }
     }
 
-    public static int aK(int i, int i2) {
-        return d.bdB() ? i2 : i;
+    public static int aL(int i, int i2) {
+        return d.bfu() ? i2 : i;
     }
 
     public static void a(TextView textView, int i, int i2) {
         if (textView != null && Build.VERSION.SDK_INT >= 16) {
-            if (d.bdB()) {
+            if (d.bfu()) {
                 textView.setLineSpacing(l.getDimens(textView.getContext(), i2), textView.getLineSpacingMultiplier());
             } else {
                 textView.setLineSpacing(l.getDimens(textView.getContext(), i), textView.getLineSpacingMultiplier());
@@ -147,7 +147,7 @@ public final class a {
     }
 
     public static boolean a(ViewGroup.LayoutParams layoutParams, boolean z, com.baidu.tieba.play.operableVideoView.a aVar, int i, int i2) {
-        if (layoutParams == null || aVar == null || !d.bdB()) {
+        if (layoutParams == null || aVar == null || !d.bfu()) {
             return z;
         }
         int size = View.MeasureSpec.getSize(l.getScreenDimensions(TbadkCoreApplication.getInst().getContext())[0]) - (TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.tbds44) * 2);
@@ -156,12 +156,12 @@ public final class a {
         layoutParams.width = i3;
         layoutParams.height = (i3 * 4) / 3;
         boolean z2 = (layoutParams.width == i && layoutParams.height == i2) ? false : true;
-        aVar.GR(0);
+        aVar.Hk(0);
         return z2;
     }
 
     public static boolean a(ViewGroup.LayoutParams layoutParams, ViewGroup.LayoutParams layoutParams2, int i, int i2, boolean z) {
-        if (layoutParams != null && layoutParams2 != null && d.bdB()) {
+        if (layoutParams != null && layoutParams2 != null && d.bfu()) {
             int size = View.MeasureSpec.getSize(l.getScreenDimensions(TbadkCoreApplication.getInst().getContext())[0]) - (TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.tbds44) * 2);
             int dimensionPixelSize = TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.tbds10);
             int i3 = (((int) ((size - (dimensionPixelSize * 2)) / 3.0f)) * 2) + dimensionPixelSize;

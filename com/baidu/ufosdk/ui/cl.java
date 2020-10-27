@@ -3,20 +3,20 @@ package com.baidu.ufosdk.ui;
 final class cl implements Runnable {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ ck f3806a;
+    final /* synthetic */ ck f3804a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public cl(ck ckVar) {
-        this.f3806a = ckVar;
+        this.f3804a = ckVar;
     }
 
     @Override // java.lang.Runnable
     public final void run() {
         try {
-            if (this.f3806a.b.f3801a.B) {
-                this.f3806a.b.f3801a.a(this.f3806a.b.f3801a, this.f3806a.b.f3801a.f, this.f3806a.b.f3801a.A);
+            if (this.f3804a.b.f3799a.B) {
+                this.f3804a.b.f3799a.a(this.f3804a.b.f3799a, this.f3804a.b.f3799a.f, this.f3804a.b.f3799a.A);
             }
-            com.baidu.ufosdk.e.a.a(this.f3806a.b.f3801a.f, 9);
+            com.baidu.ufosdk.e.a.a(this.f3804a.b.f3799a.f, 9);
         } catch (Exception e) {
             e.printStackTrace();
         }

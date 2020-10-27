@@ -11,92 +11,92 @@ import java.util.LinkedList;
 import java.util.List;
 /* loaded from: classes22.dex */
 public class a {
-    private BdTypeRecyclerView Xc;
-    private f jhA;
-    private c jhB;
-    private d jhC;
-    private e jhD;
-    private LinkedList<com.baidu.adp.widget.ListView.a> jhz = new LinkedList<>();
+    private BdTypeRecyclerView Xe;
+    private LinkedList<com.baidu.adp.widget.ListView.a> jtX = new LinkedList<>();
+    private f jtY;
+    private c jtZ;
+    private d jua;
+    private e jub;
     private TbPageContext mPageContext;
 
     public a(TbPageContext tbPageContext, BdTypeRecyclerView bdTypeRecyclerView) {
         this.mPageContext = tbPageContext;
-        this.Xc = bdTypeRecyclerView;
-        Le();
+        this.Xe = bdTypeRecyclerView;
+        Ly();
     }
 
-    private void Le() {
-        this.jhA = new f(this.mPageContext, l.hJf);
-        this.jhB = new c(this.mPageContext, m.epH);
-        this.jhC = new d(this.mPageContext, l.hJm);
-        this.jhD = new e(this.mPageContext, l.hJk);
-        this.jhA.a(this.Xc);
-        this.jhB.a(this.Xc);
-        this.jhC.a(this.Xc);
-        this.jhD.a(this.Xc);
-        this.jhz.add(this.jhA);
-        this.jhz.add(this.jhB);
-        this.jhz.add(this.jhC);
-        this.jhz.add(this.jhD);
-        this.Xc.addAdapters(this.jhz);
+    private void Ly() {
+        this.jtY = new f(this.mPageContext, l.hVC);
+        this.jtZ = new c(this.mPageContext, m.eyg);
+        this.jua = new d(this.mPageContext, l.hVJ);
+        this.jub = new e(this.mPageContext, l.hVH);
+        this.jtY.a(this.Xe);
+        this.jtZ.a(this.Xe);
+        this.jua.a(this.Xe);
+        this.jub.a(this.Xe);
+        this.jtX.add(this.jtY);
+        this.jtX.add(this.jtZ);
+        this.jtX.add(this.jua);
+        this.jtX.add(this.jub);
+        this.Xe.addAdapters(this.jtX);
     }
 
     public void notifyDataSetChanged() {
-        if (this.Xc != null) {
-            this.Xc.getListAdapter().notifyDataSetChanged();
+        if (this.Xe != null) {
+            this.Xe.getListAdapter().notifyDataSetChanged();
         }
     }
 
     public void setPageUniqueId(BdUniqueId bdUniqueId) {
-        if (this.jhA != null) {
-            this.jhA.setPageUniqueId(bdUniqueId);
+        if (this.jtY != null) {
+            this.jtY.setPageUniqueId(bdUniqueId);
         }
-        if (this.jhB != null) {
-            this.jhB.setPageUniqueId(bdUniqueId);
+        if (this.jtZ != null) {
+            this.jtZ.setPageUniqueId(bdUniqueId);
         }
-        if (this.jhC != null) {
-            this.jhC.setPageUniqueId(bdUniqueId);
+        if (this.jua != null) {
+            this.jua.setPageUniqueId(bdUniqueId);
         }
-        if (this.jhD != null) {
-            this.jhD.setPageUniqueId(bdUniqueId);
+        if (this.jub != null) {
+            this.jub.setPageUniqueId(bdUniqueId);
         }
     }
 
     public void setData(List<q> list) {
-        this.Xc.setData(list);
+        this.Xe.setData(list);
     }
 
     public List<q> getDataList() {
-        if (this.Xc != null) {
-            return this.Xc.getData();
+        if (this.Xe != null) {
+            return this.Xe.getData();
         }
         return null;
     }
 
     public void b(NEGFeedBackView.a aVar) {
-        if (this.jhD != null) {
-            this.jhD.setEventCallback(aVar);
+        if (this.jub != null) {
+            this.jub.setEventCallback(aVar);
         }
     }
 
-    public void AX(int i) {
-        if (this.jhA != null) {
-            this.jhA.AX(i);
+    public void Bq(int i) {
+        if (this.jtY != null) {
+            this.jtY.Bq(i);
         }
-        if (this.jhB != null) {
-            this.jhB.AX(i);
+        if (this.jtZ != null) {
+            this.jtZ.Bq(i);
         }
-        if (this.jhC != null) {
-            this.jhC.AX(i);
+        if (this.jua != null) {
+            this.jua.Bq(i);
         }
-        if (this.jhD != null) {
-            this.jhD.AX(i);
+        if (this.jub != null) {
+            this.jub.Bq(i);
         }
     }
 
     public void onPause() {
-        if (this.jhB != null) {
-            this.jhB.onPause();
+        if (this.jtZ != null) {
+            this.jtZ.onPause();
         }
     }
 

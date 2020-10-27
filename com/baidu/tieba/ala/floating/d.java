@@ -8,25 +8,25 @@ import android.widget.ProgressBar;
 import com.baidu.live.sdk.a;
 /* loaded from: classes4.dex */
 public class d implements View.OnClickListener {
-    private View glQ;
-    private View glR;
-    private View glS;
-    private PlayDrawableImageView glT;
-    private a glU;
-    private ProgressBar glV;
+    private View gvV;
+    private View gvW;
+    private View gvX;
+    private PlayDrawableImageView gvY;
+    private a gvZ;
+    private ProgressBar gwa;
     private Context mContext;
 
     /* loaded from: classes4.dex */
     public interface a {
-        void bNn();
+        void bPS();
 
-        void bNo();
+        void bPT();
 
-        void bNp();
+        void bPU();
     }
 
     public void a(a aVar) {
-        this.glU = aVar;
+        this.gvZ = aVar;
     }
 
     public d(Context context) {
@@ -34,46 +34,46 @@ public class d implements View.OnClickListener {
     }
 
     public View e(Context context, ViewGroup viewGroup) {
-        if (this.glQ == null) {
-            this.glQ = LayoutInflater.from(context).inflate(a.h.ala_live_floating, viewGroup, false);
-            this.glR = this.glQ.findViewById(a.g.live_is_finished_tip);
-            this.glS = this.glQ.findViewById(a.g.retry_tip);
-            this.glV = (ProgressBar) this.glQ.findViewById(a.g.progress_bar);
-            this.glQ.setOnClickListener(this);
-            this.glQ.findViewById(a.g.retry_view).setOnClickListener(this);
-            this.glT = (PlayDrawableImageView) this.glQ.findViewById(a.g.play_btn);
-            this.glT.setOnClickListener(this);
+        if (this.gvV == null) {
+            this.gvV = LayoutInflater.from(context).inflate(a.h.ala_live_floating, viewGroup, false);
+            this.gvW = this.gvV.findViewById(a.g.live_is_finished_tip);
+            this.gvX = this.gvV.findViewById(a.g.retry_tip);
+            this.gwa = (ProgressBar) this.gvV.findViewById(a.g.progress_bar);
+            this.gvV.setOnClickListener(this);
+            this.gvV.findViewById(a.g.retry_view).setOnClickListener(this);
+            this.gvY = (PlayDrawableImageView) this.gvV.findViewById(a.g.play_btn);
+            this.gvY.setOnClickListener(this);
         }
-        lH(false);
-        return this.glQ;
+        lX(false);
+        return this.gvV;
     }
 
-    public void bNq() {
-        this.glR.setVisibility(0);
-        this.glS.setVisibility(8);
-        lI(false);
+    public void bPV() {
+        this.gvW.setVisibility(0);
+        this.gvX.setVisibility(8);
+        lY(false);
     }
 
-    public void lH(boolean z) {
-        this.glT.setVisibility(z ? 0 : 8);
+    public void lX(boolean z) {
+        this.gvY.setVisibility(z ? 0 : 8);
     }
 
-    public void lI(boolean z) {
-        this.glV.setVisibility(z ? 0 : 8);
+    public void lY(boolean z) {
+        this.gwa.setVisibility(z ? 0 : 8);
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
         if (view.getId() == a.g.retry_view) {
-            if (this.glU != null) {
-                this.glU.bNn();
+            if (this.gvZ != null) {
+                this.gvZ.bPS();
             }
-        } else if (view == this.glQ) {
-            if (this.glU != null) {
-                this.glU.bNo();
+        } else if (view == this.gvV) {
+            if (this.gvZ != null) {
+                this.gvZ.bPT();
             }
-        } else if (view == this.glT && this.glU != null) {
-            this.glU.bNp();
+        } else if (view == this.gvY && this.gvZ != null) {
+            this.gvZ.bPU();
         }
     }
 }

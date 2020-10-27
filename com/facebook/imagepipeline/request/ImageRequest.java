@@ -12,29 +12,29 @@ import javax.annotation.concurrent.Immutable;
 @Immutable
 /* loaded from: classes18.dex */
 public class ImageRequest {
-    private File gea;
+    private File goe;
     public String mTag;
     @Nullable
-    private final com.facebook.imagepipeline.common.d nSS;
-    private final e nST;
-    private final com.facebook.imagepipeline.common.b nSU;
-    private final boolean nUV;
+    private final com.facebook.imagepipeline.common.d oKk;
+    private final e oKl;
+    private final com.facebook.imagepipeline.common.b oKm;
     @Nullable
-    private final com.facebook.imagepipeline.h.c nUm;
+    private final com.facebook.imagepipeline.h.c oLE;
+    private final boolean oMn;
     @Nullable
-    private final com.facebook.imagepipeline.common.a nWl;
-    private final boolean nXV;
-    private final RequestLevel nXu;
+    private final com.facebook.imagepipeline.common.a oND;
+    private final RequestLevel oOM;
+    private final boolean oPn;
+    private final CacheChoice oQN;
+    private final Uri oQO;
+    private final int oQP;
+    private final boolean oQQ;
+    private final Priority oQR;
+    private final boolean oQS;
+    private final Map<String, String> oQT;
+    public String oQU;
     @Nullable
-    private final b nYN;
-    private final boolean nZA;
-    private final Map<String, String> nZB;
-    public String nZC;
-    private final CacheChoice nZv;
-    private final Uri nZw;
-    private final int nZx;
-    private final boolean nZy;
-    private final Priority nZz;
+    private final b oQf;
 
     /* loaded from: classes18.dex */
     public enum CacheChoice {
@@ -46,10 +46,10 @@ public class ImageRequest {
         if (uri == null) {
             return null;
         }
-        return ImageRequestBuilder.ad(uri).eej();
+        return ImageRequestBuilder.ad(uri).eoj();
     }
 
-    public static ImageRequest Wa(@Nullable String str) {
+    public static ImageRequest XN(@Nullable String str) {
         if (str == null || str.length() == 0) {
             return null;
         }
@@ -58,120 +58,120 @@ public class ImageRequest {
 
     /* JADX INFO: Access modifiers changed from: protected */
     public ImageRequest(ImageRequestBuilder imageRequestBuilder) {
-        this.nZv = imageRequestBuilder.edX();
-        this.nZw = imageRequestBuilder.edY();
-        this.nZx = ac(this.nZw);
-        this.nUV = imageRequestBuilder.eaS();
-        this.nZy = imageRequestBuilder.eeh();
-        this.nSU = imageRequestBuilder.eec();
-        this.nSS = imageRequestBuilder.eea();
-        this.nST = imageRequestBuilder.eeb() == null ? e.eah() : imageRequestBuilder.eeb();
-        this.nWl = imageRequestBuilder.eck();
-        this.nZz = imageRequestBuilder.eei();
-        this.nXu = imageRequestBuilder.edi();
-        this.nZA = imageRequestBuilder.eaB();
-        this.nXV = imageRequestBuilder.eef();
-        this.nYN = imageRequestBuilder.eeg();
-        this.nUm = imageRequestBuilder.dXl();
-        this.nZB = imageRequestBuilder.edx();
+        this.oQN = imageRequestBuilder.enW();
+        this.oQO = imageRequestBuilder.enX();
+        this.oQP = ac(this.oQO);
+        this.oMn = imageRequestBuilder.ekQ();
+        this.oQQ = imageRequestBuilder.eoh();
+        this.oKm = imageRequestBuilder.eob();
+        this.oKk = imageRequestBuilder.enZ();
+        this.oKl = imageRequestBuilder.eoa() == null ? e.ekf() : imageRequestBuilder.eoa();
+        this.oND = imageRequestBuilder.emi();
+        this.oQR = imageRequestBuilder.eoi();
+        this.oOM = imageRequestBuilder.enh();
+        this.oQS = imageRequestBuilder.ekz();
+        this.oPn = imageRequestBuilder.eoe();
+        this.oQf = imageRequestBuilder.eog();
+        this.oLE = imageRequestBuilder.ehj();
+        this.oQT = imageRequestBuilder.enw();
         this.mTag = imageRequestBuilder.getTag();
-        this.nZC = imageRequestBuilder.getLogTag();
+        this.oQU = imageRequestBuilder.getLogTag();
     }
 
-    public Map<String, String> edx() {
-        return this.nZB;
+    public Map<String, String> enw() {
+        return this.oQT;
     }
 
-    public CacheChoice edX() {
-        return this.nZv;
+    public CacheChoice enW() {
+        return this.oQN;
     }
 
-    public Uri edY() {
-        return this.nZw;
+    public Uri enX() {
+        return this.oQO;
     }
 
-    public int edZ() {
-        return this.nZx;
+    public int enY() {
+        return this.oQP;
     }
 
     public int getPreferredWidth() {
-        if (this.nSS != null) {
-            return this.nSS.width;
+        if (this.oKk != null) {
+            return this.oKk.width;
         }
         return 2048;
     }
 
     public int getPreferredHeight() {
-        if (this.nSS != null) {
-            return this.nSS.height;
+        if (this.oKk != null) {
+            return this.oKk.height;
         }
         return 2048;
     }
 
     @Nullable
-    public com.facebook.imagepipeline.common.d eea() {
-        return this.nSS;
+    public com.facebook.imagepipeline.common.d enZ() {
+        return this.oKk;
     }
 
-    public e eeb() {
-        return this.nST;
+    public e eoa() {
+        return this.oKl;
     }
 
     @Nullable
-    public com.facebook.imagepipeline.common.a eck() {
-        return this.nWl;
+    public com.facebook.imagepipeline.common.a emi() {
+        return this.oND;
     }
 
-    public com.facebook.imagepipeline.common.b eec() {
-        return this.nSU;
+    public com.facebook.imagepipeline.common.b eob() {
+        return this.oKm;
     }
 
-    public boolean eed() {
-        return this.nUV;
+    public boolean eoc() {
+        return this.oMn;
     }
 
-    public boolean eee() {
-        return this.nZy;
+    public boolean eod() {
+        return this.oQQ;
     }
 
-    public Priority edk() {
-        return this.nZz;
+    public Priority enj() {
+        return this.oQR;
     }
 
-    public RequestLevel edi() {
-        return this.nXu;
+    public RequestLevel enh() {
+        return this.oOM;
     }
 
-    public boolean eaB() {
-        return this.nZA;
+    public boolean ekz() {
+        return this.oQS;
     }
 
-    public boolean eef() {
-        return this.nXV;
+    public boolean eoe() {
+        return this.oPn;
     }
 
-    public synchronized File bLu() {
-        if (this.gea == null) {
-            this.gea = new File(this.nZw.getPath());
+    public synchronized File bNW() {
+        if (this.goe == null) {
+            this.goe = new File(this.oQO.getPath());
         }
-        return this.gea;
+        return this.goe;
     }
 
     @Nullable
-    public b eeg() {
-        return this.nYN;
+    public b eog() {
+        return this.oQf;
     }
 
     @Nullable
-    public com.facebook.imagepipeline.h.c dXl() {
-        return this.nUm;
+    public com.facebook.imagepipeline.h.c ehj() {
+        return this.oLE;
     }
 
     public boolean equals(Object obj) {
         if (obj instanceof ImageRequest) {
             ImageRequest imageRequest = (ImageRequest) obj;
-            if (f.equal(this.nZw, imageRequest.nZw) && f.equal(this.nZv, imageRequest.nZv) && f.equal(this.gea, imageRequest.gea) && f.equal(this.nWl, imageRequest.nWl) && f.equal(this.nSU, imageRequest.nSU) && f.equal(this.nSS, imageRequest.nSS) && f.equal(this.nST, imageRequest.nST)) {
-                return f.equal(this.nYN != null ? this.nYN.edf() : null, imageRequest.nYN != null ? imageRequest.nYN.edf() : null);
+            if (f.equal(this.oQO, imageRequest.oQO) && f.equal(this.oQN, imageRequest.oQN) && f.equal(this.goe, imageRequest.goe) && f.equal(this.oND, imageRequest.oND) && f.equal(this.oKm, imageRequest.oKm) && f.equal(this.oKk, imageRequest.oKk) && f.equal(this.oKl, imageRequest.oKl)) {
+                return f.equal(this.oQf != null ? this.oQf.ene() : null, imageRequest.oQf != null ? imageRequest.oQf.ene() : null);
             }
             return false;
         }
@@ -179,11 +179,11 @@ public class ImageRequest {
     }
 
     public int hashCode() {
-        return f.M(this.nZv, this.nZw, this.gea, this.nWl, this.nSU, this.nSS, this.nST, this.nYN != null ? this.nYN.edf() : null);
+        return f.M(this.oQN, this.oQO, this.goe, this.oND, this.oKm, this.oKk, this.oKl, this.oQf != null ? this.oQf.ene() : null);
     }
 
     public String toString() {
-        return f.aV(this).F(DownloadDataConstants.Columns.COLUMN_URI, this.nZw).F("cacheChoice", this.nZv).F("decodeOptions", this.nSU).F("postprocessor", this.nYN).F("priority", this.nZz).F("resizeOptions", this.nSS).F("rotationOptions", this.nST).F("bytesRange", this.nWl).toString();
+        return f.aZ(this).F(DownloadDataConstants.Columns.COLUMN_URI, this.oQO).F("cacheChoice", this.oQN).F("decodeOptions", this.oKm).F("postprocessor", this.oQf).F("priority", this.oQR).F("resizeOptions", this.oKk).F("rotationOptions", this.oKl).F("bytesRange", this.oND).toString();
     }
 
     /* loaded from: classes18.dex */
@@ -216,7 +216,7 @@ public class ImageRequest {
             return 0;
         }
         if (com.facebook.common.util.d.isLocalFileUri(uri)) {
-            if (com.facebook.common.d.a.VI(com.facebook.common.d.a.VJ(uri.getPath()))) {
+            if (com.facebook.common.d.a.Xv(com.facebook.common.d.a.Xw(uri.getPath()))) {
                 return 2;
             }
             return 3;

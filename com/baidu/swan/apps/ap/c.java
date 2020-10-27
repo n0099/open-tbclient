@@ -47,7 +47,7 @@ public final class c {
         return Build.VERSION.SDK_INT >= 26;
     }
 
-    public static boolean aHL() {
+    public static boolean aJF() {
         return Build.VERSION.SDK_INT >= 29;
     }
 }

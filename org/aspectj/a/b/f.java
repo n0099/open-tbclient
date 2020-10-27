@@ -5,12 +5,12 @@ import java.util.StringTokenizer;
 /* loaded from: classes7.dex */
 abstract class f implements org.aspectj.lang.c {
     String name;
-    ClassLoader oZn = null;
-    String oZw;
-    Class oZx;
-    a oZy;
-    private String oZz;
-    int ocp;
+    int oTG;
+    ClassLoader pQI = null;
+    String pQR;
+    Class pQS;
+    a pQT;
+    private String pQU;
     private static boolean useCache = true;
     static String[] EMPTY_STRING_ARRAY = new String[0];
     static Class[] EMPTY_CLASS_ARRAY = new Class[0];
@@ -27,108 +27,108 @@ abstract class f implements org.aspectj.lang.c {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public f(int i, String str, Class cls) {
-        this.ocp = -1;
-        this.ocp = i;
+        this.oTG = -1;
+        this.oTG = i;
         this.name = str;
-        this.oZx = cls;
+        this.pQS = cls;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public String a(h hVar) {
         String str = null;
         if (useCache) {
-            if (this.oZy == null) {
+            if (this.pQT == null) {
                 try {
-                    this.oZy = new b();
+                    this.pQT = new b();
                 } catch (Throwable th) {
                     useCache = false;
                 }
             } else {
-                str = this.oZy.get(hVar.oZK);
+                str = this.pQT.get(hVar.pRf);
             }
         }
         if (str == null) {
             str = b(hVar);
         }
         if (useCache) {
-            this.oZy.set(hVar.oZK, str);
+            this.pQT.set(hVar.pRf, str);
         }
         return str;
     }
 
     public final String toString() {
-        return a(h.oZM);
+        return a(h.pRh);
     }
 
-    public int eqL() {
-        if (this.ocp == -1) {
-            this.ocp = Pt(0);
+    public int eAJ() {
+        if (this.oTG == -1) {
+            this.oTG = Rk(0);
         }
-        return this.ocp;
+        return this.oTG;
     }
 
     public String getName() {
         if (this.name == null) {
-            this.name = Ps(1);
+            this.name = Rj(1);
         }
         return this.name;
     }
 
-    public Class eqM() {
-        if (this.oZx == null) {
-            this.oZx = Pu(2);
+    public Class eAK() {
+        if (this.pQS == null) {
+            this.pQS = Rl(2);
         }
-        return this.oZx;
+        return this.pQS;
     }
 
-    public String eqN() {
-        if (this.oZw == null) {
-            this.oZw = eqM().getName();
+    public String eAL() {
+        if (this.pQR == null) {
+            this.pQR = eAK().getName();
         }
-        return this.oZw;
+        return this.pQR;
     }
 
-    private ClassLoader eqO() {
-        if (this.oZn == null) {
-            this.oZn = getClass().getClassLoader();
+    private ClassLoader eAM() {
+        if (this.pQI == null) {
+            this.pQI = getClass().getClassLoader();
         }
-        return this.oZn;
+        return this.pQI;
     }
 
-    String Ps(int i) {
+    String Rj(int i) {
         int i2 = 0;
-        int indexOf = this.oZz.indexOf(45);
+        int indexOf = this.pQU.indexOf(45);
         while (true) {
             int i3 = i - 1;
             if (i <= 0) {
                 break;
             }
             i2 = indexOf + 1;
-            indexOf = this.oZz.indexOf(45, i2);
+            indexOf = this.pQU.indexOf(45, i2);
             i = i3;
         }
         if (indexOf == -1) {
-            indexOf = this.oZz.length();
+            indexOf = this.pQU.length();
         }
-        return this.oZz.substring(i2, indexOf);
+        return this.pQU.substring(i2, indexOf);
     }
 
-    int Pt(int i) {
-        return Integer.parseInt(Ps(i), 16);
-    }
-
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public Class Pu(int i) {
-        return org.aspectj.a.b.b.b(Ps(i), eqO());
+    int Rk(int i) {
+        return Integer.parseInt(Rj(i), 16);
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public Class[] Pv(int i) {
-        StringTokenizer stringTokenizer = new StringTokenizer(Ps(i), ":");
+    public Class Rl(int i) {
+        return org.aspectj.a.b.b.b(Rj(i), eAM());
+    }
+
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public Class[] Rm(int i) {
+        StringTokenizer stringTokenizer = new StringTokenizer(Rj(i), ":");
         int countTokens = stringTokenizer.countTokens();
         Class[] clsArr = new Class[countTokens];
         for (int i2 = 0; i2 < countTokens; i2++) {
-            clsArr[i2] = org.aspectj.a.b.b.b(stringTokenizer.nextToken(), eqO());
+            clsArr[i2] = org.aspectj.a.b.b.b(stringTokenizer.nextToken(), eAM());
         }
         return clsArr;
     }
@@ -136,37 +136,37 @@ abstract class f implements org.aspectj.lang.c {
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes7.dex */
     public static final class b implements a {
-        private SoftReference oZA;
+        private SoftReference pQV;
 
         public b() {
-            eqQ();
+            eAO();
         }
 
         @Override // org.aspectj.a.b.f.a
         public String get(int i) {
-            String[] eqP = eqP();
-            if (eqP == null) {
+            String[] eAN = eAN();
+            if (eAN == null) {
                 return null;
             }
-            return eqP[i];
+            return eAN[i];
         }
 
         @Override // org.aspectj.a.b.f.a
         public void set(int i, String str) {
-            String[] eqP = eqP();
-            if (eqP == null) {
-                eqP = eqQ();
+            String[] eAN = eAN();
+            if (eAN == null) {
+                eAN = eAO();
             }
-            eqP[i] = str;
+            eAN[i] = str;
         }
 
-        private String[] eqP() {
-            return (String[]) this.oZA.get();
+        private String[] eAN() {
+            return (String[]) this.pQV.get();
         }
 
-        private String[] eqQ() {
+        private String[] eAO() {
             String[] strArr = new String[3];
-            this.oZA = new SoftReference(strArr);
+            this.pQV = new SoftReference(strArr);
             return strArr;
         }
     }

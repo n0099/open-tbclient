@@ -5,25 +5,25 @@ import com.baidu.tbadk.core.BaseFragmentActivity;
 import com.baidu.tieba.newinterest.d.a;
 /* loaded from: classes23.dex */
 public class InterestGuideActivity extends BaseFragmentActivity {
-    private a kPe;
+    private a lbC;
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.core.BaseFragmentActivity, com.baidu.adp.base.BdBaseFragmentActivity, android.support.v4.app.FragmentActivity, android.support.v4.app.SupportActivity, android.app.Activity
     public void onCreate(Bundle bundle) {
         setIsAddSwipeBackLayout(false);
         super.onCreate(bundle);
-        this.kPe = new a(this);
-        setContentView(this.kPe.getView());
+        this.lbC = new a(this);
+        setContentView(this.lbC.getView());
     }
 
     @Override // com.baidu.tbadk.core.BaseFragmentActivity
     protected void onChangeSkinType(int i) {
-        this.kPe.onChangeSkinType();
+        this.lbC.onChangeSkinType();
     }
 
     @Override // android.support.v4.app.FragmentActivity, android.app.Activity
     public void onBackPressed() {
         super.onBackPressed();
-        this.kPe.onBackPressed();
+        this.lbC.onBackPressed();
     }
 }

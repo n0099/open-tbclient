@@ -1,15 +1,15 @@
 package com.baidu.swan.apps.al.f;
 /* loaded from: classes10.dex */
 public class b {
-    private a dnv;
+    private a dvW;
 
     public void a(a aVar) {
-        this.dnv = aVar;
+        this.dvW = aVar;
     }
 
-    public void kJ(int i) {
-        if (this.dnv != null) {
-            this.dnv.kI(i);
+    public void kU(int i) {
+        if (this.dvW != null) {
+            this.dvW.kT(i);
         }
     }
 }

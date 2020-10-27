@@ -19,37 +19,37 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes23.dex */
 public class a {
-    private List<com.baidu.adp.widget.ListView.a> bhH = new ArrayList();
-    private BdTypeListView fSo;
-    private o ilV;
-    private r ilW;
+    private List<com.baidu.adp.widget.ListView.a> bje = new ArrayList();
+    private BdTypeListView gcr;
+    private o iyt;
+    private r iyu;
 
-    public List<com.baidu.adp.widget.ListView.a> bKh() {
-        return this.bhH;
+    public List<com.baidu.adp.widget.ListView.a> bMJ() {
+        return this.bje;
     }
 
     public a(BaseActivity<?> baseActivity, BdTypeListView bdTypeListView) {
-        this.fSo = bdTypeListView;
-        this.bhH.add(new i(baseActivity.getPageContext(), j.ilg));
-        this.bhH.add(new l(baseActivity.getPageContext(), m.ilr));
-        this.bhH.add(new g(baseActivity.getPageContext(), n.ioF));
-        this.bhH.add(new com.baidu.tieba.forumMember.a.a(baseActivity.getPageContext(), com.baidu.tieba.forumMember.a.b.ikJ));
-        this.bhH.add(new d(baseActivity.getPageContext(), e.ikM));
-        this.bhH.add(new com.baidu.tieba.forumMember.member.a(baseActivity.getPageContext()));
-        this.ilV = new o(baseActivity.getPageContext(), p.ilI);
-        this.bhH.add(this.ilV);
-        this.ilW = new r(baseActivity.getPageContext(), s.ilT);
-        this.bhH.add(this.ilW);
+        this.gcr = bdTypeListView;
+        this.bje.add(new i(baseActivity.getPageContext(), j.ixE));
+        this.bje.add(new l(baseActivity.getPageContext(), m.ixP));
+        this.bje.add(new g(baseActivity.getPageContext(), n.iBb));
+        this.bje.add(new com.baidu.tieba.forumMember.a.a(baseActivity.getPageContext(), com.baidu.tieba.forumMember.a.b.ixh));
+        this.bje.add(new d(baseActivity.getPageContext(), e.ixk));
+        this.bje.add(new com.baidu.tieba.forumMember.member.a(baseActivity.getPageContext()));
+        this.iyt = new o(baseActivity.getPageContext(), p.iyg);
+        this.bje.add(this.iyt);
+        this.iyu = new r(baseActivity.getPageContext(), s.iyr);
+        this.bje.add(this.iyu);
     }
 
     public void notifyDataSetChanged() {
-        if (this.fSo != null && (this.fSo.getAdapter() instanceof f)) {
-            this.fSo.getAdapter().notifyDataSetChanged();
+        if (this.gcr != null && (this.gcr.getAdapter() instanceof f)) {
+            this.gcr.getAdapter().notifyDataSetChanged();
         }
     }
 
     public void onDestroy() {
-        this.ilV.onDestroy();
-        this.ilW.onDestroy();
+        this.iyt.onDestroy();
+        this.iyu.onDestroy();
     }
 }

@@ -11,14 +11,14 @@ public class a {
     public static void a(String str, String str2, String str3, String str4, JSONObject jSONObject) {
         g gVar = new g();
         gVar.mData = c(str, str2, str3, str4, jSONObject);
-        f.avu().a(str, gVar);
+        f.axo().a(str, gVar);
     }
 
     /* JADX WARN: Type inference failed for: r1v0, types: [org.json.JSONObject, T] */
     public static void b(String str, String str2, String str3, String str4, JSONObject jSONObject) {
         g gVar = new g();
         gVar.mData = c(str, str2, str3, str4, jSONObject);
-        f.avu().b(gVar);
+        f.axo().b(gVar);
     }
 
     public static JSONObject c(String str, String str2, String str3, String str4, JSONObject jSONObject) {
@@ -42,7 +42,7 @@ public class a {
         return jSONObject2;
     }
 
-    public static JSONObject cD(String str, String str2) {
+    public static JSONObject cK(String str, String str2) {
         JSONObject jSONObject = new JSONObject();
         try {
             jSONObject.put("slaveId", str);

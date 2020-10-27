@@ -12,7 +12,7 @@ import com.baidu.tbadk.task.TbHttpMessageTask;
 /* loaded from: classes24.dex */
 public class b {
     private BaseActivity mActivity;
-    private final a mtu;
+    private final a mFZ;
 
     /* loaded from: classes24.dex */
     public interface a {
@@ -23,11 +23,11 @@ public class b {
 
     public b(BaseActivity baseActivity, a aVar) {
         this.mActivity = baseActivity;
-        this.mtu = aVar;
-        dAC();
+        this.mFZ = aVar;
+        dDK();
     }
 
-    public void Rw(String str) {
+    public void RV(String str) {
         if (this.mActivity != null) {
             HttpMessage httpMessage = new HttpMessage(1002701);
             httpMessage.addParam("fname", str);
@@ -35,7 +35,7 @@ public class b {
         }
     }
 
-    public void dAC() {
+    public void dDK() {
         if (this.mActivity != null) {
             MessageManager messageManager = MessageManager.getInstance();
             TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(1002701, TbConfig.SERVER_ADDRESS + Config.SHARE_GET_FORUM_PREFIX_URL);
@@ -45,16 +45,16 @@ public class b {
                 /* JADX DEBUG: Method merged with bridge method */
                 @Override // com.baidu.adp.framework.listener.MessageListener
                 public void onMessage(HttpResponsedMessage httpResponsedMessage) {
-                    if (b.this.mtu != null) {
+                    if (b.this.mFZ != null) {
                         if (httpResponsedMessage == null || httpResponsedMessage.getCmd() != 1002701) {
-                            b.this.mtu.onFailure();
+                            b.this.mFZ.onFailure();
                             return;
                         }
                         int statusCode = httpResponsedMessage.getStatusCode();
                         int error = httpResponsedMessage.getError();
                         if (statusCode == 200 && error == 0 && (httpResponsedMessage instanceof ForumPrefixResponsedMessage)) {
                             ForumPrefixResponsedMessage forumPrefixResponsedMessage = (ForumPrefixResponsedMessage) httpResponsedMessage;
-                            b.this.mtu.a(forumPrefixResponsedMessage.isHasPostpre(), forumPrefixResponsedMessage.getData());
+                            b.this.mFZ.a(forumPrefixResponsedMessage.isHasPostpre(), forumPrefixResponsedMessage.getData());
                         }
                     }
                 }

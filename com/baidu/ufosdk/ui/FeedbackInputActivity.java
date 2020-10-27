@@ -63,7 +63,7 @@ import org.json.JSONObject;
 public class FeedbackInputActivity extends Activity {
 
     /* renamed from: a  reason: collision with root package name */
-    public static Bitmap f3737a = null;
+    public static Bitmap f3735a = null;
     public View C;
     public EditText E;
     protected int I;
@@ -491,7 +491,7 @@ public class FeedbackInputActivity extends Activity {
             hashMap.put("nettype", "N/A");
         }
         hashMap.put("screenSize", com.baidu.ufosdk.b.f.a(context));
-        if (com.baidu.ufosdk.b.f3700a) {
+        if (com.baidu.ufosdk.b.f3698a) {
             hashMap.put("logcat", com.baidu.ufosdk.b.b.a());
         }
         if (!TextUtils.isEmpty(com.baidu.ufosdk.b.h)) {
@@ -1277,7 +1277,7 @@ public class FeedbackInputActivity extends Activity {
     @Override // android.app.Activity
     protected void onDestroy() {
         super.onDestroy();
-        com.baidu.ufosdk.f.a.f3711a = null;
+        com.baidu.ufosdk.f.a.f3709a = null;
     }
 
     @Override // android.app.Activity

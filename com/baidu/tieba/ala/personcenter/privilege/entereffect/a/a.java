@@ -18,7 +18,7 @@ import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
 import com.baidu.tieba.ala.personcenter.privilege.entereffect.data.AlaEnterEffectData;
 /* loaded from: classes4.dex */
-public class a extends com.baidu.adp.widget.ListView.a<AlaEnterEffectData, C0673a> {
+public class a extends com.baidu.adp.widget.ListView.a<AlaEnterEffectData, C0689a> {
     private Context mContext;
     private int mSkinType;
 
@@ -32,103 +32,103 @@ public class a extends com.baidu.adp.widget.ListView.a<AlaEnterEffectData, C0673
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.widget.ListView.a
     /* renamed from: aO */
-    public C0673a c(ViewGroup viewGroup) {
-        return new C0673a(LayoutInflater.from(this.mContext).inflate(R.layout.ala_enter_effect_item_layout, (ViewGroup) null));
+    public C0689a c(ViewGroup viewGroup) {
+        return new C0689a(LayoutInflater.from(this.mContext).inflate(R.layout.ala_enter_effect_item_layout, (ViewGroup) null));
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.widget.ListView.a
-    public View a(int i, View view, ViewGroup viewGroup, AlaEnterEffectData alaEnterEffectData, C0673a c0673a) {
-        c0673a.hph.startLoad(alaEnterEffectData.thumbnail_url, 10, false);
-        c0673a.hpi.setText(alaEnterEffectData.name);
+    public View a(int i, View view, ViewGroup viewGroup, AlaEnterEffectData alaEnterEffectData, C0689a c0689a) {
+        c0689a.hBc.startLoad(alaEnterEffectData.thumbnail_url, 10, false);
+        c0689a.hBd.setText(alaEnterEffectData.name);
         if (alaEnterEffectData.isUsing()) {
-            ap.setViewTextColor(c0673a.hpj, R.color.live_cp_other_b, 1, this.mSkinType);
-            ap.setBackgroundResource(c0673a.hpj, R.drawable.ala_enter_effect_use_bg, this.mSkinType);
-            c0673a.hpj.setText(this.mContext.getString(R.string.ala_enter_effect_use));
-            c0673a.hph.setAlpha(1.0f);
+            ap.setViewTextColor(c0689a.hBe, R.color.live_cp_other_b, 1, this.mSkinType);
+            ap.setBackgroundResource(c0689a.hBe, R.drawable.ala_enter_effect_use_bg, this.mSkinType);
+            c0689a.hBe.setText(this.mContext.getString(R.string.ala_enter_effect_use));
+            c0689a.hBc.setAlpha(1.0f);
         } else if (alaEnterEffectData.isOwn) {
-            ap.setViewTextColor(c0673a.hpj, R.color.cp_link_tip_a, 1, this.mSkinType);
-            ap.setBackgroundResource(c0673a.hpj, R.drawable.ala_enter_effect_own_bg, this.mSkinType);
-            c0673a.hpj.setText(this.mContext.getString(R.string.ala_enter_effect_own));
-            c0673a.hph.setAlpha(1.0f);
+            ap.setViewTextColor(c0689a.hBe, R.color.cp_link_tip_a, 1, this.mSkinType);
+            ap.setBackgroundResource(c0689a.hBe, R.drawable.ala_enter_effect_own_bg, this.mSkinType);
+            c0689a.hBe.setText(this.mContext.getString(R.string.ala_enter_effect_own));
+            c0689a.hBc.setAlpha(1.0f);
         } else {
-            ap.setViewTextColor(c0673a.hpj, R.color.cp_cont_d, 1, this.mSkinType);
-            ap.setBackgroundResource(c0673a.hpj, R.drawable.ala_enter_effect_not_own_bg, this.mSkinType);
-            c0673a.hpj.setText(this.mContext.getString(R.string.ala_enter_effect_not_own));
-            c0673a.hph.setAlpha(0.7f);
+            ap.setViewTextColor(c0689a.hBe, R.color.cp_cont_d, 1, this.mSkinType);
+            ap.setBackgroundResource(c0689a.hBe, R.drawable.ala_enter_effect_not_own_bg, this.mSkinType);
+            c0689a.hBe.setText(this.mContext.getString(R.string.ala_enter_effect_not_own));
+            c0689a.hBc.setAlpha(0.7f);
         }
-        c0673a.hpk.setText(this.mContext.getResources().getString(R.string.ala_left_time, at.cU((alaEnterEffectData.end_time * 1000) - System.currentTimeMillis())));
+        c0689a.hBf.setText(this.mContext.getResources().getString(R.string.ala_left_time, at.cW((alaEnterEffectData.end_time * 1000) - System.currentTimeMillis())));
         if (alaEnterEffectData.downLoadStatus == 100) {
-            c0673a.hpl.setVisibility(0);
-            c0673a.glV.setVisibility(8);
+            c0689a.hBg.setVisibility(0);
+            c0689a.gwa.setVisibility(8);
         } else if (alaEnterEffectData.downLoadStatus == 102) {
-            c0673a.hpl.setVisibility(8);
-            c0673a.glV.setVisibility(0);
+            c0689a.hBg.setVisibility(8);
+            c0689a.gwa.setVisibility(0);
         } else {
-            c0673a.hpl.setVisibility(8);
-            c0673a.glV.setVisibility(8);
+            c0689a.hBg.setVisibility(8);
+            c0689a.gwa.setVisibility(8);
         }
-        c0673a.hpm.setBackgroundColor(Color.parseColor(alaEnterEffectData.color));
-        ap.setViewTextColor(c0673a.eEL, R.color.cp_cont_d, 1, this.mSkinType);
+        c0689a.hBh.setBackgroundColor(Color.parseColor(alaEnterEffectData.color));
+        ap.setViewTextColor(c0689a.eNh, R.color.cp_cont_d, 1, this.mSkinType);
         if (2 == alaEnterEffectData.categoryType) {
-            ap.setViewTextColor(c0673a.eEL, R.color.cp_link_tip_d, 1, this.mSkinType);
-            c0673a.eEL.setText(this.mContext.getString(R.string.ala_enter_effect_tdou_des, AlaStringHelper.formatLowercasekDou(alaEnterEffectData.price), alaEnterEffectData.time));
+            ap.setViewTextColor(c0689a.eNh, R.color.cp_link_tip_d, 1, this.mSkinType);
+            c0689a.eNh.setText(this.mContext.getString(R.string.ala_enter_effect_tdou_des, AlaStringHelper.formatLowercasekDou(alaEnterEffectData.price), alaEnterEffectData.time));
             Drawable drawable = ap.getDrawable(R.drawable.icon_huobi_tdou);
             int dimensionPixelSize = this.mContext.getResources().getDimensionPixelSize(R.dimen.ds24);
             drawable.setBounds(0, 0, dimensionPixelSize, dimensionPixelSize);
-            c0673a.eEL.setCompoundDrawablePadding(this.mContext.getResources().getDimensionPixelSize(R.dimen.ds4));
-            c0673a.eEL.setCompoundDrawables(drawable, null, null, null);
+            c0689a.eNh.setCompoundDrawablePadding(this.mContext.getResources().getDimensionPixelSize(R.dimen.ds4));
+            c0689a.eNh.setCompoundDrawables(drawable, null, null, null);
         } else {
-            c0673a.eEL.setText(alaEnterEffectData.obtain_way);
-            c0673a.eEL.setCompoundDrawables(null, null, null, null);
+            c0689a.eNh.setText(alaEnterEffectData.obtain_way);
+            c0689a.eNh.setCompoundDrawables(null, null, null, null);
         }
-        a(c0673a);
-        return c0673a.getView();
+        a(c0689a);
+        return c0689a.getView();
     }
 
-    private void a(C0673a c0673a) {
-        if (c0673a != null) {
-            ap.setBackgroundResource(c0673a.getView(), R.color.cp_bg_line_d);
-            ap.setViewTextColor(c0673a.hpk, R.color.cp_cont_d, 1, this.mSkinType);
-            ap.setViewTextColor(c0673a.hpi, R.color.cp_cont_b, 1, this.mSkinType);
+    private void a(C0689a c0689a) {
+        if (c0689a != null) {
+            ap.setBackgroundResource(c0689a.getView(), R.color.cp_bg_line_d);
+            ap.setViewTextColor(c0689a.hBf, R.color.cp_cont_d, 1, this.mSkinType);
+            ap.setViewTextColor(c0689a.hBd, R.color.cp_cont_b, 1, this.mSkinType);
             if (this.mSkinType == 1) {
-                c0673a.gJq.setVisibility(0);
+                c0689a.gVf.setVisibility(0);
             } else {
-                c0673a.gJq.setVisibility(8);
+                c0689a.gVf.setVisibility(8);
             }
         }
     }
 
     /* renamed from: com.baidu.tieba.ala.personcenter.privilege.entereffect.a.a$a  reason: collision with other inner class name */
     /* loaded from: classes4.dex */
-    public static class C0673a extends af.a {
-        public TextView eEL;
-        public View gJq;
-        public ProgressBar glV;
-        public TbImageView hph;
-        public TextView hpi;
-        public TextView hpj;
-        public TextView hpk;
-        public ImageView hpl;
-        public View hpm;
+    public static class C0689a extends af.a {
+        public TextView eNh;
+        public View gVf;
+        public ProgressBar gwa;
+        public TbImageView hBc;
+        public TextView hBd;
+        public TextView hBe;
+        public TextView hBf;
+        public ImageView hBg;
+        public View hBh;
 
-        public C0673a(View view) {
+        public C0689a(View view) {
             super(view);
             initView();
         }
 
         private void initView() {
-            this.hph = (TbImageView) getView().findViewById(R.id.ala_enter_effect_img);
-            this.hph.setAutoChangeStyle(false);
-            this.hpi = (TextView) getView().findViewById(R.id.ala_enter_effect_name);
-            this.hpj = (TextView) getView().findViewById(R.id.ala_enter_effect_status);
-            this.hpk = (TextView) getView().findViewById(R.id.ala_enter_effect_time_limit);
-            this.hpl = (ImageView) getView().findViewById(R.id.ala_enter_effect_download_img);
-            this.glV = (ProgressBar) getView().findViewById(R.id.ala_enter_effect_loading);
-            this.gJq = getView().findViewById(R.id.ala_header_cover);
-            this.hpm = getView().findViewById(R.id.ala_enter_effect_img_layout);
-            this.eEL = (TextView) getView().findViewById(R.id.ala_enter_effect_description);
+            this.hBc = (TbImageView) getView().findViewById(R.id.ala_enter_effect_img);
+            this.hBc.setAutoChangeStyle(false);
+            this.hBd = (TextView) getView().findViewById(R.id.ala_enter_effect_name);
+            this.hBe = (TextView) getView().findViewById(R.id.ala_enter_effect_status);
+            this.hBf = (TextView) getView().findViewById(R.id.ala_enter_effect_time_limit);
+            this.hBg = (ImageView) getView().findViewById(R.id.ala_enter_effect_download_img);
+            this.gwa = (ProgressBar) getView().findViewById(R.id.ala_enter_effect_loading);
+            this.gVf = getView().findViewById(R.id.ala_header_cover);
+            this.hBh = getView().findViewById(R.id.ala_enter_effect_img_layout);
+            this.eNh = (TextView) getView().findViewById(R.id.ala_enter_effect_description);
         }
     }
 }

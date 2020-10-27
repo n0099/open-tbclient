@@ -14,13 +14,13 @@ public class ImForbiddenStateData implements Serializable {
 
     /* loaded from: classes4.dex */
     public static class a {
-        public int biW;
-        public String biX;
+        public int bkr;
+        public String bks;
 
         public void parseJson(JSONObject jSONObject) {
             if (jSONObject != null) {
-                this.biW = jSONObject.optInt("is_forever");
-                this.biX = jSONObject.optString("count_down");
+                this.bkr = jSONObject.optInt("is_forever");
+                this.bks = jSONObject.optString("count_down");
             }
         }
     }

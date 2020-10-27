@@ -6,10 +6,10 @@ import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeConstants;
 /* loaded from: classes19.dex */
 public class d {
     static {
-        h YE = h.YE();
+        h aax = h.aax();
         i iVar = new i();
-        YE.a("splash_ad", iVar);
-        YE.a(iVar);
+        aax.a("splash_ad", iVar);
+        aax.a(iVar);
     }
 
     public static boolean invokeSchemeForInner(Context context, Uri uri) {
@@ -24,10 +24,10 @@ public class d {
         if (context == null) {
             context = c.getAppContext();
         }
-        h YE = h.YE();
+        h aax = h.aax();
         g gVar = new g(uri, str);
         gVar.setOnlyVerify(false);
-        return YE.a(context, gVar, aVar);
+        return aax.a(context, gVar, aVar);
     }
 
     public static boolean invoke(Context context, String str) {

@@ -3,34 +3,34 @@ package com.baidu.ubc;
 import android.text.TextUtils;
 /* loaded from: classes8.dex */
 public class k {
-    private String dXH;
-    private String dXI;
-    private int dXJ;
-    private String dXK;
-    private int dXL;
-    private int dXM;
-    private String dXN;
+    private String egd;
+    private String ege;
+    private int egf;
+    private String egg;
+    private int egh;
+    private int egi;
+    private String egj;
     private String mCategory;
     private String mId;
     private int mRate;
     private String mType;
     private String mVersion;
-    private String nEY;
-    private String nEZ;
-    private String nFa;
-    private String nFb;
-    private String nFc;
+    private String ohA;
+    private String ohB;
+    private String ohC;
+    private String ohD;
+    private String ohE;
 
     public k(String str, String str2, String str3, int i, String str4, String str5) {
         this.mId = str;
-        this.dXH = str2;
-        this.dXI = str3;
-        this.dXJ = i;
+        this.egd = str2;
+        this.ege = str3;
+        this.egf = i;
         this.mType = str4;
-        this.dXK = str5;
+        this.egg = str5;
     }
 
-    public void mO(int i) {
+    public void mZ(int i) {
         this.mRate = i;
     }
 
@@ -38,47 +38,47 @@ public class k {
         this.mCategory = str;
     }
 
-    public void mP(int i) {
-        this.dXL = i;
+    public void na(int i) {
+        this.egh = i;
     }
 
-    public void mQ(int i) {
-        this.dXM = i;
+    public void nb(int i) {
+        this.egi = i;
     }
 
-    public void US(String str) {
-        this.nEY = str;
+    public void Wg(String str) {
+        this.ohA = str;
     }
 
     public String getId() {
         return this.mId;
     }
 
-    public String aZb() {
-        return this.dXH;
+    public String baU() {
+        return this.egd;
     }
 
-    public String aZc() {
-        return this.dXI;
+    public String baV() {
+        return this.ege;
     }
 
     public int getTimeout() {
-        return this.dXJ;
+        return this.egf;
     }
 
     public String getType() {
         return this.mType;
     }
 
-    public String aZd() {
-        return this.dXK;
+    public String baW() {
+        return this.egg;
     }
 
-    public String dTH() {
-        return this.nEY;
+    public String dZz() {
+        return this.ohA;
     }
 
-    public int aZe() {
+    public int baX() {
         return this.mRate;
     }
 
@@ -86,28 +86,28 @@ public class k {
         return this.mCategory;
     }
 
-    public int aZf() {
-        return this.dXL;
+    public int baY() {
+        return this.egh;
     }
 
-    public int aZg() {
-        return this.dXM;
+    public int baZ() {
+        return this.egi;
     }
 
-    public void yp(String str) {
-        this.dXN = str;
+    public void yI(String str) {
+        this.egj = str;
     }
 
-    public String aZh() {
-        return this.dXN;
+    public String bba() {
+        return this.egj;
     }
 
-    public String dTI() {
-        return this.nEZ;
+    public String dZA() {
+        return this.ohB;
     }
 
-    public void UT(String str) {
-        this.nEZ = str;
+    public void Wh(String str) {
+        this.ohB = str;
     }
 
     public void setVersion(String str) {
@@ -118,27 +118,27 @@ public class k {
         return TextUtils.isEmpty(this.mVersion) ? "0" : this.mVersion;
     }
 
-    public void UU(String str) {
-        this.nFa = str;
+    public void Wi(String str) {
+        this.ohC = str;
     }
 
-    public String dTJ() {
-        return this.nFa;
+    public String dZB() {
+        return this.ohC;
     }
 
-    public void UV(String str) {
-        this.nFb = str;
+    public void Wj(String str) {
+        this.ohD = str;
     }
 
-    public String dTK() {
-        return this.nFb;
+    public String dZC() {
+        return this.ohD;
     }
 
-    public String dTL() {
-        return this.nFc;
+    public String dZD() {
+        return this.ohE;
     }
 
-    public void UW(String str) {
-        this.nFc = str;
+    public void Wk(String str) {
+        this.ohE = str;
     }
 }

@@ -13,58 +13,58 @@ import com.baidu.tbadk.core.data.ar;
 import com.baidu.tbadk.core.data.bw;
 import com.baidu.tbadk.core.util.ap;
 import com.baidu.tieba.R;
-import com.baidu.tieba.card.aa;
+import com.baidu.tieba.card.ab;
 /* loaded from: classes22.dex */
 public class b extends a {
-    private int lay;
-    private AbsThreadDataSupport lnW;
-    private af lnX;
-    private ao lnY;
-    private bw lnZ;
+    private af lAA;
+    private ao lAB;
+    private bw lAC;
+    private AbsThreadDataSupport lAz;
+    private int lmW;
     private LinearLayout mRootView;
 
     public b(TbPageContext tbPageContext, int i) {
         super(tbPageContext);
-        this.lay = i;
+        this.lmW = i;
     }
 
     @Override // com.baidu.tieba.pb.pb.main.c.a
     public View getView() {
         if (this.mRootView == null) {
-            this.mRootView = new LinearLayout(this.etO.getPageActivity());
+            this.mRootView = new LinearLayout(this.eCn.getPageActivity());
             ap.setBackgroundColor(this.mRootView, R.color.cp_bg_line_g);
             this.mRootView.setOrientation(1);
             this.mRootView.setLayoutParams(new LinearLayout.LayoutParams(-1, -2));
         }
         this.mRootView.removeAllViews();
-        if (this.lnX == null) {
-            this.lnX = new af(this.etO);
-            this.lnX.b((Boolean) true);
+        if (this.lAA == null) {
+            this.lAA = new af(this.eCn);
+            this.lAA.b((Boolean) true);
         }
         LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(-1, -2);
-        layoutParams.topMargin = this.etO.getResources().getDimensionPixelOffset(R.dimen.tbds39);
-        layoutParams.leftMargin = this.etO.getResources().getDimensionPixelOffset(R.dimen.tbds44);
-        layoutParams.rightMargin = this.etO.getResources().getDimensionPixelOffset(R.dimen.tbds44);
-        this.mRootView.addView(this.lnX.getView(), layoutParams);
-        if (this.lnY == null) {
-            this.lnY = new ao(this.etO.getPageActivity());
+        layoutParams.topMargin = this.eCn.getResources().getDimensionPixelOffset(R.dimen.tbds39);
+        layoutParams.leftMargin = this.eCn.getResources().getDimensionPixelOffset(R.dimen.tbds44);
+        layoutParams.rightMargin = this.eCn.getResources().getDimensionPixelOffset(R.dimen.tbds44);
+        this.mRootView.addView(this.lAA.getView(), layoutParams);
+        if (this.lAB == null) {
+            this.lAB = new ao(this.eCn.getPageActivity());
         }
-        this.mRootView.addView(this.lnY.getView());
+        this.mRootView.addView(this.lAB.getView());
         return this.mRootView;
     }
 
     @Override // com.baidu.tieba.pb.pb.main.c.a
     public void g(OriginalThreadInfo originalThreadInfo) {
-        this.lnV = originalThreadInfo;
-        this.lnZ = originalThreadInfo == null ? null : originalThreadInfo.bgI();
-        this.lnW = new AbsThreadDataSupport() { // from class: com.baidu.tieba.pb.pb.main.c.b.1
+        this.lAy = originalThreadInfo;
+        this.lAC = originalThreadInfo == null ? null : originalThreadInfo.biB();
+        this.lAz = new AbsThreadDataSupport() { // from class: com.baidu.tieba.pb.pb.main.c.b.1
             @Override // com.baidu.tbadk.core.data.AbsThreadDataSupport
-            public bw bfG() {
-                return b.this.lnZ;
+            public bw bhz() {
+                return b.this.lAC;
             }
 
             @Override // com.baidu.tbadk.core.data.AbsThreadDataSupport
-            public ar bfI() {
+            public ar bhB() {
                 return null;
             }
 
@@ -73,37 +73,37 @@ public class b extends a {
                 return null;
             }
         };
-        if (this.lnY != null) {
-            this.lnY.H(this.lnW);
+        if (this.lAB != null) {
+            this.lAB.H(this.lAz);
         }
-        if (this.lnX != null) {
-            this.lnX.H(this.lnW);
+        if (this.lAA != null) {
+            this.lAA.H(this.lAz);
         }
     }
 
     @Override // com.baidu.tieba.pb.pb.main.c.a
-    public void a(aa aaVar) {
-        super.a(aaVar);
-        if (this.lnY != null) {
-            this.lnY.setOnCardSubClickListener(this.lnU);
+    public void a(ab abVar) {
+        super.a(abVar);
+        if (this.lAB != null) {
+            this.lAB.setOnCardSubClickListener(this.lAx);
         }
     }
 
     @Override // com.baidu.tieba.pb.pb.main.c.a
     public void a(b.a aVar) {
         super.a(aVar);
-        if (this.lnY != null) {
-            this.lnY.a(aVar);
+        if (this.lAB != null) {
+            this.lAB.a(aVar);
         }
-        if (this.lnX != null) {
-            this.lnX.a(aVar);
+        if (this.lAA != null) {
+            this.lAA.a(aVar);
         }
         if (this.mRootView != null) {
             this.mRootView.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.pb.pb.main.c.b.2
                 @Override // android.view.View.OnClickListener
                 public void onClick(View view) {
-                    if (b.this.afF != null) {
-                        b.this.afF.a(b.this.lnW);
+                    if (b.this.afG != null) {
+                        b.this.afG.a(b.this.lAz);
                     }
                 }
             });
@@ -115,11 +115,11 @@ public class b extends a {
         if (this.mSkinType != i) {
             this.mSkinType = i;
             ap.setBackgroundColor(this.mRootView, R.color.cp_bg_line_g);
-            if (this.lnX != null) {
-                this.lnX.onChangeSkinType(tbPageContext, i);
+            if (this.lAA != null) {
+                this.lAA.onChangeSkinType(tbPageContext, i);
             }
-            if (this.lnY != null) {
-                this.lnY.onChangeSkinType(tbPageContext, i);
+            if (this.lAB != null) {
+                this.lAB.onChangeSkinType(tbPageContext, i);
             }
         }
     }

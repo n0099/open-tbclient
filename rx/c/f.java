@@ -5,70 +5,70 @@ import java.util.Properties;
 import java.util.concurrent.atomic.AtomicReference;
 /* loaded from: classes16.dex */
 public class f {
-    private static final f pja = new f();
-    static final b pjf = new b() { // from class: rx.c.f.1
+    private static final f qaq = new f();
+    static final b qav = new b() { // from class: rx.c.f.1
     };
-    private final AtomicReference<b> pjb = new AtomicReference<>();
-    private final AtomicReference<d> pjc = new AtomicReference<>();
-    private final AtomicReference<h> pjd = new AtomicReference<>();
-    private final AtomicReference<a> pje = new AtomicReference<>();
-    private final AtomicReference<g> pcW = new AtomicReference<>();
+    private final AtomicReference<b> qar = new AtomicReference<>();
+    private final AtomicReference<d> qas = new AtomicReference<>();
+    private final AtomicReference<h> qat = new AtomicReference<>();
+    private final AtomicReference<a> qau = new AtomicReference<>();
+    private final AtomicReference<g> pUp = new AtomicReference<>();
 
     @Deprecated
-    public static f esH() {
-        return pja;
+    public static f eCF() {
+        return qaq;
     }
 
     f() {
     }
 
-    public b esI() {
-        if (this.pjb.get() == null) {
+    public b eCG() {
+        if (this.qar.get() == null) {
             Object a2 = a(b.class, System.getProperties());
             if (a2 == null) {
-                this.pjb.compareAndSet(null, pjf);
+                this.qar.compareAndSet(null, qav);
             } else {
-                this.pjb.compareAndSet(null, (b) a2);
+                this.qar.compareAndSet(null, (b) a2);
             }
         }
-        return this.pjb.get();
+        return this.qar.get();
     }
 
-    public d esJ() {
-        if (this.pjc.get() == null) {
+    public d eCH() {
+        if (this.qas.get() == null) {
             Object a2 = a(d.class, System.getProperties());
             if (a2 == null) {
-                this.pjc.compareAndSet(null, e.esG());
+                this.qas.compareAndSet(null, e.eCE());
             } else {
-                this.pjc.compareAndSet(null, (d) a2);
+                this.qas.compareAndSet(null, (d) a2);
             }
         }
-        return this.pjc.get();
+        return this.qas.get();
     }
 
-    public h esK() {
-        if (this.pjd.get() == null) {
+    public h eCI() {
+        if (this.qat.get() == null) {
             Object a2 = a(h.class, System.getProperties());
             if (a2 == null) {
-                this.pjd.compareAndSet(null, i.esU());
+                this.qat.compareAndSet(null, i.eCS());
             } else {
-                this.pjd.compareAndSet(null, (h) a2);
+                this.qat.compareAndSet(null, (h) a2);
             }
         }
-        return this.pjd.get();
+        return this.qat.get();
     }
 
-    public a esL() {
-        if (this.pje.get() == null) {
+    public a eCJ() {
+        if (this.qau.get() == null) {
             Object a2 = a(a.class, System.getProperties());
             if (a2 == null) {
-                this.pje.compareAndSet(null, new a() { // from class: rx.c.f.2
+                this.qau.compareAndSet(null, new a() { // from class: rx.c.f.2
                 });
             } else {
-                this.pje.compareAndSet(null, (a) a2);
+                this.qau.compareAndSet(null, (a) a2);
             }
         }
-        return this.pje.get();
+        return this.qau.get();
     }
 
     /* JADX WARN: Removed duplicated region for block: B:33:0x0154 A[RETURN, SYNTHETIC] */
@@ -113,15 +113,15 @@ public class f {
         }
     }
 
-    public g esM() {
-        if (this.pcW.get() == null) {
+    public g eCK() {
+        if (this.pUp.get() == null) {
             Object a2 = a(g.class, System.getProperties());
             if (a2 == null) {
-                this.pcW.compareAndSet(null, g.esT());
+                this.pUp.compareAndSet(null, g.eCR());
             } else {
-                this.pcW.compareAndSet(null, (g) a2);
+                this.pUp.compareAndSet(null, (g) a2);
             }
         }
-        return this.pcW.get();
+        return this.pUp.get();
     }
 }

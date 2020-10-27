@@ -3,66 +3,66 @@ package tv.chushou.apollo;
 public class a {
     public int borderColor;
     public boolean isFullScreen;
-    public int pjU;
-    public int pjV;
-    public boolean pjW;
-    public int pjX;
+    public int qbk;
+    public int qbl;
+    public boolean qbm;
+    public int qbn;
     public int strokeWidth;
 
-    public a(C1018a c1018a) {
-        this.pjU = 20;
-        this.pjV = 20;
-        this.pjW = true;
+    public a(C1090a c1090a) {
+        this.qbk = 20;
+        this.qbl = 20;
+        this.qbm = true;
         this.strokeWidth = 2;
-        this.pjX = 800;
+        this.qbn = 800;
         this.isFullScreen = false;
         this.borderColor = -16711936;
-        this.pjU = c1018a.pjU;
-        this.pjV = c1018a.pjV;
-        this.pjW = c1018a.pjW;
-        this.strokeWidth = c1018a.strokeWidth;
-        this.pjX = c1018a.pjX;
-        this.isFullScreen = c1018a.isFullScreen;
-        this.borderColor = c1018a.borderColor;
+        this.qbk = c1090a.qbk;
+        this.qbl = c1090a.qbl;
+        this.qbm = c1090a.qbm;
+        this.strokeWidth = c1090a.strokeWidth;
+        this.qbn = c1090a.qbn;
+        this.isFullScreen = c1090a.isFullScreen;
+        this.borderColor = c1090a.borderColor;
     }
 
     /* renamed from: tv.chushou.apollo.a$a  reason: collision with other inner class name */
     /* loaded from: classes6.dex */
-    public static class C1018a {
+    public static class C1090a {
         public int borderColor;
         public boolean isFullScreen;
-        public int pjU;
-        public int pjV;
-        public boolean pjW;
-        public int pjX;
+        public int qbk;
+        public int qbl;
+        public boolean qbm;
+        public int qbn;
         public int strokeWidth;
 
-        public C1018a zV(boolean z) {
-            this.pjW = z;
+        public C1090a Bd(boolean z) {
+            this.qbm = z;
             return this;
         }
 
-        public C1018a PD(int i) {
+        public C1090a Ru(int i) {
             this.strokeWidth = i;
             return this;
         }
 
-        public C1018a PE(int i) {
-            this.pjX = i;
+        public C1090a Rv(int i) {
+            this.qbn = i;
             return this;
         }
 
-        public C1018a zW(boolean z) {
+        public C1090a Be(boolean z) {
             this.isFullScreen = z;
             return this;
         }
 
-        public C1018a PF(int i) {
+        public C1090a Rw(int i) {
             this.borderColor = i;
             return this;
         }
 
-        public a etm() {
+        public a eDk() {
             return new a(this);
         }
     }

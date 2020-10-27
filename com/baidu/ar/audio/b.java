@@ -11,7 +11,7 @@ public class b {
     private c in;
 
     /* renamed from: io  reason: collision with root package name */
-    private HandlerThread f1191io;
+    private HandlerThread f1188io;
     private Handler ip;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -67,9 +67,9 @@ public class b {
     }
 
     private void ch() {
-        this.f1191io = new HandlerThread("AudioHandlerThread");
-        this.f1191io.start();
-        this.ip = new a(this.f1191io.getLooper());
+        this.f1188io = new HandlerThread("AudioHandlerThread");
+        this.f1188io.start();
+        this.ip = new a(this.f1188io.getLooper());
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -101,9 +101,9 @@ public class b {
             this.ip.removeCallbacksAndMessages(null);
             this.ip = null;
         }
-        if (this.f1191io != null) {
-            this.f1191io.quit();
-            this.f1191io = null;
+        if (this.f1188io != null) {
+            this.f1188io.quit();
+            this.f1188io = null;
         }
     }
 
@@ -145,7 +145,7 @@ public class b {
     }
 
     public boolean isRunning() {
-        return this.f1191io != null && this.f1191io.isAlive();
+        return this.f1188io != null && this.f1188io.isAlive();
     }
 
     public void setVolumeListener(VolumeListener volumeListener) {

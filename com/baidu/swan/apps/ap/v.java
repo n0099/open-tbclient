@@ -23,7 +23,7 @@ public final class v {
         }
     }
 
-    public static JSONArray tH(String str) {
+    public static JSONArray ua(String str) {
         if (TextUtils.isEmpty(str)) {
             return new JSONArray();
         }

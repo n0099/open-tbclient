@@ -16,34 +16,34 @@ public class h extends a {
     private final RectF Dj;
     private final int Dn;
     private final String name;
-    private final com.tb.airbnb.lottie.a.b.a<com.tb.airbnb.lottie.model.content.c, com.tb.airbnb.lottie.model.content.c> oHA;
-    private final GradientType oHB;
-    private final com.tb.airbnb.lottie.a.b.a<PointF, PointF> oHC;
-    private final com.tb.airbnb.lottie.a.b.a<PointF, PointF> oHD;
+    private final com.tb.airbnb.lottie.a.b.a<com.tb.airbnb.lottie.model.content.c, com.tb.airbnb.lottie.model.content.c> pyX;
+    private final GradientType pyY;
+    private final com.tb.airbnb.lottie.a.b.a<PointF, PointF> pyZ;
+    private final com.tb.airbnb.lottie.a.b.a<PointF, PointF> pza;
 
     public h(com.tb.airbnb.lottie.f fVar, com.tb.airbnb.lottie.model.layer.a aVar, com.tb.airbnb.lottie.model.content.e eVar) {
-        super(fVar, aVar, eVar.elm().toPaintCap(), eVar.eln().toPaintJoin(), eVar.jZ(), eVar.elc(), eVar.ell(), eVar.jX(), eVar.elo());
+        super(fVar, aVar, eVar.evm().toPaintCap(), eVar.evn().toPaintJoin(), eVar.jZ(), eVar.evc(), eVar.evl(), eVar.jX(), eVar.evo());
         this.Dg = new LongSparseArray<>();
         this.Dh = new LongSparseArray<>();
         this.Dj = new RectF();
         this.name = eVar.getName();
-        this.oHB = eVar.elh();
+        this.pyY = eVar.evh();
         this.Dn = (int) (fVar.getComposition().iv() / 32.0f);
-        this.oHA = eVar.eli().ekW();
-        this.oHA.b(this);
-        aVar.a(this.oHA);
-        this.oHC = eVar.elj().ekW();
-        this.oHC.b(this);
-        aVar.a(this.oHC);
-        this.oHD = eVar.elk().ekW();
-        this.oHD.b(this);
-        aVar.a(this.oHD);
+        this.pyX = eVar.evi().euW();
+        this.pyX.b(this);
+        aVar.a(this.pyX);
+        this.pyZ = eVar.evj().euW();
+        this.pyZ.b(this);
+        aVar.a(this.pyZ);
+        this.pza = eVar.evk().euW();
+        this.pza.b(this);
+        aVar.a(this.pza);
     }
 
     @Override // com.tb.airbnb.lottie.a.a.a, com.tb.airbnb.lottie.a.a.d
     public void a(Canvas canvas, Matrix matrix, int i) {
         a(this.Dj, matrix);
-        if (this.oHB == GradientType.Linear) {
+        if (this.pyY == GradientType.Linear) {
             this.paint.setShader(iX());
         } else {
             this.paint.setShader(iY());
@@ -60,9 +60,9 @@ public class h extends a {
         int iZ = iZ();
         LinearGradient linearGradient = this.Dg.get(iZ);
         if (linearGradient == null) {
-            PointF value = this.oHC.getValue();
-            PointF value2 = this.oHD.getValue();
-            com.tb.airbnb.lottie.model.content.c value3 = this.oHA.getValue();
+            PointF value = this.pyZ.getValue();
+            PointF value2 = this.pza.getValue();
+            com.tb.airbnb.lottie.model.content.c value3 = this.pyX.getValue();
             LinearGradient linearGradient2 = new LinearGradient((int) (this.Dj.left + (this.Dj.width() / 2.0f) + value.x), (int) (value.y + this.Dj.top + (this.Dj.height() / 2.0f)), (int) (this.Dj.left + (this.Dj.width() / 2.0f) + value2.x), (int) (this.Dj.top + (this.Dj.height() / 2.0f) + value2.y), value3.getColors(), value3.jO(), Shader.TileMode.CLAMP);
             this.Dg.put(iZ, linearGradient2);
             return linearGradient2;
@@ -74,9 +74,9 @@ public class h extends a {
         int iZ = iZ();
         RadialGradient radialGradient = this.Dh.get(iZ);
         if (radialGradient == null) {
-            PointF value = this.oHC.getValue();
-            PointF value2 = this.oHD.getValue();
-            com.tb.airbnb.lottie.model.content.c value3 = this.oHA.getValue();
+            PointF value = this.pyZ.getValue();
+            PointF value2 = this.pza.getValue();
+            com.tb.airbnb.lottie.model.content.c value3 = this.pyX.getValue();
             int[] colors = value3.getColors();
             float[] jO = value3.jO();
             int width = (int) (this.Dj.left + (this.Dj.width() / 2.0f) + value.x);
@@ -90,9 +90,9 @@ public class h extends a {
     }
 
     private int iZ() {
-        int round = Math.round(this.oHC.getProgress() * this.Dn);
-        int round2 = Math.round(this.oHD.getProgress() * this.Dn);
-        int round3 = Math.round(this.oHA.getProgress() * this.Dn);
+        int round = Math.round(this.pyZ.getProgress() * this.Dn);
+        int round2 = Math.round(this.pza.getProgress() * this.Dn);
+        int round3 = Math.round(this.pyX.getProgress() * this.Dn);
         int i = 17;
         if (round != 0) {
             i = round * 527;

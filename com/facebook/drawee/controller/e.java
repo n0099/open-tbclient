@@ -22,7 +22,7 @@ public class e<INFO> implements c<INFO> {
         }
     }
 
-    public synchronized void dXY() {
+    public synchronized void ehW() {
         this.mListeners.clear();
     }
 
@@ -106,13 +106,13 @@ public class e<INFO> implements c<INFO> {
     }
 
     @Override // com.facebook.drawee.controller.c
-    public synchronized void gU(String str) {
+    public synchronized void hf(String str) {
         int size = this.mListeners.size();
         for (int i = 0; i < size; i++) {
             try {
                 c<? super INFO> cVar = this.mListeners.get(i);
                 if (cVar != null) {
-                    cVar.gU(str);
+                    cVar.hf(str);
                 }
             } catch (Exception e) {
                 l("InternalListener exception in onRelease", e);

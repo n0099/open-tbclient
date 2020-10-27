@@ -7,13 +7,13 @@ import tbclient.ThreadInfo;
 public class b {
     private String content;
     private String ctr;
-    private long jKE;
-    private int jKF;
-    private long jKG;
-    private int jKH;
-    private int jKI;
-    private RecommendForumInfo jKJ;
-    private ThreadInfo jKK;
+    private long jXc;
+    private int jXd;
+    private long jXe;
+    private int jXf;
+    private int jXg;
+    private RecommendForumInfo jXh;
+    private ThreadInfo jXi;
     private String picUrl;
     private String title;
 
@@ -29,51 +29,51 @@ public class b {
         return this.picUrl;
     }
 
-    public long cLP() {
-        return this.jKE;
+    public long cOW() {
+        return this.jXc;
     }
 
-    public int cLQ() {
-        return this.jKF;
+    public int cOX() {
+        return this.jXd;
     }
 
-    public int cLR() {
-        return this.jKH;
+    public int cOY() {
+        return this.jXf;
     }
 
-    public String cLS() {
+    public String cOZ() {
         return this.ctr;
     }
 
-    public long cLT() {
-        return this.jKG;
+    public long cPa() {
+        return this.jXe;
     }
 
-    public int cLU() {
-        return this.jKI;
+    public int cPb() {
+        return this.jXg;
     }
 
-    public RecommendForumInfo cLV() {
-        return this.jKJ;
+    public RecommendForumInfo cPc() {
+        return this.jXh;
     }
 
-    public ThreadInfo cLW() {
-        return this.jKK;
+    public ThreadInfo cPd() {
+        return this.jXi;
     }
 
     public void a(BroadcastInfo broadcastInfo) {
         if (broadcastInfo != null) {
-            this.jKG = broadcastInfo.bcast_id.longValue();
+            this.jXe = broadcastInfo.bcast_id.longValue();
             this.title = broadcastInfo.title;
             this.content = broadcastInfo.content;
             this.picUrl = broadcastInfo.pic_url;
-            this.jKE = broadcastInfo.publish_time.intValue();
-            this.jKF = broadcastInfo.pushuser_cnt.intValue();
-            this.jKJ = broadcastInfo.forum_info;
-            this.jKK = broadcastInfo.thread_infos;
+            this.jXc = broadcastInfo.publish_time.intValue();
+            this.jXd = broadcastInfo.pushuser_cnt.intValue();
+            this.jXh = broadcastInfo.forum_info;
+            this.jXi = broadcastInfo.thread_infos;
             this.ctr = broadcastInfo.ctr;
-            this.jKH = broadcastInfo.pv.intValue();
-            this.jKI = broadcastInfo.audit_status.intValue();
+            this.jXf = broadcastInfo.pv.intValue();
+            this.jXg = broadcastInfo.audit_status.intValue();
         }
     }
 }

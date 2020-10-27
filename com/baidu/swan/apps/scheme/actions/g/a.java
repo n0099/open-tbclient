@@ -32,43 +32,43 @@ public class a extends aa {
         if (DEBUG) {
             Log.d("GetMenuButtonBounding", "handle entity: " + unitedSchemeEntity.toString());
         }
-        f abs = com.baidu.swan.apps.v.f.avu().abs();
-        if (abs == null) {
+        f adm = com.baidu.swan.apps.v.f.axo().adm();
+        if (adm == null) {
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
             return false;
         }
-        c akH = abs.akH();
-        if (akH == null) {
+        c amB = adm.amB();
+        if (amB == null) {
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
             return false;
         }
-        if (eVar.aDt() && (akH instanceof com.baidu.swan.apps.core.d.j)) {
-            View alm = ((com.baidu.swan.apps.core.d.j) akH).alm();
-            if (alm == null) {
+        if (eVar.aFn() && (amB instanceof com.baidu.swan.apps.core.d.j)) {
+            View ang = ((com.baidu.swan.apps.core.d.j) amB).ang();
+            if (ang == null) {
                 unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
                 return false;
             }
-            unitedSchemeEntity.result = az(alm);
+            unitedSchemeEntity.result = aA(ang);
         } else {
-            SwanAppActionBar ajP = akH.ajP();
-            if (ajP == null) {
+            SwanAppActionBar alJ = amB.alJ();
+            if (alJ == null) {
                 unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
                 return false;
             }
-            View rightMenu = ajP.getRightMenu();
+            View rightMenu = alJ.getRightMenu();
             if (rightMenu == null) {
                 unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
                 return false;
             }
-            unitedSchemeEntity.result = az(rightMenu);
+            unitedSchemeEntity.result = aA(rightMenu);
         }
         return true;
     }
 
-    private JSONObject az(View view) {
+    private JSONObject aA(View view) {
         JSONObject wrapCallbackParams;
-        e aDa = e.aDa();
-        int px2dpFloat = aDa != null ? aDa.aDt() : false ? 0 : (int) (ah.px2dpFloat(ah.getStatusBarHeight()) + 0.5f);
+        e aEU = e.aEU();
+        int px2dpFloat = aEU != null ? aEU.aFn() : false ? 0 : (int) (ah.px2dpFloat(ah.getStatusBarHeight()) + 0.5f);
         int px2dpFloat2 = (int) (ah.px2dpFloat(view.getLeft()) + 0.5f);
         int px2dpFloat3 = (int) (ah.px2dpFloat(view.getRight()) + 0.5f);
         int px2dpFloat4 = ((int) (ah.px2dpFloat(view.getTop()) + 0.5f)) + px2dpFloat;

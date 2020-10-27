@@ -14,21 +14,21 @@ import com.baidu.live.sdk.a;
 import com.baidu.live.tbadk.TbPageContext;
 /* loaded from: classes4.dex */
 public class b extends com.baidu.tieba.ala.liveroom.a {
-    private int aio;
-    private TextView fez;
-    private ObjectAnimator gWb;
-    private int gWc;
-    private boolean gdU;
+    private int aip;
+    private TextView fmY;
+    private boolean gnY;
+    private ObjectAnimator hhQ;
+    private int hhR;
     private Context mContext;
     private View mRootView;
 
     public b(TbPageContext tbPageContext, ViewGroup viewGroup) {
         super(tbPageContext);
-        this.gWc = 4000;
-        this.gdU = true;
+        this.hhR = 4000;
+        this.gnY = true;
         this.mContext = tbPageContext.getPageActivity();
         this.mRootView = LayoutInflater.from(this.mContext).inflate(a.h.ala_liveroom_translate_view, (ViewGroup) null);
-        this.fez = (TextView) this.mRootView.findViewById(a.g.translate_content);
+        this.fmY = (TextView) this.mRootView.findViewById(a.g.translate_content);
         aB(viewGroup);
     }
 
@@ -40,36 +40,36 @@ public class b extends com.baidu.tieba.ala.liveroom.a {
         this.mRootView.setVisibility(8);
     }
 
-    public void aG(String str, int i) {
+    public void aH(String str, int i) {
         if (!TextUtils.isEmpty(str)) {
             if (i > 0) {
-                this.gWc = i;
+                this.hhR = i;
             }
-            if (this.gdU) {
+            if (this.gnY) {
                 this.mRootView.setVisibility(0);
             }
-            this.fez.setText(str);
-            bZK();
+            this.fmY.setText(str);
+            ccO();
         }
     }
 
     @Override // com.baidu.tieba.ala.liveroom.a
     public void onDestroy() {
-        if (this.gWb != null) {
-            this.gWb.cancel();
-            this.gWb = null;
+        if (this.hhQ != null) {
+            this.hhQ.cancel();
+            this.hhQ = null;
         }
     }
 
-    private void bZK() {
-        this.aio = BdUtilHelper.getScreenSize((Activity) this.mContext).widthPixels;
-        this.gWb = ObjectAnimator.ofFloat(this.mRootView, "TranslationX", this.aio, -this.aio);
-        this.gWb.setDuration(this.gWc);
-        this.gWb.start();
+    private void ccO() {
+        this.aip = BdUtilHelper.getScreenSize((Activity) this.mContext).widthPixels;
+        this.hhQ = ObjectAnimator.ofFloat(this.mRootView, "TranslationX", this.aip, -this.aip);
+        this.hhQ.setDuration(this.hhR);
+        this.hhQ.start();
     }
 
     public void setCanVisible(boolean z) {
-        this.gdU = z;
+        this.gnY = z;
     }
 
     public void setVisible(int i) {

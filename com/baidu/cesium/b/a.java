@@ -10,7 +10,7 @@ import java.util.Comparator;
 import org.json.JSONObject;
 /* loaded from: classes6.dex */
 public abstract class a {
-    public static Comparator<a> amc = new Comparator<a>() { // from class: com.baidu.cesium.b.a.1
+    public static Comparator<a> amd = new Comparator<a>() { // from class: com.baidu.cesium.b.a.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // java.util.Comparator
         /* renamed from: a */
@@ -19,8 +19,8 @@ public abstract class a {
             return b2 != 0 ? b2 > 0 ? -1 : 1 : aVar.a().compareTo(aVar2.a());
         }
     };
-    protected C0099a ama;
-    protected a.C0102a amb;
+    protected C0099a amb;
+    protected a.C0102a amc;
     private final String e;
     private long f;
 
@@ -29,19 +29,19 @@ public abstract class a {
     public static class C0099a {
 
         /* renamed from: a  reason: collision with root package name */
-        public Context f1295a;
-        public com.baidu.cesium.e.a amd;
+        public Context f1292a;
+        public com.baidu.cesium.e.a ame;
     }
 
     /* loaded from: classes6.dex */
     public static abstract class b {
-        private a.C0102a ame;
+        private a.C0102a amf;
         private String b;
         private String c;
         private boolean d = true;
 
         public b(a.C0102a c0102a, String str) {
-            this.ame = c0102a;
+            this.amf = c0102a;
             this.b = str;
             this.c = "target-pkg-" + Base64.encodeToString(str.getBytes(), 3);
         }
@@ -53,7 +53,7 @@ public abstract class a {
         }
 
         public boolean a() {
-            String a2 = this.ame.a(this.c, true);
+            String a2 = this.amf.a(this.c, true);
             if (!TextUtils.isEmpty(a2)) {
                 try {
                     a(new JSONObject(a2));
@@ -72,7 +72,7 @@ public abstract class a {
                 try {
                     JSONObject jSONObject = new JSONObject();
                     b(jSONObject);
-                    this.ame.c(this.c, jSONObject.toString(), true);
+                    this.amf.c(this.c, jSONObject.toString(), true);
                     a(false);
                     return true;
                 } catch (Exception e) {
@@ -119,21 +119,21 @@ public abstract class a {
     public static class f {
 
         /* renamed from: a  reason: collision with root package name */
-        public boolean f1296a;
+        public boolean f1293a;
     }
 
     /* loaded from: classes6.dex */
     public static class g {
 
         /* renamed from: a  reason: collision with root package name */
-        public g.a f1297a;
-        public Exception acY;
+        public g.a f1294a;
+        public Exception acZ;
         public int b;
 
         public g(int i, g.a aVar, Exception exc) {
             this.b = i;
-            this.f1297a = aVar;
-            this.acY = exc;
+            this.f1294a = aVar;
+            this.acZ = exc;
         }
 
         public static g bG(int i) {
@@ -167,8 +167,8 @@ public abstract class a {
     }
 
     public final void a(C0099a c0099a) {
-        this.ama = c0099a;
-        this.amb = c0099a.amd.uw().m20do(IXAdRequestInfo.CS);
+        this.amb = c0099a;
+        this.amc = c0099a.ame.uw().m20do(IXAdRequestInfo.CS);
     }
 
     public abstract void a(c cVar);

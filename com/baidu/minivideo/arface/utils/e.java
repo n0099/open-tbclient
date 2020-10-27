@@ -99,7 +99,7 @@ public class e {
     /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [253=4] */
     /* JADX DEBUG: Multi-variable search result rejected for r1v3, resolved type: java.io.BufferedReader */
     /* JADX WARN: Multi-variable type inference failed */
-    public static String K(Context context, String str) {
+    public static String L(Context context, String str) {
         InputStreamReader inputStreamReader;
         InputStreamReader inputStreamReader2;
         InputStreamReader inputStreamReader3 = null;

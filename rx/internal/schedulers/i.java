@@ -3,20 +3,20 @@ package rx.internal.schedulers;
 import rx.g;
 /* loaded from: classes16.dex */
 class i implements rx.functions.a {
-    private final long oPy;
-    private final rx.functions.a phJ;
-    private final g.a phK;
+    private final long pGV;
+    private final rx.functions.a pZc;
+    private final g.a pZd;
 
     public i(rx.functions.a aVar, g.a aVar2, long j) {
-        this.phJ = aVar;
-        this.phK = aVar2;
-        this.oPy = j;
+        this.pZc = aVar;
+        this.pZd = aVar2;
+        this.pGV = j;
     }
 
     @Override // rx.functions.a
     public void call() {
-        if (!this.phK.isUnsubscribed()) {
-            long now = this.oPy - this.phK.now();
+        if (!this.pZd.isUnsubscribed()) {
+            long now = this.pGV - this.pZd.now();
             if (now > 0) {
                 try {
                     Thread.sleep(now);
@@ -25,8 +25,8 @@ class i implements rx.functions.a {
                     rx.exceptions.a.v(e);
                 }
             }
-            if (!this.phK.isUnsubscribed()) {
-                this.phJ.call();
+            if (!this.pZd.isUnsubscribed()) {
+                this.pZc.call();
             }
         }
     }

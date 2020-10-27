@@ -10,5 +10,5 @@ import java.lang.annotation.Target;
 @Retention(RetentionPolicy.RUNTIME)
 /* loaded from: classes17.dex */
 public @interface d {
-    double eeO();
+    double eoO();
 }

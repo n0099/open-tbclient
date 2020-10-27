@@ -11,7 +11,7 @@ import org.json.JSONObject;
 /* loaded from: classes10.dex */
 public class c {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    private List<com.baidu.swan.games.binding.model.c> dJf = new ArrayList();
+    private List<com.baidu.swan.games.binding.model.c> dRC = new ArrayList();
 
     public c(JSONArray jSONArray) {
         if (jSONArray != null) {
@@ -43,7 +43,7 @@ public class c {
                     switch (c) {
                         case 0:
                             if (i2 < 3) {
-                                this.dJf.add(cp(optJSONObject));
+                                this.dRC.add(cs(optJSONObject));
                                 i2++;
                                 break;
                             } else {
@@ -51,7 +51,7 @@ public class c {
                             }
                         case 1:
                             if (i < 10) {
-                                this.dJf.add(cq(optJSONObject));
+                                this.dRC.add(ct(optJSONObject));
                                 i++;
                                 break;
                             } else {
@@ -67,9 +67,9 @@ public class c {
     public void b(com.baidu.swan.games.f.b bVar) {
         if (bVar != null) {
             if (DEBUG) {
-                Log.d("SwanGamePreloadConfig", "startPreload objectMap:" + this.dJf);
+                Log.d("SwanGamePreloadConfig", "startPreload objectMap:" + this.dRC);
             }
-            for (com.baidu.swan.games.binding.model.c cVar : this.dJf) {
+            for (com.baidu.swan.games.binding.model.c cVar : this.dRC) {
                 if (cVar != null) {
                     String optString = cVar.optString("type");
                     char c = 65535;
@@ -100,7 +100,7 @@ public class c {
         }
     }
 
-    private com.baidu.swan.games.binding.model.c co(JSONObject jSONObject) {
+    private com.baidu.swan.games.binding.model.c cr(JSONObject jSONObject) {
         if (jSONObject == null) {
             return null;
         }
@@ -113,21 +113,21 @@ public class c {
         return cVar;
     }
 
-    private com.baidu.swan.games.binding.model.c cp(@NonNull JSONObject jSONObject) {
+    private com.baidu.swan.games.binding.model.c cs(@NonNull JSONObject jSONObject) {
         com.baidu.swan.games.binding.model.c cVar = new com.baidu.swan.games.binding.model.c();
         cVar.put("type", jSONObject.optString("type"));
         cVar.put("url", jSONObject.optString("url"));
         cVar.put("responseType", jSONObject.optString("responseType"));
-        cVar.put(WebSocketRequest.PARAM_KEY_HEADER, co(jSONObject.optJSONObject(WebSocketRequest.PARAM_KEY_HEADER)));
+        cVar.put(WebSocketRequest.PARAM_KEY_HEADER, cr(jSONObject.optJSONObject(WebSocketRequest.PARAM_KEY_HEADER)));
         return cVar;
     }
 
-    private com.baidu.swan.games.binding.model.c cq(@NonNull JSONObject jSONObject) {
+    private com.baidu.swan.games.binding.model.c ct(@NonNull JSONObject jSONObject) {
         com.baidu.swan.games.binding.model.c cVar = new com.baidu.swan.games.binding.model.c();
         cVar.put("type", jSONObject.optString("type"));
         cVar.put("url", jSONObject.optString("url"));
         cVar.put("filePath", jSONObject.optString("filePath"));
-        cVar.put(WebSocketRequest.PARAM_KEY_HEADER, co(jSONObject.optJSONObject(WebSocketRequest.PARAM_KEY_HEADER)));
+        cVar.put(WebSocketRequest.PARAM_KEY_HEADER, cr(jSONObject.optJSONObject(WebSocketRequest.PARAM_KEY_HEADER)));
         return cVar;
     }
 }

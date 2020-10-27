@@ -21,29 +21,29 @@ import java.util.List;
 import org.json.JSONObject;
 /* loaded from: classes4.dex */
 public class AlaActiveWebView extends FrameLayout implements c {
-    private CommonWebView bFa;
-    private List<String> bFb;
-    private SchemeCallback bFd;
-    private String elL;
-    private a gDw;
-    private boolean gDx;
+    private CommonWebView bHZ;
+    private List<String> bIa;
+    private SchemeCallback bIc;
+    private String eul;
+    private a gPk;
+    private boolean gPl;
 
     /* loaded from: classes4.dex */
     public interface a {
-        void mi(boolean z);
+        void mz(boolean z);
     }
 
     public AlaActiveWebView(Context context) {
         super(context);
-        this.bFd = new SchemeCallback() { // from class: com.baidu.tieba.ala.liveroom.activeview.AlaActiveWebView.3
+        this.bIc = new SchemeCallback() { // from class: com.baidu.tieba.ala.liveroom.activeview.AlaActiveWebView.3
             @Override // com.baidu.live.tbadk.scheme.SchemeCallback
             public void doJsCallback(int i, String str, JSONObject jSONObject, String str2) {
                 try {
                     String assembJavaScript = SchemeUtils.assembJavaScript(i, str, jSONObject, str2);
                     if (Build.VERSION.SDK_INT >= 19) {
-                        AlaActiveWebView.this.bFa.evaluateJavascript(assembJavaScript, null);
+                        AlaActiveWebView.this.bHZ.evaluateJavascript(assembJavaScript, null);
                     } else {
-                        AlaActiveWebView.this.bFa.loadUrl(assembJavaScript);
+                        AlaActiveWebView.this.bHZ.loadUrl(assembJavaScript);
                     }
                 } catch (Exception e) {
                     e.printStackTrace();
@@ -54,85 +54,85 @@ public class AlaActiveWebView extends FrameLayout implements c {
     }
 
     public void setCallback(a aVar) {
-        this.gDw = aVar;
+        this.gPk = aVar;
     }
 
     public void addJavascriptInterface(Object obj, String str) {
-        if (this.bFb == null) {
-            this.bFb = new ArrayList();
+        if (this.bIa == null) {
+            this.bIa = new ArrayList();
         }
-        this.bFb.add(str);
-        this.bFa.addJavascriptInterface(obj, str);
+        this.bIa.add(str);
+        this.bHZ.addJavascriptInterface(obj, str);
     }
 
     public void loadUrl(String str) {
-        if (this.bFa != null) {
-            this.bFa.loadUrl(str);
+        if (this.bHZ != null) {
+            this.bHZ.loadUrl(str);
         }
     }
 
     public String getOriginalUrl() {
-        return this.bFa != null ? this.bFa.getOriginalUrl() : "";
+        return this.bHZ != null ? this.bHZ.getOriginalUrl() : "";
     }
 
-    public boolean bRB() {
-        return this.gDx;
+    public boolean bUy() {
+        return this.gPl;
     }
 
     @RequiresApi(19)
     public void evaluateJavascript(String str, ValueCallback<String> valueCallback) {
-        if (this.bFa != null) {
-            this.bFa.evaluateJavascript(str, valueCallback);
+        if (this.bHZ != null) {
+            this.bHZ.evaluateJavascript(str, valueCallback);
         }
     }
 
     @Override // com.baidu.tieba.ala.liveroom.activeview.c
     public void onStart() {
-        if (this.bFa != null) {
-            this.bFa.onResume();
+        if (this.bHZ != null) {
+            this.bHZ.onResume();
             if (TbadkCoreApplication.getInst().isHaokan()) {
-                this.bFa.resumeTimers();
+                this.bHZ.resumeTimers();
             }
         }
     }
 
     @Override // com.baidu.tieba.ala.liveroom.activeview.c
     public void onStop() {
-        if (this.bFa != null) {
-            this.bFa.onPause();
+        if (this.bHZ != null) {
+            this.bHZ.onPause();
         }
     }
 
     @Override // com.baidu.tieba.ala.liveroom.activeview.c
     public void release() {
-        this.gDw = null;
-        this.gDx = false;
+        this.gPk = null;
+        this.gPl = false;
         removeAllViews();
-        if (this.bFa != null) {
-            if (this.bFb != null) {
-                for (String str : this.bFb) {
-                    this.bFa.removeJavascriptInterface(str);
+        if (this.bHZ != null) {
+            if (this.bIa != null) {
+                for (String str : this.bIa) {
+                    this.bHZ.removeJavascriptInterface(str);
                 }
-                this.bFb.clear();
+                this.bIa.clear();
             }
-            this.bFa.stopLoading();
-            this.bFa.removeAllViews();
-            this.bFa.loadUrl("about:blank");
-            this.bFa.freeMemory();
-            this.bFa.destroy();
+            this.bHZ.stopLoading();
+            this.bHZ.removeAllViews();
+            this.bHZ.loadUrl("about:blank");
+            this.bHZ.freeMemory();
+            this.bHZ.destroy();
         }
     }
 
     private void init() {
-        this.gDx = false;
+        this.gPl = false;
         setBackgroundColor(0);
         if (getBackground() != null) {
             getBackground().setAlpha(0);
         }
-        this.bFa = new CommonWebView(getContext());
-        this.bFa.setVerticalScrollEnabled(false);
-        this.bFa.setHorizontalScrollEnabled(false);
-        this.bFa.setWebViewClient(new WebViewClient() { // from class: com.baidu.tieba.ala.liveroom.activeview.AlaActiveWebView.1
+        this.bHZ = new CommonWebView(getContext());
+        this.bHZ.setVerticalScrollEnabled(false);
+        this.bHZ.setHorizontalScrollEnabled(false);
+        this.bHZ.setWebViewClient(new WebViewClient() { // from class: com.baidu.tieba.ala.liveroom.activeview.AlaActiveWebView.1
             @Override // android.webkit.WebViewClient
             public void onPageFinished(WebView webView, String str) {
                 super.onPageFinished(webView, str);
@@ -141,9 +141,9 @@ public class AlaActiveWebView extends FrameLayout implements c {
                         /* JADX DEBUG: Method merged with bridge method */
                         @Override // android.webkit.ValueCallback
                         public void onReceiveValue(String str2) {
-                            AlaActiveWebView.this.gDx = Boolean.valueOf(str2).booleanValue();
-                            if (AlaActiveWebView.this.gDw != null) {
-                                AlaActiveWebView.this.gDw.mi(Boolean.valueOf(str2).booleanValue());
+                            AlaActiveWebView.this.gPl = Boolean.valueOf(str2).booleanValue();
+                            if (AlaActiveWebView.this.gPk != null) {
+                                AlaActiveWebView.this.gPk.mz(Boolean.valueOf(str2).booleanValue());
                             }
                         }
                     });
@@ -154,7 +154,7 @@ public class AlaActiveWebView extends FrameLayout implements c {
             public void onReceivedError(WebView webView, int i, String str, String str2) {
                 super.onReceivedError(webView, i, str, str2);
                 if (Build.VERSION.SDK_INT < 23) {
-                    AlaActiveWebView.this.rd(str2);
+                    AlaActiveWebView.this.rw(str2);
                 }
             }
 
@@ -164,25 +164,25 @@ public class AlaActiveWebView extends FrameLayout implements c {
                 String uri;
                 super.onReceivedError(webView, webResourceRequest, webResourceError);
                 if (webResourceRequest.isForMainFrame() && webResourceRequest.getUrl() != null && (uri = webResourceRequest.getUrl().toString()) != null && !uri.equals("file:///android_asset/web/error.html")) {
-                    AlaActiveWebView.this.rd(uri);
+                    AlaActiveWebView.this.rw(uri);
                 }
             }
         });
-        addView(this.bFa, new FrameLayout.LayoutParams(-1, -1));
+        addView(this.bHZ, new FrameLayout.LayoutParams(-1, -1));
         if (TbadkCoreApplication.getInst().isHaokan()) {
-            this.bFa.resumeTimers();
+            this.bHZ.resumeTimers();
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void rd(String str) {
-        this.elL = str;
-        this.bFa.loadUrl("file:///android_asset/web/error.html");
-        this.bFa.setOnTouchListener(new View.OnTouchListener() { // from class: com.baidu.tieba.ala.liveroom.activeview.AlaActiveWebView.2
+    public void rw(String str) {
+        this.eul = str;
+        this.bHZ.loadUrl("file:///android_asset/web/error.html");
+        this.bHZ.setOnTouchListener(new View.OnTouchListener() { // from class: com.baidu.tieba.ala.liveroom.activeview.AlaActiveWebView.2
             @Override // android.view.View.OnTouchListener
             public boolean onTouch(View view, MotionEvent motionEvent) {
-                if (AlaActiveWebView.this.bFa != null && AlaActiveWebView.this.bFa.getUrl() != null && AlaActiveWebView.this.bFa.getUrl().equals("file:///android_asset/web/error.html") && !TextUtils.isEmpty(AlaActiveWebView.this.elL)) {
-                    AlaActiveWebView.this.bFa.loadUrl(AlaActiveWebView.this.elL);
+                if (AlaActiveWebView.this.bHZ != null && AlaActiveWebView.this.bHZ.getUrl() != null && AlaActiveWebView.this.bHZ.getUrl().equals("file:///android_asset/web/error.html") && !TextUtils.isEmpty(AlaActiveWebView.this.eul)) {
+                    AlaActiveWebView.this.bHZ.loadUrl(AlaActiveWebView.this.eul);
                     return false;
                 }
                 return false;
@@ -191,6 +191,6 @@ public class AlaActiveWebView extends FrameLayout implements c {
     }
 
     public SchemeCallback getSchemeCallback() {
-        return this.bFd;
+        return this.bIc;
     }
 }

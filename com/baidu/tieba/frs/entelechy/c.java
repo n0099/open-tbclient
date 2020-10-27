@@ -12,7 +12,7 @@ import java.util.ArrayList;
 import java.util.Iterator;
 /* loaded from: classes22.dex */
 public class c implements com.baidu.tieba.frs.entelechy.b.b {
-    private float eTQ = 0.16875f;
+    private float fcm = 0.16875f;
 
     @Override // com.baidu.tieba.frs.entelechy.b.b
     public void a(h hVar, FrsViewData frsViewData) {
@@ -23,7 +23,7 @@ public class c implements com.baidu.tieba.frs.entelechy.b.b {
                 Iterator<q> it = threadList.iterator();
                 while (it.hasNext()) {
                     q next = it.next();
-                    if (next.getType() == bw.epk) {
+                    if (next.getType() == bw.exI) {
                         arrayList.add(next);
                     }
                 }
@@ -33,14 +33,14 @@ public class c implements com.baidu.tieba.frs.entelechy.b.b {
     }
 
     @Override // com.baidu.tieba.frs.entelechy.b.b
-    public boolean yN(int i) {
+    public boolean zg(int i) {
         return false;
     }
 
     @Override // com.baidu.tieba.frs.entelechy.b.b
     public void a(h hVar, com.baidu.tieba.frs.q qVar, FrsViewData frsViewData) {
         if (hVar != null && qVar != null && frsViewData != null) {
-            hVar.cAj();
+            hVar.cDq();
             if (frsViewData != null && frsViewData.getForum() != null) {
                 qVar.a(frsViewData.getForum().getFrsBannerData());
             }
@@ -53,7 +53,7 @@ public class c implements com.baidu.tieba.frs.entelechy.b.b {
     }
 
     @Override // com.baidu.tieba.frs.entelechy.b.b
-    public void ct(View view) {
+    public void cx(View view) {
         view.setVisibility(8);
     }
 }

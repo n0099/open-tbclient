@@ -22,31 +22,31 @@ import plugin.writeSettings.ReqData;
 import plugin.writeSettings.WriteSettingsReqIdl;
 /* loaded from: classes.dex */
 public class b {
-    private static b Ul;
-    private a Um;
-    private e Uo;
+    private static b Um;
+    private a Un;
+    private e Up;
     private boolean isReading;
-    private static final BdUniqueId Uk = BdUniqueId.gen();
-    public static final BdAsyncTaskParallel sBdAsyncTaskParallel = new BdAsyncTaskParallel(BdAsyncTaskParallel.BdAsyncTaskParallelType.SERIAL, Uk);
-    private PluginSettings Un = new PluginSettings();
+    private static final BdUniqueId Ul = BdUniqueId.gen();
+    public static final BdAsyncTaskParallel sBdAsyncTaskParallel = new BdAsyncTaskParallel(BdAsyncTaskParallel.BdAsyncTaskParallelType.SERIAL, Ul);
+    private PluginSettings Uo = new PluginSettings();
     private final int BUFFER_SIZE = 1024;
 
     public static b qr() {
-        if (Ul == null) {
+        if (Um == null) {
             synchronized (b.class) {
-                if (Ul == null) {
-                    Ul = new b();
+                if (Um == null) {
+                    Um = new b();
                 }
             }
         }
-        return Ul;
+        return Um;
     }
 
     private b() {
     }
 
     public PluginSettings qs() {
-        return this.Un;
+        return this.Uo;
     }
 
     /* JADX WARN: Removed duplicated region for block: B:10:0x0021  */
@@ -62,7 +62,7 @@ public class b {
         PluginSettings qt;
         PluginSettings pluginSettings;
         if (!this.isReading) {
-            this.Uo = eVar;
+            this.Up = eVar;
             try {
                 str = qu();
             } catch (Exception e) {
@@ -80,21 +80,21 @@ public class b {
                 this.isReading = false;
                 if (qt == null) {
                 }
-                if (this.Uo == null) {
+                if (this.Up == null) {
                 }
             }
             this.isReading = true;
             qt = qt();
             this.isReading = false;
             if (qt == null) {
-                this.Un = qt;
+                this.Uo = qt;
                 pluginSettings = qt;
             } else {
                 this.isReading = true;
                 PluginSettings qt2 = qt();
                 this.isReading = false;
                 if (qt2 != null) {
-                    this.Un = qt2;
+                    this.Uo = qt2;
                     pluginSettings = qt2;
                 } else {
                     com.baidu.adp.plugin.b.b.F("PluginSettingIOManager_readSettings", "isExist_" + z + "-PluginSettings_is_null");
@@ -105,9 +105,9 @@ public class b {
                     pluginSettings = qt2;
                 }
             }
-            if (this.Uo == null) {
-                this.Uo.c(pluginSettings);
-                this.Uo = null;
+            if (this.Up == null) {
+                this.Up.c(pluginSettings);
+                this.Up = null;
             }
         }
     }
@@ -278,46 +278,46 @@ public class b {
 
     public void save(PluginSettings pluginSettings, d dVar) {
         if (pluginSettings != null) {
-            this.Un = pluginSettings;
-            if (this.isReading && this.Uo != null) {
-                this.Uo.c(this.Un);
-                this.Uo = null;
+            this.Uo = pluginSettings;
+            if (this.isReading && this.Up != null) {
+                this.Up.c(this.Uo);
+                this.Up = null;
                 this.isReading = false;
             }
-            if (this.Um != null) {
-                this.Um.cancel();
-                this.Um = null;
+            if (this.Un != null) {
+                this.Un.cancel();
+                this.Un = null;
             }
             if (TextUtils.isEmpty(pluginSettings.getContainerVersion())) {
                 pluginSettings.setContainerSetting("");
             }
-            this.Um = new a(pluginSettings, dVar);
-            this.Um.setParallel(sBdAsyncTaskParallel);
-            this.Um.execute(new String[0]);
+            this.Un = new a(pluginSettings, dVar);
+            this.Un.setParallel(sBdAsyncTaskParallel);
+            this.Un.execute(new String[0]);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes.dex */
     public class a extends BdAsyncTask<String, Integer, Boolean> {
-        private PluginSettings Up;
-        private d Uq;
+        private PluginSettings Uq;
+        private d Ur;
 
         public a(PluginSettings pluginSettings, d dVar) {
-            this.Up = pluginSettings;
-            this.Uq = dVar;
+            this.Uq = pluginSettings;
+            this.Ur = dVar;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         /* JADX INFO: Access modifiers changed from: protected */
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         public Boolean doInBackground(String... strArr) {
-            if (this.Up == null || this.Up.getPlugins() == null) {
+            if (this.Uq == null || this.Uq.getPlugins() == null) {
                 return false;
             }
             ReqData.Builder builder = new ReqData.Builder();
             ArrayList arrayList = new ArrayList();
-            for (Map.Entry<String, PluginSetting> entry : this.Up.getPlugins().entrySet()) {
+            for (Map.Entry<String, PluginSetting> entry : this.Uq.getPlugins().entrySet()) {
                 PluginSetting value = entry.getValue();
                 if (value != null) {
                     Plugin_setting.Builder builder2 = new Plugin_setting.Builder();
@@ -359,8 +359,8 @@ public class b {
                 }
             }
             builder.plugin_settings_list = arrayList;
-            builder.container_version = this.Up.getContainerVersion();
-            builder.forbidden_feature = this.Up.getForbiddenFeatures();
+            builder.container_version = this.Uq.getContainerVersion();
+            builder.forbidden_feature = this.Uq.getForbiddenFeatures();
             WriteSettingsReqIdl.Builder builder3 = new WriteSettingsReqIdl.Builder();
             try {
                 builder3.data = builder.build(false);
@@ -377,11 +377,11 @@ public class b {
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         public void onPostExecute(Boolean bool) {
             super.onPostExecute((a) bool);
-            if (this.Uq != null) {
+            if (this.Ur != null) {
                 if (bool != null && bool.booleanValue()) {
-                    this.Uq.qy();
+                    this.Ur.qy();
                 } else {
-                    this.Uq.qz();
+                    this.Ur.qz();
                 }
             }
         }
@@ -389,8 +389,8 @@ public class b {
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         public void cancel() {
             super.cancel();
-            if (this.Uq != null) {
-                this.Uq.qz();
+            if (this.Ur != null) {
+                this.Ur.qz();
             }
         }
     }

@@ -29,14 +29,14 @@ public final class f {
             q.m(string, "Res.getString(id)");
             return string;
         } else if (str == null) {
-            q.eob();
+            q.eya();
             return str;
         } else {
             return str;
         }
     }
 
-    public static final Activity gP(Context context) {
+    public static final Activity hj(Context context) {
         if (context == null) {
             return null;
         }
@@ -44,7 +44,7 @@ public final class f {
             return (Activity) context;
         }
         if (context instanceof ContextWrapper) {
-            return gP(((ContextWrapper) context).getBaseContext());
+            return hj(((ContextWrapper) context).getBaseContext());
         }
         return null;
     }

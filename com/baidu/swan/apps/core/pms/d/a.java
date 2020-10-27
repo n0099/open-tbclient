@@ -17,18 +17,18 @@ import java.util.concurrent.ConcurrentHashMap;
 /* loaded from: classes10.dex */
 public final class a {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    private static final Set<Integer> czG = i.N(0, 1010, 1011, 1012, 1020, 1015);
-    private static final Map<String, Long> czH = new ConcurrentHashMap();
-    private static int czI = -2;
-    private static final c<String, String> czJ = new c<String, String>() { // from class: com.baidu.swan.apps.core.pms.d.a.1
+    private static final Set<Integer> cIc = i.N(0, 1010, 1011, 1012, 1020, 1015);
+    private static final Map<String, Long> cId = new ConcurrentHashMap();
+    private static int cIe = -2;
+    private static final c<String, String> cIf = new c<String, String>() { // from class: com.baidu.swan.apps.core.pms.d.a.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.swan.apps.ap.e.c
-        /* renamed from: mK */
+        /* renamed from: nd */
         public String N(String str) {
             return str;
         }
     };
-    private static final c<b.a, String> czK = new c<b.a, String>() { // from class: com.baidu.swan.apps.core.pms.d.a.2
+    private static final c<b.a, String> cIg = new c<b.a, String>() { // from class: com.baidu.swan.apps.core.pms.d.a.2
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.swan.apps.ap.e.c
         /* renamed from: a */
@@ -37,57 +37,57 @@ public final class a {
         }
     };
 
-    private static boolean mG(@NonNull String str) {
+    private static boolean mZ(@NonNull String str) {
         Long l;
-        if (czI == -2) {
-            czI = com.baidu.swan.apps.t.a.asi().getSwitch("swan_predownload_one_sm_interval", -1);
+        if (cIe == -2) {
+            cIe = com.baidu.swan.apps.t.a.aud().getSwitch("swan_predownload_one_sm_interval", -1);
         }
-        if (czI < 0) {
-            return !czH.containsKey(str);
+        if (cIe < 0) {
+            return !cId.containsKey(str);
         }
-        return czI == 0 || (l = czH.get(str)) == null || System.currentTimeMillis() - l.longValue() > ((long) (czI * 1000));
+        return cIe == 0 || (l = cId.get(str)) == null || System.currentTimeMillis() - l.longValue() > ((long) (cIe * 1000));
     }
 
-    public static boolean hR(int i) {
-        return czG.contains(Integer.valueOf(i));
+    public static boolean ic(int i) {
+        return cIc.contains(Integer.valueOf(i));
     }
 
     public static boolean c(com.baidu.swan.pms.model.a aVar) {
-        return aVar != null && hR(aVar.errorNo);
+        return aVar != null && ic(aVar.errorNo);
     }
 
-    public static boolean R(@Nullable String str, boolean z) {
+    public static boolean T(@Nullable String str, boolean z) {
         boolean z2;
         String str2 = "shouldDownloadItem app=" + str + " record=" + z + " : ";
         if (TextUtils.isEmpty(str)) {
             return false;
         }
         if (z) {
-            czH.put(str, Long.valueOf(System.currentTimeMillis()));
+            cId.put(str, Long.valueOf(System.currentTimeMillis()));
             z2 = true;
         } else {
-            z2 = !czH.containsKey(str);
+            z2 = !cId.containsKey(str);
         }
-        return ((Boolean) n(new StringBuilder().append(str2).append(" should").toString(), Boolean.valueOf(z2))).booleanValue() || ((Boolean) n(new StringBuilder().append(str2).append(" AB").toString(), Boolean.valueOf(mG(str)))).booleanValue();
+        return ((Boolean) n(new StringBuilder().append(str2).append(" should").toString(), Boolean.valueOf(z2))).booleanValue() || ((Boolean) n(new StringBuilder().append(str2).append(" AB").toString(), Boolean.valueOf(mZ(str)))).booleanValue();
     }
 
-    public static boolean mH(String str) {
-        return R(str, false);
+    public static boolean na(String str) {
+        return T(str, false);
     }
 
-    public static boolean bt(@Nullable String str, @Nullable String str2) {
+    public static boolean bA(@Nullable String str, @Nullable String str2) {
         if (str2 != null && str != null) {
             str = str + str2;
         }
-        return mH(str);
+        return na(str);
     }
 
     public static List<String> g(Collection<String> collection) {
-        return a(czJ, collection);
+        return a(cIf, collection);
     }
 
     public static List<b.a> h(Collection<b.a> collection) {
-        return a(czK, collection);
+        return a(cIg, collection);
     }
 
     public static <SwanItemT> List<SwanItemT> a(@NonNull c<SwanItemT, String> cVar, Collection<SwanItemT> collection, boolean z) {
@@ -96,7 +96,7 @@ public final class a {
             Iterator<SwanItemT> it = collection.iterator();
             while (it.hasNext()) {
                 SwanItemT next = it.next();
-                if (R(next == null ? "" : cVar.N(next), z)) {
+                if (T(next == null ? "" : cVar.N(next), z)) {
                     arrayList.add(next);
                 }
             }
@@ -109,22 +109,22 @@ public final class a {
         return a(cVar, collection, false);
     }
 
-    public static boolean mI(String str) {
-        return R(str, true);
+    public static boolean nb(String str) {
+        return T(str, true);
     }
 
-    public static boolean bu(@NonNull String str, @Nullable String str2) {
+    public static boolean bB(@NonNull String str, @Nullable String str2) {
         if (str2 != null) {
             str = str + str2;
         }
-        return mI(str);
+        return nb(str);
     }
 
-    public static boolean mJ(@Nullable String str) {
+    public static boolean nc(@Nullable String str) {
         if (str == null) {
             return false;
         }
-        Iterator<Map.Entry<String, Long>> it = czH.entrySet().iterator();
+        Iterator<Map.Entry<String, Long>> it = cId.entrySet().iterator();
         while (it.hasNext()) {
             Map.Entry<String, Long> next = it.next();
             if (next != null && next.getKey() != null && next.getKey().startsWith(str)) {
@@ -136,7 +136,7 @@ public final class a {
 
     private static <T> T n(String str, T t) {
         if (DEBUG) {
-            Log.i("PreDownloadUtils", "Recorded=" + czH.size() + " # " + str + " => " + t);
+            Log.i("PreDownloadUtils", "Recorded=" + cId.size() + " # " + str + " => " + t);
         }
         return t;
     }

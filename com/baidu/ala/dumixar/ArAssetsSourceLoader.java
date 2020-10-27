@@ -62,11 +62,11 @@ public class ArAssetsSourceLoader extends c {
             log(String.format("from %s to %s ", assetsPath, sDcardPath));
         }
         String q = (sDcardPath != null && sDcardPath.exists() && sDcardPath.isDirectory()) ? e.q(new File(sDcardPath, "version")) : null;
-        String K = TextUtils.isEmpty(q) ? null : e.K(this.mContext, assetsPath + "/version");
+        String L = TextUtils.isEmpty(q) ? null : e.L(this.mContext, assetsPath + "/version");
         if (isDebug()) {
-            log("assets=" + K + ", sdcard=" + q);
+            log("assets=" + L + ", sdcard=" + q);
         }
-        boolean z = TextUtils.isEmpty(q) || !TextUtils.equals(q, K);
+        boolean z = TextUtils.isEmpty(q) || !TextUtils.equals(q, L);
         this.mIsSourceValidCache = Boolean.valueOf(!z);
         return !z;
     }
@@ -115,7 +115,7 @@ public class ArAssetsSourceLoader extends c {
 
     @Override // com.baidu.minivideo.arface.utils.c
     public void run() {
-        ThreadPool.VW().execute(new Runnable() { // from class: com.baidu.ala.dumixar.ArAssetsSourceLoader.1
+        ThreadPool.XQ().execute(new Runnable() { // from class: com.baidu.ala.dumixar.ArAssetsSourceLoader.1
             @Override // java.lang.Runnable
             public void run() {
                 ArAssetsSourceLoader.this.loadArAssetsSource(ArAssetsSourceLoader.this.mContext);

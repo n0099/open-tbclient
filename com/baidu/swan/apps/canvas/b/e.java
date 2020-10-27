@@ -5,25 +5,25 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes10.dex */
 public class e extends a {
-    private List<com.baidu.swan.apps.canvas.a.a.a> cow;
-    private j coz;
+    private List<com.baidu.swan.apps.canvas.a.a.a> cwY;
+    private j cxb;
 
     public e(String str) {
         super(str);
-        this.cow = new ArrayList();
-        this.coz = new j(str);
-        this.cow.add(this.coz);
+        this.cwY = new ArrayList();
+        this.cxb = new j(str);
+        this.cwY.add(this.cxb);
     }
 
-    public int agi() {
-        return this.coz.agi();
+    public int aic() {
+        return this.cxb.aic();
     }
 
-    public List<com.baidu.swan.apps.canvas.a.a.a> agj() {
-        return this.cow;
+    public List<com.baidu.swan.apps.canvas.a.a.a> aid() {
+        return this.cwY;
     }
 
-    public boolean agk() {
+    public boolean aie() {
         return true;
     }
 }

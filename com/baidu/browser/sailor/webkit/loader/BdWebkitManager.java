@@ -28,10 +28,10 @@ public class BdWebkitManager implements INoProGuard {
     public static final class a {
 
         /* renamed from: a  reason: collision with root package name */
-        public static final int f1287a = 1;
+        public static final int f1284a = 1;
         public static final int b = 2;
         public static final int c = 3;
-        private static final /* synthetic */ int[] d = {f1287a, b, c};
+        private static final /* synthetic */ int[] d = {f1284a, b, c};
     }
 
     private String makeErrorInfo(LoadErrorCode loadErrorCode) {
@@ -57,7 +57,7 @@ public class BdWebkitManager implements INoProGuard {
     }
 
     public void disableBdWebkit() {
-        mWebkitType$25688051 = a.f1287a;
+        mWebkitType$25688051 = a.f1284a;
     }
 
     public void enableBdWebkit() {
@@ -85,13 +85,13 @@ public class BdWebkitManager implements INoProGuard {
                 if (a.c == i) {
                     BdSailorPlatform.getStatic().a("emulator-check", "emulator:" + BdZeusUtil.checkEmulator());
                     z2 = WebKitFactory.setEngine(1);
-                    Log.d(com.baidu.browser.sailor.webkit.loader.a.f1288a, "zeus version = " + WebKitFactory.getZeusVersionName());
+                    Log.d(com.baidu.browser.sailor.webkit.loader.a.f1285a, "zeus version = " + WebKitFactory.getZeusVersionName());
                 } else {
                     z2 = false;
                 }
                 if (z2) {
-                    Log.d(com.baidu.browser.sailor.webkit.loader.a.f1288a, "zeus version = " + WebKitFactory.getZeusVersionName());
-                    Log.d(com.baidu.browser.sailor.webkit.loader.a.f1288a, "sdk version = " + WebKitFactory.getSdkVersionName());
+                    Log.d(com.baidu.browser.sailor.webkit.loader.a.f1285a, "zeus version = " + WebKitFactory.getZeusVersionName());
+                    Log.d(com.baidu.browser.sailor.webkit.loader.a.f1285a, "sdk version = " + WebKitFactory.getSdkVersionName());
                     BdSailorPlatform.getWebkitManager().onLoadZeusSDKSuccess();
                     BdSailorPlatform.getStatic().a("init-webkit", "success");
                     BdSailorPlatform.getStatic().e = true;
@@ -131,7 +131,7 @@ public class BdWebkitManager implements INoProGuard {
             aVar.b = (byte) 0;
             if (a.c == i) {
                 WebKitFactory.destroy();
-                Log.d(com.baidu.browser.sailor.webkit.loader.a.f1288a, "sdk version =  =" + WebKitFactory.getSdkVersionName());
+                Log.d(com.baidu.browser.sailor.webkit.loader.a.f1285a, "sdk version =  =" + WebKitFactory.getSdkVersionName());
             }
             if (!str.startsWith("file://")) {
                 str = "file://" + str;
@@ -139,7 +139,7 @@ public class BdWebkitManager implements INoProGuard {
             BdZeusUtil.printKernellog("install plugin from download");
             WebKitFactory.installAsync(str, aVar);
             aVar.c = System.currentTimeMillis();
-            Log.i(com.baidu.browser.sailor.webkit.loader.a.f1288a, "full update started!");
+            Log.i(com.baidu.browser.sailor.webkit.loader.a.f1285a, "full update started!");
         }
     }
 

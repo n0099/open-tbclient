@@ -7,11 +7,11 @@ import com.xiaomi.push.service.ap;
 public class aq implements ap.b.a {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ ap.b f5063a;
+    final /* synthetic */ ap.b f5061a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public aq(ap.b bVar) {
-        this.f5063a = bVar;
+        this.f5061a = bVar;
     }
 
     @Override // com.xiaomi.push.service.ap.b.a
@@ -19,13 +19,13 @@ public class aq implements ap.b.a {
         XMPushService.b bVar;
         XMPushService.b bVar2;
         if (cVar2 == ap.c.binding) {
-            XMPushService xMPushService = this.f5063a.f856a;
-            bVar2 = this.f5063a.f855a;
+            XMPushService xMPushService = this.f5061a.f853a;
+            bVar2 = this.f5061a.f852a;
             xMPushService.a(bVar2, 60000L);
             return;
         }
-        XMPushService xMPushService2 = this.f5063a.f856a;
-        bVar = this.f5063a.f855a;
+        XMPushService xMPushService2 = this.f5061a.f853a;
+        bVar = this.f5061a.f852a;
         xMPushService2.b(bVar);
     }
 }

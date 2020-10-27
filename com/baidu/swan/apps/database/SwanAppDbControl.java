@@ -21,11 +21,11 @@ import java.util.concurrent.Executor;
 import java.util.concurrent.Executors;
 /* loaded from: classes10.dex */
 public class SwanAppDbControl {
-    private static volatile SwanAppDbControl cCD;
-    private static a cCE;
-    private static Executor cCF;
+    private static volatile SwanAppDbControl cKZ;
+    private static a cLa;
+    private static Executor cLb;
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    public static final int cCG = PMSConstants.PayProtected.NO_PAY_PROTECTED.type;
+    public static final int cLc = PMSConstants.PayProtected.NO_PAY_PROTECTED.type;
     private static final int DB_VERSION = 20;
 
     /* loaded from: classes10.dex */
@@ -68,16 +68,16 @@ public class SwanAppDbControl {
     }
 
     public static SwanAppDbControl cd(Context context) {
-        if (cCD == null) {
+        if (cKZ == null) {
             synchronized (SwanAppDbControl.class) {
-                if (cCD == null) {
-                    cCF = Executors.newSingleThreadExecutor(Executors.defaultThreadFactory());
-                    cCE = new a(context.getApplicationContext(), "ai_apps.db", DB_VERSION);
-                    cCD = new SwanAppDbControl();
+                if (cKZ == null) {
+                    cLb = Executors.newSingleThreadExecutor(Executors.defaultThreadFactory());
+                    cLa = new a(context.getApplicationContext(), "ai_apps.db", DB_VERSION);
+                    cKZ = new SwanAppDbControl();
                 }
             }
         }
-        return cCD;
+        return cKZ;
     }
 
     /* loaded from: classes10.dex */
@@ -176,7 +176,7 @@ public class SwanAppDbControl {
 
         private void c(SQLiteDatabase sQLiteDatabase) {
             try {
-                sQLiteDatabase.execSQL(SwanAppDbControl.aog());
+                sQLiteDatabase.execSQL(SwanAppDbControl.aqb());
             } catch (Exception e) {
                 e.getStackTrace();
             }
@@ -286,7 +286,7 @@ public class SwanAppDbControl {
 
         private void r(SQLiteDatabase sQLiteDatabase) {
             try {
-                sQLiteDatabase.execSQL("ALTER TABLE ai_apps_aps_data ADD " + SwanAppTable.pay_protected + " INTEGER default " + SwanAppDbControl.cCG + ContentProviderProxy.PROVIDER_AUTHOR_SEPARATOR);
+                sQLiteDatabase.execSQL("ALTER TABLE ai_apps_aps_data ADD " + SwanAppTable.pay_protected + " INTEGER default " + SwanAppDbControl.cLc + ContentProviderProxy.PROVIDER_AUTHOR_SEPARATOR);
             } catch (SQLException e) {
                 if (SwanAppDbControl.DEBUG) {
                     Log.e("SwanAppDbControl", Log.getStackTraceString(e));
@@ -326,17 +326,17 @@ public class SwanAppDbControl {
         private void v(SQLiteDatabase sQLiteDatabase) {
             boolean z = false;
             long currentTimeMillis = System.currentTimeMillis();
-            List<ContentValues> adg = com.baidu.swan.apps.t.a.asB().adg();
+            List<ContentValues> afa = com.baidu.swan.apps.t.a.auv().afa();
             long currentTimeMillis2 = System.currentTimeMillis();
             if (SwanAppDbControl.DEBUG) {
-                Log.d("SwanAppDbControl", "read old history cost" + (currentTimeMillis2 - currentTimeMillis) + "  count:" + (adg == null ? 0 : adg.size()));
+                Log.d("SwanAppDbControl", "read old history cost" + (currentTimeMillis2 - currentTimeMillis) + "  count:" + (afa == null ? 0 : afa.size()));
             }
-            if (adg != null) {
+            if (afa != null) {
                 try {
-                    if (adg.size() != 0) {
+                    if (afa.size() != 0) {
                         try {
                             sQLiteDatabase.beginTransaction();
-                            Iterator<ContentValues> it = adg.iterator();
+                            Iterator<ContentValues> it = afa.iterator();
                             while (true) {
                                 if (!it.hasNext()) {
                                     z = true;
@@ -385,16 +385,16 @@ public class SwanAppDbControl {
         }
     }
 
-    public SQLiteOpenHelper aof() {
-        return cCE;
+    public SQLiteOpenHelper aqa() {
+        return cLa;
     }
 
-    public com.baidu.swan.apps.database.a nb(String str) {
+    public com.baidu.swan.apps.database.a nu(String str) {
         com.baidu.swan.apps.database.a aVar = new com.baidu.swan.apps.database.a();
         if (!TextUtils.isEmpty(str)) {
             Cursor cursor = null;
             try {
-                cursor = nc(str);
+                cursor = nv(str);
                 if (cursor != null && cursor.moveToFirst()) {
                     a(cursor, aVar);
                 }
@@ -459,36 +459,36 @@ public class SwanAppDbControl {
                 aVar.resumeDate = cursor.getString(columnIndex7);
                 aVar.icon = cursor.getString(columnIndex8);
                 aVar.iconUrl = cursor.getString(columnIndex9);
-                aVar.cCH = cursor.getString(columnIndex10);
-                aVar.cCI = cursor.getString(columnIndex11);
+                aVar.cLd = cursor.getString(columnIndex10);
+                aVar.cLe = cursor.getString(columnIndex11);
                 aVar.name = cursor.getString(columnIndex12);
                 aVar.serviceCategory = cursor.getString(columnIndex13);
                 aVar.subjectInfo = cursor.getString(columnIndex14);
                 aVar.bearInfo = cursor.getString(columnIndex15);
                 aVar.sign = cursor.getString(columnIndex16);
                 aVar.type = cursor.getInt(columnIndex17);
-                aVar.cCJ = cursor.getInt(columnIndex18);
+                aVar.cLf = cursor.getInt(columnIndex18);
                 aVar.version = cursor.getString(columnIndex19);
-                aVar.cCK = cursor.getString(columnIndex20);
-                aVar.cCL = cursor.getString(columnIndex21);
-                aVar.cCM = cursor.getString(columnIndex22);
-                aVar.cCN = cursor.getLong(columnIndex23);
-                aVar.cCO = cursor.getInt(columnIndex24);
-                aVar.cCP = cursor.getString(columnIndex25);
+                aVar.cLg = cursor.getString(columnIndex20);
+                aVar.cLh = cursor.getString(columnIndex21);
+                aVar.cLi = cursor.getString(columnIndex22);
+                aVar.cLj = cursor.getLong(columnIndex23);
+                aVar.cLk = cursor.getInt(columnIndex24);
+                aVar.cLl = cursor.getString(columnIndex25);
                 aVar.category = cursor.getInt(columnIndex26);
                 aVar.orientation = cursor.getInt(columnIndex27);
                 aVar.maxAge = cursor.getLong(columnIndex29);
                 aVar.createTime = cursor.getLong(columnIndex30);
-                aVar.cCQ = cursor.getInt(columnIndex28) != 0;
+                aVar.cLm = cursor.getInt(columnIndex28) != 0;
                 aVar.payProtected = cursor.getInt(columnIndex31);
                 aVar.quickAppKey = cursor.getString(columnIndex32);
             }
         }
     }
 
-    private Cursor nc(String str) {
+    private Cursor nv(String str) {
         try {
-            return cCE.getReadableDatabase().rawQuery("select * from ai_apps_aps_data where " + SwanAppTable.app_id.name() + " = ? ", new String[]{str});
+            return cLa.getReadableDatabase().rawQuery("select * from ai_apps_aps_data where " + SwanAppTable.app_id.name() + " = ? ", new String[]{str});
         } catch (SQLException e) {
             if (!DEBUG) {
                 return null;
@@ -498,57 +498,57 @@ public class SwanAppDbControl {
         }
     }
 
-    public static String aog() {
+    public static String aqb() {
         return "CREATE TABLE ai_apps_aps_data (" + SwanAppTable._id + " INTEGER PRIMARY KEY AUTOINCREMENT," + SwanAppTable.app_id + " TEXT UNIQUE," + SwanAppTable.app_key + " TEXT," + SwanAppTable.version + " TEXT," + SwanAppTable.description + " TEXT," + SwanAppTable.error_code + " INTEGER," + SwanAppTable.error_detail + " TEXT," + SwanAppTable.error_msg + " TEXT," + SwanAppTable.resume_date + " TEXT," + SwanAppTable.icon + " TEXT," + SwanAppTable.icon_url + " TEXT," + SwanAppTable.max_swan_version + " TEXT," + SwanAppTable.min_swan_version + " TEXT," + SwanAppTable.name + " TEXT," + SwanAppTable.service_category + " TEXT," + SwanAppTable.subject_info + " TEXT," + SwanAppTable.bear_info + " TEXT," + SwanAppTable.sign + " TEXT," + SwanAppTable.type + " INTEGER," + SwanAppTable.is_have_zip + " INTEGER," + SwanAppTable.app_open_url + " TEXT," + SwanAppTable.app_download_url + " TEXT," + SwanAppTable.target_swan_version + " TEXT," + SwanAppTable.app_zip_size + " LONG," + SwanAppTable.pending_aps_errcode + " INTEGER," + SwanAppTable.version_code + " TEXT," + SwanAppTable.app_category + " INTEGER," + SwanAppTable.orientation + " INTEGER," + SwanAppTable.max_age + " LONG," + SwanAppTable.create_time + " LONG," + SwanAppTable.force_fetch_meta_info + " INTEGER," + SwanAppTable.pay_protected + " INTEGER," + SwanAppTable.quick_app_key + " TEXT);";
     }
 
     public Cursor a(@Nullable String[] strArr, @Nullable String str, @Nullable String[] strArr2, @Nullable String str2) {
-        return cCE.getWritableDatabase().query("ai_apps_favorites", strArr, str, strArr2, null, null, str2);
+        return cLa.getWritableDatabase().query("ai_apps_favorites", strArr, str, strArr2, null, null, str2);
     }
 
     public Cursor b(@Nullable String[] strArr, @Nullable String str, @Nullable String[] strArr2, @Nullable String str2) {
-        return cCE.getWritableDatabase().query("ai_apps_aps_data INNER JOIN ai_apps_favorites ON ai_apps_favorites.app_id = ai_apps_aps_data." + SwanAppTable.app_id, strArr, str, strArr2, null, null, str2);
+        return cLa.getWritableDatabase().query("ai_apps_aps_data INNER JOIN ai_apps_favorites ON ai_apps_favorites.app_id = ai_apps_aps_data." + SwanAppTable.app_id, strArr, str, strArr2, null, null, str2);
     }
 
     public long b(@Nullable ContentValues contentValues) {
-        return cCE.getWritableDatabase().insertWithOnConflict("ai_apps_favorites", null, contentValues, 5);
+        return cLa.getWritableDatabase().insertWithOnConflict("ai_apps_favorites", null, contentValues, 5);
     }
 
     public int b(@Nullable String str, @Nullable String[] strArr) {
-        return cCE.getWritableDatabase().delete("ai_apps_favorites", str, strArr);
+        return cLa.getWritableDatabase().delete("ai_apps_favorites", str, strArr);
     }
 
     public int a(@Nullable ContentValues contentValues, @Nullable String str, @Nullable String[] strArr) {
-        return cCE.getWritableDatabase().update("ai_apps_favorites", contentValues, str, strArr);
+        return cLa.getWritableDatabase().update("ai_apps_favorites", contentValues, str, strArr);
     }
 
     public Cursor c(@Nullable String[] strArr, @Nullable String str, @Nullable String[] strArr2, @Nullable String str2) {
-        return cCE.getWritableDatabase().query("ai_apps_history", strArr, str, strArr2, null, null, str2);
+        return cLa.getWritableDatabase().query("ai_apps_history", strArr, str, strArr2, null, null, str2);
     }
 
     public Cursor d(@Nullable String[] strArr, @Nullable String str, @Nullable String[] strArr2, @Nullable String str2) {
-        return cCE.getWritableDatabase().query("ai_apps_aps_data INNER JOIN ai_apps_history ON ai_apps_history.app_id = ai_apps_aps_data." + SwanAppTable.app_id, strArr, str, strArr2, null, null, str2);
+        return cLa.getWritableDatabase().query("ai_apps_aps_data INNER JOIN ai_apps_history ON ai_apps_history.app_id = ai_apps_aps_data." + SwanAppTable.app_id, strArr, str, strArr2, null, null, str2);
     }
 
     public long c(@Nullable ContentValues contentValues) {
-        return cCE.getWritableDatabase().insertWithOnConflict("ai_apps_history", null, contentValues, 5);
+        return cLa.getWritableDatabase().insertWithOnConflict("ai_apps_history", null, contentValues, 5);
     }
 
     public int c(@Nullable String str, @Nullable String[] strArr) {
-        return cCE.getWritableDatabase().delete("ai_apps_history", str, strArr);
+        return cLa.getWritableDatabase().delete("ai_apps_history", str, strArr);
     }
 
     public int b(@Nullable ContentValues contentValues, @Nullable String str, @Nullable String[] strArr) {
-        return cCE.getWritableDatabase().update("ai_apps_history", contentValues, str, strArr);
+        return cLa.getWritableDatabase().update("ai_apps_history", contentValues, str, strArr);
     }
 
-    public SQLiteDatabase aoh() {
-        return cCE.getWritableDatabase();
+    public SQLiteDatabase aqc() {
+        return cLa.getWritableDatabase();
     }
 
     public void release() {
-        cCD = null;
-        cCE = null;
-        cCF = null;
+        cKZ = null;
+        cLa = null;
+        cLb = null;
     }
 }
